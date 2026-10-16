@@ -8,7 +8,7 @@
   "modelCurrent": false,
   "modelSnapshotDate": "2026-10-16",
   "workbookBaselineDate": "2026-09-20",
-  "exportedAt": "2026-10-16T17:33:29.603085+00:00",
+  "exportedAt": "2026-10-16T19:39:24.795256+00:00",
   "workbookSourceHash": "0002fd9f06596af8d0a00fc1b53a618ef15479f941ad5c1e6265b27002a65154",
   "sourceInputs": {
     "workbookRecordedTeamGP": 1,
@@ -18,7 +18,7 @@
     "htoTeamGoals": 5,
     "htoTeamAssists": 8
   },
-  "htoreadback": "2026-10-16T17:31:01.616Z",
+  "htoreadback": "2026-10-16T19:31:00.637Z",
   "modelParity": {
     "replayedRows": 21,
     "mismatches": 0
@@ -67,6 +67,12 @@
       "currentGP": 3,
       "currentG": 3,
       "currentA": 0,
+      "trendInputs": {
+        "firstSeasonOrNoCareer": false,
+        "careerScoringRate": 1.1377777777777778,
+        "projectedScoringRate": 1.1205555555555555,
+        "seasonScoringRate": 1.0
+      },
       "rank": 1
     },
     {
@@ -83,6 +89,12 @@
       "currentGP": 3,
       "currentG": 0,
       "currentA": 3,
+      "trendInputs": {
+        "firstSeasonOrNoCareer": false,
+        "careerScoringRate": 1.2,
+        "projectedScoringRate": 1.1749999999999998,
+        "seasonScoringRate": 1.0
+      },
       "rank": 2
     },
     {
@@ -99,6 +111,12 @@
       "currentGP": 2,
       "currentG": 0,
       "currentA": 0,
+      "trendInputs": {
+        "firstSeasonOrNoCareer": false,
+        "careerScoringRate": 1.3707865168539326,
+        "projectedScoringRate": 1.199438202247191,
+        "seasonScoringRate": 0.0
+      },
       "rank": 3
     },
     {
@@ -115,6 +133,12 @@
       "currentGP": 3,
       "currentG": 1,
       "currentA": 1,
+      "trendInputs": {
+        "firstSeasonOrNoCareer": true,
+        "careerScoringRate": 0.8123873873873872,
+        "projectedScoringRate": 0.7941722972972973,
+        "seasonScoringRate": 0.6666666666666666
+      },
       "rank": 4
     },
     {
@@ -131,6 +155,12 @@
       "currentGP": 2,
       "currentG": 0,
       "currentA": 0,
+      "trendInputs": {
+        "firstSeasonOrNoCareer": false,
+        "careerScoringRate": 0.7412429378531074,
+        "projectedScoringRate": 0.6485875706214689,
+        "seasonScoringRate": 0.0
+      },
       "rank": 5
     },
     {
@@ -147,6 +177,12 @@
       "currentGP": 2,
       "currentG": 0,
       "currentA": 0,
+      "trendInputs": {
+        "firstSeasonOrNoCareer": true,
+        "careerScoringRate": 0.8123873873873872,
+        "projectedScoringRate": 0.7108389639639638,
+        "seasonScoringRate": 0.0
+      },
       "rank": 5
     },
     {
@@ -163,6 +199,12 @@
       "currentGP": 2,
       "currentG": 0,
       "currentA": 0,
+      "trendInputs": {
+        "firstSeasonOrNoCareer": true,
+        "careerScoringRate": 0.8123873873873872,
+        "projectedScoringRate": 0.7108389639639638,
+        "seasonScoringRate": 0.0
+      },
       "rank": 5
     },
     {
@@ -179,6 +221,12 @@
       "currentGP": 3,
       "currentG": 0,
       "currentA": 2,
+      "trendInputs": {
+        "firstSeasonOrNoCareer": false,
+        "careerScoringRate": 0.44132917964693663,
+        "projectedScoringRate": 0.4694963655244028,
+        "seasonScoringRate": 0.6666666666666666
+      },
       "rank": 5
     },
     {
@@ -203,7 +251,13 @@
       "trendSource": "FIRST_SEASON_NO_HISTORY_RETURNS_ZERO",
       "priorGPerGame": 0.37398648648648647,
       "priorAPerGame": 0.43840090090090084,
-      "attendanceSource": "DI_SEASON_ATTENDANCE_EXACT_WORKBOOK_RULE"
+      "attendanceSource": "DI_SEASON_ATTENDANCE_EXACT_WORKBOOK_RULE",
+      "trendInputs": {
+        "firstSeasonOrNoCareer": true,
+        "careerScoringRate": 0.8123873873873872,
+        "projectedScoringRate": 0.8358389639639638,
+        "seasonScoringRate": 1.0
+      }
     },
     {
       "name": "Rajkumar, Sanjay",
@@ -219,6 +273,12 @@
       "currentGP": 3,
       "currentG": 0,
       "currentA": 0,
+      "trendInputs": {
+        "firstSeasonOrNoCareer": true,
+        "careerScoringRate": 0.41324736225087927,
+        "projectedScoringRate": 0.36159144196951937,
+        "seasonScoringRate": 0.0
+      },
       "rank": 9
     },
     {
@@ -235,6 +295,12 @@
       "currentGP": 3,
       "currentG": 0,
       "currentA": 0,
+      "trendInputs": {
+        "firstSeasonOrNoCareer": true,
+        "careerScoringRate": 0.41324736225087927,
+        "projectedScoringRate": 0.36159144196951937,
+        "seasonScoringRate": 0.0
+      },
       "rank": 9
     },
     {
@@ -251,6 +317,12 @@
       "currentGP": 3,
       "currentG": 0,
       "currentA": 0,
+      "trendInputs": {
+        "firstSeasonOrNoCareer": false,
+        "careerScoringRate": 0.43043043043043044,
+        "projectedScoringRate": 0.37662662662662666,
+        "seasonScoringRate": 0.0
+      },
       "rank": 9
     },
     {
@@ -267,6 +339,12 @@
       "currentGP": 3,
       "currentG": 0,
       "currentA": 0,
+      "trendInputs": {
+        "firstSeasonOrNoCareer": false,
+        "careerScoringRate": 0.4177040110650069,
+        "projectedScoringRate": 0.36549100968188103,
+        "seasonScoringRate": 0.0
+      },
       "rank": 13
     },
     {
@@ -283,6 +361,12 @@
       "currentGP": 2,
       "currentG": 1,
       "currentA": 1,
+      "trendInputs": {
+        "firstSeasonOrNoCareer": false,
+        "careerScoringRate": 0.4318181818181818,
+        "projectedScoringRate": 0.5028409090909092,
+        "seasonScoringRate": 1.0
+      },
       "rank": 14
     },
     {
@@ -299,6 +383,12 @@
       "currentGP": 1,
       "currentG": 0,
       "currentA": 0,
+      "trendInputs": {
+        "firstSeasonOrNoCareer": true,
+        "careerScoringRate": 0.8123873873873872,
+        "projectedScoringRate": 0.7108389639639638,
+        "seasonScoringRate": 0.0
+      },
       "rank": 14
     },
     {
@@ -315,6 +405,12 @@
       "currentGP": 1,
       "currentG": 0,
       "currentA": 0,
+      "trendInputs": {
+        "firstSeasonOrNoCareer": false,
+        "careerScoringRate": 0.6066066066066067,
+        "projectedScoringRate": 0.5307807807807808,
+        "seasonScoringRate": 0.0
+      },
       "rank": 16
     },
     {
@@ -331,6 +427,12 @@
       "currentGP": 1,
       "currentG": 0,
       "currentA": 0,
+      "trendInputs": {
+        "firstSeasonOrNoCareer": false,
+        "careerScoringRate": 0.31851851851851853,
+        "projectedScoringRate": 0.27870370370370373,
+        "seasonScoringRate": 0.0
+      },
       "rank": 16
     },
     {
@@ -347,6 +449,12 @@
       "currentGP": 0,
       "currentG": 0,
       "currentA": 0,
+      "trendInputs": {
+        "firstSeasonOrNoCareer": false,
+        "careerScoringRate": 0.5767195767195767,
+        "projectedScoringRate": 0.5046296296296297,
+        "seasonScoringRate": 0
+      },
       "rank": 18
     },
     {
@@ -363,6 +471,12 @@
       "currentGP": 1,
       "currentG": 0,
       "currentA": 0,
+      "trendInputs": {
+        "firstSeasonOrNoCareer": false,
+        "careerScoringRate": 0.6788617886178863,
+        "projectedScoringRate": 0.5940040650406504,
+        "seasonScoringRate": 0.0
+      },
       "rank": 18
     },
     {
@@ -379,6 +493,12 @@
       "currentGP": 1,
       "currentG": 0,
       "currentA": 0,
+      "trendInputs": {
+        "firstSeasonOrNoCareer": false,
+        "careerScoringRate": 0.22422062350119903,
+        "projectedScoringRate": 0.19619304556354916,
+        "seasonScoringRate": 0.0
+      },
       "rank": 18
     },
     {
@@ -395,6 +515,12 @@
       "currentGP": 1,
       "currentG": 0,
       "currentA": 0,
+      "trendInputs": {
+        "firstSeasonOrNoCareer": false,
+        "careerScoringRate": 0.42592592592592593,
+        "projectedScoringRate": 0.37268518518518523,
+        "seasonScoringRate": 0.0
+      },
       "rank": 21
     },
     {
@@ -411,6 +537,12 @@
       "currentGP": 2,
       "currentG": 0,
       "currentA": 0,
+      "trendInputs": {
+        "firstSeasonOrNoCareer": false,
+        "careerScoringRate": 0.14285714285714285,
+        "projectedScoringRate": 0.125,
+        "seasonScoringRate": 0.0
+      },
       "rank": 22
     }
   ],
@@ -419,7 +551,15 @@
     "goals": 77,
     "assists": 115,
     "points": 192,
-    "ptsPerGame": 0.574
+    "ptsPerGame": 0.574,
+    "trend": -0.063337
+  },
+  "trendCalculation": {
+    "sourceCell": "Player Projections!X94",
+    "numerator": -0.684766569,
+    "denominator": 10.811465885,
+    "method": "SUM(history projected scoring rates - history career rates) / (SUM(history career rates)+SUM(no-history season rates))",
+    "sourceCachedValueStatus": "Historical workbook X94 cached 0; recalculated directly from source formula"
   },
   "modelNotes": "Faithful FT/CU/DI attendance formulas; DI uses season GP / team GP and contributes to CU availability. Players without historical records use validated LinesHelpers positional scoring averages, blended with HTO current results proportionally to team games played, exactly as workbook H/I and P/Q logic specifies. Totals include current HTO drop-in Damian. Any unmatched historical roster data remains disclosed."
 }
