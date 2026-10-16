@@ -98,6 +98,49 @@ td.player,th.player{min-width:0;max-width:none}
 .art{padding-top:0}
 @media(max-width:480px){.source-banner{width:calc(100% + 6px);margin:0 -3px 0}}
 </style>
+
+<style id="brave-readability-v11">
+/* HTO readability enhancement: labels and numerals only; calculations untouched */
+.heading-short{display:none}
+.embedded .wrap{max-width:none;width:100%}
+.embedded .wrap>.section{display:none} /* HTO supplies the outer Point Projections heading */
+table{table-layout:fixed;width:100%;min-width:0}
+table th{font-size:10px;line-height:1.18;padding:5px 2px;font-weight:800}
+table td{font-size:10.7px;line-height:1.26;padding:4px 2px;font-weight:550}
+table td.player{font-weight:650}
+table td.stat-leader,table td.player.stat-leader{font-weight:900!important}
+table tr.total td{font-size:10.4px;padding:5px 2px;font-weight:900}
+td.trend-arrow span{font-size:17px}
+.note{font-size:10px;line-height:1.35}
+.model-details{font-size:10px;line-height:1.35}
+.warn{font-size:10px;line-height:1.35}
+@media (max-width:480px){
+ .heading-long{display:none}
+ .heading-short{display:inline}
+ table{min-width:0;width:100%;table-layout:fixed}
+ table th{font-size:8.7px;line-height:1.12;padding:4px 1px}
+ table td{font-size:9.1px;line-height:1.2;padding:4px 1px}
+ table td.player{font-size:9.1px;font-weight:650}
+ table tr.total td{font-size:9.1px;padding:5px 1px}
+ td.trend-arrow span{font-size:15px}
+ .note,.model-details{font-size:9px}
+ .warn{font-size:9px}
+}
+</style>
+
+<style id="brave-embed-fit-v11">
+/* Keep the existing 700px HTO iframe useful while preserving larger type. */
+.embedded .frame{padding-bottom:4px}
+.embedded .art{padding-bottom:4px}
+.embedded .note{display:none} /* Trend definition remains in HTO beneath the iframe and in the collapsed source details */
+.embedded .model-details{margin:2px 1px 0}
+.embedded table td{padding-top:2.5px;padding-bottom:2.5px}
+.embedded table tr.total td{padding-top:4px;padding-bottom:4px}
+@media(max-width:480px){
+  .embedded table th{padding-left:1px;padding-right:1px}
+  .embedded .note{font-size:8.8px}
+}
+</style>
 </head>
 <body><div class="wrap">
 <header class="section">Point Projections</header>
@@ -107,8 +150,8 @@ td.player,th.player{min-width:0;max-width:none}
 <div class="dates" id="date">Workbook model source pending</div>
 <div id="warning" class="warn" role="status">Checking Master Workbook projection freshness…</div>
 <div class="ribbon">Projected Season Stats</div>
-<div class="tablewrap"><table><colgroup><col style="width:5%"><col style="width:5%"><col style="width:29%"><col style="width:9%"><col style="width:8%"><col style="width:8%"><col style="width:10%"><col style="width:13%"><col style="width:13%"></colgroup>
-<thead><tr><th>Rank</th><th>No</th><th class="player">Player</th><th>Proj. GP</th><th>Proj. G</th><th>Proj. A</th><th>Proj. Pts</th><th>Proj. Pts/G</th><th class="trend">Trend</th></tr></thead>
+<div class="tablewrap"><table><colgroup><col style="width:4.5%"><col style="width:4.5%"><col style="width:34%"><col style="width:8.5%"><col style="width:7%"><col style="width:7%"><col style="width:9.5%"><col style="width:13%"><col style="width:12%"></colgroup>
+<thead><tr><th scope="col" title="Rank"><span class="heading-long">Rank</span><span class="heading-short">RK</span></th><th scope="col" title="Jersey number"><span class="heading-long">No</span><span class="heading-short">#</span></th><th scope="col" class="player">Player</th><th scope="col" title="Projected games played"><span class="heading-long">Proj. GP</span><span class="heading-short">GP</span></th><th scope="col" title="Projected goals"><span class="heading-long">Proj. G</span><span class="heading-short">G</span></th><th scope="col" title="Projected assists"><span class="heading-long">Proj. A</span><span class="heading-short">A</span></th><th scope="col" title="Projected points"><span class="heading-long">Proj. Pts</span><span class="heading-short">PTS</span></th><th scope="col" title="Projected points per game"><span class="heading-long">Proj. Pts/G</span><span class="heading-short">P/G</span></th><th scope="col" class="trend">Trend</th></tr></thead>
 <tbody id="body"><tr><td colspan="9" id="load">Loading workbook projections…</td></tr></tbody>
 </table></div>
 
