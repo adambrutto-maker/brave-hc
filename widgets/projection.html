@@ -28,14 +28,14 @@ td{border:1px solid #344e68;padding:5px 3px;background:#10253d;color:#f1f8ff;tex
 tbody tr:nth-child(even) td{background:#192f47}
 td.player,th.player{text-align:left;max-width:160px;overflow:hidden;text-overflow:ellipsis}
 td.player{color:#d9e5f1}
-td.rank{width:24px}td.pts{background:#942b35!important;color:#fff}td.medium{background:#315c7f!important}td.low{background:#25486b!important}td.hot{background:#be4653!important}
+td.trend-up{color:#b5eed0}td.trend-down{color:#ffc3c3}th.trend,td.trend{min-width:40px}td.rank{width:24px}td.pts{background:#942b35!important;color:#fff}td.medium{background:#315c7f!important}td.low{background:#25486b!important}td.hot{background:#be4653!important}
 tr.total td{background:#07131e!important;border-top:2px solid #d11623;color:#fff;font-size:10px}
 tr.total td.player{text-align:left}
 .tablewrap{width:100%;overflow-x:auto;scrollbar-color:#7d9ab4 #08111e}
-.footerbar{margin-top:9px;position:relative;display:flex;align-items:center;justify-content:space-between;gap:6px;border-top:3px solid #b40c1c;border-bottom:2px solid #b40c1c;padding:6px 4px;color:#b9d6ef;font-size:8px;font-weight:900;letter-spacing:1px}
+
 .note{font-size:10px;line-height:1.4;margin:4px 0 0;color:#fff;font-style:italic}
 .note strong{color:#fff}
-a{color:#d5eeff}.meta{font-size:10px;line-height:1.5;color:#c0d2e2;padding:8px 11px 15px}
+a{color:#d5eeff}
 #load{padding:23px 15px;text-align:center}body.embedded{background:transparent}.embedded .wrap{max-width:100%;border:0}
 @media(max-width:480px){.frame{padding:8px 4px}.art{padding:22px 4px 7px}.tablewrap{margin:0}.titleblock h1{font-size:17px}table{font-size:9px}td,th{padding:5px 2px}td.player,th.player{max-width:112px;min-width:88px}.section{font-size:12px}}
 </style>
@@ -49,14 +49,14 @@ a{color:#d5eeff}.meta{font-size:10px;line-height:1.5;color:#c0d2e2;padding:8px 1
 <div class="dates" id="date">Workbook model source pending</div>
 <div id="warning" class="warn" role="status">Checking Master Workbook projection freshness…</div>
 <div class="tablewrap"><table>
-<thead><tr><th>Rank</th><th>No</th><th class="player">Player</th><th>Proj. GP</th><th>Proj. G</th><th>Proj. A</th><th>Proj. Pts</th><th>Proj. Pts/G</th></tr></thead>
-<tbody id="body"><tr><td colspan="8" id="load">Loading workbook projections…</td></tr></tbody>
+<thead><tr><th>Rank</th><th>No</th><th class="player">Player</th><th>Proj. GP</th><th>Proj. G</th><th>Proj. A</th><th>Proj. Pts</th><th>Proj. Pts/G</th><th class="trend">Trend</th></tr></thead>
+<tbody id="body"><tr><td colspan="9" id="load">Loading workbook projections…</td></tr></tbody>
 </table></div>
-<div class="footerbar"><span>CHARACTER · COMPETE · BELONG</span><span>BRAVE H.C.</span><span>SKILL · FAMILY · PURPOSE</span></div>
+
 </div>
-<p class="note">Source: Brave H.C. Master Workbook · <strong>BravesRegularSeasonProjection</strong> formulas, with current-season results supplied by HTO. FT, CU and DI follow separate attendance rules. No-history players use positional team averages. Highlighted bold figures lead their statistical column. Asterisk means reconciliation is still in progress.</p>
+<p class="note">Source: Brave H.C. Master Workbook · <strong>BravesRegularSeasonProjection</strong> formulas, with current-season results supplied by HTO. FT, CU and DI follow separate attendance rules. No-history players use positional team averages. Bold figures lead their columns. Trend compares projected scoring rate to career rate; players without history show 0%. Asterisk indicates roster reconciliation is ongoing.</p>
 </section>
-<div class="meta">Powered by HockeyOS · <span id="modelstate">Workbook model readback pending.</span></div>
+
 </div>
 <script>
 (function(){
@@ -68,7 +68,7 @@ function render(d){
  if(d.schema!=="brave-hc-workbook-projection/v1"||!Array.isArray(d.players)||!d.total)throw Error("Incorrect workbook model data schema");
  if(d.players.length<15||!d.players.every(p=>Number.isFinite(p.gp)&&(Number.isFinite(p.pts)||(p.pts===null&&p.rosterStatus==="DI"&&p.modelAvailability==="SCORING_HISTORY_REQUIRED"))))throw Error("Incomplete or unclassified workbook model");
  var body=document.getElementById("body");body.textContent="";
- var keys=["gp","g","a","pts","ptsPerGame"];
+ var keys=["gp","g","a","pts","ptsPerGame","trend"];
  var leaders={};keys.forEach(function(k){leaders[k]=Math.max.apply(null,d.players.map(function(p){return p[k]===null?-Infinity:Number(p[k])}));});
  d.players.forEach(function(p,i){
   var tr=document.createElement("tr");
@@ -78,20 +78,22 @@ function render(d){
    cell(p.name,"player"),cell(Math.round(p.gp)),
    cell(p.g==null?"—":p.g),cell(p.a==null?"—":p.a),
    cell(p.pts==null?"—":p.pts,ptsClass),
-   cell(p.ptsPerGame==null?"—":Number(p.ptsPerGame).toFixed(2))];
-  keys.forEach(function(k,j){if(p[k]!==null&&Number(p[k])===leaders[k])columns[j+3].classList.add("stat-leader")});
+   cell(p.ptsPerGame==null?"—":Number(p.ptsPerGame).toFixed(2)),
+   cell(p.trend==null?"—":(Number(p.trend)>0?"+":"")+(Number(p.trend)*100).toFixed(1)+"%","trend")];
+  if(p.trend>0)columns[8].classList.add("trend-up"); else if(p.trend<0)columns[8].classList.add("trend-down");
+  keys.forEach(function(k,j){if(p[k]!=null&&Number(p[k])===leaders[k])columns[j+3].classList.add("stat-leader")});
   if(p.pts!==null&&p.pts===leaders.pts)columns[2].classList.add("stat-leader");
   tr.append.apply(tr,columns);body.append(tr);
  });
  var t=document.createElement("tr");t.className="total";
- t.append(cell(""),cell(""),cell("BRAVE H.C. TOTAL*","player"),cell(d.total.games),cell(d.total.goals),cell(d.total.assists),cell(d.total.points),cell(Number(d.total.ptsPerGame).toFixed(2)));
+ t.append(cell(""),cell(""),cell("BRAVE H.C. TOTAL*","player"),cell(d.total.games),cell(d.total.goals),cell(d.total.assists),cell(d.total.points),cell(Number(d.total.ptsPerGame).toFixed(2)),cell("—","trend"));
  body.append(t);
  document.getElementById("date").textContent=(d.modelDriver==="HTO_PUBLISHED_TEAM_STATISTICS"?"HTO results · ":"Workbook model results · ")+d.modelSnapshotDate+" · Winter 2026/27";
  var warn=document.getElementById("warning");
  var ageDays=Math.floor((Date.now()-Date.parse(d.modelSnapshotDate+"T00:00:00Z"))/86400000);var current=d.modelCurrent&&ageDays<=7;
  if(d.modelDriver==="HTO_PUBLISHED_TEAM_STATISTICS" && d.unmodelledHTOPlayers?.length){warn.textContent="HTO-FED WORKBOOK MODEL — "+d.unmodelledHTOPlayers.map(function(p){var player=d.players.find(function(x){return x.name===p.name});return p.name+" is "+p.classification+" (drop-in): "+p.currentGP+" actual GP; "+p.projectedGP+" projected GP; "+player.g+" projected G, "+player.a+" projected A using the workbook forward positional average and proportional season weighting."}).join(" ")+" Workbook roster discrepancies remain under review.";warn.className="warn";} else if(!current){warn.textContent="MODEL INPUTS OUTDATED — The saved workbook recorded "+d.sourceInputs.workbookRecordedTeamGP+" game(s), while the published league table records "+d.sourceInputs.publicLeagueRecordedTeamGP+". Historical model results are NOT current forecasts.";warn.className="warn";}
  else{warn.textContent="WORKBOOK MODEL VALIDATED — Projected values last recalculated "+d.modelSnapshotDate+". These are estimates, not guaranteed outcomes.";warn.className="warn ok";}
- document.getElementById("modelstate").textContent=d.modelDriver==="HTO_PUBLISHED_TEAM_STATISTICS"?"HTO-fed workbook calculations; no-history scoring uses verified positional team averages.":current?"Workbook-calculated output; verified against recorded team games.":"Workbook-calculated historical snapshot — publication held until current data is reconciled.";
+
 }
 async function refresh(){
  try{var r=await fetch("./projection.json",{cache:"no-store"});if(!r.ok)throw Error("HTTP "+r.status);render(await r.json());}
