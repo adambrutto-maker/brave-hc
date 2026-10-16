@@ -1,0 +1,101 @@
+{
+  "schema": "brave-hc-svhl-standings/v1",
+  "season": "W2026/27",
+  "division": "Cristillo",
+  "source": "https://leagues.sportsvillage.ca/Leagues.aspx?leagueid=570&page_type=Adult&sc=HOCKEY",
+  "capturedAt": "2026-10-16T16:32:50.264341+00:00",
+  "team": "Braves HC",
+  "teams": [
+    {
+      "name": "Sugo Sundays",
+      "gp": 3,
+      "w": 3,
+      "l": 0,
+      "t": 0,
+      "pts": 6,
+      "gf": 10,
+      "ga": 6,
+      "winPct": 1.0
+    },
+    {
+      "name": "Mohawks HC",
+      "gp": 3,
+      "w": 2,
+      "l": 1,
+      "t": 0,
+      "pts": 4,
+      "gf": 13,
+      "ga": 8,
+      "winPct": 0.667
+    },
+    {
+      "name": "Mid Ice Crisis",
+      "gp": 3,
+      "w": 2,
+      "l": 1,
+      "t": 0,
+      "pts": 4,
+      "gf": 13,
+      "ga": 8,
+      "winPct": 0.667
+    },
+    {
+      "name": "Big Bastones",
+      "gp": 3,
+      "w": 2,
+      "l": 1,
+      "t": 0,
+      "pts": 4,
+      "gf": 5,
+      "ga": 4,
+      "winPct": 0.667
+    },
+    {
+      "name": "Other Way",
+      "gp": 3,
+      "w": 1,
+      "l": 1,
+      "t": 1,
+      "pts": 3,
+      "gf": 10,
+      "ga": 11,
+      "winPct": 0.5
+    },
+    {
+      "name": "Dateline Predators",
+      "gp": 3,
+      "w": 1,
+      "l": 2,
+      "t": 0,
+      "pts": 2,
+      "gf": 5,
+      "ga": 7,
+      "winPct": 0.333
+    },
+    {
+      "name": "Zamboner Crew",
+      "gp": 2,
+      "w": 0,
+      "l": 1,
+      "t": 1,
+      "pts": 1,
+      "gf": 8,
+      "ga": 12,
+      "winPct": 0.25
+    },
+    {
+      "name": "Braves HC",
+      "gp": 3,
+      "w": 0,
+      "l": 3,
+      "t": 0,
+      "pts": 0,
+      "gf": 5,
+      "ga": 12,
+      "winPct": 0.0
+    }
+  ],
+  "braveGP": 3,
+  "sourceType": "SVHL_PUBLIC_LEAGUE_READBACK",
+  "sourceNote": "Official current league division table; independent of team-maintained HTO player scoring. Potential renamed teams are shown as SVHL currently reports them."
+}
