@@ -8,7 +8,7 @@
   "modelCurrent": false,
   "modelSnapshotDate": "2026-10-16",
   "workbookBaselineDate": "2026-09-20",
-  "exportedAt": "2026-10-16T17:02:05.940701+00:00",
+  "exportedAt": "2026-10-16T17:19:48.411803+00:00",
   "workbookSourceHash": "0002fd9f06596af8d0a00fc1b53a618ef15479f941ad5c1e6265b27002a65154",
   "sourceInputs": {
     "workbookRecordedTeamGP": 1,
@@ -18,7 +18,7 @@
     "htoTeamGoals": 5,
     "htoTeamAssists": 8
   },
-  "htoreadback": "2026-10-16T16:57:20.799Z",
+  "htoreadback": "2026-10-16T17:08:03.924Z",
   "modelParity": {
     "replayedRows": 21,
     "mismatches": 0
@@ -32,7 +32,7 @@
       "currentA": 1,
       "currentPts": 1,
       "projectedGP": 8.0,
-      "reason": "Workbook H/I scoring inputs not established"
+      "reason": "No historical player row; used verified positional average fallback from LinesHelpers"
     }
   ],
   "workbookPlayersAbsentFromHTO": [
@@ -174,6 +174,28 @@
       "rank": 5
     },
     {
+      "rank": 9,
+      "name": "Pavaday, Damian",
+      "number": "0",
+      "rosterStatus": "DI",
+      "gp": 8.0,
+      "g": 2,
+      "a": 5,
+      "pts": 7,
+      "ptsPerGame": 0.875,
+      "workbookRow": null,
+      "currentGP": 1,
+      "currentG": 0,
+      "currentA": 1,
+      "currentPts": 1,
+      "modelAvailability": "VERIFIED_POSITIONAL_AVERAGE_FALLBACK",
+      "position": "F",
+      "positionPrior": "FORWARD_POSITIONAL_AVERAGE",
+      "priorGPerGame": 0.37398648648648647,
+      "priorAPerGame": 0.43840090090090084,
+      "attendanceSource": "DI_SEASON_ATTENDANCE_EXACT_WORKBOOK_RULE"
+    },
+    {
       "name": "Rajkumar, Sanjay",
       "number": "49",
       "rosterStatus": "FT",
@@ -231,7 +253,7 @@
       "currentGP": 3,
       "currentG": 0,
       "currentA": 0,
-      "rank": 12
+      "rank": 13
     },
     {
       "name": "Kober, Adam",
@@ -246,7 +268,7 @@
       "currentGP": 2,
       "currentG": 1,
       "currentA": 1,
-      "rank": 13
+      "rank": 14
     },
     {
       "name": "Unknown, Johnny",
@@ -261,7 +283,7 @@
       "currentGP": 1,
       "currentG": 0,
       "currentA": 0,
-      "rank": 13
+      "rank": 14
     },
     {
       "name": "Ardizzi, Stefano",
@@ -276,7 +298,7 @@
       "currentGP": 1,
       "currentG": 0,
       "currentA": 0,
-      "rank": 15
+      "rank": 16
     },
     {
       "name": "Paolucci, Anthony",
@@ -291,7 +313,7 @@
       "currentGP": 1,
       "currentG": 0,
       "currentA": 0,
-      "rank": 15
+      "rank": 16
     },
     {
       "name": "Mazzei, Stefano",
@@ -306,7 +328,7 @@
       "currentGP": 0,
       "currentG": 0,
       "currentA": 0,
-      "rank": 17
+      "rank": 18
     },
     {
       "name": "Duffy, Lorcan",
@@ -321,7 +343,7 @@
       "currentGP": 1,
       "currentG": 0,
       "currentA": 0,
-      "rank": 17
+      "rank": 18
     },
     {
       "name": "Congiusti, Marco",
@@ -336,7 +358,7 @@
       "currentGP": 1,
       "currentG": 0,
       "currentA": 0,
-      "rank": 17
+      "rank": 18
     },
     {
       "name": "Rajasooriar, Krishnan",
@@ -351,7 +373,7 @@
       "currentGP": 1,
       "currentG": 0,
       "currentA": 0,
-      "rank": 20
+      "rank": 21
     },
     {
       "name": "Atkins, Nolan",
@@ -366,33 +388,15 @@
       "currentGP": 2,
       "currentG": 0,
       "currentA": 0,
-      "rank": 21
-    },
-    {
-      "rank": null,
-      "name": "Pavaday, Damian",
-      "number": "0",
-      "rosterStatus": "DI",
-      "gp": 8.0,
-      "g": null,
-      "a": null,
-      "pts": null,
-      "ptsPerGame": null,
-      "workbookRow": null,
-      "currentGP": 1,
-      "currentG": 0,
-      "currentA": 1,
-      "currentPts": 1,
-      "modelAvailability": "SCORING_HISTORY_REQUIRED",
-      "attendanceSource": "DI_SEASON_ATTENDANCE_EXACT_WORKBOOK_RULE"
+      "rank": 22
     }
   ],
   "total": {
     "games": 24,
-    "goals": 75,
-    "assists": 110,
-    "points": 185,
-    "ptsPerGame": 0.566
+    "goals": 77,
+    "assists": 115,
+    "points": 192,
+    "ptsPerGame": 0.574
   },
-  "modelNotes": "Exact FT/CU/DI attendance formulas: DI uses season GP divided by team GP; its GP contribution reduces CU opportunity. HTO is source for current GP/G/A. Damian is explicitly DI, with projected GP from workbook attendance; his scoring forecast is withheld until workbook career G/Gm and A/Gm inputs exist. Model totals include only players with verified scoring rates."
+  "modelNotes": "Faithful FT/CU/DI attendance formulas; DI uses season GP / team GP and contributes to CU availability. Players without historical records use validated LinesHelpers positional scoring averages, blended with HTO current results proportionally to team games played, exactly as workbook H/I and P/Q logic specifies. Totals include current HTO drop-in Damian. Any unmatched historical roster data remains disclosed."
 }
