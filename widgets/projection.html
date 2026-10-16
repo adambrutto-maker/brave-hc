@@ -93,14 +93,17 @@ table{min-width:0;font-size:8px}
 td.player,th.player{min-width:0;max-width:none}
 .warn{font-size:8px}
 }
+.source-banner{display:block;width:calc(100% + 14px);margin:0 -7px 0;aspect-ratio:600 / 86;background:url("./original_HTO_projection.png") no-repeat center top;background-size:100% auto}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.art{padding-top:0}
+@media(max-width:480px){.source-banner{width:calc(100% + 6px);margin:0 -3px 0}}
 </style>
 </head>
 <body><div class="wrap">
 <header class="section">Point Projections</header>
 <section class="frame" aria-label="Brave HC regular season workbook projection">
 <div class="art">
-<div class="crestrail"><img alt="Brave H.C. crest" src="./brave_hc_logo.png"></div>
-<div class="titleblock"><h1>Brave H.C. Regular Season Projection W2026/27</h1></div>
+<div class="source-banner" role="img" aria-label="Brave H.C. original season projection header graphic"><h1 class="sr-only">Brave H.C. Regular Season Projection W2026/27</h1></div>
 <div class="dates" id="date">Workbook model source pending</div>
 <div id="warning" class="warn" role="status">Checking Master Workbook projection freshness…</div>
 <div class="ribbon">Projected Season Stats</div>
