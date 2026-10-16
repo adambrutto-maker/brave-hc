@@ -8,7 +8,7 @@
   "modelCurrent": false,
   "modelSnapshotDate": "2026-10-16",
   "workbookBaselineDate": "2026-09-20",
-  "exportedAt": "2026-10-16T19:39:24.795256+00:00",
+  "exportedAt": "2026-10-16T20:02:39.008530+00:00",
   "workbookSourceHash": "0002fd9f06596af8d0a00fc1b53a618ef15479f941ad5c1e6265b27002a65154",
   "sourceInputs": {
     "workbookRecordedTeamGP": 1,
@@ -18,7 +18,7 @@
     "htoTeamGoals": 5,
     "htoTeamAssists": 8
   },
-  "htoreadback": "2026-10-16T19:31:00.637Z",
+  "htoreadback": "2026-10-16T20:02:20.241Z",
   "modelParity": {
     "replayedRows": 21,
     "mismatches": 0
@@ -553,6 +553,100 @@
     "points": 192,
     "ptsPerGame": 0.574,
     "trend": -0.063337
+  },
+  "conditionalFormatting": {
+    "schema": "brave-hc-workbook-cf/v1",
+    "source": "Master Workbook Player Projections sheet6.xml conditionalFormatting and x14 custom 5Arrows",
+    "samples": 22,
+    "sampleStandardDeviation": 0.08167450708065317,
+    "arrowIconSet": {
+      "type": "5Arrows",
+      "showValue": false,
+      "sourceRange": "X6:X94",
+      "thresholds": {
+        "AB100": -0.16334901416130634,
+        "AB99": -0.08167450708065317,
+        "AB97": 0.040837253540326586,
+        "AB96": 0.08167450708065317
+      },
+      "thresholdSources": {
+        "AB100": "-2 * STDEV(X6:X93)",
+        "AB99": "-1 * STDEV(X6:X93)",
+        "AB97": "0.5 * STDEV(X6:X93)",
+        "AB96": "1 * STDEV(X6:X93)"
+      },
+      "icons": [
+        {
+          "symbol": "↓",
+          "label": "Strong decline",
+          "color": "#ed6363"
+        },
+        {
+          "symbol": "↘",
+          "label": "Moderate decline",
+          "color": "#f1bb72"
+        },
+        {
+          "symbol": "→",
+          "label": "Near average",
+          "color": "#d4dce6"
+        },
+        {
+          "symbol": "↗",
+          "label": "Moderate improvement",
+          "color": "#b2d6b7"
+        },
+        {
+          "symbol": "↑",
+          "label": "Strong improvement",
+          "color": "#6de49c"
+        }
+      ]
+    },
+    "trendColorScale": {
+      "sourceRange": "X6:X94",
+      "low": -0.16334901416130634,
+      "mid": 0.0,
+      "high": 0.08167450708065317
+    },
+    "statColorScales": {
+      "gp": {
+        "sourceRange": "Y6:Y93",
+        "low": 4.91,
+        "mid": 18.44,
+        "high": 22.84
+      },
+      "g": {
+        "sourceRange": "Z6:Z93",
+        "low": 0.0,
+        "mid": 2.0,
+        "high": 13.0
+      },
+      "a": {
+        "sourceRange": "AA6:AA93",
+        "low": 1.0,
+        "mid": 5.0,
+        "high": 14.0
+      },
+      "pts": {
+        "sourceRange": "AB6:AB93",
+        "low": 1.0,
+        "mid": 7.0,
+        "high": 24.0
+      },
+      "ptsPerGame": {
+        "sourceRange": "AC6:AC93",
+        "low": 0.115,
+        "mid": 0.5385,
+        "high": 1.148
+      }
+    },
+    "palette": {
+      "low": "#113A5E",
+      "mid": "#FCFCFF",
+      "high": "#D42C2C"
+    },
+    "statistic": "Excel percentile 50 uses median, with 3-color continuous linear interpolation"
   },
   "trendCalculation": {
     "sourceCell": "Player Projections!X94",

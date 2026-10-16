@@ -73,7 +73,7 @@ td.heat-red{background:#ae4d56!important}
 td.heat-pink{background:#ad6674!important}
 td.heat-blue{background:#315579!important}
 td.heat-cold{background:#16354e!important}
-td.trend-up{color:#b9ead1!important}td.trend-down{color:#f1c4c4!important}
+td.trend-arrow{padding:0!important;text-align:center;vertical-align:middle}td.trend-arrow span{font-size:15px;line-height:1;display:inline-block;vertical-align:middle;font-family:"Segoe UI Symbol","Arial Unicode MS",Arial,sans-serif;font-weight:900}
 tr.total td{background:linear-gradient(#5e1823,#320c17)!important;color:#fff;font-size:9px;font-weight:900;border-top:2px solid #c4d1e0}
 tr.total td.player{text-align:left;font-style:italic}
 .note{font-size:9px;line-height:1.25;margin:6px 1px 0;color:#e3dce0}
@@ -113,7 +113,7 @@ td.player,th.player{min-width:0;max-width:none}
 </table></div>
 
 </div>
-<p class="note">Trend compares projected scoring rates with career rates. Rookie / no-history players show 0%.</p>
+<p class="note">Trend uses the workbook’s standard-deviation arrows; a right arrow marks the neutral range.</p>
 <details class="model-details"><summary>Source and calculation details</summary>
 <p>HTO player results + Brave H.C. Master Workbook projection formulas. FT, CU and DI use separate attendance rules; no-history players use workbook positional averages. Team Trend uses the separate workbook X94 formula, not an average of individual trends. * Provisional totals pending roster reconciliation.</p>
 </details>
@@ -131,22 +131,60 @@ function render(d){
  if(d.players.length<15||!d.players.every(p=>Number.isFinite(p.gp)&&(Number.isFinite(p.pts)||(p.pts===null&&p.rosterStatus==="DI"&&p.modelAvailability==="SCORING_HISTORY_REQUIRED"))))throw Error("Incomplete or unclassified workbook model");
  var body=document.getElementById("body");body.textContent="";
   var keys=["gp","g","a","pts","ptsPerGame","trend"];
-  function heat(value,max){if(value==null||max<=0)return "";
-    var ratio=Number(value)/max;return ratio>=.87?"heat-red":ratio>=.63?"heat-pink":ratio>=.35?"heat-blue":"heat-cold";}
-  function percent(x){return x==null?"—":(Number(x)>0?"+":"")+(Number(x)*100).toFixed(1)+"%";}
+ var fmt=d.conditionalFormatting;
+ if(!fmt||fmt.schema!=="brave-hc-workbook-cf/v1"||fmt.arrowIconSet?.type!=="5Arrows"||fmt.arrowIconSet.showValue!==false)
+   throw Error("Workbook arrow/colour formatting contract missing");
+ var colors=fmt.palette;
+ function rgb(hex){var t=hex.replace("#","");return [0,2,4].map(function(i){return parseInt(t.slice(i,i+2),16)})}
+ function mix(a,b,t){t=Math.max(0,Math.min(1,t));return a.map(function(v,i){return Math.round(v+(b[i]-v)*t)})}
+ function colorAt(value,spec){
+   var v=Number(value),lo=Number(spec.low),mid=Number(spec.mid),hi=Number(spec.high);
+   if(!Number.isFinite(v)||!Number.isFinite(lo)||!Number.isFinite(mid)||!Number.isFinite(hi))throw Error("Invalid numeric color scale");
+   var a,b,t;
+   if(v<=mid){a=rgb(colors.low);b=rgb(colors.mid);t=mid>lo?(v-lo)/(mid-lo):0}
+   else{a=rgb(colors.mid);b=rgb(colors.high);t=hi>mid?(v-mid)/(hi-mid):1}
+   return mix(a,b,t);
+ }
+ function useColor(td,value,spec,col){
+   if(value==null||!spec)return;
+   var c=colorAt(value,spec);
+   var bg="rgb("+c.join(",")+")";
+   var lum=(0.2126*c[0]+0.7152*c[1]+0.0722*c[2])/255;
+   td.style.setProperty("background-color",bg,"important");
+   td.style.setProperty("color",lum>0.60?"#142333":"#ffffff","important");
+   td.dataset.cfColumn=col;
+ }
+ function arrow(value){
+   var n=Number(value),t=fmt.arrowIconSet.thresholds;
+   var bucket=n<t.AB100?0:n<t.AB99?1:n<t.AB97?2:n<t.AB96?3:4;
+   return fmt.arrowIconSet.icons[bucket];
+ }
+ function useTrend(td,value){
+   if(value==null){td.textContent="—";return}
+   td.textContent="";
+   useColor(td,value,fmt.trendColorScale,"trend");
+   td.classList.add("trend-arrow");
+   var a=arrow(value),symbol=document.createElement("span");
+   symbol.textContent=a.symbol;symbol.title=a.label;
+   symbol.setAttribute("role","img");symbol.setAttribute("aria-label",a.label);
+   symbol.style.color=a.color;
+   symbol.style.textShadow="0 1px 2px #101522";
+   td.appendChild(symbol);
+ }
  var leaders={};keys.forEach(function(k){leaders[k]=Math.max.apply(null,d.players.map(function(p){return p[k]===null?-Infinity:Number(p[k])}));});
  d.players.forEach(function(p,i){
   var tr=document.createElement("tr");
   var ptsClass=p.pts>=18?"hot":p.pts>=8?"pts":p.pts>=4?"medium":"low";
   var columns=[
    cell(p.rank==null?"—":p.rank,"rank"),cell(p.number),
-   cell(p.name,"player"),cell(Math.round(p.gp),heat(p.gp,leaders.gp)),
-   cell(p.g==null?"—":p.g,heat(p.g,leaders.g)),
-   cell(p.a==null?"—":p.a,heat(p.a,leaders.a)),
-   cell(p.pts==null?"—":p.pts,ptsClass),
-   cell(p.ptsPerGame==null?"—":Number(p.ptsPerGame).toFixed(2)),
-   cell(percent(p.trend),"trend")];
-  if(p.trend>0)columns[8].classList.add("trend-up"); else if(p.trend<0)columns[8].classList.add("trend-down");
+   cell(p.name,"player"),cell(Math.round(p.gp)),
+   cell(p.g==null?"—":p.g),cell(p.a==null?"—":p.a),
+   cell(p.pts==null?"—":p.pts),cell(p.ptsPerGame==null?"—":Number(p.ptsPerGame).toFixed(2)),
+   cell("","trend")];
+  [["gp",3],["g",4],["a",5],["pts",6],["ptsPerGame",7]].forEach(function(pair){
+    useColor(columns[pair[1]],p[pair[0]],fmt.statColorScales[pair[0]],pair[0]);
+  });
+  useTrend(columns[8],p.trend);
   keys.forEach(function(k,j){if(p[k]!=null&&Number(p[k])===leaders[k])columns[j+3].classList.add("stat-leader")});
   if(p.pts!==null&&p.pts===leaders.pts)columns[2].classList.add("stat-leader");
   tr.append.apply(tr,columns);body.append(tr);
@@ -154,7 +192,8 @@ function render(d){
  var t=document.createElement("tr");t.className="total";
  var label=cell("BRAVE H.C. TOTAL* ("+d.players.length+")","player");label.colSpan=3;
  t.append(label,cell(d.total.games),cell(d.total.goals),cell(d.total.assists),
-          cell(d.total.points),cell(Number(d.total.ptsPerGame).toFixed(2)),cell(percent(d.total.trend),"trend"));
+          cell(d.total.points),cell(Number(d.total.ptsPerGame).toFixed(2)),cell("","trend"));
+ useTrend(t.lastElementChild,d.total.trend);
  body.append(t);
  document.getElementById("date").textContent=(d.modelDriver==="HTO_PUBLISHED_TEAM_STATISTICS"?"HTO results · ":"Workbook model results · ")+d.modelSnapshotDate+" · Winter 2026/27";
  var warn=document.getElementById("warning");
