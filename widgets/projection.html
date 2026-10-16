@@ -198,7 +198,7 @@ function render(d){
  document.getElementById("date").textContent=(d.modelDriver==="HTO_PUBLISHED_TEAM_STATISTICS"?"HTO results · ":"Workbook model results · ")+d.modelSnapshotDate+" · Winter 2026/27";
  var warn=document.getElementById("warning");
  var ageDays=Math.floor((Date.now()-Date.parse(d.modelSnapshotDate+"T00:00:00Z"))/86400000);var current=d.modelCurrent&&ageDays<=7;
- if(d.modelDriver==="HTO_PUBLISHED_TEAM_STATISTICS" && d.unmodelledHTOPlayers?.length){warn.textContent="PROVISIONAL · HTO results updated "+d.modelSnapshotDate+" · Workbook roster reconciliation pending";warn.className="warn";} else if(!current){warn.textContent="MODEL INPUTS OUTDATED — The saved workbook recorded "+d.sourceInputs.workbookRecordedTeamGP+" game(s), while the published league table records "+d.sourceInputs.publicLeagueRecordedTeamGP+". Historical model results are NOT current forecasts.";warn.className="warn";}
+ if(d.modelDriver==="HTO_PUBLISHED_TEAM_STATISTICS" && d.unmodelledHTOPlayers?.length){warn.textContent="PROVISIONAL · DI: confirmed games only · HTO results "+d.modelSnapshotDate+" · Roster reconciliation pending";warn.className="warn";} else if(!current){warn.textContent="MODEL INPUTS OUTDATED — The saved workbook recorded "+d.sourceInputs.workbookRecordedTeamGP+" game(s), while the published league table records "+d.sourceInputs.publicLeagueRecordedTeamGP+". Historical model results are NOT current forecasts.";warn.className="warn";}
  else{warn.textContent="WORKBOOK MODEL VALIDATED — Projected values last recalculated "+d.modelSnapshotDate+". These are estimates, not guaranteed outcomes.";warn.className="warn ok";}
 
 }

@@ -8,7 +8,7 @@
   "modelCurrent": false,
   "modelSnapshotDate": "2026-10-16",
   "workbookBaselineDate": "2026-09-20",
-  "exportedAt": "2026-10-16T20:02:39.008530+00:00",
+  "exportedAt": "2026-10-16T20:19:29.629724+00:00",
   "workbookSourceHash": "0002fd9f06596af8d0a00fc1b53a618ef15479f941ad5c1e6265b27002a65154",
   "sourceInputs": {
     "workbookRecordedTeamGP": 1,
@@ -18,7 +18,7 @@
     "htoTeamGoals": 5,
     "htoTeamAssists": 8
   },
-  "htoreadback": "2026-10-16T20:02:20.241Z",
+  "htoreadback": "2026-10-16T20:17:36.435Z",
   "modelParity": {
     "replayedRows": 21,
     "mismatches": 0
@@ -31,7 +31,7 @@
       "currentG": 0,
       "currentA": 1,
       "currentPts": 1,
-      "projectedGP": 8.0,
+      "projectedGP": 1.0,
       "reason": "No historical player row; used verified positional average fallback from LinesHelpers"
     }
   ],
@@ -51,6 +51,37 @@
     },
     "careerWeight": 0.875,
     "seasonWeight": 0.125
+  },
+  "diProjectionPolicy": {
+    "source": "Explicit bounded public prediction correction, not original workbook DI formula",
+    "rule": "HTO_CONFIRMED_APPEARANCES_ONLY",
+    "futureGamesAssumed": 0,
+    "audit": [
+      {
+        "name": "Unknown, Johnny",
+        "htoActualGP": 1,
+        "workbookAnnualizedGP": 8.0,
+        "publicProjectedGP": 1.0,
+        "previousProjectedPts": 5,
+        "newProjectedPts": 0
+      },
+      {
+        "name": "Ardizzi, Stefano",
+        "htoActualGP": 1,
+        "workbookAnnualizedGP": 8.0,
+        "publicProjectedGP": 1.0,
+        "previousProjectedPts": 4,
+        "newProjectedPts": 0
+      },
+      {
+        "name": "Pavaday, Damian",
+        "htoActualGP": 1,
+        "workbookAnnualizedGP": 8.0,
+        "publicProjectedGP": 1.0,
+        "previousProjectedPts": 7,
+        "newProjectedPts": 1
+      }
+    ]
   },
   "players": [
     {
@@ -230,36 +261,6 @@
       "rank": 5
     },
     {
-      "rank": 9,
-      "name": "Pavaday, Damian",
-      "number": "0",
-      "rosterStatus": "DI",
-      "gp": 8.0,
-      "g": 2,
-      "a": 5,
-      "pts": 7,
-      "ptsPerGame": 0.875,
-      "trend": 0.0,
-      "workbookRow": null,
-      "currentGP": 1,
-      "currentG": 0,
-      "currentA": 1,
-      "currentPts": 1,
-      "modelAvailability": "VERIFIED_POSITIONAL_AVERAGE_FALLBACK",
-      "position": "F",
-      "positionPrior": "FORWARD_POSITIONAL_AVERAGE",
-      "trendSource": "FIRST_SEASON_NO_HISTORY_RETURNS_ZERO",
-      "priorGPerGame": 0.37398648648648647,
-      "priorAPerGame": 0.43840090090090084,
-      "attendanceSource": "DI_SEASON_ATTENDANCE_EXACT_WORKBOOK_RULE",
-      "trendInputs": {
-        "firstSeasonOrNoCareer": true,
-        "careerScoringRate": 0.8123873873873872,
-        "projectedScoringRate": 0.8358389639639638,
-        "seasonScoringRate": 1.0
-      }
-    },
-    {
       "name": "Rajkumar, Sanjay",
       "number": "49",
       "rosterStatus": "FT",
@@ -345,7 +346,7 @@
         "projectedScoringRate": 0.36549100968188103,
         "seasonScoringRate": 0.0
       },
-      "rank": 13
+      "rank": 12
     },
     {
       "name": "Kober, Adam",
@@ -367,51 +368,7 @@
         "projectedScoringRate": 0.5028409090909092,
         "seasonScoringRate": 1.0
       },
-      "rank": 14
-    },
-    {
-      "name": "Unknown, Johnny",
-      "number": "0",
-      "rosterStatus": "DI",
-      "gp": 8.0,
-      "g": 2,
-      "a": 3,
-      "pts": 5,
-      "ptsPerGame": 0.625,
-      "trend": 0.0,
-      "workbookRow": 80,
-      "currentGP": 1,
-      "currentG": 0,
-      "currentA": 0,
-      "trendInputs": {
-        "firstSeasonOrNoCareer": true,
-        "careerScoringRate": 0.8123873873873872,
-        "projectedScoringRate": 0.7108389639639638,
-        "seasonScoringRate": 0.0
-      },
-      "rank": 14
-    },
-    {
-      "name": "Ardizzi, Stefano",
-      "number": "90",
-      "rosterStatus": "DI",
-      "gp": 8.0,
-      "g": 2,
-      "a": 2,
-      "pts": 4,
-      "ptsPerGame": 0.5,
-      "trend": -0.125,
-      "workbookRow": 71,
-      "currentGP": 1,
-      "currentG": 0,
-      "currentA": 0,
-      "trendInputs": {
-        "firstSeasonOrNoCareer": false,
-        "careerScoringRate": 0.6066066066066067,
-        "projectedScoringRate": 0.5307807807807808,
-        "seasonScoringRate": 0.0
-      },
-      "rank": 16
+      "rank": 13
     },
     {
       "name": "Paolucci, Anthony",
@@ -433,7 +390,7 @@
         "projectedScoringRate": 0.27870370370370373,
         "seasonScoringRate": 0.0
       },
-      "rank": 16
+      "rank": 14
     },
     {
       "name": "Mazzei, Stefano",
@@ -455,7 +412,7 @@
         "projectedScoringRate": 0.5046296296296297,
         "seasonScoringRate": 0
       },
-      "rank": 18
+      "rank": 15
     },
     {
       "name": "Duffy, Lorcan",
@@ -477,7 +434,7 @@
         "projectedScoringRate": 0.5940040650406504,
         "seasonScoringRate": 0.0
       },
-      "rank": 18
+      "rank": 15
     },
     {
       "name": "Congiusti, Marco",
@@ -499,7 +456,7 @@
         "projectedScoringRate": 0.19619304556354916,
         "seasonScoringRate": 0.0
       },
-      "rank": 18
+      "rank": 15
     },
     {
       "name": "Rajasooriar, Krishnan",
@@ -521,7 +478,7 @@
         "projectedScoringRate": 0.37268518518518523,
         "seasonScoringRate": 0.0
       },
-      "rank": 21
+      "rank": 18
     },
     {
       "name": "Atkins, Nolan",
@@ -543,15 +500,112 @@
         "projectedScoringRate": 0.125,
         "seasonScoringRate": 0.0
       },
-      "rank": 22
+      "rank": 19
+    },
+    {
+      "rank": 19,
+      "name": "Pavaday, Damian",
+      "number": "0",
+      "rosterStatus": "DI",
+      "gp": 1.0,
+      "g": 0,
+      "a": 1,
+      "pts": 1,
+      "ptsPerGame": 1.0,
+      "trend": 0.0,
+      "workbookRow": null,
+      "currentGP": 1,
+      "currentG": 0,
+      "currentA": 1,
+      "currentPts": 1,
+      "modelAvailability": "VERIFIED_POSITIONAL_AVERAGE_FALLBACK",
+      "position": "F",
+      "positionPrior": "FORWARD_POSITIONAL_AVERAGE",
+      "trendSource": "FIRST_SEASON_NO_HISTORY_RETURNS_ZERO",
+      "priorGPerGame": 0.37398648648648647,
+      "priorAPerGame": 0.43840090090090084,
+      "attendanceSource": "DI_CONFIRMED_APPEARANCES_ONLY_PUBLIC_POLICY",
+      "trendInputs": {
+        "firstSeasonOrNoCareer": true,
+        "careerScoringRate": 0.8123873873873872,
+        "projectedScoringRate": 0.8358389639639638,
+        "seasonScoringRate": 1.0
+      },
+      "workbookAnnualizedProjection": {
+        "gp": 8.0,
+        "g": 2,
+        "a": 5,
+        "pts": 7
+      },
+      "forecastBasis": "HTO_CONFIRMED_APPEARANCES_ONLY"
+    },
+    {
+      "name": "Ardizzi, Stefano",
+      "number": "90",
+      "rosterStatus": "DI",
+      "gp": 1.0,
+      "g": 0,
+      "a": 0,
+      "pts": 0,
+      "ptsPerGame": 0.0,
+      "trend": -0.125,
+      "workbookRow": 71,
+      "currentGP": 1,
+      "currentG": 0,
+      "currentA": 0,
+      "trendInputs": {
+        "firstSeasonOrNoCareer": false,
+        "careerScoringRate": 0.6066066066066067,
+        "projectedScoringRate": 0.5307807807807808,
+        "seasonScoringRate": 0.0
+      },
+      "rank": 21,
+      "workbookAnnualizedProjection": {
+        "gp": 8.0,
+        "g": 2,
+        "a": 2,
+        "pts": 4
+      },
+      "attendanceSource": "DI_CONFIRMED_APPEARANCES_ONLY_PUBLIC_POLICY",
+      "forecastBasis": "HTO_CONFIRMED_APPEARANCES_ONLY"
+    },
+    {
+      "name": "Unknown, Johnny",
+      "number": "0",
+      "rosterStatus": "DI",
+      "gp": 1.0,
+      "g": 0,
+      "a": 0,
+      "pts": 0,
+      "ptsPerGame": 0.0,
+      "trend": 0.0,
+      "workbookRow": 80,
+      "currentGP": 1,
+      "currentG": 0,
+      "currentA": 0,
+      "trendInputs": {
+        "firstSeasonOrNoCareer": true,
+        "careerScoringRate": 0.8123873873873872,
+        "projectedScoringRate": 0.7108389639639638,
+        "seasonScoringRate": 0.0
+      },
+      "rank": 21,
+      "workbookAnnualizedProjection": {
+        "gp": 8.0,
+        "g": 2,
+        "a": 3,
+        "pts": 5
+      },
+      "attendanceSource": "DI_CONFIRMED_APPEARANCES_ONLY_PUBLIC_POLICY",
+      "forecastBasis": "HTO_CONFIRMED_APPEARANCES_ONLY"
     }
   ],
   "total": {
     "games": 24,
-    "goals": 77,
-    "assists": 115,
-    "points": 192,
-    "ptsPerGame": 0.574,
+    "goals": 71,
+    "assists": 106,
+    "points": 177,
+    "ptsPerGame": 0.564,
     "trend": -0.063337
   },
   "conditionalFormatting": {
@@ -612,7 +666,7 @@
     "statColorScales": {
       "gp": {
         "sourceRange": "Y6:Y93",
-        "low": 4.91,
+        "low": 1.0,
         "mid": 18.44,
         "high": 22.84
       },
@@ -624,20 +678,20 @@
       },
       "a": {
         "sourceRange": "AA6:AA93",
-        "low": 1.0,
-        "mid": 5.0,
+        "low": 0.0,
+        "mid": 4.5,
         "high": 14.0
       },
       "pts": {
         "sourceRange": "AB6:AB93",
-        "low": 1.0,
-        "mid": 7.0,
+        "low": 0.0,
+        "mid": 6.5,
         "high": 24.0
       },
       "ptsPerGame": {
         "sourceRange": "AC6:AC93",
-        "low": 0.115,
-        "mid": 0.5385,
+        "low": 0.0,
+        "mid": 0.4675,
         "high": 1.148
       }
     },
@@ -655,5 +709,5 @@
     "method": "SUM(history projected scoring rates - history career rates) / (SUM(history career rates)+SUM(no-history season rates))",
     "sourceCachedValueStatus": "Historical workbook X94 cached 0; recalculated directly from source formula"
   },
-  "modelNotes": "Faithful FT/CU/DI attendance formulas; DI uses season GP / team GP and contributes to CU availability. Players without historical records use validated LinesHelpers positional scoring averages, blended with HTO current results proportionally to team games played, exactly as workbook H/I and P/Q logic specifies. Totals include current HTO drop-in Damian. Any unmatched historical roster data remains disclosed."
+  "modelNotes": "FT and CU use the original workbook attendance and scoring formulas. The workbook annualizes DI early attendance; public DI projected GP is instead limited to confirmed HTO appearances because additional drop-in commitments are unverified. The original DI calculation is preserved in workbookAnnualizedProjection for audit. Confirmed DI games continue to count against CU opportunities. No-history positional-rate and trend models remain sourced from the workbook. Team totals and outstanding historical roster conflicts remain provisional. The source Excel workbook is unchanged."
 }
