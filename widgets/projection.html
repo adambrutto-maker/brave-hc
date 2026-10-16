@@ -54,7 +54,7 @@ a{color:#d5eeff}.meta{font-size:10px;line-height:1.5;color:#c0d2e2;padding:8px 1
 </table></div>
 <div class="footerbar"><span>CHARACTER · COMPETE · BELONG</span><span>BRAVE H.C.</span><span>SKILL · FAMILY · PURPOSE</span></div>
 </div>
-<p class="note">Source: Brave H.C. Master Workbook · Player Projections sheet · <strong>BravesRegularSeasonProjection</strong>. Values are the model's calculated outputs, not an independent extrapolation.</p>
+<p class="note">Source: Brave H.C. Master Workbook · <strong>BravesRegularSeasonProjection</strong> formulas, with current-season results supplied by HTO. Forecasts are estimates; unmapped players require review.</p>
 </section>
 <div class="meta">Powered by HockeyOS · <span id="modelstate">Workbook model readback pending.</span></div>
 </div>
@@ -77,12 +77,12 @@ function render(d){
  var t=document.createElement("tr");t.className="total";
  t.append(cell(""),cell(""),cell("BRAVE H.C. TOTAL","player"),cell(d.total.games),cell(d.total.goals),cell(d.total.assists),cell(d.total.points),cell(Number(d.total.ptsPerGame).toFixed(2)));
  body.append(t);
- document.getElementById("date").textContent="Workbook model results · "+d.modelSnapshotDate+" · Winter 2026/27";
+ document.getElementById("date").textContent=(d.modelDriver==="HTO_PUBLISHED_TEAM_STATISTICS"?"HTO results · ":"Workbook model results · ")+d.modelSnapshotDate+" · Winter 2026/27";
  var warn=document.getElementById("warning");
  var ageDays=Math.floor((Date.now()-Date.parse(d.modelSnapshotDate+"T00:00:00Z"))/86400000);var current=d.modelCurrent&&ageDays<=7;
- if(!current){warn.textContent="MODEL INPUTS OUTDATED — The workbook recorded "+d.sourceInputs.workbookRecordedTeamGP+" game(s), while the published league table records "+d.sourceInputs.publicLeagueRecordedTeamGP+". These are historical workbook-model projections, NOT current forecasts. Refresh the workbook before embedding as live.";warn.className="warn";}
+ if(d.modelDriver==="HTO_PUBLISHED_TEAM_STATISTICS" && d.unmodelledHTOPlayers?.length){warn.textContent="HTO-FED WORKBOOK MODEL PREVIEW — Current HTO statistics are included, but "+d.unmodelledHTOPlayers.map(p=>p.name+" ("+p.pts+" point(s))").join(", ")+" cannot be projected without a workbook player profile. Team totals exclude unmatched players. Pending reconciliation.";warn.className="warn";} else if(!current){warn.textContent="MODEL INPUTS OUTDATED — The saved workbook recorded "+d.sourceInputs.workbookRecordedTeamGP+" game(s), while the published league table records "+d.sourceInputs.publicLeagueRecordedTeamGP+". Historical model results are NOT current forecasts.";warn.className="warn";}
  else{warn.textContent="WORKBOOK MODEL VALIDATED — Projected values last recalculated "+d.modelSnapshotDate+". These are estimates, not guaranteed outcomes.";warn.className="warn ok";}
- document.getElementById("modelstate").textContent=current?"Workbook-calculated output; verified against recorded team games.":"Workbook-calculated historical snapshot — publication held until current data is reconciled.";
+ document.getElementById("modelstate").textContent=d.modelDriver==="HTO_PUBLISHED_TEAM_STATISTICS"?"HTO-fed calculations using verified workbook formula parity; missing model profiles shown as reconciliation exceptions.":current?"Workbook-calculated output; verified against recorded team games.":"Workbook-calculated historical snapshot — publication held until current data is reconciled.";
 }
 async function refresh(){
  try{var r=await fetch("./projection.json",{cache:"no-store"});if(!r.ok)throw Error("HTTP "+r.status);render(await r.json());}
