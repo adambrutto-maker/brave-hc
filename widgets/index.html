@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Brave H.C. | HockeyOS Public Widgets — Preview</title>
+<meta name="robots" content="noindex,nofollow">
+<style>
+:root{color-scheme:dark;--bg:#0b1017;--card:#151d27;--line:#303b4b;--ink:#f5f7fa;--dim:#b6c3d2;--red:#e22b35;--green:#9fe3b1}
+*{box-sizing:border-box}html,body{margin:0}body{background:var(--bg);color:var(--ink);font:15px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
+a{color:#f1c7ca;text-decoration:none}a:hover,a:focus{text-decoration:underline}
+.wrap{max-width:1050px;margin:auto;padding:24px 20px 36px}
+header{display:flex;justify-content:space-between;align-items:center;gap:16px;border-bottom:1px solid var(--line);padding:0 0 22px;margin-bottom:22px}
+.brand{display:flex;align-items:center;gap:12px;font-weight:900;letter-spacing:.05em;font-size:22px}.mark{display:grid;place-items:center;background:var(--red);color:#fff;border-radius:10px;width:40px;height:43px;font-weight:900}
+.pill{display:inline-block;padding:5px 9px;border:1px solid #6d5158;border-radius:99px;color:#fad8dc;font-size:11px;font-weight:800;letter-spacing:.04em}
+h1{font-size:clamp(25px,4vw,39px);margin:0 0 7px;line-height:1.15}h2{font-size:15px;margin:0;letter-spacing:.09em;text-transform:uppercase}.sub{color:var(--dim);font-size:13px;margin:0 0 21px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.panel{background:linear-gradient(160deg,#19232f,var(--card));border:1px solid var(--line);border-radius:14px;padding:19px;min-width:0}
+.panel.wide{grid-column:1/-1}.head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:14px;flex-wrap:wrap}
+.kicker{font-size:11px;color:#fb9ea5;text-transform:uppercase;font-weight:800;letter-spacing:.12em}.big{font-size:26px;line-height:1.15;font-weight:850;margin:7px 0}
+.score{font-size:25px;font-weight:850}.muted{color:var(--dim)}.small{font-size:12px}.two{display:flex;justify-content:space-between;gap:12px}.two>div{flex:1}
+.hr{height:1px;background:var(--line);margin:15px 0}.tablewrap{overflow-x:auto}table{width:100%;border-collapse:collapse;text-align:left;font-size:13px}th{color:#cdd6e2;text-transform:uppercase;font-size:10px;letter-spacing:.07em;font-weight:800}td,th{padding:8px 9px;border-bottom:1px solid var(--line);white-space:nowrap}
+tr.brave{background:#4f202a;font-weight:800}td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+.players{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}.leader{border:1px solid var(--line);background:#111923;border-radius:9px;padding:11px}.leader b{display:block;font-size:18px}.leader .name{font-size:13px;font-weight:700;min-height:37px}.bar{border-left:3px solid var(--red);padding-left:11px}.action{font-weight:700;font-size:12px}
+footer{color:var(--dim);font-size:11px;border-top:1px solid var(--line);margin-top:18px;padding-top:13px}
+.loading{padding:28px;text-align:center;color:var(--dim)}.error{border:1px solid #8c4047;padding:16px;border-radius:9px;color:#ffdce0}
+body.embed .wrap{padding:0;max-width:none}body.embed header,body.embed .intro,body.embed footer{display:none}
+body.embed .grid{display:block}body.embed .panel{display:none}body.embed .panel.selected{display:block;border-radius:0;margin:0}
+@media(max-width:680px){header{align-items:flex-start;flex-direction:column}.grid{grid-template-columns:1fr}.panel.wide{grid-column:auto}.players{grid-template-columns:repeat(3,minmax(0,1fr))}.leader{padding:9px}.leader .name{font-size:11px}.players{grid-template-columns:repeat(2,minmax(0,1fr))}td,th{padding:7px 6px;font-size:12px}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto}}
+</style>
+</head>
+<body><div class="wrap">
+<header><div class="brand"><div class="mark" aria-hidden="true">B</div><div>BRAVE H.C.<div class="small muted">HOCKEYOS / SPORTS ANALYTICS</div></div></div><span class="pill">PREVIEW — NOT LIVE</span></header>
+<div class="intro"><span class="kicker">Winter 2026/27 · Cristillo Division</span><h1>Game-night intelligence</h1><p class="sub">Public-facing widget prototype. HTO team statistics and SVHL standings are time-stamped; reconciliation exceptions remain under review. No private data or HTO writes.</p></div>
+<div id="status" role="status" class="loading">Loading public data snapshot…</div>
+<main id="widgets" class="grid" hidden>
+<section class="panel" data-widget="game" aria-label="Next game and last result"><div class="head"><h2>Next game / Last result</h2><span class="kicker">Game night</span></div><div id="game"></div></section>
+<section class="panel" data-widget="projection" aria-label="Season projection"><div class="head"><h2>Season / Playoff outlook</h2><span class="kicker">Forecast gate</span></div><div id="projection"></div></section>
+<section class="panel wide" data-widget="standings" aria-label="Division standings"><div class="head"><h2>Cristillo Division standings</h2><a class="action" id="official" rel="noopener noreferrer" target="_blank">Official SVHL source ↗</a></div><div class="tablewrap"><table><thead><tr><th>RK</th><th>Team</th><th class="num">GP</th><th class="num">W</th><th class="num">L</th><th class="num">T</th><th class="num">PTS</th><th class="num">GD</th></tr></thead><tbody id="rows"></tbody></table></div><p class="small muted">League-source naming update: Sugo Sundays appears where HTO previously listed Michelob Morts. Identity link remains unverified.</p></section>
+<section class="panel" data-widget="leaders" aria-label="Team scoring leaders"><div class="head"><h2>Team leaders</h2><a class="action" id="stats" rel="noopener noreferrer" target="_blank">HTO stats ↗</a></div><div id="leaders" class="players"></div><div class="small muted" style="margin-top:12px">Goalie results are sourced from the HTO public team statistics. No unverified save percentage is shown.</div></section>
+<section class="panel" data-widget="media" aria-label="Latest team media"><div class="head"><h2>Latest media</h2><span class="kicker">Editorial</span></div><div id="media"></div></section>
+</main>
+<footer><span id="source"></span><span> · HockeyOS data is advisory. HTO remains the team publication source.</span></footer>
+</div>
+<script>
+(function(){
+"use strict";
+var params=new URLSearchParams(location.search), chosen=params.get("widget");
+var widgets=["game","projection","standings","leaders","media"];
+if(chosen && widgets.indexOf(chosen)>=0){document.body.classList.add("embed");}
+function elt(tag,cls,value){var x=document.createElement(tag);if(cls)x.className=cls;if(value!=null)x.textContent=String(value);return x;}
+function fill(id,x){var target=document.getElementById(id);target.textContent="";target.appendChild(x);}
+function div(cls,value){return elt("div",cls,value);}
+function safeLink(id,url){if(/^https:\/\/(www\.htosports\.com|leagues\.sportsvillage\.ca)(\/|$)/.test(url)){document.getElementById(id).href=url;}}
+function score(r){return r?String(r):"Score pending";}
+function first(list,condition){return list.find(condition);}
+function show(d){
+if(!["brave-hc-public-widgets/v1","brave-hc-public-widgets/v1.1"].includes(d.schema)||!Array.isArray(d.standings)||!Array.isArray(d.games)||!d.source){throw Error("Unsupported data contract");}
+safeLink("official",d.source.url);safeLink("stats",d.links.stats);
+var upcoming=first(d.games,function(g){return g.status==="scheduled";});
+var finals=d.games.filter(function(g){return g.status==="final";});
+var last=finals.length?finals[finals.length-1]:null;
+var game=div("two");
+var next=div("");next.appendChild(div("kicker","Up next"));
+next.appendChild(div("big",upcoming?"vs "+upcoming.opponent:"Schedule pending"));
+next.appendChild(div("small muted",upcoming?upcoming.date+" · "+upcoming.time+(upcoming.venue?" · "+upcoming.venue:""):"No confirmed future fixture"));
+var prev=div("");prev.appendChild(div("kicker","Last result"));
+prev.appendChild(div("big",last?score(last.score):"No final"));
+prev.appendChild(div("small muted",last?("vs "+last.opponent+" · "+last.date):"No confirmed result"));
+game.append(next,prev);fill("game",game);
+var brave=first(d.standings,function(t){return t.team===d.team;});
+var proj=div("bar");proj.appendChild(div("kicker","Model publication held"));
+proj.appendChild(div("big",brave?brave.w+"–"+brave.l+"–"+brave.t+" · "+brave.pts+" pts":"Awaiting standings"));
+proj.appendChild(div("small muted",d.projection.reason));fill("projection",proj);
+var rows=document.getElementById("rows");rows.textContent="";
+d.standings.forEach(function(t,i){var tr=elt("tr",t.team===d.team?"brave":"");if(t.team===d.team)tr.setAttribute("aria-label","Brave H.C. highlighted");[i+1,t.team,t.gp,t.w,t.l,t.t,t.pts,t.gf-t.ga].forEach(function(v,j){tr.appendChild(elt("td",j>1?"num":"",v));});rows.appendChild(tr);});
+var strip=document.getElementById("leaders");strip.textContent="";
+[["Goals","goals","g"],["Assists","assists","a"],["Points","points","pts"]].forEach(function(spec){var p=d.leaders[spec[1]][0],block=div("leader");block.appendChild(div("kicker",spec[0]));block.appendChild(div("name",p?p.name:"Not available"));block.appendChild(elt("b","",p?p[spec[2]]:"—"));strip.appendChild(block);});
+var goalie=d.leaders.goalie&&d.leaders.goalie[0];var goaliecard=div("leader");goaliecard.appendChild(div("kicker","Goalie · GAA"));goaliecard.appendChild(div("name",goalie?goalie.name:"Not available"));goaliecard.appendChild(elt("b","",goalie?Number(goalie.gaa).toFixed(2):"—"));strip.appendChild(goaliecard);
+var media=div("bar");media.appendChild(div("big","Highlights pending"));
+media.appendChild(div("small muted","No approved recent highlight is available in the source snapshot."));var link=elt("a","action","Brave H.C. photos ↗");link.href=d.links.photos;link.target="_blank";link.rel="noopener noreferrer";media.appendChild(link);fill("media",media);
+var date=new Date(d.asOf);var stamp=isNaN(date.getTime())?d.asOf:date.toLocaleDateString("en-CA",{year:"numeric",month:"short",day:"numeric",timeZone:"America/Toronto"});
+document.getElementById("source").textContent="Sources: HTO stats + SVHL standings · "+stamp+" · Publication held pending review";
+document.getElementById("status").hidden=true;
+document.getElementById("widgets").hidden=false;
+if(chosen && widgets.indexOf(chosen)>=0){document.querySelector('[data-widget="'+chosen+'"]').classList.add("selected");}
+}
+fetch("./data.json",{cache:"no-store"}).then(function(r){if(!r.ok)throw Error("HTTP "+r.status);return r.json();}).then(show).catch(function(e){var box=document.getElementById("status");box.className="error";box.textContent="Public widget data is unavailable. Existing HTO source remains authoritative. ("+e.message+")";});
+})();
+</script></body></html>

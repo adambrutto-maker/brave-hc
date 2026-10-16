@@ -1,0 +1,286 @@
+{
+  "schema": "brave-hc-public-widgets/v1.1",
+  "season": "Winter 2026/27",
+  "division": "The Cristillo Division",
+  "team": "Braves HC",
+  "asOf": "2026-10-16T15:40:16.423Z",
+  "source": {
+    "label": "HTO team-maintained scoring and goaltending / SVHL division standings; live public readback",
+    "authority": "SPLIT_HTO_TEAM_SVHL_LEAGUE",
+    "url": "https://leagues.sportsvillage.ca/Leagues.aspx?leagueid=570&page_type=Adult&sc=HOCKEY",
+    "capturedAt": "2026-10-16T15:40:16.423Z",
+    "htoStats": "https://www.htosports.com/teams/default.asp?p=stats&s=hockey&u=BRAVESHOCKEY",
+    "htoScores": "https://www.htosports.com/teams/default.asp?p=scores&s=hockey&u=BRAVESHOCKEY",
+    "svhlLeague": "https://leagues.sportsvillage.ca/Leagues.aspx?leagueid=570&page_type=Adult&sc=HOCKEY"
+  },
+  "links": {
+    "hto": "https://www.htosports.com/teams/default.asp?p=home&s=hockey&u=BRAVESHOCKEY",
+    "analytics": "https://adambrutto-maker.github.io/brave-hc/",
+    "stats": "https://www.htosports.com/teams/default.asp?p=stats&s=hockey&u=BRAVESHOCKEY",
+    "schedule": "https://www.htosports.com/teams/default.asp?p=schedule&s=hockey&u=BRAVESHOCKEY",
+    "photos": "https://www.htosports.com/teams/default.asp?p=photos&s=hockey&u=BRAVESHOCKEY"
+  },
+  "standings": [
+    {
+      "team": "Sugo Sundays",
+      "gp": 3,
+      "w": 3,
+      "l": 0,
+      "t": 0,
+      "pts": 6,
+      "gf": 10,
+      "ga": 6
+    },
+    {
+      "team": "Mohawks HC",
+      "gp": 3,
+      "w": 2,
+      "l": 1,
+      "t": 0,
+      "pts": 4,
+      "gf": 13,
+      "ga": 8
+    },
+    {
+      "team": "Mid Ice Crisis",
+      "gp": 3,
+      "w": 2,
+      "l": 1,
+      "t": 0,
+      "pts": 4,
+      "gf": 13,
+      "ga": 8
+    },
+    {
+      "team": "Big Bastones",
+      "gp": 3,
+      "w": 2,
+      "l": 1,
+      "t": 0,
+      "pts": 4,
+      "gf": 5,
+      "ga": 4
+    },
+    {
+      "team": "Other Way",
+      "gp": 3,
+      "w": 1,
+      "l": 1,
+      "t": 1,
+      "pts": 3,
+      "gf": 10,
+      "ga": 11
+    },
+    {
+      "team": "Dateline Predators",
+      "gp": 3,
+      "w": 1,
+      "l": 2,
+      "t": 0,
+      "pts": 2,
+      "gf": 5,
+      "ga": 7
+    },
+    {
+      "team": "Zamboner Crew",
+      "gp": 2,
+      "w": 0,
+      "l": 1,
+      "t": 1,
+      "pts": 1,
+      "gf": 8,
+      "ga": 12
+    },
+    {
+      "team": "Braves HC",
+      "gp": 3,
+      "w": 0,
+      "l": 3,
+      "t": 0,
+      "pts": 0,
+      "gf": 5,
+      "ga": 12
+    }
+  ],
+  "games": [
+    {
+      "date": "Sep 20, 2026",
+      "time": "8:15PM",
+      "opponent": "Dateline Predators",
+      "status": "final",
+      "score": "0 - 3",
+      "venue": null,
+      "source": "2026-10-07 historical schedule snapshot"
+    },
+    {
+      "date": "Sep 27, 2026",
+      "time": "6:15PM",
+      "opponent": "Mohawks HC",
+      "status": "final",
+      "score": "3 - 6",
+      "venue": null,
+      "source": "2026-10-07 historical schedule snapshot"
+    },
+    {
+      "date": "Oct 04, 2026",
+      "time": "8:15PM",
+      "opponent": "Michelob Morts",
+      "status": "final",
+      "score": "2 - 3",
+      "venue": null,
+      "source": "HTO verified final score (Michelob Morts) / SVHL potentially renamed team"
+    },
+    {
+      "date": "Oct 18, 2026",
+      "time": "9:15PM",
+      "opponent": "Zamboner Crew",
+      "status": "scheduled",
+      "score": null,
+      "venue": "A Rink",
+      "source": "HTO+SVHL fixture readback"
+    }
+  ],
+  "leaders": {
+    "goals": [
+      {
+        "number": "89",
+        "name": "Carosi, Justin",
+        "position": "C",
+        "gp": 3,
+        "g": 3,
+        "a": 0,
+        "pts": 3,
+        "plusminus": -7
+      },
+      {
+        "number": "12",
+        "name": "Kober, Adam",
+        "position": "LW/LD",
+        "gp": 2,
+        "g": 1,
+        "a": 1,
+        "pts": 2,
+        "plusminus": -4
+      },
+      {
+        "number": "34",
+        "name": "Kong, Henry",
+        "position": "F/D",
+        "gp": 3,
+        "g": 1,
+        "a": 1,
+        "pts": 2,
+        "plusminus": -7
+      }
+    ],
+    "assists": [
+      {
+        "number": "25",
+        "name": "Provenzano, Michael",
+        "position": "C/LW",
+        "gp": 3,
+        "g": 0,
+        "a": 3,
+        "pts": 3,
+        "plusminus": -7
+      },
+      {
+        "number": "44",
+        "name": "Pagnotta, Alex",
+        "position": "RD",
+        "gp": 3,
+        "g": 0,
+        "a": 2,
+        "pts": 2,
+        "plusminus": -7
+      },
+      {
+        "number": "12",
+        "name": "Kober, Adam",
+        "position": "LW/LD",
+        "gp": 2,
+        "g": 1,
+        "a": 1,
+        "pts": 2,
+        "plusminus": -4
+      }
+    ],
+    "points": [
+      {
+        "number": "89",
+        "name": "Carosi, Justin",
+        "position": "C",
+        "gp": 3,
+        "g": 3,
+        "a": 0,
+        "pts": 3,
+        "plusminus": -7
+      },
+      {
+        "number": "25",
+        "name": "Provenzano, Michael",
+        "position": "C/LW",
+        "gp": 3,
+        "g": 0,
+        "a": 3,
+        "pts": 3,
+        "plusminus": -7
+      },
+      {
+        "number": "12",
+        "name": "Kober, Adam",
+        "position": "LW/LD",
+        "gp": 2,
+        "g": 1,
+        "a": 1,
+        "pts": 2,
+        "plusminus": -4
+      }
+    ],
+    "goalie": [
+      {
+        "number": "0",
+        "name": "Carlyle, Adam",
+        "gp": 1,
+        "l": 1,
+        "ga": 3,
+        "gaa": 3.0,
+        "potg": 1
+      },
+      {
+        "number": "31",
+        "name": "Leong, Dev",
+        "gp": 1,
+        "l": 1,
+        "ga": 3,
+        "gaa": 3.0,
+        "potg": 1
+      },
+      {
+        "number": "70",
+        "name": "Logue, Stephen",
+        "gp": 1,
+        "l": 1,
+        "ga": 6,
+        "gaa": 6.0,
+        "potg": 1
+      }
+    ]
+  },
+  "projection": {
+    "status": "withheld",
+    "reason": "Model not approved; full regular-season schedule and calibration remain unverified."
+  },
+  "media": {
+    "status": "pending",
+    "title": "Latest highlight awaiting verification",
+    "url": "https://www.htosports.com/teams/default.asp?p=photos&s=hockey&u=BRAVESHOCKEY"
+  },
+  "integrity": {
+    "recordMatch": true,
+    "futureGameMatch": true,
+    "teamIdentityConflict": true,
+    "playerStatsConflicts": 20,
+    "status": "PARTIAL_VERIFICATION"
+  }
+}
