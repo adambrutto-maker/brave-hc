@@ -12,7 +12,21 @@
   "dataStatus": "HISTORICAL_WORKBOOK_SNAPSHOT",
   "sourceValidated": false,
   "dataIssue": "Workbook game-level scoring and career watch must be recalculated for completed matches; no current streak/milestone claim is permitted.",
-  "streaks": [],
+  "streaks": [
+    {
+      "player": "Carosi, Justin",
+      "description": "POTG Streak: 3 games",
+      "type": "potgStreak",
+      "games": 3,
+      "through": "2026-10-04",
+      "sourceAuthority": "HTO boxscore per-game POTG & workbook threshold",
+      "gameIds": [
+        3356177,
+        3356178,
+        3369564
+      ]
+    }
+  ],
   "records": [
     {
       "player": "Carosi, Justin",
@@ -25,6 +39,55 @@
       "sortPosition": 2
     }
   ],
+  "streaksVerified": true,
+  "streaksAsOf": "2026-10-04",
+  "streaksDataStatus": "VERIFIED_THROUGH_LATEST_GAME",
+  "verifiedStreakHistory": [
+    {
+      "player": "Carosi, Justin",
+      "description": "POTG Streak: 3 games",
+      "type": "potgStreak",
+      "games": 3,
+      "through": "2026-10-04",
+      "sourceAuthority": "HTO boxscore per-game POTG & workbook threshold",
+      "gameIds": [
+        3356177,
+        3356178,
+        3369564
+      ]
+    }
+  ],
+  "streakVerification": {
+    "observedGames": [
+      {
+        "date": "2026-09-20",
+        "gameNumber": 359,
+        "htoGameId": 3356177,
+        "POTG": 1,
+        "source": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=3356177&p=boxscore"
+      },
+      {
+        "date": "2026-09-27",
+        "gameNumber": 360,
+        "htoGameId": 3356178,
+        "POTG": 1,
+        "source": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=3356178&p=boxscore"
+      },
+      {
+        "date": "2026-10-04",
+        "gameNumber": 361,
+        "htoGameId": 3369564,
+        "POTG": 1,
+        "source": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=3369564&p=boxscore"
+      }
+    ],
+    "sourceCurrentTotals": {
+      "gp": 3,
+      "potg": 3
+    },
+    "workbookThreshold": 3
+  },
+  "recordsDataStatus": "HISTORICAL_WORKBOOK_SNAPSHOT",
   "displayConstraints": {
     "streakMinimumGames": 3,
     "milestoneThresholds": "From WebStreaksHelper GP/Point/Goal/Assist/PIM/POTG and goalie watchers",
@@ -34,5 +97,5 @@
     "hto": "https://www.htosports.com/teams/default.asp?p=stats&s=hockey&u=BRAVESHOCKEY",
     "svhl": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13679&page_type=Adult"
   },
-  "exportedAt": "2026-10-17T02:01:13.113669+00:00"
+  "exportedAt": "2026-10-17T02:35:09.931442+00:00"
 }
