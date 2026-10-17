@@ -99,18 +99,20 @@ function show(d){
  const currentStreaks=d.streaksVerified===true&&d.streaksDataStatus==="VERIFIED_THROUGH_LATEST_GAME";
  fill("streaks",d.streaks,currentStreaks);
  if(!currentStreaks&&d.streaks.length===0)locations.streaks.firstElementChild.textContent="Streak verification pending";
- fill("records",d.records,d.sourceValidated===true);
- const recordsHistorical=d.recordsDataStatus!=="VERIFIED_CURRENT"||d.sourceValidated!==true;
+ const currentRecords=d.recordsDataStatus==="VERIFIED_SUPPORTED_CATEGORIES_PARTIAL"||d.recordsDataStatus==="VERIFIED_CURRENT";
+ fill("records",d.records,currentRecords);
+ if(currentRecords&&d.records.length===0)locations.records.firstElementChild.textContent="No verified current milestone alerts";
+ const recordsPartial=d.recordsDataStatus==="VERIFIED_SUPPORTED_CATEGORIES_PARTIAL";
  const recordDate=new Intl.DateTimeFormat("en-CA",{month:"short",day:"numeric",year:"numeric",timeZone:"America/Toronto"}).format(new Date(d.workbookAsOf+"T12:00:00Z"));
  const streakDate=d.streaksAsOf&&/^\d{4}-\d{2}-\d{2}$/.test(d.streaksAsOf)
    ?new Intl.DateTimeFormat("en-CA",{month:"short",day:"numeric",timeZone:"America/Toronto"}).format(new Date(d.streaksAsOf+"T12:00:00Z")):"unknown";
  document.getElementById("status").textContent=currentStreaks
-   ?("POTG verified through "+streakDate+" · Record watch historical "+recordDate)
-   :("Streak verification pending · Records historical "+recordDate);
+   ?("Streaks verified "+streakDate+" · Record watch "+(recordsPartial?"5 categories verified; others pending":"historical "+recordDate))
+   :("Streak verification pending · "+(recordsPartial?"Record watch partially verified":"Records historical "+recordDate));
  document.getElementById("statusbar").classList.toggle("is-current",currentStreaks);
  document.getElementById("status").title=currentStreaks
-   ?"Verified Carosi POTG across three consecutive HTO game box scores; record-watch totals are older workbook entries."
-   :"Streak calculation pending newer game verification; record-watch entries are older workbook snapshots.";
+   ?"HTO-verified streaks; milestone records cover GP, goals, assists, points and POTG. PIM, goalie and single-game record categories are still pending."
+   :"Streak verification requires updated HTO box scores; some milestone categories remain pending.";
 }
 async function refresh(){
  try{
