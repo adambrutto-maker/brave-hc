@@ -8,7 +8,7 @@
   "modelCurrent": false,
   "modelSnapshotDate": "2026-10-17",
   "workbookBaselineDate": "2026-09-20",
-  "exportedAt": "2026-10-17T03:03:18.471993+00:00",
+  "exportedAt": "2026-10-17T15:31:12.782855+00:00",
   "workbookSourceHash": "0002fd9f06596af8d0a00fc1b53a618ef15479f941ad5c1e6265b27002a65154",
   "sourceInputs": {
     "workbookRecordedTeamGP": 1,
@@ -19,7 +19,7 @@
     "htoTeamGoals": 5,
     "htoTeamAssists": 8
   },
-  "htoreadback": "2026-10-17T02:54:57.759Z",
+  "htoreadback": "2026-10-17T15:31:00.885Z",
   "modelParity": {
     "replayedRows": 21,
     "mismatches": 0
