@@ -1,51 +1,38 @@
 {
-  "schema": "brave-hc-workbook-watch/v1",
-  "sourceAuthority": "Brave H.C. Master Workbook > Web Streaks",
-  "modelSnapshotDate": "2026-09-20",
-  "sourceReportHeading": "REPORT CURRENT AS OF SEPTEMBER 20, 2026",
-  "capturedAt": "2026-10-16T16:33:32.905279+00:00",
-  "modelCurrent": false,
-  "workbookSourceHash": "0002fd9f06596af8d0a00fc1b53a618ef15479f941ad5c1e6265b27002a65154",
+  "schema": "brave-hc-workbook-watch/v2",
+  "title": "Brave H.C. Active Streaks & Record Watch",
+  "sourceWorkbook": "Master Workbook > Web Streaks > WebStreaksHelper; SkaterStatsByGame and GoalieStatsByGame",
+  "sourceWorkbookHash": "0002fd9f06596af8d0a00fc1b53a618ef15479f941ad5c1e6265b27002a65154",
+  "workbookAsOf": "2026-09-20",
+  "lastVerifiedGameNumber": 359,
+  "latestOfficialCompletedGameDate": "2026-10-04",
+  "completedGames": 3,
+  "workbookScoreParity": false,
+  "sourceGameIndex": 361,
+  "dataStatus": "HISTORICAL_WORKBOOK_SNAPSHOT",
+  "sourceValidated": false,
+  "dataIssue": "Workbook game-level scoring and career watch must be recalculated for completed matches; no current streak/milestone claim is permitted.",
   "streaks": [],
   "records": [
     {
       "player": "Carosi, Justin",
-      "description": "300 Game Club Reached"
+      "description": "300 Game Club Reached",
+      "sortPosition": 1
     },
     {
       "player": "Provenzano, Michael",
-      "description": "2 points away from 50 career points"
+      "description": "2 points away from 50 career points",
+      "sortPosition": 2
     }
   ],
-  "droughts": [
-    {
-      "player": "Congiusti, Marco",
-      "description": "Goal Drought: 28 games; Point Drought: 7 games"
-    },
-    {
-      "player": "Brutto, Adam",
-      "description": "Goal Drought: 21 games; Point Drought: 6 games"
-    },
-    {
-      "player": "Paolucci, Anthony",
-      "description": "Goal Drought: 15 games"
-    },
-    {
-      "player": "Ardizzi, Stefano",
-      "description": "Goal Drought: 10 games"
-    },
-    {
-      "player": "Provenzano, Mario",
-      "description": "Goal Drought: 7 games"
-    },
-    {
-      "player": "Atkins, Nolan",
-      "description": "Goal Drought: 7 games"
-    },
-    {
-      "player": "Logue, Stephen",
-      "description": "Win Drought: 6 games"
-    }
-  ],
-  "sourceNote": "Exact cached outputs of the Web Streaks worksheet. Historical if the workbook model is stale. Do not regenerate milestones from unverified public scoring."
+  "displayConstraints": {
+    "streakMinimumGames": 3,
+    "milestoneThresholds": "From WebStreaksHelper GP/Point/Goal/Assist/PIM/POTG and goalie watchers",
+    "ordering": "Workbook WebStreaksHelper Streak Rank Key and Record Watch Rank Key; source worksheet ordered outputs"
+  },
+  "sourcePages": {
+    "hto": "https://www.htosports.com/teams/default.asp?p=stats&s=hockey&u=BRAVESHOCKEY",
+    "svhl": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13679&page_type=Adult"
+  },
+  "exportedAt": "2026-10-17T02:01:13.113669+00:00"
 }
