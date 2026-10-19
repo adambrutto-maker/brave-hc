@@ -15,13 +15,16 @@
     "mismatches": 0
   },
   "seasonRaceMode": {
-    "earlyWeeklyRace": "PROVISIONAL_WATCH",
-    "officialNomineeList": "STRICT_ELIGIBLE_ONLY",
+    "earlyWeeklyRace": "HYBRID_WORKBOOK_RANKING_ELIGIBLE_THEN_PROVISIONAL",
+    "officialNomineeList": "ELIGIBLE_ONLY_ONCE_ELIGIBLE_COUNT_AT_LEAST_FIVE",
     "candidateLimit": 5,
-    "eligibilityThresholdAppliedToOfficialOnly": true,
-    "scorePolicy": "Workbook AwardScoring computed scores and rank keys only. Do not represent scoring totals or model reference snapshots as award-model score.",
+    "eligibilityThresholdAppliedToOfficialOnly": false,
+    "scorePolicy": "Never invent rank-spaced award scores. Display saved eligible Final Workbook Award Score for qualified players and saved raw composite score explicitly labeled provisional for ineligible players, or genuine scoring-title count statistics. Do not mix raw and final scores as comparable values.",
     "currentModelScoresVerified": false,
-    "reason": "Workbook award values not reconciled to four verified 2026/27 HTO games; one game in available workbook."
+    "reason": "Workbook award values not reconciled to four verified 2026/27 HTO games; one game in available workbook.",
+    "shortlistFillPolicy": "Eligible players always occupy leading places, ranked among themselves by workbook award-specific Rank Key; provisional noneligible players then fill any remaining places up to five, ranked by workbook raw composite (or measured points/goals for scoring titles). Once five eligible players exist, no provisional names appear.",
+    "neverHideProvisionalWhenFewEligible": true,
+    "sourceFreshness": "HTO-fed season data plus independently validated AwardScoring calculation; HTO projection-bridge parity does not itself verify AwardScoring."
   },
   "awards": [
     {
@@ -109,7 +112,8 @@
       "rankedBy": "WORKBOOK_RANK_KEY",
       "asOf": null,
       "modelGameCount": 0,
-      "eligibleCount": null
+      "eligibleCount": null,
+      "selectionPolicy": "ELIGIBLE_FIRST_PROVISIONAL_FILL_TO_FIVE"
     },
     "conn-smythe": {
       "status": "MODEL_SCORES_AWAITING_CURRENT_WORKBOOK",
@@ -117,7 +121,8 @@
       "rankedBy": "WORKBOOK_RANK_KEY",
       "asOf": null,
       "modelGameCount": 0,
-      "eligibleCount": null
+      "eligibleCount": null,
+      "selectionPolicy": "ELIGIBLE_FIRST_PROVISIONAL_FILL_TO_FIVE"
     },
     "art-ross": {
       "status": "MODEL_SCORES_AWAITING_CURRENT_WORKBOOK",
@@ -125,7 +130,8 @@
       "rankedBy": "WORKBOOK_RANK_KEY",
       "asOf": null,
       "modelGameCount": 0,
-      "eligibleCount": null
+      "eligibleCount": null,
+      "selectionPolicy": "ELIGIBLE_FIRST_PROVISIONAL_FILL_TO_FIVE"
     },
     "rocket": {
       "status": "MODEL_SCORES_AWAITING_CURRENT_WORKBOOK",
@@ -133,7 +139,8 @@
       "rankedBy": "WORKBOOK_RANK_KEY",
       "asOf": null,
       "modelGameCount": 0,
-      "eligibleCount": null
+      "eligibleCount": null,
+      "selectionPolicy": "ELIGIBLE_FIRST_PROVISIONAL_FILL_TO_FIVE"
     },
     "norris": {
       "status": "MODEL_SCORES_AWAITING_CURRENT_WORKBOOK",
@@ -141,7 +148,8 @@
       "rankedBy": "WORKBOOK_RANK_KEY",
       "asOf": null,
       "modelGameCount": 0,
-      "eligibleCount": null
+      "eligibleCount": null,
+      "selectionPolicy": "ELIGIBLE_FIRST_PROVISIONAL_FILL_TO_FIVE"
     },
     "lady-byng": {
       "status": "MODEL_SCORES_AWAITING_CURRENT_WORKBOOK",
@@ -149,7 +157,8 @@
       "rankedBy": "WORKBOOK_RANK_KEY",
       "asOf": null,
       "modelGameCount": 0,
-      "eligibleCount": null
+      "eligibleCount": null,
+      "selectionPolicy": "ELIGIBLE_FIRST_PROVISIONAL_FILL_TO_FIVE"
     },
     "rookie": {
       "status": "MODEL_SCORES_AWAITING_CURRENT_WORKBOOK",
@@ -157,7 +166,8 @@
       "rankedBy": "WORKBOOK_RANK_KEY",
       "asOf": null,
       "modelGameCount": 0,
-      "eligibleCount": null
+      "eligibleCount": null,
+      "selectionPolicy": "ELIGIBLE_FIRST_PROVISIONAL_FILL_TO_FIVE"
     },
     "improved": {
       "status": "MODEL_SCORES_AWAITING_CURRENT_WORKBOOK",
@@ -165,7 +175,8 @@
       "rankedBy": "WORKBOOK_RANK_KEY",
       "asOf": null,
       "modelGameCount": 0,
-      "eligibleCount": null
+      "eligibleCount": null,
+      "selectionPolicy": "ELIGIBLE_FIRST_PROVISIONAL_FILL_TO_FIVE"
     },
     "rolaids": {
       "status": "MODEL_SCORES_AWAITING_CURRENT_WORKBOOK",
@@ -173,7 +184,8 @@
       "rankedBy": "WORKBOOK_RANK_KEY",
       "asOf": null,
       "modelGameCount": 0,
-      "eligibleCount": null
+      "eligibleCount": null,
+      "selectionPolicy": "ELIGIBLE_FIRST_PROVISIONAL_FILL_TO_FIVE"
     },
     "dedication": {
       "status": "MODEL_SCORES_AWAITING_CURRENT_WORKBOOK",
@@ -181,7 +193,8 @@
       "rankedBy": "WORKBOOK_RANK_KEY",
       "asOf": null,
       "modelGameCount": 0,
-      "eligibleCount": null
+      "eligibleCount": null,
+      "selectionPolicy": "ELIGIBLE_FIRST_PROVISIONAL_FILL_TO_FIVE"
     },
     "hof": {
       "status": "MODEL_SCORES_AWAITING_CURRENT_WORKBOOK",
@@ -189,7 +202,8 @@
       "rankedBy": "WORKBOOK_RANK_KEY",
       "asOf": null,
       "modelGameCount": 0,
-      "eligibleCount": null
+      "eligibleCount": null,
+      "selectionPolicy": "ELIGIBLE_FIRST_PROVISIONAL_FILL_TO_FIVE"
     }
   },
   "htoPerformanceSnapshot": [
@@ -412,6 +426,8 @@
     "Week 4 HTO team totals are independently verified, but award scores are not. Performance snapshot is informational only.",
     "Eligibility flags are not used to hide provisional weekly races once workbook scores are verified.",
     "The currently published pilot ballot is not automatically updated with weekly race entrants.",
-    "The workbook remains read-only; no HTO site data or form response data is altered."
+    "The workbook remains read-only; no HTO site data or form response data is altered.",
+    "Founder 2026-10-19 ruling: fill early top five with workbook-ranked provisional players, replacing them preferentially with eligible players; strictly eligible-only once five qualify.",
+    "Current HTO-fed projection model is working separately from the workbook AwardScoring snapshot, which remains pending validation."
   ]
 }
