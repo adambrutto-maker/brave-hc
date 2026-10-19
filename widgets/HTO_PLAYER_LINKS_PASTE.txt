@@ -2,6 +2,8 @@
 <!-- Insert ONCE into a HomeTeamsONLINE X-Grid "Script Area (Advanced)" module.
      Do not paste into a regular Text Area or replace existing Home Page modules.
      This applies only to the HTO page containing this module, not every HTO page.
+     Do not install in native Roster or Stats: HTO already has native click targets.
+     Document the existing module source and test desktop/mobile before keeping it.
      It does not change native HTO roster/profile/stats hyperlink behavior.
      Remove the one script block to roll back. -->
-<script src="https://adambrutto-maker.github.io/brave-hc/widgets/player-links.js?v=1" defer></script>
+<script src="https://adambrutto-maker.github.io/brave-hc/widgets/player-links.js?v=2" defer></script>
