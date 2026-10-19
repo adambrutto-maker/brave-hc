@@ -175,7 +175,7 @@ function renderPlayerEvidence(card,player,participants){
  if(player.position==="Skater"){
   if(![raw.goals,raw.assists,raw.points,raw.penaltyMinutes,raw.playerOfTheGameCount].every(Number.isFinite)
      ||raw.points!==raw.goals+raw.assists)return box.remove();
-  el(label,"span",null,raw.goals+" goals + "+raw.assists+" assists = "+raw.points+" points");
+  el(label,"span",null,raw.goals+" "+(raw.goals===1?"goal":"goals")+" + "+raw.assists+" "+(raw.assists===1?"assist":"assists")+" = "+raw.points+" "+(raw.points===1?"point":"points"));
   el(inside,"p",null,"HTO season: "+raw.playerOfTheGameCount+" Player of the Game · "+raw.penaltyMinutes+" penalty minutes · "+raw.plusMinus+" plus/minus.");
   if(scoring?.sourceStatus==="EXACT_HTO_GOAL_SCORER_AND_ASSISTANT_EVENTS_RECONCILED_NOT_AWARD_SCORE"){
    el(inside,"p",null,"Scoring credits: "+scoring.evenStrengthGoals+" ES goals, "+scoring.evenStrengthAssists+" ES assists; "+scoring.powerPlayGoals+" PP goals, "+scoring.powerPlayAssists+" PP assists; "+scoring.shorthandedGoals+" SH goals, "+scoring.shorthandedAssists+" SH assists.");
