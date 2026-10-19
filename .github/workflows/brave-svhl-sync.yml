@@ -62,14 +62,21 @@ jobs:
         run: |
           python - <<'PY'
           import json
+          from datetime import datetime,timezone
           from pathlib import Path
           target=Path('widgets/svhl-upcoming.json')
           new=json.loads(Path('build/svhl-review/svhl-upcoming.json').read_text())
           old=json.loads(target.read_text()) if target.exists() else {}
-          if new['games']!=old.get('games'):
+          try:
+              last=datetime.fromisoformat(old.get('checkedAt',''))
+              if last.tzinfo is None: last=last.replace(tzinfo=timezone.utc)
+              stale=(datetime.now(timezone.utc)-last).total_seconds()>12*3600
+          except ValueError:
+              stale=True
+          if new['games']!=old.get('games') or stale:
               target.parent.mkdir(parents=True,exist_ok=True)
               target.write_text(json.dumps(new,indent=2)+'\n')
-              print('Verified SVHL changes staged')
+              print('Verified SVHL changes or 12-hour freshness stamp staged')
           else:
               print('SVHL fixture data unchanged')
           PY
