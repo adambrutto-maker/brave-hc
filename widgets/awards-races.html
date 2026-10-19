@@ -64,7 +64,7 @@ function renderEntry(row,reference,index){
  addText(player,"strong",null,row.name);
  let status,score,sub;
  if(reference){
-  status="Saved workbook model output · not the current weekly race";
+  status="Saved workbook model output · "+(row.playerRecentRecordedSeason?"Most recent season "+row.playerRecentRecordedSeason+" · ":"")+"not the current weekly race";
   score=row.score;
   sub="SAVED MODEL SCORE";
  }else{
@@ -113,7 +113,7 @@ function render(){
    main.append($("div","empty","Current 2026–27 workbook-calculated award rankings cannot be shown until the AwardScoring calculation is verified against all completed HTO games."));
   }
  }else{
-  info.textContent="SOURCE DESIGN REFERENCE ONLY — these are the exact scored outputs and component notes preserved in the older saved Web Races workbook. They are not updated 2026–27 week-four rankings and are not approved current-season nominees.";
+  info.textContent="HISTORICAL SOURCE DESIGN ONLY — saved Web Races scorecards. The players in this award’s source ranking may have a different most recent season (for Rolaids, all five are W2025/26). These are not the current 2026–27 weekly rankings or approved nominees.";
   if(saved.length)saved.forEach((row,i)=>main.append(renderEntry(row,true,i)));
   else main.append($("div","empty","The saved workbook had no ranked eligible scorecards for this award at its earlier snapshot. The current-week score will appear once validated."));
  }
