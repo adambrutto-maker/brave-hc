@@ -1,4 +1,4 @@
-<!-- BRAVE H.C. GOALIE SCHEDULE v1.2.1 · READ ONLY · HIGH-CONTRAST LEGIBILITY PATCH -->
+<!-- BRAVE H.C. GOALIE SCHEDULE v1.2.2 · READ ONLY · HIGH-CONTRAST LEGIBILITY PATCH -->
 <div id="braves-goalie-svhl" aria-label="Brave HC goalie schedule">
  <header><small>BRAVE H.C. · 2026/27</small><h2>GOALTENDER SCHEDULE</h2><p>Official SVHL fixtures · Manager-confirmed starters</p></header>
  <div id="bg-status" role="status">Checking the SVHL schedule…</div>
@@ -61,6 +61,7 @@ async function refresh(){
    const record=await r.json();
    if(record.schema!=='brave-hc-goalie-assignments/v1'||!record.assignments)throw new Error('Goaltender assignment format invalid');
    const assignments=record.assignments;
+   const revisions=record.scheduleConfirmations||{};
    const games=feed.games.filter(future).sort((a,b)=>(a.date+a.time).localeCompare(b.date+b.time));
    rows.replaceChildren();
    for(const game of games){
@@ -70,10 +71,14 @@ async function refresh(){
        const cell=document.createElement('td');cell.textContent=val;
        if(val==='TBD')cell.className='bg-tbd';tr.append(cell);
      }
-     if(game.htoSyncStatus!=='MATCH'){
+     const needsConfirmation=game.requiresGoalieReconfirmation &&
+       revisions[game.assignmentKey]!==game.fixtureSignature &&
+       goalie!=='TBD';
+     if(needsConfirmation||game.htoSyncStatus!=='MATCH'){
        const note=document.createElement('span');
        note.className='bg-pending';
-       note.textContent=game.requiresGoalieReconfirmation?'Schedule change: goalie reconfirmation required':'HTO update pending';
+       note.textContent=needsConfirmation?'Goaltender reconfirmation required after schedule change':
+         game.htoSyncStatus==='REVIEW_IDENTITY'?'League opponent change — HTO review pending':'HTO update pending';
        tr.lastElementChild.append(note);
      }
      rows.append(tr);
