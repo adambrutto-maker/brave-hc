@@ -122,3 +122,9 @@ body.embedded{background:transparent}
  .roster-depth-card p,.goalie-note{font-size:10px}
  .roster-caveat{font-size:8.5px}
 }
+
+/* HTO embeds have a fixed outer frame: keep full article access visible without scrolling. */
+.expand-article{display:block;margin:8px 0 3px;padding:6px 9px;background:#123550;border:1px solid #6c93b0;color:#eff7ff!important;font-size:11px;font-weight:800;text-decoration:underline;text-align:center}
+.expand-article:hover,.expand-article:focus-visible{background:#204b6b}
+.next-tab-hint{font-size:11px;color:#d7e9f9;line-height:1.5;border-top:1px solid #53697d;padding-top:9px;margin:12px 0 0}
+@media(max-width:480px){.expand-article,.next-tab-hint{font-size:10px}}
