@@ -135,10 +135,10 @@ function rosterDepthNotes(section,a){
  const c=a?.rosterContext;
  if(!c||c.completeGameRoster!==true||!Array.isArray(c.visitingPlayers)||!Array.isArray(c.fullTimersNotListed))return;
  const block=$("section","roster-context");
- block.append($("h3","section-header","Game-night roster · Full-timers and depth"));
+ block.append($("h3","section-header","Rolaids Relief Man watch · Game-night lineup"));
  const absent=c.fullTimersNotListed.map(x=>x.name);
  if(absent.length){
-  block.append($("p","roster-narrative","Full-timers not listed in the official game sheet: "+absent.join(", ")+"."));
+  block.append($("p","roster-narrative","Full-timers out of the lineup: "+absent.join(", ")+"."));
  }else{
   block.append($("p","roster-narrative","All skaters classified as full-timers in the current-season reference roster appear in this game's official stat sheet."));
  }
@@ -147,8 +147,8 @@ function rosterDepthNotes(section,a){
  const dropins=named.filter(p=>p.status==="DI");
  const unknown=c.visitingPlayers.filter(p=>!p.identified);
  let countLine="";
- if(callups.length)countLine+=callups.length+" verified call-up"+(callups.length===1?"":"s")+" dressed";
- if(dropins.length)countLine+=(countLine?" and ":"")+dropins.length+" identified drop-in"+(dropins.length===1?"":"s")+" dressed";
+ if(callups.length)countLine+=callups.length+" call-up"+(callups.length===1?"":"s")+" played in relief";
+ if(dropins.length)countLine+=(countLine?" and ":"")+dropins.length+" drop-in"+(dropins.length===1?"":"s")+" played in relief";
  if(unknown.length)countLine+=(countLine?", along with ":"")+unknown.length+" unidentified HTO drop-in entry";
  if(countLine)block.append($("p","roster-narrative",countLine+". Appearance totals below are through this game, not the eventual season totals."));
  if(c.visitingPlayers.length){
@@ -157,7 +157,7 @@ function rosterDepthNotes(section,a){
    const card=$("div","roster-depth-card");
    card.append($("strong","scout-name",p.name));
    card.append($("span","roster-type",p.status==="CU"?"CALL-UP":"DROP-IN"));
-   card.append($("p",null,"2026–27 appearance #"+p.seasonGPThroughGame+"."));
+   card.append($("p",null,"2026–27 relief appearance #"+p.seasonGPThroughGame+"."));
    if(p.identified){
     const game=p.gameStats,h=p.headToHeadBeforeGame;
     card.append($("p",null,"This game: "+game.g+" G, "+game.a+" A, "+game.pts+" pts."));
