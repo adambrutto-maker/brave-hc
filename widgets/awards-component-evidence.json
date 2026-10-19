@@ -1,0 +1,811 @@
+{
+  "schema": "brave-hc-awards-component-evidence/v1",
+  "source": "Source workbook AwardScoring structured formulas and saved sheet2 caches",
+  "sourceWorkbookHash": "0002fd9f06596af8d0a00fc1b53a618ef15479f941ad5c1e6265b27002a65154",
+  "status": "HISTORICAL_NOT_CURRENT_AWARD_RACE",
+  "workbookAsOf": "2026-09-20",
+  "formulaName": "Rolaids Raw Composite Score",
+  "roleWeights": {
+    "skater": [
+      {
+        "field": "Total Skater Production Consistency Web Display Score",
+        "weight": 0.18
+      },
+      {
+        "field": "Total Final Pts Web Display Score",
+        "weight": 0.18
+      },
+      {
+        "field": "Current True Attd. % Web Display Score",
+        "weight": 0.15
+      },
+      {
+        "field": "Total Award POTG Web Display Score",
+        "weight": 0.1
+      },
+      {
+        "field": "Total Final Special Teams Web Display Score",
+        "weight": 0.08
+      },
+      {
+        "field": "Total Final Clutch Web Display Score",
+        "weight": 0.07
+      },
+      {
+        "field": "Total Streak Heat Web Display Score",
+        "weight": 0.07
+      },
+      {
+        "field": "Total Skater Two-Way Reliability Web Display Score",
+        "weight": 0.06
+      },
+      {
+        "field": "Total Discipline Reliability Web Display Score",
+        "weight": 0.05
+      },
+      {
+        "field": "Total Final PIM Web Display Score",
+        "weight": 0.04
+      },
+      {
+        "field": "Total Final +/- Web Display Score",
+        "weight": 0.02
+      }
+    ],
+    "goalie": [
+      {
+        "field": "Total Goalie Reliability Web Display Score",
+        "weight": 0.18
+      },
+      {
+        "field": "Total Award POTG Web Display Score",
+        "weight": 0.1
+      },
+      {
+        "field": "Current True Attd. % Web Display Score",
+        "weight": 0.2
+      },
+      {
+        "field": "Total Award Goalie GAA Web Display Score",
+        "weight": 0.1
+      },
+      {
+        "field": "Total Award Goalie Win % Web Display Score",
+        "weight": 0.08
+      },
+      {
+        "field": "Total Final +/- Web Display Score",
+        "weight": 0.08
+      },
+      {
+        "field": "Total Goalie Discipline Reliability Web Display Score",
+        "weight": 0.12
+      },
+      {
+        "field": "Total Award Goalie W Web Display Score",
+        "weight": 0.08
+      },
+      {
+        "field": "Total Award Goalie SHO Web Display Score",
+        "weight": 0.03
+      },
+      {
+        "field": "Total Goalie Offensive Contribution Web Display Score",
+        "weight": 0.03
+      }
+    ]
+  },
+  "races": {
+    "rolaids": {
+      "Rajasooriar, Krishnan": {
+        "sourceRole": "Skater",
+        "total": 11,
+        "weightsSum": 100,
+        "components": [
+          {
+            "abbreviation": "CONS",
+            "sourceField": "Total Skater Production Consistency Web Display Score",
+            "sourceInternalField": "Total Skater Production Consistency Internal Score",
+            "sourceInternalValue": 23.2,
+            "webComponentScore": 81.6,
+            "weightPct": 18,
+            "unroundedWeightedContribution": 14.688,
+            "webDisplayFormulaKnown": true,
+            "sourceSnapshotSeason": "W2025/26",
+            "resultProvenance": "EXACT_CACHED_WORKBOOK_VALUE"
+          },
+          {
+            "abbreviation": "PTS",
+            "sourceField": "Total Final Pts Web Display Score",
+            "sourceInternalField": "Total Final Pts Internal Score",
+            "sourceInternalValue": 2.528,
+            "webComponentScore": 96.7,
+            "weightPct": 18,
+            "unroundedWeightedContribution": 17.406,
+            "webDisplayFormulaKnown": true,
+            "sourceSnapshotSeason": "W2025/26",
+            "resultProvenance": "EXACT_CACHED_WORKBOOK_VALUE"
+          },
+          {
+            "abbreviation": "ATTD",
+            "sourceField": "Current True Attd. % Web Display Score",
+            "sourceInternalField": "Current True Attd. % Internal Score",
+            "sourceInternalValue": 45.83333333333333,
+            "webComponentScore": 72.9,
+            "weightPct": 15,
+            "unroundedWeightedContribution": 10.935,
+            "webDisplayFormulaKnown": true,
+            "sourceSnapshotSeason": "W2025/26",
+            "resultProvenance": "EXACT_CACHED_WORKBOOK_VALUE"
+          },
+          {
+            "abbreviation": "POTG",
+            "sourceField": "Total Award POTG Web Display Score",
+            "sourceInternalField": "Total Award POTG Internal Score",
+            "sourceInternalValue": 0.896,
+            "webComponentScore": 83.9,
+            "weightPct": 10,
+            "unroundedWeightedContribution": 8.39,
+            "webDisplayFormulaKnown": true,
+            "sourceSnapshotSeason": "W2025/26",
+            "resultProvenance": "EXACT_CACHED_WORKBOOK_VALUE"
+          },
+          {
+            "abbreviation": "SPEC",
+            "sourceField": "Total Final Special Teams Web Display Score",
+            "sourceInternalField": "Total Final Special Teams Internal Score",
+            "sourceInternalValue": -0.004,
+            "webComponentScore": 91.3,
+            "weightPct": 8,
+            "unroundedWeightedContribution": 7.304,
+            "webDisplayFormulaKnown": true,
+            "sourceSnapshotSeason": "W2025/26",
+            "resultProvenance": "EXACT_CACHED_WORKBOOK_VALUE"
+          },
+          {
+            "abbreviation": "CLUT",
+            "sourceField": "Total Final Clutch Web Display Score",
+            "sourceInternalField": "Total Final Clutch Internal Score",
+            "sourceInternalValue": 0.448,
+            "webComponentScore": 100,
+            "weightPct": 7.000000000000001,
+            "unroundedWeightedContribution": 7,
+            "webDisplayFormulaKnown": true,
+            "sourceSnapshotSeason": "W2025/26",
+            "resultProvenance": "EXACT_CACHED_WORKBOOK_VALUE"
+          },
+          {
+            "abbreviation": "HEAT",
+            "sourceField": "Total Streak Heat Web Display Score",
+            "sourceInternalField": "Total Streak Heat Internal Score",
+            "sourceInternalValue": 0,
+            "webComponentScore": 57.4,
+            "weightPct": 7.000000000000001,
+            "unroundedWeightedContribution": 4.018,
+            "webDisplayFormulaKnown": true,
+            "sourceSnapshotSeason": "W2025/26",
+            "resultProvenance": "EXACT_CACHED_WORKBOOK_VALUE"
+          },
+          {
+            "abbreviation": "2WAY",
+            "sourceField": "Total Skater Two-Way Reliability Web Display Score",
+            "sourceInternalField": "Total Skater Two-Way Reliability Internal Score",
+            "sourceInternalValue": 50.9,
+            "webComponentScore": 81.8,
+            "weightPct": 6,
+            "unroundedWeightedContribution": 4.908,
+            "webDisplayFormulaKnown": true,
+            "sourceSnapshotSeason": "W2025/26",
+            "resultProvenance": "EXACT_CACHED_WORKBOOK_VALUE"
+          },
+          {
+            "abbreviation": "DISC",
+            "sourceField": "Total Discipline Reliability Web Display Score",
+            "sourceInternalField": "Total Discipline Reliability Internal Score",
+            "sourceInternalValue": 93.2,
+            "webComponentScore": 66,
+            "weightPct": 5,
+            "unroundedWeightedContribution": 3.3,
+            "webDisplayFormulaKnown": true,
+            "sourceSnapshotSeason": "W2025/26",
+            "resultProvenance": "EXACT_CACHED_WORKBOOK_VALUE"
+          },
+          {
+            "abbreviation": "PIM",
+            "sourceField": "Total Final PIM Web Display Score",
+            "sourceInternalField": "Total Final PIM Internal Score",
+            "sourceInternalValue": -0.023,
+            "webComponentScore": 75.3,
+            "weightPct": 4,
+            "unroundedWeightedContribution": 3.012,
+            "webDisplayFormulaKnown": true,
+            "sourceSnapshotSeason": "W2025/26",
+            "resultProvenance": "EXACT_CACHED_WORKBOOK_VALUE"
+          },
+          {
+            "abbreviation": "PLUS",
+            "sourceField": "Total Final +/- Web Display Score",
+            "sourceInternalField": "Total Final +/- Internal Score",
+            "sourceInternalValue": 0.374,
+            "webComponentScore": 61.3,
+            "weightPct": 2,
+            "unroundedWeightedContribution": 1.226,
+            "webDisplayFormulaKnown": true,
+            "sourceSnapshotSeason": "W2025/26",
+            "resultProvenance": "EXACT_CACHED_WORKBOOK_VALUE"
+          }
+        ],
+        "formulaWeightedSumFromCachedComponents": 82.187,
+        "cachedRawComposite": 82.2,
+        "cachedFinalPublicScore": 100,
+        "modelConstraint": "Final award score is rank-based among eligible players, NOT the sum of the visible component scores.",
+        "componentConstraint": "Raw/internal metrics and 4-rate inputs are distinct from the public web component score. Current-game stat lineage is not yet reconciled."
+      },
+      "Duffy, Lorcan": {
+        "sourceRole": "Skater",
+        "total": 11,
+        "weightsSum": 100,
+        "components": [
+          {
+            "abbreviation": "CONS",
+            "sourceField": "Total Skater Production Consistency Web Display Score",
+            "sourceInternalField": "Total Skater Production Consistency Internal Score",
+            "sourceInternalValue": 36.7,
+            "webComponentScore": 100,
+            "weightPct": 18,
+            "unroundedWeightedContribution": 18,
+            "webDisplayFormulaKnown": true,
+            "sourceSnapshotSeason": "W2025/26",
+            "resultProvenance": "EXACT_CACHED_WORKBOOK_VALUE"
+          },
+          {
+            "abbreviation": "PTS",
+            "sourceField": "Total Final Pts Web Display Score",
+            "sourceInternalField": "Total Final Pts Internal Score",
+            "sourceInternalValue": 2.737,
+            "webComponentScore": 100,
+            "weightPct": 18,
+            "unroundedWeightedContribution": 18,
+            "webDisplayFormulaKnown": true,
+            "sourceSnapshotSeason": "W2025/26",
+            "resultProvenance": "EXACT_CACHED_WORKBOOK_VALUE"
+          },
+          {
+            "abbreviation": "ATTD",
+            "sourceField": "Current True Attd. % Web Display Score",
+            "sourceInternalField": "Current True Attd. % Internal Score",
+            "sourceInternalValue": 25,
+            "webComponentScore": 62.5,
+            "weightPct": 15,
+            "unroundedWeightedContribution": 9.375,
+            "webDisplayFormulaKnown": true,
+            "sourceSnapshotSeason": "W2025/26",
+            "resultProvenance": "EXACT_CACHED_WORKBOOK_VALUE"
+          },
+          {
+            "abbreviation": "POTG",
+            "sourceField": "Total Award POTG Web Display Score",
+            "sourceInternalField": "Total Award POTG Internal Score",
+            "sourceInternalValue": -0.016,
+            "webComponentScore": 52.5,
+            "weightPct": 10,
+            "unroundedWeightedContribution": 5.25,
+            "webDisplayFormulaKnown": true,
+            "sourceSnapshotSeason": "W2025/26",
+            "resultProvenance": "EXACT_CACHED_WORKBOOK_VALUE"
+          },
+          {
+            "abbreviation": "SPEC",
+            "sourceField": "Total Final Special Teams Web Display Score",
+            "sourceInternalField": "Total Final Special Teams Internal Score",
+            "sourceInternalValue": -0.011,
+            "webComponentScore": 76.1,
+            "weightPct": 8,
+            "unroundedWeightedContribution": 6.088,
+            "webDisplayFormulaKnown": true,
+            "sourceSnapshotSeason": "W2025/26",
+            "resultProvenance": "EXACT_CACHED_WORKBOOK_VALUE"
+          },
+          {
+            "abbreviation": "CLUT",
+            "sourceField": "Total Final Clutch Web Display Score",
+            "sourceInternalField": "Total Final Clutch Internal Score",
+            "sourceInternalValue": -0.01,
+            "webComponentScore": 52.9,
+            "weightPct": 7.000000000000001,
+            "unroundedWeightedContribution": 3.703,
+            "webDisplayFormulaKnown": true,
+            "sourceSnapshotSeason": "W2025/26",
+            "resultProvenance": "EXACT_CACHED_WORKBOOK_VALUE"
+          },
+          {
+            "abbreviation": "HEAT",
+            "sourceField": "Total Streak Heat Web Display Score",
+            "sourceInternalField": "Total Streak Heat Internal Score",
+            "sourceInternalValue": 0.224,
+            "webComponentScore": 79.1,
+            "weightPct": 7.000000000000001,
+            "unroundedWeightedContribution": 5.537,
+            "webDisplayFormulaKnown": true,
+            "sourceSnapshotSeason": "W2025/26",
+            "resultProvenance": "EXACT_CACHED_WORKBOOK_VALUE"
+          },
+          {
+            "abbreviation": "2WAY",
+            "sourceField": "Total Skater Two-Way Reliability Web Display Score",
+            "sourceInternalField": "Total Skater Two-Way Reliability Internal Score",
+            "sourceInternalValue": 80,
+            "webComponentScore": 100,
+            "weightPct": 6,
+            "unroundedWeightedContribution": 6,
+            "webDisplayFormulaKnown": true,
+            "sourceSnapshotSeason": "W2025/26",
+            "resultProvenance": "EXACT_CACHED_WORKBOOK_VALUE"
+          },
+          {
+            "abbreviation": "DISC",
+            "sourceField": "Total Discipline Reliability Web Display Score",
+            "sourceInternalField": "Total Discipline Reliability Internal Score",
+            "sourceInternalValue": 100,
+            "webComponentScore": 100,
+            "weightPct": 5,
+            "unroundedWeightedContribution": 5,
+            "webDisplayFormulaKnown": true,
+            "sourceSnapshotSeason": "W2025/26",
+            "resultProvenance": "EXACT_CACHED_WORKBOOK_VALUE"
+          },
+          {
+            "abbreviation": "PIM",
+            "sourceField": "Total Final PIM Web Display Score",
+            "sourceInternalField": "Total Final PIM Internal Score",
+            "sourceInternalValue": 0.135,
+            "webComponentScore": 91.5,
+            "weightPct": 4,
+            "unroundedWeightedContribution": 3.66,
+            "webDisplayFormulaKnown": true,
+            "sourceSnapshotSeason": "W2025/26",
+            "resultProvenance": "EXACT_CACHED_WORKBOOK_VALUE"
+          },
+          {
+            "abbreviation": "PLUS",
+            "sourceField": "Total Final +/- Web Display Score",
+            "sourceInternalField": "Total Final +/- Internal Score",
+            "sourceInternalValue": 1.551,
+            "webComponentScore": 76.7,
+            "weightPct": 2,
+            "unroundedWeightedContribution": 1.534,
+            "webDisplayFormulaKnown": true,
+            "sourceSnapshotSeason": "W2025/26",
+            "resultProvenance": "EXACT_CACHED_WORKBOOK_VALUE"
+          }
+        ],
+        "formulaWeightedSumFromCachedComponents": 82.147,
+        "cachedRawComposite": 82.1,
+        "cachedFinalPublicScore": 99,
+        "modelConstraint": "Final award score is rank-based among eligible players, NOT the sum of the visible component scores.",
+        "componentConstraint": "Raw/internal metrics and 4-rate inputs are distinct from the public web component score. Current-game stat lineage is not yet reconciled."
+      },
+      "Svec, Matt (G)": {
+        "sourceRole": "Goaltender",
+        "total": 10,
+        "weightsSum": 100,
+        "components": [
+          {
+            "abbreviation": "GREL",
+            "sourceField": "Total Goalie Reliability Web Display Score",
+            "sourceInternalField": "Total Goalie Reliability Internal Score",
+            "sourceInternalValue": 63,
+            "webComponentScore": 82.4,
+            "weightPct": 18,
+            "unroundedWeightedContribution": 14.832,
+            "webDisplayFormulaKnown": true,
+            "sourceSnapshotSeason": "W2025/26",
+            "resultProvenance": "EXACT_CACHED_WORKBOOK_VALUE"
+          },
+          {
+            "abbreviation": "POTG",
+            "sourceField": "Total Award POTG Web Display Score",
+            "sourceInternalField": "Total Award POTG Internal Score",
+            "sourceInternalValue": 1.363,
+            "webComponentScore": 100,
+            "weightPct": 10,
+            "unroundedWeightedContribution": 10,
+            "webDisplayFormulaKnown": true,
+            "sourceSnapshotSeason": "W2025/26",
+            "resultProvenance": "EXACT_CACHED_WORKBOOK_VALUE"
+          },
+          {
+            "abbreviation": "ATTD",
+            "sourceField": "Current True Attd. % Web Display Score",
+            "sourceInternalField": "Current True Attd. % Internal Score",
+            "sourceInternalValue": 20.833333333333336,
+            "webComponentScore": 60.4,
+            "weightPct": 20,
+            "unroundedWeightedContribution": 12.08,
+            "webDisplayFormulaKnown": true,
+            "sourceSnapshotSeason": "W2025/26",
+            "resultProvenance": "EXACT_CACHED_WORKBOOK_VALUE"
+          },
+          {
+            "abbreviation": "GAA",
+            "sourceField": "Total Award Goalie GAA Web Display Score",
+            "sourceInternalField": "Total Award Goalie GAA Internal Score",
+            "sourceInternalValue": -2.034,
+            "webComponentScore": 60.9,
+            "weightPct": 10,
+            "unroundedWeightedContribution": 6.09,
+            "webDisplayFormulaKnown": true,
+            "sourceSnapshotSeason": "W2025/26",
+            "resultProvenance": "EXACT_CACHED_WORKBOOK_VALUE"
+          },
+          {
+            "abbreviation": "WIN%",
+            "sourceField": "Total Award Goalie Win % Web Display Score",
+            "sourceInternalField": "Total Award Goalie Win % Internal Score",
+            "sourceInternalValue": 0.312,
+            "webComponentScore": 100,
+            "weightPct": 8,
+            "unroundedWeightedContribution": 8,
+            "webDisplayFormulaKnown": true,
+            "sourceSnapshotSeason": "W2025/26",
+            "resultProvenance": "EXACT_CACHED_WORKBOOK_VALUE"
+          },
+          {
+            "abbreviation": "PLUS",
+            "sourceField": "Total Final +/- Web Display Score",
+            "sourceInternalField": "Total Final +/- Internal Score",
+            "sourceInternalValue": 1.309,
+            "webComponentScore": 73.5,
+            "weightPct": 8,
+            "unroundedWeightedContribution": 5.88,
+            "webDisplayFormulaKnown": true,
+            "sourceSnapshotSeason": "W2025/26",
+            "resultProvenance": "EXACT_CACHED_WORKBOOK_VALUE"
+          },
+          {
+            "abbreviation": "DISC",
+            "sourceField": "Total Goalie Discipline Reliability Web Display Score",
+            "sourceInternalField": "Total Goalie Discipline Reliability Internal Score",
+            "sourceInternalValue": 100,
+            "webComponentScore": 100,
+            "weightPct": 12,
+            "unroundedWeightedContribution": 12,
+            "webDisplayFormulaKnown": true,
+            "sourceSnapshotSeason": "W2025/26",
+            "resultProvenance": "EXACT_CACHED_WORKBOOK_VALUE"
+          },
+          {
+            "abbreviation": "WINS",
+            "sourceField": "Total Award Goalie W Web Display Score",
+            "sourceInternalField": "Total Award Goalie W Internal Score",
+            "sourceInternalValue": 1.272,
+            "webComponentScore": 100,
+            "weightPct": 8,
+            "unroundedWeightedContribution": 8,
+            "webDisplayFormulaKnown": true,
+            "sourceSnapshotSeason": "W2025/26",
+            "resultProvenance": "EXACT_CACHED_WORKBOOK_VALUE"
+          },
+          {
+            "abbreviation": "SHO",
+            "sourceField": "Total Award Goalie SHO Web Display Score",
+            "sourceInternalField": "Total Award Goalie SHO Internal Score",
+            "sourceInternalValue": -0.012,
+            "webComponentScore": 100,
+            "weightPct": 3,
+            "unroundedWeightedContribution": 3,
+            "webDisplayFormulaKnown": true,
+            "sourceSnapshotSeason": "W2025/26",
+            "resultProvenance": "EXACT_CACHED_WORKBOOK_VALUE"
+          },
+          {
+            "abbreviation": "OFF",
+            "sourceField": "Total Goalie Offensive Contribution Web Display Score",
+            "sourceInternalField": "Total Goalie Offensive Contribution Internal Score",
+            "sourceInternalValue": -0.002,
+            "webComponentScore": 75,
+            "weightPct": 3,
+            "unroundedWeightedContribution": 2.25,
+            "webDisplayFormulaKnown": true,
+            "sourceSnapshotSeason": "W2025/26",
+            "resultProvenance": "EXACT_CACHED_WORKBOOK_VALUE"
+          }
+        ],
+        "formulaWeightedSumFromCachedComponents": 82.132,
+        "cachedRawComposite": 82.1,
+        "cachedFinalPublicScore": 98,
+        "modelConstraint": "Final award score is rank-based among eligible players, NOT the sum of the visible component scores.",
+        "componentConstraint": "Raw/internal metrics and 4-rate inputs are distinct from the public web component score. Current-game stat lineage is not yet reconciled."
+      },
+      "Kober, Adam": {
+        "sourceRole": "Skater",
+        "total": 11,
+        "weightsSum": 100,
+        "components": [
+          {
+            "abbreviation": "CONS",
+            "sourceField": "Total Skater Production Consistency Web Display Score",
+            "sourceInternalField": "Total Skater Production Consistency Internal Score",
+            "sourceInternalValue": 23.5,
+            "webComponentScore": 82,
+            "weightPct": 18,
+            "unroundedWeightedContribution": 14.76,
+            "webDisplayFormulaKnown": true,
+            "sourceSnapshotSeason": "W2025/26",
+            "resultProvenance": "EXACT_CACHED_WORKBOOK_VALUE"
+          },
+          {
+            "abbreviation": "PTS",
+            "sourceField": "Total Final Pts Web Display Score",
+            "sourceInternalField": "Total Final Pts Internal Score",
+            "sourceInternalValue": 2.564,
+            "webComponentScore": 97.3,
+            "weightPct": 18,
+            "unroundedWeightedContribution": 17.514,
+            "webDisplayFormulaKnown": true,
+            "sourceSnapshotSeason": "W2025/26",
+            "resultProvenance": "EXACT_CACHED_WORKBOOK_VALUE"
+          },
+          {
+            "abbreviation": "ATTD",
+            "sourceField": "Current True Attd. % Web Display Score",
+            "sourceInternalField": "Current True Attd. % Internal Score",
+            "sourceInternalValue": 41.66666666666667,
+            "webComponentScore": 70.8,
+            "weightPct": 15,
+            "unroundedWeightedContribution": 10.62,
+            "webDisplayFormulaKnown": true,
+            "sourceSnapshotSeason": "W2025/26",
+            "resultProvenance": "EXACT_CACHED_WORKBOOK_VALUE"
+          },
+          {
+            "abbreviation": "POTG",
+            "sourceField": "Total Award POTG Web Display Score",
+            "sourceInternalField": "Total Award POTG Internal Score",
+            "sourceInternalValue": 0.9,
+            "webComponentScore": 84.1,
+            "weightPct": 10,
+            "unroundedWeightedContribution": 8.41,
+            "webDisplayFormulaKnown": true,
+            "sourceSnapshotSeason": "W2025/26",
+            "resultProvenance": "EXACT_CACHED_WORKBOOK_VALUE"
+          },
+          {
+            "abbreviation": "SPEC",
+            "sourceField": "Total Final Special Teams Web Display Score",
+            "sourceInternalField": "Total Final Special Teams Internal Score",
+            "sourceInternalValue": -0.012,
+            "webComponentScore": 73.9,
+            "weightPct": 8,
+            "unroundedWeightedContribution": 5.912,
+            "webDisplayFormulaKnown": true,
+            "sourceSnapshotSeason": "W2025/26",
+            "resultProvenance": "EXACT_CACHED_WORKBOOK_VALUE"
+          },
+          {
+            "abbreviation": "CLUT",
+            "sourceField": "Total Final Clutch Web Display Score",
+            "sourceInternalField": "Total Final Clutch Internal Score",
+            "sourceInternalValue": -0.014,
+            "webComponentScore": 52.5,
+            "weightPct": 7.000000000000001,
+            "unroundedWeightedContribution": 3.675,
+            "webDisplayFormulaKnown": true,
+            "sourceSnapshotSeason": "W2025/26",
+            "resultProvenance": "EXACT_CACHED_WORKBOOK_VALUE"
+          },
+          {
+            "abbreviation": "HEAT",
+            "sourceField": "Total Streak Heat Web Display Score",
+            "sourceInternalField": "Total Streak Heat Internal Score",
+            "sourceInternalValue": -0.077,
+            "webComponentScore": 50,
+            "weightPct": 7.000000000000001,
+            "unroundedWeightedContribution": 3.5,
+            "webDisplayFormulaKnown": true,
+            "sourceSnapshotSeason": "W2025/26",
+            "resultProvenance": "EXACT_CACHED_WORKBOOK_VALUE"
+          },
+          {
+            "abbreviation": "2WAY",
+            "sourceField": "Total Skater Two-Way Reliability Web Display Score",
+            "sourceInternalField": "Total Skater Two-Way Reliability Internal Score",
+            "sourceInternalValue": 40,
+            "webComponentScore": 75,
+            "weightPct": 6,
+            "unroundedWeightedContribution": 4.5,
+            "webDisplayFormulaKnown": true,
+            "sourceSnapshotSeason": "W2025/26",
+            "resultProvenance": "EXACT_CACHED_WORKBOOK_VALUE"
+          },
+          {
+            "abbreviation": "DISC",
+            "sourceField": "Total Discipline Reliability Web Display Score",
+            "sourceInternalField": "Total Discipline Reliability Internal Score",
+            "sourceInternalValue": 90,
+            "webComponentScore": 50,
+            "weightPct": 5,
+            "unroundedWeightedContribution": 2.5,
+            "webDisplayFormulaKnown": true,
+            "sourceSnapshotSeason": "W2025/26",
+            "resultProvenance": "EXACT_CACHED_WORKBOOK_VALUE"
+          },
+          {
+            "abbreviation": "PIM",
+            "sourceField": "Total Final PIM Web Display Score",
+            "sourceInternalField": "Total Final PIM Internal Score",
+            "sourceInternalValue": -0.27,
+            "webComponentScore": 50,
+            "weightPct": 4,
+            "unroundedWeightedContribution": 2,
+            "webDisplayFormulaKnown": true,
+            "sourceSnapshotSeason": "W2025/26",
+            "resultProvenance": "EXACT_CACHED_WORKBOOK_VALUE"
+          },
+          {
+            "abbreviation": "PLUS",
+            "sourceField": "Total Final +/- Web Display Score",
+            "sourceInternalField": "Total Final +/- Internal Score",
+            "sourceInternalValue": -0.465,
+            "webComponentScore": 50.3,
+            "weightPct": 2,
+            "unroundedWeightedContribution": 1.006,
+            "webDisplayFormulaKnown": true,
+            "sourceSnapshotSeason": "W2025/26",
+            "resultProvenance": "EXACT_CACHED_WORKBOOK_VALUE"
+          }
+        ],
+        "formulaWeightedSumFromCachedComponents": 74.397,
+        "cachedRawComposite": 74.4,
+        "cachedFinalPublicScore": 92,
+        "modelConstraint": "Final award score is rank-based among eligible players, NOT the sum of the visible component scores.",
+        "componentConstraint": "Raw/internal metrics and 4-rate inputs are distinct from the public web component score. Current-game stat lineage is not yet reconciled."
+      },
+      "Mazzei, Stefano": {
+        "sourceRole": "Skater",
+        "total": 11,
+        "weightsSum": 100,
+        "components": [
+          {
+            "abbreviation": "CONS",
+            "sourceField": "Total Skater Production Consistency Web Display Score",
+            "sourceInternalField": "Total Skater Production Consistency Internal Score",
+            "sourceInternalValue": 15,
+            "webComponentScore": 70.4,
+            "weightPct": 18,
+            "unroundedWeightedContribution": 12.672,
+            "webDisplayFormulaKnown": true,
+            "sourceSnapshotSeason": "W2025/26",
+            "resultProvenance": "EXACT_CACHED_WORKBOOK_VALUE"
+          },
+          {
+            "abbreviation": "PTS",
+            "sourceField": "Total Final Pts Web Display Score",
+            "sourceInternalField": "Total Final Pts Internal Score",
+            "sourceInternalValue": 0.749,
+            "webComponentScore": 68.8,
+            "weightPct": 18,
+            "unroundedWeightedContribution": 12.384,
+            "webDisplayFormulaKnown": true,
+            "sourceSnapshotSeason": "W2025/26",
+            "resultProvenance": "EXACT_CACHED_WORKBOOK_VALUE"
+          },
+          {
+            "abbreviation": "ATTD",
+            "sourceField": "Current True Attd. % Web Display Score",
+            "sourceInternalField": "Current True Attd. % Internal Score",
+            "sourceInternalValue": 25,
+            "webComponentScore": 62.5,
+            "weightPct": 15,
+            "unroundedWeightedContribution": 9.375,
+            "webDisplayFormulaKnown": true,
+            "sourceSnapshotSeason": "W2025/26",
+            "resultProvenance": "EXACT_CACHED_WORKBOOK_VALUE"
+          },
+          {
+            "abbreviation": "POTG",
+            "sourceField": "Total Award POTG Web Display Score",
+            "sourceInternalField": "Total Award POTG Internal Score",
+            "sourceInternalValue": -0.031,
+            "webComponentScore": 52,
+            "weightPct": 10,
+            "unroundedWeightedContribution": 5.2,
+            "webDisplayFormulaKnown": true,
+            "sourceSnapshotSeason": "W2025/26",
+            "resultProvenance": "EXACT_CACHED_WORKBOOK_VALUE"
+          },
+          {
+            "abbreviation": "SPEC",
+            "sourceField": "Total Final Special Teams Web Display Score",
+            "sourceInternalField": "Total Final Special Teams Internal Score",
+            "sourceInternalValue": -0.013,
+            "webComponentScore": 71.7,
+            "weightPct": 8,
+            "unroundedWeightedContribution": 5.736,
+            "webDisplayFormulaKnown": true,
+            "sourceSnapshotSeason": "W2025/26",
+            "resultProvenance": "EXACT_CACHED_WORKBOOK_VALUE"
+          },
+          {
+            "abbreviation": "CLUT",
+            "sourceField": "Total Final Clutch Web Display Score",
+            "sourceInternalField": "Total Final Clutch Internal Score",
+            "sourceInternalValue": -0.028,
+            "webComponentScore": 51,
+            "weightPct": 7.000000000000001,
+            "unroundedWeightedContribution": 3.57,
+            "webDisplayFormulaKnown": true,
+            "sourceSnapshotSeason": "W2025/26",
+            "resultProvenance": "EXACT_CACHED_WORKBOOK_VALUE"
+          },
+          {
+            "abbreviation": "HEAT",
+            "sourceField": "Total Streak Heat Web Display Score",
+            "sourceInternalField": "Total Streak Heat Internal Score",
+            "sourceInternalValue": 0,
+            "webComponentScore": 57.4,
+            "weightPct": 7.000000000000001,
+            "unroundedWeightedContribution": 4.018,
+            "webDisplayFormulaKnown": true,
+            "sourceSnapshotSeason": "W2025/26",
+            "resultProvenance": "EXACT_CACHED_WORKBOOK_VALUE"
+          },
+          {
+            "abbreviation": "2WAY",
+            "sourceField": "Total Skater Two-Way Reliability Web Display Score",
+            "sourceInternalField": "Total Skater Two-Way Reliability Internal Score",
+            "sourceInternalValue": 51.7,
+            "webComponentScore": 82.3,
+            "weightPct": 6,
+            "unroundedWeightedContribution": 4.938,
+            "webDisplayFormulaKnown": true,
+            "sourceSnapshotSeason": "W2025/26",
+            "resultProvenance": "EXACT_CACHED_WORKBOOK_VALUE"
+          },
+          {
+            "abbreviation": "DISC",
+            "sourceField": "Total Discipline Reliability Web Display Score",
+            "sourceInternalField": "Total Discipline Reliability Internal Score",
+            "sourceInternalValue": 100,
+            "webComponentScore": 100,
+            "weightPct": 5,
+            "unroundedWeightedContribution": 5,
+            "webDisplayFormulaKnown": true,
+            "sourceSnapshotSeason": "W2025/26",
+            "resultProvenance": "EXACT_CACHED_WORKBOOK_VALUE"
+          },
+          {
+            "abbreviation": "PIM",
+            "sourceField": "Total Final PIM Web Display Score",
+            "sourceInternalField": "Total Final PIM Internal Score",
+            "sourceInternalValue": 0.157,
+            "webComponentScore": 93.8,
+            "weightPct": 4,
+            "unroundedWeightedContribution": 3.752,
+            "webDisplayFormulaKnown": true,
+            "sourceSnapshotSeason": "W2025/26",
+            "resultProvenance": "EXACT_CACHED_WORKBOOK_VALUE"
+          },
+          {
+            "abbreviation": "PLUS",
+            "sourceField": "Total Final +/- Web Display Score",
+            "sourceInternalField": "Total Final +/- Internal Score",
+            "sourceInternalValue": -0.035,
+            "webComponentScore": 56,
+            "weightPct": 2,
+            "unroundedWeightedContribution": 1.12,
+            "webDisplayFormulaKnown": true,
+            "sourceSnapshotSeason": "W2025/26",
+            "resultProvenance": "EXACT_CACHED_WORKBOOK_VALUE"
+          }
+        ],
+        "formulaWeightedSumFromCachedComponents": 67.765,
+        "cachedRawComposite": 67.8,
+        "cachedFinalPublicScore": 86,
+        "modelConstraint": "Final award score is rank-based among eligible players, NOT the sum of the visible component scores.",
+        "componentConstraint": "Raw/internal metrics and 4-rate inputs are distinct from the public web component score. Current-game stat lineage is not yet reconciled."
+      }
+    }
+  },
+  "freshCurrentSeasonScores": false
+}
