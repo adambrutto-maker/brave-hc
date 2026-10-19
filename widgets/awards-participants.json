@@ -49,6 +49,15 @@
         "playerOfTheGameCount": 0,
         "sourceKind": "OFFICIAL_HTO_PUBLISHED_SEASON_STATISTICS",
         "season": "W2026/27"
+      },
+      "currentHTOEventEvidence": {
+        "reportedPIMFreeGameAppearances": 1,
+        "gamesWithPublishedPIM": 0,
+        "playedOfficialHTOGameIds": [
+          3356177
+        ],
+        "sourceKind": "HTO_SCORES_AND_BOX_SCORE_EVENTS_RECONCILED",
+        "publicationLimit": "Verified event input, not normalized workbook award subscore"
       }
     },
     {
@@ -82,6 +91,16 @@
         "playerOfTheGameCount": 0,
         "sourceKind": "OFFICIAL_HTO_PUBLISHED_SEASON_STATISTICS",
         "season": "W2026/27"
+      },
+      "currentHTOEventEvidence": {
+        "reportedPIMFreeGameAppearances": 2,
+        "gamesWithPublishedPIM": 0,
+        "playedOfficialHTOGameIds": [
+          3356178,
+          3369564
+        ],
+        "sourceKind": "HTO_SCORES_AND_BOX_SCORE_EVENTS_RECONCILED",
+        "publicationLimit": "Verified event input, not normalized workbook award subscore"
       }
     },
     {
@@ -115,6 +134,18 @@
         "playerOfTheGameCount": 0,
         "sourceKind": "OFFICIAL_HTO_PUBLISHED_SEASON_STATISTICS",
         "season": "W2026/27"
+      },
+      "currentHTOEventEvidence": {
+        "reportedPIMFreeGameAppearances": 4,
+        "gamesWithPublishedPIM": 0,
+        "playedOfficialHTOGameIds": [
+          3356177,
+          3356178,
+          3369564,
+          3375601
+        ],
+        "sourceKind": "HTO_SCORES_AND_BOX_SCORE_EVENTS_RECONCILED",
+        "publicationLimit": "Verified event input, not normalized workbook award subscore"
       }
     },
     {
@@ -177,6 +208,18 @@
         "playerOfTheGameCount": 3,
         "sourceKind": "OFFICIAL_HTO_PUBLISHED_SEASON_STATISTICS",
         "season": "W2026/27"
+      },
+      "currentHTOEventEvidence": {
+        "reportedPIMFreeGameAppearances": 4,
+        "gamesWithPublishedPIM": 0,
+        "playedOfficialHTOGameIds": [
+          3356177,
+          3356178,
+          3369564,
+          3375601
+        ],
+        "sourceKind": "HTO_SCORES_AND_BOX_SCORE_EVENTS_RECONCILED",
+        "publicationLimit": "Verified event input, not normalized workbook award subscore"
       }
     },
     {
@@ -210,6 +253,15 @@
         "playerOfTheGameCount": 0,
         "sourceKind": "OFFICIAL_HTO_PUBLISHED_SEASON_STATISTICS",
         "season": "W2026/27"
+      },
+      "currentHTOEventEvidence": {
+        "reportedPIMFreeGameAppearances": 1,
+        "gamesWithPublishedPIM": 0,
+        "playedOfficialHTOGameIds": [
+          3356178
+        ],
+        "sourceKind": "HTO_SCORES_AND_BOX_SCORE_EVENTS_RECONCILED",
+        "publicationLimit": "Verified event input, not normalized workbook award subscore"
       }
     },
     {
@@ -243,6 +295,15 @@
         "playerOfTheGameCount": 0,
         "sourceKind": "OFFICIAL_HTO_PUBLISHED_SEASON_STATISTICS",
         "season": "W2026/27"
+      },
+      "currentHTOEventEvidence": {
+        "reportedPIMFreeGameAppearances": 1,
+        "gamesWithPublishedPIM": 0,
+        "playedOfficialHTOGameIds": [
+          3356178
+        ],
+        "sourceKind": "HTO_SCORES_AND_BOX_SCORE_EVENTS_RECONCILED",
+        "publicationLimit": "Verified event input, not normalized workbook award subscore"
       }
     },
     {
@@ -276,6 +337,17 @@
         "playerOfTheGameCount": 1,
         "sourceKind": "OFFICIAL_HTO_PUBLISHED_SEASON_STATISTICS",
         "season": "W2026/27"
+      },
+      "currentHTOEventEvidence": {
+        "reportedPIMFreeGameAppearances": 3,
+        "gamesWithPublishedPIM": 0,
+        "playedOfficialHTOGameIds": [
+          3356178,
+          3369564,
+          3375601
+        ],
+        "sourceKind": "HTO_SCORES_AND_BOX_SCORE_EVENTS_RECONCILED",
+        "publicationLimit": "Verified event input, not normalized workbook award subscore"
       }
     },
     {
@@ -315,6 +387,18 @@
         "playerOfTheGameCount": 1,
         "sourceKind": "OFFICIAL_HTO_PUBLISHED_SEASON_STATISTICS",
         "season": "W2026/27"
+      },
+      "currentHTOEventEvidence": {
+        "reportedPIMFreeGameAppearances": 4,
+        "gamesWithPublishedPIM": 0,
+        "playedOfficialHTOGameIds": [
+          3356177,
+          3356178,
+          3369564,
+          3375601
+        ],
+        "sourceKind": "HTO_SCORES_AND_BOX_SCORE_EVENTS_RECONCILED",
+        "publicationLimit": "Verified event input, not normalized workbook award subscore"
       }
     },
     {
@@ -407,6 +491,18 @@
         "playerOfTheGameCount": 0,
         "sourceKind": "OFFICIAL_HTO_PUBLISHED_SEASON_STATISTICS",
         "season": "W2026/27"
+      },
+      "currentHTOEventEvidence": {
+        "reportedPIMFreeGameAppearances": 4,
+        "gamesWithPublishedPIM": 0,
+        "playedOfficialHTOGameIds": [
+          3356177,
+          3356178,
+          3369564,
+          3375601
+        ],
+        "sourceKind": "HTO_SCORES_AND_BOX_SCORE_EVENTS_RECONCILED",
+        "publicationLimit": "Verified event input, not normalized workbook award subscore"
       }
     },
     {
@@ -440,6 +536,15 @@
         "playerOfTheGameCount": 0,
         "sourceKind": "OFFICIAL_HTO_PUBLISHED_SEASON_STATISTICS",
         "season": "W2026/27"
+      },
+      "currentHTOEventEvidence": {
+        "reportedPIMFreeGameAppearances": 1,
+        "gamesWithPublishedPIM": 0,
+        "playedOfficialHTOGameIds": [
+          3356177
+        ],
+        "sourceKind": "HTO_SCORES_AND_BOX_SCORE_EVENTS_RECONCILED",
+        "publicationLimit": "Verified event input, not normalized workbook award subscore"
       }
     },
     {
@@ -473,6 +578,15 @@
         "playerOfTheGameCount": 0,
         "sourceKind": "OFFICIAL_HTO_PUBLISHED_SEASON_STATISTICS",
         "season": "W2026/27"
+      },
+      "currentHTOEventEvidence": {
+        "reportedPIMFreeGameAppearances": 1,
+        "gamesWithPublishedPIM": 0,
+        "playedOfficialHTOGameIds": [
+          3369564
+        ],
+        "sourceKind": "HTO_SCORES_AND_BOX_SCORE_EVENTS_RECONCILED",
+        "publicationLimit": "Verified event input, not normalized workbook award subscore"
       }
     },
     {
@@ -506,6 +620,17 @@
         "playerOfTheGameCount": 1,
         "sourceKind": "OFFICIAL_HTO_PUBLISHED_SEASON_STATISTICS",
         "season": "W2026/27"
+      },
+      "currentHTOEventEvidence": {
+        "reportedPIMFreeGameAppearances": 3,
+        "gamesWithPublishedPIM": 0,
+        "playedOfficialHTOGameIds": [
+          3356177,
+          3356178,
+          3375601
+        ],
+        "sourceKind": "HTO_SCORES_AND_BOX_SCORE_EVENTS_RECONCILED",
+        "publicationLimit": "Verified event input, not normalized workbook award subscore"
       }
     },
     {
@@ -545,6 +670,17 @@
         "playerOfTheGameCount": 0,
         "sourceKind": "OFFICIAL_HTO_PUBLISHED_SEASON_STATISTICS",
         "season": "W2026/27"
+      },
+      "currentHTOEventEvidence": {
+        "reportedPIMFreeGameAppearances": 3,
+        "gamesWithPublishedPIM": 0,
+        "playedOfficialHTOGameIds": [
+          3356177,
+          3369564,
+          3375601
+        ],
+        "sourceKind": "HTO_SCORES_AND_BOX_SCORE_EVENTS_RECONCILED",
+        "publicationLimit": "Verified event input, not normalized workbook award subscore"
       }
     },
     {
@@ -578,6 +714,18 @@
         "playerOfTheGameCount": 0,
         "sourceKind": "OFFICIAL_HTO_PUBLISHED_SEASON_STATISTICS",
         "season": "W2026/27"
+      },
+      "currentHTOEventEvidence": {
+        "reportedPIMFreeGameAppearances": 4,
+        "gamesWithPublishedPIM": 0,
+        "playedOfficialHTOGameIds": [
+          3356177,
+          3356178,
+          3369564,
+          3375601
+        ],
+        "sourceKind": "HTO_SCORES_AND_BOX_SCORE_EVENTS_RECONCILED",
+        "publicationLimit": "Verified event input, not normalized workbook award subscore"
       }
     },
     {
@@ -611,6 +759,17 @@
         "playerOfTheGameCount": 1,
         "sourceKind": "OFFICIAL_HTO_PUBLISHED_SEASON_STATISTICS",
         "season": "W2026/27"
+      },
+      "currentHTOEventEvidence": {
+        "reportedPIMFreeGameAppearances": 3,
+        "gamesWithPublishedPIM": 0,
+        "playedOfficialHTOGameIds": [
+          3356177,
+          3356178,
+          3369564
+        ],
+        "sourceKind": "HTO_SCORES_AND_BOX_SCORE_EVENTS_RECONCILED",
+        "publicationLimit": "Verified event input, not normalized workbook award subscore"
       }
     },
     {
@@ -644,6 +803,16 @@
         "playerOfTheGameCount": 0,
         "sourceKind": "OFFICIAL_HTO_PUBLISHED_SEASON_STATISTICS",
         "season": "W2026/27"
+      },
+      "currentHTOEventEvidence": {
+        "reportedPIMFreeGameAppearances": 2,
+        "gamesWithPublishedPIM": 0,
+        "playedOfficialHTOGameIds": [
+          3356178,
+          3375601
+        ],
+        "sourceKind": "HTO_SCORES_AND_BOX_SCORE_EVENTS_RECONCILED",
+        "publicationLimit": "Verified event input, not normalized workbook award subscore"
       }
     },
     {
@@ -683,6 +852,17 @@
         "playerOfTheGameCount": 0,
         "sourceKind": "OFFICIAL_HTO_PUBLISHED_SEASON_STATISTICS",
         "season": "W2026/27"
+      },
+      "currentHTOEventEvidence": {
+        "reportedPIMFreeGameAppearances": 3,
+        "gamesWithPublishedPIM": 0,
+        "playedOfficialHTOGameIds": [
+          3356177,
+          3356178,
+          3369564
+        ],
+        "sourceKind": "HTO_SCORES_AND_BOX_SCORE_EVENTS_RECONCILED",
+        "publicationLimit": "Verified event input, not normalized workbook award subscore"
       }
     },
     {
@@ -716,6 +896,17 @@
         "playerOfTheGameCount": 1,
         "sourceKind": "OFFICIAL_HTO_PUBLISHED_SEASON_STATISTICS",
         "season": "W2026/27"
+      },
+      "currentHTOEventEvidence": {
+        "reportedPIMFreeGameAppearances": 3,
+        "gamesWithPublishedPIM": 0,
+        "playedOfficialHTOGameIds": [
+          3356178,
+          3369564,
+          3375601
+        ],
+        "sourceKind": "HTO_SCORES_AND_BOX_SCORE_EVENTS_RECONCILED",
+        "publicationLimit": "Verified event input, not normalized workbook award subscore"
       }
     },
     {
@@ -749,6 +940,17 @@
         "playerOfTheGameCount": 1,
         "sourceKind": "OFFICIAL_HTO_PUBLISHED_SEASON_STATISTICS",
         "season": "W2026/27"
+      },
+      "currentHTOEventEvidence": {
+        "reportedPIMFreeGameAppearances": 3,
+        "gamesWithPublishedPIM": 0,
+        "playedOfficialHTOGameIds": [
+          3356177,
+          3356178,
+          3375601
+        ],
+        "sourceKind": "HTO_SCORES_AND_BOX_SCORE_EVENTS_RECONCILED",
+        "publicationLimit": "Verified event input, not normalized workbook award subscore"
       }
     },
     {
@@ -788,6 +990,18 @@
         "playerOfTheGameCount": 0,
         "sourceKind": "OFFICIAL_HTO_PUBLISHED_SEASON_STATISTICS",
         "season": "W2026/27"
+      },
+      "currentHTOEventEvidence": {
+        "reportedPIMFreeGameAppearances": 3,
+        "gamesWithPublishedPIM": 1,
+        "playedOfficialHTOGameIds": [
+          3356177,
+          3356178,
+          3369564,
+          3375601
+        ],
+        "sourceKind": "HTO_SCORES_AND_BOX_SCORE_EVENTS_RECONCILED",
+        "publicationLimit": "Verified event input, not normalized workbook award subscore"
       }
     }
   ],
@@ -847,7 +1061,53 @@
       "namedSkatersChecked": 20,
       "goaliesChecked": 3,
       "semantics": "HTO position listing is NOT proof of award-specific eligibility; dual-role players are position candidates only."
-    }
+    },
+    "currentHTOGameEventAudit": {
+      "status": "FOUR_GAME_HTO_SPECIAL_TEAMS_AND_MINOR_PENALTY_EVENT_PARITY_PASS",
+      "season": "W2026/27",
+      "officialTeamGames": 4,
+      "currentOfficialGameSources": [
+        {
+          "gameId": 3356177,
+          "date": "2026-09-20",
+          "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=3356177&p=boxscore"
+        },
+        {
+          "gameId": 3356178,
+          "date": "2026-09-27",
+          "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=3356178&p=boxscore"
+        },
+        {
+          "gameId": 3369564,
+          "date": "2026-10-04",
+          "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=3369564&p=boxscore"
+        },
+        {
+          "gameId": 3375601,
+          "date": "2026-10-18",
+          "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=3375601&p=boxscore"
+        }
+      ],
+      "teamReportedGoalsByStrength": {
+        "ES": 6,
+        "PP": 0,
+        "SH": 0
+      },
+      "teamReportedPenaltyMinutes": 2,
+      "reportedHTOPenaltyEvents": 1,
+      "namedSkaterGameAppearances": 54,
+      "reportedPIMFreeNamedSkaterGameAppearances": 53,
+      "flaggedPlayer": "Triumbari, Francesco",
+      "flaggedPlayerPenaltyGameId": 3375601,
+      "sourceLimitations": [
+        "Current per-game HTO PIM-free observed appearances and event goal-strength evidence, not an AwardScoring discipline or special-teams score.",
+        "The original workbook's multi-PIM games definition and historical 50-100 normalization have not been validated.",
+        "No assumption that missing event categories equal a normalized score of zero; goalie discipline not derived.",
+        "The previously documented AwardScoring and JavaScript publication holds remain active."
+      ],
+      "awardScoreReleaseApproved": false
+    },
+    "officialHTOInputModelStatus": "SOURCE_LEVEL_ONLY_AWARDS_MODEL_HELD"
   },
   "workbookRookieRosterWatch": {
     "status": "SAVED_WORKBOOK_FT_ROOKIE_FLAG_CROSSCHECKED_WITH_HTO_CURRENT_SEASON_APPEARANCE",
