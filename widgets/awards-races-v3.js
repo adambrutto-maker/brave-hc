@@ -190,6 +190,40 @@ function renderPlayerEvidence(card,player,participants){
   if(events.sourceKind==="FOUR_HTO_BOXSCORES_GOALIE_APPEARANCE_AND_ALL_PUBLISHED_PENALTY_GOAL_EVENTS_VERIFIED")
    el(inside,"p",null,"No goalie penalty or goalie goal/assist recorded in the published HTO game summaries.");
  }else return box.remove();
+ const pattern=player.sourceHTOGamePattern;
+ if(pattern?.season===participants.season
+    &&Array.isArray(pattern.games)&&pattern.games.length===player.gp
+    &&["HTO_PER_GAME_OBSERVATIONS_CROSSCHECKED_TO_CURRENT_SEASON","HTO_GOALIE_PER_GAME_OBSERVATIONS_CROSSCHECKED_TO_CURRENT_SEASON"].includes(pattern.status)){
+  const uniqueIds=new Set(pattern.games.map(g=>g.gameId));
+  const rawScoringOkay=player.position!=="Skater" ||
+   (pattern.games.every(g=>[g.g,g.a,g.points,g.plusMinus,g.playerOfTheGame].every(Number.isInteger)&&g.g+g.a===g.points)
+     &&pattern.games.reduce((n,g)=>n+g.g,0)===raw.goals
+     &&pattern.games.reduce((n,g)=>n+g.a,0)===raw.assists
+     &&pattern.games.reduce((n,g)=>n+g.points,0)===raw.points);
+  const goalieOkay=player.position!=="Goalie" ||
+   (pattern.games.every(g=>Number.isInteger(g.goalsAgainst)&&g.goalsAgainst>=0)
+    &&pattern.games.reduce((n,g)=>n+g.goalsAgainst,0)===raw.goalsAgainst);
+  if(uniqueIds.size===player.gp&&rawScoringOkay&&goalieOkay){
+   el(inside,"h4","game-form-heading","Game-by-game form");
+   const list=el(inside,"div","player-form-games");
+   for(const game of pattern.games){
+    if(typeof game.date!=="string"||!/^2026-[0-9]{2}-[0-9]{2}$/.test(game.date))continue;
+    const tile=el(list,"div","player-form-game");
+    el(tile,"span","player-form-date",game.date.slice(5));
+    const score=player.position==="Goalie"
+     ?game.goalsAgainst+" GA"
+     :game.g+" G · "+game.a+" A · "+game.points+" PTS";
+    el(tile,"strong",null,score);
+    if(game.playerOfTheGame===1)el(tile,"span","player-form-potg","POTG");
+   }
+   if(player.position==="Skater"&&pattern.observedCounts){
+    const info=pattern.observedCounts;
+    if(Number.isInteger(info.pointScoringGames)&&Number.isInteger(info.multiPointGames)){
+     el(inside,"p","player-form-summary",info.pointScoringGames+"/"+player.gp+" games with a point · "+info.multiPointGames+" multi-point games.");
+    }
+   }
+  }
+ }
  const sources=participants.verifiedSourceReadback?.currentHTOGameEventAudit?.currentOfficialGameSources;
  const played=events.playedOfficialHTOGameIds||scoring?.sourceGameIds||player.verifiedGameIds;
  if(Array.isArray(sources)&&Array.isArray(played)&&played.length===player.gp){
