@@ -10,8 +10,8 @@
     "goalsAgainst": 19
   },
   "sourceAuthority": "HTO official player score sheets, box scores and schedule",
-  "sourceVerifiedAt": "2026-10-19T05:31:00.211Z",
-  "generatedAt": "2026-10-19T05:55:18.522055+00:00",
+  "sourceVerifiedAt": "2026-10-19T12:31:00.261Z",
+  "generatedAt": "2026-10-19T12:32:36.653325+00:00",
   "editorialState": "DRAFT_NOT_APPROVED",
   "publicationPolicy": "Never auto-publish to the official HTO Hot Stove module without Founder approval.",
   "latestArticle": {
@@ -23,8 +23,9 @@
     "displayDate": "Sunday, October 18, 2026",
     "dek": "Official final: Brave H.C. 1, Zamboner Crew 7.",
     "paragraphs": [
+      "Brave H.C. had no earlier contested regular-season result against Zamboner Crew in its historical schedule under that team name.",
       "Brave H.C. found the net in the opening period but could not add another, falling 7–1 to Zamboner Crew on October 18.",
-      "Keith Pearsoll scored the club’s only goal in the opening period, with Alex Pagnotta and Stephane Saindon collecting the assists.",
+      "Keith Pearsoll scored his first goal of the season at 9:17 of the first period. The assists went to Alex Pagnotta (1), Stephane Saindon (1).",
       "Zamboner Crew led 2–1 after the first period, then added 3 in the second and 2 in the third. Brave H.C. did not score again. Dev Leong was listed in goal for Brave H.C.",
       "The result leaves Brave H.C. at 0–4 through 4 games, with 6 goals scored and 19 allowed.",
       "Next up is Big Bastones on Sunday, October 25 at 6:15 pm ET, at Vaughan Sports Village - A Rink."
@@ -52,14 +53,52 @@
       "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=3375601&p=boxscore"
     ],
     "videoEvidence": null,
+    "opponentHistory": {
+      "beforeGame": {
+        "gp": 0,
+        "w": 0,
+        "l": 0,
+        "t": 0,
+        "gf": 0,
+        "ga": 0
+      },
+      "beforeGameAllTime": {
+        "gp": 0,
+        "w": 0,
+        "l": 0,
+        "t": 0,
+        "gf": 0,
+        "ga": 0
+      },
+      "previousRegularSeasonMeeting": null,
+      "sourceScope": "Exact normalized opponent name only; no assumed team aliases"
+    },
+    "goalEvents": [
+      {
+        "player": "Pearsoll, Keith",
+        "no": "39",
+        "period": 1,
+        "clock": "9:17",
+        "periodSeconds": 557,
+        "strength": "ES",
+        "officialText": "39 Keith Pearsoll (20 Stephane Saindon, 44 Alex Pagnotta)",
+        "teamGoalOrdinal": 1,
+        "playerGameGoalOrdinal": 1,
+        "playerSeasonGoalOrdinal": 1,
+        "gameId": 3375601,
+        "gameDate": "2026-10-18"
+      }
+    ],
     "verification": {
       "statementsFrom": "HTO official box score",
       "status": "SOURCE_VERIFIED",
       "gameBoxscoreMatched": true,
-      "unsupportedClaimsExcluded": true
+      "unsupportedClaimsExcluded": true,
+      "headToHeadSource": "Workbook AllTimeSchedule + HTO finalized games",
+      "goalNumbers": "Verified HTO scorer events ordered across completed season games"
     },
     "editorialState": "PENDING_FOUNDER_APPROVAL",
-    "evidenceFingerprint": "a325e3a82e442046cf48d0f88469c8ca9a7e626493d00ed2f9190c112278b2cc"
+    "evidenceFingerprint": "4f8cedcfa80cf6634a0a06437ef74cf8982afde414a229003ac5251b4ebd7e5e"
   },
   "gamePreview": {
     "headline": "Next Up: Brave H.C. Faces Big Bastones",
@@ -67,11 +106,78 @@
     "opponent": "Big Bastones",
     "puckDrop": "2026-10-25T18:15:00-04:00",
     "paragraphs": [
-      "Brave H.C.’s next scheduled opponent is Big Bastones on Sunday, October 25 at 6:15 pm ET at Vaughan Sports Village - A Rink.",
-      "The matchup is listed as a home game on the official HTO schedule. The club will be looking to build on its 6 goals scored through 4 completed games."
+      "Brave H.C. enters this matchup with a 3–2–1 regular-season record in 6 contested meetings against Big Bastones. Their previous regular-season meeting was on November 23, 2025, when Brave H.C. lost 1–3.",
+      "Across those 6 regular-season meetings, Brave H.C. has scored 18 goals and allowed 23. Including 1 playoff meeting, the all-competition record is 3–3–1.",
+      "The teams met twice in the 2025–26 winter season, with Brave H.C. recording a 4–2 win on October 5, then a 3–1 loss on November 23.",
+      "The next game is scheduled for Sunday, October 25 at 6:15 pm ET at Vaughan Sports Village - A Rink, listed as a home game."
     ],
     "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=preview&sportsHQ=BRAVESHOCKEY&gameID=3375682",
-    "editorialState": "PENDING_FOUNDER_APPROVAL"
+    "editorialState": "PENDING_FOUNDER_APPROVAL",
+    "headToHead": {
+      "regularSeason": {
+        "gp": 6,
+        "w": 3,
+        "l": 2,
+        "t": 1,
+        "gf": 18,
+        "ga": 23
+      },
+      "allTime": {
+        "gp": 7,
+        "w": 3,
+        "l": 3,
+        "t": 1,
+        "gf": 18,
+        "ga": 28
+      },
+      "playoffs": {
+        "gp": 1,
+        "w": 0,
+        "l": 1,
+        "t": 0,
+        "gf": 0,
+        "ga": 5
+      },
+      "lastRegular": {
+        "source": "Master Workbook AllTimeSchedule",
+        "sourceRow": 352,
+        "gameNumber": 344,
+        "date": "2025-11-23",
+        "season": "W2025/26",
+        "gameType": "Regular Season",
+        "opponent": "Big Bastones",
+        "gf": 1,
+        "ga": 3,
+        "result": "L"
+      },
+      "lastTwoRegular": [
+        {
+          "source": "Master Workbook AllTimeSchedule",
+          "sourceRow": 352,
+          "gameNumber": 344,
+          "date": "2025-11-23",
+          "season": "W2025/26",
+          "gameType": "Regular Season",
+          "opponent": "Big Bastones",
+          "gf": 1,
+          "ga": 3,
+          "result": "L"
+        },
+        {
+          "source": "Master Workbook AllTimeSchedule",
+          "sourceRow": 346,
+          "gameNumber": 338,
+          "date": "2025-10-05",
+          "season": "W2025/26",
+          "gameType": "Regular Season",
+          "opponent": "Big Bastones",
+          "gf": 4,
+          "ga": 2,
+          "result": "W"
+        }
+      ],
+      "recordScope": "Exact normalized opponent name only; no assumed team aliases"
+    }
   },
   "archive": [
     {
@@ -88,8 +194,9 @@
         "displayDate": "Sunday, October 4, 2026",
         "dek": "Official final: Brave H.C. 2, Michelob Morts 3.",
         "paragraphs": [
+          "Brave H.C. had no earlier contested regular-season result against Michelob Morts in its historical schedule under that team name.",
           "Brave H.C. fell 3–2 to Michelob Morts on October 4.",
-          "Justin Carosi scored 1 goal. Henry Kong scored 1 goal. The assists went to Adam Kober (1), Damian Pavaday (1), Michael Provenzano (1).",
+          "Henry Kong scored his first goal of the season at 7:10 of the first period. Justin Carosi scored his 3rd goal of the season at 3:29 of the first period. The assists went to Adam Kober (1), Damian Pavaday (1), Michael Provenzano (1).",
           "The teams were 2–2 after one period. The period scoring was 2–2, 0–0, 0–1 from Brave H.C.’s perspective. Adam Carlyle was listed in goal for Brave H.C."
         ],
         "boxScore": {
@@ -115,14 +222,66 @@
           "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=3369564&p=boxscore"
         ],
         "videoEvidence": null,
+        "opponentHistory": {
+          "beforeGame": {
+            "gp": 0,
+            "w": 0,
+            "l": 0,
+            "t": 0,
+            "gf": 0,
+            "ga": 0
+          },
+          "beforeGameAllTime": {
+            "gp": 0,
+            "w": 0,
+            "l": 0,
+            "t": 0,
+            "gf": 0,
+            "ga": 0
+          },
+          "previousRegularSeasonMeeting": null,
+          "sourceScope": "Exact normalized opponent name only; no assumed team aliases"
+        },
+        "goalEvents": [
+          {
+            "player": "Kong, Henry",
+            "no": "34",
+            "period": 1,
+            "clock": "7:10",
+            "periodSeconds": 430,
+            "strength": "ES",
+            "officialText": "34 Henry Kong (12 Adam Kober, Damian Pavaday)",
+            "teamGoalOrdinal": 1,
+            "playerGameGoalOrdinal": 1,
+            "playerSeasonGoalOrdinal": 1,
+            "gameId": 3369564,
+            "gameDate": "2026-10-04"
+          },
+          {
+            "player": "Carosi, Justin",
+            "no": "89",
+            "period": 1,
+            "clock": "3:29",
+            "periodSeconds": 209,
+            "strength": "ES",
+            "officialText": "89 Justin Carosi (25 Michael Provenzano)",
+            "teamGoalOrdinal": 2,
+            "playerGameGoalOrdinal": 1,
+            "playerSeasonGoalOrdinal": 3,
+            "gameId": 3369564,
+            "gameDate": "2026-10-04"
+          }
+        ],
         "verification": {
           "statementsFrom": "HTO official box score",
           "status": "SOURCE_VERIFIED",
           "gameBoxscoreMatched": true,
-          "unsupportedClaimsExcluded": true
+          "unsupportedClaimsExcluded": true,
+          "headToHeadSource": "Workbook AllTimeSchedule + HTO finalized games",
+          "goalNumbers": "Verified HTO scorer events ordered across completed season games"
         },
         "editorialState": "PENDING_FOUNDER_APPROVAL",
-        "evidenceFingerprint": "3cdde1b0d318e182d82a7c23d1439f320cb6329634158f83f7196e2423954f93"
+        "evidenceFingerprint": "36c06804605fa380f04af91c4d451cfcade3232831eb883e88f1006ae24cf461"
       }
     },
     {
@@ -139,8 +298,9 @@
         "displayDate": "Sunday, September 27, 2026",
         "dek": "Official final: Brave H.C. 3, Mohawks H.C. 6.",
         "paragraphs": [
+          "Before this game, Brave H.C. held a 16–18–8 regular-season record in 42 contested meetings with Mohawks H.C. Their previous regular-season meeting was on September 14, 2025, when Brave H.C. lost 2–3.",
           "Brave H.C. fell 6–3 to Mohawks H.C. on September 27.",
-          "Justin Carosi scored 2 goals. Adam Kober scored 1 goal. The assists went to Alex Pagnotta (2), Michael Provenzano (2), Henry Kong (1).",
+          "Justin Carosi scored his 1st of the game (1st of the season) at 9:26 of the second period, and his 2nd of the game (2nd of the season) at 5:30 of the third period. Adam Kober scored his first goal of the season at 1:20 of the third period. The assists went to Alex Pagnotta (2), Michael Provenzano (2), Henry Kong (1).",
           "The teams were 0–1 after one period. The period scoring was 0–1, 1–2, 2–3 from Brave H.C.’s perspective. Stephen Logue was listed in goal for Brave H.C."
         ],
         "boxScore": {
@@ -166,14 +326,91 @@
           "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=3356178&p=boxscore"
         ],
         "videoEvidence": null,
+        "opponentHistory": {
+          "beforeGame": {
+            "gp": 42,
+            "w": 16,
+            "l": 18,
+            "t": 8,
+            "gf": 161,
+            "ga": 155
+          },
+          "beforeGameAllTime": {
+            "gp": 49,
+            "w": 19,
+            "l": 19,
+            "t": 11,
+            "gf": 190,
+            "ga": 170
+          },
+          "previousRegularSeasonMeeting": {
+            "source": "Master Workbook AllTimeSchedule",
+            "sourceRow": 343,
+            "gameNumber": 335,
+            "date": "2025-09-14",
+            "season": "W2025/26",
+            "gameType": "Regular Season",
+            "opponent": "Mohawks HC",
+            "gf": 2,
+            "ga": 3,
+            "result": "L"
+          },
+          "sourceScope": "Exact normalized opponent name only; no assumed team aliases"
+        },
+        "goalEvents": [
+          {
+            "player": "Carosi, Justin",
+            "no": "89",
+            "period": 2,
+            "clock": "9:26",
+            "periodSeconds": 566,
+            "strength": "ES",
+            "officialText": "89 Justin Carosi (25 Michael Provenzano, 44 Alex Pagnotta)",
+            "teamGoalOrdinal": 1,
+            "playerGameGoalOrdinal": 1,
+            "playerSeasonGoalOrdinal": 1,
+            "gameId": 3356178,
+            "gameDate": "2026-09-27"
+          },
+          {
+            "player": "Carosi, Justin",
+            "no": "89",
+            "period": 3,
+            "clock": "5:30",
+            "periodSeconds": 330,
+            "strength": "ES",
+            "officialText": "89 Justin Carosi (25 Michael Provenzano)",
+            "teamGoalOrdinal": 2,
+            "playerGameGoalOrdinal": 2,
+            "playerSeasonGoalOrdinal": 2,
+            "gameId": 3356178,
+            "gameDate": "2026-09-27"
+          },
+          {
+            "player": "Kober, Adam",
+            "no": "12",
+            "period": 3,
+            "clock": "1:20",
+            "periodSeconds": 80,
+            "strength": "ES",
+            "officialText": "12 Adam Kober (34 Henry Kong, 44 Alex Pagnotta)",
+            "teamGoalOrdinal": 3,
+            "playerGameGoalOrdinal": 1,
+            "playerSeasonGoalOrdinal": 1,
+            "gameId": 3356178,
+            "gameDate": "2026-09-27"
+          }
+        ],
         "verification": {
           "statementsFrom": "HTO official box score",
           "status": "SOURCE_VERIFIED",
           "gameBoxscoreMatched": true,
-          "unsupportedClaimsExcluded": true
+          "unsupportedClaimsExcluded": true,
+          "headToHeadSource": "Workbook AllTimeSchedule + HTO finalized games",
+          "goalNumbers": "Verified HTO scorer events ordered across completed season games"
         },
         "editorialState": "PENDING_FOUNDER_APPROVAL",
-        "evidenceFingerprint": "5721cf978e0e3a9e0cccc0dd49c082d6fc7043b303e20d975b12b8635f1c6f27"
+        "evidenceFingerprint": "e02673a8a97bbaf5af6c760c1f03fac7cecdbe5353327cefcfed66eff002dc01"
       }
     },
     {
@@ -190,8 +427,9 @@
         "displayDate": "Sunday, September 20, 2026",
         "dek": "Official final: Brave H.C. 0, Dateline Predators 3.",
         "paragraphs": [
+          "Before this game, Brave H.C. held a 8–2–0 regular-season record in 10 contested meetings with Dateline Predators. Their previous regular-season meeting was on March 1, 2026, when Brave H.C. lost 3–4.",
           "Brave H.C. fell 3–0 to Dateline Predators on September 20.",
-          "Brave H.C. was held off the scoresheet.",
+          "Brave H.C. did not score in this game.",
           "The teams were 0–0 after one period. The period scoring was 0–0, 0–2, 0–1 from Brave H.C.’s perspective. Dev Leong was listed in goal for Brave H.C."
         ],
         "boxScore": {
@@ -217,14 +455,48 @@
           "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=3356177&p=boxscore"
         ],
         "videoEvidence": null,
+        "opponentHistory": {
+          "beforeGame": {
+            "gp": 10,
+            "w": 8,
+            "l": 2,
+            "t": 0,
+            "gf": 41,
+            "ga": 22
+          },
+          "beforeGameAllTime": {
+            "gp": 12,
+            "w": 8,
+            "l": 4,
+            "t": 0,
+            "gf": 47,
+            "ga": 32
+          },
+          "previousRegularSeasonMeeting": {
+            "source": "Master Workbook AllTimeSchedule",
+            "sourceRow": 365,
+            "gameNumber": 355,
+            "date": "2026-03-01",
+            "season": "W2025/26",
+            "gameType": "Regular Season",
+            "opponent": "Dateline Predators",
+            "gf": 3,
+            "ga": 4,
+            "result": "L"
+          },
+          "sourceScope": "Exact normalized opponent name only; no assumed team aliases"
+        },
+        "goalEvents": [],
         "verification": {
           "statementsFrom": "HTO official box score",
           "status": "SOURCE_VERIFIED",
           "gameBoxscoreMatched": true,
-          "unsupportedClaimsExcluded": true
+          "unsupportedClaimsExcluded": true,
+          "headToHeadSource": "Workbook AllTimeSchedule + HTO finalized games",
+          "goalNumbers": "Verified HTO scorer events ordered across completed season games"
         },
         "editorialState": "PENDING_FOUNDER_APPROVAL",
-        "evidenceFingerprint": "4ef3b9b7db57acf3d60ebe89567e00a13c56b6aa2ffe185fcee8c317e322b473"
+        "evidenceFingerprint": "dde67b41326f48c5733579f071faba4c9888606106fb9cd8e84ea84cf656294b"
       }
     }
   ],

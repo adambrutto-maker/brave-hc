@@ -68,10 +68,27 @@ function feature(section,a,includePreview){
   const p=publication.gamePreview;
   const sub=$("section","preview");
   sub.append($("h3",null,p.headline));
+  const statbar=headToHeadStats(p);
+  if(statbar)sub.append(statbar);
   for(const text of p.paragraphs)sub.append($("p",null,text));
   sub.append(link("Next game details ↗",p.sourceUrl));
   section.append($("h3","section-header","Coming up"),sub);
  }
+}
+function headToHeadStats(p){
+ const h=p?.headToHead?.regularSeason;
+ if(!h||!Number.isInteger(h.gp)||h.gp<1)return null;
+ const wrap=$("div","h2h-stats");
+ for(const item of [
+  ["REGULAR-SEASON H2H",h.w+"–"+h.l+"–"+h.t],
+  ["MEETINGS",h.gp],
+  ["GOALS FOR / AGAINST",h.gf+" / "+h.ga]
+ ]){
+  const slot=$("div","h2h-metric");
+  slot.append($("span","h2h-number",item[1]),$("span","h2h-label",item[0]));
+  wrap.append(slot);
+ }
+ return wrap;
 }
 function preview(section){
  const p=publication.gamePreview;
@@ -79,6 +96,8 @@ function preview(section){
  section.append($("span","tag","Pregame preview · HTO schedule"));
  section.append($("h2",null,p.headline));
  const summary=$("div","preview");
+ const statbar=headToHeadStats(p);
+ if(statbar)summary.append(statbar);
  for(const line of p.paragraphs){summary.append($("p",null,line))}
  summary.append(link("View official schedule ↗",p.sourceUrl));section.append(summary);
  section.append($("p","note","Based on the latest published HTO schedule; projected lineups and player availability are not verified."));

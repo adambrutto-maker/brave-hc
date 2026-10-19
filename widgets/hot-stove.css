@@ -58,3 +58,10 @@ body.embedded{background:transparent}
  .tab{font-size:9px;padding:6px 4px}
  .meta{font-size:9px}
 }
+
+/* Evidence-backed opponent history, using the original Brave H.C. navy/red UI. */
+.h2h-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:5px;margin:4px 0 11px}
+.h2h-metric{min-width:0;text-align:center;padding:7px 3px;border:1px solid #60829f;border-top:2px solid #ce2035;background:#091e33}
+.h2h-number{display:block;font-weight:900;color:#f5f8fc;font-size:17px;line-height:1.15;font-variant-numeric:tabular-nums}
+.h2h-label{display:block;color:#b7cce0;font-size:8px;font-weight:800;letter-spacing:.04em;margin-top:4px}
+@media(max-width:480px){.h2h-number{font-size:13px}.h2h-label{font-size:7px}.h2h-metric{padding:6px 2px}}
