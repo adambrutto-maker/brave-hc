@@ -100,7 +100,8 @@ jobs:
               stale=(datetime.now(timezone.utc)-last).total_seconds()>12*3600
           except ValueError:
               stale=True
-          if new['games']!=old.get('games') or stale:
+          if (new['games']!=old.get('games') or
+              new.get('missingFixtureReviews',[])!=old.get('missingFixtureReviews',[]) or stale):
               target.parent.mkdir(parents=True,exist_ok=True)
               target.write_text(json.dumps(new,indent=2)+'\n')
               print('Verified SVHL changes or 12-hour freshness stamp staged')
