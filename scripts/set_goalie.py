@@ -63,8 +63,9 @@ def update_assignment(feed: dict, data: dict, game_key: str, goalie: str, actor:
     if revision is not None and not isinstance(revision, str):
         raise ValueError("Invalid fixture revision")
     # The same goalie can be explicitly re-confirmed after a reschedule.
-    reconfirm = bool(fixture.get("requiresGoalieReconfirmation") and goalie != "TBD" and
-                     revision and confirmed_revisions.get(game_key) != revision)
+    review_reason = bool(fixture.get("requiresGoalieReconfirmation") and goalie != "TBD")
+    reconfirm = bool(review_reason and revision and
+                     confirmed_revisions.get(game_key) != revision)
     if old == goalie and not reconfirm:
         return data, False
 
@@ -79,7 +80,7 @@ def update_assignment(feed: dict, data: dict, game_key: str, goalie: str, actor:
     data["lastChange"] = {
         "key": game_key, "date": fixture["date"], "opponent": fixture["opponent"],
         "previous": old, "confirmed": goalie, "actor": actor[:80],
-        "reason": ("manager reconfirmation after league schedule change" if reconfirm
+        "reason": ("manager reconfirmation after league schedule change" if review_reason
                    else "manager assignment")
     }
     return data, True
