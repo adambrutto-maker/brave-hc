@@ -129,6 +129,42 @@ function card(row,index,isReference){
  }
  return wrapper;
 }
+function isVerifiedWeeklyRace(data,race,participants){
+ if(data.season!=="W2026/27"||!data.seasonRaceMode?.currentModelScoresVerified
+    ||race?.status!=="VERIFIED_CURRENT_WEEK"||!Array.isArray(race.entries)
+    ||!Number.isInteger(data.currentTeamGP)||data.currentTeamGP<1
+    ||data.sourceWorkbookRecordedGP!==data.currentTeamGP
+    ||race.modelGameCount!==data.currentTeamGP
+    ||data.sourceModelParity?.mismatches!==0
+    ||!(/^[a-f0-9]{64}$/i).test(data.sourceWorkbookHash||"")
+    ||!/^\\d{4}-\\d{2}-\\d{2}$/.test(race.asOf||"")
+    ||race.asOf<data.latestGameDate
+    ||!participants||participants.season!==data.season
+    ||participants.officialTeamGames!==data.currentTeamGP
+    ||participants.status!=="UNRANKED_VERIFIED_SEASON_APPEARANCES_NOT_AWARD_SCORES"
+    ||!Array.isArray(participants.players))return false;
+ const named=new Map(participants.players.map(x=>[x.name,x]));
+ if(named.size!==participants.players.length||race.entries.length>5)return false;
+ const seen=new Set();
+ for(const player of race.entries){
+  const official=named.get(player.name);
+  if(!official||seen.has(player.name)||!Number.isInteger(player.gamesPlayed)||player.gamesPlayed<1
+      ||player.gamesPlayed>data.currentTeamGP||player.gamesPlayed!==official.gp
+      ||typeof player.eligible!=="boolean")return false;
+  seen.add(player.name);
+  const kind=player.scoreKind;
+  if(kind==="AWARD_MODEL_PENDING"){
+   if(player.modelScore!==null&&player.modelScore!==undefined)return false;
+  }else if(kind==="WORKBOOK_REGULAR_SEASON_STAT_COUNT"){
+   if(!Number.isInteger(player.modelScore)||player.modelScore<0)return false;
+  }else if(kind==="OFFICIAL_WORKBOOK_FINAL"){
+   if(!player.eligible||!Number.isFinite(player.modelScore)||player.modelScore<50||player.modelScore>100)return false;
+  }else if(kind==="WORKBOOK_RAW_COMPOSITE_PROVISIONAL"){
+   if(player.eligible||!Number.isFinite(player.modelScore)||!Number.isFinite(player.rawComposite))return false;
+  }else return false;
+ }
+ return true;
+}
 function renderSeasonParticipants(){
  const d=state.source,source=state.participation;
  if(!source||d.currentTeamGP<1||source.season!==d.season||source.officialTeamGames!==d.currentTeamGP
@@ -160,14 +196,14 @@ function draw(){
   const race=d.races[state.award];
   // Hard UI fail-closed check: player must actually play during this season,
   // even if a stale upstream file incorrectly flags him as eligible.
-  const valid=d.seasonRaceMode.currentModelScoresVerified&&race?.status==="VERIFIED_CURRENT_WEEK";
+  const valid=isVerifiedWeeklyRace(d,race,state.participation);
   if(d.currentTeamGP===0){
    notice("The season has not started. Award races open only after the first verified game.",false);
    DOM.region.append($("div","empty","No games played — award board empty."));
   }else if(!valid){
    notice("The team has played "+d.currentTeamGP+" verified games. Current award scores are being recalculated against those games; saved old-season ratings are kept separate.");
    const box=$("div","empty");el(box,"strong",null,"This week's model ratings aren't ready yet");
-   el(box,"p",null,"Award rankings stay empty until the workbook's scoring results and games played agree. We don't substitute points, old ratings, or players with zero appearances.");
+   el(box,"p",null,"Award rankings remain empty until the workbook scores, game dates and participants match the verified season. We don't substitute old ratings, other stats or players with zero appearances.");
    DOM.region.append(box);
    // All named appearances are displayed separately from the withheld award-model race.
   }else{
