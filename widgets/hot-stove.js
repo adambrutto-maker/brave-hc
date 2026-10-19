@@ -35,6 +35,13 @@ function header(){
  heading.append($("h1",null,"BRAVE H.C. HOT STOVE"));
  heading.append($("p",null,"Game recaps · Pregame outlook · Season archive"));
  brand.append(img,heading);panel.append(brand);
+ if(!isReview){
+  const view=$("a","expand-article","Open full article in a new tab ↗");
+  view.href=location.origin+location.pathname;
+  view.target="_blank";view.rel="noopener noreferrer";
+  view.setAttribute("aria-label","Open the complete Brave H.C. Hot Stove article without the HTO frame");
+  panel.append(view);
+ }
  return {shell,panel};
 }
 function tabs(panel){
@@ -209,16 +216,7 @@ function feature(section,a,includePreview){
  if(!includePreview&&a.followingGamePreview)archivedNextGame(section,a.followingGamePreview);
  if(includePreview)verifiedClubNotes(section);
  if(includePreview&&publication.gamePreview){
-  const p=publication.gamePreview;
-  const sub=$("section","preview");
-  sub.append($("h3",null,p.headline));
-  const statbar=headToHeadStats(p);
-  if(statbar)sub.append(statbar);
-  for(const text of p.paragraphs)sub.append($("p",null,text));
-  sub.append(link("Next game details ↗",p.sourceUrl));
-  section.append($("h3","section-header","Coming up"),sub);
-  playerSpotlight(section,p,true);
-  verifiedUpcomingWatch(section,p);
+  section.append($("p","next-tab-hint","Want the full Big Bastones matchup analysis and player outlook? Select Next game above."));
  }
 }
 function headToHeadStats(p){
