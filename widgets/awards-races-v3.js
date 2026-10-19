@@ -76,17 +76,33 @@ function card(row,index,isReference){
  if(isReference)el(center,"p","tiny","Not a current-season nominee");
  const scoreButton=el(main,"button","ratingbtn");scoreButton.type="button";
  const valid=typeof score==="number"&&Number.isFinite(score);
- const range=valid?badge(Number(score)):["neutral","Pending"];
- const orb=el(scoreButton,"span","orb "+range[0]);orb.style.setProperty("--value",String(valid?Math.max(0,Math.min(100,Number(score))):0));
- el(orb,"b",null,valid?Math.round(Number(score)):"—");
- el(orb,"span",null,isReference?"OVR":"MODEL");
- scoreButton.setAttribute("aria-label","Explain "+row.name+" overall rating");
- const low=el(wrapper,"p","rating-label",isReference?range[1]+" · saved rating":kind==="WORKBOOK_REGULAR_SEASON_STAT_COUNT"?"Goals / points":row.eligible?"Workbook final":"Raw model / provisional");
+ // Final eligible award ratings use public 50–100 conditional colours.
+ // Raw composites and scoring-title counts are *not* equivalent ratings.
+ const genuineFinal=isReference||kind==="OFFICIAL_WORKBOOK_FINAL";
+ const isCount=kind==="WORKBOOK_REGULAR_SEASON_STAT_COUNT";
+ const range=valid&&genuineFinal?badge(Number(score)):["neutral",valid?"Source value":"Pending"];
+ const orb=el(scoreButton,"span","orb "+range[0]);orb.style.setProperty("--value",String(valid&&genuineFinal?Math.max(0,Math.min(100,Number(score))):0));
+ el(orb,"b",null,valid?(genuineFinal&&Number.isInteger(score)?score:Number(score).toFixed(isCount?0:1)):"—");
+ el(orb,"span",null,isReference?"OVR":kind==="AWARD_MODEL_PENDING"?"WAIT":isCount?"STAT":genuineFinal?"OVR":"RAW");
+ scoreButton.setAttribute("aria-label",valid?"Explain "+row.name+" "+(genuineFinal?"award rating":"source score"):"Explain why "+row.name+"'s award rating is pending");
+ const low=el(wrapper,"p","rating-label",isReference?range[1]+" · saved rating":kind==="AWARD_MODEL_PENDING"?"Rating pending":isCount?"Regular-season "+(state.award==="rocket"?"goals":"points"):genuineFinal?"Workbook final rating":"Provisional raw model score");
  const region=el(wrapper,"div","explain hide");region.setAttribute("role","region");region.setAttribute("aria-live","polite");
  const toggle=fn=>{region.classList.remove("hide");fn()};
- scoreButton.addEventListener("click",()=>toggle(()=>explainOverall(region,row,state.explain?.races?.[state.award]?.[row.name])));
- scoreButton.addEventListener("mouseenter",()=>toggle(()=>explainOverall(region,row,state.explain?.races?.[state.award]?.[row.name])));
- scoreButton.addEventListener("focus",()=>toggle(()=>explainOverall(region,row,state.explain?.races?.[state.award]?.[row.name])));
+ const revealOverall=()=>{
+  if(isReference){
+   explainOverall(region,row,state.explain?.races?.[state.award]?.[row.name]);
+  }else{
+   region.replaceChildren();
+   el(region,"h4",null,valid?"This season's verified model output":"Rating pending");
+   el(region,"p",null,valid?
+    (isCount?"This is a regular-season statistical count, not a 50–100 award rating.":genuineFinal?"Final eligible award rating from the current model.":"Provisional raw composite from the current model; not comparable to final award ratings."):
+    "This player has appeared this season, but the award-model calculation is not yet verified. No score has been assigned.");
+   el(region,"p","tiny","Current-season explanations must come from their own recalculated AwardScoring evidence; historical player formulas are never attached to this season's ratings.");
+  }
+ };
+ scoreButton.addEventListener("click",()=>toggle(revealOverall));
+ scoreButton.addEventListener("mouseenter",()=>toggle(revealOverall));
+ scoreButton.addEventListener("focus",()=>toggle(revealOverall));
  if(isReference){
   const breakdown=state.explain?.races?.[state.award]?.[row.name];
   if(breakdown?.components?.length){
@@ -142,7 +158,7 @@ function draw(){
   }else{
    let rows=(race.entries||[]).filter(x=>Number.isFinite(+x.gamesPlayed)&&+x.gamesPlayed>=1&&+x.gamesPlayed<=d.currentTeamGP&&typeof x.eligible==="boolean"&&(Number.isFinite(x.modelScore)||x.scoreKind==="AWARD_MODEL_PENDING"));
    rows.sort((a,b)=>Number(b.eligible)-Number(a.eligible)||(b.eligible?(Number(b.rankKey)||0)-(Number(a.rankKey)||0):0)||(Number(b.rawComposite)||0)-(Number(a.rawComposite)||0)||a.name.localeCompare(b.name));rows=rows.slice(0,5);
-   notice(rows.length?"Qualified players lead; provisional players fill only the remaining places. Each person has at least one verified appearance.":"No current-season players have verified scores for this award.",false);
+   notice(rows.length?"Qualified players lead; provisional players fill only the remaining places. Each has appeared at least once, and any uncalculated rating is labelled pending.":"No current-season players have a verified appearance in this award category.",false);
    if(!rows.length)DOM.region.append($("div","empty","No verified award participants yet."));
    else rows.forEach((r,i)=>DOM.region.append(card(r,i,false)));
   }
