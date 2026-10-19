@@ -21,6 +21,22 @@
 | REVIEW_HTO_ONLY | HTO game not found in SVHL; manager investigates cancellation, never automatically deletes scored or historic games |
 | REVIEW_OR_ADD | Game identity ambiguous; manager reviews, avoiding duplicates |
 
+## Automatic HTO correction packets (read-only)
+
+The reconciliation workflow now generates **two audit files** every successful run: `reconciliation.json` (structured evidence) and `hto-review.md` (human-readable, field-by-field corrections). Both are retained with the workflow's short-lived GitHub artifact. No HTO admin write is performed.
+
+When a mismatch appears, the single GitHub issue titled **SVHL → HTO: schedule reconciliation required** identifies the correction type, HTO game ID/link, complete league fixture, current HTO fixture and each differing field as **HTO → SVHL**. It then gives the manager the appropriate edit/add/investigate action.
+
+- **EDIT_HTO:** Preserve the existing game ID; update only the differing date/time/rink/home-away values after checking SVHL.
+- **REVIEW_RESCHEDULE:** Confirm a date move, retain the existing HTO game ID/history and seek goalie reconfirmation.
+- **REVIEW_IDENTITY:** A possible opponent substitution or ambiguous game match must be verified manually before any edit.
+- **ADD_HTO / REVIEW_OR_ADD:** Search the full season before using New Game, ensuring duplicates are not introduced.
+- **REVIEW_HTO_ONLY:** Investigate the league schedule before considering a cancellation. Never automatically delete an HTO record, especially one containing statistics.
+
+The issue body updates only when actual correction details change, and the issue automatically closes after SVHL and HTO again agree. A clean run produces an evidence file stating **No discrepancies**.
+
+GitHub workflow artifacts and issues are not guaranteed to alert the administrator immediately; configure GitHub repository notifications if prompt human action is required.
+
 ## Manager action — adding or editing an HTO game
 1. Open **HTO Admin → Schedule → Schedule & Results** using an authorized team account.
 2. Find the game's current **HTO game ID** in the reconciliation issue, and locate the corresponding game in the schedule list.
