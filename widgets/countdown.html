@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Brave H.C. — Next Game Countdown</title>
+<style>
+:root{color-scheme:dark;--red:#b91326;--snow:#f6f8fc;--dim:#c4d4e5}
+*{box-sizing:border-box}
+html,body{margin:0;min-width:0;padding:0;font-family:Arial,"Arial Narrow",sans-serif;background:#0b1627;color:var(--snow)}
+.wrap{max-width:630px;width:100%;margin:0 auto;background:linear-gradient(115deg,#620b14,#b91326 30%,#d32936 52%,#9b091a 78%,#45070f);padding:5px;border:1px solid #d8e1eb}
+.panel{border:2px solid #a9bdcf;padding:9px 10px 8px;background:
+ linear-gradient(115deg,transparent,rgba(27,71,113,.14),transparent 65%),
+ radial-gradient(ellipse at 50% 0%,#163756 0%,#071629 75%);}
+.title{border-bottom:2px solid #961c2a;padding:1px 0 8px;display:flex;align-items:center;justify-content:center;gap:8px}
+.crest{height:38px;width:38px;object-fit:contain;flex-shrink:0}
+.headline{font-weight:900;font-size:clamp(14px,3.15vw,18px);line-height:1.08;text-align:center;letter-spacing:.015em;text-transform:uppercase}
+.eyebrow{font-size:10px;letter-spacing:.18em;color:#bfd1e6;font-weight:800;text-align:center;margin:6px 0 0}
+.matchmeta{font-size:11px;text-align:center;font-weight:800;color:#e3ebf3;margin:5px 0 8px}
+.timer{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px;align-items:stretch}
+.unit{min-width:0;background:linear-gradient(170deg,#091d33,#143552 78%,#0b1d30);border:1px solid #69859e;border-top:2px solid #c72336;border-radius:3px;padding:6px 2px 5px;text-align:center;box-shadow:inset 0 1px 1px #253d5c}
+.amount{font-variant-numeric:tabular-nums;font-size:clamp(24px,6vw,41px);line-height:1.02;font-weight:900;letter-spacing:.015em;color:#fff}
+.unit-name{font-size:9px;color:#c7d9ea;font-weight:850;text-transform:uppercase;letter-spacing:.14em;margin-top:5px}
+.status{font-size:9px;color:#baccde;text-align:center;margin:6px 0 0;min-height:11px;font-weight:700}
+.status.live{color:#ffe1a2}.status.alert{color:#ffccbd}
+.details{display:flex;gap:7px;justify-content:center;margin-top:5px;font-size:9px}
+.details a{color:#e0eefa;text-decoration:underline;text-underline-offset:2px}
+.hidden{display:none!important}
+.embedded{background:transparent}
+.embedded .wrap{max-width:none;border:0;padding:4px}
+@media(max-width:480px){
+ .panel{padding:6px 5px 7px}
+ .title{padding-bottom:5px;gap:5px}
+ .crest{height:30px;width:30px}
+ .headline{font-size:clamp(12px,3.7vw,16px)}
+ .eyebrow{font-size:8.5px;margin-top:4px}
+ .matchmeta{font-size:9.5px;margin:4px 0 6px}
+ .timer{gap:4px}
+ .unit{padding:5px 0 4px}
+ .amount{font-size:clamp(22px,7vw,32px)}
+ .unit-name{font-size:7.6px;letter-spacing:.08em;margin-top:3px}
+ .status{font-size:8px}
+ .details{font-size:8px}
+}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<main class="panel" aria-label="Brave H.C. next-game countdown">
+<header class="title"><img src="./brave_hc_logo.png" class="crest" alt="Brave H.C. crest">
+<div id="title" class="headline">Brave H.C. — Next Game</div></header>
+<div class="eyebrow" id="eyebrow">SVHL WINTER 2026/27</div>
+<div id="gameInfo" class="matchmeta">Checking the official HTO schedule…</div>
+<div class="timer" role="timer" aria-label="Countdown to puck drop">
+<div class="unit"><div class="amount" id="days">--</div><div class="unit-name">Days</div></div>
+<div class="unit"><div class="amount" id="hours">--</div><div class="unit-name">Hours</div></div>
+<div class="unit"><div class="amount" id="minutes">--</div><div class="unit-name">Minutes</div></div>
+<div class="unit"><div class="amount" id="seconds">--</div><div class="unit-name">Seconds</div></div>
+</div>
+<p class="status" id="status" role="status">Loading verified schedule</p>
+<div class="details"><a id="source" href="https://www.htosports.com/teams/default.asp?p=schedule&amp;s=hockey&amp;u=BRAVESHOCKEY" rel="noopener noreferrer" target="_blank">Official HTO schedule ↗</a></div>
+</main></div>
+<script>
+(function(){
+"use strict";
+if(new URLSearchParams(location.search).has("embed"))document.body.classList.add("embedded");
+const ids=["days","hours","minutes","seconds"];
+let schedule=null,selectedId=null,lastPhase=null,lastFetch=0,fetching=false;
+function select(games,at){
+ for(const game of games){
+  const start=Date.parse(game.puckDropUTC),end=Date.parse(game.rolloverAtUTC);
+  if(!Number.isFinite(start)||!Number.isFinite(end)||end-start!==3600000)continue;
+  if(at<end)return {game,phase:at<start?"countdown":"live",remaining:Math.max(0,start-at)};
+ }
+ return {game:null,phase:"awaiting",remaining:0};
+}
+function pieces(ms){
+ const n=Math.max(0,Math.ceil(ms/1000));
+ return [Math.floor(n/86400),Math.floor(n%86400/3600),Math.floor(n%3600/60),n%60];
+}
+window.BraveCountdownTest=Object.freeze({select,pieces});
+function number(id,num){document.getElementById(id).textContent=String(num).padStart(2,"0")}
+function showUnavailable(){
+ if(selectedId!=="none"){
+  document.getElementById("title").textContent="Brave H.C. — Next Game";
+  document.getElementById("gameInfo").textContent="Next game not yet published";
+ }
+ selectedId="none";lastPhase="awaiting";
+ ids.forEach(id=>document.getElementById(id).textContent="--");
+}
+function display(){
+ const now=Date.now();
+ const status=document.getElementById("status");
+ if(!schedule||!Array.isArray(schedule.games)){showUnavailable();return}
+ const state=select(schedule.games,now);
+ if(!state.game){
+  showUnavailable();
+  status.className="status alert";
+  status.textContent="Schedule update pending · check HTO for newly added games";
+  if(now-lastFetch>=60000)refresh(true);
+  return;
+ }
+ const {game,phase,remaining}=state;
+ if(selectedId!==game.id||lastPhase!==phase){
+  selectedId=game.id;lastPhase=phase;
+  document.getElementById("title").textContent="Brave H.C. vs "+game.opponent;
+  const time=new Intl.DateTimeFormat("en-CA",{timeZone:"America/Toronto",weekday:"short",month:"short",day:"numeric",hour:"numeric",minute:"2-digit",hour12:true}).format(new Date(game.puckDropUTC));
+  document.getElementById("gameInfo").textContent=time+" ET · "+game.homeAway+" · "+game.rink;
+ }
+ const parts=pieces(remaining);
+ ids.forEach((id,i)=>number(id,parts[i]));
+ if(phase==="live"){
+  status.className="status live";
+  status.textContent="GAME IN PROGRESS · Next opponent appears 60 minutes after puck drop";
+ }else{
+  status.className="status";
+  status.textContent="Counts down to scheduled puck drop · Automatic next-game rollover";
+ }
+}
+function accept(d){
+ if(d.schema!=="brave-hc-upcoming-countdown/v1"||d.team!=="Brave H.C."||
+    d.rolloverPolicy?.offsetMinutesAfterPuckDrop!==60||!Array.isArray(d.games))throw Error("Unverified HTO schedule");
+ let prev=0;
+ const used=new Set();
+ for(const g of d.games){
+  const start=Date.parse(g.puckDropUTC),end=Date.parse(g.rolloverAtUTC);
+  if(!Number.isFinite(start)||!Number.isFinite(end)||end-start!==3600000||start<prev||used.has(g.id)||!g.opponent||!g.rink)
+   throw Error("Schedule order or game integrity failure");
+  used.add(g.id);prev=start;
+ }
+ return d;
+}
+async function refresh(force){
+ if(fetching||(!force&&Date.now()-lastFetch<300000))return;
+ fetching=true;lastFetch=Date.now();
+ try{
+  const r=await fetch("./countdown.json",{cache:"no-store"});
+  if(!r.ok)throw Error("HTTP "+r.status);
+  schedule=accept(await r.json());
+  display();
+ }catch(e){
+  if(!schedule){
+   showUnavailable();
+   const s=document.getElementById("status");s.className="status alert";
+   s.textContent="HTO schedule temporarily unavailable";
+  }
+ }finally{fetching=false}
+}
+refresh(true);
+setInterval(display,1000);
+setInterval(()=>refresh(false),60000);
+document.addEventListener("visibilitychange",()=>{if(!document.hidden){display();refresh(true)}});
+})();
+</script>
+</body></html>

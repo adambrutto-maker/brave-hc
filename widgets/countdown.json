@@ -1,0 +1,83 @@
+{
+  "schema": "brave-hc-upcoming-countdown/v1",
+  "team": "Brave H.C.",
+  "season": "W2026/27",
+  "sourceAuthority": "HTO official schedule, preview game links",
+  "sourceURL": "https://www.htosports.com/teams/default.asp?p=schedule&s=hockey&u=BRAVESHOCKEY",
+  "timezone": "America/Toronto",
+  "rolloverPolicy": {
+    "offsetMinutesAfterPuckDrop": 60,
+    "condition": "clock threshold, not official final score"
+  },
+  "generatedAt": "2026-10-19T04:12:47.296827Z",
+  "sourcePages": [
+    "https://www.htosports.com/teams/default.asp?p=schedule&s=hockey&u=BRAVESHOCKEY&d=20261001",
+    "https://www.htosports.com/teams/default.asp?p=schedule&s=hockey&u=BRAVESHOCKEY&d=20261101",
+    "https://www.htosports.com/teams/default.asp?p=schedule&s=hockey&u=BRAVESHOCKEY&d=20261201",
+    "https://www.htosports.com/teams/default.asp?p=schedule&s=hockey&u=BRAVESHOCKEY&d=20270101",
+    "https://www.htosports.com/teams/default.asp?p=schedule&s=hockey&u=BRAVESHOCKEY&d=20270201",
+    "https://www.htosports.com/teams/default.asp?p=schedule&s=hockey&u=BRAVESHOCKEY&d=20270301",
+    "https://www.htosports.com/teams/default.asp?p=schedule&s=hockey&u=BRAVESHOCKEY&d=20270401",
+    "https://www.htosports.com/teams/default.asp?p=schedule&s=hockey&u=BRAVESHOCKEY&d=20270501",
+    "https://www.htosports.com/teams/default.asp?p=schedule&s=hockey&u=BRAVESHOCKEY&d=20270601",
+    "https://www.htosports.com/teams/default.asp?p=schedule&s=hockey&u=BRAVESHOCKEY&d=20270701",
+    "https://www.htosports.com/teams/default.asp?p=schedule&s=hockey&u=BRAVESHOCKEY&d=20270801"
+  ],
+  "games": [
+    {
+      "id": 3375682,
+      "opponent": "Big Bastones",
+      "homeAway": "Home",
+      "rink": "Vaughan Sports Village - A Rink",
+      "gameDate": "2026-10-25",
+      "puckDrop": "2026-10-25T18:15:00-04:00",
+      "puckDropUTC": "2026-10-25T22:15:00Z",
+      "rolloverAtUTC": "2026-10-25T23:15:00Z",
+      "eventURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=preview&sportsHQ=BRAVESHOCKEY&gameID=3375682"
+    },
+    {
+      "id": 3375683,
+      "opponent": "Mid Ice Crisis",
+      "homeAway": "Away",
+      "rink": "Vaughan Sports Village - D Rink",
+      "gameDate": "2026-11-01",
+      "puckDrop": "2026-11-01T20:15:00-05:00",
+      "puckDropUTC": "2026-11-02T01:15:00Z",
+      "rolloverAtUTC": "2026-11-02T02:15:00Z",
+      "eventURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=preview&sportsHQ=BRAVESHOCKEY&gameID=3375683"
+    },
+    {
+      "id": 3375684,
+      "opponent": "Other Way",
+      "homeAway": "Home",
+      "rink": "Vaughan Sports Village - D Rink",
+      "gameDate": "2026-11-08",
+      "puckDrop": "2026-11-08T21:15:00-05:00",
+      "puckDropUTC": "2026-11-09T02:15:00Z",
+      "rolloverAtUTC": "2026-11-09T03:15:00Z",
+      "eventURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=preview&sportsHQ=BRAVESHOCKEY&gameID=3375684"
+    },
+    {
+      "id": 3375685,
+      "opponent": "Dateline Predators",
+      "homeAway": "Home",
+      "rink": "Vaughan Sports Village - A Rink",
+      "gameDate": "2026-11-15",
+      "puckDrop": "2026-11-15T20:15:00-05:00",
+      "puckDropUTC": "2026-11-16T01:15:00Z",
+      "rolloverAtUTC": "2026-11-16T02:15:00Z",
+      "eventURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=preview&sportsHQ=BRAVESHOCKEY&gameID=3375685"
+    },
+    {
+      "id": 3375686,
+      "opponent": "Mohawks H.C.",
+      "homeAway": "Home",
+      "rink": "Vaughan Sports Village - A Rink",
+      "gameDate": "2026-11-22",
+      "puckDrop": "2026-11-22T20:15:00-05:00",
+      "puckDropUTC": "2026-11-23T01:15:00Z",
+      "rolloverAtUTC": "2026-11-23T02:15:00Z",
+      "eventURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=preview&sportsHQ=BRAVESHOCKEY&gameID=3375686"
+    }
+  ]
+}
