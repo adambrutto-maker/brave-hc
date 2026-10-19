@@ -1,59 +1,81 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Brave H.C. — Goalie assignments</title>
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Brave H.C. — Goaltender Manager</title>
 <style>
-*{box-sizing:border-box}body{font:14px/1.5 Arial,sans-serif;background:#08172b;color:#f4f8fc;margin:0;padding:25px 12px}
-main{max-width:1020px;margin:auto;padding:24px;background:#102a42;border:1px solid #476479;border-top:5px solid #d32641;border-radius:10px}
-h1{margin:4px 0 12px;font-size:24px}p{color:#c5d4e1}a{color:#fff}
-table{border-collapse:collapse;width:100%;margin:18px 0}
-th,td{text-align:left;padding:12px 8px;border-bottom:1px solid #35546a}
-th{color:#afc5d6;font-size:11px}
-select{padding:8px;background:#1b405a;border:1px solid #67869e;color:white;max-width:100%}
-button{background:#ce2844;color:white;border:0;border-radius:5px;padding:10px 16px;cursor:pointer;margin:5px 8px 5px 0}
+*{box-sizing:border-box}body{background:#08172b;color:#f8fafc;font:14px/1.55 Arial,sans-serif;margin:0;padding:20px 12px}
+main{max-width:1050px;margin:auto;background:#102a42;border:1px solid #476479;border-top:5px solid #d32641;border-radius:10px;padding:24px}
+small{font-weight:bold;letter-spacing:1px;color:#ffb6c5}h1{font-size:24px;margin:5px 0 10px;color:white}
+h2{font-size:16px;color:white}p{color:#c9dce8}a{color:#fff;text-decoration:underline}a:hover{color:#ffd6df}
+table{border-collapse:collapse;width:100%;min-width:640px;margin:18px 0}
+th,td{text-align:left;padding:12px 8px;border-bottom:1px solid #35546a;color:#fff}
+th{color:#e0f1fc;font-size:11px;letter-spacing:.5px}tr:nth-child(even){background:#16364e}
+select{padding:9px;background:#1b405a;border:1px solid #95b4ca;color:#fff;max-width:240px}
+button,.btn{display:inline-block;background:#ce2844;color:white;border:0;border-radius:5px;padding:9px 12px;font-weight:bold;cursor:pointer;text-decoration:none}
 button:disabled{opacity:.5;cursor:not-allowed}
-#status{padding:12px;background:#19364e;border-radius:5px}
+#status{padding:12px;background:#19364e;border:1px solid #536f83;border-radius:5px;color:#fff}
+section{border-top:1px solid #35546a;margin-top:18px;padding-top:8px}
+.notice{background:#19364e;padding:10px 12px;border-radius:5px;color:#f6fcff}
 </style></head><body><main>
-<strong>BRAVE H.C. · INTERNAL MANAGER WORKFLOW</strong>
-<h1>Goaltender confirmations</h1>
-<p>This page does not store passwords or change the website automatically. Only a repository editor can publish goalie choices. Select the goalie for each official SVHL game, then copy the JSON into GitHub while signed in.</p>
-<div id="status" role="status">Loading official league schedule…</div>
-<div style="overflow-x:auto"><table><thead><tr><th>GAME</th><th>START / RINK</th><th>GOALIE</th></tr></thead><tbody id="games"></tbody></table></div>
-<button id="copy" disabled>Copy updated JSON</button><button id="download" disabled>Download JSON</button>
-<p>Open <a href="https://github.com/adambrutto-maker/brave-hc/edit/main/widgets/goalie-assignments.json" target="_blank" rel="noopener">goalie-assignments.json in GitHub ↗</a>, paste the copied JSON over the file, review your changes, and commit. Do not enter a token into this page or HTO.</p>
-<p><a href="https://leagues.sportsvillage.ca/Leagues.aspx?leagueid=570&amp;page_type=Adult&amp;sc=HOCKEY#Schedule" target="_blank" rel="noopener">Official SVHL schedule ↗</a></p>
-</main>
-<script>
+<small>BRAVE H.C. · 2026–27 · GOALIE ADMINISTRATION</small><h1>Goaltender confirmations</h1>
+<p>Schedule details come from the official SVHL fixture list. Select a goalie below, then use the secure GitHub workflow to publish that confirmation. No GitHub token is entered into this page.</p>
+<div id="status" role="status">Loading official league schedule and current goalie confirmations…</div>
+<div style="overflow-x:auto"><table><thead><tr><th>SVHL GAME</th><th>START / RINK</th><th>GOALIE</th><th>SAVE VIA GITHUB</th></tr></thead><tbody id="games"></tbody></table></div>
+<section>
+<h2>Publishing a goaltender confirmation</h2>
+<p>Click <strong>Prepare assignment</strong> beside a game. Its game key is copied and the <a href="https://github.com/adambrutto-maker/brave-hc/actions/workflows/brave-goalie-confirm.yml" target="_blank" rel="noopener noreferrer">authenticated GitHub Save Workflow ↗</a> opens. In GitHub, choose <strong>Run workflow</strong>, paste the game key, select that goalie, set <strong>dry_run = false</strong> and run. Confirm the workflow reports success. Repository write access is required.</p>
+<p class="notice">This page is a manager aid, not an authenticated editor by itself. It does not save changes when a dropdown is selected. A GitHub commit is the confirmation receipt.</p>
+<p><a href="https://leagues.sportsvillage.ca/Leagues.aspx?leagueid=570&amp;page_type=Adult&amp;sc=HOCKEY#Schedule" target="_blank" rel="noopener noreferrer">Official SVHL schedule ↗</a> · <a href="https://github.com/adambrutto-maker/brave-hc/blob/main/widgets/goalie-assignments.json" target="_blank" rel="noopener noreferrer">Current saved assignments ↗</a></p>
+</section>
+</main><script>
 (async function(){
+'use strict';
 const FEED='https://adambrutto-maker.github.io/brave-hc/widgets/svhl-upcoming.json';
 const GOALIES='https://raw.githubusercontent.com/adambrutto-maker/brave-hc/main/widgets/goalie-assignments.json';
+const WORKFLOW='https://github.com/adambrutto-maker/brave-hc/actions/workflows/brave-goalie-confirm.yml';
 const $=id=>document.getElementById(id);
-const choices=['Dev Leong','Stephen Logue','TBD','Adam Carlyle','Matt Svec','Steve Noyek'];
-let record={};
-function json(){
- const next={...record,schema:'brave-hc-goalie-assignments/v1',updatedAt:new Date().toISOString(),assignments:{...(record.assignments||{})}};
- for(const el of document.querySelectorAll('select[data-game]'))next.assignments[el.dataset.game]=el.value;
- return JSON.stringify(next,null,2)+'\n';
-}
+const options=['Dev Leong','Stephen Logue','TBD','Adam Carlyle','Matt Svec','Steve Noyek','Other / rental'];
 try{
- const r=await fetch(FEED+'?t='+Date.now(),{cache:'no-store'});
- if(!r.ok)throw Error('League feed HTTP '+r.status);
- const feed=await r.json();
- if(feed.schema!=='brave-hc-svhl-schedule/v1'||!Array.isArray(feed.games))throw Error('Invalid league data');
- try{const old=await fetch(GOALIES+'?t='+Date.now(),{cache:'no-store'});if(old.ok)record=await old.json();}catch(e){}
+ const [r,a]=await Promise.all([
+   fetch(FEED+'?t='+Date.now(),{cache:'no-store'}),
+   fetch(GOALIES+'?t='+Date.now(),{cache:'no-store'})
+ ]);
+ if(!r.ok||!a.ok)throw Error('SVHL feed or saved goalie confirmations could not be read');
+ const feed=await r.json(), data=await a.json();
+ if(feed.schema!=='brave-hc-svhl-schedule/v1'||!Array.isArray(feed.games))throw Error('Invalid league fixture format');
+ if(data.schema!=='brave-hc-goalie-assignments/v1'||!data.assignments)throw Error('Invalid saved-goalie format');
+ if(!feed.games.length)throw Error('No upcoming SVHL games found');
+ const age=Date.now()-new Date(feed.checkedAt).getTime();
+ if(!Number.isFinite(age)||age>72*3600*1000||age< -15*60*1000)throw Error('SVHL verification is stale. Request a schedule refresh before assigning a goalie.');
  for(const game of feed.games){
    const row=document.createElement('tr');
-   const date=document.createElement('td');date.textContent=game.date+' · '+game.opponent;
-   const time=document.createElement('td');time.textContent=game.time+' · '+game.rink;
-   const cell=document.createElement('td');const sel=document.createElement('select');sel.dataset.game=game.assignmentKey;
-   const selected=(record.assignments||{})[game.assignmentKey]||'TBD';
-   for(const name of [...choices,...(choices.includes(selected)?[]:[selected])]){
-     const option=document.createElement('option');option.value=name;option.textContent=(choices.indexOf(name)<2?'CURRENT · ':'')+name;
-     option.selected=name===selected;sel.append(option);
+   const col1=document.createElement('td'),col2=document.createElement('td');
+   const col3=document.createElement('td'),col4=document.createElement('td');
+   col1.textContent=game.date+' · '+game.opponent;
+   col2.textContent=game.time+' · '+game.rink;
+   const sel=document.createElement('select');
+   sel.setAttribute('aria-label','Goalie for '+game.date+' '+game.opponent);
+   const selected=data.assignments[game.assignmentKey]||'TBD';
+   for(const name of [...options,...(options.includes(selected)?[]:[selected])]){
+     const opt=document.createElement('option');opt.value=name;
+     opt.textContent=(options.indexOf(name)<2?'CURRENT · ':'')+name;
+     opt.selected=name===selected;sel.append(opt);
    }
-   cell.append(sel);row.append(date,time,cell);$('games').append(row);
+   const btn=document.createElement('button');btn.type='button';
+   btn.textContent='Prepare assignment';
+   btn.addEventListener('click',async()=>{
+     const choice=sel.value;
+     try{
+       await navigator.clipboard.writeText(game.assignmentKey);
+       $('status').textContent='Copied '+game.assignmentKey+'. In GitHub: paste Game Key, select "'+choice+'", disable dry-run, then run workflow.';
+     }catch(e){
+       $('status').textContent='Copy this game key into GitHub: '+game.assignmentKey+'. Choose "'+choice+'" and disable dry-run.';
+     }
+     window.open(WORKFLOW,'_blank','noopener,noreferrer');
+   });
+   col3.append(sel);col4.append(btn);row.append(col1,col2,col3,col4);$('games').append(row);
  }
- $('status').textContent=feed.games.length+' upcoming games loaded. Save selections through your GitHub sign-in.';
- $('copy').disabled=false;$('download').disabled=false;
- $('copy').onclick=async()=>{try{await navigator.clipboard.writeText(json());$('status').textContent='Copied. Paste into GitHub and commit.';}catch(e){$('status').textContent='Clipboard blocked; use Download JSON.';}};
- $('download').onclick=()=>{const url=URL.createObjectURL(new Blob([json()],{type:'application/json'}));const link=document.createElement('a');link.href=url;link.download='goalie-assignments.json';link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);};
-}catch(e){$('status').textContent='Unable to load manager: '+e.message;}
+ $('status').textContent=feed.games.length+' upcoming official league games loaded. Choose a goalie and use Prepare assignment.';
+}catch(e){$('status').textContent='Manager not ready: '+e.message;}
 })();
 </script></body></html>
