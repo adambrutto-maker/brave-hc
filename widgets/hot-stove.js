@@ -226,6 +226,34 @@ function render(){
  "Approved Brave H.C. Hot Stove article. Game facts sourced from official HTO box scores. Video and player quotations are included only when independently verified."));
  root.append(shell);
 }
+async function applyArchiveEditorial(data){
+ if(!isReview||!Array.isArray(data.archive))return;
+ try{
+  const response=await fetch("./hot-stove-archive-editorial.json",{cache:"no-store"});
+  if(!response.ok)return;
+  const overlay=await response.json();
+  if(overlay.schema!=="brave-hc-hot-stove-archive-editorial/v1"||
+     overlay.editorialState!=="DRAFT_NOT_APPROVED"||!Array.isArray(overlay.articles))return;
+  const byId=new Map(overlay.articles.map(a=>[a.id,a]));
+  for(const entry of data.archive){
+   const a=entry.article,edit=byId.get(a?.id);
+   if(!edit||a.verification?.status!=="SOURCE_VERIFIED"||
+      a.id!==edit.id||a.date!==edit.date||a.gameId!==edit.gameId||
+      a.evidenceFingerprint!==edit.evidenceFingerprint||
+      a.boxScore?.opponent!==edit.opponent||
+      a.boxScore?.ourGoals!==edit.ourGoals||a.boxScore?.theirGoals!==edit.theirGoals)continue;
+   if(typeof edit.headline!=="string"||typeof edit.dek!=="string"||
+      !Array.isArray(edit.paragraphs)||edit.paragraphs.length<3||
+      edit.paragraphs.some(p=>typeof p!=="string"||p.length>900))continue;
+   const outlook=edit.followingGamePreview;
+   if(!outlook||!Array.isArray(outlook.paragraphs)||
+      !outlook.paragraphs.every(p=>typeof p==="string"&&p.length<=1200)||
+      !/^https:\/\/www\.htosports\.com\//.test(outlook.sourceUrl||""))continue;
+   a.headline=edit.headline;a.dek=edit.dek;
+   a.paragraphs=edit.paragraphs;a.followingGamePreview=outlook;
+  }
+ }catch(_err){/* Generated source article remains available if the editorial overlay cannot load. */}
+}
 async function boot(){
  try{
   const response=await fetch(pathname,{cache:"no-store"});
@@ -235,6 +263,7 @@ async function boot(){
   if(isReview&&data.editorialState!=="DRAFT_NOT_APPROVED")throw Error("Not a review draft");
   if(!isReview&&data.editorialState!=="FOUNDER_APPROVED")throw Error("Unapproved article cannot publish");
   articleFacts(data.latestArticle);
+  await applyArchiveEditorial(data);
   publication=data;render();
  }catch(e){
   root.replaceChildren();
