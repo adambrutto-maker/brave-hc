@@ -77,11 +77,19 @@
     .sort((a, b) => b.length - a.length)
     .map(s => s.split(' ').map(escapeRegex).join('[\\s\\u00a0]+'))
     .join('|') + ')(?=$|[^\\p{L}\\p{N}])', 'giu');
-  const excluded = new Set(['A','BUTTON','CODE','NOSCRIPT','OPTION','PRE','SCRIPT','SELECT','STYLE','SVG','TEXTAREA']);
+  const excluded = new Set(['A','BUTTON','CODE','IFRAME','INPUT','LABEL','NOSCRIPT','OPTION','PRE','SCRIPT','SELECT','STYLE','SUMMARY','SVG','TEXTAREA']);
   function eligible(node) {
     const p = node.parentElement;
     if (!p || !node.nodeValue || !node.nodeValue.trim()) return false;
-    for (let el = p; el; el = el.parentElement) if (excluded.has(el.tagName) || el.isContentEditable) return false;
+    for (let el = p; el; el = el.parentElement) {
+      if (excluded.has(el.tagName) || el.isContentEditable) return false;
+      // HTO native roster cells and some results use their own click navigation.
+      // Do not nest an anchor inside an existing clickable HTO surface; an anchor
+      // in an onclick cell would open the player in two tabs or override HTO.
+      if (el.classList && (el.classList.contains('playerRow') || el.classList.contains('nameLabel'))) return false;
+      if (el.getAttribute && (el.getAttribute('role') === 'link' ||
+          (el.tagName !== 'BODY' && el.tagName !== 'HTML' && el.hasAttribute('onclick')))) return false;
+    }
     return true;
   }
   function linkText(node) {
