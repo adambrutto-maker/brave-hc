@@ -65,13 +65,13 @@ try{
    btn.textContent='Prepare assignment';
    btn.addEventListener('click',async()=>{
      const choice=sel.value;
+     window.open(WORKFLOW,'_blank','noopener,noreferrer');
      try{
        await navigator.clipboard.writeText(game.assignmentKey);
        $('status').textContent='Copied '+game.assignmentKey+'. In GitHub: paste Game Key, select "'+choice+'", disable dry-run, then run workflow.';
      }catch(e){
        $('status').textContent='Copy this game key into GitHub: '+game.assignmentKey+'. Choose "'+choice+'" and disable dry-run.';
      }
-     window.open(WORKFLOW,'_blank','noopener,noreferrer');
    });
    col3.append(sel);col4.append(btn);row.append(col1,col2,col3,col4);$('games').append(row);
  }
