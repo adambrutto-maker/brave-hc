@@ -58,6 +58,19 @@
         ],
         "sourceKind": "HTO_SCORES_AND_BOX_SCORE_EVENTS_RECONCILED",
         "publicationLimit": "Verified event input, not normalized workbook award subscore"
+      },
+      "verifiedHTOScoringByStrength": {
+        "evenStrengthGoals": 0,
+        "evenStrengthAssists": 0,
+        "powerPlayGoals": 0,
+        "powerPlayAssists": 0,
+        "shorthandedGoals": 0,
+        "shorthandedAssists": 0,
+        "publishedSpecialTeamsPointGames": 0,
+        "sourceGameIds": [
+          3356177
+        ],
+        "sourceStatus": "EXACT_HTO_GOAL_SCORER_AND_ASSISTANT_EVENTS_RECONCILED_NOT_AWARD_SCORE"
       }
     },
     {
@@ -101,6 +114,20 @@
         ],
         "sourceKind": "HTO_SCORES_AND_BOX_SCORE_EVENTS_RECONCILED",
         "publicationLimit": "Verified event input, not normalized workbook award subscore"
+      },
+      "verifiedHTOScoringByStrength": {
+        "evenStrengthGoals": 0,
+        "evenStrengthAssists": 0,
+        "powerPlayGoals": 0,
+        "powerPlayAssists": 0,
+        "shorthandedGoals": 0,
+        "shorthandedAssists": 0,
+        "publishedSpecialTeamsPointGames": 0,
+        "sourceGameIds": [
+          3356178,
+          3369564
+        ],
+        "sourceStatus": "EXACT_HTO_GOAL_SCORER_AND_ASSISTANT_EVENTS_RECONCILED_NOT_AWARD_SCORE"
       }
     },
     {
@@ -146,6 +173,22 @@
         ],
         "sourceKind": "HTO_SCORES_AND_BOX_SCORE_EVENTS_RECONCILED",
         "publicationLimit": "Verified event input, not normalized workbook award subscore"
+      },
+      "verifiedHTOScoringByStrength": {
+        "evenStrengthGoals": 0,
+        "evenStrengthAssists": 0,
+        "powerPlayGoals": 0,
+        "powerPlayAssists": 0,
+        "shorthandedGoals": 0,
+        "shorthandedAssists": 0,
+        "publishedSpecialTeamsPointGames": 0,
+        "sourceGameIds": [
+          3356177,
+          3356178,
+          3369564,
+          3375601
+        ],
+        "sourceStatus": "EXACT_HTO_GOAL_SCORER_AND_ASSISTANT_EVENTS_RECONCILED_NOT_AWARD_SCORE"
       }
     },
     {
@@ -220,6 +263,22 @@
         ],
         "sourceKind": "HTO_SCORES_AND_BOX_SCORE_EVENTS_RECONCILED",
         "publicationLimit": "Verified event input, not normalized workbook award subscore"
+      },
+      "verifiedHTOScoringByStrength": {
+        "evenStrengthGoals": 3,
+        "evenStrengthAssists": 0,
+        "powerPlayGoals": 0,
+        "powerPlayAssists": 0,
+        "shorthandedGoals": 0,
+        "shorthandedAssists": 0,
+        "publishedSpecialTeamsPointGames": 0,
+        "sourceGameIds": [
+          3356177,
+          3356178,
+          3369564,
+          3375601
+        ],
+        "sourceStatus": "EXACT_HTO_GOAL_SCORER_AND_ASSISTANT_EVENTS_RECONCILED_NOT_AWARD_SCORE"
       }
     },
     {
@@ -262,6 +321,19 @@
         ],
         "sourceKind": "HTO_SCORES_AND_BOX_SCORE_EVENTS_RECONCILED",
         "publicationLimit": "Verified event input, not normalized workbook award subscore"
+      },
+      "verifiedHTOScoringByStrength": {
+        "evenStrengthGoals": 0,
+        "evenStrengthAssists": 0,
+        "powerPlayGoals": 0,
+        "powerPlayAssists": 0,
+        "shorthandedGoals": 0,
+        "shorthandedAssists": 0,
+        "publishedSpecialTeamsPointGames": 0,
+        "sourceGameIds": [
+          3356178
+        ],
+        "sourceStatus": "EXACT_HTO_GOAL_SCORER_AND_ASSISTANT_EVENTS_RECONCILED_NOT_AWARD_SCORE"
       }
     },
     {
@@ -304,6 +376,19 @@
         ],
         "sourceKind": "HTO_SCORES_AND_BOX_SCORE_EVENTS_RECONCILED",
         "publicationLimit": "Verified event input, not normalized workbook award subscore"
+      },
+      "verifiedHTOScoringByStrength": {
+        "evenStrengthGoals": 0,
+        "evenStrengthAssists": 0,
+        "powerPlayGoals": 0,
+        "powerPlayAssists": 0,
+        "shorthandedGoals": 0,
+        "shorthandedAssists": 0,
+        "publishedSpecialTeamsPointGames": 0,
+        "sourceGameIds": [
+          3356178
+        ],
+        "sourceStatus": "EXACT_HTO_GOAL_SCORER_AND_ASSISTANT_EVENTS_RECONCILED_NOT_AWARD_SCORE"
       }
     },
     {
@@ -348,6 +433,21 @@
         ],
         "sourceKind": "HTO_SCORES_AND_BOX_SCORE_EVENTS_RECONCILED",
         "publicationLimit": "Verified event input, not normalized workbook award subscore"
+      },
+      "verifiedHTOScoringByStrength": {
+        "evenStrengthGoals": 1,
+        "evenStrengthAssists": 1,
+        "powerPlayGoals": 0,
+        "powerPlayAssists": 0,
+        "shorthandedGoals": 0,
+        "shorthandedAssists": 0,
+        "publishedSpecialTeamsPointGames": 0,
+        "sourceGameIds": [
+          3356178,
+          3369564,
+          3375601
+        ],
+        "sourceStatus": "EXACT_HTO_GOAL_SCORER_AND_ASSISTANT_EVENTS_RECONCILED_NOT_AWARD_SCORE"
       }
     },
     {
@@ -399,6 +499,22 @@
         ],
         "sourceKind": "HTO_SCORES_AND_BOX_SCORE_EVENTS_RECONCILED",
         "publicationLimit": "Verified event input, not normalized workbook award subscore"
+      },
+      "verifiedHTOScoringByStrength": {
+        "evenStrengthGoals": 1,
+        "evenStrengthAssists": 1,
+        "powerPlayGoals": 0,
+        "powerPlayAssists": 0,
+        "shorthandedGoals": 0,
+        "shorthandedAssists": 0,
+        "publishedSpecialTeamsPointGames": 0,
+        "sourceGameIds": [
+          3356177,
+          3356178,
+          3369564,
+          3375601
+        ],
+        "sourceStatus": "EXACT_HTO_GOAL_SCORER_AND_ASSISTANT_EVENTS_RECONCILED_NOT_AWARD_SCORE"
       }
     },
     {
@@ -503,6 +619,22 @@
         ],
         "sourceKind": "HTO_SCORES_AND_BOX_SCORE_EVENTS_RECONCILED",
         "publicationLimit": "Verified event input, not normalized workbook award subscore"
+      },
+      "verifiedHTOScoringByStrength": {
+        "evenStrengthGoals": 0,
+        "evenStrengthAssists": 3,
+        "powerPlayGoals": 0,
+        "powerPlayAssists": 0,
+        "shorthandedGoals": 0,
+        "shorthandedAssists": 0,
+        "publishedSpecialTeamsPointGames": 0,
+        "sourceGameIds": [
+          3356177,
+          3356178,
+          3369564,
+          3375601
+        ],
+        "sourceStatus": "EXACT_HTO_GOAL_SCORER_AND_ASSISTANT_EVENTS_RECONCILED_NOT_AWARD_SCORE"
       }
     },
     {
@@ -545,6 +677,19 @@
         ],
         "sourceKind": "HTO_SCORES_AND_BOX_SCORE_EVENTS_RECONCILED",
         "publicationLimit": "Verified event input, not normalized workbook award subscore"
+      },
+      "verifiedHTOScoringByStrength": {
+        "evenStrengthGoals": 0,
+        "evenStrengthAssists": 0,
+        "powerPlayGoals": 0,
+        "powerPlayAssists": 0,
+        "shorthandedGoals": 0,
+        "shorthandedAssists": 0,
+        "publishedSpecialTeamsPointGames": 0,
+        "sourceGameIds": [
+          3356177
+        ],
+        "sourceStatus": "EXACT_HTO_GOAL_SCORER_AND_ASSISTANT_EVENTS_RECONCILED_NOT_AWARD_SCORE"
       }
     },
     {
@@ -587,6 +732,19 @@
         ],
         "sourceKind": "HTO_SCORES_AND_BOX_SCORE_EVENTS_RECONCILED",
         "publicationLimit": "Verified event input, not normalized workbook award subscore"
+      },
+      "verifiedHTOScoringByStrength": {
+        "evenStrengthGoals": 0,
+        "evenStrengthAssists": 1,
+        "powerPlayGoals": 0,
+        "powerPlayAssists": 0,
+        "shorthandedGoals": 0,
+        "shorthandedAssists": 0,
+        "publishedSpecialTeamsPointGames": 0,
+        "sourceGameIds": [
+          3369564
+        ],
+        "sourceStatus": "EXACT_HTO_GOAL_SCORER_AND_ASSISTANT_EVENTS_RECONCILED_NOT_AWARD_SCORE"
       }
     },
     {
@@ -631,6 +789,21 @@
         ],
         "sourceKind": "HTO_SCORES_AND_BOX_SCORE_EVENTS_RECONCILED",
         "publicationLimit": "Verified event input, not normalized workbook award subscore"
+      },
+      "verifiedHTOScoringByStrength": {
+        "evenStrengthGoals": 1,
+        "evenStrengthAssists": 0,
+        "powerPlayGoals": 0,
+        "powerPlayAssists": 0,
+        "shorthandedGoals": 0,
+        "shorthandedAssists": 0,
+        "publishedSpecialTeamsPointGames": 0,
+        "sourceGameIds": [
+          3356177,
+          3356178,
+          3375601
+        ],
+        "sourceStatus": "EXACT_HTO_GOAL_SCORER_AND_ASSISTANT_EVENTS_RECONCILED_NOT_AWARD_SCORE"
       }
     },
     {
@@ -681,6 +854,21 @@
         ],
         "sourceKind": "HTO_SCORES_AND_BOX_SCORE_EVENTS_RECONCILED",
         "publicationLimit": "Verified event input, not normalized workbook award subscore"
+      },
+      "verifiedHTOScoringByStrength": {
+        "evenStrengthGoals": 0,
+        "evenStrengthAssists": 0,
+        "powerPlayGoals": 0,
+        "powerPlayAssists": 0,
+        "shorthandedGoals": 0,
+        "shorthandedAssists": 0,
+        "publishedSpecialTeamsPointGames": 0,
+        "sourceGameIds": [
+          3356177,
+          3369564,
+          3375601
+        ],
+        "sourceStatus": "EXACT_HTO_GOAL_SCORER_AND_ASSISTANT_EVENTS_RECONCILED_NOT_AWARD_SCORE"
       }
     },
     {
@@ -726,6 +914,22 @@
         ],
         "sourceKind": "HTO_SCORES_AND_BOX_SCORE_EVENTS_RECONCILED",
         "publicationLimit": "Verified event input, not normalized workbook award subscore"
+      },
+      "verifiedHTOScoringByStrength": {
+        "evenStrengthGoals": 0,
+        "evenStrengthAssists": 0,
+        "powerPlayGoals": 0,
+        "powerPlayAssists": 0,
+        "shorthandedGoals": 0,
+        "shorthandedAssists": 0,
+        "publishedSpecialTeamsPointGames": 0,
+        "sourceGameIds": [
+          3356177,
+          3356178,
+          3369564,
+          3375601
+        ],
+        "sourceStatus": "EXACT_HTO_GOAL_SCORER_AND_ASSISTANT_EVENTS_RECONCILED_NOT_AWARD_SCORE"
       }
     },
     {
@@ -770,6 +974,21 @@
         ],
         "sourceKind": "HTO_SCORES_AND_BOX_SCORE_EVENTS_RECONCILED",
         "publicationLimit": "Verified event input, not normalized workbook award subscore"
+      },
+      "verifiedHTOScoringByStrength": {
+        "evenStrengthGoals": 0,
+        "evenStrengthAssists": 3,
+        "powerPlayGoals": 0,
+        "powerPlayAssists": 0,
+        "shorthandedGoals": 0,
+        "shorthandedAssists": 0,
+        "publishedSpecialTeamsPointGames": 0,
+        "sourceGameIds": [
+          3356177,
+          3356178,
+          3369564
+        ],
+        "sourceStatus": "EXACT_HTO_GOAL_SCORER_AND_ASSISTANT_EVENTS_RECONCILED_NOT_AWARD_SCORE"
       }
     },
     {
@@ -813,6 +1032,20 @@
         ],
         "sourceKind": "HTO_SCORES_AND_BOX_SCORE_EVENTS_RECONCILED",
         "publicationLimit": "Verified event input, not normalized workbook award subscore"
+      },
+      "verifiedHTOScoringByStrength": {
+        "evenStrengthGoals": 0,
+        "evenStrengthAssists": 0,
+        "powerPlayGoals": 0,
+        "powerPlayAssists": 0,
+        "shorthandedGoals": 0,
+        "shorthandedAssists": 0,
+        "publishedSpecialTeamsPointGames": 0,
+        "sourceGameIds": [
+          3356178,
+          3375601
+        ],
+        "sourceStatus": "EXACT_HTO_GOAL_SCORER_AND_ASSISTANT_EVENTS_RECONCILED_NOT_AWARD_SCORE"
       }
     },
     {
@@ -863,6 +1096,21 @@
         ],
         "sourceKind": "HTO_SCORES_AND_BOX_SCORE_EVENTS_RECONCILED",
         "publicationLimit": "Verified event input, not normalized workbook award subscore"
+      },
+      "verifiedHTOScoringByStrength": {
+        "evenStrengthGoals": 0,
+        "evenStrengthAssists": 0,
+        "powerPlayGoals": 0,
+        "powerPlayAssists": 0,
+        "shorthandedGoals": 0,
+        "shorthandedAssists": 0,
+        "publishedSpecialTeamsPointGames": 0,
+        "sourceGameIds": [
+          3356177,
+          3356178,
+          3369564
+        ],
+        "sourceStatus": "EXACT_HTO_GOAL_SCORER_AND_ASSISTANT_EVENTS_RECONCILED_NOT_AWARD_SCORE"
       }
     },
     {
@@ -907,6 +1155,21 @@
         ],
         "sourceKind": "HTO_SCORES_AND_BOX_SCORE_EVENTS_RECONCILED",
         "publicationLimit": "Verified event input, not normalized workbook award subscore"
+      },
+      "verifiedHTOScoringByStrength": {
+        "evenStrengthGoals": 0,
+        "evenStrengthAssists": 0,
+        "powerPlayGoals": 0,
+        "powerPlayAssists": 0,
+        "shorthandedGoals": 0,
+        "shorthandedAssists": 0,
+        "publishedSpecialTeamsPointGames": 0,
+        "sourceGameIds": [
+          3356178,
+          3369564,
+          3375601
+        ],
+        "sourceStatus": "EXACT_HTO_GOAL_SCORER_AND_ASSISTANT_EVENTS_RECONCILED_NOT_AWARD_SCORE"
       }
     },
     {
@@ -951,6 +1214,21 @@
         ],
         "sourceKind": "HTO_SCORES_AND_BOX_SCORE_EVENTS_RECONCILED",
         "publicationLimit": "Verified event input, not normalized workbook award subscore"
+      },
+      "verifiedHTOScoringByStrength": {
+        "evenStrengthGoals": 0,
+        "evenStrengthAssists": 1,
+        "powerPlayGoals": 0,
+        "powerPlayAssists": 0,
+        "shorthandedGoals": 0,
+        "shorthandedAssists": 0,
+        "publishedSpecialTeamsPointGames": 0,
+        "sourceGameIds": [
+          3356177,
+          3356178,
+          3375601
+        ],
+        "sourceStatus": "EXACT_HTO_GOAL_SCORER_AND_ASSISTANT_EVENTS_RECONCILED_NOT_AWARD_SCORE"
       }
     },
     {
@@ -1002,6 +1280,22 @@
         ],
         "sourceKind": "HTO_SCORES_AND_BOX_SCORE_EVENTS_RECONCILED",
         "publicationLimit": "Verified event input, not normalized workbook award subscore"
+      },
+      "verifiedHTOScoringByStrength": {
+        "evenStrengthGoals": 0,
+        "evenStrengthAssists": 0,
+        "powerPlayGoals": 0,
+        "powerPlayAssists": 0,
+        "shorthandedGoals": 0,
+        "shorthandedAssists": 0,
+        "publishedSpecialTeamsPointGames": 0,
+        "sourceGameIds": [
+          3356177,
+          3356178,
+          3369564,
+          3375601
+        ],
+        "sourceStatus": "EXACT_HTO_GOAL_SCORER_AND_ASSISTANT_EVENTS_RECONCILED_NOT_AWARD_SCORE"
       }
     }
   ],
@@ -1107,7 +1401,28 @@
       ],
       "awardScoreReleaseApproved": false
     },
-    "officialHTOInputModelStatus": "SOURCE_LEVEL_ONLY_AWARDS_MODEL_HELD"
+    "officialHTOInputModelStatus": "SOURCE_LEVEL_ONLY_AWARDS_MODEL_HELD",
+    "currentGoalStrengthLedger": {
+      "status": "HTO_PER_PLAYER_SIX_GOALS_TEN_ASSISTS_AND_STRENGTH_PARITY_PASS",
+      "verifiedGameIds": [
+        3356177,
+        3356178,
+        3369564,
+        3375601
+      ],
+      "latestGameDate": "2026-10-18",
+      "sourceEventCount": 6,
+      "goalSummary": {
+        "evenStrength": 6,
+        "powerPlay": 0,
+        "shorthanded": 0
+      },
+      "namedSkaters": 20,
+      "derivedHTOSpecialTeamsPointGames": 0,
+      "currentAwardScoringComponentScoreReady": false,
+      "provenance": "Exact named scorer/assistant event attribution from four official HTO public Score Summary tables",
+      "caveat": "No league or workbook historic/normalized rate inferred; zero recorded PP/SH game events is NOT a 50–100 special teams model score."
+    }
   },
   "workbookRookieRosterWatch": {
     "status": "SAVED_WORKBOOK_FT_ROOKIE_FLAG_CROSSCHECKED_WITH_HTO_CURRENT_SEASON_APPEARANCE",
