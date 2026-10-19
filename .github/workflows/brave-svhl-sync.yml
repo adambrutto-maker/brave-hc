@@ -12,6 +12,7 @@ on:
       - 'tests/test_goalie_issue.py'
       - '.github/workflows/brave-goalie-issue.yml'
       - 'tests/test_svhl_hto_parser.py'
+      - 'tests/test_svhl_snapshot_coverage.py'
       - 'tests/test_goalie_continuity.py'
       - 'tests/test_goalie_assignment.py'
       - 'tests/test_goalie_roster.py'
@@ -45,6 +46,8 @@ jobs:
         run: python -m unittest discover -s tests -p test_hto_review_packet.py
       - name: Validate verified HTO goalie roster and dropdown allowlist
         run: python -m unittest discover -s tests -p test_goalie_roster.py
+      - name: Reject partial league snapshots and persist missing-game review
+        run: python -m unittest discover -s tests -p test_svhl_snapshot_coverage.py
       - name: Validate goalie assignments through schedule changes
         run: python -m unittest discover -s tests -p test_goalie_continuity.py
       - name: Validate protected goalie confirmation logic
