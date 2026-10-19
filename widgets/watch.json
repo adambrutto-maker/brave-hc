@@ -5,29 +5,40 @@
   "sourceWorkbookHash": "0002fd9f06596af8d0a00fc1b53a618ef15479f941ad5c1e6265b27002a65154",
   "workbookAsOf": "2026-09-20",
   "lastVerifiedGameNumber": 359,
-  "latestOfficialCompletedGameDate": "2026-10-04",
-  "completedGames": 3,
+  "latestOfficialCompletedGameDate": "2026-10-18",
+  "completedGames": 4,
   "workbookScoreParity": false,
-  "sourceGameIndex": 361,
+  "sourceGameIndex": 362,
   "dataStatus": "HISTORICAL_WORKBOOK_SNAPSHOT",
   "sourceValidated": false,
   "dataIssue": "Workbook game-level scoring and career watch must be recalculated for completed matches; no current streak/milestone claim is permitted.",
-  "streaks": [
+  "streaks": [],
+  "records": [
     {
       "player": "Carosi, Justin",
-      "description": "POTG Streak: 3 games",
-      "type": "potgStreak",
-      "games": 3,
-      "through": "2026-10-04",
-      "sourceAuthority": "HTO boxscore per-game POTG & workbook threshold",
-      "gameIds": [
-        3356177,
-        3356178,
-        3369564
-      ]
+      "description": "300 Game Club Reached (Sep 20)",
+      "rankKey": 900000,
+      "type": "reached",
+      "category": "gp",
+      "threshold": 300,
+      "eventDate": "2026-09-20",
+      "remaining": null,
+      "careerTotal": null,
+      "source": "Workbook event threshold verified against HTO boxscore"
+    },
+    {
+      "player": "Provenzano, Michael",
+      "description": "50 Point Club Reached (Sep 27)",
+      "rankKey": 800000,
+      "type": "reached",
+      "category": "pts",
+      "threshold": 50,
+      "eventDate": "2026-09-27",
+      "remaining": null,
+      "careerTotal": null,
+      "source": "Workbook milestone crossing predicate using HTO official boxscore"
     }
   ],
-  "records": [],
   "archivedWorkbookRecords": [
     {
       "player": "Carosi, Justin",
@@ -49,8 +60,8 @@
       "POTG"
     ],
     "notCovered": [
-      "PIM milestone (HTO boxscore lacks pergame PIM)",
-      "goalie career milestones",
+      "PIM milestone (HTO boxscore lacks per-game PIM)",
+      "goalie career milestone checks",
       "single-game record announcements",
       "hat-trick record watches"
     ],
@@ -60,26 +71,43 @@
     ],
     "status": "VERIFIED_SUPPORTED_CATEGORIES_ONLY"
   },
-  "recordAsOf": "2026-10-04",
+  "recordAsOf": "2026-10-18",
   "streaksVerified": true,
-  "streaksAsOf": "2026-10-04",
-  "streaksDataStatus": "VERIFIED_THROUGH_LATEST_GAME",
+  "streaksAsOf": "2026-10-18",
+  "streaksDataStatus": "VERIFIED_SUPPORTED_CATEGORIES_PARTIAL",
+  "verifiedStreakCategories": [
+    "Point Streak",
+    "Goal Streak",
+    "Assist Streak",
+    "Multi-Point Streak",
+    "Multi-Goal Streak",
+    "POTG Streak",
+    "Plus Streak"
+  ],
+  "unverifiedStreakCategories": [
+    "PIM",
+    "Goalie streaks",
+    "Drought categories"
+  ],
   "verifiedStreakHistory": [
     {
       "player": "Carosi, Justin",
-      "description": "POTG Streak: 3 games",
+      "description": "POTG Streak: 0 games",
       "type": "potgStreak",
-      "games": 3,
-      "through": "2026-10-04",
+      "games": 0,
+      "through": "2026-10-18",
       "sourceAuthority": "HTO boxscore per-game POTG & workbook threshold",
       "gameIds": [
         3356177,
         3356178,
-        3369564
+        3369564,
+        3375601
       ]
     }
   ],
   "streakVerification": {
+    "supportedCategoryAudit": "VERIFIED_SUPPORTED_STREAK_CATEGORIES",
+    "HTOBoxscoreGames": 4,
     "observedGames": [
       {
         "date": "2026-09-20",
@@ -104,12 +132,20 @@
         "POTG": 1,
         "played": true,
         "source": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=3369564&p=boxscore"
+      },
+      {
+        "date": "2026-10-18",
+        "gameNumber": 362,
+        "htoGameId": 3375601,
+        "POTG": 0,
+        "played": true,
+        "source": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=3375601&p=boxscore"
       }
     ],
     "sourceCurrentTotals": {
-      "gp": 3,
+      "gp": 4,
       "potg": 3,
-      "teamGP": 3
+      "teamGP": 4
     },
     "workbookThreshold": 3
   },
@@ -124,5 +160,5 @@
     "hto": "https://www.htosports.com/teams/default.asp?p=stats&s=hockey&u=BRAVESHOCKEY",
     "svhl": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13679&page_type=Adult"
   },
-  "exportedAt": "2026-10-17T03:00:31.747280+00:00"
+  "exportedAt": "2026-10-19T03:52:22.092744+00:00"
 }
