@@ -48,3 +48,14 @@ Embed URL: https://adambrutto-maker.github.io/brave-hc/widgets/projection.html?e
 Projections are exact cached outputs of Brave H.C. Master Workbook > Player Projections > BravesRegularSeasonProjection. Never replace with a PPG extrapolation. Current preview is marked STALE_MODEL_HOLD because the source workbook recorded one game and SVHL recorded three. The source workbook must be recalculated and saved before current outputs can be released.
 
 The published JSON is served from projection.json; HTML polls it every five minutes. A BRUTTECH 1 scheduled publisher checks the master workbook for validated updated cached calculations and updates the public JSON without changing the HTO embed code. Updates are blocked if source GP is behind SVHL or the workbook model is older than seven days.
+
+## Shared player hyperlinks (staged 2026-10-19)
+
+All linked custom pages load `player-links.js`, a single shared player-identity resolver. It recognizes 24 verified public HTO player identities, including first-last and last-comma-first spellings. This uses HTO's native `playerID` in `p=profile` and links all verified name mentions in static and asynchronously rendered content. Existing hyperlinks, form controls and unrecognized names are never rewritten.
+
+HTO itself retains control of native roster, box-score, profile and historical-season views. We have NOT verified separate player-specific deep-link parameters for a particular game or season; therefore all player-name hyperlinks resolve to the official permanent HTO profile, where the viewer can select the relevant history. Never fabricate `gameID` or `viewseas` on a player-profile URL. A separate verified game boxscore link may accompany a game recap.
+
+For HTO native editable articles/homepage widgets, `HTO_PLAYER_LINKS_PASTE.txt` is a one-time HTO page-editor snippet. Adding it to an HTO page is a separate controlled administrative step: it has not been installed by this repository change. Native HTO-provided anchors remain untouched. The script should not be injected into an HTO native area without confirming the HTO editor supports permitted external scripts.
+
+Registry upkeep: record player name, public HTO `playerID`, discovery date/source, and identity uniqueness before adding a player. Do not guess IDs; unresolved or ambiguous names remain plain text. Extend the registry for verified alumni and season-specific appearances. Run `node --test tests/test_player_links.js` and browser DOM QA before releasing.
+
