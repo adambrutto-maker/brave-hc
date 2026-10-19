@@ -178,7 +178,13 @@
         "points": 2
       },
       "htoListedPosition": "F/D",
-      "htoPositionHasDefenceOption": true
+      "htoPositionHasDefenceOption": true,
+      "rookieRosterWatch": {
+        "sourceFlag": "Rookie Status = 1",
+        "firstRecordedSeason": "W2026/27",
+        "sourceRosterRole": "FT",
+        "awardEligibility": "NOT_VERIFIED"
+      }
     },
     {
       "name": "Leong, Dev",
@@ -305,7 +311,13 @@
         "points": 0
       },
       "htoListedPosition": "F",
-      "htoPositionHasDefenceOption": false
+      "htoPositionHasDefenceOption": false,
+      "rookieRosterWatch": {
+        "sourceFlag": "Rookie Status = 1",
+        "firstRecordedSeason": "W2026/27",
+        "sourceRosterRole": "FT",
+        "awardEligibility": "NOT_VERIFIED"
+      }
     },
     {
       "name": "Provenzano, Mario",
@@ -377,7 +389,13 @@
         "points": 0
       },
       "htoListedPosition": "D/LD",
-      "htoPositionHasDefenceOption": true
+      "htoPositionHasDefenceOption": true,
+      "rookieRosterWatch": {
+        "sourceFlag": "Rookie Status = 1",
+        "firstRecordedSeason": "W2026/27",
+        "sourceRosterRole": "FT",
+        "awardEligibility": "NOT_VERIFIED"
+      }
     },
     {
       "name": "Rosenberg, Jamie",
@@ -431,7 +449,13 @@
         "points": 0
       },
       "htoListedPosition": "LD",
-      "htoPositionHasDefenceOption": true
+      "htoPositionHasDefenceOption": true,
+      "rookieRosterWatch": {
+        "sourceFlag": "Rookie Status = 1",
+        "firstRecordedSeason": "W2026/27",
+        "sourceRosterRole": "FT",
+        "awardEligibility": "NOT_VERIFIED"
+      }
     }
   ],
   "excludedIdentityPlaceholder": [
@@ -491,5 +515,20 @@
       "goaliesChecked": 3,
       "semantics": "HTO position listing is NOT proof of award-specific eligibility; dual-role players are position candidates only."
     }
+  },
+  "workbookRookieRosterWatch": {
+    "status": "SAVED_WORKBOOK_FT_ROOKIE_FLAG_CROSSCHECKED_WITH_HTO_CURRENT_SEASON_APPEARANCE",
+    "source": "Master Workbook AwardScoring -> First Season, Rookie Status, Current Roster Status",
+    "savedWorkbookSnapshot": "2026-09-22",
+    "sourceWorkbookSha256": "0002fd9f06596af8d0a00fc1b53a618ef15479f941ad5c1e6265b27002a65154",
+    "year": "W2026/27",
+    "watchedPlayers": [
+      "Kong, Henry",
+      "Povegliano, Adam",
+      "Rajkumar, Sanjay",
+      "Triumbari, Francesco"
+    ],
+    "watchedCount": 4,
+    "caveat": "Roster-based first-season full-time watch only. Saved workbook not current for award scoring; this is not an award ranking, nominee declaration, or proof of all Rookie of the Year eligibility conditions."
   }
 }
