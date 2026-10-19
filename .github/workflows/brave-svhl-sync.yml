@@ -29,6 +29,8 @@ jobs:
         run: pip install 'requests>=2.31,<3' 'beautifulsoup4>=4.12,<5'
       - name: Validate source parser
         run: python tests/test_svhl_hto_parser.py
+      - name: Validate protected goalie confirmation logic
+        run: python -m unittest discover -s tests -p test_goalie_assignment.py
       - name: Validate public widget and manager JavaScript
         run: |
           python - <<'PY'
