@@ -1,0 +1,461 @@
+{
+  "schema": "brave-hc-hot-stove-roster-context/v1",
+  "team": "Brave H.C.",
+  "season": "W2026/27",
+  "generatedFromAsOf": "2026-10-19",
+  "sourceReadback": "2026-10-19T15:31:00.333Z",
+  "projectionExportedAt": "2026-10-19T03:55:22.134668+00:00",
+  "originalMasterWorkbookSha256": "0002fd9f06596af8d0a00fc1b53a618ef15479f941ad5c1e6265b27002a65154",
+  "scope": "Game-night players and full-timers not listed, with call-up/drop-in GP and prior H2H; no inferred non-attendance reasons",
+  "articles": [
+    {
+      "date": "2026-09-20",
+      "gameId": 3356177,
+      "opponent": "Dateline Predators",
+      "boxScoreUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=3356177&p=boxscore",
+      "score": {
+        "ours": 0,
+        "theirs": 3
+      },
+      "completeGameRoster": true,
+      "seasonGamesThroughThisGame": 1,
+      "classificationAsOf": "2026-10-19",
+      "classificationCaveat": "FT/CU/DI labels from the current-season projection snapshot, not a dated game-day attendance poll. A player missing from the score sheet must not be assigned an absence reason.",
+      "fullTimersNotListed": [
+        {
+          "name": "Marco Congiusti",
+          "sourceRole": "FT"
+        },
+        {
+          "name": "Jamie Rosenberg",
+          "sourceRole": "FT"
+        }
+      ],
+      "visitingPlayers": [
+        {
+          "name": "Stefano Ardizzi",
+          "sourceName": "Ardizzi, Stefano",
+          "identified": true,
+          "status": "DI",
+          "roleSource": "2026-10-19 projection roster classification",
+          "gameStats": {
+            "g": 0,
+            "a": 0,
+            "pts": 0
+          },
+          "seasonGPThroughGame": 1,
+          "headToHeadBeforeGame": {
+            "gp": 1,
+            "g": 0,
+            "a": 0,
+            "pts": 0
+          },
+          "historyScope": "verified prior regular-season individual game logs; exact-normalized team name"
+        },
+        {
+          "name": "Unidentified drop-in (HTO placeholder)",
+          "sourceName": "Unknown, Johnny",
+          "identified": false,
+          "status": "DI",
+          "roleSource": "2026-10-19 projection roster classification",
+          "gameStats": {
+            "g": 0,
+            "a": 0,
+            "pts": 0
+          },
+          "seasonGPThroughGame": 1,
+          "headToHeadBeforeGame": {
+            "gp": 0,
+            "g": 0,
+            "a": 0,
+            "pts": 0
+          },
+          "historyScope": "verified prior regular-season individual game logs; exact-normalized team name"
+        }
+      ],
+      "gameGoalies": [
+        {
+          "name": "Dev Leong",
+          "seasonGPThroughGame": 1,
+          "role": "Game-night goaltender",
+          "opponentHistoryStatus": "MASTER_WORKBOOK_GOALIESTATS_BYGAME_VERIFIED",
+          "opponentHistoryBeforeGame": {
+            "gp": 3,
+            "wins": 2,
+            "losses": 1,
+            "goalsAgainst": 7,
+            "lastRecorded": "2026-03-01"
+          }
+        }
+      ],
+      "gameSkaterCount": 14,
+      "evidence": {
+        "source": "HTO official complete per-game skater and goaltender tables",
+        "roleSource": "HockeyOS workbook-derived projection roster snapshot",
+        "headToHeadSource": "Master Workbook SkaterStatsByGame joined to AllTimeSchedule"
+      },
+      "evidenceFingerprint": "496779318e04986c576bcfe4d02fec6e068c97f2a2fb92994b338aca726c3c56"
+    },
+    {
+      "date": "2026-09-27",
+      "gameId": 3356178,
+      "opponent": "Mohawks H.C.",
+      "boxScoreUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=3356178&p=boxscore",
+      "score": {
+        "ours": 3,
+        "theirs": 6
+      },
+      "completeGameRoster": true,
+      "seasonGamesThroughThisGame": 2,
+      "classificationAsOf": "2026-10-19",
+      "classificationCaveat": "FT/CU/DI labels from the current-season projection snapshot, not a dated game-day attendance poll. A player missing from the score sheet must not be assigned an absence reason.",
+      "fullTimersNotListed": [
+        {
+          "name": "Anthony Paolucci",
+          "sourceRole": "FT"
+        },
+        {
+          "name": "Adam Povegliano",
+          "sourceRole": "FT"
+        }
+      ],
+      "visitingPlayers": [
+        {
+          "name": "Nolan Atkins",
+          "sourceName": "Atkins, Nolan",
+          "identified": true,
+          "status": "CU",
+          "roleSource": "2026-10-19 projection roster classification",
+          "gameStats": {
+            "g": 0,
+            "a": 0,
+            "pts": 0
+          },
+          "seasonGPThroughGame": 1,
+          "headToHeadBeforeGame": {
+            "gp": 0,
+            "g": 0,
+            "a": 0,
+            "pts": 0
+          },
+          "historyScope": "verified prior regular-season individual game logs; exact-normalized team name"
+        },
+        {
+          "name": "Lorcan Duffy",
+          "sourceName": "Duffy, Lorcan",
+          "identified": true,
+          "status": "CU",
+          "roleSource": "2026-10-19 projection roster classification",
+          "gameStats": {
+            "g": 0,
+            "a": 0,
+            "pts": 0
+          },
+          "seasonGPThroughGame": 1,
+          "headToHeadBeforeGame": {
+            "gp": 14,
+            "g": 2,
+            "a": 7,
+            "pts": 9
+          },
+          "historyScope": "verified prior regular-season individual game logs; exact-normalized team name"
+        },
+        {
+          "name": "Adam Kober",
+          "sourceName": "Kober, Adam",
+          "identified": true,
+          "status": "CU",
+          "roleSource": "2026-10-19 projection roster classification",
+          "gameStats": {
+            "g": 1,
+            "a": 0,
+            "pts": 1
+          },
+          "seasonGPThroughGame": 1,
+          "headToHeadBeforeGame": {
+            "gp": 6,
+            "g": 2,
+            "a": 4,
+            "pts": 6
+          },
+          "historyScope": "verified prior regular-season individual game logs; exact-normalized team name"
+        },
+        {
+          "name": "Krishnan Rajasooriar",
+          "sourceName": "Rajasooriar, Krishnan",
+          "identified": true,
+          "status": "CU",
+          "roleSource": "2026-10-19 projection roster classification",
+          "gameStats": {
+            "g": 0,
+            "a": 0,
+            "pts": 0
+          },
+          "seasonGPThroughGame": 1,
+          "headToHeadBeforeGame": {
+            "gp": 4,
+            "g": 2,
+            "a": 1,
+            "pts": 3
+          },
+          "historyScope": "verified prior regular-season individual game logs; exact-normalized team name"
+        }
+      ],
+      "gameGoalies": [
+        {
+          "name": "Stephen Logue",
+          "seasonGPThroughGame": 1,
+          "role": "Game-night goaltender",
+          "opponentHistoryStatus": "MASTER_WORKBOOK_GOALIESTATS_BYGAME_VERIFIED",
+          "opponentHistoryBeforeGame": {
+            "gp": 32,
+            "wins": 11,
+            "losses": 14,
+            "goalsAgainst": 109,
+            "lastRecorded": "2025-09-14"
+          }
+        }
+      ],
+      "gameSkaterCount": 16,
+      "evidence": {
+        "source": "HTO official complete per-game skater and goaltender tables",
+        "roleSource": "HockeyOS workbook-derived projection roster snapshot",
+        "headToHeadSource": "Master Workbook SkaterStatsByGame joined to AllTimeSchedule"
+      },
+      "evidenceFingerprint": "36375bcd50dc8f1bda9dc5b8d31182944d84ec919f7c6c0db3916b5bc9f2a3b5"
+    },
+    {
+      "date": "2026-10-04",
+      "gameId": 3369564,
+      "opponent": "Michelob Morts",
+      "boxScoreUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=3369564&p=boxscore",
+      "score": {
+        "ours": 2,
+        "theirs": 3
+      },
+      "completeGameRoster": true,
+      "seasonGamesThroughThisGame": 3,
+      "classificationAsOf": "2026-10-19",
+      "classificationCaveat": "FT/CU/DI labels from the current-season projection snapshot, not a dated game-day attendance poll. A player missing from the score sheet must not be assigned an absence reason.",
+      "fullTimersNotListed": [
+        {
+          "name": "Marco Congiusti",
+          "sourceRole": "FT"
+        },
+        {
+          "name": "Anthony Paolucci",
+          "sourceRole": "FT"
+        },
+        {
+          "name": "Keith Pearsoll",
+          "sourceRole": "FT"
+        },
+        {
+          "name": "Stephane Saindon",
+          "sourceRole": "FT"
+        }
+      ],
+      "visitingPlayers": [
+        {
+          "name": "Nolan Atkins",
+          "sourceName": "Atkins, Nolan",
+          "identified": true,
+          "status": "CU",
+          "roleSource": "2026-10-19 projection roster classification",
+          "gameStats": {
+            "g": 0,
+            "a": 0,
+            "pts": 0
+          },
+          "seasonGPThroughGame": 2,
+          "headToHeadBeforeGame": {
+            "gp": 0,
+            "g": 0,
+            "a": 0,
+            "pts": 0
+          },
+          "historyScope": "verified prior regular-season individual game logs; exact-normalized team name"
+        },
+        {
+          "name": "Adam Kober",
+          "sourceName": "Kober, Adam",
+          "identified": true,
+          "status": "CU",
+          "roleSource": "2026-10-19 projection roster classification",
+          "gameStats": {
+            "g": 0,
+            "a": 1,
+            "pts": 1
+          },
+          "seasonGPThroughGame": 2,
+          "headToHeadBeforeGame": {
+            "gp": 0,
+            "g": 0,
+            "a": 0,
+            "pts": 0
+          },
+          "historyScope": "verified prior regular-season individual game logs; exact-normalized team name"
+        },
+        {
+          "name": "Damian Pavaday",
+          "sourceName": "Pavaday, Damian",
+          "identified": true,
+          "status": "DI",
+          "roleSource": "2026-10-19 projection roster classification",
+          "gameStats": {
+            "g": 0,
+            "a": 1,
+            "pts": 1
+          },
+          "seasonGPThroughGame": 1,
+          "headToHeadBeforeGame": {
+            "gp": 0,
+            "g": 0,
+            "a": 0,
+            "pts": 0
+          },
+          "historyScope": "verified prior regular-season individual game logs; exact-normalized team name"
+        }
+      ],
+      "gameGoalies": [
+        {
+          "name": "Adam Carlyle",
+          "seasonGPThroughGame": 1,
+          "role": "Rental goaltender",
+          "opponentHistoryStatus": "MASTER_WORKBOOK_GOALIESTATS_BYGAME_VERIFIED",
+          "opponentHistoryBeforeGame": {
+            "gp": 0,
+            "wins": 0,
+            "losses": 0,
+            "goalsAgainst": 0,
+            "lastRecorded": null
+          }
+        }
+      ],
+      "gameSkaterCount": 13,
+      "evidence": {
+        "source": "HTO official complete per-game skater and goaltender tables",
+        "roleSource": "HockeyOS workbook-derived projection roster snapshot",
+        "headToHeadSource": "Master Workbook SkaterStatsByGame joined to AllTimeSchedule"
+      },
+      "evidenceFingerprint": "86a62466615d6e7a2b6abb2fae94edbd683af7625b1512a846020a9eb6f63493"
+    },
+    {
+      "date": "2026-10-18",
+      "gameId": 3375601,
+      "opponent": "Zamboner Crew",
+      "boxScoreUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=3375601&p=boxscore",
+      "score": {
+        "ours": 1,
+        "theirs": 7
+      },
+      "completeGameRoster": true,
+      "seasonGamesThroughThisGame": 4,
+      "classificationAsOf": "2026-10-19",
+      "classificationCaveat": "FT/CU/DI labels from the current-season projection snapshot, not a dated game-day attendance poll. A player missing from the score sheet must not be assigned an absence reason.",
+      "fullTimersNotListed": [
+        {
+          "name": "Marco Congiusti",
+          "sourceRole": "FT"
+        },
+        {
+          "name": "Anthony Paolucci",
+          "sourceRole": "FT"
+        },
+        {
+          "name": "Michael Provenzano",
+          "sourceRole": "FT"
+        },
+        {
+          "name": "Sanjay Rajkumar",
+          "sourceRole": "FT"
+        }
+      ],
+      "visitingPlayers": [
+        {
+          "name": "Adam Kober",
+          "sourceName": "Kober, Adam",
+          "identified": true,
+          "status": "CU",
+          "roleSource": "2026-10-19 projection roster classification",
+          "gameStats": {
+            "g": 0,
+            "a": 0,
+            "pts": 0
+          },
+          "seasonGPThroughGame": 3,
+          "headToHeadBeforeGame": {
+            "gp": 0,
+            "g": 0,
+            "a": 0,
+            "pts": 0
+          },
+          "historyScope": "verified prior regular-season individual game logs; exact-normalized team name"
+        },
+        {
+          "name": "Krishnan Rajasooriar",
+          "sourceName": "Rajasooriar, Krishnan",
+          "identified": true,
+          "status": "CU",
+          "roleSource": "2026-10-19 projection roster classification",
+          "gameStats": {
+            "g": 0,
+            "a": 0,
+            "pts": 0
+          },
+          "seasonGPThroughGame": 2,
+          "headToHeadBeforeGame": {
+            "gp": 0,
+            "g": 0,
+            "a": 0,
+            "pts": 0
+          },
+          "historyScope": "verified prior regular-season individual game logs; exact-normalized team name"
+        }
+      ],
+      "gameGoalies": [
+        {
+          "name": "Dev Leong",
+          "seasonGPThroughGame": 2,
+          "role": "Game-night goaltender",
+          "opponentHistoryStatus": "MASTER_WORKBOOK_GOALIESTATS_BYGAME_VERIFIED",
+          "opponentHistoryBeforeGame": {
+            "gp": 0,
+            "wins": 0,
+            "losses": 0,
+            "goalsAgainst": 0,
+            "lastRecorded": null
+          }
+        }
+      ],
+      "gameSkaterCount": 12,
+      "evidence": {
+        "source": "HTO official complete per-game skater and goaltender tables",
+        "roleSource": "HockeyOS workbook-derived projection roster snapshot",
+        "headToHeadSource": "Master Workbook SkaterStatsByGame joined to AllTimeSchedule"
+      },
+      "evidenceFingerprint": "c39dae7c2752c54611e05fc8bef575cd704a01995d12725e7a49b54720b76c48"
+    }
+  ],
+  "publicationNotes": [
+    "Roster classifications are from current-season model and may not reflect game-day changes",
+    "Official game stat sheets provide complete skater lists, but not reasons for absence",
+    "Goaltender historical matchup starts, wins, losses and goals against are based on regular-season Master Workbook GoalieStatsByGame recorded before each game; no-decision/tie categories are not inferred."
+  ],
+  "audit": {
+    "articleIds": [
+      3356177,
+      3356178,
+      3369564,
+      3375601
+    ],
+    "passedChecks": [
+      "FOUR_HTO_FULL_PLAYER_LISTS",
+      "PER_GAME_SEASON_APPEARANCES",
+      "EXACT_OPPONENT_PLAYER_HISTORIES",
+      "MASTER_WORKBOOK_GOALIE_APPEARANCE_HISTORIES",
+      "FINGERPRINT_MATCH_APPROVED_ARTICLES"
+    ],
+    "publishedSnapshotOnly": true
+  }
+}
