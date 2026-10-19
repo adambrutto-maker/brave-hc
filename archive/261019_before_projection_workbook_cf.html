@@ -1,0 +1,45 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,follow"><meta name="color-scheme" content="dark"><title>Brave H.C. — Season Projections</title><link rel="stylesheet" href="./hockeyos-modern.css?v=2"></head><body><div class="app"><div class="frame"><div class="accent"></div><div class="inner"><div class="topline"><div class="identity"><img src="./brave_hc_logo.png" alt="Brave H.C. crest"><div><div class="eyebrow">HockeyOS · Brave H.C.</div><div class="identity-name">2026–27 · Player Projections</div></div></div><span class="badge" id="freshness">Model readback</span></div><nav class="nav" aria-label="HockeyOS sections"><a href="./analytics.html">Analytics</a><a href="./standings-v2.html">Standings</a><a href="./projection-v2.html" aria-current="page">Projections</a><a href="./watch-v2.html">Streaks & records</a><a href="./awards-races.html">Award Races</a><a href="./hot-stove.html">Hot Stove</a></nav><div class="title-row"><div><div class="eyebrow">Workbook model · HTO-driven inputs</div><h1>Season Projections</h1><p class="sub">The workbook's attendance and career-rate model, fed by official HTO scoring. Predictions are estimates, not guaranteed totals.</p></div><span class="badge" id="last">Checking model</span></div>
+<div class="notice" id="notice">Checking the workbook source and game reconciliation…</div>
+<div class="stat-grid"><div class="stat"><div class="label">Projected team points</div><div class="metric" id="points">—</div></div><div class="stat"><div class="label">Projected goals</div><div class="metric" id="goals">—</div></div><div class="stat"><div class="label">Projected assists</div><div class="metric" id="assists">—</div></div><div class="stat"><div class="label">HTO GP verified</div><div class="metric" id="gp">—</div></div></div>
+<section class="section"><div class="section-head"><h2>Player projections</h2><span class="badge">Workbook formula outputs</span></div><p class="sub">Select a roster group. GP and scoring totals are projected season figures; players with unverified call-up opportunities are not assumed to play future games.</p><div class="nav" style="display:flex;margin:12px 0" role="group" aria-label="Roster filter"><button class="cta" data-filter="ALL" type="button">All players</button><button class="cta" data-filter="FT" type="button">Full-time</button><button class="cta" data-filter="CU" type="button">Call-ups</button><button class="cta" data-filter="DI" type="button">Drop-ins</button></div>
+<div class="table-wrap"><table><thead><tr><th class="num">#</th><th>Player</th><th class="num">GP</th><th class="num">G</th><th class="num">A</th><th class="num">PTS</th><th class="num">Trend</th></tr></thead><tbody id="rows"></tbody></table></div><p class="source" id="source"></p></section>
+<section class="section"><div class="section-head"><h2>Model interpretation</h2><span class="badge">Transparent</span></div><div class="grid2"><div class="entry"><h3>Attendance-aware</h3><p>FT, CU and DI have different expected usage. Confirmed drop-in games are counted; unsupported future commitments are not invented.</p></div><div class="entry"><h3>Historical form</h3><p>The projection combines recorded season performance and career rates. A positive trend means the model's projected scoring rate exceeds its baseline, not a predicted streak.</p></div></div></section><footer class="footer"><a href="https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=stats" target="_parent" rel="noopener noreferrer">Official HTO stats ↗</a><a href="https://www.htosports.com/teams/?u=BRAVESHOCKEY&s=hockey" target="_parent" rel="noopener noreferrer">Brave H.C. home ↗</a></footer></div></div></div><script>
+const $=(t,c,x)=>{const e=document.createElement(t);if(c)e.className=c;if(x!==undefined)e.textContent=String(x);return e};
+const out=(id,v)=>document.getElementById(id).textContent=String(v);
+if(new URLSearchParams(location.search).has("embed"))document.body.classList.add("embed");
+const body=document.getElementById("rows"),buttons=[...document.querySelectorAll("button[data-filter]")];
+let model=null,filter="ALL";
+function draw(){
+ body.replaceChildren();let players=model.players.filter(p=>filter==="ALL"||p.rosterStatus===filter);
+ players.sort((a,b)=>b.pts-a.pts||b.g-a.g||a.name.localeCompare(b.name));
+ for(const [i,p] of players.entries()){
+  const row=$("tr");
+  const trend=typeof p.trend==="number"?(p.trend>0?"+":"")+(p.trend*100).toFixed(1)+"%":"—";
+  for(const [n,v] of [[i+1,"num"],[p.name,"team-name"],[Number(p.gp).toFixed(1),"num"],[p.g,"num"],[p.a,"num"],[p.pts,"num"],[trend,"num"]]){
+   row.append($("td",v,n));
+  }
+  body.append(row);
+ }
+ buttons.forEach(b=>{b.style.background=b.dataset.filter===filter?"#b11c32":"#183752";b.setAttribute("aria-pressed",String(b.dataset.filter===filter))});
+}
+buttons.forEach(b=>b.addEventListener("click",()=>{filter=b.dataset.filter;draw()}));
+(async()=>{try{
+ const r=await fetch("./projection.json",{cache:"no-store"});if(!r.ok)throw Error("No model");
+ const d=await r.json();if(d.schema!=="brave-hc-workbook-projection/v1"||!Array.isArray(d.players)||!d.sourceInputs||!d.total)throw Error("Model contract mismatch");
+ model=d;
+ const fresh=d.modelCurrent===true;
+ const gp=Number(d.sourceInputs.verifiedHTOBoxscoreGP??d.sourceInputs.htoRecordedTeamGP);
+ const book=Number(d.sourceInputs.workbookRecordedTeamGP);
+ out("points",d.total.points);out("goals",d.total.goals);out("assists",d.total.assists);out("gp",gp);
+ const date=new Date(d.htoreadback||d.exportedAt);
+ out("last",isNaN(date.getTime())?"Reconciliation pending":date.toLocaleDateString("en-CA",{timeZone:"America/Toronto",month:"short",day:"numeric"}));
+ const warn=document.getElementById("notice");warn.className="notice"+(fresh?" ok":"");
+ if(fresh){warn.innerHTML="<strong>Workbook model verified</strong>HTO scoring and formula outputs are reconciled for the published update."}
+ else{const strong=$("strong",null,"Model reconciliation pending");warn.replaceChildren(strong,$("span",null,"Official HTO has "+gp+" verified games; the source workbook baseline contains "+book+". The displayed figures are HTO-fed, workbook-derived scenario outputs, not a fully reconciled live workbook release."));}
+ document.getElementById("freshness").className="badge"+(fresh?" ok":" warn");
+ out("freshness",fresh?"Current model":"Scenario · Check pending");
+ out("source","HTO readback: "+(d.htoreadback||"not available")+" · Master Workbook baseline: "+(d.workbookBaselineDate||"not available")+". Workbook formula source retained; validation holds are not overridden.");
+ draw();
+ }catch(e){const a=document.getElementById("notice");a.className="notice";out("notice","Model data could not be verified. Official HTO statistics remain available from the team page.");}
+})();
+</script></body></html>
