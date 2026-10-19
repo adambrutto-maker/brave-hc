@@ -32,6 +32,18 @@ The public HTO goalie widget now identifies the date of the latest successfully 
 - Do not delete the HTO game or reset its assigned goaltender based solely on an absent SVHL entry. Verify with the league; a partial provider response can resemble a cancellation. The current goalie assignment history remains in GitHub, and actual past games are not raised as missing.
 - This release **does not monitor GitHub failures through a separate independent channel**; GitHub Actions run notifications and the visible freshness warning remain the failure-detection methods. Review the GitHub Actions health if a red overdue indicator appears.
 
+## Provider completeness and unresolved game-review controls (October 19 hardening)
+
+The SVHL feed is **not** safe to publish merely because the provider returned HTTP 200 or one Braves fixture. The reconciliation compares each new snapshot against the last verified future-game set.
+
+- **Fail closed on likely partial data:** When at least three upcoming games were previously verified, a new SVHL or HTO response dropping **two or more and at least half** of the expected games/known HTO IDs is quarantined. The GitHub job fails; it neither replaces the public feed nor closes a review issue. Confirm data-source completeness before restarting.
+- **Duplicate protection:** Duplicate SVHL fixture signatures or HTO game identifiers block publication.
+- **One missing game:** A missing upcoming SVHL game generates `REVIEW_SVHL_REMOVED`. Its complete prior details and original assignment key remain in `missingFixtureReviews` until the fixture returns, is safely matched to a reschedule, or ages past its previously scheduled game time. The review cannot disappear merely because the next snapshot no longer contains that game.
+- **Status publication:** A change to either the current fixture list **or** `missingFixtureReviews` updates the published feed, even if the other section did not change. The widget displays a missing-game warning, and GitHub retains the HTO manual-correction issue.
+- **No automatic HTO actions:** A missing or altered league fixture must be checked directly before an authorized HTO manager edits an existing game, adds a new game or considers cancellation. Goalie assignments are retained.
+- **Refresh and failure limits:** The GitHub scheduled job is best-effort; the public status displays an amber age warning after 18 hours and a stronger age warning after 36 hours. New goalie saves require verification within 24 hours. This is a *safety guard*, not independent incident alerting.
+- **QA evidence:** `tests/test_svhl_snapshot_coverage.py` verifies normal snapshots, large SVHL/HTO data losses, duplicate rows/IDs, review persistence and reappearance of a previously missing game with the same assignment key. The GitHub workflow runs these checks on script/test updates before live feed publication.
+
 ## Automatic HTO correction packets (read-only)
 
 The reconciliation workflow now generates **two audit files** every successful run: `reconciliation.json` (structured evidence) and `hto-review.md` (human-readable, field-by-field corrections). Both are retained with the workflow's short-lived GitHub artifact. No HTO admin write is performed.
