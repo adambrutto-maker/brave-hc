@@ -1,0 +1,3 @@
+<!-- Place this once in a permitted HTO custom-HTML page/editor area. Do not duplicate. -->
+<!-- Curated public playerID registry; leaves HTO's existing player anchors alone. -->
+<script src="https://adambrutto-maker.github.io/brave-hc/widgets/player-links.js?v=1" defer></script>
