@@ -675,15 +675,19 @@
         "id": "recap-3369564",
         "articleType": "GAME_RECAP",
         "gameId": 3369564,
-        "headline": "Brave H.C. Edged 3–2 by Michelob Morts",
+        "headline": "Kong and Carosi Score Early, But Brave H.C. Loses 3–2 to Michelob Morts",
         "date": "2026-10-04",
         "displayDate": "Sunday, October 4, 2026",
-        "dek": "Official final: Brave H.C. 2, Michelob Morts 3.",
+        "dek": "A 2–2 first period gives way to a one-goal defeat despite contributions from across the Brave H.C. lineup.",
         "paragraphs": [
-          "Brave H.C. entered the game without an earlier regular-season result against Michelob Morts recorded under that team name in the club’s historical schedule.",
-          "Brave H.C. fell 3–2 to Michelob Morts on October 4.",
-          "Henry Kong scored his first goal of the season at 7:10 of the first period. Justin Carosi scored his 3rd goal of the season at 3:29 of the first period. The assists went to Adam Kober (1), Damian Pavaday (1), Michael Provenzano (1).",
-          "The teams were 2–2 after one period. The period scoring was 2–2, 0–0, 0–1 from Brave H.C.’s perspective. Adam Carlyle was listed in goal for Brave H.C."
+          "Brave H.C. approached the October 4 meeting with Michelob Morts without a prior regular-season result against that exact opponent name in the verified club schedule. That made recent 2026–27 form, rather than an established head-to-head record, the available pregame reference point.",
+          "The game began with an active first period. Henry Kong scored his first goal of the season at 7:10, with Adam Kober and Damian Pavaday credited with the assists. Justin Carosi followed at 3:29 with his third goal of the season, assisted by Michael Provenzano.",
+          "Both teams left the first period level at 2–2. Neither side scored in the second, keeping the game within one goal of either result entering the final frame. Michelob Morts found the only goal of the third period and finished with a 3–2 win.",
+          "The Braves' two goals came from different scorers, with Kober, Pavaday and Provenzano contributing assists. Adam Carlyle was the Brave H.C. goaltender listed in the official box score.",
+          "Carosi's goal extended his early scoring run: after scoring twice against Mohawks H.C. on September 27, he had three of Brave H.C.'s five goals through the first three games. Kong's first goal of the season gave the club another contributor on the scoresheet.",
+          "It was the team's closest result so far. After being shut out 3–0 by Dateline Predators and losing 6–3 to Mohawks H.C., Brave H.C. remained in the game until the third period against Michelob Morts. The final margin was one goal, but the defeat left the season record at 0–3.",
+          "Through three games, Brave H.C. had scored five goals and conceded twelve. Carosi's three goals represented the majority of the team's early scoring, and the assists across several teammates showed how the recorded goals had been set up.",
+          "The next listed opponent was Zamboner Crew on October 18. The historical schedule showed no prior regular-season meeting under that exact opponent name. The pregame focus was on carrying the October 4 scoring contributions into a more complete three-period effort, without assuming any player's future participation."
         ],
         "boxScore": {
           "opponent": "Michelob Morts",
@@ -769,7 +773,37 @@
         "editorialState": "PENDING_FOUNDER_APPROVAL",
         "milestones": [],
         "recordClaimsVerified": false,
-        "evidenceFingerprint": "86a62466615d6e7a2b6abb2fae94edbd683af7625b1512a846020a9eb6f63493"
+        "evidenceFingerprint": "86a62466615d6e7a2b6abb2fae94edbd683af7625b1512a846020a9eb6f63493",
+        "followingGamePreview": {
+          "type": "HISTORICAL_NEXT_GAME_OUTLOOK",
+          "asOfGameDate": "2026-10-04",
+          "gameId": 3375601,
+          "opponent": "Zamboner Crew",
+          "headline": "Next Up: Brave H.C. vs. Zamboner Crew",
+          "headToHead": {
+            "regularSeason": {
+              "gp": 0,
+              "w": 0,
+              "l": 0,
+              "t": 0,
+              "gf": 0,
+              "ga": 0
+            }
+          },
+          "paragraphs": [
+            "The club's verified historical schedule did not show an earlier regular-season meeting with Zamboner Crew under that exact name, so there was no supported head-to-head win-loss record to project from.",
+            "Coming out of the October 4 game, Brave H.C. stood at 0–3 with five goals for and twelve against. Justin Carosi had three of those five goals, while Henry Kong and Adam Kober had each scored once.",
+            "The next listed meeting was October 18. Brave H.C. needed to build on the tighter 3–2 game against Michelob Morts; any particular player's selection or production for October 18 remained unverified in this retrospective preview."
+          ],
+          "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=3375601&p=boxscore",
+          "recordScope": "Verified at the time using exact-name opponent history; no future lineup or outcome inferred"
+        },
+        "editorialEnhancements": {
+          "scope": "Backfilled season articles using original HTO-verified game events, workbook opponent histories and milestone evidence",
+          "asOf": "2026-10-19",
+          "temporalRule": "Future-matchup commentary is explicitly retrospective, limited to then-known results and no projected lineup",
+          "independentAdditionalFactsAsserted": false
+        }
       }
     },
     {
@@ -781,16 +815,19 @@
         "id": "recap-3356178",
         "articleType": "GAME_RECAP",
         "gameId": 3356178,
-        "headline": "Brave H.C. Falls 6–3 to Mohawks H.C.",
+        "headline": "Carosi Strikes Twice as Brave H.C. Falls 6–3 to Mohawks; Provenzano Hits 50 Points",
         "date": "2026-09-27",
         "displayDate": "Sunday, September 27, 2026",
-        "dek": "Official final: Brave H.C. 3, Mohawks H.C. 6.",
+        "dek": "Two goals from Justin Carosi and a career milestone from Michael Provenzano feature in the September 27 defeat.",
         "paragraphs": [
-          "Before this game, Brave H.C. held a 16–18–8 regular-season record in 42 contested meetings with Mohawks H.C. Their previous regular-season meeting was on September 14, 2025, when Brave H.C. lost 2–3.",
-          "Brave H.C. fell 6–3 to Mohawks H.C. on September 27.",
-          "Justin Carosi scored his 1st of the game (1st of the season) at 9:26 of the second period, and his 2nd of the game (2nd of the season) at 5:30 of the third period. Adam Kober scored his first goal of the season at 1:20 of the third period. The assists went to Alex Pagnotta (2), Michael Provenzano (2), Henry Kong (1).",
-          "The game also carried a significant career milestone: Michael Provenzano reached 50 career points on September 27.",
-          "The teams were 0–1 after one period. The period scoring was 0–1, 1–2, 2–3 from Brave H.C.’s perspective. Stephen Logue was listed in goal for Brave H.C."
+          "This was a matchup with substantial history. Before September 27, Brave H.C. was 16–18–8 against Mohawks H.C. in 42 recorded regular-season games, scoring 161 goals and conceding 155. The previous regular-season meeting ended in a 3–2 Mohawks win on September 14, 2025.",
+          "The Mohawks took a 1–0 lead after the first period and won the second period 2–1, carrying a 3–1 advantage into the third. Brave H.C. added two late-period goals, but the Mohawks scored three more in the final frame to complete a 6–3 victory.",
+          "Justin Carosi opened Brave H.C.'s scoring at 9:26 of the second period. It was his first goal of both the game and the 2026–27 season, with Michael Provenzano and Alex Pagnotta providing the assists.",
+          "Carosi struck again at 5:30 of the third period for his second goal of the night and second of the season, assisted by Provenzano. Adam Kober then scored his first of the season at 1:20 of the third, with Henry Kong and Pagnotta credited with the helpers.",
+          "The scoring sheet gave Carosi two goals, Provenzano two assists and Pagnotta two assists. Kober's goal and Kong's assist supplied contributions beyond the two Carosi finishes. Stephen Logue was the listed Brave H.C. goaltender.",
+          "Provenzano's two-assist performance carried additional significance: he reached the 50-career-point mark on September 27, according to the verified workbook milestone record and the official HTO box score.",
+          "After two games, the Braves were 0–2, with three goals scored and nine allowed. Carosi had accounted for two of the team's three goals, while Provenzano and Pagnotta had helped generate the offence.",
+          "Michelob Morts was next on October 4. No previous regular-season meeting under that exact opponent name appeared in the verified historical schedule. The immediate questions were whether the Braves could build on their three-goal output and reduce the goals against; no future lineup was confirmed."
         ],
         "boxScore": {
           "opponent": "Mohawks H.C.",
@@ -917,7 +954,37 @@
           }
         ],
         "recordClaimsVerified": false,
-        "evidenceFingerprint": "36375bcd50dc8f1bda9dc5b8d31182944d84ec919f7c6c0db3916b5bc9f2a3b5"
+        "evidenceFingerprint": "36375bcd50dc8f1bda9dc5b8d31182944d84ec919f7c6c0db3916b5bc9f2a3b5",
+        "followingGamePreview": {
+          "type": "HISTORICAL_NEXT_GAME_OUTLOOK",
+          "asOfGameDate": "2026-09-27",
+          "gameId": 3369564,
+          "opponent": "Michelob Morts",
+          "headline": "Next Up: Brave H.C. vs. Michelob Morts",
+          "headToHead": {
+            "regularSeason": {
+              "gp": 0,
+              "w": 0,
+              "l": 0,
+              "t": 0,
+              "gf": 0,
+              "ga": 0
+            }
+          },
+          "paragraphs": [
+            "No earlier regular-season result against Michelob Morts was found under that exact team name in the historical schedule. This is an exact-name record check, not a claim that the organizations had never faced one another under another name.",
+            "Brave H.C. entered the October 4 matchup at 0–2 after scores of 0–3 and 3–6. Justin Carosi had scored two of the club's first three goals, while Michael Provenzano and Alex Pagnotta each had two assists from the Mohawks game.",
+            "The focus was improving defensive results while sustaining the scoring involvement that emerged against Mohawks H.C. The historical preview does not confirm which players would dress."
+          ],
+          "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=3369564&p=boxscore",
+          "recordScope": "Verified at the time using exact-name opponent history; no future lineup or outcome inferred"
+        },
+        "editorialEnhancements": {
+          "scope": "Backfilled season articles using original HTO-verified game events, workbook opponent histories and milestone evidence",
+          "asOf": "2026-10-19",
+          "temporalRule": "Future-matchup commentary is explicitly retrospective, limited to then-known results and no projected lineup",
+          "independentAdditionalFactsAsserted": false
+        }
       }
     },
     {
@@ -929,16 +996,19 @@
         "id": "recap-3356177",
         "articleType": "GAME_RECAP",
         "gameId": 3356177,
-        "headline": "Brave H.C. Shut Out 3–0 by Dateline Predators",
+        "headline": "Carosi Reaches 300 Career Games in Brave H.C.'s 3–0 Season-Opening Loss",
         "date": "2026-09-20",
         "displayDate": "Sunday, September 20, 2026",
-        "dek": "Official final: Brave H.C. 0, Dateline Predators 3.",
+        "dek": "Season opener: Dateline Predators 3, Brave H.C. 0. Justin Carosi records his 300th career appearance.",
         "paragraphs": [
-          "Before this game, Brave H.C. held a 8–2–0 regular-season record in 10 contested meetings with Dateline Predators. Their previous regular-season meeting was on March 1, 2026, when Brave H.C. lost 3–4.",
-          "Brave H.C. fell 3–0 to Dateline Predators on September 20.",
-          "Brave H.C. did not score in this game.",
-          "The game also carried a significant career milestone: Justin Carosi joined the 300-game club on September 20.",
-          "The teams were 0–0 after one period. The period scoring was 0–0, 0–2, 0–1 from Brave H.C.’s perspective. Dev Leong was listed in goal for Brave H.C."
+          "Brave H.C. opened the 2026–27 season against a familiar opponent. Before puck drop, the club held an 8–2–0 regular-season record across 10 recorded meetings with Dateline Predators, with 41 goals scored and 22 allowed. The prior regular-season meeting on March 1, 2026 ended in a 4–3 Dateline win.",
+          "The opening period ended scoreless. Dateline Predators broke the deadlock with two goals in the second period and added one more in the third, handing Brave H.C. a 3–0 defeat on September 20.",
+          "There was no Brave H.C. scoring entry to break down in the official box score. The period-by-period totals tell the story: 0–0 in the first, 0–2 in the second and 0–1 in the third. Dev Leong was the Brave H.C. goaltender listed for the game.",
+          "The result also put the broader head-to-head history in perspective. The Braves came into the matchup with eight wins in the prior ten recorded regular-season encounters, but this was a second straight regular-season loss to Dateline Predators following the March meeting.",
+          "The night nevertheless marked a club career milestone. Justin Carosi reached 300 career games on September 20, a participation benchmark verified against the historical workbook and official HTO game record.",
+          "With the opening game complete, Brave H.C. stood at 0–1 with no goals scored and three allowed. It was a difficult first result, but one game offered only a limited early-season sample.",
+          "The next assignment was Mohawks H.C. on September 27. Before that matchup, Brave H.C.'s recorded regular-season history against the Mohawks stood at 16–18–8 over 42 meetings, with 161 goals for and 155 against. The previous regular-season meeting had been a narrow 3–2 defeat on September 14, 2025.",
+          "The initial storyline for the second game was whether the Braves could generate offence against an opponent they knew well. Historical results framed the matchup; the next game's player availability was not yet confirmed."
         ],
         "boxScore": {
           "opponent": "Dateline Predators",
@@ -1022,7 +1092,37 @@
           }
         ],
         "recordClaimsVerified": false,
-        "evidenceFingerprint": "496779318e04986c576bcfe4d02fec6e068c97f2a2fb92994b338aca726c3c56"
+        "evidenceFingerprint": "496779318e04986c576bcfe4d02fec6e068c97f2a2fb92994b338aca726c3c56",
+        "followingGamePreview": {
+          "type": "HISTORICAL_NEXT_GAME_OUTLOOK",
+          "asOfGameDate": "2026-09-20",
+          "gameId": 3356178,
+          "opponent": "Mohawks H.C.",
+          "headline": "Next Up: Brave H.C. vs. Mohawks H.C.",
+          "headToHead": {
+            "regularSeason": {
+              "gp": 42,
+              "w": 16,
+              "l": 18,
+              "t": 8,
+              "gf": 161,
+              "ga": 155
+            }
+          },
+          "paragraphs": [
+            "The Mohawks rivalry had produced 42 recorded regular-season meetings before September 27: Brave H.C. was 16–18–8, with 161 goals for and 155 against.",
+            "The last recorded regular-season meeting, September 14, 2025, ended 3–2 for the Mohawks. The narrow score and long history made this an informative early-season test, though neither record guaranteed the next result.",
+            "Coming off a 3–0 season-opening defeat, Brave H.C. was seeking its first goal and first points of 2026–27. No player appearances for September 27 were assumed in this historical preview."
+          ],
+          "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=3356178&p=boxscore",
+          "recordScope": "Verified at the time using exact-name opponent history; no future lineup or outcome inferred"
+        },
+        "editorialEnhancements": {
+          "scope": "Backfilled season articles using original HTO-verified game events, workbook opponent histories and milestone evidence",
+          "asOf": "2026-10-19",
+          "temporalRule": "Future-matchup commentary is explicitly retrospective, limited to then-known results and no projected lineup",
+          "independentAdditionalFactsAsserted": false
+        }
       }
     }
   ],
@@ -1037,5 +1137,16 @@
     "Check article tone and repetition",
     "Founder approval",
     "Publish only approved version"
-  ]
+  ],
+  "archiveEditorialBackfill": {
+    "asOf": "2026-10-19",
+    "season": "2026–27",
+    "enrichedArticleDates": [
+      "2026-09-20",
+      "2026-09-27",
+      "2026-10-04"
+    ],
+    "coverage": "ALL_COMPLETED_SEASON_GAMES_IN_EXISTING_VERIFIED_FEED",
+    "reviewRequired": true
+  }
 }
