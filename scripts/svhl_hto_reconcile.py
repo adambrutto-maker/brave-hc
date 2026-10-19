@@ -165,6 +165,25 @@ def reconcile(svhl, hto, now=None, previous=None, goalie_data=None):
               "htoSyncStatus":status,"requiresGoalieReconfirmation":needs_reconfirm}
         output.append(item)
         review.append({"action":status,"svhl":g,"hto":match,"changes":changes})
+    # A fixture that was upcoming in the last VERIFIED league feed must never
+    # disappear silently. We remove it from current SVHL games, but preserve a
+    # dedicated review item rather than assuming cancellation or deletion.
+    missing_prior_keys=set()
+    missing_hto_ids=set()
+    for p in prior_games:
+        key=p.get("assignmentKey")
+        if not key or key in used_prior or not all(k in p for k in ("date","time","opponent","rink","side")):
+            continue
+        if kickoff(p)+timedelta(hours=3)<now:
+            continue
+        missing_prior_keys.add(key)
+        pid=p.get("htoGameId")
+        found=next((h for h in hto_future if pid and h["htoGameId"]==pid), None)
+        if found:
+            missing_hto_ids.add(found["htoGameId"])
+            used_hto.add(found["htoGameId"])
+        review.append({"action":"REVIEW_SVHL_REMOVED","svhl":None,
+                       "hto":found or p,"previous":p,"changes":{}})
     for h in hto_future:
         if h["htoGameId"] not in used_hto and kickoff(h)+timedelta(hours=3)>=now:
             review.append({"action":"REVIEW_HTO_ONLY","svhl":None,"hto":h,"changes":{}})
@@ -195,7 +214,12 @@ def main():
                              previous=previous,goalie_data=goalies)
     args.out.mkdir(parents=True,exist_ok=True)
     feed={'schema':'brave-hc-svhl-schedule/v1','source':SVHL,
-          'checkedAt':datetime.now(TZ).isoformat(),'games':fixtures}
+          'checkedAt':datetime.now(TZ).isoformat(),'games':fixtures,
+          'missingFixtureReviews':[
+              {'assignmentKey':(item.get('previous') or {}).get('assignmentKey'),
+               'date':(item.get('previous') or {}).get('date'),
+               'opponent':(item.get('previous') or {}).get('opponent')}
+              for item in queue if item['action']=='REVIEW_SVHL_REMOVED']}
     (args.out/'svhl-upcoming.json').write_text(json.dumps(feed,indent=2)+'\n')
     (args.out/'reconciliation.json').write_text(json.dumps(queue,indent=2)+'\n')
     from hto_review_packet import render_review
