@@ -43,6 +43,18 @@ class GoalieUpdateTests(unittest.TestCase):
             module.update_assignment(bad, deepcopy(DATA),
                                      "hto:3375682", "Dev Leong", "manager", NOW)
 
+    def test_schedule_verification_24h_boundary(self):
+        fresh = deepcopy(FEED)
+        fresh["checkedAt"] = (NOW-timedelta(hours=23,minutes=59)).isoformat()
+        result, changed = module.update_assignment(fresh, deepcopy(DATA),
+                                                    "hto:3375682", "Dev Leong", "manager", NOW)
+        self.assertTrue(changed)
+        stale = deepcopy(FEED)
+        stale["checkedAt"] = (NOW-timedelta(hours=24,seconds=1)).isoformat()
+        with self.assertRaises(ValueError):
+            module.update_assignment(stale, deepcopy(DATA),
+                                     "hto:3375682", "Dev Leong", "manager", NOW)
+
     def test_duplicate_key_denied(self):
         bad = deepcopy(FEED)
         bad["games"].append(deepcopy(bad["games"][0]))
