@@ -58,6 +58,20 @@ class ReviewPacketTests(unittest.TestCase):
         self.assertNotIn("[click]",text)
         self.assertNotIn("](",text.split("### 1.")[1].split("**HTO record:**")[0])
 
+    def test_disappeared_svhl_fixture_has_explicit_prior_evidence(self):
+        issue=render_review([{
+            "action":"REVIEW_SVHL_REMOVED",
+            "svhl":None,
+            "hto":OLD,
+            "previous":{**OLD,"assignmentKey":"hto:3375683"},
+            "changes":{}
+        }])
+        self.assertIn("Previously scheduled SVHL game",issue)
+        self.assertIn("Previously verified SVHL game",issue)
+        self.assertIn("no longer listed",issue)
+        self.assertIn("do not assume cancellation",issue)
+        self.assertIn("HTO game 3375683",issue)
+
     def test_unknown_action_fails_closed(self):
         with self.assertRaises(ValueError):
             render_review([{"action":"MASS_DELETE","svhl":NEW,"hto":OLD,"changes":{}}])
