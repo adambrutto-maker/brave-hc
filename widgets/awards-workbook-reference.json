@@ -3,11 +3,11 @@
   "status": "HISTORICAL_WORKBOOK_SNAPSHOT_NOT_CURRENT_2026_27",
   "workbookSnapshot": "2026-09-20",
   "recordedGames": 1,
-  "exportedAt": "2026-10-19T18:04:14.371021+00:00",
+  "exportedAt": "2026-10-19T18:30:00.821503+00:00",
   "source": "Master Workbook Web Races and AwardScoring saved cell caches",
   "sourceWorkbookHash": "0002fd9f06596af8d0a00fc1b53a618ef15479f941ad5c1e6265b27002a65154",
   "rankingSource": "Web Races displayed top-five ranking, public score and public component scorecard",
-  "warning": "Display as a historical layout/source example only; not the current 4-game weekly race or current eligible shortlist.",
+  "warning": "Saved Web Races scorecards are NOT this week’s 2026/27 awards race. Some source players' most recent scored season is W2025/26; each row carries playerRecentRecordedSeason. This is design reference/history only.",
   "races": {
     "hart": [],
     "conn-smythe": [
@@ -17,6 +17,7 @@
         "score": 100,
         "scorecard": "Conn Smythe leader - Skater playoff MVP profile:\nP PTS: 100 | P GOAL: 100 | P AST: 91 | P POTG: 100\nP CLUT: 50 | P SPEC: 50 | P HEAT: 50 | P ATTD: 100\nP CONS: 100 | P 2WAY: 79 | P PLUS: 61 | P DISC: 50\nFINAL: 100.",
         "webRacesRow": 9,
+        "playerRecentRecordedSeason": "W2025/26",
         "snapshotStatus": "UNRECONCILED_SAVED_WORKBOOK_CACHED_SCORE"
       },
       {
@@ -25,6 +26,7 @@
         "score": 98,
         "scorecard": "Goalie playoff MVP profile:\nP WIN%: 100 | P GAA: 50 | P WINS: 100 | P SHO: 50\nP GREL: 84 | P POTG: 95 | P ATTD: 83 | P PLUS: 92\nP DISC: 100 | P OFF: 75 | P HEAT: 92\nFINAL: 98.",
         "webRacesRow": 10,
+        "playerRecentRecordedSeason": "W2025/26",
         "snapshotStatus": "UNRECONCILED_SAVED_WORKBOOK_CACHED_SCORE"
       },
       {
@@ -33,6 +35,7 @@
         "score": 90,
         "scorecard": "Skater playoff MVP profile:\nP PTS: 79 | P GOAL: 54 | P AST: 100 | P POTG: 50\nP CLUT: 50 | P SPEC: 50 | P HEAT: 100 | P ATTD: 83\nP CONS: 76 | P 2WAY: 100 | P PLUS: 100 | P DISC: 100\nFINAL: 90.",
         "webRacesRow": 11,
+        "playerRecentRecordedSeason": "W2025/26",
         "snapshotStatus": "UNRECONCILED_SAVED_WORKBOOK_CACHED_SCORE"
       },
       {
@@ -41,6 +44,7 @@
         "score": 73,
         "scorecard": "Skater playoff MVP profile:\nP PTS: 53 | P GOAL: 55 | P AST: 53 | P POTG: 50\nP CLUT: 50 | P SPEC: 50 | P HEAT: 58 | P ATTD: 83\nP CONS: 50 | P 2WAY: 79 | P PLUS: 92 | P DISC: 100\nFINAL: 73.",
         "webRacesRow": 12,
+        "playerRecentRecordedSeason": "W2025/26",
         "snapshotStatus": "UNRECONCILED_SAVED_WORKBOOK_CACHED_SCORE"
       },
       {
@@ -49,6 +53,7 @@
         "score": 69,
         "scorecard": "Skater playoff MVP profile:\nP PTS: 50 | P GOAL: 50 | P AST: 53 | P POTG: 50\nP CLUT: 50 | P SPEC: 50 | P HEAT: 58 | P ATTD: 100\nP CONS: 50 | P 2WAY: 50 | P PLUS: 63 | P DISC: 100\nFINAL: 69.",
         "webRacesRow": 13,
+        "playerRecentRecordedSeason": "W2025/26",
         "snapshotStatus": "UNRECONCILED_SAVED_WORKBOOK_CACHED_SCORE"
       }
     ],
@@ -59,6 +64,7 @@
         "score": 6,
         "scorecard": "Points leader.\nProduction: 6 PTS | 1 G, 5 A\nEfficiency: 7 GP | 0.86 PTS/GP\nContext: Points leader outright.",
         "webRacesRow": 19,
+        "playerRecentRecordedSeason": "W2025/26",
         "snapshotStatus": "UNRECONCILED_SAVED_WORKBOOK_CACHED_SCORE"
       },
       {
@@ -67,6 +73,7 @@
         "score": 5,
         "scorecard": "1 points back of the Art Ross lead.\nProduction: 5 PTS | 2 G, 3 A\nEfficiency: 4 GP | 1.25 PTS/GP\nContext: Needs 1 points to catch the leader.",
         "webRacesRow": 20,
+        "playerRecentRecordedSeason": "W2025/26",
         "snapshotStatus": "UNRECONCILED_SAVED_WORKBOOK_CACHED_SCORE"
       },
       {
@@ -75,6 +82,7 @@
         "score": 4,
         "scorecard": "2 points back of the Art Ross lead.\nProduction: 4 PTS | 1 G, 3 A\nEfficiency: 8 GP | 0.50 PTS/GP\nContext: Needs 2 points to catch the leader.",
         "webRacesRow": 21,
+        "playerRecentRecordedSeason": "W2025/26",
         "snapshotStatus": "UNRECONCILED_SAVED_WORKBOOK_CACHED_SCORE"
       },
       {
@@ -83,6 +91,7 @@
         "score": 2,
         "scorecard": "4 points back of the Art Ross lead.\nProduction: 2 PTS | 1 G, 1 A\nEfficiency: 6 GP | 0.33 PTS/GP\nContext: Needs 4 points to catch the leader.",
         "webRacesRow": 22,
+        "playerRecentRecordedSeason": "W2025/26",
         "snapshotStatus": "UNRECONCILED_SAVED_WORKBOOK_CACHED_SCORE"
       },
       {
@@ -91,6 +100,7 @@
         "score": 2,
         "scorecard": "4 points back of the Art Ross lead.\nProduction: 2 PTS | 0 G, 2 A\nEfficiency: 8 GP | 0.25 PTS/GP\nContext: Needs 4 points to catch the leader.",
         "webRacesRow": 23,
+        "playerRecentRecordedSeason": "W2025/26",
         "snapshotStatus": "UNRECONCILED_SAVED_WORKBOOK_CACHED_SCORE"
       }
     ],
@@ -101,6 +111,7 @@
         "score": 2,
         "scorecard": "Goal leader.\nProduction: 2 GOAL\nEfficiency: 4 GP | 0.50 G/GP\nContext: Goal leader outright.",
         "webRacesRow": 19,
+        "playerRecentRecordedSeason": "W2025/26",
         "snapshotStatus": "UNRECONCILED_SAVED_WORKBOOK_CACHED_SCORE"
       },
       {
@@ -109,6 +120,7 @@
         "score": 1,
         "scorecard": "1 goals back of the Rocket Richard lead.\nProduction: 1 GOAL\nEfficiency: 7 GP | 0.14 G/GP\nContext: Needs 1 goals to catch the leader.",
         "webRacesRow": 20,
+        "playerRecentRecordedSeason": "W2025/26",
         "snapshotStatus": "UNRECONCILED_SAVED_WORKBOOK_CACHED_SCORE"
       },
       {
@@ -117,6 +129,7 @@
         "score": 1,
         "scorecard": "1 goals back of the Rocket Richard lead.\nProduction: 1 GOAL\nEfficiency: 6 GP | 0.17 G/GP\nContext: Needs 1 goals to catch the leader.",
         "webRacesRow": 21,
+        "playerRecentRecordedSeason": "W2025/26",
         "snapshotStatus": "UNRECONCILED_SAVED_WORKBOOK_CACHED_SCORE"
       },
       {
@@ -125,6 +138,7 @@
         "score": 1,
         "scorecard": "1 goals back of the Rocket Richard lead.\nProduction: 1 GOAL\nEfficiency: 8 GP | 0.13 G/GP\nContext: Needs 1 goals to catch the leader.",
         "webRacesRow": 22,
+        "playerRecentRecordedSeason": "W2025/26",
         "snapshotStatus": "UNRECONCILED_SAVED_WORKBOOK_CACHED_SCORE"
       },
       {
@@ -133,6 +147,7 @@
         "score": 0,
         "scorecard": "2 goals back of the Rocket Richard lead.\nProduction: 0 GOAL\nEfficiency: 1 GP | 0.00 G/GP\nContext: Needs 2 goals to catch the leader.",
         "webRacesRow": 23,
+        "playerRecentRecordedSeason": "W2026/27",
         "snapshotStatus": "UNRECONCILED_SAVED_WORKBOOK_CACHED_SCORE"
       }
     ],
@@ -143,6 +158,7 @@
         "score": 100,
         "scorecard": "Norris leader - CU / utility profile - OFF adjusted:\nPTS: 97 | AST: 90 | GOAL: 97 | SPEC: 91\nPLUS: 61 | 2WAY: 82 | DISC: 66 | PIM: 75\nCONS: 82 | POTG: 84 | ATTD: 73\nFINAL: 100.",
         "webRacesRow": 29,
+        "playerRecentRecordedSeason": "W2025/26",
         "snapshotStatus": "UNRECONCILED_SAVED_WORKBOOK_CACHED_SCORE"
       },
       {
@@ -151,6 +167,7 @@
         "score": 92,
         "scorecard": "FT defenceman profile:\nPTS: 69 | AST: 71 | GOAL: 58 | SPEC: 89\nPLUS: 50 | 2WAY: 77 | DISC: 66 | PIM: 76\nCONS: 59 | POTG: 53 | ATTD: 73\nFINAL: 92.",
         "webRacesRow": 30,
+        "playerRecentRecordedSeason": "W2025/26",
         "snapshotStatus": "UNRECONCILED_SAVED_WORKBOOK_CACHED_SCORE"
       },
       {
@@ -159,6 +176,7 @@
         "score": 90,
         "scorecard": "CU / utility profile - OFF adjusted:\nPTS: 97 | AST: 100 | GOAL: 77 | SPEC: 74\nPLUS: 50 | 2WAY: 75 | DISC: 50 | PIM: 50\nCONS: 82 | POTG: 84 | ATTD: 71\nFINAL: 90.",
         "webRacesRow": 31,
+        "playerRecentRecordedSeason": "W2025/26",
         "snapshotStatus": "UNRECONCILED_SAVED_WORKBOOK_CACHED_SCORE"
       }
     ],
@@ -170,6 +188,7 @@
         "score": 100,
         "scorecard": "Not eligible",
         "webRacesRow": 39,
+        "playerRecentRecordedSeason": "W2026/27",
         "snapshotStatus": "UNRECONCILED_SAVED_WORKBOOK_CACHED_SCORE"
       },
       {
@@ -178,6 +197,7 @@
         "score": 100,
         "scorecard": "Not eligible",
         "webRacesRow": 40,
+        "playerRecentRecordedSeason": "W2026/27",
         "snapshotStatus": "UNRECONCILED_SAVED_WORKBOOK_CACHED_SCORE"
       },
       {
@@ -186,6 +206,7 @@
         "score": 100,
         "scorecard": "Not eligible",
         "webRacesRow": 41,
+        "playerRecentRecordedSeason": "W2026/27",
         "snapshotStatus": "UNRECONCILED_SAVED_WORKBOOK_CACHED_SCORE"
       },
       {
@@ -194,6 +215,7 @@
         "score": 100,
         "scorecard": "Not eligible",
         "webRacesRow": 42,
+        "playerRecentRecordedSeason": "W2026/27",
         "snapshotStatus": "UNRECONCILED_SAVED_WORKBOOK_CACHED_SCORE"
       }
     ],
@@ -205,6 +227,7 @@
         "score": 100,
         "scorecard": "Rolaids leader - Skater relief profile:\nCONS: 82 | PTS: 97 | ATTD: 73 | POTG: 84\nSPEC: 91 | CLUT: 100 | HEAT: 57 | 2WAY: 82\nDISC: 66 | PIM: 75 | PLUS: 61\nFINAL: 100.",
         "webRacesRow": 49,
+        "playerRecentRecordedSeason": "W2025/26",
         "snapshotStatus": "UNRECONCILED_SAVED_WORKBOOK_CACHED_SCORE"
       },
       {
@@ -213,6 +236,7 @@
         "score": 99,
         "scorecard": "Skater relief profile:\nCONS: 100 | PTS: 100 | ATTD: 63 | POTG: 53\nSPEC: 76 | CLUT: 53 | HEAT: 79 | 2WAY: 100\nDISC: 100 | PIM: 92 | PLUS: 77\nFINAL: 99.",
         "webRacesRow": 50,
+        "playerRecentRecordedSeason": "W2025/26",
         "snapshotStatus": "UNRECONCILED_SAVED_WORKBOOK_CACHED_SCORE"
       },
       {
@@ -221,6 +245,7 @@
         "score": 98,
         "scorecard": "Goalie relief profile:\nGREL: 82 | WIN%: 100 | GAA: 61 | ATTD: 60\nPOTG: 100 | WINS: 100 | SHO: 100\nDISC: 100 | PLUS: 74 | OFF: 75\nFINAL: 98.",
         "webRacesRow": 51,
+        "playerRecentRecordedSeason": "W2025/26",
         "snapshotStatus": "UNRECONCILED_SAVED_WORKBOOK_CACHED_SCORE"
       },
       {
@@ -229,6 +254,7 @@
         "score": 92,
         "scorecard": "Skater relief profile:\nCONS: 82 | PTS: 97 | ATTD: 71 | POTG: 84\nSPEC: 74 | CLUT: 53 | HEAT: 50 | 2WAY: 75\nDISC: 50 | PIM: 50 | PLUS: 50\nFINAL: 92.",
         "webRacesRow": 52,
+        "playerRecentRecordedSeason": "W2025/26",
         "snapshotStatus": "UNRECONCILED_SAVED_WORKBOOK_CACHED_SCORE"
       },
       {
@@ -237,6 +263,7 @@
         "score": 86,
         "scorecard": "Skater relief profile:\nCONS: 70 | PTS: 69 | ATTD: 63 | POTG: 52\nSPEC: 72 | CLUT: 51 | HEAT: 57 | 2WAY: 82\nDISC: 100 | PIM: 94 | PLUS: 56\nFINAL: 86.",
         "webRacesRow": 53,
+        "playerRecentRecordedSeason": "W2025/26",
         "snapshotStatus": "UNRECONCILED_SAVED_WORKBOOK_CACHED_SCORE"
       }
     ],
@@ -248,6 +275,7 @@
         "score": 100,
         "scorecard": "Career: 300 GP | 150 G, 220 A, 370 PTS | 1.23 PTS/GP.\nPlayoffs/Impact: 46 PLY GP, 36 PTS | 50 POTG, 22 CLCH, 44 PIM | 13 AWDS, 30 RECS.\nScorecard: CAR 100 | PLY 97 | CONS 80 | LONG 94 | LEG 75 | HEAT 57 | FINAL 100.\nHOF case: Elite Brave H.C. career profile with a top-tier Hall of Fame score.",
         "webRacesRow": 59,
+        "playerRecentRecordedSeason": "W2026/27",
         "snapshotStatus": "UNRECONCILED_SAVED_WORKBOOK_CACHED_SCORE"
       },
       {
@@ -256,6 +284,7 @@
         "score": 90.9,
         "scorecard": "Career: 283 GP | 137 G, 147 A, 284 PTS | 1.00 PTS/GP.\nPlayoffs/Impact: 48 PLY GP, 37 PTS | 29 POTG, 20 CLCH, 87 PIM | 1 AWDS, 50 RECS.\nScorecard: CAR 86 | PLY 100 | CONS 77 | LONG 92 | LEG 66 | HEAT 55 | FINAL 91.\nHOF case: Elite Brave H.C. career profile with a top-tier Hall of Fame score.",
         "webRacesRow": 60,
+        "playerRecentRecordedSeason": null,
         "snapshotStatus": "UNRECONCILED_SAVED_WORKBOOK_CACHED_SCORE"
       },
       {
@@ -264,6 +293,7 @@
         "score": 83.4,
         "scorecard": "Career: 295 GP | 107 G, 135 A, 242 PTS | 0.82 PTS/GP.\nPlayoffs/Impact: 46 PLY GP, 22 PTS | 25 POTG, 13 CLCH, 33 PIM | 7 AWDS, 30 RECS.\nScorecard: CAR 81 | PLY 81 | CONS 74 | LONG 93 | LEG 62 | HEAT 52 | FINAL 83.\nHOF case: Strong Hall of Fame case based on sustained career production and impact.",
         "webRacesRow": 61,
+        "playerRecentRecordedSeason": "W2026/27",
         "snapshotStatus": "UNRECONCILED_SAVED_WORKBOOK_CACHED_SCORE"
       },
       {
@@ -272,6 +302,7 @@
         "score": 77.4,
         "scorecard": "Career: 333 GP | 25 G, 138 A, 163 PTS | 0.49 PTS/GP.\nPlayoffs/Impact: 51 PLY GP, 25 PTS | 11 POTG, 5 CLCH, 113 PIM | 4 AWDS, 28 RECS.\nScorecard: CAR 69 | PLY 84 | CONS 68 | LONG 100 | LEG 63 | HEAT 51 | FINAL 77.\nHOF case: Credible Hall of Fame case with meaningful long-term contribution.",
         "webRacesRow": 62,
+        "playerRecentRecordedSeason": "W2026/27",
         "snapshotStatus": "UNRECONCILED_SAVED_WORKBOOK_CACHED_SCORE"
       },
       {
@@ -280,6 +311,7 @@
         "score": 75.5,
         "scorecard": "Career: 321 GP | 34 G, 119 A, 153 PTS | 0.48 PTS/GP.\nPlayoffs/Impact: 53 PLY GP, 17 PTS | 12 POTG, 4 CLCH, 121 PIM | 11 AWDS, 6 RECS.\nScorecard: CAR 69 | PLY 73 | CONS 67 | LONG 97 | LEG 70 | HEAT 50 | FINAL 76.\nHOF case: Credible Hall of Fame case with meaningful long-term contribution.",
         "webRacesRow": 63,
+        "playerRecentRecordedSeason": "W2026/27",
         "snapshotStatus": "UNRECONCILED_SAVED_WORKBOOK_CACHED_SCORE"
       }
     ]
