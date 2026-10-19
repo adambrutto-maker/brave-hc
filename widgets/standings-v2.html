@@ -30,6 +30,13 @@ document.querySelectorAll(".nav a").forEach(a=>{if(a.pathname===location.pathnam
  const note=document.getElementById("notice");
  note.textContent="This is the SVHL division table, not the HTO team-stat feed. Each source has its own publication timing. League results are not silently updated from HTO box scores.";
  if(d.braveGP!==undefined&&d.braveGP!==team.gp)note.textContent+=" Snapshot disagreement requires verification.";
+ try{
+  const pr=await fetch("./projection.json",{cache:"no-store"});
+  if(pr.ok){const proj=await pr.json(),hto=Number(proj.sourceInputs?.verifiedHTOBoxscoreGP);
+   if(Number.isFinite(hto)&&hto!==team.gp)note.textContent+=" Current comparison: SVHL "+team.gp+" team games; HTO has "+hto+" verified games. This is a posting lag, not a correction to the official league table.";
+  }
+ }catch(_err){/* Independently sourced league standings remain intact. */}
+ 
  const other=d.teams[0];
  const race=fill("race");
  function tile(title,value,description){const e=$("article","entry");e.append($("div","label",title),$("div","metric small",value),$("p",null,description));race.append(e)}
