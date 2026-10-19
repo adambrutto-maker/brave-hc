@@ -1,4 +1,4 @@
-<!-- BRAVE H.C. GOALIE SCHEDULE v1.2.4 · READ ONLY · HIGH-CONTRAST LEGIBILITY PATCH -->
+<!-- BRAVE H.C. GOALIE SCHEDULE v1.2.5 · READ ONLY · HIGH-CONTRAST LEGIBILITY PATCH -->
 <div id="braves-goalie-svhl" aria-label="Brave HC goalie schedule">
  <header><small>BRAVE H.C. · 2026/27</small><h2>GOALTENDER SCHEDULE</h2><p>Official SVHL fixtures · Manager-confirmed starters</p></header>
  <div id="bg-status" role="status">Checking the SVHL schedule…</div>
@@ -101,6 +101,12 @@ async function refresh(){
        ' · Check official league schedule for changes.';
    }else{
      status.textContent=games.length+' upcoming SVHL game(s) · League last verified '+checked;
+   }
+   const missing=Array.isArray(feed.missingFixtureReviews)?feed.missingFixtureReviews:[];
+   if(missing.length){
+     status.classList.add('bg-sync-warning');
+     status.textContent+=' · '+missing.length+
+       ' previously scheduled game(s) missing from SVHL — league/HTO review required.';
    }
  }catch(err){status.textContent='Schedule temporarily unavailable: '+err.message+'. Check the official SVHL schedule.';}
 }
