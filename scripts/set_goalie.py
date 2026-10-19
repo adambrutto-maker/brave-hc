@@ -44,25 +44,43 @@ def update_assignment(feed: dict, data: dict, game_key: str, goalie: str, actor:
     if len(valid) != 1:
         raise ValueError("Selected game key must uniquely match one upcoming SVHL fixture")
     fixture = valid[0]
-    if fixture.get("requiresGoalieReconfirmation") and goalie != "TBD":
-        # An explicit manager reassignment or confirmation counts as reconfirmation;
-        # make that explicit in the commit details.
-        reason = "manager reconfirmation after league schedule change"
-    else:
-        reason = "manager assignment"
+    if fixture.get("date") and fixture.get("time"):
+        from zoneinfo import ZoneInfo
+        puck_drop = datetime.fromisoformat(fixture["date"]+"T"+fixture["time"]).replace(tzinfo=ZoneInfo("America/Toronto"))
+        if now > puck_drop + timedelta(hours=3):
+            raise ValueError("Cannot change goaltender for a completed game")
+
     if data.get("schema") != "brave-hc-goalie-assignments/v1":
         raise ValueError("Unexpected goalie assignment schema")
     assignments = data.get("assignments")
     if not isinstance(assignments, dict):
         raise ValueError("Assignment file is missing its entries")
+    confirmed_revisions = data.get("scheduleConfirmations", {})
+    if not isinstance(confirmed_revisions, dict):
+        raise ValueError("Invalid schedule reconfirmation history")
     old = assignments.get(game_key, "TBD")
-    if old == goalie:
+    revision = fixture.get("fixtureSignature")
+    if revision is not None and not isinstance(revision, str):
+        raise ValueError("Invalid fixture revision")
+    # The same goalie can be explicitly re-confirmed after a reschedule.
+    reconfirm = bool(fixture.get("requiresGoalieReconfirmation") and goalie != "TBD" and
+                     revision and confirmed_revisions.get(game_key) != revision)
+    if old == goalie and not reconfirm:
         return data, False
+
     assignments[game_key] = goalie
+    if goalie == "TBD":
+        confirmed_revisions.pop(game_key, None)
+    elif revision:
+        confirmed_revisions[game_key] = revision
+    if revision:
+        data["scheduleConfirmations"] = confirmed_revisions
     data["updatedAt"] = now.isoformat()
     data["lastChange"] = {
         "key": game_key, "date": fixture["date"], "opponent": fixture["opponent"],
-        "previous": old, "confirmed": goalie, "actor": actor[:80], "reason": reason
+        "previous": old, "confirmed": goalie, "actor": actor[:80],
+        "reason": ("manager reconfirmation after league schedule change" if reconfirm
+                   else "manager assignment")
     }
     return data, True
 
