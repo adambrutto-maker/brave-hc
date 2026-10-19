@@ -19,12 +19,17 @@
     "officialNomineeList": "ELIGIBLE_ONLY_ONCE_ELIGIBLE_COUNT_AT_LEAST_FIVE",
     "candidateLimit": 5,
     "eligibilityThresholdAppliedToOfficialOnly": false,
-    "scorePolicy": "Never invent rank-spaced award scores. Display saved eligible Final Workbook Award Score for qualified players and saved raw composite score explicitly labeled provisional for ineligible players, or genuine scoring-title count statistics. Do not mix raw and final scores as comparable values.",
+    "scorePolicy": "Only actual verified workbook score fields: eligible final score; ineligible computed award raw composite without eligibility gating when source formula and underlying inputs are verified; no normalization invented. Source currentAwardScoring must match completed HTO games before publishing.",
     "currentModelScoresVerified": false,
     "reason": "Workbook award values not reconciled to four verified 2026/27 HTO games; one game in available workbook.",
     "shortlistFillPolicy": "Eligible players always occupy leading places, ranked among themselves by workbook award-specific Rank Key; provisional noneligible players then fill any remaining places up to five, ranked by workbook raw composite (or measured points/goals for scoring titles). Once five eligible players exist, no provisional names appear.",
     "neverHideProvisionalWhenFewEligible": true,
-    "sourceFreshness": "HTO-fed season data plus independently validated AwardScoring calculation; HTO projection-bridge parity does not itself verify AwardScoring."
+    "sourceFreshness": "HTO-fed season data plus independently validated AwardScoring calculation; HTO projection-bridge parity does not itself verify AwardScoring.",
+    "minimumVerifiedCurrentSeasonGP": 1,
+    "beforeFirstTeamGame": "EMPTY_BOARD",
+    "earlySeasonParticipation": "SHOW_ONLY_PARTICIPANTS_WITH_AT_LEAST_ONE_VERIFIED_CURRENT_SEASON_GAME",
+    "partialRosterPolicy": "If 1–4 scored players have actually dressed this season, display only those players. Never fill a board with zero-game players.",
+    "leaderboardOrder": "Eligible played players first by workbook Rank Key; remaining spots filled by played provisional players ranked by exact, source-validated workbook model; no fabricated entries or scores."
   },
   "awards": [
     {
@@ -113,7 +118,8 @@
       "asOf": null,
       "modelGameCount": 0,
       "eligibleCount": null,
-      "selectionPolicy": "ELIGIBLE_FIRST_PROVISIONAL_FILL_TO_FIVE"
+      "selectionPolicy": "ELIGIBLE_FIRST_PROVISIONAL_FILL_TO_FIVE",
+      "minimumVerifiedCurrentSeasonGP": 1
     },
     "conn-smythe": {
       "status": "MODEL_SCORES_AWAITING_CURRENT_WORKBOOK",
@@ -122,7 +128,8 @@
       "asOf": null,
       "modelGameCount": 0,
       "eligibleCount": null,
-      "selectionPolicy": "ELIGIBLE_FIRST_PROVISIONAL_FILL_TO_FIVE"
+      "selectionPolicy": "ELIGIBLE_FIRST_PROVISIONAL_FILL_TO_FIVE",
+      "minimumVerifiedCurrentSeasonGP": 1
     },
     "art-ross": {
       "status": "MODEL_SCORES_AWAITING_CURRENT_WORKBOOK",
@@ -131,7 +138,8 @@
       "asOf": null,
       "modelGameCount": 0,
       "eligibleCount": null,
-      "selectionPolicy": "ELIGIBLE_FIRST_PROVISIONAL_FILL_TO_FIVE"
+      "selectionPolicy": "ELIGIBLE_FIRST_PROVISIONAL_FILL_TO_FIVE",
+      "minimumVerifiedCurrentSeasonGP": 1
     },
     "rocket": {
       "status": "MODEL_SCORES_AWAITING_CURRENT_WORKBOOK",
@@ -140,7 +148,8 @@
       "asOf": null,
       "modelGameCount": 0,
       "eligibleCount": null,
-      "selectionPolicy": "ELIGIBLE_FIRST_PROVISIONAL_FILL_TO_FIVE"
+      "selectionPolicy": "ELIGIBLE_FIRST_PROVISIONAL_FILL_TO_FIVE",
+      "minimumVerifiedCurrentSeasonGP": 1
     },
     "norris": {
       "status": "MODEL_SCORES_AWAITING_CURRENT_WORKBOOK",
@@ -149,7 +158,8 @@
       "asOf": null,
       "modelGameCount": 0,
       "eligibleCount": null,
-      "selectionPolicy": "ELIGIBLE_FIRST_PROVISIONAL_FILL_TO_FIVE"
+      "selectionPolicy": "ELIGIBLE_FIRST_PROVISIONAL_FILL_TO_FIVE",
+      "minimumVerifiedCurrentSeasonGP": 1
     },
     "lady-byng": {
       "status": "MODEL_SCORES_AWAITING_CURRENT_WORKBOOK",
@@ -158,7 +168,8 @@
       "asOf": null,
       "modelGameCount": 0,
       "eligibleCount": null,
-      "selectionPolicy": "ELIGIBLE_FIRST_PROVISIONAL_FILL_TO_FIVE"
+      "selectionPolicy": "ELIGIBLE_FIRST_PROVISIONAL_FILL_TO_FIVE",
+      "minimumVerifiedCurrentSeasonGP": 1
     },
     "rookie": {
       "status": "MODEL_SCORES_AWAITING_CURRENT_WORKBOOK",
@@ -167,7 +178,8 @@
       "asOf": null,
       "modelGameCount": 0,
       "eligibleCount": null,
-      "selectionPolicy": "ELIGIBLE_FIRST_PROVISIONAL_FILL_TO_FIVE"
+      "selectionPolicy": "ELIGIBLE_FIRST_PROVISIONAL_FILL_TO_FIVE",
+      "minimumVerifiedCurrentSeasonGP": 1
     },
     "improved": {
       "status": "MODEL_SCORES_AWAITING_CURRENT_WORKBOOK",
@@ -176,7 +188,8 @@
       "asOf": null,
       "modelGameCount": 0,
       "eligibleCount": null,
-      "selectionPolicy": "ELIGIBLE_FIRST_PROVISIONAL_FILL_TO_FIVE"
+      "selectionPolicy": "ELIGIBLE_FIRST_PROVISIONAL_FILL_TO_FIVE",
+      "minimumVerifiedCurrentSeasonGP": 1
     },
     "rolaids": {
       "status": "MODEL_SCORES_AWAITING_CURRENT_WORKBOOK",
@@ -185,7 +198,8 @@
       "asOf": null,
       "modelGameCount": 0,
       "eligibleCount": null,
-      "selectionPolicy": "ELIGIBLE_FIRST_PROVISIONAL_FILL_TO_FIVE"
+      "selectionPolicy": "ELIGIBLE_FIRST_PROVISIONAL_FILL_TO_FIVE",
+      "minimumVerifiedCurrentSeasonGP": 1
     },
     "dedication": {
       "status": "MODEL_SCORES_AWAITING_CURRENT_WORKBOOK",
@@ -194,7 +208,8 @@
       "asOf": null,
       "modelGameCount": 0,
       "eligibleCount": null,
-      "selectionPolicy": "ELIGIBLE_FIRST_PROVISIONAL_FILL_TO_FIVE"
+      "selectionPolicy": "ELIGIBLE_FIRST_PROVISIONAL_FILL_TO_FIVE",
+      "minimumVerifiedCurrentSeasonGP": 1
     },
     "hof": {
       "status": "MODEL_SCORES_AWAITING_CURRENT_WORKBOOK",
@@ -203,7 +218,8 @@
       "asOf": null,
       "modelGameCount": 0,
       "eligibleCount": null,
-      "selectionPolicy": "ELIGIBLE_FIRST_PROVISIONAL_FILL_TO_FIVE"
+      "selectionPolicy": "ELIGIBLE_FIRST_PROVISIONAL_FILL_TO_FIVE",
+      "minimumVerifiedCurrentSeasonGP": 1
     }
   },
   "htoPerformanceSnapshot": [
@@ -428,6 +444,7 @@
     "The currently published pilot ballot is not automatically updated with weekly race entrants.",
     "The workbook remains read-only; no HTO site data or form response data is altered.",
     "Founder 2026-10-19 ruling: fill early top five with workbook-ranked provisional players, replacing them preferentially with eligible players; strictly eligible-only once five qualify.",
-    "Current HTO-fed projection model is working separately from the workbook AwardScoring snapshot, which remains pending validation."
+    "Current HTO-fed projection model is working separately from the workbook AwardScoring snapshot, which remains pending validation.",
+    "2026-10-19 new Founder gate: zero current-season GP cannot appear on weekly award race as either eligible or provisional. Preseason board empty. With fewer than five played, publish only actual participants."
   ]
 }
