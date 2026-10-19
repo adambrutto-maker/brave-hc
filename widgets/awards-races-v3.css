@@ -116,4 +116,15 @@ footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;paddin
 .player-game-links a:hover{text-decoration:underline;background:#355d7b}
 .player-evidence-disclaimer{font-size:10px!important;color:#aebfce!important;line-height:1.4}
 
+
+/* Per-game form: precise HTO stats inside optional player disclosure, not leaderboard rating. */
+.game-form-heading{font-size:11px;font-weight:850;color:#f0d9ac;letter-spacing:.035em;margin:10px 0 6px}
+.player-form-games{display:flex;gap:6px;flex-wrap:wrap}
+.player-form-game{display:grid;gap:2px;min-width:96px;border:1px solid #4f7189;border-radius:7px;background:#17374e;padding:6px 8px;font-variant-numeric:tabular-nums}
+.player-form-game strong{font-size:11px;line-height:1.4;color:#fbfdff}
+.player-form-date{font-size:10px;color:#c8d9e5;font-weight:800}
+.player-form-potg{font-size:9px;color:#fbe5a2;font-weight:950}
+.player-form-summary{font-size:11px;color:#dbebf7}
+@media(max-width:400px){.player-form-game{min-width:91px;padding:5px 6px}}
+
 @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
