@@ -165,6 +165,47 @@ function isVerifiedWeeklyRace(data,race,participants){
  }
  return true;
 }
+function renderPlayerEvidence(card,player,participants){
+ const raw=player.currentHTORaw,events=player.currentHTOEventEvidence,scoring=player.verifiedHTOScoringByStrength;
+ if(!raw||raw.season!==participants.season||raw.gamesPlayed!==player.gp||!events)return;
+ const box=el(card,"details","player-evidence");
+ el(box,"summary",null,"Game details & stat source");
+ const inside=el(box,"div","player-evidence-body");
+ const label=el(inside,"div","player-evidence-line");
+ if(player.position==="Skater"){
+  if(![raw.goals,raw.assists,raw.points,raw.penaltyMinutes,raw.playerOfTheGameCount].every(Number.isFinite)
+     ||raw.points!==raw.goals+raw.assists)return box.remove();
+  el(label,"span",null,raw.goals+" goals + "+raw.assists+" assists = "+raw.points+" points");
+  el(inside,"p",null,"HTO season: "+raw.playerOfTheGameCount+" Player of the Game · "+raw.penaltyMinutes+" penalty minutes · "+raw.plusMinus+" plus/minus.");
+  if(scoring?.sourceStatus==="EXACT_HTO_GOAL_SCORER_AND_ASSISTANT_EVENTS_RECONCILED_NOT_AWARD_SCORE"){
+   el(inside,"p",null,"Scoring credits: "+scoring.evenStrengthGoals+" ES goals, "+scoring.evenStrengthAssists+" ES assists; "+scoring.powerPlayGoals+" PP goals, "+scoring.powerPlayAssists+" PP assists; "+scoring.shorthandedGoals+" SH goals, "+scoring.shorthandedAssists+" SH assists.");
+  }
+  if(events.sourceKind==="HTO_SCORES_AND_BOX_SCORE_EVENTS_RECONCILED"&&Number.isInteger(events.reportedPIMFreeGameAppearances)){
+   el(inside,"p",null,"HTO-reported penalty-free games: "+events.reportedPIMFreeGameAppearances+" of "+player.gp+" appearances.");
+  }
+ }else if(player.position==="Goalie"){
+  if(![raw.losses,raw.goalsAgainst,raw.goalsAgainstAverage,raw.playerOfTheGameCount].every(Number.isFinite))return box.remove();
+  el(label,"span",null,player.gp+" games · "+raw.goalsAgainst+" goals allowed · "+raw.goalsAgainstAverage.toFixed(2)+" GAA");
+  el(inside,"p",null,raw.playerOfTheGameCount+" Player of the Game selections · "+raw.losses+" losses.");
+  if(events.sourceKind==="FOUR_HTO_BOXSCORES_GOALIE_APPEARANCE_AND_ALL_PUBLISHED_PENALTY_GOAL_EVENTS_VERIFIED")
+   el(inside,"p",null,"No goalie penalty or goalie goal/assist recorded in the published HTO game summaries.");
+ }else return box.remove();
+ const sources=participants.verifiedSourceReadback?.currentHTOGameEventAudit?.currentOfficialGameSources;
+ const played=events.playedOfficialHTOGameIds||scoring?.sourceGameIds||player.verifiedGameIds;
+ if(Array.isArray(sources)&&Array.isArray(played)&&played.length===player.gp){
+  const byId=new Map(sources.filter(x=>Number.isInteger(x.gameId)&&typeof x.url==="string"
+    &&x.url.startsWith("https://www.htosports.com/teams/default.asp?")
+    &&Number.isInteger(Number(x.gameId))).map(x=>[x.gameId,x]));
+  const links=el(inside,"div","player-game-links");
+  for(const gid of played){
+   const record=byId.get(gid);
+   if(!record)continue;
+   const a=el(links,"a",null,(record.date||"Game")+" ↗");
+   a.href=record.url;a.target="_blank";a.rel="noopener noreferrer";
+  }
+ }
+ el(inside,"p","player-evidence-disclaimer","Official game statistics only. These are not workbook award subscores, ratings, rankings or proof of award eligibility.");
+}
 function renderRaceActivity(){
  const src=state.participation,d=state.source,id=state.award;
  if(!src||src.season!==d.season||src.officialTeamGames!==d.currentTeamGP
@@ -220,6 +261,7 @@ function renderRaceActivity(){
    if(Number.isInteger(h.goalsAgainst))el(stat,"span",null,h.goalsAgainst+" GA");
    el(entry,"div","race-activity-sub","Goalie · award roster role unverified");
   }
+  renderPlayerEvidence(entry,p,src);
  }
  el(content,"p","source-note","Appearance stats: official HTO this season, read back "+(src.verifiedSourceReadback.verifiedOn||"date pending")+". "+(id==="rookie"?"First-year FT flag: saved Sep 2026 workbook roster (not current model or finalized award eligibility). ":"Roster classifications are from HockeyOS, not an award approval. ")+"Alphabetical, not ranked by performance.");
 }
