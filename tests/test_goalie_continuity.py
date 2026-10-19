@@ -78,6 +78,29 @@ class FixtureContinuity(unittest.TestCase):
         f,_=reconcile.reconcile(changed,[hto()],NOW,as_feed(old_feed),as_goalies("hto:90001"))
         self.assertNotEqual(f[0]["assignmentKey"],"hto:90001")
 
+    def test_previous_game_missing_from_svhl_requires_review(self):
+        original=[game("2026-11-29","20:15","Test Rivals")]
+        old_feed,_=reconcile.reconcile(original,[hto()],NOW)
+        current,queue=reconcile.reconcile(
+            [game("2026-12-06","18:15","Another Team")], [hto()],
+            NOW,as_feed(old_feed),as_goalies("hto:90001"))
+        removed=[x for x in queue if x["action"]=="REVIEW_SVHL_REMOVED"]
+        self.assertEqual(len(removed),1)
+        self.assertEqual(removed[0]["previous"]["assignmentKey"],"hto:90001")
+        self.assertEqual(removed[0]["previous"]["opponent"],"Test Rivals")
+        self.assertEqual(current[0]["opponent"],"Another Team")
+        self.assertFalse(any(x["opponent"]=="Test Rivals" for x in current))
+        self.assertFalse(any(x["action"]=="REVIEW_HTO_ONLY" for x in queue))
+
+    def test_completed_prior_game_not_flagged_when_removed(self):
+        historical=[dict(game("2026-10-05","18:15","Old Fixture"),
+                         assignmentKey="hto:90001",htoGameId="90001")]
+        now=datetime(2026,10,19,16,0,tzinfo=ZoneInfo("America/Toronto"))
+        games,queue=reconcile.reconcile(
+            [game("2026-11-29","20:15","Future Team")],
+            [hto("2026-10-05","18:15","Old Fixture")],now,as_feed(historical))
+        self.assertFalse(any(r["action"]=="REVIEW_SVHL_REMOVED" for r in queue))
+
     def test_duplicate_keys_block_feed_publish(self):
         repeated=[game(),game()]
         with self.assertRaises(ValueError):
