@@ -77,3 +77,11 @@ test('Unique HTO initial-and-surname player abbreviations resolve; duplicate ini
  assert.equal(links.profileUrl('M. Provenzano'),null);
  assert.equal(links.profileUrl('P. Unknown'),null);
 });
+
+test('HTO native click handlers remain protected from nested links',()=>{
+ // Complements live browser QA on 25 roster rows and 225 onclick cells.
+ assert.match(code,/el\.classList\.contains\('playerRow'\)/);
+ assert.match(code,/el\.classList\.contains\('nameLabel'\)/);
+ assert.match(code,/el\.hasAttribute\('onclick'\)/);
+ assert.match(code,/el\.getAttribute\('role'\) === 'link'/);
+});
