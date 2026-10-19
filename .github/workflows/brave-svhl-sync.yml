@@ -29,6 +29,22 @@ jobs:
         run: pip install 'requests>=2.31,<3' 'beautifulsoup4>=4.12,<5'
       - name: Validate source parser
         run: python tests/test_svhl_hto_parser.py
+      - name: Validate public widget and manager JavaScript
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re, subprocess, tempfile
+          for file in ('widgets/goalie-schedule-v1.2-HTO-embed.html', 'widgets/goalie-manager-v1.2.html'):
+              html=Path(file).read_text()
+              match=re.search(r'<script>(.*?)</script>',html,re.S)
+              if not match:
+                  raise RuntimeError('Missing JS in '+file)
+              with tempfile.TemporaryDirectory() as folder:
+                  path=Path(folder)/'check.js'
+                  path.write_text(match.group(1))
+                  subprocess.run(['node','--check',str(path)],check=True)
+              print('PASS JS:',file)
+          PY
       - name: Compare league and team schedules (no HTO writes)
         run: python scripts/svhl_hto_reconcile.py --out build/svhl-review
       - name: Store reconciliation evidence
