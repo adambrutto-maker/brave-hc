@@ -26,7 +26,13 @@
       "goals": 0,
       "assists": 0,
       "points": 0,
-      "source": "HTO published current-season skater scoring bridged to HockeyOS projection"
+      "source": "HTO published current-season skater scoring bridged to HockeyOS projection",
+      "officialHTOStats": {
+        "gp": 1,
+        "goals": 0,
+        "assists": 0,
+        "points": 0
+      }
     },
     {
       "name": "Atkins, Nolan",
@@ -36,7 +42,13 @@
       "goals": 0,
       "assists": 0,
       "points": 0,
-      "source": "HTO published current-season skater scoring bridged to HockeyOS projection"
+      "source": "HTO published current-season skater scoring bridged to HockeyOS projection",
+      "officialHTOStats": {
+        "gp": 2,
+        "goals": 0,
+        "assists": 0,
+        "points": 0
+      }
     },
     {
       "name": "Brutto, Adam",
@@ -46,7 +58,13 @@
       "goals": 0,
       "assists": 0,
       "points": 0,
-      "source": "HTO published current-season skater scoring bridged to HockeyOS projection"
+      "source": "HTO published current-season skater scoring bridged to HockeyOS projection",
+      "officialHTOStats": {
+        "gp": 4,
+        "goals": 0,
+        "assists": 0,
+        "points": 0
+      }
     },
     {
       "name": "Carlyle, Adam",
@@ -56,7 +74,14 @@
       "verifiedGameIds": [
         3369564
       ],
-      "source": "Verified HTO game-night goalie appearance in roster-context feed"
+      "source": "Verified HTO game-night goalie appearance in roster-context feed",
+      "officialHTOStats": {
+        "gp": 1,
+        "losses": 1,
+        "goalsAgainst": 3,
+        "gaa": 3,
+        "playerOfTheGame": 1
+      }
     },
     {
       "name": "Carosi, Justin",
@@ -66,7 +91,13 @@
       "goals": 3,
       "assists": 0,
       "points": 3,
-      "source": "HTO published current-season skater scoring bridged to HockeyOS projection"
+      "source": "HTO published current-season skater scoring bridged to HockeyOS projection",
+      "officialHTOStats": {
+        "gp": 4,
+        "goals": 3,
+        "assists": 0,
+        "points": 3
+      }
     },
     {
       "name": "Congiusti, Marco",
@@ -76,7 +107,13 @@
       "goals": 0,
       "assists": 0,
       "points": 0,
-      "source": "HTO published current-season skater scoring bridged to HockeyOS projection"
+      "source": "HTO published current-season skater scoring bridged to HockeyOS projection",
+      "officialHTOStats": {
+        "gp": 1,
+        "goals": 0,
+        "assists": 0,
+        "points": 0
+      }
     },
     {
       "name": "Duffy, Lorcan",
@@ -86,7 +123,13 @@
       "goals": 0,
       "assists": 0,
       "points": 0,
-      "source": "HTO published current-season skater scoring bridged to HockeyOS projection"
+      "source": "HTO published current-season skater scoring bridged to HockeyOS projection",
+      "officialHTOStats": {
+        "gp": 1,
+        "goals": 0,
+        "assists": 0,
+        "points": 0
+      }
     },
     {
       "name": "Kober, Adam",
@@ -96,7 +139,13 @@
       "goals": 1,
       "assists": 1,
       "points": 2,
-      "source": "HTO published current-season skater scoring bridged to HockeyOS projection"
+      "source": "HTO published current-season skater scoring bridged to HockeyOS projection",
+      "officialHTOStats": {
+        "gp": 3,
+        "goals": 1,
+        "assists": 1,
+        "points": 2
+      }
     },
     {
       "name": "Kong, Henry",
@@ -106,7 +155,13 @@
       "goals": 1,
       "assists": 1,
       "points": 2,
-      "source": "HTO published current-season skater scoring bridged to HockeyOS projection"
+      "source": "HTO published current-season skater scoring bridged to HockeyOS projection",
+      "officialHTOStats": {
+        "gp": 4,
+        "goals": 1,
+        "assists": 1,
+        "points": 2
+      }
     },
     {
       "name": "Leong, Dev",
@@ -117,7 +172,14 @@
         3356177,
         3375601
       ],
-      "source": "Verified HTO game-night goalie appearance in roster-context feed"
+      "source": "Verified HTO game-night goalie appearance in roster-context feed",
+      "officialHTOStats": {
+        "gp": 2,
+        "losses": 2,
+        "goalsAgainst": 10,
+        "gaa": 5,
+        "playerOfTheGame": 1
+      }
     },
     {
       "name": "Logue, Stephen",
@@ -127,7 +189,14 @@
       "verifiedGameIds": [
         3356178
       ],
-      "source": "Verified HTO game-night goalie appearance in roster-context feed"
+      "source": "Verified HTO game-night goalie appearance in roster-context feed",
+      "officialHTOStats": {
+        "gp": 1,
+        "losses": 1,
+        "goalsAgainst": 6,
+        "gaa": 6,
+        "playerOfTheGame": 1
+      }
     },
     {
       "name": "Pagnotta, Alex",
@@ -137,7 +206,13 @@
       "goals": 0,
       "assists": 3,
       "points": 3,
-      "source": "HTO published current-season skater scoring bridged to HockeyOS projection"
+      "source": "HTO published current-season skater scoring bridged to HockeyOS projection",
+      "officialHTOStats": {
+        "gp": 4,
+        "goals": 0,
+        "assists": 3,
+        "points": 3
+      }
     },
     {
       "name": "Paolucci, Anthony",
@@ -147,7 +222,13 @@
       "goals": 0,
       "assists": 0,
       "points": 0,
-      "source": "HTO published current-season skater scoring bridged to HockeyOS projection"
+      "source": "HTO published current-season skater scoring bridged to HockeyOS projection",
+      "officialHTOStats": {
+        "gp": 1,
+        "goals": 0,
+        "assists": 0,
+        "points": 0
+      }
     },
     {
       "name": "Pavaday, Damian",
@@ -157,7 +238,13 @@
       "goals": 0,
       "assists": 1,
       "points": 1,
-      "source": "HTO published current-season skater scoring bridged to HockeyOS projection"
+      "source": "HTO published current-season skater scoring bridged to HockeyOS projection",
+      "officialHTOStats": {
+        "gp": 1,
+        "goals": 0,
+        "assists": 1,
+        "points": 1
+      }
     },
     {
       "name": "Pearsoll, Keith",
@@ -167,7 +254,13 @@
       "goals": 1,
       "assists": 0,
       "points": 1,
-      "source": "HTO published current-season skater scoring bridged to HockeyOS projection"
+      "source": "HTO published current-season skater scoring bridged to HockeyOS projection",
+      "officialHTOStats": {
+        "gp": 3,
+        "goals": 1,
+        "assists": 0,
+        "points": 1
+      }
     },
     {
       "name": "Povegliano, Adam",
@@ -177,7 +270,13 @@
       "goals": 0,
       "assists": 0,
       "points": 0,
-      "source": "HTO published current-season skater scoring bridged to HockeyOS projection"
+      "source": "HTO published current-season skater scoring bridged to HockeyOS projection",
+      "officialHTOStats": {
+        "gp": 3,
+        "goals": 0,
+        "assists": 0,
+        "points": 0
+      }
     },
     {
       "name": "Provenzano, Mario",
@@ -187,7 +286,13 @@
       "goals": 0,
       "assists": 0,
       "points": 0,
-      "source": "HTO published current-season skater scoring bridged to HockeyOS projection"
+      "source": "HTO published current-season skater scoring bridged to HockeyOS projection",
+      "officialHTOStats": {
+        "gp": 4,
+        "goals": 0,
+        "assists": 0,
+        "points": 0
+      }
     },
     {
       "name": "Provenzano, Michael",
@@ -197,7 +302,13 @@
       "goals": 0,
       "assists": 3,
       "points": 3,
-      "source": "HTO published current-season skater scoring bridged to HockeyOS projection"
+      "source": "HTO published current-season skater scoring bridged to HockeyOS projection",
+      "officialHTOStats": {
+        "gp": 3,
+        "goals": 0,
+        "assists": 3,
+        "points": 3
+      }
     },
     {
       "name": "Rajasooriar, Krishnan",
@@ -207,7 +318,13 @@
       "goals": 0,
       "assists": 0,
       "points": 0,
-      "source": "HTO published current-season skater scoring bridged to HockeyOS projection"
+      "source": "HTO published current-season skater scoring bridged to HockeyOS projection",
+      "officialHTOStats": {
+        "gp": 2,
+        "goals": 0,
+        "assists": 0,
+        "points": 0
+      }
     },
     {
       "name": "Rajkumar, Sanjay",
@@ -217,7 +334,13 @@
       "goals": 0,
       "assists": 0,
       "points": 0,
-      "source": "HTO published current-season skater scoring bridged to HockeyOS projection"
+      "source": "HTO published current-season skater scoring bridged to HockeyOS projection",
+      "officialHTOStats": {
+        "gp": 3,
+        "goals": 0,
+        "assists": 0,
+        "points": 0
+      }
     },
     {
       "name": "Rosenberg, Jamie",
@@ -227,7 +350,13 @@
       "goals": 0,
       "assists": 0,
       "points": 0,
-      "source": "HTO published current-season skater scoring bridged to HockeyOS projection"
+      "source": "HTO published current-season skater scoring bridged to HockeyOS projection",
+      "officialHTOStats": {
+        "gp": 3,
+        "goals": 0,
+        "assists": 0,
+        "points": 0
+      }
     },
     {
       "name": "Saindon, Stephane",
@@ -237,7 +366,13 @@
       "goals": 0,
       "assists": 1,
       "points": 1,
-      "source": "HTO published current-season skater scoring bridged to HockeyOS projection"
+      "source": "HTO published current-season skater scoring bridged to HockeyOS projection",
+      "officialHTOStats": {
+        "gp": 3,
+        "goals": 0,
+        "assists": 1,
+        "points": 1
+      }
     },
     {
       "name": "Triumbari, Francesco",
@@ -247,7 +382,13 @@
       "goals": 0,
       "assists": 0,
       "points": 0,
-      "source": "HTO published current-season skater scoring bridged to HockeyOS projection"
+      "source": "HTO published current-season skater scoring bridged to HockeyOS projection",
+      "officialHTOStats": {
+        "gp": 4,
+        "goals": 0,
+        "assists": 0,
+        "points": 0
+      }
     }
   ],
   "excludedIdentityPlaceholder": [
@@ -258,5 +399,31 @@
     "Goalie GP is derived from verified game sheets, not from skater projection fields.",
     "Names may have distinct roster classes; goalie roster status was not inferred.",
     "Historical workbook award scorecards are not current season ratings."
-  ]
+  ],
+  "verifiedSourceReadback": {
+    "source": "Official Brave H.C. HTO player and goalie statistics",
+    "sourceUrl": "https://www.htosports.com/teams/default.asp?p=stats&s=hockey&u=BRAVESHOCKEY",
+    "verifiedOn": "2026-10-19",
+    "status": "HTO_NAMED_SKATER_AND_GOALIE_GP_PARITY_PASS",
+    "team": {
+      "gp": 4,
+      "goals": 6,
+      "assists": 10,
+      "points": 16
+    },
+    "sourceRows": {
+      "skaters": 21,
+      "namedSkaters": 20,
+      "goalies": 3
+    },
+    "namedParticipantRows": 23,
+    "goalieSourceTotals": {
+      "gp": 4,
+      "goalsAgainst": 19
+    },
+    "unidentifiedEntriesExcluded": [
+      "Unknown, Johnny"
+    ],
+    "scopeLimitation": "Read-only public scoring/goalie-source parity. HTO GP and aggregate stats do not qualify a player for a specific award or validate AwardScoring formulas."
+  }
 }
