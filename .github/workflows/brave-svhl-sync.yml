@@ -6,6 +6,8 @@ on:
     paths:
       - 'scripts/svhl_hto_reconcile.py'
       - 'scripts/svhl_issue_watch.py'
+      - 'scripts/hto_review_packet.py'
+      - 'tests/test_hto_review_packet.py'
       - 'scripts/process_goalie_issue.py'
       - 'tests/test_goalie_issue.py'
       - '.github/workflows/brave-goalie-issue.yml'
@@ -38,6 +40,8 @@ jobs:
         run: pip install 'requests>=2.31,<3' 'beautifulsoup4>=4.12,<5'
       - name: Validate source parser
         run: python tests/test_svhl_hto_parser.py
+      - name: Validate manual HTO correction packets
+        run: python -m unittest discover -s tests -p test_hto_review_packet.py
       - name: Validate verified HTO goalie roster and dropdown allowlist
         run: python -m unittest discover -s tests -p test_goalie_roster.py
       - name: Validate goalie assignments through schedule changes
@@ -68,7 +72,9 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: svhl-hto-review
-          path: build/svhl-review/reconciliation.json
+          path: |
+            build/svhl-review/reconciliation.json
+            build/svhl-review/hto-review.md
           retention-days: 14
       - name: Open or close one HTO review issue when league changes are detected
         env:
