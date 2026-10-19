@@ -38,7 +38,7 @@ def update_assignment(feed: dict, data: dict, game_key: str, goalie: str, actor:
     last = datetime.fromisoformat(feed["checkedAt"])
     if last.tzinfo is None:
         raise ValueError("Official league feed timestamp has no timezone")
-    if now - last > timedelta(hours=72) or last - now > timedelta(minutes=15):
+    if now - last > timedelta(hours=24) or last - now > timedelta(minutes=15):
         raise ValueError("SVHL verification is stale or has a future timestamp; refresh before assignment")
     valid = [g for g in feed["games"] if g.get("assignmentKey") == game_key]
     if len(valid) != 1:
