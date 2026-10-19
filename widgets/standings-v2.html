@@ -1,0 +1,40 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,follow"><meta name="color-scheme" content="dark"><title>Brave H.C. — Cristillo Division Standings</title><link rel="stylesheet" href="./hockeyos-modern.css?v=2"></head><body><div class="app"><div class="frame"><div class="accent"></div><div class="inner"><div class="topline"><div class="identity"><img src="./brave_hc_logo.png" alt="Brave H.C. crest"><div><div class="eyebrow">HockeyOS · Brave H.C.</div><div class="identity-name">Cristillo Division · 2026–27</div></div></div><span class="badge">Source-tracked</span></div><nav class="nav" aria-label="HockeyOS sections"><a href="./analytics.html">Analytics</a><a href="./standings-v2.html">Standings</a><a href="./projection-v2.html">Projections</a><a href="./watch-v2.html">Streaks & records</a><a href="./awards-races.html">Award Races</a><a href="./hot-stove.html">Hot Stove</a></nav><div class="title-row"><div><div class="eyebrow">SVHL · Cristillo Division</div><h1>Division Standings</h1><p class="sub">A clean league table with the official SVHL standings kept separate from Brave H.C.'s team-maintained HTO record.</p></div><span class="badge" id="date">Reading latest standings…</span></div>
+<div class="stat-grid"><div class="stat"><div class="label">Division teams</div><div class="metric" id="teamcount">—</div></div><div class="stat"><div class="label">SVHL games logged</div><div class="metric" id="leaguegp">—</div></div><div class="stat"><div class="label">League record</div><div class="metric small" id="braverecord">—</div></div><div class="stat"><div class="label">Division position</div><div class="metric" id="rank">—</div></div></div>
+<div class="notice info" id="notice">Loading current official league table…</div>
+<section class="section"><div class="section-head"><h2>Cristillo Division</h2><span class="micro">W–L–T · point percentage · goal differential</span></div><div class="table-wrap"><table aria-label="SVHL Cristillo Division standings"><thead><tr><th class="num">#</th><th>Team</th><th class="num">GP</th><th class="num">W</th><th class="num">L</th><th class="num">T</th><th class="num">PTS</th><th class="num">GD</th><th class="num">PTS%</th></tr></thead><tbody id="standingsbody"></tbody></table></div><p class="source">Source: <a id="sourceurl" target="_blank" rel="noopener noreferrer" href="https://leagues.sportsvillage.ca/Leagues.aspx?leagueid=570&page_type=Adult&sc=HOCKEY">SVHL official division standings ↗</a> · fetched <span id="time"></span></p></section>
+<section class="section"><div class="section-head"><h2>Race context</h2><span class="badge">Source-bound</span></div><div id="race" class="grid2"></div></section><footer class="footer"><div>Data-driven by HockeyOS · <a href="https://www.htosports.com/teams/?u=BRAVESHOCKEY&s=hockey" target="_parent" rel="noopener">Brave H.C. on HTO ↗</a></div><div>Team and league sources are separately identified</div></footer></div></div></div><script>
+const $=(tag,cls,text)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(text!==undefined)e.textContent=String(text);return e};
+const text=(id,val)=>document.getElementById(id).textContent=String(val);
+const fill=(id)=>{const e=document.getElementById(id);e.replaceChildren();return e};
+const fmtDate=iso=>{const d=new Date(iso);return Number.isNaN(d.getTime())?"Date unavailable":new Intl.DateTimeFormat("en-CA",{dateStyle:"medium",timeZone:"America/Toronto"}).format(d)};
+if(new URLSearchParams(location.search).has("embed"))document.body.classList.add("embed");
+document.querySelectorAll(".nav a").forEach(a=>{if(a.pathname===location.pathname)a.setAttribute("aria-current","page")});
+
+(async()=>{
+ try{
+ const r=await fetch("./standings.json",{cache:"no-store"});if(!r.ok)throw Error("Standings feed unavailable");
+ const d=await r.json();
+ if(d.schema!=="brave-hc-svhl-standings/v1"||!Array.isArray(d.teams)||!d.capturedAt||d.teams.length<2)throw Error("Unexpected source data");
+ text("date","Updated "+fmtDate(d.capturedAt));text("teamcount",d.teams.length);
+ const team=d.teams.find(t=>t.name===d.team);if(!team)throw Error("Braves row unavailable");
+ text("leaguegp",team.gp);text("braverecord",team.w+"–"+team.l+"–"+team.t);
+ const index=d.teams.findIndex(t=>t.name===d.team)+1;text("rank",index);
+ text("time",fmtDate(d.capturedAt));
+ document.getElementById("sourceurl").href=d.source;
+ const body=fill("standingsbody");d.teams.forEach((t,i)=>{
+  const tr=$("tr");if(t.name===d.team)tr.className="highlight";
+  [i+1,t.name,t.gp,t.w,t.l,t.t,t.pts,t.gf-t.ga,(t.winPct*100).toFixed(1)+"%"].forEach((value,idx)=>{
+   const td=$("td",idx!==1?"num":"team-name",value);tr.append(td);
+  });body.append(tr);
+ });
+ const note=document.getElementById("notice");
+ note.textContent="This is the SVHL division table, not the HTO team-stat feed. Each source has its own publication timing. League results are not silently updated from HTO box scores.";
+ if(d.braveGP!==undefined&&d.braveGP!==team.gp)note.textContent+=" Snapshot disagreement requires verification.";
+ const other=d.teams[0];
+ const race=fill("race");
+ function tile(title,value,description){const e=$("article","entry");e.append($("div","label",title),$("div","metric small",value),$("p",null,description));race.append(e)}
+ tile("Division leader",other.name,other.pts+" points in "+other.gp+" games");
+ tile("Brave H.C.",team.pts+" points",team.gf+" GF · "+team.ga+" GA · "+((team.gf-team.ga)>=0?"+":"")+(team.gf-team.ga)+" GD");
+ }catch(e){document.getElementById("notice").className="notice";text("notice","Unable to verify the official standings at this time. No unverified rankings have been substituted.");}
+})();
+</script></body></html>
