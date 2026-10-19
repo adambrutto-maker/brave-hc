@@ -218,6 +218,16 @@
         "plusMinus": -1,
         "sourceKind": "OFFICIAL_HTO_PUBLISHED_SEASON_STATISTICS",
         "season": "W2026/27"
+      },
+      "currentHTOEventEvidence": {
+        "playedOfficialHTOGameIds": [
+          3369564
+        ],
+        "gamesWithoutReportedGoaltenderPenalty": 1,
+        "reportedGoaliePenaltyEvents": 0,
+        "recordedGoalEventPoints": 0,
+        "sourceKind": "FOUR_HTO_BOXSCORES_GOALIE_APPEARANCE_AND_ALL_PUBLISHED_PENALTY_GOAL_EVENTS_VERIFIED",
+        "publicationLimit": "HTO source event counts only, NOT normalized goalie discipline/offense, quality game or any award rating"
       }
     },
     {
@@ -545,6 +555,17 @@
         "plusMinus": -9,
         "sourceKind": "OFFICIAL_HTO_PUBLISHED_SEASON_STATISTICS",
         "season": "W2026/27"
+      },
+      "currentHTOEventEvidence": {
+        "playedOfficialHTOGameIds": [
+          3356177,
+          3375601
+        ],
+        "gamesWithoutReportedGoaltenderPenalty": 2,
+        "reportedGoaliePenaltyEvents": 0,
+        "recordedGoalEventPoints": 0,
+        "sourceKind": "FOUR_HTO_BOXSCORES_GOALIE_APPEARANCE_AND_ALL_PUBLISHED_PENALTY_GOAL_EVENTS_VERIFIED",
+        "publicationLimit": "HTO source event counts only, NOT normalized goalie discipline/offense, quality game or any award rating"
       }
     },
     {
@@ -574,6 +595,16 @@
         "plusMinus": -3,
         "sourceKind": "OFFICIAL_HTO_PUBLISHED_SEASON_STATISTICS",
         "season": "W2026/27"
+      },
+      "currentHTOEventEvidence": {
+        "playedOfficialHTOGameIds": [
+          3356178
+        ],
+        "gamesWithoutReportedGoaltenderPenalty": 1,
+        "reportedGoaliePenaltyEvents": 0,
+        "recordedGoalEventPoints": 0,
+        "sourceKind": "FOUR_HTO_BOXSCORES_GOALIE_APPEARANCE_AND_ALL_PUBLISHED_PENALTY_GOAL_EVENTS_VERIFIED",
+        "publicationLimit": "HTO source event counts only, NOT normalized goalie discipline/offense, quality game or any award rating"
       }
     },
     {
@@ -1422,6 +1453,22 @@
       "currentAwardScoringComponentScoreReady": false,
       "provenance": "Exact named scorer/assistant event attribution from four official HTO public Score Summary tables",
       "caveat": "No league or workbook historic/normalized rate inferred; zero recorded PP/SH game events is NOT a 50–100 special teams model score."
+    },
+    "goalieGameEventAudit": {
+      "status": "HTO_FOUR_GOALIE_APPEARANCES_NO_PUBLISHED_GOALIE_PENALTIES_OR_GOAL_POINTS",
+      "season": "W2026/27",
+      "teamGP": 4,
+      "namedGoalies": 3,
+      "totalGoalieGameAppearances": 4,
+      "reportedGoaliePIMFreeAppearances": 4,
+      "goalieGoalEventPointsObserved": 0,
+      "officialHTOTeamPenaltyEvents": 1,
+      "sourceLimitations": [
+        "No goalie penalty in the complete published HTO penalty summaries; reporting completeness outside HTO is not independently established.",
+        "No goalie scorer or credited goal-assist in the six official Brave H.C. scoring events.",
+        "Source-level data ONLY. Historical rate baselines, model quality and discipline definitions, and 50–100 award scoring remain held."
+      ],
+      "modelSubscoresCurrent": false
     }
   },
   "workbookRookieRosterWatch": {
