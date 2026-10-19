@@ -1,0 +1,79 @@
+name: Confirm Brave H.C. Goaltender
+on:
+  workflow_dispatch:
+    inputs:
+      game_key:
+        description: 'HTO game key from the Goalie Manager (example: hto:3375682)'
+        required: true
+        type: string
+      goalie:
+        description: 'Confirmed goaltender'
+        required: true
+        type: choice
+        options:
+          - Dev Leong
+          - Stephen Logue
+          - TBD
+          - Adam Carlyle
+          - Matt Svec
+          - Steve Noyek
+          - Other / rental
+      custom_goalie_name:
+        description: 'Only for Other / rental (leave blank otherwise)'
+        required: false
+        type: string
+      dry_run:
+        description: 'Test selection without saving'
+        required: true
+        default: true
+        type: boolean
+permissions:
+  contents: write
+concurrency:
+  group: braves-goalie-assignment
+  cancel-in-progress: false
+jobs:
+  save:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate goalie assignment rules
+        run: python -m unittest discover -s tests -p test_goalie_assignment.py
+      - name: Apply manager-confirmed goalie
+        env:
+          GAME_KEY: ${{ inputs.game_key }}
+          GOALIE: ${{ inputs.goalie }}
+          CUSTOM_GOALIE_NAME: ${{ inputs.custom_goalie_name }}
+          MANAGER: ${{ github.actor }}
+          DRY_RUN: ${{ inputs.dry_run }}
+        run: |
+          python - <<'PY'
+          import os
+          import subprocess
+          cmd=['python','scripts/set_goalie.py','--game-key',os.environ['GAME_KEY'],
+               '--goalie',os.environ['GOALIE'],'--custom-name',os.environ.get('CUSTOM_GOALIE_NAME',''),
+               '--actor',os.environ['MANAGER']]
+          if os.environ.get('DRY_RUN','true')=='true':
+              cmd.append('--dry-run')
+          subprocess.run(cmd,check=True)
+          PY
+      - name: Commit only after explicitly disabling dry-run
+        if: ${{ !inputs.dry_run }}
+        shell: bash
+        run: |
+          if git diff --quiet -- widgets/goalie-assignments.json; then
+            echo "No goalie changes to commit"
+            exit 0
+          fi
+          git config user.name "BruTTech Goalie Manager"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add widgets/goalie-assignments.json
+          git commit -m "Update manager-confirmed Braves goalie"
+          git pull --rebase
+          git push
