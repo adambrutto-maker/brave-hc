@@ -102,3 +102,23 @@ body.embedded{background:transparent}
 .historical-note{font-size:10px;color:#b4c9dc;font-style:italic;line-height:1.5;margin:2px 0 8px}
 .archive-retrospective .h2h-stats{margin:9px 0 12px}
 @media(max-width:480px){.historical-note{font-size:9px}}
+
+/* Evidence-backed game-night roster and call-up analysis */
+.roster-context{margin:18px 0 12px;padding:11px;background:#0b2135;border:1px solid #536f87;border-top:3px solid #cc2135}
+.roster-context .section-header{margin:0 0 8px}
+.roster-narrative{font-size:11px;line-height:1.55;color:#e1ebf6;margin:8px 0}
+.roster-depth-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:12px 0}
+.roster-depth-card{background:#102d46;border:1px solid #516e86;border-left:3px solid #be2036;padding:10px;min-width:0}
+.roster-depth-card .roster-type{display:inline-block;margin-top:4px;font-size:8px;letter-spacing:.08em;color:#f8ced4;font-weight:900}
+.roster-depth-card p{font-size:10.5px;line-height:1.45;color:#d6e5f2;margin:6px 0 0}
+.goalie-heading{font-size:11px;margin:13px 0 5px}
+.goalie-note{font-size:10.5px;line-height:1.5;color:#e0edf7;margin:5px 0 9px}
+.roster-caveat{font-size:9px;line-height:1.45;color:#acbed0;border-top:1px solid #34536f;margin:11px 0 0;padding-top:9px}
+@media(max-width:480px){
+ .roster-context{padding:8px}
+ .roster-depth-grid{grid-template-columns:1fr;gap:6px}
+ .roster-depth-card{padding:8px}
+ .roster-narrative{font-size:10px}
+ .roster-depth-card p,.goalie-note{font-size:10px}
+ .roster-caveat{font-size:8.5px}
+}
