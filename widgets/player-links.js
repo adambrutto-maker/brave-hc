@@ -28,7 +28,7 @@
   const officialSeason = input => {
     if (!input) return null;
     const v = String(input).trim().replace(/\s+/g, ' ');
-    const winter = /^Winter[ _](20\d{2})[\/-](20\\d{2}|\\d{2})$/i.exec(v);
+    const winter = /^Winter[ _](20\d{2})[\/-](20\d{2}|\d{2})$/i.exec(v);
     if (winter) {
       const end = winter[2].length === 2 ? winter[1].slice(0, 2) + winter[2] : winter[2];
       return Number(end) === Number(winter[1]) + 1 ? 'Winter_' + winter[1] + '/' + end : null;
