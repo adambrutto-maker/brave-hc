@@ -21,6 +21,17 @@
 | REVIEW_HTO_ONLY | HTO game not found in SVHL; manager investigates cancellation, never automatically deletes scored or historic games |
 | REVIEW_OR_ADD | Game identity ambiguous; manager reviews, avoiding duplicates |
 
+## Monitoring stale or unexpectedly missing SVHL games
+
+The public HTO goalie widget now identifies the date of the latest successfully verified SVHL feed:
+
+- If the last league verification is more than **18 hours old**, it displays an amber **sync delayed** warning.
+- If more than **36 hours old**, or the verification date is invalid, it displays a red **verification overdue** warning rather than silently presenting stale schedule information as current.
+- The goalie manager and authenticated save scripts will not accept a new confirmation against a feed more than **24 hours old**; rerun the league check and verify fresh data first.
+- If a game previously listed as upcoming is **absent from the latest SVHL fixture list**, it is not silently treated as a completed match or cancellation. It is removed from the current official fixture list but counted in `missingFixtureReviews` on the feed, highlighted in the public status banner, and recorded as `REVIEW_SVHL_REMOVED` in the HTO review queue.
+- Do not delete the HTO game or reset its assigned goaltender based solely on an absent SVHL entry. Verify with the league; a partial provider response can resemble a cancellation. The current goalie assignment history remains in GitHub, and actual past games are not raised as missing.
+- This release **does not monitor GitHub failures through a separate independent channel**; GitHub Actions run notifications and the visible freshness warning remain the failure-detection methods. Review the GitHub Actions health if a red overdue indicator appears.
+
 ## Automatic HTO correction packets (read-only)
 
 The reconciliation workflow now generates **two audit files** every successful run: `reconciliation.json` (structured evidence) and `hto-review.md` (human-readable, field-by-field corrections). Both are retained with the workflow's short-lived GitHub artifact. No HTO admin write is performed.
@@ -63,7 +74,7 @@ The manager dropdown reads [widgets/goalie-roster.json](https://github.com/adamb
 - [Goaltender Manager](https://adambrutto-maker.github.io/brave-hc/widgets/goalie-manager-v1.2.html) shows each upcoming SVHL fixture, current saved goalie, and the controlled selection dropdown.
 - Select the goalie and click **Review and confirm**. For **Other / rental**, enter the verified name. The page opens a GitHub issue with the matching game key and selected goalie already filled in.
 - **Sign in to GitHub and click Submit new issue** only after checking the game and goalie selection. The dropdown action does **not** save anything itself.
-- The [Save Brave H.C. goalie request](https://github.com/adambrutto-maker/brave-hc/actions/workflows/brave-goalie-issue.yml) checks the issue creator's repository **write/maintain/admin** permission, validates strict request JSON, verifies the feed is no older than 72 hours, and updates only `widgets/goalie-assignments.json`.
+- The [Save Brave H.C. goalie request](https://github.com/adambrutto-maker/brave-hc/actions/workflows/brave-goalie-issue.yml) checks the issue creator's repository **write/maintain/admin** permission, validates strict request JSON, verifies the feed is no older than 24 hours, and updates only `widgets/goalie-assignments.json`.
 - GitHub records the requesting user and the previous/new assignment when it changes. Upon success, it comments on and closes the confirmation issue, leaving a public audit receipt.
 - The original [manual workflow dispatch](https://github.com/adambrutto-maker/brave-hc/actions/workflows/brave-goalie-confirm.yml) remains as a fallback, requiring manual game key/goalie selection.
 - If the game is moved or time changes, the feed indicates that goalie reconfirmation is needed. Manager confirmation is never inferred from the league schedule.
