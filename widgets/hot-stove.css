@@ -1,0 +1,60 @@
+/* HockeyOS Hot Stove v1 — Brave H.C. / HTML Source iframe */
+:root{color-scheme:dark;--ink:#f4f7fb;--muted:#b7cbdb;--edge:#778fa7;--red:#d41b2f;--blue:#122f4b}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;min-width:0}
+body{background:#06101e;color:var(--ink);font:12px/1.5 Arial,"Segoe UI",sans-serif}
+.shell{max-width:650px;margin:auto;background:linear-gradient(135deg,#7d101e,#c9162b,#690c19);padding:7px}
+.panel{padding:11px;background:radial-gradient(ellipse at 50% 0,#1a3653,#071626 70%);border:2px solid #a1b1c3;box-shadow:inset 0 0 0 1px #1b3856}
+.review-ribbon{background:#e5b863;color:#241604;text-align:center;font-size:10px;font-weight:900;letter-spacing:.055em;padding:5px 7px;margin-bottom:9px;text-transform:uppercase}
+.brand{display:flex;gap:10px;align-items:center;border-bottom:2px solid var(--red);padding:1px 0 9px}
+.brand img{width:56px;height:56px;object-fit:contain}
+.brand .heading{flex:1}
+.eyebrow{color:#acbcd1;letter-spacing:.18em;font-size:10px;font-weight:900}
+.brand h1{font-size:20px;line-height:1.05;letter-spacing:.03em;margin:3px 0;text-transform:uppercase}
+.brand p{margin:2px 0;color:#c4d4e2;font-size:10px}
+.tabs{display:flex;gap:4px;margin:10px 0 9px}
+.tab{appearance:none;border:1px solid #526b84;background:#0d2945;color:#d7e4ef;font-size:10px;font-weight:900;padding:6px 12px;cursor:pointer;flex:1}
+.tab[aria-selected=true]{background:#97152a;color:white;border-color:#d7596a}
+.page{min-width:0}
+.tag{display:inline-block;border-left:3px solid #f24a53;background:#162c43;padding:4px 8px;font-size:9px;text-transform:uppercase;font-weight:900;letter-spacing:.08em;color:#d8e3f0}
+h2{font-size:21px;line-height:1.16;margin:10px 0 7px;color:#fff}
+.lead{font-size:12.5px;line-height:1.42;color:#dce7f1;font-weight:650;margin:4px 0 8px}
+.meta{font-size:10px;color:#a6bdd2;margin:6px 0 10px}
+.score{display:flex;align-items:center;justify-content:center;gap:9px;margin:12px 0;background:#081b30;padding:8px;border-block:1px solid #6a8bab}
+.score .team-name{flex:1;font-size:12px;font-weight:900;text-transform:uppercase;text-align:center;letter-spacing:.03em}
+.score .numbers{font-weight:950;font-size:29px;white-space:nowrap;font-variant-numeric:tabular-nums;letter-spacing:.03em}
+.score .numbers b{color:#fa6671}
+.article-body p{font-size:12px;line-height:1.57;margin:11px 0;color:#e4ecf5}
+.section-header{font-size:13px;letter-spacing:.03em;margin:16px 0 8px;border-bottom:1px solid #516f8b;padding-bottom:6px}
+.preview{padding:11px;background:#0d263d;border:1px solid #6c8299;border-left:4px solid #b71526}
+.preview h3{font-size:14px;margin:0 0 7px}
+.preview p{margin:0 0 7px;font-size:11px;line-height:1.5}
+.preview p:last-child{margin-bottom:0}
+.links{display:flex;flex-wrap:wrap;gap:9px;margin:10px 0 6px;font-size:10px}
+a{color:#c5e2fb;text-decoration:underline;text-underline-offset:2px}
+.archive{display:flex;flex-direction:column;gap:6px}
+.archive button{text-align:left;border:1px solid #5c7794;color:#e6edf6;background:#0b2339;padding:10px 10px;font-size:11px;cursor:pointer}
+.archive button:focus-visible,.tab:focus-visible{outline:2px solid #fff}
+.archive button .date{color:#9bb6cb;font-size:9px;display:block;margin-top:4px}
+.archive button:hover{background:#163852}
+.note{border-top:1px solid #3e5d75;padding:10px 0 0;font-size:9px;line-height:1.5;color:#abc0d1;margin-top:12px}
+.loading{padding:25px 8px;text-align:center;color:#b7cbdc}
+.error{color:#ffcabf}
+[hidden]{display:none!important}
+body.embedded{background:transparent}
+.embedded .shell{max-width:none;border:0;padding:4px}
+@media(max-width:480px){
+ .panel{padding:8px}
+ .brand img{width:43px;height:43px}
+ .brand h1{font-size:16px}
+ .eyebrow,.brand p{font-size:8.5px}
+ .review-ribbon{font-size:8px}
+ h2{font-size:17px}
+ .lead{font-size:11px}
+ .score .numbers{font-size:24px}
+ .score .team-name{font-size:9px}
+ .article-body p{font-size:11px}
+ .preview p{font-size:10px}
+ .tab{font-size:9px;padding:6px 4px}
+ .meta{font-size:9px}
+}
