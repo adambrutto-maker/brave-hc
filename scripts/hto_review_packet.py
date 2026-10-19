@@ -21,6 +21,8 @@ ACTIONS = {
     "REVIEW_OR_ADD": ("Check for duplicates", "Locate any prior matching HTO game before adding a record."),
     "ADD_HTO": ("Add missing HTO game after review", "Confirm there is no HTO duplicate, then add the new game and record its ID."),
     "REVIEW_HTO_ONLY": ("Investigate HTO-only game", "Check SVHL postponement/cancellation; do not delete scored or historic HTO records automatically."),
+    "REVIEW_SVHL_REMOVED": ("Previously scheduled SVHL game is now missing",
+       "This game was present in the previous verified SVHL schedule but is no longer listed. Verify the league posting and contact the league if necessary; do not assume cancellation or delete HTO data."),
 }
 FIELDS = (("date", "Date"), ("time", "Toronto start"),
           ("opponent", "Opponent"), ("rink", "Rink"), ("side", "Home/away"))
@@ -93,6 +95,10 @@ def render_review(items: list[dict]) -> str:
                     raise ValueError("Invalid difference field")
                 out.append(f"- **{label}:** {safe(values.get('hto'))} → {safe(values.get('svhl'))}")
             out.append("")
+        if action=="REVIEW_SVHL_REMOVED":
+            old=record.get("previous") or {}
+            out.extend([f"**Previously verified SVHL game:** {row_view(old)}", "",
+                        "**Important:** this game is absent from the latest published SVHL list. A cancellation, postponement, or incomplete league response must be checked against SVHL before any HTO update.", ""])
         out.extend([f"**Manager action:** {instruction}", ""])
         if action in ("EDIT_HTO", "REVIEW_RESCHEDULE", "REVIEW_IDENTITY"):
             out.extend(["Preserve the existing HTO game ID and prior results. Do not create a replacement game. Reconfirm any assigned goalie following a material schedule change.", ""])
