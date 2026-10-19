@@ -12,6 +12,8 @@ on:
       - 'tests/test_svhl_hto_parser.py'
       - 'tests/test_goalie_continuity.py'
       - 'scripts/set_goalie.py'
+      - 'widgets/goalie-schedule-v1.2-HTO-embed.html'
+      - 'widgets/goalie-manager-v1.2.html'
       - '.github/workflows/brave-svhl-sync.yml'
   schedule:
     - cron: '17 */4 * * *'
