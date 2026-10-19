@@ -1,0 +1,417 @@
+{
+  "schema": "brave-hc-awards-races-weekly/v1",
+  "team": "Brave H.C.",
+  "season": "W2026/27",
+  "publishedAsOf": "2026-10-19",
+  "latestGameDate": "2026-10-18",
+  "publishedState": "EARLY_SEASON_HTO_PERFORMANCE_MODEL_AWARD_SCORES_HELD",
+  "currentTeamGP": 4,
+  "sourceHTOReadback": "2026-10-19T03:55:10.771Z",
+  "sourceWorkbookBaselineDate": "2026-09-20",
+  "sourceWorkbookRecordedGP": 1,
+  "sourceWorkbookHash": "0002fd9f06596af8d0a00fc1b53a618ef15479f941ad5c1e6265b27002a65154",
+  "sourceModelParity": {
+    "replayedRows": 21,
+    "mismatches": 0
+  },
+  "seasonRaceMode": {
+    "earlyWeeklyRace": "PROVISIONAL_WATCH",
+    "officialNomineeList": "STRICT_ELIGIBLE_ONLY",
+    "candidateLimit": 5,
+    "eligibilityThresholdAppliedToOfficialOnly": true,
+    "scorePolicy": "Workbook AwardScoring computed scores and rank keys only. Do not represent scoring totals or model reference snapshots as award-model score.",
+    "currentModelScoresVerified": false,
+    "reason": "Workbook award values not reconciled to four verified 2026/27 HTO games; one game in available workbook."
+  },
+  "awards": [
+    {
+      "id": "hart",
+      "name": "Hart Award",
+      "subtitle": "Most Valuable Player",
+      "eligibility": "Current-season eligible skaters and goalies; separate role-aware scoring. FT skaters: greater of 5 GP or 50% of roster games. CU/DI: greater of 5 GP or 40%. Goalies: greater of 3 GP or 30%.",
+      "weight": "Production, POTG, clutch contribution, consistency and position-specific impact."
+    },
+    {
+      "id": "conn-smythe",
+      "name": "Conn Smythe Award",
+      "subtitle": "Playoff MVP",
+      "eligibility": "Playoff data required. Played-game threshold is two-thirds of playoff games when the game count is odd, otherwise one-half.",
+      "weight": "Playoff-only production and position-specific impact."
+    },
+    {
+      "id": "art-ross",
+      "name": "Art Ross Award",
+      "subtitle": "Regular-season points leader",
+      "eligibility": "AwardScoring-eligible skaters; regular-season results only, excluding playoffs.",
+      "weight": "Regular-season points. Tiebreak wording and the workbook's internal Rank Key require reconciliation before publication."
+    },
+    {
+      "id": "rocket",
+      "name": "Rocket Richard Trophy",
+      "subtitle": "Regular-season goal-scoring title",
+      "eligibility": "AwardScoring-eligible regular-season skaters; playoff goals excluded; ties may be recognized.",
+      "weight": "Regular-season goals."
+    },
+    {
+      "id": "norris",
+      "name": "James Norris Trophy",
+      "subtitle": "Top defenceman",
+      "eligibility": "AwardScoring-eligible defencemen and eligible utility skaters; only if positional records support eligibility.",
+      "weight": "Defensive profile is most heavily weighted."
+    },
+    {
+      "id": "lady-byng",
+      "name": "Lady Byng Award",
+      "subtitle": "Sportsmanship and disciplined play",
+      "eligibility": "AwardScoring-eligible current-season players.",
+      "weight": "Discipline, attendance, reliability and performance."
+    },
+    {
+      "id": "rookie",
+      "name": "Rookie of the Year",
+      "subtitle": "Top first-year full-timer",
+      "eligibility": "Players in their first full-time roster season with at least one current game played, subject to workbook eligibility.",
+      "weight": "Rookie-specific performance formula; known workbook notes mismatch must be corrected before publishing."
+    },
+    {
+      "id": "improved",
+      "name": "Most Improved Player",
+      "subtitle": "Progress against career baseline",
+      "eligibility": "Non-rookies with the model-required prior-season/career sample.",
+      "weight": "Improvement relative to each player's earlier production, impact and discipline."
+    },
+    {
+      "id": "rolaids",
+      "name": "Rolaids Relief Man Award",
+      "subtitle": "Top call-up / relief player",
+      "eligibility": "Non-full-timers only. Skaters require 5+ current-season GP; goalies require 3+ current-season GP. Full-time and blank roster-status entries excluded.",
+      "weight": "Skaters: consistency 18%, points 18%, attendance 15%, POTG 10%, plus supporting impact. Goalies: reliability 20%, win rate 18%, GAA 17%, attendance 13%, other measures."
+    },
+    {
+      "id": "dedication",
+      "name": "Andrew Cristillo Dedication Award",
+      "subtitle": "Commitment, attendance and service",
+      "eligibility": "Eligible current-season FT/CU/DI players; threshold depends on roster type and games played.",
+      "weight": "Current attendance 40%, roster-adjusted career attendance 25%, current GP 12%, playoff attendance 10%, tenure 8%, other reliability."
+    },
+    {
+      "id": "hof",
+      "name": "Hall of Fame Ballot",
+      "subtitle": "Lifetime Brave H.C. contribution",
+      "eligibility": "At least 50 total career GP (skater + goalie), not already inducted.",
+      "weight": "Career production and longevity, playoff résumé, legacy, consistency and verified awards and records."
+    }
+  ],
+  "races": {
+    "hart": {
+      "status": "MODEL_SCORES_AWAITING_CURRENT_WORKBOOK",
+      "entries": [],
+      "rankedBy": "WORKBOOK_RANK_KEY",
+      "asOf": null,
+      "modelGameCount": 0,
+      "eligibleCount": null
+    },
+    "conn-smythe": {
+      "status": "MODEL_SCORES_AWAITING_CURRENT_WORKBOOK",
+      "entries": [],
+      "rankedBy": "WORKBOOK_RANK_KEY",
+      "asOf": null,
+      "modelGameCount": 0,
+      "eligibleCount": null
+    },
+    "art-ross": {
+      "status": "MODEL_SCORES_AWAITING_CURRENT_WORKBOOK",
+      "entries": [],
+      "rankedBy": "WORKBOOK_RANK_KEY",
+      "asOf": null,
+      "modelGameCount": 0,
+      "eligibleCount": null
+    },
+    "rocket": {
+      "status": "MODEL_SCORES_AWAITING_CURRENT_WORKBOOK",
+      "entries": [],
+      "rankedBy": "WORKBOOK_RANK_KEY",
+      "asOf": null,
+      "modelGameCount": 0,
+      "eligibleCount": null
+    },
+    "norris": {
+      "status": "MODEL_SCORES_AWAITING_CURRENT_WORKBOOK",
+      "entries": [],
+      "rankedBy": "WORKBOOK_RANK_KEY",
+      "asOf": null,
+      "modelGameCount": 0,
+      "eligibleCount": null
+    },
+    "lady-byng": {
+      "status": "MODEL_SCORES_AWAITING_CURRENT_WORKBOOK",
+      "entries": [],
+      "rankedBy": "WORKBOOK_RANK_KEY",
+      "asOf": null,
+      "modelGameCount": 0,
+      "eligibleCount": null
+    },
+    "rookie": {
+      "status": "MODEL_SCORES_AWAITING_CURRENT_WORKBOOK",
+      "entries": [],
+      "rankedBy": "WORKBOOK_RANK_KEY",
+      "asOf": null,
+      "modelGameCount": 0,
+      "eligibleCount": null
+    },
+    "improved": {
+      "status": "MODEL_SCORES_AWAITING_CURRENT_WORKBOOK",
+      "entries": [],
+      "rankedBy": "WORKBOOK_RANK_KEY",
+      "asOf": null,
+      "modelGameCount": 0,
+      "eligibleCount": null
+    },
+    "rolaids": {
+      "status": "MODEL_SCORES_AWAITING_CURRENT_WORKBOOK",
+      "entries": [],
+      "rankedBy": "WORKBOOK_RANK_KEY",
+      "asOf": null,
+      "modelGameCount": 0,
+      "eligibleCount": null
+    },
+    "dedication": {
+      "status": "MODEL_SCORES_AWAITING_CURRENT_WORKBOOK",
+      "entries": [],
+      "rankedBy": "WORKBOOK_RANK_KEY",
+      "asOf": null,
+      "modelGameCount": 0,
+      "eligibleCount": null
+    },
+    "hof": {
+      "status": "MODEL_SCORES_AWAITING_CURRENT_WORKBOOK",
+      "entries": [],
+      "rankedBy": "WORKBOOK_RANK_KEY",
+      "asOf": null,
+      "modelGameCount": 0,
+      "eligibleCount": null
+    }
+  },
+  "htoPerformanceSnapshot": [
+    {
+      "name": "Carosi, Justin",
+      "gp": 4,
+      "g": 3,
+      "a": 0,
+      "points": 3,
+      "rosterStatus": "FT",
+      "source": "HTO season player statistics reconciled within projection.json; not award model scoring"
+    },
+    {
+      "name": "Pagnotta, Alex",
+      "gp": 4,
+      "g": 0,
+      "a": 3,
+      "points": 3,
+      "rosterStatus": "FT",
+      "source": "HTO season player statistics reconciled within projection.json; not award model scoring"
+    },
+    {
+      "name": "Provenzano, Michael",
+      "gp": 3,
+      "g": 0,
+      "a": 3,
+      "points": 3,
+      "rosterStatus": "FT",
+      "source": "HTO season player statistics reconciled within projection.json; not award model scoring"
+    },
+    {
+      "name": "Kober, Adam",
+      "gp": 3,
+      "g": 1,
+      "a": 1,
+      "points": 2,
+      "rosterStatus": "CU",
+      "source": "HTO season player statistics reconciled within projection.json; not award model scoring"
+    },
+    {
+      "name": "Kong, Henry",
+      "gp": 4,
+      "g": 1,
+      "a": 1,
+      "points": 2,
+      "rosterStatus": "FT",
+      "source": "HTO season player statistics reconciled within projection.json; not award model scoring"
+    },
+    {
+      "name": "Pearsoll, Keith",
+      "gp": 3,
+      "g": 1,
+      "a": 0,
+      "points": 1,
+      "rosterStatus": "FT",
+      "source": "HTO season player statistics reconciled within projection.json; not award model scoring"
+    },
+    {
+      "name": "Pavaday, Damian",
+      "gp": 1,
+      "g": 0,
+      "a": 1,
+      "points": 1,
+      "rosterStatus": "DI",
+      "source": "HTO season player statistics reconciled within projection.json; not award model scoring"
+    },
+    {
+      "name": "Saindon, Stephane",
+      "gp": 3,
+      "g": 0,
+      "a": 1,
+      "points": 1,
+      "rosterStatus": "FT",
+      "source": "HTO season player statistics reconciled within projection.json; not award model scoring"
+    }
+  ],
+  "survey": {
+    "title": "2026/27 Pilot Awards",
+    "formTitle": "🏆Pilot Player Awards🏆",
+    "responderUrl": "https://docs.google.com/forms/d/e/1FAIpQLSd8eeL45A3Hafv_k0xLV9ztcp8neEkaf78w2ruWMfPDhAs7Xg/viewform?usp=header",
+    "formEditUrl": "https://docs.google.com/forms/d/1rZy3J4mNNjA6dCI6P7CxDszGxXYLPaoF53idsGpFjIk/edit",
+    "publicationStatus": "PUBLISHED_PILOT",
+    "awardQuestions": [
+      {
+        "awardId": "hart",
+        "question": "Select exactly 2 Hart Memorial Trophy nominees. Each selection counts as 1 vote. The top vote-getter wins. Tiebreaker: award scoring model ranking.",
+        "nominees": [
+          "Carosi, Justin",
+          "Finlay, Ryan",
+          "Pearsoll, Keith",
+          "Provenzano, Michael",
+          "Saindon, Stephane"
+        ],
+        "choicesRequired": 2,
+        "votePointsPerChoice": 1,
+        "approvalStatus": "PILOT_FORM_FIXED_LIST_NOT_VERIFIED_CURRENT_SEASON_RACE",
+        "isHoF": false
+      },
+      {
+        "awardId": "conn-smythe",
+        "question": "Select exactly 2 Conn Smythe Trophy nominees. Each selection counts as 1 vote. The top vote-getter wins. Tiebreaker: award scoring model ranking.",
+        "nominees": [
+          "Arruda, Mark",
+          "Provenzano, Michael",
+          "Rajasooriar, Krishnan",
+          "Saindon, Stephane",
+          "Svec, Matt (G)"
+        ],
+        "choicesRequired": 2,
+        "votePointsPerChoice": 1,
+        "approvalStatus": "PILOT_FORM_FIXED_LIST_NOT_VERIFIED_CURRENT_SEASON_RACE",
+        "isHoF": false
+      },
+      {
+        "awardId": "norris",
+        "question": "Select exactly 2 James Norris Trophy nominees. Each selection counts as 1 vote. The top vote-getter wins. Tiebreaker: award scoring model ranking.",
+        "nominees": [
+          "Arruda, Mark",
+          "Brutto, Adam",
+          "Finlay, Ryan",
+          "Pagnotta, Alex",
+          "Rajasooriar, Krishnan"
+        ],
+        "choicesRequired": 2,
+        "votePointsPerChoice": 1,
+        "approvalStatus": "PILOT_FORM_FIXED_LIST_NOT_VERIFIED_CURRENT_SEASON_RACE",
+        "isHoF": false
+      },
+      {
+        "awardId": "lady-byng",
+        "question": "Select exactly 2 Lady Byng Memorial Trophy nominees. Each selection counts as 1 vote. The top vote-getter wins. Tiebreaker: award scoring model ranking.",
+        "nominees": [
+          "Arruda, Mark",
+          "Carosi, Justin",
+          "Pearsoll, Keith",
+          "Provenzano, Michael",
+          "Saindon, Stephane"
+        ],
+        "choicesRequired": 2,
+        "votePointsPerChoice": 1,
+        "approvalStatus": "PILOT_FORM_FIXED_LIST_NOT_VERIFIED_CURRENT_SEASON_RACE",
+        "isHoF": false
+      },
+      {
+        "awardId": "improved",
+        "question": "Select exactly 2 Most Improved Player nominees. Each selection counts as 1 vote. The top vote-getter wins. Tiebreaker: award scoring model ranking.",
+        "nominees": [
+          "Finlay, Ryan",
+          "Pearsoll, Keith",
+          "Provenzano, Mario",
+          "Provenzano, Michael",
+          "Saindon, Stephane"
+        ],
+        "choicesRequired": 2,
+        "votePointsPerChoice": 1,
+        "approvalStatus": "PILOT_FORM_FIXED_LIST_NOT_VERIFIED_CURRENT_SEASON_RACE",
+        "isHoF": false
+      },
+      {
+        "awardId": "rolaids",
+        "question": "Select exactly 2 Rolaids Relief Award nominees. Each selection counts as 1 vote. The top vote-getter wins. Tiebreaker: award scoring model ranking.",
+        "nominees": [
+          "Duffy, Lorcan",
+          "Kober, Adam",
+          "Leong, Dev (G)",
+          "Rajasooriar, Krishnan",
+          "Svec, Matt (G)"
+        ],
+        "choicesRequired": 2,
+        "votePointsPerChoice": 1,
+        "approvalStatus": "PILOT_FORM_FIXED_LIST_NOT_VERIFIED_CURRENT_SEASON_RACE",
+        "isHoF": false
+      },
+      {
+        "awardId": "dedication",
+        "question": "Select exactly 2 Andrew Cristillo Award for Dedication nominees. Each selection counts as 1 vote. The top vote-getter wins. Tiebreaker: award scoring model ranking.",
+        "nominees": [
+          "Arruda, Mark",
+          "Brutto, Adam",
+          "Carosi, Justin",
+          "Pagnotta, Alex",
+          "Saindon, Stephane"
+        ],
+        "choicesRequired": 2,
+        "votePointsPerChoice": 1,
+        "approvalStatus": "PILOT_FORM_FIXED_LIST_NOT_VERIFIED_CURRENT_SEASON_RACE",
+        "isHoF": false
+      },
+      {
+        "awardId": "hof",
+        "question": "Select exactly 2 Hall of Fame nominees. Each selection counts as 1 vote. The top two vote-getters are inducted. Tiebreaker: Hall of Fame scoring model ranking.",
+        "nominees": [
+          "Brutto, Adam",
+          "Carosi, Justin",
+          "Logue, Ryan",
+          "Pagnotta, Alex",
+          "Pearsoll, Keith"
+        ],
+        "choicesRequired": 2,
+        "votePointsPerChoice": 1,
+        "approvalStatus": "PILOT_FORM_FIXED_LIST_NOT_VERIFIED_CURRENT_SEASON_RACE",
+        "isHoF": true
+      }
+    ],
+    "feedbackQuestions": [
+      "📊 How did you like the new awards ballot format?",
+      "📋 How clear and easy was the survey to understand?",
+      "🧾 How useful were the scorecards in helping you make your selections?",
+      "⚖️ How fair did the finalist shortlist process feel overall?",
+      "💬 Any other feedback or suggestions?"
+    ],
+    "ballotRule": "Select exactly 2 named pilot nominees per selected award, one vote each. Highest vote total wins; model rank tiebreak. Hall of Fame top two are inducted.",
+    "nominationCount": 2,
+    "pointsPerVote": 1,
+    "nomineeCountPerAward": 5,
+    "nomineeListSource": "Static pilot Google Form, not automatically refreshed from current weekly workbook.",
+    "votingGuideConflict": "Separate public voting guide says rank all 5 at 5–1 points. Active pilot form uses select exactly 2. Do not conflate."
+  },
+  "notes": [
+    "Week 4 HTO team totals are independently verified, but award scores are not. Performance snapshot is informational only.",
+    "Eligibility flags are not used to hide provisional weekly races once workbook scores are verified.",
+    "The currently published pilot ballot is not automatically updated with weekly race entrants.",
+    "The workbook remains read-only; no HTO site data or form response data is altered."
+  ]
+}
