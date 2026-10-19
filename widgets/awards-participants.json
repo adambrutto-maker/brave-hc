@@ -71,6 +71,35 @@
           3356177
         ],
         "sourceStatus": "EXACT_HTO_GOAL_SCORER_AND_ASSISTANT_EVENTS_RECONCILED_NOT_AWARD_SCORE"
+      },
+      "sourceHTOGamePattern": {
+        "status": "HTO_PER_GAME_OBSERVATIONS_CROSSCHECKED_TO_CURRENT_SEASON",
+        "season": "W2026/27",
+        "games": [
+          {
+            "gameId": 3356177,
+            "date": "2026-09-20",
+            "g": 0,
+            "a": 0,
+            "points": 0,
+            "plusMinus": -3,
+            "playerOfTheGame": 0
+          }
+        ],
+        "observedCounts": {
+          "gamesPlayed": 1,
+          "pointScoringGames": 0,
+          "goalScoringGames": 0,
+          "multiPointGames": 0,
+          "threeOrMorePointGames": 0,
+          "positivePlusMinusGames": 0,
+          "negativePlusMinusGames": 1,
+          "evenPlusMinusGames": 0,
+          "playerOfTheGameCredits": 0
+        },
+        "modelAwardSubscore": null,
+        "provenance": "Four named skater game sheets, official HTO GP/G/A/PTS/plus-minus and Player of the Game parity",
+        "limitation": "Raw game pattern counts, not the original workbook weighted/normalized Consistency, Two-Way or Streak Heat subscore."
       }
     },
     {
@@ -128,6 +157,44 @@
           3369564
         ],
         "sourceStatus": "EXACT_HTO_GOAL_SCORER_AND_ASSISTANT_EVENTS_RECONCILED_NOT_AWARD_SCORE"
+      },
+      "sourceHTOGamePattern": {
+        "status": "HTO_PER_GAME_OBSERVATIONS_CROSSCHECKED_TO_CURRENT_SEASON",
+        "season": "W2026/27",
+        "games": [
+          {
+            "gameId": 3356178,
+            "date": "2026-09-27",
+            "g": 0,
+            "a": 0,
+            "points": 0,
+            "plusMinus": -3,
+            "playerOfTheGame": 0
+          },
+          {
+            "gameId": 3369564,
+            "date": "2026-10-04",
+            "g": 0,
+            "a": 0,
+            "points": 0,
+            "plusMinus": -1,
+            "playerOfTheGame": 0
+          }
+        ],
+        "observedCounts": {
+          "gamesPlayed": 2,
+          "pointScoringGames": 0,
+          "goalScoringGames": 0,
+          "multiPointGames": 0,
+          "threeOrMorePointGames": 0,
+          "positivePlusMinusGames": 0,
+          "negativePlusMinusGames": 2,
+          "evenPlusMinusGames": 0,
+          "playerOfTheGameCredits": 0
+        },
+        "modelAwardSubscore": null,
+        "provenance": "Four named skater game sheets, official HTO GP/G/A/PTS/plus-minus and Player of the Game parity",
+        "limitation": "Raw game pattern counts, not the original workbook weighted/normalized Consistency, Two-Way or Streak Heat subscore."
       }
     },
     {
@@ -189,6 +256,62 @@
           3375601
         ],
         "sourceStatus": "EXACT_HTO_GOAL_SCORER_AND_ASSISTANT_EVENTS_RECONCILED_NOT_AWARD_SCORE"
+      },
+      "sourceHTOGamePattern": {
+        "status": "HTO_PER_GAME_OBSERVATIONS_CROSSCHECKED_TO_CURRENT_SEASON",
+        "season": "W2026/27",
+        "games": [
+          {
+            "gameId": 3356177,
+            "date": "2026-09-20",
+            "g": 0,
+            "a": 0,
+            "points": 0,
+            "plusMinus": -3,
+            "playerOfTheGame": 0
+          },
+          {
+            "gameId": 3356178,
+            "date": "2026-09-27",
+            "g": 0,
+            "a": 0,
+            "points": 0,
+            "plusMinus": -3,
+            "playerOfTheGame": 0
+          },
+          {
+            "gameId": 3369564,
+            "date": "2026-10-04",
+            "g": 0,
+            "a": 0,
+            "points": 0,
+            "plusMinus": -1,
+            "playerOfTheGame": 0
+          },
+          {
+            "gameId": 3375601,
+            "date": "2026-10-18",
+            "g": 0,
+            "a": 0,
+            "points": 0,
+            "plusMinus": -6,
+            "playerOfTheGame": 0
+          }
+        ],
+        "observedCounts": {
+          "gamesPlayed": 4,
+          "pointScoringGames": 0,
+          "goalScoringGames": 0,
+          "multiPointGames": 0,
+          "threeOrMorePointGames": 0,
+          "positivePlusMinusGames": 0,
+          "negativePlusMinusGames": 4,
+          "evenPlusMinusGames": 0,
+          "playerOfTheGameCredits": 0
+        },
+        "modelAwardSubscore": null,
+        "provenance": "Four named skater game sheets, official HTO GP/G/A/PTS/plus-minus and Player of the Game parity",
+        "limitation": "Raw game pattern counts, not the original workbook weighted/normalized Consistency, Two-Way or Streak Heat subscore."
       }
     },
     {
@@ -228,6 +351,26 @@
         "recordedGoalEventPoints": 0,
         "sourceKind": "FOUR_HTO_BOXSCORES_GOALIE_APPEARANCE_AND_ALL_PUBLISHED_PENALTY_GOAL_EVENTS_VERIFIED",
         "publicationLimit": "HTO source event counts only, NOT normalized goalie discipline/offense, quality game or any award rating"
+      },
+      "sourceHTOGamePattern": {
+        "status": "HTO_GOALIE_PER_GAME_OBSERVATIONS_CROSSCHECKED_TO_CURRENT_SEASON",
+        "season": "W2026/27",
+        "games": [
+          {
+            "gameId": 3369564,
+            "date": "2026-10-04",
+            "goalsAgainst": 3,
+            "playerOfTheGame": 1
+          }
+        ],
+        "observedCounts": {
+          "gamesPlayed": 1,
+          "goalsAgainst": 3,
+          "playerOfTheGameCredits": 1
+        },
+        "modelAwardSubscore": null,
+        "provenance": "Named HTO goaltender sheets reconciled to official goalie-season GA/POTG/GP",
+        "limitation": "Raw game observations, not workbook-defined quality/unbeaten game, goalie reliability or normalized subscore."
       }
     },
     {
@@ -289,6 +432,62 @@
           3375601
         ],
         "sourceStatus": "EXACT_HTO_GOAL_SCORER_AND_ASSISTANT_EVENTS_RECONCILED_NOT_AWARD_SCORE"
+      },
+      "sourceHTOGamePattern": {
+        "status": "HTO_PER_GAME_OBSERVATIONS_CROSSCHECKED_TO_CURRENT_SEASON",
+        "season": "W2026/27",
+        "games": [
+          {
+            "gameId": 3356177,
+            "date": "2026-09-20",
+            "g": 0,
+            "a": 0,
+            "points": 0,
+            "plusMinus": -3,
+            "playerOfTheGame": 1
+          },
+          {
+            "gameId": 3356178,
+            "date": "2026-09-27",
+            "g": 2,
+            "a": 0,
+            "points": 2,
+            "plusMinus": -3,
+            "playerOfTheGame": 1
+          },
+          {
+            "gameId": 3369564,
+            "date": "2026-10-04",
+            "g": 1,
+            "a": 0,
+            "points": 1,
+            "plusMinus": -1,
+            "playerOfTheGame": 1
+          },
+          {
+            "gameId": 3375601,
+            "date": "2026-10-18",
+            "g": 0,
+            "a": 0,
+            "points": 0,
+            "plusMinus": -6,
+            "playerOfTheGame": 0
+          }
+        ],
+        "observedCounts": {
+          "gamesPlayed": 4,
+          "pointScoringGames": 2,
+          "goalScoringGames": 2,
+          "multiPointGames": 1,
+          "threeOrMorePointGames": 0,
+          "positivePlusMinusGames": 0,
+          "negativePlusMinusGames": 4,
+          "evenPlusMinusGames": 0,
+          "playerOfTheGameCredits": 3
+        },
+        "modelAwardSubscore": null,
+        "provenance": "Four named skater game sheets, official HTO GP/G/A/PTS/plus-minus and Player of the Game parity",
+        "limitation": "Raw game pattern counts, not the original workbook weighted/normalized Consistency, Two-Way or Streak Heat subscore."
       }
     },
     {
@@ -344,6 +543,35 @@
           3356178
         ],
         "sourceStatus": "EXACT_HTO_GOAL_SCORER_AND_ASSISTANT_EVENTS_RECONCILED_NOT_AWARD_SCORE"
+      },
+      "sourceHTOGamePattern": {
+        "status": "HTO_PER_GAME_OBSERVATIONS_CROSSCHECKED_TO_CURRENT_SEASON",
+        "season": "W2026/27",
+        "games": [
+          {
+            "gameId": 3356178,
+            "date": "2026-09-27",
+            "g": 0,
+            "a": 0,
+            "points": 0,
+            "plusMinus": -3,
+            "playerOfTheGame": 0
+          }
+        ],
+        "observedCounts": {
+          "gamesPlayed": 1,
+          "pointScoringGames": 0,
+          "goalScoringGames": 0,
+          "multiPointGames": 0,
+          "threeOrMorePointGames": 0,
+          "positivePlusMinusGames": 0,
+          "negativePlusMinusGames": 1,
+          "evenPlusMinusGames": 0,
+          "playerOfTheGameCredits": 0
+        },
+        "modelAwardSubscore": null,
+        "provenance": "Four named skater game sheets, official HTO GP/G/A/PTS/plus-minus and Player of the Game parity",
+        "limitation": "Raw game pattern counts, not the original workbook weighted/normalized Consistency, Two-Way or Streak Heat subscore."
       }
     },
     {
@@ -399,6 +627,35 @@
           3356178
         ],
         "sourceStatus": "EXACT_HTO_GOAL_SCORER_AND_ASSISTANT_EVENTS_RECONCILED_NOT_AWARD_SCORE"
+      },
+      "sourceHTOGamePattern": {
+        "status": "HTO_PER_GAME_OBSERVATIONS_CROSSCHECKED_TO_CURRENT_SEASON",
+        "season": "W2026/27",
+        "games": [
+          {
+            "gameId": 3356178,
+            "date": "2026-09-27",
+            "g": 0,
+            "a": 0,
+            "points": 0,
+            "plusMinus": -3,
+            "playerOfTheGame": 0
+          }
+        ],
+        "observedCounts": {
+          "gamesPlayed": 1,
+          "pointScoringGames": 0,
+          "goalScoringGames": 0,
+          "multiPointGames": 0,
+          "threeOrMorePointGames": 0,
+          "positivePlusMinusGames": 0,
+          "negativePlusMinusGames": 1,
+          "evenPlusMinusGames": 0,
+          "playerOfTheGameCredits": 0
+        },
+        "modelAwardSubscore": null,
+        "provenance": "Four named skater game sheets, official HTO GP/G/A/PTS/plus-minus and Player of the Game parity",
+        "limitation": "Raw game pattern counts, not the original workbook weighted/normalized Consistency, Two-Way or Streak Heat subscore."
       }
     },
     {
@@ -458,6 +715,53 @@
           3375601
         ],
         "sourceStatus": "EXACT_HTO_GOAL_SCORER_AND_ASSISTANT_EVENTS_RECONCILED_NOT_AWARD_SCORE"
+      },
+      "sourceHTOGamePattern": {
+        "status": "HTO_PER_GAME_OBSERVATIONS_CROSSCHECKED_TO_CURRENT_SEASON",
+        "season": "W2026/27",
+        "games": [
+          {
+            "gameId": 3356178,
+            "date": "2026-09-27",
+            "g": 1,
+            "a": 0,
+            "points": 1,
+            "plusMinus": -3,
+            "playerOfTheGame": 1
+          },
+          {
+            "gameId": 3369564,
+            "date": "2026-10-04",
+            "g": 0,
+            "a": 1,
+            "points": 1,
+            "plusMinus": -1,
+            "playerOfTheGame": 0
+          },
+          {
+            "gameId": 3375601,
+            "date": "2026-10-18",
+            "g": 0,
+            "a": 0,
+            "points": 0,
+            "plusMinus": -6,
+            "playerOfTheGame": 0
+          }
+        ],
+        "observedCounts": {
+          "gamesPlayed": 3,
+          "pointScoringGames": 2,
+          "goalScoringGames": 1,
+          "multiPointGames": 0,
+          "threeOrMorePointGames": 0,
+          "positivePlusMinusGames": 0,
+          "negativePlusMinusGames": 3,
+          "evenPlusMinusGames": 0,
+          "playerOfTheGameCredits": 1
+        },
+        "modelAwardSubscore": null,
+        "provenance": "Four named skater game sheets, official HTO GP/G/A/PTS/plus-minus and Player of the Game parity",
+        "limitation": "Raw game pattern counts, not the original workbook weighted/normalized Consistency, Two-Way or Streak Heat subscore."
       }
     },
     {
@@ -525,6 +829,62 @@
           3375601
         ],
         "sourceStatus": "EXACT_HTO_GOAL_SCORER_AND_ASSISTANT_EVENTS_RECONCILED_NOT_AWARD_SCORE"
+      },
+      "sourceHTOGamePattern": {
+        "status": "HTO_PER_GAME_OBSERVATIONS_CROSSCHECKED_TO_CURRENT_SEASON",
+        "season": "W2026/27",
+        "games": [
+          {
+            "gameId": 3356177,
+            "date": "2026-09-20",
+            "g": 0,
+            "a": 0,
+            "points": 0,
+            "plusMinus": -3,
+            "playerOfTheGame": 0
+          },
+          {
+            "gameId": 3356178,
+            "date": "2026-09-27",
+            "g": 0,
+            "a": 1,
+            "points": 1,
+            "plusMinus": -3,
+            "playerOfTheGame": 0
+          },
+          {
+            "gameId": 3369564,
+            "date": "2026-10-04",
+            "g": 1,
+            "a": 0,
+            "points": 1,
+            "plusMinus": -1,
+            "playerOfTheGame": 1
+          },
+          {
+            "gameId": 3375601,
+            "date": "2026-10-18",
+            "g": 0,
+            "a": 0,
+            "points": 0,
+            "plusMinus": -6,
+            "playerOfTheGame": 0
+          }
+        ],
+        "observedCounts": {
+          "gamesPlayed": 4,
+          "pointScoringGames": 2,
+          "goalScoringGames": 1,
+          "multiPointGames": 0,
+          "threeOrMorePointGames": 0,
+          "positivePlusMinusGames": 0,
+          "negativePlusMinusGames": 4,
+          "evenPlusMinusGames": 0,
+          "playerOfTheGameCredits": 1
+        },
+        "modelAwardSubscore": null,
+        "provenance": "Four named skater game sheets, official HTO GP/G/A/PTS/plus-minus and Player of the Game parity",
+        "limitation": "Raw game pattern counts, not the original workbook weighted/normalized Consistency, Two-Way or Streak Heat subscore."
       }
     },
     {
@@ -566,6 +926,32 @@
         "recordedGoalEventPoints": 0,
         "sourceKind": "FOUR_HTO_BOXSCORES_GOALIE_APPEARANCE_AND_ALL_PUBLISHED_PENALTY_GOAL_EVENTS_VERIFIED",
         "publicationLimit": "HTO source event counts only, NOT normalized goalie discipline/offense, quality game or any award rating"
+      },
+      "sourceHTOGamePattern": {
+        "status": "HTO_GOALIE_PER_GAME_OBSERVATIONS_CROSSCHECKED_TO_CURRENT_SEASON",
+        "season": "W2026/27",
+        "games": [
+          {
+            "gameId": 3356177,
+            "date": "2026-09-20",
+            "goalsAgainst": 3,
+            "playerOfTheGame": 1
+          },
+          {
+            "gameId": 3375601,
+            "date": "2026-10-18",
+            "goalsAgainst": 7,
+            "playerOfTheGame": null
+          }
+        ],
+        "observedCounts": {
+          "gamesPlayed": 2,
+          "goalsAgainst": 10,
+          "playerOfTheGameCredits": 1
+        },
+        "modelAwardSubscore": null,
+        "provenance": "Named HTO goaltender sheets reconciled to official goalie-season GA/POTG/GP",
+        "limitation": "Raw game observations, not workbook-defined quality/unbeaten game, goalie reliability or normalized subscore."
       }
     },
     {
@@ -605,6 +991,26 @@
         "recordedGoalEventPoints": 0,
         "sourceKind": "FOUR_HTO_BOXSCORES_GOALIE_APPEARANCE_AND_ALL_PUBLISHED_PENALTY_GOAL_EVENTS_VERIFIED",
         "publicationLimit": "HTO source event counts only, NOT normalized goalie discipline/offense, quality game or any award rating"
+      },
+      "sourceHTOGamePattern": {
+        "status": "HTO_GOALIE_PER_GAME_OBSERVATIONS_CROSSCHECKED_TO_CURRENT_SEASON",
+        "season": "W2026/27",
+        "games": [
+          {
+            "gameId": 3356178,
+            "date": "2026-09-27",
+            "goalsAgainst": 6,
+            "playerOfTheGame": 1
+          }
+        ],
+        "observedCounts": {
+          "gamesPlayed": 1,
+          "goalsAgainst": 6,
+          "playerOfTheGameCredits": 1
+        },
+        "modelAwardSubscore": null,
+        "provenance": "Named HTO goaltender sheets reconciled to official goalie-season GA/POTG/GP",
+        "limitation": "Raw game observations, not workbook-defined quality/unbeaten game, goalie reliability or normalized subscore."
       }
     },
     {
@@ -666,6 +1072,62 @@
           3375601
         ],
         "sourceStatus": "EXACT_HTO_GOAL_SCORER_AND_ASSISTANT_EVENTS_RECONCILED_NOT_AWARD_SCORE"
+      },
+      "sourceHTOGamePattern": {
+        "status": "HTO_PER_GAME_OBSERVATIONS_CROSSCHECKED_TO_CURRENT_SEASON",
+        "season": "W2026/27",
+        "games": [
+          {
+            "gameId": 3356177,
+            "date": "2026-09-20",
+            "g": 0,
+            "a": 0,
+            "points": 0,
+            "plusMinus": -3,
+            "playerOfTheGame": 0
+          },
+          {
+            "gameId": 3356178,
+            "date": "2026-09-27",
+            "g": 0,
+            "a": 2,
+            "points": 2,
+            "plusMinus": -3,
+            "playerOfTheGame": 0
+          },
+          {
+            "gameId": 3369564,
+            "date": "2026-10-04",
+            "g": 0,
+            "a": 0,
+            "points": 0,
+            "plusMinus": -1,
+            "playerOfTheGame": 0
+          },
+          {
+            "gameId": 3375601,
+            "date": "2026-10-18",
+            "g": 0,
+            "a": 1,
+            "points": 1,
+            "plusMinus": -6,
+            "playerOfTheGame": 0
+          }
+        ],
+        "observedCounts": {
+          "gamesPlayed": 4,
+          "pointScoringGames": 2,
+          "goalScoringGames": 0,
+          "multiPointGames": 1,
+          "threeOrMorePointGames": 0,
+          "positivePlusMinusGames": 0,
+          "negativePlusMinusGames": 4,
+          "evenPlusMinusGames": 0,
+          "playerOfTheGameCredits": 0
+        },
+        "modelAwardSubscore": null,
+        "provenance": "Four named skater game sheets, official HTO GP/G/A/PTS/plus-minus and Player of the Game parity",
+        "limitation": "Raw game pattern counts, not the original workbook weighted/normalized Consistency, Two-Way or Streak Heat subscore."
       }
     },
     {
@@ -721,6 +1183,35 @@
           3356177
         ],
         "sourceStatus": "EXACT_HTO_GOAL_SCORER_AND_ASSISTANT_EVENTS_RECONCILED_NOT_AWARD_SCORE"
+      },
+      "sourceHTOGamePattern": {
+        "status": "HTO_PER_GAME_OBSERVATIONS_CROSSCHECKED_TO_CURRENT_SEASON",
+        "season": "W2026/27",
+        "games": [
+          {
+            "gameId": 3356177,
+            "date": "2026-09-20",
+            "g": 0,
+            "a": 0,
+            "points": 0,
+            "plusMinus": -3,
+            "playerOfTheGame": 0
+          }
+        ],
+        "observedCounts": {
+          "gamesPlayed": 1,
+          "pointScoringGames": 0,
+          "goalScoringGames": 0,
+          "multiPointGames": 0,
+          "threeOrMorePointGames": 0,
+          "positivePlusMinusGames": 0,
+          "negativePlusMinusGames": 1,
+          "evenPlusMinusGames": 0,
+          "playerOfTheGameCredits": 0
+        },
+        "modelAwardSubscore": null,
+        "provenance": "Four named skater game sheets, official HTO GP/G/A/PTS/plus-minus and Player of the Game parity",
+        "limitation": "Raw game pattern counts, not the original workbook weighted/normalized Consistency, Two-Way or Streak Heat subscore."
       }
     },
     {
@@ -776,6 +1267,35 @@
           3369564
         ],
         "sourceStatus": "EXACT_HTO_GOAL_SCORER_AND_ASSISTANT_EVENTS_RECONCILED_NOT_AWARD_SCORE"
+      },
+      "sourceHTOGamePattern": {
+        "status": "HTO_PER_GAME_OBSERVATIONS_CROSSCHECKED_TO_CURRENT_SEASON",
+        "season": "W2026/27",
+        "games": [
+          {
+            "gameId": 3369564,
+            "date": "2026-10-04",
+            "g": 0,
+            "a": 1,
+            "points": 1,
+            "plusMinus": -1,
+            "playerOfTheGame": 0
+          }
+        ],
+        "observedCounts": {
+          "gamesPlayed": 1,
+          "pointScoringGames": 1,
+          "goalScoringGames": 0,
+          "multiPointGames": 0,
+          "threeOrMorePointGames": 0,
+          "positivePlusMinusGames": 0,
+          "negativePlusMinusGames": 1,
+          "evenPlusMinusGames": 0,
+          "playerOfTheGameCredits": 0
+        },
+        "modelAwardSubscore": null,
+        "provenance": "Four named skater game sheets, official HTO GP/G/A/PTS/plus-minus and Player of the Game parity",
+        "limitation": "Raw game pattern counts, not the original workbook weighted/normalized Consistency, Two-Way or Streak Heat subscore."
       }
     },
     {
@@ -835,6 +1355,53 @@
           3375601
         ],
         "sourceStatus": "EXACT_HTO_GOAL_SCORER_AND_ASSISTANT_EVENTS_RECONCILED_NOT_AWARD_SCORE"
+      },
+      "sourceHTOGamePattern": {
+        "status": "HTO_PER_GAME_OBSERVATIONS_CROSSCHECKED_TO_CURRENT_SEASON",
+        "season": "W2026/27",
+        "games": [
+          {
+            "gameId": 3356177,
+            "date": "2026-09-20",
+            "g": 0,
+            "a": 0,
+            "points": 0,
+            "plusMinus": -3,
+            "playerOfTheGame": 0
+          },
+          {
+            "gameId": 3356178,
+            "date": "2026-09-27",
+            "g": 0,
+            "a": 0,
+            "points": 0,
+            "plusMinus": -3,
+            "playerOfTheGame": 0
+          },
+          {
+            "gameId": 3375601,
+            "date": "2026-10-18",
+            "g": 1,
+            "a": 0,
+            "points": 1,
+            "plusMinus": -6,
+            "playerOfTheGame": 1
+          }
+        ],
+        "observedCounts": {
+          "gamesPlayed": 3,
+          "pointScoringGames": 1,
+          "goalScoringGames": 1,
+          "multiPointGames": 0,
+          "threeOrMorePointGames": 0,
+          "positivePlusMinusGames": 0,
+          "negativePlusMinusGames": 3,
+          "evenPlusMinusGames": 0,
+          "playerOfTheGameCredits": 1
+        },
+        "modelAwardSubscore": null,
+        "provenance": "Four named skater game sheets, official HTO GP/G/A/PTS/plus-minus and Player of the Game parity",
+        "limitation": "Raw game pattern counts, not the original workbook weighted/normalized Consistency, Two-Way or Streak Heat subscore."
       }
     },
     {
@@ -900,6 +1467,53 @@
           3375601
         ],
         "sourceStatus": "EXACT_HTO_GOAL_SCORER_AND_ASSISTANT_EVENTS_RECONCILED_NOT_AWARD_SCORE"
+      },
+      "sourceHTOGamePattern": {
+        "status": "HTO_PER_GAME_OBSERVATIONS_CROSSCHECKED_TO_CURRENT_SEASON",
+        "season": "W2026/27",
+        "games": [
+          {
+            "gameId": 3356177,
+            "date": "2026-09-20",
+            "g": 0,
+            "a": 0,
+            "points": 0,
+            "plusMinus": -3,
+            "playerOfTheGame": 0
+          },
+          {
+            "gameId": 3369564,
+            "date": "2026-10-04",
+            "g": 0,
+            "a": 0,
+            "points": 0,
+            "plusMinus": -1,
+            "playerOfTheGame": 0
+          },
+          {
+            "gameId": 3375601,
+            "date": "2026-10-18",
+            "g": 0,
+            "a": 0,
+            "points": 0,
+            "plusMinus": -6,
+            "playerOfTheGame": 0
+          }
+        ],
+        "observedCounts": {
+          "gamesPlayed": 3,
+          "pointScoringGames": 0,
+          "goalScoringGames": 0,
+          "multiPointGames": 0,
+          "threeOrMorePointGames": 0,
+          "positivePlusMinusGames": 0,
+          "negativePlusMinusGames": 3,
+          "evenPlusMinusGames": 0,
+          "playerOfTheGameCredits": 0
+        },
+        "modelAwardSubscore": null,
+        "provenance": "Four named skater game sheets, official HTO GP/G/A/PTS/plus-minus and Player of the Game parity",
+        "limitation": "Raw game pattern counts, not the original workbook weighted/normalized Consistency, Two-Way or Streak Heat subscore."
       }
     },
     {
@@ -961,6 +1575,62 @@
           3375601
         ],
         "sourceStatus": "EXACT_HTO_GOAL_SCORER_AND_ASSISTANT_EVENTS_RECONCILED_NOT_AWARD_SCORE"
+      },
+      "sourceHTOGamePattern": {
+        "status": "HTO_PER_GAME_OBSERVATIONS_CROSSCHECKED_TO_CURRENT_SEASON",
+        "season": "W2026/27",
+        "games": [
+          {
+            "gameId": 3356177,
+            "date": "2026-09-20",
+            "g": 0,
+            "a": 0,
+            "points": 0,
+            "plusMinus": -3,
+            "playerOfTheGame": 0
+          },
+          {
+            "gameId": 3356178,
+            "date": "2026-09-27",
+            "g": 0,
+            "a": 0,
+            "points": 0,
+            "plusMinus": -3,
+            "playerOfTheGame": 0
+          },
+          {
+            "gameId": 3369564,
+            "date": "2026-10-04",
+            "g": 0,
+            "a": 0,
+            "points": 0,
+            "plusMinus": -1,
+            "playerOfTheGame": 0
+          },
+          {
+            "gameId": 3375601,
+            "date": "2026-10-18",
+            "g": 0,
+            "a": 0,
+            "points": 0,
+            "plusMinus": -6,
+            "playerOfTheGame": 0
+          }
+        ],
+        "observedCounts": {
+          "gamesPlayed": 4,
+          "pointScoringGames": 0,
+          "goalScoringGames": 0,
+          "multiPointGames": 0,
+          "threeOrMorePointGames": 0,
+          "positivePlusMinusGames": 0,
+          "negativePlusMinusGames": 4,
+          "evenPlusMinusGames": 0,
+          "playerOfTheGameCredits": 0
+        },
+        "modelAwardSubscore": null,
+        "provenance": "Four named skater game sheets, official HTO GP/G/A/PTS/plus-minus and Player of the Game parity",
+        "limitation": "Raw game pattern counts, not the original workbook weighted/normalized Consistency, Two-Way or Streak Heat subscore."
       }
     },
     {
@@ -1020,6 +1690,53 @@
           3369564
         ],
         "sourceStatus": "EXACT_HTO_GOAL_SCORER_AND_ASSISTANT_EVENTS_RECONCILED_NOT_AWARD_SCORE"
+      },
+      "sourceHTOGamePattern": {
+        "status": "HTO_PER_GAME_OBSERVATIONS_CROSSCHECKED_TO_CURRENT_SEASON",
+        "season": "W2026/27",
+        "games": [
+          {
+            "gameId": 3356177,
+            "date": "2026-09-20",
+            "g": 0,
+            "a": 0,
+            "points": 0,
+            "plusMinus": -3,
+            "playerOfTheGame": 1
+          },
+          {
+            "gameId": 3356178,
+            "date": "2026-09-27",
+            "g": 0,
+            "a": 2,
+            "points": 2,
+            "plusMinus": -3,
+            "playerOfTheGame": 0
+          },
+          {
+            "gameId": 3369564,
+            "date": "2026-10-04",
+            "g": 0,
+            "a": 1,
+            "points": 1,
+            "plusMinus": -1,
+            "playerOfTheGame": 0
+          }
+        ],
+        "observedCounts": {
+          "gamesPlayed": 3,
+          "pointScoringGames": 2,
+          "goalScoringGames": 0,
+          "multiPointGames": 1,
+          "threeOrMorePointGames": 0,
+          "positivePlusMinusGames": 0,
+          "negativePlusMinusGames": 3,
+          "evenPlusMinusGames": 0,
+          "playerOfTheGameCredits": 1
+        },
+        "modelAwardSubscore": null,
+        "provenance": "Four named skater game sheets, official HTO GP/G/A/PTS/plus-minus and Player of the Game parity",
+        "limitation": "Raw game pattern counts, not the original workbook weighted/normalized Consistency, Two-Way or Streak Heat subscore."
       }
     },
     {
@@ -1077,6 +1794,44 @@
           3375601
         ],
         "sourceStatus": "EXACT_HTO_GOAL_SCORER_AND_ASSISTANT_EVENTS_RECONCILED_NOT_AWARD_SCORE"
+      },
+      "sourceHTOGamePattern": {
+        "status": "HTO_PER_GAME_OBSERVATIONS_CROSSCHECKED_TO_CURRENT_SEASON",
+        "season": "W2026/27",
+        "games": [
+          {
+            "gameId": 3356178,
+            "date": "2026-09-27",
+            "g": 0,
+            "a": 0,
+            "points": 0,
+            "plusMinus": -3,
+            "playerOfTheGame": 0
+          },
+          {
+            "gameId": 3375601,
+            "date": "2026-10-18",
+            "g": 0,
+            "a": 0,
+            "points": 0,
+            "plusMinus": -6,
+            "playerOfTheGame": 0
+          }
+        ],
+        "observedCounts": {
+          "gamesPlayed": 2,
+          "pointScoringGames": 0,
+          "goalScoringGames": 0,
+          "multiPointGames": 0,
+          "threeOrMorePointGames": 0,
+          "positivePlusMinusGames": 0,
+          "negativePlusMinusGames": 2,
+          "evenPlusMinusGames": 0,
+          "playerOfTheGameCredits": 0
+        },
+        "modelAwardSubscore": null,
+        "provenance": "Four named skater game sheets, official HTO GP/G/A/PTS/plus-minus and Player of the Game parity",
+        "limitation": "Raw game pattern counts, not the original workbook weighted/normalized Consistency, Two-Way or Streak Heat subscore."
       }
     },
     {
@@ -1142,6 +1897,53 @@
           3369564
         ],
         "sourceStatus": "EXACT_HTO_GOAL_SCORER_AND_ASSISTANT_EVENTS_RECONCILED_NOT_AWARD_SCORE"
+      },
+      "sourceHTOGamePattern": {
+        "status": "HTO_PER_GAME_OBSERVATIONS_CROSSCHECKED_TO_CURRENT_SEASON",
+        "season": "W2026/27",
+        "games": [
+          {
+            "gameId": 3356177,
+            "date": "2026-09-20",
+            "g": 0,
+            "a": 0,
+            "points": 0,
+            "plusMinus": -3,
+            "playerOfTheGame": 0
+          },
+          {
+            "gameId": 3356178,
+            "date": "2026-09-27",
+            "g": 0,
+            "a": 0,
+            "points": 0,
+            "plusMinus": -3,
+            "playerOfTheGame": 0
+          },
+          {
+            "gameId": 3369564,
+            "date": "2026-10-04",
+            "g": 0,
+            "a": 0,
+            "points": 0,
+            "plusMinus": -1,
+            "playerOfTheGame": 0
+          }
+        ],
+        "observedCounts": {
+          "gamesPlayed": 3,
+          "pointScoringGames": 0,
+          "goalScoringGames": 0,
+          "multiPointGames": 0,
+          "threeOrMorePointGames": 0,
+          "positivePlusMinusGames": 0,
+          "negativePlusMinusGames": 3,
+          "evenPlusMinusGames": 0,
+          "playerOfTheGameCredits": 0
+        },
+        "modelAwardSubscore": null,
+        "provenance": "Four named skater game sheets, official HTO GP/G/A/PTS/plus-minus and Player of the Game parity",
+        "limitation": "Raw game pattern counts, not the original workbook weighted/normalized Consistency, Two-Way or Streak Heat subscore."
       }
     },
     {
@@ -1201,6 +2003,53 @@
           3375601
         ],
         "sourceStatus": "EXACT_HTO_GOAL_SCORER_AND_ASSISTANT_EVENTS_RECONCILED_NOT_AWARD_SCORE"
+      },
+      "sourceHTOGamePattern": {
+        "status": "HTO_PER_GAME_OBSERVATIONS_CROSSCHECKED_TO_CURRENT_SEASON",
+        "season": "W2026/27",
+        "games": [
+          {
+            "gameId": 3356178,
+            "date": "2026-09-27",
+            "g": 0,
+            "a": 0,
+            "points": 0,
+            "plusMinus": -3,
+            "playerOfTheGame": 0
+          },
+          {
+            "gameId": 3369564,
+            "date": "2026-10-04",
+            "g": 0,
+            "a": 0,
+            "points": 0,
+            "plusMinus": -1,
+            "playerOfTheGame": 0
+          },
+          {
+            "gameId": 3375601,
+            "date": "2026-10-18",
+            "g": 0,
+            "a": 0,
+            "points": 0,
+            "plusMinus": -6,
+            "playerOfTheGame": 1
+          }
+        ],
+        "observedCounts": {
+          "gamesPlayed": 3,
+          "pointScoringGames": 0,
+          "goalScoringGames": 0,
+          "multiPointGames": 0,
+          "threeOrMorePointGames": 0,
+          "positivePlusMinusGames": 0,
+          "negativePlusMinusGames": 3,
+          "evenPlusMinusGames": 0,
+          "playerOfTheGameCredits": 1
+        },
+        "modelAwardSubscore": null,
+        "provenance": "Four named skater game sheets, official HTO GP/G/A/PTS/plus-minus and Player of the Game parity",
+        "limitation": "Raw game pattern counts, not the original workbook weighted/normalized Consistency, Two-Way or Streak Heat subscore."
       }
     },
     {
@@ -1260,6 +2109,53 @@
           3375601
         ],
         "sourceStatus": "EXACT_HTO_GOAL_SCORER_AND_ASSISTANT_EVENTS_RECONCILED_NOT_AWARD_SCORE"
+      },
+      "sourceHTOGamePattern": {
+        "status": "HTO_PER_GAME_OBSERVATIONS_CROSSCHECKED_TO_CURRENT_SEASON",
+        "season": "W2026/27",
+        "games": [
+          {
+            "gameId": 3356177,
+            "date": "2026-09-20",
+            "g": 0,
+            "a": 0,
+            "points": 0,
+            "plusMinus": -3,
+            "playerOfTheGame": 0
+          },
+          {
+            "gameId": 3356178,
+            "date": "2026-09-27",
+            "g": 0,
+            "a": 0,
+            "points": 0,
+            "plusMinus": -3,
+            "playerOfTheGame": 0
+          },
+          {
+            "gameId": 3375601,
+            "date": "2026-10-18",
+            "g": 0,
+            "a": 1,
+            "points": 1,
+            "plusMinus": -6,
+            "playerOfTheGame": 1
+          }
+        ],
+        "observedCounts": {
+          "gamesPlayed": 3,
+          "pointScoringGames": 1,
+          "goalScoringGames": 0,
+          "multiPointGames": 0,
+          "threeOrMorePointGames": 0,
+          "positivePlusMinusGames": 0,
+          "negativePlusMinusGames": 3,
+          "evenPlusMinusGames": 0,
+          "playerOfTheGameCredits": 1
+        },
+        "modelAwardSubscore": null,
+        "provenance": "Four named skater game sheets, official HTO GP/G/A/PTS/plus-minus and Player of the Game parity",
+        "limitation": "Raw game pattern counts, not the original workbook weighted/normalized Consistency, Two-Way or Streak Heat subscore."
       }
     },
     {
@@ -1327,6 +2223,62 @@
           3375601
         ],
         "sourceStatus": "EXACT_HTO_GOAL_SCORER_AND_ASSISTANT_EVENTS_RECONCILED_NOT_AWARD_SCORE"
+      },
+      "sourceHTOGamePattern": {
+        "status": "HTO_PER_GAME_OBSERVATIONS_CROSSCHECKED_TO_CURRENT_SEASON",
+        "season": "W2026/27",
+        "games": [
+          {
+            "gameId": 3356177,
+            "date": "2026-09-20",
+            "g": 0,
+            "a": 0,
+            "points": 0,
+            "plusMinus": -3,
+            "playerOfTheGame": 0
+          },
+          {
+            "gameId": 3356178,
+            "date": "2026-09-27",
+            "g": 0,
+            "a": 0,
+            "points": 0,
+            "plusMinus": -3,
+            "playerOfTheGame": 0
+          },
+          {
+            "gameId": 3369564,
+            "date": "2026-10-04",
+            "g": 0,
+            "a": 0,
+            "points": 0,
+            "plusMinus": -1,
+            "playerOfTheGame": 0
+          },
+          {
+            "gameId": 3375601,
+            "date": "2026-10-18",
+            "g": 0,
+            "a": 0,
+            "points": 0,
+            "plusMinus": -6,
+            "playerOfTheGame": 0
+          }
+        ],
+        "observedCounts": {
+          "gamesPlayed": 4,
+          "pointScoringGames": 0,
+          "goalScoringGames": 0,
+          "multiPointGames": 0,
+          "threeOrMorePointGames": 0,
+          "positivePlusMinusGames": 0,
+          "negativePlusMinusGames": 4,
+          "evenPlusMinusGames": 0,
+          "playerOfTheGameCredits": 0
+        },
+        "modelAwardSubscore": null,
+        "provenance": "Four named skater game sheets, official HTO GP/G/A/PTS/plus-minus and Player of the Game parity",
+        "limitation": "Raw game pattern counts, not the original workbook weighted/normalized Consistency, Two-Way or Streak Heat subscore."
       }
     }
   ],
@@ -1469,6 +2421,25 @@
         "Source-level data ONLY. Historical rate baselines, model quality and discipline definitions, and 50–100 award scoring remain held."
       ],
       "modelSubscoresCurrent": false
+    },
+    "currentHTOGamePatterns": {
+      "status": "PER_GAME_POINT_GOAL_MULTI_POINT_PM_AND_POTG_INPUT_COUNTS_RECONCILED",
+      "verifiedGameIds": [
+        3356177,
+        3356178,
+        3369564,
+        3375601
+      ],
+      "games": 4,
+      "latestCompletedGameDate": "2026-10-18",
+      "namedSkaterCount": 20,
+      "goalieCount": 3,
+      "currentNamedPointScoringGameAppearances": 13,
+      "currentNamedMultiPointGameAppearances": 3,
+      "currentNamedPOTGCredits": 9,
+      "source": "Official HTO four game-level box scores and independently reconciled published season aggregate",
+      "calculationsAllowed": "OBSERVATIONAL_COUNTS_ONLY_NO_AWARD_SCORING",
+      "awardModelRatingsVerified": false
     }
   },
   "workbookRookieRosterWatch": {
