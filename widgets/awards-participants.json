@@ -34,7 +34,22 @@
         "points": 0
       },
       "htoListedPosition": "LW",
-      "htoPositionHasDefenceOption": false
+      "htoPositionHasDefenceOption": false,
+      "currentHTORaw": {
+        "name": "Ardizzi, Stefano",
+        "listedPosition": "LW",
+        "gamesPlayed": 1,
+        "goals": 0,
+        "assists": 0,
+        "points": 0,
+        "gameTyingGoals": 0,
+        "penaltyMinutes": 0,
+        "plusMinus": -3,
+        "pointsPerGame": 0,
+        "playerOfTheGameCount": 0,
+        "sourceKind": "OFFICIAL_HTO_PUBLISHED_SEASON_STATISTICS",
+        "season": "W2026/27"
+      }
     },
     {
       "name": "Atkins, Nolan",
@@ -52,7 +67,22 @@
         "points": 0
       },
       "htoListedPosition": "C/D",
-      "htoPositionHasDefenceOption": true
+      "htoPositionHasDefenceOption": true,
+      "currentHTORaw": {
+        "name": "Atkins, Nolan",
+        "listedPosition": "C/D",
+        "gamesPlayed": 2,
+        "goals": 0,
+        "assists": 0,
+        "points": 0,
+        "gameTyingGoals": 0,
+        "penaltyMinutes": 0,
+        "plusMinus": -4,
+        "pointsPerGame": 0,
+        "playerOfTheGameCount": 0,
+        "sourceKind": "OFFICIAL_HTO_PUBLISHED_SEASON_STATISTICS",
+        "season": "W2026/27"
+      }
     },
     {
       "name": "Brutto, Adam",
@@ -70,7 +100,22 @@
         "points": 0
       },
       "htoListedPosition": "LD",
-      "htoPositionHasDefenceOption": true
+      "htoPositionHasDefenceOption": true,
+      "currentHTORaw": {
+        "name": "Brutto, Adam",
+        "listedPosition": "LD",
+        "gamesPlayed": 4,
+        "goals": 0,
+        "assists": 0,
+        "points": 0,
+        "gameTyingGoals": 0,
+        "penaltyMinutes": 0,
+        "plusMinus": -13,
+        "pointsPerGame": 0,
+        "playerOfTheGameCount": 0,
+        "sourceKind": "OFFICIAL_HTO_PUBLISHED_SEASON_STATISTICS",
+        "season": "W2026/27"
+      }
     },
     {
       "name": "Carlyle, Adam",
@@ -88,7 +133,18 @@
         "gaa": 3,
         "playerOfTheGame": 1
       },
-      "htoListedPosition": "G"
+      "htoListedPosition": "G",
+      "currentHTORaw": {
+        "name": "Carlyle, Adam",
+        "gamesPlayed": 1,
+        "losses": 1,
+        "goalsAgainst": 3,
+        "goalsAgainstAverage": 3,
+        "playerOfTheGameCount": 1,
+        "plusMinus": -1,
+        "sourceKind": "OFFICIAL_HTO_PUBLISHED_SEASON_STATISTICS",
+        "season": "W2026/27"
+      }
     },
     {
       "name": "Carosi, Justin",
@@ -106,7 +162,22 @@
         "points": 3
       },
       "htoListedPosition": "C",
-      "htoPositionHasDefenceOption": false
+      "htoPositionHasDefenceOption": false,
+      "currentHTORaw": {
+        "name": "Carosi, Justin",
+        "listedPosition": "C",
+        "gamesPlayed": 4,
+        "goals": 3,
+        "assists": 0,
+        "points": 3,
+        "gameTyingGoals": 2,
+        "penaltyMinutes": 0,
+        "plusMinus": -13,
+        "pointsPerGame": 0.75,
+        "playerOfTheGameCount": 3,
+        "sourceKind": "OFFICIAL_HTO_PUBLISHED_SEASON_STATISTICS",
+        "season": "W2026/27"
+      }
     },
     {
       "name": "Congiusti, Marco",
@@ -124,7 +195,22 @@
         "points": 0
       },
       "htoListedPosition": "RD",
-      "htoPositionHasDefenceOption": true
+      "htoPositionHasDefenceOption": true,
+      "currentHTORaw": {
+        "name": "Congiusti, Marco",
+        "listedPosition": "RD",
+        "gamesPlayed": 1,
+        "goals": 0,
+        "assists": 0,
+        "points": 0,
+        "gameTyingGoals": 0,
+        "penaltyMinutes": 0,
+        "plusMinus": -3,
+        "pointsPerGame": 0,
+        "playerOfTheGameCount": 0,
+        "sourceKind": "OFFICIAL_HTO_PUBLISHED_SEASON_STATISTICS",
+        "season": "W2026/27"
+      }
     },
     {
       "name": "Duffy, Lorcan",
@@ -142,7 +228,22 @@
         "points": 0
       },
       "htoListedPosition": "LD",
-      "htoPositionHasDefenceOption": true
+      "htoPositionHasDefenceOption": true,
+      "currentHTORaw": {
+        "name": "Duffy, Lorcan",
+        "listedPosition": "LD",
+        "gamesPlayed": 1,
+        "goals": 0,
+        "assists": 0,
+        "points": 0,
+        "gameTyingGoals": 0,
+        "penaltyMinutes": 0,
+        "plusMinus": -3,
+        "pointsPerGame": 0,
+        "playerOfTheGameCount": 0,
+        "sourceKind": "OFFICIAL_HTO_PUBLISHED_SEASON_STATISTICS",
+        "season": "W2026/27"
+      }
     },
     {
       "name": "Kober, Adam",
@@ -160,7 +261,22 @@
         "points": 2
       },
       "htoListedPosition": "LW/LD",
-      "htoPositionHasDefenceOption": true
+      "htoPositionHasDefenceOption": true,
+      "currentHTORaw": {
+        "name": "Kober, Adam",
+        "listedPosition": "LW/LD",
+        "gamesPlayed": 3,
+        "goals": 1,
+        "assists": 1,
+        "points": 2,
+        "gameTyingGoals": 0,
+        "penaltyMinutes": 0,
+        "plusMinus": -10,
+        "pointsPerGame": 0.67,
+        "playerOfTheGameCount": 1,
+        "sourceKind": "OFFICIAL_HTO_PUBLISHED_SEASON_STATISTICS",
+        "season": "W2026/27"
+      }
     },
     {
       "name": "Kong, Henry",
@@ -184,6 +300,21 @@
         "firstRecordedSeason": "W2026/27",
         "sourceRosterRole": "FT",
         "awardEligibility": "NOT_VERIFIED"
+      },
+      "currentHTORaw": {
+        "name": "Kong, Henry",
+        "listedPosition": "F/D",
+        "gamesPlayed": 4,
+        "goals": 1,
+        "assists": 1,
+        "points": 2,
+        "gameTyingGoals": 1,
+        "penaltyMinutes": 0,
+        "plusMinus": -13,
+        "pointsPerGame": 0.5,
+        "playerOfTheGameCount": 1,
+        "sourceKind": "OFFICIAL_HTO_PUBLISHED_SEASON_STATISTICS",
+        "season": "W2026/27"
       }
     },
     {
@@ -203,7 +334,18 @@
         "gaa": 5,
         "playerOfTheGame": 1
       },
-      "htoListedPosition": "G"
+      "htoListedPosition": "G",
+      "currentHTORaw": {
+        "name": "Leong, Dev",
+        "gamesPlayed": 2,
+        "losses": 2,
+        "goalsAgainst": 10,
+        "goalsAgainstAverage": 5,
+        "playerOfTheGameCount": 1,
+        "plusMinus": -9,
+        "sourceKind": "OFFICIAL_HTO_PUBLISHED_SEASON_STATISTICS",
+        "season": "W2026/27"
+      }
     },
     {
       "name": "Logue, Stephen",
@@ -221,7 +363,18 @@
         "gaa": 6,
         "playerOfTheGame": 1
       },
-      "htoListedPosition": "G"
+      "htoListedPosition": "G",
+      "currentHTORaw": {
+        "name": "Logue, Stephen",
+        "gamesPlayed": 1,
+        "losses": 1,
+        "goalsAgainst": 6,
+        "goalsAgainstAverage": 6,
+        "playerOfTheGameCount": 1,
+        "plusMinus": -3,
+        "sourceKind": "OFFICIAL_HTO_PUBLISHED_SEASON_STATISTICS",
+        "season": "W2026/27"
+      }
     },
     {
       "name": "Pagnotta, Alex",
@@ -239,7 +392,22 @@
         "points": 3
       },
       "htoListedPosition": "RD",
-      "htoPositionHasDefenceOption": true
+      "htoPositionHasDefenceOption": true,
+      "currentHTORaw": {
+        "name": "Pagnotta, Alex",
+        "listedPosition": "RD",
+        "gamesPlayed": 4,
+        "goals": 0,
+        "assists": 3,
+        "points": 3,
+        "gameTyingGoals": 0,
+        "penaltyMinutes": 0,
+        "plusMinus": -13,
+        "pointsPerGame": 0.75,
+        "playerOfTheGameCount": 0,
+        "sourceKind": "OFFICIAL_HTO_PUBLISHED_SEASON_STATISTICS",
+        "season": "W2026/27"
+      }
     },
     {
       "name": "Paolucci, Anthony",
@@ -257,7 +425,22 @@
         "points": 0
       },
       "htoListedPosition": "RW/G",
-      "htoPositionHasDefenceOption": false
+      "htoPositionHasDefenceOption": false,
+      "currentHTORaw": {
+        "name": "Paolucci, Anthony",
+        "listedPosition": "RW/G",
+        "gamesPlayed": 1,
+        "goals": 0,
+        "assists": 0,
+        "points": 0,
+        "gameTyingGoals": 0,
+        "penaltyMinutes": 0,
+        "plusMinus": -3,
+        "pointsPerGame": 0,
+        "playerOfTheGameCount": 0,
+        "sourceKind": "OFFICIAL_HTO_PUBLISHED_SEASON_STATISTICS",
+        "season": "W2026/27"
+      }
     },
     {
       "name": "Pavaday, Damian",
@@ -275,7 +458,22 @@
         "points": 1
       },
       "htoListedPosition": "F",
-      "htoPositionHasDefenceOption": false
+      "htoPositionHasDefenceOption": false,
+      "currentHTORaw": {
+        "name": "Pavaday, Damian",
+        "listedPosition": "F",
+        "gamesPlayed": 1,
+        "goals": 0,
+        "assists": 1,
+        "points": 1,
+        "gameTyingGoals": 0,
+        "penaltyMinutes": 0,
+        "plusMinus": -1,
+        "pointsPerGame": 1,
+        "playerOfTheGameCount": 0,
+        "sourceKind": "OFFICIAL_HTO_PUBLISHED_SEASON_STATISTICS",
+        "season": "W2026/27"
+      }
     },
     {
       "name": "Pearsoll, Keith",
@@ -293,7 +491,22 @@
         "points": 1
       },
       "htoListedPosition": "RW",
-      "htoPositionHasDefenceOption": false
+      "htoPositionHasDefenceOption": false,
+      "currentHTORaw": {
+        "name": "Pearsoll, Keith",
+        "listedPosition": "RW",
+        "gamesPlayed": 3,
+        "goals": 1,
+        "assists": 0,
+        "points": 1,
+        "gameTyingGoals": 0,
+        "penaltyMinutes": 0,
+        "plusMinus": -12,
+        "pointsPerGame": 0.33,
+        "playerOfTheGameCount": 1,
+        "sourceKind": "OFFICIAL_HTO_PUBLISHED_SEASON_STATISTICS",
+        "season": "W2026/27"
+      }
     },
     {
       "name": "Povegliano, Adam",
@@ -317,6 +530,21 @@
         "firstRecordedSeason": "W2026/27",
         "sourceRosterRole": "FT",
         "awardEligibility": "NOT_VERIFIED"
+      },
+      "currentHTORaw": {
+        "name": "Povegliano, Adam",
+        "listedPosition": "F",
+        "gamesPlayed": 3,
+        "goals": 0,
+        "assists": 0,
+        "points": 0,
+        "gameTyingGoals": 0,
+        "penaltyMinutes": 0,
+        "plusMinus": -10,
+        "pointsPerGame": 0,
+        "playerOfTheGameCount": 0,
+        "sourceKind": "OFFICIAL_HTO_PUBLISHED_SEASON_STATISTICS",
+        "season": "W2026/27"
       }
     },
     {
@@ -335,7 +563,22 @@
         "points": 0
       },
       "htoListedPosition": "C",
-      "htoPositionHasDefenceOption": false
+      "htoPositionHasDefenceOption": false,
+      "currentHTORaw": {
+        "name": "Provenzano, Mario",
+        "listedPosition": "C",
+        "gamesPlayed": 4,
+        "goals": 0,
+        "assists": 0,
+        "points": 0,
+        "gameTyingGoals": 0,
+        "penaltyMinutes": 0,
+        "plusMinus": -13,
+        "pointsPerGame": 0,
+        "playerOfTheGameCount": 0,
+        "sourceKind": "OFFICIAL_HTO_PUBLISHED_SEASON_STATISTICS",
+        "season": "W2026/27"
+      }
     },
     {
       "name": "Provenzano, Michael",
@@ -353,7 +596,22 @@
         "points": 3
       },
       "htoListedPosition": "C/LW",
-      "htoPositionHasDefenceOption": false
+      "htoPositionHasDefenceOption": false,
+      "currentHTORaw": {
+        "name": "Provenzano, Michael",
+        "listedPosition": "C/LW",
+        "gamesPlayed": 3,
+        "goals": 0,
+        "assists": 3,
+        "points": 3,
+        "gameTyingGoals": 0,
+        "penaltyMinutes": 0,
+        "plusMinus": -7,
+        "pointsPerGame": 1,
+        "playerOfTheGameCount": 1,
+        "sourceKind": "OFFICIAL_HTO_PUBLISHED_SEASON_STATISTICS",
+        "season": "W2026/27"
+      }
     },
     {
       "name": "Rajasooriar, Krishnan",
@@ -371,7 +629,22 @@
         "points": 0
       },
       "htoListedPosition": "RW/RD",
-      "htoPositionHasDefenceOption": true
+      "htoPositionHasDefenceOption": true,
+      "currentHTORaw": {
+        "name": "Rajasooriar, Krishnan",
+        "listedPosition": "RW/RD",
+        "gamesPlayed": 2,
+        "goals": 0,
+        "assists": 0,
+        "points": 0,
+        "gameTyingGoals": 0,
+        "penaltyMinutes": 0,
+        "plusMinus": -9,
+        "pointsPerGame": 0,
+        "playerOfTheGameCount": 0,
+        "sourceKind": "OFFICIAL_HTO_PUBLISHED_SEASON_STATISTICS",
+        "season": "W2026/27"
+      }
     },
     {
       "name": "Rajkumar, Sanjay",
@@ -395,6 +668,21 @@
         "firstRecordedSeason": "W2026/27",
         "sourceRosterRole": "FT",
         "awardEligibility": "NOT_VERIFIED"
+      },
+      "currentHTORaw": {
+        "name": "Rajkumar, Sanjay",
+        "listedPosition": "D/LD",
+        "gamesPlayed": 3,
+        "goals": 0,
+        "assists": 0,
+        "points": 0,
+        "gameTyingGoals": 0,
+        "penaltyMinutes": 0,
+        "plusMinus": -7,
+        "pointsPerGame": 0,
+        "playerOfTheGameCount": 0,
+        "sourceKind": "OFFICIAL_HTO_PUBLISHED_SEASON_STATISTICS",
+        "season": "W2026/27"
       }
     },
     {
@@ -413,7 +701,22 @@
         "points": 0
       },
       "htoListedPosition": "C/LW",
-      "htoPositionHasDefenceOption": false
+      "htoPositionHasDefenceOption": false,
+      "currentHTORaw": {
+        "name": "Rosenberg, Jamie",
+        "listedPosition": "C/LW",
+        "gamesPlayed": 3,
+        "goals": 0,
+        "assists": 0,
+        "points": 0,
+        "gameTyingGoals": 0,
+        "penaltyMinutes": 0,
+        "plusMinus": -10,
+        "pointsPerGame": 0,
+        "playerOfTheGameCount": 1,
+        "sourceKind": "OFFICIAL_HTO_PUBLISHED_SEASON_STATISTICS",
+        "season": "W2026/27"
+      }
     },
     {
       "name": "Saindon, Stephane",
@@ -431,7 +734,22 @@
         "points": 1
       },
       "htoListedPosition": "C",
-      "htoPositionHasDefenceOption": false
+      "htoPositionHasDefenceOption": false,
+      "currentHTORaw": {
+        "name": "Saindon, Stephane",
+        "listedPosition": "C",
+        "gamesPlayed": 3,
+        "goals": 0,
+        "assists": 1,
+        "points": 1,
+        "gameTyingGoals": 0,
+        "penaltyMinutes": 0,
+        "plusMinus": -12,
+        "pointsPerGame": 0.33,
+        "playerOfTheGameCount": 1,
+        "sourceKind": "OFFICIAL_HTO_PUBLISHED_SEASON_STATISTICS",
+        "season": "W2026/27"
+      }
     },
     {
       "name": "Triumbari, Francesco",
@@ -455,6 +773,21 @@
         "firstRecordedSeason": "W2026/27",
         "sourceRosterRole": "FT",
         "awardEligibility": "NOT_VERIFIED"
+      },
+      "currentHTORaw": {
+        "name": "Triumbari, Francesco",
+        "listedPosition": "LD",
+        "gamesPlayed": 4,
+        "goals": 0,
+        "assists": 0,
+        "points": 0,
+        "gameTyingGoals": 0,
+        "penaltyMinutes": 2,
+        "plusMinus": -13,
+        "pointsPerGame": 0,
+        "playerOfTheGameCount": 0,
+        "sourceKind": "OFFICIAL_HTO_PUBLISHED_SEASON_STATISTICS",
+        "season": "W2026/27"
       }
     }
   ],
@@ -530,5 +863,60 @@
     ],
     "watchedCount": 4,
     "caveat": "Roster-based first-season full-time watch only. Saved workbook not current for award scoring; this is not an award ranking, nominee declaration, or proof of all Rookie of the Year eligibility conditions."
+  },
+  "currentRawSourceReadiness": {
+    "status": "PUBLIC_HTO_STAT_INPUT_RECONCILED_NO_AWARD_SCORES",
+    "sourceUrl": "https://www.htosports.com/teams/default.asp?p=stats&s=hockey&u=BRAVESHOCKEY",
+    "season": "W2026/27",
+    "verifiedAsOf": "2026-10-19",
+    "playerCounts": {
+      "skaters": 20,
+      "goalies": 3,
+      "excludedAnonymousHTORows": 1
+    },
+    "skaterFields": [
+      "No",
+      "Name",
+      "POS",
+      "GP",
+      "G",
+      "A",
+      "Pts",
+      "GTG",
+      "PIM",
+      "+/-",
+      "Pts/G",
+      "POTG"
+    ],
+    "goalieFields": [
+      "No",
+      "Name",
+      "GP",
+      "L",
+      "GA",
+      "GAA",
+      "POTG",
+      "+/-"
+    ],
+    "teamHTOStats": {
+      "gamesPlayed": 4,
+      "goals": 6,
+      "assists": 10,
+      "points": 16,
+      "gameTyingGoals": 3,
+      "penaltyMinutes": 2,
+      "plusMinus": -175,
+      "playerOfTheGameCount": 9
+    },
+    "goalieTeamHTOStats": {
+      "gamesPlayed": 4,
+      "losses": 4,
+      "goalsAgainst": 19,
+      "goalsAgainstAverage": 4.75,
+      "playerOfTheGameCount": 3,
+      "plusMinus": -13
+    },
+    "warning": "These are actual HTO raw season statistics, NOT normalized AwardScoring public 50–100 subscores or candidate ranks. HTO source alone cannot reproduce historical baselines, per-game award helpers or award eligibility.",
+    "modelScoresReady": false
   }
 }
