@@ -57,7 +57,7 @@ try{
  if(values.size!==options.length)throw Error('Duplicate names in verified goalie roster');
  if(!feed.games.length)throw Error('No upcoming SVHL games found');
  const age=Date.now()-new Date(feed.checkedAt).getTime();
- if(!Number.isFinite(age)||age>72*3600*1000||age< -15*60*1000)throw Error('SVHL verification is stale. Request a schedule refresh before assigning a goalie.');
+ if(!Number.isFinite(age)||age>24*3600*1000||age< -15*60*1000)throw Error('SVHL verification is stale. Request a schedule refresh before assigning a goalie.');
  for(const game of feed.games){
    const row=document.createElement('tr');
    const col1=document.createElement('td'),col2=document.createElement('td');
