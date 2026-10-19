@@ -64,6 +64,32 @@ function verifiedClubNotes(section){
  }
  if(list.children.length){area.append(list);section.append(area)}
 }
+function archivedArticleMilestones(section,a){
+ const records=Array.isArray(a.milestones)?a.milestones.filter(m=>m.kind==="MILESTONE_REACHED"&&m.evidenceStatus==="HTO_GAME_AND_WORKBOOK_VERIFIED"):[];
+ if(!records.length)return;
+ const area=$("section","article-milestones");
+ area.append($("h3","section-header","Career milestones · This game"));
+ for(const milestone of records){
+  const item=$("div","milestone-item");
+  item.append($("p",null,milestone.message));
+  item.append(link("Verified HTO game record ↗",milestone.sourceBoxScore));
+  area.append(item);
+ }
+ section.append(area);
+}
+function archivedNextGame(section,p){
+ if(!p||!p.sourceUrl||!Array.isArray(p.paragraphs))return;
+ const area=$("section","archive-retrospective");
+ area.append($("h3","section-header","Next on the schedule · At the time"));
+ area.append($("p","historical-note","This is the outlook as it stood after the game above, retained for the historical season archive."));
+ const inner=$("div","preview");
+ inner.append($("h3",null,p.headline));
+ const h=headToHeadStats(p);if(h)inner.append(h);
+ for(const paragraph of p.paragraphs)inner.append($("p",null,paragraph));
+ inner.append(link("Official HTO game record ↗",p.sourceUrl));
+ area.append(inner);
+ section.append(area);
+}
 function playerSpotlight(section,p,compact=false){
  const m=p?.playerOutlook;
  if(!m||m.status!=="VERIFIED_HISTORICAL_SCOUTING_NOT_LINEUP_OR_FORECAST"||!Array.isArray(m.players)||!m.players.length)return;
@@ -109,10 +135,18 @@ function feature(section,a,includePreview){
  const nums=$("div","numbers");nums.append($("span",null,String(b.ourGoals)));
  nums.append($("b",null," : "));nums.append($("span",null,String(b.theirGoals)));
  score.append(nums,$("span","team-name",b.opponent));section.append(score);
+ const h=a.opponentHistory?.beforeGame;
+ if(h&&Number.isInteger(h.gp)&&h.gp>0){
+  section.append($("h3","section-header","Head-to-head · Before puck drop"));
+  const metrics=headToHeadStats({headToHead:{regularSeason:h}});
+  if(metrics)section.append(metrics);
+ }
  const body=$("div","article-body");
  for(const paragraph of a.paragraphs){if(typeof paragraph!=="string"||paragraph.length>900)throw Error("Invalid article paragraph");body.append($("p",null,paragraph))}
  section.append(body);
  const footer=$("div","links");footer.append(link("Official HTO box score ↗",a.sourceUrls[0]));section.append(footer);
+ archivedArticleMilestones(section,a);
+ if(!includePreview&&a.followingGamePreview)archivedNextGame(section,a.followingGamePreview);
  if(includePreview)verifiedClubNotes(section);
  if(includePreview&&publication.gamePreview){
   const p=publication.gamePreview;
