@@ -1,0 +1,11 @@
+{
+  "schema": "brave-hc-goalie-assignments/v1",
+  "sourceNote": "Existing public HTO goalie table checked 2026-10-19; others TBD",
+  "assignments": {
+    "hto:3375682": "Stephen Logue",
+    "hto:3375683": "TBD",
+    "hto:3375684": "TBD",
+    "hto:3375685": "TBD",
+    "hto:3375686": "TBD"
+  }
+}
