@@ -1,0 +1,55 @@
+name: Brave H.C. SVHL schedule reconciliation
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 */4 * * *'
+permissions:
+  contents: write
+concurrency:
+  group: brave-svhl-sync
+  cancel-in-progress: false
+jobs:
+  reconcile:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Dependencies
+        run: pip install 'requests>=2.31,<3' 'beautifulsoup4>=4.12,<5'
+      - name: Validate source parser
+        run: python tests/test_svhl_hto_parser.py
+      - name: Compare league and team schedules (no HTO writes)
+        run: python scripts/svhl_hto_reconcile.py --out build/svhl-review
+      - name: Store reconciliation evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: svhl-hto-review
+          path: build/svhl-review/reconciliation.json
+          retention-days: 14
+      - name: Publish league feed only if game details changed
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          target=Path('widgets/svhl-upcoming.json')
+          new=json.loads(Path('build/svhl-review/svhl-upcoming.json').read_text())
+          old=json.loads(target.read_text()) if target.exists() else {}
+          if new['games']!=old.get('games'):
+              target.parent.mkdir(parents=True,exist_ok=True)
+              target.write_text(json.dumps(new,indent=2)+'\n')
+              print('Verified SVHL changes staged')
+          else:
+              print('SVHL fixture data unchanged')
+          PY
+          if ! git diff --quiet -- widgets/svhl-upcoming.json || [ -n "$(git ls-files --others --exclude-standard -- widgets/svhl-upcoming.json)" ]; then
+            git config user.name "BruTTech Schedule Bot"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add widgets/svhl-upcoming.json
+            git commit -m "Refresh verified SVHL schedule feed"
+            git pull --rebase
+            git push
+          fi
