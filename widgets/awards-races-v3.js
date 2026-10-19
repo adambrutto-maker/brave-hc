@@ -181,18 +181,26 @@ function renderRaceActivity(){
   hart:"Players who have appeared, not the MVP shortlist.",
   "lady-byng":"Players who have appeared; sportsmanship and award eligibility are not scored here.",
   dedication:"Players who have appeared; the dedication model considers additional career and attendance history.",
-  improved:"Players who have appeared; rookie and career-comparison eligibility remain unverified."
+  improved:"Players who have appeared; rookie and career-comparison eligibility remain unverified.",
+  rookie:"First-season full-time players marked by the saved roster workbook who have played in HTO this season. This is not a Rookie of the Year nomination or model ranking."
  };
  if(!Object.hasOwn(hints,id))return;
  if(id==="rolaids")rows=rows.filter(p=>p.position==="Skater"&&["CU","DI"].includes(p.role));
  else if(id==="norris")rows=rows.filter(p=>p.position==="Skater"&&p.htoPositionHasDefenceOption===true);
  else if(id==="art-ross"||id==="rocket")rows=rows.filter(p=>p.position==="Skater");
+ else if(id==="rookie"){
+  const source=src.workbookRookieRosterWatch;
+  if(source?.status!=="SAVED_WORKBOOK_FT_ROOKIE_FLAG_CROSSCHECKED_WITH_HTO_CURRENT_SEASON_APPEARANCE"
+    ||source.year!==d.season||source.sourceWorkbookSha256!==d.sourceWorkbookHash)return;
+  rows=rows.filter(p=>p.position==="Skater"&&p.role==="FT"&&p.rookieRosterWatch?.sourceFlag==="Rookie Status = 1"
+    &&p.rookieRosterWatch?.firstRecordedSeason===d.season&&source.watchedPlayers.includes(p.name));
+ }
  if(!rows.length)return;
  if(new Set(rows.map(x=>x.name.toLowerCase())).size!==rows.length)return;
  rows.sort((a,b)=>a.name.localeCompare(b.name));
  const section=el(DOM.region,"details","race-activity");
- if(id==="rolaids"||id==="norris")section.open=true;
- el(section,"summary",null,rows.length+" players on the ice · unranked "+(id==="rolaids"?"relief":"season")+" watch");
+ if(id==="rolaids"||id==="norris"||id==="rookie")section.open=true;
+ el(section,"summary",null,rows.length+(id==="rookie"?" first-year full-timers":" players")+" on the ice · unranked "+(id==="rolaids"?"relief":id==="rookie"?"rookie":"season")+" watch");
  const content=el(section,"div","race-activity-body");
  el(content,"p",null,hints[id]);
  const grid=el(content,"div","race-activity-grid");
@@ -213,7 +221,7 @@ function renderRaceActivity(){
    el(entry,"div","race-activity-sub","Goalie · award roster role unverified");
   }
  }
- el(content,"p","source-note","Appearance stats: official HTO this season, read back "+(src.verifiedSourceReadback.verifiedOn||"date pending")+". Roster classifications are from HockeyOS, not an award approval. Alphabetical, not ranked by performance.");
+ el(content,"p","source-note","Appearance stats: official HTO this season, read back "+(src.verifiedSourceReadback.verifiedOn||"date pending")+". "+(id==="rookie"?"First-year FT flag: saved Sep 2026 workbook roster (not current model or finalized award eligibility). ":"Roster classifications are from HockeyOS, not an award approval. ")+"Alphabetical, not ranked by performance.");
 }
 function renderSeasonParticipants(){
  const d=state.source,source=state.participation;
