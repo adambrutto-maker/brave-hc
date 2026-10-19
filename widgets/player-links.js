@@ -5,7 +5,7 @@
     ['Stefano Ardizzi',356089],['Nolan Atkins',769343],['Adam Brutto',354054],
     ['Justin Carosi',354060],['Marco Congiusti',354041],['Andrew Cristillo',634098],
     ['Lorcan Duffy',586425],['Adam Kober',736317],['Henry Kong',846200],
-    ['Dev Leong',776208],['Stephen Logue',354055],['Alex Pagnotta',354058],
+    ['Dev Leong',776208],['Stephen Logue',354055],['Stefano Mazzei',595514],['Alex Pagnotta',354058],
     ['Anthony Paolucci',354057],['Damian Pavaday',849368],['Keith Pearsoll',354056],
     ['Adam Povegliano',844036],['Mario Provenzano',354045],['Michael Provenzano',686216],
     ['Krishnan Rajasooriar',700877],['Sanjay Rajkumar',845365],['Jamie Rosenberg',843644],
@@ -24,9 +24,39 @@
     const id = byName.get(normalize(name));
     return id ? 'https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=' + id : null;
   };
-  // No verified HTO per-season or per-game player deep link. Never synthesize one.
-  const resolve = (name, context) => profileUrl(name);
-  scope.BravePlayerLinks = Object.freeze({ profileUrl, resolve, knownPlayers: roster.length });
+  // Season filter format is copied from the live HTO ProfileTabStats dropdown.
+  const officialSeason = input => {
+    if (!input) return null;
+    const v = String(input).trim().replace(/\\s+/g, ' ');
+    const winter = /^Winter[ _](20\\d{2})[\\/-](20\\d{2}|\\d{2})$/i.exec(v);
+    if (winter) {
+      const end = winter[2].length === 2 ? winter[1].slice(0, 2) + winter[2] : winter[2];
+      return Number(end) === Number(winter[1]) + 1 ? 'Winter_' + winter[1] + '/' + end : null;
+    }
+    const summer = /^Summer[ _](20\\d{2})$/i.exec(v);
+    return summer ? 'Summer_' + summer[1] : null;
+  };
+  // A game link must be the actual, supplied HTO boxscore URL. Never fabricate a gameID.
+  const officialGame = input => {
+    if (!input || typeof input !== 'string') return null;
+    try {
+      const u = new URL(input);
+      return u.protocol === 'https:' && u.hostname.toLowerCase() === 'www.htosports.com'
+        && u.pathname.toLowerCase() === '/teams/default.asp'
+        && u.searchParams.get('u') === 'BRAVESHOCKEY'
+        && u.searchParams.get('p') === 'boxscore'
+        && /^\\d+$/.test(u.searchParams.get('gameID') || '') ? u.href : null;
+    } catch { return null; }
+  };
+  const resolve = (name, context) => {
+    const url = profileUrl(name);
+    if (!url) return null;
+    const game = officialGame(context?.gameUrl);
+    if (game) return game;
+    const season = officialSeason(context?.season);
+    return season ? url + '&pageLoad=ProfileTabStats&viewseas=' + season : url;
+  };
+  scope.BravePlayerLinks = Object.freeze({ profileUrl, resolve, officialSeason, officialGame, knownPlayers: roster.length });
   if (typeof document === 'undefined' || typeof MutationObserver === 'undefined') return;
 
   const escapeRegex = s => s.replace(/[|\\{}()[\]^$+*?.]/g, '\\$&');
@@ -48,7 +78,14 @@
     const found = [];
     let m;
     while ((m = regex.exec(value))) {
-      const start = m.index + m[1].length, end = start + m[2].length, href = profileUrl(m[2]);
+      const start = m.index + m[1].length, end = start + m[2].length;
+      let contextNode = node.parentElement, season = null, gameUrl = null;
+      while (contextNode) {
+        if (season === null && contextNode.hasAttribute('data-hto-season')) season = contextNode.getAttribute('data-hto-season');
+        if (gameUrl === null && contextNode.hasAttribute('data-hto-game-url')) gameUrl = contextNode.getAttribute('data-hto-game-url');
+        contextNode = contextNode.parentElement;
+      }
+      const href = resolve(m[2], {season, gameUrl});
       if (href && (!found.length || start >= found[found.length - 1].end)) found.push({start,end,href});
     }
     if (!found.length) return;
