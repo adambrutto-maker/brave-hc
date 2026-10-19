@@ -32,7 +32,9 @@
         "goals": 0,
         "assists": 0,
         "points": 0
-      }
+      },
+      "htoListedPosition": "LW",
+      "htoPositionHasDefenceOption": false
     },
     {
       "name": "Atkins, Nolan",
@@ -48,7 +50,9 @@
         "goals": 0,
         "assists": 0,
         "points": 0
-      }
+      },
+      "htoListedPosition": "C/D",
+      "htoPositionHasDefenceOption": true
     },
     {
       "name": "Brutto, Adam",
@@ -64,7 +68,9 @@
         "goals": 0,
         "assists": 0,
         "points": 0
-      }
+      },
+      "htoListedPosition": "LD",
+      "htoPositionHasDefenceOption": true
     },
     {
       "name": "Carlyle, Adam",
@@ -81,7 +87,8 @@
         "goalsAgainst": 3,
         "gaa": 3,
         "playerOfTheGame": 1
-      }
+      },
+      "htoListedPosition": "G"
     },
     {
       "name": "Carosi, Justin",
@@ -97,7 +104,9 @@
         "goals": 3,
         "assists": 0,
         "points": 3
-      }
+      },
+      "htoListedPosition": "C",
+      "htoPositionHasDefenceOption": false
     },
     {
       "name": "Congiusti, Marco",
@@ -113,7 +122,9 @@
         "goals": 0,
         "assists": 0,
         "points": 0
-      }
+      },
+      "htoListedPosition": "RD",
+      "htoPositionHasDefenceOption": true
     },
     {
       "name": "Duffy, Lorcan",
@@ -129,7 +140,9 @@
         "goals": 0,
         "assists": 0,
         "points": 0
-      }
+      },
+      "htoListedPosition": "LD",
+      "htoPositionHasDefenceOption": true
     },
     {
       "name": "Kober, Adam",
@@ -145,7 +158,9 @@
         "goals": 1,
         "assists": 1,
         "points": 2
-      }
+      },
+      "htoListedPosition": "LW/LD",
+      "htoPositionHasDefenceOption": true
     },
     {
       "name": "Kong, Henry",
@@ -161,7 +176,9 @@
         "goals": 1,
         "assists": 1,
         "points": 2
-      }
+      },
+      "htoListedPosition": "F/D",
+      "htoPositionHasDefenceOption": true
     },
     {
       "name": "Leong, Dev",
@@ -179,7 +196,8 @@
         "goalsAgainst": 10,
         "gaa": 5,
         "playerOfTheGame": 1
-      }
+      },
+      "htoListedPosition": "G"
     },
     {
       "name": "Logue, Stephen",
@@ -196,7 +214,8 @@
         "goalsAgainst": 6,
         "gaa": 6,
         "playerOfTheGame": 1
-      }
+      },
+      "htoListedPosition": "G"
     },
     {
       "name": "Pagnotta, Alex",
@@ -212,7 +231,9 @@
         "goals": 0,
         "assists": 3,
         "points": 3
-      }
+      },
+      "htoListedPosition": "RD",
+      "htoPositionHasDefenceOption": true
     },
     {
       "name": "Paolucci, Anthony",
@@ -228,7 +249,9 @@
         "goals": 0,
         "assists": 0,
         "points": 0
-      }
+      },
+      "htoListedPosition": "RW/G",
+      "htoPositionHasDefenceOption": false
     },
     {
       "name": "Pavaday, Damian",
@@ -244,7 +267,9 @@
         "goals": 0,
         "assists": 1,
         "points": 1
-      }
+      },
+      "htoListedPosition": "F",
+      "htoPositionHasDefenceOption": false
     },
     {
       "name": "Pearsoll, Keith",
@@ -260,7 +285,9 @@
         "goals": 1,
         "assists": 0,
         "points": 1
-      }
+      },
+      "htoListedPosition": "RW",
+      "htoPositionHasDefenceOption": false
     },
     {
       "name": "Povegliano, Adam",
@@ -276,7 +303,9 @@
         "goals": 0,
         "assists": 0,
         "points": 0
-      }
+      },
+      "htoListedPosition": "F",
+      "htoPositionHasDefenceOption": false
     },
     {
       "name": "Provenzano, Mario",
@@ -292,7 +321,9 @@
         "goals": 0,
         "assists": 0,
         "points": 0
-      }
+      },
+      "htoListedPosition": "C",
+      "htoPositionHasDefenceOption": false
     },
     {
       "name": "Provenzano, Michael",
@@ -308,7 +339,9 @@
         "goals": 0,
         "assists": 3,
         "points": 3
-      }
+      },
+      "htoListedPosition": "C/LW",
+      "htoPositionHasDefenceOption": false
     },
     {
       "name": "Rajasooriar, Krishnan",
@@ -324,7 +357,9 @@
         "goals": 0,
         "assists": 0,
         "points": 0
-      }
+      },
+      "htoListedPosition": "RW/RD",
+      "htoPositionHasDefenceOption": true
     },
     {
       "name": "Rajkumar, Sanjay",
@@ -340,7 +375,9 @@
         "goals": 0,
         "assists": 0,
         "points": 0
-      }
+      },
+      "htoListedPosition": "D/LD",
+      "htoPositionHasDefenceOption": true
     },
     {
       "name": "Rosenberg, Jamie",
@@ -356,7 +393,9 @@
         "goals": 0,
         "assists": 0,
         "points": 0
-      }
+      },
+      "htoListedPosition": "C/LW",
+      "htoPositionHasDefenceOption": false
     },
     {
       "name": "Saindon, Stephane",
@@ -372,7 +411,9 @@
         "goals": 0,
         "assists": 1,
         "points": 1
-      }
+      },
+      "htoListedPosition": "C",
+      "htoPositionHasDefenceOption": false
     },
     {
       "name": "Triumbari, Francesco",
@@ -388,7 +429,9 @@
         "goals": 0,
         "assists": 0,
         "points": 0
-      }
+      },
+      "htoListedPosition": "LD",
+      "htoPositionHasDefenceOption": true
     }
   ],
   "excludedIdentityPlaceholder": [
@@ -440,6 +483,13 @@
       "teamGoalsAgainst": 19,
       "goalieGoalsAgainst": 19,
       "qualifier": "Crosscheck of scored games and goalie appearance totals, NOT an independent calculation of player award ratings."
+    },
+    "htoPositionVerification": {
+      "status": "HTO_POSITION_AND_GP_PARITY_PASS",
+      "source": "Official HTO skater POS column and separate goalie table",
+      "namedSkatersChecked": 20,
+      "goaliesChecked": 3,
+      "semantics": "HTO position listing is NOT proof of award-specific eligibility; dual-role players are position candidates only."
     }
   }
 }
