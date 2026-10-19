@@ -5,12 +5,14 @@ on:
     branches: [main]
     paths:
       - 'scripts/svhl_hto_reconcile.py'
+      - 'scripts/svhl_issue_watch.py'
       - 'tests/test_svhl_hto_parser.py'
       - '.github/workflows/brave-svhl-sync.yml'
   schedule:
     - cron: '17 */4 * * *'
 permissions:
   contents: write
+  issues: write
 concurrency:
   group: brave-svhl-sync
   cancel-in-progress: false
@@ -35,6 +37,10 @@ jobs:
           name: svhl-hto-review
           path: build/svhl-review/reconciliation.json
           retention-days: 14
+      - name: Open or close one HTO review issue when league changes are detected
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python scripts/svhl_issue_watch.py build/svhl-review/reconciliation.json
       - name: Publish league feed only if game details changed
         shell: bash
         run: |
