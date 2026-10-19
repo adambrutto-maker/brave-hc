@@ -92,7 +92,7 @@ if(panel==="standings"){
  d.players.filter(p=>Number.isFinite(p.pts)&&p.currentGP>0).sort((a,b)=>b.pts-a.pts||b.g-a.g||a.name.localeCompare(b.name)).slice(0,6).forEach((p,i)=>appendRow(document.getElementById("projected-list"),[i+1,p.name,p.g,p.a,p.pts]));
 }else{
  if(d.schema!=="brave-hc-workbook-watch/v2"||!Array.isArray(d.records))throw Error("Unexpected record feed");
- put("watch-date","Through "+d.latestOfficialCompletedGameDate);
+ put("watch-date","Verified subset · "+d.latestOfficialCompletedGameDate);
  put("watch-note","Milestones verified against official games. Active streak and career-record categories remain partly reconciled.");
  const box=document.getElementById("watch-list"),valid=d.records.filter(p=>p.type==="reached");
  if(!valid.length){box.append($("div","empty","No verified milestone currently listed."));return}
