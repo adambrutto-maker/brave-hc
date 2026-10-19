@@ -126,7 +126,7 @@ function verifiedUpcomingWatch(section,p){
 }
 function feature(section,a,includePreview){
  articleFacts(a);
- section.append($("span","tag",a.articleType==="GAME_RECAP"?"Latest game recap":"Game recap"));
+ section.append($("span","tag",includePreview?"Latest game recap":"From the season archive"));
  section.append($("h2",null,a.headline));
  section.append($("p","lead",a.dek));
  section.append($("div","meta",a.displayDate+" · Verified HTO box score"));
