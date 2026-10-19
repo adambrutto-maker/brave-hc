@@ -127,4 +127,14 @@ footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;paddin
 .player-form-summary{font-size:11px;color:#dbebf7}
 @media(max-width:400px){.player-form-game{min-width:91px;padding:5px 6px}}
 
+
+/* The Rolaids eligibility bar measures actual games played only, not an award score. */
+.rolaids-gp-track{margin:10px 0 3px}
+.rolaids-gp-label{display:flex;align-items:center;justify-content:space-between;gap:8px;color:#d9ebf8;font-size:10px}
+.rolaids-gp-label strong{font-size:11px;color:#fff;font-variant-numeric:tabular-nums}
+.rolaids-gp-bar{margin:6px 0 5px;height:7px;background:#2a445c;border:1px solid #426780;border-radius:99px;overflow:hidden}
+.rolaids-gp-fill{height:100%;display:block;border-radius:99px;background:linear-gradient(90deg,#b7203d,#ef5f79)}
+.rolaids-gp-fill.complete{background:linear-gradient(90deg,#347e72,#79d6b3)}
+.rolaids-gp-foot{color:#b9cedb;font-size:10px;line-height:1.35}
+
 @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
