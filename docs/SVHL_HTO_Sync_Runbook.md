@@ -31,6 +31,17 @@
 7. Run [the GitHub workflow](https://github.com/adambrutto-maker/brave-hc/actions/workflows/brave-svhl-sync.yml) manually when convenient or allow the next scheduled reconciliation. The issue should close once both sites agree.
 8. Do not import the entire schedule for incremental changes; it risks creating duplicate HTO records. Never automatically delete historical game records.
 
+## Verified goaltender dropdown reference
+
+The manager dropdown reads [widgets/goalie-roster.json](https://github.com/adambrutto-maker/brave-hc/blob/main/widgets/goalie-roster.json). This is a curated reference, **not an exhaustive list of every goalie in Brave H.C. history**.
+
+- **Current 2026/27 confirmed (first):** Dev Leong (#31), Stephen Logue (#70). Source: HTO 2026/27 Roster and Fees bulletin, both marked CONFIRMED.
+- **Pending / historical:** Matt Svec (#0) is listed PENDING for 2026/27 and CONFIRMED in 2025/26. Steve Noyek (#0) was CONFIRMED for 2025/26.
+- **Other / utility:** Adam Carlyle (#0) is listed as a goaltender on the 2026/27 HTO player roster and was used as a rental; Anthony Paolucci (#43) has a RW·G position on HTO, but is **not** promoted to a confirmed starting goaltender.
+- **TBD** is available for every game. For anyone not on the reference list, use **Other / rental** and enter the actual confirmed name.
+- Verify current status using [HTO roster](https://www.htosports.com/teams/default.asp?p=roster&s=hockey&u=BRAVESHOCKEY) and [HTO Roster and Fees](https://www.htosports.com/teams/default.asp?p=bboard&pageNum=1&s=hockey&u=BRAVESHOCKEY). Public HTO rosters are not a substitute for manager confirmation of a game's starter.
+- All new dropdown additions must update the backend `GOALIE_OPTIONS` whitelist and pass `tests/test_goalie_roster.py`, or the CI gate blocks publication.
+
 ## Goalie management — prefilled GitHub approval
 
 - [Goaltender Manager](https://adambrutto-maker.github.io/brave-hc/widgets/goalie-manager-v1.2.html) shows each upcoming SVHL fixture, current saved goalie, and the controlled selection dropdown.
