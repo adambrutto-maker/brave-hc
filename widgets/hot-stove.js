@@ -64,6 +64,32 @@ function verifiedClubNotes(section){
  }
  if(list.children.length){area.append(list);section.append(area)}
 }
+function playerSpotlight(section,p,compact=false){
+ const m=p?.playerOutlook;
+ if(!m||m.status!=="VERIFIED_HISTORICAL_SCOUTING_NOT_LINEUP_OR_FORECAST"||!Array.isArray(m.players)||!m.players.length)return;
+ const wrapper=$("section","player-outlook");
+ wrapper.append($("h3","section-header",compact?"Matchup watch":"Players to watch · Matchup and recent form"));
+ const paragraphs=compact?m.paragraphs.slice(0,2):m.paragraphs;
+ for(const line of paragraphs){
+  if(typeof line!=="string"||line.length>1200)throw Error("Invalid source-bound scouting narrative");
+  wrapper.append($("p","scouting-narrative",line));
+ }
+ const grid=$("div","player-outlook-grid");
+ for(const row of m.players.slice(0,compact?2:5)){
+  if(!row.displayName||row.availability!=="NOT_CONFIRMED")throw Error("Player scouting availability missing");
+  const h=row.historical,t=row.recent;
+  if(!h||!t||![h.gp,h.g,h.a,h.pts,t.gp,t.g,t.a,t.pts].every(Number.isFinite))throw Error("Player scouting invalid source stats");
+  const card=$("div","player-outlook-card");
+  card.append($("strong","scout-name",row.displayName));
+  card.append($("span","scout-stat",h.pts+" pts ("+h.g+"G, "+h.a+"A) · "+h.gp+" prior meetings"));
+  card.append($("span","scout-form","Last "+row.recentWindowGames+" team games: "+t.pts+" pts in "+t.gp+" appearances"));
+  grid.append(card);
+ }
+ wrapper.append(grid);
+ wrapper.append($("p","scouting-caveat",
+ "Historical performances and recent scoring do not guarantee future results. No upcoming player participation is confirmed."));
+ section.append(wrapper);
+}
 function verifiedUpcomingWatch(section,p){
  if(!p||!Array.isArray(p.milestoneWatch)||!p.milestoneWatch.length)return;
  const block=$("section","milestone-radar");
@@ -97,6 +123,7 @@ function feature(section,a,includePreview){
   for(const text of p.paragraphs)sub.append($("p",null,text));
   sub.append(link("Next game details ↗",p.sourceUrl));
   section.append($("h3","section-header","Coming up"),sub);
+  playerSpotlight(section,p,true);
   verifiedUpcomingWatch(section,p);
  }
 }
@@ -125,6 +152,7 @@ function preview(section){
  if(statbar)summary.append(statbar);
  for(const line of p.paragraphs){summary.append($("p",null,line))}
  summary.append(link("View official schedule ↗",p.sourceUrl));section.append(summary);
+ playerSpotlight(section,p,false);
  verifiedUpcomingWatch(section,p);
  section.append($("p","note","Based on the latest published HTO schedule; projected lineups and player availability are not verified."));
 }

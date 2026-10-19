@@ -75,3 +75,21 @@ body.embedded{background:transparent}
 .milestone-radar{padding:8px;background:#112d43}
 .milestone-radar p{font-size:10px;line-height:1.4;margin:5px 0}
 @media(max-width:480px){.milestone-list{grid-template-columns:1fr}.milestone-item{padding:8px}.milestone-item p{font-size:10px}}
+
+/* Workbook-vs-opponent + verified current HTO form; no unverified lineup claims */
+.player-outlook{margin:13px 0 6px}
+.scouting-narrative{font-size:11px;line-height:1.5;color:#e1ebf5;margin:9px 0}
+.player-outlook-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;margin:9px 0 4px}
+.player-outlook-card{background:#0a2138;border:1px solid #577994;border-left:3px solid #b91326;padding:8px;min-width:0}
+.scout-name{display:block;font-size:12px;line-height:1.25;color:#fff}
+.scout-stat,.scout-form{display:block;margin-top:4px;font-size:10px;color:#d5e2ee;line-height:1.35}
+.scout-form{color:#acc8e3}
+.scouting-caveat{font-size:9px;color:#aebfd0;line-height:1.4;margin:7px 0}
+@media(max-width:480px){
+ .player-outlook-grid{grid-template-columns:1fr;gap:5px}
+ .player-outlook-card{padding:7px}
+ .scout-name{font-size:11px}
+ .scout-stat,.scout-form{font-size:9px}
+ .scouting-narrative{font-size:10px}
+ .scouting-caveat{font-size:8.5px}
+}
