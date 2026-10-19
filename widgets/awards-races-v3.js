@@ -66,7 +66,7 @@ function explainOverall(region,row,details){
 function card(row,index,isReference){
  const score=isReference?row.score:row.modelScore;
  const kind=row.scoreKind||"";
- const label=isReference?"Saved rating":row.eligible?"Eligible":"Provisional";
+ const label=isReference?"Saved rating":row.scoreKind==="AWARD_MODEL_PENDING"?"Rating pending":row.eligible?"Eligible":"Provisional";
  const wrapper=$("article","card"+(index===0?" leader":""));
  const main=el(wrapper,"div","card-main");
  el(main,"div","rank",index+1);
@@ -75,7 +75,7 @@ function card(row,index,isReference){
  el(center,"p","tagline",isReference?"Saved workbook example · "+(row.playerRecentRecordedSeason||"historical"):(row.gamesPlayed+" GP · "+label));
  if(isReference)el(center,"p","tiny","Not a current-season nominee");
  const scoreButton=el(main,"button","ratingbtn");scoreButton.type="button";
- const valid=Number.isFinite(Number(score));
+ const valid=typeof score==="number"&&Number.isFinite(score);
  const range=valid?badge(Number(score)):["neutral","Pending"];
  const orb=el(scoreButton,"span","orb "+range[0]);orb.style.setProperty("--value",String(valid?Math.max(0,Math.min(100,Number(score))):0));
  el(orb,"b",null,valid?Math.round(Number(score)):"—");
@@ -140,7 +140,7 @@ function draw(){
     played.slice(0,8).forEach(x=>el(chips,"span",null,x.name+" · "+x.gp+" GP"));
    }
   }else{
-   let rows=(race.entries||[]).filter(x=>Number.isFinite(+x.gamesPlayed)&&+x.gamesPlayed>=1&&+x.gamesPlayed<=d.currentTeamGP&&typeof x.eligible==="boolean"&&Number.isFinite(+x.modelScore));
+   let rows=(race.entries||[]).filter(x=>Number.isFinite(+x.gamesPlayed)&&+x.gamesPlayed>=1&&+x.gamesPlayed<=d.currentTeamGP&&typeof x.eligible==="boolean"&&(Number.isFinite(x.modelScore)||x.scoreKind==="AWARD_MODEL_PENDING"));
    rows.sort((a,b)=>Number(b.eligible)-Number(a.eligible)||(b.eligible?(Number(b.rankKey)||0)-(Number(a.rankKey)||0):0)||(Number(b.rawComposite)||0)-(Number(a.rawComposite)||0)||a.name.localeCompare(b.name));rows=rows.slice(0,5);
    notice(rows.length?"Qualified players lead; provisional players fill only the remaining places. Each person has at least one verified appearance.":"No current-season players have verified scores for this award.",false);
    if(!rows.length)DOM.region.append($("div","empty","No verified award participants yet."));
