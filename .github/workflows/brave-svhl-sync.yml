@@ -11,6 +11,8 @@ on:
       - '.github/workflows/brave-goalie-issue.yml'
       - 'tests/test_svhl_hto_parser.py'
       - 'tests/test_goalie_continuity.py'
+      - 'tests/test_goalie_roster.py'
+      - 'widgets/goalie-roster.json'
       - 'scripts/set_goalie.py'
       - 'widgets/goalie-schedule-v1.2-HTO-embed.html'
       - 'widgets/goalie-manager-v1.2.html'
@@ -36,6 +38,8 @@ jobs:
         run: pip install 'requests>=2.31,<3' 'beautifulsoup4>=4.12,<5'
       - name: Validate source parser
         run: python tests/test_svhl_hto_parser.py
+      - name: Validate verified HTO goalie roster and dropdown allowlist
+        run: python -m unittest discover -s tests -p test_goalie_roster.py
       - name: Validate goalie assignments through schedule changes
         run: python -m unittest discover -s tests -p test_goalie_continuity.py
       - name: Validate protected goalie confirmation logic
