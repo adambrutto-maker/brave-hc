@@ -15,6 +15,22 @@ function link(text,url){
    throw Error("Article external link not whitelisted");
  const a=$("a",null,text);a.href=url;a.rel="noopener noreferrer";a.target="_blank";return a;
 }
+// A player-name link may resolve to a game only when a verified HTO boxscore URL
+// is supplied for the specific game. Other mentions use the recorded season.
+function contextForGame(el, sourceUrl){
+ const verified=window.BravePlayerLinks?.officialGame?.(sourceUrl);
+ if(verified)el.dataset.htoGameUrl=verified;
+ return el;
+}
+function gameGoalParagraph(paragraph,article){
+ if(typeof paragraph!=="string"||!Array.isArray(article.goalEvents))return false;
+ if(!/\b(?:scored|scores|scoring|assists?)\b/i.test(paragraph))return false;
+ return article.goalEvents.some(e=>{
+  if(!e||typeof e.player!=="string"||!e.officialText)return false;
+  const [last,first]=e.player.split(",").map(x=>x.trim());
+  return !!(first&&last&&paragraph.includes(first+" "+last));
+ });
+}
 function articleFacts(a){
  if(!a||!a.headline||!a.boxScore||!a.sourceUrls?.length||
     !Array.isArray(a.paragraphs)||a.paragraphs.length<3||
@@ -65,7 +81,7 @@ function verifiedClubNotes(section){
  for(const event of notes.items.slice(0,4)){
   if(event.kind!=="MILESTONE_REACHED"||event.evidenceStatus!=="HTO_GAME_AND_WORKBOOK_VERIFIED")continue;
   const item=$("div","milestone-item");
-  item.append($("p",null,event.message));
+  item.append(contextForGame($("p",null,event.message),event.sourceBoxScore));
   item.append(link("HTO verification ↗",event.sourceBoxScore));
   list.append(item);
  }
@@ -78,7 +94,7 @@ function archivedArticleMilestones(section,a){
  area.append($("h3","section-header","Career milestones · This game"));
  for(const milestone of records){
   const item=$("div","milestone-item");
-  item.append($("p",null,milestone.message));
+  item.append(contextForGame($("p",null,milestone.message),milestone.sourceBoxScore));
   item.append(link("Verified HTO game record ↗",milestone.sourceBoxScore));
   area.append(item);
  }
@@ -155,7 +171,9 @@ function rosterDepthNotes(section,a){
   const grid=$("div","roster-depth-grid");
   for(const p of c.visitingPlayers){
    const card=$("div","roster-depth-card");
-   card.append($("strong","scout-name",p.name));
+   const name=$("strong","scout-name",p.name);
+   if(p.identified===true)contextForGame(name,a.sourceUrls?.[0]);
+   card.append(name);
    card.append($("span","roster-type",p.status==="CU"?"CALL-UP":"DROP-IN"));
    card.append($("p",null,"2026–27 relief appearance #"+p.seasonGPThroughGame+"."));
    if(p.identified){
@@ -185,7 +203,7 @@ function rosterDepthNotes(section,a){
    return line;
   });
   block.append($("h4","goalie-heading","In goal"));
-  for(const line of goalie)block.append($("p","goalie-note",line));
+  for(const line of goalie)block.append(contextForGame($("p","goalie-note",line),a.sourceUrls?.[0]));
  }
  block.append($("p","roster-caveat","Full-time, call-up and drop-in labels reflect the October 19 season roster classification, which may differ from a particular game-day designation. “Not listed” does not establish why someone missed a game. Player statistics come from official HTO sheets; opponent histories are drawn from recorded workbook game logs."));
  section.append(block);
@@ -193,6 +211,9 @@ function rosterDepthNotes(section,a){
 function feature(section,a,includePreview){
  articleFacts(a);
  section.append($("span","tag",includePreview?"Latest game recap":"From the season archive"));
+ // This currently covers the verified 2026/27 season archive. Explicit game
+ // scope is assigned only to sources proving a specific player appearance.
+ if(/^2026-\d{2}-\d{2}$/.test(a.date||""))section.dataset.htoSeason="Winter_2026/2027";
  section.append($("h2",null,a.headline));
  section.append($("p","lead",a.dek));
  section.append($("div","meta",a.displayDate+" · Verified HTO box score"));
@@ -208,7 +229,14 @@ function feature(section,a,includePreview){
   if(metrics)section.append(metrics);
  }
  const body=$("div","article-body");
- for(const paragraph of a.paragraphs){if(typeof paragraph!=="string"||paragraph.length>900)throw Error("Invalid article paragraph");body.append($("p",null,paragraph))}
+ for(const paragraph of a.paragraphs){
+  if(typeof paragraph!=="string"||paragraph.length>900)throw Error("Invalid article paragraph");
+  const line=$("p",null,paragraph);
+  // A scorer and listed assists in the verified game event link to that game's
+  // boxscore; absence and scouting references remain season-scoped.
+  if(gameGoalParagraph(paragraph,a))contextForGame(line,a.sourceUrls?.[0]);
+  body.append(line);
+ }
  section.append(body);
  const footer=$("div","links");footer.append(link("Official HTO box score ↗",a.sourceUrls[0]));section.append(footer);
  rosterDepthNotes(section,a);
@@ -235,6 +263,7 @@ function headToHeadStats(p){
  return wrap;
 }
 function preview(section){
+ section.dataset.htoSeason="Winter_2026/2027";
  const p=publication.gamePreview;
  if(!p){section.append($("p","loading","No future game has been posted on HTO."));return}
  section.append($("span","tag","Pregame preview · HTO schedule"));

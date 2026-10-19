@@ -1,3 +1,7 @@
-<!-- Place this once in a permitted HTO custom-HTML page/editor area. Do not duplicate. -->
-<!-- Curated public playerID registry; leaves HTO's existing player anchors alone. -->
+<!-- BRAVE H.C. | Shared HTO Player Links - Home Page Integration -->
+<!-- Insert ONCE into a HomeTeamsONLINE X-Grid "Script Area (Advanced)" module.
+     Do not paste into a regular Text Area or replace existing Home Page modules.
+     This applies only to the HTO page containing this module, not every HTO page.
+     It does not change native HTO roster/profile/stats hyperlink behavior.
+     Remove the one script block to roll back. -->
 <script src="https://adambrutto-maker.github.io/brave-hc/widgets/player-links.js?v=1" defer></script>
