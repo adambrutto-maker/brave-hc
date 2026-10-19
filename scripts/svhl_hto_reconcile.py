@@ -8,6 +8,7 @@ from pathlib import Path
 from zoneinfo import ZoneInfo
 import requests
 from bs4 import BeautifulSoup
+from hto_review_packet import render_review
 
 SVHL = 'https://leagues.sportsvillage.ca/Leagues.aspx?leagueid=570&page_type=Adult&sc=HOCKEY'
 HTO = 'https://www.htosports.com/teams/default.asp?p=schedule&s=hockey&u=BRAVESHOCKEY&format=List'
@@ -198,6 +199,8 @@ def main():
           'checkedAt':datetime.now(TZ).isoformat(),'games':fixtures}
     (args.out/'svhl-upcoming.json').write_text(json.dumps(feed,indent=2)+'\n')
     (args.out/'reconciliation.json').write_text(json.dumps(queue,indent=2)+'\n')
+    report=render_review(queue)
+    (args.out/'hto-review.md').write_text(report or '# Brave H.C. SVHL / HTO — No discrepancies\n\nAll upcoming fixtures currently match. No HTO changes required.\n', encoding='utf-8')
     counts={}
     for q in queue:
         counts[q['action']]=counts.get(q['action'],0)+1
