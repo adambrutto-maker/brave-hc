@@ -69,7 +69,7 @@ try{
      if(choice==='Other / rental'){
        const entered=window.prompt('Enter the confirmed rental goalie’s full name:','');
        if(entered===null)return;
-       custom=entered.trim().replace(/\\s+/g,' ');
+       custom=entered.trim().replace(/\s+/g,' ');
        if(custom.length<2||custom.length>70||/[<>]/.test(custom)){
          $('status').textContent='A valid rental goalie name (2–70 characters, no HTML) is required.';
          return;
