@@ -214,7 +214,20 @@ function feature(section,a,includePreview){
  // This currently covers the verified 2026/27 season archive. Explicit game
  // scope is assigned only to sources proving a specific player appearance.
  if(/^2026-\d{2}-\d{2}$/.test(a.date||""))section.dataset.htoSeason="Winter_2026/2027";
- section.append($("h2",null,a.headline));
+ const headline=$("h2",null,a.headline);
+ const gameHref=window.BravePlayerLinks?.officialGame?.(a.sourceUrls?.[0]);
+ if(gameHref && Array.isArray(a.goalEvents))for(const event of a.goalEvents){
+  // A one-word scoring headline is not a full name; disambiguate it using
+  // the scorer's verified HTO event before making a player hyperlink.
+  const last=String(event.player||"").split(",")[0].trim();
+  if(event.officialText && last.length>=3 && a.headline.startsWith(last+" ")){
+   const playerAnchor=link(last,gameHref);
+   playerAnchor.classList.add("brave-player-link");
+   headline.replaceChildren(playerAnchor,document.createTextNode(a.headline.slice(last.length)));
+   break;
+  }
+ }
+ section.append(headline);
  section.append($("p","lead",a.dek));
  section.append($("div","meta",a.displayDate+" · Verified HTO box score"));
  const b=a.boxScore,score=$("div","score");

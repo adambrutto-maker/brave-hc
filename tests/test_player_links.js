@@ -69,3 +69,11 @@ test('Game-specific links require an official HTO box-score URL',()=>{
   'https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&gameID=bad'
  ])assert.equal(links.resolve('Justin Carosi',{gameUrl}),links.profileUrl('Justin Carosi'));
 });
+
+test('Unique HTO initial-and-surname player abbreviations resolve; duplicate initials do not',()=>{
+ assert.equal(links.profileUrl('J. Carosi'),links.profileUrl('Justin Carosi'));
+ assert.equal(links.profileUrl('A. Pagnotta'),links.profileUrl('Alex Pagnotta'));
+ assert.equal(links.profileUrl('S. Saindon'),links.profileUrl('Stephane Saindon'));
+ assert.equal(links.profileUrl('M. Provenzano'),null);
+ assert.equal(links.profileUrl('P. Unknown'),null);
+});

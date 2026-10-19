@@ -20,6 +20,19 @@
       names.push(variant);
     }
   }
+  // HTO renders players as initials in some scoreboards. Resolve only if
+  // first initial plus complete surname uniquely identifies one HTO player.
+  // Example: J. Carosi is safe; M. Provenzano is ambiguous and stays plain.
+  const initialCandidates = new Map();
+  for (const [full, id] of roster) {
+    const parts = full.split(' ');
+    const alias = normalize(parts[0].slice(0,1) + '. ' + parts.slice(1).join(' '));
+    if (initialCandidates.has(alias)) initialCandidates.set(alias, null);
+    else initialCandidates.set(alias, id);
+  }
+  for (const [alias, id] of initialCandidates) {
+    if (id !== null) { byName.set(alias,id); names.push(alias); }
+  }
   const profileUrl = name => {
     const id = byName.get(normalize(name));
     return id ? 'https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=' + id : null;
