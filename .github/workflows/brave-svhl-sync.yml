@@ -13,6 +13,7 @@ on:
       - '.github/workflows/brave-goalie-issue.yml'
       - 'tests/test_svhl_hto_parser.py'
       - 'tests/test_goalie_continuity.py'
+      - 'tests/test_goalie_assignment.py'
       - 'tests/test_goalie_roster.py'
       - 'widgets/goalie-roster.json'
       - 'scripts/set_goalie.py'
