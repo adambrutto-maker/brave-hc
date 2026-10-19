@@ -18,7 +18,7 @@ const records=d.verifiedStreakHistory.filter(x=>x.games>=3&&x.sourceAuthority);
 if(records.length)for(const p of records)tile(streaks,p.player,p.description,p.games+" games",p.through);
 else streaks.append($("div","empty","No current three-game streak is verified in the supported categories."));
 set("streaksource","Supported: "+(d.verifiedStreakCategories||[]).join(", ")+". Held: "+(d.unverifiedStreakCategories||[]).join(", ")+".");
-set("notice","HTO game results verified through "+d.latestOfficialCompletedGameDate+". The saved career workbook baseline still needs a current-date reconciliation; outstanding milestone types are withheld, not assumed to be absent.");
+set("notice","Milestones shown are checked against official game results through "+d.latestOfficialCompletedGameDate+". Other record categories are still being checked.");
 const withheld=group("withheld");
 const reasons=d.verifiedRecordScope?.notCovered||[];
 for(const p of reasons)tile(withheld,p,"Pending evidence",null,null);
