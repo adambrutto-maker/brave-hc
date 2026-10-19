@@ -66,10 +66,10 @@ function explainOverall(region,row,details){
 function card(row,index,isReference){
  const score=isReference?row.score:row.modelScore;
  const kind=row.scoreKind||"";
- const label=isReference?"Saved rating":row.scoreKind==="AWARD_MODEL_PENDING"?"Rating pending":row.eligible?"Eligible":"Provisional";
+ const label=isReference?"Saved rating":row.scoreKind==="AWARD_MODEL_PENDING"?"Played · rating and ranking pending":row.eligible?"Eligible":"Provisional";
  const wrapper=$("article","card"+(index===0?" leader":""));
  const main=el(wrapper,"div","card-main");
- el(main,"div","rank",index+1);
+ el(main,"div","rank",!isReference&&row.scoreKind==="AWARD_MODEL_PENDING"?"—":index+1);
  const center=el(main,"div","identity");
  el(center,"strong","playername",row.name);
  el(center,"p","tagline",isReference?"Saved workbook example · "+(row.playerRecentRecordedSeason||"historical"):(row.gamesPlayed+" GP · "+label));
