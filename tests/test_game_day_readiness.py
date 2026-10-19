@@ -47,7 +47,9 @@ class NextGameTests(unittest.TestCase):
 
     def test_not_due_yet(self):
         date=NOW-timedelta(hours=80)
-        self.assertEqual(g.examine(deepcopy(FEED),deepcopy(SAVED),date)["status"],"NOT_DUE")
+        earlier=deepcopy(FEED)
+        earlier["checkedAt"]=date.isoformat()
+        self.assertEqual(g.examine(earlier,deepcopy(SAVED),date)["status"],"NOT_DUE")
 
     def test_expired_provider_data_fails_closed(self):
         feed=deepcopy(FEED)
