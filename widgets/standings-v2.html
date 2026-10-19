@@ -28,7 +28,7 @@ document.querySelectorAll(".nav a").forEach(a=>{if(a.pathname===location.pathnam
   });body.append(tr);
  });
  const note=document.getElementById("notice");
- note.textContent="This is the SVHL division table, not the HTO team-stat feed. Each source has its own publication timing. League results are not silently updated from HTO box scores.";
+ note.textContent="The division table is updated by the league. Brave H.C.’s latest game can appear here after the league posts its results.";
  if(d.braveGP!==undefined&&d.braveGP!==team.gp)note.textContent+=" Snapshot disagreement requires verification.";
  try{
   const pr=await fetch("./projection.json",{cache:"no-store"});
