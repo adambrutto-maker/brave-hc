@@ -1,0 +1,98 @@
+{
+  "schema": "brave-hc-award-races-preview/v1",
+  "team": "Brave H.C.",
+  "season": "W2026/27",
+  "edition": "2026-10-19",
+  "state": "MODEL_BASELINED_NO_VERIFIED_2026_27_SHORTLIST",
+  "modelSource": "BruTTech HockeyOS Brave H.C. Master Workbook: Web Races, AwardScoring, PlayerInfo / 2026-10-19 awards and HOF methodology audit",
+  "modelRules": {
+    "candidateLimit": 5,
+    "voteNominationsPerAward": 3,
+    "listBasis": "Only eligible players, ordered by workbook AwardScoring Rank Key; never rank from points alone",
+    "scoreBasis": "Public award scores usually rank-spaced 50–100 across eligible field; raw/internal scores remain separate",
+    "currentSeasonStatus": "Final 2026/27 award candidates have not been recalculated and reconciled against the four verified HTO games in this publication.",
+    "noAwardRecipientClaim": true,
+    "eligibilityMustBeConfirmed": true
+  },
+  "awards": [
+    {
+      "id": "hart",
+      "name": "Hart Award",
+      "subtitle": "Most Valuable Player",
+      "eligibility": "Current-season eligible skaters and goalies; separate role-aware scoring. FT skaters: greater of 5 GP or 50% of roster games. CU/DI: greater of 5 GP or 40%. Goalies: greater of 3 GP or 30%.",
+      "weight": "Production, POTG, clutch contribution, consistency and position-specific impact."
+    },
+    {
+      "id": "conn-smythe",
+      "name": "Conn Smythe Award",
+      "subtitle": "Playoff MVP",
+      "eligibility": "Playoff data required. Played-game threshold is two-thirds of playoff games when the game count is odd, otherwise one-half.",
+      "weight": "Playoff-only production and position-specific impact."
+    },
+    {
+      "id": "art-ross",
+      "name": "Art Ross Award",
+      "subtitle": "Regular-season points leader",
+      "eligibility": "AwardScoring-eligible skaters; regular-season results only, excluding playoffs.",
+      "weight": "Regular-season points. Tiebreak wording and the workbook's internal Rank Key require reconciliation before publication."
+    },
+    {
+      "id": "rocket",
+      "name": "Rocket Richard Trophy",
+      "subtitle": "Regular-season goal-scoring title",
+      "eligibility": "AwardScoring-eligible regular-season skaters; playoff goals excluded; ties may be recognized.",
+      "weight": "Regular-season goals."
+    },
+    {
+      "id": "norris",
+      "name": "James Norris Trophy",
+      "subtitle": "Top defenceman",
+      "eligibility": "AwardScoring-eligible defencemen and eligible utility skaters; only if positional records support eligibility.",
+      "weight": "Defensive profile is most heavily weighted."
+    },
+    {
+      "id": "lady-byng",
+      "name": "Lady Byng Award",
+      "subtitle": "Sportsmanship and disciplined play",
+      "eligibility": "AwardScoring-eligible current-season players.",
+      "weight": "Discipline, attendance, reliability and performance."
+    },
+    {
+      "id": "rookie",
+      "name": "Rookie of the Year",
+      "subtitle": "Top first-year full-timer",
+      "eligibility": "Players in their first full-time roster season with at least one current game played, subject to workbook eligibility.",
+      "weight": "Rookie-specific performance formula; known workbook notes mismatch must be corrected before publishing."
+    },
+    {
+      "id": "improved",
+      "name": "Most Improved Player",
+      "subtitle": "Progress against career baseline",
+      "eligibility": "Non-rookies with the model-required prior-season/career sample.",
+      "weight": "Improvement relative to each player's earlier production, impact and discipline."
+    },
+    {
+      "id": "rolaids",
+      "name": "Rolaids Relief Man Award",
+      "subtitle": "Top call-up / relief player",
+      "eligibility": "Non-full-timers only. Skaters require 5+ current-season GP; goalies require 3+ current-season GP. Full-time and blank roster-status entries excluded.",
+      "weight": "Skaters: consistency 18%, points 18%, attendance 15%, POTG 10%, plus supporting impact. Goalies: reliability 20%, win rate 18%, GAA 17%, attendance 13%, other measures."
+    },
+    {
+      "id": "dedication",
+      "name": "Andrew Cristillo Dedication Award",
+      "subtitle": "Commitment, attendance and service",
+      "eligibility": "Eligible current-season FT/CU/DI players; threshold depends on roster type and games played.",
+      "weight": "Current attendance 40%, roster-adjusted career attendance 25%, current GP 12%, playoff attendance 10%, tenure 8%, other reliability."
+    },
+    {
+      "id": "hof",
+      "name": "Hall of Fame Ballot",
+      "subtitle": "Lifetime Brave H.C. contribution",
+      "eligibility": "At least 50 total career GP (skater + goalie), not already inducted.",
+      "weight": "Career production and longevity, playoff résumé, legacy, consistency and verified awards and records."
+    }
+  ],
+  "shortlists": {},
+  "displayPolicy": "Review-only: no public shortlist names until per-award eligibility, game data, model ranks and source date are validated."
+}
