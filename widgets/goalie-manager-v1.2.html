@@ -53,6 +53,19 @@ try{
    const col3=document.createElement('td'),col4=document.createElement('td');
    col1.textContent=game.date+' · '+game.opponent;
    col2.textContent=game.time+' · '+game.rink;
+   if(game.requiresGoalieReconfirmation &&
+      (!game.fixtureSignature || (data.scheduleConfirmations||{})[game.assignmentKey]!==game.fixtureSignature) &&
+      data.assignments[game.assignmentKey] && data.assignments[game.assignmentKey]!=='TBD'){
+     const warning=document.createElement('div');
+     warning.style.color='#ffe09b';warning.style.fontSize='12px';
+     warning.textContent='Reconfirm goalie: SVHL schedule changed';
+     col2.append(warning);
+   } else if(game.htoSyncStatus!=='MATCH'){
+     const pending=document.createElement('div');
+     pending.style.color='#ffe09b';pending.style.fontSize='12px';
+     pending.textContent='HTO schedule update under review';
+     col2.append(pending);
+   }
    const sel=document.createElement('select');
    sel.setAttribute('aria-label','Goalie for '+game.date+' '+game.opponent);
    const selected=data.assignments[game.assignmentKey]||'TBD';
