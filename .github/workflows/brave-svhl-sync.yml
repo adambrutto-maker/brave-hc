@@ -22,7 +22,9 @@ on:
       - 'widgets/goalie-manager-v1.2.html'
       - '.github/workflows/brave-svhl-sync.yml'
   schedule:
-    - cron: '17 */4 * * *'
+    - cron: '17 */4 * * *'  # regular verification, UTC
+    - cron: '19 * * * 0'   # hourly on Sundays UTC
+    - cron: '19 0-6 * * 1' # Sunday evening/night in Toronto (crosses UTC midnight)
 permissions:
   contents: write
   issues: write
