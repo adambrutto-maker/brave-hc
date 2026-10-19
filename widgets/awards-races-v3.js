@@ -165,6 +165,56 @@ function isVerifiedWeeklyRace(data,race,participants){
  }
  return true;
 }
+function renderRaceActivity(){
+ const src=state.participation,d=state.source,id=state.award;
+ if(!src||src.season!==d.season||src.officialTeamGames!==d.currentTeamGP
+    ||src.status!=="UNRANKED_VERIFIED_SEASON_APPEARANCES_NOT_AWARD_SCORES"
+    ||src.verifiedSourceReadback?.status!=="HTO_NAMED_SKATER_AND_GOALIE_GP_PARITY_PASS"
+    ||src.verifiedSourceReadback?.htoPositionVerification?.status!=="HTO_POSITION_AND_GP_PARITY_PASS"
+    ||!Array.isArray(src.players))return;
+ let rows=src.players.filter(p=>typeof p.name==="string"&&Number.isInteger(p.gp)&&p.gp>=1&&p.gp<=d.currentTeamGP);
+ const hints={
+  rolaids:"CU/DI skaters who appeared in an HTO game. Goalie relief classification still requires verification.",
+  norris:"Players listed by HTO with a defence position. A dual position does not establish Norris eligibility.",
+  "art-ross":"Skaters with a verified regular-season appearance. Points shown are actual, not award ratings.",
+  rocket:"Skaters with a verified regular-season appearance. Goals shown are actual, not award ratings.",
+  hart:"Players who have appeared, not the MVP shortlist.",
+  "lady-byng":"Players who have appeared; sportsmanship and award eligibility are not scored here.",
+  dedication:"Players who have appeared; the dedication model considers additional career and attendance history.",
+  improved:"Players who have appeared; rookie and career-comparison eligibility remain unverified."
+ };
+ if(!Object.hasOwn(hints,id))return;
+ if(id==="rolaids")rows=rows.filter(p=>p.position==="Skater"&&["CU","DI"].includes(p.role));
+ else if(id==="norris")rows=rows.filter(p=>p.position==="Skater"&&p.htoPositionHasDefenceOption===true);
+ else if(id==="art-ross"||id==="rocket")rows=rows.filter(p=>p.position==="Skater");
+ if(!rows.length)return;
+ if(new Set(rows.map(x=>x.name.toLowerCase())).size!==rows.length)return;
+ rows.sort((a,b)=>a.name.localeCompare(b.name));
+ const section=el(DOM.region,"details","race-activity");
+ if(id==="rolaids"||id==="norris")section.open=true;
+ el(section,"summary",null,rows.length+" players on the ice · unranked "+(id==="rolaids"?"relief":"season")+" watch");
+ const content=el(section,"div","race-activity-body");
+ el(content,"p",null,hints[id]);
+ const grid=el(content,"div","race-activity-grid");
+ for(const p of rows){
+  const entry=el(grid,"article","race-activity-player");
+  el(entry,"strong",null,p.name);
+  const stat=el(entry,"div","race-activity-stat");
+  el(stat,"span",null,p.gp+" GP");
+  if(p.position==="Skater"){
+   if(Number.isFinite(p.goals)&&Number.isFinite(p.assists)){
+    el(stat,"span",null,p.goals+" G");
+    el(stat,"span",null,p.assists+" A");
+   }
+   el(entry,"div","race-activity-sub",p.role+" · "+(p.htoListedPosition||"Position unverified"));
+  }else{
+   const h=p.officialHTOStats||{};
+   if(Number.isInteger(h.goalsAgainst))el(stat,"span",null,h.goalsAgainst+" GA");
+   el(entry,"div","race-activity-sub","Goalie · award roster role unverified");
+  }
+ }
+ el(content,"p","source-note","Appearance stats: official HTO this season, read back "+(src.verifiedSourceReadback.verifiedOn||"date pending")+". Roster classifications are from HockeyOS, not an award approval. Alphabetical, not ranked by performance.");
+}
 function renderSeasonParticipants(){
  const d=state.source,source=state.participation;
  if(!source||d.currentTeamGP<1||source.season!==d.season||source.officialTeamGames!==d.currentTeamGP
@@ -205,7 +255,8 @@ function draw(){
    const box=$("div","empty");el(box,"strong",null,"This week's model ratings aren't ready yet");
    el(box,"p",null,"Award rankings remain empty until the workbook scores, game dates and participants match the verified season. We don't substitute old ratings, other stats or players with zero appearances.");
    DOM.region.append(box);
-   // All named appearances are displayed separately from the withheld award-model race.
+   // Publish an explicitly unranked, award-specific appearance watch independent of the held formula ratings.
+   renderRaceActivity();
   }else{
    let rows=(race.entries||[]).filter(x=>Number.isFinite(+x.gamesPlayed)&&+x.gamesPlayed>=1&&+x.gamesPlayed<=d.currentTeamGP&&typeof x.eligible==="boolean"&&(Number.isFinite(x.modelScore)||x.scoreKind==="AWARD_MODEL_PENDING"));
    rows.sort((a,b)=>Number(b.eligible)-Number(a.eligible)||(b.eligible?(Number(b.rankKey)||0)-(Number(a.rankKey)||0):0)||(Number(b.rawComposite)||0)-(Number(a.rawComposite)||0)||a.name.localeCompare(b.name));rows=rows.slice(0,5);
