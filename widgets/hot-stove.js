@@ -124,6 +124,65 @@ function verifiedUpcomingWatch(section,p){
  for(const r of subset)block.append($("p",null,r.player+": "+r.description));
  if(subset.length)section.append(block);
 }
+function rosterDepthNotes(section,a){
+ const c=a?.rosterContext;
+ if(!c||c.completeGameRoster!==true||!Array.isArray(c.visitingPlayers)||!Array.isArray(c.fullTimersNotListed))return;
+ const block=$("section","roster-context");
+ block.append($("h3","section-header","Game-night roster · Full-timers and depth"));
+ const absent=c.fullTimersNotListed.map(x=>x.name);
+ if(absent.length){
+  block.append($("p","roster-narrative","Full-timers not listed in the official game sheet: "+absent.join(", ")+"."));
+ }else{
+  block.append($("p","roster-narrative","All skaters classified as full-timers in the current-season reference roster appear in this game's official stat sheet."));
+ }
+ const named=c.visitingPlayers.filter(p=>p.identified);
+ const callups=named.filter(p=>p.status==="CU");
+ const dropins=named.filter(p=>p.status==="DI");
+ const unknown=c.visitingPlayers.filter(p=>!p.identified);
+ let countLine="";
+ if(callups.length)countLine+=callups.length+" verified call-up"+(callups.length===1?"":"s")+" dressed";
+ if(dropins.length)countLine+=(countLine?" and ":"")+dropins.length+" identified drop-in"+(dropins.length===1?"":"s")+" dressed";
+ if(unknown.length)countLine+=(countLine?", along with ":"")+unknown.length+" unidentified HTO drop-in entry";
+ if(countLine)block.append($("p","roster-narrative",countLine+". Appearance totals below are through this game, not the eventual season totals."));
+ if(c.visitingPlayers.length){
+  const grid=$("div","roster-depth-grid");
+  for(const p of c.visitingPlayers){
+   const card=$("div","roster-depth-card");
+   card.append($("strong","scout-name",p.name));
+   card.append($("span","roster-type",p.status==="CU"?"CALL-UP":"DROP-IN"));
+   card.append($("p",null,"2026–27 appearance #"+p.seasonGPThroughGame+"."));
+   if(p.identified){
+    const game=p.gameStats,h=p.headToHeadBeforeGame;
+    card.append($("p",null,"This game: "+game.g+" G, "+game.a+" A, "+game.pts+" pts."));
+    if(h&&h.gp>0){
+     card.append($("p",null,"Before puck drop vs. "+c.opponent+": "+h.pts+" pts ("+h.g+" G, "+h.a+" A) in "+h.gp+" recorded regular-season appearance"+(h.gp===1?"":"s")+"."));
+    }else{
+     card.append($("p",null,"No verified prior regular-season appearance vs. "+c.opponent+" in the historical workbook."));
+    }
+   }else{
+    card.append($("p",null,"The official roster uses a placeholder; the player's identity and personal matchup record are not independently verified."));
+   }
+   grid.append(card);
+  }
+  block.append(grid);
+ }
+ if(Array.isArray(c.gameGoalies)&&c.gameGoalies.length){
+  const goalie=c.gameGoalies.map(g=>{
+   const h=g.opponentHistoryBeforeGame;
+   let line=g.name+" ("+g.role+") — "+g.seasonGPThroughGame+" season appearance"+(g.seasonGPThroughGame===1?"":"s")+" through this game.";
+   if(g.opponentHistoryStatus==="MASTER_WORKBOOK_GOALIESTATS_BYGAME_VERIFIED"&&h){
+    line+=" Prior regular-season meetings vs. "+c.opponent+": "+h.gp+" GP";
+    if(h.gp)line+=", "+h.wins+" W, "+h.losses+" L, "+h.goalsAgainst+" goals against";
+    line+=".";
+   }
+   return line;
+  });
+  block.append($("h4","goalie-heading","In goal"));
+  for(const line of goalie)block.append($("p","goalie-note",line));
+ }
+ block.append($("p","roster-caveat","Full-time, call-up and drop-in labels reflect the October 19 season roster classification, which may differ from a particular game-day designation. “Not listed” does not establish why someone missed a game. Player statistics come from official HTO sheets; opponent histories are drawn from recorded workbook game logs."));
+ section.append(block);
+}
 function feature(section,a,includePreview){
  articleFacts(a);
  section.append($("span","tag",includePreview?"Latest game recap":"From the season archive"));
@@ -145,6 +204,7 @@ function feature(section,a,includePreview){
  for(const paragraph of a.paragraphs){if(typeof paragraph!=="string"||paragraph.length>900)throw Error("Invalid article paragraph");body.append($("p",null,paragraph))}
  section.append(body);
  const footer=$("div","links");footer.append(link("Official HTO box score ↗",a.sourceUrls[0]));section.append(footer);
+ rosterDepthNotes(section,a);
  archivedArticleMilestones(section,a);
  if(!includePreview&&a.followingGamePreview)archivedNextGame(section,a.followingGamePreview);
  if(includePreview)verifiedClubNotes(section);
@@ -254,6 +314,31 @@ async function applyArchiveEditorial(data){
   }
  }catch(_err){/* Generated source article remains available if the editorial overlay cannot load. */}
 }
+async function applyVerifiedRosterContext(data){
+ try{
+  const response=await fetch("./hot-stove-roster-context.json",{cache:"no-store"});
+  if(!response.ok)return;
+  const overlay=await response.json();
+  if(overlay.schema!=="brave-hc-hot-stove-roster-context/v1"||overlay.team!==data.team||
+     overlay.season!=="W2026/27"||!Array.isArray(overlay.articles))return;
+  const byGame=new Map(overlay.articles.map(x=>[x.gameId,x]));
+  const articles=[data.latestArticle,...(data.archive||[]).map(x=>x.article)];
+  for(const article of articles){
+   const context=byGame.get(article?.gameId);
+   if(!context||!context.completeGameRoster||article.verification?.status!=="SOURCE_VERIFIED"||
+      article.date!==context.date||article.boxScore?.opponent!==context.opponent||
+      article.boxScore?.ourGoals!==context.score?.ours||
+      article.boxScore?.theirGoals!==context.score?.theirs||
+      article.evidenceFingerprint!==context.evidenceFingerprint||
+      !Array.isArray(context.visitingPlayers)||!Array.isArray(context.fullTimersNotListed)||
+      !Array.isArray(context.gameGoalies))continue;
+   if(context.visitingPlayers.some(p=>!["CU","DI"].includes(p.status)||
+      !Number.isInteger(p.seasonGPThroughGame)||p.seasonGPThroughGame<1||
+      !p.headToHeadBeforeGame||!Number.isInteger(p.headToHeadBeforeGame.gp)))continue;
+   article.rosterContext=context;
+  }
+ }catch(_err){/* Never block publication because optional attendance analysis could not load. */}
+}
 async function boot(){
  try{
   const response=await fetch(pathname,{cache:"no-store"});
@@ -264,6 +349,7 @@ async function boot(){
   if(!isReview&&data.editorialState!=="FOUNDER_APPROVED")throw Error("Unapproved article cannot publish");
   articleFacts(data.latestArticle);
   await applyArchiveEditorial(data);
+  await applyVerifiedRosterContext(data);
   publication=data;render();
  }catch(e){
   root.replaceChildren();
