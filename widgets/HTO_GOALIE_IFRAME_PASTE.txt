@@ -1,0 +1,13 @@
+<!-- Brave H.C. Goaltender Schedule v1.2. One-time HTO Script Area embed. -->
+<iframe
+  src="https://adambrutto-maker.github.io/brave-hc/widgets/goalie-schedule-v1.2-HTO-embed.html"
+  title="Brave H.C. Official SVHL Goaltender Schedule"
+  loading="lazy"
+  scrolling="auto"
+  style="display:block;width:100%;height:540px;min-height:420px;border:0;background:#091b30;"
+></iframe>
+
+<!-- If HTO disallows iframe embeds, restore your existing HTO source,
+     then use the full tested source from
+     https://github.com/adambrutto-maker/brave-hc/blob/main/widgets/goalie-schedule-v1.2-HTO-embed.html
+     No GitHub tokens belong in public HTO code. -->
