@@ -18,13 +18,13 @@ section{border-top:1px solid #35546a;margin-top:18px;padding-top:8px}
 .notice{background:#19364e;padding:10px 12px;border-radius:5px;color:#f6fcff}
 </style></head><body><main>
 <small>BRAVE H.C. · 2026–27 · GOALIE ADMINISTRATION</small><h1>Goaltender confirmations</h1>
-<p>Schedule details come from the official SVHL fixture list. Select a goalie below, then use the secure GitHub workflow to publish that confirmation. No GitHub token is entered into this page.</p>
+<p>Schedule details come from the official SVHL fixture list. Select a goalie below, then open a prefilled GitHub confirmation request. Review and submit it while signed into GitHub to publish the confirmation. No GitHub token is entered into this page.</p>
 <div id="status" role="status">Loading official league schedule and current goalie confirmations…</div>
 <div style="overflow-x:auto"><table><thead><tr><th>SVHL GAME</th><th>START / RINK</th><th>GOALIE</th><th>SAVE VIA GITHUB</th></tr></thead><tbody id="games"></tbody></table></div>
 <section>
 <h2>Publishing a goaltender confirmation</h2>
-<p>Click <strong>Prepare assignment</strong> beside a game. Its game key is copied and the <a href="https://github.com/adambrutto-maker/brave-hc/actions/workflows/brave-goalie-confirm.yml" target="_blank" rel="noopener noreferrer">authenticated GitHub Save Workflow ↗</a> opens. In GitHub, choose <strong>Run workflow</strong>, paste the game key, select that goalie, set <strong>dry_run = false</strong> and run. Confirm the workflow reports success. Repository write access is required.</p>
-<p class="notice">This page is a manager aid, not an authenticated editor by itself. It does not save changes when a dropdown is selected. A GitHub commit is the confirmation receipt.</p>
+<p>Choose a goalie and click <strong>Review and confirm</strong>. GitHub opens a ready-to-submit issue containing the selected game and goalie. Review the details and click <strong>Submit new issue</strong>. The automation checks your GitHub repository write permission, validates the game, commits the goalie assignment if needed, and closes the request with a receipt. <a href="https://github.com/adambrutto-maker/brave-hc/actions/workflows/brave-goalie-confirm.yml" target="_blank" rel="noopener noreferrer">Original GitHub workflow (fallback) ↗</a>.</p>
+<p class="notice">A dropdown choice alone does not save anything. GitHub requires a signed-in repository editor to submit the confirmation; others cannot authorize writes. The issue request and its outcome are public repository records. Never enter passwords or tokens here.</p>
 <p><a href="https://leagues.sportsvillage.ca/Leagues.aspx?leagueid=570&amp;page_type=Adult&amp;sc=HOCKEY#Schedule" target="_blank" rel="noopener noreferrer">Official SVHL schedule ↗</a> · <a href="https://github.com/adambrutto-maker/brave-hc/blob/main/widgets/goalie-assignments.json" target="_blank" rel="noopener noreferrer">Current saved assignments ↗</a></p>
 </section>
 </main><script>
@@ -32,7 +32,7 @@ section{border-top:1px solid #35546a;margin-top:18px;padding-top:8px}
 'use strict';
 const FEED='https://adambrutto-maker.github.io/brave-hc/widgets/svhl-upcoming.json';
 const GOALIES='https://raw.githubusercontent.com/adambrutto-maker/brave-hc/main/widgets/goalie-assignments.json';
-const WORKFLOW='https://github.com/adambrutto-maker/brave-hc/actions/workflows/brave-goalie-confirm.yml';
+const ISSUE_URL='https://github.com/adambrutto-maker/brave-hc/issues/new';
 const $=id=>document.getElementById(id);
 const options=['Dev Leong','Stephen Logue','TBD','Adam Carlyle','Matt Svec','Steve Noyek','Other / rental'];
 try{
@@ -62,16 +62,31 @@ try{
      opt.selected=name===selected;sel.append(opt);
    }
    const btn=document.createElement('button');btn.type='button';
-   btn.textContent='Prepare assignment';
-   btn.addEventListener('click',async()=>{
+   btn.textContent='Review and confirm';
+   btn.addEventListener('click',()=>{
      const choice=sel.value;
-     window.open(WORKFLOW,'_blank','noopener,noreferrer');
-     try{
-       await navigator.clipboard.writeText(game.assignmentKey);
-       $('status').textContent='Copied '+game.assignmentKey+'. In GitHub: paste Game Key, select "'+choice+'", disable dry-run, then run workflow.';
-     }catch(e){
-       $('status').textContent='Copy this game key into GitHub: '+game.assignmentKey+'. Choose "'+choice+'" and disable dry-run.';
+     let custom='';
+     if(choice==='Other / rental'){
+       const entered=window.prompt('Enter the confirmed rental goalie’s full name:','');
+       if(entered===null)return;
+       custom=entered.trim().replace(/\\s+/g,' ');
+       if(custom.length<2||custom.length>70||/[<>]/.test(custom)){
+         $('status').textContent='A valid rental goalie name (2–70 characters, no HTML) is required.';
+         return;
+       }
      }
+     const payload={
+       type:'brave-hc-goalie-confirmation/v1',
+       game_key:game.assignmentKey,
+       goalie:choice,
+       custom_goalie_name:custom
+     };
+     const url=new URL(ISSUE_URL);
+     url.searchParams.set('title','GOALIE_CONFIRMATION_REQUEST');
+     url.searchParams.set('body',JSON.stringify(payload,null,2));
+     window.open(url.toString(),'_blank','noopener,noreferrer');
+     $('status').textContent='Review the prefilled GitHub issue for '+game.date+' vs '+game.opponent+
+       ' — '+(custom||choice)+'. Then click Submit new issue while signed in. Nothing is saved before submission.';
    });
    col3.append(sel);col4.append(btn);row.append(col1,col2,col3,col4);$('games').append(row);
  }
