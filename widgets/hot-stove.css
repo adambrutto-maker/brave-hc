@@ -65,3 +65,13 @@ body.embedded{background:transparent}
 .h2h-number{display:block;font-weight:900;color:#f5f8fc;font-size:17px;line-height:1.15;font-variant-numeric:tabular-nums}
 .h2h-label{display:block;color:#b7cce0;font-size:8px;font-weight:800;letter-spacing:.04em;margin-top:4px}
 @media(max-width:480px){.h2h-number{font-size:13px}.h2h-label{font-size:7px}.h2h-metric{padding:6px 2px}}
+
+/* Career milestone notices — sourced and date-attributed, not record claims. */
+.milestone-panel{margin-top:15px}
+.milestone-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
+.milestone-item{padding:10px 9px;background:#0b2842;border:1px solid #627c97;border-left:3px solid #d3a157;min-width:0}
+.milestone-item p{font-size:11px;line-height:1.45;margin:0 0 6px;font-weight:650}
+.milestone-item a{font-size:9px}
+.milestone-radar{padding:8px;background:#112d43}
+.milestone-radar p{font-size:10px;line-height:1.4;margin:5px 0}
+@media(max-width:480px){.milestone-list{grid-template-columns:1fr}.milestone-item{padding:8px}.milestone-item p{font-size:10px}}

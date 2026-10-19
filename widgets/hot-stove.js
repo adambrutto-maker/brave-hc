@@ -49,6 +49,29 @@ function tabs(panel){
  }
  panel.append(bar);
 }
+function verifiedClubNotes(section){
+ const notes=publication.teamNotes;
+ if(!notes||!Array.isArray(notes.items)||!notes.items.length||notes.coverage!=="VERIFIED_SUPPORTED_CATEGORIES_ONLY")return;
+ const area=$("section","milestone-panel");
+ area.append($("h3","section-header","Around the club · Career milestones"));
+ const list=$("div","milestone-list");
+ for(const event of notes.items.slice(0,4)){
+  if(event.kind!=="MILESTONE_REACHED"||event.evidenceStatus!=="HTO_GAME_AND_WORKBOOK_VERIFIED")continue;
+  const item=$("div","milestone-item");
+  item.append($("p",null,event.message));
+  item.append(link("HTO verification ↗",event.sourceBoxScore));
+  list.append(item);
+ }
+ if(list.children.length){area.append(list);section.append(area)}
+}
+function verifiedUpcomingWatch(section,p){
+ if(!p||!Array.isArray(p.milestoneWatch)||!p.milestoneWatch.length)return;
+ const block=$("section","milestone-radar");
+ block.append($("h3","section-header","Milestones in reach"));
+ const subset=p.milestoneWatch.filter(x=>x.kind==="MILESTONE_APPROACHING"&&[1,2].includes(x.remaining)).slice(0,4);
+ for(const r of subset)block.append($("p",null,r.player+": "+r.description));
+ if(subset.length)section.append(block);
+}
 function feature(section,a,includePreview){
  articleFacts(a);
  section.append($("span","tag",a.articleType==="GAME_RECAP"?"Latest game recap":"Game recap"));
@@ -64,6 +87,7 @@ function feature(section,a,includePreview){
  for(const paragraph of a.paragraphs){if(typeof paragraph!=="string"||paragraph.length>900)throw Error("Invalid article paragraph");body.append($("p",null,paragraph))}
  section.append(body);
  const footer=$("div","links");footer.append(link("Official HTO box score ↗",a.sourceUrls[0]));section.append(footer);
+ if(includePreview)verifiedClubNotes(section);
  if(includePreview&&publication.gamePreview){
   const p=publication.gamePreview;
   const sub=$("section","preview");
@@ -73,6 +97,7 @@ function feature(section,a,includePreview){
   for(const text of p.paragraphs)sub.append($("p",null,text));
   sub.append(link("Next game details ↗",p.sourceUrl));
   section.append($("h3","section-header","Coming up"),sub);
+  verifiedUpcomingWatch(section,p);
  }
 }
 function headToHeadStats(p){
@@ -100,6 +125,7 @@ function preview(section){
  if(statbar)summary.append(statbar);
  for(const line of p.paragraphs){summary.append($("p",null,line))}
  summary.append(link("View official schedule ↗",p.sourceUrl));section.append(summary);
+ verifiedUpcomingWatch(section,p);
  section.append($("p","note","Based on the latest published HTO schedule; projected lineups and player availability are not verified."));
 }
 function archive(section){
