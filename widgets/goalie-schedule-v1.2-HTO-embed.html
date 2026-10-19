@@ -52,11 +52,11 @@ async function refresh(){
    if(!f.ok)throw new Error('League schedule feed HTTP '+f.status);
    const feed=await f.json();
    if(feed.schema!=='brave-hc-svhl-schedule/v1'||!Array.isArray(feed.games))throw new Error('Unexpected feed schema');
-   let assignments={};
-   try{
-     const r=await fetch(CONFIRMED+'?t='+Date.now(),{cache:'no-store'});
-     if(r.ok){const x=await r.json();assignments=x.assignments||{};}
-   }catch(e){}
+   const r=await fetch(CONFIRMED+'?t='+Date.now(),{cache:'no-store'});
+   if(!r.ok)throw new Error('Goaltender confirmations HTTP '+r.status);
+   const record=await r.json();
+   if(record.schema!=='brave-hc-goalie-assignments/v1'||!record.assignments)throw new Error('Goaltender assignment format invalid');
+   const assignments=record.assignments;
    const games=feed.games.filter(future).sort((a,b)=>(a.date+a.time).localeCompare(b.date+b.time));
    rows.replaceChildren();
    for(const game of games){
