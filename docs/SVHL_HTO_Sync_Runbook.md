@@ -50,6 +50,19 @@
 - Only replace the existing HTO code after inspecting the hosted schedule/assignments and confirming the new widget renders properly.
 - If the embedded widget fails, restore the earlier source code. A feed failure is reported to visitors, never replaced with made-up games.
 
+## Game identity and goalie confirmation continuity
+
+- Every published SVHL fixture includes an `assignmentKey` and a `fixtureSignature` made from league date, puck-drop time, opponent, rink and home/away designation.
+- If a **new SVHL game** receives an HTO game ID after its goalie has been selected, the existing provisional assignment key is **preserved**. Do not change a confirmed goalie just because HTO added the game.
+- If SVHL moves a game, the schedule feed retains the unique prior assignment key when the fixture can be identified safely. A recorded goalie remains visible but is flagged for **explicit reconfirmation**.
+- The goalie reconfirmation warning persists even after HTO has been corrected. A manager must confirm the goalie for the **new fixture revision**; selecting the same goalie is a valid reconfirmation and records an audit receipt.
+- A possible **opponent substitution** at the same date, time and rink is marked `REVIEW_IDENTITY`; it is not treated as a routine HTO edit. Verify with the league and the game manager before updating HTO.
+- If the new fixture cannot be identified uniquely, do not attach an older goalie assignment to it. Keep it TBD and refer the discrepancy for human review.
+- Completed games disappear from the **upcoming widget** approximately three hours after scheduled puck drop, but history and saved assignments remain in GitHub.
+- The public widget offers **Manage goaltenders**, which opens the separate manager page; viewing that page does not grant permission to publish goalie changes.
+
+**Release validation:** GitHub Actions checks continuity, rescheduling, opponent substitution, ambiguous IDs, stale source data, role-controlled changes and the browser-side widget scripts before publishing revised SVHL schedule data. This process only reads SVHL and HTO; changes to HTO remain manual.
+
 ## Initial verified baseline — October 19, 2026
 | Date | Start | Opponent | Rink | HTO ID | Goalie |
 |---|---|---|---|---|---|
