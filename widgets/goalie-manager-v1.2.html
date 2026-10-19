@@ -34,16 +34,27 @@ const FEED='https://raw.githubusercontent.com/adambrutto-maker/brave-hc/main/wid
 const GOALIES='https://raw.githubusercontent.com/adambrutto-maker/brave-hc/main/widgets/goalie-assignments.json';
 const ISSUE_URL='https://github.com/adambrutto-maker/brave-hc/issues/new';
 const $=id=>document.getElementById(id);
-const options=['Dev Leong','Stephen Logue','TBD','Adam Carlyle','Matt Svec','Steve Noyek','Other / rental'];
+const ROSTER='https://raw.githubusercontent.com/adambrutto-maker/brave-hc/main/widgets/goalie-roster.json';
 try{
- const [r,a]=await Promise.all([
+ const [r,a,p]=await Promise.all([
    fetch(FEED+'?t='+Date.now(),{cache:'no-store'}),
-   fetch(GOALIES+'?t='+Date.now(),{cache:'no-store'})
+   fetch(GOALIES+'?t='+Date.now(),{cache:'no-store'}),
+   fetch(ROSTER+'?t='+Date.now(),{cache:'no-store'})
  ]);
- if(!r.ok||!a.ok)throw Error('SVHL feed or saved goalie confirmations could not be read');
- const feed=await r.json(), data=await a.json();
+ if(!r.ok||!a.ok||!p.ok)throw Error('SVHL feed, goalie confirmations or verified roster could not be read');
+ const feed=await r.json(), data=await a.json(), roster=await p.json();
  if(feed.schema!=='brave-hc-svhl-schedule/v1'||!Array.isArray(feed.games))throw Error('Invalid league fixture format');
  if(data.schema!=='brave-hc-goalie-assignments/v1'||!data.assignments)throw Error('Invalid saved-goalie format');
+ if(roster.schema!=='brave-hc-goalie-roster/v1'||!Array.isArray(roster.currentConfirmed)||
+    !Array.isArray(roster.historicalAndOther)||roster.options?.tbd!=='TBD'||roster.options?.custom!=='Other / rental')throw Error('Verified goalie roster missing or invalid');
+ const options=[
+   ...roster.currentConfirmed.map(x=>({value:x.name,label:x.label})),
+   {value:'TBD',label:'TBD — Not confirmed'},
+   ...roster.historicalAndOther.map(x=>({value:x.name,label:x.label})),
+   {value:'Other / rental',label:'OTHER / RENTAL — Enter a name'}
+ ];
+ const values=new Set(options.map(x=>x.value));
+ if(values.size!==options.length)throw Error('Duplicate names in verified goalie roster');
  if(!feed.games.length)throw Error('No upcoming SVHL games found');
  const age=Date.now()-new Date(feed.checkedAt).getTime();
  if(!Number.isFinite(age)||age>72*3600*1000||age< -15*60*1000)throw Error('SVHL verification is stale. Request a schedule refresh before assigning a goalie.');
@@ -69,10 +80,10 @@ try{
    const sel=document.createElement('select');
    sel.setAttribute('aria-label','Goalie for '+game.date+' '+game.opponent);
    const selected=data.assignments[game.assignmentKey]||'TBD';
-   for(const name of [...options,...(options.includes(selected)?[]:[selected])]){
-     const opt=document.createElement('option');opt.value=name;
-     opt.textContent=(options.indexOf(name)<2?'CURRENT · ':'')+name;
-     opt.selected=name===selected;sel.append(opt);
+   for(const item of [...options,...(values.has(selected)?[]:[{value:selected,label:'SAVED / OTHER · '+selected}])]){
+     const opt=document.createElement('option');opt.value=item.value;
+     opt.textContent=item.label;
+     opt.selected=item.value===selected;sel.append(opt);
    }
    const btn=document.createElement('button');btn.type='button';
    btn.textContent='Review and confirm';
