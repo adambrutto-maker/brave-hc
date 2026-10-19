@@ -29,11 +29,11 @@ test('Reverse-name, case and spaces map to one player',()=>{
  assert.equal(links.profileUrl('Brutto, Adam'),links.profileUrl('Adam Brutto'));
 });
 test('Ambiguous, incomplete or unverified names never get speculative profiles',()=>{
- for(const name of ['M. Provenzano','Adam','Carosi','Unknown, Johnny','Stefano Mazzei','']) assert.equal(links.profileUrl(name),null);
+ for(const name of ['M. Provenzano','Adam','Carosi','Unknown, Johnny','Unknown, Christopher','']) assert.equal(links.profileUrl(name),null);
 });
-test('Unsupported season/game deep links use verified main HTO profile',()=>{
+test('Season filter uses HTO profile; unverified game ID does not create game link',()=>{
  const url=links.profileUrl('Alex Pagnotta');
- assert.equal(links.resolve('Alex Pagnotta',{season:'Winter 2014/15'}),url);
+ assert.equal(links.resolve('Alex Pagnotta',{season:'Winter 2014/15'}),url+'&pageLoad=ProfileTabStats&viewseas=Winter_2014/2015');
  assert.equal(links.resolve('Alex Pagnotta',{gameID:3375601}),url);
  assert.equal(links.knownPlayers,25);
 });
