@@ -84,31 +84,95 @@ def parse_hto(html):
         raise ValueError('No HTO games found; refusing empty comparison')
     return sorted(games,key=kickoff)
 
-def reconcile(svhl,hto,now=None):
+def fixture_signature(game):
+    """Canonical league revision to bind manager goalie reconfirmation to."""
+    return "|".join([game[k] for k in ("date", "time", "opponent", "rink", "side")])
+
+
+def prior_for(game, prior_games, used):
+    """A unique prior fixture only. Never silently link an ambiguous matchup."""
+    options=[p for p in prior_games if p.get("assignmentKey") not in used and
+             all(k in p for k in ("date","time","opponent","rink","side","assignmentKey"))]
+    exact=[p for p in options if p["date"]==game["date"] and norm(p["opponent"])==norm(game["opponent"])]
+    if len(exact)==1:
+        return exact[0], False
+    if len(exact)>1:
+        return None, False
+    same_opponent=[p for p in options if norm(p["opponent"])==norm(game["opponent"]) and
+                   abs((kickoff(p)-kickoff(game)).total_seconds())<=45*86400]
+    if len(same_opponent)==1:
+        return same_opponent[0], False
+    if len(same_opponent)>1:
+        return None, False
+    # A team substitution at the exact same puck-drop slot requires human identity review.
+    slot=[p for p in options if p["date"]==game["date"] and
+          p["time"]==game["time"] and p["rink"]==game["rink"] and p["side"]==game["side"]]
+    return (slot[0], True) if len(slot)==1 else (None, False)
+
+
+def reconcile(svhl, hto, now=None, previous=None, goalie_data=None):
+    """Read-only reconciliation, stable goalie assignment keys, bounded identity linking."""
     now=now or datetime.now(TZ)
+    previous=previous or {}
+    goalie_data=goalie_data or {}
+    prior_games=previous.get("games",[]) if isinstance(previous,dict) else []
+    confirmed=(goalie_data.get("scheduleConfirmations") or {}) if isinstance(goalie_data,dict) else {}
+    if not isinstance(prior_games,list) or not isinstance(confirmed,dict):
+        raise ValueError("Malformed prior fixture/goalie state")
     future=[g for g in svhl if kickoff(g)+timedelta(hours=3)>=now]
     hto_future=[g for g in hto if kickoff(g)+timedelta(hours=3)>=now-timedelta(days=45)]
-    used=set(); output=[]; review=[]
+    used_hto=set(); used_prior=set(); output=[]; review=[]
     for g in future:
-        candidates=[h for h in hto_future if h['htoGameId'] not in used and norm(h['opponent'])==norm(g['opponent'])]
-        exact=[h for h in candidates if h['date']==g['date']]
-        nearby=[h for h in candidates if abs((kickoff(h)-kickoff(g)).days)<=45]
-        match=exact[0] if len(exact)==1 else (nearby[0] if len(nearby)==1 else None)
+        prior, identity_changed=prior_for(g,prior_games,used_prior)
+        if prior:
+            used_prior.add(prior["assignmentKey"])
+        candidates=[h for h in hto_future if h["htoGameId"] not in used_hto]
+        exact=[h for h in candidates if norm(h["opponent"])==norm(g["opponent"]) and h["date"]==g["date"]]
+        nearby=[h for h in candidates if norm(h["opponent"])==norm(g["opponent"]) and
+                abs((kickoff(h)-kickoff(g)).total_seconds())<=45*86400]
+        match=exact[0] if len(exact)==1 else (nearby[0] if len(nearby)==1 and len(exact)==0 else None)
+        if not match and prior and prior.get("htoGameId"):
+            # Reuse a *known* HTO game only when it remains an unclaimed HTO record.
+            # An opponent substitution is review-only, not an auto-authorized HTO edit.
+            stable=[h for h in candidates if h["htoGameId"]==prior["htoGameId"]]
+            if len(stable)==1:
+                match=stable[0]
+                identity_changed=identity_changed or norm(match["opponent"])!=norm(g["opponent"])
         if match:
-            used.add(match['htoGameId'])
-            changes={k:{'svhl':g[k],'hto':match[k]} for k in ('date','time','opponent','rink','side')
-                     if (norm(g[k])!=norm(match[k]) if k=='opponent' else g[k]!=match[k])}
-            status=('MATCH' if not changes else ('REVIEW_RESCHEDULE' if g['date']!=match['date'] else 'EDIT_HTO'))
+            used_hto.add(match["htoGameId"])
+            changes={k:{"svhl":g[k],"hto":match[k]} for k in ("date","time","opponent","rink","side")
+                     if (norm(g[k])!=norm(match[k]) if k=="opponent" else g[k]!=match[k])}
+            status=("REVIEW_IDENTITY" if identity_changed or "opponent" in changes
+                    else "REVIEW_RESCHEDULE" if g["date"]!=match["date"] else
+                    "EDIT_HTO" if changes else "MATCH")
         else:
-            changes={}; status='REVIEW_OR_ADD' if candidates else 'ADD_HTO'
-        key='hto:'+match['htoGameId'] if match else 'svhl:'+g['date']+':'+norm(g['opponent'])
-        output.append({**g,'assignmentKey':key,'htoGameId':match['htoGameId'] if match else None,
-                       'htoSyncStatus':status,'requiresGoalieReconfirmation':status in ('EDIT_HTO','REVIEW_RESCHEDULE')})
-        review.append({'action':status,'svhl':g,'hto':match,'changes':changes})
+            changes={}
+            status="REVIEW_OR_ADD" if prior and prior.get("htoGameId") else "ADD_HTO"
+
+        # Preserve the provisional SVHL key when its matching HTO game is subsequently added.
+        # Preserve a matched HTO key across date/time/rink changes.
+        key=prior["assignmentKey"] if prior else (
+            "hto:"+match["htoGameId"] if match else "svhl:"+g["date"]+":"+norm(g["opponent"]))
+        revision=fixture_signature(g)
+        changed_from_prior=bool(prior and
+                                (revision!=prior.get("fixtureSignature",fixture_signature(prior))))
+        sticky=bool(prior and prior.get("requiresGoalieReconfirmation"))
+        needs_reconfirm=(changed_from_prior or sticky or status in ("REVIEW_RESCHEDULE","REVIEW_IDENTITY","EDIT_HTO"))
+        # Explicit manager confirmation for *this league revision* clears the goalie hold.
+        needs_reconfirm=bool(needs_reconfirm and confirmed.get(key)!=revision)
+        item={**g,"fixtureSignature":revision,"assignmentKey":key,
+              "htoGameId":match["htoGameId"] if match else None,
+              "htoSyncStatus":status,"requiresGoalieReconfirmation":needs_reconfirm}
+        output.append(item)
+        review.append({"action":status,"svhl":g,"hto":match,"changes":changes})
     for h in hto_future:
-        if h['htoGameId'] not in used and kickoff(h)+timedelta(hours=3)>=now:
-            review.append({'action':'REVIEW_HTO_ONLY','svhl':None,'hto':h,'changes':{}})
+        if h["htoGameId"] not in used_hto and kickoff(h)+timedelta(hours=3)>=now:
+            review.append({"action":"REVIEW_HTO_ONLY","svhl":None,"hto":h,"changes":{}})
+    keys=[g["assignmentKey"] for g in output]
+    if len(keys)!=len(set(keys)):
+        raise ValueError("Ambiguous duplicate goalie assignment keys; refuse feed publication")
     return output,review
+
 
 def retrieve(url):
     r=requests.get(url,headers={'User-Agent':'Mozilla/5.0 BraveHC-ScheduleQA/1.2'},timeout=25)
@@ -123,7 +187,12 @@ def main():
     args=ap.parse_args()
     svhl_html=args.svhl_file.read_text() if args.svhl_file else retrieve(SVHL)
     hto_html=args.hto_file.read_text() if args.hto_file else retrieve(HTO)
-    fixtures,queue=reconcile(parse_svhl(svhl_html),parse_hto(hto_html))
+    previous_path=Path("widgets/svhl-upcoming.json")
+    assignment_path=Path("widgets/goalie-assignments.json")
+    previous=json.loads(previous_path.read_text(encoding="utf-8")) if previous_path.exists() else {}
+    goalies=json.loads(assignment_path.read_text(encoding="utf-8")) if assignment_path.exists() else {}
+    fixtures,queue=reconcile(parse_svhl(svhl_html),parse_hto(hto_html),
+                             previous=previous,goalie_data=goalies)
     args.out.mkdir(parents=True,exist_ok=True)
     feed={'schema':'brave-hc-svhl-schedule/v1','source':SVHL,
           'checkedAt':datetime.now(TZ).isoformat(),'games':fixtures}
