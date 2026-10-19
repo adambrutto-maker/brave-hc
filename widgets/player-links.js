@@ -27,13 +27,13 @@
   // Season filter format is copied from the live HTO ProfileTabStats dropdown.
   const officialSeason = input => {
     if (!input) return null;
-    const v = String(input).trim().replace(/\\s+/g, ' ');
-    const winter = /^Winter[ _](20\\d{2})[\\/-](20\\d{2}|\\d{2})$/i.exec(v);
+    const v = String(input).trim().replace(/\s+/g, ' ');
+    const winter = /^Winter[ _](20\d{2})[\/-](20\\d{2}|\\d{2})$/i.exec(v);
     if (winter) {
       const end = winter[2].length === 2 ? winter[1].slice(0, 2) + winter[2] : winter[2];
       return Number(end) === Number(winter[1]) + 1 ? 'Winter_' + winter[1] + '/' + end : null;
     }
-    const summer = /^Summer[ _](20\\d{2})$/i.exec(v);
+    const summer = /^Summer[ _](20\d{2})$/i.exec(v);
     return summer ? 'Summer_' + summer[1] : null;
   };
   // A game link must be the actual, supplied HTO boxscore URL. Never fabricate a gameID.
@@ -45,7 +45,7 @@
         && u.pathname.toLowerCase() === '/teams/default.asp'
         && u.searchParams.get('u') === 'BRAVESHOCKEY'
         && u.searchParams.get('p') === 'boxscore'
-        && /^\\d+$/.test(u.searchParams.get('gameID') || '') ? u.href : null;
+        && /^\d+$/.test(u.searchParams.get('gameID') || '') ? u.href : null;
     } catch { return null; }
   };
   const resolve = (name, context) => {
