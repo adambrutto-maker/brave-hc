@@ -31,22 +31,19 @@
 7. Run [the GitHub workflow](https://github.com/adambrutto-maker/brave-hc/actions/workflows/brave-svhl-sync.yml) manually when convenient or allow the next scheduled reconciliation. The issue should close once both sites agree.
 8. Do not import the entire schedule for incremental changes; it risks creating duplicate HTO records. Never automatically delete historical game records.
 
-## Goalie management — authenticated GitHub workflow
+## Goalie management — prefilled GitHub approval
 
-The public goalie schedule is **read-only**. The [Goalie Manager](https://adambrutto-maker.github.io/brave-hc/widgets/goalie-manager-v1.2.html) shows a dropdown for each upcoming SVHL fixture but does **not** save data itself.
+- [Goaltender Manager](https://adambrutto-maker.github.io/brave-hc/widgets/goalie-manager-v1.2.html) shows each upcoming SVHL fixture, current saved goalie, and the controlled selection dropdown.
+- Select the goalie and click **Review and confirm**. For **Other / rental**, enter the verified name. The page opens a GitHub issue with the matching game key and selected goalie already filled in.
+- **Sign in to GitHub and click Submit new issue** only after checking the game and goalie selection. The dropdown action does **not** save anything itself.
+- The [Save Brave H.C. goalie request](https://github.com/adambrutto-maker/brave-hc/actions/workflows/brave-goalie-issue.yml) checks the issue creator's repository **write/maintain/admin** permission, validates strict request JSON, verifies the feed is no older than 72 hours, and updates only `widgets/goalie-assignments.json`.
+- GitHub records the requesting user and the previous/new assignment when it changes. Upon success, it comments on and closes the confirmation issue, leaving a public audit receipt.
+- The original [manual workflow dispatch](https://github.com/adambrutto-maker/brave-hc/actions/workflows/brave-goalie-confirm.yml) remains as a fallback, requiring manual game key/goalie selection.
+- If the game is moved or time changes, the feed indicates that goalie reconfirmation is needed. Manager confirmation is never inferred from the league schedule.
+- **No tokens are placed in HTO or GitHub Pages; unauthorized users cannot save.** Github issue requests and their public goalie details are visible in this public repository.
+- Public widget and manager read the verified SVHL schedule from `raw.githubusercontent.com/adambrutto-maker/brave-hc/main/widgets/svhl-upcoming.json`. This deliberately avoids reliance on GitHub Pages builds: pushes made with `GITHUB_TOKEN` do not trigger follow-on Pages workflows. Both tools refresh their data on page load, and the public widget repeats every 15 minutes.
 
-1. In the manager, select the intended goalie and click **Prepare assignment** next to the specific game.
-2. This copies the stable `hto:GAMEID` or `svhl:DATE:OPPONENT` assignment key and opens [Confirm Brave H.C. Goaltender](https://github.com/adambrutto-maker/brave-hc/actions/workflows/brave-goalie-confirm.yml).
-3. Sign into GitHub with a repository-writing account. Select **Run workflow**, paste the game key, and choose the same goalie.
-4. For a non-roster rental goalie, choose **Other / rental** and enter the complete name in the custom field.
-5. The workflow defaults to **dry_run = true**, validating without saving. To **publish** the confirmed goalie, explicitly set **dry_run = false** and run it.
-6. Verify the workflow is successful and that [goalie-assignments.json](https://github.com/adambrutto-maker/brave-hc/blob/main/widgets/goalie-assignments.json) reflects the decision. A subsequent page refresh displays the change.
-7. The workflow rejects unknown game keys, invalid dropdown options and unverified league feeds older than 72 hours. A fresh confirmation is recorded with an authenticated GitHub actor and commit.
-8. The SVHL schedule remains authoritative; no league or HTO schedule changes are made by a goalie confirmation. Reconfirm goalies if a fixture is rescheduled.
-
-**Safety:** Do not paste GitHub tokens into HTO or the manager. Never auto-confirm a goalie from prior attendance or historical rosters. No player notification is sent by this workflow. The GitHub manager page is publicly viewable; only repository collaborators can run the protected workflow.
-
-**Release evidence (2026-10-19):** The GitHub Actions **dry-run** test for `hto:3375682` / Stephen Logue completed successfully as [run 39318093802](https://github.com/adambrutto-maker/brave-hc/actions/runs/39318093802). The script validation passed and the commit step was skipped, leaving the saved goalie file unchanged.
+**Validation evidence, Oct 19, 2026:** A no-change Stephen Logue confirmation for game `hto:3375682` was submitted as [issue #1](https://github.com/adambrutto-maker/brave-hc/issues/1). The [issue workflow run](https://github.com/adambrutto-maker/brave-hc/actions/runs/39319634402) passed, closed the issue with a receipt, and left the original goalie assignment unchanged.
 
 ## Widget deployment / rollback
 - The new file [goalie-schedule-v1.2-HTO-embed.html](https://github.com/adambrutto-maker/brave-hc/blob/main/widgets/goalie-schedule-v1.2-HTO-embed.html) is the **full copy/paste source** for the HTO Script Area.
