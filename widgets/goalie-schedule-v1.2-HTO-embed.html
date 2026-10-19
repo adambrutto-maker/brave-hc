@@ -1,0 +1,83 @@
+<!-- BRAVE H.C. GOALIE SCHEDULE v1.2 · READ ONLY · PLACE IN HTO SCRIPT AREA AFTER LIVE TEST -->
+<div id="braves-goalie-svhl" aria-label="Brave HC goalie schedule">
+ <header><small>BRAVE H.C. · 2026/27</small><h2>GOALTENDER SCHEDULE</h2><p>Official SVHL fixtures · Manager-confirmed starters</p></header>
+ <div id="bg-status" role="status">Checking the SVHL schedule…</div>
+ <div class="bg-scroll"><table><thead><tr><th>DATE</th><th>TIME</th><th>OPPONENT</th><th>RINK</th><th>GOALTENDER</th></tr></thead><tbody id="bg-games"></tbody></table></div>
+ <footer><a href="https://leagues.sportsvillage.ca/Leagues.aspx?leagueid=570&amp;page_type=Adult&amp;sc=HOCKEY#Schedule" target="_blank" rel="noopener noreferrer">Official SVHL schedule ↗</a></footer>
+</div>
+<style>
+#braves-goalie-svhl{background:#091b30;color:#f7fafc;border:1px solid #38556b;border-top:5px solid #d3213b;border-radius:10px;max-width:1100px;margin:12px auto;font:13px/1.5 Arial,sans-serif;overflow:hidden}
+#braves-goalie-svhl *{box-sizing:border-box}
+#braves-goalie-svhl header{padding:18px 20px}
+#braves-goalie-svhl small{color:#f1a3ae;letter-spacing:1.5px;font-weight:700}
+#braves-goalie-svhl h2{color:#fff;font-size:21px;margin:5px 0}
+#braves-goalie-svhl p{color:#bdcddd;margin:0}
+#bg-status{padding:10px 20px;color:#c1d4e3;background:#102b43}
+#braves-goalie-svhl .bg-scroll{overflow-x:auto}
+#braves-goalie-svhl table{border-collapse:collapse;width:100%;min-width:520px}
+#braves-goalie-svhl th{text-align:left;background:#102b43;color:#aac1d4;font-size:10px;letter-spacing:.5px;padding:10px}
+#braves-goalie-svhl td{padding:12px 10px;border-top:1px solid #27445d}
+#braves-goalie-svhl td:last-child{font-weight:700}
+#braves-goalie-svhl .bg-tbd{color:#f1a3ae}
+#braves-goalie-svhl .bg-pending{display:block;color:#efbf7f;font-size:10px;font-weight:400}
+#braves-goalie-svhl footer{padding:12px 20px;background:#08172a}
+#braves-goalie-svhl a{color:white}
+</style>
+<script>
+(function(){
+'use strict';
+const root=document.getElementById('braves-goalie-svhl');
+if(!root||root.dataset.loaded)return;
+root.dataset.loaded='1';
+const FEED='https://adambrutto-maker.github.io/brave-hc/widgets/svhl-upcoming.json';
+const CONFIRMED='https://raw.githubusercontent.com/adambrutto-maker/brave-hc/main/widgets/goalie-assignments.json';
+const rows=document.getElementById('bg-games');
+const status=document.getElementById('bg-status');
+function future(game){
+ const when=new Date(Date.now()-3*3600000);
+ const p=new Intl.DateTimeFormat('en-CA',{timeZone:'America/Toronto',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).formatToParts(when);
+ const v=Object.fromEntries(p.map(part=>[part.type,part.value]));
+ return (game.date+game.time).replace(/[-:]/g,'')>=v.year+v.month+v.day+v.hour+v.minute;
+}
+function dateLabel(value){
+ return new Intl.DateTimeFormat('en-CA',{timeZone:'UTC',weekday:'short',month:'short',day:'numeric'}).format(new Date(value+'T12:00:00Z'));
+}
+function timeLabel(value){
+ const h=Number(value.slice(0,2));
+ return (h%12||12)+':'+value.slice(3)+(h>=12?' PM':' AM');
+}
+async function refresh(){
+ try{
+   const f=await fetch(FEED+'?t='+Date.now(),{cache:'no-store'});
+   if(!f.ok)throw new Error('League schedule feed HTTP '+f.status);
+   const feed=await f.json();
+   if(feed.schema!=='brave-hc-svhl-schedule/v1'||!Array.isArray(feed.games))throw new Error('Unexpected feed schema');
+   let assignments={};
+   try{
+     const r=await fetch(CONFIRMED+'?t='+Date.now(),{cache:'no-store'});
+     if(r.ok){const x=await r.json();assignments=x.assignments||{};}
+   }catch(e){}
+   const games=feed.games.filter(future).sort((a,b)=>(a.date+a.time).localeCompare(b.date+b.time));
+   rows.replaceChildren();
+   for(const game of games){
+     const goalie=assignments[game.assignmentKey]||'TBD';
+     const tr=document.createElement('tr');
+     for(const val of [dateLabel(game.date),timeLabel(game.time),game.opponent,game.rink,goalie]){
+       const cell=document.createElement('td');cell.textContent=val;
+       if(val==='TBD')cell.className='bg-tbd';tr.append(cell);
+     }
+     if(game.htoSyncStatus!=='MATCH'){
+       const note=document.createElement('span');
+       note.className='bg-pending';
+       note.textContent=game.requiresGoalieReconfirmation?'Schedule change: goalie reconfirmation required':'HTO update pending';
+       tr.lastElementChild.append(note);
+     }
+     rows.append(tr);
+   }
+   status.textContent=games.length+' upcoming SVHL game(s) · Last league check '+(feed.checkedAt||'not recorded');
+ }catch(err){status.textContent='Schedule temporarily unavailable: '+err.message+'. Check the official SVHL schedule.';}
+}
+refresh();
+setInterval(refresh,15*60*1000);
+})();
+</script>
