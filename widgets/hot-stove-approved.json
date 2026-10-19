@@ -25,6 +25,9 @@
     "paragraphs": [
       "Brave H.C. entered the game without an earlier regular-season result against Zamboner Crew recorded under that team name in the club’s historical schedule.",
       "Brave H.C. found the net in the opening period but could not add another, falling 7–1 to Zamboner Crew on October 18.",
+      "Lineup context: The current-season roster lists Marco Congiusti, Anthony Paolucci, Michael Provenzano and Sanjay Rajkumar as full-timers, but none was recorded in the official game sheet. Their reasons for not appearing are not documented by that source.",
+      "Adam Kober, a call-up, made 3rd appearance of the 2026–27 season and recorded no points. There were no verified previous regular-season meetings for Kober against Zamboner Crew under that exact team name. Krishnan Rajasooriar, a call-up, made 2nd appearance of the 2026–27 season and recorded no points. There were no verified previous regular-season meetings for Rajasooriar against Zamboner Crew under that exact team name.",
+      "In goal, Dev Leong made 2nd recorded Brave H.C. appearance of the season. No prior regular-season appearance against Zamboner Crew was verified in the historical goalie records.",
       "Keith Pearsoll scored his first goal of the season at 9:17 of the first period. The assists went to Alex Pagnotta (1), Stephane Saindon (1).",
       "Zamboner Crew led 2–1 after the first period, then added 3 in the second and 2 in the third. Brave H.C. did not score again. Dev Leong was listed in goal for Brave H.C.",
       "The result leaves Brave H.C. at 0–4 through 4 games, with 6 goals scored and 19 allowed.",
@@ -225,7 +228,15 @@
         "availability": "NOT_CONFIRMED"
       }
     ],
-    "evidenceFingerprint": "c39dae7c2752c54611e05fc8bef575cd704a01995d12725e7a49b54720b76c48"
+    "evidenceFingerprint": "c39dae7c2752c54611e05fc8bef575cd704a01995d12725e7a49b54720b76c48",
+    "rosterEditorial": {
+      "source": "Official HTO game sheet, October 19 current-season roster classification and historical Master Workbook",
+      "classificationAsOf": "2026-10-19",
+      "verifiedFingerprint": "c39dae7c2752c54611e05fc8bef575cd704a01995d12725e7a49b54720b76c48",
+      "gameId": 3375601,
+      "commentaryType": "LINEUP_CONTEXT_AS_OF_GAME_DATE",
+      "sourceCaveat": "No unverified absence reasons"
+    }
   },
   "teamNotes": {
     "title": "Around the Club",
@@ -682,6 +693,9 @@
         "paragraphs": [
           "Brave H.C. approached the October 4 meeting with Michelob Morts without a prior regular-season result against that exact opponent name in the verified club schedule. That made recent 2026–27 form, rather than an established head-to-head record, the available pregame reference point.",
           "The game began with an active first period. Henry Kong scored his first goal of the season at 7:10, with Adam Kober and Damian Pavaday credited with the assists. Justin Carosi followed at 3:29 with his third goal of the season, assisted by Michael Provenzano.",
+          "Lineup context: The current-season roster lists Marco Congiusti, Anthony Paolucci, Keith Pearsoll and Stephane Saindon as full-timers, but none was recorded in the official game sheet. Their reasons for not appearing are not documented by that source.",
+          "Nolan Atkins, a call-up, made 2nd appearance of the 2026–27 season and recorded no points. There were no verified previous regular-season meetings for Atkins against Michelob Morts under that exact team name. Adam Kober, a call-up, made 2nd appearance of the 2026–27 season and collected 1 point (0 G, 1 A). There were no verified previous regular-season meetings for Kober against Michelob Morts under that exact team name. Damian Pavaday, a drop-in, made 1st appearance of the 2026–27 season and collected 1 point (0 G, 1 A). There were no verified previous regular-season meetings for Pavaday against Michelob Morts under that exact team name.",
+          "In goal, Adam Carlyle made 1st recorded Brave H.C. appearance of the season. No prior regular-season appearance against Michelob Morts was verified in the historical goalie records.",
           "Both teams left the first period level at 2–2. Neither side scored in the second, keeping the game within one goal of either result entering the final frame. Michelob Morts found the only goal of the third period and finished with a 3–2 win.",
           "The Braves' two goals came from different scorers, with Kober, Pavaday and Provenzano contributing assists. Adam Carlyle was the Brave H.C. goaltender listed in the official box score.",
           "Carosi's goal extended his early scoring run: after scoring twice against Mohawks H.C. on September 27, he had three of Brave H.C.'s five goals through the first three games. Kong's first goal of the season gave the club another contributor on the scoresheet.",
@@ -803,6 +817,14 @@
           "asOf": "2026-10-19",
           "temporalRule": "Future-matchup commentary is explicitly retrospective, limited to then-known results and no projected lineup",
           "independentAdditionalFactsAsserted": false
+        },
+        "rosterEditorial": {
+          "source": "Official HTO game sheet, October 19 current-season roster classification and historical Master Workbook",
+          "classificationAsOf": "2026-10-19",
+          "verifiedFingerprint": "86a62466615d6e7a2b6abb2fae94edbd683af7625b1512a846020a9eb6f63493",
+          "gameId": 3369564,
+          "commentaryType": "LINEUP_CONTEXT_AS_OF_GAME_DATE",
+          "sourceCaveat": "No unverified absence reasons"
         }
       }
     },
@@ -822,6 +844,9 @@
         "paragraphs": [
           "This was a matchup with substantial history. Before September 27, Brave H.C. was 16–18–8 against Mohawks H.C. in 42 recorded regular-season games, scoring 161 goals and conceding 155. The previous regular-season meeting ended in a 3–2 Mohawks win on September 14, 2025.",
           "The Mohawks took a 1–0 lead after the first period and won the second period 2–1, carrying a 3–1 advantage into the third. Brave H.C. added two late-period goals, but the Mohawks scored three more in the final frame to complete a 6–3 victory.",
+          "Lineup context: The current-season roster lists Anthony Paolucci and Adam Povegliano as full-timers, but none was recorded in the official game sheet. Their reasons for not appearing are not documented by that source.",
+          "Nolan Atkins, a call-up, made 1st appearance of the 2026–27 season and recorded no points. There were no verified previous regular-season meetings for Atkins against Mohawks H.C. under that exact team name. Lorcan Duffy, a call-up, made 1st appearance of the 2026–27 season and recorded no points. Across 14 previous recorded regular-season meetings with Mohawks H.C., Duffy had 9 points (2 G, 7 A). Adam Kober, a call-up, made 1st appearance of the 2026–27 season and collected 1 point (1 G, 0 A). Across 6 previous recorded regular-season meetings with Mohawks H.C., Kober had 6 points (2 G, 4 A). Krishnan Rajasooriar, a call-up, made 1st appearance of the 2026–27 season and recorded no points. Across 4 previous recorded regular-season meetings with Mohawks H.C., Rajasooriar had 3 points (2 G, 1 A).",
+          "In goal, Stephen Logue made 1st recorded Brave H.C. appearance of the season. The historical workbook records 32 earlier regular-season appearances against Mohawks H.C., with 11 wins, 14 losses and 109 goals against.",
           "Justin Carosi opened Brave H.C.'s scoring at 9:26 of the second period. It was his first goal of both the game and the 2026–27 season, with Michael Provenzano and Alex Pagnotta providing the assists.",
           "Carosi struck again at 5:30 of the third period for his second goal of the night and second of the season, assisted by Provenzano. Adam Kober then scored his first of the season at 1:20 of the third, with Henry Kong and Pagnotta credited with the helpers.",
           "The scoring sheet gave Carosi two goals, Provenzano two assists and Pagnotta two assists. Kober's goal and Kong's assist supplied contributions beyond the two Carosi finishes. Stephen Logue was the listed Brave H.C. goaltender.",
@@ -984,6 +1009,14 @@
           "asOf": "2026-10-19",
           "temporalRule": "Future-matchup commentary is explicitly retrospective, limited to then-known results and no projected lineup",
           "independentAdditionalFactsAsserted": false
+        },
+        "rosterEditorial": {
+          "source": "Official HTO game sheet, October 19 current-season roster classification and historical Master Workbook",
+          "classificationAsOf": "2026-10-19",
+          "verifiedFingerprint": "36375bcd50dc8f1bda9dc5b8d31182944d84ec919f7c6c0db3916b5bc9f2a3b5",
+          "gameId": 3356178,
+          "commentaryType": "LINEUP_CONTEXT_AS_OF_GAME_DATE",
+          "sourceCaveat": "No unverified absence reasons"
         }
       }
     },
@@ -1003,6 +1036,9 @@
         "paragraphs": [
           "Brave H.C. opened the 2026–27 season against a familiar opponent. Before puck drop, the club held an 8–2–0 regular-season record across 10 recorded meetings with Dateline Predators, with 41 goals scored and 22 allowed. The prior regular-season meeting on March 1, 2026 ended in a 4–3 Dateline win.",
           "The opening period ended scoreless. Dateline Predators broke the deadlock with two goals in the second period and added one more in the third, handing Brave H.C. a 3–0 defeat on September 20.",
+          "Lineup context: The current-season roster lists Marco Congiusti and Jamie Rosenberg as full-timers, but none was recorded in the official game sheet. Their reasons for not appearing are not documented by that source.",
+          "Stefano Ardizzi, a drop-in, made 1st appearance of the 2026–27 season and recorded no points. Across 1 previous recorded regular-season meetings with Dateline Predators, Ardizzi had 0 points (0 G, 0 A). The game sheet also contained an unidentified drop-in entry making its 1st recorded appearance of the season; its identity could not be verified.",
+          "In goal, Dev Leong made 1st recorded Brave H.C. appearance of the season. The historical workbook records 3 earlier regular-season appearances against Dateline Predators, with 2 wins, 1 losses and 7 goals against.",
           "There was no Brave H.C. scoring entry to break down in the official box score. The period-by-period totals tell the story: 0–0 in the first, 0–2 in the second and 0–1 in the third. Dev Leong was the Brave H.C. goaltender listed for the game.",
           "The result also put the broader head-to-head history in perspective. The Braves came into the matchup with eight wins in the prior ten recorded regular-season encounters, but this was a second straight regular-season loss to Dateline Predators following the March meeting.",
           "The night nevertheless marked a club career milestone. Justin Carosi reached 300 career games on September 20, a participation benchmark verified against the historical workbook and official HTO game record.",
@@ -1122,6 +1158,14 @@
           "asOf": "2026-10-19",
           "temporalRule": "Future-matchup commentary is explicitly retrospective, limited to then-known results and no projected lineup",
           "independentAdditionalFactsAsserted": false
+        },
+        "rosterEditorial": {
+          "source": "Official HTO game sheet, October 19 current-season roster classification and historical Master Workbook",
+          "classificationAsOf": "2026-10-19",
+          "verifiedFingerprint": "496779318e04986c576bcfe4d02fec6e068c97f2a2fb92994b338aca726c3c56",
+          "gameId": 3356177,
+          "commentaryType": "LINEUP_CONTEXT_AS_OF_GAME_DATE",
+          "sourceCaveat": "No unverified absence reasons"
         }
       }
     }
@@ -1154,6 +1198,7 @@
     "basis": "Founder instructed completion of the Hot Stove archive after embedding the production widget on the Brave H.C. homepage",
     "scope": "Four verified games through October 18, 2026, with a dated next-game preview for October 25",
     "articleCount": 4,
-    "furtherPublicationRequiresApproval": true
+    "furtherPublicationRequiresApproval": true,
+    "rosterContextExpansion": "2026-10-19 Founder follow-up instruction to explicitly include roster participation in existing approved game recaps"
   }
 }
