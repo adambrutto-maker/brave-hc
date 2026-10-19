@@ -5,14 +5,14 @@ const fs = require('node:fs');
 const path = require('node:path');
 const vm = require('node:vm');
 const code = fs.readFileSync(path.resolve(__dirname,'../widgets/player-links.js'),'utf8');
-const sandbox = {};
+const sandbox = {URL};
 vm.runInNewContext(code,sandbox,{filename:'player-links.js'});
 const links = sandbox.BravePlayerLinks;
 test('HTO profile resolution uses verified team-specific player IDs',()=>{
  for(const [name,id] of [
   ['Adam Brutto',354054],['Justin Carosi',354060],['Mario Provenzano',354045],
   ['Michael Provenzano',686216],['Adam Kober',736317],['Dev Leong',776208],
-  ['Andrew Cristillo',634098],['Damian Pavaday',849368]
+  ['Andrew Cristillo',634098],['Damian Pavaday',849368],['Stefano Mazzei',595514]
  ]) {
   const url = links.profileUrl(name);
   assert.ok(url);
@@ -35,7 +35,7 @@ test('Unsupported season/game deep links use verified main HTO profile',()=>{
  const url=links.profileUrl('Alex Pagnotta');
  assert.equal(links.resolve('Alex Pagnotta',{season:'Winter 2014/15'}),url);
  assert.equal(links.resolve('Alex Pagnotta',{gameID:3375601}),url);
- assert.equal(links.knownPlayers,24);
+ assert.equal(links.knownPlayers,25);
 });
 test('Every active public HockeyOS page loads the shared linker',()=>{
  for(const file of [
@@ -48,4 +48,24 @@ test('Every active public HockeyOS page loads the shared linker',()=>{
   const html=fs.readFileSync(path.resolve(__dirname,'../widgets',file),'utf8');
   assert.match(html,/<script defer src="\.\/player-links\.js\?v=1"><\/script>/,file);
  }
+});
+
+test('HTO season-specific profile deep links use live verified season selector values',()=>{
+ const base=links.profileUrl('Justin Carosi');
+ for (const season of ['Winter 2025/26','Winter_2025/2026','Winter 2025/2026']) {
+   assert.equal(links.resolve('Justin Carosi',{season}),base+'&pageLoad=ProfileTabStats&viewseas=Winter_2025/2026');
+ }
+ assert.equal(links.resolve('Justin Carosi',{season:'Summer 2016'}),base+'&pageLoad=ProfileTabStats&viewseas=Summer_2016');
+ assert.equal(links.resolve('Justin Carosi',{season:'Winter 2025/2029'}),base);
+ assert.equal(links.resolve('Stefano Mazzei',{season:'Winter 2026/27'}),links.profileUrl('Stefano Mazzei')+'&pageLoad=ProfileTabStats&viewseas=Winter_2026/2027');
+});
+test('Game-specific links require an official HTO box-score URL',()=>{
+ const exact='https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3375601';
+ assert.equal(links.resolve('Justin Carosi',{season:'Winter 2026/27',gameUrl:exact}),exact);
+ for (const gameUrl of [
+  'https://evil.example.org/teams/default.asp?u=BRAVESHOCKEY&p=boxscore&gameID=3375601',
+  'https://www.htosports.com/teams/default.asp?u=DIFFERENT&s=hockey&p=boxscore&gameID=3375601',
+  'https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&gameID=3375601',
+  'https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&gameID=bad'
+ ])assert.equal(links.resolve('Justin Carosi',{gameUrl}),links.profileUrl('Justin Carosi'));
 });
