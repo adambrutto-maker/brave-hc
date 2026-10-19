@@ -4,7 +4,7 @@ const $=(t,c,v)=>{const e=document.createElement(t);if(c)e.className=c;if(v!==un
 const find=id=>document.getElementById(id);
 const put=(id,v)=>find(id).textContent=String(v);
 const DOM={select:find("award"),region:find("scores"),notice:find("notice"),pilot:find("pilot"),info:find("award-info")};
-const state={source:null,reference:null,explain:null,award:"rolaids",mode:"current"};
+const state={source:null,reference:null,explain:null,participation:null,award:"rolaids",mode:"current"};
 if(new URLSearchParams(location.search).has("embed"))document.body.classList.add("embed");
 function badge(v){if(v>=95)return["elite","Elite"];if(v>=85)return["contender","Contender"];if(v>=75)return["strong","Strong"];if(v>=65)return["developing","Building"];return["neutral","Rating"]}
 function el(p,t,c,v){const n=$(t,c,v);p.append(n);return n}
@@ -129,6 +129,27 @@ function card(row,index,isReference){
  }
  return wrapper;
 }
+function renderSeasonParticipants(){
+ const d=state.source,source=state.participation;
+ if(!source||d.currentTeamGP<1||source.season!==d.season||source.officialTeamGames!==d.currentTeamGP
+    ||source.status!=="UNRANKED_VERIFIED_SEASON_APPEARANCES_NOT_AWARD_SCORES"
+    ||!Array.isArray(source.players))return;
+ const good=source.players.filter(x=>typeof x.name==="string"&&Number.isInteger(x.gp)&&x.gp>=1&&x.gp<=d.currentTeamGP);
+ const uniques=new Set(good.map(x=>x.name.toLowerCase()));
+ if(uniques.size!==good.length||good.some(x=>/unknown|unidentified|placeholder/i.test(x.name)))return;
+ const details=el(DOM.region,"details","exact participation");
+ const skaters=good.filter(x=>x.position==="Skater").length,goalies=good.filter(x=>x.position==="Goalie").length;
+ el(details,"summary",null,good.length+" verified named players appeared · "+skaters+" skaters, "+goalies+" goalies");
+ const p=el(details,"div","participant-inner");
+ el(p,"p",null,"Official game participation through "+source.latestCompletedGameDate+". This is an unranked team-wide list—not a ranking, official award shortlist, or indication that a player qualifies for every award.");
+ const chips=el(p,"div","participant-grid");
+ for(const player of good){
+  const item=el(chips,"div","participant-item");
+  el(item,"strong",null,player.name);
+  el(item,"span",null,player.gp+" GP · "+(player.position==="Goalie"?"Goalie":player.role));
+ }
+ el(p,"p","source-note","Source: HTO game records and HockeyOS HTO-fed skater/goalie appearance readback. Unidentified game-sheet entries are not counted as named nominees. Actual award ratings remain separately gated.");
+}
 function draw(){
  if(!state.source)return;
  const d=state.source,award=d.awards.find(a=>a.id===state.award);
@@ -148,13 +169,7 @@ function draw(){
    const box=$("div","empty");el(box,"strong",null,"This week's model ratings aren't ready yet");
    el(box,"p",null,"Award rankings stay empty until the workbook's scoring results and games played agree. We don't substitute points, old ratings, or players with zero appearances.");
    DOM.region.append(box);
-   const played=(d.htoPerformanceSnapshot||[]).filter(x=>x.gp>=1);
-   if(played.length){
-    const section=el(DOM.region,"div","panel");el(section,"h3",null,"On the ice so far");
-    el(section,"p",null,"A selected HTO performance snapshot—not an award ranking or complete candidate list.");
-    const chips=el(section,"div","checklist");
-    played.slice(0,8).forEach(x=>el(chips,"span",null,x.name+" · "+x.gp+" GP"));
-   }
+   // All named appearances are displayed separately from the withheld award-model race.
   }else{
    let rows=(race.entries||[]).filter(x=>Number.isFinite(+x.gamesPlayed)&&+x.gamesPlayed>=1&&+x.gamesPlayed<=d.currentTeamGP&&typeof x.eligible==="boolean"&&(Number.isFinite(x.modelScore)||x.scoreKind==="AWARD_MODEL_PENDING"));
    rows.sort((a,b)=>Number(b.eligible)-Number(a.eligible)||(b.eligible?(Number(b.rankKey)||0)-(Number(a.rankKey)||0):0)||(Number(b.rawComposite)||0)-(Number(a.rawComposite)||0)||a.name.localeCompare(b.name));rows=rows.slice(0,5);
@@ -162,6 +177,7 @@ function draw(){
    if(!rows.length)DOM.region.append($("div","empty","No verified award participants yet."));
    else rows.forEach((r,i)=>DOM.region.append(card(r,i,false)));
   }
+  if(d.currentTeamGP>=1)renderSeasonParticipants();
  }else{
   notice("Historical examples from the saved workbook. These ratings and scorecards are NOT the current 2026–27 race. Use them to explore how award calculations work.");
   const saved=state.reference?.races?.[state.award]||[];
@@ -173,9 +189,9 @@ function draw(){
 }
 async function boot(){
  try{
- const [source,reference,explain]=await Promise.all(["./awards-races.json","./awards-workbook-reference.json","./awards-component-evidence.json"].map(async url=>{const r=await fetch(url,{cache:"no-store"});if(!r.ok)throw Error("source "+url);return r.json()}));
- if(source.schema!=="brave-hc-awards-races-weekly/v1"||reference.schema!=="brave-hc-awards-workbook-reference/v1"||explain.schema!=="brave-hc-awards-component-evidence/v1"||source.awards.length!==11)throw Error("contract");
- state.source=source;state.reference=reference;state.explain=explain;
+ const [source,reference,explain,participation]=await Promise.all(["./awards-races.json","./awards-workbook-reference.json","./awards-component-evidence.json","./awards-participants.json"].map(async url=>{const r=await fetch(url,{cache:"no-store"});if(!r.ok)throw Error("source "+url);return r.json()}));
+ if(source.schema!=="brave-hc-awards-races-weekly/v1"||reference.schema!=="brave-hc-awards-workbook-reference/v1"||explain.schema!=="brave-hc-awards-component-evidence/v1"||source.awards.length!==11||participation.schema!=="brave-hc-awards-participants/v1"||participation.season!==source.season||participation.officialTeamGames!==source.currentTeamGP)throw Error("contract");
+ state.source=source;state.reference=reference;state.explain=explain;state.participation=participation;
  put("gp",source.currentTeamGP);
  DOM.select.replaceChildren();for(const a of source.awards){const o=$("option",null,a.name);o.value=a.id;DOM.select.append(o);}
  DOM.select.value=state.award;DOM.select.addEventListener("change",()=>{state.award=DOM.select.value;draw()});
