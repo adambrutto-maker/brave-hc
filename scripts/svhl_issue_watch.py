@@ -7,6 +7,7 @@ import json
 import os
 import sys
 import requests
+from hto_review_packet import render_review
 
 TITLE='SVHL → HTO: schedule reconciliation required'
 repo=os.environ.get('GITHUB_REPOSITORY','')
@@ -31,20 +32,8 @@ if not changes:
     else:
         print('No discrepancies and no open issue')
     sys.exit(0)
-lines=['Official SVHL fixtures have differences from HTO; **no HTO changes were made automatically.**','',
-       'Review against [SVHL Sunday Winter 2026/27](https://leagues.sportsvillage.ca/Leagues.aspx?leagueid=570&page_type=Adult&sc=HOCKEY#Schedule).',
-       'Use [HTO Schedule & Results](https://www.hometeamsonline.com/admin/default.asp?p=schedule) to amend the existing game by ID or add the missing game after review.','',
-       '| Required action | SVHL game | HTO game ID | Difference |',
-       '|---|---|---|---|']
-for c in changes:
-    g=c.get('svhl') or {}
-    h=c.get('hto') or {}
-    info=' '.join([g.get('date',''),g.get('time',''),g.get('opponent',''),g.get('rink','')]).strip() or 'Missing from SVHL'
-    diff=', '.join(c.get('changes',{})) or 'Missing/unmatched game'
-    lines.append('| '+c['action']+' | '+info.replace('|','/')+' | '+h.get('htoGameId','—')+' | '+diff+' |')
-lines+=['','**Do not delete scored HTO records automatically.** Preserve the game ID when rescheduling. Reconfirm the goalie after material schedule changes.','',
-         'After any manual HTO edit, rerun reconciliation and verify the issue closes only when both sources match.']
-body='\n'.join(lines)
+body=render_review(changes)
+
 if not existing:
     req('POST','/issues',json={'title':TITLE,'body':body})
     print('Opened reconciliation issue')
