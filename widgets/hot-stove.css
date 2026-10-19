@@ -93,3 +93,12 @@ body.embedded{background:transparent}
  .scouting-narrative{font-size:10px}
  .scouting-caveat{font-size:8.5px}
 }
+
+/* Retrospective archived news, never presented as a future live fixture. */
+.article-milestones{margin:14px 0 2px}
+.article-milestones .milestone-item{margin:8px 0}
+.archive-retrospective{margin:18px 0 5px}
+.archive-retrospective .preview{margin-top:6px}
+.historical-note{font-size:10px;color:#b4c9dc;font-style:italic;line-height:1.5;margin:2px 0 8px}
+.archive-retrospective .h2h-stats{margin:9px 0 12px}
+@media(max-width:480px){.historical-note{font-size:9px}}
