@@ -1,4 +1,4 @@
-<!-- BRAVE H.C. GOALIE SCHEDULE v1.2.3 · READ ONLY · HIGH-CONTRAST LEGIBILITY PATCH -->
+<!-- BRAVE H.C. GOALIE SCHEDULE v1.2.4 · READ ONLY · HIGH-CONTRAST LEGIBILITY PATCH -->
 <div id="braves-goalie-svhl" aria-label="Brave HC goalie schedule">
  <header><small>BRAVE H.C. · 2026/27</small><h2>GOALTENDER SCHEDULE</h2><p>Official SVHL fixtures · Manager-confirmed starters</p></header>
  <div id="bg-status" role="status">Checking the SVHL schedule…</div>
@@ -26,6 +26,8 @@
 #braves-goalie-svhl td .bg-pending{display:block;color:#ffe09b!important;font-size:10px;font-weight:500}
 #braves-goalie-svhl footer{padding:12px 20px;background:#08172a}
 #braves-goalie-svhl a{color:#fff!important}
+#braves-goalie-svhl #bg-status.bg-sync-warning{background:#503816!important;color:#fff2cb!important;border-left:4px solid #ffc36e}
+#braves-goalie-svhl #bg-status.bg-sync-expired{background:#5c2029!important;color:#fff3f3!important;border-left:4px solid #ff9fab}
 </style>
 <script>
 (function(){
@@ -83,7 +85,23 @@ async function refresh(){
      }
      rows.append(tr);
    }
-   status.textContent=games.length+' upcoming SVHL game(s) · Last league check '+(feed.checkedAt||'not recorded');
+   const lastCheck=Date.parse(feed.checkedAt||'');
+   const ageHours=(Date.now()-lastCheck)/3600000;
+   const validAge=Number.isFinite(ageHours)&&ageHours>=-0.25;
+   const checked=validAge?new Date(lastCheck).toLocaleString('en-CA',{timeZone:'America/Toronto',
+      month:'short',day:'numeric',hour:'numeric',minute:'2-digit'}):'unavailable';
+   status.classList.remove('bg-sync-warning','bg-sync-expired');
+   if(!validAge||ageHours>36){
+     status.classList.add('bg-sync-expired');
+     status.textContent='Schedule verification overdue · Last successful SVHL check '+checked+
+       ' · Confirm game details with official SVHL before relying on this schedule.';
+   }else if(ageHours>18){
+     status.classList.add('bg-sync-warning');
+     status.textContent='SVHL sync delayed · Last verified '+checked+
+       ' · Check official league schedule for changes.';
+   }else{
+     status.textContent=games.length+' upcoming SVHL game(s) · League last verified '+checked;
+   }
  }catch(err){status.textContent='Schedule temporarily unavailable: '+err.message+'. Check the official SVHL schedule.';}
 }
 refresh();
