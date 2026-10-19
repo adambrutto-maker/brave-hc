@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow"><title>Brave H.C. Hot Stove | Homepage Teaser</title>
+<style>
+:root{color-scheme:dark}*{box-sizing:border-box}html,body{margin:0;min-width:0}body{background:#06101c;font:12px/1.4 Arial,"Segoe UI",sans-serif;color:#f5f8fd}
+.wrap{max-width:650px;margin:auto;padding:5px;background:linear-gradient(120deg,#a71728,#d12537,#5c0c17);border:1px solid #9baec0}
+.card{background:linear-gradient(140deg,#13344f,#071626);border:1px solid #8ea4b6;padding:12px 13px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:8px;border-bottom:1px solid #526e86;padding-bottom:9px}
+.brand{display:flex;align-items:center;gap:8px}.brand img{width:35px;height:35px;object-fit:contain}
+.brand b{font-size:13px}.eyebrow{font-size:9px;letter-spacing:.12em;color:#d0dfed;text-transform:uppercase;font-weight:850}
+.time{font-size:9px;color:#b5cadc;text-align:right}
+.headline{font-size:14px;line-height:1.25;font-weight:900;margin:10px 0 7px}
+.deck{font-size:10px;color:#bed1e1;margin:0 0 11px}
+.bottom{display:flex;align-items:center;justify-content:space-between;gap:10px;border-top:1px solid #47627b;padding-top:9px}
+.score{font-size:11px;font-weight:800;color:#fff}
+a{font-size:10px;font-weight:850;color:#fff;text-decoration:none;background:#a7182c;padding:7px 9px;border:1px solid #eb8595}
+a:hover,a:focus-visible{background:#d52a3d;text-decoration:underline}
+.error{font-size:11px;color:#dce7f2;padding:10px 0}
+</style></head><body><div class="wrap"><div class="card">
+<div class="top"><div class="brand"><img src="./brave_hc_logo.png" alt="Brave H.C."><div><div class="eyebrow">Latest team story</div><b>BRAVE H.C. HOT STOVE</b></div></div><div id="date" class="time">Official game recap</div></div>
+<div id="headline" class="headline">Checking the latest approved article…</div>
+<p id="deck" class="deck">Recent results, player notes and matchup analysis.</p>
+<div class="bottom"><span id="score" class="score">Game recap</span><a href="./hot-stove.html" target="_parent" rel="noopener">Read Hot Stove ↗</a></div>
+</div></div><script>
+(async function(){
+ try{
+ const r=await fetch("./hot-stove-approved.json",{cache:"no-store"});
+ if(!r.ok)throw Error("No verified news");
+ const p=await r.json(),a=p.latestArticle;
+ if(p.editorialState!=="FOUNDER_APPROVED"||a.verification?.status!=="SOURCE_VERIFIED"||!a.headline||!a.boxScore)throw Error("News not approved");
+ document.querySelector("#headline").textContent=a.headline;
+ document.querySelector("#deck").textContent=a.dek||"Official HTO-verified game summary.";
+ document.querySelector("#date").textContent=a.displayDate||a.date;
+ document.querySelector("#score").textContent="Brave H.C. "+a.boxScore.ourGoals+" – "+a.boxScore.theirGoals+" "+a.boxScore.opponent;
+ }catch(err){document.querySelector("#headline").textContent="Brave H.C. news";document.querySelector("#deck").textContent="Current articles are available in Hot Stove."}
+})();
+</script></body></html>
