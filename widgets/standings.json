@@ -3,7 +3,7 @@
   "season": "W2026/27",
   "division": "Cristillo",
   "source": "https://leagues.sportsvillage.ca/Leagues.aspx?leagueid=570&page_type=Adult&sc=HOCKEY",
-  "capturedAt": "2026-10-19T01:31:12.972283+00:00",
+  "capturedAt": "2026-10-19T02:31:13.269248+00:00",
   "team": "Braves HC",
   "teams": [
     {
@@ -18,7 +18,7 @@
       "winPct": 1.0
     },
     {
-      "name": "Mid Ice Crisis",
+      "name": "Mohawks HC",
       "gp": 3,
       "w": 2,
       "l": 1,
@@ -29,7 +29,7 @@
       "winPct": 0.667
     },
     {
-      "name": "Mohawks HC",
+      "name": "Mid Ice Crisis",
       "gp": 3,
       "w": 2,
       "l": 1,
