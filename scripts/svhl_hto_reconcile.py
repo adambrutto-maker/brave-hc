@@ -110,15 +110,70 @@ def prior_for(game, prior_games, used):
     return (slot[0], True) if len(slot)==1 else (None, False)
 
 
+def verify_snapshot_coverage(svhl, hto, previous, now):
+    """Fail closed when the provider probably returned a partial or duplicate fixture list.
+
+    A single missing fixture remains a review item. A major simultaneous loss of
+    independently identified upcoming games is quarantined pending direct review.
+    """
+    for source, games in (("SVHL", svhl), ("HTO", hto)):
+        signatures=[(g["date"],g["time"],norm(g["opponent"])) for g in games]
+        if len(signatures)!=len(set(signatures)):
+            raise ValueError(source+" snapshot contains duplicated fixture rows; preserving last good feed")
+    ids=[g["htoGameId"] for g in hto]
+    if len(ids)!=len(set(ids)):
+        raise ValueError("HTO has duplicate game IDs; preserving last good feed")
+
+    prior=[g for g in previous.get("games",[]) if
+           all(k in g for k in ("date","time","opponent","rink","side")) and
+           kickoff(g)+timedelta(hours=3)>=now]
+    if len(prior)<3:
+        return
+
+    def supported(old, candidates):
+        return any(
+            (norm(old["opponent"])==norm(new["opponent"]) and
+             abs((kickoff(old)-kickoff(new)).total_seconds())<=45*86400) or
+            (old["date"]==new["date"] and old["time"]==new["time"] and
+             old["rink"]==new["rink"] and old["side"]==new["side"])
+            for new in candidates)
+
+    current_svhl=[g for g in svhl if kickoff(g)+timedelta(hours=3)>=now]
+    missing_svhl=[p for p in prior if not supported(p,current_svhl)]
+    if len(missing_svhl)>=2 and len(missing_svhl)*2>=len(prior):
+        raise ValueError(
+            "SVHL snapshot may be incomplete: "+str(len(missing_svhl))+"/"+str(len(prior))+
+            " previously upcoming games missing. Keep last-good feed and verify the league.")
+
+    prior_hto=[p for p in prior if p.get("htoGameId")]
+    if len(prior_hto)>=3:
+        current_ids={h["htoGameId"] for h in hto}
+        lost=[p for p in prior_hto if p["htoGameId"] not in current_ids]
+        if len(lost)>=2 and len(lost)*2>=len(prior_hto):
+            raise ValueError(
+                "HTO snapshot may be incomplete: "+str(len(lost))+"/"+str(len(prior_hto))+
+                " prior game IDs missing. Keep last-good feed and verify HTO.")
+
+
 def reconcile(svhl, hto, now=None, previous=None, goalie_data=None):
     """Read-only reconciliation, stable goalie assignment keys, bounded identity linking."""
     now=now or datetime.now(TZ)
     previous=previous or {}
     goalie_data=goalie_data or {}
     prior_games=previous.get("games",[]) if isinstance(previous,dict) else []
+    prior_missing=previous.get("missingFixtureReviews",[]) if isinstance(previous,dict) else []
     confirmed=(goalie_data.get("scheduleConfirmations") or {}) if isinstance(goalie_data,dict) else {}
-    if not isinstance(prior_games,list) or not isinstance(confirmed,dict):
+    if not isinstance(prior_games,list) or not isinstance(prior_missing,list) or not isinstance(confirmed,dict):
         raise ValueError("Malformed prior fixture/goalie state")
+    verify_snapshot_coverage(svhl,hto,previous,now)
+    # Retain previously missing fixtures until they return, are matched to a
+    # rescheduled event, or pass their original puck drop. Do not auto-close
+    # the HTO review issue on a second incomplete-but-valid scan.
+    prior_games=prior_games+[
+        item for item in prior_missing
+        if isinstance(item,dict) and
+        all(k in item for k in ("date","time","opponent","rink","side","assignmentKey"))
+    ]
     future=[g for g in svhl if kickoff(g)+timedelta(hours=3)>=now]
     hto_future=[g for g in hto if kickoff(g)+timedelta(hours=3)>=now-timedelta(days=45)]
     used_hto=set(); used_prior=set(); output=[]; review=[]
@@ -216,10 +271,8 @@ def main():
     feed={'schema':'brave-hc-svhl-schedule/v1','source':SVHL,
           'checkedAt':datetime.now(TZ).isoformat(),'games':fixtures,
           'missingFixtureReviews':[
-              {'assignmentKey':(item.get('previous') or {}).get('assignmentKey'),
-               'date':(item.get('previous') or {}).get('date'),
-               'opponent':(item.get('previous') or {}).get('opponent')}
-              for item in queue if item['action']=='REVIEW_SVHL_REMOVED']}
+              dict(item['previous'])
+              for item in queue if item['action']=='REVIEW_SVHL_REMOVED' and item.get('previous')]}
     (args.out/'svhl-upcoming.json').write_text(json.dumps(feed,indent=2)+'\n')
     (args.out/'reconciliation.json').write_text(json.dumps(queue,indent=2)+'\n')
     from hto_review_packet import render_review
