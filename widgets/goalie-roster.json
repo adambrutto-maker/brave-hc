@@ -1,0 +1,59 @@
+{
+  "schema": "brave-hc-goalie-roster/v1",
+  "season": "Winter 2026/27",
+  "verifiedAt": "2026-10-19",
+  "sources": [
+    {
+      "name": "HTO Winter 2026/27 Roster",
+      "url": "https://www.htosports.com/teams/default.asp?p=roster&s=hockey&u=BRAVESHOCKEY"
+    },
+    {
+      "name": "HTO Roster and Fees Bulletin (2026/27 and 2025/26)",
+      "url": "https://www.htosports.com/teams/default.asp?p=bboard&pageNum=1&s=hockey&u=BRAVESHOCKEY"
+    }
+  ],
+  "currentConfirmed": [
+    {
+      "name": "Dev Leong",
+      "number": "31",
+      "status": "CONFIRMED",
+      "label": "CURRENT · #31 Dev Leong"
+    },
+    {
+      "name": "Stephen Logue",
+      "number": "70",
+      "status": "CONFIRMED",
+      "label": "CURRENT · #70 Stephen Logue"
+    }
+  ],
+  "historicalAndOther": [
+    {
+      "name": "Matt Svec",
+      "number": "0",
+      "status": "2026/27 PENDING; 2025/26 CONFIRMED",
+      "label": "PENDING / HISTORICAL · #0 Matt Svec"
+    },
+    {
+      "name": "Steve Noyek",
+      "number": "0",
+      "status": "2025/26 CONFIRMED",
+      "label": "HISTORICAL · #0 Steve Noyek"
+    },
+    {
+      "name": "Adam Carlyle",
+      "number": "0",
+      "status": "2026/27 HTO ROSTER (G); rental recorded October 2026",
+      "label": "OTHER / RENTAL · #0 Adam Carlyle"
+    },
+    {
+      "name": "Anthony Paolucci",
+      "number": "43",
+      "status": "2026/27 HTO ROSTER (RW·G); not confirmed as starting goalie",
+      "label": "UTILITY (RW/G) · #43 Anthony Paolucci"
+    }
+  ],
+  "options": {
+    "tbd": "TBD",
+    "custom": "Other / rental"
+  }
+}
