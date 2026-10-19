@@ -117,22 +117,31 @@ function draw(id){
  const entries=Array.isArray(current?.entries)?current.entries:[];
  const race=$("div","race-list");
  if(current?.status==="VERIFIED_CURRENT_WEEK"&&entries.length){
-  for(const p of entries.slice(0,5)){
-   if(typeof p.name!=="string"||typeof p.modelScore!=="number")continue;
+  const checked=entries.filter(p=>typeof p.name==="string"&&Number.isFinite(p.modelScore)&&typeof p.eligible==="boolean");
+  const order=checked.sort((a,b)=>
+   Number(b.eligible)-Number(a.eligible)||
+   (b.eligible?(Number(b.rankKey||0)-Number(a.rankKey||0)):0)||
+   Number(b.rawComposite??b.modelScore)-Number(a.rawComposite??a.modelScore)||
+   a.name.localeCompare(b.name)).slice(0,5);
+  const enough=checked.filter(x=>x.eligible).length>=5;
+  note(race,"p","section-note",enough?"Five or more qualified players: all current shortlist places are eligible.":"Eligible players occupy first places; top workbook-ranked provisional players fill the remaining places.");
+  for(const [index,p] of order.entries()){
    const item=$("div","race-entry"),details=$("div");
-   note(details,"strong",null,p.name);
-   note(details,"p",null,(p.gamesPlayed??0)+" GP · "+(p.rosterStatus||"Current")+" · "+(p.eligible?"Eligible":"Provisional — minimum games not yet met"));
+   note(details,"strong",null,(index+1)+". "+p.name);
+   note(details,"p",null,(p.gamesPlayed??0)+" GP · "+(p.rosterStatus||"Current")+" · "+(p.eligible?"Eligible — confirmed":"Provisional — eligibility pending"));
    item.append(details);
    const score=$("div");
-   note(score,"div","race-score",p.modelScore.toFixed(1));
-   note(score,"div","race-state","WORKBOOK SCORE");
+   const isCount=p.scoreKind==="WORKBOOK_REGULAR_SEASON_STAT_COUNT";
+   const final=p.scoreKind==="OFFICIAL_WORKBOOK_FINAL";
+   note(score,"div","race-score",isCount?String(p.modelScore):Number(p.modelScore).toFixed(1));
+   note(score,"div","race-state",isCount?"REGULAR-SEASON "+(id==="rocket"?"GOALS":"POINTS"):final?"FINAL WORKBOOK SCORE":"PROVISIONAL RAW MODEL SCORE");
    item.append(score);race.append(item);
   }
  }else{
   const msg=$("div","status");
   note(msg,"strong",null,"Weekly model scores awaiting workbook refresh");
   note(msg,"p",null,"The workbook score snapshot available to HockeyOS has "+data.sourceWorkbookRecordedGP+" recorded game while HTO has "+data.currentTeamGP+". No stale model scores are shown as this week's standings.");
-  note(msg,"p",null,"When the model catches up, this area will show players even before they satisfy year-end eligibility, marked provisional.");
+  note(msg,"p",null,"Once the current AwardScoring model is verified, eligible players will lead, with provisional players occupying any remaining top-five places.");
   race.append(msg);
  }
  el.append(race);
@@ -160,7 +169,7 @@ function draw(id){
  }
  const last=$("section","explainer");
  note(last,"strong",null,"Scoring ≠ eligibility ≠ voting");
- note(last,"p",null,"Weekly scores are a model performance race. Eligible shortlists become the official finalist field. The pilot voting form is an existing, separately maintained ballot.");
+ note(last,"p",null,"Eligible players always take the leading shortlist places. Provisional players fill the remaining positions in workbook order until five qualify. Official final workbook scores and provisional raw model scores use different scales; do not compare them as equivalent. The existing pilot ballot is a separate voting process.");
  if(id==="hof")note(last,"p",null,"Hall of Fame: the pilot form says the top two vote-getters are inducted, with workbook HOF ranking used to break ties.");
  if(id==="rolaids")note(last,"p",null,"Rolaids Relief Man: non-FT skaters require at least five current games; relief goalies require at least three. Early-season appearances count toward future eligibility without conferring official candidate status.");
  el.append(last);
