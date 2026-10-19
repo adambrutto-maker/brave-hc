@@ -17,7 +17,11 @@ html,body{background:#081626}.app{max-width:650px;padding:4px}.frame{border-radi
 .panel-only{display:none}body[data-panel=standings] #standings,body[data-panel=projection] #projection,body[data-panel=watch] #watch{display:block}
 .mini{margin:0;border:none;background:transparent;padding:0}.mini .table-wrap{margin:6px 0}
 #projection .cardtable td:nth-child(2),#standings .cardtable td:nth-child(2){max-width:168px;white-space:normal}
-@media(max-width:380px){.inner{padding:8px}.cardtable th,.cardtable td{padding:5px 3px;font-size:10px}}
+#standings .cardtable td,#standings .cardtable th{padding:3px 4px;line-height:1.13}
+#watch #watch-list{grid-template-columns:repeat(2,minmax(0,1fr))}
+#watch #watch-list .entry{padding:8px}
+#watch #watch-list .entry p{font-size:10px;line-height:1.35}
+@media(max-width:380px){.inner{padding:8px}.cardtable th,.cardtable td{padding:4px 3px;font-size:10px}#watch #watch-list .entry h3{font-size:10px}}
 </style>
 </head><body>
 <div class="app"><div class="frame"><div class="accent"></div><div class="inner">
