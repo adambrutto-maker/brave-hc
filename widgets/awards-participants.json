@@ -424,6 +424,22 @@
     "unidentifiedEntriesExcluded": [
       "Unknown, Johnny"
     ],
-    "scopeLimitation": "Read-only public scoring/goalie-source parity. HTO GP and aggregate stats do not qualify a player for a specific award or validate AwardScoring formulas."
+    "scopeLimitation": "Read-only public scoring/goalie-source parity. HTO GP and aggregate stats do not qualify a player for a specific award or validate AwardScoring formulas.",
+    "independentBoxscoreParity": {
+      "status": "PASS_FOUR_HTO_VERIFIED_GAME_SUMMARIES",
+      "source": "Four source-verified HTO boxscore IDs retained in Founder-approved Hot Stove game recaps",
+      "sourceEvidenceSha": "d327fc0fe8fda26cd2723d0632f352abf10625bd",
+      "gameCount": 4,
+      "boxscoreGameIds": [
+        3356177,
+        3356178,
+        3369564,
+        3375601
+      ],
+      "teamGoalsFor": 6,
+      "teamGoalsAgainst": 19,
+      "goalieGoalsAgainst": 19,
+      "qualifier": "Crosscheck of scored games and goalie appearance totals, NOT an independent calculation of player award ratings."
+    }
   }
 }
