@@ -5,6 +5,8 @@ on:
     branches: [main]
     paths:
       - 'scripts/svhl_hto_reconcile.py'
+      - 'scripts/game_day_readiness.py'
+      - 'tests/test_game_day_readiness.py'
       - 'scripts/svhl_issue_watch.py'
       - 'scripts/hto_review_packet.py'
       - 'tests/test_hto_review_packet.py'
@@ -42,6 +44,8 @@ jobs:
           python-version: '3.12'
       - name: Dependencies
         run: pip install 'requests>=2.31,<3' 'beautifulsoup4>=4.12,<5'
+      - name: Validate next-game goalie readiness policies
+        run: python -m unittest discover -s tests -p test_game_day_readiness.py
       - name: Validate source parser
         run: python tests/test_svhl_hto_parser.py
       - name: Validate manual HTO correction packets
@@ -86,6 +90,10 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ github.token }}
         run: python scripts/svhl_issue_watch.py build/svhl-review/reconciliation.json
+      - name: Review next game readiness without contacting players or editing HTO
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python scripts/game_day_readiness.py --feed build/svhl-review/svhl-upcoming.json --assignments widgets/goalie-assignments.json
       - name: Publish league feed only if game details changed
         shell: bash
         run: |
