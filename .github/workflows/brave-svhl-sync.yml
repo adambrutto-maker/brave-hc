@@ -10,6 +10,8 @@ on:
       - 'tests/test_goalie_issue.py'
       - '.github/workflows/brave-goalie-issue.yml'
       - 'tests/test_svhl_hto_parser.py'
+      - 'tests/test_goalie_continuity.py'
+      - 'scripts/set_goalie.py'
       - '.github/workflows/brave-svhl-sync.yml'
   schedule:
     - cron: '17 */4 * * *'
@@ -32,6 +34,8 @@ jobs:
         run: pip install 'requests>=2.31,<3' 'beautifulsoup4>=4.12,<5'
       - name: Validate source parser
         run: python tests/test_svhl_hto_parser.py
+      - name: Validate goalie assignments through schedule changes
+        run: python -m unittest discover -s tests -p test_goalie_continuity.py
       - name: Validate protected goalie confirmation logic
         run: python -m unittest discover -s tests -p test_goalie_assignment.py
       - name: Validate authenticated goalie issue approval
