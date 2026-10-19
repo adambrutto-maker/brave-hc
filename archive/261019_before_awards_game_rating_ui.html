@@ -1,0 +1,160 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,follow"><meta name="color-scheme" content="dark"><title>Brave H.C. — Awards Race Centre</title>
+<link rel="stylesheet" href="./hockeyos-modern.css?v=2">
+<style>
+.award-toolbar{display:flex;align-items:center;justify-content:space-between;gap:11px;flex-wrap:wrap;margin:17px 0 11px}
+.award-select{min-width:225px;max-width:100%;font-size:12px;color:#fff;background:#102c45;border:1px solid #7294aa;border-radius:8px;padding:10px 12px;font-weight:800}
+.award-score-card{display:flex;align-items:center;gap:11px;padding:13px;margin:8px 0;background:#112d46;border:1px solid #375a73;border-radius:10px}
+.award-score-card:first-of-type{border-left:4px solid #d32641}
+.award-number{flex:0 0 22px;color:#ffb7c1;font-size:16px;font-weight:950;text-align:center}
+.award-player{flex:1;min-width:0}.award-player strong{display:block;font-size:13px;color:white}
+.award-player .description{display:block;font-size:10px;line-height:1.35;color:#aec4d7;margin:4px 0}
+.award-rating{text-align:right;flex-shrink:0;min-width:66px}
+.award-rating strong{display:block;font-size:25px;line-height:1;font-weight:950;letter-spacing:-.04em}
+.award-rating small{display:block;color:#aec4d7;font-size:8px;font-weight:900;letter-spacing:.06em;margin-top:3px}
+.compos{display:flex;gap:5px;flex-wrap:wrap;margin:7px 0}.comp{font-size:9px;font-weight:800;color:#d7eaf6;background:#1d405e;border:1px solid #426b88;padding:3px 6px;border-radius:5px}
+.scoretrack{height:4px;border-radius:10px;margin:7px 0 0;overflow:hidden;background:#36516b}
+.scoretrack span{height:100%;display:block;background:linear-gradient(90deg,#8d162d,#f5546a)}
+.scorecard-details{margin-top:7px}.scorecard-details summary{font-size:10px;font-weight:850;cursor:pointer;color:#e1eefb}
+.scorecard-details p{font-size:10px;white-space:pre-line;line-height:1.5;color:#c9daea;margin:7px 0 0}
+.current-state{padding:10px 12px;border:1px solid #b18659;border-left:4px solid #e4ba73;border-radius:7px;background:#2c2a31;color:#ffe6b9;font-size:11px}
+.pilot{margin-top:15px;border:1px solid #45647c;background:#0d2134;padding:13px;border-radius:10px}
+.pilot details summary{cursor:pointer;font-size:12px;color:#dcebf7;font-weight:850}
+.pilot ul{margin:10px 0;padding-left:23px;color:#d9e6f2;font-size:11px}
+.pilot li{margin:4px 0}.pilot .cta{margin-top:7px}.phase-hint{font-size:10px;color:#e3bd84;font-weight:800}
+.card-tabs{display:flex;gap:6px;margin:10px 0}.card-tabs button{cursor:pointer;padding:7px 10px;border-radius:6px;color:#dceaf6;background:#14324e;border:1px solid #456f8a;font-weight:850;font-size:11px}
+.card-tabs button[aria-pressed=true]{background:#a61b32;border-color:#dc6175}
+.award-info{display:grid;gap:9px;grid-template-columns:1fr 1fr;margin:11px 0}.award-info .entry{padding:11px}
+#score-cards .empty{margin:10px 0}
+@media(max-width:480px){.award-info{grid-template-columns:1fr}.award-score-card{padding:9px;gap:6px}.award-rating{min-width:55px}.award-rating strong{font-size:22px}.award-toolbar{align-items:stretch}.award-select{width:100%}}
+</style></head><body>
+<div class="app"><div class="frame"><div class="accent"></div><div class="inner">
+<div class="topline"><div class="identity"><img src="./brave_hc_logo.png" alt="Brave H.C. crest"><div><div class="eyebrow">HockeyOS · Brave H.C.</div><div class="identity-name">Club Award Races · 2026–27</div></div></div><span class="badge">Workbook-derived</span></div>
+<nav class="nav"><a href="./analytics.html">Analytics</a><a href="./standings-v2.html">Standings</a><a href="./projection-v2.html">Projections</a><a href="./watch-v2.html">Streaks & records</a><a href="./awards-races.html" aria-current="page">Award Races</a><a href="./hot-stove.html">Hot Stove</a></nav>
+<div class="title-row"><div><div class="eyebrow">HockeyOS awards engine · Eligible-first shortlists</div><h1>Award Race Centre</h1><p class="sub">A season-long look at the competition for team awards, built around the workbook's actual final ratings, component scorecards, and nomination methodology.</p></div><span class="badge warn" id="sourcebadge">Checking current award model</span></div>
+<div class="stat-grid"><div class="stat"><div class="label">Award categories</div><div class="metric">11</div></div><div class="stat"><div class="label">Nominees on ballot</div><div class="metric">5</div></div><div class="stat"><div class="label">Pilot vote choices</div><div class="metric">2</div></div><div class="stat"><div class="label">HTO games verified</div><div id="gp" class="metric">—</div></div></div>
+<div id="notice" class="notice info">Verifying workbook scoring and HTO data freshness…</div>
+<div class="section">
+<div class="award-toolbar"><div><div class="eyebrow">Season award scoreboard</div><h2 style="margin-top:5px">Choose an award</h2></div><label for="awards" class="micro">Award category <select class="award-select" id="awards" aria-label="Select award"><option>Loading…</option></select></label></div>
+<div id="award-heading" class="hero-callout"><div><div class="eyebrow">Featured award</div><h2>Rolaids Relief Man Award</h2><p class="sub">Best relief-player contribution</p></div><div class="metric small">Top 5</div></div>
+<div id="raceinfo" class="current-state">Checking verified weekly model results…</div>
+<div class="card-tabs" role="group" aria-label="Scorecard view"><button type="button" id="current-btn" aria-pressed="true">Current race</button><button type="button" id="source-btn" aria-pressed="false">Saved workbook scorecards</button></div>
+<div id="score-cards" aria-live="polite"></div>
+<div class="award-info"><div class="entry"><div class="label">Eligibility</div><p id="rules">Loading eligibility rules…</p></div><div class="entry"><div class="label">How the model awards points</div><p id="weights">Loading score framework…</p></div></div>
+<div class="notice info"><strong>How provisional names appear</strong>Eligible players take the first positions, ranked by their award-specific workbook rank. If fewer than five qualify, the top remaining provisional players fill the board. Once five qualify, all five positions are eligible. Workbook final and raw scores have different scales, so they are labelled separately.</div>
+</div>
+<section class="section" id="pilot"><div class="section-head"><h2>2026/27 Pilot Ballot</h2><span class="badge">Separate vote</span></div><p class="sub">This is the actual Google Forms pilot nomination system. It does not automatically change with each week's model rankings.</p><div id="pilot-body"></div></section>
+<footer class="footer"><a href="https://www.htosports.com/teams/?u=BRAVESHOCKEY&s=hockey" target="_parent" rel="noopener">Brave H.C. home ↗</a><a href="https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=awards" target="_parent" rel="noopener">Past award winners ↗</a></footer>
+</div></div></div>
+<script>
+(function(){
+"use strict";
+const $=(t,c,s)=>{const el=document.createElement(t);if(c)el.className=c;if(s!==undefined)el.textContent=String(s);return el};
+const set=(id,value)=>document.getElementById(id).textContent=String(value);
+if(new URLSearchParams(location.search).has("embed"))document.body.classList.add("embed");
+let data,ref,mode="current",selected="rolaids";
+const select=document.getElementById("awards");
+function addText(parent,tag,cls,s){const n=$(tag,cls,s);parent.append(n);return n}
+function parseChips(txt){
+ return (txt||"").match(/\b(?:PTS|CONS|ATTD|POTG|SPEC|CLUT|HEAT|2WAY|DISC|PIM|PLUS|GREL|WIN%|GAA|WINS|SHO|CAR|PLY|LONG|LEG|AST|GOAL|OFF):\s*\d+(?:\.\d+)?/g)?.slice(0,8)||[];
+}
+function renderEntry(row,reference,index){
+ const entry=$("article","award-score-card");
+ addText(entry,"div","award-number",row.displayRank??row.rank??index+1);
+ const player=$("div","award-player");
+ addText(player,"strong",null,row.name);
+ let status,score,sub;
+ if(reference){
+  status="Saved workbook model output · "+(row.playerRecentRecordedSeason?"Most recent season "+row.playerRecentRecordedSeason+" · ":"")+"not the current weekly race";
+  score=row.score;
+  sub="SAVED MODEL SCORE";
+ }else{
+  status=row.eligible?"Qualified nominee":"Provisional — not yet eligible";
+  score=row.modelScore;
+  sub=row.scoreKind==="OFFICIAL_WORKBOOK_FINAL"?"FINAL WORKBOOK SCORE":row.scoreKind==="WORKBOOK_REGULAR_SEASON_STAT_COUNT"?"POINTS / GOALS":"RAW MODEL SCORE";
+ }
+ addText(player,"span","description",status);
+ const chips=parseChips(row.scorecard);
+ if(chips.length){
+  const group=$("div","compos");
+  chips.forEach(c=>group.append($("span","comp",c)));
+  player.append(group);
+ }
+ if(row.scorecard){
+  const det=$("details","scorecard-details"),sum=$("summary",null,"Full workbook scorecard"),p=$("p",null,row.scorecard);
+  det.append(sum,p);player.append(det);
+ }
+ entry.append(player);
+ const rating=$("div","award-rating");
+ if(Number.isFinite(Number(score))){
+  addText(rating,"strong",null,Number(score).toFixed((Number(score)%1===0)?0:1));
+  addText(rating,"small",null,sub);
+  if(reference&&selected!=="art-ross"&&selected!=="rocket"){
+   const track=$("div","scoretrack"),meter=$("span");meter.style.width=Math.max(0,Math.min(100,Number(score)))+"%";track.append(meter);rating.append(track);
+  }
+ }else addText(rating,"small",null,"NOT SCORED");
+ entry.append(rating);
+ return entry;
+}
+function render(){
+ const award=data.awards.find(a=>a.id===selected);if(!award)return;
+ set("rules",award.eligibility);set("weights",award.weight);
+ const head=document.getElementById("award-heading");head.replaceChildren();
+ const title=$("div");addText(title,"div","eyebrow","BRAVE H.C. · "+data.season);addText(title,"h2",null,award.name);addText(title,"p","sub",award.subtitle);head.append(title,$("div","metric small","TOP 5"));
+ const main=document.getElementById("score-cards");main.replaceChildren();
+ const current=data.races?.[selected],saved=ref?.races?.[selected]||[];
+ const info=document.getElementById("raceinfo");
+ const isVerified=current?.status==="VERIFIED_CURRENT_WEEK"&&Array.isArray(current.entries)&&current.entries.length>0&&data.seasonRaceMode?.currentModelScoresVerified;
+ if(mode==="current"){
+  if(isVerified){
+   info.textContent="This is the current verified workbook scorecard. Qualified players rank ahead of provisional players. A provisional raw score is not directly comparable to an eligible final rating.";
+   current.entries.slice(0,5).forEach((row,i)=>main.append(renderEntry(row,false,i)));
+  }else{
+   info.textContent="Current award-model scores held: HTO has "+data.currentTeamGP+" verified games, while the saved awards workbook contains "+data.sourceWorkbookRecordedGP+". Use the saved workbook scorecards tab to examine the original 50–100 rating style, without mistaking those historical results for this week's race.";
+   main.append($("div","empty","Current 2026–27 workbook-calculated award rankings cannot be shown until the AwardScoring calculation is verified against all completed HTO games."));
+  }
+ }else{
+  info.textContent="HISTORICAL SOURCE DESIGN ONLY — saved Web Races scorecards. The players in this award’s source ranking may have a different most recent season (for Rolaids, all five are W2025/26). These are not the current 2026–27 weekly rankings or approved nominees.";
+  if(saved.length)saved.forEach((row,i)=>main.append(renderEntry(row,true,i)));
+  else main.append($("div","empty","The saved workbook had no ranked eligible scorecards for this award at its earlier snapshot. The current-week score will appear once validated."));
+ }
+ document.getElementById("current-btn").setAttribute("aria-pressed",String(mode==="current"));
+ document.getElementById("source-btn").setAttribute("aria-pressed",String(mode==="reference"));
+ const ballot=data.survey?.awardQuestions?.find(q=>q.awardId===selected);
+ const pilot=document.getElementById("pilot-body");pilot.replaceChildren();
+ if(ballot){
+  const p=$("div","entry");
+  addText(p,"h3",null,"Two selections · One vote each");
+  addText(p,"p",null,ballot.question);
+  const candidates=$("div","compos");
+  ballot.nominees.forEach(n=>candidates.append($("span","comp",n)));
+  p.append(candidates);
+  const link=$("a","cta","Open the published pilot ballot ↗");
+  link.href=data.survey.responderUrl;link.target="_blank";link.rel="noopener noreferrer";
+  p.append(link);pilot.append(p);
+  if(ballot.isHoF)pilot.append($("p","source","Hall of Fame ballot selects two inductees by total votes, with workbook score as tiebreak."));
+ }else pilot.append($("div","empty","The current pilot Google Form has no separate nomination question for this award."));
+}
+(async()=>{
+ try{
+  const [a,b]=await Promise.all([fetch("./awards-races.json",{cache:"no-store"}),fetch("./awards-workbook-reference.json",{cache:"no-store"})]);
+  if(!a.ok||!b.ok)throw Error("Awards sources unavailable");
+  data=await a.json();ref=await b.json();
+  if(data.schema!=="brave-hc-awards-races-weekly/v1"||ref.schema!=="brave-hc-awards-workbook-reference/v1"||!Array.isArray(data.awards)||data.awards.length!==11)throw Error("Invalid source");
+  select.replaceChildren();
+  data.awards.forEach(a=>{const option=$("option",null,a.name);option.value=a.id;select.append(option)});
+  select.value=selected;
+  select.addEventListener("change",()=>{selected=select.value;render()});
+  document.getElementById("current-btn").addEventListener("click",()=>{mode="current";render()});
+  document.getElementById("source-btn").addEventListener("click",()=>{mode="reference";render()});
+  set("gp",data.currentTeamGP);
+  document.getElementById("sourcebadge").textContent=data.seasonRaceMode.currentModelScoresVerified?"Weekly model current":"Model refresh pending";
+  // Lead with real source scorecards while current live AwardScoring parity is unresolved, clearly labelled.
+  mode=data.seasonRaceMode.currentModelScoresVerified?"current":"reference";
+  render();
+ }catch(e){
+  set("notice","Award model sources could not be validated. No rankings are available.");
+  document.getElementById("raceinfo").textContent="Source verification unavailable; refer to the official HTO award history.";
+ }
+})();
+})();
+</script></body></html>
