@@ -72,7 +72,7 @@ async function refresh(){
        if(val==='TBD')cell.className='bg-tbd';tr.append(cell);
      }
      const needsConfirmation=game.requiresGoalieReconfirmation &&
-       revisions[game.assignmentKey]!==game.fixtureSignature &&
+       (!game.fixtureSignature || revisions[game.assignmentKey]!==game.fixtureSignature) &&
        goalie!=='TBD';
      if(needsConfirmation||game.htoSyncStatus!=='MATCH'){
        const note=document.createElement('span');
