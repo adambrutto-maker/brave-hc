@@ -1,0 +1,63 @@
+{
+  "schema": "brave-hc-svhl-schedule/v1",
+  "source": "https://leagues.sportsvillage.ca/Leagues.aspx?leagueid=570&page_type=Adult&sc=HOCKEY",
+  "checkedAt": "2026-10-19",
+  "verification": "Initial manual SVHL vs HTO List View cross-check; GitHub Actions refresh pending",
+  "games": [
+    {
+      "date": "2026-10-25",
+      "time": "18:15",
+      "opponent": "Big Bastones",
+      "rink": "A Rink",
+      "side": "home",
+      "assignmentKey": "hto:3375682",
+      "htoGameId": "3375682",
+      "htoSyncStatus": "MATCH",
+      "requiresGoalieReconfirmation": false
+    },
+    {
+      "date": "2026-11-01",
+      "time": "20:15",
+      "opponent": "Mid Ice Crisis",
+      "rink": "D Rink",
+      "side": "away",
+      "assignmentKey": "hto:3375683",
+      "htoGameId": "3375683",
+      "htoSyncStatus": "MATCH",
+      "requiresGoalieReconfirmation": false
+    },
+    {
+      "date": "2026-11-08",
+      "time": "21:15",
+      "opponent": "Other Way",
+      "rink": "D Rink",
+      "side": "home",
+      "assignmentKey": "hto:3375684",
+      "htoGameId": "3375684",
+      "htoSyncStatus": "MATCH",
+      "requiresGoalieReconfirmation": false
+    },
+    {
+      "date": "2026-11-15",
+      "time": "20:15",
+      "opponent": "Dateline Predators",
+      "rink": "A Rink",
+      "side": "home",
+      "assignmentKey": "hto:3375685",
+      "htoGameId": "3375685",
+      "htoSyncStatus": "MATCH",
+      "requiresGoalieReconfirmation": false
+    },
+    {
+      "date": "2026-11-22",
+      "time": "20:15",
+      "opponent": "Mohawks HC",
+      "rink": "A Rink",
+      "side": "home",
+      "assignmentKey": "hto:3375686",
+      "htoGameId": "3375686",
+      "htoSyncStatus": "MATCH",
+      "requiresGoalieReconfirmation": false
+    }
+  ]
+}
