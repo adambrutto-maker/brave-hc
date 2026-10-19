@@ -1,6 +1,12 @@
 name: Brave H.C. SVHL schedule reconciliation
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/svhl_hto_reconcile.py'
+      - 'tests/test_svhl_hto_parser.py'
+      - '.github/workflows/brave-svhl-sync.yml'
   schedule:
     - cron: '17 */4 * * *'
 permissions:
