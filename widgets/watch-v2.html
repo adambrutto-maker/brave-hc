@@ -1,0 +1,26 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,follow"><title>Brave H.C. — Streaks & Record Watch</title><link rel="stylesheet" href="./hockeyos-modern.css?v=2"></head><body><div class="app"><div class="frame"><div class="accent"></div><div class="inner"><div class="topline"><div class="identity"><img src="./brave_hc_logo.png" alt="Brave H.C. crest"><div><div class="eyebrow">HockeyOS · Brave H.C.</div><div class="identity-name">Team History · 2026–27</div></div></div><span class="badge warn" id="state">Partial coverage</span></div><nav class="nav"><a href="./analytics.html">Analytics</a><a href="./standings-v2.html">Standings</a><a href="./projection-v2.html">Projections</a><a href="./watch-v2.html" aria-current="page">Streaks & records</a><a href="./awards-races.html">Award Races</a><a href="./hot-stove.html">Hot Stove</a></nav><div class="title-row"><div><div class="eyebrow">Career achievements · Positive momentum</div><h1>Streaks & Record Watch</h1><p class="sub">Verified milestones and sustained streaks, grounded in HTO results and historic workbook standards.</p></div><span class="badge" id="date">Loading readback</span></div><div class="stat-grid"><div class="stat"><div class="label">Games reconciled</div><div class="metric" id="games">—</div></div><div class="stat"><div class="label">Verified milestones</div><div class="metric" id="count">—</div></div><div class="stat"><div class="label">Streak categories</div><div class="metric" id="categories">—</div></div><div class="stat"><div class="label">Record coverage</div><div class="metric small" id="coverage">Partial</div></div></div><div class="notice info" id="notice">Checking verified records…</div><section class="section"><div class="section-head"><h2>Milestones reached</h2><span class="badge ok">Official game evidence</span></div><div id="milestones" class="grid2"></div></section><section class="section"><div class="section-head"><h2>Active positive streaks</h2><span class="badge">3+ games</span></div><div id="streaks" class="grid2"></div><p class="source" id="streaksource"></p></section><section class="section"><div class="section-head"><h2>Record watch coverage</h2><span class="badge warn">More categories pending</span></div><p class="sub">HockeyOS suppresses an unverified career countdown rather than presenting a false distance to a record.</p><div id="withheld" class="grid2" style="margin-top:12px"></div></section><footer class="footer"><a href="https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=records" target="_parent" rel="noopener">Official HTO Records ↗</a><a href="https://www.htosports.com/teams/?u=BRAVESHOCKEY&s=hockey" target="_parent" rel="noopener">Brave H.C. home ↗</a></footer></div></div></div><script>(async()=>{
+const $=(tag,cls,str)=>{const el=document.createElement(tag);if(cls)el.className=cls;if(str!==undefined)el.textContent=String(str);return el};
+const set=(id,v)=>document.getElementById(id).textContent=String(v);
+const group=id=>{const p=document.getElementById(id);p.replaceChildren();return p};
+if(new URLSearchParams(location.search).has("embed"))document.body.classList.add("embed");
+const tile=(to,title,description,value,meta)=>{const e=$("article","entry");const top=$("div","top");top.append($("h3",null,title));if(value)top.append($("span","badge ok",value));e.append(top,$("p",null,description));if(meta)e.append($("p","micro",meta));to.append(e)};
+try{
+const r=await fetch("./watch.json",{cache:"no-store"});if(!r.ok)throw Error("No source");
+const d=await r.json();if(d.schema!=="brave-hc-workbook-watch/v2"||!Array.isArray(d.records)||!Array.isArray(d.verifiedStreakHistory))throw Error("Invalid feed");
+set("date","Through "+d.latestOfficialCompletedGameDate);set("games",d.completedGames);set("count",d.records.length);
+set("categories",d.verifiedStreakCategories?.length||0);set("coverage",d.recordWatchComplete?"Verified":"Partial");
+const reached=group("milestones");
+const milestones=d.records.filter(x=>x.type==="reached");
+if(!milestones.length)reached.append($("div","empty","No reached milestones verified yet."));
+for(const p of milestones)tile(reached,p.player,p.description,"Reached",p.eventDate);
+const streaks=group("streaks");
+const records=d.verifiedStreakHistory.filter(x=>x.games>=3&&x.sourceAuthority);
+if(records.length)for(const p of records)tile(streaks,p.player,p.description,p.games+" games",p.through);
+else streaks.append($("div","empty","No current three-game streak is verified in the supported categories."));
+set("streaksource","Supported: "+(d.verifiedStreakCategories||[]).join(", ")+". Held: "+(d.unverifiedStreakCategories||[]).join(", ")+".");
+set("notice","HTO game results verified through "+d.latestOfficialCompletedGameDate+". The saved career workbook baseline still needs a current-date reconciliation; outstanding milestone types are withheld, not assumed to be absent.");
+const withheld=group("withheld");
+const reasons=d.verifiedRecordScope?.notCovered||[];
+for(const p of reasons)tile(withheld,p,"Pending evidence",null,null);
+}catch(e){const n=document.getElementById("notice");n.className="notice";n.textContent="Record-watch feed could not be validated. Refer to the official HTO Records page.";}
+})();</script></body></html>
