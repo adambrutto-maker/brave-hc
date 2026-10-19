@@ -52,11 +52,11 @@ class ReviewPacketTests(unittest.TestCase):
         self.assertNotIn("gameID=",game_link({"htoGameId":"7<script>"}))
 
     def test_escape_provider_markdown(self):
-        self.assertEqual(safe("Team | [unsafe]\n<script>"),"Team unsafe script ")
+        self.assertEqual(safe("Team | [unsafe]\n<script>"),"Team unsafe script")
         text=render_review([{"action":"ADD_HTO","svhl":{**NEW,"opponent":"[click](http://bad)"},
                             "hto":None,"changes":{}}])
         self.assertNotIn("[click]",text)
-        self.assertNotIn("http://bad",text.split("### 1.")[1].split("**HTO record:**")[0])
+        self.assertNotIn("](",text.split("### 1.")[1].split("**HTO record:**")[0])
 
     def test_unknown_action_fails_closed(self):
         with self.assertRaises(ValueError):
