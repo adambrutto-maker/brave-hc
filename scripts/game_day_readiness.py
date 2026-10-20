@@ -47,24 +47,47 @@ def examine(feed: dict, saved: dict, now: datetime) -> dict:
     if not candidates:
         return {"status": "NONE", "reason": "No upcoming published league games",
                 "game": None, "goalie": None}
-    game=candidates[0]
-    if kickoff(game)-now > timedelta(hours=36):
-        return {"status": "NOT_DUE", "reason": "Next game is more than 36 hours away",
-                "game": game, "goalie": saved["assignments"].get(game["assignmentKey"], "TBD")}
-    name=saved["assignments"].get(game["assignmentKey"], "TBD")
-    warnings=[]
-    if name=="TBD" or not name.strip():
-        warnings.append("No goaltender has been confirmed")
-    if game.get("requiresGoalieReconfirmation") and name!="TBD":
-        sig=game.get("fixtureSignature")
-        if not sig or saved.get("scheduleConfirmations",{}).get(game["assignmentKey"]) != sig:
-            warnings.append("Goaltender must be reconfirmed after a league schedule change")
-    if game.get("htoSyncStatus")!="MATCH":
-        warnings.append("HTO schedule requires a manual SVHL correction/review")
-    return {"status":"REVIEW" if warnings else "READY",
-            "reason":"; ".join(warnings) if warnings else "Starter and HTO schedule verified",
-            "game":game,"goalie":name}
+    next_game=candidates[0]
 
+    def notes(game):
+        name=saved["assignments"].get(game["assignmentKey"],"TBD")
+        warnings=[]
+        if name=="TBD" or not isinstance(name,str) or not name.strip():
+            warnings.append("No goaltender has been confirmed")
+        if game.get("requiresGoalieReconfirmation") and name!="TBD":
+            sig=game.get("fixtureSignature")
+            if not sig or saved.get("scheduleConfirmations",{}).get(game["assignmentKey"]) != sig:
+                warnings.append("Goaltender must be reconfirmed after a league schedule change")
+        if game.get("htoSyncStatus")!="MATCH":
+            warnings.append("HTO schedule requires a manual SVHL correction/review")
+        return name,warnings
+
+    # A genuine game-day blocker always outranks advance planning.
+    if kickoff(next_game)-now <= timedelta(hours=36):
+        name,warnings=notes(next_game)
+        if warnings:
+            return {"status":"REVIEW","reason":"; ".join(warnings),
+                    "game":next_game,"goalie":name,"priority":"GAME_DAY"}
+
+    # Look beyond this Sunday's confirmed starter. Flag the earliest fixture
+    # needing manager attention within 14 days, without treating TBD as an
+    # invitation, booking, or authorization for player contact.
+    for game in candidates:
+        delta=kickoff(game)-now
+        if delta > timedelta(days=14):
+            break
+        name,warnings=notes(game)
+        if warnings:
+            priority="GAME_DAY" if delta<=timedelta(hours=36) else "ADVANCE_COVERAGE"
+            return {"status":"REVIEW","reason":"; ".join(warnings),
+                    "game":game,"goalie":name,"priority":priority}
+
+    name,_=notes(next_game)
+    if kickoff(next_game)-now > timedelta(hours=36):
+        return {"status":"NOT_DUE","reason":"No game-day action or coverage gap within 14 days",
+                "game":next_game,"goalie":name}
+    return {"status":"READY","reason":"Next starter and HTO schedule verified; no coverage gap within 14 days",
+            "game":next_game,"goalie":name}
 
 def issue_body(result: dict) -> str:
     game=result["game"]
@@ -78,16 +101,17 @@ def issue_body(result: dict) -> str:
     def plain(value):
         return re.sub(r"[^A-Za-z0-9 :/._-]", " ", str(value))[:100].strip()
     return "\n".join([
-        "## Brave H.C. game-day review",
+        "## Brave H.C. game-day / advance goalie coverage review",
         "",
         f"**SVHL game:** {plain(game['date'])} at {plain(game['time'])} Toronto time",
         f"**Opponent:** {plain(game['opponent'])}",
         f"**Rink:** {plain(game['rink'])}",
-        f"**Current confirmed goalie:** {plain(result['goalie'])}",
+        f"**Priority:** {plain(result.get('priority', 'MANAGER_REVIEW'))}",
+        f"**Recorded goalie:** {plain(result['goalie'])}",
         f"**HTO reconciliation:** {plain(game.get('htoSyncStatus','UNKNOWN'))}",
         f"**Attention:** {plain(result['reason'])}",
         "",
-        "This is a readiness flag, **not** a goalie confirmation or an instruction to edit HTO automatically.",
+        "This is a private-to-the-repository workflow review item, **not** evidence of goalie acceptance, a booking, or authorization to contact a player or edit HTO.",
         "",
         f"1. Check the [official SVHL fixture]({SVHL}).",
         f"2. If goalie confirmation is required, use the [protected goalie manager]({MANAGER}).",
