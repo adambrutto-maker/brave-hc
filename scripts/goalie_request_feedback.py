@@ -36,13 +36,15 @@ def safe_status(path: Path) -> str:
 
 
 def build_comment(code: str, auth: str, commit: str, close: str,
-                  repo: str, run_id: str) -> str:
+                  repo: str, run_id: str, receipt: str = "unknown") -> str:
     if not re.fullmatch(r"[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+", repo):
         raise ValueError("Untrusted repository name")
     if not re.fullmatch(r"[0-9]{1,20}", run_id):
         raise ValueError("Untrusted workflow ID")
     link = f"https://github.com/{repo}/actions/runs/{run_id}"
-    if commit == "failure" or (auth == "success" and commit == "success" and close == "failure"):
+    if (commit == "failure" or
+            (auth == "success" and commit == "success" and receipt == "failure") or
+            (auth == "success" and commit == "success" and close == "failure")):
         reason = ("The request reached the publish or close stage, but the workflow failed. "
                   "The assignment may or may not have been published. Check the saved "
                   "assignment file and commit history BEFORE attempting another request.")
@@ -100,7 +102,8 @@ def main() -> int:
         code, os.environ.get("AUTH_OUTCOME","unknown"),
         os.environ.get("COMMIT_OUTCOME","unknown"),
         os.environ.get("CLOSE_OUTCOME","unknown"),
-        repo,os.environ["GITHUB_RUN_ID"])
+        repo,os.environ["GITHUB_RUN_ID"],
+        receipt=os.environ.get("RECEIPT_OUTCOME","unknown"))
     post_comment(repo,issue_number,token,note)
     print(f"Review comment added to issue #{issue_number}; reason category {code}")
     return 0
