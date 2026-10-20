@@ -12,6 +12,9 @@ on:
       - 'widgets/awards-workbook-reference.json'
       - 'widgets/awards-component-evidence.json'
       - 'widgets/awards-participants.json'
+      - 'widgets/awards-source-readiness.json'
+      - 'widgets/awards-operational-publication.json'
+      - 'scripts/hockeyos_awards_*.js'
       - 'tests/test_awards_cards.js'
       - '.github/workflows/awards-cards-qa.yml'
   workflow_dispatch:
