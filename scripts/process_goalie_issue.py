@@ -39,8 +39,8 @@ def parse_request(title: str, body: str) -> dict:
             raise ValueError("Request fields must all be strings")
     if not re.fullmatch(r"(?:hto:[0-9]{4,15}|svhl:[0-9]{4}-[0-9]{2}-[0-9]{2}:[a-z0-9]{2,90})", req["game_key"]):
         raise ValueError("Unexpected game key")
-    if not 10 <= len(req["fixture_signature"]) <= 240 or
-       any(ord(ch) < 32 for ch in req["fixture_signature"]):
+    if (not 10 <= len(req["fixture_signature"]) <= 240 or
+            any(ord(ch) < 32 for ch in req["fixture_signature"])):
         raise ValueError("Invalid requested SVHL fixture revision")
     if not 1 <= len(req["expected_goalie"]) <= 70:
         raise ValueError("Invalid previously displayed goalie")
