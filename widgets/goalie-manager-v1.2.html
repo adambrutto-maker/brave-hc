@@ -23,7 +23,7 @@ section{border-top:1px solid #35546a;margin-top:18px;padding-top:8px}
 .notice{background:#19364e;padding:10px 12px;border-radius:5px;color:#f6fcff}
 </style><script defer src="./player-links.js?v=3"></script></head><body data-hto-season="Winter_2026/2027"><main>
 <small>BRAVE H.C. · 2026–27 · GOALIE ADMINISTRATION</small><h1>Goaltender confirmations</h1>
-<p>Schedule details come from the official SVHL fixture list. Select a goalie below, then open a prefilled GitHub confirmation request. Review and submit it while signed into GitHub to publish the confirmation. No GitHub token is entered into this page.</p>
+<p>Schedule details come from the official SVHL fixture list. Select a goalie below, then open a prefilled GitHub confirmation request. Review and submit it while signed into GitHub to publish the confirmation. Replacing or clearing a recorded goaltender requires a manager-approved reason. No GitHub token is entered into this page.</p>
 <div id="status" role="status">Loading official league schedule and current goalie confirmations…</div>
 <div id="coverage" role="status" aria-live="polite">Calculating upcoming goaltender coverage…</div>
 <div id="coverage-filter" aria-label="Goaltender schedule filter"><button id="show-needs" type="button" aria-pressed="false">Games needing attention</button><button id="show-all" type="button" aria-pressed="true">All games</button></div>
@@ -136,13 +136,33 @@ try{
          return;
        }
      }
+     const resolved=custom||choice;
+     let reason=resolved===selected?'NO_CHANGE':selected==='TBD'?'NEW_BOOKING':'';
+     if(selected!=='TBD' && resolved!==selected){
+       const changeType=resolved==='TBD'?'CLEAR':'REPLACE';
+       if(!window.confirm(changeType+' the existing confirmed goalie '+selected+
+           ' for '+game.date+' vs '+game.opponent+'? This will change the public schedule after GitHub approval.'))return;
+       const number=window.prompt(
+         'Select the manager-approved reason (enter a number):\\n'+
+         '1 — Goalie unavailable\\n2 — Manager booking correction\\n'+
+         '3 — Schedule changed\\n4 — Booking changed','');
+       if(number===null)return;
+       const reasons={'1':'GOALIE_UNAVAILABLE','2':'MANAGER_CORRECTION',
+                      '3':'SCHEDULE_CHANGE','4':'BOOKING_CHANGE'};
+       reason=reasons[number.trim()]||'';
+       if(!reason){
+         $('status').textContent='A manager-approved change reason (1–4) is required. Nothing was submitted.';
+         return;
+       }
+     }
      const payload={
-       type:'brave-hc-goalie-confirmation/v2',
+       type:'brave-hc-goalie-confirmation/v3',
        game_key:game.assignmentKey,
        goalie:choice,
        custom_goalie_name:custom,
        fixture_signature:game.fixtureSignature,
-       expected_goalie:selected
+       expected_goalie:selected,
+       change_reason:reason
      };
      const url=new URL(ISSUE_URL);
      url.searchParams.set('title','GOALIE_CONFIRMATION_REQUEST');
