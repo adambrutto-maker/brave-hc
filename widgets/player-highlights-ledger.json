@@ -102,6 +102,132 @@
       "originalCount": 9,
       "legacyStatus": "IMPORT_FROM_CURRENT_PUBLIC_HTO_NO_NEW_AWARD_APPROVAL"
     },
+    "354042": {
+      "name": "Lucas Brutto",
+      "profileUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=354042",
+      "items": [
+        {
+          "id": "hto-legacy-354042-01",
+          "category": "award",
+          "sourceText": "Most Improved Award - Winter 2018/19",
+          "displayText": "Most Improved Award - Winter 2018/19",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "Most Improved Award - Winter 2018/19",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 1,
+            "milestone": 0
+          },
+          "sourceOrder": 0,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354042-02",
+          "category": "milestone",
+          "sourceText": "50 Game Club - December 30, 2018",
+          "displayText": "50 Game Club - December 30, 2018",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "50 Game Club - December 30, 2018",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 0,
+            "milestone": 1
+          },
+          "sourceOrder": 1,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354042-03",
+          "category": "championship",
+          "sourceText": "SVHL Cup Champion - Summer 2016",
+          "displayText": "SVHL Cup Champion - Summer 2016",
+          "sourceEmphasis": true,
+          "sourceRuns": [
+            {
+              "text": "SVHL Cup Champion - Summer 2016",
+              "strong": true,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 1,
+            "award": 0,
+            "milestone": 0
+          },
+          "sourceOrder": 2,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354042-04",
+          "category": "championship",
+          "sourceText": "SVHL Cup Champion - Winter 2012/13",
+          "displayText": "SVHL Cup Champion - Winter 2012/13",
+          "sourceEmphasis": true,
+          "sourceRuns": [
+            {
+              "text": "SVHL Cup Champion - Winter 2012/13",
+              "strong": true,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 1,
+            "award": 0,
+            "milestone": 0
+          },
+          "sourceOrder": 3,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        }
+      ],
+      "originalCount": 4,
+      "legacyStatus": "IMPORT_FROM_CURRENT_PUBLIC_HTO_NO_NEW_AWARD_APPROVAL"
+    },
+    "354043": {
+      "name": "Italo Brutto",
+      "profileUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=354043",
+      "items": [
+        {
+          "id": "hto-legacy-354043-01",
+          "category": "championship",
+          "sourceText": "SVHL Cup Champion - Winter 2012/13",
+          "displayText": "SVHL Cup Champion - Winter 2012/13",
+          "sourceEmphasis": true,
+          "sourceRuns": [
+            {
+              "text": "SVHL Cup Champion - Winter 2012/13",
+              "strong": true,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 1,
+            "award": 0,
+            "milestone": 0
+          },
+          "sourceOrder": 0,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        }
+      ],
+      "originalCount": 1,
+      "legacyStatus": "IMPORT_FROM_CURRENT_PUBLIC_HTO_NO_NEW_AWARD_APPROVAL"
+    },
     "354045": {
       "name": "Mario Provenzano",
       "profileUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=354045",
@@ -198,6 +324,964 @@
         }
       ],
       "originalCount": 9,
+      "legacyStatus": "IMPORT_FROM_CURRENT_PUBLIC_HTO_NO_NEW_AWARD_APPROVAL"
+    },
+    "354046": {
+      "name": "Ryan Logue",
+      "profileUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=354046",
+      "items": [
+        {
+          "id": "hto-legacy-354046-01",
+          "category": "milestone",
+          "sourceText": "200 Game Club - March 17, 2019",
+          "displayText": "200 Game Club - March 17, 2019",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "200 Game Club - March 17, 2019",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 0,
+            "milestone": 1
+          },
+          "sourceOrder": 0,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354046-02",
+          "category": "milestone",
+          "sourceText": "200 Point Club - September 16, 2018",
+          "displayText": "200 Point Club - September 16, 2018",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "200 Point Club - September 16, 2018",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 0,
+            "milestone": 1
+          },
+          "sourceOrder": 1,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354046-03",
+          "category": "championship",
+          "sourceText": "SVHL Cup Champion - Summer 2016",
+          "displayText": "SVHL Cup Champion - Summer 2016",
+          "sourceEmphasis": true,
+          "sourceRuns": [
+            {
+              "text": "SVHL Cup Champion - Summer 2016",
+              "strong": true,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 1,
+            "award": 0,
+            "milestone": 0
+          },
+          "sourceOrder": 2,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354046-04",
+          "category": "championship",
+          "sourceText": "SVHL Cup Champion - Winter 2015/16",
+          "displayText": "SVHL Cup Champion - Winter 2015/16",
+          "sourceEmphasis": true,
+          "sourceRuns": [
+            {
+              "text": "SVHL Cup Champion - Winter 2015/16",
+              "strong": true,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 1,
+            "award": 0,
+            "milestone": 0
+          },
+          "sourceOrder": 3,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354046-05",
+          "category": "milestone",
+          "sourceText": "100 Game Club - December 20, 2015",
+          "displayText": "100 Game Club - December 20, 2015",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "100 Game Club - December 20, 2015",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 0,
+            "milestone": 1
+          },
+          "sourceOrder": 4,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354046-06",
+          "category": "milestone",
+          "sourceText": "100 Point Club - August 9, 2014",
+          "displayText": "100 Point Club - August 9, 2014",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "100 Point Club - August 9, 2014",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 0,
+            "milestone": 1
+          },
+          "sourceOrder": 5,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354046-07",
+          "category": "leadership",
+          "sourceText": "Elected Assistant Captain - Winter 2014/15",
+          "displayText": "Elected Assistant Captain - Winter 2014/15",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "Elected Assistant Captain - Winter 2014/15",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 0,
+            "milestone": 0
+          },
+          "sourceOrder": 6,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354046-08",
+          "category": "award",
+          "sourceText": "Conn Smythe Award Playoff MVP - Summer 2014",
+          "displayText": "Conn Smythe Award Playoff MVP - Summer 2014",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "Conn Smythe Award Playoff MVP - Summer 2014",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 1,
+            "milestone": 0
+          },
+          "sourceOrder": 7,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354046-09",
+          "category": "milestone",
+          "sourceText": "50 Game Club - August 17, 2014",
+          "displayText": "50 Game Club - August 17, 2014",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "50 Game Club - August 17, 2014",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 0,
+            "milestone": 1
+          },
+          "sourceOrder": 8,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354046-10",
+          "category": "milestone",
+          "sourceText": "50 Point Club - June 22, 2014",
+          "displayText": "50 Point Club - June 22, 2014",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "50 Point Club - June 22, 2014",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 0,
+            "milestone": 1
+          },
+          "sourceOrder": 9,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354046-11",
+          "category": "championship",
+          "sourceText": "SVHL Cup Champion - Winter 2012/13",
+          "displayText": "SVHL Cup Champion - Winter 2012/13",
+          "sourceEmphasis": true,
+          "sourceRuns": [
+            {
+              "text": "SVHL Cup Champion - Winter 2012/13",
+              "strong": true,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 1,
+            "award": 0,
+            "milestone": 0
+          },
+          "sourceOrder": 10,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        }
+      ],
+      "originalCount": 11,
+      "legacyStatus": "IMPORT_FROM_CURRENT_PUBLIC_HTO_NO_NEW_AWARD_APPROVAL"
+    },
+    "354047": {
+      "name": "Michael Nearing",
+      "profileUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=354047",
+      "items": [
+        {
+          "id": "hto-legacy-354047-01",
+          "category": "championship",
+          "sourceText": "SVHL Cup Champion - Winter 2012/13",
+          "displayText": "SVHL Cup Champion - Winter 2012/13",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "SVHL Cup Champion - Winter 2012/13",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 1,
+            "award": 0,
+            "milestone": 0
+          },
+          "sourceOrder": 0,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        }
+      ],
+      "originalCount": 1,
+      "legacyStatus": "IMPORT_FROM_CURRENT_PUBLIC_HTO_NO_NEW_AWARD_APPROVAL"
+    },
+    "354048": {
+      "name": "Eric Laliberte",
+      "profileUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=354048",
+      "items": [
+        {
+          "id": "hto-legacy-354048-01",
+          "category": "championship",
+          "sourceText": "SVHL Cup Champion - Winter 2012/13",
+          "displayText": "SVHL Cup Champion - Winter 2012/13",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "SVHL Cup Champion - Winter 2012/13",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 1,
+            "award": 0,
+            "milestone": 0
+          },
+          "sourceOrder": 0,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        }
+      ],
+      "originalCount": 1,
+      "legacyStatus": "IMPORT_FROM_CURRENT_PUBLIC_HTO_NO_NEW_AWARD_APPROVAL"
+    },
+    "354049": {
+      "name": "Cameron Buchanan",
+      "profileUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=354049",
+      "items": [
+        {
+          "id": "hto-legacy-354049-01",
+          "category": "recognition",
+          "sourceText": "Hall of Fame Inductee - Winter 2024/25",
+          "displayText": "Hall of Fame Inductee - Winter 2024/25",
+          "sourceEmphasis": true,
+          "sourceRuns": [
+            {
+              "text": "Hall of Fame Inductee - Winter 2024/25",
+              "strong": true,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 0,
+            "milestone": 0
+          },
+          "sourceOrder": 0,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354049-02",
+          "category": "award",
+          "sourceText": "Lady Byng Award for Sportsmanship - Winter 2019/20",
+          "displayText": "Lady Byng Award for Sportsmanship - Winter 2019/20",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "Lady Byng Award for Sportsmanship - Winter 2019/20",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 1,
+            "milestone": 0
+          },
+          "sourceOrder": 1,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354049-03",
+          "category": "milestone",
+          "sourceText": "200 Point Club - October 20, 2019",
+          "displayText": "200 Point Club - October 20, 2019",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "200 Point Club - October 20, 2019",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 0,
+            "milestone": 1
+          },
+          "sourceOrder": 2,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354049-04",
+          "category": "milestone",
+          "sourceText": "200 Game Club - September 15, 2019",
+          "displayText": "200 Game Club - September 15, 2019",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "200 Game Club - September 15, 2019",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 0,
+            "milestone": 1
+          },
+          "sourceOrder": 3,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354049-05",
+          "category": "award",
+          "sourceText": "Conn Smythe Playoff MVP - Summer 2017",
+          "displayText": "Conn Smythe Playoff MVP - Summer 2017",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "Conn Smythe Playoff MVP - Summer 2017",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 1,
+            "milestone": 0
+          },
+          "sourceOrder": 4,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354049-06",
+          "category": "award",
+          "sourceText": "Bill Masterton Award for Dedication - Winter 2016/17",
+          "displayText": "Bill Masterton Award for Dedication - Winter 2016/17",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "Bill Masterton Award for Dedication - Winter 2016/17",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 1,
+            "milestone": 0
+          },
+          "sourceOrder": 5,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354049-07",
+          "category": "championship",
+          "sourceText": "SVHL Cup Champion - Summer 2016",
+          "displayText": "SVHL Cup Champion - Summer 2016",
+          "sourceEmphasis": true,
+          "sourceRuns": [
+            {
+              "text": "SVHL Cup Champion - Summer 2016",
+              "strong": true,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 1,
+            "award": 0,
+            "milestone": 0
+          },
+          "sourceOrder": 6,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354049-08",
+          "category": "award",
+          "sourceText": "Conn Smythe Playoff MVP - Summer 2016",
+          "displayText": "Conn Smythe Playoff MVP - Summer 2016",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "Conn Smythe Playoff MVP - Summer 2016",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 1,
+            "milestone": 0
+          },
+          "sourceOrder": 7,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354049-09",
+          "category": "award",
+          "sourceText": "Hart Award Team MVP - Summer 2016",
+          "displayText": "Hart Award Team MVP - Summer 2016",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "Hart Award Team MVP - Summer 2016",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 1,
+            "milestone": 0
+          },
+          "sourceOrder": 8,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354049-10",
+          "category": "award",
+          "sourceText": "Maurice 'Rocket' Richard Award (12 Goals) - Summer 2016",
+          "displayText": "Maurice 'Rocket' Richard Award (12 Goals) - Summer 2016",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "Maurice 'Rocket' Richard Award (12 Goals) - Summer 2016",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 1,
+            "milestone": 0
+          },
+          "sourceOrder": 9,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354049-11",
+          "category": "milestone",
+          "sourceText": "100 Point Club - June 19, 2016",
+          "displayText": "100 Point Club - June 19, 2016",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "100 Point Club - June 19, 2016",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 0,
+            "milestone": 1
+          },
+          "sourceOrder": 10,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354049-12",
+          "category": "milestone",
+          "sourceText": "100 Game Club - May 15, 2016",
+          "displayText": "100 Game Club - May 15, 2016",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "100 Game Club - May 15, 2016",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 0,
+            "milestone": 1
+          },
+          "sourceOrder": 11,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354049-13",
+          "category": "championship",
+          "sourceText": "SVHL Cup Champion - Winter 2015/16",
+          "displayText": "SVHL Cup Champion - Winter 2015/16",
+          "sourceEmphasis": true,
+          "sourceRuns": [
+            {
+              "text": "SVHL Cup Champion - Winter 2015/16",
+              "strong": true,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 1,
+            "award": 0,
+            "milestone": 0
+          },
+          "sourceOrder": 12,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354049-14",
+          "category": "milestone",
+          "sourceText": "50 Point Club - November 30, 2014",
+          "displayText": "50 Point Club - November 30, 2014",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "50 Point Club - November 30, 2014",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 0,
+            "milestone": 1
+          },
+          "sourceOrder": 13,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354049-15",
+          "category": "milestone",
+          "sourceText": "50 Game Club - August 17, 2014",
+          "displayText": "50 Game Club - August 17, 2014",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "50 Game Club - August 17, 2014",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 0,
+            "milestone": 1
+          },
+          "sourceOrder": 14,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354049-16",
+          "category": "award",
+          "sourceText": "Conn Smythe Playoff MVP - Summer 2013",
+          "displayText": "Conn Smythe Playoff MVP - Summer 2013",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "Conn Smythe Playoff MVP - Summer 2013",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 1,
+            "milestone": 0
+          },
+          "sourceOrder": 15,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354049-17",
+          "category": "championship",
+          "sourceText": "SVHL Cup Champion - Winter 2012/13",
+          "displayText": "SVHL Cup Champion - Winter 2012/13",
+          "sourceEmphasis": true,
+          "sourceRuns": [
+            {
+              "text": "SVHL Cup Champion - Winter 2012/13",
+              "strong": true,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 1,
+            "award": 0,
+            "milestone": 0
+          },
+          "sourceOrder": 16,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        }
+      ],
+      "originalCount": 17,
+      "legacyStatus": "IMPORT_FROM_CURRENT_PUBLIC_HTO_NO_NEW_AWARD_APPROVAL"
+    },
+    "354050": {
+      "name": "Simon Scott",
+      "profileUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=354050",
+      "items": [
+        {
+          "id": "hto-legacy-354050-01",
+          "category": "championship",
+          "sourceText": "SVHL Cup Champion - Winter 2012/13",
+          "displayText": "SVHL Cup Champion - Winter 2012/13",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "SVHL Cup Champion - Winter 2012/13",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 1,
+            "award": 0,
+            "milestone": 0
+          },
+          "sourceOrder": 0,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        }
+      ],
+      "originalCount": 1,
+      "legacyStatus": "IMPORT_FROM_CURRENT_PUBLIC_HTO_NO_NEW_AWARD_APPROVAL"
+    },
+    "354051": {
+      "name": "Damian Aidemirski",
+      "profileUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=354051",
+      "items": [
+        {
+          "id": "hto-legacy-354051-01",
+          "category": "championship",
+          "sourceText": "SVHL Cup Champion - Summer 2016",
+          "displayText": "SVHL Cup Champion - Summer 2016",
+          "sourceEmphasis": true,
+          "sourceRuns": [
+            {
+              "text": "SVHL Cup Champion - Summer 2016",
+              "strong": true,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 1,
+            "award": 0,
+            "milestone": 0
+          },
+          "sourceOrder": 0,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354051-02",
+          "category": "milestone",
+          "sourceText": "100 Game Club - January 10, 2016",
+          "displayText": "100 Game Club - January 10, 2016",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "100 Game Club - January 10, 2016",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 0,
+            "milestone": 1
+          },
+          "sourceOrder": 1,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354051-03",
+          "category": "milestone",
+          "sourceText": "50 Point Club - November 22, 2015",
+          "displayText": "50 Point Club - November 22, 2015",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "50 Point Club - November 22, 2015",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 0,
+            "milestone": 1
+          },
+          "sourceOrder": 2,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354051-04",
+          "category": "championship",
+          "sourceText": "SVHL Cup Champion - Winter 2015/16",
+          "displayText": "SVHL Cup Champion - Winter 2015/16",
+          "sourceEmphasis": true,
+          "sourceRuns": [
+            {
+              "text": "SVHL Cup Champion - Winter 2015/16",
+              "strong": true,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 1,
+            "award": 0,
+            "milestone": 0
+          },
+          "sourceOrder": 3,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354051-05",
+          "category": "award",
+          "sourceText": "James Norris Award - Winter 2015/16",
+          "displayText": "James Norris Award - Winter 2015/16",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "James Norris Award - Winter 2015/16",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 1,
+            "milestone": 0
+          },
+          "sourceOrder": 4,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354051-06",
+          "category": "milestone",
+          "sourceText": "50 Game Club - October 5, 2014",
+          "displayText": "50 Game Club - October 5, 2014",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "50 Game Club - October 5, 2014",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 0,
+            "milestone": 1
+          },
+          "sourceOrder": 5,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354051-07",
+          "category": "award",
+          "sourceText": "James Norris Award - Winter 2013/14",
+          "displayText": "James Norris Award - Winter 2013/14",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "James Norris Award - Winter 2013/14",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 1,
+            "milestone": 0
+          },
+          "sourceOrder": 6,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354051-08",
+          "category": "award",
+          "sourceText": "James Norris Award - Summer 2013",
+          "displayText": "James Norris Award - Summer 2013",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "James Norris Award - Summer 2013",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 1,
+            "milestone": 0
+          },
+          "sourceOrder": 7,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354051-09",
+          "category": "championship",
+          "sourceText": "SVHL Cup Champion - Winter 2012/13",
+          "displayText": "SVHL Cup Champion - Winter 2012/13",
+          "sourceEmphasis": true,
+          "sourceRuns": [
+            {
+              "text": "SVHL Cup Champion - Winter 2012/13",
+              "strong": true,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 1,
+            "award": 0,
+            "milestone": 0
+          },
+          "sourceOrder": 8,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        }
+      ],
+      "originalCount": 9,
+      "legacyStatus": "IMPORT_FROM_CURRENT_PUBLIC_HTO_NO_NEW_AWARD_APPROVAL"
+    },
+    "354052": {
+      "name": "Christopher Granicolo",
+      "profileUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=354052",
+      "items": [
+        {
+          "id": "hto-legacy-354052-01",
+          "category": "championship",
+          "sourceText": "SVHL Cup Champion - Winter 2012/13",
+          "displayText": "SVHL Cup Champion - Winter 2012/13",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "SVHL Cup Champion - Winter 2012/13",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 1,
+            "award": 0,
+            "milestone": 0
+          },
+          "sourceOrder": 0,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        }
+      ],
+      "originalCount": 1,
       "legacyStatus": "IMPORT_FROM_CURRENT_PUBLIC_HTO_NO_NEW_AWARD_APPROVAL"
     },
     "354054": {
@@ -892,6 +1976,256 @@
       "originalCount": 15,
       "legacyStatus": "IMPORT_FROM_CURRENT_PUBLIC_HTO_NO_NEW_AWARD_APPROVAL"
     },
+    "354059": {
+      "name": "Michael Congiusti",
+      "profileUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=354059",
+      "items": [
+        {
+          "id": "hto-legacy-354059-01",
+          "category": "award",
+          "sourceText": "Lady Byng Award for Sportsmanship - Winter 2017/18",
+          "displayText": "Lady Byng Award for Sportsmanship - Winter 2017/18",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "Lady Byng Award for Sportsmanship - Winter 2017/18",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 1,
+            "milestone": 0
+          },
+          "sourceOrder": 0,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354059-02",
+          "category": "award",
+          "sourceText": "Lady Byng Award for Sportsmanship - Summer 2017",
+          "displayText": "Lady Byng Award for Sportsmanship - Summer 2017",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "Lady Byng Award for Sportsmanship - Summer 2017",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 1,
+            "milestone": 0
+          },
+          "sourceOrder": 1,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354059-03",
+          "category": "award",
+          "sourceText": "Lady Byng Award for Sportsmanship - Winter 2016/17",
+          "displayText": "Lady Byng Award for Sportsmanship - Winter 2016/17",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "Lady Byng Award for Sportsmanship - Winter 2016/17",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 1,
+            "milestone": 0
+          },
+          "sourceOrder": 2,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354059-04",
+          "category": "milestone",
+          "sourceText": "100 Game Club - January 15, 2017",
+          "displayText": "100 Game Club - January 15, 2017",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "100 Game Club - January 15, 2017",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 0,
+            "milestone": 1
+          },
+          "sourceOrder": 3,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354059-05",
+          "category": "championship",
+          "sourceText": "SVHL Cup Champion - Summer 2016",
+          "displayText": "SVHL Cup Champion - Summer 2016",
+          "sourceEmphasis": true,
+          "sourceRuns": [
+            {
+              "text": "SVHL Cup Champion - Summer 2016",
+              "strong": true,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 1,
+            "award": 0,
+            "milestone": 0
+          },
+          "sourceOrder": 4,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354059-06",
+          "category": "championship",
+          "sourceText": "SVHL Cup Champion - Winter 2015/16",
+          "displayText": "SVHL Cup Champion - Winter 2015/16",
+          "sourceEmphasis": true,
+          "sourceRuns": [
+            {
+              "text": "SVHL Cup Champion - Winter 2015/16",
+              "strong": true,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 1,
+            "award": 0,
+            "milestone": 0
+          },
+          "sourceOrder": 5,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354059-07",
+          "category": "award",
+          "sourceText": "Lady Byng Award for Sportsmanship - Winter 2015/16",
+          "displayText": "Lady Byng Award for Sportsmanship - Winter 2015/16",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "Lady Byng Award for Sportsmanship - Winter 2015/16",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 1,
+            "milestone": 0
+          },
+          "sourceOrder": 6,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354059-08",
+          "category": "milestone",
+          "sourceText": "50 Game Club - December 7, 2014",
+          "displayText": "50 Game Club - December 7, 2014",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "50 Game Club - December 7, 2014",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 0,
+            "milestone": 1
+          },
+          "sourceOrder": 7,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354059-09",
+          "category": "award",
+          "sourceText": "Lady Byng Award for Sportsmanship - Summer 2014",
+          "displayText": "Lady Byng Award for Sportsmanship - Summer 2014",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "Lady Byng Award for Sportsmanship - Summer 2014",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 1,
+            "milestone": 0
+          },
+          "sourceOrder": 8,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354059-10",
+          "category": "award",
+          "sourceText": "Lady Byng Award for Sportsmanship - Winter 2013/14",
+          "displayText": "Lady Byng Award for Sportsmanship - Winter 2013/14",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "Lady Byng Award for Sportsmanship - Winter 2013/14",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 1,
+            "milestone": 0
+          },
+          "sourceOrder": 9,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354059-11",
+          "category": "championship",
+          "sourceText": "SVHL Cup Champion - Winter 2012/13",
+          "displayText": "SVHL Cup Champion - Winter 2012/13",
+          "sourceEmphasis": true,
+          "sourceRuns": [
+            {
+              "text": "SVHL Cup Champion - Winter 2012/13",
+              "strong": true,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 1,
+            "award": 0,
+            "milestone": 0
+          },
+          "sourceOrder": 10,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        }
+      ],
+      "originalCount": 11,
+      "legacyStatus": "IMPORT_FROM_CURRENT_PUBLIC_HTO_NO_NEW_AWARD_APPROVAL"
+    },
     "354060": {
       "name": "Justin Carosi",
       "profileUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=354060",
@@ -1150,6 +2484,1342 @@
       "originalCount": 25,
       "legacyStatus": "IMPORT_FROM_CURRENT_PUBLIC_HTO_NO_NEW_AWARD_APPROVAL"
     },
+    "354061": {
+      "name": "Mark Pastore",
+      "profileUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=354061",
+      "items": [
+        {
+          "id": "hto-legacy-354061-01",
+          "category": "recognition",
+          "sourceText": "Hall of Fame Inductee - Winter 2023/24",
+          "displayText": "Hall of Fame Inductee - Winter 2023/24",
+          "sourceEmphasis": true,
+          "sourceRuns": [
+            {
+              "text": "Hall of Fame Inductee - Winter 2023/24",
+              "strong": true,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 0,
+            "milestone": 0
+          },
+          "sourceOrder": 0,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354061-02",
+          "category": "championship",
+          "sourceText": "SVHL Cup Champion - Winter 2015/16",
+          "displayText": "SVHL Cup Champion - Winter 2015/16",
+          "sourceEmphasis": true,
+          "sourceRuns": [
+            {
+              "text": "SVHL Cup Champion - Winter 2015/16",
+              "strong": true,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 1,
+            "award": 0,
+            "milestone": 0
+          },
+          "sourceOrder": 1,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354061-03",
+          "category": "award",
+          "sourceText": "Hart Award Team MVP - Winter 2015/16",
+          "displayText": "Hart Award Team MVP - Winter 2015/16",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "Hart Award Team MVP - Winter 2015/16",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 1,
+            "milestone": 0
+          },
+          "sourceOrder": 2,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354061-04",
+          "category": "award",
+          "sourceText": "Art Ross Award (32 Points) - Winter 2015/16",
+          "displayText": "Art Ross Award (32 Points) - Winter 2015/16",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "Art Ross Award (32 Points) - Winter 2015/16",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 1,
+            "milestone": 0
+          },
+          "sourceOrder": 3,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354061-05",
+          "category": "award",
+          "sourceText": "Maurice \"Rocket\" Richard Award (16 Goals) - Winter 2015/16",
+          "displayText": "Maurice \"Rocket\" Richard Award (16 Goals) - Winter 2015/16",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "Maurice \"Rocket\" Richard Award (16 Goals) - Winter 2015/16",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 1,
+            "milestone": 0
+          },
+          "sourceOrder": 4,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354061-06",
+          "category": "milestone",
+          "sourceText": "100 Game Club - December 27, 2015",
+          "displayText": "100 Game Club - December 27, 2015",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "100 Game Club - December 27, 2015",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 0,
+            "milestone": 1
+          },
+          "sourceOrder": 5,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354061-07",
+          "category": "award",
+          "sourceText": "Conn Smythe Award Playoff MVP - Summer 2015",
+          "displayText": "Conn Smythe Award Playoff MVP - Summer 2015",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "Conn Smythe Award Playoff MVP - Summer 2015",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 1,
+            "milestone": 0
+          },
+          "sourceOrder": 6,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354061-08",
+          "category": "award",
+          "sourceText": "Hart Award Team MVP - Summer 2015",
+          "displayText": "Hart Award Team MVP - Summer 2015",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "Hart Award Team MVP - Summer 2015",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 1,
+            "milestone": 0
+          },
+          "sourceOrder": 7,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354061-09",
+          "category": "award",
+          "sourceText": "Art Ross Award (34 Points) - Summer 2015",
+          "displayText": "Art Ross Award (34 Points) - Summer 2015",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "Art Ross Award (34 Points) - Summer 2015",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 1,
+            "milestone": 0
+          },
+          "sourceOrder": 8,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354061-10",
+          "category": "award",
+          "sourceText": "Maurice \"Rocket\" Richard Award (16 Goals) - Summer 2015",
+          "displayText": "Maurice \"Rocket\" Richard Award (16 Goals) - Summer 2015",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "Maurice \"Rocket\" Richard Award (16 Goals) - Summer 2015",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 1,
+            "milestone": 0
+          },
+          "sourceOrder": 9,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354061-11",
+          "category": "milestone",
+          "sourceText": "100 Point Club - June 7, 2015",
+          "displayText": "100 Point Club - June 7, 2015",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "100 Point Club - June 7, 2015",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 0,
+            "milestone": 1
+          },
+          "sourceOrder": 10,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354061-12",
+          "category": "award",
+          "sourceText": "Conn Smythe Award Playoff MVP - Winter 2014/15",
+          "displayText": "Conn Smythe Award Playoff MVP - Winter 2014/15",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "Conn Smythe Award Playoff MVP - Winter 2014/15",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 1,
+            "milestone": 0
+          },
+          "sourceOrder": 11,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354061-13",
+          "category": "award",
+          "sourceText": "Hart Award Team MVP - Winter 2014/15",
+          "displayText": "Hart Award Team MVP - Winter 2014/15",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "Hart Award Team MVP - Winter 2014/15",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 1,
+            "milestone": 0
+          },
+          "sourceOrder": 12,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354061-14",
+          "category": "award",
+          "sourceText": "Art Ross Award (20 Points) - Winter 2014/15",
+          "displayText": "Art Ross Award (20 Points) - Winter 2014/15",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "Art Ross Award (20 Points) - Winter 2014/15",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 1,
+            "milestone": 0
+          },
+          "sourceOrder": 13,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354061-15",
+          "category": "award",
+          "sourceText": "Maurice \"Rocket\" Richard Award (12 Goals) - Winter 2014/15",
+          "displayText": "Maurice \"Rocket\" Richard Award (12 Goals) - Winter 2014/15",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "Maurice \"Rocket\" Richard Award (12 Goals) - Winter 2014/15",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 1,
+            "milestone": 0
+          },
+          "sourceOrder": 14,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354061-16",
+          "category": "recognition",
+          "sourceText": "All-Star Nomination - Winter 2014/15",
+          "displayText": "All-Star Nomination - Winter 2014/15",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "All-Star Nomination - Winter 2014/15",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 0,
+            "milestone": 0
+          },
+          "sourceOrder": 15,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354061-17",
+          "category": "recognition",
+          "sourceText": "All-Star Nomination - Winter 2013/14",
+          "displayText": "All-Star Nomination - Winter 2013/14",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "All-Star Nomination - Winter 2013/14",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 0,
+            "milestone": 0
+          },
+          "sourceOrder": 16,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354061-18",
+          "category": "milestone",
+          "sourceText": "50 Game Club - September 21, 2014",
+          "displayText": "50 Game Club - September 21, 2014",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "50 Game Club - September 21, 2014",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 0,
+            "milestone": 1
+          },
+          "sourceOrder": 17,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354061-19",
+          "category": "leadership",
+          "sourceText": "Elected Team Captain - Winter 2013/14",
+          "displayText": "Elected Team Captain - Winter 2013/14",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "Elected Team Captain - Winter 2013/14",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 0,
+            "milestone": 0
+          },
+          "sourceOrder": 18,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354061-20",
+          "category": "milestone",
+          "sourceText": "50 Point Club - March 30, 2014",
+          "displayText": "50 Point Club - March 30, 2014",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "50 Point Club - March 30, 2014",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 0,
+            "milestone": 1
+          },
+          "sourceOrder": 19,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354061-21",
+          "category": "award",
+          "sourceText": "Hart Award Team MVP - Summer 2013",
+          "displayText": "Hart Award Team MVP - Summer 2013",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "Hart Award Team MVP - Summer 2013",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 1,
+            "milestone": 0
+          },
+          "sourceOrder": 20,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354061-22",
+          "category": "award",
+          "sourceText": "Art Ross Award (17 Points) - Summer 2013",
+          "displayText": "Art Ross Award (17 Points) - Summer 2013",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "Art Ross Award (17 Points) - Summer 2013",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 1,
+            "milestone": 0
+          },
+          "sourceOrder": 21,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354061-23",
+          "category": "award",
+          "sourceText": "Maurice \"Rocket\" Richard Award (12 Goals) - Summer 2013",
+          "displayText": "Maurice \"Rocket\" Richard Award (12 Goals) - Summer 2013",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "Maurice \"Rocket\" Richard Award (12 Goals) - Summer 2013",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 1,
+            "milestone": 0
+          },
+          "sourceOrder": 22,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354061-24",
+          "category": "championship",
+          "sourceText": "SVHL Cup Champion - Winter 2012/13",
+          "displayText": "SVHL Cup Champion - Winter 2012/13",
+          "sourceEmphasis": true,
+          "sourceRuns": [
+            {
+              "text": "SVHL Cup Champion - Winter 2012/13",
+              "strong": true,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 1,
+            "award": 0,
+            "milestone": 0
+          },
+          "sourceOrder": 23,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        }
+      ],
+      "originalCount": 24,
+      "legacyStatus": "IMPORT_FROM_CURRENT_PUBLIC_HTO_NO_NEW_AWARD_APPROVAL"
+    },
+    "354062": {
+      "name": "Daniel Buzzelli",
+      "profileUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=354062",
+      "items": [
+        {
+          "id": "hto-legacy-354062-01",
+          "category": "milestone",
+          "sourceText": "100 Game Club - October 30, 2022",
+          "displayText": "100 Game Club - October 30, 2022",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "100 Game Club - October 30, 2022",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 0,
+            "milestone": 1
+          },
+          "sourceOrder": 0,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354062-02",
+          "category": "award",
+          "sourceText": "Most Improved Award - Winter 2019/20",
+          "displayText": "Most Improved Award - Winter 2019/20",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "Most Improved Award - Winter 2019/20",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 1,
+            "milestone": 0
+          },
+          "sourceOrder": 1,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354062-03",
+          "category": "record",
+          "sourceText": "50 Game Club - September 23, 2018\nSVHL Cup Champion - Winter 2012/13",
+          "displayText": "50 Game Club - September 23, 2018\nSVHL Cup Champion - Winter 2012/13",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "50 Game Club - September 23, 2018",
+              "strong": false,
+              "italic": false
+            },
+            {
+              "text": "\n",
+              "strong": false,
+              "italic": false
+            },
+            {
+              "text": "SVHL Cup Champion - Winter 2012/13",
+              "strong": true,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 1,
+            "award": 0,
+            "milestone": 1
+          },
+          "sourceOrder": 2,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        }
+      ],
+      "originalCount": 3,
+      "legacyStatus": "IMPORT_FROM_CURRENT_PUBLIC_HTO_NO_NEW_AWARD_APPROVAL"
+    },
+    "354063": {
+      "name": "Luke Leddy",
+      "profileUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=354063",
+      "items": [
+        {
+          "id": "hto-legacy-354063-01",
+          "category": "award",
+          "sourceText": "Rookie of the Year Award - Summer 2013",
+          "displayText": "Rookie of the Year Award - Summer 2013",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "Rookie of the Year Award - Summer 2013",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 1,
+            "milestone": 0
+          },
+          "sourceOrder": 0,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        }
+      ],
+      "originalCount": 1,
+      "legacyStatus": "IMPORT_FROM_CURRENT_PUBLIC_HTO_NO_NEW_AWARD_APPROVAL"
+    },
+    "354285": {
+      "name": "Ben Sherritt",
+      "profileUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=354285",
+      "items": [
+        {
+          "id": "hto-legacy-354285-01",
+          "category": "recognition",
+          "sourceText": "Hall of Fame Inductee - Winter 2023/24",
+          "displayText": "Hall of Fame Inductee - Winter 2023/24",
+          "sourceEmphasis": true,
+          "sourceRuns": [
+            {
+              "text": "Hall of Fame Inductee - Winter 2023/24",
+              "strong": true,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 0,
+            "milestone": 0
+          },
+          "sourceOrder": 0,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354285-02",
+          "category": "award",
+          "sourceText": "Conn Smythe Award Playoff MVP - Winter 2017/18",
+          "displayText": "Conn Smythe Award Playoff MVP - Winter 2017/18",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "Conn Smythe Award Playoff MVP - Winter 2017/18",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 1,
+            "milestone": 0
+          },
+          "sourceOrder": 1,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354285-03",
+          "category": "award",
+          "sourceText": "Hart Award Team MVP - Winter 2017/18",
+          "displayText": "Hart Award Team MVP - Winter 2017/18",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "Hart Award Team MVP - Winter 2017/18",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 1,
+            "milestone": 0
+          },
+          "sourceOrder": 2,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354285-04",
+          "category": "award",
+          "sourceText": "Art Ross Award (41 Points) - Winter 2017/18",
+          "displayText": "Art Ross Award (41 Points) - Winter 2017/18",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "Art Ross Award (41 Points) - Winter 2017/18",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 1,
+            "milestone": 0
+          },
+          "sourceOrder": 3,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354285-05",
+          "category": "award",
+          "sourceText": "Maurice 'Rocket' Richard Award (27 Goals) - Winter 2017/18",
+          "displayText": "Maurice 'Rocket' Richard Award (27 Goals) - Winter 2017/18",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "Maurice 'Rocket' Richard Award (27 Goals) - Winter 2017/18",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 1,
+            "milestone": 0
+          },
+          "sourceOrder": 4,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354285-06",
+          "category": "milestone",
+          "sourceText": "100 Game Club - March 18, 2018",
+          "displayText": "100 Game Club - March 18, 2018",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "100 Game Club - March 18, 2018",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 0,
+            "milestone": 1
+          },
+          "sourceOrder": 5,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354285-07",
+          "category": "milestone",
+          "sourceText": "200 Point Club - February 25, 2018",
+          "displayText": "200 Point Club - February 25, 2018",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "200 Point Club - February 25, 2018",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 0,
+            "milestone": 1
+          },
+          "sourceOrder": 6,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354285-08",
+          "category": "award",
+          "sourceText": "Hart Award Team MVP - Summer 2017",
+          "displayText": "Hart Award Team MVP - Summer 2017",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "Hart Award Team MVP - Summer 2017",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 1,
+            "milestone": 0
+          },
+          "sourceOrder": 7,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354285-09",
+          "category": "award",
+          "sourceText": "Art Ross Award (37 Points) - Summer 2017",
+          "displayText": "Art Ross Award (37 Points) - Summer 2017",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "Art Ross Award (37 Points) - Summer 2017",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 1,
+            "milestone": 0
+          },
+          "sourceOrder": 8,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354285-10",
+          "category": "award",
+          "sourceText": "Maurice 'Rocket' Richard Award (22 Goals) - Summer 2017",
+          "displayText": "Maurice 'Rocket' Richard Award (22 Goals) - Summer 2017",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "Maurice 'Rocket' Richard Award (22 Goals) - Summer 2017",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 1,
+            "milestone": 0
+          },
+          "sourceOrder": 9,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354285-11",
+          "category": "award",
+          "sourceText": "Conn Smythe Award Playoff MVP - Winter 2016/17",
+          "displayText": "Conn Smythe Award Playoff MVP - Winter 2016/17",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "Conn Smythe Award Playoff MVP - Winter 2016/17",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 1,
+            "milestone": 0
+          },
+          "sourceOrder": 10,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354285-12",
+          "category": "award",
+          "sourceText": "Hart Award Team MVP - Winter 2016/17",
+          "displayText": "Hart Award Team MVP - Winter 2016/17",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "Hart Award Team MVP - Winter 2016/17",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 1,
+            "milestone": 0
+          },
+          "sourceOrder": 11,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354285-13",
+          "category": "award",
+          "sourceText": "Art Ross Award (31 Points) - Winter 2016/17",
+          "displayText": "Art Ross Award (31 Points) - Winter 2016/17",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "Art Ross Award (31 Points) - Winter 2016/17",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 1,
+            "milestone": 0
+          },
+          "sourceOrder": 12,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354285-14",
+          "category": "award",
+          "sourceText": "Maurice 'Rocket' Richard Award (21 Goals) - Winter 2016/17",
+          "displayText": "Maurice 'Rocket' Richard Award (21 Goals) - Winter 2016/17",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "Maurice 'Rocket' Richard Award (21 Goals) - Winter 2016/17",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 1,
+            "milestone": 0
+          },
+          "sourceOrder": 13,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354285-15",
+          "category": "leadership",
+          "sourceText": "Elected Captain - Winter 2016/17",
+          "displayText": "Elected Captain - Winter 2016/17",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "Elected Captain - Winter 2016/17",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 0,
+            "milestone": 0
+          },
+          "sourceOrder": 14,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354285-16",
+          "category": "championship",
+          "sourceText": "SVHL Cup Champion (Call-Up) - Summer 2016",
+          "displayText": "SVHL Cup Champion (Call-Up) - Summer 2016",
+          "sourceEmphasis": true,
+          "sourceRuns": [
+            {
+              "text": "SVHL Cup Champion (Call-Up)",
+              "strong": true,
+              "italic": true
+            },
+            {
+              "text": " - Summer 2016",
+              "strong": true,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 1,
+            "award": 0,
+            "milestone": 0
+          },
+          "sourceOrder": 15,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354285-17",
+          "category": "milestone",
+          "sourceText": "100 Point Club - November 20, 2016",
+          "displayText": "100 Point Club - November 20, 2016",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "100 Point Club - November 20, 2016",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 0,
+            "milestone": 1
+          },
+          "sourceOrder": 16,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354285-18",
+          "category": "milestone",
+          "sourceText": "50 Game Club - November 20, 2016",
+          "displayText": "50 Game Club - November 20, 2016",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "50 Game Club - November 20, 2016",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 0,
+            "milestone": 1
+          },
+          "sourceOrder": 17,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354285-19",
+          "category": "award",
+          "sourceText": "Art Ross Award (27 Points) - Summer 2014",
+          "displayText": "Art Ross Award (27 Points) - Summer 2014",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "Art Ross Award (27 Points) - Summer 2014",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 1,
+            "milestone": 0
+          },
+          "sourceOrder": 18,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354285-20",
+          "category": "award",
+          "sourceText": "Maurice 'Rocket' Richard Award (16 Goals) - Summer 2014",
+          "displayText": "Maurice 'Rocket' Richard Award (16 Goals) - Summer 2014",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "Maurice 'Rocket' Richard Award (16 Goals) - Summer 2014",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 1,
+            "milestone": 0
+          },
+          "sourceOrder": 19,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354285-21",
+          "category": "award",
+          "sourceText": "Hart Award Team MVP - Summer 2014",
+          "displayText": "Hart Award Team MVP - Summer 2014",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "Hart Award Team MVP - Summer 2014",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 1,
+            "milestone": 0
+          },
+          "sourceOrder": 20,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354285-22",
+          "category": "award",
+          "sourceText": "Rookie of the Year Award - Winter 2013/14",
+          "displayText": "Rookie of the Year Award - Winter 2013/14",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "Rookie of the Year Award - Winter 2013/14",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 1,
+            "milestone": 0
+          },
+          "sourceOrder": 21,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354285-23",
+          "category": "award",
+          "sourceText": "Hart Award Team MVP - Winter 2013/14",
+          "displayText": "Hart Award Team MVP - Winter 2013/14",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "Hart Award Team MVP - Winter 2013/14",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 1,
+            "milestone": 0
+          },
+          "sourceOrder": 22,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354285-24",
+          "category": "award",
+          "sourceText": "Art Ross Award (46 Points) - Winter 2013/14",
+          "displayText": "Art Ross Award (46 Points) - Winter 2013/14",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "Art Ross Award (46 Points) - Winter 2013/14",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 1,
+            "milestone": 0
+          },
+          "sourceOrder": 23,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354285-25",
+          "category": "award",
+          "sourceText": "Maurice 'Rocket' Richard Award (36 Goals) - Winter 2013/14",
+          "displayText": "Maurice 'Rocket' Richard Award (36 Goals) - Winter 2013/14",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "Maurice 'Rocket' Richard Award (36 Goals) - Winter 2013/14",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 1,
+            "milestone": 0
+          },
+          "sourceOrder": 24,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354285-26",
+          "category": "recognition",
+          "sourceText": "All-Star - Winter 2013/14",
+          "displayText": "All-Star - Winter 2013/14",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "All-Star - Winter 2013/14",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 0,
+            "milestone": 0
+          },
+          "sourceOrder": 25,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354285-27",
+          "category": "recognition",
+          "sourceText": "All-Star Nomination - Winter 2013/14",
+          "displayText": "All-Star Nomination - Winter 2013/14",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "All-Star Nomination - Winter 2013/14",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 0,
+            "milestone": 0
+          },
+          "sourceOrder": 26,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354285-28",
+          "category": "milestone",
+          "sourceText": "50 Point Club - April 13, 2014",
+          "displayText": "50 Point Club - April 13, 2014",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "50 Point Club - April 13, 2014",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 0,
+            "milestone": 1
+          },
+          "sourceOrder": 27,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        }
+      ],
+      "originalCount": 28,
+      "legacyStatus": "IMPORT_FROM_CURRENT_PUBLIC_HTO_NO_NEW_AWARD_APPROVAL"
+    },
+    "355501": {
+      "name": "Neil Baghel",
+      "profileUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=355501",
+      "items": [
+        {
+          "id": "hto-legacy-355501-01",
+          "category": "championship",
+          "sourceText": "SVHL Cup Champion (Call-Up) - Winter 2015/16",
+          "displayText": "SVHL Cup Champion (Call-Up) - Winter 2015/16",
+          "sourceEmphasis": true,
+          "sourceRuns": [
+            {
+              "text": "SVHL Cup Champion (Call-Up)",
+              "strong": true,
+              "italic": true
+            },
+            {
+              "text": " - Winter 2015/16",
+              "strong": true,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 1,
+            "award": 0,
+            "milestone": 0
+          },
+          "sourceOrder": 0,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-355501-02",
+          "category": "milestone",
+          "sourceText": "50 Game Club - September 27, 2015",
+          "displayText": "50 Game Club - September 27, 2015",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "50 Game Club - September 27, 2015",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 0,
+            "milestone": 1
+          },
+          "sourceOrder": 1,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        }
+      ],
+      "originalCount": 2,
+      "legacyStatus": "IMPORT_FROM_CURRENT_PUBLIC_HTO_NO_NEW_AWARD_APPROVAL"
+    },
     "356089": {
       "name": "Stefano Ardizzi",
       "profileUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=356089",
@@ -1278,6 +3948,669 @@
       "originalCount": 12,
       "legacyStatus": "IMPORT_FROM_CURRENT_PUBLIC_HTO_NO_NEW_AWARD_APPROVAL"
     },
+    "376086": {
+      "name": "Carmine Cerrone",
+      "profileUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=376086",
+      "items": [
+        {
+          "id": "hto-legacy-376086-01",
+          "category": "award",
+          "sourceText": "Rookie of the Year - Winter 2015/16",
+          "displayText": "Rookie of the Year - Winter 2015/16",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "Rookie of the Year - Winter 2015/16",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 1,
+            "milestone": 0
+          },
+          "sourceOrder": 0,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-376086-02",
+          "category": "championship",
+          "sourceText": "SVHL Cup Champion - Winter 2015/16",
+          "displayText": "SVHL Cup Champion - Winter 2015/16",
+          "sourceEmphasis": true,
+          "sourceRuns": [
+            {
+              "text": "SVHL Cup Champion - Winter 2015/16",
+              "strong": true,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 1,
+            "award": 0,
+            "milestone": 0
+          },
+          "sourceOrder": 1,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        }
+      ],
+      "originalCount": 2,
+      "legacyStatus": "IMPORT_FROM_CURRENT_PUBLIC_HTO_NO_NEW_AWARD_APPROVAL"
+    },
+    "382708": {
+      "name": "Julian Kercz",
+      "profileUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=382708",
+      "items": [
+        {
+          "id": "hto-legacy-382708-01",
+          "category": "championship",
+          "sourceText": "SVHL Cup Champion - Summer 2016",
+          "displayText": "SVHL Cup Champion - Summer 2016",
+          "sourceEmphasis": true,
+          "sourceRuns": [
+            {
+              "text": "SVHL Cup Champion - Summer 2016",
+              "strong": true,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 1,
+            "award": 0,
+            "milestone": 0
+          },
+          "sourceOrder": 0,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-382708-02",
+          "category": "milestone",
+          "sourceText": "50 Point Club - July 10, 2016",
+          "displayText": "50 Point Club - July 10, 2016",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "50 Point Club - July 10, 2016",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 0,
+            "milestone": 1
+          },
+          "sourceOrder": 1,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-382708-03",
+          "category": "championship",
+          "sourceText": "SVHL Cup Champion - Winter 2015/16",
+          "displayText": "SVHL Cup Champion - Winter 2015/16",
+          "sourceEmphasis": true,
+          "sourceRuns": [
+            {
+              "text": "SVHL Cup Champion - Winter 2015/16",
+              "strong": true,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 1,
+            "award": 0,
+            "milestone": 0
+          },
+          "sourceOrder": 2,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-382708-04",
+          "category": "milestone",
+          "sourceText": "50 Game Club - December 20, 2015",
+          "displayText": "50 Game Club - December 20, 2015",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "50 Game Club - December 20, 2015",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 0,
+            "milestone": 1
+          },
+          "sourceOrder": 3,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-382708-05",
+          "category": "discipline",
+          "sourceText": "2 Game Suspension (Hit to the Head) - Winter 2015/16",
+          "displayText": "2 Game Suspension (Hit to the Head) - Winter 2015/16",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "2 Game Suspension (Hit to the Head) - Winter 2015/16",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 0,
+            "milestone": 0
+          },
+          "sourceOrder": 4,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        }
+      ],
+      "originalCount": 5,
+      "legacyStatus": "IMPORT_FROM_CURRENT_PUBLIC_HTO_NO_NEW_AWARD_APPROVAL"
+    },
+    "399966": {
+      "name": "Ryan Finlay",
+      "profileUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=399966",
+      "items": [
+        {
+          "id": "hto-legacy-399966-01",
+          "category": "milestone",
+          "sourceText": "50 Point Club - December 7, 2025",
+          "displayText": "50 Point Club - December 7, 2025",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "50 Point Club - December 7, 2025",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 0,
+            "milestone": 1
+          },
+          "sourceOrder": 0,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-399966-02",
+          "category": "milestone",
+          "sourceText": "50 Game Club - December 15, 2024",
+          "displayText": "50 Game Club - December 15, 2024",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "50 Game Club - December 15, 2024",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 0,
+            "milestone": 1
+          },
+          "sourceOrder": 1,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        }
+      ],
+      "originalCount": 2,
+      "legacyStatus": "IMPORT_FROM_CURRENT_PUBLIC_HTO_NO_NEW_AWARD_APPROVAL"
+    },
+    "426873": {
+      "name": "Xav O'Krafka",
+      "profileUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=426873",
+      "items": [
+        {
+          "id": "hto-legacy-426873-01",
+          "category": "milestone",
+          "sourceText": "50 Point Club - November 19, 2017",
+          "displayText": "50 Point Club - November 19, 2017",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "50 Point Club - November 19, 2017",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 0,
+            "milestone": 1
+          },
+          "sourceOrder": 0,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-426873-02",
+          "category": "award",
+          "sourceText": "Rookie of the Year Award - Summer 2017",
+          "displayText": "Rookie of the Year Award - Summer 2017",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "Rookie of the Year Award - Summer 2017",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 1,
+            "milestone": 0
+          },
+          "sourceOrder": 1,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        }
+      ],
+      "originalCount": 2,
+      "legacyStatus": "IMPORT_FROM_CURRENT_PUBLIC_HTO_NO_NEW_AWARD_APPROVAL"
+    },
+    "453661": {
+      "name": "Anthony Guerra",
+      "profileUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=453661",
+      "items": [
+        {
+          "id": "hto-legacy-453661-01",
+          "category": "championship",
+          "sourceText": "SVHL Cup Champion - Summer 2016",
+          "displayText": "SVHL Cup Champion - Summer 2016",
+          "sourceEmphasis": true,
+          "sourceRuns": [
+            {
+              "text": "SVHL Cup Champion - Summer 2016",
+              "strong": true,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 1,
+            "award": 0,
+            "milestone": 0
+          },
+          "sourceOrder": 0,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-453661-02",
+          "category": "milestone",
+          "sourceText": "50 Game Club - July 17, 2016",
+          "displayText": "50 Game Club - July 17, 2016",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "50 Game Club - July 17, 2016",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 0,
+            "milestone": 1
+          },
+          "sourceOrder": 1,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-453661-03",
+          "category": "award",
+          "sourceText": "Bill Masterton Award for Dedication - Winter 2015/16",
+          "displayText": "Bill Masterton Award for Dedication - Winter 2015/16",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "Bill Masterton Award for Dedication - Winter 2015/16",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 1,
+            "milestone": 0
+          },
+          "sourceOrder": 2,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-453661-04",
+          "category": "championship",
+          "sourceText": "SVHL Cup Champion - Winter 2015/16",
+          "displayText": "SVHL Cup Champion - Winter 2015/16",
+          "sourceEmphasis": true,
+          "sourceRuns": [
+            {
+              "text": "SVHL Cup Champion - Winter 2015/16",
+              "strong": true,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 1,
+            "award": 0,
+            "milestone": 0
+          },
+          "sourceOrder": 3,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        }
+      ],
+      "originalCount": 4,
+      "legacyStatus": "IMPORT_FROM_CURRENT_PUBLIC_HTO_NO_NEW_AWARD_APPROVAL"
+    },
+    "453662": {
+      "name": "Andrew Buchanan",
+      "profileUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=453662",
+      "items": [
+        {
+          "id": "hto-legacy-453662-01",
+          "category": "award",
+          "sourceText": "James Norris Award - Winter 2018/19",
+          "displayText": "James Norris Award - Winter 2018/19",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "James Norris Award - Winter 2018/19",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 1,
+            "milestone": 0
+          },
+          "sourceOrder": 0,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-453662-02",
+          "category": "milestone",
+          "sourceText": "50 Game Club - February 10, 2019",
+          "displayText": "50 Game Club - February 10, 2019",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "50 Game Club - February 10, 2019",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 0,
+            "milestone": 1
+          },
+          "sourceOrder": 1,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-453662-03",
+          "category": "award",
+          "sourceText": "James Norris Award - Winter 2017/18",
+          "displayText": "James Norris Award - Winter 2017/18",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "James Norris Award - Winter 2017/18",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 1,
+            "milestone": 0
+          },
+          "sourceOrder": 2,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-453662-04",
+          "category": "award",
+          "sourceText": "Most Improved Award - Summer 2017",
+          "displayText": "Most Improved Award - Summer 2017",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "Most Improved Award - Summer 2017",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 1,
+            "milestone": 0
+          },
+          "sourceOrder": 3,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        }
+      ],
+      "originalCount": 4,
+      "legacyStatus": "IMPORT_FROM_CURRENT_PUBLIC_HTO_NO_NEW_AWARD_APPROVAL"
+    },
+    "525407": {
+      "name": "Dylan Brennan",
+      "profileUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=525407",
+      "items": [
+        {
+          "id": "hto-legacy-525407-01",
+          "category": "award",
+          "sourceText": "Hart Award Team MVP - Winter 2018/19",
+          "displayText": "Hart Award Team MVP - Winter 2018/19",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "Hart Award Team MVP - Winter 2018/19",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 1,
+            "milestone": 0
+          },
+          "sourceOrder": 0,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-525407-02",
+          "category": "award",
+          "sourceText": "Art Ross Award (36 Points) - Winter 2018/19",
+          "displayText": "Art Ross Award (36 Points) - Winter 2018/19",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "Art Ross Award (36 Points) - Winter 2018/19",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 1,
+            "milestone": 0
+          },
+          "sourceOrder": 1,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-525407-03",
+          "category": "milestone",
+          "sourceText": "100 Point Club - December 30, 2018",
+          "displayText": "100 Point Club - December 30, 2018",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "100 Point Club - December 30, 2018",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 0,
+            "milestone": 1
+          },
+          "sourceOrder": 2,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-525407-04",
+          "category": "award",
+          "sourceText": "Maurice 'Rocket' Richard Award (14 Goals) - Winter 2018/19",
+          "displayText": "Maurice 'Rocket' Richard Award (14 Goals) - Winter 2018/19",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "Maurice 'Rocket' Richard Award (14 Goals) - Winter 2018/19",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 1,
+            "milestone": 0
+          },
+          "sourceOrder": 3,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-525407-05",
+          "category": "milestone",
+          "sourceText": "50 Game Club - January 23, 2018",
+          "displayText": "50 Game Club - January 23, 2018",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "50 Game Club - January 23, 2018",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 0,
+            "milestone": 1
+          },
+          "sourceOrder": 4,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-525407-06",
+          "category": "milestone",
+          "sourceText": "50 Point Club - August 27, 2017",
+          "displayText": "50 Point Club - August 27, 2017",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "50 Point Club - August 27, 2017",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 0,
+            "milestone": 1
+          },
+          "sourceOrder": 5,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-525407-07",
+          "category": "championship",
+          "sourceText": "SVHL Cup Champion (Call-Up) - Summer 2016",
+          "displayText": "SVHL Cup Champion (Call-Up) - Summer 2016",
+          "sourceEmphasis": true,
+          "sourceRuns": [
+            {
+              "text": "SVHL Cup Champion (Call-Up)",
+              "strong": true,
+              "italic": true
+            },
+            {
+              "text": " - Summer 2016",
+              "strong": true,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 1,
+            "award": 0,
+            "milestone": 0
+          },
+          "sourceOrder": 6,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        }
+      ],
+      "originalCount": 7,
+      "legacyStatus": "IMPORT_FROM_CURRENT_PUBLIC_HTO_NO_NEW_AWARD_APPROVAL"
+    },
+    "533806": {
+      "name": "Stephen Keane",
+      "profileUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=533806",
+      "items": [
+        {
+          "id": "hto-legacy-533806-01",
+          "category": "award",
+          "sourceText": "Rookie of the Year Award - Winter 2016/17",
+          "displayText": "Rookie of the Year Award - Winter 2016/17",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "Rookie of the Year Award - Winter 2016/17",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 1,
+            "milestone": 0
+          },
+          "sourceOrder": 0,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        }
+      ],
+      "originalCount": 1,
+      "legacyStatus": "IMPORT_FROM_CURRENT_PUBLIC_HTO_NO_NEW_AWARD_APPROVAL"
+    },
     "586425": {
       "name": "Lorcan Duffy",
       "profileUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=586425",
@@ -1364,6 +4697,424 @@
       "originalCount": 3,
       "legacyStatus": "IMPORT_FROM_CURRENT_PUBLIC_HTO_NO_NEW_AWARD_APPROVAL"
     },
+    "612364": {
+      "name": "Mark Arruda",
+      "profileUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=612364",
+      "items": [
+        {
+          "id": "hto-legacy-612364-01",
+          "category": "award",
+          "sourceText": "James Norris Award - Winter 2025/26",
+          "displayText": "James Norris Award - Winter 2025/26",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "James Norris Award - Winter 2025/26",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 1,
+            "milestone": 0
+          },
+          "sourceOrder": 0,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-612364-02",
+          "category": "milestone",
+          "sourceText": "100 Game Club - March 15, 2026",
+          "displayText": "100 Game Club - March 15, 2026",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "100 Game Club - March 15, 2026",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 0,
+            "milestone": 1
+          },
+          "sourceOrder": 1,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-612364-03",
+          "category": "award",
+          "sourceText": "Lady Byng Award for Sportsmanship - Winter 2025/25",
+          "displayText": "Lady Byng Award for Sportsmanship - Winter 2025/25",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "Lady Byng Award for Sportsmanship - Winter 2025/25",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 1,
+            "milestone": 0
+          },
+          "sourceOrder": 2,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-612364-04",
+          "category": "award",
+          "sourceText": "Conn Smythe Award Playoff MVP - Winter 2024/25",
+          "displayText": "Conn Smythe Award Playoff MVP - Winter 2024/25",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "Conn Smythe Award Playoff MVP - Winter 2024/25",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 1,
+            "milestone": 0
+          },
+          "sourceOrder": 3,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-612364-05",
+          "category": "milestone",
+          "sourceText": "50 Point Club - March 9, 2025",
+          "displayText": "50 Point Club - March 9, 2025",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "50 Point Club - March 9, 2025",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 0,
+            "milestone": 1
+          },
+          "sourceOrder": 4,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-612364-06",
+          "category": "award",
+          "sourceText": "James Norris Award - Winter 2023/24",
+          "displayText": "James Norris Award - Winter 2023/24",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "James Norris Award - Winter 2023/24",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 1,
+            "milestone": 0
+          },
+          "sourceOrder": 5,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-612364-07",
+          "category": "award",
+          "sourceText": "Rookie of the Year - Winter 2023/24",
+          "displayText": "Rookie of the Year - Winter 2023/24",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "Rookie of the Year - Winter 2023/24",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 1,
+            "milestone": 0
+          },
+          "sourceOrder": 6,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-612364-08",
+          "category": "milestone",
+          "sourceText": "50 Game Club - March 10, 2024",
+          "displayText": "50 Game Club - March 10, 2024",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "50 Game Club - March 10, 2024",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 0,
+            "milestone": 1
+          },
+          "sourceOrder": 7,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-612364-09",
+          "category": "award",
+          "sourceText": "James Norris Award - Winter 2022/23",
+          "displayText": "James Norris Award - Winter 2022/23",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "James Norris Award - Winter 2022/23",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 1,
+            "milestone": 0
+          },
+          "sourceOrder": 8,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        }
+      ],
+      "originalCount": 9,
+      "legacyStatus": "IMPORT_FROM_CURRENT_PUBLIC_HTO_NO_NEW_AWARD_APPROVAL"
+    },
+    "634098": {
+      "name": "Andrew Cristillo",
+      "profileUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=634098",
+      "items": [
+        {
+          "id": "hto-legacy-634098-01",
+          "category": "recognition",
+          "sourceText": "Hall of Fame Inductee - Winter 2025/26",
+          "displayText": "Hall of Fame Inductee - Winter 2025/26",
+          "sourceEmphasis": true,
+          "sourceRuns": [
+            {
+              "text": "Hall of Fame Inductee - Winter 2025/26",
+              "strong": true,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 0,
+            "milestone": 0
+          },
+          "sourceOrder": 0,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-634098-02",
+          "category": "award",
+          "sourceText": "Most Improved Award - Winter 2023/24",
+          "displayText": "Most Improved Award - Winter 2023/24",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "Most Improved Award - Winter 2023/24",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 1,
+            "milestone": 0
+          },
+          "sourceOrder": 1,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-634098-03",
+          "category": "milestone",
+          "sourceText": "50 Game Club - December 10, 2023",
+          "displayText": "50 Game Club - December 10, 2023",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "50 Game Club - December 10, 2023",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 0,
+            "milestone": 1
+          },
+          "sourceOrder": 2,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-634098-04",
+          "category": "award",
+          "sourceText": "Bill Masterton Award for Dedication - Winter 2018/19",
+          "displayText": "Bill Masterton Award for Dedication - Winter 2018/19",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "Bill Masterton Award for Dedication - Winter 2018/19",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 1,
+            "milestone": 0
+          },
+          "sourceOrder": 3,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-634098-05",
+          "category": "award",
+          "sourceText": "Rookie of the Year Award - Winter 2018/19",
+          "displayText": "Rookie of the Year Award - Winter 2018/19",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "Rookie of the Year Award - Winter 2018/19",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 1,
+            "milestone": 0
+          },
+          "sourceOrder": 4,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        }
+      ],
+      "originalCount": 5,
+      "legacyStatus": "IMPORT_FROM_CURRENT_PUBLIC_HTO_NO_NEW_AWARD_APPROVAL"
+    },
+    "652571": {
+      "name": "David Corasaniti",
+      "profileUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=652571",
+      "items": [
+        {
+          "id": "hto-legacy-652571-01",
+          "category": "record",
+          "sourceText": "Conn Smythe Award Playoff MVP - Winter 2019/20\nHart Award Team MVP - Winter 2019/20\nRookie of the Year Award - Winter 2019/20",
+          "displayText": "Conn Smythe Award Playoff MVP - Winter 2019/20\nHart Award Team MVP - Winter 2019/20\nRookie of the Year Award - Winter 2019/20",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "Conn Smythe Award Playoff MVP - Winter 2019/20",
+              "strong": false,
+              "italic": false
+            },
+            {
+              "text": "\n",
+              "strong": false,
+              "italic": false
+            },
+            {
+              "text": "Hart Award Team MVP - Winter 2019/20",
+              "strong": false,
+              "italic": false
+            },
+            {
+              "text": "\n",
+              "strong": false,
+              "italic": false
+            },
+            {
+              "text": "Rookie of the Year Award - Winter 2019/20",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 3,
+            "milestone": 0
+          },
+          "sourceOrder": 0,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-652571-02",
+          "category": "award",
+          "sourceText": "Art Ross Award (30 Points) - Winter 2019/20",
+          "displayText": "Art Ross Award (30 Points) - Winter 2019/20",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "Art Ross Award (30 Points) - Winter 2019/20",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 1,
+            "milestone": 0
+          },
+          "sourceOrder": 1,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-652571-03",
+          "category": "award",
+          "sourceText": "Maurice \"Rocket\" Richard Award (10 Goals) - Winter 2019/20",
+          "displayText": "Maurice \"Rocket\" Richard Award (10 Goals) - Winter 2019/20",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "Maurice \"Rocket\" Richard Award (10 Goals) - Winter 2019/20",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 1,
+            "milestone": 0
+          },
+          "sourceOrder": 2,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        }
+      ],
+      "originalCount": 3,
+      "legacyStatus": "IMPORT_FROM_CURRENT_PUBLIC_HTO_NO_NEW_AWARD_APPROVAL"
+    },
     "686216": {
       "name": "Michael Provenzano",
       "profileUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=686216",
@@ -1428,6 +5179,36 @@
         }
       ],
       "originalCount": 2,
+      "legacyStatus": "IMPORT_FROM_CURRENT_PUBLIC_HTO_NO_NEW_AWARD_APPROVAL"
+    },
+    "733003": {
+      "name": "Kourosh Adeli",
+      "profileUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=733003",
+      "items": [
+        {
+          "id": "hto-legacy-733003-01",
+          "category": "award",
+          "sourceText": "Lady Byng Award for Sportsmanship - Winter 2022/23",
+          "displayText": "Lady Byng Award for Sportsmanship - Winter 2022/23",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "Lady Byng Award for Sportsmanship - Winter 2022/23",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 1,
+            "milestone": 0
+          },
+          "sourceOrder": 0,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        }
+      ],
+      "originalCount": 1,
       "legacyStatus": "IMPORT_FROM_CURRENT_PUBLIC_HTO_NO_NEW_AWARD_APPROVAL"
     },
     "736317": {
@@ -1574,6 +5355,36 @@
         }
       ],
       "originalCount": 12,
+      "legacyStatus": "IMPORT_FROM_CURRENT_PUBLIC_HTO_NO_NEW_AWARD_APPROVAL"
+    },
+    "763309": {
+      "name": "Medi Brancatella",
+      "profileUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=763309",
+      "items": [
+        {
+          "id": "hto-legacy-763309-01",
+          "category": "award",
+          "sourceText": "Most Improved Award - Winter 2024/25",
+          "displayText": "Most Improved Award - Winter 2024/25",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "Most Improved Award - Winter 2024/25",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 1,
+            "milestone": 0
+          },
+          "sourceOrder": 0,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        }
+      ],
+      "originalCount": 1,
       "legacyStatus": "IMPORT_FROM_CURRENT_PUBLIC_HTO_NO_NEW_AWARD_APPROVAL"
     }
   }
