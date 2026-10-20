@@ -55,10 +55,12 @@ jobs:
           subprocess.run([
               "python","scripts/process_goalie_issue.py",
               "--request","goalie-request.json","--actor",actor,
-              "--permission",permission
+              "--permission",permission,
+              "--result-file","build/goalie-request-status.json"
           ],check=True)
           PY
       - name: Commit verified goalie assignment (if changed)
+        id: commit
         run: |
           if git diff --quiet -- widgets/goalie-assignments.json; then
             echo "Already confirmed; no assignment write required"
@@ -71,8 +73,18 @@ jobs:
             git push
           fi
       - name: Record completion and close authenticated request
+        id: close
         env:
           GH_TOKEN: ${{ github.token }}
           ISSUE_NUMBER: ${{ github.event.issue.number }}
         run: |
           gh issue close "$ISSUE_NUMBER" --repo "$GITHUB_REPOSITORY" --comment "Validated against the latest available SVHL feed and goalie assignments; request processed successfully. Check the committed assignment file and public display for the result."
+
+      - name: Provide a safe public reason and recovery instructions when approval fails
+        if: ${{ failure() }}
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          AUTH_OUTCOME: ${{ steps.authorize.outcome }}
+          COMMIT_OUTCOME: ${{ steps.commit.outcome }}
+          CLOSE_OUTCOME: ${{ steps.close.outcome }}
+        run: python scripts/goalie_request_feedback.py
