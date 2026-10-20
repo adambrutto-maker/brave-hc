@@ -1,0 +1,1292 @@
+{
+  "date": "2026-10-20",
+  "finalRegister": [
+    {
+      "name": "Stefano Ardizzi",
+      "playerID": "356089",
+      "priorHighlights": "Existing manual Highlights",
+      "backup": "261020_legacy-editor-originals.json",
+      "installation": "DEFERRED — native field unchanged",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=356089",
+      "QA": "No install; preservation hold",
+      "legacyCount": 0,
+      "desktopHeight": null,
+      "mobileHeight": null,
+      "deferReason": "Existing suspension note has no neutral supported ledger category; leave complete native field unchanged."
+    },
+    {
+      "name": "Nolan Atkins",
+      "playerID": "769343",
+      "priorHighlights": "Empty",
+      "backup": "261020_empty-profile-rollback.json; authenticated Source confirmed empty",
+      "installation": "INSTALLED_AND_PUBLICLY_VERIFIED",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=769343",
+      "QA": "PASS — saved public HTO desktop and 390px mobile",
+      "legacyCount": 0,
+      "desktopHeight": 739,
+      "mobileHeight": 834,
+      "deferReason": null
+    },
+    {
+      "name": "Adam Brutto",
+      "playerID": "354054",
+      "priorHighlights": "Widget already installed and verified",
+      "backup": "Prior pilot backup references in Issue #21; not recaptured",
+      "installation": "Existing widget — not edited",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=354054",
+      "QA": "Previously accepted desktop/mobile; user baseline and Issue #21",
+      "legacyCount": 16,
+      "desktopHeight": null,
+      "mobileHeight": null,
+      "deferReason": null
+    },
+    {
+      "name": "Adam Carlyle",
+      "playerID": "849369",
+      "priorHighlights": "Empty",
+      "backup": "261020_empty-profile-rollback.json; authenticated Source confirmed empty",
+      "installation": "INSTALLED_AND_PUBLICLY_VERIFIED",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=849369",
+      "QA": "PASS — saved public HTO desktop and 390px mobile",
+      "legacyCount": 0,
+      "desktopHeight": 739,
+      "mobileHeight": 834,
+      "deferReason": null
+    },
+    {
+      "name": "Justin Carosi",
+      "playerID": "354060",
+      "priorHighlights": "Widget already installed and verified",
+      "backup": "Prior pilot backup references in Issue #21; not recaptured",
+      "installation": "Existing widget — not edited",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=354060",
+      "QA": "Previously accepted desktop/mobile; user baseline and Issue #21",
+      "legacyCount": 25,
+      "desktopHeight": null,
+      "mobileHeight": null,
+      "deferReason": null
+    },
+    {
+      "name": "Marco Congiusti",
+      "playerID": "354041",
+      "priorHighlights": "Existing manual Highlights",
+      "backup": "261020_legacy-editor-originals.json",
+      "installation": "INSTALLED_AND_PUBLICLY_VERIFIED",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=354041",
+      "QA": "PASS — saved public HTO desktop and 390px mobile",
+      "legacyCount": 9,
+      "desktopHeight": 1133,
+      "mobileHeight": 1213,
+      "deferReason": null
+    },
+    {
+      "name": "Lorcan Duffy",
+      "playerID": "586425",
+      "priorHighlights": "Existing manual Highlights",
+      "backup": "261020_legacy-editor-originals.json",
+      "installation": "INSTALLED_AND_PUBLICLY_VERIFIED",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=586425",
+      "QA": "PASS — saved public HTO desktop and 390px mobile",
+      "legacyCount": 4,
+      "desktopHeight": 947,
+      "mobileHeight": 1008,
+      "deferReason": null
+    },
+    {
+      "name": "Adam Kober",
+      "playerID": "736317",
+      "priorHighlights": "Existing manual Highlights",
+      "backup": "261020_legacy-editor-originals.json",
+      "installation": "INSTALLED_AND_PUBLICLY_VERIFIED",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=736317",
+      "QA": "PASS — saved public HTO desktop and 390px mobile",
+      "legacyCount": 1,
+      "desktopHeight": 760,
+      "mobileHeight": 822,
+      "deferReason": null
+    },
+    {
+      "name": "Henry Kong",
+      "playerID": "846200",
+      "priorHighlights": "Empty",
+      "backup": "261020_empty-profile-rollback.json; authenticated Source confirmed empty",
+      "installation": "INSTALLED_AND_PUBLICLY_VERIFIED",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=846200",
+      "QA": "PASS — saved public HTO desktop and 390px mobile",
+      "legacyCount": 0,
+      "desktopHeight": 739,
+      "mobileHeight": 834,
+      "deferReason": null
+    },
+    {
+      "name": "Dev Leong",
+      "playerID": "776208",
+      "priorHighlights": "Empty",
+      "backup": "261020_776208_original.json",
+      "installation": "INSTALLED_AND_PUBLICLY_VERIFIED",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=776208",
+      "QA": "PASS — saved public HTO desktop and 390px mobile",
+      "legacyCount": 0,
+      "desktopHeight": 739,
+      "mobileHeight": 834,
+      "deferReason": null
+    },
+    {
+      "name": "Stephen Logue",
+      "playerID": "354055",
+      "priorHighlights": "Existing manual Highlights",
+      "backup": "261020_legacy-editor-originals.json",
+      "installation": "INSTALLED_AND_PUBLICLY_VERIFIED",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=354055",
+      "QA": "PASS — saved public HTO desktop and 390px mobile",
+      "legacyCount": 11,
+      "desktopHeight": 1133,
+      "mobileHeight": 1195,
+      "deferReason": null
+    },
+    {
+      "name": "Stefano Mazzei",
+      "playerID": "595514",
+      "priorHighlights": "Existing manual Highlights",
+      "backup": "261020_legacy-editor-originals.json",
+      "installation": "DEFERRED — native field unchanged",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=595514",
+      "QA": "No install; preservation hold",
+      "legacyCount": 0,
+      "desktopHeight": null,
+      "mobileHeight": null,
+      "deferReason": "Existing suspension note has no neutral supported ledger category; leave complete native field unchanged."
+    },
+    {
+      "name": "Alex Pagnotta",
+      "playerID": "354058",
+      "priorHighlights": "Existing manual Highlights",
+      "backup": "261020_legacy-editor-originals.json",
+      "installation": "DEFERRED — native field unchanged",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=354058",
+      "QA": "No install; preservation hold",
+      "legacyCount": 0,
+      "desktopHeight": null,
+      "mobileHeight": null,
+      "deferReason": "Award and leadership reference share one paragraph with an explicit line break; current renderer would flatten grouping/formatting. Leave unchanged pending a faithful rendering treatment."
+    },
+    {
+      "name": "Anthony Paolucci",
+      "playerID": "354057",
+      "priorHighlights": "Existing manual Highlights",
+      "backup": "261020_legacy-editor-originals.json",
+      "installation": "INSTALLED_AND_PUBLICLY_VERIFIED",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=354057",
+      "QA": "PASS — saved public HTO desktop and 390px mobile",
+      "legacyCount": 7,
+      "desktopHeight": 1133,
+      "mobileHeight": 1195,
+      "deferReason": null
+    },
+    {
+      "name": "Damian Pavaday",
+      "playerID": "849368",
+      "priorHighlights": "Empty",
+      "backup": "261020_empty-profile-rollback.json; authenticated Source confirmed empty",
+      "installation": "INSTALLED_AND_PUBLICLY_VERIFIED",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=849368",
+      "QA": "PASS — saved public HTO desktop and 390px mobile",
+      "legacyCount": 0,
+      "desktopHeight": 739,
+      "mobileHeight": 834,
+      "deferReason": null
+    },
+    {
+      "name": "Keith Pearsoll",
+      "playerID": "354056",
+      "priorHighlights": "Existing manual Highlights",
+      "backup": "261020_legacy-editor-originals.json",
+      "installation": "INSTALLED_AND_PUBLICLY_VERIFIED",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=354056",
+      "QA": "PASS — saved public HTO desktop and 390px mobile",
+      "legacyCount": 16,
+      "desktopHeight": 1133,
+      "mobileHeight": 1231,
+      "deferReason": null
+    },
+    {
+      "name": "Adam Povegliano",
+      "playerID": "844036",
+      "priorHighlights": "Empty",
+      "backup": "261020_empty-profile-rollback.json; authenticated Source confirmed empty",
+      "installation": "INSTALLED_AND_PUBLICLY_VERIFIED",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=844036",
+      "QA": "PASS — saved public HTO desktop and 390px mobile",
+      "legacyCount": 0,
+      "desktopHeight": 739,
+      "mobileHeight": 834,
+      "deferReason": null
+    },
+    {
+      "name": "Mario Provenzano",
+      "playerID": "354045",
+      "priorHighlights": "Existing manual Highlights",
+      "backup": "261020_legacy-editor-originals.json",
+      "installation": "INSTALLED_AND_PUBLICLY_VERIFIED",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=354045",
+      "QA": "PASS — saved public HTO desktop and 390px mobile",
+      "legacyCount": 9,
+      "desktopHeight": 1133,
+      "mobileHeight": 1213,
+      "deferReason": null
+    },
+    {
+      "name": "Michael Provenzano",
+      "playerID": "686216",
+      "priorHighlights": "Existing manual Highlights",
+      "backup": "261020_legacy-editor-originals.json",
+      "installation": "INSTALLED_AND_PUBLICLY_VERIFIED",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=686216",
+      "QA": "PASS — saved public HTO desktop and 390px mobile",
+      "legacyCount": 3,
+      "desktopHeight": 885,
+      "mobileHeight": 994,
+      "deferReason": null
+    },
+    {
+      "name": "Krishnan Rajasooriar",
+      "playerID": "700877",
+      "priorHighlights": "Existing manual Highlights",
+      "backup": "261020_legacy-editor-originals.json",
+      "installation": "INSTALLED_AND_PUBLICLY_VERIFIED",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=700877",
+      "QA": "PASS — saved public HTO desktop and 390px mobile",
+      "legacyCount": 2,
+      "desktopHeight": 822,
+      "mobileHeight": 914,
+      "deferReason": null
+    },
+    {
+      "name": "Sanjay Rajkumar",
+      "playerID": "845365",
+      "priorHighlights": "Empty",
+      "backup": "261020_empty-profile-rollback.json; authenticated Source confirmed empty",
+      "installation": "INSTALLED_AND_PUBLICLY_VERIFIED",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=845365",
+      "QA": "PASS — saved public HTO desktop and 390px mobile",
+      "legacyCount": 0,
+      "desktopHeight": 739,
+      "mobileHeight": 834,
+      "deferReason": null
+    },
+    {
+      "name": "Jamie Rosenberg",
+      "playerID": "843644",
+      "priorHighlights": "Empty",
+      "backup": "261020_empty-profile-rollback.json; authenticated Source confirmed empty",
+      "installation": "INSTALLED_AND_PUBLICLY_VERIFIED",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=843644",
+      "QA": "PASS — saved public HTO desktop and 390px mobile",
+      "legacyCount": 0,
+      "desktopHeight": 739,
+      "mobileHeight": 834,
+      "deferReason": null
+    },
+    {
+      "name": "Stephane Saindon",
+      "playerID": "738846",
+      "priorHighlights": "Existing manual Highlights",
+      "backup": "261020_legacy-editor-originals.json",
+      "installation": "INSTALLED_AND_PUBLICLY_VERIFIED",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=738846",
+      "QA": "PASS — saved public HTO desktop and 390px mobile",
+      "legacyCount": 12,
+      "desktopHeight": 1133,
+      "mobileHeight": 1213,
+      "deferReason": null
+    },
+    {
+      "name": "Francesco Triumbari",
+      "playerID": "845364",
+      "priorHighlights": "Empty",
+      "backup": "261020_empty-profile-rollback.json; authenticated Source confirmed empty",
+      "installation": "INSTALLED_AND_PUBLICLY_VERIFIED",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=845364",
+      "QA": "PASS — saved public HTO desktop and 390px mobile",
+      "legacyCount": 0,
+      "desktopHeight": 739,
+      "mobileHeight": 864,
+      "deferReason": null
+    },
+    {
+      "name": "Johnny Unknown",
+      "playerID": "847926",
+      "priorHighlights": "Unverified placeholder",
+      "backup": "N/A — excluded",
+      "installation": "EXCLUDED",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=847926",
+      "QA": "Not tested — identity excluded",
+      "legacyCount": 0,
+      "desktopHeight": null,
+      "mobileHeight": null,
+      "deferReason": null
+    }
+  ],
+  "desktopChecks": [
+    {
+      "id": 769343,
+      "parent": [
+        {
+          "css": "1350px",
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=769343"
+        }
+      ],
+      "desktop": {
+        "clientWidth": 604,
+        "height": 739,
+        "text": "BRAVE H.C. · PLAYER LEGACY\nNolan Atkins\n\nHTO player #769343 · Career archive and source-verified game form\n\nExisting career achievements are preserved as published; current-season statistics are sourced separately. Awards and milestone dates require manager approval.\nVerified Current-Season Form\n2\nGP\n0\nG\n0\nA\n0\nPTS\n\nOfficial HTO W2026/27 source readback: Oct 18, 2026 · Historical/stale snapshot — confirm latest figures on HTO.\n\nOfficial HTO player profile ↗\nCareer Highlights\n\nNo approved career highlights are on file for this player yet. New profiles use the same widget and receive achievements only after a recorded, approved update.\n\nShow all highlights\nExisting awards, leadership, nominations, championships and dated milestones are imported only from the player's own published HTO Highlights. No new awards or milestone dates are invented or automatically adopted.",
+        "viewport": 1350,
+        "width": 604
+      },
+      "mobile": {
+        "clientWidth": 325,
+        "height": 834,
+        "viewport": 1350,
+        "width": 325
+      },
+      "url": "https://www.htosports.com/teams/default.asp?p=profile&u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&playerID=769343"
+    },
+    {
+      "id": 849369,
+      "parent": [
+        {
+          "css": "1350px",
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=849369"
+        }
+      ],
+      "desktop": {
+        "clientWidth": 604,
+        "height": 739,
+        "text": "BRAVE H.C. · PLAYER LEGACY\nAdam Carlyle\n\nHTO player #849369 · Career archive and source-verified game form\n\nExisting career achievements are preserved as published; current-season statistics are sourced separately. Awards and milestone dates require manager approval.\nVerified Current-Season Form\n1\nGP\n3\nGA\n3.00\nGAA\n1\nPOTG\n\nOfficial HTO W2026/27 source readback: Oct 18, 2026 · Historical/stale snapshot — confirm latest figures on HTO.\n\nOfficial HTO player profile ↗\nCareer Highlights\n\nNo approved career highlights are on file for this player yet. New profiles use the same widget and receive achievements only after a recorded, approved update.\n\nShow all highlights\nExisting awards, leadership, nominations, championships and dated milestones are imported only from the player's own published HTO Highlights. No new awards or milestone dates are invented or automatically adopted.",
+        "viewport": 1350,
+        "width": 604
+      },
+      "mobile": {
+        "clientWidth": 325,
+        "height": 834,
+        "viewport": 1350,
+        "width": 325
+      },
+      "url": "https://www.htosports.com/teams/default.asp?p=profile&u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&playerID=849369"
+    },
+    {
+      "id": 846200,
+      "parent": [
+        {
+          "css": "1350px",
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=846200"
+        }
+      ],
+      "desktop": {
+        "clientWidth": 604,
+        "height": 739,
+        "text": "BRAVE H.C. · PLAYER LEGACY\nHenry Kong\n\nHTO player #846200 · Career archive and source-verified game form\n\nExisting career achievements are preserved as published; current-season statistics are sourced separately. Awards and milestone dates require manager approval.\nVerified Current-Season Form\n4\nGP\n1\nG\n1\nA\n2\nPTS\n\nOfficial HTO W2026/27 source readback: Oct 18, 2026 · Historical/stale snapshot — confirm latest figures on HTO.\n\nOfficial HTO player profile ↗\nCareer Highlights\n\nNo approved career highlights are on file for this player yet. New profiles use the same widget and receive achievements only after a recorded, approved update.\n\nShow all highlights\nExisting awards, leadership, nominations, championships and dated milestones are imported only from the player's own published HTO Highlights. No new awards or milestone dates are invented or automatically adopted.",
+        "viewport": 1350,
+        "width": 604
+      },
+      "mobile": {
+        "clientWidth": 325,
+        "height": 834,
+        "viewport": 1350,
+        "width": 325
+      },
+      "url": "https://www.htosports.com/teams/default.asp?p=profile&u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&playerID=846200"
+    },
+    {
+      "id": 849368,
+      "parent": [
+        {
+          "css": "1350px",
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=849368"
+        }
+      ],
+      "desktop": {
+        "clientWidth": 604,
+        "height": 739,
+        "text": "BRAVE H.C. · PLAYER LEGACY\nDamian Pavaday\n\nHTO player #849368 · Career archive and source-verified game form\n\nExisting career achievements are preserved as published; current-season statistics are sourced separately. Awards and milestone dates require manager approval.\nVerified Current-Season Form\n1\nGP\n0\nG\n1\nA\n1\nPTS\n\nOfficial HTO W2026/27 source readback: Oct 18, 2026 · Historical/stale snapshot — confirm latest figures on HTO.\n\nOfficial HTO player profile ↗\nCareer Highlights\n\nNo approved career highlights are on file for this player yet. New profiles use the same widget and receive achievements only after a recorded, approved update.\n\nShow all highlights\nExisting awards, leadership, nominations, championships and dated milestones are imported only from the player's own published HTO Highlights. No new awards or milestone dates are invented or automatically adopted.",
+        "viewport": 1350,
+        "width": 604
+      },
+      "mobile": {
+        "clientWidth": 325,
+        "height": 834,
+        "viewport": 1350,
+        "width": 325
+      },
+      "url": "https://www.htosports.com/teams/default.asp?p=profile&u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&playerID=849368"
+    },
+    {
+      "id": 844036,
+      "parent": [
+        {
+          "css": "1350px",
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=844036"
+        }
+      ],
+      "desktop": {
+        "clientWidth": 604,
+        "height": 739,
+        "text": "BRAVE H.C. · PLAYER LEGACY\nAdam Povegliano\n\nHTO player #844036 · Career archive and source-verified game form\n\nExisting career achievements are preserved as published; current-season statistics are sourced separately. Awards and milestone dates require manager approval.\nVerified Current-Season Form\n3\nGP\n0\nG\n0\nA\n0\nPTS\n\nOfficial HTO W2026/27 source readback: Oct 18, 2026 · Historical/stale snapshot — confirm latest figures on HTO.\n\nOfficial HTO player profile ↗\nCareer Highlights\n\nNo approved career highlights are on file for this player yet. New profiles use the same widget and receive achievements only after a recorded, approved update.\n\nShow all highlights\nExisting awards, leadership, nominations, championships and dated milestones are imported only from the player's own published HTO Highlights. No new awards or milestone dates are invented or automatically adopted.",
+        "viewport": 1350,
+        "width": 604
+      },
+      "mobile": {
+        "clientWidth": 325,
+        "height": 834,
+        "viewport": 1350,
+        "width": 325
+      },
+      "url": "https://www.htosports.com/teams/default.asp?p=profile&u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&playerID=844036"
+    },
+    {
+      "id": 845365,
+      "parent": [
+        {
+          "css": "1350px",
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=845365"
+        }
+      ],
+      "desktop": {
+        "clientWidth": 604,
+        "height": 739,
+        "text": "BRAVE H.C. · PLAYER LEGACY\nSanjay Rajkumar\n\nHTO player #845365 · Career archive and source-verified game form\n\nExisting career achievements are preserved as published; current-season statistics are sourced separately. Awards and milestone dates require manager approval.\nVerified Current-Season Form\n3\nGP\n0\nG\n0\nA\n0\nPTS\n\nOfficial HTO W2026/27 source readback: Oct 18, 2026 · Historical/stale snapshot — confirm latest figures on HTO.\n\nOfficial HTO player profile ↗\nCareer Highlights\n\nNo approved career highlights are on file for this player yet. New profiles use the same widget and receive achievements only after a recorded, approved update.\n\nShow all highlights\nExisting awards, leadership, nominations, championships and dated milestones are imported only from the player's own published HTO Highlights. No new awards or milestone dates are invented or automatically adopted.",
+        "viewport": 1350,
+        "width": 604
+      },
+      "mobile": {
+        "clientWidth": 325,
+        "height": 834,
+        "viewport": 1350,
+        "width": 325
+      },
+      "url": "https://www.htosports.com/teams/default.asp?p=profile&u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&playerID=845365"
+    },
+    {
+      "id": 843644,
+      "parent": [
+        {
+          "css": "1350px",
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=843644"
+        }
+      ],
+      "desktop": {
+        "clientWidth": 604,
+        "height": 739,
+        "text": "BRAVE H.C. · PLAYER LEGACY\nJamie Rosenberg\n\nHTO player #843644 · Career archive and source-verified game form\n\nExisting career achievements are preserved as published; current-season statistics are sourced separately. Awards and milestone dates require manager approval.\nVerified Current-Season Form\n3\nGP\n0\nG\n0\nA\n0\nPTS\n\nOfficial HTO W2026/27 source readback: Oct 18, 2026 · Historical/stale snapshot — confirm latest figures on HTO.\n\nOfficial HTO player profile ↗\nCareer Highlights\n\nNo approved career highlights are on file for this player yet. New profiles use the same widget and receive achievements only after a recorded, approved update.\n\nShow all highlights\nExisting awards, leadership, nominations, championships and dated milestones are imported only from the player's own published HTO Highlights. No new awards or milestone dates are invented or automatically adopted.",
+        "viewport": 1350,
+        "width": 604
+      },
+      "mobile": {
+        "clientWidth": 325,
+        "height": 834,
+        "viewport": 1350,
+        "width": 325
+      },
+      "url": "https://www.htosports.com/teams/default.asp?p=profile&u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&playerID=843644"
+    },
+    {
+      "id": 845364,
+      "parent": [
+        {
+          "css": "1350px",
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=845364"
+        }
+      ],
+      "desktop": {
+        "clientWidth": 604,
+        "height": 739,
+        "text": "BRAVE H.C. · PLAYER LEGACY\nFrancesco Triumbari\n\nHTO player #845364 · Career archive and source-verified game form\n\nExisting career achievements are preserved as published; current-season statistics are sourced separately. Awards and milestone dates require manager approval.\nVerified Current-Season Form\n4\nGP\n0\nG\n0\nA\n0\nPTS\n\nOfficial HTO W2026/27 source readback: Oct 18, 2026 · Historical/stale snapshot — confirm latest figures on HTO.\n\nOfficial HTO player profile ↗\nCareer Highlights\n\nNo approved career highlights are on file for this player yet. New profiles use the same widget and receive achievements only after a recorded, approved update.\n\nShow all highlights\nExisting awards, leadership, nominations, championships and dated milestones are imported only from the player's own published HTO Highlights. No new awards or milestone dates are invented or automatically adopted.",
+        "viewport": 1350,
+        "width": 604
+      },
+      "mobile": {
+        "clientWidth": 325,
+        "height": 864,
+        "viewport": 1350,
+        "width": 325
+      },
+      "url": "https://www.htosports.com/teams/default.asp?p=profile&u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&playerID=845364"
+    },
+    {
+      "id": "736317",
+      "parent": [
+        {
+          "css": "1350px",
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=736317"
+        }
+      ],
+      "desktop": {
+        "clientWidth": 604,
+        "height": 760,
+        "text": "BRAVE H.C. · PLAYER LEGACY\nAdam Kober\n\nHTO player #736317 · Career archive and source-verified game form\n\nExisting career achievements are preserved as published; current-season statistics are sourced separately. Awards and milestone dates require manager approval.\nVerified Current-Season Form\n3\nGP\n1\nG\n1\nA\n2\nPTS\n\nOfficial HTO W2026/27 source readback: Oct 18, 2026 · Historical/stale snapshot — confirm latest figures on HTO.\n\nOfficial HTO player profile ↗\n0\nSVHL Cup titles\n1\nRecorded awards\n0\nClub milestones\nCareer Highlights\nAWD\nRolaids Relief Man Award\nIndividual award · Winter 2025/26\nShow all 1 highlights\nExisting awards, leadership, nominations, championships and dated milestones are imported only from the player's own published HTO Highlights. No new awards or milestone dates are invented or automatically adopted. Imported: Oct 20, 2026 · Official HTO player profile ↗",
+        "viewport": 1350,
+        "width": 604
+      },
+      "mobile": {
+        "clientWidth": 604,
+        "height": 760,
+        "viewport": 1350,
+        "width": 604
+      },
+      "url": "https://www.htosports.com/teams/default.asp?p=profile&u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&playerID=736317",
+      "legacy": {
+        "count": 1,
+        "exactTextOrderEmphasis": true,
+        "expandCollapse": "N/A"
+      }
+    },
+    {
+      "id": "586425",
+      "parent": [
+        {
+          "css": "1350px",
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=586425"
+        }
+      ],
+      "desktop": {
+        "clientWidth": 604,
+        "height": 947,
+        "text": "BRAVE H.C. · PLAYER LEGACY\nLorcan Duffy\n\nHTO player #586425 · Career archive and source-verified game form\n\nExisting career achievements are preserved as published; current-season statistics are sourced separately. Awards and milestone dates require manager approval.\nVerified Current-Season Form\n1\nGP\n0\nG\n0\nA\n0\nPTS\n\nOfficial HTO W2026/27 source readback: Oct 18, 2026 · Historical/stale snapshot — confirm latest figures on HTO.\n\nOfficial HTO player profile ↗\n0\nSVHL Cup titles\n2\nRecorded awards\n2\nClub milestones\nCareer Highlights\nCLUB\n50 Point Club\nCareer milestone · March 1, 2020\nCLUB\n50 Game Club\nCareer milestone · April 14, 2019\nAWD\nRookie of the Year\nIndividual award · Winter 2017/18\nAWD\nJames Norris Award\nIndividual award · Summer 2017\nShow all 4 highlights\nExisting awards, leadership, nominations, championships and dated milestones are imported only from the player's own published HTO Highlights. No new awards or milestone dates are invented or automatically adopted. Imported: Oct 20, 2026 · Official HTO player profile ↗",
+        "viewport": 1350,
+        "width": 604
+      },
+      "mobile": {
+        "clientWidth": 604,
+        "height": 947,
+        "viewport": 1350,
+        "width": 604
+      },
+      "url": "https://www.htosports.com/teams/default.asp?p=profile&u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&playerID=586425",
+      "legacy": {
+        "count": 4,
+        "exactTextOrderEmphasis": true,
+        "expandCollapse": "N/A"
+      }
+    },
+    {
+      "id": "354041",
+      "parent": [
+        {
+          "css": "1350px",
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=354041"
+        }
+      ],
+      "desktop": {
+        "clientWidth": 604,
+        "height": 1133,
+        "text": "BRAVE H.C. · PLAYER LEGACY\nMarco Congiusti\n\nHTO player #354041 · Career archive and source-verified game form\n\nExisting career achievements are preserved as published; current-season statistics are sourced separately. Awards and milestone dates require manager approval.\nVerified Current-Season Form\n1\nGP\n0\nG\n0\nA\n0\nPTS\n\nOfficial HTO W2026/27 source readback: Oct 18, 2026 · Historical/stale snapshot — confirm latest figures on HTO.\n\nOfficial HTO player profile ↗\n3\nSVHL Cup titles\n2\nRecorded awards\n4\nClub milestones\nCareer Highlights\nCLUB\n200 Game Club\nCareer milestone · November 17, 2019\nCLUB\n50 Point Club\nCareer milestone · March 3, 2019\nAWD\nMost Improved Award\nIndividual award · Winter 2016/17\nCUP\nSVHL Cup Champion\nChampionship · Summer 2016\nCUP\nSVHL Cup Champion\nChampionship · Winter 2015/16\nCLUB\n100 Game Club\nCareer milestone · February 28, 2016\nAWD\nLady Byng Award for Sportsmanship\nIndividual award · Winter 2014/15\nShow all 9 highlights\nExisting awards, leadership, nominations, championships and dated milestones are imported only from the player's own published HTO Highlights. No new awards or milestone dates are invented or automatically adopted. Imported: Oct 20, 2026 · Official HTO player profile ↗",
+        "viewport": 1350,
+        "width": 604
+      },
+      "mobile": {
+        "clientWidth": 604,
+        "height": 1133,
+        "viewport": 1350,
+        "width": 604
+      },
+      "url": "https://www.htosports.com/teams/default.asp?p=profile&u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&playerID=354041",
+      "legacy": {
+        "count": 9,
+        "exactTextOrderEmphasis": true,
+        "expandCollapse": "PASS"
+      }
+    },
+    {
+      "id": "354055",
+      "parent": [
+        {
+          "css": "1350px",
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=354055"
+        }
+      ],
+      "desktop": {
+        "clientWidth": 604,
+        "height": 1133,
+        "text": "BRAVE H.C. · PLAYER LEGACY\nStephen Logue\n\nHTO player #354055 · Career archive and source-verified game form\n\nExisting career achievements are preserved as published; current-season statistics are sourced separately. Awards and milestone dates require manager approval.\nVerified Current-Season Form\n1\nGP\n6\nGA\n6.00\nGAA\n1\nPOTG\n\nOfficial HTO W2026/27 source readback: Oct 18, 2026 · Historical/stale snapshot — confirm latest figures on HTO.\n\nOfficial HTO player profile ↗\n3\nSVHL Cup titles\n2\nRecorded awards\n5\nClub milestones\nCareer Highlights\nSTAR\nHall of Fame Inductee\nRecognition · Winter 2024/25\nCLUB\n100 Win Club\nCareer milestone · March 1, 2020\nCLUB\n200 Game Club\nCareer milestone · December 15, 2019\nCUP\nSVHL Cup Champion\nChampionship · Summer 2016\nCUP\nSVHL Cup Champion\nChampionship · Winter 2015/16\nCLUB\n100 Game Club\nCareer milestone · January 31, 2016\nAWD\nConn Smythe Award Playoff MVP\nIndividual award · Winter 2015/16\nShow all 11 highlights\nExisting awards, leadership, nominations, championships and dated milestones are imported only from the player's own published HTO Highlights. No new awards or milestone dates are invented or automatically adopted. Imported: Oct 20, 2026 · Official HTO player profile ↗",
+        "viewport": 1350,
+        "width": 604
+      },
+      "mobile": {
+        "clientWidth": 604,
+        "height": 1133,
+        "viewport": 1350,
+        "width": 604
+      },
+      "url": "https://www.htosports.com/teams/default.asp?p=profile&u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&playerID=354055",
+      "legacy": {
+        "count": 11,
+        "exactTextOrderEmphasis": true,
+        "expandCollapse": "PASS"
+      }
+    },
+    {
+      "id": "354057",
+      "parent": [
+        {
+          "css": "1350px",
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=354057"
+        }
+      ],
+      "desktop": {
+        "clientWidth": 604,
+        "height": 1133,
+        "text": "BRAVE H.C. · PLAYER LEGACY\nAnthony Paolucci\n\nHTO player #354057 · Career archive and source-verified game form\n\nExisting career achievements are preserved as published; current-season statistics are sourced separately. Awards and milestone dates require manager approval.\nVerified Current-Season Form\n1\nGP\n0\nG\n0\nA\n0\nPTS\n\nOfficial HTO W2026/27 source readback: Oct 18, 2026 · Historical/stale snapshot — confirm latest figures on HTO.\n\nOfficial HTO player profile ↗\n2\nSVHL Cup titles\n4\nRecorded awards\n1\nClub milestones\nCareer Highlights\nCUP\nSVHL Cup Champion\nChampionship · Summer 2016\nAWD\nBill Masterton Award for Decidation\nIndividual award · Summer 2016\nCUP\nSVHL Cup Champion\nChampionship · Winter 2015/16\nAWD\nMost Improved Award\nIndividual award · Winter 2015/16\nCLUB\n50 Game Club\nCareer milestone · November 15, 2015\nAWD\nRookie of the Year Award\nIndividual award · Summer 2015\nAWD\nMost Improved Award\nIndividual award · Summer 2013\nShow all 7 highlights\nExisting awards, leadership, nominations, championships and dated milestones are imported only from the player's own published HTO Highlights. No new awards or milestone dates are invented or automatically adopted. Imported: Oct 20, 2026 · Official HTO player profile ↗",
+        "viewport": 1350,
+        "width": 604
+      },
+      "mobile": {
+        "clientWidth": 604,
+        "height": 1133,
+        "viewport": 1350,
+        "width": 604
+      },
+      "url": "https://www.htosports.com/teams/default.asp?p=profile&u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&playerID=354057",
+      "legacy": {
+        "count": 7,
+        "exactTextOrderEmphasis": true,
+        "expandCollapse": "N/A"
+      }
+    },
+    {
+      "id": "354056",
+      "parent": [
+        {
+          "css": "1350px",
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=354056"
+        }
+      ],
+      "desktop": {
+        "clientWidth": 604,
+        "height": 1133,
+        "text": "BRAVE H.C. · PLAYER LEGACY\nKeith Pearsoll\n\nHTO player #354056 · Career archive and source-verified game form\n\nExisting career achievements are preserved as published; current-season statistics are sourced separately. Awards and milestone dates require manager approval.\nVerified Current-Season Form\n3\nGP\n1\nG\n0\nA\n1\nPTS\n\nOfficial HTO W2026/27 source readback: Oct 18, 2026 · Historical/stale snapshot — confirm latest figures on HTO.\n\nOfficial HTO player profile ↗\n3\nSVHL Cup titles\n7\nRecorded awards\n6\nClub milestones\nCareer Highlights\nAWD\nLady Byng Award for Sportsmanship\nIndividual award · Winter 2025/26\nAWD\nLady Byng Award for Sportsmanship\nIndividual award · Winter 2023/24\nCLUB\n200 Point Club\nCareer milestone · February 19, 2023\nCLUB\n200 Game Club\nCareer milestone · February 17, 2019\nAWD\nMost Improved Award\nIndividual award · Winter 2017/18\nCUP\nSVHL Cup Champion\nChampionship · Summer 2016\nAWD\nMost Improved Award\nIndividual award · Summer 2016\nShow all 16 highlights\nExisting awards, leadership, nominations, championships and dated milestones are imported only from the player's own published HTO Highlights. No new awards or milestone dates are invented or automatically adopted. Imported: Oct 20, 2026 · Official HTO player profile ↗",
+        "viewport": 1350,
+        "width": 604
+      },
+      "mobile": {
+        "clientWidth": 604,
+        "height": 1133,
+        "viewport": 1350,
+        "width": 604
+      },
+      "url": "https://www.htosports.com/teams/default.asp?p=profile&u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&playerID=354056",
+      "legacy": {
+        "count": 16,
+        "exactTextOrderEmphasis": true,
+        "expandCollapse": "PASS"
+      }
+    },
+    {
+      "id": "354045",
+      "parent": [
+        {
+          "css": "1350px",
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=354045"
+        }
+      ],
+      "desktop": {
+        "clientWidth": 604,
+        "height": 1133,
+        "text": "BRAVE H.C. · PLAYER LEGACY\nMario Provenzano\n\nHTO player #354045 · Career archive and source-verified game form\n\nExisting career achievements are preserved as published; current-season statistics are sourced separately. Awards and milestone dates require manager approval.\nVerified Current-Season Form\n4\nGP\n0\nG\n0\nA\n0\nPTS\n\nOfficial HTO W2026/27 source readback: Oct 18, 2026 · Historical/stale snapshot — confirm latest figures on HTO.\n\nOfficial HTO player profile ↗\n2\nSVHL Cup titles\n2\nRecorded awards\n5\nClub milestones\nCareer Highlights\nAWD\nMost Improved Award\nIndividual award · Winter 2025/26\nCLUB\n100 Point Club\nCareer milestone · November 16, 2025\nCLUB\n200 Game Club\nCareer milestone · March 24, 2024\nAWD\nLady Byng Award for Sportsmanship\nIndividual award · Winter 2018/19\nCLUB\n50 Point Club\nCareer milestone · February 11, 2018\nCLUB\n100 Game Club\nCareer milestone · December 18, 2016\nCUP\nSVHL Cup Champion\nChampionship · Summer 2016\nShow all 9 highlights\nExisting awards, leadership, nominations, championships and dated milestones are imported only from the player's own published HTO Highlights. No new awards or milestone dates are invented or automatically adopted. Imported: Oct 20, 2026 · Official HTO player profile ↗",
+        "viewport": 1350,
+        "width": 604
+      },
+      "mobile": {
+        "clientWidth": 604,
+        "height": 1133,
+        "viewport": 1350,
+        "width": 604
+      },
+      "url": "https://www.htosports.com/teams/default.asp?p=profile&u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&playerID=354045",
+      "legacy": {
+        "count": 9,
+        "exactTextOrderEmphasis": true,
+        "expandCollapse": "PASS"
+      }
+    },
+    {
+      "id": "686216",
+      "parent": [
+        {
+          "css": "1350px",
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=686216"
+        }
+      ],
+      "desktop": {
+        "clientWidth": 604,
+        "height": 885,
+        "text": "BRAVE H.C. · PLAYER LEGACY\nMichael Provenzano\n\nHTO player #686216 · Career archive and source-verified game form\n\nExisting career achievements are preserved as published; current-season statistics are sourced separately. Awards and milestone dates require manager approval.\nVerified Current-Season Form\n3\nGP\n0\nG\n3\nA\n3\nPTS\n\nOfficial HTO W2026/27 source readback: Oct 18, 2026 · Historical/stale snapshot — confirm latest figures on HTO.\n\nOfficial HTO player profile ↗\n0\nSVHL Cup titles\n2\nRecorded awards\n1\nClub milestones\nCareer Highlights\nCLUB\n50 Point Club\nCareer milestone · September 27, 2026\nAWD\nRookie of the Year Award\nIndividual award · Winter 2024/25\nAWD\nMaurice \"Rocket\" Richard Award (12 Goals)\nIndividual award · Winter 2024/25\nShow all 3 highlights\nExisting awards, leadership, nominations, championships and dated milestones are imported only from the player's own published HTO Highlights. No new awards or milestone dates are invented or automatically adopted. Imported: Oct 20, 2026 · Official HTO player profile ↗",
+        "viewport": 1350,
+        "width": 604
+      },
+      "mobile": {
+        "clientWidth": 604,
+        "height": 885,
+        "viewport": 1350,
+        "width": 604
+      },
+      "url": "https://www.htosports.com/teams/default.asp?p=profile&u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&playerID=686216",
+      "legacy": {
+        "count": 3,
+        "exactTextOrderEmphasis": true,
+        "expandCollapse": "N/A"
+      }
+    },
+    {
+      "id": "700877",
+      "parent": [
+        {
+          "css": "1350px",
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=700877"
+        }
+      ],
+      "desktop": {
+        "clientWidth": 604,
+        "height": 822,
+        "text": "BRAVE H.C. · PLAYER LEGACY\nKrishnan Rajasooriar\n\nHTO player #700877 · Career archive and source-verified game form\n\nExisting career achievements are preserved as published; current-season statistics are sourced separately. Awards and milestone dates require manager approval.\nVerified Current-Season Form\n2\nGP\n0\nG\n0\nA\n0\nPTS\n\nOfficial HTO W2026/27 source readback: Oct 18, 2026 · Historical/stale snapshot — confirm latest figures on HTO.\n\nOfficial HTO player profile ↗\n0\nSVHL Cup titles\n1\nRecorded awards\n1\nClub milestones\nCareer Highlights\nCLUB\n50 Game Club\nCareer milestone · January 4, 2026\nAWD\nMost Improved Award\nIndividual award · Winter 2022/23\nShow all 2 highlights\nExisting awards, leadership, nominations, championships and dated milestones are imported only from the player's own published HTO Highlights. No new awards or milestone dates are invented or automatically adopted. Imported: Oct 20, 2026 · Official HTO player profile ↗",
+        "viewport": 1350,
+        "width": 604
+      },
+      "mobile": {
+        "clientWidth": 604,
+        "height": 822,
+        "viewport": 1350,
+        "width": 604
+      },
+      "url": "https://www.htosports.com/teams/default.asp?p=profile&u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&playerID=700877",
+      "legacy": {
+        "count": 2,
+        "exactTextOrderEmphasis": true,
+        "expandCollapse": "N/A"
+      }
+    },
+    {
+      "id": "738846",
+      "parent": [
+        {
+          "css": "1350px",
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=738846"
+        }
+      ],
+      "desktop": {
+        "clientWidth": 604,
+        "height": 1133,
+        "text": "BRAVE H.C. · PLAYER LEGACY\nStephane Saindon\n\nHTO player #738846 · Career archive and source-verified game form\n\nExisting career achievements are preserved as published; current-season statistics are sourced separately. Awards and milestone dates require manager approval.\nVerified Current-Season Form\n3\nGP\n0\nG\n1\nA\n1\nPTS\n\nOfficial HTO W2026/27 source readback: Oct 18, 2026 · Historical/stale snapshot — confirm latest figures on HTO.\n\nOfficial HTO player profile ↗\n0\nSVHL Cup titles\n9\nRecorded awards\n3\nClub milestones\nCareer Highlights\nAWD\nConn Smythe Award Playoff MVP\nIndividual award · Winter 2025/26\nAWD\nArt Ross Award (35 Points)\nIndividual award · Winter 2025/26\nAWD\nMaurice \"Rocket\" Richard Award (19 Goals)\nIndividual award · Winter 2025/26\nCLUB\n100 Point Club\nCareer milestone · November 30, 2025\nAWD\nArt Ross Award (25 Points)\nIndividual award · Winter 2024/25\nCLUB\n50 Game Club\nCareer milestone · November 3, 2024\nAWD\nConn Smythe Award Playoff MVP\nIndividual award · Winter 2023/24\nShow all 12 highlights\nExisting awards, leadership, nominations, championships and dated milestones are imported only from the player's own published HTO Highlights. No new awards or milestone dates are invented or automatically adopted. Imported: Oct 20, 2026 · Official HTO player profile ↗",
+        "viewport": 1350,
+        "width": 604
+      },
+      "mobile": {
+        "clientWidth": 604,
+        "height": 1133,
+        "viewport": 1350,
+        "width": 604
+      },
+      "url": "https://www.htosports.com/teams/default.asp?p=profile&u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&playerID=738846",
+      "legacy": {
+        "count": 12,
+        "exactTextOrderEmphasis": true,
+        "expandCollapse": "PASS"
+      }
+    }
+  ],
+  "final390pxLoadedChecks": [
+    {
+      "id": 776208,
+      "clientWidth": 325,
+      "height": 834,
+      "viewport": 1350,
+      "width": 325,
+      "parent": {
+        "bio": false,
+        "frame": 325,
+        "stats": true,
+        "width": 390
+      }
+    },
+    {
+      "id": 769343,
+      "clientWidth": 325,
+      "height": 834,
+      "viewport": 1350,
+      "width": 325,
+      "parent": {
+        "bio": false,
+        "frame": 325,
+        "stats": true,
+        "width": 390
+      }
+    },
+    {
+      "id": 849369,
+      "clientWidth": 325,
+      "height": 834,
+      "viewport": 1350,
+      "width": 325,
+      "parent": {
+        "bio": false,
+        "frame": 325,
+        "stats": true,
+        "width": 390
+      }
+    },
+    {
+      "id": 846200,
+      "clientWidth": 325,
+      "height": 1350,
+      "viewport": 1350,
+      "width": 325,
+      "parent": {
+        "bio": false,
+        "frame": 325,
+        "stats": true,
+        "width": 390
+      },
+      "loaded": {
+        "clientWidth": 325,
+        "height": 834,
+        "text": "BRAVE H.C. · PLAYER LEGACY\nHenry Kong\n\nHTO player #846200 · Career archive and source-verified game form\n\nExisting career achievements are preserved as published; current-season statistics are sourced separately. Awards and milestone dates require manager approval.\nVerified Current-Season Form\n4\nGP\n1\nG\n1\nA\n2\nPTS\n\nOfficial HTO W2026/27 source readback: Oct 18, 2026 · Historical/stale snapshot — confirm latest figures on HTO.\n\nOfficial HTO player profile ↗\nCareer Highlights\n\nNo approved career highlights are on file for this player yet. New profiles use the same widget and receive achievements only after a recorded, approved update.\n\nShow all highlights\nExisting awards, leadership, nominations, championships and dated milestones are imported only from the player's own published HTO Highlights. No new awards or milestone dates are invented or automatically adopted.",
+        "width": 325
+      }
+    },
+    {
+      "id": 849368,
+      "clientWidth": 325,
+      "height": 1350,
+      "viewport": 1350,
+      "width": 325,
+      "parent": {
+        "bio": false,
+        "frame": 325,
+        "stats": true,
+        "width": 390
+      },
+      "loaded": {
+        "clientWidth": 325,
+        "height": 834,
+        "text": "BRAVE H.C. · PLAYER LEGACY\nDamian Pavaday\n\nHTO player #849368 · Career archive and source-verified game form\n\nExisting career achievements are preserved as published; current-season statistics are sourced separately. Awards and milestone dates require manager approval.\nVerified Current-Season Form\n1\nGP\n0\nG\n1\nA\n1\nPTS\n\nOfficial HTO W2026/27 source readback: Oct 18, 2026 · Historical/stale snapshot — confirm latest figures on HTO.\n\nOfficial HTO player profile ↗\nCareer Highlights\n\nNo approved career highlights are on file for this player yet. New profiles use the same widget and receive achievements only after a recorded, approved update.\n\nShow all highlights\nExisting awards, leadership, nominations, championships and dated milestones are imported only from the player's own published HTO Highlights. No new awards or milestone dates are invented or automatically adopted.",
+        "width": 325
+      }
+    },
+    {
+      "id": 844036,
+      "clientWidth": 325,
+      "height": 834,
+      "viewport": 1350,
+      "width": 325,
+      "parent": {
+        "bio": false,
+        "frame": 325,
+        "stats": true,
+        "width": 390
+      }
+    },
+    {
+      "id": 845365,
+      "clientWidth": 325,
+      "height": 1350,
+      "viewport": 1350,
+      "width": 325,
+      "parent": {
+        "bio": false,
+        "frame": 325,
+        "stats": true,
+        "width": 390
+      },
+      "loaded": {
+        "clientWidth": 325,
+        "height": 834,
+        "text": "BRAVE H.C. · PLAYER LEGACY\nSanjay Rajkumar\n\nHTO player #845365 · Career archive and source-verified game form\n\nExisting career achievements are preserved as published; current-season statistics are sourced separately. Awards and milestone dates require manager approval.\nVerified Current-Season Form\n3\nGP\n0\nG\n0\nA\n0\nPTS\n\nOfficial HTO W2026/27 source readback: Oct 18, 2026 · Historical/stale snapshot — confirm latest figures on HTO.\n\nOfficial HTO player profile ↗\nCareer Highlights\n\nNo approved career highlights are on file for this player yet. New profiles use the same widget and receive achievements only after a recorded, approved update.\n\nShow all highlights\nExisting awards, leadership, nominations, championships and dated milestones are imported only from the player's own published HTO Highlights. No new awards or milestone dates are invented or automatically adopted.",
+        "width": 325
+      }
+    },
+    {
+      "id": 843644,
+      "clientWidth": 325,
+      "height": 1350,
+      "viewport": 1350,
+      "width": 325,
+      "parent": {
+        "bio": false,
+        "frame": 325,
+        "stats": true,
+        "width": 390
+      },
+      "loaded": {
+        "clientWidth": 325,
+        "height": 834,
+        "text": "BRAVE H.C. · PLAYER LEGACY\nJamie Rosenberg\n\nHTO player #843644 · Career archive and source-verified game form\n\nExisting career achievements are preserved as published; current-season statistics are sourced separately. Awards and milestone dates require manager approval.\nVerified Current-Season Form\n3\nGP\n0\nG\n0\nA\n0\nPTS\n\nOfficial HTO W2026/27 source readback: Oct 18, 2026 · Historical/stale snapshot — confirm latest figures on HTO.\n\nOfficial HTO player profile ↗\nCareer Highlights\n\nNo approved career highlights are on file for this player yet. New profiles use the same widget and receive achievements only after a recorded, approved update.\n\nShow all highlights\nExisting awards, leadership, nominations, championships and dated milestones are imported only from the player's own published HTO Highlights. No new awards or milestone dates are invented or automatically adopted.",
+        "width": 325
+      }
+    },
+    {
+      "id": 845364,
+      "clientWidth": 325,
+      "height": 864,
+      "viewport": 1350,
+      "width": 325,
+      "parent": {
+        "bio": false,
+        "frame": 325,
+        "stats": true,
+        "width": 390
+      }
+    },
+    {
+      "id": "736317",
+      "clientWidth": 325,
+      "height": 1350,
+      "viewport": 1350,
+      "width": 325,
+      "parent": {
+        "bio": false,
+        "frame": 325,
+        "stats": true,
+        "width": 390
+      },
+      "loaded": {
+        "clientWidth": 325,
+        "height": 822,
+        "text": "BRAVE H.C. · PLAYER LEGACY\nAdam Kober\n\nHTO player #736317 · Career archive and source-verified game form\n\nExisting career achievements are preserved as published; current-season statistics are sourced separately. Awards and milestone dates require manager approval.\nVerified Current-Season Form\n3\nGP\n1\nG\n1\nA\n2\nPTS\n\nOfficial HTO W2026/27 source readback: Oct 18, 2026 · Historical/stale snapshot — confirm latest figures on HTO.\n\nOfficial HTO player profile ↗\n0\nSVHL Cup titles\n1\nRecorded awards\n0\nClub milestones\nCareer Highlights\nAWD\nRolaids Relief Man Award\nIndividual award · Winter 2025/26\nShow all 1 highlights\nExisting awards, leadership, nominations, championships and dated milestones are imported only from the player's own published HTO Highlights. No new awards or milestone dates are invented or automatically adopted. Imported: Oct 20, 2026 · Official HTO player profile ↗",
+        "width": 325
+      }
+    },
+    {
+      "id": "586425",
+      "clientWidth": 325,
+      "height": 1008,
+      "viewport": 1350,
+      "width": 325,
+      "parent": {
+        "bio": false,
+        "frame": 325,
+        "stats": true,
+        "width": 390
+      },
+      "loaded": {
+        "clientWidth": 325,
+        "height": 1008,
+        "text": "BRAVE H.C. · PLAYER LEGACY\nLorcan Duffy\n\nHTO player #586425 · Career archive and source-verified game form\n\nExisting career achievements are preserved as published; current-season statistics are sourced separately. Awards and milestone dates require manager approval.\nVerified Current-Season Form\n1\nGP\n0\nG\n0\nA\n0\nPTS\n\nOfficial HTO W2026/27 source readback: Oct 18, 2026 · Historical/stale snapshot — confirm latest figures on HTO.\n\nOfficial HTO player profile ↗\n0\nSVHL Cup titles\n2\nRecorded awards\n2\nClub milestones\nCareer Highlights\nCLUB\n50 Point Club\nCareer milestone · March 1, 2020\nCLUB\n50 Game Club\nCareer milestone · April 14, 2019\nAWD\nRookie of the Year\nIndividual award · Winter 2017/18\nAWD\nJames Norris Award\nIndividual award · Summer 2017\nShow all 4 highlights\nExisting awards, leadership, nominations, championships and dated milestones are imported only from the player's own published HTO Highlights. No new awards or milestone dates are invented or automatically adopted. Imported: Oct 20, 2026 · Official HTO player profile ↗",
+        "width": 325
+      }
+    },
+    {
+      "id": "354041",
+      "clientWidth": 325,
+      "height": 1213,
+      "viewport": 1350,
+      "width": 325,
+      "parent": {
+        "bio": false,
+        "frame": 325,
+        "stats": true,
+        "width": 390
+      },
+      "loaded": {
+        "clientWidth": 325,
+        "height": 1213,
+        "text": "BRAVE H.C. · PLAYER LEGACY\nMarco Congiusti\n\nHTO player #354041 · Career archive and source-verified game form\n\nExisting career achievements are preserved as published; current-season statistics are sourced separately. Awards and milestone dates require manager approval.\nVerified Current-Season Form\n1\nGP\n0\nG\n0\nA\n0\nPTS\n\nOfficial HTO W2026/27 source readback: Oct 18, 2026 · Historical/stale snapshot — confirm latest figures on HTO.\n\nOfficial HTO player profile ↗\n3\nSVHL Cup titles\n2\nRecorded awards\n4\nClub milestones\nCareer Highlights\nCLUB\n200 Game Club\nCareer milestone · November 17, 2019\nCLUB\n50 Point Club\nCareer milestone · March 3, 2019\nAWD\nMost Improved Award\nIndividual award · Winter 2016/17\nCUP\nSVHL Cup Champion\nChampionship · Summer 2016\nCUP\nSVHL Cup Champion\nChampionship · Winter 2015/16\nCLUB\n100 Game Club\nCareer milestone · February 28, 2016\nAWD\nLady Byng Award for Sportsmanship\nIndividual award · Winter 2014/15\nShow all 9 highlights\nExisting awards, leadership, nominations, championships and dated milestones are imported only from the player's own published HTO Highlights. No new awards or milestone dates are invented or automatically adopted. Imported: Oct 20, 2026 · Official HTO player profile ↗",
+        "width": 325
+      }
+    },
+    {
+      "id": "354055",
+      "clientWidth": 325,
+      "height": 1195,
+      "viewport": 1350,
+      "width": 325,
+      "parent": {
+        "bio": false,
+        "frame": 325,
+        "stats": true,
+        "width": 390
+      },
+      "loaded": {
+        "clientWidth": 325,
+        "height": 1195,
+        "text": "BRAVE H.C. · PLAYER LEGACY\nStephen Logue\n\nHTO player #354055 · Career archive and source-verified game form\n\nExisting career achievements are preserved as published; current-season statistics are sourced separately. Awards and milestone dates require manager approval.\nVerified Current-Season Form\n1\nGP\n6\nGA\n6.00\nGAA\n1\nPOTG\n\nOfficial HTO W2026/27 source readback: Oct 18, 2026 · Historical/stale snapshot — confirm latest figures on HTO.\n\nOfficial HTO player profile ↗\n3\nSVHL Cup titles\n2\nRecorded awards\n5\nClub milestones\nCareer Highlights\nSTAR\nHall of Fame Inductee\nRecognition · Winter 2024/25\nCLUB\n100 Win Club\nCareer milestone · March 1, 2020\nCLUB\n200 Game Club\nCareer milestone · December 15, 2019\nCUP\nSVHL Cup Champion\nChampionship · Summer 2016\nCUP\nSVHL Cup Champion\nChampionship · Winter 2015/16\nCLUB\n100 Game Club\nCareer milestone · January 31, 2016\nAWD\nConn Smythe Award Playoff MVP\nIndividual award · Winter 2015/16\nShow all 11 highlights\nExisting awards, leadership, nominations, championships and dated milestones are imported only from the player's own published HTO Highlights. No new awards or milestone dates are invented or automatically adopted. Imported: Oct 20, 2026 · Official HTO player profile ↗",
+        "width": 325
+      }
+    },
+    {
+      "id": "354057",
+      "clientWidth": 325,
+      "height": 1195,
+      "viewport": 1350,
+      "width": 325,
+      "parent": {
+        "bio": false,
+        "frame": 325,
+        "stats": true,
+        "width": 390
+      },
+      "loaded": {
+        "clientWidth": 325,
+        "height": 1195,
+        "text": "BRAVE H.C. · PLAYER LEGACY\nAnthony Paolucci\n\nHTO player #354057 · Career archive and source-verified game form\n\nExisting career achievements are preserved as published; current-season statistics are sourced separately. Awards and milestone dates require manager approval.\nVerified Current-Season Form\n1\nGP\n0\nG\n0\nA\n0\nPTS\n\nOfficial HTO W2026/27 source readback: Oct 18, 2026 · Historical/stale snapshot — confirm latest figures on HTO.\n\nOfficial HTO player profile ↗\n2\nSVHL Cup titles\n4\nRecorded awards\n1\nClub milestones\nCareer Highlights\nCUP\nSVHL Cup Champion\nChampionship · Summer 2016\nAWD\nBill Masterton Award for Decidation\nIndividual award · Summer 2016\nCUP\nSVHL Cup Champion\nChampionship · Winter 2015/16\nAWD\nMost Improved Award\nIndividual award · Winter 2015/16\nCLUB\n50 Game Club\nCareer milestone · November 15, 2015\nAWD\nRookie of the Year Award\nIndividual award · Summer 2015\nAWD\nMost Improved Award\nIndividual award · Summer 2013\nShow all 7 highlights\nExisting awards, leadership, nominations, championships and dated milestones are imported only from the player's own published HTO Highlights. No new awards or milestone dates are invented or automatically adopted. Imported: Oct 20, 2026 · Official HTO player profile ↗",
+        "width": 325
+      }
+    },
+    {
+      "id": "354056",
+      "clientWidth": 325,
+      "height": 1231,
+      "viewport": 1350,
+      "width": 325,
+      "parent": {
+        "bio": false,
+        "frame": 325,
+        "stats": true,
+        "width": 390
+      },
+      "loaded": {
+        "clientWidth": 325,
+        "height": 1231,
+        "text": "BRAVE H.C. · PLAYER LEGACY\nKeith Pearsoll\n\nHTO player #354056 · Career archive and source-verified game form\n\nExisting career achievements are preserved as published; current-season statistics are sourced separately. Awards and milestone dates require manager approval.\nVerified Current-Season Form\n3\nGP\n1\nG\n0\nA\n1\nPTS\n\nOfficial HTO W2026/27 source readback: Oct 18, 2026 · Historical/stale snapshot — confirm latest figures on HTO.\n\nOfficial HTO player profile ↗\n3\nSVHL Cup titles\n7\nRecorded awards\n6\nClub milestones\nCareer Highlights\nAWD\nLady Byng Award for Sportsmanship\nIndividual award · Winter 2025/26\nAWD\nLady Byng Award for Sportsmanship\nIndividual award · Winter 2023/24\nCLUB\n200 Point Club\nCareer milestone · February 19, 2023\nCLUB\n200 Game Club\nCareer milestone · February 17, 2019\nAWD\nMost Improved Award\nIndividual award · Winter 2017/18\nCUP\nSVHL Cup Champion\nChampionship · Summer 2016\nAWD\nMost Improved Award\nIndividual award · Summer 2016\nShow all 16 highlights\nExisting awards, leadership, nominations, championships and dated milestones are imported only from the player's own published HTO Highlights. No new awards or milestone dates are invented or automatically adopted. Imported: Oct 20, 2026 · Official HTO player profile ↗",
+        "width": 325
+      }
+    },
+    {
+      "id": "354045",
+      "clientWidth": 325,
+      "height": 1213,
+      "viewport": 1350,
+      "width": 325,
+      "parent": {
+        "bio": false,
+        "frame": 325,
+        "stats": true,
+        "width": 390
+      },
+      "loaded": {
+        "clientWidth": 325,
+        "height": 1213,
+        "text": "BRAVE H.C. · PLAYER LEGACY\nMario Provenzano\n\nHTO player #354045 · Career archive and source-verified game form\n\nExisting career achievements are preserved as published; current-season statistics are sourced separately. Awards and milestone dates require manager approval.\nVerified Current-Season Form\n4\nGP\n0\nG\n0\nA\n0\nPTS\n\nOfficial HTO W2026/27 source readback: Oct 18, 2026 · Historical/stale snapshot — confirm latest figures on HTO.\n\nOfficial HTO player profile ↗\n2\nSVHL Cup titles\n2\nRecorded awards\n5\nClub milestones\nCareer Highlights\nAWD\nMost Improved Award\nIndividual award · Winter 2025/26\nCLUB\n100 Point Club\nCareer milestone · November 16, 2025\nCLUB\n200 Game Club\nCareer milestone · March 24, 2024\nAWD\nLady Byng Award for Sportsmanship\nIndividual award · Winter 2018/19\nCLUB\n50 Point Club\nCareer milestone · February 11, 2018\nCLUB\n100 Game Club\nCareer milestone · December 18, 2016\nCUP\nSVHL Cup Champion\nChampionship · Summer 2016\nShow all 9 highlights\nExisting awards, leadership, nominations, championships and dated milestones are imported only from the player's own published HTO Highlights. No new awards or milestone dates are invented or automatically adopted. Imported: Oct 20, 2026 · Official HTO player profile ↗",
+        "width": 325
+      }
+    },
+    {
+      "id": "686216",
+      "clientWidth": 325,
+      "height": 994,
+      "viewport": 1350,
+      "width": 325,
+      "parent": {
+        "bio": false,
+        "frame": 325,
+        "stats": true,
+        "width": 390
+      },
+      "loaded": {
+        "clientWidth": 325,
+        "height": 994,
+        "text": "BRAVE H.C. · PLAYER LEGACY\nMichael Provenzano\n\nHTO player #686216 · Career archive and source-verified game form\n\nExisting career achievements are preserved as published; current-season statistics are sourced separately. Awards and milestone dates require manager approval.\nVerified Current-Season Form\n3\nGP\n0\nG\n3\nA\n3\nPTS\n\nOfficial HTO W2026/27 source readback: Oct 18, 2026 · Historical/stale snapshot — confirm latest figures on HTO.\n\nOfficial HTO player profile ↗\n0\nSVHL Cup titles\n2\nRecorded awards\n1\nClub milestones\nCareer Highlights\nCLUB\n50 Point Club\nCareer milestone · September 27, 2026\nAWD\nRookie of the Year Award\nIndividual award · Winter 2024/25\nAWD\nMaurice \"Rocket\" Richard Award (12 Goals)\nIndividual award · Winter 2024/25\nShow all 3 highlights\nExisting awards, leadership, nominations, championships and dated milestones are imported only from the player's own published HTO Highlights. No new awards or milestone dates are invented or automatically adopted. Imported: Oct 20, 2026 · Official HTO player profile ↗",
+        "width": 325
+      }
+    },
+    {
+      "id": "700877",
+      "clientWidth": 325,
+      "height": 914,
+      "viewport": 1350,
+      "width": 325,
+      "parent": {
+        "bio": false,
+        "frame": 325,
+        "stats": true,
+        "width": 390
+      },
+      "loaded": {
+        "clientWidth": 325,
+        "height": 914,
+        "text": "BRAVE H.C. · PLAYER LEGACY\nKrishnan Rajasooriar\n\nHTO player #700877 · Career archive and source-verified game form\n\nExisting career achievements are preserved as published; current-season statistics are sourced separately. Awards and milestone dates require manager approval.\nVerified Current-Season Form\n2\nGP\n0\nG\n0\nA\n0\nPTS\n\nOfficial HTO W2026/27 source readback: Oct 18, 2026 · Historical/stale snapshot — confirm latest figures on HTO.\n\nOfficial HTO player profile ↗\n0\nSVHL Cup titles\n1\nRecorded awards\n1\nClub milestones\nCareer Highlights\nCLUB\n50 Game Club\nCareer milestone · January 4, 2026\nAWD\nMost Improved Award\nIndividual award · Winter 2022/23\nShow all 2 highlights\nExisting awards, leadership, nominations, championships and dated milestones are imported only from the player's own published HTO Highlights. No new awards or milestone dates are invented or automatically adopted. Imported: Oct 20, 2026 · Official HTO player profile ↗",
+        "width": 325
+      }
+    },
+    {
+      "id": "738846",
+      "clientWidth": 325,
+      "height": 1213,
+      "viewport": 1350,
+      "width": 325,
+      "parent": {
+        "bio": false,
+        "frame": 325,
+        "stats": true,
+        "width": 390
+      },
+      "loaded": {
+        "clientWidth": 325,
+        "height": 1213,
+        "text": "BRAVE H.C. · PLAYER LEGACY\nStephane Saindon\n\nHTO player #738846 · Career archive and source-verified game form\n\nExisting career achievements are preserved as published; current-season statistics are sourced separately. Awards and milestone dates require manager approval.\nVerified Current-Season Form\n3\nGP\n0\nG\n1\nA\n1\nPTS\n\nOfficial HTO W2026/27 source readback: Oct 18, 2026 · Historical/stale snapshot — confirm latest figures on HTO.\n\nOfficial HTO player profile ↗\n0\nSVHL Cup titles\n9\nRecorded awards\n3\nClub milestones\nCareer Highlights\nAWD\nConn Smythe Award Playoff MVP\nIndividual award · Winter 2025/26\nAWD\nArt Ross Award (35 Points)\nIndividual award · Winter 2025/26\nAWD\nMaurice \"Rocket\" Richard Award (19 Goals)\nIndividual award · Winter 2025/26\nCLUB\n100 Point Club\nCareer milestone · November 30, 2025\nAWD\nArt Ross Award (25 Points)\nIndividual award · Winter 2024/25\nCLUB\n50 Game Club\nCareer milestone · November 3, 2024\nAWD\nConn Smythe Award Playoff MVP\nIndividual award · Winter 2023/24\nShow all 12 highlights\nExisting awards, leadership, nominations, championships and dated milestones are imported only from the player's own published HTO Highlights. No new awards or milestone dates are invented or automatically adopted. Imported: Oct 20, 2026 · Official HTO player profile ↗",
+        "width": 325
+      }
+    },
+    {
+      "id": 846200,
+      "clientWidth": 325,
+      "height": 834,
+      "viewport": 1350,
+      "width": 325,
+      "parent": {
+        "bio": false,
+        "frame": 325,
+        "stats": true,
+        "width": 390
+      }
+    },
+    {
+      "id": 849368,
+      "clientWidth": 325,
+      "height": 834,
+      "viewport": 1350,
+      "width": 325,
+      "parent": {
+        "bio": false,
+        "frame": 325,
+        "stats": true,
+        "width": 390
+      }
+    },
+    {
+      "id": 845365,
+      "clientWidth": 325,
+      "height": 834,
+      "viewport": 1350,
+      "width": 325,
+      "parent": {
+        "bio": false,
+        "frame": 325,
+        "stats": true,
+        "width": 390
+      }
+    },
+    {
+      "id": 843644,
+      "clientWidth": 325,
+      "height": 834,
+      "viewport": 1350,
+      "width": 325,
+      "parent": {
+        "bio": false,
+        "frame": 325,
+        "stats": true,
+        "width": 390
+      }
+    },
+    {
+      "id": "354041",
+      "clientWidth": 325,
+      "height": 1213,
+      "viewport": 1350,
+      "width": 325,
+      "parent": {
+        "bio": false,
+        "frame": 325,
+        "stats": true,
+        "width": 390
+      }
+    },
+    {
+      "id": "354055",
+      "clientWidth": 325,
+      "height": 1195,
+      "viewport": 1350,
+      "width": 325,
+      "parent": {
+        "bio": false,
+        "frame": 325,
+        "stats": true,
+        "width": 390
+      }
+    },
+    {
+      "id": "354056",
+      "clientWidth": 325,
+      "height": 1231,
+      "viewport": 1350,
+      "width": 325,
+      "parent": {
+        "bio": false,
+        "frame": 325,
+        "stats": true,
+        "width": 390
+      }
+    },
+    {
+      "id": "354045",
+      "clientWidth": 325,
+      "height": 1213,
+      "viewport": 1350,
+      "width": 325,
+      "parent": {
+        "bio": false,
+        "frame": 325,
+        "stats": true,
+        "width": 390
+      }
+    },
+    {
+      "id": "738846",
+      "clientWidth": 325,
+      "height": 1213,
+      "viewport": 1350,
+      "width": 325,
+      "parent": {
+        "bio": false,
+        "frame": 325,
+        "stats": true,
+        "width": 390
+      }
+    }
+  ],
+  "mobileExpansion": [
+    {
+      "id": "354041",
+      "count": 9,
+      "result": "PASS"
+    },
+    {
+      "id": "354055",
+      "count": 11,
+      "result": "PASS"
+    },
+    {
+      "id": "354056",
+      "count": 16,
+      "result": "PASS"
+    },
+    {
+      "id": "354045",
+      "count": 9,
+      "result": "PASS"
+    },
+    {
+      "id": "738846",
+      "count": 12,
+      "result": "PASS"
+    }
+  ],
+  "note": "Dedicated final390pxLoadedChecks supersede earlier temporary mobile dimensions in desktopChecks. Dev was independently verified before qa array initialization: one iframe, 1350px, desktop content739px, mobile834px, correct goalie identity/form. No contact data included."
+}
