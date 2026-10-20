@@ -110,8 +110,6 @@ def prepare(args) -> dict:
         raise Hold("Expected commit SHA is not a 40-character Git SHA1")
     if not (old / ".git").exists():
         raise Hold("Old publisher is not a local Git checkout")
-    if not bundle.is_file():
-        raise Hold("Verified recovery bundle absent")
     if candidate.exists():
         raise Hold("Candidate directory already exists; refuse overwrite")
     if report.exists():
@@ -122,6 +120,8 @@ def prepare(args) -> dict:
         raise Hold("Report must not write into active publisher")
     if report == candidate or candidate in report.parents:
         raise Hold("Report must not write into candidate checkout")
+    if not bundle.is_file():
+        raise Hold("Verified recovery bundle absent")
     if candidate == report.parent:
         raise Hold("Candidate must not be report directory")
     if not candidate.parent.is_dir() or not report.parent.is_dir():
