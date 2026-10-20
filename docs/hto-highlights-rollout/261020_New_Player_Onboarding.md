@@ -15,3 +15,7 @@ Owner: MEDIA; Engineering maintains the universal widget and identity map; QA ve
 Statistics update when the independently verified HockeyOS public feed refreshes. The widget does not establish direct automatic HTO synchronization; do not claim a live publishing pipeline without separate proof.
 
 Rollback: replace only the matching player's Highlights Source with the exact recorded original HTML; empty original means restore an empty Highlights field. Never restore another player's backup.
+
+## Legacy records beyond achievements
+
+Existing suspension notes use the neutral `discipline` category and NOTE badge; they never count as awards. Combined award/leadership paragraphs use `record`, `preserveLines: true` and their exact line-separated text; `includesAward: true` is permitted only when the backed-up original explicitly contains an award. Keep the original paragraph grouping and line break. Preserve all raw editor HTML before migration. Empty spacer paragraphs remain in the raw backup and are not achievements. Verify all rendered records against the original before and after the HTO save.
