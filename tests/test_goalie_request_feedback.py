@@ -43,6 +43,11 @@ class FeedbackTests(unittest.TestCase):
         msg=feedback.build_comment("INVALID_REQUEST","success","success","failure",REPO,RUN)
         self.assertIn("may or may not have been published",msg)
 
+    def test_failed_readback_requires_independent_state_check(self):
+        note=feedback.build_comment("INVALID_REQUEST","success","success","skipped",
+                                    REPO,RUN,receipt="failure")
+        self.assertIn("may or may not have been published",note)
+
     def test_unit_test_failure_reports_unverified_status_not_invalid_goalie(self):
         msg=feedback.build_comment("INVALID_REQUEST","skipped","skipped","skipped",REPO,RUN)
         self.assertIn("failed before it could verify",msg)
