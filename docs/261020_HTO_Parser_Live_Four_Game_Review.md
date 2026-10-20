@@ -27,3 +27,24 @@ CI for the code commit passed: https://github.com/adambrutto-maker/brave-hc/acti
 - Demonstrate fresh player-level season aggregate parity, including explicit missing-stat handling.
 - No active collector, scheduled task, workbook, publishing checkout or website was modified by this validation. No messages were sent.
 - Earlier blocked workbook and publisher operations were not retried. Workbook recalculation and publication remain held under their separate gates.
+
+## Fresh season-stat comparison — 2026-10-20T19:43:31Z
+
+Fetched the four boxscores again and the official current HTO season stats page in one read-only process. Compared identity sets and all complete relevant integer fields by exact published player name:
+
+- 20 skater identities, 3 goalie identities; no identity-set discrepancies.
+- 131 complete field comparisons; zero mismatches.
+- Skater fields: GP, G, A, Pts, +/-, POTG.
+- Goalie fields: GP, L, GA, POTG where complete.
+- Dev Leong POTG: known game subtotal 1, one game unknown, published season total 1. The omitted game remains unknown; no per-game inference or zero substitution.
+- PIM parity remains incomplete because 42 game rows omit that column.
+- This supersedes the earlier statement that season aggregate parity had not been rechecked, for the complete fields listed here only.
+- Original workbook and production collector were not changed.
+
+## Existing workbook mapping readback
+
+Read the existing private AllTimeSchedule join manifest on BRUTTECH 1. It associates HTO 3356177/3356178/3369564/3375601 with workbook games 359/360/361/362 at Master Schedule rows 370/371/372/373.
+
+The saved workbook scores for all four are 0-0 with result T, explicitly classified as stale unscored placeholders in the manifest. Verified source scores are 0-3, 3-6, 2-3 and 1-7. Operational commissioning must include the schedule results, not only 44 player-row additions and Dev's existing-row correction. Do not modify the immutable original.
+
+This readback confirms the archived mapping contract; it is not a new independent workbook audit or formula recalculation. Attributable independent review, controlled integration, workbook commissioning and release authorization remain outstanding.
