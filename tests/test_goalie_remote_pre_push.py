@@ -55,6 +55,20 @@ class RemotePrePushTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,"Proposed goalie differs"):
             check(chosen="Matt Svec")
 
+    def test_prepush_reason_must_match_recorded_manager_approval(self):
+        changed=deepcopy(PROPOSED)
+        changed["lastChange"]={"managerReason":"BOOKING_CHANGE"}
+        module.validate_publish(deepcopy(FEED),deepcopy(SAVED),changed,
+                                KEY,SIG,"Stephen Logue","Dev Leong",NOW,reason="BOOKING_CHANGE")
+        with self.assertRaisesRegex(ValueError,"manager reason differs"):
+            module.validate_publish(deepcopy(FEED),deepcopy(SAVED),changed,
+                                    KEY,SIG,"Stephen Logue","Dev Leong",NOW,
+                                    reason="GOALIE_UNAVAILABLE")
+        with self.assertRaisesRegex(ValueError,"manager-reviewed reason"):
+            module.validate_publish(deepcopy(FEED),deepcopy(SAVED),changed,
+                                    KEY,SIG,"Stephen Logue","Dev Leong",NOW,
+                                    reason="NEW_BOOKING")
+
     def test_stale_remote_feed_is_blocked(self):
         changed=deepcopy(FEED)
         changed["checkedAt"]=(NOW-timedelta(days=2)).isoformat()
