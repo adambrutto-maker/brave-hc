@@ -78,6 +78,9 @@ function assess(data, attestation, checkedAt){
   // Even every check passing must only advance to independent reviewer queue.
  }
  const now=timestamp(checkedAt),observed=timestamp(attestation?.officialHTOReadbackAt);
+ const sourceObserved=timestamp(data?.sourceHTOReadback);
+ if(sourceObserved===null||observed===null||sourceObserved!==observed)
+  add('OFFICIAL_HTO_READBACK_NOT_BOUND_TO_AWARDS_DATA');
  if(now===null||observed===null||now<observed-120000||now-observed>90*60000)
   add('INDEPENDENT_OFFICIAL_HTO_FRESHNESS_UNVERIFIED');
  return {
