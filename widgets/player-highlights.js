@@ -21,15 +21,16 @@ const playerId=(()=>{
 const identity=playerId?window.BravePlayerLinks?.identityById(playerId):null;
 const officialUrl=identity?window.BravePlayerLinks.profileUrl(identity.name):null;
 $('playerName').textContent=identity?.name||'Player Highlights';
-$('playerSub').textContent=identity?'HTO player #'+playerId+' Â· Career archive and source-verified game form':
- playerId?'Player #'+playerId+' Â· identity onboarding pending':'Add the official HTO playerID to the widget URL';
+$('playerSub').textContent=identity?'HTO player #'+playerId+' \u00b7 Career archive and source-verified game form':
+ playerId?'Player #'+playerId+' \u00b7 identity onboarding pending':'Add the official HTO playerID to the widget URL';
 const warnings=[];
 const categoryLabel={
  championship:'Championship',milestone:'Career milestone',
  leadership:'Team leadership',award:'Individual award',recognition:'Recognition'
 };
+// ASCII badges avoid encoding damage when content passes through HTO editors.
 const symbol={
- championship:'ðŸ†',milestone:'â˜…',leadership:'â—†',award:'â—†',recognition:'â˜†'
+ championship:'CUP',milestone:'CLUB',leadership:'CAP',award:'AWD',recognition:'STAR'
 };
 function setNotice(s){
  $('notice').textContent=s;
@@ -37,7 +38,7 @@ function setNotice(s){
 function publicProfileLink(){
  if(!officialUrl)return null;
  const a=document.createElement('a');
- a.href=officialUrl;a.target='_blank';a.rel='noopener noreferrer';a.textContent='Official HTO player profile â†—';
+ a.href=officialUrl;a.target='_blank';a.rel='noopener noreferrer';a.textContent='Official HTO player profile \u2197';
  return a;
 }
 function statistic(label,value) {
@@ -85,7 +86,7 @@ function renderLegacy(record,ledgerTime){
   container.replaceChildren();
   for(const item of expanded?items:items.slice(0,first)){
    const row=text('article','','ph-event'+(item.sourceEmphasis?' ph-champion':''));
-   const icon=text('span',symbol[item.category]||'â—†','ph-symbol');
+   const icon=text('span',symbol[item.category]||'AWD','ph-symbol');
    icon.setAttribute('aria-hidden','true');
    const info=text('div','');
    const raw=item.displayText;
@@ -94,7 +95,7 @@ function renderLegacy(record,ledgerTime){
    const title=parts.length>1?parts.slice(0,-1).join(' - '):raw;
    const time=parts.length>1?parts[parts.length-1]:'';
    info.append(text('div',title,'ph-event-title'));
-   info.append(text('div',[categoryLabel[item.category],time].filter(Boolean).join(' Â· '),'ph-event-meta'));
+   info.append(text('div',[categoryLabel[item.category],time].filter(Boolean).join(' \u00b7 '),'ph-event-meta'));
    if(item.displayText!==item.sourceText){
     const note=text('div','Displayed spelling standardized; original HTO text retained in archive.','ph-event-source');
     note.title=item.sourceText;
@@ -109,7 +110,7 @@ function renderLegacy(record,ledgerTime){
  };
  display(false);
  const source=publicProfileLink();
- if(source)$('footer').append(' Imported: '+shortDate(ledgerTime)+' Â· ',source);
+ if(source)$('footer').append(' Imported: '+shortDate(ledgerTime)+' \u00b7 ',source);
 }
 const isFiniteNonnegative=value=>typeof value==='number'&&Number.isFinite(value)&&value>=0;
 function validParticipant(data){
@@ -165,7 +166,7 @@ function renderCurrent(feed) {
  const aged=!Number.isFinite(age)||age>36*60*60*1000||age<-(60*60*1000);
  const caveat=text('p',
    'Official HTO '+feed.season+' source readback: '+shortDate(feed.sourceReference.htoReadback)+
-   (aged?' Â· Historical/stale snapshot â€” confirm latest figures on HTO.':' Â· Verified published snapshot.'),
+   (aged?' \u00b7 Historical/stale snapshot \u2014 confirm latest figures on HTO.':' \u00b7 Verified published snapshot.'),
    'ph-sub'+(aged?' ph-hold':''));
  panel.append(caveat);
  const link=publicProfileLink();
@@ -177,7 +178,7 @@ function renderCurrent(feed) {
    playerId?'New player ID not yet verified in the shared HTO player registry. Add the exact public HTO player ID through the player onboarding process; no highlights or statistics are shown until identity verification.':
    'Missing HTO player ID. Use the standard embed with ?playerID= followed by the official numeric HTO player ID.','ph-empty'));
   $('form').textContent='Player identity must be verified before showing statistics.';
-  setNotice('Identity not verified â€” no profile data has been assigned.');
+  setNotice('Identity not verified \u2014 no profile data has been assigned.');
   return;
  }
  const ledgerPromise=fetch(root+'player-highlights-ledger.json',{cache:'no-store'})
@@ -200,7 +201,7 @@ function renderCurrent(feed) {
  }
  if(feedResult.status==='fulfilled')renderCurrent(feedResult.value);
  else{$('form').textContent='Current-season source unavailable. Use HTO for authoritative statistics.';warnings.push('Current-season feed unavailable')}
- setNotice(warnings.length?'Partial data: '+warnings.join(' Â· ')+'.':
+ setNotice(warnings.length?'Partial data: '+warnings.join(' \u00b7 ')+'.':
    'Existing career achievements are preserved as published; current-season statistics are sourced separately. Awards and milestone dates require manager approval.');
 })();
 })();

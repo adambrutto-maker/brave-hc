@@ -104,6 +104,7 @@
     if (!p || !node.nodeValue || !node.nodeValue.trim()) return false;
     for (let el = p; el; el = el.parentElement) {
       if (excluded.has(el.tagName) || el.isContentEditable) return false;
+      if (el.hasAttribute && el.hasAttribute('data-brave-no-link')) return false;
       // HTO native roster cells and some results use their own click navigation.
       // Do not nest an anchor inside an existing clickable HTO surface; an anchor
       // in an onclick cell would open the player in two tabs or override HTO.
