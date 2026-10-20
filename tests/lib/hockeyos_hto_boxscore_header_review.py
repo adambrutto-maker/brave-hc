@@ -73,7 +73,7 @@ def skater_rows(table, *, verified_team_goals):
         _fail("MISSING_OFFICIAL_GAME_GF")
     prefix=("No","Name","POS")
     required=("+/-","POTG")
-    optional=("G","A","Pts","PIM")
+    optional=("G","A","Pts","PIM","GTG")
     columns,blanks=_headers(table,prefix,required,optional)
     present=[s in columns for s in ("G","A","Pts")]
     if any(present) and not all(present):
