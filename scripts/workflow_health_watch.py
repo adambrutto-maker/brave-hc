@@ -76,16 +76,16 @@ def heartbeat_decision(runs: list[dict], now: datetime, repo: str, maximum_hours
         else:
             reason="Unverifiable SVHL reconciliation result or timestamp"
     return {"action":"OPEN","reason":reason,"body":(
-        "## Brave H.C. SVHL monitoring overdue or failed\\n\\n"
-        f"**Condition:** {reason}\\n\\n"
-        f"- **Latest completed run:** {link}\\n"
-        f"- **Conclusion:** {outcome}\\n"
+        "## Brave H.C. SVHL monitoring overdue or failed\n\n"
+        f"**Condition:** {reason}\n\n"
+        f"- **Latest completed run:** {link}\n"
+        f"- **Conclusion:** {outcome}\n"
         "- Verify [SVHL](https://leagues.sportsvillage.ca/Leagues.aspx?leagueid=570&page_type=Adult&sc=HOCKEY) and "
-        "[HTO](https://www.htosports.com/teams/default.asp?p=schedule&s=hockey&u=BRAVESHOCKEY&format=List) directly.\\n"
-        "- Check the GitHub Actions schedule and logs; do not assume the last published fixture feed is current.\\n"
-        "- **No HTO changes, goalie assignments, or player contact occurred.**\\n\\n"
+        "[HTO](https://www.htosports.com/teams/default.asp?p=schedule&s=hockey&u=BRAVESHOCKEY&format=List) directly.\n"
+        "- Check the GitHub Actions schedule and logs; do not assume the last published fixture feed is current.\n"
+        "- **No HTO changes, goalie assignments, or player contact occurred.**\n\n"
         "This issue clears after the most recent reconciliation succeeds and is fresh."
-    ).replace("\\n","\\n")}
+    )}
 
 def api(base: str, path: str, token: str, method="GET", payload=None):
     headers={"Authorization":"Bearer "+token,"Accept":"application/vnd.github+json",
