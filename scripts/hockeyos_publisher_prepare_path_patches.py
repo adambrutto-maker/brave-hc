@@ -61,7 +61,6 @@ def build(source:Path,dest:Path)->dict:
  source=source.resolve()
  dest=dest.resolve()
  if not source.is_dir():raise Hold("Approved local HockeyOS source directory absent")
- if dest.exists():raise Hold("Review output exists: no overwrite allowed")
  if not dest.parent.is_dir():raise Hold("Review output parent missing")
  if dest==source or dest in (source/'HTO_Widget_Public_GitHub_Staging_20261016',
                              source/'Reference Implementations'):
@@ -70,6 +69,7 @@ def build(source:Path,dest:Path)->dict:
   raise Hold("Cannot write into old active publisher tree")
  if (source/'Reference Implementations') in dest.parents:
   raise Hold("Cannot write into original Master Workbook folder")
+ if dest.exists():raise Hold("Review output exists: no overwrite allowed")
  if len(SELECTED)!=len(set(SELECTED)):raise Hold("Duplicate source file selection")
  converted=[]
  for name in SELECTED:
