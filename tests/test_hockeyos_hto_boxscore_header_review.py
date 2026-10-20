@@ -193,5 +193,36 @@ class SourceShapedHTOHeaderTests(unittest.TestCase):
         with self.assertRaisesRegex(BoxscoreSchemaHold,"UNRECOGNIZED_NAMED_COLUMN"):
             skater_rows(table,verified_team_goals=1)
 
+
+    def test_skater_parser_rejects_invalid_per_game_potg_values(self):
+        for bad in ("-1","2","99","",True,False,None):
+            with self.subTest(potg=bad):
+                table=clone(SKATER_ZERO);table[1][-1]=bad
+                with self.assertRaises(BoxscoreSchemaHold):
+                    skater_rows(table,verified_team_goals=0)
+
+    def test_game_validator_rejects_invalid_or_missing_skater_potg(self):
+        goalie=goalie_rows(clone(GOALIE_WITH_POTG))
+        for bad in (-1,2,99,True,False,None,"1"):
+            with self.subTest(potg=bad):
+                skater=skater_rows(clone(SKATER_ZERO),verified_team_goals=0)
+                skater[0]["potg"]=bad
+                with self.assertRaisesRegex(BoxscoreSchemaHold,"INVALID_PER_GAME_SKATER_POTG"):
+                    check_game_observations(hto_game_id=3356177,
+                        official_goals_for=0,official_goals_against=3,
+                        skaters=skater,goalies=goalie)
+        skater=skater_rows(clone(SKATER_ZERO),verified_team_goals=0)
+        del skater[0]["potg"]
+        with self.assertRaisesRegex(BoxscoreSchemaHold,"INVALID_PER_GAME_SKATER_POTG"):
+            check_game_observations(hto_game_id=3356177,
+                official_goals_for=0,official_goals_against=3,
+                skaters=skater,goalies=goalie)
+
+    def test_skater_parser_rejects_boolean_verified_team_goals(self):
+        for bad in (False,True):
+            with self.subTest(goals=bad):
+                with self.assertRaisesRegex(BoxscoreSchemaHold,"MISSING_OFFICIAL_GAME_GF"):
+                    skater_rows(clone(SKATER_ZERO),verified_team_goals=bad)
+
 if __name__=="__main__":
     unittest.main()
