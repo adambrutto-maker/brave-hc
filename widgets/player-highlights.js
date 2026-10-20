@@ -12,6 +12,22 @@ const shortDate=input=>{
  const t=new Date(input);
  return Number.isNaN(t.valueOf())?'unavailable':t.toLocaleDateString('en-CA',{timeZone:'America/Toronto',year:'numeric',month:'short',day:'numeric'});
 };
+
+const achievementDateRank=entry=>{
+ const raw=String(entry.sortDate||entry.dateLabel||entry.displayText||entry.sourceText||'');
+ const exact=[];
+ for(const m of raw.matchAll(/\b(20\d{2})-(\d{2})-(\d{2})\b/g))exact.push(Number(m[1]+m[2]+m[3]));
+ const months=['january','february','march','april','may','june','july','august','september','october','november','december'];
+ for(const m of raw.matchAll(/\b(January|February|March|April|May|June|July|August|September|October|November|December)\s+(\d{1,2}),?\s+(20\d{2})\b/gi))
+  exact.push(Number(m[3])*10000+(months.indexOf(m[1].toLowerCase())+1)*100+Number(m[2]));
+ if(exact.length)return Math.max(...exact);
+ const years=[];
+ for(const m of raw.matchAll(/\b(20\d{2})(?:\/(20\d{2}|\d{2}))?\b/g))
+  years.push(m[2]?(m[2].length===2?2000+Number(m[2]):Number(m[2])):Number(m[1]));
+ return years.length?Math.max(...years)*10000:-1;
+};
+const newestAchievements=items=>[...items].sort((a,b)=>achievementDateRank(b)-achievementDateRank(a));
+
 const playerId=(()=>{
  const q=new URLSearchParams(location.search).get('playerID');
  if(!q||!/^[1-9]\d{0,11}$/.test(q))return null;
@@ -69,7 +85,7 @@ function validLedger(data){
  return data;
 }
 function renderLegacy(record,ledgerTime){
- const container=$('legacy'),items=record?.items||[];
+ const container=$('legacy'),items=newestAchievements(record?.items||[]);
  container.replaceChildren();
  $('careerSummary').replaceChildren();
  $('expand').hidden=true;
