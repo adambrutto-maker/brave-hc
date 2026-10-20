@@ -54,6 +54,8 @@ jobs:
           python-version: '3.12'
       - name: Validate goalie assignment rules
         run: python -m unittest discover -s tests -p test_goalie_assignment.py
+      - name: Validate latest remote goalie publication guard
+        run: python -m unittest discover -s tests -p test_goalie_remote_pre_push.py
       - name: Apply manager-confirmed goalie
         env:
           GAME_KEY: ${{ inputs.game_key }}
@@ -79,7 +81,17 @@ jobs:
       - name: Commit only after explicitly disabling dry-run
         if: ${{ !inputs.dry_run }}
         shell: bash
+        env:
+          GAME_KEY: ${{ inputs.game_key }}
+          GOALIE: ${{ inputs.goalie }}
+          CUSTOM_NAME: ${{ inputs.custom_goalie_name }}
+          FIXTURE_SIGNATURE: ${{ inputs.fixture_signature }}
+          EXPECTED_GOALIE: ${{ inputs.expected_goalie }}
         run: |
+          git fetch origin main
+          python scripts/verify_goalie_push.py --game-key "$GAME_KEY" \
+            --goalie "$GOALIE" --custom-name "$CUSTOM_NAME" \
+            --fixture-signature "$FIXTURE_SIGNATURE" --expected-goalie "$EXPECTED_GOALIE"
           if git diff --quiet -- widgets/goalie-assignments.json; then
             echo "No goalie changes to commit"
             exit 0
@@ -88,5 +100,5 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add widgets/goalie-assignments.json
           git commit -m "Update manager-confirmed Braves goalie"
-          git pull --rebase
+          git rebase origin/main
           git push
