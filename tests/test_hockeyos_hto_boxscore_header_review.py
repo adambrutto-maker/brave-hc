@@ -39,10 +39,14 @@ class SourceShapedHTOHeaderTests(unittest.TestCase):
         self.assertEqual((p[0]["g"],p[0]["a"],p[0]["pts"]),(1,0,1))
         self.assertEqual((p[1]["g"],p[1]["a"],p[1]["pts"]),(0,1,1))
         self.assertTrue(p[0]["scoringColumnsFromHTO"])
+        self.assertEqual(p[0]["jerseyNo"],"12")
+        self.assertEqual(p[0]["listedPosition"],"LW")
+        self.assertEqual(p[0]["gameAppearance"],1)
     def test_published_goalie_POTG_after_spacer_gets_correct_index(self):
         g=goalie_rows(clone(GOALIE_WITH_POTG))
         self.assertEqual((g[0]["gp"],g[0]["losses"],g[0]["goalsAgainst"],g[0]["potg"]),(1,1,3,1))
         self.assertTrue(g[0]["potgPublishedInBoxscore"])
+        self.assertEqual(g[0]["jerseyNo"],"30")
     def test_absent_goalie_POTG_must_be_None_not_fabricated_zero(self):
         g=goalie_rows(clone(GOALIE_NO_POTG))
         self.assertEqual((g[0]["gp"],g[0]["losses"],g[0]["goalsAgainst"]),(1,1,6))
@@ -134,6 +138,11 @@ class SourceShapedHTOHeaderTests(unittest.TestCase):
         gl=goalie_rows(clone(GOALIE_NO_POTG))
         gl[0]["potgPublishedInBoxscore"]=True
         with self.assertRaisesRegex(BoxscoreSchemaHold,"GOALIE_POTG_MISSING"):
+            check_game_observations(hto_game_id=3356177,official_goals_for=0,
+                                    official_goals_against=6,skaters=sk,goalies=gl)
+        gl[0]["potgPublishedInBoxscore"]=False
+        gl[0]["potg"]=0
+        with self.assertRaisesRegex(BoxscoreSchemaHold,"GOALIE_POTG_VALUE_WITHOUT_SOURCE_COLUMN"):
             check_game_observations(hto_game_id=3356177,official_goals_for=0,
                                     official_goals_against=6,skaters=sk,goalies=gl)
 
