@@ -118,6 +118,18 @@ The manager dropdown reads [widgets/goalie-roster.json](https://github.com/adamb
 
 **Validation evidence, Oct 19, 2026:** A no-change Stephen Logue confirmation for game `hto:3375682` was submitted as [issue #1](https://github.com/adambrutto-maker/brave-hc/issues/1). The [issue workflow run](https://github.com/adambrutto-maker/brave-hc/actions/runs/39319634402) passed, closed the issue with a receipt, and left the original goalie assignment unchanged.
 
+## Public goalie widget browser QA — independent incident detection and contrast (October 20)
+
+A separate [widget-QA watchdog workflow](https://github.com/adambrutto-maker/brave-hc/actions/workflows/brave-goalie-widget-watchdog.yml) monitors the read-only public [browser QA workflow](https://github.com/adambrutto-maker/brave-hc/actions/workflows/brave-goalie-widget-smoke.yml). It runs on browser-QA completion, via manual dispatch, and twice daily at `13 2,14 * * *` (UTC). The monitor requires only **contents:read, actions:read and issues:write**; it never edits HTO or confirms goalies.
+
+- The newest *completed* QA run determines the result; later-completing events from older runs are ignored.
+- A failed, timed-out, cancelled, skipped or unverified run creates or updates **Brave H.C. — public goalie widget browser QA failure**. No completed test in the last **36 hours** also triggers review.
+- A fresh successful test closes the existing issue. This is an independent browser/site monitor, separate from the SVHL schedule-data watchdog and next-game readiness issue.
+- The [watchdog dry/live verification](https://github.com/adambrutto-maker/brave-hc/actions/runs/39436281674) passed using the already-green browser-QA state. The automatic watcher also [processed the subsequent green browser test](https://github.com/adambrutto-maker/brave-hc/actions/runs/39436771496) successfully. No alert was needed.
+- The browser test now runs contrast calculations against the public widget's explicit CSS colors, covering alternate game-row backgrounds, TBD text and column headings. The [verified browser test](https://github.com/adambrutto-maker/brave-hc/actions/runs/39436692866) reported **17.3:1** for odd-row game text, **14.5:1** for even-row game text, **10.3:1** and **8.6:1** for TBD, and **11.0:1** for headings, all above **4.5:1**.
+- These contrast calculations are based on **published CSS rules** and are a useful regression safeguard, **not** a full computed-style, accessibility or manual visual audit. The same run verified five rendered game rows on desktop and mobile, plus the live HTO iframe and both source feeds.
+- A failure issue is **not** authorization to make changes to HTO, game dates, goalie confirmations or player communications. Review the run log and the actual public site before correcting source code.
+
 ## Live public website browser QA (October 20)
 
 The Brave H.C. goalie widget has a separate **read-only, browser-rendered smoke test** at [tests/smoke_goalie_widget_live.py](https://github.com/adambrutto-maker/brave-hc/blob/main/tests/smoke_goalie_widget_live.py), independent of the SVHL schedule publisher.
@@ -127,7 +139,7 @@ The Brave H.C. goalie widget has a separate **read-only, browser-rendered smoke 
 - The tester then loads the actual hosted widget at **1280 × 900 desktop** and **390 × 844 mobile** sizes and confirms every rendered game row against the official verified GitHub feed: date, Toronto start time, opponent, rink and stored goalie. Completed games are excluded using the same three-hour grace window.
 - A basic high-contrast CSS presence check detects accidental removal of the white-text styling. This is not a full visual contrast or accessibility audit.
 - QA fails if expected rows are missing, the hosted page reports a feed-read error, the real HTO iframe is absent on all attempts, or game/goalie data disagree. It never edits HTO, confirms a goalie, authenticates as an administrator or sends player messages.
-- A failed smoke run appears in **GitHub Actions** and relies on GitHub notification settings. It does **not** independently create a support issue; the SVHL reconciliation watchdog is separate.
+- A separate **public goalie widget QA watchdog** now monitors completion of the daily browser test, plus checks twice daily for missing test runs. It opens/updates the GitHub issue **Brave H.C. — public goalie widget browser QA failure** after a failed/cancelled test or a verification gap longer than 36 hours, and closes that issue after a fresh successful test. It cannot edit the public website or HTO. GitHub notifications still depend on the user's account settings.
 - **Release receipt:** [October 20 live browser smoke run](https://github.com/adambrutto-maker/brave-hc/actions/runs/39434709444) — PASS for five rendered games on desktop and mobile, iframe present on HTO, and both public GitHub feeds readable.
 
 ## Widget deployment / rollback
