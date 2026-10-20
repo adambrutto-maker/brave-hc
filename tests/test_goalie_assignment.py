@@ -79,9 +79,26 @@ class GoalieUpdateTests(unittest.TestCase):
             self.assertEqual(rejected.returncode,2)
             self.assertEqual(json.loads(saved.read_text()),original)
             permitted=subprocess.run(command+["--fixture-signature",signature,
-                       "--expected-goalie","Stephen Logue"],capture_output=True,text=True)
+                       "--expected-goalie","Stephen Logue","--change-reason","BOOKING_CHANGE"],capture_output=True,text=True)
             self.assertEqual(permitted.returncode,0,permitted.stderr)
             self.assertEqual(json.loads(saved.read_text())["assignments"]["hto:3375682"],"Dev Leong")
+
+    def test_manager_reason_transition_rules(self):
+        check=module.validate_change_reason
+        self.assertEqual(check("Stephen Logue","Stephen Logue","NO_CHANGE"),"NO_CHANGE")
+        self.assertEqual(check("TBD","Dev Leong","NEW_BOOKING"),"NEW_BOOKING")
+        self.assertEqual(check("Stephen Logue","TBD","GOALIE_UNAVAILABLE"),"GOALIE_UNAVAILABLE")
+        self.assertEqual(check("Stephen Logue","Dev Leong","BOOKING_CHANGE"),"BOOKING_CHANGE")
+        for old,new,reason in [
+            ("Stephen Logue","TBD",""),
+            ("Stephen Logue","TBD","NEW_BOOKING"),
+            ("Stephen Logue","Dev Leong",""),
+            ("TBD","Dev Leong","BOOKING_CHANGE"),
+            ("Stephen Logue","Stephen Logue","GOALIE_UNAVAILABLE"),
+        ]:
+            with self.subTest(old=old,new=new,reason=reason):
+                with self.assertRaises(ValueError):
+                    check(old,new,reason)
 
     def test_manual_and_issue_workflows_share_single_queue(self):
         base=Path(__file__).resolve().parents[1]/".github"/"workflows"
