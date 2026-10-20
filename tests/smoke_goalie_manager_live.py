@@ -89,7 +89,7 @@ def run():
 
         primary=first["games"][0]
         current={**primary,"previous":initial.get(primary["assignmentKey"],"TBD")}
-        expect_link(page,rows.first(),current,current["previous"])
+        expect_link(page,rows.first,current,current["previous"])
 
         target=first["games"][1] if len(first["games"])>1 else first["games"][0]
         row=rows.nth(1 if len(first["games"])>1 else 0)
