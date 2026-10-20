@@ -116,6 +116,7 @@ def main() -> int:
     ap.add_argument("--actor", default="repository editor")
     ap.add_argument("--fixture-signature", default="")
     ap.add_argument("--expected-goalie", default="")
+    ap.add_argument("--result-file", type=Path)
     ap.add_argument("--dry-run", action="store_true")
     args = ap.parse_args()
     try:
@@ -128,6 +129,13 @@ def main() -> int:
         updated, changed = update_assignment(feed, data, args.game_key, name, args.actor, datetime.now(timezone.utc))
         if changed and not args.dry_run:
             args.assignments.write_text(json.dumps(updated, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+        if args.result_file and not args.dry_run:
+            args.result_file.parent.mkdir(parents=True,exist_ok=True)
+            args.result_file.write_text(
+                json.dumps({"schema":"brave-hc-goalie-request-status/v1",
+                            "code":"CHANGED" if changed else "ALREADY_CONFIRMED"})+"\n",
+                encoding="utf-8")
+
         print(("CHANGED" if changed else "UNCHANGED") + f" {args.game_key}: {name}"
               + (" (dry-run)" if args.dry_run else ""))
         return 0
