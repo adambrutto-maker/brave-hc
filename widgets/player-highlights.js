@@ -58,6 +58,13 @@ function validLedger(data){
     !Object.hasOwn(categoryLabel,item.category)||
     item.provenance!=='EXISTING_NATIVE_HTO_HIGHLIGHTS'||
     item.publication!=='EXISTING_HTO_MANUAL_RECORD')throw Error('Unapproved highlight state');
+  for(const item of p.items){
+   if(item.sourceRuns!==undefined&&(!Array.isArray(item.sourceRuns)||!item.sourceRuns.length||
+      item.sourceRuns.some(r=>typeof r.text!=='string'||typeof r.strong!=='boolean'||typeof r.italic!=='boolean')||
+      item.sourceRuns.map(r=>r.text).join('')!==item.displayText))throw Error('Invalid source formatting');
+   if(item.summaryCounts!==undefined&&['championship','award','milestone'].some(k=>
+      !Number.isInteger(item.summaryCounts[k])||item.summaryCounts[k]<0||item.summaryCounts[k]>10))throw Error('Invalid source summary');
+  }
  }
  return data;
 }
@@ -74,9 +81,9 @@ function renderLegacy(record,ledgerTime){
    return;
  }
  const counts={
-  championship:items.filter(x=>x.category==='championship').length,
-  award:items.filter(x=>x.category==='award'||x.category==='record'&&x.includesAward===true).length,
-  milestone:items.filter(x=>x.category==='milestone').length
+  championship:items.reduce((n,x)=>n+(x.summaryCounts?.championship??(x.category==='championship'?1:0)),0),
+  award:items.reduce((n,x)=>n+(x.summaryCounts?.award??(x.category==='award'||x.category==='record'&&x.includesAward===true?1:0)),0),
+  milestone:items.reduce((n,x)=>n+(x.summaryCounts?.milestone??(x.category==='milestone'?1:0)),0)
  };
  $('careerSummary').hidden=false;
  $('careerSummary').append(statistic('SVHL Cup titles',counts.championship),
@@ -91,6 +98,19 @@ function renderLegacy(record,ledgerTime){
    const info=text('div','');
    const raw=item.displayText;
    // Rendering is text-only: source labels are never evaluated as HTML.
+   if(item.sourceRuns){
+    const sourceTitle=text('div','','ph-event-title');
+    sourceTitle.style.whiteSpace='pre-line';
+    sourceTitle.style.fontWeight='400';
+    for(const run of item.sourceRuns){
+     const span=text('span',run.text);
+     span.style.fontWeight=run.strong?'800':'400';
+     span.style.fontStyle=run.italic?'italic':'normal';
+     span.style.color=run.strong?'#f5d18d':'#f3f7fc';
+     sourceTitle.append(span);
+    }
+    info.append(sourceTitle,text('div',categoryLabel[item.category],'ph-event-meta'));
+   }else{
    const parts=item.preserveLines?[raw]:raw.split(' - ');
    const title=parts.length>1?parts.slice(0,-1).join(' - '):raw;
    const time=parts.length>1?parts[parts.length-1]:'';
@@ -98,6 +118,7 @@ function renderLegacy(record,ledgerTime){
    if(item.preserveLines)titleNode.style.whiteSpace='pre-line';
    info.append(titleNode);
    info.append(text('div',[categoryLabel[item.category],time].filter(Boolean).join(' \u00b7 '),'ph-event-meta'));
+   }
    if(item.displayText!==item.sourceText){
     const note=text('div','Displayed spelling standardized; original HTO text retained in archive.','ph-event-source');
     note.title=item.sourceText;
