@@ -27,6 +27,16 @@ class VerifiedRosterTests(unittest.TestCase):
         for name in roster+["TBD"]:
             self.assertEqual(safe_goalie(name,""),name)
 
+    def test_secondary_skater_not_direct_goalie_option(self):
+        direct = [g["name"] for g in self.r["currentConfirmed"] + self.r["historicalAndOther"]]
+        self.assertNotIn("Anthony Paolucci", direct)
+        self.assertNotIn("Anthony Paolucci", GOALIE_OPTIONS)
+        with self.assertRaises(ValueError):
+            safe_goalie("Anthony Paolucci", "")
+        # Explicit manager-reviewed emergency bookings remain possible using
+        # the named custom path; this is never an automatic goalie assignment.
+        self.assertEqual(safe_goalie("Other / rental", "Anthony Paolucci"), "Anthony Paolucci")
+
     def test_current_status_not_promoted_from_history(self):
         confirmed={g["name"] for g in self.r["currentConfirmed"]}
         other={g["name"] for g in self.r["historicalAndOther"]}
