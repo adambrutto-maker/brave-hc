@@ -179,5 +179,19 @@ class SourceShapedHTOHeaderTests(unittest.TestCase):
         self.assertNotIn("officialHTOReadbackAuthenticated",result)
         self.assertNotIn("officialAwardsRank",result)
 
+
+    def test_live_GTG_header_does_not_shift_scoring_or_fabricate_PIM(self):
+        table=[
+            ["No","Name","POS","","G","A","Pts","GTG","+/-","POTG"],
+            ["12","Fictional Skater Beta","LW","","1","0","1","0","+1","1"],
+            ["18","Fictional Skater Gamma","D","","0","1","1","0","0","0"]]
+        players=skater_rows(table,verified_team_goals=1)
+        self.assertEqual([(p["g"],p["a"],p["pts"]) for p in players],[(1,0,1),(0,1,1)])
+        self.assertTrue(all(p["pim"] is None for p in players))
+        self.assertNotIn("gtg",players[0])
+        table[0][7]="UNVERIFIED_NEW_STAT"
+        with self.assertRaisesRegex(BoxscoreSchemaHold,"UNRECOGNIZED_NAMED_COLUMN"):
+            skater_rows(table,verified_team_goals=1)
+
 if __name__=="__main__":
     unittest.main()
