@@ -377,10 +377,10 @@ function renderPlayerEvidence(card,player,participants){
  const inside=el(box,"div","player-evidence-body");
  const label=el(inside,"div","player-evidence-line");
  if(player.position==="Skater"){
-  if(![raw.goals,raw.assists,raw.points,raw.penaltyMinutes,raw.playerOfTheGameCount].every(Number.isFinite)
+  if(![raw.goals,raw.assists,raw.points].every(Number.isFinite)
      ||raw.points!==raw.goals+raw.assists)return box.remove();
   el(label,"span",null,raw.goals+" "+(raw.goals===1?"goal":"goals")+" + "+raw.assists+" "+(raw.assists===1?"assist":"assists")+" = "+raw.points+" "+(raw.points===1?"point":"points"));
-  el(inside,"p",null,"HTO season: "+raw.playerOfTheGameCount+" Player of the Game · "+raw.penaltyMinutes+" penalty minutes · "+raw.plusMinus+" plus/minus.");
+  el(inside,"p",null,"HTO season: "+observedStat(raw.playerOfTheGameCount)+" Player of the Game · "+observedStat(raw.penaltyMinutes)+" penalty minutes · "+observedStat(raw.plusMinus)+" plus/minus.");
   if(scoring?.sourceStatus==="EXACT_HTO_GOAL_SCORER_AND_ASSISTANT_EVENTS_RECONCILED_NOT_AWARD_SCORE"){
    el(inside,"p",null,"Scoring credits: "+scoring.evenStrengthGoals+" ES goals, "+scoring.evenStrengthAssists+" ES assists; "+scoring.powerPlayGoals+" PP goals, "+scoring.powerPlayAssists+" PP assists; "+scoring.shorthandedGoals+" SH goals, "+scoring.shorthandedAssists+" SH assists.");
   }
@@ -388,9 +388,9 @@ function renderPlayerEvidence(card,player,participants){
    el(inside,"p",null,"HTO-reported penalty-free games: "+events.reportedPIMFreeGameAppearances+" of "+player.gp+" appearances.");
   }
  }else if(player.position==="Goalie"){
-  if(![raw.losses,raw.goalsAgainst,raw.goalsAgainstAverage,raw.playerOfTheGameCount].every(Number.isFinite))return box.remove();
+  if(![raw.losses,raw.goalsAgainst,raw.goalsAgainstAverage].every(Number.isFinite))return box.remove();
   el(label,"span",null,player.gp+" games · "+raw.goalsAgainst+" goals allowed · "+raw.goalsAgainstAverage.toFixed(2)+" GAA");
-  el(inside,"p",null,raw.playerOfTheGameCount+" Player of the Game selections · "+raw.losses+" losses.");
+  el(inside,"p",null,observedStat(raw.playerOfTheGameCount)+" Player of the Game selections · "+raw.losses+" losses.");
   if(events.sourceKind==="FOUR_HTO_BOXSCORES_GOALIE_APPEARANCE_AND_ALL_PUBLISHED_PENALTY_GOAL_EVENTS_VERIFIED")
    el(inside,"p",null,"No goalie penalty or goalie goal/assist recorded in the published HTO game summaries.");
  }else return box.remove();
@@ -400,7 +400,7 @@ function renderPlayerEvidence(card,player,participants){
     &&["HTO_PER_GAME_OBSERVATIONS_CROSSCHECKED_TO_CURRENT_SEASON","HTO_GOALIE_PER_GAME_OBSERVATIONS_CROSSCHECKED_TO_CURRENT_SEASON"].includes(pattern.status)){
   const uniqueIds=new Set(pattern.games.map(g=>g.gameId));
   const rawScoringOkay=player.position!=="Skater" ||
-   (pattern.games.every(g=>[g.g,g.a,g.points,g.plusMinus,g.playerOfTheGame].every(Number.isInteger)&&g.g+g.a===g.points)
+   (pattern.games.every(g=>[g.g,g.a,g.points].every(Number.isInteger)&&g.g+g.a===g.points)
      &&pattern.games.reduce((n,g)=>n+g.g,0)===raw.goals
      &&pattern.games.reduce((n,g)=>n+g.a,0)===raw.assists
      &&pattern.games.reduce((n,g)=>n+g.points,0)===raw.points);
@@ -419,6 +419,7 @@ function renderPlayerEvidence(card,player,participants){
      :game.g+" G · "+game.a+" A · "+game.points+" PTS";
     el(tile,"strong",null,score);
     if(game.playerOfTheGame===1)el(tile,"span","player-form-potg","POTG");
+    else if(game.playerOfTheGame!==0)el(tile,"span",null,"POTG unreported");
    }
    if(player.position==="Skater"&&pattern.observedCounts){
     const info=pattern.observedCounts;
@@ -640,6 +641,9 @@ function renderRaceActivity(){
   renderPlayerEvidence(entry,p,src);
  }
  el(content,"p","source-note","Appearance stats: official HTO this season, read back "+(src.verifiedSourceReadback.verifiedOn||"date pending")+". "+(id==="rookie"?"Rookie Year: Master Workbook PlayerInfo, corroborated by the current HTO roster and game appearances. Jamie Rosenberg has Rookie Year 2026 in the workbook, but the saved workbook lacks his current game/season links; recalculation is held. Five-player race visibility does not constitute verified shortlist rank or award score. ":"Roster classifications are from HockeyOS, not an award approval. ")+"Alphabetical, not ranked by performance.");
+}
+function observedStat(value){
+ return Number.isFinite(value)?String(value):"Unreported";
 }
 function renderSeasonParticipants(){
  const d=state.source,source=state.participation;
