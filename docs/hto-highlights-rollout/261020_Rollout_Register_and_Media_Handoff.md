@@ -1,14 +1,12 @@
-# Brave H.C. HTO Player Highlights — rollout register and Media handoff
+# Brave H.C. HTO Player Highlights — final roster register and Media handoff
 
-Date: 2026-10-20. Lead: MEDIA; support: Engineering and QA & Testing. Scope: authenticated BRAVESHOCKEY current 2026/27 roster only.
+Date: 2026-10-20. Lead: MEDIA; support: Engineering and QA & Testing.
 
-**Outcome: 25 current roster entries reviewed; 24 verified identities; 19 new installations; 2 prior installations preserved; 3 legacy profiles deferred unchanged; 1 placeholder excluded.** The 51-person identity registry includes historical alumni and is not the eligible rollout roster.
-
-19 profiles were saved through the supported HTO Highlights Source editor, then verified on actual public HTO profiles. Ten legacy migrations preserve 74 entries with exact text, date/season, original order and emphasis. No new achievement was approved. Existing championship lines and Stephen Logue's Hall of Fame emphasis are retained. Nine originally empty profiles remain empty of approved achievements.
+**COMPLETE: all 24 verified current-roster identities have saved, publicly verified universal widgets.** 25 current roster entries reviewed; Johnny Unknown 847926 is the sole excluded placeholder. No historical alumni rollout.22 new installations across this execution and its continuation, plus Adam/Justin's two untouched prior installations. No remaining eligible profile deferrals.
 
 | Player | playerID | Prior Highlights | Backup status | Installation | Public profile | QA |
 |---|---:|---|---|---|---|---|
-| Stefano Ardizzi | 356089 | Existing manual Highlights | 261020_legacy-editor-originals.json | DEFERRED — native field unchanged | [HTO](https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=356089) | No install; preservation hold |
+| Stefano Ardizzi | 356089 | Existing manual Highlights | 261020_legacy-editor-originals.json | INSTALLED_AND_PUBLICLY_VERIFIED | [HTO](https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=356089) | PASS — saved public HTO desktop and measured 390px mobile; exact records/order/emphasis and expansion |
 | Nolan Atkins | 769343 | Empty | 261020_empty-profile-rollback.json; authenticated Source confirmed empty | INSTALLED_AND_PUBLICLY_VERIFIED | [HTO](https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=769343) | PASS — saved public HTO desktop and 390px mobile |
 | Adam Brutto | 354054 | Widget already installed and verified | Prior pilot backup references in Issue #21; not recaptured | Existing widget — not edited | [HTO](https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=354054) | Previously accepted desktop/mobile; user baseline and Issue #21 |
 | Adam Carlyle | 849369 | Empty | 261020_empty-profile-rollback.json; authenticated Source confirmed empty | INSTALLED_AND_PUBLICLY_VERIFIED | [HTO](https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=849369) | PASS — saved public HTO desktop and 390px mobile |
@@ -19,8 +17,8 @@ Date: 2026-10-20. Lead: MEDIA; support: Engineering and QA & Testing. Scope: aut
 | Henry Kong | 846200 | Empty | 261020_empty-profile-rollback.json; authenticated Source confirmed empty | INSTALLED_AND_PUBLICLY_VERIFIED | [HTO](https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=846200) | PASS — saved public HTO desktop and 390px mobile |
 | Dev Leong | 776208 | Empty | 261020_776208_original.json | INSTALLED_AND_PUBLICLY_VERIFIED | [HTO](https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=776208) | PASS — saved public HTO desktop and 390px mobile |
 | Stephen Logue | 354055 | Existing manual Highlights | 261020_legacy-editor-originals.json | INSTALLED_AND_PUBLICLY_VERIFIED | [HTO](https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=354055) | PASS — saved public HTO desktop and 390px mobile |
-| Stefano Mazzei | 595514 | Existing manual Highlights | 261020_legacy-editor-originals.json | DEFERRED — native field unchanged | [HTO](https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=595514) | No install; preservation hold |
-| Alex Pagnotta | 354058 | Existing manual Highlights | 261020_legacy-editor-originals.json | DEFERRED — native field unchanged | [HTO](https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=354058) | No install; preservation hold |
+| Stefano Mazzei | 595514 | Existing manual Highlights | 261020_legacy-editor-originals.json | INSTALLED_AND_PUBLICLY_VERIFIED | [HTO](https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=595514) | PASS — saved public HTO desktop and measured 390px mobile; exact records/order/emphasis and expansion |
+| Alex Pagnotta | 354058 | Existing manual Highlights | 261020_legacy-editor-originals.json | INSTALLED_AND_PUBLICLY_VERIFIED | [HTO](https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=354058) | PASS — saved public HTO desktop and measured 390px mobile; exact records/order/emphasis and expansion |
 | Anthony Paolucci | 354057 | Existing manual Highlights | 261020_legacy-editor-originals.json | INSTALLED_AND_PUBLICLY_VERIFIED | [HTO](https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=354057) | PASS — saved public HTO desktop and 390px mobile |
 | Damian Pavaday | 849368 | Empty | 261020_empty-profile-rollback.json; authenticated Source confirmed empty | INSTALLED_AND_PUBLICLY_VERIFIED | [HTO](https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=849368) | PASS — saved public HTO desktop and 390px mobile |
 | Keith Pearsoll | 354056 | Existing manual Highlights | 261020_legacy-editor-originals.json | INSTALLED_AND_PUBLICLY_VERIFIED | [HTO](https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=354056) | PASS — saved public HTO desktop and 390px mobile |
@@ -34,36 +32,34 @@ Date: 2026-10-20. Lead: MEDIA; support: Engineering and QA & Testing. Scope: aut
 | Francesco Triumbari | 845364 | Empty | 261020_empty-profile-rollback.json; authenticated Source confirmed empty | INSTALLED_AND_PUBLICLY_VERIFIED | [HTO](https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=845364) | PASS — saved public HTO desktop and 390px mobile |
 | Johnny Unknown | 847926 | Unverified placeholder | N/A — excluded | EXCLUDED | [HTO](https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=847926) | Not tested — identity excluded |
 
-## Validation
+## Final preservation resolution
 
-- Each new saved public profile has exactly one correct-player iframe, HTML height 1350 and CSS height 1350px. Correct names/IDs and source-backed skater/goalie form were read in the public HTO Highlights tab after saving.
-- Current-season public feed is dated October 18, 2026 and explicitly marked historical/stale. This installation does not prove direct automatic HTO synchronization or a continuously active publishing pipeline.
-- All 74 migrated rendered entries were compared individually against backed-up Source text, dates/seasons, order and emphasis. Expanded counts and Show fewer passed for all five migrated lists longer than seven items, on desktop and 390px mobile.
-- Dedicated loaded 390px mobile check: iframe width 325px; no horizontal overflow or unnecessary initial internal vertical scrollbar. Largest migrated initial view: Keith Pearsoll, 1231px within 1350px. HTO Stats and roster navigation remain present. No Bio field was edited; absent Bio tabs were not added.
-- Desktop: default browser viewport approximately 925px; widget width approximately 604px, initial content <=1350px. Separate prior desktop/mobile public acceptance for Adam and Justin remains recorded in Issue #21; neither profile was edited.
-- QA performed by this implementation session, not claimed as an independent departmental sign-off. Early temporary viewport checks were superseded by the dedicated loaded 390px pass; raw evidence retains both observations.
+The three former holds are cleared:
 
-## Deferred, unchanged profiles
+- Stefano Ardizzi 356089: all 12 original record blocks retained, including the suspension note and 2 emphasized championships.
+- Stefano Mazzei 595514: all 3 substantive records retained, including the suspension note. The empty trailing paragraph is retained in the raw backup and is not an achievement.
+- Alex Pagnotta 354058: all 15 original paragraph record blocks retained, including the award and leadership reference in one two-line block. The original line break is rendered with `white-space:pre-line`; no split/reordered history. Seven awards are counted, including the award in the combined block; disciplinary notes are excluded from award totals.
 
-- **Alex Pagnotta (354058):** Award and leadership reference share one paragraph with an explicit line break; current renderer would flatten grouping/formatting. Leave unchanged pending a faithful rendering treatment.
-- **Stefano Ardizzi (356089):** Existing suspension note has no neutral supported ledger category; leave complete native field unchanged.
-- **Stefano Mazzei (595514):** Existing suspension note has no neutral supported ledger category; leave complete native field unchanged.
-- **Johnny Unknown (847926):** unverified placeholder, excluded. No historical alumni were commissioned.
+The universal renderer now supports neutral `discipline` and `record` categories. Existing record text is rendered as text, never evaluated as HTML. Combined-record presentation retains exact text and dates. No new award, leadership appointment, suspension or milestone was invented or approved.
 
-## Backups and rollback
+Across 13 legacy migrations,104 original substantive paragraph blocks were preserved, plus Adam/Justin's unchanged 41 prior ledger entries. Source text, dates/seasons, ordering and source emphasis were checked individually after each HTO save. The raw full original HTML for all 13 legacy profiles remains in `261020_legacy-editor-originals.json`.
 
-`261020_legacy-editor-originals.json` contains complete authenticated editor Source HTML for all 13 legacy fields, including the three deferred profiles. `261020_776208_original.json` records Dev's empty source. `261020_empty-profile-rollback.json` records the eight other empty-field baselines; each actual editor was checked empty before save. Restore ONLY the matching player's original HTML through the supported Highlights Source editor and verify the public page. No rollback was required.
+## Public QA
 
-Backup commits: Dev `8ab113942bc6773502b06fd3c45a93bd2d6025c7`; empty profiles `4a4d79818524d0c0c03d91ec151780074e205e1b`; legacy originals `54ae953cb778c0df6afbb92e977f396db12cce52`. Ledger migration: `28512b2d624be9a2a2ee7d5d96242cbe86bc04b4`.
+Every new install was saved via supported HTO Highlights Source editor and verified on the actual public HTO Highlights tab: correct name/playerID; exactly one iframe; HTML height 1350 and CSS height 1350px; source-backed current-season form; visible Oct 18,2026 readback marked historical/stale; intact Stats/roster navigation. No Bio fields were edited. Adam and Justin's existing 16/25 entries passed renderer regression checks without editing their HTO profiles.
 
-## Permanent onboarding
+Desktop and measured 390px CSS mobile checks PASS. Initial content fits within 1350px with no internal scrollbar or horizontal overflow. Final 3 mobile heights: Ardizzi 1193px; Mazzei 846px; Pagnotta 1247px. Show all/Show fewer passed on desktop/mobile where applicable, including all 12/15 records in the two longer final profiles. Expanded scrolling is permitted. Browser zoom required 429 physical pixels to measure 390 CSS pixels in the continuation; evidence records actual innerWidth 390. Earlier harness attempts are superseded, not treated as profile defects. QA performed by this implementation session; no claim of independent departmental sign-off.
 
-Use [New Player Onboarding](261020_New_Player_Onboarding.md). One verified HTO profile/ID, one registration in the shared exact-name identity map, the same 1350px universal iframe, and saved public-profile QA. New history remains empty unless separately verified. Only the independently governed public feed can supply refreshed stats; AwardsScoring restrictions remain intact.
+## Reversibility
 
-## Media handoff and decisions
+Backups: `261020_776208_original.json` (Dev empty original), `261020_empty-profile-rollback.json` (eight other empty originals, editor-checked before each save), `261020_legacy-editor-originals.json` (13 complete legacy editor sources). Restore only the matching player's exact original Source HTML, save and re-read public profile. All three final profiles were freshly compared to their prior complete editor backups immediately before replacement. No rollback was required.
 
-The supported rollout is complete with explicit preservation deferrals. MEDIA/Engineering should agree a neutral non-achievement record treatment for Ardizzi/Mazzei and a faithful multi-line award/leadership representation for Pagnotta before replacing those three native fields. Do not delete, relabel as achievements, or split/reformat those entries silently. Then migrate, publicly verify and update this register. Keep Issue #21 open for these three preservation holds and unresolved placeholder identity.
+Renderer commits:`8561e 019a 1632bb 2a 8db 0e 71416c 67f 9259ce 63f` and `0b 589428a 119765525b 01f 3861de 4c 3f 104c 7646`; final ledger:`dbe 32256273ed 503336efc 7d 1370c 1cece 04501c`. Earlier backup/migration commits remain in Git history and the Issue 21 audit trail.
 
-No messages, invitations, announcements, Records/Awards edits, authoritative stats changes, unrelated website changes, AwardsScoring changes or TCDSB/TSTG access occurred.
+## Media handoff
 
-Chat title: latest recovered allocation evidence is MEDIA CHAT 11 in the October 1 preliminary archive report, whose live inventory is explicitly unverified. MEDIA CHAT 12 remains proposed; latest live allocation could not be conclusively established. No conversation or department hub was renamed, and history was preserved.
+Operational rollout is complete. Use [Permanent New Player Onboarding](261020_New_Player_Onboarding.md) for future additions: official HTO profile/ID, unique exact name/ID in shared identity registry, same 1350px iframe and saved public desktop/mobile QA. New players start with empty approved achievements unless separate historical evidence is verified. Carry forward existing non-achievement records neutrally; preserve multi-line grouping. [Raw public QA evidence](261020_Public_QA_Evidence.json) provides all profile URLs and checks.
+
+Statistics refresh when the independently verified HockeyOS public feed refreshes. No direct automatic HTO synchronization or continuously active publication pipeline is claimed. No authoritative statistics or AwardsScoring restrictions changed. No player communications, invitations, announcements, Records/Awards edits, unrelated website changes or TCDSB/TSTG access occurred.
+
+Johnny Unknown 847926 remains excluded pending a separately verified identity. MEDIA CHAT 12 remains proposed: latest recovered October 1 preliminary archive lists MEDIA CHAT 11, but explicitly lacks verified live inventory. No chat or department hub was renamed; history preserved.
