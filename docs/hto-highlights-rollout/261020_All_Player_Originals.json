@@ -1,0 +1,542 @@
+{
+  "date": "2026-10-20",
+  "scope": "All historical HTO records; interim inventory checkpoint, no HTO writes",
+  "profiles": [
+    {
+      "id": "688131",
+      "rosterName": "Ardizzi, Anthony",
+      "name": "Anthony Ardizzi",
+      "html": "",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=688131",
+      "statsBefore": true,
+      "bioBefore": false
+    },
+    {
+      "id": "458461",
+      "rosterName": "Babiak, Matt",
+      "name": "Matt Babiak",
+      "html": "",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=458461",
+      "statsBefore": true,
+      "bioBefore": false
+    },
+    {
+      "id": "780704",
+      "rosterName": "Brancatella, Dino",
+      "name": "Dino Brancatella",
+      "html": "",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=780704",
+      "statsBefore": true,
+      "bioBefore": false
+    },
+    {
+      "id": "653011",
+      "rosterName": "Brutto, Matthew",
+      "name": "Matthew Brutto",
+      "html": "",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=653011",
+      "statsBefore": true,
+      "bioBefore": false
+    },
+    {
+      "id": "465897",
+      "rosterName": "Campbell, Ryan",
+      "name": "Ryan Campbell",
+      "html": "",
+      "sourceCapture": "HTO admin explicitly empty Highlights; Source recheck required before save",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=465897",
+      "statsBefore": true,
+      "bioBefore": false
+    },
+    {
+      "id": "401341",
+      "rosterName": "Carpino, Joe",
+      "name": "Joe Carpino",
+      "html": "",
+      "sourceCapture": "HTO admin explicitly empty Highlights; Source recheck required before save",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=401341",
+      "statsBefore": true,
+      "bioBefore": false
+    },
+    {
+      "id": "378632",
+      "rosterName": "Cawkell, Will",
+      "name": "Will Cawkell",
+      "html": "",
+      "sourceCapture": "HTO admin explicitly empty Highlights; Source recheck required before save",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=378632",
+      "statsBefore": true,
+      "bioBefore": false
+    },
+    {
+      "id": "376086",
+      "rosterName": "Cerrone, Carmine",
+      "name": "Carmine Cerrone",
+      "html": "<p>Rookie of the Year - Winter 2015/16</p>\n\n<p><strong>SVHL Cup Champion - Winter 2015/16</strong></p>\n",
+      "sourceCapture": "Complete authenticated Source editor HTML",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=376086",
+      "statsBefore": true,
+      "bioBefore": false
+    },
+    {
+      "id": "488205",
+      "rosterName": "Cesario, Matt",
+      "name": "Matt Cesario",
+      "html": "",
+      "sourceCapture": "HTO admin explicitly empty Highlights; Source recheck required before save",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=488205",
+      "statsBefore": true,
+      "bioBefore": false
+    },
+    {
+      "id": "605063",
+      "rosterName": "Cole, Tom",
+      "name": "Tom Cole",
+      "html": "",
+      "sourceCapture": "HTO admin explicitly empty Highlights; Source recheck required before save",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=605063",
+      "statsBefore": true,
+      "bioBefore": false
+    },
+    {
+      "id": "567150",
+      "rosterName": "Coote, Jesse",
+      "name": "Jesse Coote",
+      "html": "",
+      "sourceCapture": "HTO admin explicitly empty Highlights; Source recheck required before save",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=567150",
+      "statsBefore": true,
+      "bioBefore": false
+    },
+    {
+      "id": "642168",
+      "rosterName": "Cristillo, Andre",
+      "name": "Andre Cristillo",
+      "html": "",
+      "sourceCapture": "HTO admin explicitly empty Highlights; Source recheck required before save",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=642168",
+      "statsBefore": true,
+      "bioBefore": false
+    },
+    {
+      "id": "642167",
+      "rosterName": "Cristillo, Lucas",
+      "name": "Lucas Cristillo",
+      "html": "",
+      "sourceCapture": "HTO admin explicitly empty Highlights; Source recheck required before save",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=642167",
+      "statsBefore": true,
+      "bioBefore": false
+    },
+    {
+      "id": "549462",
+      "rosterName": "Del Zotto, Enzo",
+      "name": "Enzo Del Zotto",
+      "html": "",
+      "sourceCapture": "HTO admin explicitly empty Highlights; Source recheck required before save",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=549462",
+      "statsBefore": true,
+      "bioBefore": false
+    },
+    {
+      "id": "686563",
+      "rosterName": "DeMarco, Stephen",
+      "name": "Stephen DeMarco",
+      "html": "",
+      "sourceCapture": "HTO admin explicitly empty Highlights; Source recheck required before save",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=686563",
+      "statsBefore": true,
+      "bioBefore": false
+    },
+    {
+      "id": "618955",
+      "rosterName": "DiPardo, Anthony",
+      "name": "Anthony DiPardo",
+      "html": "",
+      "sourceCapture": "HTO admin explicitly empty Highlights; Source recheck required before save",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=618955",
+      "statsBefore": true,
+      "bioBefore": false
+    },
+    {
+      "id": "686383",
+      "rosterName": "Duffy, Ronan",
+      "name": "Ronan Duffy",
+      "html": "",
+      "sourceCapture": "HTO admin explicitly empty Highlights; Source recheck required before save",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=686383",
+      "statsBefore": true,
+      "bioBefore": false
+    },
+    {
+      "id": "843925",
+      "rosterName": "Dyer, Will",
+      "name": "Will Dyer",
+      "html": "",
+      "sourceCapture": "HTO admin explicitly empty Highlights; Source recheck required before save",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=843925",
+      "statsBefore": false,
+      "bioBefore": false
+    },
+    {
+      "id": "549659",
+      "rosterName": "Florio, Nick",
+      "name": "Nick Florio",
+      "html": "",
+      "sourceCapture": "HTO admin explicitly empty Highlights; Source recheck required before save",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=549659",
+      "statsBefore": true,
+      "bioBefore": false
+    },
+    {
+      "id": "686384",
+      "rosterName": "Fregonas, Eric",
+      "name": "Eric Fregonas",
+      "html": "",
+      "sourceCapture": "HTO admin explicitly empty Highlights; Source recheck required before save",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=686384",
+      "statsBefore": true,
+      "bioBefore": false
+    },
+    {
+      "id": "808054",
+      "rosterName": "Gabor, Jason",
+      "name": "Jason Gabor",
+      "html": "",
+      "sourceCapture": "HTO admin explicitly empty Highlights; Source recheck required before save",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=808054",
+      "statsBefore": true,
+      "bioBefore": false
+    },
+    {
+      "id": "831410",
+      "rosterName": "Galdenzi, Robbie",
+      "name": "Robbie Galdenzi",
+      "html": "",
+      "sourceCapture": "HTO admin explicitly empty Highlights; Source recheck required before save",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=831410",
+      "statsBefore": true,
+      "bioBefore": false
+    },
+    {
+      "id": "829463",
+      "rosterName": "Greenberg, Matthew",
+      "name": "Matthew Greenberg",
+      "html": "",
+      "sourceCapture": "HTO admin explicitly empty Highlights; Source recheck required before save",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=829463",
+      "statsBefore": true,
+      "bioBefore": false
+    },
+    {
+      "id": "481161",
+      "rosterName": "Helmer, Marcus",
+      "name": "Marcus Helmer",
+      "html": "",
+      "sourceCapture": "HTO admin explicitly empty Highlights; Source recheck required before save",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=481161",
+      "statsBefore": true,
+      "bioBefore": false
+    },
+    {
+      "id": "388298",
+      "rosterName": "Hunt, Quenton",
+      "name": "Quenton Hunt",
+      "html": "",
+      "sourceCapture": "HTO admin explicitly empty Highlights; Source recheck required before save",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=388298",
+      "statsBefore": true,
+      "bioBefore": false
+    },
+    {
+      "id": "830942",
+      "rosterName": "Ing, Aj",
+      "name": "Aj Ing",
+      "html": "",
+      "sourceCapture": "HTO admin explicitly empty Highlights; Source recheck required before save",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=830942",
+      "statsBefore": true,
+      "bioBefore": false
+    },
+    {
+      "id": "383322",
+      "rosterName": "Kercz, Zach",
+      "name": "Zach Kercz",
+      "html": "",
+      "sourceCapture": "HTO admin explicitly empty Highlights; Source recheck required before save",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=383322",
+      "statsBefore": true,
+      "bioBefore": false
+    },
+    {
+      "id": "401342",
+      "rosterName": "Lamanna, Marco",
+      "name": "Marco Lamanna",
+      "html": "",
+      "sourceCapture": "HTO admin explicitly empty Highlights; Source recheck required before save",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=401342",
+      "statsBefore": true,
+      "bioBefore": false
+    },
+    {
+      "id": "547671",
+      "rosterName": "Laramy, Andrew",
+      "name": "Andrew Laramy",
+      "html": "",
+      "sourceCapture": "HTO admin explicitly empty Highlights; Source recheck required before save",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=547671",
+      "statsBefore": true,
+      "bioBefore": false
+    },
+    {
+      "id": "689718",
+      "rosterName": "Logue, Michael",
+      "name": "Michael Logue",
+      "html": "",
+      "sourceCapture": "HTO admin explicitly empty Highlights; Source recheck required before save",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=689718",
+      "statsBefore": true,
+      "bioBefore": false
+    },
+    {
+      "id": "642165",
+      "rosterName": "Martella, Dante",
+      "name": "Dante Martella",
+      "html": "",
+      "sourceCapture": "HTO admin explicitly empty Highlights; Source recheck required before save",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=642165",
+      "statsBefore": true,
+      "bioBefore": false
+    },
+    {
+      "id": "434639",
+      "rosterName": "McGolrick, Michael",
+      "name": "Michael McGolrick",
+      "html": "",
+      "sourceCapture": "HTO admin explicitly empty Highlights; Source recheck required before save",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=434639",
+      "statsBefore": true,
+      "bioBefore": false
+    },
+    {
+      "id": "733002",
+      "rosterName": "Naman, Mearon",
+      "name": "Mearon Naman",
+      "html": "",
+      "sourceCapture": "HTO admin explicitly empty Highlights; Source recheck required before save",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=733002",
+      "statsBefore": true,
+      "bioBefore": false
+    },
+    {
+      "id": "686564",
+      "rosterName": "Noyek, Steve",
+      "name": "Steve Noyek",
+      "html": "",
+      "sourceCapture": "HTO admin explicitly empty Highlights; Source recheck required before save",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=686564",
+      "statsBefore": true,
+      "bioBefore": false
+    },
+    {
+      "id": "549662",
+      "rosterName": "Nunno, Adrian",
+      "name": "Adrian Nunno",
+      "html": "",
+      "sourceCapture": "HTO admin explicitly empty Highlights; Source recheck required before save",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=549662",
+      "statsBefore": true,
+      "bioBefore": false
+    },
+    {
+      "id": "549660",
+      "rosterName": "Nunno, Brandon",
+      "name": "Brandon Nunno",
+      "html": "",
+      "sourceCapture": "HTO admin explicitly empty Highlights; Source recheck required before save",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=549660",
+      "statsBefore": true,
+      "bioBefore": false
+    },
+    {
+      "id": "549661",
+      "rosterName": "Nunno, Chris",
+      "name": "Chris Nunno",
+      "html": "",
+      "sourceCapture": "HTO admin explicitly empty Highlights; Source recheck required before save",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=549661",
+      "statsBefore": true,
+      "bioBefore": false
+    },
+    {
+      "id": "645171",
+      "rosterName": "Paglia, Emilio",
+      "name": "Emilio Paglia",
+      "html": "",
+      "sourceCapture": "HTO admin explicitly empty Highlights; Source recheck required before save",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=645171",
+      "statsBefore": true,
+      "bioBefore": false
+    },
+    {
+      "id": "594972",
+      "rosterName": "Partland, Anthony",
+      "name": "Anthony Partland",
+      "html": "",
+      "sourceCapture": "HTO admin explicitly empty Highlights; Source recheck required before save",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=594972",
+      "statsBefore": true,
+      "bioBefore": false
+    },
+    {
+      "id": "411613",
+      "rosterName": "Ruscitti, Robert",
+      "name": "Robert Ruscitti",
+      "html": "",
+      "sourceCapture": "HTO admin explicitly empty Highlights; Source recheck required before save",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=411613",
+      "statsBefore": true,
+      "bioBefore": false
+    },
+    {
+      "id": "833648",
+      "rosterName": "Sadler, Justin",
+      "name": "Justin Sadler",
+      "html": "",
+      "sourceCapture": "HTO admin explicitly empty Highlights; Source recheck required before save",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=833648",
+      "statsBefore": true,
+      "bioBefore": false
+    },
+    {
+      "id": "776712",
+      "rosterName": "Salnek, Will",
+      "name": "Will Salnek",
+      "html": "",
+      "sourceCapture": "HTO admin explicitly empty Highlights; Source recheck required before save",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=776712",
+      "statsBefore": true,
+      "bioBefore": false
+    },
+    {
+      "id": "549663",
+      "rosterName": "Spagnuolo, Luc",
+      "name": "Luc Spagnuolo",
+      "html": "",
+      "sourceCapture": "HTO admin explicitly empty Highlights; Source recheck required before save",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=549663",
+      "statsBefore": true,
+      "bioBefore": false
+    },
+    {
+      "id": "798413",
+      "rosterName": "Svec, Matt",
+      "name": "Matt Svec",
+      "html": "",
+      "sourceCapture": "HTO admin explicitly empty Highlights; Source recheck required before save",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=798413",
+      "statsBefore": true,
+      "bioBefore": false
+    },
+    {
+      "id": "378152",
+      "rosterName": "Weatherhead, Tristan",
+      "name": "Tristan Weatherhead",
+      "html": "",
+      "sourceCapture": "HTO admin explicitly empty Highlights; Source recheck required before save",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=378152",
+      "statsBefore": true,
+      "bioBefore": false
+    },
+    {
+      "id": "642442",
+      "rosterName": "Wheeler, Kevin",
+      "name": "Kevin Wheeler",
+      "html": "",
+      "sourceCapture": "HTO admin explicitly empty Highlights; Source recheck required before save",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=642442",
+      "statsBefore": true,
+      "bioBefore": false
+    },
+    {
+      "id": "618956",
+      "rosterName": "Pozzebon, Andrew",
+      "name": "Andrew Pozzebon",
+      "html": "",
+      "sourceCapture": "HTO admin explicitly empty Highlights; Source recheck required before save",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=618956",
+      "statsBefore": true,
+      "bioBefore": false
+    },
+    {
+      "id": "355501",
+      "rosterName": "Baghel, Neil",
+      "name": "Neil Baghel",
+      "html": "<p><strong><em>SVHL Cup Champion (Call-Up)</em> - Winter 2015/16</strong></p>\n\n<p>50 Game Club - September 27, 2015</p>\n",
+      "sourceCapture": "Complete authenticated Source editor HTML",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=355501",
+      "statsBefore": true,
+      "bioBefore": false
+    },
+    {
+      "id": "354042",
+      "rosterName": "Brutto, Lucas",
+      "name": "Lucas Brutto",
+      "html": "<p>Most Improved Award - Winter 2018/19</p>\n\n<p>50 Game Club - December 30, 2018</p>\n\n<p><strong>SVHL Cup Champion - Summer 2016</strong></p>\n\n<p><strong>SVHL Cup Champion - Winter 2012/13</strong></p>\n",
+      "sourceCapture": "Complete authenticated Source editor HTML",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=354042",
+      "statsBefore": true,
+      "bioBefore": false
+    },
+    {
+      "id": "652571",
+      "rosterName": "Corasaniti, David",
+      "name": "David Corasaniti",
+      "html": "<p>Conn Smythe Award Playoff MVP - Winter 2019/20<br />\nHart Award Team MVP - Winter 2019/20<br />\nRookie of the Year Award - Winter 2019/20</p>\n\n<p>Art Ross Award (30 Points) - Winter 2019/20</p>\n\n<p>Maurice &quot;Rocket&quot; Richard Award (10&nbsp;Goals) - Winter 2019/20</p>\n",
+      "sourceCapture": "Complete authenticated Source editor HTML",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=652571",
+      "statsBefore": true,
+      "bioBefore": false
+    },
+    {
+      "id": "354043",
+      "rosterName": "Brutto, Italo",
+      "name": "Italo Brutto",
+      "html": "<p><span style=\"color:#000000;\"><strong>SVHL Cup Champion - Winter 2012/13</strong></span></p>\n",
+      "sourceCapture": "Complete authenticated Source editor HTML",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=354043",
+      "statsBefore": true,
+      "bioBefore": false
+    },
+    {
+      "id": "696518",
+      "rosterName": "Quintos, Brandon",
+      "name": "Brandon Quintos",
+      "html": "",
+      "sourceCapture": "HTO admin explicitly empty Highlights; Source recheck required before save",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=696518",
+      "statsBefore": true,
+      "bioBefore": false
+    },
+    {
+      "id": "533806",
+      "rosterName": "Keane, Stephen",
+      "name": "Stephen Keane",
+      "html": "<p>Rookie of the Year Award - Winter 2016/17</p>\n",
+      "sourceCapture": "Complete authenticated Source editor HTML",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=533806",
+      "statsBefore": true,
+      "bioBefore": false
+    },
+    {
+      "id": "354044",
+      "rosterName": "Payne, Dale",
+      "name": "Dale Payne",
+      "html": "",
+      "sourceCapture": "HTO admin explicitly empty Highlights; Source recheck required before save",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=354044",
+      "statsBefore": false,
+      "bioBefore": false
+    }
+  ]
+}
