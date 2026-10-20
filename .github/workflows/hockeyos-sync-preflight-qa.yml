@@ -1,0 +1,26 @@
+name: HockeyOS Workbook Sync Preflight QA
+
+on:
+  pull_request:
+    paths:
+      - 'tests/lib/hockeyos_award_sync_preflight.js'
+      - 'tests/test_hockeyos_award_sync_preflight.js'
+      - '.github/workflows/hockeyos-sync-preflight-qa.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-no-writer:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout proposed QA changes
+        uses: actions/checkout@v4
+      - name: Configure Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Run synthetic source-integrity and no-write tests
+        run: node --test tests/test_hockeyos_award_sync_preflight.js
