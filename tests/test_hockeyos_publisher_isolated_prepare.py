@@ -53,6 +53,17 @@ class PreparationTests(unittest.TestCase):
         with self.assertRaises(mod.Hold):
             mod.signature_countdown({"schema": "unverified", "games": []})
 
+    def test_report_path_cannot_modify_original_publisher(self):
+        from argparse import Namespace
+        (self.a / ".git").mkdir()
+        args = Namespace(old_repo=str(self.a), bundle=str(self.a / "missing.bundle"),
+                         candidate=str(Path(self.tmp.name) / "candidate"),
+                         expected_local="a"*40, expected_remote="b"*40,
+                         report=str(self.a / "report.json"))
+        with self.assertRaisesRegex(mod.Hold, "must not write into active publisher"):
+            mod.prepare(args)
+        self.assertFalse((self.a / "report.json").exists())
+
     def test_missing_backup_or_existing_destination_holds_without_cloning(self):
         from argparse import Namespace
         old = self.a
