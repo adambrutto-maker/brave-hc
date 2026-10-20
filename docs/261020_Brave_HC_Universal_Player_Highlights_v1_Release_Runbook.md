@@ -2,7 +2,9 @@
 
 Date: 2026-10-20
 Lead: MEDIA · HockeyOS (Engineering implementation; QA source checks)
-Status: Feature branch until hosted validation; **no native HTO admin changes**.
+Status: Published and installed on 21 current HTO profiles (19 authorized installs in this rollout; Adam/Justin prior accepted installs retained). Three legacy preservation deferrals remain; one placeholder excluded.
+
+Current operational procedure and evidence supersede the pre-installation gate notes below: [rollout register and Media handoff](hto-highlights-rollout/261020_Rollout_Register_and_Media_Handoff.md), [permanent onboarding](hto-highlights-rollout/261020_New_Player_Onboarding.md). Earlier release-stage statements of no HTO writes and unverified editor admission are historical checkpoints, not the current rollout state.
 
 ## Design decision
 
