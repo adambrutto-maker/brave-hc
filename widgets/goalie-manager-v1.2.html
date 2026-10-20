@@ -19,6 +19,9 @@ button:disabled{opacity:.5;cursor:not-allowed}
 #coverage-filter button{background:#23516d;border:1px solid #7094ae}
 #coverage-filter button[aria-pressed="true"]{background:#ba2944;border:1px solid #f0b9c3}
 #games tr[hidden]{display:none!important}
+.coverage-stage{display:block;font-size:12px;font-weight:700;color:#f6fbff}
+.coverage-explain{display:block;font-size:11px;color:#d2e4ef;margin-top:3px;max-width:225px}
+#advance-policy{margin-top:10px;padding:10px 12px;border-left:3px solid #eaa8bc;background:#19364e;color:#fff}
 section{border-top:1px solid #35546a;margin-top:18px;padding-top:8px}
 .notice{background:#19364e;padding:10px 12px;border-radius:5px;color:#f6fcff}
 </style><script defer src="./player-links.js?v=3"></script></head><body data-hto-season="Winter_2026/2027"><main>
@@ -26,8 +29,9 @@ section{border-top:1px solid #35546a;margin-top:18px;padding-top:8px}
 <p>Schedule details come from the official SVHL fixture list. Select a goalie below, then open a prefilled GitHub confirmation request. Review and submit it while signed into GitHub to publish the confirmation. Replacing or clearing a recorded goaltender requires a manager-approved reason. No GitHub token is entered into this page.</p>
 <div id="status" role="status">Loading official league schedule and current goalie confirmations…</div>
 <div id="coverage" role="status" aria-live="polite">Calculating upcoming goaltender coverage…</div>
+<div id="advance-policy">Advance plan: review Dev Leong and Stephen Logue for games up to 21 days ahead. If no goalie is recorded seven days before puck drop, prepare a rental fallback; prioritize it at 72 hours and escalate at 36 hours. Suggestions only — nobody has been contacted or booked by this page.</div>
 <div id="coverage-filter" aria-label="Goaltender schedule filter"><button id="show-needs" type="button" aria-pressed="false">Games needing attention</button><button id="show-all" type="button" aria-pressed="true">All games</button></div>
-<div style="overflow-x:auto"><table><thead><tr><th>SVHL GAME</th><th>START / RINK</th><th>GOALIE</th><th>SAVE VIA GITHUB</th></tr></thead><tbody id="games"></tbody></table></div>
+<div style="overflow-x:auto"><table><thead><tr><th>SVHL GAME</th><th>START / RINK</th><th>GOALIE</th><th>COVERAGE PLAN</th><th>SAVE VIA GITHUB</th></tr></thead><tbody id="games"></tbody></table></div>
 <section>
 <h2>Publishing a goaltender confirmation</h2>
 <p>Choose a goalie and click <strong>Review and confirm</strong>. GitHub opens a ready-to-submit issue containing the selected game and goalie. Review the details and click <strong>Submit new issue</strong>. The automation checks your GitHub repository write permission, confirms the game details and previously saved goalie are unchanged, and commits the assignment if needed, and closes the request with a receipt. <a href="https://github.com/adambrutto-maker/brave-hc/actions/workflows/brave-goalie-confirm.yml" target="_blank" rel="noopener noreferrer">Advanced GitHub workflow (manual signature + prior goalie required) ↗</a>.</p>
@@ -64,6 +68,32 @@ try{
  if(values.size!==options.length)throw Error('Duplicate names in verified goalie roster');
  if(!feed.games.length)throw Error('No upcoming SVHL games found');
  const ordered=[...feed.games].sort((a,b)=>(a.date+a.time).localeCompare(b.date+b.time));
+ const TORONTO='America/Toronto';
+ function goalieKickoffMillis(game){
+   // Resolve Toronto's UTC offset on the actual game date, including DST.
+   const guess=Date.parse(game.date+'T'+game.time+':00Z');
+   const zone=new Intl.DateTimeFormat('en-US',{timeZone:TORONTO,timeZoneName:'shortOffset'})
+      .formatToParts(new Date(guess)).find(p=>p.type==='timeZoneName')?.value||'';
+   const m=/GMT([+-]\\d{1,2})(?::(\\d{2}))?/.exec(zone);
+   if(!m)throw Error('Toronto time zone could not be resolved');
+   const sign=m[1][0]==='-'?-1:1;
+   const offset=sign*(Math.abs(Number(m[1]))*60+Number(m[2]||0));
+   return guess-offset*60000;
+ }
+ function coverageStage(game){
+   const saved=data.assignments[game.assignmentKey]||'TBD';
+   if(game.htoSyncStatus!=='MATCH')return ['HTO_REVIEW','SVHL/HTO review required'];
+   if(game.requiresGoalieReconfirmation&&saved!=='TBD'&&
+      (data.scheduleConfirmations||{})[game.assignmentKey]!==game.fixtureSignature)
+       return ['LEAGUE_RECONFIRM','Reconfirm the recorded goalie after schedule change'];
+   if(saved!=='TBD')return ['COVERED','Recorded goalie; verify booking evidence separately'];
+   const hours=(goalieKickoffMillis(game)-Date.now())/3600000;
+   if(hours<=36)return ['GAME_DAY','Urgent coverage review — no goalie recorded'];
+   if(hours<=72)return ['RENTAL_PRIORITY','Rental contingency is priority; manager contact required'];
+   if(hours<=168)return ['RENTAL_BACKUP','Prepare rental fallback now; regular booking still open'];
+   return ['REGULAR_FIRST','Review Dev/Stephen availability early; nobody contacted'];
+ }
+
  const needsReconfirm=game=>Boolean(game.requiresGoalieReconfirmation&&
    (!game.fixtureSignature||(data.scheduleConfirmations||{})[game.assignmentKey]!==game.fixtureSignature)&&
    (data.assignments[game.assignmentKey]||'TBD')!=='TBD');
@@ -95,6 +125,16 @@ try{
    row.dataset.needsAttention=String(needsAttention(game));
    const col1=document.createElement('td'),col2=document.createElement('td');
    const col3=document.createElement('td'),col4=document.createElement('td');
+   const col5=document.createElement('td');
+   const coverage=coverageStage(game);
+   row.dataset.coverageStage=coverage[0];
+   const stageName=document.createElement('span');
+   stageName.className='coverage-stage';
+   stageName.textContent=coverage[0].replaceAll('_',' ');
+   const stageExplain=document.createElement('span');
+   stageExplain.className='coverage-explain';
+   stageExplain.textContent=coverage[1];
+   col4.append(stageName,stageExplain);
    col1.textContent=game.date+' · '+game.opponent;
    col2.textContent=game.time+' · '+game.rink;
    if(game.requiresGoalieReconfirmation &&
@@ -171,7 +211,7 @@ try{
      $('status').textContent='Review the prefilled GitHub issue for '+game.date+' vs '+game.opponent+
        ' — '+(custom||choice)+'. Submit in GitHub only after checking. The issue will close on success; rejected requests remain open with recovery instructions.';
    });
-   col3.append(sel);col4.append(btn);row.append(col1,col2,col3,col4);$('games').append(row);
+   col3.append(sel);col5.append(btn);row.append(col1,col2,col3,col4,col5);$('games').append(row);
  }
  $('status').textContent=ordered.length+' upcoming official SVHL games loaded. Choose a goalie and use Review and confirm. Filters only change this view and never save a selection.';
 }catch(e){$('status').textContent='Manager not ready: '+e.message;}
