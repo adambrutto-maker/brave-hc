@@ -1,5 +1,8 @@
 name: Brave H.C. SVHL synchronization watchdog
 on:
+  workflow_dispatch:
+  schedule:
+    - cron: '41 1,7,13,19 * * *'  # four checks daily for missing scheduled executions (UTC)
   workflow_run:
     workflows:
       - Brave H.C. SVHL schedule reconciliation
