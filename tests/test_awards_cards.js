@@ -227,3 +227,83 @@ test('Rookie race on-ice display renders five verified players while remaining u
   assert.equal(awards.races.rookie.entries.length,0,'official award board remains held');
  } finally{api.state.award=previousAward;region.children=[];}
 });
+
+test('verified awards reject impossible calendar dates, not just matching date patterns',()=>{
+ const baselineAward=api.state.award;
+ api.state.award='rolaids';
+ try {
+  const d=structuredClone(awards),p=structuredClone(participants),row=example();
+  p.players.push({name:playerName,gp:3,position:'Skater',role:'CU'});
+  d.seasonRaceMode.currentModelScoresVerified=true;
+  d.sourceWorkbookRecordedGP=d.currentTeamGP;
+  const race={status:'VERIFIED_CURRENT_WEEK',asOf:'2026-10-19',modelGameCount:d.currentTeamGP,entries:[row]};
+  assert.equal(api.isVerifiedWeeklyRace(d,race,p),true);
+  for(const impossible of ['2026-10-32','2026-11-31','2026-02-30','2026-13-01']){
+   const altered=structuredClone(d),bad=structuredClone(race);
+   altered.latestGameDate=impossible;
+   bad.asOf=impossible;
+   altered.publishedAsOf=impossible;
+   assert.equal(api.isVerifiedWeeklyRace(altered,bad,p),false,impossible);
+  }
+  d.publishedAsOf='2026-10-18';
+  assert.equal(api.isVerifiedWeeklyRace(d,race,p),false,'race cannot be after source publication date');
+ }finally {api.state.award=baselineAward;}
+});
+
+test('Art Ross and Rocket must be current verified count values, never OVR or wrong HTO totals',()=>{
+ const old=api.state.award;
+ const d=structuredClone(awards),p=structuredClone(participants);
+ d.seasonRaceMode.currentModelScoresVerified=true;
+ d.sourceWorkbookRecordedGP=d.currentTeamGP;
+ p.players.push({name:playerName,gp:3,position:'Skater',role:'CU',
+  currentHTORaw:{season:d.season,gamesPlayed:3,goals:2,points:4}});
+ const race={status:'VERIFIED_CURRENT_WEEK',asOf:'2026-10-19',modelGameCount:d.currentTeamGP,entries:[]};
+ const countRow={name:playerName,gamesPlayed:3,eligible:true,rankKey:4,
+  scoreKind:'WORKBOOK_REGULAR_SEASON_STAT_COUNT',modelScore:4};
+ try {
+  api.state.award='art-ross';
+  race.entries=[countRow];
+  assert.equal(api.isVerifiedWeeklyRace(d,race,p),true);
+  race.entries=[{...countRow,modelScore:3}];
+  assert.equal(api.isVerifiedWeeklyRace(d,race,p),false,'wrong HTO points');
+  race.entries=[example()];
+  assert.equal(api.isVerifiedWeeklyRace(d,race,p),false,'Art Ross 50–100 OVR never allowed');
+  api.state.award='rocket';
+  race.entries=[{...countRow,modelScore:2}];
+  assert.equal(api.isVerifiedWeeklyRace(d,race,p),true);
+  race.entries=[{...countRow,modelScore:4}];
+  assert.equal(api.isVerifiedWeeklyRace(d,race,p),false,'wrong HTO goals');
+  api.state.award='hart';
+  race.entries=[countRow];
+  assert.equal(api.isVerifiedWeeklyRace(d,race,p),false,'count cannot become Hart OVR');
+ }finally {api.state.award=old;}
+});
+
+test('a verified workbook race cannot silently contain pending or unranked score entries',()=>{
+ const old=api.state.award;
+ api.state.award='rolaids';
+ try{
+  const d=structuredClone(awards),p=structuredClone(participants),row=example();
+  d.seasonRaceMode.currentModelScoresVerified=true;
+  d.sourceWorkbookRecordedGP=d.currentTeamGP;
+  p.players.push({name:playerName,gp:3,position:'Skater',role:'CU'});
+  const race={status:'VERIFIED_CURRENT_WEEK',asOf:'2026-10-19',
+   modelGameCount:d.currentTeamGP,entries:[row]};
+  assert.equal(api.isVerifiedWeeklyRace(d,race,p),true);
+  race.entries=[{...row,scoreKind:'AWARD_MODEL_PENDING',modelScore:null}];
+  assert.equal(api.isVerifiedWeeklyRace(d,race,p),false,'pending entry invalidates verified board');
+  race.entries=[{...row,rankKey:null}];
+  assert.equal(api.isVerifiedWeeklyRace(d,race,p),false,'rank key must come from workbook');
+ }finally {api.state.award=old;}
+});
+
+test('impossible historical snapshot dates never produce weekly EA OVR movement',()=>{
+ const oldHistory=api.state.weeklyHistory, old=api.state.award;
+ api.state.award='rolaids';
+ try{
+  api.state.weeklyHistory={schema:'brave-hc-awards-weekly-history/v1',
+   status:'VERIFIED_PUBLISHED_WEEKLY_SNAPSHOTS',
+   snapshots:[{...snapshot(),publishedAsOf:'2026-02-30'}]};
+  assert.equal(api.previousSnapshot(sourceRace),null);
+ }finally{api.state.weeklyHistory=oldHistory;api.state.award=old;}
+});
