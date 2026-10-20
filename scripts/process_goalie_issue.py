@@ -14,7 +14,7 @@ import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
-from set_goalie import safe_goalie, update_assignment
+from set_goalie import safe_goalie, update_assignment, verify_expected_state
 
 TITLE = "GOALIE_CONFIRMATION_REQUEST"
 REQUEST_TYPE = "brave-hc-goalie-confirmation/v2"
@@ -54,12 +54,8 @@ def apply_request(req: dict, actor: str, permission: str, feed: dict,
         raise PermissionError("A repository-writing account is required")
     if not re.fullmatch(r"[A-Za-z0-9](?:[A-Za-z0-9-]{0,38})", actor):
         raise ValueError("Unexpected GitHub actor")
-    matches=[g for g in feed.get("games",[]) if g.get("assignmentKey")==req["game_key"]]
-    if len(matches)!=1 or matches[0].get("fixtureSignature")!=req["fixture_signature"]:
-        raise ValueError("SVHL fixture changed since selection; reload manager and re-confirm")
-    previous=(stored.get("assignments") or {}).get(req["game_key"], "TBD")
-    if previous!=req["expected_goalie"]:
-        raise ValueError("Goalie assignment changed since selection; reload manager and review")
+    verify_expected_state(feed, stored, req["game_key"],
+                          req["fixture_signature"], req["expected_goalie"])
     return update_assignment(feed, stored, req["game_key"],
                              req["resolved_goalie"], actor, now)
 
