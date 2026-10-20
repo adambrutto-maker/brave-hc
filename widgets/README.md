@@ -82,3 +82,7 @@ The shared registry now also matches abbreviated first-initial/surname labels **
 - Every matched player name uses the shared 51-identity HTO player registry. Unsupported names remain plain text.
 - Source and QA gates: docs/261020_HTO_Historical_Records_Awards_Companion_Runbook.md
 - Native HTO Records/Awards integration remains provider-dependent: GitHub issue #14. The companion is not a substitute for a native HTO admin installation.
+
+### Historical companion: verified Summer season deep-links (2026-10-20)
+
+HTO historical Records and Awards now link to the specific `Summer_YYYY` player-season statistics when both the source category/year and an exact HTO public player-season match are available. Generic Winter calendar years, unavailable evidence, ambiguous names, and specific game IDs without source proof still fall back to the safe career profile. This is read-only; source records are not altered. New optional evidence: `history-player-seasons.json` for 51 verified player IDs. Rules and tests: `docs/261020_HTO_Historical_Summer_Season_Links_v2_QA.md`.

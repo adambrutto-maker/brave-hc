@@ -35,12 +35,16 @@ const server=http.createServer((req,res)=>{
     let v=await page.evaluate(()=>({
       entries:document.querySelectorAll('.history-group li').length,groups:document.querySelectorAll('.history-group').length,
       marked:[...document.querySelectorAll('a.brave-player-link')].filter(a=>a.textContent==='Mark Pastore').slice(0,1).map(a=>a.href),
+      summer:[...document.querySelectorAll('li[data-hto-season="Summer_2015"] a.brave-player-link')].filter(a=>a.textContent==='Mark Pastore').map(a=>a.href),
+      incorrectlyWinterScoped:document.querySelectorAll('li[data-hto-season^="Winter_"]').length,
       total:document.getElementById('totalItems').textContent,
       width:document.documentElement.scrollWidth,viewport:innerWidth,
       official:document.getElementById('official').href
     }));
     assert.equal(v.entries,483);assert.equal(v.groups,83);
     assert.ok(v.marked[0]?.includes('playerID=354061'));assert.ok(v.official.includes('p=records'));
+    assert.ok(v.summer.some(x=>x.includes('viewseas=Summer_2015')),'verified summer record did not deep link');
+    assert.equal(v.incorrectlyWinterScoped,0,'ambiguous winter year must not be inferred');
     assert.ok(v.width<=v.viewport+4,'horizontal overflow '+JSON.stringify(viewport)+' '+v.width);
     await page.type('#historySearch','Mark Pastore');
     await page.waitForFunction(()=>+document.getElementById('visibleItems').textContent>0);
@@ -53,13 +57,26 @@ const server=http.createServer((req,res)=>{
      groups:document.querySelectorAll('.history-group').length,
      official:document.getElementById('official').href,
      alumni:[...document.querySelectorAll('a.brave-player-link')].filter(a=>a.textContent==='Mark Pastore').slice(0,1).map(a=>a.href),
+     summer:[...document.querySelectorAll('li[data-hto-season="Summer_2015"] a.brave-player-link')].filter(a=>a.textContent==='Mark Pastore').map(a=>a.href),
      width:document.documentElement.scrollWidth,viewport:innerWidth
     }));
     assert.equal(v.entries,146);assert.equal(v.groups,20);assert.ok(v.official.includes('p=awards'));
     assert.ok(v.alumni[0]?.includes('playerID=354061'));assert.ok(v.width<=v.viewport+4);
+    assert.ok(v.summer.some(x=>x.includes('viewseas=Summer_2015')),'verified summer award did not deep link');
     assert.deepEqual(errors,[]);
     console.log('HISTORY_COMPANION_PASS',JSON.stringify({viewport,records:483,awards:146,searchResults:found,errors}));
     await page.close();
   }
+  // Deliberately suppress optional season evidence: the archive and career
+  // hyperlinks must still render, with no unsupported season-specific claims.
+  const degraded=await browser.newPage();
+  await degraded.setRequestInterception(true);
+  degraded.on('request',r=>r.url().includes('history-player-seasons.json')?r.respond({status:404,body:'not found'}):r.continue());
+  await degraded.goto(address+'?view=records',{waitUntil:'domcontentloaded'});
+  await degraded.waitForFunction(()=>document.getElementById('totalItems')?.textContent==='483');
+  const fallback=await degraded.evaluate(()=>({items:document.querySelectorAll('.history-group li').length,seasonLinks:document.querySelectorAll('[data-hto-season]').length,carosi:window.BravePlayerLinks?.profileUrl('Justin Carosi')}));
+  assert.equal(fallback.items,483);assert.equal(fallback.seasonLinks,0);assert.ok(fallback.carosi.includes('playerID=354060'));
+  console.log('HISTORY_SEASON_EVIDENCE_FALLBACK_PASS',JSON.stringify(fallback));
+  await degraded.close();
  }finally{await browser.close()}
 })().catch(e=>{console.error(e.stack||e);process.exitCode=1}).finally(()=>server.close());

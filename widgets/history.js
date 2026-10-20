@@ -6,7 +6,7 @@ const SOURCE={
  awards:'https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=awards'
 };
 const $=id=>document.getElementById(id);
-const state={view:new URLSearchParams(location.search).get('view')==='awards'?'awards':'records',search:'',section:'',feeds:{}};
+const state={view:new URLSearchParams(location.search).get('view')==='awards'?'awards':'records',search:'',section:'',feeds:{},seasonEvidence:[]};
 const node=(tag,text,cls)=>{
  const el=document.createElement(tag);if(cls)el.className=cls;
  if(text!==undefined)el.textContent=String(text);return el;
@@ -44,6 +44,27 @@ function updateTab() {
  $('official').href=SOURCE[state.view];
  $('official').textContent=state.view==='awards'?'official HTO Awards & Honors ↗':'official HTO Records & Achievements ↗';
 }
+// Summer-only deep links require the exact player+season pairing in HTO's
+// public season statistics. Year-only Winter awards have ambiguous start/end
+// years and intentionally remain career-profile links.
+function confirmedSummerSeason(group, item) {
+ if(!/\bsummer\b/i.test(group.category||''))return null;
+ const years=[...String(item).matchAll(/\b(?:19|20)\d{2}\b/g)].map(m=>m[0]);
+ const unique=[...new Set(years)];
+ if(unique.length!==1)return null;
+ const season='Summer_'+unique[0];
+ const normalized=normalize(item);
+ const people=state.seasonEvidence.filter(p=>{
+  const term=normalize(p.name);
+  const pos=normalized.indexOf(term);
+  if(pos<0)return false;
+  const bef=normalized[pos-1]||' ';
+  const aft=normalized[pos+term.length]||' ';
+  return !/[\p{L}\p{N}]/u.test(bef)&&!/[\p{L}\p{N}]/u.test(aft);
+ });
+ if(!people.length||people.some(p=>!p.seasons.includes(season)))return null;
+ return season;
+}
 function render() {
  const feed=state.feeds[state.view];
  updateTab();
@@ -65,7 +86,12 @@ function render() {
   summary.append(node('span',label,'history-category'),node('small',g.section+(state.view==='records'?' · ':'')+matches.length+' entries'));
   details.append(summary);
   const list=node('ul');
-  for(const item of matches){const li=node('li',item);list.append(li)}
+  for(const item of matches){
+   const li=node('li',item);
+   const verified=confirmedSummerSeason(g,item);
+   if(verified)li.dataset.htoSeason=verified;
+   list.append(li);
+  }
   details.append(list);
   result.append(details);
  });
@@ -102,6 +128,25 @@ $('historySection').addEventListener('change',e=>{state.section=e.target.value;r
    return validate(await res.json(),type);
   }));
   [state.feeds.records,state.feeds.awards]=feeds;
+  // Optional evidence: a failed/invalid seasonal file must not suppress the
+  // authoritative history snapshot; links safely fall back to career profiles.
+  try{
+   const response=await fetch(ROOT+'history-player-seasons.json',{cache:'no-store'});
+   if(!response.ok)throw Error('No season evidence');
+   const evidence=await response.json();
+   if(evidence.schema!=='brave-hc-hto-player-season-evidence/v1'
+      ||evidence.authority!=='OFFICIAL_HTO_PUBLIC_STATS_READBACK'
+      ||!Array.isArray(evidence.players)||evidence.players.length!==51
+      ||evidence.players.some(p=>typeof p.name!=='string'||!Number.isInteger(p.playerID)
+        ||!Array.isArray(p.seasons)||p.seasons.some(v=>!/^((Summer_20\d{2})|(Winter_20\d{2}\/20\d{2}))$/.test(v))))
+      throw Error('Invalid player-season evidence');
+   state.seasonEvidence=evidence.players.filter(p=>{
+      const href=window.BravePlayerLinks?.profileUrl(p.name);
+      if(!href)return false;
+      try{return new URL(href).searchParams.get('playerID')===String(p.playerID)}
+      catch{return false}
+   });
+  }catch(e){state.seasonEvidence=[];}
   options(state.feeds[state.view]);render();
  }catch(e){
   $('status').textContent='Historical snapshot unavailable or invalid. Please use the official HTO page.';
