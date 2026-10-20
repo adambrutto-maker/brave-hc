@@ -1,0 +1,731 @@
+{
+  "status": "REVIEW_CANDIDATES_NOT_ADOPTED",
+  "coverage": 370,
+  "note": "Overall Game categories and optional playoff-specific game categories are distinguished. Twelve unlisted playoff-category leaders are taxonomy candidates, not twelve missing overall club records. Existing historical progression is preserved.",
+  "overallGameCategories": [
+    {
+      "category": "Summer - Assists",
+      "highestObserved": 6.0,
+      "performances": [
+        {
+          "playerID": "354060",
+          "name": "Carosi, Justin",
+          "date": "2016-05-15",
+          "value": 6.0,
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1442287&archTog=1",
+          "season": "Summer 2016",
+          "alreadyListed": true,
+          "gameType": "Regular Season"
+        }
+      ],
+      "unlistedHighestPerformances": 0
+    },
+    {
+      "category": "Summer - Goals",
+      "highestObserved": 7.0,
+      "performances": [
+        {
+          "playerID": "354061",
+          "name": "Pastore, Mark",
+          "date": "2015-07-05",
+          "value": 7.0,
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1249338&archTog=1",
+          "season": "Summer 2015",
+          "alreadyListed": true,
+          "gameType": "Regular Season"
+        }
+      ],
+      "unlistedHighestPerformances": 0
+    },
+    {
+      "category": "Summer - Penalty Minutes",
+      "highestObserved": 9.0,
+      "performances": [
+        {
+          "playerID": "356089",
+          "name": "Ardizzi, Stefano",
+          "date": "2015-05-31",
+          "value": 9.0,
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1249334&archTog=1",
+          "season": "Summer 2015",
+          "alreadyListed": true,
+          "gameType": "Regular Season"
+        }
+      ],
+      "unlistedHighestPerformances": 0
+    },
+    {
+      "category": "Summer - Points",
+      "highestObserved": 9.0,
+      "performances": [
+        {
+          "playerID": "354061",
+          "name": "Pastore, Mark",
+          "date": "2016-07-17",
+          "value": 9.0,
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1442295&archTog=1",
+          "season": "Summer 2016",
+          "alreadyListed": true,
+          "gameType": "Regular Season"
+        }
+      ],
+      "unlistedHighestPerformances": 0
+    },
+    {
+      "category": "Winter - Assists",
+      "highestObserved": 4.0,
+      "performances": [
+        {
+          "playerID": "354051",
+          "name": "Aidemirski, Damian",
+          "date": "2014-03-30",
+          "value": 4.0,
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046558&archTog=1",
+          "season": "Winter 2013/2014",
+          "alreadyListed": true,
+          "gameType": "Playoffs"
+        },
+        {
+          "playerID": "738846",
+          "name": "Saindon, Stephane",
+          "date": "2025-11-09",
+          "value": 4.0,
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=2214996&archTog=1",
+          "season": "Winter 2025/2026",
+          "alreadyListed": true,
+          "gameType": "Regular Season"
+        },
+        {
+          "playerID": "738846",
+          "name": "Saindon, Stephane",
+          "date": "2026-01-18",
+          "value": 4.0,
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=2215006&archTog=1",
+          "season": "Winter 2025/2026",
+          "alreadyListed": true,
+          "gameType": "Regular Season"
+        },
+        {
+          "playerID": "738846",
+          "name": "Saindon, Stephane",
+          "date": "2024-10-06",
+          "value": 4.0,
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=2148137&archTog=1",
+          "season": "Winter 2024/2025",
+          "alreadyListed": true,
+          "gameType": "Regular Season"
+        },
+        {
+          "playerID": "354060",
+          "name": "Carosi, Justin",
+          "date": "2019-11-24",
+          "value": 4.0,
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1835523&archTog=1",
+          "season": "Winter 2019/2020",
+          "alreadyListed": true,
+          "gameType": "Regular Season"
+        },
+        {
+          "playerID": "652571",
+          "name": "Corasaniti, David",
+          "date": "2020-02-09",
+          "value": 4.0,
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1835538&archTog=1",
+          "season": "Winter 2019/2020",
+          "alreadyListed": true,
+          "gameType": "Regular Season"
+        },
+        {
+          "playerID": "652571",
+          "name": "Corasaniti, David",
+          "date": "2020-02-16",
+          "value": 4.0,
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1835541&archTog=1",
+          "season": "Winter 2019/2020",
+          "alreadyListed": true,
+          "gameType": "Regular Season"
+        },
+        {
+          "playerID": "525407",
+          "name": "Brennan, Dylan",
+          "date": "2016-09-18",
+          "value": 4.0,
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1517065&archTog=1",
+          "season": "Winter 2016/2017",
+          "alreadyListed": true,
+          "gameType": "Regular Season"
+        },
+        {
+          "playerID": "354060",
+          "name": "Carosi, Justin",
+          "date": "2016-10-16",
+          "value": 4.0,
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1517081&archTog=1",
+          "season": "Winter 2016/2017",
+          "alreadyListed": true,
+          "gameType": "Regular Season"
+        }
+      ],
+      "unlistedHighestPerformances": 0
+    },
+    {
+      "category": "Winter - Goals",
+      "highestObserved": 5.0,
+      "performances": [
+        {
+          "playerID": "354285",
+          "name": "Sherritt, Ben",
+          "date": "2013-10-06",
+          "value": 5.0,
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046522&archTog=1",
+          "season": "Winter 2013/2014",
+          "alreadyListed": true,
+          "gameType": "Regular Season"
+        }
+      ],
+      "unlistedHighestPerformances": 0
+    },
+    {
+      "category": "Winter - Penalty Minutes",
+      "highestObserved": 14.0,
+      "performances": [
+        {
+          "playerID": "738846",
+          "name": "Saindon, Stephane",
+          "date": "2025-04-06",
+          "value": 14.0,
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=2148163&archTog=1",
+          "season": "Winter 2024/2025",
+          "alreadyListed": true,
+          "gameType": "Playoffs"
+        },
+        {
+          "playerID": "356089",
+          "name": "Ardizzi, Stefano",
+          "date": "2019-12-22",
+          "value": 14.0,
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1835531&archTog=1",
+          "season": "Winter 2019/2020",
+          "alreadyListed": true,
+          "gameType": "Regular Season"
+        },
+        {
+          "playerID": "354054",
+          "name": "Brutto, Adam",
+          "date": "2016-12-11",
+          "value": 14.0,
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1517095&archTog=1",
+          "season": "Winter 2016/2017",
+          "alreadyListed": true,
+          "gameType": "Regular Season"
+        },
+        {
+          "playerID": "354054",
+          "name": "Brutto, Adam",
+          "date": "2015-11-22",
+          "value": 14.0,
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1384786&archTog=1",
+          "season": "Winter 2015/2016",
+          "alreadyListed": true,
+          "gameType": "Regular Season"
+        }
+      ],
+      "unlistedHighestPerformances": 0
+    },
+    {
+      "category": "Winter - Points",
+      "highestObserved": 6.0,
+      "performances": [
+        {
+          "playerID": "426873",
+          "name": "O'Krafka, Xav",
+          "date": "2017-11-12",
+          "value": 6.0,
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1664233&archTog=1",
+          "season": "Winter 2017/2018",
+          "alreadyListed": true,
+          "gameType": "Regular Season"
+        },
+        {
+          "playerID": "354285",
+          "name": "Sherritt, Ben",
+          "date": "2017-11-12",
+          "value": 6.0,
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1664233&archTog=1",
+          "season": "Winter 2017/2018",
+          "alreadyListed": true,
+          "gameType": "Regular Season"
+        },
+        {
+          "playerID": "383322",
+          "name": "Kercz, Zach",
+          "date": "2014-12-21",
+          "value": 6.0,
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1190743&archTog=1",
+          "season": "Winter 2014/2015",
+          "alreadyListed": true,
+          "gameType": "Regular Season"
+        },
+        {
+          "playerID": "354285",
+          "name": "Sherritt, Ben",
+          "date": "2013-10-06",
+          "value": 6.0,
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046522&archTog=1",
+          "season": "Winter 2013/2014",
+          "alreadyListed": true,
+          "gameType": "Regular Season"
+        },
+        {
+          "playerID": "354285",
+          "name": "Sherritt, Ben",
+          "date": "2014-03-02",
+          "value": 6.0,
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046553&archTog=1",
+          "season": "Winter 2013/2014",
+          "alreadyListed": true,
+          "gameType": "Regular Season"
+        }
+      ],
+      "unlistedHighestPerformances": 0
+    }
+  ],
+  "categories": [
+    {
+      "category": "Summer - Assists",
+      "gameType": "Playoffs",
+      "highestObserved": 4.0,
+      "performances": [
+        {
+          "playerID": "354054",
+          "name": "Brutto, Adam",
+          "date": "2015-07-26",
+          "value": 4.0,
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1249341&archTog=1",
+          "season": "Summer 2015",
+          "alreadyListed": true
+        }
+      ]
+    },
+    {
+      "category": "Summer - Assists",
+      "gameType": "Regular Season",
+      "highestObserved": 6.0,
+      "performances": [
+        {
+          "playerID": "354060",
+          "name": "Carosi, Justin",
+          "date": "2016-05-15",
+          "value": 6.0,
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1442287&archTog=1",
+          "season": "Summer 2016",
+          "alreadyListed": true
+        }
+      ]
+    },
+    {
+      "category": "Summer - Goals",
+      "gameType": "Playoffs",
+      "highestObserved": 5.0,
+      "performances": [
+        {
+          "playerID": "354061",
+          "name": "Pastore, Mark",
+          "date": "2015-07-26",
+          "value": 5.0,
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1249341&archTog=1",
+          "season": "Summer 2015",
+          "alreadyListed": false
+        }
+      ]
+    },
+    {
+      "category": "Summer - Goals",
+      "gameType": "Regular Season",
+      "highestObserved": 7.0,
+      "performances": [
+        {
+          "playerID": "354061",
+          "name": "Pastore, Mark",
+          "date": "2015-07-05",
+          "value": 7.0,
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1249338&archTog=1",
+          "season": "Summer 2015",
+          "alreadyListed": true
+        }
+      ]
+    },
+    {
+      "category": "Summer - Penalty Minutes",
+      "gameType": "Playoffs",
+      "highestObserved": 6.0,
+      "performances": [
+        {
+          "playerID": "453662",
+          "name": "Buchanan, Andrew",
+          "date": "2017-08-27",
+          "value": 6.0,
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559181&archTog=1",
+          "season": "Summer 2017",
+          "alreadyListed": false
+        }
+      ]
+    },
+    {
+      "category": "Summer - Penalty Minutes",
+      "gameType": "Regular Season",
+      "highestObserved": 9.0,
+      "performances": [
+        {
+          "playerID": "356089",
+          "name": "Ardizzi, Stefano",
+          "date": "2015-05-31",
+          "value": 9.0,
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1249334&archTog=1",
+          "season": "Summer 2015",
+          "alreadyListed": true
+        }
+      ]
+    },
+    {
+      "category": "Summer - Points",
+      "gameType": "Playoffs",
+      "highestObserved": 7.0,
+      "performances": [
+        {
+          "playerID": "354061",
+          "name": "Pastore, Mark",
+          "date": "2015-07-26",
+          "value": 7.0,
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1249341&archTog=1",
+          "season": "Summer 2015",
+          "alreadyListed": false
+        }
+      ]
+    },
+    {
+      "category": "Summer - Points",
+      "gameType": "Regular Season",
+      "highestObserved": 9.0,
+      "performances": [
+        {
+          "playerID": "354061",
+          "name": "Pastore, Mark",
+          "date": "2016-07-17",
+          "value": 9.0,
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1442295&archTog=1",
+          "season": "Summer 2016",
+          "alreadyListed": true
+        }
+      ]
+    },
+    {
+      "category": "Winter - Assists",
+      "gameType": "Playoffs",
+      "highestObserved": 4.0,
+      "performances": [
+        {
+          "playerID": "354051",
+          "name": "Aidemirski, Damian",
+          "date": "2014-03-30",
+          "value": 4.0,
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046558&archTog=1",
+          "season": "Winter 2013/2014",
+          "alreadyListed": true
+        }
+      ]
+    },
+    {
+      "category": "Winter - Assists",
+      "gameType": "Regular Season",
+      "highestObserved": 4.0,
+      "performances": [
+        {
+          "playerID": "738846",
+          "name": "Saindon, Stephane",
+          "date": "2025-11-09",
+          "value": 4.0,
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=2214996&archTog=1",
+          "season": "Winter 2025/2026",
+          "alreadyListed": true
+        },
+        {
+          "playerID": "738846",
+          "name": "Saindon, Stephane",
+          "date": "2026-01-18",
+          "value": 4.0,
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=2215006&archTog=1",
+          "season": "Winter 2025/2026",
+          "alreadyListed": true
+        },
+        {
+          "playerID": "738846",
+          "name": "Saindon, Stephane",
+          "date": "2024-10-06",
+          "value": 4.0,
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=2148137&archTog=1",
+          "season": "Winter 2024/2025",
+          "alreadyListed": true
+        },
+        {
+          "playerID": "354060",
+          "name": "Carosi, Justin",
+          "date": "2019-11-24",
+          "value": 4.0,
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1835523&archTog=1",
+          "season": "Winter 2019/2020",
+          "alreadyListed": true
+        },
+        {
+          "playerID": "652571",
+          "name": "Corasaniti, David",
+          "date": "2020-02-09",
+          "value": 4.0,
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1835538&archTog=1",
+          "season": "Winter 2019/2020",
+          "alreadyListed": true
+        },
+        {
+          "playerID": "652571",
+          "name": "Corasaniti, David",
+          "date": "2020-02-16",
+          "value": 4.0,
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1835541&archTog=1",
+          "season": "Winter 2019/2020",
+          "alreadyListed": true
+        },
+        {
+          "playerID": "525407",
+          "name": "Brennan, Dylan",
+          "date": "2016-09-18",
+          "value": 4.0,
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1517065&archTog=1",
+          "season": "Winter 2016/2017",
+          "alreadyListed": true
+        },
+        {
+          "playerID": "354060",
+          "name": "Carosi, Justin",
+          "date": "2016-10-16",
+          "value": 4.0,
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1517081&archTog=1",
+          "season": "Winter 2016/2017",
+          "alreadyListed": true
+        }
+      ]
+    },
+    {
+      "category": "Winter - Goals",
+      "gameType": "Playoffs",
+      "highestObserved": 3.0,
+      "performances": [
+        {
+          "playerID": "354060",
+          "name": "Carosi, Justin",
+          "date": "2024-04-07",
+          "value": 3.0,
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=2071762&archTog=1",
+          "season": "Winter 2023/2024",
+          "alreadyListed": false
+        },
+        {
+          "playerID": "354046",
+          "name": "Logue, Ryan",
+          "date": "2018-03-25",
+          "value": 3.0,
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1664262&archTog=1",
+          "season": "Winter 2017/2018",
+          "alreadyListed": false
+        },
+        {
+          "playerID": "356089",
+          "name": "Ardizzi, Stefano",
+          "date": "2018-04-15",
+          "value": 3.0,
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1664264&archTog=1",
+          "season": "Winter 2017/2018",
+          "alreadyListed": false
+        },
+        {
+          "playerID": "354285",
+          "name": "Sherritt, Ben",
+          "date": "2017-04-09",
+          "value": 3.0,
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1517113&archTog=1",
+          "season": "Winter 2016/2017",
+          "alreadyListed": false
+        },
+        {
+          "playerID": "354061",
+          "name": "Pastore, Mark",
+          "date": "2015-04-19",
+          "value": 3.0,
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1190758&archTog=1",
+          "season": "Winter 2014/2015",
+          "alreadyListed": false
+        },
+        {
+          "playerID": "354061",
+          "name": "Pastore, Mark",
+          "date": "2016-03-13",
+          "value": 3.0,
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1384802&archTog=1",
+          "season": "Winter 2015/2016",
+          "alreadyListed": false
+        }
+      ]
+    },
+    {
+      "category": "Winter - Goals",
+      "gameType": "Regular Season",
+      "highestObserved": 5.0,
+      "performances": [
+        {
+          "playerID": "354285",
+          "name": "Sherritt, Ben",
+          "date": "2013-10-06",
+          "value": 5.0,
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046522&archTog=1",
+          "season": "Winter 2013/2014",
+          "alreadyListed": true
+        }
+      ]
+    },
+    {
+      "category": "Winter - Penalty Minutes",
+      "gameType": "Playoffs",
+      "highestObserved": 14.0,
+      "performances": [
+        {
+          "playerID": "738846",
+          "name": "Saindon, Stephane",
+          "date": "2025-04-06",
+          "value": 14.0,
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=2148163&archTog=1",
+          "season": "Winter 2024/2025",
+          "alreadyListed": true
+        }
+      ]
+    },
+    {
+      "category": "Winter - Penalty Minutes",
+      "gameType": "Regular Season",
+      "highestObserved": 14.0,
+      "performances": [
+        {
+          "playerID": "356089",
+          "name": "Ardizzi, Stefano",
+          "date": "2019-12-22",
+          "value": 14.0,
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1835531&archTog=1",
+          "season": "Winter 2019/2020",
+          "alreadyListed": true
+        },
+        {
+          "playerID": "354054",
+          "name": "Brutto, Adam",
+          "date": "2016-12-11",
+          "value": 14.0,
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1517095&archTog=1",
+          "season": "Winter 2016/2017",
+          "alreadyListed": true
+        },
+        {
+          "playerID": "354054",
+          "name": "Brutto, Adam",
+          "date": "2015-11-22",
+          "value": 14.0,
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1384786&archTog=1",
+          "season": "Winter 2015/2016",
+          "alreadyListed": true
+        }
+      ]
+    },
+    {
+      "category": "Winter - Points",
+      "gameType": "Playoffs",
+      "highestObserved": 4.0,
+      "performances": [
+        {
+          "playerID": "354051",
+          "name": "Aidemirski, Damian",
+          "date": "2014-03-30",
+          "value": 4.0,
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046558&archTog=1",
+          "season": "Winter 2013/2014",
+          "alreadyListed": false
+        },
+        {
+          "playerID": "738846",
+          "name": "Saindon, Stephane",
+          "date": "2026-03-22",
+          "value": 4.0,
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=2215015&archTog=1",
+          "season": "Winter 2025/2026",
+          "alreadyListed": false
+        },
+        {
+          "playerID": "354046",
+          "name": "Logue, Ryan",
+          "date": "2020-03-08",
+          "value": 4.0,
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1835544&archTog=1",
+          "season": "Winter 2019/2020",
+          "alreadyListed": false
+        }
+      ]
+    },
+    {
+      "category": "Winter - Points",
+      "gameType": "Regular Season",
+      "highestObserved": 6.0,
+      "performances": [
+        {
+          "playerID": "426873",
+          "name": "O'Krafka, Xav",
+          "date": "2017-11-12",
+          "value": 6.0,
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1664233&archTog=1",
+          "season": "Winter 2017/2018",
+          "alreadyListed": true
+        },
+        {
+          "playerID": "354285",
+          "name": "Sherritt, Ben",
+          "date": "2017-11-12",
+          "value": 6.0,
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1664233&archTog=1",
+          "season": "Winter 2017/2018",
+          "alreadyListed": true
+        },
+        {
+          "playerID": "383322",
+          "name": "Kercz, Zach",
+          "date": "2014-12-21",
+          "value": 6.0,
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1190743&archTog=1",
+          "season": "Winter 2014/2015",
+          "alreadyListed": true
+        },
+        {
+          "playerID": "354285",
+          "name": "Sherritt, Ben",
+          "date": "2013-10-06",
+          "value": 6.0,
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046522&archTog=1",
+          "season": "Winter 2013/2014",
+          "alreadyListed": true
+        },
+        {
+          "playerID": "354285",
+          "name": "Sherritt, Ben",
+          "date": "2014-03-02",
+          "value": 6.0,
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046553&archTog=1",
+          "season": "Winter 2013/2014",
+          "alreadyListed": true
+        }
+      ]
+    }
+  ]
+}
