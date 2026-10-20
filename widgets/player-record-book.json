@@ -2,7 +2,7 @@
   "schema": "brave-hc-player-record-book/v1",
   "sourceAuthority": "NATIVE_HTO_RECORDS_PUBLIC_READBACK",
   "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=records",
-  "capturedAt": "2026-10-20T20:15:11.995Z",
+  "capturedAt": "2026-10-20T21:08:36.136Z",
   "interpretation": "Published record-book entries include historical progression; inclusion does not assert an entry remains the current club record. Milestone dates are transcribed independently and do not replace Highlights dates.",
   "players": {
     "354041": {
@@ -121,6 +121,30 @@
           "value": "10",
           "dateLabel": "March 24, 2024",
           "kind": "milestone"
+        },
+        {
+          "category": "Winter - Games with at least three points in one season - Playoffs",
+          "scope": "Playoffs",
+          "sourceText": "1 - Mario Provenzano (2017/18)",
+          "value": "1",
+          "dateLabel": "2017/18",
+          "kind": "performance",
+          "sourceURLs": [
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1664262&archTog=1"
+          ],
+          "sortDate": "2018-03-25"
+        },
+        {
+          "category": "Winter - Games with at least three assists in one season - Playoffs",
+          "scope": "Playoffs",
+          "sourceText": "1 - Mario Provenzano (2017/18)",
+          "value": "1",
+          "dateLabel": "2017/18",
+          "kind": "performance",
+          "sourceURLs": [
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1664262&archTog=1"
+          ],
+          "sortDate": "2018-03-25"
         }
       ]
     },
@@ -294,6 +318,42 @@
           "value": "2",
           "dateLabel": "September 16, 2018",
           "kind": "milestone"
+        },
+        {
+          "category": "Winter - Games with at least three points in one season - Playoffs",
+          "scope": "Playoffs",
+          "sourceText": "1 - Ryan Logue (2014/15)",
+          "value": "1",
+          "dateLabel": "2014/15",
+          "kind": "performance",
+          "sourceURLs": [
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1190758&archTog=1"
+          ],
+          "sortDate": "2015-04-19"
+        },
+        {
+          "category": "Winter - Games with at least three points in one season - Playoffs",
+          "scope": "Playoffs",
+          "sourceText": "1 - Ryan Logue (2017/18)",
+          "value": "1",
+          "dateLabel": "2017/18",
+          "kind": "performance",
+          "sourceURLs": [
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1664262&archTog=1"
+          ],
+          "sortDate": "2018-03-25"
+        },
+        {
+          "category": "Winter - Games with at least three points in one season - Playoffs",
+          "scope": "Playoffs",
+          "sourceText": "1 - Ryan Logue (2019/20)",
+          "value": "1",
+          "dateLabel": "2019/20",
+          "kind": "performance",
+          "sourceURLs": [
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1835544&archTog=1"
+          ],
+          "sortDate": "2020-03-08"
         }
       ]
     },
@@ -403,6 +463,18 @@
           "value": "4",
           "dateLabel": "October 20, 2019",
           "kind": "milestone"
+        },
+        {
+          "category": "Summer - Games with at least three assists in one season - Playoffs",
+          "scope": "Playoffs",
+          "sourceText": "1 - Cameron Buchanan (2016)",
+          "value": "1",
+          "dateLabel": "2016",
+          "kind": "performance",
+          "sourceURLs": [
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1442298&archTog=1"
+          ],
+          "sortDate": "2016-08-07"
         }
       ]
     },
@@ -460,6 +532,30 @@
           "value": "5",
           "dateLabel": "January 10, 2016",
           "kind": "milestone"
+        },
+        {
+          "category": "Winter - Games with at least three points in one season - Playoffs",
+          "scope": "Playoffs",
+          "sourceText": "1 - Damian Aidemirski (2013/14)",
+          "value": "1",
+          "dateLabel": "2013/14",
+          "kind": "performance",
+          "sourceURLs": [
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046558&archTog=1"
+          ],
+          "sortDate": "2014-03-30"
+        },
+        {
+          "category": "Winter - Games with at least three assists in one season - Playoffs",
+          "scope": "Playoffs",
+          "sourceText": "1 - Damian Aidemirski (2013/14)",
+          "value": "1",
+          "dateLabel": "2013/14",
+          "kind": "performance",
+          "sourceURLs": [
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046558&archTog=1"
+          ],
+          "sortDate": "2014-03-30"
         }
       ]
     },
@@ -666,6 +762,30 @@
           "value": "1",
           "dateLabel": "January 5, 2025",
           "kind": "milestone"
+        },
+        {
+          "category": "Summer - Games with at least three assists in one season - Playoffs",
+          "scope": "Playoffs",
+          "sourceText": "1 - Adam Brutto (2015)",
+          "value": "1",
+          "dateLabel": "2015",
+          "kind": "performance",
+          "sourceURLs": [
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1249341&archTog=1"
+          ],
+          "sortDate": "2015-07-26"
+        },
+        {
+          "category": "Summer - Games with at least three assists in one season - Playoffs",
+          "scope": "Playoffs",
+          "sourceText": "1 - Adam Brutto (2016)",
+          "value": "1",
+          "dateLabel": "2016",
+          "kind": "performance",
+          "sourceURLs": [
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1442299&archTog=1"
+          ],
+          "sortDate": "2016-08-14"
         }
       ]
     },
@@ -964,6 +1084,46 @@
           "value": "5",
           "dateLabel": "February 19, 2023",
           "kind": "milestone"
+        },
+        {
+          "category": "Summer - Games with at least three assists in one season - Regular Season",
+          "scope": "Season",
+          "sourceText": "3 - Keith Pearsoll (2016)",
+          "value": "3",
+          "dateLabel": "2016",
+          "kind": "performance",
+          "sourceURLs": [
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1442287&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1442294&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1442295&archTog=1"
+          ],
+          "sortDate": "2016-07-17"
+        },
+        {
+          "category": "Summer - Games with at least two goals in one season - Playoffs",
+          "scope": "Playoffs",
+          "sourceText": "2 - Keith Pearsoll (2016)",
+          "value": "2",
+          "dateLabel": "2016",
+          "kind": "performance",
+          "sourceURLs": [
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1442297&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1442299&archTog=1"
+          ],
+          "sortDate": "2016-08-14"
+        },
+        {
+          "category": "Summer - Games with at least three points in one season - Playoffs",
+          "scope": "Playoffs",
+          "sourceText": "2 - Keith Pearsoll (2016)",
+          "value": "2",
+          "dateLabel": "2016",
+          "kind": "performance",
+          "sourceURLs": [
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1442297&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1442299&archTog=1"
+          ],
+          "sortDate": "2016-08-14"
         }
       ]
     },
@@ -1280,6 +1440,58 @@
           "value": "1",
           "dateLabel": "January 14, 2024",
           "kind": "milestone"
+        },
+        {
+          "category": "Summer - Games with at least three assists in one season - Regular Season",
+          "scope": "Season",
+          "sourceText": "3 - Justin Carosi (2016)",
+          "value": "3",
+          "dateLabel": "2016",
+          "kind": "performance",
+          "sourceURLs": [
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1442268&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1442287&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1442294&archTog=1"
+          ],
+          "sortDate": "2016-07-10"
+        },
+        {
+          "category": "Winter - Games with at least three assists in one season - Regular Season",
+          "scope": "Season",
+          "sourceText": "3 - Justin Carosi (2016/17)",
+          "value": "3",
+          "dateLabel": "2016/17",
+          "kind": "performance",
+          "sourceURLs": [
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1517081&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1517083&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1517098&archTog=1"
+          ],
+          "sortDate": "2017-01-08"
+        },
+        {
+          "category": "Winter - Games with at least three points in one season - Playoffs",
+          "scope": "Playoffs",
+          "sourceText": "1 - Justin Carosi (2016/17)",
+          "value": "1",
+          "dateLabel": "2016/17",
+          "kind": "performance",
+          "sourceURLs": [
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1517113&archTog=1"
+          ],
+          "sortDate": "2017-04-09"
+        },
+        {
+          "category": "Winter - Games with at least three points in one season - Playoffs",
+          "scope": "Playoffs",
+          "sourceText": "1 - Justin Carosi (2023/24)",
+          "value": "1",
+          "dateLabel": "2023/24",
+          "kind": "performance",
+          "sourceURLs": [
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=2071762&archTog=1"
+          ],
+          "sortDate": "2024-04-07"
         }
       ]
     },
@@ -1581,6 +1793,58 @@
           "value": "1",
           "dateLabel": "June 7, 2015",
           "kind": "milestone"
+        },
+        {
+          "category": "Summer - Games with at least three assists in one season - Regular Season",
+          "scope": "Season",
+          "sourceText": "3 - Mark Pastore (2016)",
+          "value": "3",
+          "dateLabel": "2016",
+          "kind": "performance",
+          "sourceURLs": [
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1442286&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1442292&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1442295&archTog=1"
+          ],
+          "sortDate": "2016-07-17"
+        },
+        {
+          "category": "Winter - Games with at least two goals in one season - Playoffs",
+          "scope": "Playoffs",
+          "sourceText": "3 - Mark Pastore (2015/16)",
+          "value": "3",
+          "dateLabel": "2015/16",
+          "kind": "performance",
+          "sourceURLs": [
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1384802&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1384803&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1384804&archTog=1"
+          ],
+          "sortDate": "2016-04-03"
+        },
+        {
+          "category": "Winter - Games with at least three points in one season - Playoffs",
+          "scope": "Playoffs",
+          "sourceText": "1 - Mark Pastore (2014/15)",
+          "value": "1",
+          "dateLabel": "2014/15",
+          "kind": "performance",
+          "sourceURLs": [
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1190758&archTog=1"
+          ],
+          "sortDate": "2015-04-19"
+        },
+        {
+          "category": "Winter - Games with at least three points in one season - Playoffs",
+          "scope": "Playoffs",
+          "sourceText": "1 - Mark Pastore (2015/16)",
+          "value": "1",
+          "dateLabel": "2015/16",
+          "kind": "performance",
+          "sourceURLs": [
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1384802&archTog=1"
+          ],
+          "sortDate": "2016-03-13"
         }
       ]
     },
@@ -1915,6 +2179,119 @@
           "value": "1",
           "dateLabel": "February 25, 2018",
           "kind": "milestone"
+        },
+        {
+          "category": "Summer - Games with at least two goals in one season - Regular Season",
+          "scope": "Season",
+          "sourceText": "7 - Ben Sherritt (2017)",
+          "value": "7",
+          "dateLabel": "2017",
+          "kind": "performance",
+          "sourceURLs": [
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559155&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559156&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559158&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559161&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559159&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559168&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559177&archTog=1"
+          ],
+          "sortDate": "2017-07-23"
+        },
+        {
+          "category": "Summer - Games with at least three points in one season - Regular Season",
+          "scope": "Season",
+          "sourceText": "7 - Ben Sherritt (2017)",
+          "value": "7",
+          "dateLabel": "2017",
+          "kind": "performance",
+          "sourceURLs": [
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559156&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559158&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559161&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559159&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559168&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559170&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559177&archTog=1"
+          ],
+          "sortDate": "2017-07-23"
+        },
+        {
+          "category": "Summer - Games with at least three points in one season - Playoffs",
+          "scope": "Playoffs",
+          "sourceText": "2 - Ben Sherritt (2016)",
+          "value": "2",
+          "dateLabel": "2016",
+          "kind": "performance",
+          "sourceURLs": [
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1442297&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1442299&archTog=1"
+          ],
+          "sortDate": "2016-08-14"
+        },
+        {
+          "category": "Winter - Games with at least two goals in one season - Regular Season",
+          "scope": "Season",
+          "sourceText": "11 - Ben Sherritt (2013/14)",
+          "value": "11",
+          "dateLabel": "2013/14",
+          "kind": "performance",
+          "sourceURLs": [
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046522&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046536&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046537&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046539&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046540&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046541&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046545&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046546&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046552&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046553&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046554&archTog=1"
+          ],
+          "sortDate": "2014-03-09"
+        },
+        {
+          "category": "Winter - Games with at least three points in one season - Regular Season",
+          "scope": "Season",
+          "sourceText": "7 - Ben Sherritt (2013/14)",
+          "value": "7",
+          "dateLabel": "2013/14",
+          "kind": "performance",
+          "sourceURLs": [
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046522&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046536&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046537&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046539&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046541&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046546&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046553&archTog=1"
+          ],
+          "sortDate": "2014-03-02"
+        },
+        {
+          "category": "Winter - Games with at least three points in one season - Playoffs",
+          "scope": "Playoffs",
+          "sourceText": "1 - Ben Sherritt (2013/14)",
+          "value": "1",
+          "dateLabel": "2013/14",
+          "kind": "performance",
+          "sourceURLs": [
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046558&archTog=1"
+          ],
+          "sortDate": "2014-03-30"
+        },
+        {
+          "category": "Winter - Games with at least three points in one season - Playoffs",
+          "scope": "Playoffs",
+          "sourceText": "1 - Ben Sherritt (2016/17)",
+          "value": "1",
+          "dateLabel": "2016/17",
+          "kind": "performance",
+          "sourceURLs": [
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1517113&archTog=1"
+          ],
+          "sortDate": "2017-04-09"
         }
       ]
     },
@@ -2045,12 +2422,37 @@
           "value": "9",
           "dateLabel": "February 4, 2024",
           "kind": "milestone"
+        },
+        {
+          "category": "Winter - Games with at least three points in one season - Playoffs",
+          "scope": "Playoffs",
+          "sourceText": "1 - Stefano Ardizzi (2017/18)",
+          "value": "1",
+          "dateLabel": "2017/18",
+          "kind": "performance",
+          "sourceURLs": [
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1664264&archTog=1"
+          ],
+          "sortDate": "2018-04-15"
         }
       ]
     },
     "376086": {
       "name": "Carmine Cerrone",
-      "entries": []
+      "entries": [
+        {
+          "category": "Winter - Games with at least three points in one season - Playoffs",
+          "scope": "Playoffs",
+          "sourceText": "1 - Carmine Cerrone (2015/16)",
+          "value": "1",
+          "dateLabel": "2015/16",
+          "kind": "performance",
+          "sourceURLs": [
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1384803&archTog=1"
+          ],
+          "sortDate": "2016-03-20"
+        }
+      ]
     },
     "378152": {
       "name": "Tristan Weatherhead",
@@ -2169,7 +2571,20 @@
     },
     "388298": {
       "name": "Quenton Hunt",
-      "entries": []
+      "entries": [
+        {
+          "category": "Winter - Games with at least three points in one season - Playoffs",
+          "scope": "Playoffs",
+          "sourceText": "1 - Quenton Hunt (2019/20)",
+          "value": "1",
+          "dateLabel": "2019/20",
+          "kind": "performance",
+          "sourceURLs": [
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1835544&archTog=1"
+          ],
+          "sortDate": "2020-03-08"
+        }
+      ]
     },
     "388357": {
       "name": "Michael Grande",
@@ -2250,6 +2665,20 @@
           "value": "13",
           "dateLabel": "November 19, 2017",
           "kind": "milestone"
+        },
+        {
+          "category": "Summer - Games with at least three assists in one season - Regular Season",
+          "scope": "Season",
+          "sourceText": "3 - Xav O'Krafka (2017)",
+          "value": "3",
+          "dateLabel": "2017",
+          "kind": "performance",
+          "sourceURLs": [
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559156&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559159&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559169&archTog=1"
+          ],
+          "sortDate": "2017-06-25"
         }
       ]
     },
@@ -2540,6 +2969,30 @@
           "value": "4",
           "dateLabel": "February 16, 2020",
           "kind": "performance"
+        },
+        {
+          "category": "Winter - Games with at least three points in one season - Playoffs",
+          "scope": "Playoffs",
+          "sourceText": "1 - David Corasaniti (2018/19)",
+          "value": "1",
+          "dateLabel": "2018/19",
+          "kind": "performance",
+          "sourceURLs": [
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1738995&archTog=1"
+          ],
+          "sortDate": "2019-03-31"
+        },
+        {
+          "category": "Winter - Games with at least three points in one season - Playoffs",
+          "scope": "Playoffs",
+          "sourceText": "1 - David Corasaniti (2019/20)",
+          "value": "1",
+          "dateLabel": "2019/20",
+          "kind": "performance",
+          "sourceURLs": [
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1835544&archTog=1"
+          ],
+          "sortDate": "2020-03-08"
         }
       ]
     },
@@ -2561,6 +3014,18 @@
           "value": "20",
           "dateLabel": "September 27, 2026",
           "kind": "milestone"
+        },
+        {
+          "category": "Winter - Games with at least three points in one season - Playoffs",
+          "scope": "Playoffs",
+          "sourceText": "1 - Michael Provenzano (2025/26)",
+          "value": "1",
+          "dateLabel": "2025/26",
+          "kind": "performance",
+          "sourceURLs": [
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=2215015&archTog=1"
+          ],
+          "sortDate": "2026-03-22"
         }
       ]
     },
@@ -2703,6 +3168,42 @@
           "value": "12",
           "dateLabel": "November 30, 2025",
           "kind": "milestone"
+        },
+        {
+          "category": "Winter - Games with at least three points in one season - Playoffs",
+          "scope": "Playoffs",
+          "sourceText": "1 - Stephane Saindon (2023/24)",
+          "value": "1",
+          "dateLabel": "2023/24",
+          "kind": "performance",
+          "sourceURLs": [
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=2071762&archTog=1"
+          ],
+          "sortDate": "2024-04-07"
+        },
+        {
+          "category": "Winter - Games with at least three points in one season - Playoffs",
+          "scope": "Playoffs",
+          "sourceText": "1 - Stephane Saindon (2025/26)",
+          "value": "1",
+          "dateLabel": "2025/26",
+          "kind": "performance",
+          "sourceURLs": [
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=2215015&archTog=1"
+          ],
+          "sortDate": "2026-03-22"
+        },
+        {
+          "category": "Winter - Games with at least three assists in one season - Playoffs",
+          "scope": "Playoffs",
+          "sourceText": "1 - Stephane Saindon (2025/26)",
+          "value": "1",
+          "dateLabel": "2025/26",
+          "kind": "performance",
+          "sourceURLs": [
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=2215015&archTog=1"
+          ],
+          "sortDate": "2026-03-22"
         }
       ]
     },
