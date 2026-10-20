@@ -16,6 +16,7 @@ on:
       - 'scripts/process_goalie_issue.py'
       - 'tests/test_goalie_issue.py'
       - '.github/workflows/brave-goalie-issue.yml'
+      - '.github/workflows/brave-goalie-confirm.yml'
       - 'tests/test_svhl_hto_parser.py'
       - 'tests/test_svhl_snapshot_coverage.py'
       - 'tests/test_goalie_continuity.py'
