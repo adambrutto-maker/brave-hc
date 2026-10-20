@@ -20,6 +20,8 @@ jobs:
           python-version: '3.12'
       - name: Validate request parser and role rules
         run: python -m unittest discover -s tests -p test_goalie_issue.py
+      - name: Verify remote pre-push concurrency protection
+        run: python -m unittest discover -s tests -p test_goalie_remote_pre_push.py
       - name: Validate failure feedback uses safe, actionable messages
         run: python -m unittest discover -s tests -p test_goalie_request_feedback.py
       - name: Verify issue author has repository write access and process request
@@ -64,6 +66,8 @@ jobs:
       - name: Commit verified goalie assignment (if changed)
         id: commit
         run: |
+          git fetch origin main
+          python scripts/verify_goalie_push.py --request-file goalie-request.json
           if git diff --quiet -- widgets/goalie-assignments.json; then
             echo "Already confirmed; no assignment write required"
           else
@@ -71,7 +75,7 @@ jobs:
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
             git add widgets/goalie-assignments.json
             git commit -m "Confirm Braves goalie from authenticated issue"
-            git pull --rebase
+            git rebase origin/main
             git push
           fi
       - name: Record completion and close authenticated request
