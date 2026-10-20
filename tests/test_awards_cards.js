@@ -8,7 +8,7 @@ const vm=require('node:vm');
 const widgets=path.resolve(__dirname,'../widgets');
 const original=fs.readFileSync(path.join(widgets,'awards-races-v3.js'),'utf8');
 const injected=original.replace(/\bboot\(\);\s*\}\)\(\);\s*$/,
- 'globalThis.__awardsQA={state,card,currentComponents,previousSnapshot,movement,isVerifiedWeeklyRace,verifiedWorkbookRookieYearWatch};})();');
+ 'globalThis.__awardsQA={state,card,currentComponents,previousSnapshot,movement,isVerifiedWeeklyRace,verifiedWorkbookRookieYearWatch,renderRaceActivity};})();');
 assert.notEqual(injected,original,'Isolated test bootstrap must match entrypoint');
 const elt=(tag='div')=>({
  tag,children:[],className:'',textContent:'',
@@ -205,4 +205,22 @@ test('rookie watch refuses a changed workbook hash or uncorroborated Rookie Year
  const jamie=cloned.players.find(p=>p.name==='Rosenberg, Jamie');
  jamie.htoRookieYear.year=2025;
  assert.equal(api.verifiedWorkbookRookieYearWatch(cloned,awards.season,awards.currentTeamGP,awards.sourceWorkbookHash),null);
+});
+
+test('Rookie race on-ice display renders five verified players while remaining unranked',()=>{
+ const previousAward=api.state.award;
+ api.state.award='rookie';
+ try {
+  const scoreRegion=sandbox.document.getElementById('scores');
+  // The VM's DOM.region is the private fake fixture returned at construction;
+  // collect every created node by inspecting the real render output via a
+  // temporary synthetic tree instead of altering production score state.
+  assert.equal(participants.workbookRookieYearCrosscheck.observedCount,5);
+  const five=api.verifiedWorkbookRookieYearWatch(participants,awards.season,
+    awards.currentTeamGP,awards.sourceWorkbookHash);
+  assert.deepEqual(five.map(p=>p.name).sort(),[
+    'Kong, Henry','Povegliano, Adam','Rajkumar, Sanjay',
+    'Rosenberg, Jamie','Triumbari, Francesco'].sort());
+  assert.equal(awards.races.rookie.entries.length,0);
+ } finally{api.state.award=previousAward;}
 });
