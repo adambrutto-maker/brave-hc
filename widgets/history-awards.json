@@ -1,0 +1,301 @@
+{
+  "schema": "brave-hc-hto-history-snapshot/v1",
+  "type": "awards",
+  "source": {
+    "name": "HomeTeamsONLINE / Brave H.C.",
+    "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=awards",
+    "authority": "OFFICIAL_HTO_PUBLIC_READBACK"
+  },
+  "capturedAt": "2026-10-20T13:56:05.697Z",
+  "stalePolicy": "Fixed public snapshot. Official HTO page controls current records; snapshot updates are manually QA-gated.",
+  "pageTitle": "Brave H.C. Awards & Honors",
+  "entryCount": 146,
+  "groups": [
+    {
+      "section": "Brave H.C. Awards & Honors",
+      "category": "Brave H.C. Hall of Fame",
+      "period": "",
+      "items": [
+        "2025 - Andrew Cristillo",
+        "2024 - Cameron Buchanan",
+        "2024 - Stephen Logue",
+        "2023 - Ben Sherritt",
+        "2023 - Mark Pastore"
+      ]
+    },
+    {
+      "section": "Brave H.C. Awards & Honors",
+      "category": "Maurice 'Rocket' Richard Trophy - Summer",
+      "period": "",
+      "items": [
+        "2017 - Ben Sherritt - 22 Goals",
+        "2016 - Cameron Buchanan - 12 Goals",
+        "2015 - Mark Pastore - 16 Goals",
+        "2014 - Ben Sherritt - 16 Goals",
+        "2013 - Mark Pastore - 12 Goals"
+      ]
+    },
+    {
+      "section": "Brave H.C. Awards & Honors",
+      "category": "Art Ross Award - Summer",
+      "period": "",
+      "items": [
+        "2017 - Ben Sherritt - 22G, 10A, 32PTS, 2PIM",
+        "2016 - Mark Pastore - 10G, 13A, 23PTS, 0PIM",
+        "2015 - Mark Pastore - 16G, 9A, 25PTS, 0PIM",
+        "2014 - Ben Sherritt - 16G, 9A, 25PTS, 0PIM",
+        "2013 - Mark Pastore - 12G, 5A, 17PTS"
+      ]
+    },
+    {
+      "section": "Brave H.C. Awards & Honors",
+      "category": "Hart Award - Summer Team MVP",
+      "period": "",
+      "items": [
+        "2017 - Ben Sherritt - 26G, 11A, 37PTS, 4PIM",
+        "2016 - Cameron Buchanan - 16G, 13A, 29PTS, 0PIM",
+        "2015 - Mark Pastore - 22G, 12A, 34PTS, 0PIM",
+        "2014 - Ben Sherritt - 17G, 10A, 27PTS, 0PIM",
+        "2013 - Mark Pastore - 12G, 5A, 17PTS, 0PIM"
+      ]
+    },
+    {
+      "section": "Brave H.C. Awards & Honors",
+      "category": "Conn Smythe Award Playoff MVP - Summer",
+      "period": "",
+      "items": [
+        "2017 - Cameron Buchanan - 3G, 3A, 6PTS, 0PIM",
+        "2016 - Cameron Buchanan - 4G, 4A, 8PTS, 0PIM",
+        "2015 - Mark Pastore - 6G, 3A, 9PTS, 0PIM",
+        "2014 - Ryan Logue - 1G, 1A, 2PTS, 0PIM",
+        "2013 - Cameron Buchanan - No Record"
+      ]
+    },
+    {
+      "section": "Brave H.C. Awards & Honors",
+      "category": "James Norris Trophy - Summer",
+      "period": "",
+      "items": [
+        "2017 - Lorcan Duffy - 2G, 11A, 13PTS, 4PIM",
+        "2016 - Alex Pagnotta - 6G, 4A, 10PTS, 4PIM",
+        "2015 - Alex Pagnotta - 2G, 2A, 4PTS, 2PIM",
+        "2014 - Adam Brutto - 0G, 7A, 7PTS, 10PIM",
+        "2013 - Damian Aidemirski - 2G, 3A, 5PTS, 0PIM"
+      ]
+    },
+    {
+      "section": "Brave H.C. Awards & Honors",
+      "category": "Most Improved Player - Summer",
+      "period": "",
+      "items": [
+        "2017 - Andrew Buchanan - 0G, 2A, 2PTS, 12PIM",
+        "2016 - Keith Pearsoll - 9G, 17A, 26PTS, 2PIM",
+        "2015 - Stefano Ardizzi - 4G, 6A, 10PTS, 17PIM",
+        "2014 - Stefano Ardizzi - 5G, 7A, 12PTS, 4PIM",
+        "2013 - Anthony Paolucci - 3G, 1A, 4PTS, 0PIM"
+      ]
+    },
+    {
+      "section": "Brave H.C. Awards & Honors",
+      "category": "Lady Byng Award for Sportsmanship - Summer",
+      "period": "",
+      "items": [
+        "2017 - Michael Congiusti - 3G, 2A, 5PTS, 0PIM",
+        "2016 - Keith Pearsoll - 9G, 17A, 26PTS, 2PIM",
+        "2015 - Keith Pearsoll - 7G, 7A, 14PTS, 2PIM",
+        "2014 - Michael Congiusti - 0G, 1A, 1PTS, 0PIM",
+        "2013 - Keith Pearsoll - 8G, 7A, 15PTS, 0PIM"
+      ]
+    },
+    {
+      "section": "Brave H.C. Awards & Honors",
+      "category": "Andrew Cristillo Award for Dedication - Summer",
+      "period": "",
+      "items": [
+        "2017 - Adam Brutto - 1G, 9A, 10PTS, 0PIM",
+        "2016 - Anthony Paolucci - 1G, 7A, 8PTS, 4PIM / 0-2-0, 10.00 GAA"
+      ]
+    },
+    {
+      "section": "Brave H.C. Awards & Honors",
+      "category": "Rookie of the Year - Summer",
+      "period": "",
+      "items": [
+        "2017 - Xav O'Krafka - 16G, 17A, 33PTS, 22PIM",
+        "2016 - No Rookies",
+        "2015 - Anthony Paolucci - 3G, 8A, 11PTS, 14PIM",
+        "2014 - Justin Carosi - 4G, 8A, 12PTS, 0PIM",
+        "2013 - Luke Leddy - 1G, 3A, 4PTS, 0PIM"
+      ]
+    },
+    {
+      "section": "Brave H.C. Awards & Honors",
+      "category": "Maurice 'Rocket' Richard Trophy - Winter",
+      "period": "",
+      "items": [
+        "2025 - Stephane Saindon - 19 Goals",
+        "2024 - Justin Carosi & Michael Provenzano - 12 Goals",
+        "2023 - Stephane Saindon - 16 Goals",
+        "2022 - Stephane Saindon - 15 Goals",
+        "2019 - David Corasaniti - 10 Goals",
+        "2018 - Dylan Brennan - 14 Goals",
+        "2017 - Ben Sherritt - 27 Goals",
+        "2016 - Ben Sherritt - 21 Goals",
+        "2015 - Mark Pastore - 16 Goals",
+        "2014 - Mark Pastore - 12 Goals",
+        "2013 - Ben Sherritt - 36 Goals"
+      ]
+    },
+    {
+      "section": "Brave H.C. Awards & Honors",
+      "category": "Art Ross Award - Winter",
+      "period": "",
+      "items": [
+        "2025 - Stephane Saindon - 19G, 16A, 35PTS, 0PIM",
+        "2024 - Stephane Saindon - 8G, 17A, 25PTS, 4PIM",
+        "2023 - Justin Carosi - 10G, 20A, 30PTS, 4PIM",
+        "2022 - Justin Carosi - 14G, 18A, 32PTS, 2PIM",
+        "2019 - David Corasaniti - 10G, 20A, 30PTS, 2PIM",
+        "2018 - Dylan Brennan - 14G, 22A, 36PTS, 8PIM",
+        "2017 - Ben Sherritt - 27G, 14A, 41PTS, 8PIM",
+        "2016 - Ben Sherritt - 21G, 10A, 31PTS, 4PIM",
+        "2015 - Mark Pastore - 16G, 16A, 32PTS, 6PIM",
+        "2014 - Mark Pastore - 12G, 8A, 20PTS, 2PIM",
+        "2013 - Ben Sherritt - 36G, 10A, 46PTS, 4PIM"
+      ]
+    },
+    {
+      "section": "Brave H.C. Awards & Honors",
+      "category": "Hart Award - Winter Team MVP",
+      "period": "",
+      "items": [
+        "2025 - Justin Carosi - 15G,12A, 27PTS, 2PIM",
+        "2024 - Justin Carosi - 13G, 12A, 25PTS, 2PIM",
+        "2023 - Justin Carosi - 13G, 20A, 33PTS, 6PIM",
+        "2022 - Justin Carosi - 14G, 20A, 34PTS, 2PIM",
+        "2019 - David Corasaniti - 12G, 22A, 34PTS, 2PIM",
+        "2018 - Dylan Brennan - 15G, 23A, 38PTS, 8PIM",
+        "2017 - Ben Sherritt - 30G, 16A, 46PTS, 10PIM",
+        "2016 - Ben Sherritt - 25G, 12A, 37PTS, 4PIM",
+        "2015 - Mark Pastore - 24G, 17A, 41PTS, 6PIM",
+        "2014 - Mark Pastore - 19G, 9A, 28PTS, 2PIM",
+        "2013 - Ben Sherritt - 40G, 11A, 51PTS, 6PIM"
+      ]
+    },
+    {
+      "section": "Brave H.C. Awards & Honors",
+      "category": "Conn Smythe Award Playoff MVP - Winter",
+      "period": "",
+      "items": [
+        "2025 - Stephane Saindon - 1G, 3A, 4PTS, 0PIM",
+        "2024 - Mark Arruda - 0G, 0A, 0PTS, 2PIM",
+        "2023 - Stephane Saindon - 2G, 2A, 4PTS, 0PIM",
+        "2022 - Stephane Saindon - 1G, 0A, 1PTS, 0PIM",
+        "2019 - David Corasaniti - 2G, 2A, 4PTS, 0PIM",
+        "2018 - Justin Carosi - 2G, 2A, 4PTS, 0PIM",
+        "2017 - Ben Sherritt - 3G, 2A, 5PTS, 2PIM",
+        "2016 - Ben Sherritt - 4G, 2A, 6PTS, 0PIM",
+        "2015 - Stephen Logue - 4-1-1, 1.67GAA, 2SHO",
+        "2014 - Mark Pastore - 7G, 1A, 8PTS, 6PIM",
+        "2013 - Stephen Logue - 2-2-2, 1.33GAA, 1SHO"
+      ]
+    },
+    {
+      "section": "Brave H.C. Awards & Honors",
+      "category": "James Norris Trophy - Winter",
+      "period": "",
+      "items": [
+        "2025 - Mark Arruda - 6G, 10A, 16PTS, 2PIM",
+        "2024 - Alex Pagnotta - 1G, 9A, 10PTS, 8PIM",
+        "2023 - Mark Arruda - 7G, 10A, 17PTS, 0PIM",
+        "2022 - Mark Arruda - 5G, 5A, 10PTS, 6PIM",
+        "2019 - Alex Pagnotta - 3G, 9A, 12PTS, 8PIM",
+        "2018 - Andrew Buchanan - 1G, 5A, 6PTS, 6PIM",
+        "2017 - Andrew Buchanan - 1G, 5A, 6PTS, 12PIM",
+        "2016 - Alex Pagnotta - 4G, 10A, 14PTS, 16PIM",
+        "2015 - Damian Aidemirski - 9G, 9A, 18PTS, 0PIM",
+        "2014 - Alex Pagnotta - 0G, 9A, 9PTS, 18PIM",
+        "2013 - Damian Aidemirski - 9G, 15A, 24PTS, 8PIM"
+      ]
+    },
+    {
+      "section": "Brave H.C. Awards & Honors",
+      "category": "Most Improved Player - Winter",
+      "period": "",
+      "items": [
+        "2025 - Mario Provenzano - 5G, 8A, 13PTS, 0PIM",
+        "2024 - Medi Brancatella - 2G, 7A, 9PTS, 4PIM",
+        "2023 - Andrew Cristillo - 3G, 6A, 9PTS, 0PIM",
+        "2022 - Krishnan Rajasooriar - 3G, 5A, 8PTS, 4PIM",
+        "2019 - Daniel Buzzelli - 2G, 11A, 13PTS, 2PIM",
+        "2018 - Lucas Brutto - 3G, 10A, 13PTS, 2PIM",
+        "2017 - Keith Pearsoll - 12G, 15A, 27PTS, 8PIM",
+        "2016 - Marco Congiusti - 1G, 5A, 6PTS, 2PIM",
+        "2015 - Anthony Paolucci - 2G, 4A, 6PTS, 6PIM",
+        "2014 - Stefano Ardizzi - 3G, 5A, 8PTS, 6PIM",
+        "2013 - Stefano Ardizzi - 5G, 10A, 15PTS, 2PIM"
+      ]
+    },
+    {
+      "section": "Brave H.C. Awards & Honors",
+      "category": "Lady Byng Award for Sportsmanship - Winter",
+      "period": "",
+      "items": [
+        "2025 - Keith Pearsoll - 9G, 12A, 21PTS, 0PIM",
+        "2024 - Mark Arruda - 5G, 10A, 15PTS, 4PIM",
+        "2023 - Keith Pearsoll - 4G, 7A, 11PTS, 2PIM",
+        "2022 - Kourosh Adeli - 0G, 4A, 4PTS, 0PIM",
+        "2019 - Cameron Buchanan - 9G, 9A, 18PTS, 0PIM",
+        "2018 - Mario Provenzano - 2G, 8A, 10PTS, 0PIM",
+        "2017 - Michael Congiusti - 0G, 4A, 4PTS, 0PIM",
+        "2016 - Michael Congiusti - 1G, 2A, 3PTS, 0PIM",
+        "2015 - Michael Congiusti - 1G, 3A, 4PTS, 2PIM",
+        "2014 - Marco Congiusti - 1G, 3A, 4PTS, 12PIM",
+        "2013 - Michael Congiusti - 2G, 11A, 13PTS, 0PIM"
+      ]
+    },
+    {
+      "section": "Brave H.C. Awards & Honors",
+      "category": "Andrew Cristillo Award for Dedication - Winter",
+      "period": "",
+      "items": [
+        "2025 - Justin Carosi - 15G, 12A, 27PTS, 2PIM",
+        "2024 - Adam Brutto - 0G, 9A, 9PTS, 2PIM",
+        "2023 - Justin Carosi - 13G, 20A, 33PTS, 6PIM",
+        "2022 - Alex Pagnotta - 1G, 11A, 12PTS, 8PIM",
+        "2019 - Justin Carosi - 9G, 17A, 26PTS, 0PIM",
+        "2018 - Andrew Cristillo - 1G, 3A, 4PTS, 2PIM",
+        "2017 - Adam Brutto - 3G, 12A, 15PTS, 2PIM",
+        "2016 - Cameron Buchanan - 11G, 8A, 19PTS, 2PIM",
+        "2015 - Anthony Guerra - 0G, 3A, 3PTS, 4PIM"
+      ]
+    },
+    {
+      "section": "Brave H.C. Awards & Honors",
+      "category": "Rookie of the Year - Winter",
+      "period": "",
+      "items": [
+        "2025 - No Rookies",
+        "2024 - Michael Provenzano - 12G, 5A, 17PTS, 6PIM",
+        "2023 - Mark Arruda - 7G, 10A, 17PTS, 0PIM",
+        "2022 - Stephane Saindon - 16G, 12A, 28PTS, 6PIM",
+        "2019 - David Corasaniti - 12G, 22A, 34PTS, 2PIM",
+        "2018 - Andrew Cristillo - 1G, 3A, 4PTS, 2PIM",
+        "2017 - Lorcan Duffy - 4G, 8A, 12PTS, 2PIM",
+        "2016 - Stephen Keane - 20G, 11A, 31PTS, 14PIM",
+        "2015 - Carmine Cerrone - 5G, 6A, 11PTS, 6PIM",
+        "2014 - Justin Carosi - 10G, 12A, 22PTS, 2PIM",
+        "2013 - Ben Sherritt - 40G, 11A, 51PTS, 6PIM"
+      ]
+    },
+    {
+      "section": "Brave H.C. Awards & Honors",
+      "category": "Rolaids Relief Man Award - Winter",
+      "period": "",
+      "items": [
+        "2025 - Adam Kober - 1G, 5A, 6PTS, 4PIM",
+        "2024 - Stefano Mazzei - 6G, 2A, 8PTS, 4PIM"
+      ]
+    }
+  ]
+}
