@@ -29,7 +29,7 @@ body{background:#071829;color:#eef4fb;font-family:Arial,"Helvetica Neue",sans-se
 .ph-ledger{display:grid;gap:7px}
 .ph-event{background:#102d46;border:1px solid #355572;border-radius:7px;padding:10px 11px;display:grid;grid-template-columns:34px minmax(0,1fr);gap:9px;align-items:start}
 .ph-event.ph-champion{border-left:3px solid #deb76a}
-.ph-symbol{display:grid;place-items:center;width:30px;height:30px;background:#203e5b;border-radius:6px;font-size:16px}
+.ph-symbol{display:grid;place-items:center;width:30px;height:30px;background:#203e5b;border-radius:6px;font-size:10px;font-weight:800;letter-spacing:.2px}
 .ph-event-title{font-size:13px;font-weight:720;line-height:1.4;color:#f3f7fc}
 .ph-event.ph-champion .ph-event-title{color:#f5d18d}
 .ph-event-meta{font-size:11px;color:#bdd0e0;margin-top:3px}
@@ -43,7 +43,7 @@ body{background:#071829;color:#eef4fb;font-family:Arial,"Helvetica Neue",sans-se
 @media(max-width:375px){.ph-grid{gap:5px}.ph-stat{padding:8px 3px}.ph-label{font-size:10px}.ph-number{font-size:20px}.ph-event{grid-template-columns:27px minmax(0,1fr);gap:8px}.ph-symbol{width:26px;height:26px}}
 </style>
 <script defer src="./player-links.js?v=4"></script>
-<script defer src="./player-highlights.js?v=1"></script>
+<script defer src="./player-highlights.js?v=2"></script>
 </head>
 <body>
 <main class="ph-shell">
@@ -52,18 +52,18 @@ body{background:#071829;color:#eef4fb;font-family:Arial,"Helvetica Neue",sans-se
 <div class="ph-wrap">
 <header class="ph-brand">
 <img src="./brave_hc_logo.png" alt="Brave H.C. crest">
-<div><div class="ph-kicker">BRAVE H.C. · PLAYER LEGACY</div><h1 class="ph-player" id="playerName">Player Highlights</h1><p id="playerSub" class="ph-sub">Loading verified player context…</p></div>
+<div><div class="ph-kicker">BRAVE H.C. · PLAYER LEGACY</div><h1 class="ph-player" id="playerName" data-brave-no-link>Player Highlights</h1><p id="playerSub" class="ph-sub">Loading verified player context…</p></div>
 </header>
 <div id="notice" class="ph-notice" role="status">Loading player records from approved sources…</div>
+<section aria-label="Current-season statistics">
+<h2 class="ph-panel-title">Verified Current-Season Form</h2>
+<div id="form" class="ph-empty">Checking dated HTO statistics feed…</div>
+</section>
 <section aria-label="Recorded career highlights">
 <div id="careerSummary" class="ph-grid" hidden></div>
 <h2 class="ph-panel-title">Career Highlights</h2>
 <div id="legacy" class="ph-ledger"></div>
 <button id="expand" class="ph-button" type="button" hidden>Show all highlights</button>
-</section>
-<section aria-label="Current-season statistics">
-<h2 class="ph-panel-title">Verified Current-Season Form</h2>
-<div id="form" class="ph-empty">Checking dated HTO statistics feed…</div>
 </section>
 <footer class="ph-footer" id="footer">Existing awards, leadership, nominations, championships and dated milestones are imported only from the player's own published HTO Highlights. No new awards or milestone dates are invented or automatically adopted.</footer>
 </div></section>
