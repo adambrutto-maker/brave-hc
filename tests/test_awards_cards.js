@@ -153,3 +153,11 @@ test('historical eleven-component Rolaids card shows six prominent tiles and fiv
  assert.equal(more.length,1);
  assert.match(more[0].children[0].textContent,/Show 5 more/);
 });
+
+test('both published Awards entrypoints use identical assets and page instructions',()=>{
+ const a=fs.readFileSync(path.join(widgets,'awards-races.html'),'utf8');
+ const b=fs.readFileSync(path.join(widgets,'awards-races-v3.html'),'utf8');
+ assert.equal(a,b);
+ assert.match(a,/awards-races-v3\\.js\\?v=20261019l/);
+ assert.match(a,/awards-races-v3\\.css\\?v=20261019l/);
+});
