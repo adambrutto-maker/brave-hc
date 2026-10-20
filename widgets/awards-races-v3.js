@@ -385,7 +385,15 @@ function renderPlayerEvidence(card,player,participants){
    el(inside,"p",null,"Scoring credits: "+scoring.evenStrengthGoals+" ES goals, "+scoring.evenStrengthAssists+" ES assists; "+scoring.powerPlayGoals+" PP goals, "+scoring.powerPlayAssists+" PP assists; "+scoring.shorthandedGoals+" SH goals, "+scoring.shorthandedAssists+" SH assists.");
   }
   if(events.sourceKind==="HTO_SCORES_AND_BOX_SCORE_EVENTS_RECONCILED"&&Number.isInteger(events.reportedPIMFreeGameAppearances)){
-   el(inside,"p",null,"HTO-reported penalty-free games: "+events.reportedPIMFreeGameAppearances+" of "+player.gp+" appearances.");
+   const games=player.sourceHTOGamePattern?.games;
+   const completePIM=Array.isArray(games)&&games.length===player.gp
+    &&new Set(games.map(g=>g.gameId)).size===player.gp
+    &&games.every(g=>Number.isInteger(g.penaltyMinutes)&&g.penaltyMinutes>=0)
+    &&games.reduce((sum,g)=>sum+g.penaltyMinutes,0)===raw.penaltyMinutes;
+   const zeroPIM=completePIM?games.filter(g=>g.penaltyMinutes===0).length:null;
+   if(completePIM&&zeroPIM===events.reportedPIMFreeGameAppearances)
+    el(inside,"p",null,"HTO-reported penalty-free games: "+zeroPIM+" of "+player.gp+" appearances.");
+   else el(inside,"p",null,"Penalty-free game count unavailable: complete per-game penalty minutes have not been verified.");
   }
  }else if(player.position==="Goalie"){
   if(![raw.losses,raw.goalsAgainst,raw.goalsAgainstAverage].every(Number.isFinite))return box.remove();
