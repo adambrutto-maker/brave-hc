@@ -104,10 +104,23 @@ The manager dropdown reads [widgets/goalie-roster.json](https://github.com/adamb
 - Verify current status using [HTO roster](https://www.htosports.com/teams/default.asp?p=roster&s=hockey&u=BRAVESHOCKEY) and [HTO Roster and Fees](https://www.htosports.com/teams/default.asp?p=bboard&pageNum=1&s=hockey&u=BRAVESHOCKEY). Public HTO rosters are not a substitute for manager confirmation of a game's starter.
 - All new dropdown additions must update the backend `GOALIE_OPTIONS` whitelist and pass `tests/test_goalie_roster.py`, or the CI gate blocks publication.
 
+## Race-safe goalie approval and live manager browser QA (October 20)
+
+**Public manager confirmation requests are now `brave-hc-goalie-confirmation/v2`.** The prefilled GitHub review issue contains the game `assignmentKey`, chosen goalie, optional verified rental name, the SVHL `fixture_signature` shown to the manager, and the `expected_goalie` previously displayed when the page loaded.
+
+- The authenticated GitHub issue workflow validates the reviewer's repository write access, checks the request schema, and compares the submitted **fixture signature** to the latest approved published SVHL feed before attempting an update.
+- It also checks that the **previous goalie still matches** the value that appeared on the manager page. If another manager has changed the assignment, or SVHL has changed the game date/time/opponent/rink/home-away details, the request is **rejected** rather than applied to a changed situation.
+- Earlier `v1` issue bodies without these version checks are no longer accepted. The separate, manually entered GitHub Actions fallback remains a distinct flow and does not supply the page-captured signature/previous-goalie checks; use the newer manager issue route for routine confirmations.
+- Selecting a goalie or clicking **Review and confirm** does not submit or save. The user must still review and explicitly submit the generated GitHub issue. A GitHub failure requires fresh review; it is **not** permission to automatically re-submit.
+- The browser-QA workflow now runs [`tests/smoke_goalie_manager_live.py`](https://github.com/adambrutto-maker/brave-hc/blob/main/tests/smoke_goalie_manager_live.py) using headless Chrome/Playwright. It intercepts `window.open` before any click and blocks GitHub navigation. The test inspects the URL payload without posting an issue.
+- Live tests cover each published game row, saved goalie selections, the original goaltender, an alternative goalie, the rental-name flow, invalid/cancelled rental entries, and confirmation that published assignments are unchanged. New request-version backend tests cover stale schedule details and a previous-goalie mismatch.
+- **Verified [October 20 end-to-end browser QA run](https://github.com/adambrutto-maker/brave-hc/actions/runs/39438419532): PASS.** The same run passed HTO homepage iframe, desktop/mobile rendered game rows and the explicit source-CSS contrast safeguards.
+- No goalie assignments, player communications, HTO records, scored games, schedules or league data were changed by this QA.
+
 ## Goalie management — prefilled GitHub approval
 
 - [Goaltender Manager](https://adambrutto-maker.github.io/brave-hc/widgets/goalie-manager-v1.2.html) shows each upcoming SVHL fixture, current saved goalie, and the controlled selection dropdown.
-- Select the goalie and click **Review and confirm**. For **Other / rental**, enter the verified name. The page opens a GitHub issue with the matching game key and selected goalie already filled in.
+- Select the goalie and click **Review and confirm**. For **Other / rental**, enter the verified name. The page opens a GitHub issue with the matching game key, selected goalie, reviewed SVHL fixture revision and previously displayed goalie already filled in.
 - **Sign in to GitHub and click Submit new issue** only after checking the game and goalie selection. The dropdown action does **not** save anything itself.
 - The [Save Brave H.C. goalie request](https://github.com/adambrutto-maker/brave-hc/actions/workflows/brave-goalie-issue.yml) checks the issue creator's repository **write/maintain/admin** permission, validates strict request JSON, verifies the feed is no older than 24 hours, and updates only `widgets/goalie-assignments.json`.
 - GitHub records the requesting user and the previous/new assignment when it changes. Upon success, it comments on and closes the confirmation issue, leaving a public audit receipt.
