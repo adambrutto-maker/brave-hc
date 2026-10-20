@@ -11,6 +11,7 @@ on:
       - 'tests/test_hockeyos_sync_freshness.js'
       - 'tests/lib/hockeyos_sync_batch_readiness.js'
       - 'tests/lib/hockeyos_saved_table_expansion_preflight.js'
+      - 'tests/lib/hockeyos_saved_game_mapping_crosscheck.js'
       - 'tests/test_hockeyos_saved_table_expansion_preflight.js'
       - 'tests/test_hockeyos_sync_batch_readiness.js'
       - '.github/workflows/hockeyos-sync-preflight-qa.yml'
