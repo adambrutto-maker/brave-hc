@@ -1,0 +1,1033 @@
+{
+  "status": "AUDIT_ONLY",
+  "count": 32,
+  "entries": [
+    {
+      "date": "2025-04-06",
+      "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=2148163&archTog=1",
+      "season": "Winter 2024/2025",
+      "opponentPeriodScores": {
+        "1": 2,
+        "2": 0,
+        "3": 1,
+        "F": 3
+      },
+      "scoreboardRegulationAndOTGA": 3,
+      "publishedGoalieGA": 2.0,
+      "documentedOpponentEmptyNetGoals": 0,
+      "goalies": [
+        {
+          "playerID": "354055",
+          "stats": {
+            "No": "70",
+            "Name": "Logue, Stephen",
+            "": "",
+            "GP": "1",
+            "L": "1",
+            "GA": "2",
+            "GAA": "2.00",
+            "POTG": "1"
+          }
+        }
+      ],
+      "status": "REVIEW_POSSIBLE_EMPTY_NET_OR_SOURCE_DIFFERENCE"
+    },
+    {
+      "date": "2025-11-23",
+      "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=2214998&archTog=1",
+      "season": "Winter 2025/2026",
+      "opponentPeriodScores": {
+        "1": 1,
+        "2": 0,
+        "3": 2,
+        "F": 3
+      },
+      "scoreboardRegulationAndOTGA": 3,
+      "publishedGoalieGA": 2.0,
+      "documentedOpponentEmptyNetGoals": 0,
+      "goalies": [
+        {
+          "playerID": "354055",
+          "stats": {
+            "No": "70",
+            "Name": "Logue, Stephen",
+            "": "",
+            "GP": "1",
+            "L": "1",
+            "GA": "2",
+            "GAA": "2.00",
+            "+/-": "-2"
+          }
+        }
+      ],
+      "status": "REVIEW_POSSIBLE_EMPTY_NET_OR_SOURCE_DIFFERENCE"
+    },
+    {
+      "date": "2024-11-03",
+      "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=2148141&archTog=1",
+      "season": "Winter 2024/2025",
+      "opponentPeriodScores": {
+        "1": 0,
+        "2": 1,
+        "3": 5,
+        "F": 6
+      },
+      "scoreboardRegulationAndOTGA": 6,
+      "publishedGoalieGA": 4.0,
+      "documentedOpponentEmptyNetGoals": 0,
+      "goalies": [
+        {
+          "playerID": "776208",
+          "stats": {
+            "No": "31",
+            "Name": "Leong, Dev",
+            "": "",
+            "GP": "1",
+            "L": "1",
+            "SA": "4",
+            "GA": "4",
+            "GAA": "4.00",
+            "+/-": "-4"
+          }
+        }
+      ],
+      "status": "REVIEW_POSSIBLE_EMPTY_NET_OR_SOURCE_DIFFERENCE"
+    },
+    {
+      "date": "2023-10-29",
+      "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=2071732&archTog=1",
+      "season": "Winter 2023/2024",
+      "opponentPeriodScores": {
+        "1": 1,
+        "2": 2,
+        "3": 2,
+        "F": 5
+      },
+      "scoreboardRegulationAndOTGA": 5,
+      "publishedGoalieGA": 4.0,
+      "documentedOpponentEmptyNetGoals": 0,
+      "goalies": [
+        {
+          "playerID": "354055",
+          "stats": {
+            "No": "70",
+            "Name": "Logue, Stephen",
+            "": "",
+            "GP": "1",
+            "L": "1",
+            "SA": "4",
+            "GA": "4",
+            "GAA": "4.00",
+            "+/-": "-3"
+          }
+        }
+      ],
+      "status": "REVIEW_POSSIBLE_EMPTY_NET_OR_SOURCE_DIFFERENCE"
+    },
+    {
+      "date": "2024-04-14",
+      "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=2071758&archTog=1",
+      "season": "Winter 2023/2024",
+      "opponentPeriodScores": {
+        "1": 0,
+        "2": 0,
+        "3": 4,
+        "F": 4
+      },
+      "scoreboardRegulationAndOTGA": 4,
+      "publishedGoalieGA": 2.0,
+      "documentedOpponentEmptyNetGoals": 0,
+      "goalies": [
+        {
+          "playerID": "354055",
+          "stats": {
+            "No": "70",
+            "Name": "Logue, Stephen",
+            "": "",
+            "GP": "1",
+            "L": "1",
+            "SA": "2",
+            "GA": "2",
+            "GAA": "2.00",
+            "PIM": "2",
+            "POTG": "1",
+            "+/-": "-3"
+          }
+        }
+      ],
+      "status": "REVIEW_POSSIBLE_EMPTY_NET_OR_SOURCE_DIFFERENCE"
+    },
+    {
+      "date": "2022-09-25",
+      "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=2012644&archTog=1",
+      "season": "Winter 2022/2023",
+      "opponentPeriodScores": {
+        "1": 2,
+        "2": 0,
+        "3": 2,
+        "F": 4
+      },
+      "scoreboardRegulationAndOTGA": 4,
+      "publishedGoalieGA": 3.0,
+      "documentedOpponentEmptyNetGoals": 0,
+      "goalies": [
+        {
+          "playerID": "354055",
+          "stats": {
+            "No": "70",
+            "Name": "Logue, Stephen",
+            "": "",
+            "GP": "1",
+            "L": "1",
+            "SA": "3",
+            "GA": "3",
+            "GAA": "3.00",
+            "+/-": "-2"
+          }
+        }
+      ],
+      "status": "REVIEW_POSSIBLE_EMPTY_NET_OR_SOURCE_DIFFERENCE"
+    },
+    {
+      "date": "2022-10-23",
+      "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=2012660&archTog=1",
+      "season": "Winter 2022/2023",
+      "opponentPeriodScores": {
+        "1": 0,
+        "2": 1,
+        "3": 1,
+        "F": 2
+      },
+      "scoreboardRegulationAndOTGA": 2,
+      "publishedGoalieGA": 1.0,
+      "documentedOpponentEmptyNetGoals": 0,
+      "goalies": [
+        {
+          "playerID": "354055",
+          "stats": {
+            "No": "70",
+            "Name": "Logue, Stephen",
+            "": "",
+            "GP": "1",
+            "L": "1",
+            "SA": "1",
+            "GA": "1",
+            "GAA": "1.00",
+            "POTG": "1",
+            "+/-": "-2"
+          }
+        }
+      ],
+      "status": "REVIEW_POSSIBLE_EMPTY_NET_OR_SOURCE_DIFFERENCE"
+    },
+    {
+      "date": "2022-10-30",
+      "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=2012661&archTog=1",
+      "season": "Winter 2022/2023",
+      "opponentPeriodScores": {
+        "1": 1,
+        "2": 1,
+        "3": 1,
+        "F": 3
+      },
+      "scoreboardRegulationAndOTGA": 3,
+      "publishedGoalieGA": 2.0,
+      "documentedOpponentEmptyNetGoals": 0,
+      "goalies": [
+        {
+          "playerID": "354055",
+          "stats": {
+            "No": "70",
+            "Name": "Logue, Stephen",
+            "": "",
+            "GP": "1",
+            "L": "1",
+            "SA": "2",
+            "GA": "2",
+            "GAA": "2.00",
+            "POTG": "1",
+            "+/-": "-2"
+          }
+        }
+      ],
+      "status": "REVIEW_POSSIBLE_EMPTY_NET_OR_SOURCE_DIFFERENCE"
+    },
+    {
+      "date": "2023-12-03",
+      "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=2071743&archTog=1",
+      "season": "Winter 2023/2024",
+      "opponentPeriodScores": {
+        "1": 1,
+        "2": 2,
+        "3": 3,
+        "F": 6
+      },
+      "scoreboardRegulationAndOTGA": 6,
+      "publishedGoalieGA": 5.0,
+      "documentedOpponentEmptyNetGoals": 0,
+      "goalies": [
+        {
+          "playerID": "776208",
+          "stats": {
+            "No": "31",
+            "Name": "Leong, Dev",
+            "": "",
+            "GP": "1",
+            "L": "1",
+            "SA": "5",
+            "GA": "5",
+            "GAA": "5.00",
+            "+/-": "-3"
+          }
+        }
+      ],
+      "status": "REVIEW_POSSIBLE_EMPTY_NET_OR_SOURCE_DIFFERENCE"
+    },
+    {
+      "date": "2024-01-07",
+      "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=2071746&archTog=1",
+      "season": "Winter 2023/2024",
+      "opponentPeriodScores": {
+        "1": 2,
+        "2": 2,
+        "3": 3,
+        "F": 7
+      },
+      "scoreboardRegulationAndOTGA": 7,
+      "publishedGoalieGA": 6.0,
+      "documentedOpponentEmptyNetGoals": 0,
+      "goalies": [
+        {
+          "playerID": "354055",
+          "stats": {
+            "No": "70",
+            "Name": "Logue, Stephen",
+            "": "",
+            "GP": "1",
+            "L": "1",
+            "SA": "6",
+            "GA": "6",
+            "GAA": "6.00",
+            "+/-": "-3"
+          }
+        }
+      ],
+      "status": "REVIEW_POSSIBLE_EMPTY_NET_OR_SOURCE_DIFFERENCE"
+    },
+    {
+      "date": "2020-02-23",
+      "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1835542&archTog=1",
+      "season": "Winter 2019/2020",
+      "opponentPeriodScores": {
+        "1": 1,
+        "2": 0,
+        "3": 3,
+        "F": 4
+      },
+      "scoreboardRegulationAndOTGA": 4,
+      "publishedGoalieGA": 3.0,
+      "documentedOpponentEmptyNetGoals": 0,
+      "goalies": [
+        {
+          "playerID": "354055",
+          "stats": {
+            "No": "70",
+            "Name": "Logue, Stephen",
+            "": "",
+            "GP": "1",
+            "L": "1",
+            "SA": "3",
+            "GA": "3",
+            "GAA": "3.00",
+            "+/-": "-2"
+          }
+        }
+      ],
+      "status": "REVIEW_POSSIBLE_EMPTY_NET_OR_SOURCE_DIFFERENCE"
+    },
+    {
+      "date": "2018-10-21",
+      "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1738970&archTog=1",
+      "season": "Winter 2018/2019",
+      "opponentPeriodScores": {
+        "1": 2,
+        "2": 0,
+        "3": 3,
+        "F": 5
+      },
+      "scoreboardRegulationAndOTGA": 5,
+      "publishedGoalieGA": 4.0,
+      "documentedOpponentEmptyNetGoals": 0,
+      "goalies": [
+        {
+          "playerID": "548071",
+          "stats": {
+            "No": "33",
+            "Name": "Goali\u00ea, R\u00e8nt",
+            "": "",
+            "GP": "1",
+            "L": "1",
+            "SA": "4",
+            "GA": "4",
+            "GAA": "4.00",
+            "+/-": "-2"
+          }
+        }
+      ],
+      "status": "REVIEW_POSSIBLE_EMPTY_NET_OR_SOURCE_DIFFERENCE"
+    },
+    {
+      "date": "2018-12-02",
+      "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1738976&archTog=1",
+      "season": "Winter 2018/2019",
+      "opponentPeriodScores": {
+        "1": 3,
+        "2": 1,
+        "3": 1,
+        "F": 5
+      },
+      "scoreboardRegulationAndOTGA": 5,
+      "publishedGoalieGA": 4.0,
+      "documentedOpponentEmptyNetGoals": 0,
+      "goalies": [
+        {
+          "playerID": "354055",
+          "stats": {
+            "No": "70",
+            "Name": "Logue, Stephen",
+            "": "",
+            "GP": "1",
+            "L": "1",
+            "SA": "4",
+            "GA": "4",
+            "GAA": "4.00",
+            "+/-": "-1"
+          }
+        }
+      ],
+      "status": "REVIEW_POSSIBLE_EMPTY_NET_OR_SOURCE_DIFFERENCE"
+    },
+    {
+      "date": "2018-12-09",
+      "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1738977&archTog=1",
+      "season": "Winter 2018/2019",
+      "opponentPeriodScores": {
+        "1": 0,
+        "2": 1,
+        "3": 3,
+        "F": 4
+      },
+      "scoreboardRegulationAndOTGA": 4,
+      "publishedGoalieGA": 3.0,
+      "documentedOpponentEmptyNetGoals": 0,
+      "goalies": [
+        {
+          "playerID": "354055",
+          "stats": {
+            "No": "70",
+            "Name": "Logue, Stephen",
+            "": "",
+            "GP": "1",
+            "L": "1",
+            "SA": "3",
+            "GA": "3",
+            "GAA": "3.00",
+            "+/-": "-2"
+          }
+        }
+      ],
+      "status": "REVIEW_POSSIBLE_EMPTY_NET_OR_SOURCE_DIFFERENCE"
+    },
+    {
+      "date": "2019-01-27",
+      "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1738984&archTog=1",
+      "season": "Winter 2018/2019",
+      "opponentPeriodScores": {
+        "1": 0,
+        "2": 2,
+        "3": 2,
+        "F": 4
+      },
+      "scoreboardRegulationAndOTGA": 4,
+      "publishedGoalieGA": 3.0,
+      "documentedOpponentEmptyNetGoals": 0,
+      "goalies": [
+        {
+          "playerID": "618956",
+          "stats": {
+            "No": "1",
+            "Name": "Pozzebon, Andrew",
+            "": "",
+            "GP": "1",
+            "L": "1",
+            "SA": "3",
+            "GA": "3",
+            "GAA": "3.00",
+            "+/-": "-2"
+          }
+        }
+      ],
+      "status": "REVIEW_POSSIBLE_EMPTY_NET_OR_SOURCE_DIFFERENCE"
+    },
+    {
+      "date": "2023-02-26",
+      "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=2012675&archTog=1",
+      "season": "Winter 2022/2023",
+      "opponentPeriodScores": {
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "F": 0
+      },
+      "scoreboardRegulationAndOTGA": 0,
+      "publishedGoalieGA": 2.0,
+      "documentedOpponentEmptyNetGoals": 0,
+      "goalies": [
+        {
+          "playerID": "354055",
+          "stats": {
+            "No": "70",
+            "Name": "Logue, Stephen",
+            "": "",
+            "GP": "1",
+            "W": "1",
+            "SHO": "1",
+            "SA": "2",
+            "GA": "2",
+            "GAA": "2.00",
+            "POTG": "1",
+            "Win %": "1.000"
+          }
+        }
+      ],
+      "status": "GOALIE_GA_EXCEEDS_OPPONENT_GOALS"
+    },
+    {
+      "date": "2019-03-24",
+      "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1738992&archTog=1",
+      "season": "Winter 2018/2019",
+      "opponentPeriodScores": {
+        "1": 1,
+        "2": 2,
+        "3": 1,
+        "F": 4
+      },
+      "scoreboardRegulationAndOTGA": 4,
+      "publishedGoalieGA": 3.0,
+      "documentedOpponentEmptyNetGoals": 0,
+      "goalies": [
+        {
+          "playerID": "354055",
+          "stats": {
+            "No": "70",
+            "Name": "Logue, Stephen",
+            "": "",
+            "GP": "1",
+            "L": "1",
+            "SA": "3",
+            "GA": "3",
+            "GAA": "3.00",
+            "+/-": "-2"
+          }
+        }
+      ],
+      "status": "REVIEW_POSSIBLE_EMPTY_NET_OR_SOURCE_DIFFERENCE"
+    },
+    {
+      "date": "2017-07-09",
+      "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559170&archTog=1",
+      "season": "Summer 2017",
+      "opponentPeriodScores": {
+        "1": 1,
+        "2": 2,
+        "3": 4,
+        "F": 7
+      },
+      "scoreboardRegulationAndOTGA": 7,
+      "publishedGoalieGA": 6.0,
+      "documentedOpponentEmptyNetGoals": 0,
+      "goalies": [
+        {
+          "playerID": "354055",
+          "stats": {
+            "No": "70",
+            "Name": "Logue, Stephen",
+            "": "",
+            "GP": "1",
+            "L": "1",
+            "SA": "6",
+            "GA": "6",
+            "GAA": "6.00",
+            "+/-": "-2"
+          }
+        }
+      ],
+      "status": "REVIEW_POSSIBLE_EMPTY_NET_OR_SOURCE_DIFFERENCE"
+    },
+    {
+      "date": "2017-07-30",
+      "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559180&archTog=1",
+      "season": "Summer 2017",
+      "opponentPeriodScores": {
+        "1": 2,
+        "2": 1,
+        "3": 3,
+        "F": 6
+      },
+      "scoreboardRegulationAndOTGA": 6,
+      "publishedGoalieGA": 5.0,
+      "documentedOpponentEmptyNetGoals": 0,
+      "goalies": [
+        {
+          "playerID": "548071",
+          "stats": {
+            "No": "33",
+            "Name": "Goali\u00ea, R\u00e8nt",
+            "": "",
+            "GP": "1",
+            "L": "1",
+            "SA": "5",
+            "GA": "5",
+            "GAA": "5.00",
+            "+/-": "-2"
+          }
+        }
+      ],
+      "status": "REVIEW_POSSIBLE_EMPTY_NET_OR_SOURCE_DIFFERENCE"
+    },
+    {
+      "date": "2015-11-01",
+      "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1384783&archTog=1",
+      "season": "Winter 2015/2016",
+      "opponentPeriodScores": {
+        "1": 3,
+        "2": 2,
+        "3": 1,
+        "F": 6
+      },
+      "scoreboardRegulationAndOTGA": 6,
+      "publishedGoalieGA": 5.0,
+      "documentedOpponentEmptyNetGoals": 0,
+      "goalies": [
+        {
+          "playerID": "354055",
+          "stats": {
+            "No": "70",
+            "Name": "Logue, Stephen",
+            "": "",
+            "GP": "1",
+            "L": "1",
+            "SA": "5",
+            "GA": "5",
+            "GAA": "5.00",
+            "+/-": "-3"
+          }
+        }
+      ],
+      "status": "REVIEW_POSSIBLE_EMPTY_NET_OR_SOURCE_DIFFERENCE"
+    },
+    {
+      "date": "2015-12-13",
+      "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1384789&archTog=1",
+      "season": "Winter 2015/2016",
+      "opponentPeriodScores": {
+        "1": 1,
+        "2": 2,
+        "3": 2,
+        "F": 5
+      },
+      "scoreboardRegulationAndOTGA": 5,
+      "publishedGoalieGA": 4.0,
+      "documentedOpponentEmptyNetGoals": 0,
+      "goalies": [
+        {
+          "playerID": "354055",
+          "stats": {
+            "No": "70",
+            "Name": "Logue, Stephen",
+            "": "",
+            "GP": "1",
+            "L": "1",
+            "SA": "4",
+            "GA": "4",
+            "GAA": "4.00",
+            "+/-": "-3"
+          }
+        }
+      ],
+      "status": "REVIEW_POSSIBLE_EMPTY_NET_OR_SOURCE_DIFFERENCE"
+    },
+    {
+      "date": "2018-02-18",
+      "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1664257&archTog=1",
+      "season": "Winter 2017/2018",
+      "opponentPeriodScores": {
+        "1": 1,
+        "2": 0,
+        "3": 2,
+        "F": 3
+      },
+      "scoreboardRegulationAndOTGA": 3,
+      "publishedGoalieGA": 2.0,
+      "documentedOpponentEmptyNetGoals": 0,
+      "goalies": [
+        {
+          "playerID": "618956",
+          "stats": {
+            "No": "1",
+            "Name": "Pozzebon, Andrew",
+            "": "",
+            "GP": "1",
+            "L": "1",
+            "SA": "2",
+            "GA": "2",
+            "GAA": "2.00",
+            "POTG": "1",
+            "+/-": "-2"
+          }
+        }
+      ],
+      "status": "REVIEW_POSSIBLE_EMPTY_NET_OR_SOURCE_DIFFERENCE"
+    },
+    {
+      "date": "2018-04-15",
+      "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1664271&archTog=1",
+      "season": "Winter 2017/2018",
+      "opponentPeriodScores": {
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "SO": 1,
+        "F": 1
+      },
+      "scoreboardRegulationAndOTGA": 0,
+      "publishedGoalieGA": 1.0,
+      "documentedOpponentEmptyNetGoals": 0,
+      "goalies": [
+        {
+          "playerID": "354055",
+          "stats": {
+            "No": "70",
+            "Name": "Logue, Stephen",
+            "": "",
+            "GP": "1",
+            "L": "1",
+            "SA": "1",
+            "GA": "1",
+            "GAA": "1.00",
+            "SHOGA": "1",
+            "SHOAA": "3",
+            "SHO%A": ".33",
+            "POTG": "1",
+            "+/-": "-1"
+          }
+        }
+      ],
+      "status": "GOALIE_GA_EXCEEDS_OPPONENT_GOALS"
+    },
+    {
+      "date": "2017-05-07",
+      "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559155&archTog=1",
+      "season": "Summer 2017",
+      "opponentPeriodScores": {
+        "1": 2,
+        "2": 2,
+        "3": 4,
+        "F": 8
+      },
+      "scoreboardRegulationAndOTGA": 8,
+      "publishedGoalieGA": 7.0,
+      "documentedOpponentEmptyNetGoals": 0,
+      "goalies": [
+        {
+          "playerID": "354055",
+          "stats": {
+            "No": "70",
+            "Name": "Logue, Stephen",
+            "": "",
+            "GP": "1",
+            "L": "1",
+            "SA": "4",
+            "GA": "4",
+            "GAA": "4.00",
+            "A": "0",
+            "Pts": "0",
+            "+/-": "-1"
+          }
+        },
+        {
+          "playerID": "354057",
+          "stats": {
+            "No": "43",
+            "Name": "Paolucci, Anthony",
+            "": "",
+            "GP": "1",
+            "L": "0",
+            "SA": "3",
+            "GA": "3",
+            "GAA": "3.00",
+            "A": "1",
+            "Pts": "1",
+            "+/-": "-1"
+          }
+        }
+      ],
+      "status": "REVIEW_POSSIBLE_EMPTY_NET_OR_SOURCE_DIFFERENCE"
+    },
+    {
+      "date": "2016-06-26",
+      "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1442293&archTog=1",
+      "season": "Summer 2016",
+      "opponentPeriodScores": {
+        "1": 1,
+        "2": 4,
+        "3": 3,
+        "F": 8
+      },
+      "scoreboardRegulationAndOTGA": 8,
+      "publishedGoalieGA": 7.0,
+      "documentedOpponentEmptyNetGoals": 0,
+      "goalies": [
+        {
+          "playerID": "548071",
+          "stats": {
+            "No": "33",
+            "Name": "Goali\u00ea, R\u00e8nt",
+            "": "",
+            "GP": "1",
+            "L": "1",
+            "SA": "7",
+            "GA": "7",
+            "GAA": "7.00",
+            "+/-": "-3"
+          }
+        }
+      ],
+      "status": "REVIEW_POSSIBLE_EMPTY_NET_OR_SOURCE_DIFFERENCE"
+    },
+    {
+      "date": "2015-02-08",
+      "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1190748&archTog=1",
+      "season": "Winter 2014/2015",
+      "opponentPeriodScores": {
+        "1": 1,
+        "2": 1,
+        "3": 2,
+        "F": 4
+      },
+      "scoreboardRegulationAndOTGA": 4,
+      "publishedGoalieGA": 3.0,
+      "documentedOpponentEmptyNetGoals": 0,
+      "goalies": [
+        {
+          "playerID": "354055",
+          "stats": {
+            "No": "70",
+            "Name": "Logue, Stephen",
+            "": "",
+            "GP": "1",
+            "L": "1",
+            "SA": "3",
+            "GA": "3",
+            "GAA": "3.00",
+            "+/-": "-3"
+          }
+        }
+      ],
+      "status": "REVIEW_POSSIBLE_EMPTY_NET_OR_SOURCE_DIFFERENCE"
+    },
+    {
+      "date": "2016-01-10",
+      "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1384794&archTog=1",
+      "season": "Winter 2015/2016",
+      "opponentPeriodScores": {
+        "1": 1,
+        "2": 2,
+        "3": 1,
+        "F": 4
+      },
+      "scoreboardRegulationAndOTGA": 4,
+      "publishedGoalieGA": 3.0,
+      "documentedOpponentEmptyNetGoals": 0,
+      "goalies": [
+        {
+          "playerID": "354055",
+          "stats": {
+            "No": "70",
+            "Name": "Logue, Stephen",
+            "": "",
+            "GP": "1",
+            "L": "1",
+            "SA": "3",
+            "GA": "3",
+            "GAA": "3.00",
+            "+/-": "-2"
+          }
+        }
+      ],
+      "status": "REVIEW_POSSIBLE_EMPTY_NET_OR_SOURCE_DIFFERENCE"
+    },
+    {
+      "date": "2016-01-24",
+      "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1384796&archTog=1",
+      "season": "Winter 2015/2016",
+      "opponentPeriodScores": {
+        "1": 2,
+        "2": 0,
+        "3": 0,
+        "F": 2
+      },
+      "scoreboardRegulationAndOTGA": 2,
+      "publishedGoalieGA": 1.0,
+      "documentedOpponentEmptyNetGoals": 0,
+      "goalies": [
+        {
+          "playerID": "354055",
+          "stats": {
+            "No": "70",
+            "Name": "Logue, Stephen",
+            "": "",
+            "GP": "1",
+            "W": "1",
+            "SA": "1",
+            "GA": "1",
+            "GAA": "1.00",
+            "+/-": "1",
+            "Win %": "1.000"
+          }
+        }
+      ],
+      "status": "REVIEW_POSSIBLE_EMPTY_NET_OR_SOURCE_DIFFERENCE"
+    },
+    {
+      "date": "2014-04-06",
+      "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046561&archTog=1",
+      "season": "Winter 2013/2014",
+      "opponentPeriodScores": {
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "OT": 0,
+        "F": 0
+      },
+      "scoreboardRegulationAndOTGA": 0,
+      "publishedGoalieGA": 1.0,
+      "documentedOpponentEmptyNetGoals": 0,
+      "goalies": [
+        {
+          "playerID": "354055",
+          "stats": {
+            "No": "70",
+            "Name": "Logue, Stephen",
+            "": "",
+            "GP": "1",
+            "W": "1",
+            "SHO": "1",
+            "SA": "1",
+            "GA": "1",
+            "GAA": "1.00",
+            "Win %": "1.000"
+          }
+        }
+      ],
+      "status": "GOALIE_GA_EXCEEDS_OPPONENT_GOALS"
+    },
+    {
+      "date": "2016-04-10",
+      "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1384808&archTog=1",
+      "season": "Winter 2015/2016",
+      "opponentPeriodScores": {
+        "1": 2,
+        "2": 0,
+        "3": 3,
+        "F": 5
+      },
+      "scoreboardRegulationAndOTGA": 5,
+      "publishedGoalieGA": 4.0,
+      "documentedOpponentEmptyNetGoals": 0,
+      "goalies": [
+        {
+          "playerID": "354055",
+          "stats": {
+            "No": "70",
+            "Name": "Logue, Stephen",
+            "": "",
+            "GP": "1",
+            "L": "1",
+            "SA": "4",
+            "GA": "4",
+            "GAA": "4.00",
+            "PIM": "2",
+            "+/-": "-2"
+          }
+        }
+      ],
+      "status": "REVIEW_POSSIBLE_EMPTY_NET_OR_SOURCE_DIFFERENCE"
+    },
+    {
+      "date": "2015-08-09",
+      "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1249342&archTog=1",
+      "season": "Summer 2015",
+      "opponentPeriodScores": {
+        "1": 1,
+        "2": 3,
+        "3": 2,
+        "OT": 0,
+        "2OT": 0,
+        "F": 6
+      },
+      "scoreboardRegulationAndOTGA": 6,
+      "publishedGoalieGA": 5.0,
+      "documentedOpponentEmptyNetGoals": 0,
+      "goalies": [
+        {
+          "playerID": "354055",
+          "stats": {
+            "No": "70",
+            "Name": "Logue, Stephen",
+            "": "",
+            "GP": "1",
+            "W": "1",
+            "SA": "5",
+            "GA": "5",
+            "GAA": "5.00",
+            "+/-": "1",
+            "Win %": "1.000"
+          }
+        }
+      ],
+      "status": "REVIEW_POSSIBLE_EMPTY_NET_OR_SOURCE_DIFFERENCE"
+    },
+    {
+      "date": "2015-08-16",
+      "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1249343&archTog=1",
+      "season": "Summer 2015",
+      "opponentPeriodScores": {
+        "1": 1,
+        "2": 2,
+        "3": 4,
+        "F": 7
+      },
+      "scoreboardRegulationAndOTGA": 7,
+      "publishedGoalieGA": 6.0,
+      "documentedOpponentEmptyNetGoals": 0,
+      "goalies": [
+        {
+          "playerID": "354055",
+          "stats": {
+            "No": "70",
+            "Name": "Logue, Stephen",
+            "": "",
+            "GP": "1",
+            "L": "1",
+            "SA": "6",
+            "GA": "6",
+            "GAA": "6.00",
+            "+/-": "-2"
+          }
+        }
+      ],
+      "status": "REVIEW_POSSIBLE_EMPTY_NET_OR_SOURCE_DIFFERENCE"
+    }
+  ]
+}
