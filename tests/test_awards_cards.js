@@ -44,6 +44,27 @@ api.state.explain=evidence;
 api.state.weeklyHistory=history;
 api.state.participation=participants;
 const hash=awards.sourceWorkbookHash;
+const heldOperationalReceipt=JSON.parse(fs.readFileSync(path.join(widgets,'awards-operational-publication.json'),'utf8'));
+function syntheticOperationalReceipt(){
+ const r=structuredClone(heldOperationalReceipt);
+ Object.assign(r,{
+  status:'FOUNDER_APPROVED_QA_ACCEPTED_PUBLISHED',
+  operationalWorkbookSha256:'b'.repeat(64),
+  sourceFormulaMapFingerprintSha256:'c'.repeat(64),
+  operationalFormulaMapFingerprintSha256:'c'.repeat(64),
+  officialHTOReadbackAt:awards.sourceHTOReadback,
+  modelGameCount:awards.currentTeamGP,
+  scoringAsOf:awards.latestGameDate>'2026-10-19'?awards.latestGameDate:'2026-10-19',
+  sourceModelVerified:true,independentlyApproved:true,publicationAuthorized:true,
+  publisherReleaseReceiptSha256:'d'.repeat(64),
+  awardFormulaParities:awards.awards.map(x=>({awardId:x.id,
+   state:'EXACT_ORIGINAL_FORMULA_ELIGIBILITY_RANK_SCORE_PARITY'}))
+ });
+ return r;
+}
+// Synthetic-only proof for unit test "verified" branches. The actual on-disk
+// publication receipt remains HELD; no release is inferred from this fixture.
+api.state.operationalEvidence=syntheticOperationalReceipt();
 const sourceRace={status:'VERIFIED_CURRENT_WEEK',asOf:awards.latestGameDate>'2026-10-19'?awards.latestGameDate:'2026-10-19',modelGameCount:awards.currentTeamGP};
 const playerName='QA Player Alpha (FICTIONAL)';
 function example(goalie=false){
@@ -697,4 +718,52 @@ test('Art Ross and Rocket visible watch identifies HTO data separately from offi
    assert.match(text,/award qualification and tiebreaks unverified/);
   }
  }finally{api.state.award=oldAward;region.children=[];}
+});
+
+test('actual held operational publication receipt cannot unlock current Awards with a model-verified flag',()=>{
+ const prior=api.state.operationalEvidence;
+ try{
+  api.state.operationalEvidence=heldOperationalReceipt;
+  const d=structuredClone(awards),p=structuredClone(participants);
+  d.seasonRaceMode.currentModelScoresVerified=true;
+  d.sourceWorkbookRecordedGP=d.currentTeamGP;
+  p.players.push({name:playerName,gp:3,position:'Skater',role:'CU'});
+  assert.equal(api.isVerifiedWeeklyRace(d,{status:'VERIFIED_CURRENT_WEEK',
+   asOf:sourceRace.asOf,modelGameCount:d.currentTeamGP,entries:[example()]},p),false);
+  assert.equal(api.currentComponents(example(),sourceRace),null);
+ }finally{api.state.operationalEvidence=prior;}
+});
+
+test('public Awards require separate operational snapshot identity, complete formula parity and release receipt',()=>{
+ const previous=api.state.operationalEvidence,priorAward=api.state.award;
+ const d=structuredClone(awards),p=structuredClone(participants);
+ d.seasonRaceMode.currentModelScoresVerified=true;
+ d.sourceWorkbookRecordedGP=d.currentTeamGP;
+ p.players.push({name:playerName,gp:3,position:'Skater',role:'CU'});
+ const race={status:'VERIFIED_CURRENT_WEEK',asOf:sourceRace.asOf,
+  modelGameCount:d.currentTeamGP,entries:[example()]};
+ try{
+  api.state.award='rolaids';
+  for(const change of [
+   x=>x.status='AWAITING_SOURCE_FAITHFUL_EXCEL_RECALCULATION',
+   x=>x.publicationAuthorized=false,
+   x=>x.independentlyApproved=false,
+   x=>x.operationalWorkbookSha256=x.immutableFormulaAuthoritySha256,
+   x=>x.operationalWorkbookSha256=null,
+   x=>x.operationalFormulaMapFingerprintSha256='e'.repeat(64),
+   x=>x.sourceFormulaMapFingerprintSha256=null,
+   x=>x.officialHTOReadbackAt='2026-10-19T00:00:00Z',
+   x=>x.publisherReleaseReceiptSha256=null,
+   x=>x.modelGameCount++,
+   x=>x.scoringAsOf='2026-10-18',
+   x=>x.awardFormulaParities.pop(),
+   x=>x.awardFormulaParities[0].state='RAW_HTO_STATS_ONLY',
+   x=>x.awardFormulaParities[0].awardId=x.awardFormulaParities[1].awardId
+  ]){
+   const r=syntheticOperationalReceipt();change(r);
+   api.state.operationalEvidence=r;
+   assert.equal(api.isVerifiedWeeklyRace(d,race,p),false);
+   assert.equal(api.currentComponents(example(),sourceRace),null);
+  }
+ }finally{api.state.operationalEvidence=previous;api.state.award=priorAward;}
 });
