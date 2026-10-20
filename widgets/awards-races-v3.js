@@ -336,29 +336,36 @@ function renderPlayerEvidence(card,player,participants){
  }
  el(inside,"p","player-evidence-disclaimer","Official game statistics only. These are not workbook award subscores, ratings, rankings or proof of award eligibility.");
 }
-function verifiedHTORookieYearWatch(src,season,teamGP){
- const evidence=src?.htoRookieYearReadback;
- if(evidence?.status!=="HTO_ROSTER_ROOKIE_YEAR_CROSSCHECKED_WITH_APPEARANCES_NOT_ELIGIBILITY"
-   ||evidence.season!==season||evidence.year!==2026
-   ||evidence.sourceField!=="Rookie Year"
-   ||evidence.sourceKind!=="PUBLIC_HTO_OFFICIAL_TEAM_ROSTER"
-   ||evidence.sourceUrl!=="https://www.htosports.com/teams/default.asp?p=roster&s=hockey&u=BRAVESHOCKEY"
-   ||!/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/.test(evidence.verifiedOn||"")
-   ||!Array.isArray(evidence.names)||evidence.names.length<1
-   ||new Set(evidence.names).size!==evidence.names.length
-   ||evidence.observedCount!==evidence.names.length
-   ||!Array.isArray(src.players)||src.season!==season
-   ||src.officialTeamGames!==teamGP)return null;
+/* Workbook is the controlling model. HTO roster and GP corroborate visibility
+   while the older cached workbook eligibility remains held pending game-log replay. */
+function verifiedWorkbookRookieYearWatch(src,season,teamGP,sourceWorkbookHash){
+ const evidence=src?.workbookRookieYearCrosscheck;
+ if(evidence?.status!=="SAVED_WORKBOOK_ROOKIE_YEAR_CROSSCHECKED_WITH_HTO_APPEARANCES_MODEL_ELIGIBILITY_HELD"
+    ||evidence.season!==season||evidence.year!==2026
+    ||evidence.sourceWorkbookSha256!==sourceWorkbookHash
+    ||evidence.sourceTable!=="PlayerInfo"||evidence.sourceField!=="Rookie Year"
+    ||evidence.sourceEligibilityTable!=="AwardScoring"
+    ||evidence.sourceRankingRule!=="MIN(5,COUNTIF(AwardScoring[Rookie Eligible],1))"
+    ||evidence.currentHTOTeamGP!==teamGP
+    ||evidence.sourceHTORosterUrl!=="https://www.htosports.com/teams/default.asp?p=roster&s=hockey&u=BRAVESHOCKEY"
+    ||!Array.isArray(evidence.names)||evidence.names.length<1
+    ||new Set(evidence.names).size!==evidence.names.length
+    ||evidence.observedCount!==evidence.names.length
+    ||!Array.isArray(src.players)||src.season!==season
+    ||src.officialTeamGames!==teamGP)return null;
  const byName=new Map(src.players.map(p=>[p.name,p]));
  if(byName.size!==src.players.length)return null;
  const selected=[];
  for(const name of evidence.names){
   const p=byName.get(name);
   if(!p||p.position!=="Skater"||p.role!=="FT"||!Number.isInteger(p.gp)
-    ||p.gp<1||p.gp>teamGP||p.htoRookieYear?.year!==2026
-    ||p.htoRookieYear?.sourceField!=="Rookie Year"
-    ||p.htoRookieYear?.status!=="ROSTER_YEAR_OBSERVED_AWARD_ELIGIBILITY_NOT_VERIFIED")
-   return null;
+     ||p.gp<1||p.gp>teamGP||p.workbookRookieYear?.year!==2026
+     ||p.workbookRookieYear?.sourceWorkbookSha256!==sourceWorkbookHash
+     ||p.workbookRookieYear?.sourceTable!=="PlayerInfo"
+     ||p.workbookRookieYear?.sourceField!=="Rookie Year"
+     ||p.workbookRookieYear?.status!=="SOURCE_WORKBOOK_CACHED_YEAR_VERIFIED_LIVE_ELIGIBILITY_UNRECONCILED"
+     ||p.htoRookieYear?.year!==2026
+     ||p.htoRookieYear?.status!=="ROSTER_YEAR_OBSERVED_AWARD_ELIGIBILITY_NOT_VERIFIED")return null;
   selected.push(p);
  }
  return selected;
@@ -380,14 +387,14 @@ function renderRaceActivity(){
   "lady-byng":"Players who have appeared; sportsmanship and award eligibility are not scored here.",
   dedication:"Players who have appeared; the dedication model considers additional career and attendance history.",
   improved:"Players who have appeared; rookie and career-comparison eligibility remain unverified.",
-  rookie:"First-year (2026) players listed in the official HTO roster Rookie Year column, who are full-time and have played this season. This is an unranked watch, not proof of final Rookie of the Year eligibility or a model score."
+  rookie:"First-full-time-year candidates from the Master Workbook Rookie Year field, crosschecked with HTO roster and current appearances. The original five-place shortlist, eligibility and ranking rules remain authoritative. This is not a scored award ranking."
  };
  if(!Object.hasOwn(hints,id))return;
  if(id==="rolaids")rows=rows.filter(p=>p.position==="Skater"&&["CU","DI"].includes(p.role));
  else if(id==="norris")rows=rows.filter(p=>p.position==="Skater"&&p.htoPositionHasDefenceOption===true);
  else if(id==="art-ross"||id==="rocket")rows=rows.filter(p=>p.position==="Skater");
  else if(id==="rookie"){
-  const rookies=verifiedHTORookieYearWatch(src,d.season,d.currentTeamGP);
+  const rookies=verifiedWorkbookRookieYearWatch(src,d.season,d.currentTeamGP,d.sourceWorkbookHash);
   if(!rookies)return;
   rows=rookies;
  }
@@ -435,7 +442,7 @@ function renderRaceActivity(){
   }
   renderPlayerEvidence(entry,p,src);
  }
- el(content,"p","source-note","Appearance stats: official HTO this season, read back "+(src.verifiedSourceReadback.verifiedOn||"date pending")+". "+(id==="rookie"?"Rookie Year: official HTO 2026/27 roster, verified "+src.htoRookieYearReadback.verifiedOn+". Jamie Rosenberg is present on HTO but absent from the Sept 2026 saved workbook rookie watch; that discrepancy is held for model reconciliation. These are not approved award nominees or ratings. ":"Roster classifications are from HockeyOS, not an award approval. ")+"Alphabetical, not ranked by performance.");
+ el(content,"p","source-note","Appearance stats: official HTO this season, read back "+(src.verifiedSourceReadback.verifiedOn||"date pending")+". "+(id==="rookie"?"Rookie Year: Master Workbook PlayerInfo, corroborated by the current HTO roster and game appearances. Jamie Rosenberg has Rookie Year 2026 in the workbook, but the saved workbook lacks his current game/season links; recalculation is held. Five-player race visibility does not constitute verified shortlist rank or award score. ":"Roster classifications are from HockeyOS, not an award approval. ")+"Alphabetical, not ranked by performance.");
 }
 function renderSeasonParticipants(){
  const d=state.source,source=state.participation;
