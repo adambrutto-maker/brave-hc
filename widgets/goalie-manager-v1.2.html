@@ -74,7 +74,7 @@ try{
    const guess=Date.parse(game.date+'T'+game.time+':00Z');
    const zone=new Intl.DateTimeFormat('en-US',{timeZone:TORONTO,timeZoneName:'shortOffset'})
       .formatToParts(new Date(guess)).find(p=>p.type==='timeZoneName')?.value||'';
-   const m=/GMT([+-]\\d{1,2})(?::(\\d{2}))?/.exec(zone);
+   const m=/GMT([+-]\d{1,2})(?::(\d{2}))?/.exec(zone);
    if(!m)throw Error('Toronto time zone could not be resolved');
    const sign=m[1][0]==='-'?-1:1;
    const offset=sign*(Math.abs(Number(m[1]))*60+Number(m[2]||0));
