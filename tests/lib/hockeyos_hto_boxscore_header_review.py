@@ -95,7 +95,11 @@ def skater_rows(table, *, verified_team_goals):
         if g+a!=pts:
             _fail("PLAYER_POINTS_ARITHMETIC_MISMATCH")
         result.append({
-            "name":name,"g":g,"a":a,"pts":pts,
+            "name":name,
+            "jerseyNo":row[columns["No"]].strip(),
+            "listedPosition":row[columns["POS"]].strip(),
+            "gameAppearance":1,
+            "g":g,"a":a,"pts":pts,
             "plusminus":_value(row,columns["+/-"],"+/-",True),
             "potg":_value(row,columns["POTG"],"POTG"),
             "pim":_value(row,columns["PIM"],"PIM") if "PIM" in columns else None,
@@ -122,7 +126,8 @@ def goalie_rows(table):
         if blanks and row[blanks[0]].strip():
             _fail("NONEMPTY_DECORATIVE_GOALIE_CELL")
         results.append({
-            "name":name,"gp":_value(row,columns["GP"],"GP"),
+            "name":name,"jerseyNo":row[columns["No"]].strip(),
+            "gp":_value(row,columns["GP"],"GP"),
             "losses":_value(row,columns["L"],"L"),
             "goalsAgainst":_value(row,columns["GA"],"GA"),
             "potg":_value(row,columns["POTG"],"POTG") if "POTG" in columns else None,
@@ -179,6 +184,8 @@ def check_game_observations(*, hto_game_id, official_goals_for,
             if player.get("potgPublishedInBoxscore") is not False:
                 _fail("GOALIE_POTG_MISSING_WITHOUT_SOURCE_OMISSION_EVIDENCE")
             missing_potg.append(name)
+        elif player.get("potgPublishedInBoxscore") is not True:
+            _fail("GOALIE_POTG_VALUE_WITHOUT_SOURCE_COLUMN")
         elif not isinstance(potg,int) or isinstance(potg,bool) or potg not in (0,1):
             _fail("INVALID_PER_GAME_GOALIE_POTG")
         goalie_ga+=ga
