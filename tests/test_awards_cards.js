@@ -568,3 +568,13 @@ test('a fresh claimed HTO readback cannot override the older actual Awards feed 
  assert.ok(result.holds.includes('OFFICIAL_HTO_READBACK_NOT_BOUND_TO_AWARDS_DATA'));
  assert.equal(result.scoresAuthorized,false);
 });
+
+test('two verified HTO games on the same day remain distinct by official game ID and workbook game number',()=>{
+ const {source,attestation}=candidateOperationalAttestation();
+ attestation.sourceGameMappings[1].gameDate=attestation.sourceGameMappings[0].gameDate;
+ const result=operationalProvenanceGate.assess(
+  source,attestation,'2026-10-20T16:00:00Z');
+ assert.equal(result.status,'SOURCE_EVIDENCE_REVIEW_CANDIDATE_ONLY');
+ assert.ok(!result.holds.includes('OFFICIAL_GAME_MAPPING_DUPLICATE_OR_INVALID'));
+ assert.equal(result.scoresAuthorized,false);
+});
