@@ -15,7 +15,7 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from urllib.request import Request, urlopen
 from zoneinfo import ZoneInfo
-from goalie_advance_plan import stage as booking_stage, CURRENT_REGULARS, HORIZON_DAYS
+from goalie_advance_plan import stage as booking_stage, plan as advance_plan, CURRENT_REGULARS, HORIZON_DAYS
 
 TORONTO = ZoneInfo("America/Toronto")
 TITLE = "Brave H.C. — next-game readiness review"
@@ -49,6 +49,7 @@ def examine(feed: dict, saved: dict, now: datetime) -> dict:
         return {"status": "NONE", "reason": "No upcoming published league games",
                 "game": None, "goalie": None}
     next_game=candidates[0]
+    coverage=advance_plan(feed,saved,now)["games"]
 
     def notes(game):
         name=saved["assignments"].get(game["assignmentKey"],"TBD")
@@ -72,7 +73,8 @@ def examine(feed: dict, saved: dict, now: datetime) -> dict:
                     "game":next_game,"goalie":name,"priority":"GAME_DAY",
                     "booking_stage":booking["stage"],
                     "rental_review_at":booking["rental_backup_review_at"],
-                    "regular_goalie_candidates":list(CURRENT_REGULARS)}
+                    "regular_goalie_candidates":list(CURRENT_REGULARS),
+                    "forward_coverage":coverage}
 
     # Look beyond this Sunday's confirmed starter. Flag the earliest fixture
     # needing manager attention within 14 days, without treating TBD as an
@@ -91,7 +93,8 @@ def examine(feed: dict, saved: dict, now: datetime) -> dict:
                     "rental_review_at":booking["rental_backup_review_at"],
                     "regular_goalie_candidates":list(CURRENT_REGULARS),
                     "nearest_game":next_game,
-                    "nearest_goalie":saved["assignments"].get(next_game["assignmentKey"],"TBD")}
+                    "nearest_goalie":saved["assignments"].get(next_game["assignmentKey"],"TBD"),
+                    "forward_coverage":coverage}
 
     name,_=notes(next_game)
     if kickoff(next_game)-now > timedelta(hours=36):
@@ -120,6 +123,13 @@ def issue_body(result: dict) -> str:
             f"goalie recorded: {plain(result.get('nearest_goalie','TBD'))}",
             "",
         ]
+    forward=[]
+    for item in result.get("forward_coverage",[]):
+        note=(" · rental-backup review "+plain(item["rental_backup_review_at"][:10])
+              if item["recorded_goalie"]=="TBD" else "")
+        forward.append("- "+plain(item["date"])+" vs "+plain(item["opponent"])+
+                       " · "+plain(item["recorded_goalie"])+
+                       " · "+plain(item["stage"])+note)
     return "\n".join([
         "## Brave H.C. game-day / advance goalie coverage review",
         "",
@@ -140,6 +150,11 @@ def issue_body(result: dict) -> str:
         "Manager planning only: attempt regular goaltender scheduling well in advance; "+
         "if no booking is recorded by the seven-day checkpoint, review a rental fallback; "+
         "the 72-hour and 36-hour checkpoints escalate urgency. No outreach is automated.",
+        "",
+        "### Rolling 21-day booking view (recorded assignments only)",
+        *forward,
+        "",
+        "Planning rows do not show invitations, pending replies, rental quotes or private booking confirmations.",
         "",
         f"1. Check the [official SVHL fixture]({SVHL}).",
         f"2. If goalie confirmation is required, use the [protected goalie manager]({MANAGER}).",
