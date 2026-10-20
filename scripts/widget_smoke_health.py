@@ -21,8 +21,20 @@ FAILURES = {"failure", "cancelled", "timed_out", "startup_failure", "stale", "ac
 AGE_LIMIT = timedelta(hours=36)
 
 
+def intentionally_skipped(run: dict) -> bool:
+    """Post-approval browser QA is purposely skipped when its upstream job did not pass.
+
+    GitHub reports the entire run as 'skipped'; that is not a browser test.
+    Scheduled or manually dispatched skipped tests remain actionable.
+    """
+    return (run.get("event") == "workflow_run" and
+            run.get("status") == "completed" and
+            run.get("conclusion") == "skipped")
+
+
 def latest_completed(runs: list[dict]) -> dict | None:
-    return next((r for r in runs if r.get("status") == "completed"), None)
+    return next((r for r in runs if r.get("status") == "completed" and
+                 not intentionally_skipped(r)), None)
 
 
 def decision(event: dict, runs: list[dict], repo: str, now: datetime) -> dict:
@@ -34,7 +46,12 @@ def decision(event: dict, runs: list[dict], repo: str, now: datetime) -> dict:
         if (source.get("name") != TARGET or source.get("status") != "completed"
                 or source.get("head_branch") != "main" or src_repo != repo):
             return {"action": "IGNORE", "reason": "Not a completed trusted widget QA run"}
-        if not recent or source.get("id") != recent.get("id"):
+        if intentionally_skipped(source):
+            # Evaluate the last real browser test instead of generating a
+            # false alarm or leaving an existing false-positive issue open.
+            # A recent failure still opens review; an old success still ages out.
+            pass
+        elif not recent or source.get("id") != recent.get("id"):
             return {"action": "IGNORE", "reason": "A newer completed browser QA superseded this event"}
 
     if not recent:
