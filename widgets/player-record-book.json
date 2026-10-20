@@ -2,7 +2,7 @@
   "schema": "brave-hc-player-record-book/v1",
   "sourceAuthority": "NATIVE_HTO_RECORDS_PUBLIC_READBACK",
   "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=records",
-  "capturedAt": "2026-10-20T18:45:50.887Z",
+  "capturedAt": "2026-10-20T20:15:11.995Z",
   "interpretation": "Published record-book entries include historical progression; inclusion does not assert an entry remains the current club record. Milestone dates are transcribed independently and do not replace Highlights dates.",
   "players": {
     "354041": {
@@ -117,9 +117,9 @@
         {
           "category": "200 Game Club",
           "scope": "Career",
-          "sourceText": "10 - Mario Provenzano (March 17, 2024)",
+          "sourceText": "10 - Mario Provenzano (March 24, 2024)",
           "value": "10",
-          "dateLabel": "March 17, 2024",
+          "dateLabel": "March 24, 2024",
           "kind": "milestone"
         }
       ]
@@ -154,16 +154,16 @@
         {
           "category": "Summer - Points",
           "scope": "Game",
-          "sourceText": "4 - Ryan Logue (June 2, 2013)",
-          "value": "4",
+          "sourceText": "3 - Ryan Logue (June 2, 2013)",
+          "value": "3",
           "dateLabel": "June 2, 2013",
           "kind": "performance"
         },
         {
           "category": "Summer - Points",
           "scope": "Game",
-          "sourceText": "3 - Ryan Logue (June 9, 2013)",
-          "value": "3",
+          "sourceText": "4 - Ryan Logue (June 9, 2013)",
+          "value": "4",
           "dateLabel": "June 9, 2013",
           "kind": "performance"
         },
@@ -662,9 +662,9 @@
         {
           "category": "300 Game Club",
           "scope": "Career",
-          "sourceText": "1 - Adam Brutto (December 29, 2024)",
+          "sourceText": "1 - Adam Brutto (January 5, 2025)",
           "value": "1",
-          "dateLabel": "December 29, 2024",
+          "dateLabel": "January 5, 2025",
           "kind": "milestone"
         }
       ]
@@ -819,9 +819,9 @@
         {
           "category": "50 Game Club",
           "scope": "Career",
-          "sourceText": "1 - Stephen Logue (July 20, 2014)",
+          "sourceText": "1 - Stephen Logue (July 27, 2014)",
           "value": "1",
-          "dateLabel": "July 20, 2014",
+          "dateLabel": "July 27, 2014",
           "kind": "milestone"
         },
         {
@@ -1276,9 +1276,9 @@
         {
           "category": "300 Point Club",
           "scope": "Career",
-          "sourceText": "1 - Justin Carosi (January 7, 2024)",
+          "sourceText": "1 - Justin Carosi (January 14, 2024)",
           "value": "1",
-          "dateLabel": "January 7, 2024",
+          "dateLabel": "January 14, 2024",
           "kind": "milestone"
         }
       ]
@@ -1433,8 +1433,8 @@
         {
           "category": "Summer - Shorthanded Goals",
           "scope": "Season",
-          "sourceText": "1 - Mark Pastore (2016)",
-          "value": "1",
+          "sourceText": "2 - Mark Pastore (2016)",
+          "value": "2",
           "dateLabel": "2016",
           "kind": "performance"
         },
@@ -2041,9 +2041,9 @@
         {
           "category": "200 Game Club",
           "scope": "Career",
-          "sourceText": "9 - Stefano Ardizzi (January 28, 2024)",
+          "sourceText": "9 - Stefano Ardizzi (February 4, 2024)",
           "value": "9",
-          "dateLabel": "January 28, 2024",
+          "dateLabel": "February 4, 2024",
           "kind": "milestone"
         }
       ]
@@ -2181,9 +2181,9 @@
         {
           "category": "50 Game Club",
           "scope": "Career",
-          "sourceText": "27 - Ryan Finlay (December 8, 2024)",
+          "sourceText": "27 - Ryan Finlay (December 15, 2024)",
           "value": "27",
-          "dateLabel": "December 8, 2024",
+          "dateLabel": "December 15, 2024",
           "kind": "milestone"
         },
         {
@@ -2432,9 +2432,9 @@
         {
           "category": "50 Game Club",
           "scope": "Career",
-          "sourceText": "28 - Stefano Mazzei (December 15, 2024)",
+          "sourceText": "28 - Stefano Mazzei (December 22, 2024)",
           "value": "28",
-          "dateLabel": "December 15, 2024",
+          "dateLabel": "December 22, 2024",
           "kind": "milestone"
         }
       ]
@@ -2449,9 +2449,9 @@
         {
           "category": "50 Game Club",
           "scope": "Career",
-          "sourceText": "25 - Mark Arruda (March 3, 2024)",
+          "sourceText": "25 - Mark Arruda (March 10, 2024)",
           "value": "25",
-          "dateLabel": "March 3, 2024",
+          "dateLabel": "March 10, 2024",
           "kind": "milestone"
         },
         {
@@ -2495,9 +2495,9 @@
         {
           "category": "50 Game Club",
           "scope": "Career",
-          "sourceText": "24 - Andrew Cristillo (December 3, 2023)",
+          "sourceText": "24 - Andrew Cristillo (December 10, 2023)",
           "value": "24",
-          "dateLabel": "December 3, 2023",
+          "dateLabel": "December 10, 2023",
           "kind": "milestone"
         }
       ]
@@ -2610,9 +2610,9 @@
         {
           "category": "50 Game Club",
           "scope": "Career",
-          "sourceText": "29 - Krishnan Rajasooriar (December 21, 2025)",
+          "sourceText": "29 - Krishnan Rajasooriar (January 4, 2026)",
           "value": "29",
-          "dateLabel": "December 21, 2025",
+          "dateLabel": "January 4, 2026",
           "kind": "milestone"
         }
       ]
@@ -2683,9 +2683,9 @@
         {
           "category": "50 Game Club",
           "scope": "Career",
-          "sourceText": "26 - Stephane Saindon (October 27, 2024)",
+          "sourceText": "26 - Stephane Saindon (November 3, 2024)",
           "value": "26",
-          "dateLabel": "October 27, 2024",
+          "dateLabel": "November 3, 2024",
           "kind": "milestone"
         },
         {
