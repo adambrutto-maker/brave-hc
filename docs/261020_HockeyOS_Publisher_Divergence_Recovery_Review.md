@@ -48,3 +48,17 @@ After attributable independent Engineering/QA review and Founder approval:
 - Keep the Master Workbook and Awards OVR normalization deployment entirely separately blocked under [issue #10](https://github.com/adambrutto-maker/brave-hc/issues/10) and [issue #9](https://github.com/adambrutto-maker/brave-hc/issues/9).
 
 **Current gate:** REVIEW ONLY, NOT MERGED, NOT DEPLOYED, NO EXCEL WRITE, NO AUTOMATED SOURCE/WEBSITE ACTIONS.
+
+## 2026-10-20 01:31 EDT — false green hourly task diagnosed
+
+An additional scheduled run at **2026-10-20T05:31Z** reported all eight stages PASS and Windows Task exit 0. Its controller receipt identifies `COUNTDOWN_SCHEDULE_UNCHANGED ageHours 1.0` and `HTO_MODEL_NO_CHANGE hourAge 1.0`. Both publish stages **skipped any Git push**; the active local Git head was still `5753979f1547094fbe229f643af5c0b0360bbc6a` and GitHub main `43dcf0f86dcf30ef02952d93998ad92c2c021a5f`. A green scheduler return is **not a repaired publisher or evidence of a fresh website release**.
+
+To make this explicit, `scripts/hockeyos_publisher_task_health.js` now evaluates:
+- Source read + game reconciliation outcomes independently of website publisher state.
+- Real local/remote Git head and previously reviewed ancestry relationship.
+- Whether countdown/projection **published** or merely returned **LOCAL NO CHANGE**.
+- Task outcome vs remote head alignment, never inferring hosted-publication receipt from an exit-0 status.
+
+Actual private read-only health check: `PUBLISHER_HISTORY_DIVERGED_NOT_REPAIRED`, HTO and four-game reconciliation PASS, countdown and projection local no-change, website publication **unverified**; receipt filename `261020_HockeyOS_Task_Health_Actual_Receipt_v1.json` in the durable recovery review directory.
+
+Seven additional tests guard the false-green case. Current PR suite: **33 Node tests + 5 Python tests PASS**, and [GitHub CI run 39376497576](https://github.com/adambrutto-maker/brave-hc/actions/runs/39376497576) PASS. The actual fresh-main candidate has also passed **54 Python site tests and 11 Node player-link tests** in an isolated environment. No live scheduler/writer modification occurred.
