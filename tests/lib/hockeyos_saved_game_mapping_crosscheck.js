@@ -15,7 +15,7 @@ function validDate(s){
  const [y,m,d]=s.split('-').map(Number),dt=new Date(Date.UTC(y,m-1,d));
  return dt.getUTCFullYear()===y&&dt.getUTCMonth()===m-1&&dt.getUTCDate()===d;
 }
-function inspect({sourceJoin,expansion,importPlan}={}){
+function inspect({sourceJoin,extension,importPlan}={}){
  const holds=[],warnings=[],fail=s=>{if(!holds.includes(s))holds.push(s)};
  const warn=s=>{if(!warnings.includes(s))warnings.push(s)};
  if(sourceJoin?.schema!=='hockeyos-awards-external-to-alltimeschedule-source-join/v1'
@@ -25,8 +25,8 @@ function inspect({sourceJoin,expansion,importPlan}={}){
     ||sourceJoin.mapped.length!==4||!Array.isArray(sourceJoin.failures)
     ||sourceJoin.failures.length!==0||sourceJoin.originalWorkbookEdited!==false)
   fail('SOURCE_JOIN_AUDIT_IDENTITY_OR_STATUS_NOT_VERIFIED');
- if(expansion?.sourceWorkbookSHA256!==ORIGINAL_HASH||importPlan?.sourceWorkbookSHA256!==ORIGINAL_HASH
-    ||expansion?.writeAuthorized!==false||importPlan?.writeAuthorization!==false)
+ if(extension?.sourceWorkbookSHA256!==ORIGINAL_HASH||importPlan?.sourceWorkbookSHA256!==ORIGINAL_HASH
+    ||extension?.writeAuthorized!==false||importPlan?.writeAuthorization!==false)
   fail('TABLE_EXPANSION_SOURCE_OR_WRITE_BOUNDARY_MISMATCH');
  const byWorkbook=new Map(),byHTO=new Map(),dates=[];
  let cachedOpponentDrift=0,staleResults=0;
@@ -55,7 +55,7 @@ function inspect({sourceJoin,expansion,importPlan}={}){
  if(byHTO.size!==4||SOURCE_GAME_IDS.some(id=>!byHTO.has(id))
     ||new Set(dates).size!==4)
   fail('SOURCE_GAME_JOIN_NOT_COMPLETE_OR_NONUNIQUE');
- const planned=expansion?.newRowCandidates||[],sourceRows=importPlan?.unmatchedHTORecords||[];
+ const planned=extension?.newRowCandidates||[],sourceRows=importPlan?.unmatchedHTORecords||[];
  if(!Array.isArray(planned)||planned.length!==44
     ||!Array.isArray(sourceRows)||sourceRows.length!==44)
   fail('MISSING_44_SOURCE_INPUT_RECORDS');
