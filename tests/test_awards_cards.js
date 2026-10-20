@@ -767,3 +767,15 @@ test('public Awards require separate operational snapshot identity, complete for
   }
  }finally{api.state.operationalEvidence=previous;api.state.award=priorAward;}
 });
+
+test('tracked operational publication file remains explicitly on hold until actual Excel release',()=>{
+ assert.equal(heldOperationalReceipt.schema,'brave-hc-awards-operational-publication/v1');
+ assert.equal(heldOperationalReceipt.status,'AWAITING_SOURCE_FAITHFUL_EXCEL_RECALCULATION');
+ assert.equal(heldOperationalReceipt.immutableFormulaAuthoritySha256,hash);
+ assert.equal(heldOperationalReceipt.publicationAuthorized,false);
+ assert.equal(heldOperationalReceipt.sourceModelVerified,false);
+ assert.equal(heldOperationalReceipt.independentlyApproved,false);
+ assert.equal(heldOperationalReceipt.operationalWorkbookSha256,null);
+ assert.equal(heldOperationalReceipt.awardFormulaParities.length,0);
+ assert.match(original,/awards-operational-publication\\.json/);
+});
