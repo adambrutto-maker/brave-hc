@@ -48,3 +48,20 @@ Read the existing private AllTimeSchedule join manifest on BRUTTECH 1. It associ
 The saved workbook scores for all four are 0-0 with result T, explicitly classified as stale unscored placeholders in the manifest. Verified source scores are 0-3, 3-6, 2-3 and 1-7. Operational commissioning must include the schedule results, not only 44 player-row additions and Dev's existing-row correction. Do not modify the immutable original.
 
 This readback confirms the archived mapping contract; it is not a new independent workbook audit or formula recalculation. Attributable independent review, controlled integration, workbook commissioning and release authorization remain outstanding.
+
+## Repeatable review tool
+
+Code commit: 8a690457b06ab26af942ca4d4cc86f1123a29b69.
+
+Run from the checked-out review branch:
+
+```
+python -m unittest discover -s tests -p test_hockeyos_hto_boxscore_header_review.py
+python scripts/hockeyos_review_four_game_source_parity.py --live-read-only
+```
+
+The second command performs public GET requests and emits JSON to stdout; it never imports the production collector, writes workbook/feed files or invokes a publisher. It intentionally covers only the four audited game IDs, not future game discovery or operational ingestion. It exits nonzero on complete-field discrepancies. Incomplete fields remain separately reported, not promoted to complete parity.
+
+Isolated BRUTTECH 1 verification: 21 unit tests PASS, including the actual GTG header regression. The repeatable command completed its live comparisons at 2026-10-20T19:46:26Z: four games, 54 skater rows, four goalie rows, 131 complete season-field comparisons, zero discrepancies, one unknown goalie POTG, 42 missing skater PIM entries. This is implementer verification, not independent signoff.
+
+Production correction, schedule-row updates, controlled Excel calculation and website release remain unperformed.
