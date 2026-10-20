@@ -233,7 +233,7 @@ function isVerifiedWeeklyRace(data,race,participants){
     ||race.modelGameCount!==data.currentTeamGP
     ||data.sourceModelParity?.mismatches!==0
     ||!(/^[a-f0-9]{64}$/i).test(data.sourceWorkbookHash||"")
-    ||!/^\\d{4}-\\d{2}-\\d{2}$/.test(race.asOf||"")
+    ||!/^\d{4}-\d{2}-\d{2}$/.test(race.asOf||"")
     ||race.asOf<data.latestGameDate
     ||!participants||participants.season!==data.season
     ||participants.officialTeamGames!==data.currentTeamGP
