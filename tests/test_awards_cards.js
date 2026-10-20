@@ -658,6 +658,9 @@ test('HTO scoring watch holds on incorrect source sum, player boxscore mismatch 
   x=>x.verifiedSourceReadback.team.points++,
   x=>x.verifiedSourceReadback.status='UNVERIFIED',
   x=>x.verifiedSourceReadback.independentBoxscoreParity.status='PENDING',
+  x=>x.evidenceGameIds[0]=1234567,
+  x=>x.verifiedSourceReadback.independentBoxscoreParity.boxscoreGameIds[1]=1234567,
+  x=>x.evidenceGameIds[1]=x.evidenceGameIds[0],
   x=>x.latestCompletedGameDate='2026-10-04'
  ]){
   const fake=structuredClone(participants);change(fake);
