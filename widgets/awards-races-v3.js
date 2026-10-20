@@ -427,6 +427,84 @@ function verifiedWorkbookRookieYearWatch(src,season,teamGP,sourceWorkbookHash){
  }
  return selected;
 }
+/* Official HTO scoring observations, never AwardScoring nominations or OVR.
+   Only a complete reconciled current-season skater feed can display leaders.
+   Ties at the five-place cutoff remain visible instead of fake tiebreak ranks. */
+function verifiedHTOStatWatch(id,src,d){
+ if(!["art-ross","rocket"].includes(id)
+    ||src?.season!==d?.season||src?.officialTeamGames!==d?.currentTeamGP
+    ||src.status!=="UNRANKED_VERIFIED_SEASON_APPEARANCES_NOT_AWARD_SCORES"
+    ||src.latestCompletedGameDate!==d.latestGameDate
+    ||src.verifiedSourceReadback?.status!=="HTO_NAMED_SKATER_AND_GOALIE_GP_PARITY_PASS"
+    ||src.verifiedSourceReadback?.independentBoxscoreParity?.status!=="PASS_FOUR_HTO_VERIFIED_GAME_SUMMARIES"
+    ||src.verifiedSourceReadback?.independentBoxscoreParity?.gameCount!==d.currentTeamGP
+    ||!Array.isArray(src.players)||!Number.isInteger(d.currentTeamGP)
+    ||d.currentTeamGP<1)return null;
+ const skaters=src.players.filter(p=>p?.position==="Skater");
+ const counts=src.verifiedSourceReadback?.sourceRows;
+ if(!Number.isInteger(counts?.namedSkaters)||skaters.length!==counts.namedSkaters
+    ||skaters.length<1)return null;
+ const used=new Set();let g=0,a=0,pts=0;
+ for(const p of skaters){
+  const raw=p.currentHTORaw;
+  if(typeof p.name!=="string"||!p.name.trim()
+      ||/unknown|unidentified|placeholder/i.test(p.name)
+      ||used.has(p.name.toLowerCase())||!Number.isInteger(p.gp)
+      ||p.gp<1||p.gp>d.currentTeamGP||!raw
+      ||raw.sourceKind!=="OFFICIAL_HTO_PUBLISHED_SEASON_STATISTICS"
+      ||raw.season!==d.season||raw.gamesPlayed!==p.gp
+      ||!Number.isInteger(raw.goals)||raw.goals<0
+      ||!Number.isInteger(raw.assists)||raw.assists<0
+      ||!Number.isInteger(raw.points)||raw.points!==raw.goals+raw.assists
+      ||p.goals!==raw.goals||p.assists!==raw.assists||p.points!==raw.points)
+   return null;
+  used.add(p.name.toLowerCase());
+  g+=raw.goals;a+=raw.assists;pts+=raw.points;
+ }
+ const t=src.verifiedSourceReadback.team;
+ if(g!==t?.goals||a!==t?.assists||pts!==t?.points)return null;
+ const key=id==="rocket"?"goals":"points";
+ const sorted=skaters.filter(p=>p.currentHTORaw[key]>0).sort((x,y)=>
+  y.currentHTORaw[key]-x.currentHTORaw[key]||x.name.localeCompare(y.name));
+ const place=sorted[Math.min(5,sorted.length)-1]?.currentHTORaw[key]??null;
+ const leaders=place===null?[]:sorted.filter(p=>p.currentHTORaw[key]>=place);
+ return {kind:"HTO_RAW_STAT_WATCH_NOT_OFFICIAL_AWARD_RANKING",
+  awardId:id,metric:key,leaders,
+  cutoffScore:place,shownBeyondFiveBecauseOfTies:leaders.length>5,
+  teamGP:d.currentTeamGP,asOf:src.latestCompletedGameDate,
+  officialAwardEligibilityVerified:false,officialAwardRankVerified:false,
+  ratingsVerified:false};
+}
+function renderHTOStatWatch(id,src,d){
+ const watch=verifiedHTOStatWatch(id,src,d);
+ if(!watch)return false;
+ const section=el(DOM.region,"details","race-activity");
+ section.open=true;
+ const noun=id==="rocket"?"Goals":"Points";
+ el(section,"summary",null,"HTO "+noun.toLowerCase()+" leaders · official game statistics only");
+ const inner=el(section,"div","race-activity-body");
+ el(inner,"p",null,"These are current HTO "+noun.toLowerCase()+" totals, not the workbook's award shortlist or EA-style overall ratings. Original AwardScoring eligibility, ranking and tiebreaks remain pending.");
+ if(!watch.leaders.length){
+  el(inner,"p",null,"No recorded "+noun.toLowerCase()+" yet from the verified source.");
+ }else{
+  const grid=el(inner,"div","race-activity-grid");
+  for(const p of watch.leaders){
+   const card=el(grid,"article","race-activity-player");
+   el(card,"strong",null,p.name);
+   const stats=el(card,"div","race-activity-stat");
+   el(stats,"span",null,p.currentHTORaw[watch.metric]+" "+(id==="rocket"?"G":"PTS"));
+   el(stats,"span",null,p.gp+" GP");
+   el(stats,"span",null,p.goals+" G");
+   el(stats,"span",null,p.assists+" A");
+   el(card,"div","race-activity-sub","HTO source count · award qualification and tiebreaks unverified");
+   renderPlayerEvidence(card,p,src);
+  }
+  if(watch.shownBeyondFiveBecauseOfTies)
+   el(inner,"p","source-note","More than five names shown because HTO counting statistics are tied at the cutoff; no unverified award tiebreak has been applied.");
+ }
+ el(inner,"p","source-note","Read-only HTO season totals through "+watch.asOf+". Historical and current workbook award OVR/rank keys are not inferred from these numbers.");
+ return true;
+}
 function renderRaceActivity(){
  const src=state.participation,d=state.source,id=state.award;
  if(!src||src.season!==d.season||src.officialTeamGames!==d.currentTeamGP
@@ -447,6 +525,10 @@ function renderRaceActivity(){
   rookie:"First-full-time-year candidates from the Master Workbook Rookie Year field, crosschecked with HTO roster and current appearances. The original five-place shortlist, eligibility and ranking rules remain authoritative. This is not a scored award ranking."
  };
  if(!Object.hasOwn(hints,id))return;
+ if(id==="art-ross"||id==="rocket"){
+  renderHTOStatWatch(id,src,d);
+  return;
+ }
  if(id==="rolaids")rows=rows.filter(p=>p.position==="Skater"&&["CU","DI"].includes(p.role));
  else if(id==="norris")rows=rows.filter(p=>p.position==="Skater"&&p.htoPositionHasDefenceOption===true);
  else if(id==="art-ross"||id==="rocket")rows=rows.filter(p=>p.position==="Skater");
