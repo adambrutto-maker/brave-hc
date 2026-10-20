@@ -18,7 +18,8 @@ function almost(x,y,eps=TOL){return Number.isFinite(x)&&Number.isFinite(y)&&Math
 function audit(evidence,reference){
  if(evidence?.schema!=='brave-hc-awards-component-evidence/v1'
     ||evidence?.status!=='HISTORICAL_NOT_CURRENT_AWARD_RACE'
-    ||reference?.status!=='HISTORICAL_NOT_CURRENT_AWARD_RACE'
+    ||reference?.schema!=='brave-hc-awards-workbook-reference/v1'
+    ||reference?.status!=='HISTORICAL_WORKBOOK_SNAPSHOT_NOT_CURRENT_2026_27'
     ||!(/^[a-f0-9]{64}$/i).test(evidence.sourceWorkbookHash||'')
     ||reference.sourceWorkbookHash!==evidence.sourceWorkbookHash)
   failure('Evidence source, cached state or workbook hash not aligned');
