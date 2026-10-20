@@ -74,6 +74,8 @@ class NextGameTests(unittest.TestCase):
         self.assertEqual(result["nearest_goalie"],"Stephen Logue")
         self.assertIn("ADVANCE_COVERAGE",g.issue_body(result))
         self.assertIn("Nearest scheduled game",g.issue_body(result))
+        self.assertIn("Rolling 21-day booking view",g.issue_body(result))
+        self.assertIn("rental-backup review 2026-10-25",g.issue_body(result))
         self.assertIn("publicly visible",g.issue_body(result))
         self.assertIn("No players were contacted",g.issue_body(result))
 
@@ -127,6 +129,7 @@ class NextGameTests(unittest.TestCase):
         self.assertEqual(result["status"],"REVIEW")
         self.assertEqual(result["game"]["opponent"],"Other Way")
         self.assertEqual(result["booking_stage"],"REGULAR_FIRST")
+        self.assertEqual(len(result["forward_coverage"]),2)
 
     def test_seven_day_rental_flag_in_review_body(self):
         now=datetime(2026,10,26,12,0,tzinfo=ZoneInfo("America/Toronto"))
