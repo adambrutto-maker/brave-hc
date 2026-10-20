@@ -1,0 +1,29 @@
+name: Brave H.C. SVHL synchronization watchdog
+on:
+  workflow_run:
+    workflows:
+      - Brave H.C. SVHL schedule reconciliation
+    types: [completed]
+    branches: [main]
+permissions:
+  actions: read
+  contents: read
+  issues: write
+concurrency:
+  group: brave-svhl-watchdog
+  cancel-in-progress: false
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify watchdog authorization and failure logic
+        run: python -m unittest discover -s tests -p test_workflow_health_watch.py
+      - name: Independently review latest SVHL schedule workflow outcome
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python scripts/workflow_health_watch.py
