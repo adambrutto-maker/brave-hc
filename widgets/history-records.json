@@ -6,7 +6,7 @@
     "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=records",
     "authority": "OFFICIAL_HTO_PUBLIC_READBACK"
   },
-  "capturedAt": "2026-10-20T13:56:05.466Z",
+  "capturedAt": "2026-10-20T20:15:11.995Z",
   "stalePolicy": "Fixed public snapshot. Official HTO page controls current records; snapshot updates are manually QA-gated.",
   "pageTitle": "Brave H.C. Records & Achievements",
   "entryCount": 483,
@@ -57,10 +57,10 @@
         "5 - Stefano Ardizzi (June 22, 2014)",
         "5 - Ryan Logue (July 20, 2014)",
         "5 - Mark Pastore (May 10, 2015)",
-        "4 - Ryan Logue (June 2, 2013)",
+        "3 - Ryan Logue (June 2, 2013)",
         "4 - Mark Pastore (June 16, 2013)",
         "3 - Keith Pearsoll (May 12, 2013)",
-        "3 - Ryan Logue (June 9, 2013)",
+        "4 - Ryan Logue (June 9, 2013)",
         "3 - Keith Pearsoll (June 9, 2013)"
       ]
     },
@@ -154,7 +154,7 @@
       "category": "Summer - Shorthanded Goals",
       "period": "Season",
       "items": [
-        "1 - Mark Pastore (2016)"
+        "2 - Mark Pastore (2016)"
       ]
     },
     {
@@ -552,7 +552,7 @@
       "category": "50 Game Club",
       "period": "Career",
       "items": [
-        "1 - Stephen Logue (July 20, 2014)",
+        "1 - Stephen Logue (July 27, 2014)",
         "2 - Alex Pagnotta (August 17, 2014)",
         "3 - Ryan Logue (August 17, 2014)",
         "4 - Cameron Buchanan (August 17, 2014)",
@@ -575,12 +575,12 @@
         "21 - Lucas Brutto (December 30, 2018)",
         "22 - Andrew Buchanan (February 10, 2019)",
         "23 - Lorcan Duffy (April 14, 2019)",
-        "24 - Andrew Cristillo (December 3, 2023)",
-        "25 - Mark Arruda (March 3, 2024)",
-        "26 - Stephane Saindon (October 27, 2024)",
-        "27 - Ryan Finlay (December 8, 2024)",
-        "28 - Stefano Mazzei (December 15, 2024)",
-        "29 - Krishnan Rajasooriar (December 21, 2025)"
+        "24 - Andrew Cristillo (December 10, 2023)",
+        "25 - Mark Arruda (March 10, 2024)",
+        "26 - Stephane Saindon (November 3, 2024)",
+        "27 - Ryan Finlay (December 15, 2024)",
+        "28 - Stefano Mazzei (December 22, 2024)",
+        "29 - Krishnan Rajasooriar (January 4, 2026)"
       ]
     },
     {
@@ -681,8 +681,8 @@
         "6 - Marco Congiusti (November 17, 2019)",
         "7 - Stephen Logue (December 15, 2019)",
         "8 - Justin Carosi (February 23, 2020)",
-        "9 - Stefano Ardizzi (January 28, 2024)",
-        "10 - Mario Provenzano (March 17, 2024)"
+        "9 - Stefano Ardizzi (February 4, 2024)",
+        "10 - Mario Provenzano (March 24, 2024)"
       ]
     },
     {
@@ -702,7 +702,7 @@
       "category": "300 Game Club",
       "period": "Career",
       "items": [
-        "1 - Adam Brutto (December 29, 2024)",
+        "1 - Adam Brutto (January 5, 2025)",
         "2 - Alex Pagnotta (September 28, 2025)",
         "3 - Justin Carosi (September 20, 2026)"
       ]
@@ -712,7 +712,7 @@
       "category": "300 Point Club",
       "period": "Career",
       "items": [
-        "1 - Justin Carosi (January 7, 2024)"
+        "1 - Justin Carosi (January 14, 2024)"
       ]
     },
     {
