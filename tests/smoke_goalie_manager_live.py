@@ -78,6 +78,24 @@ def run():
         page.wait_for_function(
             "count=>document.querySelectorAll('#games tr').length===count",
             arg=len(first["games"]),timeout=30000)
+        summary=page.locator("#coverage").inner_text()
+        expected_tbd=sum(1 for g in first["games"] if
+                         initial.get(g["assignmentKey"],"TBD")=="TBD")
+        assert "TBD" in summary and str(expected_tbd)+" TBD" in summary, (
+            "Coverage summary does not match saved goalie assignments")
+        def review_needed(g):
+            name=initial.get(g["assignmentKey"],"TBD")
+            return (name=="TBD" or g.get("htoSyncStatus")!="MATCH" or
+                    (g.get("requiresGoalieReconfirmation") and name!="TBD" and
+                     saved.get("scheduleConfirmations",{}).get(g["assignmentKey"])!=g.get("fixtureSignature")))
+        attention=sum(bool(review_needed(g)) for g in first["games"])
+        page.locator("#show-needs").click()
+        visible=page.locator("#games tr:visible").count()
+        assert visible==attention, f"Attention filter showed {visible}, expected {attention}"
+        assert page.locator("#show-needs").get_attribute("aria-pressed")=="true"
+        page.locator("#show-all").click()
+        assert page.locator("#games tr:visible").count()==len(first["games"])
+        assert page.locator("#show-all").get_attribute("aria-pressed")=="true"
         rows=page.locator("#games tr")
         for i,g in enumerate(first["games"]):
             row=rows.nth(i)
@@ -116,6 +134,7 @@ def run():
         browser.close()
     after=load("goalie-assignments.json")["assignments"]
     assert after==initial, "Read-only UI smoke coincided with changed goalie assignments"
+    print("PASS: goalie coverage summary, read-only attention filter and restore-all")
     print("PASS: live manager rows, saved selections, current goalie, alternate goalie, rental, invalid/cancelled rental")
     print("PASS: v2 issue payload binds game revision and expected old goalie; GitHub popup intercepted")
     print("PASS: no goalie assignment modification made by browser test")
