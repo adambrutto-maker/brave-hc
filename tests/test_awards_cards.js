@@ -77,7 +77,7 @@ function withVerifiedRolaids(fn,goalie=false){
 
 function snapshot(){
  return {status:'VERIFIED_PUBLISHED_WEEKLY_RACE',season:'W2026/27',teamGP:3,
-  publishedAsOf:'2026-10-12',sourceWorkbookHash:'b'.repeat(64),
+  publishedAsOf:'2026-10-12',sourceWorkbookHash:hash,
   races:{rolaids:[{name:playerName,rank:4,overallScore:86.5,scoreKind:'OFFICIAL_WORKBOOK_FINAL'}]}};
 }
 api.state.award='rolaids';
@@ -577,4 +577,48 @@ test('two verified HTO games on the same day remain distinct by official game ID
  assert.equal(result.status,'SOURCE_EVIDENCE_REVIEW_CANDIDATE_ONLY');
  assert.ok(!result.holds.includes('OFFICIAL_GAME_MAPPING_DUPLICATE_OR_INVALID'));
  assert.equal(result.scoresAuthorized,false);
+});
+
+test('different workbook formula authority suppresses weekly OVR movement even with a valid SHA256',()=>{
+ const old=api.state.weeklyHistory,oldAward=api.state.award;
+ try{
+  api.state.award='rolaids';
+  api.state.weeklyHistory={schema:'brave-hc-awards-weekly-history/v1',
+   status:'VERIFIED_PUBLISHED_WEEKLY_SNAPSHOTS',
+   snapshots:[{...snapshot(),sourceWorkbookHash:'b'.repeat(64)}]};
+  assert.equal(api.previousSnapshot(sourceRace),null);
+  const tree=elt();
+  api.movement(tree,example(),0,sourceRace);
+  const words=visit(tree,x=>typeof x.textContent==='string').map(x=>x.textContent);
+  assert.ok(words.includes('Weekly movement available after two verified published snapshots'));
+  assert.ok(!words.some(x=>x.includes(' OVR')&&x.includes('+')));
+ }finally{api.state.weeklyHistory=old;api.state.award=oldAward;}
+});
+test('same-season duplicate or malformed published weeks suppress movement rather than select a convenient baseline',()=>{
+ const old=api.state.weeklyHistory,oldAward=api.state.award;
+ try{
+  api.state.award='rolaids';
+  for(const snapshots of [
+    [snapshot(),{...snapshot(),sourceWorkbookHash:'c'.repeat(64)}],
+    [snapshot(),{...snapshot(),status:'INVALID'}],
+    [snapshot(),{...snapshot(),publishedAsOf:'2026-02-30'}]
+  ]){
+   api.state.weeklyHistory={schema:'brave-hc-awards-weekly-history/v1',
+    status:'VERIFIED_PUBLISHED_WEEKLY_SNAPSHOTS',snapshots};
+   assert.equal(api.previousSnapshot(sourceRace),null);
+  }
+ }finally{api.state.weeklyHistory=old;api.state.award=oldAward;}
+});
+test('valid older same-source week remains eligible when a newer held mismatched-model week exists',()=>{
+ const old=api.state.weeklyHistory,oldAward=api.state.award;
+ try{
+  api.state.award='rolaids';
+  api.state.weeklyHistory={schema:'brave-hc-awards-weekly-history/v1',
+   status:'VERIFIED_PUBLISHED_WEEKLY_SNAPSHOTS',
+   snapshots:[snapshot(),{...snapshot(),publishedAsOf:'2026-10-15',
+     sourceWorkbookHash:'d'.repeat(64)}]};
+  const prior=api.previousSnapshot(sourceRace);
+  assert.equal(prior?.publishedAsOf,'2026-10-12');
+  assert.equal(prior?.sourceWorkbookHash,hash);
+ }finally{api.state.weeklyHistory=old;api.state.award=oldAward;}
 });
