@@ -172,10 +172,6 @@ function renderCurrent(feed) {
  if(link){const wrapper=text('div','','ph-sub');wrapper.append(link);panel.append(wrapper)}
 }
 (async()=>{
- const ledgerPromise=fetch(root+'player-highlights-ledger.json',{cache:'no-store'})
-   .then(async x=>{if(!x.ok)throw Error('Ledger HTTP '+x.status);return validLedger(await x.json())});
- const feedPromise=fetch(root+'awards-participants.json',{cache:'no-store'})
-   .then(x=>{if(!x.ok)throw Error('Stats HTTP '+x.status);return x.json()});
  if(!identity){
   $('legacy').replaceChildren(text('div',
    playerId?'New player ID not yet verified in the shared HTO player registry. Add the exact public HTO player ID through the player onboarding process; no highlights or statistics are shown until identity verification.':
@@ -184,6 +180,10 @@ function renderCurrent(feed) {
   setNotice('Identity not verified â€” no profile data has been assigned.');
   return;
  }
+ const ledgerPromise=fetch(root+'player-highlights-ledger.json',{cache:'no-store'})
+   .then(async x=>{if(!x.ok)throw Error('Ledger HTTP '+x.status);return validLedger(await x.json())});
+ const feedPromise=fetch(root+'awards-participants.json',{cache:'no-store'})
+   .then(x=>{if(!x.ok)throw Error('Stats HTTP '+x.status);return x.json()});
  const [legacyResult,feedResult]=await Promise.allSettled([ledgerPromise,feedPromise]);
  if(legacyResult.status==='fulfilled'){
   const ledger=legacyResult.value;

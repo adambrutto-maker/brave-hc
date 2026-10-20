@@ -1,7 +1,7 @@
 # Brave H.C. — Universal Player Highlights v1
 
-Date: 2026-10-20  
-Lead: MEDIA · HockeyOS (Engineering implementation; QA source checks)  
+Date: 2026-10-20
+Lead: MEDIA · HockeyOS (Engineering implementation; QA source checks)
 Status: Feature branch until hosted validation; **no native HTO admin changes**.
 
 ## Design decision
