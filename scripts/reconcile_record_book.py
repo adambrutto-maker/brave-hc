@@ -17,6 +17,10 @@ def load_evidence():
         for game in json.loads(batch.read_text())['games']:
             games[game['url']] = game
     evidence['games'] = list(games.values())
+    index_path = DIR / '261020_Historical_Boxscore_Index.json'
+    if index_path.exists():
+        index = json.loads(index_path.read_text())
+        evidence['schedules'] = [{'season':season['season'],'url':season['sourceURL'],'links':[dict(games[url]['schedule'],href=url) if url in games else {'href':url,'text':''} for url in season['boxscoreURLs']]} for season in index['seasons']]
     return evidence
 
 def date_of(game):
