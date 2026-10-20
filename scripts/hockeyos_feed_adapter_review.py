@@ -119,14 +119,44 @@ def adapt_review(envelope, now=None):
     incomplete=parity["goalies"].get("incompleteFields")
     if not isinstance(incomplete,list) or len(incomplete)!=1 or incomplete[0].get("field")!="POTG" or incomplete[0].get("unknownGames")!=1:
         raise review.ReviewHold("UNKNOWN_GOALIE_POTG_NOT_PRESERVED")
-    for name,totals in payload["goalieGameTotals"].items():
-        rows=[p for g in games for p in g["goalies"] if p["name"]==name]
+    goalie_rows=[p for game in games for p in game["goalies"]]
+    goalie_names={p["name"] for p in goalie_rows}
+    if (set(payload["goalieGameTotals"])!=goalie_names or
+        set(payload["goalieAggregateCompleteness"])!=goalie_names):
+        raise review.ReviewHold("GOALIE_SUMMARY_IDENTITY_COVERAGE")
+    expected_incomplete={}
+    for name in goalie_names:
+        rows=[p for p in goalie_rows if p["name"]==name]
+        for row in rows:
+            if any(not isinstance(row.get(k),int) or isinstance(row.get(k),bool) or row[k]<0
+                   for k in ("gp","losses","goalsAgainst")):
+                raise review.ReviewHold("INVALID_GOALIE_SUMMARY_INPUT")
+            if row.get("potg") is not None and (type(row["potg"]) is not int or row["potg"] not in (0,1)):
+                raise review.ReviewHold("INVALID_GOALIE_SUMMARY_POTG")
         known=[p["potg"] for p in rows if p["potg"] is not None]; unknown=len(rows)-len(known)
-        if not rows or totals.get("potg")!=(None if unknown else sum(known)):
+        expected_totals={k:sum(p[k] for p in rows) for k in ("gp","losses","goalsAgainst")}
+        expected_totals["potg"]=None if unknown else sum(known)
+        if payload["goalieGameTotals"][name]!=expected_totals:
             raise review.ReviewHold("GOALIE_UNKNOWN_TOTAL_CHANGED")
         expected_completeness={"knownSubtotal":sum(known),"unknownCount":unknown,"complete":unknown==0}
-        if payload["goalieAggregateCompleteness"][name]["potg"]!=expected_completeness:
+        if payload["goalieAggregateCompleteness"][name]!={"potg":expected_completeness}:
             raise review.ReviewHold("GOALIE_COMPLETENESS_CHANGED")
+        if unknown: expected_incomplete[(name,"POTG")]=(sum(known),unknown)
+    observed_incomplete={}
+    for item in incomplete:
+        if set(item)!={"name","field","knownSubtotal","unknownGames","seasonPublished"}:
+            raise review.ReviewHold("GOALIE_INCOMPLETE_EVIDENCE_SHAPE")
+        key=(item["name"],item["field"])
+        if key in observed_incomplete or key not in expected_incomplete:
+            raise review.ReviewHold("GOALIE_INCOMPLETE_EVIDENCE_MISMATCH")
+        subtotal,unknown=expected_incomplete[key]
+        if (any(type(item[k]) is not int or item[k]<0 for k in ("knownSubtotal","unknownGames","seasonPublished")) or
+            item["knownSubtotal"]!=subtotal or item["unknownGames"]!=unknown or
+            item["seasonPublished"]<subtotal):
+            raise review.ReviewHold("GOALIE_INCOMPLETE_EVIDENCE_MISMATCH")
+        observed_incomplete[key]=(subtotal,unknown)
+    if observed_incomplete!=expected_incomplete:
+        raise review.ReviewHold("GOALIE_INCOMPLETE_EVIDENCE_COVERAGE")
     if payload.get("inferredPerGamePOTG")!=[]:
         raise review.ReviewHold("INFERRED_POTG_NOT_ALLOWED")
     proposed=copy.deepcopy(payload)
