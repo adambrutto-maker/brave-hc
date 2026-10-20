@@ -70,8 +70,25 @@ class SourceReviewValidation(unittest.TestCase):
     def test_explicit_live_flag_required(self):
         with self.assertRaisesRegex(review.ReviewHold,"EXPLICIT_LIVE"):
             review.main([])
-    def test_main_never_advertises_acceptance(self):
-        source=path.read_text()
-        self.assertIn('"productionAcceptance":False',source)
-        self.assertIn('HOLD_UNVERIFIED_GAME_DATE_SEASON_CONTENT',source)
+    def test_matched_arithmetic_still_holds_without_content_identity(self):
+        from unittest.mock import patch
+        from contextlib import redirect_stdout
+        from io import StringIO
+        import json
+        box=[
+            [["REGULAR SEASON"],["Brave H.C.","1"],["Fictional Opponent","2"]],
+            [["No","Name","POS","","G","A","Pts","+/-","POTG"],["1","Fictional Alpha","F","","1","0","1","0","0"]],
+            [["No","Name","","GP","L","GA","GAA","POTG","+/-"],["2","Fictional Goalie","","1","1","2","2.00","0","0"]]]
+        season=[
+            [["No","Name","POS","GP","G","A","Pts","+/-","POTG"],["1","Fictional Alpha","F","4","4","0","4","0","0"]],
+            [["No","Name","GP","L","GA","POTG"],["2","Fictional Goalie","4","4","8","0"]]]
+        output=StringIO()
+        with patch.object(review,"fetch_html",return_value="fixture"), patch.object(review,"parse_tables",side_effect=[box]*4+[season]), redirect_stdout(output):
+            result=review.main(["--live-read-only"])
+        receipt=json.loads(output.getvalue())
+        self.assertEqual(result,3)
+        self.assertFalse(receipt["productionAcceptance"])
+        self.assertFalse(receipt["sourceContentIdentityVerified"])
+        self.assertEqual(receipt["skaters"]["discrepancies"],[])
+        self.assertEqual(receipt["goalies"]["discrepancies"],[])
 if __name__=="__main__":unittest.main()
