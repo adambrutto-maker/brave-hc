@@ -87,6 +87,13 @@ function currentComponents(row,race){
 }
 /* Snapshots are a separate verified publication trail. A missing or invalid
    baseline never becomes a fabricated movement number. */
+function validISODate(value){
+ if(typeof value!=="string"||!/^\d{4}-\d{2}-\d{2}$/.test(value))return false;
+ const [year,month,day]=value.split("-").map(Number);
+ if(month<1||month>12||day<1||day>31)return false;
+ const actual=new Date(Date.UTC(year,month-1,day));
+ return actual.getUTCFullYear()===year&&actual.getUTCMonth()===month-1&&actual.getUTCDate()===day;
+}
 function previousSnapshot(race){
  const history=state.weeklyHistory,d=state.source;
  if(history?.schema!=="brave-hc-awards-weekly-history/v1"
@@ -95,7 +102,7 @@ function previousSnapshot(race){
  const dates=new Set();
  const valid=history.snapshots.filter(s=>{
   if(s?.status!=="VERIFIED_PUBLISHED_WEEKLY_RACE"||s.season!==d.season
-     ||!/^\d{4}-\d{2}-\d{2}$/.test(s.publishedAsOf||"")
+     ||!validISODate(s.publishedAsOf)
      ||s.publishedAsOf>=race.asOf||dates.has(s.publishedAsOf)
      ||!Number.isInteger(s.teamGP)||s.teamGP<1||s.teamGP>d.currentTeamGP
      ||!(/^[a-f0-9]{64}$/i).test(s.sourceWorkbookHash||"")
@@ -233,30 +240,41 @@ function isVerifiedWeeklyRace(data,race,participants){
     ||race.modelGameCount!==data.currentTeamGP
     ||data.sourceModelParity?.mismatches!==0
     ||!(/^[a-f0-9]{64}$/i).test(data.sourceWorkbookHash||"")
-    ||!/^\d{4}-\d{2}-\d{2}$/.test(race.asOf||"")
-    ||race.asOf<data.latestGameDate
+    ||!validISODate(race.asOf)||!validISODate(data.latestGameDate)
+    ||!validISODate(data.publishedAsOf)
+    ||race.asOf<data.latestGameDate||race.asOf>data.publishedAsOf
     ||!participants||participants.season!==data.season
     ||participants.officialTeamGames!==data.currentTeamGP
     ||participants.status!=="UNRANKED_VERIFIED_SEASON_APPEARANCES_NOT_AWARD_SCORES"
     ||!Array.isArray(participants.players))return false;
  const named=new Map(participants.players.map(x=>[x.name,x]));
  if(named.size!==participants.players.length||race.entries.length>5)return false;
+ const scoringTitle=["art-ross","rocket"].includes(state.award);
  const seen=new Set();
  for(const player of race.entries){
   const official=named.get(player.name);
   if(!official||seen.has(player.name)||!Number.isInteger(player.gamesPlayed)||player.gamesPlayed<1
       ||player.gamesPlayed>data.currentTeamGP||player.gamesPlayed!==official.gp
-      ||typeof player.eligible!=="boolean")return false;
+      ||typeof player.eligible!=="boolean"
+      ||!Number.isFinite(player.rankKey))return false;
   seen.add(player.name);
   const kind=player.scoreKind;
-  if(kind==="AWARD_MODEL_PENDING"){
-   if(player.modelScore!==null&&player.modelScore!==undefined)return false;
-  }else if(kind==="WORKBOOK_REGULAR_SEASON_STAT_COUNT"){
-   if(!Number.isInteger(player.modelScore)||player.modelScore<0)return false;
+  // Verified award-board entries must have verified numbers. Pending players
+  // belong on the separate unranked HTO on-ice participation view.
+  if(kind==="AWARD_MODEL_PENDING")return false;
+  if(kind==="WORKBOOK_REGULAR_SEASON_STAT_COUNT"){
+   const raw=official.currentHTORaw;
+   if(!scoringTitle||official.position!=="Skater"||!raw
+      ||raw.season!==data.season||raw.gamesPlayed!==official.gp
+      ||!Number.isInteger(raw.goals)||!Number.isInteger(raw.points)
+      ||!Number.isInteger(player.modelScore)||player.modelScore<0
+      ||player.modelScore!==(state.award==="rocket"?raw.goals:raw.points))return false;
   }else if(kind==="OFFICIAL_WORKBOOK_FINAL"){
-   if(!player.eligible||!Number.isFinite(player.modelScore)||player.modelScore<50||player.modelScore>100)return false;
+   if(scoringTitle||!player.eligible||!Number.isFinite(player.modelScore)
+      ||player.modelScore<50||player.modelScore>100)return false;
   }else if(kind==="WORKBOOK_RAW_COMPOSITE_PROVISIONAL"){
-   if(player.eligible||!Number.isFinite(player.modelScore)||!Number.isFinite(player.rawComposite))return false;
+   if(scoringTitle||player.eligible||!Number.isFinite(player.modelScore)
+      ||!Number.isFinite(player.rawComposite))return false;
   }else return false;
  }
  return true;
