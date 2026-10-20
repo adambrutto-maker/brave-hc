@@ -35,7 +35,7 @@ test('Season filter uses HTO profile; unverified game ID does not create game li
  const url=links.profileUrl('Alex Pagnotta');
  assert.equal(links.resolve('Alex Pagnotta',{season:'Winter 2014/15'}),url+'&pageLoad=ProfileTabStats&viewseas=Winter_2014/2015');
  assert.equal(links.resolve('Alex Pagnotta',{gameID:3375601}),url);
- assert.equal(links.knownPlayers,25);
+ assert.equal(links.knownPlayers,51);
 });
 test('Every active public HockeyOS page loads the shared linker',()=>{
  for(const file of [
@@ -46,7 +46,7 @@ test('Every active public HockeyOS page loads the shared linker',()=>{
   'index.html','preview.html'
  ]) {
   const html=fs.readFileSync(path.resolve(__dirname,'../widgets',file),'utf8');
-  assert.match(html,/<script defer src="\.\/player-links\.js\?v=1"><\/script>/,file);
+  assert.match(html,/<script defer src="\.\/player-links\.js\?v=3"><\/script>/,file);
  }
 });
 
@@ -84,4 +84,32 @@ test('HTO native click handlers remain protected from nested links',()=>{
  assert.match(code,/el\.classList\.contains\('nameLabel'\)/);
  assert.match(code,/el\.hasAttribute\('onclick'\)/);
  assert.match(code,/el\.getAttribute\('role'\) === 'link'/);
+});
+
+test('Historical Records and Awards players resolve to exact official HTO player IDs',()=>{
+ const alumni=[
+  ['Andrew Buchanan',453662],['Andrew Pozzebon',618956],['Anthony Guerra',453661],
+  ['Ben Sherritt',354285],['Cameron Buchanan',354049],['Carmine Cerrone',376086],
+  ['Damian Aidemirski',354051],['Daniel Buzzelli',354062],['David Corasaniti',652571],
+  ['Dylan Brennan',525407],['Jeff Micheli',354053],['Julian Kercz',382708],
+  ['Kourosh Adeli',733003],['Lucas Brutto',354042],['Luke Leddy',354063],
+  ['Mark Arruda',612364],['Mark Pastore',354061],['Medi Brancatella',763309],
+  ['Michael Congiusti',354059],['Neil Baghel',355501],['Ryan Finlay',399966],
+  ['Ryan Logue',354046],['Stephen Keane',533806],['Will Cawkell',378632],
+  ["Xav O'Krafka",426873],['Zach Kercz',383322]
+ ];
+ assert.equal(alumni.length,26);
+ for(const [name,id] of alumni){
+  const link=links.profileUrl(name);
+  assert.equal(new URL(link).searchParams.get('playerID'),String(id),name);
+ }
+ assert.equal(links.knownPlayers,51);
+});
+test('Shared-name ambiguity remains safely unresolved after adding alumni',()=>{
+ assert.equal(links.profileUrl('M. Provenzano'),null);
+ assert.equal(links.profileUrl('M. Congiusti'),null);
+ assert.equal(links.profileUrl('A. Buchanan'),links.profileUrl('Andrew Buchanan'));
+ assert.equal(links.profileUrl('R. Logue'),links.profileUrl('Ryan Logue'));
+ assert.equal(links.profileUrl('Rènt Goaliê'),null);
+ assert.equal(links.profileUrl('Unknown, Johnny'),null);
 });
