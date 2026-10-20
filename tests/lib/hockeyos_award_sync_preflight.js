@@ -87,6 +87,8 @@ function evaluate(manifest){
   gameById.set(g.htoId,g);gameNumbers.add(g.workbookGameNumber);
  }
  if(games.length!==completedGames)errors.push('Game source count does not match completed HTO GP');
+ if(errors.length)return {status:'FAIL_CLOSED',errors,holds:['Game-source validation failed'],
+  writeAuthorized:false,workbookModified:false,liveHTOContacted:false};
  const current=new Map(),perGameGoalies=new Map(),statsTotal={G:0,A:0,Pts:0,PIM:0,goalieGA:0,skaters:0,goalies:0,goaliePOTGUnknown:0};
  for(const r of rows){
   if(!r||typeof r!=='object'||!ROLE.has(r.table)||!Number.isInteger(r.workbookGameNumber)
