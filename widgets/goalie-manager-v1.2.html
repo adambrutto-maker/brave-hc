@@ -23,7 +23,7 @@ section{border-top:1px solid #35546a;margin-top:18px;padding-top:8px}
 <div style="overflow-x:auto"><table><thead><tr><th>SVHL GAME</th><th>START / RINK</th><th>GOALIE</th><th>SAVE VIA GITHUB</th></tr></thead><tbody id="games"></tbody></table></div>
 <section>
 <h2>Publishing a goaltender confirmation</h2>
-<p>Choose a goalie and click <strong>Review and confirm</strong>. GitHub opens a ready-to-submit issue containing the selected game and goalie. Review the details and click <strong>Submit new issue</strong>. The automation checks your GitHub repository write permission, validates the game, commits the goalie assignment if needed, and closes the request with a receipt. <a href="https://github.com/adambrutto-maker/brave-hc/actions/workflows/brave-goalie-confirm.yml" target="_blank" rel="noopener noreferrer">Original GitHub workflow (fallback) ↗</a>.</p>
+<p>Choose a goalie and click <strong>Review and confirm</strong>. GitHub opens a ready-to-submit issue containing the selected game and goalie. Review the details and click <strong>Submit new issue</strong>. The automation checks your GitHub repository write permission, confirms the game details and previously saved goalie are unchanged, and commits the assignment if needed, and closes the request with a receipt. <a href="https://github.com/adambrutto-maker/brave-hc/actions/workflows/brave-goalie-confirm.yml" target="_blank" rel="noopener noreferrer">Original GitHub workflow (fallback) ↗</a>.</p>
 <p class="notice">A dropdown choice alone does not save anything. GitHub requires a signed-in repository editor to submit the confirmation; others cannot authorize writes. The issue request and its outcome are public repository records. Never enter passwords or tokens here.</p>
 <p><a href="https://leagues.sportsvillage.ca/Leagues.aspx?leagueid=570&amp;page_type=Adult&amp;sc=HOCKEY#Schedule" target="_blank" rel="noopener noreferrer">Official SVHL schedule ↗</a> · <a href="https://github.com/adambrutto-maker/brave-hc/blob/main/widgets/goalie-assignments.json" target="_blank" rel="noopener noreferrer">Current saved assignments ↗</a></p>
 </section>
@@ -85,6 +85,10 @@ try{
      opt.textContent=item.label;
      opt.selected=item.value===selected;sel.append(opt);
    }
+   if(typeof game.fixtureSignature!=='string'||game.fixtureSignature.length<10){
+     $('status').textContent='A verified SVHL fixture revision is missing. Confirmation is disabled until the next verified schedule check.';
+     continue;
+   }
    const btn=document.createElement('button');btn.type='button';
    btn.textContent='Review and confirm';
    btn.addEventListener('click',()=>{
@@ -100,10 +104,12 @@ try{
        }
      }
      const payload={
-       type:'brave-hc-goalie-confirmation/v1',
+       type:'brave-hc-goalie-confirmation/v2',
        game_key:game.assignmentKey,
        goalie:choice,
-       custom_goalie_name:custom
+       custom_goalie_name:custom,
+       fixture_signature:game.fixtureSignature,
+       expected_goalie:selected
      };
      const url=new URL(ISSUE_URL);
      url.searchParams.set('title','GOALIE_CONFIRMATION_REQUEST');
@@ -114,7 +120,7 @@ try{
    });
    col3.append(sel);col4.append(btn);row.append(col1,col2,col3,col4);$('games').append(row);
  }
- $('status').textContent=feed.games.length+' upcoming official league games loaded. Choose a goalie and use Prepare assignment.';
+ $('status').textContent=feed.games.length+' upcoming official league games loaded. Choose a goalie and use Review and confirm.';
 }catch(e){$('status').textContent='Manager not ready: '+e.message;}
 })();
 </script></body></html>
