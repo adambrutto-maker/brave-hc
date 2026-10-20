@@ -13,6 +13,7 @@ from urllib.request import Request, urlopen
 
 SCHEMA = "brave-hc-goalie-request-status/v1"
 MESSAGES = {
+    "INVALID_REASON": "The manager change reason is missing or incompatible with the requested replacement or cancellation. Open the Goaltender Manager, explicitly acknowledge the change and select a reason.",
     "STALE_FIXTURE": "The league game details changed since this request was prepared. Open the Goaltender Manager again and review the current opponent, puck-drop time and rink.",
     "STALE_GOALIE": "The saved goaltender changed after this request was prepared. Open the manager again and review the current assignment before submitting anything new.",
     "STALE_FEED": "The official SVHL verification is too old. Refresh the league feed successfully, then reopen the Goaltender Manager.",
