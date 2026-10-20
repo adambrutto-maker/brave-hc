@@ -1,6 +1,6 @@
 {
   "date": "2026-10-20",
-  "scope": "All historical HTO records; interim inventory checkpoint, no HTO writes",
+  "scope": "85 named inactive HTO records verified against public profiles and authenticated administrator roster; excludes generic rental-goalie record548071",
   "profiles": [
     {
       "id": "688131",
@@ -536,6 +536,316 @@
       "sourceCapture": "HTO admin explicitly empty Highlights; Source recheck required before save",
       "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=354044",
       "statsBefore": false,
+      "bioBefore": false
+    },
+    {
+      "id": "354046",
+      "rosterName": "Logue, Ryan - Asst. Capt.",
+      "name": "Ryan Logue",
+      "html": "<p>200 Game Club - March 17, 2019</p>\n\n<p>200 Point Club - September 16, 2018</p>\n\n<p><strong>SVHL Cup Champion - Summer 2016</strong></p>\n\n<p><strong>SVHL Cup Champion - Winter 2015/16</strong></p>\n\n<p>100 Game Club - December 20, 2015</p>\n\n<p>100 Point Club - August 9, 2014</p>\n\n<p>Elected Assistant Captain - Winter 2014/15</p>\n\n<p>Conn Smythe Award Playoff MVP - Summer 2014</p>\n\n<p>50 Game Club - August 17, 2014</p>\n\n<p>50 Point Club - June 22, 2014</p>\n\n<p><strong>SVHL Cup Champion - Winter 2012/13</strong></p>\n",
+      "sourceCapture": "Complete authenticated Source editor HTML",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=354046",
+      "statsBefore": true,
+      "bioBefore": true
+    },
+    {
+      "id": "453661",
+      "rosterName": "Guerra, Anthony",
+      "name": "Anthony Guerra",
+      "html": "<p><strong>SVHL Cup Champion - Summer 2016</strong></p>\n\n<p>50 Game Club - July 17, 2016</p>\n\n<p>Bill Masterton Award for Dedication - Winter 2015/16</p>\n\n<p><strong>SVHL Cup Champion - Winter 2015/16</strong></p>\n",
+      "sourceCapture": "Complete authenticated Source editor HTML",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=453661",
+      "statsBefore": true,
+      "bioBefore": false
+    },
+    {
+      "id": "354047",
+      "rosterName": "Nearing, Michael",
+      "name": "Michael Nearing",
+      "html": "<p>SVHL Cup Champion - Winter 2012/13</p>\n",
+      "sourceCapture": "Complete authenticated Source editor HTML",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=354047",
+      "statsBefore": false,
+      "bioBefore": false
+    },
+    {
+      "id": "354048",
+      "rosterName": "Laliberte, Eric",
+      "name": "Eric Laliberte",
+      "html": "<p>SVHL Cup Champion - Winter 2012/13</p>\n",
+      "sourceCapture": "Complete authenticated Source editor HTML",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=354048",
+      "statsBefore": false,
+      "bioBefore": false
+    },
+    {
+      "id": "354049",
+      "rosterName": "Buchanan, Cameron",
+      "name": "Cameron Buchanan",
+      "html": "<p><strong>Hall of Fame Inductee - Winter 2024/25</strong></p>\n\n<p>Lady Byng Award for Sportsmanship - Winter 2019/20</p>\n\n<p>200 Point Club - October 20, 2019</p>\n\n<p>200 Game Club - September 15, 2019</p>\n\n<p>Conn Smythe Playoff MVP - Summer 2017</p>\n\n<p>Bill Masterton Award for Dedication - Winter 2016/17</p>\n\n<p><strong>SVHL Cup Champion - Summer 2016</strong></p>\n\n<p>Conn Smythe Playoff MVP - Summer 2016</p>\n\n<p>Hart Award Team MVP - Summer 2016</p>\n\n<p>Maurice &#39;Rocket&#39; Richard Award (12 Goals) - Summer 2016</p>\n\n<p>100 Point Club - June 19, 2016</p>\n\n<p>100 Game Club - May 15, 2016</p>\n\n<p><strong>SVHL Cup Champion - Winter 2015/16</strong></p>\n\n<p>50 Point Club - November 30, 2014</p>\n\n<p>50 Game Club - August 17, 2014</p>\n\n<p>Conn Smythe Playoff MVP - Summer 2013</p>\n\n<p><strong>SVHL Cup Champion - Winter 2012/13</strong></p>\n",
+      "sourceCapture": "Complete authenticated Source editor HTML",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=354049",
+      "statsBefore": true,
+      "bioBefore": true
+    },
+    {
+      "id": "763309",
+      "rosterName": "Brancatella, Medi",
+      "name": "Medi Brancatella",
+      "html": "<p>Most Improved Award - Winter 2024/25</p>\n",
+      "sourceCapture": "Complete authenticated Source editor HTML",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=763309",
+      "statsBefore": true,
+      "bioBefore": false
+    },
+    {
+      "id": "388357",
+      "rosterName": "Grande, Michael",
+      "name": "Michael Grande",
+      "html": "",
+      "sourceCapture": "HTO admin explicitly empty Highlights; Source recheck required before save",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=388357",
+      "statsBefore": true,
+      "bioBefore": false
+    },
+    {
+      "id": "743181",
+      "rosterName": "Arruda, Matthew",
+      "name": "Matthew Arruda",
+      "html": "",
+      "sourceCapture": "HTO admin explicitly empty Highlights; Source recheck required before save",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=743181",
+      "statsBefore": true,
+      "bioBefore": false
+    },
+    {
+      "id": "696519",
+      "rosterName": "Wright, Justin",
+      "name": "Justin Wright",
+      "html": "",
+      "sourceCapture": "HTO admin explicitly empty Highlights; Source recheck required before save",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=696519",
+      "statsBefore": true,
+      "bioBefore": false
+    },
+    {
+      "id": "825217",
+      "rosterName": "Brock, Brad",
+      "name": "Brad Brock",
+      "html": "",
+      "sourceCapture": "HTO admin explicitly empty Highlights; Source recheck required before save",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=825217",
+      "statsBefore": true,
+      "bioBefore": false
+    },
+    {
+      "id": "453662",
+      "rosterName": "Buchanan, Andrew",
+      "name": "Andrew Buchanan",
+      "html": "<p>James Norris Award - Winter 2018/19</p>\n\n<p>50 Game Club - February 10, 2019</p>\n\n<p>James Norris Award - Winter 2017/18</p>\n\n<p>Most Improved Award - Summer 2017</p>\n",
+      "sourceCapture": "Complete authenticated Source editor HTML",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=453662",
+      "statsBefore": true,
+      "bioBefore": false
+    },
+    {
+      "id": "354050",
+      "rosterName": "Scott, Simon",
+      "name": "Simon Scott",
+      "html": "<p>SVHL Cup Champion - Winter 2012/13</p>\n",
+      "sourceCapture": "Complete authenticated Source editor HTML",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=354050",
+      "statsBefore": false,
+      "bioBefore": false
+    },
+    {
+      "id": "696569",
+      "rosterName": "Cianni, Mike",
+      "name": "Mike Cianni",
+      "html": "",
+      "sourceCapture": "HTO admin explicitly empty Highlights; Source recheck required before save",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=696569",
+      "statsBefore": true,
+      "bioBefore": false
+    },
+    {
+      "id": "354051",
+      "rosterName": "Aidemirski, Damian",
+      "name": "Damian Aidemirski",
+      "html": "<p><strong>SVHL Cup Champion - Summer 2016</strong></p>\n\n<p>100 Game Club - January 10, 2016</p>\n\n<p>50 Point Club - November 22, 2015</p>\n\n<p><strong>SVHL Cup Champion - Winter 2015/16</strong></p>\n\n<p>James Norris Award - Winter 2015/16</p>\n\n<p>50 Game Club - October 5, 2014</p>\n\n<p>James Norris Award - Winter 2013/14</p>\n\n<p>James Norris Award - Summer 2013</p>\n\n<p><strong>SVHL Cup Champion - Winter 2012/13</strong></p>\n",
+      "sourceCapture": "Complete authenticated Source editor HTML",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=354051",
+      "statsBefore": true,
+      "bioBefore": false
+    },
+    {
+      "id": "354052",
+      "rosterName": "Granicolo, Christopher",
+      "name": "Christopher Granicolo",
+      "html": "<p>SVHL Cup Champion - Winter 2012/13</p>\n",
+      "sourceCapture": "Complete authenticated Source editor HTML",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=354052",
+      "statsBefore": false,
+      "bioBefore": false
+    },
+    {
+      "id": "426873",
+      "rosterName": "O'Krafka, Xav",
+      "name": "Xav O'Krafka",
+      "html": "<p>50 Point Club - November 19, 2017</p>\n\n<p>Rookie of the Year Award - Summer 2017</p>\n",
+      "sourceCapture": "Complete authenticated Source editor HTML",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=426873",
+      "statsBefore": true,
+      "bioBefore": false
+    },
+    {
+      "id": "354053",
+      "rosterName": "Micheli, Jeff",
+      "name": "Jeff Micheli",
+      "html": "",
+      "sourceCapture": "HTO admin explicitly empty Highlights; Source recheck required before save",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=354053",
+      "statsBefore": true,
+      "bioBefore": false
+    },
+    {
+      "id": "686562",
+      "rosterName": "De Luca, Giancarlo",
+      "name": "Giancarlo De Luca",
+      "html": "",
+      "sourceCapture": "HTO admin explicitly empty Highlights; Source recheck required before save",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=686562",
+      "statsBefore": true,
+      "bioBefore": false
+    },
+    {
+      "id": "454292",
+      "rosterName": "Carosi, Aaron",
+      "name": "Aaron Carosi",
+      "html": "",
+      "sourceCapture": "HTO admin explicitly empty Highlights; Source recheck required before save",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=454292",
+      "statsBefore": true,
+      "bioBefore": false
+    },
+    {
+      "id": "399966",
+      "rosterName": "Finlay, Ryan",
+      "name": "Ryan Finlay",
+      "html": "<p>50 Point Club - December 7, 2025</p>\n\n<p>50 Game Club - December 15, 2024</p>\n",
+      "sourceCapture": "Complete authenticated Source editor HTML",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=399966",
+      "bioBefore": false,
+      "statsBefore": true
+    },
+    {
+      "id": "382708",
+      "rosterName": "Kercz, Julian",
+      "name": "Julian Kercz",
+      "html": "<p><strong>SVHL Cup Champion - Summer 2016</strong></p>\n\n<p>50 Point Club - July 10, 2016</p>\n\n<p><strong>SVHL Cup Champion - Winter 2015/16</strong></p>\n\n<p>50 Game Club - December 20, 2015</p>\n\n<p>2 Game Suspension (Hit to the Head) - Winter 2015/16</p>\n",
+      "sourceCapture": "Complete authenticated Source editor HTML",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=382708",
+      "statsBefore": true,
+      "bioBefore": false
+    },
+    {
+      "id": "634098",
+      "rosterName": "Cristillo, Andrew",
+      "name": "Andrew Cristillo",
+      "html": "<p><strong>Hall of Fame Inductee - Winter 2025/26</strong></p>\n\n<p>Most Improved Award - Winter 2023/24</p>\n\n<p>50 Game Club - December 10, 2023</p>\n\n<p>Bill Masterton Award for Dedication - Winter 2018/19</p>\n\n<p>Rookie of the Year Award - Winter 2018/19</p>\n",
+      "sourceCapture": "Complete authenticated Source editor HTML",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=634098",
+      "statsBefore": true,
+      "bioBefore": false
+    },
+    {
+      "id": "612364",
+      "rosterName": "Arruda, Mark",
+      "name": "Mark Arruda",
+      "html": "<p>James Norris Award - Winter 2025/26</p>\n\n<p>100 Game Club - March 15, 2026</p>\n\n<p>Lady Byng Award for Sportsmanship - Winter 2025/25</p>\n\n<p>Conn Smythe Award Playoff MVP - Winter 2024/25</p>\n\n<p>50 Point Club - March 9, 2025</p>\n\n<p>James Norris Award - Winter 2023/24</p>\n\n<p>Rookie of the Year - Winter 2023/24</p>\n\n<p>50 Game Club - March 10, 2024</p>\n\n<p>James Norris Award - Winter 2022/23</p>\n",
+      "sourceCapture": "Complete authenticated Source editor HTML",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=612364",
+      "statsBefore": true,
+      "bioBefore": false
+    },
+    {
+      "id": "525407",
+      "rosterName": "Brennan, Dylan",
+      "name": "Dylan Brennan",
+      "html": "<p>Hart Award Team MVP - Winter 2018/19</p>\n\n<p>Art Ross Award (36 Points) - Winter 2018/19</p>\n\n<p>100 Point Club - December 30, 2018</p>\n\n<p>Maurice &#39;Rocket&#39; Richard Award (14 Goals) - Winter&nbsp;2018/19</p>\n\n<p>50 Game Club - January 23, 2018</p>\n\n<p>50 Point Club - August 27, 2017</p>\n\n<p><strong><em>SVHL Cup Champion (Call-Up)</em> - Summer 2016</strong></p>\n\n<p>&nbsp;</p>\n",
+      "sourceCapture": "Complete authenticated Source editor HTML",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=525407",
+      "statsBefore": true,
+      "bioBefore": true
+    },
+    {
+      "id": "354059",
+      "rosterName": "Congiusti, Michael",
+      "name": "Michael Congiusti",
+      "html": "<p>Lady Byng Award for Sportsmanship - Winter 2017/18</p>\n\n<p>Lady Byng Award for Sportsmanship - Summer 2017</p>\n\n<p>Lady Byng Award for Sportsmanship - Winter 2016/17</p>\n\n<p>100 Game Club - January 15, 2017</p>\n\n<p><strong>SVHL Cup Champion - Summer 2016</strong></p>\n\n<p><strong>SVHL Cup Champion - Winter 2015/16</strong></p>\n\n<p>Lady Byng Award for Sportsmanship - Winter 2015/16</p>\n\n<p>50 Game Club - December 7, 2014</p>\n\n<p>Lady Byng Award for Sportsmanship - Summer 2014</p>\n\n<p>Lady Byng Award for Sportsmanship - Winter 2013/14</p>\n\n<p><strong>SVHL Cup Champion - Winter 2012/13</strong></p>\n",
+      "sourceCapture": "Complete authenticated Source editor HTML",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=354059",
+      "statsBefore": true,
+      "bioBefore": false
+    },
+    {
+      "id": "681441",
+      "rosterName": "Poleto, Chris",
+      "name": "Chris Poleto",
+      "html": "",
+      "sourceCapture": "HTO admin explicitly empty Highlights; Source recheck required before save",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=681441",
+      "statsBefore": true,
+      "bioBefore": false
+    },
+    {
+      "id": "354061",
+      "rosterName": "Pastore, Mark",
+      "name": "Mark Pastore",
+      "html": "<p><strong>Hall of Fame Inductee - Winter 2023/24</strong></p>\n\n<p><strong>SVHL Cup Champion - Winter 2015/16</strong></p>\n\n<p>Hart Award Team MVP - Winter 2015/16</p>\n\n<p>Art Ross Award (32&nbsp;Points) - Winter&nbsp;2015/16</p>\n\n<p>Maurice &quot;Rocket&quot; Richard Award (16 Goals) - Winter 2015/16</p>\n\n<p>100 Game Club - December 27, 2015</p>\n\n<p>Conn Smythe Award Playoff MVP - Summer 2015</p>\n\n<p>Hart Award Team MVP - Summer 2015</p>\n\n<p>Art Ross Award (34 Points) - Summer 2015</p>\n\n<p>Maurice &quot;Rocket&quot; Richard Award (16 Goals) - Summer 2015</p>\n\n<p>100 Point Club - June 7, 2015</p>\n\n<p>Conn Smythe Award Playoff MVP - Winter 2014/15</p>\n\n<p>Hart Award Team MVP - Winter 2014/15</p>\n\n<p>Art Ross Award (20 Points) - Winter 2014/15</p>\n\n<p>Maurice &quot;Rocket&quot; Richard Award (12 Goals) - Winter 2014/15</p>\n\n<p>All-Star Nomination - Winter 2014/15</p>\n\n<p>All-Star Nomination - Winter 2013/14</p>\n\n<p>50 Game Club - September 21, 2014</p>\n\n<p>Elected Team Captain - Winter 2013/14</p>\n\n<p>50 Point Club - March 30, 2014</p>\n\n<p>Hart Award Team MVP - Summer 2013</p>\n\n<p>Art Ross Award (17 Points) - Summer 2013</p>\n\n<p>Maurice &quot;Rocket&quot; Richard Award (12 Goals) - Summer 2013</p>\n\n<p><strong>SVHL Cup Champion - Winter 2012/13</strong></p>\n",
+      "sourceCapture": "Complete authenticated Source editor HTML",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=354061",
+      "statsBefore": true,
+      "bioBefore": true
+    },
+    {
+      "id": "354062",
+      "rosterName": "Buzzelli, Daniel",
+      "name": "Daniel Buzzelli",
+      "html": "<p>100 Game Club - October 30, 2022</p>\n\n<p>Most Improved Award - Winter 2019/20</p>\n\n<p>50 Game Club - September 23, 2018<br />\n<strong>SVHL Cup Champion - Winter 2012/13</strong></p>\n",
+      "sourceCapture": "Complete authenticated Source editor HTML",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=354062",
+      "statsBefore": true,
+      "bioBefore": false
+    },
+    {
+      "id": "354063",
+      "rosterName": "Leddy, Luke",
+      "name": "Luke Leddy",
+      "html": "<p>Rookie of the Year Award - Summer 2013</p>\n",
+      "sourceCapture": "Complete authenticated Source editor HTML",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=354063",
+      "statsBefore": true,
+      "bioBefore": false
+    },
+    {
+      "id": "354285",
+      "rosterName": "Sherritt, Ben",
+      "name": "Ben Sherritt",
+      "html": "<p><strong>Hall of Fame Inductee - Winter 2023/24</strong></p>\n\n<p>Conn Smythe Award Playoff MVP - Winter 2017/18</p>\n\n<p>Hart Award Team MVP - Winter 2017/18</p>\n\n<p>Art Ross Award (41 Points) - Winter 2017/18</p>\n\n<p>Maurice &#39;Rocket&#39; Richard Award (27&nbsp;Goals) - Winter&nbsp;2017/18</p>\n\n<p>100 Game Club - March 18, 2018</p>\n\n<p>200 Point Club - February 25, 2018</p>\n\n<p>Hart Award Team MVP - Summer 2017</p>\n\n<p>Art Ross Award (37 Points) - Summer 2017</p>\n\n<p>Maurice &#39;Rocket&#39; Richard Award (22 Goals) - Summer 2017</p>\n\n<p>Conn Smythe Award Playoff MVP - Winter 2016/17</p>\n\n<p>Hart Award Team MVP - Winter 2016/17</p>\n\n<p>Art Ross Award (31 Points) - Winter 2016/17</p>\n\n<p>Maurice &#39;Rocket&#39; Richard Award (21&nbsp;Goals) - Winter&nbsp;2016/17</p>\n\n<p>Elected Captain - Winter 2016/17</p>\n\n<p><strong><em>SVHL Cup Champion (Call-Up)</em> - Summer 2016</strong></p>\n\n<p>100 Point Club - November 20, 2016</p>\n\n<p>50 Game Club - November 20, 2016</p>\n\n<p>Art Ross Award (27 Points) - Summer 2014</p>\n\n<p>Maurice &#39;Rocket&#39; Richard Award (16 Goals) - Summer 2014</p>\n\n<p>Hart Award Team MVP - Summer 2014</p>\n\n<p>Rookie of the Year Award - Winter 2013/14</p>\n\n<p>Hart Award Team MVP - Winter 2013/14</p>\n\n<p>Art Ross Award (46 Points) - Winter 2013/14</p>\n\n<p>Maurice &#39;Rocket&#39; Richard Award (36 Goals) - Winter 2013/14</p>\n\n<p>All-Star - Winter 2013/14</p>\n\n<p>All-Star Nomination - Winter 2013/14</p>\n\n<p>50 Point Club - April 13, 2014</p>\n",
+      "sourceCapture": "Complete authenticated Source editor HTML",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=354285",
+      "statsBefore": true,
+      "bioBefore": true
+    },
+    {
+      "id": "733003",
+      "rosterName": "Adeli, Kourosh",
+      "name": "Kourosh Adeli",
+      "html": "<p>Lady Byng Award for Sportsmanship - Winter 2022/23</p>\n",
+      "sourceCapture": "Complete authenticated Source editor HTML",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=733003",
+      "statsBefore": true,
       "bioBefore": false
     }
   ]
