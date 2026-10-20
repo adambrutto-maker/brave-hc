@@ -63,6 +63,9 @@ class NextGameTests(unittest.TestCase):
         result=g.examine(feed,deepcopy(SAVED),now)
         self.assertEqual(result["status"],"REVIEW")
         self.assertEqual(result["priority"],"ADVANCE_COVERAGE")
+        self.assertEqual(result["booking_stage"],"REGULAR_FIRST")
+        self.assertEqual(result["regular_goalie_candidates"],["Dev Leong","Stephen Logue"])
+        self.assertIn("2026-10-25",result["rental_review_at"])
         self.assertEqual(result["game"]["opponent"],"Mid Ice Crisis")
         self.assertEqual(result["goalie"],"TBD")
         self.assertEqual(result["nearest_game"]["opponent"],"Big Bastones")
@@ -72,13 +75,13 @@ class NextGameTests(unittest.TestCase):
         self.assertIn("publicly visible",g.issue_body(result))
         self.assertIn("No players were contacted",g.issue_body(result))
 
-    def test_future_gap_outside_14_day_window_is_not_premature(self):
+    def test_future_gap_outside_21_day_window_is_not_premature(self):
         now=datetime(2026,10,20,12,0,tzinfo=ZoneInfo("America/Toronto"))
         feed=deepcopy(FEED)
         feed["checkedAt"]=now.isoformat()
-        feed["games"].append({**GAME,"date":"2026-11-08","time":"21:15",
-                              "opponent":"Other Way","assignmentKey":"hto:3375684",
-                              "fixtureSignature":"2026-11-08|21:15|Other Way|D Rink|home"})
+        feed["games"].append({**GAME,"date":"2026-11-15","time":"20:15",
+                              "opponent":"Dateline Predators","assignmentKey":"hto:3375685",
+                              "fixtureSignature":"2026-11-15|20:15|Dateline Predators|A Rink|home"})
         result=g.examine(feed,deepcopy(SAVED),now)
         self.assertEqual(result["status"],"NOT_DUE")
 
@@ -108,7 +111,32 @@ class NextGameTests(unittest.TestCase):
         result=g.examine(feed,saved,now)
         self.assertEqual(result["status"],"REVIEW")
         self.assertEqual(result["priority"],"GAME_DAY")
+        self.assertEqual(result["booking_stage"],"GAME_DAY")
         self.assertEqual(result["game"]["opponent"],"Big Bastones")
+
+    def test_21_day_horizon_includes_third_sunday_without_booking(self):
+        now=datetime(2026,10,20,12,0,tzinfo=ZoneInfo("America/Toronto"))
+        feed=deepcopy(FEED)
+        feed["checkedAt"]=now.isoformat()
+        feed["games"].append({**GAME,"date":"2026-11-08","time":"21:15",
+                               "opponent":"Other Way","assignmentKey":"hto:3375684",
+                               "fixtureSignature":"2026-11-08|21:15|Other Way|D Rink|home"})
+        result=g.examine(feed,deepcopy(SAVED),now)
+        self.assertEqual(result["status"],"REVIEW")
+        self.assertEqual(result["game"]["opponent"],"Other Way")
+        self.assertEqual(result["booking_stage"],"REGULAR_FIRST")
+
+    def test_seven_day_rental_flag_in_review_body(self):
+        now=datetime(2026,10,26,12,0,tzinfo=ZoneInfo("America/Toronto"))
+        feed=deepcopy(FEED)
+        feed["checkedAt"]=now.isoformat()
+        feed["games"]=[{**GAME,"date":"2026-11-01","time":"20:15",
+                        "opponent":"Mid Ice Crisis","assignmentKey":"hto:3375683"}]
+        result=g.examine(feed,deepcopy(SAVED),now)
+        self.assertEqual(result["booking_stage"],"RENTAL_BACKUP")
+        body=g.issue_body(result)
+        self.assertIn("RENTAL_BACKUP",body)
+        self.assertIn("seven-day checkpoint",body)
 
     def test_expired_provider_data_fails_closed(self):
         feed=deepcopy(FEED)
