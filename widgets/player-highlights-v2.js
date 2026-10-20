@@ -12,6 +12,22 @@ const shortDate=input=>{
  const t=new Date(input);
  return Number.isNaN(t.valueOf())?'unavailable':t.toLocaleDateString('en-CA',{timeZone:'America/Toronto',year:'numeric',month:'short',day:'numeric'});
 };
+
+const achievementDateRank=entry=>{
+ const raw=String(entry.sortDate||entry.dateLabel||entry.displayText||entry.sourceText||'');
+ const exact=[];
+ for(const m of raw.matchAll(/\b(20\d{2})-(\d{2})-(\d{2})\b/g))exact.push(Number(m[1]+m[2]+m[3]));
+ const months=['january','february','march','april','may','june','july','august','september','october','november','december'];
+ for(const m of raw.matchAll(/\b(January|February|March|April|May|June|July|August|September|October|November|December)\s+(\d{1,2}),?\s+(20\d{2})\b/gi))
+  exact.push(Number(m[3])*10000+(months.indexOf(m[1].toLowerCase())+1)*100+Number(m[2]));
+ if(exact.length)return Math.max(...exact);
+ const years=[];
+ for(const m of raw.matchAll(/\b(20\d{2})(?:\/(20\d{2}|\d{2}))?\b/g))
+  years.push(m[2]?(m[2].length===2?2000+Number(m[2]):Number(m[2])):Number(m[1]));
+ return years.length?Math.max(...years)*10000:-1;
+};
+const newestAchievements=items=>[...items].sort((a,b)=>achievementDateRank(b)-achievementDateRank(a));
+
 const playerId=(()=>{
  const q=new URLSearchParams(location.search).get('playerID');
  if(!q||!/^[1-9]\d{0,11}$/.test(q))return null;
@@ -69,7 +85,7 @@ function validLedger(data){
  return data;
 }
 function renderLegacy(record,ledgerTime){
- const container=$('legacy'),items=record?.items||[];
+ const container=$('legacy'),items=newestAchievements(record?.items||[]);
  container.replaceChildren();
  $('careerSummary').replaceChildren();
  $('expand').hidden=true;
@@ -164,11 +180,24 @@ function renderRecords(data){
  const details=document.createElement('details');
  details.append(text('summary','View '+p.entries.length+' published entries'));
  const list=text('div','','ph-ledger');
- for(const e of p.entries){
+ for(const e of newestAchievements(p.entries)){
   if(typeof e.category!=='string'||typeof e.scope!=='string'||typeof e.sourceText!=='string')continue;
   const row=text('article','','ph-record');
   row.append(text('div',e.category+' · '+e.scope,'ph-event-title'),
     text('div',e.sourceText,'ph-event-meta'));
+  const urls=Array.isArray(e.sourceURLs)?e.sourceURLs:[];
+  const links=text('div','','ph-event-source');
+  urls.forEach((value,index)=>{
+   try{
+    const url=new URL(value);
+    if(url.protocol!=='https:'||!['www.htosports.com','htosports.com'].includes(url.hostname)||!/^\\d+$/.test(url.searchParams.get('gameID')||''))return;
+    const link=text('a',urls.length===1?'Game source ↗':'Game '+(index+1)+' ↗');
+    link.href=url.href;link.target='_blank';link.rel='noopener noreferrer';
+    if(links.childNodes.length)links.append(' · ');
+    links.append(link);
+   }catch{}
+  });
+  if(links.childNodes.length)row.append(links);
   list.append(row);
  }
  details.append(list);
