@@ -459,3 +459,101 @@ test('unverified model-state or unrecognized player blocks otherwise full Rolaid
   assert.equal(api.currentComponents(r,sourceRace),null);
  }finally{api.state.participation=old;}
 }));
+
+const operationalProvenanceGate=require('../scripts/hockeyos_awards_operational_provenance_gate');
+
+function candidateOperationalAttestation(){
+ const source=structuredClone(awards);
+ source.sourceWorkbookRecordedGP=source.currentTeamGP;
+ source.seasonRaceMode.currentModelScoresVerified=true;
+ return {source,attestation:{
+  schema:'brave-hc-awards-operational-workbook-recalculation/v1',
+  status:'COMPLETE_SOURCE_FORMULA_REPLAY_REVIEW_CANDIDATE',
+  immutableFormulaAuthoritySha256:operationalProvenanceGate.AUTHORITY,
+  operationalWorkbookSha256:'b'.repeat(64),
+  originalFormulaMapFingerprintSha256:'c'.repeat(64),
+  operationalFormulaMapFingerprintSha256:'c'.repeat(64),
+  season:source.season,recalculatedTeamGP:4,officialHTOTeamGP:4,
+  originalHistoricalModelParity:'COMPLETE_UNCHANGED_HISTORY',
+  officialHTOReadbackAt:'2026-10-20T15:30:00Z',
+  sourceGameMappings:[
+   {htoGameId:3356177,originalWorkbookGameNumber:359,gameDate:'2026-09-20'},
+   {htoGameId:3356178,originalWorkbookGameNumber:360,gameDate:'2026-09-27'},
+   {htoGameId:3369564,originalWorkbookGameNumber:361,gameDate:'2026-10-04'},
+   {htoGameId:3375601,originalWorkbookGameNumber:362,gameDate:'2026-10-18'}
+  ],
+  awardFormulaParities:operationalProvenanceGate.AWARDS.map(awardId=>({
+   awardId,state:'EXACT_ORIGINAL_FORMULA_ELIGIBILITY_RANK_SCORE_PARITY'
+  }))
+ }};
+}
+test('real current awards data holds 1-to-4 game gap and nonexistent operational attestation',()=>{
+ const result=operationalProvenanceGate.assess(
+  awards,null,'2026-10-20T16:00:00Z');
+ assert.equal(result.status,'HOLD_OPERATIONAL_MODEL_EVIDENCE');
+ assert.ok(result.holds.includes('CACHED_AWARDS_GAME_COUNT_BEHIND_HTO'));
+ assert.ok(result.holds.includes('OPERATIONAL_RECALCULATION_EVIDENCE_MISSING'));
+ assert.equal(result.scoresAuthorized,false);
+ assert.equal(result.publicationAuthorized,false);
+});
+test('complete synthetic operational and original hash separation is REVIEW ONLY, never signed or published',()=>{
+ const {source,attestation}=candidateOperationalAttestation();
+ const result=operationalProvenanceGate.assess(
+  source,attestation,'2026-10-20T16:00:00Z');
+ assert.equal(result.status,'SOURCE_EVIDENCE_REVIEW_CANDIDATE_ONLY');
+ assert.deepEqual(result.holds,[]);
+ assert.equal(result.sourceAuthorityHash,awards.sourceWorkbookHash);
+ assert.equal(result.declaredOperationalHash,'b'.repeat(64));
+ assert.equal(result.cryptographicSignerValidated,false);
+ assert.equal(result.scoresAuthorized,false);
+ assert.equal(result.publicationAuthorized,false);
+});
+test('operational provenance rejects changed authority, reused source SHA and mismatched formula fingerprints',()=>{
+ for(const mutate of [
+  (d,e)=>d.sourceWorkbookHash='c'.repeat(64),
+  (d,e)=>e.immutableFormulaAuthoritySha256='c'.repeat(64),
+  (d,e)=>e.operationalWorkbookSha256=e.immutableFormulaAuthoritySha256,
+  (d,e)=>e.operationalFormulaMapFingerprintSha256='d'.repeat(64),
+  (d,e)=>e.originalHistoricalModelParity='PARTIAL',
+  (d,e)=>e.recalculatedTeamGP=1
+ ]){
+  const {source,attestation}=candidateOperationalAttestation();
+  mutate(source,attestation);
+  const result=operationalProvenanceGate.assess(
+   source,attestation,'2026-10-20T16:00:00Z');
+  assert.equal(result.status,'HOLD_OPERATIONAL_MODEL_EVIDENCE');
+  assert.ok(result.holds.length>=1);
+  assert.equal(result.publicationAuthorized,false);
+ }
+});
+test('all 11 award-specific exact formula parity receipts and unique official games are required',()=>{
+ for(const mutate of [
+  e=>e.awardFormulaParities.pop(),
+  e=>e.awardFormulaParities[0].state='RAW_STATS_ONLY',
+  e=>e.awardFormulaParities[0].awardId='rolaids',
+  e=>e.sourceGameMappings.pop(),
+  e=>e.sourceGameMappings[0].htoGameId=e.sourceGameMappings[1].htoGameId,
+  e=>e.sourceGameMappings[1].originalWorkbookGameNumber=359,
+  e=>e.sourceGameMappings[1].gameDate='2026-02-30'
+ ]){
+  const {source,attestation}=candidateOperationalAttestation();
+  mutate(attestation);
+  const result=operationalProvenanceGate.assess(
+   source,attestation,'2026-10-20T16:00:00Z');
+  assert.equal(result.status,'HOLD_OPERATIONAL_MODEL_EVIDENCE');
+ }
+});
+test('stale HTO and future observation dates fail closed even with claimed full workbook parity',()=>{
+ const cases=[
+  {sourceAt:'2026-10-20T12:00:00Z',now:'2026-10-20T16:00:00Z'},
+  {sourceAt:'2026-10-20T16:05:00Z',now:'2026-10-20T16:00:00Z'},
+  {sourceAt:'2026-02-30T15:30:00Z',now:'2026-10-20T16:00:00Z'},
+  {sourceAt:'2026-10-20T15:30:00Z',now:'invalid'}
+ ];
+ for(const {sourceAt,now} of cases){
+  const {source,attestation}=candidateOperationalAttestation();
+  attestation.officialHTOReadbackAt=sourceAt;
+  const result=operationalProvenanceGate.assess(source,attestation,now);
+  assert.ok(result.holds.includes('INDEPENDENT_OFFICIAL_HTO_FRESHNESS_UNVERIFIED'));
+ }
+});
