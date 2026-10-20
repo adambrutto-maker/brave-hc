@@ -9,16 +9,52 @@ from pathlib import Path
 from unittest.mock import patch
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/"scripts"))
 import hockeyos_operational_collector as collector
-from test_hockeyos_feed_adapter_review import fixture
 
 def payload():
-    evidence=fixture()
+    review=collector.adapter.review;candidate=collector.adapter.candidate
+    observed={"games":{}};games=[];metadata={}
+    player_gp={};goalie_gp={}
+    for index,(gid,(number,day)) in enumerate(candidate.GAME_MAP.items()):
+        url=f"https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID={gid}&p=boxscore"
+        names=["Fictional Skater "+str((index*7+i)%20) for i in range((14,15,13,12)[index])]
+        sktable=[["No","Name","POS","","+/-","POTG"]]
+        for n,name in enumerate(names):
+            sktable.append([str(n+1),name,"C","","0","0"]);player_gp[name]=player_gp.get(name,0)+1
+        goalie="Fictional Goalie "+str(index if index<3 else 0)
+        goalie_gp[goalie]=goalie_gp.get(goalie,0)+1
+        header=["No","Name","","GP","L","GA","GAA","+/-"];row=["30",goalie,"","1","1","1","1.00","-1"]
+        if index!=3:header.insert(7,"POTG");row.insert(7,"0")
+        gotable=[header,row]
+        provenance={"canonicalURL":url,"gameDate":review.GAME_DATES[gid],
+                    "seasonBasis":"AUDITED_2026_27_GAME_DATE_MAP_AND_VERIFIED_SEASON_STATS"}
+        observed["games"][str(gid)]={"skaters":sktable,"goalies":gotable,"GF":0,"GA":1}
+        metadata[str(gid)]=provenance
+        games.append({"htoGameId":gid,"sourceUrl":url,"teamGoals":0,"teamGoalsAgainst":1,
+                      "skaters":review.helper.skater_rows(sktable,verified_team_goals=0),
+                      "goalies":review.helper.goalie_rows(gotable),"contentProvenance":provenance})
+    sk=[["No","Name","POS","","GP","G","A","Pts","+/-","POTG"]]
+    for i,(name,gp) in enumerate(sorted(player_gp.items())):
+        sk.append([str(i+1),name,"C","",str(gp),"0","0","0","0","0"])
+    sk.append(["","Team Stats","","","4","0","0","0","0","0"])
+    go=[["No","Name","","GP","L","GA","POTG"]]
+    for i,(name,gp) in enumerate(sorted(goalie_gp.items())):
+        go.append([str(i+30),name,"",str(gp),str(gp),str(gp),"0"])
+    observed.update(skaterSeason=sk,goalieSeason=go)
+    season={"canonicalURL":candidate.STATS_URL,"seasonTitle":review.SEASON_TITLE}
+    data=candidate.build_candidate(games,sk,go,season)
+    ids=sorted(candidate.GAME_MAP)
+    plan=collector.adapter.discovery.reconciliation_plan(dict.fromkeys(ids,"url"),candidate.GAME_MAP,4)
+    plan["coverageVerified"]=True
     now=datetime.now(timezone.utc)
-    evidence["observationStartedAt"]=(now-timedelta(seconds=2)).isoformat()
-    evidence["observationCompletedAt"]=(now-timedelta(seconds=1)).isoformat()
-    value=collector.adapter.adapt_review(evidence,now)
-    value.update(schema="brave-hc-hto-verified-game-feed/v1",
-                 sourceReadback=evidence["observationStartedAt"])
+    envelope={"state":"DISCOVERY_REVIEW_SOURCE_COVERAGE_PASS","productionAcceptance":False,
+              "releaseState":"REVIEW_ONLY_NOT_PRODUCTION_ACCEPTANCE","sourceContentIdentityVerified":True,
+              "observationStartedAt":(now-timedelta(seconds=2)).isoformat(),
+              "observationCompletedAt":(now-timedelta(seconds=1)).isoformat(),
+              "scoresProvenance":{"canonicalURL":candidate.SCORE_URL},
+              "seasonProvenance":season,"gameProvenance":metadata,"candidate":data,"discovery":plan}
+    value=collector.adapter.adapt_review(envelope,now)
+    value.update(schema="brave-hc-hto-verified-game-feed/v1")
+    value["sourceEvidence"]["observedStats"]=observed
     return value
 
 class OperationalCollectorTests(unittest.TestCase):
@@ -112,5 +148,21 @@ class OperationalCollectorTests(unittest.TestCase):
         with patch.object(collector,"verified_feed") as collect:
             with self.assertRaises(collector.CollectorHold):collector.main(["--write-feed"])
             collect.assert_not_called()
+
+
+    def test_corrupted_or_missing_game_rows_and_stale_parity_evidence_fail(self):
+        for change in ("missing_skaters","goals","assists","points","jersey","teamG","observed_season","fake_count"):
+            value=payload()
+            if change=="missing_skaters":del value["games"][0]["skaters"]
+            elif change=="goals":value["games"][0]["skaters"][0]["g"]=99
+            elif change=="assists":value["games"][0]["skaters"][0]["a"]=99
+            elif change=="points":value["games"][0]["skaters"][0]["pts"]=99
+            elif change=="jersey":del value["games"][0]["skaters"][0]["no"]
+            elif change=="teamG":value["teamG"]=99
+            elif change=="observed_season":value["sourceEvidence"]["observedStats"]["skaterSeason"][1][5]="99"
+            else:value["missingStatFields"]["seasonParity"]["skaters"]["completeFieldComparisons"]=119
+            with self.assertRaises((collector.CollectorHold,collector.adapter.review.ReviewHold,KeyError)):
+                self.write(value,expected_absent=True)
+            self.assertFalse(self.path.exists())
 
 if __name__=="__main__":unittest.main()
