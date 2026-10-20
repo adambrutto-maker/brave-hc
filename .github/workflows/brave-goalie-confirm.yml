@@ -17,9 +17,18 @@ on:
           - Adam Carlyle
           - Matt Svec
           - Steve Noyek
+          - Anthony Paolucci
           - Other / rental
       custom_goalie_name:
         description: 'Only for Other / rental (leave blank otherwise)'
+        required: false
+        type: string
+      fixture_signature:
+        description: 'Required to SAVE: exact SVHL fixture signature from verified published feed'
+        required: false
+        type: string
+      expected_goalie:
+        description: 'Required to SAVE: goalie currently recorded in the published assignments'
         required: false
         type: string
       dry_run:
@@ -30,7 +39,7 @@ on:
 permissions:
   contents: write
 concurrency:
-  group: braves-goalie-assignment
+  group: brave-hc-goalie-request
   cancel-in-progress: false
 jobs:
   save:
@@ -52,13 +61,17 @@ jobs:
           CUSTOM_GOALIE_NAME: ${{ inputs.custom_goalie_name }}
           MANAGER: ${{ github.actor }}
           DRY_RUN: ${{ inputs.dry_run }}
+          FIXTURE_SIGNATURE: ${{ inputs.fixture_signature }}
+          EXPECTED_GOALIE: ${{ inputs.expected_goalie }}
         run: |
           python - <<'PY'
           import os
           import subprocess
           cmd=['python','scripts/set_goalie.py','--game-key',os.environ['GAME_KEY'],
                '--goalie',os.environ['GOALIE'],'--custom-name',os.environ.get('CUSTOM_GOALIE_NAME',''),
-               '--actor',os.environ['MANAGER']]
+               '--actor',os.environ['MANAGER'],
+               '--fixture-signature',os.environ.get('FIXTURE_SIGNATURE',''),
+               '--expected-goalie',os.environ.get('EXPECTED_GOALIE','')]
           if os.environ.get('DRY_RUN','true')=='true':
               cmd.append('--dry-run')
           subprocess.run(cmd,check=True)
