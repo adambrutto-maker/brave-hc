@@ -53,7 +53,7 @@ def examine(feed: dict, saved: dict, now: datetime) -> dict:
         name=saved["assignments"].get(game["assignmentKey"],"TBD")
         warnings=[]
         if name=="TBD" or not isinstance(name,str) or not name.strip():
-            warnings.append("No goaltender has been confirmed")
+            warnings.append("No goaltender booking is recorded for this game")
         if game.get("requiresGoalieReconfirmation") and name!="TBD":
             sig=game.get("fixtureSignature")
             if not sig or saved.get("scheduleConfirmations",{}).get(game["assignmentKey"]) != sig:
