@@ -34,7 +34,7 @@ jobs:
           name=saved["assignments"][key]
           cmd=["python","scripts/verify_goalie_push.py","--game-key",key,
                "--fixture-signature",game["fixtureSignature"],
-               "--expected-goalie",name,"--goalie",name]
+               "--expected-goalie",name,"--goalie",name,"--change-reason","NO_CHANGE"]
           subprocess.run(cmd,check=True)
           receipt=["python","scripts/verify_goalie_receipt.py","--game-key",key,
                    "--fixture-signature",game["fixtureSignature"],
