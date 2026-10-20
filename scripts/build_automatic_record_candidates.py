@@ -25,9 +25,16 @@ def maximum(rows, key):
 
 def build():
     games = load_evidence()['games']
+    index = json.loads((DIR/'261020_Historical_Boxscore_Index.json').read_text())
+    indexed_urls = {url for season in index['seasons'] for url in season['boxscoreURLs']}
+    actual_urls = {g['url'] for g in games}
+    if indexed_urls != actual_urls or len(actual_urls) != len(games):
+        raise ValueError('Game evidence must cover the complete index exactly once before recalculating records.')
     team, players, exclusions = [], [], []
     for game in sorted(games, key=lambda g: (date_of(g), g['url'])):
         season = game['schedule']['season']
+        if 'PLAYOFFS' not in game['heading'] and 'REGULAR SEASON' not in game['heading']:
+            raise ValueError('Unknown game phase: '+game['url'])
         scope = 'Playoffs' if 'PLAYOFFS' in game['heading'] else 'Regular Season'
         result = re.search(r'\b([WLT])\s+(?:Forfeit|\d)', game['schedule']['text'])[1]
         gf, ga, opponent, continuation = score(game)
