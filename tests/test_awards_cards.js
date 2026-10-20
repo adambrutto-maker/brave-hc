@@ -940,3 +940,40 @@ test('an award with no original source mapping cannot display an arbitrary two-s
  }finally{api.state.award=prior;api.state.attributeContracts=priorRegistry;}
 }));
 
+
+test('penalty-free appearance count requires explicit reconciled PIM for every game',()=>{
+ const player=structuredClone(participants.players.find(p=>p.position==='Skater'&&p.gp===1));
+ player.currentHTORaw.penaltyMinutes=0;
+ player.currentHTOEventEvidence.reportedPIMFreeGameAppearances=1;
+ function display(){
+  const root=elt();api.renderPlayerEvidence(root,player,participants);
+  return visit(root,x=>typeof x.textContent==='string').map(x=>x.textContent).join(' | ');
+ }
+ delete player.sourceHTOGamePattern.games[0].penaltyMinutes;
+ assert.match(display(),/Penalty-free game count unavailable/);
+ assert.doesNotMatch(display(),/HTO-reported penalty-free games: 1/);
+ player.sourceHTOGamePattern.games[0].penaltyMinutes=0;
+ assert.match(display(),/HTO-reported penalty-free games: 1 of 1/);
+ player.sourceHTOGamePattern.games[0].penaltyMinutes=null;
+ assert.match(display(),/Penalty-free game count unavailable/);
+ player.sourceHTOGamePattern.games[0].penaltyMinutes=2;
+ assert.match(display(),/Penalty-free game count unavailable/);
+ player.currentHTORaw.penaltyMinutes=2;
+ player.currentHTOEventEvidence.reportedPIMFreeGameAppearances=0;
+ assert.match(display(),/HTO-reported penalty-free games: 0 of 1/);
+ player.currentHTOEventEvidence.reportedPIMFreeGameAppearances=1;
+ assert.match(display(),/Penalty-free game count unavailable/);
+});
+
+for(const position of ['Skater','Goalie'])test(`${position} retains known stats when POTG is unknown`,()=>{
+ const player=structuredClone(participants.players.find(p=>p.position===position));
+ player.currentHTORaw.playerOfTheGameCount=null;
+ if(position==='Skater')player.currentHTORaw.penaltyMinutes=null;
+ function text(){const root=elt();api.renderPlayerEvidence(root,player,participants);
+  return visit(root,n=>typeof n.textContent==='string').map(n=>n.textContent).join(' | ');}
+ assert.match(text(),/Unreported Player of the Game/);
+ assert.match(text(),/Game-by-game form/);
+ assert.doesNotMatch(text(),/null Player of the Game|0 Player of the Game/);
+ player.currentHTORaw.playerOfTheGameCount=0;
+ assert.match(text(),/0 Player of the Game/);
+});
