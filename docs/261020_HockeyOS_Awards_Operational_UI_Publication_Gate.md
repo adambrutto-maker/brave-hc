@@ -55,8 +55,8 @@ accepted for public 2026/27 scores.
 
 `node --test tests/test_awards_cards.js`:
 
-**44/44 PASS** in a disposable, isolated Engineering QA checkout on
-BRUTTECH 1, including extra checks proving that a held or missing separate
+**45/45 PASS** in a disposable, isolated Engineering QA checkout on
+BRUTTECH 1, including an explicit tracked-file HOLD check and extra cases proving that a held or missing separate
 publication receipt blocks a supposedly verified current award and cannot
 produce official EA-style current attribute tiles.
 
