@@ -14,10 +14,10 @@ import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
-from set_goalie import safe_goalie, update_assignment, verify_expected_state
+from set_goalie import safe_goalie, update_assignment, verify_expected_state, validate_change_reason
 
 TITLE = "GOALIE_CONFIRMATION_REQUEST"
-REQUEST_TYPE = "brave-hc-goalie-confirmation/v2"
+REQUEST_TYPE = "brave-hc-goalie-confirmation/v3"
 ALLOWED_PERMISSIONS = {"admin", "maintain", "write"}
 
 def rejection_code(exc: Exception) -> str:
@@ -35,6 +35,8 @@ def rejection_code(exc: Exception) -> str:
         return "GAME_COMPLETED"
     if "selected game key" in message:
         return "UNKNOWN_GAME"
+    if "manager change reason" in message or "manager-reviewed reason" in message:
+        return "INVALID_REASON"
     if "goalie" in message or "name" in message:
         return "INVALID_GOALIE"
     return "INVALID_REQUEST"
@@ -57,11 +59,11 @@ def parse_request(title: str, body: str) -> dict:
         req = json.loads(body)
     except json.JSONDecodeError as exc:
         raise ValueError("Request body is not JSON") from exc
-    if not isinstance(req, dict) or set(req) != {"type", "game_key", "goalie", "custom_goalie_name", "fixture_signature", "expected_goalie"}:
+    if not isinstance(req, dict) or set(req) != {"type", "game_key", "goalie", "custom_goalie_name", "fixture_signature", "expected_goalie", "change_reason"}:
         raise ValueError("Unexpected goalie request fields")
     if req["type"] != REQUEST_TYPE:
         raise ValueError("Unexpected goalie request type")
-    for key in ("game_key", "goalie", "custom_goalie_name", "fixture_signature", "expected_goalie"):
+    for key in ("game_key", "goalie", "custom_goalie_name", "fixture_signature", "expected_goalie", "change_reason"):
         if not isinstance(req[key], str):
             raise ValueError("Request fields must all be strings")
     if not re.fullmatch(r"(?:hto:[0-9]{4,15}|svhl:[0-9]{4}-[0-9]{2}-[0-9]{2}:[a-z0-9]{2,90})", req["game_key"]):
@@ -83,8 +85,10 @@ def apply_request(req: dict, actor: str, permission: str, feed: dict,
         raise ValueError("Unexpected GitHub actor")
     verify_expected_state(feed, stored, req["game_key"],
                           req["fixture_signature"], req["expected_goalie"])
+    validate_change_reason(req["expected_goalie"],req["resolved_goalie"],req["change_reason"])
     return update_assignment(feed, stored, req["game_key"],
-                             req["resolved_goalie"], actor, now)
+                             req["resolved_goalie"], actor, now,
+                             manager_reason=req["change_reason"])
 
 
 def main() -> int:
