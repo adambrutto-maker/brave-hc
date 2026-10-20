@@ -358,3 +358,60 @@ test('original prior-career and all-time baselines remain distinct from public H
  assert.ok(inventory.dependencyCategoryCounts.HISTORICAL_PLAYER_BASELINE>0);
  assert.ok(inventory.dependencyCategoryCounts.HISTORICAL_TEAM_COMPARATOR>0);
 });
+
+const cachedRolaidsParity=require('../scripts/hockeyos_awards_cached_raw_parity');
+
+test('five saved Rolaids historical players reproduce original weighted RAW composites',()=>{
+ const r=cachedRolaidsParity.audit(evidence,ref);
+ assert.equal(r.status,'HISTORICAL_ROLAIDS_RAW_COMPOSITE_PARITY_PASS_FINAL_OVR_HELD');
+ assert.equal(r.historicalPlayerExamples,5);
+ assert.equal(r.componentsChecked,54);
+ assert.equal(r.rawCompositeReproduced,true);
+ assert.equal(r.finalOVRNormalizationReproduced,false);
+ assert.equal(r.current2026ModelScoresVerified,false);
+ assert.equal(r.releaseAuthorized,false);
+ const byName=Object.fromEntries(r.players.map(x=>[x.name,x]));
+ assert.equal(byName['Rajasooriar, Krishnan'].roundedRawComposite,82.2);
+ assert.equal(byName['Duffy, Lorcan'].roundedRawComposite,82.1);
+ assert.equal(byName['Svec, Matt (G)'].roundedRawComposite,82.1);
+ assert.equal(byName['Kober, Adam'].roundedRawComposite,74.4);
+ assert.equal(byName['Mazzei, Stefano'].roundedRawComposite,67.8);
+ assert.equal(byName['Svec, Matt (G)'].weightComponents,10);
+ for(const x of r.players)assert.equal(x.finalOVRNormalizationReproduced,false);
+});
+
+test('cached Rolaids replay rejects a changed component, source weight or composite',()=>{
+ const mutants=[
+  e=>e.races.rolaids['Kober, Adam'].components[0].webComponentScore+=1,
+  e=>e.races.rolaids['Rajasooriar, Krishnan'].components[0].unroundedWeightedContribution+=0.2,
+  e=>e.races.rolaids['Duffy, Lorcan'].cachedRawComposite=50,
+  e=>e.races.rolaids['Mazzei, Stefano'].components[1].sourceField='Unauthorized',
+  e=>e.races.rolaids['Rajasooriar, Krishnan'].components.pop(),
+  e=>e.roleWeights.skater[0].weight=0.37,
+  e=>{delete e.componentFormulas[e.roleWeights.goalie[0].field];}
+ ];
+ for(const mutate of mutants){
+  const changed=structuredClone(evidence);
+  mutate(changed);
+  assert.throws(()=>cachedRolaidsParity.audit(changed,ref));
+ }
+});
+
+test('cached raw parity separately rejects fabricated final score and mismatched source hash',()=>{
+ const fakeRef=structuredClone(ref);
+ fakeRef.races.rolaids[1].score=101;
+ assert.throws(()=>cachedRolaidsParity.audit(evidence,fakeRef));
+ fakeRef.races.rolaids[1].score=99;
+ fakeRef.sourceWorkbookHash='a'.repeat(64);
+ assert.throws(()=>cachedRolaidsParity.audit(evidence,fakeRef));
+});
+
+test('cached historical source must never be interpreted as a live verified award rating',()=>{
+ const result=cachedRolaidsParity.audit(evidence,ref);
+ assert.ok(result.players.every(p=>p.historicalPublishedOVRObservedOnly>=50));
+ assert.equal(result.completeHistoricalEligiblePopulationRecalculated,false);
+ assert.equal(result.finalOVRNormalizationReproduced,false);
+ assert.equal(result.originalWorkbookOpened,false);
+ assert.equal(result.originalWorkbookModified,false);
+ assert.equal(result.websitePublished,false);
+});
