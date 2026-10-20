@@ -34,6 +34,16 @@
 - **Security / release control:** Both watchers are covered by unit tests. GitHub tokens stay inside GitHub Actions, issues contain public scheduling information only, and no schedule or confirmed-goalie file is modified by the issue watchers.
 - **Evidence:** The live [scheduled reconciliation run](https://github.com/adambrutto-maker/brave-hc/actions/runs/39343637386), the [successful game-day and watchdog integration run](https://github.com/adambrutto-maker/brave-hc/actions/runs/39345184815) and the [independent watchdog run](https://github.com/adambrutto-maker/brave-hc/actions/runs/39345217779).
 
+## October 20 verification-frequency correction
+
+On October 20, the first successful overnight scheduled run was verified, but its public feed `checkedAt` value had not advanced because the original publisher only committed a new timestamp when the previous feed was more than **12 hours** old. The commit threshold has been reduced to **4 hours**. A successful source comparison now updates `checkedAt` at least once every four hours **when scheduled jobs actually run**; it does not claim a check happened when GitHub did not launch the job.
+
+The independent watchdog now also has a separate schedule: `41 1,7,13,19 * * *` (UTC), plus an on-demand `workflow_dispatch` control. It checks the most recent completed schedule run for a failure or a gap of more than **12 hours**, opens/updates the existing synchronization-failure issue when necessary, and closes the issue after a fresh successful check. It evaluates the most recent completed run rather than falsely treating an in-progress job as either success or failure.
+
+**Verified receipts:** [fresh schedule reconciliation](https://github.com/adambrutto-maker/brave-hc/actions/runs/39432685713) and [independent manual watchdog branch](https://github.com/adambrutto-maker/brave-hc/actions/runs/39432828114) succeeded on October 20. The published SVHL feed advanced to **October 20, 9:38 a.m. Toronto time**; all five current games remained matched to HTO, and goalie assignments did not change.
+
+GitHub scheduling is best-effort. The separate watchdog also depends on GitHub Actions; website warning banners remain an important fallback. No player emails, league messages, HTO edits, or goalie assignments are authorized by these monitoring processes.
+
 ## Monitoring stale or unexpectedly missing SVHL games
 
 The public HTO goalie widget now identifies the date of the latest successfully verified SVHL feed:
