@@ -13,13 +13,18 @@ import sys
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
-from set_goalie import safe_goalie, verify_expected_state
+from set_goalie import safe_goalie, verify_expected_state, validate_change_reason
 
 
 def validate_publish(feed: dict, remote: dict, proposed: dict, key: str,
                      signature: str, previous: str, chosen: str,
-                     now: datetime) -> None:
+                     now: datetime, reason: str = "") -> None:
     verify_expected_state(feed, remote, key, signature, previous)
+    if reason:
+        validate_change_reason(previous,chosen,reason)
+        audit=proposed.get("lastChange") if proposed.get("assignments",{}).get(key)!=previous else None
+        if audit and audit.get("managerReason")!=reason:
+            raise ValueError("Proposed manager reason differs from approved request")
     checked=datetime.fromisoformat(feed["checkedAt"])
     if checked.tzinfo is None or now-checked>timedelta(hours=24) or checked-now>timedelta(minutes=15):
         raise ValueError("Remote SVHL feed not verified within 24 hours")
@@ -62,6 +67,7 @@ def main() -> int:
     ap.add_argument("--expected-goalie")
     ap.add_argument("--goalie")
     ap.add_argument("--custom-name", default="")
+    ap.add_argument("--change-reason", default="")
     ap.add_argument("--assignments",type=Path,default=Path("widgets/goalie-assignments.json"))
     args=ap.parse_args()
     try:
@@ -74,15 +80,19 @@ def main() -> int:
             signature=request["fixture_signature"]
             previous=request["expected_goalie"]
             goalie=request["resolved_goalie"]
+            reason=request["change_reason"]
         else:
             key=args.game_key or ""
             signature=args.fixture_signature or ""
             previous=args.expected_goalie or ""
             goalie=safe_goalie(args.goalie or "",args.custom_name)
+            reason=args.change_reason
         feed=load_git("origin/main","widgets/svhl-upcoming.json")
         remote=load_git("origin/main","widgets/goalie-assignments.json")
         proposed=json.loads(args.assignments.read_text(encoding="utf-8"))
-        validate_publish(feed,remote,proposed,key,signature,previous,goalie,datetime.now(timezone.utc))
+        validate_change_reason(previous,goalie,reason)
+        validate_publish(feed,remote,proposed,key,signature,previous,goalie,
+                         datetime.now(timezone.utc),reason=reason)
         print("REMOTE_PRE_PUSH_VALIDATION_PASS: reviewed fixture and prior goalie still current")
         return 0
     except (ValueError,TypeError,KeyError,OSError,subprocess.CalledProcessError,json.JSONDecodeError) as exc:
