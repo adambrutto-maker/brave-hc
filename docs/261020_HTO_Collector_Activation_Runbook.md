@@ -1,62 +1,79 @@
-# HTO collector restoration decision and activation runbook
-Date: October 20, 2026. Scope: HTO ingestion only. **NOT DEPLOYMENT READY.**
+# HTO collector activation and rollback runbook
+October 20, 2026. Scope: collector/feed only. **Operational writer implemented in review branch; active deployment requires Founder's final approval.**
 
-## Concrete remaining implementation
-The reviewed live chain currently ends in JSON on stdout under a candidate schema. The hourly controller calls a collector process and requires that process to replace its actual verified feed. **No operational feed writer exists in this PR.** Copying the adapter over the current collector would not restore ingestion.
+## Implemented operational entrypoint
+`scripts/hockeyos_operational_collector.py` now runs the reviewed live discovery → source collection → adapter chain. Its default/check-only mode fetches and verifies source data without writing. Explicit write mode revalidates the complete adapter evidence, creates a verified exclusive backup, flushes/fsyncs a same-directory temporary file, replaces the bound destination atomically, and verifies byte/JSON readback. The operational entrypoint emits `brave-hc-hto-verified-game-feed/v1` only after live source checks, preserving null POTG, incomplete-field evidence and actual observation-start `sourceReadback`.
 
-Minimal remaining implementation is a small operational entrypoint that:
-1. Runs the existing reviewed discovery → collection → contract adapter chain, preserving actual observation start/end timestamps and unknown POTG.
-2. Validates source completeness, explicit game/workbook mapping and the consumer contract before any write.
-3. Produces the intended `brave-hc-hto-verified-game-feed/v1` payload only under the separately approved activation scope; no candidate payload is silently relabelled by deployment plumbing.
-4. Writes a same-directory temporary feed, validates it, then atomically replaces the destination only after every source gate passes. Errors leave the previous feed unchanged and exit nonzero. Preserve null goalie POTG and its completeness evidence.
-5. Runs under the existing hourly controller's single-instance lock. Do not attempt to reacquire that same controller lock from its child process. Standalone invocation must refuse while an hourly run owns the lock; its exclusivity protocol must be reviewed and tested.
-6. Replaces hardcoded four-game onboarding with an explicit admission policy: the current map is limited to four games. A fifth completed game must HOLD pending authoritative workbook mapping and revised validation coverage. It must never be dropped, assigned `359+index`, or presented as four-game completeness.
+Temporary-file/replace failure before commit leaves the old feed intact. A post-replacement verification failure is a HOLD requiring inspection and hash-guarded rollback, not a guarantee that no replacement occurred. No source validation or write confers authority to publish awards.
 
-This is a material writer/activation change, not another parser presentation adjustment. Engineering must implement and reviewers must accept this exact writer before installation is considered.
-
-## Actual runtime and packaging
+## Runtime package and exact output binding
 Host: BRUTTECH 1 / AdamPCDesktop.
 
 - Interpreter: `C:\Users\adamb\AppData\Local\Programs\Python\Python312\python.exe`
-- Current scheduled task: `BruTTech_HockeyOS_Workbook_Projection_Refresh`
+- Task: `BruTTech_HockeyOS_Workbook_Projection_Refresh`
 - Launcher: `D:\BruTTech\Products\HockeyOS\Run_Brave_Projection_Refresh.cmd`
 - Controller: `D:\BruTTech\Products\HockeyOS\261017_Run_All_HTO_Widget_Refresh.py`
-- Current collector: `D:\BruTTech\Products\HockeyOS\261017_Collect_HTO_Boxscore_Attendance_AUTO.py`
-- Expected current collector SHA-256: `3a2fa340d57aa64beba027d623c147f0eb983ebab0513fc942a434282cca1ce2`
-- Feed: `D:\BruTTech\Products\HockeyOS\261016_HTO_Widget_Phase0\261017_HTO_Verified_GameLevel_Skater_Attendance.json`
-- Controller lock: `D:\BruTTech\Products\HockeyOS\261016_HTO_Widget_Phase0\auto_refresh_single_instance.lock`
-- Controller receipt: `D:\BruTTech\Products\HockeyOS\261016_HTO_Widget_Phase0\auto_refresh_last_run.json`
+- Old collector: `D:\BruTTech\Products\HockeyOS\261017_Collect_HTO_Boxscore_Attendance_AUTO.py`
+- Old collector expected SHA-256: `3a2fa340d57aa64beba027d623c147f0eb983ebab0513fc942a434282cca1ce2`
+- Operational root: `D:\BruTTech\Products\HockeyOS`
+- Only allowed relative feed target: `261016_HTO_Widget_Phase0/261017_HTO_Verified_GameLevel_Skater_Attendance.json`
+- Controller lock: `261016_HTO_Widget_Phase0/auto_refresh_single_instance.lock`
+- Dedicated new-writer lock: feed basename plus `.collector-lock.json` in the same directory. It is separate from the controller lock.
 
-Candidate executable chain:
-`hockeyos_feed_adapter_review.py` → `hockeyos_discovery_review.py` → `hockeyos_collector_candidate.py` → `hockeyos_review_four_game_source_parity.py` → `tests/lib/hockeyos_hto_boxscore_header_review.py`.
+Runtime chain:
+`hockeyos_operational_collector.py` → `hockeyos_feed_adapter_review.py` → `hockeyos_discovery_review.py` → `hockeyos_collector_candidate.py` → `hockeyos_review_four_game_source_parity.py` → `tests/lib/hockeyos_hto_boxscore_header_review.py`.
 
-Package all four scripts plus the parser helper, preserving repository-relative `scripts/` and `tests/lib/` locations, or deliberately refactor and retest the import layout. Copying only one file breaks imports. Preserve an immutable full commit/package manifest and each file hash. The final operational entrypoint is still to be implemented.
+Preserve repository-relative `scripts/` and `tests/lib/` layout. Package and hash all six files at the accepted commit. Copying the entrypoint alone breaks imports.
 
-## Required evidence before activation
-- Attributable technical QA and Security acceptance of the **exact writer/package commit**, its file hashes and output contract. Existing AI technical reviews cover review tools, not a writer.
-- The required authenticated operational acceptance and Founder decision explicitly authorizing **collector/feed activation only**. Do not manufacture identities, signatures or approvals.
-- A fresh active-collector hash match. A changed hash stops activation for reconciliation.
-- Exact package source path/hash and destination path; interpreter and import smoke check in an isolated directory.
-- Restorable immutable backups of the current collector/package and current feed, with full paths, SHA-256 values and rollback receipt. A backup reference without verified content is insufficient.
-- Scheduled task disabled/stopped, no running controller/collector, and actual lock-free evidence. An empty lock file alone does not prove that the lock is free.
-- Fresh live source validation against the exact package and independently inspected proposed feed.
+Write and rollback require explicit operational root and exact feed binding. Paths traversing symlinks/junctions are refused. Backups, temporary files and the dedicated lock remain in the feed directory. Existing backup names are never overwritten.
 
-No new authenticated acceptance, backup, lock-state evidence or activation authority is asserted by this document.
+## Concurrency limitation
+The dedicated lock coordinates only new writers using that lock. Expected-hash comparison followed by `os.replace` is not an atomic compare-and-swap against a legacy writer ignoring it. Deployment must disable task triggers, establish no running controller/collector, and obtain actual controller-lock-free evidence before manual write/rollback. File existence alone is not proof of lock state.
 
-## Exact controlled activation sequence
-1. Finish the operational writer and tests for atomic failure preservation, fifth-game HOLD, missing/null POTG, destination collision and import/runtime packaging.
-2. Obtain the acceptances and bounded Founder activation decision above.
-3. Record the task configuration and enabled state; disable its triggers and stop/wait for the active run to finish. Confirm no controller/collector owns the lock or destination.
-4. Verify the current collector hash; snapshot and hash the collector/package and current feed into the approved rollback location.
-5. Install the accepted package in a separate versioned runtime directory. Validate imports using the production interpreter. Do not reset or alter publishing Git history.
-6. Run the entrypoint with an isolated review output first. Confirm all official games, explicit mappings, per-player totals, sourceReadback and unknown completeness. Independently inspect the emitted contract.
-7. Switch only the controller collector entrypoint to the accepted operational writer under the reviewed change. Run one controlled collector stage while automatic triggers remain disabled.
-8. Verify the actual feed file hash/content changed as expected and retained schema, sourceReadback, allGamesDiscovered truth, unknown values and full game coverage. The collector must exit 0 only after successful verified replacement.
-9. Restore the prior trigger state and observe a subsequent scheduled ingestion stage. Review both the Windows result and per-stage receipt. Existing publisher divergence may still leave the entire task degraded; report ingestion and publication separately.
-10. Admit no workbook writes, award rankings, main-branch publication or website changes under this collector-only decision.
+Do not reacquire the parent controller's byte lock inside its collector child. Future scheduled invocation may use the new dedicated output lock under the existing controller single-instance lock. Until the controller switch is reviewed, standalone production writes require the exclusion procedure above.
+
+## Acceptance and final decision
+Founder has explicitly chosen Randy/Erica separate AI QA/Security reviews as the technical acceptance mechanism, retaining the final deployment decision. No separate external GitHub employee credential is required by this runbook.
+
+Before final deployment approval, present:
+- Randy and Erica technical dispositions for the exact operational writer/package commit, tests and output contract.
+- Exact package paths/file hashes and fresh active-collector hash readback.
+- Fresh check-only output plus isolated temporary-root write/backup/rollback receipts under the production interpreter.
+- Verified backup refs for current collector/controller/package/feed and their SHA-256 values.
+- Current task configuration, disabled-trigger plan and actual no-running-process/lock-free evidence.
+- The exact bounded collector-only switch and rollback action.
+
+This document does not record final deployment approval or claim any active task, collector, workbook or website was changed.
+
+## Bounded admission policy
+Current validated map is four games (HTO 3356177/3356178/3369564/3375601 → workbook 359/360/361/362). A fifth completed game is a deliberate HOLD until authoritative mapping is admitted and bounded parity coverage updated. Never drop the fifth game, assign `359+index`, or silently publish four-game completeness after five official games.
+
+## Check-only and isolated rehearsal
+From an isolated checkout of the accepted package:
+```
+python scripts/hockeyos_operational_collector.py --check-only
+```
+
+For an isolated writable test root, create its `261016_HTO_Widget_Phase0` directory first. Supply its absolute root and exact target:
+```
+python scripts/hockeyos_operational_collector.py --write-feed --operational-root <ABSOLUTE_TEST_ROOT> --output-path <ABSOLUTE_TEST_ROOT>/261016_HTO_Widget_Phase0/261017_HTO_Verified_GameLevel_Skater_Attendance.json --expected-absent
+```
+
+For replacement, use `--expected-current-sha <OBSERVED_SHA256>` rather than `--expected-absent`. Do not substitute the production root during rehearsal.
+
+## Controlled activation after final Founder approval
+1. Record current task configuration/enabled state and accepted commit/package hashes. Disable triggers; allow active run to finish or stop it under the approved procedure.
+2. Confirm no controller/collector is running and controller lock is actually free. Verify the old collector hash above.
+3. Snapshot/hash current collector/controller/package and actual feed to the approved rollback location.
+4. Install the accepted package into a separate versioned runtime directory and validate imports using the production interpreter.
+5. Repeat check-only live validation. Inspect four-game coverage, mappings, complete-only parity, sourceReadback and unknowns.
+6. Switch only the controller's collector entrypoint to the operational entrypoint, supplying `--write-feed`, explicit root/target and a wrapper that observes the prior feed hash immediately before invocation. Do not bake a permanently stale expected hash into the hourly command.
+7. Run one controlled collector stage with triggers disabled. Verify returned receipt, actual feed hash/schema/content and unchanged workbook/publisher.
+8. Restore prior triggers and observe a subsequent scheduled ingestion stage. Inspect per-stage controller receipt; publisher divergence may still degrade the overall job. Report ingestion and publication separately.
+
+No original workbook writes, awards, Git main publication or website release is included.
 
 ## Rollback
-Keep automatic triggers disabled while changing files. Restore the exact backed-up collector/controller/package configuration and feed only after confirming no run owns the lock; verify restored hashes and imports. Restore the original trigger state. Record the failed package, reason and rollback readback. Rollback returns to the known old collector state, which may still have the original schema failure; it does not certify source ingestion as repaired.
+Keep triggers disabled and confirm no run owns the destination. `rollback_feed` requires the exact current output SHA, backup path and verified backup SHA under the same explicit root binding. It restores atomically only after those checks; changed current content or changed backup causes HOLD. Restore backed-up controller/package configuration and verify hashes/imports before restoring triggers. Rollback to the old collector may restore its known parsing failure; it is not proof ingestion is repaired.
 
-## Decision requested when package is complete
-Approve the exact reviewed operational writer/package for collector/feed activation on BRUTTECH 1, including the bounded admission policy and verified rollback refs. Until that package exists and the listed evidence is present, status is **WRITER_IMPLEMENTATION_REQUIRED / ACTIVATION_NOT_AUTHORIZED**.
+Status: **OPERATIONAL_WRITER_IMPLEMENTED / TECHNICAL_REVIEW_AND_FINAL_DEPLOYMENT_DECISION_REQUIRED**.
