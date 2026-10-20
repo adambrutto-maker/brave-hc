@@ -140,7 +140,7 @@ function addAttributeChips(wrapper,components,row,reference){
  const addChip=(container,item)=>{
   const btn=el(container,"button","stat-chip ea-stat");btn.type="button";
   el(btn,"span","ea-stat-name",item.abbreviation);
-  el(btn,"strong","ea-stat-value",Number(item.webComponentScore).toFixed(1));
+  el(btn,"strong","ea-stat-value",Math.round(Number(item.webComponentScore)));
   btn.setAttribute("aria-label",item.abbreviation+" "+Number(item.webComponentScore).toFixed(1)+" out of 100, weight "+Number(item.weightPct).toFixed(1)+" percent; explain");
   const show=()=>{const region=wrapper.querySelector(".explain");region.classList.remove("hide");explainComponent(region,row,item,reference);};
   btn.addEventListener("click",show);btn.addEventListener("focus",show);
