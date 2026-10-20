@@ -6,13 +6,13 @@
       "playerID": "356089",
       "priorHighlights": "Existing manual Highlights",
       "backup": "261020_legacy-editor-originals.json",
-      "installation": "DEFERRED — native field unchanged",
+      "installation": "INSTALLED_AND_PUBLICLY_VERIFIED",
       "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=356089",
-      "QA": "No install; preservation hold",
-      "legacyCount": 0,
-      "desktopHeight": null,
-      "mobileHeight": null,
-      "deferReason": "Existing suspension note has no neutral supported ledger category; leave complete native field unchanged."
+      "QA": "PASS — saved public HTO desktop and measured 390px mobile; exact records/order/emphasis and expansion",
+      "legacyCount": 12,
+      "desktopHeight": 1133,
+      "mobileHeight": 1193,
+      "deferReason": null
     },
     {
       "name": "Nolan Atkins",
@@ -149,26 +149,26 @@
       "playerID": "595514",
       "priorHighlights": "Existing manual Highlights",
       "backup": "261020_legacy-editor-originals.json",
-      "installation": "DEFERRED — native field unchanged",
+      "installation": "INSTALLED_AND_PUBLICLY_VERIFIED",
       "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=595514",
-      "QA": "No install; preservation hold",
-      "legacyCount": 0,
-      "desktopHeight": null,
-      "mobileHeight": null,
-      "deferReason": "Existing suspension note has no neutral supported ledger category; leave complete native field unchanged."
+      "QA": "PASS — saved public HTO desktop and measured 390px mobile; exact records/order/emphasis and expansion",
+      "legacyCount": 3,
+      "desktopHeight": 774,
+      "mobileHeight": 846,
+      "deferReason": null
     },
     {
       "name": "Alex Pagnotta",
       "playerID": "354058",
       "priorHighlights": "Existing manual Highlights",
       "backup": "261020_legacy-editor-originals.json",
-      "installation": "DEFERRED — native field unchanged",
+      "installation": "INSTALLED_AND_PUBLICLY_VERIFIED",
       "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=354058",
-      "QA": "No install; preservation hold",
-      "legacyCount": 0,
-      "desktopHeight": null,
-      "mobileHeight": null,
-      "deferReason": "Award and leadership reference share one paragraph with an explicit line break; current renderer would flatten grouping/formatting. Leave unchanged pending a faithful rendering treatment."
+      "QA": "PASS — saved public HTO desktop and measured 390px mobile; exact records/order/emphasis and expansion",
+      "legacyCount": 15,
+      "desktopHeight": 1151,
+      "mobileHeight": 1247,
+      "deferReason": null
     },
     {
       "name": "Anthony Paolucci",
@@ -1288,5 +1288,300 @@
       "result": "PASS"
     }
   ],
-  "note": "Dedicated final390pxLoadedChecks supersede earlier temporary mobile dimensions in desktopChecks. Dev was independently verified before qa array initialization: one iframe, 1350px, desktop content739px, mobile834px, correct goalie identity/form. No contact data included."
+  "note": "Dedicated final390pxLoadedChecks supersede earlier temporary mobile dimensions in desktopChecks. Dev was independently verified before qa array initialization: one iframe, 1350px, desktop content739px, mobile834px, correct goalie identity/form. No contact data included.",
+  "followup": {
+    "date": "2026-10-20",
+    "completed": [
+      {
+        "id": "356089",
+        "name": "Stefano Ardizzi",
+        "parent": [
+          {
+            "css": "1350px",
+            "height": "1350",
+            "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=356089"
+          }
+        ],
+        "desktop": {
+          "height": 1133,
+          "text": "BRAVE H.C. · PLAYER LEGACY\nStefano Ardizzi\n\nHTO player #356089 · Career archive and source-verified game form\n\nExisting career achievements are preserved as published; current-season statistics are sourced separately. Awards and milestone dates require manager approval.\nVerified Current-Season Form\n1\nGP\n0\nG\n0\nA\n0\nPTS\n\nOfficial HTO W2026/27 source readback: Oct 18, 2026 · Historical/stale snapshot — confirm latest figures on HTO.\n\nOfficial HTO player profile ↗\n2\nSVHL Cup titles\n4\nRecorded awards\n5\nClub milestones\nCareer Highlights\nCLUB\n200 Game Club\nCareer milestone · February 4, 2024\nCLUB\n100 Point Club\nCareer milestone · March 10, 2019\nCLUB\n100 Game Club\nCareer milestone · April 2, 2017\nCUP\nSVHL Cup Champion\nChampionship · Summer 2016\nCLUB\n50 Point Club\nCareer milestone · February 21, 2016\nCUP\nSVHL Cup Champion\nChampionship · Winter 2015/16\nAWD\nMost Improved Award\nIndividual award · Summer 2015\nShow all 12 highlights\nExisting awards, leadership, nominations, championships and dated milestones are imported only from the player's own published HTO Highlights. No new awards or milestone dates are invented or automatically adopted. Imported: Oct 20, 2026 · Official HTO player profile ↗",
+          "width": 605
+        },
+        "mobile": {
+          "clientWidth": 326,
+          "frameHeight": 1350,
+          "height": 1193,
+          "width": 326
+        },
+        "outer": {
+          "stats": true,
+          "width": 390
+        },
+        "rows": [
+          {
+            "emphasis": false,
+            "meta": "Career milestone · February 4, 2024",
+            "title": "200 Game Club",
+            "whiteSpace": "normal"
+          },
+          {
+            "emphasis": false,
+            "meta": "Career milestone · March 10, 2019",
+            "title": "100 Point Club",
+            "whiteSpace": "normal"
+          },
+          {
+            "emphasis": false,
+            "meta": "Career milestone · April 2, 2017",
+            "title": "100 Game Club",
+            "whiteSpace": "normal"
+          },
+          {
+            "emphasis": true,
+            "meta": "Championship · Summer 2016",
+            "title": "SVHL Cup Champion",
+            "whiteSpace": "normal"
+          },
+          {
+            "emphasis": false,
+            "meta": "Career milestone · February 21, 2016",
+            "title": "50 Point Club",
+            "whiteSpace": "normal"
+          },
+          {
+            "emphasis": true,
+            "meta": "Championship · Winter 2015/16",
+            "title": "SVHL Cup Champion",
+            "whiteSpace": "normal"
+          },
+          {
+            "emphasis": false,
+            "meta": "Individual award · Summer 2015",
+            "title": "Most Improved Award",
+            "whiteSpace": "normal"
+          },
+          {
+            "emphasis": false,
+            "meta": "Disciplinary record · Summer 2015",
+            "title": "3 Game Suspension (Roughing Major)",
+            "whiteSpace": "normal"
+          },
+          {
+            "emphasis": false,
+            "meta": "Individual award · Winter 2014/15",
+            "title": "Most Improved Award",
+            "whiteSpace": "normal"
+          },
+          {
+            "emphasis": false,
+            "meta": "Career milestone · March 22, 2015",
+            "title": "50 Game Club",
+            "whiteSpace": "normal"
+          },
+          {
+            "emphasis": false,
+            "meta": "Individual award · Summer 2014",
+            "title": "Most Improved Award",
+            "whiteSpace": "normal"
+          },
+          {
+            "emphasis": false,
+            "meta": "Individual award · Winter 2013/14",
+            "title": "Most Improved Award",
+            "whiteSpace": "normal"
+          }
+        ],
+        "recordCount": 12,
+        "pass": true,
+        "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=356089"
+      },
+      {
+        "id": "595514",
+        "name": "Stefano Mazzei",
+        "parent": [
+          {
+            "css": "1350px",
+            "height": "1350",
+            "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=595514"
+          }
+        ],
+        "desktop": {
+          "height": 774,
+          "text": "BRAVE H.C. · PLAYER LEGACY\nStefano Mazzei\n\nHTO player #595514 · Career archive and source-verified game form\n\nExisting career achievements are preserved as published; current-season statistics are sourced separately. Awards and milestone dates require manager approval.\nVerified Current-Season Form\nNo verified current-season observation is published for this player yet. No unverified totals have been substituted.\n0\nSVHL Cup titles\n1\nRecorded awards\n1\nClub milestones\nCareer Highlights\nAWD\nRolaids Relief Man Award\nIndividual award · Winter 2024/25\nCLUB\n50 Game Club\nCareer milestone · December 22, 2024\nNOTE\n4 Game Suspension (Fighting)\nDisciplinary record · Winter 2018/19\nShow all 3 highlights\nExisting awards, leadership, nominations, championships and dated milestones are imported only from the player's own published HTO Highlights. No new awards or milestone dates are invented or automatically adopted. Imported: Oct 20, 2026 · Official HTO player profile ↗",
+          "width": 605
+        },
+        "mobile": {
+          "clientWidth": 326,
+          "frameHeight": 1350,
+          "height": 846,
+          "width": 326
+        },
+        "outer": {
+          "stats": true,
+          "width": 390
+        },
+        "rows": [
+          {
+            "emphasis": false,
+            "meta": "Individual award · Winter 2024/25",
+            "title": "Rolaids Relief Man Award",
+            "whiteSpace": "normal"
+          },
+          {
+            "emphasis": false,
+            "meta": "Career milestone · December 22, 2024",
+            "title": "50 Game Club",
+            "whiteSpace": "normal"
+          },
+          {
+            "emphasis": false,
+            "meta": "Disciplinary record · Winter 2018/19",
+            "title": "4 Game Suspension (Fighting)",
+            "whiteSpace": "normal"
+          }
+        ],
+        "recordCount": 3,
+        "pass": true,
+        "url": "https://www.htosports.com/teams/default.asp?p=profile&u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&playerID=595514"
+      },
+      {
+        "id": "354058",
+        "name": "Alex Pagnotta",
+        "parent": [
+          {
+            "css": "1350px",
+            "height": "1350",
+            "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=354058"
+          }
+        ],
+        "desktop": {
+          "height": 1151,
+          "text": "BRAVE H.C. · PLAYER LEGACY\nAlex Pagnotta\n\nHTO player #354058 · Career archive and source-verified game form\n\nExisting career achievements are preserved as published; current-season statistics are sourced separately. Awards and milestone dates require manager approval.\nVerified Current-Season Form\n4\nGP\n0\nG\n3\nA\n3\nPTS\n\nOfficial HTO W2026/27 source readback: Oct 18, 2026 · Historical/stale snapshot — confirm latest figures on HTO.\n\nOfficial HTO player profile ↗\n2\nSVHL Cup titles\n7\nRecorded awards\n6\nClub milestones\nCareer Highlights\nCLUB\n300 Game Club\nCareer milestone · September 28, 2025\nAWD\nJames Norris Award\nIndividual award · Winter 2024/25\nAWD\nBill Masterton Award for Decidation\nIndividual award · Winter 2022/23\nNOTE\nJames Norris Award - Winter 2019/20\nElected Assistant Captain - Winter 2019/20\nHistorical record\nCLUB\n100 Point Club\nCareer milestone · November 24, 2019\nCLUB\n200 Game Club\nCareer milestone · January 27, 2019\nAWD\nJames Norris Award\nIndividual award · Winter 2016/17\nShow all 15 highlights\nExisting awards, leadership, nominations, championships and dated milestones are imported only from the player's own published HTO Highlights. No new awards or milestone dates are invented or automatically adopted. Imported: Oct 20, 2026 · Official HTO player profile ↗",
+          "width": 605
+        },
+        "mobile": {
+          "clientWidth": 326,
+          "frameHeight": 1350,
+          "height": 1247,
+          "width": 326
+        },
+        "outer": {
+          "stats": true,
+          "width": 390
+        },
+        "rows": [
+          {
+            "emphasis": false,
+            "meta": "Career milestone · September 28, 2025",
+            "title": "300 Game Club",
+            "whiteSpace": "normal"
+          },
+          {
+            "emphasis": false,
+            "meta": "Individual award · Winter 2024/25",
+            "title": "James Norris Award",
+            "whiteSpace": "normal"
+          },
+          {
+            "emphasis": false,
+            "meta": "Individual award · Winter 2022/23",
+            "title": "Bill Masterton Award for Decidation",
+            "whiteSpace": "normal"
+          },
+          {
+            "emphasis": false,
+            "meta": "Historical record",
+            "title": "James Norris Award - Winter 2019/20\nElected Assistant Captain - Winter 2019/20",
+            "whiteSpace": "pre-line"
+          },
+          {
+            "emphasis": false,
+            "meta": "Career milestone · November 24, 2019",
+            "title": "100 Point Club",
+            "whiteSpace": "normal"
+          },
+          {
+            "emphasis": false,
+            "meta": "Career milestone · January 27, 2019",
+            "title": "200 Game Club",
+            "whiteSpace": "normal"
+          },
+          {
+            "emphasis": false,
+            "meta": "Individual award · Winter 2016/17",
+            "title": "James Norris Award",
+            "whiteSpace": "normal"
+          },
+          {
+            "emphasis": true,
+            "meta": "Championship · Summer 2016",
+            "title": "SVHL Cup Champion",
+            "whiteSpace": "normal"
+          },
+          {
+            "emphasis": false,
+            "meta": "Individual award · Summer 2016",
+            "title": "James Norris Award",
+            "whiteSpace": "normal"
+          },
+          {
+            "emphasis": false,
+            "meta": "Career milestone · May 15, 2016",
+            "title": "50 Point Club",
+            "whiteSpace": "normal"
+          },
+          {
+            "emphasis": true,
+            "meta": "Championship · Winter 2015/16",
+            "title": "SVHL Cup Champion",
+            "whiteSpace": "normal"
+          },
+          {
+            "emphasis": false,
+            "meta": "Career milestone",
+            "title": "100 Game Club - December 20, 2015",
+            "whiteSpace": "normal"
+          },
+          {
+            "emphasis": false,
+            "meta": "Individual award · Summer 2015",
+            "title": "James Norris Award",
+            "whiteSpace": "normal"
+          },
+          {
+            "emphasis": false,
+            "meta": "Career milestone · August 17, 2014",
+            "title": "50 Game Club",
+            "whiteSpace": "normal"
+          },
+          {
+            "emphasis": false,
+            "meta": "Individual award · Winter 2014/15",
+            "title": "James Norris Award",
+            "whiteSpace": "normal"
+          }
+        ],
+        "recordCount": 15,
+        "pass": true,
+        "url": "https://www.htosports.com/teams/default.asp?p=profile&u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&playerID=354058"
+      }
+    ],
+    "hostedRegression": {
+      "AdamBrutto": 16,
+      "JustinCarosi": 25,
+      "result": "PASS — existing content and emphasis unchanged"
+    },
+    "rendering": "Neutral discipline category excluded from award counts; combined record retains both original lines using white-space:pre-line. Mazzei empty trailing spacer remains in raw backup, not counted as an achievement.",
+    "summary": {
+      "rosterEntries": 25,
+      "verifiedCurrentIdentities": 24,
+      "totalInstalled": 24,
+      "newInstalledAcrossRollout": 22,
+      "priorUntouched": 2,
+      "deferred": 0,
+      "excludedPlaceholder": 1,
+      "legacyBlocksMigrated": 104
+    },
+    "viewportNote": "Browser zoom required physical429px override to measure actual CSS innerWidth390px. Final measurements confirm actual390px; earlier355px harness attempt superseded."
+  }
 }
