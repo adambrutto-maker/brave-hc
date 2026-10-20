@@ -14,6 +14,9 @@ sys.dont_write_bytecode=True
 sys.path.insert(0,str(Path(__file__).resolve().parent))
 import hockeyos_feed_adapter_review as adapter
 
+FEED_BASENAME="261017_HTO_Verified_GameLevel_Skater_Attendance.json"
+FEED_DIRECTORY="261016_HTO_Widget_Phase0"
+
 class CollectorHold(ValueError):
     pass
 
@@ -52,6 +55,18 @@ def safe_json_path(value):
     if path.exists() and not path.is_file():
         raise CollectorHold("REGULAR_JSON_FILE_REQUIRED")
     return path
+
+def bound_output(output_path,operational_root):
+    if operational_root is None:raise CollectorHold("EXPLICIT_OPERATIONAL_ROOT_REQUIRED")
+    root=Path(operational_root)
+    if not root.is_absolute() or not root.is_dir():raise CollectorHold("EXISTING_ABSOLUTE_OPERATIONAL_ROOT_REQUIRED")
+    for part in (root,*root.parents):
+        if part.is_symlink() or (hasattr(os.path,"isjunction") and os.path.isjunction(part)):
+            raise CollectorHold("LINK_OR_JUNCTION_ROOT_REFUSED")
+    target=safe_json_path(output_path)
+    if target!=root/FEED_DIRECTORY/FEED_BASENAME:
+        raise CollectorHold("OUTPUT_NOT_ALLOWLISTED_UNDER_ROOT")
+    return target
 
 def current_bytes(path):
     safe_json_path(path)
@@ -113,11 +128,11 @@ def validate_feed(payload):
     if payload.get("sourceReadback")!=payload.get("observationStartedAt"):
         raise CollectorHold("SOURCE_READBACK_MUST_BE_OBSERVATION_START")
 
-def write_feed(payload,output_path,expected_sha=None,expected_absent=False,lock_path=None):
+def write_feed(payload,output_path,expected_sha=None,expected_absent=False,lock_path=None,operational_root=None):
     """Atomic feed replacement with verified backup; caller owns activation decision."""
     validate_feed(payload)
     data=serialize(payload) # serialization failure occurs before any filesystem mutation
-    path=safe_json_path(output_path)
+    path=bound_output(output_path,operational_root)
     backup=None;backup_sha=None
     with OutputLock(path,lock_path):
         old=expected_state(path,expected_sha,expected_absent)
@@ -138,8 +153,10 @@ def write_feed(payload,output_path,expected_sha=None,expected_absent=False,lock_
             "schema":payload["schema"],"sourceReadback":payload["sourceReadback"],
             "workbookWritten":False,"publisherUpdated":False}
 
-def rollback_feed(output_path,expected_current_sha,backup_path,expected_backup_sha,lock_path=None):
-    path=safe_json_path(output_path);backup=safe_json_path(backup_path)
+def rollback_feed(output_path,expected_current_sha,backup_path,expected_backup_sha,lock_path=None,operational_root=None):
+    path=bound_output(output_path,operational_root);backup=safe_json_path(backup_path)
+    if backup.parent!=path.parent or not backup.name.startswith(path.stem+".backup-"):
+        raise CollectorHold("BACKUP_NOT_BOUND_TO_OUTPUT")
     if path==backup:raise CollectorHold("DISTINCT_BACKUP_REQUIRED")
     if not re.fullmatch("[0-9a-fA-F]{64}",expected_backup_sha or ""):
         raise CollectorHold("INVALID_BACKUP_SHA256")
@@ -159,6 +176,7 @@ def main(argv=None):
     mode.add_argument("--check-only",action="store_true")
     mode.add_argument("--write-feed",action="store_true")
     parser.add_argument("--output-path")
+    parser.add_argument("--operational-root")
     expected=parser.add_mutually_exclusive_group()
     expected.add_argument("--expected-current-sha")
     expected.add_argument("--expected-absent",action="store_true")
@@ -166,13 +184,13 @@ def main(argv=None):
     args=parser.parse_args(argv)
     if args.write_feed:
         if not args.output_path:raise CollectorHold("WRITE_OUTPUT_PATH_REQUIRED")
-        path=safe_json_path(args.output_path)
+        path=bound_output(args.output_path,args.operational_root)
         expected_state(path,args.expected_current_sha,args.expected_absent)
-    elif args.output_path or args.expected_current_sha or args.expected_absent or args.lock_path:
+    elif args.output_path or args.expected_current_sha or args.expected_absent or args.lock_path or args.operational_root:
         raise CollectorHold("WRITE_ARGUMENTS_REQUIRE_WRITE_FEED")
     payload=verified_feed()
     if args.write_feed:
-        print(json.dumps(write_feed(payload,args.output_path,args.expected_current_sha,args.expected_absent,args.lock_path)),flush=True)
+        print(json.dumps(write_feed(payload,args.output_path,args.expected_current_sha,args.expected_absent,args.lock_path,args.operational_root)),flush=True)
     else:
         print(json.dumps({"state":"CHECK_ONLY_SOURCE_VERIFIED","feed":payload,"feedWritten":False}),flush=True)
     return 0
