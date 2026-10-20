@@ -10,6 +10,8 @@ on:
       - 'tests/lib/hockeyos_sync_freshness.js'
       - 'tests/test_hockeyos_sync_freshness.js'
       - 'tests/lib/hockeyos_sync_batch_readiness.js'
+      - 'tests/lib/hockeyos_saved_table_expansion_preflight.js'
+      - 'tests/test_hockeyos_saved_table_expansion_preflight.js'
       - 'tests/test_hockeyos_sync_batch_readiness.js'
       - '.github/workflows/hockeyos-sync-preflight-qa.yml'
   workflow_dispatch:
@@ -29,4 +31,4 @@ jobs:
         with:
           node-version: '22'
       - name: Run synthetic source-integrity and no-write tests
-        run: node --test tests/test_hockeyos_award_sync_preflight.js tests/test_hockeyos_stage_manifest_adapter.js tests/test_hockeyos_sync_freshness.js tests/test_hockeyos_sync_batch_readiness.js
+        run: node --test tests/test_hockeyos_award_sync_preflight.js tests/test_hockeyos_stage_manifest_adapter.js tests/test_hockeyos_sync_freshness.js tests/test_hockeyos_sync_batch_readiness.js tests/test_hockeyos_saved_table_expansion_preflight.js
