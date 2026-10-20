@@ -11,6 +11,7 @@ on:
       - 'widgets/awards-weekly-history.json'
       - 'widgets/awards-workbook-reference.json'
       - 'widgets/awards-component-evidence.json'
+      - 'widgets/awards-attribute-contracts.json'
       - 'widgets/awards-participants.json'
       - 'widgets/awards-source-readiness.json'
       - 'widgets/awards-operational-publication.json'
