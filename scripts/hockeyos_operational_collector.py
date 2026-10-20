@@ -28,7 +28,13 @@ def serialize(payload):
 
 def verified_feed():
     """Only live reviewed collection can enter the operational contract."""
-    source=adapter.adapt_review(adapter.observe_discovery())
+    captured={}
+    def capture(url):
+        html=adapter.review.fetch_html(url)
+        captured[url]=html
+        return html
+    source=adapter.adapt_review(adapter.observe_discovery(fetch=capture))
+    source["sourceEvidence"]["observedStats"]=observed_stats(captured)
     if (source.get("schema")!="brave-hc-hto-operational-contract-candidate/v1" or
         source.get("sourceContentIdentityVerified") is not True or
         source.get("allGamesDiscovered") is not True or
@@ -41,6 +47,64 @@ def verified_feed():
                   sourceValidationState="PASS_COMPLETE_FIELDS_WITH_EXPLICIT_UNKNOWNS",
                   releaseState="OPERATIONAL_SOURCE_FEED_NOT_AWARD_CALCULATION")
     return output
+
+def observed_stats(captured):
+    """Keep actual parsed observations, not parity counts alone."""
+    review=adapter.review;candidate=adapter.candidate
+    result={"games":{}}
+    for gid in candidate.GAME_MAP:
+        url=f"https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID={gid}&p=boxscore"
+        tables=review.parse_tables(captured[url])
+        board=review.unique_table(tables,lambda h:h and h[0]=="REGULAR SEASON")
+        team=[r for r in board[1:] if r and r[0]=="Brave H.C."]
+        opponents=[r for r in board[1:] if r and r[0]!="Brave H.C." and r[-1].isdigit()]
+        if len(team)!=1 or len(opponents)!=1:raise CollectorHold("AMBIGUOUS_OBSERVED_SCOREBOARD")
+        result["games"][str(gid)]={"skaters":review.unique_table(tables,lambda h:h[:3]==["No","Name","POS"]),
+                                  "goalies":review.unique_table(tables,lambda h:h[:2]==["No","Name"] and "GP" in h),
+                                  "GF":int(team[0][-1]),"GA":int(opponents[0][-1])}
+    tables=review.parse_tables(captured[candidate.STATS_URL])
+    result["skaterSeason"]=review.unique_table(tables,lambda h:h[:3]==["No","Name","POS"] and "GP" in h)
+    result["goalieSeason"]=review.unique_table(tables,lambda h:h[:2]==["No","Name"] and "GP" in h and "GA" in h)
+    return result
+
+def validate_observed_feed(payload):
+    review=adapter.review;candidate=adapter.candidate
+    observed=payload["sourceEvidence"]["observedStats"]
+    if set(observed["games"])!={str(gid) for gid in candidate.GAME_MAP}:
+        raise CollectorHold("OBSERVED_GAME_SET_MISMATCH")
+    allsk=[];allgo=[]
+    for game in payload["games"]:
+        gid=game["htoGameId"];facts=observed["games"][str(gid)]
+        sk=review.helper.skater_rows(facts["skaters"],verified_team_goals=facts["GF"])
+        go=review.helper.goalie_rows(facts["goalies"])
+        review.helper.check_game_observations(hto_game_id=gid,official_goals_for=facts["GF"],
+                                              official_goals_against=facts["GA"],skaters=sk,goalies=go)
+        expected_sk=[{"name":p["name"],"no":p["jerseyNo"],"position":p["listedPosition"],"gp":p["gameAppearance"],
+                      **{k:p[k] for k in ("g","a","pts","potg","plusminus","pim")}} for p in sk]
+        expected_go=[{"name":p["name"],"no":p["jerseyNo"],**{k:p[k] for k in ("gp","losses","potg","goalsAgainst")}} for p in go]
+        if (set(game)!={"htoGameId","workbookGameNumber","date","teamGoals","teamGoalsAgainst","sourceUrl","skaters","goalies"} or
+            game["skaters"]!=expected_sk or game["goalies"]!=expected_go or
+            type(game["teamGoals"]) is not int or type(game["teamGoalsAgainst"]) is not int or
+            game["teamGoals"]!=facts["GF"] or game["teamGoalsAgainst"]!=facts["GA"]):
+            raise CollectorHold("GAME_ROWS_NOT_OBSERVED_SOURCE_VALUES")
+        # Equality alone would treat bool as int; reject noninteger scalar stats explicitly.
+        for player in game["skaters"]:
+            for key in ("gp","g","a","pts","potg","plusminus"):
+                if type(player[key]) is not int:raise CollectorHold("INVALID_SKATER_SCALAR")
+            if player["pim"] is not None and type(player["pim"]) is not int:
+                raise CollectorHold("INVALID_SKATER_PIM")
+        allsk.extend(sk);allgo.extend(go)
+    computed={"skaters":review.compare_season(observed["skaterSeason"],allsk,review.SKATER_FIELDS),
+              "goalies":review.compare_season(observed["goalieSeason"],allgo,review.GOALIE_FIELDS)}
+    if computed!=payload["missingStatFields"]["seasonParity"] or any(v["discrepancies"] for v in computed.values()):
+        raise CollectorHold("SOURCE_SEASON_PARITY_EVIDENCE_MISMATCH")
+    if (type(payload.get("teamGP")) is not int or payload["teamGP"]!=len(payload["games"]) or
+        type(payload.get("teamG")) is not int or payload["teamG"]!=sum(p["g"] for p in allsk) or
+        type(payload.get("teamA")) is not int or payload["teamA"]!=sum(p["a"] for p in allsk) or
+        payload["missingStatFields"].get("skaterPIMUnknownRows")!=sum(p["pim"] is None for p in allsk)):
+        raise CollectorHold("TEAM_TOTALS_NOT_OBSERVED_SOURCE_VALUES")
+    if adapter.discovery.season_team_games(observed["skaterSeason"])!=payload["teamGP"]:
+        raise CollectorHold("SOURCE_TEAM_GAME_COUNT_MISMATCH")
 
 def safe_json_path(value):
     path=Path(value)
@@ -141,6 +205,7 @@ def validate_feed(payload):
               "seasonProvenance":payload["sourceEvidence"]["season"],
               "gameProvenance":payload["sourceEvidence"]["games"]}
     adapter.adapt_review(envelope)
+    validate_observed_feed(payload)
 
 
 def write_feed(payload,output_path,expected_sha=None,expected_absent=False,lock_path=None,operational_root=None):
