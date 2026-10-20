@@ -1,0 +1,40 @@
+{
+  "date": "2026-10-20",
+  "source": "Public HTO current roster and native profile Highlights inventory; each editor must separately confirm empty before save",
+  "originalHTML": "",
+  "players": [
+    [
+      "Nolan Atkins",
+      769343
+    ],
+    [
+      "Adam Carlyle",
+      849369
+    ],
+    [
+      "Henry Kong",
+      846200
+    ],
+    [
+      "Damian Pavaday",
+      849368
+    ],
+    [
+      "Adam Povegliano",
+      844036
+    ],
+    [
+      "Sanjay Rajkumar",
+      845365
+    ],
+    [
+      "Jamie Rosenberg",
+      843644
+    ],
+    [
+      "Francesco Triumbari",
+      845364
+    ]
+  ],
+  "rollback": "Restore empty Highlights source only; never change Bio or stats."
+}
