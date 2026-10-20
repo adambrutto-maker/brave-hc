@@ -1,0 +1,265 @@
+{
+  "status": "AUDIT_COMPLETE_WITH_SOURCE_HOLDS_NATIVE_NOT_EDITED",
+  "coverage": {
+    "seasons": 18,
+    "boxscores": 370,
+    "statBearingBoxscores": 362,
+    "defaultsForfeits": 8,
+    "gameEntries": 70,
+    "milestones": 98,
+    "seasonPlayerTables": 731
+  },
+  "supportedProposals": [
+    {
+      "type": "GAME_VALUE",
+      "playerID": "354046",
+      "name": "Ryan Logue",
+      "category": "Summer - Points",
+      "original": "4 - Ryan Logue (June 2, 2013)",
+      "proposedValue": "3",
+      "date": "June 2, 2013",
+      "sources": [
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=966428&archTog=1"
+      ],
+      "status": "SUPPORTED_PROPOSAL_NATIVE_NOT_EDITED"
+    },
+    {
+      "type": "GAME_VALUE",
+      "playerID": "354046",
+      "name": "Ryan Logue",
+      "category": "Summer - Points",
+      "original": "3 - Ryan Logue (June 9, 2013)",
+      "proposedValue": "4",
+      "date": "June 9, 2013",
+      "sources": [
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=966432&archTog=1"
+      ],
+      "status": "SUPPORTED_PROPOSAL_NATIVE_NOT_EDITED"
+    },
+    {
+      "type": "MILESTONE_DATE",
+      "playerID": "354045",
+      "name": "Mario Provenzano",
+      "category": "200 Game Club",
+      "original": "10 - Mario Provenzano (March 17, 2024)",
+      "proposedDate": "2024-03-24",
+      "totalOnOriginalDate": 199,
+      "threshold": 200,
+      "totalBeforeProposedDate": 199,
+      "totalOnProposedDate": 200,
+      "sources": [
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=2071757&archTog=1"
+      ],
+      "status": "SUPPORTED_PROPOSAL_NATIVE_NOT_EDITED"
+    },
+    {
+      "type": "MILESTONE_DATE",
+      "playerID": "354054",
+      "name": "Adam Brutto",
+      "category": "300 Game Club",
+      "original": "1 - Adam Brutto (December 29, 2024)",
+      "proposedDate": "2025-01-05",
+      "totalOnOriginalDate": 299,
+      "threshold": 300,
+      "totalBeforeProposedDate": 299,
+      "totalOnProposedDate": 300,
+      "sources": [
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=2148150&archTog=1"
+      ],
+      "status": "SUPPORTED_PROPOSAL_NATIVE_NOT_EDITED"
+    },
+    {
+      "type": "MILESTONE_DATE",
+      "playerID": "354055",
+      "name": "Stephen Logue",
+      "category": "50 Game Club",
+      "original": "1 - Stephen Logue (July 20, 2014)",
+      "proposedDate": "2014-07-27",
+      "totalOnOriginalDate": 49,
+      "threshold": 50,
+      "totalBeforeProposedDate": 49,
+      "totalOnProposedDate": 50,
+      "sources": [
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1100308&archTog=1"
+      ],
+      "status": "SUPPORTED_PROPOSAL_NATIVE_NOT_EDITED"
+    },
+    {
+      "type": "MILESTONE_DATE",
+      "playerID": "354060",
+      "name": "Justin Carosi",
+      "category": "300 Point Club",
+      "original": "1 - Justin Carosi (January 7, 2024)",
+      "proposedDate": "2024-01-14",
+      "totalOnOriginalDate": 299.0,
+      "threshold": 300,
+      "totalBeforeProposedDate": 299.0,
+      "totalOnProposedDate": 300.0,
+      "sources": [
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=2071747&archTog=1"
+      ],
+      "status": "SUPPORTED_PROPOSAL_NATIVE_NOT_EDITED"
+    },
+    {
+      "type": "MILESTONE_DATE",
+      "playerID": "356089",
+      "name": "Stefano Ardizzi",
+      "category": "200 Game Club",
+      "original": "9 - Stefano Ardizzi (January 28, 2024)",
+      "proposedDate": "2024-02-04",
+      "totalOnOriginalDate": 199,
+      "threshold": 200,
+      "totalBeforeProposedDate": 199,
+      "totalOnProposedDate": 200,
+      "sources": [
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=2071750&archTog=1"
+      ],
+      "status": "SUPPORTED_PROPOSAL_NATIVE_NOT_EDITED"
+    },
+    {
+      "type": "MILESTONE_DATE",
+      "playerID": "399966",
+      "name": "Ryan Finlay",
+      "category": "50 Game Club",
+      "original": "27 - Ryan Finlay (December 8, 2024)",
+      "proposedDate": "2024-12-15",
+      "totalOnOriginalDate": 49,
+      "threshold": 50,
+      "totalBeforeProposedDate": 49,
+      "totalOnProposedDate": 50,
+      "sources": [
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=2148147&archTog=1"
+      ],
+      "status": "SUPPORTED_PROPOSAL_NATIVE_NOT_EDITED"
+    },
+    {
+      "type": "MILESTONE_DATE",
+      "playerID": "595514",
+      "name": "Stefano Mazzei",
+      "category": "50 Game Club",
+      "original": "28 - Stefano Mazzei (December 15, 2024)",
+      "proposedDate": "2024-12-22",
+      "totalOnOriginalDate": 49,
+      "threshold": 50,
+      "totalBeforeProposedDate": 49,
+      "totalOnProposedDate": 50,
+      "sources": [
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=2148148&archTog=1"
+      ],
+      "status": "SUPPORTED_PROPOSAL_NATIVE_NOT_EDITED"
+    },
+    {
+      "type": "MILESTONE_DATE",
+      "playerID": "612364",
+      "name": "Mark Arruda",
+      "category": "50 Game Club",
+      "original": "25 - Mark Arruda (March 3, 2024)",
+      "proposedDate": "2024-03-10",
+      "totalOnOriginalDate": 49,
+      "threshold": 50,
+      "totalBeforeProposedDate": 49,
+      "totalOnProposedDate": 50,
+      "sources": [
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=2071755&archTog=1"
+      ],
+      "status": "SUPPORTED_PROPOSAL_NATIVE_NOT_EDITED"
+    },
+    {
+      "type": "MILESTONE_DATE",
+      "playerID": "634098",
+      "name": "Andrew Cristillo",
+      "category": "50 Game Club",
+      "original": "24 - Andrew Cristillo (December 3, 2023)",
+      "proposedDate": "2023-12-10",
+      "totalOnOriginalDate": 49,
+      "threshold": 50,
+      "totalBeforeProposedDate": 49,
+      "totalOnProposedDate": 50,
+      "sources": [
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=2071744&archTog=1"
+      ],
+      "status": "SUPPORTED_PROPOSAL_NATIVE_NOT_EDITED"
+    },
+    {
+      "type": "MILESTONE_DATE",
+      "playerID": "700877",
+      "name": "Krishnan Rajasooriar",
+      "category": "50 Game Club",
+      "original": "29 - Krishnan Rajasooriar (December 21, 2025)",
+      "proposedDate": "2026-01-04",
+      "totalOnOriginalDate": 48,
+      "threshold": 50,
+      "totalBeforeProposedDate": 49,
+      "totalOnProposedDate": 50,
+      "sources": [
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=2215004&archTog=1"
+      ],
+      "status": "SUPPORTED_PROPOSAL_NATIVE_NOT_EDITED"
+    },
+    {
+      "type": "MILESTONE_DATE",
+      "playerID": "738846",
+      "name": "Stephane Saindon",
+      "category": "50 Game Club",
+      "original": "26 - Stephane Saindon (October 27, 2024)",
+      "proposedDate": "2024-11-03",
+      "totalOnOriginalDate": 49,
+      "threshold": 50,
+      "totalBeforeProposedDate": 49,
+      "totalOnProposedDate": 50,
+      "sources": [
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=2148141&archTog=1"
+      ],
+      "status": "SUPPORTED_PROPOSAL_NATIVE_NOT_EDITED"
+    },
+    {
+      "type": "SEASON_VALUE",
+      "playerID": "354061",
+      "name": "Mark Pastore",
+      "category": "Summer - Shorthanded Goals",
+      "scope": "Season 2016",
+      "originalValue": 1,
+      "proposedValue": 2,
+      "sources": [
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1442292&archTog=1"
+      ],
+      "status": "SUPPORTED_PROPOSAL_NATIVE_NOT_EDITED"
+    }
+  ],
+  "holds": [
+    {
+      "topic": "Stephen Logue Winter 2013/14 playoff GAA",
+      "recordBook": 1.33,
+      "publishedSeason": 1.5,
+      "disposition": "DO_NOT_REPLACE_WITH_1.50",
+      "reason": "Published goalie totals show 9 GA / 6 GP, but Apr 6 overtime boxscore 1046561 is a 1-0 win with one GA entered against Logue. Excluding the contradicted goal produces 8/6 = 1.33. Resolve native game-stat conflict before GAA certification."
+    },
+    {
+      "topic": "Marco Congiusti Winter 2026/27 GP",
+      "disposition": "SOURCE_CONFLICT",
+      "reason": "Season total is 1 GP; no matching appearance in four published current-season boxscores."
+    },
+    {
+      "topic": "Goalie source GA conflicts",
+      "disposition": "SOURCE_REPAIR_REVIEW",
+      "dates": [
+        "2023-02-26",
+        "2018-04-15",
+        "2014-04-06"
+      ]
+    },
+    {
+      "topic": "GAA record eligibility",
+      "disposition": "POLICY_UNDEFINED",
+      "reason": "No minimum GP/minutes/workload rule adopted."
+    },
+    {
+      "topic": "Team records and historical leadership",
+      "disposition": "SEPARATE_AUDIT_NOT_CERTIFIED",
+      "reason": "This audit covers the existing individual record entries and dated milestones."
+    }
+  ],
+  "unlistedOverallGameHighs": 0,
+  "optionalPlayoffGameCategoryCandidates": 12,
+  "nativeHTOChanges": 0
+}
