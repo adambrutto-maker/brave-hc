@@ -732,6 +732,166 @@
       "originalCount": 7,
       "legacyStatus": "IMPORT_FROM_CURRENT_PUBLIC_HTO_NO_NEW_AWARD_APPROVAL"
     },
+    "354058": {
+      "name": "Alex Pagnotta",
+      "profileUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=354058",
+      "items": [
+        {
+          "id": "hto-legacy-354058-01",
+          "category": "milestone",
+          "sourceText": "300 Game Club - September 28, 2025",
+          "displayText": "300 Game Club - September 28, 2025",
+          "sourceEmphasis": false,
+          "sourceOrder": 0,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354058-02",
+          "category": "award",
+          "sourceText": "James Norris Award - Winter 2024/25",
+          "displayText": "James Norris Award - Winter 2024/25",
+          "sourceEmphasis": false,
+          "sourceOrder": 1,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354058-03",
+          "category": "award",
+          "sourceText": "Bill Masterton Award for Decidation - Winter 2022/23",
+          "displayText": "Bill Masterton Award for Decidation - Winter 2022/23",
+          "sourceEmphasis": false,
+          "sourceOrder": 2,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354058-04",
+          "category": "record",
+          "sourceText": "James Norris Award - Winter 2019/20\nElected Assistant Captain - Winter 2019/20",
+          "displayText": "James Norris Award - Winter 2019/20\nElected Assistant Captain - Winter 2019/20",
+          "sourceEmphasis": false,
+          "sourceOrder": 3,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD",
+          "preserveLines": true,
+          "includesAward": true
+        },
+        {
+          "id": "hto-legacy-354058-05",
+          "category": "milestone",
+          "sourceText": "100 Point Club - November 24, 2019",
+          "displayText": "100 Point Club - November 24, 2019",
+          "sourceEmphasis": false,
+          "sourceOrder": 4,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354058-06",
+          "category": "milestone",
+          "sourceText": "200 Game Club - January 27, 2019",
+          "displayText": "200 Game Club - January 27, 2019",
+          "sourceEmphasis": false,
+          "sourceOrder": 5,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354058-07",
+          "category": "award",
+          "sourceText": "James Norris Award - Winter 2016/17",
+          "displayText": "James Norris Award - Winter 2016/17",
+          "sourceEmphasis": false,
+          "sourceOrder": 6,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354058-08",
+          "category": "championship",
+          "sourceText": "SVHL Cup Champion - Summer 2016",
+          "displayText": "SVHL Cup Champion - Summer 2016",
+          "sourceEmphasis": true,
+          "sourceOrder": 7,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354058-09",
+          "category": "award",
+          "sourceText": "James Norris Award - Summer 2016",
+          "displayText": "James Norris Award - Summer 2016",
+          "sourceEmphasis": false,
+          "sourceOrder": 8,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354058-10",
+          "category": "milestone",
+          "sourceText": "50 Point Club - May 15, 2016",
+          "displayText": "50 Point Club - May 15, 2016",
+          "sourceEmphasis": false,
+          "sourceOrder": 9,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354058-11",
+          "category": "championship",
+          "sourceText": "SVHL Cup Champion - Winter 2015/16",
+          "displayText": "SVHL Cup Champion - Winter 2015/16",
+          "sourceEmphasis": true,
+          "sourceOrder": 10,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354058-12",
+          "category": "milestone",
+          "sourceText": "100 Game Club - December 20, 2015",
+          "displayText": "100 Game Club - December 20, 2015",
+          "sourceEmphasis": false,
+          "sourceOrder": 11,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354058-13",
+          "category": "award",
+          "sourceText": "James Norris Award - Summer 2015",
+          "displayText": "James Norris Award - Summer 2015",
+          "sourceEmphasis": false,
+          "sourceOrder": 12,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354058-14",
+          "category": "milestone",
+          "sourceText": "50 Game Club - August 17, 2014",
+          "displayText": "50 Game Club - August 17, 2014",
+          "sourceEmphasis": false,
+          "sourceOrder": 13,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354058-15",
+          "category": "award",
+          "sourceText": "James Norris Award - Winter 2014/15",
+          "displayText": "James Norris Award - Winter 2014/15",
+          "sourceEmphasis": false,
+          "sourceOrder": 14,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        }
+      ],
+      "originalCount": 15,
+      "legacyStatus": "IMPORT_FROM_CURRENT_PUBLIC_HTO_NO_NEW_AWARD_APPROVAL"
+    },
     "354060": {
       "name": "Justin Carosi",
       "profileUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=354060",
@@ -990,6 +1150,134 @@
       "originalCount": 25,
       "legacyStatus": "IMPORT_FROM_CURRENT_PUBLIC_HTO_NO_NEW_AWARD_APPROVAL"
     },
+    "356089": {
+      "name": "Stefano Ardizzi",
+      "profileUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=356089",
+      "items": [
+        {
+          "id": "hto-legacy-356089-01",
+          "category": "milestone",
+          "sourceText": "200 Game Club - February 4, 2024",
+          "displayText": "200 Game Club - February 4, 2024",
+          "sourceEmphasis": false,
+          "sourceOrder": 0,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-356089-02",
+          "category": "milestone",
+          "sourceText": "100 Point Club - March 10, 2019",
+          "displayText": "100 Point Club - March 10, 2019",
+          "sourceEmphasis": false,
+          "sourceOrder": 1,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-356089-03",
+          "category": "milestone",
+          "sourceText": "100 Game Club - April 2, 2017",
+          "displayText": "100 Game Club - April 2, 2017",
+          "sourceEmphasis": false,
+          "sourceOrder": 2,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-356089-04",
+          "category": "championship",
+          "sourceText": "SVHL Cup Champion - Summer 2016",
+          "displayText": "SVHL Cup Champion - Summer 2016",
+          "sourceEmphasis": true,
+          "sourceOrder": 3,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-356089-05",
+          "category": "milestone",
+          "sourceText": "50 Point Club - February 21, 2016",
+          "displayText": "50 Point Club - February 21, 2016",
+          "sourceEmphasis": false,
+          "sourceOrder": 4,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-356089-06",
+          "category": "championship",
+          "sourceText": "SVHL Cup Champion - Winter 2015/16",
+          "displayText": "SVHL Cup Champion - Winter 2015/16",
+          "sourceEmphasis": true,
+          "sourceOrder": 5,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-356089-07",
+          "category": "award",
+          "sourceText": "Most Improved Award - Summer 2015",
+          "displayText": "Most Improved Award - Summer 2015",
+          "sourceEmphasis": false,
+          "sourceOrder": 6,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-356089-08",
+          "category": "discipline",
+          "sourceText": "3 Game Suspension (Roughing Major) - Summer 2015",
+          "displayText": "3 Game Suspension (Roughing Major) - Summer 2015",
+          "sourceEmphasis": false,
+          "sourceOrder": 7,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-356089-09",
+          "category": "award",
+          "sourceText": "Most Improved Award - Winter 2014/15",
+          "displayText": "Most Improved Award - Winter 2014/15",
+          "sourceEmphasis": false,
+          "sourceOrder": 8,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-356089-10",
+          "category": "milestone",
+          "sourceText": "50 Game Club - March 22, 2015",
+          "displayText": "50 Game Club - March 22, 2015",
+          "sourceEmphasis": false,
+          "sourceOrder": 9,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-356089-11",
+          "category": "award",
+          "sourceText": "Most Improved Award - Summer 2014",
+          "displayText": "Most Improved Award - Summer 2014",
+          "sourceEmphasis": false,
+          "sourceOrder": 10,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-356089-12",
+          "category": "award",
+          "sourceText": "Most Improved Award - Winter 2013/14",
+          "displayText": "Most Improved Award - Winter 2013/14",
+          "sourceEmphasis": false,
+          "sourceOrder": 11,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        }
+      ],
+      "originalCount": 12,
+      "legacyStatus": "IMPORT_FROM_CURRENT_PUBLIC_HTO_NO_NEW_AWARD_APPROVAL"
+    },
     "586425": {
       "name": "Lorcan Duffy",
       "profileUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=586425",
@@ -1036,6 +1324,44 @@
         }
       ],
       "originalCount": 4,
+      "legacyStatus": "IMPORT_FROM_CURRENT_PUBLIC_HTO_NO_NEW_AWARD_APPROVAL"
+    },
+    "595514": {
+      "name": "Stefano Mazzei",
+      "profileUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=595514",
+      "items": [
+        {
+          "id": "hto-legacy-595514-01",
+          "category": "award",
+          "sourceText": "Rolaids Relief Man Award - Winter 2024/25",
+          "displayText": "Rolaids Relief Man Award - Winter 2024/25",
+          "sourceEmphasis": false,
+          "sourceOrder": 0,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-595514-02",
+          "category": "milestone",
+          "sourceText": "50 Game Club - December 22, 2024",
+          "displayText": "50 Game Club - December 22, 2024",
+          "sourceEmphasis": false,
+          "sourceOrder": 1,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-595514-03",
+          "category": "discipline",
+          "sourceText": "4 Game Suspension (Fighting) - Winter 2018/19",
+          "displayText": "4 Game Suspension (Fighting) - Winter 2018/19",
+          "sourceEmphasis": false,
+          "sourceOrder": 2,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        }
+      ],
+      "originalCount": 3,
       "legacyStatus": "IMPORT_FROM_CURRENT_PUBLIC_HTO_NO_NEW_AWARD_APPROVAL"
     },
     "686216": {
