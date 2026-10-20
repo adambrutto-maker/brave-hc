@@ -4,7 +4,7 @@ const $=(t,c,v)=>{const e=document.createElement(t);if(c)e.className=c;if(v!==un
 const find=id=>document.getElementById(id);
 const put=(id,v)=>find(id).textContent=String(v);
 const DOM={select:find("award"),region:find("scores"),notice:find("notice"),pilot:find("pilot"),info:find("award-info")};
-const state={source:null,reference:null,explain:null,participation:null,weeklyHistory:null,operationalEvidence:null,readiness:null,award:"rolaids",mode:"current"};
+const state={source:null,reference:null,explain:null,participation:null,weeklyHistory:null,operationalEvidence:null,readiness:null,attributeContracts:null,award:"rolaids",mode:"current"};
 if(new URLSearchParams(location.search).has("embed"))document.body.classList.add("embed");
 function badge(v){if(v>=95)return["elite","Elite"];if(v>=85)return["contender","Contender"];if(v>=75)return["strong","Strong"];if(v>=65)return["developing","Building"];return["neutral","Rating"]}
 function el(p,t,c,v){const n=$(t,c,v);p.append(n);return n}
@@ -102,10 +102,19 @@ function operationalPublicationReady(data,race){
 function currentComponents(row,race){
  const evidence=row?.verifiedComponentEvidence;
  const history=state.explain,participants=state.participation;
- // Rolaids is the only award whose complete original component field/weight
- // contract has been source-captured. Other awards need their own attested
- // contract; do not invent weights or render source-unverified attributes.
- if(state.award!=="rolaids"||history?.schema!=="brave-hc-awards-component-evidence/v1"
+ const registry=state.attributeContracts;
+ const contract=registry?.awards?.[state.award];
+ // A distinct original-workbook field and weight contract is required for
+ // EVERY award. Other awards stay held until their own original source rules
+ // have been independently captured. Never borrow Rolaids's role weights.
+ if(registry?.schema!=="brave-hc-awards-attribute-contract-registry/v1"
+    ||registry.sourceWorkbookAuthoritySha256!==state.source.sourceWorkbookHash
+    ||registry.season!==state.source.season
+    ||registry.status!=="HISTORICAL_SOURCE_RULES_WITH_UNVERIFIED_CURRENT_SCORE_COMPONENTS"
+    ||registry.releaseAuthorized!==false
+    ||contract?.status!=="HISTORICAL_ORIGINAL_FIELDS_AND_WEIGHTS_MAPPED_CURRENT_OVR_HELD"
+    ||contract.originalFormulaPairsVerifiedHistorically!==true
+    ||history?.schema!=="brave-hc-awards-component-evidence/v1"
     ||history.status!=="HISTORICAL_NOT_CURRENT_AWARD_RACE"
     ||history.sourceWorkbookHash!==state.source.sourceWorkbookHash
     ||!evidence||row.scoreKind!=="OFFICIAL_WORKBOOK_FINAL"||row.eligible!==true
@@ -126,9 +135,9 @@ function currentComponents(row,race){
  const isGoalie=roster[0].position==="Goalie";
  const role=isGoalie?"goalie":"skater";
  const expectedRole=isGoalie?"Goaltender":"Skater";
- const expected=history.roleWeights?.[role];
+ const expected=contract.roleWeights?.[role];
  if(evidence.sourceRole!==expectedRole||!Array.isArray(expected)
-    ||expected.length!==(isGoalie?10:11)
+    ||expected.length<2||expected.length>20
     ||evidence.components.length!==expected.length
     ||(isGoalie?roster[0].role!=="G":roster[0].role==="G"))return null;
  const contract=new Map();
@@ -740,6 +749,12 @@ async function boot(){
  const [source,reference,explain,participation]=await Promise.all(["./awards-races.json","./awards-workbook-reference.json","./awards-component-evidence.json","./awards-participants.json"].map(async url=>{const r=await fetch(url,{cache:"no-store"});if(!r.ok)throw Error("source "+url);return r.json()}));
  if(source.schema!=="brave-hc-awards-races-weekly/v1"||reference.schema!=="brave-hc-awards-workbook-reference/v1"||explain.schema!=="brave-hc-awards-component-evidence/v1"||source.awards.length!==11||participation.schema!=="brave-hc-awards-participants/v1"||participation.season!==source.season||participation.officialTeamGames!==source.currentTeamGP)throw Error("contract");
  state.source=source;state.reference=reference;state.explain=explain;state.participation=participation;
+ try{
+  const cr=await fetch("./awards-attribute-contracts.json",{cache:"no-store"});
+  if(cr.ok){const registry=await cr.json();
+   if(registry?.schema==="brave-hc-awards-attribute-contract-registry/v1")
+    state.attributeContracts=registry;}
+ }catch(_err){state.attributeContracts=null;}
  try{
   const review=await fetch("./awards-source-readiness.json",{cache:"no-store"});
   if(review.ok)state.readiness=await review.json();
