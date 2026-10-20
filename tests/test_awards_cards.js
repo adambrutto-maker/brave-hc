@@ -36,11 +36,13 @@ const api=sandbox.__awardsQA;
 const awards=JSON.parse(fs.readFileSync(path.join(widgets,'awards-races.json'),'utf8'));
 const ref=JSON.parse(fs.readFileSync(path.join(widgets,'awards-workbook-reference.json'),'utf8'));
 const evidence=JSON.parse(fs.readFileSync(path.join(widgets,'awards-component-evidence.json'),'utf8'));
+const contracts=JSON.parse(fs.readFileSync(path.join(widgets,'awards-attribute-contracts.json'),'utf8'));
 const history=JSON.parse(fs.readFileSync(path.join(widgets,'awards-weekly-history.json'),'utf8'));
 const participants=JSON.parse(fs.readFileSync(path.join(widgets,'awards-participants.json'),'utf8'));
 api.state.source=awards;
 api.state.reference=ref;
 api.state.explain=evidence;
+api.state.attributeContracts=contracts;
 api.state.weeklyHistory=history;
 api.state.participation=participants;
 const readiness=JSON.parse(fs.readFileSync(path.join(widgets,'awards-source-readiness.json'),'utf8'));
@@ -848,3 +850,92 @@ test('held Awards page shows dated source explanation separately from HTO statis
   assert.equal(region.children.length,0);
  }finally{api.state.award=old;api.state.readiness=before;region.children=[];}
 });
+
+test('all 11 award-specific attribute slots are declared but only historical Rolaids field rules are mapped',()=>{
+ const ids=awards.awards.map(a=>a.id);
+ assert.equal(contracts.schema,'brave-hc-awards-attribute-contract-registry/v1');
+ assert.equal(contracts.sourceWorkbookAuthoritySha256,awards.sourceWorkbookHash);
+ assert.equal(contracts.season,awards.season);
+ assert.equal(contracts.releaseAuthorized,false);
+ assert.equal(contracts.sourceModelScoreRecalculated,false);
+ assert.deepEqual(Object.keys(contracts.awards).sort(),ids.sort());
+ for(const id of ids){
+  const def=contracts.awards[id];
+  assert.ok(def);
+  if(id==='rolaids'){
+   assert.equal(def.status,'HISTORICAL_ORIGINAL_FIELDS_AND_WEIGHTS_MAPPED_CURRENT_OVR_HELD');
+   assert.equal(def.roleWeights.skater.length,11);
+   assert.equal(def.roleWeights.goalie.length,10);
+   for(const role of ['skater','goalie']){
+    assert.deepEqual(def.roleWeights[role],evidence.roleWeights[role]);
+   }
+  }else{
+   assert.equal(def.status,'HOLD_ORIGINAL_ATTRIBUTE_FORMULAS_NOT_MAPPED');
+   assert.equal(def.originalFormulaPairsVerifiedHistorically,false);
+   assert.deepEqual(def.roleWeights,{});
+  }
+ }
+});
+
+test('Rolaids cannot use changed registry source weights even if components are tampered to match',()=>withVerifiedRolaids(()=>{
+ const before=api.state.attributeContracts;
+ const fake=structuredClone(contracts);
+ const w=fake.awards.rolaids.roleWeights.skater;
+ w[0].weight=0.2;
+ w[1].weight=0.16;
+ const row=example();
+ row.verifiedComponentEvidence.components[0].weightPct=20;
+ row.verifiedComponentEvidence.components[0].unroundedWeightedContribution=18;
+ row.verifiedComponentEvidence.components[1].weightPct=16;
+ row.verifiedComponentEvidence.components[1].unroundedWeightedContribution=14.4;
+ try{
+  api.state.attributeContracts=fake;
+  assert.equal(api.currentComponents(row,sourceRace),null);
+ }finally{api.state.attributeContracts=before;}
+}));
+
+test('a synthetic non-Rolaids award displays attributes only with a distinct source-matched model contract',()=>withVerifiedRolaids(()=>{
+ const oldRegistry=api.state.attributeContracts,oldExplain=api.state.explain,oldAward=api.state.award;
+ try{
+  api.state.award='hart';
+  const fakeRegistry=structuredClone(contracts);
+  fakeRegistry.awards.hart={
+    status:'HISTORICAL_ORIGINAL_FIELDS_AND_WEIGHTS_MAPPED_CURRENT_OVR_HELD',
+    originalFormulaPairsVerifiedHistorically:true,
+    roleWeights:{skater:[
+      {field:'QA_HART_FAKE_IMPACT',weight:0.6},
+      {field:'QA_HART_FAKE_CLUTCH',weight:0.4}
+    ]}
+  };
+  const fakeEvidence=structuredClone(evidence);
+  fakeEvidence.awardRoleWeights={hart:{skater:structuredClone(fakeRegistry.awards.hart.roleWeights.skater)}};
+  fakeEvidence.componentFormulas.QA_HART_FAKE_IMPACT={
+    internalFormula:'FICTIONAL_QA_ONLY(PlayerInfo[Impact])',
+    displayFormula:'FICTIONAL_QA_ONLY(60)'};
+  fakeEvidence.componentFormulas.QA_HART_FAKE_CLUTCH={
+    internalFormula:'FICTIONAL_QA_ONLY(PlayerInfo[Clutch])',
+    displayFormula:'FICTIONAL_QA_ONLY(40)'};
+  const row=example();
+  row.verifiedComponentEvidence.awardId='hart';
+  row.verifiedComponentEvidence.components=[
+    {abbreviation:'IMPACT',sourceField:'QA_HART_FAKE_IMPACT',webComponentScore:80,weightPct:60,unroundedWeightedContribution:48},
+    {abbreviation:'CLUTCH',sourceField:'QA_HART_FAKE_CLUTCH',webComponentScore:95,weightPct:40,unroundedWeightedContribution:38}
+  ];
+  api.state.attributeContracts=fakeRegistry;api.state.explain=fakeEvidence;
+  assert.equal(api.currentComponents(row,sourceRace).length,2);
+  delete fakeEvidence.awardRoleWeights.hart;
+  assert.equal(api.currentComponents(row,sourceRace),null,'a registry alone cannot invent original Hart formula weights');
+ }finally{api.state.attributeContracts=oldRegistry;api.state.explain=oldExplain;api.state.award=oldAward;}
+}));
+
+test('an award with no original source mapping cannot display an arbitrary two-score card',()=>withVerifiedRolaids(()=>{
+ const prior=api.state.award,priorRegistry=api.state.attributeContracts;
+ try{
+  api.state.award='norris';
+  const row=example();row.verifiedComponentEvidence.awardId='norris';
+  assert.equal(api.currentComponents(row,sourceRace),null);
+  api.state.attributeContracts=null;
+  api.state.award='rolaids';
+  assert.equal(api.currentComponents(example(),sourceRace),null);
+ }finally{api.state.award=prior;api.state.attributeContracts=priorRegistry;}
+}));
