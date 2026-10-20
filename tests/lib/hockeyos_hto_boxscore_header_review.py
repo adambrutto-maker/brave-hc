@@ -10,6 +10,7 @@ Skater score columns can be after another decorative blank column, so
 fixed positional G/A/PTS detection is invalid.
 """
 from __future__ import annotations
+import re
 
 class BoxscoreSchemaHold(ValueError):
     pass
@@ -47,7 +48,7 @@ def _value(row, index, field, allow_signed=False):
     if not isinstance(t,str):
         _fail("NON_TEXT_PLAYER_CELL:"+field)
     stripped = t.strip()
-    if not stripped or stripped.lstrip("-").isdigit() is False:
+    if not re.fullmatch(r"[+-]?\d+" if allow_signed else r"\d+", stripped):
         _fail("NON_NUMERIC_PLAYER_CELL:"+field)
     number=int(stripped)
     if number<0 and not allow_signed:
@@ -83,6 +84,8 @@ def skater_rows(table, *, verified_team_goals):
     for row in table[1:]:
         if len(row)!=len(table[0]):
             _fail("SKATER_ROW_LENGTH_DRIFT")
+        if row[columns["Name"]]=="Team Stats":
+            continue
         name=_player_identity(row,columns)
         if blanks and row[blanks[0]].strip():
             _fail("NONEMPTY_DECORATIVE_SKATER_CELL")
@@ -113,6 +116,8 @@ def goalie_rows(table):
     for row in table[1:]:
         if len(row)!=len(table[0]):
             _fail("GOALIE_ROW_LENGTH_DRIFT")
+        if row[columns["Name"]]=="Team Stats":
+            continue
         name=_player_identity(row,columns)
         if blanks and row[blanks[0]].strip():
             _fail("NONEMPTY_DECORATIVE_GOALIE_CELL")
