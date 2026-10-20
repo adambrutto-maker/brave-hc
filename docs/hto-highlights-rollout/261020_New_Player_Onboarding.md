@@ -19,3 +19,9 @@ Rollback: replace only the matching player's Highlights Source with the exact re
 ## Legacy records beyond achievements
 
 Existing suspension notes use the neutral `discipline` category and NOTE badge; they never count as awards. Combined award/leadership paragraphs use `record`, `preserveLines: true` and their exact line-separated text; `includesAward: true` is permitted only when the backed-up original explicitly contains an award. Keep the original paragraph grouping and line break. Preserve all raw editor HTML before migration. Empty spacer paragraphs remain in the raw backup and are not achievements. Verify all rendered records against the original before and after the HTO save.
+
+## All-player rollout completion — 2026-10-20
+
+The verified registry contains109 named profiles:24 current and85 historical. Historical status is retained; registration does not imply current-roster membership. Johnny Unknown847926 and generic Rènt Goaliê548071 remain excluded. See [all-player register](261020_All_Players_Final_Register.md).
+
+For mixed bold/italic or multi-line source paragraphs, use validated `sourceRuns` with literal `text`, boolean `strong` and boolean `italic`; joined run text must equal `displayText`. Keep original paragraph grouping. `summaryCounts` for championships, awards and milestones must reflect explicit source lines only. Never evaluate raw editor HTML in the widget or infer a new achievement. Validate each rendered text run and style against the full backed-up Source before and after the HTO save. Empty spacer paragraphs stay in raw backups, not the achievements count.
