@@ -466,6 +466,7 @@ function candidateOperationalAttestation(){
  const source=structuredClone(awards);
  source.sourceWorkbookRecordedGP=source.currentTeamGP;
  source.seasonRaceMode.currentModelScoresVerified=true;
+ source.sourceHTOReadback='2026-10-20T15:30:00Z';
  return {source,attestation:{
   schema:'brave-hc-awards-operational-workbook-recalculation/v1',
   status:'COMPLETE_SOURCE_FORMULA_REPLAY_REVIEW_CANDIDATE',
@@ -556,4 +557,14 @@ test('stale HTO and future observation dates fail closed even with claimed full 
   const result=operationalProvenanceGate.assess(source,attestation,now);
   assert.ok(result.holds.includes('INDEPENDENT_OFFICIAL_HTO_FRESHNESS_UNVERIFIED'));
  }
+});
+
+test('a fresh claimed HTO readback cannot override the older actual Awards feed timestamp',()=>{
+ const {source,attestation}=candidateOperationalAttestation();
+ source.sourceHTOReadback='2026-10-19T03:55:10.771Z';
+ const result=operationalProvenanceGate.assess(
+  source,attestation,'2026-10-20T16:00:00Z');
+ assert.equal(result.status,'HOLD_OPERATIONAL_MODEL_EVIDENCE');
+ assert.ok(result.holds.includes('OFFICIAL_HTO_READBACK_NOT_BOUND_TO_AWARDS_DATA'));
+ assert.equal(result.scoresAuthorized,false);
 });
