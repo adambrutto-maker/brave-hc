@@ -72,6 +72,7 @@ function evaluate(manifest){
  if(errors.length)return {status:'FAIL_CLOSED',errors,holds:[],writeAuthorized:false};
  const gameById=new Map(),gameNumbers=new Set();
  for(const g of games){
+  if(!g||typeof g!=='object') {errors.push('Invalid HTO game entry');continue;}
   if(!Number.isInteger(g.htoId)||g.htoId<=0||gameById.has(g.htoId))
    errors.push('Invalid/duplicate official HTO game ID');
   if(!Number.isInteger(g.workbookGameNumber)||g.workbookGameNumber<=0||gameNumbers.has(g.workbookGameNumber))
@@ -88,7 +89,7 @@ function evaluate(manifest){
  if(games.length!==completedGames)errors.push('Game source count does not match completed HTO GP');
  const current=new Map(),perGameGoalies=new Map(),statsTotal={G:0,A:0,Pts:0,PIM:0,goalieGA:0,skaters:0,goalies:0,goaliePOTGUnknown:0};
  for(const r of rows){
-  if(!r||!ROLE.has(r.table)||!Number.isInteger(r.workbookGameNumber)
+  if(!r||typeof r!=='object'||!ROLE.has(r.table)||!Number.isInteger(r.workbookGameNumber)
       ||!Number.isInteger(r.htoGameId)||typeof r.name!=='string'||!r.name.trim()||INVALID_NAME.test(r.name)){
    errors.push('Invalid or unidentified player-game row');continue;
   }
@@ -116,12 +117,15 @@ function evaluate(manifest){
   errors.push('Goalie GA disagree with verified HTO game GA');
  const baseline=new Map();
  for(const r of cachedRows){
-  if(!r||!ROLE.has(r.table)||!Number.isInteger(r.workbookGameNumber)||typeof r.name!=='string'||!r.name.trim()){
+  if(!r||typeof r!=='object'||!ROLE.has(r.table)||!Number.isInteger(r.workbookGameNumber)||typeof r.name!=='string'||!r.name.trim()){
    errors.push('Invalid original cached game-row identity');continue;
   }
   if(baseline.has(key(r)))errors.push('Duplicate saved source workbook key '+key(r));
   baseline.set(key(r),r);
  }
+ // Malformed or missing source facts are a hard hold, not a script exception.
+ if(errors.length)return {status:'FAIL_CLOSED',errors,holds:['Source-integrity validation failed'],
+  writeAuthorized:false,workbookModified:false,liveHTOContacted:false};
  const recordDecisions=[];
  for(const r of rows){
   if(!current.has(key(r)))continue;
