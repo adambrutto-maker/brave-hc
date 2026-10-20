@@ -1,12 +1,19 @@
 name: Brave H.C. public goalie widget browser QA
 on:
   workflow_dispatch:
+  workflow_run:
+    workflows:
+      - Save Brave H.C. goalie request
+      - Confirm Brave H.C. Goaltender
+    types: [completed]
+    branches: [main]
   schedule:
     - cron: '47 11 * * *'
 permissions:
   contents: read
 jobs:
   public-smoke:
+    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     timeout-minutes: 6
     steps:
