@@ -95,3 +95,30 @@ operations must not be circumvented.
 
 **Outcome: all 11 award-source explanations available for review; 0/11
 official current-season model scores independently released.**
+
+## Browser and CI verification added later on October 20
+
+A separate, local, disposable review checkout on BRUTTECH 1 was served to
+headless Chromium via a loopback-only HTTP server. This was **not the
+public website**, and it did not connect to the original Master Workbook.
+
+| Browser check | Mobile 390px | Desktop 1280px |
+|---|---:|---:|
+| All 11 held-award source explanation panels | 11/11 | 11/11 |
+| Art Ross HTO raw points watch | 5 players | 5 players |
+| Rocket Richard HTO raw goals watch | 4 players | 4 players |
+| Historical Rolaids OVR example accessible | PASS | PASS |
+| Horizontal page overflow | 0px | 0px |
+| Browser script errors | 0 | 0 |
+
+No official 2026/27 award scores were shown in the held mode. The
+source-specific explanation is evidence dated October 19, **not a live HTO
+readback**.
+
+The PR's `.github/workflows/awards-cards-qa.yml` now includes
+`widgets/awards-source-readiness.json`,
+`widgets/awards-operational-publication.json` and
+`scripts/hockeyos_awards_*.js` in its review-triggered path list. A
+future change to the release-blocking data or its audit code must trigger
+the regression suite. This is a CI check, **not authenticated independent
+review or Founder publication approval**.
