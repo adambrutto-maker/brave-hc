@@ -12,3 +12,7 @@ Evidence:
 - `261020_Corrected_Record_Book.jpg` — public-page screenshot of Adam Brutto's corrected 300-game milestone.
 
 The reconciliation audit remains available in PR #27. Its original not-edited status describes the pre-implementation audit; this completion receipt records the subsequent authorized application.
+
+## Subsequent coverage qualification — team audit
+
+The team audit found four played Summer 2013 games with goalie statistics but no skater statistics (May 5, July 21, July 28 and August 11). The earlier milestone date reconciliation therefore certifies agreement with HTO's published individual ledger, not independently complete lifetime appearances or points. Recently changed dates for Mario Provenzano's 200 GP, Adam Brutto's 300 GP and Justin Carosi's 300 points are flagged for additional source review because these players appear in Summer 2013 skater season tables. This does not prove that they played or scored in a missing-data game. No dates have been reversed and no participation has been invented. See the team-audit handoff on branch audit/team-record-book-20261020.
