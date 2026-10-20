@@ -30,6 +30,10 @@ on:
         description: 'Required to SAVE: goalie currently recorded in the published assignments'
         required: false
         type: string
+      change_reason:
+        description: 'For SAVE: NO_CHANGE, NEW_BOOKING, GOALIE_UNAVAILABLE, MANAGER_CORRECTION, SCHEDULE_CHANGE, BOOKING_CHANGE'
+        required: false
+        type: string
       dry_run:
         description: 'Test selection without saving'
         required: true
@@ -66,6 +70,7 @@ jobs:
           DRY_RUN: ${{ inputs.dry_run }}
           FIXTURE_SIGNATURE: ${{ inputs.fixture_signature }}
           EXPECTED_GOALIE: ${{ inputs.expected_goalie }}
+          CHANGE_REASON: ${{ inputs.change_reason }}
         run: |
           python - <<'PY'
           import os
@@ -74,7 +79,8 @@ jobs:
                '--goalie',os.environ['GOALIE'],'--custom-name',os.environ.get('CUSTOM_GOALIE_NAME',''),
                '--actor',os.environ['MANAGER'],
                '--fixture-signature',os.environ.get('FIXTURE_SIGNATURE',''),
-               '--expected-goalie',os.environ.get('EXPECTED_GOALIE','')]
+               '--expected-goalie',os.environ.get('EXPECTED_GOALIE',''),
+               '--change-reason',os.environ.get('CHANGE_REASON','')]
           if os.environ.get('DRY_RUN','true')=='true':
               cmd.append('--dry-run')
           else:
@@ -90,11 +96,13 @@ jobs:
           CUSTOM_NAME: ${{ inputs.custom_goalie_name }}
           FIXTURE_SIGNATURE: ${{ inputs.fixture_signature }}
           EXPECTED_GOALIE: ${{ inputs.expected_goalie }}
+          CHANGE_REASON: ${{ inputs.change_reason }}
         run: |
           git fetch origin main
           python scripts/verify_goalie_push.py --game-key "$GAME_KEY" \
             --goalie "$GOALIE" --custom-name "$CUSTOM_NAME" \
-            --fixture-signature "$FIXTURE_SIGNATURE" --expected-goalie "$EXPECTED_GOALIE"
+            --fixture-signature "$FIXTURE_SIGNATURE" --expected-goalie "$EXPECTED_GOALIE" \
+            --change-reason "$CHANGE_REASON"
           if git diff --quiet -- widgets/goalie-assignments.json; then
             echo "No goalie changes to commit"
             exit 0
@@ -113,6 +121,7 @@ jobs:
           CUSTOM_NAME: ${{ inputs.custom_goalie_name }}
           FIXTURE_SIGNATURE: ${{ inputs.fixture_signature }}
           EXPECTED_GOALIE: ${{ inputs.expected_goalie }}
+          CHANGE_REASON: ${{ inputs.change_reason }}
           MANAGER: ${{ github.actor }}
         run: |
           git fetch origin main
