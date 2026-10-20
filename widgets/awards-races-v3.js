@@ -103,7 +103,7 @@ function currentComponents(row,race){
  const evidence=row?.verifiedComponentEvidence;
  const history=state.explain,participants=state.participation;
  const registry=state.attributeContracts;
- const contract=registry?.awards?.[state.award];
+ const awardContract=registry?.awards?.[state.award];
  // A distinct original-workbook field and weight contract is required for
  // EVERY award. Other awards stay held until their own original source rules
  // have been independently captured. Never borrow Rolaids's role weights.
@@ -112,8 +112,8 @@ function currentComponents(row,race){
     ||registry.season!==state.source.season
     ||registry.status!=="HISTORICAL_SOURCE_RULES_WITH_UNVERIFIED_CURRENT_SCORE_COMPONENTS"
     ||registry.releaseAuthorized!==false
-    ||contract?.status!=="HISTORICAL_ORIGINAL_FIELDS_AND_WEIGHTS_MAPPED_CURRENT_OVR_HELD"
-    ||contract.originalFormulaPairsVerifiedHistorically!==true
+    ||awardContract?.status!=="HISTORICAL_ORIGINAL_FIELDS_AND_WEIGHTS_MAPPED_CURRENT_OVR_HELD"
+    ||awardContract.originalFormulaPairsVerifiedHistorically!==true
     ||history?.schema!=="brave-hc-awards-component-evidence/v1"
     ||history.status!=="HISTORICAL_NOT_CURRENT_AWARD_RACE"
     ||history.sourceWorkbookHash!==state.source.sourceWorkbookHash
@@ -135,7 +135,7 @@ function currentComponents(row,race){
  const isGoalie=roster[0].position==="Goalie";
  const role=isGoalie?"goalie":"skater";
  const expectedRole=isGoalie?"Goaltender":"Skater";
- const expected=contract.roleWeights?.[role];
+ const expected=awardContract.roleWeights?.[role];
  const savedSourceWeights=state.award==="rolaids"?
    history.roleWeights?.[role]:history.awardRoleWeights?.[state.award]?.[role];
  if(evidence.sourceRole!==expectedRole||!Array.isArray(expected)
