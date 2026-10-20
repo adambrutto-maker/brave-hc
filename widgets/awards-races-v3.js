@@ -440,6 +440,13 @@ function verifiedHTOStatWatch(id,src,d){
     ||src.verifiedSourceReadback?.independentBoxscoreParity?.gameCount!==d.currentTeamGP
     ||!Array.isArray(src.players)||!Number.isInteger(d.currentTeamGP)
     ||d.currentTeamGP<1)return null;
+ const sourceIDs=src.evidenceGameIds;
+ const boxIDs=src.verifiedSourceReadback.independentBoxscoreParity.boxscoreGameIds;
+ if(!Array.isArray(sourceIDs)||sourceIDs.length!==d.currentTeamGP
+    ||!Array.isArray(boxIDs)||boxIDs.length!==d.currentTeamGP
+    ||new Set(sourceIDs).size!==sourceIDs.length
+    ||new Set(boxIDs).size!==boxIDs.length
+    ||!sourceIDs.every(x=>Number.isInteger(x)&&x>0&&boxIDs.includes(x)))return null;
  const skaters=src.players.filter(p=>p?.position==="Skater");
  const counts=src.verifiedSourceReadback?.sourceRows;
  if(!Number.isInteger(counts?.namedSkaters)||skaters.length!==counts.namedSkaters
