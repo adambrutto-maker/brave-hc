@@ -1,7 +1,19 @@
 {
   "date": "2026-10-20",
-  "status": "IN_PROGRESS",
-  "targetHistorical": 85,
+  "status": "COMPLETE",
+  "scope": "All named current and historical BRAVESHOCKEY HTO profiles; excludes unverified/generic placeholders",
+  "counts": {
+    "adminRecords": 111,
+    "currentRecords": 25,
+    "inactiveRecords": 86,
+    "verifiedInstalled": 109,
+    "currentInstalled": 24,
+    "historicalInstalled": 85,
+    "excludedPlaceholders": 2,
+    "historicalEmptyFields": 57,
+    "historicalLegacyProfiles": 28,
+    "historicalLegacyBlocks": 161
+  },
   "completed": [
     {
       "id": "688131",
@@ -2345,16 +2357,679 @@
       "recordCount": 0,
       "sourceRunsMatch": false,
       "qa": "PASS"
+    },
+    {
+      "id": "686562",
+      "name": "Giancarlo De Luca",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=686562",
+      "parent": {
+        "bio": false,
+        "iframes": [
+          {
+            "css": "1350px",
+            "height": "1350",
+            "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=686562"
+          }
+        ],
+        "stats": true,
+        "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=686562",
+        "width": 841
+      },
+      "desktop": {
+        "height": 626,
+        "text": "BRAVE H.C. · PLAYER LEGACY\nGiancarlo De Luca\n\nHTO player #686562 · Career archive and source-verified game form\n\nExisting career achievements are preserved as published; current-season statistics are sourced separately. Awards and milestone dates require manager approval.\nVerified Current-Season Form\nNo verified current-season observation is published for this player yet. No unverified totals have been substituted.\nCareer Highlights\n\nNo approved career highlights are on file for this player yet. New profiles use the same widget and receive achievements only after a recorded, approved update.\n\nShow all highlights\nExisting awards, leadership, nominations, championships and dated milestones are imported only from the player's own published HTO Highlights. No new awards or milestone dates are invented or automatically adopted.",
+        "width": 605
+      },
+      "mobile": {
+        "clientWidth": 326,
+        "frameHeight": 1350,
+        "height": 732,
+        "width": 326
+      },
+      "mobileWidth": 390,
+      "recordCount": 0,
+      "sourceRunsMatch": false,
+      "qa": "PASS"
+    },
+    {
+      "id": "454292",
+      "name": "Aaron Carosi",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=454292",
+      "parent": {
+        "bio": false,
+        "iframes": [
+          {
+            "css": "1350px",
+            "height": "1350",
+            "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=454292"
+          }
+        ],
+        "stats": true,
+        "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=454292",
+        "width": 841
+      },
+      "desktop": {
+        "height": 626,
+        "text": "BRAVE H.C. · PLAYER LEGACY\nAaron Carosi\n\nHTO player #454292 · Career archive and source-verified game form\n\nExisting career achievements are preserved as published; current-season statistics are sourced separately. Awards and milestone dates require manager approval.\nVerified Current-Season Form\nNo verified current-season observation is published for this player yet. No unverified totals have been substituted.\nCareer Highlights\n\nNo approved career highlights are on file for this player yet. New profiles use the same widget and receive achievements only after a recorded, approved update.\n\nShow all highlights\nExisting awards, leadership, nominations, championships and dated milestones are imported only from the player's own published HTO Highlights. No new awards or milestone dates are invented or automatically adopted.",
+        "width": 605
+      },
+      "mobile": {
+        "clientWidth": 326,
+        "frameHeight": 1350,
+        "height": 732,
+        "width": 326
+      },
+      "mobileWidth": 390,
+      "recordCount": 0,
+      "sourceRunsMatch": false,
+      "qa": "PASS"
+    },
+    {
+      "id": "399966",
+      "name": "Ryan Finlay",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=399966",
+      "parent": {
+        "bio": false,
+        "iframes": [
+          {
+            "css": "1350px",
+            "height": "1350",
+            "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=399966"
+          }
+        ],
+        "stats": true,
+        "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=399966",
+        "width": 841
+      },
+      "desktop": {
+        "height": 711,
+        "text": "BRAVE H.C. · PLAYER LEGACY\nRyan Finlay\n\nHTO player #399966 · Career archive and source-verified game form\n\nExisting career achievements are preserved as published; current-season statistics are sourced separately. Awards and milestone dates require manager approval.\nVerified Current-Season Form\nNo verified current-season observation is published for this player yet. No unverified totals have been substituted.\n0\nSVHL Cup titles\n0\nRecorded awards\n2\nClub milestones\nCareer Highlights\nCLUB\n50 Point Club - December 7, 2025\nCareer milestone\nCLUB\n50 Game Club - December 15, 2024\nCareer milestone\nShow all 2 highlights\nExisting awards, leadership, nominations, championships and dated milestones are imported only from the player's own published HTO Highlights. No new awards or milestone dates are invented or automatically adopted. Imported: Oct 20, 2026 · Official HTO player profile ↗",
+        "width": 605
+      },
+      "mobile": {
+        "clientWidth": 326,
+        "frameHeight": 1350,
+        "height": 783,
+        "width": 326
+      },
+      "mobileWidth": 390,
+      "recordCount": 2,
+      "sourceRunsMatch": true,
+      "qa": "PASS"
+    },
+    {
+      "id": "382708",
+      "name": "Julian Kercz",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=382708",
+      "parent": {
+        "bio": false,
+        "iframes": [
+          {
+            "css": "1350px",
+            "height": "1350",
+            "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=382708"
+          }
+        ],
+        "stats": true,
+        "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=382708",
+        "width": 841
+      },
+      "desktop": {
+        "height": 901,
+        "text": "BRAVE H.C. · PLAYER LEGACY\nJulian Kercz\n\nHTO player #382708 · Career archive and source-verified game form\n\nExisting career achievements are preserved as published; current-season statistics are sourced separately. Awards and milestone dates require manager approval.\nVerified Current-Season Form\nNo verified current-season observation is published for this player yet. No unverified totals have been substituted.\n2\nSVHL Cup titles\n0\nRecorded awards\n2\nClub milestones\nCareer Highlights\nCUP\nSVHL Cup Champion - Summer 2016\nChampionship\nCLUB\n50 Point Club - July 10, 2016\nCareer milestone\nCUP\nSVHL Cup Champion - Winter 2015/16\nChampionship\nCLUB\n50 Game Club - December 20, 2015\nCareer milestone\nNOTE\n2 Game Suspension (Hit to the Head) - Winter 2015/16\nDisciplinary record\nShow all 5 highlights\nExisting awards, leadership, nominations, championships and dated milestones are imported only from the player's own published HTO Highlights. No new awards or milestone dates are invented or automatically adopted. Imported: Oct 20, 2026 · Official HTO player profile ↗",
+        "width": 605
+      },
+      "mobile": {
+        "clientWidth": 326,
+        "frameHeight": 1350,
+        "height": 1029,
+        "width": 326
+      },
+      "mobileWidth": 390,
+      "recordCount": 5,
+      "sourceRunsMatch": true,
+      "qa": "PASS"
+    },
+    {
+      "id": "634098",
+      "name": "Andrew Cristillo",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=634098",
+      "parent": {
+        "bio": false,
+        "iframes": [
+          {
+            "css": "1350px",
+            "height": "1350",
+            "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=634098"
+          }
+        ],
+        "stats": true,
+        "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=634098",
+        "width": 841
+      },
+      "desktop": {
+        "height": 900,
+        "text": "BRAVE H.C. · PLAYER LEGACY\nAndrew Cristillo\n\nHTO player #634098 · Career archive and source-verified game form\n\nExisting career achievements are preserved as published; current-season statistics are sourced separately. Awards and milestone dates require manager approval.\nVerified Current-Season Form\nNo verified current-season observation is published for this player yet. No unverified totals have been substituted.\n0\nSVHL Cup titles\n3\nRecorded awards\n1\nClub milestones\nCareer Highlights\nSTAR\nHall of Fame Inductee - Winter 2025/26\nRecognition\nAWD\nMost Improved Award - Winter 2023/24\nIndividual award\nCLUB\n50 Game Club - December 10, 2023\nCareer milestone\nAWD\nBill Masterton Award for Dedication - Winter 2018/19\nIndividual award\nAWD\nRookie of the Year Award - Winter 2018/19\nIndividual award\nShow all 5 highlights\nExisting awards, leadership, nominations, championships and dated milestones are imported only from the player's own published HTO Highlights. No new awards or milestone dates are invented or automatically adopted. Imported: Oct 20, 2026 · Official HTO player profile ↗",
+        "width": 605
+      },
+      "mobile": {
+        "clientWidth": 326,
+        "frameHeight": 1350,
+        "height": 1046,
+        "width": 326
+      },
+      "mobileWidth": 390,
+      "recordCount": 5,
+      "sourceRunsMatch": true,
+      "qa": "PASS"
+    },
+    {
+      "id": "612364",
+      "name": "Mark Arruda",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=612364",
+      "parent": {
+        "bio": false,
+        "iframes": [
+          {
+            "css": "1350px",
+            "height": "1350",
+            "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=612364"
+          }
+        ],
+        "stats": true,
+        "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=612364",
+        "width": 841
+      },
+      "desktop": {
+        "height": 1025,
+        "text": "BRAVE H.C. · PLAYER LEGACY\nMark Arruda\n\nHTO player #612364 · Career archive and source-verified game form\n\nExisting career achievements are preserved as published; current-season statistics are sourced separately. Awards and milestone dates require manager approval.\nVerified Current-Season Form\nNo verified current-season observation is published for this player yet. No unverified totals have been substituted.\n0\nSVHL Cup titles\n6\nRecorded awards\n3\nClub milestones\nCareer Highlights\nAWD\nJames Norris Award - Winter 2025/26\nIndividual award\nCLUB\n100 Game Club - March 15, 2026\nCareer milestone\nAWD\nLady Byng Award for Sportsmanship - Winter 2025/25\nIndividual award\nAWD\nConn Smythe Award Playoff MVP - Winter 2024/25\nIndividual award\nCLUB\n50 Point Club - March 9, 2025\nCareer milestone\nAWD\nJames Norris Award - Winter 2023/24\nIndividual award\nAWD\nRookie of the Year - Winter 2023/24\nIndividual award\nShow all 9 highlights\nExisting awards, leadership, nominations, championships and dated milestones are imported only from the player's own published HTO Highlights. No new awards or milestone dates are invented or automatically adopted. Imported: Oct 20, 2026 · Official HTO player profile ↗",
+        "width": 605
+      },
+      "mobile": {
+        "clientWidth": 326,
+        "frameHeight": 1350,
+        "height": 1133,
+        "width": 326
+      },
+      "mobileWidth": 390,
+      "recordCount": 9,
+      "sourceRunsMatch": true,
+      "qa": "PASS"
+    },
+    {
+      "id": "525407",
+      "name": "Dylan Brennan",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=525407",
+      "parent": {
+        "bio": true,
+        "iframes": [
+          {
+            "css": "1350px",
+            "height": "1350",
+            "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=525407"
+          }
+        ],
+        "stats": true,
+        "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=525407",
+        "width": 841
+      },
+      "desktop": {
+        "height": 1026,
+        "text": "BRAVE H.C. · PLAYER LEGACY\nDylan Brennan\n\nHTO player #525407 · Career archive and source-verified game form\n\nExisting career achievements are preserved as published; current-season statistics are sourced separately. Awards and milestone dates require manager approval.\nVerified Current-Season Form\nNo verified current-season observation is published for this player yet. No unverified totals have been substituted.\n1\nSVHL Cup titles\n3\nRecorded awards\n3\nClub milestones\nCareer Highlights\nAWD\nHart Award Team MVP - Winter 2018/19\nIndividual award\nAWD\nArt Ross Award (36 Points) - Winter 2018/19\nIndividual award\nCLUB\n100 Point Club - December 30, 2018\nCareer milestone\nAWD\nMaurice 'Rocket' Richard Award (14 Goals) - Winter 2018/19\nIndividual award\nCLUB\n50 Game Club - January 23, 2018\nCareer milestone\nCLUB\n50 Point Club - August 27, 2017\nCareer milestone\nCUP\nSVHL Cup Champion (Call-Up) - Summer 2016\nChampionship\nShow all 7 highlights\nExisting awards, leadership, nominations, championships and dated milestones are imported only from the player's own published HTO Highlights. No new awards or milestone dates are invented or automatically adopted. Imported: Oct 20, 2026 · Official HTO player profile ↗",
+        "width": 605
+      },
+      "mobile": {
+        "clientWidth": 326,
+        "frameHeight": 1350,
+        "height": 1171,
+        "width": 326
+      },
+      "mobileWidth": 390,
+      "recordCount": 7,
+      "sourceRunsMatch": true,
+      "qa": "PASS"
+    },
+    {
+      "id": "354059",
+      "name": "Michael Congiusti",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=354059",
+      "parent": {
+        "bio": false,
+        "iframes": [
+          {
+            "css": "1350px",
+            "height": "1350",
+            "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=354059"
+          }
+        ],
+        "stats": true,
+        "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=354059",
+        "width": 841
+      },
+      "desktop": {
+        "height": 1026,
+        "text": "BRAVE H.C. · PLAYER LEGACY\nMichael Congiusti\n\nHTO player #354059 · Career archive and source-verified game form\n\nExisting career achievements are preserved as published; current-season statistics are sourced separately. Awards and milestone dates require manager approval.\nVerified Current-Season Form\nNo verified current-season observation is published for this player yet. No unverified totals have been substituted.\n3\nSVHL Cup titles\n6\nRecorded awards\n2\nClub milestones\nCareer Highlights\nAWD\nLady Byng Award for Sportsmanship - Winter 2017/18\nIndividual award\nAWD\nLady Byng Award for Sportsmanship - Summer 2017\nIndividual award\nAWD\nLady Byng Award for Sportsmanship - Winter 2016/17\nIndividual award\nCLUB\n100 Game Club - January 15, 2017\nCareer milestone\nCUP\nSVHL Cup Champion - Summer 2016\nChampionship\nCUP\nSVHL Cup Champion - Winter 2015/16\nChampionship\nAWD\nLady Byng Award for Sportsmanship - Winter 2015/16\nIndividual award\nShow all 11 highlights\nExisting awards, leadership, nominations, championships and dated milestones are imported only from the player's own published HTO Highlights. No new awards or milestone dates are invented or automatically adopted. Imported: Oct 20, 2026 · Official HTO player profile ↗",
+        "width": 605
+      },
+      "mobile": {
+        "clientWidth": 326,
+        "frameHeight": 1350,
+        "height": 1209,
+        "width": 326
+      },
+      "mobileWidth": 390,
+      "recordCount": 11,
+      "sourceRunsMatch": true,
+      "qa": "PASS"
+    },
+    {
+      "id": "681441",
+      "name": "Chris Poleto",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=681441",
+      "parent": {
+        "bio": false,
+        "iframes": [
+          {
+            "css": "1350px",
+            "height": "1350",
+            "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=681441"
+          }
+        ],
+        "stats": true,
+        "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=681441",
+        "width": 841
+      },
+      "desktop": {
+        "height": 626,
+        "text": "BRAVE H.C. · PLAYER LEGACY\nChris Poleto\n\nHTO player #681441 · Career archive and source-verified game form\n\nExisting career achievements are preserved as published; current-season statistics are sourced separately. Awards and milestone dates require manager approval.\nVerified Current-Season Form\nNo verified current-season observation is published for this player yet. No unverified totals have been substituted.\nCareer Highlights\n\nNo approved career highlights are on file for this player yet. New profiles use the same widget and receive achievements only after a recorded, approved update.\n\nShow all highlights\nExisting awards, leadership, nominations, championships and dated milestones are imported only from the player's own published HTO Highlights. No new awards or milestone dates are invented or automatically adopted.",
+        "width": 605
+      },
+      "mobile": {
+        "clientWidth": 326,
+        "frameHeight": 1350,
+        "height": 732,
+        "width": 326
+      },
+      "mobileWidth": 390,
+      "recordCount": 0,
+      "sourceRunsMatch": false,
+      "qa": "PASS"
+    },
+    {
+      "id": "354061",
+      "name": "Mark Pastore",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=354061",
+      "parent": {
+        "bio": true,
+        "iframes": [
+          {
+            "css": "1350px",
+            "height": "1350",
+            "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=354061"
+          }
+        ],
+        "stats": true,
+        "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=354061",
+        "width": 841
+      },
+      "desktop": {
+        "height": 1026,
+        "text": "BRAVE H.C. · PLAYER LEGACY\nMark Pastore\n\nHTO player #354061 · Career archive and source-verified game form\n\nExisting career achievements are preserved as published; current-season statistics are sourced separately. Awards and milestone dates require manager approval.\nVerified Current-Season Form\nNo verified current-season observation is published for this player yet. No unverified totals have been substituted.\n2\nSVHL Cup titles\n14\nRecorded awards\n4\nClub milestones\nCareer Highlights\nSTAR\nHall of Fame Inductee - Winter 2023/24\nRecognition\nCUP\nSVHL Cup Champion - Winter 2015/16\nChampionship\nAWD\nHart Award Team MVP - Winter 2015/16\nIndividual award\nAWD\nArt Ross Award (32 Points) - Winter 2015/16\nIndividual award\nAWD\nMaurice \"Rocket\" Richard Award (16 Goals) - Winter 2015/16\nIndividual award\nCLUB\n100 Game Club - December 27, 2015\nCareer milestone\nAWD\nConn Smythe Award Playoff MVP - Summer 2015\nIndividual award\nShow all 24 highlights\nExisting awards, leadership, nominations, championships and dated milestones are imported only from the player's own published HTO Highlights. No new awards or milestone dates are invented or automatically adopted. Imported: Oct 20, 2026 · Official HTO player profile ↗",
+        "width": 605
+      },
+      "mobile": {
+        "clientWidth": 326,
+        "frameHeight": 1350,
+        "height": 1209,
+        "width": 326
+      },
+      "mobileWidth": 390,
+      "recordCount": 24,
+      "sourceRunsMatch": true,
+      "qa": "PASS"
+    },
+    {
+      "id": "354062",
+      "name": "Daniel Buzzelli",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=354062",
+      "parent": {
+        "bio": false,
+        "iframes": [
+          {
+            "css": "1350px",
+            "height": "1350",
+            "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=354062"
+          }
+        ],
+        "stats": true,
+        "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=354062",
+        "width": 841
+      },
+      "desktop": {
+        "height": 793,
+        "text": "BRAVE H.C. · PLAYER LEGACY\nDaniel Buzzelli\n\nHTO player #354062 · Career archive and source-verified game form\n\nExisting career achievements are preserved as published; current-season statistics are sourced separately. Awards and milestone dates require manager approval.\nVerified Current-Season Form\nNo verified current-season observation is published for this player yet. No unverified totals have been substituted.\n1\nSVHL Cup titles\n1\nRecorded awards\n2\nClub milestones\nCareer Highlights\nCLUB\n100 Game Club - October 30, 2022\nCareer milestone\nAWD\nMost Improved Award - Winter 2019/20\nIndividual award\nNOTE\n50 Game Club - September 23, 2018\nSVHL Cup Champion - Winter 2012/13\nHistorical record\nShow all 3 highlights\nExisting awards, leadership, nominations, championships and dated milestones are imported only from the player's own published HTO Highlights. No new awards or milestone dates are invented or automatically adopted. Imported: Oct 20, 2026 · Official HTO player profile ↗",
+        "width": 605
+      },
+      "mobile": {
+        "clientWidth": 326,
+        "frameHeight": 1350,
+        "height": 902,
+        "width": 326
+      },
+      "mobileWidth": 390,
+      "recordCount": 3,
+      "sourceRunsMatch": true,
+      "qa": "PASS"
+    },
+    {
+      "id": "354063",
+      "name": "Luke Leddy",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=354063",
+      "parent": {
+        "bio": false,
+        "iframes": [
+          {
+            "css": "1350px",
+            "height": "1350",
+            "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=354063"
+          }
+        ],
+        "stats": true,
+        "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=354063",
+        "width": 841
+      },
+      "desktop": {
+        "height": 648,
+        "text": "BRAVE H.C. · PLAYER LEGACY\nLuke Leddy\n\nHTO player #354063 · Career archive and source-verified game form\n\nExisting career achievements are preserved as published; current-season statistics are sourced separately. Awards and milestone dates require manager approval.\nVerified Current-Season Form\nNo verified current-season observation is published for this player yet. No unverified totals have been substituted.\n0\nSVHL Cup titles\n1\nRecorded awards\n0\nClub milestones\nCareer Highlights\nAWD\nRookie of the Year Award - Summer 2013\nIndividual award\nShow all 1 highlights\nExisting awards, leadership, nominations, championships and dated milestones are imported only from the player's own published HTO Highlights. No new awards or milestone dates are invented or automatically adopted. Imported: Oct 20, 2026 · Official HTO player profile ↗",
+        "width": 605
+      },
+      "mobile": {
+        "clientWidth": 326,
+        "frameHeight": 1350,
+        "height": 738,
+        "width": 326
+      },
+      "mobileWidth": 390,
+      "recordCount": 1,
+      "sourceRunsMatch": true,
+      "qa": "PASS"
+    },
+    {
+      "id": "354285",
+      "name": "Ben Sherritt",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=354285",
+      "parent": {
+        "bio": true,
+        "iframes": [
+          {
+            "css": "1350px",
+            "height": "1350",
+            "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=354285"
+          }
+        ],
+        "stats": true,
+        "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=354285",
+        "width": 841
+      },
+      "desktop": {
+        "height": 1026,
+        "text": "BRAVE H.C. · PLAYER LEGACY\nBen Sherritt\n\nHTO player #354285 · Career archive and source-verified game form\n\nExisting career achievements are preserved as published; current-season statistics are sourced separately. Awards and milestone dates require manager approval.\nVerified Current-Season Form\nNo verified current-season observation is published for this player yet. No unverified totals have been substituted.\n1\nSVHL Cup titles\n18\nRecorded awards\n5\nClub milestones\nCareer Highlights\nSTAR\nHall of Fame Inductee - Winter 2023/24\nRecognition\nAWD\nConn Smythe Award Playoff MVP - Winter 2017/18\nIndividual award\nAWD\nHart Award Team MVP - Winter 2017/18\nIndividual award\nAWD\nArt Ross Award (41 Points) - Winter 2017/18\nIndividual award\nAWD\nMaurice 'Rocket' Richard Award (27 Goals) - Winter 2017/18\nIndividual award\nCLUB\n100 Game Club - March 18, 2018\nCareer milestone\nCLUB\n200 Point Club - February 25, 2018\nCareer milestone\nShow all 28 highlights\nExisting awards, leadership, nominations, championships and dated milestones are imported only from the player's own published HTO Highlights. No new awards or milestone dates are invented or automatically adopted. Imported: Oct 20, 2026 · Official HTO player profile ↗",
+        "width": 605
+      },
+      "mobile": {
+        "clientWidth": 326,
+        "frameHeight": 1350,
+        "height": 1189,
+        "width": 326
+      },
+      "mobileWidth": 390,
+      "recordCount": 28,
+      "sourceRunsMatch": true,
+      "qa": "PASS"
+    },
+    {
+      "id": "733003",
+      "name": "Kourosh Adeli",
+      "publicURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=733003",
+      "parent": {
+        "bio": false,
+        "iframes": [
+          {
+            "css": "1350px",
+            "height": "1350",
+            "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=733003"
+          }
+        ],
+        "stats": true,
+        "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=733003",
+        "width": 841
+      },
+      "desktop": {
+        "height": 648,
+        "text": "BRAVE H.C. · PLAYER LEGACY\nKourosh Adeli\n\nHTO player #733003 · Career archive and source-verified game form\n\nExisting career achievements are preserved as published; current-season statistics are sourced separately. Awards and milestone dates require manager approval.\nVerified Current-Season Form\nNo verified current-season observation is published for this player yet. No unverified totals have been substituted.\n0\nSVHL Cup titles\n1\nRecorded awards\n0\nClub milestones\nCareer Highlights\nAWD\nLady Byng Award for Sportsmanship - Winter 2022/23\nIndividual award\nShow all 1 highlights\nExisting awards, leadership, nominations, championships and dated milestones are imported only from the player's own published HTO Highlights. No new awards or milestone dates are invented or automatically adopted. Imported: Oct 20, 2026 · Official HTO player profile ↗",
+        "width": 605
+      },
+      "mobile": {
+        "clientWidth": 326,
+        "frameHeight": 1350,
+        "height": 738,
+        "width": 326
+      },
+      "mobileWidth": 390,
+      "recordCount": 1,
+      "sourceRunsMatch": true,
+      "qa": "PASS"
+    }
+  ],
+  "hostedPreservationChecks": [
+    {
+      "id": "376086",
+      "name": "Carmine Cerrone",
+      "records": 2,
+      "pass": true
+    },
+    {
+      "id": "355501",
+      "name": "Neil Baghel",
+      "records": 2,
+      "pass": true
+    },
+    {
+      "id": "354042",
+      "name": "Lucas Brutto",
+      "records": 4,
+      "pass": true
+    },
+    {
+      "id": "652571",
+      "name": "David Corasaniti",
+      "records": 3,
+      "pass": true
+    },
+    {
+      "id": "354043",
+      "name": "Italo Brutto",
+      "records": 1,
+      "pass": true
+    },
+    {
+      "id": "533806",
+      "name": "Stephen Keane",
+      "records": 1,
+      "pass": true
+    },
+    {
+      "id": "354046",
+      "name": "Ryan Logue",
+      "records": 11,
+      "pass": true
+    },
+    {
+      "id": "453661",
+      "name": "Anthony Guerra",
+      "records": 4,
+      "pass": true
+    },
+    {
+      "id": "354047",
+      "name": "Michael Nearing",
+      "records": 1,
+      "pass": true
+    },
+    {
+      "id": "354048",
+      "name": "Eric Laliberte",
+      "records": 1,
+      "pass": true
+    },
+    {
+      "id": "354049",
+      "name": "Cameron Buchanan",
+      "records": 17,
+      "pass": true
+    },
+    {
+      "id": "763309",
+      "name": "Medi Brancatella",
+      "records": 1,
+      "pass": true
+    },
+    {
+      "id": "453662",
+      "name": "Andrew Buchanan",
+      "records": 4,
+      "pass": true
+    },
+    {
+      "id": "354050",
+      "name": "Simon Scott",
+      "records": 1,
+      "pass": true
+    },
+    {
+      "id": "354051",
+      "name": "Damian Aidemirski",
+      "records": 9,
+      "pass": true
+    },
+    {
+      "id": "354052",
+      "name": "Christopher Granicolo",
+      "records": 1,
+      "pass": true
+    },
+    {
+      "id": "426873",
+      "name": "Xav O'Krafka",
+      "records": 2,
+      "pass": true
+    },
+    {
+      "id": "399966",
+      "name": "Ryan Finlay",
+      "records": 2,
+      "pass": true
+    },
+    {
+      "id": "382708",
+      "name": "Julian Kercz",
+      "records": 5,
+      "pass": true
+    },
+    {
+      "id": "634098",
+      "name": "Andrew Cristillo",
+      "records": 5,
+      "pass": true
+    },
+    {
+      "id": "612364",
+      "name": "Mark Arruda",
+      "records": 9,
+      "pass": true
+    },
+    {
+      "id": "525407",
+      "name": "Dylan Brennan",
+      "records": 7,
+      "pass": true
+    },
+    {
+      "id": "354059",
+      "name": "Michael Congiusti",
+      "records": 11,
+      "pass": true
+    },
+    {
+      "id": "354061",
+      "name": "Mark Pastore",
+      "records": 24,
+      "pass": true
+    },
+    {
+      "id": "354062",
+      "name": "Daniel Buzzelli",
+      "records": 3,
+      "pass": true
+    },
+    {
+      "id": "354063",
+      "name": "Luke Leddy",
+      "records": 1,
+      "pass": true
+    },
+    {
+      "id": "354285",
+      "name": "Ben Sherritt",
+      "records": 28,
+      "pass": true
+    },
+    {
+      "id": "733003",
+      "name": "Kourosh Adeli",
+      "records": 1,
+      "pass": true
+    }
+  ],
+  "currentPilotRegression": [
+    {
+      "id": "354054",
+      "count": 16,
+      "mobileHeight": 1246,
+      "result": "PASS"
+    },
+    {
+      "id": "354060",
+      "count": 25,
+      "mobileHeight": 1229,
+      "result": "PASS"
     }
   ],
   "excluded": [
     {
       "id": "847926",
-      "reason": "Unverified Johnny Unknown placeholder"
+      "name": "Johnny Unknown",
+      "reason": "Unverified placeholder; no edit"
     },
     {
       "id": "548071",
-      "reason": "Generic rental goalie record"
+      "name": "Rènt Goaliê",
+      "reason": "Generic rental-goalie record, not verified as a person; no edit"
     }
+  ],
+  "reviewOnly": [
+    {
+      "id": "612364",
+      "name": "Mark Arruda",
+      "sourceText": "Lady Byng Award for Sportsmanship - Winter 2025/25",
+      "decision": "Preserved exactly; season anomaly requires separate historical correction evidence/approval."
+    }
+  ],
+  "notes": [
+    "Every historical Source field freshly rechecked against backup before save, including all57 empties.",
+    "Each saved native public profile passed identity, one1350px iframe, original Stats/Bio visibility, desktop/mobile and history/formatting checks.",
+    "Actual mobile CSS width measured after zoom-aware physical viewport override; no initial internal scrollbar/horizontal overflow.",
+    "Absent qualified current-season observations are explicitly unavailable; no zero or live stats substituted.",
+    "Two transient pre-save browser/service errors recovered within supported controls; no rollback required."
   ]
 }
