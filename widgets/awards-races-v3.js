@@ -4,7 +4,7 @@ const $=(t,c,v)=>{const e=document.createElement(t);if(c)e.className=c;if(v!==un
 const find=id=>document.getElementById(id);
 const put=(id,v)=>find(id).textContent=String(v);
 const DOM={select:find("award"),region:find("scores"),notice:find("notice"),pilot:find("pilot"),info:find("award-info")};
-const state={source:null,reference:null,explain:null,participation:null,award:"rolaids",mode:"current"};
+const state={source:null,reference:null,explain:null,participation:null,weeklyHistory:null,award:"rolaids",mode:"current"};
 if(new URLSearchParams(location.search).has("embed"))document.body.classList.add("embed");
 function badge(v){if(v>=95)return["elite","Elite"];if(v>=85)return["contender","Contender"];if(v>=75)return["strong","Strong"];if(v>=65)return["developing","Building"];return["neutral","Rating"]}
 function el(p,t,c,v){const n=$(t,c,v);p.append(n);return n}
@@ -41,18 +41,18 @@ function explainComponent(region,row,sub,reference){
  const code=sub.abbreviation;
  el(region,"h4",null,code+" · Component score");
  const score=sub.webComponentScore,wt=sub.weightPct,part=sub.unroundedWeightedContribution;
- el(region,"p",null,"Cached workbook display result: "+Number(score).toFixed(1)+" / 100. Award weighting: "+Number(wt).toFixed(0)+"%.");
+ el(region,"p",null,(reference?"Saved workbook":"Verified current workbook")+" attribute: "+Number(score).toFixed(1)+" / 100. Award weighting: "+Number(wt).toFixed(1)+"%.");
  el(region,"p","mathline",Number(score).toFixed(1)+" × "+(wt/100).toFixed(2)+" = "+Number(part).toFixed(3)+" points toward the raw composite.");
- if(sub.sourceInternalValue!==null&&sub.sourceInternalValue!==undefined){
+ if(reference&&sub.sourceInternalValue!==null&&sub.sourceInternalValue!==undefined){
   el(region,"p",null,"Saved internal calculation result: "+sub.sourceInternalValue+". The public display score is a separate workbook normalization.");
  }
  el(region,"p",null,"Source: AwardScoring → "+sub.sourceField+". "+(reference?"Historical "+(sub.sourceSnapshotSeason||"source snapshot")+".":""));
- const def=state.explain?.componentFormulas?.[sub.sourceField];
+ const def=reference?state.explain?.componentFormulas?.[sub.sourceField]:null;
  if(def?.internalFormula||def?.displayFormula){
    const details=el(region,"details","exact");el(details,"summary",null,"Inspect exact original Excel formulas");
    const pre=el(details,"pre",null,"Internal input calculation:\n"+(def.internalFormula||"Not extracted")+"\n\nPublic score conversion:\n"+(def.displayFormula||"Not extracted"));
  }
- el(region,"p","tiny","The verified extraction contains exact cached formula values, but not a revalidated, current-season event-by-event calculation.");
+ el(region,"p","tiny",reference?"Historical cached workbook component, not a current-season calculation.":"Verified same-week component. Final OVR includes the workbook eligibility, weighting and final ranking normalization; it is not a simple attribute average.");
 }
 function explainOverall(region,row,details){
  region.replaceChildren();el(region,"h4",null,"How the overall rating is built");
@@ -63,6 +63,100 @@ function explainOverall(region,row,details){
  }else el(region,"p",null,"This saved workbook includes the final published rating and the individual scorecard, but the verified raw-composite calculation has not yet been extracted for this award.");
  el(region,"p","tiny","This is a source-dated historical calculation, not a current-week 2026–27 award result.");
 }
+
+/* A final OVR is the workbook's published award rating, not the weighted
+   component average. Current attribute chips require same-week evidence. */
+function currentComponents(row,race){
+ const evidence=row?.verifiedComponentEvidence;
+ if(!evidence||row.scoreKind!=="OFFICIAL_WORKBOOK_FINAL"||row.eligible!==true
+    ||evidence.status!=="VERIFIED_CURRENT_WORKBOOK_COMPONENTS"
+    ||evidence.season!==state.source.season||evidence.awardId!==state.award
+    ||evidence.playerName!==row.name||evidence.sourceWorkbookHash!==state.source.sourceWorkbookHash
+    ||evidence.asOf!==race?.asOf||evidence.modelGameCount!==state.source.currentTeamGP
+    ||!Array.isArray(evidence.components)||evidence.components.length<1)return null;
+ const seen=new Set(),components=evidence.components;
+ if(!components.every(c=>typeof c.abbreviation==="string"&&/^[A-Z0-9%+-]{2,8}$/.test(c.abbreviation)
+    &&!seen.has(c.abbreviation)&&seen.add(c.abbreviation)
+    &&typeof c.sourceField==="string"&&c.sourceField.length>2
+    &&Number.isFinite(c.webComponentScore)&&c.webComponentScore>=0&&c.webComponentScore<=100
+    &&Number.isFinite(c.weightPct)&&c.weightPct>0&&c.weightPct<=100
+    &&Number.isFinite(c.unroundedWeightedContribution)
+    &&Math.abs(c.unroundedWeightedContribution-c.webComponentScore*c.weightPct/100)<0.03)
+    ||Math.abs(components.reduce((sum,c)=>sum+c.weightPct,0)-100)>0.01)return null;
+ return components;
+}
+/* Snapshots are a separate verified publication trail. A missing or invalid
+   baseline never becomes a fabricated movement number. */
+function previousSnapshot(race){
+ const history=state.weeklyHistory,d=state.source;
+ if(history?.schema!=="brave-hc-awards-weekly-history/v1"
+    ||history.status!=="VERIFIED_PUBLISHED_WEEKLY_SNAPSHOTS"
+    ||!Array.isArray(history.snapshots)||!race?.asOf)return null;
+ const dates=new Set();
+ const valid=history.snapshots.filter(s=>{
+  if(s?.status!=="VERIFIED_PUBLISHED_WEEKLY_RACE"||s.season!==d.season
+     ||!/^\\d{4}-\\d{2}-\\d{2}$/.test(s.publishedAsOf||"")
+     ||s.publishedAsOf>=race.asOf||dates.has(s.publishedAsOf)
+     ||!Number.isInteger(s.teamGP)||s.teamGP<1||s.teamGP>d.currentTeamGP
+     ||!(/^[a-f0-9]{64}$/i).test(s.sourceWorkbookHash||"")
+     ||!Array.isArray(s.races?.[state.award]))return false;
+  const entries=s.races[state.award],names=new Set(),ranks=new Set();
+  const validEntries=entries.length<=5&&entries.every(p=>{
+   if(typeof p?.name!=="string"||!p.name.trim()||names.has(p.name)
+      ||!Number.isInteger(p.rank)||p.rank<1||p.rank>5||ranks.has(p.rank)
+      ||p.scoreKind!=="OFFICIAL_WORKBOOK_FINAL"
+      ||!Number.isFinite(p.overallScore)||p.overallScore<50||p.overallScore>100)return false;
+   names.add(p.name);ranks.add(p.rank);return true;
+  });
+  if(validEntries)dates.add(s.publishedAsOf);
+  return validEntries;
+ });
+ return valid.sort((a,b)=>b.publishedAsOf.localeCompare(a.publishedAsOf))[0]||null;
+}
+function movement(wrapper,row,index,race){
+ if(row.scoreKind!=="OFFICIAL_WORKBOOK_FINAL"||!row.eligible||!Number.isFinite(row.modelScore))return;
+ const prior=previousSnapshot(race),band=el(wrapper,"div","weekly-movement");
+ if(!prior){
+  el(band,"span","move-muted","Weekly movement available after two verified published snapshots");
+  return;
+ }
+ const previous=prior.races[state.award].find(p=>p.name===row.name);
+ el(band,"span","move-date","vs "+prior.publishedAsOf);
+ if(!previous){el(band,"strong","move-new","NEW · first appearance on ranked shortlist");return;}
+ const diff=Number((row.modelScore-previous.overallScore).toFixed(1));
+ const diffRank=previous.rank-(index+1);
+ const scoreClass=diff>0?"move-up":diff<0?"move-down":"move-flat";
+ const rankClass=diffRank>0?"move-up":diffRank<0?"move-down":"move-flat";
+ const scoreText=(diff>0?"+":"")+diff.toFixed(1)+" OVR";
+ const rankText=diffRank>0?"▲ "+diffRank+" rank"+(diffRank===1?"":"s"):
+  diffRank<0?"▼ "+Math.abs(diffRank)+" rank"+(diffRank===-1?"":"s"):"— rank unchanged";
+ el(band,"strong",scoreClass,scoreText);
+ el(band,"strong",rankClass,rankText);
+}
+function addAttributeChips(wrapper,components,row,reference){
+ const valid=components.filter(c=>Number.isFinite(c.webComponentScore)&&typeof c.abbreviation==="string")
+  .slice().sort((a,b)=>(Number(b.weightPct)||0)-(Number(a.weightPct)||0));
+ if(!valid.length)return;
+ const addChip=(container,item)=>{
+  const btn=el(container,"button","stat-chip ea-stat");btn.type="button";
+  el(btn,"span","ea-stat-name",item.abbreviation);
+  el(btn,"strong","ea-stat-value",Number(item.webComponentScore).toFixed(1));
+  btn.setAttribute("aria-label",item.abbreviation+" "+Number(item.webComponentScore).toFixed(1)+" out of 100, weight "+Number(item.weightPct).toFixed(1)+" percent; explain");
+  const show=()=>{const region=wrapper.querySelector(".explain");region.classList.remove("hide");explainComponent(region,row,item,reference);};
+  btn.addEventListener("click",show);btn.addEventListener("focus",show);
+  btn.addEventListener("mouseenter",show);
+ };
+ const first=el(wrapper,"div","score-chips ea-attributes");
+ first.setAttribute("aria-label","Award-specific weighted player attributes");
+ valid.slice(0,6).forEach(c=>addChip(first,c));
+ if(valid.length>6){
+  const more=el(wrapper,"details","more-attributes");
+  el(more,"summary",null,"Show "+(valid.length-6)+" more weighted attributes");
+  const grid=el(more,"div","score-chips ea-attributes");
+  valid.slice(6).forEach(c=>addChip(grid,c));
+ }
+}
+
 function card(row,index,isReference){
  const score=isReference?row.score:row.modelScore;
  const kind=row.scoreKind||"";
@@ -78,19 +172,21 @@ function card(row,index,isReference){
  const valid=typeof score==="number"&&Number.isFinite(score);
  // Final eligible award ratings use public 50–100 conditional colours.
  // Raw composites and scoring-title counts are *not* equivalent ratings.
- const genuineFinal=isReference||kind==="OFFICIAL_WORKBOOK_FINAL";
- const isCount=kind==="WORKBOOK_REGULAR_SEASON_STAT_COUNT";
+ const isCount=(isReference&&["rocket","art-ross"].includes(state.award))||kind==="WORKBOOK_REGULAR_SEASON_STAT_COUNT";
+ const genuineFinal=(isReference&&!isCount)||kind==="OFFICIAL_WORKBOOK_FINAL";
  const range=valid&&genuineFinal?badge(Number(score)):["neutral",valid?"Source value":"Pending"];
  const orb=el(scoreButton,"span","orb "+range[0]);orb.style.setProperty("--value",String(valid&&genuineFinal?Math.max(0,Math.min(100,Number(score))):0));
  el(orb,"b",null,valid?(genuineFinal&&Number.isInteger(score)?score:Number(score).toFixed(isCount?0:1)):"—");
- el(orb,"span",null,isReference?"OVR":kind==="AWARD_MODEL_PENDING"?"WAIT":isCount?"STAT":genuineFinal?"OVR":"RAW");
+ el(orb,"span",null,isCount?"STAT":isReference?"OVR":kind==="AWARD_MODEL_PENDING"?"WAIT":genuineFinal?"OVR":"RAW");
  scoreButton.setAttribute("aria-label",valid?"Explain "+row.name+" "+(genuineFinal?"award rating":"source score"):"Explain why "+row.name+"'s award rating is pending");
- const low=el(wrapper,"p","rating-label",isReference?range[1]+" · saved rating":kind==="AWARD_MODEL_PENDING"?"Rating pending":isCount?"Regular-season "+(state.award==="rocket"?"goals":"points"):genuineFinal?"Workbook final rating":"Provisional raw model score");
+ const low=el(wrapper,"p","rating-label",isReference?(isCount?"Saved "+(state.award==="rocket"?"goal":"point")+" count":range[1]+" · saved rating"):kind==="AWARD_MODEL_PENDING"?"Rating pending":isCount?"Regular-season "+(state.award==="rocket"?"goals":"points"):genuineFinal?"Workbook final rating":"Provisional raw model score");
+ if(!isReference)movement(wrapper,row,index,state.source.races[state.award]);
  const region=el(wrapper,"div","explain hide");region.setAttribute("role","region");region.setAttribute("aria-live","polite");
  const toggle=fn=>{region.classList.remove("hide");fn()};
  const revealOverall=()=>{
   if(isReference){
-   explainOverall(region,row,state.explain?.races?.[state.award]?.[row.name]);
+   if(isCount){region.replaceChildren();infoPanel(region,"Verified workbook statistic","This historical result is an actual goals or points count, not a normalized 50–100 overall award score.",row.scorecard);}
+   else explainOverall(region,row,state.explain?.races?.[state.award]?.[row.name]);
   }else{
    region.replaceChildren();
    el(region,"h4",null,valid?"This season's verified model output":"Rating pending");
@@ -105,27 +201,27 @@ function card(row,index,isReference){
  scoreButton.addEventListener("focus",()=>toggle(revealOverall));
  if(isReference){
   const breakdown=state.explain?.races?.[state.award]?.[row.name];
-  if(breakdown?.components?.length){
-   const chips=el(wrapper,"div","score-chips");
-   breakdown.components.forEach(item=>{
-    const btn=el(chips,"button","stat-chip");
-    btn.type="button";
-    el(btn,"span",null,item.abbreviation);btn.append(document.createTextNode(Number(item.webComponentScore).toFixed(1)));
-    btn.setAttribute("aria-label",item.abbreviation+" score "+item.webComponentScore+"; inspect calculation");
-    btn.addEventListener("mouseenter",()=>toggle(()=>explainComponent(region,row,item,true)));
-    btn.addEventListener("focus",()=>toggle(()=>explainComponent(region,row,item,true)));
-    btn.addEventListener("click",()=>toggle(()=>explainComponent(region,row,item,true)));
-   });
-  }else if(typeof row.scorecard==="string"&&row.scorecard.trim()){
-   const chips=el(wrapper,"div","score-chips");
-   for(const found of (row.scorecard.match(/(?:PTS|CONS|ATTD|POTG|SPEC|CLUT|HEAT|2WAY|DISC|PIM|PLUS|GREL|WIN%|GAA|WINS|SHO|CAR|PLY|LONG|LEG|AST|GOAL|OFF):\s*\d+(?:\.\d+)?/g)||[]).slice(0,10)){
-    const btn=el(chips,"button","stat-chip",found);btn.type="button";
-    btn.setAttribute("aria-label","Read original workbook source for "+found);
-    btn.addEventListener("mouseenter",()=>toggle(()=>{region.replaceChildren();infoPanel(region,found,"Original workbook scorecard shows this value; its component-level source formula has not yet been verified for interactive public release.",row.scorecard)}));
-    btn.addEventListener("focus",()=>toggle(()=>{region.replaceChildren();infoPanel(region,found,"Original workbook scorecard shows this value; its component-level source formula has not yet been verified for interactive public release.",row.scorecard)}));
-    btn.addEventListener("click",()=>toggle(()=>{region.replaceChildren();infoPanel(region,found,"Original workbook scorecard shows this value; its component-level source formula has not yet been verified for interactive public release.",row.scorecard)}));
+  if(!isCount&&breakdown?.components?.length){
+   addAttributeChips(wrapper,breakdown.components,row,true);
+  }else if(!isCount&&typeof row.scorecard==="string"&&row.scorecard.trim()){
+   const found=(row.scorecard.match(/(?:PTS|CONS|ATTD|POTG|SPEC|CLUT|HEAT|2WAY|DISC|PIM|PLUS|GREL|WIN%|GAA|WINS|SHO|CAR|PLY|LONG|LEG|AST|GOAL|OFF):\\s*\\d+(?:\\.\\d+)?/g)||[]);
+   if(found.length){
+    const main=el(wrapper,"div","score-chips ea-attributes");
+    const addOriginal=(target,raw)=>{
+     const btn=el(target,"button","stat-chip ea-stat");btn.type="button";
+     const parts=raw.split(":");el(btn,"span","ea-stat-name",parts[0]);el(btn,"strong","ea-stat-value",parts[1].trim());
+     btn.setAttribute("aria-label","Inspect saved original workbook scorecard for "+raw);
+     const show=()=>{region.classList.remove("hide");region.replaceChildren();infoPanel(region,raw,"Original saved scorecard value. Component weight and formula are not verified in this example.",row.scorecard);};
+     btn.addEventListener("click",show);btn.addEventListener("focus",show);btn.addEventListener("mouseenter",show);
+    };
+    found.slice(0,6).forEach(v=>addOriginal(main,v));
+    if(found.length>6){const more=el(wrapper,"details","more-attributes");el(more,"summary",null,"Show "+(found.length-6)+" more saved attributes");const group=el(more,"div","score-chips ea-attributes");found.slice(6).forEach(v=>addOriginal(group,v));}
    }
   }
+ }else if(genuineFinal){
+  const components=currentComponents(row,state.source.races[state.award]);
+  if(components)addAttributeChips(wrapper,components,row,false);
+  else el(wrapper,"p","attributes-pending","Attribute breakdown pending same-week verified workbook evidence");
  }
  return wrapper;
 }
@@ -380,6 +476,7 @@ async function boot(){
  const [source,reference,explain,participation]=await Promise.all(["./awards-races.json","./awards-workbook-reference.json","./awards-component-evidence.json","./awards-participants.json"].map(async url=>{const r=await fetch(url,{cache:"no-store"});if(!r.ok)throw Error("source "+url);return r.json()}));
  if(source.schema!=="brave-hc-awards-races-weekly/v1"||reference.schema!=="brave-hc-awards-workbook-reference/v1"||explain.schema!=="brave-hc-awards-component-evidence/v1"||source.awards.length!==11||participation.schema!=="brave-hc-awards-participants/v1"||participation.season!==source.season||participation.officialTeamGames!==source.currentTeamGP)throw Error("contract");
  state.source=source;state.reference=reference;state.explain=explain;state.participation=participation;
+ try{const res=await fetch("./awards-weekly-history.json",{cache:"no-store"});if(res.ok){const weekly=await res.json();if(weekly?.schema==="brave-hc-awards-weekly-history/v1")state.weeklyHistory=weekly;}}catch(_err){/* History is optional, never guess a baseline. */}
  put("gp",source.currentTeamGP);
  DOM.select.replaceChildren();for(const a of source.awards){const o=$("option",null,a.name);o.value=a.id;DOM.select.append(o);}
  DOM.select.value=state.award;DOM.select.addEventListener("change",()=>{state.award=DOM.select.value;draw()});
