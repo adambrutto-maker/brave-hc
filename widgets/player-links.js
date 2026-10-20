@@ -9,7 +9,22 @@
     ['Anthony Paolucci',354057],['Damian Pavaday',849368],['Keith Pearsoll',354056],
     ['Adam Povegliano',844036],['Mario Provenzano',354045],['Michael Provenzano',686216],
     ['Krishnan Rajasooriar',700877],['Sanjay Rajkumar',845365],['Jamie Rosenberg',843644],
-    ['Stephane Saindon',738846],['Francesco Triumbari',845364],['Adam Carlyle',849369]
+    ['Stephane Saindon',738846],['Francesco Triumbari',845364],['Adam Carlyle',849369],
+    // Historical Brave H.C. alumni: unique IDs verified from public HTO seasonal
+    // player-stat profile anchors across 18 available seasons (2013-2026).
+    ['Andrew Buchanan',453662],['Andrew Pozzebon',618956],
+    ['Anthony Guerra',453661],['Ben Sherritt',354285],
+    ['Cameron Buchanan',354049],['Carmine Cerrone',376086],
+    ['Damian Aidemirski',354051],['Daniel Buzzelli',354062],
+    ['David Corasaniti',652571],['Dylan Brennan',525407],
+    ['Jeff Micheli',354053],['Julian Kercz',382708],
+    ['Kourosh Adeli',733003],['Lucas Brutto',354042],
+    ['Luke Leddy',354063],['Mark Arruda',612364],
+    ['Mark Pastore',354061],['Medi Brancatella',763309],
+    ['Michael Congiusti',354059],['Neil Baghel',355501],
+    ['Ryan Finlay',399966],['Ryan Logue',354046],
+    ['Stephen Keane',533806],['Will Cawkell',378632],
+    ["Xav O'Krafka",426873],['Zach Kercz',383322]
   ];
   const normalize = name => String(name || '').replace(/\u00a0/g, ' ').replace(/\s+/g, ' ').trim().toLocaleLowerCase('en-CA');
   const byName = new Map(), names = [];
