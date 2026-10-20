@@ -98,3 +98,13 @@ Prepared review-only tool `scripts/hockeyos_publisher_prepare_path_patches.py`. 
 **Synthetic regression: 6/6 tests PASS.** Actual patch generation against BRUTTECH 1's files was **blocked by a safety check** and has not been retried or bypassed. Therefore **there is no independently verified eleven-file real-source patch package**, and the migration is NOT ready for execution or deployment. The current Windows scheduler, source files, original workbook, GitHub main and live website remain unchanged.
 
 Next review gates: authorized source-patch generation through permitted access, attributable independent Security/QA validation of the complete dependency closure, and a separate Founder-approved clean-main task cutover with post-release source+website checks.
+
+## 2026-10-20 07:40 EDT — source-shaped migration tests strengthened
+
+The path-migration planner's initial six tests used nearly identical simplified `ROOT` fixtures even though the actual controller chain has four distinct reference types. Its test cases were updated to model all **11 previously audited runtime dependencies**, including `ROOT/`, `root/`, `BASE/`, and the direct absolute `Path(r"...")` standings destination. Additional negative tests reject a second unexpected old checkout reference or other source drift before writing any review artifact.
+
+**9/9 migration tests PASS** against these *synthetic, source-shaped fixtures*; the refreshed [GitHub Actions run 39418364863](https://github.com/adambrutto-maker/brave-hc/actions/runs/39418364863) passed. This closes a weakness in QA specificity, **not the real-source acceptance gate**.
+
+An attempt to generate the eleven inert migration patches from the actual BRUTTECH 1 source scripts was previously safety-blocked. No retry, alternative code path or unapproved write has been used. Therefore real-source patch compatibility is **still unverified**; a reviewer must inspect the approved actual scripts before any candidate migration, task change or live publisher deployment.
+
+**Reviewer action still missing:** request an attributable GitHub review from an independently controlled, suitably authorized reviewer of PR #13. No reviewer decision is currently recorded; CI and our self-authored tests are not independent acceptance.
