@@ -117,6 +117,19 @@ The manager dropdown reads [widgets/goalie-roster.json](https://github.com/adamb
 - **Verified [October 20 end-to-end browser QA run](https://github.com/adambrutto-maker/brave-hc/actions/runs/39438419532): PASS.** The same run passed HTO homepage iframe, desktop/mobile rendered game rows and the explicit source-CSS contrast safeguards.
 - No goalie assignments, player communications, HTO records, scored games, schedules or league data were changed by this QA.
 
+## Read-after-publish goalie receipt and immediate website QA (October 20)
+
+**A goalie request is not marked successful merely because GitHub completed a `git push`.** Both authorized goalie approval routes now read back `origin/main` after any real publishing attempt.
+
+- The protected [`verify_goalie_receipt.py`](https://github.com/adambrutto-maker/brave-hc/blob/main/scripts/verify_goalie_receipt.py) verifies that the remote SVHL game still has the **approved fixture signature**, the saved goalie matches the selected person, and a required schedule reconfirmation is recorded.
+- When the request **changed** a goalie, the remote `lastChange` audit must also match the prior goalie, selected goalie and authenticated approving account. A no-change same-goalie approval must still match the remote goalie and fixture.
+- The **issue-based workflow** reads back `origin/main`, generates a structured receipt containing the verified remote Git SHA, and only then comments on and closes the request. If receipt verification fails, the request stays open with an **uncertain publication** warning; managers must inspect the saved assignment and commit history before any new request.
+- The **manual GitHub fallback** uses the same verifier for `dry_run=false`. For `dry_run=true` the commit and read-back steps are skipped, so a test can never be mistaken for a live published goalie confirmation.
+- The browser QA workflow now also starts automatically after **successful completion** of either goalie approval workflow, including successful dry runs, in addition to its independent daily schedule. It checks the public manager, hosted widget, HTO iframe and desktop/mobile displayed goalie rows. Website/CDN delivery is therefore checked separately from the GitHub source-of-truth receipt.
+- The source validation was tested in [SVHL regression run 39448167720](https://github.com/adambrutto-maker/brave-hc/actions/runs/39448167720). The [read-only remote receipt preflight](https://github.com/adambrutto-maker/brave-hc/actions/runs/39448401726) passed against the existing Stephen Logue assignment and verified **no tracked file modifications**.
+- **Automated handoff proof:** [No-write goalie workflow 39448586401](https://github.com/adambrutto-maker/brave-hc/actions/runs/39448586401) succeeded with both write steps skipped, and automatically invoked [browser QA 39448617112](https://github.com/adambrutto-maker/brave-hc/actions/runs/39448617112), which passed.
+- This confirms read-back safeguards and workflow triggering; it is **not** evidence of a real changed-goalie commit under these new steps. A new goalie should only be published following an actual manager confirmation.
+
 ## Last-minute remote changes — guarded goalie publication (October 20)
 
 Both authenticated goaltender approval paths now verify the **latest remote main-branch** SVHL schedule and saved-goalie state **again immediately before a potential commit**, rather than assuming nothing has changed since checkout or initial approval.
