@@ -14,12 +14,19 @@ select{padding:9px;background:#1b405a;border:1px solid #95b4ca;color:#fff;max-wi
 button,.btn{display:inline-block;background:#ce2844;color:white;border:0;border-radius:5px;padding:9px 12px;font-weight:bold;cursor:pointer;text-decoration:none}
 button:disabled{opacity:.5;cursor:not-allowed}
 #status{padding:12px;background:#19364e;border:1px solid #536f83;border-radius:5px;color:#fff}
+#coverage{padding:13px 14px;margin-top:10px;background:#0d263c;border:1px solid #426783;border-radius:5px;color:#fff;font-weight:600}
+#coverage-filter{display:flex;flex-wrap:wrap;gap:9px;margin:12px 0 0}
+#coverage-filter button{background:#23516d;border:1px solid #7094ae}
+#coverage-filter button[aria-pressed="true"]{background:#ba2944;border:1px solid #f0b9c3}
+#games tr[hidden]{display:none!important}
 section{border-top:1px solid #35546a;margin-top:18px;padding-top:8px}
 .notice{background:#19364e;padding:10px 12px;border-radius:5px;color:#f6fcff}
 </style><script defer src="./player-links.js?v=3"></script></head><body data-hto-season="Winter_2026/2027"><main>
 <small>BRAVE H.C. · 2026–27 · GOALIE ADMINISTRATION</small><h1>Goaltender confirmations</h1>
 <p>Schedule details come from the official SVHL fixture list. Select a goalie below, then open a prefilled GitHub confirmation request. Review and submit it while signed into GitHub to publish the confirmation. No GitHub token is entered into this page.</p>
 <div id="status" role="status">Loading official league schedule and current goalie confirmations…</div>
+<div id="coverage" role="status" aria-live="polite">Calculating upcoming goaltender coverage…</div>
+<div id="coverage-filter" aria-label="Goaltender schedule filter"><button id="show-needs" type="button" aria-pressed="false">Games needing attention</button><button id="show-all" type="button" aria-pressed="true">All games</button></div>
 <div style="overflow-x:auto"><table><thead><tr><th>SVHL GAME</th><th>START / RINK</th><th>GOALIE</th><th>SAVE VIA GITHUB</th></tr></thead><tbody id="games"></tbody></table></div>
 <section>
 <h2>Publishing a goaltender confirmation</h2>
@@ -56,10 +63,36 @@ try{
  const values=new Set(options.map(x=>x.value));
  if(values.size!==options.length)throw Error('Duplicate names in verified goalie roster');
  if(!feed.games.length)throw Error('No upcoming SVHL games found');
+ const ordered=[...feed.games].sort((a,b)=>(a.date+a.time).localeCompare(b.date+b.time));
+ const needsReconfirm=game=>Boolean(game.requiresGoalieReconfirmation&&
+   (!game.fixtureSignature||(data.scheduleConfirmations||{})[game.assignmentKey]!==game.fixtureSignature)&&
+   (data.assignments[game.assignmentKey]||'TBD')!=='TBD');
+ const needsAttention=game=>(data.assignments[game.assignmentKey]||'TBD')==='TBD'||
+   needsReconfirm(game)||game.htoSyncStatus!=='MATCH';
+ const confirmed=ordered.filter(g=>(data.assignments[g.assignmentKey]||'TBD')!=='TBD'&&!needsReconfirm(g)).length;
+ const tbd=ordered.filter(g=>(data.assignments[g.assignmentKey]||'TBD')==='TBD').length;
+ const reconfirm=ordered.filter(needsReconfirm).length;
+ const mismatches=ordered.filter(g=>g.htoSyncStatus!=='MATCH').length;
+ const attention=ordered.filter(needsAttention);
+ const first=attention[0];
+ $('coverage').textContent=confirmed+'/'+ordered.length+' recorded goaltenders · '+tbd+
+   ' TBD · '+reconfirm+' requiring reconfirmation · '+mismatches+
+   ' HTO review(s). '+(first?'Next attention: '+first.date+' '+first.time+' vs '+first.opponent:
+     'All listed games have a recorded goalie and matching HTO schedule.');
+ const displayFilter=mode=>{
+   for(const row of $('games').querySelectorAll('tr')){
+     row.hidden=mode==='needs'&&row.dataset.needsAttention!=='true';
+   }
+   $('show-needs').setAttribute('aria-pressed',String(mode==='needs'));
+   $('show-all').setAttribute('aria-pressed',String(mode==='all'));
+ };
+ $('show-needs').addEventListener('click',()=>displayFilter('needs'));
+ $('show-all').addEventListener('click',()=>displayFilter('all'));
  const age=Date.now()-new Date(feed.checkedAt).getTime();
  if(!Number.isFinite(age)||age>24*3600*1000||age< -15*60*1000)throw Error('SVHL verification is stale. Request a schedule refresh before assigning a goalie.');
- for(const game of feed.games){
+ for(const game of ordered){
    const row=document.createElement('tr');
+   row.dataset.needsAttention=String(needsAttention(game));
    const col1=document.createElement('td'),col2=document.createElement('td');
    const col3=document.createElement('td'),col4=document.createElement('td');
    col1.textContent=game.date+' · '+game.opponent;
@@ -120,7 +153,7 @@ try{
    });
    col3.append(sel);col4.append(btn);row.append(col1,col2,col3,col4);$('games').append(row);
  }
- $('status').textContent=feed.games.length+' upcoming official league games loaded. Choose a goalie and use Review and confirm.';
+ $('status').textContent=ordered.length+' upcoming official SVHL games loaded. Choose a goalie and use Review and confirm. Filters only change this view and never save a selection.';
 }catch(e){$('status').textContent='Manager not ready: '+e.message;}
 })();
 </script></body></html>
