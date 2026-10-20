@@ -109,6 +109,7 @@ function evaluate(manifest){
   }
  }
  for(const g of games){
+  if(!g||typeof g!=='object')continue;
   if(perGameGoalies.get(g.htoId)!==1)errors.push('Expected one observed goaltender for HTO game '+g.htoId);
  }
  if(statsTotal.G!==games.reduce((s,g)=>s+g.GF,0))
