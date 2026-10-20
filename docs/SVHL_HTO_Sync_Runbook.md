@@ -28,6 +28,7 @@ The operating approach is **regular goalies early, rental fallback early enough 
 The existing [Goaltender Manager](https://adambrutto-maker.github.io/brave-hc/widgets/goalie-manager-v1.2.html) now displays an additional **COVERAGE PLAN** column, calculated from SVHL fixture dates and published goalie assignments. The same policy runs in [`scripts/goalie_advance_plan.py`](https://github.com/adambrutto-maker/brave-hc/blob/main/scripts/goalie_advance_plan.py) and in the existing automated readiness issue:
 
 - **Within 21 days, if goalie TBD:** `REGULAR_FIRST`. Review which of Dev/Stephen to approach for that specific game. Neither has been contacted merely because this stage appears.
+- **More than 21 days away:** `LOOKAHEAD`. Keep the future fixture visible in the Goaltender Manager without implying regular goalie outreach is already due.
 - **Within seven days, if still TBD:** `RENTAL_BACKUP`. Start preparing an approved rental contingency while trying the regular pool. This is an early planning checkpoint, **not** evidence of a rental enquiry.
 - **At or within 72 hours, still TBD:** `RENTAL_PRIORITY`. Treat obtaining fallback coverage as the immediate manager priority, with no automatic messages.
 - **At or within 36 hours, still TBD:** `GAME_DAY`. Highest urgency for manager-controlled resolution.
@@ -39,6 +40,8 @@ The [single existing advance-readiness issue](https://github.com/adambrutto-make
 **Verified QA:** [SVHL/advance-plan tests and reconciliation run 39462004438](https://github.com/adambrutto-maker/brave-hc/actions/runs/39462004438) passed, including new seven-day, 72-hour, 36-hour, 21-day-window, reconfirmation, date rollover and no-outbound tests. [Live manager/HTO browser run 39462075150](https://github.com/adambrutto-maker/brave-hc/actions/runs/39462075150) passed, comparing each displayed stage against the independent Python policy and checking the published public widget on desktop/mobile. This work makes booking needs visible earlier; it does **not** send invitations, book rentals, change goalie assignments, alter HTO or publish lineups.
 
 ## Previous fourteen-day advance goalie coverage — October 20
+
+**Historical implementation (superseded):** Use the 21-day regular-first/seven-day-rental-backup policy described immediately above for current operations. This section records the earlier 14-day prototype, not an additional live deadline.
 
 The existing single [next-game readiness review issue](https://github.com/adambrutto-maker/brave-hc/issues?q=is%3Aissue+%22next-game+readiness+review%22) now checks the verified **next 14 days** of Braves fixtures for an unassigned goalie, required goalie reconfirmation or an HTO mismatch. The traditional 36-hour next-game check still takes highest priority when that game's status requires intervention.
 
