@@ -72,3 +72,29 @@ To make repeated green-but-diverged reports inspectable without changing the Win
 The 07:31 source receipt was actually checked in private with result **`PUBLISHER_HISTORY_DIVERGED_NOT_REPAIRED`**, while confirming successful HTO ingest/game reconciliation and task exit 0. Private receipt: `261020_HockeyOS_0731_Shadow_Publisher_Health_v1.json`, located in the durable `261020_HTO_Publisher_Recovery_Review` directory on BRUTTECH 1.
 
 Expanded regression: **41 Node tests + 5 Python tests PASS** locally, including the source-feed green-but-diverged scenario, SHA drift, and no-write protection. The CLI currently runs **only on explicit review invocation**; it is **not integrated into the hourly scheduled task**, so this is a diagnostic control rather than a permanently active alert. Independent review and Founder activation remain outstanding.
+
+## 2026-10-20 07:40 EDT — full publisher dependency chain audit and migration patch planner
+
+A read-only scan of the BRUTTECH 1 HockeyOS refresh scripts identified **11 runtime-reachable Python files** which refer directly to the original publisher checkout instead of accepting a configurable publish destination. Switching only the Windows task command or the Git checkout is **insufficient**: producers and downstream Hot Stove readers would still consult the OLD divergent checkout.
+
+| Stage | Script | Target role |
+|---|---|---|
+| Projection | `261016_Publish_HTO_Driven_Workbook_Projection.py` | Git publisher |
+| Projection | `261016_Projection_HTO_Model_Bridge.py` | JSON output writer |
+| Countdown | `261019_Publish_Countdown_On_Schedule.py` | Git publisher |
+| Countdown | `261019_Export_HTO_NextGame_Countdown.py` | JSON output writer |
+| Standings / Watch | `261017_Publish_Independent_Widget.py` | Git publisher |
+| Standings | `261016_Export_SVHL_Standings_Widget.py` | Direct absolute JSON output path |
+| Watch | `261017_Export_Watch_Workbook_Verified.py` | JSON output writer |
+| Hot Stove | `261019_Build_Hot_Stove_Drafts.py` | Countdown reader |
+| Hot Stove | `261019_HotStove_Roster_Context_Draft_Build.py` | Projection reader |
+| Hot Stove | `261019_HotStove_Player_Matchup_Form.py` | Transitive projection reader |
+| Hot Stove | `261019_HotStove_Verified_Milestones.py` | Transitive watch reader |
+
+Separate static files also reference the old path, but are **not automatically proven to be part of the currently scheduled eight-stage controller**; their reachability and migration scope require deliberate review rather than global text replacement.
+
+Prepared review-only tool `scripts/hockeyos_publisher_prepare_path_patches.py`. It verifies this exact eleven-file set, checks known path shapes, compiles proposed replacements, and is designed to produce **inert `.review.patch` files with SHA-256 provenance** rather than executing or installing migrated scripts. The proposed output path uses mandatory `HOCKEYOS_PUBLISH_REPO` (no silent fallback to the old publisher). Original Git commit/push actions are NOT removed or independently approved by this path-only proposal; any future authorized script activation needs a separate serialized publisher gate.
+
+**Synthetic regression: 6/6 tests PASS.** Actual patch generation against BRUTTECH 1's files was **blocked by a safety check** and has not been retried or bypassed. Therefore **there is no independently verified eleven-file real-source patch package**, and the migration is NOT ready for execution or deployment. The current Windows scheduler, source files, original workbook, GitHub main and live website remain unchanged.
+
+Next review gates: authorized source-patch generation through permitted access, attributable independent Security/QA validation of the complete dependency closure, and a separate Founder-approved clean-main task cutover with post-release source+website checks.
