@@ -13,15 +13,18 @@ mod = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(mod)
 
 NOW=datetime(2026,10,19,21,0,tzinfo=timezone.utc)
+SIG="2026-10-25|18:15|Big Bastones|A Rink|home"
 FEED={"schema":"brave-hc-svhl-schedule/v1","checkedAt":NOW.isoformat(),"games":[
-    {"date":"2026-10-25","opponent":"Big Bastones","assignmentKey":"hto:3375682",
+    {"date":"2026-10-25","opponent":"Big Bastones","assignmentKey":"hto:3375682","fixtureSignature":SIG,
      "requiresGoalieReconfirmation":False}]}
 DATA={"schema":"brave-hc-goalie-assignments/v1","assignments":{"hto:3375682":"Stephen Logue"}}
 
 
-def request(goalie="Stephen Logue", key="hto:3375682", custom=""):
+def request(goalie="Stephen Logue", key="hto:3375682", custom="",
+            signature=SIG,expected="Stephen Logue"):
     return json.dumps({"type":mod.REQUEST_TYPE,"game_key":key,
-                       "goalie":goalie,"custom_goalie_name":custom})
+                       "goalie":goalie,"custom_goalie_name":custom,
+                       "fixture_signature":signature,"expected_goalie":expected})
 
 
 class IssueTests(unittest.TestCase):
@@ -36,6 +39,26 @@ class IssueTests(unittest.TestCase):
         out,changed=mod.apply_request(r,"adambrutto-maker","write",deepcopy(FEED),deepcopy(DATA),NOW)
         self.assertTrue(changed)
         self.assertEqual(out["lastChange"]["actor"],"adambrutto-maker")
+
+    def test_renegotiated_game_requires_new_approval(self):
+        req=mod.parse_request(mod.TITLE,request("Dev Leong"))
+        revised=deepcopy(FEED)
+        revised["games"][0]["fixtureSignature"]="2026-10-25|19:15|Big Bastones|A Rink|home"
+        with self.assertRaisesRegex(ValueError,"SVHL fixture changed"):
+            mod.apply_request(req,"adambrutto-maker","write",revised,deepcopy(DATA),NOW)
+
+    def test_earlier_goalie_change_requires_new_approval(self):
+        req=mod.parse_request(mod.TITLE,request("Dev Leong"))
+        assigned=deepcopy(DATA)
+        assigned["assignments"]["hto:3375682"]="Adam Carlyle"
+        with self.assertRaisesRegex(ValueError,"Goalie assignment changed"):
+            mod.apply_request(req,"adambrutto-maker","write",deepcopy(FEED),assigned,NOW)
+
+    def test_v1_request_rejected_to_prevent_stale_confirmations(self):
+        legacy={"type":"brave-hc-goalie-confirmation/v1","game_key":"hto:3375682",
+                "goalie":"Dev Leong","custom_goalie_name":""}
+        with self.assertRaises(ValueError):
+            mod.parse_request(mod.TITLE,json.dumps(legacy))
 
     def test_permission_block(self):
         r=mod.parse_request(mod.TITLE,request("Dev Leong"))
