@@ -32,6 +32,26 @@ def safe_goalie(option: str, custom: str) -> str:
     return option
 
 
+
+def verify_expected_state(feed: dict, data: dict, game_key: str,
+                          fixture_signature: str, expected_goalie: str) -> None:
+    """Fail closed when a proposed save is no longer the manager-reviewed state."""
+    if not isinstance(fixture_signature, str) or not 10 <= len(fixture_signature) <= 240:
+        raise ValueError("SVHL fixture revision is required before saving; review latest schedule")
+    if not isinstance(expected_goalie, str) or not 1 <= len(expected_goalie) <= 70:
+        raise ValueError("Previously displayed goalie is required before saving")
+    if feed.get("schema") != "brave-hc-svhl-schedule/v1" or not isinstance(feed.get("games"), list):
+        raise ValueError("Official SVHL schedule feed invalid")
+    matches = [g for g in feed["games"] if g.get("assignmentKey") == game_key]
+    if len(matches) != 1 or matches[0].get("fixtureSignature") != fixture_signature:
+        raise ValueError("SVHL fixture changed since selection; reload manager and re-confirm")
+    if data.get("schema") != "brave-hc-goalie-assignments/v1" or not isinstance(data.get("assignments"), dict):
+        raise ValueError("Saved goaltender data invalid")
+    current = data["assignments"].get(game_key, "TBD")
+    if current != expected_goalie:
+        raise ValueError("Goalie assignment changed since selection; reload manager and review")
+
+
 def update_assignment(feed: dict, data: dict, game_key: str, goalie: str, actor: str, now: datetime) -> tuple[dict, bool]:
     if feed.get("schema") != "brave-hc-svhl-schedule/v1" or not isinstance(feed.get("games"), list):
         raise ValueError("Official league feed is missing or invalid")
@@ -94,12 +114,17 @@ def main() -> int:
     ap.add_argument("--goalie", required=True)
     ap.add_argument("--custom-name", default="")
     ap.add_argument("--actor", default="repository editor")
+    ap.add_argument("--fixture-signature", default="")
+    ap.add_argument("--expected-goalie", default="")
     ap.add_argument("--dry-run", action="store_true")
     args = ap.parse_args()
     try:
         name = safe_goalie(args.goalie, args.custom_name)
         feed = json.loads(args.feed.read_text(encoding="utf-8"))
         data = json.loads(args.assignments.read_text(encoding="utf-8"))
+        if not args.dry_run:
+            verify_expected_state(feed, data, args.game_key,
+                                  args.fixture_signature, args.expected_goalie)
         updated, changed = update_assignment(feed, data, args.game_key, name, args.actor, datetime.now(timezone.utc))
         if changed and not args.dry_run:
             args.assignments.write_text(json.dumps(updated, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
