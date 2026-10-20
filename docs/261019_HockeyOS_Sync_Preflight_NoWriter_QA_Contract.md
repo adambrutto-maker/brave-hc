@@ -37,3 +37,17 @@ It **never converts missing goalie POTG to zero**. A null indicates unknown, and
 To run locally: `node --test tests/test_hockeyos_award_sync_preflight.js`.
 
 Review alongside [issue #10](https://github.com/adambrutto-maker/brave-hc/issues/10) for live workbook sync and [issue #9](https://github.com/adambrutto-maker/brave-hc/issues/9) for all-award formula parity.
+
+## 2026-10-20 — live freshness gate (still NO WRITER)
+
+Additional pure modules:
+- `tests/lib/hockeyos_sync_freshness.js` distinguishes an attributable official HTO readback time from local file preparation time. It checks both ages against the controlled 90-minute input window, validates timezones and impossible timestamp order, and keeps `writeAuthorized=false` even if input freshness passes.
+- `tests/lib/hockeyos_sync_batch_readiness.js` combines source parity with freshness. Any failed source parity is `SOURCE_INTEGRITY_FAIL_HOLD`; good archived parity with missing/stale HTO observation evidence is `SOURCE_PARITY_PASS_FRESHNESS_HOLD`; even a good, recent source is `INPUT_CHECKS_PASS_AWARD_FORMULA_RELEASE_HOLD` pending the separate original workbook/11-award review.
+
+The modules **do not fetch HTO or infer official readback time from a regenerated JSON file**. The caller must supply separately verified, attributable official HTO source observation evidence. Passing a client-supplied timestamp alone is not independent provenance.
+
+**Private saved-source execution:** the pre-existing, previously verified 58-record batch reconciled successfully (13 preserve, 1 correction hold, 44 missing-row candidates), but its stage timestamp was `2026-10-20T02:21:02Z` and the private combined check was run at `2026-10-20T04:52:29Z`. The stage was approximately **151 minutes old**, exceeding the 90-minute time window, and the stage manifest did not contain an independently verified current HTO readback timestamp. The combined status was therefore **`SOURCE_PARITY_PASS_FRESHNESS_HOLD`**.
+
+The private receipt is `261020_HockeyOS_Saved_Source_Freshness_Hold_Receipt_v1.json` in the existing BRUTTECH 1 staging folder. No private source bytes were committed. This HOLD applies to **the archived awards batch**, and is not a claim that the separate, existing hourly HTO refresh task has failed.
+
+The full **35-test synthetic suite** passed locally. Latest PR CI status must be verified separately. These results are not a Security sign-off or an Excel formula-recalculation gate.
