@@ -44,20 +44,37 @@ api.state.explain=evidence;
 api.state.weeklyHistory=history;
 api.state.participation=participants;
 const hash=awards.sourceWorkbookHash;
-const sourceRace={asOf:awards.latestGameDate>'2026-10-19'?awards.latestGameDate:'2026-10-19',modelGameCount:awards.currentTeamGP};
+const sourceRace={status:'VERIFIED_CURRENT_WEEK',asOf:awards.latestGameDate>'2026-10-19'?awards.latestGameDate:'2026-10-19',modelGameCount:awards.currentTeamGP};
 const playerName='QA Player Alpha (FICTIONAL)';
-function example(){
+function example(goalie=false){
+ const role=goalie?"goalie":"skater";
+ const sourcePlayer=goalie?"Svec, Matt (G)":"Rajasooriar, Krishnan";
+ const sourceFields=new Map(evidence.races.rolaids[sourcePlayer].components.map(c=>[c.sourceField,c.abbreviation]));
+ const components=evidence.roleWeights[role].map(c=>{
+  const weightPct=c.weight*100,webComponentScore=90;
+  return {abbreviation:sourceFields.get(c.field),sourceField:c.field,
+   webComponentScore,weightPct,unroundedWeightedContribution:webComponentScore*weightPct/100};
+ });
  return {name:playerName,gamesPlayed:3,eligible:true,rankKey:4,scoreKind:'OFFICIAL_WORKBOOK_FINAL',modelScore:91,
   verifiedComponentEvidence:{
-    status:'VERIFIED_CURRENT_WORKBOOK_COMPONENTS',season:'W2026/27',
-    awardId:'rolaids',playerName,sourceWorkbookHash:hash,
-    asOf:sourceRace.asOf,modelGameCount:sourceRace.modelGameCount,components:[
-     {abbreviation:'PTS',sourceField:'Total Final Pts Web Display Score',webComponentScore:90,weightPct:70,unroundedWeightedContribution:63},
-     {abbreviation:'CONS',sourceField:'Total Skater Production Consistency Web Display Score',webComponentScore:80,weightPct:30,unroundedWeightedContribution:24}
-    ]
+   status:'VERIFIED_CURRENT_WORKBOOK_COMPONENTS',season:'W2026/27',
+   awardId:'rolaids',sourceRole:goalie?'Goaltender':'Skater',
+   playerName,sourceWorkbookHash:hash,asOf:sourceRace.asOf,
+   modelGameCount:sourceRace.modelGameCount,components
   }
  };
 }
+function withVerifiedRolaids(fn,goalie=false){
+ const beforeSource=api.state.source,beforeParticipants=api.state.participation,beforeAward=api.state.award;
+ api.state.source={...awards,seasonRaceMode:{...awards.seasonRaceMode,currentModelScoresVerified:true},
+  races:{...awards.races,rolaids:sourceRace}};
+ api.state.participation={...participants,players:[...participants.players,{
+  name:playerName,gp:3,position:goalie?'Goalie':'Skater',role:goalie?'G':'CU'}]};
+ api.state.award='rolaids';
+ try{return fn();}
+ finally {api.state.source=beforeSource;api.state.participation=beforeParticipants;api.state.award=beforeAward;}
+}
+
 function snapshot(){
  return {status:'VERIFIED_PUBLISHED_WEEKLY_RACE',season:'W2026/27',teamGP:3,
   publishedAsOf:'2026-10-12',sourceWorkbookHash:'b'.repeat(64),
@@ -75,8 +92,8 @@ test('source freshness controls real award publication as future games are recor
    if(valid)assert.equal(race.modelGameCount,awards.currentTeamGP);
  }
 });
-test('same-week weighted attribute evidence passes and mismatches fail closed',()=>{
- assert.equal(api.currentComponents(example(),sourceRace).length,2);
+test('complete same-week original Rolaids attributes pass and altered inputs hold',()=>withVerifiedRolaids(()=>{
+ assert.equal(api.currentComponents(example(),sourceRace).length,11);
  for(const mutate of [
   x=>x.verifiedComponentEvidence.sourceWorkbookHash='b'.repeat(64),
   x=>x.verifiedComponentEvidence.modelGameCount=sourceRace.modelGameCount+1,
@@ -84,12 +101,16 @@ test('same-week weighted attribute evidence passes and mismatches fail closed',(
   x=>x.verifiedComponentEvidence.components[0].unroundedWeightedContribution=50,
   x=>x.verifiedComponentEvidence.asOf='2026-10-18',
   x=>x.verifiedComponentEvidence.playerName='Someone else',
+  x=>x.verifiedComponentEvidence.components.pop(),
+  x=>x.verifiedComponentEvidence.components[1].sourceField='Fictional Scoring Metric',
+  x=>x.verifiedComponentEvidence.components[1].abbreviation=x.verifiedComponentEvidence.components[0].abbreviation,
+  x=>x.verifiedComponentEvidence.sourceRole='Goaltender',
   x=>x.scoreKind='AWARD_MODEL_PENDING'
  ]){
   const x=structuredClone(example());mutate(x);
   assert.equal(api.currentComponents(x,sourceRace),null);
  }
-});
+}));
 test('known previous week yields independent OVR and ranking deltas',()=>{
  api.state.weeklyHistory={schema:'brave-hc-awards-weekly-history/v1',
   status:'VERIFIED_PUBLISHED_WEEKLY_SNAPSHOTS',snapshots:[snapshot()]};
@@ -141,17 +162,13 @@ test('all eleven awards render saved examples without pretending scoring-title c
  }
  assert.ok(cards>=30);
 });
-test('verified current component tiles render, but pending players never get invented ratings',()=>{
- api.state.award='rolaids';
- const baseline=api.state.source;
- api.state.source={...awards,races:{...awards.races,rolaids:sourceRace}};
- try {
-  const tree=api.card(example(),0,false);
-  assert.equal(visit(tree,n=>n.className.split(' ').includes('ea-stat')).length,2);
-  const pending=api.card({name:'Unscored QA Player',gamesPlayed:2,eligible:false,scoreKind:'AWARD_MODEL_PENDING',modelScore:null},1,false);
-  assert.equal(visit(pending,n=>n.className.split(' ').includes('ea-stat')).length,0);
- } finally {api.state.source=baseline;}
-});
+test('verified current Rolaids shows all 11 source-contracted attributes; unscored rows show none',()=>withVerifiedRolaids(()=>{
+ const tree=api.card(example(),0,false);
+ assert.equal(visit(tree,n=>n.className.split(' ').includes('ea-stat')).length,11);
+ assert.equal(visit(tree,n=>n.className.split(' ').includes('more-attributes')).length,1);
+ const pending=api.card({name:'Unscored QA Player',gamesPlayed:2,eligible:false,scoreKind:'AWARD_MODEL_PENDING',modelScore:null},1,false);
+ assert.equal(visit(pending,n=>n.className.split(' ').includes('ea-stat')).length,0);
+}));
 test('historical eleven-component Rolaids card shows six prominent tiles and five more',()=>{
  api.state.award='rolaids';
  const row=ref.races.rolaids[0];
@@ -415,3 +432,30 @@ test('cached historical source must never be interpreted as a live verified awar
  assert.equal(result.originalWorkbookModified,false);
  assert.equal(result.websitePublished,false);
 });
+
+test('goalie requires all ten original goalie weights and an actual goalie roster role',()=>withVerifiedRolaids(()=>{
+ const row=example(true);
+ assert.equal(api.currentComponents(row,sourceRace).length,10);
+ const bad=structuredClone(row);bad.verifiedComponentEvidence.components.pop();
+ assert.equal(api.currentComponents(bad,sourceRace),null);
+},true));
+
+test('other awards cannot borrow Rolaids attributes without their own verified component contract',()=>withVerifiedRolaids(()=>{
+ api.state.award='hart';
+ const forged=example();forged.verifiedComponentEvidence.awardId='hart';
+ assert.equal(api.currentComponents(forged,sourceRace),null);
+}));
+
+test('unverified model-state or unrecognized player blocks otherwise full Rolaids component tiles',()=>withVerifiedRolaids(()=>{
+ const r=example();
+ const saved=api.state.source;
+ try{
+  api.state.source={...saved,seasonRaceMode:{...saved.seasonRaceMode,currentModelScoresVerified:false}};
+  assert.equal(api.currentComponents(r,sourceRace),null);
+ }finally{api.state.source=saved;}
+ const old=api.state.participation;
+ try{
+  api.state.participation=participants;
+  assert.equal(api.currentComponents(r,sourceRace),null);
+ }finally{api.state.participation=old;}
+}));
