@@ -1,0 +1,33 @@
+name: HockeyOS Awards Card QA
+
+on:
+  pull_request:
+    paths:
+      - 'widgets/awards-races-v3.js'
+      - 'widgets/awards-races-v3.css'
+      - 'widgets/awards-races.html'
+      - 'widgets/awards-races.json'
+      - 'widgets/awards-weekly-history.json'
+      - 'widgets/awards-workbook-reference.json'
+      - 'widgets/awards-component-evidence.json'
+      - 'widgets/awards-participants.json'
+      - 'tests/test_awards_cards.js'
+      - '.github/workflows/awards-cards-qa.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify-award-cards:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout pull request
+        uses: actions/checkout@v4
+      - name: Use Node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Run source-truth and weekly movement regression suite
+        run: node --test tests/test_awards_cards.js
