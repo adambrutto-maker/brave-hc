@@ -80,6 +80,12 @@ class GoalieAdvancePlanningTests(unittest.TestCase):
         results=plan(feed,SAVED,NOW)
         self.assertEqual([g["opponent"] for g in results["games"]],["Mid Ice Crisis"])
 
+    def test_distant_game_is_lookahead_not_active_outreach(self):
+        later=deepcopy(GAME)
+        later["date"]="2026-11-22"
+        later["assignmentKey"]="hto:3375686"
+        self.assertEqual(stage(later,SAVED,NOW)["stage"],"LOOKAHEAD")
+
     def test_missing_league_games_stop_plan(self):
         feed=deepcopy(FEED)
         feed["missingFixtureReviews"]=[{"opponent":"Test Fixture"}]
