@@ -16,7 +16,7 @@ from playwright.sync_api import sync_playwright
 
 MANAGER="https://adambrutto-maker.github.io/brave-hc/widgets/goalie-manager-v1.2.html"
 RAW="https://raw.githubusercontent.com/adambrutto-maker/brave-hc/main/widgets/"
-REQUEST_TYPE="brave-hc-goalie-confirmation/v2"
+REQUEST_TYPE="brave-hc-goalie-confirmation/v3"
 TITLE="GOALIE_CONFIRMATION_REQUEST"
 
 
@@ -39,12 +39,12 @@ def decode(link):
     assert "body" in params and len(params["body"])==1, "Missing issue request"
     payload=json.loads(params["body"][0])
     assert set(payload)=={"type","game_key","goalie","custom_goalie_name",
-                           "fixture_signature","expected_goalie"}, "Unexpected fields"
+                           "fixture_signature","expected_goalie","change_reason"}, "Unexpected fields"
     assert payload["type"]==REQUEST_TYPE, "Wrong request version"
     return payload
 
 
-def expect_link(page,row,expected,goalie,custom=""):
+def expect_link(page,row,expected,goalie,custom="",reason=None):
     prior=captured(page)
     row.locator("button").click()
     found=captured(page)
@@ -54,6 +54,10 @@ def expect_link(page,row,expected,goalie,custom=""):
     assert body["fixture_signature"]==expected["fixtureSignature"], "Wrong league revision"
     assert body["expected_goalie"]==expected["previous"], "Incorrect prior goalie"
     assert body["goalie"]==goalie and body["custom_goalie_name"]==custom, "Wrong chosen goalie"
+    expected_reason=reason or ("NO_CHANGE" if (custom or goalie)==expected["previous"]
+                               else "NEW_BOOKING" if expected["previous"]=="TBD"
+                               else "BOOKING_CHANGE")
+    assert body["change_reason"]==expected_reason, "Wrong manager change reason"
 
 
 def run():
@@ -111,6 +115,27 @@ def run():
         primary=first["games"][0]
         current={**primary,"previous":initial.get(primary["assignmentKey"],"TBD")}
         expect_link(page,rows.first,current,current["previous"])
+        # Replacing an already-recorded goaltender requires affirmative,
+        # categorized manager review. All popups are intercepted.
+        if current["previous"]!="TBD":
+            first_row=rows.first
+            alternative="Dev Leong" if current["previous"]!="Dev Leong" else "Stephen Logue"
+            first_row.locator("select").select_option(alternative)
+            page.evaluate("window.confirm=()=>false")
+            previous_count=len(captured(page))
+            first_row.locator("button").click()
+            assert len(captured(page))==previous_count, "Declined replacement produced a request"
+            page.evaluate("window.confirm=()=>true;window.prompt=()=>''")
+            first_row.locator("button").click()
+            assert len(captured(page))==previous_count, "Missing reason produced a request"
+            page.evaluate("window.prompt=()=> '4'")
+            expect_link(page,first_row,current,alternative,reason="BOOKING_CHANGE")
+            first_row.locator("select").select_option("TBD")
+            page.evaluate("window.prompt=()=> '1'")
+            expect_link(page,first_row,current,"TBD",reason="GOALIE_UNAVAILABLE")
+            first_row.locator("select").select_option(current["previous"])
+            page.evaluate("window.prompt=()=> null")
+
 
         target=first["games"][1] if len(first["games"])>1 else first["games"][0]
         row=rows.nth(1 if len(first["games"])>1 else 0)
@@ -139,7 +164,7 @@ def run():
     assert after==initial, "Read-only UI smoke coincided with changed goalie assignments"
     print("PASS: goalie coverage summary, read-only attention filter and restore-all")
     print("PASS: live manager rows, saved selections, current goalie, alternate goalie, rental, invalid/cancelled rental")
-    print("PASS: v2 issue payload binds game revision and expected old goalie; GitHub popup intercepted")
+    print("PASS: v3 reasons, replacement confirmation, cancellation, and initial booking; all Github popups intercepted")
     print("PASS: no goalie assignment modification made by browser test")
 
 
