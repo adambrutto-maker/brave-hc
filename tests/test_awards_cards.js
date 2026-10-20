@@ -777,5 +777,5 @@ test('tracked operational publication file remains explicitly on hold until actu
  assert.equal(heldOperationalReceipt.independentlyApproved,false);
  assert.equal(heldOperationalReceipt.operationalWorkbookSha256,null);
  assert.equal(heldOperationalReceipt.awardFormulaParities.length,0);
- assert.match(original,/awards-operational-publication\\.json/);
+ assert.ok(original.includes('awards-operational-publication.json'));
 });
