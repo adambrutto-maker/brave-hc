@@ -46,7 +46,7 @@ test('Every active public HockeyOS page loads the shared linker',()=>{
   'index.html','preview.html'
  ]) {
   const html=fs.readFileSync(path.resolve(__dirname,'../widgets',file),'utf8');
-  assert.match(html,/<script defer src="\.\/player-links\.js\?v=1"><\/script>/,file);
+  assert.match(html,/<script defer src="\.\/player-links\.js\?v=3"><\/script>/,file);
  }
 });
 
