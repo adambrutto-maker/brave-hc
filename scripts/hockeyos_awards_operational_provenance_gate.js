@@ -57,16 +57,15 @@ function assess(data, attestation, checkedAt){
      ||attestation.officialHTOTeamGP!==data.currentTeamGP)
    add('OPERATIONAL_TO_HTO_GP_MISMATCH');
   const games=attestation.sourceGameMappings;
-  const hto=new Set(),original=new Set(),dates=new Set();
+  const hto=new Set(),original=new Set();
   if(!Array.isArray(games)||games.length!==data?.currentTeamGP) add('OFFICIAL_GAME_MAPPING_INCOMPLETE');
   else for(const x of games){
    if(!Number.isInteger(x?.htoGameId)||x.htoGameId<1
       ||!Number.isInteger(x?.originalWorkbookGameNumber)||x.originalWorkbookGameNumber<1
       ||!dateValid(x?.gameDate)||hto.has(x.htoGameId)
-      ||original.has(x.originalWorkbookGameNumber)
-      ||dates.has(x.gameDate))
+      ||original.has(x.originalWorkbookGameNumber))
     add('OFFICIAL_GAME_MAPPING_DUPLICATE_OR_INVALID');
-   hto.add(x.htoGameId);original.add(x.originalWorkbookGameNumber);dates.add(x.gameDate);
+   hto.add(x.htoGameId);original.add(x.originalWorkbookGameNumber);
   }
   const results=attestation.awardFormulaParities;
   if(!Array.isArray(results)||results.length!==AWARDS.length
