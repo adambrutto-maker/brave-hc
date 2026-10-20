@@ -117,6 +117,20 @@ The manager dropdown reads [widgets/goalie-roster.json](https://github.com/adamb
 - **Verified [October 20 end-to-end browser QA run](https://github.com/adambrutto-maker/brave-hc/actions/runs/39438419532): PASS.** The same run passed HTO homepage iframe, desktop/mobile rendered game rows and the explicit source-CSS contrast safeguards.
 - No goalie assignments, player communications, HTO records, scored games, schedules or league data were changed by this QA.
 
+## Last-minute remote changes — guarded goalie publication (October 20)
+
+Both authenticated goaltender approval paths now verify the **latest remote main-branch** SVHL schedule and saved-goalie state **again immediately before a potential commit**, rather than assuming nothing has changed since checkout or initial approval.
+
+- The workflow fetches `origin/main` before the publish stage and runs [`scripts/verify_goalie_push.py`](https://github.com/adambrutto-maker/brave-hc/blob/main/scripts/verify_goalie_push.py).
+- The guard compares the **approved `fixture_signature` and `expected_goalie`** to the latest remote files and checks that the proposed goalie matches the authorized selection. The remote league verification must still be younger than 24 hours.
+- Changes to any other stored goalie assignment or recorded schedule reconfirmation also fail closed. This is intentionally conservative: a concurrent unrelated change may require a fresh manager review rather than a risky automatic merge.
+- Git rebase occurs against the already fetched `origin/main` only **after** that check. The subsequent `git push` is not forced; a remote write after fetch causes a non-fast-forward push rejection rather than silently overwriting someone else's work.
+- The guard checks both the ordinary issue-based approval workflow and the manually dispatched save workflow, including no-op already-confirmed cases.
+- A blocked pre-push or rebase step results in an **open review issue** for issue-based approvals, with an uncertain-publish warning whenever failure occurred during commit/publish; no automatic retry occurs. The manager must verify the current published assignment and, if still necessary, start a fresh approval.
+- **Regression tests:** [`tests/test_goalie_remote_pre_push.py`](https://github.com/adambrutto-maker/brave-hc/blob/main/tests/test_goalie_remote_pre_push.py) rejects altered fixture details, changed prior goalie, changes to unrelated assignments, stale remote verification, inconsistent proposed goalie and lost reconfirmation records.
+- **Read-only live proof:** [GitHub run 39446213484](https://github.com/adambrutto-maker/brave-hc/actions/runs/39446213484) fetched the actual remote `main` files, checked the existing Stephen Logue confirmation against them and verified no tracked file modifications. **PASS.** The [SVHL build run 39446024275](https://github.com/adambrutto-maker/brave-hc/actions/runs/39446024275) also passed the isolated regression tests.
+- This is a guarded GitHub publish step, not an atomic multi-system transaction or a substitute for human confirmation of player availability. No direct HTO write, player contact or goalie change is authorized.
+
 ## Manual GitHub goalie workflow — fail-closed fallback (October 20)
 
 The original [Confirm Brave H.C. Goaltender workflow](https://github.com/adambrutto-maker/brave-hc/actions/workflows/brave-goalie-confirm.yml) remains available, primarily for controlled tests or recovery. It **cannot make a real goalie change using only a game key and goalie name**.
