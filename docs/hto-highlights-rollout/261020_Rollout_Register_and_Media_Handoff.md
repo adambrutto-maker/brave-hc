@@ -54,7 +54,7 @@ Desktop and measured 390px CSS mobile checks PASS. Initial content fits within 1
 
 Backups: `261020_776208_original.json` (Dev empty original), `261020_empty-profile-rollback.json` (eight other empty originals, editor-checked before each save), `261020_legacy-editor-originals.json` (13 complete legacy editor sources). Restore only the matching player's exact original Source HTML, save and re-read public profile. All three final profiles were freshly compared to their prior complete editor backups immediately before replacement. No rollback was required.
 
-Renderer commits:`8561e 019a 1632bb 2a 8db 0e 71416c 67f 9259ce 63f` and `0b 589428a 119765525b 01f 3861de 4c 3f 104c 7646`; final ledger:`dbe 32256273ed 503336efc 7d 1370c 1cece 04501c`. Earlier backup/migration commits remain in Git history and the Issue 21 audit trail.
+Renderer commits:`8561e019a1632bb2a8db0e71416c67f9259ce63f` and `0b589428a119765525b01f3861de4c3f104c7646`; final ledger:`dbe32256273ed503336efc7d1370c1cece04501c`. Earlier backup/migration commits remain in Git history and the Issue 21 audit trail.
 
 ## Media handoff
 
