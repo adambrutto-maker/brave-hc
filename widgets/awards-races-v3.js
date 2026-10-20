@@ -68,23 +68,58 @@ function explainOverall(region,row,details){
    component average. Current attribute chips require same-week evidence. */
 function currentComponents(row,race){
  const evidence=row?.verifiedComponentEvidence;
- if(!evidence||row.scoreKind!=="OFFICIAL_WORKBOOK_FINAL"||row.eligible!==true
+ const history=state.explain,participants=state.participation;
+ // Rolaids is the only award whose complete original component field/weight
+ // contract has been source-captured. Other awards need their own attested
+ // contract; do not invent weights or render source-unverified attributes.
+ if(state.award!=="rolaids"||history?.schema!=="brave-hc-awards-component-evidence/v1"
+    ||history.status!=="HISTORICAL_NOT_CURRENT_AWARD_RACE"
+    ||history.sourceWorkbookHash!==state.source.sourceWorkbookHash
+    ||!evidence||row.scoreKind!=="OFFICIAL_WORKBOOK_FINAL"||row.eligible!==true
+    ||state.source.seasonRaceMode?.currentModelScoresVerified!==true
+    ||race?.status!=="VERIFIED_CURRENT_WEEK"
     ||evidence.status!=="VERIFIED_CURRENT_WORKBOOK_COMPONENTS"
     ||evidence.season!==state.source.season||evidence.awardId!==state.award
     ||evidence.playerName!==row.name||evidence.sourceWorkbookHash!==state.source.sourceWorkbookHash
     ||evidence.asOf!==race?.asOf||evidence.modelGameCount!==state.source.currentTeamGP
-    ||!Array.isArray(evidence.components)||evidence.components.length<1)return null;
- const seen=new Set(),components=evidence.components;
+    ||!participants||participants.season!==state.source.season
+    ||participants.officialTeamGames!==state.source.currentTeamGP
+    ||!Array.isArray(participants.players)
+    ||!Array.isArray(evidence.components))return null;
+ const roster=participants.players.filter(p=>p.name===row.name);
+ if(roster.length!==1||roster[0].gp!==row.gamesPlayed
+    ||!["Skater","Goalie"].includes(roster[0].position))return null;
+ const isGoalie=roster[0].position==="Goalie";
+ const role=isGoalie?"goalie":"skater";
+ const expectedRole=isGoalie?"Goaltender":"Skater";
+ const expected=history.roleWeights?.[role];
+ if(evidence.sourceRole!==expectedRole||!Array.isArray(expected)
+    ||expected.length!==(isGoalie?10:11)
+    ||evidence.components.length!==expected.length
+    ||(isGoalie?roster[0].role!=="G":roster[0].role==="G"))return null;
+ const contract=new Map();
+ for(const item of expected){
+  if(typeof item.field!=="string"||contract.has(item.field)
+      ||!Number.isFinite(item.weight)||item.weight<=0||item.weight>1
+      ||!history.componentFormulas?.[item.field]?.internalFormula
+      ||!history.componentFormulas?.[item.field]?.displayFormula)return null;
+  contract.set(item.field,item.weight*100);
+ }
+ const seenFields=new Set(),seenAbbreviations=new Set();
+ const components=evidence.components;
  if(!components.every(c=>typeof c.abbreviation==="string"&&/^[A-Z0-9%+-]{2,8}$/.test(c.abbreviation)
-    &&!seen.has(c.abbreviation)&&seen.add(c.abbreviation)
-    &&typeof c.sourceField==="string"&&c.sourceField.length>2
+    &&!seenAbbreviations.has(c.abbreviation)&&seenAbbreviations.add(c.abbreviation)
+    &&typeof c.sourceField==="string"&&contract.has(c.sourceField)
+    &&!seenFields.has(c.sourceField)&&seenFields.add(c.sourceField)
     &&Number.isFinite(c.webComponentScore)&&c.webComponentScore>=0&&c.webComponentScore<=100
-    &&Number.isFinite(c.weightPct)&&c.weightPct>0&&c.weightPct<=100
+    &&Number.isFinite(c.weightPct)&&Math.abs(c.weightPct-contract.get(c.sourceField))<0.001
     &&Number.isFinite(c.unroundedWeightedContribution)
-    &&Math.abs(c.unroundedWeightedContribution-c.webComponentScore*c.weightPct/100)<0.03)
-    ||Math.abs(components.reduce((sum,c)=>sum+c.weightPct,0)-100)>0.01)return null;
+    &&Math.abs(c.unroundedWeightedContribution-c.webComponentScore*c.weightPct/100)<0.001)
+    ||seenFields.size!==contract.size
+    ||Math.abs(components.reduce((sum,c)=>sum+c.weightPct,0)-100)>0.001)return null;
  return components;
 }
+
 /* Snapshots are a separate verified publication trail. A missing or invalid
    baseline never becomes a fabricated movement number. */
 function validISODate(value){
