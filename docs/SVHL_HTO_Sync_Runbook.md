@@ -170,6 +170,14 @@ Failed GitHub issue-based goalie confirmations now produce a **safe public revie
 - **Security:** category-to-message mapping is fixed in `scripts/goalie_request_feedback.py`. Public comments never contain arbitrary user-supplied issue text or developer tokens. No player is contacted, and no HTO game or goalie assignment is changed by this feedback module.
 - **QA:** `tests/test_goalie_request_feedback.py` covers stale fixture, stale prior goalie, failed publish, failed closure, prevalidation failure, malformed status files and untrusted identifiers. The reconciliation [GitHub Actions run 39444784071](https://github.com/adambrutto-maker/brave-hc/actions/runs/39444784071) passed its feedback tests and the original assignment checks. A live *rejection issue* has not been manufactured; the feedback remains test-validated pending a naturally occurring rejected request.
 
+## Goaltender Manager coverage and weekly priority (October 20)
+
+The existing public [Goaltender Manager](https://adambrutto-maker.github.io/brave-hc/widgets/goalie-manager-v1.2.html) now displays a **read-only planning summary** before the dropdown table. It counts recorded goaltenders, TBD fixtures, assignments requiring explicit reconfirmation after an SVHL change, and HTO records needing review. Its **Next attention** indicator selects the earliest chronologically unresolved game.
+
+The manager also offers **Games needing attention** and **All games** filters. Both act only on displayed rows. They do not change a selected goalie, publish a lineup, create an invitation or submit a GitHub request. All selected goalie values and the protected V2 request-body approval process remain unchanged.
+
+The [GitHub browser QA run 39451963312](https://github.com/adambrutto-maker/brave-hc/actions/runs/39451963312) passed the live coverage/filter interactions, live manager request preparation (intercepted, never submitted), HTO homepage iframe, desktop/mobile rendered rows and CSS contrast tests. The current source-of-truth feed has one recorded goaltender (Stephen Logue for October 25 vs Big Bastones) and four TBD fixtures. Accordingly the first goalie-only planning gap is November 1 vs Mid Ice Crisis, 8:15 p.m. at D Rink; this is **not** an instruction to automatically book a goalie.
+
 ## Goalie management — prefilled GitHub approval
 
 - [Goaltender Manager](https://adambrutto-maker.github.io/brave-hc/widgets/goalie-manager-v1.2.html) shows each upcoming SVHL fixture, current saved goalie, and the controlled selection dropdown.
