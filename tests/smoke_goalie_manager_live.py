@@ -104,6 +104,9 @@ def run():
             assert g["rink"] in row.locator("td").nth(1).inner_text()
             selected=row.locator("select").input_value()
             assert selected==initial.get(g["assignmentKey"],"TBD"), "Dropdown lost saved starter"
+            if "Anthony Paolucci" not in initial.values():
+                assert row.locator('select option[value="Anthony Paolucci"]').count()==0, (
+                    "Full-time skater with secondary G role was offered as a direct goalie choice")
 
         primary=first["games"][0]
         current={**primary,"previous":initial.get(primary["assignmentKey"],"TBD")}
