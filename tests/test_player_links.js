@@ -108,7 +108,7 @@ test('Historical Records and Awards players resolve to exact official HTO player
 test('Shared-name ambiguity remains safely unresolved after adding alumni',()=>{
  assert.equal(links.profileUrl('M. Provenzano'),null);
  assert.equal(links.profileUrl('M. Congiusti'),null);
- assert.equal(links.profileUrl('A. Buchanan'),null);
+ assert.equal(links.profileUrl('A. Buchanan'),links.profileUrl('Andrew Buchanan'));
  assert.equal(links.profileUrl('R. Logue'),links.profileUrl('Ryan Logue'));
  assert.equal(links.profileUrl('Rènt Goaliê'),null);
  assert.equal(links.profileUrl('Unknown, Johnny'),null);
