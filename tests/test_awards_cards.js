@@ -8,7 +8,7 @@ const vm=require('node:vm');
 const widgets=path.resolve(__dirname,'../widgets');
 const original=fs.readFileSync(path.join(widgets,'awards-races-v3.js'),'utf8');
 const injected=original.replace(/\bboot\(\);\s*\}\)\(\);\s*$/,
- 'globalThis.__awardsQA={state,card,currentComponents,previousSnapshot,movement,isVerifiedWeeklyRace};})();');
+ 'globalThis.__awardsQA={state,card,currentComponents,previousSnapshot,movement,isVerifiedWeeklyRace,verifiedWorkbookRookieYearWatch};})();');
 assert.notEqual(injected,original,'Isolated test bootstrap must match entrypoint');
 const elt=(tag='div')=>({
  tag,children:[],className:'',textContent:'',
@@ -165,4 +165,44 @@ test('both published Awards entrypoints use identical assets and page instructio
  assert.equal(a,b);
  assert.match(a,/awards-races-v3\.js\?v=[0-9a-z]+/);
  assert.match(a,/awards-races-v3\.css\?v=[0-9a-z]+/);
+});
+
+test('workbook-first Rookie Year reconciliation shows all five first-FT-year players on the unranked watch',()=>{
+ api.state.award='rookie';
+ const rows=api.verifiedWorkbookRookieYearWatch(
+   participants,awards.season,awards.currentTeamGP,awards.sourceWorkbookHash
+ );
+ assert.ok(rows,'Only an exact workbook-hash and HTO corroboration unlock the watch');
+ assert.equal(rows.length,5,'Five candidates with current GP, not four stale formula results');
+ assert.ok(rows.some(p=>p.name==='Rosenberg, Jamie'));
+ for(const p of rows){
+   assert.equal(p.workbookRookieYear.year,2026);
+   assert.equal(p.htoRookieYear.year,2026);
+   assert.equal(p.role,'FT');
+   assert.ok(p.gp>=1);
+ }
+ assert.equal(participants.workbookRookieYearCrosscheck.sourceRankingRule,
+  'MIN(5,COUNTIF(AwardScoring[Rookie Eligible],1))');
+ assert.equal(participants.workbookRookieYearCrosscheck.sourceEligibilityTable,'AwardScoring');
+});
+test('workbook cached Jamie mismatch is explicit, never silently converted to final Rookie award eligibility',()=>{
+ const e=participants.workbookRookieYearCrosscheck;
+ const saved=e.workbookCachedRows['Rosenberg, Jamie'];
+ assert.equal(saved.cachedRookieStatus,0);
+ assert.equal(saved.cachedAwardEligible,0);
+ assert.equal(saved.cachedSkaterGP,0);
+ assert.equal(saved.cachedRecentSeason,'');
+ assert.equal(saved.cachedFirstSeason,'');
+ const current=participants.players.find(p=>p.name==='Rosenberg, Jamie');
+ assert.equal(current.gp,3);
+ assert.equal(current.workbookRookieYear.year,2026);
+ assert.notEqual(awards.races.rookie?.status,'VERIFIED_CURRENT_WEEK');
+ assert.equal(awards.races.rookie.entries.length,0);
+});
+test('rookie watch refuses a changed workbook hash or uncorroborated Rookie Year',()=>{
+ const cloned=structuredClone(participants);
+ assert.equal(api.verifiedWorkbookRookieYearWatch(cloned,awards.season,awards.currentTeamGP,'d'.repeat(64)),null);
+ const jamie=cloned.players.find(p=>p.name==='Rosenberg, Jamie');
+ jamie.htoRookieYear.year=2025;
+ assert.equal(api.verifiedWorkbookRookieYearWatch(cloned,awards.season,awards.currentTeamGP,awards.sourceWorkbookHash),null);
 });
