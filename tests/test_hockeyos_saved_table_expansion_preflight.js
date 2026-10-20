@@ -160,3 +160,73 @@ test('source plan that claims authorized writing is rejected even with clean all
  a.extension.writeAuthorized=true;
  assert.ok(check(a).errors.includes('SAVED_AUDIT_WRITE_BOUNDARY_INVALID'));
 });
+
+const {inspect:inspectGameJoin}=require('./lib/hockeyos_saved_game_mapping_crosscheck');
+
+function withJoin(){
+ const data=fixture();
+ const ids=[3356177,3356178,3369564,3375601];
+ const dates=['2026-09-20','2026-09-27','2026-10-04','2026-10-18'];
+ const games=ids.map((externalHTOGameId,i)=>({
+  sourceSystem:'HTO_OFFICIAL_BOX_SCORE',externalHTOGameId,
+  verifiedDate:dates[i],workbookTable:'AllTimeSchedule',workbookGameType:'Regular Season',
+  workbookSeason:'W2026/27',workbookGameNumber:359+i,
+  gameNumberJoinStatus:'MATCH_SOURCE_SEASON_AND_UNIQUE_SCHEDULE_DATE',
+  sourceUrl:'https://www.htosports.com/teams/default.asp?p=boxscore&gameID='+externalHTOGameId,
+  savedScoreStatus:'STALE_UNSCORED_PLACEHOLDER_DO_NOT_REPLAY_AS_RESULT',
+  workbookOpponentCached:i===0?'Fictional Rival A':'OUTDATED OPPONENT',
+  currentHTOOpponent:'Fictional Rival '+String.fromCharCode(65+i)
+ }));
+ return {...data,sourceJoin:{
+  schema:'hockeyos-awards-external-to-alltimeschedule-source-join/v1',
+  status:'FOUR_GAME_WORKBOOK_SEQUENCE_JOIN_PASS_CURRENT_SCORE_HELD',
+  sourceWorkbookSHA256:HASH,recordCount:4,workbookSeasonRowCount:25,
+  originalWorkbookEdited:false,failures:[],mapped:games
+ }};
+}
+test('four-game source join validates every one of the 44 planned inserts by HTO ID and workbook game number',()=>{
+ const r=inspectGameJoin(withJoin());
+ assert.equal(r.status,'SAVED_FOUR_GAME_IDENTITY_CROSSCHECK_PASS_WORKBOOK_MODEL_HELD');
+ assert.equal(r.savedOpponentNameDifferences,3);
+ assert.equal(r.originalHistoricalScheduleResultsStale,4);
+ assert.ok(r.warnings.some(x=>x.includes('CACHED_OPPONENT_NAMES_DIFFER')));
+ assert.equal(r.freshOfficialHTOReadbackVerified,false);
+ assert.equal(r.publicationAuthorized,false);
+ assert.equal(r.workbookWriteAuthorized,false);
+});
+test('wrong HTO ID, workbook game number or missing input key blocks the schedule-to-44-rows join',()=>{
+ for(const mutate of [
+  x=>x.extension.newRowCandidates[0].sourceHTOGameId=3375601,
+  x=>x.importPlan.unmatchedHTORecords[1].sourceHTOGameId=3375601,
+  x=>x.sourceJoin.mapped[0].workbookGameNumber=360,
+  x=>x.sourceJoin.mapped[0].externalHTOGameId=3356178,
+  x=>x.sourceJoin.mapped.pop(),
+  x=>x.importPlan.unmatchedHTORecords.pop()
+ ]){
+  const a=withJoin();mutate(a);
+  const r=inspectGameJoin(a);
+  assert.equal(r.status,'HOLD_GAME_IDENTITY_SOURCE_MISMATCH');
+  assert.ok(r.holds.length>=1);
+ }
+});
+test('untrusted HTO host and fabricated or duplicated historical schedule IDs block',()=>{
+ for(const mutate of [
+  x=>x.sourceJoin.mapped[0].sourceUrl='https://not-hto.invalid/games?gameID=3356177&p=boxscore',
+  x=>x.sourceJoin.mapped[0].sourceUrl='https://www.htosports.com/teams/default.asp?p=boxscore&gameID=999999',
+  x=>x.sourceJoin.mapped[1].verifiedDate='2026-02-30',
+  x=>x.sourceJoin.mapped[0].gameNumberJoinStatus='HEURISTIC_MATCH',
+  x=>x.sourceJoin.mapped[0].savedScoreStatus='VERIFIED_HISTORICAL_RESULT',
+  x=>x.sourceJoin.originalWorkbookEdited=true
+ ]){
+  const a=withJoin();mutate(a);
+  assert.equal(inspectGameJoin(a).status,'HOLD_GAME_IDENTITY_SOURCE_MISMATCH');
+ }
+});
+test('saved placeholder score and cached opponent mismatch are review warnings, never official results',()=>{
+ const r=inspectGameJoin(withJoin());
+ assert.equal(r.holds.length,0);
+ assert.ok(r.warnings.some(x=>x.includes('FOUR_SAVED_SCHEDULE_RESULTS_ARE_STALE')));
+ assert.equal(r.savedOpponentNameDifferences,3);
+ assert.equal(r.currentAwardScoresVerified,false);
+ assert.equal(r.originalWorkbookOpened,false);
+});
