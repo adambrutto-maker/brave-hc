@@ -4,7 +4,7 @@ const $=(t,c,v)=>{const e=document.createElement(t);if(c)e.className=c;if(v!==un
 const find=id=>document.getElementById(id);
 const put=(id,v)=>find(id).textContent=String(v);
 const DOM={select:find("award"),region:find("scores"),notice:find("notice"),pilot:find("pilot"),info:find("award-info")};
-const state={source:null,reference:null,explain:null,participation:null,weeklyHistory:null,operationalEvidence:null,award:"rolaids",mode:"current"};
+const state={source:null,reference:null,explain:null,participation:null,weeklyHistory:null,operationalEvidence:null,readiness:null,award:"rolaids",mode:"current"};
 if(new URLSearchParams(location.search).has("embed"))document.body.classList.add("embed");
 function badge(v){if(v>=95)return["elite","Elite"];if(v>=85)return["contender","Contender"];if(v>=75)return["strong","Strong"];if(v>=65)return["developing","Building"];return["neutral","Rating"]}
 function el(p,t,c,v){const n=$(t,c,v);p.append(n);return n}
@@ -646,6 +646,56 @@ function renderSeasonParticipants(){
  }
  el(p,"p","source-note","Source: HTO game records and HockeyOS HTO-fed skater/goalie appearance readback. Unidentified game-sheet entries are not counted as named nominees. Actual award ratings remain separately gated.");
 }
+/* Read-only status explanations from a dated, previously audited
+   source manifest. NEVER an eligibility or current OVR/rank release gate. */
+function sourceReadinessForAward(source,report,id){
+ if(!report||report.schema!=="brave-hc-awards-source-readiness-review/v1"
+    ||report.state!=="SOURCE_INPUT_READINESS_ONLY_NO_OFFICIAL_AWARD_SCORES"
+    ||report.season!==source?.season
+    ||report.originalWorkbookAuthoritySha256!==source.sourceWorkbookHash
+    ||report.sourceModelCalculated!==false
+    ||report.independentQAAccepted!==false
+    ||report.awardScoreReleaseAllowed!==false
+    ||!validISODate(report.auditedAsOf)
+    ||!validISODate(source.latestGameDate)
+    ||!validISODate(source.publishedAsOf)
+    ||report.auditedAsOf<source.latestGameDate
+    ||report.auditedAsOf>source.publishedAsOf
+    ||report.htoObservedTeamGames!==source.currentTeamGP
+    ||report.savedAwardScoringTeamGames!==source.sourceWorkbookRecordedGP
+    ||!Array.isArray(source.awards)||source.awards.length!==11
+    ||!Array.isArray(report.awards)||report.awards.length!==11
+    ||new Set(report.awards.map(x=>x?.id)).size!==11
+    ||!source.awards.every(a=>report.awards.some(x=>x.id===a.id))
+    ||report.awards.some(x=>x?.state!=="INPUT_PARTIAL_SCORE_HELD"
+      ||x.officialScoreVerified!==false
+      ||!["OVR","STAT"].includes(x.scoreKind)
+      ||(["art-ross","rocket"].includes(x.id)?x.scoreKind!=="STAT":x.scoreKind!=="OVR")
+      ||typeof x.eligibleField!=="string"||!x.eligibleField
+      ||typeof x.rankField!=="string"||!x.rankField
+      ||typeof x.scoreField!=="string"||!x.scoreField
+      ||typeof x.knownInputs!=="string"||!x.knownInputs
+      ||typeof x.remainingToVerify!=="string"||!x.remainingToVerify))return null;
+ return report.awards.find(x=>x.id===id)||null;
+}
+function renderHeldSourceReadiness(id,source){
+ const record=sourceReadinessForAward(source,state.readiness,id);
+ if(!record)return false;
+ const details=el(DOM.region,"details","exact source-readiness");
+ details.append($("summary",null,"Why this award is pending · source evidence and formula gaps"));
+ const body=el(details,"div","source-readiness-body");
+ el(body,"p","tiny","Last source audit: "+state.readiness.auditedAsOf+
+  " · HTO "+state.readiness.htoObservedTeamGames+" games; saved award model "+
+  state.readiness.savedAwardScoringTeamGames+" game. This is not live or a released award result.");
+ el(body,"h4",null,"Available observations");
+ el(body,"p",null,record.knownInputs);
+ el(body,"h4",null,"What still requires verification");
+ el(body,"p",null,record.remainingToVerify);
+ el(body,"p","tiny","Original workbook fields — Eligible: "+record.eligibleField+
+  " · Rank: "+record.rankField+" · Score: "+record.scoreField+". "+
+  (record.scoreKind==="STAT"?"Statistical count; not a 50–100 OVR.":"Full formula-based OVR is withheld."));
+ return true;
+}
 function draw(){
  if(!state.source)return;
  const d=state.source,award=d.awards.find(a=>a.id===state.award);
@@ -665,6 +715,7 @@ function draw(){
    const box=$("div","empty");el(box,"strong",null,"This week's model ratings aren't ready yet");
    el(box,"p",null,"Award rankings remain empty until the workbook scores, game dates and participants match the verified season. We don't substitute old ratings, other stats or players with zero appearances.");
    DOM.region.append(box);
+   renderHeldSourceReadiness(state.award,d);
    // Publish an explicitly unranked, award-specific appearance watch independent of the held formula ratings.
    renderRaceActivity();
   }else{
@@ -689,6 +740,11 @@ async function boot(){
  const [source,reference,explain,participation]=await Promise.all(["./awards-races.json","./awards-workbook-reference.json","./awards-component-evidence.json","./awards-participants.json"].map(async url=>{const r=await fetch(url,{cache:"no-store"});if(!r.ok)throw Error("source "+url);return r.json()}));
  if(source.schema!=="brave-hc-awards-races-weekly/v1"||reference.schema!=="brave-hc-awards-workbook-reference/v1"||explain.schema!=="brave-hc-awards-component-evidence/v1"||source.awards.length!==11||participation.schema!=="brave-hc-awards-participants/v1"||participation.season!==source.season||participation.officialTeamGames!==source.currentTeamGP)throw Error("contract");
  state.source=source;state.reference=reference;state.explain=explain;state.participation=participation;
+ try{
+  const review=await fetch("./awards-source-readiness.json",{cache:"no-store"});
+  if(review.ok)state.readiness=await review.json();
+ }catch(_err){state.readiness=null;}
+
  // Separate operational-model publication proof is optional for the page to
  // load, but MANDATORY for presenting any current official OVR.
  try{
