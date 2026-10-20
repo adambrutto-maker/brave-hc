@@ -25,3 +25,18 @@ Existing suspension notes use the neutral `discipline` category and NOTE badge; 
 The verified registry contains109 named profiles:24 current and85 historical. Historical status is retained; registration does not imply current-roster membership. Johnny Unknown847926 and generic Rènt Goaliê548071 remain excluded. See [all-player register](261020_All_Players_Final_Register.md).
 
 For mixed bold/italic or multi-line source paragraphs, use validated `sourceRuns` with literal `text`, boolean `strong` and boolean `italic`; joined run text must equal `displayText`. Keep original paragraph grouping. `summaryCounts` for championships, awards and milestones must reflect explicit source lines only. Never evaluate raw editor HTML in the widget or infer a new achievement. Validate each rendered text run and style against the full backed-up Source before and after the HTO save. Empty spacer paragraphs stay in raw backups, not the achievements count.
+
+
+## Cleaner widget and record-book additions — 20 October 2026
+
+The existing universal iframe remains unchanged for every profile. The shared HTML now selects player-highlights-v2.js; do not paste player-specific statistics or record claims into HTO.
+
+- Empty statistical/highlight/record sections are hidden. Existing Highlights ordering, dates and source emphasis remain in the ledger and expansion control.
+- Personal season highs derive from identity-checked public Career / All Game Types rows with additive career parity. All tied seasons are retained. The lowest personal season GAA card uses an explicit 5+ GP display filter; this is not a club-record qualification rule.
+- Current insights are observational statistics, not AwardsScoring model scores: P/GP versus prior career, share of team goals, point-scoring appearances, goalie GAA and team-game workload where supported. Prior-career comparisons require the current career row to match the dated current feed.
+- Record-book entries require an exact verified identity match. The existing native Records page remains authoritative for the wording of published historical entries; listing does not certify a current holder. Unverified rental-goalie entries are not attached to a player.
+- Add a new player with an empty achievements and record-book history unless independently verified evidence exists. Future feed publishing is separate from HTO embed installation; no direct automatic HTO synchronization is claimed.
+- Refresh player-career-insights.json only from dated public profile readbacks and repeat parity checks. Refresh player-record-book.json only from a preserved Records baseline and identity reconciliation. Review audit findings separately before adopting corrections.
+- QA the actual HTO public iframe, expansion control, identity, 1350px height, source dates and desktop/mobile fit. Keep full record-book and source links in the compact footer/drawer.
+
+[Historical audit and outstanding work](261020_Historical_Record_Book_Audit.md).
