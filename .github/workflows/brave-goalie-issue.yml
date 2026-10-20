@@ -20,6 +20,8 @@ jobs:
           python-version: '3.12'
       - name: Validate request parser and role rules
         run: python -m unittest discover -s tests -p test_goalie_issue.py
+      - name: Validate failure feedback uses safe, actionable messages
+        run: python -m unittest discover -s tests -p test_goalie_request_feedback.py
       - name: Verify issue author has repository write access and process request
         id: authorize
         env:
