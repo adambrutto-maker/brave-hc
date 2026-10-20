@@ -23,8 +23,12 @@ function visit(root,predicate){
  return (predicate(root)?[root]:[]).concat(...(root.children||[])
    .filter(n=>n&&typeof n==='object').flatMap(n=>visit(n,predicate)));
 }
+const elementsById=new Map();
 const sandbox={
- document:{getElementById:()=>elt(),createElement:tag=>elt(tag),createTextNode:s=>({tag:'text',textContent:s})},
+ document:{
+  getElementById(id){if(!elementsById.has(id))elementsById.set(id,elt());return elementsById.get(id);},
+  createElement:tag=>elt(tag),createTextNode:s=>({tag:'text',textContent:s})
+ },
  location:{search:''},URLSearchParams,
 };
 vm.runInNewContext(injected,sandbox,{filename:'awards-races-v3.js'});
@@ -210,17 +214,16 @@ test('rookie watch refuses a changed workbook hash or uncorroborated Rookie Year
 test('Rookie race on-ice display renders five verified players while remaining unranked',()=>{
  const previousAward=api.state.award;
  api.state.award='rookie';
+ const region=elementsById.get('scores');
+ region.children=[];
  try {
-  const scoreRegion=sandbox.document.getElementById('scores');
-  // The VM's DOM.region is the private fake fixture returned at construction;
-  // collect every created node by inspecting the real render output via a
-  // temporary synthetic tree instead of altering production score state.
-  assert.equal(participants.workbookRookieYearCrosscheck.observedCount,5);
-  const five=api.verifiedWorkbookRookieYearWatch(participants,awards.season,
-    awards.currentTeamGP,awards.sourceWorkbookHash);
-  assert.deepEqual(five.map(p=>p.name).sort(),[
+  api.renderRaceActivity();
+  const cards=visit(region,n=>n.className.split(' ').includes('race-activity-player'));
+  assert.equal(cards.length,5);
+  const names=cards.map(c=>visit(c,n=>n.tag==='strong')[0]?.textContent);
+  assert.deepEqual(names.sort(),[
     'Kong, Henry','Povegliano, Adam','Rajkumar, Sanjay',
     'Rosenberg, Jamie','Triumbari, Francesco'].sort());
-  assert.equal(awards.races.rookie.entries.length,0);
- } finally{api.state.award=previousAward;}
+  assert.equal(awards.races.rookie.entries.length,0,'official award board remains held');
+ } finally{api.state.award=previousAward;region.children=[];}
 });
