@@ -62,3 +62,13 @@ To make this explicit, `scripts/hockeyos_publisher_task_health.js` now evaluates
 Actual private read-only health check: `PUBLISHER_HISTORY_DIVERGED_NOT_REPAIRED`, HTO and four-game reconciliation PASS, countdown and projection local no-change, website publication **unverified**; receipt filename `261020_HockeyOS_Task_Health_Actual_Receipt_v1.json` in the durable recovery review directory.
 
 Seven additional tests guard the false-green case. Current PR suite: **33 Node tests + 5 Python tests PASS**, and [GitHub CI run 39376497576](https://github.com/adambrutto-maker/brave-hc/actions/runs/39376497576) PASS. The actual fresh-main candidate has also passed **54 Python site tests and 11 Node player-link tests** in an isolated environment. No live scheduler/writer modification occurred.
+
+## 2026-10-20 07:31 EDT — reusable read-only publisher monitor
+
+The scheduled Windows refresh still reported eight stages PASS / task exit **0** at **07:31 EDT**, with countdown `COUNTDOWN_SCHEDULE_UNCHANGED ageHours 7` and projection `HTO_MODEL_NO_CHANGE hourAge 7`. Its publisher branch continued unchanged at `5753979f1547094fbe229f643af5c0b0360bbc6a`, while GitHub main remained `43dcf0f86dcf30ef02952d93998ad92c2c021a5f`.
+
+To make repeated green-but-diverged reports inspectable without changing the Windows task, added an **opt-in read-only CLI** `scripts/hockeyos_publisher_shadow_health.js`. It requires the exact reviewed local/remote SHAs, a separately provided task exit code, the saved controller receipt and a private destination outside the old publisher checkout. It uses **only read-only Git commands** and fails closed on mismatched SHAs, unexpected origin, a dirty worktree or an existing receipt. It does not fetch or contact HTO, commit, merge, reset, push, update task settings, or touch the original Master Workbook.
+
+The 07:31 source receipt was actually checked in private with result **`PUBLISHER_HISTORY_DIVERGED_NOT_REPAIRED`**, while confirming successful HTO ingest/game reconciliation and task exit 0. Private receipt: `261020_HockeyOS_0731_Shadow_Publisher_Health_v1.json`, located in the durable `261020_HTO_Publisher_Recovery_Review` directory on BRUTTECH 1.
+
+Expanded regression: **41 Node tests + 5 Python tests PASS** locally, including the source-feed green-but-diverged scenario, SHA drift, and no-write protection. The CLI currently runs **only on explicit review invocation**; it is **not integrated into the hourly scheduled task**, so this is a diagnostic control rather than a permanently active alert. Independent review and Founder activation remain outstanding.
