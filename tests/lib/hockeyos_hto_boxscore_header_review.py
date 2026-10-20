@@ -132,3 +132,67 @@ def goalie_rows(table):
     if not results:
         _fail("NO_GOALIE_APPEARANCE_ROWS")
     return results
+
+def check_game_observations(*, hto_game_id, official_goals_for,
+                            official_goals_against, skaters, goalies):
+    """Read-only same-game parity gate; never awards scoring.
+
+    Requires independently observed official scoreboard values as inputs.
+    It does NOT fetch, authenticate or infer those totals itself.
+    """
+    if not isinstance(hto_game_id, int) or isinstance(hto_game_id, bool) or hto_game_id < 1:
+        _fail("INVALID_OFFICIAL_HTO_GAME_ID")
+    for label, value in (("GF", official_goals_for), ("GA", official_goals_against)):
+        if not isinstance(value, int) or isinstance(value, bool) or value < 0:
+            _fail("INVALID_OFFICIAL_GAME_" + label)
+    if not isinstance(skaters, list) or not skaters or not isinstance(goalies, list) or not goalies:
+        _fail("MISSING_CURRENT_GAME_PLAYER_ROWS")
+    seen_skaters, seen_goalies = set(), set()
+    goals=assists=0
+    for player in skaters:
+        if not isinstance(player, dict) or player.get("sourceKind") != "HTO_BOXSCORE_OBSERVATION_ONLY_NOT_AWARD_SCORE":
+            _fail("INVALID_SKATER_SOURCE_PROVENANCE")
+        name=player.get("name")
+        if not isinstance(name, str) or not name.strip() or name.casefold() in seen_skaters:
+            _fail("DUPLICATE_OR_MISSING_SKATER_IDENTITY")
+        seen_skaters.add(name.casefold())
+        g, a, pts=player.get("g"), player.get("a"), player.get("pts")
+        if any(not isinstance(x,int) or isinstance(x,bool) or x < 0 for x in (g,a,pts)) or g+a!=pts:
+            _fail("UNVERIFIED_GAME_SKATER_POINTS")
+        goals+=g
+        assists+=a
+    goalie_ga=0
+    missing_potg=[]
+    for player in goalies:
+        if not isinstance(player, dict) or player.get("sourceKind") != "HTO_BOXSCORE_OBSERVATION_ONLY_NOT_AWARD_SCORE":
+            _fail("INVALID_GOALIE_SOURCE_PROVENANCE")
+        name=player.get("name")
+        if not isinstance(name,str) or not name.strip() or name.casefold() in seen_goalies:
+            _fail("DUPLICATE_OR_MISSING_GOALIE_IDENTITY")
+        seen_goalies.add(name.casefold())
+        gp, ga, losses, potg=(player.get(k) for k in ("gp","goalsAgainst","losses","potg"))
+        if any(not isinstance(x,int) or isinstance(x,bool) or x<0 for x in (gp,ga,losses)):
+            _fail("UNVERIFIED_GOALIE_GAME_NUMBERS")
+        if gp != 1 or losses > 1:
+            _fail("UNEXPECTED_GOALIE_APPEARANCE_OR_LOSS_COUNT")
+        if potg is None:
+            if player.get("potgPublishedInBoxscore") is not False:
+                _fail("GOALIE_POTG_MISSING_WITHOUT_SOURCE_OMISSION_EVIDENCE")
+            missing_potg.append(name)
+        elif not isinstance(potg,int) or isinstance(potg,bool) or potg not in (0,1):
+            _fail("INVALID_PER_GAME_GOALIE_POTG")
+        goalie_ga+=ga
+    if goals!=official_goals_for:
+        _fail("GAME_SCORER_TOTAL_NOT_OFFICIAL_GF")
+    if goalie_ga!=official_goals_against:
+        _fail("GAME_GOALIE_TOTAL_NOT_OFFICIAL_GA")
+    return {
+        "state":"FOUR_SOURCE_CATEGORIES_RECONCILED_GAME_ONLY_AWARD_OVR_HELD",
+        "htoGameId":hto_game_id,
+        "skaters":len(skaters),"goalieAppearances":len(goalies),
+        "goalsFor":goals,"assists":assists,"points":goals+assists,
+        "goalieGoalsAgainst":goalie_ga,
+        "unknownGoaliePOTG":missing_potg,
+        "awardModelRecalculated":False,"workbookWritten":False,
+        "messagesSent":0,"publisherUpdated":False
+    }
