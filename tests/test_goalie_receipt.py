@@ -40,6 +40,20 @@ class GoalieReceiptTests(unittest.TestCase):
         self.assertTrue(receipt["change_required"])
         self.assertEqual(receipt["published_goalie"],"Dev Leong")
 
+    def test_remote_audit_must_match_reviewed_manager_reason(self):
+        saved=deepcopy(CHANGED)
+        saved["lastChange"]["managerReason"]="BOOKING_CHANGE"
+        ok=mod.verify_receipt(deepcopy(FEED),saved,KEY,SIG,
+                              "Stephen Logue","Dev Leong",
+                              actor="adambrutto-maker",claimed_change=True,
+                              manager_reason="BOOKING_CHANGE")
+        self.assertEqual(ok["status"],"PUBLISHED_AND_VERIFIED")
+        with self.assertRaisesRegex(ValueError,"change reason differs"):
+            mod.verify_receipt(deepcopy(FEED),saved,KEY,SIG,
+                               "Stephen Logue","Dev Leong",
+                               actor="adambrutto-maker",claimed_change=True,
+                               manager_reason="GOALIE_UNAVAILABLE")
+
     def test_failed_or_unrelated_publish_is_not_success(self):
         with self.assertRaisesRegex(ValueError,"does not match"):
             mod.verify_receipt(deepcopy(FEED),deepcopy(OLD),
