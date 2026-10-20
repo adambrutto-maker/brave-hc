@@ -95,7 +95,7 @@ function previousSnapshot(race){
  const dates=new Set();
  const valid=history.snapshots.filter(s=>{
   if(s?.status!=="VERIFIED_PUBLISHED_WEEKLY_RACE"||s.season!==d.season
-     ||!/^\\d{4}-\\d{2}-\\d{2}$/.test(s.publishedAsOf||"")
+     ||!/^\d{4}-\d{2}-\d{2}$/.test(s.publishedAsOf||"")
      ||s.publishedAsOf>=race.asOf||dates.has(s.publishedAsOf)
      ||!Number.isInteger(s.teamGP)||s.teamGP<1||s.teamGP>d.currentTeamGP
      ||!(/^[a-f0-9]{64}$/i).test(s.sourceWorkbookHash||"")
@@ -204,7 +204,7 @@ function card(row,index,isReference){
   if(!isCount&&breakdown?.components?.length){
    addAttributeChips(wrapper,breakdown.components,row,true);
   }else if(!isCount&&typeof row.scorecard==="string"&&row.scorecard.trim()){
-   const found=(row.scorecard.match(/(?:PTS|CONS|ATTD|POTG|SPEC|CLUT|HEAT|2WAY|DISC|PIM|PLUS|GREL|WIN%|GAA|WINS|SHO|CAR|PLY|LONG|LEG|AST|GOAL|OFF):\\s*\\d+(?:\\.\\d+)?/g)||[]);
+   const found=(row.scorecard.match(/(?:PTS|CONS|ATTD|POTG|SPEC|CLUT|HEAT|2WAY|DISC|PIM|PLUS|GREL|WIN%|GAA|WINS|SHO|CAR|PLY|LONG|LEG|AST|GOAL|OFF):\s*\d+(?:\.\d+)?/g)||[]);
    if(found.length){
     const main=el(wrapper,"div","score-chips ea-attributes");
     const addOriginal=(target,raw)=>{
