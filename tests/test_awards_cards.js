@@ -8,7 +8,7 @@ const vm=require('node:vm');
 const widgets=path.resolve(__dirname,'../widgets');
 const original=fs.readFileSync(path.join(widgets,'awards-races-v3.js'),'utf8');
 const injected=original.replace(/\bboot\(\);\s*\}\)\(\);\s*$/,
- 'globalThis.__awardsQA={state,card,currentComponents,previousSnapshot,movement,isVerifiedWeeklyRace,verifiedWorkbookRookieYearWatch,renderRaceActivity};})();');
+ 'globalThis.__awardsQA={state,card,currentComponents,previousSnapshot,movement,isVerifiedWeeklyRace,verifiedWorkbookRookieYearWatch,verifiedHTOStatWatch,renderRaceActivity};})();');
 assert.notEqual(injected,original,'Isolated test bootstrap must match entrypoint');
 const elt=(tag='div')=>({
  tag,children:[],className:'',textContent:'',
@@ -621,4 +621,77 @@ test('valid older same-source week remains eligible when a newer held mismatched
   assert.equal(prior?.publishedAsOf,'2026-10-12');
   assert.equal(prior?.sourceWorkbookHash,hash);
  }finally{api.state.weeklyHistory=old;api.state.award=oldAward;}
+});
+
+test('HTO Art Ross observation shows exactly five verified positive-point skaters, not OVR shortlist',()=>{
+ const result=api.verifiedHTOStatWatch('art-ross',participants,awards);
+ assert.equal(result.kind,'HTO_RAW_STAT_WATCH_NOT_OFFICIAL_AWARD_RANKING');
+ assert.equal(result.officialAwardEligibilityVerified,false);
+ assert.equal(result.officialAwardRankVerified,false);
+ assert.equal(result.ratingsVerified,false);
+ assert.equal(result.leaders.length,5);
+ assert.equal(result.asOf,'2026-10-18');
+ assert.deepEqual(result.leaders.map(p=>[p.name,p.points]),[
+  ['Carosi, Justin',3],['Pagnotta, Alex',3],['Provenzano, Michael',3],
+  ['Kober, Adam',2],['Kong, Henry',2]
+ ]);
+});
+test('HTO Rocket watch shows four positive-goal scorers and never converts goals into OVR',()=>{
+ const result=api.verifiedHTOStatWatch('rocket',participants,awards);
+ assert.equal(result.leaders.length,4);
+ assert.deepEqual(result.leaders.map(p=>[p.name,p.goals]),[
+  ['Carosi, Justin',3],['Kober, Adam',1],['Kong, Henry',1],
+  ['Pearsoll, Keith',1]
+ ]);
+ assert.equal(result.officialAwardRankVerified,false);
+ assert.equal(result.ratingsVerified,false);
+ assert.equal(api.verifiedHTOStatWatch('hart',participants,awards),null);
+});
+test('HTO scoring watch holds on incorrect source sum, player boxscore mismatch or game count',()=>{
+ for(const change of [
+  x=>x.players[0].currentHTORaw.goals++,
+  x=>x.players[0].points++,
+  x=>x.players[0].currentHTORaw.points++,
+  x=>x.players[0].currentHTORaw.gamesPlayed++,
+  x=>x.players[0].currentHTORaw.sourceKind='UNREVIEWED_STATS',
+  x=>x.players.push(structuredClone(x.players[0])),
+  x=>x.verifiedSourceReadback.team.points++,
+  x=>x.verifiedSourceReadback.status='UNVERIFIED',
+  x=>x.verifiedSourceReadback.independentBoxscoreParity.status='PENDING',
+  x=>x.latestCompletedGameDate='2026-10-04'
+ ]){
+  const fake=structuredClone(participants);change(fake);
+  assert.equal(api.verifiedHTOStatWatch('art-ross',fake,awards),null);
+ }
+});
+test('stat watch shows every player tied at the five-place cutoff, never fabricating workbook tiebreak',()=>{
+ const d=structuredClone(participants);
+ // Fictional all-players-tie test: 7 skaters with one goal, one point.
+ const names=d.players.filter(x=>x.position==='Skater').slice(0,7);
+ for(const p of d.players.filter(x=>x.position==='Skater')){
+  const g=names.some(n=>n.name===p.name)?1:0;
+  p.goals=g;p.assists=0;p.points=g;
+  p.currentHTORaw.goals=g;p.currentHTORaw.assists=0;p.currentHTORaw.points=g;
+ }
+ d.verifiedSourceReadback.team={gp:4,goals:7,assists:0,points:7};
+ d.verifiedSourceReadback.independentBoxscoreParity.teamGoalsFor=7;
+ const result=api.verifiedHTOStatWatch('rocket',d,awards);
+ assert.equal(result.leaders.length,7);
+ assert.equal(result.shownBeyondFiveBecauseOfTies,true);
+ assert.equal(result.cutoffScore,1);
+});
+test('Art Ross and Rocket visible watch identifies HTO data separately from official award scoring',()=>{
+ const oldAward=api.state.award;
+ const region=elementsById.get('scores');
+ try{
+  for(const [award,n] of [['art-ross',5],['rocket',4]]){
+   region.children=[];api.state.award=award;api.renderRaceActivity();
+   const blocks=visit(region,x=>x.className.split(' ').includes('race-activity-player'));
+   assert.equal(blocks.length,n);
+   const text=visit(region,x=>typeof x.textContent==='string').map(x=>x.textContent).join(' | ');
+   assert.match(text,/HTO source count/);
+   assert.match(text,/not the workbook.s award shortlist or EA-style overall ratings/);
+   assert.match(text,/award qualification and tiebreaks unverified/);
+  }
+ }finally{api.state.award=oldAward;region.children=[];}
 });
