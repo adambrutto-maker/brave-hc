@@ -189,12 +189,18 @@ Failed GitHub issue-based goalie confirmations now produce a **safe public revie
 A separate [widget-QA watchdog workflow](https://github.com/adambrutto-maker/brave-hc/actions/workflows/brave-goalie-widget-watchdog.yml) monitors the read-only public [browser QA workflow](https://github.com/adambrutto-maker/brave-hc/actions/workflows/brave-goalie-widget-smoke.yml). It runs on browser-QA completion, via manual dispatch, and twice daily at `13 2,14 * * *` (UTC). The monitor requires only **contents:read, actions:read and issues:write**; it never edits HTO or confirms goalies.
 
 - The newest *completed* QA run determines the result; later-completing events from older runs are ignored.
-- A failed, timed-out, cancelled, skipped or unverified run creates or updates **Brave H.C. — public goalie widget browser QA failure**. No completed test in the last **36 hours** also triggers review.
+- An actual failed, timed-out, cancelled, unverified, or unexpectedly skipped scheduled/manual browser test creates or updates **Brave H.C. — public goalie widget browser QA failure**. **Expected skipped follow-up runs** triggered by a non-successful upstream goalie workflow are not themselves a browser test. The watchdog evaluates the last real completed test and still flags an overdue verification gap over **36 hours**.
 - A fresh successful test closes the existing issue. This is an independent browser/site monitor, separate from the SVHL schedule-data watchdog and next-game readiness issue.
 - The [watchdog dry/live verification](https://github.com/adambrutto-maker/brave-hc/actions/runs/39436281674) passed using the already-green browser-QA state. The automatic watcher also [processed the subsequent green browser test](https://github.com/adambrutto-maker/brave-hc/actions/runs/39436771496) successfully. No alert was needed.
 - The browser test now runs contrast calculations against the public widget's explicit CSS colors, covering alternate game-row backgrounds, TBD text and column headings. The [verified browser test](https://github.com/adambrutto-maker/brave-hc/actions/runs/39436692866) reported **17.3:1** for odd-row game text, **14.5:1** for even-row game text, **10.3:1** and **8.6:1** for TBD, and **11.0:1** for headings, all above **4.5:1**.
 - These contrast calculations are based on **published CSS rules** and are a useful regression safeguard, **not** a full computed-style, accessibility or manual visual audit. The same run verified five rendered game rows on desktop and mobile, plus the live HTO iframe and both source feeds.
 - A failure issue is **not** authorization to make changes to HTO, game dates, goalie confirmations or player communications. Review the run log and the actual public site before correcting source code.
+
+### October 20 false-positive correction
+
+Issue [#18](https://github.com/adambrutto-maker/brave-hc/issues/18) was opened solely because [browser workflow run 39449425178](https://github.com/adambrutto-maker/brave-hc/actions/runs/39449425178) was deliberately **skipped** after an unrelated upstream goalie workflow. It was not a failed website test; the preceding actual public-browser QA was successful. The widget QA watchdog now excludes intentionally skipped `workflow_run` events when deciding the latest actual browser verification, while retaining warnings for genuine failures, scheduled/manual skips, and stale checks. New synthetic regression tests cover those distinctions.
+
+The corrected [watchdog run 39450909363](https://github.com/adambrutto-maker/brave-hc/actions/runs/39450909363) passed and **closed issue #18**. A separate [real desktop/mobile public browser test 39451042868](https://github.com/adambrutto-maker/brave-hc/actions/runs/39451042868) passed. No HTO or goalie assignments were changed.
 
 ## Live public website browser QA (October 20)
 
