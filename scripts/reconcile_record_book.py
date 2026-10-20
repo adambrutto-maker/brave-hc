@@ -8,6 +8,16 @@ from urllib.parse import parse_qs, urlparse
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 DIR = ROOT / 'docs/hto-highlights-rollout'
+ADDITIVE_STATS = ['GP','G','A','Pts','W','GA','PIM','SHG','PPG','GWG','GTG','POTG','HAT','SHO']
+
+def load_evidence():
+    evidence = json.loads((DIR / '261020_Game_Level_Readbacks.json').read_text())
+    games = {game['url']:game for game in evidence['games']}
+    for batch in sorted((DIR / 'game-audit-evidence').glob('261020_Continued_Boxscores_*.json')):
+        for game in json.loads(batch.read_text())['games']:
+            games[game['url']] = game
+    evidence['games'] = list(games.values())
+    return evidence
 
 def date_of(game):
     match = re.search(r'\b(\d{1,2}/\d{1,2}/\d{2})\b', game['schedule']['text'])
@@ -16,6 +26,8 @@ def date_of(game):
 def observations(game):
     for table in game['tables']:
         header = table['rows'][0]['cells']
+        if 'Name' not in header:
+            continue
         for row in table['rows'][1:]:
             if len(row['players']) != 1 or len(row['cells']) != len(header):
                 continue
@@ -24,7 +36,7 @@ def observations(game):
             yield pid, dict(zip(header, row['cells']))
 
 def run():
-    evidence = json.loads((DIR / '261020_Game_Level_Readbacks.json').read_text())
+    evidence = load_evidence()
     book = json.loads((ROOT / 'widgets/player-record-book.json').read_text())
     by_date = collections.defaultdict(list)
     for g in evidence['games']:
@@ -56,9 +68,9 @@ def run():
     for game in evidence['games']:
         kind = 'Playoffs' if 'PLAYOFFS' in game['heading'] else 'Regular Season' if 'REGULAR SEASON' in game['heading'] else 'UNRESOLVED'
         for pid, row in observations(game):
-            role = 'goalie' if 'GAA' in row else 'skater'
+            role = 'skater' if 'POS' in row else 'goalie'
             key = (game['schedule']['season'],kind,pid,role)
-            for stat in ['GP','G','A','Pts','W','GA']:
+            for stat in ADDITIVE_STATS:
                 if stat in row:
                     try:sums[key][stat] += float(row[stat])
                     except ValueError:pass
@@ -66,7 +78,7 @@ def run():
                 sums[key]['GP'] += 1
     coverage = []
     for source in season_audit['validatedReadbacks']:
-        season, kind = source['season']['label'], source['type']['label']
+        season, kind = source['season']['label'], source['type']['label'].split(':')[0].strip()
         for table in source['tables']:
             headers = table['headers'][-1]
             role = 'goalie' if 'GAA' in headers else 'skater'
@@ -77,7 +89,7 @@ def run():
                 stats = dict(zip(headers,row['cells']))
                 actual = sums[(season,kind,pid,role)]
                 differences = {}
-                for stat in ['GP','G','A','Pts','W','GA']:
+                for stat in ADDITIVE_STATS:
                     if stat not in stats:continue
                     try:expected=float(stats[stat])
                     except ValueError:continue
