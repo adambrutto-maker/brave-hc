@@ -1,0 +1,3525 @@
+{
+  "capturedAt": "2026-10-20T21:08:36.136Z",
+  "before": [
+    "7 - Mark Pastore (July 5, 2015)",
+    "4 - Mark Pastore (June 16, 2013)",
+    "4 - Mark Pastore (June 7, 2015)",
+    "2 - Keith Pearsoll (May 12, 2013)",
+    "2 - Ryan Logue (June 2, 2013)",
+    "2 - Mark Pastore (June 9, 2013)",
+    "2 - Keith Pearsoll (June 9, 2013)",
+    "22 - Ben Sherritt (2017)",
+    "16 - Ben Sherritt (2014)",
+    "16 - Mark Pastore (2015)",
+    "16 - Xav O'Krafka (2017)",
+    "12 - Mark Pastore (2013)",
+    "8 - Ryan Logue (2013)",
+    "6 - Mark Pastore (2015)",
+    "9 - Mark Pastore (July 17, 2016)",
+    "8 - Mark Pastore (July 5, 2015)",
+    "5 - Cameron Buchanan (June 23, 2013)",
+    "5 - Stefano Ardizzi (June 22, 2014)",
+    "5 - Ryan Logue (July 20, 2014)",
+    "5 - Mark Pastore (May 10, 2015)",
+    "4 - Mark Pastore (June 16, 2013)",
+    "4 - Ryan Logue (June 9, 2013)",
+    "3 - Keith Pearsoll (May 12, 2013)",
+    "3 - Keith Pearsoll (June 9, 2013)",
+    "3 - Ryan Logue (June 2, 2013)",
+    "32 - Ben Sherritt (2017)",
+    "30 - Xav O'Krafka (2017)",
+    "25 - Ben Sherritt (2014)",
+    "25 - Mark Pastore (2015)",
+    "17 - Mark Pastore (2013)",
+    "9 - Mark Pastore (2015)",
+    "6 - Keith Pearsoll (2015)",
+    "6 - Cameron Buchanan (2015)",
+    "2 - Ben Sherritt (2014)",
+    "2 - Ryan Logue (2014)",
+    "2 - Adam Brutto (2014)",
+    "6 - Justin Carosi  (May 15, 2016)",
+    "4 - Ryan Logue (June 9, 2013)",
+    "4 - Adam Brutto (July 26, 2015)",
+    "4 - Mark Pastore (May 8, 2016)",
+    "3 - Adam Brutto (June 9, 2013)",
+    "2 - Mark Pastore (June 2, 2013)",
+    "2 - Adam Brutto (June 2, 2013)",
+    "15 - Justin Carosi (2016)",
+    "11 - Adam Brutto (2015)",
+    "10 - Justin Carosi (2015)",
+    "10 - Ryan Logue (2015)",
+    "9 - Ryan Logue (2014)",
+    "9 - Ben Sherritt (2014)",
+    "9 - Julian Kercz (2014)",
+    "8 - Justin Carosi (2014)",
+    "7 - Keith Pearsoll (2013)",
+    "7 - Ryan Logue (2013)",
+    "7 - Stefano Ardizzi (2014)",
+    "8 - Adam Brutto (2015)",
+    "4 - Ben Sherritt (2017)",
+    "2 - Ben Sherritt (2014)",
+    "2 - Ryan Logue (2014)",
+    "2 - Justin Carosi (2015)",
+    "2 - Mark Pastore (2015)",
+    "2 - Mark Pastore (2014)",
+    "2 - Mark Pastore (2016)",
+    "4 - Ben Sherritt (2017)",
+    "3 - Ben Sherritt (2014)",
+    "3 - Mark Pastore (2016)",
+    "2 - Mark Pastore (2015)",
+    "2 - Cameron Buchanan (2016)",
+    "7 - Ben Sherritt  (2014)",
+    "4 - Ryan Logue (2013)",
+    "2 - Cameron Buchanan (2015)",
+    "2 - Keith Pearsoll (2016)",
+    "6 - Stephen Logue (2014)",
+    "4 - Stephen Logue (2013)",
+    "2 - Rènt Goaliê (2016)",
+    "1 - Stephen Logue (2016)",
+    "3.40 - Will Cawkell (2015)",
+    "3.80 - Stephen Logue (2015)",
+    "4.00 - Stephen Logue (2014)",
+    "5.33 - Stephen Logue (2013)",
+    "2.50 - Stephen Logue (2017)",
+    "3.50 - Rènt Goaliê (2016)",
+    "4.00 - Stephen Logue (2014)",
+    "4.75 - Stephen Logue (2013)",
+    "9 - Stefano Ardizzi (May 31, 2015)",
+    "4 - Adam Brutto (August 18, 2013)",
+    "4 - Adam Brutto (May 25, 2014)",
+    "4 - Stefano Ardizzi (June 1, 2014)",
+    "4 - Daniel Buzzelli (June 1, 2014)",
+    "4 - Alex Pagnotta (June 22, 2014)",
+    "4 - Ryan Logue (July 13, 2014)",
+    "4 - Daniel Buzzelli (August 10, 2014)",
+    "4 - Justin Carosi (May 24, 2015)",
+    "4 - Alex Pagnotta (May 24, 2015)",
+    "20 - Xav O'Krafka (2017)",
+    "11 - Stefano Ardizzi (2015)",
+    "8 - Adam Brutto (2014)",
+    "8 - Julian Kercz (2014)",
+    "8 - Justin Carosi (2015)",
+    "8 - Alex Pagnotta (2015)",
+    "6 - Daniel Buzzelli (2014)",
+    "6 - Daniel Buzzelli (2014)",
+    "6 - Stefano Ardizzi (2015)",
+    "6 - Julian Kercz  (2016)",
+    "6 - Andrew Buchanan (2017)",
+    "4 - Adam Brutto (2013)",
+    "5 - Ben Sherritt (October 6, 2013)",
+    "36 - Ben Sherritt (2013/14)",
+    "8 - Mark Pastore (2015/16)",
+    "7 - Mark Pastore (2014/15)",
+    "4 - Ben Sherritt (2013/14)",
+    "6 - Ben Sherritt (October 6, 2013)",
+    "6 - Ben Sherritt (March 2, 2014)",
+    "6 - Zach Kercz (December 21, 2014)",
+    "6 - Xav O'Krafka (November 12, 2017)",
+    "6 - Ben Sherritt  (November 12, 2017)",
+    "3 - Mark Pastore (September 29, 2013)",
+    "46 - Ben Sherritt (2013/14)",
+    "9 - Mark Pastore (2015/16)",
+    "8 - Mark Pastore (2014/15)",
+    "7 - Damian Aidemirski (2013/14)",
+    "4 - Damian Aidemirski (March 30, 2014)",
+    "4 - Dylan Brennan (September 18, 2016)",
+    "4 - Justin Carosi (October 16, 2016)",
+    "4 - Justin Carosi (November 24, 2019)",
+    "4 - David Corasaniti (February 9, 2020)",
+    "4 - David Corasaniti (February 16, 2020)",
+    "4 - Stephane Saindon (October 6, 2024)",
+    "4 - Stephane Saindon (November 9, 2025)",
+    "4 - Stephane Saindon (January 18, 2026)",
+    "3 - Michael Congiusti (October 6, 2013)",
+    "3 - Stefano Ardizzi (December 15, 2013)",
+    "3 - Mark Pastore (January 5, 2014)",
+    "3 - Stefano Ardizzi (March 2, 2014)",
+    "3 - Michael Congiusti (March 2, 2014)",
+    "2 - Mark Pastore (September 29, 2013)",
+    "2 - Ben Sherritt (September 29, 2013)",
+    "2 - Marco Congiusti (September 29, 2013)",
+    "22 - Dylan Brennan (2018/19)",
+    "19 - Justin Carosi (2016/17)",
+    "19 - Justin Carosi (2017/18)",
+    "17 - Mark Pastore (2013/14)",
+    "6 - Damian Aidemirski (2013/14)",
+    "2 - Adam Brutto (2013/14)",
+    "4 - Ben Sherritt (2017/18)",
+    "4 - Stephen Keane (2016/17)",
+    "4 - Ben Sherritt (2013/14)",
+    "4 - Stephane Saindon (2023/24)",
+    "3 - Cameron Buchanan (2013/14)",
+    "2 - Mark Pastore (2015/16)",
+    "2 - Ben Sherritt (2017/18)",
+    "2 - Ryan Logue (2019/20)",
+    "2 - Ben Sherritt (2013/14)",
+    "2 - Cameron Buchanan (2014/15)",
+    "2 - Alex Pagnotta (2019/20)",
+    "2 - Justin Carosi (2022/23)",
+    "4 - Ben Sherritt (2017/18)",
+    "3 - Ben Sherritt (2013/14)",
+    "3 - Justin Carosi (2017/18)",
+    "2 - Ryan Logue (2014/15)",
+    "5 - Ben Sherritt (2013/14)",
+    "13 - Ben Sherritt (2013/14)",
+    "5 - Mark Pastore (2015/16)",
+    "3 - Mark Pastore (2014/15)",
+    "12 - Stephen Logue (2013/14)",
+    "4 - Stephen Logue (2015/16)",
+    "2 - Stephen Logue (2013/14)",
+    "4 - Stephen Logue (2016/17)",
+    "2 - Stephen Logue (2015/16)",
+    "2 - Stephen Logue (2016/17)",
+    "1 - Stephen Logue (2013/14)",
+    "2.17 - Andrew Pozzebon (2017/18)",
+    "2.33 - Stephen Logue (2013/14)",
+    "1.33 - Stephen Logue (2013/14)",
+    "14 - Adam Brutto (November 22, 2015)",
+    "14 - Adam Brutto (December 11, 2016)",
+    "14 - Stefano Ardizzi (December 22, 2019)",
+    "14 - Stephane Saindon (April 6, 2025)",
+    "12 - Julian Kercz (November 9, 2014)",
+    "4 - Adam Brutto (December 1, 2013)",
+    "4 - Adam Brutto (December 15, 2013)",
+    "4 - Mario Provenzano (December 15, 2013)",
+    "4 - Daniel Buzzelli (January 19, 2014)",
+    "4 - Adam Brutto (March 30, 2014)",
+    "4 - Alex Pagnotta (October 19, 2014)",
+    "24 - Julian Kercz (2015/16)",
+    "24 - Julian Kercz (2016/17)",
+    "20 - Julian Kercz (2014/15)",
+    "14 - Daniel Buzzelli (2013/14)",
+    "14 - Stephane Saindon (2024/25)",
+    "11 - Julian Kercz (2015/16)",
+    "6 - Adam Brutto (2013/14)",
+    "6 - Mark Pastore (2014/15)",
+    "6 - Jeff Micheli (2014/15)",
+    "1 - Stephen Logue (July 27, 2014)",
+    "2 - Alex Pagnotta (August 17, 2014)",
+    "3 - Ryan Logue (August 17, 2014)",
+    "4 - Cameron Buchanan (August 17, 2014)",
+    "5 - Adam Brutto (September 21, 2014)",
+    "6 - Mark Pastore (September 21, 2014)",
+    "7 - Marco Congiusti (September 28, 2014)",
+    "8 - Keith Pearsoll (October 5, 2014)",
+    "9 - Damian Aidemirski (October 5, 2014)",
+    "10 - Mario Provenzano (November 9, 2014)",
+    "11 - Michael Congiusti (December 7, 2014)",
+    "12 - Stefano Ardizzi (March 22, 2015)",
+    "13 - Justin Carosi (June 14, 2015)",
+    "14 - Neil Baghel (September 27, 2015)",
+    "15 - Anthony Paolucci (November 15, 2015)",
+    "16 - Julian Kercz (December 20, 2015)",
+    "17 - Anthony Guerra (July 17, 2016)",
+    "18 - Ben Sherritt (November 20, 2016)",
+    "19 - Dylan Brennan (January 23, 2018)",
+    "20 - Daniel Buzzelli (September 23, 2018)",
+    "21 - Lucas Brutto (December 30, 2018)",
+    "22 - Andrew Buchanan (February 10, 2019)",
+    "23 - Lorcan Duffy (April 14, 2019)",
+    "24 - Andrew Cristillo (December 10, 2023)",
+    "25 - Mark Arruda (March 10, 2024)",
+    "26 - Stephane Saindon (November 3, 2024)",
+    "27 - Ryan Finlay (December 15, 2024)",
+    "28 - Stefano Mazzei (December 22, 2024)",
+    "29 - Krishnan Rajasooriar (January 4, 2026)",
+    "1 - Mark Pastore (March 30, 2014)",
+    "2 - Ben Sherritt (April 13, 2014)",
+    "3 - Ryan Logue (June 22, 2014)",
+    "4 - Cameron Buchanan (November 30, 2014)",
+    "5 - Keith Pearsoll (May 24, 2015)",
+    "6 - Justin Carosi (June 21, 2015)",
+    "7 - Adam Brutto (July 26, 2015)",
+    "8 - Damian Aidemirski (November 22, 2015)",
+    "9 - Stefano Ardizzi (February 21, 2016)",
+    "10 - Alex Pagnotta (May 15, 2016)",
+    "11 - Julian Kercz (July 10, 2016)",
+    "12 - Dylan Brennan (August 27, 2017)",
+    "13 - Xav O'Krafka (November 19, 2017)",
+    "14 - Mario Provenzano (February 11, 2018)",
+    "15 - Marco Congiusti (March 3, 2019)",
+    "16 - Lorcan Duffy (March 1, 2020)",
+    "17 - Stephane Saindon (March 10, 2024)",
+    "18 - Mark Arruda (March 9, 2025)",
+    "19 - Ryan Finlay (December 7, 2025)",
+    "20 - Michael Provenzano (September 27, 2026)",
+    "1 - Stephen Logue (April 17, 2016)",
+    "1 - Alex Pagnotta (December 20, 2015)",
+    "2 - Ryan Logue (December 20, 2015)",
+    "3 - Mark Pastore (December 27, 2015)",
+    "4 - Adam Brutto (January 3, 2016)",
+    "5 - Damian Aidemirski (January 10, 2016)",
+    "6 - Keith Pearsoll (January 24, 2016)",
+    "7 - Stephen Logue (January 31, 2016)",
+    "8 - Marco Congiusti (February 28, 2016)",
+    "9 - Cameron Buchanan (May 15, 2016)",
+    "10 - Justin Carosi (October 30, 2016)",
+    "11 - Mario Provenzano (December 18, 2016)",
+    "12 - Michael Congiusti (January 15, 2017)",
+    "13 - Stefano Ardizzi (April 2, 2017)",
+    "14 - Ben Sherritt (March 18, 2018)",
+    "15 - Daniel Buzzelli (October 30, 2022)",
+    "16 - Mark Arruda (March 15, 2026)",
+    "1 - Mark Pastore (June 7, 2015)",
+    "2 - Ryan Logue (August 9, 2015)",
+    "3 - Justin Carosi (May 15, 2016)",
+    "4 - Cameron Buchanan (June 19, 2016)",
+    "5 - Keith Pearsoll (August 14, 2016)",
+    "6 - Ben Sherritt (November 13, 2016)",
+    "7 - Adam Brutto (August 20, 2017)",
+    "8 - Dylan Brennan (December 30, 2018)",
+    "9 - Stefano Ardizzi (March 10, 2019)",
+    "10 - Alex Pagnotta (November 24, 2019)",
+    "11 - Mario Provenzano (November 16, 2025)",
+    "12 - Stephane Saindon (November 30, 2025)",
+    "1 - Stephen Logue (March 1, 2020)",
+    "1 - Adam Brutto (January 6, 2019)",
+    "2 - Alex Pagnotta (January 27, 2019)",
+    "3 - Keith Pearsoll (February 17, 2019)",
+    "4 - Ryan Logue (March 17, 2019)",
+    "5 - Cameron Buchanan (September 15, 2019)",
+    "6 - Marco Congiusti (November 17, 2019)",
+    "7 - Stephen Logue (December 15, 2019)",
+    "8 - Justin Carosi (February 23, 2020)",
+    "9 - Stefano Ardizzi (February 4, 2024)",
+    "10 - Mario Provenzano (March 24, 2024)",
+    "1 - Ben Sherritt (February 25, 2018)",
+    "2 - Ryan Logue (September 16, 2018)",
+    "3 - Justin Carosi (December 30, 2018)",
+    "4 - Cameron Buchanan (October 20, 2019)",
+    "5 - Keith Pearsoll (February 19, 2023)",
+    "1 - Adam Brutto (January 5, 2025)",
+    "2 - Alex Pagnotta (September 28, 2025)",
+    "3 - Justin Carosi (September 20, 2026)",
+    "1 - Justin Carosi (January 14, 2024)",
+    "14 - (7-3-0) (2017)",
+    "13 - (6-3-1) (2014)",
+    "13 - (6-3-1) (2015)",
+    "10 - (4-3-2) (2013)",
+    "8 - (4-6-0) (2016)",
+    "6 - (3-0-0) - Won Championship (2016)",
+    "4 - (2-1-0) - Lost Finals (2015)",
+    "3 - (1-2-1) - Lost Finals  (2017)",
+    "2 - (1-3-0) - Lost Quarter-Finals (2013)",
+    "2 - (1-1-0) - Lost Semi-Finals (2014)",
+    "77 (2017)",
+    "67 (2016)",
+    "55 (2014)",
+    "54 (2015)",
+    "49 (2013)",
+    "24 (2015)",
+    "22 (2016)",
+    "13 (2017)",
+    "12 (2013)",
+    "3 (2014)",
+    "36 (2015)",
+    "40 (2014)",
+    "48 (2013)",
+    "53 (2017)",
+    "62 (2016)",
+    "8 (2014)",
+    "11 (2016)",
+    "15 (2017)",
+    "16 (2015)",
+    "19 (2013)",
+    "6 (2014)",
+    "6 (2015)",
+    "3 (2017)",
+    "2 (2016)",
+    "0 (2013)",
+    "3 (2017)",
+    "2 (2016)",
+    "1 (2014)",
+    "1 (2015)",
+    "0 (2013)",
+    "6 (2016)",
+    "5 (2017)",
+    "1 (2015)",
+    "0 (2013)",
+    "0 (2014)",
+    "3 (2015)",
+    "1 (2016)",
+    "0 (2013)",
+    "0 (2014)",
+    "0 (2017)",
+    "38 (2016)",
+    "48 (2013)",
+    "48 (2014)",
+    "59 (2015)",
+    "60 (2017)",
+    "8 (2013)",
+    "8 (2014)",
+    "12 (2016)",
+    "26 (2017)",
+    "31 (2015)",
+    "31 - (14-5-3) (2017/18)",
+    "30 - (13-7-4) (2013/14)",
+    "27 - (13-7-1) (2016/17)",
+    "27 - (12-9-3) (2025/26)",
+    "26 - (11-11-4) (2018/19)",
+    "24 - (12-12-0) (2023/24)",
+    "22 - (9-8-4) (2014/15)",
+    "22 - (10-10-2) (2019/20)",
+    "22 - (10-12-2) (2024/25)",
+    "19 - (8-12-3) (2015/16)",
+    "19 - (8-12-3) (2022/23)",
+    "4 - (2-1-0) - COVID-shortened season (3 games) (2020/21)",
+    "9 - (4-1-1) - Won Championship (2015/16)",
+    "7 - (2-1-3) - Lost Finals (2014/15)",
+    "6 - (2-2-2) - Lost Finals (2013/14)",
+    "6 - (3-2-0) - Lost Semi-Finals (2017/18)",
+    "4 - (2-0-0) - COVID, Playoffs Cancelled (2019/20)",
+    "3 - (1-3-1) - Won Bronze Finals (2016/17)",
+    "2 - (1-1-0) - Lost Semi-Finals (2022/23)",
+    "2 - (1-2-0) - Lost Semi-Finals (2025/26)",
+    "0 - (0-2-0) - Lost Semi-Finals (2023/24)",
+    "0 - (0-2-0) - Lost Semi-Finals (2024/25)",
+    "0 - (0-3-0) - Lost Bronze Finals (2018/19)",
+    "113 (2017/18)",
+    "108 (2013/14)",
+    "84 (2016/17)",
+    "83 (2019/20)",
+    "81 (2025/26)",
+    "79 (2023/24)",
+    "76 (2015/16)",
+    "76 (2018/19)",
+    "73 (2022/23)",
+    "73 (2024/25)",
+    "64 (2014/15)",
+    "13 - COVID-shortened season (3 games) (2020/21)",
+    "16 (2014/15)",
+    "16 (2015/16)",
+    "15 (2017/18)",
+    "14 (2016/17)",
+    "12 (2013/14)",
+    "10 (2018/19)",
+    "10 - COVID, Playoffs Cancelled (2019/20)",
+    "7 (2025/26)",
+    "6 (2023/24)",
+    "3 (2022/23)",
+    "2 (2024/25)",
+    "13 - COVID-shortened season (3 games) (2020/21)",
+    "53 (2013/14)",
+    "59 (2016/17)",
+    "66 (2017/18)",
+    "66 (2014/15)",
+    "69 (2018/19)",
+    "77 (2019/20)",
+    "79 (2022/23)",
+    "82 (2025/26)",
+    "83 (2015/16)",
+    "95 (2024/25)",
+    "98 (2023/24)",
+    "3 - COVID, Playoffs Cancelled (2019/20)",
+    "6 (2024/25)",
+    "7 (2022/23)",
+    "8 (2013/14)",
+    "9 (2025/26)",
+    "10 (2023/24)",
+    "11 (2015/16)",
+    "11 (2017/18)",
+    "14 (2014/15)",
+    "15 (2018/19)",
+    "20 (2016/17)",
+    "9 (2017/18)",
+    "9 (2019/20)",
+    "8 (2018/19)",
+    "8 (2023/24)",
+    "7 (2013/14)",
+    "6 (2015/16)",
+    "5 (2024/25)",
+    "3 (2014/15)",
+    "3 (2022/23)",
+    "3 (2025/26)",
+    "2 (2016/17)",
+    "0 - COVID-shortened season (3 games) (2020/21)",
+    "5 (2014/15)",
+    "2 (2013/14)",
+    "2 (2017/18)",
+    "2 (2018/19)",
+    "2 - COVID, Playoffs Cancelled (2019/20)",
+    "1 (2015/16)",
+    "1 (2025/26)",
+    "0 (2016/17)",
+    "0 (2022/23)",
+    "0 (2023/24)",
+    "0 (2024/25)",
+    "6 (2022/23)",
+    "4 (2017/18)",
+    "3 (2019/20)",
+    "2 (2014/15)",
+    "2 (2015/16)",
+    "2 (2018/19)",
+    "2 (2023/24)",
+    "1 (2013/14)",
+    "1 (2016/17)",
+    "1 (2024/25)",
+    "0 (2025/26)",
+    "0 - COVID-shortened season (3 games) (2020/21)",
+    "2 (2015/16)",
+    "1 (2017/18)",
+    "0 - COVID, Playoffs Cancelled (2019/20)",
+    "0 (2013/14)",
+    "0 (2014/15)",
+    "0 (2016/17)",
+    "0 (2018/19)",
+    "0 (2022/23)",
+    "0 (2023/24)",
+    "0 (2024/25)",
+    "0 (2025/26)",
+    "2 - COVID-shortened season (3 games) (2020/21)",
+    "40 (2025/26)",
+    "52 (2023/24)",
+    "58 (2024/25)",
+    "62 (2019/20)",
+    "64 (2017/18)",
+    "70 (2013/14)",
+    "77 (2018/19)",
+    "78 (2022/23)",
+    "90 (2014/15)",
+    "90 (2015/16)",
+    "124 (2016/17)",
+    "0 (2022/23)",
+    "4 (2018/19)",
+    "8 - COVID, Playoffs Cancelled (2019/20)",
+    "14 (2025/26)",
+    "16 (2013/14)",
+    "18 (2024/25)",
+    "20 (2023/24)",
+    "28 (2014/15)",
+    "31 (2015/16)",
+    "32 (2016/17)",
+    "32 (2017/18)"
+  ],
+  "receipts": [
+    {
+      "candidateID": "summer_regular_season_team_GF",
+      "category": "Summer - Most team goals in a game - Regular Season",
+      "team": "Team",
+      "period": "Game",
+      "notes": "vs. Village Idiots (13-4)",
+      "year": "2016-05-15",
+      "value": "13",
+      "playerID": null,
+      "sources": [
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1442287&archTog=1"
+      ],
+      "expected": "13 - vs. Village Idiots (13-4) (2016-05-15)",
+      "verified": true
+    },
+    {
+      "candidateID": "summer_regular_season_team_GF",
+      "category": "Summer - Most team goals in a game - Regular Season",
+      "team": "Team",
+      "period": "Game",
+      "notes": "vs. Lost In the Sauce (13-4)",
+      "year": "2016-07-17",
+      "value": "13",
+      "playerID": null,
+      "sources": [
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1442295&archTog=1"
+      ],
+      "expected": "13 - vs. Lost In the Sauce (13-4) (2016-07-17)",
+      "verified": true
+    },
+    {
+      "candidateID": "summer_regular_season_team_margin",
+      "category": "Summer - Largest winning margin - Regular Season",
+      "team": "Team",
+      "period": "Game",
+      "notes": "vs. Young Guns (11-1)",
+      "year": "2017-06-18",
+      "value": "10",
+      "playerID": null,
+      "sources": [
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559168&archTog=1"
+      ],
+      "expected": "10 - vs. Young Guns (11-1) (2017-06-18)",
+      "verified": true
+    },
+    {
+      "candidateID": "summer_regular_season_team_lossMargin",
+      "category": "Summer - Largest losing margin - Regular Season",
+      "team": "Team",
+      "period": "Game",
+      "notes": "vs. Maplewolves (1-12)",
+      "year": "2016-06-12",
+      "value": "11",
+      "playerID": null,
+      "sources": [
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1442291&archTog=1"
+      ],
+      "expected": "11 - vs. Maplewolves (1-12) (2016-06-12)",
+      "verified": true
+    },
+    {
+      "candidateID": "summer_regular_season_team_combinedGoals",
+      "category": "Summer - Most combined goals in a game - Regular Season",
+      "team": "Team",
+      "period": "Game",
+      "notes": "vs. Bros Before Hossas (11-7)",
+      "year": "2013-06-16",
+      "value": "18",
+      "playerID": null,
+      "sources": [
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=966433&archTog=1"
+      ],
+      "expected": "18 - vs. Bros Before Hossas (11-7) (2013-06-16)",
+      "verified": true
+    },
+    {
+      "candidateID": "summer_regular_season_team_PIM",
+      "category": "Summer - Most team penalty minutes in a game - Regular Season",
+      "team": "Team",
+      "period": "Game",
+      "notes": "vs. Vaughan Indies (8-3)",
+      "year": "2015-05-31",
+      "value": "15",
+      "playerID": null,
+      "sources": [
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1249334&archTog=1"
+      ],
+      "expected": "15 - vs. Vaughan Indies (8-3) (2015-05-31)",
+      "verified": true
+    },
+    {
+      "candidateID": "summer_regular_season_season_two_goal_games",
+      "category": "Summer - Games with at least two goals in one season - Regular Season",
+      "team": "Individual",
+      "period": "Season",
+      "notes": "Ben Sherritt",
+      "year": "2017",
+      "value": "7",
+      "playerID": "354285",
+      "sources": [
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559155&archTog=1",
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559156&archTog=1",
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559158&archTog=1",
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559161&archTog=1",
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559159&archTog=1",
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559168&archTog=1",
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559177&archTog=1"
+      ],
+      "expected": "7 - Ben Sherritt (2017)",
+      "verified": true
+    },
+    {
+      "candidateID": "summer_regular_season_season_three_point_games",
+      "category": "Summer - Games with at least three points in one season - Regular Season",
+      "team": "Individual",
+      "period": "Season",
+      "notes": "Ben Sherritt",
+      "year": "2017",
+      "value": "7",
+      "playerID": "354285",
+      "sources": [
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559156&archTog=1",
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559158&archTog=1",
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559161&archTog=1",
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559159&archTog=1",
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559168&archTog=1",
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559170&archTog=1",
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559177&archTog=1"
+      ],
+      "expected": "7 - Ben Sherritt (2017)",
+      "verified": true
+    },
+    {
+      "candidateID": "summer_regular_season_season_three_assist_games",
+      "category": "Summer - Games with at least three assists in one season - Regular Season",
+      "team": "Individual",
+      "period": "Season",
+      "notes": "Keith Pearsoll",
+      "year": "2016",
+      "value": "3",
+      "playerID": "354056",
+      "sources": [
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1442287&archTog=1",
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1442294&archTog=1",
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1442295&archTog=1"
+      ],
+      "expected": "3 - Keith Pearsoll (2016)",
+      "verified": true
+    },
+    {
+      "candidateID": "summer_regular_season_season_three_assist_games",
+      "category": "Summer - Games with at least three assists in one season - Regular Season",
+      "team": "Individual",
+      "period": "Season",
+      "notes": "Justin Carosi",
+      "year": "2016",
+      "value": "3",
+      "playerID": "354060",
+      "sources": [
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1442268&archTog=1",
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1442287&archTog=1",
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1442294&archTog=1"
+      ],
+      "expected": "3 - Justin Carosi (2016)",
+      "verified": true
+    },
+    {
+      "candidateID": "summer_regular_season_season_three_assist_games",
+      "category": "Summer - Games with at least three assists in one season - Regular Season",
+      "team": "Individual",
+      "period": "Season",
+      "notes": "Mark Pastore",
+      "year": "2016",
+      "value": "3",
+      "playerID": "354061",
+      "sources": [
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1442286&archTog=1",
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1442292&archTog=1",
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1442295&archTog=1"
+      ],
+      "expected": "3 - Mark Pastore (2016)",
+      "verified": true
+    },
+    {
+      "candidateID": "summer_regular_season_season_three_assist_games",
+      "category": "Summer - Games with at least three assists in one season - Regular Season",
+      "team": "Individual",
+      "period": "Season",
+      "notes": "Xav O'Krafka",
+      "year": "2017",
+      "value": "3",
+      "playerID": "426873",
+      "sources": [
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559156&archTog=1",
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559159&archTog=1",
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559169&archTog=1"
+      ],
+      "expected": "3 - Xav O'Krafka (2017)",
+      "verified": true
+    },
+    {
+      "candidateID": "summer_playoffs_team_GF",
+      "category": "Summer - Most team goals in a game - Playoffs",
+      "team": "Team",
+      "period": "Playoffs",
+      "notes": "vs. Mohawks Hockey (12-3)",
+      "year": "2015-07-26",
+      "value": "12",
+      "playerID": null,
+      "sources": [
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1249341&archTog=1"
+      ],
+      "expected": "12 - vs. Mohawks Hockey (12-3) (2015-07-26)",
+      "verified": true
+    },
+    {
+      "candidateID": "summer_playoffs_team_margin",
+      "category": "Summer - Largest winning margin - Playoffs",
+      "team": "Team",
+      "period": "Playoffs",
+      "notes": "vs. Mohawks Hockey (12-3)",
+      "year": "2015-07-26",
+      "value": "9",
+      "playerID": null,
+      "sources": [
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1249341&archTog=1"
+      ],
+      "expected": "9 - vs. Mohawks Hockey (12-3) (2015-07-26)",
+      "verified": true
+    },
+    {
+      "candidateID": "summer_playoffs_team_lossMargin",
+      "category": "Summer - Largest losing margin - Playoffs",
+      "team": "Team",
+      "period": "Playoffs",
+      "notes": "vs. Cherry Pickers (2-7)",
+      "year": "2013-07-21",
+      "value": "5",
+      "playerID": null,
+      "sources": [
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=966437&archTog=1"
+      ],
+      "expected": "5 - vs. Cherry Pickers (2-7) (2013-07-21)",
+      "verified": true
+    },
+    {
+      "candidateID": "summer_playoffs_team_lossMargin",
+      "category": "Summer - Largest losing margin - Playoffs",
+      "team": "Team",
+      "period": "Playoffs",
+      "notes": "vs. Nifty Mittens (0-5)",
+      "year": "2014-08-17",
+      "value": "5",
+      "playerID": null,
+      "sources": [
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1100310&archTog=1"
+      ],
+      "expected": "5 - vs. Nifty Mittens (0-5) (2014-08-17)",
+      "verified": true
+    },
+    {
+      "candidateID": "summer_playoffs_team_combinedGoals",
+      "category": "Summer - Most combined goals in a game - Playoffs",
+      "team": "Team",
+      "period": "Playoffs",
+      "notes": "vs. Lead Farmers (11-4)",
+      "year": "2013-08-11",
+      "value": "15",
+      "playerID": null,
+      "sources": [
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=966439&archTog=1"
+      ],
+      "expected": "15 - vs. Lead Farmers (11-4) (2013-08-11)",
+      "verified": true
+    },
+    {
+      "candidateID": "summer_playoffs_team_combinedGoals",
+      "category": "Summer - Most combined goals in a game - Playoffs",
+      "team": "Team",
+      "period": "Playoffs",
+      "notes": "vs. Mohawks Hockey (12-3)",
+      "year": "2015-07-26",
+      "value": "15",
+      "playerID": null,
+      "sources": [
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1249341&archTog=1"
+      ],
+      "expected": "15 - vs. Mohawks Hockey (12-3) (2015-07-26)",
+      "verified": true
+    },
+    {
+      "candidateID": "summer_playoffs_team_PIM",
+      "category": "Summer - Most team penalty minutes in a game - Playoffs",
+      "team": "Team",
+      "period": "Playoffs",
+      "notes": "vs. Maple Wolves (7-6)",
+      "year": "2015-08-09",
+      "value": "21",
+      "playerID": null,
+      "sources": [
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1249342&archTog=1"
+      ],
+      "expected": "21 - vs. Maple Wolves (7-6) (2015-08-09)",
+      "verified": true
+    },
+    {
+      "candidateID": "summer_playoffs_season_two_goal_games",
+      "category": "Summer - Games with at least two goals in one season - Playoffs",
+      "team": "Individual",
+      "period": "Playoffs",
+      "notes": "Keith Pearsoll",
+      "year": "2016",
+      "value": "2",
+      "playerID": "354056",
+      "sources": [
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1442297&archTog=1",
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1442299&archTog=1"
+      ],
+      "expected": "2 - Keith Pearsoll (2016)",
+      "verified": true
+    },
+    {
+      "candidateID": "summer_playoffs_season_three_point_games",
+      "category": "Summer - Games with at least three points in one season - Playoffs",
+      "team": "Individual",
+      "period": "Playoffs",
+      "notes": "Keith Pearsoll",
+      "year": "2016",
+      "value": "2",
+      "playerID": "354056",
+      "sources": [
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1442297&archTog=1",
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1442299&archTog=1"
+      ],
+      "expected": "2 - Keith Pearsoll (2016)",
+      "verified": true
+    },
+    {
+      "candidateID": "summer_playoffs_season_three_point_games",
+      "category": "Summer - Games with at least three points in one season - Playoffs",
+      "team": "Individual",
+      "period": "Playoffs",
+      "notes": "Ben Sherritt",
+      "year": "2016",
+      "value": "2",
+      "playerID": "354285",
+      "sources": [
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1442297&archTog=1",
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1442299&archTog=1"
+      ],
+      "expected": "2 - Ben Sherritt (2016)",
+      "verified": true
+    },
+    {
+      "candidateID": "summer_playoffs_season_three_assist_games",
+      "category": "Summer - Games with at least three assists in one season - Playoffs",
+      "team": "Individual",
+      "period": "Playoffs",
+      "notes": "Adam Brutto",
+      "year": "2015",
+      "value": "1",
+      "playerID": "354054",
+      "sources": [
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1249341&archTog=1"
+      ],
+      "expected": "1 - Adam Brutto (2015)",
+      "verified": true
+    },
+    {
+      "candidateID": "summer_playoffs_season_three_assist_games",
+      "category": "Summer - Games with at least three assists in one season - Playoffs",
+      "team": "Individual",
+      "period": "Playoffs",
+      "notes": "Cameron Buchanan",
+      "year": "2016",
+      "value": "1",
+      "playerID": "354049",
+      "sources": [
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1442298&archTog=1"
+      ],
+      "expected": "1 - Cameron Buchanan (2016)",
+      "verified": true
+    },
+    {
+      "candidateID": "summer_playoffs_season_three_assist_games",
+      "category": "Summer - Games with at least three assists in one season - Playoffs",
+      "team": "Individual",
+      "period": "Playoffs",
+      "notes": "Adam Brutto",
+      "year": "2016",
+      "value": "1",
+      "playerID": "354054",
+      "sources": [
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1442299&archTog=1"
+      ],
+      "expected": "1 - Adam Brutto (2016)",
+      "verified": true
+    },
+    {
+      "candidateID": "summer_regular_season_streak_wins",
+      "category": "Summer - Longest regular-season winning streak - Regular Season",
+      "team": "Team",
+      "period": "Season",
+      "notes": "2017-05-28 to 2017-06-25",
+      "year": "2017",
+      "value": "5",
+      "playerID": null,
+      "sources": [
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559158&archTog=1",
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559161&archTog=1",
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559159&archTog=1",
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559168&archTog=1",
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559169&archTog=1"
+      ],
+      "expected": "5 - 2017-05-28 to 2017-06-25 (2017)",
+      "verified": true
+    },
+    {
+      "candidateID": "summer_regular_season_streak_points",
+      "category": "Summer - Longest regular-season point streak - Regular Season",
+      "team": "Team",
+      "period": "Season",
+      "notes": "2013-06-02 to 2013-07-07",
+      "year": "2013",
+      "value": "5",
+      "playerID": null,
+      "sources": [
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=966428&archTog=1",
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=966432&archTog=1",
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=966433&archTog=1",
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=966434&archTog=1",
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=966435&archTog=1"
+      ],
+      "expected": "5 - 2013-06-02 to 2013-07-07 (2013)",
+      "verified": true
+    },
+    {
+      "candidateID": "summer_regular_season_streak_points",
+      "category": "Summer - Longest regular-season point streak - Regular Season",
+      "team": "Team",
+      "period": "Season",
+      "notes": "2017-05-28 to 2017-06-25",
+      "year": "2017",
+      "value": "5",
+      "playerID": null,
+      "sources": [
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559158&archTog=1",
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559161&archTog=1",
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559159&archTog=1",
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559168&archTog=1",
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559169&archTog=1"
+      ],
+      "expected": "5 - 2017-05-28 to 2017-06-25 (2017)",
+      "verified": true
+    },
+    {
+      "candidateID": "winter_regular_season_team_GF",
+      "category": "Winter - Most team goals in a game - Regular Season",
+      "team": "Team",
+      "period": "Game",
+      "notes": "vs. DC Crew (14-2)",
+      "year": "2014-03-02",
+      "value": "14",
+      "playerID": null,
+      "sources": [
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046553&archTog=1"
+      ],
+      "expected": "14 - vs. DC Crew (14-2) (2014-03-02)",
+      "verified": true
+    },
+    {
+      "candidateID": "winter_regular_season_team_margin",
+      "category": "Winter - Largest winning margin - Regular Season",
+      "team": "Team",
+      "period": "Game",
+      "notes": "vs. DC Crew (14-2)",
+      "year": "2014-03-02",
+      "value": "12",
+      "playerID": null,
+      "sources": [
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046553&archTog=1"
+      ],
+      "expected": "12 - vs. DC Crew (14-2) (2014-03-02)",
+      "verified": true
+    },
+    {
+      "candidateID": "winter_regular_season_team_margin",
+      "category": "Winter - Largest winning margin - Regular Season",
+      "team": "Team",
+      "period": "Game",
+      "notes": "vs. Vaughan Indies (13-1)",
+      "year": "2016-02-21",
+      "value": "12",
+      "playerID": null,
+      "sources": [
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1384799&archTog=1"
+      ],
+      "expected": "12 - vs. Vaughan Indies (13-1) (2016-02-21)",
+      "verified": true
+    },
+    {
+      "candidateID": "winter_regular_season_team_lossMargin",
+      "category": "Winter - Largest losing margin - Regular Season",
+      "team": "Team",
+      "period": "Game",
+      "notes": "vs. Call Ups (1-10)",
+      "year": "2024-12-01",
+      "value": "9",
+      "playerID": null,
+      "sources": [
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=2148145&archTog=1"
+      ],
+      "expected": "9 - vs. Call Ups (1-10) (2024-12-01)",
+      "verified": true
+    },
+    {
+      "candidateID": "winter_regular_season_team_combinedGoals",
+      "category": "Winter - Most combined goals in a game - Regular Season",
+      "team": "Team",
+      "period": "Game",
+      "notes": "vs. DC Crew (14-2)",
+      "year": "2014-03-02",
+      "value": "16",
+      "playerID": null,
+      "sources": [
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046553&archTog=1"
+      ],
+      "expected": "16 - vs. DC Crew (14-2) (2014-03-02)",
+      "verified": true
+    },
+    {
+      "candidateID": "winter_regular_season_team_PIM",
+      "category": "Winter - Most team penalty minutes in a game - Regular Season",
+      "team": "Team",
+      "period": "Game",
+      "notes": "vs. Northern Lights (1-6)",
+      "year": "2015-11-22",
+      "value": "22",
+      "playerID": null,
+      "sources": [
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1384786&archTog=1"
+      ],
+      "expected": "22 - vs. Northern Lights (1-6) (2015-11-22)",
+      "verified": true
+    },
+    {
+      "candidateID": "winter_regular_season_team_PIM",
+      "category": "Winter - Most team penalty minutes in a game - Regular Season",
+      "team": "Team",
+      "period": "Game",
+      "notes": "vs. Raiders (1-4)",
+      "year": "2016-12-18",
+      "value": "22",
+      "playerID": null,
+      "sources": [
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1517097&archTog=1"
+      ],
+      "expected": "22 - vs. Raiders (1-4) (2016-12-18)",
+      "verified": true
+    },
+    {
+      "candidateID": "winter_regular_season_season_two_goal_games",
+      "category": "Winter - Games with at least two goals in one season - Regular Season",
+      "team": "Individual",
+      "period": "Season",
+      "notes": "Ben Sherritt",
+      "year": "2013/14",
+      "value": "11",
+      "playerID": "354285",
+      "sources": [
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046522&archTog=1",
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046536&archTog=1",
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046537&archTog=1",
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046539&archTog=1",
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046540&archTog=1",
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046541&archTog=1",
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046545&archTog=1",
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046546&archTog=1",
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046552&archTog=1",
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046553&archTog=1",
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046554&archTog=1"
+      ],
+      "expected": "11 - Ben Sherritt (2013/14)",
+      "verified": true
+    },
+    {
+      "candidateID": "winter_regular_season_season_three_point_games",
+      "category": "Winter - Games with at least three points in one season - Regular Season",
+      "team": "Individual",
+      "period": "Season",
+      "notes": "Ben Sherritt",
+      "year": "2013/14",
+      "value": "7",
+      "playerID": "354285",
+      "sources": [
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046522&archTog=1",
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046536&archTog=1",
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046537&archTog=1",
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046539&archTog=1",
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046541&archTog=1",
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046546&archTog=1",
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046553&archTog=1"
+      ],
+      "expected": "7 - Ben Sherritt (2013/14)",
+      "verified": true
+    },
+    {
+      "candidateID": "winter_regular_season_season_three_assist_games",
+      "category": "Winter - Games with at least three assists in one season - Regular Season",
+      "team": "Individual",
+      "period": "Season",
+      "notes": "Justin Carosi",
+      "year": "2016/17",
+      "value": "3",
+      "playerID": "354060",
+      "sources": [
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1517081&archTog=1",
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1517083&archTog=1",
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1517098&archTog=1"
+      ],
+      "expected": "3 - Justin Carosi (2016/17)",
+      "verified": true
+    },
+    {
+      "candidateID": "winter_playoffs_team_GF",
+      "category": "Winter - Most team goals in a game - Playoffs",
+      "team": "Team",
+      "period": "Playoffs",
+      "notes": "vs. Big Sticks (8-0)",
+      "year": "2017-04-09",
+      "value": "8",
+      "playerID": null,
+      "sources": [
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1517113&archTog=1"
+      ],
+      "expected": "8 - vs. Big Sticks (8-0) (2017-04-09)",
+      "verified": true
+    },
+    {
+      "candidateID": "winter_playoffs_team_margin",
+      "category": "Winter - Largest winning margin - Playoffs",
+      "team": "Team",
+      "period": "Playoffs",
+      "notes": "vs. Big Sticks (8-0)",
+      "year": "2017-04-09",
+      "value": "8",
+      "playerID": null,
+      "sources": [
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1517113&archTog=1"
+      ],
+      "expected": "8 - vs. Big Sticks (8-0) (2017-04-09)",
+      "verified": true
+    },
+    {
+      "candidateID": "winter_playoffs_team_lossMargin",
+      "category": "Winter - Largest losing margin - Playoffs",
+      "team": "Team",
+      "period": "Playoffs",
+      "notes": "vs. Raiders (1-8)",
+      "year": "2017-03-12",
+      "value": "7",
+      "playerID": null,
+      "sources": [
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1517109&archTog=1"
+      ],
+      "expected": "7 - vs. Raiders (1-8) (2017-03-12)",
+      "verified": true
+    },
+    {
+      "candidateID": "winter_playoffs_team_combinedGoals",
+      "category": "Winter - Most combined goals in a game - Playoffs",
+      "team": "Team",
+      "period": "Playoffs",
+      "notes": "vs. Dateline Predators (5-6)",
+      "year": "2024-04-07",
+      "value": "11",
+      "playerID": null,
+      "sources": [
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=2071762&archTog=1"
+      ],
+      "expected": "11 - vs. Dateline Predators (5-6) (2024-04-07)",
+      "verified": true
+    },
+    {
+      "candidateID": "winter_playoffs_team_PIM",
+      "category": "Winter - Most team penalty minutes in a game - Playoffs",
+      "team": "Team",
+      "period": "Playoffs",
+      "notes": "vs. Dateline Predators (1-4)",
+      "year": "2024-04-14",
+      "value": "18",
+      "playerID": null,
+      "sources": [
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=2071758&archTog=1"
+      ],
+      "expected": "18 - vs. Dateline Predators (1-4) (2024-04-14)",
+      "verified": true
+    },
+    {
+      "candidateID": "winter_playoffs_team_PIM",
+      "category": "Winter - Most team penalty minutes in a game - Playoffs",
+      "team": "Team",
+      "period": "Playoffs",
+      "notes": "vs. Mid Ice Crisis (0-3)",
+      "year": "2025-04-06",
+      "value": "18",
+      "playerID": null,
+      "sources": [
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=2148163&archTog=1"
+      ],
+      "expected": "18 - vs. Mid Ice Crisis (0-3) (2025-04-06)",
+      "verified": true
+    },
+    {
+      "candidateID": "winter_playoffs_season_two_goal_games",
+      "category": "Winter - Games with at least two goals in one season - Playoffs",
+      "team": "Individual",
+      "period": "Playoffs",
+      "notes": "Mark Pastore",
+      "year": "2015/16",
+      "value": "3",
+      "playerID": "354061",
+      "sources": [
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1384802&archTog=1",
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1384803&archTog=1",
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1384804&archTog=1"
+      ],
+      "expected": "3 - Mark Pastore (2015/16)",
+      "verified": true
+    },
+    {
+      "candidateID": "winter_playoffs_season_three_point_games",
+      "category": "Winter - Games with at least three points in one season - Playoffs",
+      "team": "Individual",
+      "period": "Playoffs",
+      "notes": "Damian Aidemirski",
+      "year": "2013/14",
+      "value": "1",
+      "playerID": "354051",
+      "sources": [
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046558&archTog=1"
+      ],
+      "expected": "1 - Damian Aidemirski (2013/14)",
+      "verified": true
+    },
+    {
+      "candidateID": "winter_playoffs_season_three_point_games",
+      "category": "Winter - Games with at least three points in one season - Playoffs",
+      "team": "Individual",
+      "period": "Playoffs",
+      "notes": "Ben Sherritt",
+      "year": "2013/14",
+      "value": "1",
+      "playerID": "354285",
+      "sources": [
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046558&archTog=1"
+      ],
+      "expected": "1 - Ben Sherritt (2013/14)",
+      "verified": true
+    },
+    {
+      "candidateID": "winter_playoffs_season_three_point_games",
+      "category": "Winter - Games with at least three points in one season - Playoffs",
+      "team": "Individual",
+      "period": "Playoffs",
+      "notes": "Ryan Logue",
+      "year": "2014/15",
+      "value": "1",
+      "playerID": "354046",
+      "sources": [
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1190758&archTog=1"
+      ],
+      "expected": "1 - Ryan Logue (2014/15)",
+      "verified": true
+    },
+    {
+      "candidateID": "winter_playoffs_season_three_point_games",
+      "category": "Winter - Games with at least three points in one season - Playoffs",
+      "team": "Individual",
+      "period": "Playoffs",
+      "notes": "Mark Pastore",
+      "year": "2014/15",
+      "value": "1",
+      "playerID": "354061",
+      "sources": [
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1190758&archTog=1"
+      ],
+      "expected": "1 - Mark Pastore (2014/15)",
+      "verified": true
+    },
+    {
+      "candidateID": "winter_playoffs_season_three_point_games",
+      "category": "Winter - Games with at least three points in one season - Playoffs",
+      "team": "Individual",
+      "period": "Playoffs",
+      "notes": "Mark Pastore",
+      "year": "2015/16",
+      "value": "1",
+      "playerID": "354061",
+      "sources": [
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1384802&archTog=1"
+      ],
+      "expected": "1 - Mark Pastore (2015/16)",
+      "verified": true
+    },
+    {
+      "candidateID": "winter_playoffs_season_three_point_games",
+      "category": "Winter - Games with at least three points in one season - Playoffs",
+      "team": "Individual",
+      "period": "Playoffs",
+      "notes": "Carmine Cerrone",
+      "year": "2015/16",
+      "value": "1",
+      "playerID": "376086",
+      "sources": [
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1384803&archTog=1"
+      ],
+      "expected": "1 - Carmine Cerrone (2015/16)",
+      "verified": true
+    },
+    {
+      "candidateID": "winter_playoffs_season_three_point_games",
+      "category": "Winter - Games with at least three points in one season - Playoffs",
+      "team": "Individual",
+      "period": "Playoffs",
+      "notes": "Justin Carosi",
+      "year": "2016/17",
+      "value": "1",
+      "playerID": "354060",
+      "sources": [
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1517113&archTog=1"
+      ],
+      "expected": "1 - Justin Carosi (2016/17)",
+      "verified": true
+    },
+    {
+      "candidateID": "winter_playoffs_season_three_point_games",
+      "category": "Winter - Games with at least three points in one season - Playoffs",
+      "team": "Individual",
+      "period": "Playoffs",
+      "notes": "Ben Sherritt",
+      "year": "2016/17",
+      "value": "1",
+      "playerID": "354285",
+      "sources": [
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1517113&archTog=1"
+      ],
+      "expected": "1 - Ben Sherritt (2016/17)",
+      "verified": true
+    },
+    {
+      "candidateID": "winter_playoffs_season_three_point_games",
+      "category": "Winter - Games with at least three points in one season - Playoffs",
+      "team": "Individual",
+      "period": "Playoffs",
+      "notes": "Mario Provenzano",
+      "year": "2017/18",
+      "value": "1",
+      "playerID": "354045",
+      "sources": [
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1664262&archTog=1"
+      ],
+      "expected": "1 - Mario Provenzano (2017/18)",
+      "verified": true
+    },
+    {
+      "candidateID": "winter_playoffs_season_three_point_games",
+      "category": "Winter - Games with at least three points in one season - Playoffs",
+      "team": "Individual",
+      "period": "Playoffs",
+      "notes": "Ryan Logue",
+      "year": "2017/18",
+      "value": "1",
+      "playerID": "354046",
+      "sources": [
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1664262&archTog=1"
+      ],
+      "expected": "1 - Ryan Logue (2017/18)",
+      "verified": true
+    },
+    {
+      "candidateID": "winter_playoffs_season_three_point_games",
+      "category": "Winter - Games with at least three points in one season - Playoffs",
+      "team": "Individual",
+      "period": "Playoffs",
+      "notes": "Stefano Ardizzi",
+      "year": "2017/18",
+      "value": "1",
+      "playerID": "356089",
+      "sources": [
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1664264&archTog=1"
+      ],
+      "expected": "1 - Stefano Ardizzi (2017/18)",
+      "verified": true
+    },
+    {
+      "candidateID": "winter_playoffs_season_three_point_games",
+      "category": "Winter - Games with at least three points in one season - Playoffs",
+      "team": "Individual",
+      "period": "Playoffs",
+      "notes": "David Corasaniti",
+      "year": "2018/19",
+      "value": "1",
+      "playerID": "652571",
+      "sources": [
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1738995&archTog=1"
+      ],
+      "expected": "1 - David Corasaniti (2018/19)",
+      "verified": true
+    },
+    {
+      "candidateID": "winter_playoffs_season_three_point_games",
+      "category": "Winter - Games with at least three points in one season - Playoffs",
+      "team": "Individual",
+      "period": "Playoffs",
+      "notes": "Ryan Logue",
+      "year": "2019/20",
+      "value": "1",
+      "playerID": "354046",
+      "sources": [
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1835544&archTog=1"
+      ],
+      "expected": "1 - Ryan Logue (2019/20)",
+      "verified": true
+    },
+    {
+      "candidateID": "winter_playoffs_season_three_point_games",
+      "category": "Winter - Games with at least three points in one season - Playoffs",
+      "team": "Individual",
+      "period": "Playoffs",
+      "notes": "Quenton Hunt",
+      "year": "2019/20",
+      "value": "1",
+      "playerID": "388298",
+      "sources": [
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1835544&archTog=1"
+      ],
+      "expected": "1 - Quenton Hunt (2019/20)",
+      "verified": true
+    },
+    {
+      "candidateID": "winter_playoffs_season_three_point_games",
+      "category": "Winter - Games with at least three points in one season - Playoffs",
+      "team": "Individual",
+      "period": "Playoffs",
+      "notes": "David Corasaniti",
+      "year": "2019/20",
+      "value": "1",
+      "playerID": "652571",
+      "sources": [
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1835544&archTog=1"
+      ],
+      "expected": "1 - David Corasaniti (2019/20)",
+      "verified": true
+    },
+    {
+      "candidateID": "winter_playoffs_season_three_point_games",
+      "category": "Winter - Games with at least three points in one season - Playoffs",
+      "team": "Individual",
+      "period": "Playoffs",
+      "notes": "Justin Carosi",
+      "year": "2023/24",
+      "value": "1",
+      "playerID": "354060",
+      "sources": [
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=2071762&archTog=1"
+      ],
+      "expected": "1 - Justin Carosi (2023/24)",
+      "verified": true
+    },
+    {
+      "candidateID": "winter_playoffs_season_three_point_games",
+      "category": "Winter - Games with at least three points in one season - Playoffs",
+      "team": "Individual",
+      "period": "Playoffs",
+      "notes": "Stephane Saindon",
+      "year": "2023/24",
+      "value": "1",
+      "playerID": "738846",
+      "sources": [
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=2071762&archTog=1"
+      ],
+      "expected": "1 - Stephane Saindon (2023/24)",
+      "verified": true
+    },
+    {
+      "candidateID": "winter_playoffs_season_three_point_games",
+      "category": "Winter - Games with at least three points in one season - Playoffs",
+      "team": "Individual",
+      "period": "Playoffs",
+      "notes": "Michael Provenzano",
+      "year": "2025/26",
+      "value": "1",
+      "playerID": "686216",
+      "sources": [
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=2215015&archTog=1"
+      ],
+      "expected": "1 - Michael Provenzano (2025/26)",
+      "verified": true
+    },
+    {
+      "candidateID": "winter_playoffs_season_three_point_games",
+      "category": "Winter - Games with at least three points in one season - Playoffs",
+      "team": "Individual",
+      "period": "Playoffs",
+      "notes": "Stephane Saindon",
+      "year": "2025/26",
+      "value": "1",
+      "playerID": "738846",
+      "sources": [
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=2215015&archTog=1"
+      ],
+      "expected": "1 - Stephane Saindon (2025/26)",
+      "verified": true
+    },
+    {
+      "candidateID": "winter_playoffs_season_three_assist_games",
+      "category": "Winter - Games with at least three assists in one season - Playoffs",
+      "team": "Individual",
+      "period": "Playoffs",
+      "notes": "Damian Aidemirski",
+      "year": "2013/14",
+      "value": "1",
+      "playerID": "354051",
+      "sources": [
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046558&archTog=1"
+      ],
+      "expected": "1 - Damian Aidemirski (2013/14)",
+      "verified": true
+    },
+    {
+      "candidateID": "winter_playoffs_season_three_assist_games",
+      "category": "Winter - Games with at least three assists in one season - Playoffs",
+      "team": "Individual",
+      "period": "Playoffs",
+      "notes": "Mario Provenzano",
+      "year": "2017/18",
+      "value": "1",
+      "playerID": "354045",
+      "sources": [
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1664262&archTog=1"
+      ],
+      "expected": "1 - Mario Provenzano (2017/18)",
+      "verified": true
+    },
+    {
+      "candidateID": "winter_playoffs_season_three_assist_games",
+      "category": "Winter - Games with at least three assists in one season - Playoffs",
+      "team": "Individual",
+      "period": "Playoffs",
+      "notes": "Stephane Saindon",
+      "year": "2025/26",
+      "value": "1",
+      "playerID": "738846",
+      "sources": [
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=2215015&archTog=1"
+      ],
+      "expected": "1 - Stephane Saindon (2025/26)",
+      "verified": true
+    },
+    {
+      "candidateID": "winter_regular_season_streak_wins",
+      "category": "Winter - Longest regular-season winning streak - Regular Season",
+      "team": "Team",
+      "period": "Season",
+      "notes": "2024-02-18 to 2024-03-17",
+      "year": "2023/24",
+      "value": "5",
+      "playerID": null,
+      "sources": [
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=2071752&archTog=1",
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=2071753&archTog=1",
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=2071754&archTog=1",
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=2071755&archTog=1",
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=2071756&archTog=1"
+      ],
+      "expected": "5 - 2024-02-18 to 2024-03-17 (2023/24)",
+      "verified": true
+    },
+    {
+      "candidateID": "winter_regular_season_streak_points",
+      "category": "Winter - Longest regular-season point streak - Regular Season",
+      "team": "Team",
+      "period": "Season",
+      "notes": "2017-10-29 to 2018-02-11",
+      "year": "2017/18",
+      "value": "14",
+      "playerID": null,
+      "sources": [
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1664231&archTog=1",
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1664232&archTog=1",
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1664233&archTog=1",
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1664234&archTog=1",
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1664235&archTog=1",
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1664236&archTog=1",
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1664237&archTog=1",
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1664238&archTog=1",
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1664239&archTog=1",
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1664240&archTog=1",
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1664241&archTog=1",
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1664255&archTog=1",
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1664242&archTog=1",
+        "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1664256&archTog=1"
+      ],
+      "expected": "14 - 2017-10-29 to 2018-02-11 (2017/18)",
+      "verified": true
+    }
+  ],
+  "publicGroups": [
+    {
+      "category": "Summer - Goals",
+      "items": [
+        "7 - Mark Pastore (July 5, 2015)",
+        "4 - Mark Pastore (June 7, 2015)",
+        "4 - Mark Pastore (June 16, 2013)",
+        "2 - Keith Pearsoll (May 12, 2013)",
+        "2 - Ryan Logue (June 2, 2013)",
+        "2 - Mark Pastore (June 9, 2013)",
+        "2 - Keith Pearsoll (June 9, 2013)"
+      ],
+      "period": "Game",
+      "section": "Individual Records"
+    },
+    {
+      "category": "Summer - Goals",
+      "items": [
+        "22 - Ben Sherritt (2017)",
+        "16 - Ben Sherritt (2014)",
+        "16 - Mark Pastore (2015)",
+        "16 - Xav O'Krafka (2017)",
+        "12 - Mark Pastore (2013)",
+        "8 - Ryan Logue (2013)"
+      ],
+      "period": "Season",
+      "section": "Individual Records"
+    },
+    {
+      "category": "Summer - Goals",
+      "items": [
+        "6 - Mark Pastore (2015)"
+      ],
+      "period": "Playoffs",
+      "section": "Individual Records"
+    },
+    {
+      "category": "Summer - Points",
+      "items": [
+        "9 - Mark Pastore (July 17, 2016)",
+        "8 - Mark Pastore (July 5, 2015)",
+        "5 - Cameron Buchanan (June 23, 2013)",
+        "5 - Stefano Ardizzi (June 22, 2014)",
+        "5 - Ryan Logue (July 20, 2014)",
+        "5 - Mark Pastore (May 10, 2015)",
+        "4 - Mark Pastore (June 16, 2013)",
+        "4 - Ryan Logue (June 9, 2013)",
+        "3 - Ryan Logue (June 2, 2013)",
+        "3 - Keith Pearsoll (May 12, 2013)",
+        "3 - Keith Pearsoll (June 9, 2013)"
+      ],
+      "period": "Game",
+      "section": "Individual Records"
+    },
+    {
+      "category": "Summer - Points",
+      "items": [
+        "32 - Ben Sherritt (2017)",
+        "30 - Xav O'Krafka (2017)",
+        "25 - Ben Sherritt (2014)",
+        "25 - Mark Pastore (2015)",
+        "17 - Mark Pastore (2013)"
+      ],
+      "period": "Season",
+      "section": "Individual Records"
+    },
+    {
+      "category": "Summer - Points",
+      "items": [
+        "9 - Mark Pastore (2015)",
+        "6 - Keith Pearsoll (2015)",
+        "6 - Cameron Buchanan (2015)",
+        "2 - Ben Sherritt (2014)",
+        "2 - Ryan Logue (2014)",
+        "2 - Adam Brutto (2014)"
+      ],
+      "period": "Playoffs",
+      "section": "Individual Records"
+    },
+    {
+      "category": "Summer - Assists",
+      "items": [
+        "6 - Justin Carosi (May 15, 2016)",
+        "4 - Ryan Logue (June 9, 2013)",
+        "4 - Adam Brutto (July 26, 2015)",
+        "4 - Mark Pastore (May 8, 2016)",
+        "3 - Adam Brutto (June 9, 2013)",
+        "2 - Adam Brutto (June 2, 2013)",
+        "2 - Mark Pastore (June 2, 2013)"
+      ],
+      "period": "Game",
+      "section": "Individual Records"
+    },
+    {
+      "category": "Summer - Assists",
+      "items": [
+        "15 - Justin Carosi (2016)",
+        "11 - Adam Brutto (2015)",
+        "10 - Justin Carosi (2015)",
+        "10 - Ryan Logue (2015)",
+        "9 - Ryan Logue (2014)",
+        "9 - Ben Sherritt (2014)",
+        "9 - Julian Kercz (2014)",
+        "8 - Justin Carosi (2014)",
+        "7 - Keith Pearsoll (2013)",
+        "7 - Ryan Logue (2013)",
+        "7 - Stefano Ardizzi (2014)"
+      ],
+      "period": "Season",
+      "section": "Individual Records"
+    },
+    {
+      "category": "Summer - Assists",
+      "items": [
+        "8 - Adam Brutto (2015)"
+      ],
+      "period": "Playoffs",
+      "section": "Individual Records"
+    },
+    {
+      "category": "Summer - Game Winning Goals",
+      "items": [
+        "4 - Ben Sherritt (2017)",
+        "2 - Ben Sherritt (2014)",
+        "2 - Ryan Logue (2014)",
+        "2 - Justin Carosi (2015)",
+        "2 - Mark Pastore (2015)"
+      ],
+      "period": "Season",
+      "section": "Individual Records"
+    },
+    {
+      "category": "Summer - Powerplay Goals",
+      "items": [
+        "2 - Mark Pastore (2014)"
+      ],
+      "period": "Season",
+      "section": "Individual Records"
+    },
+    {
+      "category": "Summer - Shorthanded Goals",
+      "items": [
+        "2 - Mark Pastore (2016)"
+      ],
+      "period": "Season",
+      "section": "Individual Records"
+    },
+    {
+      "category": "Summer - Hat Tricks",
+      "items": [
+        "4 - Ben Sherritt (2017)",
+        "3 - Ben Sherritt (2014)",
+        "3 - Mark Pastore (2016)",
+        "2 - Mark Pastore (2015)",
+        "2 - Cameron Buchanan (2016)"
+      ],
+      "period": "Season",
+      "section": "Individual Records"
+    },
+    {
+      "category": "Summer - Player of the Game",
+      "items": [
+        "7 - Ben Sherritt (2014)",
+        "4 - Ryan Logue (2013)"
+      ],
+      "period": "Season",
+      "section": "Individual Records"
+    },
+    {
+      "category": "Summer - Player of the Game",
+      "items": [
+        "2 - Cameron Buchanan (2015)",
+        "2 - Keith Pearsoll (2016)"
+      ],
+      "period": "Playoffs",
+      "section": "Individual Records"
+    },
+    {
+      "category": "Summer - Wins",
+      "items": [
+        "6 - Stephen Logue (2014)",
+        "4 - Stephen Logue (2013)"
+      ],
+      "period": "Season",
+      "section": "Individual Records"
+    },
+    {
+      "category": "Summer - Wins",
+      "items": [
+        "2 - Rènt Goaliê (2016)"
+      ],
+      "period": "Playoffs",
+      "section": "Individual Records"
+    },
+    {
+      "category": "Summer - Shutouts",
+      "items": [
+        "1 - Stephen Logue (2016)"
+      ],
+      "period": "Season",
+      "section": "Individual Records"
+    },
+    {
+      "category": "Summer - Goals Against Average",
+      "items": [
+        "3.40 - Will Cawkell (2015)",
+        "3.80 - Stephen Logue (2015)",
+        "4.00 - Stephen Logue (2014)",
+        "5.33 - Stephen Logue (2013)"
+      ],
+      "period": "Season",
+      "section": "Individual Records"
+    },
+    {
+      "category": "Summer - Goals Against Average",
+      "items": [
+        "2.50 - Stephen Logue (2017)",
+        "3.50 - Rènt Goaliê (2016)",
+        "4.00 - Stephen Logue (2014)",
+        "4.75 - Stephen Logue (2013)"
+      ],
+      "period": "Playoffs",
+      "section": "Individual Records"
+    },
+    {
+      "category": "Summer - Penalty Minutes",
+      "items": [
+        "9 - Stefano Ardizzi (May 31, 2015)",
+        "4 - Adam Brutto (August 18, 2013)",
+        "4 - Adam Brutto (May 25, 2014)",
+        "4 - Stefano Ardizzi (June 1, 2014)",
+        "4 - Daniel Buzzelli (June 1, 2014)",
+        "4 - Alex Pagnotta (June 22, 2014)",
+        "4 - Ryan Logue (July 13, 2014)",
+        "4 - Daniel Buzzelli (August 10, 2014)",
+        "4 - Justin Carosi (May 24, 2015)",
+        "4 - Alex Pagnotta (May 24, 2015)"
+      ],
+      "period": "Game",
+      "section": "Individual Records"
+    },
+    {
+      "category": "Summer - Penalty Minutes",
+      "items": [
+        "20 - Xav O'Krafka (2017)",
+        "11 - Stefano Ardizzi (2015)",
+        "8 - Adam Brutto (2014)",
+        "8 - Julian Kercz (2014)",
+        "8 - Justin Carosi (2015)",
+        "8 - Alex Pagnotta (2015)",
+        "6 - Daniel Buzzelli (2014)"
+      ],
+      "period": "Season",
+      "section": "Individual Records"
+    },
+    {
+      "category": "Summer - Penalty Minutes",
+      "items": [
+        "6 - Daniel Buzzelli (2014)",
+        "6 - Stefano Ardizzi (2015)",
+        "6 - Julian Kercz (2016)",
+        "6 - Andrew Buchanan (2017)",
+        "4 - Adam Brutto (2013)"
+      ],
+      "period": "Playoffs",
+      "section": "Individual Records"
+    },
+    {
+      "category": "Winter - Goals",
+      "items": [
+        "5 - Ben Sherritt (October 6, 2013)"
+      ],
+      "period": "Game",
+      "section": "Individual Records"
+    },
+    {
+      "category": "Winter - Goals",
+      "items": [
+        "36 - Ben Sherritt (2013/14)"
+      ],
+      "period": "Season",
+      "section": "Individual Records"
+    },
+    {
+      "category": "Winter - Goals",
+      "items": [
+        "8 - Mark Pastore (2015/16)",
+        "7 - Mark Pastore (2014/15)",
+        "4 - Ben Sherritt (2013/14)"
+      ],
+      "period": "Playoffs",
+      "section": "Individual Records"
+    },
+    {
+      "category": "Winter - Points",
+      "items": [
+        "6 - Ben Sherritt (October 6, 2013)",
+        "6 - Ben Sherritt (March 2, 2014)",
+        "6 - Zach Kercz (December 21, 2014)",
+        "6 - Xav O'Krafka (November 12, 2017)",
+        "6 - Ben Sherritt (November 12, 2017)",
+        "3 - Mark Pastore (September 29, 2013)"
+      ],
+      "period": "Game",
+      "section": "Individual Records"
+    },
+    {
+      "category": "Winter - Points",
+      "items": [
+        "46 - Ben Sherritt (2013/14)"
+      ],
+      "period": "Season",
+      "section": "Individual Records"
+    },
+    {
+      "category": "Winter - Points",
+      "items": [
+        "9 - Mark Pastore (2015/16)",
+        "8 - Mark Pastore (2014/15)",
+        "7 - Damian Aidemirski (2013/14)"
+      ],
+      "period": "Playoffs",
+      "section": "Individual Records"
+    },
+    {
+      "category": "Winter - Assists",
+      "items": [
+        "4 - Damian Aidemirski (March 30, 2014)",
+        "4 - Dylan Brennan (September 18, 2016)",
+        "4 - Justin Carosi (October 16, 2016)",
+        "4 - Justin Carosi (November 24, 2019)",
+        "4 - David Corasaniti (February 9, 2020)",
+        "4 - David Corasaniti (February 16, 2020)",
+        "4 - Stephane Saindon (October 6, 2024)",
+        "4 - Stephane Saindon (November 9, 2025)",
+        "4 - Stephane Saindon (January 18, 2026)",
+        "3 - Michael Congiusti (October 6, 2013)",
+        "3 - Stefano Ardizzi (December 15, 2013)",
+        "3 - Mark Pastore (January 5, 2014)",
+        "3 - Stefano Ardizzi (March 2, 2014)",
+        "3 - Michael Congiusti (March 2, 2014)",
+        "2 - Mark Pastore (September 29, 2013)",
+        "2 - Ben Sherritt (September 29, 2013)",
+        "2 - Marco Congiusti (September 29, 2013)"
+      ],
+      "period": "Game",
+      "section": "Individual Records"
+    },
+    {
+      "category": "Winter - Assists",
+      "items": [
+        "22 - Dylan Brennan (2018/19)",
+        "19 - Justin Carosi (2016/17)",
+        "19 - Justin Carosi (2017/18)",
+        "17 - Mark Pastore (2013/14)"
+      ],
+      "period": "Season",
+      "section": "Individual Records"
+    },
+    {
+      "category": "Winter - Assists",
+      "items": [
+        "6 - Damian Aidemirski (2013/14)",
+        "2 - Adam Brutto (2013/14)"
+      ],
+      "period": "Playoffs",
+      "section": "Individual Records"
+    },
+    {
+      "category": "Winter - Game Winning Goals",
+      "items": [
+        "4 - Ben Sherritt (2017/18)",
+        "4 - Stephen Keane (2016/17)",
+        "4 - Ben Sherritt (2013/14)",
+        "4 - Stephane Saindon (2023/24)",
+        "3 - Cameron Buchanan (2013/14)"
+      ],
+      "period": "Season",
+      "section": "Individual Records"
+    },
+    {
+      "category": "Winter - Game Winning Goals",
+      "items": [
+        "2 - Mark Pastore (2015/16)",
+        "2 - Ben Sherritt (2017/18)",
+        "2 - Ryan Logue (2019/20)"
+      ],
+      "period": "Playoffs",
+      "section": "Individual Records"
+    },
+    {
+      "category": "Winter - Game Tying Goals",
+      "items": [
+        "2 - Ben Sherritt (2013/14)",
+        "2 - Cameron Buchanan (2014/15)",
+        "2 - Alex Pagnotta (2019/20)",
+        "2 - Justin Carosi (2022/23)"
+      ],
+      "period": "Season",
+      "section": "Individual Records"
+    },
+    {
+      "category": "Winter - Powerplay Goals",
+      "items": [
+        "4 - Ben Sherritt (2017/18)",
+        "3 - Ben Sherritt (2013/14)"
+      ],
+      "period": "Season",
+      "section": "Individual Records"
+    },
+    {
+      "category": "Winter - Shorthanded Goals",
+      "items": [
+        "3 - Justin Carosi (2017/18)",
+        "2 - Ryan Logue (2014/15)"
+      ],
+      "period": "Season",
+      "section": "Individual Records"
+    },
+    {
+      "category": "Winter - Hat Tricks",
+      "items": [
+        "5 - Ben Sherritt (2013/14)"
+      ],
+      "period": "Season",
+      "section": "Individual Records"
+    },
+    {
+      "category": "Winter - Player of the Game",
+      "items": [
+        "13 - Ben Sherritt (2013/14)"
+      ],
+      "period": "Season",
+      "section": "Individual Records"
+    },
+    {
+      "category": "Winter - Player of the Game",
+      "items": [
+        "5 - Mark Pastore (2015/16)",
+        "3 - Mark Pastore (2014/15)"
+      ],
+      "period": "Playoffs",
+      "section": "Individual Records"
+    },
+    {
+      "category": "Winter - Wins",
+      "items": [
+        "12 - Stephen Logue (2013/14)"
+      ],
+      "period": "Season",
+      "section": "Individual Records"
+    },
+    {
+      "category": "Winter - Wins",
+      "items": [
+        "4 - Stephen Logue (2015/16)",
+        "2 - Stephen Logue (2013/14)"
+      ],
+      "period": "Playoffs",
+      "section": "Individual Records"
+    },
+    {
+      "category": "Winter - Shutouts",
+      "items": [
+        "4 - Stephen Logue (2016/17)"
+      ],
+      "period": "Season",
+      "section": "Individual Records"
+    },
+    {
+      "category": "Winter - Shutouts",
+      "items": [
+        "2 - Stephen Logue (2015/16)",
+        "2 - Stephen Logue (2016/17)",
+        "1 - Stephen Logue (2013/14)"
+      ],
+      "period": "Playoffs",
+      "section": "Individual Records"
+    },
+    {
+      "category": "Winter - Goals Against Average",
+      "items": [
+        "2.17 - Andrew Pozzebon (2017/18)",
+        "2.33 - Stephen Logue (2013/14)"
+      ],
+      "period": "Season",
+      "section": "Individual Records"
+    },
+    {
+      "category": "Winter - Goals Against Average",
+      "items": [
+        "1.33 - Stephen Logue (2013/14)"
+      ],
+      "period": "Playoffs",
+      "section": "Individual Records"
+    },
+    {
+      "category": "Winter - Penalty Minutes",
+      "items": [
+        "14 - Adam Brutto (November 22, 2015)",
+        "14 - Adam Brutto (December 11, 2016)",
+        "14 - Stefano Ardizzi (December 22, 2019)",
+        "14 - Stephane Saindon (April 6, 2025)",
+        "12 - Julian Kercz (November 9, 2014)",
+        "4 - Adam Brutto (December 1, 2013)",
+        "4 - Adam Brutto (December 15, 2013)",
+        "4 - Mario Provenzano (December 15, 2013)",
+        "4 - Daniel Buzzelli (January 19, 2014)",
+        "4 - Adam Brutto (March 30, 2014)",
+        "4 - Alex Pagnotta (October 19, 2014)"
+      ],
+      "period": "Game",
+      "section": "Individual Records"
+    },
+    {
+      "category": "Winter - Penalty Minutes",
+      "items": [
+        "24 - Julian Kercz (2015/16)",
+        "24 - Julian Kercz (2016/17)",
+        "20 - Julian Kercz (2014/15)",
+        "14 - Daniel Buzzelli (2013/14)"
+      ],
+      "period": "Season",
+      "section": "Individual Records"
+    },
+    {
+      "category": "Winter - Penalty Minutes",
+      "items": [
+        "14 - Stephane Saindon (2024/25)",
+        "11 - Julian Kercz (2015/16)",
+        "6 - Adam Brutto (2013/14)",
+        "6 - Mark Pastore (2014/15)",
+        "6 - Jeff Micheli (2014/15)"
+      ],
+      "period": "Playoffs",
+      "section": "Individual Records"
+    },
+    {
+      "category": "50 Game Club",
+      "items": [
+        "1 - Stephen Logue (July 27, 2014)",
+        "2 - Alex Pagnotta (August 17, 2014)",
+        "3 - Ryan Logue (August 17, 2014)",
+        "4 - Cameron Buchanan (August 17, 2014)",
+        "5 - Adam Brutto (September 21, 2014)",
+        "6 - Mark Pastore (September 21, 2014)",
+        "7 - Marco Congiusti (September 28, 2014)",
+        "8 - Keith Pearsoll (October 5, 2014)",
+        "9 - Damian Aidemirski (October 5, 2014)",
+        "10 - Mario Provenzano (November 9, 2014)",
+        "11 - Michael Congiusti (December 7, 2014)",
+        "12 - Stefano Ardizzi (March 22, 2015)",
+        "13 - Justin Carosi (June 14, 2015)",
+        "14 - Neil Baghel (September 27, 2015)",
+        "15 - Anthony Paolucci (November 15, 2015)",
+        "16 - Julian Kercz (December 20, 2015)",
+        "17 - Anthony Guerra (July 17, 2016)",
+        "18 - Ben Sherritt (November 20, 2016)",
+        "19 - Dylan Brennan (January 23, 2018)",
+        "20 - Daniel Buzzelli (September 23, 2018)",
+        "21 - Lucas Brutto (December 30, 2018)",
+        "22 - Andrew Buchanan (February 10, 2019)",
+        "23 - Lorcan Duffy (April 14, 2019)",
+        "24 - Andrew Cristillo (December 10, 2023)",
+        "25 - Mark Arruda (March 10, 2024)",
+        "26 - Stephane Saindon (November 3, 2024)",
+        "27 - Ryan Finlay (December 15, 2024)",
+        "28 - Stefano Mazzei (December 22, 2024)",
+        "29 - Krishnan Rajasooriar (January 4, 2026)"
+      ],
+      "period": "Career",
+      "section": "Individual Records"
+    },
+    {
+      "category": "50 Point Club",
+      "items": [
+        "1 - Mark Pastore (March 30, 2014)",
+        "2 - Ben Sherritt (April 13, 2014)",
+        "3 - Ryan Logue (June 22, 2014)",
+        "4 - Cameron Buchanan (November 30, 2014)",
+        "5 - Keith Pearsoll (May 24, 2015)",
+        "6 - Justin Carosi (June 21, 2015)",
+        "7 - Adam Brutto (July 26, 2015)",
+        "8 - Damian Aidemirski (November 22, 2015)",
+        "9 - Stefano Ardizzi (February 21, 2016)",
+        "10 - Alex Pagnotta (May 15, 2016)",
+        "11 - Julian Kercz (July 10, 2016)",
+        "12 - Dylan Brennan (August 27, 2017)",
+        "13 - Xav O'Krafka (November 19, 2017)",
+        "14 - Mario Provenzano (February 11, 2018)",
+        "15 - Marco Congiusti (March 3, 2019)",
+        "16 - Lorcan Duffy (March 1, 2020)",
+        "17 - Stephane Saindon (March 10, 2024)",
+        "18 - Mark Arruda (March 9, 2025)",
+        "19 - Ryan Finlay (December 7, 2025)",
+        "20 - Michael Provenzano (September 27, 2026)"
+      ],
+      "period": "Career",
+      "section": "Individual Records"
+    },
+    {
+      "category": "50 Win Club",
+      "items": [
+        "1 - Stephen Logue (April 17, 2016)"
+      ],
+      "period": "Career",
+      "section": "Individual Records"
+    },
+    {
+      "category": "100 Game Club",
+      "items": [
+        "1 - Alex Pagnotta (December 20, 2015)",
+        "2 - Ryan Logue (December 20, 2015)",
+        "3 - Mark Pastore (December 27, 2015)",
+        "4 - Adam Brutto (January 3, 2016)",
+        "5 - Damian Aidemirski (January 10, 2016)",
+        "6 - Keith Pearsoll (January 24, 2016)",
+        "7 - Stephen Logue (January 31, 2016)",
+        "8 - Marco Congiusti (February 28, 2016)",
+        "9 - Cameron Buchanan (May 15, 2016)",
+        "10 - Justin Carosi (October 30, 2016)",
+        "11 - Mario Provenzano (December 18, 2016)",
+        "12 - Michael Congiusti (January 15, 2017)",
+        "13 - Stefano Ardizzi (April 2, 2017)",
+        "14 - Ben Sherritt (March 18, 2018)",
+        "15 - Daniel Buzzelli (October 30, 2022)",
+        "16 - Mark Arruda (March 15, 2026)"
+      ],
+      "period": "Career",
+      "section": "Individual Records"
+    },
+    {
+      "category": "100 Point Club",
+      "items": [
+        "1 - Mark Pastore (June 7, 2015)",
+        "2 - Ryan Logue (August 9, 2015)",
+        "3 - Justin Carosi (May 15, 2016)",
+        "4 - Cameron Buchanan (June 19, 2016)",
+        "5 - Keith Pearsoll (August 14, 2016)",
+        "6 - Ben Sherritt (November 13, 2016)",
+        "7 - Adam Brutto (August 20, 2017)",
+        "8 - Dylan Brennan (December 30, 2018)",
+        "9 - Stefano Ardizzi (March 10, 2019)",
+        "10 - Alex Pagnotta (November 24, 2019)",
+        "11 - Mario Provenzano (November 16, 2025)",
+        "12 - Stephane Saindon (November 30, 2025)"
+      ],
+      "period": "Career",
+      "section": "Individual Records"
+    },
+    {
+      "category": "100 Win Club",
+      "items": [
+        "1 - Stephen Logue (March 1, 2020)"
+      ],
+      "period": "Career",
+      "section": "Individual Records"
+    },
+    {
+      "category": "200 Game Club",
+      "items": [
+        "1 - Adam Brutto (January 6, 2019)",
+        "2 - Alex Pagnotta (January 27, 2019)",
+        "3 - Keith Pearsoll (February 17, 2019)",
+        "4 - Ryan Logue (March 17, 2019)",
+        "5 - Cameron Buchanan (September 15, 2019)",
+        "6 - Marco Congiusti (November 17, 2019)",
+        "7 - Stephen Logue (December 15, 2019)",
+        "8 - Justin Carosi (February 23, 2020)",
+        "9 - Stefano Ardizzi (February 4, 2024)",
+        "10 - Mario Provenzano (March 24, 2024)"
+      ],
+      "period": "Career",
+      "section": "Individual Records"
+    },
+    {
+      "category": "200 Point Club",
+      "items": [
+        "1 - Ben Sherritt (February 25, 2018)",
+        "2 - Ryan Logue (September 16, 2018)",
+        "3 - Justin Carosi (December 30, 2018)",
+        "4 - Cameron Buchanan (October 20, 2019)",
+        "5 - Keith Pearsoll (February 19, 2023)"
+      ],
+      "period": "Career",
+      "section": "Individual Records"
+    },
+    {
+      "category": "300 Game Club",
+      "items": [
+        "1 - Adam Brutto (January 5, 2025)",
+        "2 - Alex Pagnotta (September 28, 2025)",
+        "3 - Justin Carosi (September 20, 2026)"
+      ],
+      "period": "Career",
+      "section": "Individual Records"
+    },
+    {
+      "category": "300 Point Club",
+      "items": [
+        "1 - Justin Carosi (January 14, 2024)"
+      ],
+      "period": "Career",
+      "section": "Individual Records"
+    },
+    {
+      "category": "Summer - Games with at least two goals in one season - Regular Season",
+      "items": [
+        "7 - Ben Sherritt (2017)"
+      ],
+      "period": "Season",
+      "section": "Individual Records"
+    },
+    {
+      "category": "Summer - Games with at least three points in one season - Regular Season",
+      "items": [
+        "7 - Ben Sherritt (2017)"
+      ],
+      "period": "Season",
+      "section": "Individual Records"
+    },
+    {
+      "category": "Summer - Games with at least three assists in one season - Regular Season",
+      "items": [
+        "3 - Keith Pearsoll (2016)",
+        "3 - Justin Carosi (2016)",
+        "3 - Mark Pastore (2016)",
+        "3 - Xav O'Krafka (2017)"
+      ],
+      "period": "Season",
+      "section": "Individual Records"
+    },
+    {
+      "category": "Summer - Games with at least two goals in one season - Playoffs",
+      "items": [
+        "2 - Keith Pearsoll (2016)"
+      ],
+      "period": "Playoffs",
+      "section": "Individual Records"
+    },
+    {
+      "category": "Summer - Games with at least three points in one season - Playoffs",
+      "items": [
+        "2 - Keith Pearsoll (2016)",
+        "2 - Ben Sherritt (2016)"
+      ],
+      "period": "Playoffs",
+      "section": "Individual Records"
+    },
+    {
+      "category": "Summer - Games with at least three assists in one season - Playoffs",
+      "items": [
+        "1 - Adam Brutto (2015)",
+        "1 - Cameron Buchanan (2016)",
+        "1 - Adam Brutto (2016)"
+      ],
+      "period": "Playoffs",
+      "section": "Individual Records"
+    },
+    {
+      "category": "Winter - Games with at least two goals in one season - Regular Season",
+      "items": [
+        "11 - Ben Sherritt (2013/14)"
+      ],
+      "period": "Season",
+      "section": "Individual Records"
+    },
+    {
+      "category": "Winter - Games with at least three points in one season - Regular Season",
+      "items": [
+        "7 - Ben Sherritt (2013/14)"
+      ],
+      "period": "Season",
+      "section": "Individual Records"
+    },
+    {
+      "category": "Winter - Games with at least three assists in one season - Regular Season",
+      "items": [
+        "3 - Justin Carosi (2016/17)"
+      ],
+      "period": "Season",
+      "section": "Individual Records"
+    },
+    {
+      "category": "Winter - Games with at least two goals in one season - Playoffs",
+      "items": [
+        "3 - Mark Pastore (2015/16)"
+      ],
+      "period": "Playoffs",
+      "section": "Individual Records"
+    },
+    {
+      "category": "Winter - Games with at least three points in one season - Playoffs",
+      "items": [
+        "1 - Damian Aidemirski (2013/14)",
+        "1 - Ben Sherritt (2013/14)",
+        "1 - Ryan Logue (2014/15)",
+        "1 - Mark Pastore (2014/15)",
+        "1 - Mark Pastore (2015/16)",
+        "1 - Carmine Cerrone (2015/16)",
+        "1 - Justin Carosi (2016/17)",
+        "1 - Ben Sherritt (2016/17)",
+        "1 - Mario Provenzano (2017/18)",
+        "1 - Ryan Logue (2017/18)",
+        "1 - Stefano Ardizzi (2017/18)",
+        "1 - David Corasaniti (2018/19)",
+        "1 - Ryan Logue (2019/20)",
+        "1 - Quenton Hunt (2019/20)",
+        "1 - David Corasaniti (2019/20)",
+        "1 - Justin Carosi (2023/24)",
+        "1 - Stephane Saindon (2023/24)",
+        "1 - Michael Provenzano (2025/26)",
+        "1 - Stephane Saindon (2025/26)"
+      ],
+      "period": "Playoffs",
+      "section": "Individual Records"
+    },
+    {
+      "category": "Winter - Games with at least three assists in one season - Playoffs",
+      "items": [
+        "1 - Damian Aidemirski (2013/14)",
+        "1 - Mario Provenzano (2017/18)",
+        "1 - Stephane Saindon (2025/26)"
+      ],
+      "period": "Playoffs",
+      "section": "Individual Records"
+    },
+    {
+      "category": "Summer - Total Points/Record",
+      "items": [
+        "14 - (7-3-0) (2017)",
+        "13 - (6-3-1) (2014)",
+        "13 - (6-3-1) (2015)",
+        "10 - (4-3-2) (2013)",
+        "8 - (4-6-0) (2016)"
+      ],
+      "period": "Season",
+      "section": "Team Records"
+    },
+    {
+      "category": "Summer - Total Points/Record",
+      "items": [
+        "6 - (3-0-0) - Won Championship (2016)",
+        "4 - (2-1-0) - Lost Finals (2015)",
+        "3 - (1-2-1) - Lost Finals (2017)",
+        "2 - (1-3-0) - Lost Quarter-Finals (2013)",
+        "2 - (1-1-0) - Lost Semi-Finals (2014)"
+      ],
+      "period": "Playoffs",
+      "section": "Team Records"
+    },
+    {
+      "category": "Summer - Goals For",
+      "items": [
+        "77 - (2017)",
+        "67 - (2016)",
+        "55 - (2014)",
+        "54 - (2015)",
+        "49 - (2013)"
+      ],
+      "period": "Season",
+      "section": "Team Records"
+    },
+    {
+      "category": "Summer - Goals For",
+      "items": [
+        "24 - (2015)",
+        "22 - (2016)",
+        "13 - (2017)",
+        "12 - (2013)",
+        "3 - (2014)"
+      ],
+      "period": "Playoffs",
+      "section": "Team Records"
+    },
+    {
+      "category": "Summer - Goals Against",
+      "items": [
+        "36 - (2015)",
+        "40 - (2014)",
+        "48 - (2013)",
+        "53 - (2017)",
+        "62 - (2016)"
+      ],
+      "period": "Season",
+      "section": "Team Records"
+    },
+    {
+      "category": "Summer - Goals Against",
+      "items": [
+        "8 - (2014)",
+        "11 - (2016)",
+        "15 - (2017)",
+        "16 - (2015)",
+        "19 - (2013)"
+      ],
+      "period": "Playoffs",
+      "section": "Team Records"
+    },
+    {
+      "category": "Summer - Powerplay Goals",
+      "items": [
+        "6 - (2014)",
+        "6 - (2015)",
+        "3 - (2017)",
+        "2 - (2016)",
+        "0 - (2013)"
+      ],
+      "period": "Season",
+      "section": "Team Records"
+    },
+    {
+      "category": "Summer - Powerplay Goals",
+      "items": [
+        "3 - (2017)",
+        "2 - (2016)",
+        "1 - (2014)",
+        "1 - (2015)",
+        "0 - (2013)"
+      ],
+      "period": "Playoffs",
+      "section": "Team Records"
+    },
+    {
+      "category": "Summer - Shorthanded Goals",
+      "items": [
+        "6 - (2016)",
+        "5 - (2017)",
+        "1 - (2015)",
+        "0 - (2013)",
+        "0 - (2014)"
+      ],
+      "period": "Season",
+      "section": "Team Records"
+    },
+    {
+      "category": "Summer - Shorthanded Goals",
+      "items": [
+        "3 - (2015)",
+        "1 - (2016)",
+        "0 - (2017)",
+        "0 - (2013)",
+        "0 - (2014)"
+      ],
+      "period": "Playoffs",
+      "section": "Team Records"
+    },
+    {
+      "category": "Summer - Penalty Minutes",
+      "items": [
+        "38 - (2016)",
+        "48 - (2013)",
+        "48 - (2014)",
+        "59 - (2015)",
+        "60 - (2017)"
+      ],
+      "period": "Season",
+      "section": "Team Records"
+    },
+    {
+      "category": "Summer - Penalty Minutes",
+      "items": [
+        "8 - (2013)",
+        "8 - (2014)",
+        "12 - (2016)",
+        "26 - (2017)",
+        "31 - (2015)"
+      ],
+      "period": "Playoffs",
+      "section": "Team Records"
+    },
+    {
+      "category": "Winter - Total Points/Record",
+      "items": [
+        "31 - (14-5-3) (2017/18)",
+        "30 - (13-7-4) (2013/14)",
+        "27 - (12-9-3) (2025/26)",
+        "27 - (13-7-1) (2016/17)",
+        "26 - (11-11-4) (2018/19)",
+        "24 - (12-12-0) (2023/24)",
+        "22 - (10-12-2) (2024/25)",
+        "22 - (10-10-2) (2019/20)",
+        "22 - (9-8-4) (2014/15)",
+        "19 - (8-12-3) (2015/16)",
+        "19 - (8-12-3) (2022/23)",
+        "4 - (2-1-0) - COVID-shortened season (3 games) (2020/21)"
+      ],
+      "period": "Season",
+      "section": "Team Records"
+    },
+    {
+      "category": "Winter - Total Points/Record",
+      "items": [
+        "9 - (4-1-1) - Won Championship (2015/16)",
+        "7 - (2-1-3) - Lost Finals (2014/15)",
+        "6 - (2-2-2) - Lost Finals (2013/14)",
+        "6 - (3-2-0) - Lost Semi-Finals (2017/18)",
+        "4 - (2-0-0) - COVID, Playoffs Cancelled (2019/20)",
+        "3 - (1-3-1) - Won Bronze Finals (2016/17)",
+        "2 - (1-2-0) - Lost Semi-Finals (2025/26)",
+        "2 - (1-1-0) - Lost Semi-Finals (2022/23)",
+        "0 - (0-2-0) - Lost Semi-Finals (2023/24)",
+        "0 - (0-2-0) - Lost Semi-Finals (2024/25)",
+        "0 - (0-3-0) - Lost Bronze Finals (2018/19)"
+      ],
+      "period": "Playoffs",
+      "section": "Team Records"
+    },
+    {
+      "category": "Winter - Goals For",
+      "items": [
+        "113 - (2017/18)",
+        "108 - (2013/14)",
+        "84 - (2016/17)",
+        "83 - (2019/20)",
+        "81 - (2025/26)",
+        "79 - (2023/24)",
+        "76 - (2018/19)",
+        "76 - (2015/16)",
+        "73 - (2024/25)",
+        "73 - (2022/23)",
+        "64 - (2014/15)",
+        "13 - COVID-shortened season (3 games) (2020/21)"
+      ],
+      "period": "Season",
+      "section": "Team Records"
+    },
+    {
+      "category": "Winter - Goals For",
+      "items": [
+        "16 - (2014/15)",
+        "16 - (2015/16)",
+        "15 - (2017/18)",
+        "14 - (2016/17)",
+        "12 - (2013/14)",
+        "10 - (2018/19)",
+        "10 - COVID, Playoffs Cancelled (2019/20)",
+        "7 - (2025/26)",
+        "6 - (2023/24)",
+        "3 - (2022/23)",
+        "2 - (2024/25)"
+      ],
+      "period": "Playoffs",
+      "section": "Team Records"
+    },
+    {
+      "category": "Winter - Goals Against",
+      "items": [
+        "13 - COVID-shortened season (3 games) (2020/21)",
+        "53 - (2013/14)",
+        "59 - (2016/17)",
+        "66 - (2017/18)",
+        "66 - (2014/15)",
+        "69 - (2018/19)",
+        "77 - (2019/20)",
+        "79 - (2022/23)",
+        "82 - (2025/26)",
+        "83 - (2015/16)",
+        "95 - (2024/25)",
+        "98 - (2023/24)"
+      ],
+      "period": "Season",
+      "section": "Team Records"
+    },
+    {
+      "category": "Winter - Goals Against",
+      "items": [
+        "3 - COVID, Playoffs Cancelled (2019/20)",
+        "6 - (2024/25)",
+        "7 - (2022/23)",
+        "8 - (2013/14)",
+        "9 - (2025/26)",
+        "10 - (2023/24)",
+        "11 - (2015/16)",
+        "11 - (2017/18)",
+        "14 - (2014/15)",
+        "15 - (2018/19)",
+        "20 - (2016/17)"
+      ],
+      "period": "Playoffs",
+      "section": "Team Records"
+    },
+    {
+      "category": "Winter - Powerplay Goals",
+      "items": [
+        "9 - (2017/18)",
+        "9 - (2019/20)",
+        "8 - (2018/19)",
+        "8 - (2023/24)",
+        "7 - (2013/14)",
+        "6 - (2015/16)",
+        "5 - (2024/25)",
+        "3 - (2025/26)",
+        "3 - (2022/23)",
+        "3 - (2014/15)",
+        "2 - (2016/17)",
+        "0 - COVID-shortened season (3 games) (2020/21)"
+      ],
+      "period": "Season",
+      "section": "Team Records"
+    },
+    {
+      "category": "Winter - Powerplay Goals",
+      "items": [
+        "5 - (2014/15)",
+        "2 - (2017/18)",
+        "2 - (2018/19)",
+        "2 - (2013/14)",
+        "2 - COVID, Playoffs Cancelled (2019/20)",
+        "1 - (2025/26)",
+        "1 - (2015/16)",
+        "0 - (2016/17)",
+        "0 - (2022/23)",
+        "0 - (2023/24)",
+        "0 - (2024/25)"
+      ],
+      "period": "Playoffs",
+      "section": "Team Records"
+    },
+    {
+      "category": "Winter - Shorthanded Goals",
+      "items": [
+        "6 - (2022/23)",
+        "4 - (2017/18)",
+        "3 - (2019/20)",
+        "2 - (2018/19)",
+        "2 - (2014/15)",
+        "2 - (2015/16)",
+        "2 - (2023/24)",
+        "1 - (2024/25)",
+        "1 - (2016/17)",
+        "1 - (2013/14)",
+        "0 - (2025/26)",
+        "0 - COVID-shortened season (3 games) (2020/21)"
+      ],
+      "period": "Season",
+      "section": "Team Records"
+    },
+    {
+      "category": "Winter - Shorthanded Goals",
+      "items": [
+        "2 - (2015/16)",
+        "1 - (2017/18)",
+        "0 - (2018/19)",
+        "0 - (2022/23)",
+        "0 - (2023/24)",
+        "0 - (2024/25)",
+        "0 - (2025/26)",
+        "0 - (2016/17)",
+        "0 - COVID, Playoffs Cancelled (2019/20)",
+        "0 - (2013/14)",
+        "0 - (2014/15)"
+      ],
+      "period": "Playoffs",
+      "section": "Team Records"
+    },
+    {
+      "category": "Winter - Penalty Minutes",
+      "items": [
+        "2 - COVID-shortened season (3 games) (2020/21)",
+        "40 - (2025/26)",
+        "52 - (2023/24)",
+        "58 - (2024/25)",
+        "62 - (2019/20)",
+        "64 - (2017/18)",
+        "70 - (2013/14)",
+        "77 - (2018/19)",
+        "78 - (2022/23)",
+        "90 - (2015/16)",
+        "90 - (2014/15)",
+        "124 - (2016/17)"
+      ],
+      "period": "Season",
+      "section": "Team Records"
+    },
+    {
+      "category": "Winter - Penalty Minutes",
+      "items": [
+        "0 - (2022/23)",
+        "4 - (2018/19)",
+        "8 - COVID, Playoffs Cancelled (2019/20)",
+        "14 - (2025/26)",
+        "16 - (2013/14)",
+        "18 - (2024/25)",
+        "20 - (2023/24)",
+        "28 - (2014/15)",
+        "31 - (2015/16)",
+        "32 - (2016/17)",
+        "32 - (2017/18)"
+      ],
+      "period": "Playoffs",
+      "section": "Team Records"
+    },
+    {
+      "category": "Summer - Most team goals in a game - Regular Season",
+      "items": [
+        "13 - vs. Village Idiots (13-4) (2016-05-15)",
+        "13 - vs. Lost In the Sauce (13-4) (2016-07-17)"
+      ],
+      "period": "Game",
+      "section": "Team Records"
+    },
+    {
+      "category": "Summer - Largest winning margin - Regular Season",
+      "items": [
+        "10 - vs. Young Guns (11-1) (2017-06-18)"
+      ],
+      "period": "Game",
+      "section": "Team Records"
+    },
+    {
+      "category": "Summer - Largest losing margin - Regular Season",
+      "items": [
+        "11 - vs. Maplewolves (1-12) (2016-06-12)"
+      ],
+      "period": "Game",
+      "section": "Team Records"
+    },
+    {
+      "category": "Summer - Most combined goals in a game - Regular Season",
+      "items": [
+        "18 - vs. Bros Before Hossas (11-7) (2013-06-16)"
+      ],
+      "period": "Game",
+      "section": "Team Records"
+    },
+    {
+      "category": "Summer - Most team penalty minutes in a game - Regular Season",
+      "items": [
+        "15 - vs. Vaughan Indies (8-3) (2015-05-31)"
+      ],
+      "period": "Game",
+      "section": "Team Records"
+    },
+    {
+      "category": "Summer - Most team goals in a game - Playoffs",
+      "items": [
+        "12 - vs. Mohawks Hockey (12-3) (2015-07-26)"
+      ],
+      "period": "Playoffs",
+      "section": "Team Records"
+    },
+    {
+      "category": "Summer - Largest winning margin - Playoffs",
+      "items": [
+        "9 - vs. Mohawks Hockey (12-3) (2015-07-26)"
+      ],
+      "period": "Playoffs",
+      "section": "Team Records"
+    },
+    {
+      "category": "Summer - Largest losing margin - Playoffs",
+      "items": [
+        "5 - vs. Cherry Pickers (2-7) (2013-07-21)",
+        "5 - vs. Nifty Mittens (0-5) (2014-08-17)"
+      ],
+      "period": "Playoffs",
+      "section": "Team Records"
+    },
+    {
+      "category": "Summer - Most combined goals in a game - Playoffs",
+      "items": [
+        "15 - vs. Lead Farmers (11-4) (2013-08-11)",
+        "15 - vs. Mohawks Hockey (12-3) (2015-07-26)"
+      ],
+      "period": "Playoffs",
+      "section": "Team Records"
+    },
+    {
+      "category": "Summer - Most team penalty minutes in a game - Playoffs",
+      "items": [
+        "21 - vs. Maple Wolves (7-6) (2015-08-09)"
+      ],
+      "period": "Playoffs",
+      "section": "Team Records"
+    },
+    {
+      "category": "Summer - Longest regular-season winning streak - Regular Season",
+      "items": [
+        "5 - 2017-05-28 to 2017-06-25 (2017)"
+      ],
+      "period": "Season",
+      "section": "Team Records"
+    },
+    {
+      "category": "Summer - Longest regular-season point streak - Regular Season",
+      "items": [
+        "5 - 2013-06-02 to 2013-07-07 (2013)",
+        "5 - 2017-05-28 to 2017-06-25 (2017)"
+      ],
+      "period": "Season",
+      "section": "Team Records"
+    },
+    {
+      "category": "Winter - Most team goals in a game - Regular Season",
+      "items": [
+        "14 - vs. DC Crew (14-2) (2014-03-02)"
+      ],
+      "period": "Game",
+      "section": "Team Records"
+    },
+    {
+      "category": "Winter - Largest winning margin - Regular Season",
+      "items": [
+        "12 - vs. DC Crew (14-2) (2014-03-02)",
+        "12 - vs. Vaughan Indies (13-1) (2016-02-21)"
+      ],
+      "period": "Game",
+      "section": "Team Records"
+    },
+    {
+      "category": "Winter - Largest losing margin - Regular Season",
+      "items": [
+        "9 - vs. Call Ups (1-10) (2024-12-01)"
+      ],
+      "period": "Game",
+      "section": "Team Records"
+    },
+    {
+      "category": "Winter - Most combined goals in a game - Regular Season",
+      "items": [
+        "16 - vs. DC Crew (14-2) (2014-03-02)"
+      ],
+      "period": "Game",
+      "section": "Team Records"
+    },
+    {
+      "category": "Winter - Most team penalty minutes in a game - Regular Season",
+      "items": [
+        "22 - vs. Northern Lights (1-6) (2015-11-22)",
+        "22 - vs. Raiders (1-4) (2016-12-18)"
+      ],
+      "period": "Game",
+      "section": "Team Records"
+    },
+    {
+      "category": "Winter - Most team goals in a game - Playoffs",
+      "items": [
+        "8 - vs. Big Sticks (8-0) (2017-04-09)"
+      ],
+      "period": "Playoffs",
+      "section": "Team Records"
+    },
+    {
+      "category": "Winter - Largest winning margin - Playoffs",
+      "items": [
+        "8 - vs. Big Sticks (8-0) (2017-04-09)"
+      ],
+      "period": "Playoffs",
+      "section": "Team Records"
+    },
+    {
+      "category": "Winter - Largest losing margin - Playoffs",
+      "items": [
+        "7 - vs. Raiders (1-8) (2017-03-12)"
+      ],
+      "period": "Playoffs",
+      "section": "Team Records"
+    },
+    {
+      "category": "Winter - Most combined goals in a game - Playoffs",
+      "items": [
+        "11 - vs. Dateline Predators (5-6) (2024-04-07)"
+      ],
+      "period": "Playoffs",
+      "section": "Team Records"
+    },
+    {
+      "category": "Winter - Most team penalty minutes in a game - Playoffs",
+      "items": [
+        "18 - vs. Dateline Predators (1-4) (2024-04-14)",
+        "18 - vs. Mid Ice Crisis (0-3) (2025-04-06)"
+      ],
+      "period": "Playoffs",
+      "section": "Team Records"
+    },
+    {
+      "category": "Winter - Longest regular-season winning streak - Regular Season",
+      "items": [
+        "5 - 2024-02-18 to 2024-03-17 (2023/24)"
+      ],
+      "period": "Season",
+      "section": "Team Records"
+    },
+    {
+      "category": "Winter - Longest regular-season point streak - Regular Season",
+      "items": [
+        "14 - 2017-10-29 to 2018-02-11 (2017/18)"
+      ],
+      "period": "Season",
+      "section": "Team Records"
+    }
+  ],
+  "verifiedWholeBook": true,
+  "liveWidgetChecks": [
+    {
+      "id": "354045",
+      "name": "Mario Provenzano",
+      "total": 8,
+      "entries": [
+        "1 - Mario Provenzano (2017/18)",
+        "1 - Mario Provenzano (2017/18)"
+      ],
+      "observed": {
+        "firstHighlight": "AWDMost Improved AwardIndividual award · Winter 2025/26",
+        "links": 2,
+        "name": "Mario Provenzano",
+        "rows": [
+          "100 Point Club · Career11 - Mario Provenzano (November 16, 2025)",
+          "200 Game Club · Career10 - Mario Provenzano (March 24, 2024)",
+          "Winter - Games with at least three points in one season - Playoffs · Playoffs1 - Mario Provenzano (2017/18)Game source ↗",
+          "Winter - Games with at least three assists in one season - Playoffs · Playoffs1 - Mario Provenzano (2017/18)Game source ↗",
+          "50 Point Club · Career14 - Mario Provenzano (February 11, 2018)",
+          "100 Game Club · Career11 - Mario Provenzano (December 18, 2016)",
+          "50 Game Club · Career10 - Mario Provenzano (November 9, 2014)",
+          "Winter - Penalty Minutes · Game4 - Mario Provenzano (December 15, 2013)"
+        ]
+      },
+      "verified": true
+    },
+    {
+      "id": "354046",
+      "name": "Ryan Logue",
+      "total": 24,
+      "entries": [
+        "1 - Ryan Logue (2014/15)",
+        "1 - Ryan Logue (2017/18)",
+        "1 - Ryan Logue (2019/20)"
+      ],
+      "observed": {
+        "firstHighlight": "CLUB200 Game Club - March 17, 2019Career milestone",
+        "links": 3,
+        "name": "Ryan Logue",
+        "rows": [
+          "Winter - Games with at least three points in one season - Playoffs · Playoffs1 - Ryan Logue (2019/20)Game source ↗",
+          "Winter - Game Winning Goals · Playoffs2 - Ryan Logue (2019/20)",
+          "200 Game Club · Career4 - Ryan Logue (March 17, 2019)",
+          "200 Point Club · Career2 - Ryan Logue (September 16, 2018)",
+          "Winter - Games with at least three points in one season - Playoffs · Playoffs1 - Ryan Logue (2017/18)Game source ↗",
+          "100 Game Club · Career2 - Ryan Logue (December 20, 2015)",
+          "100 Point Club · Career2 - Ryan Logue (August 9, 2015)",
+          "Winter - Games with at least three points in one season - Playoffs · Playoffs1 - Ryan Logue (2014/15)Game source ↗",
+          "Summer - Assists · Season10 - Ryan Logue (2015)",
+          "Winter - Shorthanded Goals · Season2 - Ryan Logue (2014/15)",
+          "50 Game Club · Career3 - Ryan Logue (August 17, 2014)",
+          "Summer - Points · Game5 - Ryan Logue (July 20, 2014)",
+          "Summer - Penalty Minutes · Game4 - Ryan Logue (July 13, 2014)",
+          "50 Point Club · Career3 - Ryan Logue (June 22, 2014)",
+          "Summer - Points · Playoffs2 - Ryan Logue (2014)",
+          "Summer - Assists · Season9 - Ryan Logue (2014)",
+          "Summer - Game Winning Goals · Season2 - Ryan Logue (2014)",
+          "Summer - Points · Game4 - Ryan Logue (June 9, 2013)",
+          "Summer - Assists · Game4 - Ryan Logue (June 9, 2013)",
+          "Summer - Goals · Game2 - Ryan Logue (June 2, 2013)",
+          "Summer - Points · Game3 - Ryan Logue (June 2, 2013)",
+          "Summer - Goals · Season8 - Ryan Logue (2013)",
+          "Summer - Assists · Season7 - Ryan Logue (2013)",
+          "Summer - Player of the Game · Season4 - Ryan Logue (2013)"
+        ]
+      },
+      "verified": true
+    },
+    {
+      "id": "354049",
+      "name": "Cameron Buchanan",
+      "total": 13,
+      "entries": [
+        "1 - Cameron Buchanan (2016)"
+      ],
+      "observed": {
+        "firstHighlight": "STARHall of Fame Inductee - Winter 2024/25Recognition",
+        "links": 1,
+        "name": "Cameron Buchanan",
+        "rows": [
+          "200 Point Club · Career4 - Cameron Buchanan (October 20, 2019)",
+          "200 Game Club · Career5 - Cameron Buchanan (September 15, 2019)",
+          "Summer - Games with at least three assists in one season - Playoffs · Playoffs1 - Cameron Buchanan (2016)Game source ↗",
+          "100 Point Club · Career4 - Cameron Buchanan (June 19, 2016)",
+          "100 Game Club · Career9 - Cameron Buchanan (May 15, 2016)",
+          "Summer - Hat Tricks · Season2 - Cameron Buchanan (2016)",
+          "Summer - Points · Playoffs6 - Cameron Buchanan (2015)",
+          "Summer - Player of the Game · Playoffs2 - Cameron Buchanan (2015)",
+          "Winter - Game Tying Goals · Season2 - Cameron Buchanan (2014/15)",
+          "50 Point Club · Career4 - Cameron Buchanan (November 30, 2014)",
+          "50 Game Club · Career4 - Cameron Buchanan (August 17, 2014)",
+          "Winter - Game Winning Goals · Season3 - Cameron Buchanan (2013/14)",
+          "Summer - Points · Game5 - Cameron Buchanan (June 23, 2013)"
+        ]
+      },
+      "verified": true
+    },
+    {
+      "id": "354051",
+      "name": "Damian Aidemirski",
+      "total": 8,
+      "entries": [
+        "1 - Damian Aidemirski (2013/14)",
+        "1 - Damian Aidemirski (2013/14)"
+      ],
+      "observed": {
+        "firstHighlight": "CLUB100 Game Club - January 10, 2016Career milestone",
+        "links": 2,
+        "name": "Damian Aidemirski",
+        "rows": [
+          "100 Game Club · Career5 - Damian Aidemirski (January 10, 2016)",
+          "50 Point Club · Career8 - Damian Aidemirski (November 22, 2015)",
+          "50 Game Club · Career9 - Damian Aidemirski (October 5, 2014)",
+          "Winter - Assists · Game4 - Damian Aidemirski (March 30, 2014)",
+          "Winter - Games with at least three points in one season - Playoffs · Playoffs1 - Damian Aidemirski (2013/14)Game source ↗",
+          "Winter - Games with at least three assists in one season - Playoffs · Playoffs1 - Damian Aidemirski (2013/14)Game source ↗",
+          "Winter - Points · Playoffs7 - Damian Aidemirski (2013/14)",
+          "Winter - Assists · Playoffs6 - Damian Aidemirski (2013/14)"
+        ]
+      },
+      "verified": true
+    },
+    {
+      "id": "354054",
+      "name": "Adam Brutto",
+      "total": 25,
+      "entries": [
+        "1 - Adam Brutto (2015)",
+        "1 - Adam Brutto (2016)"
+      ],
+      "observed": {
+        "firstHighlight": "CLUB300 Game ClubCareer milestone · January 5, 2025",
+        "links": 2,
+        "name": "Adam Brutto",
+        "rows": [
+          "300 Game Club · Career1 - Adam Brutto (January 5, 2025)",
+          "200 Game Club · Career1 - Adam Brutto (January 6, 2019)",
+          "100 Point Club · Career7 - Adam Brutto (August 20, 2017)",
+          "Winter - Penalty Minutes · Game14 - Adam Brutto (December 11, 2016)",
+          "Summer - Games with at least three assists in one season - Playoffs · Playoffs1 - Adam Brutto (2016)Game source ↗",
+          "100 Game Club · Career4 - Adam Brutto (January 3, 2016)",
+          "Winter - Penalty Minutes · Game14 - Adam Brutto (November 22, 2015)",
+          "Summer - Assists · Game4 - Adam Brutto (July 26, 2015)",
+          "50 Point Club · Career7 - Adam Brutto (July 26, 2015)",
+          "Summer - Games with at least three assists in one season - Playoffs · Playoffs1 - Adam Brutto (2015)Game source ↗",
+          "Summer - Assists · Season11 - Adam Brutto (2015)",
+          "Summer - Assists · Playoffs8 - Adam Brutto (2015)",
+          "50 Game Club · Career5 - Adam Brutto (September 21, 2014)",
+          "Summer - Penalty Minutes · Game4 - Adam Brutto (May 25, 2014)",
+          "Winter - Penalty Minutes · Game4 - Adam Brutto (March 30, 2014)",
+          "Summer - Points · Playoffs2 - Adam Brutto (2014)",
+          "Summer - Penalty Minutes · Season8 - Adam Brutto (2014)",
+          "Winter - Assists · Playoffs2 - Adam Brutto (2013/14)",
+          "Winter - Penalty Minutes · Playoffs6 - Adam Brutto (2013/14)",
+          "Winter - Penalty Minutes · Game4 - Adam Brutto (December 15, 2013)",
+          "Winter - Penalty Minutes · Game4 - Adam Brutto (December 1, 2013)",
+          "Summer - Penalty Minutes · Game4 - Adam Brutto (August 18, 2013)",
+          "Summer - Assists · Game3 - Adam Brutto (June 9, 2013)",
+          "Summer - Assists · Game2 - Adam Brutto (June 2, 2013)",
+          "Summer - Penalty Minutes · Playoffs4 - Adam Brutto (2013)"
+        ]
+      },
+      "verified": true
+    },
+    {
+      "id": "354056",
+      "name": "Keith Pearsoll",
+      "total": 16,
+      "entries": [
+        "3 - Keith Pearsoll (2016)",
+        "2 - Keith Pearsoll (2016)",
+        "2 - Keith Pearsoll (2016)"
+      ],
+      "observed": {
+        "firstHighlight": "AWDLady Byng Award for SportsmanshipIndividual award · Winter 2025/26",
+        "links": 7,
+        "name": "Keith Pearsoll",
+        "rows": [
+          "200 Point Club · Career5 - Keith Pearsoll (February 19, 2023)",
+          "200 Game Club · Career3 - Keith Pearsoll (February 17, 2019)",
+          "100 Point Club · Career5 - Keith Pearsoll (August 14, 2016)",
+          "Summer - Games with at least two goals in one season - Playoffs · Playoffs2 - Keith Pearsoll (2016)Game 1 ↗ · Game 2 ↗",
+          "Summer - Games with at least three points in one season - Playoffs · Playoffs2 - Keith Pearsoll (2016)Game 1 ↗ · Game 2 ↗",
+          "Summer - Games with at least three assists in one season - Regular Season · Season3 - Keith Pearsoll (2016)Game 1 ↗ · Game 2 ↗ · Game 3 ↗",
+          "100 Game Club · Career6 - Keith Pearsoll (January 24, 2016)",
+          "Summer - Player of the Game · Playoffs2 - Keith Pearsoll (2016)",
+          "50 Point Club · Career5 - Keith Pearsoll (May 24, 2015)",
+          "Summer - Points · Playoffs6 - Keith Pearsoll (2015)",
+          "50 Game Club · Career8 - Keith Pearsoll (October 5, 2014)",
+          "Summer - Goals · Game2 - Keith Pearsoll (June 9, 2013)",
+          "Summer - Points · Game3 - Keith Pearsoll (June 9, 2013)",
+          "Summer - Goals · Game2 - Keith Pearsoll (May 12, 2013)",
+          "Summer - Points · Game3 - Keith Pearsoll (May 12, 2013)",
+          "Summer - Assists · Season7 - Keith Pearsoll (2013)"
+        ]
+      },
+      "verified": true
+    },
+    {
+      "id": "354060",
+      "name": "Justin Carosi",
+      "total": 25,
+      "entries": [
+        "3 - Justin Carosi (2016)",
+        "3 - Justin Carosi (2016/17)",
+        "1 - Justin Carosi (2016/17)",
+        "1 - Justin Carosi (2023/24)"
+      ],
+      "observed": {
+        "firstHighlight": "CLUB300 Game ClubCareer milestone · September 20, 2026",
+        "links": 8,
+        "name": "Justin Carosi",
+        "rows": [
+          "300 Game Club · Career3 - Justin Carosi (September 20, 2026)",
+          "Winter - Games with at least three points in one season - Playoffs · Playoffs1 - Justin Carosi (2023/24)Game source ↗",
+          "300 Point Club · Career1 - Justin Carosi (January 14, 2024)",
+          "Winter - Game Tying Goals · Season2 - Justin Carosi (2022/23)",
+          "200 Game Club · Career8 - Justin Carosi (February 23, 2020)",
+          "Winter - Assists · Game4 - Justin Carosi (November 24, 2019)",
+          "200 Point Club · Career3 - Justin Carosi (December 30, 2018)",
+          "Winter - Assists · Season19 - Justin Carosi (2017/18)",
+          "Winter - Shorthanded Goals · Season3 - Justin Carosi (2017/18)",
+          "Winter - Games with at least three points in one season - Playoffs · Playoffs1 - Justin Carosi (2016/17)Game source ↗",
+          "Winter - Games with at least three assists in one season - Regular Season · Season3 - Justin Carosi (2016/17)Game 1 ↗ · Game 2 ↗ · Game 3 ↗",
+          "Winter - Assists · Season19 - Justin Carosi (2016/17)",
+          "100 Game Club · Career10 - Justin Carosi (October 30, 2016)",
+          "Winter - Assists · Game4 - Justin Carosi (October 16, 2016)",
+          "Summer - Games with at least three assists in one season - Regular Season · Season3 - Justin Carosi (2016)Game 1 ↗ · Game 2 ↗ · Game 3 ↗",
+          "Summer - Assists · Game6 - Justin Carosi (May 15, 2016)",
+          "100 Point Club · Career3 - Justin Carosi (May 15, 2016)",
+          "Summer - Assists · Season15 - Justin Carosi (2016)",
+          "50 Point Club · Career6 - Justin Carosi (June 21, 2015)",
+          "50 Game Club · Career13 - Justin Carosi (June 14, 2015)",
+          "Summer - Penalty Minutes · Game4 - Justin Carosi (May 24, 2015)",
+          "Summer - Assists · Season10 - Justin Carosi (2015)",
+          "Summer - Game Winning Goals · Season2 - Justin Carosi (2015)",
+          "Summer - Penalty Minutes · Season8 - Justin Carosi (2015)",
+          "Summer - Assists · Season8 - Justin Carosi (2014)"
+        ]
+      },
+      "verified": true
+    },
+    {
+      "id": "354061",
+      "name": "Mark Pastore",
+      "total": 41,
+      "entries": [
+        "3 - Mark Pastore (2016)",
+        "3 - Mark Pastore (2015/16)",
+        "1 - Mark Pastore (2014/15)",
+        "1 - Mark Pastore (2015/16)"
+      ],
+      "observed": {
+        "firstHighlight": "STARHall of Fame Inductee - Winter 2023/24Recognition",
+        "links": 8,
+        "name": "Mark Pastore",
+        "rows": [
+          "Summer - Points · Game9 - Mark Pastore (July 17, 2016)",
+          "Summer - Games with at least three assists in one season - Regular Season · Season3 - Mark Pastore (2016)Game 1 ↗ · Game 2 ↗ · Game 3 ↗",
+          "Summer - Assists · Game4 - Mark Pastore (May 8, 2016)",
+          "Winter - Games with at least two goals in one season - Playoffs · Playoffs3 - Mark Pastore (2015/16)Game 1 ↗ · Game 2 ↗ · Game 3 ↗",
+          "Winter - Games with at least three points in one season - Playoffs · Playoffs1 - Mark Pastore (2015/16)Game source ↗",
+          "Summer - Shorthanded Goals · Season2 - Mark Pastore (2016)",
+          "Summer - Hat Tricks · Season3 - Mark Pastore (2016)",
+          "Winter - Goals · Playoffs8 - Mark Pastore (2015/16)",
+          "Winter - Points · Playoffs9 - Mark Pastore (2015/16)",
+          "Winter - Game Winning Goals · Playoffs2 - Mark Pastore (2015/16)",
+          "Winter - Player of the Game · Playoffs5 - Mark Pastore (2015/16)",
+          "100 Game Club · Career3 - Mark Pastore (December 27, 2015)",
+          "Summer - Goals · Game7 - Mark Pastore (July 5, 2015)",
+          "Summer - Points · Game8 - Mark Pastore (July 5, 2015)",
+          "Summer - Goals · Game4 - Mark Pastore (June 7, 2015)",
+          "100 Point Club · Career1 - Mark Pastore (June 7, 2015)",
+          "Summer - Points · Game5 - Mark Pastore (May 10, 2015)",
+          "Winter - Games with at least three points in one season - Playoffs · Playoffs1 - Mark Pastore (2014/15)Game source ↗",
+          "Summer - Goals · Season16 - Mark Pastore (2015)",
+          "Summer - Goals · Playoffs6 - Mark Pastore (2015)",
+          "Summer - Points · Season25 - Mark Pastore (2015)",
+          "Summer - Points · Playoffs9 - Mark Pastore (2015)",
+          "Summer - Game Winning Goals · Season2 - Mark Pastore (2015)",
+          "Summer - Hat Tricks · Season2 - Mark Pastore (2015)",
+          "Winter - Goals · Playoffs7 - Mark Pastore (2014/15)",
+          "Winter - Points · Playoffs8 - Mark Pastore (2014/15)",
+          "Winter - Player of the Game · Playoffs3 - Mark Pastore (2014/15)",
+          "Winter - Penalty Minutes · Playoffs6 - Mark Pastore (2014/15)",
+          "50 Game Club · Career6 - Mark Pastore (September 21, 2014)",
+          "50 Point Club · Career1 - Mark Pastore (March 30, 2014)",
+          "Winter - Assists · Game3 - Mark Pastore (January 5, 2014)",
+          "Summer - Powerplay Goals · Season2 - Mark Pastore (2014)",
+          "Winter - Assists · Season17 - Mark Pastore (2013/14)",
+          "Winter - Points · Game3 - Mark Pastore (September 29, 2013)",
+          "Winter - Assists · Game2 - Mark Pastore (September 29, 2013)",
+          "Summer - Goals · Game4 - Mark Pastore (June 16, 2013)",
+          "Summer - Points · Game4 - Mark Pastore (June 16, 2013)",
+          "Summer - Goals · Game2 - Mark Pastore (June 9, 2013)",
+          "Summer - Assists · Game2 - Mark Pastore (June 2, 2013)",
+          "Summer - Goals · Season12 - Mark Pastore (2013)",
+          "Summer - Points · Season17 - Mark Pastore (2013)"
+        ]
+      },
+      "verified": true
+    },
+    {
+      "id": "354285",
+      "name": "Ben Sherritt",
+      "total": 39,
+      "entries": [
+        "7 - Ben Sherritt (2017)",
+        "7 - Ben Sherritt (2017)",
+        "2 - Ben Sherritt (2016)",
+        "11 - Ben Sherritt (2013/14)",
+        "7 - Ben Sherritt (2013/14)",
+        "1 - Ben Sherritt (2013/14)",
+        "1 - Ben Sherritt (2016/17)"
+      ],
+      "observed": {
+        "firstHighlight": "STARHall of Fame Inductee - Winter 2023/24Recognition",
+        "links": 36,
+        "name": "Ben Sherritt",
+        "rows": [
+          "100 Game Club · Career14 - Ben Sherritt (March 18, 2018)",
+          "200 Point Club · Career1 - Ben Sherritt (February 25, 2018)",
+          "Winter - Game Winning Goals · Season4 - Ben Sherritt (2017/18)",
+          "Winter - Game Winning Goals · Playoffs2 - Ben Sherritt (2017/18)",
+          "Winter - Powerplay Goals · Season4 - Ben Sherritt (2017/18)",
+          "Winter - Points · Game6 - Ben Sherritt (November 12, 2017)",
+          "Summer - Games with at least two goals in one season - Regular Season · Season7 - Ben Sherritt (2017)Game 1 ↗ · Game 2 ↗ · Game 3 ↗ · Game 4 ↗ · Game 5 ↗ · Game 6 ↗ · Game 7 ↗",
+          "Summer - Games with at least three points in one season - Regular Season · Season7 - Ben Sherritt (2017)Game 1 ↗ · Game 2 ↗ · Game 3 ↗ · Game 4 ↗ · Game 5 ↗ · Game 6 ↗ · Game 7 ↗",
+          "Winter - Games with at least three points in one season - Playoffs · Playoffs1 - Ben Sherritt (2016/17)Game source ↗",
+          "Summer - Goals · Season22 - Ben Sherritt (2017)",
+          "Summer - Points · Season32 - Ben Sherritt (2017)",
+          "Summer - Game Winning Goals · Season4 - Ben Sherritt (2017)",
+          "Summer - Hat Tricks · Season4 - Ben Sherritt (2017)",
+          "50 Game Club · Career18 - Ben Sherritt (November 20, 2016)",
+          "100 Point Club · Career6 - Ben Sherritt (November 13, 2016)",
+          "Summer - Games with at least three points in one season - Playoffs · Playoffs2 - Ben Sherritt (2016)Game 1 ↗ · Game 2 ↗",
+          "50 Point Club · Career2 - Ben Sherritt (April 13, 2014)",
+          "Winter - Games with at least three points in one season - Playoffs · Playoffs1 - Ben Sherritt (2013/14)Game source ↗",
+          "Winter - Games with at least two goals in one season - Regular Season · Season11 - Ben Sherritt (2013/14)Game 1 ↗ · Game 2 ↗ · Game 3 ↗ · Game 4 ↗ · Game 5 ↗ · Game 6 ↗ · Game 7 ↗ · Game 8 ↗ · Game 9 ↗ · Game 10 ↗ · Game 11 ↗",
+          "Winter - Points · Game6 - Ben Sherritt (March 2, 2014)",
+          "Winter - Games with at least three points in one season - Regular Season · Season7 - Ben Sherritt (2013/14)Game 1 ↗ · Game 2 ↗ · Game 3 ↗ · Game 4 ↗ · Game 5 ↗ · Game 6 ↗ · Game 7 ↗",
+          "Summer - Goals · Season16 - Ben Sherritt (2014)",
+          "Summer - Points · Season25 - Ben Sherritt (2014)",
+          "Summer - Points · Playoffs2 - Ben Sherritt (2014)",
+          "Summer - Assists · Season9 - Ben Sherritt (2014)",
+          "Summer - Game Winning Goals · Season2 - Ben Sherritt (2014)",
+          "Summer - Hat Tricks · Season3 - Ben Sherritt (2014)",
+          "Summer - Player of the Game · Season7 - Ben Sherritt (2014)",
+          "Winter - Goals · Season36 - Ben Sherritt (2013/14)",
+          "Winter - Goals · Playoffs4 - Ben Sherritt (2013/14)",
+          "Winter - Points · Season46 - Ben Sherritt (2013/14)",
+          "Winter - Game Winning Goals · Season4 - Ben Sherritt (2013/14)",
+          "Winter - Game Tying Goals · Season2 - Ben Sherritt (2013/14)",
+          "Winter - Powerplay Goals · Season3 - Ben Sherritt (2013/14)",
+          "Winter - Hat Tricks · Season5 - Ben Sherritt (2013/14)",
+          "Winter - Player of the Game · Season13 - Ben Sherritt (2013/14)",
+          "Winter - Goals · Game5 - Ben Sherritt (October 6, 2013)",
+          "Winter - Points · Game6 - Ben Sherritt (October 6, 2013)",
+          "Winter - Assists · Game2 - Ben Sherritt (September 29, 2013)"
+        ]
+      },
+      "verified": true
+    },
+    {
+      "id": "356089",
+      "name": "Stefano Ardizzi",
+      "total": 15,
+      "entries": [
+        "1 - Stefano Ardizzi (2017/18)"
+      ],
+      "observed": {
+        "firstHighlight": "CLUB200 Game ClubCareer milestone · February 4, 2024",
+        "links": 1,
+        "name": "Stefano Ardizzi",
+        "rows": [
+          "200 Game Club · Career9 - Stefano Ardizzi (February 4, 2024)",
+          "Winter - Penalty Minutes · Game14 - Stefano Ardizzi (December 22, 2019)",
+          "100 Point Club · Career9 - Stefano Ardizzi (March 10, 2019)",
+          "Winter - Games with at least three points in one season - Playoffs · Playoffs1 - Stefano Ardizzi (2017/18)Game source ↗",
+          "100 Game Club · Career13 - Stefano Ardizzi (April 2, 2017)",
+          "50 Point Club · Career9 - Stefano Ardizzi (February 21, 2016)",
+          "Summer - Penalty Minutes · Game9 - Stefano Ardizzi (May 31, 2015)",
+          "50 Game Club · Career12 - Stefano Ardizzi (March 22, 2015)",
+          "Summer - Penalty Minutes · Season11 - Stefano Ardizzi (2015)",
+          "Summer - Penalty Minutes · Playoffs6 - Stefano Ardizzi (2015)",
+          "Summer - Points · Game5 - Stefano Ardizzi (June 22, 2014)",
+          "Summer - Penalty Minutes · Game4 - Stefano Ardizzi (June 1, 2014)",
+          "Winter - Assists · Game3 - Stefano Ardizzi (March 2, 2014)",
+          "Summer - Assists · Season7 - Stefano Ardizzi (2014)",
+          "Winter - Assists · Game3 - Stefano Ardizzi (December 15, 2013)"
+        ]
+      },
+      "verified": true
+    },
+    {
+      "id": "376086",
+      "name": "Carmine Cerrone",
+      "total": 1,
+      "entries": [
+        "1 - Carmine Cerrone (2015/16)"
+      ],
+      "observed": {
+        "firstHighlight": "AWDRookie of the Year - Winter 2015/16Individual award",
+        "links": 1,
+        "name": "Carmine Cerrone",
+        "rows": [
+          "Winter - Games with at least three points in one season - Playoffs · Playoffs1 - Carmine Cerrone (2015/16)Game source ↗"
+        ]
+      },
+      "verified": true
+    },
+    {
+      "id": "388298",
+      "name": "Quenton Hunt",
+      "total": 1,
+      "entries": [
+        "1 - Quenton Hunt (2019/20)"
+      ],
+      "observed": {
+        "links": 1,
+        "name": "Quenton Hunt",
+        "rows": [
+          "Winter - Games with at least three points in one season - Playoffs · Playoffs1 - Quenton Hunt (2019/20)Game source ↗"
+        ]
+      },
+      "verified": true
+    },
+    {
+      "id": "426873",
+      "name": "Xav O'Krafka",
+      "total": 6,
+      "entries": [
+        "3 - Xav O'Krafka (2017)"
+      ],
+      "observed": {
+        "firstHighlight": "CLUB50 Point Club - November 19, 2017Career milestone",
+        "links": 3,
+        "name": "Xav O'Krafka",
+        "rows": [
+          "50 Point Club · Career13 - Xav O'Krafka (November 19, 2017)",
+          "Winter - Points · Game6 - Xav O'Krafka (November 12, 2017)",
+          "Summer - Games with at least three assists in one season - Regular Season · Season3 - Xav O'Krafka (2017)Game 1 ↗ · Game 2 ↗ · Game 3 ↗",
+          "Summer - Goals · Season16 - Xav O'Krafka (2017)",
+          "Summer - Points · Season30 - Xav O'Krafka (2017)",
+          "Summer - Penalty Minutes · Season20 - Xav O'Krafka (2017)"
+        ]
+      },
+      "verified": true
+    },
+    {
+      "id": "652571",
+      "name": "David Corasaniti",
+      "total": 4,
+      "entries": [
+        "1 - David Corasaniti (2018/19)",
+        "1 - David Corasaniti (2019/20)"
+      ],
+      "observed": {
+        "firstHighlight": "NOTEConn Smythe Award Playoff MVP - Winter 2019/20\nHart Award Team MVP - Winter 2019/20\nRookie of the Year Award - Winter 2019/20Historical record",
+        "links": 2,
+        "name": "David Corasaniti",
+        "rows": [
+          "Winter - Games with at least three points in one season - Playoffs · Playoffs1 - David Corasaniti (2019/20)Game source ↗",
+          "Winter - Assists · Game4 - David Corasaniti (February 16, 2020)",
+          "Winter - Assists · Game4 - David Corasaniti (February 9, 2020)",
+          "Winter - Games with at least three points in one season - Playoffs · Playoffs1 - David Corasaniti (2018/19)Game source ↗"
+        ]
+      },
+      "verified": true
+    },
+    {
+      "id": "686216",
+      "name": "Michael Provenzano",
+      "total": 2,
+      "entries": [
+        "1 - Michael Provenzano (2025/26)"
+      ],
+      "observed": {
+        "firstHighlight": "CLUB50 Point ClubCareer milestone · September 27, 2026",
+        "links": 1,
+        "name": "Michael Provenzano",
+        "rows": [
+          "50 Point Club · Career20 - Michael Provenzano (September 27, 2026)",
+          "Winter - Games with at least three points in one season - Playoffs · Playoffs1 - Michael Provenzano (2025/26)Game source ↗"
+        ]
+      },
+      "verified": true
+    },
+    {
+      "id": "738846",
+      "name": "Stephane Saindon",
+      "total": 12,
+      "entries": [
+        "1 - Stephane Saindon (2023/24)",
+        "1 - Stephane Saindon (2025/26)",
+        "1 - Stephane Saindon (2025/26)"
+      ],
+      "observed": {
+        "firstHighlight": "AWDConn Smythe Award Playoff MVPIndividual award · Winter 2025/26",
+        "links": 3,
+        "name": "Stephane Saindon",
+        "rows": [
+          "Winter - Games with at least three points in one season - Playoffs · Playoffs1 - Stephane Saindon (2025/26)Game source ↗",
+          "Winter - Games with at least three assists in one season - Playoffs · Playoffs1 - Stephane Saindon (2025/26)Game source ↗",
+          "Winter - Assists · Game4 - Stephane Saindon (January 18, 2026)",
+          "100 Point Club · Career12 - Stephane Saindon (November 30, 2025)",
+          "Winter - Assists · Game4 - Stephane Saindon (November 9, 2025)",
+          "Winter - Penalty Minutes · Game14 - Stephane Saindon (April 6, 2025)",
+          "Winter - Penalty Minutes · Playoffs14 - Stephane Saindon (2024/25)",
+          "50 Game Club · Career26 - Stephane Saindon (November 3, 2024)",
+          "Winter - Assists · Game4 - Stephane Saindon (October 6, 2024)",
+          "Winter - Games with at least three points in one season - Playoffs · Playoffs1 - Stephane Saindon (2023/24)Game source ↗",
+          "50 Point Club · Career17 - Stephane Saindon (March 10, 2024)",
+          "Winter - Game Winning Goals · Season4 - Stephane Saindon (2023/24)"
+        ]
+      },
+      "verified": true
+    }
+  ],
+  "widgetValidation": {
+    "profiles": 109,
+    "expandedOriginalHighlights": 306,
+    "mappedRecordEntries": 327,
+    "newIndividualEntries": 38,
+    "affectedProfiles": 16,
+    "newestFirst": true,
+    "sourceLinks": true
+  }
+}
