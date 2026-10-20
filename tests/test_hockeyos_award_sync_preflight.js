@@ -159,3 +159,22 @@ test('setting unverified approvals to true cannot turn this QA module into a wor
  assert.equal(r.writeAuthorized,false);
  assert.equal(r.workbookModified,false);
 });
+
+test('malformed records fail closed without accidentally throwing or accepting writes',()=>{
+ for(const mode of ['game','row','stats']){
+  const f=makeFixture();
+  if(mode==='game')f.games[0]=null;
+  if(mode==='row')f.rows[0]=null;
+  if(mode==='stats')f.rows[0].stats=null;
+  assert.doesNotThrow(()=>evaluate(f),mode);
+  const result=evaluate(f);
+  assert.equal(result.status,'FAIL_CLOSED',mode);
+  assert.equal(result.writeAuthorized,false);
+ }
+});
+test('missing historical workbook identity or baseline hash fails safely',()=>{
+ const f=makeFixture();f.sourceWorkbookSha256='unverified';
+ const result=evaluate(f);
+ assert.equal(result.status,'FAIL_CLOSED');
+ assert.equal(result.writeAuthorized,false);
+});
