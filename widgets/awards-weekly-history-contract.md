@@ -44,6 +44,23 @@ The optional `awards-weekly-history.json` contains a `snapshots` array; the supp
 
 When verified snapshots are available, set `status` to `VERIFIED_PUBLISHED_WEEKLY_SNAPSHOTS`. Each immutable snapshot must satisfy:
 
+**Strict formula-authority continuity:** `sourceWorkbookHash` is the
+**immutable original formula-authority hash**, not the changing operational
+recalculation copy's file hash. It must exactly match the current
+`awards-races.json.sourceWorkbookHash`. An arbitrary well-formed SHA-256 is
+not evidence of unchanged source rules. Independently verify any operational
+workbook snapshot hash and formula-map fingerprint through the separate,
+nonpublishing operational provenance gate.
+
+**Unambiguous weekly identity:** two same-season snapshots with the same
+`publishedAsOf` date (or a malformed same-season date) suppress weekly OVR
+movement for review. The reader does not guess which one is authoritative.
+Two dated, independently verified comparable weekly score sets are still
+required before displaying a numerical delta.
+
+Each example below is the **data shape**, not independent proof of release
+approval:
+
 ```json
 {
   "status": "VERIFIED_PUBLISHED_WEEKLY_RACE",
