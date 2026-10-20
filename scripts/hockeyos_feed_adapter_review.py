@@ -4,6 +4,7 @@ import json
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
+from urllib.parse import urlsplit, parse_qsl
 sys.dont_write_bytecode=True
 sys.path.insert(0,str(Path(__file__).resolve().parent))
 import hockeyos_discovery_review as discovery
@@ -104,7 +105,7 @@ def adapt_review(envelope, now=None):
             evidence.get("seasonBasis")!="AUDITED_2026_27_GAME_DATE_MAP_AND_VERIFIED_SEASON_STATS" or
             review.response_identity(evidence.get("canonicalURL",""))!=review.response_identity(game["sourceUrl"])):
             raise review.ReviewHold("GAME_CONTENT_PROVENANCE_MISMATCH")
-        query=dict(__import__("urllib.parse",fromlist=["urlsplit"]).parse_qsl(__import__("urllib.parse",fromlist=["urlsplit"]).urlsplit(game["sourceUrl"]).query))
+        query=dict(parse_qsl(urlsplit(game["sourceUrl"]).query))
         if query.get("gameID")!=str(gid) or query.get("u")!="BRAVESHOCKEY" or query.get("p")!="boxscore":
             raise review.ReviewHold("GAME_URL_IDENTITY_MISMATCH")
     parity=payload["missingStatFields"]["seasonParity"]
