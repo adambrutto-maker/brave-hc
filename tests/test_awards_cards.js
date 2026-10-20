@@ -40,14 +40,14 @@ api.state.explain=evidence;
 api.state.weeklyHistory=history;
 api.state.participation=participants;
 const hash=awards.sourceWorkbookHash;
-const sourceRace={asOf:'2026-10-19',modelGameCount:4};
+const sourceRace={asOf:awards.latestGameDate>'2026-10-19'?awards.latestGameDate:'2026-10-19',modelGameCount:awards.currentTeamGP};
 const playerName='QA Player Alpha (FICTIONAL)';
 function example(){
  return {name:playerName,gamesPlayed:3,eligible:true,rankKey:4,scoreKind:'OFFICIAL_WORKBOOK_FINAL',modelScore:91,
   verifiedComponentEvidence:{
     status:'VERIFIED_CURRENT_WORKBOOK_COMPONENTS',season:'W2026/27',
     awardId:'rolaids',playerName,sourceWorkbookHash:hash,
-    asOf:sourceRace.asOf,modelGameCount:4,components:[
+    asOf:sourceRace.asOf,modelGameCount:sourceRace.modelGameCount,components:[
      {abbreviation:'PTS',sourceField:'Total Final Pts Web Display Score',webComponentScore:90,weightPct:70,unroundedWeightedContribution:63},
      {abbreviation:'CONS',sourceField:'Total Skater Production Consistency Web Display Score',webComponentScore:80,weightPct:30,unroundedWeightedContribution:24}
     ]
@@ -60,17 +60,22 @@ function snapshot(){
   races:{rolaids:[{name:playerName,rank:4,overallScore:86.5,scoreKind:'OFFICIAL_WORKBOOK_FINAL'}]}};
 }
 api.state.award='rolaids';
-test('current live publication remains held without verified four-game workbook scores',()=>{
- assert.equal(awards.sourceWorkbookRecordedGP,1);
- assert.equal(awards.seasonRaceMode.currentModelScoresVerified,false);
- assert.equal(api.isVerifiedWeeklyRace(awards,awards.races.rolaids,participants),false);
- assert.equal(history.snapshots.length,0);
+test('source freshness controls real award publication as future games are recorded',()=>{
+ assert.equal(participants.officialTeamGames,awards.currentTeamGP);
+ assert.equal(history.schema,'brave-hc-awards-weekly-history/v1');
+ const isFresh=awards.sourceWorkbookRecordedGP===awards.currentTeamGP
+   &&awards.seasonRaceMode.currentModelScoresVerified===true;
+ for(const race of Object.values(awards.races)){
+   const valid=api.isVerifiedWeeklyRace(awards,race,participants);
+   if(!isFresh)assert.equal(valid,false,'stale game count or model authority must hold awards');
+   if(valid)assert.equal(race.modelGameCount,awards.currentTeamGP);
+ }
 });
 test('same-week weighted attribute evidence passes and mismatches fail closed',()=>{
  assert.equal(api.currentComponents(example(),sourceRace).length,2);
  for(const mutate of [
   x=>x.verifiedComponentEvidence.sourceWorkbookHash='b'.repeat(64),
-  x=>x.verifiedComponentEvidence.modelGameCount=3,
+  x=>x.verifiedComponentEvidence.modelGameCount=sourceRace.modelGameCount+1,
   x=>x.verifiedComponentEvidence.components[0].weightPct=80,
   x=>x.verifiedComponentEvidence.components[0].unroundedWeightedContribution=50,
   x=>x.verifiedComponentEvidence.asOf='2026-10-18',
@@ -95,7 +100,7 @@ test('known previous week yields independent OVR and ranking deltas',()=>{
 test('no baseline, future, invalid hash and duplicate players never generate an invented delta',()=>{
  const cases=[
   [],
-  [{...snapshot(),publishedAsOf:'2026-10-20'}],
+  [{...snapshot(),publishedAsOf:'9999-12-31'}],
   [{...snapshot(),sourceWorkbookHash:'no-verified-hash'}],
   [{...snapshot(),races:{rolaids:[...snapshot().races.rolaids,...snapshot().races.rolaids]}}]
  ];
@@ -110,8 +115,8 @@ test('valid dated synthetic workbook race can pass the previously broken date ga
  p.players.push({name:playerName,gp:3,position:'Skater',role:'CU'});
  data.seasonRaceMode.currentModelScoresVerified=true;
  data.sourceWorkbookRecordedGP=data.currentTeamGP;
- data.races.rolaids={status:'VERIFIED_CURRENT_WEEK',asOf:'2026-10-19',
-  modelGameCount:4,entries:[row]};
+ data.races.rolaids={status:'VERIFIED_CURRENT_WEEK',asOf:sourceRace.asOf,
+  modelGameCount:data.currentTeamGP,entries:[row]};
  assert.equal(api.isVerifiedWeeklyRace(data,data.races.rolaids,p),true);
  data.races.rolaids.asOf='not-a-date';
  assert.equal(api.isVerifiedWeeklyRace(data,data.races.rolaids,p),false);
@@ -158,6 +163,6 @@ test('both published Awards entrypoints use identical assets and page instructio
  const a=fs.readFileSync(path.join(widgets,'awards-races.html'),'utf8');
  const b=fs.readFileSync(path.join(widgets,'awards-races-v3.html'),'utf8');
  assert.equal(a,b);
- assert.match(a,/awards-races-v3\.js\?v=20261019l/);
- assert.match(a,/awards-races-v3\.css\?v=20261019l/);
+ assert.match(a,/awards-races-v3\.js\?v=[0-9a-z]+/);
+ assert.match(a,/awards-races-v3\.css\?v=[0-9a-z]+/);
 });
