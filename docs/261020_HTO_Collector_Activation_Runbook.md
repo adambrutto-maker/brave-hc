@@ -2,7 +2,7 @@
 October 20, 2026. Scope: collector/feed only. **Operational writer implemented in review branch; active deployment requires Founder's final approval.**
 
 ## Implemented operational entrypoint
-`scripts/hockeyos_operational_collector.py` now runs the reviewed live discovery → source collection → adapter chain. Its default/check-only mode fetches and verifies source data without writing. Explicit write mode revalidates the complete adapter evidence, creates a verified exclusive backup, flushes/fsyncs a same-directory temporary file, replaces the bound destination atomically, and verifies byte/JSON readback. The operational entrypoint emits `brave-hc-hto-verified-game-feed/v1` only after live source checks, preserving null POTG, incomplete-field evidence and actual observation-start `sourceReadback`.
+`scripts/hockeyos_operational_collector.py` now runs the reviewed live discovery → source collection → adapter chain. Its default/check-only mode fetches and verifies source data without writing. Explicit write mode revalidates the complete adapter evidence, creates a verified exclusive backup, flushes/fsyncs a same-directory temporary file, replaces the bound destination atomically, and verifies byte/JSON readback. The writer retains the actual parsed boxscore and season observations in its public source evidence, reconstructs per-game output rows, and re-runs player/team parity at the write boundary. Counters or top-level flags alone cannot authorize writing. The operational entrypoint emits `brave-hc-hto-verified-game-feed/v1` only after live source checks, preserving null POTG, incomplete-field evidence and actual observation-start `sourceReadback`.
 
 Temporary-file/replace failure before commit leaves the old feed intact. A post-replacement verification failure is a HOLD requiring inspection and hash-guarded rollback, not a guarantee that no replacement occurred. No source validation or write confers authority to publish awards.
 
@@ -21,9 +21,9 @@ Host: BRUTTECH 1 / AdamPCDesktop.
 - Dedicated new-writer lock: feed basename plus `.collector-lock.json` in the same directory. It is separate from the controller lock.
 
 Runtime chain:
-`hockeyos_operational_collector.py` → `hockeyos_feed_adapter_review.py` → `hockeyos_discovery_review.py` → `hockeyos_collector_candidate.py` → `hockeyos_review_four_game_source_parity.py` → `tests/lib/hockeyos_hto_boxscore_header_review.py`.
+`hockeyos_hourly_collector_entrypoint.py` → `hockeyos_operational_collector.py` → `hockeyos_feed_adapter_review.py` → `hockeyos_discovery_review.py` → `hockeyos_collector_candidate.py` → `hockeyos_review_four_game_source_parity.py` → `tests/lib/hockeyos_hto_boxscore_header_review.py`.
 
-Preserve repository-relative `scripts/` and `tests/lib/` layout. Package and hash all six files at the accepted commit. Copying the entrypoint alone breaks imports.
+Preserve repository-relative `scripts/` and `tests/lib/` layout. Package and hash all seven files at the accepted commit. Copying the entrypoint alone breaks imports.
 
 Write and rollback require explicit operational root and exact feed binding. Paths traversing symlinks/junctions are refused. Backups, temporary files and the dedicated lock remain in the feed directory. Existing backup names are never overwritten.
 
@@ -67,7 +67,7 @@ For replacement, use `--expected-current-sha <OBSERVED_SHA256>` rather than `--e
 3. Snapshot/hash current collector/controller/package and actual feed to the approved rollback location.
 4. Install the accepted package into a separate versioned runtime directory and validate imports using the production interpreter.
 5. Repeat check-only live validation. Inspect four-game coverage, mappings, complete-only parity, sourceReadback and unknowns.
-6. Switch only the controller's collector entrypoint to the operational entrypoint, supplying `--write-feed`, explicit root/target and a wrapper that observes the prior feed hash immediately before invocation. Do not bake a permanently stale expected hash into the hourly command.
+6. Switch only the controller's collector entrypoint to the packaged hourly entrypoint. The exact approved replacement child command is the production interpreter plus `<ACCEPTED_PACKAGE>/scripts/hockeyos_hourly_collector_entrypoint.py --operational-root D:\\BruTTech\\Products\\HockeyOS`. The hourly entrypoint computes a fresh current feed hash each cycle and calls the operational writer with explicit root/target and expected state; it propagates nonzero failure. It also supports a no-argument wrapper only when `HOCKEYOS_OPERATIONAL_ROOT` is explicitly set. Missing configuration fails. Do not change the controller/publisher until final deployment approval.
 7. Run one controlled collector stage with triggers disabled. Verify returned receipt, actual feed hash/schema/content and unchanged workbook/publisher.
 8. Restore prior triggers and observe a subsequent scheduled ingestion stage. Inspect per-stage controller receipt; publisher divergence may still degrade the overall job. Report ingestion and publication separately.
 
