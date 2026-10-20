@@ -78,13 +78,36 @@ jobs:
             git rebase origin/main
             git push
           fi
+      - name: Read back published goalie from GitHub main before closing issue
+        id: receipt
+        env:
+          REQUEST_ACTOR: ${{ github.event.issue.user.login }}
+        run: |
+          git fetch origin main
+          python scripts/verify_goalie_receipt.py \
+            --request-file goalie-request.json \
+            --result-file build/goalie-request-status.json \
+            --actor "$REQUEST_ACTOR" \
+            --out build/goalie-receipt.json
       - name: Record completion and close authenticated request
         id: close
         env:
           GH_TOKEN: ${{ github.token }}
           ISSUE_NUMBER: ${{ github.event.issue.number }}
         run: |
-          gh issue close "$ISSUE_NUMBER" --repo "$GITHUB_REPOSITORY" --comment "Validated against the latest available SVHL feed and goalie assignments; request processed successfully. Check the committed assignment file and public display for the result."
+          COMMENT="$(python - <<'PY'
+          import json
+          from pathlib import Path
+          item=json.loads(Path("build/goalie-receipt.json").read_text(encoding="utf-8"))
+          if item.get("status")!="PUBLISHED_AND_VERIFIED":
+              raise SystemExit("Missing verified published goalie receipt")
+          print("Published goalie confirmation verified against GitHub main: " +
+                item["game_key"] + " — " + item["published_goalie"] +
+                " (commit " + item["verified_remote_sha"] + "). " +
+                "The reviewed SVHL fixture also matches. Public widget delivery is checked separately.")
+          PY
+          )"
+          gh issue close "$ISSUE_NUMBER" --repo "$GITHUB_REPOSITORY" --comment "$COMMENT"
 
       - name: Provide a safe public reason and recovery instructions when approval fails
         if: ${{ failure() }}
@@ -93,4 +116,5 @@ jobs:
           AUTH_OUTCOME: ${{ steps.authorize.outcome }}
           COMMIT_OUTCOME: ${{ steps.commit.outcome }}
           CLOSE_OUTCOME: ${{ steps.close.outcome }}
+          RECEIPT_OUTCOME: ${{ steps.receipt.outcome }}
         run: python scripts/goalie_request_feedback.py
