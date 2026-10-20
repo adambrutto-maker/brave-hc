@@ -133,25 +133,29 @@ function previousSnapshot(race){
  const history=state.weeklyHistory,d=state.source;
  if(history?.schema!=="brave-hc-awards-weekly-history/v1"
     ||history.status!=="VERIFIED_PUBLISHED_WEEKLY_SNAPSHOTS"
-    ||!Array.isArray(history.snapshots)||!race?.asOf)return null;
- const dates=new Set();
- const valid=history.snapshots.filter(s=>{
-  if(s?.status!=="VERIFIED_PUBLISHED_WEEKLY_RACE"||s.season!==d.season
-     ||!validISODate(s.publishedAsOf)
-     ||s.publishedAsOf>=race.asOf||dates.has(s.publishedAsOf)
+    ||!Array.isArray(history.snapshots)||!race?.asOf
+    ||!validISODate(race.asOf)
+    ||!(/^[a-f0-9]{64}$/i).test(d?.sourceWorkbookHash||""))return null;
+ // Two records claiming the same published week create an ambiguous baseline.
+ // Refuse movement rather than choose whichever record appears first in JSON.
+ const inSeason=history.snapshots.filter(s=>s?.season===d.season);
+ const dated=inSeason.map(s=>s.publishedAsOf);
+ if(dated.some(x=>!validISODate(x))
+    ||new Set(dated).size!==dated.length)return null;
+ const valid=inSeason.filter(s=>{
+  if(s.status!=="VERIFIED_PUBLISHED_WEEKLY_RACE"
+     ||s.publishedAsOf>=race.asOf
      ||!Number.isInteger(s.teamGP)||s.teamGP<1||s.teamGP>d.currentTeamGP
-     ||!(/^[a-f0-9]{64}$/i).test(s.sourceWorkbookHash||"")
+     ||s.sourceWorkbookHash!==d.sourceWorkbookHash
      ||!Array.isArray(s.races?.[state.award]))return false;
   const entries=s.races[state.award],names=new Set(),ranks=new Set();
-  const validEntries=entries.length<=5&&entries.every(p=>{
+  return entries.length<=5&&entries.every(p=>{
    if(typeof p?.name!=="string"||!p.name.trim()||names.has(p.name)
       ||!Number.isInteger(p.rank)||p.rank<1||p.rank>5||ranks.has(p.rank)
       ||p.scoreKind!=="OFFICIAL_WORKBOOK_FINAL"
       ||!Number.isFinite(p.overallScore)||p.overallScore<50||p.overallScore>100)return false;
    names.add(p.name);ranks.add(p.rank);return true;
   });
-  if(validEntries)dates.add(s.publishedAsOf);
-  return validEntries;
  });
  return valid.sort((a,b)=>b.publishedAsOf.localeCompare(a.publishedAsOf))[0]||null;
 }
