@@ -127,6 +127,21 @@ def validate_feed(payload):
     adapter.timestamp(payload.get("sourceReadback"))
     if payload.get("sourceReadback")!=payload.get("observationStartedAt"):
         raise CollectorHold("SOURCE_READBACK_MUST_BE_OBSERVATION_START")
+    # Re-run the complete adapter gates at the write boundary, not flags alone.
+    staged=copy.deepcopy(payload)
+    staged["schema"]="brave-hc-hto-game-feed-candidate/v1"
+    staged["releaseState"]="ISOLATED_CANDIDATE_NOT_PRODUCTION_ACCEPTANCE"
+    envelope={"state":"DISCOVERY_REVIEW_SOURCE_COVERAGE_PASS",
+              "productionAcceptance":False,"releaseState":"REVIEW_ONLY_NOT_PRODUCTION_ACCEPTANCE",
+              "sourceContentIdentityVerified":True,
+              "observationStartedAt":payload["observationStartedAt"],
+              "observationCompletedAt":payload["observationCompletedAt"],
+              "discovery":payload["discoveryEvidence"],"candidate":staged,
+              "scoresProvenance":payload["sourceEvidence"]["scores"],
+              "seasonProvenance":payload["sourceEvidence"]["season"],
+              "gameProvenance":payload["sourceEvidence"]["games"]}
+    adapter.adapt_review(envelope)
+
 
 def write_feed(payload,output_path,expected_sha=None,expected_absent=False,lock_path=None,operational_root=None):
     """Atomic feed replacement with verified backup; caller owns activation decision."""
