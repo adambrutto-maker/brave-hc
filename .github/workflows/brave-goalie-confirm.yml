@@ -129,5 +129,6 @@ jobs:
             --game-key "$GAME_KEY" --goalie "$GOALIE" \
             --custom-name "$CUSTOM_NAME" --fixture-signature "$FIXTURE_SIGNATURE" \
             --expected-goalie "$EXPECTED_GOALIE" --actor "$MANAGER" \
+            --change-reason "$CHANGE_REASON" \
             --result-file build/manual-goalie-request-status.json \
             --out build/manual-goalie-receipt.json
