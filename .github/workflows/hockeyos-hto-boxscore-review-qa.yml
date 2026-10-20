@@ -3,6 +3,8 @@ name: HockeyOS HTO Boxscore Header Review QA
 on:
   pull_request:
     paths:
+      - 'scripts/hockeyos_feed_adapter_review.py'
+      - 'tests/test_hockeyos_feed_adapter_review.py'
       - 'scripts/hockeyos_discovery_review.py'
       - 'tests/test_hockeyos_discovery_review.py'
       - 'scripts/hockeyos_collector_candidate.py'
@@ -31,6 +33,8 @@ jobs:
           python-version: '3.12'
       - name: Compile review command without network collection
         run: python -m py_compile scripts/hockeyos_review_four_game_source_parity.py
+      - name: Feed adapter validation
+        run: python -m unittest discover -s tests -p 'test_hockeyos_feed_adapter_review.py' -v
       - name: Discovery review validation
         run: python -m unittest discover -s tests -p 'test_hockeyos_discovery_review.py' -v
       - name: Isolated collector candidate validation
