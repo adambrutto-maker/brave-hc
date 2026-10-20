@@ -1,0 +1,2344 @@
+{
+  "schema": "brave-hc-record-candidates/v1",
+  "status": "REVIEW_ONLY_NOT_OFFICIAL_NOT_SCHEDULED",
+  "coverage": {
+    "indexedGames": 370,
+    "administrativeExclusions": 8,
+    "possibleDecidingEntries": 5
+  },
+  "candidateCount": 56,
+  "newCandidateDefinitions": 36,
+  "rules": [
+    "Retain all tied holders and game source links.",
+    "Do not infer individual appearances or stats in the four owner-confirmed untracked Summer 2013 games.",
+    "Goalie save percentages, shots and minutes-based GAA are deferred until source quality and qualifying workloads are established.",
+    "Player scoring/attendance streaks and call-up/full-time records require complete participation and historical status data.",
+    "Playoff streaks and game-count records require explicit treatment of standalone overtime/shootout entries.",
+    "Current-season achievements remain provisional; COVID-shortened seasons retain their context."
+  ],
+  "candidates": [
+    {
+      "id": "summer_regular_season_team_GF",
+      "label": "Most team goals in a game",
+      "value": 13,
+      "holders": [
+        {
+          "season": "Summer 2016",
+          "seasonType": "Summer",
+          "scope": "Regular Season",
+          "date": "2016-05-15",
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1442287&archTog=1",
+          "GF": 13,
+          "GA": 4,
+          "margin": 9,
+          "combinedGoals": 17,
+          "PIM": 0.0,
+          "opponent": "Village Idiots",
+          "result": "W",
+          "excluded": false
+        },
+        {
+          "season": "Summer 2016",
+          "seasonType": "Summer",
+          "scope": "Regular Season",
+          "date": "2016-07-17",
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1442295&archTog=1",
+          "GF": 13,
+          "GA": 4,
+          "margin": 9,
+          "combinedGoals": 17,
+          "PIM": 0.0,
+          "opponent": "Lost In the Sauce",
+          "result": "W",
+          "excluded": false
+        }
+      ],
+      "existingCategoryComparison": false,
+      "status": "REVIEW_ONLY_HIGHEST_OBSERVED",
+      "definition": "Published final team score; excludes administrative defaults and possible standalone deciding entries.",
+      "qualification": "Based on published recorded data; missing historical stats can conceal ties or a higher performance."
+    },
+    {
+      "id": "summer_regular_season_team_margin",
+      "label": "Largest winning margin",
+      "value": 10,
+      "holders": [
+        {
+          "season": "Summer 2017",
+          "seasonType": "Summer",
+          "scope": "Regular Season",
+          "date": "2017-06-18",
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559168&archTog=1",
+          "GF": 11,
+          "GA": 1,
+          "margin": 10,
+          "combinedGoals": 12,
+          "PIM": 0.0,
+          "opponent": "Young Guns",
+          "result": "W",
+          "excluded": false
+        }
+      ],
+      "existingCategoryComparison": false,
+      "status": "REVIEW_ONLY_HIGHEST_OBSERVED",
+      "definition": "Final GF minus GA for a played win; no default wins.",
+      "qualification": "Based on published recorded data; missing historical stats can conceal ties or a higher performance."
+    },
+    {
+      "id": "summer_regular_season_team_lossMargin",
+      "label": "Largest losing margin",
+      "value": 11,
+      "holders": [
+        {
+          "season": "Summer 2016",
+          "seasonType": "Summer",
+          "scope": "Regular Season",
+          "date": "2016-06-12",
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1442291&archTog=1",
+          "GF": 1,
+          "GA": 12,
+          "margin": -11,
+          "combinedGoals": 13,
+          "PIM": 6.0,
+          "opponent": "Maplewolves",
+          "result": "L",
+          "excluded": false,
+          "lossMargin": 11
+        }
+      ],
+      "existingCategoryComparison": false,
+      "status": "REVIEW_ONLY_HIGHEST_OBSERVED",
+      "definition": "Final GA minus GF for a played loss; analytical record, not a player highlight.",
+      "qualification": "Based on published recorded data; missing historical stats can conceal ties or a higher performance."
+    },
+    {
+      "id": "summer_regular_season_team_combinedGoals",
+      "label": "Most combined goals in a game",
+      "value": 18,
+      "holders": [
+        {
+          "season": "Summer 2013",
+          "seasonType": "Summer",
+          "scope": "Regular Season",
+          "date": "2013-06-16",
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=966433&archTog=1",
+          "GF": 11,
+          "GA": 7,
+          "margin": 4,
+          "combinedGoals": 18,
+          "PIM": 0.0,
+          "opponent": "Bros Before Hossas",
+          "result": "W",
+          "excluded": false
+        }
+      ],
+      "existingCategoryComparison": false,
+      "status": "REVIEW_ONLY_HIGHEST_OBSERVED",
+      "definition": "Both teams final goals added together.",
+      "qualification": "Based on published recorded data; missing historical stats can conceal ties or a higher performance."
+    },
+    {
+      "id": "summer_regular_season_team_PIM",
+      "label": "Most team penalty minutes in a game",
+      "value": 15.0,
+      "holders": [
+        {
+          "season": "Summer 2015",
+          "seasonType": "Summer",
+          "scope": "Regular Season",
+          "date": "2015-05-31",
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1249334&archTog=1",
+          "GF": 8,
+          "GA": 3,
+          "margin": 5,
+          "combinedGoals": 11,
+          "PIM": 15.0,
+          "opponent": "Vaughan Indies",
+          "result": "W",
+          "excluded": false
+        }
+      ],
+      "existingCategoryComparison": false,
+      "status": "REVIEW_ONLY_HIGHEST_OBSERVED",
+      "definition": "Recorded assessed skater plus goalie PIM; a server does not receive the goalie penalty again.",
+      "qualification": "Based on published recorded data; missing historical stats can conceal ties or a higher performance."
+    },
+    {
+      "id": "summer_regular_season_player_game_G",
+      "label": "Player goals in a game",
+      "value": 7.0,
+      "holders": [
+        {
+          "season": "Summer 2015",
+          "seasonType": "Summer",
+          "scope": "Regular Season",
+          "date": "2015-07-05",
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1249338&archTog=1",
+          "playerID": "354061",
+          "name": "Pastore, Mark",
+          "G": 7.0,
+          "A": 1.0,
+          "Pts": 8.0,
+          "PIM": 0.0
+        }
+      ],
+      "existingCategoryComparison": true,
+      "status": "REVIEW_ONLY_HIGHEST_OBSERVED",
+      "definition": "Compare recorded player game totals with the existing archive; splitting regular season/playoffs creates an optional separate category, not a missing overall record.",
+      "qualification": "Based on published recorded data; missing historical stats can conceal ties or a higher performance."
+    },
+    {
+      "id": "summer_regular_season_player_game_A",
+      "label": "Player assists in a game",
+      "value": 6.0,
+      "holders": [
+        {
+          "season": "Summer 2016",
+          "seasonType": "Summer",
+          "scope": "Regular Season",
+          "date": "2016-05-15",
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1442287&archTog=1",
+          "playerID": "354060",
+          "name": "Carosi, Justin",
+          "G": 0.0,
+          "A": 6.0,
+          "Pts": 6.0,
+          "PIM": 0.0
+        }
+      ],
+      "existingCategoryComparison": true,
+      "status": "REVIEW_ONLY_HIGHEST_OBSERVED",
+      "definition": "Compare recorded player game totals with the existing archive; splitting regular season/playoffs creates an optional separate category, not a missing overall record.",
+      "qualification": "Based on published recorded data; missing historical stats can conceal ties or a higher performance."
+    },
+    {
+      "id": "summer_regular_season_player_game_Pts",
+      "label": "Player points in a game",
+      "value": 9.0,
+      "holders": [
+        {
+          "season": "Summer 2016",
+          "seasonType": "Summer",
+          "scope": "Regular Season",
+          "date": "2016-07-17",
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1442295&archTog=1",
+          "playerID": "354061",
+          "name": "Pastore, Mark",
+          "G": 4.0,
+          "A": 5.0,
+          "Pts": 9.0,
+          "PIM": 0.0
+        }
+      ],
+      "existingCategoryComparison": true,
+      "status": "REVIEW_ONLY_HIGHEST_OBSERVED",
+      "definition": "Compare recorded player game totals with the existing archive; splitting regular season/playoffs creates an optional separate category, not a missing overall record.",
+      "qualification": "Based on published recorded data; missing historical stats can conceal ties or a higher performance."
+    },
+    {
+      "id": "summer_regular_season_player_game_PIM",
+      "label": "Player penalty minutes in a game",
+      "value": 9.0,
+      "holders": [
+        {
+          "season": "Summer 2015",
+          "seasonType": "Summer",
+          "scope": "Regular Season",
+          "date": "2015-05-31",
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1249334&archTog=1",
+          "playerID": "356089",
+          "name": "Ardizzi, Stefano",
+          "G": 0.0,
+          "A": 1.0,
+          "Pts": 1.0,
+          "PIM": 9.0
+        }
+      ],
+      "existingCategoryComparison": true,
+      "status": "REVIEW_ONLY_HIGHEST_OBSERVED",
+      "definition": "Compare recorded player game totals with the existing archive; splitting regular season/playoffs creates an optional separate category, not a missing overall record.",
+      "qualification": "Based on published recorded data; missing historical stats can conceal ties or a higher performance."
+    },
+    {
+      "id": "summer_regular_season_season_two_goal_games",
+      "label": "Games with at least two goals in one season",
+      "value": 7,
+      "holders": [
+        {
+          "season": "Summer 2017",
+          "playerID": "354285",
+          "name": "Sherritt, Ben",
+          "count": 7,
+          "dates": [
+            "2017-05-07",
+            "2017-05-14",
+            "2017-05-28",
+            "2017-06-04",
+            "2017-06-11",
+            "2017-06-18",
+            "2017-07-23"
+          ],
+          "sourceURLs": [
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559155&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559156&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559158&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559161&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559159&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559168&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559177&archTog=1"
+          ]
+        }
+      ],
+      "existingCategoryComparison": false,
+      "status": "REVIEW_ONLY_HIGHEST_OBSERVED",
+      "definition": "Count recorded games with G >= 2 for each player within one season and phase; retain every tie. Hat tricks count qualifying games, not sets of three goals.",
+      "qualification": "Based on published recorded data; missing historical stats can conceal ties or a higher performance."
+    },
+    {
+      "id": "summer_regular_season_season_hat_trick_games",
+      "label": "Hat-trick games in one season",
+      "value": 4,
+      "holders": [
+        {
+          "season": "Summer 2017",
+          "playerID": "354285",
+          "name": "Sherritt, Ben",
+          "count": 4,
+          "dates": [
+            "2017-05-14",
+            "2017-05-28",
+            "2017-06-11",
+            "2017-06-18"
+          ],
+          "sourceURLs": [
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559156&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559158&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559159&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559168&archTog=1"
+          ]
+        }
+      ],
+      "existingCategoryComparison": true,
+      "status": "REVIEW_ONLY_HIGHEST_OBSERVED",
+      "definition": "Count recorded games with G >= 3 for each player within one season and phase; retain every tie. Hat tricks count qualifying games, not sets of three goals.",
+      "qualification": "Based on published recorded data; missing historical stats can conceal ties or a higher performance."
+    },
+    {
+      "id": "summer_regular_season_season_three_point_games",
+      "label": "Games with at least three points in one season",
+      "value": 7,
+      "holders": [
+        {
+          "season": "Summer 2017",
+          "playerID": "354285",
+          "name": "Sherritt, Ben",
+          "count": 7,
+          "dates": [
+            "2017-05-14",
+            "2017-05-28",
+            "2017-06-04",
+            "2017-06-11",
+            "2017-06-18",
+            "2017-07-09",
+            "2017-07-23"
+          ],
+          "sourceURLs": [
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559156&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559158&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559161&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559159&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559168&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559170&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559177&archTog=1"
+          ]
+        }
+      ],
+      "existingCategoryComparison": false,
+      "status": "REVIEW_ONLY_HIGHEST_OBSERVED",
+      "definition": "Count recorded games with Pts >= 3 for each player within one season and phase; retain every tie. Hat tricks count qualifying games, not sets of three goals.",
+      "qualification": "Based on published recorded data; missing historical stats can conceal ties or a higher performance."
+    },
+    {
+      "id": "summer_regular_season_season_three_assist_games",
+      "label": "Games with at least three assists in one season",
+      "value": 3,
+      "holders": [
+        {
+          "season": "Summer 2016",
+          "playerID": "354056",
+          "name": "Pearsoll, Keith",
+          "count": 3,
+          "dates": [
+            "2016-05-15",
+            "2016-07-10",
+            "2016-07-17"
+          ],
+          "sourceURLs": [
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1442287&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1442294&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1442295&archTog=1"
+          ]
+        },
+        {
+          "season": "Summer 2016",
+          "playerID": "354060",
+          "name": "Carosi, Justin",
+          "count": 3,
+          "dates": [
+            "2016-05-01",
+            "2016-05-15",
+            "2016-07-10"
+          ],
+          "sourceURLs": [
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1442268&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1442287&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1442294&archTog=1"
+          ]
+        },
+        {
+          "season": "Summer 2016",
+          "playerID": "354061",
+          "name": "Pastore, Mark",
+          "count": 3,
+          "dates": [
+            "2016-05-08",
+            "2016-06-19",
+            "2016-07-17"
+          ],
+          "sourceURLs": [
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1442286&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1442292&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1442295&archTog=1"
+          ]
+        },
+        {
+          "season": "Summer 2017",
+          "playerID": "426873",
+          "name": "O'Krafka, Xav",
+          "count": 3,
+          "dates": [
+            "2017-05-14",
+            "2017-06-11",
+            "2017-06-25"
+          ],
+          "sourceURLs": [
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559156&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559159&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559169&archTog=1"
+          ]
+        }
+      ],
+      "existingCategoryComparison": false,
+      "status": "REVIEW_ONLY_HIGHEST_OBSERVED",
+      "definition": "Count recorded games with A >= 3 for each player within one season and phase; retain every tie. Hat tricks count qualifying games, not sets of three goals.",
+      "qualification": "Based on published recorded data; missing historical stats can conceal ties or a higher performance."
+    },
+    {
+      "id": "summer_playoffs_team_GF",
+      "label": "Most team goals in a game",
+      "value": 12,
+      "holders": [
+        {
+          "season": "Summer 2015",
+          "seasonType": "Summer",
+          "scope": "Playoffs",
+          "date": "2015-07-26",
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1249341&archTog=1",
+          "GF": 12,
+          "GA": 3,
+          "margin": 9,
+          "combinedGoals": 15,
+          "PIM": 6.0,
+          "opponent": "Mohawks Hockey",
+          "result": "W",
+          "excluded": false
+        }
+      ],
+      "existingCategoryComparison": false,
+      "status": "REVIEW_ONLY_HIGHEST_OBSERVED",
+      "definition": "Published final team score; excludes administrative defaults and possible standalone deciding entries.",
+      "qualification": "Based on published recorded data; missing historical stats can conceal ties or a higher performance."
+    },
+    {
+      "id": "summer_playoffs_team_margin",
+      "label": "Largest winning margin",
+      "value": 9,
+      "holders": [
+        {
+          "season": "Summer 2015",
+          "seasonType": "Summer",
+          "scope": "Playoffs",
+          "date": "2015-07-26",
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1249341&archTog=1",
+          "GF": 12,
+          "GA": 3,
+          "margin": 9,
+          "combinedGoals": 15,
+          "PIM": 6.0,
+          "opponent": "Mohawks Hockey",
+          "result": "W",
+          "excluded": false
+        }
+      ],
+      "existingCategoryComparison": false,
+      "status": "REVIEW_ONLY_HIGHEST_OBSERVED",
+      "definition": "Final GF minus GA for a played win; no default wins.",
+      "qualification": "Based on published recorded data; missing historical stats can conceal ties or a higher performance."
+    },
+    {
+      "id": "summer_playoffs_team_lossMargin",
+      "label": "Largest losing margin",
+      "value": 5,
+      "holders": [
+        {
+          "season": "Summer 2013",
+          "seasonType": "Summer",
+          "scope": "Playoffs",
+          "date": "2013-07-21",
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=966437&archTog=1",
+          "GF": 2,
+          "GA": 7,
+          "margin": -5,
+          "combinedGoals": 9,
+          "PIM": 0.0,
+          "opponent": "Cherry Pickers",
+          "result": "L",
+          "excluded": false,
+          "lossMargin": 5
+        },
+        {
+          "season": "Summer 2014",
+          "seasonType": "Summer",
+          "scope": "Playoffs",
+          "date": "2014-08-17",
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1100310&archTog=1",
+          "GF": 0,
+          "GA": 5,
+          "margin": -5,
+          "combinedGoals": 5,
+          "PIM": 2.0,
+          "opponent": "Nifty Mittens",
+          "result": "L",
+          "excluded": false,
+          "lossMargin": 5
+        }
+      ],
+      "existingCategoryComparison": false,
+      "status": "REVIEW_ONLY_HIGHEST_OBSERVED",
+      "definition": "Final GA minus GF for a played loss; analytical record, not a player highlight.",
+      "qualification": "Based on published recorded data; missing historical stats can conceal ties or a higher performance."
+    },
+    {
+      "id": "summer_playoffs_team_combinedGoals",
+      "label": "Most combined goals in a game",
+      "value": 15,
+      "holders": [
+        {
+          "season": "Summer 2013",
+          "seasonType": "Summer",
+          "scope": "Playoffs",
+          "date": "2013-08-11",
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=966439&archTog=1",
+          "GF": 11,
+          "GA": 4,
+          "margin": 7,
+          "combinedGoals": 15,
+          "PIM": 0.0,
+          "opponent": "Lead Farmers",
+          "result": "W",
+          "excluded": false
+        },
+        {
+          "season": "Summer 2015",
+          "seasonType": "Summer",
+          "scope": "Playoffs",
+          "date": "2015-07-26",
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1249341&archTog=1",
+          "GF": 12,
+          "GA": 3,
+          "margin": 9,
+          "combinedGoals": 15,
+          "PIM": 6.0,
+          "opponent": "Mohawks Hockey",
+          "result": "W",
+          "excluded": false
+        }
+      ],
+      "existingCategoryComparison": false,
+      "status": "REVIEW_ONLY_HIGHEST_OBSERVED",
+      "definition": "Both teams final goals added together.",
+      "qualification": "Based on published recorded data; missing historical stats can conceal ties or a higher performance."
+    },
+    {
+      "id": "summer_playoffs_team_PIM",
+      "label": "Most team penalty minutes in a game",
+      "value": 21.0,
+      "holders": [
+        {
+          "season": "Summer 2015",
+          "seasonType": "Summer",
+          "scope": "Playoffs",
+          "date": "2015-08-09",
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1249342&archTog=1",
+          "GF": 7,
+          "GA": 6,
+          "margin": 1,
+          "combinedGoals": 13,
+          "PIM": 21.0,
+          "opponent": "Maple Wolves",
+          "result": "W",
+          "excluded": false
+        }
+      ],
+      "existingCategoryComparison": false,
+      "status": "REVIEW_ONLY_HIGHEST_OBSERVED",
+      "definition": "Recorded assessed skater plus goalie PIM; a server does not receive the goalie penalty again.",
+      "qualification": "Based on published recorded data; missing historical stats can conceal ties or a higher performance."
+    },
+    {
+      "id": "summer_playoffs_player_game_G",
+      "label": "Player goals in a game",
+      "value": 5.0,
+      "holders": [
+        {
+          "season": "Summer 2015",
+          "seasonType": "Summer",
+          "scope": "Playoffs",
+          "date": "2015-07-26",
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1249341&archTog=1",
+          "playerID": "354061",
+          "name": "Pastore, Mark",
+          "G": 5.0,
+          "A": 2.0,
+          "Pts": 7.0,
+          "PIM": 0.0
+        }
+      ],
+      "existingCategoryComparison": true,
+      "status": "REVIEW_ONLY_HIGHEST_OBSERVED",
+      "definition": "Compare recorded player game totals with the existing archive; splitting regular season/playoffs creates an optional separate category, not a missing overall record.",
+      "qualification": "Based on published recorded data; missing historical stats can conceal ties or a higher performance."
+    },
+    {
+      "id": "summer_playoffs_player_game_A",
+      "label": "Player assists in a game",
+      "value": 4.0,
+      "holders": [
+        {
+          "season": "Summer 2015",
+          "seasonType": "Summer",
+          "scope": "Playoffs",
+          "date": "2015-07-26",
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1249341&archTog=1",
+          "playerID": "354054",
+          "name": "Brutto, Adam",
+          "G": 0.0,
+          "A": 4.0,
+          "Pts": 4.0,
+          "PIM": 0.0
+        }
+      ],
+      "existingCategoryComparison": true,
+      "status": "REVIEW_ONLY_HIGHEST_OBSERVED",
+      "definition": "Compare recorded player game totals with the existing archive; splitting regular season/playoffs creates an optional separate category, not a missing overall record.",
+      "qualification": "Based on published recorded data; missing historical stats can conceal ties or a higher performance."
+    },
+    {
+      "id": "summer_playoffs_player_game_Pts",
+      "label": "Player points in a game",
+      "value": 7.0,
+      "holders": [
+        {
+          "season": "Summer 2015",
+          "seasonType": "Summer",
+          "scope": "Playoffs",
+          "date": "2015-07-26",
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1249341&archTog=1",
+          "playerID": "354061",
+          "name": "Pastore, Mark",
+          "G": 5.0,
+          "A": 2.0,
+          "Pts": 7.0,
+          "PIM": 0.0
+        }
+      ],
+      "existingCategoryComparison": true,
+      "status": "REVIEW_ONLY_HIGHEST_OBSERVED",
+      "definition": "Compare recorded player game totals with the existing archive; splitting regular season/playoffs creates an optional separate category, not a missing overall record.",
+      "qualification": "Based on published recorded data; missing historical stats can conceal ties or a higher performance."
+    },
+    {
+      "id": "summer_playoffs_player_game_PIM",
+      "label": "Player penalty minutes in a game",
+      "value": 6.0,
+      "holders": [
+        {
+          "season": "Summer 2017",
+          "seasonType": "Summer",
+          "scope": "Playoffs",
+          "date": "2017-08-27",
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559181&archTog=1",
+          "playerID": "453662",
+          "name": "Buchanan, Andrew",
+          "G": 0.0,
+          "A": 0.0,
+          "Pts": 0.0,
+          "PIM": 6.0
+        }
+      ],
+      "existingCategoryComparison": true,
+      "status": "REVIEW_ONLY_HIGHEST_OBSERVED",
+      "definition": "Compare recorded player game totals with the existing archive; splitting regular season/playoffs creates an optional separate category, not a missing overall record.",
+      "qualification": "Based on published recorded data; missing historical stats can conceal ties or a higher performance."
+    },
+    {
+      "id": "summer_playoffs_season_two_goal_games",
+      "label": "Games with at least two goals in one season",
+      "value": 2,
+      "holders": [
+        {
+          "season": "Summer 2016",
+          "playerID": "354056",
+          "name": "Pearsoll, Keith",
+          "count": 2,
+          "dates": [
+            "2016-07-24",
+            "2016-08-14"
+          ],
+          "sourceURLs": [
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1442297&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1442299&archTog=1"
+          ]
+        }
+      ],
+      "existingCategoryComparison": false,
+      "status": "REVIEW_ONLY_HIGHEST_OBSERVED",
+      "definition": "Count recorded games with G >= 2 for each player within one season and phase; retain every tie. Hat tricks count qualifying games, not sets of three goals.",
+      "qualification": "Based on published recorded data; missing historical stats can conceal ties or a higher performance."
+    },
+    {
+      "id": "summer_playoffs_season_hat_trick_games",
+      "label": "Hat-trick games in one season",
+      "value": 1,
+      "holders": [
+        {
+          "season": "Summer 2015",
+          "playerID": "354061",
+          "name": "Pastore, Mark",
+          "count": 1,
+          "dates": [
+            "2015-07-26"
+          ],
+          "sourceURLs": [
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1249341&archTog=1"
+          ]
+        }
+      ],
+      "existingCategoryComparison": true,
+      "status": "REVIEW_ONLY_HIGHEST_OBSERVED",
+      "definition": "Count recorded games with G >= 3 for each player within one season and phase; retain every tie. Hat tricks count qualifying games, not sets of three goals.",
+      "qualification": "Based on published recorded data; missing historical stats can conceal ties or a higher performance."
+    },
+    {
+      "id": "summer_playoffs_season_three_point_games",
+      "label": "Games with at least three points in one season",
+      "value": 2,
+      "holders": [
+        {
+          "season": "Summer 2016",
+          "playerID": "354056",
+          "name": "Pearsoll, Keith",
+          "count": 2,
+          "dates": [
+            "2016-07-24",
+            "2016-08-14"
+          ],
+          "sourceURLs": [
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1442297&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1442299&archTog=1"
+          ]
+        },
+        {
+          "season": "Summer 2016",
+          "playerID": "354285",
+          "name": "Sherritt, Ben",
+          "count": 2,
+          "dates": [
+            "2016-07-24",
+            "2016-08-14"
+          ],
+          "sourceURLs": [
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1442297&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1442299&archTog=1"
+          ]
+        }
+      ],
+      "existingCategoryComparison": false,
+      "status": "REVIEW_ONLY_HIGHEST_OBSERVED",
+      "definition": "Count recorded games with Pts >= 3 for each player within one season and phase; retain every tie. Hat tricks count qualifying games, not sets of three goals.",
+      "qualification": "Based on published recorded data; missing historical stats can conceal ties or a higher performance."
+    },
+    {
+      "id": "summer_playoffs_season_three_assist_games",
+      "label": "Games with at least three assists in one season",
+      "value": 1,
+      "holders": [
+        {
+          "season": "Summer 2015",
+          "playerID": "354054",
+          "name": "Brutto, Adam",
+          "count": 1,
+          "dates": [
+            "2015-07-26"
+          ],
+          "sourceURLs": [
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1249341&archTog=1"
+          ]
+        },
+        {
+          "season": "Summer 2016",
+          "playerID": "354049",
+          "name": "Buchanan, Cameron",
+          "count": 1,
+          "dates": [
+            "2016-08-07"
+          ],
+          "sourceURLs": [
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1442298&archTog=1"
+          ]
+        },
+        {
+          "season": "Summer 2016",
+          "playerID": "354054",
+          "name": "Brutto, Adam",
+          "count": 1,
+          "dates": [
+            "2016-08-14"
+          ],
+          "sourceURLs": [
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1442299&archTog=1"
+          ]
+        }
+      ],
+      "existingCategoryComparison": false,
+      "status": "REVIEW_ONLY_HIGHEST_OBSERVED",
+      "definition": "Count recorded games with A >= 3 for each player within one season and phase; retain every tie. Hat tricks count qualifying games, not sets of three goals.",
+      "qualification": "Based on published recorded data; missing historical stats can conceal ties or a higher performance."
+    },
+    {
+      "id": "summer_regular_season_streak_wins",
+      "label": "Longest regular-season winning streak",
+      "value": 5,
+      "holders": [
+        {
+          "season": "Summer 2017",
+          "length": 5,
+          "start": "2017-05-28",
+          "end": "2017-06-25",
+          "sourceURLs": [
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559158&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559161&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559159&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559168&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559169&archTog=1"
+          ]
+        }
+      ],
+      "existingCategoryComparison": false,
+      "status": "REVIEW_ONLY_HIGHEST_OBSERVED",
+      "definition": "Within one published regular season only; ties end winning streaks, losses end point streaks, and defaults break both. No cross-season or playoff stitching. A historical run includes all source games between its endpoints.",
+      "qualification": "Based on published recorded data; missing historical stats can conceal ties or a higher performance."
+    },
+    {
+      "id": "summer_regular_season_streak_points",
+      "label": "Longest regular-season point streak",
+      "value": 5,
+      "holders": [
+        {
+          "season": "Summer 2013",
+          "length": 5,
+          "start": "2013-06-02",
+          "end": "2013-07-07",
+          "sourceURLs": [
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=966428&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=966432&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=966433&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=966434&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=966435&archTog=1"
+          ]
+        },
+        {
+          "season": "Summer 2017",
+          "length": 5,
+          "start": "2017-05-28",
+          "end": "2017-06-25",
+          "sourceURLs": [
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559158&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559161&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559159&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559168&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559169&archTog=1"
+          ]
+        }
+      ],
+      "existingCategoryComparison": false,
+      "status": "REVIEW_ONLY_HIGHEST_OBSERVED",
+      "definition": "Within one published regular season only; ties end winning streaks, losses end point streaks, and defaults break both. No cross-season or playoff stitching. A historical run includes all source games between its endpoints.",
+      "qualification": "Based on published recorded data; missing historical stats can conceal ties or a higher performance."
+    },
+    {
+      "id": "winter_regular_season_team_GF",
+      "label": "Most team goals in a game",
+      "value": 14,
+      "holders": [
+        {
+          "season": "Winter 2013/2014",
+          "seasonType": "Winter",
+          "scope": "Regular Season",
+          "date": "2014-03-02",
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046553&archTog=1",
+          "GF": 14,
+          "GA": 2,
+          "margin": 12,
+          "combinedGoals": 16,
+          "PIM": 0.0,
+          "opponent": "DC Crew",
+          "result": "W",
+          "excluded": false
+        }
+      ],
+      "existingCategoryComparison": false,
+      "status": "REVIEW_ONLY_HIGHEST_OBSERVED",
+      "definition": "Published final team score; excludes administrative defaults and possible standalone deciding entries.",
+      "qualification": "Based on published recorded data; missing historical stats can conceal ties or a higher performance."
+    },
+    {
+      "id": "winter_regular_season_team_margin",
+      "label": "Largest winning margin",
+      "value": 12,
+      "holders": [
+        {
+          "season": "Winter 2013/2014",
+          "seasonType": "Winter",
+          "scope": "Regular Season",
+          "date": "2014-03-02",
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046553&archTog=1",
+          "GF": 14,
+          "GA": 2,
+          "margin": 12,
+          "combinedGoals": 16,
+          "PIM": 0.0,
+          "opponent": "DC Crew",
+          "result": "W",
+          "excluded": false
+        },
+        {
+          "season": "Winter 2015/2016",
+          "seasonType": "Winter",
+          "scope": "Regular Season",
+          "date": "2016-02-21",
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1384799&archTog=1",
+          "GF": 13,
+          "GA": 1,
+          "margin": 12,
+          "combinedGoals": 14,
+          "PIM": 0.0,
+          "opponent": "Vaughan Indies",
+          "result": "W",
+          "excluded": false
+        }
+      ],
+      "existingCategoryComparison": false,
+      "status": "REVIEW_ONLY_HIGHEST_OBSERVED",
+      "definition": "Final GF minus GA for a played win; no default wins.",
+      "qualification": "Based on published recorded data; missing historical stats can conceal ties or a higher performance."
+    },
+    {
+      "id": "winter_regular_season_team_lossMargin",
+      "label": "Largest losing margin",
+      "value": 9,
+      "holders": [
+        {
+          "season": "Winter 2024/2025",
+          "seasonType": "Winter",
+          "scope": "Regular Season",
+          "date": "2024-12-01",
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=2148145&archTog=1",
+          "GF": 1,
+          "GA": 10,
+          "margin": -9,
+          "combinedGoals": 11,
+          "PIM": 0.0,
+          "opponent": "Call Ups",
+          "result": "L",
+          "excluded": false,
+          "lossMargin": 9
+        }
+      ],
+      "existingCategoryComparison": false,
+      "status": "REVIEW_ONLY_HIGHEST_OBSERVED",
+      "definition": "Final GA minus GF for a played loss; analytical record, not a player highlight.",
+      "qualification": "Based on published recorded data; missing historical stats can conceal ties or a higher performance."
+    },
+    {
+      "id": "winter_regular_season_team_combinedGoals",
+      "label": "Most combined goals in a game",
+      "value": 16,
+      "holders": [
+        {
+          "season": "Winter 2013/2014",
+          "seasonType": "Winter",
+          "scope": "Regular Season",
+          "date": "2014-03-02",
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046553&archTog=1",
+          "GF": 14,
+          "GA": 2,
+          "margin": 12,
+          "combinedGoals": 16,
+          "PIM": 0.0,
+          "opponent": "DC Crew",
+          "result": "W",
+          "excluded": false
+        }
+      ],
+      "existingCategoryComparison": false,
+      "status": "REVIEW_ONLY_HIGHEST_OBSERVED",
+      "definition": "Both teams final goals added together.",
+      "qualification": "Based on published recorded data; missing historical stats can conceal ties or a higher performance."
+    },
+    {
+      "id": "winter_regular_season_team_PIM",
+      "label": "Most team penalty minutes in a game",
+      "value": 22.0,
+      "holders": [
+        {
+          "season": "Winter 2015/2016",
+          "seasonType": "Winter",
+          "scope": "Regular Season",
+          "date": "2015-11-22",
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1384786&archTog=1",
+          "GF": 1,
+          "GA": 6,
+          "margin": -5,
+          "combinedGoals": 7,
+          "PIM": 22.0,
+          "opponent": "Northern Lights",
+          "result": "L",
+          "excluded": false
+        },
+        {
+          "season": "Winter 2016/2017",
+          "seasonType": "Winter",
+          "scope": "Regular Season",
+          "date": "2016-12-18",
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1517097&archTog=1",
+          "GF": 1,
+          "GA": 4,
+          "margin": -3,
+          "combinedGoals": 5,
+          "PIM": 22.0,
+          "opponent": "Raiders",
+          "result": "L",
+          "excluded": false
+        }
+      ],
+      "existingCategoryComparison": false,
+      "status": "REVIEW_ONLY_HIGHEST_OBSERVED",
+      "definition": "Recorded assessed skater plus goalie PIM; a server does not receive the goalie penalty again.",
+      "qualification": "Based on published recorded data; missing historical stats can conceal ties or a higher performance."
+    },
+    {
+      "id": "winter_regular_season_player_game_G",
+      "label": "Player goals in a game",
+      "value": 5.0,
+      "holders": [
+        {
+          "season": "Winter 2013/2014",
+          "seasonType": "Winter",
+          "scope": "Regular Season",
+          "date": "2013-10-06",
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046522&archTog=1",
+          "playerID": "354285",
+          "name": "Sherritt, Ben",
+          "G": 5.0,
+          "A": 1.0,
+          "Pts": 6.0,
+          "PIM": 0.0
+        }
+      ],
+      "existingCategoryComparison": true,
+      "status": "REVIEW_ONLY_HIGHEST_OBSERVED",
+      "definition": "Compare recorded player game totals with the existing archive; splitting regular season/playoffs creates an optional separate category, not a missing overall record.",
+      "qualification": "Based on published recorded data; missing historical stats can conceal ties or a higher performance."
+    },
+    {
+      "id": "winter_regular_season_player_game_A",
+      "label": "Player assists in a game",
+      "value": 4.0,
+      "holders": [
+        {
+          "season": "Winter 2016/2017",
+          "seasonType": "Winter",
+          "scope": "Regular Season",
+          "date": "2016-09-18",
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1517065&archTog=1",
+          "playerID": "525407",
+          "name": "Brennan, Dylan",
+          "G": 0.0,
+          "A": 4.0,
+          "Pts": 4.0,
+          "PIM": 0.0
+        },
+        {
+          "season": "Winter 2016/2017",
+          "seasonType": "Winter",
+          "scope": "Regular Season",
+          "date": "2016-10-16",
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1517081&archTog=1",
+          "playerID": "354060",
+          "name": "Carosi, Justin",
+          "G": 0.0,
+          "A": 4.0,
+          "Pts": 4.0,
+          "PIM": 2.0
+        },
+        {
+          "season": "Winter 2019/2020",
+          "seasonType": "Winter",
+          "scope": "Regular Season",
+          "date": "2019-11-24",
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1835523&archTog=1",
+          "playerID": "354060",
+          "name": "Carosi, Justin",
+          "G": 0.0,
+          "A": 4.0,
+          "Pts": 4.0,
+          "PIM": 0.0
+        },
+        {
+          "season": "Winter 2019/2020",
+          "seasonType": "Winter",
+          "scope": "Regular Season",
+          "date": "2020-02-09",
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1835538&archTog=1",
+          "playerID": "652571",
+          "name": "Corasaniti, David",
+          "G": 1.0,
+          "A": 4.0,
+          "Pts": 5.0,
+          "PIM": 0.0
+        },
+        {
+          "season": "Winter 2019/2020",
+          "seasonType": "Winter",
+          "scope": "Regular Season",
+          "date": "2020-02-16",
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1835541&archTog=1",
+          "playerID": "652571",
+          "name": "Corasaniti, David",
+          "G": 1.0,
+          "A": 4.0,
+          "Pts": 5.0,
+          "PIM": 0.0
+        },
+        {
+          "season": "Winter 2024/2025",
+          "seasonType": "Winter",
+          "scope": "Regular Season",
+          "date": "2024-10-06",
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=2148137&archTog=1",
+          "playerID": "738846",
+          "name": "Saindon, Stephane",
+          "G": 1.0,
+          "A": 4.0,
+          "Pts": 5.0,
+          "PIM": 0.0
+        },
+        {
+          "season": "Winter 2025/2026",
+          "seasonType": "Winter",
+          "scope": "Regular Season",
+          "date": "2025-11-09",
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=2214996&archTog=1",
+          "playerID": "738846",
+          "name": "Saindon, Stephane",
+          "G": 1.0,
+          "A": 4.0,
+          "Pts": 5.0,
+          "PIM": 0.0
+        },
+        {
+          "season": "Winter 2025/2026",
+          "seasonType": "Winter",
+          "scope": "Regular Season",
+          "date": "2026-01-18",
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=2215006&archTog=1",
+          "playerID": "738846",
+          "name": "Saindon, Stephane",
+          "G": 1.0,
+          "A": 4.0,
+          "Pts": 5.0,
+          "PIM": 0.0
+        }
+      ],
+      "existingCategoryComparison": true,
+      "status": "REVIEW_ONLY_HIGHEST_OBSERVED",
+      "definition": "Compare recorded player game totals with the existing archive; splitting regular season/playoffs creates an optional separate category, not a missing overall record.",
+      "qualification": "Based on published recorded data; missing historical stats can conceal ties or a higher performance."
+    },
+    {
+      "id": "winter_regular_season_player_game_Pts",
+      "label": "Player points in a game",
+      "value": 6.0,
+      "holders": [
+        {
+          "season": "Winter 2013/2014",
+          "seasonType": "Winter",
+          "scope": "Regular Season",
+          "date": "2013-10-06",
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046522&archTog=1",
+          "playerID": "354285",
+          "name": "Sherritt, Ben",
+          "G": 5.0,
+          "A": 1.0,
+          "Pts": 6.0,
+          "PIM": 0.0
+        },
+        {
+          "season": "Winter 2013/2014",
+          "seasonType": "Winter",
+          "scope": "Regular Season",
+          "date": "2014-03-02",
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046553&archTog=1",
+          "playerID": "354285",
+          "name": "Sherritt, Ben",
+          "G": 4.0,
+          "A": 2.0,
+          "Pts": 6.0,
+          "PIM": 0.0
+        },
+        {
+          "season": "Winter 2014/2015",
+          "seasonType": "Winter",
+          "scope": "Regular Season",
+          "date": "2014-12-21",
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1190743&archTog=1",
+          "playerID": "383322",
+          "name": "Kercz, Zach",
+          "G": 4.0,
+          "A": 2.0,
+          "Pts": 6.0,
+          "PIM": 0.0
+        },
+        {
+          "season": "Winter 2017/2018",
+          "seasonType": "Winter",
+          "scope": "Regular Season",
+          "date": "2017-11-12",
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1664233&archTog=1",
+          "playerID": "426873",
+          "name": "O'Krafka, Xav",
+          "G": 3.0,
+          "A": 3.0,
+          "Pts": 6.0,
+          "PIM": 0.0
+        },
+        {
+          "season": "Winter 2017/2018",
+          "seasonType": "Winter",
+          "scope": "Regular Season",
+          "date": "2017-11-12",
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1664233&archTog=1",
+          "playerID": "354285",
+          "name": "Sherritt, Ben",
+          "G": 3.0,
+          "A": 3.0,
+          "Pts": 6.0,
+          "PIM": 0.0
+        }
+      ],
+      "existingCategoryComparison": true,
+      "status": "REVIEW_ONLY_HIGHEST_OBSERVED",
+      "definition": "Compare recorded player game totals with the existing archive; splitting regular season/playoffs creates an optional separate category, not a missing overall record.",
+      "qualification": "Based on published recorded data; missing historical stats can conceal ties or a higher performance."
+    },
+    {
+      "id": "winter_regular_season_player_game_PIM",
+      "label": "Player penalty minutes in a game",
+      "value": 14.0,
+      "holders": [
+        {
+          "season": "Winter 2015/2016",
+          "seasonType": "Winter",
+          "scope": "Regular Season",
+          "date": "2015-11-22",
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1384786&archTog=1",
+          "playerID": "354054",
+          "name": "Brutto, Adam",
+          "G": 0.0,
+          "A": 0.0,
+          "Pts": 0.0,
+          "PIM": 14.0
+        },
+        {
+          "season": "Winter 2016/2017",
+          "seasonType": "Winter",
+          "scope": "Regular Season",
+          "date": "2016-12-11",
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1517095&archTog=1",
+          "playerID": "354054",
+          "name": "Brutto, Adam",
+          "G": 0.0,
+          "A": 1.0,
+          "Pts": 1.0,
+          "PIM": 14.0
+        },
+        {
+          "season": "Winter 2019/2020",
+          "seasonType": "Winter",
+          "scope": "Regular Season",
+          "date": "2019-12-22",
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1835531&archTog=1",
+          "playerID": "356089",
+          "name": "Ardizzi, Stefano",
+          "G": 0.0,
+          "A": 0.0,
+          "Pts": 0.0,
+          "PIM": 14.0
+        }
+      ],
+      "existingCategoryComparison": true,
+      "status": "REVIEW_ONLY_HIGHEST_OBSERVED",
+      "definition": "Compare recorded player game totals with the existing archive; splitting regular season/playoffs creates an optional separate category, not a missing overall record.",
+      "qualification": "Based on published recorded data; missing historical stats can conceal ties or a higher performance."
+    },
+    {
+      "id": "winter_regular_season_season_two_goal_games",
+      "label": "Games with at least two goals in one season",
+      "value": 11,
+      "holders": [
+        {
+          "season": "Winter 2013/2014",
+          "playerID": "354285",
+          "name": "Sherritt, Ben",
+          "count": 11,
+          "dates": [
+            "2013-10-06",
+            "2013-11-10",
+            "2013-11-17",
+            "2013-12-01",
+            "2013-12-08",
+            "2013-12-15",
+            "2014-01-05",
+            "2014-01-12",
+            "2014-02-23",
+            "2014-03-02",
+            "2014-03-09"
+          ],
+          "sourceURLs": [
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046522&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046536&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046537&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046539&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046540&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046541&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046545&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046546&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046552&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046553&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046554&archTog=1"
+          ]
+        }
+      ],
+      "existingCategoryComparison": false,
+      "status": "REVIEW_ONLY_HIGHEST_OBSERVED",
+      "definition": "Count recorded games with G >= 2 for each player within one season and phase; retain every tie. Hat tricks count qualifying games, not sets of three goals.",
+      "qualification": "Based on published recorded data; missing historical stats can conceal ties or a higher performance."
+    },
+    {
+      "id": "winter_regular_season_season_hat_trick_games",
+      "label": "Hat-trick games in one season",
+      "value": 5,
+      "holders": [
+        {
+          "season": "Winter 2013/2014",
+          "playerID": "354285",
+          "name": "Sherritt, Ben",
+          "count": 5,
+          "dates": [
+            "2013-10-06",
+            "2013-11-10",
+            "2013-11-17",
+            "2013-12-15",
+            "2014-03-02"
+          ],
+          "sourceURLs": [
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046522&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046536&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046537&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046541&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046553&archTog=1"
+          ]
+        }
+      ],
+      "existingCategoryComparison": true,
+      "status": "REVIEW_ONLY_HIGHEST_OBSERVED",
+      "definition": "Count recorded games with G >= 3 for each player within one season and phase; retain every tie. Hat tricks count qualifying games, not sets of three goals.",
+      "qualification": "Based on published recorded data; missing historical stats can conceal ties or a higher performance."
+    },
+    {
+      "id": "winter_regular_season_season_three_point_games",
+      "label": "Games with at least three points in one season",
+      "value": 7,
+      "holders": [
+        {
+          "season": "Winter 2013/2014",
+          "playerID": "354285",
+          "name": "Sherritt, Ben",
+          "count": 7,
+          "dates": [
+            "2013-10-06",
+            "2013-11-10",
+            "2013-11-17",
+            "2013-12-01",
+            "2013-12-15",
+            "2014-01-12",
+            "2014-03-02"
+          ],
+          "sourceURLs": [
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046522&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046536&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046537&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046539&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046541&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046546&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046553&archTog=1"
+          ]
+        }
+      ],
+      "existingCategoryComparison": false,
+      "status": "REVIEW_ONLY_HIGHEST_OBSERVED",
+      "definition": "Count recorded games with Pts >= 3 for each player within one season and phase; retain every tie. Hat tricks count qualifying games, not sets of three goals.",
+      "qualification": "Based on published recorded data; missing historical stats can conceal ties or a higher performance."
+    },
+    {
+      "id": "winter_regular_season_season_three_assist_games",
+      "label": "Games with at least three assists in one season",
+      "value": 3,
+      "holders": [
+        {
+          "season": "Winter 2016/2017",
+          "playerID": "354060",
+          "name": "Carosi, Justin",
+          "count": 3,
+          "dates": [
+            "2016-10-16",
+            "2016-10-23",
+            "2017-01-08"
+          ],
+          "sourceURLs": [
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1517081&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1517083&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1517098&archTog=1"
+          ]
+        }
+      ],
+      "existingCategoryComparison": false,
+      "status": "REVIEW_ONLY_HIGHEST_OBSERVED",
+      "definition": "Count recorded games with A >= 3 for each player within one season and phase; retain every tie. Hat tricks count qualifying games, not sets of three goals.",
+      "qualification": "Based on published recorded data; missing historical stats can conceal ties or a higher performance."
+    },
+    {
+      "id": "winter_playoffs_team_GF",
+      "label": "Most team goals in a game",
+      "value": 8,
+      "holders": [
+        {
+          "season": "Winter 2016/2017",
+          "seasonType": "Winter",
+          "scope": "Playoffs",
+          "date": "2017-04-09",
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1517113&archTog=1",
+          "GF": 8,
+          "GA": 0,
+          "margin": 8,
+          "combinedGoals": 8,
+          "PIM": 16.0,
+          "opponent": "Big Sticks",
+          "result": "W",
+          "excluded": false
+        }
+      ],
+      "existingCategoryComparison": false,
+      "status": "REVIEW_ONLY_HIGHEST_OBSERVED",
+      "definition": "Published final team score; excludes administrative defaults and possible standalone deciding entries.",
+      "qualification": "Based on published recorded data; missing historical stats can conceal ties or a higher performance."
+    },
+    {
+      "id": "winter_playoffs_team_margin",
+      "label": "Largest winning margin",
+      "value": 8,
+      "holders": [
+        {
+          "season": "Winter 2016/2017",
+          "seasonType": "Winter",
+          "scope": "Playoffs",
+          "date": "2017-04-09",
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1517113&archTog=1",
+          "GF": 8,
+          "GA": 0,
+          "margin": 8,
+          "combinedGoals": 8,
+          "PIM": 16.0,
+          "opponent": "Big Sticks",
+          "result": "W",
+          "excluded": false
+        }
+      ],
+      "existingCategoryComparison": false,
+      "status": "REVIEW_ONLY_HIGHEST_OBSERVED",
+      "definition": "Final GF minus GA for a played win; no default wins.",
+      "qualification": "Based on published recorded data; missing historical stats can conceal ties or a higher performance."
+    },
+    {
+      "id": "winter_playoffs_team_lossMargin",
+      "label": "Largest losing margin",
+      "value": 7,
+      "holders": [
+        {
+          "season": "Winter 2016/2017",
+          "seasonType": "Winter",
+          "scope": "Playoffs",
+          "date": "2017-03-12",
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1517109&archTog=1",
+          "GF": 1,
+          "GA": 8,
+          "margin": -7,
+          "combinedGoals": 9,
+          "PIM": 2.0,
+          "opponent": "Raiders",
+          "result": "L",
+          "excluded": false,
+          "lossMargin": 7
+        }
+      ],
+      "existingCategoryComparison": false,
+      "status": "REVIEW_ONLY_HIGHEST_OBSERVED",
+      "definition": "Final GA minus GF for a played loss; analytical record, not a player highlight.",
+      "qualification": "Based on published recorded data; missing historical stats can conceal ties or a higher performance."
+    },
+    {
+      "id": "winter_playoffs_team_combinedGoals",
+      "label": "Most combined goals in a game",
+      "value": 11,
+      "holders": [
+        {
+          "season": "Winter 2023/2024",
+          "seasonType": "Winter",
+          "scope": "Playoffs",
+          "date": "2024-04-07",
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=2071762&archTog=1",
+          "GF": 5,
+          "GA": 6,
+          "margin": -1,
+          "combinedGoals": 11,
+          "PIM": 2.0,
+          "opponent": "Dateline Predators",
+          "result": "L",
+          "excluded": false
+        }
+      ],
+      "existingCategoryComparison": false,
+      "status": "REVIEW_ONLY_HIGHEST_OBSERVED",
+      "definition": "Both teams final goals added together.",
+      "qualification": "Based on published recorded data; missing historical stats can conceal ties or a higher performance."
+    },
+    {
+      "id": "winter_playoffs_team_PIM",
+      "label": "Most team penalty minutes in a game",
+      "value": 18.0,
+      "holders": [
+        {
+          "season": "Winter 2023/2024",
+          "seasonType": "Winter",
+          "scope": "Playoffs",
+          "date": "2024-04-14",
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=2071758&archTog=1",
+          "GF": 1,
+          "GA": 4,
+          "margin": -3,
+          "combinedGoals": 5,
+          "PIM": 18.0,
+          "opponent": "Dateline Predators",
+          "result": "L",
+          "excluded": false
+        },
+        {
+          "season": "Winter 2024/2025",
+          "seasonType": "Winter",
+          "scope": "Playoffs",
+          "date": "2025-04-06",
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=2148163&archTog=1",
+          "GF": 0,
+          "GA": 3,
+          "margin": -3,
+          "combinedGoals": 3,
+          "PIM": 18.0,
+          "opponent": "Mid Ice Crisis",
+          "result": "L",
+          "excluded": false
+        }
+      ],
+      "existingCategoryComparison": false,
+      "status": "REVIEW_ONLY_HIGHEST_OBSERVED",
+      "definition": "Recorded assessed skater plus goalie PIM; a server does not receive the goalie penalty again.",
+      "qualification": "Based on published recorded data; missing historical stats can conceal ties or a higher performance."
+    },
+    {
+      "id": "winter_playoffs_player_game_G",
+      "label": "Player goals in a game",
+      "value": 3.0,
+      "holders": [
+        {
+          "season": "Winter 2014/2015",
+          "seasonType": "Winter",
+          "scope": "Playoffs",
+          "date": "2015-04-19",
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1190758&archTog=1",
+          "playerID": "354061",
+          "name": "Pastore, Mark",
+          "G": 3.0,
+          "A": 0.0,
+          "Pts": 3.0,
+          "PIM": 2.0
+        },
+        {
+          "season": "Winter 2015/2016",
+          "seasonType": "Winter",
+          "scope": "Playoffs",
+          "date": "2016-03-13",
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1384802&archTog=1",
+          "playerID": "354061",
+          "name": "Pastore, Mark",
+          "G": 3.0,
+          "A": 0.0,
+          "Pts": 3.0,
+          "PIM": 0.0
+        },
+        {
+          "season": "Winter 2016/2017",
+          "seasonType": "Winter",
+          "scope": "Playoffs",
+          "date": "2017-04-09",
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1517113&archTog=1",
+          "playerID": "354285",
+          "name": "Sherritt, Ben",
+          "G": 3.0,
+          "A": 0.0,
+          "Pts": 3.0,
+          "PIM": 0.0
+        },
+        {
+          "season": "Winter 2017/2018",
+          "seasonType": "Winter",
+          "scope": "Playoffs",
+          "date": "2018-03-25",
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1664262&archTog=1",
+          "playerID": "354046",
+          "name": "Logue, Ryan",
+          "G": 3.0,
+          "A": 0.0,
+          "Pts": 3.0,
+          "PIM": 0.0
+        },
+        {
+          "season": "Winter 2017/2018",
+          "seasonType": "Winter",
+          "scope": "Playoffs",
+          "date": "2018-04-15",
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1664264&archTog=1",
+          "playerID": "356089",
+          "name": "Ardizzi, Stefano",
+          "G": 3.0,
+          "A": 0.0,
+          "Pts": 3.0,
+          "PIM": 0.0
+        },
+        {
+          "season": "Winter 2023/2024",
+          "seasonType": "Winter",
+          "scope": "Playoffs",
+          "date": "2024-04-07",
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=2071762&archTog=1",
+          "playerID": "354060",
+          "name": "Carosi, Justin",
+          "G": 3.0,
+          "A": 0.0,
+          "Pts": 3.0,
+          "PIM": 2.0
+        }
+      ],
+      "existingCategoryComparison": true,
+      "status": "REVIEW_ONLY_HIGHEST_OBSERVED",
+      "definition": "Compare recorded player game totals with the existing archive; splitting regular season/playoffs creates an optional separate category, not a missing overall record.",
+      "qualification": "Based on published recorded data; missing historical stats can conceal ties or a higher performance."
+    },
+    {
+      "id": "winter_playoffs_player_game_A",
+      "label": "Player assists in a game",
+      "value": 4.0,
+      "holders": [
+        {
+          "season": "Winter 2013/2014",
+          "seasonType": "Winter",
+          "scope": "Playoffs",
+          "date": "2014-03-30",
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046558&archTog=1",
+          "playerID": "354051",
+          "name": "Aidemirski, Damian",
+          "G": 0.0,
+          "A": 4.0,
+          "Pts": 4.0,
+          "PIM": 2.0
+        }
+      ],
+      "existingCategoryComparison": true,
+      "status": "REVIEW_ONLY_HIGHEST_OBSERVED",
+      "definition": "Compare recorded player game totals with the existing archive; splitting regular season/playoffs creates an optional separate category, not a missing overall record.",
+      "qualification": "Based on published recorded data; missing historical stats can conceal ties or a higher performance."
+    },
+    {
+      "id": "winter_playoffs_player_game_Pts",
+      "label": "Player points in a game",
+      "value": 4.0,
+      "holders": [
+        {
+          "season": "Winter 2013/2014",
+          "seasonType": "Winter",
+          "scope": "Playoffs",
+          "date": "2014-03-30",
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046558&archTog=1",
+          "playerID": "354051",
+          "name": "Aidemirski, Damian",
+          "G": 0.0,
+          "A": 4.0,
+          "Pts": 4.0,
+          "PIM": 2.0
+        },
+        {
+          "season": "Winter 2019/2020",
+          "seasonType": "Winter",
+          "scope": "Playoffs",
+          "date": "2020-03-08",
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1835544&archTog=1",
+          "playerID": "354046",
+          "name": "Logue, Ryan",
+          "G": 2.0,
+          "A": 2.0,
+          "Pts": 4.0,
+          "PIM": 0.0
+        },
+        {
+          "season": "Winter 2025/2026",
+          "seasonType": "Winter",
+          "scope": "Playoffs",
+          "date": "2026-03-22",
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=2215015&archTog=1",
+          "playerID": "738846",
+          "name": "Saindon, Stephane",
+          "G": 1.0,
+          "A": 3.0,
+          "Pts": 4.0,
+          "PIM": 0.0
+        }
+      ],
+      "existingCategoryComparison": true,
+      "status": "REVIEW_ONLY_HIGHEST_OBSERVED",
+      "definition": "Compare recorded player game totals with the existing archive; splitting regular season/playoffs creates an optional separate category, not a missing overall record.",
+      "qualification": "Based on published recorded data; missing historical stats can conceal ties or a higher performance."
+    },
+    {
+      "id": "winter_playoffs_player_game_PIM",
+      "label": "Player penalty minutes in a game",
+      "value": 14.0,
+      "holders": [
+        {
+          "season": "Winter 2024/2025",
+          "seasonType": "Winter",
+          "scope": "Playoffs",
+          "date": "2025-04-06",
+          "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=2148163&archTog=1",
+          "playerID": "738846",
+          "name": "Saindon, Stephane",
+          "G": 0.0,
+          "A": 0.0,
+          "Pts": 0.0,
+          "PIM": 14.0
+        }
+      ],
+      "existingCategoryComparison": true,
+      "status": "REVIEW_ONLY_HIGHEST_OBSERVED",
+      "definition": "Compare recorded player game totals with the existing archive; splitting regular season/playoffs creates an optional separate category, not a missing overall record.",
+      "qualification": "Based on published recorded data; missing historical stats can conceal ties or a higher performance."
+    },
+    {
+      "id": "winter_playoffs_season_two_goal_games",
+      "label": "Games with at least two goals in one season",
+      "value": 3,
+      "holders": [
+        {
+          "season": "Winter 2015/2016",
+          "playerID": "354061",
+          "name": "Pastore, Mark",
+          "count": 3,
+          "dates": [
+            "2016-03-13",
+            "2016-03-20",
+            "2016-04-03"
+          ],
+          "sourceURLs": [
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1384802&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1384803&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1384804&archTog=1"
+          ]
+        }
+      ],
+      "existingCategoryComparison": false,
+      "status": "REVIEW_ONLY_HIGHEST_OBSERVED",
+      "definition": "Count recorded games with G >= 2 for each player within one season and phase; retain every tie. Hat tricks count qualifying games, not sets of three goals.",
+      "qualification": "Based on published recorded data; missing historical stats can conceal ties or a higher performance."
+    },
+    {
+      "id": "winter_playoffs_season_hat_trick_games",
+      "label": "Hat-trick games in one season",
+      "value": 1,
+      "holders": [
+        {
+          "season": "Winter 2014/2015",
+          "playerID": "354061",
+          "name": "Pastore, Mark",
+          "count": 1,
+          "dates": [
+            "2015-04-19"
+          ],
+          "sourceURLs": [
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1190758&archTog=1"
+          ]
+        },
+        {
+          "season": "Winter 2015/2016",
+          "playerID": "354061",
+          "name": "Pastore, Mark",
+          "count": 1,
+          "dates": [
+            "2016-03-13"
+          ],
+          "sourceURLs": [
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1384802&archTog=1"
+          ]
+        },
+        {
+          "season": "Winter 2016/2017",
+          "playerID": "354285",
+          "name": "Sherritt, Ben",
+          "count": 1,
+          "dates": [
+            "2017-04-09"
+          ],
+          "sourceURLs": [
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1517113&archTog=1"
+          ]
+        },
+        {
+          "season": "Winter 2017/2018",
+          "playerID": "354046",
+          "name": "Logue, Ryan",
+          "count": 1,
+          "dates": [
+            "2018-03-25"
+          ],
+          "sourceURLs": [
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1664262&archTog=1"
+          ]
+        },
+        {
+          "season": "Winter 2017/2018",
+          "playerID": "356089",
+          "name": "Ardizzi, Stefano",
+          "count": 1,
+          "dates": [
+            "2018-04-15"
+          ],
+          "sourceURLs": [
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1664264&archTog=1"
+          ]
+        },
+        {
+          "season": "Winter 2023/2024",
+          "playerID": "354060",
+          "name": "Carosi, Justin",
+          "count": 1,
+          "dates": [
+            "2024-04-07"
+          ],
+          "sourceURLs": [
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=2071762&archTog=1"
+          ]
+        }
+      ],
+      "existingCategoryComparison": true,
+      "status": "REVIEW_ONLY_HIGHEST_OBSERVED",
+      "definition": "Count recorded games with G >= 3 for each player within one season and phase; retain every tie. Hat tricks count qualifying games, not sets of three goals.",
+      "qualification": "Based on published recorded data; missing historical stats can conceal ties or a higher performance."
+    },
+    {
+      "id": "winter_playoffs_season_three_point_games",
+      "label": "Games with at least three points in one season",
+      "value": 1,
+      "holders": [
+        {
+          "season": "Winter 2013/2014",
+          "playerID": "354051",
+          "name": "Aidemirski, Damian",
+          "count": 1,
+          "dates": [
+            "2014-03-30"
+          ],
+          "sourceURLs": [
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046558&archTog=1"
+          ]
+        },
+        {
+          "season": "Winter 2013/2014",
+          "playerID": "354285",
+          "name": "Sherritt, Ben",
+          "count": 1,
+          "dates": [
+            "2014-03-30"
+          ],
+          "sourceURLs": [
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046558&archTog=1"
+          ]
+        },
+        {
+          "season": "Winter 2014/2015",
+          "playerID": "354046",
+          "name": "Logue, Ryan",
+          "count": 1,
+          "dates": [
+            "2015-04-19"
+          ],
+          "sourceURLs": [
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1190758&archTog=1"
+          ]
+        },
+        {
+          "season": "Winter 2014/2015",
+          "playerID": "354061",
+          "name": "Pastore, Mark",
+          "count": 1,
+          "dates": [
+            "2015-04-19"
+          ],
+          "sourceURLs": [
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1190758&archTog=1"
+          ]
+        },
+        {
+          "season": "Winter 2015/2016",
+          "playerID": "354061",
+          "name": "Pastore, Mark",
+          "count": 1,
+          "dates": [
+            "2016-03-13"
+          ],
+          "sourceURLs": [
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1384802&archTog=1"
+          ]
+        },
+        {
+          "season": "Winter 2015/2016",
+          "playerID": "376086",
+          "name": "Cerrone, Carmine",
+          "count": 1,
+          "dates": [
+            "2016-03-20"
+          ],
+          "sourceURLs": [
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1384803&archTog=1"
+          ]
+        },
+        {
+          "season": "Winter 2016/2017",
+          "playerID": "354060",
+          "name": "Carosi, Justin",
+          "count": 1,
+          "dates": [
+            "2017-04-09"
+          ],
+          "sourceURLs": [
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1517113&archTog=1"
+          ]
+        },
+        {
+          "season": "Winter 2016/2017",
+          "playerID": "354285",
+          "name": "Sherritt, Ben",
+          "count": 1,
+          "dates": [
+            "2017-04-09"
+          ],
+          "sourceURLs": [
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1517113&archTog=1"
+          ]
+        },
+        {
+          "season": "Winter 2017/2018",
+          "playerID": "354045",
+          "name": "Provenzano, Mario",
+          "count": 1,
+          "dates": [
+            "2018-03-25"
+          ],
+          "sourceURLs": [
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1664262&archTog=1"
+          ]
+        },
+        {
+          "season": "Winter 2017/2018",
+          "playerID": "354046",
+          "name": "Logue, Ryan",
+          "count": 1,
+          "dates": [
+            "2018-03-25"
+          ],
+          "sourceURLs": [
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1664262&archTog=1"
+          ]
+        },
+        {
+          "season": "Winter 2017/2018",
+          "playerID": "356089",
+          "name": "Ardizzi, Stefano",
+          "count": 1,
+          "dates": [
+            "2018-04-15"
+          ],
+          "sourceURLs": [
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1664264&archTog=1"
+          ]
+        },
+        {
+          "season": "Winter 2018/2019",
+          "playerID": "652571",
+          "name": "Corasaniti, David",
+          "count": 1,
+          "dates": [
+            "2019-03-31"
+          ],
+          "sourceURLs": [
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1738995&archTog=1"
+          ]
+        },
+        {
+          "season": "Winter 2019/2020",
+          "playerID": "354046",
+          "name": "Logue, Ryan",
+          "count": 1,
+          "dates": [
+            "2020-03-08"
+          ],
+          "sourceURLs": [
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1835544&archTog=1"
+          ]
+        },
+        {
+          "season": "Winter 2019/2020",
+          "playerID": "388298",
+          "name": "Hunt, Quenton",
+          "count": 1,
+          "dates": [
+            "2020-03-08"
+          ],
+          "sourceURLs": [
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1835544&archTog=1"
+          ]
+        },
+        {
+          "season": "Winter 2019/2020",
+          "playerID": "652571",
+          "name": "Corasaniti, David",
+          "count": 1,
+          "dates": [
+            "2020-03-08"
+          ],
+          "sourceURLs": [
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1835544&archTog=1"
+          ]
+        },
+        {
+          "season": "Winter 2023/2024",
+          "playerID": "354060",
+          "name": "Carosi, Justin",
+          "count": 1,
+          "dates": [
+            "2024-04-07"
+          ],
+          "sourceURLs": [
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=2071762&archTog=1"
+          ]
+        },
+        {
+          "season": "Winter 2023/2024",
+          "playerID": "738846",
+          "name": "Saindon, Stephane",
+          "count": 1,
+          "dates": [
+            "2024-04-07"
+          ],
+          "sourceURLs": [
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=2071762&archTog=1"
+          ]
+        },
+        {
+          "season": "Winter 2025/2026",
+          "playerID": "686216",
+          "name": "Provenzano, Michael",
+          "count": 1,
+          "dates": [
+            "2026-03-22"
+          ],
+          "sourceURLs": [
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=2215015&archTog=1"
+          ]
+        },
+        {
+          "season": "Winter 2025/2026",
+          "playerID": "738846",
+          "name": "Saindon, Stephane",
+          "count": 1,
+          "dates": [
+            "2026-03-22"
+          ],
+          "sourceURLs": [
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=2215015&archTog=1"
+          ]
+        }
+      ],
+      "existingCategoryComparison": false,
+      "status": "REVIEW_ONLY_HIGHEST_OBSERVED",
+      "definition": "Count recorded games with Pts >= 3 for each player within one season and phase; retain every tie. Hat tricks count qualifying games, not sets of three goals.",
+      "qualification": "Based on published recorded data; missing historical stats can conceal ties or a higher performance."
+    },
+    {
+      "id": "winter_playoffs_season_three_assist_games",
+      "label": "Games with at least three assists in one season",
+      "value": 1,
+      "holders": [
+        {
+          "season": "Winter 2013/2014",
+          "playerID": "354051",
+          "name": "Aidemirski, Damian",
+          "count": 1,
+          "dates": [
+            "2014-03-30"
+          ],
+          "sourceURLs": [
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046558&archTog=1"
+          ]
+        },
+        {
+          "season": "Winter 2017/2018",
+          "playerID": "354045",
+          "name": "Provenzano, Mario",
+          "count": 1,
+          "dates": [
+            "2018-03-25"
+          ],
+          "sourceURLs": [
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1664262&archTog=1"
+          ]
+        },
+        {
+          "season": "Winter 2025/2026",
+          "playerID": "738846",
+          "name": "Saindon, Stephane",
+          "count": 1,
+          "dates": [
+            "2026-03-22"
+          ],
+          "sourceURLs": [
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=2215015&archTog=1"
+          ]
+        }
+      ],
+      "existingCategoryComparison": false,
+      "status": "REVIEW_ONLY_HIGHEST_OBSERVED",
+      "definition": "Count recorded games with A >= 3 for each player within one season and phase; retain every tie. Hat tricks count qualifying games, not sets of three goals.",
+      "qualification": "Based on published recorded data; missing historical stats can conceal ties or a higher performance."
+    },
+    {
+      "id": "winter_regular_season_streak_wins",
+      "label": "Longest regular-season winning streak",
+      "value": 5,
+      "holders": [
+        {
+          "season": "Winter 2023/2024",
+          "length": 5,
+          "start": "2024-02-18",
+          "end": "2024-03-17",
+          "sourceURLs": [
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=2071752&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=2071753&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=2071754&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=2071755&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=2071756&archTog=1"
+          ]
+        }
+      ],
+      "existingCategoryComparison": false,
+      "status": "REVIEW_ONLY_HIGHEST_OBSERVED",
+      "definition": "Within one published regular season only; ties end winning streaks, losses end point streaks, and defaults break both. No cross-season or playoff stitching. A historical run includes all source games between its endpoints.",
+      "qualification": "Based on published recorded data; missing historical stats can conceal ties or a higher performance."
+    },
+    {
+      "id": "winter_regular_season_streak_points",
+      "label": "Longest regular-season point streak",
+      "value": 14,
+      "holders": [
+        {
+          "season": "Winter 2017/2018",
+          "length": 14,
+          "start": "2017-10-29",
+          "end": "2018-02-11",
+          "sourceURLs": [
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1664231&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1664232&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1664233&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1664234&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1664235&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1664236&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1664237&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1664238&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1664239&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1664240&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1664241&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1664255&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1664242&archTog=1",
+            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1664256&archTog=1"
+          ]
+        }
+      ],
+      "existingCategoryComparison": false,
+      "status": "REVIEW_ONLY_HIGHEST_OBSERVED",
+      "definition": "Within one published regular season only; ties end winning streaks, losses end point streaks, and defaults break both. No cross-season or playoff stitching. A historical run includes all source games between its endpoints.",
+      "qualification": "Based on published recorded data; missing historical stats can conceal ties or a higher performance."
+    }
+  ],
+  "exclusions": [
+    {
+      "season": "Winter 2013/2014",
+      "seasonType": "Winter",
+      "scope": "Playoffs",
+      "date": "2014-04-06",
+      "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046561&archTog=1",
+      "reason": "POSSIBLE_STANDALONE_OT_OR_SHOOTOUT_ENTRY"
+    },
+    {
+      "season": "Winter 2013/2014",
+      "seasonType": "Winter",
+      "scope": "Playoffs",
+      "date": "2014-04-27",
+      "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046565&archTog=1",
+      "reason": "POSSIBLE_STANDALONE_OT_OR_SHOOTOUT_ENTRY"
+    },
+    {
+      "season": "Winter 2015/2016",
+      "seasonType": "Winter",
+      "scope": "Playoffs",
+      "date": "2016-04-17",
+      "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1384810&archTog=1",
+      "reason": "POSSIBLE_STANDALONE_OT_OR_SHOOTOUT_ENTRY"
+    },
+    {
+      "season": "Winter 2016/2017",
+      "seasonType": "Winter",
+      "scope": "Regular Season",
+      "date": "2016-09-25",
+      "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1517066&archTog=1",
+      "reason": "ADMINISTRATIVE_DEFAULT_OR_FORFEIT"
+    },
+    {
+      "season": "Winter 2016/2017",
+      "seasonType": "Winter",
+      "scope": "Playoffs",
+      "date": "2017-04-23",
+      "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1517115&archTog=1",
+      "reason": "ADMINISTRATIVE_DEFAULT_OR_FORFEIT"
+    },
+    {
+      "season": "Winter 2016/2017",
+      "seasonType": "Winter",
+      "scope": "Playoffs",
+      "date": "2017-04-30",
+      "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1517116&archTog=1",
+      "reason": "ADMINISTRATIVE_DEFAULT_OR_FORFEIT"
+    },
+    {
+      "season": "Winter 2017/2018",
+      "seasonType": "Winter",
+      "scope": "Playoffs",
+      "date": "2018-04-15",
+      "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1664271&archTog=1",
+      "reason": "POSSIBLE_STANDALONE_OT_OR_SHOOTOUT_ENTRY"
+    },
+    {
+      "season": "Winter 2022/2023",
+      "seasonType": "Winter",
+      "scope": "Regular Season",
+      "date": "2023-02-12",
+      "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=2012673&archTog=1",
+      "reason": "ADMINISTRATIVE_DEFAULT_OR_FORFEIT"
+    },
+    {
+      "season": "Winter 2024/2025",
+      "seasonType": "Winter",
+      "scope": "Regular Season",
+      "date": "2025-02-16",
+      "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=2148155&archTog=1",
+      "reason": "ADMINISTRATIVE_DEFAULT_OR_FORFEIT"
+    },
+    {
+      "season": "Winter 2025/2026",
+      "seasonType": "Winter",
+      "scope": "Regular Season",
+      "date": "2026-01-25",
+      "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=2215007&archTog=1",
+      "reason": "ADMINISTRATIVE_DEFAULT_OR_FORFEIT"
+    },
+    {
+      "season": "Winter 2025/2026",
+      "seasonType": "Winter",
+      "scope": "Regular Season",
+      "date": "2026-02-15",
+      "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=2215009&archTog=1",
+      "reason": "ADMINISTRATIVE_DEFAULT_OR_FORFEIT"
+    },
+    {
+      "season": "Winter 2025/2026",
+      "seasonType": "Winter",
+      "scope": "Regular Season",
+      "date": "2026-03-08",
+      "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=2215012&archTog=1",
+      "reason": "ADMINISTRATIVE_DEFAULT_OR_FORFEIT"
+    },
+    {
+      "season": "Winter 2025/2026",
+      "seasonType": "Winter",
+      "scope": "Playoffs",
+      "date": "2026-03-22",
+      "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=2215014&archTog=1",
+      "reason": "POSSIBLE_STANDALONE_OT_OR_SHOOTOUT_ENTRY"
+    }
+  ]
+}
