@@ -41,9 +41,19 @@ body{background:#071829;color:#eef4fb;font-family:Arial,"Helvetica Neue",sans-se
 .ph-footer a{color:#f4cb83}
 .ph-hold{color:#dfc58d}
 @media(max-width:375px){.ph-grid{gap:5px}.ph-stat{padding:8px 3px}.ph-label{font-size:10px}.ph-number{font-size:20px}.ph-event{grid-template-columns:27px minmax(0,1fr);gap:8px}.ph-symbol{width:26px;height:26px}}
+[hidden]{display:none!important}
+.ph-footer{display:flex;gap:8px;flex-wrap:wrap}
+.ph-detail{font-size:10px;color:#a9c0d4;line-height:1.45;margin-top:6px}
+.ph-insights{grid-template-columns:repeat(auto-fit,minmax(95px,1fr))}
+.ph-record{padding:9px 0;border-bottom:1px solid #294861}
+details{border:1px solid #365875;border-radius:8px;padding:11px;background:#102b43;font-size:12px}
+summary{cursor:pointer;color:#f4cb83;font-weight:700}
+details[open] summary{margin-bottom:10px}
+.ph-source{font-size:10px;color:#a9c0d4;line-height:1.5;margin-top:8px}
+a{color:#f4cb83}
 </style>
 <script defer src="./player-links.js?v=5"></script>
-<script defer src="./player-highlights.js?v=4"></script>
+<script defer src="./player-highlights-v2.js?v=2"></script>
 </head>
 <body>
 <main class="ph-shell">
@@ -52,20 +62,28 @@ body{background:#071829;color:#eef4fb;font-family:Arial,"Helvetica Neue",sans-se
 <div class="ph-wrap">
 <header class="ph-brand">
 <img src="./brave_hc_logo.png" alt="Brave H.C. crest">
-<div><div class="ph-kicker">BRAVE H.C. · PLAYER LEGACY</div><h1 class="ph-player" id="playerName" data-brave-no-link>Player Highlights</h1><p id="playerSub" class="ph-sub">Loading verified player context…</p></div>
+<div><div class="ph-kicker">BRAVE H.C. · PLAYER LEGACY</div><h1 class="ph-player" id="playerName" data-brave-no-link>Player Highlights</h1><p id="playerSub" class="ph-sub">Career highlights · Personal highs · Club record book</p></div>
 </header>
-<div id="notice" class="ph-notice" role="status">Loading player records from approved sources…</div>
-<section aria-label="Current-season statistics">
-<h2 class="ph-panel-title">Verified Current-Season Form</h2>
-<div id="form" class="ph-empty">Checking dated HTO statistics feed…</div>
+<div id="notice" class="ph-notice" role="status" hidden></div>
+<section id="currentSection" aria-label="Season insights" hidden>
+<h2 class="ph-panel-title">Season Insights</h2><div id="form" class="ph-grid ph-insights"></div>
 </section>
-<section aria-label="Recorded career highlights">
+<section id="highsSection" aria-label="Personal season highs" hidden>
+<h2 class="ph-panel-title">Personal Season Highs</h2>
+<div id="highs" class="ph-grid ph-insights"></div>
+<p class="ph-source"><span id="careerDate"></span>All published HTO game types, including playoffs. Tied seasons are listed.</p>
+</section>
+<section id="legacySection" aria-label="Recorded career highlights" hidden>
 <div id="careerSummary" class="ph-grid" hidden></div>
 <h2 class="ph-panel-title">Career Highlights</h2>
 <div id="legacy" class="ph-ledger"></div>
 <button id="expand" class="ph-button" type="button" hidden>Show all highlights</button>
 </section>
-<footer class="ph-footer" id="footer">Existing awards, leadership, nominations, championships and dated milestones are imported only from the player's own published HTO Highlights. No new awards or milestone dates are invented or automatically adopted.</footer>
+<section id="recordsSection" aria-label="Club record book" hidden>
+<h2 class="ph-panel-title">Club Record Book</h2>
+<div id="records"></div><p id="recordsSource" class="ph-source"></p>
+</section>
+<footer class="ph-footer" id="footer"><span id="statsDate"></span><span id="profileSource"></span></footer>
 </div></section>
 </main>
 </body>
