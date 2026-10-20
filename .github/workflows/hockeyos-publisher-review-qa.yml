@@ -7,6 +7,8 @@ on:
       - scripts/hockeyos_publisher_prepare_isolated_review.py
       - scripts/hockeyos_publisher_task_health.js
       - scripts/hockeyos_publisher_shadow_health.js
+      - scripts/hockeyos_publisher_prepare_path_patches.py
+      - tests/test_hockeyos_publisher_prepare_path_patches.py
       - tests/test_hockeyos_publisher_shadow_health.js
       - tests/test_hockeyos_publisher_task_health.js
       - tests/test_hockeyos_publisher_isolated_prepare.py
@@ -34,3 +36,5 @@ jobs:
         run: node --test tests/test_hockeyos_publisher_review_preflight.js tests/test_hockeyos_publisher_widget_contracts.js tests/test_player_links.js tests/test_hockeyos_publisher_task_health.js tests/test_hockeyos_publisher_shadow_health.js
       - name: Test isolated fresh-main recovery planning without network or Git writes
         run: python -m unittest discover -s tests -p test_hockeyos_publisher_isolated_prepare.py -v
+      - name: Test inert path patch plan for all publisher dependencies
+        run: python -m unittest discover -s tests -p test_hockeyos_publisher_prepare_path_patches.py -v
