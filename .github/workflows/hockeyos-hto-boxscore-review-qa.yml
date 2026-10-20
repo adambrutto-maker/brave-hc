@@ -4,6 +4,7 @@ on:
   pull_request:
     paths:
       - 'scripts/hockeyos_review_four_game_source_parity.py'
+      - 'tests/test_hockeyos_source_review_validation.py'
       - 'tests/lib/hockeyos_hto_boxscore_header_review.py'
       - 'tests/test_hockeyos_hto_boxscore_header_review.py'
       - 'docs/261020_HockeyOS_HTO_Boxscore_Schema_ReadOnly_Diagnosis.md'
@@ -26,5 +27,7 @@ jobs:
           python-version: '3.12'
       - name: Compile review command without network collection
         run: python -m py_compile scripts/hockeyos_review_four_game_source_parity.py
+      - name: Source review validation without network
+        run: python -m unittest discover -s tests -p 'test_hockeyos_source_review_validation.py' -v
       - name: Synthetic header and unknown-goalie-POTG regression
         run: python -m unittest discover -s tests -p 'test_hockeyos_hto_boxscore_header_review.py' -v
