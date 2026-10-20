@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,follow">
+<meta name="color-scheme" content="dark">
+<title>Brave H.C. | Player Highlights</title>
+<style>
+:root{color-scheme:dark}
+*{box-sizing:border-box}
+body{background:#071829;color:#eef4fb;font-family:Arial,"Helvetica Neue",sans-serif;margin:0}
+.ph-shell{width:100%;max-width:940px;margin:auto;padding:8px}
+.ph-card{border:1px solid #375572;border-radius:12px;overflow:hidden;background:#0c233a}
+.ph-stripe{height:5px;background:linear-gradient(90deg,#ab1832,#e0495a 55%,#d9ae6d)}
+.ph-wrap{padding:clamp(13px,3vw,23px)}
+.ph-brand{display:flex;align-items:center;gap:10px}
+.ph-brand img{width:48px;height:48px;object-fit:contain}
+.ph-kicker{font-size:10px;letter-spacing:1.5px;font-weight:750;color:#e8b970}
+.ph-player{font-size:clamp(21px,5vw,29px);font-weight:800;margin:3px 0 0;color:white}
+.ph-sub{color:#c4d4e4;font-size:12px;margin:4px 0 0}
+.ph-notice{padding:10px 12px;border:1px solid #55718c;border-left:3px solid #deb76a;border-radius:5px;background:#152f46;color:#d9e6f1;font-size:12px;line-height:1.55;margin-top:15px}
+.ph-notice a{color:#f6d28d}
+.ph-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:14px}
+.ph-stat{background:#112d46;border:1px solid #365875;border-radius:8px;padding:11px;text-align:center}
+.ph-number{font-size:23px;font-weight:800;color:#fff;line-height:1.1;font-variant-numeric:tabular-nums}
+.ph-label{font-size:11px;color:#bed0e1;margin-top:5px}
+.ph-panel-title{color:#fff;font-size:15px;margin:21px 0 10px;font-weight:800}
+.ph-ledger{display:grid;gap:7px}
+.ph-event{background:#102d46;border:1px solid #355572;border-radius:7px;padding:10px 11px;display:grid;grid-template-columns:34px minmax(0,1fr);gap:9px;align-items:start}
+.ph-event.ph-champion{border-left:3px solid #deb76a}
+.ph-symbol{display:grid;place-items:center;width:30px;height:30px;background:#203e5b;border-radius:6px;font-size:10px;font-weight:800;letter-spacing:.2px}
+.ph-event-title{font-size:13px;font-weight:720;line-height:1.4;color:#f3f7fc}
+.ph-event.ph-champion .ph-event-title{color:#f5d18d}
+.ph-event-meta{font-size:11px;color:#bdd0e0;margin-top:3px}
+.ph-event-source{font-size:10px;color:#96b1c8;margin-top:5px}
+.ph-button{display:block;width:100%;background:#173a57;border:1px solid #557795;color:#f6fbff;border-radius:7px;margin-top:10px;padding:10px;font-weight:700;cursor:pointer}
+.ph-button:hover,.ph-button:focus-visible{border-color:#e6c47e;background:#205072}
+.ph-empty{background:#112d46;border:1px dashed #55718d;color:#d4e2ec;padding:16px;border-radius:8px;line-height:1.55;font-size:13px}
+.ph-footer{border-top:1px solid #375872;padding-top:12px;margin-top:18px;font-size:11px;line-height:1.55;color:#b7cbdc}
+.ph-footer a{color:#f4cb83}
+.ph-hold{color:#dfc58d}
+@media(max-width:375px){.ph-grid{gap:5px}.ph-stat{padding:8px 3px}.ph-label{font-size:10px}.ph-number{font-size:20px}.ph-event{grid-template-columns:27px minmax(0,1fr);gap:8px}.ph-symbol{width:26px;height:26px}}
+[hidden]{display:none!important}
+.ph-detail{font-size:10px;color:#a9c0d4;line-height:1.45;margin-top:6px}
+.ph-insights{grid-template-columns:repeat(auto-fit,minmax(95px,1fr))}
+.ph-record{padding:9px 0;border-bottom:1px solid #294861}
+details{border:1px solid #365875;border-radius:8px;padding:11px;background:#102b43;font-size:12px}
+summary{cursor:pointer;color:#f4cb83;font-weight:700}
+details[open] summary{margin-bottom:10px}
+.ph-source{font-size:10px;color:#a9c0d4;line-height:1.5;margin-top:8px}
+a{color:#f4cb83}
+</style>
+<script defer src="./player-links.js?v=5"></script>
+<script defer src="./player-highlights-v2.js?v=1"></script>
+</head>
+<body>
+<main class="ph-shell">
+<section class="ph-card" aria-labelledby="playerName">
+<div class="ph-stripe"></div>
+<div class="ph-wrap">
+<header class="ph-brand">
+<img src="./brave_hc_logo.png" alt="Brave H.C. crest">
+<div><div class="ph-kicker">BRAVE H.C. · PLAYER LEGACY</div><h1 class="ph-player" id="playerName" data-brave-no-link>Player Highlights</h1><p id="playerSub" class="ph-sub">Career highlights · Personal highs · Club record book</p></div>
+</header>
+<div id="notice" class="ph-notice" role="status" hidden></div>
+<section id="currentSection" aria-label="Season insights" hidden>
+<h2 class="ph-panel-title">Season Insights</h2><div id="form" class="ph-grid ph-insights"></div>
+</section>
+<section id="highsSection" aria-label="Personal season highs" hidden>
+<h2 class="ph-panel-title">Personal Season Highs</h2>
+<div id="highs" class="ph-grid ph-insights"></div>
+<p class="ph-source">All published HTO game types, including playoffs. Tied seasons are listed.</p>
+</section>
+<section id="legacySection" aria-label="Recorded career highlights" hidden>
+<div id="careerSummary" class="ph-grid" hidden></div>
+<h2 class="ph-panel-title">Career Highlights</h2>
+<div id="legacy" class="ph-ledger"></div>
+<button id="expand" class="ph-button" type="button" hidden>Show all highlights</button>
+</section>
+<section id="recordsSection" aria-label="Club record book" hidden>
+<h2 class="ph-panel-title">Club Record Book</h2>
+<div id="records"></div><p id="recordsSource" class="ph-source"></p>
+</section>
+<footer class="ph-footer" id="footer"><span id="statsDate"></span><span id="profileSource"></span></footer>
+</div></section>
+</main>
+</body>
+</html>
