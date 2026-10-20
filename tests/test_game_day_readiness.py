@@ -65,7 +65,11 @@ class NextGameTests(unittest.TestCase):
         self.assertEqual(result["priority"],"ADVANCE_COVERAGE")
         self.assertEqual(result["game"]["opponent"],"Mid Ice Crisis")
         self.assertEqual(result["goalie"],"TBD")
+        self.assertEqual(result["nearest_game"]["opponent"],"Big Bastones")
+        self.assertEqual(result["nearest_goalie"],"Stephen Logue")
         self.assertIn("ADVANCE_COVERAGE",g.issue_body(result))
+        self.assertIn("Nearest scheduled game",g.issue_body(result))
+        self.assertIn("publicly visible",g.issue_body(result))
         self.assertIn("No players were contacted",g.issue_body(result))
 
     def test_future_gap_outside_14_day_window_is_not_premature(self):
