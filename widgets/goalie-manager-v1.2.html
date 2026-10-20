@@ -24,7 +24,7 @@ section{border-top:1px solid #35546a;margin-top:18px;padding-top:8px}
 <section>
 <h2>Publishing a goaltender confirmation</h2>
 <p>Choose a goalie and click <strong>Review and confirm</strong>. GitHub opens a ready-to-submit issue containing the selected game and goalie. Review the details and click <strong>Submit new issue</strong>. The automation checks your GitHub repository write permission, confirms the game details and previously saved goalie are unchanged, and commits the assignment if needed, and closes the request with a receipt. <a href="https://github.com/adambrutto-maker/brave-hc/actions/workflows/brave-goalie-confirm.yml" target="_blank" rel="noopener noreferrer">Advanced GitHub workflow (manual signature + prior goalie required) ↗</a>.</p>
-<p class="notice">A dropdown choice alone does not save anything. GitHub requires a signed-in repository editor to submit the confirmation; others cannot authorize writes. The issue request and its outcome are public repository records. Never enter passwords or tokens here.</p>
+<p class="notice">A dropdown choice alone does not save anything. GitHub requires a signed-in repository editor to submit the confirmation; others cannot authorize writes. If a request fails validation, its GitHub issue stays open with a reason and fresh-review instructions. If publishing fails, verify the saved goalie before trying again. Issue requests and outcomes are public repository records. Never enter passwords or tokens here.</p>
 <p><a href="https://leagues.sportsvillage.ca/Leagues.aspx?leagueid=570&amp;page_type=Adult&amp;sc=HOCKEY#Schedule" target="_blank" rel="noopener noreferrer">Official SVHL schedule ↗</a> · <a href="https://github.com/adambrutto-maker/brave-hc/blob/main/widgets/goalie-assignments.json" target="_blank" rel="noopener noreferrer">Current saved assignments ↗</a></p>
 </section>
 </main><script>
@@ -116,7 +116,7 @@ try{
      url.searchParams.set('body',JSON.stringify(payload,null,2));
      window.open(url.toString(),'_blank','noopener,noreferrer');
      $('status').textContent='Review the prefilled GitHub issue for '+game.date+' vs '+game.opponent+
-       ' — '+(custom||choice)+'. Then click Submit new issue while signed in. Nothing is saved before submission.';
+       ' — '+(custom||choice)+'. Submit in GitHub only after checking. The issue will close on success; rejected requests remain open with recovery instructions.';
    });
    col3.append(sel);col4.append(btn);row.append(col1,col2,col3,col4);$('games').append(row);
  }
