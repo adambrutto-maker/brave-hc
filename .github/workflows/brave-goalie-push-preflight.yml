@@ -14,6 +14,8 @@ jobs:
           python-version: '3.12'
       - name: Validate goalie remote-state guard
         run: python -m unittest discover -s tests -p test_goalie_remote_pre_push.py
+      - name: Test post-publish receipt against known fixture scenarios
+        run: python -m unittest discover -s tests -p test_goalie_receipt.py
       - name: Verify latest real GitHub data without writes
         run: |
           git fetch origin main
@@ -34,7 +36,11 @@ jobs:
                "--fixture-signature",game["fixtureSignature"],
                "--expected-goalie",name,"--goalie",name]
           subprocess.run(cmd,check=True)
-          print("READ_ONLY_PASS: checked same already-confirmed goalie against origin/main")
+          receipt=["python","scripts/verify_goalie_receipt.py","--game-key",key,
+                   "--fixture-signature",game["fixtureSignature"],
+                   "--expected-goalie",name,"--goalie",name]
+          subprocess.run(receipt,check=True)
+          print("READ_ONLY_PASS: pre-push guard AND published goalie receipt match origin/main")
           PY
       - name: Confirm no tracked file modifications
         run: git diff --exit-code && test -z "$(git status --porcelain --untracked-files=no)"
