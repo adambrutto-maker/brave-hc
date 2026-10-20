@@ -37,7 +37,7 @@ class PathMigrationReviewTests(unittest.TestCase):
   for step in result['steps']:
    patch=(self.out/step['patchName']).read_text('utf8')
    self.assertIn('HOCKEYOS_PUBLISH_REPO',patch)
-   self.assertIn('old',patch)
+   self.assertIn('--- original/',patch)
    self.assertIn(step['file'],step['patchName'])
   self.assertTrue((self.out/'261020_HockeyOS_Publisher_Migration_Path_Patch_Manifest_v1.json').is_file())
 
