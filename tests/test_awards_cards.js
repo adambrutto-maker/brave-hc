@@ -8,7 +8,7 @@ const vm=require('node:vm');
 const widgets=path.resolve(__dirname,'../widgets');
 const original=fs.readFileSync(path.join(widgets,'awards-races-v3.js'),'utf8');
 const injected=original.replace(/\bboot\(\);\s*\}\)\(\);\s*$/,
- 'globalThis.__awardsQA={state,card,currentComponents,previousSnapshot,movement,isVerifiedWeeklyRace,verifiedWorkbookRookieYearWatch,verifiedHTOStatWatch,renderRaceActivity};})();');
+ 'globalThis.__awardsQA={state,card,currentComponents,previousSnapshot,movement,isVerifiedWeeklyRace,verifiedWorkbookRookieYearWatch,verifiedHTOStatWatch,sourceReadinessForAward,renderHeldSourceReadiness,renderRaceActivity};})();');
 assert.notEqual(injected,original,'Isolated test bootstrap must match entrypoint');
 const elt=(tag='div')=>({
  tag,children:[],className:'',textContent:'',
@@ -43,6 +43,8 @@ api.state.reference=ref;
 api.state.explain=evidence;
 api.state.weeklyHistory=history;
 api.state.participation=participants;
+const readiness=JSON.parse(fs.readFileSync(path.join(widgets,'awards-source-readiness.json'),'utf8'));
+api.state.readiness=readiness;
 const hash=awards.sourceWorkbookHash;
 const heldOperationalReceipt=JSON.parse(fs.readFileSync(path.join(widgets,'awards-operational-publication.json'),'utf8'));
 function syntheticOperationalReceipt(){
@@ -778,4 +780,71 @@ test('tracked operational publication file remains explicitly on hold until actu
  assert.equal(heldOperationalReceipt.operationalWorkbookSha256,null);
  assert.equal(heldOperationalReceipt.awardFormulaParities.length,0);
  assert.ok(original.includes('awards-operational-publication.json'));
+});
+
+test('all eleven award holds explain original source fields and actual missing formula dependencies',()=>{
+ const expected=new Set(awards.awards.map(x=>x.id));
+ const observed=new Set();
+ for(const award of awards.awards){
+  const row=api.sourceReadinessForAward(awards,readiness,award.id);
+  assert.ok(row,"Missing verified source-ready explanation for "+award.id);
+  assert.equal(row.state,'INPUT_PARTIAL_SCORE_HELD');
+  assert.equal(row.officialScoreVerified,false);
+  assert.ok(row.eligibleField.includes('Eligible'));
+  assert.ok(row.rankField.includes('Rank Key'));
+  assert.ok(row.knownInputs.length>12);
+  assert.ok(row.remainingToVerify.length>12);
+  assert.equal(row.scoreKind,['art-ross','rocket'].includes(award.id)?'STAT':'OVR');
+  observed.add(row.id);
+ }
+ assert.deepEqual([...observed].sort(),[...expected].sort());
+ assert.equal(readiness.sourceModelCalculated,false);
+ assert.equal(readiness.awardScoreReleaseAllowed,false);
+ assert.equal(readiness.htoObservedTeamGames,4);
+ assert.equal(readiness.savedAwardScoringTeamGames,1);
+});
+
+test('source readiness explanations hold on stale games, changed model source or invented award completion',()=>{
+ const mutations=[
+  (d,r)=>r.originalWorkbookAuthoritySha256='a'.repeat(64),
+  (d,r)=>r.htoObservedTeamGames=5,
+  (d,r)=>r.savedAwardScoringTeamGames=4,
+  (d,r)=>r.auditedAsOf='2026-02-30',
+  (d,r)=>r.auditedAsOf='2026-10-04',
+  (d,r)=>r.awardScoreReleaseAllowed=true,
+  (d,r)=>r.sourceModelCalculated=true,
+  (d,r)=>r.awards[0].officialScoreVerified=true,
+  (d,r)=>r.awards[0].scoreKind='STAT',
+  (d,r)=>r.awards.pop(),
+  (d,r)=>r.awards[0].id='rocket',
+  (d,r)=>d.currentTeamGP=5,
+  (d,r)=>d.publishedAsOf='2026-10-18'
+ ];
+ for(const mutate of mutations){
+  const src=structuredClone(awards),report=structuredClone(readiness);
+  mutate(src,report);
+  assert.equal(api.sourceReadinessForAward(src,report,'hart'),null);
+ }
+});
+
+test('held Awards page shows dated source explanation separately from HTO statistical watch',()=>{
+ const old=api.state.award, before=api.state.readiness, region=elementsById.get('scores');
+ try{
+  api.state.readiness=readiness;
+  for(const award of awards.awards){
+   api.state.award=award.id;
+   region.children=[];
+   assert.equal(api.renderHeldSourceReadiness(award.id,awards),true);
+   const heads=visit(region,x=>x.tag==='h4').map(x=>x.textContent);
+   assert.ok(heads.includes('Available observations'),award.id);
+   assert.ok(heads.includes('What still requires verification'),award.id);
+   const words=visit(region,x=>typeof x.textContent==='string').map(x=>x.textContent).join(' | ');
+   assert.match(words,/saved award model 1 game/);
+   assert.match(words,/not live or a released award result/);
+  }
+  api.state.readiness=null;
+  region.children=[];
+  assert.equal(api.renderHeldSourceReadiness('hart',awards),false);
+  assert.equal(region.children.length,0);
+ }finally{api.state.award=old;api.state.readiness=before;region.children=[];}
 });
