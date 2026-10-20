@@ -190,7 +190,7 @@ function renderRecords(data){
   urls.forEach((value,index)=>{
    try{
     const url=new URL(value);
-    if(url.protocol!=='https:'||!['www.htosports.com','htosports.com'].includes(url.hostname)||!/^\\d+$/.test(url.searchParams.get('gameID')||''))return;
+    if(url.protocol!=='https:'||!['www.htosports.com','htosports.com'].includes(url.hostname)||!/^\d+$/.test(url.searchParams.get('gameID')||''))return;
     const link=text('a',urls.length===1?'Game source ↗':'Game '+(index+1)+' ↗');
     link.href=url.href;link.target='_blank';link.rel='noopener noreferrer';
     if(links.childNodes.length)links.append(' · ');
