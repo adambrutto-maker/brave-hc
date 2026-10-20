@@ -1,0 +1,7 @@
+{
+  "schema": "brave-hc-awards-weekly-history/v1",
+  "status": "AWAITING_VERIFIED_PUBLISHED_WEEKLY_SNAPSHOTS",
+  "season": "W2026/27",
+  "snapshots": [],
+  "notes": "No verified two-week model history has been published. Do not infer weekly movement from live HTO counts or historical workbook examples. Snapshots must be separately validated and published after an approved award-model calculation."
+}
