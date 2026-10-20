@@ -80,7 +80,9 @@ def examine(feed: dict, saved: dict, now: datetime) -> dict:
         if warnings:
             priority="GAME_DAY" if delta<=timedelta(hours=36) else "ADVANCE_COVERAGE"
             return {"status":"REVIEW","reason":"; ".join(warnings),
-                    "game":game,"goalie":name,"priority":priority}
+                    "game":game,"goalie":name,"priority":priority,
+                    "nearest_game":next_game,
+                    "nearest_goalie":saved["assignments"].get(next_game["assignmentKey"],"TBD")}
 
     name,_=notes(next_game)
     if kickoff(next_game)-now > timedelta(hours=36):
@@ -100,6 +102,15 @@ def issue_body(result: dict) -> str:
     # Provider fields are plain display text, not instructions or executable content.
     def plain(value):
         return re.sub(r"[^A-Za-z0-9 :/._-]", " ", str(value))[:100].strip()
+    nearest=result.get("nearest_game")
+    first_game_context=[]
+    if isinstance(nearest,dict) and nearest.get("assignmentKey")!=game.get("assignmentKey"):
+        first_game_context=[
+            f"**Nearest scheduled game (already recorded):** {plain(nearest.get('date'))} at "+
+            f"{plain(nearest.get('time'))} vs {plain(nearest.get('opponent'))} — "+
+            f"goalie recorded: {plain(result.get('nearest_goalie','TBD'))}",
+            "",
+        ]
     return "\n".join([
         "## Brave H.C. game-day / advance goalie coverage review",
         "",
@@ -111,7 +122,8 @@ def issue_body(result: dict) -> str:
         f"**HTO reconciliation:** {plain(game.get('htoSyncStatus','UNKNOWN'))}",
         f"**Attention:** {plain(result['reason'])}",
         "",
-        "This is a private-to-the-repository workflow review item, **not** evidence of goalie acceptance, a booking, or authorization to contact a player or edit HTO.",
+        *first_game_context,
+        "This GitHub issue is publicly visible in the Braves repository. It is **not** evidence of goalie acceptance, a booking, or authorization to contact a player or edit HTO.",
         "",
         f"1. Check the [official SVHL fixture]({SVHL}).",
         f"2. If goalie confirmation is required, use the [protected goalie manager]({MANAGER}).",
