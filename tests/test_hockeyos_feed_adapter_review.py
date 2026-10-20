@@ -15,7 +15,7 @@ def fixture():
         url=f"https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID={gid}&p=boxscore"
         goalie="Fictional Goalie "+str(index if index<3 else 0)
         games.append({"htoGameId":gid,"workbookGameNumber":number,"date":day,"sourceUrl":url,
-                      "goalies":[{"name":goalie,"potg":None if index==3 else 0}]})
+                      "goalies":[{"name":goalie,"gp":1,"losses":1,"goalsAgainst":1,"potg":None if index==3 else 0}]})
         evidence[str(gid)]={"canonicalURL":url,"gameDate":adapter.review.GAME_DATES[gid],
                            "seasonBasis":"AUDITED_2026_27_GAME_DATE_MAP_AND_VERIFIED_SEASON_STATS"}
     unknown={"name":"Fictional Goalie 0","field":"POTG","knownSubtotal":0,"unknownGames":1,"seasonPublished":0}
@@ -25,7 +25,7 @@ def fixture():
              "inferredPerGamePOTG":[],"missingStatFields":{"skaterPIMUnknownRows":42,"seasonParity":{
                  "skaters":{"completeFieldComparisons":120,"expectedFieldComparisons":120,"incompleteFields":[],"discrepancies":[]},
                  "goalies":{"completeFieldComparisons":11,"expectedFieldComparisons":12,"incompleteFields":[unknown],"discrepancies":[]}}},
-             "goalieGameTotals":{"Fictional Goalie 0":{"potg":None},"Fictional Goalie 1":{"potg":0},"Fictional Goalie 2":{"potg":0}},
+             "goalieGameTotals":{"Fictional Goalie 0":{"gp":2,"losses":2,"goalsAgainst":2,"potg":None},"Fictional Goalie 1":{"gp":1,"losses":1,"goalsAgainst":1,"potg":0},"Fictional Goalie 2":{"gp":1,"losses":1,"goalsAgainst":1,"potg":0}},
              "goalieAggregateCompleteness":{name:{"potg":{"knownSubtotal":0,"unknownCount":1 if name.endswith("0") else 0,"complete":not name.endswith("0")}} for name in ("Fictional Goalie 0","Fictional Goalie 1","Fictional Goalie 2")}}
     ids=sorted(adapter.candidate.GAME_MAP)
     return {"state":"DISCOVERY_REVIEW_SOURCE_COVERAGE_PASS","productionAcceptance":False,
@@ -98,5 +98,34 @@ class FeedAdapterTests(unittest.TestCase):
         with patch.object(adapter,"observe_discovery") as observe:
             with self.assertRaises(adapter.review.ReviewHold):adapter.main([])
             observe.assert_not_called()
+
+
+    def test_missing_or_extra_goalie_summary_identity_holds(self):
+        for change in ("delete_total","delete_completeness","extra_total","extra_completeness"):
+            data=fixture();p=data["candidate"]
+            key="goalieGameTotals" if change.endswith("total") else "goalieAggregateCompleteness"
+            if change.startswith("delete"):del p[key]["Fictional Goalie 0"]
+            else:p[key]["Unobserved Goalie"]=copy.deepcopy(p[key]["Fictional Goalie 1"])
+            with self.assertRaises(adapter.review.ReviewHold):adapter.adapt_review(data,NOW)
+
+    def test_replacing_unknown_raw_potg_and_summary_does_not_hide_stale_evidence(self):
+        data=fixture();p=data["candidate"]
+        p["games"][-1]["goalies"][0]["potg"]=0
+        p["goalieGameTotals"]["Fictional Goalie 0"]["potg"]=0
+        p["goalieAggregateCompleteness"]["Fictional Goalie 0"]["potg"]={"knownSubtotal":0,"unknownCount":0,"complete":True}
+        with self.assertRaisesRegex(adapter.review.ReviewHold,"GOALIE_INCOMPLETE_EVIDENCE"):
+            adapter.adapt_review(data,NOW)
+
+    def test_incomplete_evidence_name_count_subtotal_and_shape_are_correlated(self):
+        for field,value in (("name","Unobserved Goalie"),("unknownGames",2),("knownSubtotal",1),("seasonPublished",None),("unknownGames",True)):
+            data=fixture()
+            data["candidate"]["missingStatFields"]["seasonParity"]["goalies"]["incompleteFields"][0][field]=value
+            with self.assertRaises(adapter.review.ReviewHold):adapter.adapt_review(data,NOW)
+
+    def test_complete_goalie_numbers_are_recomputed_not_trusted(self):
+        for field in ("gp","losses","goalsAgainst"):
+            data=fixture();data["candidate"]["goalieGameTotals"]["Fictional Goalie 1"][field]=99
+            with self.assertRaisesRegex(adapter.review.ReviewHold,"GOALIE_UNKNOWN_TOTAL_CHANGED"):
+                adapter.adapt_review(data,NOW)
 
 if __name__=="__main__":unittest.main()
