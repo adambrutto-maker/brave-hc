@@ -21,7 +21,24 @@
 | REVIEW_HTO_ONLY | HTO game not found in SVHL; manager investigates cancellation, never automatically deletes scored or historic games |
 | REVIEW_OR_ADD | Game identity ambiguous; manager reviews, avoiding duplicates |
 
-## Fourteen-day advance goalie coverage — October 20
+## Primary goalies first; rentals before game day — October 20
+
+The operating approach is **regular goalies early, rental fallback early enough to avoid Sunday emergencies**. The two 2026/27 roster-verified regular goalies used for planning are **Dev Leong** and **Stephen Logue**. The historical Steve Noyek is not silently treated as the regular Stephen Logue. These are **potential people to approach**, not a rotation or evidence that either was contacted, accepted or booked.
+
+The existing [Goaltender Manager](https://adambrutto-maker.github.io/brave-hc/widgets/goalie-manager-v1.2.html) now displays an additional **COVERAGE PLAN** column, calculated from SVHL fixture dates and published goalie assignments. The same policy runs in [`scripts/goalie_advance_plan.py`](https://github.com/adambrutto-maker/brave-hc/blob/main/scripts/goalie_advance_plan.py) and in the existing automated readiness issue:
+
+- **Within 21 days, if goalie TBD:** `REGULAR_FIRST`. Review which of Dev/Stephen to approach for that specific game. Neither has been contacted merely because this stage appears.
+- **Within seven days, if still TBD:** `RENTAL_BACKUP`. Start preparing an approved rental contingency while trying the regular pool. This is an early planning checkpoint, **not** evidence of a rental enquiry.
+- **At or within 72 hours, still TBD:** `RENTAL_PRIORITY`. Treat obtaining fallback coverage as the immediate manager priority, with no automatic messages.
+- **At or within 36 hours, still TBD:** `GAME_DAY`. Highest urgency for manager-controlled resolution.
+- **A goalie recorded in the assignment feed:** `COVERED`, subject to independent verification that the person's booking is genuinely confirmed. Changed league fixtures (`LEAGUE_RECONFIRM`) and unmatched HTO (`HTO_REVIEW`) stay separately flagged.
+- The system does **not** track `asked`, `awaiting reply`, `tentative`, `rental contacted`, `rental hold` or `accepted` yet. A future secure manager-only booking ledger must distinguish these from **confirmed**; do not store private outreach or player contact information in this public GitHub repository.
+
+The [single existing advance-readiness issue](https://github.com/adambrutto-maker/brave-hc/issues/23) now includes the entire rolling 21-day view, not only the first unassigned game. At the October 20 check it recorded October 25 vs Big Bastones with Stephen Logue; November 1 vs Mid Ice Crisis TBD with a **October 25** rental-backup checkpoint; and November 8 vs Other Way TBD with a **November 1** rental-backup checkpoint. It contains only public fixture and previously published goalie information and is visible to anyone with access to this public repository.
+
+**Verified QA:** [SVHL/advance-plan tests and reconciliation run 39462004438](https://github.com/adambrutto-maker/brave-hc/actions/runs/39462004438) passed, including new seven-day, 72-hour, 36-hour, 21-day-window, reconfirmation, date rollover and no-outbound tests. [Live manager/HTO browser run 39462075150](https://github.com/adambrutto-maker/brave-hc/actions/runs/39462075150) passed, comparing each displayed stage against the independent Python policy and checking the published public widget on desktop/mobile. This work makes booking needs visible earlier; it does **not** send invitations, book rentals, change goalie assignments, alter HTO or publish lineups.
+
+## Previous fourteen-day advance goalie coverage — October 20
 
 The existing single [next-game readiness review issue](https://github.com/adambrutto-maker/brave-hc/issues?q=is%3Aissue+%22next-game+readiness+review%22) now checks the verified **next 14 days** of Braves fixtures for an unassigned goalie, required goalie reconfirmation or an HTO mismatch. The traditional 36-hour next-game check still takes highest priority when that game's status requires intervention.
 
