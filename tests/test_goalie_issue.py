@@ -21,10 +21,14 @@ DATA={"schema":"brave-hc-goalie-assignments/v1","assignments":{"hto:3375682":"St
 
 
 def request(goalie="Stephen Logue", key="hto:3375682", custom="",
-            signature=SIG,expected="Stephen Logue"):
+            signature=SIG,expected="Stephen Logue",reason=None):
+    if reason is None:
+        reason=("NO_CHANGE" if (custom or goalie)==expected else
+                "NEW_BOOKING" if expected=="TBD" else "BOOKING_CHANGE")
     return json.dumps({"type":mod.REQUEST_TYPE,"game_key":key,
                        "goalie":goalie,"custom_goalie_name":custom,
-                       "fixture_signature":signature,"expected_goalie":expected})
+                       "fixture_signature":signature,"expected_goalie":expected,
+                       "change_reason":reason})
 
 
 class IssueTests(unittest.TestCase):
@@ -39,6 +43,7 @@ class IssueTests(unittest.TestCase):
         out,changed=mod.apply_request(r,"adambrutto-maker","write",deepcopy(FEED),deepcopy(DATA),NOW)
         self.assertTrue(changed)
         self.assertEqual(out["lastChange"]["actor"],"adambrutto-maker")
+        self.assertEqual(out["lastChange"]["managerReason"],"BOOKING_CHANGE")
 
     def test_renegotiated_game_requires_new_approval(self):
         req=mod.parse_request(mod.TITLE,request("Dev Leong"))
@@ -59,6 +64,27 @@ class IssueTests(unittest.TestCase):
                 "goalie":"Dev Leong","custom_goalie_name":""}
         with self.assertRaises(ValueError):
             mod.parse_request(mod.TITLE,json.dumps(legacy))
+
+    def test_confirmed_goalie_cannot_be_cleared_without_explicit_reason(self):
+        with self.assertRaisesRegex(ValueError,"manager-reviewed reason"):
+            proposed=mod.parse_request(mod.TITLE,request("TBD",reason="NEW_BOOKING"))
+            mod.apply_request(proposed,"adambrutto-maker","write",
+                              deepcopy(FEED),deepcopy(DATA),NOW)
+        clear=mod.parse_request(mod.TITLE,request("TBD",reason="GOALIE_UNAVAILABLE"))
+        result,changed=mod.apply_request(clear,"adambrutto-maker","write",
+                                         deepcopy(FEED),deepcopy(DATA),NOW)
+        self.assertTrue(changed)
+        self.assertEqual(result["assignments"]["hto:3375682"],"TBD")
+        self.assertEqual(result["lastChange"]["managerReason"],"GOALIE_UNAVAILABLE")
+
+    def test_prior_format_or_missing_reason_rejected(self):
+        old=json.loads(request())
+        old["type"]="brave-hc-goalie-confirmation/v2"
+        with self.assertRaises(ValueError):
+            mod.parse_request(mod.TITLE,json.dumps(old))
+        del old["change_reason"]
+        with self.assertRaises(ValueError):
+            mod.parse_request(mod.TITLE,json.dumps(old))
 
     def test_permission_block(self):
         r=mod.parse_request(mod.TITLE,request("Dev Leong"))
