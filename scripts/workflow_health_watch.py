@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import json
 import os
+from datetime import datetime, timezone, timedelta
 from pathlib import Path
 from urllib.request import Request, urlopen
 
@@ -47,6 +48,45 @@ def decision(event: dict, latest: dict, repo: str) -> dict:
             )}
 
 
+
+def heartbeat_decision(runs: list[dict], now: datetime, repo: str, maximum_hours: int = 12) -> dict:
+    """Catch overdue or failed checks even when no workflow_run.completed event arrives."""
+    completed=next((run for run in runs if run.get("status")=="completed"),None)
+    if not completed:
+        reason="No completed SVHL verification run was found"
+        link=f"https://github.com/{repo}/actions/workflows/brave-svhl-sync.yml"
+        outcome="NO_COMPLETED_RUN"
+    else:
+        created=completed.get("run_started_at") or completed.get("created_at") or ""
+        try:
+            at=datetime.fromisoformat(created.replace("Z","+00:00"))
+            if at.tzinfo is None:
+                raise ValueError("Naive timestamp")
+            elapsed=now-at
+        except (ValueError, TypeError):
+            elapsed=timedelta(days=999)
+        outcome=completed.get("conclusion") or "UNKNOWN"
+        link=completed.get("html_url") or f"https://github.com/{repo}/actions/workflows/brave-svhl-sync.yml"
+        if outcome in FAILURES:
+            reason="Latest completed SVHL reconciliation failed: "+outcome
+        elif elapsed>timedelta(hours=maximum_hours):
+            reason=f"No completed SVHL verification within {maximum_hours} hours"
+        elif outcome=="success" and elapsed>=-timedelta(minutes=15):
+            return {"action":"CLOSE","reason":"Last successful SVHL check is fresh"}
+        else:
+            reason="Unverifiable SVHL reconciliation result or timestamp"
+    return {"action":"OPEN","reason":reason,"body":(
+        "## Brave H.C. SVHL monitoring overdue or failed\\n\\n"
+        f"**Condition:** {reason}\\n\\n"
+        f"- **Latest completed run:** {link}\\n"
+        f"- **Conclusion:** {outcome}\\n"
+        "- Verify [SVHL](https://leagues.sportsvillage.ca/Leagues.aspx?leagueid=570&page_type=Adult&sc=HOCKEY) and "
+        "[HTO](https://www.htosports.com/teams/default.asp?p=schedule&s=hockey&u=BRAVESHOCKEY&format=List) directly.\\n"
+        "- Check the GitHub Actions schedule and logs; do not assume the last published fixture feed is current.\\n"
+        "- **No HTO changes, goalie assignments, or player contact occurred.**\\n\\n"
+        "This issue clears after the most recent reconciliation succeeds and is fresh."
+    ).replace("\\n","\\n")}
+
 def api(base: str, path: str, token: str, method="GET", payload=None):
     headers={"Authorization":"Bearer "+token,"Accept":"application/vnd.github+json",
              "X-GitHub-Api-Version":"2022-11-28","User-Agent":"BraveHC-Workflow-Watchdog"}
@@ -62,9 +102,12 @@ def main():
     repo=os.environ["GITHUB_REPOSITORY"]
     token=os.environ["GITHUB_TOKEN"]
     base="https://api.github.com/repos/"+repo
-    latest=api(base,"/actions/workflows/brave-svhl-sync.yml/runs?per_page=1",token)
+    latest=api(base,"/actions/workflows/brave-svhl-sync.yml/runs?per_page=15",token)
     recent=(latest.get("workflow_runs") or [{}])[0]
-    d=decision(event,recent,repo)
+    if event.get("workflow_run"):
+        d=decision(event,recent,repo)
+    else:
+        d=heartbeat_decision(latest.get("workflow_runs") or [],datetime.now(timezone.utc),repo)
     if d["action"]=="IGNORE":
         print("SKIPPED:",d["reason"])
         return
