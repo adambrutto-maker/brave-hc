@@ -129,6 +129,20 @@ The original [Confirm Brave H.C. Goaltender workflow](https://github.com/adambru
 - **Automated synthetic tests:** `tests/test_goalie_assignment.py` verifies a dry run does not write a file, a non-dry-run request without reviewed state is denied, stale previous goalie is denied, and a valid version-controlled write can occur only in an isolated temporary JSON file. These tests do **not** confirm or substitute a real goalie.
 - The preferred public [Goaltender Manager](https://adambrutto-maker.github.io/brave-hc/widgets/goalie-manager-v1.2.html) remains the normal entrypoint. It prepopulates the fixture signature and previous goalie automatically so neither needs to be copied manually.
 
+## Failed V2 goalie approvals — attributable human review (October 20)
+
+Failed GitHub issue-based goalie confirmations now produce a **safe public review comment on the same request issue** when the approval workflow fails. This closes the former gap where a rejected request could appear only as a failed GitHub Actions run.
+
+- The protected request validator emits a fixed outcome category in a temporary CI-local JSON file, never the raw issue body, a credential or an unsanitized exception. The failure-feedback step only executes when the GitHub job has failed.
+- **Changed SVHL game:** the response identifies a stale league fixture; reopen the Goaltender Manager and check its date, time, opponent and rink before preparing a new request.
+- **Changed previously saved goalie:** another save has occurred; review the current saved starter and make a new decision rather than applying an outdated selection.
+- **Stale verification or invalid entry:** the response explains that the schedule must be reverified or the user-entered choice corrected; it does not silently reprocess.
+- **Publish/close stage failure:** the feedback deliberately states that the save outcome may be **uncertain**. The manager must inspect `widgets/goalie-assignments.json` and GitHub commit history **before any retry**. It does not claim the goalie was unchanged after a possible commit.
+- An unsuccessful request issue remains **open** for review. Editing or commenting on it does not authorize another save, since the approval workflow listens only for an issue `opened` event. If a fresh change is authorized, the manager must submit a new request.
+- The success route is unchanged: verified assignment commits are completed before the workflow comments on and closes the original request. A no-change same-goalie confirmation also closes successfully.
+- **Security:** category-to-message mapping is fixed in `scripts/goalie_request_feedback.py`. Public comments never contain arbitrary user-supplied issue text or developer tokens. No player is contacted, and no HTO game or goalie assignment is changed by this feedback module.
+- **QA:** `tests/test_goalie_request_feedback.py` covers stale fixture, stale prior goalie, failed publish, failed closure, prevalidation failure, malformed status files and untrusted identifiers. The reconciliation [GitHub Actions run 39444784071](https://github.com/adambrutto-maker/brave-hc/actions/runs/39444784071) passed its feedback tests and the original assignment checks. A live *rejection issue* has not been manufactured; the feedback remains test-validated pending a naturally occurring rejected request.
+
 ## Goalie management — prefilled GitHub approval
 
 - [Goaltender Manager](https://adambrutto-maker.github.io/brave-hc/widgets/goalie-manager-v1.2.html) shows each upcoming SVHL fixture, current saved goalie, and the controlled selection dropdown.
