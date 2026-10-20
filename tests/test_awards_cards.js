@@ -134,10 +134,14 @@ test('all eleven awards render saved examples without pretending scoring-title c
 });
 test('verified current component tiles render, but pending players never get invented ratings',()=>{
  api.state.award='rolaids';
- const tree=api.card(example(),0,false);
- assert.equal(visit(tree,n=>n.className.split(' ').includes('ea-stat')).length,2);
- const pending=api.card({name:'Unscored QA Player',gamesPlayed:2,eligible:false,scoreKind:'AWARD_MODEL_PENDING',modelScore:null},1,false);
- assert.equal(visit(pending,n=>n.className.split(' ').includes('ea-stat')).length,0);
+ const baseline=api.state.source;
+ api.state.source={...awards,races:{...awards.races,rolaids:sourceRace}};
+ try {
+  const tree=api.card(example(),0,false);
+  assert.equal(visit(tree,n=>n.className.split(' ').includes('ea-stat')).length,2);
+  const pending=api.card({name:'Unscored QA Player',gamesPlayed:2,eligible:false,scoreKind:'AWARD_MODEL_PENDING',modelScore:null},1,false);
+  assert.equal(visit(pending,n=>n.className.split(' ').includes('ea-stat')).length,0);
+ } finally {api.state.source=baseline;}
 });
 test('historical eleven-component Rolaids card shows six prominent tiles and five more',()=>{
  api.state.award='rolaids';
