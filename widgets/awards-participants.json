@@ -885,6 +885,12 @@
         "modelAwardSubscore": null,
         "provenance": "Four named skater game sheets, official HTO GP/G/A/PTS/plus-minus and Player of the Game parity",
         "limitation": "Raw game pattern counts, not the original workbook weighted/normalized Consistency, Two-Way or Streak Heat subscore."
+      },
+      "htoRookieYear": {
+        "year": 2026,
+        "sourceField": "Rookie Year",
+        "source": "HTO_TEAM_ROSTER_CURRENT_SEASON",
+        "status": "ROSTER_YEAR_OBSERVED_AWARD_ELIGIBILITY_NOT_VERIFIED"
       }
     },
     {
@@ -1514,6 +1520,12 @@
         "modelAwardSubscore": null,
         "provenance": "Four named skater game sheets, official HTO GP/G/A/PTS/plus-minus and Player of the Game parity",
         "limitation": "Raw game pattern counts, not the original workbook weighted/normalized Consistency, Two-Way or Streak Heat subscore."
+      },
+      "htoRookieYear": {
+        "year": 2026,
+        "sourceField": "Rookie Year",
+        "source": "HTO_TEAM_ROSTER_CURRENT_SEASON",
+        "status": "ROSTER_YEAR_OBSERVED_AWARD_ELIGIBILITY_NOT_VERIFIED"
       }
     },
     {
@@ -1944,6 +1956,12 @@
         "modelAwardSubscore": null,
         "provenance": "Four named skater game sheets, official HTO GP/G/A/PTS/plus-minus and Player of the Game parity",
         "limitation": "Raw game pattern counts, not the original workbook weighted/normalized Consistency, Two-Way or Streak Heat subscore."
+      },
+      "htoRookieYear": {
+        "year": 2026,
+        "sourceField": "Rookie Year",
+        "source": "HTO_TEAM_ROSTER_CURRENT_SEASON",
+        "status": "ROSTER_YEAR_OBSERVED_AWARD_ELIGIBILITY_NOT_VERIFIED"
       }
     },
     {
@@ -2050,6 +2068,12 @@
         "modelAwardSubscore": null,
         "provenance": "Four named skater game sheets, official HTO GP/G/A/PTS/plus-minus and Player of the Game parity",
         "limitation": "Raw game pattern counts, not the original workbook weighted/normalized Consistency, Two-Way or Streak Heat subscore."
+      },
+      "htoRookieYear": {
+        "year": 2026,
+        "sourceField": "Rookie Year",
+        "source": "HTO_TEAM_ROSTER_CURRENT_SEASON",
+        "status": "ROSTER_YEAR_OBSERVED_AWARD_ELIGIBILITY_NOT_VERIFIED"
       }
     },
     {
@@ -2279,6 +2303,12 @@
         "modelAwardSubscore": null,
         "provenance": "Four named skater game sheets, official HTO GP/G/A/PTS/plus-minus and Player of the Game parity",
         "limitation": "Raw game pattern counts, not the original workbook weighted/normalized Consistency, Two-Way or Streak Heat subscore."
+      },
+      "htoRookieYear": {
+        "year": 2026,
+        "sourceField": "Rookie Year",
+        "source": "HTO_TEAM_ROSTER_CURRENT_SEASON",
+        "status": "ROSTER_YEAR_OBSERVED_AWARD_ELIGIBILITY_NOT_VERIFIED"
       }
     }
   ],
@@ -2511,5 +2541,30 @@
     },
     "warning": "These are actual HTO raw season statistics, NOT normalized AwardScoring public 50–100 subscores or candidate ranks. HTO source alone cannot reproduce historical baselines, per-game award helpers or award eligibility.",
     "modelScoresReady": false
+  },
+  "htoRookieYearReadback": {
+    "status": "HTO_ROSTER_ROOKIE_YEAR_CROSSCHECKED_WITH_APPEARANCES_NOT_ELIGIBILITY",
+    "season": "W2026/27",
+    "year": 2026,
+    "sourceUrl": "https://www.htosports.com/teams/default.asp?p=roster&s=hockey&u=BRAVESHOCKEY",
+    "verifiedOn": "2026-10-19",
+    "sourceField": "Rookie Year",
+    "sourceKind": "PUBLIC_HTO_OFFICIAL_TEAM_ROSTER",
+    "names": [
+      "Kong, Henry",
+      "Povegliano, Adam",
+      "Rajkumar, Sanjay",
+      "Rosenberg, Jamie",
+      "Triumbari, Francesco"
+    ],
+    "observedCount": 5,
+    "observedFirstYearFullTimersWithCurrentGP": 5,
+    "discrepancy": {
+      "name": "Rosenberg, Jamie",
+      "htoRookieYear": 2026,
+      "savedWorkbookRookieFlag": "NOT_PRESENT_IN_CACHED_ROOKIE_WATCH",
+      "resolution": "KEEP_HTO_ROSTER_ROOKIE_YEAR_VISIBLE; REQUIRE_WORKBOOK_RECONCILIATION_BEFORE_OFFICIAL_NOMINATION_OR_RATING"
+    },
+    "caveat": "HTO-listed Rookie Year is primary evidence for the unranked on-ice rookie watch. Full-time role and games played must independently match current season. The Sept 22 workbook flag remains separately retained and may conflict; no model eligibility or score is asserted."
   }
 }
