@@ -24,6 +24,7 @@ def run():
         item['scoreVersusSkaterGoalDifference'] = item['GF'] - item['publishedSkaterGoals']
         item['scoreVersusGoalieGADifference'] = item['GA'] - item['goalieGA']
         details.append(item)
+    details.sort(key=lambda g: (g['date'], g['sourceURL']))
     reviews = []
     for entry in audit['entries']:
         if entry['status'] == 'MATCH':
