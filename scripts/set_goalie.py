@@ -33,6 +33,31 @@ def safe_goalie(option: str, custom: str) -> str:
 
 
 
+
+CHANGE_REASONS = {
+    "NO_CHANGE", "NEW_BOOKING", "GOALIE_UNAVAILABLE",
+    "MANAGER_CORRECTION", "SCHEDULE_CHANGE", "BOOKING_CHANGE",
+}
+
+
+def validate_change_reason(old: str, new: str, reason: str) -> str:
+    """Classify manager-initiated goalie changes without storing personal details."""
+    if reason not in CHANGE_REASONS:
+        raise ValueError("Manager change reason must use an approved category")
+    if old == new:
+        if reason != "NO_CHANGE":
+            raise ValueError("Unchanged goaltender must use NO_CHANGE")
+    elif old == "TBD":
+        if reason != "NEW_BOOKING":
+            raise ValueError("Initial goalie booking requires NEW_BOOKING")
+    elif reason not in {
+        "GOALIE_UNAVAILABLE", "MANAGER_CORRECTION",
+        "SCHEDULE_CHANGE", "BOOKING_CHANGE",
+    }:
+        raise ValueError("Replacing or clearing a confirmed goalie requires a manager-reviewed reason")
+    return reason
+
+
 def verify_expected_state(feed: dict, data: dict, game_key: str,
                           fixture_signature: str, expected_goalie: str) -> None:
     """Fail closed when a proposed save is no longer the manager-reviewed state."""
@@ -52,7 +77,8 @@ def verify_expected_state(feed: dict, data: dict, game_key: str,
         raise ValueError("Goalie assignment changed since selection; reload manager and review")
 
 
-def update_assignment(feed: dict, data: dict, game_key: str, goalie: str, actor: str, now: datetime) -> tuple[dict, bool]:
+def update_assignment(feed: dict, data: dict, game_key: str, goalie: str, actor: str, now: datetime,
+                      manager_reason: str = "") -> tuple[dict, bool]:
     if feed.get("schema") != "brave-hc-svhl-schedule/v1" or not isinstance(feed.get("games"), list):
         raise ValueError("Official league feed is missing or invalid")
     last = datetime.fromisoformat(feed["checkedAt"])
@@ -101,7 +127,8 @@ def update_assignment(feed: dict, data: dict, game_key: str, goalie: str, actor:
         "key": game_key, "date": fixture["date"], "opponent": fixture["opponent"],
         "previous": old, "confirmed": goalie, "actor": actor[:80],
         "reason": ("manager reconfirmation after league schedule change" if review_reason
-                   else "manager assignment")
+                   else "manager assignment"),
+        **({"managerReason":manager_reason} if manager_reason else {})
     }
     return data, True
 
@@ -116,6 +143,7 @@ def main() -> int:
     ap.add_argument("--actor", default="repository editor")
     ap.add_argument("--fixture-signature", default="")
     ap.add_argument("--expected-goalie", default="")
+    ap.add_argument("--change-reason", default="")
     ap.add_argument("--result-file", type=Path)
     ap.add_argument("--dry-run", action="store_true")
     args = ap.parse_args()
@@ -126,7 +154,10 @@ def main() -> int:
         if not args.dry_run:
             verify_expected_state(feed, data, args.game_key,
                                   args.fixture_signature, args.expected_goalie)
-        updated, changed = update_assignment(feed, data, args.game_key, name, args.actor, datetime.now(timezone.utc))
+            validate_change_reason(args.expected_goalie, name, args.change_reason)
+        updated, changed = update_assignment(feed, data, args.game_key, name,
+                                             args.actor, datetime.now(timezone.utc),
+                                             manager_reason=args.change_reason if not args.dry_run else "")
         if changed and not args.dry_run:
             args.assignments.write_text(json.dumps(updated, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
         if args.result_file and not args.dry_run:
