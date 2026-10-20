@@ -91,6 +91,7 @@ try{
    if(hours<=36)return ['GAME_DAY','Urgent coverage review — no goalie recorded'];
    if(hours<=72)return ['RENTAL_PRIORITY','Rental contingency is priority; manager contact required'];
    if(hours<=168)return ['RENTAL_BACKUP','Prepare rental fallback now; regular booking still open'];
+   if(hours>21*24)return ['LOOKAHEAD','Later game — outside the active 21-day booking window'];
    return ['REGULAR_FIRST','Review Dev/Stephen availability early; nobody contacted'];
  }
 
