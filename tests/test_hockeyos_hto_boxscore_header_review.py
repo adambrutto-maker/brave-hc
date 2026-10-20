@@ -1,7 +1,7 @@
 """Source-shaped synthetic HTO boxscore-column tests. No network or private rows."""
 import unittest
 from lib.hockeyos_hto_boxscore_header_review import (
-    BoxscoreSchemaHold, skater_rows, goalie_rows
+    BoxscoreSchemaHold, skater_rows, goalie_rows, check_game_observations
 )
 
 # Observed header structures (from user-authorized read-only 2026-10-20
@@ -105,6 +105,70 @@ class SourceShapedHTOHeaderTests(unittest.TestCase):
         self.assertFalse(hasattr(module,"publish"))
         self.assertFalse(hasattr(module,"write"))
         self.assertFalse(hasattr(module,"start_background_collector"))
+
+    def test_same_game_goals_and_goalie_ga_crosscheck_source_values_without_awards_scoring(self):
+        sk=skater_rows(clone(SKATER_SCORING),verified_team_goals=1)
+        gl=goalie_rows(clone(GOALIE_NO_POTG))
+        result=check_game_observations(
+            hto_game_id=3375601,official_goals_for=1,official_goals_against=6,
+            skaters=sk,goalies=gl)
+        self.assertEqual(result["goalsFor"],1)
+        self.assertEqual(result["assists"],1)
+        self.assertEqual(result["points"],2)
+        self.assertEqual(result["goalieGoalsAgainst"],6)
+        self.assertEqual(result["unknownGoaliePOTG"],["Fictional Goalie Delta"])
+        self.assertFalse(result["awardModelRecalculated"])
+        self.assertFalse(result["publisherUpdated"])
+        self.assertEqual(result["messagesSent"],0)
+
+    def test_game_score_reconciliation_rejects_changed_verified_total(self):
+        sk=skater_rows(clone(SKATER_SCORING),verified_team_goals=1)
+        gl=goalie_rows(clone(GOALIE_NO_POTG))
+        for gf,ga,code in ((0,6,"GAME_SCORER_TOTAL"),(1,5,"GAME_GOALIE_TOTAL")):
+            with self.assertRaisesRegex(BoxscoreSchemaHold,code):
+                check_game_observations(hto_game_id=3375601,official_goals_for=gf,
+                                        official_goals_against=ga,skaters=sk,goalies=gl)
+
+    def test_same_game_unknown_goalie_potg_does_not_become_zero_or_one(self):
+        sk=skater_rows(clone(SKATER_ZERO),verified_team_goals=0)
+        gl=goalie_rows(clone(GOALIE_NO_POTG))
+        gl[0]["potgPublishedInBoxscore"]=True
+        with self.assertRaisesRegex(BoxscoreSchemaHold,"GOALIE_POTG_MISSING"):
+            check_game_observations(hto_game_id=3356177,official_goals_for=0,
+                                    official_goals_against=6,skaters=sk,goalies=gl)
+
+    def test_same_game_duplicate_player_identity_fails_closed(self):
+        sk=skater_rows(clone(SKATER_ZERO),verified_team_goals=0)
+        gl=goalie_rows(clone(GOALIE_WITH_POTG))
+        with self.assertRaisesRegex(BoxscoreSchemaHold,"DUPLICATE_OR_MISSING_SKATER"):
+            check_game_observations(hto_game_id=3356177,official_goals_for=0,
+                official_goals_against=3,skaters=sk+sk,goalies=gl)
+        with self.assertRaisesRegex(BoxscoreSchemaHold,"DUPLICATE_OR_MISSING_GOALIE"):
+            check_game_observations(hto_game_id=3356177,official_goals_for=0,
+                official_goals_against=6,skaters=sk,goalies=gl+gl)
+
+    def test_game_id_and_goalie_gp_values_must_be_valid(self):
+        sk=skater_rows(clone(SKATER_ZERO),verified_team_goals=0)
+        gl=goalie_rows(clone(GOALIE_WITH_POTG))
+        for id in (None,0,True,"3356177"):
+            with self.assertRaisesRegex(BoxscoreSchemaHold,"INVALID_OFFICIAL_HTO_GAME_ID"):
+                check_game_observations(hto_game_id=id,official_goals_for=0,
+                    official_goals_against=3,skaters=sk,goalies=gl)
+        gl[0]["gp"]=0
+        with self.assertRaisesRegex(BoxscoreSchemaHold,"UNEXPECTED_GOALIE_APPEARANCE"):
+            check_game_observations(hto_game_id=3356177,official_goals_for=0,
+                official_goals_against=3,skaters=sk,goalies=gl)
+
+    def test_game_reconciliation_does_not_claim_freshness_or_Excel_parity(self):
+        sk=skater_rows(clone(SKATER_ZERO),verified_team_goals=0)
+        gl=goalie_rows(clone(GOALIE_WITH_POTG))
+        result=check_game_observations(hto_game_id=3356177,
+                 official_goals_for=0,official_goals_against=3,skaters=sk,goalies=gl)
+        self.assertEqual(result["state"],"FOUR_SOURCE_CATEGORIES_RECONCILED_GAME_ONLY_AWARD_OVR_HELD")
+        self.assertFalse(result["workbookWritten"])
+        self.assertFalse(result["publisherUpdated"])
+        self.assertNotIn("officialHTOReadbackAuthenticated",result)
+        self.assertNotIn("officialAwardsRank",result)
 
 if __name__=="__main__":
     unittest.main()
