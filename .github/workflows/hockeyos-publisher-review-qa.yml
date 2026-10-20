@@ -1,0 +1,28 @@
+name: HockeyOS Publisher Recovery Review QA
+
+on:
+  pull_request:
+    paths:
+      - scripts/hockeyos_publisher_review_preflight.js
+      - tests/test_hockeyos_publisher_review_preflight.js
+      - tests/test_hockeyos_publisher_widget_contracts.js
+      - .github/workflows/hockeyos-publisher-review-qa.yml
+      - docs/261020_HockeyOS_Publisher_Divergence_Recovery_Review.md
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  source-contracts-and-no-push:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - name: Read review branch
+        uses: actions/checkout@v4
+      - name: Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Test safe publication planning and current widget contracts
+        run: node --test tests/test_hockeyos_publisher_review_preflight.js tests/test_hockeyos_publisher_widget_contracts.js tests/test_player_links.js
