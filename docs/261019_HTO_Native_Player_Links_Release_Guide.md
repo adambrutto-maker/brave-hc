@@ -33,7 +33,7 @@ Using an isolated Chromium session against the public HTO `p=roster` page:
 - All 225 `td[onclick]` native clickable cells persisted.
 - Zero nested `.brave-player-link` anchors were created inside HTO-native clickable cells.
 - Existing anchors were not overwritten; ordinary external player-name text linked, while `M. Provenzano` stayed unlinked due to ambiguity.
-- HTO public homepage permitted loading `https://adambrutto-maker.github.io/brave-hc/widgets/player-links.js?v=1` as an external script in ephemeral browser testing, without observed JavaScript errors.
+- HTO public homepage permitted loading `https://adambrutto-maker.github.io/brave-hc/widgets/player-links.js?v=3` as an external script in ephemeral browser testing, without observed JavaScript errors.
 - GitHub Pages deploy and source change are **not** proof of HTO administrative installation.
 
 
