@@ -110,11 +110,11 @@ The manager dropdown reads [widgets/goalie-roster.json](https://github.com/adamb
 
 ## Race-safe goalie approval and live manager browser QA (October 20)
 
-**Public manager confirmation requests are now `brave-hc-goalie-confirmation/v2`.** The prefilled GitHub review issue contains the game `assignmentKey`, chosen goalie, optional verified rental name, the SVHL `fixture_signature` shown to the manager, and the `expected_goalie` previously displayed when the page loaded.
+**Historical V2 introduction:** Manager confirmations previously used `brave-hc-goalie-confirmation/v2`; V3 now supersedes that format for future changes. The prefilled GitHub review issue contains the game `assignmentKey`, chosen goalie, optional verified rental name, the SVHL `fixture_signature` shown to the manager, and the `expected_goalie` previously displayed when the page loaded.
 
 - The authenticated GitHub issue workflow validates the reviewer's repository write access, checks the request schema, and compares the submitted **fixture signature** to the latest approved published SVHL feed before attempting an update.
 - It also checks that the **previous goalie still matches** the value that appeared on the manager page. If another manager has changed the assignment, or SVHL has changed the game date/time/opponent/rink/home-away details, the request is **rejected** rather than applied to a changed situation.
-- Earlier `v1` issue bodies without these version checks are no longer accepted. The separate manual GitHub Actions fallback now **also requires** the verified fixture signature and current saved goalie for real saves; routine updates should still use the safer prefilled manager issue route.
+- Earlier request versions lacking the current V3 review fields are no longer accepted. The separate manual GitHub Actions fallback now **also requires** the verified fixture signature and current saved goalie for real saves; routine updates should still use the safer prefilled manager issue route.
 - Selecting a goalie or clicking **Review and confirm** does not submit or save. The user must still review and explicitly submit the generated GitHub issue. A GitHub failure requires fresh review; it is **not** permission to automatically re-submit.
 - The browser-QA workflow now runs [`tests/smoke_goalie_manager_live.py`](https://github.com/adambrutto-maker/brave-hc/blob/main/tests/smoke_goalie_manager_live.py) using headless Chrome/Playwright. It intercepts `window.open` before any click and blocks GitHub navigation. The test inspects the URL payload without posting an issue.
 - Live tests cover each published game row, saved goalie selections, the original goaltender, an alternative goalie, the rental-name flow, invalid/cancelled rental entries, and confirmation that published assignments are unchanged. New request-version backend tests cover stale schedule details and a previous-goalie mismatch.
@@ -173,6 +173,21 @@ Failed GitHub issue-based goalie confirmations now produce a **safe public revie
 - The success route is unchanged: verified assignment commits are completed before the workflow comments on and closes the original request. A no-change same-goalie confirmation also closes successfully.
 - **Security:** category-to-message mapping is fixed in `scripts/goalie_request_feedback.py`. Public comments never contain arbitrary user-supplied issue text or developer tokens. No player is contacted, and no HTO game or goalie assignment is changed by this feedback module.
 - **QA:** `tests/test_goalie_request_feedback.py` covers stale fixture, stale prior goalie, failed publish, failed closure, prevalidation failure, malformed status files and untrusted identifiers. The reconciliation [GitHub Actions run 39444784071](https://github.com/adambrutto-maker/brave-hc/actions/runs/39444784071) passed its feedback tests and the original assignment checks. A live *rejection issue* has not been manufactured; the feedback remains test-validated pending a naturally occurring rejected request.
+
+## Goaltender Manager V3 — protected replacement and cancellation (October 20)
+
+The existing Goaltender Manager now prepares `brave-hc-goalie-confirmation/v3` requests. The public manager and the two authorized GitHub approval paths enforce these changes:
+
+- **Initial goalie assignment** from TBD uses `NEW_BOOKING` and still requires explicit GitHub issue submission or an authenticated manual save.
+- **Unchanged existing assignment** uses `NO_CHANGE`. Routine re-verification does not create a replacement event.
+- **Replacing or clearing an assigned goalie** opens an additional manager confirmation. The manager must affirm the specific game and prior goalie, then choose one of four controlled reasons: **Goalie unavailable**, **Manager correction**, **Schedule change**, or **Booking change**.
+- Cancelling that confirmation or leaving the reason invalid creates **no approval request**. Choosing TBD for an existing confirmed goalie is treated as a cancellation requiring the same explicit steps.
+- The backend validates the reason and old/new goalie transition even if a GitHub issue or manual workflow is constructed directly rather than through the manager. `v2` issues without the `change_reason` field are no longer accepted. All new changes retain the previously implemented SVHL fixture, prior-goalie and remote pre-push checks.
+- The selected category is stored as `lastChange.managerReason` when a goalie assignment actually changes. The remote pre-push and read-back receipt logic also validates the reason when it is supplied. No free-form personal details are stored in the public repository.
+- The advanced manual workflow requires the same `change_reason` field for an actual save, while dry-run-only testing cannot publish a change.
+- These controls do not authorize or perform messages, goalie bookings, HTO edits, player contact or team lineup approvals.
+
+**Release evidence:** [SVHL integration run 39454375444](https://github.com/adambrutto-maker/brave-hc/actions/runs/39454375444) passed the approval and reconciliation tests; [live browser QA run 39454506021](https://github.com/adambrutto-maker/brave-hc/actions/runs/39454506021) passed simulated replace/cancel actions with every GitHub popup intercepted, as well as the public HTO iframe and mobile/desktop widget. [Read-only remote preflight 39454567847](https://github.com/adambrutto-maker/brave-hc/actions/runs/39454567847) passed without modifying tracked files. No live goalie assignment was changed in these tests.
 
 ## Goaltender Manager coverage and weekly priority (October 20)
 
