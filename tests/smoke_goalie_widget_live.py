@@ -12,6 +12,7 @@ import re
 import shutil
 import subprocess
 import sys
+import time
 import urllib.request
 from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo
@@ -60,15 +61,31 @@ def verify():
     goalie=json.loads(get(RAW+"goalie-assignments.json"))
     if feed.get("schema")!="brave-hc-svhl-schedule/v1" or goalie.get("schema")!="brave-hc-goalie-assignments/v1":
         raise ValueError("Verified SVHL or goalie assignment feed schema changed")
-    home=BeautifulSoup(get(HOME),"html.parser")
-    host=home.select_one('iframe[src*="goalie-schedule-v1.2-HTO-embed.html"]')
+    chrome=chrome_path()
+    # HTO occasionally returns a partial/cache variant to automated clients.
+    # Check the visitor-visible browser DOM and retry before declaring the
+    # installed iframe missing, without making any HTO admin changes.
+    host=None
+    observed=[]
+    for attempt in range(3):
+        try:
+            home=render(chrome,HOME,"1280,900")
+            host=home.select_one('iframe[src*="goalie-schedule-v1.2-HTO-embed.html"]')
+            if host:
+                break
+            observed.append("attempt "+str(attempt+1)+": "+
+                            (home.title.get_text(" ",strip=True) if home.title else "untitled")+
+                            " (no iframe)")
+        except Exception as e:
+            observed.append("attempt "+str(attempt+1)+": "+str(e)[:120])
+        time.sleep(1)
     if not host:
-        raise AssertionError("HTO homepage missing goalie iframe")
+        raise AssertionError("HTO homepage did not show goalie iframe after three visitor-browser checks: "+
+                             "; ".join(observed))
     css=get(WIDGET)
     if "#braves-goalie-svhl td" not in css or "color:#fff!important" not in css:
         raise AssertionError("High-contrast goalie widget CSS missing")
     fixtures=expected(feed,now)
-    chrome=chrome_path()
     for size in ("1280,900","390,844"):
         doc=render(chrome,WIDGET,size)
         table=doc.select_one("#braves-goalie-svhl #bg-games")
