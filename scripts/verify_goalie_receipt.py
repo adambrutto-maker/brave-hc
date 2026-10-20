@@ -20,7 +20,8 @@ from verify_goalie_push import load_git
 
 def verify_receipt(feed: dict, saved: dict, game_key: str,
                    signature: str, previous: str, chosen: str,
-                   actor: str | None = None, claimed_change: bool = False) -> dict:
+                   actor: str | None = None, claimed_change: bool = False,
+                   manager_reason: str = "") -> dict:
     if feed.get("schema") != "brave-hc-svhl-schedule/v1":
         raise ValueError("Remote SVHL feed invalid")
     if saved.get("schema") != "brave-hc-goalie-assignments/v1":
@@ -50,6 +51,8 @@ def verify_receipt(feed: dict, saved: dict, game_key: str,
             expected["actor"] = actor
         if any(audit.get(k) != v for k, v in expected.items()):
             raise ValueError("Remote goalie change audit differs from approved request")
+        if manager_reason and audit.get("managerReason") != manager_reason:
+            raise ValueError("Remote goalie change reason differs from approved request")
     return {
         "schema": "brave-hc-goalie-receipt/v1",
         "status": "PUBLISHED_AND_VERIFIED",
@@ -81,6 +84,7 @@ def main() -> int:
     ap.add_argument("--custom-name", default="")
     ap.add_argument("--expected-goalie", default="")
     ap.add_argument("--actor", default="")
+    ap.add_argument("--change-reason", default="")
     ap.add_argument("--result-file", type=Path)
     ap.add_argument("--out", type=Path)
     args = ap.parse_args()
@@ -93,11 +97,13 @@ def main() -> int:
             signature=req["fixture_signature"]
             expected=req["expected_goalie"]
             chosen=req["resolved_goalie"]
+            manager_reason=req["change_reason"]
         else:
             key=args.game_key
             signature=args.fixture_signature
             expected=args.expected_goalie
             chosen=safe_goalie(args.goalie,args.custom_name)
+            manager_reason=args.change_reason
 
         changed=False
         if args.result_file:
@@ -114,7 +120,8 @@ def main() -> int:
             load_git("origin/main","widgets/svhl-upcoming.json"),
             load_git("origin/main","widgets/goalie-assignments.json"),
             key,signature,expected,chosen,
-            actor=args.actor if changed else None,claimed_change=changed)
+            actor=args.actor if changed else None,claimed_change=changed,
+            manager_reason=manager_reason)
         receipt["verified_remote_sha"]=git_sha()
         receipt["verified_at"]=datetime.now(timezone.utc).isoformat()
         if args.out:
