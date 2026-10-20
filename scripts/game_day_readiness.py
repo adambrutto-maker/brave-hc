@@ -15,6 +15,7 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from urllib.request import Request, urlopen
 from zoneinfo import ZoneInfo
+from goalie_advance_plan import stage as booking_stage, CURRENT_REGULARS, HORIZON_DAYS
 
 TORONTO = ZoneInfo("America/Toronto")
 TITLE = "Brave H.C. — next-game readiness review"
@@ -66,29 +67,37 @@ def examine(feed: dict, saved: dict, now: datetime) -> dict:
     if kickoff(next_game)-now <= timedelta(hours=36):
         name,warnings=notes(next_game)
         if warnings:
+            booking=booking_stage(next_game,saved,now)
             return {"status":"REVIEW","reason":"; ".join(warnings),
-                    "game":next_game,"goalie":name,"priority":"GAME_DAY"}
+                    "game":next_game,"goalie":name,"priority":"GAME_DAY",
+                    "booking_stage":booking["stage"],
+                    "rental_review_at":booking["rental_backup_review_at"],
+                    "regular_goalie_candidates":list(CURRENT_REGULARS)}
 
     # Look beyond this Sunday's confirmed starter. Flag the earliest fixture
     # needing manager attention within 14 days, without treating TBD as an
     # invitation, booking, or authorization for player contact.
     for game in candidates:
         delta=kickoff(game)-now
-        if delta > timedelta(days=14):
+        if delta > timedelta(days=HORIZON_DAYS):
             break
         name,warnings=notes(game)
         if warnings:
             priority="GAME_DAY" if delta<=timedelta(hours=36) else "ADVANCE_COVERAGE"
+            booking=booking_stage(game,saved,now)
             return {"status":"REVIEW","reason":"; ".join(warnings),
                     "game":game,"goalie":name,"priority":priority,
+                    "booking_stage":booking["stage"],
+                    "rental_review_at":booking["rental_backup_review_at"],
+                    "regular_goalie_candidates":list(CURRENT_REGULARS),
                     "nearest_game":next_game,
                     "nearest_goalie":saved["assignments"].get(next_game["assignmentKey"],"TBD")}
 
     name,_=notes(next_game)
     if kickoff(next_game)-now > timedelta(hours=36):
-        return {"status":"NOT_DUE","reason":"No game-day action or coverage gap within 14 days",
+        return {"status":"NOT_DUE","reason":"No game-day action or coverage gap within 21 days",
                 "game":next_game,"goalie":name}
-    return {"status":"READY","reason":"Next starter and HTO schedule verified; no coverage gap within 14 days",
+    return {"status":"READY","reason":"Next starter and HTO schedule verified; no coverage gap within 21 days",
             "game":next_game,"goalie":name}
 
 def issue_body(result: dict) -> str:
@@ -118,12 +127,19 @@ def issue_body(result: dict) -> str:
         f"**Opponent:** {plain(game['opponent'])}",
         f"**Rink:** {plain(game['rink'])}",
         f"**Priority:** {plain(result.get('priority', 'MANAGER_REVIEW'))}",
+        f"**Coverage stage:** {plain(result.get('booking_stage','MANAGER_REVIEW'))}",
+        f"**Rental backup review checkpoint:** {plain(result.get('rental_review_at','not calculated'))}",
+        "**First-choice regular goalie pool (NOT contact evidence):** "+
+            ", ".join(result.get("regular_goalie_candidates",[])),
         f"**Recorded goalie:** {plain(result['goalie'])}",
         f"**HTO reconciliation:** {plain(game.get('htoSyncStatus','UNKNOWN'))}",
         f"**Attention:** {plain(result['reason'])}",
         "",
         *first_game_context,
         "This GitHub issue is publicly visible in the Braves repository. It is **not** evidence of goalie acceptance, a booking, or authorization to contact a player or edit HTO.",
+        "Manager planning only: attempt regular goaltender scheduling well in advance; "+
+        "if no booking is recorded by the seven-day checkpoint, review a rental fallback; "+
+        "the 72-hour and 36-hour checkpoints escalate urgency. No outreach is automated.",
         "",
         f"1. Check the [official SVHL fixture]({SVHL}).",
         f"2. If goalie confirmation is required, use the [protected goalie manager]({MANAGER}).",
