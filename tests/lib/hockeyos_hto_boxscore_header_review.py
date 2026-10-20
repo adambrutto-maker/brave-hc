@@ -69,7 +69,7 @@ def skater_rows(table, *, verified_team_goals):
     For scoreless verified official games the scoring block may be omitted.
     Explicitly known GF=0 permits zeros only in that narrow case.
     """
-    if not isinstance(verified_team_goals,int) or verified_team_goals<0:
+    if not isinstance(verified_team_goals,int) or isinstance(verified_team_goals,bool) or verified_team_goals<0:
         _fail("MISSING_OFFICIAL_GAME_GF")
     prefix=("No","Name","POS")
     required=("+/-","POTG")
@@ -94,6 +94,9 @@ def skater_rows(table, *, verified_team_goals):
         pts=_value(row,columns["Pts"],"Pts") if all(present) else 0
         if g+a!=pts:
             _fail("PLAYER_POINTS_ARITHMETIC_MISMATCH")
+        potg=_value(row,columns["POTG"],"POTG")
+        if potg not in (0,1):
+            _fail("INVALID_PER_GAME_SKATER_POTG")
         result.append({
             "name":name,
             "jerseyNo":row[columns["No"]].strip(),
@@ -101,7 +104,7 @@ def skater_rows(table, *, verified_team_goals):
             "gameAppearance":1,
             "g":g,"a":a,"pts":pts,
             "plusminus":_value(row,columns["+/-"],"+/-",True),
-            "potg":_value(row,columns["POTG"],"POTG"),
+            "potg":potg,
             "pim":_value(row,columns["PIM"],"PIM") if "PIM" in columns else None,
             "scoringColumnsFromHTO":all(present),
             "sourceKind":"HTO_BOXSCORE_OBSERVATION_ONLY_NOT_AWARD_SCORE"
@@ -164,6 +167,9 @@ def check_game_observations(*, hto_game_id, official_goals_for,
         g, a, pts=player.get("g"), player.get("a"), player.get("pts")
         if any(not isinstance(x,int) or isinstance(x,bool) or x < 0 for x in (g,a,pts)) or g+a!=pts:
             _fail("UNVERIFIED_GAME_SKATER_POINTS")
+        potg=player.get("potg")
+        if not isinstance(potg,int) or isinstance(potg,bool) or potg not in (0,1):
+            _fail("INVALID_PER_GAME_SKATER_POTG")
         goals+=g
         assists+=a
     goalie_ga=0
