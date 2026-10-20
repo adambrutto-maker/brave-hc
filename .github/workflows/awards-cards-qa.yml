@@ -6,6 +6,7 @@ on:
       - 'widgets/awards-races-v3.js'
       - 'widgets/awards-races-v3.css'
       - 'widgets/awards-races.html'
+      - 'widgets/awards-races-v3.html'
       - 'widgets/awards-races.json'
       - 'widgets/awards-weekly-history.json'
       - 'widgets/awards-workbook-reference.json'
