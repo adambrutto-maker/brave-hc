@@ -118,6 +118,18 @@ The manager dropdown reads [widgets/goalie-roster.json](https://github.com/adamb
 
 **Validation evidence, Oct 19, 2026:** A no-change Stephen Logue confirmation for game `hto:3375682` was submitted as [issue #1](https://github.com/adambrutto-maker/brave-hc/issues/1). The [issue workflow run](https://github.com/adambrutto-maker/brave-hc/actions/runs/39319634402) passed, closed the issue with a receipt, and left the original goalie assignment unchanged.
 
+## Live public website browser QA (October 20)
+
+The Brave H.C. goalie widget has a separate **read-only, browser-rendered smoke test** at [tests/smoke_goalie_widget_live.py](https://github.com/adambrutto-maker/brave-hc/blob/main/tests/smoke_goalie_widget_live.py), independent of the SVHL schedule publisher.
+
+- The [Brave H.C. public goalie widget browser QA](https://github.com/adambrutto-maker/brave-hc/actions/workflows/brave-goalie-widget-smoke.yml) workflow runs daily at **11:47 UTC** (and on authenticated manual dispatch). Its only repository permission is **contents: read**.
+- Headless Chrome checks that the *public HTO homepage* contains the correct embedded goalie widget URL. It allows three visitor-browser attempts because HTO can occasionally respond with an incomplete cached/automated-request page.
+- The tester then loads the actual hosted widget at **1280 × 900 desktop** and **390 × 844 mobile** sizes and confirms every rendered game row against the official verified GitHub feed: date, Toronto start time, opponent, rink and stored goalie. Completed games are excluded using the same three-hour grace window.
+- A basic high-contrast CSS presence check detects accidental removal of the white-text styling. This is not a full visual contrast or accessibility audit.
+- QA fails if expected rows are missing, the hosted page reports a feed-read error, the real HTO iframe is absent on all attempts, or game/goalie data disagree. It never edits HTO, confirms a goalie, authenticates as an administrator or sends player messages.
+- A failed smoke run appears in **GitHub Actions** and relies on GitHub notification settings. It does **not** independently create a support issue; the SVHL reconciliation watchdog is separate.
+- **Release receipt:** [October 20 live browser smoke run](https://github.com/adambrutto-maker/brave-hc/actions/runs/39434709444) — PASS for five rendered games on desktop and mobile, iframe present on HTO, and both public GitHub feeds readable.
+
 ## Widget deployment / rollback
 - The new file [goalie-schedule-v1.2-HTO-embed.html](https://github.com/adambrutto-maker/brave-hc/blob/main/widgets/goalie-schedule-v1.2-HTO-embed.html) is the **full copy/paste source** for the HTO Script Area.
 - Only replace the existing HTO code after inspecting the hosted schedule/assignments and confirming the new widget renders properly.
