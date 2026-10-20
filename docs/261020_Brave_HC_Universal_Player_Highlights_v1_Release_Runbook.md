@@ -2,7 +2,7 @@
 
 Date: 2026-10-20
 Lead: MEDIA · HockeyOS (Engineering implementation; QA source checks)
-Status: COMPLETE — all 24 verified current HTO profiles installed and publicly verified (22 authorized new installs across rollout and continuation; Adam/Justin's prior accepted installs retained). No eligible profile deferrals; Johnny Unknown is excluded as an unverified placeholder.
+Status: COMPLETE — all 109 verified named HTO profiles installed and publicly verified (24 current plus85 historical). Two placeholders excluded; no eligible profile deferrals. [All-player register and Media handoff](hto-highlights-rollout/261020_All_Players_Final_Register.md).
 
 Current operational procedure and evidence supersede the pre-installation gate notes below: [rollout register and Media handoff](hto-highlights-rollout/261020_Rollout_Register_and_Media_Handoff.md), [permanent onboarding](hto-highlights-rollout/261020_New_Player_Onboarding.md). Earlier release-stage statements of no HTO writes and unverified editor admission are historical checkpoints, not the current rollout state.
 
