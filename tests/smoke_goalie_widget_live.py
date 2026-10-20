@@ -24,7 +24,7 @@ TZ=ZoneInfo("America/Toronto")
 
 
 def get(url):
-    req=urllib.request.Request(url,headers={"User-Agent":"BraveHC-GolieSmoke/1.0"})
+    req=urllib.request.Request(url,headers={"User-Agent":"BraveHC-GoalieSmoke/1.0"})
     with urllib.request.urlopen(req,timeout=25) as result:
         return result.read().decode("utf-8")
 
@@ -84,8 +84,12 @@ def verify():
                 raise AssertionError(f"{size}: incomplete game row")
             display=[td.get_text(" ",strip=True) for td in cols]
             name=goalie["assignments"].get(g["assignmentKey"],"TBD")
-            if (g["opponent"] not in display[2] or g["rink"] not in display[3]
-                    or name not in display[4]):
+            when=datetime.fromisoformat(g["date"]+"T"+g["time"]).replace(tzinfo=TZ)
+            expected_date=when.strftime("%a, %b ")+str(when.day)
+            expected_time=when.strftime("%I:%M %p").lstrip("0")
+            if (display[0]!=expected_date or display[1]!=expected_time or
+                    g["opponent"] not in display[2] or g["rink"] not in display[3] or
+                    name not in display[4]):
                 raise AssertionError(f"{size}: incorrect live fixture/goalie display: {display}")
         status=doc.select_one("#bg-status")
         if not status or "Schedule temporarily unavailable" in status.get_text():
