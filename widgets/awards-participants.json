@@ -891,6 +891,14 @@
         "sourceField": "Rookie Year",
         "source": "HTO_TEAM_ROSTER_CURRENT_SEASON",
         "status": "ROSTER_YEAR_OBSERVED_AWARD_ELIGIBILITY_NOT_VERIFIED"
+      },
+      "workbookRookieYear": {
+        "year": 2026,
+        "sourceTable": "PlayerInfo",
+        "sourceField": "Rookie Year",
+        "sourceCell": "AX70",
+        "sourceWorkbookSha256": "0002fd9f06596af8d0a00fc1b53a618ef15479f941ad5c1e6265b27002a65154",
+        "status": "SOURCE_WORKBOOK_CACHED_YEAR_VERIFIED_LIVE_ELIGIBILITY_UNRECONCILED"
       }
     },
     {
@@ -1526,6 +1534,14 @@
         "sourceField": "Rookie Year",
         "source": "HTO_TEAM_ROSTER_CURRENT_SEASON",
         "status": "ROSTER_YEAR_OBSERVED_AWARD_ELIGIBILITY_NOT_VERIFIED"
+      },
+      "workbookRookieYear": {
+        "year": 2026,
+        "sourceTable": "PlayerInfo",
+        "sourceField": "Rookie Year",
+        "sourceCell": "AX95",
+        "sourceWorkbookSha256": "0002fd9f06596af8d0a00fc1b53a618ef15479f941ad5c1e6265b27002a65154",
+        "status": "SOURCE_WORKBOOK_CACHED_YEAR_VERIFIED_LIVE_ELIGIBILITY_UNRECONCILED"
       }
     },
     {
@@ -1962,6 +1978,14 @@
         "sourceField": "Rookie Year",
         "source": "HTO_TEAM_ROSTER_CURRENT_SEASON",
         "status": "ROSTER_YEAR_OBSERVED_AWARD_ELIGIBILITY_NOT_VERIFIED"
+      },
+      "workbookRookieYear": {
+        "year": 2026,
+        "sourceTable": "PlayerInfo",
+        "sourceField": "Rookie Year",
+        "sourceCell": "AX112",
+        "sourceWorkbookSha256": "0002fd9f06596af8d0a00fc1b53a618ef15479f941ad5c1e6265b27002a65154",
+        "status": "SOURCE_WORKBOOK_CACHED_YEAR_VERIFIED_LIVE_ELIGIBILITY_UNRECONCILED"
       }
     },
     {
@@ -2074,6 +2098,14 @@
         "sourceField": "Rookie Year",
         "source": "HTO_TEAM_ROSTER_CURRENT_SEASON",
         "status": "ROSTER_YEAR_OBSERVED_AWARD_ELIGIBILITY_NOT_VERIFIED"
+      },
+      "workbookRookieYear": {
+        "year": 2026,
+        "sourceTable": "PlayerInfo",
+        "sourceField": "Rookie Year",
+        "sourceCell": "AX106",
+        "sourceWorkbookSha256": "0002fd9f06596af8d0a00fc1b53a618ef15479f941ad5c1e6265b27002a65154",
+        "status": "SOURCE_WORKBOOK_CACHED_YEAR_VERIFIED_LIVE_ELIGIBILITY_UNRECONCILED"
       }
     },
     {
@@ -2309,6 +2341,14 @@
         "sourceField": "Rookie Year",
         "source": "HTO_TEAM_ROSTER_CURRENT_SEASON",
         "status": "ROSTER_YEAR_OBSERVED_AWARD_ELIGIBILITY_NOT_VERIFIED"
+      },
+      "workbookRookieYear": {
+        "year": 2026,
+        "sourceTable": "PlayerInfo",
+        "sourceField": "Rookie Year",
+        "sourceCell": "AX113",
+        "sourceWorkbookSha256": "0002fd9f06596af8d0a00fc1b53a618ef15479f941ad5c1e6265b27002a65154",
+        "status": "SOURCE_WORKBOOK_CACHED_YEAR_VERIFIED_LIVE_ELIGIBILITY_UNRECONCILED"
       }
     }
   ],
@@ -2566,5 +2606,76 @@
       "resolution": "KEEP_HTO_ROSTER_ROOKIE_YEAR_VISIBLE; REQUIRE_WORKBOOK_RECONCILIATION_BEFORE_OFFICIAL_NOMINATION_OR_RATING"
     },
     "caveat": "HTO-listed Rookie Year is primary evidence for the unranked on-ice rookie watch. Full-time role and games played must independently match current season. The Sept 22 workbook flag remains separately retained and may conflict; no model eligibility or score is asserted."
+  },
+  "workbookRookieYearCrosscheck": {
+    "status": "SAVED_WORKBOOK_ROOKIE_YEAR_CROSSCHECKED_WITH_HTO_APPEARANCES_MODEL_ELIGIBILITY_HELD",
+    "sourceWorkbookSha256": "0002fd9f06596af8d0a00fc1b53a618ef15479f941ad5c1e6265b27002a65154",
+    "sourceWorkbookSnapshot": "2026-09-22",
+    "sourceSheet": "Player Information",
+    "sourceTable": "PlayerInfo",
+    "sourceField": "Rookie Year",
+    "sourceEligibilityTable": "AwardScoring",
+    "sourceRankingSheet": "Web Races",
+    "sourceRankingRange": "B39:D43",
+    "sourceRankingRule": "MIN(5,COUNTIF(AwardScoring[Rookie Eligible],1))",
+    "year": 2026,
+    "season": "W2026/27",
+    "workbookRecordedCurrentSeasonTeamGP": 1,
+    "currentHTOTeamGP": 4,
+    "sourceHTORosterUrl": "https://www.htosports.com/teams/default.asp?p=roster&s=hockey&u=BRAVESHOCKEY",
+    "names": [
+      "Kong, Henry",
+      "Povegliano, Adam",
+      "Rajkumar, Sanjay",
+      "Rosenberg, Jamie",
+      "Triumbari, Francesco"
+    ],
+    "observedCount": 5,
+    "workbookCachedRows": {
+      "Kong, Henry": {
+        "playerInfoRow": 70,
+        "awardScoringRow": 13,
+        "cachedRookieStatus": 1,
+        "cachedAwardEligible": 1,
+        "cachedSkaterGP": 1,
+        "cachedRecentSeason": "W2026/27"
+      },
+      "Povegliano, Adam": {
+        "playerInfoRow": 95,
+        "awardScoringRow": 20,
+        "cachedRookieStatus": 1,
+        "cachedAwardEligible": 1,
+        "cachedSkaterGP": 1,
+        "cachedRecentSeason": "W2026/27"
+      },
+      "Rajkumar, Sanjay": {
+        "playerInfoRow": 112,
+        "awardScoringRow": 27,
+        "cachedRookieStatus": 1,
+        "cachedAwardEligible": 1,
+        "cachedSkaterGP": 1,
+        "cachedRecentSeason": "W2026/27"
+      },
+      "Rosenberg, Jamie": {
+        "playerInfoRow": 106,
+        "awardScoringRow": 24,
+        "cachedRookieStatus": 0,
+        "cachedAwardEligible": 0,
+        "cachedSkaterGP": 0,
+        "cachedRecentSeason": "",
+        "cachedFirstSeason": "",
+        "missingOldestPlayerGame": true
+      },
+      "Triumbari, Francesco": {
+        "playerInfoRow": 113,
+        "awardScoringRow": 28,
+        "cachedRookieStatus": 1,
+        "cachedAwardEligible": 1,
+        "cachedSkaterGP": 1,
+        "cachedRecentSeason": "W2026/27"
+      }
+    },
+    "discrepancy": "Jamie Rosenberg has workbook Rookie Year 2026 (PlayerInfo!AX106) and FT roster, but cached Recent Season and First Season are blank, Skater GP 0, Rookie Status 0 and Rookie Eligible 0 because his current game events were not represented in the saved workbook. Official HTO records three appearances. Do not override the workbook formula: replay source-authorized games and recalculate in a controlled replica.",
+    "warning": "Unranked first-year candidate visibility is supported by workbook Rookie Year corroborated with official HTO participation; cached workbook award eligibility and all current model scores remain HELD pending authoritative game-log replay and formula recalculation."
   }
 }
