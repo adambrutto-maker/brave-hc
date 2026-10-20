@@ -307,3 +307,54 @@ test('impossible historical snapshot dates never produce weekly EA OVR movement'
   assert.equal(api.previousSnapshot(sourceRace),null);
  }finally{api.state.weeklyHistory=oldHistory;api.state.award=old;}
 });
+
+const historicalDependencies=require('../scripts/hockeyos_awards_historical_dependency_audit');
+
+test('Rolaids original formula lineage has 18 unique component formulas and 111 PlayerInfo inputs',()=>{
+ const inventory=historicalDependencies.audit(evidence);
+ assert.equal(inventory.status,'HISTORICAL_ROLAIDS_FORMULA_LINEAGE_MAPPED_CURRENT_OVR_HELD');
+ assert.equal(inventory.uniqueComponentFormulas,18);
+ assert.equal(inventory.uniquePlayerInfoFields,111);
+ assert.equal(inventory.roleWeights.skater.componentCount,11);
+ assert.equal(inventory.roleWeights.goalie.componentCount,10);
+ assert.equal(inventory.roleWeights.skater.weightTotalPercent,100);
+ assert.equal(inventory.roleWeights.goalie.weightTotalPercent,100);
+ assert.equal(inventory.currentOverallRatingsVerified,false);
+ assert.equal(inventory.fullWorkbookFormulaParity,false);
+ assert.equal(inventory.originalWorkbookAccessed,false);
+ assert.equal(inventory.publicationAuthorized,false);
+ for(const r of [inventory.roleWeights.skater,inventory.roleWeights.goalie]){
+  for(const x of r.components){
+   assert.match(x.internalFormulaSha256,/^[a-f0-9]{64}$/);
+   assert.match(x.displayFormulaSha256,/^[a-f0-9]{64}$/);
+   assert.ok(x.playerInfoFields.includes('Website Name'));
+   assert.equal(x.currentNormalizedComponentVerified,false);
+  }
+ }
+});
+
+test('historical formula completeness rejects forged score authority or incomplete components',()=>{
+ for(const mutate of [
+  x=>x.status='CURRENT_AWARD_SCORE_VERIFIED',
+  x=>x.sourceWorkbookHash='invalid',
+  x=>{delete x.componentFormulas[x.roleWeights.skater[0].field];},
+  x=>{x.roleWeights.skater[0].weight=0.7;},
+  x=>{x.roleWeights.skater[1].field=x.roleWeights.skater[0].field;},
+  x=>{x.componentFormulas['Unauthorized Scoring Field']={
+   internalFormula:'=PlayerInfo[NewField]',displayFormula:'=5'};}
+ ]){
+  const modified=structuredClone(evidence);mutate(modified);
+  assert.throws(()=>historicalDependencies.audit(modified));
+ }
+});
+
+test('original prior-career and all-time baselines remain distinct from public HTO raw fields',()=>{
+ const inventory=historicalDependencies.audit(evidence);
+ const byName=Object.fromEntries(inventory.allPlayerInfoDependencies.map(x=>[x.name,x.category]));
+ assert.equal(byName['Career Prior Total Pts/GP'],'HISTORICAL_PLAYER_BASELINE');
+ assert.equal(byName['All-Time Total Skater Pts Team Rate Avg'],'HISTORICAL_TEAM_COMPARATOR');
+ assert.equal(byName['Current Total Pts/GP'],'CURRENT_DERIVED_OR_COMPARATOR');
+ assert.equal(byName['Website Name'],'IDENTITY_JOIN');
+ assert.ok(inventory.dependencyCategoryCounts.HISTORICAL_PLAYER_BASELINE>0);
+ assert.ok(inventory.dependencyCategoryCounts.HISTORICAL_TEAM_COMPARATOR>0);
+});
