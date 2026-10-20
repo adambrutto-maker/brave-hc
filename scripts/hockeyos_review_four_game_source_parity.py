@@ -1,4 +1,4 @@
-"""Opt-in four-game review. No production acceptance; content provenance is held."""
+"""Opt-in four-game source review. Successful checks never authorize production."""
 import json
 import sys
 from pathlib import Path
@@ -42,6 +42,68 @@ def response_identity(url):
     if parsed.scheme!="https" or parsed.hostname!="www.htosports.com" or parsed.port not in (None,443) or parsed.username or parsed.password or parsed.fragment:
         raise ReviewHold("UNTRUSTED_RESPONSE_URL")
     return parsed.path.casefold(), sorted(parse_qsl(parsed.query, keep_blank_values=True))
+
+
+# This audit is deliberately bounded to the previously reconciled four-game map.
+GAME_DATES = {3356177:"Sunday, Sep 20, 2026",3356178:"Sunday, Sep 27, 2026",
+              3369564:"Sunday, Oct 4, 2026",3375601:"Sunday, Oct 18, 2026"}
+SEASON_TITLE = "Brave H.C. Stats - Winter 2026/2027"
+
+class ContentMetadata(HTMLParser):
+    def __init__(self):
+        super().__init__(); self.canonical=[]; self.titles=[]; self.dates=[]
+        self.title=None; self.div_depth=0; self.span_depth=0; self.first_span=None
+    def handle_starttag(self,tag,attrs):
+        values=dict(attrs)
+        if tag=="meta" and values.get("property")=="og:url":
+            if sum(key=="property" for key,value in attrs)!=1 or sum(key=="content" for key,value in attrs)!=1:
+                raise ReviewHold("AMBIGUOUS_CANONICAL_ATTRIBUTES")
+            self.canonical.append(values.get("content"))
+        if tag=="title":
+            if self.title is not None: raise ReviewHold("NESTED_TITLE")
+            self.title=[]
+        if tag=="div":
+            if self.div_depth:
+                self.div_depth+=1
+                if "gameHeaderDateLocation" in values.get("class","").split():
+                    raise ReviewHold("NESTED_GAME_DATE_HEADER")
+            elif "gameHeaderDateLocation" in values.get("class","").split():
+                self.div_depth=1; self.first_span=None; self.span_depth=0
+        if tag=="span" and self.div_depth:
+            if self.first_span is None: self.first_span=[]; self.span_depth=1
+            elif self.span_depth: self.span_depth+=1
+    def handle_data(self,data):
+        if self.title is not None: self.title.append(data)
+        if self.div_depth and self.span_depth: self.first_span.append(data)
+    def handle_endtag(self,tag):
+        if tag=="title" and self.title is not None:
+            self.titles.append(" ".join("".join(self.title).split())); self.title=None
+        if tag=="span" and self.span_depth: self.span_depth-=1
+        if tag=="div" and self.div_depth:
+            self.div_depth-=1
+            if not self.div_depth:
+                self.dates.append(None if self.first_span is None else " ".join("".join(self.first_span).split()))
+
+def verify_content(source,url,game_id=None):
+    metadata=ContentMetadata(); metadata.feed(source); metadata.close()
+    if len(metadata.canonical)!=1 or not isinstance(metadata.canonical[0],str):
+        raise ReviewHold("MISSING_OR_DUPLICATE_CANONICAL_URL")
+    if response_identity(metadata.canonical[0])!=response_identity(url):
+        raise ReviewHold("CONTENT_CANONICAL_URL_MISMATCH")
+    if game_id is not None:
+        if game_id not in GAME_DATES:
+            raise ReviewHold("GAME_NOT_IN_AUDITED_DATE_MAP")
+        # The expected URL identity contains the game ID and is checked above.
+        query=dict(parse_qsl(urlsplit(url).query))
+        if query.get("gameID")!=str(game_id) or query.get("p")!="boxscore":
+            raise ReviewHold("REQUESTED_GAME_ID_MISMATCH")
+        if metadata.dates!=[GAME_DATES[game_id]] or metadata.div_depth or metadata.span_depth:
+            raise ReviewHold("GAME_HEADER_DATE_MISMATCH")
+        return {"canonicalURL":metadata.canonical[0],"gameDate":GAME_DATES[game_id],
+                "seasonBasis":"AUDITED_2026_27_GAME_DATE_MAP_AND_VERIFIED_SEASON_STATS"}
+    if metadata.titles!=[SEASON_TITLE] or metadata.title is not None:
+        raise ReviewHold("SEASON_TITLE_MISMATCH")
+    return {"canonicalURL":metadata.canonical[0],"seasonTitle":SEASON_TITLE}
 
 def fetch_html(url, opener=urlopen):
     expected=response_identity(url)
@@ -132,7 +194,9 @@ def main(argv=None):
     receipts=[]; allsk=[]; allgoal=[]
     for gid in GAME_IDS:
         url=f"https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID={gid}&p=boxscore"
-        tables=parse_tables(fetch_html(url))
+        source=fetch_html(url)
+        provenance=verify_content(source,url,game_id=gid)
+        tables=parse_tables(source)
         board=unique_table(tables,lambda head:head and head[0]=="REGULAR SEASON")
         teams=[row for row in board[1:] if row and row[0]=="Brave H.C."]
         opponents=[row for row in board[1:] if row and row[0]!="Brave H.C." and row[-1].isdigit()]
@@ -143,20 +207,21 @@ def main(argv=None):
         go=unique_table(tables,lambda head:head[:2]==["No","Name"] and "GP" in head)
         skaters=helper.skater_rows(sk,verified_team_goals=gf); goalies=helper.goalie_rows(go)
         receipt=helper.check_game_observations(hto_game_id=gid,official_goals_for=gf,official_goals_against=ga,skaters=skaters,goalies=goalies)
-        receipt.update(sourceURL=url,sourceContentIdentityVerified=False,releaseState="HOLD_UNVERIFIED_GAME_DATE_SEASON_CONTENT")
+        receipt.update(sourceURL=url,sourceContentIdentityVerified=True,contentProvenance=provenance,releaseState="REVIEW_ONLY_NOT_PRODUCTION_ACCEPTANCE")
         receipts.append(receipt); allsk+=skaters; allgoal+=goalies
     url="https://www.htosports.com/teams/default.asp?p=stats&s=hockey&u=BRAVESHOCKEY"
-    tables=parse_tables(fetch_html(url))
+    source=fetch_html(url)
+    season_provenance=verify_content(source,url)
+    tables=parse_tables(source)
     sk=unique_table(tables,lambda head:head[:3]==["No","Name","POS"] and "GP" in head)
     go=unique_table(tables,lambda head:head[:2]==["No","Name"] and "GP" in head and "GA" in head)
     result={"observedAt":datetime.now(timezone.utc).isoformat(),"games":receipts,
             "skaters":compare_season(sk,allsk,SKATER_FIELDS),"goalies":compare_season(go,allgoal,GOALIE_FIELDS),
-            "releaseState":"HOLD_UNVERIFIED_GAME_DATE_SEASON_CONTENT","productionAcceptance":False,
-            "sourceContentIdentityVerified":False,"productionModified":False}
+            "releaseState":"REVIEW_ONLY_NOT_PRODUCTION_ACCEPTANCE","productionAcceptance":False,
+            "seasonProvenance":season_provenance,"sourceContentIdentityVerified":True,"productionModified":False}
     print(json.dumps(result),flush=True)
-    # Transport URL validation is not returned-content game/date/season verification.
-    # This review command always holds production acceptance, even if arithmetic matches.
-    return 3 if not (result["skaters"]["discrepancies"] or result["goalies"]["discrepancies"]) else 2
+    # Source-review success is distinct from deployment or award-model acceptance.
+    return 0 if not (result["skaters"]["discrepancies"] or result["goalies"]["discrepancies"]) else 2
 
 if __name__=="__main__":
     try: raise SystemExit(main())
