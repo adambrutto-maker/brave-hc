@@ -57,17 +57,6 @@ def api(base: str, path: str, token: str, method="GET", payload=None):
         return {} if res.status==204 else json.load(res)
 
 
-def sync(action: dict, repo: str, token: str):
-    if action["action"]=="IGNORE":
-        print("SKIPPED:",action["reason"])
-        return
-    base="https://api.github.com/repos/"+repo
-    # Re-fetch latest run immediately before mutating issue state; this also
-    # catches completion-order races where an older failure arrives late.
-    latest=api(base,"/actions/workflows/brave-svhl-sync.yml/runs?per_page=1",token)
-    return latest
-
-
 def main():
     event=json.loads(Path(os.environ["GITHUB_EVENT_PATH"]).read_text())
     repo=os.environ["GITHUB_REPOSITORY"]
