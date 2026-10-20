@@ -1,0 +1,16 @@
+<!-- BRAVE H.C. / HOCKEYOS: UNIVERSAL PLAYER HIGHLIGHTS -->
+<!-- Use the SAME iframe markup for every player.
+     Replace ONLY 000000 with that player's exact HTO numeric playerID.
+     Example: Adam Brutto 354054; Justin Carosi 354060; Dev Leong 776208.
+     No separate widget or code file is needed.
+     Keep any old HTO Highlights content backed up before replacement.
+     Installing this on HTO is a separate controlled change. -->
+<iframe
+  title="Brave H.C. player career highlights and season form"
+  src="https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=000000"
+  loading="lazy"
+  width="100%"
+  height="840"
+  style="width:100%;height:840px;max-width:100%;border:0;border-radius:10px;background:#071829;"
+  referrerpolicy="no-referrer"
+></iframe>

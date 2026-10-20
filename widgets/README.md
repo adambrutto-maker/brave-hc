@@ -86,3 +86,13 @@ The shared registry now also matches abbreviated first-initial/surname labels **
 ### Historical companion: verified Summer season deep-links (2026-10-20)
 
 HTO historical Records and Awards now link to the specific `Summer_YYYY` player-season statistics when both the source category/year and an exact HTO public player-season match are available. Generic Winter calendar years, unavailable evidence, ambiguous names, and specific game IDs without source proof still fall back to the safe career profile. This is read-only; source records are not altered. New optional evidence: `history-player-seasons.json` for 51 verified player IDs. Rules and tests: `docs/261020_HTO_Historical_Summer_Season_Links_v2_QA.md`.
+
+## Universal Player Highlights (v1) — 2026-10-20
+
+- Universal widget: `player-highlights.html?playerID=354054` for Adam, `?playerID=354060` for Justin, or any newly verified HTO `playerID`. One shared widget file; no per-player source copies.
+- Existing manual highlights: `player-highlights-ledger.json` preserves 16 Adam entries and 25 Justin entries, including dates/seasons, original text, order, and five bold championship lines. The display-only typo correction preserves its original text separately.
+- Verified current 2026/27 skater/goalie performance is loaded from the existing dated, qualified public `awards-participants.json` feed; it updates as that separately controlled source refreshes, not by unrestricted browser scraping.
+- No automatic award, captaincy, championship or milestone award date is published. Missing/unverified player IDs and feeds fail safely.
+- HTO profile snippet: `HTO_PLAYER_HIGHLIGHTS_IFRAME_PASTE.txt`. Replace its sole `playerID=000000` identifier. HTO editor support for iframe embed and actual profile installation remain untested and must be confirmed by a controlled backed-up pilot.
+- Detailed contract and onboarding: `docs/261020_Brave_HC_Universal_Player_Highlights_v1_Release_Runbook.md`.
+- QA: `node --test tests/test_player_highlights_identity.cjs tests/test_player_links.js`, then `node tests/player_highlights_browser_qa.cjs` on a machine with Puppeteer configured; do not alter the known AwardsScoring formula hold to refresh stats.

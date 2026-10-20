@@ -1,0 +1,434 @@
+{
+  "schema": "brave-hc-player-highlights/v1",
+  "capturedAt": "2026-10-20T15:17:15.374Z",
+  "sourceAuthority": "NATIVE_HTO_HIGHLIGHTS_PUBLIC_READBACK",
+  "recordPolicy": "Keep original sourceText/order/emphasis exactly. displayText may correct known typo; never infer new awards, membership or milestone dates. Additional records require manager approval.",
+  "players": {
+    "354054": {
+      "name": "Adam Brutto",
+      "profileUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=354054",
+      "items": [
+        {
+          "id": "hto-legacy-354054-01",
+          "category": "award",
+          "sourceText": "Bill Masterton Award for Dedication - Winter 2024/25",
+          "displayText": "Bill Masterton Award for Dedication - Winter 2024/25",
+          "sourceEmphasis": false,
+          "sourceOrder": 0,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354054-02",
+          "category": "milestone",
+          "sourceText": "300 Game Club - January 5, 2025",
+          "displayText": "300 Game Club - January 5, 2025",
+          "sourceEmphasis": false,
+          "sourceOrder": 1,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354054-03",
+          "category": "milestone",
+          "sourceText": "200 Game Club - January 6, 2019",
+          "displayText": "200 Game Club - January 6, 2019",
+          "sourceEmphasis": false,
+          "sourceOrder": 2,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354054-04",
+          "category": "leadership",
+          "sourceText": "Elected Captain - Winter 2019/20",
+          "displayText": "Elected Captain - Winter 2019/20",
+          "sourceEmphasis": false,
+          "sourceOrder": 3,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354054-05",
+          "category": "award",
+          "sourceText": "Bill Masterton Award for Decidation - Winter 2017/18",
+          "displayText": "Bill Masterton Award for Dedication - Winter 2017/18",
+          "sourceEmphasis": false,
+          "sourceOrder": 4,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354054-06",
+          "category": "award",
+          "sourceText": "Bill Masterton Award for Decidation - Summer 2017",
+          "displayText": "Bill Masterton Award for Dedication - Summer 2017",
+          "sourceEmphasis": false,
+          "sourceOrder": 5,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354054-07",
+          "category": "milestone",
+          "sourceText": "100 Point Club - August 20, 2017",
+          "displayText": "100 Point Club - August 20, 2017",
+          "sourceEmphasis": false,
+          "sourceOrder": 6,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354054-08",
+          "category": "championship",
+          "sourceText": "SVHL Cup Champion - Summer 2016",
+          "displayText": "SVHL Cup Champion - Summer 2016",
+          "sourceEmphasis": true,
+          "sourceOrder": 7,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354054-09",
+          "category": "championship",
+          "sourceText": "SVHL Cup Champion - Winter 2015/16",
+          "displayText": "SVHL Cup Champion - Winter 2015/16",
+          "sourceEmphasis": true,
+          "sourceOrder": 8,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354054-10",
+          "category": "milestone",
+          "sourceText": "100 Game Club - January 3, 2016",
+          "displayText": "100 Game Club - January 3, 2016",
+          "sourceEmphasis": false,
+          "sourceOrder": 9,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354054-11",
+          "category": "milestone",
+          "sourceText": "50 Point Club - July 26, 2015",
+          "displayText": "50 Point Club - July 26, 2015",
+          "sourceEmphasis": false,
+          "sourceOrder": 10,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354054-12",
+          "category": "recognition",
+          "sourceText": "All-Star Nomination - Winter 2014/15",
+          "displayText": "All-Star Nomination - Winter 2014/15",
+          "sourceEmphasis": false,
+          "sourceOrder": 11,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354054-13",
+          "category": "milestone",
+          "sourceText": "50 Game Club - September 21, 2014",
+          "displayText": "50 Game Club - September 21, 2014",
+          "sourceEmphasis": false,
+          "sourceOrder": 12,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354054-14",
+          "category": "award",
+          "sourceText": "James Norris Award - Summer 2014",
+          "displayText": "James Norris Award - Summer 2014",
+          "sourceEmphasis": false,
+          "sourceOrder": 13,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354054-15",
+          "category": "leadership",
+          "sourceText": "Elected Assistant Captain - Winter 2013/14",
+          "displayText": "Elected Assistant Captain - Winter 2013/14",
+          "sourceEmphasis": false,
+          "sourceOrder": 14,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354054-16",
+          "category": "championship",
+          "sourceText": "SVHL Cup Champion - Winter 2012/13",
+          "displayText": "SVHL Cup Champion - Winter 2012/13",
+          "sourceEmphasis": true,
+          "sourceOrder": 15,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        }
+      ],
+      "originalCount": 16,
+      "legacyStatus": "IMPORT_FROM_CURRENT_PUBLIC_HTO_NO_NEW_AWARD_APPROVAL"
+    },
+    "354060": {
+      "name": "Justin Carosi",
+      "profileUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=354060",
+      "items": [
+        {
+          "id": "hto-legacy-354060-01",
+          "category": "milestone",
+          "sourceText": "300 Game Club - September 20, 2026",
+          "displayText": "300 Game Club - September 20, 2026",
+          "sourceEmphasis": false,
+          "sourceOrder": 0,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354060-02",
+          "category": "award",
+          "sourceText": "Andrew Cristillo Award for Dedication - Winter 2025/26",
+          "displayText": "Andrew Cristillo Award for Dedication - Winter 2025/26",
+          "sourceEmphasis": false,
+          "sourceOrder": 1,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354060-03",
+          "category": "award",
+          "sourceText": "Hart Award Team MVP - Winter 2025/26",
+          "displayText": "Hart Award Team MVP - Winter 2025/26",
+          "sourceEmphasis": false,
+          "sourceOrder": 2,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354060-04",
+          "category": "award",
+          "sourceText": "Hart Award Team MVP - Winter 2024/25",
+          "displayText": "Hart Award Team MVP - Winter 2024/25",
+          "sourceEmphasis": false,
+          "sourceOrder": 3,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354060-05",
+          "category": "award",
+          "sourceText": "Maurice \"Rocket\" Richard Award (12 Goals) - Winter 2024/25",
+          "displayText": "Maurice \"Rocket\" Richard Award (12 Goals) - Winter 2024/25",
+          "sourceEmphasis": false,
+          "sourceOrder": 4,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354060-06",
+          "category": "award",
+          "sourceText": "Bill Masterton Award for Dedication - Winter 2023/24",
+          "displayText": "Bill Masterton Award for Dedication - Winter 2023/24",
+          "sourceEmphasis": false,
+          "sourceOrder": 5,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354060-07",
+          "category": "award",
+          "sourceText": "Hart Award Team MVP - Winter 2023/24",
+          "displayText": "Hart Award Team MVP - Winter 2023/24",
+          "sourceEmphasis": false,
+          "sourceOrder": 6,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354060-08",
+          "category": "award",
+          "sourceText": "Art Ross Award (30 Points) - Winter 2023/24",
+          "displayText": "Art Ross Award (30 Points) - Winter 2023/24",
+          "sourceEmphasis": false,
+          "sourceOrder": 7,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354060-09",
+          "category": "milestone",
+          "sourceText": "300 Point Club - January 14, 2024",
+          "displayText": "300 Point Club - January 14, 2024",
+          "sourceEmphasis": false,
+          "sourceOrder": 8,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354060-10",
+          "category": "award",
+          "sourceText": "Hart Award Team MVP - Winter 2022/23",
+          "displayText": "Hart Award Team MVP - Winter 2022/23",
+          "sourceEmphasis": false,
+          "sourceOrder": 9,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354060-11",
+          "category": "award",
+          "sourceText": "Art Ross Award (32 Points) - Winter 2022/23",
+          "displayText": "Art Ross Award (32 Points) - Winter 2022/23",
+          "sourceEmphasis": false,
+          "sourceOrder": 10,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354060-12",
+          "category": "leadership",
+          "sourceText": "Elected Assistant Captain - Winter 2022/23",
+          "displayText": "Elected Assistant Captain - Winter 2022/23",
+          "sourceEmphasis": false,
+          "sourceOrder": 11,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354060-13",
+          "category": "award",
+          "sourceText": "Bill Masterton Award for Dedication - Winter 2019/20",
+          "displayText": "Bill Masterton Award for Dedication - Winter 2019/20",
+          "sourceEmphasis": false,
+          "sourceOrder": 12,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354060-14",
+          "category": "milestone",
+          "sourceText": "200 Game Club - February 23, 2020",
+          "displayText": "200 Game Club - February 23, 2020",
+          "sourceEmphasis": false,
+          "sourceOrder": 13,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354060-15",
+          "category": "award",
+          "sourceText": "Conn Smythe Award Playoff MVP - Winter 2018/19",
+          "displayText": "Conn Smythe Award Playoff MVP - Winter 2018/19",
+          "sourceEmphasis": false,
+          "sourceOrder": 14,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354060-16",
+          "category": "milestone",
+          "sourceText": "200 Point Club - December 30, 2018",
+          "displayText": "200 Point Club - December 30, 2018",
+          "sourceEmphasis": false,
+          "sourceOrder": 15,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354060-17",
+          "category": "championship",
+          "sourceText": "SVHL Cup Champion - Summer 2016",
+          "displayText": "SVHL Cup Champion - Summer 2016",
+          "sourceEmphasis": true,
+          "sourceOrder": 16,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354060-18",
+          "category": "milestone",
+          "sourceText": "100 Game Club - October 30, 2016",
+          "displayText": "100 Game Club - October 30, 2016",
+          "sourceEmphasis": false,
+          "sourceOrder": 17,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354060-19",
+          "category": "milestone",
+          "sourceText": "100 Point Club - October 23, 2016",
+          "displayText": "100 Point Club - October 23, 2016",
+          "sourceEmphasis": false,
+          "sourceOrder": 18,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354060-20",
+          "category": "championship",
+          "sourceText": "SVHL Cup Champion - Winter 2015/16",
+          "displayText": "SVHL Cup Champion - Winter 2015/16",
+          "sourceEmphasis": true,
+          "sourceOrder": 19,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354060-21",
+          "category": "milestone",
+          "sourceText": "50 Point Club - June 21, 2015",
+          "displayText": "50 Point Club - June 21, 2015",
+          "sourceEmphasis": false,
+          "sourceOrder": 20,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354060-22",
+          "category": "milestone",
+          "sourceText": "50 Game Club - June 14, 2015",
+          "displayText": "50 Game Club - June 14, 2015",
+          "sourceEmphasis": false,
+          "sourceOrder": 21,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354060-23",
+          "category": "award",
+          "sourceText": "Rookie of the Year Award - Winter 2014/15",
+          "displayText": "Rookie of the Year Award - Winter 2014/15",
+          "sourceEmphasis": false,
+          "sourceOrder": 22,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354060-24",
+          "category": "recognition",
+          "sourceText": "All-Star Nomination - Winter 2014/15",
+          "displayText": "All-Star Nomination - Winter 2014/15",
+          "sourceEmphasis": false,
+          "sourceOrder": 23,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-legacy-354060-25",
+          "category": "award",
+          "sourceText": "Rookie of the Year Award - Summer 2014",
+          "displayText": "Rookie of the Year Award - Summer 2014",
+          "sourceEmphasis": false,
+          "sourceOrder": 24,
+          "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
+          "publication": "EXISTING_HTO_MANUAL_RECORD"
+        }
+      ],
+      "originalCount": 25,
+      "legacyStatus": "IMPORT_FROM_CURRENT_PUBLIC_HTO_NO_NEW_AWARD_APPROVAL"
+    }
+  }
+}

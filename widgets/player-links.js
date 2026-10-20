@@ -84,7 +84,13 @@
     const season = officialSeason(context?.season);
     return season ? url + '&pageLoad=ProfileTabStats&viewseas=' + season : url;
   };
-  scope.BravePlayerLinks = Object.freeze({ profileUrl, resolve, officialSeason, officialGame, knownPlayers: roster.length });
+  const identityById = id => {
+    const numeric = Number(id);
+    if(!Number.isSafeInteger(numeric) || numeric <= 0) return null;
+    const verified = roster.find(record => record[1] === numeric);
+    return verified ? Object.freeze({name:verified[0],playerID:numeric}) : null;
+  };
+  scope.BravePlayerLinks = Object.freeze({ profileUrl, resolve, officialSeason, officialGame, identityById, knownPlayers: roster.length });
   if (typeof document === 'undefined' || typeof MutationObserver === 'undefined') return;
 
   const escapeRegex = s => s.replace(/[|\\{}()[\]^$+*?.]/g, '\\$&');
