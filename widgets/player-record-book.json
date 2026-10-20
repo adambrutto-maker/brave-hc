@@ -1,0 +1,2794 @@
+{
+  "schema": "brave-hc-player-record-book/v1",
+  "sourceAuthority": "NATIVE_HTO_RECORDS_PUBLIC_READBACK",
+  "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=records",
+  "capturedAt": "2026-10-20T18:45:50.887Z",
+  "interpretation": "Published record-book entries include historical progression; inclusion does not assert an entry remains the current club record. Milestone dates are transcribed independently and do not replace Highlights dates.",
+  "players": {
+    "354041": {
+      "name": "Marco Congiusti",
+      "entries": [
+        {
+          "category": "Winter - Assists",
+          "scope": "Game",
+          "sourceText": "2 - Marco Congiusti (September 29, 2013)",
+          "value": "2",
+          "dateLabel": "September 29, 2013",
+          "kind": "performance"
+        },
+        {
+          "category": "50 Game Club",
+          "scope": "Career",
+          "sourceText": "7 - Marco Congiusti (September 28, 2014)",
+          "value": "7",
+          "dateLabel": "September 28, 2014",
+          "kind": "milestone"
+        },
+        {
+          "category": "50 Point Club",
+          "scope": "Career",
+          "sourceText": "15 - Marco Congiusti (March 3, 2019)",
+          "value": "15",
+          "dateLabel": "March 3, 2019",
+          "kind": "milestone"
+        },
+        {
+          "category": "100 Game Club",
+          "scope": "Career",
+          "sourceText": "8 - Marco Congiusti (February 28, 2016)",
+          "value": "8",
+          "dateLabel": "February 28, 2016",
+          "kind": "milestone"
+        },
+        {
+          "category": "200 Game Club",
+          "scope": "Career",
+          "sourceText": "6 - Marco Congiusti (November 17, 2019)",
+          "value": "6",
+          "dateLabel": "November 17, 2019",
+          "kind": "milestone"
+        }
+      ]
+    },
+    "354042": {
+      "name": "Lucas Brutto",
+      "entries": [
+        {
+          "category": "50 Game Club",
+          "scope": "Career",
+          "sourceText": "21 - Lucas Brutto (December 30, 2018)",
+          "value": "21",
+          "dateLabel": "December 30, 2018",
+          "kind": "milestone"
+        }
+      ]
+    },
+    "354043": {
+      "name": "Italo Brutto",
+      "entries": []
+    },
+    "354044": {
+      "name": "Dale Payne",
+      "entries": []
+    },
+    "354045": {
+      "name": "Mario Provenzano",
+      "entries": [
+        {
+          "category": "Winter - Penalty Minutes",
+          "scope": "Game",
+          "sourceText": "4 - Mario Provenzano (December 15, 2013)",
+          "value": "4",
+          "dateLabel": "December 15, 2013",
+          "kind": "performance"
+        },
+        {
+          "category": "50 Game Club",
+          "scope": "Career",
+          "sourceText": "10 - Mario Provenzano (November 9, 2014)",
+          "value": "10",
+          "dateLabel": "November 9, 2014",
+          "kind": "milestone"
+        },
+        {
+          "category": "50 Point Club",
+          "scope": "Career",
+          "sourceText": "14 - Mario Provenzano (February 11, 2018)",
+          "value": "14",
+          "dateLabel": "February 11, 2018",
+          "kind": "milestone"
+        },
+        {
+          "category": "100 Game Club",
+          "scope": "Career",
+          "sourceText": "11 - Mario Provenzano (December 18, 2016)",
+          "value": "11",
+          "dateLabel": "December 18, 2016",
+          "kind": "milestone"
+        },
+        {
+          "category": "100 Point Club",
+          "scope": "Career",
+          "sourceText": "11 - Mario Provenzano (November 16, 2025)",
+          "value": "11",
+          "dateLabel": "November 16, 2025",
+          "kind": "milestone"
+        },
+        {
+          "category": "200 Game Club",
+          "scope": "Career",
+          "sourceText": "10 - Mario Provenzano (March 17, 2024)",
+          "value": "10",
+          "dateLabel": "March 17, 2024",
+          "kind": "milestone"
+        }
+      ]
+    },
+    "354046": {
+      "name": "Ryan Logue",
+      "entries": [
+        {
+          "category": "Summer - Goals",
+          "scope": "Game",
+          "sourceText": "2 - Ryan Logue (June 2, 2013)",
+          "value": "2",
+          "dateLabel": "June 2, 2013",
+          "kind": "performance"
+        },
+        {
+          "category": "Summer - Goals",
+          "scope": "Season",
+          "sourceText": "8 - Ryan Logue (2013)",
+          "value": "8",
+          "dateLabel": "2013",
+          "kind": "performance"
+        },
+        {
+          "category": "Summer - Points",
+          "scope": "Game",
+          "sourceText": "5 - Ryan Logue (July 20, 2014)",
+          "value": "5",
+          "dateLabel": "July 20, 2014",
+          "kind": "performance"
+        },
+        {
+          "category": "Summer - Points",
+          "scope": "Game",
+          "sourceText": "4 - Ryan Logue (June 2, 2013)",
+          "value": "4",
+          "dateLabel": "June 2, 2013",
+          "kind": "performance"
+        },
+        {
+          "category": "Summer - Points",
+          "scope": "Game",
+          "sourceText": "3 - Ryan Logue (June 9, 2013)",
+          "value": "3",
+          "dateLabel": "June 9, 2013",
+          "kind": "performance"
+        },
+        {
+          "category": "Summer - Points",
+          "scope": "Playoffs",
+          "sourceText": "2 - Ryan Logue (2014)",
+          "value": "2",
+          "dateLabel": "2014",
+          "kind": "performance"
+        },
+        {
+          "category": "Summer - Assists",
+          "scope": "Game",
+          "sourceText": "4 - Ryan Logue (June 9, 2013)",
+          "value": "4",
+          "dateLabel": "June 9, 2013",
+          "kind": "performance"
+        },
+        {
+          "category": "Summer - Assists",
+          "scope": "Season",
+          "sourceText": "10 - Ryan Logue (2015)",
+          "value": "10",
+          "dateLabel": "2015",
+          "kind": "performance"
+        },
+        {
+          "category": "Summer - Assists",
+          "scope": "Season",
+          "sourceText": "9 - Ryan Logue (2014)",
+          "value": "9",
+          "dateLabel": "2014",
+          "kind": "performance"
+        },
+        {
+          "category": "Summer - Assists",
+          "scope": "Season",
+          "sourceText": "7 - Ryan Logue (2013)",
+          "value": "7",
+          "dateLabel": "2013",
+          "kind": "performance"
+        },
+        {
+          "category": "Summer - Game Winning Goals",
+          "scope": "Season",
+          "sourceText": "2 - Ryan Logue (2014)",
+          "value": "2",
+          "dateLabel": "2014",
+          "kind": "performance"
+        },
+        {
+          "category": "Summer - Player of the Game",
+          "scope": "Season",
+          "sourceText": "4 - Ryan Logue (2013)",
+          "value": "4",
+          "dateLabel": "2013",
+          "kind": "performance"
+        },
+        {
+          "category": "Summer - Penalty Minutes",
+          "scope": "Game",
+          "sourceText": "4 - Ryan Logue (July 13, 2014)",
+          "value": "4",
+          "dateLabel": "July 13, 2014",
+          "kind": "performance"
+        },
+        {
+          "category": "Winter - Game Winning Goals",
+          "scope": "Playoffs",
+          "sourceText": "2 - Ryan Logue (2019/20)",
+          "value": "2",
+          "dateLabel": "2019/20",
+          "kind": "performance"
+        },
+        {
+          "category": "Winter - Shorthanded Goals",
+          "scope": "Season",
+          "sourceText": "2 - Ryan Logue (2014/15)",
+          "value": "2",
+          "dateLabel": "2014/15",
+          "kind": "performance"
+        },
+        {
+          "category": "50 Game Club",
+          "scope": "Career",
+          "sourceText": "3 - Ryan Logue (August 17, 2014)",
+          "value": "3",
+          "dateLabel": "August 17, 2014",
+          "kind": "milestone"
+        },
+        {
+          "category": "50 Point Club",
+          "scope": "Career",
+          "sourceText": "3 - Ryan Logue (June 22, 2014)",
+          "value": "3",
+          "dateLabel": "June 22, 2014",
+          "kind": "milestone"
+        },
+        {
+          "category": "100 Game Club",
+          "scope": "Career",
+          "sourceText": "2 - Ryan Logue (December 20, 2015)",
+          "value": "2",
+          "dateLabel": "December 20, 2015",
+          "kind": "milestone"
+        },
+        {
+          "category": "100 Point Club",
+          "scope": "Career",
+          "sourceText": "2 - Ryan Logue (August 9, 2015)",
+          "value": "2",
+          "dateLabel": "August 9, 2015",
+          "kind": "milestone"
+        },
+        {
+          "category": "200 Game Club",
+          "scope": "Career",
+          "sourceText": "4 - Ryan Logue (March 17, 2019)",
+          "value": "4",
+          "dateLabel": "March 17, 2019",
+          "kind": "milestone"
+        },
+        {
+          "category": "200 Point Club",
+          "scope": "Career",
+          "sourceText": "2 - Ryan Logue (September 16, 2018)",
+          "value": "2",
+          "dateLabel": "September 16, 2018",
+          "kind": "milestone"
+        }
+      ]
+    },
+    "354047": {
+      "name": "Michael Nearing",
+      "entries": []
+    },
+    "354048": {
+      "name": "Eric Laliberte",
+      "entries": []
+    },
+    "354049": {
+      "name": "Cameron Buchanan",
+      "entries": [
+        {
+          "category": "Summer - Points",
+          "scope": "Game",
+          "sourceText": "5 - Cameron Buchanan (June 23, 2013)",
+          "value": "5",
+          "dateLabel": "June 23, 2013",
+          "kind": "performance"
+        },
+        {
+          "category": "Summer - Points",
+          "scope": "Playoffs",
+          "sourceText": "6 - Cameron Buchanan (2015)",
+          "value": "6",
+          "dateLabel": "2015",
+          "kind": "performance"
+        },
+        {
+          "category": "Summer - Hat Tricks",
+          "scope": "Season",
+          "sourceText": "2 - Cameron Buchanan (2016)",
+          "value": "2",
+          "dateLabel": "2016",
+          "kind": "performance"
+        },
+        {
+          "category": "Summer - Player of the Game",
+          "scope": "Playoffs",
+          "sourceText": "2 - Cameron Buchanan (2015)",
+          "value": "2",
+          "dateLabel": "2015",
+          "kind": "performance"
+        },
+        {
+          "category": "Winter - Game Winning Goals",
+          "scope": "Season",
+          "sourceText": "3 - Cameron Buchanan (2013/14)",
+          "value": "3",
+          "dateLabel": "2013/14",
+          "kind": "performance"
+        },
+        {
+          "category": "Winter - Game Tying Goals",
+          "scope": "Season",
+          "sourceText": "2 - Cameron Buchanan (2014/15)",
+          "value": "2",
+          "dateLabel": "2014/15",
+          "kind": "performance"
+        },
+        {
+          "category": "50 Game Club",
+          "scope": "Career",
+          "sourceText": "4 - Cameron Buchanan (August 17, 2014)",
+          "value": "4",
+          "dateLabel": "August 17, 2014",
+          "kind": "milestone"
+        },
+        {
+          "category": "50 Point Club",
+          "scope": "Career",
+          "sourceText": "4 - Cameron Buchanan (November 30, 2014)",
+          "value": "4",
+          "dateLabel": "November 30, 2014",
+          "kind": "milestone"
+        },
+        {
+          "category": "100 Game Club",
+          "scope": "Career",
+          "sourceText": "9 - Cameron Buchanan (May 15, 2016)",
+          "value": "9",
+          "dateLabel": "May 15, 2016",
+          "kind": "milestone"
+        },
+        {
+          "category": "100 Point Club",
+          "scope": "Career",
+          "sourceText": "4 - Cameron Buchanan (June 19, 2016)",
+          "value": "4",
+          "dateLabel": "June 19, 2016",
+          "kind": "milestone"
+        },
+        {
+          "category": "200 Game Club",
+          "scope": "Career",
+          "sourceText": "5 - Cameron Buchanan (September 15, 2019)",
+          "value": "5",
+          "dateLabel": "September 15, 2019",
+          "kind": "milestone"
+        },
+        {
+          "category": "200 Point Club",
+          "scope": "Career",
+          "sourceText": "4 - Cameron Buchanan (October 20, 2019)",
+          "value": "4",
+          "dateLabel": "October 20, 2019",
+          "kind": "milestone"
+        }
+      ]
+    },
+    "354050": {
+      "name": "Simon Scott",
+      "entries": []
+    },
+    "354051": {
+      "name": "Damian Aidemirski",
+      "entries": [
+        {
+          "category": "Winter - Points",
+          "scope": "Playoffs",
+          "sourceText": "7 - Damian Aidemirski (2013/14)",
+          "value": "7",
+          "dateLabel": "2013/14",
+          "kind": "performance"
+        },
+        {
+          "category": "Winter - Assists",
+          "scope": "Game",
+          "sourceText": "4 - Damian Aidemirski (March 30, 2014)",
+          "value": "4",
+          "dateLabel": "March 30, 2014",
+          "kind": "performance"
+        },
+        {
+          "category": "Winter - Assists",
+          "scope": "Playoffs",
+          "sourceText": "6 - Damian Aidemirski (2013/14)",
+          "value": "6",
+          "dateLabel": "2013/14",
+          "kind": "performance"
+        },
+        {
+          "category": "50 Game Club",
+          "scope": "Career",
+          "sourceText": "9 - Damian Aidemirski (October 5, 2014)",
+          "value": "9",
+          "dateLabel": "October 5, 2014",
+          "kind": "milestone"
+        },
+        {
+          "category": "50 Point Club",
+          "scope": "Career",
+          "sourceText": "8 - Damian Aidemirski (November 22, 2015)",
+          "value": "8",
+          "dateLabel": "November 22, 2015",
+          "kind": "milestone"
+        },
+        {
+          "category": "100 Game Club",
+          "scope": "Career",
+          "sourceText": "5 - Damian Aidemirski (January 10, 2016)",
+          "value": "5",
+          "dateLabel": "January 10, 2016",
+          "kind": "milestone"
+        }
+      ]
+    },
+    "354052": {
+      "name": "Christopher Granicolo",
+      "entries": []
+    },
+    "354053": {
+      "name": "Jeff Micheli",
+      "entries": [
+        {
+          "category": "Winter - Penalty Minutes",
+          "scope": "Playoffs",
+          "sourceText": "6 - Jeff Micheli (2014/15)",
+          "value": "6",
+          "dateLabel": "2014/15",
+          "kind": "performance"
+        }
+      ]
+    },
+    "354054": {
+      "name": "Adam Brutto",
+      "entries": [
+        {
+          "category": "Summer - Points",
+          "scope": "Playoffs",
+          "sourceText": "2 - Adam Brutto (2014)",
+          "value": "2",
+          "dateLabel": "2014",
+          "kind": "performance"
+        },
+        {
+          "category": "Summer - Assists",
+          "scope": "Game",
+          "sourceText": "4 - Adam Brutto (July 26, 2015)",
+          "value": "4",
+          "dateLabel": "July 26, 2015",
+          "kind": "performance"
+        },
+        {
+          "category": "Summer - Assists",
+          "scope": "Game",
+          "sourceText": "3 - Adam Brutto (June 9, 2013)",
+          "value": "3",
+          "dateLabel": "June 9, 2013",
+          "kind": "performance"
+        },
+        {
+          "category": "Summer - Assists",
+          "scope": "Game",
+          "sourceText": "2 - Adam Brutto (June 2, 2013)",
+          "value": "2",
+          "dateLabel": "June 2, 2013",
+          "kind": "performance"
+        },
+        {
+          "category": "Summer - Assists",
+          "scope": "Season",
+          "sourceText": "11 - Adam Brutto (2015)",
+          "value": "11",
+          "dateLabel": "2015",
+          "kind": "performance"
+        },
+        {
+          "category": "Summer - Assists",
+          "scope": "Playoffs",
+          "sourceText": "8 - Adam Brutto (2015)",
+          "value": "8",
+          "dateLabel": "2015",
+          "kind": "performance"
+        },
+        {
+          "category": "Summer - Penalty Minutes",
+          "scope": "Game",
+          "sourceText": "4 - Adam Brutto (August 18, 2013)",
+          "value": "4",
+          "dateLabel": "August 18, 2013",
+          "kind": "performance"
+        },
+        {
+          "category": "Summer - Penalty Minutes",
+          "scope": "Game",
+          "sourceText": "4 - Adam Brutto (May 25, 2014)",
+          "value": "4",
+          "dateLabel": "May 25, 2014",
+          "kind": "performance"
+        },
+        {
+          "category": "Summer - Penalty Minutes",
+          "scope": "Season",
+          "sourceText": "8 - Adam Brutto (2014)",
+          "value": "8",
+          "dateLabel": "2014",
+          "kind": "performance"
+        },
+        {
+          "category": "Summer - Penalty Minutes",
+          "scope": "Playoffs",
+          "sourceText": "4 - Adam Brutto (2013)",
+          "value": "4",
+          "dateLabel": "2013",
+          "kind": "performance"
+        },
+        {
+          "category": "Winter - Assists",
+          "scope": "Playoffs",
+          "sourceText": "2 - Adam Brutto (2013/14)",
+          "value": "2",
+          "dateLabel": "2013/14",
+          "kind": "performance"
+        },
+        {
+          "category": "Winter - Penalty Minutes",
+          "scope": "Game",
+          "sourceText": "14 - Adam Brutto (November 22, 2015)",
+          "value": "14",
+          "dateLabel": "November 22, 2015",
+          "kind": "performance"
+        },
+        {
+          "category": "Winter - Penalty Minutes",
+          "scope": "Game",
+          "sourceText": "14 - Adam Brutto (December 11, 2016)",
+          "value": "14",
+          "dateLabel": "December 11, 2016",
+          "kind": "performance"
+        },
+        {
+          "category": "Winter - Penalty Minutes",
+          "scope": "Game",
+          "sourceText": "4 - Adam Brutto (December 1, 2013)",
+          "value": "4",
+          "dateLabel": "December 1, 2013",
+          "kind": "performance"
+        },
+        {
+          "category": "Winter - Penalty Minutes",
+          "scope": "Game",
+          "sourceText": "4 - Adam Brutto (December 15, 2013)",
+          "value": "4",
+          "dateLabel": "December 15, 2013",
+          "kind": "performance"
+        },
+        {
+          "category": "Winter - Penalty Minutes",
+          "scope": "Game",
+          "sourceText": "4 - Adam Brutto (March 30, 2014)",
+          "value": "4",
+          "dateLabel": "March 30, 2014",
+          "kind": "performance"
+        },
+        {
+          "category": "Winter - Penalty Minutes",
+          "scope": "Playoffs",
+          "sourceText": "6 - Adam Brutto (2013/14)",
+          "value": "6",
+          "dateLabel": "2013/14",
+          "kind": "performance"
+        },
+        {
+          "category": "50 Game Club",
+          "scope": "Career",
+          "sourceText": "5 - Adam Brutto (September 21, 2014)",
+          "value": "5",
+          "dateLabel": "September 21, 2014",
+          "kind": "milestone"
+        },
+        {
+          "category": "50 Point Club",
+          "scope": "Career",
+          "sourceText": "7 - Adam Brutto (July 26, 2015)",
+          "value": "7",
+          "dateLabel": "July 26, 2015",
+          "kind": "milestone"
+        },
+        {
+          "category": "100 Game Club",
+          "scope": "Career",
+          "sourceText": "4 - Adam Brutto (January 3, 2016)",
+          "value": "4",
+          "dateLabel": "January 3, 2016",
+          "kind": "milestone"
+        },
+        {
+          "category": "100 Point Club",
+          "scope": "Career",
+          "sourceText": "7 - Adam Brutto (August 20, 2017)",
+          "value": "7",
+          "dateLabel": "August 20, 2017",
+          "kind": "milestone"
+        },
+        {
+          "category": "200 Game Club",
+          "scope": "Career",
+          "sourceText": "1 - Adam Brutto (January 6, 2019)",
+          "value": "1",
+          "dateLabel": "January 6, 2019",
+          "kind": "milestone"
+        },
+        {
+          "category": "300 Game Club",
+          "scope": "Career",
+          "sourceText": "1 - Adam Brutto (December 29, 2024)",
+          "value": "1",
+          "dateLabel": "December 29, 2024",
+          "kind": "milestone"
+        }
+      ]
+    },
+    "354055": {
+      "name": "Stephen Logue",
+      "entries": [
+        {
+          "category": "Summer - Wins",
+          "scope": "Season",
+          "sourceText": "6 - Stephen Logue (2014)",
+          "value": "6",
+          "dateLabel": "2014",
+          "kind": "performance"
+        },
+        {
+          "category": "Summer - Wins",
+          "scope": "Season",
+          "sourceText": "4 - Stephen Logue (2013)",
+          "value": "4",
+          "dateLabel": "2013",
+          "kind": "performance"
+        },
+        {
+          "category": "Summer - Shutouts",
+          "scope": "Season",
+          "sourceText": "1 - Stephen Logue (2016)",
+          "value": "1",
+          "dateLabel": "2016",
+          "kind": "performance"
+        },
+        {
+          "category": "Summer - Goals Against Average",
+          "scope": "Season",
+          "sourceText": "3.80 - Stephen Logue (2015)",
+          "value": "3.80",
+          "dateLabel": "2015",
+          "kind": "performance"
+        },
+        {
+          "category": "Summer - Goals Against Average",
+          "scope": "Season",
+          "sourceText": "4.00 - Stephen Logue (2014)",
+          "value": "4.00",
+          "dateLabel": "2014",
+          "kind": "performance"
+        },
+        {
+          "category": "Summer - Goals Against Average",
+          "scope": "Season",
+          "sourceText": "5.33 - Stephen Logue (2013)",
+          "value": "5.33",
+          "dateLabel": "2013",
+          "kind": "performance"
+        },
+        {
+          "category": "Summer - Goals Against Average",
+          "scope": "Playoffs",
+          "sourceText": "2.50 - Stephen Logue (2017)",
+          "value": "2.50",
+          "dateLabel": "2017",
+          "kind": "performance"
+        },
+        {
+          "category": "Summer - Goals Against Average",
+          "scope": "Playoffs",
+          "sourceText": "4.00 - Stephen Logue (2014)",
+          "value": "4.00",
+          "dateLabel": "2014",
+          "kind": "performance"
+        },
+        {
+          "category": "Summer - Goals Against Average",
+          "scope": "Playoffs",
+          "sourceText": "4.75 - Stephen Logue (2013)",
+          "value": "4.75",
+          "dateLabel": "2013",
+          "kind": "performance"
+        },
+        {
+          "category": "Winter - Wins",
+          "scope": "Season",
+          "sourceText": "12 - Stephen Logue (2013/14)",
+          "value": "12",
+          "dateLabel": "2013/14",
+          "kind": "performance"
+        },
+        {
+          "category": "Winter - Wins",
+          "scope": "Playoffs",
+          "sourceText": "4 - Stephen Logue (2015/16)",
+          "value": "4",
+          "dateLabel": "2015/16",
+          "kind": "performance"
+        },
+        {
+          "category": "Winter - Wins",
+          "scope": "Playoffs",
+          "sourceText": "2 - Stephen Logue (2013/14)",
+          "value": "2",
+          "dateLabel": "2013/14",
+          "kind": "performance"
+        },
+        {
+          "category": "Winter - Shutouts",
+          "scope": "Season",
+          "sourceText": "4 - Stephen Logue (2016/17)",
+          "value": "4",
+          "dateLabel": "2016/17",
+          "kind": "performance"
+        },
+        {
+          "category": "Winter - Shutouts",
+          "scope": "Playoffs",
+          "sourceText": "2 - Stephen Logue (2015/16)",
+          "value": "2",
+          "dateLabel": "2015/16",
+          "kind": "performance"
+        },
+        {
+          "category": "Winter - Shutouts",
+          "scope": "Playoffs",
+          "sourceText": "2 - Stephen Logue (2016/17)",
+          "value": "2",
+          "dateLabel": "2016/17",
+          "kind": "performance"
+        },
+        {
+          "category": "Winter - Shutouts",
+          "scope": "Playoffs",
+          "sourceText": "1 - Stephen Logue (2013/14)",
+          "value": "1",
+          "dateLabel": "2013/14",
+          "kind": "performance"
+        },
+        {
+          "category": "Winter - Goals Against Average",
+          "scope": "Season",
+          "sourceText": "2.33 - Stephen Logue (2013/14)",
+          "value": "2.33",
+          "dateLabel": "2013/14",
+          "kind": "performance"
+        },
+        {
+          "category": "Winter - Goals Against Average",
+          "scope": "Playoffs",
+          "sourceText": "1.33 - Stephen Logue (2013/14)",
+          "value": "1.33",
+          "dateLabel": "2013/14",
+          "kind": "performance"
+        },
+        {
+          "category": "50 Game Club",
+          "scope": "Career",
+          "sourceText": "1 - Stephen Logue (July 20, 2014)",
+          "value": "1",
+          "dateLabel": "July 20, 2014",
+          "kind": "milestone"
+        },
+        {
+          "category": "50 Win Club",
+          "scope": "Career",
+          "sourceText": "1 - Stephen Logue (April 17, 2016)",
+          "value": "1",
+          "dateLabel": "April 17, 2016",
+          "kind": "milestone"
+        },
+        {
+          "category": "100 Game Club",
+          "scope": "Career",
+          "sourceText": "7 - Stephen Logue (January 31, 2016)",
+          "value": "7",
+          "dateLabel": "January 31, 2016",
+          "kind": "milestone"
+        },
+        {
+          "category": "100 Win Club",
+          "scope": "Career",
+          "sourceText": "1 - Stephen Logue (March 1, 2020)",
+          "value": "1",
+          "dateLabel": "March 1, 2020",
+          "kind": "milestone"
+        },
+        {
+          "category": "200 Game Club",
+          "scope": "Career",
+          "sourceText": "7 - Stephen Logue (December 15, 2019)",
+          "value": "7",
+          "dateLabel": "December 15, 2019",
+          "kind": "milestone"
+        }
+      ]
+    },
+    "354056": {
+      "name": "Keith Pearsoll",
+      "entries": [
+        {
+          "category": "Summer - Goals",
+          "scope": "Game",
+          "sourceText": "2 - Keith Pearsoll (May 12, 2013)",
+          "value": "2",
+          "dateLabel": "May 12, 2013",
+          "kind": "performance"
+        },
+        {
+          "category": "Summer - Goals",
+          "scope": "Game",
+          "sourceText": "2 - Keith Pearsoll (June 9, 2013)",
+          "value": "2",
+          "dateLabel": "June 9, 2013",
+          "kind": "performance"
+        },
+        {
+          "category": "Summer - Points",
+          "scope": "Game",
+          "sourceText": "3 - Keith Pearsoll (May 12, 2013)",
+          "value": "3",
+          "dateLabel": "May 12, 2013",
+          "kind": "performance"
+        },
+        {
+          "category": "Summer - Points",
+          "scope": "Game",
+          "sourceText": "3 - Keith Pearsoll (June 9, 2013)",
+          "value": "3",
+          "dateLabel": "June 9, 2013",
+          "kind": "performance"
+        },
+        {
+          "category": "Summer - Points",
+          "scope": "Playoffs",
+          "sourceText": "6 - Keith Pearsoll (2015)",
+          "value": "6",
+          "dateLabel": "2015",
+          "kind": "performance"
+        },
+        {
+          "category": "Summer - Assists",
+          "scope": "Season",
+          "sourceText": "7 - Keith Pearsoll (2013)",
+          "value": "7",
+          "dateLabel": "2013",
+          "kind": "performance"
+        },
+        {
+          "category": "Summer - Player of the Game",
+          "scope": "Playoffs",
+          "sourceText": "2 - Keith Pearsoll (2016)",
+          "value": "2",
+          "dateLabel": "2016",
+          "kind": "performance"
+        },
+        {
+          "category": "50 Game Club",
+          "scope": "Career",
+          "sourceText": "8 - Keith Pearsoll (October 5, 2014)",
+          "value": "8",
+          "dateLabel": "October 5, 2014",
+          "kind": "milestone"
+        },
+        {
+          "category": "50 Point Club",
+          "scope": "Career",
+          "sourceText": "5 - Keith Pearsoll (May 24, 2015)",
+          "value": "5",
+          "dateLabel": "May 24, 2015",
+          "kind": "milestone"
+        },
+        {
+          "category": "100 Game Club",
+          "scope": "Career",
+          "sourceText": "6 - Keith Pearsoll (January 24, 2016)",
+          "value": "6",
+          "dateLabel": "January 24, 2016",
+          "kind": "milestone"
+        },
+        {
+          "category": "100 Point Club",
+          "scope": "Career",
+          "sourceText": "5 - Keith Pearsoll (August 14, 2016)",
+          "value": "5",
+          "dateLabel": "August 14, 2016",
+          "kind": "milestone"
+        },
+        {
+          "category": "200 Game Club",
+          "scope": "Career",
+          "sourceText": "3 - Keith Pearsoll (February 17, 2019)",
+          "value": "3",
+          "dateLabel": "February 17, 2019",
+          "kind": "milestone"
+        },
+        {
+          "category": "200 Point Club",
+          "scope": "Career",
+          "sourceText": "5 - Keith Pearsoll (February 19, 2023)",
+          "value": "5",
+          "dateLabel": "February 19, 2023",
+          "kind": "milestone"
+        }
+      ]
+    },
+    "354057": {
+      "name": "Anthony Paolucci",
+      "entries": [
+        {
+          "category": "50 Game Club",
+          "scope": "Career",
+          "sourceText": "15 - Anthony Paolucci (November 15, 2015)",
+          "value": "15",
+          "dateLabel": "November 15, 2015",
+          "kind": "milestone"
+        }
+      ]
+    },
+    "354058": {
+      "name": "Alex Pagnotta",
+      "entries": [
+        {
+          "category": "Summer - Penalty Minutes",
+          "scope": "Game",
+          "sourceText": "4 - Alex Pagnotta (June 22, 2014)",
+          "value": "4",
+          "dateLabel": "June 22, 2014",
+          "kind": "performance"
+        },
+        {
+          "category": "Summer - Penalty Minutes",
+          "scope": "Game",
+          "sourceText": "4 - Alex Pagnotta (May 24, 2015)",
+          "value": "4",
+          "dateLabel": "May 24, 2015",
+          "kind": "performance"
+        },
+        {
+          "category": "Summer - Penalty Minutes",
+          "scope": "Season",
+          "sourceText": "8 - Alex Pagnotta (2015)",
+          "value": "8",
+          "dateLabel": "2015",
+          "kind": "performance"
+        },
+        {
+          "category": "Winter - Game Tying Goals",
+          "scope": "Season",
+          "sourceText": "2 - Alex Pagnotta (2019/20)",
+          "value": "2",
+          "dateLabel": "2019/20",
+          "kind": "performance"
+        },
+        {
+          "category": "Winter - Penalty Minutes",
+          "scope": "Game",
+          "sourceText": "4 - Alex Pagnotta (October 19, 2014)",
+          "value": "4",
+          "dateLabel": "October 19, 2014",
+          "kind": "performance"
+        },
+        {
+          "category": "50 Game Club",
+          "scope": "Career",
+          "sourceText": "2 - Alex Pagnotta (August 17, 2014)",
+          "value": "2",
+          "dateLabel": "August 17, 2014",
+          "kind": "milestone"
+        },
+        {
+          "category": "50 Point Club",
+          "scope": "Career",
+          "sourceText": "10 - Alex Pagnotta (May 15, 2016)",
+          "value": "10",
+          "dateLabel": "May 15, 2016",
+          "kind": "milestone"
+        },
+        {
+          "category": "100 Game Club",
+          "scope": "Career",
+          "sourceText": "1 - Alex Pagnotta (December 20, 2015)",
+          "value": "1",
+          "dateLabel": "December 20, 2015",
+          "kind": "milestone"
+        },
+        {
+          "category": "100 Point Club",
+          "scope": "Career",
+          "sourceText": "10 - Alex Pagnotta (November 24, 2019)",
+          "value": "10",
+          "dateLabel": "November 24, 2019",
+          "kind": "milestone"
+        },
+        {
+          "category": "200 Game Club",
+          "scope": "Career",
+          "sourceText": "2 - Alex Pagnotta (January 27, 2019)",
+          "value": "2",
+          "dateLabel": "January 27, 2019",
+          "kind": "milestone"
+        },
+        {
+          "category": "300 Game Club",
+          "scope": "Career",
+          "sourceText": "2 - Alex Pagnotta (September 28, 2025)",
+          "value": "2",
+          "dateLabel": "September 28, 2025",
+          "kind": "milestone"
+        }
+      ]
+    },
+    "354059": {
+      "name": "Michael Congiusti",
+      "entries": [
+        {
+          "category": "Winter - Assists",
+          "scope": "Game",
+          "sourceText": "3 - Michael Congiusti (October 6, 2013)",
+          "value": "3",
+          "dateLabel": "October 6, 2013",
+          "kind": "performance"
+        },
+        {
+          "category": "Winter - Assists",
+          "scope": "Game",
+          "sourceText": "3 - Michael Congiusti (March 2, 2014)",
+          "value": "3",
+          "dateLabel": "March 2, 2014",
+          "kind": "performance"
+        },
+        {
+          "category": "50 Game Club",
+          "scope": "Career",
+          "sourceText": "11 - Michael Congiusti (December 7, 2014)",
+          "value": "11",
+          "dateLabel": "December 7, 2014",
+          "kind": "milestone"
+        },
+        {
+          "category": "100 Game Club",
+          "scope": "Career",
+          "sourceText": "12 - Michael Congiusti (January 15, 2017)",
+          "value": "12",
+          "dateLabel": "January 15, 2017",
+          "kind": "milestone"
+        }
+      ]
+    },
+    "354060": {
+      "name": "Justin Carosi",
+      "entries": [
+        {
+          "category": "Summer - Assists",
+          "scope": "Game",
+          "sourceText": "6 - Justin Carosi (May 15, 2016)",
+          "value": "6",
+          "dateLabel": "May 15, 2016",
+          "kind": "performance"
+        },
+        {
+          "category": "Summer - Assists",
+          "scope": "Season",
+          "sourceText": "15 - Justin Carosi (2016)",
+          "value": "15",
+          "dateLabel": "2016",
+          "kind": "performance"
+        },
+        {
+          "category": "Summer - Assists",
+          "scope": "Season",
+          "sourceText": "10 - Justin Carosi (2015)",
+          "value": "10",
+          "dateLabel": "2015",
+          "kind": "performance"
+        },
+        {
+          "category": "Summer - Assists",
+          "scope": "Season",
+          "sourceText": "8 - Justin Carosi (2014)",
+          "value": "8",
+          "dateLabel": "2014",
+          "kind": "performance"
+        },
+        {
+          "category": "Summer - Game Winning Goals",
+          "scope": "Season",
+          "sourceText": "2 - Justin Carosi (2015)",
+          "value": "2",
+          "dateLabel": "2015",
+          "kind": "performance"
+        },
+        {
+          "category": "Summer - Penalty Minutes",
+          "scope": "Game",
+          "sourceText": "4 - Justin Carosi (May 24, 2015)",
+          "value": "4",
+          "dateLabel": "May 24, 2015",
+          "kind": "performance"
+        },
+        {
+          "category": "Summer - Penalty Minutes",
+          "scope": "Season",
+          "sourceText": "8 - Justin Carosi (2015)",
+          "value": "8",
+          "dateLabel": "2015",
+          "kind": "performance"
+        },
+        {
+          "category": "Winter - Assists",
+          "scope": "Game",
+          "sourceText": "4 - Justin Carosi (October 16, 2016)",
+          "value": "4",
+          "dateLabel": "October 16, 2016",
+          "kind": "performance"
+        },
+        {
+          "category": "Winter - Assists",
+          "scope": "Game",
+          "sourceText": "4 - Justin Carosi (November 24, 2019)",
+          "value": "4",
+          "dateLabel": "November 24, 2019",
+          "kind": "performance"
+        },
+        {
+          "category": "Winter - Assists",
+          "scope": "Season",
+          "sourceText": "19 - Justin Carosi (2016/17)",
+          "value": "19",
+          "dateLabel": "2016/17",
+          "kind": "performance"
+        },
+        {
+          "category": "Winter - Assists",
+          "scope": "Season",
+          "sourceText": "19 - Justin Carosi (2017/18)",
+          "value": "19",
+          "dateLabel": "2017/18",
+          "kind": "performance"
+        },
+        {
+          "category": "Winter - Game Tying Goals",
+          "scope": "Season",
+          "sourceText": "2 - Justin Carosi (2022/23)",
+          "value": "2",
+          "dateLabel": "2022/23",
+          "kind": "performance"
+        },
+        {
+          "category": "Winter - Shorthanded Goals",
+          "scope": "Season",
+          "sourceText": "3 - Justin Carosi (2017/18)",
+          "value": "3",
+          "dateLabel": "2017/18",
+          "kind": "performance"
+        },
+        {
+          "category": "50 Game Club",
+          "scope": "Career",
+          "sourceText": "13 - Justin Carosi (June 14, 2015)",
+          "value": "13",
+          "dateLabel": "June 14, 2015",
+          "kind": "milestone"
+        },
+        {
+          "category": "50 Point Club",
+          "scope": "Career",
+          "sourceText": "6 - Justin Carosi (June 21, 2015)",
+          "value": "6",
+          "dateLabel": "June 21, 2015",
+          "kind": "milestone"
+        },
+        {
+          "category": "100 Game Club",
+          "scope": "Career",
+          "sourceText": "10 - Justin Carosi (October 30, 2016)",
+          "value": "10",
+          "dateLabel": "October 30, 2016",
+          "kind": "milestone"
+        },
+        {
+          "category": "100 Point Club",
+          "scope": "Career",
+          "sourceText": "3 - Justin Carosi (May 15, 2016)",
+          "value": "3",
+          "dateLabel": "May 15, 2016",
+          "kind": "milestone"
+        },
+        {
+          "category": "200 Game Club",
+          "scope": "Career",
+          "sourceText": "8 - Justin Carosi (February 23, 2020)",
+          "value": "8",
+          "dateLabel": "February 23, 2020",
+          "kind": "milestone"
+        },
+        {
+          "category": "200 Point Club",
+          "scope": "Career",
+          "sourceText": "3 - Justin Carosi (December 30, 2018)",
+          "value": "3",
+          "dateLabel": "December 30, 2018",
+          "kind": "milestone"
+        },
+        {
+          "category": "300 Game Club",
+          "scope": "Career",
+          "sourceText": "3 - Justin Carosi (September 20, 2026)",
+          "value": "3",
+          "dateLabel": "September 20, 2026",
+          "kind": "milestone"
+        },
+        {
+          "category": "300 Point Club",
+          "scope": "Career",
+          "sourceText": "1 - Justin Carosi (January 7, 2024)",
+          "value": "1",
+          "dateLabel": "January 7, 2024",
+          "kind": "milestone"
+        }
+      ]
+    },
+    "354061": {
+      "name": "Mark Pastore",
+      "entries": [
+        {
+          "category": "Summer - Goals",
+          "scope": "Game",
+          "sourceText": "7 - Mark Pastore (July 5, 2015)",
+          "value": "7",
+          "dateLabel": "July 5, 2015",
+          "kind": "performance"
+        },
+        {
+          "category": "Summer - Goals",
+          "scope": "Game",
+          "sourceText": "4 - Mark Pastore (June 7, 2015)",
+          "value": "4",
+          "dateLabel": "June 7, 2015",
+          "kind": "performance"
+        },
+        {
+          "category": "Summer - Goals",
+          "scope": "Game",
+          "sourceText": "4 - Mark Pastore (June 16, 2013)",
+          "value": "4",
+          "dateLabel": "June 16, 2013",
+          "kind": "performance"
+        },
+        {
+          "category": "Summer - Goals",
+          "scope": "Game",
+          "sourceText": "2 - Mark Pastore (June 9, 2013)",
+          "value": "2",
+          "dateLabel": "June 9, 2013",
+          "kind": "performance"
+        },
+        {
+          "category": "Summer - Goals",
+          "scope": "Season",
+          "sourceText": "16 - Mark Pastore (2015)",
+          "value": "16",
+          "dateLabel": "2015",
+          "kind": "performance"
+        },
+        {
+          "category": "Summer - Goals",
+          "scope": "Season",
+          "sourceText": "12 - Mark Pastore (2013)",
+          "value": "12",
+          "dateLabel": "2013",
+          "kind": "performance"
+        },
+        {
+          "category": "Summer - Goals",
+          "scope": "Playoffs",
+          "sourceText": "6 - Mark Pastore (2015)",
+          "value": "6",
+          "dateLabel": "2015",
+          "kind": "performance"
+        },
+        {
+          "category": "Summer - Points",
+          "scope": "Game",
+          "sourceText": "9 - Mark Pastore (July 17, 2016)",
+          "value": "9",
+          "dateLabel": "July 17, 2016",
+          "kind": "performance"
+        },
+        {
+          "category": "Summer - Points",
+          "scope": "Game",
+          "sourceText": "8 - Mark Pastore (July 5, 2015)",
+          "value": "8",
+          "dateLabel": "July 5, 2015",
+          "kind": "performance"
+        },
+        {
+          "category": "Summer - Points",
+          "scope": "Game",
+          "sourceText": "5 - Mark Pastore (May 10, 2015)",
+          "value": "5",
+          "dateLabel": "May 10, 2015",
+          "kind": "performance"
+        },
+        {
+          "category": "Summer - Points",
+          "scope": "Game",
+          "sourceText": "4 - Mark Pastore (June 16, 2013)",
+          "value": "4",
+          "dateLabel": "June 16, 2013",
+          "kind": "performance"
+        },
+        {
+          "category": "Summer - Points",
+          "scope": "Season",
+          "sourceText": "25 - Mark Pastore (2015)",
+          "value": "25",
+          "dateLabel": "2015",
+          "kind": "performance"
+        },
+        {
+          "category": "Summer - Points",
+          "scope": "Season",
+          "sourceText": "17 - Mark Pastore (2013)",
+          "value": "17",
+          "dateLabel": "2013",
+          "kind": "performance"
+        },
+        {
+          "category": "Summer - Points",
+          "scope": "Playoffs",
+          "sourceText": "9 - Mark Pastore (2015)",
+          "value": "9",
+          "dateLabel": "2015",
+          "kind": "performance"
+        },
+        {
+          "category": "Summer - Assists",
+          "scope": "Game",
+          "sourceText": "4 - Mark Pastore (May 8, 2016)",
+          "value": "4",
+          "dateLabel": "May 8, 2016",
+          "kind": "performance"
+        },
+        {
+          "category": "Summer - Assists",
+          "scope": "Game",
+          "sourceText": "2 - Mark Pastore (June 2, 2013)",
+          "value": "2",
+          "dateLabel": "June 2, 2013",
+          "kind": "performance"
+        },
+        {
+          "category": "Summer - Game Winning Goals",
+          "scope": "Season",
+          "sourceText": "2 - Mark Pastore (2015)",
+          "value": "2",
+          "dateLabel": "2015",
+          "kind": "performance"
+        },
+        {
+          "category": "Summer - Powerplay Goals",
+          "scope": "Season",
+          "sourceText": "2 - Mark Pastore (2014)",
+          "value": "2",
+          "dateLabel": "2014",
+          "kind": "performance"
+        },
+        {
+          "category": "Summer - Shorthanded Goals",
+          "scope": "Season",
+          "sourceText": "1 - Mark Pastore (2016)",
+          "value": "1",
+          "dateLabel": "2016",
+          "kind": "performance"
+        },
+        {
+          "category": "Summer - Hat Tricks",
+          "scope": "Season",
+          "sourceText": "3 - Mark Pastore (2016)",
+          "value": "3",
+          "dateLabel": "2016",
+          "kind": "performance"
+        },
+        {
+          "category": "Summer - Hat Tricks",
+          "scope": "Season",
+          "sourceText": "2 - Mark Pastore (2015)",
+          "value": "2",
+          "dateLabel": "2015",
+          "kind": "performance"
+        },
+        {
+          "category": "Winter - Goals",
+          "scope": "Playoffs",
+          "sourceText": "8 - Mark Pastore (2015/16)",
+          "value": "8",
+          "dateLabel": "2015/16",
+          "kind": "performance"
+        },
+        {
+          "category": "Winter - Goals",
+          "scope": "Playoffs",
+          "sourceText": "7 - Mark Pastore (2014/15)",
+          "value": "7",
+          "dateLabel": "2014/15",
+          "kind": "performance"
+        },
+        {
+          "category": "Winter - Points",
+          "scope": "Game",
+          "sourceText": "3 - Mark Pastore (September 29, 2013)",
+          "value": "3",
+          "dateLabel": "September 29, 2013",
+          "kind": "performance"
+        },
+        {
+          "category": "Winter - Points",
+          "scope": "Playoffs",
+          "sourceText": "9 - Mark Pastore (2015/16)",
+          "value": "9",
+          "dateLabel": "2015/16",
+          "kind": "performance"
+        },
+        {
+          "category": "Winter - Points",
+          "scope": "Playoffs",
+          "sourceText": "8 - Mark Pastore (2014/15)",
+          "value": "8",
+          "dateLabel": "2014/15",
+          "kind": "performance"
+        },
+        {
+          "category": "Winter - Assists",
+          "scope": "Game",
+          "sourceText": "3 - Mark Pastore (January 5, 2014)",
+          "value": "3",
+          "dateLabel": "January 5, 2014",
+          "kind": "performance"
+        },
+        {
+          "category": "Winter - Assists",
+          "scope": "Game",
+          "sourceText": "2 - Mark Pastore (September 29, 2013)",
+          "value": "2",
+          "dateLabel": "September 29, 2013",
+          "kind": "performance"
+        },
+        {
+          "category": "Winter - Assists",
+          "scope": "Season",
+          "sourceText": "17 - Mark Pastore (2013/14)",
+          "value": "17",
+          "dateLabel": "2013/14",
+          "kind": "performance"
+        },
+        {
+          "category": "Winter - Game Winning Goals",
+          "scope": "Playoffs",
+          "sourceText": "2 - Mark Pastore (2015/16)",
+          "value": "2",
+          "dateLabel": "2015/16",
+          "kind": "performance"
+        },
+        {
+          "category": "Winter - Player of the Game",
+          "scope": "Playoffs",
+          "sourceText": "5 - Mark Pastore (2015/16)",
+          "value": "5",
+          "dateLabel": "2015/16",
+          "kind": "performance"
+        },
+        {
+          "category": "Winter - Player of the Game",
+          "scope": "Playoffs",
+          "sourceText": "3 - Mark Pastore (2014/15)",
+          "value": "3",
+          "dateLabel": "2014/15",
+          "kind": "performance"
+        },
+        {
+          "category": "Winter - Penalty Minutes",
+          "scope": "Playoffs",
+          "sourceText": "6 - Mark Pastore (2014/15)",
+          "value": "6",
+          "dateLabel": "2014/15",
+          "kind": "performance"
+        },
+        {
+          "category": "50 Game Club",
+          "scope": "Career",
+          "sourceText": "6 - Mark Pastore (September 21, 2014)",
+          "value": "6",
+          "dateLabel": "September 21, 2014",
+          "kind": "milestone"
+        },
+        {
+          "category": "50 Point Club",
+          "scope": "Career",
+          "sourceText": "1 - Mark Pastore (March 30, 2014)",
+          "value": "1",
+          "dateLabel": "March 30, 2014",
+          "kind": "milestone"
+        },
+        {
+          "category": "100 Game Club",
+          "scope": "Career",
+          "sourceText": "3 - Mark Pastore (December 27, 2015)",
+          "value": "3",
+          "dateLabel": "December 27, 2015",
+          "kind": "milestone"
+        },
+        {
+          "category": "100 Point Club",
+          "scope": "Career",
+          "sourceText": "1 - Mark Pastore (June 7, 2015)",
+          "value": "1",
+          "dateLabel": "June 7, 2015",
+          "kind": "milestone"
+        }
+      ]
+    },
+    "354062": {
+      "name": "Daniel Buzzelli",
+      "entries": [
+        {
+          "category": "Summer - Penalty Minutes",
+          "scope": "Game",
+          "sourceText": "4 - Daniel Buzzelli (June 1, 2014)",
+          "value": "4",
+          "dateLabel": "June 1, 2014",
+          "kind": "performance"
+        },
+        {
+          "category": "Summer - Penalty Minutes",
+          "scope": "Game",
+          "sourceText": "4 - Daniel Buzzelli (August 10, 2014)",
+          "value": "4",
+          "dateLabel": "August 10, 2014",
+          "kind": "performance"
+        },
+        {
+          "category": "Summer - Penalty Minutes",
+          "scope": "Season",
+          "sourceText": "6 - Daniel Buzzelli (2014)",
+          "value": "6",
+          "dateLabel": "2014",
+          "kind": "performance"
+        },
+        {
+          "category": "Summer - Penalty Minutes",
+          "scope": "Playoffs",
+          "sourceText": "6 - Daniel Buzzelli (2014)",
+          "value": "6",
+          "dateLabel": "2014",
+          "kind": "performance"
+        },
+        {
+          "category": "Winter - Penalty Minutes",
+          "scope": "Game",
+          "sourceText": "4 - Daniel Buzzelli (January 19, 2014)",
+          "value": "4",
+          "dateLabel": "January 19, 2014",
+          "kind": "performance"
+        },
+        {
+          "category": "Winter - Penalty Minutes",
+          "scope": "Season",
+          "sourceText": "14 - Daniel Buzzelli (2013/14)",
+          "value": "14",
+          "dateLabel": "2013/14",
+          "kind": "performance"
+        },
+        {
+          "category": "50 Game Club",
+          "scope": "Career",
+          "sourceText": "20 - Daniel Buzzelli (September 23, 2018)",
+          "value": "20",
+          "dateLabel": "September 23, 2018",
+          "kind": "milestone"
+        },
+        {
+          "category": "100 Game Club",
+          "scope": "Career",
+          "sourceText": "15 - Daniel Buzzelli (October 30, 2022)",
+          "value": "15",
+          "dateLabel": "October 30, 2022",
+          "kind": "milestone"
+        }
+      ]
+    },
+    "354063": {
+      "name": "Luke Leddy",
+      "entries": []
+    },
+    "354285": {
+      "name": "Ben Sherritt",
+      "entries": [
+        {
+          "category": "Summer - Goals",
+          "scope": "Season",
+          "sourceText": "22 - Ben Sherritt (2017)",
+          "value": "22",
+          "dateLabel": "2017",
+          "kind": "performance"
+        },
+        {
+          "category": "Summer - Goals",
+          "scope": "Season",
+          "sourceText": "16 - Ben Sherritt (2014)",
+          "value": "16",
+          "dateLabel": "2014",
+          "kind": "performance"
+        },
+        {
+          "category": "Summer - Points",
+          "scope": "Season",
+          "sourceText": "32 - Ben Sherritt (2017)",
+          "value": "32",
+          "dateLabel": "2017",
+          "kind": "performance"
+        },
+        {
+          "category": "Summer - Points",
+          "scope": "Season",
+          "sourceText": "25 - Ben Sherritt (2014)",
+          "value": "25",
+          "dateLabel": "2014",
+          "kind": "performance"
+        },
+        {
+          "category": "Summer - Points",
+          "scope": "Playoffs",
+          "sourceText": "2 - Ben Sherritt (2014)",
+          "value": "2",
+          "dateLabel": "2014",
+          "kind": "performance"
+        },
+        {
+          "category": "Summer - Assists",
+          "scope": "Season",
+          "sourceText": "9 - Ben Sherritt (2014)",
+          "value": "9",
+          "dateLabel": "2014",
+          "kind": "performance"
+        },
+        {
+          "category": "Summer - Game Winning Goals",
+          "scope": "Season",
+          "sourceText": "4 - Ben Sherritt (2017)",
+          "value": "4",
+          "dateLabel": "2017",
+          "kind": "performance"
+        },
+        {
+          "category": "Summer - Game Winning Goals",
+          "scope": "Season",
+          "sourceText": "2 - Ben Sherritt (2014)",
+          "value": "2",
+          "dateLabel": "2014",
+          "kind": "performance"
+        },
+        {
+          "category": "Summer - Hat Tricks",
+          "scope": "Season",
+          "sourceText": "4 - Ben Sherritt (2017)",
+          "value": "4",
+          "dateLabel": "2017",
+          "kind": "performance"
+        },
+        {
+          "category": "Summer - Hat Tricks",
+          "scope": "Season",
+          "sourceText": "3 - Ben Sherritt (2014)",
+          "value": "3",
+          "dateLabel": "2014",
+          "kind": "performance"
+        },
+        {
+          "category": "Summer - Player of the Game",
+          "scope": "Season",
+          "sourceText": "7 - Ben Sherritt (2014)",
+          "value": "7",
+          "dateLabel": "2014",
+          "kind": "performance"
+        },
+        {
+          "category": "Winter - Goals",
+          "scope": "Game",
+          "sourceText": "5 - Ben Sherritt (October 6, 2013)",
+          "value": "5",
+          "dateLabel": "October 6, 2013",
+          "kind": "performance"
+        },
+        {
+          "category": "Winter - Goals",
+          "scope": "Season",
+          "sourceText": "36 - Ben Sherritt (2013/14)",
+          "value": "36",
+          "dateLabel": "2013/14",
+          "kind": "performance"
+        },
+        {
+          "category": "Winter - Goals",
+          "scope": "Playoffs",
+          "sourceText": "4 - Ben Sherritt (2013/14)",
+          "value": "4",
+          "dateLabel": "2013/14",
+          "kind": "performance"
+        },
+        {
+          "category": "Winter - Points",
+          "scope": "Game",
+          "sourceText": "6 - Ben Sherritt (October 6, 2013)",
+          "value": "6",
+          "dateLabel": "October 6, 2013",
+          "kind": "performance"
+        },
+        {
+          "category": "Winter - Points",
+          "scope": "Game",
+          "sourceText": "6 - Ben Sherritt (March 2, 2014)",
+          "value": "6",
+          "dateLabel": "March 2, 2014",
+          "kind": "performance"
+        },
+        {
+          "category": "Winter - Points",
+          "scope": "Game",
+          "sourceText": "6 - Ben Sherritt (November 12, 2017)",
+          "value": "6",
+          "dateLabel": "November 12, 2017",
+          "kind": "performance"
+        },
+        {
+          "category": "Winter - Points",
+          "scope": "Season",
+          "sourceText": "46 - Ben Sherritt (2013/14)",
+          "value": "46",
+          "dateLabel": "2013/14",
+          "kind": "performance"
+        },
+        {
+          "category": "Winter - Assists",
+          "scope": "Game",
+          "sourceText": "2 - Ben Sherritt (September 29, 2013)",
+          "value": "2",
+          "dateLabel": "September 29, 2013",
+          "kind": "performance"
+        },
+        {
+          "category": "Winter - Game Winning Goals",
+          "scope": "Season",
+          "sourceText": "4 - Ben Sherritt (2017/18)",
+          "value": "4",
+          "dateLabel": "2017/18",
+          "kind": "performance"
+        },
+        {
+          "category": "Winter - Game Winning Goals",
+          "scope": "Season",
+          "sourceText": "4 - Ben Sherritt (2013/14)",
+          "value": "4",
+          "dateLabel": "2013/14",
+          "kind": "performance"
+        },
+        {
+          "category": "Winter - Game Winning Goals",
+          "scope": "Playoffs",
+          "sourceText": "2 - Ben Sherritt (2017/18)",
+          "value": "2",
+          "dateLabel": "2017/18",
+          "kind": "performance"
+        },
+        {
+          "category": "Winter - Game Tying Goals",
+          "scope": "Season",
+          "sourceText": "2 - Ben Sherritt (2013/14)",
+          "value": "2",
+          "dateLabel": "2013/14",
+          "kind": "performance"
+        },
+        {
+          "category": "Winter - Powerplay Goals",
+          "scope": "Season",
+          "sourceText": "4 - Ben Sherritt (2017/18)",
+          "value": "4",
+          "dateLabel": "2017/18",
+          "kind": "performance"
+        },
+        {
+          "category": "Winter - Powerplay Goals",
+          "scope": "Season",
+          "sourceText": "3 - Ben Sherritt (2013/14)",
+          "value": "3",
+          "dateLabel": "2013/14",
+          "kind": "performance"
+        },
+        {
+          "category": "Winter - Hat Tricks",
+          "scope": "Season",
+          "sourceText": "5 - Ben Sherritt (2013/14)",
+          "value": "5",
+          "dateLabel": "2013/14",
+          "kind": "performance"
+        },
+        {
+          "category": "Winter - Player of the Game",
+          "scope": "Season",
+          "sourceText": "13 - Ben Sherritt (2013/14)",
+          "value": "13",
+          "dateLabel": "2013/14",
+          "kind": "performance"
+        },
+        {
+          "category": "50 Game Club",
+          "scope": "Career",
+          "sourceText": "18 - Ben Sherritt (November 20, 2016)",
+          "value": "18",
+          "dateLabel": "November 20, 2016",
+          "kind": "milestone"
+        },
+        {
+          "category": "50 Point Club",
+          "scope": "Career",
+          "sourceText": "2 - Ben Sherritt (April 13, 2014)",
+          "value": "2",
+          "dateLabel": "April 13, 2014",
+          "kind": "milestone"
+        },
+        {
+          "category": "100 Game Club",
+          "scope": "Career",
+          "sourceText": "14 - Ben Sherritt (March 18, 2018)",
+          "value": "14",
+          "dateLabel": "March 18, 2018",
+          "kind": "milestone"
+        },
+        {
+          "category": "100 Point Club",
+          "scope": "Career",
+          "sourceText": "6 - Ben Sherritt (November 13, 2016)",
+          "value": "6",
+          "dateLabel": "November 13, 2016",
+          "kind": "milestone"
+        },
+        {
+          "category": "200 Point Club",
+          "scope": "Career",
+          "sourceText": "1 - Ben Sherritt (February 25, 2018)",
+          "value": "1",
+          "dateLabel": "February 25, 2018",
+          "kind": "milestone"
+        }
+      ]
+    },
+    "355501": {
+      "name": "Neil Baghel",
+      "entries": [
+        {
+          "category": "50 Game Club",
+          "scope": "Career",
+          "sourceText": "14 - Neil Baghel (September 27, 2015)",
+          "value": "14",
+          "dateLabel": "September 27, 2015",
+          "kind": "milestone"
+        }
+      ]
+    },
+    "356089": {
+      "name": "Stefano Ardizzi",
+      "entries": [
+        {
+          "category": "Summer - Points",
+          "scope": "Game",
+          "sourceText": "5 - Stefano Ardizzi (June 22, 2014)",
+          "value": "5",
+          "dateLabel": "June 22, 2014",
+          "kind": "performance"
+        },
+        {
+          "category": "Summer - Assists",
+          "scope": "Season",
+          "sourceText": "7 - Stefano Ardizzi (2014)",
+          "value": "7",
+          "dateLabel": "2014",
+          "kind": "performance"
+        },
+        {
+          "category": "Summer - Penalty Minutes",
+          "scope": "Game",
+          "sourceText": "9 - Stefano Ardizzi (May 31, 2015)",
+          "value": "9",
+          "dateLabel": "May 31, 2015",
+          "kind": "performance"
+        },
+        {
+          "category": "Summer - Penalty Minutes",
+          "scope": "Game",
+          "sourceText": "4 - Stefano Ardizzi (June 1, 2014)",
+          "value": "4",
+          "dateLabel": "June 1, 2014",
+          "kind": "performance"
+        },
+        {
+          "category": "Summer - Penalty Minutes",
+          "scope": "Season",
+          "sourceText": "11 - Stefano Ardizzi (2015)",
+          "value": "11",
+          "dateLabel": "2015",
+          "kind": "performance"
+        },
+        {
+          "category": "Summer - Penalty Minutes",
+          "scope": "Playoffs",
+          "sourceText": "6 - Stefano Ardizzi (2015)",
+          "value": "6",
+          "dateLabel": "2015",
+          "kind": "performance"
+        },
+        {
+          "category": "Winter - Assists",
+          "scope": "Game",
+          "sourceText": "3 - Stefano Ardizzi (December 15, 2013)",
+          "value": "3",
+          "dateLabel": "December 15, 2013",
+          "kind": "performance"
+        },
+        {
+          "category": "Winter - Assists",
+          "scope": "Game",
+          "sourceText": "3 - Stefano Ardizzi (March 2, 2014)",
+          "value": "3",
+          "dateLabel": "March 2, 2014",
+          "kind": "performance"
+        },
+        {
+          "category": "Winter - Penalty Minutes",
+          "scope": "Game",
+          "sourceText": "14 - Stefano Ardizzi (December 22, 2019)",
+          "value": "14",
+          "dateLabel": "December 22, 2019",
+          "kind": "performance"
+        },
+        {
+          "category": "50 Game Club",
+          "scope": "Career",
+          "sourceText": "12 - Stefano Ardizzi (March 22, 2015)",
+          "value": "12",
+          "dateLabel": "March 22, 2015",
+          "kind": "milestone"
+        },
+        {
+          "category": "50 Point Club",
+          "scope": "Career",
+          "sourceText": "9 - Stefano Ardizzi (February 21, 2016)",
+          "value": "9",
+          "dateLabel": "February 21, 2016",
+          "kind": "milestone"
+        },
+        {
+          "category": "100 Game Club",
+          "scope": "Career",
+          "sourceText": "13 - Stefano Ardizzi (April 2, 2017)",
+          "value": "13",
+          "dateLabel": "April 2, 2017",
+          "kind": "milestone"
+        },
+        {
+          "category": "100 Point Club",
+          "scope": "Career",
+          "sourceText": "9 - Stefano Ardizzi (March 10, 2019)",
+          "value": "9",
+          "dateLabel": "March 10, 2019",
+          "kind": "milestone"
+        },
+        {
+          "category": "200 Game Club",
+          "scope": "Career",
+          "sourceText": "9 - Stefano Ardizzi (January 28, 2024)",
+          "value": "9",
+          "dateLabel": "January 28, 2024",
+          "kind": "milestone"
+        }
+      ]
+    },
+    "376086": {
+      "name": "Carmine Cerrone",
+      "entries": []
+    },
+    "378152": {
+      "name": "Tristan Weatherhead",
+      "entries": []
+    },
+    "378632": {
+      "name": "Will Cawkell",
+      "entries": [
+        {
+          "category": "Summer - Goals Against Average",
+          "scope": "Season",
+          "sourceText": "3.40 - Will Cawkell (2015)",
+          "value": "3.40",
+          "dateLabel": "2015",
+          "kind": "performance"
+        }
+      ]
+    },
+    "382708": {
+      "name": "Julian Kercz",
+      "entries": [
+        {
+          "category": "Summer - Assists",
+          "scope": "Season",
+          "sourceText": "9 - Julian Kercz (2014)",
+          "value": "9",
+          "dateLabel": "2014",
+          "kind": "performance"
+        },
+        {
+          "category": "Summer - Penalty Minutes",
+          "scope": "Season",
+          "sourceText": "8 - Julian Kercz (2014)",
+          "value": "8",
+          "dateLabel": "2014",
+          "kind": "performance"
+        },
+        {
+          "category": "Summer - Penalty Minutes",
+          "scope": "Playoffs",
+          "sourceText": "6 - Julian Kercz (2016)",
+          "value": "6",
+          "dateLabel": "2016",
+          "kind": "performance"
+        },
+        {
+          "category": "Winter - Penalty Minutes",
+          "scope": "Game",
+          "sourceText": "12 - Julian Kercz (November 9, 2014)",
+          "value": "12",
+          "dateLabel": "November 9, 2014",
+          "kind": "performance"
+        },
+        {
+          "category": "Winter - Penalty Minutes",
+          "scope": "Season",
+          "sourceText": "24 - Julian Kercz (2015/16)",
+          "value": "24",
+          "dateLabel": "2015/16",
+          "kind": "performance"
+        },
+        {
+          "category": "Winter - Penalty Minutes",
+          "scope": "Season",
+          "sourceText": "24 - Julian Kercz (2016/17)",
+          "value": "24",
+          "dateLabel": "2016/17",
+          "kind": "performance"
+        },
+        {
+          "category": "Winter - Penalty Minutes",
+          "scope": "Season",
+          "sourceText": "20 - Julian Kercz (2014/15)",
+          "value": "20",
+          "dateLabel": "2014/15",
+          "kind": "performance"
+        },
+        {
+          "category": "Winter - Penalty Minutes",
+          "scope": "Playoffs",
+          "sourceText": "11 - Julian Kercz (2015/16)",
+          "value": "11",
+          "dateLabel": "2015/16",
+          "kind": "performance"
+        },
+        {
+          "category": "50 Game Club",
+          "scope": "Career",
+          "sourceText": "16 - Julian Kercz (December 20, 2015)",
+          "value": "16",
+          "dateLabel": "December 20, 2015",
+          "kind": "milestone"
+        },
+        {
+          "category": "50 Point Club",
+          "scope": "Career",
+          "sourceText": "11 - Julian Kercz (July 10, 2016)",
+          "value": "11",
+          "dateLabel": "July 10, 2016",
+          "kind": "milestone"
+        }
+      ]
+    },
+    "383322": {
+      "name": "Zach Kercz",
+      "entries": [
+        {
+          "category": "Winter - Points",
+          "scope": "Game",
+          "sourceText": "6 - Zach Kercz (December 21, 2014)",
+          "value": "6",
+          "dateLabel": "December 21, 2014",
+          "kind": "performance"
+        }
+      ]
+    },
+    "388298": {
+      "name": "Quenton Hunt",
+      "entries": []
+    },
+    "388357": {
+      "name": "Michael Grande",
+      "entries": []
+    },
+    "399966": {
+      "name": "Ryan Finlay",
+      "entries": [
+        {
+          "category": "50 Game Club",
+          "scope": "Career",
+          "sourceText": "27 - Ryan Finlay (December 8, 2024)",
+          "value": "27",
+          "dateLabel": "December 8, 2024",
+          "kind": "milestone"
+        },
+        {
+          "category": "50 Point Club",
+          "scope": "Career",
+          "sourceText": "19 - Ryan Finlay (December 7, 2025)",
+          "value": "19",
+          "dateLabel": "December 7, 2025",
+          "kind": "milestone"
+        }
+      ]
+    },
+    "401341": {
+      "name": "Joe Carpino",
+      "entries": []
+    },
+    "401342": {
+      "name": "Marco Lamanna",
+      "entries": []
+    },
+    "411613": {
+      "name": "Robert Ruscitti",
+      "entries": []
+    },
+    "426873": {
+      "name": "Xav O'Krafka",
+      "entries": [
+        {
+          "category": "Summer - Goals",
+          "scope": "Season",
+          "sourceText": "16 - Xav O'Krafka (2017)",
+          "value": "16",
+          "dateLabel": "2017",
+          "kind": "performance"
+        },
+        {
+          "category": "Summer - Points",
+          "scope": "Season",
+          "sourceText": "30 - Xav O'Krafka (2017)",
+          "value": "30",
+          "dateLabel": "2017",
+          "kind": "performance"
+        },
+        {
+          "category": "Summer - Penalty Minutes",
+          "scope": "Season",
+          "sourceText": "20 - Xav O'Krafka (2017)",
+          "value": "20",
+          "dateLabel": "2017",
+          "kind": "performance"
+        },
+        {
+          "category": "Winter - Points",
+          "scope": "Game",
+          "sourceText": "6 - Xav O'Krafka (November 12, 2017)",
+          "value": "6",
+          "dateLabel": "November 12, 2017",
+          "kind": "performance"
+        },
+        {
+          "category": "50 Point Club",
+          "scope": "Career",
+          "sourceText": "13 - Xav O'Krafka (November 19, 2017)",
+          "value": "13",
+          "dateLabel": "November 19, 2017",
+          "kind": "milestone"
+        }
+      ]
+    },
+    "434639": {
+      "name": "Michael McGolrick",
+      "entries": []
+    },
+    "453661": {
+      "name": "Anthony Guerra",
+      "entries": [
+        {
+          "category": "50 Game Club",
+          "scope": "Career",
+          "sourceText": "17 - Anthony Guerra (July 17, 2016)",
+          "value": "17",
+          "dateLabel": "July 17, 2016",
+          "kind": "milestone"
+        }
+      ]
+    },
+    "453662": {
+      "name": "Andrew Buchanan",
+      "entries": [
+        {
+          "category": "Summer - Penalty Minutes",
+          "scope": "Playoffs",
+          "sourceText": "6 - Andrew Buchanan (2017)",
+          "value": "6",
+          "dateLabel": "2017",
+          "kind": "performance"
+        },
+        {
+          "category": "50 Game Club",
+          "scope": "Career",
+          "sourceText": "22 - Andrew Buchanan (February 10, 2019)",
+          "value": "22",
+          "dateLabel": "February 10, 2019",
+          "kind": "milestone"
+        }
+      ]
+    },
+    "454292": {
+      "name": "Aaron Carosi",
+      "entries": []
+    },
+    "458461": {
+      "name": "Matt Babiak",
+      "entries": []
+    },
+    "465897": {
+      "name": "Ryan Campbell",
+      "entries": []
+    },
+    "481161": {
+      "name": "Marcus Helmer",
+      "entries": []
+    },
+    "488205": {
+      "name": "Matt Cesario",
+      "entries": []
+    },
+    "525407": {
+      "name": "Dylan Brennan",
+      "entries": [
+        {
+          "category": "Winter - Assists",
+          "scope": "Game",
+          "sourceText": "4 - Dylan Brennan (September 18, 2016)",
+          "value": "4",
+          "dateLabel": "September 18, 2016",
+          "kind": "performance"
+        },
+        {
+          "category": "Winter - Assists",
+          "scope": "Season",
+          "sourceText": "22 - Dylan Brennan (2018/19)",
+          "value": "22",
+          "dateLabel": "2018/19",
+          "kind": "performance"
+        },
+        {
+          "category": "50 Game Club",
+          "scope": "Career",
+          "sourceText": "19 - Dylan Brennan (January 23, 2018)",
+          "value": "19",
+          "dateLabel": "January 23, 2018",
+          "kind": "milestone"
+        },
+        {
+          "category": "50 Point Club",
+          "scope": "Career",
+          "sourceText": "12 - Dylan Brennan (August 27, 2017)",
+          "value": "12",
+          "dateLabel": "August 27, 2017",
+          "kind": "milestone"
+        },
+        {
+          "category": "100 Point Club",
+          "scope": "Career",
+          "sourceText": "8 - Dylan Brennan (December 30, 2018)",
+          "value": "8",
+          "dateLabel": "December 30, 2018",
+          "kind": "milestone"
+        }
+      ]
+    },
+    "533806": {
+      "name": "Stephen Keane",
+      "entries": [
+        {
+          "category": "Winter - Game Winning Goals",
+          "scope": "Season",
+          "sourceText": "4 - Stephen Keane (2016/17)",
+          "value": "4",
+          "dateLabel": "2016/17",
+          "kind": "performance"
+        }
+      ]
+    },
+    "547671": {
+      "name": "Andrew Laramy",
+      "entries": []
+    },
+    "549462": {
+      "name": "Enzo Del Zotto",
+      "entries": []
+    },
+    "549659": {
+      "name": "Nick Florio",
+      "entries": []
+    },
+    "549660": {
+      "name": "Brandon Nunno",
+      "entries": []
+    },
+    "549661": {
+      "name": "Chris Nunno",
+      "entries": []
+    },
+    "549662": {
+      "name": "Adrian Nunno",
+      "entries": []
+    },
+    "549663": {
+      "name": "Luc Spagnuolo",
+      "entries": []
+    },
+    "567150": {
+      "name": "Jesse Coote",
+      "entries": []
+    },
+    "586425": {
+      "name": "Lorcan Duffy",
+      "entries": [
+        {
+          "category": "50 Game Club",
+          "scope": "Career",
+          "sourceText": "23 - Lorcan Duffy (April 14, 2019)",
+          "value": "23",
+          "dateLabel": "April 14, 2019",
+          "kind": "milestone"
+        },
+        {
+          "category": "50 Point Club",
+          "scope": "Career",
+          "sourceText": "16 - Lorcan Duffy (March 1, 2020)",
+          "value": "16",
+          "dateLabel": "March 1, 2020",
+          "kind": "milestone"
+        }
+      ]
+    },
+    "594972": {
+      "name": "Anthony Partland",
+      "entries": []
+    },
+    "595514": {
+      "name": "Stefano Mazzei",
+      "entries": [
+        {
+          "category": "50 Game Club",
+          "scope": "Career",
+          "sourceText": "28 - Stefano Mazzei (December 15, 2024)",
+          "value": "28",
+          "dateLabel": "December 15, 2024",
+          "kind": "milestone"
+        }
+      ]
+    },
+    "605063": {
+      "name": "Tom Cole",
+      "entries": []
+    },
+    "612364": {
+      "name": "Mark Arruda",
+      "entries": [
+        {
+          "category": "50 Game Club",
+          "scope": "Career",
+          "sourceText": "25 - Mark Arruda (March 3, 2024)",
+          "value": "25",
+          "dateLabel": "March 3, 2024",
+          "kind": "milestone"
+        },
+        {
+          "category": "50 Point Club",
+          "scope": "Career",
+          "sourceText": "18 - Mark Arruda (March 9, 2025)",
+          "value": "18",
+          "dateLabel": "March 9, 2025",
+          "kind": "milestone"
+        },
+        {
+          "category": "100 Game Club",
+          "scope": "Career",
+          "sourceText": "16 - Mark Arruda (March 15, 2026)",
+          "value": "16",
+          "dateLabel": "March 15, 2026",
+          "kind": "milestone"
+        }
+      ]
+    },
+    "618955": {
+      "name": "Anthony DiPardo",
+      "entries": []
+    },
+    "618956": {
+      "name": "Andrew Pozzebon",
+      "entries": [
+        {
+          "category": "Winter - Goals Against Average",
+          "scope": "Season",
+          "sourceText": "2.17 - Andrew Pozzebon (2017/18)",
+          "value": "2.17",
+          "dateLabel": "2017/18",
+          "kind": "performance"
+        }
+      ]
+    },
+    "634098": {
+      "name": "Andrew Cristillo",
+      "entries": [
+        {
+          "category": "50 Game Club",
+          "scope": "Career",
+          "sourceText": "24 - Andrew Cristillo (December 3, 2023)",
+          "value": "24",
+          "dateLabel": "December 3, 2023",
+          "kind": "milestone"
+        }
+      ]
+    },
+    "642165": {
+      "name": "Dante Martella",
+      "entries": []
+    },
+    "642167": {
+      "name": "Lucas Cristillo",
+      "entries": []
+    },
+    "642168": {
+      "name": "Andre Cristillo",
+      "entries": []
+    },
+    "642442": {
+      "name": "Kevin Wheeler",
+      "entries": []
+    },
+    "645171": {
+      "name": "Emilio Paglia",
+      "entries": []
+    },
+    "652571": {
+      "name": "David Corasaniti",
+      "entries": [
+        {
+          "category": "Winter - Assists",
+          "scope": "Game",
+          "sourceText": "4 - David Corasaniti (February 9, 2020)",
+          "value": "4",
+          "dateLabel": "February 9, 2020",
+          "kind": "performance"
+        },
+        {
+          "category": "Winter - Assists",
+          "scope": "Game",
+          "sourceText": "4 - David Corasaniti (February 16, 2020)",
+          "value": "4",
+          "dateLabel": "February 16, 2020",
+          "kind": "performance"
+        }
+      ]
+    },
+    "653011": {
+      "name": "Matthew Brutto",
+      "entries": []
+    },
+    "681441": {
+      "name": "Chris Poleto",
+      "entries": []
+    },
+    "686216": {
+      "name": "Michael Provenzano",
+      "entries": [
+        {
+          "category": "50 Point Club",
+          "scope": "Career",
+          "sourceText": "20 - Michael Provenzano (September 27, 2026)",
+          "value": "20",
+          "dateLabel": "September 27, 2026",
+          "kind": "milestone"
+        }
+      ]
+    },
+    "686383": {
+      "name": "Ronan Duffy",
+      "entries": []
+    },
+    "686384": {
+      "name": "Eric Fregonas",
+      "entries": []
+    },
+    "686562": {
+      "name": "Giancarlo De Luca",
+      "entries": []
+    },
+    "686563": {
+      "name": "Stephen DeMarco",
+      "entries": []
+    },
+    "686564": {
+      "name": "Steve Noyek",
+      "entries": []
+    },
+    "688131": {
+      "name": "Anthony Ardizzi",
+      "entries": []
+    },
+    "689718": {
+      "name": "Michael Logue",
+      "entries": []
+    },
+    "696518": {
+      "name": "Brandon Quintos",
+      "entries": []
+    },
+    "696519": {
+      "name": "Justin Wright",
+      "entries": []
+    },
+    "696569": {
+      "name": "Mike Cianni",
+      "entries": []
+    },
+    "700877": {
+      "name": "Krishnan Rajasooriar",
+      "entries": [
+        {
+          "category": "50 Game Club",
+          "scope": "Career",
+          "sourceText": "29 - Krishnan Rajasooriar (December 21, 2025)",
+          "value": "29",
+          "dateLabel": "December 21, 2025",
+          "kind": "milestone"
+        }
+      ]
+    },
+    "733002": {
+      "name": "Mearon Naman",
+      "entries": []
+    },
+    "733003": {
+      "name": "Kourosh Adeli",
+      "entries": []
+    },
+    "736317": {
+      "name": "Adam Kober",
+      "entries": []
+    },
+    "738846": {
+      "name": "Stephane Saindon",
+      "entries": [
+        {
+          "category": "Winter - Assists",
+          "scope": "Game",
+          "sourceText": "4 - Stephane Saindon (October 6, 2024)",
+          "value": "4",
+          "dateLabel": "October 6, 2024",
+          "kind": "performance"
+        },
+        {
+          "category": "Winter - Assists",
+          "scope": "Game",
+          "sourceText": "4 - Stephane Saindon (November 9, 2025)",
+          "value": "4",
+          "dateLabel": "November 9, 2025",
+          "kind": "performance"
+        },
+        {
+          "category": "Winter - Assists",
+          "scope": "Game",
+          "sourceText": "4 - Stephane Saindon (January 18, 2026)",
+          "value": "4",
+          "dateLabel": "January 18, 2026",
+          "kind": "performance"
+        },
+        {
+          "category": "Winter - Game Winning Goals",
+          "scope": "Season",
+          "sourceText": "4 - Stephane Saindon (2023/24)",
+          "value": "4",
+          "dateLabel": "2023/24",
+          "kind": "performance"
+        },
+        {
+          "category": "Winter - Penalty Minutes",
+          "scope": "Game",
+          "sourceText": "14 - Stephane Saindon (April 6, 2025)",
+          "value": "14",
+          "dateLabel": "April 6, 2025",
+          "kind": "performance"
+        },
+        {
+          "category": "Winter - Penalty Minutes",
+          "scope": "Playoffs",
+          "sourceText": "14 - Stephane Saindon (2024/25)",
+          "value": "14",
+          "dateLabel": "2024/25",
+          "kind": "performance"
+        },
+        {
+          "category": "50 Game Club",
+          "scope": "Career",
+          "sourceText": "26 - Stephane Saindon (October 27, 2024)",
+          "value": "26",
+          "dateLabel": "October 27, 2024",
+          "kind": "milestone"
+        },
+        {
+          "category": "50 Point Club",
+          "scope": "Career",
+          "sourceText": "17 - Stephane Saindon (March 10, 2024)",
+          "value": "17",
+          "dateLabel": "March 10, 2024",
+          "kind": "milestone"
+        },
+        {
+          "category": "100 Point Club",
+          "scope": "Career",
+          "sourceText": "12 - Stephane Saindon (November 30, 2025)",
+          "value": "12",
+          "dateLabel": "November 30, 2025",
+          "kind": "milestone"
+        }
+      ]
+    },
+    "743181": {
+      "name": "Matthew Arruda",
+      "entries": []
+    },
+    "763309": {
+      "name": "Medi Brancatella",
+      "entries": []
+    },
+    "769343": {
+      "name": "Nolan Atkins",
+      "entries": []
+    },
+    "776208": {
+      "name": "Dev Leong",
+      "entries": []
+    },
+    "776712": {
+      "name": "Will Salnek",
+      "entries": []
+    },
+    "780704": {
+      "name": "Dino Brancatella",
+      "entries": []
+    },
+    "798413": {
+      "name": "Matt Svec",
+      "entries": []
+    },
+    "808054": {
+      "name": "Jason Gabor",
+      "entries": []
+    },
+    "825217": {
+      "name": "Brad Brock",
+      "entries": []
+    },
+    "829463": {
+      "name": "Matthew Greenberg",
+      "entries": []
+    },
+    "830942": {
+      "name": "Aj Ing",
+      "entries": []
+    },
+    "831410": {
+      "name": "Robbie Galdenzi",
+      "entries": []
+    },
+    "833648": {
+      "name": "Justin Sadler",
+      "entries": []
+    },
+    "843644": {
+      "name": "Jamie Rosenberg",
+      "entries": []
+    },
+    "843925": {
+      "name": "Will Dyer",
+      "entries": []
+    },
+    "844036": {
+      "name": "Adam Povegliano",
+      "entries": []
+    },
+    "845364": {
+      "name": "Francesco Triumbari",
+      "entries": []
+    },
+    "845365": {
+      "name": "Sanjay Rajkumar",
+      "entries": []
+    },
+    "846200": {
+      "name": "Henry Kong",
+      "entries": []
+    },
+    "849368": {
+      "name": "Damian Pavaday",
+      "entries": []
+    },
+    "849369": {
+      "name": "Adam Carlyle",
+      "entries": []
+    }
+  }
+}
