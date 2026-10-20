@@ -1,0 +1,681 @@
+{
+  "schema": "brave-hc-hto-player-season-evidence/v1",
+  "authority": "OFFICIAL_HTO_PUBLIC_STATS_READBACK",
+  "capturedAt": "2026-10-20T00:08:41.485Z",
+  "checkedSeasons": 18,
+  "scope": "Season deep-link eligibility for the 51 public HTO player IDs, not attendance or lineups",
+  "players": [
+    {
+      "name": "Stefano Ardizzi",
+      "playerID": 356089,
+      "seasons": [
+        "Summer_2014",
+        "Summer_2015",
+        "Summer_2016",
+        "Summer_2017",
+        "Winter_2013/2014",
+        "Winter_2014/2015",
+        "Winter_2015/2016",
+        "Winter_2016/2017",
+        "Winter_2017/2018",
+        "Winter_2018/2019",
+        "Winter_2019/2020",
+        "Winter_2022/2023",
+        "Winter_2023/2024",
+        "Winter_2024/2025",
+        "Winter_2025/2026",
+        "Winter_2026/2027"
+      ]
+    },
+    {
+      "name": "Nolan Atkins",
+      "playerID": 769343,
+      "seasons": [
+        "Winter_2023/2024",
+        "Winter_2025/2026",
+        "Winter_2026/2027"
+      ]
+    },
+    {
+      "name": "Adam Brutto",
+      "playerID": 354054,
+      "seasons": [
+        "Summer_2013",
+        "Summer_2014",
+        "Summer_2015",
+        "Summer_2016",
+        "Summer_2017",
+        "Winter_2013/2014",
+        "Winter_2014/2015",
+        "Winter_2015/2016",
+        "Winter_2016/2017",
+        "Winter_2017/2018",
+        "Winter_2018/2019",
+        "Winter_2019/2020",
+        "Winter_2022/2023",
+        "Winter_2023/2024",
+        "Winter_2024/2025",
+        "Winter_2025/2026",
+        "Winter_2026/2027"
+      ]
+    },
+    {
+      "name": "Justin Carosi",
+      "playerID": 354060,
+      "seasons": [
+        "Summer_2013",
+        "Summer_2014",
+        "Summer_2015",
+        "Summer_2016",
+        "Summer_2017",
+        "Winter_2013/2014",
+        "Winter_2014/2015",
+        "Winter_2015/2016",
+        "Winter_2016/2017",
+        "Winter_2017/2018",
+        "Winter_2018/2019",
+        "Winter_2019/2020",
+        "Winter_2020/2021",
+        "Winter_2022/2023",
+        "Winter_2023/2024",
+        "Winter_2024/2025",
+        "Winter_2025/2026",
+        "Winter_2026/2027"
+      ]
+    },
+    {
+      "name": "Marco Congiusti",
+      "playerID": 354041,
+      "seasons": [
+        "Summer_2013",
+        "Summer_2014",
+        "Summer_2015",
+        "Summer_2016",
+        "Summer_2017",
+        "Winter_2013/2014",
+        "Winter_2014/2015",
+        "Winter_2015/2016",
+        "Winter_2016/2017",
+        "Winter_2017/2018",
+        "Winter_2018/2019",
+        "Winter_2019/2020",
+        "Winter_2020/2021",
+        "Winter_2022/2023",
+        "Winter_2023/2024",
+        "Winter_2024/2025",
+        "Winter_2025/2026",
+        "Winter_2026/2027"
+      ]
+    },
+    {
+      "name": "Andrew Cristillo",
+      "playerID": 634098,
+      "seasons": [
+        "Winter_2018/2019",
+        "Winter_2019/2020",
+        "Winter_2023/2024",
+        "Winter_2024/2025"
+      ]
+    },
+    {
+      "name": "Lorcan Duffy",
+      "playerID": 586425,
+      "seasons": [
+        "Summer_2017",
+        "Winter_2017/2018",
+        "Winter_2018/2019",
+        "Winter_2019/2020",
+        "Winter_2024/2025",
+        "Winter_2025/2026",
+        "Winter_2026/2027"
+      ]
+    },
+    {
+      "name": "Adam Kober",
+      "playerID": 736317,
+      "seasons": [
+        "Winter_2022/2023",
+        "Winter_2023/2024",
+        "Winter_2024/2025",
+        "Winter_2025/2026",
+        "Winter_2026/2027"
+      ]
+    },
+    {
+      "name": "Henry Kong",
+      "playerID": 846200,
+      "seasons": [
+        "Winter_2026/2027"
+      ]
+    },
+    {
+      "name": "Dev Leong",
+      "playerID": 776208,
+      "seasons": [
+        "Winter_2023/2024",
+        "Winter_2024/2025",
+        "Winter_2025/2026",
+        "Winter_2026/2027"
+      ]
+    },
+    {
+      "name": "Stephen Logue",
+      "playerID": 354055,
+      "seasons": [
+        "Summer_2013",
+        "Summer_2014",
+        "Summer_2015",
+        "Summer_2016",
+        "Summer_2017",
+        "Winter_2013/2014",
+        "Winter_2014/2015",
+        "Winter_2015/2016",
+        "Winter_2016/2017",
+        "Winter_2017/2018",
+        "Winter_2018/2019",
+        "Winter_2019/2020",
+        "Winter_2020/2021",
+        "Winter_2022/2023",
+        "Winter_2023/2024",
+        "Winter_2024/2025",
+        "Winter_2025/2026",
+        "Winter_2026/2027"
+      ]
+    },
+    {
+      "name": "Stefano Mazzei",
+      "playerID": 595514,
+      "seasons": [
+        "Summer_2017",
+        "Winter_2018/2019",
+        "Winter_2019/2020",
+        "Winter_2022/2023",
+        "Winter_2023/2024",
+        "Winter_2024/2025",
+        "Winter_2025/2026"
+      ]
+    },
+    {
+      "name": "Alex Pagnotta",
+      "playerID": 354058,
+      "seasons": [
+        "Summer_2013",
+        "Summer_2014",
+        "Summer_2015",
+        "Summer_2016",
+        "Summer_2017",
+        "Winter_2013/2014",
+        "Winter_2014/2015",
+        "Winter_2015/2016",
+        "Winter_2016/2017",
+        "Winter_2017/2018",
+        "Winter_2018/2019",
+        "Winter_2019/2020",
+        "Winter_2020/2021",
+        "Winter_2022/2023",
+        "Winter_2023/2024",
+        "Winter_2024/2025",
+        "Winter_2025/2026",
+        "Winter_2026/2027"
+      ]
+    },
+    {
+      "name": "Anthony Paolucci",
+      "playerID": 354057,
+      "seasons": [
+        "Summer_2013",
+        "Summer_2015",
+        "Summer_2016",
+        "Summer_2017",
+        "Winter_2014/2015",
+        "Winter_2015/2016",
+        "Winter_2025/2026",
+        "Winter_2026/2027"
+      ]
+    },
+    {
+      "name": "Damian Pavaday",
+      "playerID": 849368,
+      "seasons": [
+        "Winter_2026/2027"
+      ]
+    },
+    {
+      "name": "Keith Pearsoll",
+      "playerID": 354056,
+      "seasons": [
+        "Summer_2013",
+        "Summer_2014",
+        "Summer_2015",
+        "Summer_2016",
+        "Summer_2017",
+        "Winter_2013/2014",
+        "Winter_2014/2015",
+        "Winter_2015/2016",
+        "Winter_2016/2017",
+        "Winter_2017/2018",
+        "Winter_2018/2019",
+        "Winter_2019/2020",
+        "Winter_2020/2021",
+        "Winter_2022/2023",
+        "Winter_2023/2024",
+        "Winter_2024/2025",
+        "Winter_2025/2026",
+        "Winter_2026/2027"
+      ]
+    },
+    {
+      "name": "Adam Povegliano",
+      "playerID": 844036,
+      "seasons": [
+        "Winter_2026/2027"
+      ]
+    },
+    {
+      "name": "Mario Provenzano",
+      "playerID": 354045,
+      "seasons": [
+        "Summer_2013",
+        "Summer_2014",
+        "Summer_2015",
+        "Summer_2016",
+        "Summer_2017",
+        "Winter_2013/2014",
+        "Winter_2014/2015",
+        "Winter_2015/2016",
+        "Winter_2016/2017",
+        "Winter_2017/2018",
+        "Winter_2018/2019",
+        "Winter_2019/2020",
+        "Winter_2022/2023",
+        "Winter_2023/2024",
+        "Winter_2024/2025",
+        "Winter_2025/2026",
+        "Winter_2026/2027"
+      ]
+    },
+    {
+      "name": "Michael Provenzano",
+      "playerID": 686216,
+      "seasons": [
+        "Winter_2019/2020",
+        "Winter_2024/2025",
+        "Winter_2025/2026",
+        "Winter_2026/2027"
+      ]
+    },
+    {
+      "name": "Krishnan Rajasooriar",
+      "playerID": 700877,
+      "seasons": [
+        "Winter_2020/2021",
+        "Winter_2022/2023",
+        "Winter_2023/2024",
+        "Winter_2024/2025",
+        "Winter_2025/2026",
+        "Winter_2026/2027"
+      ]
+    },
+    {
+      "name": "Sanjay Rajkumar",
+      "playerID": 845365,
+      "seasons": [
+        "Winter_2026/2027"
+      ]
+    },
+    {
+      "name": "Jamie Rosenberg",
+      "playerID": 843644,
+      "seasons": [
+        "Winter_2026/2027"
+      ]
+    },
+    {
+      "name": "Stephane Saindon",
+      "playerID": 738846,
+      "seasons": [
+        "Winter_2022/2023",
+        "Winter_2023/2024",
+        "Winter_2024/2025",
+        "Winter_2025/2026",
+        "Winter_2026/2027"
+      ]
+    },
+    {
+      "name": "Francesco Triumbari",
+      "playerID": 845364,
+      "seasons": [
+        "Winter_2026/2027"
+      ]
+    },
+    {
+      "name": "Adam Carlyle",
+      "playerID": 849369,
+      "seasons": [
+        "Winter_2026/2027"
+      ]
+    },
+    {
+      "name": "Andrew Buchanan",
+      "playerID": 453662,
+      "seasons": [
+        "Summer_2015",
+        "Summer_2017",
+        "Winter_2017/2018",
+        "Winter_2018/2019",
+        "Winter_2019/2020",
+        "Winter_2020/2021"
+      ]
+    },
+    {
+      "name": "Andrew Pozzebon",
+      "playerID": 618956,
+      "seasons": [
+        "Winter_2017/2018",
+        "Winter_2018/2019"
+      ]
+    },
+    {
+      "name": "Anthony Guerra",
+      "playerID": 453661,
+      "seasons": [
+        "Summer_2015",
+        "Summer_2016",
+        "Winter_2015/2016",
+        "Winter_2016/2017"
+      ]
+    },
+    {
+      "name": "Ben Sherritt",
+      "playerID": 354285,
+      "seasons": [
+        "Summer_2014",
+        "Summer_2015",
+        "Summer_2016",
+        "Summer_2017",
+        "Winter_2013/2014",
+        "Winter_2014/2015",
+        "Winter_2015/2016",
+        "Winter_2016/2017",
+        "Winter_2017/2018",
+        "Winter_2018/2019",
+        "Winter_2020/2021"
+      ]
+    },
+    {
+      "name": "Cameron Buchanan",
+      "playerID": 354049,
+      "seasons": [
+        "Summer_2013",
+        "Summer_2014",
+        "Summer_2015",
+        "Summer_2016",
+        "Summer_2017",
+        "Winter_2013/2014",
+        "Winter_2014/2015",
+        "Winter_2015/2016",
+        "Winter_2016/2017",
+        "Winter_2017/2018",
+        "Winter_2018/2019",
+        "Winter_2019/2020",
+        "Winter_2020/2021",
+        "Winter_2022/2023"
+      ]
+    },
+    {
+      "name": "Carmine Cerrone",
+      "playerID": 376086,
+      "seasons": [
+        "Winter_2013/2014",
+        "Winter_2015/2016"
+      ]
+    },
+    {
+      "name": "Damian Aidemirski",
+      "playerID": 354051,
+      "seasons": [
+        "Summer_2013",
+        "Summer_2014",
+        "Summer_2015",
+        "Summer_2016",
+        "Winter_2013/2014",
+        "Winter_2014/2015",
+        "Winter_2015/2016",
+        "Winter_2016/2017",
+        "Winter_2017/2018",
+        "Winter_2019/2020"
+      ]
+    },
+    {
+      "name": "Daniel Buzzelli",
+      "playerID": 354062,
+      "seasons": [
+        "Summer_2013",
+        "Summer_2014",
+        "Winter_2013/2014",
+        "Winter_2014/2015",
+        "Winter_2018/2019",
+        "Winter_2019/2020",
+        "Winter_2022/2023",
+        "Winter_2023/2024",
+        "Winter_2024/2025"
+      ]
+    },
+    {
+      "name": "David Corasaniti",
+      "playerID": 652571,
+      "seasons": [
+        "Winter_2018/2019",
+        "Winter_2019/2020",
+        "Winter_2023/2024",
+        "Winter_2025/2026"
+      ]
+    },
+    {
+      "name": "Dylan Brennan",
+      "playerID": 525407,
+      "seasons": [
+        "Summer_2016",
+        "Summer_2017",
+        "Winter_2015/2016",
+        "Winter_2016/2017",
+        "Winter_2017/2018",
+        "Winter_2018/2019",
+        "Winter_2019/2020",
+        "Winter_2025/2026"
+      ]
+    },
+    {
+      "name": "Jeff Micheli",
+      "playerID": 354053,
+      "seasons": [
+        "Summer_2013",
+        "Summer_2014",
+        "Summer_2015",
+        "Winter_2014/2015",
+        "Winter_2015/2016",
+        "Winter_2016/2017"
+      ]
+    },
+    {
+      "name": "Julian Kercz",
+      "playerID": 382708,
+      "seasons": [
+        "Summer_2014",
+        "Summer_2016",
+        "Summer_2017",
+        "Winter_2013/2014",
+        "Winter_2014/2015",
+        "Winter_2015/2016",
+        "Winter_2016/2017"
+      ]
+    },
+    {
+      "name": "Kourosh Adeli",
+      "playerID": 733003,
+      "seasons": [
+        "Winter_2022/2023"
+      ]
+    },
+    {
+      "name": "Lucas Brutto",
+      "playerID": 354042,
+      "seasons": [
+        "Summer_2015",
+        "Summer_2016",
+        "Winter_2013/2014",
+        "Winter_2014/2015",
+        "Winter_2018/2019",
+        "Winter_2019/2020"
+      ]
+    },
+    {
+      "name": "Luke Leddy",
+      "playerID": 354063,
+      "seasons": [
+        "Summer_2013"
+      ]
+    },
+    {
+      "name": "Mark Arruda",
+      "playerID": 612364,
+      "seasons": [
+        "Winter_2017/2018",
+        "Winter_2022/2023",
+        "Winter_2023/2024",
+        "Winter_2024/2025",
+        "Winter_2025/2026"
+      ]
+    },
+    {
+      "name": "Mark Pastore",
+      "playerID": 354061,
+      "seasons": [
+        "Summer_2013",
+        "Summer_2014",
+        "Summer_2015",
+        "Summer_2016",
+        "Winter_2013/2014",
+        "Winter_2014/2015",
+        "Winter_2015/2016",
+        "Winter_2016/2017",
+        "Winter_2017/2018",
+        "Winter_2023/2024"
+      ]
+    },
+    {
+      "name": "Medi Brancatella",
+      "playerID": 763309,
+      "seasons": [
+        "Winter_2023/2024",
+        "Winter_2024/2025"
+      ]
+    },
+    {
+      "name": "Michael Congiusti",
+      "playerID": 354059,
+      "seasons": [
+        "Summer_2013",
+        "Summer_2014",
+        "Summer_2015",
+        "Summer_2016",
+        "Summer_2017",
+        "Winter_2013/2014",
+        "Winter_2014/2015",
+        "Winter_2015/2016",
+        "Winter_2016/2017",
+        "Winter_2017/2018"
+      ]
+    },
+    {
+      "name": "Neil Baghel",
+      "playerID": 355501,
+      "seasons": [
+        "Summer_2014",
+        "Summer_2015",
+        "Summer_2016",
+        "Summer_2017",
+        "Winter_2013/2014",
+        "Winter_2014/2015",
+        "Winter_2015/2016",
+        "Winter_2016/2017",
+        "Winter_2017/2018",
+        "Winter_2018/2019",
+        "Winter_2019/2020",
+        "Winter_2024/2025"
+      ]
+    },
+    {
+      "name": "Ryan Finlay",
+      "playerID": 399966,
+      "seasons": [
+        "Winter_2013/2014",
+        "Winter_2015/2016",
+        "Winter_2022/2023",
+        "Winter_2023/2024",
+        "Winter_2024/2025",
+        "Winter_2025/2026"
+      ]
+    },
+    {
+      "name": "Ryan Logue",
+      "playerID": 354046,
+      "seasons": [
+        "Summer_2013",
+        "Summer_2014",
+        "Summer_2015",
+        "Summer_2016",
+        "Summer_2017",
+        "Winter_2013/2014",
+        "Winter_2014/2015",
+        "Winter_2015/2016",
+        "Winter_2016/2017",
+        "Winter_2017/2018",
+        "Winter_2018/2019",
+        "Winter_2019/2020",
+        "Winter_2020/2021",
+        "Winter_2022/2023",
+        "Winter_2023/2024",
+        "Winter_2024/2025",
+        "Winter_2025/2026"
+      ]
+    },
+    {
+      "name": "Stephen Keane",
+      "playerID": 533806,
+      "seasons": [
+        "Winter_2015/2016",
+        "Winter_2016/2017",
+        "Winter_2017/2018",
+        "Winter_2018/2019"
+      ]
+    },
+    {
+      "name": "Will Cawkell",
+      "playerID": 378632,
+      "seasons": [
+        "Summer_2015",
+        "Winter_2013/2014",
+        "Winter_2014/2015"
+      ]
+    },
+    {
+      "name": "Xav O'Krafka",
+      "playerID": 426873,
+      "seasons": [
+        "Summer_2017",
+        "Winter_2014/2015",
+        "Winter_2017/2018"
+      ]
+    },
+    {
+      "name": "Zach Kercz",
+      "playerID": 383322,
+      "seasons": [
+        "Summer_2016",
+        "Winter_2013/2014",
+        "Winter_2014/2015"
+      ]
+    }
+  ]
+}
