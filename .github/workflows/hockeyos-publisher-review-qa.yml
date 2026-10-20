@@ -4,6 +4,8 @@ on:
   pull_request:
     paths:
       - scripts/hockeyos_publisher_review_preflight.js
+      - scripts/hockeyos_publisher_prepare_isolated_review.py
+      - tests/test_hockeyos_publisher_isolated_prepare.py
       - tests/test_hockeyos_publisher_review_preflight.js
       - tests/test_hockeyos_publisher_widget_contracts.js
       - .github/workflows/hockeyos-publisher-review-qa.yml
@@ -26,3 +28,5 @@ jobs:
           node-version: '22'
       - name: Test safe publication planning and current widget contracts
         run: node --test tests/test_hockeyos_publisher_review_preflight.js tests/test_hockeyos_publisher_widget_contracts.js tests/test_player_links.js
+      - name: Test isolated fresh-main recovery planning without network or Git writes
+        run: python -m unittest discover -s tests -p test_hockeyos_publisher_isolated_prepare.py -v
