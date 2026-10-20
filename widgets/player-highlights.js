@@ -26,11 +26,11 @@ $('playerSub').textContent=identity?'HTO player #'+playerId+' \u00b7 Career arch
 const warnings=[];
 const categoryLabel={
  championship:'Championship',milestone:'Career milestone',
- leadership:'Team leadership',award:'Individual award',recognition:'Recognition'
+ leadership:'Team leadership',award:'Individual award',recognition:'Recognition',discipline:'Disciplinary record',record:'Historical record'
 };
 // ASCII badges avoid encoding damage when content passes through HTO editors.
 const symbol={
- championship:'CUP',milestone:'CLUB',leadership:'CAP',award:'AWD',recognition:'STAR'
+ championship:'CUP',milestone:'CLUB',leadership:'CAP',award:'AWD',recognition:'STAR',discipline:'NOTE',record:'NOTE'
 };
 function setNotice(s){
  $('notice').textContent=s;
@@ -75,7 +75,7 @@ function renderLegacy(record,ledgerTime){
  }
  const counts={
   championship:items.filter(x=>x.category==='championship').length,
-  award:items.filter(x=>x.category==='award').length,
+  award:items.filter(x=>x.category==='award'||x.category==='record'&&x.includesAward===true).length,
   milestone:items.filter(x=>x.category==='milestone').length
  };
  $('careerSummary').hidden=false;
@@ -91,10 +91,12 @@ function renderLegacy(record,ledgerTime){
    const info=text('div','');
    const raw=item.displayText;
    // Rendering is text-only: source labels are never evaluated as HTML.
-   const parts=raw.split(' - ');
+   const parts=item.preserveLines?[raw]:raw.split(' - ');
    const title=parts.length>1?parts.slice(0,-1).join(' - '):raw;
    const time=parts.length>1?parts[parts.length-1]:'';
-   info.append(text('div',title,'ph-event-title'));
+   const titleNode=text('div',title,'ph-event-title');
+   if(item.preserveLines)titleNode.style.whiteSpace='pre-line';
+   info.append(titleNode);
    info.append(text('div',[categoryLabel[item.category],time].filter(Boolean).join(' \u00b7 '),'ph-event-meta'));
    if(item.displayText!==item.sourceText){
     const note=text('div','Displayed spelling standardized; original HTO text retained in archive.','ph-event-source');
