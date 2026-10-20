@@ -136,13 +136,20 @@ function currentComponents(row,race){
  const role=isGoalie?"goalie":"skater";
  const expectedRole=isGoalie?"Goaltender":"Skater";
  const expected=contract.roleWeights?.[role];
+ const savedSourceWeights=state.award==="rolaids"?
+   history.roleWeights?.[role]:history.awardRoleWeights?.[state.award]?.[role];
  if(evidence.sourceRole!==expectedRole||!Array.isArray(expected)
+    ||!Array.isArray(savedSourceWeights)
+    ||savedSourceWeights.length!==expected.length
     ||expected.length<2||expected.length>20
     ||evidence.components.length!==expected.length
     ||(isGoalie?roster[0].role!=="G":roster[0].role==="G"))return null;
  const contract=new Map();
  for(const item of expected){
+  const sourceWeight=savedSourceWeights.find(x=>x.field===item.field);
   if(typeof item.field!=="string"||contract.has(item.field)
+      ||!sourceWeight||savedSourceWeights.filter(x=>x.field===item.field).length!==1
+      ||!Number.isFinite(sourceWeight.weight)||Math.abs(sourceWeight.weight-item.weight)>0.0000001
       ||!Number.isFinite(item.weight)||item.weight<=0||item.weight>1
       ||!history.componentFormulas?.[item.field]?.internalFormula
       ||!history.componentFormulas?.[item.field]?.displayFormula)return null;
