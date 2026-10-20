@@ -17,7 +17,6 @@ on:
           - Adam Carlyle
           - Matt Svec
           - Steve Noyek
-          - Anthony Paolucci
           - Other / rental
       custom_goalie_name:
         description: 'Only for Other / rental (leave blank otherwise)'
