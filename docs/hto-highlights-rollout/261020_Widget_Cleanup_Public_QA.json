@@ -1,0 +1,3048 @@
+{
+  "capturedAt": "2026-10-20T19:22:02.368Z",
+  "testResults": {
+    "profiles": 109,
+    "expandedHighlightItems": 306,
+    "recordBookEntries": 289,
+    "identityMismatchWithheld": true,
+    "unregisteredIdentityWithheld": true,
+    "formattingRunsPreserved": true
+  },
+  "publicDesktop": [
+    {
+      "id": "354041",
+      "name": "Marco Congiusti",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=354041"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Marco Congiusti - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=354041",
+      "careerDate": "Career snapshot: Oct 20, 2026 · ",
+      "contentHeight": 938.5795288085938,
+      "highlights": 3,
+      "notice": true,
+      "records": 5,
+      "scrollWidth": 605,
+      "statsDate": "Stats snapshot: Oct 18, 2026 · W2026/27",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:09:58.653Z"
+    },
+    {
+      "id": "354042",
+      "name": "Lucas Brutto",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=354042"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Lucas Brutto - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=354042",
+      "careerDate": "Career snapshot: Oct 20, 2026 · ",
+      "contentHeight": 752.82666015625,
+      "highlights": 3,
+      "notice": true,
+      "records": 1,
+      "scrollWidth": 605,
+      "statsDate": "",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:10:02.603Z"
+    },
+    {
+      "id": "354043",
+      "name": "Italo Brutto",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=354043"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Italo Brutto - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=354043",
+      "careerDate": "",
+      "contentHeight": 287.9829406738281,
+      "highlights": 1,
+      "notice": true,
+      "records": 0,
+      "scrollWidth": 605,
+      "statsDate": "",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:10:07.399Z"
+    },
+    {
+      "id": "354044",
+      "name": "Dale Payne",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=354044"
+        }
+      ],
+      "roster": true,
+      "stats": false,
+      "title": "Dale Payne - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=354044",
+      "careerDate": "",
+      "contentHeight": 179.4318084716797,
+      "highlights": 0,
+      "notice": true,
+      "records": 0,
+      "scrollWidth": 605,
+      "statsDate": "",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:10:11.415Z"
+    },
+    {
+      "id": "354045",
+      "name": "Mario Provenzano",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=354045"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Mario Provenzano - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=354045",
+      "careerDate": "Career snapshot: Oct 20, 2026 · ",
+      "contentHeight": 895.1135864257812,
+      "highlights": 3,
+      "notice": true,
+      "records": 6,
+      "scrollWidth": 605,
+      "statsDate": "Stats snapshot: Oct 18, 2026 · W2026/27",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:10:14.798Z"
+    },
+    {
+      "id": "354046",
+      "name": "Ryan Logue",
+      "viewport": "desktop",
+      "bio": true,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=354046"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Ryan Logue - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=354046",
+      "careerDate": "Career snapshot: Oct 20, 2026 · ",
+      "contentHeight": 781.803955078125,
+      "highlights": 3,
+      "notice": true,
+      "records": 21,
+      "scrollWidth": 605,
+      "statsDate": "",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:10:19.020Z"
+    },
+    {
+      "id": "354047",
+      "name": "Michael Nearing",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=354047"
+        }
+      ],
+      "roster": true,
+      "stats": false,
+      "title": "Michael Nearing - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=354047",
+      "careerDate": "",
+      "contentHeight": 287.0738525390625,
+      "highlights": 1,
+      "notice": true,
+      "records": 0,
+      "scrollWidth": 605,
+      "statsDate": "",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:10:22.547Z"
+    },
+    {
+      "id": "354048",
+      "name": "Eric Laliberte",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=354048"
+        }
+      ],
+      "roster": true,
+      "stats": false,
+      "title": "Eric Laliberte - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=354048",
+      "careerDate": "",
+      "contentHeight": 287.0738525390625,
+      "highlights": 1,
+      "notice": true,
+      "records": 0,
+      "scrollWidth": 605,
+      "statsDate": "",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:10:26.057Z"
+    },
+    {
+      "id": "354049",
+      "name": "Cameron Buchanan",
+      "viewport": "desktop",
+      "bio": true,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=354049"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Cameron Buchanan - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=354049",
+      "careerDate": "Career snapshot: Oct 20, 2026 · ",
+      "contentHeight": 738.3380126953125,
+      "highlights": 3,
+      "notice": true,
+      "records": 12,
+      "scrollWidth": 605,
+      "statsDate": "",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:10:31.076Z"
+    },
+    {
+      "id": "354050",
+      "name": "Simon Scott",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=354050"
+        }
+      ],
+      "roster": true,
+      "stats": false,
+      "title": "Simon Scott - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=354050",
+      "careerDate": "",
+      "contentHeight": 287.0738525390625,
+      "highlights": 1,
+      "notice": true,
+      "records": 0,
+      "scrollWidth": 605,
+      "statsDate": "",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:10:34.479Z"
+    },
+    {
+      "id": "354051",
+      "name": "Damian Aidemirski",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=354051"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Damian Aidemirski - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=354051",
+      "careerDate": "Career snapshot: Oct 20, 2026 · ",
+      "contentHeight": 752.82666015625,
+      "highlights": 3,
+      "notice": true,
+      "records": 6,
+      "scrollWidth": 605,
+      "statsDate": "",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:10:38.779Z"
+    },
+    {
+      "id": "354052",
+      "name": "Christopher Granicolo",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=354052"
+        }
+      ],
+      "roster": true,
+      "stats": false,
+      "title": "Christopher Granicolo - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=354052",
+      "careerDate": "",
+      "contentHeight": 287.0738525390625,
+      "highlights": 1,
+      "notice": true,
+      "records": 0,
+      "scrollWidth": 605,
+      "statsDate": "",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:10:44.582Z"
+    },
+    {
+      "id": "354053",
+      "name": "Jeff Micheli",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=354053"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Jeff Micheli - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=354053",
+      "careerDate": "Career snapshot: Oct 20, 2026 · ",
+      "contentHeight": 457.9687194824219,
+      "highlights": 0,
+      "notice": true,
+      "records": 1,
+      "scrollWidth": 605,
+      "statsDate": "",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:10:47.918Z"
+    },
+    {
+      "id": "354054",
+      "name": "Adam Brutto",
+      "viewport": "desktop",
+      "bio": true,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=354054"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Adam Brutto - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=354054",
+      "careerDate": "Career snapshot: Oct 20, 2026 · ",
+      "contentHeight": 880.6249389648438,
+      "highlights": 3,
+      "notice": true,
+      "records": 23,
+      "scrollWidth": 605,
+      "statsDate": "Stats snapshot: Oct 18, 2026 · W2026/27",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:10:55.122Z"
+    },
+    {
+      "id": "354055",
+      "name": "Stephen Logue",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=354055"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Stephen Logue - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=354055",
+      "careerDate": "Career snapshot: Oct 20, 2026 · ",
+      "contentHeight": 880.6249389648438,
+      "highlights": 3,
+      "notice": true,
+      "records": 23,
+      "scrollWidth": 605,
+      "statsDate": "Stats snapshot: Oct 18, 2026 · W2026/27",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:11:02.390Z"
+    },
+    {
+      "id": "354056",
+      "name": "Keith Pearsoll",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=354056"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Keith Pearsoll - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=354056",
+      "careerDate": "Career snapshot: Oct 20, 2026 · ",
+      "contentHeight": 880.6249389648438,
+      "highlights": 3,
+      "notice": true,
+      "records": 13,
+      "scrollWidth": 605,
+      "statsDate": "Stats snapshot: Oct 18, 2026 · W2026/27",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:11:06.091Z"
+    },
+    {
+      "id": "354057",
+      "name": "Anthony Paolucci",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=354057"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Anthony Paolucci - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=354057",
+      "careerDate": "Career snapshot: Oct 20, 2026 · ",
+      "contentHeight": 880.6249389648438,
+      "highlights": 3,
+      "notice": true,
+      "records": 1,
+      "scrollWidth": 605,
+      "statsDate": "Stats snapshot: Oct 18, 2026 · W2026/27",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:11:10.819Z"
+    },
+    {
+      "id": "354058",
+      "name": "Alex Pagnotta",
+      "viewport": "desktop",
+      "bio": true,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=354058"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Alex Pagnotta - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=354058",
+      "careerDate": "Career snapshot: Oct 20, 2026 · ",
+      "contentHeight": 880.6249389648438,
+      "highlights": 3,
+      "notice": true,
+      "records": 11,
+      "scrollWidth": 605,
+      "statsDate": "Stats snapshot: Oct 18, 2026 · W2026/27",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:11:14.981Z"
+    },
+    {
+      "id": "354059",
+      "name": "Michael Congiusti",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=354059"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Michael Congiusti - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=354059",
+      "careerDate": "Career snapshot: Oct 20, 2026 · ",
+      "contentHeight": 737.428955078125,
+      "highlights": 3,
+      "notice": true,
+      "records": 4,
+      "scrollWidth": 605,
+      "statsDate": "",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:11:21.825Z"
+    },
+    {
+      "id": "354060",
+      "name": "Justin Carosi",
+      "viewport": "desktop",
+      "bio": true,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=354060"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Justin Carosi - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=354060",
+      "careerDate": "Career snapshot: Oct 20, 2026 · ",
+      "contentHeight": 895.1135864257812,
+      "highlights": 3,
+      "notice": true,
+      "records": 21,
+      "scrollWidth": 605,
+      "statsDate": "Stats snapshot: Oct 18, 2026 · W2026/27",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:20:41.507Z"
+    },
+    {
+      "id": "354061",
+      "name": "Mark Pastore",
+      "viewport": "desktop",
+      "bio": true,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=354061"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Mark Pastore - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=354061",
+      "careerDate": "Career snapshot: Oct 20, 2026 · ",
+      "contentHeight": 739.2471313476562,
+      "highlights": 3,
+      "notice": true,
+      "records": 37,
+      "scrollWidth": 605,
+      "statsDate": "",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:11:30.173Z"
+    },
+    {
+      "id": "354062",
+      "name": "Daniel Buzzelli",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=354062"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Daniel Buzzelli - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=354062",
+      "careerDate": "Career snapshot: Oct 20, 2026 · ",
+      "contentHeight": 724.6590576171875,
+      "highlights": 3,
+      "notice": true,
+      "records": 8,
+      "scrollWidth": 605,
+      "statsDate": "",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:11:34.281Z"
+    },
+    {
+      "id": "354063",
+      "name": "Luke Leddy",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=354063"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Luke Leddy - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=354063",
+      "careerDate": "Career snapshot: Oct 20, 2026 · ",
+      "contentHeight": 453.26702880859375,
+      "highlights": 1,
+      "notice": true,
+      "records": 0,
+      "scrollWidth": 605,
+      "statsDate": "",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:11:38.217Z"
+    },
+    {
+      "id": "354285",
+      "name": "Ben Sherritt",
+      "viewport": "desktop",
+      "bio": true,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=354285"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Ben Sherritt - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=354285",
+      "careerDate": "Career snapshot: Oct 20, 2026 · ",
+      "contentHeight": 738.3380126953125,
+      "highlights": 3,
+      "notice": true,
+      "records": 32,
+      "scrollWidth": 605,
+      "statsDate": "",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:11:43.531Z"
+    },
+    {
+      "id": "355501",
+      "name": "Neil Baghel",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=355501"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Neil Baghel - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=355501",
+      "careerDate": "Career snapshot: Oct 20, 2026 · ",
+      "contentHeight": 643.7357788085938,
+      "highlights": 2,
+      "notice": true,
+      "records": 1,
+      "scrollWidth": 605,
+      "statsDate": "",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:11:48.796Z"
+    },
+    {
+      "id": "356089",
+      "name": "Stefano Ardizzi",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=356089"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Stefano Ardizzi - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=356089",
+      "careerDate": "Career snapshot: Oct 20, 2026 · ",
+      "contentHeight": 880.6249389648438,
+      "highlights": 3,
+      "notice": true,
+      "records": 14,
+      "scrollWidth": 605,
+      "statsDate": "Stats snapshot: Oct 18, 2026 · W2026/27",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:12:19.902Z"
+    },
+    {
+      "id": "376086",
+      "name": "Carmine Cerrone",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=376086"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Carmine Cerrone - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=376086",
+      "careerDate": "Career snapshot: Oct 20, 2026 · ",
+      "contentHeight": 516.9033813476562,
+      "highlights": 2,
+      "notice": true,
+      "records": 0,
+      "scrollWidth": 605,
+      "statsDate": "",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:12:24.297Z"
+    },
+    {
+      "id": "378152",
+      "name": "Tristan Weatherhead",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=378152"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Tristan Weatherhead - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=378152",
+      "careerDate": "Career snapshot: Oct 20, 2026 · ",
+      "contentHeight": 345.625,
+      "highlights": 0,
+      "notice": true,
+      "records": 0,
+      "scrollWidth": 605,
+      "statsDate": "",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:12:29.025Z"
+    },
+    {
+      "id": "378632",
+      "name": "Will Cawkell",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=378632"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Will Cawkell - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=378632",
+      "careerDate": "Career snapshot: Oct 20, 2026 · ",
+      "contentHeight": 457.9687194824219,
+      "highlights": 0,
+      "notice": true,
+      "records": 1,
+      "scrollWidth": 605,
+      "statsDate": "",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:12:33.508Z"
+    },
+    {
+      "id": "382708",
+      "name": "Julian Kercz",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=382708"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Julian Kercz - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=382708",
+      "careerDate": "Career snapshot: Oct 20, 2026 · ",
+      "contentHeight": 753.7357788085938,
+      "highlights": 3,
+      "notice": true,
+      "records": 10,
+      "scrollWidth": 605,
+      "statsDate": "",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:12:37.569Z"
+    },
+    {
+      "id": "383322",
+      "name": "Zach Kercz",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=383322"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Zach Kercz - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=383322",
+      "careerDate": "Career snapshot: Oct 20, 2026 · ",
+      "contentHeight": 457.9687194824219,
+      "highlights": 0,
+      "notice": true,
+      "records": 1,
+      "scrollWidth": 605,
+      "statsDate": "",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:12:43.396Z"
+    },
+    {
+      "id": "388298",
+      "name": "Quenton Hunt",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=388298"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Quenton Hunt - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=388298",
+      "careerDate": "Career snapshot: Oct 20, 2026 · ",
+      "contentHeight": 345.625,
+      "highlights": 0,
+      "notice": true,
+      "records": 0,
+      "scrollWidth": 605,
+      "statsDate": "",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:12:48.398Z"
+    },
+    {
+      "id": "388357",
+      "name": "Michael Grande",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=388357"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Michael Grande - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=388357",
+      "careerDate": "Career snapshot: Oct 20, 2026 · ",
+      "contentHeight": 345.625,
+      "highlights": 0,
+      "notice": true,
+      "records": 0,
+      "scrollWidth": 605,
+      "statsDate": "",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:12:52.837Z"
+    },
+    {
+      "id": "399966",
+      "name": "Ryan Finlay",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=399966"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Ryan Finlay - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=399966",
+      "careerDate": "Career snapshot: Oct 20, 2026 · ",
+      "contentHeight": 628.3380737304688,
+      "highlights": 2,
+      "notice": true,
+      "records": 2,
+      "scrollWidth": 605,
+      "statsDate": "",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:12:57.495Z"
+    },
+    {
+      "id": "401341",
+      "name": "Joe Carpino",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=401341"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Joe Carpino - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=401341",
+      "careerDate": "",
+      "contentHeight": 179.4318084716797,
+      "highlights": 0,
+      "notice": true,
+      "records": 0,
+      "scrollWidth": 605,
+      "statsDate": "",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:13:00.853Z"
+    },
+    {
+      "id": "401342",
+      "name": "Marco Lamanna",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=401342"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Marco Lamanna - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=401342",
+      "careerDate": "Career snapshot: Oct 20, 2026 · ",
+      "contentHeight": 345.625,
+      "highlights": 0,
+      "notice": true,
+      "records": 0,
+      "scrollWidth": 605,
+      "statsDate": "",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:13:05.064Z"
+    },
+    {
+      "id": "411613",
+      "name": "Robert Ruscitti",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=411613"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Robert Ruscitti - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=411613",
+      "careerDate": "",
+      "contentHeight": 179.4318084716797,
+      "highlights": 0,
+      "notice": true,
+      "records": 0,
+      "scrollWidth": 605,
+      "statsDate": "",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:13:09.993Z"
+    },
+    {
+      "id": "426873",
+      "name": "Xav O'Krafka",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=426873"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Xav O'Krafka - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=426873",
+      "careerDate": "Career snapshot: Oct 20, 2026 · ",
+      "contentHeight": 628.3380737304688,
+      "highlights": 2,
+      "notice": true,
+      "records": 5,
+      "scrollWidth": 605,
+      "statsDate": "",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:13:14.151Z"
+    },
+    {
+      "id": "434639",
+      "name": "Michael McGolrick",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=434639"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Michael McGolrick - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=434639",
+      "careerDate": "Career snapshot: Oct 20, 2026 · ",
+      "contentHeight": 345.625,
+      "highlights": 0,
+      "notice": true,
+      "records": 0,
+      "scrollWidth": 605,
+      "statsDate": "",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:13:20.311Z"
+    },
+    {
+      "id": "453661",
+      "name": "Anthony Guerra",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=453661"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Anthony Guerra - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=453661",
+      "careerDate": "Career snapshot: Oct 20, 2026 · ",
+      "contentHeight": 738.3380126953125,
+      "highlights": 3,
+      "notice": true,
+      "records": 1,
+      "scrollWidth": 605,
+      "statsDate": "",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:13:24.373Z"
+    },
+    {
+      "id": "453662",
+      "name": "Andrew Buchanan",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=453662"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Andrew Buchanan - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=453662",
+      "careerDate": "Career snapshot: Oct 20, 2026 · ",
+      "contentHeight": 751.9176025390625,
+      "highlights": 3,
+      "notice": true,
+      "records": 2,
+      "scrollWidth": 605,
+      "statsDate": "",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:13:39.503Z"
+    },
+    {
+      "id": "454292",
+      "name": "Aaron Carosi",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=454292"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Aaron Carosi - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=454292",
+      "careerDate": "Career snapshot: Oct 20, 2026 · ",
+      "contentHeight": 345.625,
+      "highlights": 0,
+      "notice": true,
+      "records": 0,
+      "scrollWidth": 605,
+      "statsDate": "",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:13:43.930Z"
+    },
+    {
+      "id": "458461",
+      "name": "Matt Babiak",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=458461"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Matt Babiak - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=458461",
+      "careerDate": "Career snapshot: Oct 20, 2026 · ",
+      "contentHeight": 345.625,
+      "highlights": 0,
+      "notice": true,
+      "records": 0,
+      "scrollWidth": 605,
+      "statsDate": "",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:13:47.271Z"
+    },
+    {
+      "id": "465897",
+      "name": "Ryan Campbell",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=465897"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Ryan Campbell - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=465897",
+      "careerDate": "Career snapshot: Oct 20, 2026 · ",
+      "contentHeight": 345.625,
+      "highlights": 0,
+      "notice": true,
+      "records": 0,
+      "scrollWidth": 605,
+      "statsDate": "",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:13:53.757Z"
+    },
+    {
+      "id": "481161",
+      "name": "Marcus Helmer",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=481161"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Marcus Helmer - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=481161",
+      "careerDate": "",
+      "contentHeight": 179.4318084716797,
+      "highlights": 0,
+      "notice": true,
+      "records": 0,
+      "scrollWidth": 605,
+      "statsDate": "",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:14:00.282Z"
+    },
+    {
+      "id": "488205",
+      "name": "Matt Cesario",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=488205"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Matt Cesario - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=488205",
+      "careerDate": "Career snapshot: Oct 20, 2026 · ",
+      "contentHeight": 345.625,
+      "highlights": 0,
+      "notice": true,
+      "records": 0,
+      "scrollWidth": 605,
+      "statsDate": "",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:14:07.138Z"
+    },
+    {
+      "id": "525407",
+      "name": "Dylan Brennan",
+      "viewport": "desktop",
+      "bio": true,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=525407"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Dylan Brennan - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=525407",
+      "careerDate": "Career snapshot: Oct 20, 2026 · ",
+      "contentHeight": 737.428955078125,
+      "highlights": 3,
+      "notice": true,
+      "records": 5,
+      "scrollWidth": 605,
+      "statsDate": "",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:14:10.940Z"
+    },
+    {
+      "id": "533806",
+      "name": "Stephen Keane",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=533806"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Stephen Keane - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=533806",
+      "careerDate": "Career snapshot: Oct 20, 2026 · ",
+      "contentHeight": 565.6107788085938,
+      "highlights": 1,
+      "notice": true,
+      "records": 1,
+      "scrollWidth": 605,
+      "statsDate": "",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:14:14.174Z"
+    },
+    {
+      "id": "547671",
+      "name": "Andrew Laramy",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=547671"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Andrew Laramy - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=547671",
+      "careerDate": "Career snapshot: Oct 20, 2026 · ",
+      "contentHeight": 345.625,
+      "highlights": 0,
+      "notice": true,
+      "records": 0,
+      "scrollWidth": 605,
+      "statsDate": "",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:14:17.276Z"
+    },
+    {
+      "id": "549462",
+      "name": "Enzo Del Zotto",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=549462"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Enzo Del Zotto - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=549462",
+      "careerDate": "",
+      "contentHeight": 179.4318084716797,
+      "highlights": 0,
+      "notice": true,
+      "records": 0,
+      "scrollWidth": 605,
+      "statsDate": "",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:14:23.476Z"
+    },
+    {
+      "id": "549659",
+      "name": "Nick Florio",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=549659"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Nick Florio - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=549659",
+      "careerDate": "Career snapshot: Oct 20, 2026 · ",
+      "contentHeight": 345.625,
+      "highlights": 0,
+      "notice": true,
+      "records": 0,
+      "scrollWidth": 605,
+      "statsDate": "",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:14:28.205Z"
+    },
+    {
+      "id": "549660",
+      "name": "Brandon Nunno",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=549660"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Brandon Nunno - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=549660",
+      "careerDate": "Career snapshot: Oct 20, 2026 · ",
+      "contentHeight": 345.625,
+      "highlights": 0,
+      "notice": true,
+      "records": 0,
+      "scrollWidth": 605,
+      "statsDate": "",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:14:33.926Z"
+    },
+    {
+      "id": "549661",
+      "name": "Chris Nunno",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=549661"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Chris Nunno - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=549661",
+      "careerDate": "Career snapshot: Oct 20, 2026 · ",
+      "contentHeight": 345.625,
+      "highlights": 0,
+      "notice": true,
+      "records": 0,
+      "scrollWidth": 605,
+      "statsDate": "",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:14:38.173Z"
+    },
+    {
+      "id": "549662",
+      "name": "Adrian Nunno",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=549662"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Adrian Nunno - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=549662",
+      "careerDate": "",
+      "contentHeight": 179.4318084716797,
+      "highlights": 0,
+      "notice": true,
+      "records": 0,
+      "scrollWidth": 605,
+      "statsDate": "",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:14:42.599Z"
+    },
+    {
+      "id": "549663",
+      "name": "Luc Spagnuolo",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=549663"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Luc Spagnuolo - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=549663",
+      "careerDate": "Career snapshot: Oct 20, 2026 · ",
+      "contentHeight": 345.625,
+      "highlights": 0,
+      "notice": true,
+      "records": 0,
+      "scrollWidth": 605,
+      "statsDate": "",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:14:47.662Z"
+    },
+    {
+      "id": "567150",
+      "name": "Jesse Coote",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=567150"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Jesse Coote - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=567150",
+      "careerDate": "Career snapshot: Oct 20, 2026 · ",
+      "contentHeight": 360.1136169433594,
+      "highlights": 0,
+      "notice": true,
+      "records": 0,
+      "scrollWidth": 605,
+      "statsDate": "",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:15:14.321Z"
+    },
+    {
+      "id": "586425",
+      "name": "Lorcan Duffy",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=586425"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Lorcan Duffy - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=586425",
+      "careerDate": "Career snapshot: Oct 20, 2026 · ",
+      "contentHeight": 880.6249389648438,
+      "highlights": 3,
+      "notice": true,
+      "records": 2,
+      "scrollWidth": 605,
+      "statsDate": "Stats snapshot: Oct 18, 2026 · W2026/27",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:15:19.710Z"
+    },
+    {
+      "id": "594972",
+      "name": "Anthony Partland",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=594972"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Anthony  Partland - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=594972",
+      "careerDate": "Career snapshot: Oct 20, 2026 · ",
+      "contentHeight": 345.625,
+      "highlights": 0,
+      "notice": true,
+      "records": 0,
+      "scrollWidth": 605,
+      "statsDate": "",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:15:24.414Z"
+    },
+    {
+      "id": "595514",
+      "name": "Stefano Mazzei",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=595514"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Stefano Mazzei - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=595514",
+      "careerDate": "Career snapshot: Oct 20, 2026 · ",
+      "contentHeight": 691.0653076171875,
+      "highlights": 3,
+      "notice": true,
+      "records": 1,
+      "scrollWidth": 605,
+      "statsDate": "",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:15:29.913Z"
+    },
+    {
+      "id": "605063",
+      "name": "Tom Cole",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=605063"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Tom Cole - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=605063",
+      "careerDate": "Career snapshot: Oct 20, 2026 · ",
+      "contentHeight": 345.625,
+      "highlights": 0,
+      "notice": true,
+      "records": 0,
+      "scrollWidth": 605,
+      "statsDate": "",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:15:36.375Z"
+    },
+    {
+      "id": "612364",
+      "name": "Mark Arruda",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=612364"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Mark Arruda - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=612364",
+      "careerDate": "Career snapshot: Oct 20, 2026 · ",
+      "contentHeight": 751.9176025390625,
+      "highlights": 3,
+      "notice": true,
+      "records": 3,
+      "scrollWidth": 605,
+      "statsDate": "",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:15:42.819Z"
+    },
+    {
+      "id": "618955",
+      "name": "Anthony DiPardo",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=618955"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Anthony DiPardo - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=618955",
+      "careerDate": "Career snapshot: Oct 20, 2026 · ",
+      "contentHeight": 345.625,
+      "highlights": 0,
+      "notice": true,
+      "records": 0,
+      "scrollWidth": 605,
+      "statsDate": "",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:15:48.882Z"
+    },
+    {
+      "id": "618956",
+      "name": "Andrew Pozzebon",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=618956"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Andrew  Pozzebon - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=618956",
+      "careerDate": "Career snapshot: Oct 20, 2026 · ",
+      "contentHeight": 472.4573669433594,
+      "highlights": 0,
+      "notice": true,
+      "records": 1,
+      "scrollWidth": 605,
+      "statsDate": "",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:15:52.889Z"
+    },
+    {
+      "id": "634098",
+      "name": "Andrew Cristillo",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=634098"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Andrew Cristillo - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=634098",
+      "careerDate": "Career snapshot: Oct 20, 2026 · ",
+      "contentHeight": 738.3380126953125,
+      "highlights": 3,
+      "notice": true,
+      "records": 1,
+      "scrollWidth": 605,
+      "statsDate": "",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:15:56.786Z"
+    },
+    {
+      "id": "642165",
+      "name": "Dante Martella",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=642165"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Dante Martella - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=642165",
+      "careerDate": "",
+      "contentHeight": 179.4318084716797,
+      "highlights": 0,
+      "notice": true,
+      "records": 0,
+      "scrollWidth": 605,
+      "statsDate": "",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:16:00.406Z"
+    },
+    {
+      "id": "642167",
+      "name": "Lucas Cristillo",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=642167"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Lucas Cristillo - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=642167",
+      "careerDate": "",
+      "contentHeight": 179.4318084716797,
+      "highlights": 0,
+      "notice": true,
+      "records": 0,
+      "scrollWidth": 605,
+      "statsDate": "",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:16:03.724Z"
+    },
+    {
+      "id": "642168",
+      "name": "Andre Cristillo",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=642168"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Andre Cristillo - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=642168",
+      "careerDate": "Career snapshot: Oct 20, 2026 · ",
+      "contentHeight": 345.625,
+      "highlights": 0,
+      "notice": true,
+      "records": 0,
+      "scrollWidth": 605,
+      "statsDate": "",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:16:06.883Z"
+    },
+    {
+      "id": "642442",
+      "name": "Kevin Wheeler",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=642442"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Kevin Wheeler - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=642442",
+      "careerDate": "",
+      "contentHeight": 179.4318084716797,
+      "highlights": 0,
+      "notice": true,
+      "records": 0,
+      "scrollWidth": 605,
+      "statsDate": "",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:16:10.185Z"
+    },
+    {
+      "id": "645171",
+      "name": "Emilio Paglia",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=645171"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Emilio Paglia - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=645171",
+      "careerDate": "",
+      "contentHeight": 179.4318084716797,
+      "highlights": 0,
+      "notice": true,
+      "records": 0,
+      "scrollWidth": 605,
+      "statsDate": "",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:16:19.280Z"
+    },
+    {
+      "id": "652571",
+      "name": "David Corasaniti",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=652571"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "David Corasaniti - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=652571",
+      "careerDate": "Career snapshot: Oct 20, 2026 · ",
+      "contentHeight": 727.4573364257812,
+      "highlights": 3,
+      "notice": true,
+      "records": 2,
+      "scrollWidth": 605,
+      "statsDate": "",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:16:22.808Z"
+    },
+    {
+      "id": "653011",
+      "name": "Matthew Brutto",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=653011"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Matthew Brutto - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=653011",
+      "careerDate": "",
+      "contentHeight": 179.4318084716797,
+      "highlights": 0,
+      "notice": true,
+      "records": 0,
+      "scrollWidth": 605,
+      "statsDate": "",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:16:39.565Z"
+    },
+    {
+      "id": "681441",
+      "name": "Chris Poleto",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=681441"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Chris Poleto - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=681441",
+      "careerDate": "Career snapshot: Oct 20, 2026 · ",
+      "contentHeight": 345.625,
+      "highlights": 0,
+      "notice": true,
+      "records": 0,
+      "scrollWidth": 605,
+      "statsDate": "",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:16:44.095Z"
+    },
+    {
+      "id": "686216",
+      "name": "Michael Provenzano",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=686216"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Michael Provenzano - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=686216",
+      "careerDate": "Career snapshot: Oct 20, 2026 · ",
+      "contentHeight": 834.2613525390625,
+      "highlights": 3,
+      "notice": true,
+      "records": 1,
+      "scrollWidth": 605,
+      "statsDate": "Stats snapshot: Oct 18, 2026 · W2026/27",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:16:48.660Z"
+    },
+    {
+      "id": "686383",
+      "name": "Ronan Duffy",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=686383"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Ronan Duffy - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=686383",
+      "careerDate": "",
+      "contentHeight": 179.4318084716797,
+      "highlights": 0,
+      "notice": true,
+      "records": 0,
+      "scrollWidth": 605,
+      "statsDate": "",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:16:53.566Z"
+    },
+    {
+      "id": "686384",
+      "name": "Eric Fregonas",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=686384"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Eric Fregonas - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=686384",
+      "careerDate": "",
+      "contentHeight": 179.4318084716797,
+      "highlights": 0,
+      "notice": true,
+      "records": 0,
+      "scrollWidth": 605,
+      "statsDate": "",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:16:57.980Z"
+    },
+    {
+      "id": "686562",
+      "name": "Giancarlo De Luca",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=686562"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Giancarlo De Luca - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=686562",
+      "careerDate": "Career snapshot: Oct 20, 2026 · ",
+      "contentHeight": 345.625,
+      "highlights": 0,
+      "notice": true,
+      "records": 0,
+      "scrollWidth": 605,
+      "statsDate": "",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:17:02.486Z"
+    },
+    {
+      "id": "686563",
+      "name": "Stephen DeMarco",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=686563"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Stephen DeMarco - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=686563",
+      "careerDate": "Career snapshot: Oct 20, 2026 · ",
+      "contentHeight": 345.625,
+      "highlights": 0,
+      "notice": true,
+      "records": 0,
+      "scrollWidth": 605,
+      "statsDate": "",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:17:06.819Z"
+    },
+    {
+      "id": "686564",
+      "name": "Steve Noyek",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=686564"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Steve Noyek - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=686564",
+      "careerDate": "Career snapshot: Oct 20, 2026 · ",
+      "contentHeight": 345.625,
+      "highlights": 0,
+      "notice": true,
+      "records": 0,
+      "scrollWidth": 605,
+      "statsDate": "",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:17:14.663Z"
+    },
+    {
+      "id": "688131",
+      "name": "Anthony Ardizzi",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=688131"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Anthony Ardizzi - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=688131",
+      "careerDate": "",
+      "contentHeight": 179.4318084716797,
+      "highlights": 0,
+      "notice": true,
+      "records": 0,
+      "scrollWidth": 605,
+      "statsDate": "",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:17:19.907Z"
+    },
+    {
+      "id": "689718",
+      "name": "Michael Logue",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=689718"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Michael Logue - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=689718",
+      "careerDate": "",
+      "contentHeight": 179.4318084716797,
+      "highlights": 0,
+      "notice": true,
+      "records": 0,
+      "scrollWidth": 605,
+      "statsDate": "",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:17:24.282Z"
+    },
+    {
+      "id": "696518",
+      "name": "Brandon Quintos",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=696518"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Brandon Quintos - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=696518",
+      "careerDate": "",
+      "contentHeight": 179.4318084716797,
+      "highlights": 0,
+      "notice": true,
+      "records": 0,
+      "scrollWidth": 605,
+      "statsDate": "",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:17:29.008Z"
+    },
+    {
+      "id": "696519",
+      "name": "Justin Wright",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=696519"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Justin Wright - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=696519",
+      "careerDate": "",
+      "contentHeight": 179.4318084716797,
+      "highlights": 0,
+      "notice": true,
+      "records": 0,
+      "scrollWidth": 605,
+      "statsDate": "",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:17:33.860Z"
+    },
+    {
+      "id": "696569",
+      "name": "Mike Cianni",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=696569"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Mike Cianni - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=696569",
+      "careerDate": "Career snapshot: Oct 20, 2026 · ",
+      "contentHeight": 345.625,
+      "highlights": 0,
+      "notice": true,
+      "records": 0,
+      "scrollWidth": 605,
+      "statsDate": "",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:17:38.844Z"
+    },
+    {
+      "id": "700877",
+      "name": "Krishnan Rajasooriar",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=700877"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Krishnan Rajasooriar - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=700877",
+      "careerDate": "Career snapshot: Oct 20, 2026 · ",
+      "contentHeight": 786.022705078125,
+      "highlights": 2,
+      "notice": true,
+      "records": 1,
+      "scrollWidth": 605,
+      "statsDate": "Stats snapshot: Oct 18, 2026 · W2026/27",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:17:43.659Z"
+    },
+    {
+      "id": "733002",
+      "name": "Mearon Naman",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=733002"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Mearon Naman - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=733002",
+      "careerDate": "Career snapshot: Oct 20, 2026 · ",
+      "contentHeight": 345.625,
+      "highlights": 0,
+      "notice": true,
+      "records": 0,
+      "scrollWidth": 605,
+      "statsDate": "",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:17:48.435Z"
+    },
+    {
+      "id": "733003",
+      "name": "Kourosh Adeli",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=733003"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Kourosh Adeli - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=733003",
+      "careerDate": "Career snapshot: Oct 20, 2026 · ",
+      "contentHeight": 453.26702880859375,
+      "highlights": 1,
+      "notice": true,
+      "records": 0,
+      "scrollWidth": 605,
+      "statsDate": "",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:18:02.749Z"
+    },
+    {
+      "id": "736317",
+      "name": "Adam Kober",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=736317"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Adam  Kober - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=736317",
+      "careerDate": "Career snapshot: Oct 20, 2026 · ",
+      "contentHeight": 610.95166015625,
+      "highlights": 1,
+      "notice": true,
+      "records": 0,
+      "scrollWidth": 605,
+      "statsDate": "Stats snapshot: Oct 18, 2026 · W2026/27",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:18:07.422Z"
+    },
+    {
+      "id": "738846",
+      "name": "Stephane Saindon",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=738846"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Stephane  Saindon - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=738846",
+      "careerDate": "Career snapshot: Oct 20, 2026 · ",
+      "contentHeight": 880.6249389648438,
+      "highlights": 3,
+      "notice": true,
+      "records": 9,
+      "scrollWidth": 605,
+      "statsDate": "Stats snapshot: Oct 18, 2026 · W2026/27",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:18:12.085Z"
+    },
+    {
+      "id": "743181",
+      "name": "Matthew Arruda",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=743181"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Matthew Arruda - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=743181",
+      "careerDate": "Career snapshot: Oct 20, 2026 · ",
+      "contentHeight": 345.625,
+      "highlights": 0,
+      "notice": true,
+      "records": 0,
+      "scrollWidth": 605,
+      "statsDate": "",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:18:16.788Z"
+    },
+    {
+      "id": "763309",
+      "name": "Medi Brancatella",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=763309"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Medi Brancatella - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=763309",
+      "careerDate": "Career snapshot: Oct 20, 2026 · ",
+      "contentHeight": 453.26702880859375,
+      "highlights": 1,
+      "notice": true,
+      "records": 0,
+      "scrollWidth": 605,
+      "statsDate": "",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:18:21.630Z"
+    },
+    {
+      "id": "769343",
+      "name": "Nolan Atkins",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=769343"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Nolan Atkins - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=769343",
+      "careerDate": "Career snapshot: Oct 20, 2026 · ",
+      "contentHeight": 488.8210144042969,
+      "highlights": 0,
+      "notice": true,
+      "records": 0,
+      "scrollWidth": 605,
+      "statsDate": "Stats snapshot: Oct 18, 2026 · W2026/27",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:18:26.349Z"
+    },
+    {
+      "id": "776208",
+      "name": "Dev Leong",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=776208"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Dev Leong - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=776208",
+      "careerDate": "Career snapshot: Oct 20, 2026 · ",
+      "contentHeight": 488.8210144042969,
+      "highlights": 0,
+      "notice": true,
+      "records": 0,
+      "scrollWidth": 605,
+      "statsDate": "Stats snapshot: Oct 18, 2026 · W2026/27",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:18:30.942Z"
+    },
+    {
+      "id": "776712",
+      "name": "Will Salnek",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=776712"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Will Salnek - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=776712",
+      "careerDate": "",
+      "contentHeight": 179.4318084716797,
+      "highlights": 0,
+      "notice": true,
+      "records": 0,
+      "scrollWidth": 605,
+      "statsDate": "",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:18:35.526Z"
+    },
+    {
+      "id": "780704",
+      "name": "Dino Brancatella",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=780704"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Dino Brancatella - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=780704",
+      "careerDate": "Career snapshot: Oct 20, 2026 · ",
+      "contentHeight": 345.625,
+      "highlights": 0,
+      "notice": true,
+      "records": 0,
+      "scrollWidth": 605,
+      "statsDate": "",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:18:40.101Z"
+    },
+    {
+      "id": "798413",
+      "name": "Matt Svec",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=798413"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Matt Svec - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=798413",
+      "careerDate": "Career snapshot: Oct 20, 2026 · ",
+      "contentHeight": 345.625,
+      "highlights": 0,
+      "notice": true,
+      "records": 0,
+      "scrollWidth": 605,
+      "statsDate": "",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:18:45.127Z"
+    },
+    {
+      "id": "808054",
+      "name": "Jason Gabor",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=808054"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Jason Gabor - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=808054",
+      "careerDate": "",
+      "contentHeight": 179.4318084716797,
+      "highlights": 0,
+      "notice": true,
+      "records": 0,
+      "scrollWidth": 605,
+      "statsDate": "",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:18:50.621Z"
+    },
+    {
+      "id": "825217",
+      "name": "Brad Brock",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=825217"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Brad Brock - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=825217",
+      "careerDate": "Career snapshot: Oct 20, 2026 · ",
+      "contentHeight": 345.625,
+      "highlights": 0,
+      "notice": true,
+      "records": 0,
+      "scrollWidth": 605,
+      "statsDate": "",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:18:55.519Z"
+    },
+    {
+      "id": "829463",
+      "name": "Matthew Greenberg",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=829463"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Matthew Greenberg - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=829463",
+      "careerDate": "Career snapshot: Oct 20, 2026 · ",
+      "contentHeight": 345.625,
+      "highlights": 0,
+      "notice": true,
+      "records": 0,
+      "scrollWidth": 605,
+      "statsDate": "",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:19:09.020Z"
+    },
+    {
+      "id": "830942",
+      "name": "Aj Ing",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=830942"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Aj Ing - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=830942",
+      "careerDate": "",
+      "contentHeight": 179.4318084716797,
+      "highlights": 0,
+      "notice": true,
+      "records": 0,
+      "scrollWidth": 605,
+      "statsDate": "",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:19:12.852Z"
+    },
+    {
+      "id": "831410",
+      "name": "Robbie Galdenzi",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=831410"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Robbie Galdenzi - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=831410",
+      "careerDate": "Career snapshot: Oct 20, 2026 · ",
+      "contentHeight": 345.625,
+      "highlights": 0,
+      "notice": true,
+      "records": 0,
+      "scrollWidth": 605,
+      "statsDate": "",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:19:17.139Z"
+    },
+    {
+      "id": "833648",
+      "name": "Justin Sadler",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=833648"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Justin  Sadler - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=833648",
+      "careerDate": "Career snapshot: Oct 20, 2026 · ",
+      "contentHeight": 345.625,
+      "highlights": 0,
+      "notice": true,
+      "records": 0,
+      "scrollWidth": 605,
+      "statsDate": "",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:19:20.558Z"
+    },
+    {
+      "id": "843644",
+      "name": "Jamie Rosenberg",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=843644"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Jamie Rosenberg - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=843644",
+      "careerDate": "",
+      "contentHeight": 322.6278381347656,
+      "highlights": 0,
+      "notice": true,
+      "records": 0,
+      "scrollWidth": 605,
+      "statsDate": "Stats snapshot: Oct 18, 2026 · W2026/27",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:19:23.499Z"
+    },
+    {
+      "id": "843925",
+      "name": "Will Dyer",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=843925"
+        }
+      ],
+      "roster": true,
+      "stats": false,
+      "title": "Will Dyer - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=843925",
+      "careerDate": "",
+      "contentHeight": 179.4318084716797,
+      "highlights": 0,
+      "notice": true,
+      "records": 0,
+      "scrollWidth": 605,
+      "statsDate": "",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:19:26.553Z"
+    },
+    {
+      "id": "844036",
+      "name": "Adam Povegliano",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=844036"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Adam Povegliano - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=844036",
+      "careerDate": "",
+      "contentHeight": 322.6278381347656,
+      "highlights": 0,
+      "notice": true,
+      "records": 0,
+      "scrollWidth": 605,
+      "statsDate": "Stats snapshot: Oct 18, 2026 · W2026/27",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:19:32.972Z"
+    },
+    {
+      "id": "845364",
+      "name": "Francesco Triumbari",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=845364"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Francesco Triumbari - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=845364",
+      "careerDate": "",
+      "contentHeight": 322.6278381347656,
+      "highlights": 0,
+      "notice": true,
+      "records": 0,
+      "scrollWidth": 605,
+      "statsDate": "Stats snapshot: Oct 18, 2026 · W2026/27",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:19:36.369Z"
+    },
+    {
+      "id": "845365",
+      "name": "Sanjay Rajkumar",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=845365"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Sanjay Rajkumar - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=845365",
+      "careerDate": "",
+      "contentHeight": 322.6278381347656,
+      "highlights": 0,
+      "notice": true,
+      "records": 0,
+      "scrollWidth": 605,
+      "statsDate": "Stats snapshot: Oct 18, 2026 · W2026/27",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:19:40.268Z"
+    },
+    {
+      "id": "846200",
+      "name": "Henry Kong",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=846200"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Henry Kong - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=846200",
+      "careerDate": "Career snapshot: Oct 20, 2026 · ",
+      "contentHeight": 488.8210144042969,
+      "highlights": 0,
+      "notice": true,
+      "records": 0,
+      "scrollWidth": 605,
+      "statsDate": "Stats snapshot: Oct 18, 2026 · W2026/27",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:19:47.011Z"
+    },
+    {
+      "id": "849368",
+      "name": "Damian Pavaday",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=849368"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Damian  Pavaday - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=849368",
+      "careerDate": "Career snapshot: Oct 20, 2026 · ",
+      "contentHeight": 488.8210144042969,
+      "highlights": 0,
+      "notice": true,
+      "records": 0,
+      "scrollWidth": 605,
+      "statsDate": "Stats snapshot: Oct 18, 2026 · W2026/27",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:19:51.464Z"
+    },
+    {
+      "id": "849369",
+      "name": "Adam Carlyle",
+      "viewport": "desktop",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=849369"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Adam  Carlyle - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=849369",
+      "careerDate": "",
+      "contentHeight": 322.6278381347656,
+      "highlights": 0,
+      "notice": true,
+      "records": 0,
+      "scrollWidth": 605,
+      "statsDate": "Stats snapshot: Oct 18, 2026 · W2026/27",
+      "version": "v2",
+      "width": 605,
+      "capturedAt": "2026-10-20T19:19:54.972Z"
+    }
+  ],
+  "publicMobileSamples": [
+    {
+      "id": "354054",
+      "viewport": "mobile390",
+      "bio": true,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=354054"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Adam Brutto - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=354054",
+      "contentHeight": 1085.5823974609375,
+      "highlights": 3,
+      "highs": "20\nMost points\nWinter 2013/2014\n5\nMost goals\nSummer 2016\n19\nMost assists\nSummer 2015",
+      "name": "Adam Brutto",
+      "records": 23,
+      "scrollWidth": 291,
+      "text": "BRAVE H.C. · PLAYER LEGACY\nAdam Brutto\n\nCareer highlights · Personal highs · Club record book\n\nSeason Insights\n0.00\nPoints per game\nPrior career: 0.49 P/GP\n0%\nShare of team goals\n0 of 6 goals\n0/4\nGames with a point\n0% of appearances\nPersonal Season Highs\n20\nMost points\nWinter 2013/2014\n5\nMost goals\nSummer 2016\n19\nMost assists\nSummer 2015\n\nCareer snapshot: Oct 20, 2026 · All published HTO game types, including playoffs. Tied seasons are listed.\n\nCareer Highlights\nAWD\nBill Masterton Award for Dedication\nIndividual award · Winter 2024/25\nCLUB\n300 Game Club\nCareer milestone · January 5, 2025\nCLUB\n200 Game Club\nCareer milestone · January 6, 2019\nShow all 16 highlights\nClub Record Book\nView 23 published entries\n\nPublished historical entries · Oct 20, 2026 · Full HTO record book ↗\n\nStats snapshot: Oct 18, 2026 · W2026/27\nFull HTO profile ↗",
+      "version": "v2",
+      "width": 291,
+      "capturedAt": "2026-10-20T19:08:52.989Z"
+    },
+    {
+      "id": "354055",
+      "viewport": "mobile390",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=354055"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Stephen Logue - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=354055",
+      "contentHeight": 998.92041015625,
+      "highlights": 3,
+      "highs": "14\nMost wins\nWinter 2013/2014\n6\nMost shutouts\nWinter 2016/2017\n2.15\nLowest GAA · 5+ GP\nWinter 2013/2014",
+      "name": "Stephen Logue",
+      "records": 23,
+      "scrollWidth": 291,
+      "text": "BRAVE H.C. · PLAYER LEGACY\nStephen Logue\n\nCareer highlights · Personal highs · Club record book\n\nSeason Insights\n6.00\nCurrent GAA\nPrior career: 3.27 GAA\n25%\nShare of team games\n1 of 4 games\nPersonal Season Highs\n14\nMost wins\nWinter 2013/2014\n6\nMost shutouts\nWinter 2016/2017\n2.15\nLowest GAA · 5+ GP\nWinter 2013/2014\n\nCareer snapshot: Oct 20, 2026 · All published HTO game types, including playoffs. Tied seasons are listed.\n\nCareer Highlights\nSTAR\nHall of Fame Inductee\nRecognition · Winter 2024/25\nCLUB\n100 Win Club\nCareer milestone · March 1, 2020\nCLUB\n200 Game Club\nCareer milestone · December 15, 2019\nShow all 11 highlights\nClub Record Book\nView 23 published entries\n\nPublished historical entries · Oct 20, 2026 · Full HTO record book ↗\n\nStats snapshot: Oct 18, 2026 · W2026/27\nFull HTO profile ↗",
+      "version": "v2",
+      "width": 291,
+      "capturedAt": "2026-10-20T19:08:56.641Z"
+    },
+    {
+      "id": "354061",
+      "viewport": "mobile390",
+      "bio": true,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=354061"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Mark Pastore - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=354061",
+      "contentHeight": 887.3010864257812,
+      "highlights": 3,
+      "highs": "41\nMost points\nWinter 2015/2016\n24\nMost goals\nWinter 2015/2016\n19\nMost assists\nWinter 2013/2014",
+      "name": "Mark Pastore",
+      "records": 37,
+      "scrollWidth": 291,
+      "text": "BRAVE H.C. · PLAYER LEGACY\nMark Pastore\n\nCareer highlights · Personal highs · Club record book\n\nPersonal Season Highs\n41\nMost points\nWinter 2015/2016\n24\nMost goals\nWinter 2015/2016\n19\nMost assists\nWinter 2013/2014\n\nCareer snapshot: Oct 20, 2026 · All published HTO game types, including playoffs. Tied seasons are listed.\n\nCareer Highlights\nSTAR\nHall of Fame Inductee - Winter 2023/24\nRecognition\nCUP\nSVHL Cup Champion - Winter 2015/16\nChampionship\nAWD\nHart Award Team MVP - Winter 2015/16\nIndividual award\nShow all 24 highlights\nClub Record Book\nView 37 published entries\n\nPublished historical entries · Oct 20, 2026 · Full HTO record book ↗\n\nFull HTO profile ↗",
+      "version": "v2",
+      "width": 291,
+      "capturedAt": "2026-10-20T19:09:01.073Z"
+    },
+    {
+      "id": "354050",
+      "viewport": "mobile390",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=354050"
+        }
+      ],
+      "roster": true,
+      "stats": false,
+      "title": "Simon Scott - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=354050",
+      "contentHeight": 296.8323669433594,
+      "highlights": 1,
+      "highs": "",
+      "name": "Simon Scott",
+      "records": 0,
+      "scrollWidth": 291,
+      "text": "BRAVE H.C. · PLAYER LEGACY\nSimon Scott\n\nCareer highlights · Personal highs · Club record book\n\nCareer Highlights\nCUP\nSVHL Cup Champion - Winter 2012/13\nChampionship\nFull HTO profile ↗",
+      "version": "v2",
+      "width": 291,
+      "capturedAt": "2026-10-20T19:09:03.904Z"
+    },
+    {
+      "id": "845364",
+      "viewport": "mobile390",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=845364"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Francesco Triumbari - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=845364",
+      "contentHeight": 438.3948669433594,
+      "highlights": 0,
+      "highs": "",
+      "name": "Francesco Triumbari",
+      "records": 0,
+      "scrollWidth": 291,
+      "text": "BRAVE H.C. · PLAYER LEGACY\nFrancesco Triumbari\n\nCareer highlights · Personal highs · Club record book\n\nSeason Insights\n0.00\nPoints per game\n4 appearances\n0%\nShare of team goals\n0 of 6 goals\n0/4\nGames with a point\n0% of appearances\nStats snapshot: Oct 18, 2026 · W2026/27\nFull HTO profile ↗",
+      "version": "v2",
+      "width": 291,
+      "capturedAt": "2026-10-20T19:09:07.057Z"
+    },
+    {
+      "id": "780704",
+      "viewport": "mobile390",
+      "bio": false,
+      "iframes": [
+        {
+          "height": "1350",
+          "src": "https://adambrutto-maker.github.io/brave-hc/widgets/player-highlights.html?playerID=780704"
+        }
+      ],
+      "roster": true,
+      "stats": true,
+      "title": "Dino Brancatella - Player Profile",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=780704",
+      "contentHeight": 451.3636169433594,
+      "highlights": 0,
+      "highs": "3\nMost points\nWinter 2023/2024\n2\nMost goals\nWinter 2023/2024\n1\nMost assists\nWinter 2023/2024",
+      "name": "Dino Brancatella",
+      "records": 0,
+      "scrollWidth": 291,
+      "text": "BRAVE H.C. · PLAYER LEGACY\nDino Brancatella\n\nCareer highlights · Personal highs · Club record book\n\nPersonal Season Highs\n3\nMost points\nWinter 2023/2024\n2\nMost goals\nWinter 2023/2024\n1\nMost assists\nWinter 2023/2024\n\nCareer snapshot: Oct 20, 2026 · All published HTO game types, including playoffs. Tied seasons are listed.\n\nFull HTO profile ↗",
+      "version": "v2",
+      "width": 291,
+      "capturedAt": "2026-10-20T19:09:10.209Z"
+    },
+    {
+      "id": "354060",
+      "viewport": "mobile390",
+      "contentHeight": 1112.7982177734375,
+      "highlights": 3,
+      "name": "Justin Carosi",
+      "records": 21,
+      "scrollWidth": 291,
+      "text": "BRAVE H.C. · PLAYER LEGACY\nJustin Carosi\n\nCareer highlights · Personal highs · Club record book\n\nSeason Insights\n0.75\nPoints per game\nPrior career: 1.24 P/GP\n50%\nShare of team goals\n3 of 6 goals\n2/4\nGames with a point\n50% of appearances\nPersonal Season Highs\n34\nMost points\nWinter 2017/2018 · Winter 2022/2023\n15\nMost goals\nWinter 2025/2026\n23\nMost assists\nWinter 2017/2018\n\nCareer snapshot: Oct 20, 2026 · All published HTO game types, including playoffs. Tied seasons are listed.\n\nCareer Highlights\nCLUB\n300 Game Club\nCareer milestone · September 20, 2026\nAWD\nAndrew Cristillo Award for Dedication\nIndividual award · Winter 2025/26\nAWD\nHart Award Team MVP\nIndividual award · Winter 2025/26\nShow all 25 highlights\nClub Record Book\nView 21 published entries\n\nPublished historical entries · Oct 20, 2026 · Full HTO record book ↗\n\nStats snapshot: Oct 18, 2026 · W2026/27\nFull HTO profile ↗",
+      "version": "v2",
+      "width": 291,
+      "expandedCount": 25,
+      "recordControlPassed": true,
+      "capturedAt": "2026-10-20T19:20:46.971Z"
+    },
+    {
+      "id": "652571",
+      "viewport": "mobile390",
+      "contentHeight": 910.085205078125,
+      "highlights": 3,
+      "name": "David Corasaniti",
+      "records": 2,
+      "scrollWidth": 291,
+      "text": "BRAVE H.C. · PLAYER LEGACY\nDavid Corasaniti\n\nCareer highlights · Personal highs · Club record book\n\nPersonal Season Highs\n34\nMost points\nWinter 2019/2020\n12\nMost goals\nWinter 2019/2020\n22\nMost assists\nWinter 2019/2020\n\nCareer snapshot: Oct 20, 2026 · All published HTO game types, including playoffs. Tied seasons are listed.\n\nCareer Highlights\nNOTE\nConn Smythe Award Playoff MVP - Winter 2019/20\nHart Award Team MVP - Winter 2019/20\nRookie of the Year Award - Winter 2019/20\nHistorical record\nAWD\nArt Ross Award (30 Points) - Winter 2019/20\nIndividual award\nAWD\nMaurice \"Rocket\" Richard Award (10 Goals) - Winter 2019/20\nIndividual award\nClub Record Book\nView 2 published entries\n\nPublished historical entries · Oct 20, 2026 · Full HTO record book ↗\n\nFull HTO profile ↗",
+      "version": "v2",
+      "width": 291,
+      "capturedAt": "2026-10-20T19:21:01.258Z"
+    },
+    {
+      "id": "776208",
+      "viewport": "mobile390",
+      "contentHeight": 498.1960144042969,
+      "highlights": 0,
+      "name": "Dev Leong",
+      "records": 0,
+      "scrollWidth": 291,
+      "text": "BRAVE H.C. · PLAYER LEGACY\nDev Leong\n\nCareer highlights · Personal highs · Club record book\n\nSeason Insights\n5.00\nCurrent GAA\nPrior career: 4.35 GAA\n50%\nShare of team games\n2 of 4 games\nPersonal Season Highs\n3\nMost wins\nWinter 2025/2026\n4.29\nLowest GAA · 5+ GP\nWinter 2025/2026\n\nCareer snapshot: Oct 20, 2026 · All published HTO game types, including playoffs. Tied seasons are listed.\n\nStats snapshot: Oct 18, 2026 · W2026/27\nFull HTO profile ↗",
+      "version": "v2",
+      "width": 291,
+      "capturedAt": "2026-10-20T19:21:07.048Z"
+    }
+  ],
+  "publicationCommit": "1601bc46c891e6b4757d92bcf7f834b7401f7e67",
+  "newRendererBlob": "63c283b5acbd3354db6eb9ff9bc6a7e232d85c06",
+  "limitations": [
+    "All 109 existing HTO public embeds verified after shared deployment on desktop.",
+    "New renderer mobile browser coverage is nine representative actual HTO profiles, including the longest first-three legacy text; previous rollout's per-profile mobile installation evidence remains archived.",
+    "Record-book history is reproduced as published, not certified current holders.",
+    "Full historical game and milestone-date audit remains open in Issue #25."
+  ]
+}
