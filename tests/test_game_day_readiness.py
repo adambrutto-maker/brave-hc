@@ -51,6 +51,61 @@ class NextGameTests(unittest.TestCase):
         earlier["checkedAt"]=date.isoformat()
         self.assertEqual(g.examine(earlier,deepcopy(SAVED),date)["status"],"NOT_DUE")
 
+    def test_14_day_coverage_finds_second_game_while_first_booked(self):
+        now=datetime(2026,10,20,12,0,tzinfo=ZoneInfo("America/Toronto"))
+        feed=deepcopy(FEED)
+        feed["checkedAt"]=now.isoformat()
+        next_week={**GAME,"date":"2026-11-01","time":"20:15",
+                   "opponent":"Mid Ice Crisis","rink":"D Rink",
+                   "assignmentKey":"hto:3375683","htoGameId":"3375683",
+                   "fixtureSignature":"2026-11-01|20:15|Mid Ice Crisis|D Rink|away"}
+        feed["games"].append(next_week)
+        result=g.examine(feed,deepcopy(SAVED),now)
+        self.assertEqual(result["status"],"REVIEW")
+        self.assertEqual(result["priority"],"ADVANCE_COVERAGE")
+        self.assertEqual(result["game"]["opponent"],"Mid Ice Crisis")
+        self.assertEqual(result["goalie"],"TBD")
+        self.assertIn("ADVANCE_COVERAGE",g.issue_body(result))
+        self.assertIn("No players were contacted",g.issue_body(result))
+
+    def test_future_gap_outside_14_day_window_is_not_premature(self):
+        now=datetime(2026,10,20,12,0,tzinfo=ZoneInfo("America/Toronto"))
+        feed=deepcopy(FEED)
+        feed["checkedAt"]=now.isoformat()
+        feed["games"].append({**GAME,"date":"2026-11-08","time":"21:15",
+                              "opponent":"Other Way","assignmentKey":"hto:3375684",
+                              "fixtureSignature":"2026-11-08|21:15|Other Way|D Rink|home"})
+        result=g.examine(feed,deepcopy(SAVED),now)
+        self.assertEqual(result["status"],"NOT_DUE")
+
+    def test_booking_next_week_closes_advance_coverage_gap(self):
+        now=datetime(2026,10,20,12,0,tzinfo=ZoneInfo("America/Toronto"))
+        feed=deepcopy(FEED)
+        feed["checkedAt"]=now.isoformat()
+        other={**GAME,"date":"2026-11-01","opponent":"Mid Ice Crisis",
+               "assignmentKey":"hto:3375683",
+               "fixtureSignature":"2026-11-01|20:15|Mid Ice Crisis|D Rink|away"}
+        feed["games"].append(other)
+        with_unbooked=g.examine(feed,deepcopy(SAVED),now)
+        self.assertEqual(with_unbooked["status"],"REVIEW")
+        saved=deepcopy(SAVED)
+        saved["assignments"]["hto:3375683"]="Dev Leong"
+        after=g.examine(feed,saved,now)
+        self.assertEqual(after["status"],"NOT_DUE")
+
+    def test_urgent_unassigned_next_game_outranks_advance_coverage(self):
+        now=datetime(2026,10,24,15,0,tzinfo=ZoneInfo("America/Toronto"))
+        feed=deepcopy(FEED)
+        feed["checkedAt"]=now.isoformat()
+        feed["games"].append({**GAME,"date":"2026-11-01",
+                               "opponent":"Mid Ice Crisis","assignmentKey":"hto:3375683"})
+        saved=deepcopy(SAVED)
+        saved["assignments"]["hto:3375682"]="TBD"
+        result=g.examine(feed,saved,now)
+        self.assertEqual(result["status"],"REVIEW")
+        self.assertEqual(result["priority"],"GAME_DAY")
+        self.assertEqual(result["game"]["opponent"],"Big Bastones")
+
     def test_expired_provider_data_fails_closed(self):
         feed=deepcopy(FEED)
         feed["checkedAt"]=(NOW-timedelta(hours=25)).isoformat()
