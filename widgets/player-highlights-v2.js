@@ -152,6 +152,7 @@ function renderCareer(data){
  if(cards.length){
   $('highsSection').hidden=false;
   $('highs').replaceChildren(...cards);
+  $('careerDate').textContent='Career snapshot: '+shortDate(p.capturedAt)+' · ';
  }
  return p;
 }
