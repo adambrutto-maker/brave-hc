@@ -26,6 +26,8 @@ jobs:
           python-version: '3.12'
       - name: Verify browser QA failure, recovery and stale-run decisions
         run: python -m unittest discover -s tests -p test_widget_smoke_health.py
+      - name: Validate intentional skip interpretation
+        run: python -m unittest discover -s tests -p test_widget_smoke_skip.py
       - name: Independently inspect public website QA result and review issue
         env:
           GITHUB_TOKEN: ${{ github.token }}
