@@ -1,0 +1,1079 @@
+{
+  "schema": "brave-hc-hto-history-snapshot/v1",
+  "type": "records",
+  "source": {
+    "name": "HomeTeamsONLINE / Brave H.C.",
+    "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=records",
+    "authority": "OFFICIAL_HTO_PUBLIC_READBACK"
+  },
+  "capturedAt": "2026-10-20T20:15:11.995Z",
+  "stalePolicy": "Fixed public snapshot. Official HTO page controls current records; snapshot updates are manually QA-gated.",
+  "pageTitle": "Brave H.C. Records & Achievements",
+  "entryCount": 483,
+  "groups": [
+    {
+      "section": "Individual Records",
+      "category": "Summer - Goals",
+      "period": "Game",
+      "items": [
+        "7 - Mark Pastore (July 5, 2015)",
+        "4 - Mark Pastore (June 7, 2015)",
+        "4 - Mark Pastore (June 16, 2013)",
+        "2 - Keith Pearsoll (May 12, 2013)",
+        "2 - Ryan Logue (June 2, 2013)",
+        "2 - Mark Pastore (June 9, 2013)",
+        "2 - Keith Pearsoll (June 9, 2013)"
+      ]
+    },
+    {
+      "section": "Individual Records",
+      "category": "Summer - Goals",
+      "period": "Season",
+      "items": [
+        "22 - Ben Sherritt (2017)",
+        "16 - Ben Sherritt (2014)",
+        "16 - Mark Pastore (2015)",
+        "16 - Xav O'Krafka (2017)",
+        "12 - Mark Pastore (2013)",
+        "8 - Ryan Logue (2013)"
+      ]
+    },
+    {
+      "section": "Individual Records",
+      "category": "Summer - Goals",
+      "period": "Playoffs",
+      "items": [
+        "6 - Mark Pastore (2015)"
+      ]
+    },
+    {
+      "section": "Individual Records",
+      "category": "Summer - Points",
+      "period": "Game",
+      "items": [
+        "9 - Mark Pastore (July 17, 2016)",
+        "8 - Mark Pastore (July 5, 2015)",
+        "5 - Cameron Buchanan (June 23, 2013)",
+        "5 - Stefano Ardizzi (June 22, 2014)",
+        "5 - Ryan Logue (July 20, 2014)",
+        "5 - Mark Pastore (May 10, 2015)",
+        "3 - Ryan Logue (June 2, 2013)",
+        "4 - Mark Pastore (June 16, 2013)",
+        "3 - Keith Pearsoll (May 12, 2013)",
+        "4 - Ryan Logue (June 9, 2013)",
+        "3 - Keith Pearsoll (June 9, 2013)"
+      ]
+    },
+    {
+      "section": "Individual Records",
+      "category": "Summer - Points",
+      "period": "Season",
+      "items": [
+        "32 - Ben Sherritt (2017)",
+        "30 - Xav O'Krafka (2017)",
+        "25 - Ben Sherritt (2014)",
+        "25 - Mark Pastore (2015)",
+        "17 - Mark Pastore (2013)"
+      ]
+    },
+    {
+      "section": "Individual Records",
+      "category": "Summer - Points",
+      "period": "Playoffs",
+      "items": [
+        "9 - Mark Pastore (2015)",
+        "6 - Keith Pearsoll (2015)",
+        "6 - Cameron Buchanan (2015)",
+        "2 - Ben Sherritt (2014)",
+        "2 - Ryan Logue (2014)",
+        "2 - Adam Brutto (2014)"
+      ]
+    },
+    {
+      "section": "Individual Records",
+      "category": "Summer - Assists",
+      "period": "Game",
+      "items": [
+        "6 - Justin Carosi (May 15, 2016)",
+        "4 - Ryan Logue (June 9, 2013)",
+        "4 - Adam Brutto (July 26, 2015)",
+        "4 - Mark Pastore (May 8, 2016)",
+        "3 - Adam Brutto (June 9, 2013)",
+        "2 - Adam Brutto (June 2, 2013)",
+        "2 - Mark Pastore (June 2, 2013)"
+      ]
+    },
+    {
+      "section": "Individual Records",
+      "category": "Summer - Assists",
+      "period": "Season",
+      "items": [
+        "15 - Justin Carosi (2016)",
+        "11 - Adam Brutto (2015)",
+        "10 - Justin Carosi (2015)",
+        "10 - Ryan Logue (2015)",
+        "9 - Ryan Logue (2014)",
+        "9 - Ben Sherritt (2014)",
+        "9 - Julian Kercz (2014)",
+        "8 - Justin Carosi (2014)",
+        "7 - Keith Pearsoll (2013)",
+        "7 - Ryan Logue (2013)",
+        "7 - Stefano Ardizzi (2014)"
+      ]
+    },
+    {
+      "section": "Individual Records",
+      "category": "Summer - Assists",
+      "period": "Playoffs",
+      "items": [
+        "8 - Adam Brutto (2015)"
+      ]
+    },
+    {
+      "section": "Individual Records",
+      "category": "Summer - Game Winning Goals",
+      "period": "Season",
+      "items": [
+        "4 - Ben Sherritt (2017)",
+        "2 - Ben Sherritt (2014)",
+        "2 - Ryan Logue (2014)",
+        "2 - Justin Carosi (2015)",
+        "2 - Mark Pastore (2015)"
+      ]
+    },
+    {
+      "section": "Individual Records",
+      "category": "Summer - Powerplay Goals",
+      "period": "Season",
+      "items": [
+        "2 - Mark Pastore (2014)"
+      ]
+    },
+    {
+      "section": "Individual Records",
+      "category": "Summer - Shorthanded Goals",
+      "period": "Season",
+      "items": [
+        "2 - Mark Pastore (2016)"
+      ]
+    },
+    {
+      "section": "Individual Records",
+      "category": "Summer - Hat Tricks",
+      "period": "Season",
+      "items": [
+        "4 - Ben Sherritt (2017)",
+        "3 - Ben Sherritt (2014)",
+        "3 - Mark Pastore (2016)",
+        "2 - Mark Pastore (2015)",
+        "2 - Cameron Buchanan (2016)"
+      ]
+    },
+    {
+      "section": "Individual Records",
+      "category": "Summer - Player of the Game",
+      "period": "Season",
+      "items": [
+        "7 - Ben Sherritt (2014)",
+        "4 - Ryan Logue (2013)"
+      ]
+    },
+    {
+      "section": "Individual Records",
+      "category": "Summer - Player of the Game",
+      "period": "Playoffs",
+      "items": [
+        "2 - Cameron Buchanan (2015)",
+        "2 - Keith Pearsoll (2016)"
+      ]
+    },
+    {
+      "section": "Individual Records",
+      "category": "Summer - Wins",
+      "period": "Season",
+      "items": [
+        "6 - Stephen Logue (2014)",
+        "4 - Stephen Logue (2013)"
+      ]
+    },
+    {
+      "section": "Individual Records",
+      "category": "Summer - Wins",
+      "period": "Playoffs",
+      "items": [
+        "2 - R\u00e8nt Goali\u00ea (2016)"
+      ]
+    },
+    {
+      "section": "Individual Records",
+      "category": "Summer - Shutouts",
+      "period": "Season",
+      "items": [
+        "1 - Stephen Logue (2016)"
+      ]
+    },
+    {
+      "section": "Individual Records",
+      "category": "Summer - Goals Against Average",
+      "period": "Season",
+      "items": [
+        "3.40 - Will Cawkell (2015)",
+        "3.80 - Stephen Logue (2015)",
+        "4.00 - Stephen Logue (2014)",
+        "5.33 - Stephen Logue (2013)"
+      ]
+    },
+    {
+      "section": "Individual Records",
+      "category": "Summer - Goals Against Average",
+      "period": "Playoffs",
+      "items": [
+        "2.50 - Stephen Logue (2017)",
+        "3.50 - R\u00e8nt Goali\u00ea (2016)",
+        "4.00 - Stephen Logue (2014)",
+        "4.75 - Stephen Logue (2013)"
+      ]
+    },
+    {
+      "section": "Individual Records",
+      "category": "Summer - Penalty Minutes",
+      "period": "Game",
+      "items": [
+        "9 - Stefano Ardizzi (May 31, 2015)",
+        "4 - Adam Brutto (August 18, 2013)",
+        "4 - Adam Brutto (May 25, 2014)",
+        "4 - Stefano Ardizzi (June 1, 2014)",
+        "4 - Daniel Buzzelli (June 1, 2014)",
+        "4 - Alex Pagnotta (June 22, 2014)",
+        "4 - Ryan Logue (July 13, 2014)",
+        "4 - Daniel Buzzelli (August 10, 2014)",
+        "4 - Justin Carosi (May 24, 2015)",
+        "4 - Alex Pagnotta (May 24, 2015)"
+      ]
+    },
+    {
+      "section": "Individual Records",
+      "category": "Summer - Penalty Minutes",
+      "period": "Season",
+      "items": [
+        "20 - Xav O'Krafka (2017)",
+        "11 - Stefano Ardizzi (2015)",
+        "8 - Adam Brutto (2014)",
+        "8 - Julian Kercz (2014)",
+        "8 - Justin Carosi (2015)",
+        "8 - Alex Pagnotta (2015)",
+        "6 - Daniel Buzzelli (2014)"
+      ]
+    },
+    {
+      "section": "Individual Records",
+      "category": "Summer - Penalty Minutes",
+      "period": "Playoffs",
+      "items": [
+        "6 - Daniel Buzzelli (2014)",
+        "6 - Stefano Ardizzi (2015)",
+        "6 - Julian Kercz (2016)",
+        "6 - Andrew Buchanan (2017)",
+        "4 - Adam Brutto (2013)"
+      ]
+    },
+    {
+      "section": "Individual Records",
+      "category": "Winter - Goals",
+      "period": "Game",
+      "items": [
+        "5 - Ben Sherritt (October 6, 2013)"
+      ]
+    },
+    {
+      "section": "Individual Records",
+      "category": "Winter - Goals",
+      "period": "Season",
+      "items": [
+        "36 - Ben Sherritt (2013/14)"
+      ]
+    },
+    {
+      "section": "Individual Records",
+      "category": "Winter - Goals",
+      "period": "Playoffs",
+      "items": [
+        "8 - Mark Pastore (2015/16)",
+        "7 - Mark Pastore (2014/15)",
+        "4 - Ben Sherritt (2013/14)"
+      ]
+    },
+    {
+      "section": "Individual Records",
+      "category": "Winter - Points",
+      "period": "Game",
+      "items": [
+        "6 - Ben Sherritt (October 6, 2013)",
+        "6 - Ben Sherritt (March 2, 2014)",
+        "6 - Zach Kercz (December 21, 2014)",
+        "6 - Xav O'Krafka (November 12, 2017)",
+        "6 - Ben Sherritt (November 12, 2017)",
+        "3 - Mark Pastore (September 29, 2013)"
+      ]
+    },
+    {
+      "section": "Individual Records",
+      "category": "Winter - Points",
+      "period": "Season",
+      "items": [
+        "46 - Ben Sherritt (2013/14)"
+      ]
+    },
+    {
+      "section": "Individual Records",
+      "category": "Winter - Points",
+      "period": "Playoffs",
+      "items": [
+        "9 - Mark Pastore (2015/16)",
+        "8 - Mark Pastore (2014/15)",
+        "7 - Damian Aidemirski (2013/14)"
+      ]
+    },
+    {
+      "section": "Individual Records",
+      "category": "Winter - Assists",
+      "period": "Game",
+      "items": [
+        "4 - Damian Aidemirski (March 30, 2014)",
+        "4 - Dylan Brennan (September 18, 2016)",
+        "4 - Justin Carosi (October 16, 2016)",
+        "4 - Justin Carosi (November 24, 2019)",
+        "4 - David Corasaniti (February 9, 2020)",
+        "4 - David Corasaniti (February 16, 2020)",
+        "4 - Stephane Saindon (October 6, 2024)",
+        "4 - Stephane Saindon (November 9, 2025)",
+        "4 - Stephane Saindon (January 18, 2026)",
+        "3 - Michael Congiusti (October 6, 2013)",
+        "3 - Stefano Ardizzi (December 15, 2013)",
+        "3 - Mark Pastore (January 5, 2014)",
+        "3 - Stefano Ardizzi (March 2, 2014)",
+        "3 - Michael Congiusti (March 2, 2014)",
+        "2 - Mark Pastore (September 29, 2013)",
+        "2 - Ben Sherritt (September 29, 2013)",
+        "2 - Marco Congiusti (September 29, 2013)"
+      ]
+    },
+    {
+      "section": "Individual Records",
+      "category": "Winter - Assists",
+      "period": "Season",
+      "items": [
+        "22 - Dylan Brennan (2018/19)",
+        "19 - Justin Carosi (2016/17)",
+        "19 - Justin Carosi (2017/18)",
+        "17 - Mark Pastore (2013/14)"
+      ]
+    },
+    {
+      "section": "Individual Records",
+      "category": "Winter - Assists",
+      "period": "Playoffs",
+      "items": [
+        "6 - Damian Aidemirski (2013/14)",
+        "2 - Adam Brutto (2013/14)"
+      ]
+    },
+    {
+      "section": "Individual Records",
+      "category": "Winter - Game Winning Goals",
+      "period": "Season",
+      "items": [
+        "4 - Ben Sherritt (2017/18)",
+        "4 - Stephen Keane (2016/17)",
+        "4 - Ben Sherritt (2013/14)",
+        "4 - Stephane Saindon (2023/24)",
+        "3 - Cameron Buchanan (2013/14)"
+      ]
+    },
+    {
+      "section": "Individual Records",
+      "category": "Winter - Game Winning Goals",
+      "period": "Playoffs",
+      "items": [
+        "2 - Mark Pastore (2015/16)",
+        "2 - Ben Sherritt (2017/18)",
+        "2 - Ryan Logue (2019/20)"
+      ]
+    },
+    {
+      "section": "Individual Records",
+      "category": "Winter - Game Tying Goals",
+      "period": "Season",
+      "items": [
+        "2 - Ben Sherritt (2013/14)",
+        "2 - Cameron Buchanan (2014/15)",
+        "2 - Alex Pagnotta (2019/20)",
+        "2 - Justin Carosi (2022/23)"
+      ]
+    },
+    {
+      "section": "Individual Records",
+      "category": "Winter - Powerplay Goals",
+      "period": "Season",
+      "items": [
+        "4 - Ben Sherritt (2017/18)",
+        "3 - Ben Sherritt (2013/14)"
+      ]
+    },
+    {
+      "section": "Individual Records",
+      "category": "Winter - Shorthanded Goals",
+      "period": "Season",
+      "items": [
+        "3 - Justin Carosi (2017/18)",
+        "2 - Ryan Logue (2014/15)"
+      ]
+    },
+    {
+      "section": "Individual Records",
+      "category": "Winter - Hat Tricks",
+      "period": "Season",
+      "items": [
+        "5 - Ben Sherritt (2013/14)"
+      ]
+    },
+    {
+      "section": "Individual Records",
+      "category": "Winter - Player of the Game",
+      "period": "Season",
+      "items": [
+        "13 - Ben Sherritt (2013/14)"
+      ]
+    },
+    {
+      "section": "Individual Records",
+      "category": "Winter - Player of the Game",
+      "period": "Playoffs",
+      "items": [
+        "5 - Mark Pastore (2015/16)",
+        "3 - Mark Pastore (2014/15)"
+      ]
+    },
+    {
+      "section": "Individual Records",
+      "category": "Winter - Wins",
+      "period": "Season",
+      "items": [
+        "12 - Stephen Logue (2013/14)"
+      ]
+    },
+    {
+      "section": "Individual Records",
+      "category": "Winter - Wins",
+      "period": "Playoffs",
+      "items": [
+        "4 - Stephen Logue (2015/16)",
+        "2 - Stephen Logue (2013/14)"
+      ]
+    },
+    {
+      "section": "Individual Records",
+      "category": "Winter - Shutouts",
+      "period": "Season",
+      "items": [
+        "4 - Stephen Logue (2016/17)"
+      ]
+    },
+    {
+      "section": "Individual Records",
+      "category": "Winter - Shutouts",
+      "period": "Playoffs",
+      "items": [
+        "2 - Stephen Logue (2015/16)",
+        "2 - Stephen Logue (2016/17)",
+        "1 - Stephen Logue (2013/14)"
+      ]
+    },
+    {
+      "section": "Individual Records",
+      "category": "Winter - Goals Against Average",
+      "period": "Season",
+      "items": [
+        "2.17 - Andrew Pozzebon (2017/18)",
+        "2.33 - Stephen Logue (2013/14)"
+      ]
+    },
+    {
+      "section": "Individual Records",
+      "category": "Winter - Goals Against Average",
+      "period": "Playoffs",
+      "items": [
+        "1.33 - Stephen Logue (2013/14)"
+      ]
+    },
+    {
+      "section": "Individual Records",
+      "category": "Winter - Penalty Minutes",
+      "period": "Game",
+      "items": [
+        "14 - Adam Brutto (November 22, 2015)",
+        "14 - Adam Brutto (December 11, 2016)",
+        "14 - Stefano Ardizzi (December 22, 2019)",
+        "14 - Stephane Saindon (April 6, 2025)",
+        "12 - Julian Kercz (November 9, 2014)",
+        "4 - Adam Brutto (December 1, 2013)",
+        "4 - Adam Brutto (December 15, 2013)",
+        "4 - Mario Provenzano (December 15, 2013)",
+        "4 - Daniel Buzzelli (January 19, 2014)",
+        "4 - Adam Brutto (March 30, 2014)",
+        "4 - Alex Pagnotta (October 19, 2014)"
+      ]
+    },
+    {
+      "section": "Individual Records",
+      "category": "Winter - Penalty Minutes",
+      "period": "Season",
+      "items": [
+        "24 - Julian Kercz (2015/16)",
+        "24 - Julian Kercz (2016/17)",
+        "20 - Julian Kercz (2014/15)",
+        "14 - Daniel Buzzelli (2013/14)"
+      ]
+    },
+    {
+      "section": "Individual Records",
+      "category": "Winter - Penalty Minutes",
+      "period": "Playoffs",
+      "items": [
+        "14 - Stephane Saindon (2024/25)",
+        "11 - Julian Kercz (2015/16)",
+        "6 - Adam Brutto (2013/14)",
+        "6 - Mark Pastore (2014/15)",
+        "6 - Jeff Micheli (2014/15)"
+      ]
+    },
+    {
+      "section": "Individual Records",
+      "category": "50 Game Club",
+      "period": "Career",
+      "items": [
+        "1 - Stephen Logue (July 27, 2014)",
+        "2 - Alex Pagnotta (August 17, 2014)",
+        "3 - Ryan Logue (August 17, 2014)",
+        "4 - Cameron Buchanan (August 17, 2014)",
+        "5 - Adam Brutto (September 21, 2014)",
+        "6 - Mark Pastore (September 21, 2014)",
+        "7 - Marco Congiusti (September 28, 2014)",
+        "8 - Keith Pearsoll (October 5, 2014)",
+        "9 - Damian Aidemirski (October 5, 2014)",
+        "10 - Mario Provenzano (November 9, 2014)",
+        "11 - Michael Congiusti (December 7, 2014)",
+        "12 - Stefano Ardizzi (March 22, 2015)",
+        "13 - Justin Carosi (June 14, 2015)",
+        "14 - Neil Baghel (September 27, 2015)",
+        "15 - Anthony Paolucci (November 15, 2015)",
+        "16 - Julian Kercz (December 20, 2015)",
+        "17 - Anthony Guerra (July 17, 2016)",
+        "18 - Ben Sherritt (November 20, 2016)",
+        "19 - Dylan Brennan (January 23, 2018)",
+        "20 - Daniel Buzzelli (September 23, 2018)",
+        "21 - Lucas Brutto (December 30, 2018)",
+        "22 - Andrew Buchanan (February 10, 2019)",
+        "23 - Lorcan Duffy (April 14, 2019)",
+        "24 - Andrew Cristillo (December 10, 2023)",
+        "25 - Mark Arruda (March 10, 2024)",
+        "26 - Stephane Saindon (November 3, 2024)",
+        "27 - Ryan Finlay (December 15, 2024)",
+        "28 - Stefano Mazzei (December 22, 2024)",
+        "29 - Krishnan Rajasooriar (January 4, 2026)"
+      ]
+    },
+    {
+      "section": "Individual Records",
+      "category": "50 Point Club",
+      "period": "Career",
+      "items": [
+        "1 - Mark Pastore (March 30, 2014)",
+        "2 - Ben Sherritt (April 13, 2014)",
+        "3 - Ryan Logue (June 22, 2014)",
+        "4 - Cameron Buchanan (November 30, 2014)",
+        "5 - Keith Pearsoll (May 24, 2015)",
+        "6 - Justin Carosi (June 21, 2015)",
+        "7 - Adam Brutto (July 26, 2015)",
+        "8 - Damian Aidemirski (November 22, 2015)",
+        "9 - Stefano Ardizzi (February 21, 2016)",
+        "10 - Alex Pagnotta (May 15, 2016)",
+        "11 - Julian Kercz (July 10, 2016)",
+        "12 - Dylan Brennan (August 27, 2017)",
+        "13 - Xav O'Krafka (November 19, 2017)",
+        "14 - Mario Provenzano (February 11, 2018)",
+        "15 - Marco Congiusti (March 3, 2019)",
+        "16 - Lorcan Duffy (March 1, 2020)",
+        "17 - Stephane Saindon (March 10, 2024)",
+        "18 - Mark Arruda (March 9, 2025)",
+        "19 - Ryan Finlay (December 7, 2025)",
+        "20 - Michael Provenzano (September 27, 2026)"
+      ]
+    },
+    {
+      "section": "Individual Records",
+      "category": "50 Win Club",
+      "period": "Career",
+      "items": [
+        "1 - Stephen Logue (April 17, 2016)"
+      ]
+    },
+    {
+      "section": "Individual Records",
+      "category": "100 Game Club",
+      "period": "Career",
+      "items": [
+        "1 - Alex Pagnotta (December 20, 2015)",
+        "2 - Ryan Logue (December 20, 2015)",
+        "3 - Mark Pastore (December 27, 2015)",
+        "4 - Adam Brutto (January 3, 2016)",
+        "5 - Damian Aidemirski (January 10, 2016)",
+        "6 - Keith Pearsoll (January 24, 2016)",
+        "7 - Stephen Logue (January 31, 2016)",
+        "8 - Marco Congiusti (February 28, 2016)",
+        "9 - Cameron Buchanan (May 15, 2016)",
+        "10 - Justin Carosi (October 30, 2016)",
+        "11 - Mario Provenzano (December 18, 2016)",
+        "12 - Michael Congiusti (January 15, 2017)",
+        "13 - Stefano Ardizzi (April 2, 2017)",
+        "14 - Ben Sherritt (March 18, 2018)",
+        "15 - Daniel Buzzelli (October 30, 2022)",
+        "16 - Mark Arruda (March 15, 2026)"
+      ]
+    },
+    {
+      "section": "Individual Records",
+      "category": "100 Point Club",
+      "period": "Career",
+      "items": [
+        "1 - Mark Pastore (June 7, 2015)",
+        "2 - Ryan Logue (August 9, 2015)",
+        "3 - Justin Carosi (May 15, 2016)",
+        "4 - Cameron Buchanan (June 19, 2016)",
+        "5 - Keith Pearsoll (August 14, 2016)",
+        "6 - Ben Sherritt (November 13, 2016)",
+        "7 - Adam Brutto (August 20, 2017)",
+        "8 - Dylan Brennan (December 30, 2018)",
+        "9 - Stefano Ardizzi (March 10, 2019)",
+        "10 - Alex Pagnotta (November 24, 2019)",
+        "11 - Mario Provenzano (November 16, 2025)",
+        "12 - Stephane Saindon (November 30, 2025)"
+      ]
+    },
+    {
+      "section": "Individual Records",
+      "category": "100 Win Club",
+      "period": "Career",
+      "items": [
+        "1 - Stephen Logue (March 1, 2020)"
+      ]
+    },
+    {
+      "section": "Individual Records",
+      "category": "200 Game Club",
+      "period": "Career",
+      "items": [
+        "1 - Adam Brutto (January 6, 2019)",
+        "2 - Alex Pagnotta (January 27, 2019)",
+        "3 - Keith Pearsoll (February 17, 2019)",
+        "4 - Ryan Logue (March 17, 2019)",
+        "5 - Cameron Buchanan (September 15, 2019)",
+        "6 - Marco Congiusti (November 17, 2019)",
+        "7 - Stephen Logue (December 15, 2019)",
+        "8 - Justin Carosi (February 23, 2020)",
+        "9 - Stefano Ardizzi (February 4, 2024)",
+        "10 - Mario Provenzano (March 24, 2024)"
+      ]
+    },
+    {
+      "section": "Individual Records",
+      "category": "200 Point Club",
+      "period": "Career",
+      "items": [
+        "1 - Ben Sherritt (February 25, 2018)",
+        "2 - Ryan Logue (September 16, 2018)",
+        "3 - Justin Carosi (December 30, 2018)",
+        "4 - Cameron Buchanan (October 20, 2019)",
+        "5 - Keith Pearsoll (February 19, 2023)"
+      ]
+    },
+    {
+      "section": "Individual Records",
+      "category": "300 Game Club",
+      "period": "Career",
+      "items": [
+        "1 - Adam Brutto (January 5, 2025)",
+        "2 - Alex Pagnotta (September 28, 2025)",
+        "3 - Justin Carosi (September 20, 2026)"
+      ]
+    },
+    {
+      "section": "Individual Records",
+      "category": "300 Point Club",
+      "period": "Career",
+      "items": [
+        "1 - Justin Carosi (January 14, 2024)"
+      ]
+    },
+    {
+      "section": "Team Records",
+      "category": "Summer - Total Points/Record",
+      "period": "Season",
+      "items": [
+        "14 - (7-3-0) (2017)",
+        "13 - (6-3-1) (2014)",
+        "13 - (6-3-1) (2015)",
+        "10 - (4-3-2) (2013)",
+        "8 - (4-6-0) (2016)"
+      ]
+    },
+    {
+      "section": "Team Records",
+      "category": "Summer - Total Points/Record",
+      "period": "Playoffs",
+      "items": [
+        "6 - (3-0-0) - Won Championship (2016)",
+        "4 - (2-1-0) - Lost Finals (2015)",
+        "3 - (1-2-1) - Lost Finals (2017)",
+        "2 - (1-3-0) - Lost Quarter-Finals (2013)",
+        "2 - (1-1-0) - Lost Semi-Finals (2014)"
+      ]
+    },
+    {
+      "section": "Team Records",
+      "category": "Summer - Goals For",
+      "period": "Season",
+      "items": [
+        "77 - (2017)",
+        "67 - (2016)",
+        "55 - (2014)",
+        "54 - (2015)",
+        "49 - (2013)"
+      ]
+    },
+    {
+      "section": "Team Records",
+      "category": "Summer - Goals For",
+      "period": "Playoffs",
+      "items": [
+        "24 - (2015)",
+        "22 - (2016)",
+        "13 - (2017)",
+        "12 - (2013)",
+        "3 - (2014)"
+      ]
+    },
+    {
+      "section": "Team Records",
+      "category": "Summer - Goals Against",
+      "period": "Season",
+      "items": [
+        "40 - (2014)",
+        "48 - (2015)",
+        "48 - (2013)",
+        "51 - (2017)",
+        "61 - (2016)"
+      ]
+    },
+    {
+      "section": "Team Records",
+      "category": "Summer - Goals Against",
+      "period": "Playoffs",
+      "items": [
+        "8 - (2014)",
+        "11 - (2016)",
+        "14 - (2017)",
+        "14 - (2015)",
+        "19 - (2013)"
+      ]
+    },
+    {
+      "section": "Team Records",
+      "category": "Summer - Powerplay Goals",
+      "period": "Season",
+      "items": [
+        "6 - (2014)",
+        "6 - (2015)",
+        "3 - (2017)",
+        "2 - (2016)",
+        "0 - (2013)"
+      ]
+    },
+    {
+      "section": "Team Records",
+      "category": "Summer - Powerplay Goals",
+      "period": "Playoffs",
+      "items": [
+        "3 - (2017)",
+        "2 - (2016)",
+        "1 - (2014)",
+        "1 - (2015)",
+        "0 - (2013)"
+      ]
+    },
+    {
+      "section": "Team Records",
+      "category": "Summer - Shorthanded Goals",
+      "period": "Season",
+      "items": [
+        "6 - (2016)",
+        "5 - (2017)",
+        "1 - (2015)",
+        "0 - (2013)",
+        "0 - (2014)"
+      ]
+    },
+    {
+      "section": "Team Records",
+      "category": "Summer - Shorthanded Goals",
+      "period": "Playoffs",
+      "items": [
+        "3 - (2015)",
+        "1 - (2016)",
+        "0 - (2017)",
+        "0 - (2013)",
+        "0 - (2014)"
+      ]
+    },
+    {
+      "section": "Team Records",
+      "category": "Summer - Penalty Minutes",
+      "period": "Season",
+      "items": [
+        "36 - (2016)",
+        "48 - (2013)",
+        "48 - (2014)",
+        "59 - (2015)",
+        "60 - (2017)"
+      ]
+    },
+    {
+      "section": "Team Records",
+      "category": "Summer - Penalty Minutes",
+      "period": "Playoffs",
+      "items": [
+        "8 - (2013)",
+        "8 - (2014)",
+        "12 - (2016)",
+        "26 - (2017)",
+        "27 - (2015)"
+      ]
+    },
+    {
+      "section": "Team Records",
+      "category": "Winter - Total Points/Record",
+      "period": "Season",
+      "items": [
+        "31 - (14-5-3) (2017/18)",
+        "30 - (13-7-4) (2013/14)",
+        "27 - (12-9-3) (2025/26)",
+        "27 - (13-7-1) (2016/17)",
+        "26 - (11-11-4) (2018/19)",
+        "24 - (12-12-0) (2023/24)",
+        "22 - (10-12-2) (2024/25)",
+        "22 - (10-10-2) (2019/20)",
+        "22 - (9-8-4) (2014/15)",
+        "19 - (8-12-3) (2015/16)",
+        "19 - (8-12-3) (2022/23)"
+      ]
+    },
+    {
+      "section": "Team Records",
+      "category": "Winter - Total Points/Record",
+      "period": "Playoffs",
+      "items": [
+        "9 - (4-1-1) - Won Championship (2015/16)",
+        "7 - (2-1-3) - Lost Finals (2014/15)",
+        "6 - (2-2-2) - Lost Finals (2013/14)",
+        "6 - (3-2-0) - Lost Semi-Finals (2017/18)",
+        "4 - (2-0-0) - COVID, Season Suspended (2019/20)",
+        "3 - (1-3-1) - Won Bronze Finals (2016/17)",
+        "2 - (1-1-0) - Lost Semi-Finals (2022/23)",
+        "2 - (1-2-0) - Lost Semi-Finals (2025/26)",
+        "0 - (0-0-3) - Lost Bronze Finals (2018/19)",
+        "0 - (0-2-0) - Lost Semi-Finals (2023/24)",
+        "0 - (0-2-0) - Lost Semi-Finals (2024/25)"
+      ]
+    },
+    {
+      "section": "Team Records",
+      "category": "Winter - Goals For",
+      "period": "Season",
+      "items": [
+        "113 - (2017/18)",
+        "108 - (2013/14)",
+        "84 - (2016/17)",
+        "83 - (2019/20)",
+        "81 - (2025/26)",
+        "79 - (2023/24)",
+        "76 - (2018/19)",
+        "76 - (2015/16)",
+        "73 - (2024/25)",
+        "73 - (2022/23)",
+        "64 - (2014/15)"
+      ]
+    },
+    {
+      "section": "Team Records",
+      "category": "Winter - Goals For",
+      "period": "Playoffs",
+      "items": [
+        "16 - (2014/15)",
+        "16 - (2015/16)",
+        "15 - (2017/18)",
+        "14 - (2016/17)",
+        "12 - (2013/14)",
+        "10 - (2018/19)",
+        "10 - COVID, Season Suspended (2019/20)",
+        "7 - (2025/26)",
+        "6 - (2023/24)",
+        "3 - (2022/23)",
+        "2 - (2024/25)"
+      ]
+    },
+    {
+      "section": "Team Records",
+      "category": "Winter - Goals Against",
+      "period": "Season",
+      "items": [
+        "53 - (2013/14)",
+        "59 - (2016/17)",
+        "65 - (2017/18)",
+        "65 - (2014/15)",
+        "69 - (2018/19)",
+        "77 - (2019/20)",
+        "79 - (2022/23)",
+        "79 - (2015/16)",
+        "82 - (2025/26)",
+        "95 - (2023/24)",
+        "95 - (2024/25)"
+      ]
+    },
+    {
+      "section": "Team Records",
+      "category": "Winter - Goals Against",
+      "period": "Playoffs",
+      "items": [
+        "3 - COVID, Season Suspended (2019/20)",
+        "6 - (2024/25)",
+        "7 - (2022/23)",
+        "8 - (2013/14)",
+        "9 - (2025/26)",
+        "10 - (2023/24)",
+        "10 - (2015/16)",
+        "11 - (2017/18)",
+        "14 - (2018/19)",
+        "14 - (2014/15)",
+        "20 - (2016/17)"
+      ]
+    },
+    {
+      "section": "Team Records",
+      "category": "Winter - Powerplay Goals",
+      "period": "Season",
+      "items": [
+        "13 - (2013/14)",
+        "9 - (2014/15)",
+        "9 - (2017/18)",
+        "9 - (2019/20)",
+        "8 - (2023/24)",
+        "8 - (2018/19)",
+        "6 - (2015/16)",
+        "5 - (2024/25)",
+        "3 - (2025/26)",
+        "3 - (2022/23)",
+        "2 - (2016/17)"
+      ]
+    },
+    {
+      "section": "Team Records",
+      "category": "Winter - Powerplay Goals",
+      "period": "Playoffs",
+      "items": [
+        "5 - (2014/15)",
+        "2 - (2013/14)",
+        "2 - (2017/18)",
+        "2 - (2018/19)",
+        "2 - COVID, Season Suspended (2019/20)",
+        "1 - (2025/26)",
+        "1 - (2015/16)",
+        "0 - (2016/17)",
+        "0 - (2022/23)",
+        "0 - (2023/24)",
+        "0 - (2024/25)"
+      ]
+    },
+    {
+      "section": "Team Records",
+      "category": "Winter - Shorthanded Goals",
+      "period": "Season",
+      "items": [
+        "6 - (2022/23)",
+        "4 - (2017/18)",
+        "3 - (2019/20)",
+        "2 - (2018/19)",
+        "2 - (2014/15)",
+        "2 - (2015/16)",
+        "2 - (2023/24)",
+        "1 - (2024/25)",
+        "1 - (2016/17)",
+        "1 - (2013/14)",
+        "0 - (2025/26)"
+      ]
+    },
+    {
+      "section": "Team Records",
+      "category": "Winter - Shorthanded Goals",
+      "period": "Playoffs",
+      "items": [
+        "2 - (2015/16)",
+        "1 - (2017/18)",
+        "0 - (2018/19)",
+        "0 - COVID, Season Suspended (2019/20)",
+        "0 - (2022/23)",
+        "0 - (2023/24)",
+        "0 - (2024/25)",
+        "0 - (2025/26)",
+        "0 - (2016/17)",
+        "0 - (2013/14)",
+        "0 - (2014/15)"
+      ]
+    },
+    {
+      "section": "Team Records",
+      "category": "Winter - Penalty Minutes",
+      "period": "Season",
+      "items": [
+        "38 - (2025/26)",
+        "52 - (2023/24)",
+        "58 - (2024/25)",
+        "62 - (2017/18)",
+        "62 - (2019/20)",
+        "68 - (2013/14)",
+        "77 - (2018/19)",
+        "78 - (2022/23)",
+        "88 - (2014/15)",
+        "90 - (2015/16)",
+        "124 - (2016/17)"
+      ]
+    },
+    {
+      "section": "Team Records",
+      "category": "Winter - Penalty Minutes",
+      "period": "Playoffs",
+      "items": [
+        "0 - (2022/23)",
+        "4 - (2018/19)",
+        "8 - COVID, Season Suspended (2019/20)",
+        "14 - (2025/26)",
+        "16 - (2023/24)",
+        "16 - (2013/14)",
+        "18 - (2024/25)",
+        "26 - (2014/15)",
+        "29 - (2015/16)",
+        "32 - (2016/17)",
+        "32 - (2017/18)"
+      ]
+    }
+  ]
+}
