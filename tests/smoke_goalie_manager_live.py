@@ -9,6 +9,12 @@ import json
 import re
 import shutil
 import sys
+from datetime import datetime
+from pathlib import Path
+from zoneinfo import ZoneInfo
+
+sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'scripts'))
+from goalie_advance_plan import stage as stage_for_game
 import urllib.request
 from urllib.parse import parse_qs, urlparse
 
@@ -106,6 +112,11 @@ def run():
             assert g["date"] in row.locator("td").nth(0).inner_text()
             assert g["opponent"] in row.locator("td").nth(0).inner_text()
             assert g["rink"] in row.locator("td").nth(1).inner_text()
+            expected_stage=stage_for_game(g,saved,datetime.now(ZoneInfo('America/Toronto')))["stage"]
+            shown_stage=row.get_attribute("data-coverage-stage")
+            assert shown_stage==expected_stage, (
+                f"Coverage stage mismatch for {g['date']}: {shown_stage} != {expected_stage}")
+            assert row.locator(".coverage-explain").inner_text(), "Missing forward booking instruction"
             selected=row.locator("select").input_value()
             assert selected==initial.get(g["assignmentKey"],"TBD"), "Dropdown lost saved starter"
             if "Anthony Paolucci" not in initial.values():
@@ -163,6 +174,7 @@ def run():
     after=load("goalie-assignments.json")["assignments"]
     assert after==initial, "Read-only UI smoke coincided with changed goalie assignments"
     print("PASS: goalie coverage summary, read-only attention filter and restore-all")
+    print("PASS: each upcoming game shows correct regular/rental plan stage against policy; no outreach")
     print("PASS: live manager rows, saved selections, current goalie, alternate goalie, rental, invalid/cancelled rental")
     print("PASS: v3 reasons, replacement confirmation, cancellation, and initial booking; all Github popups intercepted")
     print("PASS: no goalie assignment modification made by browser test")
