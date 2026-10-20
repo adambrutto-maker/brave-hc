@@ -158,6 +158,6 @@ test('both published Awards entrypoints use identical assets and page instructio
  const a=fs.readFileSync(path.join(widgets,'awards-races.html'),'utf8');
  const b=fs.readFileSync(path.join(widgets,'awards-races-v3.html'),'utf8');
  assert.equal(a,b);
- assert.match(a,/awards-races-v3\\.js\\?v=20261019l/);
- assert.match(a,/awards-races-v3\\.css\\?v=20261019l/);
+ assert.match(a,/awards-races-v3\.js\?v=20261019l/);
+ assert.match(a,/awards-races-v3\.css\?v=20261019l/);
 });
