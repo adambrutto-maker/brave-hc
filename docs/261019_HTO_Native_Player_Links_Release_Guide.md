@@ -1,6 +1,6 @@
 # Brave H.C. — HTO native player-link integration and rollback
 **Date:** 2026-10-19
-**Scope:** Native HTO Home Page in addition to the published GitHub Pages widgets
+**Scope:** Native HTO Home Page, Records & Achievements, and Awards & Honors, in addition to the published GitHub Pages widgets
 **Owner:** Brave H.C. site administrator
 **Status:** PREPARED — NOT INSTALLED IN HTO ADMIN
 
@@ -36,5 +36,29 @@ Using an isolated Chromium session against the public HTO `p=roster` page:
 - HTO public homepage permitted loading `https://adambrutto-maker.github.io/brave-hc/widgets/player-links.js?v=1` as an external script in ephemeral browser testing, without observed JavaScript errors.
 - GitHub Pages deploy and source change are **not** proof of HTO administrative installation.
 
+
+## Expanded native-page coverage audit — October 19, 2026, 7:55–8:00 p.m. Eastern
+
+A clean, isolated Chromium check of the public HTO visitor pages found:
+
+| Native HTO page | Existing behaviour | Needed action |
+| --- | --- | --- |
+| Home Page | Five native stat-leader player hyperlinks; five requests for the shared script from embedded GitHub widgets, but no script in the parent HTO document | A native page-level Script Area integration to cover otherwise plain-text name mentions |
+| Roster | 25 native player rows, 225 clickable cells; native profile navigation already works | Preserve native behaviour; no script injection needed |
+| Player Statistics | Player names already have native profile anchors | Preserve native behaviour |
+| Game Box Score | Player names tested already have native profile anchors | Preserve native behaviour |
+| Records & Achievements | Player names in existing record text are plain text, not native anchors | Add verified player linking at the Records page template or another provider-supported global scope |
+| Awards & Honors | Player names in existing award text are plain text, not native anchors | Add verified player linking at the Awards page template or another provider-supported global scope |
+
+The shared `player-links.js?v=2` script was then loaded **ephemerally** into the public Records and Awards pages (no HTO writes). It produced **132 clickable player-name occurrences** on Records and **68 on Awards**. In both cases, visible text, existing hyperlinks, and clickable controls were preserved; no nested link or JavaScript errors were observed. These are occurrences, not unique players. The test only confirms technical compatibility, not authority to inject JavaScript site-wide.
+
+**Release-scope correction:** A Home Page X-Grid Script Area by itself does **not** complete the original requirement to link player names throughout HTO. Before claiming universal coverage, confirm with HTO whether a supported site-wide script include, or page-specific Script Area for native Records and Awards, is available. The official HTO Records help describes structured Name/Notes record fields; do not paste raw HTML into fields whose markup support is unverified. If there is no sanctioned injection method, request supported name-field hyperlinks or another page integration from HTO; do not overwrite historical records or abandon HTO's native modules.
+
+**Source references:**
+- HTO Records help: https://www.hometeamsonline.com/sportswebsites/default.asp?p=helpdetails&topic=records
+- HTO page-editing help: https://www.hometeamsonline.com/sportswebsites/default.asp?p=helpdetails&topic=homeedit
+
+**Native commissioning acceptance criteria:** Home Page, Records, and Awards player names click through where unambiguous; Roster, Stats, and Box Score native links remain intact; responsive layouts and historic record values are unchanged; no duplicated links or JavaScript errors. Record administrator permission, before/after snapshot, and rollback path separately for every modified HTO page. Do not claim native installation or full-site completion based only on successful widget deployment or temporary browser injection.
+
 ## Outstanding gate
-The authenticated HTO X-Grid administrative edit cannot be executed through the present read-only Chat browser connection. Use ChatGPT Work's interactive browser or perform the bounded one-module edit directly in HTO admin. No HTO admin write has occurred in this implementation chat.
+The authenticated HTO administrative changes cannot be executed through the present read-only Chat browser connection. Use ChatGPT Work's interactive browser to inspect X-Grid modules, determine if a provider-supported site-wide or native Records/Awards script integration exists, back up affected modules, then implement only the supported minimum changes. If site-wide coverage cannot be configured safely, seek HTO support before changing native Records/Awards fields. No HTO admin write has occurred in this implementation chat.
