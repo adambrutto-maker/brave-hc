@@ -20,6 +20,33 @@ TITLE = "GOALIE_CONFIRMATION_REQUEST"
 REQUEST_TYPE = "brave-hc-goalie-confirmation/v2"
 ALLOWED_PERMISSIONS = {"admin", "maintain", "write"}
 
+def rejection_code(exc: Exception) -> str:
+    """Return only a controlled public failure category; never echo untrusted issue text."""
+    message=str(exc).lower()
+    if "fixture changed" in message:
+        return "STALE_FIXTURE"
+    if "goalie assignment changed" in message:
+        return "STALE_GOALIE"
+    if "stale" in message or "future timestamp" in message:
+        return "STALE_FEED"
+    if "repository-writing" in message or isinstance(exc, PermissionError):
+        return "UNAUTHORIZED"
+    if "completed game" in message:
+        return "GAME_COMPLETED"
+    if "selected game key" in message:
+        return "UNKNOWN_GAME"
+    if "goalie" in message or "name" in message:
+        return "INVALID_GOALIE"
+    return "INVALID_REQUEST"
+
+
+def write_status(path: Path | None, code: str) -> None:
+    if path is not None:
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(json.dumps({"schema":"brave-hc-goalie-request-status/v1",
+                                    "code":code}, sort_keys=True)+"\n", encoding="utf-8")
+
+
 
 def parse_request(title: str, body: str) -> dict:
     if title != TITLE:
@@ -65,6 +92,7 @@ def main() -> int:
     ap.add_argument("--request", required=True, type=Path)
     ap.add_argument("--actor", required=True)
     ap.add_argument("--permission", required=True)
+    ap.add_argument("--result-file", type=Path)
     ap.add_argument("--feed", type=Path, default=Path("widgets/svhl-upcoming.json"))
     ap.add_argument("--assignments", type=Path, default=Path("widgets/goalie-assignments.json"))
     args = ap.parse_args()
@@ -77,10 +105,14 @@ def main() -> int:
                                      stored, datetime.now(timezone.utc))
         if changed:
             args.assignments.write_text(json.dumps(out, indent=2, ensure_ascii=False)+"\n", encoding="utf-8")
-        print("CHANGED" if changed else "ALREADY_CONFIRMED")
+        outcome="CHANGED" if changed else "ALREADY_CONFIRMED"
+        write_status(args.result_file,outcome)
+        print(outcome)
         return 0
     except (ValueError, KeyError, TypeError, PermissionError, OSError, json.JSONDecodeError) as exc:
-        print("BLOCKED: " + str(exc), file=sys.stderr)
+        category=rejection_code(exc)
+        write_status(args.result_file,category)
+        print("BLOCKED (" + category + "): " + str(exc), file=sys.stderr)
         return 2
 
 
