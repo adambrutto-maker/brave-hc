@@ -73,3 +73,12 @@ The Hot Stove runtime uses the existing `player-links.js` resolver. A verified 2
 ### Initials and scorer headlines
 
 The shared registry now also matches abbreviated first-initial/surname labels **only when the identifier is unique** among the 25 mapped players. For example, `J. Carosi` and `A. Pagnotta` resolve to their official profiles; `M. Provenzano` is intentionally not linked because both Mario and Michael are plausible. The Hot Stove recap headline can link a surname alone only when that surname is identified by the article's verified HTO goal-event record. This prevents incidental surname references, such as division names, from being interpreted as player links. Tested with the live-published article and a substituted staged runtime; no editorial content changed.
+
+## Historical Records & Awards companion — 2026-10-20
+
+- Records: https://adambrutto-maker.github.io/brave-hc/widgets/history.html?view=records
+- Past Awards: https://adambrutto-maker.github.io/brave-hc/widgets/history.html?view=awards
+- Source: static public HTO snapshots with 483 Records entries (83 groups) and 146 Awards entries (20 groups) at the captured date. HTO remains authoritative; no live scrape from visitors and no unattended publication.
+- Every matched player name uses the shared 51-identity HTO player registry. Unsupported names remain plain text.
+- Source and QA gates: docs/261020_HTO_Historical_Records_Awards_Companion_Runbook.md
+- Native HTO Records/Awards integration remains provider-dependent: GitHub issue #14. The companion is not a substitute for a native HTO admin installation.

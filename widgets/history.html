@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,follow">
+<meta name="color-scheme" content="dark">
+<title>Brave H.C. | Historical Records & Awards</title>
+<link rel="stylesheet" href="./hockeyos-modern.css?v=2">
+<style>
+*{box-sizing:border-box}
+body{background:#061324;color:#e8f0f9}
+.history-shell{width:min(1200px,100%);margin:0 auto;padding:15px}
+.history-panel{background:#0b2036;border:1px solid #35526d;border-radius:12px;overflow:hidden}
+.history-accent{height:5px;background:linear-gradient(90deg,#a71932,#e34958,#e0ae5b)}
+.history-inner{padding:clamp(15px,3vw,30px)}
+.history-brand{display:flex;align-items:center;gap:12px}
+.history-brand img{width:55px;height:55px;object-fit:contain}
+.history-brand .eyebrow{letter-spacing:1px}
+.history-nav{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0}
+.history-nav a{background:#15344f;border:1px solid #38617d;border-radius:6px;padding:8px 11px;color:#e6f0fb;text-decoration:none;font-size:13px}
+.history-nav a:hover,.history-nav a:focus-visible{border-color:#ebbe79;color:#fff}
+.history-heading{font-size:clamp(23px,4vw,36px);margin:12px 0 8px;color:#fff}
+.history-explain{line-height:1.65;color:#cbd9e7;margin:0 0 15px}
+.history-warning{padding:12px 14px;background:#1a3247;border:1px solid #537085;border-left:4px solid #dfad61;border-radius:6px;line-height:1.55;font-size:13px}
+.history-warning a,.history-footer a{color:#f2cb84}
+.history-switch{display:flex;flex-wrap:wrap;gap:9px;margin:18px 0}
+.history-switch button{border-radius:7px;border:1px solid #56708a;background:#102941;color:#e5eff9;padding:11px 17px;cursor:pointer;font-weight:750}
+.history-switch button[aria-selected=true]{background:#ac1c34;color:#fff;border-color:#ee8d9c}
+.history-toolbar{display:grid;grid-template-columns:minmax(0,1fr) minmax(170px,250px);gap:10px;margin:14px 0}
+.history-toolbar input,.history-toolbar select{border-radius:7px;padding:12px;background:#081c30;border:1px solid #53708c;color:#fff;width:100%;font:inherit;font-size:14px}
+.history-toolbar input:focus,.history-toolbar select:focus{outline:2px solid #e6c27f;outline-offset:2px}
+.history-kpis{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}
+.history-kpi{background:#102d47;border:1px solid #355976;padding:10px 14px;border-radius:7px;min-width:135px}
+.history-kpi strong{font-size:21px;display:block;color:#fff;font-variant-numeric:tabular-nums}
+.history-kpi span{font-size:12px;color:#c1d4e3}
+.history-status{font-size:12px;color:#bad0e0;margin:12px 0}
+.history-groups{display:grid;gap:10px}
+.history-group{border:1px solid #3a566f;background:#0c2840;border-radius:9px;overflow:hidden}
+.history-group summary{cursor:pointer;padding:14px;display:flex;justify-content:space-between;gap:12px;align-items:center;font-weight:750}
+.history-group summary:hover{background:#153751}
+.history-group summary:focus-visible{outline:2px solid #ebc17a;outline-offset:-2px}
+.history-category{color:#fff}
+.history-group small{color:#bbd3e5;white-space:nowrap;font-size:11px}
+.history-group ul{margin:0;list-style:none;padding:0 14px 12px}
+.history-group li{border-top:1px solid #294962;padding:9px 2px;line-height:1.5;color:#e5eef7;font-size:13px}
+.history-footer{border-top:1px solid #365570;margin-top:22px;padding-top:16px;font-size:12px;color:#c1d2de;line-height:1.6}
+.history-empty{border:1px dashed #60778f;padding:20px;border-radius:8px;color:#cbd9e7}
+.brave-player-link{font-weight:700}
+@media(max-width:600px){.history-toolbar{grid-template-columns:1fr}.history-group summary{align-items:flex-start;flex-direction:column;gap:3px}.history-group small{white-space:normal}.history-brand img{width:48px;height:48px}}
+</style>
+<script defer src="./player-links.js?v=3"></script>
+<script defer src="./history.js?v=1"></script>
+</head>
+<body>
+<main class="history-shell">
+<div class="history-panel">
+<div class="history-accent"></div>
+<div class="history-inner">
+<header class="history-brand"><img src="./brave_hc_logo.png" alt="Brave H.C. crest"><div><div class="eyebrow">HOCKEYOS Â· BRAVE H.C.</div><strong>TEAM HISTORY</strong></div></header>
+<nav class="history-nav" aria-label="HockeyOS navigation">
+<a href="./analytics.html">Analytics</a><a href="./projection-v2.html">Projections</a><a href="./watch-v2.html">Record Watch</a><a href="./awards-races.html">Award Races</a><a href="./hot-stove.html">Hot Stove</a>
+</nav>
+<h1 class="history-heading">Records & Awards Archive</h1>
+<p class="history-explain">Explore published Brave H.C. historical achievements and award recipients. Verified player names open their official HomeTeamsONLINE profile.</p>
+<div class="history-warning" role="note">This is a <strong>read-only historical snapshot</strong> of the club's public HTO pages, not a live source or an official replacement. For additions and corrections, use the <a id="official" href="https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=records" target="_blank" rel="noopener noreferrer">official HTO page â†—</a>.</div>
+<div class="history-switch" role="tablist" aria-label="Historical content type">
+<button id="recordsTab" type="button" role="tab" aria-controls="results" aria-selected="true">Records & Achievements</button>
+<button id="awardsTab" type="button" role="tab" aria-controls="results" aria-selected="false">Awards & Honors</button>
+</div>
+<div class="history-kpis" aria-label="Snapshot coverage">
+<div class="history-kpi"><strong id="totalItems">â€”</strong><span>Historical entries</span></div>
+<div class="history-kpi"><strong id="totalGroups">â€”</strong><span>Historical groups</span></div>
+<div class="history-kpi"><strong id="visibleItems">â€”</strong><span>Matching entries</span></div>
+</div>
+<div class="history-toolbar">
+<input type="search" id="historySearch" placeholder="Search players, awards, yearsâ€¦" autocomplete="off" aria-label="Search historical entries">
+<select id="historySection" aria-label="Filter by history section"><option value="">All sections</option></select>
+</div>
+<p id="status" class="history-status" role="status">Loading verified HTO historical snapshotâ€¦</p>
+<section id="results" class="history-groups" aria-live="polite"></section>
+<footer class="history-footer">
+Records and awards remain under HomeTeamsONLINE's editorial control. No game, award or statistical value is calculated by this view. Unverified or ambiguous player identities intentionally remain plain text.
+</footer>
+</div>
+</div>
+</main>
+</body>
+</html>
