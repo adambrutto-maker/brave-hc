@@ -4,7 +4,7 @@ const $=(t,c,v)=>{const e=document.createElement(t);if(c)e.className=c;if(v!==un
 const find=id=>document.getElementById(id);
 const put=(id,v)=>find(id).textContent=String(v);
 const DOM={select:find("award"),region:find("scores"),notice:find("notice"),pilot:find("pilot"),info:find("award-info")};
-const state={source:null,reference:null,explain:null,participation:null,weeklyHistory:null,award:"rolaids",mode:"current"};
+const state={source:null,reference:null,explain:null,participation:null,weeklyHistory:null,operationalEvidence:null,award:"rolaids",mode:"current"};
 if(new URLSearchParams(location.search).has("embed"))document.body.classList.add("embed");
 function badge(v){if(v>=95)return["elite","Elite"];if(v>=85)return["contender","Contender"];if(v>=75)return["strong","Strong"];if(v>=65)return["developing","Building"];return["neutral","Rating"]}
 function el(p,t,c,v){const n=$(t,c,v);p.append(n);return n}
@@ -66,6 +66,39 @@ function explainOverall(region,row,details){
 
 /* A final OVR is the workbook's published award rating, not the weighted
    component average. Current attribute chips require same-week evidence. */
+/* This is only a secondary browser-consistency check. Trust in any actual
+   release must come from a separately attributable QA / Founder-controlled
+   publishing process. Matching public JSON assertions alone cannot prove
+   authentication, independent review or Excel recalculation. */
+function operationalPublicationReady(data,race){
+ const receipt=state.operationalEvidence;
+ const sha=x=>typeof x==="string"&&/^[a-f0-9]{64}$/i.test(x);
+ const ids=["hart","conn-smythe","art-ross","rocket","norris","lady-byng",
+   "rookie","improved","rolaids","dedication","hof"];
+ if(!receipt||receipt.schema!=="brave-hc-awards-operational-publication/v1"
+    ||receipt.status!=="FOUNDER_APPROVED_QA_ACCEPTED_PUBLISHED"
+    ||receipt.sourceModelVerified!==true||receipt.independentlyApproved!==true
+    ||receipt.publicationAuthorized!==true
+    ||receipt.season!==data.season
+    ||!sha(data.sourceWorkbookHash)
+    ||receipt.immutableFormulaAuthoritySha256!==data.sourceWorkbookHash
+    ||!sha(receipt.operationalWorkbookSha256)
+    ||receipt.operationalWorkbookSha256===data.sourceWorkbookHash
+    ||!sha(receipt.sourceFormulaMapFingerprintSha256)
+    ||receipt.sourceFormulaMapFingerprintSha256!==
+        receipt.operationalFormulaMapFingerprintSha256
+    ||!sha(receipt.publisherReleaseReceiptSha256)
+    ||receipt.officialHTOReadbackAt!==data.sourceHTOReadback
+    ||receipt.modelGameCount!==data.currentTeamGP
+    ||receipt.scoringAsOf!==race?.asOf
+    ||!Array.isArray(receipt.awardFormulaParities)
+    ||receipt.awardFormulaParities.length!==ids.length
+    ||new Set(receipt.awardFormulaParities.map(x=>x?.awardId)).size!==ids.length
+    ||!ids.every(id=>receipt.awardFormulaParities.some(x=>
+      x?.awardId===id&&x?.state==="EXACT_ORIGINAL_FORMULA_ELIGIBILITY_RANK_SCORE_PARITY")))
+  return false;
+ return true;
+}
 function currentComponents(row,race){
  const evidence=row?.verifiedComponentEvidence;
  const history=state.explain,participants=state.participation;
@@ -77,6 +110,7 @@ function currentComponents(row,race){
     ||history.sourceWorkbookHash!==state.source.sourceWorkbookHash
     ||!evidence||row.scoreKind!=="OFFICIAL_WORKBOOK_FINAL"||row.eligible!==true
     ||state.source.seasonRaceMode?.currentModelScoresVerified!==true
+    ||!operationalPublicationReady(state.source,race)
     ||race?.status!=="VERIFIED_CURRENT_WEEK"
     ||evidence.status!=="VERIFIED_CURRENT_WORKBOOK_COMPONENTS"
     ||evidence.season!==state.source.season||evidence.awardId!==state.award
@@ -272,6 +306,7 @@ function card(row,index,isReference){
  return wrapper;
 }
 function isVerifiedWeeklyRace(data,race,participants){
+ if(!operationalPublicationReady(data,race))return false;
  if(data.season!=="W2026/27"||!data.seasonRaceMode?.currentModelScoresVerified
     ||race?.status!=="VERIFIED_CURRENT_WEEK"||!Array.isArray(race.entries)
     ||!Number.isInteger(data.currentTeamGP)||data.currentTeamGP<1
@@ -654,6 +689,14 @@ async function boot(){
  const [source,reference,explain,participation]=await Promise.all(["./awards-races.json","./awards-workbook-reference.json","./awards-component-evidence.json","./awards-participants.json"].map(async url=>{const r=await fetch(url,{cache:"no-store"});if(!r.ok)throw Error("source "+url);return r.json()}));
  if(source.schema!=="brave-hc-awards-races-weekly/v1"||reference.schema!=="brave-hc-awards-workbook-reference/v1"||explain.schema!=="brave-hc-awards-component-evidence/v1"||source.awards.length!==11||participation.schema!=="brave-hc-awards-participants/v1"||participation.season!==source.season||participation.officialTeamGames!==source.currentTeamGP)throw Error("contract");
  state.source=source;state.reference=reference;state.explain=explain;state.participation=participation;
+ // Separate operational-model publication proof is optional for the page to
+ // load, but MANDATORY for presenting any current official OVR.
+ try{
+  const rr=await fetch("./awards-operational-publication.json",{cache:"no-store"});
+  if(rr.ok){const record=await rr.json();
+   if(record?.schema==="brave-hc-awards-operational-publication/v1")
+    state.operationalEvidence=record;}
+ }catch(_err){state.operationalEvidence=null;}
  try{const res=await fetch("./awards-weekly-history.json",{cache:"no-store"});if(res.ok){const weekly=await res.json();if(weekly?.schema==="brave-hc-awards-weekly-history/v1")state.weeklyHistory=weekly;}}catch(_err){/* History is optional, never guess a baseline. */}
  put("gp",source.currentTeamGP);
  DOM.select.replaceChildren();for(const a of source.awards){const o=$("option",null,a.name);o.value=a.id;DOM.select.append(o);}
