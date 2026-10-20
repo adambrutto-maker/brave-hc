@@ -8,7 +8,7 @@ const vm=require('node:vm');
 const widgets=path.resolve(__dirname,'../widgets');
 const original=fs.readFileSync(path.join(widgets,'awards-races-v3.js'),'utf8');
 const injected=original.replace(/\bboot\(\);\s*\}\)\(\);\s*$/,
- 'globalThis.__awardsQA={state,card,currentComponents,previousSnapshot,movement,isVerifiedWeeklyRace,verifiedWorkbookRookieYearWatch,verifiedHTOStatWatch,sourceReadinessForAward,renderHeldSourceReadiness,renderRaceActivity};})();');
+ 'globalThis.__awardsQA={state,card,currentComponents,previousSnapshot,movement,isVerifiedWeeklyRace,verifiedWorkbookRookieYearWatch,verifiedHTOStatWatch,sourceReadinessForAward,renderHeldSourceReadiness,renderRaceActivity,renderPlayerEvidence};})();');
 assert.notEqual(injected,original,'Isolated test bootstrap must match entrypoint');
 const elt=(tag='div')=>({
  tag,children:[],className:'',textContent:'',
@@ -939,3 +939,4 @@ test('an award with no original source mapping cannot display an arbitrary two-s
   assert.equal(api.currentComponents(example(),sourceRace),null);
  }finally{api.state.award=prior;api.state.attributeContracts=priorRegistry;}
 }));
+
