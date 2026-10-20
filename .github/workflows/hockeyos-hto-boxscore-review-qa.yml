@@ -3,6 +3,8 @@ name: HockeyOS HTO Boxscore Header Review QA
 on:
   pull_request:
     paths:
+      - 'scripts/hockeyos_collector_candidate.py'
+      - 'tests/test_hockeyos_collector_candidate.py'
       - 'scripts/hockeyos_review_four_game_source_parity.py'
       - 'tests/test_hockeyos_source_review_validation.py'
       - 'tests/lib/hockeyos_hto_boxscore_header_review.py'
@@ -27,6 +29,8 @@ jobs:
           python-version: '3.12'
       - name: Compile review command without network collection
         run: python -m py_compile scripts/hockeyos_review_four_game_source_parity.py
+      - name: Isolated collector candidate validation
+        run: python -m unittest discover -s tests -p 'test_hockeyos_collector_candidate.py' -v
       - name: Source review validation without network
         run: python -m unittest discover -s tests -p 'test_hockeyos_source_review_validation.py' -v
       - name: Synthetic header and unknown-goalie-POTG regression
