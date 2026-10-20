@@ -20,6 +20,7 @@ LABELS = {
     "LEAGUE_RECONFIRM": "League changed — reconfirm recorded goalie before relying on it",
     "HTO_REVIEW": "SVHL/HTO discrepancy — manual schedule review",
     "REGULAR_FIRST": "Plan Dev/Stephen availability now; keep rental fallback on calendar",
+    "LOOKAHEAD": "Later fixture — outside the 21-day active booking window",
     "RENTAL_BACKUP": "No recorded goalie: prepare rental fallback alongside regular outreach",
     "RENTAL_PRIORITY": "No recorded goalie: rental contingency is priority",
     "GAME_DAY": "Game-day coverage unresolved — urgent manager review",
@@ -51,6 +52,8 @@ def stage(game: dict, saved: dict, now: datetime) -> dict:
         flag="RENTAL_PRIORITY"
     elif hours<=RENTAL_BACKUP_DAYS*24:
         flag="RENTAL_BACKUP"
+    elif hours>HORIZON_DAYS*24:
+        flag="LOOKAHEAD"
     else:
         flag="REGULAR_FIRST"
     return {
