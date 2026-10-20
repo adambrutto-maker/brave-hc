@@ -118,6 +118,10 @@ def prepare(args) -> dict:
         raise Hold("Report already exists; refuse overwrite")
     if candidate == old or old in candidate.parents or candidate in old.parents:
         raise Hold("Candidate must be isolated from old publisher")
+    if report == old or old in report.parents:
+        raise Hold("Report must not write into active publisher")
+    if report == candidate or candidate in report.parents:
+        raise Hold("Report must not write into candidate checkout")
     if candidate == report.parent:
         raise Hold("Candidate must not be report directory")
     if not candidate.parent.is_dir() or not report.parent.is_dir():
