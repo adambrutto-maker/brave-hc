@@ -1,4 +1,5 @@
 import importlib.util
+import sys
 import unittest
 from copy import deepcopy
 from datetime import datetime, timedelta, timezone
@@ -6,6 +7,7 @@ from pathlib import Path
 from zoneinfo import ZoneInfo
 
 script=Path(__file__).resolve().parents[1]/"scripts"/"game_day_readiness.py"
+sys.path.insert(0,str(script.parent))
 spec=importlib.util.spec_from_file_location("game_day_readiness",script)
 g=importlib.util.module_from_spec(spec)
 spec.loader.exec_module(g)
