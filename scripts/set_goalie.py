@@ -13,7 +13,7 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 CURRENT_GOALIES = ("Dev Leong", "Stephen Logue")
-HISTORICAL_GOALIES = ("Matt Svec", "Steve Noyek", "Adam Carlyle", "Anthony Paolucci")
+HISTORICAL_GOALIES = ("Matt Svec", "Steve Noyek", "Adam Carlyle")
 GOALIE_OPTIONS = (*CURRENT_GOALIES, "TBD", *HISTORICAL_GOALIES, "Other / rental")
 
 
