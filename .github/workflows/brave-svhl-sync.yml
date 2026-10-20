@@ -6,6 +6,9 @@ on:
     paths:
       - 'scripts/svhl_hto_reconcile.py'
       - 'scripts/game_day_readiness.py'
+      - 'scripts/workflow_health_watch.py'
+      - 'tests/test_workflow_health_watch.py'
+      - '.github/workflows/brave-svhl-watchdog.yml'
       - 'tests/test_game_day_readiness.py'
       - 'scripts/svhl_issue_watch.py'
       - 'scripts/hto_review_packet.py'
@@ -44,6 +47,8 @@ jobs:
           python-version: '3.12'
       - name: Dependencies
         run: pip install 'requests>=2.31,<3' 'beautifulsoup4>=4.12,<5'
+      - name: Validate independent schedule failure watchdog
+        run: python -m unittest discover -s tests -p test_workflow_health_watch.py
       - name: Validate next-game goalie readiness policies
         run: python -m unittest discover -s tests -p test_game_day_readiness.py
       - name: Validate source parser
