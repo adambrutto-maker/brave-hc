@@ -1,0 +1,44 @@
+name: Brave H.C. record candidate recalculation
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/build_automatic_record_candidates.py'
+      - 'scripts/reconcile_record_book.py'
+      - 'docs/hto-highlights-rollout/261020_Game_Level_Readbacks.json'
+      - 'docs/hto-highlights-rollout/261020_Historical_Boxscore_Index.json'
+      - 'docs/hto-highlights-rollout/game-audit-evidence/**'
+      - '.github/workflows/brave-record-candidates.yml'
+  pull_request:
+    paths:
+      - 'scripts/build_automatic_record_candidates.py'
+      - 'scripts/reconcile_record_book.py'
+      - 'docs/hto-highlights-rollout/261020_Game_Level_Readbacks.json'
+      - 'docs/hto-highlights-rollout/261020_Historical_Boxscore_Index.json'
+      - 'docs/hto-highlights-rollout/game-audit-evidence/**'
+      - '.github/workflows/brave-record-candidates.yml'
+permissions:
+  contents: read
+concurrency:
+  group: record-candidates-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  calculate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Recalculate from the complete captured game ledger
+        run: python scripts/build_automatic_record_candidates.py
+      - name: Save candidates for review
+        uses: actions/upload-artifact@v4
+        with:
+          name: record-candidates-${{ github.run_id }}
+          path: |
+            docs/hto-highlights-rollout/261020_Automatic_Record_Candidates.json
+            docs/hto-highlights-rollout/261020_Automatic_Record_Candidates.md
+          retention-days: 30
