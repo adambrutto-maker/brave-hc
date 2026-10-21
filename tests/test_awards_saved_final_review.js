@@ -25,7 +25,15 @@ test('missing cached eligible input cannot silently become a zero or pass',()=>{
  row.values['Rolaids Raw Composite Score']=null;
  assert.throws(()=>audit(bad),/Missing eligible cached input/);
 });
+test('missing eligibility or identity cannot silently shrink comparison coverage',()=>{
+ for(const missing of ['Rolaids Eligible','Name']){
+  const bad=structuredClone(capture),row=bad.historicalRows.find(r=>r.values['Rolaids Eligible']?.value==='1');
+  delete row.values[missing];
+  assert.throws(()=>audit(bad),/Missing.*cached (eligibility|identity)/);
+ }
+});
 test('incomplete row coverage and a different workbook source cannot pass',()=>{
  const bad=structuredClone(capture);bad.historicalRows.pop();assert.throws(()=>audit(bad),/Incomplete historical/);
  const other=structuredClone(capture);other.sourceWorkbookSha256='a'.repeat(64);assert.throws(()=>audit(other),/Incomplete historical/);
 });
+
