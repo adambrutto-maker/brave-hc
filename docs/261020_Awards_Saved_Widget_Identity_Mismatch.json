@@ -1,0 +1,26 @@
+{
+  "status": "SAVED_WIDGET_SOURCE_MISMATCH_HOLD",
+  "sourceReadStartedAt": "2026-10-21T01:56:12.241812+00:00",
+  "sourceReadCompletedAt": "2026-10-21T01:56:14.044483+00:00",
+  "savedAssetCommit": "9224b5619328caec40a9326bcdafd10e346a5f06",
+  "savedAssetSha256": "3554761a6699a361ac958d527bed93cabbfe9650c904e5e96e6f242263010105",
+  "players": 23,
+  "seasonFieldComparisons": 126,
+  "gameFieldComparisons": 273,
+  "differences": [
+    {
+      "scope": "identity",
+      "savedOnly": [
+        "Congiusti, Marco"
+      ],
+      "officialOnly": [
+        "Unknown, Johnny"
+      ]
+    }
+  ],
+  "unknownDevOct18POTGPreserved": true,
+  "scope": "GP/G/A/PTS/plusminus/POTG and goalie GP/L/GA/POTG; excludes unverified PIM event counts, strength attribution, roster rules and workbook scores",
+  "workbookModified": false,
+  "widgetModified": false,
+  "publicationAuthorized": false
+}
