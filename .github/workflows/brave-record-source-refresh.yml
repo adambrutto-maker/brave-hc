@@ -1,0 +1,86 @@
+name: Brave H.C. record source refresh
+on:
+  workflow_dispatch:
+  workflow_run:
+    workflows: ['Brave H.C. SVHL schedule reconciliation']
+    types: [completed]
+    branches: [main]
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/refresh_record_sources.py'
+      - 'tests/test_record_source_refresh.py'
+      - 'tests/fixtures/record-refresh-*.html'
+      - '.github/workflows/brave-record-source-refresh.yml'
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+concurrency:
+  group: brave-record-source-refresh
+  cancel-in-progress: false
+jobs:
+  refresh:
+    if: github.event_name != 'workflow_run' || (github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_repository.full_name == github.repository)
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    outputs:
+      changed: ${{ steps.commit.outputs.changed }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install 'requests>=2.31,<3' 'beautifulsoup4>=4.12,<5'
+      - name: Validate source parsing and preservation rules
+        run: python -m unittest discover -s tests -p test_record_source_refresh.py
+      - name: Read public HTO results and published records
+        run: python scripts/refresh_record_sources.py
+      - name: Recalculate complete-ledger record candidates
+        run: python scripts/build_automatic_record_candidates.py
+      - name: Verify all player profile displays
+        run: node scripts/test-player-highlights-v2.cjs
+      - name: Store refresh evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: record-source-refresh-${{ github.run_id }}
+          path: |
+            build/record-refresh/
+            docs/hto-highlights-rollout/261020_Automatic_Record_Candidates.json
+            docs/hto-highlights-rollout/261020_Automatic_Record_Candidates.md
+          retention-days: 30
+      - name: Commit verified sources and published record feeds
+        id: commit
+        shell: bash
+        run: |
+          git add docs/hto-highlights-rollout/261020_Historical_Boxscore_Index.json docs/hto-highlights-rollout/game-audit-evidence/live_boxscores.json docs/hto-highlights-rollout/261020_Automatic_Record_Candidates.json docs/hto-highlights-rollout/261020_Automatic_Record_Candidates.md widgets/history-records.json widgets/player-record-book.json
+          if ! git diff --cached --quiet; then
+            git config user.name 'BruTTech Record Refresh'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git commit -m 'Refresh verified HTO record sources and profile feeds'
+            git push origin HEAD:main
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+  deploy:
+    needs: refresh
+    if: needs.refresh.outputs.changed == 'true'
+    runs-on: ubuntu-latest
+    concurrency:
+      group: pages
+      cancel-in-progress: false
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: '.'
+      - uses: actions/deploy-pages@v4
+        id: deployment
