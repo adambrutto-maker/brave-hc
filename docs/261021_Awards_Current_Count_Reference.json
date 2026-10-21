@@ -1,0 +1,346 @@
+{
+  "state": "CURRENT_INDIVIDUAL_NATIVE_COUNT_PARITY_LEGACY_GLOBAL_COHORT_NOT_ACCEPTED",
+  "season": "W2026/27",
+  "cutoff": "2026-10-18",
+  "rows": [
+    {
+      "name": "Ardizzi, Stefano",
+      "sourceWorksheetRow": 6,
+      "gp": 1,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "nativeArtRossScore": 0,
+      "nativeArtRossRankKey": 0.99994,
+      "nativeRocketScore": 0,
+      "nativeRocketRankKey": 0.99994
+    },
+    {
+      "name": "Atkins, Nolan",
+      "sourceWorksheetRow": 7,
+      "gp": 2,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "nativeArtRossScore": 0,
+      "nativeArtRossRankKey": 0.99993,
+      "nativeRocketScore": 0,
+      "nativeRocketRankKey": 0.99993
+    },
+    {
+      "name": "Brutto, Adam",
+      "sourceWorksheetRow": 8,
+      "gp": 4,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "nativeArtRossScore": 0,
+      "nativeArtRossRankKey": 0.99992,
+      "nativeRocketScore": 0,
+      "nativeRocketRankKey": 0.99992
+    },
+    {
+      "name": "Carosi, Justin",
+      "sourceWorksheetRow": 9,
+      "gp": 4,
+      "goals": 3,
+      "assists": 0,
+      "points": 3,
+      "nativeArtRossScore": 3,
+      "nativeArtRossRankKey": 3000300000076,
+      "nativeRocketScore": 3,
+      "nativeRocketRankKey": 3000000.99991
+    },
+    {
+      "name": "Duffy, Lorcan",
+      "sourceWorksheetRow": 11,
+      "gp": 1,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "nativeArtRossScore": 0,
+      "nativeArtRossRankKey": 0.99989,
+      "nativeRocketScore": 0,
+      "nativeRocketRankKey": 0.99989
+    },
+    {
+      "name": "Kober, Adam",
+      "sourceWorksheetRow": 12,
+      "gp": 3,
+      "goals": 1,
+      "assists": 1,
+      "points": 2,
+      "nativeArtRossScore": 2,
+      "nativeArtRossRankKey": 2000100010067.6667,
+      "nativeRocketScore": 1,
+      "nativeRocketRankKey": 1000000.99988
+    },
+    {
+      "name": "Kong, Henry",
+      "sourceWorksheetRow": 13,
+      "gp": 4,
+      "goals": 1,
+      "assists": 1,
+      "points": 2,
+      "nativeArtRossScore": 2,
+      "nativeArtRossRankKey": 2000100010050.9998,
+      "nativeRocketScore": 1,
+      "nativeRocketRankKey": 1000000.99987
+    },
+    {
+      "name": "Pagnotta, Alex",
+      "sourceWorksheetRow": 17,
+      "gp": 4,
+      "goals": 0,
+      "assists": 3,
+      "points": 3,
+      "nativeArtRossScore": 3,
+      "nativeArtRossRankKey": 3000000030076,
+      "nativeRocketScore": 0,
+      "nativeRocketRankKey": 0.99983
+    },
+    {
+      "name": "Paolucci, Anthony",
+      "sourceWorksheetRow": 18,
+      "gp": 1,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "nativeArtRossScore": 0,
+      "nativeArtRossRankKey": 0.99982,
+      "nativeRocketScore": 0,
+      "nativeRocketRankKey": 0.99982
+    },
+    {
+      "name": "Pearsoll, Keith",
+      "sourceWorksheetRow": 19,
+      "gp": 3,
+      "goals": 1,
+      "assists": 0,
+      "points": 1,
+      "nativeArtRossScore": 1,
+      "nativeArtRossRankKey": 1000100000034.3331,
+      "nativeRocketScore": 1,
+      "nativeRocketRankKey": 1000000.99981
+    },
+    {
+      "name": "Povegliano, Adam",
+      "sourceWorksheetRow": 20,
+      "gp": 3,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "nativeArtRossScore": 0,
+      "nativeArtRossRankKey": 0.9998,
+      "nativeRocketScore": 0,
+      "nativeRocketRankKey": 0.9998
+    },
+    {
+      "name": "Provenzano, Mario",
+      "sourceWorksheetRow": 21,
+      "gp": 4,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "nativeArtRossScore": 0,
+      "nativeArtRossRankKey": 0.99979,
+      "nativeRocketScore": 0,
+      "nativeRocketRankKey": 0.99979
+    },
+    {
+      "name": "Provenzano, Michael",
+      "sourceWorksheetRow": 22,
+      "gp": 3,
+      "goals": 0,
+      "assists": 3,
+      "points": 3,
+      "nativeArtRossScore": 3,
+      "nativeArtRossRankKey": 3000000030101,
+      "nativeRocketScore": 0,
+      "nativeRocketRankKey": 0.99978
+    },
+    {
+      "name": "Rajasooriar, Krishnan",
+      "sourceWorksheetRow": 23,
+      "gp": 2,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "nativeArtRossScore": 0,
+      "nativeArtRossRankKey": 0.99977,
+      "nativeRocketScore": 0,
+      "nativeRocketRankKey": 0.99977
+    },
+    {
+      "name": "Rosenberg, Jamie",
+      "sourceWorksheetRow": 24,
+      "gp": 3,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "nativeArtRossScore": 0,
+      "nativeArtRossRankKey": 0.99976,
+      "nativeRocketScore": 0,
+      "nativeRocketRankKey": 0.99976
+    },
+    {
+      "name": "Saindon, Stephane",
+      "sourceWorksheetRow": 25,
+      "gp": 3,
+      "goals": 0,
+      "assists": 1,
+      "points": 1,
+      "nativeArtRossScore": 1,
+      "nativeArtRossRankKey": 1000000010034.3331,
+      "nativeRocketScore": 0,
+      "nativeRocketRankKey": 0.99975
+    },
+    {
+      "name": "Rajkumar, Sanjay",
+      "sourceWorksheetRow": 27,
+      "gp": 3,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "nativeArtRossScore": 0,
+      "nativeArtRossRankKey": 0.99973,
+      "nativeRocketScore": 0,
+      "nativeRocketRankKey": 0.99973
+    },
+    {
+      "name": "Triumbari, Francesco",
+      "sourceWorksheetRow": 28,
+      "gp": 4,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "nativeArtRossScore": 0,
+      "nativeArtRossRankKey": 0.99972,
+      "nativeRocketScore": 0,
+      "nativeRocketRankKey": 0.99972
+    },
+    {
+      "name": "Pavaday, Damian",
+      "sourceWorksheetRow": 30,
+      "gp": 1,
+      "goals": 0,
+      "assists": 1,
+      "points": 1,
+      "nativeArtRossScore": 1,
+      "nativeArtRossRankKey": 1000000010100.9998,
+      "nativeRocketScore": 0,
+      "nativeRocketRankKey": 0.9997
+    }
+  ],
+  "legacyCohortExceptions": {
+    "Conn Smythe Eligible": {
+      "names": [
+        "Congiusti, Marco",
+        "Svec, Matt"
+      ],
+      "otherSeasonNames": [
+        "Congiusti, Marco",
+        "Svec, Matt"
+      ],
+      "unknownIdentityNames": [],
+      "currentNamesOutsideAcceptedParticipants": []
+    },
+    "Norris Eligible": {
+      "names": [
+        "Congiusti, Marco"
+      ],
+      "otherSeasonNames": [
+        "Congiusti, Marco"
+      ],
+      "unknownIdentityNames": [],
+      "currentNamesOutsideAcceptedParticipants": []
+    },
+    "Art Ross Eligible": {
+      "names": [
+        "Ardizzi, Stefano",
+        "Atkins, Nolan",
+        "Brutto, Adam",
+        "Carosi, Justin",
+        "Congiusti, Marco",
+        "Duffy, Lorcan",
+        "Kober, Adam",
+        "Kong, Henry",
+        "Mazzei, Stefano",
+        "Pagnotta, Alex",
+        "Paolucci, Anthony",
+        "Pearsoll, Keith",
+        "Povegliano, Adam",
+        "Provenzano, Mario",
+        "Provenzano, Michael",
+        "Rajasooriar, Krishnan",
+        "Rosenberg, Jamie",
+        "Saindon, Stephane",
+        "Rajkumar, Sanjay",
+        "Triumbari, Francesco",
+        "Unknown, Johnny",
+        "Pavaday, Damian"
+      ],
+      "otherSeasonNames": [
+        "Congiusti, Marco",
+        "Mazzei, Stefano"
+      ],
+      "unknownIdentityNames": [],
+      "currentNamesOutsideAcceptedParticipants": [
+        "Unknown, Johnny"
+      ]
+    },
+    "Rocket Richard Eligible": {
+      "names": [
+        "Ardizzi, Stefano",
+        "Atkins, Nolan",
+        "Brutto, Adam",
+        "Carosi, Justin",
+        "Congiusti, Marco",
+        "Duffy, Lorcan",
+        "Kober, Adam",
+        "Kong, Henry",
+        "Mazzei, Stefano",
+        "Pagnotta, Alex",
+        "Paolucci, Anthony",
+        "Pearsoll, Keith",
+        "Povegliano, Adam",
+        "Provenzano, Mario",
+        "Provenzano, Michael",
+        "Rajasooriar, Krishnan",
+        "Rosenberg, Jamie",
+        "Saindon, Stephane",
+        "Rajkumar, Sanjay",
+        "Triumbari, Francesco",
+        "Unknown, Johnny",
+        "Pavaday, Damian"
+      ],
+      "otherSeasonNames": [
+        "Congiusti, Marco",
+        "Mazzei, Stefano"
+      ],
+      "unknownIdentityNames": [],
+      "currentNamesOutsideAcceptedParticipants": [
+        "Unknown, Johnny"
+      ]
+    },
+    "Rolaids Eligible": {
+      "names": [
+        "Mazzei, Stefano",
+        "Svec, Matt"
+      ],
+      "otherSeasonNames": [
+        "Mazzei, Stefano",
+        "Svec, Matt"
+      ],
+      "unknownIdentityNames": [],
+      "currentNamesOutsideAcceptedParticipants": []
+    }
+  },
+  "missingCurrentParticipants": [
+    "Carlyle, Adam"
+  ],
+  "currentCompositeScoresVerified": false,
+  "publicationAuthorized": false,
+  "nativeExportSha256": "e8636061288812c2cdad9826a0e13c1f1214ce89817bea95522686d7ceab6057",
+  "inputCandidateSha256": "d940763965786aa4288217838e102eb5611a73995f5b5d71afc56f7247a31fe4"
+}
