@@ -385,9 +385,16 @@ function renderPlayerEvidence(card,player,participants){
    el(inside,"p",null,"Scoring credits: "+scoring.evenStrengthGoals+" ES goals, "+scoring.evenStrengthAssists+" ES assists; "+scoring.powerPlayGoals+" PP goals, "+scoring.powerPlayAssists+" PP assists; "+scoring.shorthandedGoals+" SH goals, "+scoring.shorthandedAssists+" SH assists.");
   }
   if(events.sourceKind==="HTO_SCORES_AND_BOX_SCORE_EVENTS_RECONCILED"&&Number.isInteger(events.reportedPIMFreeGameAppearances)){
-   const games=player.sourceHTOGamePattern?.games;
-   const completePIM=Array.isArray(games)&&games.length===player.gp
+   const pattern=player.sourceHTOGamePattern,games=pattern?.games;
+   const played=events.playedOfficialHTOGameIds,official=participants.evidenceGameIds;
+   const completePIM=pattern?.season===participants.season
+    &&pattern.status==="HTO_PER_GAME_OBSERVATIONS_CROSSCHECKED_TO_CURRENT_SEASON"
+    &&Array.isArray(played)&&played.length===player.gp
+    &&new Set(played).size===player.gp&&Array.isArray(official)
+    &&played.every(id=>Number.isInteger(id)&&id>0&&official.includes(id))
+    &&Array.isArray(games)&&games.length===player.gp
     &&new Set(games.map(g=>g.gameId)).size===player.gp
+    &&games.every(g=>Number.isInteger(g.gameId)&&played.includes(g.gameId))
     &&games.every(g=>Number.isInteger(g.penaltyMinutes)&&g.penaltyMinutes>=0)
     &&games.reduce((sum,g)=>sum+g.penaltyMinutes,0)===raw.penaltyMinutes;
    const zeroPIM=completePIM?games.filter(g=>g.penaltyMinutes===0).length:null;
