@@ -15,7 +15,7 @@
     "projectionSha": "ae96ff6f2044da25cb85d2e07be406776b2e7b44",
     "rosterContextSha": "3a3c4dc7b6c2ff6dcbb9a26f841e21e71d667c98"
   },
-  "status": "UNRANKED_VERIFIED_SEASON_APPEARANCES_NOT_AWARD_SCORES",
+  "status": "HOLD_CURRENT_OFFICIAL_IDENTITY_MISMATCH",
   "scope": "Named participants from the verified season HTO skater stats and all four verified game-night goalie sheets; workbook award formulas, eligibility, scoring and future games not inferred.",
   "players": [
     {
@@ -2474,7 +2474,7 @@
       "derivedHTOSpecialTeamsPointGames": 0,
       "currentAwardScoringComponentScoreReady": false,
       "provenance": "Exact named scorer/assistant event attribution from four official HTO public Score Summary tables",
-      "caveat": "No league or workbook historic/normalized rate inferred; zero recorded PP/SH game events is NOT a 50–100 special teams model score."
+      "caveat": "No league or workbook historic/normalized rate inferred; zero recorded PP/SH game events is NOT a 50\u2013100 special teams model score."
     },
     "goalieGameEventAudit": {
       "status": "HTO_FOUR_GOALIE_APPEARANCES_NO_PUBLISHED_GOALIE_PENALTIES_OR_GOAL_POINTS",
@@ -2488,7 +2488,7 @@
       "sourceLimitations": [
         "No goalie penalty in the complete published HTO penalty summaries; reporting completeness outside HTO is not independently established.",
         "No goalie scorer or credited goal-assist in the six official Brave H.C. scoring events.",
-        "Source-level data ONLY. Historical rate baselines, model quality and discipline definitions, and 50–100 award scoring remain held."
+        "Source-level data ONLY. Historical rate baselines, model quality and discipline definitions, and 50\u2013100 award scoring remain held."
       ],
       "modelSubscoresCurrent": false
     },
@@ -2579,7 +2579,7 @@
       "playerOfTheGameCount": 3,
       "plusMinus": -13
     },
-    "warning": "These are actual HTO raw season statistics, NOT normalized AwardScoring public 50–100 subscores or candidate ranks. HTO source alone cannot reproduce historical baselines, per-game award helpers or award eligibility.",
+    "warning": "These are actual HTO raw season statistics, NOT normalized AwardScoring public 50\u2013100 subscores or candidate ranks. HTO source alone cannot reproduce historical baselines, per-game award helpers or award eligibility.",
     "modelScoresReady": false
   },
   "htoRookieYearReadback": {
@@ -2677,5 +2677,24 @@
     },
     "discrepancy": "Jamie Rosenberg has workbook Rookie Year 2026 (PlayerInfo!AX106) and FT roster, but cached Recent Season and First Season are blank, Skater GP 0, Rookie Status 0 and Rookie Eligible 0 because his current game events were not represented in the saved workbook. Official HTO records three appearances. Do not override the workbook formula: replay source-authorized games and recalculate in a controlled replica.",
     "warning": "Unranked first-year candidate visibility is supported by workbook Rookie Year corroborated with official HTO participation; cached workbook award eligibility and all current model scores remain HELD pending authoritative game-log replay and formula recalculation."
+  },
+  "sourceReview": {
+    "status": "SAVED_WIDGET_SOURCE_MISMATCH_HOLD",
+    "observedAt": "2026-10-21T01:56:14.044483+00:00",
+    "seasonFieldComparisons": 126,
+    "gameFieldComparisons": 273,
+    "differences": [
+      {
+        "scope": "identity",
+        "savedOnly": [
+          "Congiusti, Marco"
+        ],
+        "officialOnly": [
+          "Unknown, Johnny"
+        ]
+      }
+    ],
+    "disposition": "Preserve archived rows; do not equate these identities. Pause current participation watches until reconciled.",
+    "awardScorePublicationAuthorized": false
   }
 }
