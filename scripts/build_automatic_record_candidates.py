@@ -107,21 +107,21 @@ def build():
 
     assert len(games) == len({g['url'] for g in games})
     assert len({r['id'] for r in candidates}) == len(candidates)
-    result = dict(schema='brave-hc-record-candidates/v1', status='REVIEW_ONLY_NOT_OFFICIAL_NOT_SCHEDULED',
+    result = dict(schema='brave-hc-record-candidates/v1', status='REVIEW_ONLY_NOT_OFFICIAL',
         coverage=dict(indexedGames=len(games), administrativeExclusions=sum(x['reason']=='ADMINISTRATIVE_DEFAULT_OR_FORFEIT' for x in exclusions), possibleDecidingEntries=sum(x['reason']=='POSSIBLE_STANDALONE_OT_OR_SHOOTOUT_ENTRY' for x in exclusions)),
         candidateCount=len(candidates), newCandidateDefinitions=sum(not c['existingCategoryComparison'] for c in candidates),
         rules=['Retain all tied holders and game source links.', 'Do not infer individual appearances or stats in the four owner-confirmed untracked Summer 2013 games.', 'Goalie save percentages, shots and minutes-based GAA are deferred until source quality and qualifying workloads are established.', 'Player scoring/attendance streaks and call-up/full-time records require complete participation and historical status data.', 'Playoff streaks and game-count records require explicit treatment of standalone overtime/shootout entries.', 'Current-season achievements remain provisional; COVID-shortened seasons retain their context.'],
         candidates=candidates, exclusions=exclusions)
     (DIR/'261020_Automatic_Record_Candidates.json').write_text(json.dumps(result,indent=2)+'\n')
     lines=['# Additional automatic record candidates', '',
-           'Review-only recalculation from the captured HTO game ledger. No new official records published and no scheduled job installed.', '',
+           'Review-only recalculation from the captured HTO game ledger. The source refresh workflow recalculates this report after successful schedule reconciliation; candidate changes require review before native HTO publication.', '',
            f"{len(candidates)} calculated comparisons: {result['newCandidateDefinitions']} additional definitions and {len(candidates)-result['newCandidateDefinitions']} player-game and hat-trick baseline comparisons.", '',
            '## Candidate results', '', '| Definition | Value | Holders / seasons |', '|---|---:|---|']
     for c in candidates:
         holders='; '.join((r.get('name',r.get('opponent','Team'))+' — '+r.get('season','')+' '+(r.get('date','') or (r.get('start','')+' to '+r.get('end','') if r.get('start') else ''))) for r in c['holders'])
         lines.append(f"| {c['id']}: {c['label']} | {c['value']:g} | {holders} |")
     lines += ['', '## Publication conditions', '']+[f'- {r}' for r in result['rules']]
-    lines += ['', 'Regenerate with `python scripts/build_automatic_record_candidates.py` after refreshing captured source evidence. This command performs the calculation automatically; it does not fetch new games, update HTO or run in the background.', '']
+    lines += ['', 'Regenerate with `python scripts/build_automatic_record_candidates.py` after refreshing captured source evidence. This command calculates from saved evidence. The record source refresh workflow fetches current-season games separately and synchronizes already-published HTO records; neither step writes native HTO records.', '']
     (DIR/'261020_Automatic_Record_Candidates.md').write_text('\n'.join(lines))
     return result
 
