@@ -29,39 +29,57 @@ def col_number(s):
  return n
 
 def cells_from_xlsx(path):
+ """Use streaming digests for old rows and retain only ~43 new-row regions."""
  with ZipFile(path) as z:
   if z.testzip() is not None:raise ImportHold("XLSX_CONTAINER_CORRUPTED")
   names=set(z.namelist())
   table={}
-  for id in (9,10):
-   el=ET.fromstring(z.read(f"xl/tables/table{id}.xml"))
+  for table_id in (9,10):
+   el=ET.fromstring(z.read(f"xl/tables/table{table_id}.xml"))
    table[el.get("displayName")]=el.get("ref")
   ss=ET.fromstring(z.read("xl/sharedStrings.xml"))
   strings=["".join(t.text or "" for t in si.iter(N+"t")) for si in ss.findall(N+"si")]
-  cells={}
+  old={k:{"manual":hashlib.sha256(),"formula":hashlib.sha256(),"manualCount":0,
+           "formulaCount":0} for k in BOUNDS}
+  new={k:{} for k in BOUNDS}
   with z.open("xl/worksheets/sheet3.xml") as data:
    for _,row in ET.iterparse(data,events=("end",)):
     if row.tag!=N+"row":continue
     num=int(row.get("r","0"))
-    for kind,(lo,hi,start,end,newlo,newhi) in BOUNDS.items():
-     if not start<=num<=newhi:continue
-     for cell in row.findall(N+"c"):
-      ref=cell.get("r","")
-      m=re.match(r"^([A-Z]+)(\d+)$",ref)
-      if not m or not lo<=col_number(m.group(1))<=hi:continue
-      f=cell.find(N+"f");v=cell.find(N+"v");inline=cell.find(N+"is")
-      raw=v.text if v is not None else None
-      typ=cell.get("t")
-      if typ=="s" and raw is not None:
-       try:value=strings[int(raw)]
-       except (ValueError,IndexError) as exc:raise ImportHold("INVALID_SHARED_STRING_INDEX") from exc
-      elif inline is not None:
-       value="".join(t.text or "" for t in inline.iter(N+"t"))
-      else:value=raw
-      # Keep original formula expressions; ignore their recalculated caches.
-      cells[ref]={"formula":None if f is None else f.text or "","value":value}
+    if num>4708:break
+    for cell in row.findall(N+"c"):
+     ref=cell.get("r","")
+     match=re.match(r"^([A-Z]+)(\\d+)$",ref)
+     if match is None:continue
+     cn=col_number(match.group(1))
+     kind=next((k for k,(lo,hi,start,end,newlo,newhi) in BOUNDS.items()
+                if lo<=cn<=hi and start<=num<=newhi),None)
+     if kind is None:continue
+     f=cell.find(N+"f");v=cell.find(N+"v");inline=cell.find(N+"is")
+     raw=v.text if v is not None else None
+     typ=cell.get("t")
+     if typ=="s" and raw is not None:
+      try:value=strings[int(raw)]
+      except (ValueError,IndexError) as exc:raise ImportHold("INVALID_SHARED_STRING_INDEX") from exc
+     elif inline is not None:
+      value="".join(t.text or "" for t in inline.iter(N+"t"))
+     else:value=raw
+     formula=None if f is None else f.text or ""
+     if num<=BOUNDS[kind][3]:
+      if formula is not None:
+       old[kind]["formula"].update(json.dumps([ref,formula],ensure_ascii=False).encode("utf-8"))
+       old[kind]["formulaCount"]+=1
+      elif value is not None:
+       old[kind]["manual"].update(json.dumps([ref,value],ensure_ascii=False).encode("utf-8"))
+       old[kind]["manualCount"]+=1
+     elif formula is not None or value is not None:
+      new[kind][ref]={"formula":formula,"value":value}
     row.clear()
-  return {"members":names,"table":table,"cells":cells}
+  for kind in BOUNDS:
+   for fld in ("manual","formula"):
+    old[kind][fld+"SHA256"]=old[kind].pop(fld).hexdigest()
+  return {"members":names,"table":table,"existing":old,"appended":new}
+
 
 def compare(pre,post,staging,receipt):
  if pre["members"]!=post["members"]:
@@ -112,19 +130,19 @@ def compare(pre,post,staging,receipt):
   raise ImportHold("DISPOSABLE_ROW_COUNTS_NOT_43")
  counters=Counter()
  for kind,(lo,hi,start,end,newlo,newhi) in BOUNDS.items():
-  for ref in set(pre["cells"])|set(post["cells"]):
-   m=re.match(r"^([A-Z]+)(\d+)$",ref)
-   if m is None:continue
-   c=col_number(m.group(1));n=int(m.group(2))
-   if not lo<=c<=hi or not start<=n<=newhi:continue
-   src=pre["cells"].get(ref,{"formula":None,"value":None})
-   dest=post["cells"].get(ref,{"formula":None,"value":None})
+  if pre["existing"][kind]!=post["existing"][kind]:
+   raise ImportHold("EXISTING_FORMULA_OR_MANUAL_SOURCE_CHANGED_"+kind)
+  append_pre=pre["appended"][kind]
+  append_post=post["appended"][kind]
+  selected={ref for ref in (set(permitted)|withheld) if
+            (lambda m: m and lo<=col_number(m.group(1))<=hi
+             and newlo<=int(m.group(2))<=newhi)(
+                 re.match(r"^([A-Z]+)(\\d+)$",ref))}
+  for ref in set(append_pre)|set(append_post)|selected:
+   src=append_pre.get(ref,{"formula":None,"value":None})
+   dest=append_post.get(ref,{"formula":None,"value":None})
    if src["formula"]!=dest["formula"]:
     raise ImportHold("STRUCTURED_EXCEL_FORMULA_CHANGED_"+ref)
-   if n<=end:
-    if src["formula"] is None and src["value"]!=dest["value"]:
-     raise ImportHold("EXISTING_MANUAL_SOURCE_VALUE_CHANGED_"+ref)
-    continue
    if ref in permitted:
     if src["formula"] is not None or src["value"] is not None:
      raise ImportHold("HTO_INPUT_WOULD_OVERWRITE_OLD_VALUE_"+ref)
