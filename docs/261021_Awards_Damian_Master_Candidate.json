@@ -1,0 +1,57 @@
+{
+  "schema": "brave-hc-awards-player-master-candidate/v1",
+  "status": "PROPOSED_COPY_ONLY_NOT_APPLIED",
+  "name": "Pavaday, Damian",
+  "season": "W2026/27",
+  "knownFields": {
+    "Website Name": "Pavaday, Damian",
+    "First Name": "Damian",
+    "Last Name": "Pavaday",
+    "Position": "F",
+    "Current Roster Status": "DI"
+  },
+  "source": {
+    "kind": "OFFICIAL_HTO_ROSTER",
+    "url": "https://www.htosports.com/teams/default.asp?p=roster&s=hockey&u=BRAVESHOCKEY",
+    "observedDateToronto": "2026-10-21"
+  },
+  "unresolvedFields": [
+    {
+      "field": "Position 2",
+      "value": null,
+      "status": "UNRECORDED_NOT_CONFIRMED_NONE"
+    },
+    {
+      "field": "RosterStatusBySeason prior FT history",
+      "value": null,
+      "status": "NO_SOURCE_MASTER_ENTRIES_FOUND_NOT_PROOF_OF_NO_PRIOR_FT"
+    }
+  ],
+  "derivedFieldsMustPreserve": [
+    "Position Group",
+    "Award Scoring Type",
+    "Rookie Year",
+    "Rookie Status"
+  ],
+  "excludedAssumptions": [
+    "No guessed FT year",
+    "No alias to Damian Aidemirski",
+    "No conversion of website number 0 to a verified jersey number",
+    "No default 75 or zero normalized attribute scores",
+    "No borrowed attributes from a different player"
+  ],
+  "nativeCopyModified": false,
+  "originalWorkbookModified": false,
+  "currentScoresVerified": false,
+  "publicationAuthorized": false,
+  "rosterStatusConfirmation": {
+    "kind": "EXPLICIT_USER_CONFIRMATION",
+    "dateToronto": "2026-10-21",
+    "value": "Drop-in (DI)"
+  },
+  "currentRookieEligibility": {
+    "eligible": false,
+    "basis": "Captured Rookie Eligible requires Current Roster Status FT; user confirms DI.",
+    "priorFTHistoryRequiredForThisExclusion": false
+  }
+}
