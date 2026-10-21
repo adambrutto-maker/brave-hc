@@ -28,7 +28,7 @@ if((Get-FileHash -LiteralPath 'C:\Users\adamb\AppData\Local\Temp\hockeyos-awards
 $schema = Get-Content -LiteralPath 'C:\Users\adamb\AppData\Local\Temp\hockeyos-awards-source-formula-inspection.json' -Raw | ConvertFrom-Json
 $captured=Get-Content -LiteralPath (Join-Path $replayFolder '261020_Awards_Original_Formula_Capture.json') -Raw | ConvertFrom-Json
 if ($inputs.rows.Count -ne 57 -or $plan.appendNewNamedRows.Count -ne 43 -or $plan.updateMatchedNamedRows.Count -ne 14) { throw 'Unexpected approved input shape' }
-$receipt = [ordered]@{ state='STARTING'; copy=$prep.copy; folder=$replayFolder; sourceWorkbookSha256=$expected; publicationAuthorized=$false; missingObservationsRetained=@(); expansionCellsPreserved=@(); writes=0; originalWorkbookModified=$false; masterScheduleResultsImported=$false }
+$receipt = [ordered]@{ state='STARTING'; copy=$prep.copy; folder=$replayFolder; sourceWorkbookSha256=$expected; publicationAuthorized=$false; missingObservationsRetained=@(); expansionCellsPreserved=@(); restoredCalculatedFlags=@(); writes=0; originalWorkbookModified=$false; masterScheduleResultsImported=$false }
 function State([string]$phase) {
  $receipt.state=$phase; $receipt.observedAt=[DateTime]::UtcNow.ToString('o')
  [IO.File]::WriteAllText((Join-Path $replayFolder 'runtime-receipt.json'),($receipt | ConvertTo-Json -Depth 12),[Text.UTF8Encoding]::new($false))
@@ -53,7 +53,7 @@ try {
   $before+=@{name=[string]$award.ListColumns.Item($i).Name;formula=[string]$cell.Formula;hasArray=[bool]$cell.HasArray}
  }
  [IO.File]::WriteAllText((Join-Path $replayFolder 'loaded-native-formulas.json'),($before | ConvertTo-Json -Depth 8),[Text.UTF8Encoding]::new($false))
- if((Get-FileHash -LiteralPath (Join-Path $replayFolder 'loaded-formula-compare.py') -Algorithm SHA256).Hash.ToLower() -ne '6dc947b675a5de28f1709055a97f47136b63c9a2f33f1f61838479e9e299454f'){throw 'Formula comparison helper changed'}
+ if((Get-FileHash -LiteralPath (Join-Path $replayFolder 'loaded-formula-compare.py') -Algorithm SHA256).Hash.ToLower() -ne '9c0b6f662e67eb3a70eab505a2d90ba339959ee8bc8b778a94e134da29f0e058'){throw 'Formula comparison helper changed'}
  & 'C:\Users\adamb\AppData\Local\Programs\Python\Python312\python.exe' (Join-Path $replayFolder 'loaded-formula-compare.py') $replayFolder
  if($LASTEXITCODE -ne 0){$receipt.loadedFormulaComparisonPath=Join-Path $replayFolder 'loaded-formula-comparison.json';throw 'Loaded source formula or array mode differs after notation comparison'}
  if($nativeArrayCount -ne 132){throw 'Expected 132 stored array-formula columns'}
@@ -71,13 +71,37 @@ try {
   if($oldEnd -ne $expectedOld){throw "Unexpected table extent: $name"}
   $schemas=@($schema.tables | Where-Object name -eq $name)
   if($schemas.Count -ne 1 -or $schemas[0].columns.Count -ne $table.ListColumns.Count -or $map.Count -ne $table.ListColumns.Count){throw 'Incomplete or ambiguous table schema'}
-  $tableSchema=$schemas[0];$schemaSeen=@{}
+  $tableSchema=$schemas[0];$schemaSeen=@{};$templateChecks=@();$templateRepairs=@()
   foreach($column in $tableSchema.columns){
    $decodedHeader=[regex]::Replace([string]$column.name,'_x([0-9A-Fa-f]{4})_', { [string][char][Convert]::ToInt32($args[0].Groups[1].Value,16) })
    if($schemaSeen.ContainsKey($decodedHeader) -or -not $map.ContainsKey($decodedHeader)){throw 'Schema/native header mismatch'}
    $schemaSeen[$decodedHeader]=$true
    $lastSource=$table.DataBodyRange.Cells.Item($table.ListRows.Count,$map[$decodedHeader])
-   if([bool]$lastSource.HasFormula -ne [bool]$column.formula){throw "Source formula/input classification differs: $decodedHeader"}
+   if(-not $column.formula -and $lastSource.HasFormula){throw "Source raw input unexpectedly contains a formula: $decodedHeader"}
+   if($column.formula -and -not $lastSource.HasFormula){
+    $role=if($name -eq 'SkaterStatsByGame'){'Skater'}else{'Goalie'}
+    $approvedRow=@($plan.updateMatchedNamedRows | Where-Object { $_.role -eq $role -and $_.existingRow -eq $oldEnd })
+    if($approvedRow.Count -ne 1){throw 'Formula repair is not an approved matched current row'}
+    if($sheet.Cells.Item($oldEnd,$table.Range.Column+$map['Name']-1).Value2 -ne $approvedRow[0].name -or [int]$sheet.Cells.Item($oldEnd,$table.Range.Column+$map['Game #']-1).Value2 -ne $approvedRow[0].gameNumber){throw 'Formula repair row identity differs'}
+    $templateIndex=$table.ListRows.Count-1
+    while($templateIndex -ge 1 -and -not $table.DataBodyRange.Cells.Item($templateIndex,$map[$decodedHeader]).HasFormula){$templateIndex--}
+    if($templateIndex -lt 1){throw 'No existing calculated formula template'}
+    $template=$table.DataBodyRange.Cells.Item($templateIndex,$map[$decodedHeader])
+    $templateChecks+=@{table=$name;field=$decodedHeader;fields=@($map.Keys);nativeFormula=[string]$template.Formula;sourceFormula=[string]$column.formula;nativeHasArray=[bool]$template.HasArray;expectedHasArray=($column.formulaMetadata.array -eq '1')}
+    $templateRepairs+=@{field=$decodedHeader;columnIndex=$map[$decodedHeader];templateIndex=$templateIndex;oldValue=$lastSource.Value2;row=$oldEnd}
+   }
+  }
+  if($templateChecks.Count){
+   [IO.File]::WriteAllText((Join-Path $replayFolder 'source-template-checks.json'),(ConvertTo-Json -InputObject @($templateChecks) -Depth 8),[Text.UTF8Encoding]::new($false))
+   & 'C:\Users\adamb\AppData\Local\Programs\Python\Python312\python.exe' (Join-Path $replayFolder 'loaded-formula-compare.py') $replayFolder --templates
+   if($LASTEXITCODE -ne 0){throw 'Existing formula template differs from captured column definition'}
+   foreach($repair in $templateRepairs){
+    $template=$table.DataBodyRange.Cells.Item($repair.templateIndex,$repair.columnIndex)
+    $target=$table.DataBodyRange.Cells.Item($table.ListRows.Count,$repair.columnIndex)
+    $template.Copy($target)
+    if(-not $target.HasFormula -or [bool]$target.HasArray -ne [bool]$template.HasArray){throw 'Calculated flag restoration failed'}
+    $receipt.restoredCalculatedFlags+=@{table=$name;row=$repair.row;field=$repair.field;priorValue=$repair.oldValue;templateRow=$template.Row;scope='Current matched row in disposable copy only'}
+   }
   }
   State ('EXPANDING_'+$name)
   $oldRows=$table.Range.Rows.Count
@@ -99,7 +123,6 @@ try {
   }
   $sourceRow=$table.Range.Rows.Item($oldRows)
   for($i=1;$i -le $count;$i++){$sourceRow.Copy($table.Range.Rows.Item($oldRows+$i))}
-  $excel.CutCopyMode=0
   foreach($column in $tableSchema.columns){
    $decodedHeader=[regex]::Replace([string]$column.name,'_x([0-9A-Fa-f]{4})_', { [string][char][Convert]::ToInt32($args[0].Groups[1].Value,16) })
    $idx=$map[$decodedHeader]
