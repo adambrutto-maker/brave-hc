@@ -39,6 +39,9 @@ def cache_definition_signatures(z):
   if src is None or src.get('name') not in ('SkaterStatsByGame','GoalieStatsByGame'):continue
   result[src.get('name')]=[(f.get('name'),f.get('formula'),f.get('databaseField','1')) for f in root.find('m:cacheFields',NS)]
  return result
+def cache_equivalent(expected,actual):
+ # Excel serializes a zero-length source string as a missing cache item.
+ return equal(expected,actual) or expected=='' and actual is None
 def cache_review(path):
  result=[]
  with zipfile.ZipFile(path) as z:
@@ -66,7 +69,7 @@ def cache_review(path):
    rp=posixpath.dirname(path)+'/_rels/'+posixpath.basename(path)+'.rels'
    rels=E.fromstring(z.read(rp));target=next(r.attrib['Target'] for r in rels if r.attrib['Type'].endswith('/pivotCacheRecords'))
    records=target.lstrip('/') if target.startswith('/') else posixpath.normpath(posixpath.dirname(path)+'/'+target)
-   count=0;checks=0;differences=[];difference_count=0
+   count=0;checks=0;differences=[];difference_count=0;empty_string_items=0
    with z.open(records) as stream:
     for _,record in E.iterparse(stream,events=('end',)):
      if record.tag!='{'+NS['m']+'}r':continue
@@ -74,12 +77,13 @@ def cache_review(path):
      if source is None or len(record)!=len(fields):raise ValueError('Cache record shape differs')
      for col,c in enumerate(record):
       actual=shared[col][int(c.attrib['v'])] if c.tag.endswith('}x') else cache_value(c);expected=source[col];checks+=1
-      if not equal(expected,actual):
+      if expected=='' and actual is None:empty_string_items+=1
+      if not cache_equivalent(expected,actual):
        difference_count+=1
        if len(differences)<20:differences.append({'record':count,'field':headers[col],'source':expected,'cache':actual})
      count+=1;record.clear()
    if count!=len(source_rows[table]):raise ValueError('Cache coverage differs')
-   result.append({'table':table,'additionalDerivedCacheFields':extras,'legacyErrorFormulaDefinitions':[f for f in extras if '#NAME?' in (f.get('formula') or '')],'records':count,'cellComparisons':checks,'differenceCount':difference_count,'examples':differences})
+   result.append({'table':table,'emptyStringSerializedAsMissingItems':empty_string_items,'additionalDerivedCacheFields':extras,'legacyErrorFormulaDefinitions':[f for f in extras if '#NAME?' in (f.get('formula') or '')],'records':count,'cellComparisons':checks,'differenceCount':difference_count,'examples':differences})
  if len(result)!=2:raise ValueError('Both caches required')
  return result
 def pivot_rectangles(z):
