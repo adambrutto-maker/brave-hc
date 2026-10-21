@@ -1,0 +1,1103 @@
+{
+  "state": "MATCHED_MINMAX_COMPONENT_COHORT_IMPACT_NOT_FINAL_AWARD_ACCEPTANCE",
+  "matchedNormalizationCount": 6,
+  "unavailableComponents": [
+    {
+      "component": "Playoff Final G Web Display Score",
+      "reason": "Complete numeric cohorts required"
+    },
+    {
+      "component": "Playoff Final A Web Display Score",
+      "reason": "Complete numeric cohorts required"
+    },
+    {
+      "component": "Playoff Final Pts Web Display Score",
+      "reason": "Complete numeric cohorts required"
+    }
+  ],
+  "unsupportedDisplayFormulas": [
+    "Playoff Final Special Teams Web Display Score",
+    "Total Final Special Teams Web Display Score",
+    "Playoff Final +/- Web Display Score",
+    "Total Final +/- Web Display Score",
+    "Playoff Final PIM Web Display Score",
+    "Total Final PIM Web Display Score",
+    "Playoff Final Clutch Web Display Score",
+    "Total Final Clutch Web Display Score",
+    "Playoff Award POTG Web Display Score",
+    "Total Award POTG Web Display Score",
+    "Playoff Award Goalie W Web Display Score",
+    "Total Award Goalie W Web Display Score",
+    "Playoff Award Goalie Win % Web Display Score",
+    "Total Award Goalie Win % Web Display Score",
+    "Playoff Award Goalie GAA Web Display Score",
+    "Total Award Goalie GAA Web Display Score",
+    "Playoff Award Goalie SHO Web Display Score",
+    "Total Award Goalie SHO Web Display Score",
+    "Total Streak Heat Web Display Score",
+    "Playoff Streak Heat Web Display Score",
+    "Career Roster Adjusted Attd. % Web Display Score",
+    "Total Skater Production Consistency Web Display Score",
+    "Playoff Skater Production Consistency Web Display Score",
+    "Total Skater Two-Way Reliability Web Display Score",
+    "Playoff Skater Two-Way Reliability Web Display Score",
+    "Total Discipline Reliability Web Display Score",
+    "Playoff Discipline Reliability Web Display Score",
+    "Total Goalie Reliability Web Display Score",
+    "Playoff Goalie Reliability Web Display Score",
+    "Total Goalie Discipline Reliability Web Display Score",
+    "Playoff Goalie Discipline Reliability Web Display Score",
+    "Total Goalie Offensive Contribution Web Display Score",
+    "Playoff Goalie Offensive Contribution Web Display Score",
+    "Total Skater Improvement Web Display Score",
+    "Total Goalie Improvement Web Display Score"
+  ],
+  "legacyTranslationMismatchCount": 0,
+  "componentsChanged": [
+    {
+      "component": "Current True Playoff Season Attd. % Web Display Score",
+      "currentPlayersChanged": 21,
+      "legacyBounds": [
+        0,
+        100
+      ],
+      "currentAvailableBounds": [
+        0,
+        0
+      ]
+    },
+    {
+      "component": "Current True Attd. % Web Display Score",
+      "currentPlayersChanged": 15,
+      "legacyBounds": [
+        20.833333333333336,
+        100
+      ],
+      "currentAvailableBounds": [
+        25,
+        100
+      ]
+    }
+  ],
+  "components": [
+    {
+      "state": "ONE_COMPONENT_COHORT_IMPACT_REVIEW_NOT_SCORE_ACCEPTANCE",
+      "component": "Current True Playoff Season Attd. % Web Display Score",
+      "legacyCohortCount": 25,
+      "acceptedCurrentAvailableCount": 21,
+      "missingAcceptedMasterNames": [
+        "Carlyle, Adam"
+      ],
+      "excludedLegacyNames": [
+        "Congiusti, Marco",
+        "Mazzei, Stefano",
+        "Svec, Matt",
+        "Unknown, Johnny"
+      ],
+      "legacyBounds": [
+        0,
+        100
+      ],
+      "currentAvailableBounds": [
+        0,
+        0
+      ],
+      "legacyTranslationMismatchCount": 0,
+      "changedCurrentComponentCount": 21,
+      "rows": [
+        {
+          "name": "Ardizzi, Stefano",
+          "rawInternal": 0,
+          "nativeDisplay": 50,
+          "reproducedLegacyDisplay": 50,
+          "currentCohortCounterfactualDisplay": 75
+        },
+        {
+          "name": "Atkins, Nolan",
+          "rawInternal": 0,
+          "nativeDisplay": 50,
+          "reproducedLegacyDisplay": 50,
+          "currentCohortCounterfactualDisplay": 75
+        },
+        {
+          "name": "Brutto, Adam",
+          "rawInternal": 0,
+          "nativeDisplay": 50,
+          "reproducedLegacyDisplay": 50,
+          "currentCohortCounterfactualDisplay": 75
+        },
+        {
+          "name": "Carosi, Justin",
+          "rawInternal": 0,
+          "nativeDisplay": 50,
+          "reproducedLegacyDisplay": 50,
+          "currentCohortCounterfactualDisplay": 75
+        },
+        {
+          "name": "Duffy, Lorcan",
+          "rawInternal": 0,
+          "nativeDisplay": 50,
+          "reproducedLegacyDisplay": 50,
+          "currentCohortCounterfactualDisplay": 75
+        },
+        {
+          "name": "Kober, Adam",
+          "rawInternal": 0,
+          "nativeDisplay": 50,
+          "reproducedLegacyDisplay": 50,
+          "currentCohortCounterfactualDisplay": 75
+        },
+        {
+          "name": "Kong, Henry",
+          "rawInternal": 0,
+          "nativeDisplay": 50,
+          "reproducedLegacyDisplay": 50,
+          "currentCohortCounterfactualDisplay": 75
+        },
+        {
+          "name": "Leong, Dev",
+          "rawInternal": 0,
+          "nativeDisplay": 50,
+          "reproducedLegacyDisplay": 50,
+          "currentCohortCounterfactualDisplay": 75
+        },
+        {
+          "name": "Logue, Stephen",
+          "rawInternal": 0,
+          "nativeDisplay": 50,
+          "reproducedLegacyDisplay": 50,
+          "currentCohortCounterfactualDisplay": 75
+        },
+        {
+          "name": "Pagnotta, Alex",
+          "rawInternal": 0,
+          "nativeDisplay": 50,
+          "reproducedLegacyDisplay": 50,
+          "currentCohortCounterfactualDisplay": 75
+        },
+        {
+          "name": "Paolucci, Anthony",
+          "rawInternal": 0,
+          "nativeDisplay": 50,
+          "reproducedLegacyDisplay": 50,
+          "currentCohortCounterfactualDisplay": 75
+        },
+        {
+          "name": "Pearsoll, Keith",
+          "rawInternal": 0,
+          "nativeDisplay": 50,
+          "reproducedLegacyDisplay": 50,
+          "currentCohortCounterfactualDisplay": 75
+        },
+        {
+          "name": "Povegliano, Adam",
+          "rawInternal": 0,
+          "nativeDisplay": 50,
+          "reproducedLegacyDisplay": 50,
+          "currentCohortCounterfactualDisplay": 75
+        },
+        {
+          "name": "Provenzano, Mario",
+          "rawInternal": 0,
+          "nativeDisplay": 50,
+          "reproducedLegacyDisplay": 50,
+          "currentCohortCounterfactualDisplay": 75
+        },
+        {
+          "name": "Provenzano, Michael",
+          "rawInternal": 0,
+          "nativeDisplay": 50,
+          "reproducedLegacyDisplay": 50,
+          "currentCohortCounterfactualDisplay": 75
+        },
+        {
+          "name": "Rajasooriar, Krishnan",
+          "rawInternal": 0,
+          "nativeDisplay": 50,
+          "reproducedLegacyDisplay": 50,
+          "currentCohortCounterfactualDisplay": 75
+        },
+        {
+          "name": "Rosenberg, Jamie",
+          "rawInternal": 0,
+          "nativeDisplay": 50,
+          "reproducedLegacyDisplay": 50,
+          "currentCohortCounterfactualDisplay": 75
+        },
+        {
+          "name": "Saindon, Stephane",
+          "rawInternal": 0,
+          "nativeDisplay": 50,
+          "reproducedLegacyDisplay": 50,
+          "currentCohortCounterfactualDisplay": 75
+        },
+        {
+          "name": "Rajkumar, Sanjay",
+          "rawInternal": 0,
+          "nativeDisplay": 50,
+          "reproducedLegacyDisplay": 50,
+          "currentCohortCounterfactualDisplay": 75
+        },
+        {
+          "name": "Triumbari, Francesco",
+          "rawInternal": 0,
+          "nativeDisplay": 50,
+          "reproducedLegacyDisplay": 50,
+          "currentCohortCounterfactualDisplay": 75
+        },
+        {
+          "name": "Pavaday, Damian",
+          "rawInternal": 0,
+          "nativeDisplay": 50,
+          "reproducedLegacyDisplay": 50,
+          "currentCohortCounterfactualDisplay": 75
+        }
+      ],
+      "limitation": "Counterfactual changes only this one normalization population. Missing player and upstream source/cohort inputs are not repaired. No final composite is verified.",
+      "currentScoresVerified": false,
+      "publicationAuthorized": false
+    },
+    {
+      "state": "ONE_COMPONENT_COHORT_IMPACT_REVIEW_NOT_SCORE_ACCEPTANCE",
+      "component": "Current True Attd. % Web Display Score",
+      "legacyCohortCount": 25,
+      "acceptedCurrentAvailableCount": 21,
+      "missingAcceptedMasterNames": [
+        "Carlyle, Adam"
+      ],
+      "excludedLegacyNames": [
+        "Congiusti, Marco",
+        "Mazzei, Stefano",
+        "Svec, Matt",
+        "Unknown, Johnny"
+      ],
+      "legacyBounds": [
+        20.833333333333336,
+        100
+      ],
+      "currentAvailableBounds": [
+        25,
+        100
+      ],
+      "legacyTranslationMismatchCount": 0,
+      "changedCurrentComponentCount": 15,
+      "rows": [
+        {
+          "name": "Ardizzi, Stefano",
+          "rawInternal": 25,
+          "nativeDisplay": 52.6,
+          "reproducedLegacyDisplay": 52.6,
+          "currentCohortCounterfactualDisplay": 50
+        },
+        {
+          "name": "Atkins, Nolan",
+          "rawInternal": 50,
+          "nativeDisplay": 68.4,
+          "reproducedLegacyDisplay": 68.4,
+          "currentCohortCounterfactualDisplay": 66.7
+        },
+        {
+          "name": "Brutto, Adam",
+          "rawInternal": 100,
+          "nativeDisplay": 100,
+          "reproducedLegacyDisplay": 100,
+          "currentCohortCounterfactualDisplay": 100
+        },
+        {
+          "name": "Carosi, Justin",
+          "rawInternal": 100,
+          "nativeDisplay": 100,
+          "reproducedLegacyDisplay": 100,
+          "currentCohortCounterfactualDisplay": 100
+        },
+        {
+          "name": "Duffy, Lorcan",
+          "rawInternal": 25,
+          "nativeDisplay": 52.6,
+          "reproducedLegacyDisplay": 52.6,
+          "currentCohortCounterfactualDisplay": 50
+        },
+        {
+          "name": "Kober, Adam",
+          "rawInternal": 75,
+          "nativeDisplay": 84.2,
+          "reproducedLegacyDisplay": 84.2,
+          "currentCohortCounterfactualDisplay": 83.3
+        },
+        {
+          "name": "Kong, Henry",
+          "rawInternal": 100,
+          "nativeDisplay": 100,
+          "reproducedLegacyDisplay": 100,
+          "currentCohortCounterfactualDisplay": 100
+        },
+        {
+          "name": "Leong, Dev",
+          "rawInternal": 50,
+          "nativeDisplay": 68.4,
+          "reproducedLegacyDisplay": 68.4,
+          "currentCohortCounterfactualDisplay": 66.7
+        },
+        {
+          "name": "Logue, Stephen",
+          "rawInternal": 25,
+          "nativeDisplay": 52.6,
+          "reproducedLegacyDisplay": 52.6,
+          "currentCohortCounterfactualDisplay": 50
+        },
+        {
+          "name": "Pagnotta, Alex",
+          "rawInternal": 100,
+          "nativeDisplay": 100,
+          "reproducedLegacyDisplay": 100,
+          "currentCohortCounterfactualDisplay": 100
+        },
+        {
+          "name": "Paolucci, Anthony",
+          "rawInternal": 25,
+          "nativeDisplay": 52.6,
+          "reproducedLegacyDisplay": 52.6,
+          "currentCohortCounterfactualDisplay": 50
+        },
+        {
+          "name": "Pearsoll, Keith",
+          "rawInternal": 75,
+          "nativeDisplay": 84.2,
+          "reproducedLegacyDisplay": 84.2,
+          "currentCohortCounterfactualDisplay": 83.3
+        },
+        {
+          "name": "Povegliano, Adam",
+          "rawInternal": 75,
+          "nativeDisplay": 84.2,
+          "reproducedLegacyDisplay": 84.2,
+          "currentCohortCounterfactualDisplay": 83.3
+        },
+        {
+          "name": "Provenzano, Mario",
+          "rawInternal": 100,
+          "nativeDisplay": 100,
+          "reproducedLegacyDisplay": 100,
+          "currentCohortCounterfactualDisplay": 100
+        },
+        {
+          "name": "Provenzano, Michael",
+          "rawInternal": 75,
+          "nativeDisplay": 84.2,
+          "reproducedLegacyDisplay": 84.2,
+          "currentCohortCounterfactualDisplay": 83.3
+        },
+        {
+          "name": "Rajasooriar, Krishnan",
+          "rawInternal": 50,
+          "nativeDisplay": 68.4,
+          "reproducedLegacyDisplay": 68.4,
+          "currentCohortCounterfactualDisplay": 66.7
+        },
+        {
+          "name": "Rosenberg, Jamie",
+          "rawInternal": 75,
+          "nativeDisplay": 84.2,
+          "reproducedLegacyDisplay": 84.2,
+          "currentCohortCounterfactualDisplay": 83.3
+        },
+        {
+          "name": "Saindon, Stephane",
+          "rawInternal": 75,
+          "nativeDisplay": 84.2,
+          "reproducedLegacyDisplay": 84.2,
+          "currentCohortCounterfactualDisplay": 83.3
+        },
+        {
+          "name": "Rajkumar, Sanjay",
+          "rawInternal": 75,
+          "nativeDisplay": 84.2,
+          "reproducedLegacyDisplay": 84.2,
+          "currentCohortCounterfactualDisplay": 83.3
+        },
+        {
+          "name": "Triumbari, Francesco",
+          "rawInternal": 100,
+          "nativeDisplay": 100,
+          "reproducedLegacyDisplay": 100,
+          "currentCohortCounterfactualDisplay": 100
+        },
+        {
+          "name": "Pavaday, Damian",
+          "rawInternal": 25,
+          "nativeDisplay": 52.6,
+          "reproducedLegacyDisplay": 52.6,
+          "currentCohortCounterfactualDisplay": 50
+        }
+      ],
+      "limitation": "Counterfactual changes only this one normalization population. Missing player and upstream source/cohort inputs are not repaired. No final composite is verified.",
+      "currentScoresVerified": false,
+      "publicationAuthorized": false
+    },
+    {
+      "state": "ONE_COMPONENT_COHORT_IMPACT_REVIEW_NOT_SCORE_ACCEPTANCE",
+      "component": "Dedication Tenure Web Display Score",
+      "legacyCohortCount": 25,
+      "acceptedCurrentAvailableCount": 21,
+      "missingAcceptedMasterNames": [
+        "Carlyle, Adam"
+      ],
+      "excludedLegacyNames": [
+        "Congiusti, Marco",
+        "Mazzei, Stefano",
+        "Svec, Matt",
+        "Unknown, Johnny"
+      ],
+      "legacyBounds": [
+        0.3,
+        100
+      ],
+      "currentAvailableBounds": [
+        0.3,
+        100
+      ],
+      "legacyTranslationMismatchCount": 0,
+      "changedCurrentComponentCount": 0,
+      "rows": [
+        {
+          "name": "Ardizzi, Stefano",
+          "rawInternal": 66.1,
+          "nativeDisplay": 83,
+          "reproducedLegacyDisplay": 83,
+          "currentCohortCounterfactualDisplay": 83
+        },
+        {
+          "name": "Atkins, Nolan",
+          "rawInternal": 2.7,
+          "nativeDisplay": 51.2,
+          "reproducedLegacyDisplay": 51.2,
+          "currentCohortCounterfactualDisplay": 51.2
+        },
+        {
+          "name": "Brutto, Adam",
+          "rawInternal": 100,
+          "nativeDisplay": 100,
+          "reproducedLegacyDisplay": 100,
+          "currentCohortCounterfactualDisplay": 100
+        },
+        {
+          "name": "Carosi, Justin",
+          "rawInternal": 90.2,
+          "nativeDisplay": 95.1,
+          "reproducedLegacyDisplay": 95.1,
+          "currentCohortCounterfactualDisplay": 95.1
+        },
+        {
+          "name": "Duffy, Lorcan",
+          "rawInternal": 24.7,
+          "nativeDisplay": 62.2,
+          "reproducedLegacyDisplay": 62.2,
+          "currentCohortCounterfactualDisplay": 62.2
+        },
+        {
+          "name": "Kober, Adam",
+          "rawInternal": 14,
+          "nativeDisplay": 56.9,
+          "reproducedLegacyDisplay": 56.9,
+          "currentCohortCounterfactualDisplay": 56.9
+        },
+        {
+          "name": "Kong, Henry",
+          "rawInternal": 1.2,
+          "nativeDisplay": 50.5,
+          "reproducedLegacyDisplay": 50.5,
+          "currentCohortCounterfactualDisplay": 50.5
+        },
+        {
+          "name": "Leong, Dev",
+          "rawInternal": 5.7,
+          "nativeDisplay": 52.7,
+          "reproducedLegacyDisplay": 52.7,
+          "currentCohortCounterfactualDisplay": 52.7
+        },
+        {
+          "name": "Logue, Stephen",
+          "rawInternal": 78,
+          "nativeDisplay": 89,
+          "reproducedLegacyDisplay": 89,
+          "currentCohortCounterfactualDisplay": 89
+        },
+        {
+          "name": "Pagnotta, Alex",
+          "rawInternal": 96.4,
+          "nativeDisplay": 98.2,
+          "reproducedLegacyDisplay": 98.2,
+          "currentCohortCounterfactualDisplay": 98.2
+        },
+        {
+          "name": "Paolucci, Anthony",
+          "rawInternal": 28,
+          "nativeDisplay": 63.9,
+          "reproducedLegacyDisplay": 63.9,
+          "currentCohortCounterfactualDisplay": 63.9
+        },
+        {
+          "name": "Pearsoll, Keith",
+          "rawInternal": 88.4,
+          "nativeDisplay": 94.2,
+          "reproducedLegacyDisplay": 94.2,
+          "currentCohortCounterfactualDisplay": 94.2
+        },
+        {
+          "name": "Povegliano, Adam",
+          "rawInternal": 0.9,
+          "nativeDisplay": 50.3,
+          "reproducedLegacyDisplay": 50.3,
+          "currentCohortCounterfactualDisplay": 50.3
+        },
+        {
+          "name": "Provenzano, Mario",
+          "rawInternal": 72.6,
+          "nativeDisplay": 86.3,
+          "reproducedLegacyDisplay": 86.3,
+          "currentCohortCounterfactualDisplay": 86.3
+        },
+        {
+          "name": "Provenzano, Michael",
+          "rawInternal": 12.5,
+          "nativeDisplay": 56.1,
+          "reproducedLegacyDisplay": 56.1,
+          "currentCohortCounterfactualDisplay": 56.1
+        },
+        {
+          "name": "Rajasooriar, Krishnan",
+          "rawInternal": 16.7,
+          "nativeDisplay": 58.2,
+          "reproducedLegacyDisplay": 58.2,
+          "currentCohortCounterfactualDisplay": 58.2
+        },
+        {
+          "name": "Rosenberg, Jamie",
+          "rawInternal": 0.9,
+          "nativeDisplay": 50.3,
+          "reproducedLegacyDisplay": 50.3,
+          "currentCohortCounterfactualDisplay": 50.3
+        },
+        {
+          "name": "Saindon, Stephane",
+          "rawInternal": 27.1,
+          "nativeDisplay": 63.4,
+          "reproducedLegacyDisplay": 63.4,
+          "currentCohortCounterfactualDisplay": 63.4
+        },
+        {
+          "name": "Rajkumar, Sanjay",
+          "rawInternal": 0.9,
+          "nativeDisplay": 50.3,
+          "reproducedLegacyDisplay": 50.3,
+          "currentCohortCounterfactualDisplay": 50.3
+        },
+        {
+          "name": "Triumbari, Francesco",
+          "rawInternal": 1.2,
+          "nativeDisplay": 50.5,
+          "reproducedLegacyDisplay": 50.5,
+          "currentCohortCounterfactualDisplay": 50.5
+        },
+        {
+          "name": "Pavaday, Damian",
+          "rawInternal": 0.3,
+          "nativeDisplay": 50,
+          "reproducedLegacyDisplay": 50,
+          "currentCohortCounterfactualDisplay": 50
+        }
+      ],
+      "limitation": "Counterfactual changes only this one normalization population. Missing player and upstream source/cohort inputs are not repaired. No final composite is verified.",
+      "currentScoresVerified": false,
+      "publicationAuthorized": false
+    },
+    {
+      "state": "ONE_COMPONENT_COHORT_IMPACT_REVIEW_NOT_SCORE_ACCEPTANCE",
+      "component": "Total Final G Web Display Score",
+      "legacyCohortCount": 22,
+      "acceptedCurrentAvailableCount": 19,
+      "missingAcceptedMasterNames": [
+        "Carlyle, Adam"
+      ],
+      "excludedLegacyNames": [
+        "Congiusti, Marco",
+        "Mazzei, Stefano",
+        "Unknown, Johnny"
+      ],
+      "legacyBounds": [
+        -0.234,
+        0.676
+      ],
+      "currentAvailableBounds": [
+        -0.234,
+        0.676
+      ],
+      "legacyTranslationMismatchCount": 0,
+      "changedCurrentComponentCount": 0,
+      "rows": [
+        {
+          "name": "Ardizzi, Stefano",
+          "rawInternal": -0.12,
+          "nativeDisplay": 56.3,
+          "reproducedLegacyDisplay": 56.3,
+          "currentCohortCounterfactualDisplay": 56.3
+        },
+        {
+          "name": "Atkins, Nolan",
+          "rawInternal": -0.058,
+          "nativeDisplay": 59.7,
+          "reproducedLegacyDisplay": 59.7,
+          "currentCohortCounterfactualDisplay": 59.7
+        },
+        {
+          "name": "Brutto, Adam",
+          "rawInternal": -0.075,
+          "nativeDisplay": 58.7,
+          "reproducedLegacyDisplay": 58.7,
+          "currentCohortCounterfactualDisplay": 58.7
+        },
+        {
+          "name": "Carosi, Justin",
+          "rawInternal": 0.676,
+          "nativeDisplay": 100,
+          "reproducedLegacyDisplay": 100,
+          "currentCohortCounterfactualDisplay": 100
+        },
+        {
+          "name": "Duffy, Lorcan",
+          "rawInternal": -0.107,
+          "nativeDisplay": 57,
+          "reproducedLegacyDisplay": 57,
+          "currentCohortCounterfactualDisplay": 57
+        },
+        {
+          "name": "Kober, Adam",
+          "rawInternal": 0.242,
+          "nativeDisplay": 76.2,
+          "reproducedLegacyDisplay": 76.2,
+          "currentCohortCounterfactualDisplay": 76.2
+        },
+        {
+          "name": "Kong, Henry",
+          "rawInternal": 0.163,
+          "nativeDisplay": 71.8,
+          "reproducedLegacyDisplay": 71.8,
+          "currentCohortCounterfactualDisplay": 71.8
+        },
+        {
+          "name": "Pagnotta, Alex",
+          "rawInternal": -0.081,
+          "nativeDisplay": 58.4,
+          "reproducedLegacyDisplay": 58.4,
+          "currentCohortCounterfactualDisplay": 58.4
+        },
+        {
+          "name": "Paolucci, Anthony",
+          "rawInternal": -0.078,
+          "nativeDisplay": 58.6,
+          "reproducedLegacyDisplay": 58.6,
+          "currentCohortCounterfactualDisplay": 58.6
+        },
+        {
+          "name": "Pearsoll, Keith",
+          "rawInternal": 0.194,
+          "nativeDisplay": 73.5,
+          "reproducedLegacyDisplay": 73.5,
+          "currentCohortCounterfactualDisplay": 73.5
+        },
+        {
+          "name": "Povegliano, Adam",
+          "rawInternal": -0.058,
+          "nativeDisplay": 59.7,
+          "reproducedLegacyDisplay": 59.7,
+          "currentCohortCounterfactualDisplay": 59.7
+        },
+        {
+          "name": "Provenzano, Mario",
+          "rawInternal": -0.09,
+          "nativeDisplay": 57.9,
+          "reproducedLegacyDisplay": 57.9,
+          "currentCohortCounterfactualDisplay": 57.9
+        },
+        {
+          "name": "Provenzano, Michael",
+          "rawInternal": -0.218,
+          "nativeDisplay": 50.9,
+          "reproducedLegacyDisplay": 50.9,
+          "currentCohortCounterfactualDisplay": 50.9
+        },
+        {
+          "name": "Rajasooriar, Krishnan",
+          "rawInternal": -0.095,
+          "nativeDisplay": 57.6,
+          "reproducedLegacyDisplay": 57.6,
+          "currentCohortCounterfactualDisplay": 57.6
+        },
+        {
+          "name": "Rosenberg, Jamie",
+          "rawInternal": -0.058,
+          "nativeDisplay": 59.7,
+          "reproducedLegacyDisplay": 59.7,
+          "currentCohortCounterfactualDisplay": 59.7
+        },
+        {
+          "name": "Saindon, Stephane",
+          "rawInternal": -0.234,
+          "nativeDisplay": 50,
+          "reproducedLegacyDisplay": 50,
+          "currentCohortCounterfactualDisplay": 50
+        },
+        {
+          "name": "Rajkumar, Sanjay",
+          "rawInternal": -0.058,
+          "nativeDisplay": 59.7,
+          "reproducedLegacyDisplay": 59.7,
+          "currentCohortCounterfactualDisplay": 59.7
+        },
+        {
+          "name": "Triumbari, Francesco",
+          "rawInternal": -0.058,
+          "nativeDisplay": 59.7,
+          "reproducedLegacyDisplay": 59.7,
+          "currentCohortCounterfactualDisplay": 59.7
+        },
+        {
+          "name": "Pavaday, Damian",
+          "rawInternal": -0.058,
+          "nativeDisplay": 59.7,
+          "reproducedLegacyDisplay": 59.7,
+          "currentCohortCounterfactualDisplay": 59.7
+        }
+      ],
+      "limitation": "Counterfactual changes only this one normalization population. Missing player and upstream source/cohort inputs are not repaired. No final composite is verified.",
+      "currentScoresVerified": false,
+      "publicationAuthorized": false
+    },
+    {
+      "state": "ONE_COMPONENT_COHORT_IMPACT_REVIEW_NOT_SCORE_ACCEPTANCE",
+      "component": "Total Final A Web Display Score",
+      "legacyCohortCount": 22,
+      "acceptedCurrentAvailableCount": 19,
+      "missingAcceptedMasterNames": [
+        "Carlyle, Adam"
+      ],
+      "excludedLegacyNames": [
+        "Congiusti, Marco",
+        "Mazzei, Stefano",
+        "Unknown, Johnny"
+      ],
+      "legacyBounds": [
+        -0.264,
+        0.757
+      ],
+      "currentAvailableBounds": [
+        -0.264,
+        0.757
+      ],
+      "legacyTranslationMismatchCount": 0,
+      "changedCurrentComponentCount": 0,
+      "rows": [
+        {
+          "name": "Ardizzi, Stefano",
+          "rawInternal": -0.185,
+          "nativeDisplay": 53.9,
+          "reproducedLegacyDisplay": 53.9,
+          "currentCohortCounterfactualDisplay": 53.9
+        },
+        {
+          "name": "Atkins, Nolan",
+          "rawInternal": -0.131,
+          "nativeDisplay": 56.5,
+          "reproducedLegacyDisplay": 56.5,
+          "currentCohortCounterfactualDisplay": 56.5
+        },
+        {
+          "name": "Brutto, Adam",
+          "rawInternal": -0.186,
+          "nativeDisplay": 53.8,
+          "reproducedLegacyDisplay": 53.8,
+          "currentCohortCounterfactualDisplay": 53.8
+        },
+        {
+          "name": "Carosi, Justin",
+          "rawInternal": -0.264,
+          "nativeDisplay": 50,
+          "reproducedLegacyDisplay": 50,
+          "currentCohortCounterfactualDisplay": 50
+        },
+        {
+          "name": "Duffy, Lorcan",
+          "rawInternal": -0.215,
+          "nativeDisplay": 52.4,
+          "reproducedLegacyDisplay": 52.4,
+          "currentCohortCounterfactualDisplay": 52.4
+        },
+        {
+          "name": "Kober, Adam",
+          "rawInternal": 0.164,
+          "nativeDisplay": 71,
+          "reproducedLegacyDisplay": 71,
+          "currentCohortCounterfactualDisplay": 71
+        },
+        {
+          "name": "Kong, Henry",
+          "rawInternal": 0.125,
+          "nativeDisplay": 69,
+          "reproducedLegacyDisplay": 69,
+          "currentCohortCounterfactualDisplay": 69
+        },
+        {
+          "name": "Pagnotta, Alex",
+          "rawInternal": 0.667,
+          "nativeDisplay": 95.6,
+          "reproducedLegacyDisplay": 95.6,
+          "currentCohortCounterfactualDisplay": 95.6
+        },
+        {
+          "name": "Paolucci, Anthony",
+          "rawInternal": -0.155,
+          "nativeDisplay": 55.3,
+          "reproducedLegacyDisplay": 55.3,
+          "currentCohortCounterfactualDisplay": 55.3
+        },
+        {
+          "name": "Pearsoll, Keith",
+          "rawInternal": -0.199,
+          "nativeDisplay": 53.2,
+          "reproducedLegacyDisplay": 53.2,
+          "currentCohortCounterfactualDisplay": 53.2
+        },
+        {
+          "name": "Povegliano, Adam",
+          "rawInternal": -0.095,
+          "nativeDisplay": 58.3,
+          "reproducedLegacyDisplay": 58.3,
+          "currentCohortCounterfactualDisplay": 58.3
+        },
+        {
+          "name": "Provenzano, Mario",
+          "rawInternal": -0.168,
+          "nativeDisplay": 54.7,
+          "reproducedLegacyDisplay": 54.7,
+          "currentCohortCounterfactualDisplay": 54.7
+        },
+        {
+          "name": "Provenzano, Michael",
+          "rawInternal": 0.757,
+          "nativeDisplay": 100,
+          "reproducedLegacyDisplay": 100,
+          "currentCohortCounterfactualDisplay": 100
+        },
+        {
+          "name": "Rajasooriar, Krishnan",
+          "rawInternal": -0.165,
+          "nativeDisplay": 54.8,
+          "reproducedLegacyDisplay": 54.8,
+          "currentCohortCounterfactualDisplay": 54.8
+        },
+        {
+          "name": "Rosenberg, Jamie",
+          "rawInternal": -0.095,
+          "nativeDisplay": 58.3,
+          "reproducedLegacyDisplay": 58.3,
+          "currentCohortCounterfactualDisplay": 58.3
+        },
+        {
+          "name": "Saindon, Stephane",
+          "rawInternal": 0.067,
+          "nativeDisplay": 66.2,
+          "reproducedLegacyDisplay": 66.2,
+          "currentCohortCounterfactualDisplay": 66.2
+        },
+        {
+          "name": "Rajkumar, Sanjay",
+          "rawInternal": -0.095,
+          "nativeDisplay": 58.3,
+          "reproducedLegacyDisplay": 58.3,
+          "currentCohortCounterfactualDisplay": 58.3
+        },
+        {
+          "name": "Triumbari, Francesco",
+          "rawInternal": -0.095,
+          "nativeDisplay": 58.3,
+          "reproducedLegacyDisplay": 58.3,
+          "currentCohortCounterfactualDisplay": 58.3
+        },
+        {
+          "name": "Pavaday, Damian",
+          "rawInternal": 0.388,
+          "nativeDisplay": 81.9,
+          "reproducedLegacyDisplay": 81.9,
+          "currentCohortCounterfactualDisplay": 81.9
+        }
+      ],
+      "limitation": "Counterfactual changes only this one normalization population. Missing player and upstream source/cohort inputs are not repaired. No final composite is verified.",
+      "currentScoresVerified": false,
+      "publicationAuthorized": false
+    },
+    {
+      "state": "ONE_COMPONENT_COHORT_IMPACT_REVIEW_NOT_SCORE_ACCEPTANCE",
+      "component": "Total Final Pts Web Display Score",
+      "legacyCohortCount": 22,
+      "acceptedCurrentAvailableCount": 19,
+      "missingAcceptedMasterNames": [
+        "Carlyle, Adam"
+      ],
+      "excludedLegacyNames": [
+        "Congiusti, Marco",
+        "Mazzei, Stefano",
+        "Unknown, Johnny"
+      ],
+      "legacyBounds": [
+        -0.323,
+        0.586
+      ],
+      "currentAvailableBounds": [
+        -0.323,
+        0.586
+      ],
+      "legacyTranslationMismatchCount": 0,
+      "changedCurrentComponentCount": 0,
+      "rows": [
+        {
+          "name": "Ardizzi, Stefano",
+          "rawInternal": -0.305,
+          "nativeDisplay": 51,
+          "reproducedLegacyDisplay": 51,
+          "currentCohortCounterfactualDisplay": 51
+        },
+        {
+          "name": "Atkins, Nolan",
+          "rawInternal": -0.189,
+          "nativeDisplay": 57.4,
+          "reproducedLegacyDisplay": 57.4,
+          "currentCohortCounterfactualDisplay": 57.4
+        },
+        {
+          "name": "Brutto, Adam",
+          "rawInternal": -0.261,
+          "nativeDisplay": 53.4,
+          "reproducedLegacyDisplay": 53.4,
+          "currentCohortCounterfactualDisplay": 53.4
+        },
+        {
+          "name": "Carosi, Justin",
+          "rawInternal": 0.412,
+          "nativeDisplay": 90.4,
+          "reproducedLegacyDisplay": 90.4,
+          "currentCohortCounterfactualDisplay": 90.4
+        },
+        {
+          "name": "Duffy, Lorcan",
+          "rawInternal": -0.323,
+          "nativeDisplay": 50,
+          "reproducedLegacyDisplay": 50,
+          "currentCohortCounterfactualDisplay": 50
+        },
+        {
+          "name": "Kober, Adam",
+          "rawInternal": 0.406,
+          "nativeDisplay": 90.1,
+          "reproducedLegacyDisplay": 90.1,
+          "currentCohortCounterfactualDisplay": 90.1
+        },
+        {
+          "name": "Kong, Henry",
+          "rawInternal": 0.289,
+          "nativeDisplay": 83.7,
+          "reproducedLegacyDisplay": 83.7,
+          "currentCohortCounterfactualDisplay": 83.7
+        },
+        {
+          "name": "Pagnotta, Alex",
+          "rawInternal": 0.586,
+          "nativeDisplay": 100,
+          "reproducedLegacyDisplay": 100,
+          "currentCohortCounterfactualDisplay": 100
+        },
+        {
+          "name": "Paolucci, Anthony",
+          "rawInternal": -0.233,
+          "nativeDisplay": 55,
+          "reproducedLegacyDisplay": 55,
+          "currentCohortCounterfactualDisplay": 55
+        },
+        {
+          "name": "Pearsoll, Keith",
+          "rawInternal": -0.006,
+          "nativeDisplay": 67.4,
+          "reproducedLegacyDisplay": 67.4,
+          "currentCohortCounterfactualDisplay": 67.4
+        },
+        {
+          "name": "Povegliano, Adam",
+          "rawInternal": -0.153,
+          "nativeDisplay": 59.4,
+          "reproducedLegacyDisplay": 59.4,
+          "currentCohortCounterfactualDisplay": 59.4
+        },
+        {
+          "name": "Provenzano, Mario",
+          "rawInternal": -0.258,
+          "nativeDisplay": 53.6,
+          "reproducedLegacyDisplay": 53.6,
+          "currentCohortCounterfactualDisplay": 53.6
+        },
+        {
+          "name": "Provenzano, Michael",
+          "rawInternal": 0.539,
+          "nativeDisplay": 97.4,
+          "reproducedLegacyDisplay": 97.4,
+          "currentCohortCounterfactualDisplay": 97.4
+        },
+        {
+          "name": "Rajasooriar, Krishnan",
+          "rawInternal": -0.259,
+          "nativeDisplay": 53.5,
+          "reproducedLegacyDisplay": 53.5,
+          "currentCohortCounterfactualDisplay": 53.5
+        },
+        {
+          "name": "Rosenberg, Jamie",
+          "rawInternal": -0.153,
+          "nativeDisplay": 59.4,
+          "reproducedLegacyDisplay": 59.4,
+          "currentCohortCounterfactualDisplay": 59.4
+        },
+        {
+          "name": "Saindon, Stephane",
+          "rawInternal": -0.166,
+          "nativeDisplay": 58.6,
+          "reproducedLegacyDisplay": 58.6,
+          "currentCohortCounterfactualDisplay": 58.6
+        },
+        {
+          "name": "Rajkumar, Sanjay",
+          "rawInternal": -0.153,
+          "nativeDisplay": 59.4,
+          "reproducedLegacyDisplay": 59.4,
+          "currentCohortCounterfactualDisplay": 59.4
+        },
+        {
+          "name": "Triumbari, Francesco",
+          "rawInternal": -0.153,
+          "nativeDisplay": 59.4,
+          "reproducedLegacyDisplay": 59.4,
+          "currentCohortCounterfactualDisplay": 59.4
+        },
+        {
+          "name": "Pavaday, Damian",
+          "rawInternal": 0.33,
+          "nativeDisplay": 85.9,
+          "reproducedLegacyDisplay": 85.9,
+          "currentCohortCounterfactualDisplay": 85.9
+        }
+      ],
+      "limitation": "Counterfactual changes only this one normalization population. Missing player and upstream source/cohort inputs are not repaired. No final composite is verified.",
+      "currentScoresVerified": false,
+      "publicationAuthorized": false
+    }
+  ],
+  "currentScoresVerified": false,
+  "publicationAuthorized": false
+}
