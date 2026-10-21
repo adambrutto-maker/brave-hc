@@ -1,6 +1,6 @@
 # Additional automatic record candidates
 
-Review-only recalculation from the captured HTO game ledger. No new official records published and no scheduled job installed.
+Review-only recalculation from the captured HTO game ledger. The source refresh workflow recalculates this report after successful schedule reconciliation; candidate changes require review before native HTO publication.
 
 56 calculated comparisons: 36 additional definitions and 20 player-game and hat-trick baseline comparisons.
 
@@ -74,4 +74,4 @@ Review-only recalculation from the captured HTO game ledger. No new official rec
 - Playoff streaks and game-count records require explicit treatment of standalone overtime/shootout entries.
 - Current-season achievements remain provisional; COVID-shortened seasons retain their context.
 
-Regenerate with `python scripts/build_automatic_record_candidates.py` after refreshing captured source evidence. This command performs the calculation automatically; it does not fetch new games, update HTO or run in the background.
+Regenerate with `python scripts/build_automatic_record_candidates.py` after refreshing captured source evidence. This command calculates from saved evidence. The record source refresh workflow fetches current-season games separately and synchronizes already-published HTO records; neither step writes native HTO records.
