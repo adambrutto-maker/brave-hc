@@ -1,9 +1,28 @@
 import sys,unittest,zipfile,io
 from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'scripts'))
-from hockeyos_awards_downstream_postcheck import equal,cache_value,in_rectangles,pivot_rectangles,array_dependents
+from hockeyos_awards_downstream_postcheck import equal,cache_value,in_rectangles,pivot_rectangles,array_dependents,output_review
 import xml.etree.ElementTree as E
 class DownstreamChecks(unittest.TestCase):
+ def fixture(self):
+  candidate={'rows':[{'targetTable':'SkaterStatsByGame','inputs':{'Name':'Pavaday, Damian','GP':1,'G':0,'A':1,'Pts':1}}]}
+  data={'controls':{'C1':'W2026/27'},'awardErrors':[],'playerInfoRows':[{'Website Name':'Pavaday, Damian','Current Skater GP':1,'Current Total Raw G':0,'Current Total Raw A':1,'Current Total Raw Pts':1,'Current Roster Status':'DI','Recent Season':'W2026/27'}],'awardRows':[{'Name':'Pavaday, Damian','Art Ross Award Score':1,'Rocket Richard Award Score':0,'Art Ross Eligible':1,'Rookie Eligible':0}]}
+  return data,candidate
+ def test_current_counts_and_dropin(self):
+  data,candidate=self.fixture();out=output_review(data,candidate)
+  self.assertEqual(out['playerInfoAndCountTitleMismatches'],[]);self.assertEqual(out['damian']['rookieEligible'],0)
+ def test_legacy_other_season_population_reported(self):
+  data,candidate=self.fixture();data['playerInfoRows'][0]['Recent Season']='W2025/26'
+  self.assertEqual(output_review(data,candidate)['eligiblePopulationByCategory']['Art Ross Eligible']['otherSeasonNames'],['Pavaday, Damian'])
+ def test_unaccepted_current_identity_is_reported(self):
+  data,candidate=self.fixture();data['playerInfoRows'].append({'Website Name':'Unknown Johnny','Recent Season':'W2026/27'});data['awardRows'].append({'Name':'Unknown Johnny','Art Ross Eligible':1})
+  self.assertEqual(output_review(data,candidate)['eligiblePopulationByCategory']['Art Ross Eligible']['currentNamesOutsideAcceptedParticipants'],['Unknown Johnny'])
+ def test_missing_goalie_cannot_hide_in_skater_coverage(self):
+  data,candidate=self.fixture();candidate['rows'].append({'targetTable':'GoalieStatsByGame','inputs':{'Name':'Leong, Dev'}})
+  self.assertEqual(output_review(data,candidate)['currentParticipantsMissingFromAwardTable'],['Leong, Dev'])
+ def test_missing_current_player_cannot_pass_counts(self):
+  data,candidate=self.fixture();data['awardRows'][0]['Name']='Other, Player'
+  self.assertEqual(output_review(data,candidate)['playerInfoAndCountTitleMismatches'][0]['reason'],'AWARD_TABLE_OMITS_CURRENT_SKATER')
  def test_numeric_serialization(self):
   self.assertTrue(equal(0.1,0.100000000000001));self.assertFalse(equal(1,2));self.assertFalse(equal(None,0))
  def test_cache_types(self):
