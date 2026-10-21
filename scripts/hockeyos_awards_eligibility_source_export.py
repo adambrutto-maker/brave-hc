@@ -36,10 +36,11 @@ def export(path,include_production=False):
     result.append(r)
    return result
   production_fields=[f for phase in ('Total','Playoff') for metric in ('G','A','Pts') for f in ('Career Prior '+phase+' '+metric+'/GP','All-Time '+phase+' Skater '+metric+' Team Rate Avg')] if include_production else []
+  if include_production:production_fields += [f for phase in ('Total','Playoff') for metric in ('PIM','+/-','POTG') for f in ('Career Prior '+phase+' '+metric+'/GP','All-Time '+phase+' Skater '+metric+' Team Rate Avg')]
   result={'playerInfo':read('PlayerInfo','Player Information',['Website Name','Position','Position 2','Current Roster Status','Recent Season','Rookie Status','Rookie Year','Career Prior Skater GP','Career Prior Goalie GP','Position Group']+production_fields),
    'roster':read('RosterStatusBySeason','Player Information',['Name','Season','Status','Total Games']),
    'schedule':read('AllTimeSchedule','Master Schedule',['Game #','Season','Game Type','Date']),
-   'skaterGames':read('SkaterStatsByGame','Player Game Logs',['Game #','Name','Season','GP','Game Type']+(['G','A','Pts','W Adj. G','W Adj. A'] if include_production else [])),
+   'skaterGames':read('SkaterStatsByGame','Player Game Logs',['Game #','Name','Season','GP','Game Type']+(['G','A','Pts','W Adj. G','W Adj. A','PIM','+/-','POTG','W Adj. PIM'] if include_production else [])),
    'goalieGames':read('GoalieStatsByGame','Player Game Logs',['Game #','Name','Season','GP','Game Type'])}
  result.update({'sourceWorkbookSha256':before,'readOnlyHashUnchanged':hashlib.sha256(Path(path).read_bytes()).hexdigest()==before,'publicationAuthorized':False})
  return result
