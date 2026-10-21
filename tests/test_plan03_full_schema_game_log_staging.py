@@ -4,7 +4,7 @@ import sys
 from pathlib import Path
 import unittest
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/"scripts"))
-from audit_plan03_full_schema_game_log_staging import manifest, SCHEMAS, ReviewHold, col_num, row_structure
+from audit_plan03_full_schema_game_log_staging import manifest, SCHEMAS, ReviewHold, col_num, row_structure, cell_source_text
 
 def fixtures():
  names=[14,15,13,12]
@@ -42,7 +42,7 @@ def fixtures():
   for col,label in labels.items():names[col_num(col)-cfg["colStart"]]=label
   headings[kind]=names
   templates[kind]={col:{"formula":False,"nonBlank":True} for col in labels}
- collisions={"skaters":[{"cell":"Y4674","kind":"preexisting_value","value":"360"}],"goalies":[]}
+ collisions={"skaters":[{"cell":"Y4674","kind":"whitespace_only_shared_string","value":" ","onDiskValue":"360","excelCellType":"s","statisticalInputVerified":False}],"goalies":[]}
  return feed,old,headings,templates,collisions
 
 class SourceSchemaAdmission(unittest.TestCase):
@@ -51,6 +51,11 @@ class SourceSchemaAdmission(unittest.TestCase):
   self.assertEqual(x["stagedRows"],{"skaters":40,"goalies":3})
   self.assertEqual(x["sourceCollisions"],1)
   self.assertEqual(x["tables"]["skaters"]["admissionCollisionCells"][0]["cell"],"Y4674")
+  self.assertEqual(x["tables"]["skaters"]["admissionCollisionCells"][0]["value"]," ")
+  self.assertEqual(x["tables"]["skaters"]["admissionCollisionCells"][0]["onDiskValue"],"360")
+  self.assertEqual(x["sourceMeaningfulDataCollisions"],0)
+  self.assertEqual(x["sourceWhitespaceOnlyCells"],1)
+  self.assertTrue(x["sourceCellStorageDecoded"])
   self.assertFalse(x["structuredTableResizeApproved"])
   self.assertFalse(x["originalWorkbookModified"])
   self.assertFalse(x["sourcePublicationAuthorized"])
@@ -93,5 +98,32 @@ class SourceSchemaAdmission(unittest.TestCase):
   feed["games"][1]["skaters"][0]["name"]=""
   with self.assertRaisesRegex(ReviewHold,"OFFICIAL_PLAYER_IDENTITY_AMBIGUOUS"):
    manifest(feed,old,head,template,c)
+
+
+class ExcelSharedStringDecoding(unittest.TestCase):
+ def test_shared_string_index_360_is_not_numeric_stat(self):
+  from xml.etree.ElementTree import fromstring
+  cell=fromstring('<c xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" r="Y4674" t="s"><v>360</v></c>')
+  lookup=["unused"]*361
+  lookup[360]=" "
+  kind,value,raw=cell_source_text(cell,lookup)
+  self.assertEqual((kind,value,raw),("whitespace_only_shared_string"," ","360"))
+ def test_nonempty_shared_string_retains_occupied_source_gate(self):
+  from xml.etree.ElementTree import fromstring
+  cell=fromstring('<c xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" r="Y4674" t="s"><v>7</v></c>')
+  lookup=[""]*8
+  lookup[7]="Historical note"
+  kind,value,_=cell_source_text(cell,lookup)
+  self.assertEqual((kind,value),("preexisting_shared_string","Historical note"))
+ def test_out_of_bounds_shared_string_reference_holds(self):
+  from xml.etree.ElementTree import fromstring
+  cell=fromstring('<c xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" r="Y4674" t="s"><v>360</v></c>')
+  with self.assertRaisesRegex(ReviewHold,"SHARED_STRING_INDEX_INVALID"):
+   cell_source_text(cell,["one"])
+ def test_inline_whitespace_is_not_a_numeric_source(self):
+  from xml.etree.ElementTree import fromstring
+  cell=fromstring('<c xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" r="Y4674" t="inlineStr"><is><t> </t></is></c>')
+  kind,value,_=cell_source_text(cell,[])
+  self.assertEqual((kind,value),("whitespace_only_inline_string"," "))
 
 if __name__=="__main__":unittest.main()
