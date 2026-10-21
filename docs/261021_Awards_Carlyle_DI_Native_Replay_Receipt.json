@@ -1,0 +1,1009 @@
+{
+  "runtime": {
+    "state": "REFERENCE_COPY_SAVED_REQUIRES_SOURCE_AND_COHORT_PARITY_REVIEW",
+    "copy": "D:\\BruTTech\\Products\\HockeyOS\\261019_Award_GameLog_Staging_v1\\Carlyle_DI_Calculation_Review_20261021_112727\\Review_Only_Calculation_Candidate.xlsx",
+    "baseline": "D:\\BruTTech\\Products\\HockeyOS\\261019_Award_GameLog_Staging_v1\\Carlyle_DI_Review_20261021_112351\\Review_Only_Metadata_Candidate.xlsx",
+    "source": "D:\\BruTTech\\Products\\HockeyOS\\Reference Implementations\\Brave H.C\\01 Team Records\\261001_Brave_HC_Master_Workbook.xlsx",
+    "currentScoresVerified": false,
+    "publicationAuthorized": false,
+    "recalculationPerformed": true,
+    "inputWrites": [
+      {
+        "field": "PIM",
+        "column": 28,
+        "method": "ADDITIVE_SEASON_REMAINDER",
+        "row": 4655,
+        "table": "SkaterStatsByGame",
+        "value": 0,
+        "name": "Ardizzi, Stefano",
+        "game": 359,
+        "previousValue": 0
+      },
+      {
+        "field": "PIM",
+        "column": 28,
+        "method": "ADDITIVE_SEASON_REMAINDER",
+        "row": 4656,
+        "table": "SkaterStatsByGame",
+        "value": 0,
+        "name": "Brutto, Adam",
+        "game": 359,
+        "previousValue": 0
+      },
+      {
+        "field": "PIM",
+        "column": 28,
+        "method": "ADDITIVE_SEASON_REMAINDER",
+        "row": 4657,
+        "table": "SkaterStatsByGame",
+        "value": 0,
+        "name": "Carosi, Justin",
+        "game": 359,
+        "previousValue": 0
+      },
+      {
+        "field": "PIM",
+        "column": 28,
+        "method": "ADDITIVE_SEASON_REMAINDER",
+        "row": 4658,
+        "table": "SkaterStatsByGame",
+        "value": 0,
+        "name": "Kong, Henry",
+        "game": 359,
+        "previousValue": 0
+      },
+      {
+        "field": "PIM",
+        "column": 28,
+        "method": "ADDITIVE_SEASON_REMAINDER",
+        "row": 4659,
+        "table": "SkaterStatsByGame",
+        "value": 0,
+        "name": "Pagnotta, Alex",
+        "game": 359,
+        "previousValue": 0
+      },
+      {
+        "field": "PIM",
+        "column": 28,
+        "method": "ADDITIVE_SEASON_REMAINDER",
+        "row": 4660,
+        "table": "SkaterStatsByGame",
+        "value": 0,
+        "name": "Paolucci, Anthony",
+        "game": 359,
+        "previousValue": 0
+      },
+      {
+        "field": "PIM",
+        "column": 28,
+        "method": "ADDITIVE_SEASON_REMAINDER",
+        "row": 4661,
+        "table": "SkaterStatsByGame",
+        "value": 0,
+        "name": "Pearsoll, Keith",
+        "game": 359,
+        "previousValue": 0
+      },
+      {
+        "field": "PIM",
+        "column": 28,
+        "method": "ADDITIVE_SEASON_REMAINDER",
+        "row": 4662,
+        "table": "SkaterStatsByGame",
+        "value": 0,
+        "name": "Povegliano, Adam",
+        "game": 359,
+        "previousValue": 0
+      },
+      {
+        "field": "PIM",
+        "column": 28,
+        "method": "ADDITIVE_SEASON_REMAINDER",
+        "row": 4663,
+        "table": "SkaterStatsByGame",
+        "value": 0,
+        "name": "Provenzano, Mario",
+        "game": 359,
+        "previousValue": 0
+      },
+      {
+        "field": "PIM",
+        "column": 28,
+        "method": "ADDITIVE_SEASON_REMAINDER",
+        "row": 4664,
+        "table": "SkaterStatsByGame",
+        "value": 0,
+        "name": "Provenzano, Michael",
+        "game": 359,
+        "previousValue": 0
+      },
+      {
+        "field": "PIM",
+        "column": 28,
+        "method": "ADDITIVE_SEASON_REMAINDER",
+        "row": 4665,
+        "table": "SkaterStatsByGame",
+        "value": 0,
+        "name": "Rajkumar, Sanjay",
+        "game": 359,
+        "previousValue": 0
+      },
+      {
+        "field": "PIM",
+        "column": 28,
+        "method": "ADDITIVE_SEASON_REMAINDER",
+        "row": 4666,
+        "table": "SkaterStatsByGame",
+        "value": 0,
+        "name": "Saindon, Stephane",
+        "game": 359,
+        "previousValue": 0
+      },
+      {
+        "field": "PIM",
+        "column": 28,
+        "method": "ADDITIVE_SEASON_REMAINDER",
+        "row": 4667,
+        "table": "SkaterStatsByGame",
+        "value": 0,
+        "name": "Triumbari, Francesco",
+        "game": 359,
+        "previousValue": 0
+      },
+      {
+        "field": "PIM",
+        "column": 28,
+        "method": "ADDITIVE_SEASON_REMAINDER",
+        "row": 4669,
+        "table": "SkaterStatsByGame",
+        "value": 0,
+        "name": "Atkins, Nolan",
+        "game": 360,
+        "previousValue": 0
+      },
+      {
+        "field": "PIM",
+        "column": 28,
+        "method": "ADDITIVE_SEASON_REMAINDER",
+        "row": 4670,
+        "table": "SkaterStatsByGame",
+        "value": 0,
+        "name": "Brutto, Adam",
+        "game": 360,
+        "previousValue": 0
+      },
+      {
+        "field": "PIM",
+        "column": 28,
+        "method": "ADDITIVE_SEASON_REMAINDER",
+        "row": 4671,
+        "table": "SkaterStatsByGame",
+        "value": 0,
+        "name": "Carosi, Justin",
+        "game": 360,
+        "previousValue": 0
+      },
+      {
+        "field": "PIM",
+        "column": 28,
+        "method": "ADDITIVE_SEASON_REMAINDER",
+        "row": 4672,
+        "table": "SkaterStatsByGame",
+        "value": 0,
+        "name": "Duffy, Lorcan",
+        "game": 360,
+        "previousValue": 0
+      },
+      {
+        "field": "PIM",
+        "column": 28,
+        "method": "ADDITIVE_SEASON_REMAINDER",
+        "row": 4673,
+        "table": "SkaterStatsByGame",
+        "value": 0,
+        "name": "Kober, Adam",
+        "game": 360,
+        "previousValue": 0
+      },
+      {
+        "field": "PIM",
+        "column": 28,
+        "method": "ADDITIVE_SEASON_REMAINDER",
+        "row": 4674,
+        "table": "SkaterStatsByGame",
+        "value": 0,
+        "name": "Kong, Henry",
+        "game": 360,
+        "previousValue": 0
+      },
+      {
+        "field": "PIM",
+        "column": 28,
+        "method": "ADDITIVE_SEASON_REMAINDER",
+        "row": 4675,
+        "table": "SkaterStatsByGame",
+        "value": 0,
+        "name": "Pagnotta, Alex",
+        "game": 360,
+        "previousValue": 0
+      },
+      {
+        "field": "PIM",
+        "column": 28,
+        "method": "ADDITIVE_SEASON_REMAINDER",
+        "row": 4676,
+        "table": "SkaterStatsByGame",
+        "value": 0,
+        "name": "Pearsoll, Keith",
+        "game": 360,
+        "previousValue": 0
+      },
+      {
+        "field": "PIM",
+        "column": 28,
+        "method": "ADDITIVE_SEASON_REMAINDER",
+        "row": 4677,
+        "table": "SkaterStatsByGame",
+        "value": 0,
+        "name": "Provenzano, Mario",
+        "game": 360,
+        "previousValue": 0
+      },
+      {
+        "field": "PIM",
+        "column": 28,
+        "method": "ADDITIVE_SEASON_REMAINDER",
+        "row": 4678,
+        "table": "SkaterStatsByGame",
+        "value": 0,
+        "name": "Provenzano, Michael",
+        "game": 360,
+        "previousValue": 0
+      },
+      {
+        "field": "PIM",
+        "column": 28,
+        "method": "ADDITIVE_SEASON_REMAINDER",
+        "row": 4679,
+        "table": "SkaterStatsByGame",
+        "value": 0,
+        "name": "Rajasooriar, Krishnan",
+        "game": 360,
+        "previousValue": 0
+      },
+      {
+        "field": "PIM",
+        "column": 28,
+        "method": "ADDITIVE_SEASON_REMAINDER",
+        "row": 4680,
+        "table": "SkaterStatsByGame",
+        "value": 0,
+        "name": "Rajkumar, Sanjay",
+        "game": 360,
+        "previousValue": 0
+      },
+      {
+        "field": "PIM",
+        "column": 28,
+        "method": "ADDITIVE_SEASON_REMAINDER",
+        "row": 4681,
+        "table": "SkaterStatsByGame",
+        "value": 0,
+        "name": "Rosenberg, Jamie",
+        "game": 360,
+        "previousValue": 0
+      },
+      {
+        "field": "PIM",
+        "column": 28,
+        "method": "ADDITIVE_SEASON_REMAINDER",
+        "row": 4682,
+        "table": "SkaterStatsByGame",
+        "value": 0,
+        "name": "Saindon, Stephane",
+        "game": 360,
+        "previousValue": 0
+      },
+      {
+        "field": "PIM",
+        "column": 28,
+        "method": "ADDITIVE_SEASON_REMAINDER",
+        "row": 4683,
+        "table": "SkaterStatsByGame",
+        "value": 0,
+        "name": "Triumbari, Francesco",
+        "game": 360,
+        "previousValue": 0
+      },
+      {
+        "field": "PIM",
+        "column": 28,
+        "method": "ADDITIVE_SEASON_REMAINDER",
+        "row": 4684,
+        "table": "SkaterStatsByGame",
+        "value": 0,
+        "name": "Atkins, Nolan",
+        "game": 361,
+        "previousValue": 0
+      },
+      {
+        "field": "PIM",
+        "column": 28,
+        "method": "ADDITIVE_SEASON_REMAINDER",
+        "row": 4685,
+        "table": "SkaterStatsByGame",
+        "value": 0,
+        "name": "Brutto, Adam",
+        "game": 361,
+        "previousValue": 0
+      },
+      {
+        "field": "PIM",
+        "column": 28,
+        "method": "ADDITIVE_SEASON_REMAINDER",
+        "row": 4686,
+        "table": "SkaterStatsByGame",
+        "value": 0,
+        "name": "Carosi, Justin",
+        "game": 361,
+        "previousValue": 0
+      },
+      {
+        "field": "PIM",
+        "column": 28,
+        "method": "ADDITIVE_SEASON_REMAINDER",
+        "row": 4687,
+        "table": "SkaterStatsByGame",
+        "value": 0,
+        "name": "Kober, Adam",
+        "game": 361,
+        "previousValue": 0
+      },
+      {
+        "field": "PIM",
+        "column": 28,
+        "method": "ADDITIVE_SEASON_REMAINDER",
+        "row": 4688,
+        "table": "SkaterStatsByGame",
+        "value": 0,
+        "name": "Kong, Henry",
+        "game": 361,
+        "previousValue": 0
+      },
+      {
+        "field": "PIM",
+        "column": 28,
+        "method": "ADDITIVE_SEASON_REMAINDER",
+        "row": 4689,
+        "table": "SkaterStatsByGame",
+        "value": 0,
+        "name": "Pagnotta, Alex",
+        "game": 361,
+        "previousValue": 0
+      },
+      {
+        "field": "PIM",
+        "column": 28,
+        "method": "ADDITIVE_SEASON_REMAINDER",
+        "row": 4690,
+        "table": "SkaterStatsByGame",
+        "value": 0,
+        "name": "Pavaday, Damian",
+        "game": 361,
+        "previousValue": 0
+      },
+      {
+        "field": "PIM",
+        "column": 28,
+        "method": "ADDITIVE_SEASON_REMAINDER",
+        "row": 4691,
+        "table": "SkaterStatsByGame",
+        "value": 0,
+        "name": "Povegliano, Adam",
+        "game": 361,
+        "previousValue": 0
+      },
+      {
+        "field": "PIM",
+        "column": 28,
+        "method": "ADDITIVE_SEASON_REMAINDER",
+        "row": 4692,
+        "table": "SkaterStatsByGame",
+        "value": 0,
+        "name": "Provenzano, Mario",
+        "game": 361,
+        "previousValue": 0
+      },
+      {
+        "field": "PIM",
+        "column": 28,
+        "method": "ADDITIVE_SEASON_REMAINDER",
+        "row": 4693,
+        "table": "SkaterStatsByGame",
+        "value": 0,
+        "name": "Provenzano, Michael",
+        "game": 361,
+        "previousValue": 0
+      },
+      {
+        "field": "PIM",
+        "column": 28,
+        "method": "ADDITIVE_SEASON_REMAINDER",
+        "row": 4694,
+        "table": "SkaterStatsByGame",
+        "value": 0,
+        "name": "Rajkumar, Sanjay",
+        "game": 361,
+        "previousValue": 0
+      },
+      {
+        "field": "PIM",
+        "column": 28,
+        "method": "ADDITIVE_SEASON_REMAINDER",
+        "row": 4695,
+        "table": "SkaterStatsByGame",
+        "value": 0,
+        "name": "Rosenberg, Jamie",
+        "game": 361,
+        "previousValue": 0
+      },
+      {
+        "field": "PIM",
+        "column": 28,
+        "method": "ADDITIVE_SEASON_REMAINDER",
+        "row": 4696,
+        "table": "SkaterStatsByGame",
+        "value": 0,
+        "name": "Triumbari, Francesco",
+        "game": 361,
+        "previousValue": 0
+      },
+      {
+        "field": "POTG",
+        "column": 209,
+        "method": "ADDITIVE_SEASON_REMAINDER",
+        "row": 366,
+        "table": "GoalieStatsByGame",
+        "value": 0,
+        "name": "Leong, Dev",
+        "game": 362,
+        "previousValue": 0
+      }
+    ],
+    "pivotRefreshes": [
+      {
+        "records": 4706,
+        "range": "$A$2:$AT$655",
+        "name": "PlayerStatsBySeason"
+      },
+      {
+        "records": 364,
+        "range": "$CN$2:$EA$79",
+        "name": "GoalieStatsBySeason"
+      }
+    ],
+    "scope": "Carlyle DI metadata recalculation; existing 42 zero observations reasserted; legacy cohort retained, not production acceptance",
+    "observedAt": "2026-10-21T11:39:05.2846492Z",
+    "openedFullName": "",
+    "openedName": "Review_Only_Calculation_Candidate.xlsx",
+    "openedPath": "D:\\BruTTech\\Products\\HockeyOS\\261019_Award_GameLog_Staging_v1\\Carlyle_DI_Calculation_Review_20261021_112727",
+    "openedReadOnly": false,
+    "verifiedRuntimePath": "D:\\BruTTech\\Products\\HockeyOS\\261019_Award_GameLog_Staging_v1\\Carlyle_DI_Calculation_Review_20261021_112727\\Review_Only_Calculation_Candidate.xlsx",
+    "runtimeIdentityMethod": "Path plus Name, collection member path, single workbook in isolated Excel instance and matching application Hwnd",
+    "fullNamePropertyAvailable": false,
+    "calculationState": 0,
+    "awardFormulaModeChecks": 146,
+    "awardErrorCount": 0,
+    "controls": {
+      "J2": 1,
+      "V2": "OFF",
+      "AH1": 46316,
+      "C1": "W2026/27"
+    },
+    "copySaved": true,
+    "sourceHashUnchanged": true,
+    "baselineHashUnchanged": true
+  },
+  "postcheck": {
+    "preservation": {
+      "cacheFieldDefinitionsPreserved": true,
+      "cellsChecked": 1956805,
+      "regeneratedPivotValueChanges": 0,
+      "plannedWritesChecked": 42,
+      "differenceCount": 0,
+      "examples": [],
+      "formulaCachesIntentionallyRecalculated": true,
+      "storedArrayDependentCachesIntentionallyRecalculated": true,
+      "styleComparison": "Resolved definitions, not style IDs"
+    },
+    "caches": [
+      {
+        "table": "SkaterStatsByGame",
+        "emptyStringSerializedAsMissingItems": 100342,
+        "additionalDerivedCacheFields": [
+          {
+            "name": "SHO %",
+            "formula": "IFERROR(SHOG/SHOA,0)",
+            "databaseField": "0"
+          },
+          {
+            "name": "SHOG/GP",
+            "formula": "SHOG/GP",
+            "databaseField": "0"
+          },
+          {
+            "name": "Adj. G/GP",
+            "formula": "#NAME?/GP",
+            "databaseField": "0"
+          },
+          {
+            "name": "Pts/GP",
+            "formula": "Pts/GP",
+            "databaseField": "0"
+          },
+          {
+            "name": "G/GP",
+            "formula": "G/GP",
+            "databaseField": "0"
+          },
+          {
+            "name": "A/GP",
+            "formula": "A/GP",
+            "databaseField": "0"
+          },
+          {
+            "name": "PPG/GP",
+            "formula": "PPG/GP",
+            "databaseField": "0"
+          },
+          {
+            "name": "SHG/GP",
+            "formula": "SHG/GP",
+            "databaseField": "0"
+          },
+          {
+            "name": "GWG/GP",
+            "formula": "GWG/GP",
+            "databaseField": "0"
+          },
+          {
+            "name": "GTG/GP",
+            "formula": "GTG/GP",
+            "databaseField": "0"
+          },
+          {
+            "name": "PIM/GP",
+            "formula": "PIM/GP",
+            "databaseField": "0"
+          },
+          {
+            "name": "HAT/GP",
+            "formula": "HAT/GP",
+            "databaseField": "0"
+          },
+          {
+            "name": "+/-/GP",
+            "formula": "'+/-'/GP",
+            "databaseField": "0"
+          },
+          {
+            "name": "POTG/GP",
+            "formula": "POTG/GP",
+            "databaseField": "0"
+          },
+          {
+            "name": "Adj. A/GP",
+            "formula": "#NAME?/GP",
+            "databaseField": "0"
+          },
+          {
+            "name": "Adj. Pts/GP",
+            "formula": "#NAME?/GP",
+            "databaseField": "0"
+          },
+          {
+            "name": "Adj. PPG/GP",
+            "formula": "#NAME?/GP",
+            "databaseField": "0"
+          },
+          {
+            "name": "Adj. SHG/GP",
+            "formula": "#NAME?/GP",
+            "databaseField": "0"
+          },
+          {
+            "name": "Adj. PIM/GP",
+            "formula": "#NAME?/GP",
+            "databaseField": "0"
+          },
+          {
+            "name": "Adj. +/-/GP",
+            "formula": "#NAME?/GP",
+            "databaseField": "0"
+          },
+          {
+            "name": "Adj. HAT/GP",
+            "formula": "#NAME?/GP",
+            "databaseField": "0"
+          },
+          {
+            "name": "Months (Date)",
+            "formula": null,
+            "databaseField": "0"
+          },
+          {
+            "name": "Quarters (Date)",
+            "formula": null,
+            "databaseField": "0"
+          },
+          {
+            "name": "Years (Date)",
+            "formula": null,
+            "databaseField": "0"
+          },
+          {
+            "name": "Field1",
+            "formula": "'Pts/GP'",
+            "databaseField": "0"
+          }
+        ],
+        "legacyErrorFormulaDefinitions": [
+          {
+            "name": "Adj. G/GP",
+            "formula": "#NAME?/GP",
+            "databaseField": "0"
+          },
+          {
+            "name": "Adj. A/GP",
+            "formula": "#NAME?/GP",
+            "databaseField": "0"
+          },
+          {
+            "name": "Adj. Pts/GP",
+            "formula": "#NAME?/GP",
+            "databaseField": "0"
+          },
+          {
+            "name": "Adj. PPG/GP",
+            "formula": "#NAME?/GP",
+            "databaseField": "0"
+          },
+          {
+            "name": "Adj. SHG/GP",
+            "formula": "#NAME?/GP",
+            "databaseField": "0"
+          },
+          {
+            "name": "Adj. PIM/GP",
+            "formula": "#NAME?/GP",
+            "databaseField": "0"
+          },
+          {
+            "name": "Adj. +/-/GP",
+            "formula": "#NAME?/GP",
+            "databaseField": "0"
+          },
+          {
+            "name": "Adj. HAT/GP",
+            "formula": "#NAME?/GP",
+            "databaseField": "0"
+          }
+        ],
+        "records": 4706,
+        "cellComparisons": 743548,
+        "differenceCount": 0,
+        "examples": []
+      },
+      {
+        "table": "GoalieStatsByGame",
+        "emptyStringSerializedAsMissingItems": 3690,
+        "additionalDerivedCacheFields": [
+          {
+            "name": "W/GP",
+            "formula": "W/GP",
+            "databaseField": "0"
+          },
+          {
+            "name": "Win %.",
+            "formula": " (W+(T/2))/GP",
+            "databaseField": "0"
+          },
+          {
+            "name": "L/GP",
+            "formula": "L/GP",
+            "databaseField": "0"
+          },
+          {
+            "name": "T/GP",
+            "formula": "T/GP",
+            "databaseField": "0"
+          },
+          {
+            "name": "GAA",
+            "formula": "GA/GP",
+            "databaseField": "0"
+          },
+          {
+            "name": "G/GP",
+            "formula": "G/GP",
+            "databaseField": "0"
+          },
+          {
+            "name": "A/GP",
+            "formula": "A/GP",
+            "databaseField": "0"
+          },
+          {
+            "name": "Pts/GP",
+            "formula": "Pts/GP",
+            "databaseField": "0"
+          },
+          {
+            "name": "PIM/GP",
+            "formula": "PIM/GP",
+            "databaseField": "0"
+          },
+          {
+            "name": "POTG/GP",
+            "formula": "POTG/GP",
+            "databaseField": "0"
+          },
+          {
+            "name": "Adj. SHO/GP",
+            "formula": "#NAME?/GP",
+            "databaseField": "0"
+          },
+          {
+            "name": "Adj. GAA",
+            "formula": "#NAME?/GP",
+            "databaseField": "0"
+          },
+          {
+            "name": "Adj. G/GP",
+            "formula": "#NAME?/GP",
+            "databaseField": "0"
+          },
+          {
+            "name": "Adj. A/GP",
+            "formula": "#NAME?/GP",
+            "databaseField": "0"
+          },
+          {
+            "name": "Adj. Pts/GP",
+            "formula": "#NAME?/GP",
+            "databaseField": "0"
+          },
+          {
+            "name": "Adj. PIM/GP",
+            "formula": "#NAME?/GP",
+            "databaseField": "0"
+          }
+        ],
+        "legacyErrorFormulaDefinitions": [
+          {
+            "name": "Adj. SHO/GP",
+            "formula": "#NAME?/GP",
+            "databaseField": "0"
+          },
+          {
+            "name": "Adj. GAA",
+            "formula": "#NAME?/GP",
+            "databaseField": "0"
+          },
+          {
+            "name": "Adj. G/GP",
+            "formula": "#NAME?/GP",
+            "databaseField": "0"
+          },
+          {
+            "name": "Adj. A/GP",
+            "formula": "#NAME?/GP",
+            "databaseField": "0"
+          },
+          {
+            "name": "Adj. Pts/GP",
+            "formula": "#NAME?/GP",
+            "databaseField": "0"
+          },
+          {
+            "name": "Adj. PIM/GP",
+            "formula": "#NAME?/GP",
+            "databaseField": "0"
+          }
+        ],
+        "records": 364,
+        "cellComparisons": 42224,
+        "differenceCount": 0,
+        "examples": []
+      }
+    ],
+    "outputs": {
+      "currentNamedParticipantsExpected": 22,
+      "currentParticipantsMissingFromAwardTable": [],
+      "currentNamedSkatersExpected": 19,
+      "currentSkatersInAwardTable": 19,
+      "playerInfoAndCountTitleMismatches": [],
+      "eligiblePopulationByCategory": {
+        "Hart Eligible": {
+          "names": [],
+          "otherSeasonNames": [],
+          "unknownIdentityNames": [],
+          "currentNamesOutsideAcceptedParticipants": []
+        },
+        "Conn Smythe Eligible": {
+          "names": [
+            "Congiusti, Marco",
+            "Svec, Matt"
+          ],
+          "otherSeasonNames": [
+            "Congiusti, Marco",
+            "Svec, Matt"
+          ],
+          "unknownIdentityNames": [],
+          "currentNamesOutsideAcceptedParticipants": []
+        },
+        "Norris Eligible": {
+          "names": [
+            "Congiusti, Marco"
+          ],
+          "otherSeasonNames": [
+            "Congiusti, Marco"
+          ],
+          "unknownIdentityNames": [],
+          "currentNamesOutsideAcceptedParticipants": []
+        },
+        "Art Ross Eligible": {
+          "names": [
+            "Ardizzi, Stefano",
+            "Atkins, Nolan",
+            "Brutto, Adam",
+            "Carosi, Justin",
+            "Congiusti, Marco",
+            "Duffy, Lorcan",
+            "Kober, Adam",
+            "Kong, Henry",
+            "Mazzei, Stefano",
+            "Pagnotta, Alex",
+            "Paolucci, Anthony",
+            "Pearsoll, Keith",
+            "Povegliano, Adam",
+            "Provenzano, Mario",
+            "Provenzano, Michael",
+            "Rajasooriar, Krishnan",
+            "Rosenberg, Jamie",
+            "Saindon, Stephane",
+            "Rajkumar, Sanjay",
+            "Triumbari, Francesco",
+            "Unknown, Johnny",
+            "Pavaday, Damian"
+          ],
+          "otherSeasonNames": [
+            "Congiusti, Marco",
+            "Mazzei, Stefano"
+          ],
+          "unknownIdentityNames": [],
+          "currentNamesOutsideAcceptedParticipants": [
+            "Unknown, Johnny"
+          ]
+        },
+        "Rocket Richard Eligible": {
+          "names": [
+            "Ardizzi, Stefano",
+            "Atkins, Nolan",
+            "Brutto, Adam",
+            "Carosi, Justin",
+            "Congiusti, Marco",
+            "Duffy, Lorcan",
+            "Kober, Adam",
+            "Kong, Henry",
+            "Mazzei, Stefano",
+            "Pagnotta, Alex",
+            "Paolucci, Anthony",
+            "Pearsoll, Keith",
+            "Povegliano, Adam",
+            "Provenzano, Mario",
+            "Provenzano, Michael",
+            "Rajasooriar, Krishnan",
+            "Rosenberg, Jamie",
+            "Saindon, Stephane",
+            "Rajkumar, Sanjay",
+            "Triumbari, Francesco",
+            "Unknown, Johnny",
+            "Pavaday, Damian"
+          ],
+          "otherSeasonNames": [
+            "Congiusti, Marco",
+            "Mazzei, Stefano"
+          ],
+          "unknownIdentityNames": [],
+          "currentNamesOutsideAcceptedParticipants": [
+            "Unknown, Johnny"
+          ]
+        },
+        "Rookie Eligible": {
+          "names": [
+            "Kong, Henry",
+            "Povegliano, Adam",
+            "Rosenberg, Jamie",
+            "Rajkumar, Sanjay",
+            "Triumbari, Francesco"
+          ],
+          "otherSeasonNames": [],
+          "unknownIdentityNames": [],
+          "currentNamesOutsideAcceptedParticipants": []
+        },
+        "Lady Byng Eligible": {
+          "names": [],
+          "otherSeasonNames": [],
+          "unknownIdentityNames": [],
+          "currentNamesOutsideAcceptedParticipants": []
+        },
+        "Most Improved Eligible": {
+          "names": [],
+          "otherSeasonNames": [],
+          "unknownIdentityNames": [],
+          "currentNamesOutsideAcceptedParticipants": []
+        },
+        "Rolaids Eligible": {
+          "names": [
+            "Mazzei, Stefano",
+            "Svec, Matt"
+          ],
+          "otherSeasonNames": [
+            "Mazzei, Stefano",
+            "Svec, Matt"
+          ],
+          "unknownIdentityNames": [],
+          "currentNamesOutsideAcceptedParticipants": []
+        },
+        "Dedication Eligible": {
+          "names": [],
+          "otherSeasonNames": [],
+          "unknownIdentityNames": [],
+          "currentNamesOutsideAcceptedParticipants": []
+        }
+      },
+      "damian": {
+        "playerInfoRosterStatus": "DI",
+        "presentInAwardTable": true,
+        "rookieEligible": 0
+      },
+      "awardCellErrors": [],
+      "controls": {
+        "J2": 1,
+        "V2": "OFF",
+        "AH1": 46316,
+        "C1": "W2026/27"
+      }
+    },
+    "copySha256": "bfcae41a39e3399ea01ac2b2fe9696da78dc5d57f47399e448a7beed44532c85",
+    "currentScoresVerified": false,
+    "publicationAuthorized": false,
+    "readOnlyHashUnchanged": true,
+    "protectedHashesUnchanged": true,
+    "state": "NATIVE_REFERENCE_RECONCILIATION_HOLD"
+  },
+  "currentAudit": {
+    "state": "CORRECTED_NATIVE_INPUT_AND_RELIABILITY_PARITY_PASS",
+    "checked": 106,
+    "differenceCount": 0,
+    "differences": [],
+    "carlyle": {
+      "rosterStatus": "DI",
+      "recentSeason": "W2026/27",
+      "role": "Goaltender",
+      "rookieEligible": 0
+    },
+    "all22CurrentParticipantsPresent": true,
+    "currentCompositeScoresVerified": false,
+    "publicationAuthorized": false,
+    "checkedComponents": [
+      "Current True Attd. % Internal Score",
+      "Total Skater Two-Way Reliability Internal Score",
+      "Total Discipline Reliability Internal Score",
+      "Total Skater Production Consistency Internal Score"
+    ],
+    "scope": "Corrected goalie historical inputs plus supplied raw reliability/consistency internals. Current display cohort and full composites not accepted."
+  }
+}
