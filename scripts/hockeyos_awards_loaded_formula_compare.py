@@ -74,6 +74,17 @@ def compare(capture,native):
 
 if __name__=="__main__":
     folder=Path(sys.argv[1])
+    if len(sys.argv)>2 and sys.argv[2]=="--templates":
+        checks=json.loads((folder/"source-template-checks.json").read_text(encoding="utf-8-sig"))
+        differences=[]
+        for check in checks:
+            fields=set(check["fields"])
+            if canonical(check["nativeFormula"],check["table"],fields)!=canonical("="+check["sourceFormula"],check["table"],fields) or check["nativeHasArray"]!=check["expectedHasArray"]:
+                differences.append(check["field"])
+        result={"checked":len(checks),"differences":differences,"publicationAuthorized":False}
+        (folder/"source-template-comparison.json").write_text(json.dumps(result,indent=2),encoding="utf-8")
+        print(json.dumps(result),flush=True)
+        raise SystemExit(1 if differences else 0)
     capture=json.loads((folder/"261020_Awards_Original_Formula_Capture.json").read_text(encoding="utf-8-sig"))
     native=json.loads((folder/"loaded-native-formulas.json").read_text(encoding="utf-8-sig"))
     result=compare(capture,native)
