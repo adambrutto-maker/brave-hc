@@ -48,6 +48,25 @@ class SourceOnlyExcelReadback(unittest.TestCase):
   self.assertEqual(result["sourceStagedCells"],129)
   self.assertEqual(result["withheldUnknownFields"],29)
   self.assertFalse(result["publicReleaseApproved"])
+ def test_recovered_saved_candidate_can_be_checked_without_false_clean_shutdown(self):
+  a,b,c,d=fixture()
+  d["schema"]="brave-hc-private-source-only-disposable-import-recovery/v1"
+  d["status"]="SAVED_CANDIDATE_APP_CLEANUP_INTERRUPTED"
+  d["sourceAppCleanShutdownVerified"]=False
+  d["isolatedWorkersCleanedUp"]=True
+  d["originalSourceHashChecked"]=True
+  result=compare(a,b,c,d)
+  self.assertTrue(result["recoveredFromMissingAppReceipt"])
+  self.assertFalse(result["applicationCleanShutdownVerified"])
+  self.assertFalse(result["publicReleaseApproved"])
+ def test_unverified_recovery_worker_cleanup_is_not_accepted(self):
+  a,b,c,d=fixture()
+  d.update(schema="brave-hc-private-source-only-disposable-import-recovery/v1",
+      status="SAVED_CANDIDATE_APP_CLEANUP_INTERRUPTED",
+      sourceAppCleanShutdownVerified=False,isolatedWorkersCleanedUp=False,
+      originalSourceHashChecked=True)
+  with self.assertRaisesRegex(ImportHold,"SOURCE_IMPORT_RECEIPT_INVALID"):
+   compare(a,b,c,d)
  def test_formulas_must_remain_identical(self):
   a,b,c,d=fixture()
   a["appended"]["skaters"]["B4669"]={"formula":"=VLOOKUP(A4669,Range,1)","value":None}
