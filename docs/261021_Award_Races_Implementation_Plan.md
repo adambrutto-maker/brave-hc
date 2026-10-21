@@ -1,9 +1,9 @@
 # Brave H.C. Award Races
-## Consolidated Implementation Plan | Version 1.1
+## Consolidated Implementation Plan | Version 1.2
 
 **Updated:** October 21, 2026 (America/Toronto)
 **Sponsor:** Adam Brutto | **Delivery lead:** Engineering / Jacob AI role
-**Current position:** Season PivotTables have been refreshed and Damian's confirmed drop-in identity has been added in a protected review copy. Source reconciliation and downstream scoring validation remain open.
+**Current position:** All 42 explicitly missing fixture observations are resolved by documented additive constraints. Schedule season, phase and attendance cutoff are traced. The native copy passed preservation and full source-cache checks. Both count-title calculations match all 19 current skaters exactly. Missing Carlyle metadata and legacy mixed-season populations remain open.
 
 ### Purpose and authority
 Deliver a reliable Award Races widget that follows the original award methodology, explains its ratings clearly, and refreshes from accepted HockeyOS statistics without repeated manual reconstruction.
@@ -14,14 +14,14 @@ This is the detailed Award Races subplan under the existing Brave H.C. HockeyOS 
 - The review branch contains eleven category views, component cards, source-readiness controls and weekly-history handling. These are existing assets to reuse.
 - Original AwardScoring formulas are captured: 146 columns, including 132 stored array-formula columns. Composition mapping covers eight composite models and two count titles; Hall of Fame requires its own career-rule validation.
 - A disposable native Excel replay updated 14 matched rows and added 43 appearances. All 565 nonmissing input writes and untouched historical raw inputs passed saved-file checks. The 146 scoring formulas retained their modes; Excel reported no award-cell errors.
-- The initial replay exposed stale season PivotTable caches. Explicit native refresh recovered all 40 added skater and three added goalie appearances and season outputs of 6 goals, 10 assists and 16 points. Downstream formulas still require recalculation; never overwrite PivotTable output cells.
-- Adam confirmed Damian Pavaday is DI. A new review copy now contains his PlayerInfo and W2026/27 roster rows. Eight inputs and 1,955,411 existing cells passed preservation checks. Current DI status excludes him from the FT-only Rookie race without guessing a first FT year. The 41 missing skater PIM and one missing goalie POTG observation remain explicit; Master Schedule result context remains unresolved.
-- The latest local validation passed 85 JavaScript tests; the expanded Python suite now passes 17 tests. Existing historical final-score parity covers only four models and 20 saved eligible finals; it is not complete current scoring validation.
+- The initial replay exposed stale season PivotTable caches. Explicit native refresh recovered all 40 added skater and three added goalie appearances and season outputs of 6 goals, 10 assists and 16 points. Never overwrite PivotTable output cells. The completed reference refreshed both caches, rebuilt all downstream formulas and saved with no award-cell errors.
+- Adam confirmed Damian Pavaday is DI. A new review copy now contains his PlayerInfo and W2026/27 roster rows. Eight inputs and 1,955,411 existing cells passed preservation checks. Current DI status excludes him from the FT-only Rookie race without guessing a first FT year. The original 41 missing skater PIM and one missing goalie POTG observations remain null in the source fixture. A separate derived fixture resolves each to zero using matching season totals, complete appearance coverage and nonnegative additive counts; all 42 equations and their provenance are retained.
+- The latest local validation passed 85 JavaScript tests; the expanded Python suite now passes 50 tests. Existing historical final-score parity covers only four models and 20 saved eligible finals; it is not complete current scoring validation.
 
 ### Critical path
 Reconcile all source inputs -> repair the disposable reference -> prove complete native results -> implement matching production calculations -> verify category displays -> release the reviewed candidate -> demonstrate repeatable refresh.
 
-**Immediate next task: AW-02.** Produce the unified source-to-input map, including season tables, player metadata, schedule context and historical baselines, before another expensive full rebuild.
+**Immediate next task: AW-03 / AW-02.** Complete Carlyle's missing master identity and map current-season population rules through eligibility and upstream normalization. AW-08 count arithmetic is implemented; integration and composite parity remain open.
 
 <!-- PAGE -->
 # 1. One data contract and one calculation path
@@ -63,45 +63,45 @@ Keep one task register, issue list, evidence index and next action. Link the rev
 **Acceptance:** This plan has stable IDs, scope boundaries, owners, checkpoints, rollout and refresh criteria. PDF and repository text match at issue time.
 
 ### AW-02 | Map every required source input
-**Owner:** Jacob / Engineering | **Status:** In progress - season PivotTable dependency verified | **Dependency:** AW-01
+**Owner:** Jacob / Engineering | **Status:** In progress - season PivotTables and schedule controls traced; ordinary/historical coverage open | **Dependency:** AW-01
 Inventory the original season tables and raw columns; distinguish formulas from editable inputs. Map verified HTO game/season fields to those tables, PlayerInfo, roster denominators, schedule context and historical baselines. Include references outside structured tables and any named ranges. Classify each required field as available, derived by an original formula, missing or disputed.
 **Acceptance:** Every calculation dependency has a source, transformation, season/cutoff and missing-value rule. No unmapped required input is silently treated as zero.
 
 ### AW-03 | Reconcile identities and player metadata
-**Owner:** Jacob | **Status:** In progress - Damian current identity and DI rows verified in review copy; downstream outputs pending | **Dependency:** AW-02 for the final mapped contract
-Resolve Damian Pavaday's missing master entry using authoritative roster and career evidence. Verify role, position, roster status and rookie metadata separately; do not infer them from a single appearance. Preserve the exclusion of Marco Congiusti's erroneous September 27 entry and keep Unknown Johnny distinct. Retain historical records and explicit goalie aliases.
+**Owner:** Jacob | **Status:** Damian downstream join and DI Rookie exclusion verified; Carlyle missing master entry identified | **Dependency:** AW-02 for the final mapped contract
+Damian's master entry and current DI status are resolved. Add verified Adam Carlyle identity and goalie role in a new review candidate; keep unavailable roster and career facts explicit. Verify role, position, roster status and rookie metadata separately; do not infer them from a single appearance. Preserve the exclusion of Marco Congiusti's erroneous September 27 entry and keep Unknown Johnny distinct. Retain historical records and explicit goalie aliases.
 **Acceptance:** All current named participants join exactly once, or have a documented field-level exception. Any unresolved metadata holds the affected outputs, without dropping the player from participation reporting.
 
 ### AW-04 | Reconcile game, season and schedule inputs
-**Owner:** Jacob | **Status:** Ready for mapping; import pending | **Dependency:** AW-02
+**Owner:** Jacob | **Status:** Fixture counts reconciled; schedule selector/phase/date denominator traced; result blanks recorded | **Dependency:** AW-02
 Prepare a reviewable input package containing both game observations and season totals, with result/phase context. Compare per-player and team totals, appearances and goalie totals at one cutoff. Recheck the latest source before use; the four-game baseline is a dated fixture, not a permanent expected count.
 **Acceptance:** For the retained fixture, 19 skaters and three goalies reconcile to 53 skater and four goalie appearances, 6 G, 10 A, 16 Pts and 19 GA. Other revisions reconcile to their own accepted snapshot. Every proposed copy write has a target and before/after value.
 
 ### AW-05 | Resolve missing observations by impact
-**Owner:** Jacob; Adam only for genuinely unavailable facts or policy choices | **Status:** Open | **Dependency:** AW-02
-Retrieve the 41 missing PIM and one missing POTG observation from appropriate evidence where possible. Distinguish unrecorded from actual zero. Map each unresolved field to affected models and state whether partial release is possible.
+**Owner:** Jacob; Adam only for genuinely unavailable facts or policy choices | **Status:** All 42 explicit fixture gaps resolved; broader category impact coverage remains open | **Dependency:** AW-02
+Retain the pinned raw fixture unchanged. Its 41 unknown skater PIM and one unknown goalie POTG are now resolved in a derived fixture by exact season-remainder equations. Complete coverage and nonnegative counts force every residual to zero. These are derived observations, not direct game-source observations. Check other absent model inputs separately; this does not prove all model dependencies complete.
 **Acceptance:** Each gap has verified data or a recorded disposition. No unsupported zero-fill or fabricated POTG. The category dependency matrix states exactly which ratings remain unavailable and why.
 
 <!-- PAGE -->
 # 3. Task register: reference and production scoring
 
 ### AW-06 | Build the complete native reference candidate
-**Owner:** Jacob | **Status:** In progress - refreshed pivot baseline plus verified metadata copy; complete input context pending | **Dependencies:** AW-02 to AW-05 as applicable
+**Owner:** Jacob | **Status:** Native replay saved; 1,956,108 existing cells and 785,772 cache comparisons pass; cohort completeness still open | **Dependencies:** AW-02 to AW-05 as applicable
 Reuse the proven disposable-copy method. Apply verified player/schedule context to an identified candidate, calculate game-level helpers, explicitly refresh the two season PivotTables/caches, verify per-player totals, and then recalculate downstream formulas. Do not manually replace PivotTable output cells. Preserve all unrelated history and original formula modes. Carry forward the documented treatment of the three overridden goalie helper cells only where the reviewed copy requires it. No write to the original source workbook is assumed.
 **Acceptance:** Every intended write is verified; untouched inputs and displaced content are preserved; original hash is unchanged; missing inputs remain explicit. The entire mapped input package is applied before full recalculation.
 
 ### AW-07 | Export and reconcile native calculation results
-**Owner:** Jacob; Randy independently checks | **Status:** Blocked | **Dependency:** AW-06
+**Owner:** Jacob; Randy independently checks | **Status:** Partial pass - 19 skater totals and count titles exact; missing goalie and mixed-season populations held | **Dependency:** AW-06
 Run full native Excel recalculation and export PlayerInfo inputs/helpers, AwardScoring components, eligibility, raw composites, final scores, rank keys and Web Races output. Investigate errors and stale/mixed-season values. Compare season totals back to accepted observations, not just to the values written into the copy.
 **Acceptance:** Complete player coverage and source-count parity; no unexplained Excel errors; correct regular/playoff context; every released category has a complete dependency chain. Save reference fixtures, source/model hashes and runtime receipts.
 
 ### AW-08 | Implement the production calculator
-**Owner:** Jacob; Conky supports architecture | **Status:** Planned | **Dependency:** AW-07 fixtures
+**Owner:** Jacob; Conky supports architecture | **Status:** Count-title arithmetic implemented with exact 19-player parity; composite implementation and integration open | **Dependency:** AW-07 fixtures
 Extend the existing HockeyOS calculation path with deterministic, versioned implementations of the captured award rules. Reuse composition inventories and contracts. Preserve rank normalization versus component min/max normalization, tie rules, signed improvement terms, role branches, blanks, rounding, historical baselines and sample thresholds. Avoid a daily dependency on manually opening Excel.
 **Acceptance:** Given the same accepted inputs, the calculator reproduces the native intermediate values and final outputs for every implemented category. Existing code is reused where correct; no second ad hoc methodology is introduced.
 
 ### AW-09 | Prove parity and edge cases
-**Owner:** Randy / independent QA role | **Status:** Planned | **Dependencies:** AW-07, AW-08
+**Owner:** Randy / independent QA role | **Status:** Count scores and rank keys pass 76 exact comparisons; all-category and integration coverage open | **Dependencies:** AW-07, AW-08
 Compare all eight composite models and both count titles; validate Hall of Fame separately. Exercise skater, goalie and utility branches; rookie and call-up metadata; threshold boundaries; zero/one/tied candidates; no playoffs; summer/winter context; missing observations; source corrections and removed erroneous appearances.
 **Acceptance:** Counts, identities, eligibility, displayed rounded scores and ordering match exactly. Any tolerance for unrounded numeric intermediates is specified before comparison and cannot change ranking or display. Four-model historical parity alone is insufficient.
 
@@ -195,28 +195,31 @@ These are AI work assignments, not human signatures or completed reviews. Indepe
 <!-- PAGE -->
 # 7. Evidence and next work package
 
-### Next work package: AW-02
-Read the captured table definitions and the separate Player Stats structures. Produce the unified field map and a proposed copy-only write ledger for the accepted current snapshot. Identify the exact fields needed for Damian, schedule/result context, roster denominators and prior-career inputs. Register the 42 missing observations by affected award. Then continue AW-03/AW-04 source reconciliation; resolve the remaining ordinary-cell/historical dependencies and schedule context, then perform the next downstream calculation against the now-refreshed, metadata-corrected candidate. Preserve all field-level missing-data holds.
+### Next work package: AW-03 / AW-02
+Complete Adam Carlyle's master identity using verified name and goalie role. Do not invent roster status, birth date or first FT year. Trace the current-season selection through award eligibility and upstream field normalization; a final display filter alone cannot validate a composite calculated against the wrong population. Keep Unknown Johnny's historical source row while excluding that unresolved identity from current publication. Preserve the captured methodology and document any context correction separately. Then implement remaining production models against accepted reference cohorts and integrate the count calculator.
 
 ### Evidence index
 - Review implementation: https://github.com/adambrutto-maker/brave-hc/pull/8
 - Branch: feat/hockeyos-award-cards-weekly-movement-20261019
 - docs/261020_Awards_Original_Formula_Capture.json - captured source formula inventory.
-- docs/261021_Awards_Native_Disposable_Replay_Receipt.json - completed native execution and saved-file preservation checks.
-- docs/261021_Awards_Native_Upstream_Parity_Review.json - independent-season-input mismatch and missing master identity.
-- docs/261021_Awards_Native_Replay_Findings.md - precise replay scope and limitations.
-- Brave_HC_Master_Workplan.xlsx, current saved version 4 / internal version 1.3 - parent planning record, September 25 baseline. Its old task statuses are not treated as current October completion evidence.
-- Brave_HC_Awards_Methodology_Audit.md - earlier methodology reference. Newer captured formulas and native evidence control where the dated audit differs.
+- Brave_HC_Master_Workplan.xlsx - parent plan, saved v4 / internal v1.3; September 25 statuses are historical.
+- Brave_HC_Awards_Methodology_Audit.md - historical reference; newer captured formulas control.
 
-**Current session record - October 21, 2026 Toronto:** AW-02 now has a repeatable structured-reference dependency inventory for ten award models with no unsupported structured references in that traversal. Ordinary/non-table precedents remain outside its coverage. AW-03/AW-06 added Damian's verified identity and user-confirmed DI status to PlayerInfo row 115 and roster row 496 of a new native review copy. No first FT year or biography was invented. All 146 scoring formula modes survived; saved XML comparison passed 1,955,411 pre-existing cells, eight writes and both new table extents. Native Excel's empty FullName property is handled by corroborated Path/Name, workbook membership and isolated application identity. No downstream recalculation or ratings release occurred.
+**Session record - October 21, 2026 Toronto:** The native rebuild saved with 146 scoring formula modes intact, zero award-cell errors, all 42 planned writes verified and no unintended changes across 1,956,108 existing cells. Both caches match all 785,772 source values; empty strings serialized as missing items are separately recorded. All 19 skater totals and count-title values reconcile. The new count calculator matches 76 native values exactly. Carlyle is absent from PlayerInfo; prior-season players and Unknown Johnny contaminate legacy award populations. No live release occurred.
 
 ### Retained implementation evidence
 - docs/261021_Awards_Season_Pivot_Dependency.md - season controls, 30 ordinary column ranges and refresh ordering.
-- docs/261021_Awards_Season_Pivot_Audit_Receipt.json - stale-cache diagnostic; no filters hiding players.
-- docs/261021_Awards_Pivot_Refresh_Diagnostic.json - saved refreshed cache coverage and recovered season totals.
 - scripts/hockeyos_awards_source_count_reconcile.py - retained 22-player / 57-appearance reconciliation with missing-data checks.
 - docs/261021_Awards_Metadata_Dependency_Review.json - structured dependencies and original master/history search.
-- docs/261021_Awards_Damian_Master_Candidate.json - verified inputs, explicit confirmation and unresolved metadata policy.
 - docs/261021_Awards_Damian_Metadata_Copy_Receipt.json - current metadata copy and complete existing-cell preservation result.
 
-**Next task:** Finish AW-02 ordinary/historical/schedule context and category missing-data impacts; then execute AW-07 downstream recalculation. Damian's current drop-in status is resolved and must not be repeatedly raised as an unanswered question. AW-03 overall and C1 remain open until joined downstream inputs are reconciled. The original workbook and all prior baselines remain unchanged.
+- docs/261021_Awards_Schedule_Context_Review.json - exact schedule formulas, selected context and unresolved result-input distinctions.
+- docs/261021_Awards_Observation_Remainder_Receipt.json - 42 additive equations, coverage and provenance.
+- docs/261021_Awards_Resolved_Game_Input_Candidate.json - versioned derived fixture; original source nulls retained separately.
+
+- docs/261021_Awards_Downstream_Native_Runtime.json - completed native rebuild and unchanged protected hashes.
+- docs/261021_Awards_Downstream_Native_Postcheck.json - preservation/cache passes and measured population holds.
+- docs/261021_Awards_Current_Count_Reference.json - nineteen accepted current skaters, native counts and tie keys.
+- docs/261021_Awards_Current_Count_Calculator_Parity.json - 76 exact native comparisons with deterministic count arithmetic.
+
+**Next task:** Complete the Carlyle join and current-season population contract, including upstream normalization; then resume full model parity and integration. AW-02, AW-03 and C1 remain open. Native execution and individual count parity do not imply release acceptance. The original workbook and live widget remain unchanged.
