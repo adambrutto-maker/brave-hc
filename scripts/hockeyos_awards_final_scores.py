@@ -1,4 +1,5 @@
 """Eight captured final-score rules. Caller must validate eligibility and inputs.
+Dedication uses whole numbers per Adam’s correction; legacy mode is audit only.
 
 This module does not authorize publication or accept upstream current inputs.
 """
@@ -21,7 +22,7 @@ def numeric(value):
  if isinstance(value,bool) or not isinstance(value,(float,int)) or not math.isfinite(value):
   raise ValueError('Missing or invalid eligible numeric input')
  return value
-def calculate(model,rows,capture):
+def calculate(model,rows,capture,*,legacy_reference=False):
  """Full-cohort calculation; missing eligible inputs hold instead of becoming zero."""
  if hashlib.sha256(Path(capture).read_bytes()).hexdigest()!=CAPTURE:raise ValueError('Formula capture changed')
  if model not in MODELS:raise ValueError('Unknown model')
@@ -49,7 +50,7 @@ def calculate(model,rows,capture):
     score=75 if kind!='gap' and len(eligible)<=1 else max(50,min(rounded(100-(high-value)),100-sum(q[rank]>row[rank] for q in eligible)))
    elif kind in ('rookie','range'):
     score=75 if kind=='rookie' and len(eligible)<=1 else 100 if value==high else min(99,max(50,rounded(50+(value-low)/(high-low)*50)))
-   elif kind=='dedication':score=100 if high==low else rounded(min(100,max(50,50+(value-low)/(high-low)*50)),1)
+   elif kind=='dedication':score=100 if high==low else rounded(min(100,max(50,50+(value-low)/(high-low)*50)),1 if legacy_reference else 0)
    else:
     if value>0:
      positive=[r for r in eligible if r[raw]>0]
@@ -59,6 +60,7 @@ def calculate(model,rows,capture):
    numeric(score)
   results.append({'name':row['Name'],'score':score})
  return {'model':model,'state':'FINAL_ARITHMETIC_CANDIDATE','results':results,
+         'dedicationRounding':'legacy-one-decimal-audit-only' if legacy_reference else 'approved-whole-number',
          'eligibilityVerified':False,'currentCompositeScoresVerified':False,'publicationAuthorized':False}
 def legacy_parity(capture):
  source=json.loads(Path(capture).read_text())
@@ -72,7 +74,7 @@ def legacy_parity(capture):
  rows=[r for r in rows if r['Name']]
  comparisons=[]
  for model,(_,score_prefix,_) in MODELS.items():
-  result=calculate(model,rows,capture)
+  result=calculate(model,rows,capture,legacy_reference=True)
   for row,out in zip(rows,result['results']):
    expected=row[score_prefix+' Award Score']
    comparisons.append({'model':model,'name':row['Name'],'calculated':out['score'],'native':expected,'matches':out['score']==expected})
