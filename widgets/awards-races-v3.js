@@ -602,7 +602,7 @@ function renderRaceActivity(){
     ||!Array.isArray(src.players))return;
  let rows=src.players.filter(p=>typeof p.name==="string"&&Number.isInteger(p.gp)&&p.gp>=1&&p.gp<=d.currentTeamGP);
  const hints={
-  rolaids:"Call-ups and drop-ins who appeared this season. The bar tracks progress toward the five-game minimum only—not award ranking or eligibility. Relief-goalie classification remains unverified.",
+  rolaids:"Call-ups and drop-ins who appeared this season. The bar tracks the six-game skater base minimum. The workbook also requires 25% of roster-season games, rounded up; that denominator remains unverified. Relief-goalie classification remains unverified.",
   norris:"Players listed by HTO with a defence position. A dual position does not establish Norris eligibility.",
   "art-ross":"Skaters with a verified regular-season appearance. Points shown are actual, not award ratings.",
   rocket:"Skaters with a verified regular-season appearance. Goals shown are actual, not award ratings.",
@@ -646,21 +646,21 @@ function renderRaceActivity(){
    }
    el(entry,"div","race-activity-sub",p.role+" · "+(p.htoListedPosition||"Position unverified"));
    if(id==="rolaids"){
-    const threshold=5,progress=el(entry,"div","rolaids-gp-track");
+    const threshold=6,progress=el(entry,"div","rolaids-gp-track");
     const label=el(progress,"div","rolaids-gp-label");
-    el(label,"span",null,"Games-played minimum");
+    el(label,"span",null,"Base games-played minimum");
     el(label,"strong",null,Math.min(p.gp,threshold)+" / "+threshold+" GP");
     const bar=el(progress,"div","rolaids-gp-bar");
     bar.setAttribute("role","progressbar");
-    bar.setAttribute("aria-label",p.name+" games toward the five-game Rolaids minimum");
+    bar.setAttribute("aria-label",p.name+" games toward the six-game Rolaids skater base minimum");
     bar.setAttribute("aria-valuemin","0");
     bar.setAttribute("aria-valuemax",String(threshold));
     bar.setAttribute("aria-valuenow",String(Math.min(p.gp,threshold)));
     const fill=el(bar,"span","rolaids-gp-fill"+(p.gp>=threshold?" complete":""));
     fill.style.width=Math.min(100,100*p.gp/threshold)+"%";
     el(progress,"div","rolaids-gp-foot",p.gp>=threshold
-       ?"GP minimum reached · other eligibility and scores still require verification"
-       :(threshold-p.gp)+" more "+(threshold-p.gp===1?"game":"games")+" to reach the GP minimum");
+       ?"Base minimum reached · roster-percentage requirement and eligibility still unverified"
+       :(threshold-p.gp)+" more "+(threshold-p.gp===1?"game":"games")+" to reach the base minimum");
    }
   }else{
    const h=p.officialHTOStats||{};
