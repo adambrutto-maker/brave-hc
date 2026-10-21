@@ -127,7 +127,7 @@ def preservation(receipt):
    if value(cells.get(a),cs)!=want:raise ValueError('Planned write missing '+a)
  return {'cellsChecked':checks,'regeneratedPivotValueChanges':pivot_changes,'plannedWritesChecked':len(planned),'differenceCount':difference_count,'examples':errors,'formulaCachesIntentionallyRecalculated':True,'storedArrayDependentCachesIntentionallyRecalculated':True,'styleComparison':'Resolved definitions, not style IDs'}
 def output_review(data,candidate):
- expected={}
+ expected={};participants={entry['inputs']['Name'] for entry in candidate['rows']}
  for entry in candidate['rows']:
   if entry['targetTable']!='SkaterStatsByGame':continue
   row=entry['inputs'];t=expected.setdefault(row['Name'],{'GP':0,'G':0,'A':0,'Pts':0})
@@ -141,13 +141,13 @@ def output_review(data,candidate):
  current=set(expected);awards={r['Name']:r for r in data['awardRows'] if r.get('Name')};eligible={}
  for field in [k for k in data['awardRows'][0] if k.endswith(' Eligible')]:
   names=[r['Name'] for r in data['awardRows'] if r.get(field)==1]
-  eligible[field]={'names':names,'otherSeasonNames':[n for n in names if n in pi and pi[n].get('Recent Season')!=data['controls']['C1']],'unknownIdentityNames':[n for n in names if n not in pi]}
+  eligible[field]={'names':names,'otherSeasonNames':[n for n in names if n in pi and pi[n].get('Recent Season')!=data['controls']['C1']],'unknownIdentityNames':[n for n in names if n not in pi],'currentNamesOutsideAcceptedParticipants':[n for n in names if n in pi and pi[n].get('Recent Season')==data['controls']['C1'] and n not in participants]}
  for name,totals in expected.items():
   if name not in awards:mismatches.append({'name':name,'reason':'AWARD_TABLE_OMITS_CURRENT_SKATER'});continue
   for field,src in [('Art Ross Award Score','Pts'),('Rocket Richard Award Score','G')]:
    if awards[name].get(field)!=totals[src]:mismatches.append({'name':name,'field':field,'expected':totals[src],'native':awards[name].get(field)})
  damian=awards.get('Pavaday, Damian',{})
- return {'currentNamedSkatersExpected':len(expected),'currentSkatersInAwardTable':len(current & set(awards)),'playerInfoAndCountTitleMismatches':mismatches,'eligiblePopulationByCategory':eligible,'damian':{'playerInfoRosterStatus':pi.get('Pavaday, Damian',{}).get('Current Roster Status'),'presentInAwardTable':bool(damian),'rookieEligible':damian.get('Rookie Eligible')},'awardCellErrors':data['awardErrors'],'controls':data['controls']}
+ return {'currentNamedParticipantsExpected':len(participants),'currentParticipantsMissingFromAwardTable':sorted(participants-set(awards)),'currentNamedSkatersExpected':len(expected),'currentSkatersInAwardTable':len(current & set(awards)),'playerInfoAndCountTitleMismatches':mismatches,'eligiblePopulationByCategory':eligible,'damian':{'playerInfoRosterStatus':pi.get('Pavaday, Damian',{}).get('Current Roster Status'),'presentInAwardTable':bool(damian),'rookieEligible':damian.get('Rookie Eligible')},'awardCellErrors':data['awardErrors'],'controls':data['controls']}
 def main(folder,candidate_path):
  folder=Path(folder);receipt=json.loads((folder/'calculation-runtime.json').read_text(encoding='utf-8-sig'))
  if receipt['state']!='REFERENCE_COPY_SAVED_REQUIRES_SOURCE_AND_COHORT_PARITY_REVIEW' or not receipt.get('copySaved') or not receipt.get('sourceHashUnchanged') or not receipt.get('baselineHashUnchanged'):raise ValueError('Completed reference required')
@@ -156,6 +156,6 @@ def main(folder,candidate_path):
  out={'preservation':preservation(receipt),'caches':cache_review(receipt['copy']),'outputs':output_review(data,candidate),'copySha256':before,'currentScoresVerified':False,'publicationAuthorized':False}
  out['readOnlyHashUnchanged']=hashlib.sha256(Path(receipt['copy']).read_bytes()).hexdigest()==before
  out['protectedHashesUnchanged']=all(hashlib.sha256(Path(receipt[k]).read_bytes()).hexdigest()==v for k,v in {'source':'0002fd9f06596af8d0a00fc1b53a618ef15479f941ad5c1e6265b27002a65154','baseline':'12e90e974176bf49860c45d1becb375b76e21efc1fa9319fc5e0ae104addc994'}.items())
- out['state']='NATIVE_REFERENCE_CHECKS_PASS_NOT_PRODUCTION_ACCEPTANCE' if out['preservation']['differenceCount']==0 and all(c['differenceCount']==0 for c in out['caches']) and not out['outputs']['playerInfoAndCountTitleMismatches'] and not any(c['otherSeasonNames'] or c['unknownIdentityNames'] for c in out['outputs']['eligiblePopulationByCategory'].values()) and not out['outputs']['awardCellErrors'] and out['outputs']['damian']['presentInAwardTable'] and out['outputs']['damian']['playerInfoRosterStatus']=='DI' and out['outputs']['damian']['rookieEligible']==0 and out['protectedHashesUnchanged'] and out['readOnlyHashUnchanged'] else 'NATIVE_REFERENCE_RECONCILIATION_HOLD'
+ out['state']='NATIVE_REFERENCE_CHECKS_PASS_NOT_PRODUCTION_ACCEPTANCE' if out['preservation']['differenceCount']==0 and all(c['differenceCount']==0 for c in out['caches']) and not out['outputs']['playerInfoAndCountTitleMismatches'] and not any(c['otherSeasonNames'] or c['unknownIdentityNames'] or c['currentNamesOutsideAcceptedParticipants'] for c in out['outputs']['eligiblePopulationByCategory'].values()) and not out['outputs']['currentParticipantsMissingFromAwardTable'] and not out['outputs']['awardCellErrors'] and out['outputs']['damian']['presentInAwardTable'] and out['outputs']['damian']['playerInfoRosterStatus']=='DI' and out['outputs']['damian']['rookieEligible']==0 and out['protectedHashesUnchanged'] and out['readOnlyHashUnchanged'] else 'NATIVE_REFERENCE_RECONCILIATION_HOLD'
  (folder/'downstream-postcheck.json').write_text(json.dumps(out,indent=2));print(json.dumps({k:v for k,v in out.items() if k not in ('outputs','caches','preservation')},indent=2))
 if __name__=='__main__':main(*sys.argv[1:])
