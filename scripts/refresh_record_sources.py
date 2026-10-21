@@ -6,8 +6,10 @@ All inputs validate before any output is replaced.
 import collections
 import copy
 import datetime as dt
+import hashlib
 import json
 import re
+import time
 from urllib.parse import parse_qs, urlencode, urljoin, urlparse
 from pathlib import Path
 import requests
@@ -171,15 +173,42 @@ def sync_published(history, book, groups, now):
     return updated, result
 
 
-def fetch(session, url):
-    if urlparse(url).hostname != 'www.htosports.com':
-        raise ValueError('Unexpected source host')
-    response = session.get(url, timeout=25, allow_redirects=False)
-    response.raise_for_status()
-    if response.status_code != 200 or 'text/html' not in response.headers.get('Content-Type','').lower():
-        raise ValueError('Unexpected HTO response')
-    # Let the HTML parser honor the page charset instead of Requests' Latin-1 fallback.
-    return response.content
+def fetch(session, url, *, max_attempts=3, sleep_fn=time.sleep):
+    """Accept only HTTP 200 HTML from official HTO; retry transient bad responses.
+
+    Fail with source-safe response metadata, never a raw upstream body or a
+    different website's data. Redirects are forbidden even during retries.
+    """
+    parsed = urlparse(url)
+    if parsed.scheme != 'https' or parsed.hostname != 'www.htosports.com' or parsed.path != '/teams/default.asp':
+        raise ValueError('Unexpected source host or path')
+    if not 1 <= max_attempts <= 3:
+        raise ValueError('Invalid bounded source retry count')
+    for attempt in range(1, max_attempts + 1):
+        try:
+            response = session.get(url, timeout=25, allow_redirects=False)
+        except requests.RequestException:
+            if attempt == max_attempts:
+                raise
+            sleep_fn(attempt)
+            continue
+        status = response.status_code
+        content_type = response.headers.get('Content-Type', '').lower()
+        data = response.content
+        if status == 200 and 'text/html' in content_type and data:
+            # Let the HTML parser honor the page charset, not Requests' Latin-1 fallback.
+            return data
+        evidence = dict(status=status, contentType=content_type[:90],
+                        responseBytes=len(data), responseSHA256=hashlib.sha256(data).hexdigest(),
+                        attempts=attempt)
+        # Never follow or retry redirects/denials; retry only transient or
+        # incorrectly typed HTTP 200 responses, then reject them explicitly.
+        if status in (301, 302, 303, 307, 308, 400, 401, 403, 404):
+            raise ValueError('Unexpected HTO response: ' + json.dumps(evidence))
+        if attempt == max_attempts or status not in (200, 204, 429, 500, 502, 503, 504):
+            raise ValueError('Unexpected HTO response: ' + json.dumps(evidence))
+        sleep_fn(attempt)
+    raise AssertionError('Unreachable source retry outcome')
 
 
 def run():
