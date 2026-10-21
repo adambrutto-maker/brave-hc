@@ -17,9 +17,9 @@ def case():
     profile={"player":"Brutto, Adam","labelI":"Active Records","labelJ":"Total Records",
              "I13":{"value":"#REF!","type":"e","formula":False},
              "J13":{"value":"#REF!","type":"e","formula":False}}
-    ledger=([{"class":"Major","major":"1","minor":"0","points":"10"}]*15
-          +[{"class":"Minor","major":"0","minor":"1","points":"3"}]*13
-          +[{"class":"Display","major":"0","minor":"0","points":"0"}]*51)
+    ledger=([{"class":"Major","major":"1","minor":"0","points":"10"} for _ in range(15)]
+          +[{"class":"Minor","major":"0","minor":"1","points":"3"} for _ in range(13)]
+          +[{"class":"Display","major":"0","minor":"0","points":"0"} for _ in range(51)])
     # 15*10 + 13*3 = 189; one legacy major bonus entry has 17 points
     ledger[0]["points"]="17"
     names=["Brutto, Adam"]+[f"Skater{i}" for i in range(1,17)]+[
