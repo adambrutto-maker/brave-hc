@@ -7,7 +7,7 @@
     "authority": "OFFICIAL_HTO_PUBLIC_READBACK"
   },
   "capturedAt": "2026-10-20T21:08:36.136Z",
-  "stalePolicy": "Fixed public snapshot. Official HTO page controls current records; snapshot updates are manually QA-gated.",
+  "stalePolicy": "Verified public HTO readback. Scheduled refresh preserves existing entries and requires manual review for removals, revisions or uncertain identities.",
   "pageTitle": "Brave H.C. Records & Achievements",
   "entryCount": 558,
   "groups": [
