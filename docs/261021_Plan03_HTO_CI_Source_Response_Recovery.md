@@ -14,6 +14,12 @@ This message by itself proves only that GitHub Actions received an unaccepted re
 - If all attempts fail, throw with status, content type (bounded), response length, SHA-256 fingerprint and attempt count. **Do not record or upload response bodies, invent cached results, synchronize a partial record book, or relax source parsing.**
 - Six synthetic tests cover temporary non-HTML then valid HTML, persistent non-HTML rejection, redirect denial, 403 denial, retry limits, and non-HTTPS rejection. The complete `test_record_source_refresh.py` suite passed **17/17** in an isolated BRUTTECH 1 checkout.
 
+## Independent UTF-8 portability finding on BRUTTECH 1
+
+An isolated live read-only rehearsal then reached record comparison and correctly stopped because two accented rental-goalie lines falsely appeared to have been revised. This was independently traced to `json.loads(path.read_text())` on Windows, where Python's default locale decoded an on-disk UTF-8 JSON file as CP1252 (e.g., `Rènt Goaliê` becoming mojibake `RÃ¨nt GoaliÃª`). The official HTO public records page itself declares UTF-8 and returned properly encoded names; no historical HTO record was actually removed. GitHub Actions uses UTF-8 by default, so this is **a separate local portability bug**, not a proven explanation of its earlier invalid-HTTP-response failure.
+
+All source JSON input and report output in this refresh script now specify `encoding='utf-8'`. Regression checks assert the two exact historical accented source lines and a fresh UTF-8 file round trip. No generic normalization, fuzzy identity match, source entry deletion or silent rebasing has been introduced.
+
 ## Acceptance and rollback
 1. Review code diff; tests pass; no HTO or workbook mutation.
 2. Merge only the bounded fetch hardening with its regression tests; run the affected workflow in GitHub Actions to observe the *actual* runner response.
