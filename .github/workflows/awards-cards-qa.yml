@@ -16,6 +16,9 @@ on:
       - 'widgets/awards-source-readiness.json'
       - 'widgets/awards-operational-publication.json'
       - 'scripts/hockeyos_awards_*.js'
+      - 'scripts/hockeyos_awards_*.py'
+      - 'scripts/hockeyos_awards_*.ps1'
+      - 'tests/test_awards_loaded_formula_compare.py'
       - 'tests/test_awards_cards.js'
       - 'tests/test_awards_formula_semantics.js'
       - 'tests/test_awards_saved_final_review.js'
@@ -40,3 +43,6 @@ jobs:
           node-version: '22'
       - name: Run source-truth and weekly movement regression suite
         run: node --test tests/test_awards_cards.js tests/test_awards_formula_semantics.js tests/test_awards_saved_final_review.js tests/test_awards_composition_inventory.js
+
+      - name: Verify bounded loaded-formula notation comparison
+        run: python3 tests/test_awards_loaded_formula_compare.py
