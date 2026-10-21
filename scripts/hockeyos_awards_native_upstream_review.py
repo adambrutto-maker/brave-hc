@@ -23,19 +23,20 @@ def main(folder):
  table=next(t for t in schema["tables"] if t["name"]=="PlayerInfo")
  cols={c["name"]:m.letters(i+1) for i,c in enumerate(table["columns"])}
  fields={"GP":"Current Skater GP","G":"Current Total Raw G","A":"Current Total Raw A","Pts":"Current Total Raw Pts"}
- actual={}
+ actual={};availableNames=[]
  with zipfile.ZipFile(receipt["copy"]) as z:
   ss=m.strings(z)
   for row in E.fromstring(z.read("xl/worksheets/sheet1.xml")).findall("m:sheetData/m:row",m.NS):
    if not 6<=int(row.attrib["r"])<=114:continue
    cells={re.match("[A-Z]+",c.attrib["r"]).group():c for c in row}
    name=m.value(cells.get(cols["Website Name"]),ss)
+   availableNames.append(name)
    if name not in expected:continue
    if name in actual:raise ValueError("Duplicate PlayerInfo identity")
    actual[name]={k:m.value(cells.get(cols[v]),ss) for k,v in fields.items()}
- if set(actual)!=set(expected):raise ValueError("Incomplete named PlayerInfo coverage")
- differences=[{"name":n,"field":k,"gameInputs":v,"recalculatedPlayerInfo":actual[n][k]} for n,t in expected.items() for k,v in t.items() if actual[n][k]!=v]
- out={"state":"UPSTREAM_SEASON_TOTALS_MISMATCH" if differences else "WINTER_SKATER_COUNT_PARITY_ONLY", "playersChecked":len(expected),"expectedTotals":{k:sum(t[k] for t in expected.values()) for k in fields},"recalculatedPlayerInfoTotals":{k:sum(t[k] for t in actual.values()) for k in fields},"differences":differences,"sourceGoalFormula":next(c["formula"] for c in table["columns"] if c["name"]=="Current Total Raw G"),"masterScheduleResultsImported":False,"seasonTotalsImported":False,"currentScoresVerified":False,"publicationAuthorized":False}
+ missing=sorted(set(expected)-set(actual))
+ differences=[{"name":n,"field":k,"gameInputs":v,"recalculatedPlayerInfo":actual[n][k]} for n,t in expected.items() if n in actual for k,v in t.items() if actual[n][k]!=v]
+ out={"state":"UPSTREAM_SEASON_TOTALS_MISMATCH" if differences or missing else "WINTER_SKATER_COUNT_PARITY_ONLY", "expectedPlayers":len(expected),"playersChecked":len(actual),"missingPlayerInfoNames":missing,"possibleNameVariantsForInspectionOnly":{n:[v for v in availableNames if isinstance(v,str) and v.split(",")[0]==n.split(",")[0]] for n in missing},"expectedTotals":{k:sum(t[k] for t in expected.values()) for k in fields},"recalculatedPlayerInfoTotals":{k:sum(t[k] for t in actual.values()) for k in fields},"differences":differences,"sourceGoalFormula":next(c["formula"] for c in table["columns"] if c["name"]=="Current Total Raw G"),"masterScheduleResultsImported":False,"seasonTotalsImported":False,"currentScoresVerified":False,"publicationAuthorized":False}
  (folder/"native-upstream-parity-review.json").write_text(json.dumps(out,indent=2),encoding="utf-8")
  print(json.dumps(out),flush=True)
 if __name__=="__main__":main(Path(sys.argv[1]))
