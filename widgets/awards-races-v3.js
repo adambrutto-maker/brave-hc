@@ -477,7 +477,8 @@ function renderPlayerEvidence(card,player,participants){
    while the older cached workbook eligibility remains held pending game-log replay. */
 function verifiedWorkbookRookieYearWatch(src,season,teamGP,sourceWorkbookHash){
  const evidence=src?.workbookRookieYearCrosscheck;
- if(evidence?.status!=="SAVED_WORKBOOK_ROOKIE_YEAR_CROSSCHECKED_WITH_HTO_APPEARANCES_MODEL_ELIGIBILITY_HELD"
+ if(src?.status!=="UNRANKED_VERIFIED_SEASON_APPEARANCES_NOT_AWARD_SCORES"
+    ||evidence?.status!=="SAVED_WORKBOOK_ROOKIE_YEAR_CROSSCHECKED_WITH_HTO_APPEARANCES_MODEL_ELIGIBILITY_HELD"
     ||evidence.season!==season||evidence.year!==2026
     ||evidence.sourceWorkbookSha256!==sourceWorkbookHash
     ||evidence.sourceTable!=="PlayerInfo"||evidence.sourceField!=="Rookie Year"
@@ -759,7 +760,9 @@ function draw(){
    notice("The season has not started. Award races open only after the first verified game.",false);
    DOM.region.append($("div","empty","No games played — award board empty."));
   }else if(!valid){
-   notice("The team has played "+d.currentTeamGP+" verified games. Current award scores are being recalculated against those games; saved old-season ratings are kept separate.");
+   notice(state.participation?.status==="HOLD_CURRENT_OFFICIAL_IDENTITY_MISMATCH"
+    ?"Current participation watches are paused while a player identity mismatch is reconciled. Historical examples remain available."
+    :"The team has played "+d.currentTeamGP+" verified games. Current award scores await workbook recalculation; saved old-season ratings are kept separate.");
    const box=$("div","empty");el(box,"strong",null,"This week's model ratings aren't ready yet");
    el(box,"p",null,"Award rankings remain empty until the workbook scores, game dates and participants match the verified season. We don't substitute old ratings, other stats or players with zero appearances.");
    DOM.region.append(box);
