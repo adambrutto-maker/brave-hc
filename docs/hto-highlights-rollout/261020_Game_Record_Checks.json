@@ -1,0 +1,1416 @@
+{
+  "capturedBoxscores": 84,
+  "indexedBoxscores": 370,
+  "gameEntryCounts": {
+    "MATCH": 68,
+    "DISCREPANCY": 2
+  },
+  "gameEntries": [
+    {
+      "category": "Winter - Assists",
+      "scope": "Game",
+      "sourceText": "2 - Marco Congiusti (September 29, 2013)",
+      "value": "2",
+      "dateLabel": "September 29, 2013",
+      "kind": "performance",
+      "playerID": "354041",
+      "name": "Marco Congiusti",
+      "statKey": "A",
+      "boxscores": [
+        {
+          "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046521&archTog=1",
+          "value": "2",
+          "season": "Winter 2013/2014",
+          "gameType": "Regular Season"
+        }
+      ],
+      "status": "MATCH"
+    },
+    {
+      "category": "Winter - Penalty Minutes",
+      "scope": "Game",
+      "sourceText": "4 - Mario Provenzano (December 15, 2013)",
+      "value": "4",
+      "dateLabel": "December 15, 2013",
+      "kind": "performance",
+      "playerID": "354045",
+      "name": "Mario Provenzano",
+      "statKey": "PIM",
+      "boxscores": [
+        {
+          "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046541&archTog=1",
+          "value": "4",
+          "season": "Winter 2013/2014",
+          "gameType": "Regular Season"
+        }
+      ],
+      "status": "MATCH"
+    },
+    {
+      "category": "Summer - Goals",
+      "scope": "Game",
+      "sourceText": "2 - Ryan Logue (June 2, 2013)",
+      "value": "2",
+      "dateLabel": "June 2, 2013",
+      "kind": "performance",
+      "playerID": "354046",
+      "name": "Ryan Logue",
+      "statKey": "G",
+      "boxscores": [
+        {
+          "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=966428&archTog=1",
+          "value": "2",
+          "season": "Summer 2013",
+          "gameType": "Regular Season"
+        }
+      ],
+      "status": "MATCH"
+    },
+    {
+      "category": "Summer - Points",
+      "scope": "Game",
+      "sourceText": "5 - Ryan Logue (July 20, 2014)",
+      "value": "5",
+      "dateLabel": "July 20, 2014",
+      "kind": "performance",
+      "playerID": "354046",
+      "name": "Ryan Logue",
+      "statKey": "Pts",
+      "boxscores": [
+        {
+          "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1100307&archTog=1",
+          "value": "5",
+          "season": "Summer 2014",
+          "gameType": "Regular Season"
+        }
+      ],
+      "status": "MATCH"
+    },
+    {
+      "category": "Summer - Points",
+      "scope": "Game",
+      "sourceText": "4 - Ryan Logue (June 2, 2013)",
+      "value": "4",
+      "dateLabel": "June 2, 2013",
+      "kind": "performance",
+      "playerID": "354046",
+      "name": "Ryan Logue",
+      "statKey": "Pts",
+      "boxscores": [
+        {
+          "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=966428&archTog=1",
+          "value": "3",
+          "season": "Summer 2013",
+          "gameType": "Regular Season"
+        }
+      ],
+      "status": "DISCREPANCY"
+    },
+    {
+      "category": "Summer - Points",
+      "scope": "Game",
+      "sourceText": "3 - Ryan Logue (June 9, 2013)",
+      "value": "3",
+      "dateLabel": "June 9, 2013",
+      "kind": "performance",
+      "playerID": "354046",
+      "name": "Ryan Logue",
+      "statKey": "Pts",
+      "boxscores": [
+        {
+          "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=966432&archTog=1",
+          "value": "4",
+          "season": "Summer 2013",
+          "gameType": "Regular Season"
+        }
+      ],
+      "status": "DISCREPANCY"
+    },
+    {
+      "category": "Summer - Assists",
+      "scope": "Game",
+      "sourceText": "4 - Ryan Logue (June 9, 2013)",
+      "value": "4",
+      "dateLabel": "June 9, 2013",
+      "kind": "performance",
+      "playerID": "354046",
+      "name": "Ryan Logue",
+      "statKey": "A",
+      "boxscores": [
+        {
+          "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=966432&archTog=1",
+          "value": "4",
+          "season": "Summer 2013",
+          "gameType": "Regular Season"
+        }
+      ],
+      "status": "MATCH"
+    },
+    {
+      "category": "Summer - Penalty Minutes",
+      "scope": "Game",
+      "sourceText": "4 - Ryan Logue (July 13, 2014)",
+      "value": "4",
+      "dateLabel": "July 13, 2014",
+      "kind": "performance",
+      "playerID": "354046",
+      "name": "Ryan Logue",
+      "statKey": "PIM",
+      "boxscores": [
+        {
+          "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1100306&archTog=1",
+          "value": "4",
+          "season": "Summer 2014",
+          "gameType": "Regular Season"
+        }
+      ],
+      "status": "MATCH"
+    },
+    {
+      "category": "Summer - Points",
+      "scope": "Game",
+      "sourceText": "5 - Cameron Buchanan (June 23, 2013)",
+      "value": "5",
+      "dateLabel": "June 23, 2013",
+      "kind": "performance",
+      "playerID": "354049",
+      "name": "Cameron Buchanan",
+      "statKey": "Pts",
+      "boxscores": [
+        {
+          "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=966434&archTog=1",
+          "value": "5",
+          "season": "Summer 2013",
+          "gameType": "Regular Season"
+        }
+      ],
+      "status": "MATCH"
+    },
+    {
+      "category": "Winter - Assists",
+      "scope": "Game",
+      "sourceText": "4 - Damian Aidemirski (March 30, 2014)",
+      "value": "4",
+      "dateLabel": "March 30, 2014",
+      "kind": "performance",
+      "playerID": "354051",
+      "name": "Damian Aidemirski",
+      "statKey": "A",
+      "boxscores": [
+        {
+          "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046558&archTog=1",
+          "value": "4",
+          "season": "Winter 2013/2014",
+          "gameType": "Playoffs"
+        }
+      ],
+      "status": "MATCH"
+    },
+    {
+      "category": "Summer - Assists",
+      "scope": "Game",
+      "sourceText": "4 - Adam Brutto (July 26, 2015)",
+      "value": "4",
+      "dateLabel": "July 26, 2015",
+      "kind": "performance",
+      "playerID": "354054",
+      "name": "Adam Brutto",
+      "statKey": "A",
+      "boxscores": [
+        {
+          "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1249341&archTog=1",
+          "value": "4",
+          "season": "Summer 2015",
+          "gameType": "Playoffs"
+        }
+      ],
+      "status": "MATCH"
+    },
+    {
+      "category": "Summer - Assists",
+      "scope": "Game",
+      "sourceText": "3 - Adam Brutto (June 9, 2013)",
+      "value": "3",
+      "dateLabel": "June 9, 2013",
+      "kind": "performance",
+      "playerID": "354054",
+      "name": "Adam Brutto",
+      "statKey": "A",
+      "boxscores": [
+        {
+          "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=966432&archTog=1",
+          "value": "3",
+          "season": "Summer 2013",
+          "gameType": "Regular Season"
+        }
+      ],
+      "status": "MATCH"
+    },
+    {
+      "category": "Summer - Assists",
+      "scope": "Game",
+      "sourceText": "2 - Adam Brutto (June 2, 2013)",
+      "value": "2",
+      "dateLabel": "June 2, 2013",
+      "kind": "performance",
+      "playerID": "354054",
+      "name": "Adam Brutto",
+      "statKey": "A",
+      "boxscores": [
+        {
+          "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=966428&archTog=1",
+          "value": "2",
+          "season": "Summer 2013",
+          "gameType": "Regular Season"
+        }
+      ],
+      "status": "MATCH"
+    },
+    {
+      "category": "Summer - Penalty Minutes",
+      "scope": "Game",
+      "sourceText": "4 - Adam Brutto (August 18, 2013)",
+      "value": "4",
+      "dateLabel": "August 18, 2013",
+      "kind": "performance",
+      "playerID": "354054",
+      "name": "Adam Brutto",
+      "statKey": "PIM",
+      "boxscores": [
+        {
+          "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=966440&archTog=1",
+          "value": "4",
+          "season": "Summer 2013",
+          "gameType": "Playoffs"
+        }
+      ],
+      "status": "MATCH"
+    },
+    {
+      "category": "Summer - Penalty Minutes",
+      "scope": "Game",
+      "sourceText": "4 - Adam Brutto (May 25, 2014)",
+      "value": "4",
+      "dateLabel": "May 25, 2014",
+      "kind": "performance",
+      "playerID": "354054",
+      "name": "Adam Brutto",
+      "statKey": "PIM",
+      "boxscores": [
+        {
+          "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1100292&archTog=1",
+          "value": "4",
+          "season": "Summer 2014",
+          "gameType": "Regular Season"
+        }
+      ],
+      "status": "MATCH"
+    },
+    {
+      "category": "Winter - Penalty Minutes",
+      "scope": "Game",
+      "sourceText": "14 - Adam Brutto (November 22, 2015)",
+      "value": "14",
+      "dateLabel": "November 22, 2015",
+      "kind": "performance",
+      "playerID": "354054",
+      "name": "Adam Brutto",
+      "statKey": "PIM",
+      "boxscores": [
+        {
+          "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1384786&archTog=1",
+          "value": "14",
+          "season": "Winter 2015/2016",
+          "gameType": "Regular Season"
+        }
+      ],
+      "status": "MATCH"
+    },
+    {
+      "category": "Winter - Penalty Minutes",
+      "scope": "Game",
+      "sourceText": "14 - Adam Brutto (December 11, 2016)",
+      "value": "14",
+      "dateLabel": "December 11, 2016",
+      "kind": "performance",
+      "playerID": "354054",
+      "name": "Adam Brutto",
+      "statKey": "PIM",
+      "boxscores": [
+        {
+          "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1517095&archTog=1",
+          "value": "14",
+          "season": "Winter 2016/2017",
+          "gameType": "Regular Season"
+        }
+      ],
+      "status": "MATCH"
+    },
+    {
+      "category": "Winter - Penalty Minutes",
+      "scope": "Game",
+      "sourceText": "4 - Adam Brutto (December 1, 2013)",
+      "value": "4",
+      "dateLabel": "December 1, 2013",
+      "kind": "performance",
+      "playerID": "354054",
+      "name": "Adam Brutto",
+      "statKey": "PIM",
+      "boxscores": [
+        {
+          "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046539&archTog=1",
+          "value": "4",
+          "season": "Winter 2013/2014",
+          "gameType": "Regular Season"
+        }
+      ],
+      "status": "MATCH"
+    },
+    {
+      "category": "Winter - Penalty Minutes",
+      "scope": "Game",
+      "sourceText": "4 - Adam Brutto (December 15, 2013)",
+      "value": "4",
+      "dateLabel": "December 15, 2013",
+      "kind": "performance",
+      "playerID": "354054",
+      "name": "Adam Brutto",
+      "statKey": "PIM",
+      "boxscores": [
+        {
+          "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046541&archTog=1",
+          "value": "4",
+          "season": "Winter 2013/2014",
+          "gameType": "Regular Season"
+        }
+      ],
+      "status": "MATCH"
+    },
+    {
+      "category": "Winter - Penalty Minutes",
+      "scope": "Game",
+      "sourceText": "4 - Adam Brutto (March 30, 2014)",
+      "value": "4",
+      "dateLabel": "March 30, 2014",
+      "kind": "performance",
+      "playerID": "354054",
+      "name": "Adam Brutto",
+      "statKey": "PIM",
+      "boxscores": [
+        {
+          "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046558&archTog=1",
+          "value": "4",
+          "season": "Winter 2013/2014",
+          "gameType": "Playoffs"
+        }
+      ],
+      "status": "MATCH"
+    },
+    {
+      "category": "Summer - Goals",
+      "scope": "Game",
+      "sourceText": "2 - Keith Pearsoll (May 12, 2013)",
+      "value": "2",
+      "dateLabel": "May 12, 2013",
+      "kind": "performance",
+      "playerID": "354056",
+      "name": "Keith Pearsoll",
+      "statKey": "G",
+      "boxscores": [
+        {
+          "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=966430&archTog=1",
+          "value": "2",
+          "season": "Summer 2013",
+          "gameType": "Regular Season"
+        }
+      ],
+      "status": "MATCH"
+    },
+    {
+      "category": "Summer - Goals",
+      "scope": "Game",
+      "sourceText": "2 - Keith Pearsoll (June 9, 2013)",
+      "value": "2",
+      "dateLabel": "June 9, 2013",
+      "kind": "performance",
+      "playerID": "354056",
+      "name": "Keith Pearsoll",
+      "statKey": "G",
+      "boxscores": [
+        {
+          "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=966432&archTog=1",
+          "value": "2",
+          "season": "Summer 2013",
+          "gameType": "Regular Season"
+        }
+      ],
+      "status": "MATCH"
+    },
+    {
+      "category": "Summer - Points",
+      "scope": "Game",
+      "sourceText": "3 - Keith Pearsoll (May 12, 2013)",
+      "value": "3",
+      "dateLabel": "May 12, 2013",
+      "kind": "performance",
+      "playerID": "354056",
+      "name": "Keith Pearsoll",
+      "statKey": "Pts",
+      "boxscores": [
+        {
+          "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=966430&archTog=1",
+          "value": "3",
+          "season": "Summer 2013",
+          "gameType": "Regular Season"
+        }
+      ],
+      "status": "MATCH"
+    },
+    {
+      "category": "Summer - Points",
+      "scope": "Game",
+      "sourceText": "3 - Keith Pearsoll (June 9, 2013)",
+      "value": "3",
+      "dateLabel": "June 9, 2013",
+      "kind": "performance",
+      "playerID": "354056",
+      "name": "Keith Pearsoll",
+      "statKey": "Pts",
+      "boxscores": [
+        {
+          "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=966432&archTog=1",
+          "value": "3",
+          "season": "Summer 2013",
+          "gameType": "Regular Season"
+        }
+      ],
+      "status": "MATCH"
+    },
+    {
+      "category": "Summer - Penalty Minutes",
+      "scope": "Game",
+      "sourceText": "4 - Alex Pagnotta (June 22, 2014)",
+      "value": "4",
+      "dateLabel": "June 22, 2014",
+      "kind": "performance",
+      "playerID": "354058",
+      "name": "Alex Pagnotta",
+      "statKey": "PIM",
+      "boxscores": [
+        {
+          "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1100303&archTog=1",
+          "value": "4",
+          "season": "Summer 2014",
+          "gameType": "Regular Season"
+        }
+      ],
+      "status": "MATCH"
+    },
+    {
+      "category": "Summer - Penalty Minutes",
+      "scope": "Game",
+      "sourceText": "4 - Alex Pagnotta (May 24, 2015)",
+      "value": "4",
+      "dateLabel": "May 24, 2015",
+      "kind": "performance",
+      "playerID": "354058",
+      "name": "Alex Pagnotta",
+      "statKey": "PIM",
+      "boxscores": [
+        {
+          "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1249332&archTog=1",
+          "value": "4",
+          "season": "Summer 2015",
+          "gameType": "Regular Season"
+        }
+      ],
+      "status": "MATCH"
+    },
+    {
+      "category": "Winter - Penalty Minutes",
+      "scope": "Game",
+      "sourceText": "4 - Alex Pagnotta (October 19, 2014)",
+      "value": "4",
+      "dateLabel": "October 19, 2014",
+      "kind": "performance",
+      "playerID": "354058",
+      "name": "Alex Pagnotta",
+      "statKey": "PIM",
+      "boxscores": [
+        {
+          "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1190733&archTog=1",
+          "value": "4",
+          "season": "Winter 2014/2015",
+          "gameType": "Regular Season"
+        }
+      ],
+      "status": "MATCH"
+    },
+    {
+      "category": "Winter - Assists",
+      "scope": "Game",
+      "sourceText": "3 - Michael Congiusti (October 6, 2013)",
+      "value": "3",
+      "dateLabel": "October 6, 2013",
+      "kind": "performance",
+      "playerID": "354059",
+      "name": "Michael Congiusti",
+      "statKey": "A",
+      "boxscores": [
+        {
+          "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046522&archTog=1",
+          "value": "3",
+          "season": "Winter 2013/2014",
+          "gameType": "Regular Season"
+        }
+      ],
+      "status": "MATCH"
+    },
+    {
+      "category": "Winter - Assists",
+      "scope": "Game",
+      "sourceText": "3 - Michael Congiusti (March 2, 2014)",
+      "value": "3",
+      "dateLabel": "March 2, 2014",
+      "kind": "performance",
+      "playerID": "354059",
+      "name": "Michael Congiusti",
+      "statKey": "A",
+      "boxscores": [
+        {
+          "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046553&archTog=1",
+          "value": "3",
+          "season": "Winter 2013/2014",
+          "gameType": "Regular Season"
+        }
+      ],
+      "status": "MATCH"
+    },
+    {
+      "category": "Summer - Assists",
+      "scope": "Game",
+      "sourceText": "6 - Justin Carosi (May 15, 2016)",
+      "value": "6",
+      "dateLabel": "May 15, 2016",
+      "kind": "performance",
+      "playerID": "354060",
+      "name": "Justin Carosi",
+      "statKey": "A",
+      "boxscores": [
+        {
+          "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1442287&archTog=1",
+          "value": "6",
+          "season": "Summer 2016",
+          "gameType": "Regular Season"
+        }
+      ],
+      "status": "MATCH"
+    },
+    {
+      "category": "Summer - Penalty Minutes",
+      "scope": "Game",
+      "sourceText": "4 - Justin Carosi (May 24, 2015)",
+      "value": "4",
+      "dateLabel": "May 24, 2015",
+      "kind": "performance",
+      "playerID": "354060",
+      "name": "Justin Carosi",
+      "statKey": "PIM",
+      "boxscores": [
+        {
+          "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1249332&archTog=1",
+          "value": "4",
+          "season": "Summer 2015",
+          "gameType": "Regular Season"
+        }
+      ],
+      "status": "MATCH"
+    },
+    {
+      "category": "Winter - Assists",
+      "scope": "Game",
+      "sourceText": "4 - Justin Carosi (October 16, 2016)",
+      "value": "4",
+      "dateLabel": "October 16, 2016",
+      "kind": "performance",
+      "playerID": "354060",
+      "name": "Justin Carosi",
+      "statKey": "A",
+      "boxscores": [
+        {
+          "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1517081&archTog=1",
+          "value": "4",
+          "season": "Winter 2016/2017",
+          "gameType": "Regular Season"
+        }
+      ],
+      "status": "MATCH"
+    },
+    {
+      "category": "Winter - Assists",
+      "scope": "Game",
+      "sourceText": "4 - Justin Carosi (November 24, 2019)",
+      "value": "4",
+      "dateLabel": "November 24, 2019",
+      "kind": "performance",
+      "playerID": "354060",
+      "name": "Justin Carosi",
+      "statKey": "A",
+      "boxscores": [
+        {
+          "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1835523&archTog=1",
+          "value": "4",
+          "season": "Winter 2019/2020",
+          "gameType": "Regular Season"
+        }
+      ],
+      "status": "MATCH"
+    },
+    {
+      "category": "Summer - Goals",
+      "scope": "Game",
+      "sourceText": "7 - Mark Pastore (July 5, 2015)",
+      "value": "7",
+      "dateLabel": "July 5, 2015",
+      "kind": "performance",
+      "playerID": "354061",
+      "name": "Mark Pastore",
+      "statKey": "G",
+      "boxscores": [
+        {
+          "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1249338&archTog=1",
+          "value": "7",
+          "season": "Summer 2015",
+          "gameType": "Regular Season"
+        }
+      ],
+      "status": "MATCH"
+    },
+    {
+      "category": "Summer - Goals",
+      "scope": "Game",
+      "sourceText": "4 - Mark Pastore (June 7, 2015)",
+      "value": "4",
+      "dateLabel": "June 7, 2015",
+      "kind": "performance",
+      "playerID": "354061",
+      "name": "Mark Pastore",
+      "statKey": "G",
+      "boxscores": [
+        {
+          "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1249333&archTog=1",
+          "value": "4",
+          "season": "Summer 2015",
+          "gameType": "Regular Season"
+        }
+      ],
+      "status": "MATCH"
+    },
+    {
+      "category": "Summer - Goals",
+      "scope": "Game",
+      "sourceText": "4 - Mark Pastore (June 16, 2013)",
+      "value": "4",
+      "dateLabel": "June 16, 2013",
+      "kind": "performance",
+      "playerID": "354061",
+      "name": "Mark Pastore",
+      "statKey": "G",
+      "boxscores": [
+        {
+          "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=966433&archTog=1",
+          "value": "4",
+          "season": "Summer 2013",
+          "gameType": "Regular Season"
+        }
+      ],
+      "status": "MATCH"
+    },
+    {
+      "category": "Summer - Goals",
+      "scope": "Game",
+      "sourceText": "2 - Mark Pastore (June 9, 2013)",
+      "value": "2",
+      "dateLabel": "June 9, 2013",
+      "kind": "performance",
+      "playerID": "354061",
+      "name": "Mark Pastore",
+      "statKey": "G",
+      "boxscores": [
+        {
+          "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=966432&archTog=1",
+          "value": "2",
+          "season": "Summer 2013",
+          "gameType": "Regular Season"
+        }
+      ],
+      "status": "MATCH"
+    },
+    {
+      "category": "Summer - Points",
+      "scope": "Game",
+      "sourceText": "9 - Mark Pastore (July 17, 2016)",
+      "value": "9",
+      "dateLabel": "July 17, 2016",
+      "kind": "performance",
+      "playerID": "354061",
+      "name": "Mark Pastore",
+      "statKey": "Pts",
+      "boxscores": [
+        {
+          "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1442295&archTog=1",
+          "value": "9",
+          "season": "Summer 2016",
+          "gameType": "Regular Season"
+        }
+      ],
+      "status": "MATCH"
+    },
+    {
+      "category": "Summer - Points",
+      "scope": "Game",
+      "sourceText": "8 - Mark Pastore (July 5, 2015)",
+      "value": "8",
+      "dateLabel": "July 5, 2015",
+      "kind": "performance",
+      "playerID": "354061",
+      "name": "Mark Pastore",
+      "statKey": "Pts",
+      "boxscores": [
+        {
+          "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1249338&archTog=1",
+          "value": "8",
+          "season": "Summer 2015",
+          "gameType": "Regular Season"
+        }
+      ],
+      "status": "MATCH"
+    },
+    {
+      "category": "Summer - Points",
+      "scope": "Game",
+      "sourceText": "5 - Mark Pastore (May 10, 2015)",
+      "value": "5",
+      "dateLabel": "May 10, 2015",
+      "kind": "performance",
+      "playerID": "354061",
+      "name": "Mark Pastore",
+      "statKey": "Pts",
+      "boxscores": [
+        {
+          "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1249331&archTog=1",
+          "value": "5",
+          "season": "Summer 2015",
+          "gameType": "Regular Season"
+        }
+      ],
+      "status": "MATCH"
+    },
+    {
+      "category": "Summer - Points",
+      "scope": "Game",
+      "sourceText": "4 - Mark Pastore (June 16, 2013)",
+      "value": "4",
+      "dateLabel": "June 16, 2013",
+      "kind": "performance",
+      "playerID": "354061",
+      "name": "Mark Pastore",
+      "statKey": "Pts",
+      "boxscores": [
+        {
+          "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=966433&archTog=1",
+          "value": "4",
+          "season": "Summer 2013",
+          "gameType": "Regular Season"
+        }
+      ],
+      "status": "MATCH"
+    },
+    {
+      "category": "Summer - Assists",
+      "scope": "Game",
+      "sourceText": "4 - Mark Pastore (May 8, 2016)",
+      "value": "4",
+      "dateLabel": "May 8, 2016",
+      "kind": "performance",
+      "playerID": "354061",
+      "name": "Mark Pastore",
+      "statKey": "A",
+      "boxscores": [
+        {
+          "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1442286&archTog=1",
+          "value": "4",
+          "season": "Summer 2016",
+          "gameType": "Regular Season"
+        }
+      ],
+      "status": "MATCH"
+    },
+    {
+      "category": "Summer - Assists",
+      "scope": "Game",
+      "sourceText": "2 - Mark Pastore (June 2, 2013)",
+      "value": "2",
+      "dateLabel": "June 2, 2013",
+      "kind": "performance",
+      "playerID": "354061",
+      "name": "Mark Pastore",
+      "statKey": "A",
+      "boxscores": [
+        {
+          "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=966428&archTog=1",
+          "value": "2",
+          "season": "Summer 2013",
+          "gameType": "Regular Season"
+        }
+      ],
+      "status": "MATCH"
+    },
+    {
+      "category": "Winter - Points",
+      "scope": "Game",
+      "sourceText": "3 - Mark Pastore (September 29, 2013)",
+      "value": "3",
+      "dateLabel": "September 29, 2013",
+      "kind": "performance",
+      "playerID": "354061",
+      "name": "Mark Pastore",
+      "statKey": "Pts",
+      "boxscores": [
+        {
+          "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046521&archTog=1",
+          "value": "3",
+          "season": "Winter 2013/2014",
+          "gameType": "Regular Season"
+        }
+      ],
+      "status": "MATCH"
+    },
+    {
+      "category": "Winter - Assists",
+      "scope": "Game",
+      "sourceText": "3 - Mark Pastore (January 5, 2014)",
+      "value": "3",
+      "dateLabel": "January 5, 2014",
+      "kind": "performance",
+      "playerID": "354061",
+      "name": "Mark Pastore",
+      "statKey": "A",
+      "boxscores": [
+        {
+          "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046545&archTog=1",
+          "value": "3",
+          "season": "Winter 2013/2014",
+          "gameType": "Regular Season"
+        }
+      ],
+      "status": "MATCH"
+    },
+    {
+      "category": "Winter - Assists",
+      "scope": "Game",
+      "sourceText": "2 - Mark Pastore (September 29, 2013)",
+      "value": "2",
+      "dateLabel": "September 29, 2013",
+      "kind": "performance",
+      "playerID": "354061",
+      "name": "Mark Pastore",
+      "statKey": "A",
+      "boxscores": [
+        {
+          "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046521&archTog=1",
+          "value": "2",
+          "season": "Winter 2013/2014",
+          "gameType": "Regular Season"
+        }
+      ],
+      "status": "MATCH"
+    },
+    {
+      "category": "Summer - Penalty Minutes",
+      "scope": "Game",
+      "sourceText": "4 - Daniel Buzzelli (June 1, 2014)",
+      "value": "4",
+      "dateLabel": "June 1, 2014",
+      "kind": "performance",
+      "playerID": "354062",
+      "name": "Daniel Buzzelli",
+      "statKey": "PIM",
+      "boxscores": [
+        {
+          "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1100293&archTog=1",
+          "value": "4",
+          "season": "Summer 2014",
+          "gameType": "Regular Season"
+        }
+      ],
+      "status": "MATCH"
+    },
+    {
+      "category": "Summer - Penalty Minutes",
+      "scope": "Game",
+      "sourceText": "4 - Daniel Buzzelli (August 10, 2014)",
+      "value": "4",
+      "dateLabel": "August 10, 2014",
+      "kind": "performance",
+      "playerID": "354062",
+      "name": "Daniel Buzzelli",
+      "statKey": "PIM",
+      "boxscores": [
+        {
+          "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1100309&archTog=1",
+          "value": "4",
+          "season": "Summer 2014",
+          "gameType": "Playoffs"
+        }
+      ],
+      "status": "MATCH"
+    },
+    {
+      "category": "Winter - Penalty Minutes",
+      "scope": "Game",
+      "sourceText": "4 - Daniel Buzzelli (January 19, 2014)",
+      "value": "4",
+      "dateLabel": "January 19, 2014",
+      "kind": "performance",
+      "playerID": "354062",
+      "name": "Daniel Buzzelli",
+      "statKey": "PIM",
+      "boxscores": [
+        {
+          "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046547&archTog=1",
+          "value": "4",
+          "season": "Winter 2013/2014",
+          "gameType": "Regular Season"
+        }
+      ],
+      "status": "MATCH"
+    },
+    {
+      "category": "Winter - Goals",
+      "scope": "Game",
+      "sourceText": "5 - Ben Sherritt (October 6, 2013)",
+      "value": "5",
+      "dateLabel": "October 6, 2013",
+      "kind": "performance",
+      "playerID": "354285",
+      "name": "Ben Sherritt",
+      "statKey": "G",
+      "boxscores": [
+        {
+          "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046522&archTog=1",
+          "value": "5",
+          "season": "Winter 2013/2014",
+          "gameType": "Regular Season"
+        }
+      ],
+      "status": "MATCH"
+    },
+    {
+      "category": "Winter - Points",
+      "scope": "Game",
+      "sourceText": "6 - Ben Sherritt (October 6, 2013)",
+      "value": "6",
+      "dateLabel": "October 6, 2013",
+      "kind": "performance",
+      "playerID": "354285",
+      "name": "Ben Sherritt",
+      "statKey": "Pts",
+      "boxscores": [
+        {
+          "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046522&archTog=1",
+          "value": "6",
+          "season": "Winter 2013/2014",
+          "gameType": "Regular Season"
+        }
+      ],
+      "status": "MATCH"
+    },
+    {
+      "category": "Winter - Points",
+      "scope": "Game",
+      "sourceText": "6 - Ben Sherritt (March 2, 2014)",
+      "value": "6",
+      "dateLabel": "March 2, 2014",
+      "kind": "performance",
+      "playerID": "354285",
+      "name": "Ben Sherritt",
+      "statKey": "Pts",
+      "boxscores": [
+        {
+          "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046553&archTog=1",
+          "value": "6",
+          "season": "Winter 2013/2014",
+          "gameType": "Regular Season"
+        }
+      ],
+      "status": "MATCH"
+    },
+    {
+      "category": "Winter - Points",
+      "scope": "Game",
+      "sourceText": "6 - Ben Sherritt (November 12, 2017)",
+      "value": "6",
+      "dateLabel": "November 12, 2017",
+      "kind": "performance",
+      "playerID": "354285",
+      "name": "Ben Sherritt",
+      "statKey": "Pts",
+      "boxscores": [
+        {
+          "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1664233&archTog=1",
+          "value": "6",
+          "season": "Winter 2017/2018",
+          "gameType": "Regular Season"
+        }
+      ],
+      "status": "MATCH"
+    },
+    {
+      "category": "Winter - Assists",
+      "scope": "Game",
+      "sourceText": "2 - Ben Sherritt (September 29, 2013)",
+      "value": "2",
+      "dateLabel": "September 29, 2013",
+      "kind": "performance",
+      "playerID": "354285",
+      "name": "Ben Sherritt",
+      "statKey": "A",
+      "boxscores": [
+        {
+          "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046521&archTog=1",
+          "value": "2",
+          "season": "Winter 2013/2014",
+          "gameType": "Regular Season"
+        }
+      ],
+      "status": "MATCH"
+    },
+    {
+      "category": "Summer - Points",
+      "scope": "Game",
+      "sourceText": "5 - Stefano Ardizzi (June 22, 2014)",
+      "value": "5",
+      "dateLabel": "June 22, 2014",
+      "kind": "performance",
+      "playerID": "356089",
+      "name": "Stefano Ardizzi",
+      "statKey": "Pts",
+      "boxscores": [
+        {
+          "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1100303&archTog=1",
+          "value": "5",
+          "season": "Summer 2014",
+          "gameType": "Regular Season"
+        }
+      ],
+      "status": "MATCH"
+    },
+    {
+      "category": "Summer - Penalty Minutes",
+      "scope": "Game",
+      "sourceText": "9 - Stefano Ardizzi (May 31, 2015)",
+      "value": "9",
+      "dateLabel": "May 31, 2015",
+      "kind": "performance",
+      "playerID": "356089",
+      "name": "Stefano Ardizzi",
+      "statKey": "PIM",
+      "boxscores": [
+        {
+          "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1249334&archTog=1",
+          "value": "9",
+          "season": "Summer 2015",
+          "gameType": "Regular Season"
+        }
+      ],
+      "status": "MATCH"
+    },
+    {
+      "category": "Summer - Penalty Minutes",
+      "scope": "Game",
+      "sourceText": "4 - Stefano Ardizzi (June 1, 2014)",
+      "value": "4",
+      "dateLabel": "June 1, 2014",
+      "kind": "performance",
+      "playerID": "356089",
+      "name": "Stefano Ardizzi",
+      "statKey": "PIM",
+      "boxscores": [
+        {
+          "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1100293&archTog=1",
+          "value": "4",
+          "season": "Summer 2014",
+          "gameType": "Regular Season"
+        }
+      ],
+      "status": "MATCH"
+    },
+    {
+      "category": "Winter - Assists",
+      "scope": "Game",
+      "sourceText": "3 - Stefano Ardizzi (December 15, 2013)",
+      "value": "3",
+      "dateLabel": "December 15, 2013",
+      "kind": "performance",
+      "playerID": "356089",
+      "name": "Stefano Ardizzi",
+      "statKey": "A",
+      "boxscores": [
+        {
+          "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046541&archTog=1",
+          "value": "3",
+          "season": "Winter 2013/2014",
+          "gameType": "Regular Season"
+        }
+      ],
+      "status": "MATCH"
+    },
+    {
+      "category": "Winter - Assists",
+      "scope": "Game",
+      "sourceText": "3 - Stefano Ardizzi (March 2, 2014)",
+      "value": "3",
+      "dateLabel": "March 2, 2014",
+      "kind": "performance",
+      "playerID": "356089",
+      "name": "Stefano Ardizzi",
+      "statKey": "A",
+      "boxscores": [
+        {
+          "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046553&archTog=1",
+          "value": "3",
+          "season": "Winter 2013/2014",
+          "gameType": "Regular Season"
+        }
+      ],
+      "status": "MATCH"
+    },
+    {
+      "category": "Winter - Penalty Minutes",
+      "scope": "Game",
+      "sourceText": "14 - Stefano Ardizzi (December 22, 2019)",
+      "value": "14",
+      "dateLabel": "December 22, 2019",
+      "kind": "performance",
+      "playerID": "356089",
+      "name": "Stefano Ardizzi",
+      "statKey": "PIM",
+      "boxscores": [
+        {
+          "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1835531&archTog=1",
+          "value": "14",
+          "season": "Winter 2019/2020",
+          "gameType": "Regular Season"
+        }
+      ],
+      "status": "MATCH"
+    },
+    {
+      "category": "Winter - Penalty Minutes",
+      "scope": "Game",
+      "sourceText": "12 - Julian Kercz (November 9, 2014)",
+      "value": "12",
+      "dateLabel": "November 9, 2014",
+      "kind": "performance",
+      "playerID": "382708",
+      "name": "Julian Kercz",
+      "statKey": "PIM",
+      "boxscores": [
+        {
+          "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1190737&archTog=1",
+          "value": "12",
+          "season": "Winter 2014/2015",
+          "gameType": "Regular Season"
+        }
+      ],
+      "status": "MATCH"
+    },
+    {
+      "category": "Winter - Points",
+      "scope": "Game",
+      "sourceText": "6 - Zach Kercz (December 21, 2014)",
+      "value": "6",
+      "dateLabel": "December 21, 2014",
+      "kind": "performance",
+      "playerID": "383322",
+      "name": "Zach Kercz",
+      "statKey": "Pts",
+      "boxscores": [
+        {
+          "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1190743&archTog=1",
+          "value": "6",
+          "season": "Winter 2014/2015",
+          "gameType": "Regular Season"
+        }
+      ],
+      "status": "MATCH"
+    },
+    {
+      "category": "Winter - Points",
+      "scope": "Game",
+      "sourceText": "6 - Xav O'Krafka (November 12, 2017)",
+      "value": "6",
+      "dateLabel": "November 12, 2017",
+      "kind": "performance",
+      "playerID": "426873",
+      "name": "Xav O'Krafka",
+      "statKey": "Pts",
+      "boxscores": [
+        {
+          "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1664233&archTog=1",
+          "value": "6",
+          "season": "Winter 2017/2018",
+          "gameType": "Regular Season"
+        }
+      ],
+      "status": "MATCH"
+    },
+    {
+      "category": "Winter - Assists",
+      "scope": "Game",
+      "sourceText": "4 - Dylan Brennan (September 18, 2016)",
+      "value": "4",
+      "dateLabel": "September 18, 2016",
+      "kind": "performance",
+      "playerID": "525407",
+      "name": "Dylan Brennan",
+      "statKey": "A",
+      "boxscores": [
+        {
+          "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1517065&archTog=1",
+          "value": "4",
+          "season": "Winter 2016/2017",
+          "gameType": "Regular Season"
+        }
+      ],
+      "status": "MATCH"
+    },
+    {
+      "category": "Winter - Assists",
+      "scope": "Game",
+      "sourceText": "4 - David Corasaniti (February 9, 2020)",
+      "value": "4",
+      "dateLabel": "February 9, 2020",
+      "kind": "performance",
+      "playerID": "652571",
+      "name": "David Corasaniti",
+      "statKey": "A",
+      "boxscores": [
+        {
+          "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1835538&archTog=1",
+          "value": "4",
+          "season": "Winter 2019/2020",
+          "gameType": "Regular Season"
+        }
+      ],
+      "status": "MATCH"
+    },
+    {
+      "category": "Winter - Assists",
+      "scope": "Game",
+      "sourceText": "4 - David Corasaniti (February 16, 2020)",
+      "value": "4",
+      "dateLabel": "February 16, 2020",
+      "kind": "performance",
+      "playerID": "652571",
+      "name": "David Corasaniti",
+      "statKey": "A",
+      "boxscores": [
+        {
+          "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1835541&archTog=1",
+          "value": "4",
+          "season": "Winter 2019/2020",
+          "gameType": "Regular Season"
+        }
+      ],
+      "status": "MATCH"
+    },
+    {
+      "category": "Winter - Assists",
+      "scope": "Game",
+      "sourceText": "4 - Stephane Saindon (October 6, 2024)",
+      "value": "4",
+      "dateLabel": "October 6, 2024",
+      "kind": "performance",
+      "playerID": "738846",
+      "name": "Stephane Saindon",
+      "statKey": "A",
+      "boxscores": [
+        {
+          "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=2148137&archTog=1",
+          "value": "4",
+          "season": "Winter 2024/2025",
+          "gameType": "Regular Season"
+        }
+      ],
+      "status": "MATCH"
+    },
+    {
+      "category": "Winter - Assists",
+      "scope": "Game",
+      "sourceText": "4 - Stephane Saindon (November 9, 2025)",
+      "value": "4",
+      "dateLabel": "November 9, 2025",
+      "kind": "performance",
+      "playerID": "738846",
+      "name": "Stephane Saindon",
+      "statKey": "A",
+      "boxscores": [
+        {
+          "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=2214996&archTog=1",
+          "value": "4",
+          "season": "Winter 2025/2026",
+          "gameType": "Regular Season"
+        }
+      ],
+      "status": "MATCH"
+    },
+    {
+      "category": "Winter - Assists",
+      "scope": "Game",
+      "sourceText": "4 - Stephane Saindon (January 18, 2026)",
+      "value": "4",
+      "dateLabel": "January 18, 2026",
+      "kind": "performance",
+      "playerID": "738846",
+      "name": "Stephane Saindon",
+      "statKey": "A",
+      "boxscores": [
+        {
+          "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=2215006&archTog=1",
+          "value": "4",
+          "season": "Winter 2025/2026",
+          "gameType": "Regular Season"
+        }
+      ],
+      "status": "MATCH"
+    },
+    {
+      "category": "Winter - Penalty Minutes",
+      "scope": "Game",
+      "sourceText": "14 - Stephane Saindon (April 6, 2025)",
+      "value": "14",
+      "dateLabel": "April 6, 2025",
+      "kind": "performance",
+      "playerID": "738846",
+      "name": "Stephane Saindon",
+      "statKey": "PIM",
+      "boxscores": [
+        {
+          "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=2148163&archTog=1",
+          "value": "14",
+          "season": "Winter 2024/2025",
+          "gameType": "Playoffs"
+        }
+      ],
+      "status": "MATCH"
+    }
+  ],
+  "seasonLedgerCounts": {
+    "MATCH": 62,
+    "INCOMPLETE_OR_DIFFERENT": 669
+  },
+  "milestoneStatus": "PENDING_COMPLETE_GAME_LEDGER_AND_SEASON_GP_VALIDATION",
+  "nativeHTOChanges": 0
+}
