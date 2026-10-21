@@ -18,8 +18,8 @@ def inputs():
         games.append({
             "htoGameId":gid,"date":date,"workbookGameNumber":359+i,
             "sourceUrl":f"https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&gameID={gid}",
-            "skaters":[{"name":"Carosi, Justin","gameAppearance":1,"pts":1},
-                       {"name":"Provenzano, Michael","gameAppearance":1,"pts":1}],
+            "skaters":[{"name":"Carosi, Justin","gp":1,"pts":1},
+                       {"name":"Provenzano, Michael","gp":1,"pts":1}],
         })
     feed={"schema":"brave-hc-hto-verified-game-feed/v1",
           "sourceReadback":"2026-10-21T15:31:14+00:00",
