@@ -1,9 +1,9 @@
 # Brave H.C. Award Races
-## Consolidated Implementation Plan | Version 1.7
+## Consolidated Implementation Plan | Version 1.8
 
 **Updated:** October 21, 2026 (America/Toronto)
 **Sponsor:** Adam Brutto | **Delivery lead:** Engineering / Jacob AI role
-**Current position:** Arithmetic is implemented for all 44 internal formulas, all 44 displays and eight raw composite formulas. Display and scalar checks total 2,400 exact native comparisons. Current input/historical validation, eligibility and final-score normalization remain open before integration and release.
+**Current position:** Arithmetic is implemented for all 44 internal formulas, all 44 displays and eight raw composite formulas. Display and scalar checks total 2,400 exact native comparisons. Ten eligibility rules and eight final-score/rank pipelines are implemented. Current eligibility is reconciled for 219 of 220 decisions; Carlyle rookie eligibility remains held. Composite input validation, corrected native parity, integration and release remain open.
 
 ### Purpose and authority
 Deliver a reliable Award Races widget that follows the original award methodology, explains its ratings clearly, and refreshes from accepted HockeyOS statistics without repeated manual reconstruction.
@@ -16,12 +16,12 @@ This is the detailed Award Races subplan under the existing Brave H.C. HockeyOS 
 - A disposable native Excel replay updated 14 matched rows and added 43 appearances. All 565 nonmissing input writes and untouched historical raw inputs passed saved-file checks. The 146 scoring formulas retained their modes; Excel reported no award-cell errors.
 - The initial replay exposed stale season PivotTable caches. Explicit native refresh recovered all 40 added skater and three added goalie appearances and season outputs of 6 goals, 10 assists and 16 points. Never overwrite PivotTable output cells. The completed reference refreshed both caches, rebuilt all downstream formulas and saved with no award-cell errors.
 - Adam confirmed Damian Pavaday is DI. A new review copy now contains his PlayerInfo and W2026/27 roster rows. Eight inputs and 1,955,411 existing cells passed preservation checks. Current DI status excludes him from the FT-only Rookie race without guessing a first FT year. The original 41 missing skater PIM and one missing goalie POTG observations remain null in the source fixture. A separate derived fixture resolves each to zero using matching season totals, complete appearance coverage and nonnegative additive counts; all 42 equations and their provenance are retained.
-- The latest local validation passed 85 JavaScript tests; the expanded Python suite now passes 102 tests. Existing historical final-score parity covers only four models and 20 saved eligible finals; it is not complete current scoring validation.
+- The latest local validation passed 85 JavaScript tests; the expanded Python suite now passes 129 tests. Eight final-score models pass 192 saved native comparisons. Dedication now rounds to whole numbers by Adam's correction; one-decimal arithmetic remains audit-only. This is not complete current composite validation.
 
 ### Critical path
 Reconcile all source inputs -> repair the disposable reference -> prove complete native results -> implement matching production calculations -> verify category displays -> release the reviewed candidate -> demonstrate repeatable refresh.
 
-**Immediate next task: AW-02 / AW-08.** Validate the complete current input matrix and historical baselines, then implement remaining eligibility/final-score logic. Reuse the verified internal, display and raw-composite stages rather than translating each remaining scalar branch separately.
+**Immediate next task: AW-02 / AW-08.** Validate the remaining composite input matrix and historical baselines, then assemble the corrected current chain. Reuse the verified internal, display and raw-composite stages rather than translating each remaining scalar branch separately.
 
 <!-- PAGE -->
 # 1. One data contract and one calculation path
@@ -63,7 +63,7 @@ Keep one task register, issue list, evidence index and next action. Link the rev
 **Acceptance:** This plan has stable IDs, scope boundaries, owners, checkpoints, rollout and refresh criteria. PDF and repository text match at issue time.
 
 ### AW-02 | Map every required source input
-**Owner:** Jacob / Engineering | **Status:** In progress - season PivotTables and schedule controls traced; ordinary/historical coverage open | **Dependency:** AW-01
+**Owner:** Jacob / Engineering | **Status:** In progress - eligibility sources reconciled for 22 players; complete composite/historical coverage open | **Dependency:** AW-01
 Inventory the original season tables and raw columns; distinguish formulas from editable inputs. Map verified HTO game/season fields to those tables, PlayerInfo, roster denominators, schedule context and historical baselines. Include references outside structured tables and any named ranges. Classify each required field as available, derived by an original formula, missing or disputed.
 **Acceptance:** Every calculation dependency has a source, transformation, season/cutoff and missing-value rule. No unmapped required input is silently treated as zero.
 
@@ -96,12 +96,12 @@ Run full native Excel recalculation and export PlayerInfo inputs/helpers, AwardS
 **Acceptance:** Complete player coverage and source-count parity; no unexplained Excel errors; correct regular/playoff context; every released category has a complete dependency chain. Save reference fixtures, source/model hashes and runtime receipts.
 
 ### AW-08 | Implement the production calculator
-**Owner:** Jacob; Conky supports architecture | **Status:** Counts, population, all 44 internals/displays and eight raw composites implemented; current inputs, eligibility/finals and integration open | **Dependency:** AW-07 fixtures
+**Owner:** Jacob; Conky supports architecture | **Status:** All scalar/display, eligibility and final/rank stages implemented; current composite inputs and integration open | **Dependency:** AW-07 fixtures
 Extend the existing HockeyOS calculation path with deterministic, versioned implementations of the captured award rules. Reuse composition inventories and contracts. Preserve rank normalization versus component min/max normalization, tie rules, signed improvement terms, role branches, blanks, rounding, historical baselines and sample thresholds. Avoid a daily dependency on manually opening Excel.
 **Acceptance:** Given the same accepted inputs, the calculator reproduces the native intermediate values and final outputs for every implemented category. Existing code is reused where correct; no second ad hoc methodology is introduced.
 
 ### AW-09 | Prove parity and edge cases
-**Owner:** Randy / independent QA role | **Status:** Counts pass 76 comparisons; displays and scalar stages pass 2,400; corrected current full-model parity open | **Dependencies:** AW-07, AW-08
+**Owner:** Randy / independent QA role | **Status:** Counts pass 76; displays/scalars pass 2,400; saved finals pass 192; corrected current full-model parity open | **Dependencies:** AW-07, AW-08
 Compare all eight composite models and both count titles; validate Hall of Fame separately. Exercise skater, goalie and utility branches; rookie and call-up metadata; threshold boundaries; zero/one/tied candidates; no playoffs; summer/winter context; missing observations; source corrections and removed erroneous appearances.
 **Acceptance:** Counts, identities, eligibility, displayed rounded scores and ordering match exactly. Any tolerance for unrounded numeric intermediates is specified before comparison and cannot change ranking or display. Four-model historical parity alone is insufficient.
 
@@ -196,7 +196,7 @@ These are AI work assignments, not human signatures or completed reviews. Indepe
 # 7. Evidence and next work package
 
 ### Next work package: AW-02 / AW-08
-Validate the 248 required PlayerInfo fields against accepted current observations, historical source chains and season controls. Keep known legacy blank/error semantics separate from unavailable current inputs. The restricted interpreter now handles all 44 scalar internals and eight raw composites, with lazy branches and missing-input holds that cannot be swallowed by IFERROR. The existing display implementation covers all 44 components. Next implement remaining eligibility and final-score normalization, assemble the corrected current chain, and compare it against an appropriate native reference before integration. Include Carlyle's new master entry and resolve his roster code only where a required branch depends on it.
+Validate the 248 required PlayerInfo fields against accepted current observations, historical source chains and season controls. Keep known legacy blank/error semantics separate from unavailable current inputs. The restricted interpreter now handles all 44 scalar internals and eight raw composites, with lazy branches and missing-input holds that cannot be swallowed by IFERROR. The existing display implementation covers all 44 components. Eligibility and final/rank stages are implemented. Assemble the corrected current chain and compare it against an appropriate native reference before integration. Include Carlyle's new master entry and resolve his roster code only where a required branch depends on it.
 
 ### Evidence index
 - Review implementation: https://github.com/adambrutto-maker/brave-hc/pull/8
@@ -205,9 +205,12 @@ Validate the 248 required PlayerInfo fields against accepted current observation
 - Brave_HC_Master_Workplan.xlsx - parent plan, saved v4 / internal v1.3; September 25 statuses are historical.
 - Brave_HC_Awards_Methodology_Audit.md - historical reference; newer captured formulas control.
 
-**Session record - October 21, 2026 Toronto:** All 44 internal formulas compile through a restricted scalar parser with no eval or arbitrary functions. They match 1,100 native values exactly. Eight raw composite formulas add 200 exact comparisons, preserving source weights and the Norris utility exception. With the 1,100 display comparisons, covered arithmetic totals 2,400 exact cases. These are legacy-reference checks, not current population acceptance. Known source blanks/errors are explicit; missing current inputs hold. All 102 Python tests pass. No current final composite or live release is asserted.
+**Session record - October 21, 2026 Toronto:** Read-only eligibility extraction scanned 111 master identities, 491 roster rows, 390 schedule rows and 5,070 game-log records from protected copy 68392e. All 22 current identities reconcile with zero checked source differences. Original formulas rebuild roster denominators, position groups, five known rookies and career-prior row counts. Current eligibility resolves 219/220 decisions; only Carlyle's Rookie decision depends on unknown status. Other Carlyle decisions are invariant across all status branches, both rookie states and absent/present roster rows. No status is selected. All 129 Python tests pass. Prior 2,400 display/scalar and 192 saved-final arithmetic checks remain evidence; current final composite acceptance remains open.
 
 ### Retained implementation evidence
+- docs/261021_Awards_Eligibility_Source_Ledger.json - reconciled source inputs and historical roster lineage.
+- docs/261021_Awards_Validated_Eligibility_Replay.json - 219 resolved decisions and one explicit exception.
+- docs/261021_Awards_Dedication_Rounding_Decision.md - approved whole-number correction.
 - docs/261021_Awards_Season_Pivot_Dependency.md - season controls, 30 ordinary column ranges and refresh ordering.
 - docs/261021_Awards_Current_Population_Join.json - complete 22-player / 57-appearance identity join.
 - docs/261021_Awards_Cohort_Dependency_Review.json - 412 aggregation formulas and exact season selectors.
