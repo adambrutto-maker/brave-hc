@@ -48,6 +48,22 @@ Historical manual source values and existing formula definitions in both origina
 
 **Interpretation:** The 43 missing game-log source observations can be staged non-destructively into a disposable, structurally expanded Excel workbook. This is a genuine source-only input gate, not approval of all 17 worksheets' recalculated output.
 
+## Additional downstream read-only inspection — October 21, 2026
+
+A separate, no-write ZIP/XML comparison inspected the SAVED source-only candidate against its immediate expanded-table baseline after the 460 source inputs had been entered. Although the import script **did not explicitly request** `CalculateFull` or PivotTable refresh, opening/writing/saving the legacy Excel workbook had side effects on dependent saved caches/metadata. **Do not equate the successful source-only import with an unchanged cached model.**
+
+| Worksheet / structure | Observed persisted difference against expanded input copy | Acceptance |
+|---|---:|---|
+| Awards & Records | **1,873 formula-cache values changed** | HOLD — Awards eligibility and rankings not independently recalculated/verified |
+| Player Projections | **317 formula-cache values changed** | HOLD — model source field and baseline validation pending |
+| Web Streaks | **136 formula-cache values changed** | HOLD — current streak source/baseline not certified |
+| Player Stats | **15,339 formula-cache values changed**, plus **61 added/removed cached cells** | HOLD — pivot/season/career result parity not independently established |
+| Pivot-related XML | **8 of 15 components changed** | HOLD — exact cache identities, values and refresh effects need independent review |
+
+The audit compared formula definitions and cached values by sheet cell reference, **without reopening Excel, writing private workbook bytes, or refreshing any pivot**. This source-diff result is evidence of downstream cache mutation, not proof of valid 2026/27 awards, PIM, POTG, GTG, career totals, rate statistics, or 17-sheet model parity. The 41 withheld HTO fields and separate original game-359 goalie conflict continue to block full certification. No native HTO records or public Watch output changed.
+
+**Release rule:** the accepted `SOURCE_ONLY_STAGING_SAVED_VERIFIED_NOT_RELEASED` state must **not** be promoted to `FULL_WORKBOOK_RELEASED` or `CURRENT_PLAYER_STATS` until a separately reviewed, disposable full-workbook/pivot calculation validates every dependent worksheet, reports unknown-field handling, confirms existing player/goalie evidence and receives explicit workbook-owner authorization.
+
 ## What remains held
 
 1. **Dev Leong game 359:** original workbook `W1/L0/GA0/POTG0` conflicts with official HTO `losses1/GA3/POTG1`; this test did not change that pre-existing record.
