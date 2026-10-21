@@ -75,6 +75,72 @@ class SourceRefreshTests(unittest.TestCase):
         self.assertIn('manual review', self.history['stalePolicy'])
         self.assertIn('HTO', self.history['stalePolicy'])
 
+    def test_transient_non_html_source_retries_and_preserves_bytes(self):
+        from types import SimpleNamespace
+        class Session:
+            def __init__(self):
+                self.calls = []
+                self.responses = [
+                    SimpleNamespace(status_code=200, headers={'Content-Type':'text/plain'}, content=b'Service temporarily unavailable'),
+                    SimpleNamespace(status_code=200, headers={'Content-Type':'text/html; charset=utf-8'}, content=b'<html>R\\xc3\\xa8nt Goali\\xc3\\xaa</html>'),
+                ]
+            def get(self, url, **kwargs):
+                self.calls.append(kwargs)
+                return self.responses.pop(0)
+        session=Session()
+        delays=[]
+        data=refresh.fetch(session,refresh.RECORDS,sleep_fn=delays.append)
+        self.assertEqual(data,b'<html>R\\xc3\\xa8nt Goali\\xc3\\xaa</html>')
+        self.assertEqual(len(session.calls),2)
+        self.assertEqual(delays,[1])
+        self.assertTrue(all(x['allow_redirects'] is False for x in session.calls))
+
+    def test_persistent_wrong_content_type_stays_failed(self):
+        from types import SimpleNamespace
+        class Session:
+            def __init__(self): self.attempts=0
+            def get(self, url, **kwargs):
+                self.attempts+=1
+                return SimpleNamespace(status_code=200,headers={'Content-Type':'text/plain'},content=b'not HTO HTML')
+        s=Session()
+        with self.assertRaisesRegex(ValueError,'Unexpected HTO response: .*responseSHA256.*attempts'):
+            refresh.fetch(s,refresh.RECORDS,sleep_fn=lambda _:None)
+        self.assertEqual(s.attempts,3)
+
+    def test_redirect_never_retried_or_followed(self):
+        from types import SimpleNamespace
+        class Session:
+            def __init__(self):self.attempts=0
+            def get(self, url, **kwargs):
+                self.assert_false=kwargs['allow_redirects'] is False
+                self.attempts+=1
+                return SimpleNamespace(status_code=302,headers={'Content-Type':'text/html'},content=b'')
+        s=Session()
+        with self.assertRaisesRegex(ValueError,'Unexpected HTO response'):
+            refresh.fetch(s,refresh.RECORDS,sleep_fn=lambda _:None)
+        self.assertTrue(s.assert_false)
+        self.assertEqual(s.attempts,1)
+
+    def test_403_denial_never_downgraded_to_success(self):
+        from types import SimpleNamespace
+        class Session:
+            def __init__(self):self.attempts=0
+            def get(self, url, **kwargs):
+                self.attempts+=1
+                return SimpleNamespace(status_code=403,headers={'Content-Type':'text/html'},content=b'<html>denied</html>')
+        s=Session()
+        with self.assertRaisesRegex(ValueError,'Unexpected HTO response'):
+            refresh.fetch(s,refresh.RECORDS,sleep_fn=lambda _:None)
+        self.assertEqual(s.attempts,1)
+
+    def test_retry_bound_cannot_be_bypassed(self):
+        with self.assertRaisesRegex(ValueError,'Invalid bounded'):
+            refresh.fetch(None,refresh.RECORDS,max_attempts=30)
+
+    def test_non_htos_scheme_is_rejected_before_get(self):
+        with self.assertRaisesRegex(ValueError,'Unexpected source host or path'):
+            refresh.fetch(None,'http://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&p=records')
+
     def test_source_host_restricted(self):
         with self.assertRaises(ValueError): refresh.game_id('https://example.com/teams/default.asp?u=BRAVESHOCKEY&p=boxscore&gameID=1')
 
