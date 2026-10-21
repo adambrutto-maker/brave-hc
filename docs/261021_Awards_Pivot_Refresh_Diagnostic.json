@@ -1,0 +1,31 @@
+{
+  "state": "SAVED_PIVOT_REFRESH_VERIFIED_DOWNSTREAM_NOT_RECALCULATED",
+  "copy": "D:\\BruTTech\\Products\\HockeyOS\\261019_Award_GameLog_Staging_v1\\Pivot_Diagnostic_20261021_033640\\Review_Only_Pivot_Diagnostic.xlsx",
+  "copySha256": "f1dd0e54dacb4c856fff4dfe2aba08b64a84f69ad1fd67a783ff962271b4e0a3",
+  "savedCacheRecords": {
+    "skater": 4706,
+    "goalie": 364
+  },
+  "pivotOutputs": {
+    "skater": "A2:AT655",
+    "goalie": "CN2:EA79"
+  },
+  "savedCurrentSeasonTotals": {
+    "allSkaterAppearances": 54,
+    "namedSkaterAppearances": 53,
+    "excludedJohnnyAppearances": 1,
+    "goals": 6,
+    "assists": 10,
+    "points": 16
+  },
+  "sourceHashUnchanged": true,
+  "baselineHashUnchanged": true,
+  "limitations": [
+    "First attempt stopped at copy-open mismatch before refresh.",
+    "Second runtime receipt openedFullName was empty; runtime path assertion is not accepted as sufficient evidence. Saved XML was independently read from the intended absolute copy path and cache coverage and season output verified.",
+    "No downstream full recalculation, scoring parity, original-formula preservation comparison or complete historical cell preservation check performed in this diagnostic.",
+    "Damian master metadata and missing observations remain unresolved."
+  ],
+  "currentScoresVerified": false,
+  "publicationAuthorized": false
+}
