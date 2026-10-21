@@ -47,6 +47,41 @@ def whole_number(x, label, *, allow_negative=False):
   raise ReviewHold("HTO_FIELD_INVALID_"+label)
  return x
 
+def cell_source_text(cell, shared_strings):
+ """Decode Excel cell storage without confusing shared-string IDs with values.
+
+ Returns (kind, decoded value, raw on-disk value). A whitespace-only string
+ occupies a physical cell but is not evidence of a numeric/statistical input.
+ """
+ formula=cell.find(NS+"f")
+ value=cell.find(NS+"v")
+ inline=cell.find(NS+"is")
+ raw=value.text if value is not None else None
+ if formula is not None:
+  return "formula", None, raw
+ ctype=cell.get("t")
+ if ctype=="s":
+  if raw is None:
+   raise ReviewHold("SHARED_STRING_INDEX_MISSING")
+  try:
+   idx=int(raw)
+   if str(idx)!=raw or idx<0:
+    raise ValueError("Invalid index")
+   text=shared_strings[idx]
+  except (ValueError, IndexError) as exc:
+   raise ReviewHold("SHARED_STRING_INDEX_INVALID") from exc
+  return ("whitespace_only_shared_string" if not text.strip()
+          else "preexisting_shared_string"), text, raw
+ if inline is not None:
+  text="".join(node.text or "" for node in inline.iter(NS+"t"))
+  return ("whitespace_only_inline_string" if not text.strip()
+          else "preexisting_inline_string"), text, None
+ if raw is not None:
+  return ("whitespace_only_value" if not raw.strip()
+          else "preexisting_value"), raw, raw
+ return "empty_or_style_only", None, None
+
+
 def row_structure(book: Path):
  if hashlib.sha256(book.read_bytes()).hexdigest()!=SOURCE_SHA:
   raise ReviewHold("IMMUTABLE_SOURCE_SHA_DRIFT")
@@ -71,6 +106,9 @@ def row_structure(book: Path):
     idx=col_num(column)-cfg["colStart"]
     if names[idx]!=label:
      raise ReviewHold("LEGACY_COLUMN_HEADER_MISMATCH_"+column)
+  stringroot=ET.fromstring(z.read("xl/sharedStrings.xml"))
+  shared_strings=["".join(t.text or "" for t in node.iter(NS+"t"))
+                  for node in stringroot.findall(NS+"si")]
   templates={name:{} for name in SCHEMAS}
   collisions={name:[] for name in SCHEMAS}
   with z.open("xl/worksheets/sheet3.xml") as source:
@@ -91,9 +129,15 @@ def row_structure(book: Path):
       if template:
        templates[kind][col]={"formula":f is not None,
             "nonBlank":v is not None and v.text is not None}
-      if proposed and (f is not None or (v is not None and v.text is not None)):
-       collisions[kind].append({"cell":ref,"kind":"formula" if f is not None else "preexisting_value",
-                               "value":None if v is None else v.text})
+      if proposed:
+       state,decoded,raw=cell_source_text(c,shared_strings)
+       if state!="empty_or_style_only":
+        collisions[kind].append({
+          "cell":ref,"kind":state,"value":decoded,
+          "onDiskValue":raw,"excelCellType":c.get("t"),
+          "statisticalInputVerified":False,
+          "safeToOverwriteWithoutOwnerReview":False
+        })
     row.clear()
   return headings,templates,collisions
 
@@ -176,6 +220,9 @@ def manifest(feed, baseline, headings, templates, collisions):
     "unsupportedExampleFields":[x for x in labels if x in ("SOG","PPG","SHG","GWG","GTG","FO","SA","Saves","Pct")],
     "admissionCollisionCells":collisions[kind]}
  collision_count=sum(len(v) for v in collisions.values())
+ whitespace_count=sum(1 for values in collisions.values() for cell in values
+                      if cell["kind"].startswith("whitespace_only_"))
+ meaningful_count=collision_count-whitespace_count
  return {
   "schema":"brave-hc-plan03-private-game-log-full-schema-preflight/v1",
   "status":"REVIEW_ONLY_HELD_FOR_EXISTING_CELLS_AND_UNSUPPORTED_STATS",
@@ -186,6 +233,9 @@ def manifest(feed, baseline, headings, templates, collisions):
   "withheldOfficialFields":dict(coverage),
   "sourceProposedRows":output,
   "sourceCollisions":collision_count,
+  "sourceWhitespaceOnlyCells":whitespace_count,
+  "sourceMeaningfulDataCollisions":meaningful_count,
+  "sourceCellStorageDecoded":True,
   "sourceRecordConflictCount":len(covered["conflicts"]),
   "identityAssignmentApproved":False,
   "formulaPropagationVerified":False,
