@@ -19,7 +19,10 @@ try{
  $excel=New-Object -ComObject Excel.Application
  $excel.Visible=$false;$excel.DisplayAlerts=$false;$excel.EnableEvents=$false;$excel.AutomationSecurity=3;$excel.AskToUpdateLinks=$false
  $book=$excel.Workbooks.Open($copy,0,$false)
- if($book.ReadOnly -or $book.FullName -ne $copy){throw 'Copy open mismatch'}
+ $openedPath=[string]$book.FullName
+ $receipt.openedFullName=$openedPath;$receipt.openedReadOnly=[bool]$book.ReadOnly
+ if([string]::IsNullOrWhiteSpace($openedPath)){throw 'Excel returned an empty FullName; refresh prohibited'}
+ if($book.ReadOnly -or [IO.Path]::GetFullPath($openedPath) -ne [IO.Path]::GetFullPath($copy)){throw 'Copy open mismatch'}
  $excel.Calculation=-4135
  $sheet=$book.Worksheets.Item('Player Stats')
  foreach($name in @('PlayerStatsBySeason','GoalieStatsBySeason')){
