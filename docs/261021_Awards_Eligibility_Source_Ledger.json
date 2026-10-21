@@ -1,0 +1,1530 @@
+{
+  "state": "ELIGIBILITY_SOURCE_LEDGER",
+  "sourceWorkbookSha256": "68392eccdd7087f4efbc32cabf23cb308aa7843eb33df72d714a3a099754a132",
+  "season": "W2026/27",
+  "cutoff": "2026-10-18",
+  "sourceCounts": {
+    "playerInfo": 111,
+    "roster": 491,
+    "schedule": 390,
+    "skaterGames": 4706,
+    "goalieGames": 364
+  },
+  "players": [
+    {
+      "name": "Ardizzi, Stefano",
+      "season": "W2026/27",
+      "role": "Skater",
+      "rosterStatus": "DI",
+      "rosterCurrentRowCount": 1,
+      "rawRosterHistory": [
+        {
+          "season": "S2014",
+          "status": "FT",
+          "sourceRow": 23
+        },
+        {
+          "season": "S2015",
+          "status": "FT",
+          "sourceRow": 43
+        },
+        {
+          "season": "S2016",
+          "status": "FT",
+          "sourceRow": 68
+        },
+        {
+          "season": "S2017",
+          "status": "FT",
+          "sourceRow": 97
+        },
+        {
+          "season": "W2013/14",
+          "status": "FT",
+          "sourceRow": 122
+        },
+        {
+          "season": "W2014/15",
+          "status": "FT",
+          "sourceRow": 161
+        },
+        {
+          "season": "W2014/15",
+          "status": "FT",
+          "sourceRow": 162
+        },
+        {
+          "season": "W2015/16",
+          "status": "FT",
+          "sourceRow": 209
+        },
+        {
+          "season": "W2016/17",
+          "status": "FT",
+          "sourceRow": 236
+        },
+        {
+          "season": "W2017/18",
+          "status": "FT",
+          "sourceRow": 255
+        },
+        {
+          "season": "W2018/19",
+          "status": "FT",
+          "sourceRow": 277
+        },
+        {
+          "season": "W2019/20",
+          "status": "FT",
+          "sourceRow": 314
+        },
+        {
+          "season": "W2022/23",
+          "status": "FT",
+          "sourceRow": 362
+        },
+        {
+          "season": "W2023/24",
+          "status": "FT",
+          "sourceRow": 388
+        },
+        {
+          "season": "W2024/25",
+          "status": "FT",
+          "sourceRow": 415
+        },
+        {
+          "season": "W2025/26",
+          "status": "CU",
+          "sourceRow": 440
+        },
+        {
+          "season": "W2026/27",
+          "status": "DI",
+          "sourceRow": 494
+        }
+      ],
+      "inputs": {
+        "Career Prior Skater GP": 221,
+        "Current Total Skater Played Games": 1,
+        "Current Skater GP": 1,
+        "Current Playoff Skater Played Games": 0,
+        "Current Skater Playoff GP": 0,
+        "Career Prior Goalie GP": 0,
+        "Current Total Goalie Played Games": 0,
+        "Current Goalie GP": 0,
+        "Current Playoff Goalie Played Games": 0
+      },
+      "differences": [],
+      "seasonTeamGames": 4,
+      "rosterTotalGames": 4,
+      "rookieYear": 2013,
+      "rookieStatus": 0,
+      "positionGroup": "Forward"
+    },
+    {
+      "name": "Brutto, Adam",
+      "season": "W2026/27",
+      "role": "Skater",
+      "rosterStatus": "FT",
+      "rosterCurrentRowCount": 1,
+      "rawRosterHistory": [
+        {
+          "season": "S2013",
+          "status": "FT",
+          "sourceRow": 7
+        },
+        {
+          "season": "S2014",
+          "status": "FT",
+          "sourceRow": 25
+        },
+        {
+          "season": "S2015",
+          "status": "FT",
+          "sourceRow": 46
+        },
+        {
+          "season": "S2016",
+          "status": "FT",
+          "sourceRow": 71
+        },
+        {
+          "season": "S2017",
+          "status": "FT",
+          "sourceRow": 100
+        },
+        {
+          "season": "W2013/14",
+          "status": "FT",
+          "sourceRow": 124
+        },
+        {
+          "season": "W2013/14",
+          "status": "FT",
+          "sourceRow": 125
+        },
+        {
+          "season": "W2014/15",
+          "status": "FT",
+          "sourceRow": 165
+        },
+        {
+          "season": "W2014/15",
+          "status": "FT",
+          "sourceRow": 166
+        },
+        {
+          "season": "W2015/16",
+          "status": "FT",
+          "sourceRow": 212
+        },
+        {
+          "season": "W2016/17",
+          "status": "FT",
+          "sourceRow": 238
+        },
+        {
+          "season": "W2017/18",
+          "status": "FT",
+          "sourceRow": 258
+        },
+        {
+          "season": "W2018/19",
+          "status": "FT",
+          "sourceRow": 281
+        },
+        {
+          "season": "W2019/20",
+          "status": "FT",
+          "sourceRow": 317
+        },
+        {
+          "season": "W2022/23",
+          "status": "FT",
+          "sourceRow": 365
+        },
+        {
+          "season": "W2023/24",
+          "status": "FT",
+          "sourceRow": 394
+        },
+        {
+          "season": "W2024/25",
+          "status": "FT",
+          "sourceRow": 419
+        },
+        {
+          "season": "W2025/26",
+          "status": "FT",
+          "sourceRow": 445
+        },
+        {
+          "season": "W2026/27",
+          "status": "FT",
+          "sourceRow": 473
+        }
+      ],
+      "inputs": {
+        "Career Prior Skater GP": 332,
+        "Current Total Skater Played Games": 4,
+        "Current Skater GP": 4,
+        "Current Playoff Skater Played Games": 0,
+        "Current Skater Playoff GP": 0,
+        "Career Prior Goalie GP": 0,
+        "Current Total Goalie Played Games": 0,
+        "Current Goalie GP": 0,
+        "Current Playoff Goalie Played Games": 0
+      },
+      "differences": [],
+      "seasonTeamGames": 4,
+      "rosterTotalGames": 4,
+      "rookieYear": 2013,
+      "rookieStatus": 0,
+      "positionGroup": "Defence"
+    },
+    {
+      "name": "Carosi, Justin",
+      "season": "W2026/27",
+      "role": "Skater",
+      "rosterStatus": "FT",
+      "rosterCurrentRowCount": 1,
+      "rawRosterHistory": [
+        {
+          "season": "S2013",
+          "status": "FT",
+          "sourceRow": 10
+        },
+        {
+          "season": "S2014",
+          "status": "FT",
+          "sourceRow": 28
+        },
+        {
+          "season": "S2015",
+          "status": "FT",
+          "sourceRow": 51
+        },
+        {
+          "season": "S2016",
+          "status": "FT",
+          "sourceRow": 75
+        },
+        {
+          "season": "S2017",
+          "status": "FT",
+          "sourceRow": 104
+        },
+        {
+          "season": "W2013/14",
+          "status": "DI",
+          "sourceRow": 132
+        },
+        {
+          "season": "W2013/14",
+          "status": "DI",
+          "sourceRow": 133
+        },
+        {
+          "season": "W2014/15",
+          "status": "FT",
+          "sourceRow": 173
+        },
+        {
+          "season": "W2014/15",
+          "status": "FT",
+          "sourceRow": 174
+        },
+        {
+          "season": "W2015/16",
+          "status": "FT",
+          "sourceRow": 215
+        },
+        {
+          "season": "W2016/17",
+          "status": "FT",
+          "sourceRow": 241
+        },
+        {
+          "season": "W2017/18",
+          "status": "FT",
+          "sourceRow": 262
+        },
+        {
+          "season": "W2018/19",
+          "status": "FT",
+          "sourceRow": 288
+        },
+        {
+          "season": "W2019/20",
+          "status": "FT",
+          "sourceRow": 322
+        },
+        {
+          "season": "W2020/21",
+          "status": "FT",
+          "sourceRow": 347
+        },
+        {
+          "season": "W2022/23",
+          "status": "FT",
+          "sourceRow": 368
+        },
+        {
+          "season": "W2023/24",
+          "status": "FT",
+          "sourceRow": 396
+        },
+        {
+          "season": "W2024/25",
+          "status": "FT",
+          "sourceRow": 421
+        },
+        {
+          "season": "W2025/26",
+          "status": "FT",
+          "sourceRow": 446
+        },
+        {
+          "season": "W2026/27",
+          "status": "FT",
+          "sourceRow": 474
+        }
+      ],
+      "inputs": {
+        "Career Prior Skater GP": 299,
+        "Current Total Skater Played Games": 4,
+        "Current Skater GP": 4,
+        "Current Playoff Skater Played Games": 0,
+        "Current Skater Playoff GP": 0,
+        "Career Prior Goalie GP": 0,
+        "Current Total Goalie Played Games": 0,
+        "Current Goalie GP": 0,
+        "Current Playoff Goalie Played Games": 0
+      },
+      "differences": [],
+      "seasonTeamGames": 4,
+      "rosterTotalGames": 4,
+      "rookieYear": 2013,
+      "rookieStatus": 0,
+      "positionGroup": "Forward"
+    },
+    {
+      "name": "Kong, Henry",
+      "season": "W2026/27",
+      "role": "Skater",
+      "rosterStatus": "FT",
+      "rosterCurrentRowCount": 1,
+      "rawRosterHistory": [
+        {
+          "season": "W2026/27",
+          "status": "FT",
+          "sourceRow": 478
+        }
+      ],
+      "inputs": {
+        "Career Prior Skater GP": 0,
+        "Current Total Skater Played Games": 4,
+        "Current Skater GP": 4,
+        "Current Playoff Skater Played Games": 0,
+        "Current Skater Playoff GP": 0,
+        "Career Prior Goalie GP": 0,
+        "Current Total Goalie Played Games": 0,
+        "Current Goalie GP": 0,
+        "Current Playoff Goalie Played Games": 0
+      },
+      "differences": [],
+      "seasonTeamGames": 4,
+      "rosterTotalGames": 4,
+      "rookieYear": 2026,
+      "rookieStatus": 1,
+      "positionGroup": "Utility"
+    },
+    {
+      "name": "Pagnotta, Alex",
+      "season": "W2026/27",
+      "role": "Skater",
+      "rosterStatus": "FT",
+      "rosterCurrentRowCount": 1,
+      "rawRosterHistory": [
+        {
+          "season": "S2013",
+          "status": "FT",
+          "sourceRow": 17
+        },
+        {
+          "season": "S2014",
+          "status": "FT",
+          "sourceRow": 37
+        },
+        {
+          "season": "S2015",
+          "status": "FT",
+          "sourceRow": 60
+        },
+        {
+          "season": "S2016",
+          "status": "FT",
+          "sourceRow": 90
+        },
+        {
+          "season": "S2017",
+          "status": "FT",
+          "sourceRow": 114
+        },
+        {
+          "season": "W2013/14",
+          "status": "FT",
+          "sourceRow": 149
+        },
+        {
+          "season": "W2013/14",
+          "status": "FT",
+          "sourceRow": 150
+        },
+        {
+          "season": "W2014/15",
+          "status": "FT",
+          "sourceRow": 194
+        },
+        {
+          "season": "W2014/15",
+          "status": "FT",
+          "sourceRow": 195
+        },
+        {
+          "season": "W2015/16",
+          "status": "FT",
+          "sourceRow": 229
+        },
+        {
+          "season": "W2016/17",
+          "status": "FT",
+          "sourceRow": 250
+        },
+        {
+          "season": "W2017/18",
+          "status": "FT",
+          "sourceRow": 273
+        },
+        {
+          "season": "W2018/19",
+          "status": "FT",
+          "sourceRow": 305
+        },
+        {
+          "season": "W2019/20",
+          "status": "FT",
+          "sourceRow": 338
+        },
+        {
+          "season": "W2020/21",
+          "status": "FT",
+          "sourceRow": 353
+        },
+        {
+          "season": "W2022/23",
+          "status": "FT",
+          "sourceRow": 380
+        },
+        {
+          "season": "W2023/24",
+          "status": "FT",
+          "sourceRow": 408
+        },
+        {
+          "season": "W2024/25",
+          "status": "FT",
+          "sourceRow": 433
+        },
+        {
+          "season": "W2025/26",
+          "status": "FT",
+          "sourceRow": 463
+        },
+        {
+          "season": "W2026/27",
+          "status": "FT",
+          "sourceRow": 482
+        }
+      ],
+      "inputs": {
+        "Career Prior Skater GP": 320,
+        "Current Total Skater Played Games": 4,
+        "Current Skater GP": 4,
+        "Current Playoff Skater Played Games": 0,
+        "Current Skater Playoff GP": 0,
+        "Career Prior Goalie GP": 0,
+        "Current Total Goalie Played Games": 0,
+        "Current Goalie GP": 0,
+        "Current Playoff Goalie Played Games": 0
+      },
+      "differences": [],
+      "seasonTeamGames": 4,
+      "rosterTotalGames": 4,
+      "rookieYear": 2013,
+      "rookieStatus": 0,
+      "positionGroup": "Defence"
+    },
+    {
+      "name": "Paolucci, Anthony",
+      "season": "W2026/27",
+      "role": "Skater",
+      "rosterStatus": "FT",
+      "rosterCurrentRowCount": 1,
+      "rawRosterHistory": [
+        {
+          "season": "S2013",
+          "status": "FT",
+          "sourceRow": 18
+        },
+        {
+          "season": "S2015",
+          "status": "FT",
+          "sourceRow": 61
+        },
+        {
+          "season": "S2016",
+          "status": "FT",
+          "sourceRow": 91
+        },
+        {
+          "season": "S2017",
+          "status": "FT",
+          "sourceRow": 115
+        },
+        {
+          "season": "W2014/15",
+          "status": "FT",
+          "sourceRow": 196
+        },
+        {
+          "season": "W2014/15",
+          "status": "FT",
+          "sourceRow": 197
+        },
+        {
+          "season": "W2015/16",
+          "status": "FT",
+          "sourceRow": 230
+        },
+        {
+          "season": "W2022/23",
+          "status": "CU",
+          "sourceRow": 381
+        },
+        {
+          "season": "W2025/26",
+          "status": "FT",
+          "sourceRow": 464
+        },
+        {
+          "season": "W2026/27",
+          "status": "FT",
+          "sourceRow": 483
+        }
+      ],
+      "inputs": {
+        "Career Prior Skater GP": 89,
+        "Current Total Skater Played Games": 1,
+        "Current Skater GP": 1,
+        "Current Playoff Skater Played Games": 0,
+        "Current Skater Playoff GP": 0,
+        "Career Prior Goalie GP": 4,
+        "Current Total Goalie Played Games": 0,
+        "Current Goalie GP": 0,
+        "Current Playoff Goalie Played Games": 0
+      },
+      "differences": [],
+      "seasonTeamGames": 4,
+      "rosterTotalGames": 4,
+      "rookieYear": 2013,
+      "rookieStatus": 0,
+      "positionGroup": "Forward"
+    },
+    {
+      "name": "Pearsoll, Keith",
+      "season": "W2026/27",
+      "role": "Skater",
+      "rosterStatus": "FT",
+      "rosterCurrentRowCount": 1,
+      "rawRosterHistory": [
+        {
+          "season": "S2013",
+          "status": "FT",
+          "sourceRow": 20
+        },
+        {
+          "season": "S2014",
+          "status": "FT",
+          "sourceRow": 39
+        },
+        {
+          "season": "S2015",
+          "status": "FT",
+          "sourceRow": 63
+        },
+        {
+          "season": "S2016",
+          "status": "FT",
+          "sourceRow": 93
+        },
+        {
+          "season": "S2017",
+          "status": "FT",
+          "sourceRow": 117
+        },
+        {
+          "season": "W2013/14",
+          "status": "FT",
+          "sourceRow": 153
+        },
+        {
+          "season": "W2013/14",
+          "status": "FT",
+          "sourceRow": 154
+        },
+        {
+          "season": "W2014/15",
+          "status": "FT",
+          "sourceRow": 200
+        },
+        {
+          "season": "W2014/15",
+          "status": "FT",
+          "sourceRow": 201
+        },
+        {
+          "season": "W2015/16",
+          "status": "FT",
+          "sourceRow": 232
+        },
+        {
+          "season": "W2016/17",
+          "status": "FT",
+          "sourceRow": 252
+        },
+        {
+          "season": "W2017/18",
+          "status": "FT",
+          "sourceRow": 274
+        },
+        {
+          "season": "W2018/19",
+          "status": "FT",
+          "sourceRow": 306
+        },
+        {
+          "season": "W2019/20",
+          "status": "FT",
+          "sourceRow": 339
+        },
+        {
+          "season": "W2020/21",
+          "status": "FT",
+          "sourceRow": 354
+        },
+        {
+          "season": "W2022/23",
+          "status": "FT",
+          "sourceRow": 382
+        },
+        {
+          "season": "W2023/24",
+          "status": "FT",
+          "sourceRow": 410
+        },
+        {
+          "season": "W2024/25",
+          "status": "FT",
+          "sourceRow": 434
+        },
+        {
+          "season": "W2025/26",
+          "status": "FT",
+          "sourceRow": 465
+        },
+        {
+          "season": "W2026/27",
+          "status": "FT",
+          "sourceRow": 484
+        }
+      ],
+      "inputs": {
+        "Career Prior Skater GP": 294,
+        "Current Total Skater Played Games": 3,
+        "Current Skater GP": 3,
+        "Current Playoff Skater Played Games": 0,
+        "Current Skater Playoff GP": 0,
+        "Career Prior Goalie GP": 0,
+        "Current Total Goalie Played Games": 0,
+        "Current Goalie GP": 0,
+        "Current Playoff Goalie Played Games": 0
+      },
+      "differences": [],
+      "seasonTeamGames": 4,
+      "rosterTotalGames": 4,
+      "rookieYear": 2013,
+      "rookieStatus": 0,
+      "positionGroup": "Forward"
+    },
+    {
+      "name": "Povegliano, Adam",
+      "season": "W2026/27",
+      "role": "Skater",
+      "rosterStatus": "FT",
+      "rosterCurrentRowCount": 1,
+      "rawRosterHistory": [
+        {
+          "season": "W2026/27",
+          "status": "FT",
+          "sourceRow": 485
+        }
+      ],
+      "inputs": {
+        "Career Prior Skater GP": 0,
+        "Current Total Skater Played Games": 3,
+        "Current Skater GP": 3,
+        "Current Playoff Skater Played Games": 0,
+        "Current Skater Playoff GP": 0,
+        "Career Prior Goalie GP": 0,
+        "Current Total Goalie Played Games": 0,
+        "Current Goalie GP": 0,
+        "Current Playoff Goalie Played Games": 0
+      },
+      "differences": [],
+      "seasonTeamGames": 4,
+      "rosterTotalGames": 4,
+      "rookieYear": 2026,
+      "rookieStatus": 1,
+      "positionGroup": "Forward"
+    },
+    {
+      "name": "Provenzano, Mario",
+      "season": "W2026/27",
+      "role": "Skater",
+      "rosterStatus": "FT",
+      "rosterCurrentRowCount": 1,
+      "rawRosterHistory": [
+        {
+          "season": "S2013",
+          "status": "FT",
+          "sourceRow": 21
+        },
+        {
+          "season": "S2014",
+          "status": "FT",
+          "sourceRow": 40
+        },
+        {
+          "season": "S2015",
+          "status": "CU",
+          "sourceRow": 64
+        },
+        {
+          "season": "S2016",
+          "status": "FT",
+          "sourceRow": 94
+        },
+        {
+          "season": "S2017",
+          "status": "DI",
+          "sourceRow": 118
+        },
+        {
+          "season": "W2013/14",
+          "status": "FT",
+          "sourceRow": 155
+        },
+        {
+          "season": "W2013/14",
+          "status": "FT",
+          "sourceRow": 156
+        },
+        {
+          "season": "W2014/15",
+          "status": "FT",
+          "sourceRow": 202
+        },
+        {
+          "season": "W2014/15",
+          "status": "FT",
+          "sourceRow": 203
+        },
+        {
+          "season": "W2015/16",
+          "status": "FT",
+          "sourceRow": 233
+        },
+        {
+          "season": "W2016/17",
+          "status": "FT",
+          "sourceRow": 253
+        },
+        {
+          "season": "W2017/18",
+          "status": "FT",
+          "sourceRow": 275
+        },
+        {
+          "season": "W2018/19",
+          "status": "FT",
+          "sourceRow": 308
+        },
+        {
+          "season": "W2019/20",
+          "status": "FT",
+          "sourceRow": 341
+        },
+        {
+          "season": "W2020/21",
+          "status": "FT",
+          "sourceRow": 356
+        },
+        {
+          "season": "W2022/23",
+          "status": "FT",
+          "sourceRow": 383
+        },
+        {
+          "season": "W2023/24",
+          "status": "FT",
+          "sourceRow": 411
+        },
+        {
+          "season": "W2024/25",
+          "status": "FT",
+          "sourceRow": 435
+        },
+        {
+          "season": "W2025/26",
+          "status": "FT",
+          "sourceRow": 466
+        },
+        {
+          "season": "W2026/27",
+          "status": "FT",
+          "sourceRow": 486
+        }
+      ],
+      "inputs": {
+        "Career Prior Skater GP": 240,
+        "Current Total Skater Played Games": 4,
+        "Current Skater GP": 4,
+        "Current Playoff Skater Played Games": 0,
+        "Current Skater Playoff GP": 0,
+        "Career Prior Goalie GP": 0,
+        "Current Total Goalie Played Games": 0,
+        "Current Goalie GP": 0,
+        "Current Playoff Goalie Played Games": 0
+      },
+      "differences": [],
+      "seasonTeamGames": 4,
+      "rosterTotalGames": 4,
+      "rookieYear": 2013,
+      "rookieStatus": 0,
+      "positionGroup": "Forward"
+    },
+    {
+      "name": "Provenzano, Michael",
+      "season": "W2026/27",
+      "role": "Skater",
+      "rosterStatus": "FT",
+      "rosterCurrentRowCount": 1,
+      "rawRosterHistory": [
+        {
+          "season": "W2019/20",
+          "status": "DI",
+          "sourceRow": 342
+        },
+        {
+          "season": "W2024/25",
+          "status": "FT",
+          "sourceRow": 436
+        },
+        {
+          "season": "W2025/26",
+          "status": "FT",
+          "sourceRow": 467
+        },
+        {
+          "season": "W2026/27",
+          "status": "FT",
+          "sourceRow": 487
+        }
+      ],
+      "inputs": {
+        "Career Prior Skater GP": 39,
+        "Current Total Skater Played Games": 3,
+        "Current Skater GP": 3,
+        "Current Playoff Skater Played Games": 0,
+        "Current Skater Playoff GP": 0,
+        "Career Prior Goalie GP": 0,
+        "Current Total Goalie Played Games": 0,
+        "Current Goalie GP": 0,
+        "Current Playoff Goalie Played Games": 0
+      },
+      "differences": [],
+      "seasonTeamGames": 4,
+      "rosterTotalGames": 4,
+      "rookieYear": 2024,
+      "rookieStatus": 0,
+      "positionGroup": "Forward"
+    },
+    {
+      "name": "Rajkumar, Sanjay",
+      "season": "W2026/27",
+      "role": "Skater",
+      "rosterStatus": "FT",
+      "rosterCurrentRowCount": 1,
+      "rawRosterHistory": [
+        {
+          "season": "W2026/27",
+          "status": "FT",
+          "sourceRow": 492
+        }
+      ],
+      "inputs": {
+        "Career Prior Skater GP": 0,
+        "Current Total Skater Played Games": 3,
+        "Current Skater GP": 3,
+        "Current Playoff Skater Played Games": 0,
+        "Current Skater Playoff GP": 0,
+        "Career Prior Goalie GP": 0,
+        "Current Total Goalie Played Games": 0,
+        "Current Goalie GP": 0,
+        "Current Playoff Goalie Played Games": 0
+      },
+      "differences": [],
+      "seasonTeamGames": 4,
+      "rosterTotalGames": 4,
+      "rookieYear": 2026,
+      "rookieStatus": 1,
+      "positionGroup": "Defence"
+    },
+    {
+      "name": "Saindon, Stephane",
+      "season": "W2026/27",
+      "role": "Skater",
+      "rosterStatus": "FT",
+      "rosterCurrentRowCount": 1,
+      "rawRosterHistory": [
+        {
+          "season": "W2022/23",
+          "status": "FT",
+          "sourceRow": 385
+        },
+        {
+          "season": "W2023/24",
+          "status": "FT",
+          "sourceRow": 413
+        },
+        {
+          "season": "W2024/25",
+          "status": "FT",
+          "sourceRow": 438
+        },
+        {
+          "season": "W2025/26",
+          "status": "FT",
+          "sourceRow": 470
+        },
+        {
+          "season": "W2026/27",
+          "status": "FT",
+          "sourceRow": 490
+        }
+      ],
+      "inputs": {
+        "Career Prior Skater GP": 88,
+        "Current Total Skater Played Games": 3,
+        "Current Skater GP": 3,
+        "Current Playoff Skater Played Games": 0,
+        "Current Skater Playoff GP": 0,
+        "Career Prior Goalie GP": 0,
+        "Current Total Goalie Played Games": 0,
+        "Current Goalie GP": 0,
+        "Current Playoff Goalie Played Games": 0
+      },
+      "differences": [],
+      "seasonTeamGames": 4,
+      "rosterTotalGames": 4,
+      "rookieYear": 2022,
+      "rookieStatus": 0,
+      "positionGroup": "Forward"
+    },
+    {
+      "name": "Triumbari, Francesco",
+      "season": "W2026/27",
+      "role": "Skater",
+      "rosterStatus": "FT",
+      "rosterCurrentRowCount": 1,
+      "rawRosterHistory": [
+        {
+          "season": "W2026/27",
+          "status": "FT",
+          "sourceRow": 493
+        }
+      ],
+      "inputs": {
+        "Career Prior Skater GP": 0,
+        "Current Total Skater Played Games": 4,
+        "Current Skater GP": 4,
+        "Current Playoff Skater Played Games": 0,
+        "Current Skater Playoff GP": 0,
+        "Career Prior Goalie GP": 0,
+        "Current Total Goalie Played Games": 0,
+        "Current Goalie GP": 0,
+        "Current Playoff Goalie Played Games": 0
+      },
+      "differences": [],
+      "seasonTeamGames": 4,
+      "rosterTotalGames": 4,
+      "rookieYear": 2026,
+      "rookieStatus": 1,
+      "positionGroup": "Defence"
+    },
+    {
+      "name": "Leong, Dev",
+      "season": "W2026/27",
+      "role": "Goaltender",
+      "rosterStatus": "CU",
+      "rosterCurrentRowCount": 1,
+      "rawRosterHistory": [
+        {
+          "season": "W2023/24",
+          "status": "DI",
+          "sourceRow": 403
+        },
+        {
+          "season": "W2024/25",
+          "status": "FT",
+          "sourceRow": 428
+        },
+        {
+          "season": "W2025/26",
+          "status": "FT",
+          "sourceRow": 458
+        },
+        {
+          "season": "W2026/27",
+          "status": "CU",
+          "sourceRow": 479
+        }
+      ],
+      "inputs": {
+        "Career Prior Skater GP": 0,
+        "Current Total Skater Played Games": 0,
+        "Current Skater GP": 0,
+        "Current Playoff Skater Played Games": 0,
+        "Current Skater Playoff GP": 0,
+        "Career Prior Goalie GP": 17,
+        "Current Total Goalie Played Games": 2,
+        "Current Goalie GP": 2,
+        "Current Playoff Goalie Played Games": 0
+      },
+      "differences": [],
+      "seasonTeamGames": 4,
+      "rosterTotalGames": 4,
+      "rookieYear": 2024,
+      "rookieStatus": 0,
+      "positionGroup": "Goaltender"
+    },
+    {
+      "name": "Atkins, Nolan",
+      "season": "W2026/27",
+      "role": "Skater",
+      "rosterStatus": "CU",
+      "rosterCurrentRowCount": 1,
+      "rawRosterHistory": [
+        {
+          "season": "W2023/24",
+          "status": "DI",
+          "sourceRow": 391
+        },
+        {
+          "season": "W2025/26",
+          "status": "CU",
+          "sourceRow": 442
+        },
+        {
+          "season": "W2026/27",
+          "status": "CU",
+          "sourceRow": 472
+        }
+      ],
+      "inputs": {
+        "Career Prior Skater GP": 7,
+        "Current Total Skater Played Games": 2,
+        "Current Skater GP": 2,
+        "Current Playoff Skater Played Games": 0,
+        "Current Skater Playoff GP": 0,
+        "Career Prior Goalie GP": 0,
+        "Current Total Goalie Played Games": 0,
+        "Current Goalie GP": 0,
+        "Current Playoff Goalie Played Games": 0
+      },
+      "differences": [],
+      "seasonTeamGames": 4,
+      "rosterTotalGames": 4,
+      "rookieYear": "",
+      "rookieStatus": 0,
+      "positionGroup": "Utility"
+    },
+    {
+      "name": "Duffy, Lorcan",
+      "season": "W2026/27",
+      "role": "Skater",
+      "rosterStatus": "CU",
+      "rosterCurrentRowCount": 1,
+      "rawRosterHistory": [
+        {
+          "season": "S2017",
+          "status": "FT",
+          "sourceRow": 107
+        },
+        {
+          "season": "W2017/18",
+          "status": "FT",
+          "sourceRow": 266
+        },
+        {
+          "season": "W2018/19",
+          "status": "FT",
+          "sourceRow": 296
+        },
+        {
+          "season": "W2019/20",
+          "status": "FT",
+          "sourceRow": 328
+        },
+        {
+          "season": "W2024/25",
+          "status": "CU",
+          "sourceRow": 424
+        },
+        {
+          "season": "W2025/26",
+          "status": "CU",
+          "sourceRow": 452
+        },
+        {
+          "season": "W2026/27",
+          "status": "CU",
+          "sourceRow": 476
+        }
+      ],
+      "inputs": {
+        "Career Prior Skater GP": 82,
+        "Current Total Skater Played Games": 1,
+        "Current Skater GP": 1,
+        "Current Playoff Skater Played Games": 0,
+        "Current Skater Playoff GP": 0,
+        "Career Prior Goalie GP": 0,
+        "Current Total Goalie Played Games": 0,
+        "Current Goalie GP": 0,
+        "Current Playoff Goalie Played Games": 0
+      },
+      "differences": [],
+      "seasonTeamGames": 4,
+      "rosterTotalGames": 4,
+      "rookieYear": 2017,
+      "rookieStatus": 0,
+      "positionGroup": "Defence"
+    },
+    {
+      "name": "Kober, Adam",
+      "season": "W2026/27",
+      "role": "Skater",
+      "rosterStatus": "CU",
+      "rosterCurrentRowCount": 1,
+      "rawRosterHistory": [
+        {
+          "season": "W2022/23",
+          "status": "FT",
+          "sourceRow": 374
+        },
+        {
+          "season": "W2023/24",
+          "status": "CU",
+          "sourceRow": 402
+        },
+        {
+          "season": "W2024/25",
+          "status": "CU",
+          "sourceRow": 427
+        },
+        {
+          "season": "W2025/26",
+          "status": "CU",
+          "sourceRow": 457
+        },
+        {
+          "season": "W2026/27",
+          "status": "CU",
+          "sourceRow": 477
+        }
+      ],
+      "inputs": {
+        "Career Prior Skater GP": 44,
+        "Current Total Skater Played Games": 3,
+        "Current Skater GP": 3,
+        "Current Playoff Skater Played Games": 0,
+        "Current Skater Playoff GP": 0,
+        "Career Prior Goalie GP": 0,
+        "Current Total Goalie Played Games": 0,
+        "Current Goalie GP": 0,
+        "Current Playoff Goalie Played Games": 0
+      },
+      "differences": [],
+      "seasonTeamGames": 4,
+      "rosterTotalGames": 4,
+      "rookieYear": 2022,
+      "rookieStatus": 0,
+      "positionGroup": "Utility"
+    },
+    {
+      "name": "Rajasooriar, Krishnan",
+      "season": "W2026/27",
+      "role": "Skater",
+      "rosterStatus": "CU",
+      "rosterCurrentRowCount": 1,
+      "rawRosterHistory": [
+        {
+          "season": "W2020/21",
+          "status": "CU",
+          "sourceRow": 358
+        },
+        {
+          "season": "W2022/23",
+          "status": "CU",
+          "sourceRow": 384
+        },
+        {
+          "season": "W2023/24",
+          "status": "CU",
+          "sourceRow": 412
+        },
+        {
+          "season": "W2024/25",
+          "status": "CU",
+          "sourceRow": 437
+        },
+        {
+          "season": "W2025/26",
+          "status": "CU",
+          "sourceRow": 468
+        },
+        {
+          "season": "W2026/27",
+          "status": "CU",
+          "sourceRow": 488
+        }
+      ],
+      "inputs": {
+        "Career Prior Skater GP": 54,
+        "Current Total Skater Played Games": 2,
+        "Current Skater GP": 2,
+        "Current Playoff Skater Played Games": 0,
+        "Current Skater Playoff GP": 0,
+        "Career Prior Goalie GP": 0,
+        "Current Total Goalie Played Games": 0,
+        "Current Goalie GP": 0,
+        "Current Playoff Goalie Played Games": 0
+      },
+      "differences": [],
+      "seasonTeamGames": 4,
+      "rosterTotalGames": 4,
+      "rookieYear": "",
+      "rookieStatus": 0,
+      "positionGroup": "Utility"
+    },
+    {
+      "name": "Rosenberg, Jamie",
+      "season": "W2026/27",
+      "role": "Skater",
+      "rosterStatus": "FT",
+      "rosterCurrentRowCount": 1,
+      "rawRosterHistory": [
+        {
+          "season": "W2026/27",
+          "status": "FT",
+          "sourceRow": 489
+        }
+      ],
+      "inputs": {
+        "Career Prior Skater GP": 0,
+        "Current Total Skater Played Games": 3,
+        "Current Skater GP": 3,
+        "Current Playoff Skater Played Games": 0,
+        "Current Skater Playoff GP": 0,
+        "Career Prior Goalie GP": 0,
+        "Current Total Goalie Played Games": 0,
+        "Current Goalie GP": 0,
+        "Current Playoff Goalie Played Games": 0
+      },
+      "differences": [],
+      "seasonTeamGames": 4,
+      "rosterTotalGames": 4,
+      "rookieYear": 2026,
+      "rookieStatus": 1,
+      "positionGroup": "Forward"
+    },
+    {
+      "name": "Logue, Stephen",
+      "season": "W2026/27",
+      "role": "Goaltender",
+      "rosterStatus": "CU",
+      "rosterCurrentRowCount": 1,
+      "rawRosterHistory": [
+        {
+          "season": "S2013",
+          "status": "FT",
+          "sourceRow": 15
+        },
+        {
+          "season": "S2014",
+          "status": "FT",
+          "sourceRow": 35
+        },
+        {
+          "season": "S2015",
+          "status": "FT",
+          "sourceRow": 58
+        },
+        {
+          "season": "S2016",
+          "status": "FT",
+          "sourceRow": 86
+        },
+        {
+          "season": "S2017",
+          "status": "FT",
+          "sourceRow": 111
+        },
+        {
+          "season": "W2013/14",
+          "status": "FT",
+          "sourceRow": 147
+        },
+        {
+          "season": "W2013/14",
+          "status": "FT",
+          "sourceRow": 148
+        },
+        {
+          "season": "W2014/15",
+          "status": "FT",
+          "sourceRow": 186
+        },
+        {
+          "season": "W2014/15",
+          "status": "FT",
+          "sourceRow": 187
+        },
+        {
+          "season": "W2015/16",
+          "status": "FT",
+          "sourceRow": 226
+        },
+        {
+          "season": "W2016/17",
+          "status": "FT",
+          "sourceRow": 249
+        },
+        {
+          "season": "W2017/18",
+          "status": "FT",
+          "sourceRow": 270
+        },
+        {
+          "season": "W2018/19",
+          "status": "FT",
+          "sourceRow": 301
+        },
+        {
+          "season": "W2019/20",
+          "status": "FT",
+          "sourceRow": 335
+        },
+        {
+          "season": "W2020/21",
+          "status": "FT",
+          "sourceRow": 352
+        },
+        {
+          "season": "W2022/23",
+          "status": "FT",
+          "sourceRow": 376
+        },
+        {
+          "season": "W2023/24",
+          "status": "FT",
+          "sourceRow": 405
+        },
+        {
+          "season": "W2024/25",
+          "status": "CU",
+          "sourceRow": 430
+        },
+        {
+          "season": "W2025/26",
+          "status": "CU",
+          "sourceRow": 460
+        },
+        {
+          "season": "W2026/27",
+          "status": "CU",
+          "sourceRow": 480
+        }
+      ],
+      "inputs": {
+        "Career Prior Skater GP": 0,
+        "Current Total Skater Played Games": 0,
+        "Current Skater GP": 0,
+        "Current Playoff Skater Played Games": 0,
+        "Current Skater Playoff GP": 0,
+        "Career Prior Goalie GP": 261,
+        "Current Total Goalie Played Games": 1,
+        "Current Goalie GP": 1,
+        "Current Playoff Goalie Played Games": 0
+      },
+      "differences": [],
+      "seasonTeamGames": 4,
+      "rosterTotalGames": 4,
+      "rookieYear": 2013,
+      "rookieStatus": 0,
+      "positionGroup": "Goaltender"
+    },
+    {
+      "name": "Pavaday, Damian",
+      "season": "W2026/27",
+      "role": "Skater",
+      "rosterStatus": "DI",
+      "rosterCurrentRowCount": 1,
+      "rawRosterHistory": [
+        {
+          "season": "W2026/27",
+          "status": "DI",
+          "sourceRow": 496
+        }
+      ],
+      "inputs": {
+        "Career Prior Skater GP": 0,
+        "Current Total Skater Played Games": 1,
+        "Current Skater GP": 1,
+        "Current Playoff Skater Played Games": 0,
+        "Current Skater Playoff GP": 0,
+        "Career Prior Goalie GP": 0,
+        "Current Total Goalie Played Games": 0,
+        "Current Goalie GP": 0,
+        "Current Playoff Goalie Played Games": 0
+      },
+      "differences": [],
+      "seasonTeamGames": 4,
+      "rosterTotalGames": 4,
+      "rookieYear": "",
+      "rookieStatus": 0,
+      "positionGroup": "Forward"
+    },
+    {
+      "name": "Carlyle, Adam",
+      "season": "W2026/27",
+      "role": "Goaltender",
+      "rosterStatus": null,
+      "rosterCurrentRowCount": 0,
+      "rawRosterHistory": [],
+      "inputs": {
+        "Career Prior Skater GP": 0,
+        "Current Total Skater Played Games": 0,
+        "Current Skater GP": 0,
+        "Current Playoff Skater Played Games": 0,
+        "Current Skater Playoff GP": 0,
+        "Career Prior Goalie GP": 0,
+        "Current Total Goalie Played Games": 1,
+        "Current Goalie GP": 1,
+        "Current Playoff Goalie Played Games": 0
+      },
+      "differences": [],
+      "seasonTeamGames": 4,
+      "rosterTotalGames": null,
+      "rookieYear": "",
+      "rookieStatus": 0,
+      "positionGroup": "Goaltender"
+    }
+  ],
+  "differenceCount": 0,
+  "seasonInfo": [
+    {
+      "Season": "W2026/27",
+      "Game Type": "Regular Season",
+      "Total Games Contested": 4
+    },
+    {
+      "Season": "W2026/27",
+      "Game Type": "Playoffs",
+      "Total Games Contested": 0
+    }
+  ],
+  "publicationAuthorized": false
+}
