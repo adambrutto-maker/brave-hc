@@ -1,3 +1,4 @@
+# Refresh public evidence; native HTO publication remains a separate reviewed action.
 name: Brave H.C. record source refresh
 on:
   workflow_dispatch:
