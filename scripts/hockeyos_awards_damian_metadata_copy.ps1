@@ -32,8 +32,14 @@ try{
  # Hold before any write unless every independent workbook identity agrees.
  $full=[string]$book.FullName;$name=[string]$book.Name;$path=[string]$book.Path
  $receipt.openedFullName=$full;$receipt.openedName=$name;$receipt.openedPath=$path;$receipt.openedReadOnly=[bool]$book.ReadOnly
- if([string]::IsNullOrWhiteSpace($full) -or [string]::IsNullOrWhiteSpace($path) -or [string]::IsNullOrWhiteSpace($name)){throw 'Workbook runtime identity unavailable'}
- if($book.ReadOnly -or $books.Count -ne 1 -or [IO.Path]::GetFullPath($full) -ne [IO.Path]::GetFullPath($copy) -or [IO.Path]::GetFullPath((Join-Path $path $name)) -ne [IO.Path]::GetFullPath($copy)){throw 'Workbook identity differs'}
+ if([string]::IsNullOrWhiteSpace($path) -or [string]::IsNullOrWhiteSpace($name)){throw 'Workbook runtime path/name unavailable'}
+ $combined=[IO.Path]::GetFullPath((Join-Path $path $name))
+ $member=$books.Item(1)
+ $memberPath=[IO.Path]::GetFullPath((Join-Path ([string]$member.Path) ([string]$member.Name)))
+ if($book.ReadOnly -or $books.Count -ne 1 -or $combined -ne [IO.Path]::GetFullPath($copy) -or $memberPath -ne $combined -or [int64]$book.Application.Hwnd -ne [int64]$excel.Hwnd){throw 'Workbook identity differs'}
+ if(-not [string]::IsNullOrWhiteSpace($full) -and [IO.Path]::GetFullPath($full) -ne $combined){throw 'FullName conflicts with Path and Name'}
+ $receipt.verifiedRuntimePath=$combined;$receipt.runtimeIdentityMethod='Path plus Name, collection member path, single workbook in isolated Excel instance and matching application Hwnd'
+ $receipt.fullNamePropertyAvailable=(-not [string]::IsNullOrWhiteSpace($full))
  $excel.Calculation=-4135;$excel.CalculateBeforeSave=$false
  $schema=Get-Content -LiteralPath $schemaPath -Raw|ConvertFrom-Json
  $sheet=$book.Worksheets.Item(1)
