@@ -70,6 +70,11 @@ class SourceRefreshTests(unittest.TestCase):
         groups = refresh.parse_records((html+'</div>').encode('utf-8'))
         self.assertEqual(groups[0]['items'][0],'2 - Rènt Goaliê (2016)')
 
+    def test_history_source_refresh_disclosure(self):
+        self.assertIn('Scheduled refresh', self.history['stalePolicy'])
+        self.assertIn('manual review', self.history['stalePolicy'])
+        self.assertIn('HTO', self.history['stalePolicy'])
+
     def test_source_host_restricted(self):
         with self.assertRaises(ValueError): refresh.game_id('https://example.com/teams/default.asp?u=BRAVESHOCKEY&p=boxscore&gameID=1')
 
