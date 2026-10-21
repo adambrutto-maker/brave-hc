@@ -1,0 +1,606 @@
+{
+  "schema": "brave-hc-awards-captured-table-input-trace/v1",
+  "sourceWorkbookSha256": "0002fd9f06596af8d0a00fc1b53a618ef15479f941ad5c1e6265b27002a65154",
+  "readBasis": "Previously authorized captured table formulas only; no workbook reopened or changed",
+  "method": "Conservative named-table structured-reference traversal with range expansion. Decodes stored column-name escapes. Column self-references may be geometry or prior-row recurrences, not proven circular calculations. Does not resolve plain cell references, defined names, dynamic INDIRECT/OFFSET targets or external values.",
+  "awards": {
+    "hart": {
+      "visitedFormulaOrInputNodes": 323,
+      "rawTableColumnLeaves": {
+        "AllTimeSchedule": [
+          "Date",
+          "Game #",
+          "Game Type",
+          "Home/Away",
+          "Location",
+          "Opponent",
+          "Season",
+          "Time"
+        ],
+        "GoalieStatsByGame": [
+          "GA",
+          "GP",
+          "Game #",
+          "Name",
+          "PIM",
+          "POTG",
+          "SHO",
+          "T",
+          "W",
+          "Win %"
+        ],
+        "PlayerInfo": [
+          "Current Roster Status",
+          "Position",
+          "Position 2",
+          "Website Name"
+        ],
+        "RosterStatusBySeason": [
+          "Name",
+          "Season"
+        ],
+        "SeasonInfo": [
+          "Game Type",
+          "Season",
+          "Season Order"
+        ],
+        "SkaterStatsByGame": [
+          "+/-",
+          "A",
+          "G",
+          "GP",
+          "GTG",
+          "GWG",
+          "Game #",
+          "Name",
+          "POTG",
+          "PPG",
+          "Pts",
+          "SHG"
+        ]
+      },
+      "unresolvedStructuredReferences": [
+        "NO_STRUCTURED_PRECEDENT:PlayerInfoHelpers[Current Season]"
+      ],
+      "columnSelfReferences": [
+        "AwardScoring -> Name",
+        "GoalieStatsByGame -> Goalie Playoff Win Streak",
+        "GoalieStatsByGame -> Goalie Shutout Streak",
+        "GoalieStatsByGame -> Goalie Unbeaten Streak",
+        "GoalieStatsByGame -> Goalie Win Streak",
+        "SkaterStatsByGame -> Assist Streak",
+        "SkaterStatsByGame -> Goal Streak",
+        "SkaterStatsByGame -> Multi-Goal Streak",
+        "SkaterStatsByGame -> Multi-Point Streak",
+        "SkaterStatsByGame -> POTG Streak",
+        "SkaterStatsByGame -> Plus Streak",
+        "SkaterStatsByGame -> Point Streak"
+      ]
+    },
+    "conn-smythe": {
+      "visitedFormulaOrInputNodes": 345,
+      "rawTableColumnLeaves": {
+        "AllTimeSchedule": [
+          "Date",
+          "Game #",
+          "Game Type",
+          "Home/Away",
+          "Location",
+          "Opponent",
+          "Season",
+          "Time"
+        ],
+        "GoalieStatsByGame": [
+          "GA",
+          "GP",
+          "Game #",
+          "Name",
+          "PIM",
+          "POTG",
+          "SHO",
+          "T",
+          "W",
+          "Win %"
+        ],
+        "PlayerInfo": [
+          "Current Roster Status",
+          "Position",
+          "Position 2",
+          "Website Name"
+        ],
+        "RosterStatusBySeason": [
+          "Name",
+          "Season"
+        ],
+        "SeasonInfo": [
+          "Game Type",
+          "Season",
+          "Season Order"
+        ],
+        "SkaterStatsByGame": [
+          "+/-",
+          "A",
+          "G",
+          "GP",
+          "GTG",
+          "GWG",
+          "Game #",
+          "Name",
+          "PIM",
+          "POTG",
+          "PPG",
+          "Pts",
+          "SHG"
+        ]
+      },
+      "unresolvedStructuredReferences": [
+        "NO_STRUCTURED_PRECEDENT:PlayerInfoHelpers[Current Season]"
+      ],
+      "columnSelfReferences": [
+        "AwardScoring -> Name",
+        "GoalieStatsByGame -> Goalie Playoff Win Streak",
+        "GoalieStatsByGame -> Goalie Shutout Streak",
+        "GoalieStatsByGame -> Goalie Unbeaten Streak",
+        "GoalieStatsByGame -> Goalie Win Streak",
+        "SkaterStatsByGame -> Assist Streak",
+        "SkaterStatsByGame -> Goal Streak",
+        "SkaterStatsByGame -> Multi-Goal Streak",
+        "SkaterStatsByGame -> Multi-Point Streak",
+        "SkaterStatsByGame -> POTG Streak",
+        "SkaterStatsByGame -> Plus Streak",
+        "SkaterStatsByGame -> Point Streak"
+      ]
+    },
+    "rookie": {
+      "visitedFormulaOrInputNodes": 348,
+      "rawTableColumnLeaves": {
+        "AllTimeSchedule": [
+          "Date",
+          "Game #",
+          "Game Type",
+          "Home/Away",
+          "Location",
+          "Opponent",
+          "Season",
+          "Time"
+        ],
+        "GoalieStatsByGame": [
+          "GA",
+          "GP",
+          "Game #",
+          "Name",
+          "PIM",
+          "POTG",
+          "SHO",
+          "T",
+          "W",
+          "Win %"
+        ],
+        "PlayerInfo": [
+          "Current Roster Status",
+          "Position",
+          "Position 2",
+          "Website Name"
+        ],
+        "RosterStatusBySeason": [
+          "Name",
+          "Season",
+          "Status"
+        ],
+        "SeasonInfo": [
+          "Game Type",
+          "Season",
+          "Season Order"
+        ],
+        "SkaterStatsByGame": [
+          "+/-",
+          "A",
+          "G",
+          "GP",
+          "Game #",
+          "Name",
+          "PIM",
+          "POTG",
+          "PPG",
+          "Pts",
+          "SHG"
+        ]
+      },
+      "unresolvedStructuredReferences": [
+        "NO_STRUCTURED_PRECEDENT:PlayerInfoHelpers[Current Season]"
+      ],
+      "columnSelfReferences": [
+        "AwardScoring -> Name",
+        "GoalieStatsByGame -> Goalie Playoff Win Streak",
+        "GoalieStatsByGame -> Goalie Shutout Streak",
+        "GoalieStatsByGame -> Goalie Unbeaten Streak",
+        "GoalieStatsByGame -> Goalie Win Streak",
+        "SkaterStatsByGame -> Assist Streak",
+        "SkaterStatsByGame -> Goal Streak",
+        "SkaterStatsByGame -> Multi-Goal Streak",
+        "SkaterStatsByGame -> Multi-Point Streak",
+        "SkaterStatsByGame -> POTG Streak",
+        "SkaterStatsByGame -> Plus Streak",
+        "SkaterStatsByGame -> Point Streak"
+      ]
+    },
+    "lady-byng": {
+      "visitedFormulaOrInputNodes": 254,
+      "rawTableColumnLeaves": {
+        "AllTimeSchedule": [
+          "Date",
+          "Game #",
+          "Game Type",
+          "Home/Away",
+          "Location",
+          "Opponent",
+          "Season",
+          "Time"
+        ],
+        "GoalieStatsByGame": [
+          "GA",
+          "GP",
+          "Game #",
+          "Name",
+          "PIM",
+          "POTG",
+          "SHO",
+          "T",
+          "W"
+        ],
+        "PlayerInfo": [
+          "Current Roster Status",
+          "Position",
+          "Position 2",
+          "Website Name"
+        ],
+        "RosterStatusBySeason": [
+          "Name",
+          "Season"
+        ],
+        "SeasonInfo": [
+          "Game Type",
+          "Season",
+          "Season Order"
+        ],
+        "SkaterStatsByGame": [
+          "+/-",
+          "G",
+          "GP",
+          "Game #",
+          "Name",
+          "PIM",
+          "POTG",
+          "PPG",
+          "Pts",
+          "SHG"
+        ]
+      },
+      "unresolvedStructuredReferences": [
+        "NO_STRUCTURED_PRECEDENT:PlayerInfoHelpers[Current Season]"
+      ],
+      "columnSelfReferences": [
+        "AwardScoring -> Name"
+      ]
+    },
+    "rolaids": {
+      "visitedFormulaOrInputNodes": 338,
+      "rawTableColumnLeaves": {
+        "AllTimeSchedule": [
+          "Date",
+          "Game #",
+          "Game Type",
+          "Home/Away",
+          "Location",
+          "Opponent",
+          "Season",
+          "Time"
+        ],
+        "GoalieStatsByGame": [
+          "GA",
+          "GP",
+          "Game #",
+          "Name",
+          "PIM",
+          "POTG",
+          "SHO",
+          "T",
+          "W",
+          "Win %"
+        ],
+        "PlayerInfo": [
+          "Current Roster Status",
+          "Position",
+          "Position 2",
+          "Website Name"
+        ],
+        "RosterStatusBySeason": [
+          "Name",
+          "Season"
+        ],
+        "SeasonInfo": [
+          "Game Type",
+          "Season",
+          "Season Order"
+        ],
+        "SkaterStatsByGame": [
+          "+/-",
+          "A",
+          "G",
+          "GP",
+          "GTG",
+          "GWG",
+          "Game #",
+          "Name",
+          "PIM",
+          "POTG",
+          "PPG",
+          "Pts",
+          "SHG"
+        ]
+      },
+      "unresolvedStructuredReferences": [
+        "NO_STRUCTURED_PRECEDENT:PlayerInfoHelpers[Current Season]"
+      ],
+      "columnSelfReferences": [
+        "AwardScoring -> Name",
+        "GoalieStatsByGame -> Goalie Playoff Win Streak",
+        "GoalieStatsByGame -> Goalie Shutout Streak",
+        "GoalieStatsByGame -> Goalie Unbeaten Streak",
+        "GoalieStatsByGame -> Goalie Win Streak",
+        "SkaterStatsByGame -> Assist Streak",
+        "SkaterStatsByGame -> Goal Streak",
+        "SkaterStatsByGame -> Multi-Goal Streak",
+        "SkaterStatsByGame -> Multi-Point Streak",
+        "SkaterStatsByGame -> POTG Streak",
+        "SkaterStatsByGame -> Plus Streak",
+        "SkaterStatsByGame -> Point Streak"
+      ]
+    },
+    "dedication": {
+      "visitedFormulaOrInputNodes": 108,
+      "rawTableColumnLeaves": {
+        "AllTimeSchedule": [
+          "Date",
+          "Game #",
+          "Game Type",
+          "Home/Away",
+          "Location",
+          "Opponent",
+          "Season",
+          "Time"
+        ],
+        "GoalieStatsByGame": [
+          "GA",
+          "GP",
+          "Game #",
+          "Name",
+          "PIM",
+          "POTG",
+          "SHO",
+          "T",
+          "W"
+        ],
+        "PlayerInfo": [
+          "Current Roster Status",
+          "Position",
+          "Position 2",
+          "Website Name"
+        ],
+        "RosterStatusBySeason": [
+          "Name",
+          "Season"
+        ],
+        "SeasonInfo": [
+          "Game Type",
+          "Season",
+          "Season Order"
+        ],
+        "SkaterStatsByGame": [
+          "+/-",
+          "GP",
+          "Game #",
+          "Name",
+          "PIM",
+          "Pts"
+        ]
+      },
+      "unresolvedStructuredReferences": [],
+      "columnSelfReferences": [
+        "AwardScoring -> Name"
+      ]
+    },
+    "norris": {
+      "visitedFormulaOrInputNodes": 244,
+      "rawTableColumnLeaves": {
+        "AllTimeSchedule": [
+          "Date",
+          "Game #",
+          "Game Type",
+          "Home/Away",
+          "Location",
+          "Opponent",
+          "Season",
+          "Time"
+        ],
+        "GoalieStatsByGame": [
+          "GP",
+          "Game #",
+          "Name",
+          "SHO",
+          "W",
+          "Win %"
+        ],
+        "PlayerInfo": [
+          "Current Roster Status",
+          "Position",
+          "Position 2",
+          "Website Name"
+        ],
+        "RosterStatusBySeason": [
+          "Name",
+          "Season"
+        ],
+        "SeasonInfo": [
+          "Game Type",
+          "Season",
+          "Season Order"
+        ],
+        "SkaterStatsByGame": [
+          "+/-",
+          "A",
+          "G",
+          "GP",
+          "GTG",
+          "GWG",
+          "Game #",
+          "Name",
+          "PIM",
+          "POTG",
+          "Pts"
+        ]
+      },
+      "unresolvedStructuredReferences": [
+        "NO_STRUCTURED_PRECEDENT:PlayerInfoHelpers[Current Season]"
+      ],
+      "columnSelfReferences": [
+        "AwardScoring -> Name",
+        "GoalieStatsByGame -> Goalie Playoff Win Streak",
+        "GoalieStatsByGame -> Goalie Shutout Streak",
+        "GoalieStatsByGame -> Goalie Unbeaten Streak",
+        "GoalieStatsByGame -> Goalie Win Streak",
+        "SkaterStatsByGame -> Assist Streak",
+        "SkaterStatsByGame -> Goal Streak",
+        "SkaterStatsByGame -> Multi-Goal Streak",
+        "SkaterStatsByGame -> Multi-Point Streak",
+        "SkaterStatsByGame -> POTG Streak",
+        "SkaterStatsByGame -> Plus Streak",
+        "SkaterStatsByGame -> Point Streak"
+      ]
+    },
+    "improved": {
+      "visitedFormulaOrInputNodes": 116,
+      "rawTableColumnLeaves": {
+        "AllTimeSchedule": [
+          "Date",
+          "Game #",
+          "Game Type",
+          "Home/Away",
+          "Location",
+          "Opponent",
+          "Season",
+          "Time"
+        ],
+        "GoalieStatsByGame": [
+          "Game #",
+          "Name"
+        ],
+        "PlayerInfo": [
+          "Current Roster Status",
+          "Position",
+          "Position 2",
+          "Website Name"
+        ],
+        "RosterStatusBySeason": [
+          "Name",
+          "Season",
+          "Status"
+        ],
+        "SeasonInfo": [
+          "Game Type",
+          "Season",
+          "Season Order"
+        ],
+        "SkaterStatsByGame": [
+          "GTG",
+          "GWG",
+          "Game #",
+          "Name"
+        ]
+      },
+      "unresolvedStructuredReferences": [],
+      "columnSelfReferences": [
+        "AwardScoring -> Name"
+      ]
+    },
+    "art-ross": {
+      "visitedFormulaOrInputNodes": 44,
+      "rawTableColumnLeaves": {
+        "AllTimeSchedule": [
+          "Date",
+          "Game #",
+          "Game Type",
+          "Home/Away",
+          "Location",
+          "Opponent",
+          "Season",
+          "Time"
+        ],
+        "GoalieStatsByGame": [
+          "Game #",
+          "Name"
+        ],
+        "PlayerInfo": [
+          "Current Roster Status",
+          "Position",
+          "Position 2",
+          "Website Name"
+        ],
+        "SeasonInfo": [
+          "Game Type",
+          "Season",
+          "Season Order"
+        ],
+        "SkaterStatsByGame": [
+          "Game #",
+          "Name"
+        ]
+      },
+      "unresolvedStructuredReferences": [],
+      "columnSelfReferences": [
+        "AwardScoring -> Name"
+      ]
+    },
+    "rocket": {
+      "visitedFormulaOrInputNodes": 40,
+      "rawTableColumnLeaves": {
+        "AllTimeSchedule": [
+          "Date",
+          "Game #",
+          "Game Type",
+          "Home/Away",
+          "Location",
+          "Opponent",
+          "Season",
+          "Time"
+        ],
+        "GoalieStatsByGame": [
+          "Game #",
+          "Name"
+        ],
+        "PlayerInfo": [
+          "Current Roster Status",
+          "Position",
+          "Position 2",
+          "Website Name"
+        ],
+        "SeasonInfo": [
+          "Game Type",
+          "Season",
+          "Season Order"
+        ],
+        "SkaterStatsByGame": [
+          "Game #",
+          "Name"
+        ]
+      },
+      "unresolvedStructuredReferences": [],
+      "columnSelfReferences": [
+        "AwardScoring -> Name"
+      ]
+    }
+  },
+  "fullWorkbookDependencyProof": false,
+  "currentInputsVerified": false,
+  "publicationAuthorized": false
+}
