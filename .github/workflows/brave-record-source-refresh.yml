@@ -21,6 +21,8 @@ on:
       - 'tests/test_plan03_workbook_shadow_periods.py'
       - 'scripts/audit_plan03_excel_disposable_recalc.py'
       - 'tests/test_plan03_excel_disposable_recalc.py'
+      - 'scripts/audit_plan03_player_game_log_coverage.py'
+      - 'tests/test_plan03_player_game_log_coverage.py'
       - 'widgets/watch-evidence.js'
       - 'widgets/watch-v2.html'
       - 'widgets/home-panels.html'
@@ -64,6 +66,8 @@ jobs:
         run: python -m unittest discover -s tests -p test_plan03_workbook_shadow_periods.py
       - name: Validate private-copy Excel source/formula preservation contract (offline)
         run: python -m unittest discover -s tests -p test_plan03_excel_disposable_recalc.py
+      - name: Protect Player Game Log source-gap and no-publication contract (offline)
+        run: python -m unittest discover -s tests -p test_plan03_player_game_log_coverage.py
       - name: Read public HTO results and published records
         run: python scripts/refresh_record_sources.py
       - name: Recalculate complete-ledger record candidates
