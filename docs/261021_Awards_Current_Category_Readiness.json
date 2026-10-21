@@ -1,0 +1,115 @@
+{
+  "season": "W2026/27",
+  "cutoff": "2026-10-18",
+  "categories": [
+    {
+      "category": "Hart",
+      "state": "NO_ELIGIBLE_PLAYERS",
+      "eligibleNames": [],
+      "message": "No players meet the award requirements at this cutoff."
+    },
+    {
+      "category": "Conn Smythe",
+      "state": "NO_ELIGIBLE_PLAYERS",
+      "eligibleNames": [],
+      "message": "No players meet the award requirements at this cutoff."
+    },
+    {
+      "category": "Norris",
+      "state": "NO_ELIGIBLE_PLAYERS",
+      "eligibleNames": [],
+      "message": "No players meet the award requirements at this cutoff."
+    },
+    {
+      "category": "Rookie",
+      "state": "COMPOSITE_INPUT_VALIDATION_PENDING",
+      "eligibleNames": [
+        "Kong, Henry",
+        "Povegliano, Adam",
+        "Rajkumar, Sanjay",
+        "Rosenberg, Jamie",
+        "Triumbari, Francesco"
+      ],
+      "message": "Eligible players identified; complete score validation remains open."
+    },
+    {
+      "category": "Lady Byng",
+      "state": "NO_ELIGIBLE_PLAYERS",
+      "eligibleNames": [],
+      "message": "No players meet the award requirements at this cutoff."
+    },
+    {
+      "category": "Most Improved",
+      "state": "NO_ELIGIBLE_PLAYERS",
+      "eligibleNames": [],
+      "message": "No players meet the award requirements at this cutoff."
+    },
+    {
+      "category": "Rolaids",
+      "state": "NO_ELIGIBLE_PLAYERS",
+      "eligibleNames": [],
+      "message": "No players meet the award requirements at this cutoff."
+    },
+    {
+      "category": "Dedication",
+      "state": "NO_ELIGIBLE_PLAYERS",
+      "eligibleNames": [],
+      "message": "No players meet the award requirements at this cutoff."
+    },
+    {
+      "category": "Art Ross",
+      "state": "COUNT_CALCULATION_VERIFIED",
+      "eligibleNames": [
+        "Ardizzi, Stefano",
+        "Atkins, Nolan",
+        "Brutto, Adam",
+        "Carosi, Justin",
+        "Duffy, Lorcan",
+        "Kober, Adam",
+        "Kong, Henry",
+        "Pagnotta, Alex",
+        "Paolucci, Anthony",
+        "Pavaday, Damian",
+        "Pearsoll, Keith",
+        "Povegliano, Adam",
+        "Provenzano, Mario",
+        "Provenzano, Michael",
+        "Rajasooriar, Krishnan",
+        "Rajkumar, Sanjay",
+        "Rosenberg, Jamie",
+        "Saindon, Stephane",
+        "Triumbari, Francesco"
+      ],
+      "scoreKind": "Actual points"
+    },
+    {
+      "category": "Rocket Richard",
+      "state": "COUNT_CALCULATION_VERIFIED",
+      "eligibleNames": [
+        "Ardizzi, Stefano",
+        "Atkins, Nolan",
+        "Brutto, Adam",
+        "Carosi, Justin",
+        "Duffy, Lorcan",
+        "Kober, Adam",
+        "Kong, Henry",
+        "Pagnotta, Alex",
+        "Paolucci, Anthony",
+        "Pavaday, Damian",
+        "Pearsoll, Keith",
+        "Povegliano, Adam",
+        "Provenzano, Mario",
+        "Provenzano, Michael",
+        "Rajasooriar, Krishnan",
+        "Rajkumar, Sanjay",
+        "Rosenberg, Jamie",
+        "Saindon, Stephane",
+        "Triumbari, Francesco"
+      ],
+      "scoreKind": "Actual goals"
+    }
+  ],
+  "hallOfFameState": "SEPARATE_CAREER_RULE_VALIDATION_PENDING",
+  "publicationAuthorized": false,
+  "currentCompositeScoresVerified": false
+}
