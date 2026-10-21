@@ -8,7 +8,7 @@ const vm=require('node:vm');
 const widgets=path.resolve(__dirname,'../widgets');
 const original=fs.readFileSync(path.join(widgets,'awards-races-v3.js'),'utf8');
 const injected=original.replace(/\bboot\(\);\s*\}\)\(\);\s*$/,
- 'globalThis.__awardsQA={state,card,currentComponents,previousSnapshot,movement,isVerifiedWeeklyRace,verifiedWorkbookRookieYearWatch,verifiedHTOStatWatch,sourceReadinessForAward,renderHeldSourceReadiness,renderRaceActivity,renderPlayerEvidence};})();');
+ 'globalThis.__awardsQA={state,card,currentComponents,previousSnapshot,movement,isVerifiedWeeklyRace,verifiedWorkbookRookieYearWatch,verifiedHTOStatWatch,sourceReadinessForAward,renderHeldSourceReadiness,renderRaceActivity,renderPlayerEvidence,approvedBallotURL};})();');
 assert.notEqual(injected,original,'Isolated test bootstrap must match entrypoint');
 const elt=(tag='div')=>({
  tag,children:[],className:'',textContent:'',
@@ -29,7 +29,7 @@ const sandbox={
   getElementById(id){if(!elementsById.has(id))elementsById.set(id,elt());return elementsById.get(id);},
   createElement:tag=>elt(tag),createTextNode:s=>({tag:'text',textContent:s})
  },
- location:{search:''},URLSearchParams,
+ location:{search:''},URLSearchParams,URL,
 };
 vm.runInNewContext(injected,sandbox,{filename:'awards-races-v3.js'});
 const api=sandbox.__awardsQA;
@@ -987,4 +987,28 @@ for(const position of ['Skater','Goalie'])test(`${position} retains known stats 
  assert.doesNotMatch(text(),/null Player of the Game|0 Player of the Game/);
  player.currentHTORaw.playerOfTheGameCount=0;
  assert.match(text(),/0 Player of the Game/);
+});
+
+test('returning shortlist entrants are new since the prior week, not first-ever appearances',()=>{
+ const before=api.state.weeklyHistory,oldSource=api.state.source,oldAward=api.state.award;
+ try{
+  api.state.source=awards;api.state.award='rolaids';
+  const older=snapshot(),prior=snapshot();
+  older.publishedAsOf='2026-10-05';prior.publishedAsOf='2026-10-12';
+  prior.races.rolaids=[];
+  api.state.weeklyHistory={schema:'brave-hc-awards-weekly-history/v1',
+   status:'VERIFIED_PUBLISHED_WEEKLY_SNAPSHOTS',snapshots:[older,prior]};
+  const root=elt();api.movement(root,example(),0,sourceRace);
+  const words=visit(root,n=>typeof n.textContent==='string').map(n=>n.textContent).join(' | ');
+  assert.match(words,/NEW · since previous published shortlist/);
+  assert.doesNotMatch(words,/first appearance|OVR/);
+ }finally{api.state.weeklyHistory=before;api.state.source=oldSource;api.state.award=oldAward;}
+});
+
+test('pilot ballot links accept only HTTPS Google Forms responder URLs',()=>{
+ assert.ok(api.approvedBallotURL(awards.survey.responderUrl));
+ for(const value of ['javascript:alert(1)','data:text/html,test','http://docs.google.com/forms/d/x/viewform',
+  'https://docs.google.com.evil.test/forms/d/x/viewform','https://evil.test/forms/d/x/viewform',
+  'https://docs.google.com/forms/d/x/edit','https://user@docs.google.com/forms/d/x/viewform',null])
+  assert.equal(api.approvedBallotURL(value),null);
 });
