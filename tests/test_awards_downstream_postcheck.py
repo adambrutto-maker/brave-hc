@@ -1,7 +1,7 @@
 import sys,unittest,zipfile,io
 from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'scripts'))
-from hockeyos_awards_downstream_postcheck import equal,cache_value,in_rectangles,pivot_rectangles,array_dependents,output_review,source_cache_fields
+from hockeyos_awards_downstream_postcheck import equal,cache_value,in_rectangles,pivot_rectangles,array_dependents,output_review,source_cache_fields,cache_equivalent
 import xml.etree.ElementTree as E
 class DownstreamChecks(unittest.TestCase):
  def fixture(self):
@@ -30,6 +30,8 @@ class DownstreamChecks(unittest.TestCase):
   with self.assertRaises(ValueError):source_cache_fields(fields,['GP'])
  def test_wrong_database_header_rejected(self):
   with self.assertRaises(ValueError):source_cache_fields([E.fromstring('<cacheField name="A"/>')],['G'])
+ def test_cache_blank_serialization_is_explicit_and_narrow(self):
+  self.assertTrue(cache_equivalent('',None));self.assertFalse(cache_equivalent(0,None));self.assertFalse(cache_equivalent('0',None));self.assertFalse(cache_equivalent('player',None));self.assertFalse(cache_equivalent(None,''))
  def test_numeric_serialization(self):
   self.assertTrue(equal(0.1,0.100000000000001));self.assertFalse(equal(1,2));self.assertFalse(equal(None,0))
  def test_cache_types(self):
