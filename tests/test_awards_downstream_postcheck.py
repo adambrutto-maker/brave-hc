@@ -1,7 +1,7 @@
 import sys,unittest,zipfile,io
 from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'scripts'))
-from hockeyos_awards_downstream_postcheck import equal,cache_value,in_rectangles,pivot_rectangles,array_dependents,output_review
+from hockeyos_awards_downstream_postcheck import equal,cache_value,in_rectangles,pivot_rectangles,array_dependents,output_review,source_cache_fields
 import xml.etree.ElementTree as E
 class DownstreamChecks(unittest.TestCase):
  def fixture(self):
@@ -23,6 +23,13 @@ class DownstreamChecks(unittest.TestCase):
  def test_missing_current_player_cannot_pass_counts(self):
   data,candidate=self.fixture();data['awardRows'][0]['Name']='Other, Player'
   self.assertEqual(output_review(data,candidate)['playerInfoAndCountTitleMismatches'][0]['reason'],'AWARD_TABLE_OMITS_CURRENT_SKATER')
+ def test_pivot_derived_fields_are_not_database_record_columns(self):
+  fields=[E.fromstring('<cacheField name="GP"/>'),E.fromstring('<cacheField name="Pts/GP" databaseField="0" formula="Pts/GP"/>')]
+  source,extras=source_cache_fields(fields,['GP']);self.assertEqual(len(source),1);self.assertEqual(extras[0]['formula'],'Pts/GP')
+  fields[1].set('databaseField','1')
+  with self.assertRaises(ValueError):source_cache_fields(fields,['GP'])
+ def test_wrong_database_header_rejected(self):
+  with self.assertRaises(ValueError):source_cache_fields([E.fromstring('<cacheField name="A"/>')],['G'])
  def test_numeric_serialization(self):
   self.assertTrue(equal(0.1,0.100000000000001));self.assertFalse(equal(1,2));self.assertFalse(equal(None,0))
  def test_cache_types(self):
