@@ -38,7 +38,10 @@ const ref=JSON.parse(fs.readFileSync(path.join(widgets,'awards-workbook-referenc
 const evidence=JSON.parse(fs.readFileSync(path.join(widgets,'awards-component-evidence.json'),'utf8'));
 const contracts=JSON.parse(fs.readFileSync(path.join(widgets,'awards-attribute-contracts.json'),'utf8'));
 const history=JSON.parse(fs.readFileSync(path.join(widgets,'awards-weekly-history.json'),'utf8'));
-const participants=JSON.parse(fs.readFileSync(path.join(widgets,'awards-participants.json'),'utf8'));
+const observedParticipants=JSON.parse(fs.readFileSync(path.join(widgets,'awards-participants.json'),'utf8'));
+// Archived rows support synthetic positive fixtures; this status is not a current-source attestation.
+const participants=structuredClone(observedParticipants);
+participants.status='UNRANKED_VERIFIED_SEASON_APPEARANCES_NOT_AWARD_SCORES';
 api.state.source=awards;
 api.state.reference=ref;
 api.state.explain=evidence;
@@ -1011,4 +1014,12 @@ test('pilot ballot links accept only HTTPS Google Forms responder URLs',()=>{
   'https://docs.google.com.evil.test/forms/d/x/viewform','https://evil.test/forms/d/x/viewform',
   'https://docs.google.com/forms/d/x/edit','https://user@docs.google.com/forms/d/x/viewform',null])
   assert.equal(api.approvedBallotURL(value),null);
+});
+
+test('actual identity-held participant snapshot cannot unlock current statistical watches',()=>{
+ assert.equal(observedParticipants.status,'HOLD_CURRENT_OFFICIAL_IDENTITY_MISMATCH');
+ assert.equal(api.verifiedHTOStatWatch('art-ross',observedParticipants,awards),null);
+ assert.equal(api.verifiedHTOStatWatch('rocket',observedParticipants,awards),null);
+ assert.equal(api.verifiedWorkbookRookieYearWatch(observedParticipants,awards.season,awards.currentTeamGP,awards.sourceWorkbookHash),null);
+ assert.equal(observedParticipants.sourceReview.awardScorePublicationAuthorized,false);
 });
