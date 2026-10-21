@@ -1,6 +1,6 @@
 {
   "schema": "brave-hc-record-candidates/v1",
-  "status": "REVIEW_ONLY_NOT_OFFICIAL_NOT_SCHEDULED",
+  "status": "REVIEW_ONLY_NOT_OFFICIAL",
   "coverage": {
     "indexedGames": 370,
     "administrativeExclusions": 8,
