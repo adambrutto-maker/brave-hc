@@ -6,8 +6,10 @@ All inputs validate before any output is replaced.
 import collections
 import copy
 import datetime as dt
+import hashlib
 import json
 import re
+import time
 from urllib.parse import parse_qs, urlencode, urljoin, urlparse
 from pathlib import Path
 import requests
@@ -171,21 +173,54 @@ def sync_published(history, book, groups, now):
     return updated, result
 
 
-def fetch(session, url):
-    if urlparse(url).hostname != 'www.htosports.com':
-        raise ValueError('Unexpected source host')
-    response = session.get(url, timeout=25, allow_redirects=False)
-    response.raise_for_status()
-    if response.status_code != 200 or 'text/html' not in response.headers.get('Content-Type','').lower():
-        raise ValueError('Unexpected HTO response')
-    # Let the HTML parser honor the page charset instead of Requests' Latin-1 fallback.
-    return response.content
+def fetch(session, url, *, max_attempts=3, sleep_fn=time.sleep):
+    """Accept only HTTP 200 HTML from official HTO; retry transient bad responses.
+
+    Fail with source-safe response metadata, never a raw upstream body or a
+    different website's data. Redirects are forbidden even during retries.
+    """
+    parsed = urlparse(url)
+    if parsed.scheme != 'https' or parsed.hostname != 'www.htosports.com' or parsed.path != '/teams/default.asp':
+        raise ValueError('Unexpected source host or path')
+    if not 1 <= max_attempts <= 3:
+        raise ValueError('Invalid bounded source retry count')
+    for attempt in range(1, max_attempts + 1):
+        try:
+            response = session.get(url, timeout=25, allow_redirects=False)
+        except requests.RequestException:
+            if attempt == max_attempts:
+                raise
+            sleep_fn(attempt)
+            continue
+        status = response.status_code
+        content_type = response.headers.get('Content-Type', '').lower()
+        data = response.content
+        if status == 200 and 'text/html' in content_type and data:
+            # Let the HTML parser honor the page charset, not Requests' Latin-1 fallback.
+            return data
+        evidence = dict(status=status, contentType=content_type[:90],
+                        responseBytes=len(data), responseSHA256=hashlib.sha256(data).hexdigest(),
+                        attempts=attempt)
+        # Never follow or retry redirects/denials; retry only transient or
+        # incorrectly typed HTTP 200 responses, then reject them explicitly.
+        if status in (301, 302, 303, 307, 308, 400, 401, 403, 404):
+            raise ValueError('Unexpected HTO response: ' + json.dumps(evidence))
+        if attempt == max_attempts or status not in (200, 204, 429, 500, 502, 503, 504):
+            raise ValueError('Unexpected HTO response: ' + json.dumps(evidence))
+        sleep_fn(attempt)
+    raise AssertionError('Unreachable source retry outcome')
+
+
+def read_json(path):
+    # Windows' locale default may decode the UTF-8 HTO history as CP1252,
+    # making accented names appear to have been removed from the source.
+    return json.loads(path.read_text(encoding='utf-8'))
 
 
 def run():
     now = dt.datetime.now(dt.timezone.utc).isoformat()
     index_path = DIR/'261020_Historical_Boxscore_Index.json'
-    index = json.loads(index_path.read_text())
+    index = read_json(index_path)
     old_index = copy.deepcopy(index)
     session = requests.Session()
     session.headers['User-Agent'] = 'BraveHC-RecordRefresh/1.0 (public source verification)'
@@ -209,7 +244,7 @@ def run():
     prior_urls = {game_id(u):u for u in current['boxscoreURLs']}
     if set(prior_urls) - {game_id(s['href']) for s in scheduled}:
         raise ValueError('Current schedule lost previously captured results')
-    live = json.loads(LIVE.read_text()) if LIVE.exists() else dict(games=[])
+    live = read_json(LIVE) if LIVE.exists() else dict(games=[])
     by_id = {game_id(g['url']):g for g in live['games']}
     for row in scheduled:
         row['href'] = prior_urls.get(game_id(row['href']),row['href'])
@@ -217,7 +252,7 @@ def run():
     current['boxscoreURLs'] = [s['href'] for s in scheduled]
     new_games = sorted(by_id.values(), key=lambda g: (g['schedule']['season'],game_id(g['url'])))
     history_path, book_path = ROOT/'widgets/history-records.json', ROOT/'widgets/player-record-book.json'
-    history, book = json.loads(history_path.read_text()),json.loads(book_path.read_text())
+    history, book = read_json(history_path), read_json(book_path)
     groups = parse_records(fetch(session,RECORDS))
     new_history,new_book = sync_published(history,book,groups,now)
     outputs = []
@@ -229,11 +264,11 @@ def run():
         outputs.extend([(history_path,new_history),(book_path,new_book)])
     for path,data in outputs:
         path.parent.mkdir(parents=True,exist_ok=True)
-        path.write_text(json.dumps(data,indent=2)+'\n')
+        path.write_text(json.dumps(data,indent=2)+'\n',encoding='utf-8')
     report = dict(checkedAt=now,season=label,completedGamesChecked=len(scheduled),publishedRecords=sum(len(g['items']) for g in groups),changedFiles=[str(p.relative_to(ROOT)) for p,_ in outputs],nativeHTOWrites=0)
     target = ROOT/'build/record-refresh/receipt.json'
     target.parent.mkdir(parents=True,exist_ok=True)
-    target.write_text(json.dumps(report,indent=2)+'\n')
+    target.write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8')
     print(json.dumps(report))
 
 

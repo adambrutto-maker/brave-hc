@@ -11,8 +11,8 @@ FIXTURES = Path(__file__).parent/'fixtures'
 
 class SourceRefreshTests(unittest.TestCase):
     def setUp(self):
-        self.history = json.loads((refresh.ROOT/'widgets/history-records.json').read_text())
-        self.book = json.loads((refresh.ROOT/'widgets/player-record-book.json').read_text())
+        self.history = refresh.read_json(refresh.ROOT/'widgets/history-records.json')
+        self.book = refresh.read_json(refresh.ROOT/'widgets/player-record-book.json')
 
     def test_completed_schedule_only(self):
         rows = refresh.parse_schedule((FIXTURES/'record-refresh-schedule.html').read_text(), refresh.BASE, 'Winter 2026/2027')
@@ -39,6 +39,20 @@ class SourceRefreshTests(unittest.TestCase):
             html += '</div></div>'
         groups = refresh.parse_records(html+'</div>')
         self.assertEqual(refresh.inventory(groups),refresh.inventory(self.history['groups']))
+
+    def test_utf8_source_file_preserves_historical_accented_rental_name(self):
+        records = refresh.read_json(refresh.ROOT/'widgets/history-records.json')
+        lines = [item for group in records['groups'] for item in group['items']]
+        self.assertIn('2 - Rènt Goaliê (2016)', lines)
+        self.assertIn('3.50 - Rènt Goaliê (2016)', lines)
+        self.assertFalse(any('RÃ¨nt' in text for text in lines))
+
+    def test_explicit_utf8_json_round_trip_on_windows_locale(self):
+        import tempfile
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory)/'unicode.json'
+            path.write_text('{"name":"Rènt Goaliê"}', encoding='utf-8')
+            self.assertEqual(refresh.read_json(path), {'name':'Rènt Goaliê'})
 
     def test_unmodified_book_retains_metadata(self):
         history,book = refresh.sync_published(self.history,self.book,copy.deepcopy(self.history['groups']),'later')
@@ -74,6 +88,72 @@ class SourceRefreshTests(unittest.TestCase):
         self.assertIn('Scheduled refresh', self.history['stalePolicy'])
         self.assertIn('manual review', self.history['stalePolicy'])
         self.assertIn('HTO', self.history['stalePolicy'])
+
+    def test_transient_non_html_source_retries_and_preserves_bytes(self):
+        from types import SimpleNamespace
+        class Session:
+            def __init__(self):
+                self.calls = []
+                self.responses = [
+                    SimpleNamespace(status_code=200, headers={'Content-Type':'text/plain'}, content=b'Service temporarily unavailable'),
+                    SimpleNamespace(status_code=200, headers={'Content-Type':'text/html; charset=utf-8'}, content=b'<html>R\\xc3\\xa8nt Goali\\xc3\\xaa</html>'),
+                ]
+            def get(self, url, **kwargs):
+                self.calls.append(kwargs)
+                return self.responses.pop(0)
+        session=Session()
+        delays=[]
+        data=refresh.fetch(session,refresh.RECORDS,sleep_fn=delays.append)
+        self.assertEqual(data,b'<html>R\\xc3\\xa8nt Goali\\xc3\\xaa</html>')
+        self.assertEqual(len(session.calls),2)
+        self.assertEqual(delays,[1])
+        self.assertTrue(all(x['allow_redirects'] is False for x in session.calls))
+
+    def test_persistent_wrong_content_type_stays_failed(self):
+        from types import SimpleNamespace
+        class Session:
+            def __init__(self): self.attempts=0
+            def get(self, url, **kwargs):
+                self.attempts+=1
+                return SimpleNamespace(status_code=200,headers={'Content-Type':'text/plain'},content=b'not HTO HTML')
+        s=Session()
+        with self.assertRaisesRegex(ValueError,'Unexpected HTO response: .*responseSHA256.*attempts'):
+            refresh.fetch(s,refresh.RECORDS,sleep_fn=lambda _:None)
+        self.assertEqual(s.attempts,3)
+
+    def test_redirect_never_retried_or_followed(self):
+        from types import SimpleNamespace
+        class Session:
+            def __init__(self):self.attempts=0
+            def get(self, url, **kwargs):
+                self.assert_false=kwargs['allow_redirects'] is False
+                self.attempts+=1
+                return SimpleNamespace(status_code=302,headers={'Content-Type':'text/html'},content=b'')
+        s=Session()
+        with self.assertRaisesRegex(ValueError,'Unexpected HTO response'):
+            refresh.fetch(s,refresh.RECORDS,sleep_fn=lambda _:None)
+        self.assertTrue(s.assert_false)
+        self.assertEqual(s.attempts,1)
+
+    def test_403_denial_never_downgraded_to_success(self):
+        from types import SimpleNamespace
+        class Session:
+            def __init__(self):self.attempts=0
+            def get(self, url, **kwargs):
+                self.attempts+=1
+                return SimpleNamespace(status_code=403,headers={'Content-Type':'text/html'},content=b'<html>denied</html>')
+        s=Session()
+        with self.assertRaisesRegex(ValueError,'Unexpected HTO response'):
+            refresh.fetch(s,refresh.RECORDS,sleep_fn=lambda _:None)
+        self.assertEqual(s.attempts,1)
+
+    def test_retry_bound_cannot_be_bypassed(self):
+        with self.assertRaisesRegex(ValueError,'Invalid bounded'):
+            refresh.fetch(None,refresh.RECORDS,max_attempts=30)
+
+    def test_non_htos_scheme_is_rejected_before_get(self):
+        with self.assertRaisesRegex(ValueError,'Unexpected source host or path'):
+            refresh.fetch(None,'http://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&p=records')
 
     def test_source_host_restricted(self):
         with self.assertRaises(ValueError): refresh.game_id('https://example.com/teams/default.asp?u=BRAVESHOCKEY&p=boxscore&gameID=1')
