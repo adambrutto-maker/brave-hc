@@ -7,7 +7,7 @@ def col(s):
  n=0
  for c in s:n=n*26+ord(c)-64
  return n
-def export(path):
+def export(path,include_production=False):
  before=hashlib.sha256(Path(path).read_bytes()).hexdigest()
  if before!=PIN:raise ValueError('Protected source pin changed')
  with zipfile.ZipFile(path) as z:
@@ -35,12 +35,13 @@ def export(path):
      if v is not None and v.text is not None:r[k]=ss[int(v.text)] if c.get('t')=='s' else v.text if c.get('t') in ('str','e') else float(v.text)
     result.append(r)
    return result
-  result={'playerInfo':read('PlayerInfo','Player Information',['Website Name','Position','Position 2','Current Roster Status','Recent Season','Rookie Status','Rookie Year','Career Prior Skater GP','Career Prior Goalie GP','Position Group']),
+  production_fields=[f for phase in ('Total','Playoff') for metric in ('G','A','Pts') for f in ('Career Prior '+phase+' '+metric+'/GP','All-Time '+phase+' Skater '+metric+' Team Rate Avg')] if include_production else []
+  result={'playerInfo':read('PlayerInfo','Player Information',['Website Name','Position','Position 2','Current Roster Status','Recent Season','Rookie Status','Rookie Year','Career Prior Skater GP','Career Prior Goalie GP','Position Group']+production_fields),
    'roster':read('RosterStatusBySeason','Player Information',['Name','Season','Status','Total Games']),
    'schedule':read('AllTimeSchedule','Master Schedule',['Game #','Season','Game Type','Date']),
-   'skaterGames':read('SkaterStatsByGame','Player Game Logs',['Game #','Name','Season','GP','Game Type']),
+   'skaterGames':read('SkaterStatsByGame','Player Game Logs',['Game #','Name','Season','GP','Game Type']+(['G','A','Pts','W Adj. G','W Adj. A'] if include_production else [])),
    'goalieGames':read('GoalieStatsByGame','Player Game Logs',['Game #','Name','Season','GP','Game Type'])}
  result.update({'sourceWorkbookSha256':before,'readOnlyHashUnchanged':hashlib.sha256(Path(path).read_bytes()).hexdigest()==before,'publicationAuthorized':False})
  return result
 if __name__=='__main__':
- result=export(sys.argv[1]);Path(sys.argv[2]).write_text(json.dumps(result,indent=2));print(json.dumps({k:len(v) for k,v in result.items() if isinstance(v,list)}))
+ result=export(sys.argv[1],include_production='--production' in sys.argv);Path(sys.argv[2]).write_text(json.dumps(result,indent=2));print(json.dumps({k:len(v) for k,v in result.items() if isinstance(v,list)}))
