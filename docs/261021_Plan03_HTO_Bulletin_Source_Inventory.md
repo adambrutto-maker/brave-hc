@@ -71,7 +71,7 @@
 
 - A previously indexed native HTO **Home** page displayed the July 1, 2026 feature *Brave H.C. Offseason Update: Season Honours, Hall of Fame Ballot & New Team Analytics*. That feature is **not a Bulletin Board item** and must not be miscounted among the 32 posts above.
 - A fresh read-only HTTP 200 check of the current native [HTO Home page](https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=home) on 2026-10-21 found the current HockeyOS `hot-stove.html` embed but **did not find the former July 1 feature heading or date** in the returned HTML.
-- Status: `PRIORLY_INDEXED / ABSENT_FROM_CURRENT_PUBLIC_HOME_MARKUP / ORIGINAL_TEXT_NOT_YET_RECOVERED`. This is **not proof of deletion** from HTO's administrator history. Locate a supported owner-admin export/backup or an authoritative original before republishing; do not reconstruct its body from memory or cached excerpts.
+- Status updated October 21: `OCT_16_PUBLIC_RENDERED_TEXT_RECOVERED_PRIVATE / NATIVE_CMS_SOURCE_NOT_RECOVERED / NO_PUBLICATION_APPROVAL`. A separate October 16 HTO Home readback preserved 6,100 characters of page-rendered text with SHA256 receipt; see [private recovery evidence](261021_Plan03_July_2026_Offseason_Article_Recovery_Receipt.md). This does **not** prove deletion from HTO's editor history or authorize republication. The 32 Bulletin posts remain a distinct archive.
 
 ## Next release gates
 
