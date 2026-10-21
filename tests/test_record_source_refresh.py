@@ -11,8 +11,8 @@ FIXTURES = Path(__file__).parent/'fixtures'
 
 class SourceRefreshTests(unittest.TestCase):
     def setUp(self):
-        self.history = json.loads((refresh.ROOT/'widgets/history-records.json').read_text())
-        self.book = json.loads((refresh.ROOT/'widgets/player-record-book.json').read_text())
+        self.history = refresh.read_json(refresh.ROOT/'widgets/history-records.json')
+        self.book = refresh.read_json(refresh.ROOT/'widgets/player-record-book.json')
 
     def test_completed_schedule_only(self):
         rows = refresh.parse_schedule((FIXTURES/'record-refresh-schedule.html').read_text(), refresh.BASE, 'Winter 2026/2027')
@@ -39,6 +39,20 @@ class SourceRefreshTests(unittest.TestCase):
             html += '</div></div>'
         groups = refresh.parse_records(html+'</div>')
         self.assertEqual(refresh.inventory(groups),refresh.inventory(self.history['groups']))
+
+    def test_utf8_source_file_preserves_historical_accented_rental_name(self):
+        records = refresh.read_json(refresh.ROOT/'widgets/history-records.json')
+        lines = [item for group in records['groups'] for item in group['items']]
+        self.assertIn('2 - Rènt Goaliê (2016)', lines)
+        self.assertIn('3.50 - Rènt Goaliê (2016)', lines)
+        self.assertFalse(any('RÃ¨nt' in text for text in lines))
+
+    def test_explicit_utf8_json_round_trip_on_windows_locale(self):
+        import tempfile
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory)/'unicode.json'
+            path.write_text('{"name":"Rènt Goaliê"}', encoding='utf-8')
+            self.assertEqual(refresh.read_json(path), {'name':'Rènt Goaliê'})
 
     def test_unmodified_book_retains_metadata(self):
         history,book = refresh.sync_published(self.history,self.book,copy.deepcopy(self.history['groups']),'later')
