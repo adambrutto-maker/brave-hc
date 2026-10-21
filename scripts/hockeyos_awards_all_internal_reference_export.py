@@ -7,7 +7,7 @@ def colnum(s):
  for c in s:n=n*26+ord(c)-64
  return n
 def extract(workbook,native,schema):
- columns=[c for t in schema['tables'] if t['name']=='AwardScoring' for c in t['columns'] if c['name'].endswith(' Internal Score') or c['name'].endswith('Raw Improvement Index')]
+ columns=[c for t in schema['tables'] if t['name']=='AwardScoring' for c in t['columns'] if c['name'].endswith(' Internal Score') or c['name'].endswith('Raw Improvement Index') or c['name'].endswith('Raw Composite Score')]
  required=set(f for c in columns for f in re.findall(r'PlayerInfo\[([^]]+)\]',c['formula']))|{'Website Name'}
  with zipfile.ZipFile(workbook) as z:
   ss=[''.join(x.itertext()) for x in E.fromstring(z.read('xl/sharedStrings.xml'))]
@@ -36,7 +36,7 @@ def extract(workbook,native,schema):
   if not row.get('Name'):continue
   name=row['Name']
   if name not in masters:raise ValueError('Native master join missing')
-  players.append({'name':name,'role':row['Award Scoring Type'],'recentSeason':row['Recent Season'],'inputs':masters[name],'nativeValues':{c['name']:row[c['name']] for c in columns}})
+  players.append({'name':name,'role':row['Award Scoring Type'],'recentSeason':row['Recent Season'],'inputs':masters[name],'rowValues':{f:row[f] for f in set(f for c in columns for f in re.findall(r'AwardScoring\[\[#This Row\],\[([^]]+)\]\]',c['formula']))},'nativeValues':{c['name']:row[c['name']] for c in columns}})
  return {'state':'ALL_INTERNAL_LEGACY_NATIVE_REFERENCE_NOT_CURRENT_INPUT_ACCEPTANCE','playerCount':len(players),'componentCount':len(columns),'requiredPlayerInfoFieldCount':len(required)-1,'players':players,'blankPolicy':'Known native INDEX references to empty worksheet cells are represented as zero; formula empty strings and cell errors remain explicit. This is legacy reference semantics, not current missing-data imputation.','currentCompositeScoresVerified':False,'publicationAuthorized':False}
 if __name__=='__main__':
  workbook,native,schema,out=map(Path,sys.argv[1:]);pins={workbook:'30c6a6a27fe6a395d87dcfe878c74e9d97b39522c976ff10fce623d258c83235',native:'e8636061288812c2cdad9826a0e13c1f1214ce89817bea95522686d7ceab6057',schema:'2e90a8cacad89ebfc714548ca5f24751bcfe9745f065112c91ede3a75552adae'}
