@@ -1,9 +1,9 @@
 # Brave H.C. Award Races
-## Consolidated Implementation Plan | Version 1.10
+## Consolidated Implementation Plan | Version 1.11
 
 **Updated:** October 21, 2026 (America/Toronto)
 **Sponsor:** Adam Brutto | **Delivery lead:** Engineering / Jacob AI role
-**Current position:** Arithmetic is implemented for all 44 internal formulas, all 44 displays and eight raw composite formulas. Display and scalar checks total 2,400 exact native comparisons. Ten eligibility rules and eight final-score/rank pipelines are implemented. All 220 eligibility decisions are resolved after Adam confirmed Carlyle is DI and ineligible for Rookie. G/A/Pts historical baselines pass 9,640 checks and now feed the current production components. Skater PIM, +/- and POTG baselines add 4,934 passing checks and feed 57 current internals. Goalie branches, remaining composite inputs, corrected native parity, integration and release remain open.
+**Current position:** Arithmetic is implemented for all 44 internal formulas, all 44 displays and eight raw composite formulas. Display and scalar checks total 2,400 exact native comparisons. Ten eligibility rules and eight final-score/rank pipelines are implemented. All 220 eligibility decisions are resolved after Adam confirmed Carlyle is DI and ineligible for Rookie. G/A/Pts historical baselines pass 9,640 checks and now feed the current production components. Skater PIM, +/- and POTG baselines add 4,934 passing checks and feed 57 current internals. Five goalie components now run from rebuilt history; 380 additional checks pass. POTG normalization covers all 22 current players. Remaining derived inputs, corrected native parity, integration and release remain open.
 
 ### Purpose and authority
 Deliver a reliable Award Races widget that follows the original award methodology, explains its ratings clearly, and refreshes from accepted HockeyOS statistics without repeated manual reconstruction.
@@ -16,7 +16,7 @@ This is the detailed Award Races subplan under the existing Brave H.C. HockeyOS 
 - A disposable native Excel replay updated 14 matched rows and added 43 appearances. All 565 nonmissing input writes and untouched historical raw inputs passed saved-file checks. The 146 scoring formulas retained their modes; Excel reported no award-cell errors.
 - The initial replay exposed stale season PivotTable caches. Explicit native refresh recovered all 40 added skater and three added goalie appearances and season outputs of 6 goals, 10 assists and 16 points. Never overwrite PivotTable output cells. The completed reference refreshed both caches, rebuilt all downstream formulas and saved with no award-cell errors.
 - Adam confirmed Damian Pavaday is DI. A new review copy now contains his PlayerInfo and W2026/27 roster rows. Eight inputs and 1,955,411 existing cells passed preservation checks. Current DI status excludes him from the FT-only Rookie race without guessing a first FT year. The original 41 missing skater PIM and one missing goalie POTG observations remain null in the source fixture. A separate derived fixture resolves each to zero using matching season totals, complete appearance coverage and nonnegative additive counts; all 42 equations and their provenance are retained.
-- The latest local validation passed 85 JavaScript tests; the expanded Python suite now passes 138 tests. Eight final-score models pass 192 saved native comparisons. Dedication now rounds to whole numbers by Adam's correction; one-decimal arithmetic remains audit-only. This is not complete current composite validation.
+- The latest local validation passed 85 JavaScript tests; the expanded Python suite now passes 146 tests. Eight final-score models pass 192 saved native comparisons. Dedication now rounds to whole numbers by Adam's correction; one-decimal arithmetic remains audit-only. This is not complete current composite validation.
 
 ### Critical path
 Reconcile all source inputs -> repair the disposable reference -> prove complete native results -> implement matching production calculations -> verify category displays -> release the reviewed candidate -> demonstrate repeatable refresh.
@@ -196,7 +196,7 @@ These are AI work assignments, not human signatures or completed reviews. Indepe
 # 7. Evidence and next work package
 
 ### Next work package: AW-02 / AW-08
-Validate goalie branches and remaining PlayerInfo component dependencies beyond eligibility and six reconciled skater metric baselines. Preserve explicit missing-data holds. Assemble the corrected current chain, carry Carlyle's confirmed DI status into a new native review copy, and compare results before integration. All 44 internal and display components, eight raw composites, ten eligibility rules and eight final/rank stages are implemented; complete current composite acceptance remains open.
+Validate remaining derived components, goalie PIM/+/- and corrected native metadata calculations. Five goalie components and six skater metric baselines are rebuilt. Preserve explicit missing-data holds. Assemble the corrected current chain, carry Carlyle's confirmed DI status into a new native review copy, and compare results before integration. All 44 internal and display components, eight raw composites, ten eligibility rules and eight final/rank stages are implemented; complete current composite acceptance remains open.
 
 ### Evidence index
 - Review implementation: https://github.com/adambrutto-maker/brave-hc/pull/8
@@ -205,9 +205,12 @@ Validate goalie branches and remaining PlayerInfo component dependencies beyond 
 - Brave_HC_Master_Workplan.xlsx - parent plan, saved v4 / internal v1.3; September 25 statuses are historical.
 - Brave_HC_Awards_Methodology_Audit.md - historical reference; newer captured formulas control.
 
-**Session record - October 21, 2026 Toronto:** All 220 eligibility decisions remain resolved, including Carlyle DI/Rookie exclusion. Historical G/A/Pts checks (9,640) plus PIM, +/- and POTG checks (4,934) now total 14,574 passing comparisons. A discovered source exception is preserved: All-Time Playoff Skater PIM Team Rate Avg actually averages current-season playoff PIM/GP, so it is zero at this cutoff. Six skater components now consume rebuilt prior/team baselines for 19 current skaters (114 internals). Mixed-role support displays retain nine goalie branch holds. All 138 Python tests pass. The 1e-12 tolerance applies only to unrounded baseline intermediates; final scores/ranks still require exact comparison. Corrected native full-model acceptance and release remain open.
+**Session record - October 21, 2026 Toronto:** Goalie history adds 380 passing comparisons, bringing historical input checks to 14,954. The native cache excludes Carlyle's newly added master row: its goalie population has 359 GP versus 360 after correction. Corrected team rates are explicit candidates awaiting native recalculation. Fifteen current goalie internals run with 12 derived zero W/T/SHO observations, supported by recorded losses and positive GA. Five normalized components pass coverage, including all 22 players for POTG. Preserve the source exception: All-Time Total Goalie SHO Team Rate Avg uses the current playoff SHO leader. Category readiness: two verified count races, seven without eligible players and Rookie awaiting composite validation; HOF remains separate. All 146 Python tests pass. No current full-composite acceptance or publication is asserted.
 
 ### Retained implementation evidence
+- docs/261021_Awards_Goalie_Baseline_Ledger.json - 380 comparisons and explicit native cohort correction.
+- docs/261021_Awards_Current_Goalie_Component_Replay.json - five goalie components and 12 derivations.
+- docs/261021_Awards_Current_Category_Readiness.json - ten category states; HOF tracked separately.
 - docs/261021_Awards_Skater_Support_Baseline_Ledger.json - 4,934 checks; playoff PIM source exception preserved.
 - docs/261021_Awards_Current_Skater_Support_Replay.json - 57 rebuilt skater internals; nine goalie branch holds.
 - docs/261021_Awards_Confirmed_Metadata.json - Carlyle DI and Rookie exclusion confirmed by Adam.
@@ -231,4 +234,4 @@ Validate goalie branches and remaining PlayerInfo component dependencies beyond 
 - docs/261021_Awards_All_Scalar_Native_Reference.json - 52 formulas, 248 lookup fields and native row inputs.
 - docs/261021_Awards_All_Scalar_Arithmetic_Parity.json - 1,300 exact internal/composite comparisons.
 
-**Next task:** Validate goalie PIM, +/- and POTG branches and remaining derived components, then verify the corrected native chain. AW-02, AW-03 and C1 remain open. The original workbook and live widget remain unchanged.
+**Next task:** Validate remaining Rookie component dependencies and goalie PIM/+/-, then recalculate the corrected native metadata cohort. AW-02, AW-03 and C1 remain open. The original workbook and live widget remain unchanged.
