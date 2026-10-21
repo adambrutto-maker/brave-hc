@@ -49,7 +49,7 @@ def cells_from_xlsx(path):
     if num>4708:break
     for cell in row.findall(N+"c"):
      ref=cell.get("r","")
-     match=re.match(r"^([A-Z]+)(\\d+)$",ref)
+     match=re.match(r"^([A-Z]+)(\d+)$",ref)
      if match is None:continue
      cn=col_number(match.group(1))
      kind=next((k for k,(lo,hi,start,end,newlo,newhi) in BOUNDS.items()
@@ -137,7 +137,7 @@ def compare(pre,post,staging,receipt):
   selected={ref for ref in (set(permitted)|withheld) if
             (lambda m: m and lo<=col_number(m.group(1))<=hi
              and newlo<=int(m.group(2))<=newhi)(
-                 re.match(r"^([A-Z]+)(\\d+)$",ref))}
+                 re.match(r"^([A-Z]+)(\d+)$",ref))}
   for ref in set(append_pre)|set(append_post)|selected:
    src=append_pre.get(ref,{"formula":None,"value":None})
    dest=append_post.get(ref,{"formula":None,"value":None})
