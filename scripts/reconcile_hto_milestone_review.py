@@ -12,7 +12,7 @@ from urllib.parse import parse_qs, urlparse
 from pathlib import Path
 
 EXPECTED_GAME_IDS = (3356177, 3356178, 3369564, 3375601)
-FAMILY = {"gp": ("Game", "gameAppearance"), "pts": ("Point", "pts"),
+FAMILY = {"gp": ("Game", "gp"), "pts": ("Point", "pts"),
           "g": ("Goal", "g"), "a": ("Assist", "a"), "potg": ("POTG", "potg")}
 
 
