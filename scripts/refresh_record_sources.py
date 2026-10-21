@@ -134,7 +134,7 @@ def inventory(groups):
 
 def sync_published(history, book, groups, now):
     if inventory(history['groups']) - inventory(groups):
-        raise ValueError('Published historical records were removed or revised; manual reconciliation required')
+        raise ValueError('Published historical records were removed or revised; manual reconciliation required: '+json.dumps(dict(missing=list((inventory(history['groups'])-inventory(groups)).elements())[:5], added=list((inventory(groups)-inventory(history['groups'])).elements())[:5])))
     result = copy.deepcopy(book)
     for player in result['players'].values():
         player['entries'] = []
