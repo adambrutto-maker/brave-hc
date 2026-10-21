@@ -8,6 +8,7 @@ def audit(schema):
  categories={};by_node={};unsupported=[]
  for prefix in ['Hart','Conn Smythe','Norris','Art Ross','Rocket Richard','Rookie','Lady Byng','Most Improved','Rolaids','Dedication']:
   pending=[('AwardScoring',f) for f in tables['AwardScoring'] if f.startswith(prefix) and any(t in f for t in ['Eligible','Score','Rank Key'])];seen=set()
+  if not pending:raise ValueError('Missing award roots: '+prefix)
   while pending:
    node=pending.pop()
    if node in seen:continue
@@ -24,7 +25,7 @@ def audit(schema):
   if not formula or not re.search(r'\b(?:SUMPRODUCT|SUMIFS|AVERAGEIFS|COUNTIFS|AGGREGATE|MAX|MIN|RANK)\s*\(',formula,re.I):continue
   if not any(x in formula for x in ['PlayerInfo[','AwardScoring[']):continue
   evidence.append({'table':table,'field':field,'categories':sorted(models),'formula':formula,'referencesRecentSeasonColumn':'PlayerInfo[Recent Season]' in formula or 'AwardScoring[Recent Season]' in formula,'referencesSelectedSeasonCell':bool(re.search(r"(?:'Master Schedule'|MasterSchedule)!\$?C\$?1",formula,re.I)),'requiresSemanticReview':True})
- return {'state':'COHORT_FORMULA_EVIDENCE_NOT_CURRENT_SCORE_ACCEPTANCE','categoryNodeCoverage':categories,'aggregateFormulaCount':len(evidence),'aggregateFormulas':evidence,'unsupportedReferences':unsupported,'limitations':['Presence of a season token does not prove a correct population predicate.','A per-player Recent Season is distinct from the selected current season.','Ordinary-cell and named-range transitive precedents are outside this structured traversal.'],'currentScoresVerified':False,'publicationAuthorized':False}
+ return {'state':'COHORT_FORMULA_EVIDENCE_NOT_CURRENT_SCORE_ACCEPTANCE','categoryNodeCoverage':categories,'selectorFormulas':[{ 'table':t,'field':f,'formula':decoded(tables[t][f].get('formula') or '')} for t,f in [('PlayerInfoHelpers','Current Season'),('PlayerInfo','Recent Season'),('PlayerInfo','Active Eligible'),('AwardScoring','Recent Season')]],'aggregateFormulaCount':len(evidence),'aggregateFormulas':evidence,'unsupportedReferences':unsupported,'limitations':['Presence of a season token does not prove a correct population predicate.','A per-player Recent Season is distinct from the selected current season.','Ordinary-cell and named-range transitive precedents are outside this structured traversal.'],'currentScoresVerified':False,'publicationAuthorized':False}
 if __name__=='__main__':
  source,out=map(Path,sys.argv[1:]);expected='2e90a8cacad89ebfc714548ca5f24751bcfe9745f065112c91ede3a75552adae'
  if hashlib.sha256(source.read_bytes()).hexdigest()!=expected:raise ValueError('Captured schema changed')
