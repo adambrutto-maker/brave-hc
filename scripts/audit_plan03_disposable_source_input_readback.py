@@ -86,10 +86,16 @@ def compare(pre,post,staging,receipt):
   raise ImportHold("EXCEL_PACKAGE_COMPONENTS_CHANGED")
  if pre["table"]!=TABLE_REFS or post["table"]!=TABLE_REFS:
   raise ImportHold("EXPECTED_RESIZED_TABLE_BOUNDS_CHANGED")
- if receipt.get("schema")!="brave-hc-private-source-only-disposable-import/v1":
+ app_success=(receipt.get("schema")=="brave-hc-private-source-only-disposable-import/v1"
+  and receipt.get("status")=="SOURCE_ONLY_INPUT_STAGED_NOT_RECALCULATED")
+ recovered=(receipt.get("schema")=="brave-hc-private-source-only-disposable-import-recovery/v1"
+  and receipt.get("status")=="SAVED_CANDIDATE_APP_CLEANUP_INTERRUPTED"
+  and receipt.get("sourceAppCleanShutdownVerified") is False
+  and receipt.get("isolatedWorkersCleanedUp") is True
+  and receipt.get("originalSourceHashChecked") is True)
+ if not app_success and not recovered:
   raise ImportHold("SOURCE_IMPORT_RECEIPT_INVALID")
- if (receipt.get("status")!="SOURCE_ONLY_INPUT_STAGED_NOT_RECALCULATED"
-     or receipt.get("saved") is not True
+ if (receipt.get("saved") is not True
      or receipt.get("originalWorkbookChanged") is not False
      or receipt.get("sourceOfTruthPromotionApproved") is not False
      or receipt.get("publicStatisticsReleased") is not False
@@ -176,6 +182,8 @@ def compare(pre,post,staging,receipt):
          "sourceY4674WhitespacePreserved":True,
          "allExistingManualValuesAndFormulasPreserved":True,
          "fullWorkbookAndPivotRecalculationCertified":False,
+         "applicationCleanShutdownVerified":bool(app_success),
+         "recoveredFromMissingAppReceipt":bool(recovered),
          "publicReleaseApproved":False,"originalWorkbookModified":False}
 
 def main():
