@@ -138,3 +138,67 @@ footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;paddin
 .rolaids-gp-foot{color:#b9cedb;font-size:10px;line-height:1.35}
 
 @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+
+/* EA-inspired award scorecards: the source workbook remains the sole rating authority. */
+.card{padding:14px;border-radius:12px}
+.card-main{align-items:center}
+.card .rank{font-size:21px;min-width:25px}
+.card .playername{font-size:16px}
+.ratingbtn{border-radius:10px}
+.orb{
+ width:76px;height:75px;border-radius:10px;
+ display:flex;flex-direction:column-reverse;align-items:center;justify-content:center;gap:1px;
+ border:1px solid #a99972;background:linear-gradient(155deg,#344251,#192d42);
+ box-shadow:inset 0 0 0 1px #ffffff15;
+}
+.orb.elite{border-color:#f3ca79}
+.orb.contender{border-color:#6ed7af}
+.orb.strong{border-color:#78b8dc}
+.orb b{font-size:31px;font-variant-numeric:tabular-nums;letter-spacing:-.04em;line-height:1.05}
+.orb span{font-size:11px;letter-spacing:.075em}
+.ea-attributes{
+ display:grid;grid-template-columns:repeat(6,minmax(0,1fr));
+ gap:5px;margin:12px 0 0;
+}
+.stat-chip.ea-stat{
+ display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-width:0;
+ background:#263748;border:1px solid #4c6274;border-radius:7px;
+ padding:7px 2px 6px;font-variant-numeric:tabular-nums;min-height:53px;
+}
+.stat-chip.ea-stat .ea-stat-name{
+ display:block;margin:0;font-size:10px;line-height:1.2;letter-spacing:.025em;
+ color:#c9d7e1;font-weight:850;white-space:nowrap;
+}
+.stat-chip.ea-stat .ea-stat-value{display:block;font-size:17px;line-height:1.1;font-weight:900;color:#fff}
+.weekly-movement{
+ display:flex;flex-wrap:wrap;gap:5px 10px;align-items:center;margin-top:9px;
+ padding-top:9px;border-top:1px solid #3b5c72;
+ font-size:11px;font-variant-numeric:tabular-nums;
+}
+.weekly-movement strong{font-weight:900}
+.move-up{color:#75e4b2}
+.move-down{color:#ff94a4}
+.move-flat{color:#d4dfeb}
+.move-new{color:#ffe0a2}
+.move-date,.move-muted{color:#afc4d4;font-size:10px}
+.more-attributes{margin-top:8px;border-top:1px solid #3b596e;padding-top:8px}
+.more-attributes summary{font-size:11px;cursor:pointer;font-weight:800;color:#f2d99f}
+.more-attributes .ea-attributes{margin-top:8px}
+.attributes-pending{margin:9px 0 0;font-size:11px;color:#bed1df}
+.rating-label{margin:5px 0 0;font-size:10px;text-align:right}
+@media(max-width:600px){
+ .orb{width:62px;height:66px;border-width:1px;border-radius:9px}
+ .orb b{font-size:25px}.orb span{font-size:10px}
+ .card{padding:10px}
+ .ea-attributes{gap:3px}
+ .stat-chip.ea-stat{padding:6px 1px;min-height:49px}
+ .stat-chip.ea-stat .ea-stat-name{font-size:8px}
+ .stat-chip.ea-stat .ea-stat-value{font-size:14px}
+ .weekly-movement{gap:4px 8px}
+}
+@media(max-width:350px){
+ .ea-attributes{grid-template-columns:repeat(3,minmax(0,1fr));gap:5px}
+ .stat-chip.ea-stat .ea-stat-name{font-size:10px}
+ .stat-chip.ea-stat .ea-stat-value{font-size:16px}
+}

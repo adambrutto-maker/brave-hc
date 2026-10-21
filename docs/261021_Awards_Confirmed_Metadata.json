@@ -1,0 +1,12 @@
+{
+  "schema": "brave-hc-awards-confirmed-metadata/v1",
+  "season": "W2026/27",
+  "confirmedBy": "Adam Brutto",
+  "confirmedDate": "2026-10-21",
+  "source": "Direct user instruction in Award Races implementation chat",
+  "records": [
+    {"name": "Carlyle, Adam", "rosterStatus": "DI", "rookieEligible": false}
+  ],
+  "originalWorkbookModified": false,
+  "publicationAuthorized": false
+}

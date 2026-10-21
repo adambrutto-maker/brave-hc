@@ -1,0 +1,48 @@
+name: HockeyOS Awards Card QA
+
+on:
+  pull_request:
+    paths:
+      - 'widgets/awards-races-v3.js'
+      - 'widgets/awards-races-v3.css'
+      - 'widgets/awards-races.html'
+      - 'widgets/awards-races-v3.html'
+      - 'widgets/awards-races.json'
+      - 'widgets/awards-weekly-history.json'
+      - 'widgets/awards-workbook-reference.json'
+      - 'widgets/awards-component-evidence.json'
+      - 'widgets/awards-attribute-contracts.json'
+      - 'widgets/awards-participants.json'
+      - 'widgets/awards-source-readiness.json'
+      - 'widgets/awards-operational-publication.json'
+      - 'scripts/hockeyos_awards_*.js'
+      - 'scripts/hockeyos_awards_*.py'
+      - 'scripts/hockeyos_awards_*.ps1'
+      - 'tests/test_awards_*.py'
+      - 'tests/test_awards_cards.js'
+      - 'tests/test_awards_formula_semantics.js'
+      - 'tests/test_awards_saved_final_review.js'
+      - 'tests/test_awards_composition_inventory.js'
+      - 'docs/261020_Awards_Original_Formula_Capture.json'
+      - '.github/workflows/awards-cards-qa.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify-award-cards:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout pull request
+        uses: actions/checkout@v4
+      - name: Use Node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Run source-truth and weekly movement regression suite
+        run: node --test tests/test_awards_cards.js tests/test_awards_formula_semantics.js tests/test_awards_saved_final_review.js tests/test_awards_composition_inventory.js
+
+      - name: Verify bounded loaded-formula notation comparison
+        run: python3 -m unittest discover -s tests -p 'test_awards_*.py'

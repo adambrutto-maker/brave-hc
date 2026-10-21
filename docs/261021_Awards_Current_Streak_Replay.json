@@ -1,0 +1,364 @@
+{
+  "state": "CURRENT_STREAK_HEAT_REBUILT_CORRECTED_NATIVE_PARITY_OPEN",
+  "season": "W2026/27",
+  "cutoff": "2026-10-18",
+  "components": {
+    "Total Streak Heat Internal Score": {
+      "rows": [
+        {
+          "name": "Ardizzi, Stefano",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 0.0,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current Total Skater Streak Heat Points": 0,
+            "Career Prior Skater GP": 221,
+            "Career Prior Total Skater Streak Heat/GP": 0.16832579185520363,
+            "All-Time Total Skater Streak Heat Team Rate Avg": 0.43279195094281864,
+            "Current Total Skater Streak Heat Raw Leader": 0.75,
+            "Current Total Skater Streak Heat/GP": 0.0,
+            "Current Total Skater Streak Heat Field Rate Avg": 0.009868421052631578
+          }
+        },
+        {
+          "name": "Brutto, Adam",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 0.0,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current Total Skater Streak Heat Points": 0,
+            "Career Prior Skater GP": 332,
+            "Career Prior Total Skater Streak Heat/GP": 0.140210843373494,
+            "All-Time Total Skater Streak Heat Team Rate Avg": 0.43279195094281864,
+            "Current Total Skater Streak Heat Raw Leader": 0.75,
+            "Current Total Skater Streak Heat/GP": 0.0,
+            "Current Total Skater Streak Heat Field Rate Avg": 0.009868421052631578
+          }
+        },
+        {
+          "name": "Carosi, Justin",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": -0.008,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current Total Skater Streak Heat Points": 0.75,
+            "Career Prior Skater GP": 299,
+            "Career Prior Total Skater Streak Heat/GP": 1.4133779264214048,
+            "All-Time Total Skater Streak Heat Team Rate Avg": 0.43279195094281864,
+            "Current Total Skater Streak Heat Raw Leader": 0.75,
+            "Current Total Skater Streak Heat/GP": 0.1875,
+            "Current Total Skater Streak Heat Field Rate Avg": 0.009868421052631578
+          }
+        },
+        {
+          "name": "Kong, Henry",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 0.0,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current Total Skater Streak Heat Points": 0,
+            "Career Prior Skater GP": 0,
+            "Career Prior Total Skater Streak Heat/GP": 0,
+            "All-Time Total Skater Streak Heat Team Rate Avg": 0.43279195094281864,
+            "Current Total Skater Streak Heat Raw Leader": 0.75,
+            "Current Total Skater Streak Heat/GP": 0.0,
+            "Current Total Skater Streak Heat Field Rate Avg": 0.009868421052631578
+          }
+        },
+        {
+          "name": "Pagnotta, Alex",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 0.0,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current Total Skater Streak Heat Points": 0,
+            "Career Prior Skater GP": 320,
+            "Career Prior Total Skater Streak Heat/GP": 0.10390625,
+            "All-Time Total Skater Streak Heat Team Rate Avg": 0.43279195094281864,
+            "Current Total Skater Streak Heat Raw Leader": 0.75,
+            "Current Total Skater Streak Heat/GP": 0.0,
+            "Current Total Skater Streak Heat Field Rate Avg": 0.009868421052631578
+          }
+        },
+        {
+          "name": "Paolucci, Anthony",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 0.0,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current Total Skater Streak Heat Points": 0,
+            "Career Prior Skater GP": 89,
+            "Career Prior Total Skater Streak Heat/GP": 0.07303370786516854,
+            "All-Time Total Skater Streak Heat Team Rate Avg": 0.43279195094281864,
+            "Current Total Skater Streak Heat Raw Leader": 0.75,
+            "Current Total Skater Streak Heat/GP": 0.0,
+            "Current Total Skater Streak Heat Field Rate Avg": 0.009868421052631578
+          }
+        },
+        {
+          "name": "Pearsoll, Keith",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 0.0,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current Total Skater Streak Heat Points": 0,
+            "Career Prior Skater GP": 294,
+            "Career Prior Total Skater Streak Heat/GP": 0.5431972789115646,
+            "All-Time Total Skater Streak Heat Team Rate Avg": 0.43279195094281864,
+            "Current Total Skater Streak Heat Raw Leader": 0.75,
+            "Current Total Skater Streak Heat/GP": 0.0,
+            "Current Total Skater Streak Heat Field Rate Avg": 0.009868421052631578
+          }
+        },
+        {
+          "name": "Povegliano, Adam",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 0.0,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current Total Skater Streak Heat Points": 0,
+            "Career Prior Skater GP": 0,
+            "Career Prior Total Skater Streak Heat/GP": 0,
+            "All-Time Total Skater Streak Heat Team Rate Avg": 0.43279195094281864,
+            "Current Total Skater Streak Heat Raw Leader": 0.75,
+            "Current Total Skater Streak Heat/GP": 0.0,
+            "Current Total Skater Streak Heat Field Rate Avg": 0.009868421052631578
+          }
+        },
+        {
+          "name": "Provenzano, Mario",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 0.0,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current Total Skater Streak Heat Points": 0,
+            "Career Prior Skater GP": 240,
+            "Career Prior Total Skater Streak Heat/GP": 0.11312499999999999,
+            "All-Time Total Skater Streak Heat Team Rate Avg": 0.43279195094281864,
+            "Current Total Skater Streak Heat Raw Leader": 0.75,
+            "Current Total Skater Streak Heat/GP": 0.0,
+            "Current Total Skater Streak Heat Field Rate Avg": 0.009868421052631578
+          }
+        },
+        {
+          "name": "Provenzano, Michael",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 0.0,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current Total Skater Streak Heat Points": 0,
+            "Career Prior Skater GP": 39,
+            "Career Prior Total Skater Streak Heat/GP": 1.7871794871794873,
+            "All-Time Total Skater Streak Heat Team Rate Avg": 0.43279195094281864,
+            "Current Total Skater Streak Heat Raw Leader": 0.75,
+            "Current Total Skater Streak Heat/GP": 0.0,
+            "Current Total Skater Streak Heat Field Rate Avg": 0.009868421052631578
+          }
+        },
+        {
+          "name": "Rajkumar, Sanjay",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 0.0,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current Total Skater Streak Heat Points": 0,
+            "Career Prior Skater GP": 0,
+            "Career Prior Total Skater Streak Heat/GP": 0,
+            "All-Time Total Skater Streak Heat Team Rate Avg": 0.43279195094281864,
+            "Current Total Skater Streak Heat Raw Leader": 0.75,
+            "Current Total Skater Streak Heat/GP": 0.0,
+            "Current Total Skater Streak Heat Field Rate Avg": 0.009868421052631578
+          }
+        },
+        {
+          "name": "Saindon, Stephane",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 0.0,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current Total Skater Streak Heat Points": 0,
+            "Career Prior Skater GP": 88,
+            "Career Prior Total Skater Streak Heat/GP": 0.7926136363636364,
+            "All-Time Total Skater Streak Heat Team Rate Avg": 0.43279195094281864,
+            "Current Total Skater Streak Heat Raw Leader": 0.75,
+            "Current Total Skater Streak Heat/GP": 0.0,
+            "Current Total Skater Streak Heat Field Rate Avg": 0.009868421052631578
+          }
+        },
+        {
+          "name": "Triumbari, Francesco",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 0.0,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current Total Skater Streak Heat Points": 0,
+            "Career Prior Skater GP": 0,
+            "Career Prior Total Skater Streak Heat/GP": 0,
+            "All-Time Total Skater Streak Heat Team Rate Avg": 0.43279195094281864,
+            "Current Total Skater Streak Heat Raw Leader": 0.75,
+            "Current Total Skater Streak Heat/GP": 0.0,
+            "Current Total Skater Streak Heat Field Rate Avg": 0.009868421052631578
+          }
+        },
+        {
+          "name": "Leong, Dev",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 0.0,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current Total Goalie Streak Heat Points": 0
+          }
+        },
+        {
+          "name": "Atkins, Nolan",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 0.0,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current Total Skater Streak Heat Points": 0,
+            "Career Prior Skater GP": 7,
+            "Career Prior Total Skater Streak Heat/GP": 0,
+            "All-Time Total Skater Streak Heat Team Rate Avg": 0.43279195094281864,
+            "Current Total Skater Streak Heat Raw Leader": 0.75,
+            "Current Total Skater Streak Heat/GP": 0.0,
+            "Current Total Skater Streak Heat Field Rate Avg": 0.009868421052631578
+          }
+        },
+        {
+          "name": "Duffy, Lorcan",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 0.0,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current Total Skater Streak Heat Points": 0,
+            "Career Prior Skater GP": 82,
+            "Career Prior Total Skater Streak Heat/GP": 0.174390243902439,
+            "All-Time Total Skater Streak Heat Team Rate Avg": 0.43279195094281864,
+            "Current Total Skater Streak Heat Raw Leader": 0.75,
+            "Current Total Skater Streak Heat/GP": 0.0,
+            "Current Total Skater Streak Heat Field Rate Avg": 0.009868421052631578
+          }
+        },
+        {
+          "name": "Kober, Adam",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 0.0,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current Total Skater Streak Heat Points": 0,
+            "Career Prior Skater GP": 44,
+            "Career Prior Total Skater Streak Heat/GP": 0.07045454545454545,
+            "All-Time Total Skater Streak Heat Team Rate Avg": 0.43279195094281864,
+            "Current Total Skater Streak Heat Raw Leader": 0.75,
+            "Current Total Skater Streak Heat/GP": 0.0,
+            "Current Total Skater Streak Heat Field Rate Avg": 0.009868421052631578
+          }
+        },
+        {
+          "name": "Rajasooriar, Krishnan",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 0.0,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current Total Skater Streak Heat Points": 0,
+            "Career Prior Skater GP": 54,
+            "Career Prior Total Skater Streak Heat/GP": 0.17037037037037037,
+            "All-Time Total Skater Streak Heat Team Rate Avg": 0.43279195094281864,
+            "Current Total Skater Streak Heat Raw Leader": 0.75,
+            "Current Total Skater Streak Heat/GP": 0.0,
+            "Current Total Skater Streak Heat Field Rate Avg": 0.009868421052631578
+          }
+        },
+        {
+          "name": "Rosenberg, Jamie",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 0.0,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current Total Skater Streak Heat Points": 0,
+            "Career Prior Skater GP": 0,
+            "Career Prior Total Skater Streak Heat/GP": 0,
+            "All-Time Total Skater Streak Heat Team Rate Avg": 0.43279195094281864,
+            "Current Total Skater Streak Heat Raw Leader": 0.75,
+            "Current Total Skater Streak Heat/GP": 0.0,
+            "Current Total Skater Streak Heat Field Rate Avg": 0.009868421052631578
+          }
+        },
+        {
+          "name": "Logue, Stephen",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 0.0,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current Total Goalie Streak Heat Points": 0
+          }
+        },
+        {
+          "name": "Pavaday, Damian",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 0.0,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current Total Skater Streak Heat Points": 0,
+            "Career Prior Skater GP": 0,
+            "Career Prior Total Skater Streak Heat/GP": 0,
+            "All-Time Total Skater Streak Heat Team Rate Avg": 0.43279195094281864,
+            "Current Total Skater Streak Heat Raw Leader": 0.75,
+            "Current Total Skater Streak Heat/GP": 0.0,
+            "Current Total Skater Streak Heat Field Rate Avg": 0.009868421052631578
+          }
+        },
+        {
+          "name": "Carlyle, Adam",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 0.0,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current Total Goalie Streak Heat Points": 0
+          }
+        }
+      ],
+      "normalized": {
+        "season": "W2026/27",
+        "cutoff": "2026-10-18",
+        "inputField": "Total Streak Heat Internal Score",
+        "formulaSha256": "9611bf15dbefd693f6bc2c610e1493120d2857f6181fc1cf4d93046c08573ea4",
+        "currentPlayerCoverage": 22,
+        "unavailable": [],
+        "currentCompositeScoresVerified": false,
+        "publicationAuthorized": false,
+        "state": "CURRENT_COMPONENT_NORMALIZATION_CANDIDATE",
+        "family": "MINMAX_SIGNED_TIE",
+        "numericPlayerCount": 22,
+        "scores": {
+          "Ardizzi, Stefano": 100.0,
+          "Brutto, Adam": 100.0,
+          "Carosi, Justin": 50.0,
+          "Kong, Henry": 100.0,
+          "Pagnotta, Alex": 100.0,
+          "Paolucci, Anthony": 100.0,
+          "Pearsoll, Keith": 100.0,
+          "Povegliano, Adam": 100.0,
+          "Provenzano, Mario": 100.0,
+          "Provenzano, Michael": 100.0,
+          "Rajkumar, Sanjay": 100.0,
+          "Saindon, Stephane": 100.0,
+          "Triumbari, Francesco": 100.0,
+          "Leong, Dev": 100.0,
+          "Atkins, Nolan": 100.0,
+          "Duffy, Lorcan": 100.0,
+          "Kober, Adam": 100.0,
+          "Rajasooriar, Krishnan": 100.0,
+          "Rosenberg, Jamie": 100.0,
+          "Logue, Stephen": 100.0,
+          "Pavaday, Damian": 100.0,
+          "Carlyle, Adam": 100.0
+        },
+        "notApplicable": {},
+        "upstreamParityVerified": false
+      }
+    }
+  },
+  "currentCompositeScoresVerified": false,
+  "publicationAuthorized": false
+}

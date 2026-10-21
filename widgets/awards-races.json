@@ -36,7 +36,7 @@
       "id": "hart",
       "name": "Hart Award",
       "subtitle": "Most Valuable Player",
-      "eligibility": "Current-season eligible skaters and goalies; separate role-aware scoring. FT skaters: greater of 5 GP or 50% of roster games. CU/DI: greater of 5 GP or 40%. Goalies: greater of 3 GP or 30%.",
+      "eligibility": "FT, CU and DI players with roster-season games recorded. Skaters: greater of 5 GP or 50% of roster games, rounded up. Goalies: greater of 3 GP or 30%, rounded up. Workbook scoring type and current total played-game fields apply.",
       "weight": "Production, POTG, clutch contribution, consistency and position-specific impact."
     },
     {
@@ -64,14 +64,14 @@
       "id": "norris",
       "name": "James Norris Trophy",
       "subtitle": "Top defenceman",
-      "eligibility": "AwardScoring-eligible defencemen and eligible utility skaters; only if positional records support eligibility.",
+      "eligibility": "FT/CU/DI skaters classified by the workbook as Defense, Defence or Utility. Greater of 7 total played games or 35% of roster-season games, rounded up.",
       "weight": "Defensive profile is most heavily weighted."
     },
     {
       "id": "lady-byng",
       "name": "Lady Byng Award",
       "subtitle": "Sportsmanship and disciplined play",
-      "eligibility": "AwardScoring-eligible current-season players.",
+      "eligibility": "FT/CU/DI players with roster-season games recorded. Skaters: greater of 5 GP or 50% of roster games, rounded up. Goalies: greater of 3 GP or 30%, rounded up.",
       "weight": "Discipline, attendance, reliability and performance."
     },
     {
@@ -85,22 +85,22 @@
       "id": "improved",
       "name": "Most Improved Player",
       "subtitle": "Progress against career baseline",
-      "eligibility": "Non-rookies with the model-required prior-season/career sample.",
+      "eligibility": "Non-rookie FT/CU/DI players. Skaters require at least 5 prior-career GP and the greater of 5 current GP or 50% of roster games. Goalies require at least 2 prior-career GP and the greater of 3 current GP or 30% of roster games. Percentage thresholds round up.",
       "weight": "Improvement relative to each player's earlier production, impact and discipline."
     },
     {
       "id": "rolaids",
       "name": "Rolaids Relief Man Award",
       "subtitle": "Top call-up / relief player",
-      "eligibility": "Non-full-timers only. Skaters require 5+ current-season GP; goalies require 3+ current-season GP. Full-time and blank roster-status entries excluded.",
-      "weight": "Skaters: consistency 18%, points 18%, attendance 15%, POTG 10%, plus supporting impact. Goalies: reliability 20%, win rate 18%, GAA 17%, attendance 13%, other measures."
+      "eligibility": "Full-time and blank roster-status entries excluded. Skaters: greater of 6 current GP or 25% of roster-season games, rounded up. Goalies: greater of 4 current GP or 15%, rounded up. Workbook scoring type and roster-season denominator must be verified.",
+      "weight": "Skaters: consistency 18%, points 18%, attendance 15%, POTG 10%, plus supporting impact. Goalies: attendance 20%, reliability 18%, discipline reliability 12%, GAA 10%, POTG 10%, win rate 8%, plus/minus 8%, wins 8%, shutouts 3%, offense 3%."
     },
     {
       "id": "dedication",
       "name": "Andrew Cristillo Dedication Award",
       "subtitle": "Commitment, attendance and service",
-      "eligibility": "Eligible current-season FT/CU/DI players; threshold depends on roster type and games played.",
-      "weight": "Current attendance 40%, roster-adjusted career attendance 25%, current GP 12%, playoff attendance 10%, tenure 8%, other reliability."
+      "eligibility": "FT/CU/DI players with roster-season games recorded. Skaters: greater of 5 GP or 50% of roster games, rounded up. Goalies: greater of 3 GP or 30%, rounded up.",
+      "weight": "Current attendance 45%, playoff attendance 20%, tenure 5%, role-specific reliability 20%, discipline reliability 10%."
     },
     {
       "id": "hof",
@@ -445,6 +445,7 @@
     "The workbook remains read-only; no HTO site data or form response data is altered.",
     "Founder 2026-10-19 ruling: fill early top five with workbook-ranked provisional players, replacing them preferentially with eligible players; strictly eligible-only once five qualify.",
     "Current HTO-fed projection model is working separately from the workbook AwardScoring snapshot, which remains pending validation.",
-    "2026-10-19 new Founder gate: zero current-season GP cannot appear on weekly award race as either eligible or provisional. Preseason board empty. With fewer than five played, publish only actual participants."
+    "2026-10-19 new Founder gate: zero current-season GP cannot appear on weekly award race as either eligible or provisional. Preseason board empty. With fewer than five played, publish only actual participants.",
+    "Eligibility and Rolaids/Dedication weight descriptions corrected from original AwardScoring formulas inspected read-only on 2026-10-21. Formula capture is historical source evidence, not current recalculation or eligibility approval."
   ]
 }

@@ -1,0 +1,72 @@
+{
+  "state": "GOALIE_HISTORY_REBUILT_CORRECTED_COHORT_NATIVE_RECALC_REQUIRED",
+  "sourceWorkbookSha256": "68392eccdd7087f4efbc32cabf23cb308aa7843eb33df72d714a3a099754a132",
+  "checked": 380,
+  "differenceCount": 0,
+  "differences": [],
+  "staleNativeMetadataNames": [
+    "Carlyle, Adam"
+  ],
+  "legacyCohortGP": 359,
+  "correctedCohortGP": 360,
+  "legacyTeamRates": {
+    "Win %": 0.5278551532033426,
+    "GAA": 3.136490250696379,
+    "POTG": 0.20891364902506965,
+    "SHO": 0
+  },
+  "correctedTeamRates": {
+    "Win %": 0.5263888888888889,
+    "GAA": 3.136111111111111,
+    "POTG": 0.2111111111111111,
+    "SHO": 0
+  },
+  "players": [
+    {
+      "name": "Leong, Dev",
+      "values": {
+        "Career Prior Goalie GP": 17,
+        "Career Prior Total Goalie Win %": 0.35294117647058826,
+        "All-Time Total Goalie Win % Team Rate Avg": 0.5263888888888889,
+        "Career Prior Total Goalie GAA": 4.352941176470588,
+        "All-Time Total Goalie GAA Team Rate Avg": 3.136111111111111,
+        "Career Prior Total Goalie SHO/GP": 0,
+        "All-Time Total Goalie SHO Team Rate Avg": 0,
+        "Career Prior Total Goalie POTG/GP": 0.23529411764705882,
+        "All-Time Total Goalie POTG Team Rate Avg": 0.2111111111111111
+      }
+    },
+    {
+      "name": "Logue, Stephen",
+      "values": {
+        "Career Prior Goalie GP": 261,
+        "Career Prior Total Goalie Win %": 0.5383141762452107,
+        "All-Time Total Goalie Win % Team Rate Avg": 0.5263888888888889,
+        "Career Prior Total Goalie GAA": 3,
+        "All-Time Total Goalie GAA Team Rate Avg": 3.136111111111111,
+        "Career Prior Total Goalie SHO/GP": 0.06896551724137931,
+        "All-Time Total Goalie SHO Team Rate Avg": 0,
+        "Career Prior Total Goalie POTG/GP": 0.210727969348659,
+        "All-Time Total Goalie POTG Team Rate Avg": 0.2111111111111111
+      }
+    },
+    {
+      "name": "Carlyle, Adam",
+      "values": {
+        "Career Prior Goalie GP": 0,
+        "Career Prior Total Goalie Win %": 0,
+        "All-Time Total Goalie Win % Team Rate Avg": 0.5263888888888889,
+        "Career Prior Total Goalie GAA": 0,
+        "All-Time Total Goalie GAA Team Rate Avg": 3.136111111111111,
+        "Career Prior Total Goalie SHO/GP": 0,
+        "All-Time Total Goalie SHO Team Rate Avg": 0,
+        "Career Prior Total Goalie POTG/GP": 0,
+        "All-Time Total Goalie POTG Team Rate Avg": 0.2111111111111111
+      }
+    }
+  ],
+  "preservedException": "All-Time Total Goalie SHO Team Rate Avg is current playoff SHO leader",
+  "absoluteIntermediateTolerance": 1e-12,
+  "currentCompositeScoresVerified": false,
+  "publicationAuthorized": false
+}

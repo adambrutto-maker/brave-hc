@@ -1,0 +1,437 @@
+{
+  "schema": "brave-hc-awards-disposable-replay-plan/v1",
+  "status": "PREPARED_NOT_EXECUTED",
+  "sourceWorkbookSha256": "0002fd9f06596af8d0a00fc1b53a618ef15479f941ad5c1e6265b27002a65154",
+  "originalWorkbookWriteAuthorized": false,
+  "existingTargetGameRows": [
+    {
+      "role": "Goalie",
+      "row": 363,
+      "gameNumber": 359,
+      "name": "Leong, Dev"
+    },
+    {
+      "role": "Skater",
+      "row": 4655,
+      "gameNumber": 359,
+      "name": "Ardizzi, Stefano"
+    },
+    {
+      "role": "Skater",
+      "row": 4656,
+      "gameNumber": 359,
+      "name": "Brutto, Adam"
+    },
+    {
+      "role": "Skater",
+      "row": 4657,
+      "gameNumber": 359,
+      "name": "Carosi, Justin"
+    },
+    {
+      "role": "Skater",
+      "row": 4658,
+      "gameNumber": 359,
+      "name": "Kong, Henry"
+    },
+    {
+      "role": "Skater",
+      "row": 4659,
+      "gameNumber": 359,
+      "name": "Pagnotta, Alex"
+    },
+    {
+      "role": "Skater",
+      "row": 4660,
+      "gameNumber": 359,
+      "name": "Paolucci, Anthony"
+    },
+    {
+      "role": "Skater",
+      "row": 4661,
+      "gameNumber": 359,
+      "name": "Pearsoll, Keith"
+    },
+    {
+      "role": "Skater",
+      "row": 4662,
+      "gameNumber": 359,
+      "name": "Povegliano, Adam"
+    },
+    {
+      "role": "Skater",
+      "row": 4663,
+      "gameNumber": 359,
+      "name": "Provenzano, Mario"
+    },
+    {
+      "role": "Skater",
+      "row": 4664,
+      "gameNumber": 359,
+      "name": "Provenzano, Michael"
+    },
+    {
+      "role": "Skater",
+      "row": 4665,
+      "gameNumber": 359,
+      "name": "Rajkumar, Sanjay"
+    },
+    {
+      "role": "Skater",
+      "row": 4666,
+      "gameNumber": 359,
+      "name": "Saindon, Stephane"
+    },
+    {
+      "role": "Skater",
+      "row": 4667,
+      "gameNumber": 359,
+      "name": "Triumbari, Francesco"
+    },
+    {
+      "role": "Skater",
+      "row": 4668,
+      "gameNumber": 359,
+      "name": "Unknown, Johnny"
+    }
+  ],
+  "columnMapFromActualTableDefinitions": [
+    [
+      "Skater",
+      "A",
+      "Q"
+    ],
+    [
+      "Goalie",
+      "FD",
+      "GH"
+    ]
+  ],
+  "updateMatchedNamedRows": [
+    {
+      "role": "Skater",
+      "gameNumber": 359,
+      "name": "Ardizzi, Stefano",
+      "existingRow": 4655
+    },
+    {
+      "role": "Skater",
+      "gameNumber": 359,
+      "name": "Brutto, Adam",
+      "existingRow": 4656
+    },
+    {
+      "role": "Skater",
+      "gameNumber": 359,
+      "name": "Carosi, Justin",
+      "existingRow": 4657
+    },
+    {
+      "role": "Skater",
+      "gameNumber": 359,
+      "name": "Kong, Henry",
+      "existingRow": 4658
+    },
+    {
+      "role": "Skater",
+      "gameNumber": 359,
+      "name": "Pagnotta, Alex",
+      "existingRow": 4659
+    },
+    {
+      "role": "Skater",
+      "gameNumber": 359,
+      "name": "Paolucci, Anthony",
+      "existingRow": 4660
+    },
+    {
+      "role": "Skater",
+      "gameNumber": 359,
+      "name": "Pearsoll, Keith",
+      "existingRow": 4661
+    },
+    {
+      "role": "Skater",
+      "gameNumber": 359,
+      "name": "Povegliano, Adam",
+      "existingRow": 4662
+    },
+    {
+      "role": "Skater",
+      "gameNumber": 359,
+      "name": "Provenzano, Mario",
+      "existingRow": 4663
+    },
+    {
+      "role": "Skater",
+      "gameNumber": 359,
+      "name": "Provenzano, Michael",
+      "existingRow": 4664
+    },
+    {
+      "role": "Skater",
+      "gameNumber": 359,
+      "name": "Rajkumar, Sanjay",
+      "existingRow": 4665
+    },
+    {
+      "role": "Skater",
+      "gameNumber": 359,
+      "name": "Saindon, Stephane",
+      "existingRow": 4666
+    },
+    {
+      "role": "Skater",
+      "gameNumber": 359,
+      "name": "Triumbari, Francesco",
+      "existingRow": 4667
+    },
+    {
+      "role": "Goalie",
+      "gameNumber": 359,
+      "name": "Leong, Dev",
+      "existingRow": 363
+    }
+  ],
+  "appendNewNamedRows": [
+    {
+      "role": "Skater",
+      "gameNumber": 360,
+      "name": "Atkins, Nolan"
+    },
+    {
+      "role": "Skater",
+      "gameNumber": 360,
+      "name": "Brutto, Adam"
+    },
+    {
+      "role": "Skater",
+      "gameNumber": 360,
+      "name": "Carosi, Justin"
+    },
+    {
+      "role": "Skater",
+      "gameNumber": 360,
+      "name": "Duffy, Lorcan"
+    },
+    {
+      "role": "Skater",
+      "gameNumber": 360,
+      "name": "Kober, Adam"
+    },
+    {
+      "role": "Skater",
+      "gameNumber": 360,
+      "name": "Kong, Henry"
+    },
+    {
+      "role": "Skater",
+      "gameNumber": 360,
+      "name": "Pagnotta, Alex"
+    },
+    {
+      "role": "Skater",
+      "gameNumber": 360,
+      "name": "Pearsoll, Keith"
+    },
+    {
+      "role": "Skater",
+      "gameNumber": 360,
+      "name": "Provenzano, Mario"
+    },
+    {
+      "role": "Skater",
+      "gameNumber": 360,
+      "name": "Provenzano, Michael"
+    },
+    {
+      "role": "Skater",
+      "gameNumber": 360,
+      "name": "Rajasooriar, Krishnan"
+    },
+    {
+      "role": "Skater",
+      "gameNumber": 360,
+      "name": "Rajkumar, Sanjay"
+    },
+    {
+      "role": "Skater",
+      "gameNumber": 360,
+      "name": "Rosenberg, Jamie"
+    },
+    {
+      "role": "Skater",
+      "gameNumber": 360,
+      "name": "Saindon, Stephane"
+    },
+    {
+      "role": "Skater",
+      "gameNumber": 360,
+      "name": "Triumbari, Francesco"
+    },
+    {
+      "role": "Goalie",
+      "gameNumber": 360,
+      "name": "Logue, Stephen"
+    },
+    {
+      "role": "Skater",
+      "gameNumber": 361,
+      "name": "Atkins, Nolan"
+    },
+    {
+      "role": "Skater",
+      "gameNumber": 361,
+      "name": "Brutto, Adam"
+    },
+    {
+      "role": "Skater",
+      "gameNumber": 361,
+      "name": "Carosi, Justin"
+    },
+    {
+      "role": "Skater",
+      "gameNumber": 361,
+      "name": "Kober, Adam"
+    },
+    {
+      "role": "Skater",
+      "gameNumber": 361,
+      "name": "Kong, Henry"
+    },
+    {
+      "role": "Skater",
+      "gameNumber": 361,
+      "name": "Pagnotta, Alex"
+    },
+    {
+      "role": "Skater",
+      "gameNumber": 361,
+      "name": "Pavaday, Damian"
+    },
+    {
+      "role": "Skater",
+      "gameNumber": 361,
+      "name": "Povegliano, Adam"
+    },
+    {
+      "role": "Skater",
+      "gameNumber": 361,
+      "name": "Provenzano, Mario"
+    },
+    {
+      "role": "Skater",
+      "gameNumber": 361,
+      "name": "Provenzano, Michael"
+    },
+    {
+      "role": "Skater",
+      "gameNumber": 361,
+      "name": "Rajkumar, Sanjay"
+    },
+    {
+      "role": "Skater",
+      "gameNumber": 361,
+      "name": "Rosenberg, Jamie"
+    },
+    {
+      "role": "Skater",
+      "gameNumber": 361,
+      "name": "Triumbari, Francesco"
+    },
+    {
+      "role": "Goalie",
+      "gameNumber": 361,
+      "name": "Carlyle, Adam"
+    },
+    {
+      "role": "Skater",
+      "gameNumber": 362,
+      "name": "Brutto, Adam"
+    },
+    {
+      "role": "Skater",
+      "gameNumber": 362,
+      "name": "Carosi, Justin"
+    },
+    {
+      "role": "Skater",
+      "gameNumber": 362,
+      "name": "Kober, Adam"
+    },
+    {
+      "role": "Skater",
+      "gameNumber": 362,
+      "name": "Kong, Henry"
+    },
+    {
+      "role": "Skater",
+      "gameNumber": 362,
+      "name": "Pagnotta, Alex"
+    },
+    {
+      "role": "Skater",
+      "gameNumber": 362,
+      "name": "Pearsoll, Keith"
+    },
+    {
+      "role": "Skater",
+      "gameNumber": 362,
+      "name": "Povegliano, Adam"
+    },
+    {
+      "role": "Skater",
+      "gameNumber": 362,
+      "name": "Provenzano, Mario"
+    },
+    {
+      "role": "Skater",
+      "gameNumber": 362,
+      "name": "Rajasooriar, Krishnan"
+    },
+    {
+      "role": "Skater",
+      "gameNumber": 362,
+      "name": "Rosenberg, Jamie"
+    },
+    {
+      "role": "Skater",
+      "gameNumber": 362,
+      "name": "Saindon, Stephane"
+    },
+    {
+      "role": "Skater",
+      "gameNumber": 362,
+      "name": "Triumbari, Francesco"
+    },
+    {
+      "role": "Goalie",
+      "gameNumber": 362,
+      "name": "Leong, Dev"
+    }
+  ],
+  "preserveUnmatchedOriginalRows": [
+    {
+      "role": "Skater",
+      "row": 4668,
+      "gameNumber": 359,
+      "name": "Unknown, Johnny"
+    }
+  ],
+  "capacity": {
+    "skater": {
+      "existingEndRow": 4668,
+      "rowsToAppend": 40,
+      "proposedEndRow": 4708
+    },
+    "goalie": {
+      "existingEndRow": 363,
+      "rowsToAppend": 3,
+      "proposedEndRow": 366
+    }
+  },
+  "missingValuesPolicy": "Do not overwrite existing populated values with missing observations. Preserve candidate nulls and absent fields with explicit unresolved provenance; retained workbook values do not become source-verified by retention.",
+  "formulaPolicy": "Preserve source table calculated columns and stored array semantics; verify after native table expansion. Capture missing or altered formula inventory before evaluating output.",
+  "contextPolicy": "Saved Master Schedule C1 is W2026/27; verify season and roster denominators in the copy. Do not change original controls.",
+  "releasePolicy": "Review copy and diagnostic outputs only; no current eligibility, rating publication, production feed or original-workbook write authorized."
+}

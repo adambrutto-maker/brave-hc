@@ -1,0 +1,60 @@
+{
+  "schema": "brave-hc-awards-player-master-candidate/v1",
+  "status": "APPLIED_TO_DISPOSABLE_COPY_PRESERVATION_PASS_DOWNSTREAM_NOT_RECALCULATED",
+  "name": "Pavaday, Damian",
+  "season": "W2026/27",
+  "knownFields": {
+    "Website Name": "Pavaday, Damian",
+    "First Name": "Damian",
+    "Last Name": "Pavaday",
+    "Position": "F",
+    "Current Roster Status": "DI"
+  },
+  "source": {
+    "kind": "OFFICIAL_HTO_ROSTER",
+    "url": "https://www.htosports.com/teams/default.asp?p=roster&s=hockey&u=BRAVESHOCKEY",
+    "observedDateToronto": "2026-10-21"
+  },
+  "unresolvedFields": [
+    {
+      "field": "Position 2",
+      "value": null,
+      "status": "UNRECORDED_NOT_CONFIRMED_NONE"
+    },
+    {
+      "field": "RosterStatusBySeason prior FT history",
+      "value": null,
+      "status": "NO_SOURCE_MASTER_ENTRIES_FOUND_NOT_PROOF_OF_NO_PRIOR_FT"
+    }
+  ],
+  "derivedFieldsMustPreserve": [
+    "Position Group",
+    "Award Scoring Type",
+    "Rookie Year",
+    "Rookie Status"
+  ],
+  "excludedAssumptions": [
+    "No guessed FT year",
+    "No alias to Damian Aidemirski",
+    "No conversion of website number 0 to a verified jersey number",
+    "No default 75 or zero normalized attribute scores",
+    "No borrowed attributes from a different player"
+  ],
+  "nativeCopyModified": true,
+  "originalWorkbookModified": false,
+  "currentScoresVerified": false,
+  "publicationAuthorized": false,
+  "rosterStatusConfirmation": {
+    "kind": "EXPLICIT_USER_CONFIRMATION",
+    "dateToronto": "2026-10-21",
+    "value": "Drop-in (DI)"
+  },
+  "currentRookieEligibility": {
+    "eligible": false,
+    "basis": "Captured Rookie Eligible requires Current Roster Status FT; user confirms DI.",
+    "priorFTHistoryRequiredForThisExclusion": false
+  },
+  "reviewCopy": "D:\\BruTTech\\Products\\HockeyOS\\261019_Award_GameLog_Staging_v1\\Metadata_Review_20261021_045236\\Review_Only_Metadata_Candidate.xlsx",
+  "reviewCopySha256": "12e90e974176bf49860c45d1becb375b76e21efc1fa9319fc5e0ae104addc994",
+  "evidence": "docs/261021_Awards_Damian_Metadata_Copy_Receipt.json"
+}

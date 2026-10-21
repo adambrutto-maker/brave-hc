@@ -1,0 +1,2135 @@
+{
+  "state": "SIX_PRODUCTION_INTERNAL_NATIVE_REFERENCES_NOT_CURRENT_MODEL_ACCEPTANCE",
+  "players": [
+    {
+      "name": "Ardizzi, Stefano",
+      "role": "Skater",
+      "recentSeason": "W2026/27",
+      "components": {
+        "Total Final G Internal Score": {
+          "inputs": {
+            "All-Time Total Skater G Team Rate Avg": 0.27270151579543844,
+            "Career Prior Skater GP": 221,
+            "Career Prior Total G/GP": 0.25037707390648567,
+            "Current Total G/GP": 0,
+            "Current Total Raw G": 0,
+            "Current Total Skater G Field Rate Avg": 0.08333333333333333,
+            "Current Total Skater G Raw Leader": 3,
+            "Current Total Skater Played Games": 1
+          },
+          "nativeValue": -0.12
+        },
+        "Total Final A Internal Score": {
+          "inputs": {
+            "All-Time Total Skater A Team Rate Avg": 0.39148604618217886,
+            "Career Prior Skater GP": 221,
+            "Career Prior Total A/GP": 0.35897435897435903,
+            "Current Total A/GP": 0,
+            "Current Total Raw A": 0,
+            "Current Total Skater A Field Rate Avg": 0.18333333333333332,
+            "Current Total Skater A Raw Leader": 3,
+            "Current Total Skater Played Games": 1
+          },
+          "nativeValue": -0.185
+        },
+        "Total Final Pts Internal Score": {
+          "inputs": {
+            "All-Time Total Skater Pts Team Rate Avg": 0.6641875619776171,
+            "Career Prior Skater GP": 221,
+            "Career Prior Total Pts/GP": 0.6093514328808447,
+            "Current Total Pts/GP": 0,
+            "Current Total Raw Pts": 0,
+            "Current Total Skater Played Games": 1,
+            "Current Total Skater Pts Field Rate Avg": 0.26666666666666666,
+            "Current Total Skater Pts Raw Leader": 3
+          },
+          "nativeValue": -0.305
+        },
+        "Playoff Final G Internal Score": {
+          "inputs": {
+            "All-Time Playoff Skater G Team Rate Avg": 0.20592193808882903,
+            "Career Prior Playoff G/GP": 0.29059829059829057,
+            "Career Prior Skater Playoff GP": 39,
+            "Current Playoff G/GP": 0,
+            "Current Playoff Raw G": 0,
+            "Current Playoff Skater G Field Rate Avg": 0,
+            "Current Playoff Skater G Raw Leader": 0,
+            "Current Playoff Skater Played Games": 0
+          },
+          "nativeValue": ""
+        },
+        "Playoff Final A Internal Score": {
+          "inputs": {
+            "All-Time Playoff Skater A Team Rate Avg": 0.28847016599371916,
+            "Career Prior Playoff A/GP": 0.37606837606837606,
+            "Career Prior Skater Playoff GP": 39,
+            "Current Playoff A/GP": 0,
+            "Current Playoff Raw A": 0,
+            "Current Playoff Skater A Field Rate Avg": 0,
+            "Current Playoff Skater A Raw Leader": 0,
+            "Current Playoff Skater Played Games": 0
+          },
+          "nativeValue": ""
+        },
+        "Playoff Final Pts Internal Score": {
+          "inputs": {
+            "All-Time Playoff Skater Pts Team Rate Avg": 0.49439210408254813,
+            "Career Prior Playoff Pts/GP": 0.6666666666666666,
+            "Career Prior Skater Playoff GP": 39,
+            "Current Playoff Pts/GP": 0,
+            "Current Playoff Raw Pts": 0,
+            "Current Playoff Skater Played Games": 0,
+            "Current Playoff Skater Pts Field Rate Avg": 0,
+            "Current Playoff Skater Pts Raw Leader": 0
+          },
+          "nativeValue": ""
+        }
+      }
+    },
+    {
+      "name": "Atkins, Nolan",
+      "role": "Skater",
+      "recentSeason": "W2026/27",
+      "components": {
+        "Total Final G Internal Score": {
+          "inputs": {
+            "All-Time Total Skater G Team Rate Avg": 0.27270151579543844,
+            "Career Prior Skater GP": 7,
+            "Career Prior Total G/GP": 0,
+            "Current Total G/GP": 0,
+            "Current Total Raw G": 0,
+            "Current Total Skater G Field Rate Avg": 0.08333333333333333,
+            "Current Total Skater G Raw Leader": 3,
+            "Current Total Skater Played Games": 2
+          },
+          "nativeValue": -0.058
+        },
+        "Total Final A Internal Score": {
+          "inputs": {
+            "All-Time Total Skater A Team Rate Avg": 0.39148604618217886,
+            "Career Prior Skater GP": 7,
+            "Career Prior Total A/GP": 0.14285714285714285,
+            "Current Total A/GP": 0,
+            "Current Total Raw A": 0,
+            "Current Total Skater A Field Rate Avg": 0.18333333333333332,
+            "Current Total Skater A Raw Leader": 3,
+            "Current Total Skater Played Games": 2
+          },
+          "nativeValue": -0.131
+        },
+        "Total Final Pts Internal Score": {
+          "inputs": {
+            "All-Time Total Skater Pts Team Rate Avg": 0.6641875619776171,
+            "Career Prior Skater GP": 7,
+            "Career Prior Total Pts/GP": 0.14285714285714285,
+            "Current Total Pts/GP": 0,
+            "Current Total Raw Pts": 0,
+            "Current Total Skater Played Games": 2,
+            "Current Total Skater Pts Field Rate Avg": 0.26666666666666666,
+            "Current Total Skater Pts Raw Leader": 3
+          },
+          "nativeValue": -0.189
+        },
+        "Playoff Final G Internal Score": {
+          "inputs": {
+            "All-Time Playoff Skater G Team Rate Avg": 0.20592193808882903,
+            "Career Prior Playoff G/GP": 0,
+            "Career Prior Skater Playoff GP": 2,
+            "Current Playoff G/GP": 0,
+            "Current Playoff Raw G": 0,
+            "Current Playoff Skater G Field Rate Avg": 0,
+            "Current Playoff Skater G Raw Leader": 0,
+            "Current Playoff Skater Played Games": 0
+          },
+          "nativeValue": ""
+        },
+        "Playoff Final A Internal Score": {
+          "inputs": {
+            "All-Time Playoff Skater A Team Rate Avg": 0.28847016599371916,
+            "Career Prior Playoff A/GP": 0,
+            "Career Prior Skater Playoff GP": 2,
+            "Current Playoff A/GP": 0,
+            "Current Playoff Raw A": 0,
+            "Current Playoff Skater A Field Rate Avg": 0,
+            "Current Playoff Skater A Raw Leader": 0,
+            "Current Playoff Skater Played Games": 0
+          },
+          "nativeValue": ""
+        },
+        "Playoff Final Pts Internal Score": {
+          "inputs": {
+            "All-Time Playoff Skater Pts Team Rate Avg": 0.49439210408254813,
+            "Career Prior Playoff Pts/GP": 0,
+            "Career Prior Skater Playoff GP": 2,
+            "Current Playoff Pts/GP": 0,
+            "Current Playoff Raw Pts": 0,
+            "Current Playoff Skater Played Games": 0,
+            "Current Playoff Skater Pts Field Rate Avg": 0,
+            "Current Playoff Skater Pts Raw Leader": 0
+          },
+          "nativeValue": ""
+        }
+      }
+    },
+    {
+      "name": "Brutto, Adam",
+      "role": "Skater",
+      "recentSeason": "W2026/27",
+      "components": {
+        "Total Final G Internal Score": {
+          "inputs": {
+            "All-Time Total Skater G Team Rate Avg": 0.27270151579543844,
+            "Career Prior Skater GP": 332,
+            "Career Prior Total G/GP": 0.06927710843373494,
+            "Current Total G/GP": 0,
+            "Current Total Raw G": 0,
+            "Current Total Skater G Field Rate Avg": 0.08333333333333333,
+            "Current Total Skater G Raw Leader": 3,
+            "Current Total Skater Played Games": 4
+          },
+          "nativeValue": -0.075
+        },
+        "Total Final A Internal Score": {
+          "inputs": {
+            "All-Time Total Skater A Team Rate Avg": 0.39148604618217886,
+            "Career Prior Skater GP": 332,
+            "Career Prior Total A/GP": 0.36244979919678716,
+            "Current Total A/GP": 0,
+            "Current Total Raw A": 0,
+            "Current Total Skater A Field Rate Avg": 0.18333333333333332,
+            "Current Total Skater A Raw Leader": 3,
+            "Current Total Skater Played Games": 4
+          },
+          "nativeValue": -0.186
+        },
+        "Total Final Pts Internal Score": {
+          "inputs": {
+            "All-Time Total Skater Pts Team Rate Avg": 0.6641875619776171,
+            "Career Prior Skater GP": 332,
+            "Career Prior Total Pts/GP": 0.4317269076305221,
+            "Current Total Pts/GP": 0,
+            "Current Total Raw Pts": 0,
+            "Current Total Skater Played Games": 4,
+            "Current Total Skater Pts Field Rate Avg": 0.26666666666666666,
+            "Current Total Skater Pts Raw Leader": 3
+          },
+          "nativeValue": -0.261
+        },
+        "Playoff Final G Internal Score": {
+          "inputs": {
+            "All-Time Playoff Skater G Team Rate Avg": 0.20592193808882903,
+            "Career Prior Playoff G/GP": 0.0522875816993464,
+            "Career Prior Skater Playoff GP": 51,
+            "Current Playoff G/GP": 0,
+            "Current Playoff Raw G": 0,
+            "Current Playoff Skater G Field Rate Avg": 0,
+            "Current Playoff Skater G Raw Leader": 0,
+            "Current Playoff Skater Played Games": 0
+          },
+          "nativeValue": ""
+        },
+        "Playoff Final A Internal Score": {
+          "inputs": {
+            "All-Time Playoff Skater A Team Rate Avg": 0.28847016599371916,
+            "Career Prior Playoff A/GP": 0.4444444444444444,
+            "Career Prior Skater Playoff GP": 51,
+            "Current Playoff A/GP": 0,
+            "Current Playoff Raw A": 0,
+            "Current Playoff Skater A Field Rate Avg": 0,
+            "Current Playoff Skater A Raw Leader": 0,
+            "Current Playoff Skater Played Games": 0
+          },
+          "nativeValue": ""
+        },
+        "Playoff Final Pts Internal Score": {
+          "inputs": {
+            "All-Time Playoff Skater Pts Team Rate Avg": 0.49439210408254813,
+            "Career Prior Playoff Pts/GP": 0.4967320261437908,
+            "Career Prior Skater Playoff GP": 51,
+            "Current Playoff Pts/GP": 0,
+            "Current Playoff Raw Pts": 0,
+            "Current Playoff Skater Played Games": 0,
+            "Current Playoff Skater Pts Field Rate Avg": 0,
+            "Current Playoff Skater Pts Raw Leader": 0
+          },
+          "nativeValue": ""
+        }
+      }
+    },
+    {
+      "name": "Carosi, Justin",
+      "role": "Skater",
+      "recentSeason": "W2026/27",
+      "components": {
+        "Total Final G Internal Score": {
+          "inputs": {
+            "All-Time Total Skater G Team Rate Avg": 0.27270151579543844,
+            "Career Prior Skater GP": 299,
+            "Career Prior Total G/GP": 0.46599777034559636,
+            "Current Total G/GP": 0.75,
+            "Current Total Raw G": 3,
+            "Current Total Skater G Field Rate Avg": 0.08333333333333333,
+            "Current Total Skater G Raw Leader": 3,
+            "Current Total Skater Played Games": 4
+          },
+          "nativeValue": 0.676
+        },
+        "Total Final A Internal Score": {
+          "inputs": {
+            "All-Time Total Skater A Team Rate Avg": 0.39148604618217886,
+            "Career Prior Skater GP": 299,
+            "Career Prior Total A/GP": 0.6755852842809364,
+            "Current Total A/GP": 0,
+            "Current Total Raw A": 0,
+            "Current Total Skater A Field Rate Avg": 0.18333333333333332,
+            "Current Total Skater A Raw Leader": 3,
+            "Current Total Skater Played Games": 4
+          },
+          "nativeValue": -0.264
+        },
+        "Total Final Pts Internal Score": {
+          "inputs": {
+            "All-Time Total Skater Pts Team Rate Avg": 0.6641875619776171,
+            "Career Prior Skater GP": 299,
+            "Career Prior Total Pts/GP": 1.1415830546265329,
+            "Current Total Pts/GP": 0.75,
+            "Current Total Raw Pts": 3,
+            "Current Total Skater Played Games": 4,
+            "Current Total Skater Pts Field Rate Avg": 0.26666666666666666,
+            "Current Total Skater Pts Raw Leader": 3
+          },
+          "nativeValue": 0.412
+        },
+        "Playoff Final G Internal Score": {
+          "inputs": {
+            "All-Time Playoff Skater G Team Rate Avg": 0.20592193808882903,
+            "Career Prior Playoff G/GP": 0.34782608695652173,
+            "Career Prior Skater Playoff GP": 46,
+            "Current Playoff G/GP": 0,
+            "Current Playoff Raw G": 0,
+            "Current Playoff Skater G Field Rate Avg": 0,
+            "Current Playoff Skater G Raw Leader": 0,
+            "Current Playoff Skater Played Games": 0
+          },
+          "nativeValue": ""
+        },
+        "Playoff Final A Internal Score": {
+          "inputs": {
+            "All-Time Playoff Skater A Team Rate Avg": 0.28847016599371916,
+            "Career Prior Playoff A/GP": 0.43478260869565216,
+            "Career Prior Skater Playoff GP": 46,
+            "Current Playoff A/GP": 0,
+            "Current Playoff Raw A": 0,
+            "Current Playoff Skater A Field Rate Avg": 0,
+            "Current Playoff Skater A Raw Leader": 0,
+            "Current Playoff Skater Played Games": 0
+          },
+          "nativeValue": ""
+        },
+        "Playoff Final Pts Internal Score": {
+          "inputs": {
+            "All-Time Playoff Skater Pts Team Rate Avg": 0.49439210408254813,
+            "Career Prior Playoff Pts/GP": 0.782608695652174,
+            "Career Prior Skater Playoff GP": 46,
+            "Current Playoff Pts/GP": 0,
+            "Current Playoff Raw Pts": 0,
+            "Current Playoff Skater Played Games": 0,
+            "Current Playoff Skater Pts Field Rate Avg": 0,
+            "Current Playoff Skater Pts Raw Leader": 0
+          },
+          "nativeValue": ""
+        }
+      }
+    },
+    {
+      "name": "Congiusti, Marco",
+      "role": "Skater",
+      "recentSeason": "W2025/26",
+      "components": {
+        "Total Final G Internal Score": {
+          "inputs": {
+            "All-Time Total Skater G Team Rate Avg": 0.27270151579543844,
+            "Career Prior Skater GP": 267,
+            "Career Prior Total G/GP": 0.024968789013732832,
+            "Current Total G/GP": 0,
+            "Current Total Raw G": 0,
+            "Current Total Skater G Field Rate Avg": 0.08333333333333333,
+            "Current Total Skater G Raw Leader": 3,
+            "Current Total Skater Played Games": 11
+          },
+          "nativeValue": -0.064
+        },
+        "Total Final A Internal Score": {
+          "inputs": {
+            "All-Time Total Skater A Team Rate Avg": 0.39148604618217886,
+            "Career Prior Skater GP": 267,
+            "Career Prior Total A/GP": 0.2009987515605493,
+            "Current Total A/GP": 0.18181818181818182,
+            "Current Total Raw A": 2,
+            "Current Total Skater A Field Rate Avg": 0.18333333333333332,
+            "Current Total Skater A Raw Leader": 3,
+            "Current Total Skater Played Games": 11
+          },
+          "nativeValue": 0.23
+        },
+        "Total Final Pts Internal Score": {
+          "inputs": {
+            "All-Time Total Skater Pts Team Rate Avg": 0.6641875619776171,
+            "Career Prior Skater GP": 267,
+            "Career Prior Total Pts/GP": 0.22596754057428212,
+            "Current Total Pts/GP": 0.18181818181818182,
+            "Current Total Raw Pts": 2,
+            "Current Total Skater Played Games": 11,
+            "Current Total Skater Pts Field Rate Avg": 0.26666666666666666,
+            "Current Total Skater Pts Raw Leader": 3
+          },
+          "nativeValue": 0.166
+        },
+        "Playoff Final G Internal Score": {
+          "inputs": {
+            "All-Time Playoff Skater G Team Rate Avg": 0.20592193808882903,
+            "Career Prior Playoff G/GP": 0.021739130434782608,
+            "Career Prior Skater Playoff GP": 46,
+            "Current Playoff G/GP": 0,
+            "Current Playoff Raw G": 0,
+            "Current Playoff Skater G Field Rate Avg": 0,
+            "Current Playoff Skater G Raw Leader": 0,
+            "Current Playoff Skater Played Games": 3
+          },
+          "nativeValue": -0.036
+        },
+        "Playoff Final A Internal Score": {
+          "inputs": {
+            "All-Time Playoff Skater A Team Rate Avg": 0.28847016599371916,
+            "Career Prior Playoff A/GP": 0.13043478260869565,
+            "Career Prior Skater Playoff GP": 46,
+            "Current Playoff A/GP": 0,
+            "Current Playoff Raw A": 0,
+            "Current Playoff Skater A Field Rate Avg": 0,
+            "Current Playoff Skater A Raw Leader": 0,
+            "Current Playoff Skater Played Games": 3
+          },
+          "nativeValue": -0.076
+        },
+        "Playoff Final Pts Internal Score": {
+          "inputs": {
+            "All-Time Playoff Skater Pts Team Rate Avg": 0.49439210408254813,
+            "Career Prior Playoff Pts/GP": 0.15217391304347827,
+            "Career Prior Skater Playoff GP": 46,
+            "Current Playoff Pts/GP": 0,
+            "Current Playoff Raw Pts": 0,
+            "Current Playoff Skater Played Games": 3,
+            "Current Playoff Skater Pts Field Rate Avg": 0,
+            "Current Playoff Skater Pts Raw Leader": 0
+          },
+          "nativeValue": -0.112
+        }
+      }
+    },
+    {
+      "name": "Duffy, Lorcan",
+      "role": "Skater",
+      "recentSeason": "W2026/27",
+      "components": {
+        "Total Final G Internal Score": {
+          "inputs": {
+            "All-Time Total Skater G Team Rate Avg": 0.27270151579543844,
+            "Career Prior Skater GP": 82,
+            "Career Prior Total G/GP": 0.19918699186991867,
+            "Current Total G/GP": 0,
+            "Current Total Raw G": 0,
+            "Current Total Skater G Field Rate Avg": 0.08333333333333333,
+            "Current Total Skater G Raw Leader": 3,
+            "Current Total Skater Played Games": 1
+          },
+          "nativeValue": -0.107
+        },
+        "Total Final A Internal Score": {
+          "inputs": {
+            "All-Time Total Skater A Team Rate Avg": 0.39148604618217886,
+            "Career Prior Skater GP": 82,
+            "Career Prior Total A/GP": 0.47967479674796754,
+            "Current Total A/GP": 0,
+            "Current Total Raw A": 0,
+            "Current Total Skater A Field Rate Avg": 0.18333333333333332,
+            "Current Total Skater A Raw Leader": 3,
+            "Current Total Skater Played Games": 1
+          },
+          "nativeValue": -0.215
+        },
+        "Total Final Pts Internal Score": {
+          "inputs": {
+            "All-Time Total Skater Pts Team Rate Avg": 0.6641875619776171,
+            "Career Prior Skater GP": 82,
+            "Career Prior Total Pts/GP": 0.6788617886178863,
+            "Current Total Pts/GP": 0,
+            "Current Total Raw Pts": 0,
+            "Current Total Skater Played Games": 1,
+            "Current Total Skater Pts Field Rate Avg": 0.26666666666666666,
+            "Current Total Skater Pts Raw Leader": 3
+          },
+          "nativeValue": -0.323
+        },
+        "Playoff Final G Internal Score": {
+          "inputs": {
+            "All-Time Playoff Skater G Team Rate Avg": 0.20592193808882903,
+            "Career Prior Playoff G/GP": 0.05128205128205128,
+            "Career Prior Skater Playoff GP": 13,
+            "Current Playoff G/GP": 0,
+            "Current Playoff Raw G": 0,
+            "Current Playoff Skater G Field Rate Avg": 0,
+            "Current Playoff Skater G Raw Leader": 0,
+            "Current Playoff Skater Played Games": 0
+          },
+          "nativeValue": ""
+        },
+        "Playoff Final A Internal Score": {
+          "inputs": {
+            "All-Time Playoff Skater A Team Rate Avg": 0.28847016599371916,
+            "Career Prior Playoff A/GP": 0.3589743589743589,
+            "Career Prior Skater Playoff GP": 13,
+            "Current Playoff A/GP": 0,
+            "Current Playoff Raw A": 0,
+            "Current Playoff Skater A Field Rate Avg": 0,
+            "Current Playoff Skater A Raw Leader": 0,
+            "Current Playoff Skater Played Games": 0
+          },
+          "nativeValue": ""
+        },
+        "Playoff Final Pts Internal Score": {
+          "inputs": {
+            "All-Time Playoff Skater Pts Team Rate Avg": 0.49439210408254813,
+            "Career Prior Playoff Pts/GP": 0.41025641025641024,
+            "Career Prior Skater Playoff GP": 13,
+            "Current Playoff Pts/GP": 0,
+            "Current Playoff Raw Pts": 0,
+            "Current Playoff Skater Played Games": 0,
+            "Current Playoff Skater Pts Field Rate Avg": 0,
+            "Current Playoff Skater Pts Raw Leader": 0
+          },
+          "nativeValue": ""
+        }
+      }
+    },
+    {
+      "name": "Kober, Adam",
+      "role": "Skater",
+      "recentSeason": "W2026/27",
+      "components": {
+        "Total Final G Internal Score": {
+          "inputs": {
+            "All-Time Total Skater G Team Rate Avg": 0.27270151579543844,
+            "Career Prior Skater GP": 44,
+            "Career Prior Total G/GP": 0.13636363636363635,
+            "Current Total G/GP": 0.3333333333333333,
+            "Current Total Raw G": 1,
+            "Current Total Skater G Field Rate Avg": 0.08333333333333333,
+            "Current Total Skater G Raw Leader": 3,
+            "Current Total Skater Played Games": 3
+          },
+          "nativeValue": 0.242
+        },
+        "Total Final A Internal Score": {
+          "inputs": {
+            "All-Time Total Skater A Team Rate Avg": 0.39148604618217886,
+            "Career Prior Skater GP": 44,
+            "Career Prior Total A/GP": 0.29545454545454547,
+            "Current Total A/GP": 0.3333333333333333,
+            "Current Total Raw A": 1,
+            "Current Total Skater A Field Rate Avg": 0.18333333333333332,
+            "Current Total Skater A Raw Leader": 3,
+            "Current Total Skater Played Games": 3
+          },
+          "nativeValue": 0.164
+        },
+        "Total Final Pts Internal Score": {
+          "inputs": {
+            "All-Time Total Skater Pts Team Rate Avg": 0.6641875619776171,
+            "Career Prior Skater GP": 44,
+            "Career Prior Total Pts/GP": 0.4318181818181818,
+            "Current Total Pts/GP": 0.6666666666666666,
+            "Current Total Raw Pts": 2,
+            "Current Total Skater Played Games": 3,
+            "Current Total Skater Pts Field Rate Avg": 0.26666666666666666,
+            "Current Total Skater Pts Raw Leader": 3
+          },
+          "nativeValue": 0.406
+        },
+        "Playoff Final G Internal Score": {
+          "inputs": {
+            "All-Time Playoff Skater G Team Rate Avg": 0.20592193808882903,
+            "Career Prior Playoff G/GP": 0.14285714285714285,
+            "Career Prior Skater Playoff GP": 7,
+            "Current Playoff G/GP": 0,
+            "Current Playoff Raw G": 0,
+            "Current Playoff Skater G Field Rate Avg": 0,
+            "Current Playoff Skater G Raw Leader": 0,
+            "Current Playoff Skater Played Games": 0
+          },
+          "nativeValue": ""
+        },
+        "Playoff Final A Internal Score": {
+          "inputs": {
+            "All-Time Playoff Skater A Team Rate Avg": 0.28847016599371916,
+            "Career Prior Playoff A/GP": 0,
+            "Career Prior Skater Playoff GP": 7,
+            "Current Playoff A/GP": 0,
+            "Current Playoff Raw A": 0,
+            "Current Playoff Skater A Field Rate Avg": 0,
+            "Current Playoff Skater A Raw Leader": 0,
+            "Current Playoff Skater Played Games": 0
+          },
+          "nativeValue": ""
+        },
+        "Playoff Final Pts Internal Score": {
+          "inputs": {
+            "All-Time Playoff Skater Pts Team Rate Avg": 0.49439210408254813,
+            "Career Prior Playoff Pts/GP": 0.14285714285714285,
+            "Career Prior Skater Playoff GP": 7,
+            "Current Playoff Pts/GP": 0,
+            "Current Playoff Raw Pts": 0,
+            "Current Playoff Skater Played Games": 0,
+            "Current Playoff Skater Pts Field Rate Avg": 0,
+            "Current Playoff Skater Pts Raw Leader": 0
+          },
+          "nativeValue": ""
+        }
+      }
+    },
+    {
+      "name": "Kong, Henry",
+      "role": "Skater",
+      "recentSeason": "W2026/27",
+      "components": {
+        "Total Final G Internal Score": {
+          "inputs": {
+            "All-Time Total Skater G Team Rate Avg": 0.27270151579543844,
+            "Career Prior Skater GP": 0,
+            "Career Prior Total G/GP": 0,
+            "Current Total G/GP": 0.25,
+            "Current Total Raw G": 1,
+            "Current Total Skater G Field Rate Avg": 0.08333333333333333,
+            "Current Total Skater G Raw Leader": 3,
+            "Current Total Skater Played Games": 4
+          },
+          "nativeValue": 0.163
+        },
+        "Total Final A Internal Score": {
+          "inputs": {
+            "All-Time Total Skater A Team Rate Avg": 0.39148604618217886,
+            "Career Prior Skater GP": 0,
+            "Career Prior Total A/GP": 0,
+            "Current Total A/GP": 0.25,
+            "Current Total Raw A": 1,
+            "Current Total Skater A Field Rate Avg": 0.18333333333333332,
+            "Current Total Skater A Raw Leader": 3,
+            "Current Total Skater Played Games": 4
+          },
+          "nativeValue": 0.125
+        },
+        "Total Final Pts Internal Score": {
+          "inputs": {
+            "All-Time Total Skater Pts Team Rate Avg": 0.6641875619776171,
+            "Career Prior Skater GP": 0,
+            "Career Prior Total Pts/GP": 0,
+            "Current Total Pts/GP": 0.5,
+            "Current Total Raw Pts": 2,
+            "Current Total Skater Played Games": 4,
+            "Current Total Skater Pts Field Rate Avg": 0.26666666666666666,
+            "Current Total Skater Pts Raw Leader": 3
+          },
+          "nativeValue": 0.289
+        },
+        "Playoff Final G Internal Score": {
+          "inputs": {
+            "All-Time Playoff Skater G Team Rate Avg": 0.20592193808882903,
+            "Career Prior Playoff G/GP": 0,
+            "Career Prior Skater Playoff GP": 0,
+            "Current Playoff G/GP": 0,
+            "Current Playoff Raw G": 0,
+            "Current Playoff Skater G Field Rate Avg": 0,
+            "Current Playoff Skater G Raw Leader": 0,
+            "Current Playoff Skater Played Games": 0
+          },
+          "nativeValue": ""
+        },
+        "Playoff Final A Internal Score": {
+          "inputs": {
+            "All-Time Playoff Skater A Team Rate Avg": 0.28847016599371916,
+            "Career Prior Playoff A/GP": 0,
+            "Career Prior Skater Playoff GP": 0,
+            "Current Playoff A/GP": 0,
+            "Current Playoff Raw A": 0,
+            "Current Playoff Skater A Field Rate Avg": 0,
+            "Current Playoff Skater A Raw Leader": 0,
+            "Current Playoff Skater Played Games": 0
+          },
+          "nativeValue": ""
+        },
+        "Playoff Final Pts Internal Score": {
+          "inputs": {
+            "All-Time Playoff Skater Pts Team Rate Avg": 0.49439210408254813,
+            "Career Prior Playoff Pts/GP": 0,
+            "Career Prior Skater Playoff GP": 0,
+            "Current Playoff Pts/GP": 0,
+            "Current Playoff Raw Pts": 0,
+            "Current Playoff Skater Played Games": 0,
+            "Current Playoff Skater Pts Field Rate Avg": 0,
+            "Current Playoff Skater Pts Raw Leader": 0
+          },
+          "nativeValue": ""
+        }
+      }
+    },
+    {
+      "name": "Leong, Dev",
+      "role": "Goaltender",
+      "recentSeason": "W2026/27",
+      "components": {
+        "Total Final G Internal Score": {
+          "inputs": {
+            "All-Time Total Skater G Team Rate Avg": 0.27270151579543844,
+            "Career Prior Skater GP": 0,
+            "Career Prior Total G/GP": 0,
+            "Current Total G/GP": 0,
+            "Current Total Raw G": 0,
+            "Current Total Skater G Field Rate Avg": 0.08333333333333333,
+            "Current Total Skater G Raw Leader": 3,
+            "Current Total Skater Played Games": 0
+          },
+          "nativeValue": ""
+        },
+        "Total Final A Internal Score": {
+          "inputs": {
+            "All-Time Total Skater A Team Rate Avg": 0.39148604618217886,
+            "Career Prior Skater GP": 0,
+            "Career Prior Total A/GP": 0,
+            "Current Total A/GP": 0,
+            "Current Total Raw A": 0,
+            "Current Total Skater A Field Rate Avg": 0.18333333333333332,
+            "Current Total Skater A Raw Leader": 3,
+            "Current Total Skater Played Games": 0
+          },
+          "nativeValue": ""
+        },
+        "Total Final Pts Internal Score": {
+          "inputs": {
+            "All-Time Total Skater Pts Team Rate Avg": 0.6641875619776171,
+            "Career Prior Skater GP": 0,
+            "Career Prior Total Pts/GP": 0,
+            "Current Total Pts/GP": 0,
+            "Current Total Raw Pts": 0,
+            "Current Total Skater Played Games": 0,
+            "Current Total Skater Pts Field Rate Avg": 0.26666666666666666,
+            "Current Total Skater Pts Raw Leader": 3
+          },
+          "nativeValue": ""
+        },
+        "Playoff Final G Internal Score": {
+          "inputs": {
+            "All-Time Playoff Skater G Team Rate Avg": 0.20592193808882903,
+            "Career Prior Playoff G/GP": 0,
+            "Career Prior Skater Playoff GP": 0,
+            "Current Playoff G/GP": 0,
+            "Current Playoff Raw G": 0,
+            "Current Playoff Skater G Field Rate Avg": 0,
+            "Current Playoff Skater G Raw Leader": 0,
+            "Current Playoff Skater Played Games": 0
+          },
+          "nativeValue": ""
+        },
+        "Playoff Final A Internal Score": {
+          "inputs": {
+            "All-Time Playoff Skater A Team Rate Avg": 0.28847016599371916,
+            "Career Prior Playoff A/GP": 0,
+            "Career Prior Skater Playoff GP": 0,
+            "Current Playoff A/GP": 0,
+            "Current Playoff Raw A": 0,
+            "Current Playoff Skater A Field Rate Avg": 0,
+            "Current Playoff Skater A Raw Leader": 0,
+            "Current Playoff Skater Played Games": 0
+          },
+          "nativeValue": ""
+        },
+        "Playoff Final Pts Internal Score": {
+          "inputs": {
+            "All-Time Playoff Skater Pts Team Rate Avg": 0.49439210408254813,
+            "Career Prior Playoff Pts/GP": 0,
+            "Career Prior Skater Playoff GP": 0,
+            "Current Playoff Pts/GP": 0,
+            "Current Playoff Raw Pts": 0,
+            "Current Playoff Skater Played Games": 0,
+            "Current Playoff Skater Pts Field Rate Avg": 0,
+            "Current Playoff Skater Pts Raw Leader": 0
+          },
+          "nativeValue": ""
+        }
+      }
+    },
+    {
+      "name": "Logue, Stephen",
+      "role": "Goaltender",
+      "recentSeason": "W2026/27",
+      "components": {
+        "Total Final G Internal Score": {
+          "inputs": {
+            "All-Time Total Skater G Team Rate Avg": 0.27270151579543844,
+            "Career Prior Skater GP": 0,
+            "Career Prior Total G/GP": 0,
+            "Current Total G/GP": 0,
+            "Current Total Raw G": 0,
+            "Current Total Skater G Field Rate Avg": 0.08333333333333333,
+            "Current Total Skater G Raw Leader": 3,
+            "Current Total Skater Played Games": 0
+          },
+          "nativeValue": ""
+        },
+        "Total Final A Internal Score": {
+          "inputs": {
+            "All-Time Total Skater A Team Rate Avg": 0.39148604618217886,
+            "Career Prior Skater GP": 0,
+            "Career Prior Total A/GP": 0,
+            "Current Total A/GP": 0,
+            "Current Total Raw A": 0,
+            "Current Total Skater A Field Rate Avg": 0.18333333333333332,
+            "Current Total Skater A Raw Leader": 3,
+            "Current Total Skater Played Games": 0
+          },
+          "nativeValue": ""
+        },
+        "Total Final Pts Internal Score": {
+          "inputs": {
+            "All-Time Total Skater Pts Team Rate Avg": 0.6641875619776171,
+            "Career Prior Skater GP": 0,
+            "Career Prior Total Pts/GP": 0,
+            "Current Total Pts/GP": 0,
+            "Current Total Raw Pts": 0,
+            "Current Total Skater Played Games": 0,
+            "Current Total Skater Pts Field Rate Avg": 0.26666666666666666,
+            "Current Total Skater Pts Raw Leader": 3
+          },
+          "nativeValue": ""
+        },
+        "Playoff Final G Internal Score": {
+          "inputs": {
+            "All-Time Playoff Skater G Team Rate Avg": 0.20592193808882903,
+            "Career Prior Playoff G/GP": 0,
+            "Career Prior Skater Playoff GP": 0,
+            "Current Playoff G/GP": 0,
+            "Current Playoff Raw G": 0,
+            "Current Playoff Skater G Field Rate Avg": 0,
+            "Current Playoff Skater G Raw Leader": 0,
+            "Current Playoff Skater Played Games": 0
+          },
+          "nativeValue": ""
+        },
+        "Playoff Final A Internal Score": {
+          "inputs": {
+            "All-Time Playoff Skater A Team Rate Avg": 0.28847016599371916,
+            "Career Prior Playoff A/GP": 0,
+            "Career Prior Skater Playoff GP": 0,
+            "Current Playoff A/GP": 0,
+            "Current Playoff Raw A": 0,
+            "Current Playoff Skater A Field Rate Avg": 0,
+            "Current Playoff Skater A Raw Leader": 0,
+            "Current Playoff Skater Played Games": 0
+          },
+          "nativeValue": ""
+        },
+        "Playoff Final Pts Internal Score": {
+          "inputs": {
+            "All-Time Playoff Skater Pts Team Rate Avg": 0.49439210408254813,
+            "Career Prior Playoff Pts/GP": 0,
+            "Career Prior Skater Playoff GP": 0,
+            "Current Playoff Pts/GP": 0,
+            "Current Playoff Raw Pts": 0,
+            "Current Playoff Skater Played Games": 0,
+            "Current Playoff Skater Pts Field Rate Avg": 0,
+            "Current Playoff Skater Pts Raw Leader": 0
+          },
+          "nativeValue": ""
+        }
+      }
+    },
+    {
+      "name": "Mazzei, Stefano",
+      "role": "Skater",
+      "recentSeason": "W2025/26",
+      "components": {
+        "Total Final G Internal Score": {
+          "inputs": {
+            "All-Time Total Skater G Team Rate Avg": 0.27270151579543844,
+            "Career Prior Skater GP": 57,
+            "Career Prior Total G/GP": 0.3801169590643275,
+            "Current Total G/GP": 0.16666666666666666,
+            "Current Total Raw G": 1,
+            "Current Total Skater G Field Rate Avg": 0.08333333333333333,
+            "Current Total Skater G Raw Leader": 3,
+            "Current Total Skater Played Games": 6
+          },
+          "nativeValue": 0.081
+        },
+        "Total Final A Internal Score": {
+          "inputs": {
+            "All-Time Total Skater A Team Rate Avg": 0.39148604618217886,
+            "Career Prior Skater GP": 57,
+            "Career Prior Total A/GP": 0.2222222222222222,
+            "Current Total A/GP": 0.16666666666666666,
+            "Current Total Raw A": 1,
+            "Current Total Skater A Field Rate Avg": 0.18333333333333332,
+            "Current Total Skater A Raw Leader": 3,
+            "Current Total Skater Played Games": 6
+          },
+          "nativeValue": 0.082
+        },
+        "Total Final Pts Internal Score": {
+          "inputs": {
+            "All-Time Total Skater Pts Team Rate Avg": 0.6641875619776171,
+            "Career Prior Skater GP": 57,
+            "Career Prior Total Pts/GP": 0.6023391812865497,
+            "Current Total Pts/GP": 0.3333333333333333,
+            "Current Total Raw Pts": 2,
+            "Current Total Skater Played Games": 6,
+            "Current Total Skater Pts Field Rate Avg": 0.26666666666666666,
+            "Current Total Skater Pts Raw Leader": 3
+          },
+          "nativeValue": 0.163
+        },
+        "Playoff Final G Internal Score": {
+          "inputs": {
+            "All-Time Playoff Skater G Team Rate Avg": 0.20592193808882903,
+            "Career Prior Playoff G/GP": 0,
+            "Career Prior Skater Playoff GP": 5,
+            "Current Playoff G/GP": 0,
+            "Current Playoff Raw G": 0,
+            "Current Playoff Skater G Field Rate Avg": 0,
+            "Current Playoff Skater G Raw Leader": 0,
+            "Current Playoff Skater Played Games": 0
+          },
+          "nativeValue": ""
+        },
+        "Playoff Final A Internal Score": {
+          "inputs": {
+            "All-Time Playoff Skater A Team Rate Avg": 0.28847016599371916,
+            "Career Prior Playoff A/GP": 0,
+            "Career Prior Skater Playoff GP": 5,
+            "Current Playoff A/GP": 0,
+            "Current Playoff Raw A": 0,
+            "Current Playoff Skater A Field Rate Avg": 0,
+            "Current Playoff Skater A Raw Leader": 0,
+            "Current Playoff Skater Played Games": 0
+          },
+          "nativeValue": ""
+        },
+        "Playoff Final Pts Internal Score": {
+          "inputs": {
+            "All-Time Playoff Skater Pts Team Rate Avg": 0.49439210408254813,
+            "Career Prior Playoff Pts/GP": 0,
+            "Career Prior Skater Playoff GP": 5,
+            "Current Playoff Pts/GP": 0,
+            "Current Playoff Raw Pts": 0,
+            "Current Playoff Skater Played Games": 0,
+            "Current Playoff Skater Pts Field Rate Avg": 0,
+            "Current Playoff Skater Pts Raw Leader": 0
+          },
+          "nativeValue": ""
+        }
+      }
+    },
+    {
+      "name": "Pagnotta, Alex",
+      "role": "Skater",
+      "recentSeason": "W2026/27",
+      "components": {
+        "Total Final G Internal Score": {
+          "inputs": {
+            "All-Time Total Skater G Team Rate Avg": 0.27270151579543844,
+            "Career Prior Skater GP": 320,
+            "Career Prior Total G/GP": 0.09375,
+            "Current Total G/GP": 0,
+            "Current Total Raw G": 0,
+            "Current Total Skater G Field Rate Avg": 0.08333333333333333,
+            "Current Total Skater G Raw Leader": 3,
+            "Current Total Skater Played Games": 4
+          },
+          "nativeValue": -0.081
+        },
+        "Total Final A Internal Score": {
+          "inputs": {
+            "All-Time Total Skater A Team Rate Avg": 0.39148604618217886,
+            "Career Prior Skater GP": 320,
+            "Career Prior Total A/GP": 0.3489583333333333,
+            "Current Total A/GP": 0.75,
+            "Current Total Raw A": 3,
+            "Current Total Skater A Field Rate Avg": 0.18333333333333332,
+            "Current Total Skater A Raw Leader": 3,
+            "Current Total Skater Played Games": 4
+          },
+          "nativeValue": 0.667
+        },
+        "Total Final Pts Internal Score": {
+          "inputs": {
+            "All-Time Total Skater Pts Team Rate Avg": 0.6641875619776171,
+            "Career Prior Skater GP": 320,
+            "Career Prior Total Pts/GP": 0.4427083333333333,
+            "Current Total Pts/GP": 0.75,
+            "Current Total Raw Pts": 3,
+            "Current Total Skater Played Games": 4,
+            "Current Total Skater Pts Field Rate Avg": 0.26666666666666666,
+            "Current Total Skater Pts Raw Leader": 3
+          },
+          "nativeValue": 0.586
+        },
+        "Playoff Final G Internal Score": {
+          "inputs": {
+            "All-Time Playoff Skater G Team Rate Avg": 0.20592193808882903,
+            "Career Prior Playoff G/GP": 0.09433962264150944,
+            "Career Prior Skater Playoff GP": 53,
+            "Current Playoff G/GP": 0,
+            "Current Playoff Raw G": 0,
+            "Current Playoff Skater G Field Rate Avg": 0,
+            "Current Playoff Skater G Raw Leader": 0,
+            "Current Playoff Skater Played Games": 0
+          },
+          "nativeValue": ""
+        },
+        "Playoff Final A Internal Score": {
+          "inputs": {
+            "All-Time Playoff Skater A Team Rate Avg": 0.28847016599371916,
+            "Career Prior Playoff A/GP": 0.220125786163522,
+            "Career Prior Skater Playoff GP": 53,
+            "Current Playoff A/GP": 0,
+            "Current Playoff Raw A": 0,
+            "Current Playoff Skater A Field Rate Avg": 0,
+            "Current Playoff Skater A Raw Leader": 0,
+            "Current Playoff Skater Played Games": 0
+          },
+          "nativeValue": ""
+        },
+        "Playoff Final Pts Internal Score": {
+          "inputs": {
+            "All-Time Playoff Skater Pts Team Rate Avg": 0.49439210408254813,
+            "Career Prior Playoff Pts/GP": 0.3144654088050314,
+            "Career Prior Skater Playoff GP": 53,
+            "Current Playoff Pts/GP": 0,
+            "Current Playoff Raw Pts": 0,
+            "Current Playoff Skater Played Games": 0,
+            "Current Playoff Skater Pts Field Rate Avg": 0,
+            "Current Playoff Skater Pts Raw Leader": 0
+          },
+          "nativeValue": ""
+        }
+      }
+    },
+    {
+      "name": "Paolucci, Anthony",
+      "role": "Skater",
+      "recentSeason": "W2026/27",
+      "components": {
+        "Total Final G Internal Score": {
+          "inputs": {
+            "All-Time Total Skater G Team Rate Avg": 0.27270151579543844,
+            "Career Prior Skater GP": 89,
+            "Career Prior Total G/GP": 0.08239700374531836,
+            "Current Total G/GP": 0,
+            "Current Total Raw G": 0,
+            "Current Total Skater G Field Rate Avg": 0.08333333333333333,
+            "Current Total Skater G Raw Leader": 3,
+            "Current Total Skater Played Games": 1
+          },
+          "nativeValue": -0.078
+        },
+        "Total Final A Internal Score": {
+          "inputs": {
+            "All-Time Total Skater A Team Rate Avg": 0.39148604618217886,
+            "Career Prior Skater GP": 89,
+            "Career Prior Total A/GP": 0.23970037453183524,
+            "Current Total A/GP": 0,
+            "Current Total Raw A": 0,
+            "Current Total Skater A Field Rate Avg": 0.18333333333333332,
+            "Current Total Skater A Raw Leader": 3,
+            "Current Total Skater Played Games": 1
+          },
+          "nativeValue": -0.155
+        },
+        "Total Final Pts Internal Score": {
+          "inputs": {
+            "All-Time Total Skater Pts Team Rate Avg": 0.6641875619776171,
+            "Career Prior Skater GP": 89,
+            "Career Prior Total Pts/GP": 0.3220973782771536,
+            "Current Total Pts/GP": 0,
+            "Current Total Raw Pts": 0,
+            "Current Total Skater Played Games": 1,
+            "Current Total Skater Pts Field Rate Avg": 0.26666666666666666,
+            "Current Total Skater Pts Raw Leader": 3
+          },
+          "nativeValue": -0.233
+        },
+        "Playoff Final G Internal Score": {
+          "inputs": {
+            "All-Time Playoff Skater G Team Rate Avg": 0.20592193808882903,
+            "Career Prior Playoff G/GP": 0.0606060606060606,
+            "Career Prior Skater Playoff GP": 22,
+            "Current Playoff G/GP": 0,
+            "Current Playoff Raw G": 0,
+            "Current Playoff Skater G Field Rate Avg": 0,
+            "Current Playoff Skater G Raw Leader": 0,
+            "Current Playoff Skater Played Games": 0
+          },
+          "nativeValue": ""
+        },
+        "Playoff Final A Internal Score": {
+          "inputs": {
+            "All-Time Playoff Skater A Team Rate Avg": 0.28847016599371916,
+            "Career Prior Playoff A/GP": 0.2727272727272727,
+            "Career Prior Skater Playoff GP": 22,
+            "Current Playoff A/GP": 0,
+            "Current Playoff Raw A": 0,
+            "Current Playoff Skater A Field Rate Avg": 0,
+            "Current Playoff Skater A Raw Leader": 0,
+            "Current Playoff Skater Played Games": 0
+          },
+          "nativeValue": ""
+        },
+        "Playoff Final Pts Internal Score": {
+          "inputs": {
+            "All-Time Playoff Skater Pts Team Rate Avg": 0.49439210408254813,
+            "Career Prior Playoff Pts/GP": 0.3333333333333333,
+            "Career Prior Skater Playoff GP": 22,
+            "Current Playoff Pts/GP": 0,
+            "Current Playoff Raw Pts": 0,
+            "Current Playoff Skater Played Games": 0,
+            "Current Playoff Skater Pts Field Rate Avg": 0,
+            "Current Playoff Skater Pts Raw Leader": 0
+          },
+          "nativeValue": ""
+        }
+      }
+    },
+    {
+      "name": "Pearsoll, Keith",
+      "role": "Skater",
+      "recentSeason": "W2026/27",
+      "components": {
+        "Total Final G Internal Score": {
+          "inputs": {
+            "All-Time Total Skater G Team Rate Avg": 0.27270151579543844,
+            "Career Prior Skater GP": 294,
+            "Career Prior Total G/GP": 0.3276643990929705,
+            "Current Total G/GP": 0.3333333333333333,
+            "Current Total Raw G": 1,
+            "Current Total Skater G Field Rate Avg": 0.08333333333333333,
+            "Current Total Skater G Raw Leader": 3,
+            "Current Total Skater Played Games": 3
+          },
+          "nativeValue": 0.194
+        },
+        "Total Final A Internal Score": {
+          "inputs": {
+            "All-Time Total Skater A Team Rate Avg": 0.39148604618217886,
+            "Career Prior Skater GP": 294,
+            "Career Prior Total A/GP": 0.41609977324263037,
+            "Current Total A/GP": 0,
+            "Current Total Raw A": 0,
+            "Current Total Skater A Field Rate Avg": 0.18333333333333332,
+            "Current Total Skater A Raw Leader": 3,
+            "Current Total Skater Played Games": 3
+          },
+          "nativeValue": -0.199
+        },
+        "Total Final Pts Internal Score": {
+          "inputs": {
+            "All-Time Total Skater Pts Team Rate Avg": 0.6641875619776171,
+            "Career Prior Skater GP": 294,
+            "Career Prior Total Pts/GP": 0.7437641723356009,
+            "Current Total Pts/GP": 0.3333333333333333,
+            "Current Total Raw Pts": 1,
+            "Current Total Skater Played Games": 3,
+            "Current Total Skater Pts Field Rate Avg": 0.26666666666666666,
+            "Current Total Skater Pts Raw Leader": 3
+          },
+          "nativeValue": -0.006
+        },
+        "Playoff Final G Internal Score": {
+          "inputs": {
+            "All-Time Playoff Skater G Team Rate Avg": 0.20592193808882903,
+            "Career Prior Playoff G/GP": 0.2391304347826087,
+            "Career Prior Skater Playoff GP": 46,
+            "Current Playoff G/GP": 0,
+            "Current Playoff Raw G": 0,
+            "Current Playoff Skater G Field Rate Avg": 0,
+            "Current Playoff Skater G Raw Leader": 0,
+            "Current Playoff Skater Played Games": 0
+          },
+          "nativeValue": ""
+        },
+        "Playoff Final A Internal Score": {
+          "inputs": {
+            "All-Time Playoff Skater A Team Rate Avg": 0.28847016599371916,
+            "Career Prior Playoff A/GP": 0.2391304347826087,
+            "Career Prior Skater Playoff GP": 46,
+            "Current Playoff A/GP": 0,
+            "Current Playoff Raw A": 0,
+            "Current Playoff Skater A Field Rate Avg": 0,
+            "Current Playoff Skater A Raw Leader": 0,
+            "Current Playoff Skater Played Games": 0
+          },
+          "nativeValue": ""
+        },
+        "Playoff Final Pts Internal Score": {
+          "inputs": {
+            "All-Time Playoff Skater Pts Team Rate Avg": 0.49439210408254813,
+            "Career Prior Playoff Pts/GP": 0.4782608695652174,
+            "Career Prior Skater Playoff GP": 46,
+            "Current Playoff Pts/GP": 0,
+            "Current Playoff Raw Pts": 0,
+            "Current Playoff Skater Played Games": 0,
+            "Current Playoff Skater Pts Field Rate Avg": 0,
+            "Current Playoff Skater Pts Raw Leader": 0
+          },
+          "nativeValue": ""
+        }
+      }
+    },
+    {
+      "name": "Povegliano, Adam",
+      "role": "Skater",
+      "recentSeason": "W2026/27",
+      "components": {
+        "Total Final G Internal Score": {
+          "inputs": {
+            "All-Time Total Skater G Team Rate Avg": 0.27270151579543844,
+            "Career Prior Skater GP": 0,
+            "Career Prior Total G/GP": 0,
+            "Current Total G/GP": 0,
+            "Current Total Raw G": 0,
+            "Current Total Skater G Field Rate Avg": 0.08333333333333333,
+            "Current Total Skater G Raw Leader": 3,
+            "Current Total Skater Played Games": 3
+          },
+          "nativeValue": -0.058
+        },
+        "Total Final A Internal Score": {
+          "inputs": {
+            "All-Time Total Skater A Team Rate Avg": 0.39148604618217886,
+            "Career Prior Skater GP": 0,
+            "Career Prior Total A/GP": 0,
+            "Current Total A/GP": 0,
+            "Current Total Raw A": 0,
+            "Current Total Skater A Field Rate Avg": 0.18333333333333332,
+            "Current Total Skater A Raw Leader": 3,
+            "Current Total Skater Played Games": 3
+          },
+          "nativeValue": -0.095
+        },
+        "Total Final Pts Internal Score": {
+          "inputs": {
+            "All-Time Total Skater Pts Team Rate Avg": 0.6641875619776171,
+            "Career Prior Skater GP": 0,
+            "Career Prior Total Pts/GP": 0,
+            "Current Total Pts/GP": 0,
+            "Current Total Raw Pts": 0,
+            "Current Total Skater Played Games": 3,
+            "Current Total Skater Pts Field Rate Avg": 0.26666666666666666,
+            "Current Total Skater Pts Raw Leader": 3
+          },
+          "nativeValue": -0.153
+        },
+        "Playoff Final G Internal Score": {
+          "inputs": {
+            "All-Time Playoff Skater G Team Rate Avg": 0.20592193808882903,
+            "Career Prior Playoff G/GP": 0,
+            "Career Prior Skater Playoff GP": 0,
+            "Current Playoff G/GP": 0,
+            "Current Playoff Raw G": 0,
+            "Current Playoff Skater G Field Rate Avg": 0,
+            "Current Playoff Skater G Raw Leader": 0,
+            "Current Playoff Skater Played Games": 0
+          },
+          "nativeValue": ""
+        },
+        "Playoff Final A Internal Score": {
+          "inputs": {
+            "All-Time Playoff Skater A Team Rate Avg": 0.28847016599371916,
+            "Career Prior Playoff A/GP": 0,
+            "Career Prior Skater Playoff GP": 0,
+            "Current Playoff A/GP": 0,
+            "Current Playoff Raw A": 0,
+            "Current Playoff Skater A Field Rate Avg": 0,
+            "Current Playoff Skater A Raw Leader": 0,
+            "Current Playoff Skater Played Games": 0
+          },
+          "nativeValue": ""
+        },
+        "Playoff Final Pts Internal Score": {
+          "inputs": {
+            "All-Time Playoff Skater Pts Team Rate Avg": 0.49439210408254813,
+            "Career Prior Playoff Pts/GP": 0,
+            "Career Prior Skater Playoff GP": 0,
+            "Current Playoff Pts/GP": 0,
+            "Current Playoff Raw Pts": 0,
+            "Current Playoff Skater Played Games": 0,
+            "Current Playoff Skater Pts Field Rate Avg": 0,
+            "Current Playoff Skater Pts Raw Leader": 0
+          },
+          "nativeValue": ""
+        }
+      }
+    },
+    {
+      "name": "Provenzano, Mario",
+      "role": "Skater",
+      "recentSeason": "W2026/27",
+      "components": {
+        "Total Final G Internal Score": {
+          "inputs": {
+            "All-Time Total Skater G Team Rate Avg": 0.27270151579543844,
+            "Career Prior Skater GP": 240,
+            "Career Prior Total G/GP": 0.12916666666666668,
+            "Current Total G/GP": 0,
+            "Current Total Raw G": 0,
+            "Current Total Skater G Field Rate Avg": 0.08333333333333333,
+            "Current Total Skater G Raw Leader": 3,
+            "Current Total Skater Played Games": 4
+          },
+          "nativeValue": -0.09
+        },
+        "Total Final A Internal Score": {
+          "inputs": {
+            "All-Time Total Skater A Team Rate Avg": 0.39148604618217886,
+            "Career Prior Skater GP": 240,
+            "Career Prior Total A/GP": 0.29027777777777775,
+            "Current Total A/GP": 0,
+            "Current Total Raw A": 0,
+            "Current Total Skater A Field Rate Avg": 0.18333333333333332,
+            "Current Total Skater A Raw Leader": 3,
+            "Current Total Skater Played Games": 4
+          },
+          "nativeValue": -0.168
+        },
+        "Total Final Pts Internal Score": {
+          "inputs": {
+            "All-Time Total Skater Pts Team Rate Avg": 0.6641875619776171,
+            "Career Prior Skater GP": 240,
+            "Career Prior Total Pts/GP": 0.4194444444444444,
+            "Current Total Pts/GP": 0,
+            "Current Total Raw Pts": 0,
+            "Current Total Skater Played Games": 4,
+            "Current Total Skater Pts Field Rate Avg": 0.26666666666666666,
+            "Current Total Skater Pts Raw Leader": 3
+          },
+          "nativeValue": -0.258
+        },
+        "Playoff Final G Internal Score": {
+          "inputs": {
+            "All-Time Playoff Skater G Team Rate Avg": 0.20592193808882903,
+            "Career Prior Playoff G/GP": 0.04878048780487805,
+            "Career Prior Skater Playoff GP": 41,
+            "Current Playoff G/GP": 0,
+            "Current Playoff Raw G": 0,
+            "Current Playoff Skater G Field Rate Avg": 0,
+            "Current Playoff Skater G Raw Leader": 0,
+            "Current Playoff Skater Played Games": 0
+          },
+          "nativeValue": ""
+        },
+        "Playoff Final A Internal Score": {
+          "inputs": {
+            "All-Time Playoff Skater A Team Rate Avg": 0.28847016599371916,
+            "Career Prior Playoff A/GP": 0.3495934959349593,
+            "Career Prior Skater Playoff GP": 41,
+            "Current Playoff A/GP": 0,
+            "Current Playoff Raw A": 0,
+            "Current Playoff Skater A Field Rate Avg": 0,
+            "Current Playoff Skater A Raw Leader": 0,
+            "Current Playoff Skater Played Games": 0
+          },
+          "nativeValue": ""
+        },
+        "Playoff Final Pts Internal Score": {
+          "inputs": {
+            "All-Time Playoff Skater Pts Team Rate Avg": 0.49439210408254813,
+            "Career Prior Playoff Pts/GP": 0.39837398373983735,
+            "Career Prior Skater Playoff GP": 41,
+            "Current Playoff Pts/GP": 0,
+            "Current Playoff Raw Pts": 0,
+            "Current Playoff Skater Played Games": 0,
+            "Current Playoff Skater Pts Field Rate Avg": 0,
+            "Current Playoff Skater Pts Raw Leader": 0
+          },
+          "nativeValue": ""
+        }
+      }
+    },
+    {
+      "name": "Provenzano, Michael",
+      "role": "Skater",
+      "recentSeason": "W2026/27",
+      "components": {
+        "Total Final G Internal Score": {
+          "inputs": {
+            "All-Time Total Skater G Team Rate Avg": 0.27270151579543844,
+            "Career Prior Skater GP": 39,
+            "Career Prior Total G/GP": 0.6410256410256411,
+            "Current Total G/GP": 0,
+            "Current Total Raw G": 0,
+            "Current Total Skater G Field Rate Avg": 0.08333333333333333,
+            "Current Total Skater G Raw Leader": 3,
+            "Current Total Skater Played Games": 3
+          },
+          "nativeValue": -0.218
+        },
+        "Total Final A Internal Score": {
+          "inputs": {
+            "All-Time Total Skater A Team Rate Avg": 0.39148604618217886,
+            "Career Prior Skater GP": 39,
+            "Career Prior Total A/GP": 0.5897435897435898,
+            "Current Total A/GP": 1,
+            "Current Total Raw A": 3,
+            "Current Total Skater A Field Rate Avg": 0.18333333333333332,
+            "Current Total Skater A Raw Leader": 3,
+            "Current Total Skater Played Games": 3
+          },
+          "nativeValue": 0.757
+        },
+        "Total Final Pts Internal Score": {
+          "inputs": {
+            "All-Time Total Skater Pts Team Rate Avg": 0.6641875619776171,
+            "Career Prior Skater GP": 39,
+            "Career Prior Total Pts/GP": 1.2307692307692308,
+            "Current Total Pts/GP": 1,
+            "Current Total Raw Pts": 3,
+            "Current Total Skater Played Games": 3,
+            "Current Total Skater Pts Field Rate Avg": 0.26666666666666666,
+            "Current Total Skater Pts Raw Leader": 3
+          },
+          "nativeValue": 0.539
+        },
+        "Playoff Final G Internal Score": {
+          "inputs": {
+            "All-Time Playoff Skater G Team Rate Avg": 0.20592193808882903,
+            "Career Prior Playoff G/GP": 0.2,
+            "Career Prior Skater Playoff GP": 5,
+            "Current Playoff G/GP": 0,
+            "Current Playoff Raw G": 0,
+            "Current Playoff Skater G Field Rate Avg": 0,
+            "Current Playoff Skater G Raw Leader": 0,
+            "Current Playoff Skater Played Games": 0
+          },
+          "nativeValue": ""
+        },
+        "Playoff Final A Internal Score": {
+          "inputs": {
+            "All-Time Playoff Skater A Team Rate Avg": 0.28847016599371916,
+            "Career Prior Playoff A/GP": 0.4,
+            "Career Prior Skater Playoff GP": 5,
+            "Current Playoff A/GP": 0,
+            "Current Playoff Raw A": 0,
+            "Current Playoff Skater A Field Rate Avg": 0,
+            "Current Playoff Skater A Raw Leader": 0,
+            "Current Playoff Skater Played Games": 0
+          },
+          "nativeValue": ""
+        },
+        "Playoff Final Pts Internal Score": {
+          "inputs": {
+            "All-Time Playoff Skater Pts Team Rate Avg": 0.49439210408254813,
+            "Career Prior Playoff Pts/GP": 0.6,
+            "Career Prior Skater Playoff GP": 5,
+            "Current Playoff Pts/GP": 0,
+            "Current Playoff Raw Pts": 0,
+            "Current Playoff Skater Played Games": 0,
+            "Current Playoff Skater Pts Field Rate Avg": 0,
+            "Current Playoff Skater Pts Raw Leader": 0
+          },
+          "nativeValue": ""
+        }
+      }
+    },
+    {
+      "name": "Rajasooriar, Krishnan",
+      "role": "Skater",
+      "recentSeason": "W2026/27",
+      "components": {
+        "Total Final G Internal Score": {
+          "inputs": {
+            "All-Time Total Skater G Team Rate Avg": 0.27270151579543844,
+            "Career Prior Skater GP": 54,
+            "Career Prior Total G/GP": 0.14814814814814814,
+            "Current Total G/GP": 0,
+            "Current Total Raw G": 0,
+            "Current Total Skater G Field Rate Avg": 0.08333333333333333,
+            "Current Total Skater G Raw Leader": 3,
+            "Current Total Skater Played Games": 2
+          },
+          "nativeValue": -0.095
+        },
+        "Total Final A Internal Score": {
+          "inputs": {
+            "All-Time Total Skater A Team Rate Avg": 0.39148604618217886,
+            "Career Prior Skater GP": 54,
+            "Career Prior Total A/GP": 0.2777777777777778,
+            "Current Total A/GP": 0,
+            "Current Total Raw A": 0,
+            "Current Total Skater A Field Rate Avg": 0.18333333333333332,
+            "Current Total Skater A Raw Leader": 3,
+            "Current Total Skater Played Games": 2
+          },
+          "nativeValue": -0.165
+        },
+        "Total Final Pts Internal Score": {
+          "inputs": {
+            "All-Time Total Skater Pts Team Rate Avg": 0.6641875619776171,
+            "Career Prior Skater GP": 54,
+            "Career Prior Total Pts/GP": 0.42592592592592593,
+            "Current Total Pts/GP": 0,
+            "Current Total Raw Pts": 0,
+            "Current Total Skater Played Games": 2,
+            "Current Total Skater Pts Field Rate Avg": 0.26666666666666666,
+            "Current Total Skater Pts Raw Leader": 3
+          },
+          "nativeValue": -0.259
+        },
+        "Playoff Final G Internal Score": {
+          "inputs": {
+            "All-Time Playoff Skater G Team Rate Avg": 0.20592193808882903,
+            "Career Prior Playoff G/GP": 0.125,
+            "Career Prior Skater Playoff GP": 8,
+            "Current Playoff G/GP": 0,
+            "Current Playoff Raw G": 0,
+            "Current Playoff Skater G Field Rate Avg": 0,
+            "Current Playoff Skater G Raw Leader": 0,
+            "Current Playoff Skater Played Games": 0
+          },
+          "nativeValue": ""
+        },
+        "Playoff Final A Internal Score": {
+          "inputs": {
+            "All-Time Playoff Skater A Team Rate Avg": 0.28847016599371916,
+            "Career Prior Playoff A/GP": 0.375,
+            "Career Prior Skater Playoff GP": 8,
+            "Current Playoff A/GP": 0,
+            "Current Playoff Raw A": 0,
+            "Current Playoff Skater A Field Rate Avg": 0,
+            "Current Playoff Skater A Raw Leader": 0,
+            "Current Playoff Skater Played Games": 0
+          },
+          "nativeValue": ""
+        },
+        "Playoff Final Pts Internal Score": {
+          "inputs": {
+            "All-Time Playoff Skater Pts Team Rate Avg": 0.49439210408254813,
+            "Career Prior Playoff Pts/GP": 0.5,
+            "Career Prior Skater Playoff GP": 8,
+            "Current Playoff Pts/GP": 0,
+            "Current Playoff Raw Pts": 0,
+            "Current Playoff Skater Played Games": 0,
+            "Current Playoff Skater Pts Field Rate Avg": 0,
+            "Current Playoff Skater Pts Raw Leader": 0
+          },
+          "nativeValue": ""
+        }
+      }
+    },
+    {
+      "name": "Rosenberg, Jamie",
+      "role": "Skater",
+      "recentSeason": "W2026/27",
+      "components": {
+        "Total Final G Internal Score": {
+          "inputs": {
+            "All-Time Total Skater G Team Rate Avg": 0.27270151579543844,
+            "Career Prior Skater GP": 0,
+            "Career Prior Total G/GP": 0,
+            "Current Total G/GP": 0,
+            "Current Total Raw G": 0,
+            "Current Total Skater G Field Rate Avg": 0.08333333333333333,
+            "Current Total Skater G Raw Leader": 3,
+            "Current Total Skater Played Games": 3
+          },
+          "nativeValue": -0.058
+        },
+        "Total Final A Internal Score": {
+          "inputs": {
+            "All-Time Total Skater A Team Rate Avg": 0.39148604618217886,
+            "Career Prior Skater GP": 0,
+            "Career Prior Total A/GP": 0,
+            "Current Total A/GP": 0,
+            "Current Total Raw A": 0,
+            "Current Total Skater A Field Rate Avg": 0.18333333333333332,
+            "Current Total Skater A Raw Leader": 3,
+            "Current Total Skater Played Games": 3
+          },
+          "nativeValue": -0.095
+        },
+        "Total Final Pts Internal Score": {
+          "inputs": {
+            "All-Time Total Skater Pts Team Rate Avg": 0.6641875619776171,
+            "Career Prior Skater GP": 0,
+            "Career Prior Total Pts/GP": 0,
+            "Current Total Pts/GP": 0,
+            "Current Total Raw Pts": 0,
+            "Current Total Skater Played Games": 3,
+            "Current Total Skater Pts Field Rate Avg": 0.26666666666666666,
+            "Current Total Skater Pts Raw Leader": 3
+          },
+          "nativeValue": -0.153
+        },
+        "Playoff Final G Internal Score": {
+          "inputs": {
+            "All-Time Playoff Skater G Team Rate Avg": 0.20592193808882903,
+            "Career Prior Playoff G/GP": 0,
+            "Career Prior Skater Playoff GP": 0,
+            "Current Playoff G/GP": 0,
+            "Current Playoff Raw G": 0,
+            "Current Playoff Skater G Field Rate Avg": 0,
+            "Current Playoff Skater G Raw Leader": 0,
+            "Current Playoff Skater Played Games": 0
+          },
+          "nativeValue": ""
+        },
+        "Playoff Final A Internal Score": {
+          "inputs": {
+            "All-Time Playoff Skater A Team Rate Avg": 0.28847016599371916,
+            "Career Prior Playoff A/GP": 0,
+            "Career Prior Skater Playoff GP": 0,
+            "Current Playoff A/GP": 0,
+            "Current Playoff Raw A": 0,
+            "Current Playoff Skater A Field Rate Avg": 0,
+            "Current Playoff Skater A Raw Leader": 0,
+            "Current Playoff Skater Played Games": 0
+          },
+          "nativeValue": ""
+        },
+        "Playoff Final Pts Internal Score": {
+          "inputs": {
+            "All-Time Playoff Skater Pts Team Rate Avg": 0.49439210408254813,
+            "Career Prior Playoff Pts/GP": 0,
+            "Career Prior Skater Playoff GP": 0,
+            "Current Playoff Pts/GP": 0,
+            "Current Playoff Raw Pts": 0,
+            "Current Playoff Skater Played Games": 0,
+            "Current Playoff Skater Pts Field Rate Avg": 0,
+            "Current Playoff Skater Pts Raw Leader": 0
+          },
+          "nativeValue": ""
+        }
+      }
+    },
+    {
+      "name": "Saindon, Stephane",
+      "role": "Skater",
+      "recentSeason": "W2026/27",
+      "components": {
+        "Total Final G Internal Score": {
+          "inputs": {
+            "All-Time Total Skater G Team Rate Avg": 0.27270151579543844,
+            "Career Prior Skater GP": 88,
+            "Career Prior Total G/GP": 0.7045454545454546,
+            "Current Total G/GP": 0,
+            "Current Total Raw G": 0,
+            "Current Total Skater G Field Rate Avg": 0.08333333333333333,
+            "Current Total Skater G Raw Leader": 3,
+            "Current Total Skater Played Games": 3
+          },
+          "nativeValue": -0.234
+        },
+        "Total Final A Internal Score": {
+          "inputs": {
+            "All-Time Total Skater A Team Rate Avg": 0.39148604618217886,
+            "Career Prior Skater GP": 88,
+            "Career Prior Total A/GP": 0.6818181818181818,
+            "Current Total A/GP": 0.3333333333333333,
+            "Current Total Raw A": 1,
+            "Current Total Skater A Field Rate Avg": 0.18333333333333332,
+            "Current Total Skater A Raw Leader": 3,
+            "Current Total Skater Played Games": 3
+          },
+          "nativeValue": 0.067
+        },
+        "Total Final Pts Internal Score": {
+          "inputs": {
+            "All-Time Total Skater Pts Team Rate Avg": 0.6641875619776171,
+            "Career Prior Skater GP": 88,
+            "Career Prior Total Pts/GP": 1.3863636363636365,
+            "Current Total Pts/GP": 0.3333333333333333,
+            "Current Total Raw Pts": 1,
+            "Current Total Skater Played Games": 3,
+            "Current Total Skater Pts Field Rate Avg": 0.26666666666666666,
+            "Current Total Skater Pts Raw Leader": 3
+          },
+          "nativeValue": -0.166
+        },
+        "Playoff Final G Internal Score": {
+          "inputs": {
+            "All-Time Playoff Skater G Team Rate Avg": 0.20592193808882903,
+            "Career Prior Playoff G/GP": 0.5,
+            "Career Prior Skater Playoff GP": 8,
+            "Current Playoff G/GP": 0,
+            "Current Playoff Raw G": 0,
+            "Current Playoff Skater G Field Rate Avg": 0,
+            "Current Playoff Skater G Raw Leader": 0,
+            "Current Playoff Skater Played Games": 0
+          },
+          "nativeValue": ""
+        },
+        "Playoff Final A Internal Score": {
+          "inputs": {
+            "All-Time Playoff Skater A Team Rate Avg": 0.28847016599371916,
+            "Career Prior Playoff A/GP": 0.625,
+            "Career Prior Skater Playoff GP": 8,
+            "Current Playoff A/GP": 0,
+            "Current Playoff Raw A": 0,
+            "Current Playoff Skater A Field Rate Avg": 0,
+            "Current Playoff Skater A Raw Leader": 0,
+            "Current Playoff Skater Played Games": 0
+          },
+          "nativeValue": ""
+        },
+        "Playoff Final Pts Internal Score": {
+          "inputs": {
+            "All-Time Playoff Skater Pts Team Rate Avg": 0.49439210408254813,
+            "Career Prior Playoff Pts/GP": 1.125,
+            "Career Prior Skater Playoff GP": 8,
+            "Current Playoff Pts/GP": 0,
+            "Current Playoff Raw Pts": 0,
+            "Current Playoff Skater Played Games": 0,
+            "Current Playoff Skater Pts Field Rate Avg": 0,
+            "Current Playoff Skater Pts Raw Leader": 0
+          },
+          "nativeValue": ""
+        }
+      }
+    },
+    {
+      "name": "Svec, Matt",
+      "role": "Goaltender",
+      "recentSeason": "W2025/26",
+      "components": {
+        "Total Final G Internal Score": {
+          "inputs": {
+            "All-Time Total Skater G Team Rate Avg": 0.27270151579543844,
+            "Career Prior Skater GP": 0,
+            "Career Prior Total G/GP": 0,
+            "Current Total G/GP": 0,
+            "Current Total Raw G": 0,
+            "Current Total Skater G Field Rate Avg": 0.08333333333333333,
+            "Current Total Skater G Raw Leader": 3,
+            "Current Total Skater Played Games": 0
+          },
+          "nativeValue": ""
+        },
+        "Total Final A Internal Score": {
+          "inputs": {
+            "All-Time Total Skater A Team Rate Avg": 0.39148604618217886,
+            "Career Prior Skater GP": 0,
+            "Career Prior Total A/GP": 0,
+            "Current Total A/GP": 0,
+            "Current Total Raw A": 0,
+            "Current Total Skater A Field Rate Avg": 0.18333333333333332,
+            "Current Total Skater A Raw Leader": 3,
+            "Current Total Skater Played Games": 0
+          },
+          "nativeValue": ""
+        },
+        "Total Final Pts Internal Score": {
+          "inputs": {
+            "All-Time Total Skater Pts Team Rate Avg": 0.6641875619776171,
+            "Career Prior Skater GP": 0,
+            "Career Prior Total Pts/GP": 0,
+            "Current Total Pts/GP": 0,
+            "Current Total Raw Pts": 0,
+            "Current Total Skater Played Games": 0,
+            "Current Total Skater Pts Field Rate Avg": 0.26666666666666666,
+            "Current Total Skater Pts Raw Leader": 3
+          },
+          "nativeValue": ""
+        },
+        "Playoff Final G Internal Score": {
+          "inputs": {
+            "All-Time Playoff Skater G Team Rate Avg": 0.20592193808882903,
+            "Career Prior Playoff G/GP": 0,
+            "Career Prior Skater Playoff GP": 0,
+            "Current Playoff G/GP": 0,
+            "Current Playoff Raw G": 0,
+            "Current Playoff Skater G Field Rate Avg": 0,
+            "Current Playoff Skater G Raw Leader": 0,
+            "Current Playoff Skater Played Games": 0
+          },
+          "nativeValue": ""
+        },
+        "Playoff Final A Internal Score": {
+          "inputs": {
+            "All-Time Playoff Skater A Team Rate Avg": 0.28847016599371916,
+            "Career Prior Playoff A/GP": 0,
+            "Career Prior Skater Playoff GP": 0,
+            "Current Playoff A/GP": 0,
+            "Current Playoff Raw A": 0,
+            "Current Playoff Skater A Field Rate Avg": 0,
+            "Current Playoff Skater A Raw Leader": 0,
+            "Current Playoff Skater Played Games": 0
+          },
+          "nativeValue": ""
+        },
+        "Playoff Final Pts Internal Score": {
+          "inputs": {
+            "All-Time Playoff Skater Pts Team Rate Avg": 0.49439210408254813,
+            "Career Prior Playoff Pts/GP": 0,
+            "Career Prior Skater Playoff GP": 0,
+            "Current Playoff Pts/GP": 0,
+            "Current Playoff Raw Pts": 0,
+            "Current Playoff Skater Played Games": 0,
+            "Current Playoff Skater Pts Field Rate Avg": 0,
+            "Current Playoff Skater Pts Raw Leader": 0
+          },
+          "nativeValue": ""
+        }
+      }
+    },
+    {
+      "name": "Rajkumar, Sanjay",
+      "role": "Skater",
+      "recentSeason": "W2026/27",
+      "components": {
+        "Total Final G Internal Score": {
+          "inputs": {
+            "All-Time Total Skater G Team Rate Avg": 0.27270151579543844,
+            "Career Prior Skater GP": 0,
+            "Career Prior Total G/GP": 0,
+            "Current Total G/GP": 0,
+            "Current Total Raw G": 0,
+            "Current Total Skater G Field Rate Avg": 0.08333333333333333,
+            "Current Total Skater G Raw Leader": 3,
+            "Current Total Skater Played Games": 3
+          },
+          "nativeValue": -0.058
+        },
+        "Total Final A Internal Score": {
+          "inputs": {
+            "All-Time Total Skater A Team Rate Avg": 0.39148604618217886,
+            "Career Prior Skater GP": 0,
+            "Career Prior Total A/GP": 0,
+            "Current Total A/GP": 0,
+            "Current Total Raw A": 0,
+            "Current Total Skater A Field Rate Avg": 0.18333333333333332,
+            "Current Total Skater A Raw Leader": 3,
+            "Current Total Skater Played Games": 3
+          },
+          "nativeValue": -0.095
+        },
+        "Total Final Pts Internal Score": {
+          "inputs": {
+            "All-Time Total Skater Pts Team Rate Avg": 0.6641875619776171,
+            "Career Prior Skater GP": 0,
+            "Career Prior Total Pts/GP": 0,
+            "Current Total Pts/GP": 0,
+            "Current Total Raw Pts": 0,
+            "Current Total Skater Played Games": 3,
+            "Current Total Skater Pts Field Rate Avg": 0.26666666666666666,
+            "Current Total Skater Pts Raw Leader": 3
+          },
+          "nativeValue": -0.153
+        },
+        "Playoff Final G Internal Score": {
+          "inputs": {
+            "All-Time Playoff Skater G Team Rate Avg": 0.20592193808882903,
+            "Career Prior Playoff G/GP": 0,
+            "Career Prior Skater Playoff GP": 0,
+            "Current Playoff G/GP": 0,
+            "Current Playoff Raw G": 0,
+            "Current Playoff Skater G Field Rate Avg": 0,
+            "Current Playoff Skater G Raw Leader": 0,
+            "Current Playoff Skater Played Games": 0
+          },
+          "nativeValue": ""
+        },
+        "Playoff Final A Internal Score": {
+          "inputs": {
+            "All-Time Playoff Skater A Team Rate Avg": 0.28847016599371916,
+            "Career Prior Playoff A/GP": 0,
+            "Career Prior Skater Playoff GP": 0,
+            "Current Playoff A/GP": 0,
+            "Current Playoff Raw A": 0,
+            "Current Playoff Skater A Field Rate Avg": 0,
+            "Current Playoff Skater A Raw Leader": 0,
+            "Current Playoff Skater Played Games": 0
+          },
+          "nativeValue": ""
+        },
+        "Playoff Final Pts Internal Score": {
+          "inputs": {
+            "All-Time Playoff Skater Pts Team Rate Avg": 0.49439210408254813,
+            "Career Prior Playoff Pts/GP": 0,
+            "Career Prior Skater Playoff GP": 0,
+            "Current Playoff Pts/GP": 0,
+            "Current Playoff Raw Pts": 0,
+            "Current Playoff Skater Played Games": 0,
+            "Current Playoff Skater Pts Field Rate Avg": 0,
+            "Current Playoff Skater Pts Raw Leader": 0
+          },
+          "nativeValue": ""
+        }
+      }
+    },
+    {
+      "name": "Triumbari, Francesco",
+      "role": "Skater",
+      "recentSeason": "W2026/27",
+      "components": {
+        "Total Final G Internal Score": {
+          "inputs": {
+            "All-Time Total Skater G Team Rate Avg": 0.27270151579543844,
+            "Career Prior Skater GP": 0,
+            "Career Prior Total G/GP": 0,
+            "Current Total G/GP": 0,
+            "Current Total Raw G": 0,
+            "Current Total Skater G Field Rate Avg": 0.08333333333333333,
+            "Current Total Skater G Raw Leader": 3,
+            "Current Total Skater Played Games": 4
+          },
+          "nativeValue": -0.058
+        },
+        "Total Final A Internal Score": {
+          "inputs": {
+            "All-Time Total Skater A Team Rate Avg": 0.39148604618217886,
+            "Career Prior Skater GP": 0,
+            "Career Prior Total A/GP": 0,
+            "Current Total A/GP": 0,
+            "Current Total Raw A": 0,
+            "Current Total Skater A Field Rate Avg": 0.18333333333333332,
+            "Current Total Skater A Raw Leader": 3,
+            "Current Total Skater Played Games": 4
+          },
+          "nativeValue": -0.095
+        },
+        "Total Final Pts Internal Score": {
+          "inputs": {
+            "All-Time Total Skater Pts Team Rate Avg": 0.6641875619776171,
+            "Career Prior Skater GP": 0,
+            "Career Prior Total Pts/GP": 0,
+            "Current Total Pts/GP": 0,
+            "Current Total Raw Pts": 0,
+            "Current Total Skater Played Games": 4,
+            "Current Total Skater Pts Field Rate Avg": 0.26666666666666666,
+            "Current Total Skater Pts Raw Leader": 3
+          },
+          "nativeValue": -0.153
+        },
+        "Playoff Final G Internal Score": {
+          "inputs": {
+            "All-Time Playoff Skater G Team Rate Avg": 0.20592193808882903,
+            "Career Prior Playoff G/GP": 0,
+            "Career Prior Skater Playoff GP": 0,
+            "Current Playoff G/GP": 0,
+            "Current Playoff Raw G": 0,
+            "Current Playoff Skater G Field Rate Avg": 0,
+            "Current Playoff Skater G Raw Leader": 0,
+            "Current Playoff Skater Played Games": 0
+          },
+          "nativeValue": ""
+        },
+        "Playoff Final A Internal Score": {
+          "inputs": {
+            "All-Time Playoff Skater A Team Rate Avg": 0.28847016599371916,
+            "Career Prior Playoff A/GP": 0,
+            "Career Prior Skater Playoff GP": 0,
+            "Current Playoff A/GP": 0,
+            "Current Playoff Raw A": 0,
+            "Current Playoff Skater A Field Rate Avg": 0,
+            "Current Playoff Skater A Raw Leader": 0,
+            "Current Playoff Skater Played Games": 0
+          },
+          "nativeValue": ""
+        },
+        "Playoff Final Pts Internal Score": {
+          "inputs": {
+            "All-Time Playoff Skater Pts Team Rate Avg": 0.49439210408254813,
+            "Career Prior Playoff Pts/GP": 0,
+            "Career Prior Skater Playoff GP": 0,
+            "Current Playoff Pts/GP": 0,
+            "Current Playoff Raw Pts": 0,
+            "Current Playoff Skater Played Games": 0,
+            "Current Playoff Skater Pts Field Rate Avg": 0,
+            "Current Playoff Skater Pts Raw Leader": 0
+          },
+          "nativeValue": ""
+        }
+      }
+    },
+    {
+      "name": "Unknown, Johnny",
+      "role": "Skater",
+      "recentSeason": "W2026/27",
+      "components": {
+        "Total Final G Internal Score": {
+          "inputs": {
+            "All-Time Total Skater G Team Rate Avg": 0.27270151579543844,
+            "Career Prior Skater GP": 0,
+            "Career Prior Total G/GP": 0,
+            "Current Total G/GP": 0,
+            "Current Total Raw G": 0,
+            "Current Total Skater G Field Rate Avg": 0.08333333333333333,
+            "Current Total Skater G Raw Leader": 3,
+            "Current Total Skater Played Games": 1
+          },
+          "nativeValue": -0.058
+        },
+        "Total Final A Internal Score": {
+          "inputs": {
+            "All-Time Total Skater A Team Rate Avg": 0.39148604618217886,
+            "Career Prior Skater GP": 0,
+            "Career Prior Total A/GP": 0,
+            "Current Total A/GP": 0,
+            "Current Total Raw A": 0,
+            "Current Total Skater A Field Rate Avg": 0.18333333333333332,
+            "Current Total Skater A Raw Leader": 3,
+            "Current Total Skater Played Games": 1
+          },
+          "nativeValue": -0.095
+        },
+        "Total Final Pts Internal Score": {
+          "inputs": {
+            "All-Time Total Skater Pts Team Rate Avg": 0.6641875619776171,
+            "Career Prior Skater GP": 0,
+            "Career Prior Total Pts/GP": 0,
+            "Current Total Pts/GP": 0,
+            "Current Total Raw Pts": 0,
+            "Current Total Skater Played Games": 1,
+            "Current Total Skater Pts Field Rate Avg": 0.26666666666666666,
+            "Current Total Skater Pts Raw Leader": 3
+          },
+          "nativeValue": -0.153
+        },
+        "Playoff Final G Internal Score": {
+          "inputs": {
+            "All-Time Playoff Skater G Team Rate Avg": 0.20592193808882903,
+            "Career Prior Playoff G/GP": 0,
+            "Career Prior Skater Playoff GP": 0,
+            "Current Playoff G/GP": 0,
+            "Current Playoff Raw G": 0,
+            "Current Playoff Skater G Field Rate Avg": 0,
+            "Current Playoff Skater G Raw Leader": 0,
+            "Current Playoff Skater Played Games": 0
+          },
+          "nativeValue": ""
+        },
+        "Playoff Final A Internal Score": {
+          "inputs": {
+            "All-Time Playoff Skater A Team Rate Avg": 0.28847016599371916,
+            "Career Prior Playoff A/GP": 0,
+            "Career Prior Skater Playoff GP": 0,
+            "Current Playoff A/GP": 0,
+            "Current Playoff Raw A": 0,
+            "Current Playoff Skater A Field Rate Avg": 0,
+            "Current Playoff Skater A Raw Leader": 0,
+            "Current Playoff Skater Played Games": 0
+          },
+          "nativeValue": ""
+        },
+        "Playoff Final Pts Internal Score": {
+          "inputs": {
+            "All-Time Playoff Skater Pts Team Rate Avg": 0.49439210408254813,
+            "Career Prior Playoff Pts/GP": 0,
+            "Career Prior Skater Playoff GP": 0,
+            "Current Playoff Pts/GP": 0,
+            "Current Playoff Raw Pts": 0,
+            "Current Playoff Skater Played Games": 0,
+            "Current Playoff Skater Pts Field Rate Avg": 0,
+            "Current Playoff Skater Pts Raw Leader": 0
+          },
+          "nativeValue": ""
+        }
+      }
+    },
+    {
+      "name": "Pavaday, Damian",
+      "role": "Skater",
+      "recentSeason": "W2026/27",
+      "components": {
+        "Total Final G Internal Score": {
+          "inputs": {
+            "All-Time Total Skater G Team Rate Avg": 0.27270151579543844,
+            "Career Prior Skater GP": 0,
+            "Career Prior Total G/GP": 0,
+            "Current Total G/GP": 0,
+            "Current Total Raw G": 0,
+            "Current Total Skater G Field Rate Avg": 0.08333333333333333,
+            "Current Total Skater G Raw Leader": 3,
+            "Current Total Skater Played Games": 1
+          },
+          "nativeValue": -0.058
+        },
+        "Total Final A Internal Score": {
+          "inputs": {
+            "All-Time Total Skater A Team Rate Avg": 0.39148604618217886,
+            "Career Prior Skater GP": 0,
+            "Career Prior Total A/GP": 0,
+            "Current Total A/GP": 1,
+            "Current Total Raw A": 1,
+            "Current Total Skater A Field Rate Avg": 0.18333333333333332,
+            "Current Total Skater A Raw Leader": 3,
+            "Current Total Skater Played Games": 1
+          },
+          "nativeValue": 0.388
+        },
+        "Total Final Pts Internal Score": {
+          "inputs": {
+            "All-Time Total Skater Pts Team Rate Avg": 0.6641875619776171,
+            "Career Prior Skater GP": 0,
+            "Career Prior Total Pts/GP": 0,
+            "Current Total Pts/GP": 1,
+            "Current Total Raw Pts": 1,
+            "Current Total Skater Played Games": 1,
+            "Current Total Skater Pts Field Rate Avg": 0.26666666666666666,
+            "Current Total Skater Pts Raw Leader": 3
+          },
+          "nativeValue": 0.33
+        },
+        "Playoff Final G Internal Score": {
+          "inputs": {
+            "All-Time Playoff Skater G Team Rate Avg": 0.20592193808882903,
+            "Career Prior Playoff G/GP": 0,
+            "Career Prior Skater Playoff GP": 0,
+            "Current Playoff G/GP": 0,
+            "Current Playoff Raw G": 0,
+            "Current Playoff Skater G Field Rate Avg": 0,
+            "Current Playoff Skater G Raw Leader": 0,
+            "Current Playoff Skater Played Games": 0
+          },
+          "nativeValue": ""
+        },
+        "Playoff Final A Internal Score": {
+          "inputs": {
+            "All-Time Playoff Skater A Team Rate Avg": 0.28847016599371916,
+            "Career Prior Playoff A/GP": 0,
+            "Career Prior Skater Playoff GP": 0,
+            "Current Playoff A/GP": 0,
+            "Current Playoff Raw A": 0,
+            "Current Playoff Skater A Field Rate Avg": 0,
+            "Current Playoff Skater A Raw Leader": 0,
+            "Current Playoff Skater Played Games": 0
+          },
+          "nativeValue": ""
+        },
+        "Playoff Final Pts Internal Score": {
+          "inputs": {
+            "All-Time Playoff Skater Pts Team Rate Avg": 0.49439210408254813,
+            "Career Prior Playoff Pts/GP": 0,
+            "Career Prior Skater Playoff GP": 0,
+            "Current Playoff Pts/GP": 0,
+            "Current Playoff Raw Pts": 0,
+            "Current Playoff Skater Played Games": 0,
+            "Current Playoff Skater Pts Field Rate Avg": 0,
+            "Current Playoff Skater Pts Raw Leader": 0
+          },
+          "nativeValue": ""
+        }
+      }
+    }
+  ],
+  "playerCount": 25,
+  "componentCount": 6,
+  "currentScoresVerified": false,
+  "publicationAuthorized": false,
+  "nativeExportSha256": "e8636061288812c2cdad9826a0e13c1f1214ce89817bea95522686d7ceab6057"
+}

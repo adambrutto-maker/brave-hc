@@ -1,0 +1,720 @@
+{
+  "state": "FIVE_GOALIE_COMPONENTS_REBUILT_CORRECTED_NATIVE_PARITY_OPEN",
+  "season": "W2026/27",
+  "cutoff": "2026-10-18",
+  "goalieInternalCount": 15,
+  "derivedObservations": [
+    {
+      "name": "Leong, Dev",
+      "sourceGameId": 3356177,
+      "field": "W",
+      "value": 0,
+      "premises": {
+        "GP": 1,
+        "L": 1,
+        "GA": 3
+      },
+      "rule": "One recorded loss leaves no win/tie; positive goals allowed excludes a shutout",
+      "directObservation": false
+    },
+    {
+      "name": "Leong, Dev",
+      "sourceGameId": 3356177,
+      "field": "T",
+      "value": 0,
+      "premises": {
+        "GP": 1,
+        "L": 1,
+        "GA": 3
+      },
+      "rule": "One recorded loss leaves no win/tie; positive goals allowed excludes a shutout",
+      "directObservation": false
+    },
+    {
+      "name": "Leong, Dev",
+      "sourceGameId": 3356177,
+      "field": "SHO",
+      "value": 0,
+      "premises": {
+        "GP": 1,
+        "L": 1,
+        "GA": 3
+      },
+      "rule": "One recorded loss leaves no win/tie; positive goals allowed excludes a shutout",
+      "directObservation": false
+    },
+    {
+      "name": "Logue, Stephen",
+      "sourceGameId": 3356178,
+      "field": "W",
+      "value": 0,
+      "premises": {
+        "GP": 1,
+        "L": 1,
+        "GA": 6
+      },
+      "rule": "One recorded loss leaves no win/tie; positive goals allowed excludes a shutout",
+      "directObservation": false
+    },
+    {
+      "name": "Logue, Stephen",
+      "sourceGameId": 3356178,
+      "field": "T",
+      "value": 0,
+      "premises": {
+        "GP": 1,
+        "L": 1,
+        "GA": 6
+      },
+      "rule": "One recorded loss leaves no win/tie; positive goals allowed excludes a shutout",
+      "directObservation": false
+    },
+    {
+      "name": "Logue, Stephen",
+      "sourceGameId": 3356178,
+      "field": "SHO",
+      "value": 0,
+      "premises": {
+        "GP": 1,
+        "L": 1,
+        "GA": 6
+      },
+      "rule": "One recorded loss leaves no win/tie; positive goals allowed excludes a shutout",
+      "directObservation": false
+    },
+    {
+      "name": "Carlyle, Adam",
+      "sourceGameId": 3369564,
+      "field": "W",
+      "value": 0,
+      "premises": {
+        "GP": 1,
+        "L": 1,
+        "GA": 3
+      },
+      "rule": "One recorded loss leaves no win/tie; positive goals allowed excludes a shutout",
+      "directObservation": false
+    },
+    {
+      "name": "Carlyle, Adam",
+      "sourceGameId": 3369564,
+      "field": "T",
+      "value": 0,
+      "premises": {
+        "GP": 1,
+        "L": 1,
+        "GA": 3
+      },
+      "rule": "One recorded loss leaves no win/tie; positive goals allowed excludes a shutout",
+      "directObservation": false
+    },
+    {
+      "name": "Carlyle, Adam",
+      "sourceGameId": 3369564,
+      "field": "SHO",
+      "value": 0,
+      "premises": {
+        "GP": 1,
+        "L": 1,
+        "GA": 3
+      },
+      "rule": "One recorded loss leaves no win/tie; positive goals allowed excludes a shutout",
+      "directObservation": false
+    },
+    {
+      "name": "Leong, Dev",
+      "sourceGameId": 3375601,
+      "field": "W",
+      "value": 0,
+      "premises": {
+        "GP": 1,
+        "L": 1,
+        "GA": 7
+      },
+      "rule": "One recorded loss leaves no win/tie; positive goals allowed excludes a shutout",
+      "directObservation": false
+    },
+    {
+      "name": "Leong, Dev",
+      "sourceGameId": 3375601,
+      "field": "T",
+      "value": 0,
+      "premises": {
+        "GP": 1,
+        "L": 1,
+        "GA": 7
+      },
+      "rule": "One recorded loss leaves no win/tie; positive goals allowed excludes a shutout",
+      "directObservation": false
+    },
+    {
+      "name": "Leong, Dev",
+      "sourceGameId": 3375601,
+      "field": "SHO",
+      "value": 0,
+      "premises": {
+        "GP": 1,
+        "L": 1,
+        "GA": 7
+      },
+      "rule": "One recorded loss leaves no win/tie; positive goals allowed excludes a shutout",
+      "directObservation": false
+    }
+  ],
+  "components": {
+    "Total Award Goalie W Internal Score": {
+      "goalieRows": [
+        {
+          "name": "Leong, Dev",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": -0.167,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Career Prior Goalie GP": 17,
+            "Career Prior Total Goalie Win %": 0.35294117647058826,
+            "All-Time Total Goalie Win % Team Rate Avg": 0.5263888888888889,
+            "Career Prior Total Goalie GAA": 4.352941176470588,
+            "All-Time Total Goalie GAA Team Rate Avg": 3.136111111111111,
+            "Career Prior Total Goalie SHO/GP": 0,
+            "All-Time Total Goalie SHO Team Rate Avg": 0,
+            "Career Prior Total Goalie POTG/GP": 0.23529411764705882,
+            "All-Time Total Goalie POTG Team Rate Avg": 0.2111111111111111,
+            "Current Total Goalie Played Games": 2,
+            "Current Total Goalie Win %": 0.0,
+            "Current Total Goalie W": 0,
+            "Current Total Goalie W Raw Leader": 0,
+            "Current Total Goalie Win % Field Rate Avg": 0.0,
+            "Current Total Goalie Win % Field Best Rate": 0.0
+          }
+        },
+        {
+          "name": "Logue, Stephen",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": -0.214,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Career Prior Goalie GP": 261,
+            "Career Prior Total Goalie Win %": 0.5383141762452107,
+            "All-Time Total Goalie Win % Team Rate Avg": 0.5263888888888889,
+            "Career Prior Total Goalie GAA": 3,
+            "All-Time Total Goalie GAA Team Rate Avg": 3.136111111111111,
+            "Career Prior Total Goalie SHO/GP": 0.06896551724137931,
+            "All-Time Total Goalie SHO Team Rate Avg": 0,
+            "Career Prior Total Goalie POTG/GP": 0.210727969348659,
+            "All-Time Total Goalie POTG Team Rate Avg": 0.2111111111111111,
+            "Current Total Goalie Played Games": 1,
+            "Current Total Goalie Win %": 0.0,
+            "Current Total Goalie W": 0,
+            "Current Total Goalie W Raw Leader": 0,
+            "Current Total Goalie Win % Field Rate Avg": 0.0,
+            "Current Total Goalie Win % Field Best Rate": 0.0
+          }
+        },
+        {
+          "name": "Carlyle, Adam",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": -0.079,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Career Prior Goalie GP": 0,
+            "Career Prior Total Goalie Win %": 0,
+            "All-Time Total Goalie Win % Team Rate Avg": 0.5263888888888889,
+            "Career Prior Total Goalie GAA": 0,
+            "All-Time Total Goalie GAA Team Rate Avg": 3.136111111111111,
+            "Career Prior Total Goalie SHO/GP": 0,
+            "All-Time Total Goalie SHO Team Rate Avg": 0,
+            "Career Prior Total Goalie POTG/GP": 0,
+            "All-Time Total Goalie POTG Team Rate Avg": 0.2111111111111111,
+            "Current Total Goalie Played Games": 1,
+            "Current Total Goalie Win %": 0.0,
+            "Current Total Goalie W": 0,
+            "Current Total Goalie W Raw Leader": 0,
+            "Current Total Goalie Win % Field Rate Avg": 0.0,
+            "Current Total Goalie Win % Field Best Rate": 0.0
+          }
+        }
+      ],
+      "normalized": {
+        "season": "W2026/27",
+        "cutoff": "2026-10-18",
+        "inputField": "Total Award Goalie W Internal Score",
+        "formulaSha256": "87919adece86800edf0e4129b858074710b009a05d2e2b11739bd402c5986bd3",
+        "currentPlayerCoverage": 22,
+        "unavailable": [],
+        "currentCompositeScoresVerified": false,
+        "publicationAuthorized": false,
+        "state": "CURRENT_COMPONENT_NORMALIZATION_CANDIDATE",
+        "family": "MINMAX_BLANK_ZERO",
+        "numericPlayerCount": 3,
+        "scores": {
+          "Leong, Dev": 61.0,
+          "Logue, Stephen": 50.0,
+          "Carlyle, Adam": 81.5
+        },
+        "notApplicable": {
+          "Ardizzi, Stefano": "Source excludes non-goalies",
+          "Brutto, Adam": "Source excludes non-goalies",
+          "Carosi, Justin": "Source excludes non-goalies",
+          "Kong, Henry": "Source excludes non-goalies",
+          "Pagnotta, Alex": "Source excludes non-goalies",
+          "Paolucci, Anthony": "Source excludes non-goalies",
+          "Pearsoll, Keith": "Source excludes non-goalies",
+          "Povegliano, Adam": "Source excludes non-goalies",
+          "Provenzano, Mario": "Source excludes non-goalies",
+          "Provenzano, Michael": "Source excludes non-goalies",
+          "Rajkumar, Sanjay": "Source excludes non-goalies",
+          "Saindon, Stephane": "Source excludes non-goalies",
+          "Triumbari, Francesco": "Source excludes non-goalies",
+          "Atkins, Nolan": "Source excludes non-goalies",
+          "Duffy, Lorcan": "Source excludes non-goalies",
+          "Kober, Adam": "Source excludes non-goalies",
+          "Rajasooriar, Krishnan": "Source excludes non-goalies",
+          "Rosenberg, Jamie": "Source excludes non-goalies",
+          "Pavaday, Damian": "Source excludes non-goalies"
+        },
+        "upstreamParityVerified": false
+      }
+    },
+    "Total Award Goalie Win % Internal Score": {
+      "goalieRows": [
+        {
+          "name": "Leong, Dev",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": -0.167,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Career Prior Goalie GP": 17,
+            "Career Prior Total Goalie Win %": 0.35294117647058826,
+            "All-Time Total Goalie Win % Team Rate Avg": 0.5263888888888889,
+            "Career Prior Total Goalie GAA": 4.352941176470588,
+            "All-Time Total Goalie GAA Team Rate Avg": 3.136111111111111,
+            "Career Prior Total Goalie SHO/GP": 0,
+            "All-Time Total Goalie SHO Team Rate Avg": 0,
+            "Career Prior Total Goalie POTG/GP": 0.23529411764705882,
+            "All-Time Total Goalie POTG Team Rate Avg": 0.2111111111111111,
+            "Current Total Goalie Played Games": 2,
+            "Current Total Goalie Win %": 0.0,
+            "Current Total Goalie Win % Field Rate Avg": 0.0,
+            "Current Total Goalie Win % Field Best Rate": 0.0
+          }
+        },
+        {
+          "name": "Logue, Stephen",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": -0.214,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Career Prior Goalie GP": 261,
+            "Career Prior Total Goalie Win %": 0.5383141762452107,
+            "All-Time Total Goalie Win % Team Rate Avg": 0.5263888888888889,
+            "Career Prior Total Goalie GAA": 3,
+            "All-Time Total Goalie GAA Team Rate Avg": 3.136111111111111,
+            "Career Prior Total Goalie SHO/GP": 0.06896551724137931,
+            "All-Time Total Goalie SHO Team Rate Avg": 0,
+            "Career Prior Total Goalie POTG/GP": 0.210727969348659,
+            "All-Time Total Goalie POTG Team Rate Avg": 0.2111111111111111,
+            "Current Total Goalie Played Games": 1,
+            "Current Total Goalie Win %": 0.0,
+            "Current Total Goalie Win % Field Rate Avg": 0.0,
+            "Current Total Goalie Win % Field Best Rate": 0.0
+          }
+        },
+        {
+          "name": "Carlyle, Adam",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": -0.079,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Career Prior Goalie GP": 0,
+            "Career Prior Total Goalie Win %": 0,
+            "All-Time Total Goalie Win % Team Rate Avg": 0.5263888888888889,
+            "Career Prior Total Goalie GAA": 0,
+            "All-Time Total Goalie GAA Team Rate Avg": 3.136111111111111,
+            "Career Prior Total Goalie SHO/GP": 0,
+            "All-Time Total Goalie SHO Team Rate Avg": 0,
+            "Career Prior Total Goalie POTG/GP": 0,
+            "All-Time Total Goalie POTG Team Rate Avg": 0.2111111111111111,
+            "Current Total Goalie Played Games": 1,
+            "Current Total Goalie Win %": 0.0,
+            "Current Total Goalie Win % Field Rate Avg": 0.0,
+            "Current Total Goalie Win % Field Best Rate": 0.0
+          }
+        }
+      ],
+      "normalized": {
+        "season": "W2026/27",
+        "cutoff": "2026-10-18",
+        "inputField": "Total Award Goalie Win % Internal Score",
+        "formulaSha256": "8dfd9f224781cbc87520d8f1a78f9b6a17394cc1f03868eefa34760bb3fbe6e2",
+        "currentPlayerCoverage": 22,
+        "unavailable": [],
+        "currentCompositeScoresVerified": false,
+        "publicationAuthorized": false,
+        "state": "CURRENT_COMPONENT_NORMALIZATION_CANDIDATE",
+        "family": "MINMAX_BLANK_ZERO",
+        "numericPlayerCount": 3,
+        "scores": {
+          "Leong, Dev": 61.0,
+          "Logue, Stephen": 50.0,
+          "Carlyle, Adam": 81.5
+        },
+        "notApplicable": {
+          "Ardizzi, Stefano": "Source excludes non-goalies",
+          "Brutto, Adam": "Source excludes non-goalies",
+          "Carosi, Justin": "Source excludes non-goalies",
+          "Kong, Henry": "Source excludes non-goalies",
+          "Pagnotta, Alex": "Source excludes non-goalies",
+          "Paolucci, Anthony": "Source excludes non-goalies",
+          "Pearsoll, Keith": "Source excludes non-goalies",
+          "Povegliano, Adam": "Source excludes non-goalies",
+          "Provenzano, Mario": "Source excludes non-goalies",
+          "Provenzano, Michael": "Source excludes non-goalies",
+          "Rajkumar, Sanjay": "Source excludes non-goalies",
+          "Saindon, Stephane": "Source excludes non-goalies",
+          "Triumbari, Francesco": "Source excludes non-goalies",
+          "Atkins, Nolan": "Source excludes non-goalies",
+          "Duffy, Lorcan": "Source excludes non-goalies",
+          "Kober, Adam": "Source excludes non-goalies",
+          "Rajasooriar, Krishnan": "Source excludes non-goalies",
+          "Rosenberg, Jamie": "Source excludes non-goalies",
+          "Pavaday, Damian": "Source excludes non-goalies"
+        },
+        "upstreamParityVerified": false
+      }
+    },
+    "Total Award Goalie GAA Internal Score": {
+      "goalieRows": [
+        {
+          "name": "Leong, Dev",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": -1.308,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Career Prior Goalie GP": 17,
+            "Career Prior Total Goalie Win %": 0.35294117647058826,
+            "All-Time Total Goalie Win % Team Rate Avg": 0.5263888888888889,
+            "Career Prior Total Goalie GAA": 4.352941176470588,
+            "All-Time Total Goalie GAA Team Rate Avg": 3.136111111111111,
+            "Career Prior Total Goalie SHO/GP": 0,
+            "All-Time Total Goalie SHO Team Rate Avg": 0,
+            "Career Prior Total Goalie POTG/GP": 0.23529411764705882,
+            "All-Time Total Goalie POTG Team Rate Avg": 0.2111111111111111,
+            "Current Total Goalie Played Games": 2,
+            "Current Total Goalie GAA": 5.0,
+            "Current Total Goalie GAA Field Rate Avg": 4.666666666666667,
+            "Current Total Goalie GAA Field Best Rate": 3.0
+          }
+        },
+        {
+          "name": "Logue, Stephen",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": -2.646,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Career Prior Goalie GP": 261,
+            "Career Prior Total Goalie Win %": 0.5383141762452107,
+            "All-Time Total Goalie Win % Team Rate Avg": 0.5263888888888889,
+            "Career Prior Total Goalie GAA": 3,
+            "All-Time Total Goalie GAA Team Rate Avg": 3.136111111111111,
+            "Career Prior Total Goalie SHO/GP": 0.06896551724137931,
+            "All-Time Total Goalie SHO Team Rate Avg": 0,
+            "Career Prior Total Goalie POTG/GP": 0.210727969348659,
+            "All-Time Total Goalie POTG Team Rate Avg": 0.2111111111111111,
+            "Current Total Goalie Played Games": 1,
+            "Current Total Goalie GAA": 6.0,
+            "Current Total Goalie GAA Field Rate Avg": 4.666666666666667,
+            "Current Total Goalie GAA Field Best Rate": 3.0
+          }
+        },
+        {
+          "name": "Carlyle, Adam",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 0.354,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Career Prior Goalie GP": 0,
+            "Career Prior Total Goalie Win %": 0,
+            "All-Time Total Goalie Win % Team Rate Avg": 0.5263888888888889,
+            "Career Prior Total Goalie GAA": 0,
+            "All-Time Total Goalie GAA Team Rate Avg": 3.136111111111111,
+            "Career Prior Total Goalie SHO/GP": 0,
+            "All-Time Total Goalie SHO Team Rate Avg": 0,
+            "Career Prior Total Goalie POTG/GP": 0,
+            "All-Time Total Goalie POTG Team Rate Avg": 0.2111111111111111,
+            "Current Total Goalie Played Games": 1,
+            "Current Total Goalie GAA": 3.0,
+            "Current Total Goalie GAA Field Rate Avg": 4.666666666666667,
+            "Current Total Goalie GAA Field Best Rate": 3.0
+          }
+        }
+      ],
+      "normalized": {
+        "season": "W2026/27",
+        "cutoff": "2026-10-18",
+        "inputField": "Total Award Goalie GAA Internal Score",
+        "formulaSha256": "cff4282603e09c2c45b96e10fe2b498114a6087608470464c86ad91745458753",
+        "currentPlayerCoverage": 22,
+        "unavailable": [],
+        "currentCompositeScoresVerified": false,
+        "publicationAuthorized": false,
+        "state": "CURRENT_COMPONENT_NORMALIZATION_CANDIDATE",
+        "family": "MINMAX_SIGNED_TIE",
+        "numericPlayerCount": 3,
+        "scores": {
+          "Leong, Dev": 72.3,
+          "Logue, Stephen": 50.0,
+          "Carlyle, Adam": 100.0
+        },
+        "notApplicable": {
+          "Ardizzi, Stefano": "Source excludes non-goalies",
+          "Brutto, Adam": "Source excludes non-goalies",
+          "Carosi, Justin": "Source excludes non-goalies",
+          "Kong, Henry": "Source excludes non-goalies",
+          "Pagnotta, Alex": "Source excludes non-goalies",
+          "Paolucci, Anthony": "Source excludes non-goalies",
+          "Pearsoll, Keith": "Source excludes non-goalies",
+          "Povegliano, Adam": "Source excludes non-goalies",
+          "Provenzano, Mario": "Source excludes non-goalies",
+          "Provenzano, Michael": "Source excludes non-goalies",
+          "Rajkumar, Sanjay": "Source excludes non-goalies",
+          "Saindon, Stephane": "Source excludes non-goalies",
+          "Triumbari, Francesco": "Source excludes non-goalies",
+          "Atkins, Nolan": "Source excludes non-goalies",
+          "Duffy, Lorcan": "Source excludes non-goalies",
+          "Kober, Adam": "Source excludes non-goalies",
+          "Rajasooriar, Krishnan": "Source excludes non-goalies",
+          "Rosenberg, Jamie": "Source excludes non-goalies",
+          "Pavaday, Damian": "Source excludes non-goalies"
+        },
+        "upstreamParityVerified": false
+      }
+    },
+    "Total Award Goalie SHO Internal Score": {
+      "goalieRows": [
+        {
+          "name": "Leong, Dev",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 0.0,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Career Prior Goalie GP": 17,
+            "Career Prior Total Goalie Win %": 0.35294117647058826,
+            "All-Time Total Goalie Win % Team Rate Avg": 0.5263888888888889,
+            "Career Prior Total Goalie GAA": 4.352941176470588,
+            "All-Time Total Goalie GAA Team Rate Avg": 3.136111111111111,
+            "Career Prior Total Goalie SHO/GP": 0,
+            "All-Time Total Goalie SHO Team Rate Avg": 0,
+            "Career Prior Total Goalie POTG/GP": 0.23529411764705882,
+            "All-Time Total Goalie POTG Team Rate Avg": 0.2111111111111111,
+            "Current Total Goalie Played Games": 2,
+            "Current Total Goalie SHO/GP": 0.0,
+            "Current Total Goalie SHO": 0,
+            "Current Total Goalie SHO Raw Leader": 0,
+            "Current Total Goalie SHO Field Rate Avg": 0.0,
+            "Current Total Goalie SHO Field Best Rate": 0.0
+          }
+        },
+        {
+          "name": "Logue, Stephen",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": -0.017,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Career Prior Goalie GP": 261,
+            "Career Prior Total Goalie Win %": 0.5383141762452107,
+            "All-Time Total Goalie Win % Team Rate Avg": 0.5263888888888889,
+            "Career Prior Total Goalie GAA": 3,
+            "All-Time Total Goalie GAA Team Rate Avg": 3.136111111111111,
+            "Career Prior Total Goalie SHO/GP": 0.06896551724137931,
+            "All-Time Total Goalie SHO Team Rate Avg": 0,
+            "Career Prior Total Goalie POTG/GP": 0.210727969348659,
+            "All-Time Total Goalie POTG Team Rate Avg": 0.2111111111111111,
+            "Current Total Goalie Played Games": 1,
+            "Current Total Goalie SHO/GP": 0.0,
+            "Current Total Goalie SHO": 0,
+            "Current Total Goalie SHO Raw Leader": 0,
+            "Current Total Goalie SHO Field Rate Avg": 0.0,
+            "Current Total Goalie SHO Field Best Rate": 0.0
+          }
+        },
+        {
+          "name": "Carlyle, Adam",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 0.0,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Career Prior Goalie GP": 0,
+            "Career Prior Total Goalie Win %": 0,
+            "All-Time Total Goalie Win % Team Rate Avg": 0.5263888888888889,
+            "Career Prior Total Goalie GAA": 0,
+            "All-Time Total Goalie GAA Team Rate Avg": 3.136111111111111,
+            "Career Prior Total Goalie SHO/GP": 0,
+            "All-Time Total Goalie SHO Team Rate Avg": 0,
+            "Career Prior Total Goalie POTG/GP": 0,
+            "All-Time Total Goalie POTG Team Rate Avg": 0.2111111111111111,
+            "Current Total Goalie Played Games": 1,
+            "Current Total Goalie SHO/GP": 0.0,
+            "Current Total Goalie SHO": 0,
+            "Current Total Goalie SHO Raw Leader": 0,
+            "Current Total Goalie SHO Field Rate Avg": 0.0,
+            "Current Total Goalie SHO Field Best Rate": 0.0
+          }
+        }
+      ],
+      "normalized": {
+        "season": "W2026/27",
+        "cutoff": "2026-10-18",
+        "inputField": "Total Award Goalie SHO Internal Score",
+        "formulaSha256": "f3fbd2c01e8ac7e39645cdfb8c15bf39a8c2d8a98be8d787fe13772aa9426477",
+        "currentPlayerCoverage": 22,
+        "unavailable": [],
+        "currentCompositeScoresVerified": false,
+        "publicationAuthorized": false,
+        "state": "CURRENT_COMPONENT_NORMALIZATION_CANDIDATE",
+        "family": "MINMAX_SIGNED_TIE",
+        "numericPlayerCount": 3,
+        "scores": {
+          "Leong, Dev": 100.0,
+          "Logue, Stephen": 50.0,
+          "Carlyle, Adam": 100.0
+        },
+        "notApplicable": {
+          "Ardizzi, Stefano": "Source excludes non-goalies",
+          "Brutto, Adam": "Source excludes non-goalies",
+          "Carosi, Justin": "Source excludes non-goalies",
+          "Kong, Henry": "Source excludes non-goalies",
+          "Pagnotta, Alex": "Source excludes non-goalies",
+          "Paolucci, Anthony": "Source excludes non-goalies",
+          "Pearsoll, Keith": "Source excludes non-goalies",
+          "Povegliano, Adam": "Source excludes non-goalies",
+          "Provenzano, Mario": "Source excludes non-goalies",
+          "Provenzano, Michael": "Source excludes non-goalies",
+          "Rajkumar, Sanjay": "Source excludes non-goalies",
+          "Saindon, Stephane": "Source excludes non-goalies",
+          "Triumbari, Francesco": "Source excludes non-goalies",
+          "Atkins, Nolan": "Source excludes non-goalies",
+          "Duffy, Lorcan": "Source excludes non-goalies",
+          "Kober, Adam": "Source excludes non-goalies",
+          "Rajasooriar, Krishnan": "Source excludes non-goalies",
+          "Rosenberg, Jamie": "Source excludes non-goalies",
+          "Pavaday, Damian": "Source excludes non-goalies"
+        },
+        "upstreamParityVerified": false
+      }
+    },
+    "Total Award POTG Internal Score": {
+      "goalieRows": [
+        {
+          "name": "Leong, Dev",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 0.443,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Career Prior Goalie GP": 17,
+            "Career Prior Total Goalie Win %": 0.35294117647058826,
+            "All-Time Total Goalie Win % Team Rate Avg": 0.5263888888888889,
+            "Career Prior Total Goalie GAA": 4.352941176470588,
+            "All-Time Total Goalie GAA Team Rate Avg": 3.136111111111111,
+            "Career Prior Total Goalie SHO/GP": 0,
+            "All-Time Total Goalie SHO Team Rate Avg": 0,
+            "Career Prior Total Goalie POTG/GP": 0.23529411764705882,
+            "All-Time Total Goalie POTG Team Rate Avg": 0.2111111111111111,
+            "Current Total Goalie Played Games": 2,
+            "Current Total Goalie POTG/GP": 0.5,
+            "Current Total Goalie POTG": 1,
+            "Current Total Goalie POTG Raw Leader": 1,
+            "Current Total Goalie POTG Field Rate Avg": 0.8333333333333334,
+            "Current Total Goalie POTG Field Best Rate": 1.0
+          }
+        },
+        {
+          "name": "Logue, Stephen",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 0.749,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Career Prior Goalie GP": 261,
+            "Career Prior Total Goalie Win %": 0.5383141762452107,
+            "All-Time Total Goalie Win % Team Rate Avg": 0.5263888888888889,
+            "Career Prior Total Goalie GAA": 3,
+            "All-Time Total Goalie GAA Team Rate Avg": 3.136111111111111,
+            "Career Prior Total Goalie SHO/GP": 0.06896551724137931,
+            "All-Time Total Goalie SHO Team Rate Avg": 0,
+            "Career Prior Total Goalie POTG/GP": 0.210727969348659,
+            "All-Time Total Goalie POTG Team Rate Avg": 0.2111111111111111,
+            "Current Total Goalie Played Games": 1,
+            "Current Total Goalie POTG/GP": 1.0,
+            "Current Total Goalie POTG": 1,
+            "Current Total Goalie POTG Raw Leader": 1,
+            "Current Total Goalie POTG Field Rate Avg": 0.8333333333333334,
+            "Current Total Goalie POTG Field Best Rate": 1.0
+          }
+        },
+        {
+          "name": "Carlyle, Adam",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 0.552,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Career Prior Goalie GP": 0,
+            "Career Prior Total Goalie Win %": 0,
+            "All-Time Total Goalie Win % Team Rate Avg": 0.5263888888888889,
+            "Career Prior Total Goalie GAA": 0,
+            "All-Time Total Goalie GAA Team Rate Avg": 3.136111111111111,
+            "Career Prior Total Goalie SHO/GP": 0,
+            "All-Time Total Goalie SHO Team Rate Avg": 0,
+            "Career Prior Total Goalie POTG/GP": 0,
+            "All-Time Total Goalie POTG Team Rate Avg": 0.2111111111111111,
+            "Current Total Goalie Played Games": 1,
+            "Current Total Goalie POTG/GP": 1.0,
+            "Current Total Goalie POTG": 1,
+            "Current Total Goalie POTG Raw Leader": 1,
+            "Current Total Goalie POTG Field Rate Avg": 0.8333333333333334,
+            "Current Total Goalie POTG Field Best Rate": 1.0
+          }
+        }
+      ],
+      "normalized": {
+        "season": "W2026/27",
+        "cutoff": "2026-10-18",
+        "inputField": "Total Award POTG Internal Score",
+        "formulaSha256": "3c43b23edca2d931f9434bcad2c4d9febc9a7eb661abdda2f9fba7f1691aa353",
+        "currentPlayerCoverage": 22,
+        "unavailable": [],
+        "currentCompositeScoresVerified": false,
+        "publicationAuthorized": false,
+        "state": "CURRENT_COMPONENT_NORMALIZATION_CANDIDATE",
+        "family": "MINMAX_BLANK_ZERO",
+        "numericPlayerCount": 22,
+        "scores": {
+          "Ardizzi, Stefano": 50.0,
+          "Brutto, Adam": 50.4,
+          "Carosi, Justin": 100.0,
+          "Kong, Henry": 64.3,
+          "Pagnotta, Alex": 50.3,
+          "Paolucci, Anthony": 50.5,
+          "Pearsoll, Keith": 69.9,
+          "Povegliano, Adam": 50.9,
+          "Provenzano, Mario": 50.2,
+          "Provenzano, Michael": 66.5,
+          "Rajkumar, Sanjay": 50.9,
+          "Saindon, Stephane": 66.6,
+          "Triumbari, Francesco": 50.9,
+          "Leong, Dev": 80.3,
+          "Atkins, Nolan": 50.9,
+          "Duffy, Lorcan": 50.7,
+          "Kober, Adam": 70.1,
+          "Rajasooriar, Krishnan": 50.3,
+          "Rosenberg, Jamie": 66.1,
+          "Logue, Stephen": 98.9,
+          "Pavaday, Damian": 50.9,
+          "Carlyle, Adam": 86.9
+        },
+        "notApplicable": {},
+        "upstreamParityVerified": false
+      }
+    }
+  },
+  "currentCompositeScoresVerified": false,
+  "publicationAuthorized": false
+}

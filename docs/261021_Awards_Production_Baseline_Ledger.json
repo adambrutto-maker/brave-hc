@@ -1,0 +1,385 @@
+{
+  "state": "PRODUCTION_HISTORICAL_BASELINES_REBUILT",
+  "sourceWorkbookSha256": "68392eccdd7087f4efbc32cabf23cb308aa7843eb33df72d714a3a099754a132",
+  "checked": 9640,
+  "differenceCount": 0,
+  "differences": [],
+  "absoluteIntermediateTolerance": 1e-12,
+  "sourceSkaterRows": 4706,
+  "historicalBlankCount": 0,
+  "blankPolicy": "Known native blank G/A cells ignored by SUMIFS; unavailable current observations are not supplied here",
+  "seasonAdjustment": "Winter context: summer G/A multiplied by 32/48; winter unchanged; Pts = adjusted G + adjusted A",
+  "teamRates": {
+    "All-Time Total Skater G Team Rate Avg": 0.27270151579543844,
+    "All-Time Total Skater A Team Rate Avg": 0.39148604618217875,
+    "All-Time Total Skater Pts Team Rate Avg": 0.6641875619776172,
+    "All-Time Playoff Skater G Team Rate Avg": 0.20592193808882908,
+    "All-Time Playoff Skater A Team Rate Avg": 0.28847016599371916,
+    "All-Time Playoff Skater Pts Team Rate Avg": 0.4943921040825482
+  },
+  "players": [
+    {
+      "name": "Ardizzi, Stefano",
+      "values": {
+        "Career Prior Skater GP": 221,
+        "Career Prior Total G/GP": 0.25037707390648567,
+        "All-Time Total Skater G Team Rate Avg": 0.27270151579543844,
+        "Career Prior Total A/GP": 0.358974358974359,
+        "All-Time Total Skater A Team Rate Avg": 0.39148604618217875,
+        "Career Prior Total Pts/GP": 0.6093514328808446,
+        "All-Time Total Skater Pts Team Rate Avg": 0.6641875619776172,
+        "Career Prior Skater Playoff GP": 39,
+        "Career Prior Playoff G/GP": 0.2905982905982906,
+        "All-Time Playoff Skater G Team Rate Avg": 0.20592193808882908,
+        "Career Prior Playoff A/GP": 0.37606837606837606,
+        "All-Time Playoff Skater A Team Rate Avg": 0.28847016599371916,
+        "Career Prior Playoff Pts/GP": 0.6666666666666666,
+        "All-Time Playoff Skater Pts Team Rate Avg": 0.4943921040825482
+      }
+    },
+    {
+      "name": "Brutto, Adam",
+      "values": {
+        "Career Prior Skater GP": 332,
+        "Career Prior Total G/GP": 0.06927710843373494,
+        "All-Time Total Skater G Team Rate Avg": 0.27270151579543844,
+        "Career Prior Total A/GP": 0.36244979919678716,
+        "All-Time Total Skater A Team Rate Avg": 0.39148604618217875,
+        "Career Prior Total Pts/GP": 0.431726907630522,
+        "All-Time Total Skater Pts Team Rate Avg": 0.6641875619776172,
+        "Career Prior Skater Playoff GP": 51,
+        "Career Prior Playoff G/GP": 0.0522875816993464,
+        "All-Time Playoff Skater G Team Rate Avg": 0.20592193808882908,
+        "Career Prior Playoff A/GP": 0.4444444444444444,
+        "All-Time Playoff Skater A Team Rate Avg": 0.28847016599371916,
+        "Career Prior Playoff Pts/GP": 0.4967320261437908,
+        "All-Time Playoff Skater Pts Team Rate Avg": 0.4943921040825482
+      }
+    },
+    {
+      "name": "Carosi, Justin",
+      "values": {
+        "Career Prior Skater GP": 299,
+        "Career Prior Total G/GP": 0.4659977703455965,
+        "All-Time Total Skater G Team Rate Avg": 0.27270151579543844,
+        "Career Prior Total A/GP": 0.6755852842809364,
+        "All-Time Total Skater A Team Rate Avg": 0.39148604618217875,
+        "Career Prior Total Pts/GP": 1.141583054626533,
+        "All-Time Total Skater Pts Team Rate Avg": 0.6641875619776172,
+        "Career Prior Skater Playoff GP": 46,
+        "Career Prior Playoff G/GP": 0.34782608695652173,
+        "All-Time Playoff Skater G Team Rate Avg": 0.20592193808882908,
+        "Career Prior Playoff A/GP": 0.43478260869565216,
+        "All-Time Playoff Skater A Team Rate Avg": 0.28847016599371916,
+        "Career Prior Playoff Pts/GP": 0.782608695652174,
+        "All-Time Playoff Skater Pts Team Rate Avg": 0.4943921040825482
+      }
+    },
+    {
+      "name": "Kong, Henry",
+      "values": {
+        "Career Prior Skater GP": 0,
+        "Career Prior Total G/GP": 0,
+        "All-Time Total Skater G Team Rate Avg": 0.27270151579543844,
+        "Career Prior Total A/GP": 0,
+        "All-Time Total Skater A Team Rate Avg": 0.39148604618217875,
+        "Career Prior Total Pts/GP": 0,
+        "All-Time Total Skater Pts Team Rate Avg": 0.6641875619776172,
+        "Career Prior Skater Playoff GP": 0,
+        "Career Prior Playoff G/GP": 0,
+        "All-Time Playoff Skater G Team Rate Avg": 0.20592193808882908,
+        "Career Prior Playoff A/GP": 0,
+        "All-Time Playoff Skater A Team Rate Avg": 0.28847016599371916,
+        "Career Prior Playoff Pts/GP": 0,
+        "All-Time Playoff Skater Pts Team Rate Avg": 0.4943921040825482
+      }
+    },
+    {
+      "name": "Pagnotta, Alex",
+      "values": {
+        "Career Prior Skater GP": 320,
+        "Career Prior Total G/GP": 0.09375,
+        "All-Time Total Skater G Team Rate Avg": 0.27270151579543844,
+        "Career Prior Total A/GP": 0.34895833333333337,
+        "All-Time Total Skater A Team Rate Avg": 0.39148604618217875,
+        "Career Prior Total Pts/GP": 0.44270833333333337,
+        "All-Time Total Skater Pts Team Rate Avg": 0.6641875619776172,
+        "Career Prior Skater Playoff GP": 53,
+        "Career Prior Playoff G/GP": 0.09433962264150944,
+        "All-Time Playoff Skater G Team Rate Avg": 0.20592193808882908,
+        "Career Prior Playoff A/GP": 0.220125786163522,
+        "All-Time Playoff Skater A Team Rate Avg": 0.28847016599371916,
+        "Career Prior Playoff Pts/GP": 0.3144654088050314,
+        "All-Time Playoff Skater Pts Team Rate Avg": 0.4943921040825482
+      }
+    },
+    {
+      "name": "Paolucci, Anthony",
+      "values": {
+        "Career Prior Skater GP": 89,
+        "Career Prior Total G/GP": 0.08239700374531835,
+        "All-Time Total Skater G Team Rate Avg": 0.27270151579543844,
+        "Career Prior Total A/GP": 0.23970037453183518,
+        "All-Time Total Skater A Team Rate Avg": 0.39148604618217875,
+        "Career Prior Total Pts/GP": 0.3220973782771535,
+        "All-Time Total Skater Pts Team Rate Avg": 0.6641875619776172,
+        "Career Prior Skater Playoff GP": 22,
+        "Career Prior Playoff G/GP": 0.0606060606060606,
+        "All-Time Playoff Skater G Team Rate Avg": 0.20592193808882908,
+        "Career Prior Playoff A/GP": 0.2727272727272727,
+        "All-Time Playoff Skater A Team Rate Avg": 0.28847016599371916,
+        "Career Prior Playoff Pts/GP": 0.3333333333333333,
+        "All-Time Playoff Skater Pts Team Rate Avg": 0.4943921040825482
+      }
+    },
+    {
+      "name": "Pearsoll, Keith",
+      "values": {
+        "Career Prior Skater GP": 294,
+        "Career Prior Total G/GP": 0.3276643990929705,
+        "All-Time Total Skater G Team Rate Avg": 0.27270151579543844,
+        "Career Prior Total A/GP": 0.41609977324263037,
+        "All-Time Total Skater A Team Rate Avg": 0.39148604618217875,
+        "Career Prior Total Pts/GP": 0.7437641723356009,
+        "All-Time Total Skater Pts Team Rate Avg": 0.6641875619776172,
+        "Career Prior Skater Playoff GP": 46,
+        "Career Prior Playoff G/GP": 0.2391304347826087,
+        "All-Time Playoff Skater G Team Rate Avg": 0.20592193808882908,
+        "Career Prior Playoff A/GP": 0.2391304347826087,
+        "All-Time Playoff Skater A Team Rate Avg": 0.28847016599371916,
+        "Career Prior Playoff Pts/GP": 0.4782608695652174,
+        "All-Time Playoff Skater Pts Team Rate Avg": 0.4943921040825482
+      }
+    },
+    {
+      "name": "Povegliano, Adam",
+      "values": {
+        "Career Prior Skater GP": 0,
+        "Career Prior Total G/GP": 0,
+        "All-Time Total Skater G Team Rate Avg": 0.27270151579543844,
+        "Career Prior Total A/GP": 0,
+        "All-Time Total Skater A Team Rate Avg": 0.39148604618217875,
+        "Career Prior Total Pts/GP": 0,
+        "All-Time Total Skater Pts Team Rate Avg": 0.6641875619776172,
+        "Career Prior Skater Playoff GP": 0,
+        "Career Prior Playoff G/GP": 0,
+        "All-Time Playoff Skater G Team Rate Avg": 0.20592193808882908,
+        "Career Prior Playoff A/GP": 0,
+        "All-Time Playoff Skater A Team Rate Avg": 0.28847016599371916,
+        "Career Prior Playoff Pts/GP": 0,
+        "All-Time Playoff Skater Pts Team Rate Avg": 0.4943921040825482
+      }
+    },
+    {
+      "name": "Provenzano, Mario",
+      "values": {
+        "Career Prior Skater GP": 240,
+        "Career Prior Total G/GP": 0.12916666666666668,
+        "All-Time Total Skater G Team Rate Avg": 0.27270151579543844,
+        "Career Prior Total A/GP": 0.2902777777777778,
+        "All-Time Total Skater A Team Rate Avg": 0.39148604618217875,
+        "Career Prior Total Pts/GP": 0.41944444444444445,
+        "All-Time Total Skater Pts Team Rate Avg": 0.6641875619776172,
+        "Career Prior Skater Playoff GP": 41,
+        "Career Prior Playoff G/GP": 0.04878048780487805,
+        "All-Time Playoff Skater G Team Rate Avg": 0.20592193808882908,
+        "Career Prior Playoff A/GP": 0.34959349593495936,
+        "All-Time Playoff Skater A Team Rate Avg": 0.28847016599371916,
+        "Career Prior Playoff Pts/GP": 0.39837398373983746,
+        "All-Time Playoff Skater Pts Team Rate Avg": 0.4943921040825482
+      }
+    },
+    {
+      "name": "Provenzano, Michael",
+      "values": {
+        "Career Prior Skater GP": 39,
+        "Career Prior Total G/GP": 0.6410256410256411,
+        "All-Time Total Skater G Team Rate Avg": 0.27270151579543844,
+        "Career Prior Total A/GP": 0.5897435897435898,
+        "All-Time Total Skater A Team Rate Avg": 0.39148604618217875,
+        "Career Prior Total Pts/GP": 1.2307692307692308,
+        "All-Time Total Skater Pts Team Rate Avg": 0.6641875619776172,
+        "Career Prior Skater Playoff GP": 5,
+        "Career Prior Playoff G/GP": 0.2,
+        "All-Time Playoff Skater G Team Rate Avg": 0.20592193808882908,
+        "Career Prior Playoff A/GP": 0.4,
+        "All-Time Playoff Skater A Team Rate Avg": 0.28847016599371916,
+        "Career Prior Playoff Pts/GP": 0.6,
+        "All-Time Playoff Skater Pts Team Rate Avg": 0.4943921040825482
+      }
+    },
+    {
+      "name": "Rajkumar, Sanjay",
+      "values": {
+        "Career Prior Skater GP": 0,
+        "Career Prior Total G/GP": 0,
+        "All-Time Total Skater G Team Rate Avg": 0.27270151579543844,
+        "Career Prior Total A/GP": 0,
+        "All-Time Total Skater A Team Rate Avg": 0.39148604618217875,
+        "Career Prior Total Pts/GP": 0,
+        "All-Time Total Skater Pts Team Rate Avg": 0.6641875619776172,
+        "Career Prior Skater Playoff GP": 0,
+        "Career Prior Playoff G/GP": 0,
+        "All-Time Playoff Skater G Team Rate Avg": 0.20592193808882908,
+        "Career Prior Playoff A/GP": 0,
+        "All-Time Playoff Skater A Team Rate Avg": 0.28847016599371916,
+        "Career Prior Playoff Pts/GP": 0,
+        "All-Time Playoff Skater Pts Team Rate Avg": 0.4943921040825482
+      }
+    },
+    {
+      "name": "Saindon, Stephane",
+      "values": {
+        "Career Prior Skater GP": 88,
+        "Career Prior Total G/GP": 0.7045454545454546,
+        "All-Time Total Skater G Team Rate Avg": 0.27270151579543844,
+        "Career Prior Total A/GP": 0.6818181818181818,
+        "All-Time Total Skater A Team Rate Avg": 0.39148604618217875,
+        "Career Prior Total Pts/GP": 1.3863636363636365,
+        "All-Time Total Skater Pts Team Rate Avg": 0.6641875619776172,
+        "Career Prior Skater Playoff GP": 8,
+        "Career Prior Playoff G/GP": 0.5,
+        "All-Time Playoff Skater G Team Rate Avg": 0.20592193808882908,
+        "Career Prior Playoff A/GP": 0.625,
+        "All-Time Playoff Skater A Team Rate Avg": 0.28847016599371916,
+        "Career Prior Playoff Pts/GP": 1.125,
+        "All-Time Playoff Skater Pts Team Rate Avg": 0.4943921040825482
+      }
+    },
+    {
+      "name": "Triumbari, Francesco",
+      "values": {
+        "Career Prior Skater GP": 0,
+        "Career Prior Total G/GP": 0,
+        "All-Time Total Skater G Team Rate Avg": 0.27270151579543844,
+        "Career Prior Total A/GP": 0,
+        "All-Time Total Skater A Team Rate Avg": 0.39148604618217875,
+        "Career Prior Total Pts/GP": 0,
+        "All-Time Total Skater Pts Team Rate Avg": 0.6641875619776172,
+        "Career Prior Skater Playoff GP": 0,
+        "Career Prior Playoff G/GP": 0,
+        "All-Time Playoff Skater G Team Rate Avg": 0.20592193808882908,
+        "Career Prior Playoff A/GP": 0,
+        "All-Time Playoff Skater A Team Rate Avg": 0.28847016599371916,
+        "Career Prior Playoff Pts/GP": 0,
+        "All-Time Playoff Skater Pts Team Rate Avg": 0.4943921040825482
+      }
+    },
+    {
+      "name": "Atkins, Nolan",
+      "values": {
+        "Career Prior Skater GP": 7,
+        "Career Prior Total G/GP": 0,
+        "All-Time Total Skater G Team Rate Avg": 0.27270151579543844,
+        "Career Prior Total A/GP": 0.14285714285714285,
+        "All-Time Total Skater A Team Rate Avg": 0.39148604618217875,
+        "Career Prior Total Pts/GP": 0.14285714285714285,
+        "All-Time Total Skater Pts Team Rate Avg": 0.6641875619776172,
+        "Career Prior Skater Playoff GP": 2,
+        "Career Prior Playoff G/GP": 0,
+        "All-Time Playoff Skater G Team Rate Avg": 0.20592193808882908,
+        "Career Prior Playoff A/GP": 0,
+        "All-Time Playoff Skater A Team Rate Avg": 0.28847016599371916,
+        "Career Prior Playoff Pts/GP": 0,
+        "All-Time Playoff Skater Pts Team Rate Avg": 0.4943921040825482
+      }
+    },
+    {
+      "name": "Duffy, Lorcan",
+      "values": {
+        "Career Prior Skater GP": 82,
+        "Career Prior Total G/GP": 0.19918699186991867,
+        "All-Time Total Skater G Team Rate Avg": 0.27270151579543844,
+        "Career Prior Total A/GP": 0.47967479674796754,
+        "All-Time Total Skater A Team Rate Avg": 0.39148604618217875,
+        "Career Prior Total Pts/GP": 0.6788617886178863,
+        "All-Time Total Skater Pts Team Rate Avg": 0.6641875619776172,
+        "Career Prior Skater Playoff GP": 13,
+        "Career Prior Playoff G/GP": 0.05128205128205128,
+        "All-Time Playoff Skater G Team Rate Avg": 0.20592193808882908,
+        "Career Prior Playoff A/GP": 0.358974358974359,
+        "All-Time Playoff Skater A Team Rate Avg": 0.28847016599371916,
+        "Career Prior Playoff Pts/GP": 0.4102564102564103,
+        "All-Time Playoff Skater Pts Team Rate Avg": 0.4943921040825482
+      }
+    },
+    {
+      "name": "Kober, Adam",
+      "values": {
+        "Career Prior Skater GP": 44,
+        "Career Prior Total G/GP": 0.13636363636363635,
+        "All-Time Total Skater G Team Rate Avg": 0.27270151579543844,
+        "Career Prior Total A/GP": 0.29545454545454547,
+        "All-Time Total Skater A Team Rate Avg": 0.39148604618217875,
+        "Career Prior Total Pts/GP": 0.4318181818181818,
+        "All-Time Total Skater Pts Team Rate Avg": 0.6641875619776172,
+        "Career Prior Skater Playoff GP": 7,
+        "Career Prior Playoff G/GP": 0.14285714285714285,
+        "All-Time Playoff Skater G Team Rate Avg": 0.20592193808882908,
+        "Career Prior Playoff A/GP": 0,
+        "All-Time Playoff Skater A Team Rate Avg": 0.28847016599371916,
+        "Career Prior Playoff Pts/GP": 0.14285714285714285,
+        "All-Time Playoff Skater Pts Team Rate Avg": 0.4943921040825482
+      }
+    },
+    {
+      "name": "Rajasooriar, Krishnan",
+      "values": {
+        "Career Prior Skater GP": 54,
+        "Career Prior Total G/GP": 0.14814814814814814,
+        "All-Time Total Skater G Team Rate Avg": 0.27270151579543844,
+        "Career Prior Total A/GP": 0.2777777777777778,
+        "All-Time Total Skater A Team Rate Avg": 0.39148604618217875,
+        "Career Prior Total Pts/GP": 0.42592592592592593,
+        "All-Time Total Skater Pts Team Rate Avg": 0.6641875619776172,
+        "Career Prior Skater Playoff GP": 8,
+        "Career Prior Playoff G/GP": 0.125,
+        "All-Time Playoff Skater G Team Rate Avg": 0.20592193808882908,
+        "Career Prior Playoff A/GP": 0.375,
+        "All-Time Playoff Skater A Team Rate Avg": 0.28847016599371916,
+        "Career Prior Playoff Pts/GP": 0.5,
+        "All-Time Playoff Skater Pts Team Rate Avg": 0.4943921040825482
+      }
+    },
+    {
+      "name": "Rosenberg, Jamie",
+      "values": {
+        "Career Prior Skater GP": 0,
+        "Career Prior Total G/GP": 0,
+        "All-Time Total Skater G Team Rate Avg": 0.27270151579543844,
+        "Career Prior Total A/GP": 0,
+        "All-Time Total Skater A Team Rate Avg": 0.39148604618217875,
+        "Career Prior Total Pts/GP": 0,
+        "All-Time Total Skater Pts Team Rate Avg": 0.6641875619776172,
+        "Career Prior Skater Playoff GP": 0,
+        "Career Prior Playoff G/GP": 0,
+        "All-Time Playoff Skater G Team Rate Avg": 0.20592193808882908,
+        "Career Prior Playoff A/GP": 0,
+        "All-Time Playoff Skater A Team Rate Avg": 0.28847016599371916,
+        "Career Prior Playoff Pts/GP": 0,
+        "All-Time Playoff Skater Pts Team Rate Avg": 0.4943921040825482
+      }
+    },
+    {
+      "name": "Pavaday, Damian",
+      "values": {
+        "Career Prior Skater GP": 0,
+        "Career Prior Total G/GP": 0,
+        "All-Time Total Skater G Team Rate Avg": 0.27270151579543844,
+        "Career Prior Total A/GP": 0,
+        "All-Time Total Skater A Team Rate Avg": 0.39148604618217875,
+        "Career Prior Total Pts/GP": 0,
+        "All-Time Total Skater Pts Team Rate Avg": 0.6641875619776172,
+        "Career Prior Skater Playoff GP": 0,
+        "Career Prior Playoff G/GP": 0,
+        "All-Time Playoff Skater G Team Rate Avg": 0.20592193808882908,
+        "Career Prior Playoff A/GP": 0,
+        "All-Time Playoff Skater A Team Rate Avg": 0.28847016599371916,
+        "Career Prior Playoff Pts/GP": 0,
+        "All-Time Playoff Skater Pts Team Rate Avg": 0.4943921040825482
+      }
+    }
+  ],
+  "currentCompositeScoresVerified": false,
+  "publicationAuthorized": false
+}

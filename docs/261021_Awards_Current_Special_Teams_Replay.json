@@ -1,0 +1,436 @@
+{
+  "state": "SPECIAL_TEAMS_REBUILT_CORRECTED_NATIVE_PARITY_OPEN",
+  "season": "W2026/27",
+  "cutoff": "2026-10-18",
+  "numericInternalCount": 19,
+  "components": {
+    "Total Final Special Teams Internal Score": {
+      "rows": [
+        {
+          "name": "Ardizzi, Stefano",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": -0.011,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Career Prior Skater GP": 221,
+            "All-Time Total Skater Special Teams Team Rate Avg": 0.02797846720498654,
+            "Career Prior Total PPG/GP": 0.016591251885369532,
+            "Career Prior Total SHG/GP": 0.010558069381598792,
+            "Current Total Skater Played Games": 1,
+            "Current Total Raw PPG": 0,
+            "Current Total Raw SHG": 0,
+            "Current Total PPG/GP": 0.0,
+            "Current Total SHG/GP": 0.0,
+            "Current Total Skater Special Teams Raw Leader": 0,
+            "Current Total Skater Special Teams Field Rate Avg": 0.0
+          }
+        },
+        {
+          "name": "Brutto, Adam",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": -0.006,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Career Prior Skater GP": 332,
+            "All-Time Total Skater Special Teams Team Rate Avg": 0.02797846720498654,
+            "Career Prior Total PPG/GP": 0.009036144578313253,
+            "Career Prior Total SHG/GP": 0.0,
+            "Current Total Skater Played Games": 4,
+            "Current Total Raw PPG": 0,
+            "Current Total Raw SHG": 0,
+            "Current Total PPG/GP": 0.0,
+            "Current Total SHG/GP": 0.0,
+            "Current Total Skater Special Teams Raw Leader": 0,
+            "Current Total Skater Special Teams Field Rate Avg": 0.0
+          }
+        },
+        {
+          "name": "Carosi, Justin",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": -0.023,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Career Prior Skater GP": 299,
+            "All-Time Total Skater Special Teams Team Rate Avg": 0.02797846720498654,
+            "Career Prior Total PPG/GP": 0.05574136008918618,
+            "Career Prior Total SHG/GP": 0.0189520624303233,
+            "Current Total Skater Played Games": 4,
+            "Current Total Raw PPG": 0,
+            "Current Total Raw SHG": 0,
+            "Current Total PPG/GP": 0.0,
+            "Current Total SHG/GP": 0.0,
+            "Current Total Skater Special Teams Raw Leader": 0,
+            "Current Total Skater Special Teams Field Rate Avg": 0.0
+          }
+        },
+        {
+          "name": "Kong, Henry",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": -0.004,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Career Prior Skater GP": 0,
+            "All-Time Total Skater Special Teams Team Rate Avg": 0.02797846720498654,
+            "Career Prior Total PPG/GP": 0.0,
+            "Career Prior Total SHG/GP": 0.0,
+            "Current Total Skater Played Games": 4,
+            "Current Total Raw PPG": 0,
+            "Current Total Raw SHG": 0,
+            "Current Total PPG/GP": 0.0,
+            "Current Total SHG/GP": 0.0,
+            "Current Total Skater Special Teams Raw Leader": 0,
+            "Current Total Skater Special Teams Field Rate Avg": 0.0
+          }
+        },
+        {
+          "name": "Pagnotta, Alex",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": -0.006,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Career Prior Skater GP": 320,
+            "All-Time Total Skater Special Teams Team Rate Avg": 0.02797846720498654,
+            "Career Prior Total PPG/GP": 0.00625,
+            "Career Prior Total SHG/GP": 0.0020833333333333333,
+            "Current Total Skater Played Games": 4,
+            "Current Total Raw PPG": 0,
+            "Current Total Raw SHG": 0,
+            "Current Total PPG/GP": 0.0,
+            "Current Total SHG/GP": 0.0,
+            "Current Total Skater Special Teams Raw Leader": 0,
+            "Current Total Skater Special Teams Field Rate Avg": 0.0
+          }
+        },
+        {
+          "name": "Paolucci, Anthony",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": -0.006,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Career Prior Skater GP": 89,
+            "All-Time Total Skater Special Teams Team Rate Avg": 0.02797846720498654,
+            "Career Prior Total PPG/GP": 0.007490636704119849,
+            "Career Prior Total SHG/GP": 0.0,
+            "Current Total Skater Played Games": 1,
+            "Current Total Raw PPG": 0,
+            "Current Total Raw SHG": 0,
+            "Current Total PPG/GP": 0.0,
+            "Current Total SHG/GP": 0.0,
+            "Current Total Skater Special Teams Raw Leader": 0,
+            "Current Total Skater Special Teams Field Rate Avg": 0.0
+          }
+        },
+        {
+          "name": "Pearsoll, Keith",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": -0.009,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Career Prior Skater GP": 294,
+            "All-Time Total Skater Special Teams Team Rate Avg": 0.02797846720498654,
+            "Career Prior Total PPG/GP": 0.007936507936507936,
+            "Career Prior Total SHG/GP": 0.01020408163265306,
+            "Current Total Skater Played Games": 3,
+            "Current Total Raw PPG": 0,
+            "Current Total Raw SHG": 0,
+            "Current Total PPG/GP": 0.0,
+            "Current Total SHG/GP": 0.0,
+            "Current Total Skater Special Teams Raw Leader": 0,
+            "Current Total Skater Special Teams Field Rate Avg": 0.0
+          }
+        },
+        {
+          "name": "Povegliano, Adam",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": -0.004,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Career Prior Skater GP": 0,
+            "All-Time Total Skater Special Teams Team Rate Avg": 0.02797846720498654,
+            "Career Prior Total PPG/GP": 0.0,
+            "Career Prior Total SHG/GP": 0.0,
+            "Current Total Skater Played Games": 3,
+            "Current Total Raw PPG": 0,
+            "Current Total Raw SHG": 0,
+            "Current Total PPG/GP": 0.0,
+            "Current Total SHG/GP": 0.0,
+            "Current Total Skater Special Teams Raw Leader": 0,
+            "Current Total Skater Special Teams Field Rate Avg": 0.0
+          }
+        },
+        {
+          "name": "Provenzano, Mario",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": -0.013,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Career Prior Skater GP": 240,
+            "All-Time Total Skater Special Teams Team Rate Avg": 0.02797846720498654,
+            "Career Prior Total PPG/GP": 0.03611111111111111,
+            "Career Prior Total SHG/GP": 0.0,
+            "Current Total Skater Played Games": 4,
+            "Current Total Raw PPG": 0,
+            "Current Total Raw SHG": 0,
+            "Current Total PPG/GP": 0.0,
+            "Current Total SHG/GP": 0.0,
+            "Current Total Skater Special Teams Raw Leader": 0,
+            "Current Total Skater Special Teams Field Rate Avg": 0.0
+          }
+        },
+        {
+          "name": "Provenzano, Michael",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": -0.017,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Career Prior Skater GP": 39,
+            "All-Time Total Skater Special Teams Team Rate Avg": 0.02797846720498654,
+            "Career Prior Total PPG/GP": 0.05128205128205128,
+            "Career Prior Total SHG/GP": 0.0,
+            "Current Total Skater Played Games": 3,
+            "Current Total Raw PPG": 0,
+            "Current Total Raw SHG": 0,
+            "Current Total PPG/GP": 0.0,
+            "Current Total SHG/GP": 0.0,
+            "Current Total Skater Special Teams Raw Leader": 0,
+            "Current Total Skater Special Teams Field Rate Avg": 0.0
+          }
+        },
+        {
+          "name": "Rajkumar, Sanjay",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": -0.004,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Career Prior Skater GP": 0,
+            "All-Time Total Skater Special Teams Team Rate Avg": 0.02797846720498654,
+            "Career Prior Total PPG/GP": 0.0,
+            "Career Prior Total SHG/GP": 0.0,
+            "Current Total Skater Played Games": 3,
+            "Current Total Raw PPG": 0,
+            "Current Total Raw SHG": 0,
+            "Current Total PPG/GP": 0.0,
+            "Current Total SHG/GP": 0.0,
+            "Current Total Skater Special Teams Raw Leader": 0,
+            "Current Total Skater Special Teams Field Rate Avg": 0.0
+          }
+        },
+        {
+          "name": "Saindon, Stephane",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": -0.016,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Career Prior Skater GP": 88,
+            "All-Time Total Skater Special Teams Team Rate Avg": 0.02797846720498654,
+            "Career Prior Total PPG/GP": 0.022727272727272728,
+            "Career Prior Total SHG/GP": 0.022727272727272728,
+            "Current Total Skater Played Games": 3,
+            "Current Total Raw PPG": 0,
+            "Current Total Raw SHG": 0,
+            "Current Total PPG/GP": 0.0,
+            "Current Total SHG/GP": 0.0,
+            "Current Total Skater Special Teams Raw Leader": 0,
+            "Current Total Skater Special Teams Field Rate Avg": 0.0
+          }
+        },
+        {
+          "name": "Triumbari, Francesco",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": -0.004,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Career Prior Skater GP": 0,
+            "All-Time Total Skater Special Teams Team Rate Avg": 0.02797846720498654,
+            "Career Prior Total PPG/GP": 0.0,
+            "Career Prior Total SHG/GP": 0.0,
+            "Current Total Skater Played Games": 4,
+            "Current Total Raw PPG": 0,
+            "Current Total Raw SHG": 0,
+            "Current Total PPG/GP": 0.0,
+            "Current Total SHG/GP": 0.0,
+            "Current Total Skater Special Teams Raw Leader": 0,
+            "Current Total Skater Special Teams Field Rate Avg": 0.0
+          }
+        },
+        {
+          "name": "Leong, Dev",
+          "state": "SOURCE_BLANK",
+          "value": "",
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {}
+        },
+        {
+          "name": "Atkins, Nolan",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": -0.004,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Career Prior Skater GP": 7,
+            "All-Time Total Skater Special Teams Team Rate Avg": 0.02797846720498654,
+            "Career Prior Total PPG/GP": 0.0,
+            "Career Prior Total SHG/GP": 0.0,
+            "Current Total Skater Played Games": 2,
+            "Current Total Raw PPG": 0,
+            "Current Total Raw SHG": 0,
+            "Current Total PPG/GP": 0.0,
+            "Current Total SHG/GP": 0.0,
+            "Current Total Skater Special Teams Raw Leader": 0,
+            "Current Total Skater Special Teams Field Rate Avg": 0.0
+          }
+        },
+        {
+          "name": "Duffy, Lorcan",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": -0.01,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Career Prior Skater GP": 82,
+            "All-Time Total Skater Special Teams Team Rate Avg": 0.02797846720498654,
+            "Career Prior Total PPG/GP": 0.012195121951219513,
+            "Career Prior Total SHG/GP": 0.012195121951219513,
+            "Current Total Skater Played Games": 1,
+            "Current Total Raw PPG": 0,
+            "Current Total Raw SHG": 0,
+            "Current Total PPG/GP": 0.0,
+            "Current Total SHG/GP": 0.0,
+            "Current Total Skater Special Teams Raw Leader": 0,
+            "Current Total Skater Special Teams Field Rate Avg": 0.0
+          }
+        },
+        {
+          "name": "Kober, Adam",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": -0.01,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Career Prior Skater GP": 44,
+            "All-Time Total Skater Special Teams Team Rate Avg": 0.02797846720498654,
+            "Career Prior Total PPG/GP": 0.022727272727272728,
+            "Career Prior Total SHG/GP": 0.0,
+            "Current Total Skater Played Games": 3,
+            "Current Total Raw PPG": 0,
+            "Current Total Raw SHG": 0,
+            "Current Total PPG/GP": 0.0,
+            "Current Total SHG/GP": 0.0,
+            "Current Total Skater Special Teams Raw Leader": 0,
+            "Current Total Skater Special Teams Field Rate Avg": 0.0
+          }
+        },
+        {
+          "name": "Rajasooriar, Krishnan",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": -0.004,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Career Prior Skater GP": 54,
+            "All-Time Total Skater Special Teams Team Rate Avg": 0.02797846720498654,
+            "Career Prior Total PPG/GP": 0.0,
+            "Career Prior Total SHG/GP": 0.0,
+            "Current Total Skater Played Games": 2,
+            "Current Total Raw PPG": 0,
+            "Current Total Raw SHG": 0,
+            "Current Total PPG/GP": 0.0,
+            "Current Total SHG/GP": 0.0,
+            "Current Total Skater Special Teams Raw Leader": 0,
+            "Current Total Skater Special Teams Field Rate Avg": 0.0
+          }
+        },
+        {
+          "name": "Rosenberg, Jamie",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": -0.004,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Career Prior Skater GP": 0,
+            "All-Time Total Skater Special Teams Team Rate Avg": 0.02797846720498654,
+            "Career Prior Total PPG/GP": 0.0,
+            "Career Prior Total SHG/GP": 0.0,
+            "Current Total Skater Played Games": 3,
+            "Current Total Raw PPG": 0,
+            "Current Total Raw SHG": 0,
+            "Current Total PPG/GP": 0.0,
+            "Current Total SHG/GP": 0.0,
+            "Current Total Skater Special Teams Raw Leader": 0,
+            "Current Total Skater Special Teams Field Rate Avg": 0.0
+          }
+        },
+        {
+          "name": "Logue, Stephen",
+          "state": "SOURCE_BLANK",
+          "value": "",
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {}
+        },
+        {
+          "name": "Pavaday, Damian",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": -0.004,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Career Prior Skater GP": 0,
+            "All-Time Total Skater Special Teams Team Rate Avg": 0.02797846720498654,
+            "Career Prior Total PPG/GP": 0.0,
+            "Career Prior Total SHG/GP": 0.0,
+            "Current Total Skater Played Games": 1,
+            "Current Total Raw PPG": 0,
+            "Current Total Raw SHG": 0,
+            "Current Total PPG/GP": 0.0,
+            "Current Total SHG/GP": 0.0,
+            "Current Total Skater Special Teams Raw Leader": 0,
+            "Current Total Skater Special Teams Field Rate Avg": 0.0
+          }
+        },
+        {
+          "name": "Carlyle, Adam",
+          "state": "SOURCE_BLANK",
+          "value": "",
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {}
+        }
+      ],
+      "normalized": {
+        "season": "W2026/27",
+        "cutoff": "2026-10-18",
+        "inputField": "Total Final Special Teams Internal Score",
+        "formulaSha256": "f96baebaf1d146605e6a9cda053a755e19c31b3455100ccabcab9905da0094a8",
+        "currentPlayerCoverage": 22,
+        "unavailable": [],
+        "currentCompositeScoresVerified": false,
+        "publicationAuthorized": false,
+        "state": "CURRENT_COMPONENT_NORMALIZATION_CANDIDATE",
+        "family": "MINMAX_BLANK_ZERO",
+        "numericPlayerCount": 19,
+        "scores": {
+          "Ardizzi, Stefano": 76.1,
+          "Brutto, Adam": 87.0,
+          "Carosi, Justin": 50.0,
+          "Kong, Henry": 91.3,
+          "Pagnotta, Alex": 87.0,
+          "Paolucci, Anthony": 87.0,
+          "Pearsoll, Keith": 80.4,
+          "Povegliano, Adam": 91.3,
+          "Provenzano, Mario": 71.7,
+          "Provenzano, Michael": 63.0,
+          "Rajkumar, Sanjay": 91.3,
+          "Saindon, Stephane": 65.2,
+          "Triumbari, Francesco": 91.3,
+          "Atkins, Nolan": 91.3,
+          "Duffy, Lorcan": 78.3,
+          "Kober, Adam": 78.3,
+          "Rajasooriar, Krishnan": 91.3,
+          "Rosenberg, Jamie": 91.3,
+          "Pavaday, Damian": 91.3
+        },
+        "notApplicable": {
+          "Leong, Dev": "Source skater-only branch",
+          "Logue, Stephen": "Source skater-only branch",
+          "Carlyle, Adam": "Source skater-only branch"
+        },
+        "upstreamParityVerified": false
+      }
+    }
+  },
+  "currentCompositeScoresVerified": false,
+  "publicationAuthorized": false
+}

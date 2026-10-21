@@ -1,0 +1,2984 @@
+{
+  "state": "CURRENT_NORMALIZATION_IMPLEMENTED_PARTIAL_REFERENCE_REPLAY_NOT_FINAL_SCORE_ACCEPTANCE",
+  "season": "W2026/27",
+  "cutoff": "2026-10-18",
+  "playerCoverage": 22,
+  "supportedFormulaCount": 44,
+  "candidateComponentCount": 8,
+  "heldComponentCount": 36,
+  "unsupportedDisplayFormulas": [],
+  "components": {
+    "Current True Playoff Season Attd. % Web Display Score": {
+      "season": "W2026/27",
+      "cutoff": "2026-10-18",
+      "inputField": "Current True Playoff Season Attd. % Internal Score",
+      "formulaSha256": "d78b8df086dd22744d62800fa1acedc0747aa6efda32d567c07fd8c7a3a43dda",
+      "currentPlayerCoverage": 22,
+      "unavailable": [
+        {
+          "name": "Carlyle, Adam",
+          "reason": "No recalculated current native internal reference for this player/component"
+        }
+      ],
+      "currentCompositeScoresVerified": false,
+      "publicationAuthorized": false,
+      "state": "COMPONENT_INPUT_HOLD",
+      "scores": null
+    },
+    "Current True Attd. % Web Display Score": {
+      "season": "W2026/27",
+      "cutoff": "2026-10-18",
+      "inputField": "Current True Attd. % Internal Score",
+      "formulaSha256": "416a532bbe01f52551f9087a4a6645383977f51e2ba4eae9d29a652ab205477f",
+      "currentPlayerCoverage": 22,
+      "unavailable": [
+        {
+          "name": "Carlyle, Adam",
+          "reason": "No recalculated current native internal reference for this player/component"
+        }
+      ],
+      "currentCompositeScoresVerified": false,
+      "publicationAuthorized": false,
+      "state": "COMPONENT_INPUT_HOLD",
+      "scores": null
+    },
+    "Dedication Tenure Web Display Score": {
+      "season": "W2026/27",
+      "cutoff": "2026-10-18",
+      "inputField": "Dedication Tenure Internal Score",
+      "formulaSha256": "0d50ab56235f81e51216d193626425a5819a7cc13f5e16a31d531d8699aca3a1",
+      "currentPlayerCoverage": 22,
+      "unavailable": [
+        {
+          "name": "Carlyle, Adam",
+          "reason": "No recalculated current native internal reference for this player/component"
+        }
+      ],
+      "currentCompositeScoresVerified": false,
+      "publicationAuthorized": false,
+      "state": "COMPONENT_INPUT_HOLD",
+      "scores": null
+    },
+    "Playoff Final G Web Display Score": {
+      "season": "W2026/27",
+      "cutoff": "2026-10-18",
+      "inputField": "Playoff Final G Internal Score",
+      "formulaSha256": "a574b99a274d8c526277768131730ecaae9c974d1bd648ca6d69667c11371f1c",
+      "currentPlayerCoverage": 22,
+      "unavailable": [
+        {
+          "name": "Ardizzi, Stefano",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Brutto, Adam",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Carosi, Justin",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Kong, Henry",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Pagnotta, Alex",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Paolucci, Anthony",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Pearsoll, Keith",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Povegliano, Adam",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Provenzano, Mario",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Provenzano, Michael",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Rajkumar, Sanjay",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Saindon, Stephane",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Triumbari, Francesco",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Atkins, Nolan",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Duffy, Lorcan",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Kober, Adam",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Rajasooriar, Krishnan",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Rosenberg, Jamie",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Pavaday, Damian",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        }
+      ],
+      "currentCompositeScoresVerified": false,
+      "publicationAuthorized": false,
+      "state": "COMPONENT_INPUT_HOLD",
+      "scores": null
+    },
+    "Total Final G Web Display Score": {
+      "season": "W2026/27",
+      "cutoff": "2026-10-18",
+      "inputField": "Total Final G Internal Score",
+      "formulaSha256": "8004d40107960ed19274580a95cbcece5e41999b8771d5c3760bf9f3dba83064",
+      "currentPlayerCoverage": 22,
+      "unavailable": [],
+      "currentCompositeScoresVerified": false,
+      "publicationAuthorized": false,
+      "state": "CURRENT_COMPONENT_NORMALIZATION_CANDIDATE",
+      "family": "MINMAX_MIDPOINT",
+      "numericPlayerCount": 19,
+      "scores": {
+        "Ardizzi, Stefano": 56.3,
+        "Brutto, Adam": 58.7,
+        "Carosi, Justin": 100.0,
+        "Kong, Henry": 71.8,
+        "Pagnotta, Alex": 58.4,
+        "Paolucci, Anthony": 58.6,
+        "Pearsoll, Keith": 73.5,
+        "Povegliano, Adam": 59.7,
+        "Provenzano, Mario": 57.9,
+        "Provenzano, Michael": 50.9,
+        "Rajkumar, Sanjay": 59.7,
+        "Saindon, Stephane": 50.0,
+        "Triumbari, Francesco": 59.7,
+        "Atkins, Nolan": 59.7,
+        "Duffy, Lorcan": 57.0,
+        "Kober, Adam": 76.2,
+        "Rajasooriar, Krishnan": 57.6,
+        "Rosenberg, Jamie": 59.7,
+        "Pavaday, Damian": 59.7
+      },
+      "notApplicable": {
+        "Leong, Dev": "Captured internal formula explicitly returns blank for non-skaters",
+        "Logue, Stephen": "Captured internal formula explicitly returns blank for non-skaters",
+        "Carlyle, Adam": "Captured internal formula explicitly returns blank for non-skaters"
+      },
+      "upstreamParityVerified": false
+    },
+    "Playoff Final A Web Display Score": {
+      "season": "W2026/27",
+      "cutoff": "2026-10-18",
+      "inputField": "Playoff Final A Internal Score",
+      "formulaSha256": "0229c41af1c33e9958ba1dc534900139b7f05146072666cc3e237d8125aae41c",
+      "currentPlayerCoverage": 22,
+      "unavailable": [
+        {
+          "name": "Ardizzi, Stefano",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Brutto, Adam",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Carosi, Justin",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Kong, Henry",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Pagnotta, Alex",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Paolucci, Anthony",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Pearsoll, Keith",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Povegliano, Adam",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Provenzano, Mario",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Provenzano, Michael",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Rajkumar, Sanjay",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Saindon, Stephane",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Triumbari, Francesco",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Atkins, Nolan",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Duffy, Lorcan",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Kober, Adam",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Rajasooriar, Krishnan",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Rosenberg, Jamie",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Pavaday, Damian",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        }
+      ],
+      "currentCompositeScoresVerified": false,
+      "publicationAuthorized": false,
+      "state": "COMPONENT_INPUT_HOLD",
+      "scores": null
+    },
+    "Total Final A Web Display Score": {
+      "season": "W2026/27",
+      "cutoff": "2026-10-18",
+      "inputField": "Total Final A Internal Score",
+      "formulaSha256": "4fd53ecb211f76f1ff031d88eee1ec42372497208ac640a87d6a4e707bcd8089",
+      "currentPlayerCoverage": 22,
+      "unavailable": [],
+      "currentCompositeScoresVerified": false,
+      "publicationAuthorized": false,
+      "state": "CURRENT_COMPONENT_NORMALIZATION_CANDIDATE",
+      "family": "MINMAX_MIDPOINT",
+      "numericPlayerCount": 19,
+      "scores": {
+        "Ardizzi, Stefano": 53.9,
+        "Brutto, Adam": 53.8,
+        "Carosi, Justin": 50.0,
+        "Kong, Henry": 69.0,
+        "Pagnotta, Alex": 95.6,
+        "Paolucci, Anthony": 55.3,
+        "Pearsoll, Keith": 53.2,
+        "Povegliano, Adam": 58.3,
+        "Provenzano, Mario": 54.7,
+        "Provenzano, Michael": 100.0,
+        "Rajkumar, Sanjay": 58.3,
+        "Saindon, Stephane": 66.2,
+        "Triumbari, Francesco": 58.3,
+        "Atkins, Nolan": 56.5,
+        "Duffy, Lorcan": 52.4,
+        "Kober, Adam": 71.0,
+        "Rajasooriar, Krishnan": 54.8,
+        "Rosenberg, Jamie": 58.3,
+        "Pavaday, Damian": 81.9
+      },
+      "notApplicable": {
+        "Leong, Dev": "Captured internal formula explicitly returns blank for non-skaters",
+        "Logue, Stephen": "Captured internal formula explicitly returns blank for non-skaters",
+        "Carlyle, Adam": "Captured internal formula explicitly returns blank for non-skaters"
+      },
+      "upstreamParityVerified": false
+    },
+    "Playoff Final Pts Web Display Score": {
+      "season": "W2026/27",
+      "cutoff": "2026-10-18",
+      "inputField": "Playoff Final Pts Internal Score",
+      "formulaSha256": "3f4e023e7fa59cf0201313c978e3ed598cd6a7d0a1f720ab322596e4a7b7b0e8",
+      "currentPlayerCoverage": 22,
+      "unavailable": [
+        {
+          "name": "Ardizzi, Stefano",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Brutto, Adam",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Carosi, Justin",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Kong, Henry",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Pagnotta, Alex",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Paolucci, Anthony",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Pearsoll, Keith",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Povegliano, Adam",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Provenzano, Mario",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Provenzano, Michael",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Rajkumar, Sanjay",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Saindon, Stephane",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Triumbari, Francesco",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Atkins, Nolan",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Duffy, Lorcan",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Kober, Adam",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Rajasooriar, Krishnan",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Rosenberg, Jamie",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Pavaday, Damian",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        }
+      ],
+      "currentCompositeScoresVerified": false,
+      "publicationAuthorized": false,
+      "state": "COMPONENT_INPUT_HOLD",
+      "scores": null
+    },
+    "Total Final Pts Web Display Score": {
+      "season": "W2026/27",
+      "cutoff": "2026-10-18",
+      "inputField": "Total Final Pts Internal Score",
+      "formulaSha256": "6cd59fc8fde62ae2ed8146ec64cec1421a62f85c31eea243552574cb1becd6d8",
+      "currentPlayerCoverage": 22,
+      "unavailable": [],
+      "currentCompositeScoresVerified": false,
+      "publicationAuthorized": false,
+      "state": "CURRENT_COMPONENT_NORMALIZATION_CANDIDATE",
+      "family": "MINMAX_MIDPOINT",
+      "numericPlayerCount": 19,
+      "scores": {
+        "Ardizzi, Stefano": 51.0,
+        "Brutto, Adam": 53.4,
+        "Carosi, Justin": 90.4,
+        "Kong, Henry": 83.7,
+        "Pagnotta, Alex": 100.0,
+        "Paolucci, Anthony": 55.0,
+        "Pearsoll, Keith": 67.4,
+        "Povegliano, Adam": 59.4,
+        "Provenzano, Mario": 53.6,
+        "Provenzano, Michael": 97.4,
+        "Rajkumar, Sanjay": 59.4,
+        "Saindon, Stephane": 58.6,
+        "Triumbari, Francesco": 59.4,
+        "Atkins, Nolan": 57.4,
+        "Duffy, Lorcan": 50.0,
+        "Kober, Adam": 90.1,
+        "Rajasooriar, Krishnan": 53.5,
+        "Rosenberg, Jamie": 59.4,
+        "Pavaday, Damian": 85.9
+      },
+      "notApplicable": {
+        "Leong, Dev": "Captured internal formula explicitly returns blank for non-skaters",
+        "Logue, Stephen": "Captured internal formula explicitly returns blank for non-skaters",
+        "Carlyle, Adam": "Captured internal formula explicitly returns blank for non-skaters"
+      },
+      "upstreamParityVerified": false
+    },
+    "Playoff Final Special Teams Web Display Score": {
+      "season": "W2026/27",
+      "cutoff": "2026-10-18",
+      "inputField": "Playoff Final Special Teams Internal Score",
+      "formulaSha256": "cb8315f262e5d18945eb03c13e42bc4a5ac69c955ff119095a50c6e68f2ee8ea",
+      "currentPlayerCoverage": 22,
+      "unavailable": [
+        {
+          "name": "Ardizzi, Stefano",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Brutto, Adam",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Carosi, Justin",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Kong, Henry",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Pagnotta, Alex",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Paolucci, Anthony",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Pearsoll, Keith",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Povegliano, Adam",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Provenzano, Mario",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Provenzano, Michael",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Rajkumar, Sanjay",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Saindon, Stephane",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Triumbari, Francesco",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Atkins, Nolan",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Duffy, Lorcan",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Kober, Adam",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Rajasooriar, Krishnan",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Rosenberg, Jamie",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Pavaday, Damian",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        }
+      ],
+      "currentCompositeScoresVerified": false,
+      "publicationAuthorized": false,
+      "state": "COMPONENT_INPUT_HOLD",
+      "scores": null
+    },
+    "Total Final Special Teams Web Display Score": {
+      "season": "W2026/27",
+      "cutoff": "2026-10-18",
+      "inputField": "Total Final Special Teams Internal Score",
+      "formulaSha256": "f96baebaf1d146605e6a9cda053a755e19c31b3455100ccabcab9905da0094a8",
+      "currentPlayerCoverage": 22,
+      "unavailable": [],
+      "currentCompositeScoresVerified": false,
+      "publicationAuthorized": false,
+      "state": "CURRENT_COMPONENT_NORMALIZATION_CANDIDATE",
+      "family": "MINMAX_BLANK_ZERO",
+      "numericPlayerCount": 19,
+      "scores": {
+        "Ardizzi, Stefano": 76.1,
+        "Brutto, Adam": 87.0,
+        "Carosi, Justin": 50.0,
+        "Kong, Henry": 91.3,
+        "Pagnotta, Alex": 87.0,
+        "Paolucci, Anthony": 87.0,
+        "Pearsoll, Keith": 80.4,
+        "Povegliano, Adam": 91.3,
+        "Provenzano, Mario": 71.7,
+        "Provenzano, Michael": 63.0,
+        "Rajkumar, Sanjay": 91.3,
+        "Saindon, Stephane": 65.2,
+        "Triumbari, Francesco": 91.3,
+        "Atkins, Nolan": 91.3,
+        "Duffy, Lorcan": 78.3,
+        "Kober, Adam": 78.3,
+        "Rajasooriar, Krishnan": 91.3,
+        "Rosenberg, Jamie": 91.3,
+        "Pavaday, Damian": 91.3
+      },
+      "notApplicable": {
+        "Leong, Dev": "Captured internal formula explicitly returns blank for non-skaters",
+        "Logue, Stephen": "Captured internal formula explicitly returns blank for non-skaters",
+        "Carlyle, Adam": "Captured internal formula explicitly returns blank for non-skaters"
+      },
+      "upstreamParityVerified": false
+    },
+    "Playoff Final +/- Web Display Score": {
+      "season": "W2026/27",
+      "cutoff": "2026-10-18",
+      "inputField": "Playoff Final +/- Internal Score",
+      "formulaSha256": "b6e2d5566c8c26d26d360ad9a767320bde8c787e3c9ca05e4506da23dce30934",
+      "currentPlayerCoverage": 22,
+      "unavailable": [
+        {
+          "name": "Ardizzi, Stefano",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Brutto, Adam",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Carosi, Justin",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Kong, Henry",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Pagnotta, Alex",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Paolucci, Anthony",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Pearsoll, Keith",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Povegliano, Adam",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Provenzano, Mario",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Provenzano, Michael",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Rajkumar, Sanjay",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Saindon, Stephane",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Triumbari, Francesco",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Leong, Dev",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Atkins, Nolan",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Duffy, Lorcan",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Kober, Adam",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Rajasooriar, Krishnan",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Rosenberg, Jamie",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Logue, Stephen",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Pavaday, Damian",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Carlyle, Adam",
+          "reason": "No recalculated current native internal reference for this player/component"
+        }
+      ],
+      "currentCompositeScoresVerified": false,
+      "publicationAuthorized": false,
+      "state": "COMPONENT_INPUT_HOLD",
+      "scores": null
+    },
+    "Total Final +/- Web Display Score": {
+      "season": "W2026/27",
+      "cutoff": "2026-10-18",
+      "inputField": "Total Final +/- Internal Score",
+      "formulaSha256": "5cec1a6cabac708438d245bd06c0a3a640c93f672fba2c1c7cae3a35b66a2624",
+      "currentPlayerCoverage": 22,
+      "unavailable": [
+        {
+          "name": "Carlyle, Adam",
+          "reason": "No recalculated current native internal reference for this player/component"
+        }
+      ],
+      "currentCompositeScoresVerified": false,
+      "publicationAuthorized": false,
+      "state": "COMPONENT_INPUT_HOLD",
+      "scores": null
+    },
+    "Playoff Final PIM Web Display Score": {
+      "season": "W2026/27",
+      "cutoff": "2026-10-18",
+      "inputField": "Playoff Final PIM Internal Score",
+      "formulaSha256": "6aafa8f2d114f4debff146248ef97316a6987466e5ba2450caae474d74a270ee",
+      "currentPlayerCoverage": 22,
+      "unavailable": [
+        {
+          "name": "Ardizzi, Stefano",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Brutto, Adam",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Carosi, Justin",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Kong, Henry",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Pagnotta, Alex",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Paolucci, Anthony",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Pearsoll, Keith",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Povegliano, Adam",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Provenzano, Mario",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Provenzano, Michael",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Rajkumar, Sanjay",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Saindon, Stephane",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Triumbari, Francesco",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Leong, Dev",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Atkins, Nolan",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Duffy, Lorcan",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Kober, Adam",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Rajasooriar, Krishnan",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Rosenberg, Jamie",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Logue, Stephen",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Pavaday, Damian",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Carlyle, Adam",
+          "reason": "No recalculated current native internal reference for this player/component"
+        }
+      ],
+      "currentCompositeScoresVerified": false,
+      "publicationAuthorized": false,
+      "state": "COMPONENT_INPUT_HOLD",
+      "scores": null
+    },
+    "Total Final PIM Web Display Score": {
+      "season": "W2026/27",
+      "cutoff": "2026-10-18",
+      "inputField": "Total Final PIM Internal Score",
+      "formulaSha256": "1f32263d74d48aabc8a511736271929704778c0ce1870f2d3877796e518c7af8",
+      "currentPlayerCoverage": 22,
+      "unavailable": [
+        {
+          "name": "Carlyle, Adam",
+          "reason": "No recalculated current native internal reference for this player/component"
+        }
+      ],
+      "currentCompositeScoresVerified": false,
+      "publicationAuthorized": false,
+      "state": "COMPONENT_INPUT_HOLD",
+      "scores": null
+    },
+    "Playoff Final Clutch Web Display Score": {
+      "season": "W2026/27",
+      "cutoff": "2026-10-18",
+      "inputField": "Playoff Final Clutch Internal Score",
+      "formulaSha256": "534416bd9d494254321223045f5cc440ec8e10f819c06f82914ff57fbfbc5215",
+      "currentPlayerCoverage": 22,
+      "unavailable": [
+        {
+          "name": "Ardizzi, Stefano",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Brutto, Adam",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Carosi, Justin",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Kong, Henry",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Pagnotta, Alex",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Paolucci, Anthony",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Pearsoll, Keith",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Povegliano, Adam",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Provenzano, Mario",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Provenzano, Michael",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Rajkumar, Sanjay",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Saindon, Stephane",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Triumbari, Francesco",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Atkins, Nolan",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Duffy, Lorcan",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Kober, Adam",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Rajasooriar, Krishnan",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Rosenberg, Jamie",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Pavaday, Damian",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        }
+      ],
+      "currentCompositeScoresVerified": false,
+      "publicationAuthorized": false,
+      "state": "COMPONENT_INPUT_HOLD",
+      "scores": null
+    },
+    "Total Final Clutch Web Display Score": {
+      "season": "W2026/27",
+      "cutoff": "2026-10-18",
+      "inputField": "Total Final Clutch Internal Score",
+      "formulaSha256": "41a09286223b5235fd699b125c23f88d0b79d3718343b0b36c9882bf89b36286",
+      "currentPlayerCoverage": 22,
+      "unavailable": [],
+      "currentCompositeScoresVerified": false,
+      "publicationAuthorized": false,
+      "state": "CURRENT_COMPONENT_NORMALIZATION_CANDIDATE",
+      "family": "MINMAX_BLANK_ZERO",
+      "numericPlayerCount": 19,
+      "scores": {
+        "Ardizzi, Stefano": 86.8,
+        "Brutto, Adam": 86.8,
+        "Carosi, Justin": 67.1,
+        "Kong, Henry": 92.1,
+        "Pagnotta, Alex": 88.2,
+        "Paolucci, Anthony": 84.2,
+        "Pearsoll, Keith": 77.6,
+        "Povegliano, Adam": 92.1,
+        "Provenzano, Mario": 82.9,
+        "Provenzano, Michael": 50.0,
+        "Rajkumar, Sanjay": 92.1,
+        "Saindon, Stephane": 50.0,
+        "Triumbari, Francesco": 92.1,
+        "Atkins, Nolan": 92.1,
+        "Duffy, Lorcan": 88.2,
+        "Kober, Adam": 84.2,
+        "Rajasooriar, Krishnan": 85.5,
+        "Rosenberg, Jamie": 92.1,
+        "Pavaday, Damian": 92.1
+      },
+      "notApplicable": {
+        "Leong, Dev": "Captured internal formula explicitly returns blank for non-skaters",
+        "Logue, Stephen": "Captured internal formula explicitly returns blank for non-skaters",
+        "Carlyle, Adam": "Captured internal formula explicitly returns blank for non-skaters"
+      },
+      "upstreamParityVerified": false
+    },
+    "Playoff Award POTG Web Display Score": {
+      "season": "W2026/27",
+      "cutoff": "2026-10-18",
+      "inputField": "Playoff Award POTG Internal Score",
+      "formulaSha256": "1ea13a137d5152f0b7586733b538bf1bf76f278666eaf2cdd150067375271c0d",
+      "currentPlayerCoverage": 22,
+      "unavailable": [
+        {
+          "name": "Ardizzi, Stefano",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Brutto, Adam",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Carosi, Justin",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Kong, Henry",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Pagnotta, Alex",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Paolucci, Anthony",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Pearsoll, Keith",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Povegliano, Adam",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Provenzano, Mario",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Provenzano, Michael",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Rajkumar, Sanjay",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Saindon, Stephane",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Triumbari, Francesco",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Leong, Dev",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Atkins, Nolan",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Duffy, Lorcan",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Kober, Adam",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Rajasooriar, Krishnan",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Rosenberg, Jamie",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Logue, Stephen",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Pavaday, Damian",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Carlyle, Adam",
+          "reason": "No recalculated current native internal reference for this player/component"
+        }
+      ],
+      "currentCompositeScoresVerified": false,
+      "publicationAuthorized": false,
+      "state": "COMPONENT_INPUT_HOLD",
+      "scores": null
+    },
+    "Total Award POTG Web Display Score": {
+      "season": "W2026/27",
+      "cutoff": "2026-10-18",
+      "inputField": "Total Award POTG Internal Score",
+      "formulaSha256": "3c43b23edca2d931f9434bcad2c4d9febc9a7eb661abdda2f9fba7f1691aa353",
+      "currentPlayerCoverage": 22,
+      "unavailable": [
+        {
+          "name": "Carlyle, Adam",
+          "reason": "No recalculated current native internal reference for this player/component"
+        }
+      ],
+      "currentCompositeScoresVerified": false,
+      "publicationAuthorized": false,
+      "state": "COMPONENT_INPUT_HOLD",
+      "scores": null
+    },
+    "Playoff Award Goalie W Web Display Score": {
+      "season": "W2026/27",
+      "cutoff": "2026-10-18",
+      "inputField": "Playoff Award Goalie W Internal Score",
+      "formulaSha256": "72c0d8713578424fa803c8f0d34f605e8d2c782520b1d20d979c352bcd64c82f",
+      "currentPlayerCoverage": 22,
+      "unavailable": [
+        {
+          "name": "Ardizzi, Stefano",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Brutto, Adam",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Carosi, Justin",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Kong, Henry",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Pagnotta, Alex",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Paolucci, Anthony",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Pearsoll, Keith",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Povegliano, Adam",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Provenzano, Mario",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Provenzano, Michael",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Rajkumar, Sanjay",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Saindon, Stephane",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Triumbari, Francesco",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Leong, Dev",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Atkins, Nolan",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Duffy, Lorcan",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Kober, Adam",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Rajasooriar, Krishnan",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Rosenberg, Jamie",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Logue, Stephen",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Pavaday, Damian",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Carlyle, Adam",
+          "reason": "No recalculated current native internal reference for this player/component"
+        }
+      ],
+      "currentCompositeScoresVerified": false,
+      "publicationAuthorized": false,
+      "state": "COMPONENT_INPUT_HOLD",
+      "scores": null
+    },
+    "Total Award Goalie W Web Display Score": {
+      "season": "W2026/27",
+      "cutoff": "2026-10-18",
+      "inputField": "Total Award Goalie W Internal Score",
+      "formulaSha256": "87919adece86800edf0e4129b858074710b009a05d2e2b11739bd402c5986bd3",
+      "currentPlayerCoverage": 22,
+      "unavailable": [
+        {
+          "name": "Ardizzi, Stefano",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Brutto, Adam",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Carosi, Justin",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Kong, Henry",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Pagnotta, Alex",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Paolucci, Anthony",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Pearsoll, Keith",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Povegliano, Adam",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Provenzano, Mario",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Provenzano, Michael",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Rajkumar, Sanjay",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Saindon, Stephane",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Triumbari, Francesco",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Atkins, Nolan",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Duffy, Lorcan",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Kober, Adam",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Rajasooriar, Krishnan",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Rosenberg, Jamie",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Pavaday, Damian",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Carlyle, Adam",
+          "reason": "No recalculated current native internal reference for this player/component"
+        }
+      ],
+      "currentCompositeScoresVerified": false,
+      "publicationAuthorized": false,
+      "state": "COMPONENT_INPUT_HOLD",
+      "scores": null
+    },
+    "Playoff Award Goalie Win % Web Display Score": {
+      "season": "W2026/27",
+      "cutoff": "2026-10-18",
+      "inputField": "Playoff Award Goalie Win % Internal Score",
+      "formulaSha256": "26099ecae94465113101a5708ee6461e240f3e7d33ff510110cc0b601e8b2242",
+      "currentPlayerCoverage": 22,
+      "unavailable": [
+        {
+          "name": "Ardizzi, Stefano",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Brutto, Adam",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Carosi, Justin",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Kong, Henry",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Pagnotta, Alex",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Paolucci, Anthony",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Pearsoll, Keith",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Povegliano, Adam",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Provenzano, Mario",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Provenzano, Michael",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Rajkumar, Sanjay",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Saindon, Stephane",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Triumbari, Francesco",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Leong, Dev",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Atkins, Nolan",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Duffy, Lorcan",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Kober, Adam",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Rajasooriar, Krishnan",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Rosenberg, Jamie",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Logue, Stephen",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Pavaday, Damian",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Carlyle, Adam",
+          "reason": "No recalculated current native internal reference for this player/component"
+        }
+      ],
+      "currentCompositeScoresVerified": false,
+      "publicationAuthorized": false,
+      "state": "COMPONENT_INPUT_HOLD",
+      "scores": null
+    },
+    "Total Award Goalie Win % Web Display Score": {
+      "season": "W2026/27",
+      "cutoff": "2026-10-18",
+      "inputField": "Total Award Goalie Win % Internal Score",
+      "formulaSha256": "8dfd9f224781cbc87520d8f1a78f9b6a17394cc1f03868eefa34760bb3fbe6e2",
+      "currentPlayerCoverage": 22,
+      "unavailable": [
+        {
+          "name": "Ardizzi, Stefano",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Brutto, Adam",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Carosi, Justin",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Kong, Henry",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Pagnotta, Alex",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Paolucci, Anthony",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Pearsoll, Keith",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Povegliano, Adam",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Provenzano, Mario",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Provenzano, Michael",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Rajkumar, Sanjay",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Saindon, Stephane",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Triumbari, Francesco",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Atkins, Nolan",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Duffy, Lorcan",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Kober, Adam",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Rajasooriar, Krishnan",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Rosenberg, Jamie",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Pavaday, Damian",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Carlyle, Adam",
+          "reason": "No recalculated current native internal reference for this player/component"
+        }
+      ],
+      "currentCompositeScoresVerified": false,
+      "publicationAuthorized": false,
+      "state": "COMPONENT_INPUT_HOLD",
+      "scores": null
+    },
+    "Playoff Award Goalie GAA Web Display Score": {
+      "season": "W2026/27",
+      "cutoff": "2026-10-18",
+      "inputField": "Playoff Award Goalie GAA Internal Score",
+      "formulaSha256": "3f9715addaaa05f84eb304e5dd40c8de0bfb0bd4980f7c7b387de50fc3ab413d",
+      "currentPlayerCoverage": 22,
+      "unavailable": [
+        {
+          "name": "Ardizzi, Stefano",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Brutto, Adam",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Carosi, Justin",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Kong, Henry",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Pagnotta, Alex",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Paolucci, Anthony",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Pearsoll, Keith",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Povegliano, Adam",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Provenzano, Mario",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Provenzano, Michael",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Rajkumar, Sanjay",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Saindon, Stephane",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Triumbari, Francesco",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Leong, Dev",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Atkins, Nolan",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Duffy, Lorcan",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Kober, Adam",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Rajasooriar, Krishnan",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Rosenberg, Jamie",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Logue, Stephen",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Pavaday, Damian",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Carlyle, Adam",
+          "reason": "No recalculated current native internal reference for this player/component"
+        }
+      ],
+      "currentCompositeScoresVerified": false,
+      "publicationAuthorized": false,
+      "state": "COMPONENT_INPUT_HOLD",
+      "scores": null
+    },
+    "Total Award Goalie GAA Web Display Score": {
+      "season": "W2026/27",
+      "cutoff": "2026-10-18",
+      "inputField": "Total Award Goalie GAA Internal Score",
+      "formulaSha256": "cff4282603e09c2c45b96e10fe2b498114a6087608470464c86ad91745458753",
+      "currentPlayerCoverage": 22,
+      "unavailable": [
+        {
+          "name": "Ardizzi, Stefano",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Brutto, Adam",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Carosi, Justin",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Kong, Henry",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Pagnotta, Alex",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Paolucci, Anthony",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Pearsoll, Keith",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Povegliano, Adam",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Provenzano, Mario",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Provenzano, Michael",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Rajkumar, Sanjay",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Saindon, Stephane",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Triumbari, Francesco",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Atkins, Nolan",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Duffy, Lorcan",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Kober, Adam",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Rajasooriar, Krishnan",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Rosenberg, Jamie",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Pavaday, Damian",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Carlyle, Adam",
+          "reason": "No recalculated current native internal reference for this player/component"
+        }
+      ],
+      "currentCompositeScoresVerified": false,
+      "publicationAuthorized": false,
+      "state": "COMPONENT_INPUT_HOLD",
+      "scores": null
+    },
+    "Playoff Award Goalie SHO Web Display Score": {
+      "season": "W2026/27",
+      "cutoff": "2026-10-18",
+      "inputField": "Playoff Award Goalie SHO Internal Score",
+      "formulaSha256": "e766dc625aed748119842e8e65d638a3ef4c16533f24f8c4df729f313dac94b0",
+      "currentPlayerCoverage": 22,
+      "unavailable": [
+        {
+          "name": "Ardizzi, Stefano",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Brutto, Adam",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Carosi, Justin",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Kong, Henry",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Pagnotta, Alex",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Paolucci, Anthony",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Pearsoll, Keith",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Povegliano, Adam",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Provenzano, Mario",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Provenzano, Michael",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Rajkumar, Sanjay",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Saindon, Stephane",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Triumbari, Francesco",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Leong, Dev",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Atkins, Nolan",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Duffy, Lorcan",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Kober, Adam",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Rajasooriar, Krishnan",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Rosenberg, Jamie",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Logue, Stephen",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Pavaday, Damian",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Carlyle, Adam",
+          "reason": "No recalculated current native internal reference for this player/component"
+        }
+      ],
+      "currentCompositeScoresVerified": false,
+      "publicationAuthorized": false,
+      "state": "COMPONENT_INPUT_HOLD",
+      "scores": null
+    },
+    "Total Award Goalie SHO Web Display Score": {
+      "season": "W2026/27",
+      "cutoff": "2026-10-18",
+      "inputField": "Total Award Goalie SHO Internal Score",
+      "formulaSha256": "f3fbd2c01e8ac7e39645cdfb8c15bf39a8c2d8a98be8d787fe13772aa9426477",
+      "currentPlayerCoverage": 22,
+      "unavailable": [
+        {
+          "name": "Ardizzi, Stefano",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Brutto, Adam",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Carosi, Justin",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Kong, Henry",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Pagnotta, Alex",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Paolucci, Anthony",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Pearsoll, Keith",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Povegliano, Adam",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Provenzano, Mario",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Provenzano, Michael",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Rajkumar, Sanjay",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Saindon, Stephane",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Triumbari, Francesco",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Atkins, Nolan",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Duffy, Lorcan",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Kober, Adam",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Rajasooriar, Krishnan",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Rosenberg, Jamie",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Pavaday, Damian",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Carlyle, Adam",
+          "reason": "No recalculated current native internal reference for this player/component"
+        }
+      ],
+      "currentCompositeScoresVerified": false,
+      "publicationAuthorized": false,
+      "state": "COMPONENT_INPUT_HOLD",
+      "scores": null
+    },
+    "Total Streak Heat Web Display Score": {
+      "season": "W2026/27",
+      "cutoff": "2026-10-18",
+      "inputField": "Total Streak Heat Internal Score",
+      "formulaSha256": "9611bf15dbefd693f6bc2c610e1493120d2857f6181fc1cf4d93046c08573ea4",
+      "currentPlayerCoverage": 22,
+      "unavailable": [
+        {
+          "name": "Carlyle, Adam",
+          "reason": "No recalculated current native internal reference for this player/component"
+        }
+      ],
+      "currentCompositeScoresVerified": false,
+      "publicationAuthorized": false,
+      "state": "COMPONENT_INPUT_HOLD",
+      "scores": null
+    },
+    "Playoff Streak Heat Web Display Score": {
+      "season": "W2026/27",
+      "cutoff": "2026-10-18",
+      "inputField": "Playoff Streak Heat Internal Score",
+      "formulaSha256": "ccc6c04373028d79723f9d4a1939fdfe206d76705ea871ca90bb13b68a8c262a",
+      "currentPlayerCoverage": 22,
+      "unavailable": [
+        {
+          "name": "Ardizzi, Stefano",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Brutto, Adam",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Carosi, Justin",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Kong, Henry",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Pagnotta, Alex",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Paolucci, Anthony",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Pearsoll, Keith",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Povegliano, Adam",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Provenzano, Mario",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Provenzano, Michael",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Rajkumar, Sanjay",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Saindon, Stephane",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Triumbari, Francesco",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Leong, Dev",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Atkins, Nolan",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Duffy, Lorcan",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Kober, Adam",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Rajasooriar, Krishnan",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Rosenberg, Jamie",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Logue, Stephen",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Pavaday, Damian",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Carlyle, Adam",
+          "reason": "No recalculated current native internal reference for this player/component"
+        }
+      ],
+      "currentCompositeScoresVerified": false,
+      "publicationAuthorized": false,
+      "state": "COMPONENT_INPUT_HOLD",
+      "scores": null
+    },
+    "Career Roster Adjusted Attd. % Web Display Score": {
+      "season": "W2026/27",
+      "cutoff": "2026-10-18",
+      "inputField": "Career Roster Adjusted Attd. % Internal Score",
+      "formulaSha256": "c9d72e979a51b0287c62132315ad2967bc34e567ba5316932e2dcc1955894f81",
+      "currentPlayerCoverage": 22,
+      "unavailable": [
+        {
+          "name": "Carlyle, Adam",
+          "reason": "No recalculated current native internal reference for this player/component"
+        }
+      ],
+      "currentCompositeScoresVerified": false,
+      "publicationAuthorized": false,
+      "state": "COMPONENT_INPUT_HOLD",
+      "scores": null
+    },
+    "Total Skater Production Consistency Web Display Score": {
+      "season": "W2026/27",
+      "cutoff": "2026-10-18",
+      "inputField": "Total Skater Production Consistency Internal Score",
+      "formulaSha256": "ef6b0938953b74cf4f98a2b20fab185489296b1a4a2ddf7a314435dadf07786d",
+      "currentPlayerCoverage": 22,
+      "unavailable": [],
+      "currentCompositeScoresVerified": false,
+      "publicationAuthorized": false,
+      "state": "CURRENT_COMPONENT_NORMALIZATION_CANDIDATE",
+      "family": "MINMAX_ABSOLUTE_TIE",
+      "numericPlayerCount": 19,
+      "scores": {
+        "Ardizzi, Stefano": 50.0,
+        "Brutto, Adam": 50.0,
+        "Carosi, Justin": 100.0,
+        "Kong, Henry": 81.3,
+        "Pagnotta, Alex": 78.1,
+        "Paolucci, Anthony": 50.0,
+        "Pearsoll, Keith": 77.1,
+        "Povegliano, Adam": 50.0,
+        "Provenzano, Mario": 50.0,
+        "Provenzano, Michael": 91.6,
+        "Rajkumar, Sanjay": 50.0,
+        "Saindon, Stephane": 68.8,
+        "Triumbari, Francesco": 50.0,
+        "Atkins, Nolan": 50.0,
+        "Duffy, Lorcan": 50.0,
+        "Kober, Adam": 91.6,
+        "Rajasooriar, Krishnan": 50.0,
+        "Rosenberg, Jamie": 54.1,
+        "Pavaday, Damian": 93.8
+      },
+      "notApplicable": {
+        "Leong, Dev": "Captured internal formula explicitly returns blank for non-skaters",
+        "Logue, Stephen": "Captured internal formula explicitly returns blank for non-skaters",
+        "Carlyle, Adam": "Captured internal formula explicitly returns blank for non-skaters"
+      },
+      "upstreamParityVerified": false
+    },
+    "Playoff Skater Production Consistency Web Display Score": {
+      "season": "W2026/27",
+      "cutoff": "2026-10-18",
+      "inputField": "Playoff Skater Production Consistency Internal Score",
+      "formulaSha256": "85d272eb9bd5f5a3c54b2bb6ee5f407b5907d88ffa776b206095ead5b336dd38",
+      "currentPlayerCoverage": 22,
+      "unavailable": [
+        {
+          "name": "Ardizzi, Stefano",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Brutto, Adam",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Carosi, Justin",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Kong, Henry",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Pagnotta, Alex",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Paolucci, Anthony",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Pearsoll, Keith",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Povegliano, Adam",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Provenzano, Mario",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Provenzano, Michael",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Rajkumar, Sanjay",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Saindon, Stephane",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Triumbari, Francesco",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Atkins, Nolan",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Duffy, Lorcan",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Kober, Adam",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Rajasooriar, Krishnan",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Rosenberg, Jamie",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Pavaday, Damian",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        }
+      ],
+      "currentCompositeScoresVerified": false,
+      "publicationAuthorized": false,
+      "state": "COMPONENT_INPUT_HOLD",
+      "scores": null
+    },
+    "Total Skater Two-Way Reliability Web Display Score": {
+      "season": "W2026/27",
+      "cutoff": "2026-10-18",
+      "inputField": "Total Skater Two-Way Reliability Internal Score",
+      "formulaSha256": "69471afa623964f2e8fd4751d54bd87c8205b6a13c0b9bfc148e68683bf6f44f",
+      "currentPlayerCoverage": 22,
+      "unavailable": [],
+      "currentCompositeScoresVerified": false,
+      "publicationAuthorized": false,
+      "state": "CURRENT_COMPONENT_NORMALIZATION_CANDIDATE",
+      "family": "MINMAX_ABSOLUTE_TIE",
+      "numericPlayerCount": 19,
+      "scores": {
+        "Ardizzi, Stefano": 50.0,
+        "Brutto, Adam": 50.0,
+        "Carosi, Justin": 75.0,
+        "Kong, Henry": 75.0,
+        "Pagnotta, Alex": 75.0,
+        "Paolucci, Anthony": 50.0,
+        "Pearsoll, Keith": 66.8,
+        "Povegliano, Adam": 50.0,
+        "Provenzano, Mario": 50.0,
+        "Provenzano, Michael": 83.3,
+        "Rajkumar, Sanjay": 50.0,
+        "Saindon, Stephane": 66.8,
+        "Triumbari, Francesco": 50.0,
+        "Atkins, Nolan": 50.0,
+        "Duffy, Lorcan": 50.0,
+        "Kober, Adam": 83.3,
+        "Rajasooriar, Krishnan": 50.0,
+        "Rosenberg, Jamie": 50.0,
+        "Pavaday, Damian": 100.0
+      },
+      "notApplicable": {
+        "Leong, Dev": "Captured internal formula explicitly returns blank for non-skaters",
+        "Logue, Stephen": "Captured internal formula explicitly returns blank for non-skaters",
+        "Carlyle, Adam": "Captured internal formula explicitly returns blank for non-skaters"
+      },
+      "upstreamParityVerified": false
+    },
+    "Playoff Skater Two-Way Reliability Web Display Score": {
+      "season": "W2026/27",
+      "cutoff": "2026-10-18",
+      "inputField": "Playoff Skater Two-Way Reliability Internal Score",
+      "formulaSha256": "5a70e794a3ccc64f9133a53e75ee76088e1bd44af07546379da5c57cbe928aac",
+      "currentPlayerCoverage": 22,
+      "unavailable": [
+        {
+          "name": "Ardizzi, Stefano",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Brutto, Adam",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Carosi, Justin",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Kong, Henry",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Pagnotta, Alex",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Paolucci, Anthony",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Pearsoll, Keith",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Povegliano, Adam",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Provenzano, Mario",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Provenzano, Michael",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Rajkumar, Sanjay",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Saindon, Stephane",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Triumbari, Francesco",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Atkins, Nolan",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Duffy, Lorcan",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Kober, Adam",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Rajasooriar, Krishnan",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Rosenberg, Jamie",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Pavaday, Damian",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        }
+      ],
+      "currentCompositeScoresVerified": false,
+      "publicationAuthorized": false,
+      "state": "COMPONENT_INPUT_HOLD",
+      "scores": null
+    },
+    "Total Discipline Reliability Web Display Score": {
+      "season": "W2026/27",
+      "cutoff": "2026-10-18",
+      "inputField": "Total Discipline Reliability Internal Score",
+      "formulaSha256": "563bbc5f797a218d99c04129ea6f419a87ed5d94d48cee82baec9205bedaf857",
+      "currentPlayerCoverage": 22,
+      "unavailable": [],
+      "currentCompositeScoresVerified": false,
+      "publicationAuthorized": false,
+      "state": "CURRENT_COMPONENT_NORMALIZATION_CANDIDATE",
+      "family": "MINMAX_ABSOLUTE_TIE",
+      "numericPlayerCount": 19,
+      "scores": {
+        "Ardizzi, Stefano": 100.0,
+        "Brutto, Adam": 100.0,
+        "Carosi, Justin": 100.0,
+        "Kong, Henry": 100.0,
+        "Pagnotta, Alex": 100.0,
+        "Paolucci, Anthony": 100.0,
+        "Pearsoll, Keith": 100.0,
+        "Povegliano, Adam": 100.0,
+        "Provenzano, Mario": 100.0,
+        "Provenzano, Michael": 100.0,
+        "Rajkumar, Sanjay": 100.0,
+        "Saindon, Stephane": 100.0,
+        "Triumbari, Francesco": 50.0,
+        "Atkins, Nolan": 100.0,
+        "Duffy, Lorcan": 100.0,
+        "Kober, Adam": 100.0,
+        "Rajasooriar, Krishnan": 100.0,
+        "Rosenberg, Jamie": 100.0,
+        "Pavaday, Damian": 100.0
+      },
+      "notApplicable": {
+        "Leong, Dev": "Captured internal formula explicitly returns blank for non-skaters",
+        "Logue, Stephen": "Captured internal formula explicitly returns blank for non-skaters",
+        "Carlyle, Adam": "Captured internal formula explicitly returns blank for non-skaters"
+      },
+      "upstreamParityVerified": false
+    },
+    "Playoff Discipline Reliability Web Display Score": {
+      "season": "W2026/27",
+      "cutoff": "2026-10-18",
+      "inputField": "Playoff Discipline Reliability Internal Score",
+      "formulaSha256": "f805f57eaed207989014a849f467946272a89429b2edacf8ae09897d80957ae2",
+      "currentPlayerCoverage": 22,
+      "unavailable": [
+        {
+          "name": "Ardizzi, Stefano",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Brutto, Adam",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Carosi, Justin",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Kong, Henry",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Pagnotta, Alex",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Paolucci, Anthony",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Pearsoll, Keith",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Povegliano, Adam",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Provenzano, Mario",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Provenzano, Michael",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Rajkumar, Sanjay",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Saindon, Stephane",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Triumbari, Francesco",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Atkins, Nolan",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Duffy, Lorcan",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Kober, Adam",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Rajasooriar, Krishnan",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Rosenberg, Jamie",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Pavaday, Damian",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        }
+      ],
+      "currentCompositeScoresVerified": false,
+      "publicationAuthorized": false,
+      "state": "COMPONENT_INPUT_HOLD",
+      "scores": null
+    },
+    "Total Goalie Reliability Web Display Score": {
+      "season": "W2026/27",
+      "cutoff": "2026-10-18",
+      "inputField": "Total Goalie Reliability Internal Score",
+      "formulaSha256": "8488ce29bd3b6a482d23fb024961c01959d31f6d55f74247581553420451c40f",
+      "currentPlayerCoverage": 22,
+      "unavailable": [
+        {
+          "name": "Ardizzi, Stefano",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Brutto, Adam",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Carosi, Justin",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Kong, Henry",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Pagnotta, Alex",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Paolucci, Anthony",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Pearsoll, Keith",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Povegliano, Adam",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Provenzano, Mario",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Provenzano, Michael",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Rajkumar, Sanjay",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Saindon, Stephane",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Triumbari, Francesco",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Atkins, Nolan",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Duffy, Lorcan",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Kober, Adam",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Rajasooriar, Krishnan",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Rosenberg, Jamie",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Pavaday, Damian",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Carlyle, Adam",
+          "reason": "No recalculated current native internal reference for this player/component"
+        }
+      ],
+      "currentCompositeScoresVerified": false,
+      "publicationAuthorized": false,
+      "state": "COMPONENT_INPUT_HOLD",
+      "scores": null
+    },
+    "Playoff Goalie Reliability Web Display Score": {
+      "season": "W2026/27",
+      "cutoff": "2026-10-18",
+      "inputField": "Playoff Goalie Reliability Internal Score",
+      "formulaSha256": "9387c25923de3b03f456b29ba9ea301a21c9d7900b2738dc269e8ee028df32a7",
+      "currentPlayerCoverage": 22,
+      "unavailable": [
+        {
+          "name": "Ardizzi, Stefano",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Brutto, Adam",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Carosi, Justin",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Kong, Henry",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Pagnotta, Alex",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Paolucci, Anthony",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Pearsoll, Keith",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Povegliano, Adam",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Provenzano, Mario",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Provenzano, Michael",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Rajkumar, Sanjay",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Saindon, Stephane",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Triumbari, Francesco",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Leong, Dev",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Atkins, Nolan",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Duffy, Lorcan",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Kober, Adam",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Rajasooriar, Krishnan",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Rosenberg, Jamie",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Logue, Stephen",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Pavaday, Damian",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Carlyle, Adam",
+          "reason": "No recalculated current native internal reference for this player/component"
+        }
+      ],
+      "currentCompositeScoresVerified": false,
+      "publicationAuthorized": false,
+      "state": "COMPONENT_INPUT_HOLD",
+      "scores": null
+    },
+    "Total Goalie Discipline Reliability Web Display Score": {
+      "season": "W2026/27",
+      "cutoff": "2026-10-18",
+      "inputField": "Total Goalie Discipline Reliability Internal Score",
+      "formulaSha256": "179fff5e8d7113b09f214dd2d561be1785df4c5e4c2e9c63a7c934e5aa9ccbd2",
+      "currentPlayerCoverage": 22,
+      "unavailable": [
+        {
+          "name": "Ardizzi, Stefano",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Brutto, Adam",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Carosi, Justin",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Kong, Henry",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Pagnotta, Alex",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Paolucci, Anthony",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Pearsoll, Keith",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Povegliano, Adam",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Provenzano, Mario",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Provenzano, Michael",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Rajkumar, Sanjay",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Saindon, Stephane",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Triumbari, Francesco",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Atkins, Nolan",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Duffy, Lorcan",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Kober, Adam",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Rajasooriar, Krishnan",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Rosenberg, Jamie",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Pavaday, Damian",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Carlyle, Adam",
+          "reason": "No recalculated current native internal reference for this player/component"
+        }
+      ],
+      "currentCompositeScoresVerified": false,
+      "publicationAuthorized": false,
+      "state": "COMPONENT_INPUT_HOLD",
+      "scores": null
+    },
+    "Playoff Goalie Discipline Reliability Web Display Score": {
+      "season": "W2026/27",
+      "cutoff": "2026-10-18",
+      "inputField": "Playoff Goalie Discipline Reliability Internal Score",
+      "formulaSha256": "f0220841e7b3b3dce0c1c6103a2d9ce5c7c175e93605dffef5927f27d5c94289",
+      "currentPlayerCoverage": 22,
+      "unavailable": [
+        {
+          "name": "Ardizzi, Stefano",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Brutto, Adam",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Carosi, Justin",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Kong, Henry",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Pagnotta, Alex",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Paolucci, Anthony",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Pearsoll, Keith",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Povegliano, Adam",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Provenzano, Mario",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Provenzano, Michael",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Rajkumar, Sanjay",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Saindon, Stephane",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Triumbari, Francesco",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Leong, Dev",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Atkins, Nolan",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Duffy, Lorcan",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Kober, Adam",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Rajasooriar, Krishnan",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Rosenberg, Jamie",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Logue, Stephen",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Pavaday, Damian",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Carlyle, Adam",
+          "reason": "No recalculated current native internal reference for this player/component"
+        }
+      ],
+      "currentCompositeScoresVerified": false,
+      "publicationAuthorized": false,
+      "state": "COMPONENT_INPUT_HOLD",
+      "scores": null
+    },
+    "Total Goalie Offensive Contribution Web Display Score": {
+      "season": "W2026/27",
+      "cutoff": "2026-10-18",
+      "inputField": "Total Goalie Offensive Contribution Internal Score",
+      "formulaSha256": "c3aeab60536a3b32ed05eacb4af561275b8b064eb0c8961cda093d270857c616",
+      "currentPlayerCoverage": 22,
+      "unavailable": [
+        {
+          "name": "Ardizzi, Stefano",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Brutto, Adam",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Carosi, Justin",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Kong, Henry",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Pagnotta, Alex",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Paolucci, Anthony",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Pearsoll, Keith",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Povegliano, Adam",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Provenzano, Mario",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Provenzano, Michael",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Rajkumar, Sanjay",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Saindon, Stephane",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Triumbari, Francesco",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Atkins, Nolan",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Duffy, Lorcan",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Kober, Adam",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Rajasooriar, Krishnan",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Rosenberg, Jamie",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Pavaday, Damian",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Carlyle, Adam",
+          "reason": "No recalculated current native internal reference for this player/component"
+        }
+      ],
+      "currentCompositeScoresVerified": false,
+      "publicationAuthorized": false,
+      "state": "COMPONENT_INPUT_HOLD",
+      "scores": null
+    },
+    "Playoff Goalie Offensive Contribution Web Display Score": {
+      "season": "W2026/27",
+      "cutoff": "2026-10-18",
+      "inputField": "Playoff Goalie Offensive Contribution Internal Score",
+      "formulaSha256": "9700c912ff75f659593922e223c3de0a648c83b9c25530e599cf50991222732c",
+      "currentPlayerCoverage": 22,
+      "unavailable": [
+        {
+          "name": "Ardizzi, Stefano",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Brutto, Adam",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Carosi, Justin",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Kong, Henry",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Pagnotta, Alex",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Paolucci, Anthony",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Pearsoll, Keith",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Povegliano, Adam",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Provenzano, Mario",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Provenzano, Michael",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Rajkumar, Sanjay",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Saindon, Stephane",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Triumbari, Francesco",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Leong, Dev",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Atkins, Nolan",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Duffy, Lorcan",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Kober, Adam",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Rajasooriar, Krishnan",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Rosenberg, Jamie",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Logue, Stephen",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Pavaday, Damian",
+          "reason": "Native internal is blank; phase/applicability or upstream cause requires confirmation"
+        },
+        {
+          "name": "Carlyle, Adam",
+          "reason": "No recalculated current native internal reference for this player/component"
+        }
+      ],
+      "currentCompositeScoresVerified": false,
+      "publicationAuthorized": false,
+      "state": "COMPONENT_INPUT_HOLD",
+      "scores": null
+    },
+    "Total Skater Improvement Web Display Score": {
+      "season": "W2026/27",
+      "cutoff": "2026-10-18",
+      "inputField": "Total Skater Raw Improvement Index",
+      "formulaSha256": "b38e00164d4c27f6ab0d950332d8fb1ba1b07ace6d917511ff3e8f64d46290fe",
+      "currentPlayerCoverage": 22,
+      "unavailable": [
+        {
+          "name": "Carlyle, Adam",
+          "reason": "No recalculated current native internal reference for this player/component"
+        }
+      ],
+      "currentCompositeScoresVerified": false,
+      "publicationAuthorized": false,
+      "state": "COMPONENT_INPUT_HOLD",
+      "scores": null
+    },
+    "Total Goalie Improvement Web Display Score": {
+      "season": "W2026/27",
+      "cutoff": "2026-10-18",
+      "inputField": "Total Goalie Raw Improvement Index",
+      "formulaSha256": "8e4b6fa4dd50b8c598588a5b9b9369ff6b636ed4b64df0036b9e6caac390ab86",
+      "currentPlayerCoverage": 22,
+      "unavailable": [
+        {
+          "name": "Carlyle, Adam",
+          "reason": "No recalculated current native internal reference for this player/component"
+        }
+      ],
+      "currentCompositeScoresVerified": false,
+      "publicationAuthorized": false,
+      "state": "COMPONENT_INPUT_HOLD",
+      "scores": null
+    }
+  },
+  "currentCompositeScoresVerified": false,
+  "publicationAuthorized": false,
+  "limitation": "Corrected normalization population only. Recorded internal values still require upstream current-cohort and complete native recalculation parity.",
+  "sourceFileHashes": {
+    "261020_Awards_Original_Formula_Capture.json": "73251e8e4fda7ecb229b9df096cacfcab8e92ddd4c474dcd6a3c646a2920390d",
+    "261021_Awards_Current_Population_Join.json": "7ef8f2a19b38a70cc18e9c58a6de5afcad27ec0e5e3e8983b95c438ed5f07186",
+    "261021_Awards_All_Display_Native_Reference.json": "97282979bf7528c31451b83df19c8995dc76a896b82c6458fb9028e6856e5f29"
+  }
+}

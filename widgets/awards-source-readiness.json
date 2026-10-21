@@ -1,0 +1,138 @@
+{
+  "schema": "brave-hc-awards-source-readiness-review/v1",
+  "state": "SOURCE_INPUT_READINESS_ONLY_NO_OFFICIAL_AWARD_SCORES",
+  "season": "W2026/27",
+  "auditedAsOf": "2026-10-19",
+  "originalWorkbookAuthoritySha256": "0002fd9f06596af8d0a00fc1b53a618ef15479f941ad5c1e6265b27002a65154",
+  "privateSourceAuditSha256": "85f63735bde883b146079463661d71bd963a8b1810a2a57b57485b5083f822ee",
+  "htoObservedTeamGames": 4,
+  "savedAwardScoringTeamGames": 1,
+  "sourceRowsMapped": 58,
+  "sourceModelCalculated": false,
+  "independentQAAccepted": false,
+  "awardScoreReleaseAllowed": false,
+  "notes": "Read-only source audit from 2026-10-19. This is not real-time data and does not establish a current 2026/27 AwardScoring calculation. Source readiness differs from eligibility, normalized overall scores and official rankings.",
+  "awards": [
+    {
+      "id": "hart",
+      "eligibleField": "Hart Eligible",
+      "rankField": "Hart Rank Key",
+      "scoreField": "Hart Award Score",
+      "scoreKind": "OVR",
+      "knownInputs": "Current GP, G/A/PTS, POTG, +/- and goalie GA available; workbook historical cache 21/23",
+      "remainingToVerify": "Full role-specific weighted formula, thresholds, historical normalizers and identity baselines require replay",
+      "state": "INPUT_PARTIAL_SCORE_HELD",
+      "officialScoreVerified": false
+    },
+    {
+      "id": "conn-smythe",
+      "eligibleField": "Conn Smythe Eligible",
+      "rankField": "Conn Smythe Rank Key",
+      "scoreField": "Conn Smythe Award Score",
+      "scoreKind": "OVR",
+      "knownInputs": "Saved historical playoff scorecards exist",
+      "remainingToVerify": "Current playoff game logs not present in four regular-season game stage; original playoff calculations and eligibility require replay",
+      "state": "INPUT_PARTIAL_SCORE_HELD",
+      "officialScoreVerified": false
+    },
+    {
+      "id": "art-ross",
+      "eligibleField": "Art Ross Eligible",
+      "rankField": "Art Ross Rank Key",
+      "scoreField": "Art Ross Award Score",
+      "scoreKind": "STAT",
+      "knownInputs": "Verified current skater goals, assists, points and appearances",
+      "remainingToVerify": "Refresh source eligibility and tie/Rank Key rules before official awarded shortlist",
+      "state": "INPUT_PARTIAL_SCORE_HELD",
+      "officialScoreVerified": false
+    },
+    {
+      "id": "rocket",
+      "eligibleField": "Rocket Richard Eligible",
+      "rankField": "Rocket Richard Rank Key",
+      "scoreField": "Rocket Richard Award Score",
+      "scoreKind": "STAT",
+      "knownInputs": "Verified current skater goals and games",
+      "remainingToVerify": "Refresh source eligibility and tie/Rank Key rules before official awarded shortlist",
+      "state": "INPUT_PARTIAL_SCORE_HELD",
+      "officialScoreVerified": false
+    },
+    {
+      "id": "norris",
+      "eligibleField": "Norris Eligible",
+      "rankField": "Norris Rank Key",
+      "scoreField": "Norris Award Score",
+      "scoreKind": "OVR",
+      "knownInputs": "Verified skater scoring, plus/minus, current HTO listed positions",
+      "remainingToVerify": "Original defensive/utility eligibility and normalized weighted scoring require historical source replay",
+      "state": "INPUT_PARTIAL_SCORE_HELD",
+      "officialScoreVerified": false
+    },
+    {
+      "id": "lady-byng",
+      "eligibleField": "Lady Byng Eligible",
+      "rankField": "Lady Byng Rank Key",
+      "scoreField": "Lady Byng Award Score",
+      "scoreKind": "OVR",
+      "knownInputs": "Reported PIM and penalty-free appearances, GP, +/- available",
+      "remainingToVerify": "Original sportsmanship/discipline and career comparison dependencies not verified",
+      "state": "INPUT_PARTIAL_SCORE_HELD",
+      "officialScoreVerified": false
+    },
+    {
+      "id": "rookie",
+      "eligibleField": "Rookie Eligible",
+      "rankField": "Rookie Rank Key",
+      "scoreField": "Rookie of the Year Award Score",
+      "scoreKind": "OVR",
+      "knownInputs": "Five 2026 Rookie Year FT players corroborated in workbook/HTO; all have current GP",
+      "remainingToVerify": "Jamie cached GP/Recent Season stale; award raw composite/rank only after workbook game-log and historical model replay",
+      "state": "INPUT_PARTIAL_SCORE_HELD",
+      "officialScoreVerified": false
+    },
+    {
+      "id": "improved",
+      "eligibleField": "Most Improved Eligible",
+      "rankField": "Most Improved Player Rank Key",
+      "scoreField": "Most Improved Player Award Score",
+      "scoreKind": "OVR",
+      "knownInputs": "Current goals, assists, points/GP staged; selected cached career-prior rates for 21/23 matched players",
+      "remainingToVerify": "Original qualifying baseline sample, previous season calculations and improvement normalization need replay",
+      "state": "INPUT_PARTIAL_SCORE_HELD",
+      "officialScoreVerified": false
+    },
+    {
+      "id": "rolaids",
+      "eligibleField": "Rolaids Eligible",
+      "rankField": "Rolaids Relief Man Rank Key",
+      "scoreField": "Rolaids Relief Man Award Score",
+      "scoreKind": "OVR",
+      "knownInputs": "Current GP, scoring, PIM, POTG, goalie GA; historical 11-skater/10-goalie component evidence",
+      "remainingToVerify": "Original weighted source model, adjusted rates, goalie quality, original career comparisons and final rank normalization require replay",
+      "state": "INPUT_PARTIAL_SCORE_HELD",
+      "officialScoreVerified": false
+    },
+    {
+      "id": "dedication",
+      "eligibleField": "Dedication Eligible",
+      "rankField": "Andrew Cristillo Dedication Rank Key",
+      "scoreField": "Andrew Cristillo Dedication Award Score",
+      "scoreKind": "OVR",
+      "knownInputs": "Current GP/roster role and selected cached historical attendance fields",
+      "remainingToVerify": "True eligibility/attendance denominators, career roster-adjusted history and playoffs/tenure require replay",
+      "state": "INPUT_PARTIAL_SCORE_HELD",
+      "officialScoreVerified": false
+    },
+    {
+      "id": "hof",
+      "eligibleField": "HOF Eligible",
+      "rankField": "HOF Rank Key",
+      "scoreField": "HOF workbook scoring fields",
+      "scoreKind": "OVR",
+      "knownInputs": "Selected historical cached career totals, goals/assists/points and goalie statistics for 21/23",
+      "remainingToVerify": "HOF source fields live in PlayerInfo, not identical to weekly awards; legacy, awards/records, playoff and full historical parity outstanding",
+      "state": "INPUT_PARTIAL_SCORE_HELD",
+      "officialScoreVerified": false
+    }
+  ]
+}

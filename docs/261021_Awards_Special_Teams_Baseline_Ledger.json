@@ -1,0 +1,185 @@
+{
+  "state": "SPECIAL_TEAMS_HISTORICAL_BASELINES_REBUILT",
+  "sourceWorkbookSha256": "68392eccdd7087f4efbc32cabf23cb308aa7843eb33df72d714a3a099754a132",
+  "checked": 9469,
+  "differenceCount": 0,
+  "differences": [],
+  "absoluteIntermediateTolerance": 1e-12,
+  "players": [
+    {
+      "name": "Ardizzi, Stefano",
+      "values": {
+        "Career Prior Skater GP": 221,
+        "All-Time Total Skater Special Teams Team Rate Avg": 0.02797846720498654,
+        "Career Prior Total PPG/GP": 0.016591251885369532,
+        "Career Prior Total SHG/GP": 0.010558069381598792
+      }
+    },
+    {
+      "name": "Brutto, Adam",
+      "values": {
+        "Career Prior Skater GP": 332,
+        "All-Time Total Skater Special Teams Team Rate Avg": 0.02797846720498654,
+        "Career Prior Total PPG/GP": 0.009036144578313253,
+        "Career Prior Total SHG/GP": 0.0
+      }
+    },
+    {
+      "name": "Carosi, Justin",
+      "values": {
+        "Career Prior Skater GP": 299,
+        "All-Time Total Skater Special Teams Team Rate Avg": 0.02797846720498654,
+        "Career Prior Total PPG/GP": 0.05574136008918618,
+        "Career Prior Total SHG/GP": 0.0189520624303233
+      }
+    },
+    {
+      "name": "Kong, Henry",
+      "values": {
+        "Career Prior Skater GP": 0,
+        "All-Time Total Skater Special Teams Team Rate Avg": 0.02797846720498654,
+        "Career Prior Total PPG/GP": 0.0,
+        "Career Prior Total SHG/GP": 0.0
+      }
+    },
+    {
+      "name": "Pagnotta, Alex",
+      "values": {
+        "Career Prior Skater GP": 320,
+        "All-Time Total Skater Special Teams Team Rate Avg": 0.02797846720498654,
+        "Career Prior Total PPG/GP": 0.00625,
+        "Career Prior Total SHG/GP": 0.0020833333333333333
+      }
+    },
+    {
+      "name": "Paolucci, Anthony",
+      "values": {
+        "Career Prior Skater GP": 89,
+        "All-Time Total Skater Special Teams Team Rate Avg": 0.02797846720498654,
+        "Career Prior Total PPG/GP": 0.007490636704119849,
+        "Career Prior Total SHG/GP": 0.0
+      }
+    },
+    {
+      "name": "Pearsoll, Keith",
+      "values": {
+        "Career Prior Skater GP": 294,
+        "All-Time Total Skater Special Teams Team Rate Avg": 0.02797846720498654,
+        "Career Prior Total PPG/GP": 0.007936507936507936,
+        "Career Prior Total SHG/GP": 0.01020408163265306
+      }
+    },
+    {
+      "name": "Povegliano, Adam",
+      "values": {
+        "Career Prior Skater GP": 0,
+        "All-Time Total Skater Special Teams Team Rate Avg": 0.02797846720498654,
+        "Career Prior Total PPG/GP": 0.0,
+        "Career Prior Total SHG/GP": 0.0
+      }
+    },
+    {
+      "name": "Provenzano, Mario",
+      "values": {
+        "Career Prior Skater GP": 240,
+        "All-Time Total Skater Special Teams Team Rate Avg": 0.02797846720498654,
+        "Career Prior Total PPG/GP": 0.03611111111111111,
+        "Career Prior Total SHG/GP": 0.0
+      }
+    },
+    {
+      "name": "Provenzano, Michael",
+      "values": {
+        "Career Prior Skater GP": 39,
+        "All-Time Total Skater Special Teams Team Rate Avg": 0.02797846720498654,
+        "Career Prior Total PPG/GP": 0.05128205128205128,
+        "Career Prior Total SHG/GP": 0.0
+      }
+    },
+    {
+      "name": "Rajkumar, Sanjay",
+      "values": {
+        "Career Prior Skater GP": 0,
+        "All-Time Total Skater Special Teams Team Rate Avg": 0.02797846720498654,
+        "Career Prior Total PPG/GP": 0.0,
+        "Career Prior Total SHG/GP": 0.0
+      }
+    },
+    {
+      "name": "Saindon, Stephane",
+      "values": {
+        "Career Prior Skater GP": 88,
+        "All-Time Total Skater Special Teams Team Rate Avg": 0.02797846720498654,
+        "Career Prior Total PPG/GP": 0.022727272727272728,
+        "Career Prior Total SHG/GP": 0.022727272727272728
+      }
+    },
+    {
+      "name": "Triumbari, Francesco",
+      "values": {
+        "Career Prior Skater GP": 0,
+        "All-Time Total Skater Special Teams Team Rate Avg": 0.02797846720498654,
+        "Career Prior Total PPG/GP": 0.0,
+        "Career Prior Total SHG/GP": 0.0
+      }
+    },
+    {
+      "name": "Atkins, Nolan",
+      "values": {
+        "Career Prior Skater GP": 7,
+        "All-Time Total Skater Special Teams Team Rate Avg": 0.02797846720498654,
+        "Career Prior Total PPG/GP": 0.0,
+        "Career Prior Total SHG/GP": 0.0
+      }
+    },
+    {
+      "name": "Duffy, Lorcan",
+      "values": {
+        "Career Prior Skater GP": 82,
+        "All-Time Total Skater Special Teams Team Rate Avg": 0.02797846720498654,
+        "Career Prior Total PPG/GP": 0.012195121951219513,
+        "Career Prior Total SHG/GP": 0.012195121951219513
+      }
+    },
+    {
+      "name": "Kober, Adam",
+      "values": {
+        "Career Prior Skater GP": 44,
+        "All-Time Total Skater Special Teams Team Rate Avg": 0.02797846720498654,
+        "Career Prior Total PPG/GP": 0.022727272727272728,
+        "Career Prior Total SHG/GP": 0.0
+      }
+    },
+    {
+      "name": "Rajasooriar, Krishnan",
+      "values": {
+        "Career Prior Skater GP": 54,
+        "All-Time Total Skater Special Teams Team Rate Avg": 0.02797846720498654,
+        "Career Prior Total PPG/GP": 0.0,
+        "Career Prior Total SHG/GP": 0.0
+      }
+    },
+    {
+      "name": "Rosenberg, Jamie",
+      "values": {
+        "Career Prior Skater GP": 0,
+        "All-Time Total Skater Special Teams Team Rate Avg": 0.02797846720498654,
+        "Career Prior Total PPG/GP": 0.0,
+        "Career Prior Total SHG/GP": 0.0
+      }
+    },
+    {
+      "name": "Pavaday, Damian",
+      "values": {
+        "Career Prior Skater GP": 0,
+        "All-Time Total Skater Special Teams Team Rate Avg": 0.02797846720498654,
+        "Career Prior Total PPG/GP": 0.0,
+        "Career Prior Total SHG/GP": 0.0
+      }
+    }
+  ],
+  "careerTeamGP": 4706.0,
+  "careerTeamRate": 0.02797846720498654,
+  "blankPolicy": "Historical SUMIFS blank semantics only; current observations independently required",
+  "publicationAuthorized": false
+}

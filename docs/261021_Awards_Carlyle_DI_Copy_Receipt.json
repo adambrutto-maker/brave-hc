@@ -1,0 +1,83 @@
+{
+  "runtime": {
+    "state": "METADATA_COPY_SAVED_REQUIRES_XML_CHECKS_AND_DOWNSTREAM_CALCULATION",
+    "copy": "D:\\BruTTech\\Products\\HockeyOS\\261019_Award_GameLog_Staging_v1\\Carlyle_DI_Review_20261021_112351\\Review_Only_Metadata_Candidate.xlsx",
+    "baseline": "D:\\BruTTech\\Products\\HockeyOS\\261019_Award_GameLog_Staging_v1\\Carlyle_Metadata_Review_20261021_052450\\Review_Only_Metadata_Candidate.xlsx",
+    "source": "D:\\BruTTech\\Products\\HockeyOS\\Reference Implementations\\Brave H.C\\01 Team Records\\261001_Brave_HC_Master_Workbook.xlsx",
+    "currentScoresVerified": false,
+    "publicationAuthorized": false,
+    "recalculationPerformed": false,
+    "rosterStatus": "DI",
+    "rosterStatusSource": "Adam direct confirmation, October 21 2026",
+    "playerName": "Carlyle, Adam",
+    "addedRows": [
+      {
+        "row": 497,
+        "table": "RosterStatusBySeason",
+        "range": "$ZE$5:$ZW$497",
+        "columnCount": 19,
+        "columnStart": 681
+      }
+    ],
+    "writes": [
+      {
+        "row": 116,
+        "table": "PlayerInfo",
+        "existingCell": "E116",
+        "value": "DI",
+        "field": "Current Roster Status"
+      },
+      {
+        "row": 497,
+        "table": "RosterStatusBySeason",
+        "value": "W2026/27",
+        "field": "Season"
+      },
+      {
+        "row": 497,
+        "table": "RosterStatusBySeason",
+        "value": "DI",
+        "field": "Status"
+      },
+      {
+        "row": 497,
+        "table": "RosterStatusBySeason",
+        "value": "Carlyle, Adam",
+        "field": "Name"
+      }
+    ],
+    "displacedCells": [],
+    "observedAt": "2026-10-21T11:24:42.3375558Z",
+    "openedFullName": "",
+    "openedName": "Review_Only_Metadata_Candidate.xlsx",
+    "openedPath": "D:\\BruTTech\\Products\\HockeyOS\\261019_Award_GameLog_Staging_v1\\Carlyle_DI_Review_20261021_112351",
+    "openedReadOnly": false,
+    "verifiedRuntimePath": "D:\\BruTTech\\Products\\HockeyOS\\261019_Award_GameLog_Staging_v1\\Carlyle_DI_Review_20261021_112351\\Review_Only_Metadata_Candidate.xlsx",
+    "runtimeIdentityMethod": "Path plus Name, collection member path, single workbook in isolated Excel instance and matching application Hwnd",
+    "fullNamePropertyAvailable": false,
+    "awardFormulaModeChecks": 146,
+    "unresolvedMetadata": [
+      "Position 2"
+    ],
+    "rosterStatusConfirmationApplied": true,
+    "expectedWrites": 4,
+    "copySaved": true,
+    "sourceHashUnchanged": true,
+    "baselineHashUnchanged": true
+  },
+  "postcheck": {
+    "state": "METADATA_COPY_PRESERVATION_PASS",
+    "historicalCellsChecked": 1956786,
+    "differenceCount": 0,
+    "differences": [],
+    "styleComparison": "Resolved font/fill/border/number-format/style-XF definitions; style numeric IDs may be reordered by Excel",
+    "copy": "D:\\BruTTech\\Products\\HockeyOS\\261019_Award_GameLog_Staging_v1\\Carlyle_DI_Review_20261021_112351\\Review_Only_Metadata_Candidate.xlsx",
+    "copySha256": "fed3c183fbc19c6e37af6762c7944b55fb50ecb7aac5b43f28dbcb49c188f529",
+    "sourceHashUnchanged": true,
+    "baselineHashUnchanged": true,
+    "currentScoresVerified": false,
+    "recalculationPerformed": false,
+    "rosterStatusConfirmationApplied": true,
+    "publicationAuthorized": false
+  }
+}

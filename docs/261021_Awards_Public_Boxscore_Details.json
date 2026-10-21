@@ -1,0 +1,413 @@
+{
+  "state": "PUBLIC_BOXSCORE_DETAIL_OBSERVATIONS_ONLY",
+  "observedAt": "2026-10-21T11:35:32.695094+00:00",
+  "games": [
+    {
+      "sourceGameId": 3356177,
+      "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=3356177&p=boxscore",
+      "htmlSha256": "979741a3b7b3ed381c5a04f66c94c7f70357227682241b6980a9a9721275f2f2",
+      "tables": [
+        [
+          [
+            "PerPeriod",
+            "Time",
+            "StrStrength",
+            "Team",
+            "Scorer (Assisted by)",
+            "Total"
+          ],
+          [
+            "2",
+            "5:11",
+            "ES",
+            "Dateline Predators",
+            "-",
+            "1-0Dateline Predators"
+          ],
+          [
+            "2",
+            "4:51",
+            "ES",
+            "Dateline Predators",
+            "-",
+            "2-0Dateline Predators"
+          ],
+          [
+            "3",
+            "8:05",
+            "ES",
+            "Dateline Predators",
+            "-",
+            "3-0Dateline Predators"
+          ]
+        ],
+        [
+          [
+            "No",
+            "Name",
+            "",
+            "GP",
+            "L",
+            "GA",
+            "GAA",
+            "POTG",
+            "+/-"
+          ],
+          [
+            "31",
+            "Leong, Dev",
+            "",
+            "1",
+            "1",
+            "3",
+            "3.00",
+            "1",
+            "-3"
+          ],
+          [
+            "",
+            "Team Stats",
+            "",
+            "1",
+            "1",
+            "3",
+            "3.00",
+            "1",
+            "-3"
+          ]
+        ]
+      ]
+    },
+    {
+      "sourceGameId": 3356178,
+      "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=3356178&p=boxscore",
+      "htmlSha256": "f3710d4019b24b825055b41be29d61e461632bb3f895ac590cc07d7780bb385a",
+      "tables": [
+        [
+          [
+            "PerPeriod",
+            "Time",
+            "StrStrength",
+            "Team",
+            "Scorer (Assisted by)",
+            "Total"
+          ],
+          [
+            "1",
+            "2:42",
+            "ES",
+            "Mohawks H.C.",
+            "-",
+            "1-0Mohawks H.C."
+          ],
+          [
+            "2",
+            "9:26",
+            "ES",
+            "Brave H.C.",
+            "89 Justin Carosi (25 Michael Provenzano, 44 Alex Pagnotta)",
+            "1-1Tie"
+          ],
+          [
+            "2",
+            "2:01",
+            "ES",
+            "Mohawks H.C.",
+            "-",
+            "2-1Mohawks H.C."
+          ],
+          [
+            "2",
+            "2:01",
+            "ES",
+            "Mohawks H.C.",
+            "-",
+            "3-1Mohawks H.C."
+          ],
+          [
+            "3",
+            "9:40",
+            "ES",
+            "Mohawks H.C.",
+            "-",
+            "4-1Mohawks H.C."
+          ],
+          [
+            "3",
+            "7:32",
+            "ES",
+            "Mohawks H.C.",
+            "-",
+            "5-1Mohawks H.C."
+          ],
+          [
+            "3",
+            "7:03",
+            "ES",
+            "Mohawks H.C.",
+            "-",
+            "6-1Mohawks H.C."
+          ],
+          [
+            "3",
+            "5:30",
+            "ES",
+            "Brave H.C.",
+            "89 Justin Carosi (25 Michael Provenzano)",
+            "6-2Mohawks H.C."
+          ],
+          [
+            "3",
+            "1:20",
+            "ES",
+            "Brave H.C.",
+            "12 Adam Kober (34 Henry Kong, 44 Alex Pagnotta)",
+            "6-3Mohawks H.C."
+          ]
+        ],
+        [
+          [
+            "No",
+            "Name",
+            "",
+            "GP",
+            "L",
+            "GA",
+            "GAA",
+            "POTG",
+            "+/-"
+          ],
+          [
+            "70",
+            "Logue, Stephen",
+            "",
+            "1",
+            "1",
+            "6",
+            "6.00",
+            "1",
+            "-3"
+          ],
+          [
+            "",
+            "Team Stats",
+            "",
+            "1",
+            "1",
+            "6",
+            "6.00",
+            "1",
+            "-3"
+          ]
+        ]
+      ]
+    },
+    {
+      "sourceGameId": 3369564,
+      "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=3369564&p=boxscore",
+      "htmlSha256": "29018e32ff17238b56e6d0f2e96a57ed10d9857121527a386c3beda43d59288c",
+      "tables": [
+        [
+          [
+            "PerPeriod",
+            "Time",
+            "StrStrength",
+            "Team",
+            "Scorer (Assisted by)",
+            "Total"
+          ],
+          [
+            "1",
+            "9:12",
+            "ES",
+            "Michelob Morts",
+            "-",
+            "1-0Michelob Morts"
+          ],
+          [
+            "1",
+            "7:10",
+            "ES",
+            "Brave H.C.",
+            "34 Henry Kong (12 Adam Kober, Damian Pavaday)",
+            "1-1Tie"
+          ],
+          [
+            "1",
+            "3:36",
+            "ES",
+            "Michelob Morts",
+            "-",
+            "2-1Michelob Morts"
+          ],
+          [
+            "1",
+            "3:29",
+            "ES",
+            "Brave H.C.",
+            "89 Justin Carosi (25 Michael Provenzano)",
+            "2-2Tie"
+          ],
+          [
+            "3",
+            "6:38",
+            "ES",
+            "Michelob Morts",
+            "-",
+            "3-2Michelob Morts"
+          ]
+        ],
+        [
+          [
+            "No",
+            "Name",
+            "",
+            "GP",
+            "L",
+            "GA",
+            "GAA",
+            "POTG",
+            "+/-"
+          ],
+          [
+            "0",
+            "Carlyle, Adam",
+            "",
+            "1",
+            "1",
+            "3",
+            "3.00",
+            "1",
+            "-1"
+          ],
+          [
+            "",
+            "Team Stats",
+            "",
+            "1",
+            "1",
+            "3",
+            "3.00",
+            "1",
+            "-1"
+          ]
+        ]
+      ]
+    },
+    {
+      "sourceGameId": 3375601,
+      "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=3375601&p=boxscore",
+      "htmlSha256": "d97ad9eaad29dcc6d238c6d63ace24198a1bae655fe79b41e0aae572a9bc0242",
+      "tables": [
+        [
+          [
+            "PerPeriod",
+            "Time",
+            "StrStrength",
+            "Team",
+            "Scorer (Assisted by)",
+            "Total"
+          ],
+          [
+            "1",
+            "9:17",
+            "ES",
+            "Brave H.C.",
+            "39 Keith Pearsoll (20 Stephane Saindon, 44 Alex Pagnotta)",
+            "0-1Brave H.C."
+          ],
+          [
+            "1",
+            "7:06",
+            "ES",
+            "Zamboner Crew",
+            "-",
+            "1-1Tie"
+          ],
+          [
+            "1",
+            "5:10",
+            "ES",
+            "Zamboner Crew",
+            "-",
+            "2-1Zamboner Crew"
+          ],
+          [
+            "2",
+            "6:39",
+            "ES",
+            "Zamboner Crew",
+            "-",
+            "3-1Zamboner Crew"
+          ],
+          [
+            "2",
+            "3:05",
+            "ES",
+            "Zamboner Crew",
+            "-",
+            "4-1Zamboner Crew"
+          ],
+          [
+            "2",
+            "2:57",
+            "ES",
+            "Zamboner Crew",
+            "-",
+            "5-1Zamboner Crew"
+          ],
+          [
+            "3",
+            "7:45",
+            "PP",
+            "Zamboner Crew",
+            "-",
+            "6-1Zamboner Crew"
+          ],
+          [
+            "3",
+            "3:10",
+            "ES",
+            "Zamboner Crew",
+            "-",
+            "7-1Zamboner Crew"
+          ]
+        ],
+        [
+          [
+            "No",
+            "Name",
+            "",
+            "GP",
+            "L",
+            "GA",
+            "GAA",
+            "+/-"
+          ],
+          [
+            "31",
+            "Leong, Dev",
+            "",
+            "1",
+            "1",
+            "7",
+            "7.00",
+            "-6"
+          ],
+          [
+            "",
+            "Team Stats",
+            "",
+            "1",
+            "1",
+            "7",
+            "7.00",
+            "-6"
+          ]
+        ]
+      ]
+    }
+  ],
+  "readOnly": true,
+  "publicationAuthorized": false
+}

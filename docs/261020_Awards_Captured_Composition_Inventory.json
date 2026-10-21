@@ -1,0 +1,2355 @@
+{
+  "schema": "brave-hc-awards-captured-composition-inventory/v1",
+  "sourceWorkbookSha256": "0002fd9f06596af8d0a00fc1b53a618ef15479f941ad5c1e6265b27002a65154",
+  "status": "CAPTURED_SOURCE_COMPOSITION_ONLY",
+  "models": {
+    "hart": {
+      "rawFormula": {
+        "field": "Hart Raw Composite Score",
+        "formula": "IF(AwardScoring[[#This Row],[Name]]=\"\",\"\",IF(IF(AwardScoring[[#This Row],[Award Scoring Type]]=\"Goaltender\",IFERROR(INDEX(PlayerInfo[Current Goalie GP],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0),IF(AwardScoring[[#This Row],[Award Scoring Type]]=\"Skater\",IFERROR(INDEX(PlayerInfo[Current Skater GP],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0),0))<=0,\"\",IFERROR(IF(AwardScoring[[#This Row],[Award Scoring Type]]=\"Skater\",ROUND((IFERROR(AwardScoring[[#This Row],[Total Final Pts Web Display Score]],0)*0.25)+(IFERROR(AwardScoring[[#This Row],[Total Award POTG Web Display Score]],0)*0.12)+(IFERROR(AwardScoring[[#This Row],[Total Final G Web Display Score]],0)*0.1)+(IFERROR(AwardScoring[[#This Row],[Total Final A Web Display Score]],0)*0.08)+(IFERROR(AwardScoring[[#This Row],[Total Final Clutch Web Display Score]],0)*0.1)+(IFERROR(AwardScoring[[#This Row],[Total Final Special Teams Web Display Score]],0)*0.08)+(IFERROR(AwardScoring[[#This Row],[Total Streak Heat Web Display Score]],0)*0.08)+(IFERROR(AwardScoring[[#This Row],[Total Skater Production Consistency Web Display Score]],0)*0.08)+(IFERROR(AwardScoring[[#This Row],[Total Skater Two-Way Reliability Web Display Score]],0)*0.06)+(IFERROR(AwardScoring[[#This Row],[Current True Attd. % Web Display Score]],0)*0.03)+(IFERROR(AwardScoring[[#This Row],[Total Final +/- Web Display Score]],0)*0.02),1),IF(AwardScoring[[#This Row],[Award Scoring Type]]=\"Goaltender\",ROUND((IFERROR(AwardScoring[[#This Row],[Total Goalie Reliability Web Display Score]],0)*0.22)+(IFERROR(AwardScoring[[#This Row],[Total Award Goalie Win % Web Display Score]],0)*0.18)+(IFERROR(AwardScoring[[#This Row],[Total Award Goalie GAA Web Display Score]],0)*0.17)+(IFERROR(AwardScoring[[#This Row],[Total Award Goalie W Web Display Score]],0)*0.1)+(IFERROR(AwardScoring[[#This Row],[Total Award Goalie SHO Web Display Score]],0)*0.08)+(IFERROR(AwardScoring[[#This Row],[Total Award POTG Web Display Score]],0)*0.1)+(IFERROR(AwardScoring[[#This Row],[Current True Attd. % Web Display Score]],0)*0.05)+(IFERROR(AwardScoring[[#This Row],[Total Final +/- Web Display Score]],0)*0.04)+(IFERROR(AwardScoring[[#This Row],[Total Goalie Discipline Reliability Web Display Score]],0)*0.03)+(IFERROR(AwardScoring[[#This Row],[Total Goalie Offensive Contribution Web Display Score]],0)*0.03),1),\"\")),\"\")))",
+        "sha256": "0ec08d86a86303b387892c08470557ccd0233eda6f5ef092d4f6825bc0fa40f5",
+        "storedFormulaTypes": {
+          "array": 50
+        }
+      },
+      "roles": {
+        "skater": {
+          "kind": "WEIGHTED_WEB_COMPONENTS",
+          "weights": [
+            {
+              "field": "Total Final Pts Web Display Score",
+              "coefficient": 0.25
+            },
+            {
+              "field": "Total Award POTG Web Display Score",
+              "coefficient": 0.12
+            },
+            {
+              "field": "Total Final G Web Display Score",
+              "coefficient": 0.1
+            },
+            {
+              "field": "Total Final A Web Display Score",
+              "coefficient": 0.08
+            },
+            {
+              "field": "Total Final Clutch Web Display Score",
+              "coefficient": 0.1
+            },
+            {
+              "field": "Total Final Special Teams Web Display Score",
+              "coefficient": 0.08
+            },
+            {
+              "field": "Total Streak Heat Web Display Score",
+              "coefficient": 0.08
+            },
+            {
+              "field": "Total Skater Production Consistency Web Display Score",
+              "coefficient": 0.08
+            },
+            {
+              "field": "Total Skater Two-Way Reliability Web Display Score",
+              "coefficient": 0.06
+            },
+            {
+              "field": "Current True Attd. % Web Display Score",
+              "coefficient": 0.03
+            },
+            {
+              "field": "Total Final +/- Web Display Score",
+              "coefficient": 0.02
+            }
+          ],
+          "coefficientTotal": 0.9999999999999998,
+          "expression": "ROUND((IFERROR(AwardScoring[[#This Row],[Total Final Pts Web Display Score]],0)*0.25)+(IFERROR(AwardScoring[[#This Row],[Total Award POTG Web Display Score]],0)*0.12)+(IFERROR(AwardScoring[[#This Row],[Total Final G Web Display Score]],0)*0.1)+(IFERROR(AwardScoring[[#This Row],[Total Final A Web Display Score]],0)*0.08)+(IFERROR(AwardScoring[[#This Row],[Total Final Clutch Web Display Score]],0)*0.1)+(IFERROR(AwardScoring[[#This Row],[Total Final Special Teams Web Display Score]],0)*0.08)+(IFERROR(AwardScoring[[#This Row],[Total Streak Heat Web Display Score]],0)*0.08)+(IFERROR(AwardScoring[[#This Row],[Total Skater Production Consistency Web Display Score]],0)*0.08)+(IFERROR(AwardScoring[[#This Row],[Total Skater Two-Way Reliability Web Display Score]],0)*0.06)+(IFERROR(AwardScoring[[#This Row],[Current True Attd. % Web Display Score]],0)*0.03)+(IFERROR(AwardScoring[[#This Row],[Total Final +/- Web Display Score]],0)*0.02),1)",
+          "expressionSha256": "f2b9143c1935b7a5fcf857fe1b79a25b440ea30a4d0bb581b40dc295ff1c7c56"
+        },
+        "goalie": {
+          "kind": "WEIGHTED_WEB_COMPONENTS",
+          "weights": [
+            {
+              "field": "Total Goalie Reliability Web Display Score",
+              "coefficient": 0.22
+            },
+            {
+              "field": "Total Award Goalie Win % Web Display Score",
+              "coefficient": 0.18
+            },
+            {
+              "field": "Total Award Goalie GAA Web Display Score",
+              "coefficient": 0.17
+            },
+            {
+              "field": "Total Award Goalie W Web Display Score",
+              "coefficient": 0.1
+            },
+            {
+              "field": "Total Award Goalie SHO Web Display Score",
+              "coefficient": 0.08
+            },
+            {
+              "field": "Total Award POTG Web Display Score",
+              "coefficient": 0.1
+            },
+            {
+              "field": "Current True Attd. % Web Display Score",
+              "coefficient": 0.05
+            },
+            {
+              "field": "Total Final +/- Web Display Score",
+              "coefficient": 0.04
+            },
+            {
+              "field": "Total Goalie Discipline Reliability Web Display Score",
+              "coefficient": 0.03
+            },
+            {
+              "field": "Total Goalie Offensive Contribution Web Display Score",
+              "coefficient": 0.03
+            }
+          ],
+          "coefficientTotal": 1,
+          "expression": "ROUND((IFERROR(AwardScoring[[#This Row],[Total Goalie Reliability Web Display Score]],0)*0.22)+(IFERROR(AwardScoring[[#This Row],[Total Award Goalie Win % Web Display Score]],0)*0.18)+(IFERROR(AwardScoring[[#This Row],[Total Award Goalie GAA Web Display Score]],0)*0.17)+(IFERROR(AwardScoring[[#This Row],[Total Award Goalie W Web Display Score]],0)*0.1)+(IFERROR(AwardScoring[[#This Row],[Total Award Goalie SHO Web Display Score]],0)*0.08)+(IFERROR(AwardScoring[[#This Row],[Total Award POTG Web Display Score]],0)*0.1)+(IFERROR(AwardScoring[[#This Row],[Current True Attd. % Web Display Score]],0)*0.05)+(IFERROR(AwardScoring[[#This Row],[Total Final +/- Web Display Score]],0)*0.04)+(IFERROR(AwardScoring[[#This Row],[Total Goalie Discipline Reliability Web Display Score]],0)*0.03)+(IFERROR(AwardScoring[[#This Row],[Total Goalie Offensive Contribution Web Display Score]],0)*0.03),1)",
+          "expressionSha256": "6b9044281084d9a5671ce3fdcb04aef62b8dd6b75775445a4f79004f15e170d5"
+        }
+      },
+      "eligibilityFormula": {
+        "field": "Hart Eligible",
+        "formula": "IF(AwardScoring[[#This Row],[Name]]=\"\",\"\",IF(SUMIFS(RosterStatusBySeason[Total Games],RosterStatusBySeason[Name],AwardScoring[[#This Row],[Name]],RosterStatusBySeason[Season],AwardScoring[[#This Row],[Recent Season]])=0,0,IF(OR(AwardScoring[[#This Row],[Current Roster Status]]=\"FT\",AwardScoring[[#This Row],[Current Roster Status]]=\"CU\",AwardScoring[[#This Row],[Current Roster Status]]=\"DI\"),IF(AwardScoring[[#This Row],[Award Scoring Type]]=\"Skater\",IF(IFERROR(INDEX(PlayerInfo[Current Total Skater Played Games],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0)>=MAX(5,ROUNDUP(SUMIFS(RosterStatusBySeason[Total Games],RosterStatusBySeason[Name],AwardScoring[[#This Row],[Name]],RosterStatusBySeason[Season],AwardScoring[[#This Row],[Recent Season]])*0.5,0)),1,0),IF(AwardScoring[[#This Row],[Award Scoring Type]]=\"Goaltender\",IF(IFERROR(INDEX(PlayerInfo[Current Total Goalie Played Games],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0)>=MAX(3,ROUNDUP(SUMIFS(RosterStatusBySeason[Total Games],RosterStatusBySeason[Name],AwardScoring[[#This Row],[Name]],RosterStatusBySeason[Season],AwardScoring[[#This Row],[Recent Season]])*0.3,0)),1,0),0)),0)))",
+        "sha256": "254c73e70a551b899d93b694eabb7ab374abf1d36d180579002bc2d7e8f21714",
+        "storedFormulaTypes": {
+          "array": 50
+        }
+      },
+      "finalFormula": {
+        "field": "Hart Award Score",
+        "formula": "IF(AwardScoring[[#This Row],[Name]]=\"\",\"\",IF(AwardScoring[[#This Row],[Hart Eligible]]<>1,0,IFERROR(MAX(50,MIN(ROUND(100-(_xlfn.AGGREGATE(14,6,AwardScoring[Hart Raw Composite Score]/((AwardScoring[Hart Eligible]=1)*(AwardScoring[Hart Raw Composite Score]<>\"\")),1)-AwardScoring[[#This Row],[Hart Raw Composite Score]]),0),100-COUNTIFS(AwardScoring[Hart Eligible],1,AwardScoring[Hart Rank Key],\">\"&AwardScoring[[#This Row],[Hart Rank Key]]))),0)))",
+        "sha256": "d70855ce43978ae078e96ebbdf6cd63fa5f81eb2d649ceb1f53d3fb5e755cfcb",
+        "storedFormulaTypes": {
+          "array": 50
+        }
+      },
+      "rankKeyFormula": {
+        "field": "Hart Rank Key",
+        "formula": "IF(AwardScoring[[#This Row],[Name]]=\"\",\"\",IF(AwardScoring[[#This Row],[Hart Eligible]]<>1,\"\",IFERROR(AwardScoring[[#This Row],[Hart Raw Composite Score]]+(1/(1000000+ROW())),0)))",
+        "sha256": "442eb9ffe4fa5a13dfff339dca0fd31b51ed570c07a713db9017788a425a4edd",
+        "storedFormulaTypes": {
+          "array": 50
+        }
+      },
+      "dependencies": {
+        "awardScoringFields": [
+          "Award Scoring Type",
+          "Current Roster Status",
+          "Current True Attd. % Internal Score",
+          "Current True Attd. % Web Display Score",
+          "Hart Award Score",
+          "Hart Eligible",
+          "Hart Rank Key",
+          "Hart Raw Composite Score",
+          "Name",
+          "Recent Season",
+          "Total Award Goalie GAA Internal Score",
+          "Total Award Goalie GAA Web Display Score",
+          "Total Award Goalie SHO Internal Score",
+          "Total Award Goalie SHO Web Display Score",
+          "Total Award Goalie W Internal Score",
+          "Total Award Goalie W Web Display Score",
+          "Total Award Goalie Win % Internal Score",
+          "Total Award Goalie Win % Web Display Score",
+          "Total Award POTG Internal Score",
+          "Total Award POTG Web Display Score",
+          "Total Final +/- Internal Score",
+          "Total Final +/- Web Display Score",
+          "Total Final A Internal Score",
+          "Total Final A Web Display Score",
+          "Total Final Clutch Internal Score",
+          "Total Final Clutch Web Display Score",
+          "Total Final G Internal Score",
+          "Total Final G Web Display Score",
+          "Total Final Pts Internal Score",
+          "Total Final Pts Web Display Score",
+          "Total Final Special Teams Internal Score",
+          "Total Final Special Teams Web Display Score",
+          "Total Goalie Discipline Reliability Internal Score",
+          "Total Goalie Discipline Reliability Web Display Score",
+          "Total Goalie Offensive Contribution Internal Score",
+          "Total Goalie Offensive Contribution Web Display Score",
+          "Total Goalie Reliability Internal Score",
+          "Total Goalie Reliability Web Display Score",
+          "Total Skater Production Consistency Internal Score",
+          "Total Skater Production Consistency Web Display Score",
+          "Total Skater Two-Way Reliability Internal Score",
+          "Total Skater Two-Way Reliability Web Display Score",
+          "Total Streak Heat Internal Score",
+          "Total Streak Heat Web Display Score"
+        ],
+        "externalFields": {
+          "PlayerInfo": [
+            "Active Eligible",
+            "All-Time Total Goalie +/- Team Rate Avg",
+            "All-Time Total Goalie GAA Team Rate Avg",
+            "All-Time Total Goalie POTG Team Rate Avg",
+            "All-Time Total Goalie Pts/GP Team Rate Avg",
+            "All-Time Total Goalie SHO Team Rate Avg",
+            "All-Time Total Goalie Streak Heat Team Rate Avg",
+            "All-Time Total Goalie Win % Team Rate Avg",
+            "All-Time Total Skater +/- Team Rate Avg",
+            "All-Time Total Skater A Team Rate Avg",
+            "All-Time Total Skater Clutch Team Rate Avg",
+            "All-Time Total Skater G Team Rate Avg",
+            "All-Time Total Skater POTG Team Rate Avg",
+            "All-Time Total Skater Pts Team Rate Avg",
+            "All-Time Total Skater Special Teams Team Rate Avg",
+            "All-Time Total Skater Streak Heat Team Rate Avg",
+            "Award Scoring Type",
+            "Career Prior Goalie GP",
+            "Career Prior Skater GP",
+            "Career Prior Total +/-/GP",
+            "Career Prior Total A/GP",
+            "Career Prior Total Clutch Goals/GP",
+            "Career Prior Total G/GP",
+            "Career Prior Total Goalie +/-/GP",
+            "Career Prior Total Goalie GAA",
+            "Career Prior Total Goalie POTG/GP",
+            "Career Prior Total Goalie Pts/GP",
+            "Career Prior Total Goalie SHO/GP",
+            "Career Prior Total Goalie Streak Heat/GP",
+            "Career Prior Total Goalie Win %",
+            "Career Prior Total POTG/GP",
+            "Career Prior Total PPG/GP",
+            "Career Prior Total Pts/GP",
+            "Career Prior Total SHG/GP",
+            "Career Prior Total Skater Streak Heat/GP",
+            "Current Goalie GP",
+            "Current Roster Status",
+            "Current Skater GP",
+            "Current Total +/-/GP",
+            "Current Total 3+ Point Games",
+            "Current Total A/GP",
+            "Current Total Clutch Goals/GP",
+            "Current Total G/GP",
+            "Current Total Goal Game %",
+            "Current Total Goalie +/- Field Best Rate",
+            "Current Total Goalie +/- Field Rate Avg",
+            "Current Total Goalie +/-/GP",
+            "Current Total Goalie GAA",
+            "Current Total Goalie GAA Field Best Rate",
+            "Current Total Goalie GAA Field Rate Avg",
+            "Current Total Goalie Multi-PIM Games",
+            "Current Total Goalie PIM-Free Games",
+            "Current Total Goalie POTG",
+            "Current Total Goalie POTG Field Rate Avg",
+            "Current Total Goalie POTG Game %",
+            "Current Total Goalie POTG Raw Leader",
+            "Current Total Goalie POTG/GP",
+            "Current Total Goalie Played Games",
+            "Current Total Goalie Pts/GP",
+            "Current Total Goalie Pts/GP Field Best Rate",
+            "Current Total Goalie Pts/GP Field Rate Avg",
+            "Current Total Goalie Quality Game %",
+            "Current Total Goalie SHO",
+            "Current Total Goalie SHO Field Rate Avg",
+            "Current Total Goalie SHO Raw Leader",
+            "Current Total Goalie SHO/GP",
+            "Current Total Goalie Shutout Game %",
+            "Current Total Goalie Streak Heat Field Rate Avg",
+            "Current Total Goalie Streak Heat Points",
+            "Current Total Goalie Streak Heat Raw Leader",
+            "Current Total Goalie Streak Heat/GP",
+            "Current Total Goalie Unbeaten Game %",
+            "Current Total Goalie W",
+            "Current Total Goalie W Raw Leader",
+            "Current Total Goalie Win %",
+            "Current Total Goalie Win % Field Best Rate",
+            "Current Total Goalie Win % Field Rate Avg",
+            "Current Total Goalie Win Game %",
+            "Current Total Minus Games",
+            "Current Total Multi-Point Game %",
+            "Current Total POTG",
+            "Current Total POTG Game %",
+            "Current Total POTG/GP",
+            "Current Total PPG/GP",
+            "Current Total Plus Game %",
+            "Current Total Point Game %",
+            "Current Total Pts/GP",
+            "Current Total Raw A",
+            "Current Total Raw Clutch Goals",
+            "Current Total Raw G",
+            "Current Total Raw PPG",
+            "Current Total Raw Pts",
+            "Current Total Raw SHG",
+            "Current Total SHG/GP",
+            "Current Total Skater +/- Field Best Rate",
+            "Current Total Skater +/- Field Rate Avg",
+            "Current Total Skater A Field Rate Avg",
+            "Current Total Skater A Raw Leader",
+            "Current Total Skater Clutch Field Rate Avg",
+            "Current Total Skater Clutch Raw Leader",
+            "Current Total Skater G Field Rate Avg",
+            "Current Total Skater G Raw Leader",
+            "Current Total Skater POTG Field Rate Avg",
+            "Current Total Skater POTG Raw Leader",
+            "Current Total Skater Played Games",
+            "Current Total Skater Pts Field Rate Avg",
+            "Current Total Skater Pts Raw Leader",
+            "Current Total Skater Special Teams Field Rate Avg",
+            "Current Total Skater Special Teams Raw Leader",
+            "Current Total Skater Streak Heat Field Rate Avg",
+            "Current Total Skater Streak Heat Points",
+            "Current Total Skater Streak Heat Raw Leader",
+            "Current Total Skater Streak Heat/GP",
+            "Current Total Special Teams Point Games",
+            "Current True Attd. % Score",
+            "Recent Season",
+            "Website Name"
+          ],
+          "RosterStatusBySeason": [
+            "Name",
+            "Season",
+            "Total Games"
+          ],
+          "SeasonInfo": []
+        },
+        "externalValuesVerifiedByThisInventory": false
+      }
+    },
+    "conn-smythe": {
+      "rawFormula": {
+        "field": "Conn Smythe Raw Composite Score",
+        "formula": "IF(AwardScoring[[#This Row],[Name]]=\"\",\"\",IF(AwardScoring[[#This Row],[Conn Smythe Eligible]]<>1,\"\",IFERROR(IF(AwardScoring[[#This Row],[Award Scoring Type]]=\"Goaltender\",ROUND((IFERROR(AwardScoring[[#This Row],[Playoff Goalie Reliability Web Display Score]],0)*0.22)+(IFERROR(AwardScoring[[#This Row],[Playoff Award Goalie Win % Web Display Score]],0)*0.18)+(IFERROR(AwardScoring[[#This Row],[Playoff Award Goalie GAA Web Display Score]],0)*0.18)+(IFERROR(AwardScoring[[#This Row],[Playoff Award Goalie W Web Display Score]],0)*0.1)+(IFERROR(AwardScoring[[#This Row],[Playoff Award Goalie SHO Web Display Score]],0)*0.08)+(IFERROR(AwardScoring[[#This Row],[Playoff Award POTG Web Display Score]],0)*0.1)+(IFERROR(AwardScoring[[#This Row],[Playoff Streak Heat Web Display Score]],0)*0.06)+(IFERROR(AwardScoring[[#This Row],[Current True Playoff Season Attd. % Web Display Score]],0)*0.03)+(IFERROR(AwardScoring[[#This Row],[Playoff Final +/- Web Display Score]],0)*0.02)+(IFERROR(AwardScoring[[#This Row],[Playoff Goalie Discipline Reliability Web Display Score]],0)*0.01)+(IFERROR(AwardScoring[[#This Row],[Playoff Final PIM Web Display Score]],0)*0.01)+(IFERROR(AwardScoring[[#This Row],[Playoff Goalie Offensive Contribution Web Display Score]],0)*0.01),1),IF(AwardScoring[[#This Row],[Award Scoring Type]]=\"Skater\",ROUND((IFERROR(AwardScoring[[#This Row],[Playoff Final Pts Web Display Score]],0)*0.24)+(IFERROR(AwardScoring[[#This Row],[Playoff Final G Web Display Score]],0)*0.1)+(IFERROR(AwardScoring[[#This Row],[Playoff Final A Web Display Score]],0)*0.06)+(IFERROR(AwardScoring[[#This Row],[Playoff Final Special Teams Web Display Score]],0)*0.05)+(IFERROR(AwardScoring[[#This Row],[Playoff Award POTG Web Display Score]],0)*0.12)+(IFERROR(AwardScoring[[#This Row],[Playoff Final Clutch Web Display Score]],0)*0.1)+(IFERROR(AwardScoring[[#This Row],[Playoff Streak Heat Web Display Score]],0)*0.08)+(IFERROR(AwardScoring[[#This Row],[Playoff Skater Production Consistency Web Display Score]],0)*0.1)+(IFERROR(AwardScoring[[#This Row],[Playoff Skater Two-Way Reliability Web Display Score]],0)*0.07)+(IFERROR(AwardScoring[[#This Row],[Playoff Final +/- Web Display Score]],0)*0.04)+(IFERROR(AwardScoring[[#This Row],[Current True Playoff Season Attd. % Web Display Score]],0)*0.02)+(IFERROR(AwardScoring[[#This Row],[Playoff Discipline Reliability Web Display Score]],0)*0.01)+(IFERROR(AwardScoring[[#This Row],[Playoff Final PIM Web Display Score]],0)*0.01),1),\"\")),\"\")))",
+        "sha256": "89028feee74967174327e39f3ec40313fd059936e10614e23d1157ba6cc9d6ec",
+        "storedFormulaTypes": {
+          "array": 50
+        }
+      },
+      "roles": {
+        "skater": {
+          "kind": "WEIGHTED_WEB_COMPONENTS",
+          "weights": [
+            {
+              "field": "Playoff Final Pts Web Display Score",
+              "coefficient": 0.24
+            },
+            {
+              "field": "Playoff Final G Web Display Score",
+              "coefficient": 0.1
+            },
+            {
+              "field": "Playoff Final A Web Display Score",
+              "coefficient": 0.06
+            },
+            {
+              "field": "Playoff Final Special Teams Web Display Score",
+              "coefficient": 0.05
+            },
+            {
+              "field": "Playoff Award POTG Web Display Score",
+              "coefficient": 0.12
+            },
+            {
+              "field": "Playoff Final Clutch Web Display Score",
+              "coefficient": 0.1
+            },
+            {
+              "field": "Playoff Streak Heat Web Display Score",
+              "coefficient": 0.08
+            },
+            {
+              "field": "Playoff Skater Production Consistency Web Display Score",
+              "coefficient": 0.1
+            },
+            {
+              "field": "Playoff Skater Two-Way Reliability Web Display Score",
+              "coefficient": 0.07
+            },
+            {
+              "field": "Playoff Final +/- Web Display Score",
+              "coefficient": 0.04
+            },
+            {
+              "field": "Current True Playoff Season Attd. % Web Display Score",
+              "coefficient": 0.02
+            },
+            {
+              "field": "Playoff Discipline Reliability Web Display Score",
+              "coefficient": 0.01
+            },
+            {
+              "field": "Playoff Final PIM Web Display Score",
+              "coefficient": 0.01
+            }
+          ],
+          "coefficientTotal": 1,
+          "expression": "ROUND((IFERROR(AwardScoring[[#This Row],[Playoff Final Pts Web Display Score]],0)*0.24)+(IFERROR(AwardScoring[[#This Row],[Playoff Final G Web Display Score]],0)*0.1)+(IFERROR(AwardScoring[[#This Row],[Playoff Final A Web Display Score]],0)*0.06)+(IFERROR(AwardScoring[[#This Row],[Playoff Final Special Teams Web Display Score]],0)*0.05)+(IFERROR(AwardScoring[[#This Row],[Playoff Award POTG Web Display Score]],0)*0.12)+(IFERROR(AwardScoring[[#This Row],[Playoff Final Clutch Web Display Score]],0)*0.1)+(IFERROR(AwardScoring[[#This Row],[Playoff Streak Heat Web Display Score]],0)*0.08)+(IFERROR(AwardScoring[[#This Row],[Playoff Skater Production Consistency Web Display Score]],0)*0.1)+(IFERROR(AwardScoring[[#This Row],[Playoff Skater Two-Way Reliability Web Display Score]],0)*0.07)+(IFERROR(AwardScoring[[#This Row],[Playoff Final +/- Web Display Score]],0)*0.04)+(IFERROR(AwardScoring[[#This Row],[Current True Playoff Season Attd. % Web Display Score]],0)*0.02)+(IFERROR(AwardScoring[[#This Row],[Playoff Discipline Reliability Web Display Score]],0)*0.01)+(IFERROR(AwardScoring[[#This Row],[Playoff Final PIM Web Display Score]],0)*0.01),1)",
+          "expressionSha256": "3414929ad6d4aba2f2a2cc62a02ccce4b960639dc969d57b2879d441cc7625ce"
+        },
+        "goalie": {
+          "kind": "WEIGHTED_WEB_COMPONENTS",
+          "weights": [
+            {
+              "field": "Playoff Goalie Reliability Web Display Score",
+              "coefficient": 0.22
+            },
+            {
+              "field": "Playoff Award Goalie Win % Web Display Score",
+              "coefficient": 0.18
+            },
+            {
+              "field": "Playoff Award Goalie GAA Web Display Score",
+              "coefficient": 0.18
+            },
+            {
+              "field": "Playoff Award Goalie W Web Display Score",
+              "coefficient": 0.1
+            },
+            {
+              "field": "Playoff Award Goalie SHO Web Display Score",
+              "coefficient": 0.08
+            },
+            {
+              "field": "Playoff Award POTG Web Display Score",
+              "coefficient": 0.1
+            },
+            {
+              "field": "Playoff Streak Heat Web Display Score",
+              "coefficient": 0.06
+            },
+            {
+              "field": "Current True Playoff Season Attd. % Web Display Score",
+              "coefficient": 0.03
+            },
+            {
+              "field": "Playoff Final +/- Web Display Score",
+              "coefficient": 0.02
+            },
+            {
+              "field": "Playoff Goalie Discipline Reliability Web Display Score",
+              "coefficient": 0.01
+            },
+            {
+              "field": "Playoff Final PIM Web Display Score",
+              "coefficient": 0.01
+            },
+            {
+              "field": "Playoff Goalie Offensive Contribution Web Display Score",
+              "coefficient": 0.01
+            }
+          ],
+          "coefficientTotal": 1,
+          "expression": "ROUND((IFERROR(AwardScoring[[#This Row],[Playoff Goalie Reliability Web Display Score]],0)*0.22)+(IFERROR(AwardScoring[[#This Row],[Playoff Award Goalie Win % Web Display Score]],0)*0.18)+(IFERROR(AwardScoring[[#This Row],[Playoff Award Goalie GAA Web Display Score]],0)*0.18)+(IFERROR(AwardScoring[[#This Row],[Playoff Award Goalie W Web Display Score]],0)*0.1)+(IFERROR(AwardScoring[[#This Row],[Playoff Award Goalie SHO Web Display Score]],0)*0.08)+(IFERROR(AwardScoring[[#This Row],[Playoff Award POTG Web Display Score]],0)*0.1)+(IFERROR(AwardScoring[[#This Row],[Playoff Streak Heat Web Display Score]],0)*0.06)+(IFERROR(AwardScoring[[#This Row],[Current True Playoff Season Attd. % Web Display Score]],0)*0.03)+(IFERROR(AwardScoring[[#This Row],[Playoff Final +/- Web Display Score]],0)*0.02)+(IFERROR(AwardScoring[[#This Row],[Playoff Goalie Discipline Reliability Web Display Score]],0)*0.01)+(IFERROR(AwardScoring[[#This Row],[Playoff Final PIM Web Display Score]],0)*0.01)+(IFERROR(AwardScoring[[#This Row],[Playoff Goalie Offensive Contribution Web Display Score]],0)*0.01),1)",
+          "expressionSha256": "d27722423447fdf9b04bf56329a99f36e505adc4092005aaec8e8b4f70ccc9ca"
+        }
+      },
+      "eligibilityFormula": {
+        "field": "Conn Smythe Eligible",
+        "formula": "IF(AwardScoring[[#This Row],[Name]]=\"\",\"\",IF(SUMIFS(SeasonInfo[Total Games Contested],SeasonInfo[Season],AwardScoring[[#This Row],[Recent Season]],SeasonInfo[Game Type],\"Playoffs\")<=0,0,IF(AwardScoring[[#This Row],[Award Scoring Type]]=\"Skater\",IF(IFERROR(INDEX(PlayerInfo[Current Playoff Skater Played Games],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0)>=IF(MOD(SUMIFS(SeasonInfo[Total Games Contested],SeasonInfo[Season],AwardScoring[[#This Row],[Recent Season]],SeasonInfo[Game Type],\"Playoffs\"),2)=1,ROUNDUP(SUMIFS(SeasonInfo[Total Games Contested],SeasonInfo[Season],AwardScoring[[#This Row],[Recent Season]],SeasonInfo[Game Type],\"Playoffs\")*(2/3),0),ROUNDUP(SUMIFS(SeasonInfo[Total Games Contested],SeasonInfo[Season],AwardScoring[[#This Row],[Recent Season]],SeasonInfo[Game Type],\"Playoffs\")*0.5,0)),1,0),IF(AwardScoring[[#This Row],[Award Scoring Type]]=\"Goaltender\",IF(IFERROR(INDEX(PlayerInfo[Current Playoff Goalie Played Games],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0)>=IF(MOD(SUMIFS(SeasonInfo[Total Games Contested],SeasonInfo[Season],AwardScoring[[#This Row],[Recent Season]],SeasonInfo[Game Type],\"Playoffs\"),2)=1,ROUNDUP(SUMIFS(SeasonInfo[Total Games Contested],SeasonInfo[Season],AwardScoring[[#This Row],[Recent Season]],SeasonInfo[Game Type],\"Playoffs\")*(2/3),0),ROUNDUP(SUMIFS(SeasonInfo[Total Games Contested],SeasonInfo[Season],AwardScoring[[#This Row],[Recent Season]],SeasonInfo[Game Type],\"Playoffs\")*0.5,0)),1,0),0))))",
+        "sha256": "b348665e75102e0c9c0c0ea3b4a3af1c1504d74ece044ee0e5dfebd4655d3fdf",
+        "storedFormulaTypes": {
+          "array": 50
+        }
+      },
+      "finalFormula": {
+        "field": "Conn Smythe Award Score",
+        "formula": "IF(AwardScoring[[#This Row],[Name]]=\"\",\"\",IF(AwardScoring[[#This Row],[Conn Smythe Eligible]]<>1,0,IFERROR(IF(SUMPRODUCT((AwardScoring[Name]<>\"\")*(AwardScoring[Conn Smythe Eligible]=1)*(AwardScoring[Conn Smythe Raw Composite Score]<>\"\")*((AwardScoring[Award Scoring Type]=\"Skater\")+(AwardScoring[Award Scoring Type]=\"Goaltender\")))<=1,75,MAX(50,MIN(ROUND(100-(_xlfn.AGGREGATE(14,6,AwardScoring[Conn Smythe Raw Composite Score]/((AwardScoring[Conn Smythe Eligible]=1)*(AwardScoring[Conn Smythe Raw Composite Score]<>\"\")*(((AwardScoring[Award Scoring Type]=\"Skater\")+(AwardScoring[Award Scoring Type]=\"Goaltender\")))),1)-AwardScoring[[#This Row],[Conn Smythe Raw Composite Score]]),0),100-COUNTIFS(AwardScoring[Conn Smythe Eligible],1,AwardScoring[Conn Smythe Rank Key],\">\"&AwardScoring[[#This Row],[Conn Smythe Rank Key]])))),0)))",
+        "sha256": "a6d546a217cb94243988fa8cd0872fc2fddb1873c9dfbce6fe56b7ac896cc19f",
+        "storedFormulaTypes": {
+          "array": 50
+        }
+      },
+      "rankKeyFormula": {
+        "field": "Conn Smythe Rank Key",
+        "formula": "IF(AwardScoring[[#This Row],[Name]]=\"\",\"\",IF(AwardScoring[[#This Row],[Conn Smythe Eligible]]<>1,\"\",IFERROR(AwardScoring[[#This Row],[Conn Smythe Raw Composite Score]]+(1/(1000000+ROW())),0)))",
+        "sha256": "77ece571f282d2478aef80eac8844e4b81404c70ae7e2f160b6aaeecebfac425",
+        "storedFormulaTypes": {
+          "array": 50
+        }
+      },
+      "dependencies": {
+        "awardScoringFields": [
+          "Award Scoring Type",
+          "Conn Smythe Award Score",
+          "Conn Smythe Eligible",
+          "Conn Smythe Rank Key",
+          "Conn Smythe Raw Composite Score",
+          "Current True Playoff Season Attd. % Internal Score",
+          "Current True Playoff Season Attd. % Web Display Score",
+          "Name",
+          "Playoff Award Goalie GAA Internal Score",
+          "Playoff Award Goalie GAA Web Display Score",
+          "Playoff Award Goalie SHO Internal Score",
+          "Playoff Award Goalie SHO Web Display Score",
+          "Playoff Award Goalie W Internal Score",
+          "Playoff Award Goalie W Web Display Score",
+          "Playoff Award Goalie Win % Internal Score",
+          "Playoff Award Goalie Win % Web Display Score",
+          "Playoff Award POTG Internal Score",
+          "Playoff Award POTG Web Display Score",
+          "Playoff Discipline Reliability Internal Score",
+          "Playoff Discipline Reliability Web Display Score",
+          "Playoff Final +/- Internal Score",
+          "Playoff Final +/- Web Display Score",
+          "Playoff Final A Internal Score",
+          "Playoff Final A Web Display Score",
+          "Playoff Final Clutch Internal Score",
+          "Playoff Final Clutch Web Display Score",
+          "Playoff Final G Internal Score",
+          "Playoff Final G Web Display Score",
+          "Playoff Final PIM Internal Score",
+          "Playoff Final PIM Web Display Score",
+          "Playoff Final Pts Internal Score",
+          "Playoff Final Pts Web Display Score",
+          "Playoff Final Special Teams Internal Score",
+          "Playoff Final Special Teams Web Display Score",
+          "Playoff Goalie Discipline Reliability Internal Score",
+          "Playoff Goalie Discipline Reliability Web Display Score",
+          "Playoff Goalie Offensive Contribution Internal Score",
+          "Playoff Goalie Offensive Contribution Web Display Score",
+          "Playoff Goalie Reliability Internal Score",
+          "Playoff Goalie Reliability Web Display Score",
+          "Playoff Skater Production Consistency Internal Score",
+          "Playoff Skater Production Consistency Web Display Score",
+          "Playoff Skater Two-Way Reliability Internal Score",
+          "Playoff Skater Two-Way Reliability Web Display Score",
+          "Playoff Streak Heat Internal Score",
+          "Playoff Streak Heat Web Display Score",
+          "Recent Season"
+        ],
+        "externalFields": {
+          "PlayerInfo": [
+            "Active Eligible",
+            "All-Time Playoff Goalie +/- Team Rate Avg",
+            "All-Time Playoff Goalie GAA Team Rate Avg",
+            "All-Time Playoff Goalie PIM Team Rate Avg",
+            "All-Time Playoff Goalie POTG Team Rate Avg",
+            "All-Time Playoff Goalie Pts/GP Team Rate Avg",
+            "All-Time Playoff Goalie SHO Team Rate Avg",
+            "All-Time Playoff Goalie Streak Heat Team Rate Avg",
+            "All-Time Playoff Goalie Win % Team Rate Avg",
+            "All-Time Playoff Skater +/- Team Rate Avg",
+            "All-Time Playoff Skater A Team Rate Avg",
+            "All-Time Playoff Skater Clutch Team Rate Avg",
+            "All-Time Playoff Skater G Team Rate Avg",
+            "All-Time Playoff Skater PIM Team Rate Avg",
+            "All-Time Playoff Skater POTG Team Rate Avg",
+            "All-Time Playoff Skater Pts Team Rate Avg",
+            "All-Time Playoff Skater Special Teams Team Rate Avg",
+            "All-Time Playoff Skater Streak Heat Team Rate Avg",
+            "Award Scoring Type",
+            "Career Prior Goalie Playoff GP",
+            "Career Prior Playoff +/-/GP",
+            "Career Prior Playoff A/GP",
+            "Career Prior Playoff Clutch Goals/GP",
+            "Career Prior Playoff G/GP",
+            "Career Prior Playoff Goalie +/-/GP",
+            "Career Prior Playoff Goalie GAA",
+            "Career Prior Playoff Goalie PIM/GP",
+            "Career Prior Playoff Goalie POTG/GP",
+            "Career Prior Playoff Goalie Pts/GP",
+            "Career Prior Playoff Goalie SHO/GP",
+            "Career Prior Playoff Goalie Streak Heat/GP",
+            "Career Prior Playoff Goalie Win %",
+            "Career Prior Playoff PIM/GP",
+            "Career Prior Playoff POTG/GP",
+            "Career Prior Playoff PPG/GP",
+            "Career Prior Playoff Pts/GP",
+            "Career Prior Playoff SHG/GP",
+            "Career Prior Playoff Skater Streak Heat/GP",
+            "Career Prior Skater Playoff GP",
+            "Current Playoff +/-/GP",
+            "Current Playoff 3+ Point Games",
+            "Current Playoff A/GP",
+            "Current Playoff Clutch Goals/GP",
+            "Current Playoff G/GP",
+            "Current Playoff Goal Game %",
+            "Current Playoff Goalie +/- Field Best Rate",
+            "Current Playoff Goalie +/- Field Rate Avg",
+            "Current Playoff Goalie +/-/GP",
+            "Current Playoff Goalie GAA",
+            "Current Playoff Goalie GAA Field Best Rate",
+            "Current Playoff Goalie GAA Field Rate Avg",
+            "Current Playoff Goalie Multi-PIM Games",
+            "Current Playoff Goalie PIM Field Best Rate",
+            "Current Playoff Goalie PIM Field Rate Avg",
+            "Current Playoff Goalie PIM-Free Games",
+            "Current Playoff Goalie PIM/GP",
+            "Current Playoff Goalie POTG",
+            "Current Playoff Goalie POTG Field Rate Avg",
+            "Current Playoff Goalie POTG Game %",
+            "Current Playoff Goalie POTG Raw Leader",
+            "Current Playoff Goalie POTG/GP",
+            "Current Playoff Goalie Played Games",
+            "Current Playoff Goalie Pts/GP",
+            "Current Playoff Goalie Pts/GP Field Best Rate",
+            "Current Playoff Goalie Pts/GP Field Rate Avg",
+            "Current Playoff Goalie Quality Game %",
+            "Current Playoff Goalie SHO",
+            "Current Playoff Goalie SHO Field Rate Avg",
+            "Current Playoff Goalie SHO Raw Leader",
+            "Current Playoff Goalie SHO/GP",
+            "Current Playoff Goalie Shutout Game %",
+            "Current Playoff Goalie Streak Heat Field Rate Avg",
+            "Current Playoff Goalie Streak Heat Points",
+            "Current Playoff Goalie Streak Heat Raw Leader",
+            "Current Playoff Goalie Streak Heat/GP",
+            "Current Playoff Goalie Unbeaten Game %",
+            "Current Playoff Goalie W",
+            "Current Playoff Goalie W Raw Leader",
+            "Current Playoff Goalie Win %",
+            "Current Playoff Goalie Win % Field Best Rate",
+            "Current Playoff Goalie Win % Field Rate Avg",
+            "Current Playoff Goalie Win Game %",
+            "Current Playoff Minus Games",
+            "Current Playoff Multi-PIM Games",
+            "Current Playoff Multi-Point Game %",
+            "Current Playoff PIM-Free Game %",
+            "Current Playoff PIM/GP",
+            "Current Playoff POTG",
+            "Current Playoff POTG Game %",
+            "Current Playoff POTG/GP",
+            "Current Playoff PPG/GP",
+            "Current Playoff Plus Game %",
+            "Current Playoff Point Game %",
+            "Current Playoff Pts/GP",
+            "Current Playoff Raw A",
+            "Current Playoff Raw Clutch Goals",
+            "Current Playoff Raw G",
+            "Current Playoff Raw PPG",
+            "Current Playoff Raw Pts",
+            "Current Playoff Raw SHG",
+            "Current Playoff SHG/GP",
+            "Current Playoff Skater +/- Field Best Rate",
+            "Current Playoff Skater +/- Field Rate Avg",
+            "Current Playoff Skater A Field Rate Avg",
+            "Current Playoff Skater A Raw Leader",
+            "Current Playoff Skater Clutch Field Rate Avg",
+            "Current Playoff Skater Clutch Raw Leader",
+            "Current Playoff Skater G Field Rate Avg",
+            "Current Playoff Skater G Raw Leader",
+            "Current Playoff Skater PIM Field Best Rate",
+            "Current Playoff Skater PIM Field Rate Avg",
+            "Current Playoff Skater POTG Field Rate Avg",
+            "Current Playoff Skater POTG Raw Leader",
+            "Current Playoff Skater Played Games",
+            "Current Playoff Skater Pts Field Rate Avg",
+            "Current Playoff Skater Pts Raw Leader",
+            "Current Playoff Skater Special Teams Field Rate Avg",
+            "Current Playoff Skater Special Teams Raw Leader",
+            "Current Playoff Skater Streak Heat Field Rate Avg",
+            "Current Playoff Skater Streak Heat Points",
+            "Current Playoff Skater Streak Heat Raw Leader",
+            "Current Playoff Skater Streak Heat/GP",
+            "Current Playoff Special Teams Point Games",
+            "Current True Playoff Season Attd. % Score",
+            "Recent Season",
+            "Website Name"
+          ],
+          "RosterStatusBySeason": [],
+          "SeasonInfo": [
+            "Game Type",
+            "Season",
+            "Total Games Contested"
+          ]
+        },
+        "externalValuesVerifiedByThisInventory": false
+      }
+    },
+    "rookie": {
+      "rawFormula": {
+        "field": "Rookie Raw Composite Score",
+        "formula": "IF(AwardScoring[[#This Row],[Name]]=\"\",\"\",IF(AwardScoring[[#This Row],[Rookie Status]]<>1,\"\",IF(IF(AwardScoring[[#This Row],[Award Scoring Type]]=\"Goaltender\",IFERROR(INDEX(PlayerInfo[Current Goalie GP],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0),IF(AwardScoring[[#This Row],[Award Scoring Type]]=\"Skater\",IFERROR(INDEX(PlayerInfo[Current Skater GP],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0),0))<=0,\"\",IFERROR(IF(AwardScoring[[#This Row],[Award Scoring Type]]=\"Goaltender\",ROUND((IFERROR(AwardScoring[[#This Row],[Total Goalie Reliability Web Display Score]],0)*0.19)+(IFERROR(AwardScoring[[#This Row],[Total Award Goalie Win % Web Display Score]],0)*0.18)+(IFERROR(AwardScoring[[#This Row],[Total Award Goalie GAA Web Display Score]],0)*0.18)+(IFERROR(AwardScoring[[#This Row],[Current True Attd. % Web Display Score]],0)*0.12)+(IFERROR(AwardScoring[[#This Row],[Total Award Goalie W Web Display Score]],0)*0.08)+(IFERROR(AwardScoring[[#This Row],[Total Award Goalie SHO Web Display Score]],0)*0.07)+(IFERROR(AwardScoring[[#This Row],[Total Award POTG Web Display Score]],0)*0.08)+(IFERROR(AwardScoring[[#This Row],[Total Goalie Discipline Reliability Web Display Score]],0)*0.05)+(IFERROR(AwardScoring[[#This Row],[Total Goalie Offensive Contribution Web Display Score]],0)*0.02)+(IFERROR(AwardScoring[[#This Row],[Total Final +/- Web Display Score]],0)*0.03),1),IF(AwardScoring[[#This Row],[Award Scoring Type]]=\"Skater\",ROUND((IFERROR(AwardScoring[[#This Row],[Total Final Pts Web Display Score]],0)*0.22)+(IFERROR(AwardScoring[[#This Row],[Total Final G Web Display Score]],0)*0.12)+(IFERROR(AwardScoring[[#This Row],[Total Final A Web Display Score]],0)*0.08)+(IFERROR(AwardScoring[[#This Row],[Total Award POTG Web Display Score]],0)*0.09)+(IFERROR(AwardScoring[[#This Row],[Current True Attd. % Web Display Score]],0)*0.1)+(IFERROR(AwardScoring[[#This Row],[Total Skater Production Consistency Web Display Score]],0)*0.12)+(IFERROR(AwardScoring[[#This Row],[Total Streak Heat Web Display Score]],0)*0.06)+(IFERROR(AwardScoring[[#This Row],[Total Skater Two-Way Reliability Web Display Score]],0)*0.07)+(IFERROR(AwardScoring[[#This Row],[Total Discipline Reliability Web Display Score]],0)*0.06)+(IFERROR(AwardScoring[[#This Row],[Total Final PIM Web Display Score]],0)*0.04)+(IFERROR(AwardScoring[[#This Row],[Total Final Special Teams Web Display Score]],0)*0.03)+(IFERROR(AwardScoring[[#This Row],[Total Final +/- Web Display Score]],0)*0.01),1),\"\")),\"\"))))",
+        "sha256": "234bb7dce98cb0d42e9cd066951c959ee52add68def6b84af1d52805f0e9bf71",
+        "storedFormulaTypes": {
+          "array": 50
+        }
+      },
+      "roles": {
+        "skater": {
+          "kind": "WEIGHTED_WEB_COMPONENTS",
+          "weights": [
+            {
+              "field": "Total Final Pts Web Display Score",
+              "coefficient": 0.22
+            },
+            {
+              "field": "Total Final G Web Display Score",
+              "coefficient": 0.12
+            },
+            {
+              "field": "Total Final A Web Display Score",
+              "coefficient": 0.08
+            },
+            {
+              "field": "Total Award POTG Web Display Score",
+              "coefficient": 0.09
+            },
+            {
+              "field": "Current True Attd. % Web Display Score",
+              "coefficient": 0.1
+            },
+            {
+              "field": "Total Skater Production Consistency Web Display Score",
+              "coefficient": 0.12
+            },
+            {
+              "field": "Total Streak Heat Web Display Score",
+              "coefficient": 0.06
+            },
+            {
+              "field": "Total Skater Two-Way Reliability Web Display Score",
+              "coefficient": 0.07
+            },
+            {
+              "field": "Total Discipline Reliability Web Display Score",
+              "coefficient": 0.06
+            },
+            {
+              "field": "Total Final PIM Web Display Score",
+              "coefficient": 0.04
+            },
+            {
+              "field": "Total Final Special Teams Web Display Score",
+              "coefficient": 0.03
+            },
+            {
+              "field": "Total Final +/- Web Display Score",
+              "coefficient": 0.01
+            }
+          ],
+          "coefficientTotal": 1.0000000000000002,
+          "expression": "ROUND((IFERROR(AwardScoring[[#This Row],[Total Final Pts Web Display Score]],0)*0.22)+(IFERROR(AwardScoring[[#This Row],[Total Final G Web Display Score]],0)*0.12)+(IFERROR(AwardScoring[[#This Row],[Total Final A Web Display Score]],0)*0.08)+(IFERROR(AwardScoring[[#This Row],[Total Award POTG Web Display Score]],0)*0.09)+(IFERROR(AwardScoring[[#This Row],[Current True Attd. % Web Display Score]],0)*0.1)+(IFERROR(AwardScoring[[#This Row],[Total Skater Production Consistency Web Display Score]],0)*0.12)+(IFERROR(AwardScoring[[#This Row],[Total Streak Heat Web Display Score]],0)*0.06)+(IFERROR(AwardScoring[[#This Row],[Total Skater Two-Way Reliability Web Display Score]],0)*0.07)+(IFERROR(AwardScoring[[#This Row],[Total Discipline Reliability Web Display Score]],0)*0.06)+(IFERROR(AwardScoring[[#This Row],[Total Final PIM Web Display Score]],0)*0.04)+(IFERROR(AwardScoring[[#This Row],[Total Final Special Teams Web Display Score]],0)*0.03)+(IFERROR(AwardScoring[[#This Row],[Total Final +/- Web Display Score]],0)*0.01),1)",
+          "expressionSha256": "9b824a4df325bcf37241495fad336bfc66d858f168c3c7ae7d39e2bde85fefa1"
+        },
+        "goalie": {
+          "kind": "WEIGHTED_WEB_COMPONENTS",
+          "weights": [
+            {
+              "field": "Total Goalie Reliability Web Display Score",
+              "coefficient": 0.19
+            },
+            {
+              "field": "Total Award Goalie Win % Web Display Score",
+              "coefficient": 0.18
+            },
+            {
+              "field": "Total Award Goalie GAA Web Display Score",
+              "coefficient": 0.18
+            },
+            {
+              "field": "Current True Attd. % Web Display Score",
+              "coefficient": 0.12
+            },
+            {
+              "field": "Total Award Goalie W Web Display Score",
+              "coefficient": 0.08
+            },
+            {
+              "field": "Total Award Goalie SHO Web Display Score",
+              "coefficient": 0.07
+            },
+            {
+              "field": "Total Award POTG Web Display Score",
+              "coefficient": 0.08
+            },
+            {
+              "field": "Total Goalie Discipline Reliability Web Display Score",
+              "coefficient": 0.05
+            },
+            {
+              "field": "Total Goalie Offensive Contribution Web Display Score",
+              "coefficient": 0.02
+            },
+            {
+              "field": "Total Final +/- Web Display Score",
+              "coefficient": 0.03
+            }
+          ],
+          "coefficientTotal": 1,
+          "expression": "ROUND((IFERROR(AwardScoring[[#This Row],[Total Goalie Reliability Web Display Score]],0)*0.19)+(IFERROR(AwardScoring[[#This Row],[Total Award Goalie Win % Web Display Score]],0)*0.18)+(IFERROR(AwardScoring[[#This Row],[Total Award Goalie GAA Web Display Score]],0)*0.18)+(IFERROR(AwardScoring[[#This Row],[Current True Attd. % Web Display Score]],0)*0.12)+(IFERROR(AwardScoring[[#This Row],[Total Award Goalie W Web Display Score]],0)*0.08)+(IFERROR(AwardScoring[[#This Row],[Total Award Goalie SHO Web Display Score]],0)*0.07)+(IFERROR(AwardScoring[[#This Row],[Total Award POTG Web Display Score]],0)*0.08)+(IFERROR(AwardScoring[[#This Row],[Total Goalie Discipline Reliability Web Display Score]],0)*0.05)+(IFERROR(AwardScoring[[#This Row],[Total Goalie Offensive Contribution Web Display Score]],0)*0.02)+(IFERROR(AwardScoring[[#This Row],[Total Final +/- Web Display Score]],0)*0.03),1)",
+          "expressionSha256": "637a79ff6495038381b5b3e655da0190a84571ea6ed40a4aa6a8d7adb3da610f"
+        }
+      },
+      "eligibilityFormula": {
+        "field": "Rookie Eligible",
+        "formula": "IF(AwardScoring[[#This Row],[Name]]=\"\",\"\",IF(AND(AwardScoring[[#This Row],[Rookie Status]]=1,AwardScoring[[#This Row],[Current Roster Status]]=\"FT\",OR(AND(AwardScoring[[#This Row],[Award Scoring Type]]=\"Skater\",IFERROR(INDEX(PlayerInfo[Current Skater GP],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0)>0),AND(AwardScoring[[#This Row],[Award Scoring Type]]=\"Goaltender\",IFERROR(INDEX(PlayerInfo[Current Goalie GP],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0)>0))),1,0))",
+        "sha256": "89d269116f64f4e525f7b9555a643c7c468aa34836a021b74a1c5bec7973ea09",
+        "storedFormulaTypes": {
+          "array": 50
+        }
+      },
+      "finalFormula": {
+        "field": "Rookie of the Year Award Score",
+        "formula": "IF(AwardScoring[[#This Row],[Name]]=\"\",\"\",IF(AwardScoring[[#This Row],[Rookie Eligible]]<>1,0,IFERROR(IF(SUMPRODUCT((AwardScoring[Name]<>\"\")*(AwardScoring[Rookie Eligible]=1)*(AwardScoring[Rookie Raw Composite Score]<>\"\"))<=1,75,IF(AwardScoring[[#This Row],[Rookie Raw Composite Score]]=_xlfn.AGGREGATE(14,6,AwardScoring[Rookie Raw Composite Score]/((AwardScoring[Rookie Eligible]=1)*(AwardScoring[Rookie Raw Composite Score]<>\"\")),1),100,MIN(99,MAX(50,ROUND(50+((AwardScoring[[#This Row],[Rookie Raw Composite Score]]-_xlfn.AGGREGATE(15,6,AwardScoring[Rookie Raw Composite Score]/((AwardScoring[Rookie Eligible]=1)*(AwardScoring[Rookie Raw Composite Score]<>\"\")),1))/(_xlfn.AGGREGATE(14,6,AwardScoring[Rookie Raw Composite Score]/((AwardScoring[Rookie Eligible]=1)*(AwardScoring[Rookie Raw Composite Score]<>\"\")),1)-_xlfn.AGGREGATE(15,6,AwardScoring[Rookie Raw Composite Score]/((AwardScoring[Rookie Eligible]=1)*(AwardScoring[Rookie Raw Composite Score]<>\"\")),1)))*50,0))))),0)))",
+        "sha256": "3141f8e2cf134467675d9e45d3693521fb58bb58635ccb2ef875a19f6588ab5a",
+        "storedFormulaTypes": {
+          "array": 50
+        }
+      },
+      "rankKeyFormula": {
+        "field": "Rookie Rank Key",
+        "formula": "IF(AwardScoring[[#This Row],[Name]]=\"\",\"\",IF(AwardScoring[[#This Row],[Rookie Eligible]]<>1,0,IFERROR((1*AwardScoring[[#This Row],[Rookie of the Year Award Score]]*1000000)+(1*AwardScoring[[#This Row],[Rookie Raw Composite Score]]*100)+((100000-ROW())/100000),0)))",
+        "sha256": "72e48f42086fe25a198ab2aa6c5848650dff7803caeb0e6fe64533c1f4bf5e83",
+        "storedFormulaTypes": {
+          "array": 50
+        }
+      },
+      "dependencies": {
+        "awardScoringFields": [
+          "Award Scoring Type",
+          "Current Roster Status",
+          "Current True Attd. % Internal Score",
+          "Current True Attd. % Web Display Score",
+          "Name",
+          "Rookie Eligible",
+          "Rookie Rank Key",
+          "Rookie Raw Composite Score",
+          "Rookie Status",
+          "Rookie of the Year Award Score",
+          "Total Award Goalie GAA Internal Score",
+          "Total Award Goalie GAA Web Display Score",
+          "Total Award Goalie SHO Internal Score",
+          "Total Award Goalie SHO Web Display Score",
+          "Total Award Goalie W Internal Score",
+          "Total Award Goalie W Web Display Score",
+          "Total Award Goalie Win % Internal Score",
+          "Total Award Goalie Win % Web Display Score",
+          "Total Award POTG Internal Score",
+          "Total Award POTG Web Display Score",
+          "Total Discipline Reliability Internal Score",
+          "Total Discipline Reliability Web Display Score",
+          "Total Final +/- Internal Score",
+          "Total Final +/- Web Display Score",
+          "Total Final A Internal Score",
+          "Total Final A Web Display Score",
+          "Total Final G Internal Score",
+          "Total Final G Web Display Score",
+          "Total Final PIM Internal Score",
+          "Total Final PIM Web Display Score",
+          "Total Final Pts Internal Score",
+          "Total Final Pts Web Display Score",
+          "Total Final Special Teams Internal Score",
+          "Total Final Special Teams Web Display Score",
+          "Total Goalie Discipline Reliability Internal Score",
+          "Total Goalie Discipline Reliability Web Display Score",
+          "Total Goalie Offensive Contribution Internal Score",
+          "Total Goalie Offensive Contribution Web Display Score",
+          "Total Goalie Reliability Internal Score",
+          "Total Goalie Reliability Web Display Score",
+          "Total Skater Production Consistency Internal Score",
+          "Total Skater Production Consistency Web Display Score",
+          "Total Skater Two-Way Reliability Internal Score",
+          "Total Skater Two-Way Reliability Web Display Score",
+          "Total Streak Heat Internal Score",
+          "Total Streak Heat Web Display Score"
+        ],
+        "externalFields": {
+          "PlayerInfo": [
+            "Active Eligible",
+            "All-Time Total Goalie +/- Team Rate Avg",
+            "All-Time Total Goalie GAA Team Rate Avg",
+            "All-Time Total Goalie PIM Team Rate Avg",
+            "All-Time Total Goalie POTG Team Rate Avg",
+            "All-Time Total Goalie Pts/GP Team Rate Avg",
+            "All-Time Total Goalie SHO Team Rate Avg",
+            "All-Time Total Goalie Streak Heat Team Rate Avg",
+            "All-Time Total Goalie Win % Team Rate Avg",
+            "All-Time Total Skater +/- Team Rate Avg",
+            "All-Time Total Skater A Team Rate Avg",
+            "All-Time Total Skater G Team Rate Avg",
+            "All-Time Total Skater PIM Team Rate Avg",
+            "All-Time Total Skater POTG Team Rate Avg",
+            "All-Time Total Skater Pts Team Rate Avg",
+            "All-Time Total Skater Special Teams Team Rate Avg",
+            "All-Time Total Skater Streak Heat Team Rate Avg",
+            "Award Scoring Type",
+            "Career Prior Goalie GP",
+            "Career Prior Skater GP",
+            "Career Prior Total +/-/GP",
+            "Career Prior Total A/GP",
+            "Career Prior Total G/GP",
+            "Career Prior Total Goalie +/-/GP",
+            "Career Prior Total Goalie GAA",
+            "Career Prior Total Goalie PIM/GP",
+            "Career Prior Total Goalie POTG/GP",
+            "Career Prior Total Goalie Pts/GP",
+            "Career Prior Total Goalie SHO/GP",
+            "Career Prior Total Goalie Streak Heat/GP",
+            "Career Prior Total Goalie Win %",
+            "Career Prior Total PIM/GP",
+            "Career Prior Total POTG/GP",
+            "Career Prior Total PPG/GP",
+            "Career Prior Total Pts/GP",
+            "Career Prior Total SHG/GP",
+            "Career Prior Total Skater Streak Heat/GP",
+            "Current Goalie GP",
+            "Current Roster Status",
+            "Current Skater GP",
+            "Current Total +/-/GP",
+            "Current Total 3+ Point Games",
+            "Current Total A/GP",
+            "Current Total G/GP",
+            "Current Total Goal Game %",
+            "Current Total Goalie +/- Field Best Rate",
+            "Current Total Goalie +/- Field Rate Avg",
+            "Current Total Goalie +/-/GP",
+            "Current Total Goalie GAA",
+            "Current Total Goalie GAA Field Best Rate",
+            "Current Total Goalie GAA Field Rate Avg",
+            "Current Total Goalie Multi-PIM Games",
+            "Current Total Goalie PIM Field Best Rate",
+            "Current Total Goalie PIM Field Rate Avg",
+            "Current Total Goalie PIM-Free Games",
+            "Current Total Goalie PIM/GP",
+            "Current Total Goalie POTG",
+            "Current Total Goalie POTG Field Rate Avg",
+            "Current Total Goalie POTG Game %",
+            "Current Total Goalie POTG Raw Leader",
+            "Current Total Goalie POTG/GP",
+            "Current Total Goalie Played Games",
+            "Current Total Goalie Pts/GP",
+            "Current Total Goalie Pts/GP Field Best Rate",
+            "Current Total Goalie Pts/GP Field Rate Avg",
+            "Current Total Goalie Quality Game %",
+            "Current Total Goalie SHO",
+            "Current Total Goalie SHO Field Rate Avg",
+            "Current Total Goalie SHO Raw Leader",
+            "Current Total Goalie SHO/GP",
+            "Current Total Goalie Shutout Game %",
+            "Current Total Goalie Streak Heat Field Rate Avg",
+            "Current Total Goalie Streak Heat Points",
+            "Current Total Goalie Streak Heat Raw Leader",
+            "Current Total Goalie Streak Heat/GP",
+            "Current Total Goalie Unbeaten Game %",
+            "Current Total Goalie W",
+            "Current Total Goalie W Raw Leader",
+            "Current Total Goalie Win %",
+            "Current Total Goalie Win % Field Best Rate",
+            "Current Total Goalie Win % Field Rate Avg",
+            "Current Total Goalie Win Game %",
+            "Current Total Minus Games",
+            "Current Total Multi-PIM Games",
+            "Current Total Multi-Point Game %",
+            "Current Total PIM-Free Game %",
+            "Current Total PIM/GP",
+            "Current Total POTG",
+            "Current Total POTG Game %",
+            "Current Total POTG/GP",
+            "Current Total PPG/GP",
+            "Current Total Plus Game %",
+            "Current Total Point Game %",
+            "Current Total Pts/GP",
+            "Current Total Raw A",
+            "Current Total Raw G",
+            "Current Total Raw PPG",
+            "Current Total Raw Pts",
+            "Current Total Raw SHG",
+            "Current Total SHG/GP",
+            "Current Total Skater +/- Field Best Rate",
+            "Current Total Skater +/- Field Rate Avg",
+            "Current Total Skater A Field Rate Avg",
+            "Current Total Skater A Raw Leader",
+            "Current Total Skater G Field Rate Avg",
+            "Current Total Skater G Raw Leader",
+            "Current Total Skater PIM Field Best Rate",
+            "Current Total Skater PIM Field Rate Avg",
+            "Current Total Skater POTG Field Rate Avg",
+            "Current Total Skater POTG Raw Leader",
+            "Current Total Skater Played Games",
+            "Current Total Skater Pts Field Rate Avg",
+            "Current Total Skater Pts Raw Leader",
+            "Current Total Skater Special Teams Field Rate Avg",
+            "Current Total Skater Special Teams Raw Leader",
+            "Current Total Skater Streak Heat Field Rate Avg",
+            "Current Total Skater Streak Heat Points",
+            "Current Total Skater Streak Heat Raw Leader",
+            "Current Total Skater Streak Heat/GP",
+            "Current Total Special Teams Point Games",
+            "Current True Attd. % Score",
+            "Rookie Status",
+            "Website Name"
+          ],
+          "RosterStatusBySeason": [],
+          "SeasonInfo": []
+        },
+        "externalValuesVerifiedByThisInventory": false
+      }
+    },
+    "lady-byng": {
+      "rawFormula": {
+        "field": "Lady Byng Raw Composite Score",
+        "formula": "IF(AwardScoring[[#This Row],[Name]]=\"\",\"\",IF(IF(AwardScoring[[#This Row],[Award Scoring Type]]=\"Goaltender\",IFERROR(INDEX(PlayerInfo[Current Goalie GP],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0),IF(AwardScoring[[#This Row],[Award Scoring Type]]=\"Skater\",IFERROR(INDEX(PlayerInfo[Current Skater GP],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0),0))<=0,\"\",IFERROR(IF(AwardScoring[[#This Row],[Award Scoring Type]]=\"Goaltender\",ROUND((IFERROR(AwardScoring[[#This Row],[Total Goalie Discipline Reliability Web Display Score]],0)*0.38)+(IFERROR(AwardScoring[[#This Row],[Current True Attd. % Web Display Score]],0)*0.15)+(IFERROR(AwardScoring[[#This Row],[Total Goalie Reliability Web Display Score]],0)*0.15)+(IFERROR(AwardScoring[[#This Row],[Total Award Goalie GAA Web Display Score]],0)*0.12)+(IFERROR(AwardScoring[[#This Row],[Total Award POTG Web Display Score]],0)*0.06)+(IFERROR(AwardScoring[[#This Row],[Total Award Goalie SHO Web Display Score]],0)*0.05)+(IFERROR(AwardScoring[[#This Row],[Total Final +/- Web Display Score]],0)*0.05)+(IFERROR(AwardScoring[[#This Row],[Total Goalie Offensive Contribution Web Display Score]],0)*0.04),1),IF(AwardScoring[[#This Row],[Award Scoring Type]]=\"Skater\",ROUND((IFERROR(AwardScoring[[#This Row],[Total Discipline Reliability Web Display Score]],0)*0.3)+(IFERROR(AwardScoring[[#This Row],[Total Final PIM Web Display Score]],0)*0.28)+(IFERROR(AwardScoring[[#This Row],[Current True Attd. % Web Display Score]],0)*0.14)+(IFERROR(AwardScoring[[#This Row],[Total Skater Two-Way Reliability Web Display Score]],0)*0.08)+(IFERROR(AwardScoring[[#This Row],[Total Final +/- Web Display Score]],0)*0.06)+(IFERROR(AwardScoring[[#This Row],[Total Award POTG Web Display Score]],0)*0.05)+(IFERROR(AwardScoring[[#This Row],[Total Final Pts Web Display Score]],0)*0.05)+(IFERROR(AwardScoring[[#This Row],[Total Skater Production Consistency Web Display Score]],0)*0.04),1),\"\")),\"\")))",
+        "sha256": "3f661117a6ec90885692d4803fd6ecaff2155a653d3c158d6528a69e666030b3",
+        "storedFormulaTypes": {
+          "array": 50
+        }
+      },
+      "roles": {
+        "skater": {
+          "kind": "WEIGHTED_WEB_COMPONENTS",
+          "weights": [
+            {
+              "field": "Total Discipline Reliability Web Display Score",
+              "coefficient": 0.3
+            },
+            {
+              "field": "Total Final PIM Web Display Score",
+              "coefficient": 0.28
+            },
+            {
+              "field": "Current True Attd. % Web Display Score",
+              "coefficient": 0.14
+            },
+            {
+              "field": "Total Skater Two-Way Reliability Web Display Score",
+              "coefficient": 0.08
+            },
+            {
+              "field": "Total Final +/- Web Display Score",
+              "coefficient": 0.06
+            },
+            {
+              "field": "Total Award POTG Web Display Score",
+              "coefficient": 0.05
+            },
+            {
+              "field": "Total Final Pts Web Display Score",
+              "coefficient": 0.05
+            },
+            {
+              "field": "Total Skater Production Consistency Web Display Score",
+              "coefficient": 0.04
+            }
+          ],
+          "coefficientTotal": 1.0000000000000002,
+          "expression": "ROUND((IFERROR(AwardScoring[[#This Row],[Total Discipline Reliability Web Display Score]],0)*0.3)+(IFERROR(AwardScoring[[#This Row],[Total Final PIM Web Display Score]],0)*0.28)+(IFERROR(AwardScoring[[#This Row],[Current True Attd. % Web Display Score]],0)*0.14)+(IFERROR(AwardScoring[[#This Row],[Total Skater Two-Way Reliability Web Display Score]],0)*0.08)+(IFERROR(AwardScoring[[#This Row],[Total Final +/- Web Display Score]],0)*0.06)+(IFERROR(AwardScoring[[#This Row],[Total Award POTG Web Display Score]],0)*0.05)+(IFERROR(AwardScoring[[#This Row],[Total Final Pts Web Display Score]],0)*0.05)+(IFERROR(AwardScoring[[#This Row],[Total Skater Production Consistency Web Display Score]],0)*0.04),1)",
+          "expressionSha256": "31c0e424a1f30035c19889085ec1b2962c3883f598b674bf1b21ece634411b63"
+        },
+        "goalie": {
+          "kind": "WEIGHTED_WEB_COMPONENTS",
+          "weights": [
+            {
+              "field": "Total Goalie Discipline Reliability Web Display Score",
+              "coefficient": 0.38
+            },
+            {
+              "field": "Current True Attd. % Web Display Score",
+              "coefficient": 0.15
+            },
+            {
+              "field": "Total Goalie Reliability Web Display Score",
+              "coefficient": 0.15
+            },
+            {
+              "field": "Total Award Goalie GAA Web Display Score",
+              "coefficient": 0.12
+            },
+            {
+              "field": "Total Award POTG Web Display Score",
+              "coefficient": 0.06
+            },
+            {
+              "field": "Total Award Goalie SHO Web Display Score",
+              "coefficient": 0.05
+            },
+            {
+              "field": "Total Final +/- Web Display Score",
+              "coefficient": 0.05
+            },
+            {
+              "field": "Total Goalie Offensive Contribution Web Display Score",
+              "coefficient": 0.04
+            }
+          ],
+          "coefficientTotal": 1.0000000000000002,
+          "expression": "ROUND((IFERROR(AwardScoring[[#This Row],[Total Goalie Discipline Reliability Web Display Score]],0)*0.38)+(IFERROR(AwardScoring[[#This Row],[Current True Attd. % Web Display Score]],0)*0.15)+(IFERROR(AwardScoring[[#This Row],[Total Goalie Reliability Web Display Score]],0)*0.15)+(IFERROR(AwardScoring[[#This Row],[Total Award Goalie GAA Web Display Score]],0)*0.12)+(IFERROR(AwardScoring[[#This Row],[Total Award POTG Web Display Score]],0)*0.06)+(IFERROR(AwardScoring[[#This Row],[Total Award Goalie SHO Web Display Score]],0)*0.05)+(IFERROR(AwardScoring[[#This Row],[Total Final +/- Web Display Score]],0)*0.05)+(IFERROR(AwardScoring[[#This Row],[Total Goalie Offensive Contribution Web Display Score]],0)*0.04),1)",
+          "expressionSha256": "6280f3901c395b39c4f1fbe53cc809476c6b6bde9010f069e7a395e339411626"
+        }
+      },
+      "eligibilityFormula": {
+        "field": "Lady Byng Eligible",
+        "formula": "IF(AwardScoring[[#This Row],[Name]]=\"\",\"\",IF(SUMIFS(RosterStatusBySeason[Total Games],RosterStatusBySeason[Name],AwardScoring[[#This Row],[Name]],RosterStatusBySeason[Season],AwardScoring[[#This Row],[Recent Season]])=0,0,IF(OR(AwardScoring[[#This Row],[Current Roster Status]]=\"FT\",AwardScoring[[#This Row],[Current Roster Status]]=\"CU\",AwardScoring[[#This Row],[Current Roster Status]]=\"DI\"),IF(AwardScoring[[#This Row],[Award Scoring Type]]=\"Skater\",IF(IFERROR(INDEX(PlayerInfo[Current Skater GP],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0)>=MAX(5,ROUNDUP(SUMIFS(RosterStatusBySeason[Total Games],RosterStatusBySeason[Name],AwardScoring[[#This Row],[Name]],RosterStatusBySeason[Season],AwardScoring[[#This Row],[Recent Season]])*0.5,0)),1,0),IF(AwardScoring[[#This Row],[Award Scoring Type]]=\"Goaltender\",IF(IFERROR(INDEX(PlayerInfo[Current Goalie GP],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0)>=MAX(3,ROUNDUP(SUMIFS(RosterStatusBySeason[Total Games],RosterStatusBySeason[Name],AwardScoring[[#This Row],[Name]],RosterStatusBySeason[Season],AwardScoring[[#This Row],[Recent Season]])*0.3,0)),1,0),0)),0)))",
+        "sha256": "2e98aeb0b2a640629349a193bc80c031326dfd1073084ff2ca8e7c5960ecec7d",
+        "storedFormulaTypes": {
+          "array": 50
+        }
+      },
+      "finalFormula": {
+        "field": "Lady Byng Award Score",
+        "formula": "IF(AwardScoring[[#This Row],[Name]]=\"\",\"\",IF(AwardScoring[[#This Row],[Lady Byng Eligible]]<>1,0,IFERROR(IF(AwardScoring[[#This Row],[Lady Byng Raw Composite Score]]=_xlfn.AGGREGATE(14,6,AwardScoring[Lady Byng Raw Composite Score]/((AwardScoring[Lady Byng Eligible]=1)*(AwardScoring[Lady Byng Raw Composite Score]<>\"\")),1),100,MIN(99,MAX(50,ROUND(50+((AwardScoring[[#This Row],[Lady Byng Raw Composite Score]]-_xlfn.AGGREGATE(15,6,AwardScoring[Lady Byng Raw Composite Score]/((AwardScoring[Lady Byng Eligible]=1)*(AwardScoring[Lady Byng Raw Composite Score]<>\"\")),1))/(_xlfn.AGGREGATE(14,6,AwardScoring[Lady Byng Raw Composite Score]/((AwardScoring[Lady Byng Eligible]=1)*(AwardScoring[Lady Byng Raw Composite Score]<>\"\")),1)-_xlfn.AGGREGATE(15,6,AwardScoring[Lady Byng Raw Composite Score]/((AwardScoring[Lady Byng Eligible]=1)*(AwardScoring[Lady Byng Raw Composite Score]<>\"\")),1)))*50,0)))),0)))",
+        "sha256": "bb21fa24d786df26afd61d57b027f1ce725b66670e2545a587679be9aa50f229",
+        "storedFormulaTypes": {
+          "array": 50
+        }
+      },
+      "rankKeyFormula": {
+        "field": "Lady Byng Rank Key",
+        "formula": "IF(AwardScoring[[#This Row],[Name]]=\"\",\"\",IF(AwardScoring[[#This Row],[Lady Byng Eligible]]<>1,0,IFERROR((1*AwardScoring[[#This Row],[Lady Byng Award Score]]*1000000)+(1*AwardScoring[[#This Row],[Lady Byng Raw Composite Score]]*100)+((100000-ROW())/100000),0)))",
+        "sha256": "bd8f9727e40fdccd72a6cb08d2093995ff197024da4cca9cf70a2c3800425c89",
+        "storedFormulaTypes": {
+          "array": 50
+        }
+      },
+      "dependencies": {
+        "awardScoringFields": [
+          "Award Scoring Type",
+          "Current Roster Status",
+          "Current True Attd. % Internal Score",
+          "Current True Attd. % Web Display Score",
+          "Lady Byng Award Score",
+          "Lady Byng Eligible",
+          "Lady Byng Rank Key",
+          "Lady Byng Raw Composite Score",
+          "Name",
+          "Recent Season",
+          "Total Award Goalie GAA Internal Score",
+          "Total Award Goalie GAA Web Display Score",
+          "Total Award Goalie SHO Internal Score",
+          "Total Award Goalie SHO Web Display Score",
+          "Total Award POTG Internal Score",
+          "Total Award POTG Web Display Score",
+          "Total Discipline Reliability Internal Score",
+          "Total Discipline Reliability Web Display Score",
+          "Total Final +/- Internal Score",
+          "Total Final +/- Web Display Score",
+          "Total Final PIM Internal Score",
+          "Total Final PIM Web Display Score",
+          "Total Final Pts Internal Score",
+          "Total Final Pts Web Display Score",
+          "Total Goalie Discipline Reliability Internal Score",
+          "Total Goalie Discipline Reliability Web Display Score",
+          "Total Goalie Offensive Contribution Internal Score",
+          "Total Goalie Offensive Contribution Web Display Score",
+          "Total Goalie Reliability Internal Score",
+          "Total Goalie Reliability Web Display Score",
+          "Total Skater Production Consistency Internal Score",
+          "Total Skater Production Consistency Web Display Score",
+          "Total Skater Two-Way Reliability Internal Score",
+          "Total Skater Two-Way Reliability Web Display Score"
+        ],
+        "externalFields": {
+          "PlayerInfo": [
+            "Active Eligible",
+            "All-Time Total Goalie +/- Team Rate Avg",
+            "All-Time Total Goalie GAA Team Rate Avg",
+            "All-Time Total Goalie PIM Team Rate Avg",
+            "All-Time Total Goalie POTG Team Rate Avg",
+            "All-Time Total Goalie Pts/GP Team Rate Avg",
+            "All-Time Total Goalie SHO Team Rate Avg",
+            "All-Time Total Skater +/- Team Rate Avg",
+            "All-Time Total Skater PIM Team Rate Avg",
+            "All-Time Total Skater POTG Team Rate Avg",
+            "All-Time Total Skater Pts Team Rate Avg",
+            "Award Scoring Type",
+            "Career Prior Goalie GP",
+            "Career Prior Skater GP",
+            "Career Prior Total +/-/GP",
+            "Career Prior Total Goalie +/-/GP",
+            "Career Prior Total Goalie GAA",
+            "Career Prior Total Goalie PIM/GP",
+            "Career Prior Total Goalie POTG/GP",
+            "Career Prior Total Goalie Pts/GP",
+            "Career Prior Total Goalie SHO/GP",
+            "Career Prior Total PIM/GP",
+            "Career Prior Total POTG/GP",
+            "Career Prior Total Pts/GP",
+            "Current Goalie GP",
+            "Current Roster Status",
+            "Current Skater GP",
+            "Current Total +/-/GP",
+            "Current Total 3+ Point Games",
+            "Current Total Goal Game %",
+            "Current Total Goalie +/- Field Best Rate",
+            "Current Total Goalie +/- Field Rate Avg",
+            "Current Total Goalie +/-/GP",
+            "Current Total Goalie GAA",
+            "Current Total Goalie GAA Field Best Rate",
+            "Current Total Goalie GAA Field Rate Avg",
+            "Current Total Goalie Multi-PIM Games",
+            "Current Total Goalie PIM Field Best Rate",
+            "Current Total Goalie PIM Field Rate Avg",
+            "Current Total Goalie PIM-Free Games",
+            "Current Total Goalie PIM/GP",
+            "Current Total Goalie POTG",
+            "Current Total Goalie POTG Field Rate Avg",
+            "Current Total Goalie POTG Game %",
+            "Current Total Goalie POTG Raw Leader",
+            "Current Total Goalie POTG/GP",
+            "Current Total Goalie Played Games",
+            "Current Total Goalie Pts/GP",
+            "Current Total Goalie Pts/GP Field Best Rate",
+            "Current Total Goalie Pts/GP Field Rate Avg",
+            "Current Total Goalie Quality Game %",
+            "Current Total Goalie SHO",
+            "Current Total Goalie SHO Field Rate Avg",
+            "Current Total Goalie SHO Raw Leader",
+            "Current Total Goalie SHO/GP",
+            "Current Total Goalie Shutout Game %",
+            "Current Total Goalie Unbeaten Game %",
+            "Current Total Goalie Win Game %",
+            "Current Total Minus Games",
+            "Current Total Multi-PIM Games",
+            "Current Total Multi-Point Game %",
+            "Current Total PIM-Free Game %",
+            "Current Total PIM/GP",
+            "Current Total POTG",
+            "Current Total POTG Game %",
+            "Current Total POTG/GP",
+            "Current Total Plus Game %",
+            "Current Total Point Game %",
+            "Current Total Pts/GP",
+            "Current Total Raw Pts",
+            "Current Total Skater +/- Field Best Rate",
+            "Current Total Skater +/- Field Rate Avg",
+            "Current Total Skater PIM Field Best Rate",
+            "Current Total Skater PIM Field Rate Avg",
+            "Current Total Skater POTG Field Rate Avg",
+            "Current Total Skater POTG Raw Leader",
+            "Current Total Skater Played Games",
+            "Current Total Skater Pts Field Rate Avg",
+            "Current Total Skater Pts Raw Leader",
+            "Current Total Special Teams Point Games",
+            "Current True Attd. % Score",
+            "Recent Season",
+            "Website Name"
+          ],
+          "RosterStatusBySeason": [
+            "Name",
+            "Season",
+            "Total Games"
+          ],
+          "SeasonInfo": []
+        },
+        "externalValuesVerifiedByThisInventory": false
+      }
+    },
+    "rolaids": {
+      "rawFormula": {
+        "field": "Rolaids Raw Composite Score",
+        "formula": "IF(AwardScoring[[#This Row],[Name]]=\"\",\"\",IF(AwardScoring[[#This Row],[Rolaids Eligible]]<>1,\"\",IF(AwardScoring[[#This Row],[Award Scoring Type]]=\"Goaltender\",IFERROR(ROUND((IFERROR(AwardScoring[[#This Row],[Total Goalie Reliability Web Display Score]],0)*0.18)+(IFERROR(AwardScoring[[#This Row],[Total Award POTG Web Display Score]],0)*0.1)+(IFERROR(AwardScoring[[#This Row],[Current True Attd. % Web Display Score]],0)*0.2)+(IFERROR(AwardScoring[[#This Row],[Total Award Goalie GAA Web Display Score]],0)*0.1)+(IFERROR(AwardScoring[[#This Row],[Total Award Goalie Win % Web Display Score]],0)*0.08)+(IFERROR(AwardScoring[[#This Row],[Total Final +/- Web Display Score]],0)*0.08)+(IFERROR(AwardScoring[[#This Row],[Total Goalie Discipline Reliability Web Display Score]],0)*0.12)+(IFERROR(AwardScoring[[#This Row],[Total Award Goalie W Web Display Score]],0)*0.08)+(IFERROR(AwardScoring[[#This Row],[Total Award Goalie SHO Web Display Score]],0)*0.03)+(IFERROR(AwardScoring[[#This Row],[Total Goalie Offensive Contribution Web Display Score]],0)*0.03),1),\"\"),IF(AwardScoring[[#This Row],[Award Scoring Type]]=\"Skater\",IFERROR(ROUND((IFERROR(AwardScoring[[#This Row],[Total Skater Production Consistency Web Display Score]],0)*0.18)+(IFERROR(AwardScoring[[#This Row],[Total Final Pts Web Display Score]],0)*0.18)+(IFERROR(AwardScoring[[#This Row],[Current True Attd. % Web Display Score]],0)*0.15)+(IFERROR(AwardScoring[[#This Row],[Total Award POTG Web Display Score]],0)*0.1)+(IFERROR(AwardScoring[[#This Row],[Total Final Special Teams Web Display Score]],0)*0.08)+(IFERROR(AwardScoring[[#This Row],[Total Final Clutch Web Display Score]],0)*0.07)+(IFERROR(AwardScoring[[#This Row],[Total Streak Heat Web Display Score]],0)*0.07)+(IFERROR(AwardScoring[[#This Row],[Total Skater Two-Way Reliability Web Display Score]],0)*0.06)+(IFERROR(AwardScoring[[#This Row],[Total Discipline Reliability Web Display Score]],0)*0.05)+(IFERROR(AwardScoring[[#This Row],[Total Final PIM Web Display Score]],0)*0.04)+(IFERROR(AwardScoring[[#This Row],[Total Final +/- Web Display Score]],0)*0.02),1),\"\"),\"\"))))",
+        "sha256": "0c2b946aff59b2190af90867aeb8a50399e76bec00831a003c2714c451dd884f",
+        "storedFormulaTypes": {
+          "array": 50
+        }
+      },
+      "roles": {
+        "skater": {
+          "kind": "WEIGHTED_WEB_COMPONENTS",
+          "weights": [
+            {
+              "field": "Total Skater Production Consistency Web Display Score",
+              "coefficient": 0.18
+            },
+            {
+              "field": "Total Final Pts Web Display Score",
+              "coefficient": 0.18
+            },
+            {
+              "field": "Current True Attd. % Web Display Score",
+              "coefficient": 0.15
+            },
+            {
+              "field": "Total Award POTG Web Display Score",
+              "coefficient": 0.1
+            },
+            {
+              "field": "Total Final Special Teams Web Display Score",
+              "coefficient": 0.08
+            },
+            {
+              "field": "Total Final Clutch Web Display Score",
+              "coefficient": 0.07
+            },
+            {
+              "field": "Total Streak Heat Web Display Score",
+              "coefficient": 0.07
+            },
+            {
+              "field": "Total Skater Two-Way Reliability Web Display Score",
+              "coefficient": 0.06
+            },
+            {
+              "field": "Total Discipline Reliability Web Display Score",
+              "coefficient": 0.05
+            },
+            {
+              "field": "Total Final PIM Web Display Score",
+              "coefficient": 0.04
+            },
+            {
+              "field": "Total Final +/- Web Display Score",
+              "coefficient": 0.02
+            }
+          ],
+          "coefficientTotal": 1.0000000000000002,
+          "expression": "IFERROR(ROUND((IFERROR(AwardScoring[[#This Row],[Total Skater Production Consistency Web Display Score]],0)*0.18)+(IFERROR(AwardScoring[[#This Row],[Total Final Pts Web Display Score]],0)*0.18)+(IFERROR(AwardScoring[[#This Row],[Current True Attd. % Web Display Score]],0)*0.15)+(IFERROR(AwardScoring[[#This Row],[Total Award POTG Web Display Score]],0)*0.1)+(IFERROR(AwardScoring[[#This Row],[Total Final Special Teams Web Display Score]],0)*0.08)+(IFERROR(AwardScoring[[#This Row],[Total Final Clutch Web Display Score]],0)*0.07)+(IFERROR(AwardScoring[[#This Row],[Total Streak Heat Web Display Score]],0)*0.07)+(IFERROR(AwardScoring[[#This Row],[Total Skater Two-Way Reliability Web Display Score]],0)*0.06)+(IFERROR(AwardScoring[[#This Row],[Total Discipline Reliability Web Display Score]],0)*0.05)+(IFERROR(AwardScoring[[#This Row],[Total Final PIM Web Display Score]],0)*0.04)+(IFERROR(AwardScoring[[#This Row],[Total Final +/- Web Display Score]],0)*0.02),1),\"\")",
+          "expressionSha256": "49b51c264531cd83a27b01f7cc34437f69189634243d469adfa333debfd111e9"
+        },
+        "goalie": {
+          "kind": "WEIGHTED_WEB_COMPONENTS",
+          "weights": [
+            {
+              "field": "Total Goalie Reliability Web Display Score",
+              "coefficient": 0.18
+            },
+            {
+              "field": "Total Award POTG Web Display Score",
+              "coefficient": 0.1
+            },
+            {
+              "field": "Current True Attd. % Web Display Score",
+              "coefficient": 0.2
+            },
+            {
+              "field": "Total Award Goalie GAA Web Display Score",
+              "coefficient": 0.1
+            },
+            {
+              "field": "Total Award Goalie Win % Web Display Score",
+              "coefficient": 0.08
+            },
+            {
+              "field": "Total Final +/- Web Display Score",
+              "coefficient": 0.08
+            },
+            {
+              "field": "Total Goalie Discipline Reliability Web Display Score",
+              "coefficient": 0.12
+            },
+            {
+              "field": "Total Award Goalie W Web Display Score",
+              "coefficient": 0.08
+            },
+            {
+              "field": "Total Award Goalie SHO Web Display Score",
+              "coefficient": 0.03
+            },
+            {
+              "field": "Total Goalie Offensive Contribution Web Display Score",
+              "coefficient": 0.03
+            }
+          ],
+          "coefficientTotal": 1,
+          "expression": "IFERROR(ROUND((IFERROR(AwardScoring[[#This Row],[Total Goalie Reliability Web Display Score]],0)*0.18)+(IFERROR(AwardScoring[[#This Row],[Total Award POTG Web Display Score]],0)*0.1)+(IFERROR(AwardScoring[[#This Row],[Current True Attd. % Web Display Score]],0)*0.2)+(IFERROR(AwardScoring[[#This Row],[Total Award Goalie GAA Web Display Score]],0)*0.1)+(IFERROR(AwardScoring[[#This Row],[Total Award Goalie Win % Web Display Score]],0)*0.08)+(IFERROR(AwardScoring[[#This Row],[Total Final +/- Web Display Score]],0)*0.08)+(IFERROR(AwardScoring[[#This Row],[Total Goalie Discipline Reliability Web Display Score]],0)*0.12)+(IFERROR(AwardScoring[[#This Row],[Total Award Goalie W Web Display Score]],0)*0.08)+(IFERROR(AwardScoring[[#This Row],[Total Award Goalie SHO Web Display Score]],0)*0.03)+(IFERROR(AwardScoring[[#This Row],[Total Goalie Offensive Contribution Web Display Score]],0)*0.03),1),\"\")",
+          "expressionSha256": "f90f2c1b73fd4cc2e483d3ec26ebce70fcd9101f12229ab946adc961aba99fd6"
+        }
+      },
+      "eligibilityFormula": {
+        "field": "Rolaids Eligible",
+        "formula": "IF(AwardScoring[[#This Row],[Name]]=\"\",\"\",IF(OR(AwardScoring[[#This Row],[Current Roster Status]]=\"FT\",AwardScoring[[#This Row],[Current Roster Status]]=\"\"),0,IF(SUMIFS(RosterStatusBySeason[Total Games],RosterStatusBySeason[Name],AwardScoring[[#This Row],[Name]],RosterStatusBySeason[Season],AwardScoring[[#This Row],[Recent Season]])=0,0,IF(AwardScoring[[#This Row],[Award Scoring Type]]=\"Skater\",IF(IFERROR(INDEX(PlayerInfo[Current Skater GP],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0)>=MAX(6,ROUNDUP(SUMIFS(RosterStatusBySeason[Total Games],RosterStatusBySeason[Name],AwardScoring[[#This Row],[Name]],RosterStatusBySeason[Season],AwardScoring[[#This Row],[Recent Season]])*0.25,0)),1,0),IF(AwardScoring[[#This Row],[Award Scoring Type]]=\"Goaltender\",IF(IFERROR(INDEX(PlayerInfo[Current Goalie GP],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0)>=MAX(4,ROUNDUP(SUMIFS(RosterStatusBySeason[Total Games],RosterStatusBySeason[Name],AwardScoring[[#This Row],[Name]],RosterStatusBySeason[Season],AwardScoring[[#This Row],[Recent Season]])*0.15,0)),1,0),0)))))",
+        "sha256": "728f50eb350557eca0f3977523a37963d0207d68b0caad2f3bd9efbe489220de",
+        "storedFormulaTypes": {
+          "array": 50
+        }
+      },
+      "finalFormula": {
+        "field": "Rolaids Relief Man Award Score",
+        "formula": "IF(AwardScoring[[#This Row],[Name]]=\"\",\"\",IF(AwardScoring[[#This Row],[Rolaids Eligible]]<>1,0,IFERROR(MAX(50,MIN(ROUND(100-(_xlfn.AGGREGATE(14,6,AwardScoring[Rolaids Raw Composite Score]/((AwardScoring[Rolaids Eligible]=1)*(AwardScoring[Rolaids Raw Composite Score]<>\"\")),1)-AwardScoring[[#This Row],[Rolaids Raw Composite Score]]),0),100-COUNTIFS(AwardScoring[Rolaids Eligible],1,AwardScoring[Rolaids Relief Man Rank Key],\">\"&AwardScoring[[#This Row],[Rolaids Relief Man Rank Key]]))),0)))",
+        "sha256": "30c222bd3f92542dd6e8e2c16143f2c0d349ede0fda1e9217a2917a4051020ea",
+        "storedFormulaTypes": {
+          "array": 50
+        }
+      },
+      "rankKeyFormula": {
+        "field": "Rolaids Relief Man Rank Key",
+        "formula": "IF(AwardScoring[[#This Row],[Name]]=\"\",\"\",IF(AwardScoring[[#This Row],[Rolaids Eligible]]<>1,\"\",IFERROR(AwardScoring[[#This Row],[Rolaids Raw Composite Score]]+(1/(1000000+ROW())),0)))",
+        "sha256": "dce8e941c524760c5320b4102339b5fc81af823ae2dc9f8c6c863dbe6f355e22",
+        "storedFormulaTypes": {
+          "array": 50
+        }
+      },
+      "dependencies": {
+        "awardScoringFields": [
+          "Award Scoring Type",
+          "Current Roster Status",
+          "Current True Attd. % Internal Score",
+          "Current True Attd. % Web Display Score",
+          "Name",
+          "Recent Season",
+          "Rolaids Eligible",
+          "Rolaids Raw Composite Score",
+          "Rolaids Relief Man Award Score",
+          "Rolaids Relief Man Rank Key",
+          "Total Award Goalie GAA Internal Score",
+          "Total Award Goalie GAA Web Display Score",
+          "Total Award Goalie SHO Internal Score",
+          "Total Award Goalie SHO Web Display Score",
+          "Total Award Goalie W Internal Score",
+          "Total Award Goalie W Web Display Score",
+          "Total Award Goalie Win % Internal Score",
+          "Total Award Goalie Win % Web Display Score",
+          "Total Award POTG Internal Score",
+          "Total Award POTG Web Display Score",
+          "Total Discipline Reliability Internal Score",
+          "Total Discipline Reliability Web Display Score",
+          "Total Final +/- Internal Score",
+          "Total Final +/- Web Display Score",
+          "Total Final Clutch Internal Score",
+          "Total Final Clutch Web Display Score",
+          "Total Final PIM Internal Score",
+          "Total Final PIM Web Display Score",
+          "Total Final Pts Internal Score",
+          "Total Final Pts Web Display Score",
+          "Total Final Special Teams Internal Score",
+          "Total Final Special Teams Web Display Score",
+          "Total Goalie Discipline Reliability Internal Score",
+          "Total Goalie Discipline Reliability Web Display Score",
+          "Total Goalie Offensive Contribution Internal Score",
+          "Total Goalie Offensive Contribution Web Display Score",
+          "Total Goalie Reliability Internal Score",
+          "Total Goalie Reliability Web Display Score",
+          "Total Skater Production Consistency Internal Score",
+          "Total Skater Production Consistency Web Display Score",
+          "Total Skater Two-Way Reliability Internal Score",
+          "Total Skater Two-Way Reliability Web Display Score",
+          "Total Streak Heat Internal Score",
+          "Total Streak Heat Web Display Score"
+        ],
+        "externalFields": {
+          "PlayerInfo": [
+            "Active Eligible",
+            "All-Time Total Goalie +/- Team Rate Avg",
+            "All-Time Total Goalie GAA Team Rate Avg",
+            "All-Time Total Goalie PIM Team Rate Avg",
+            "All-Time Total Goalie POTG Team Rate Avg",
+            "All-Time Total Goalie Pts/GP Team Rate Avg",
+            "All-Time Total Goalie SHO Team Rate Avg",
+            "All-Time Total Goalie Streak Heat Team Rate Avg",
+            "All-Time Total Goalie Win % Team Rate Avg",
+            "All-Time Total Skater +/- Team Rate Avg",
+            "All-Time Total Skater Clutch Team Rate Avg",
+            "All-Time Total Skater PIM Team Rate Avg",
+            "All-Time Total Skater POTG Team Rate Avg",
+            "All-Time Total Skater Pts Team Rate Avg",
+            "All-Time Total Skater Special Teams Team Rate Avg",
+            "All-Time Total Skater Streak Heat Team Rate Avg",
+            "Award Scoring Type",
+            "Career Prior Goalie GP",
+            "Career Prior Skater GP",
+            "Career Prior Total +/-/GP",
+            "Career Prior Total Clutch Goals/GP",
+            "Career Prior Total Goalie +/-/GP",
+            "Career Prior Total Goalie GAA",
+            "Career Prior Total Goalie PIM/GP",
+            "Career Prior Total Goalie POTG/GP",
+            "Career Prior Total Goalie Pts/GP",
+            "Career Prior Total Goalie SHO/GP",
+            "Career Prior Total Goalie Streak Heat/GP",
+            "Career Prior Total Goalie Win %",
+            "Career Prior Total PIM/GP",
+            "Career Prior Total POTG/GP",
+            "Career Prior Total PPG/GP",
+            "Career Prior Total Pts/GP",
+            "Career Prior Total SHG/GP",
+            "Career Prior Total Skater Streak Heat/GP",
+            "Current Goalie GP",
+            "Current Roster Status",
+            "Current Skater GP",
+            "Current Total +/-/GP",
+            "Current Total 3+ Point Games",
+            "Current Total Clutch Goals/GP",
+            "Current Total Goal Game %",
+            "Current Total Goalie +/- Field Best Rate",
+            "Current Total Goalie +/- Field Rate Avg",
+            "Current Total Goalie +/-/GP",
+            "Current Total Goalie GAA",
+            "Current Total Goalie GAA Field Best Rate",
+            "Current Total Goalie GAA Field Rate Avg",
+            "Current Total Goalie Multi-PIM Games",
+            "Current Total Goalie PIM Field Best Rate",
+            "Current Total Goalie PIM Field Rate Avg",
+            "Current Total Goalie PIM-Free Games",
+            "Current Total Goalie PIM/GP",
+            "Current Total Goalie POTG",
+            "Current Total Goalie POTG Field Rate Avg",
+            "Current Total Goalie POTG Game %",
+            "Current Total Goalie POTG Raw Leader",
+            "Current Total Goalie POTG/GP",
+            "Current Total Goalie Played Games",
+            "Current Total Goalie Pts/GP",
+            "Current Total Goalie Pts/GP Field Best Rate",
+            "Current Total Goalie Pts/GP Field Rate Avg",
+            "Current Total Goalie Quality Game %",
+            "Current Total Goalie SHO",
+            "Current Total Goalie SHO Field Rate Avg",
+            "Current Total Goalie SHO Raw Leader",
+            "Current Total Goalie SHO/GP",
+            "Current Total Goalie Shutout Game %",
+            "Current Total Goalie Streak Heat Field Rate Avg",
+            "Current Total Goalie Streak Heat Points",
+            "Current Total Goalie Streak Heat Raw Leader",
+            "Current Total Goalie Streak Heat/GP",
+            "Current Total Goalie Unbeaten Game %",
+            "Current Total Goalie W",
+            "Current Total Goalie W Raw Leader",
+            "Current Total Goalie Win %",
+            "Current Total Goalie Win % Field Best Rate",
+            "Current Total Goalie Win % Field Rate Avg",
+            "Current Total Goalie Win Game %",
+            "Current Total Minus Games",
+            "Current Total Multi-PIM Games",
+            "Current Total Multi-Point Game %",
+            "Current Total PIM-Free Game %",
+            "Current Total PIM/GP",
+            "Current Total POTG",
+            "Current Total POTG Game %",
+            "Current Total POTG/GP",
+            "Current Total PPG/GP",
+            "Current Total Plus Game %",
+            "Current Total Point Game %",
+            "Current Total Pts/GP",
+            "Current Total Raw Clutch Goals",
+            "Current Total Raw PPG",
+            "Current Total Raw Pts",
+            "Current Total Raw SHG",
+            "Current Total SHG/GP",
+            "Current Total Skater +/- Field Best Rate",
+            "Current Total Skater +/- Field Rate Avg",
+            "Current Total Skater Clutch Field Rate Avg",
+            "Current Total Skater Clutch Raw Leader",
+            "Current Total Skater PIM Field Best Rate",
+            "Current Total Skater PIM Field Rate Avg",
+            "Current Total Skater POTG Field Rate Avg",
+            "Current Total Skater POTG Raw Leader",
+            "Current Total Skater Played Games",
+            "Current Total Skater Pts Field Rate Avg",
+            "Current Total Skater Pts Raw Leader",
+            "Current Total Skater Special Teams Field Rate Avg",
+            "Current Total Skater Special Teams Raw Leader",
+            "Current Total Skater Streak Heat Field Rate Avg",
+            "Current Total Skater Streak Heat Points",
+            "Current Total Skater Streak Heat Raw Leader",
+            "Current Total Skater Streak Heat/GP",
+            "Current Total Special Teams Point Games",
+            "Current True Attd. % Score",
+            "Recent Season",
+            "Website Name"
+          ],
+          "RosterStatusBySeason": [
+            "Name",
+            "Season",
+            "Total Games"
+          ],
+          "SeasonInfo": []
+        },
+        "externalValuesVerifiedByThisInventory": false
+      }
+    },
+    "dedication": {
+      "rawFormula": {
+        "field": "Dedication Raw Composite Score",
+        "formula": "IF(AwardScoring[[#This Row],[Name]]=\"\",\"\",IF(AwardScoring[[#This Row],[Dedication Eligible]]<>1,\"\",IF(AwardScoring[[#This Row],[Award Scoring Type]]=\"Goaltender\",IFERROR(ROUND((IFERROR(AwardScoring[[#This Row],[Current True Attd. % Web Display Score]],0)*0.45)+(IFERROR(AwardScoring[[#This Row],[Current True Playoff Season Attd. % Web Display Score]],0)*0.2)+(IFERROR(AwardScoring[[#This Row],[Dedication Tenure Web Display Score]],0)*0.05)+(IFERROR(AwardScoring[[#This Row],[Total Goalie Reliability Web Display Score]],0)*0.2)+(IFERROR(AwardScoring[[#This Row],[Total Goalie Discipline Reliability Web Display Score]],0)*0.1),1),\"\"),IF(AwardScoring[[#This Row],[Award Scoring Type]]=\"Skater\",IFERROR(ROUND((IFERROR(AwardScoring[[#This Row],[Current True Attd. % Web Display Score]],0)*0.45)+(IFERROR(AwardScoring[[#This Row],[Current True Playoff Season Attd. % Web Display Score]],0)*0.2)+(IFERROR(AwardScoring[[#This Row],[Dedication Tenure Web Display Score]],0)*0.05)+(IFERROR(AwardScoring[[#This Row],[Total Skater Two-Way Reliability Web Display Score]],0)*0.2)+(IFERROR(AwardScoring[[#This Row],[Total Discipline Reliability Web Display Score]],0)*0.1),1),\"\"),\"\"))))",
+        "sha256": "7248431aa4f584fd8122a429189097e97e50cc871e4b0bf95c8a6da3a9bf5cc1",
+        "storedFormulaTypes": {
+          "array": 50
+        }
+      },
+      "roles": {
+        "skater": {
+          "kind": "WEIGHTED_WEB_COMPONENTS",
+          "weights": [
+            {
+              "field": "Current True Attd. % Web Display Score",
+              "coefficient": 0.45
+            },
+            {
+              "field": "Current True Playoff Season Attd. % Web Display Score",
+              "coefficient": 0.2
+            },
+            {
+              "field": "Dedication Tenure Web Display Score",
+              "coefficient": 0.05
+            },
+            {
+              "field": "Total Skater Two-Way Reliability Web Display Score",
+              "coefficient": 0.2
+            },
+            {
+              "field": "Total Discipline Reliability Web Display Score",
+              "coefficient": 0.1
+            }
+          ],
+          "coefficientTotal": 1.0000000000000002,
+          "expression": "IFERROR(ROUND((IFERROR(AwardScoring[[#This Row],[Current True Attd. % Web Display Score]],0)*0.45)+(IFERROR(AwardScoring[[#This Row],[Current True Playoff Season Attd. % Web Display Score]],0)*0.2)+(IFERROR(AwardScoring[[#This Row],[Dedication Tenure Web Display Score]],0)*0.05)+(IFERROR(AwardScoring[[#This Row],[Total Skater Two-Way Reliability Web Display Score]],0)*0.2)+(IFERROR(AwardScoring[[#This Row],[Total Discipline Reliability Web Display Score]],0)*0.1),1),\"\")",
+          "expressionSha256": "3a3c4a17dd75afa98532eea86dd490c18729e0a58021989f17c91abb394f3e7c"
+        },
+        "goalie": {
+          "kind": "WEIGHTED_WEB_COMPONENTS",
+          "weights": [
+            {
+              "field": "Current True Attd. % Web Display Score",
+              "coefficient": 0.45
+            },
+            {
+              "field": "Current True Playoff Season Attd. % Web Display Score",
+              "coefficient": 0.2
+            },
+            {
+              "field": "Dedication Tenure Web Display Score",
+              "coefficient": 0.05
+            },
+            {
+              "field": "Total Goalie Reliability Web Display Score",
+              "coefficient": 0.2
+            },
+            {
+              "field": "Total Goalie Discipline Reliability Web Display Score",
+              "coefficient": 0.1
+            }
+          ],
+          "coefficientTotal": 1.0000000000000002,
+          "expression": "IFERROR(ROUND((IFERROR(AwardScoring[[#This Row],[Current True Attd. % Web Display Score]],0)*0.45)+(IFERROR(AwardScoring[[#This Row],[Current True Playoff Season Attd. % Web Display Score]],0)*0.2)+(IFERROR(AwardScoring[[#This Row],[Dedication Tenure Web Display Score]],0)*0.05)+(IFERROR(AwardScoring[[#This Row],[Total Goalie Reliability Web Display Score]],0)*0.2)+(IFERROR(AwardScoring[[#This Row],[Total Goalie Discipline Reliability Web Display Score]],0)*0.1),1),\"\")",
+          "expressionSha256": "bf1f8f9ae1907716bb6d67692db4747281b6bb3d55489cc788dde5894da3cc5f"
+        }
+      },
+      "eligibilityFormula": {
+        "field": "Dedication Eligible",
+        "formula": "IF(AwardScoring[[#This Row],[Name]]=\"\",\"\",IF(SUMIFS(RosterStatusBySeason[Total Games],RosterStatusBySeason[Name],AwardScoring[[#This Row],[Name]],RosterStatusBySeason[Season],AwardScoring[[#This Row],[Recent Season]])=0,0,IF(OR(AwardScoring[[#This Row],[Current Roster Status]]=\"FT\",AwardScoring[[#This Row],[Current Roster Status]]=\"CU\",AwardScoring[[#This Row],[Current Roster Status]]=\"DI\"),IF(AwardScoring[[#This Row],[Award Scoring Type]]=\"Skater\",IF(IFERROR(INDEX(PlayerInfo[Current Skater GP],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0)>=MAX(5,ROUNDUP(SUMIFS(RosterStatusBySeason[Total Games],RosterStatusBySeason[Name],AwardScoring[[#This Row],[Name]],RosterStatusBySeason[Season],AwardScoring[[#This Row],[Recent Season]])*0.5,0)),1,0),IF(AwardScoring[[#This Row],[Award Scoring Type]]=\"Goaltender\",IF(IFERROR(INDEX(PlayerInfo[Current Goalie GP],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0)>=MAX(3,ROUNDUP(SUMIFS(RosterStatusBySeason[Total Games],RosterStatusBySeason[Name],AwardScoring[[#This Row],[Name]],RosterStatusBySeason[Season],AwardScoring[[#This Row],[Recent Season]])*0.3,0)),1,0),0)),0)))",
+        "sha256": "2e98aeb0b2a640629349a193bc80c031326dfd1073084ff2ca8e7c5960ecec7d",
+        "storedFormulaTypes": {
+          "array": 50
+        }
+      },
+      "finalFormula": {
+        "field": "Andrew Cristillo Dedication Award Score",
+        "formula": "IF(AwardScoring[[#This Row],[Name]]=\"\",\"\",IF(AwardScoring[[#This Row],[Dedication Eligible]]<>1,\"\",IF(AwardScoring[[#This Row],[Dedication Raw Composite Score]]=\"\",\"\",IFERROR(IF(_xlfn.AGGREGATE(14,6,AwardScoring[Dedication Raw Composite Score]/((AwardScoring[Dedication Eligible]=1)*(AwardScoring[Dedication Raw Composite Score]<>\"\")),1)=_xlfn.AGGREGATE(15,6,AwardScoring[Dedication Raw Composite Score]/((AwardScoring[Dedication Eligible]=1)*(AwardScoring[Dedication Raw Composite Score]<>\"\")),1),100,ROUND(MIN(100,MAX(50,50+((AwardScoring[[#This Row],[Dedication Raw Composite Score]]-_xlfn.AGGREGATE(15,6,AwardScoring[Dedication Raw Composite Score]/((AwardScoring[Dedication Eligible]=1)*(AwardScoring[Dedication Raw Composite Score]<>\"\")),1))/(_xlfn.AGGREGATE(14,6,AwardScoring[Dedication Raw Composite Score]/((AwardScoring[Dedication Eligible]=1)*(AwardScoring[Dedication Raw Composite Score]<>\"\")),1)-_xlfn.AGGREGATE(15,6,AwardScoring[Dedication Raw Composite Score]/((AwardScoring[Dedication Eligible]=1)*(AwardScoring[Dedication Raw Composite Score]<>\"\")),1))*50))),1)),0))))",
+        "sha256": "08282677b7b4ed657b87a0176b624132b6853f5efbaeefe93141fbcbdebbe047",
+        "storedFormulaTypes": {
+          "array": 50
+        }
+      },
+      "rankKeyFormula": {
+        "field": "Andrew Cristillo Dedication Rank Key",
+        "formula": "IF(AwardScoring[[#This Row],[Name]]=\"\",\"\",IF(AwardScoring[[#This Row],[Dedication Eligible]]<>1,\"\",IFERROR(AwardScoring[[#This Row],[Dedication Raw Composite Score]]+(1/(1000000+ROW())),0)))",
+        "sha256": "90adeafb70af0f1d52706973990c3770c14321ee28518a03d2ae6d046ba1aa05",
+        "storedFormulaTypes": {
+          "array": 50
+        }
+      },
+      "dependencies": {
+        "awardScoringFields": [
+          "Andrew Cristillo Dedication Award Score",
+          "Andrew Cristillo Dedication Rank Key",
+          "Award Scoring Type",
+          "Current Roster Status",
+          "Current True Attd. % Internal Score",
+          "Current True Attd. % Web Display Score",
+          "Current True Playoff Season Attd. % Internal Score",
+          "Current True Playoff Season Attd. % Web Display Score",
+          "Dedication Eligible",
+          "Dedication Raw Composite Score",
+          "Dedication Tenure Internal Score",
+          "Dedication Tenure Web Display Score",
+          "Name",
+          "Recent Season",
+          "Total Discipline Reliability Internal Score",
+          "Total Discipline Reliability Web Display Score",
+          "Total Goalie Discipline Reliability Internal Score",
+          "Total Goalie Discipline Reliability Web Display Score",
+          "Total Goalie Reliability Internal Score",
+          "Total Goalie Reliability Web Display Score",
+          "Total Skater Two-Way Reliability Internal Score",
+          "Total Skater Two-Way Reliability Web Display Score"
+        ],
+        "externalFields": {
+          "PlayerInfo": [
+            "Active Eligible",
+            "Award Scoring Type",
+            "Current Goalie GP",
+            "Current Roster Status",
+            "Current Skater GP",
+            "Current Total Goalie Multi-PIM Games",
+            "Current Total Goalie PIM-Free Games",
+            "Current Total Goalie POTG Game %",
+            "Current Total Goalie Played Games",
+            "Current Total Goalie Quality Game %",
+            "Current Total Goalie Shutout Game %",
+            "Current Total Goalie Unbeaten Game %",
+            "Current Total Goalie Win Game %",
+            "Current Total Minus Games",
+            "Current Total Multi-PIM Games",
+            "Current Total PIM-Free Game %",
+            "Current Total Plus Game %",
+            "Current Total Point Game %",
+            "Current Total Skater Played Games",
+            "Current True Attd. % Score",
+            "Current True Playoff Season Attd. % Score",
+            "Dedication Tenure Score",
+            "Recent Season",
+            "Website Name"
+          ],
+          "RosterStatusBySeason": [
+            "Name",
+            "Season",
+            "Total Games"
+          ],
+          "SeasonInfo": []
+        },
+        "externalValuesVerifiedByThisInventory": false
+      }
+    },
+    "norris": {
+      "rawFormula": {
+        "field": "Norris Raw Composite Score",
+        "formula": "IF(AwardScoring[[#This Row],[Name]]=\"\",\"\",IF(AwardScoring[[#This Row],[Norris Eligible]]<>1,\"\",IFERROR(ROUND((IFERROR(AwardScoring[[#This Row],[Total Final +/- Web Display Score]],0)*0.2)+(IFERROR(AwardScoring[[#This Row],[Total Skater Two-Way Reliability Web Display Score]],0)*0.2)+(IFERROR(AwardScoring[[#This Row],[Current True Attd. % Web Display Score]],0)*0.12)+(IFERROR(AwardScoring[[#This Row],[Total Discipline Reliability Web Display Score]],0)*0.1)+(IFERROR(AwardScoring[[#This Row],[Total Award POTG Web Display Score]],0)*0.08)+(IFERROR(AwardScoring[[#This Row],[Total Final Pts Web Display Score]],0)*IF(AwardScoring[[#This Row],[Position Group]]=\"Utility\",0.075,0.1))+(IFERROR(AwardScoring[[#This Row],[Total Final Special Teams Web Display Score]],0)*0.07)+(IFERROR(AwardScoring[[#This Row],[Total Final Clutch Web Display Score]],0)*0.05)+(IFERROR(AwardScoring[[#This Row],[Total Streak Heat Web Display Score]],0)*0.03)+(IFERROR(AwardScoring[[#This Row],[Total Final PIM Web Display Score]],0)*0.03)+(IF(AwardScoring[[#This Row],[Position Group]]=\"Utility\",88,100)*0.02),1),\"\")))",
+        "sha256": "a9ae3e27e476cd5e0548e391ea76f14f661d0b937c77d9b1f2ac584fb8cd3377",
+        "storedFormulaTypes": {
+          "array": 50
+        }
+      },
+      "roles": {
+        "defence": {
+          "kind": "CONDITIONAL_WEIGHTED_COMPONENTS_AND_POSITION_CONSTANT",
+          "weights": [
+            {
+              "field": "Total Final +/- Web Display Score",
+              "coefficient": 0.2
+            },
+            {
+              "field": "Total Skater Two-Way Reliability Web Display Score",
+              "coefficient": 0.2
+            },
+            {
+              "field": "Current True Attd. % Web Display Score",
+              "coefficient": 0.12
+            },
+            {
+              "field": "Total Discipline Reliability Web Display Score",
+              "coefficient": 0.1
+            },
+            {
+              "field": "Total Award POTG Web Display Score",
+              "coefficient": 0.08
+            },
+            {
+              "field": "Total Final Special Teams Web Display Score",
+              "coefficient": 0.07
+            },
+            {
+              "field": "Total Final Clutch Web Display Score",
+              "coefficient": 0.05
+            },
+            {
+              "field": "Total Streak Heat Web Display Score",
+              "coefficient": 0.03
+            },
+            {
+              "field": "Total Final PIM Web Display Score",
+              "coefficient": 0.03
+            },
+            {
+              "field": "Total Final Pts Web Display Score",
+              "coefficient": 0.1
+            }
+          ],
+          "positionConstant": {
+            "value": 100,
+            "coefficient": 0.02
+          },
+          "coefficientTotal": 1,
+          "renormalize": false,
+          "roundDigits": 1
+        },
+        "utility": {
+          "kind": "CONDITIONAL_WEIGHTED_COMPONENTS_AND_POSITION_CONSTANT",
+          "weights": [
+            {
+              "field": "Total Final +/- Web Display Score",
+              "coefficient": 0.2
+            },
+            {
+              "field": "Total Skater Two-Way Reliability Web Display Score",
+              "coefficient": 0.2
+            },
+            {
+              "field": "Current True Attd. % Web Display Score",
+              "coefficient": 0.12
+            },
+            {
+              "field": "Total Discipline Reliability Web Display Score",
+              "coefficient": 0.1
+            },
+            {
+              "field": "Total Award POTG Web Display Score",
+              "coefficient": 0.08
+            },
+            {
+              "field": "Total Final Special Teams Web Display Score",
+              "coefficient": 0.07
+            },
+            {
+              "field": "Total Final Clutch Web Display Score",
+              "coefficient": 0.05
+            },
+            {
+              "field": "Total Streak Heat Web Display Score",
+              "coefficient": 0.03
+            },
+            {
+              "field": "Total Final PIM Web Display Score",
+              "coefficient": 0.03
+            },
+            {
+              "field": "Total Final Pts Web Display Score",
+              "coefficient": 0.075
+            }
+          ],
+          "positionConstant": {
+            "value": 88,
+            "coefficient": 0.02
+          },
+          "coefficientTotal": 0.9750000000000001,
+          "renormalize": false,
+          "roundDigits": 1
+        }
+      },
+      "eligibilityFormula": {
+        "field": "Norris Eligible",
+        "formula": "IF(AwardScoring[[#This Row],[Name]]=\"\",\"\",IF(SUMIFS(RosterStatusBySeason[Total Games],RosterStatusBySeason[Name],AwardScoring[[#This Row],[Name]],RosterStatusBySeason[Season],AwardScoring[[#This Row],[Recent Season]])=0,0,IF(AND(OR(AwardScoring[[#This Row],[Current Roster Status]]=\"FT\",AwardScoring[[#This Row],[Current Roster Status]]=\"CU\",AwardScoring[[#This Row],[Current Roster Status]]=\"DI\"),AwardScoring[[#This Row],[Award Scoring Type]]=\"Skater\",OR(AwardScoring[[#This Row],[Position Group]]=\"Defense\",AwardScoring[[#This Row],[Position Group]]=\"Defence\",AwardScoring[[#This Row],[Position Group]]=\"Utility\"),IFERROR(INDEX(PlayerInfo[Current Total Skater Played Games],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0)>=MAX(7,ROUNDUP(SUMIFS(RosterStatusBySeason[Total Games],RosterStatusBySeason[Name],AwardScoring[[#This Row],[Name]],RosterStatusBySeason[Season],AwardScoring[[#This Row],[Recent Season]])*0.35,0))),1,0)))",
+        "sha256": "ea4953bb2037a1652f20ad6bd599846666553fbe0d7879d1f4e7d366af5b7a69",
+        "storedFormulaTypes": {
+          "array": 50
+        }
+      },
+      "finalFormula": {
+        "field": "Norris Award Score",
+        "formula": "IF(AwardScoring[[#This Row],[Name]]=\"\",\"\",IF(AwardScoring[[#This Row],[Norris Eligible]]<>1,0,IFERROR(IF(SUMPRODUCT((AwardScoring[Name]<>\"\")*(AwardScoring[Norris Eligible]=1)*(AwardScoring[Norris Raw Composite Score]<>\"\"))<=1,75,MAX(50,MIN(ROUND(100-(_xlfn.AGGREGATE(14,6,AwardScoring[Norris Raw Composite Score]/((AwardScoring[Norris Eligible]=1)*(AwardScoring[Norris Raw Composite Score]<>\"\")),1)-AwardScoring[[#This Row],[Norris Raw Composite Score]]),0),100-COUNTIFS(AwardScoring[Norris Eligible],1,AwardScoring[Norris Rank Key],\">\"&AwardScoring[[#This Row],[Norris Rank Key]])))),0)))",
+        "sha256": "0b6ab5c52486d6737db7875278d9452a8306a580f7c7384a4028b0d9b30c5e40",
+        "storedFormulaTypes": {
+          "array": 50
+        }
+      },
+      "rankKeyFormula": {
+        "field": "Norris Rank Key",
+        "formula": "IF(AwardScoring[[#This Row],[Name]]=\"\",\"\",IF(AwardScoring[[#This Row],[Norris Eligible]]<>1,\"\",IFERROR(AwardScoring[[#This Row],[Norris Raw Composite Score]]+(1/(1000000+ROW())),0)))",
+        "sha256": "85f9cecd225e45e76ee7e5f3469c555140531e9c5788e106d173880bb4a2ee51",
+        "storedFormulaTypes": {
+          "array": 50
+        }
+      },
+      "dependencies": {
+        "awardScoringFields": [
+          "Award Scoring Type",
+          "Current Roster Status",
+          "Current True Attd. % Internal Score",
+          "Current True Attd. % Web Display Score",
+          "Name",
+          "Norris Award Score",
+          "Norris Eligible",
+          "Norris Rank Key",
+          "Norris Raw Composite Score",
+          "Position Group",
+          "Recent Season",
+          "Total Award POTG Internal Score",
+          "Total Award POTG Web Display Score",
+          "Total Discipline Reliability Internal Score",
+          "Total Discipline Reliability Web Display Score",
+          "Total Final +/- Internal Score",
+          "Total Final +/- Web Display Score",
+          "Total Final Clutch Internal Score",
+          "Total Final Clutch Web Display Score",
+          "Total Final PIM Internal Score",
+          "Total Final PIM Web Display Score",
+          "Total Final Pts Internal Score",
+          "Total Final Pts Web Display Score",
+          "Total Final Special Teams Internal Score",
+          "Total Final Special Teams Web Display Score",
+          "Total Skater Two-Way Reliability Internal Score",
+          "Total Skater Two-Way Reliability Web Display Score",
+          "Total Streak Heat Internal Score",
+          "Total Streak Heat Web Display Score"
+        ],
+        "externalFields": {
+          "PlayerInfo": [
+            "Active Eligible",
+            "All-Time Total Goalie +/- Team Rate Avg",
+            "All-Time Total Goalie PIM Team Rate Avg",
+            "All-Time Total Goalie POTG Team Rate Avg",
+            "All-Time Total Goalie Streak Heat Team Rate Avg",
+            "All-Time Total Skater +/- Team Rate Avg",
+            "All-Time Total Skater Clutch Team Rate Avg",
+            "All-Time Total Skater PIM Team Rate Avg",
+            "All-Time Total Skater POTG Team Rate Avg",
+            "All-Time Total Skater Pts Team Rate Avg",
+            "All-Time Total Skater Special Teams Team Rate Avg",
+            "All-Time Total Skater Streak Heat Team Rate Avg",
+            "Award Scoring Type",
+            "Career Prior Goalie GP",
+            "Career Prior Skater GP",
+            "Career Prior Total +/-/GP",
+            "Career Prior Total Clutch Goals/GP",
+            "Career Prior Total Goalie +/-/GP",
+            "Career Prior Total Goalie PIM/GP",
+            "Career Prior Total Goalie POTG/GP",
+            "Career Prior Total Goalie Streak Heat/GP",
+            "Career Prior Total PIM/GP",
+            "Career Prior Total POTG/GP",
+            "Career Prior Total PPG/GP",
+            "Career Prior Total Pts/GP",
+            "Career Prior Total SHG/GP",
+            "Career Prior Total Skater Streak Heat/GP",
+            "Current Roster Status",
+            "Current Total +/-/GP",
+            "Current Total Clutch Goals/GP",
+            "Current Total Goalie +/- Field Best Rate",
+            "Current Total Goalie +/- Field Rate Avg",
+            "Current Total Goalie +/-/GP",
+            "Current Total Goalie PIM Field Best Rate",
+            "Current Total Goalie PIM Field Rate Avg",
+            "Current Total Goalie PIM/GP",
+            "Current Total Goalie POTG",
+            "Current Total Goalie POTG Field Rate Avg",
+            "Current Total Goalie POTG Raw Leader",
+            "Current Total Goalie POTG/GP",
+            "Current Total Goalie Played Games",
+            "Current Total Goalie Streak Heat Field Rate Avg",
+            "Current Total Goalie Streak Heat Points",
+            "Current Total Goalie Streak Heat Raw Leader",
+            "Current Total Goalie Streak Heat/GP",
+            "Current Total Minus Games",
+            "Current Total Multi-PIM Games",
+            "Current Total PIM-Free Game %",
+            "Current Total PIM/GP",
+            "Current Total POTG",
+            "Current Total POTG/GP",
+            "Current Total PPG/GP",
+            "Current Total Plus Game %",
+            "Current Total Point Game %",
+            "Current Total Pts/GP",
+            "Current Total Raw Clutch Goals",
+            "Current Total Raw PPG",
+            "Current Total Raw Pts",
+            "Current Total Raw SHG",
+            "Current Total SHG/GP",
+            "Current Total Skater +/- Field Best Rate",
+            "Current Total Skater +/- Field Rate Avg",
+            "Current Total Skater Clutch Field Rate Avg",
+            "Current Total Skater Clutch Raw Leader",
+            "Current Total Skater PIM Field Best Rate",
+            "Current Total Skater PIM Field Rate Avg",
+            "Current Total Skater POTG Field Rate Avg",
+            "Current Total Skater POTG Raw Leader",
+            "Current Total Skater Played Games",
+            "Current Total Skater Pts Field Rate Avg",
+            "Current Total Skater Pts Raw Leader",
+            "Current Total Skater Special Teams Field Rate Avg",
+            "Current Total Skater Special Teams Raw Leader",
+            "Current Total Skater Streak Heat Field Rate Avg",
+            "Current Total Skater Streak Heat Points",
+            "Current Total Skater Streak Heat Raw Leader",
+            "Current Total Skater Streak Heat/GP",
+            "Current True Attd. % Score",
+            "Position Group",
+            "Recent Season",
+            "Website Name"
+          ],
+          "RosterStatusBySeason": [
+            "Name",
+            "Season",
+            "Total Games"
+          ],
+          "SeasonInfo": []
+        },
+        "externalValuesVerifiedByThisInventory": false
+      }
+    },
+    "improved": {
+      "rawFormula": {
+        "field": "Most Improved Raw Composite Score",
+        "formula": "IF(AwardScoring[[#This Row],[Name]]=\"\",\"\",IF(AwardScoring[[#This Row],[Rookie Status]]=1,\"\",IF(AwardScoring[[#This Row],[Award Scoring Type]]=\"Goaltender\",IF(OR(IFERROR(INDEX(PlayerInfo[Career Prior Goalie GP],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0)<2,IFERROR(INDEX(PlayerInfo[Current Goalie GP],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0)<=0),\"\",IFERROR(ROUND(AwardScoring[[#This Row],[Total Goalie Most Improved Final Score]],4),\"\")),IF(AwardScoring[[#This Row],[Award Scoring Type]]=\"Skater\",IF(OR(IFERROR(INDEX(PlayerInfo[Career Prior Skater GP],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0)<5,IFERROR(INDEX(PlayerInfo[Current Skater GP],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0)<=0),\"\",IFERROR(ROUND(AwardScoring[[#This Row],[Total Skater Most Improved Final Score]],4),\"\")),\"\"))))",
+        "sha256": "85d9513781a4c01fca660c02aee1ae3e620b673ae4bb80a7adb7e0638d9f2929",
+        "storedFormulaTypes": {
+          "array": 50
+        }
+      },
+      "roles": {
+        "skater": {
+          "kind": "SIGNED_RELATIVE_RATE_CHANGES_NOT_WEB_SCORES",
+          "components": [
+            {
+              "coefficient": 0.3,
+              "playerInfoFields": [
+                "Current Total Pts/GP",
+                "Website Name",
+                "Career Prior Total Pts/GP"
+              ],
+              "expression": "((IFERROR(INDEX(PlayerInfo[Current Total Pts/GP],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0)-IFERROR(INDEX(PlayerInfo[Career Prior Total Pts/GP],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0))/MAX(0.05,ABS(IFERROR(INDEX(PlayerInfo[Career Prior Total Pts/GP],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0))))*0.3",
+              "expressionSha256": "c787653ed04e6aff0b3afd0ad81249b4b9e305feb89f37b9a65fcfe10274c8c6"
+            },
+            {
+              "coefficient": 0.125,
+              "playerInfoFields": [
+                "Current Total G/GP",
+                "Website Name",
+                "Career Prior Total G/GP"
+              ],
+              "expression": "((IFERROR(INDEX(PlayerInfo[Current Total G/GP],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0)-IFERROR(INDEX(PlayerInfo[Career Prior Total G/GP],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0))/MAX(0.05,ABS(IFERROR(INDEX(PlayerInfo[Career Prior Total G/GP],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0))))*0.125",
+              "expressionSha256": "fe079f50ffb53d43786607e6636696e88a479dbaa87e7597f375b49d74960c94"
+            },
+            {
+              "coefficient": 0.125,
+              "playerInfoFields": [
+                "Current Total A/GP",
+                "Website Name",
+                "Career Prior Total A/GP"
+              ],
+              "expression": "((IFERROR(INDEX(PlayerInfo[Current Total A/GP],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0)-IFERROR(INDEX(PlayerInfo[Career Prior Total A/GP],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0))/MAX(0.05,ABS(IFERROR(INDEX(PlayerInfo[Career Prior Total A/GP],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0))))*0.125",
+              "expressionSha256": "267c724c4f3ade8e2b24dba490d716088f37045c265116059f486995b9ce6846"
+            },
+            {
+              "coefficient": 0.15,
+              "playerInfoFields": [
+                "Current Total Clutch Goals/GP",
+                "Website Name",
+                "Career Prior Total Clutch Goals/GP"
+              ],
+              "expression": "((IFERROR(INDEX(PlayerInfo[Current Total Clutch Goals/GP],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0)-IFERROR(INDEX(PlayerInfo[Career Prior Total Clutch Goals/GP],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0))/MAX(0.05,ABS(IFERROR(INDEX(PlayerInfo[Career Prior Total Clutch Goals/GP],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0))))*0.15",
+              "expressionSha256": "825049e5db53380beaab62d8acceb4e0df27c65bc41dd5d290632cdb0ebe2d84"
+            },
+            {
+              "coefficient": 0.1,
+              "playerInfoFields": [
+                "Current Total POTG/GP",
+                "Website Name",
+                "Career Prior Total POTG/GP"
+              ],
+              "expression": "((IFERROR(INDEX(PlayerInfo[Current Total POTG/GP],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0)-IFERROR(INDEX(PlayerInfo[Career Prior Total POTG/GP],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0))/MAX(0.05,ABS(IFERROR(INDEX(PlayerInfo[Career Prior Total POTG/GP],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0))))*0.1",
+              "expressionSha256": "0bccaf126c088aef4f6b38b32e7504f5d069e69a7b46ef9b0c56048b8dd8100e"
+            },
+            {
+              "coefficient": 0.1,
+              "playerInfoFields": [
+                "Current Total +/-/GP",
+                "Website Name",
+                "Career Prior Total +/-/GP"
+              ],
+              "expression": "((IFERROR(INDEX(PlayerInfo[Current Total +/-/GP],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0)-IFERROR(INDEX(PlayerInfo[Career Prior Total +/-/GP],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0))/MAX(0.5,ABS(IFERROR(INDEX(PlayerInfo[Career Prior Total +/-/GP],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0))))*0.1",
+              "expressionSha256": "90a1c4d1a23a9e06f68a53d0289db469b3dbba522f9188e0b5a5c2b9c573c834"
+            },
+            {
+              "coefficient": 0.1,
+              "playerInfoFields": [
+                "Career Prior Total PIM/GP",
+                "Website Name",
+                "Current Total PIM/GP"
+              ],
+              "expression": "((IFERROR(INDEX(PlayerInfo[Career Prior Total PIM/GP],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0)-IFERROR(INDEX(PlayerInfo[Current Total PIM/GP],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0))/MAX(0.25,ABS(IFERROR(INDEX(PlayerInfo[Career Prior Total PIM/GP],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0))))*0.1",
+              "expressionSha256": "866ace3ca3035c45d22363e6f832064276df9d2b54e9a1333a0c1521dc8558a1"
+            }
+          ],
+          "rawIndex": {
+            "field": "Total Skater Raw Improvement Index",
+            "formula": "IF(AwardScoring[[#This Row],[Name]]=\"\",\"\",IF(AwardScoring[[#This Row],[Award Scoring Type]]<>\"Skater\",0,IFERROR(ROUND(SUM(((IFERROR(INDEX(PlayerInfo[Current Total Pts/GP],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0)-IFERROR(INDEX(PlayerInfo[Career Prior Total Pts/GP],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0))/MAX(0.05,ABS(IFERROR(INDEX(PlayerInfo[Career Prior Total Pts/GP],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0))))*0.3,((IFERROR(INDEX(PlayerInfo[Current Total G/GP],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0)-IFERROR(INDEX(PlayerInfo[Career Prior Total G/GP],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0))/MAX(0.05,ABS(IFERROR(INDEX(PlayerInfo[Career Prior Total G/GP],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0))))*0.125,((IFERROR(INDEX(PlayerInfo[Current Total A/GP],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0)-IFERROR(INDEX(PlayerInfo[Career Prior Total A/GP],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0))/MAX(0.05,ABS(IFERROR(INDEX(PlayerInfo[Career Prior Total A/GP],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0))))*0.125,((IFERROR(INDEX(PlayerInfo[Current Total Clutch Goals/GP],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0)-IFERROR(INDEX(PlayerInfo[Career Prior Total Clutch Goals/GP],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0))/MAX(0.05,ABS(IFERROR(INDEX(PlayerInfo[Career Prior Total Clutch Goals/GP],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0))))*0.15,((IFERROR(INDEX(PlayerInfo[Current Total POTG/GP],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0)-IFERROR(INDEX(PlayerInfo[Career Prior Total POTG/GP],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0))/MAX(0.05,ABS(IFERROR(INDEX(PlayerInfo[Career Prior Total POTG/GP],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0))))*0.1,((IFERROR(INDEX(PlayerInfo[Current Total +/-/GP],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0)-IFERROR(INDEX(PlayerInfo[Career Prior Total +/-/GP],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0))/MAX(0.5,ABS(IFERROR(INDEX(PlayerInfo[Career Prior Total +/-/GP],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0))))*0.1,((IFERROR(INDEX(PlayerInfo[Career Prior Total PIM/GP],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0)-IFERROR(INDEX(PlayerInfo[Current Total PIM/GP],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0))/MAX(0.25,ABS(IFERROR(INDEX(PlayerInfo[Career Prior Total PIM/GP],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0))))*0.1),4),0)))",
+            "sha256": "8deba3ea55ee26dc9fd53c9a784aad1df6378638e305df75956c75121ff7ac6f",
+            "storedFormulaTypes": {
+              "ordinary": 50
+            }
+          },
+          "finalLink": {
+            "field": "Total Skater Most Improved Final Score",
+            "formula": "IF(AwardScoring[[#This Row],[Name]]=\"\",\"\",IF(AwardScoring[[#This Row],[Award Scoring Type]]<>\"Skater\",\"\",IFERROR(AwardScoring[[#This Row],[Total Skater Raw Improvement Index]],\"\")))",
+            "sha256": "e71cd4a67b8942df8e6c66c45142e98e8317088d2d6c6827cb73262abf67a8db",
+            "storedFormulaTypes": {
+              "array": 50
+            }
+          },
+          "roundDigits": 4
+        },
+        "goalie": {
+          "kind": "SIGNED_RELATIVE_RATE_CHANGES_NOT_WEB_SCORES",
+          "components": [
+            {
+              "coefficient": 0.3,
+              "playerInfoFields": [
+                "Current Total Goalie Win %",
+                "Website Name",
+                "Career Prior Total Goalie Win %"
+              ],
+              "expression": "((IFERROR(INDEX(PlayerInfo[Current Total Goalie Win %],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0)-IFERROR(INDEX(PlayerInfo[Career Prior Total Goalie Win %],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0))/MAX(0.1,ABS(IFERROR(INDEX(PlayerInfo[Career Prior Total Goalie Win %],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0))))*0.3",
+              "expressionSha256": "a70cea0fb24bdaaba6b311119b21bfdeb2dfdbac1875160bcf7cf11a734fa569"
+            },
+            {
+              "coefficient": 0.3,
+              "playerInfoFields": [
+                "Career Prior Total Goalie GAA",
+                "Website Name",
+                "Current Total Goalie GAA"
+              ],
+              "expression": "((IFERROR(INDEX(PlayerInfo[Career Prior Total Goalie GAA],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0)-IFERROR(INDEX(PlayerInfo[Current Total Goalie GAA],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0))/MAX(0.5,ABS(IFERROR(INDEX(PlayerInfo[Career Prior Total Goalie GAA],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0))))*0.3",
+              "expressionSha256": "6996f758768ac8d8fa659d61562c9e3f287b5566b304e83eac5aa423aeaf87c0"
+            },
+            {
+              "coefficient": 0.1,
+              "playerInfoFields": [
+                "Current Total Goalie SHO/GP",
+                "Website Name",
+                "Career Prior Total Goalie SHO/GP"
+              ],
+              "expression": "((IFERROR(INDEX(PlayerInfo[Current Total Goalie SHO/GP],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0)-IFERROR(INDEX(PlayerInfo[Career Prior Total Goalie SHO/GP],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0))/MAX(0.05,ABS(IFERROR(INDEX(PlayerInfo[Career Prior Total Goalie SHO/GP],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0))))*0.1",
+              "expressionSha256": "1092d7cd47110b64f67484662515fbbdc82815645cf6efa7f629b12d061753c8"
+            },
+            {
+              "coefficient": 0.1,
+              "playerInfoFields": [
+                "Current Total Goalie POTG/GP",
+                "Website Name",
+                "Career Prior Total Goalie POTG/GP"
+              ],
+              "expression": "((IFERROR(INDEX(PlayerInfo[Current Total Goalie POTG/GP],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0)-IFERROR(INDEX(PlayerInfo[Career Prior Total Goalie POTG/GP],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0))/MAX(0.05,ABS(IFERROR(INDEX(PlayerInfo[Career Prior Total Goalie POTG/GP],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0))))*0.1",
+              "expressionSha256": "2c877b5565ffeca7d1a49d1533769873dd46a15f3f5752dd743c26328e0fe110"
+            },
+            {
+              "coefficient": 0.1,
+              "playerInfoFields": [
+                "Current Total Goalie +/-/GP",
+                "Website Name",
+                "Career Prior Total Goalie +/-/GP"
+              ],
+              "expression": "((IFERROR(INDEX(PlayerInfo[Current Total Goalie +/-/GP],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0)-IFERROR(INDEX(PlayerInfo[Career Prior Total Goalie +/-/GP],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0))/MAX(0.5,ABS(IFERROR(INDEX(PlayerInfo[Career Prior Total Goalie +/-/GP],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0))))*0.1",
+              "expressionSha256": "9ac0aca9539b0d15f9d08901241466aa6d3f1729e5d342ca6481bc4ad44e1c51"
+            },
+            {
+              "coefficient": 0.05,
+              "playerInfoFields": [
+                "Career Prior Total Goalie PIM/GP",
+                "Website Name",
+                "Current Total Goalie PIM/GP"
+              ],
+              "expression": "((IFERROR(INDEX(PlayerInfo[Career Prior Total Goalie PIM/GP],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0)-IFERROR(INDEX(PlayerInfo[Current Total Goalie PIM/GP],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0))/MAX(0.25,ABS(IFERROR(INDEX(PlayerInfo[Career Prior Total Goalie PIM/GP],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0))))*0.05",
+              "expressionSha256": "cbc8cb062341f0a382a56ab3671f15a39deee7e6e64dc291592a8fcb8ea47340"
+            },
+            {
+              "coefficient": 0.05,
+              "playerInfoFields": [
+                "Current Total Goalie Pts/GP",
+                "Website Name",
+                "Career Prior Total Goalie Pts/GP"
+              ],
+              "expression": "((IFERROR(INDEX(PlayerInfo[Current Total Goalie Pts/GP],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0)-IFERROR(INDEX(PlayerInfo[Career Prior Total Goalie Pts/GP],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0))/MAX(0.05,ABS(IFERROR(INDEX(PlayerInfo[Career Prior Total Goalie Pts/GP],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0))))*0.05",
+              "expressionSha256": "3eb3e4a2fc5d52cf211d93f6f212de6cde090808b88f073e4cb220072ac4b4b2"
+            }
+          ],
+          "rawIndex": {
+            "field": "Total Goalie Raw Improvement Index",
+            "formula": "IF(AwardScoring[[#This Row],[Name]]=\"\",\"\",IF(AwardScoring[[#This Row],[Award Scoring Type]]<>\"Goaltender\",0,IFERROR(ROUND(SUM(((IFERROR(INDEX(PlayerInfo[Current Total Goalie Win %],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0)-IFERROR(INDEX(PlayerInfo[Career Prior Total Goalie Win %],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0))/MAX(0.1,ABS(IFERROR(INDEX(PlayerInfo[Career Prior Total Goalie Win %],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0))))*0.3,((IFERROR(INDEX(PlayerInfo[Career Prior Total Goalie GAA],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0)-IFERROR(INDEX(PlayerInfo[Current Total Goalie GAA],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0))/MAX(0.5,ABS(IFERROR(INDEX(PlayerInfo[Career Prior Total Goalie GAA],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0))))*0.3,((IFERROR(INDEX(PlayerInfo[Current Total Goalie SHO/GP],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0)-IFERROR(INDEX(PlayerInfo[Career Prior Total Goalie SHO/GP],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0))/MAX(0.05,ABS(IFERROR(INDEX(PlayerInfo[Career Prior Total Goalie SHO/GP],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0))))*0.1,((IFERROR(INDEX(PlayerInfo[Current Total Goalie POTG/GP],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0)-IFERROR(INDEX(PlayerInfo[Career Prior Total Goalie POTG/GP],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0))/MAX(0.05,ABS(IFERROR(INDEX(PlayerInfo[Career Prior Total Goalie POTG/GP],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0))))*0.1,((IFERROR(INDEX(PlayerInfo[Current Total Goalie +/-/GP],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0)-IFERROR(INDEX(PlayerInfo[Career Prior Total Goalie +/-/GP],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0))/MAX(0.5,ABS(IFERROR(INDEX(PlayerInfo[Career Prior Total Goalie +/-/GP],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0))))*0.1,((IFERROR(INDEX(PlayerInfo[Career Prior Total Goalie PIM/GP],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0)-IFERROR(INDEX(PlayerInfo[Current Total Goalie PIM/GP],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0))/MAX(0.25,ABS(IFERROR(INDEX(PlayerInfo[Career Prior Total Goalie PIM/GP],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0))))*0.05,((IFERROR(INDEX(PlayerInfo[Current Total Goalie Pts/GP],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0)-IFERROR(INDEX(PlayerInfo[Career Prior Total Goalie Pts/GP],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0))/MAX(0.05,ABS(IFERROR(INDEX(PlayerInfo[Career Prior Total Goalie Pts/GP],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0))))*0.05),4),0)))",
+            "sha256": "a2e19c7994374b8a06f9cd3efc17da804f17f3cca75c42e47a2b9a9d4ed6cd86",
+            "storedFormulaTypes": {
+              "ordinary": 50
+            }
+          },
+          "finalLink": {
+            "field": "Total Goalie Most Improved Final Score",
+            "formula": "IF(AwardScoring[[#This Row],[Name]]=\"\",\"\",IF(AwardScoring[[#This Row],[Award Scoring Type]]<>\"Goaltender\",\"\",IFERROR(AwardScoring[[#This Row],[Total Goalie Raw Improvement Index]],\"\")))",
+            "sha256": "e223146e02c0c02d848c6cd20dd4266f8b9742fb3e2d26c8ede21fd0f599111a",
+            "storedFormulaTypes": {
+              "array": 50
+            }
+          },
+          "roundDigits": 4
+        }
+      },
+      "eligibilityFormula": {
+        "field": "Most Improved Eligible",
+        "formula": "IF(AwardScoring[[#This Row],[Name]]=\"\",\"\",IF(SUMIFS(RosterStatusBySeason[Total Games],RosterStatusBySeason[Name],AwardScoring[[#This Row],[Name]],RosterStatusBySeason[Season],AwardScoring[[#This Row],[Recent Season]])=0,0,IF(AwardScoring[[#This Row],[Rookie Status]]=1,0,IF(OR(AwardScoring[[#This Row],[Current Roster Status]]=\"FT\",AwardScoring[[#This Row],[Current Roster Status]]=\"CU\",AwardScoring[[#This Row],[Current Roster Status]]=\"DI\"),IF(AwardScoring[[#This Row],[Award Scoring Type]]=\"Skater\",IF(AND(IFERROR(INDEX(PlayerInfo[Career Prior Skater GP],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0)>=5,IFERROR(INDEX(PlayerInfo[Current Skater GP],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0)>=MAX(5,ROUNDUP(SUMIFS(RosterStatusBySeason[Total Games],RosterStatusBySeason[Name],AwardScoring[[#This Row],[Name]],RosterStatusBySeason[Season],AwardScoring[[#This Row],[Recent Season]])*0.5,0))),1,0),IF(AwardScoring[[#This Row],[Award Scoring Type]]=\"Goaltender\",IF(AND(IFERROR(INDEX(PlayerInfo[Career Prior Goalie GP],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0)>=2,IFERROR(INDEX(PlayerInfo[Current Goalie GP],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0)>=MAX(3,ROUNDUP(SUMIFS(RosterStatusBySeason[Total Games],RosterStatusBySeason[Name],AwardScoring[[#This Row],[Name]],RosterStatusBySeason[Season],AwardScoring[[#This Row],[Recent Season]])*0.3,0))),1,0),0)),0))))",
+        "sha256": "e12cb403f516c9b996c60752b8c14b0d2aa4a9c10adf82f73bc71e77df9ab62d",
+        "storedFormulaTypes": {
+          "array": 50
+        }
+      },
+      "finalFormula": {
+        "field": "Most Improved Player Award Score",
+        "formula": "IF(AwardScoring[[#This Row],[Name]]=\"\",\"\",IF(AwardScoring[[#This Row],[Most Improved Eligible]]<>1,0,IFERROR(IF(AwardScoring[[#This Row],[Most Improved Raw Composite Score]]>0,IF(AwardScoring[[#This Row],[Most Improved Player Rank Key]]=_xlfn.AGGREGATE(14,6,AwardScoring[Most Improved Player Rank Key]/((AwardScoring[Most Improved Eligible]=1)*(AwardScoring[Most Improved Raw Composite Score]>0)),1),100,MIN(99,MAX(75,ROUND(75+(AwardScoring[[#This Row],[Most Improved Raw Composite Score]]/_xlfn.AGGREGATE(14,6,AwardScoring[Most Improved Raw Composite Score]/((AwardScoring[Most Improved Eligible]=1)*(AwardScoring[Most Improved Raw Composite Score]>0)),1))*25,0)))),IF(AwardScoring[[#This Row],[Most Improved Raw Composite Score]]=0,75,MAX(50,MIN(75,ROUND(75-((0-AwardScoring[[#This Row],[Most Improved Raw Composite Score]])/(0-_xlfn.AGGREGATE(15,6,AwardScoring[Most Improved Raw Composite Score]/((AwardScoring[Most Improved Eligible]=1)*(AwardScoring[Most Improved Raw Composite Score]<0)),1)))*25,0))))),0)))",
+        "sha256": "ef5dc483608e43e0c1569bba432fc13c250ded588df42e0d682ed89f0e03ca60",
+        "storedFormulaTypes": {
+          "array": 50
+        }
+      },
+      "rankKeyFormula": {
+        "field": "Most Improved Player Rank Key",
+        "formula": "IF(AwardScoring[[#This Row],[Name]]=\"\",\"\",IF(AwardScoring[[#This Row],[Most Improved Eligible]]<>1,\"\",IFERROR(AwardScoring[[#This Row],[Most Improved Raw Composite Score]]+(1/(1000000+ROW())),0)))",
+        "sha256": "3d4a40b3510c58ec0ca45b8f99e22bdb3c42f5659d4b2cb4b49f9db7ebd6fa0f",
+        "storedFormulaTypes": {
+          "array": 50
+        }
+      },
+      "dependencies": {
+        "awardScoringFields": [
+          "Award Scoring Type",
+          "Current Roster Status",
+          "Most Improved Eligible",
+          "Most Improved Player Award Score",
+          "Most Improved Player Rank Key",
+          "Most Improved Raw Composite Score",
+          "Name",
+          "Recent Season",
+          "Rookie Status",
+          "Total Goalie Most Improved Final Score",
+          "Total Goalie Raw Improvement Index",
+          "Total Skater Most Improved Final Score",
+          "Total Skater Raw Improvement Index"
+        ],
+        "externalFields": {
+          "PlayerInfo": [
+            "Active Eligible",
+            "Award Scoring Type",
+            "Career Prior Goalie GP",
+            "Career Prior Skater GP",
+            "Career Prior Total +/-/GP",
+            "Career Prior Total A/GP",
+            "Career Prior Total Clutch Goals/GP",
+            "Career Prior Total G/GP",
+            "Career Prior Total Goalie +/-/GP",
+            "Career Prior Total Goalie GAA",
+            "Career Prior Total Goalie PIM/GP",
+            "Career Prior Total Goalie POTG/GP",
+            "Career Prior Total Goalie Pts/GP",
+            "Career Prior Total Goalie SHO/GP",
+            "Career Prior Total Goalie Win %",
+            "Career Prior Total PIM/GP",
+            "Career Prior Total POTG/GP",
+            "Career Prior Total Pts/GP",
+            "Current Goalie GP",
+            "Current Roster Status",
+            "Current Skater GP",
+            "Current Total +/-/GP",
+            "Current Total A/GP",
+            "Current Total Clutch Goals/GP",
+            "Current Total G/GP",
+            "Current Total Goalie +/-/GP",
+            "Current Total Goalie GAA",
+            "Current Total Goalie PIM/GP",
+            "Current Total Goalie POTG/GP",
+            "Current Total Goalie Pts/GP",
+            "Current Total Goalie SHO/GP",
+            "Current Total Goalie Win %",
+            "Current Total PIM/GP",
+            "Current Total POTG/GP",
+            "Current Total Pts/GP",
+            "Recent Season",
+            "Rookie Status",
+            "Website Name"
+          ],
+          "RosterStatusBySeason": [
+            "Name",
+            "Season",
+            "Total Games"
+          ],
+          "SeasonInfo": []
+        },
+        "externalValuesVerifiedByThisInventory": false
+      }
+    }
+  },
+  "scoringTitles": {
+    "art-ross": {
+      "kind": "REGULAR_SEASON_COUNT_NOT_NORMALIZED_OVR",
+      "eligibility": {
+        "field": "Art Ross Eligible",
+        "formula": "IF(AwardScoring[[#This Row],[Name]]=\"\",\"\",IF(AND(AwardScoring[[#This Row],[Award Scoring Type]]=\"Skater\",MAX(0,IFERROR(INDEX(PlayerInfo[Current Skater GP],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0)-IFERROR(INDEX(PlayerInfo[Current Skater Playoff GP],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0))>0),1,0))",
+        "sha256": "2ad031c76c37597b47172f9b12e679679ce3797753313a9a0025c3f0de4ef8d5",
+        "storedFormulaTypes": {
+          "array": 50
+        }
+      },
+      "rankKey": {
+        "field": "Art Ross Rank Key",
+        "formula": "IF(AwardScoring[[#This Row],[Name]]=\"\",\"\",IF(AwardScoring[[#This Row],[Art Ross Eligible]]<>1,0,IFERROR((AwardScoring[[#This Row],[Art Ross Award Score]]*1000000000000)+(MAX(0,IFERROR(INDEX(PlayerInfo[Current Total Raw G],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0)-IFERROR(INDEX(PlayerInfo[Current Playoff Raw G],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0))*100000000)+(MAX(0,IFERROR(INDEX(PlayerInfo[Current Total Raw A],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0)-IFERROR(INDEX(PlayerInfo[Current Playoff Raw A],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0))*10000)+((AwardScoring[[#This Row],[Art Ross Award Score]]/MAX(1,MAX(0,IFERROR(INDEX(PlayerInfo[Current Skater GP],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0)-IFERROR(INDEX(PlayerInfo[Current Skater Playoff GP],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0))))*100)+((100000-ROW())/100000),0)))",
+        "sha256": "f1f950901a528ffb4c243fb8829e5ae08327cadee9c45d8f232513bb639b5535",
+        "storedFormulaTypes": {
+          "array": 50
+        }
+      },
+      "count": {
+        "field": "Art Ross Award Score",
+        "formula": "IF(AwardScoring[[#This Row],[Name]]=\"\",\"\",IF(AwardScoring[[#This Row],[Art Ross Eligible]]<>1,0,MAX(0,IFERROR(INDEX(PlayerInfo[Current Total Raw Pts],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0)-IFERROR(INDEX(PlayerInfo[Current Playoff Raw Pts],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0))))",
+        "sha256": "c936a14490177a49d3f000c0e670ea0966c2af43a5fc665ccda76a8cc95d7569",
+        "storedFormulaTypes": {
+          "array": 50
+        }
+      },
+      "dependencies": {
+        "awardScoringFields": [
+          "Art Ross Award Score",
+          "Art Ross Eligible",
+          "Art Ross Rank Key",
+          "Award Scoring Type",
+          "Name"
+        ],
+        "externalFields": {
+          "PlayerInfo": [
+            "Active Eligible",
+            "Award Scoring Type",
+            "Current Playoff Raw A",
+            "Current Playoff Raw G",
+            "Current Playoff Raw Pts",
+            "Current Skater GP",
+            "Current Skater Playoff GP",
+            "Current Total Raw A",
+            "Current Total Raw G",
+            "Current Total Raw Pts",
+            "Website Name"
+          ],
+          "RosterStatusBySeason": [],
+          "SeasonInfo": []
+        },
+        "externalValuesVerifiedByThisInventory": false
+      }
+    },
+    "rocket": {
+      "kind": "REGULAR_SEASON_COUNT_NOT_NORMALIZED_OVR",
+      "eligibility": {
+        "field": "Rocket Richard Eligible",
+        "formula": "IF(AwardScoring[[#This Row],[Name]]=\"\",\"\",IF(AND(AwardScoring[[#This Row],[Award Scoring Type]]=\"Skater\",MAX(0,IFERROR(INDEX(PlayerInfo[Current Skater GP],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0)-IFERROR(INDEX(PlayerInfo[Current Skater Playoff GP],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0))>0),1,0))",
+        "sha256": "2ad031c76c37597b47172f9b12e679679ce3797753313a9a0025c3f0de4ef8d5",
+        "storedFormulaTypes": {
+          "ordinary": 50
+        }
+      },
+      "rankKey": {
+        "field": "Rocket Richard Rank Key",
+        "formula": "IF(AwardScoring[[#This Row],[Name]]=\"\",\"\",IF(AwardScoring[[#This Row],[Rocket Richard Eligible]]<>1,0,IFERROR((AwardScoring[[#This Row],[Rocket Richard Award Score]]*1000000)+((100000-ROW())/100000),0)))",
+        "sha256": "953bbc3f7987cd7e9159c1bfa8ef1c449fe46028eca5c5d1b370ce6f19a01951",
+        "storedFormulaTypes": {
+          "ordinary": 50
+        }
+      },
+      "count": {
+        "field": "Rocket Richard Award Score",
+        "formula": "IF(AwardScoring[[#This Row],[Name]]=\"\",\"\",IF(AwardScoring[[#This Row],[Rocket Richard Eligible]]<>1,0,MAX(0,IFERROR(INDEX(PlayerInfo[Current Total Raw G],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0)-IFERROR(INDEX(PlayerInfo[Current Playoff Raw G],MATCH(AwardScoring[[#This Row],[Name]],PlayerInfo[Website Name],0)),0))))",
+        "sha256": "0cbb7a4d8f24a6887d55cbd1481413a6257e1d3838db39041587e75f8c2107ed",
+        "storedFormulaTypes": {
+          "ordinary": 50
+        }
+      },
+      "dependencies": {
+        "awardScoringFields": [
+          "Award Scoring Type",
+          "Name",
+          "Rocket Richard Award Score",
+          "Rocket Richard Eligible",
+          "Rocket Richard Rank Key"
+        ],
+        "externalFields": {
+          "PlayerInfo": [
+            "Active Eligible",
+            "Award Scoring Type",
+            "Current Playoff Raw G",
+            "Current Skater GP",
+            "Current Skater Playoff GP",
+            "Current Total Raw G",
+            "Website Name"
+          ],
+          "RosterStatusBySeason": [],
+          "SeasonInfo": []
+        },
+        "externalValuesVerifiedByThisInventory": false
+      }
+    }
+  },
+  "hallOfFame": "SEPARATE_BALLOT_NOT_AN_AWARDSCORING_FORMULA_MODEL",
+  "sourceAuthenticityEstablishedByThisScript": false,
+  "playerInfoInputsRecalculated": false,
+  "currentEligibilityVerified": false,
+  "currentScoresVerified": false,
+  "publicationAuthorized": false
+}
