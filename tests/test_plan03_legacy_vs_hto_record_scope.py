@@ -73,7 +73,7 @@ class ScopeReview(unittest.TestCase):
     def test_false_inclusion_of_unrelated_player_held(self):
         a=snapshot()
         a["groups"][0]["items"][0]="Another Person"
-        a["groups"][-1]["items"].append("Another Person")
+        # Keep exactly 558 entries; test the matching-identity contract, not total coverage.
         with self.assertRaisesRegex(SourceHold,"PLAYER_OFFICIAL_RECORD_MENTIONS_CHANGED"):
             read_verified_hto_records(a)
     def test_record_book_not_authoritative_holds(self):
