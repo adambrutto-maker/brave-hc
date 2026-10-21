@@ -15,6 +15,11 @@ on:
       - 'tests/test_hto_milestone_review.py'
       - 'scripts/audit_next_game_hto_admission.py'
       - 'tests/test_next_game_hto_admission.py'
+      - 'widgets/watch-evidence.js'
+      - 'widgets/watch-v2.html'
+      - 'widgets/home-panels.html'
+      - 'tests/test_watch_historical_evidence.js'
+      - 'tests/watch_historical_browser_qa.cjs'
       - 'tests/fixtures/record-refresh-*.html'
       - '.github/workflows/brave-record-source-refresh.yml'
 permissions:
@@ -45,6 +50,8 @@ jobs:
         run: python -m unittest discover -s tests -p test_hto_milestone_review.py
       - name: Validate next-game pre-admission protections (not a completed result)
         run: python -m unittest discover -s tests -p test_next_game_hto_admission.py
+      - name: Verify HTO historical Watch source-matching rules (no publication)
+        run: node --test tests/test_watch_historical_evidence.js
       - name: Read public HTO results and published records
         run: python scripts/refresh_record_sources.py
       - name: Recalculate complete-ledger record candidates

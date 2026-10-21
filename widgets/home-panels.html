@@ -40,7 +40,7 @@ body[data-panel=watch] .bottom .micro{display:none}
 body[data-panel=watch] .bottom .cta{font-size:9px;padding:4px 7px}
 }
 </style>
-<script defer src="./player-links.js?v=3"></script></head><body>
+<script defer src="./player-links.js?v=3"></script><script src="./watch-evidence.js?v=1"></script></head><body>
 <div class="app"><div class="frame"><div class="accent"></div><div class="inner">
 <div class="topline"><div class="identity"><img src="./brave_hc_logo.png" alt="Brave H.C. crest"><div><div class="eyebrow">HockeyOS · Brave H.C.</div><div class="identity-name">Season Dashboard</div></div></div><span class="badge" id="season">2026–27</span></div>
 <section id="standings" class="panel-only">
@@ -55,10 +55,10 @@ body[data-panel=watch] .bottom .cta{font-size:9px;padding:4px 7px}
 <div class="mini"><div class="table-wrap"><table class="cardtable" aria-label="Top projected team scorers"><thead><tr><th class="num">#</th><th>Player</th><th class="num">G</th><th class="num">A</th><th class="num">PTS</th></tr></thead><tbody id="projected-list"></tbody></table></div></div>
 <div class="bottom"><span class="micro">Projected season totals are estimates</span><a class="cta" href="./projection-v2.html" target="_parent" rel="noopener">Full projections ↗</a></div></section>
 <section id="watch" class="panel-only">
-<div class="title-row"><div><div class="eyebrow">Career achievements · Player momentum</div><h1>Streaks & Record Watch</h1></div><span class="badge" id="watch-date">Source check</span></div>
-<div class="notice info" id="watch-note">Checking verified milestones…</div>
+<div class="title-row"><div><div class="eyebrow">Published HTO milestones · Historical snapshot</div><h1>Streaks & Record Watch</h1></div><span class="badge" id="watch-date">Source check</span></div>
+<div class="notice info" id="watch-note">Cross-checking HTO Records with the historical Watch snapshot…</div>
 <div id="watch-list" class="grid2"></div>
-<div class="bottom"><span class="micro">Only source-confirmed achievements appear</span><a class="cta" href="./watch-v2.html" target="_parent" rel="noopener">Full record watch ↗</a></div></section>
+<div class="bottom"><span class="micro">Historical HTO Records matches; not a live record-watch feed</span><a class="cta" href="./watch-v2.html" target="_parent" rel="noopener">Full record watch ↗</a></div></section>
 </div></div></div>
 <script>
 (function(){
@@ -92,13 +92,16 @@ if(panel==="standings"){
  d.players.filter(p=>Number.isFinite(p.pts)&&p.currentGP>0).sort((a,b)=>b.pts-a.pts||b.g-a.g||a.name.localeCompare(b.name)).slice(0,6).forEach((p,i)=>appendRow(document.getElementById("projected-list"),[i+1,p.name,p.g,p.a,p.pts]));
 }else{
  if(d.schema!=="brave-hc-workbook-watch/v2"||!Array.isArray(d.records))throw Error("Unexpected record feed");
- put("watch-date","Verified subset · "+d.latestOfficialCompletedGameDate);
- put("watch-note","Milestones verified against official games. Active streak and career-record categories remain partly reconciled.");
- const box=document.getElementById("watch-list"),valid=d.records.filter(p=>p.type==="reached");
- if(!valid.length){box.append($("div","empty","No verified milestone currently listed."));return}
- valid.slice(0,2).forEach(p=>{const n=$("article","entry");n.append($("h3",null,p.player),$("p",null,p.description),$("span","micro",p.eventDate));box.append(n);});
+ const hr=await fetch("./history-records.json",{cache:"no-store"});
+ if(!hr.ok)throw Error("Official HTO historical snapshot missing");
+ const h=await hr.json(),proven=BraveWatchEvidence.verify(d,h);
+ put("watch-date","HTO archive · "+proven.latestRecordedGame);
+ put("watch-note","Published HTO milestone matches only. Current workbook scores, live streaks and future countdowns are not verified.");
+ const box=document.getElementById("watch-list"),valid=proven.entries;
+ if(!valid.length){box.append($("div","empty","No official historical milestone match in the saved snapshot."));return}
+ valid.slice(0,2).forEach(p=>{const n=$("article","entry");n.append($("h3",null,p.name),$("p",null,p.title),$("span","micro",p.date));box.append(n);});
 }
-}catch(err){put(panel+"-note","This HockeyOS panel could not be verified. The official HTO and SVHL source pages remain available.");}
+}catch(err){put(panel+"-note",panel==="watch"?"Historical milestone display withheld because official HTO record entries could not be cross-verified.":"This HockeyOS panel could not be verified. The official HTO and SVHL source pages remain available.");}
 }
 load();
 })();
