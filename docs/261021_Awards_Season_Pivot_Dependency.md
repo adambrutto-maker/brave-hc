@@ -17,3 +17,15 @@ Do not manually overwrite PivotTable output cells or create a competing season-i
 Ordinary cell/named-range dependency coverage, historical baselines, schedule context and field-level missing-data impacts remain incomplete. AW-02 is in progress, not complete. AW-03/AW-05 identity and missing-observation issues remain open. No current ratings or release are verified.
 
 Evidence: saved replay at D:\BruTTech\Products\HockeyOS\261019_Award_GameLog_Staging_v1\Disposable_Awards_Replay_20261021_023525\Review_Only_Master_Workbook.xlsx; xl/pivotTables/pivotTable2.xml and pivotTable3.xml; xl/pivotCache/pivotCacheDefinition2.xml and pivotCacheDefinition3.xml. Prior native replay receipt and upstream parity review remain applicable.
+
+## AW-02 direct-cell trace continuation
+Read the retained captured table schema without opening or modifying the original workbook.
+- PlayerInfo and PlayerInfoHelpers explicitly reference Master Schedule!$C$1; AwardScoring explicitly references Master Schedule!$J$2.
+- PlayerInfo formulas reference Player Stats rows 3:1500 in columns A, B, C, M, O, Q, R, S, T, W, X, Y, Z, AA, AB, CN, CO, CP, CR, CS, CT, CU, DB, DC, DF, DG, DL, DM, DN, DO.
+- These are captured formula references, not a complete resolved graph. Formula-derived points, historical aggregation and same-sheet references must still be followed.
+- All nine captured defined-name entries were checked for lexical use in all captured table formulas: no matches. The names are ActiveGoalieList, ActiveSkaterList, OpponentList, five sheet-local print areas and one print-title entry. This does not establish absence from non-table worksheet formulas.
+- No INDIRECT or OFFSET calls were found in captured table-column formulas. Non-table formulas remain outside this scan.
+
+The pivot audit now reports output ranges and fails its CLI with exit code 2 when caches are stale, saved filters/hidden items are present, or a season pivot ends beyond row 1500. It does not extend or change the original fixed-range formulas. Executed against the retained review copy: state PIVOT_STRUCTURE_HOLD; both ranges remain within 1500 (skater A2:AT649; goalie CN2:EA77), but both caches remain stale. Copy hash unchanged: 4cdb22400d8eb849b9f039feec19a72e590c586014c39ba07be1a48b7939d311.
+
+Remaining: resolve same-sheet/non-table predecessors and historical baselines; reconcile identities, missing observations and schedule inputs. No refresh or verified scoring result is claimed.
