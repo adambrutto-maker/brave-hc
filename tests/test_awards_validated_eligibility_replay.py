@@ -15,6 +15,13 @@ class ReconciledEligibility(unittest.TestCase):
  def test_unknown_status_preserved(self):
   before=copy.deepcopy(self.ledger);replay(self.ledger,self.capture);self.assertEqual(before,self.ledger)
   carlyle=next(p for p in self.ledger['players'] if p['name']=='Carlyle, Adam');self.assertIsNone(carlyle['rosterStatus'])
+ def test_carlyle_di_confirmation_resolves_all(self):
+  confirmation=json.loads((ROOT/'docs/261021_Awards_Confirmed_Metadata.json').read_text())
+  p=replay(self.ledger,self.capture,confirmation)
+  self.assertEqual((p['resolvedCount'],p['holdCount']),(220,0))
+  roy=next(r for r in p['decisions'] if r['name']=='Carlyle, Adam' and r['field']=='Rookie Eligible')
+  self.assertEqual(roy['value'],0);self.assertEqual(roy['rosterStatus'],'DI')
+  self.assertEqual(roy['metadataAuthority'],'Adam confirmation')
  def test_bad_source_rejected(self):
   for key,value in [('differenceCount',1),('sourceWorkbookSha256','wrong'),('cutoff','2026-10-25')]:
    p=copy.deepcopy(self.ledger);p[key]=value
