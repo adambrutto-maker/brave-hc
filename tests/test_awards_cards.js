@@ -1041,3 +1041,18 @@ test('corrected source snapshot removes erroneous Marco appearance without ident
  }
  assert.equal(api.verifiedWorkbookRookieYearWatch(observedParticipants,awards.season,awards.currentTeamGP,awards.sourceWorkbookHash).length,5);
 });
+
+test('Rolaids progress uses the original six-game base without claiming full qualification',()=>{
+ const old={award:api.state.award,source:api.state.source,participation:api.state.participation};
+ try{
+  api.state.award='rolaids';api.state.source=awards;api.state.participation=observedParticipants;
+  const region=elementsById.get('scores');region.children=[];api.renderRaceActivity();
+  const words=visit(region,x=>typeof x.textContent==='string').map(x=>x.textContent).join(' | ');
+  assert.match(words,/1 \/ 6 GP/);
+  assert.match(words,/25% of roster-season games/);
+  assert.doesNotMatch(words,/five-game|1 \/ 5 GP/);
+  const rule=awards.awards.find(a=>a.id==='rolaids');
+  assert.match(rule.eligibility,/6 current GP or 25%/);
+  assert.match(rule.eligibility,/4 current GP or 15%/);
+ }finally{Object.assign(api.state,old);}
+});
