@@ -1,0 +1,29 @@
+{
+  "workbookSha256": "4cdb22400d8eb849b9f039feec19a72e590c586014c39ba07be1a48b7939d311",
+  "readOnlyHashUnchanged": true,
+  "pivots": [
+    {
+      "pivot": "PlayerStatsBySeason",
+      "sourceTable": "SkaterStatsByGame",
+      "sourceDataRows": 4706,
+      "cachedRecords": 4666,
+      "cacheCoverageMatches": false,
+      "pageFieldCount": 0,
+      "filterCount": 0,
+      "hiddenItemCount": 0,
+      "dataFieldCount": 43
+    },
+    {
+      "pivot": "GoalieStatsBySeason",
+      "sourceTable": "GoalieStatsByGame",
+      "sourceDataRows": 364,
+      "cachedRecords": 361,
+      "cacheCoverageMatches": false,
+      "pageFieldCount": 0,
+      "filterCount": 0,
+      "hiddenItemCount": 0,
+      "dataFieldCount": 37
+    }
+  ],
+  "currentScoresVerified": false
+}
