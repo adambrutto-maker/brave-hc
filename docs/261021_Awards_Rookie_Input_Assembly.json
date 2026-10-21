@@ -1,0 +1,147 @@
+{
+  "state": "ROOKIE_COMPONENT_ASSEMBLY_WITH_EXPLICIT_HOLDS",
+  "season": "W2026/27",
+  "cutoff": "2026-10-18",
+  "rebuiltDisplayComponentCount": 12,
+  "eligibleRookieCount": 5,
+  "players": [
+    {
+      "name": "Kong, Henry",
+      "requiredComponentCount": 12,
+      "rebuiltComponentCount": 8,
+      "rebuiltComponents": {
+        "Total Streak Heat Web Display Score": 100.0,
+        "Total Award POTG Web Display Score": 64.3,
+        "Current True Attd. % Web Display Score": 100.0,
+        "Total Final G Web Display Score": 71.8,
+        "Total Discipline Reliability Web Display Score": 100.0,
+        "Total Final Pts Web Display Score": 83.6,
+        "Total Final A Web Display Score": 69.1,
+        "Total Skater Two-Way Reliability Web Display Score": 75.0
+      },
+      "missingComponents": [
+        "Total Final +/- Web Display Score",
+        "Total Final PIM Web Display Score",
+        "Total Final Special Teams Web Display Score",
+        "Total Skater Production Consistency Web Display Score"
+      ],
+      "calculation": {
+        "state": "INPUT_HOLD",
+        "missingField": "Total Skater Production Consistency Web Display Score",
+        "value": null,
+        "currentCompositeScoresVerified": false
+      }
+    },
+    {
+      "name": "Povegliano, Adam",
+      "requiredComponentCount": 12,
+      "rebuiltComponentCount": 8,
+      "rebuiltComponents": {
+        "Total Streak Heat Web Display Score": 100.0,
+        "Total Award POTG Web Display Score": 50.9,
+        "Current True Attd. % Web Display Score": 83.3,
+        "Total Final G Web Display Score": 59.7,
+        "Total Discipline Reliability Web Display Score": 100.0,
+        "Total Final Pts Web Display Score": 59.3,
+        "Total Final A Web Display Score": 58.3,
+        "Total Skater Two-Way Reliability Web Display Score": 50.0
+      },
+      "missingComponents": [
+        "Total Final +/- Web Display Score",
+        "Total Final PIM Web Display Score",
+        "Total Final Special Teams Web Display Score",
+        "Total Skater Production Consistency Web Display Score"
+      ],
+      "calculation": {
+        "state": "INPUT_HOLD",
+        "missingField": "Total Skater Production Consistency Web Display Score",
+        "value": null,
+        "currentCompositeScoresVerified": false
+      }
+    },
+    {
+      "name": "Rajkumar, Sanjay",
+      "requiredComponentCount": 12,
+      "rebuiltComponentCount": 8,
+      "rebuiltComponents": {
+        "Total Streak Heat Web Display Score": 100.0,
+        "Total Award POTG Web Display Score": 50.9,
+        "Current True Attd. % Web Display Score": 83.3,
+        "Total Final G Web Display Score": 59.7,
+        "Total Discipline Reliability Web Display Score": 100.0,
+        "Total Final Pts Web Display Score": 59.3,
+        "Total Final A Web Display Score": 58.3,
+        "Total Skater Two-Way Reliability Web Display Score": 50.0
+      },
+      "missingComponents": [
+        "Total Final +/- Web Display Score",
+        "Total Final PIM Web Display Score",
+        "Total Final Special Teams Web Display Score",
+        "Total Skater Production Consistency Web Display Score"
+      ],
+      "calculation": {
+        "state": "INPUT_HOLD",
+        "missingField": "Total Skater Production Consistency Web Display Score",
+        "value": null,
+        "currentCompositeScoresVerified": false
+      }
+    },
+    {
+      "name": "Triumbari, Francesco",
+      "requiredComponentCount": 12,
+      "rebuiltComponentCount": 8,
+      "rebuiltComponents": {
+        "Total Streak Heat Web Display Score": 100.0,
+        "Total Award POTG Web Display Score": 50.9,
+        "Current True Attd. % Web Display Score": 100.0,
+        "Total Final G Web Display Score": 59.7,
+        "Total Discipline Reliability Web Display Score": 50.0,
+        "Total Final Pts Web Display Score": 59.3,
+        "Total Final A Web Display Score": 58.3,
+        "Total Skater Two-Way Reliability Web Display Score": 50.0
+      },
+      "missingComponents": [
+        "Total Final +/- Web Display Score",
+        "Total Final PIM Web Display Score",
+        "Total Final Special Teams Web Display Score",
+        "Total Skater Production Consistency Web Display Score"
+      ],
+      "calculation": {
+        "state": "INPUT_HOLD",
+        "missingField": "Total Skater Production Consistency Web Display Score",
+        "value": null,
+        "currentCompositeScoresVerified": false
+      }
+    },
+    {
+      "name": "Rosenberg, Jamie",
+      "requiredComponentCount": 12,
+      "rebuiltComponentCount": 8,
+      "rebuiltComponents": {
+        "Total Streak Heat Web Display Score": 100.0,
+        "Total Award POTG Web Display Score": 66.1,
+        "Current True Attd. % Web Display Score": 83.3,
+        "Total Final G Web Display Score": 59.7,
+        "Total Discipline Reliability Web Display Score": 100.0,
+        "Total Final Pts Web Display Score": 59.3,
+        "Total Final A Web Display Score": 58.3,
+        "Total Skater Two-Way Reliability Web Display Score": 50.0
+      },
+      "missingComponents": [
+        "Total Final +/- Web Display Score",
+        "Total Final PIM Web Display Score",
+        "Total Final Special Teams Web Display Score",
+        "Total Skater Production Consistency Web Display Score"
+      ],
+      "calculation": {
+        "state": "INPUT_HOLD",
+        "missingField": "Total Skater Production Consistency Web Display Score",
+        "value": null,
+        "currentCompositeScoresVerified": false
+      }
+    }
+  ],
+  "nativeCorrectedCohortParityVerified": false,
+  "currentCompositeScoresVerified": false,
+  "publicationAuthorized": false
+}
