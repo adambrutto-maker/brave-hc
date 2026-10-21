@@ -9,7 +9,7 @@ from hockeyos_awards_current_normalization import CAPTURE,SOURCE
 from pathlib import Path
 class MissingInput(Exception):pass
 class ExcelError(Exception):pass
-ALLOWED={'IF','IFERROR','ROUND','MIN','MAX','ABS','SUM','OR','PL','ROW'}
+ALLOWED={'IF','IFERROR','ROUND','MIN','MAX','ABS','SUM','OR','AND','ROUNDUP','MOD','PL','ROW'}
 LOOKUP=re.compile(r'INDEX\(PlayerInfo\[([^]]+)\],MATCH\(AwardScoring\[\[#This Row\],\[Name\]\],PlayerInfo\[Website Name\],0\)\)')
 TOKEN=re.compile(r'\s*(?:(\d+(?:\.\d*)?(?:[Ee][+-]?\d+)?|\.\d+)|("(?:[^"]|"")*")|([A-Za-z_][A-Za-z0-9_.]*)|(<>|<=|>=|[=<>+*/^(),-]))')
 def quote(s):return '"'+s.replace('"','""')+'"'
@@ -44,9 +44,9 @@ def compile_formula(formula):
      index+=1
    if index>=len(tokens) or tokens[index][1]!=')':raise ValueError('Function close expected')
    index+=1
-   arity={'IF':3,'IFERROR':2,'ROUND':2,'ABS':1,'PL':1,'ROW':1}
+   arity={'IF':3,'IFERROR':2,'ROUND':2,'ROUNDUP':2,'MOD':2,'ABS':1,'PL':1,'ROW':1}
    if value in arity and len(args)!=arity[value]:raise ValueError('Invalid source function arity')
-   if value in ('MIN','MAX','SUM','OR') and not args:raise ValueError('Empty source function')
+   if value in ('MIN','MAX','SUM','OR','AND') and not args:raise ValueError('Empty source function')
    left=('call',value,args)
   else:raise ValueError('Unsupported scalar expression')
   while index<len(tokens) and tokens[index][0]=='op' and tokens[index][1] in precedence and precedence[tokens[index][1]]>=minimum:
@@ -96,7 +96,13 @@ def evaluate(ast,row,inputs):
   if isinstance(value,dict) and 'error' in value:raise ExcelError(value['error'])
   return value
  if func=='OR':return any(bool(v) for v in values)
+ if func=='AND':return all(bool(v) for v in values)
  nums=[number(v) for v in values]
+ if func=='ROUNDUP':
+  scale=10**int(nums[1]);return math.copysign(math.ceil(abs(nums[0])*scale)/scale,nums[0])
+ if func=='MOD':
+  if nums[1]==0:raise ExcelError('Division by zero')
+  return nums[0]%nums[1]
  if func=='SUM':return sum(nums)
  if func=='MIN':return min(nums)
  if func=='MAX':return max(nums)
