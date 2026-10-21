@@ -1,0 +1,503 @@
+{
+  "state": "CURRENT_NORMALIZATION_IMPLEMENTED_PARTIAL_REFERENCE_REPLAY_NOT_FINAL_SCORE_ACCEPTANCE",
+  "season": "W2026/27",
+  "cutoff": "2026-10-18",
+  "playerCoverage": 22,
+  "supportedFormulaCount": 9,
+  "candidateComponentCount": 3,
+  "heldComponentCount": 6,
+  "unsupportedDisplayFormulas": [
+    "Playoff Final Special Teams Web Display Score",
+    "Total Final Special Teams Web Display Score",
+    "Playoff Final +/- Web Display Score",
+    "Total Final +/- Web Display Score",
+    "Playoff Final PIM Web Display Score",
+    "Total Final PIM Web Display Score",
+    "Playoff Final Clutch Web Display Score",
+    "Total Final Clutch Web Display Score",
+    "Playoff Award POTG Web Display Score",
+    "Total Award POTG Web Display Score",
+    "Playoff Award Goalie W Web Display Score",
+    "Total Award Goalie W Web Display Score",
+    "Playoff Award Goalie Win % Web Display Score",
+    "Total Award Goalie Win % Web Display Score",
+    "Playoff Award Goalie GAA Web Display Score",
+    "Total Award Goalie GAA Web Display Score",
+    "Playoff Award Goalie SHO Web Display Score",
+    "Total Award Goalie SHO Web Display Score",
+    "Total Streak Heat Web Display Score",
+    "Playoff Streak Heat Web Display Score",
+    "Career Roster Adjusted Attd. % Web Display Score",
+    "Total Skater Production Consistency Web Display Score",
+    "Playoff Skater Production Consistency Web Display Score",
+    "Total Skater Two-Way Reliability Web Display Score",
+    "Playoff Skater Two-Way Reliability Web Display Score",
+    "Total Discipline Reliability Web Display Score",
+    "Playoff Discipline Reliability Web Display Score",
+    "Total Goalie Reliability Web Display Score",
+    "Playoff Goalie Reliability Web Display Score",
+    "Total Goalie Discipline Reliability Web Display Score",
+    "Playoff Goalie Discipline Reliability Web Display Score",
+    "Total Goalie Offensive Contribution Web Display Score",
+    "Playoff Goalie Offensive Contribution Web Display Score",
+    "Total Skater Improvement Web Display Score",
+    "Total Goalie Improvement Web Display Score"
+  ],
+  "components": {
+    "Current True Playoff Season Attd. % Web Display Score": {
+      "season": "W2026/27",
+      "cutoff": "2026-10-18",
+      "inputField": "Current True Playoff Season Attd. % Internal Score",
+      "formulaSha256": "d78b8df086dd22744d62800fa1acedc0747aa6efda32d567c07fd8c7a3a43dda",
+      "currentPlayerCoverage": 22,
+      "unavailable": [
+        {
+          "name": "Carlyle, Adam",
+          "reason": "No recalculated current native internal reference for this player/component"
+        }
+      ],
+      "currentCompositeScoresVerified": false,
+      "publicationAuthorized": false,
+      "state": "COMPONENT_INPUT_HOLD",
+      "scores": null
+    },
+    "Current True Attd. % Web Display Score": {
+      "season": "W2026/27",
+      "cutoff": "2026-10-18",
+      "inputField": "Current True Attd. % Internal Score",
+      "formulaSha256": "416a532bbe01f52551f9087a4a6645383977f51e2ba4eae9d29a652ab205477f",
+      "currentPlayerCoverage": 22,
+      "unavailable": [
+        {
+          "name": "Carlyle, Adam",
+          "reason": "No recalculated current native internal reference for this player/component"
+        }
+      ],
+      "currentCompositeScoresVerified": false,
+      "publicationAuthorized": false,
+      "state": "COMPONENT_INPUT_HOLD",
+      "scores": null
+    },
+    "Dedication Tenure Web Display Score": {
+      "season": "W2026/27",
+      "cutoff": "2026-10-18",
+      "inputField": "Dedication Tenure Internal Score",
+      "formulaSha256": "0d50ab56235f81e51216d193626425a5819a7cc13f5e16a31d531d8699aca3a1",
+      "currentPlayerCoverage": 22,
+      "unavailable": [
+        {
+          "name": "Carlyle, Adam",
+          "reason": "No recalculated current native internal reference for this player/component"
+        }
+      ],
+      "currentCompositeScoresVerified": false,
+      "publicationAuthorized": false,
+      "state": "COMPONENT_INPUT_HOLD",
+      "scores": null
+    },
+    "Playoff Final G Web Display Score": {
+      "season": "W2026/27",
+      "cutoff": "2026-10-18",
+      "inputField": "Playoff Final G Internal Score",
+      "formulaSha256": "a574b99a274d8c526277768131730ecaae9c974d1bd648ca6d69667c11371f1c",
+      "currentPlayerCoverage": 22,
+      "unavailable": [
+        {
+          "name": "Ardizzi, Stefano",
+          "reason": "No recalculated current native internal reference for this player/component"
+        },
+        {
+          "name": "Brutto, Adam",
+          "reason": "No recalculated current native internal reference for this player/component"
+        },
+        {
+          "name": "Carosi, Justin",
+          "reason": "No recalculated current native internal reference for this player/component"
+        },
+        {
+          "name": "Kong, Henry",
+          "reason": "No recalculated current native internal reference for this player/component"
+        },
+        {
+          "name": "Pagnotta, Alex",
+          "reason": "No recalculated current native internal reference for this player/component"
+        },
+        {
+          "name": "Paolucci, Anthony",
+          "reason": "No recalculated current native internal reference for this player/component"
+        },
+        {
+          "name": "Pearsoll, Keith",
+          "reason": "No recalculated current native internal reference for this player/component"
+        },
+        {
+          "name": "Povegliano, Adam",
+          "reason": "No recalculated current native internal reference for this player/component"
+        },
+        {
+          "name": "Provenzano, Mario",
+          "reason": "No recalculated current native internal reference for this player/component"
+        },
+        {
+          "name": "Provenzano, Michael",
+          "reason": "No recalculated current native internal reference for this player/component"
+        },
+        {
+          "name": "Rajkumar, Sanjay",
+          "reason": "No recalculated current native internal reference for this player/component"
+        },
+        {
+          "name": "Saindon, Stephane",
+          "reason": "No recalculated current native internal reference for this player/component"
+        },
+        {
+          "name": "Triumbari, Francesco",
+          "reason": "No recalculated current native internal reference for this player/component"
+        },
+        {
+          "name": "Atkins, Nolan",
+          "reason": "No recalculated current native internal reference for this player/component"
+        },
+        {
+          "name": "Duffy, Lorcan",
+          "reason": "No recalculated current native internal reference for this player/component"
+        },
+        {
+          "name": "Kober, Adam",
+          "reason": "No recalculated current native internal reference for this player/component"
+        },
+        {
+          "name": "Rajasooriar, Krishnan",
+          "reason": "No recalculated current native internal reference for this player/component"
+        },
+        {
+          "name": "Rosenberg, Jamie",
+          "reason": "No recalculated current native internal reference for this player/component"
+        },
+        {
+          "name": "Pavaday, Damian",
+          "reason": "No recalculated current native internal reference for this player/component"
+        }
+      ],
+      "currentCompositeScoresVerified": false,
+      "publicationAuthorized": false,
+      "state": "COMPONENT_INPUT_HOLD",
+      "scores": null
+    },
+    "Total Final G Web Display Score": {
+      "season": "W2026/27",
+      "cutoff": "2026-10-18",
+      "inputField": "Total Final G Internal Score",
+      "formulaSha256": "8004d40107960ed19274580a95cbcece5e41999b8771d5c3760bf9f3dba83064",
+      "currentPlayerCoverage": 22,
+      "unavailable": [],
+      "currentCompositeScoresVerified": false,
+      "publicationAuthorized": false,
+      "state": "CURRENT_COMPONENT_NORMALIZATION_CANDIDATE",
+      "bounds": [
+        -0.234,
+        0.676
+      ],
+      "numericPlayerCount": 19,
+      "scores": {
+        "Ardizzi, Stefano": 56.3,
+        "Brutto, Adam": 58.7,
+        "Carosi, Justin": 100.0,
+        "Kong, Henry": 71.8,
+        "Pagnotta, Alex": 58.4,
+        "Paolucci, Anthony": 58.6,
+        "Pearsoll, Keith": 73.5,
+        "Povegliano, Adam": 59.7,
+        "Provenzano, Mario": 57.9,
+        "Provenzano, Michael": 50.9,
+        "Rajkumar, Sanjay": 59.7,
+        "Saindon, Stephane": 50.0,
+        "Triumbari, Francesco": 59.7,
+        "Atkins, Nolan": 59.7,
+        "Duffy, Lorcan": 57.0,
+        "Kober, Adam": 76.2,
+        "Rajasooriar, Krishnan": 57.6,
+        "Rosenberg, Jamie": 59.7,
+        "Pavaday, Damian": 59.7
+      },
+      "notApplicable": {
+        "Leong, Dev": "Captured internal formula explicitly returns blank for non-skaters",
+        "Logue, Stephen": "Captured internal formula explicitly returns blank for non-skaters",
+        "Carlyle, Adam": "Captured internal formula explicitly returns blank for non-skaters"
+      },
+      "upstreamParityVerified": false
+    },
+    "Playoff Final A Web Display Score": {
+      "season": "W2026/27",
+      "cutoff": "2026-10-18",
+      "inputField": "Playoff Final A Internal Score",
+      "formulaSha256": "0229c41af1c33e9958ba1dc534900139b7f05146072666cc3e237d8125aae41c",
+      "currentPlayerCoverage": 22,
+      "unavailable": [
+        {
+          "name": "Ardizzi, Stefano",
+          "reason": "No recalculated current native internal reference for this player/component"
+        },
+        {
+          "name": "Brutto, Adam",
+          "reason": "No recalculated current native internal reference for this player/component"
+        },
+        {
+          "name": "Carosi, Justin",
+          "reason": "No recalculated current native internal reference for this player/component"
+        },
+        {
+          "name": "Kong, Henry",
+          "reason": "No recalculated current native internal reference for this player/component"
+        },
+        {
+          "name": "Pagnotta, Alex",
+          "reason": "No recalculated current native internal reference for this player/component"
+        },
+        {
+          "name": "Paolucci, Anthony",
+          "reason": "No recalculated current native internal reference for this player/component"
+        },
+        {
+          "name": "Pearsoll, Keith",
+          "reason": "No recalculated current native internal reference for this player/component"
+        },
+        {
+          "name": "Povegliano, Adam",
+          "reason": "No recalculated current native internal reference for this player/component"
+        },
+        {
+          "name": "Provenzano, Mario",
+          "reason": "No recalculated current native internal reference for this player/component"
+        },
+        {
+          "name": "Provenzano, Michael",
+          "reason": "No recalculated current native internal reference for this player/component"
+        },
+        {
+          "name": "Rajkumar, Sanjay",
+          "reason": "No recalculated current native internal reference for this player/component"
+        },
+        {
+          "name": "Saindon, Stephane",
+          "reason": "No recalculated current native internal reference for this player/component"
+        },
+        {
+          "name": "Triumbari, Francesco",
+          "reason": "No recalculated current native internal reference for this player/component"
+        },
+        {
+          "name": "Atkins, Nolan",
+          "reason": "No recalculated current native internal reference for this player/component"
+        },
+        {
+          "name": "Duffy, Lorcan",
+          "reason": "No recalculated current native internal reference for this player/component"
+        },
+        {
+          "name": "Kober, Adam",
+          "reason": "No recalculated current native internal reference for this player/component"
+        },
+        {
+          "name": "Rajasooriar, Krishnan",
+          "reason": "No recalculated current native internal reference for this player/component"
+        },
+        {
+          "name": "Rosenberg, Jamie",
+          "reason": "No recalculated current native internal reference for this player/component"
+        },
+        {
+          "name": "Pavaday, Damian",
+          "reason": "No recalculated current native internal reference for this player/component"
+        }
+      ],
+      "currentCompositeScoresVerified": false,
+      "publicationAuthorized": false,
+      "state": "COMPONENT_INPUT_HOLD",
+      "scores": null
+    },
+    "Total Final A Web Display Score": {
+      "season": "W2026/27",
+      "cutoff": "2026-10-18",
+      "inputField": "Total Final A Internal Score",
+      "formulaSha256": "4fd53ecb211f76f1ff031d88eee1ec42372497208ac640a87d6a4e707bcd8089",
+      "currentPlayerCoverage": 22,
+      "unavailable": [],
+      "currentCompositeScoresVerified": false,
+      "publicationAuthorized": false,
+      "state": "CURRENT_COMPONENT_NORMALIZATION_CANDIDATE",
+      "bounds": [
+        -0.264,
+        0.757
+      ],
+      "numericPlayerCount": 19,
+      "scores": {
+        "Ardizzi, Stefano": 53.9,
+        "Brutto, Adam": 53.8,
+        "Carosi, Justin": 50.0,
+        "Kong, Henry": 69.0,
+        "Pagnotta, Alex": 95.6,
+        "Paolucci, Anthony": 55.3,
+        "Pearsoll, Keith": 53.2,
+        "Povegliano, Adam": 58.3,
+        "Provenzano, Mario": 54.7,
+        "Provenzano, Michael": 100.0,
+        "Rajkumar, Sanjay": 58.3,
+        "Saindon, Stephane": 66.2,
+        "Triumbari, Francesco": 58.3,
+        "Atkins, Nolan": 56.5,
+        "Duffy, Lorcan": 52.4,
+        "Kober, Adam": 71.0,
+        "Rajasooriar, Krishnan": 54.8,
+        "Rosenberg, Jamie": 58.3,
+        "Pavaday, Damian": 81.9
+      },
+      "notApplicable": {
+        "Leong, Dev": "Captured internal formula explicitly returns blank for non-skaters",
+        "Logue, Stephen": "Captured internal formula explicitly returns blank for non-skaters",
+        "Carlyle, Adam": "Captured internal formula explicitly returns blank for non-skaters"
+      },
+      "upstreamParityVerified": false
+    },
+    "Playoff Final Pts Web Display Score": {
+      "season": "W2026/27",
+      "cutoff": "2026-10-18",
+      "inputField": "Playoff Final Pts Internal Score",
+      "formulaSha256": "3f4e023e7fa59cf0201313c978e3ed598cd6a7d0a1f720ab322596e4a7b7b0e8",
+      "currentPlayerCoverage": 22,
+      "unavailable": [
+        {
+          "name": "Ardizzi, Stefano",
+          "reason": "No recalculated current native internal reference for this player/component"
+        },
+        {
+          "name": "Brutto, Adam",
+          "reason": "No recalculated current native internal reference for this player/component"
+        },
+        {
+          "name": "Carosi, Justin",
+          "reason": "No recalculated current native internal reference for this player/component"
+        },
+        {
+          "name": "Kong, Henry",
+          "reason": "No recalculated current native internal reference for this player/component"
+        },
+        {
+          "name": "Pagnotta, Alex",
+          "reason": "No recalculated current native internal reference for this player/component"
+        },
+        {
+          "name": "Paolucci, Anthony",
+          "reason": "No recalculated current native internal reference for this player/component"
+        },
+        {
+          "name": "Pearsoll, Keith",
+          "reason": "No recalculated current native internal reference for this player/component"
+        },
+        {
+          "name": "Povegliano, Adam",
+          "reason": "No recalculated current native internal reference for this player/component"
+        },
+        {
+          "name": "Provenzano, Mario",
+          "reason": "No recalculated current native internal reference for this player/component"
+        },
+        {
+          "name": "Provenzano, Michael",
+          "reason": "No recalculated current native internal reference for this player/component"
+        },
+        {
+          "name": "Rajkumar, Sanjay",
+          "reason": "No recalculated current native internal reference for this player/component"
+        },
+        {
+          "name": "Saindon, Stephane",
+          "reason": "No recalculated current native internal reference for this player/component"
+        },
+        {
+          "name": "Triumbari, Francesco",
+          "reason": "No recalculated current native internal reference for this player/component"
+        },
+        {
+          "name": "Atkins, Nolan",
+          "reason": "No recalculated current native internal reference for this player/component"
+        },
+        {
+          "name": "Duffy, Lorcan",
+          "reason": "No recalculated current native internal reference for this player/component"
+        },
+        {
+          "name": "Kober, Adam",
+          "reason": "No recalculated current native internal reference for this player/component"
+        },
+        {
+          "name": "Rajasooriar, Krishnan",
+          "reason": "No recalculated current native internal reference for this player/component"
+        },
+        {
+          "name": "Rosenberg, Jamie",
+          "reason": "No recalculated current native internal reference for this player/component"
+        },
+        {
+          "name": "Pavaday, Damian",
+          "reason": "No recalculated current native internal reference for this player/component"
+        }
+      ],
+      "currentCompositeScoresVerified": false,
+      "publicationAuthorized": false,
+      "state": "COMPONENT_INPUT_HOLD",
+      "scores": null
+    },
+    "Total Final Pts Web Display Score": {
+      "season": "W2026/27",
+      "cutoff": "2026-10-18",
+      "inputField": "Total Final Pts Internal Score",
+      "formulaSha256": "6cd59fc8fde62ae2ed8146ec64cec1421a62f85c31eea243552574cb1becd6d8",
+      "currentPlayerCoverage": 22,
+      "unavailable": [],
+      "currentCompositeScoresVerified": false,
+      "publicationAuthorized": false,
+      "state": "CURRENT_COMPONENT_NORMALIZATION_CANDIDATE",
+      "bounds": [
+        -0.323,
+        0.586
+      ],
+      "numericPlayerCount": 19,
+      "scores": {
+        "Ardizzi, Stefano": 51.0,
+        "Brutto, Adam": 53.4,
+        "Carosi, Justin": 90.4,
+        "Kong, Henry": 83.7,
+        "Pagnotta, Alex": 100.0,
+        "Paolucci, Anthony": 55.0,
+        "Pearsoll, Keith": 67.4,
+        "Povegliano, Adam": 59.4,
+        "Provenzano, Mario": 53.6,
+        "Provenzano, Michael": 97.4,
+        "Rajkumar, Sanjay": 59.4,
+        "Saindon, Stephane": 58.6,
+        "Triumbari, Francesco": 59.4,
+        "Atkins, Nolan": 57.4,
+        "Duffy, Lorcan": 50.0,
+        "Kober, Adam": 90.1,
+        "Rajasooriar, Krishnan": 53.5,
+        "Rosenberg, Jamie": 59.4,
+        "Pavaday, Damian": 85.9
+      },
+      "notApplicable": {
+        "Leong, Dev": "Captured internal formula explicitly returns blank for non-skaters",
+        "Logue, Stephen": "Captured internal formula explicitly returns blank for non-skaters",
+        "Carlyle, Adam": "Captured internal formula explicitly returns blank for non-skaters"
+      },
+      "upstreamParityVerified": false
+    }
+  },
+  "currentCompositeScoresVerified": false,
+  "publicationAuthorized": false,
+  "limitation": "Corrected normalization population only. Recorded internal values still require upstream current-cohort and complete native recalculation parity.",
+  "sourceFileHashes": {
+    "261020_Awards_Original_Formula_Capture.json": "73251e8e4fda7ecb229b9df096cacfcab8e92ddd4c474dcd6a3c646a2920390d",
+    "261021_Awards_Current_Population_Join.json": "7ef8f2a19b38a70cc18e9c58a6de5afcad27ec0e5e3e8983b95c438ed5f07186",
+    "261021_Awards_Cohort_Impact_Review.json": "717ad3aad8ea75a72539c62f1cad12849005f211926dfaeb9e6c56dbead5c061"
+  }
+}
