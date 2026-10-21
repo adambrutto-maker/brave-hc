@@ -26,6 +26,19 @@ def equal(a,b):
  if isinstance(a,(int,float)) and isinstance(b,(int,float)):
   return a==b if float(a).is_integer() and float(b).is_integer() else math.isclose(a,b,rel_tol=1e-12,abs_tol=1e-10)
  return a==b
+def source_cache_fields(fields,headers):
+ if [decoded(f.attrib['name']) for f in fields[:len(headers)]]!=headers:raise ValueError('Cache/table source field order differs')
+ extras=fields[len(headers):]
+ if any(f.attrib.get('databaseField','1')!='0' for f in extras):raise ValueError('Unexpected additional database field')
+ return fields[:len(headers)],[{k:f.attrib.get(k) for k in ('name','formula','databaseField')} for f in extras]
+def cache_definition_signatures(z):
+ result={}
+ for path in z.namelist():
+  if not re.fullmatch(r'xl/pivotCache/pivotCacheDefinition\d+\.xml',path):continue
+  root=E.fromstring(z.read(path));src=root.find('m:cacheSource/m:worksheetSource',NS)
+  if src is None or src.get('name') not in ('SkaterStatsByGame','GoalieStatsByGame'):continue
+  result[src.get('name')]=[(f.get('name'),f.get('formula'),f.get('databaseField','1')) for f in root.find('m:cacheFields',NS)]
+ return result
 def cache_review(path):
  result=[]
  with zipfile.ZipFile(path) as z:
@@ -48,7 +61,7 @@ def cache_review(path):
    root=E.fromstring(z.read(path));src=root.find('m:cacheSource/m:worksheetSource',NS)
    if src is None or src.attrib.get('name') not in targets:continue
    table=src.attrib['name'];fields=list(root.find('m:cacheFields',NS));headers=[decoded(c.attrib['name']) for c in targets[table].find('m:tableColumns',NS)]
-   if [decoded(f.attrib['name']) for f in fields]!=headers:raise ValueError('Cache/table field order differs')
+   fields,extras=source_cache_fields(fields,headers)
    shared=[[cache_value(c) for c in f.find('m:sharedItems',NS)] if f.find('m:sharedItems',NS) is not None else [] for f in fields]
    rp=posixpath.dirname(path)+'/_rels/'+posixpath.basename(path)+'.rels'
    rels=E.fromstring(z.read(rp));target=next(r.attrib['Target'] for r in rels if r.attrib['Type'].endswith('/pivotCacheRecords'))
@@ -66,7 +79,7 @@ def cache_review(path):
        if len(differences)<20:differences.append({'record':count,'field':headers[col],'source':expected,'cache':actual})
      count+=1;record.clear()
    if count!=len(source_rows[table]):raise ValueError('Cache coverage differs')
-   result.append({'table':table,'records':count,'cellComparisons':checks,'differenceCount':difference_count,'examples':differences})
+   result.append({'table':table,'additionalDerivedCacheFields':extras,'legacyErrorFormulaDefinitions':[f for f in extras if '#NAME?' in (f.get('formula') or '')],'records':count,'cellComparisons':checks,'differenceCount':difference_count,'examples':differences})
  if len(result)!=2:raise ValueError('Both caches required')
  return result
 def pivot_rectangles(z):
@@ -102,6 +115,8 @@ def preservation(receipt):
  with zipfile.ZipFile(receipt['baseline']) as base,zipfile.ZipFile(receipt['copy']) as copy:
   bs,cs=strings(base),strings(copy);bst,cst=style_fingerprints(base),style_fingerprints(copy)
   bp,cp=pivot_rectangles(base),pivot_rectangles(copy)
+  cache_definitions_unchanged=cache_definition_signatures(base)==cache_definition_signatures(copy)
+  if not cache_definitions_unchanged:raise ValueError('Native cache field definitions changed')
   def sig(c,ss,styles):
    f=c.find('m:f',NS)
    return {'value':None if f is not None else value(c,ss),'formula':None if f is None else f.text,'mode':None if f is None else f.attrib.get('t','ordinary'),'arrayRef':None if f is None else f.attrib.get('ref'),'style':styles[int(c.attrib.get('s','0'))]}
@@ -125,7 +140,7 @@ def preservation(receipt):
   game=E.fromstring(copy.read('xl/worksheets/sheet3.xml'));cells={c.attrib['r']:c for c in game.findall('m:sheetData/m:row/m:c',NS)}
   for a,want in planned.items():
    if value(cells.get(a),cs)!=want:raise ValueError('Planned write missing '+a)
- return {'cellsChecked':checks,'regeneratedPivotValueChanges':pivot_changes,'plannedWritesChecked':len(planned),'differenceCount':difference_count,'examples':errors,'formulaCachesIntentionallyRecalculated':True,'storedArrayDependentCachesIntentionallyRecalculated':True,'styleComparison':'Resolved definitions, not style IDs'}
+ return {'cacheFieldDefinitionsPreserved':cache_definitions_unchanged,'cellsChecked':checks,'regeneratedPivotValueChanges':pivot_changes,'plannedWritesChecked':len(planned),'differenceCount':difference_count,'examples':errors,'formulaCachesIntentionallyRecalculated':True,'storedArrayDependentCachesIntentionallyRecalculated':True,'styleComparison':'Resolved definitions, not style IDs'}
 def output_review(data,candidate):
  expected={};participants={entry['inputs']['Name'] for entry in candidate['rows']}
  for entry in candidate['rows']:
