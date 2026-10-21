@@ -33,10 +33,15 @@ function audit(capture){
   if(!Number.isInteger(row.row)||row.row<6||row.row>55||seenRows.has(row.row))
    throw Error('Historical row coverage mismatch');
   seenRows.add(row.row);
+  if(!Object.hasOwn(row.values,'Name'))throw Error('Missing cached identity');
   const values=Object.fromEntries(Object.entries(row.values).map(([k,v])=>[k,value(v)]));
   const name=values.Name;
   if(name!==null&&name!==''){
    if(typeof name!=='string'||seenNames.has(name))throw Error('Duplicate historical identity');
+   for(const [,prefix] of models){
+    if(!Object.hasOwn(values,prefix+' Eligible')||![0,1].includes(values[prefix+' Eligible']))
+     throw Error('Missing or invalid cached eligibility: '+prefix);
+   }
    seenNames.add(name);
   }
   return {row:row.row,...values};
@@ -82,3 +87,4 @@ if(require.main===module){
  if(result.mismatches)process.exitCode=1;
 }
 module.exports={audit};
+
