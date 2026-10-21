@@ -1,0 +1,195 @@
+{
+  "schema": "brave-hc-awards-saved-final-review/v1",
+  "status": "CACHED_FINAL_FORMULA_REVIEW_PASS",
+  "sourceWorkbookSha256": "0002fd9f06596af8d0a00fc1b53a618ef15479f941ad5c1e6265b27002a65154",
+  "awards": [
+    {
+      "awardId": "rolaids",
+      "comparisons": [
+        {
+          "name": "Atkins, Nolan",
+          "row": 7,
+          "rawComposite": 66.8,
+          "expectedFinal": 85,
+          "cachedFinal": 85,
+          "matches": true
+        },
+        {
+          "name": "Duffy, Lorcan",
+          "row": 11,
+          "rawComposite": 82.1,
+          "expectedFinal": 99,
+          "cachedFinal": 99,
+          "matches": true
+        },
+        {
+          "name": "Kober, Adam",
+          "row": 12,
+          "rawComposite": 74.4,
+          "expectedFinal": 92,
+          "cachedFinal": 92,
+          "matches": true
+        },
+        {
+          "name": "Logue, Stephen",
+          "row": 15,
+          "rawComposite": 60,
+          "expectedFinal": 78,
+          "cachedFinal": 78,
+          "matches": true
+        },
+        {
+          "name": "Mazzei, Stefano",
+          "row": 16,
+          "rawComposite": 67.8,
+          "expectedFinal": 86,
+          "cachedFinal": 86,
+          "matches": true
+        },
+        {
+          "name": "Rajasooriar, Krishnan",
+          "row": 23,
+          "rawComposite": 82.2,
+          "expectedFinal": 100,
+          "cachedFinal": 100,
+          "matches": true
+        },
+        {
+          "name": "Svec, Matt",
+          "row": 26,
+          "rawComposite": 82.1,
+          "expectedFinal": 98,
+          "cachedFinal": 98,
+          "matches": true
+        }
+      ]
+    },
+    {
+      "awardId": "conn-smythe",
+      "comparisons": [
+        {
+          "name": "Atkins, Nolan",
+          "row": 7,
+          "rawComposite": 57.2,
+          "expectedFinal": 73,
+          "cachedFinal": 73,
+          "matches": true
+        },
+        {
+          "name": "Congiusti, Marco",
+          "row": 10,
+          "rawComposite": 53.2,
+          "expectedFinal": 69,
+          "cachedFinal": 69,
+          "matches": true
+        },
+        {
+          "name": "Duffy, Lorcan",
+          "row": 11,
+          "rawComposite": 74,
+          "expectedFinal": 90,
+          "cachedFinal": 90,
+          "matches": true
+        },
+        {
+          "name": "Kober, Adam",
+          "row": 12,
+          "rawComposite": 53.3,
+          "expectedFinal": 69,
+          "cachedFinal": 69,
+          "matches": true
+        },
+        {
+          "name": "Rajasooriar, Krishnan",
+          "row": 23,
+          "rawComposite": 83.9,
+          "expectedFinal": 100,
+          "cachedFinal": 100,
+          "matches": true
+        },
+        {
+          "name": "Svec, Matt",
+          "row": 26,
+          "rawComposite": 81.4,
+          "expectedFinal": 98,
+          "cachedFinal": 98,
+          "matches": true
+        }
+      ]
+    },
+    {
+      "awardId": "norris",
+      "comparisons": [
+        {
+          "name": "Congiusti, Marco",
+          "row": 10,
+          "rawComposite": 66.7,
+          "expectedFinal": 92,
+          "cachedFinal": 92,
+          "matches": true
+        },
+        {
+          "name": "Kober, Adam",
+          "row": 12,
+          "rawComposite": 65.1,
+          "expectedFinal": 90,
+          "cachedFinal": 90,
+          "matches": true
+        },
+        {
+          "name": "Rajasooriar, Krishnan",
+          "row": 23,
+          "rawComposite": 75.1,
+          "expectedFinal": 100,
+          "cachedFinal": 100,
+          "matches": true
+        }
+      ]
+    },
+    {
+      "awardId": "rookie",
+      "comparisons": [
+        {
+          "name": "Kong, Henry",
+          "row": 13,
+          "rawComposite": 63.9,
+          "expectedFinal": 100,
+          "cachedFinal": 100,
+          "matches": true
+        },
+        {
+          "name": "Povegliano, Adam",
+          "row": 20,
+          "rawComposite": 63.9,
+          "expectedFinal": 100,
+          "cachedFinal": 100,
+          "matches": true
+        },
+        {
+          "name": "Rajkumar, Sanjay",
+          "row": 27,
+          "rawComposite": 63.9,
+          "expectedFinal": 100,
+          "cachedFinal": 100,
+          "matches": true
+        },
+        {
+          "name": "Triumbari, Francesco",
+          "row": 28,
+          "rawComposite": 63.9,
+          "expectedFinal": 100,
+          "cachedFinal": 100,
+          "matches": true
+        }
+      ]
+    }
+  ],
+  "checked": 20,
+  "mismatches": 0,
+  "method": "Independent arithmetic translation of four captured final formulas applied only to saved eligible raw/rank inputs. No Excel recalculation.",
+  "eligibilityRecalculated": false,
+  "rawComponentsRecalculated": false,
+  "fullWorkbookParity": false,
+  "currentScoresVerified": false,
+  "publicationAuthorized": false
+}
