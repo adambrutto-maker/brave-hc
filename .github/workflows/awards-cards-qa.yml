@@ -18,6 +18,8 @@ on:
       - 'scripts/hockeyos_awards_*.js'
       - 'tests/test_awards_cards.js'
       - 'tests/test_awards_formula_semantics.js'
+      - 'tests/test_awards_saved_final_review.js'
+      - 'docs/261020_Awards_Original_Formula_Capture.json'
       - '.github/workflows/awards-cards-qa.yml'
   workflow_dispatch:
 
@@ -36,4 +38,4 @@ jobs:
         with:
           node-version: '22'
       - name: Run source-truth and weekly movement regression suite
-        run: node --test tests/test_awards_cards.js tests/test_awards_formula_semantics.js
+        run: node --test tests/test_awards_cards.js tests/test_awards_formula_semantics.js tests/test_awards_saved_final_review.js
