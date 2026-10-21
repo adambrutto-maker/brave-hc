@@ -8,7 +8,7 @@ def read(path):
   ss=[''.join(x.itertext()) for x in E.fromstring(z.read('xl/sharedStrings.xml'))]
   tables=[E.fromstring(z.read(p)) for p in z.namelist() if re.fullmatch(r'xl/tables/table\d+\.xml',p)];t=next(t for t in tables if t.attrib['name']=='PlayerInfo')
   start,end=t.attrib['ref'].split(':');col=number(re.match('[A-Z]+',start)[0]);first=int(re.search(r'\d+',start)[0])+1;last=int(re.search(r'\d+',end)[0])
-  wanted={'Website Name','First Name','Last Name','Position','Position 2','Current Roster Status','Rookie Year'};columns={col+i:decoded(c.attrib['name']) for i,c in enumerate(t.find('m:tableColumns',NS)) if decoded(c.attrib['name']) in wanted};rows=[]
+  wanted={'Website Name','First Name','Last Name','Position','Position 2','Current Roster Status'};columns={col+i:decoded(c.attrib['name']) for i,c in enumerate(t.find('m:tableColumns',NS)) if decoded(c.attrib['name']) in wanted};rows=[]
   for row in E.fromstring(z.read('xl/worksheets/sheet1.xml')).findall('m:sheetData/m:row',NS):
    if not first<=int(row.attrib['r'])<=last:continue
    record={name:None for name in columns.values()}
