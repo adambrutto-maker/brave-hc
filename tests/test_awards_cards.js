@@ -39,7 +39,7 @@ const evidence=JSON.parse(fs.readFileSync(path.join(widgets,'awards-component-ev
 const contracts=JSON.parse(fs.readFileSync(path.join(widgets,'awards-attribute-contracts.json'),'utf8'));
 const history=JSON.parse(fs.readFileSync(path.join(widgets,'awards-weekly-history.json'),'utf8'));
 const observedParticipants=JSON.parse(fs.readFileSync(path.join(widgets,'awards-participants.json'),'utf8'));
-// Archived rows support synthetic positive fixtures; this status is not a current-source attestation.
+// Test mutations use an isolated clone of the source-reconciled participant snapshot.
 const participants=structuredClone(observedParticipants);
 participants.status='UNRANKED_VERIFIED_SEASON_APPEARANCES_NOT_AWARD_SCORES';
 api.state.source=awards;
@@ -1016,10 +1016,28 @@ test('pilot ballot links accept only HTTPS Google Forms responder URLs',()=>{
   assert.equal(api.approvedBallotURL(value),null);
 });
 
-test('actual identity-held participant snapshot cannot unlock current statistical watches',()=>{
- assert.equal(observedParticipants.status,'HOLD_CURRENT_OFFICIAL_IDENTITY_MISMATCH');
- assert.equal(api.verifiedHTOStatWatch('art-ross',observedParticipants,awards),null);
- assert.equal(api.verifiedHTOStatWatch('rocket',observedParticipants,awards),null);
- assert.equal(api.verifiedWorkbookRookieYearWatch(observedParticipants,awards.season,awards.currentTeamGP,awards.sourceWorkbookHash),null);
+test('identity hold still suppresses source-only watches',()=>{
+ const held=structuredClone(observedParticipants);
+ held.status='HOLD_CURRENT_OFFICIAL_IDENTITY_MISMATCH';
+ assert.equal(api.verifiedHTOStatWatch('art-ross',held,awards),null);
+ assert.equal(api.verifiedHTOStatWatch('rocket',held,awards),null);
+ assert.equal(api.verifiedWorkbookRookieYearWatch(held,awards.season,awards.currentTeamGP,awards.sourceWorkbookHash),null);
+});
+
+test('corrected source snapshot removes erroneous Marco appearance without identity substitution',()=>{
+ assert.equal(observedParticipants.status,'UNRANKED_VERIFIED_SEASON_APPEARANCES_NOT_AWARD_SCORES');
+ assert.equal(observedParticipants.players.length,22);
+ assert.equal(observedParticipants.players.filter(p=>p.position==='Skater').length,19);
+ assert.ok(!observedParticipants.players.some(p=>['Congiusti, Marco','Unknown, Johnny'].includes(p.name)));
+ assert.ok(observedParticipants.excludedIdentityPlaceholder.includes('Unknown, Johnny'));
+ assert.equal(observedParticipants.sourceReview.correction.removedErroneousGameId,3356178);
+ assert.equal(observedParticipants.sourceReview.correction.identitySubstitution,false);
  assert.equal(observedParticipants.sourceReview.awardScorePublicationAuthorized,false);
+ for(const id of ['art-ross','rocket']){
+  const watch=api.verifiedHTOStatWatch(id,observedParticipants,awards);
+  assert.ok(watch);
+  assert.equal(watch.ratingsVerified,false);
+  assert.equal(watch.officialAwardEligibilityVerified,false);
+ }
+ assert.equal(api.verifiedWorkbookRookieYearWatch(observedParticipants,awards.season,awards.currentTeamGP,awards.sourceWorkbookHash).length,5);
 });
