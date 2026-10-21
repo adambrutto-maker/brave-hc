@@ -1,0 +1,86 @@
+{
+  "state": "GOALIE_PLUS_MINUS_BASELINES_REBUILT_WITH_OBSERVED_CURRENT_CORRECTIONS",
+  "sourceWorkbookSha256": "68392eccdd7087f4efbc32cabf23cb308aa7843eb33df72d714a3a099754a132",
+  "season": "W2026/27",
+  "cutoff": "2026-10-18",
+  "checked": 4,
+  "differenceCount": 0,
+  "differences": [],
+  "absoluteIntermediateTolerance": 1e-12,
+  "legacyTeamRate": 0.5069637883008357,
+  "correctedTeamRate": 0.46944444444444444,
+  "correctedCareerGP": 360.0,
+  "currentCorrections": [
+    {
+      "name": "Leong, Dev",
+      "gameNumber": 359.0,
+      "sourceRow": 363,
+      "historicalWorkbookValue": 0.0,
+      "observedValue": -3
+    },
+    {
+      "name": "Logue, Stephen",
+      "gameNumber": 360.0,
+      "sourceRow": 364,
+      "historicalWorkbookValue": "",
+      "observedValue": -3
+    },
+    {
+      "name": "Carlyle, Adam",
+      "gameNumber": 361.0,
+      "sourceRow": 365,
+      "historicalWorkbookValue": "",
+      "observedValue": -1
+    },
+    {
+      "name": "Leong, Dev",
+      "gameNumber": 362.0,
+      "sourceRow": 366,
+      "historicalWorkbookValue": "",
+      "observedValue": -6
+    }
+  ],
+  "staleNativeMetadataNames": [
+    "Carlyle, Adam"
+  ],
+  "players": [
+    {
+      "name": "Leong, Dev",
+      "values": {
+        "Career Prior Goalie GP": 17,
+        "Career Prior Total Goalie +/-/GP": -1.0588235294117647,
+        "All-Time Total Goalie +/- Team Rate Avg": 0.46944444444444444
+      },
+      "currentTotals": {
+        "GP": 2,
+        "+/-": -9
+      }
+    },
+    {
+      "name": "Logue, Stephen",
+      "values": {
+        "Career Prior Goalie GP": 261,
+        "Career Prior Total Goalie +/-/GP": 0.5747126436781609,
+        "All-Time Total Goalie +/- Team Rate Avg": 0.46944444444444444
+      },
+      "currentTotals": {
+        "GP": 1,
+        "+/-": -3
+      }
+    },
+    {
+      "name": "Carlyle, Adam",
+      "values": {
+        "Career Prior Goalie GP": 0,
+        "Career Prior Total Goalie +/-/GP": 0.0,
+        "All-Time Total Goalie +/- Team Rate Avg": 0.46944444444444444
+      },
+      "currentTotals": {
+        "GP": 1,
+        "+/-": -1
+      }
+    }
+  ],
+  "currentCompositeScoresVerified": false,
+  "publicationAuthorized": false
+}
