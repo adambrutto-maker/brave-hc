@@ -11,6 +11,8 @@ on:
     paths:
       - 'scripts/refresh_record_sources.py'
       - 'tests/test_record_source_refresh.py'
+      - 'scripts/reconcile_hto_milestone_review.py'
+      - 'tests/test_hto_milestone_review.py'
       - 'tests/fixtures/record-refresh-*.html'
       - '.github/workflows/brave-record-source-refresh.yml'
 permissions:
@@ -37,6 +39,8 @@ jobs:
       - run: pip install 'requests>=2.31,<3' 'beautifulsoup4>=4.12,<5'
       - name: Validate source parsing and preservation rules
         run: python -m unittest discover -s tests -p test_record_source_refresh.py
+      - name: Validate private milestone-to-record review contract (no publication)
+        run: python -m unittest discover -s tests -p test_hto_milestone_review.py
       - name: Read public HTO results and published records
         run: python scripts/refresh_record_sources.py
       - name: Recalculate complete-ledger record candidates
