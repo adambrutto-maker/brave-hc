@@ -63,6 +63,13 @@ class SourceRefreshTests(unittest.TestCase):
         groups.append(dict(section='Individual Records',category='Future Test',period='Game',items=['9 - Unverified Person (October 20, 2026)']))
         with self.assertRaises(ValueError): refresh.sync_published(self.history,self.book,groups,'later')
 
+    def test_utf8_html_preserves_accented_record_names(self):
+        html = '<meta charset="utf-8"><div class="pageModCol">'
+        for section in ('Individual Records','Team Records'):
+            html += '<div class="modGroupAboveHeadingMain">'+section+'</div><div class="modGroupAboveHeading">Goals</div><div class="modGroupWrapper"><div class="modGroupSubHeading">Game</div><div class="modGroupDetailsWrapper"><div class="modGroupItem">2 - Rènt Goaliê (2016)</div></div></div>'
+        groups = refresh.parse_records((html+'</div>').encode('utf-8'))
+        self.assertEqual(groups[0]['items'][0],'2 - Rènt Goaliê (2016)')
+
     def test_source_host_restricted(self):
         with self.assertRaises(ValueError): refresh.game_id('https://example.com/teams/default.asp?u=BRAVESHOCKEY&p=boxscore&gameID=1')
 
