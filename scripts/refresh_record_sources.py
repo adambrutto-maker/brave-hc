@@ -178,7 +178,8 @@ def fetch(session, url):
     response.raise_for_status()
     if response.status_code != 200 or 'text/html' not in response.headers.get('Content-Type','').lower():
         raise ValueError('Unexpected HTO response')
-    return response.text
+    # Let the HTML parser honor the page charset instead of Requests' Latin-1 fallback.
+    return response.content
 
 
 def run():
