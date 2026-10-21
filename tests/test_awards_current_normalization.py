@@ -1,7 +1,7 @@
 import sys,json,tempfile,unittest,copy
 from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'scripts'))
-from hockeyos_awards_current_normalization import bindings,minmax_score,normalize
+from hockeyos_awards_current_normalization import bindings,minmax_score,normalize,family_scores
 ROOT=Path(__file__).resolve().parents[1]
 class CurrentNormalization(unittest.TestCase):
  def fixture(self):
@@ -12,8 +12,8 @@ class CurrentNormalization(unittest.TestCase):
    for row in component['rows']:
     self.assertEqual(minmax_score(row['rawInternal'],*component['legacyBounds']),row['nativeDisplay']);checks+=1
   self.assertEqual(checks,120)
- def test_bind_exact_source_nine_and_defer_35(self):
-  supported,unsupported=bindings(ROOT/'docs/261020_Awards_Original_Formula_Capture.json');self.assertEqual(len(supported),9);self.assertEqual(len(unsupported),35)
+ def test_bind_all_44_and_preserve_ordinary_shutout_mode(self):
+  supported,unsupported=bindings(ROOT/'docs/261020_Awards_Original_Formula_Capture.json');self.assertEqual(len(supported),44);self.assertEqual(unsupported,[]);self.assertEqual(supported['Total Award Goalie SHO Web Display Score']['storedFormulaTypes'],{'ordinary':50})
  def test_changed_source_rejected(self):
   with tempfile.TemporaryDirectory() as d:
    p=Path(d)/'capture.json';p.write_text((ROOT/'docs/261020_Awards_Original_Formula_Capture.json').read_text()+' ')
@@ -36,6 +36,21 @@ class CurrentNormalization(unittest.TestCase):
   for value in [None,True,float('nan'),float('inf')]:
    b,p,i=self.fixture();i['values']['A']['value']=value
    with self.assertRaises(ValueError):normalize(b,p,i)
+ def test_source_tie_families_are_distinct(self):
+  for value,want in [(-1,50),(0,75),(1,100)]:self.assertEqual(family_scores('MINMAX_SIGNED_TIE',{'A':value},{},{})['A'],want)
+  self.assertEqual(family_scores('MINMAX_ABSOLUTE_TIE',{'A':40},{},{})['A'],70)
+  self.assertEqual(family_scores('MINMAX_ABSOLUTE_TIE',{'A':-4},{},{})['A'],48)
+ def test_explicit_inapplicable_adds_zero_only_to_source_coerced_family(self):
+  self.assertEqual(family_scores('MINMAX_BLANK_ZERO',{'A':2},{'G':'source blank'},{}),{'A':100})
+  self.assertEqual(family_scores('MINMAX_MIDPOINT',{'A':2},{'G':'source blank'},{}),{'A':75})
+ def test_signed_improvement_preserves_both_signs_and_zero(self):
+  v={'Worse':-4,'HalfWorse':-2,'Same':0,'HalfBetter':2,'Better':4};roles={n:'Skater' for n in v}
+  self.assertEqual(family_scores('SKATER_IMPROVEMENT',v,{},roles),{'Worse':50,'HalfWorse':62.5,'Same':75,'HalfBetter':87.5,'Better':100})
+ def test_goalie_offense_nonpositive_and_near_ties(self):
+  self.assertEqual(family_scores('GOALIE_OFFENSE',{'G':-2},{},{'G':'Goaltender'}),{'G':75})
+  self.assertEqual(family_scores('GOALIE_OFFENSE',{'G':0.00005},{},{'G':'Goaltender'}),{'G':75})
+  self.assertEqual(family_scores('GOALIE_OFFENSE',{'G':1},{},{'G':'Goaltender'}),{'G':100})
+  self.assertEqual(family_scores('GOALIE_OFFENSE',{'F':1},{},{'F':'Skater'}),{'F':0})
  def test_single_tie_and_rounding(self):
   self.assertEqual(minmax_score(0,0,0),75);self.assertEqual(minmax_score(0.1,0,100),50.1)
   with self.assertRaises(ValueError):minmax_score(3,0,2)
