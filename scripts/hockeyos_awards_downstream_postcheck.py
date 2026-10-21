@@ -87,6 +87,14 @@ def pivot_rectangles(z):
 def in_rectangles(address,rectangles):
  col=number(re.match('[A-Z]+',address)[0]);row=int(re.search(r'\d+',address)[0])
  return any(a<=col<=c and b<=row<=d for a,b,c,d in rectangles)
+def array_dependents(z,sheet):
+ cells=set()
+ with z.open(sheet) as stream:
+  for _,f in E.iterparse(stream,events=('end',)):
+   if f.tag!='{'+NS['m']+'}f' or f.attrib.get('t')!='array' or ':' not in f.attrib.get('ref',''):continue
+   a,b=f.attrib['ref'].split(':');ac=number(re.match('[A-Z]+',a)[0]);bc=number(re.match('[A-Z]+',b)[0]);ar=int(re.search(r'\d+',a)[0]);br=int(re.search(r'\d+',b)[0])
+   cells.update(letters(c)+str(r) for r in range(ar,br+1) for c in range(ac,bc+1) if (r,c)!=(ar,ac))
+ return cells
 def preservation(receipt):
  errors=[];difference_count=0;checks=0;pivot_changes=0
  planned={letters(w['column'])+str(w['row']):w['value'] for w in receipt['inputWrites']}
@@ -98,12 +106,14 @@ def preservation(receipt):
    f=c.find('m:f',NS)
    return {'value':None if f is not None else value(c,ss),'formula':None if f is None else f.text,'mode':None if f is None else f.attrib.get('t','ordinary'),'arrayRef':None if f is None else f.attrib.get('ref'),'style':styles[int(c.attrib.get('s','0'))]}
   for sheet in [p for p in base.namelist() if re.fullmatch(r'xl/worksheets/sheet\d+\.xml',p)]:
+   derived=array_dependents(base,sheet)
    actual={c.attrib['r']:sig(c,cs,cst) for c in E.fromstring(copy.read(sheet)).findall('m:sheetData/m:row/m:c',NS)}
    with base.open(sheet) as stream:
     for _,c in E.iterparse(stream,events=('end',)):
      if c.tag!='{'+NS['m']+'}c':continue
      address=c.attrib['r'];before=sig(c,bs,bst);after=actual.get(address);checks+=1
      if sheet=='xl/worksheets/sheet3.xml' and address in planned:before['value']=planned[address]
+     if address in derived and after is not None and before['formula'] is None and after['formula'] is None:before['value']=after['value']
      if after is not None and before['formula'] is None and after['formula'] is None and in_rectangles(address,bp.get(sheet,[])+cp.get(sheet,[])):
       if before['value']!=after['value']:pivot_changes+=1
       before['value']=after['value']
@@ -115,7 +125,7 @@ def preservation(receipt):
   game=E.fromstring(copy.read('xl/worksheets/sheet3.xml'));cells={c.attrib['r']:c for c in game.findall('m:sheetData/m:row/m:c',NS)}
   for a,want in planned.items():
    if value(cells.get(a),cs)!=want:raise ValueError('Planned write missing '+a)
- return {'cellsChecked':checks,'regeneratedPivotValueChanges':pivot_changes,'plannedWritesChecked':len(planned),'differenceCount':difference_count,'examples':errors,'formulaCachesIntentionallyRecalculated':True,'styleComparison':'Resolved definitions, not style IDs'}
+ return {'cellsChecked':checks,'regeneratedPivotValueChanges':pivot_changes,'plannedWritesChecked':len(planned),'differenceCount':difference_count,'examples':errors,'formulaCachesIntentionallyRecalculated':True,'storedArrayDependentCachesIntentionallyRecalculated':True,'styleComparison':'Resolved definitions, not style IDs'}
 def output_review(data,candidate):
  expected={}
  for entry in candidate['rows']:
