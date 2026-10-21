@@ -1,0 +1,454 @@
+{
+  "state": "ALL_LEGACY_DISPLAY_ARITHMETIC_PARITY_PASS",
+  "componentCount": 44,
+  "comparisons": 1100,
+  "differenceCount": 0,
+  "differences": [],
+  "coverage": [
+    {
+      "component": "Current True Playoff Season Attd. % Web Display Score",
+      "family": "MINMAX_MIDPOINT",
+      "comparisons": 25,
+      "numericInputs": 25,
+      "explicitBlankInputs": 0,
+      "storedFormulaTypes": {
+        "array": 50
+      }
+    },
+    {
+      "component": "Current True Attd. % Web Display Score",
+      "family": "MINMAX_MIDPOINT",
+      "comparisons": 25,
+      "numericInputs": 25,
+      "explicitBlankInputs": 0,
+      "storedFormulaTypes": {
+        "array": 50
+      }
+    },
+    {
+      "component": "Dedication Tenure Web Display Score",
+      "family": "MINMAX_MIDPOINT",
+      "comparisons": 25,
+      "numericInputs": 25,
+      "explicitBlankInputs": 0,
+      "storedFormulaTypes": {
+        "array": 50
+      }
+    },
+    {
+      "component": "Playoff Final G Web Display Score",
+      "family": "MINMAX_MIDPOINT",
+      "comparisons": 25,
+      "numericInputs": 1,
+      "explicitBlankInputs": 24,
+      "storedFormulaTypes": {
+        "array": 50
+      }
+    },
+    {
+      "component": "Total Final G Web Display Score",
+      "family": "MINMAX_MIDPOINT",
+      "comparisons": 25,
+      "numericInputs": 22,
+      "explicitBlankInputs": 3,
+      "storedFormulaTypes": {
+        "array": 50
+      }
+    },
+    {
+      "component": "Playoff Final A Web Display Score",
+      "family": "MINMAX_MIDPOINT",
+      "comparisons": 25,
+      "numericInputs": 1,
+      "explicitBlankInputs": 24,
+      "storedFormulaTypes": {
+        "array": 50
+      }
+    },
+    {
+      "component": "Total Final A Web Display Score",
+      "family": "MINMAX_MIDPOINT",
+      "comparisons": 25,
+      "numericInputs": 22,
+      "explicitBlankInputs": 3,
+      "storedFormulaTypes": {
+        "array": 50
+      }
+    },
+    {
+      "component": "Playoff Final Pts Web Display Score",
+      "family": "MINMAX_MIDPOINT",
+      "comparisons": 25,
+      "numericInputs": 1,
+      "explicitBlankInputs": 24,
+      "storedFormulaTypes": {
+        "array": 50
+      }
+    },
+    {
+      "component": "Total Final Pts Web Display Score",
+      "family": "MINMAX_MIDPOINT",
+      "comparisons": 25,
+      "numericInputs": 22,
+      "explicitBlankInputs": 3,
+      "storedFormulaTypes": {
+        "array": 50
+      }
+    },
+    {
+      "component": "Playoff Final Special Teams Web Display Score",
+      "family": "MINMAX_BLANK_ZERO",
+      "comparisons": 25,
+      "numericInputs": 1,
+      "explicitBlankInputs": 24,
+      "storedFormulaTypes": {
+        "array": 50
+      }
+    },
+    {
+      "component": "Total Final Special Teams Web Display Score",
+      "family": "MINMAX_BLANK_ZERO",
+      "comparisons": 25,
+      "numericInputs": 22,
+      "explicitBlankInputs": 3,
+      "storedFormulaTypes": {
+        "array": 50
+      }
+    },
+    {
+      "component": "Playoff Final +/- Web Display Score",
+      "family": "MINMAX_BLANK_ZERO",
+      "comparisons": 25,
+      "numericInputs": 2,
+      "explicitBlankInputs": 23,
+      "storedFormulaTypes": {
+        "array": 50
+      }
+    },
+    {
+      "component": "Total Final +/- Web Display Score",
+      "family": "MINMAX_BLANK_ZERO",
+      "comparisons": 25,
+      "numericInputs": 25,
+      "explicitBlankInputs": 0,
+      "storedFormulaTypes": {
+        "array": 50
+      }
+    },
+    {
+      "component": "Playoff Final PIM Web Display Score",
+      "family": "MINMAX_BLANK_ZERO",
+      "comparisons": 25,
+      "numericInputs": 2,
+      "explicitBlankInputs": 23,
+      "storedFormulaTypes": {
+        "array": 50
+      }
+    },
+    {
+      "component": "Total Final PIM Web Display Score",
+      "family": "MINMAX_BLANK_ZERO",
+      "comparisons": 25,
+      "numericInputs": 25,
+      "explicitBlankInputs": 0,
+      "storedFormulaTypes": {
+        "array": 50
+      }
+    },
+    {
+      "component": "Playoff Final Clutch Web Display Score",
+      "family": "MINMAX_BLANK_ZERO",
+      "comparisons": 25,
+      "numericInputs": 1,
+      "explicitBlankInputs": 24,
+      "storedFormulaTypes": {
+        "array": 50
+      }
+    },
+    {
+      "component": "Total Final Clutch Web Display Score",
+      "family": "MINMAX_BLANK_ZERO",
+      "comparisons": 25,
+      "numericInputs": 22,
+      "explicitBlankInputs": 3,
+      "storedFormulaTypes": {
+        "array": 50
+      }
+    },
+    {
+      "component": "Playoff Award POTG Web Display Score",
+      "family": "MINMAX_BLANK_ZERO",
+      "comparisons": 25,
+      "numericInputs": 2,
+      "explicitBlankInputs": 23,
+      "storedFormulaTypes": {
+        "array": 50
+      }
+    },
+    {
+      "component": "Total Award POTG Web Display Score",
+      "family": "MINMAX_BLANK_ZERO",
+      "comparisons": 25,
+      "numericInputs": 25,
+      "explicitBlankInputs": 0,
+      "storedFormulaTypes": {
+        "array": 50
+      }
+    },
+    {
+      "component": "Playoff Award Goalie W Web Display Score",
+      "family": "MINMAX_BLANK_ZERO",
+      "comparisons": 25,
+      "numericInputs": 1,
+      "explicitBlankInputs": 24,
+      "storedFormulaTypes": {
+        "array": 50
+      }
+    },
+    {
+      "component": "Total Award Goalie W Web Display Score",
+      "family": "MINMAX_BLANK_ZERO",
+      "comparisons": 25,
+      "numericInputs": 3,
+      "explicitBlankInputs": 22,
+      "storedFormulaTypes": {
+        "array": 50
+      }
+    },
+    {
+      "component": "Playoff Award Goalie Win % Web Display Score",
+      "family": "MINMAX_BLANK_ZERO",
+      "comparisons": 25,
+      "numericInputs": 1,
+      "explicitBlankInputs": 24,
+      "storedFormulaTypes": {
+        "array": 50
+      }
+    },
+    {
+      "component": "Total Award Goalie Win % Web Display Score",
+      "family": "MINMAX_BLANK_ZERO",
+      "comparisons": 25,
+      "numericInputs": 3,
+      "explicitBlankInputs": 22,
+      "storedFormulaTypes": {
+        "array": 50
+      }
+    },
+    {
+      "component": "Playoff Award Goalie GAA Web Display Score",
+      "family": "MINMAX_SIGNED_TIE",
+      "comparisons": 25,
+      "numericInputs": 1,
+      "explicitBlankInputs": 24,
+      "storedFormulaTypes": {
+        "array": 50
+      }
+    },
+    {
+      "component": "Total Award Goalie GAA Web Display Score",
+      "family": "MINMAX_SIGNED_TIE",
+      "comparisons": 25,
+      "numericInputs": 3,
+      "explicitBlankInputs": 22,
+      "storedFormulaTypes": {
+        "array": 50
+      }
+    },
+    {
+      "component": "Playoff Award Goalie SHO Web Display Score",
+      "family": "MINMAX_SIGNED_TIE",
+      "comparisons": 25,
+      "numericInputs": 1,
+      "explicitBlankInputs": 24,
+      "storedFormulaTypes": {
+        "array": 50
+      }
+    },
+    {
+      "component": "Total Award Goalie SHO Web Display Score",
+      "family": "MINMAX_SIGNED_TIE",
+      "comparisons": 25,
+      "numericInputs": 3,
+      "explicitBlankInputs": 22,
+      "storedFormulaTypes": {
+        "ordinary": 50
+      }
+    },
+    {
+      "component": "Total Streak Heat Web Display Score",
+      "family": "MINMAX_SIGNED_TIE",
+      "comparisons": 25,
+      "numericInputs": 25,
+      "explicitBlankInputs": 0,
+      "storedFormulaTypes": {
+        "array": 50
+      }
+    },
+    {
+      "component": "Playoff Streak Heat Web Display Score",
+      "family": "MINMAX_SIGNED_TIE",
+      "comparisons": 25,
+      "numericInputs": 2,
+      "explicitBlankInputs": 23,
+      "storedFormulaTypes": {
+        "array": 50
+      }
+    },
+    {
+      "component": "Career Roster Adjusted Attd. % Web Display Score",
+      "family": "MINMAX_ABSOLUTE_TIE",
+      "comparisons": 25,
+      "numericInputs": 25,
+      "explicitBlankInputs": 0,
+      "storedFormulaTypes": {
+        "array": 50
+      }
+    },
+    {
+      "component": "Total Skater Production Consistency Web Display Score",
+      "family": "MINMAX_ABSOLUTE_TIE",
+      "comparisons": 25,
+      "numericInputs": 22,
+      "explicitBlankInputs": 3,
+      "storedFormulaTypes": {
+        "array": 50
+      }
+    },
+    {
+      "component": "Playoff Skater Production Consistency Web Display Score",
+      "family": "MINMAX_ABSOLUTE_TIE",
+      "comparisons": 25,
+      "numericInputs": 1,
+      "explicitBlankInputs": 24,
+      "storedFormulaTypes": {
+        "array": 50
+      }
+    },
+    {
+      "component": "Total Skater Two-Way Reliability Web Display Score",
+      "family": "MINMAX_ABSOLUTE_TIE",
+      "comparisons": 25,
+      "numericInputs": 22,
+      "explicitBlankInputs": 3,
+      "storedFormulaTypes": {
+        "array": 50
+      }
+    },
+    {
+      "component": "Playoff Skater Two-Way Reliability Web Display Score",
+      "family": "MINMAX_ABSOLUTE_TIE",
+      "comparisons": 25,
+      "numericInputs": 1,
+      "explicitBlankInputs": 24,
+      "storedFormulaTypes": {
+        "array": 50
+      }
+    },
+    {
+      "component": "Total Discipline Reliability Web Display Score",
+      "family": "MINMAX_ABSOLUTE_TIE",
+      "comparisons": 25,
+      "numericInputs": 22,
+      "explicitBlankInputs": 3,
+      "storedFormulaTypes": {
+        "array": 50
+      }
+    },
+    {
+      "component": "Playoff Discipline Reliability Web Display Score",
+      "family": "MINMAX_ABSOLUTE_TIE",
+      "comparisons": 25,
+      "numericInputs": 1,
+      "explicitBlankInputs": 24,
+      "storedFormulaTypes": {
+        "array": 50
+      }
+    },
+    {
+      "component": "Total Goalie Reliability Web Display Score",
+      "family": "MINMAX_ABSOLUTE_TIE",
+      "comparisons": 25,
+      "numericInputs": 3,
+      "explicitBlankInputs": 22,
+      "storedFormulaTypes": {
+        "array": 50
+      }
+    },
+    {
+      "component": "Playoff Goalie Reliability Web Display Score",
+      "family": "MINMAX_ABSOLUTE_TIE",
+      "comparisons": 25,
+      "numericInputs": 1,
+      "explicitBlankInputs": 24,
+      "storedFormulaTypes": {
+        "array": 50
+      }
+    },
+    {
+      "component": "Total Goalie Discipline Reliability Web Display Score",
+      "family": "MINMAX_ABSOLUTE_TIE",
+      "comparisons": 25,
+      "numericInputs": 3,
+      "explicitBlankInputs": 22,
+      "storedFormulaTypes": {
+        "array": 50
+      }
+    },
+    {
+      "component": "Playoff Goalie Discipline Reliability Web Display Score",
+      "family": "MINMAX_ABSOLUTE_TIE",
+      "comparisons": 25,
+      "numericInputs": 1,
+      "explicitBlankInputs": 24,
+      "storedFormulaTypes": {
+        "array": 50
+      }
+    },
+    {
+      "component": "Total Goalie Offensive Contribution Web Display Score",
+      "family": "GOALIE_OFFENSE",
+      "comparisons": 25,
+      "numericInputs": 3,
+      "explicitBlankInputs": 22,
+      "storedFormulaTypes": {
+        "array": 50
+      }
+    },
+    {
+      "component": "Playoff Goalie Offensive Contribution Web Display Score",
+      "family": "GOALIE_OFFENSE",
+      "comparisons": 25,
+      "numericInputs": 1,
+      "explicitBlankInputs": 24,
+      "storedFormulaTypes": {
+        "array": 50
+      }
+    },
+    {
+      "component": "Total Skater Improvement Web Display Score",
+      "family": "SKATER_IMPROVEMENT",
+      "comparisons": 25,
+      "numericInputs": 25,
+      "explicitBlankInputs": 0,
+      "storedFormulaTypes": {
+        "array": 50
+      }
+    },
+    {
+      "component": "Total Goalie Improvement Web Display Score",
+      "family": "GOALIE_IMPROVEMENT",
+      "comparisons": 25,
+      "numericInputs": 25,
+      "explicitBlankInputs": 0,
+      "storedFormulaTypes": {
+        "array": 50
+      }
+    }
+  ],
+  "nativeExportSha256": "e8636061288812c2cdad9826a0e13c1f1214ce89817bea95522686d7ceab6057",
+  "currentCompositeScoresVerified": false,
+  "publicationAuthorized": false,
+  "limitation": "Legacy population arithmetic only. Current upstream inputs, current cohort correction, eligibility and final composite acceptance remain separate.",
+  "referenceFixtureSha256": "97282979bf7528c31451b83df19c8995dc76a896b82c6458fb9028e6856e5f29"
+}
