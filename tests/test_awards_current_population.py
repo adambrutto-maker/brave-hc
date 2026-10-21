@@ -16,6 +16,9 @@ class CurrentPopulation(unittest.TestCase):
  def test_duplicate_appearance_rejected(self):
   c,m=self.fixture();c['rows']*=2
   with self.assertRaises(ValueError):build(c,m)
+ def test_boolean_gp_rejected(self):
+  c,m=self.fixture();c['rows'][0]['inputs']['GP']=True
+  with self.assertRaises(ValueError):build(c,m)
  def test_role_conflict_rejected(self):
   c,m=self.fixture();m[0]['Position']='F'
   with self.assertRaises(ValueError):build(c,m)
