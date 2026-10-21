@@ -19,9 +19,22 @@ function form(){
   el(body,"p","section-title","Candidates on the existing pilot form");
   const chips=el(body,"div","checklist");question.nominees.forEach(n=>el(chips,"span",null,n));
  }
- const a=el(body,"a","action","Open the published pilot ballot ↗");
- a.href=survey.responderUrl;a.target="_blank";a.rel="noopener noreferrer";
+ const ballot=approvedBallotURL(survey?.responderUrl);
+ if(ballot){
+  const a=el(body,"a","action","Open the published pilot ballot ↗");
+  a.href=ballot;a.target="_blank";a.rel="noopener noreferrer";
+ }else el(body,"p",null,"Pilot ballot link unavailable.");
  details.append(title,body);DOM.pilot.append(details);
+}
+function approvedBallotURL(value){
+ if(typeof value!=="string")return null;
+ try{
+  const url=new URL(value);
+  return url.protocol==="https:"&&url.hostname==="docs.google.com"
+   &&!url.username&&!url.password&&!url.port
+   &&/^\/forms\/d\/(?:e\/)?[A-Za-z0-9_-]+\/viewform$/.test(url.pathname)
+   ?url.href:null;
+ }catch(_err){return null;}
 }
 function selectMode(mode){state.mode=mode;for(const b of document.querySelectorAll("[data-mode]"))b.setAttribute("aria-pressed",String(b.dataset.mode===mode));draw();}
 function labelData(){const d=state.source,a=d.awards.find(x=>x.id===state.award);put("award-title",a.name);put("award-sub",a.subtitle);
@@ -218,7 +231,7 @@ function movement(wrapper,row,index,race){
  }
  const previous=prior.races[state.award].find(p=>p.name===row.name);
  el(band,"span","move-date","vs "+prior.publishedAsOf);
- if(!previous){el(band,"strong","move-new","NEW · first appearance on ranked shortlist");return;}
+ if(!previous){el(band,"strong","move-new","NEW · since previous published shortlist");return;}
  const diff=Number((row.modelScore-previous.overallScore).toFixed(1));
  const diffRank=previous.rank-(index+1);
  const scoreClass=diff>0?"move-up":diff<0?"move-down":"move-flat";
