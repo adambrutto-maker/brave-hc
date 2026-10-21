@@ -18,7 +18,11 @@ class FinalScores(unittest.TestCase):
   self.assertEqual(self.scores('Rookie',[90,90]),[100,100])
   self.assertEqual(self.scores('Dedication',[90,90]),[100,100])
  def test_signed(self):self.assertEqual(self.scores('Most Improved',[20,20,0,-10,-20]),[100,99,75,63,50])
- def test_decimal(self):self.assertEqual(self.scores('Dedication',[10,1,0]),[100,55,50])
+ def test_dedication_whole_number_correction(self):
+  self.assertEqual(self.scores('Dedication',[3,1,0]),[100,67,50])
+  legacy=calculate('Dedication',rows('Dedication',[3,1,0]),CAPTURE,legacy_reference=True)
+  self.assertEqual([r['score'] for r in legacy['results']],[100,66.7,50])
+  self.assertEqual(self.scores('Dedication',[100,33,0]),[100,67,50])
  def test_floor(self):self.assertEqual(self.scores('Hart',[100,0]),[100,50])
  def test_unknown_holds(self):
   for v in (None,float('nan'),''):
