@@ -1,0 +1,1705 @@
+{
+  "state": "HOF_DOWNSTREAM_SAVED_ARITHMETIC_PARITY_PASS",
+  "sourceWorkbookSha256": "bfcae41a39e3399ea01ac2b2fe9696da78dc5d57f47399e448a7beed44532c85",
+  "playerCount": 111,
+  "checked": 999,
+  "differenceCount": 0,
+  "differences": [],
+  "rows": [
+    {
+      "name": "Adeli, Kourosh",
+      "sourceRow": 6,
+      "values": {
+        "HOF Scoring Type": "Skater",
+        "HOF Eligible": 0,
+        "HOF Major Awards Won": 0.0,
+        "HOF Minor Awards Won": 1.0,
+        "HOF Award Points": 4.0,
+        "HOF Total Awards Won": 1.0,
+        "HOF Raw Composite Internal Score": 7.0,
+        "HOF Final Web Display Score": 0,
+        "HOF Rank Key": 0
+      }
+    },
+    {
+      "name": "Aidemirski, Damian",
+      "sourceRow": 7,
+      "values": {
+        "HOF Scoring Type": "Skater",
+        "HOF Eligible": 1,
+        "HOF Major Awards Won": 5.0,
+        "HOF Minor Awards Won": 0.0,
+        "HOF Award Points": 47.0,
+        "HOF Total Awards Won": 5.0,
+        "HOF Raw Composite Internal Score": 30.0,
+        "HOF Final Web Display Score": 64.2,
+        "HOF Rank Key": 64203000.99998
+      }
+    },
+    {
+      "name": "Ardizzi, Anthony",
+      "sourceRow": 8,
+      "values": {
+        "HOF Scoring Type": "Skater",
+        "HOF Eligible": 0,
+        "HOF Major Awards Won": 0,
+        "HOF Minor Awards Won": 0,
+        "HOF Award Points": 0,
+        "HOF Total Awards Won": 0,
+        "HOF Raw Composite Internal Score": 3.6,
+        "HOF Final Web Display Score": 0,
+        "HOF Rank Key": 0
+      }
+    },
+    {
+      "name": "Ardizzi, Stefano",
+      "sourceRow": 9,
+      "values": {
+        "HOF Scoring Type": "Skater",
+        "HOF Eligible": 1,
+        "HOF Major Awards Won": 0.0,
+        "HOF Minor Awards Won": 4.0,
+        "HOF Award Points": 16.0,
+        "HOF Total Awards Won": 4.0,
+        "HOF Raw Composite Internal Score": 42.7,
+        "HOF Final Web Display Score": 73.8,
+        "HOF Rank Key": 73804270.99996
+      }
+    },
+    {
+      "name": "Arruda, Mark",
+      "sourceRow": 10,
+      "values": {
+        "HOF Scoring Type": "Skater",
+        "HOF Eligible": 1,
+        "HOF Major Awards Won": 7.0,
+        "HOF Minor Awards Won": 2.0,
+        "HOF Award Points": 76.0,
+        "HOF Total Awards Won": 9.0,
+        "HOF Raw Composite Internal Score": 24.6,
+        "HOF Final Web Display Score": 60.1,
+        "HOF Rank Key": 60102460.99995
+      }
+    },
+    {
+      "name": "Arruda, Matthew",
+      "sourceRow": 11,
+      "values": {
+        "HOF Scoring Type": "Skater",
+        "HOF Eligible": 0,
+        "HOF Major Awards Won": 0,
+        "HOF Minor Awards Won": 0,
+        "HOF Award Points": 0,
+        "HOF Total Awards Won": 0,
+        "HOF Raw Composite Internal Score": 8.4,
+        "HOF Final Web Display Score": 0,
+        "HOF Rank Key": 0
+      }
+    },
+    {
+      "name": "Atkins, Nolan",
+      "sourceRow": 12,
+      "values": {
+        "HOF Scoring Type": "Skater",
+        "HOF Eligible": 0,
+        "HOF Major Awards Won": 0,
+        "HOF Minor Awards Won": 0,
+        "HOF Award Points": 0,
+        "HOF Total Awards Won": 0,
+        "HOF Raw Composite Internal Score": 6.7,
+        "HOF Final Web Display Score": 0,
+        "HOF Rank Key": 0
+      }
+    },
+    {
+      "name": "Babiak, Matt",
+      "sourceRow": 13,
+      "values": {
+        "HOF Scoring Type": "Skater",
+        "HOF Eligible": 0,
+        "HOF Major Awards Won": 0,
+        "HOF Minor Awards Won": 0,
+        "HOF Award Points": 0,
+        "HOF Total Awards Won": 0,
+        "HOF Raw Composite Internal Score": 6.5,
+        "HOF Final Web Display Score": 0,
+        "HOF Rank Key": 0
+      }
+    },
+    {
+      "name": "Baghel, Neil",
+      "sourceRow": 14,
+      "values": {
+        "HOF Scoring Type": "Skater",
+        "HOF Eligible": 1,
+        "HOF Major Awards Won": 0,
+        "HOF Minor Awards Won": 0,
+        "HOF Award Points": 0,
+        "HOF Total Awards Won": 0,
+        "HOF Raw Composite Internal Score": 14.8,
+        "HOF Final Web Display Score": 52.6,
+        "HOF Rank Key": 52601480.99991
+      }
+    },
+    {
+      "name": "Brancatella, Dino",
+      "sourceRow": 15,
+      "values": {
+        "HOF Scoring Type": "Skater",
+        "HOF Eligible": 0,
+        "HOF Major Awards Won": 0,
+        "HOF Minor Awards Won": 0,
+        "HOF Award Points": 0,
+        "HOF Total Awards Won": 0,
+        "HOF Raw Composite Internal Score": 11.9,
+        "HOF Final Web Display Score": 0,
+        "HOF Rank Key": 0
+      }
+    },
+    {
+      "name": "Brancatella, Medi",
+      "sourceRow": 16,
+      "values": {
+        "HOF Scoring Type": "Skater",
+        "HOF Eligible": 0,
+        "HOF Major Awards Won": 0.0,
+        "HOF Minor Awards Won": 1.0,
+        "HOF Award Points": 4.0,
+        "HOF Total Awards Won": 1.0,
+        "HOF Raw Composite Internal Score": 9.7,
+        "HOF Final Web Display Score": 0,
+        "HOF Rank Key": 0
+      }
+    },
+    {
+      "name": "Brennan, Dylan",
+      "sourceRow": 17,
+      "values": {
+        "HOF Scoring Type": "Skater",
+        "HOF Eligible": 1,
+        "HOF Major Awards Won": 3.0,
+        "HOF Minor Awards Won": 0.0,
+        "HOF Award Points": 23.0,
+        "HOF Total Awards Won": 3.0,
+        "HOF Raw Composite Internal Score": 33.0,
+        "HOF Final Web Display Score": 66.5,
+        "HOF Rank Key": 66503300.99988
+      }
+    },
+    {
+      "name": "Brock, Brad",
+      "sourceRow": 18,
+      "values": {
+        "HOF Scoring Type": "Skater",
+        "HOF Eligible": 0,
+        "HOF Major Awards Won": 0,
+        "HOF Minor Awards Won": 0,
+        "HOF Award Points": 0,
+        "HOF Total Awards Won": 0,
+        "HOF Raw Composite Internal Score": 6.7,
+        "HOF Final Web Display Score": 0,
+        "HOF Rank Key": 0
+      }
+    },
+    {
+      "name": "Brutto, Adam",
+      "sourceRow": 19,
+      "values": {
+        "HOF Scoring Type": "Skater",
+        "HOF Eligible": 1,
+        "HOF Major Awards Won": 1.0,
+        "HOF Minor Awards Won": 3.0,
+        "HOF Award Points": 21.0,
+        "HOF Total Awards Won": 4.0,
+        "HOF Raw Composite Internal Score": 47.2,
+        "HOF Final Web Display Score": 77.3,
+        "HOF Rank Key": 77304720.99986
+      }
+    },
+    {
+      "name": "Brutto, Italo",
+      "sourceRow": 20,
+      "values": {
+        "HOF Scoring Type": "Skater",
+        "HOF Eligible": 0,
+        "HOF Major Awards Won": 0,
+        "HOF Minor Awards Won": 0,
+        "HOF Award Points": 0,
+        "HOF Total Awards Won": 0,
+        "HOF Raw Composite Internal Score": 6.5,
+        "HOF Final Web Display Score": 0,
+        "HOF Rank Key": 0
+      }
+    },
+    {
+      "name": "Brutto, Lucas",
+      "sourceRow": 21,
+      "values": {
+        "HOF Scoring Type": "Skater",
+        "HOF Eligible": 1,
+        "HOF Major Awards Won": 0.0,
+        "HOF Minor Awards Won": 1.0,
+        "HOF Award Points": 4.0,
+        "HOF Total Awards Won": 1.0,
+        "HOF Raw Composite Internal Score": 16.0,
+        "HOF Final Web Display Score": 53.5,
+        "HOF Rank Key": 53501600.99984
+      }
+    },
+    {
+      "name": "Brutto, Matthew",
+      "sourceRow": 22,
+      "values": {
+        "HOF Scoring Type": "Skater",
+        "HOF Eligible": 0,
+        "HOF Major Awards Won": 0,
+        "HOF Minor Awards Won": 0,
+        "HOF Award Points": 0,
+        "HOF Total Awards Won": 0,
+        "HOF Raw Composite Internal Score": 4.7,
+        "HOF Final Web Display Score": 0,
+        "HOF Rank Key": 0
+      }
+    },
+    {
+      "name": "Buchanan, Andrew",
+      "sourceRow": 23,
+      "values": {
+        "HOF Scoring Type": "Skater",
+        "HOF Eligible": 1,
+        "HOF Major Awards Won": 4.0,
+        "HOF Minor Awards Won": 1.0,
+        "HOF Award Points": 42.0,
+        "HOF Total Awards Won": 5.0,
+        "HOF Raw Composite Internal Score": 14.4,
+        "HOF Final Web Display Score": 52.3,
+        "HOF Rank Key": 52301440.99982
+      }
+    },
+    {
+      "name": "Buchanan, Cameron",
+      "sourceRow": 24,
+      "values": {
+        "HOF Scoring Type": "Skater",
+        "HOF Eligible": 0,
+        "HOF Major Awards Won": 6.0,
+        "HOF Minor Awards Won": 2.0,
+        "HOF Award Points": 66.0,
+        "HOF Total Awards Won": 8.0,
+        "HOF Raw Composite Internal Score": 54.3,
+        "HOF Final Web Display Score": 0,
+        "HOF Rank Key": 0
+      }
+    },
+    {
+      "name": "Buzzelli, Daniel",
+      "sourceRow": 25,
+      "values": {
+        "HOF Scoring Type": "Skater",
+        "HOF Eligible": 1,
+        "HOF Major Awards Won": 0.0,
+        "HOF Minor Awards Won": 1.0,
+        "HOF Award Points": 4.0,
+        "HOF Total Awards Won": 1.0,
+        "HOF Raw Composite Internal Score": 15.2,
+        "HOF Final Web Display Score": 52.9,
+        "HOF Rank Key": 52901520.9998
+      }
+    },
+    {
+      "name": "Campbell, Ryan",
+      "sourceRow": 26,
+      "values": {
+        "HOF Scoring Type": "Skater",
+        "HOF Eligible": 0,
+        "HOF Major Awards Won": 0,
+        "HOF Minor Awards Won": 0,
+        "HOF Award Points": 0,
+        "HOF Total Awards Won": 0,
+        "HOF Raw Composite Internal Score": 11.9,
+        "HOF Final Web Display Score": 0,
+        "HOF Rank Key": 0
+      }
+    },
+    {
+      "name": "Carosi, Aaron",
+      "sourceRow": 27,
+      "values": {
+        "HOF Scoring Type": "Skater",
+        "HOF Eligible": 0,
+        "HOF Major Awards Won": 0,
+        "HOF Minor Awards Won": 0,
+        "HOF Award Points": 0,
+        "HOF Total Awards Won": 0,
+        "HOF Raw Composite Internal Score": 8.0,
+        "HOF Final Web Display Score": 0,
+        "HOF Rank Key": 0
+      }
+    },
+    {
+      "name": "Carosi, Justin",
+      "sourceRow": 28,
+      "values": {
+        "HOF Scoring Type": "Skater",
+        "HOF Eligible": 1,
+        "HOF Major Awards Won": 8.0,
+        "HOF Minor Awards Won": 5.0,
+        "HOF Award Points": 92.0,
+        "HOF Total Awards Won": 13.0,
+        "HOF Raw Composite Internal Score": 76.9,
+        "HOF Final Web Display Score": 100,
+        "HOF Rank Key": 100007690.99977
+      }
+    },
+    {
+      "name": "Carpino, Joe",
+      "sourceRow": 29,
+      "values": {
+        "HOF Scoring Type": "Skater",
+        "HOF Eligible": 0,
+        "HOF Major Awards Won": 0,
+        "HOF Minor Awards Won": 0,
+        "HOF Award Points": 0,
+        "HOF Total Awards Won": 0,
+        "HOF Raw Composite Internal Score": 7.6,
+        "HOF Final Web Display Score": 0,
+        "HOF Rank Key": 0
+      }
+    },
+    {
+      "name": "Cawkell, Will",
+      "sourceRow": 30,
+      "values": {
+        "HOF Scoring Type": "Goaltender",
+        "HOF Eligible": 0,
+        "HOF Major Awards Won": 0,
+        "HOF Minor Awards Won": 0,
+        "HOF Award Points": 0,
+        "HOF Total Awards Won": 0,
+        "HOF Raw Composite Internal Score": 28.3,
+        "HOF Final Web Display Score": 0,
+        "HOF Rank Key": 0
+      }
+    },
+    {
+      "name": "Cerrone, Carmine",
+      "sourceRow": 31,
+      "values": {
+        "HOF Scoring Type": "Skater",
+        "HOF Eligible": 0,
+        "HOF Major Awards Won": 0.0,
+        "HOF Minor Awards Won": 1.0,
+        "HOF Award Points": 5.0,
+        "HOF Total Awards Won": 1.0,
+        "HOF Raw Composite Internal Score": 14.1,
+        "HOF Final Web Display Score": 0,
+        "HOF Rank Key": 0
+      }
+    },
+    {
+      "name": "Cesario, Matt",
+      "sourceRow": 32,
+      "values": {
+        "HOF Scoring Type": "Goaltender",
+        "HOF Eligible": 0,
+        "HOF Major Awards Won": 0,
+        "HOF Minor Awards Won": 0,
+        "HOF Award Points": 0,
+        "HOF Total Awards Won": 0,
+        "HOF Raw Composite Internal Score": 6.0,
+        "HOF Final Web Display Score": 0,
+        "HOF Rank Key": 0
+      }
+    },
+    {
+      "name": "Cianni, Mike",
+      "sourceRow": 33,
+      "values": {
+        "HOF Scoring Type": "Skater",
+        "HOF Eligible": 0,
+        "HOF Major Awards Won": 0,
+        "HOF Minor Awards Won": 0,
+        "HOF Award Points": 0,
+        "HOF Total Awards Won": 0,
+        "HOF Raw Composite Internal Score": 8.3,
+        "HOF Final Web Display Score": 0,
+        "HOF Rank Key": 0
+      }
+    },
+    {
+      "name": "Cole, Tom",
+      "sourceRow": 34,
+      "values": {
+        "HOF Scoring Type": "Skater",
+        "HOF Eligible": 0,
+        "HOF Major Awards Won": 0,
+        "HOF Minor Awards Won": 0,
+        "HOF Award Points": 0,
+        "HOF Total Awards Won": 0,
+        "HOF Raw Composite Internal Score": 13.6,
+        "HOF Final Web Display Score": 0,
+        "HOF Rank Key": 0
+      }
+    },
+    {
+      "name": "Congiusti, Marco",
+      "sourceRow": 35,
+      "values": {
+        "HOF Scoring Type": "Skater",
+        "HOF Eligible": 1,
+        "HOF Major Awards Won": 0.0,
+        "HOF Minor Awards Won": 2.0,
+        "HOF Award Points": 8.0,
+        "HOF Total Awards Won": 2.0,
+        "HOF Raw Composite Internal Score": 27.5,
+        "HOF Final Web Display Score": 62.3,
+        "HOF Rank Key": 62302750.9997
+      }
+    },
+    {
+      "name": "Congiusti, Michael",
+      "sourceRow": 36,
+      "values": {
+        "HOF Scoring Type": "Skater",
+        "HOF Eligible": 1,
+        "HOF Major Awards Won": 0.0,
+        "HOF Minor Awards Won": 6.0,
+        "HOF Award Points": 24.0,
+        "HOF Total Awards Won": 6.0,
+        "HOF Raw Composite Internal Score": 18.6,
+        "HOF Final Web Display Score": 55.5,
+        "HOF Rank Key": 55501860.99969
+      }
+    },
+    {
+      "name": "Coote, Jesse",
+      "sourceRow": 37,
+      "values": {
+        "HOF Scoring Type": "Skater",
+        "HOF Eligible": 0,
+        "HOF Major Awards Won": 0,
+        "HOF Minor Awards Won": 0,
+        "HOF Award Points": 0,
+        "HOF Total Awards Won": 0,
+        "HOF Raw Composite Internal Score": 9.5,
+        "HOF Final Web Display Score": 0,
+        "HOF Rank Key": 0
+      }
+    },
+    {
+      "name": "Corasaniti, David",
+      "sourceRow": 38,
+      "values": {
+        "HOF Scoring Type": "Skater",
+        "HOF Eligible": 0,
+        "HOF Major Awards Won": 4.0,
+        "HOF Minor Awards Won": 1.0,
+        "HOF Award Points": 38.0,
+        "HOF Total Awards Won": 5.0,
+        "HOF Raw Composite Internal Score": 29.6,
+        "HOF Final Web Display Score": 0,
+        "HOF Rank Key": 0
+      }
+    },
+    {
+      "name": "Cristillo, Andre",
+      "sourceRow": 39,
+      "values": {
+        "HOF Scoring Type": "Skater",
+        "HOF Eligible": 0,
+        "HOF Major Awards Won": 0,
+        "HOF Minor Awards Won": 0,
+        "HOF Award Points": 0,
+        "HOF Total Awards Won": 0,
+        "HOF Raw Composite Internal Score": 8.8,
+        "HOF Final Web Display Score": 0,
+        "HOF Rank Key": 0
+      }
+    },
+    {
+      "name": "Cristillo, Andrew",
+      "sourceRow": 40,
+      "values": {
+        "HOF Scoring Type": "Skater",
+        "HOF Eligible": 0,
+        "HOF Major Awards Won": 1.0,
+        "HOF Minor Awards Won": 3.0,
+        "HOF Award Points": 25.0,
+        "HOF Total Awards Won": 4.0,
+        "HOF Raw Composite Internal Score": 12.6,
+        "HOF Final Web Display Score": 0,
+        "HOF Rank Key": 0
+      }
+    },
+    {
+      "name": "Cristillo, Lucas",
+      "sourceRow": 41,
+      "values": {
+        "HOF Scoring Type": "Skater",
+        "HOF Eligible": 0,
+        "HOF Major Awards Won": 0,
+        "HOF Minor Awards Won": 0,
+        "HOF Award Points": 0,
+        "HOF Total Awards Won": 0,
+        "HOF Raw Composite Internal Score": 4.4,
+        "HOF Final Web Display Score": 0,
+        "HOF Rank Key": 0
+      }
+    },
+    {
+      "name": "De Luca, Giancarlo",
+      "sourceRow": 42,
+      "values": {
+        "HOF Scoring Type": "Skater",
+        "HOF Eligible": 0,
+        "HOF Major Awards Won": 0,
+        "HOF Minor Awards Won": 0,
+        "HOF Award Points": 0,
+        "HOF Total Awards Won": 0,
+        "HOF Raw Composite Internal Score": 9.8,
+        "HOF Final Web Display Score": 0,
+        "HOF Rank Key": 0
+      }
+    },
+    {
+      "name": "Del Zotto, Enzo",
+      "sourceRow": 43,
+      "values": {
+        "HOF Scoring Type": "Skater",
+        "HOF Eligible": 0,
+        "HOF Major Awards Won": 0,
+        "HOF Minor Awards Won": 0,
+        "HOF Award Points": 0,
+        "HOF Total Awards Won": 0,
+        "HOF Raw Composite Internal Score": 8.3,
+        "HOF Final Web Display Score": 0,
+        "HOF Rank Key": 0
+      }
+    },
+    {
+      "name": "DeMarco, Stephen",
+      "sourceRow": 44,
+      "values": {
+        "HOF Scoring Type": "Skater",
+        "HOF Eligible": 0,
+        "HOF Major Awards Won": 0,
+        "HOF Minor Awards Won": 0,
+        "HOF Award Points": 0,
+        "HOF Total Awards Won": 0,
+        "HOF Raw Composite Internal Score": 17.1,
+        "HOF Final Web Display Score": 0,
+        "HOF Rank Key": 0
+      }
+    },
+    {
+      "name": "DiPardo, Anthony",
+      "sourceRow": 45,
+      "values": {
+        "HOF Scoring Type": "Skater",
+        "HOF Eligible": 0,
+        "HOF Major Awards Won": 0,
+        "HOF Minor Awards Won": 0,
+        "HOF Award Points": 0,
+        "HOF Total Awards Won": 0,
+        "HOF Raw Composite Internal Score": 9.6,
+        "HOF Final Web Display Score": 0,
+        "HOF Rank Key": 0
+      }
+    },
+    {
+      "name": "Duffy, Lorcan",
+      "sourceRow": 46,
+      "values": {
+        "HOF Scoring Type": "Skater",
+        "HOF Eligible": 1,
+        "HOF Major Awards Won": 1.0,
+        "HOF Minor Awards Won": 1.0,
+        "HOF Award Points": 14.0,
+        "HOF Total Awards Won": 2.0,
+        "HOF Raw Composite Internal Score": 19.6,
+        "HOF Final Web Display Score": 56.2,
+        "HOF Rank Key": 56201960.99959
+      }
+    },
+    {
+      "name": "Duffy, Ronan",
+      "sourceRow": 47,
+      "values": {
+        "HOF Scoring Type": "Skater",
+        "HOF Eligible": 0,
+        "HOF Major Awards Won": 0,
+        "HOF Minor Awards Won": 0,
+        "HOF Award Points": 0,
+        "HOF Total Awards Won": 0,
+        "HOF Raw Composite Internal Score": 4.9,
+        "HOF Final Web Display Score": 0,
+        "HOF Rank Key": 0
+      }
+    },
+    {
+      "name": "Dyer, Will",
+      "sourceRow": 48,
+      "values": {
+        "HOF Scoring Type": "Skater",
+        "HOF Eligible": 0,
+        "HOF Major Awards Won": 0,
+        "HOF Minor Awards Won": 0,
+        "HOF Award Points": 0,
+        "HOF Total Awards Won": 0,
+        "HOF Raw Composite Internal Score": 2.6,
+        "HOF Final Web Display Score": 0,
+        "HOF Rank Key": 0
+      }
+    },
+    {
+      "name": "Finlay, Ryan",
+      "sourceRow": 49,
+      "values": {
+        "HOF Scoring Type": "Skater",
+        "HOF Eligible": 1,
+        "HOF Major Awards Won": 0,
+        "HOF Minor Awards Won": 0,
+        "HOF Award Points": 0,
+        "HOF Total Awards Won": 0,
+        "HOF Raw Composite Internal Score": 20.4,
+        "HOF Final Web Display Score": 56.9,
+        "HOF Rank Key": 56902040.99956
+      }
+    },
+    {
+      "name": "Florio, Nick",
+      "sourceRow": 50,
+      "values": {
+        "HOF Scoring Type": "Skater",
+        "HOF Eligible": 0,
+        "HOF Major Awards Won": 0,
+        "HOF Minor Awards Won": 0,
+        "HOF Award Points": 0,
+        "HOF Total Awards Won": 0,
+        "HOF Raw Composite Internal Score": 15.1,
+        "HOF Final Web Display Score": 0,
+        "HOF Rank Key": 0
+      }
+    },
+    {
+      "name": "Fregonas, Eric",
+      "sourceRow": 51,
+      "values": {
+        "HOF Scoring Type": "Goaltender",
+        "HOF Eligible": 0,
+        "HOF Major Awards Won": 0,
+        "HOF Minor Awards Won": 0,
+        "HOF Award Points": 0,
+        "HOF Total Awards Won": 0,
+        "HOF Raw Composite Internal Score": 9.5,
+        "HOF Final Web Display Score": 0,
+        "HOF Rank Key": 0
+      }
+    },
+    {
+      "name": "Gabor, Jason",
+      "sourceRow": 52,
+      "values": {
+        "HOF Scoring Type": "Goaltender",
+        "HOF Eligible": 0,
+        "HOF Major Awards Won": 0,
+        "HOF Minor Awards Won": 0,
+        "HOF Award Points": 0,
+        "HOF Total Awards Won": 0,
+        "HOF Raw Composite Internal Score": 2.2,
+        "HOF Final Web Display Score": 0,
+        "HOF Rank Key": 0
+      }
+    },
+    {
+      "name": "Galdenzi, Robbie",
+      "sourceRow": 53,
+      "values": {
+        "HOF Scoring Type": "Goaltender",
+        "HOF Eligible": 0,
+        "HOF Major Awards Won": 0,
+        "HOF Minor Awards Won": 0,
+        "HOF Award Points": 0,
+        "HOF Total Awards Won": 0,
+        "HOF Raw Composite Internal Score": 17.2,
+        "HOF Final Web Display Score": 0,
+        "HOF Rank Key": 0
+      }
+    },
+    {
+      "name": "Goali\u00ea, R\u00e8nt",
+      "sourceRow": 54,
+      "values": {
+        "HOF Scoring Type": "Goaltender",
+        "HOF Eligible": 0,
+        "HOF Major Awards Won": 0,
+        "HOF Minor Awards Won": 0,
+        "HOF Award Points": 0,
+        "HOF Total Awards Won": 0,
+        "HOF Raw Composite Internal Score": 18.2,
+        "HOF Final Web Display Score": 0,
+        "HOF Rank Key": 0
+      }
+    },
+    {
+      "name": "Grande, Michael",
+      "sourceRow": 55,
+      "values": {
+        "HOF Scoring Type": "Skater",
+        "HOF Eligible": 0,
+        "HOF Major Awards Won": 0,
+        "HOF Minor Awards Won": 0,
+        "HOF Award Points": 0,
+        "HOF Total Awards Won": 0,
+        "HOF Raw Composite Internal Score": 10.2,
+        "HOF Final Web Display Score": 0,
+        "HOF Rank Key": 0
+      }
+    },
+    {
+      "name": "Granicolo, Christopher",
+      "sourceRow": 56,
+      "values": {
+        "HOF Scoring Type": "Skater",
+        "HOF Eligible": 0,
+        "HOF Major Awards Won": 0,
+        "HOF Minor Awards Won": 0,
+        "HOF Award Points": 0,
+        "HOF Total Awards Won": 0,
+        "HOF Raw Composite Internal Score": 2.6,
+        "HOF Final Web Display Score": 0,
+        "HOF Rank Key": 0
+      }
+    },
+    {
+      "name": "Greenberg, Matthew",
+      "sourceRow": 57,
+      "values": {
+        "HOF Scoring Type": "Goaltender",
+        "HOF Eligible": 0,
+        "HOF Major Awards Won": 0,
+        "HOF Minor Awards Won": 0,
+        "HOF Award Points": 0,
+        "HOF Total Awards Won": 0,
+        "HOF Raw Composite Internal Score": 10.9,
+        "HOF Final Web Display Score": 0,
+        "HOF Rank Key": 0
+      }
+    },
+    {
+      "name": "Guerra, Anthony",
+      "sourceRow": 58,
+      "values": {
+        "HOF Scoring Type": "Skater",
+        "HOF Eligible": 1,
+        "HOF Major Awards Won": 0.0,
+        "HOF Minor Awards Won": 1.0,
+        "HOF Award Points": 4.0,
+        "HOF Total Awards Won": 1.0,
+        "HOF Raw Composite Internal Score": 11.4,
+        "HOF Final Web Display Score": 50.0,
+        "HOF Rank Key": 50001140.99947
+      }
+    },
+    {
+      "name": "Helmer, Marcus",
+      "sourceRow": 59,
+      "values": {
+        "HOF Scoring Type": "Skater",
+        "HOF Eligible": 0,
+        "HOF Major Awards Won": 0,
+        "HOF Minor Awards Won": 0,
+        "HOF Award Points": 0,
+        "HOF Total Awards Won": 0,
+        "HOF Raw Composite Internal Score": 4.9,
+        "HOF Final Web Display Score": 0,
+        "HOF Rank Key": 0
+      }
+    },
+    {
+      "name": "Hunt, Quenton",
+      "sourceRow": 60,
+      "values": {
+        "HOF Scoring Type": "Skater",
+        "HOF Eligible": 0,
+        "HOF Major Awards Won": 0,
+        "HOF Minor Awards Won": 0,
+        "HOF Award Points": 0,
+        "HOF Total Awards Won": 0,
+        "HOF Raw Composite Internal Score": 16.3,
+        "HOF Final Web Display Score": 0,
+        "HOF Rank Key": 0
+      }
+    },
+    {
+      "name": "Ing, Aj",
+      "sourceRow": 61,
+      "values": {
+        "HOF Scoring Type": "Goaltender",
+        "HOF Eligible": 0,
+        "HOF Major Awards Won": 0,
+        "HOF Minor Awards Won": 0,
+        "HOF Award Points": 0,
+        "HOF Total Awards Won": 0,
+        "HOF Raw Composite Internal Score": 8.2,
+        "HOF Final Web Display Score": 0,
+        "HOF Rank Key": 0
+      }
+    },
+    {
+      "name": "Keane, Stephen",
+      "sourceRow": 62,
+      "values": {
+        "HOF Scoring Type": "Skater",
+        "HOF Eligible": 0,
+        "HOF Major Awards Won": 0.0,
+        "HOF Minor Awards Won": 1.0,
+        "HOF Award Points": 5.0,
+        "HOF Total Awards Won": 1.0,
+        "HOF Raw Composite Internal Score": 20.2,
+        "HOF Final Web Display Score": 0,
+        "HOF Rank Key": 0
+      }
+    },
+    {
+      "name": "Kercz, Julian",
+      "sourceRow": 63,
+      "values": {
+        "HOF Scoring Type": "Skater",
+        "HOF Eligible": 1,
+        "HOF Major Awards Won": 0,
+        "HOF Minor Awards Won": 0,
+        "HOF Award Points": 0,
+        "HOF Total Awards Won": 0,
+        "HOF Raw Composite Internal Score": 18.4,
+        "HOF Final Web Display Score": 55.3,
+        "HOF Rank Key": 55301840.99942
+      }
+    },
+    {
+      "name": "Kercz, Zach",
+      "sourceRow": 64,
+      "values": {
+        "HOF Scoring Type": "Skater",
+        "HOF Eligible": 0,
+        "HOF Major Awards Won": 0,
+        "HOF Minor Awards Won": 0,
+        "HOF Award Points": 0,
+        "HOF Total Awards Won": 0,
+        "HOF Raw Composite Internal Score": 17.1,
+        "HOF Final Web Display Score": 0,
+        "HOF Rank Key": 0
+      }
+    },
+    {
+      "name": "Kober, Adam",
+      "sourceRow": 65,
+      "values": {
+        "HOF Scoring Type": "Skater",
+        "HOF Eligible": 0,
+        "HOF Major Awards Won": 0.0,
+        "HOF Minor Awards Won": 1.0,
+        "HOF Award Points": 4.0,
+        "HOF Total Awards Won": 1.0,
+        "HOF Raw Composite Internal Score": 11.9,
+        "HOF Final Web Display Score": 0,
+        "HOF Rank Key": 0
+      }
+    },
+    {
+      "name": "Laliberte, Eric",
+      "sourceRow": 66,
+      "values": {
+        "HOF Scoring Type": "Skater",
+        "HOF Eligible": 0,
+        "HOF Major Awards Won": 0,
+        "HOF Minor Awards Won": 0,
+        "HOF Award Points": 0,
+        "HOF Total Awards Won": 0,
+        "HOF Raw Composite Internal Score": 2.6,
+        "HOF Final Web Display Score": 0,
+        "HOF Rank Key": 0
+      }
+    },
+    {
+      "name": "Lamanna , Marco",
+      "sourceRow": 67,
+      "values": {
+        "HOF Scoring Type": "Skater",
+        "HOF Eligible": 0,
+        "HOF Major Awards Won": 0,
+        "HOF Minor Awards Won": 0,
+        "HOF Award Points": 0,
+        "HOF Total Awards Won": 0,
+        "HOF Raw Composite Internal Score": 7.1,
+        "HOF Final Web Display Score": 0,
+        "HOF Rank Key": 0
+      }
+    },
+    {
+      "name": "Laramy, Andrew",
+      "sourceRow": 68,
+      "values": {
+        "HOF Scoring Type": "Skater",
+        "HOF Eligible": 0,
+        "HOF Major Awards Won": 0,
+        "HOF Minor Awards Won": 0,
+        "HOF Award Points": 0,
+        "HOF Total Awards Won": 0,
+        "HOF Raw Composite Internal Score": 12.3,
+        "HOF Final Web Display Score": 0,
+        "HOF Rank Key": 0
+      }
+    },
+    {
+      "name": "Leddy, Luke",
+      "sourceRow": 69,
+      "values": {
+        "HOF Scoring Type": "Skater",
+        "HOF Eligible": 0,
+        "HOF Major Awards Won": 0.0,
+        "HOF Minor Awards Won": 1.0,
+        "HOF Award Points": 5.0,
+        "HOF Total Awards Won": 1.0,
+        "HOF Raw Composite Internal Score": 8.7,
+        "HOF Final Web Display Score": 0,
+        "HOF Rank Key": 0
+      }
+    },
+    {
+      "name": "Kong, Henry",
+      "sourceRow": 70,
+      "values": {
+        "HOF Scoring Type": "Skater",
+        "HOF Eligible": 0,
+        "HOF Major Awards Won": 0,
+        "HOF Minor Awards Won": 0,
+        "HOF Award Points": 0,
+        "HOF Total Awards Won": 0,
+        "HOF Raw Composite Internal Score": 8.0,
+        "HOF Final Web Display Score": 0,
+        "HOF Rank Key": 0
+      }
+    },
+    {
+      "name": "Logue, Michael",
+      "sourceRow": 71,
+      "values": {
+        "HOF Scoring Type": "Skater",
+        "HOF Eligible": 0,
+        "HOF Major Awards Won": 0,
+        "HOF Minor Awards Won": 0,
+        "HOF Award Points": 0,
+        "HOF Total Awards Won": 0,
+        "HOF Raw Composite Internal Score": 4.4,
+        "HOF Final Web Display Score": 0,
+        "HOF Rank Key": 0
+      }
+    },
+    {
+      "name": "Logue, Ryan",
+      "sourceRow": 72,
+      "values": {
+        "HOF Scoring Type": "Skater",
+        "HOF Eligible": 1,
+        "HOF Major Awards Won": 1.0,
+        "HOF Minor Awards Won": 0.0,
+        "HOF Award Points": 10.0,
+        "HOF Total Awards Won": 1.0,
+        "HOF Raw Composite Internal Score": 64.6,
+        "HOF Final Web Display Score": 90.5,
+        "HOF Rank Key": 90506460.99933
+      }
+    },
+    {
+      "name": "Leong, Dev",
+      "sourceRow": 73,
+      "values": {
+        "HOF Scoring Type": "Goaltender",
+        "HOF Eligible": 0,
+        "HOF Major Awards Won": 0,
+        "HOF Minor Awards Won": 0,
+        "HOF Award Points": 0,
+        "HOF Total Awards Won": 0,
+        "HOF Raw Composite Internal Score": 10.6,
+        "HOF Final Web Display Score": 0,
+        "HOF Rank Key": 0
+      }
+    },
+    {
+      "name": "Martella, Dante",
+      "sourceRow": 74,
+      "values": {
+        "HOF Scoring Type": "Skater",
+        "HOF Eligible": 0,
+        "HOF Major Awards Won": 0,
+        "HOF Minor Awards Won": 0,
+        "HOF Award Points": 0,
+        "HOF Total Awards Won": 0,
+        "HOF Raw Composite Internal Score": 4.3,
+        "HOF Final Web Display Score": 0,
+        "HOF Rank Key": 0
+      }
+    },
+    {
+      "name": "Logue, Stephen",
+      "sourceRow": 75,
+      "values": {
+        "HOF Scoring Type": "Goaltender",
+        "HOF Eligible": 0,
+        "HOF Major Awards Won": 3.0,
+        "HOF Minor Awards Won": 0.0,
+        "HOF Award Points": 32.0,
+        "HOF Total Awards Won": 3.0,
+        "HOF Raw Composite Internal Score": 70.2,
+        "HOF Final Web Display Score": 0,
+        "HOF Rank Key": 0
+      }
+    },
+    {
+      "name": "McGolrick, Michael",
+      "sourceRow": 76,
+      "values": {
+        "HOF Scoring Type": "Skater",
+        "HOF Eligible": 0,
+        "HOF Major Awards Won": 0,
+        "HOF Minor Awards Won": 0,
+        "HOF Award Points": 0,
+        "HOF Total Awards Won": 0,
+        "HOF Raw Composite Internal Score": 8.0,
+        "HOF Final Web Display Score": 0,
+        "HOF Rank Key": 0
+      }
+    },
+    {
+      "name": "Micheli, Jeff",
+      "sourceRow": 77,
+      "values": {
+        "HOF Scoring Type": "Skater",
+        "HOF Eligible": 0,
+        "HOF Major Awards Won": 0,
+        "HOF Minor Awards Won": 0,
+        "HOF Award Points": 0,
+        "HOF Total Awards Won": 0,
+        "HOF Raw Composite Internal Score": 10.7,
+        "HOF Final Web Display Score": 0,
+        "HOF Rank Key": 0
+      }
+    },
+    {
+      "name": "Naman, Mearon",
+      "sourceRow": 78,
+      "values": {
+        "HOF Scoring Type": "Skater",
+        "HOF Eligible": 0,
+        "HOF Major Awards Won": 0,
+        "HOF Minor Awards Won": 0,
+        "HOF Award Points": 0,
+        "HOF Total Awards Won": 0,
+        "HOF Raw Composite Internal Score": 8.0,
+        "HOF Final Web Display Score": 0,
+        "HOF Rank Key": 0
+      }
+    },
+    {
+      "name": "Nearing, Michael",
+      "sourceRow": 79,
+      "values": {
+        "HOF Scoring Type": "Skater",
+        "HOF Eligible": 0,
+        "HOF Major Awards Won": 0,
+        "HOF Minor Awards Won": 0,
+        "HOF Award Points": 0,
+        "HOF Total Awards Won": 0,
+        "HOF Raw Composite Internal Score": 2.6,
+        "HOF Final Web Display Score": 0,
+        "HOF Rank Key": 0
+      }
+    },
+    {
+      "name": "Noyek, Steve",
+      "sourceRow": 80,
+      "values": {
+        "HOF Scoring Type": "Goaltender",
+        "HOF Eligible": 0,
+        "HOF Major Awards Won": 0,
+        "HOF Minor Awards Won": 0,
+        "HOF Award Points": 0,
+        "HOF Total Awards Won": 0,
+        "HOF Raw Composite Internal Score": 11.0,
+        "HOF Final Web Display Score": 0,
+        "HOF Rank Key": 0
+      }
+    },
+    {
+      "name": "Nunno, Adrian",
+      "sourceRow": 81,
+      "values": {
+        "HOF Scoring Type": "Skater",
+        "HOF Eligible": 0,
+        "HOF Major Awards Won": 0,
+        "HOF Minor Awards Won": 0,
+        "HOF Award Points": 0,
+        "HOF Total Awards Won": 0,
+        "HOF Raw Composite Internal Score": 8.3,
+        "HOF Final Web Display Score": 0,
+        "HOF Rank Key": 0
+      }
+    },
+    {
+      "name": "Nunno, Brandon",
+      "sourceRow": 82,
+      "values": {
+        "HOF Scoring Type": "Skater",
+        "HOF Eligible": 0,
+        "HOF Major Awards Won": 0,
+        "HOF Minor Awards Won": 0,
+        "HOF Award Points": 0,
+        "HOF Total Awards Won": 0,
+        "HOF Raw Composite Internal Score": 15.9,
+        "HOF Final Web Display Score": 0,
+        "HOF Rank Key": 0
+      }
+    },
+    {
+      "name": "Nunno, Chris",
+      "sourceRow": 83,
+      "values": {
+        "HOF Scoring Type": "Skater",
+        "HOF Eligible": 0,
+        "HOF Major Awards Won": 0,
+        "HOF Minor Awards Won": 0,
+        "HOF Award Points": 0,
+        "HOF Total Awards Won": 0,
+        "HOF Raw Composite Internal Score": 12.8,
+        "HOF Final Web Display Score": 0,
+        "HOF Rank Key": 0
+      }
+    },
+    {
+      "name": "O'Krafka, Xav",
+      "sourceRow": 84,
+      "values": {
+        "HOF Scoring Type": "Skater",
+        "HOF Eligible": 0,
+        "HOF Major Awards Won": 0.0,
+        "HOF Minor Awards Won": 1.0,
+        "HOF Award Points": 5.0,
+        "HOF Total Awards Won": 1.0,
+        "HOF Raw Composite Internal Score": 21.1,
+        "HOF Final Web Display Score": 0,
+        "HOF Rank Key": 0
+      }
+    },
+    {
+      "name": "Paglia, Emilio",
+      "sourceRow": 85,
+      "values": {
+        "HOF Scoring Type": "Skater",
+        "HOF Eligible": 0,
+        "HOF Major Awards Won": 0,
+        "HOF Minor Awards Won": 0,
+        "HOF Award Points": 0,
+        "HOF Total Awards Won": 0,
+        "HOF Raw Composite Internal Score": 4.4,
+        "HOF Final Web Display Score": 0,
+        "HOF Rank Key": 0
+      }
+    },
+    {
+      "name": "Mazzei, Stefano",
+      "sourceRow": 86,
+      "values": {
+        "HOF Scoring Type": "Skater",
+        "HOF Eligible": 1,
+        "HOF Major Awards Won": 0.0,
+        "HOF Minor Awards Won": 1.0,
+        "HOF Award Points": 4.0,
+        "HOF Total Awards Won": 1.0,
+        "HOF Raw Composite Internal Score": 14.8,
+        "HOF Final Web Display Score": 52.6,
+        "HOF Rank Key": 52601480.99919
+      }
+    },
+    {
+      "name": "Pagnotta, Alex",
+      "sourceRow": 87,
+      "values": {
+        "HOF Scoring Type": "Skater",
+        "HOF Eligible": 1,
+        "HOF Major Awards Won": 10.0,
+        "HOF Minor Awards Won": 1.0,
+        "HOF Award Points": 98.0,
+        "HOF Total Awards Won": 11.0,
+        "HOF Raw Composite Internal Score": 45.0,
+        "HOF Final Web Display Score": 75.6,
+        "HOF Rank Key": 75604500.99918
+      }
+    },
+    {
+      "name": "Partland, Anthony",
+      "sourceRow": 88,
+      "values": {
+        "HOF Scoring Type": "Goaltender",
+        "HOF Eligible": 0,
+        "HOF Major Awards Won": 0,
+        "HOF Minor Awards Won": 0,
+        "HOF Award Points": 0,
+        "HOF Total Awards Won": 0,
+        "HOF Raw Composite Internal Score": 14.2,
+        "HOF Final Web Display Score": 0,
+        "HOF Rank Key": 0
+      }
+    },
+    {
+      "name": "Pastore, Mark",
+      "sourceRow": 89,
+      "values": {
+        "HOF Scoring Type": "Skater",
+        "HOF Eligible": 0,
+        "HOF Major Awards Won": 16.0,
+        "HOF Minor Awards Won": 0.0,
+        "HOF Award Points": 131.0,
+        "HOF Total Awards Won": 16.0,
+        "HOF Raw Composite Internal Score": 56.9,
+        "HOF Final Web Display Score": 0,
+        "HOF Rank Key": 0
+      }
+    },
+    {
+      "name": "Payne, Dale",
+      "sourceRow": 90,
+      "values": {
+        "HOF Scoring Type": "Skater",
+        "HOF Eligible": 0,
+        "HOF Major Awards Won": 0,
+        "HOF Minor Awards Won": 0,
+        "HOF Award Points": 0,
+        "HOF Total Awards Won": 0,
+        "HOF Raw Composite Internal Score": 2.6,
+        "HOF Final Web Display Score": 0,
+        "HOF Rank Key": 0
+      }
+    },
+    {
+      "name": "Paolucci, Anthony",
+      "sourceRow": 91,
+      "values": {
+        "HOF Scoring Type": "Skater",
+        "HOF Eligible": 1,
+        "HOF Major Awards Won": 0.0,
+        "HOF Minor Awards Won": 4.0,
+        "HOF Award Points": 17.0,
+        "HOF Total Awards Won": 4.0,
+        "HOF Raw Composite Internal Score": 17.8,
+        "HOF Final Web Display Score": 54.9,
+        "HOF Rank Key": 54901780.99914
+      }
+    },
+    {
+      "name": "Poleto, Chris",
+      "sourceRow": 92,
+      "values": {
+        "HOF Scoring Type": "Skater",
+        "HOF Eligible": 0,
+        "HOF Major Awards Won": 0,
+        "HOF Minor Awards Won": 0,
+        "HOF Award Points": 0,
+        "HOF Total Awards Won": 0,
+        "HOF Raw Composite Internal Score": 14.1,
+        "HOF Final Web Display Score": 0,
+        "HOF Rank Key": 0
+      }
+    },
+    {
+      "name": "Pozzebon, Andrew",
+      "sourceRow": 93,
+      "values": {
+        "HOF Scoring Type": "Goaltender",
+        "HOF Eligible": 0,
+        "HOF Major Awards Won": 0,
+        "HOF Minor Awards Won": 0,
+        "HOF Award Points": 0,
+        "HOF Total Awards Won": 0,
+        "HOF Raw Composite Internal Score": 16.7,
+        "HOF Final Web Display Score": 0,
+        "HOF Rank Key": 0
+      }
+    },
+    {
+      "name": "Pearsoll, Keith",
+      "sourceRow": 94,
+      "values": {
+        "HOF Scoring Type": "Skater",
+        "HOF Eligible": 1,
+        "HOF Major Awards Won": 0.0,
+        "HOF Minor Awards Won": 7.0,
+        "HOF Award Points": 28.0,
+        "HOF Total Awards Won": 7.0,
+        "HOF Raw Composite Internal Score": 55.0,
+        "HOF Final Web Display Score": 83.2,
+        "HOF Rank Key": 83205500.99911
+      }
+    },
+    {
+      "name": "Povegliano, Adam",
+      "sourceRow": 95,
+      "values": {
+        "HOF Scoring Type": "Skater",
+        "HOF Eligible": 0,
+        "HOF Major Awards Won": 0,
+        "HOF Minor Awards Won": 0,
+        "HOF Award Points": 0,
+        "HOF Total Awards Won": 0,
+        "HOF Raw Composite Internal Score": 4.3,
+        "HOF Final Web Display Score": 0,
+        "HOF Rank Key": 0
+      }
+    },
+    {
+      "name": "Quintos, Brandon",
+      "sourceRow": 96,
+      "values": {
+        "HOF Scoring Type": "Skater",
+        "HOF Eligible": 0,
+        "HOF Major Awards Won": 0,
+        "HOF Minor Awards Won": 0,
+        "HOF Award Points": 0,
+        "HOF Total Awards Won": 0,
+        "HOF Raw Composite Internal Score": 3.4,
+        "HOF Final Web Display Score": 0,
+        "HOF Rank Key": 0
+      }
+    },
+    {
+      "name": "Provenzano, Mario",
+      "sourceRow": 97,
+      "values": {
+        "HOF Scoring Type": "Skater",
+        "HOF Eligible": 1,
+        "HOF Major Awards Won": 0.0,
+        "HOF Minor Awards Won": 2.0,
+        "HOF Award Points": 8.0,
+        "HOF Total Awards Won": 2.0,
+        "HOF Raw Composite Internal Score": 34.4,
+        "HOF Final Web Display Score": 67.5,
+        "HOF Rank Key": 67503440.99908
+      }
+    },
+    {
+      "name": "Provenzano, Michael",
+      "sourceRow": 98,
+      "values": {
+        "HOF Scoring Type": "Skater",
+        "HOF Eligible": 0,
+        "HOF Major Awards Won": 1.0,
+        "HOF Minor Awards Won": 1.0,
+        "HOF Award Points": 11.0,
+        "HOF Total Awards Won": 2.0,
+        "HOF Raw Composite Internal Score": 20.3,
+        "HOF Final Web Display Score": 0,
+        "HOF Rank Key": 0
+      }
+    },
+    {
+      "name": "Ruscitti, Robert",
+      "sourceRow": 99,
+      "values": {
+        "HOF Scoring Type": "Skater",
+        "HOF Eligible": 0,
+        "HOF Major Awards Won": 0,
+        "HOF Minor Awards Won": 0,
+        "HOF Award Points": 0,
+        "HOF Total Awards Won": 0,
+        "HOF Raw Composite Internal Score": 5.9,
+        "HOF Final Web Display Score": 0,
+        "HOF Rank Key": 0
+      }
+    },
+    {
+      "name": "Sadler, Justin",
+      "sourceRow": 100,
+      "values": {
+        "HOF Scoring Type": "Goaltender",
+        "HOF Eligible": 0,
+        "HOF Major Awards Won": 0,
+        "HOF Minor Awards Won": 0,
+        "HOF Award Points": 0,
+        "HOF Total Awards Won": 0,
+        "HOF Raw Composite Internal Score": 18.9,
+        "HOF Final Web Display Score": 0,
+        "HOF Rank Key": 0
+      }
+    },
+    {
+      "name": "Rajasooriar, Krishnan",
+      "sourceRow": 101,
+      "values": {
+        "HOF Scoring Type": "Skater",
+        "HOF Eligible": 1,
+        "HOF Major Awards Won": 0.0,
+        "HOF Minor Awards Won": 1.0,
+        "HOF Award Points": 4.0,
+        "HOF Total Awards Won": 1.0,
+        "HOF Raw Composite Internal Score": 13.5,
+        "HOF Final Web Display Score": 51.6,
+        "HOF Rank Key": 51601350.99904
+      }
+    },
+    {
+      "name": "Salnek, Will",
+      "sourceRow": 102,
+      "values": {
+        "HOF Scoring Type": "Goaltender",
+        "HOF Eligible": 0,
+        "HOF Major Awards Won": 0,
+        "HOF Minor Awards Won": 0,
+        "HOF Award Points": 0,
+        "HOF Total Awards Won": 0,
+        "HOF Raw Composite Internal Score": 2.4,
+        "HOF Final Web Display Score": 0,
+        "HOF Rank Key": 0
+      }
+    },
+    {
+      "name": "Scott, Simon",
+      "sourceRow": 103,
+      "values": {
+        "HOF Scoring Type": "Skater",
+        "HOF Eligible": 0,
+        "HOF Major Awards Won": 0,
+        "HOF Minor Awards Won": 0,
+        "HOF Award Points": 0,
+        "HOF Total Awards Won": 0,
+        "HOF Raw Composite Internal Score": 2.6,
+        "HOF Final Web Display Score": 0,
+        "HOF Rank Key": 0
+      }
+    },
+    {
+      "name": "Sherritt, Ben",
+      "sourceRow": 104,
+      "values": {
+        "HOF Scoring Type": "Skater",
+        "HOF Eligible": 0,
+        "HOF Major Awards Won": 18.0,
+        "HOF Minor Awards Won": 1.0,
+        "HOF Award Points": 152.0,
+        "HOF Total Awards Won": 19.0,
+        "HOF Raw Composite Internal Score": 62.9,
+        "HOF Final Web Display Score": 0,
+        "HOF Rank Key": 0
+      }
+    },
+    {
+      "name": "Spagnuolo, Luc",
+      "sourceRow": 105,
+      "values": {
+        "HOF Scoring Type": "Skater",
+        "HOF Eligible": 0,
+        "HOF Major Awards Won": 0,
+        "HOF Minor Awards Won": 0,
+        "HOF Award Points": 0,
+        "HOF Total Awards Won": 0,
+        "HOF Raw Composite Internal Score": 12.8,
+        "HOF Final Web Display Score": 0,
+        "HOF Rank Key": 0
+      }
+    },
+    {
+      "name": "Rosenberg, Jamie",
+      "sourceRow": 106,
+      "values": {
+        "HOF Scoring Type": "Skater",
+        "HOF Eligible": 0,
+        "HOF Major Awards Won": 0,
+        "HOF Minor Awards Won": 0,
+        "HOF Award Points": 0,
+        "HOF Total Awards Won": 0,
+        "HOF Raw Composite Internal Score": 5.1,
+        "HOF Final Web Display Score": 0,
+        "HOF Rank Key": 0
+      }
+    },
+    {
+      "name": "Weatherhead, Tristan",
+      "sourceRow": 107,
+      "values": {
+        "HOF Scoring Type": "Skater",
+        "HOF Eligible": 0,
+        "HOF Major Awards Won": 0,
+        "HOF Minor Awards Won": 0,
+        "HOF Award Points": 0,
+        "HOF Total Awards Won": 0,
+        "HOF Raw Composite Internal Score": 8.1,
+        "HOF Final Web Display Score": 0,
+        "HOF Rank Key": 0
+      }
+    },
+    {
+      "name": "Wheeler, Kevin",
+      "sourceRow": 108,
+      "values": {
+        "HOF Scoring Type": "Skater",
+        "HOF Eligible": 0,
+        "HOF Major Awards Won": 0,
+        "HOF Minor Awards Won": 0,
+        "HOF Award Points": 0,
+        "HOF Total Awards Won": 0,
+        "HOF Raw Composite Internal Score": 4.3,
+        "HOF Final Web Display Score": 0,
+        "HOF Rank Key": 0
+      }
+    },
+    {
+      "name": "Wright, Justin",
+      "sourceRow": 109,
+      "values": {
+        "HOF Scoring Type": "Skater",
+        "HOF Eligible": 0,
+        "HOF Major Awards Won": 0,
+        "HOF Minor Awards Won": 0,
+        "HOF Award Points": 0,
+        "HOF Total Awards Won": 0,
+        "HOF Raw Composite Internal Score": 6.6,
+        "HOF Final Web Display Score": 0,
+        "HOF Rank Key": 0
+      }
+    },
+    {
+      "name": "Saindon, Stephane",
+      "sourceRow": 110,
+      "values": {
+        "HOF Scoring Type": "Skater",
+        "HOF Eligible": 1,
+        "HOF Major Awards Won": 8.0,
+        "HOF Minor Awards Won": 1.0,
+        "HOF Award Points": 67.0,
+        "HOF Total Awards Won": 9.0,
+        "HOF Raw Composite Internal Score": 34.9,
+        "HOF Final Web Display Score": 67.9,
+        "HOF Rank Key": 67903490.99895
+      }
+    },
+    {
+      "name": "Svec, Matt",
+      "sourceRow": 111,
+      "values": {
+        "HOF Scoring Type": "Goaltender",
+        "HOF Eligible": 0,
+        "HOF Major Awards Won": 0,
+        "HOF Minor Awards Won": 0,
+        "HOF Award Points": 0,
+        "HOF Total Awards Won": 0,
+        "HOF Raw Composite Internal Score": 24.8,
+        "HOF Final Web Display Score": 0,
+        "HOF Rank Key": 0
+      }
+    },
+    {
+      "name": "Rajkumar, Sanjay",
+      "sourceRow": 112,
+      "values": {
+        "HOF Scoring Type": "Skater",
+        "HOF Eligible": 0,
+        "HOF Major Awards Won": 0,
+        "HOF Minor Awards Won": 0,
+        "HOF Award Points": 0,
+        "HOF Total Awards Won": 0,
+        "HOF Raw Composite Internal Score": 4.5,
+        "HOF Final Web Display Score": 0,
+        "HOF Rank Key": 0
+      }
+    },
+    {
+      "name": "Triumbari, Francesco",
+      "sourceRow": 113,
+      "values": {
+        "HOF Scoring Type": "Skater",
+        "HOF Eligible": 0,
+        "HOF Major Awards Won": 0,
+        "HOF Minor Awards Won": 0,
+        "HOF Award Points": 0,
+        "HOF Total Awards Won": 0,
+        "HOF Raw Composite Internal Score": 3.8,
+        "HOF Final Web Display Score": 0,
+        "HOF Rank Key": 0
+      }
+    },
+    {
+      "name": "Unknown, Johnny",
+      "sourceRow": 114,
+      "values": {
+        "HOF Scoring Type": "Skater",
+        "HOF Eligible": 0,
+        "HOF Major Awards Won": 0,
+        "HOF Minor Awards Won": 0,
+        "HOF Award Points": 0,
+        "HOF Total Awards Won": 0,
+        "HOF Raw Composite Internal Score": 4.3,
+        "HOF Final Web Display Score": 0,
+        "HOF Rank Key": 0
+      }
+    },
+    {
+      "name": "Pavaday, Damian",
+      "sourceRow": 115,
+      "values": {
+        "HOF Scoring Type": "Skater",
+        "HOF Eligible": 0,
+        "HOF Major Awards Won": 0,
+        "HOF Minor Awards Won": 0,
+        "HOF Award Points": 0,
+        "HOF Total Awards Won": 0,
+        "HOF Raw Composite Internal Score": 9.2,
+        "HOF Final Web Display Score": 0,
+        "HOF Rank Key": 0
+      }
+    },
+    {
+      "name": "Carlyle, Adam",
+      "sourceRow": 116,
+      "values": {
+        "HOF Scoring Type": "Goaltender",
+        "HOF Eligible": 0,
+        "HOF Major Awards Won": 0,
+        "HOF Minor Awards Won": 0,
+        "HOF Award Points": 0,
+        "HOF Total Awards Won": 0,
+        "HOF Raw Composite Internal Score": 3.5,
+        "HOF Final Web Display Score": 0,
+        "HOF Rank Key": 0
+      }
+    }
+  ],
+  "eligibleOrder": [
+    "Carosi, Justin",
+    "Logue, Ryan",
+    "Pearsoll, Keith",
+    "Brutto, Adam",
+    "Pagnotta, Alex",
+    "Ardizzi, Stefano",
+    "Saindon, Stephane",
+    "Provenzano, Mario",
+    "Brennan, Dylan",
+    "Aidemirski, Damian",
+    "Congiusti, Marco",
+    "Arruda, Mark",
+    "Finlay, Ryan",
+    "Duffy, Lorcan",
+    "Congiusti, Michael",
+    "Kercz, Julian",
+    "Paolucci, Anthony",
+    "Brutto, Lucas",
+    "Buzzelli, Daniel",
+    "Baghel, Neil",
+    "Mazzei, Stefano",
+    "Buchanan, Andrew",
+    "Rajasooriar, Krishnan",
+    "Guerra, Anthony"
+  ],
+  "scope": "Eligibility, scoring role, award totals, raw composite, final display and rank key only. Career component inputs remain saved native observations.",
+  "careerComponentsRebuilt": false,
+  "currentHallOfFameVerified": false,
+  "publicationAuthorized": false
+}
