@@ -17,6 +17,8 @@ on:
       - 'tests/test_next_game_hto_admission.py'
       - 'scripts/audit_hockeyos_plan03_release_health.py'
       - 'tests/test_hockeyos_plan03_release_health.py'
+      - 'scripts/plan03_review_workbook_period_reconciliation.py'
+      - 'tests/test_plan03_workbook_shadow_periods.py'
       - 'widgets/watch-evidence.js'
       - 'widgets/watch-v2.html'
       - 'widgets/home-panels.html'
@@ -56,6 +58,8 @@ jobs:
         run: node --test tests/test_watch_historical_evidence.js
       - name: Check Plan 03 task-success versus publication-hold contract (offline)
         run: python -m unittest discover -s tests -p test_hockeyos_plan03_release_health.py
+      - name: Validate HTO period-to-workbook shadow review gate (no Excel writes)
+        run: python -m unittest discover -s tests -p test_plan03_workbook_shadow_periods.py
       - name: Read public HTO results and published records
         run: python scripts/refresh_record_sources.py
       - name: Recalculate complete-ledger record candidates
