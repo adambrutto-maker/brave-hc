@@ -32,3 +32,17 @@ The October 25 row is the next distinct, dated regular-season row after the four
 ## Current production boundary
 
 The pinned collector activated 2026-10-21 is a **four-completed-game** bounded runtime; it purposely fails closed on a newly completed/unmapped fifth game. This preflight reduces next-game mapping risk but does not remove that gate. Keep Game 5 admission under Plan 03 / Issue #30 with Engineering and independent QA.
+
+## Machine-readable pre-game source join — independently rechecked 2026-10-21
+
+`scripts/audit_next_game_hto_admission.py` checks the saved public HTO Countdown fixture, the separately synchronized SVHL fixture, the exact archived private Master Schedule row and the verified four-game HTO source. It performs **no network I/O, source mutation, workbook write or collector update**. The source association is admitted only as a `PRE_GAME_SCHEDULE_ASSOCIATION_VERIFIED_NOT_ADMITTED` review finding; actual new HTO boxscore and participant evidence remain absent.
+
+Validated source set:
+- HTO fixture: game `3375682`, Big Bastones, October 25 at 6:15 p.m. EDT, official **preview** URL.
+- SVHL synchronization: `assignmentKey=hto:3375682`, `htoSyncStatus=MATCH`, same date, opponent, home status and 18:15 time.
+- Archived private `AllTimeSchedule` source extract: a unique `W2026/27` regular-season dated October 25 row `374` with game number `363`. Original cached opponent is **blank**; do not claim it was independently filled or that workbook stats are current. Local source extract SHA256 `34e2addedd84e9e8ed49bfebe6438c3d4673a259cada5f3950e770c9e345ef98`.
+- Current verified HTO feed: four prior completed IDs, player parity/discovery true; **no fifth completed game**.
+
+Results: 10/10 synthetic acceptance/refusal cases **PASS** and live private inputs yielded the stated pre-game disposition. Tests reject conflicting HTO fixture date/opponent/time, invalid preview URL, changed SVHL mapping, ambiguous workbook row/game number, broken four-game feed and premature fifth-game presence.
+
+**No automatic admission on October 25.** Following the actual game, re-fetch its completed official boxscore (not a preview) and perform new goalie/skater, date, team final and workbook unique-identity reconciliation, then stage and QA an explicitly mapped five-game collector revision with rollback.
