@@ -31,11 +31,12 @@ test('Reverse-name, case and spaces map to one player',()=>{
 test('Ambiguous, incomplete or unverified names never get speculative profiles',()=>{
  for(const name of ['M. Provenzano','Adam','Carosi','Unknown, Johnny','Unknown, Christopher','']) assert.equal(links.profileUrl(name),null);
 });
+// The public verified registry was expanded from 51 to 109 distinct identities on 2026-10-20.
 test('Season filter uses HTO profile; unverified game ID does not create game link',()=>{
  const url=links.profileUrl('Alex Pagnotta');
  assert.equal(links.resolve('Alex Pagnotta',{season:'Winter 2014/15'}),url+'&pageLoad=ProfileTabStats&viewseas=Winter_2014/2015');
  assert.equal(links.resolve('Alex Pagnotta',{gameID:3375601}),url);
- assert.equal(links.knownPlayers,51);
+ assert.equal(links.knownPlayers,109);
 });
 test('Every active public HockeyOS page loads the shared linker',()=>{
  for(const file of [
@@ -103,7 +104,7 @@ test('Historical Records and Awards players resolve to exact official HTO player
   const link=links.profileUrl(name);
   assert.equal(new URL(link).searchParams.get('playerID'),String(id),name);
  }
- assert.equal(links.knownPlayers,51);
+ assert.equal(links.knownPlayers,109);
 });
 test('Shared-name ambiguity remains safely unresolved after adding alumni',()=>{
  assert.equal(links.profileUrl('M. Provenzano'),null);

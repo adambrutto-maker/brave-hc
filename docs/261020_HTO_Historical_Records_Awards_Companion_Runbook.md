@@ -63,3 +63,13 @@ The data format is `brave-hc-hto-history-snapshot/v1`.
 ## Remaining native HTO integration
 
 The official HTO Home, Records, and Awards pages still require a provider-supported way to load external player hyperlink script in their parent document, or equivalent native hyperlink capability. Do not claim completion for the native HTO site. [Issue #14](https://github.com/adambrutto-maker/brave-hc/issues/14) tracks the blocked provider integration and prepared, unsent support request.
+
+## Records refresh boundary update — 2026-10-21
+
+The original fixed-snapshot description above documents the **October 20 initial historical companion release**, not the currently enabled record-source workflow.
+
+- **Records**: `brave-record-source-refresh.yml` now validates public HTO records and current-season games after the approved schedule reconciliation; new already-published native HTO records may synchronize to `widgets/history-records.json` and the player-record feed after fail-closed verification. Unknown identities, removals and revisions require manual review; this does **not** write or approve native HTO records.
+- **Awards**: `widgets/history-awards.json` remains a fixed public HTO snapshot and still requires explicit source comparison and review to refresh. This workflow must not be described as automatically updating Awards.
+- `capturedAt` indicates the recorded snapshot source capture, not a guarantee of live readback on every page view. The official HTO pages remain authoritative.
+- As of the October 21 Plan 03 check, the Records feed held **558 entries in 119 groups** (329 individual, 229 team); 327 entries are mapped to known player IDs and exactly two historical rental-goalie entries remain intentionally unlinked.
+- Production HockeyOS collector-feed activation on October 21 is a separate event and does not establish that workbook formulas, awards or the publisher are healthy.
