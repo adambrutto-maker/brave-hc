@@ -954,6 +954,17 @@ test('penalty-free appearance count requires explicit reconciled PIM for every g
  assert.doesNotMatch(display(),/HTO-reported penalty-free games: 1/);
  player.sourceHTOGamePattern.games[0].penaltyMinutes=0;
  assert.match(display(),/HTO-reported penalty-free games: 1 of 1/);
+ const baseline=structuredClone(player.sourceHTOGamePattern);
+ for(const mutate of [
+  p=>{p.season='W1900/01'},p=>{p.status='UNVERIFIED'},
+  p=>{delete p.games[0].gameId},p=>{p.games[0].gameId=999999999}
+ ]){
+  player.sourceHTOGamePattern=structuredClone(baseline);
+  mutate(player.sourceHTOGamePattern);
+  assert.match(display(),/Penalty-free game count unavailable/);
+ }
+ player.sourceHTOGamePattern=structuredClone(baseline);
+
  player.sourceHTOGamePattern.games[0].penaltyMinutes=null;
  assert.match(display(),/Penalty-free game count unavailable/);
  player.sourceHTOGamePattern.games[0].penaltyMinutes=2;
