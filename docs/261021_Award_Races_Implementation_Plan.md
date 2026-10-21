@@ -1,9 +1,9 @@
 # Brave H.C. Award Races
-## Consolidated Implementation Plan | Version 1.0
+## Consolidated Implementation Plan | Version 1.1
 
-**Planning date:** October 21, 2026 (UTC; October 20 evening in Toronto)
+**Updated:** October 21, 2026 (America/Toronto)
 **Sponsor:** Adam Brutto | **Delivery lead:** Engineering / Jacob AI role
-**Current position:** Source repair and complete scoring parity remain open. Native Excel execution is proven; current ratings are not yet verified.
+**Current position:** Season PivotTables have been refreshed and Damian's confirmed drop-in identity has been added in a protected review copy. Source reconciliation and downstream scoring validation remain open.
 
 ### Purpose and authority
 Deliver a reliable Award Races widget that follows the original award methodology, explains its ratings clearly, and refreshes from accepted HockeyOS statistics without repeated manual reconstruction.
@@ -14,9 +14,9 @@ This is the detailed Award Races subplan under the existing Brave H.C. HockeyOS 
 - The review branch contains eleven category views, component cards, source-readiness controls and weekly-history handling. These are existing assets to reuse.
 - Original AwardScoring formulas are captured: 146 columns, including 132 stored array-formula columns. Composition mapping covers eight composite models and two count titles; Hall of Fame requires its own career-rule validation.
 - A disposable native Excel replay updated 14 matched rows and added 43 appearances. All 565 nonmissing input writes and untouched historical raw inputs passed saved-file checks. The 146 scoring formulas retained their modes; Excel reported no award-cell errors.
-- The replay exposed the actual missing dependency: PlayerInfo games played updates from game logs, while goals and points also depend on the separate Player Stats season inputs. The game logs contain 6 goals, 10 assists and 16 points, but the season totals feeding awards remain zero.
-- Damian Pavaday has no exact PlayerInfo master entry. There are also 41 missing skater PIM observations and one missing goalie POTG observation. Master Schedule result context was not imported.
-- The latest local validation passed 85 JavaScript and seven Python tests. Existing historical final-score parity covers only four models and 20 saved eligible finals; it is not complete current scoring validation.
+- The initial replay exposed stale season PivotTable caches. Explicit native refresh recovered all 40 added skater and three added goalie appearances and season outputs of 6 goals, 10 assists and 16 points. Downstream formulas still require recalculation; never overwrite PivotTable output cells.
+- Adam confirmed Damian Pavaday is DI. A new review copy now contains his PlayerInfo and W2026/27 roster rows. Eight inputs and 1,955,411 existing cells passed preservation checks. Current DI status excludes him from the FT-only Rookie race without guessing a first FT year. The 41 missing skater PIM and one missing goalie POTG observation remain explicit; Master Schedule result context remains unresolved.
+- The latest local validation passed 85 JavaScript tests; the expanded Python suite now passes 17 tests. Existing historical final-score parity covers only four models and 20 saved eligible finals; it is not complete current scoring validation.
 
 ### Critical path
 Reconcile all source inputs -> repair the disposable reference -> prove complete native results -> implement matching production calculations -> verify category displays -> release the reviewed candidate -> demonstrate repeatable refresh.
@@ -68,7 +68,7 @@ Inventory the original season tables and raw columns; distinguish formulas from 
 **Acceptance:** Every calculation dependency has a source, transformation, season/cutoff and missing-value rule. No unmapped required input is silently treated as zero.
 
 ### AW-03 | Reconcile identities and player metadata
-**Owner:** Jacob | **Status:** Ready | **Dependency:** AW-02 for the final mapped contract
+**Owner:** Jacob | **Status:** In progress - Damian current identity and DI rows verified in review copy; downstream outputs pending | **Dependency:** AW-02 for the final mapped contract
 Resolve Damian Pavaday's missing master entry using authoritative roster and career evidence. Verify role, position, roster status and rookie metadata separately; do not infer them from a single appearance. Preserve the exclusion of Marco Congiusti's erroneous September 27 entry and keep Unknown Johnny distinct. Retain historical records and explicit goalie aliases.
 **Acceptance:** All current named participants join exactly once, or have a documented field-level exception. Any unresolved metadata holds the affected outputs, without dropping the player from participation reporting.
 
@@ -86,8 +86,8 @@ Retrieve the 41 missing PIM and one missing POTG observation from appropriate ev
 # 3. Task register: reference and production scoring
 
 ### AW-06 | Build the complete native reference candidate
-**Owner:** Jacob | **Status:** Blocked on mapped inputs | **Dependencies:** AW-02 to AW-05 as applicable
-Reuse the proven disposable-copy method. Add the missing season inputs and verified player/schedule context to a new, identified candidate. Preserve all unrelated history and original formula modes. Carry forward the documented treatment of the three overridden goalie helper cells only where the reviewed copy requires it. No write to the original source workbook is assumed.
+**Owner:** Jacob | **Status:** In progress - refreshed pivot baseline plus verified metadata copy; complete input context pending | **Dependencies:** AW-02 to AW-05 as applicable
+Reuse the proven disposable-copy method. Apply verified player/schedule context to an identified candidate, calculate game-level helpers, explicitly refresh the two season PivotTables/caches, verify per-player totals, and then recalculate downstream formulas. Do not manually replace PivotTable output cells. Preserve all unrelated history and original formula modes. Carry forward the documented treatment of the three overridden goalie helper cells only where the reviewed copy requires it. No write to the original source workbook is assumed.
 **Acceptance:** Every intended write is verified; untouched inputs and displaced content are preserved; original hash is unchanged; missing inputs remain explicit. The entire mapped input package is applied before full recalculation.
 
 ### AW-07 | Export and reconcile native calculation results
@@ -196,7 +196,7 @@ These are AI work assignments, not human signatures or completed reviews. Indepe
 # 7. Evidence and next work package
 
 ### Next work package: AW-02
-Read the captured table definitions and the separate Player Stats structures. Produce the unified field map and a proposed copy-only write ledger for the accepted current snapshot. Identify the exact fields needed for Damian, schedule/result context, roster denominators and prior-career inputs. Register the 42 missing observations by affected award. Then continue AW-03/AW-04 source reconciliation; run a complete new native candidate only after the missing upstream inputs have been supplied or explicitly scoped out.
+Read the captured table definitions and the separate Player Stats structures. Produce the unified field map and a proposed copy-only write ledger for the accepted current snapshot. Identify the exact fields needed for Damian, schedule/result context, roster denominators and prior-career inputs. Register the 42 missing observations by affected award. Then continue AW-03/AW-04 source reconciliation; resolve the remaining ordinary-cell/historical dependencies and schedule context, then perform the next downstream calculation against the now-refreshed, metadata-corrected candidate. Preserve all field-level missing-data holds.
 
 ### Evidence index
 - Review implementation: https://github.com/adambrutto-maker/brave-hc/pull/8
@@ -208,22 +208,15 @@ Read the captured table definitions and the separate Player Stats structures. Pr
 - Brave_HC_Master_Workplan.xlsx, current saved version 4 / internal version 1.3 - parent planning record, September 25 baseline. Its old task statuses are not treated as current October completion evidence.
 - Brave_HC_Awards_Methodology_Audit.md - earlier methodology reference. Newer captured formulas and native evidence control where the dated audit differs.
 
-**Initial session record:** AW-01 completed. AW-02 is Ready and is the next implementation task. AW-03 to AW-05 are open source-reconciliation work; downstream tasks remain dependency-bound. No new native run, live release, original-workbook change or unattended service was executed by creating this plan.
+**Current session record - October 21, 2026 Toronto:** AW-02 now has a repeatable structured-reference dependency inventory for ten award models with no unsupported structured references in that traversal. Ordinary/non-table precedents remain outside its coverage. AW-03/AW-06 added Damian's verified identity and user-confirmed DI status to PlayerInfo row 115 and roster row 496 of a new native review copy. No first FT year or biography was invented. All 146 scoring formula modes survived; saved XML comparison passed 1,955,411 pre-existing cells, eight writes and both new table extents. Native Excel's empty FullName property is handled by corroborated Path/Name, workbook membership and isolated application identity. No downstream recalculation or ratings release occurred.
 
+### Retained implementation evidence
+- docs/261021_Awards_Season_Pivot_Dependency.md - season controls, 30 ordinary column ranges and refresh ordering.
+- docs/261021_Awards_Season_Pivot_Audit_Receipt.json - stale-cache diagnostic; no filters hiding players.
+- docs/261021_Awards_Pivot_Refresh_Diagnostic.json - saved refreshed cache coverage and recovered season totals.
+- scripts/hockeyos_awards_source_count_reconcile.py - retained 22-player / 57-appearance reconciliation with missing-data checks.
+- docs/261021_Awards_Metadata_Dependency_Review.json - structured dependencies and original master/history search.
+- docs/261021_Awards_Damian_Master_Candidate.json - verified inputs, explicit confirmation and unresolved metadata policy.
+- docs/261021_Awards_Damian_Metadata_Copy_Receipt.json - current metadata copy and complete existing-cell preservation result.
 
-**Continuation record — AW-02, October 20 Toronto:** Read-only inspection established that the separate season totals are native PivotTables sourced from the game tables, with stale caches missing the 40 skater and three goalie insertions. Evidence: `docs/261021_Awards_Season_Pivot_Dependency.md`. Explicit source-helper calculation, targeted PivotTable refresh and downstream recalculation must be included in AW-06/AW-07. Do not overwrite the pivot output cells. Full dependency coverage and identity/missing-data reconciliation remain open; AW-02 is not complete. No workbook changes or release occurred during this inspection. This progress entry supplements the v1.0 dated PDF; the PDF has not been regenerated.
-
-
-**AW-02 continuation — repeatable pivot audit:** Added and executed `scripts/hockeyos_awards_season_pivot_audit.py`. Receipt: `docs/261021_Awards_Season_Pivot_Audit_Receipt.json`. Both cache coverage checks correctly fail on the stale saved replay; neither season pivot has page fields, explicit filters or hidden items. The skater pivot has 43 aggregate fields and the goalie pivot has 37. Read-only before/after copy hash matches. Use this audit after native refresh, then require per-player input parity; cache row counts alone cannot establish scoring correctness. AW-02 remains in progress. No native refresh or current-score release was performed in this continuation.
-
-
-**AW-02/AW-03/AW-04 continuation:** Added and ran `scripts/hockeyos_awards_source_count_reconcile.py` against the pinned four-game candidate and retained participant snapshot. All 22 participants and 57 appearance rows are represented; skater GP/G/A/Pts reconcile. All 42 missing observations remain explicit. Negative checks reject duplicate appearances and removal of Damian's sole row. Damian's retained HTO evidence is one October 4 appearance, F position, 0 G/1 A/1 Pt; DI role remains retained evidence, not freshly verified metadata. No alias to historical Damian Aidemirski is established or applied. Missing PlayerInfo master/career metadata remains unresolved. This is pinned snapshot comparison, not fresh HTO verification or goalie result/model parity. No refresh or workbook modification occurred.
-
-
-**AW-03/AW-04 continuation — validation strengthened:** The source-count checker now compares goalie GP/L/GA, rejects duplicate participant names, mixed seasons, unknown tables/roles, role/table mismatches and missing/non-numeric count inputs. Retained snapshot passed; seven targeted negative checks passed (duplicate identity, changed goalie GA, missing goalie L, role mismatch, season mismatch, duplicate appearance, omitted Damian). All 42 observation gaps remain explicit. Original captured Rookie Year is derived from RosterStatusBySeason FT history with Total Games > 0; Rookie Status compares that derived year to Recent Season. Do not enter a guessed rookie year for Damian or override these formulas. This closes the identified checker coverage gaps, not AW-02 or metadata reconciliation. No workbook refresh or ratings release occurred.
-
-
-**AW-02 continuation — ordinary references:** Expanded `docs/261021_Awards_Season_Pivot_Dependency.md` with direct C1/J2 controls and 30 Player Stats column ranges. Captured table formulas have no lexical uses of the nine defined-name entries and no INDIRECT/OFFSET calls; worksheet formulas remain unscanned. The pivot CLI now holds stale caches, filters/hidden items and output beyond row 1500. Executed read-only on retained copy: range coverage passes, stale-cache hold correctly remains, hash unchanged. Same-sheet/non-table precedents and historical baselines remain open. No new calculation run or release.
-
-
-**AW-02/AW-06 diagnostic continuation:** Explicit native refresh executed in a new isolated copy. Saved XML verifies season cache coverage 4706 skater / 364 goalie records and recovered 6 G, 10 A, 16 Pts. Named GP is 53; preserved Unknown Johnny row adds 1. Evidence: `docs/261021_Awards_Pivot_Refresh_Diagnostic.json`. Original and prior replay hashes unchanged. This is a pivot diagnostic, not the complete AW-06 candidate or AW-07 scoring run. Runtime openedFullName was empty; saved-file XML confirms intended output, but runtime path verification needs correction before reuse. No downstream recalculation or scoring release. Remaining mapping, metadata, missingness and preservation checks stay open.
+**Next task:** Finish AW-02 ordinary/historical/schedule context and category missing-data impacts; then execute AW-07 downstream recalculation. Damian's current drop-in status is resolved and must not be repeatedly raised as an unanswered question. AW-03 overall and C1 remain open until joined downstream inputs are reconciled. The original workbook and all prior baselines remain unchanged.
