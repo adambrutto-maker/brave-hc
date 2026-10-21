@@ -63,7 +63,7 @@ Keep one task register, issue list, evidence index and next action. Link the rev
 **Acceptance:** This plan has stable IDs, scope boundaries, owners, checkpoints, rollout and refresh criteria. PDF and repository text match at issue time.
 
 ### AW-02 | Map every required source input
-**Owner:** Jacob / Engineering | **Status:** Ready - active next | **Dependency:** AW-01
+**Owner:** Jacob / Engineering | **Status:** In progress - season PivotTable dependency verified | **Dependency:** AW-01
 Inventory the original season tables and raw columns; distinguish formulas from editable inputs. Map verified HTO game/season fields to those tables, PlayerInfo, roster denominators, schedule context and historical baselines. Include references outside structured tables and any named ranges. Classify each required field as available, derived by an original formula, missing or disputed.
 **Acceptance:** Every calculation dependency has a source, transformation, season/cutoff and missing-value rule. No unmapped required input is silently treated as zero.
 
@@ -209,3 +209,6 @@ Read the captured table definitions and the separate Player Stats structures. Pr
 - Brave_HC_Awards_Methodology_Audit.md - earlier methodology reference. Newer captured formulas and native evidence control where the dated audit differs.
 
 **Initial session record:** AW-01 completed. AW-02 is Ready and is the next implementation task. AW-03 to AW-05 are open source-reconciliation work; downstream tasks remain dependency-bound. No new native run, live release, original-workbook change or unattended service was executed by creating this plan.
+
+
+**Continuation record — AW-02, October 20 Toronto:** Read-only inspection established that the separate season totals are native PivotTables sourced from the game tables, with stale caches missing the 40 skater and three goalie insertions. Evidence: `docs/261021_Awards_Season_Pivot_Dependency.md`. Explicit source-helper calculation, targeted PivotTable refresh and downstream recalculation must be included in AW-06/AW-07. Do not overwrite the pivot output cells. Full dependency coverage and identity/missing-data reconciliation remain open; AW-02 is not complete. No workbook changes or release occurred during this inspection. This progress entry supplements the v1.0 dated PDF; the PDF has not been regenerated.
