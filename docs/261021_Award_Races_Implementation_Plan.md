@@ -1,9 +1,9 @@
 # Brave H.C. Award Races
-## Consolidated Implementation Plan | Version 1.8
+## Consolidated Implementation Plan | Version 1.9
 
 **Updated:** October 21, 2026 (America/Toronto)
 **Sponsor:** Adam Brutto | **Delivery lead:** Engineering / Jacob AI role
-**Current position:** Arithmetic is implemented for all 44 internal formulas, all 44 displays and eight raw composite formulas. Display and scalar checks total 2,400 exact native comparisons. Ten eligibility rules and eight final-score/rank pipelines are implemented. Current eligibility is reconciled for 219 of 220 decisions; Carlyle rookie eligibility remains held. Composite input validation, corrected native parity, integration and release remain open.
+**Current position:** Arithmetic is implemented for all 44 internal formulas, all 44 displays and eight raw composite formulas. Display and scalar checks total 2,400 exact native comparisons. Ten eligibility rules and eight final-score/rank pipelines are implemented. All 220 eligibility decisions are resolved after Adam confirmed Carlyle is DI and ineligible for Rookie. G/A/Pts historical baselines pass 9,640 checks and now feed the current production components. Composite input validation, corrected native parity, integration and release remain open.
 
 ### Purpose and authority
 Deliver a reliable Award Races widget that follows the original award methodology, explains its ratings clearly, and refreshes from accepted HockeyOS statistics without repeated manual reconstruction.
@@ -16,7 +16,7 @@ This is the detailed Award Races subplan under the existing Brave H.C. HockeyOS 
 - A disposable native Excel replay updated 14 matched rows and added 43 appearances. All 565 nonmissing input writes and untouched historical raw inputs passed saved-file checks. The 146 scoring formulas retained their modes; Excel reported no award-cell errors.
 - The initial replay exposed stale season PivotTable caches. Explicit native refresh recovered all 40 added skater and three added goalie appearances and season outputs of 6 goals, 10 assists and 16 points. Never overwrite PivotTable output cells. The completed reference refreshed both caches, rebuilt all downstream formulas and saved with no award-cell errors.
 - Adam confirmed Damian Pavaday is DI. A new review copy now contains his PlayerInfo and W2026/27 roster rows. Eight inputs and 1,955,411 existing cells passed preservation checks. Current DI status excludes him from the FT-only Rookie race without guessing a first FT year. The original 41 missing skater PIM and one missing goalie POTG observations remain null in the source fixture. A separate derived fixture resolves each to zero using matching season totals, complete appearance coverage and nonnegative additive counts; all 42 equations and their provenance are retained.
-- The latest local validation passed 85 JavaScript tests; the expanded Python suite now passes 129 tests. Eight final-score models pass 192 saved native comparisons. Dedication now rounds to whole numbers by Adam's correction; one-decimal arithmetic remains audit-only. This is not complete current composite validation.
+- The latest local validation passed 85 JavaScript tests; the expanded Python suite now passes 133 tests. Eight final-score models pass 192 saved native comparisons. Dedication now rounds to whole numbers by Adam's correction; one-decimal arithmetic remains audit-only. This is not complete current composite validation.
 
 ### Critical path
 Reconcile all source inputs -> repair the disposable reference -> prove complete native results -> implement matching production calculations -> verify category displays -> release the reviewed candidate -> demonstrate repeatable refresh.
@@ -68,8 +68,8 @@ Inventory the original season tables and raw columns; distinguish formulas from 
 **Acceptance:** Every calculation dependency has a source, transformation, season/cutoff and missing-value rule. No unmapped required input is silently treated as zero.
 
 ### AW-03 | Reconcile identities and player metadata
-**Owner:** Jacob | **Status:** All 22 identities joined; Damian DI verified; Carlyle identity copy preserved, roster code unresolved | **Dependency:** AW-02 for the final mapped contract
-Damian's master entry and current DI status are resolved. Adam Carlyle's verified identity and goalie role are now present in PlayerInfo row 116 of a new review copy. Four writes and 1,956,108 existing cells passed preservation. Keep his unavailable roster and career facts explicit; this copy has not been recalculated downstream. Verify role, position, roster status and rookie metadata separately; do not infer them from a single appearance. Preserve the exclusion of Marco Congiusti's erroneous September 27 entry and keep Unknown Johnny distinct. Retain historical records and explicit goalie aliases.
+**Owner:** Jacob | **Status:** All 22 identities joined; Damian DI verified; Carlyle DI confirmed; native copy metadata update pending | **Dependency:** AW-02 for the final mapped contract
+Damian's master entry and current DI status are resolved. Adam Carlyle's verified identity and goalie role are now present in PlayerInfo row 116 of a new review copy. Four writes and 1,956,108 existing cells passed preservation. Adam confirmed Carlyle is DI and not Rookie-eligible; the review calculator applies that confirmation separately from the older copy. Keep unavailable career facts explicit; this copy has not been recalculated downstream. Verify role, position, roster status and rookie metadata separately; do not infer them from a single appearance. Preserve the exclusion of Marco Congiusti's erroneous September 27 entry and keep Unknown Johnny distinct. Retain historical records and explicit goalie aliases.
 **Acceptance:** All current named participants join exactly once, or have a documented field-level exception. Any unresolved metadata holds the affected outputs, without dropping the player from participation reporting.
 
 ### AW-04 | Reconcile game, season and schedule inputs
@@ -196,7 +196,7 @@ These are AI work assignments, not human signatures or completed reviews. Indepe
 # 7. Evidence and next work package
 
 ### Next work package: AW-02 / AW-08
-Validate the 248 required PlayerInfo fields against accepted current observations, historical source chains and season controls. Keep known legacy blank/error semantics separate from unavailable current inputs. The restricted interpreter now handles all 44 scalar internals and eight raw composites, with lazy branches and missing-input holds that cannot be swallowed by IFERROR. The existing display implementation covers all 44 components. Eligibility and final/rank stages are implemented. Assemble the corrected current chain and compare it against an appropriate native reference before integration. Include Carlyle's new master entry and resolve his roster code only where a required branch depends on it.
+Validate remaining PlayerInfo component dependencies beyond the reconciled eligibility and G/A/Pts baselines. Preserve explicit missing-data holds. Assemble the corrected current chain, carry Carlyle's confirmed DI status into a new native review copy, and compare results before integration. All 44 internal and display components, eight raw composites, ten eligibility rules and eight final/rank stages are implemented; complete current composite acceptance remains open.
 
 ### Evidence index
 - Review implementation: https://github.com/adambrutto-maker/brave-hc/pull/8
@@ -205,11 +205,14 @@ Validate the 248 required PlayerInfo fields against accepted current observation
 - Brave_HC_Master_Workplan.xlsx - parent plan, saved v4 / internal v1.3; September 25 statuses are historical.
 - Brave_HC_Awards_Methodology_Audit.md - historical reference; newer captured formulas control.
 
-**Session record - October 21, 2026 Toronto:** Read-only eligibility extraction scanned 111 master identities, 491 roster rows, 390 schedule rows and 5,070 game-log records from protected copy 68392e. All 22 current identities reconcile with zero checked source differences. Original formulas rebuild roster denominators, position groups, five known rookies and career-prior row counts. Current eligibility resolves 219/220 decisions; only Carlyle's Rookie decision depends on unknown status. Other Carlyle decisions are invariant across all status branches, both rookie states and absent/present roster rows. No status is selected. All 129 Python tests pass. Prior 2,400 display/scalar and 192 saved-final arithmetic checks remain evidence; current final composite acceptance remains open.
+**Session record - October 21, 2026 Toronto:** Adam confirmed Carlyle is DI and not Rookie-eligible; an explicit metadata confirmation closes all 220 eligibility decisions without altering historical evidence. Historical G/A/Pts baselines were rebuilt from 4,706 raw skater rows, retaining winter/summer adjustments (summer counts x 32/48 in winter context). All 9,640 comparisons pass within a declared 1e-12 tolerance for unrounded intermediates only; score/rank comparisons retain exact requirements. The three current production component pipelines now consume rebuilt prior/team baselines for all 19 current skaters. All 133 Python tests pass. Remaining composite dependencies, corrected native cohort parity and release work stay open.
 
 ### Retained implementation evidence
+- docs/261021_Awards_Confirmed_Metadata.json - Carlyle DI and Rookie exclusion confirmed by Adam.
+- docs/261021_Awards_Production_Baseline_Ledger.json - 9,640 historical production input checks.
+- docs/261021_Awards_Current_Production_Component_Rebuilt_Replay.json - current counts with rebuilt historical baselines.
 - docs/261021_Awards_Eligibility_Source_Ledger.json - reconciled source inputs and historical roster lineage.
-- docs/261021_Awards_Validated_Eligibility_Replay.json - 219 resolved decisions and one explicit exception.
+- docs/261021_Awards_Validated_Eligibility_Replay.json - 220 resolved decisions with Carlyle DI confirmation.
 - docs/261021_Awards_Dedication_Rounding_Decision.md - approved whole-number correction.
 - docs/261021_Awards_Season_Pivot_Dependency.md - season controls, 30 ordinary column ranges and refresh ordering.
 - docs/261021_Awards_Current_Population_Join.json - complete 22-player / 57-appearance identity join.
@@ -222,12 +225,8 @@ Validate the 248 required PlayerInfo fields against accepted current observation
 
 - docs/261021_Awards_Downstream_Native_Postcheck.json - preservation/cache passes and measured population holds.
 - docs/261021_Awards_Current_Count_Calculator_Parity.json - 76 exact count comparisons.
-- docs/261021_Awards_Cohort_Impact_Review.json - measured attendance population impact.
-- docs/261021_Awards_All_Display_Native_Reference.json - complete 44-display / 25-name native fixture.
 - docs/261021_Awards_All_Display_Arithmetic_Parity.json - 1,100 exact comparisons across seven families.
-- docs/261021_Awards_Current_Normalization_Replay.json - 44 bindings, coverage and explicit holds.
-- docs/261021_Awards_Current_Production_Component_Replay.json - three rebuilt current stat pipelines.
 - docs/261021_Awards_All_Scalar_Native_Reference.json - 52 formulas, 248 lookup fields and native row inputs.
 - docs/261021_Awards_All_Scalar_Arithmetic_Parity.json - 1,300 exact internal/composite comparisons.
 
-**Next task:** Validate current/historical inputs and complete eligibility/final-score logic, then verify the corrected chain and integration. AW-02, AW-03 and C1 remain open. The original workbook and live widget remain unchanged.
+**Next task:** Validate remaining current/historical composite inputs, then verify the corrected native chain and integration. AW-02, AW-03 and C1 remain open. The original workbook and live widget remain unchanged.
