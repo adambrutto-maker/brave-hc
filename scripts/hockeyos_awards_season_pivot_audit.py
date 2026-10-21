@@ -26,11 +26,15 @@ def audit(path):
    import re
    a,b=table.attrib["ref"].split(":")
    rows=int(re.search(r"\d+",b).group())-int(re.search(r"\d+",a).group())-int(table.attrib.get("totalsRowCount","0"))
+   location=t.find("m:location",N).attrib["ref"]
+   output_last_row=int(re.search(r"\d+$",location).group())
    fields=list(t.find("m:pivotFields",N))
    hidden=sum(x.attrib.get("h")=="1" for f in fields for x in f.findall("m:items/m:item",N))
-   out.append({"pivot":t.attrib["name"],"sourceTable":name,"sourceDataRows":rows,"cachedRecords":int(cache.attrib["recordCount"]),"cacheCoverageMatches":rows==int(cache.attrib["recordCount"]),"pageFieldCount":len(t.findall("m:pageFields/m:pageField",N)),"filterCount":len(t.findall("m:filters/m:filter",N)),"hiddenItemCount":hidden,"dataFieldCount":len(t.findall("m:dataFields/m:dataField",N))})
+   out.append({"pivot":t.attrib["name"],"sourceTable":name,"outputRange":location,"withinAwardReadLimit":output_last_row<=1500,"sourceDataRows":rows,"cachedRecords":int(cache.attrib["recordCount"]),"cacheCoverageMatches":rows==int(cache.attrib["recordCount"]),"pageFieldCount":len(t.findall("m:pageFields/m:pageField",N)),"filterCount":len(t.findall("m:filters/m:filter",N)),"hiddenItemCount":hidden,"dataFieldCount":len(t.findall("m:dataFields/m:dataField",N))})
  after=hashlib.sha256(Path(path).read_bytes()).hexdigest()
  if before!=after:raise ValueError("Workbook changed during audit")
  if len(out)!=2:raise ValueError("Expected both season pivots")
- return {"workbookSha256":after,"readOnlyHashUnchanged":True,"pivots":out,"currentScoresVerified":False}
-if __name__=="__main__":print(json.dumps(audit(sys.argv[1]),indent=2))
+ ready=all(x["cacheCoverageMatches"] and x["withinAwardReadLimit"] and x["pageFieldCount"]==0 and x["filterCount"]==0 and x["hiddenItemCount"]==0 for x in out)
+ return {"state":"PIVOT_STRUCTURE_READY_NOT_SCORE_VERIFIED" if ready else "PIVOT_STRUCTURE_HOLD","workbookSha256":after,"readOnlyHashUnchanged":True,"pivots":out,"currentScoresVerified":False}
+if __name__=="__main__":
+ result=audit(sys.argv[1]);print(json.dumps(result,indent=2));sys.exit(0 if result["state"]=="PIVOT_STRUCTURE_READY_NOT_SCORE_VERIFIED" else 2)
