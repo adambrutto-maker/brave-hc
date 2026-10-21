@@ -1,0 +1,20 @@
+{
+  "additionalSeasonComparisons": 82,
+  "status": "SAVED_WIDGET_CORE_STATS_MATCH_FRESH_OFFICIAL_SOURCES",
+  "sourceReadStartedAt": "2026-10-21T02:11:13.557433+00:00",
+  "sourceReadCompletedAt": "2026-10-21T02:11:15.057760+00:00",
+  "savedAssetCommit": "9224b5619328caec40a9326bcdafd10e346a5f06",
+  "savedAssetSha256": "3554761a6699a361ac958d527bed93cabbfe9650c904e5e96e6f242263010105",
+  "players": 22,
+  "seasonFieldComparisons": 126,
+  "gameFieldComparisons": 273,
+  "differences": [],
+  "unknownDevOct18POTGPreserved": true,
+  "scope": "GP/G/A/PTS/plusminus/POTG and goalie GP/L/GA/POTG; excludes unverified PIM event counts, strength attribution, roster rules and workbook scores; additionalSeasonComparisons also cover skater POS/GTG/PIM/PtsG and goalie GAA/plusminus",
+  "workbookModified": false,
+  "widgetModified": false,
+  "publicationAuthorized": false,
+  "excludedOfficialPlaceholder": "Unknown, Johnny",
+  "removedErroneousSavedIdentity": "Congiusti, Marco",
+  "correctionBasis": "Adam confirms mistaken September 27 entry, since deleted; no identity substitution"
+}
