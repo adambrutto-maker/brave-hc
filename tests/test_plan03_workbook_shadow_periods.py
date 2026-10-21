@@ -31,7 +31,7 @@ def fixtures():
         period["games"].append(dict(htoGameId=gid,date=day,workbookGameNumber=number,
             sourceUrl=url,canonicalUrl=url,officialDateLabel=label,
             periodHeadings=["1","2","3","OT","2OT","F"],
-            opponent=opponent,bravePeriods=gf,opponentPeriods=ga,braveGF=sum(gf),braveGA=sum(ga),
+            opponent=opponent,bravePeriods=list(gf),opponentPeriods=list(ga),braveGF=sum(gf),braveGA=sum(ga),
             sourceResponseSHA256="a"*64))
         feed["games"].append({"htoGameId":gid,"date":day,"workbookGameNumber":number,
              "sourceUrl":url,"teamGoals":sum(gf),"teamGoalsAgainst":sum(ga)})
