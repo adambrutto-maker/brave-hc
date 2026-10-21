@@ -42,6 +42,28 @@ The legacy result `U` is driven by `AllTimeSchedule[[#This Row],[+/-]]`; `X` (ga
 4. Obtain explicit workbook-owner authorization for exactly which cells and downstream formula handling will change; identify what remains intentionally stale or outside scope. Native HTO statistics remain independently authoritative.
 5. Preserve independently reviewed QA and rollback receipts before any source-of-truth promotion. Publication of a full live Record Watch/projections is a **separate** release gate, not automatically granted by this four-game review.
 
+## Independent original Excel formula structure inspection — 2026-10-21
+
+Following the four-game shadow run, a second **read-only** verification examined the **original workbook bytes**, not the archived JSON extraction, using standard ZIP/XML parsing of `xl/worksheets/sheet12.xml` (`Master Schedule`). Original workbook SHA-256 remained `0002fd9f06596af8d0a00fc1b53a618ef15479f941ad5c1e6265b27002a65154`.
+
+For **every one of rows 370, 371, 372 and 373**, the live stored cell XML confirms:
+
+| Excel columns | Verified cell type | Actual dependency |
+|---|---|---|
+| `K:N` | Blank numeric period-input locations, no formulas | Braves periods 1, 2, 3 and OT/SO |
+| `O` | Formula; cached 0 | `IFERROR([Per. 1 GF]+[Per. 2 GF]+[Per. 3 GF]+[OT/SO GF],0)` |
+| `P:S` | Blank numeric period-input locations, no formulas | Opponent periods 1, 2, 3 and OT/SO |
+| `T` | Formula; cached 0 | `IFERROR([Per. 1 GA]+[Per. 2 GA]+[Per. 3 GA]+[OT/SO GA],0)` |
+| `W` | Formula; cached 0 | `AllTimeSchedule[[#This Row],[GF]]-AllTimeSchedule[[#This Row],[GA]]` |
+| `U` | Formula; cached T | `IF([+/-]<0,"L",IF([+/-]=0,"T",IF([+/-]>0,"W","")))` |
+| `X` | Formula; cached 0 | `IF(AND(ISNUMBER([Game '#]),COUNT(Krow:Nrow,Prow:Srow)>0),1,0)` |
+
+**Critical implication:** at least one numeric period-input value, **including numeric zero**, must exist for `X` to count an otherwise valid numbered game. This explains why simply assigning the correct final score cache while leaving all period cells blank would not establish a completed game in workbook-derived tables. Numeric zeros in the proposed 32 source-backed period inputs are deliberate, not missing data.
+
+**October 25 safeguard:** future `Master Schedule` row **374** has the same formula structure but its `K:N,P:S` values remain blank, its caches `O/T=0`, `U=T`, `W=0`, `X=0`. These are **unscored placeholders**, not a 0–0 final or four-game reconciliation scope. Do not touch this row based on the preview or the provisional workbook game 363 join.
+
+This confirms **formula presence and dependencies in the immutable source XML**, not the actual result of recalculating an edited workbook under Microsoft Excel, the correctness of other table formulas, or downstream model release. The required disposable-copy Excel recalculation, independent QA and explicit original-workbook-owner approval remain open. No original file or formula was edited during this inspection.
+
 ## Test and cross-plan handoff
 
 No-network tests: `python -m unittest discover -s tests -p test_plan03_workbook_shadow_periods.py` — **15/15 PASS**, including source SHA drift, fifth-game/duplicate IDs, stale evidence, period-vs-final conflict, duplicate workbook join, nonzero 2OT refusal, opposing club conflict, already-modified period cells, missing formulas and preserved no-edit status.
