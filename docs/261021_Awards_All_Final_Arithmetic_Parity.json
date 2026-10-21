@@ -1,0 +1,1356 @@
+{
+  "schema": "brave-hc-awards-final-arithmetic-parity/v1",
+  "state": "PASS",
+  "comparisons": [
+    {
+      "model": "Hart",
+      "name": "Ardizzi, Stefano",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Hart",
+      "name": "Atkins, Nolan",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Hart",
+      "name": "Brutto, Adam",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Hart",
+      "name": "Carosi, Justin",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Hart",
+      "name": "Congiusti, Marco",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Hart",
+      "name": "Duffy, Lorcan",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Hart",
+      "name": "Kober, Adam",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Hart",
+      "name": "Kong, Henry",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Hart",
+      "name": "Leong, Dev",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Hart",
+      "name": "Logue, Stephen",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Hart",
+      "name": "Mazzei, Stefano",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Hart",
+      "name": "Pagnotta, Alex",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Hart",
+      "name": "Paolucci, Anthony",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Hart",
+      "name": "Pearsoll, Keith",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Hart",
+      "name": "Povegliano, Adam",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Hart",
+      "name": "Provenzano, Mario",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Hart",
+      "name": "Provenzano, Michael",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Hart",
+      "name": "Rajasooriar, Krishnan",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Hart",
+      "name": "Rosenberg, Jamie",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Hart",
+      "name": "Saindon, Stephane",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Hart",
+      "name": "Svec, Matt",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Hart",
+      "name": "Rajkumar, Sanjay",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Hart",
+      "name": "Triumbari, Francesco",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Hart",
+      "name": "Unknown, Johnny",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Conn Smythe",
+      "name": "Ardizzi, Stefano",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Conn Smythe",
+      "name": "Atkins, Nolan",
+      "calculated": 73.0,
+      "native": 73.0,
+      "matches": true
+    },
+    {
+      "model": "Conn Smythe",
+      "name": "Brutto, Adam",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Conn Smythe",
+      "name": "Carosi, Justin",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Conn Smythe",
+      "name": "Congiusti, Marco",
+      "calculated": 69.0,
+      "native": 69.0,
+      "matches": true
+    },
+    {
+      "model": "Conn Smythe",
+      "name": "Duffy, Lorcan",
+      "calculated": 90.0,
+      "native": 90.0,
+      "matches": true
+    },
+    {
+      "model": "Conn Smythe",
+      "name": "Kober, Adam",
+      "calculated": 69.0,
+      "native": 69.0,
+      "matches": true
+    },
+    {
+      "model": "Conn Smythe",
+      "name": "Kong, Henry",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Conn Smythe",
+      "name": "Leong, Dev",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Conn Smythe",
+      "name": "Logue, Stephen",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Conn Smythe",
+      "name": "Mazzei, Stefano",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Conn Smythe",
+      "name": "Pagnotta, Alex",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Conn Smythe",
+      "name": "Paolucci, Anthony",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Conn Smythe",
+      "name": "Pearsoll, Keith",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Conn Smythe",
+      "name": "Povegliano, Adam",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Conn Smythe",
+      "name": "Provenzano, Mario",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Conn Smythe",
+      "name": "Provenzano, Michael",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Conn Smythe",
+      "name": "Rajasooriar, Krishnan",
+      "calculated": 100.0,
+      "native": 100.0,
+      "matches": true
+    },
+    {
+      "model": "Conn Smythe",
+      "name": "Rosenberg, Jamie",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Conn Smythe",
+      "name": "Saindon, Stephane",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Conn Smythe",
+      "name": "Svec, Matt",
+      "calculated": 98.0,
+      "native": 98.0,
+      "matches": true
+    },
+    {
+      "model": "Conn Smythe",
+      "name": "Rajkumar, Sanjay",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Conn Smythe",
+      "name": "Triumbari, Francesco",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Conn Smythe",
+      "name": "Unknown, Johnny",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Norris",
+      "name": "Ardizzi, Stefano",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Norris",
+      "name": "Atkins, Nolan",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Norris",
+      "name": "Brutto, Adam",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Norris",
+      "name": "Carosi, Justin",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Norris",
+      "name": "Congiusti, Marco",
+      "calculated": 92.0,
+      "native": 92.0,
+      "matches": true
+    },
+    {
+      "model": "Norris",
+      "name": "Duffy, Lorcan",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Norris",
+      "name": "Kober, Adam",
+      "calculated": 90.0,
+      "native": 90.0,
+      "matches": true
+    },
+    {
+      "model": "Norris",
+      "name": "Kong, Henry",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Norris",
+      "name": "Leong, Dev",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Norris",
+      "name": "Logue, Stephen",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Norris",
+      "name": "Mazzei, Stefano",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Norris",
+      "name": "Pagnotta, Alex",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Norris",
+      "name": "Paolucci, Anthony",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Norris",
+      "name": "Pearsoll, Keith",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Norris",
+      "name": "Povegliano, Adam",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Norris",
+      "name": "Provenzano, Mario",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Norris",
+      "name": "Provenzano, Michael",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Norris",
+      "name": "Rajasooriar, Krishnan",
+      "calculated": 100.0,
+      "native": 100.0,
+      "matches": true
+    },
+    {
+      "model": "Norris",
+      "name": "Rosenberg, Jamie",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Norris",
+      "name": "Saindon, Stephane",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Norris",
+      "name": "Svec, Matt",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Norris",
+      "name": "Rajkumar, Sanjay",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Norris",
+      "name": "Triumbari, Francesco",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Norris",
+      "name": "Unknown, Johnny",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Rookie",
+      "name": "Ardizzi, Stefano",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Rookie",
+      "name": "Atkins, Nolan",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Rookie",
+      "name": "Brutto, Adam",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Rookie",
+      "name": "Carosi, Justin",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Rookie",
+      "name": "Congiusti, Marco",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Rookie",
+      "name": "Duffy, Lorcan",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Rookie",
+      "name": "Kober, Adam",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Rookie",
+      "name": "Kong, Henry",
+      "calculated": 100,
+      "native": 100.0,
+      "matches": true
+    },
+    {
+      "model": "Rookie",
+      "name": "Leong, Dev",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Rookie",
+      "name": "Logue, Stephen",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Rookie",
+      "name": "Mazzei, Stefano",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Rookie",
+      "name": "Pagnotta, Alex",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Rookie",
+      "name": "Paolucci, Anthony",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Rookie",
+      "name": "Pearsoll, Keith",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Rookie",
+      "name": "Povegliano, Adam",
+      "calculated": 100,
+      "native": 100.0,
+      "matches": true
+    },
+    {
+      "model": "Rookie",
+      "name": "Provenzano, Mario",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Rookie",
+      "name": "Provenzano, Michael",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Rookie",
+      "name": "Rajasooriar, Krishnan",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Rookie",
+      "name": "Rosenberg, Jamie",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Rookie",
+      "name": "Saindon, Stephane",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Rookie",
+      "name": "Svec, Matt",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Rookie",
+      "name": "Rajkumar, Sanjay",
+      "calculated": 100,
+      "native": 100.0,
+      "matches": true
+    },
+    {
+      "model": "Rookie",
+      "name": "Triumbari, Francesco",
+      "calculated": 100,
+      "native": 100.0,
+      "matches": true
+    },
+    {
+      "model": "Rookie",
+      "name": "Unknown, Johnny",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Lady Byng",
+      "name": "Ardizzi, Stefano",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Lady Byng",
+      "name": "Atkins, Nolan",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Lady Byng",
+      "name": "Brutto, Adam",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Lady Byng",
+      "name": "Carosi, Justin",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Lady Byng",
+      "name": "Congiusti, Marco",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Lady Byng",
+      "name": "Duffy, Lorcan",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Lady Byng",
+      "name": "Kober, Adam",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Lady Byng",
+      "name": "Kong, Henry",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Lady Byng",
+      "name": "Leong, Dev",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Lady Byng",
+      "name": "Logue, Stephen",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Lady Byng",
+      "name": "Mazzei, Stefano",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Lady Byng",
+      "name": "Pagnotta, Alex",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Lady Byng",
+      "name": "Paolucci, Anthony",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Lady Byng",
+      "name": "Pearsoll, Keith",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Lady Byng",
+      "name": "Povegliano, Adam",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Lady Byng",
+      "name": "Provenzano, Mario",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Lady Byng",
+      "name": "Provenzano, Michael",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Lady Byng",
+      "name": "Rajasooriar, Krishnan",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Lady Byng",
+      "name": "Rosenberg, Jamie",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Lady Byng",
+      "name": "Saindon, Stephane",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Lady Byng",
+      "name": "Svec, Matt",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Lady Byng",
+      "name": "Rajkumar, Sanjay",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Lady Byng",
+      "name": "Triumbari, Francesco",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Lady Byng",
+      "name": "Unknown, Johnny",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Most Improved",
+      "name": "Ardizzi, Stefano",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Most Improved",
+      "name": "Atkins, Nolan",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Most Improved",
+      "name": "Brutto, Adam",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Most Improved",
+      "name": "Carosi, Justin",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Most Improved",
+      "name": "Congiusti, Marco",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Most Improved",
+      "name": "Duffy, Lorcan",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Most Improved",
+      "name": "Kober, Adam",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Most Improved",
+      "name": "Kong, Henry",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Most Improved",
+      "name": "Leong, Dev",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Most Improved",
+      "name": "Logue, Stephen",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Most Improved",
+      "name": "Mazzei, Stefano",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Most Improved",
+      "name": "Pagnotta, Alex",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Most Improved",
+      "name": "Paolucci, Anthony",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Most Improved",
+      "name": "Pearsoll, Keith",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Most Improved",
+      "name": "Povegliano, Adam",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Most Improved",
+      "name": "Provenzano, Mario",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Most Improved",
+      "name": "Provenzano, Michael",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Most Improved",
+      "name": "Rajasooriar, Krishnan",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Most Improved",
+      "name": "Rosenberg, Jamie",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Most Improved",
+      "name": "Saindon, Stephane",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Most Improved",
+      "name": "Svec, Matt",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Most Improved",
+      "name": "Rajkumar, Sanjay",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Most Improved",
+      "name": "Triumbari, Francesco",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Most Improved",
+      "name": "Unknown, Johnny",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Rolaids",
+      "name": "Ardizzi, Stefano",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Rolaids",
+      "name": "Atkins, Nolan",
+      "calculated": 85.0,
+      "native": 85.0,
+      "matches": true
+    },
+    {
+      "model": "Rolaids",
+      "name": "Brutto, Adam",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Rolaids",
+      "name": "Carosi, Justin",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Rolaids",
+      "name": "Congiusti, Marco",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Rolaids",
+      "name": "Duffy, Lorcan",
+      "calculated": 99,
+      "native": 99.0,
+      "matches": true
+    },
+    {
+      "model": "Rolaids",
+      "name": "Kober, Adam",
+      "calculated": 92.0,
+      "native": 92.0,
+      "matches": true
+    },
+    {
+      "model": "Rolaids",
+      "name": "Kong, Henry",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Rolaids",
+      "name": "Leong, Dev",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Rolaids",
+      "name": "Logue, Stephen",
+      "calculated": 78.0,
+      "native": 78.0,
+      "matches": true
+    },
+    {
+      "model": "Rolaids",
+      "name": "Mazzei, Stefano",
+      "calculated": 86.0,
+      "native": 86.0,
+      "matches": true
+    },
+    {
+      "model": "Rolaids",
+      "name": "Pagnotta, Alex",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Rolaids",
+      "name": "Paolucci, Anthony",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Rolaids",
+      "name": "Pearsoll, Keith",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Rolaids",
+      "name": "Povegliano, Adam",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Rolaids",
+      "name": "Provenzano, Mario",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Rolaids",
+      "name": "Provenzano, Michael",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Rolaids",
+      "name": "Rajasooriar, Krishnan",
+      "calculated": 100.0,
+      "native": 100.0,
+      "matches": true
+    },
+    {
+      "model": "Rolaids",
+      "name": "Rosenberg, Jamie",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Rolaids",
+      "name": "Saindon, Stephane",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Rolaids",
+      "name": "Svec, Matt",
+      "calculated": 98,
+      "native": 98.0,
+      "matches": true
+    },
+    {
+      "model": "Rolaids",
+      "name": "Rajkumar, Sanjay",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Rolaids",
+      "name": "Triumbari, Francesco",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Rolaids",
+      "name": "Unknown, Johnny",
+      "calculated": 0,
+      "native": 0.0,
+      "matches": true
+    },
+    {
+      "model": "Dedication",
+      "name": "Ardizzi, Stefano",
+      "calculated": "",
+      "native": "",
+      "matches": true
+    },
+    {
+      "model": "Dedication",
+      "name": "Atkins, Nolan",
+      "calculated": "",
+      "native": "",
+      "matches": true
+    },
+    {
+      "model": "Dedication",
+      "name": "Brutto, Adam",
+      "calculated": "",
+      "native": "",
+      "matches": true
+    },
+    {
+      "model": "Dedication",
+      "name": "Carosi, Justin",
+      "calculated": "",
+      "native": "",
+      "matches": true
+    },
+    {
+      "model": "Dedication",
+      "name": "Congiusti, Marco",
+      "calculated": "",
+      "native": "",
+      "matches": true
+    },
+    {
+      "model": "Dedication",
+      "name": "Duffy, Lorcan",
+      "calculated": "",
+      "native": "",
+      "matches": true
+    },
+    {
+      "model": "Dedication",
+      "name": "Kober, Adam",
+      "calculated": "",
+      "native": "",
+      "matches": true
+    },
+    {
+      "model": "Dedication",
+      "name": "Kong, Henry",
+      "calculated": "",
+      "native": "",
+      "matches": true
+    },
+    {
+      "model": "Dedication",
+      "name": "Leong, Dev",
+      "calculated": "",
+      "native": "",
+      "matches": true
+    },
+    {
+      "model": "Dedication",
+      "name": "Logue, Stephen",
+      "calculated": "",
+      "native": "",
+      "matches": true
+    },
+    {
+      "model": "Dedication",
+      "name": "Mazzei, Stefano",
+      "calculated": "",
+      "native": "",
+      "matches": true
+    },
+    {
+      "model": "Dedication",
+      "name": "Pagnotta, Alex",
+      "calculated": "",
+      "native": "",
+      "matches": true
+    },
+    {
+      "model": "Dedication",
+      "name": "Paolucci, Anthony",
+      "calculated": "",
+      "native": "",
+      "matches": true
+    },
+    {
+      "model": "Dedication",
+      "name": "Pearsoll, Keith",
+      "calculated": "",
+      "native": "",
+      "matches": true
+    },
+    {
+      "model": "Dedication",
+      "name": "Povegliano, Adam",
+      "calculated": "",
+      "native": "",
+      "matches": true
+    },
+    {
+      "model": "Dedication",
+      "name": "Provenzano, Mario",
+      "calculated": "",
+      "native": "",
+      "matches": true
+    },
+    {
+      "model": "Dedication",
+      "name": "Provenzano, Michael",
+      "calculated": "",
+      "native": "",
+      "matches": true
+    },
+    {
+      "model": "Dedication",
+      "name": "Rajasooriar, Krishnan",
+      "calculated": "",
+      "native": "",
+      "matches": true
+    },
+    {
+      "model": "Dedication",
+      "name": "Rosenberg, Jamie",
+      "calculated": "",
+      "native": "",
+      "matches": true
+    },
+    {
+      "model": "Dedication",
+      "name": "Saindon, Stephane",
+      "calculated": "",
+      "native": "",
+      "matches": true
+    },
+    {
+      "model": "Dedication",
+      "name": "Svec, Matt",
+      "calculated": "",
+      "native": "",
+      "matches": true
+    },
+    {
+      "model": "Dedication",
+      "name": "Rajkumar, Sanjay",
+      "calculated": "",
+      "native": "",
+      "matches": true
+    },
+    {
+      "model": "Dedication",
+      "name": "Triumbari, Francesco",
+      "calculated": "",
+      "native": "",
+      "matches": true
+    },
+    {
+      "model": "Dedication",
+      "name": "Unknown, Johnny",
+      "calculated": "",
+      "native": "",
+      "matches": true
+    }
+  ],
+  "checked": 192,
+  "differences": 0,
+  "reference": "Original saved native formula capture; eligibility and raw inputs supplied, not recalculated",
+  "eligibilityVerified": false,
+  "currentCompositeScoresVerified": false,
+  "publicationAuthorized": false
+}
