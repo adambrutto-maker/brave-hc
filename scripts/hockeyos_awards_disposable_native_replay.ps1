@@ -49,14 +49,13 @@ try {
  $nativeArrayCount=0
  for($i=1;$i -le $award.ListColumns.Count;$i++){
   $cell=$award.DataBodyRange.Cells.Item(1,$i)
-  $sourceColumn=$captured.columns[$i-1]
-  $nativeFormula=([string]$cell.Formula).Replace('_xlfn.','')
-  $sourceFormula=('='+[string]$sourceColumn.firstStoredFormula.formula).Replace('_xlfn.','')
-  $expectedArray=$sourceColumn.firstStoredFormula.metadata.t -eq 'array'
-  if([string]$award.ListColumns.Item($i).Name -ne $sourceColumn.name -or $nativeFormula -ne $sourceFormula -or [bool]$cell.HasArray -ne $expectedArray){throw "Loaded source formula or array mode differs: $($sourceColumn.name)"}
   if($cell.HasArray){$nativeArrayCount++}
   $before+=@{name=[string]$award.ListColumns.Item($i).Name;formula=[string]$cell.Formula;hasArray=[bool]$cell.HasArray}
  }
+ [IO.File]::WriteAllText((Join-Path $replayFolder 'loaded-native-formulas.json'),($before | ConvertTo-Json -Depth 8),[Text.UTF8Encoding]::new($false))
+ if((Get-FileHash -LiteralPath (Join-Path $replayFolder 'loaded-formula-compare.py') -Algorithm SHA256).Hash.ToLower() -ne '6dc947b675a5de28f1709055a97f47136b63c9a2f33f1f61838479e9e299454f'){throw 'Formula comparison helper changed'}
+ & 'C:\Users\adamb\AppData\Local\Programs\Python\Python312\python.exe' (Join-Path $replayFolder 'loaded-formula-compare.py') $replayFolder
+ if($LASTEXITCODE -ne 0){$receipt.loadedFormulaComparisonPath=Join-Path $replayFolder 'loaded-formula-comparison.json';throw 'Loaded source formula or array mode differs after notation comparison'}
  if($nativeArrayCount -ne 132){throw 'Expected 132 stored array-formula columns'}
  $receipt.sourceFormulaBaselineChecks=146;$receipt.sourceArrayColumns=132
  $tables=@{}; $columnMaps=@{}; $nextRows=@{}
