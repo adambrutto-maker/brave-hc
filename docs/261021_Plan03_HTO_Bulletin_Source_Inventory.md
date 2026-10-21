@@ -66,6 +66,13 @@
 | 2013-09-02 | Mandatory Facial Protection For Winter 2013/14 | Safety rule | [4](https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=bboard&pageNum=4) | Source indexed; editorial review pending |
 | 2013-08-19 | Winter Season | Season operations | [4](https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=bboard&pageNum=4) | Source indexed; editorial review pending |
 
+
+## Separate legacy Hot Stove source gap (not one of the 32 bulletins)
+
+- A previously indexed native HTO **Home** page displayed the July 1, 2026 feature *Brave H.C. Offseason Update: Season Honours, Hall of Fame Ballot & New Team Analytics*. That feature is **not a Bulletin Board item** and must not be miscounted among the 32 posts above.
+- A fresh read-only HTTP 200 check of the current native [HTO Home page](https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=home) on 2026-10-21 found the current HockeyOS `hot-stove.html` embed but **did not find the former July 1 feature heading or date** in the returned HTML.
+- Status: `PRIORLY_INDEXED / ABSENT_FROM_CURRENT_PUBLIC_HOME_MARKUP / ORIGINAL_TEXT_NOT_YET_RECOVERED`. This is **not proof of deletion** from HTO's administrator history. Locate a supported owner-admin export/backup or an authoritative original before republishing; do not reconstruct its body from memory or cached excerpts.
+
 ## Next release gates
 
 1. Re-read each original source when an editorial fact is proposed; preserve original text privately under governed retention, with source timestamp and page identity.
