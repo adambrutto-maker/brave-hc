@@ -33,11 +33,14 @@ The new `scripts/audit_plan03_full_schema_game_log_staging.py` classifies HTO so
 | `SkaterStatsByGame` | 4668 | 40 source rows | 4669–4708 |
 | `GoalieStatsByGame` | 363 | 3 source rows | 364–366 |
 
-**A direct, read-only source XML inspection found one populated cell in the intended skater extension area: `Y4674 = 360`.** Column `Y` is the skater table's SHG field. The cell is **outside the current structured table**, and its purpose is not established by the available evidence. It might be a partial/manual entry or another historical remnant. Its value must **not** be overwritten, moved, treated as a valid short-handed-goal statistic, or deleted without source-owner examination.
+**Correction verified October 21:** `Y4674` is stored as Excel **shared-string cell type `s`** with on-disk index `<v>360</v>`; shared-string entry **360 decodes to a single space (`" "`)**, **not** the number 360 or a short-handed-goal value. It lies outside the original skater table and inside the proposed extension area. The earlier description `Y4674 = 360` was a decoding error, now explicitly superseded. The source retains **one physical whitespace-only cell, zero meaningful/statistical-data collisions**. Its single space should be preserved in the source and explicitly dealt with in a disposable test, rather than silently overwritten or described as an existing hockey statistic.
 
 The three-row goalie extension area currently contains only style-only cells and no populated formulas/values. **This does not authorize appending goalies**, because full legacy goalie W/L/OT and shots/saves fields remain unverified.
 
 The private proposal carries the collision `Y4674`, the exact 43 staged row targets, every source-supplied field, every `null` held field and identity/jersey review flags. **Two staged observations** carry such flags. It explicitly sets `approvedForExcelWrite=false`, `structuredTableResizeApproved=false` and `sourcePublicationAuthorized=false`.
+
+
+**Private receipt version note:** the earlier private admission preview with SHA `2e59bea0...` was written before shared-string decoding and consequently labels Y4674 as raw value 360. It is a **historical audit artifact, not an authoritative decoded finding**. The corrected runner and tests should be used for every subsequent workbook decision; create a fresh non-overwriting private receipt when captured. No correction to the original XLSX is required.
 
 ## Existing source conflicts remain separate
 
@@ -45,7 +48,7 @@ The original game-359 goalie entry for Dev Leong says `GP1 W1 L0 GA0 POTG0`; off
 
 ## Acceptance for the next workbook implementation
 
-1. **Resolve cell Y4674** with a documented original-source review and independent evidence. Either preserve it explicitly outside the expanded table or establish a separately approved, non-destructive relocation before any structured-table resize.
+1. **Disposition the whitespace-only Y4674 cell** in the next disposable review test with a documented before/after receipt. The source is already proven to be a single space, not an entered numeric SHG value. Any adjustment must be limited to the disposable copy and preserve the untouched original workbook until owner approval.
 2. Review every proposed row's jersey/name identity. Preserve `Unknown, Johnny`, jersey `0`, rentals, call-ups and unresolved profile identities without guessed official IDs.
 3. Obtain independently authoritative sources for unavailable legacy manual inputs, or design a documented and formula-safe **unknown/null** representation without presenting unrecorded statistics as zero. Note that many legacy formulas expect numeric inputs; do not assume leaving a blank is safe.
 4. In a *new* disposable Excel copy, test extending exactly 158-column and 116-column structured tables, copying the appropriate calculated-column formulas, preserving historical rows and preventing collisions; validate 43 source observations, four known goalie results, pivots, all 17 sheets, AwardScoring, Player Projections and Web Streaks.
@@ -55,8 +58,8 @@ The original game-359 goalie entry for Dev Leong says `GP1 W1 L0 GA0 POTG0`; off
 ## Tested implementation and private receipt
 
 - Source script: `scripts/audit_plan03_full_schema_game_log_staging.py`.
-- No-network tests: `tests/test_plan03_full_schema_game_log_staging.py` — **9/9 PASS**, including null PIM/POTG protection, goalie W non-inference, fifth-game refusal, identity holds and preservation of `Y4674`.
-- **Real-input BRUTTECH 1 result:** `REVIEW_ONLY_HELD_FOR_EXISTING_CELLS_AND_UNSUPPORTED_STATS`, **40 skater + 3 goalie** proposed entries, **28** unknown staged PIM values, **1** unknown staged goalie POTG, **one** populated skater table-extension collision, and **two** identity/jersey review flags. No Excel write.
+- No-network tests: `tests/test_plan03_full_schema_game_log_staging.py` — **13/13 PASS** after adding typed shared-string decoding tests, including null PIM/POTG protection, goalie W non-inference, fifth-game refusal, identity holds and distinguishing the stored shared-string index 360 from decoded whitespace.
+- **Real-input BRUTTECH 1 result:** `REVIEW_ONLY_HELD_FOR_EXISTING_CELLS_AND_UNSUPPORTED_STATS`, **40 skater + 3 goalie** proposed entries, **28** unknown staged PIM values, **1** unknown staged goalie POTG, **one** physical whitespace-only skater cell and **zero meaningful existing statistical inputs** in the extension region, plus **two** identity/jersey review flags. No Excel write.
 - Private, source-hashed detailed plan: `D:\BruTTech\Products\HockeyOS\Plan03\source-archive\261021_Full_Schema_Game_Log_Admission_PREVIEW_PRIVATE.json`, SHA256 `2e59bea0b23d74014aeb36864962c0ed66bd53046cee18de24d1158fe2f1557f`. **Do not upload the private row-level plan to the public repository.**
 - The original workbook SHA-256 remains `0002fd9f06596af8d0a00fc1b53a618ef15479f941ad5c1e6265b27002a65154`; the already accepted four-game **disposable** Excel recalculation is separate and unaffected.
 
