@@ -27,7 +27,7 @@ The automated, no-network regression `tests/test_historical_bulletin_awards.py` 
 - Cross-check the April 2024 Bulletin's **milestone dates** against the corrected official Records archive without silently changing recorded-stat caveats.
 - Review original 2013, 2017 and 2018 captaincy posts as distinct leadership history, not record-book statistical awards.
 - Review COVID Bulletins for contemporaneous evidence of interruptions, recognizing that planned resumption dates were not proof of games taking place.
-- The earlier July 1, 2026 Hot Stove feature is absent from current native Home markup and **not recovered in this private Bulletin capture**; check authorized admin history/backups before any proposed restoration.
+- The earlier July 1, 2026 Hot Stove feature is absent from current native Home markup and was not part of the Bulletin capture. Its 6,100-character rendered text was subsequently recovered privately from the separate October 16 HTO Home readback (see [source-recovery receipt](261021_Plan03_July_2026_Offseason_Article_Recovery_Receipt.md)); the original CMS body, markup and revision history remain unverified. Do not republish without owner review.
 - Keep existing four Founder-approved 2026/27 Hot Stove recaps published as currently authorized; the three separate archival overlay drafts remain `DRAFT_NOT_APPROVED`. No automatic changes to HTO native Awards, Records or article content.
 
 **Release gate:** new historical article or Hall-of-Fame presentation requires separate owner/editorial approval, verified source references and rollback/QA receipts.
