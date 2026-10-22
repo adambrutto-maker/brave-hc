@@ -1,6 +1,6 @@
 # HockeyOS Plan 03 — Optional 499-cell opponent metadata acceptance gate
 
-**2026-10-22. Lead: Data & AI.** **State: Prepared for private disposable verification; not executed against a 499-cell workbook.** The authoritative original workbook, HTO CMS, records and public website remain unchanged.
+**2026-10-22. Lead: Data & AI.** **State: `PRIVATE_499_OPPONENT_METADATA_SAVED_REVIEW_ONLY` (real private source check PASS). Full 499-cell recalculation and original adoption remain HELD.** The authoritative original workbook, HTO CMS, records and public website remain unchanged.
 
 ## Latest actually verified baseline
 
@@ -39,18 +39,27 @@ Successful execution against a future private candidate may return **`PRIVATE_49
 
 The reviewer uses ZIP/XML readback and never launches Excel, changes a cell, fetches external HTO websites, or uploads any private workbook. Synthetic tests in `tests/test_plan03_optional_499_opponents.py` check strict name/alias/unknown/future-game/formula/source approval gates and run under the repository's guarded CI workflow without access to private Excel data.
 
-## Next controlled execution, BRUTTECH 1 only
+## Actual private 499-cell saved-file validation, October 22
 
-At the time of this checkpoint, BRUTTECH 1's remote connection was **unavailable**, so **no new 499-cell candidate was created in this implementation step**. Do not interpret the previous 497-cell private workbook as a 499-cell candidate, and do not rerun any of the already accepted 497-cell tests destructively.
+The protected optional candidate **already exists** on BRUTTECH 1 and was verified **read-only**; no repeat of the one-time staging script is required.
 
-Once BRUTTECH 1 is reachable:
+- Accepted full-calculated 497-cell input: `D:\\BruTTech\\Products\\HockeyOS\\Plan03\\Excel_Disposable_Composite_FullRecalc_261021_01\\01_Full_Calculation_Review_COPY.xlsx`, SHA256 `de9bc6ed615a7c330809a0b2f8888f42c357d641f2a2266e0fca20914521f979`.
+- Distinct private **optional 499-cell** candidate: `D:\\BruTTech\\Products\\HockeyOS\\Plan03\\Excel_Disposable_Optional499_261022_01\\01_Optional499_OpponentNames_COPY.xlsx`, SHA256 `d1512ed152284bbb578a067b1360324dbf56caf2d32afe4606b91e06e1c2c854`.
+- Independent read-only source audit returned **`PRIVATE_499_OPPONENT_METADATA_SAVED_REVIEW_ONLY`** with exact H372=`Michelob Morts` and H373=`Zamboner Crew`, all **497 previously verified cell dispositions retained**, **41 unknown source values still blank**, other Master Schedule manual data unchanged, all **545,506 formula definitions preserved**, no change to `Mohawks HC` alias, no invented rink/home-away metadata, and the October 25 game still unplayed.
+- **No original workbook edit, native HTO edit, public Watch or award change**. The source-hash acceptance is not a 499-cell full Excel recalculation or live-stat release.
 
-1. Verify that no existing Excel automation instance is active and source input SHA still matches. Create a newly named isolated private test directory with an untouched binary backup of the accepted full-calculated 497-cell copy.
-2. Open **only a third disposable copy** in Excel with external links/macros/events disabled, source manual calculation mode retained. Confirm `H372/H373` blank, four game/date/source joins intact, `H371` alias preserved and future row 374 unplayed.
-3. Set exactly `H372 = Michelob Morts`, `H373 = Zamboner Crew`; save **only** the new private candidate and retain a source SHA + intended-change receipt. Do not guess schedule time, venue, home/away or change native HTO.
-4. Run the new independent read-only 499 metadata checker. It must explicitly hold on unreviewed source/manual changes, changed formula definitions, unexpected filled unknown HTO data or any counted fifth game.
-5. In another protected private copy, perform a controlled full 17-sheet calculation and validate no new Excel errors, exact previously accepted 20-skater/three-goalie HTO source parity and unchanged 0–4/6GF/19GA team results. Source missing-field and profile error holds remain.
-6. **Separate original-file owner approval** is required before any real source promotion. An optional 499 technical pass cannot authorize the original workbook write or live Record Watch, awards and article publication.
+### One false-positive source checker repaired
+
+The first invocation of the original PR #59 source checker failed at `HISTORICAL_PLAYER_MANUAL_SOURCE_DRIFT`, **not** because historical skater/goalie source data changed, but because it compared a generic `Master Schedule` manual-cell digest that necessarily changes when the **two intended H372/H373 names** are entered.
+
+The corrected checker explicitly verifies **skater and goalie historical manual-cell digests unchanged**, while its separate stable Master Schedule digest **excludes only H372/H373** and rejects any other schedule-source edits. Both branches of the original overbroad check (main audit path and `compare_499`) were corrected. Extra fail-closed regressions protect this distinction and still reject a changed historical player/goalie value, formula, unofficial name, alias normalization or fifth-game admission. **21/21 targeted offline tests PASS**; real 499 source check PASS. The original private evidence was not rewritten or lost.
+
+### Next acceptance — still required
+
+1. Preserve the accepted 497-cell source and the separately saved 499-cell candidate, with independently checked hashes and a byte-identical rollback.
+2. In another **new disposable copy only**, run a separately controlled, bounded 17-sheet Excel `CalculateFull`. Confirm formulas, no newly introduced errors, official four-game team score parity and 20-skater/three-goalie supported HTO season-pivot parity.
+3. Revalidate historical player sources, 41 missing source cells, original Skater Profile `I13/J13` errors and roster/awards/forecast/streak release holds. Opponent text acceptance alone does not solve them.
+4. Obtain specific original-workbook owner approval and protected rollback before **any** original source-file edit or public publication. Leave future October 25 HTO 3375682 unadmitted.
 
 ## Other explicit holds
 
