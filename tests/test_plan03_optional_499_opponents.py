@@ -4,7 +4,7 @@ import sys
 from pathlib import Path
 import unittest
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/"scripts"))
-from audit_plan03_optional_499_opponents import compare_499,MetadataHold,ACCEPTED_497_SHA,EXTRA
+from audit_plan03_optional_499_opponents import compare_499,verify_source_manual_delta,MetadataHold,ACCEPTED_497_SHA,EXTRA
 
 NEW_SHA="8"*64
 
@@ -114,6 +114,51 @@ class New499SourceGate(unittest.TestCase):
         c["newOpponentNamesProposed"][1]["verifiedOpponent"]="Other team"
         with self.assertRaisesRegex(MetadataHold,"HTO_SOURCE_NAME_SET_CHANGED"):
             checked((a,b,c))
+
+
+class IntentionalOpponentDelta(unittest.TestCase):
+    def base(self):
+        return {
+          "legacyManualHashes":{"skaters":"s","goalies":"g","masterSchedule":"old"},
+          "legacyManualCounts":{"skaters":694249,"goalies":39239,"masterSchedule":6836}
+        }
+    def test_exact_two_new_opponents_can_change_schedule_manual_digest(self):
+        before=self.base()
+        after=copy.deepcopy(before)
+        after["legacyManualHashes"]["masterSchedule"]="new"
+        after["legacyManualCounts"]["masterSchedule"]=6838
+        verify_source_manual_delta(before,after)
+    def test_staged_opponent_count_one_held(self):
+        before=self.base();after=copy.deepcopy(before)
+        after["legacyManualHashes"]["masterSchedule"]="new"
+        after["legacyManualCounts"]["masterSchedule"]=6837
+        with self.assertRaisesRegex(MetadataHold,"OFFICIAL_OPPONENT_SOURCE_COUNT_NOT_EXACT_PLUS_TWO"):
+            verify_source_manual_delta(before,after)
+    def test_unrelated_extra_schedule_manual_cell_held(self):
+        before=self.base();after=copy.deepcopy(before)
+        after["legacyManualHashes"]["masterSchedule"]="new"
+        after["legacyManualCounts"]["masterSchedule"]=6839
+        with self.assertRaisesRegex(MetadataHold,"OFFICIAL_OPPONENT_SOURCE_COUNT_NOT_EXACT_PLUS_TWO"):
+            verify_source_manual_delta(before,after)
+    def test_skater_source_value_drift_held(self):
+        before=self.base();after=copy.deepcopy(before)
+        after["legacyManualHashes"]["skaters"]="unexpected"
+        after["legacyManualHashes"]["masterSchedule"]="new"
+        after["legacyManualCounts"]["masterSchedule"]=6838
+        with self.assertRaisesRegex(MetadataHold,"HISTORICAL_PLAYER_MANUAL_SOURCE_DRIFT"):
+            verify_source_manual_delta(before,after)
+    def test_goalie_source_row_count_drift_held(self):
+        before=self.base();after=copy.deepcopy(before)
+        after["legacyManualCounts"]["goalies"]+=1
+        after["legacyManualHashes"]["masterSchedule"]="new"
+        after["legacyManualCounts"]["masterSchedule"]=6838
+        with self.assertRaisesRegex(MetadataHold,"HISTORICAL_PLAYER_MANUAL_SOURCE_DRIFT"):
+            verify_source_manual_delta(before,after)
+    def test_sha_must_change_for_two_real_new_text_inputs(self):
+        before=self.base();after=copy.deepcopy(before)
+        after["legacyManualCounts"]["masterSchedule"]=6838
+        with self.assertRaisesRegex(MetadataHold,"OFFICIAL_OPPONENT_SOURCE_DIGEST_NOT_UPDATED"):
+            verify_source_manual_delta(before,after)
 
 if __name__=="__main__":
     unittest.main()
