@@ -148,7 +148,12 @@ def compare_499(accepted497, candidate499, source_proof, *, base_sha, candidate_
         or source_proof.get("wouldBecomeAdditionalSourceCells") != 2
         or source_proof.get("sourceOfTruthOwnerApprovalGranted") is not False):
         raise MetadataHold("OFFICIAL_ADDITIONAL_NAME_SOURCE_REVIEW_NOT_ACCEPTED")
-    official_rows = {(x.get("cell"),x.get("verifiedOpponent")) for x in source_proof.get("newOpponentNamesProposed",[])}
+    proposals=source_proof.get("newOpponentNamesProposed")
+    if not isinstance(proposals,list) or len(proposals)!=2:
+        raise MetadataHold("HTO_SOURCE_NAME_PROPOSALS_INCOMPLETE")
+    if any(row.get("approvalToWriteOriginal") is not False for row in proposals):
+        raise MetadataHold("HTO_SOURCE_REVIEW_MUST_NOT_APPROVE_ORIGINAL_WRITE")
+    official_rows = {(x.get("cell"),x.get("verifiedOpponent")) for x in proposals}
     if official_rows != {(ref,val) for ref,val in EXTRA.values()}:
         raise MetadataHold("HTO_SOURCE_NAME_SET_CHANGED")
     if accepted497["members"] != candidate499["members"]:
