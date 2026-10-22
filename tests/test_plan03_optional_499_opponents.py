@@ -4,7 +4,7 @@ import sys
 from pathlib import Path
 import unittest
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/"scripts"))
-from audit_plan03_optional_499_opponents import compare_499,MetadataHold,ACCEPTED_497_SHA,EXTRA
+from audit_plan03_optional_499_opponents import compare_499,MetadataHold,ACCEPTED_497_SHA,EXTRA,verify_existing_player_source_preservation
 
 NEW_SHA="8"*64
 
@@ -114,6 +114,33 @@ class New499SourceGate(unittest.TestCase):
         c["newOpponentNamesProposed"][1]["verifiedOpponent"]="Other team"
         with self.assertRaisesRegex(MetadataHold,"HTO_SOURCE_NAME_SET_CHANGED"):
             checked((a,b,c))
+
+class PrivateMetadataPlayerManualDigest(unittest.TestCase):
+    def example(self):
+        base={"tableRefs":{"SkaterStatsByGame":"A2:FB4708","GoalieStatsByGame":"FD2:JO366"},
+              "legacyManualHashes":{"skaters":"s","goalies":"g","masterSchedule":"prior"},
+              "legacyManualCounts":{"skaters":694249,"goalies":39239,"masterSchedule":6836}}
+        candidate=copy.deepcopy(base)
+        # Two official HTO opponents change the generic Master Schedule manual digest.
+        candidate["legacyManualHashes"]["masterSchedule"]="two-extra-names"
+        candidate["legacyManualCounts"]["masterSchedule"]=6838
+        return base,candidate
+
+    def test_only_two_expected_schedule_names_may_change_schedule_digest(self):
+        before,after=self.example()
+        verify_existing_player_source_preservation(before,after)
+
+    def test_modified_existing_skater_manual_values_still_block(self):
+        before,after=self.example()
+        after["legacyManualHashes"]["skaters"]="altered"
+        with self.assertRaisesRegex(MetadataHold,"HISTORICAL_PLAYER_MANUAL_SOURCE_DRIFT_skaters"):
+            verify_existing_player_source_preservation(before,after)
+
+    def test_changed_goalie_row_count_still_blocks(self):
+        before,after=self.example()
+        after["legacyManualCounts"]["goalies"]+=1
+        with self.assertRaisesRegex(MetadataHold,"HISTORICAL_PLAYER_MANUAL_SOURCE_DRIFT_goalies"):
+            verify_existing_player_source_preservation(before,after)
 
 if __name__=="__main__":
     unittest.main()
