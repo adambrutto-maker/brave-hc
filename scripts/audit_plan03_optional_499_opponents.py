@@ -187,10 +187,10 @@ def compare_499(accepted497, candidate499, source_proof, *, base_sha, candidate_
     if candidate499["scheduleFields"].get("X374") != accepted497["scheduleFields"].get("X374"):
         raise MetadataHold("UNPLAYED_FUTURE_GAME_CHANGED")
     if original is not None and source497 is not None and candidate497 is not None:
-        if (source497["tableRefs"]!=candidate497["tableRefs"]
-            or source497["legacyManualHashes"]!=candidate497["legacyManualHashes"]
-            or source497["legacyManualCounts"]!=candidate497["legacyManualCounts"]):
-            raise MetadataHold("HTO_PLAYER_INPUT_SOURCE_CHANGED_DURING_OPPONENT_STAGE")
+        # The two extra verified H372/H373 names necessarily alter the generic
+        # Master Schedule digest. The stable schedule digest above excludes
+        # only those two addresses and verifies every other schedule value.
+        verify_existing_player_source_preservation(source497,candidate497)
     return {
       "schema":"brave-hc-plan03-optional-499-opponent-source-gate/v1",
       "status":"PRIVATE_499_OPPONENT_METADATA_SAVED_REVIEW_ONLY",
