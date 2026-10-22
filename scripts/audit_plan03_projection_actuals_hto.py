@@ -100,16 +100,22 @@ def read_private_projection(book:Path):
                                            "values":{f:numeric(data.get(c),f) for f,c in STAT_COLS.items()}})
                 row.clear()
         if selector!=SEASON:raise EvidenceHold("PROJECTION_SEASON_SELECTOR_CHANGED")
-        if len(actual)!=89 or len({row["player"] for row in actual})!=89:
+        if len(actual)!=89:
             raise EvidenceHold("PROJECTION_PLAYER_ROW_COVERAGE_CHANGED")
+        return actual
         return actual
 
 def reconcile(official,projection_rows):
     if len(official)!=20:
         raise EvidenceHold("OFFICIAL_SKATER_IDENTITY_COVERAGE_INVALID")
     roster=[r.get("player") for r in projection_rows]
-    if len(roster)!=89 or len(set(roster))!=89:
-        raise EvidenceHold("PROJECTION_ROSTER_DUPLICATE_OR_INVALID")
+    if len(roster)!=89 or any(not isinstance(name,str) or not name for name in roster):
+        raise EvidenceHold("PROJECTION_ROSTER_INVALID")
+    duplicates={name:n for name,n in __import__("collections").Counter(roster).items() if n>1}
+    if any(name in official for name in duplicates):
+        raise EvidenceHold("PROJECTION_HTO_PLAYER_DUPLICATE_AMBIGUOUS")
+    if duplicates and duplicates!={"Hunt, Quenton":2}:
+        raise EvidenceHold("UNREVIEWED_LEGACY_PROJECTION_DUPLICATE")
     known=[r for r in projection_rows if r["player"] in official]
     missing=sorted(set(official)-set(roster))
     if len(known)!=19 or missing!=["Pavaday, Damian"]:
@@ -128,10 +134,13 @@ def reconcile(official,projection_rows):
                                       "expected":official[row["player"]][field],"actual":val})
     return {
       "schema":"brave-hc-plan03-hto-projection-actual-source-parity/v1",
-      "status":("PROJECTION_REPRESENTED_ACTUALS_MATCH_HTO_PARTIAL"
-                if not discrepancies else "PROJECTION_ACTUAL_SOURCE_PARITY_HOLD"),
+      "status":("PROJECTION_ACTUAL_SOURCE_PARITY_HOLD" if discrepancies else
+                "PROJECTION_REPRESENTED_ACTUALS_MATCH_HTO_DUPLICATE_LEGACY_ROW_HOLD"
+                if duplicates else "PROJECTION_REPRESENTED_ACTUALS_MATCH_HTO_PARTIAL"),
       "officialHTOSkaters":len(official),
-      "projectionTablePlayers":len(projection_rows),
+      "projectionTableRows":len(projection_rows),
+      "distinctProjectionPlayerNames":len(set(roster)),
+      "duplicateLegacyProjectionNames":[{"name":name,"rows":n} for name,n in sorted(duplicates.items())],
       "representedCurrentHTOSkaters":len(known),
       "matchedActuals":len(known)-len({m["player"] for m in discrepancies}),
       "discrepancies":discrepancies,
@@ -140,6 +149,7 @@ def reconcile(official,projection_rows):
       "representedPlayerTotals":{field:sum(row["values"][field] for row in known) for field in STAT_COLS},
       "actualColumns":"S:V only — GP, G, A, Pts",
       "unrepresentedPlayerEligibilityApproved":False,
+      "fullProjectionRosterIntegrityCertified":not bool(duplicates),
       "forecastColumnsAndRatesCertified":False,
       "unknownSourceStatsCertified":False,
       "goalieProjectionsCertified":False,
