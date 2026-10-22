@@ -53,7 +53,7 @@ def accept(original,composite,source_cells,unknown,*,observed_games=None):
         raise PromotionHold("SOURCE_Y4674_SHARED_STRING_BASELINE_CHANGED")
     if composite["targetCellValues"][3].get("Y4674") is not None:
         raise PromotionHold("COMPOSITE_Y4674_NOT_BLANK_UNKNOWN")
-    if observed_games is not None and observed_games!=EXPECTED_TOTALS:
+    if observed_games is None or observed_games!=EXPECTED_TOTALS:
         raise PromotionHold("COMPOSITE_TEAM_GAME_SCORE_OR_COUNT_CONFLICT")
     return {
       "schema":"brave-hc-plan03-combined-497-source-audit/v1",
@@ -65,7 +65,7 @@ def accept(original,composite,source_cells,unknown,*,observed_games=None):
       "verifiedTotalIntentionalManualDispositions":497,
       "preservedSourceUnknownCells":41,
       "allPreviousLegacyManualInputsPreserved":True,
-      "fourOfficialTeamScoresCachedCorrectly":observed_games==EXPECTED_TOTALS if observed_games is not None else None,
+      "fourOfficialTeamScoresCachedCorrectly":True,
       "combinedWorkbookActuallyTested":True,
       "all17SheetFormulaBusinessRulesCertified":False,
       "officialAwardsForecastsAndLiveWatchCertified":False,
