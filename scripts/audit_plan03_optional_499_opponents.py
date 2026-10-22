@@ -24,6 +24,7 @@ from audit_plan03_missing_schedule_opponents import (
     ORIGINAL_SHA,
     COMPOSITE_SHA as ACCEPTED_497_SHA,
 )
+from audit_plan03_integrated_497_source import read_master_schedule_caches
 from audit_plan03_exact_promotion_preflight import (
     source_manifest_contract,
     scan_workbook,
@@ -245,6 +246,12 @@ def main():
         raise MetadataHold("SOURCE_TABLE_RANGE_CHANGED")
     if accepted_inputs["legacyManualHashes"]!=candidate_inputs["legacyManualHashes"] or accepted_inputs["legacyManualCounts"]!=candidate_inputs["legacyManualCounts"]:
         raise MetadataHold("HISTORICAL_PLAYER_MANUAL_SOURCE_DRIFT")
+    # The future October 25 fixture remains uncounted, and all four old
+    # completed-game formula caches must remain in the approved score scope.
+    base_games=read_master_schedule_caches(args.accepted_497)
+    new_games=read_master_schedule_caches(args.new_499_candidate)
+    if base_games!=new_games:
+        raise MetadataHold("499_METADATA_COPY_CHANGED_VERIFIED_TEAM_SCORE_RESULTS")
     source_claim=validate_hto_opponents(
         schedule_rows(args.original),schedule_rows(args.accepted_497),periods)
     before=workbook_fingerprints(args.accepted_497)
@@ -252,6 +259,7 @@ def main():
     result=compare_499(before,after,source_claim,
         base_sha=ACCEPTED_497_SHA,candidate_sha=digest(args.new_499_candidate),
         original=original,source497=accepted_inputs,candidate497=candidate_inputs)
+    result["fourExistingHTOTeamGameCachesUnchanged"]=True
     result["immutableOriginalSHA256"]=ORIGINAL_SHA
     result["HTOPeriodSourceSHA256"]=digest(args.source_period_evidence)
     result["privateJoinedSourceSHA256"]=digest(args.source_joined_hto)
