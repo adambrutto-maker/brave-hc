@@ -142,5 +142,31 @@ class PrivateMetadataPlayerManualDigest(unittest.TestCase):
         with self.assertRaisesRegex(MetadataHold,"HISTORICAL_PLAYER_MANUAL_SOURCE_DRIFT_goalies"):
             verify_existing_player_source_preservation(before,after)
 
+class AdvancedHTO499SourceComparison(unittest.TestCase):
+    def reviewed(self):
+        old={"tableRefs":{"SkaterStatsByGame":"A2:FB4708","GoalieStatsByGame":"FD2:JO366"},
+             "legacyManualHashes":{"skaters":"unchanged-skaters","goalies":"unchanged-goalies",
+                                   "masterSchedule":"before-adding-two-names"},
+             "legacyManualCounts":{"skaters":694249,"goalies":39239,"masterSchedule":6836}}
+        new=copy.deepcopy(old)
+        new["legacyManualHashes"]["masterSchedule"]="after-adding-two-names"
+        new["legacyManualCounts"]["masterSchedule"]=6838
+        return old,new
+
+    def test_real_source_comparison_allows_only_expected_schedule_digest(self):
+        old,new=self.reviewed()
+        result=compare_499(*fixtures(),base_sha=ACCEPTED_497_SHA,candidate_sha=NEW_SHA,
+                           original={},source497=old,candidate497=new)
+        self.assertEqual(result["status"],"PRIVATE_499_OPPONENT_METADATA_SAVED_REVIEW_ONLY")
+        self.assertTrue(result["all497PlayerAndTeamInputFieldsCompared"])
+        self.assertFalse(result["499FullWorkbookRecalculationCertified"])
+
+    def test_actual_player_source_mutation_still_holds_under_advanced_comparison(self):
+        old,new=self.reviewed()
+        new["legacyManualHashes"]["skaters"]="changed-skater-source"
+        with self.assertRaisesRegex(MetadataHold,"HISTORICAL_PLAYER_MANUAL_SOURCE_DRIFT_skaters"):
+            compare_499(*fixtures(),base_sha=ACCEPTED_497_SHA,candidate_sha=NEW_SHA,
+                        original={},source497=old,candidate497=new)
+
 if __name__=="__main__":
     unittest.main()
