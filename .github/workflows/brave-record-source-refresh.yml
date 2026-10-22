@@ -41,6 +41,10 @@ on:
       - 'tests/test_plan03_award_source_readiness.py'
       - 'scripts/audit_plan03_exact_promotion_preflight.py'
       - 'tests/test_plan03_exact_promotion_preflight.py'
+      - 'scripts/audit_plan03_integrated_497_cells.py'
+      - 'tests/test_plan03_integrated_497_cells.py'
+      - 'scripts/audit_plan03_integrated_fullcalc_acceptance.py'
+      - 'tests/test_plan03_integrated_fullcalc_acceptance.py'
       - 'scripts/audit_plan03_integrated_497_fullcalc.py'
       - 'tests/test_plan03_integrated_497_fullcalc.py'
       - 'scripts/audit_plan03_composite_497_cell_readback.py'
@@ -137,6 +141,10 @@ jobs:
         run: python -m unittest discover -s tests -p test_plan03_composite_497_cell_readback.py
       - name: Validate integrated 497-cell fullcalculation source and no-publication contract (offline)
         run: python -m unittest discover -s tests -p test_plan03_integrated_497_fullcalc.py
+      - name: Protect exact 497-cell combined source and full-calculation receipts (offline)
+        run: |
+          python -m unittest discover -s tests -p test_plan03_integrated_497_cells.py
+          python -m unittest discover -s tests -p test_plan03_integrated_fullcalc_acceptance.py
       - name: Read public HTO results and published records
         run: python scripts/refresh_record_sources.py
       - name: Recalculate complete-ledger record candidates
