@@ -246,71 +246,120 @@ def scan_workbook(path, targets, withheld, *, is_original):
         "tableRefs":table_refs,
     }
 
-def compare(before,after,proposed,withheld):
-    expected_before={"SkaterStatsByGame":"A2:FB4668","GoalieStatsByGame":"FD2:JO363"}
-    expected_after={"SkaterStatsByGame":"A2:FB4708","GoalieStatsByGame":"FD2:JO366"}
-    if before["tableRefs"]!=expected_before or after["tableRefs"]!=expected_after:
-        raise PromotionHold("SOURCE_TABLE_EXTENSION_NOT_EXACT")
-    if before["legacyManualHashes"]!=after["legacyManualHashes"] or before["legacyManualCounts"]!=after["legacyManualCounts"]:
+def check_legacy_manual_preservation(original,copy):
+    if original["legacyManualHashes"]!=copy["legacyManualHashes"] or original["legacyManualCounts"]!=copy["legacyManualCounts"]:
         raise PromotionHold("PREEXISTING_MANUAL_SOURCE_VALUES_CHANGED")
-    if before["unexpectedAppendedManualCells"] or after["unexpectedAppendedManualCells"]:
+    if original["unexpectedAppendedManualCells"] or copy["unexpectedAppendedManualCells"]:
         raise PromotionHold("UNPLANNED_INPUT_IN_NEW_TABLE_ROWS")
-    for sheet,cells in proposed.items():
-        for ref,want in cells.items():
-            if before["targetCellValues"][sheet].get(ref) is not None:
-                raise PromotionHold("ORIGINAL_SOURCE_INPUT_ALREADY_PRESENT_"+ref)
-            if after["targetCellValues"][sheet].get(ref)!=want:
-                raise PromotionHold("SAVED_HTO_SOURCE_VALUE_NOT_MATCHED_"+ref)
+
+def check_period_fragment(before,fragment,proposed,withheld):
+    # The distinct early Master Schedule test has never included the 43 new
+    # player-game rows. It MUST be recorded as period-only, not integrated.
+    expected={"SkaterStatsByGame":"A2:FB4668","GoalieStatsByGame":"FD2:JO363"}
+    if before["tableRefs"]!=expected or fragment["tableRefs"]!=expected:
+        raise PromotionHold("PERIOD_ONLY_FRAGMENT_TABLE_BOUNDARY_CHANGED")
+    check_legacy_manual_preservation(before,fragment)
+    for ref,value in proposed[SHEET_MASTER_SCHEDULE].items():
+        if before["targetCellValues"][12].get(ref) is not None:
+            raise PromotionHold("ORIGINAL_GAME_PERIOD_NO_LONGER_EMPTY_"+ref)
+        if fragment["targetCellValues"][12].get(ref)!=value:
+            raise PromotionHold("PERIOD_FRAGMENT_SCORE_NOT_MATCHED_"+ref)
+    for ref in proposed[SHEET_GAME_LOGS]:
+        if fragment["targetCellValues"][3].get(ref) is not None:
+            raise PromotionHold("PERIOD_FRAGMENT_HAS_UNREVIEWED_PLAYER_SOURCE_"+ref)
     for ref in withheld:
-        if after["targetCellValues"][SHEET_GAME_LOGS].get(ref) is not None:
-            raise PromotionHold("HELD_UNOBSERVED_STAT_WAS_ENTERED_"+ref)
-    original_old={k:("number",numeric(v[0])) for k,v in CORRECTED_GOALIE.items()}
-    original_new={k:("number",numeric(v[1])) for k,v in CORRECTED_GOALIE.items()}
-    for ref in CORRECTED_GOALIE:
-        if before["targetCellValues"][3].get(ref)!=original_old[ref] or after["targetCellValues"][3].get(ref)!=original_new[ref]:
-            raise PromotionHold("GOALIE_RECORDED_BASELINE_NOT_RECONCILED_"+ref)
+        if fragment["targetCellValues"][3].get(ref) is not None:
+            raise PromotionHold("PERIOD_FRAGMENT_HAS_UNOBSERVED_STAT_"+ref)
+    for ref,(old,_) in CORRECTED_GOALIE.items():
+        if before["targetCellValues"][3].get(ref)!=("number",numeric(old)):
+            raise PromotionHold("ORIGINAL_GOALIE_ROW_BASELINE_CHANGED_"+ref)
+        if fragment["targetCellValues"][3].get(ref)!=("number",numeric(old)):
+            raise PromotionHold("PERIOD_FRAGMENT_MUST_PRESERVE_EXISTING_GOALIE_"+ref)
+    if fragment["targetCellValues"][3].get("Y4674")!=("text"," "):
+        raise PromotionHold("PERIOD_FRAGMENT_WHITESPACE_SOURCE_CHANGED")
+
+def check_player_fragment(before,fragment,proposed,withheld):
+    expected_old={"SkaterStatsByGame":"A2:FB4668","GoalieStatsByGame":"FD2:JO363"}
+    expected_new={"SkaterStatsByGame":"A2:FB4708","GoalieStatsByGame":"FD2:JO366"}
+    if before["tableRefs"]!=expected_old or fragment["tableRefs"]!=expected_new:
+        raise PromotionHold("PLAYER_ONLY_FRAGMENT_TABLE_BOUNDARY_CHANGED")
+    check_legacy_manual_preservation(before,fragment)
+    for ref,val in proposed[SHEET_GAME_LOGS].items():
+        if before["targetCellValues"][3].get(ref) is not None:
+            raise PromotionHold("ORIGINAL_PLAYER_SOURCE_CELL_ALREADY_FILLED_"+ref)
+        if fragment["targetCellValues"][3].get(ref)!=val:
+            raise PromotionHold("PLAYER_FRAGMENT_HTO_CELL_NOT_MATCHED_"+ref)
+    for ref in withheld:
+        if fragment["targetCellValues"][3].get(ref) is not None:
+            raise PromotionHold("PLAYER_FRAGMENT_UNKNOWN_FIELD_FILLED_"+ref)
+    for ref,(old,new) in CORRECTED_GOALIE.items():
+        if before["targetCellValues"][3].get(ref)!=("number",numeric(old)):
+            raise PromotionHold("ORIGINAL_GOALIE_ROW_BASELINE_CHANGED_"+ref)
+        if fragment["targetCellValues"][3].get(ref)!=("number",numeric(new)):
+            raise PromotionHold("PLAYER_FRAGMENT_GOALIE_SOURCE_NOT_REVIEWED_"+ref)
     if before["targetCellValues"][3].get("Y4674")!=("text"," "):
-        raise PromotionHold("Y4674_WHITESPACE_SOURCE_CHANGED")
-    if after["targetCellValues"][3].get("Y4674") is not None:
-        raise PromotionHold("Y4674_MUST_STAY_BLANK_UNKNOWN")
-    if len(proposed[3])!=460 or len(proposed[12])!=32 or len(withheld)!=41:
-        raise PromotionHold("EXPECTED_FOUR_GAME_SOURCE_CHANGE_SIZE_CHANGED")
+        raise PromotionHold("ORIGINAL_WHITESPACE_MARKER_CHANGED")
+    if fragment["targetCellValues"][3].get("Y4674") is not None:
+        raise PromotionHold("PLAYER_FRAGMENT_Y4674_NOT_BLANK")
+    missing_period=[]
+    for ref in proposed[SHEET_MASTER_SCHEDULE]:
+        if before["targetCellValues"][12].get(ref) is not None:
+            raise PromotionHold("ORIGINAL_GAME_PERIOD_NO_LONGER_EMPTY_"+ref)
+        if fragment["targetCellValues"][12].get(ref) is not None:
+            raise PromotionHold("PLAYER_FRAGMENT_PERIODS_CHANGED_BUT_NOT_INTEGRATED_"+ref)
+        missing_period.append(ref)
+    if len(missing_period)!=32:raise PromotionHold("EXPECTED_32_PERIOD_FIELDS_NOT_MISSING")
+    return missing_period
+
+def compare_fragments(original,period_only,player_only,proposed,withheld):
+    if (len(proposed[3]),len(proposed[12]),len(withheld),len(CORRECTED_GOALIE))!=(460,32,41,4):
+        raise PromotionHold("EXPECTED_CHANGE_MANIFEST_COUNTS_CHANGED")
+    check_period_fragment(original,period_only,proposed,withheld)
+    missing=check_player_fragment(original,player_only,proposed,withheld)
     return {
-        "schema":"brave-hc-plan03-private-owner-promotion-preflight/v1",
-        "status":"497_REVIEWED_CELLS_MATCH_PRIVATE_QA_OWNER_APPROVAL_REQUIRED",
-        "counts":{"newPlayerGameRows":43,"verifiedPlayerGameInputCells":460,
-                  "periodScoreInputCells":32,"preexistingGoalieCorrections":4,
-                  "whitespaceOnlySourceDispositionCells":1,
-                  "reviewedSourceChanges":497,"sourceUnknownHeldBlankCells":len(withheld)},
-        "sourceTableOriginalRanges":expected_before,
-        "sourceTablePrivateReviewRanges":expected_after,
-        "previousManualCellDigestsPreserved":True,
-        "originalWorkbookChanged":False,
-        "sourceModelMissingFieldsStillUnverified":True,
-        "completeAwardProjectionStreakModelCertified":False,
-        "originalWorkbookOwnerApprovalRecorded":False,
-        "originalWorkbookWritesAuthorized":False,
-        "publicHTOOrWebsiteChangesAuthorized":False,
-        "fifthHTOGame3375682Admitted":False,
+      "schema":"brave-hc-plan03-private-two-fragment-workbook-promotion-review/v1",
+      "status":"TWO_FRAGMENTS_SOURCE_PARITY_PASS_SINGLE_COMPOSITE_NOT_VALIDATED",
+      "reviewedSourceChangeCount":497,
+      "verifiedPeriodCellsInPeriodOnlyCopy":32,
+      "verifiedPlayerGameCellsInPlayerOnlyCopy":460,
+      "verifiedGoalieSourceCorrectionsInPlayerOnlyCopy":4,
+      "verifiedBlankDispositionInPlayerOnlyCopy":1,
+      "heldSourceNullFields":len(withheld),
+      "periodCellsMissingFromPlayerOnlyCopy":len(missing),
+      "periodCellsMissingFromPlayerOnlyCopyRefs":sorted(missing),
+      "periodOnlyCopyHas43PlayerRecords":False,
+      "playerOnlyCopyContainsFourPeriodScores":False,
+      "knownSourceManualFieldsUnchanged":True,
+      "combined497CellCandidateVerified":False,
+      "compositeFullWorkbookRecalculated":False,
+      "ownerWorkbookApprovalRecorded":False,
+      "sourceOfTruthWriteAuthorized":False,
+      "allStatsAwardsAndLiveWatchReleasable":False,
+      "originalWorkbookModified":False,
+      "fifthHTOGame3375682Admitted":False,
     }
 
 def main():
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument("--original",required=True,type=Path)
     p.add_argument("--private-calculated",required=True,type=Path)
+    p.add_argument("--period-only-copy",required=True,type=Path)
     p.add_argument("--private-joined-hto",required=True,type=Path)
     p.add_argument("--private-period-evidence",required=True,type=Path)
     a=p.parse_args()
-    if file_sha(a.original)!=ORIGINAL_SHA or file_sha(a.private_calculated)!=PRIVATE_CALC_SHA:
-        raise PromotionHold("ORIGINAL_OR_PRIVATE_QA_WORKBOOK_SHA_DRIFT")
+    if (file_sha(a.original)!=ORIGINAL_SHA or file_sha(a.private_calculated)!=PRIVATE_CALC_SHA
+        or file_sha(a.period_only_copy)!="6c125066eff2c4c6f211df8cec4c827676881495d76464c3cb0512abe474a034"):
+        raise PromotionHold("ORIGINAL_OR_PRIVATE_FRAGMENT_WORKBOOK_SHA_DRIFT")
     joined=json.loads(a.private_joined_hto.read_text(encoding="utf8"))
     periods=json.loads(a.private_period_evidence.read_text(encoding="utf8"))
     proposed,unknown=source_manifest_contract(joined,periods)
     before=scan_workbook(a.original,proposed,unknown,is_original=True)
-    after=scan_workbook(a.private_calculated,proposed,unknown,is_original=False)
-    result=compare(before,after,proposed,unknown)
+    period_only=scan_workbook(a.period_only_copy,proposed,unknown,is_original=False)
+    player_only=scan_workbook(a.private_calculated,proposed,unknown,is_original=False)
+    result=compare_fragments(before,period_only,player_only,proposed,unknown)
     result["originalSHA256"]=ORIGINAL_SHA
-    result["privateCalculatedSHA256"]=PRIVATE_CALC_SHA
+    result["periodOnlySHA256"]=file_sha(a.period_only_copy)
+    result["playerOnlyFullyCalculatedSHA256"]=PRIVATE_CALC_SHA
     result["privateJoinedHTOSHA256"]=file_sha(a.private_joined_hto)
     result["privatePeriodEvidenceSHA256"]=file_sha(a.private_period_evidence)
     result["existingSourceManualValuesChecked"]=before["legacyManualCounts"]
