@@ -39,7 +39,7 @@ def certify(source_accept,hta,pivot,excel_receipt,formula_audit,*,source_sha,cal
         or str(excel_receipt.get("sourceSHA256","")).lower()!=COMPOSITE_SHA
         or str(excel_receipt.get("rollbackSHA256","")).lower()!=COMPOSITE_SHA
         or str(excel_receipt.get("candidateSHA256","")).lower()!=FULL_SHA
-        or excel_receipt.get("originalWorkbookModified") is not False
+        or excel_receipt.get("sourceWorkbookModified") is not False
         or excel_receipt.get("externalConnectionsRefreshed") is not False
         or excel_receipt.get("pivotRefreshAllUsed") is not False):
         raise PromotionHold("PRIVATE_EXCEL_FULL_COMPOSITE_CALC_RECEIPT_NOT_VERIFIED")
