@@ -154,6 +154,30 @@ class IntentionalOpponentDelta(unittest.TestCase):
         after["legacyManualCounts"]["masterSchedule"]=6838
         with self.assertRaisesRegex(MetadataHold,"HISTORICAL_PLAYER_MANUAL_SOURCE_DRIFT"):
             verify_source_manual_delta(before,after)
+    def test_full_compare_may_include_only_two_new_manual_names(self):
+        a,b,c=fixtures()
+        source=self.base()
+        candidate=copy.deepcopy(source)
+        candidate["legacyManualHashes"]["masterSchedule"]="new"
+        candidate["legacyManualCounts"]["masterSchedule"]=6838
+        source["tableRefs"]={"SkaterStatsByGame":"A2:FB4708","GoalieStatsByGame":"FD2:JO366"}
+        candidate["tableRefs"]=dict(source["tableRefs"])
+        result=compare_499(a,b,c,base_sha=ACCEPTED_497_SHA,candidate_sha=NEW_SHA,
+                           original={},source497=source,candidate497=candidate)
+        self.assertEqual(result["status"],"PRIVATE_499_OPPONENT_METADATA_SAVED_REVIEW_ONLY")
+        self.assertEqual(result["totalSourceChangesUnderReview"],499)
+    def test_full_compare_rejects_source_table_change_despite_two_names(self):
+        a,b,c=fixtures()
+        source=self.base()
+        candidate=copy.deepcopy(source)
+        candidate["legacyManualHashes"]["masterSchedule"]="new"
+        candidate["legacyManualCounts"]["masterSchedule"]=6838
+        source["tableRefs"]={"SkaterStatsByGame":"A2:FB4708"}
+        candidate["tableRefs"]={"SkaterStatsByGame":"A2:FB4710"}
+        with self.assertRaisesRegex(MetadataHold,"HTO_PLAYER_INPUT_TABLES_CHANGED"):
+            compare_499(a,b,c,base_sha=ACCEPTED_497_SHA,candidate_sha=NEW_SHA,
+                        original={},source497=source,candidate497=candidate)
+
     def test_sha_must_change_for_two_real_new_text_inputs(self):
         before=self.base();after=copy.deepcopy(before)
         after["legacyManualCounts"]["masterSchedule"]=6838
