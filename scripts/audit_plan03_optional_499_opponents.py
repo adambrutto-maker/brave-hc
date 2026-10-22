@@ -213,6 +213,29 @@ def compare_499(accepted497, candidate499, source_proof, *, base_sha, candidate_
     }
 
 
+def verify_source_manual_delta(accepted, candidate):
+    """Allow exactly the two H372/H373 opponent names, and nothing else.
+
+    The generic legacy source scanner includes non-HTO Master Schedule manual
+    cells in its SHA. The 499-copy intentionally adds two names, so those raw
+    schedule SHA values SHOULD differ. This helper enforces the +2 count and
+    protects skater/goalie digests. compare_499() separately hashes all the
+    other Master Schedule manual cells, excluding only H372/H373.
+    """
+    for name in ("skaters","goalies"):
+        if (accepted["legacyManualHashes"].get(name)!=candidate["legacyManualHashes"].get(name)
+            or accepted["legacyManualCounts"].get(name)!=candidate["legacyManualCounts"].get(name)):
+            raise MetadataHold("HISTORICAL_PLAYER_MANUAL_SOURCE_DRIFT")
+    a=accepted["legacyManualCounts"].get("masterSchedule")
+    b=candidate["legacyManualCounts"].get("masterSchedule")
+    if type(a) is not int or type(b) is not int or b!=a+2:
+        raise MetadataHold("OFFICIAL_OPPONENT_SOURCE_COUNT_NOT_EXACT_PLUS_TWO")
+    # The full schedule manual SHA must change because the two additional
+    # names are present. A same digest with +2 entries is not an accepted file.
+    if accepted["legacyManualHashes"].get("masterSchedule")==candidate["legacyManualHashes"].get("masterSchedule"):
+        raise MetadataHold("OFFICIAL_OPPONENT_SOURCE_DIGEST_NOT_UPDATED")
+
+
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--original",required=True,type=Path)
@@ -244,8 +267,10 @@ def main():
         raise MetadataHold("NONZERO_OR_NONBLANK_Y4674")
     if accepted_inputs["tableRefs"]!=candidate_inputs["tableRefs"]:
         raise MetadataHold("SOURCE_TABLE_RANGE_CHANGED")
-    if accepted_inputs["legacyManualHashes"]!=candidate_inputs["legacyManualHashes"] or accepted_inputs["legacyManualCounts"]!=candidate_inputs["legacyManualCounts"]:
-        raise MetadataHold("HISTORICAL_PLAYER_MANUAL_SOURCE_DRIFT")
+    verify_source_manual_delta(accepted_inputs,candidate_inputs)
+    # The two changed Master Schedule text cells are separately bounded by
+    # workbook_fingerprints() and compare_499(), which reject every other
+    # manual schedule change, incorrect name, and the future-game edit.
     # The future October 25 fixture remains uncounted, and all four old
     # completed-game formula caches must remain in the approved score scope.
     base_games=read_master_schedule_caches(args.accepted_497)
