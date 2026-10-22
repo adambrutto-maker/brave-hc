@@ -113,15 +113,19 @@ def main():
     after=scan_workbook(a.integrated_full,proposed,unknown,is_original=False)
     result=verify_full_integration(original,prior,before,after,proposed,unknown,app,report,feed)
     first=verify_master_cache(read_master_cached_values(a.integrated_before))
-    second=verify_master_cache(read_master_cached_values(a.integrated_full))
+    final_master_values=read_master_cached_values(a.integrated_full)
+    second=verify_master_cache(final_master_values)
     if first!=second:
         raise PromotionHold("FULLCALC_CHANGED_VALIDATED_MASTER_GAME_RESULTS")
+    current=final_master_values.get(37,{}).get("AN37")
+    if not current or current.get("hasFormula") is not True or current.get("value")!="4":
+        raise PromotionHold("WINTER_2026_SEASON_COUNT_NOT_FOUR_AFTER_FULL_CALC")
     basic=verify_hto_season_pivots(feed,*parse_pivots(a.integrated_full))
     if (basic.get("status")!="DISPOSABLE_BASIC_HTO_PIVOT_PARITY_PASS_CAVEATED"
         or basic.get("skaterIdentityCount")!=20 or basic.get("goalieIdentityCount")!=3
         or basic.get("unknownHTOFields")!={"skaterPIM":42,"goaliePOTG":1}):
         raise PromotionHold("FULL_COMPOSITE_HTO_PIVOT_NOT_VERIFIED")
-    result["verifiedTeamResults"]=second
+    result["verifiedTeamResults"]={**second,"seasonInfoRecordedGames":4,"seasonInfoRecalculationCertified":True}
     result["skaterSourceParity"]=basic["skaterBasicSourceParity"]
     result["goalieSourceParity"]=basic["goalieBasicSourceParity"]
     result["currentSourceGaps"]=basic["unknownHTOFields"]
