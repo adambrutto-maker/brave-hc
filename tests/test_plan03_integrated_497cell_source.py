@@ -83,7 +83,7 @@ class CompositeAcceptance(unittest.TestCase):
         with self.assertRaisesRegex(PromotionHold,"UNREVIEWED_MANUAL_STAT_IN_NEW_SOURCE_ROW"):
             admit(*args)
     def test_player_only_copy_is_not_integrated(self):
-        args=case()
+        args=list(case())
         args[2]=deepcopy(args[1])
         with self.assertRaisesRegex(PromotionHold,"INTEGRATED_COMPOSITE_HTO_PERIOD_DIFFERENT"):
             admit(*args)
