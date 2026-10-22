@@ -89,7 +89,8 @@ try {
   $phase='SAVE_DISPOSABLE_METADATA_CANDIDATE';SaveStage $phase
   $workbook.Save()
   $saved=$true
-  SaveStage 'PRIVATE_499_METADATA_SAVED_INDEPENDENT_QA_PENDING'
+  $phase='PRIVATE_499_METADATA_SAVED_INDEPENDENT_QA_PENDING'
+  SaveStage $phase
   Write-Output 'OPTIONAL_499_PRIVATE_OPPONENT_NAMES_SAVED_NEEDS_INDEPENDENT_QA'
 } catch {
   $reason=$_.Exception.Message
