@@ -34,7 +34,7 @@ class ProjectionActualQA(unittest.TestCase):
         result=reconcile(official,rows)
         self.assertEqual(result["status"],"PROJECTION_REPRESENTED_ACTUALS_MATCH_HTO_PARTIAL")
         self.assertEqual(result["officialHTOSkaters"],20)
-        self.assertEqual(result["projectionTablePlayers"],89)
+        self.assertEqual(result["projectionTableRows"],89)
         self.assertEqual(result["matchedActuals"],19)
         self.assertEqual(result["notRepresentedOfficialHTOSkaters"],["Pavaday, Damian"])
         self.assertEqual(result["officialCurrentSeasonTotals"],{"gp":54,"g":6,"a":10,"pts":16})
@@ -49,8 +49,24 @@ class ProjectionActualQA(unittest.TestCase):
     def test_duplicate_projection_player_holds(self):
         _,official,rows=fixture()
         rows[50]["player"]=rows[0]["player"]
-        with self.assertRaisesRegex(EvidenceHold,"PROJECTION_ROSTER_DUPLICATE"):
+        with self.assertRaisesRegex(EvidenceHold,"PROJECTION_HTO_PLAYER_DUPLICATE"):
             reconcile(official,rows)
+    def test_original_scratched_player_duplicate_is_explicitly_held(self):
+        _,official,rows=fixture()
+        rows[50]["player"]="Hunt, Quenton"
+        rows[51]["player"]="Hunt, Quenton"
+        result=reconcile(official,rows)
+        self.assertEqual(result["status"],"PROJECTION_REPRESENTED_ACTUALS_MATCH_HTO_DUPLICATE_LEGACY_ROW_HOLD")
+        self.assertEqual(result["duplicateLegacyProjectionNames"],[{"name":"Hunt, Quenton","rows":2}])
+        self.assertEqual(result["matchedActuals"],19)
+        self.assertFalse(result["fullProjectionRosterIntegrityCertified"])
+    def test_other_unreviewed_name_duplicate_is_not_auto_accepted(self):
+        _,official,rows=fixture()
+        rows[50]["player"]="Unexpected Historical Player"
+        rows[51]["player"]="Unexpected Historical Player"
+        with self.assertRaisesRegex(EvidenceHold,"UNREVIEWED_LEGACY_PROJECTION_DUPLICATE"):
+            reconcile(official,rows)
+
     def test_unreviewed_twentieth_player_requires_eligibility_gate(self):
         _,official,rows=fixture()
         rows[22]["player"]="Pavaday, Damian"
