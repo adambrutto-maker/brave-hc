@@ -58,17 +58,38 @@ SHA256 `9fcd2acefcdde1d4a18d54c1d16d8e53c4dab0f2c7aa097dd39107b76cbe4b8c`.
 
 `tests/test_plan03_integrated_497cell_source.py` provides synthetic fail-closed tests wired into the public record-source CI workflow; no private workbooks are required to execute those tests.
 
-## Separate remaining acceptance gates
+## Full integrated 17-sheet recalculation — independently accepted October 22
 
-The new composite source accepted the 497 changes, **but a full 17-sheet `CalculateFull` has not yet been independently certified against the combined candidate**. A new source-preserving disposable full-calc test is separate from the accepted 497-cell candidate; its completion, output checksum, formula preservation, cached error baseline, season-count and player/goalie HTO parity must be verified before claiming full integrated workbook QA.
+A **fourth, independently named disposable workbook** was created from the original 497-cell source-accepted composite; its byte-identical rollback retained SHA256 `9f83ef35d9fdb5cfeee52997e06080b7e4fce246855cd3925517b451d83e4d08`. Microsoft Excel's isolated `Application.CalculateFull()` completed across all **17 worksheets** in **513.54 seconds**. It saved the file and left **zero running Excel processes**.
 
-Even a successful full recalculation will **not** authorize:
+Private result:
+
+`D:\BruTTech\Products\HockeyOS\Plan03\Excel_Disposable_Combined_Full_Recalc_261022_01\01_Full_Calculation_Review_COPY.xlsx`
+
+SHA256 `d91197148a2410c8fd0f1d70f347fa78d19068286129e25dec7affd051b65a01`.
+
+Two **separate independent, read-only** acceptance passes then confirmed:
+
+1. `03_Independent_Full_Calculation_Audit.json`: **545,506 formula definitions unchanged** across every worksheet, same two historical `Skater Profile!I13/J13 #REF!` errors before/after, **zero new formula errors**, workbook package structurally preserved.
+2. `04_Independent_Integrated_Source_Pivot_Review.json`: **all 497 manual-source changes are retained in the SAME fully calculated workbook**, the **41 intentionally withheld source fields remain blank**, historical skater/goalie/schedule manual input digests unchanged, and **basic four-game official HTO source parity PASS** for all **20 skaters / three goalies**, with no unverified goalie-win claim. `Master Schedule` rows 370–373 show four correct losses, **0–4, 6 GF, 19 GA**, and `SeasonInfo!AN37` counts **four** completed Winter 2026/27 games. Unplayed Oct 25 row 374 remains uncounted.
+
+The second acceptance receipt is private and source-hashed:
+
+`D:\BruTTech\Products\HockeyOS\Plan03\Excel_Disposable_Combined_Full_Recalc_261022_01\04_Independent_Integrated_Source_Pivot_Review.json`
+
+SHA256 `0fa26837dc8d38328b4792f9ce64e4552dbd2f74c490299cf414cdb2d3f79de0`.
+
+**Disposition: `COMBINED_497_SOURCE_FULLCALC_AND_BASIC_HTO_PIVOT_PASS_CAVEATED`.** This closes the previously open **single-candidate source integration + full Excel calculation + basic HTO player/goalie parity** acceptance gates, in private copies only. The original Master Workbook SHA256 is still `0002fd9f06596af8d0a00fc1b53a618ef15479f941ad5c1e6265b27002a65154` and has not been edited.
+
+## Remaining original-workbook and publication holds
+
+Successful integrated source and full calculation QA still **do not** authorize:
 - Filling 41 unknown source fields with zero or certifying 42 missing skater PIM, one goalie POTG, partial GTG or other legacy manual statistics.
 - Automatically changing awards, player projections, full career droughts/streaks or record-holder profiles.
 - Resolving unapproved Pavaday player eligibility, duplicate Hunt SCR projection entries, or the original `Skater Profile I13/J13 #REF!` Active/Total Records meanings.
 - Writing the canonical original workbook, modifying native HTO records, sending messages or publishing website widgets.
 - Treating October 25 HTO 3375682 as completed.
 
-**Next owner release path:** independently verify full combined `CalculateFull` source parity and original/rollback integrity; reconcile known schema and missing-stat source limitations; obtain exact workbook-owner source write authorization, protected backup/restore and separate publication approval. Until then the answer is **validated private source candidate — no production release**.
+**Next owner release path:** the combined source and full calculation checks are completed. The remaining work is **owner-reviewed source-field completeness, player/award/Record Watch eligibility and business-rule validation**, followed by exact original-workbook write approval, protected backup/restore, independent promotion QA, and separate public publication authorization. Until then the answer is **validated private combined candidate — no production release**.
 
 Related: [Plan 03 tracker #30](https://github.com/adambrutto-maker/brave-hc/issues/30); [first two-fragment gate PR #55](https://github.com/adambrutto-maker/brave-hc/pull/55).
