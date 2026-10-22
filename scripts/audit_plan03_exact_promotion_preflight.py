@@ -38,6 +38,16 @@ def column_number(text):
         result=result*26+ord(ch)-64
     return result
 
+def canonical_excel_decimal(value):
+    # Historical workbook source inputs include legitimate fractional values
+    # (e.g. rates). These are not HTO integer score cells.
+    try:
+        n=Decimal(str(value))
+    except (InvalidOperation,TypeError) as exc:
+        raise PromotionHold("MALFORMED_EXCEL_NUMERIC_SOURCE") from exc
+    if not n.is_finite():raise PromotionHold("NONFINITE_EXCEL_SOURCE_NUMBER")
+    return format(n.normalize(),"f")
+
 def numeric(value):
     if type(value) is bool:raise PromotionHold("BOOLEAN_AS_NUMERIC_STAT")
     try:
@@ -163,7 +173,7 @@ def decoded(value,cell_type,shared):
         return ("bool",value)
     if cell_type=="e":
         return ("error",value)
-    return ("number",numeric(value))
+    return ("number",canonical_excel_decimal(value))
 
 def row_in_region(kind,row,col):
     if kind=="skaters":return 1<=col<=158 and SKATER_START<=row<=SKATER_END
