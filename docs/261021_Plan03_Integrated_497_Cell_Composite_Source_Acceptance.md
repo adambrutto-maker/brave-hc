@@ -2,6 +2,8 @@
 
 **Implementation date:** October 21, 2026. **Lead department:** Data & AI, with Engineering and independent QA. **Acceptance level:** `COMBINED_497_SOURCE_INPUTS_PASS_DISPOSABLE_ONLY`. **Production promotion and public Record Watch remain HELD.**
 
+**Follow-up (October 22):** The separate private integrated `CalculateFull()` run subsequently completed successfully and passed independent formula/error and HTO season-pivot source parity. See [the full technical acceptance](261022_Plan03_497_Integrated_Composite_Full_Calculation_Acceptance.md). This document remains the source-stage receipt and should not be mistaken for the later full-calculation result. Neither step authorizes original workbook or live website edits.
+
 ## What changed
 
 Earlier Plan 03 work verified the Master Schedule period correction and the modern player-game data correction **in separate Excel copies**. This was a genuine integration gap, correctly identified by [PR #55](https://github.com/adambrutto-maker/brave-hc/pull/55). This step assembled a **third, separately named, private** workbook that combines the changes.
