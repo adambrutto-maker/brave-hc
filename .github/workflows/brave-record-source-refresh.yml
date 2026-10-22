@@ -48,6 +48,7 @@ on:
       - 'scripts/audit_plan03_missing_schedule_opponents.py'
       - 'tests/test_plan03_missing_schedule_opponents.py'
       - 'scripts/audit_plan03_optional_499_opponents.py'
+      - 'scripts/plan03_stage_optional_499_disposable.ps1'
       - 'tests/test_plan03_optional_499_opponents.py'
       - 'scripts/audit_plan03_integrated_497_cell_source.py'
       - 'tests/test_plan03_integrated_497_cell_source.py'
