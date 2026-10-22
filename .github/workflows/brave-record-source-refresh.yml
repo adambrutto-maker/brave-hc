@@ -41,6 +41,8 @@ on:
       - 'tests/test_plan03_award_source_readiness.py'
       - 'scripts/audit_plan03_exact_promotion_preflight.py'
       - 'tests/test_plan03_exact_promotion_preflight.py'
+      - 'scripts/audit_plan03_integrated_497cell_source.py'
+      - 'tests/test_plan03_integrated_497cell_source.py'
       - 'scripts/audit_plan03_integrated_497_source.py'
       - 'tests/test_plan03_integrated_497_source.py'
       - 'scripts/audit_plan03_full_composite_technical.py'
@@ -125,6 +127,8 @@ jobs:
         run: python -m unittest discover -s tests -p test_plan03_missing_schedule_opponents.py
       - name: Prevent optional 499-cell opponent additions from bypassing private source review (offline)
         run: python -m unittest discover -s tests -p test_plan03_optional_499_opponents.py
+      - name: Verify 497-cell composite source and continued publisher holds (offline)
+        run: python -m unittest discover -s tests -p test_plan03_integrated_497cell_source.py
       - name: Read public HTO results and published records
         run: python scripts/refresh_record_sources.py
       - name: Recalculate complete-ledger record candidates
