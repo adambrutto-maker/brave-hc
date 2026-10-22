@@ -16,6 +16,29 @@ COMPOSITE_SHA="9f83ef35d9fdb5cfeee52997e06080b7e4fce246855cd3925517b451d83e4d08"
 ORIGINAL_TABLES={"SkaterStatsByGame":"A2:FB4668","GoalieStatsByGame":"FD2:JO363"}
 EXPANDED_TABLES={"SkaterStatsByGame":"A2:FB4708","GoalieStatsByGame":"FD2:JO366"}
 
+def future_period_inputs(path):
+    """Read real Excel row-374 cells, not the target-only source manifest."""
+    from zipfile import ZipFile
+    from xml.etree import ElementTree as ET
+    from audit_plan03_exact_promotion_preflight import N
+    period_columns=("K","L","M","N","P","Q","R","S")
+    with ZipFile(path) as z:
+        if z.testzip() is not None:raise PromotionHold("FUTURE_ROW_WORKBOOK_CORRUPT")
+        root=ET.fromstring(z.read("xl/worksheets/sheet12.xml"))
+        rows=[r for r in root.iter(N+"row") if r.get("r")=="374"]
+        if len(rows)!=1:raise PromotionHold("UPCOMING_ROW_374_MISSING")
+        found={}
+        for cell in rows[0].findall(N+"c"):
+            address=cell.get("r")
+            if address not in {f"{c}374" for c in period_columns}:continue
+            f=cell.find(N+"f");v=cell.find(N+"v");inline=cell.find(N+"is")
+            if f is not None or v is not None or inline is not None:
+                raise PromotionHold("UNPLAYED_FIFTH_GAME_HAS_SOURCE_DATA_"+address)
+            found[address]=None
+        return {"futureRow":374,"unplayedPeriodCellCount":len(period_columns),
+                "futureGameAdmitted":False}
+
+
 def verify(original,player_only,composite,proposed,unknown):
     if (len(proposed[SHEET_GAME_LOGS]),len(proposed[SHEET_MASTER_SCHEDULE]),
         len(unknown),len(CORRECTED_GOALIE))!=(460,32,41,4):
@@ -61,12 +84,8 @@ def verify(original,player_only,composite,proposed,unknown):
             raise PromotionHold("PLAYER_FRAGMENT_ALREADY_HAS_PERIOD_INPUT_"+ref)
         if composite["targetCellValues"][12].get(ref)!=expected:
             raise PromotionHold("COMPOSITE_OFFICIAL_PERIOD_SCORE_MISMATCH_"+ref)
-    # 374 is future fixture, never an admission candidate.
-    for col in ("K","L","M","N","P","Q","R","S"):
-        ref=f"{col}374"
-        for candidate in (original,player_only,composite):
-            if candidate["targetCellValues"][12].get(ref) is not None:
-                raise PromotionHold("UPCOMING_GAME_ADMITTED_"+ref)
+    # Row 374 source inputs are verified from actual XLSX XML separately:
+    # scan_workbook's target-only targetCellValues intentionally omits row 374.
     return {
       "schema":"brave-hc-plan03-private-composite-497-source-parity/v1",
       "status":"COMPOSITE_497_SOURCE_CELLS_PASS_FURTHER_MODEL_QA_HELD",
@@ -102,6 +121,12 @@ def main():
     player=scan_workbook(a.player_only,proposed,unknown,is_original=False)
     combined=scan_workbook(a.composite,proposed,unknown,is_original=False)
     result=verify(before,player,combined,proposed,unknown)
+    future_original=future_period_inputs(a.original)
+    future_player=future_period_inputs(a.player_only)
+    future_composite=future_period_inputs(a.composite)
+    if any(x.get("futureGameAdmitted") for x in (future_original,future_player,future_composite)):
+        raise PromotionHold("UNPLAYED_FIFTH_GAME_SOURCE_ADMISSION")
+    result["futureFixtureActualXMLReadbacks"]=3
     result["originalSHA256"]=ORIGINAL_SHA
     result["playerOnlySHA256"]=PRIVATE_CALC_SHA
     result["compositeSHA256"]=COMPOSITE_SHA
