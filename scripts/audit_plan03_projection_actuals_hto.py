@@ -5,7 +5,7 @@ fully calculated Excel copy against the approved four-game HTO collector feed.
 No Excel automation, HTO editing, output publication, or model forecasting.
 """
 import argparse
-from collections import defaultdict
+from collections import Counter, defaultdict
 from hashlib import sha256
 import json
 from pathlib import Path
@@ -111,7 +111,7 @@ def reconcile(official,projection_rows):
     roster=[r.get("player") for r in projection_rows]
     if len(roster)!=89 or any(not isinstance(name,str) or not name for name in roster):
         raise EvidenceHold("PROJECTION_ROSTER_INVALID")
-    duplicates={name:n for name,n in __import__("collections").Counter(roster).items() if n>1}
+    duplicates={name:n for name,n in Counter(roster).items() if n>1}
     if any(name in official for name in duplicates):
         raise EvidenceHold("PROJECTION_HTO_PLAYER_DUPLICATE_AMBIGUOUS")
     if duplicates and duplicates!={"Hunt, Quenton":2}:
