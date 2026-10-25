@@ -40,6 +40,8 @@ $('playerName').textContent=identity?.name||'Player Highlights';
 $('playerSub').textContent=identity?'Career highlights · Personal highs · Club record book':
  playerId?'Player #'+playerId+' \u00b7 identity onboarding pending':'Add the official HTO playerID to the widget URL';
 const warnings=[];
+// Keep a missing correction feed from affecting the other published identities.
+const correctedPlayerIds=new Set(['354046','354055','354060','354285']);
 const categoryLabel={
  championship:'Championship',milestone:'Career milestone',
  leadership:'Team leadership',award:'Individual award',recognition:'Recognition',discipline:'Disciplinary record',record:'Historical record'
@@ -84,6 +86,50 @@ function validLedger(data){
  }
  return data;
 }
+function validDisplayCorrections(data){
+ if(data?.schema!=='brave-hc-player-highlights-display-corrections/v1'||
+    data.status!=='MANAGER_APPROVED_DISPLAY_CORRECTIONS'||!Array.isArray(data.corrections)||
+    data.corrections.length!==correctedPlayerIds.size)throw Error('Invalid highlight corrections');
+ const targets=new Set();
+ for(const c of data.corrections){
+  if(!c||!['playerID','playerName','itemID','sourceText','expectedDisplayText','displayText','sortDate','sourceURL'].every(k=>typeof c[k]==='string'&&c[k].length>0&&c[k].length<=300)||
+     !correctedPlayerIds.has(c.playerID)||!c.itemID.startsWith('hto-legacy-'+c.playerID+'-')||
+     c.category!=='milestone'||!/^\d{4}-\d{2}-\d{2}$/.test(c.sortDate)||
+     c.expectedDisplayText.split(' - ').length!==2||c.displayText.split(' - ').length!==2||
+     c.expectedDisplayText.split(' - ')[0]!==c.displayText.split(' - ')[0])throw Error('Invalid highlight correction target');
+  const date=new Date(c.sortDate+'T00:00:00Z'),source=new URL(c.sourceURL);
+  if(Number.isNaN(date.valueOf())||date.toISOString().slice(0,10)!==c.sortDate||
+     achievementDateRank({displayText:c.displayText})!==Number(c.sortDate.replaceAll('-',''))||
+     source.protocol!=='https:'||!['www.htosports.com','htosports.com'].includes(source.hostname)||
+     source.searchParams.get('p')!=='boxscore'||source.searchParams.get('u')!=='BRAVESHOCKEY'||
+     !/^\d+$/.test(source.searchParams.get('gameID')||''))throw Error('Invalid highlight correction evidence');
+  const key=c.playerID+':'+c.itemID;
+  if(targets.has(key))throw Error('Duplicate highlight correction');
+  targets.add(key);
+ }
+ if(new Set(data.corrections.map(c=>c.playerID)).size!==correctedPlayerIds.size)throw Error('Missing highlight correction target');
+ return data;
+}
+function correctedLegacyDisplay(record,data){
+ if(!record)return record;
+ const corrections=data.corrections.filter(c=>c.playerID===String(playerId));
+ if(!corrections.length)return record;
+ const items=[...record.items];
+ for(const c of corrections){
+  const matches=items.filter(item=>item.id===c.itemID);
+  const original=matches[0];
+  if(record.name!==c.playerName||matches.length!==1||original.category!==c.category||
+     original.sourceText!==c.sourceText||original.displayText!==c.expectedDisplayText)throw Error('Highlight correction source changed');
+  const display={...original,displayText:c.displayText,sortDate:c.sortDate};
+  // Keep captured sourceText/sourceRuns intact; only a rendering copy is corrected.
+  if(original.sourceRuns){
+   if(original.sourceRuns.length!==1||original.sourceRuns[0].text!==c.expectedDisplayText)throw Error('Highlight correction formatting changed');
+   display.displayRuns=[{...original.sourceRuns[0],text:c.displayText}];
+  }
+  items[items.indexOf(original)]=display;
+ }
+ return {...record,items};
+}
 function renderLegacy(record,ledgerTime){
  const container=$('legacy'),items=newestAchievements(record?.items||[]);
  container.replaceChildren();
@@ -109,11 +155,12 @@ function renderLegacy(record,ledgerTime){
    const info=text('div','');
    const raw=item.displayText;
    // Rendering is text-only: source labels are never evaluated as HTML.
-   if(item.sourceRuns){
+   const runs=item.displayRuns||item.sourceRuns;
+   if(runs){
     const sourceTitle=text('div','','ph-event-title');
     sourceTitle.style.whiteSpace='pre-line';
     sourceTitle.style.fontWeight='400';
-    for(const run of item.sourceRuns){
+    for(const run of runs){
      const span=text('span',run.text);
      span.style.fontWeight=run.strong?'800':'400';
      span.style.fontStyle=run.italic?'italic':'normal';
@@ -253,19 +300,24 @@ function renderCurrent(feed,career) {
  ['player-highlights-ledger.json',validLedger],
  ['awards-participants.json',x=>x],
  ['player-career-insights.json',x=>x],
- ['player-record-book.json',x=>x]
+ ['player-record-book.json',x=>x],
+ ['player-highlights-display-corrections.json',validDisplayCorrections]
  ];
  const results=await Promise.allSettled(resources.map(([file,validate])=>fetch(root+file,{cache:'no-store'}).then(async r=>{
   if(!r.ok)throw Error(file+' HTTP '+r.status);return validate(await r.json());
  })));
- const [legacyResult,feedResult,careerResult,recordsResult]=results;
+ const [legacyResult,feedResult,careerResult,recordsResult,correctionsResult]=results;
  let career=null;
  if(careerResult.status==='fulfilled')career=renderCareer(careerResult.value);
  if(recordsResult.status==='fulfilled')renderRecords(recordsResult.value);
  if(legacyResult.status==='fulfilled'){
   const ledger=legacyResult.value,record=ledger.players[String(playerId)];
   if(record&&(record.name!==identity.name||!record.profileUrl.endsWith('playerID='+playerId)))warnings.push('Career highlights unavailable');
-  else renderLegacy(record,ledger.capturedAt);
+  else if(!record?.items.length||!correctedPlayerIds.has(String(playerId)))renderLegacy(record,ledger.capturedAt);
+  else if(correctionsResult.status==='fulfilled'){
+   try{renderLegacy(correctedLegacyDisplay(record,correctionsResult.value),ledger.capturedAt);}
+   catch{warnings.push('Career highlights temporarily unavailable');}
+  }else warnings.push('Career highlights temporarily unavailable');
  }else warnings.push('Career highlights unavailable');
  if(feedResult.status==='fulfilled')renderCurrent(feedResult.value,career);
  const source=publicProfileLink();
