@@ -1,0 +1,62 @@
+{
+  "schema": "brave-hc-player-highlights-display-corrections/v1",
+  "status": "MANAGER_APPROVED_DISPLAY_CORRECTIONS",
+  "approvedDate": "2026-10-25",
+  "scope": "Four source-verified milestone date display corrections; original native Highlights ledger remains unchanged.",
+  "evidence": "../docs/hto-highlights-rollout/261025_Profile_Milestone_Display_Corrections.md",
+  "qualification": "Recorded-stat milestones. Four untracked Summer 2013 games remain a permanent historical limit.",
+  "corrections": [
+    {
+      "playerID": "354046",
+      "playerName": "Ryan Logue",
+      "itemID": "hto-legacy-354046-06",
+      "category": "milestone",
+      "sourceText": "100 Point Club - August 9, 2014",
+      "expectedDisplayText": "100 Point Club - August 9, 2014",
+      "displayText": "100 Point Club - August 9, 2015",
+      "sortDate": "2015-08-09",
+      "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1249342&archTog=1",
+      "recordedTotalBefore": 99,
+      "recordedTotalAfter": 101
+    },
+    {
+      "playerID": "354055",
+      "playerName": "Stephen Logue",
+      "itemID": "hto-legacy-354055-09",
+      "category": "milestone",
+      "sourceText": "50 Game Club - July 20, 2014",
+      "expectedDisplayText": "50 Game Club - July 20, 2014",
+      "displayText": "50 Game Club - July 27, 2014",
+      "sortDate": "2014-07-27",
+      "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1100308&archTog=1",
+      "recordedTotalBefore": 49,
+      "recordedTotalAfter": 50
+    },
+    {
+      "playerID": "354060",
+      "playerName": "Justin Carosi",
+      "itemID": "hto-legacy-354060-19",
+      "category": "milestone",
+      "sourceText": "100 Point Club - October 23, 2016",
+      "expectedDisplayText": "100 Point Club - October 23, 2016",
+      "displayText": "100 Point Club - May 15, 2016",
+      "sortDate": "2016-05-15",
+      "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1442287&archTog=1",
+      "recordedTotalBefore": 94,
+      "recordedTotalAfter": 100
+    },
+    {
+      "playerID": "354285",
+      "playerName": "Ben Sherritt",
+      "itemID": "hto-legacy-354285-17",
+      "category": "milestone",
+      "sourceText": "100 Point Club - November 20, 2016",
+      "expectedDisplayText": "100 Point Club - November 20, 2016",
+      "displayText": "100 Point Club - November 13, 2016",
+      "sortDate": "2016-11-13",
+      "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1517092&archTog=1",
+      "recordedTotalBefore": 99,
+      "recordedTotalAfter": 101
+    }
+  ]
+}
