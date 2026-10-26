@@ -14,11 +14,12 @@ STAGES = (
     "read_hto", "reconcile_game_boxes", "standings", "countdown",
     "hot_stove_drafts", "projections", "hot_stove_roster_context", "record_watch"
 )
-FOUR_GAMES = {
+AUDITED_FIVE = {
     3356177: ("2026-09-20", 0, 3, 359),
     3356178: ("2026-09-27", 3, 6, 360),
     3369564: ("2026-10-04", 2, 3, 361),
     3375601: ("2026-10-18", 1, 7, 362),
+    3375682: ("2026-10-25", 6, 4, 363),
 }
 HTO_RECORDS = "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=records"
 
@@ -66,18 +67,47 @@ def classify(report: dict, feed: dict, watch: dict, records: dict, *,
         or feed.get("allGamesDiscovered") is not True
         or feed.get("playerAggregateParity") is not True):
         raise EvidenceHold("HTO_FEED_NOT_VERIFIED")
+    if feed.get("sourceValidationState") != "PASS_COMPLETE_FIELDS_WITH_EXPLICIT_UNKNOWNS":
+        raise EvidenceHold("HTO_FEED_SOURCE_VALIDATION_NOT_ACCEPTED")
     games = feed.get("games")
-    if not isinstance(games, list) or len(games) != feed.get("teamGP") or len(games) != 4:
-        raise EvidenceHold("UNADMITTED_FIFTH_GAME_OR_INVALID_COVERAGE")
+    if (not isinstance(games,list) or len(games) != feed.get("teamGP")
+        or not 5 <= len(games) <= 24):
+        raise EvidenceHold("UNADMITTED_NEW_GAME_OR_INVALID_COVERAGE")
     ids = [g.get("htoGameId") for g in games if isinstance(g, dict)]
-    if len(ids) != 4 or set(ids) != set(FOUR_GAMES):
+    if (len(ids) != len(games) or len(set(ids)) != len(ids)
+        or not set(AUDITED_FIVE).issubset(ids)):
         raise EvidenceHold("UNEXPECTED_HTO_GAME_SET")
     for g in games:
-        expected = FOUR_GAMES[g["htoGameId"]]
-        if (g.get("date"), g.get("teamGoals"), g.get("teamGoalsAgainst"),
-            g.get("workbookGameNumber")) != expected:
-            raise EvidenceHold("HTO_GAME_SOURCE_MAPPING_OR_SCORE_DRIFT")
-
+        gid = g["htoGameId"]
+        day = g.get("date")
+        if gid in AUDITED_FIVE:
+            expected = AUDITED_FIVE[gid]
+            if (day,g.get("teamGoals"),g.get("teamGoalsAgainst"),
+                g.get("workbookGameNumber")) != expected:
+                raise EvidenceHold("HTO_GAME_SOURCE_MAPPING_OR_SCORE_DRIFT")
+        else:
+            # The dynamic production HTO collector performs full date-bound
+            # canonical Scores/boxscore/player/goalie parity before a game
+            # reaches this secondary task-health classifier. No invented
+            # future game is admitted from an unqualified feed.
+            if (not isinstance(gid,int) or gid<=0
+                or not isinstance(day,str) or len(day)!=10
+                or not isinstance(g.get("workbookGameNumber"),int)
+                or g["workbookGameNumber"]<364):
+                raise EvidenceHold("UNADMITTED_NEW_GAME_OR_INVALID_COVERAGE")
+        if (not isinstance(g.get("teamGoals"),int)
+            or not isinstance(g.get("teamGoalsAgainst"),int)
+            or min(g["teamGoals"],g["teamGoalsAgainst"])<0):
+            raise EvidenceHold("HTO_GAME_SCORE_INVALID")
+    dates=[g["date"] for g in games]
+    numbers=[g["workbookGameNumber"] for g in games]
+    if len(set(dates))!=len(dates) or len(set(numbers))!=len(numbers):
+        raise EvidenceHold("HTO_DUPLICATE_DATE_OR_WORKBOOK_GAME_NUMBER")
+    scores={"GF":sum(g["teamGoals"] for g in games),
+            "GA":sum(g["teamGoalsAgainst"] for g in games)}
+    if feed.get("teamG") != scores["GF"]:
+        raise EvidenceHold("HTO_SCORING_TOTAL_CHANGED")
+    latest_day=max(dates)
     if (watch.get("schema") != "brave-hc-workbook-watch/v2"
         or watch.get("dataStatus") != "HISTORICAL_WORKBOOK_SNAPSHOT"
         or watch.get("sourceValidated") is not False
@@ -85,8 +115,8 @@ def classify(report: dict, feed: dict, watch: dict, records: dict, *,
         or watch.get("recordWatchComplete") is not False
         or watch.get("recordsDataStatus") != "VERIFIED_SUPPORTED_CATEGORIES_PARTIAL"
         or watch.get("verifiedRecordScope", {}).get("status") != "VERIFIED_SUPPORTED_CATEGORIES_ONLY"
-        or watch.get("latestOfficialCompletedGameDate") != "2026-10-18"
-        or watch.get("completedGames") != 4):
+        or watch.get("latestOfficialCompletedGameDate") != latest_day
+        or watch.get("completedGames") != len(games)):
         raise EvidenceHold("WATCH_HISTORICAL_RELEASE_CONTRACT_CHANGED")
     watch_exported = instant(watch.get("exportedAt"), "WATCH_EXPORTED")
     if watch_exported > finish:
@@ -112,11 +142,30 @@ def classify(report: dict, feed: dict, watch: dict, records: dict, *,
             ("50 Point Club", "20 - Michael Provenzano (September 27, 2026)"),
     }
     items = watch.get("records")
-    if not isinstance(items, list) or len(items) != 2:
+    if not isinstance(items, list) or not 2 <= len(items) <= 15:
         raise EvidenceHold("HISTORICAL_MILESTONE_SET_CHANGED")
     found = set()
+    pending = set()
     for event in items:
-        if not isinstance(event, dict) or event.get("type") != "reached":
+        if not isinstance(event, dict):
+            raise EvidenceHold("UNSUPPORTED_WATCH_EVENT")
+        if event.get("type")=="countdown":
+            threshold=event.get("threshold")
+            remaining=event.get("remaining")
+            current=event.get("careerTotal")
+            key=(event.get("player"),event.get("category"),threshold)
+            if (event.get("category")!="gp" or not isinstance(event.get("player"),str)
+                or not isinstance(threshold,int) or threshold<1
+                or not isinstance(remaining,int) or not 1 <= remaining <= 2
+                or not isinstance(current,int) or current<0
+                or current+remaining!=threshold
+                or event.get("eventDate") is not None
+                or key in pending
+                or "HTO current boxscores" not in str(event.get("source",""))):
+                raise EvidenceHold("INVALID_OR_DUPLICATE_COUNTDOWN")
+            pending.add(key)
+            continue
+        if event.get("type")!="reached":
             raise EvidenceHold("UNSUPPORTED_WATCH_EVENT")
         key = (event.get("player"), event.get("category"), event.get("eventDate"))
         if key not in expected_lines or key in found:
@@ -125,7 +174,7 @@ def classify(report: dict, feed: dict, watch: dict, records: dict, *,
         if line not in by_category.get((category, "Career"), []):
             raise EvidenceHold("HTO_PUBLISHED_MILESTONE_NOT_FOUND")
         found.add(key)
-    if len(found) != 2:
+    if len(found) != len(expected_lines):
         raise EvidenceHold("MISSING_HISTORICAL_MILESTONE")
 
     projection_stdout = stage_data["projections"].get("stdoutTail", "")
@@ -138,9 +187,10 @@ def classify(report: dict, feed: dict, watch: dict, records: dict, *,
         "processing": "PASS" if process_pass else "DEGRADED",
         "stages": per_stage,
         "officialCompletedGames": len(games),
-        "officialScores": {"GF": 6, "GA": 19},
+        "officialScores": scores,
         "historicalRecordEntries": 558,
-        "verifiedExistingMilestoneCount": 2,
+        "verifiedExistingMilestoneCount": len(found),
+        "unreachedCountdownArithmeticChecks": len(pending),
         "recordWatchSourceState": "HISTORICAL_ONLY",
         "workbookRelease": "HOLD_STALE_WORKBOOK_FINALS",
         "projectionRelease": ("HOLD_MODEL_RECONCILIATION_PENDING"
@@ -149,7 +199,8 @@ def classify(report: dict, feed: dict, watch: dict, records: dict, *,
         "watchPublisher": ("UNCHANGED_SNAPSHOT" if "WATCH_UNCHANGED" in watch_stdout
                            else "NOT_CONFIRMED_BY_TASK_RECEIPT"),
         "websitePublication": "NOT_VERIFIED_BY_SCHEDULED_TASK",
-        "nextGameAdmission": "NOT_ADMITTED_HTO_3375682",
+        "nextGameAdmission": "HTO_3375682_SOURCE_VERIFIED",
+        "nextFutureGameStillRequiresOfficialSource": True,
         "fullLiveRecordWatchAuthorized": False,
         "newHistoricalRecordsPublished": False,
         "originalWorkbookModified": False,
