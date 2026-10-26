@@ -23,7 +23,21 @@ const states=[
  {name:"Hot",desc:"Strong rise",rotate:0,color:"#f0344d"}
 ];
 const linkAllowed=s=>/^https:\/\/leagues\.sportsvillage\.ca\//.test(s||"");
-let league=null,projection=null,filter="ALL";
+let league=null,projection=null,filter="ALL",standingsPage=0,projectionPage=0;
+const isFull=()=>params.has("full");
+const pageSize=kind=>9999; // all rows are visible in an independently scrollable iframe shell
+function pager(id,total,size,page,onChange){
+ const el=$(id);el.replaceChildren();
+ if(total<=size){el.hidden=true;return;}
+ el.hidden=false;
+ const prev=node("button","", "Previous");prev.type="button";prev.disabled=page===0;
+ const next=node("button","", "Next");next.type="button";next.disabled=(page+1)*size>=total;
+ const range=node("strong","", (page*size+1)+"–"+Math.min(total,(page+1)*size)+" of "+total);
+ prev.addEventListener("click",()=>onChange(page-1));next.addEventListener("click",()=>onChange(page+1));
+ const full=node("a","", "View all");full.href="./home-panels.html?panel="+(id.startsWith("standing")?"standings":"projection")+"&full=1";
+ full.target="_blank";full.rel="noopener noreferrer";
+ el.append(prev,range,next,full);
+}
 $("subtitle").textContent="Cristillo Division · 2026–27";
 $(panel).hidden=false;
 $("state").textContent=panel==="projection"?"ROSTER PROJECTION":panel==="standings"?"DIVISION CENTRE":"TEAM NEWS";
@@ -32,7 +46,7 @@ function makeTD(value,className,label){
 }
 function recordLabel(t){return t.w+"–"+t.l+"–"+t.t}
 function metric(n){return num(n)?n.toFixed(2):"—"}
-function labelPercent(t){return t.gp>0?(100*t.w/t.gp).toFixed(1)+"%":"—"} // requested WIN%, not half-tie point%
+function labelPercent(t){return t.gp>0?(t.w/t.gp).toFixed(3).replace(/^0(?=\.)/,""):"—"} // WIN% is W/GP to three decimals
 function setTab(which){
  const standings=which==="standings";
  $("standing-view").hidden=!standings;$("intel-view").hidden=standings;
@@ -48,15 +62,20 @@ async function loadStandings(){
   league=d;
   set("standing-date",dateText(d.capturedAt));set("standings-source","SVHL league standings · "+dateText(d.capturedAt));
   if(linkAllowed(d.source))$("standings-link").href=d.source;
-  const body=$("standings-rows");body.replaceChildren();
-  d.teams.forEach((t,i)=>{
+  const body=$("standings-rows");
+  function drawStandingPage(){
+   const size=pageSize("standings"),start=standingsPage*size;body.replaceChildren();
+   d.teams.slice(start,start+size).forEach((t,i)=>{
    const row=node("tr",t.name===d.team?"braves":"");
    const name=makeTD(null,"team","Team");
-   name.append(node("span","rank",i+1+". "),node("span","",t.name));
+   name.append(node("span","rank",start+i+1+". "),node("span","",t.name));
    row.append(name);
    [["GP",t.gp],["W",t.w],["L",t.l],["T",t.t],["PTS",t.pts],["GF",t.gf],["GA",t.ga],["WIN%",labelPercent(t)]].forEach(([head,val])=>row.append(makeTD(val,head==="PTS"?"points":head==="WIN%"?"pct":"",head)));
    body.append(row);
-  });
+   });
+   pager("standings-pager",d.teams.length,size,standingsPage,n=>{standingsPage=n;drawStandingPage()});
+  }
+  drawStandingPage();
   const braves=d.teams.find(t=>t.name===d.team);
   if(!braves)throw Error("Braves row missing");
   set("standings-note","Complete official division table · "+d.teams.length+" teams · wins divided by games played.");
@@ -71,26 +90,18 @@ async function loadStandings(){
   function updateOpponent(){
    const o=d.teams.find(t=>t.name===select.value);if(!o)return;
    set("intel-team",o.name);
-   const upcomingGame=upcoming.find(g=>g.opponent===o.name);
-   const gameTime=upcomingGame?upcomingGame.time.split(":"):null;
-   const friendlyTime=gameTime?((Number(gameTime[0])%12)||12)+":"+gameTime[1]+(Number(gameTime[0])>=12?" PM":" AM"):"";
-   set("intel-next",upcomingGame?"Upcoming: "+dateText(upcomingGame.date+"T12:00:00Z")+" · "+friendlyTime+" · "+upcomingGame.rink:"No confirmed upcoming fixture in saved schedule");
-   set("opponent-date",dateText(d.capturedAt));
+   set("opponent-date","HISTORY ON HOLD");
+   set("intel-next","Full opponent intelligence is being rebuilt from the Master Workbook and verified HTO results.");
    const grid=$("intel-metrics");grid.replaceChildren();
-   [["RECORD",recordLabel(o)],["POINTS",o.pts],["GOALS / GAME",metric(o.gp?o.gf/o.gp:NaN)],["GOALS AGAINST / GAME",metric(o.gp?o.ga/o.gp:NaN)]].forEach(([label,value])=>{
-    const tile=node("div","metricbox");
-    tile.append(node("div","number",value),node("div","label",label));grid.append(tile);
-   });
-   const comp=$("intel-comparison");comp.replaceChildren();
-   const compare=[["GF/GP",braves.gp?braves.gf/braves.gp:NaN,o.gp?o.gf/o.gp:NaN],["GA/GP",braves.gp?braves.ga/braves.gp:NaN,o.gp?o.ga/o.gp:NaN],["WIN%",braves.gp?100*braves.w/braves.gp:NaN,o.gp?100*o.w/o.gp:NaN]];
-   compare.forEach(([label,b,v])=>{
-    const box=node("div","");
-    box.append(node("div","muted",label),node("strong","",label==="WIN%"?(num(b)?b.toFixed(0)+"%":"—")+" / "+(num(v)?v.toFixed(0)+"%":"—"):metric(b)+" / "+metric(v)),node("div","muted","Braves / Opponent"));comp.append(box);
-   });
-   const h2h=approved?.editorialState==="FOUNDER_APPROVED"&&approved.gamePreview?.editorialState==="FOUNDER_APPROVED"&&approved.gamePreview.opponent===o.name?approved.gamePreview.headToHead:null;
-   const h2hSection=$("headtohead-section"),h2hTarget=$("headtohead");h2hTarget.replaceChildren();h2hSection.hidden=!h2h;
-   if(h2h){[["REGULAR SEASON",h2h.regularSeason],["ALL MEETINGS",h2h.allTime],["PLAYOFFS",h2h.playoffs]].forEach(([label,r])=>{if(!r)return;const el=node("div");el.append(node("div","muted",label),node("strong","",recordLabel(r)),node("div","muted",r.gp+" GP · "+r.gf+" GF · "+r.ga+" GA"));h2hTarget.append(el)});}
-   set("intel-note","League comparison: "+dateText(d.capturedAt)+". "+(h2h?"Head-to-head: founder-approved HTO game preview.":"Head-to-head withheld until independently verified.")+" Private scouting notes and unverified opponent rosters are not published.");
+   const tile=node("div","intel-gate");
+   tile.append(node("strong","", "Source verification required"),
+               node("p","", "The previous opponent comparison and head-to-head figures have been withdrawn. This tab will publish matchup intelligence only after the complete Master Workbook history, HTO source identities and results are reconciled."),
+               node("p","", "The official division standings remain available in the Standings tab."));
+   grid.append(tile);
+   $("intel-comparison").replaceChildren();
+   $("headtohead-section").hidden=true;
+   $("intel-comparison").parentElement.hidden=true;
+   set("intel-note","Opponent history withheld pending verified workbook-driven feed. No speculative scouting or provisional historical comparison is published.");
   }
   select.addEventListener("change",updateOpponent);updateOpponent();
   // Editorial verification provides a newer Braves result, not an amendment to the official league table.
@@ -122,19 +133,21 @@ function drawProjection(){
  const table=$("projection-rows");table.replaceChildren();
  const players=projection.players.filter(p=>filter==="ALL"||p.rosterStatus===filter)
    .slice().sort((a,b)=>(Number(b.pts)||0)-(Number(a.pts)||0)||(Number(b.g)||0)-(Number(a.g)||0)||String(a.name).localeCompare(String(b.name)));
- players.forEach((p,i)=>{
+ const size=pageSize("projection"),start=projectionPage*size;
+ players.slice(start,start+size).forEach((p,i)=>{
   const tr=node("tr");const name=node("td","team player");
   name.append(node("span","name",cleanName(p.name)));
   name.append(node("span","role",p.rosterStatus+" · #"+(p.number||"—")));
   tr.append(name);
   const ptsActual=num(p.currentPts)?p.currentPts:num(p.currentG)&&num(p.currentA)?p.currentG+p.currentA:null;
-  tr.append(projectedCell(p.gp,p.currentGP,1),projectedCell(p.g,p.currentG),projectedCell(p.a,p.currentA),projectedCell(p.pts,ptsActual));
+  const stats=[projectedCell(p.gp,p.currentGP,1),projectedCell(p.g,p.currentG),projectedCell(p.a,p.currentA),projectedCell(p.pts,ptsActual)];
+  ["GP","G","A","PTS"].forEach((h,j)=>{stats[j].dataset.label=h;tr.append(stats[j])});
   tr.append(makeTD(num(p.ptsPerGame)?p.ptsPerGame.toFixed(2):"—","rate","P/G"));
   const state=trendState(p,projection.conditionalFormatting);
-  const trendTD=node("td");
+  const trendTD=node("td");trendTD.dataset.label="TREND";
   const button=node("button","trend-button");button.type="button";
   button.setAttribute("aria-expanded","false");
-  const detailId="proj-detail-"+i;button.setAttribute("aria-controls",detailId);
+  const detailId="proj-detail-"+(start+i);button.setAttribute("aria-controls",detailId);
   const career=p.trendInputs?.careerScoringRate,projected=p.trendInputs?.projectedScoringRate;
   const details=node("tr","details");details.id=detailId;details.hidden=true;
   const detailTD=node("td");detailTD.colSpan=7;
@@ -150,9 +163,10 @@ function drawProjection(){
   button.addEventListener("click",()=>{details.hidden=!details.hidden;button.setAttribute("aria-expanded",String(!details.hidden))});
   trendTD.append(button);tr.append(trendTD);table.append(tr,details);
  });
+ pager("projection-pager",players.length,size,projectionPage,n=>{projectionPage=n;drawProjection()});
  document.querySelectorAll("[data-group]").forEach(b=>{const active=b.dataset.group===filter;b.setAttribute("aria-pressed",String(active));b.textContent=({ALL:"All Players",FT:"Full-Time",CU:"Call-Ups",DI:"Drop-Ins"})[b.dataset.group]+(active?" ("+players.length+")":"")});
 }
-document.querySelectorAll("[data-group]").forEach(b=>b.addEventListener("click",()=>{filter=b.dataset.group;drawProjection()}));
+document.querySelectorAll("[data-group]").forEach(b=>b.addEventListener("click",()=>{filter=b.dataset.group;projectionPage=0;drawProjection()}));
 function drawLegend(){
  const box=$("trend-legend");box.replaceChildren();
  states.slice().reverse().forEach(t=>{const item=node("span");item.append(svgArrow(t.rotate,t.color),node("span","",t.name));box.append(item)});
