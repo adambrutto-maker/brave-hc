@@ -8,7 +8,7 @@
  const dec=v=>Number.isFinite(v)?(v>0?"+":"")+v.toFixed(2):"—";
  const record=x=>x?(x.w+"–"+x.l+"–"+x.t):"—";
  const date=s=>{try{return new Date(s+"T12:00:00").toLocaleDateString("en-CA",{year:"numeric",month:"short",day:"numeric"})}catch(_){return s}};
- let data=null,selected=null,currentScoutingBrief=null,upcomingFixtures=[],historicalArchive=null,balanceSummary=null;
+ let data=null,selected=null,currentScoutingBrief=null,upcomingFixtures=[],historicalArchive=null,historicalLinks=null,balanceSummary=null;
  function trusted(doc){
   return doc?.schema==="brave-hc-league-intelligence/public-v1" &&
    doc.status==="OFFICIAL_LEAGUE_RESULTS_SOURCE_QUALIFIED" &&
@@ -157,7 +157,7 @@
    q("weekly-team-summary").textContent="Weekly archive not verified in this view.";
    return;
   }
-  const info=window.BraveLeagueInsights.plain(data,historicalArchive,team.leagueName);
+  const info=window.BraveLeagueInsights.plain(data,historicalArchive,team.leagueName,historicalLinks);
   const add=(heading,value)=>{
    const c=el("div","insights-card");text(c,"strong","",heading);
    text(c,"p","small",value);cards.append(c);
@@ -185,6 +185,19 @@
       " / "+x.division).join("; ")+
       ". Roster/franchise continuity has NOT been verified. These are not blended into today's rating.":
       "No exact-name source observation found in the six archived winter seasons. This does not mean the team never existed.");
+  const proof=q("plain-verified-past");proof.replaceChildren();
+  if(info.sourceMatchedOldGameSeasons.length){
+   text(proof,"strong","","Independently matched Brave H.C. games in earlier Sports Village seasons:");
+   for(const history of info.sourceMatchedOldGameSeasons){
+    const row=el("p","small",history.season+" / "+history.division+
+      " — Brave H.C. "+history.bravesRecord.w+"–"+history.bravesRecord.l+"–"+
+      history.bravesRecord.t+" in "+history.count+" verified game(s). "+
+      "This is NOT evidence of the same current roster.");
+    const link=text(row,"a","sourcelink"," Official season-team source");
+    link.href=history.officialSource;link.target="_blank";link.rel="noopener noreferrer";
+    proof.append(row);
+   }
+  }else text(proof,"p","tiny","No separately source-matched historical game for this exact published team name in the admitted archive. Other Brave H.C. historical totals above remain distinct.");
   const w=info.weekly;
   q("weekly-team-summary").textContent=w.count<2?
    "Weekly monitoring: "+w.count+" verified week on record. No defensible week-over-week change is available yet.":
@@ -208,7 +221,11 @@
    const details=el("details","archive-division");
    const meta=division.category==="COMPETITIVE_SUNDAY_DIVISION"?"competitive":
       "separate/placeholder category";
-   text(details,"summary","",division.name+" · "+division.teams.length+" teams · "+meta);
+   const year="W"+season.season.replace("Sunday Winter ","");
+   const matches=historicalLinks?.teamSeasons.filter(x=>x.season===year&&x.officialDivision===division.name)||[];
+   const games=matches.reduce((n,x)=>n+x.bravesRecord.gp,0);
+   text(details,"summary","",division.name+" · "+division.teams.length+" teams · "+meta+
+       (games?" · Brave H.C. "+games+" verified match(es)":""));
    const table=el("table","archive-teams");
    const head=el("thead"),hrow=el("tr");
    for(const label of ["TEAM","GP","W","L","T","GF","GA"])text(hrow,"th","",label);
@@ -233,6 +250,21 @@
    "/"+balanceSummary.eligibleTeams+" competitive teams with at least 10 games · "+
    balanceSummary.historicalSeasons+" historical winter archives.";
   q("balance-readiness").textContent=balanceSummary.rationale;
+  const bridge=q("history-bridge-cards");bridge.replaceChildren();
+  if(historicalLinks){
+   const group=window.BraveLeagueInsights.divisionHistoricalBridges(historicalLinks);
+   for(const history of group.slice(0,12)){
+    const card=el("article","insights-card");
+    text(card,"strong","",history.season+" · "+history.division);
+    text(card,"p","small","Brave H.C. in "+history.games+
+      " source-matched games: "+history.w+" wins, "+history.l+
+      " losses, "+history.t+" ties. "+history.gf+" GF / "+history.ga+" GA.");
+    text(card,"small","","Opponents recorded that winter: "+[...new Set(history.opponents)].join(", "));
+    const a=text(card,"a","sourcelink","Official historical team schedule");
+    a.href=history.source;a.target="_blank";a.rel="noopener noreferrer";
+    bridge.append(card);
+   }
+  }else text(bridge,"p","tiny","Game-level historical parity report not yet admitted; official standing archives remain viewable.");
   for(const d of balanceSummary.groups){
    const card=el("article","insights-card");
    text(card,"strong","",d.division);
@@ -254,6 +286,10 @@
    "SOURCE: "+data.source+" | checked "+data.asOf,
    "STATUS: "+balanceSummary.status,
    balanceSummary.rationale,
+   ...(historicalLinks?["Cross-source historical Brave H.C. evidence: "+
+     historicalLinks.matchedGameCount+" verified 2-source game matches from "+
+     historicalLinks.matchedTeamSeasonGroups+" historical team-seasons; "+
+     historicalLinks.heldGameComparisons+" reviews remain held. These do not establish current franchise continuity."]:[]),
    ...balanceSummary.groups.map(d=>d.division+": "+d.teams+" teams, "+
      d.avgGames+" avg GP, context range "+
      (d.lowest===null?"unavailable":d.lowest+"–"+d.highest)+
@@ -275,13 +311,34 @@
    const doc=await response.json();
    window.BraveLeagueInsights.verify(data,doc);
    historicalArchive=doc;
+   try{
+    const linked=await fetch("./brave-historical-verified-games.json",{cache:"no-store"});
+    if(linked.ok){
+     const x=await linked.json();
+     if(x?.schema!=="brave-hc-source-matched-historical-team-seasons/v1" ||
+        x.status!=="DUAL_SOURCE_VERIFIED_HISTORICAL_GAMES_SEASON_SCOPED" ||
+        x.currentContextNotModified!==true ||
+        !Array.isArray(x.teamSeasons) ||
+        x.teamSeasons.length!==x.matchedTeamSeasonGroups ||
+        x.matchedGameCount!==x.teamSeasons.reduce((n,g)=>n+g.bravesRecord.gp,0) ||
+        x.teamSeasons.some(g=>g.continuousFranchiseNotVerified!==true))
+       throw Error("Historical game-level proof or count invalid");
+     historicalLinks=x;
+    }
+   }catch(error){
+    q("plain-history-caveat").textContent="Historical Brave game links held: "+error.message;
+   }
    const selector=q("archive-season");selector.replaceChildren();
    for(const season of [...doc.seasons].reverse())
     selector.add(new Option(season.season,season.season));
    selector.addEventListener("change",renderArchive);
    q("archive-status").textContent=doc.seasons.length+
     " official winter archives, "+doc.competitiveTeamSeasonEntries+
-    " competitive team-season entries. 2019/20 and 2020/21 gaps remain unverified.";
+    " competitive team-season entries. "+
+    (historicalLinks?historicalLinks.matchedGameCount+" Brave H.C. game/date/score matches across "+
+      historicalLinks.matchedTeamSeasonGroups+" historical team-seasons; "+
+      historicalLinks.heldGameComparisons+" held. ":"Historical game joins remain held. ")+
+    "2019/20 and 2020/21 official archive gaps remain unverified.";
    renderArchive();renderBalance();
   }catch(err){
    q("archive-status").textContent="Archived season data held: "+err.message;
