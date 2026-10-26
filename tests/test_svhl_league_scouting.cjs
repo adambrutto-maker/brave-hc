@@ -43,6 +43,40 @@ const cases=[
   assert.ok(message.includes("NOT win probabilities"));
   assert.ok(message.includes("HTO Brave H.C. game verification may be ahead"));
  }],
+ ["game-day WhatsApp message uses only source-reconciled scheduled fixture",()=>{
+  const schedule=JSON.parse(fs.readFileSync(path.join(__dirname,"../widgets/svhl-upcoming.json"),"utf8"));
+  const game=schedule.games.find(g=>g.htoSyncStatus==="MATCH" &&
+    source.teams.some(t=>t.leagueName.toLowerCase().replace(/[^a-z0-9]/g,"")===
+        g.opponent.toLowerCase().replace(/[^a-z0-9]/g,"")));
+  assert.ok(game,"accepted source contains at least one HTO synchronized SVHL game");
+  const team=source.teams.find(t=>t.leagueName.toLowerCase().replace(/[^a-z0-9]/g,"")===
+    game.opponent.toLowerCase().replace(/[^a-z0-9]/g,""));
+  const b=scout.build(source,team.leagueName);
+  const preview="https://www.hometeamsonline.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=preview&sportsHQ=BRAVESHOCKEY&gameID="+game.htoGameId;
+  const message=scout.format(b,{fixture:{...game,checkedAt:schedule.checkedAt,htoUrl:preview}});
+  assert.ok(message.includes("VERIFIED GAME-DAY SCOUTING"));
+  assert.ok(message.includes(game.date+" at "+game.time+" ET"));
+  assert.ok(message.includes(game.rink)&&message.includes(game.side.toUpperCase()));
+  assert.ok(message.includes("HTO synchronized game ID: "+game.htoGameId));
+  assert.ok(message.includes("Goalie assignment:"));
+  assert.ok(message.includes(b.rec.gf+" GF / "+b.rec.ga+" GA"));
+  assert.ok(!message.includes("No upcoming fixture or game date is asserted"),
+    "game-day version must not contradict its verified fixture");
+ }],
+ ["mismatched game-day opponent or HTO ID fails closed",()=>{
+  const game={date:"2026-11-01",time:"20:15",opponent:"Mid Ice Crisis",
+   rink:"D Rink",side:"away",
+   fixtureSignature:"2026-11-01|20:15|Mid Ice Crisis|D Rink|away",
+   checkedAt:"2026-10-26T20:00:00+00:00",
+   htoSyncStatus:"MATCH",htoGameId:"3375683",assignmentKey:"hto:3375683",
+   htoUrl:"https://www.hometeamsonline.com/teams/default.asp?gameID=3375683"};
+  const b=scout.build(source,"Maplewolves");
+  assert.throws(()=>scout.format(b,{fixture:game}),/SCOUT_SOURCE_HOLD/);
+  game.opponent="Maplewolves";
+  game.fixtureSignature="2026-11-01|20:15|Maplewolves|D Rink|away";
+  game.assignmentKey="hto:INVALID";
+  assert.throws(()=>scout.format(b,{fixture:game}),/SCOUT_SOURCE_HOLD/);
+ }],
  ["no h2h means unavailable, not invented zero record",()=>{
   const d=clone(source);
   const t=d.teams.find(t=>t.leagueName==="Maplewolves");
