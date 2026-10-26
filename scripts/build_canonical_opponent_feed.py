@@ -99,10 +99,22 @@ def certify_proof(proof,scores):
 def merge_opponent(cfg,history,now,proof):
     historical=[g for g in history if g["name"]==cfg["historicalExact"]] if cfg["historicalExact"] else []
     current=[g for g in now if g["name"]==cfg["htoExact"]]
-    # Future newly completed games must have independently certified team
-    # identification before entering either alias-mapped public history.
-    require({g["key"] for g in current}=={"HTO:"+str(cfg["proofGameId"])},
-            "ADDITIONAL_HTO_OPPONENT_ALIAS_GAME_NEEDS_NEW_PROOF_"+cfg["canonicalName"])
+    # The first game establishes the cross-system alias. After admission,
+    # HTO itself is primary for identity: additional OFFICIAL HTO boxscores
+    # under the SAME canonical HTO name need no repeat SVHL punctuation proof.
+    # The upstream operational and private ledger gates still require unique
+    # game IDs, original Master calendar dates and HTO Stats/game parity.
+    known_alias={cfg["canonicalName"],cfg["historicalExact"],
+                 next(k for k,v in AUDITED.items() if v is cfg)}
+    divergent=[g for g in now if g["name"] in known_alias
+               and g["name"]!=cfg["htoExact"]]
+    require(not divergent,"NEW_HTO_OPPONENT_NAME_CHANGE_NEEDS_SOURCE_REVIEW_"+cfg["canonicalName"])
+    require(any(g["key"]=="HTO:"+str(cfg["proofGameId"]) for g in current),
+            "ORIGINAL_CROSS_SYSTEM_GAME_PROOF_MISSING_"+cfg["canonicalName"])
+    require(len(current)==len({g["key"] for g in current}) and
+            all(g["date"]>=cfg["date"] and g["type"]=="Regular Season" and
+                g["source"]=="HTO" for g in current),
+            "HTO_CANONICAL_NAME_SOURCE_SCOPE_CHANGED_"+cfg["canonicalName"])
     if cfg["historicalExact"]:
         require(len(historical)==49 and sum(g["type"]=="Regular Season" for g in historical)==42,
                 "MOHAWKS_HISTORICAL_WORKBOOK_49_GAME_BASELINE_CHANGED")
@@ -111,7 +123,7 @@ def merge_opponent(cfg,history,now,proof):
     else:
         require(len(historical)==0,"UNEXPECTED_OLD_FRANCHISE_HISTORY_SUGO")
     games=sorted(historical+current,key=lambda x:(x["date"],x["key"]))
-    require(len(games)==(50 if cfg["historicalExact"] else 1),"CANONICAL_SOURCE_EVENT_COVERAGE_UNEXPECTED")
+    require(len(games)==len(historical)+len(current),"CANONICAL_SOURCE_EVENT_COVERAGE_UNEXPECTED")
     rs=stats([g for g in games if g["type"]=="Regular Season"])
     alltime=stats(games)
     playoffs=stats([g for g in games if g["type"]=="Playoffs"])
@@ -130,7 +142,9 @@ def merge_opponent(cfg,history,now,proof):
             "historicalRecordsAreLimited":not bool(cfg["historicalExact"]),
             "notice":("Consolidated historical Brave H.C. workbook record and current HTO spelling."
                       if cfg["historicalExact"] else
-                      "One source-verified current game only. No older Sugo/Michelob franchise history is asserted.")}
+                      ("One source-verified current game only. No older Sugo/Michelob franchise history is asserted."
+                       if len(current)==1 else
+                       str(len(current))+" source-verified current-season HTO games only. No older Sugo/Michelob franchise history is asserted."))}
 def build(master,scores,official_stats,prior_four,league,proof,book):
     baseline=build_exact(master,scores,official_stats,prior_four,league)
     editorial=workbook_editorial_verified(book)
