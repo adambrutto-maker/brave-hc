@@ -1,0 +1,98 @@
+{
+  "schema": "brave-hc-bio-public-leadership/v1",
+  "status": "PUBLIC_BIO_SOURCE_AND_FOUNDER_CONFIRMED",
+  "sourceNote": "Historical source is public HTO Bio. Ryan/Stephane succession corrected by team management.",
+  "items": [
+    {
+      "htoPlayerID": 354054,
+      "player": "Adam Brutto",
+      "text": "Team Captain - 2022 to Present",
+      "source": "PUBLIC_HTO_BIO",
+      "status": "SOURCE_DOCUMENTED"
+    },
+    {
+      "htoPlayerID": 354054,
+      "player": "Adam Brutto",
+      "text": "Team Player Coach - 2020 to 2022",
+      "source": "PUBLIC_HTO_BIO",
+      "status": "SOURCE_DOCUMENTED"
+    },
+    {
+      "htoPlayerID": 354054,
+      "player": "Adam Brutto",
+      "text": "Team Captain - 2019 to 2020",
+      "source": "PUBLIC_HTO_BIO",
+      "status": "SOURCE_DOCUMENTED"
+    },
+    {
+      "htoPlayerID": 354054,
+      "player": "Adam Brutto",
+      "text": "Assistant Captain - 2013 to 2019",
+      "source": "PUBLIC_HTO_BIO",
+      "status": "SOURCE_DOCUMENTED"
+    },
+    {
+      "htoPlayerID": 354060,
+      "player": "Justin Carosi",
+      "text": "Assistant Captain - 2022 to Present",
+      "source": "PUBLIC_HTO_BIO",
+      "status": "SOURCE_DOCUMENTED"
+    },
+    {
+      "htoPlayerID": 354285,
+      "player": "Ben Sherritt",
+      "text": "Team Captain - 2020 to 2022",
+      "source": "PUBLIC_HTO_BIO",
+      "status": "SOURCE_DOCUMENTED"
+    },
+    {
+      "htoPlayerID": 354285,
+      "player": "Ben Sherritt",
+      "text": "Team Captain - 2017 to 2018",
+      "source": "PUBLIC_HTO_BIO",
+      "status": "SOURCE_DOCUMENTED"
+    },
+    {
+      "htoPlayerID": 525407,
+      "player": "Dylan Brennan",
+      "text": "Team Captain - 2018 to 2019",
+      "source": "PUBLIC_HTO_BIO",
+      "status": "SOURCE_DOCUMENTED"
+    },
+    {
+      "htoPlayerID": 354061,
+      "player": "Mark Pastore",
+      "text": "Team Captain - 2013 to 2016",
+      "source": "PUBLIC_HTO_BIO",
+      "status": "SOURCE_DOCUMENTED"
+    },
+    {
+      "htoPlayerID": 354049,
+      "player": "Cameron Buchanan",
+      "text": "Assistant Captain - 2013 to 2022",
+      "source": "PUBLIC_HTO_BIO",
+      "status": "SOURCE_DOCUMENTED"
+    },
+    {
+      "htoPlayerID": 354046,
+      "player": "Ryan Logue",
+      "text": "Assistant Captain - 2014 to Winter 2025/26",
+      "source": "FOUNDER_CONFIRMED",
+      "status": "SOURCE_DOCUMENTED"
+    },
+    {
+      "htoPlayerID": 354058,
+      "player": "Alex Pagnotta",
+      "text": "Assistant Captain - 2019 to Present",
+      "source": "PUBLIC_HTO_BIO",
+      "status": "SOURCE_DOCUMENTED"
+    },
+    {
+      "htoPlayerID": 738846,
+      "player": "Stephane Saindon",
+      "text": "Assistant Captain - Winter 2026/27 to Present",
+      "source": "FOUNDER_CONFIRMED",
+      "status": "SOURCE_DOCUMENTED"
+    }
+  ]
+}
