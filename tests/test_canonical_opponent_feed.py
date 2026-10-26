@@ -80,4 +80,48 @@ class CanonicalQA(unittest.TestCase):
   self.assertEqual(published["coverage"],out["coverage"])
  def test_new_source_without_private_workbook_is_not_auto_approved(self):
   with self.assertRaises(m.Hold):m.workbook_editorial_verified(ROOT/"README.md")
+ @unittest.skipUnless(AVAILABLE,"private accepted workbook source unavailable")
+ def test_synthetic_later_hto_mohawks_name_extends_historical_record_once(self):
+  inputs=data();past,current=m.source_records(inputs[0],inputs[1])
+  proof=next(x for x in inputs[5]["sameGamePairs"] if x["divisionName"]=="Mohawks HC")
+  future={"key":"HTO:9900011","date":"2026-11-08","type":"Regular Season",
+          "result":"W","bravesGF":2,"bravesGA":1,"name":"Mohawks H.C.","source":"HTO"}
+  merged=m.merge_opponent(m.AUDITED["Mohawks HC"],past,current+[future],proof)
+  self.assertEqual(merged["sourceHTOGames"],2)
+  self.assertEqual(merged["allTime"],{"gp":51,"w":20,"l":20,"t":11,"gf":195,"ga":177})
+  self.assertEqual(merged["playoffs"],{"gp":7,"w":3,"l":1,"t":3,"gf":29,"ga":15})
+ @unittest.skipUnless(AVAILABLE,"private accepted workbook source unavailable")
+ def test_synthetic_additional_michelob_hto_game_stays_current_only(self):
+  inputs=data();past,current=m.source_records(inputs[0],inputs[1])
+  proof=next(x for x in inputs[5]["sameGamePairs"] if x["divisionName"]=="Sugo Sundays")
+  future={"key":"HTO:9900012","date":"2026-11-15","type":"Regular Season",
+          "result":"W","bravesGF":5,"bravesGA":2,"name":"Michelob Morts","source":"HTO"}
+  merged=m.merge_opponent(m.AUDITED["Sugo Sundays"],past,current+[future],proof)
+  self.assertEqual(merged["sourceHTOGames"],2)
+  self.assertEqual(merged["allTime"],{"gp":2,"w":1,"l":1,"t":0,"gf":7,"ga":5})
+  self.assertTrue(merged["historicalRecordsAreLimited"])
+  self.assertIn("2 source-verified current-season HTO games",merged["notice"])
+ @unittest.skipUnless(AVAILABLE,"private accepted workbook source unavailable")
+ def test_unverified_new_hto_alias_spelling_must_hold(self):
+  inputs=data();past,current=m.source_records(inputs[0],inputs[1])
+  proof=next(x for x in inputs[5]["sameGamePairs"] if x["divisionName"]=="Sugo Sundays")
+  divergent={"key":"HTO:9900013","date":"2026-11-15","type":"Regular Season",
+             "result":"W","bravesGF":3,"bravesGA":1,"name":"Sugo Sundays","source":"HTO"}
+  with self.assertRaisesRegex(m.Hold,"NEW_HTO_OPPONENT_NAME_CHANGE_NEEDS_SOURCE_REVIEW"):
+   m.merge_opponent(m.AUDITED["Sugo Sundays"],past,current+[divergent],proof)
+ @unittest.skipUnless(AVAILABLE,"private accepted workbook source unavailable")
+ def test_duplicate_official_hto_game_id_never_double_counts(self):
+  inputs=data();past,current=m.source_records(inputs[0],inputs[1])
+  proof=next(x for x in inputs[5]["sameGamePairs"] if x["divisionName"]=="Mohawks HC")
+  original=next(x for x in current if x["name"]=="Mohawks H.C.")
+  with self.assertRaisesRegex(m.Hold,"HTO_CANONICAL_NAME_SOURCE_SCOPE_CHANGED"):
+   m.merge_opponent(m.AUDITED["Mohawks HC"],past,current+[deepcopy(original)],proof)
+ @unittest.skipUnless(AVAILABLE,"private accepted workbook source unavailable")
+ def test_older_hto_game_not_in_original_2026_provenance_is_held(self):
+  inputs=data();past,current=m.source_records(inputs[0],inputs[1])
+  proof=next(x for x in inputs[5]["sameGamePairs"] if x["divisionName"]=="Mohawks HC")
+  prior={"key":"HTO:9900014","date":"2024-05-01","type":"Regular Season",
+         "result":"W","bravesGF":2,"bravesGA":1,"name":"Mohawks H.C.","source":"HTO"}
+  with self.assertRaisesRegex(m.Hold,"HTO_CANONICAL_NAME_SOURCE_SCOPE_CHANGED"):
+   m.merge_opponent(m.AUDITED["Mohawks HC"],past,current+[prior],proof)
 if __name__=="__main__":unittest.main(verbosity=2)
