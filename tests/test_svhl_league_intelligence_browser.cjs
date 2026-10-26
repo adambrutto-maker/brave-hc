@@ -175,7 +175,7 @@ const server=http.createServer((req,res)=>{
     }
     await page.select("#team-filter","Maplewolves");
    }
-   await page.evaluate(()=>{window.__divisionResearchCopied=null});
+   await page.evaluate(()=>{window.__scoutingCopied=null});
    await page.click("#copy-division-review");
    await page.waitForFunction(()=>Boolean(window.__scoutingCopied));
    // The clipboard handler was already stubbed for the normal scouting brief.
