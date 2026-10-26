@@ -88,11 +88,18 @@
       ["home","away"].includes(fixture.side) && fixture.rink &&
       Number.isFinite(new Date(fixture.checkedAt).getTime()),
       "UNVERIFIED_GAME_DAY_FIXTURE");
-   need(fixture.htoUrl===null ||
-     (fixture.htoSyncStatus==="MATCH" && fixture.assignmentKey==="hto:"+fixture.htoGameId &&
-      /^\d+$/.test(String(fixture.htoGameId)) &&
-      fixture.htoUrl.includes("gameID="+fixture.htoGameId)),
-      "HTO_GAME_ID_NOT_SOURCE_QUALIFIED");
+   if(fixture.htoUrl!==null){
+    const link=new URL(fixture.htoUrl);
+    need(fixture.htoSyncStatus==="MATCH" &&
+     fixture.assignmentKey==="hto:"+fixture.htoGameId &&
+     /^\d+$/.test(String(fixture.htoGameId)) &&
+     link.protocol==="https:" && link.hostname==="www.hometeamsonline.com" &&
+     link.pathname==="/teams/default.asp" &&
+     link.searchParams.get("gameID")===String(fixture.htoGameId) &&
+     link.searchParams.get("u")==="BRAVESHOCKEY" &&
+     link.searchParams.get("p")==="preview",
+     "HTO_GAME_ID_NOT_SOURCE_QUALIFIED");
+   }
   }
   const heading=fixture?"BRAVE H.C. | VERIFIED GAME-DAY SCOUTING":"BRAVE H.C. | VERIFIED OPPONENT SCOUTING";
   const parts=[heading,
