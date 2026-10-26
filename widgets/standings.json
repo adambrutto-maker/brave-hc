@@ -3,7 +3,7 @@
   "season": "W2026/27",
   "division": "Cristillo",
   "source": "https://leagues.sportsvillage.ca/Leagues.aspx?leagueid=570&page_type=Adult&sc=HOCKEY",
-  "capturedAt": "2026-10-26T00:02:03.422Z",
+  "capturedAt": "2026-10-26T12:31:11.966529+00:00",
   "team": "Braves HC",
   "teams": [
     {
@@ -92,7 +92,7 @@
       "pts": 0,
       "gf": 6,
       "ga": 19,
-      "winPct": 0
+      "winPct": 0.0
     }
   ],
   "braveGP": 4,
