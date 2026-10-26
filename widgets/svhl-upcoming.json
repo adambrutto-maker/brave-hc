@@ -1,20 +1,8 @@
 {
   "schema": "brave-hc-svhl-schedule/v1",
   "source": "https://leagues.sportsvillage.ca/Leagues.aspx?leagueid=570&page_type=Adult&sc=HOCKEY",
-  "checkedAt": "2026-10-25T18:37:32.066680-04:00",
+  "checkedAt": "2026-10-26T00:56:27.273672-04:00",
   "games": [
-    {
-      "date": "2026-10-25",
-      "time": "18:15",
-      "opponent": "Big Bastones",
-      "rink": "A Rink",
-      "side": "home",
-      "fixtureSignature": "2026-10-25|18:15|Big Bastones|A Rink|home",
-      "assignmentKey": "hto:3375682",
-      "htoGameId": "3375682",
-      "htoSyncStatus": "MATCH",
-      "requiresGoalieReconfirmation": false
-    },
     {
       "date": "2026-11-01",
       "time": "20:15",
