@@ -175,11 +175,12 @@ const server=http.createServer((req,res)=>{
     }
     await page.select("#team-filter","Maplewolves");
    }
-   await page.evaluate(()=>{window.__scoutingCopied=null});
-   await page.click("#copy-division-review");
-   await page.waitForFunction(()=>Boolean(window.__scoutingCopied));
-   // The clipboard handler was already stubbed for the normal scouting brief.
-   const beforeReview=await page.evaluate(()=>window.__scoutingCopied);
+   await page.evaluate(()=>Object.defineProperty(navigator,"clipboard",{
+     configurable:true,value:{writeText:async text=>{window.__divisionReviewCopied=text}}
+    }));
+    await page.click("#copy-division-review");
+    await page.waitForFunction(()=>Boolean(window.__divisionReviewCopied));
+    const beforeReview=await page.evaluate(()=>window.__divisionReviewCopied);
    assert.ok(beforeReview.includes("HOCKEYOS | SVHL SUNDAY WINTER DIVISION RESEARCH")&&
       beforeReview.includes("No realignment recommendation is made"),
       "division-copy action must generate research only");
