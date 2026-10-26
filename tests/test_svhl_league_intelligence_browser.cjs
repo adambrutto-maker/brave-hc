@@ -124,6 +124,28 @@ const server=http.createServer((req,res)=>{
        firstMatched.opponent.toLowerCase().replace(/[^a-z0-9]/g,""));
     assert.equal(await page.$eval("#profile-title",e=>e.textContent),expected.displayName,
       "schedule-based button opens verified exact opponent profile");
+    const fresh=Date.now()-new Date(schedule.checkedAt).getTime()<=8*60*60*1000;
+    if(fresh){
+     await page.evaluate(()=>{
+      Object.defineProperty(navigator,"clipboard",{
+       configurable:true,value:{writeText:async text=>{window.__gameDayCopied=text}}
+      });
+     });
+     await page.evaluate(()=>{
+      const button=[...document.querySelectorAll("#upcoming-fixtures button")]
+        .find(el=>el.textContent==="Copy game-day WhatsApp brief");
+      if(!button)throw Error("Verified fixture game-day copy control missing");
+      button.click();
+     });
+     await page.waitForFunction(()=>Boolean(window.__gameDayCopied));
+     const gameDay=await page.evaluate(()=>window.__gameDayCopied);
+     assert.ok(gameDay.includes("VERIFIED GAME-DAY SCOUTING")&&
+       gameDay.includes(firstMatched.date+" at "+firstMatched.time+" ET")&&
+       gameDay.includes(firstMatched.opponent)&&
+       gameDay.includes("Goalie assignment:")&&
+       !gameDay.includes("No upcoming fixture or game date is asserted"),
+       "user-triggered game-day report contains source-checked HTO/SVHL facts only");
+    }
     await page.select("#team-filter","Maplewolves");
    }
    await page.select("#sort-field","official");

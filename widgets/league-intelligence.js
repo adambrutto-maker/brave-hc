@@ -178,7 +178,7 @@
     /^\d+$/.test(String(game.htoGameId||"")) &&
     game.assignmentKey==="hto:"+game.htoGameId;
    // If HTO synchronization has not admitted a game, never construct a preview link.
-   if(game.date>=today)upcomingFixtures.push({...game,
+   if(game.date>=today)upcomingFixtures.push({...game,checkedAt:doc.checkedAt,
     matched:matched?.leagueName||null,
     htoUrl:htoMatched?"https://www.hometeamsonline.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=preview&sportsHQ=BRAVESHOCKEY&gameID="+game.htoGameId:null});
   }
@@ -209,6 +209,27 @@
      q("profile-title").scrollIntoView({block:"start",behavior:"smooth"});
     });
    }else text(card,"small","","No verified match to current SVHL League Intelligence team ID");
+   if(game.matched&&!stale){
+    const copyButton=text(card,"button","","Copy game-day WhatsApp brief");
+    copyButton.type="button";
+    const feedback=text(card,"small","","");
+    feedback.setAttribute("aria-live","polite");
+    copyButton.addEventListener("click",async()=>{
+     if(!navigator.clipboard?.writeText){
+      feedback.textContent="Clipboard unavailable; verify browser permissions.";
+      return;
+     }
+     try{
+      const brief=window.BraveLeagueScouting.build(data,game.matched);
+      await navigator.clipboard.writeText(window.BraveLeagueScouting.format(brief,{fixture:game}));
+      feedback.textContent="Game-day source brief copied. Review before sending.";
+     }catch(error){
+      feedback.textContent="Source brief could not be copied; check verified schedule.";
+     }
+    });
+   }else if(stale){
+    text(card,"small","","Game-day copying disabled until fresh schedule verification.");
+   }
    const link=text(card,"a","sourcelink",game.htoUrl?"Verified HTO game preview":"Official SVHL schedule");
    link.href=game.htoUrl||source;link.target="_blank";link.rel="noopener noreferrer";
    grid.append(card);
