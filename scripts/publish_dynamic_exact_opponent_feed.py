@@ -56,6 +56,46 @@ def require_public_scope(feed,standings):
   raise ReleaseHold("CANONICAL_OPPONENT_PROOF_OR_ARCHIVED_HISTORY_MISSING")
  return True
 
+def require_retained_hto_opponents(previous,current):
+ """Every previously admitted current-season HTO opponent must survive a
+ league division reshuffle as either a current entry or an archive.
+
+ This is separate from identity admission. A changed name/scope must be
+ reviewed rather than silently reassigned or dropped.
+ """
+ old=previous.get("teams",[])
+ new=current.get("teams",[])
+ if not isinstance(old,list) or not isinstance(new,list):
+  raise ReleaseHold("PUBLIC_OPPONENT_RETENTION_SCHEMA_INVALID")
+ new_by_name={x.get("name"):x for x in new}
+ if len(new_by_name)!=len(new):
+  raise ReleaseHold("PUBLIC_OPPONENT_RETENTION_DUPLICATE_SOURCE_NAME")
+ for p in old:
+  n=p.get("sourceHTOGames",0)
+  if type(n) is not int or n<0:
+   raise ReleaseHold("OLD_HTO_GAME_COUNT_NOT_QUALIFIED")
+  if n==0:continue
+  key=p.get("name")
+  found=new_by_name.get(key)
+  if not isinstance(found,dict):
+   raise ReleaseHold("PREVIOUSLY_VERIFIED_HTO_OPPONENT_DISAPPEARED_"+str(key))
+  if (found.get("verification")!=p.get("verification") or
+      found.get("identityScope")!=p.get("identityScope") or
+      found.get("canonicalName")!=p.get("canonicalName") or
+      found.get("sourceNames")!=p.get("sourceNames")):
+   raise ReleaseHold("VERIFIED_OPPONENT_IDENTITY_SCOPE_REGRESSED_"+str(key))
+  count=found.get("sourceHTOGames")
+  if type(count) is not int or count<n:
+   raise ReleaseHold("HTO_OPPONENT_GAME_COVERAGE_REGRESSED_"+str(key))
+  previous_total=p.get("allTime",{})
+  later=found.get("allTime",{})
+  if (not isinstance(previous_total,dict) or not isinstance(later,dict) or
+      type(previous_total.get("gp")) is not int or
+      type(later.get("gp")) is not int or
+      later["gp"]<previous_total["gp"]):
+   raise ReleaseHold("VERIFIED_OPPONENT_HISTORICAL_GAME_COUNT_REGRESSED_"+str(key))
+ return True
+
 def publish(repo,private,hto_source,report_file):
  repo=Path(repo);private=Path(private);hto_source=Path(hto_source)
  target=repo/PUBLISH_REL
@@ -85,6 +125,8 @@ def publish(repo,private,hto_source,report_file):
   # an old releaseScope sentence. The latter erroneously held correct SVHL
   # division changes when the accepted release scope was renamed.
   require_public_scope(new, load(repo/"widgets"/"standings.json"))
+  if old.get("status")=="PUBLIC_VERIFIED_SOURCE_IDENTITY":
+   require_retained_hto_opponents(old,new)
   # A released source can be more recent while a completed-game record stays the same.
   # Keep the public data fresh, but do not churn when the exact JSON is unchanged.
   target.write_text(json.dumps(new,indent=2,ensure_ascii=False)+"\n",encoding="utf8")

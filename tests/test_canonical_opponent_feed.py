@@ -124,4 +124,47 @@ class CanonicalQA(unittest.TestCase):
          "result":"W","bravesGF":2,"bravesGA":1,"name":"Mohawks H.C.","source":"HTO"}
   with self.assertRaisesRegex(m.Hold,"HTO_CANONICAL_NAME_SOURCE_SCOPE_CHANGED"):
    m.merge_opponent(m.AUDITED["Mohawks HC"],past,current+[prior],proof)
+ @unittest.skipUnless(AVAILABLE,"private verified source unavailable")
+ def test_any_HTO_opponent_exiting_division_is_archived(self):
+  inputs=data()
+  row=next(x for x in inputs[4]["teams"] if x["name"]=="Big Bastones")
+  row["name"]="New League Entry"
+  out=m.build(*inputs,BOOK)
+  rows={x["name"]:x for x in out["teams"]}
+  self.assertEqual(out["coverage"]["currentDivisionOpponents"],7)
+  self.assertEqual(out["coverage"]["seasonOpponentArchives"],2)
+  self.assertEqual(rows["Big Bastones"]["membershipStatus"],"SEASON_OPPONENT_ARCHIVE")
+  self.assertEqual(rows["Big Bastones"]["sourceHTOGames"],1)
+  self.assertEqual(rows["Big Bastones"]["allTime"]["gp"],8)
+  self.assertEqual(rows["New League Entry"]["verification"],"NO_EXACT_HISTORY")
+  self.assertEqual(rows["Sugo Sundays"]["membershipStatus"],"SEASON_OPPONENT_ARCHIVE")
+ @unittest.skipUnless(AVAILABLE,"private verified source unavailable")
+ def test_multiple_completed_HTO_opponents_retain_source_history(self):
+  inputs=data()
+  for row in inputs[4]["teams"]:
+   if row["name"]=="Big Bastones":row["name"]="New League Entry A"
+   elif row["name"]=="Dateline Predators":row["name"]="New League Entry B"
+  out=m.build(*inputs,BOOK)
+  rows={x["name"]:x for x in out["teams"]}
+  self.assertEqual(out["coverage"]["seasonOpponentArchives"],3)
+  self.assertEqual(rows["Dateline Predators"]["regularSeason"]["gp"],11)
+  self.assertEqual(rows["Dateline Predators"]["allTime"]["gp"],13)
+  self.assertEqual(rows["Big Bastones"]["allTime"]["gp"],8)
+  self.assertEqual(rows["Sugo Sundays"]["allTime"]["gp"],1)
+ @unittest.skipUnless(AVAILABLE,"private verified source unavailable")
+ def test_unplayed_departing_division_team_does_not_gain_a_fake_HTO_archive(self):
+  inputs=data()
+  next(x for x in inputs[4]["teams"] if x["name"]=="Maplewolves")["name"]="New League Entry"
+  out=m.build(*inputs,BOOK)
+  self.assertNotIn("Maplewolves",{x["name"] for x in out["teams"]})
+  self.assertEqual(out["coverage"]["seasonOpponentArchives"],1)
+ @unittest.skipUnless(AVAILABLE,"private verified source unavailable")
+ def test_returning_division_qualifies_one_canonical_identity_without_archive_duplicate(self):
+  inputs=data()
+  next(x for x in inputs[4]["teams"] if x["name"]=="Maplewolves")["name"]="Sugo Sundays"
+  out=m.build(*inputs,BOOK)
+  result=[x for x in out["teams"] if x["name"]=="Sugo Sundays"]
+  self.assertEqual(len(result),1)
+  self.assertEqual(result[0]["membershipStatus"],"CURRENT_DIVISION")
+  self.assertEqual(out["coverage"]["seasonOpponentArchives"],0)
 if __name__=="__main__":unittest.main(verbosity=2)

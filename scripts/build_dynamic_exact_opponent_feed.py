@@ -92,11 +92,42 @@ def build(master,scores,official_stats,prior_four,league):
                  "sourceHTOGames":sum(g["source"]=="HTO" for g in games),
                  "regularSeason":rs,"allTime":alltime,"playoffs":playoffs,"lastFive":last})
  require(len(output)==7,"EXPECTED_SEVEN_DIVISION_OPPONENTS")
+ for row in output:row["membershipStatus"]="CURRENT_DIVISION"
+ # A verified current HTO opponent may leave SVHL's division at any time.
+ # Preserve EVERY exact-HTO source name as an archived matchup, not only the
+ # two already-admitted canonical alias cases. Known alias-spelled HTO names
+ # are handled by build_canonical_opponent_feed under their reviewed keys.
+ reviewed_hto_names={"Mohawks H.C.","Michelob Morts"}
+ departed=sorted({g["opponentExact"] for g in source["currentGames"]}
+                 -set(division)-reviewed_hto_names-ALIAS_HOLD)
+ for name in departed:
+  source_games=sorted(allnames[name],key=lambda x:x["date"])
+  current_count=sum(g["source"]=="HTO" for g in source_games)
+  require(current_count>=1,"ARCHIVED_OPPONENT_NEEDS_VERIFIED_HTO_GAME_"+name)
+  rs=stats([g for g in source_games if g["type"]=="Regular Season"])
+  alltime=stats(source_games)
+  playoffs=stats([g for g in source_games if g["type"]=="Playoffs"])
+  profile=privateProfile.get(name)
+  require(profile and profile.get("identityScope")=="EXACT_MATCH_ONLY" and
+          profile.get("regularSeason")==rs and profile.get("allTime")==alltime and
+          profile.get("playoffs")==playoffs,
+          "ARCHIVED_EXACT_HTO_OPPONENT_SOURCE_DISAGREEMENT_"+name)
+  recent=[{"date":g["date"],"result":g["result"],
+           "gf":g["bravesGF"],"ga":g["bravesGA"]} for g in source_games[-5:]]
+  output.append({"name":name,"verification":"VERIFIED_EXACT_NAME",
+                 "identityScope":"EXACT_NAME_ONLY_NO_UNREVIEWED_ALIASES",
+                 "membershipStatus":"SEASON_OPPONENT_ARCHIVE",
+                 "sourceHTOGames":current_count,"regularSeason":rs,
+                 "allTime":alltime,"playoffs":playoffs,"lastFive":recent,
+                 "notice":"A verified HTO opponent from this season; no longer listed in the current SVHL division. Historical results use this exact recorded name only."})
+ require(len({r["name"] for r in output})==len(output),
+         "DUPLICATE_CURRENT_AND_ARCHIVED_OPPONENT_NAME")
  meta={"historicalGameRecords":358,"currentSeasonGames":counts["currentOfficialHTOGames"],
        "sourceQualifiedOpponents":sum(x["verification"]=="VERIFIED_EXACT_NAME" for x in output),
        "aliasesNeedingReview":sum(x["verification"]=="ALIAS_REVIEW_REQUIRED" for x in output),
        "noExactHistory":sum(x["verification"]=="NO_EXACT_HISTORY" for x in output)}
  meta["currentDivisionOpponents"]=len(division)
+ meta["seasonOpponentArchives"]=len(departed)
  require(meta["aliasesNeedingReview"]==len(set(division)&ALIAS_HOLD),
          "UNREVIEWED_ALIAS_SCOPE_NOT_HELD")
  return {"schema":"brave-hc-opponent-intelligence/v1",

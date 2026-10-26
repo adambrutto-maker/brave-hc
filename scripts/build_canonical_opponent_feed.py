@@ -151,7 +151,10 @@ def build(master,scores,official_stats,prior_four,league,proof,book):
     source_proofs=certify_proof(proof,scores)
     past,current=source_records(master,scores)
     byname={x["name"]:x for x in baseline["teams"]}
-    division_names={x["name"] for x in baseline["teams"]}
+    division_names={x["name"] for x in baseline["teams"]
+                    if x.get("membershipStatus")=="CURRENT_DIVISION"}
+    baseline_archives=[x["name"] for x in baseline["teams"]
+                       if x.get("membershipStatus")=="SEASON_OPPONENT_ARCHIVE"]
     require(all(byname[x]["verification"]=="ALIAS_REVIEW_REQUIRED"
                 for x in AUDITED if x in division_names),
             "BASELINE_PRE_CANONICAL_HOLD_SCHEMA_CHANGED")
@@ -163,11 +166,13 @@ def build(master,scores,official_stats,prior_four,league,proof,book):
             require(admitted["sourceHTOGames"]>=1,
                     "UNVERIFIED_ARCHIVED_CURRENT_SEASON_OPPONENT")
         byname[name]=admitted
-    entries=[byname[x["name"]] for x in baseline["teams"]]
-    # A current-season opponent may leave the division after league
-    # rebalancing. Preserve its HTO-verified matchup in a separate archive,
-    # without claiming it occupies one of the current seven SVHL slots.
+    entries=[byname[x["name"]] for x in baseline["teams"]
+             if x.get("membershipStatus")=="CURRENT_DIVISION"]
+    # Preserving season opponents is GENERAL: archived exact-HTO names
+    # originate upstream from source-verified completed HTO games, while
+    # reviewed cross-system names use their canonical identity record.
     archives=[byname[k] for k in AUDITED if k not in division_names]
+    archives.extend(byname[k] for k in baseline_archives if k not in AUDITED)
     entries.extend(archives)
     require(len({x["name"] for x in entries})==len(entries) and
             len(entries)==len(division_names)+len(archives) and

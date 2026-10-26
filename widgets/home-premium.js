@@ -100,7 +100,7 @@ async function loadStandings(){
        candidate.coverage?.currentSeasonGames>=5 && Array.isArray(candidate.teams) &&
        candidate.coverage?.currentDivisionOpponents===7 &&
        candidate.teams.length===7+(candidate.coverage?.seasonOpponentArchives||0) &&
-       candidate.teams.length<=10 &&
+       candidate.teams.length<=7+Math.min(24,candidate.coverage.currentSeasonGames) &&
        d.teams.filter(t=>t.name!==d.team).every(t=>candidate.teams.some(x=>x.name===t.name && x.membershipStatus==="CURRENT_DIVISION")) &&
        candidate.teams.filter(x=>x.membershipStatus==="SEASON_OPPONENT_ARCHIVE").length===(candidate.coverage?.seasonOpponentArchives||0) &&
        Number.isFinite(age) && age>=0 &&

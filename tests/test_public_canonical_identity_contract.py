@@ -112,4 +112,22 @@ class IdentityContractQA(unittest.TestCase):
         x["allTime"]["gp"]=11;x["allTime"]["w"]=4
         with self.assertRaisesRegex(m.IdentityHold,"MAPLEWOLVES_TEN_GAME_MASTER_HISTORY"):
             m.validate(*args)
+    def test_multiple_verified_HTO_opponents_can_be_archived_in_future_division(self):
+        args=list(data())
+        original=__import__("copy").deepcopy(args[1])
+        for outgoing,incoming in (("Big Bastones","New Current A"),("Dateline Predators","New Current B")):
+            for club in args[0]["teams"]:
+                if club["name"]==outgoing:club["name"]=incoming
+            rec=next(x for x in args[1]["teams"] if x["name"]==outgoing)
+            rec["membershipStatus"]="SEASON_OPPONENT_ARCHIVE"
+            args[1]["teams"].append({"name":incoming,"membershipStatus":"CURRENT_DIVISION",
+                "verification":"NO_EXACT_HISTORY","message":"No HTO or original workbook source match"})
+            args[1]["coverage"]["seasonOpponentArchives"]+=1
+            args[1]["coverage"]["noExactHistory"]+=1
+        self.assertEqual(m.validate(*args)["seasonOpponentArchives"],3)
+        import sys
+        sys.path.insert(0,str(ROOT/'scripts'))
+        from publish_dynamic_exact_opponent_feed import require_retained_hto_opponents,require_public_scope
+        self.assertTrue(require_public_scope(args[1],args[0]))
+        self.assertTrue(require_retained_hto_opponents(original,args[1]))
 if __name__=="__main__":unittest.main(verbosity=2)
