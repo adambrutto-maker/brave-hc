@@ -16,6 +16,10 @@ on:
       - 'scripts/check_svhl_league_intelligence.py'
       - 'scripts/model_svhl_schedule_strength.py'
       - 'scripts/track_svhl_strength_trends.py'
+      - 'scripts/build_svhl_weekly_strength.py'
+      - 'scripts/collect_svhl_historical_standings.py'
+      - 'tests/test_svhl_historical_weekly.py'
+      - 'widgets/historical-svhl-standings.json'
       - 'tests/test_svhl_strength_trends.py'
       - 'tests/test_svhl_schedule_adjusted_context.py'
       - 'tests/test_svhl_fixture_scouting.py'
@@ -41,6 +45,10 @@ on:
       - 'scripts/check_svhl_league_intelligence.py'
       - 'scripts/model_svhl_schedule_strength.py'
       - 'scripts/track_svhl_strength_trends.py'
+      - 'scripts/build_svhl_weekly_strength.py'
+      - 'scripts/collect_svhl_historical_standings.py'
+      - 'tests/test_svhl_historical_weekly.py'
+      - 'widgets/historical-svhl-standings.json'
       - 'tests/test_svhl_strength_trends.py'
       - 'tests/test_svhl_schedule_adjusted_context.py'
       - 'tests/test_svhl_fixture_scouting.py'
@@ -89,6 +97,8 @@ jobs:
         run: node tests/test_svhl_league_scouting.cjs
       - name: Guard source-proven upcoming scouting against the existing SVHL↔HTO feed
         run: python -m unittest discover -s tests -p test_svhl_fixture_scouting.py
+      - name: Guard weekly ratings, history source identities and closed-week immutability
+        run: python -m unittest discover -s tests -p test_svhl_historical_weekly.py
       - name: Detect stalled daily local collector
         if: github.event_name == 'schedule'
         run: python scripts/check_svhl_league_intelligence.py --fresh
