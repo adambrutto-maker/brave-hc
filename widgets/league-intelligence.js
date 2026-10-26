@@ -16,6 +16,10 @@
    doc.currentDivisionCount>=4 &&
    Array.isArray(doc.divisions)&&Array.isArray(doc.teams)&&
    doc.currentLeagueTeamCount===doc.teams.length &&
+   doc.movementLedger?.schema==="brave-hc-svhl-division-movement-ledger/v1" &&
+   Array.isArray(doc.movementLedger.events) &&
+   Array.isArray(doc.movementLedger.incomingCristilloReports) &&
+   doc.movementLedger.eventsRecorded===doc.movementLedger.events.length &&
    doc.verifiedReciprocalCompletedGames>=40 &&
    new Set(doc.teams.map(x=>x.sourceTeamId)).size===doc.teams.length &&
    doc.teams.every(x=>x.leagueName&&x.displayName&&x.divisionNow&&
@@ -43,6 +47,70 @@
   const teams=q("team-filter");teams.replaceChildren();
   for(const x of [...data.teams].sort((a,b)=>a.displayName.localeCompare(b.displayName)))
    teams.add(new Option(x.displayName+" · "+x.divisionNow,x.leagueName));
+ }
+ function movement(){
+  const history=data.movementLedger;
+  const moves=q("movement-rows"),arrivals=q("incoming-rows");
+  moves.replaceChildren();arrivals.replaceChildren();
+  q("movement-summary").textContent=history.eventsRecorded+" observed changes · "+
+   history.incomingCristilloEventsRecorded+" incoming Cristillo";
+  const ordered=[...history.events].sort((a,b)=>b.firstObservedAt.localeCompare(a.firstObservedAt));
+  for(const x of ordered.slice(0,12)){
+   const card=el("article","move-card");
+   text(card,"strong","",x.leagueName==="Braves HC"?"Brave H.C.":x.leagueName);
+   const from=x.fromDivision||"Prior division not established";
+   const to=x.toDivision||"Left current league directory";
+   text(card,"p","flow",from+" → "+to);
+   text(card,"p","minor","Observed between "+new Date(x.lastObservedAt).toLocaleDateString("en-CA")+
+    " and "+new Date(x.firstObservedAt).toLocaleDateString("en-CA")+
+    " · effective date unknown");
+   const present=data.teams.some(t=>t.sourceTeamId===x.sourceTeamId);
+   if(present){
+    const button=text(card,"button","","View team profile");
+    button.type="button";
+    button.addEventListener("click",()=>{
+     q("division-filter").value="all";
+     const team=data.teams.find(t=>t.sourceTeamId===x.sourceTeamId);
+     choose(team.leagueName);
+     q("profile-title").scrollIntoView({block:"start",behavior:"smooth"});
+    });
+   }
+   moves.append(card);
+  }
+  if(!ordered.length)text(moves,"p","tiny","No change between verified league membership snapshots yet.");
+  const incoming=[...history.incomingCristilloReports].reverse();
+  for(const x of incoming.slice(0,8)){
+   const card=el("article","move-card");
+   const now=data.teams.find(t=>t.sourceTeamId===x.sourceTeamId);
+   text(card,"strong","",x.displayName);
+   text(card,"p","flow",x.fromDivision||"Previous division not established by earlier snapshot");
+   const prior=x.previousWinter;
+   const had=x.currentRecordAtFirstDetection;
+   text(card,"p","small","At first observation: "+record(had)+
+    " · "+had.gf+" GF / "+had.ga+" GA · opponents' current mean WIN% "+
+    pct(x.opponentDifficultyAtFirstDetection)+".");
+   const against=x.opponentsFacedAtFirstDetection.map(g=>g.opponent+
+    " ("+g.result+" "+g.gf+"-"+g.ga+")");
+   text(card,"p","small","Competition faced: "+(against.join("; ")||"No verified previous fixtures"));
+   if(prior)text(card,"p","small","Prior winter: "+prior.division+" · "+record(prior.record)+
+         " · "+prior.officialRosterSharedIDs+" shared official roster IDs.");
+   const h=x.bravesHistoryAtFirstDetection;
+   text(card,"p","small",h?.state==="SOURCE_VERIFIED_H2H"?
+     "Brave H.C. history: "+record(h.bravesAllTime)+" over "+h.bravesAllTime.gp+" verified games.":
+     "Brave H.C.: no approved historical meeting.");
+   if(now){
+    const button=text(card,"button","","View updated team profile");
+    button.type="button";button.addEventListener("click",()=>{
+     q("division-filter").value="all";choose(now.leagueName);
+     q("profile-title").scrollIntoView({block:"start",behavior:"smooth"});
+    });
+   }
+   arrivals.append(card);
+  }
+  if(!incoming.length)text(arrivals,"p","tiny","No incoming Cristillo team detected in retained source snapshots.");
+  q("movement-source").textContent=history.eventsRecorded+
+   " dated source observations retained. "+history.departedTeamProfilesRetained+
+   " complete departed-league profiles archived. Old results are never replaced by division-name assumptions.";
  }
  function table(){
   const choice=q("division-filter").value;
@@ -130,7 +198,7 @@
    if(!response.ok)throw Error("Source not yet published");
    const result=await response.json();
    if(!trusted(result))throw Error("Published league-source agreement not validated");
-   data=result;setup();
+   data=result;setup();movement();
    const name=new URLSearchParams(location.search).get("team");
    selected=data.teams.some(x=>x.leagueName===name)?name:
     data.teams.some(x=>x.leagueName==="Maplewolves")?"Maplewolves":"Braves HC";

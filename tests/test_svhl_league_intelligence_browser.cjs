@@ -21,9 +21,18 @@ const server=http.createServer((req,res)=>{
      prior:document.querySelector("#prior-summary")?.textContent,
      historical:document.querySelector("#braves-history")?.textContent,
      fixtures:[...document.querySelectorAll("#fixture-rows tr")].map(x=>x.textContent),
+     movementCount:document.querySelectorAll("#movement-rows .move-card").length,
+     incomingCount:document.querySelectorAll("#incoming-rows .move-card").length,
+     movementContent:document.querySelector("#movement-rows").textContent,
+     incomingContent:document.querySelector("#incoming-rows").textContent,
      bodyOverflow:document.body.scrollWidth-innerWidth,
      status:document.querySelector("#source-status")?.textContent
    }));
+   assert.equal(info.movementCount,2,"two source-observed Cristillo membership changes");
+   assert.equal(info.incomingCount,1,"one incoming Maplewolves source profile");
+   assert.ok(info.movementContent.includes("Sugo Sundays")&&info.movementContent.includes("Maplewolves"));
+   assert.ok(info.incomingContent.includes("11–10–3")&&info.incomingContent.includes("Primary Auto")&&
+             info.incomingContent.includes("3–6–1"),"prior winter, competition and Braves history visible");
    assert.equal(info.rows,26,"all competitive team entries");
    assert.equal(info.divisions.length,6,"all five divisions plus all");
    assert.equal(info.selected,"Maplewolves");

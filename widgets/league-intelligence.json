@@ -2399,5 +2399,154 @@
     "crossDivision": "Opponent division labels are CURRENT as of source capture, not guaranteed division labels on the original game date",
     "smallSample": "2026/27 has only the currently published first few league games. Do not treat record ranks as predicted playoff strength."
   },
-  "originalWorkbookWritten": false
+  "originalWorkbookWritten": false,
+  "movementLedger": {
+    "schema": "brave-hc-svhl-division-movement-ledger/v1",
+    "sourceScope": "RECORDED_SVHL_TEAM_DIRECTORY_MEMBERSHIP_NOT_EFFECTIVE_DATES",
+    "baseline": "cristillo-membership-20261026-baseline.json",
+    "events": [
+      {
+        "eventId": "13709|2026-10-26T00:02:03.422Z|2026-10-26T19:09:56.779778+00:00|The Cristillo Division|Remax Division",
+        "sourceTeamId": 13709,
+        "leagueName": "Sugo Sundays",
+        "fromDivision": "The Cristillo Division",
+        "toDivision": "Remax Division",
+        "eventType": "OBSERVED_EXIT_FROM_CRISTILLO",
+        "sourceBasis": "PINNED_EARLIER_CRISTILLO_ONLY_SNAPSHOT",
+        "lastObservedAt": "2026-10-26T00:02:03.422Z",
+        "firstObservedAt": "2026-10-26T19:09:56.779778+00:00",
+        "effectiveDateNotVerified": true
+      },
+      {
+        "eventId": "13712|2026-10-26T00:02:03.422Z|2026-10-26T19:09:56.779778+00:00|None|The Cristillo Division",
+        "sourceTeamId": 13712,
+        "leagueName": "Maplewolves",
+        "fromDivision": null,
+        "toDivision": "The Cristillo Division",
+        "eventType": "OBSERVED_ENTRY_TO_CRISTILLO",
+        "sourceBasis": "NOT_IN_EARLIER_CRISTILLO_ONLY_SNAPSHOT",
+        "lastObservedAt": "2026-10-26T00:02:03.422Z",
+        "firstObservedAt": "2026-10-26T19:09:56.779778+00:00",
+        "effectiveDateNotVerified": true
+      }
+    ],
+    "incomingCristilloReports": [
+      {
+        "eventId": "13712|2026-10-26T00:02:03.422Z|2026-10-26T19:09:56.779778+00:00|None|The Cristillo Division",
+        "sourceTeamId": 13712,
+        "leagueName": "Maplewolves",
+        "displayName": "Maplewolves",
+        "fromDivision": null,
+        "fromDivisionUnknown": true,
+        "toDivision": "The Cristillo Division",
+        "detectedBetween": {
+          "lastObservedAt": "2026-10-26T00:02:03.422Z",
+          "firstObservedAt": "2026-10-26T19:09:56.779778+00:00"
+        },
+        "currentRecordAtFirstDetection": {
+          "gp": 4,
+          "w": 0,
+          "l": 4,
+          "t": 0,
+          "pts": 0,
+          "gf": 9,
+          "ga": 17
+        },
+        "opponentsFacedAtFirstDetection": [
+          {
+            "date": "2026-09-20",
+            "opponent": "Primary Auto",
+            "opponentCurrentDivision": "Remax Division",
+            "gf": 3,
+            "ga": 4,
+            "result": "L"
+          },
+          {
+            "date": "2026-09-27",
+            "opponent": "Butcher Brothers",
+            "opponentCurrentDivision": "Remax Division",
+            "gf": 1,
+            "ga": 3,
+            "result": "L"
+          },
+          {
+            "date": "2026-10-04",
+            "opponent": "Mighty Drunks",
+            "opponentCurrentDivision": "Remax Division",
+            "gf": 2,
+            "ga": 6,
+            "result": "L"
+          },
+          {
+            "date": "2026-10-18",
+            "opponent": "Young Guns",
+            "opponentCurrentDivision": "Remax Division",
+            "gf": 3,
+            "ga": 4,
+            "result": "L"
+          }
+        ],
+        "opponentDifficultyAtFirstDetection": 0.5312,
+        "previousWinter": {
+          "division": "Maple Hyundai",
+          "record": {
+            "gp": 24,
+            "w": 11,
+            "l": 10,
+            "t": 3,
+            "pts": 25,
+            "gf": 100,
+            "ga": 84
+          },
+          "winPct": 0.5208,
+          "goalsDiffPerGame": 0.667,
+          "verifiedGameDetails": 24,
+          "completeGameDetails": true,
+          "officialRosterSharedIDs": 7,
+          "rosterContinuityShare": 0.467,
+          "association": "ROSTER_ID_CONTINUITY_CONFIRMED",
+          "originalPriorLeagueTeamId": 13103,
+          "sourceUrl": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=547&teamid=13103&page_type=Adult"
+        },
+        "bravesHistoryAtFirstDetection": {
+          "state": "SOURCE_VERIFIED_H2H",
+          "sourceScope": "EXACT_NAME_ONLY_NO_UNREVIEWED_ALIASES",
+          "bravesAllTime": {
+            "gp": 10,
+            "w": 3,
+            "l": 6,
+            "t": 1,
+            "gf": 39,
+            "ga": 56
+          },
+          "bravesRegularSeason": {
+            "gp": 8,
+            "w": 2,
+            "l": 5,
+            "t": 1,
+            "gf": 28,
+            "ga": 44
+          },
+          "bravesPlayoffs": {
+            "gp": 2,
+            "w": 1,
+            "l": 1,
+            "t": 0,
+            "gf": 11,
+            "ga": 12
+          },
+          "originalLeagueName": "Maplewolves"
+        },
+        "source": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13712&page_type=Adult",
+        "isPrediction": false,
+        "interpretation": "Source-supported context only. Previous league membership date is not inferred."
+      }
+    ],
+    "previouslyTrackedTeams": [],
+    "changeState": "SOURCE_OBSERVATION_NOT_AN_OFFICIAL_RESCHEDULE_DATE",
+    "latestSnapshotUTC": "2026-10-26T19:09:56.779778+00:00",
+    "eventsRecorded": 2,
+    "incomingCristilloEventsRecorded": 1,
+    "departedTeamProfilesRetained": 0
+  }
 }

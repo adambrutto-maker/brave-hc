@@ -22,6 +22,7 @@ td .team{font-weight:850;font-size:13px;display:block}td .minor{color:var(--mute
 .three{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.value{font-size:22px;font-weight:900}.value small{display:block;font-weight:500;font-size:11px;color:var(--muted)}.outline{border:1px solid #365c77;background:#0a2338;border-radius:8px;padding:12px}
 .details{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap;align-items:center;margin-bottom:14px}.state{font-size:11px;color:var(--gold);font-weight:800}
 .tiny{color:var(--muted);font-size:11px}.sourcelink{font-weight:800;font-size:12px}.positive{color:#99e8cc}.negative{color:#ffa6af}
+.move-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(245px,1fr));gap:10px;margin:10px 0 15px}.move-card{background:#102b43;border:1px solid #476985;border-radius:7px;padding:11px}.move-card strong{display:block;color:#fff;font-size:14px}.move-card p{font-size:11px}.move-card .flow{font-size:12px;color:#edd2ab;font-weight:800;margin:4px 0}.move-card button{margin-top:7px;background:#a3223a;color:white;border:1px solid #e57385;padding:8px 12px;border-radius:5px;font-weight:800}.move-card .minor{font-size:11px;color:#bdd1e5}
 @media(max-width:680px){main{padding:13px 9px 35px}.info{grid-template-columns:repeat(2,minmax(0,1fr))}.three{grid-template-columns:1fr}.metric span{font-size:19px}.panel{padding:12px}.toolbar label,select{width:100%}}
 </style></head>
 <body><main>
@@ -33,6 +34,14 @@ td .team{font-weight:850;font-size:13px;display:block}td .minor{color:var(--mute
 <p class="sub">All Sunday Winter divisions, reciprocal game results, opponent strength, last winter's roster-supported performance, and Brave H.C.'s verified historical matchups. League names are treated as source keys, not franchise authority.</p>
 <p class="tiny" id="source-status" role="status">Checking source-verified league data…</p>
 <div class="info" id="overview"></div>
+<section class="panel" aria-labelledby="movement-title">
+ <div class="details"><div><div class="kicker">Source-observed movement history</div><h2 id="movement-title">Division changes &amp; incoming teams</h2></div><span class="tag" id="movement-summary">LOADING MOVEMENT LEDGER</span></div>
+ <p class="small">Dates show when a division membership was observed in official captures, not necessarily when the league made its decision. An earlier Cristillo-only snapshot cannot establish an incoming team's previous division.</p>
+ <div id="movement-rows" class="move-grid" aria-label="Recorded division membership changes"></div>
+ <h3>Incoming Cristillo scouting profiles</h3>
+ <div id="incoming-rows" class="move-grid" aria-label="Incoming team opponent and historical context"></div>
+ <p class="tiny" id="movement-source">Historical membership evidence is preserved without changing official results.</p>
+</section>
 <section class="panel" aria-labelledby="league-title">
  <div class="details"><div><h2 id="league-title">Current league standings</h2><p class="small">Compare teams across divisions. Click any row to examine its recorded opposition and Brave H.C. history.</p></div><div class="tag" id="season-tag">WINTER 2026/27</div></div>
  <div class="toolbar"><label for="division-filter">Division<select id="division-filter"><option value="all">All competitive divisions</option></select></label>

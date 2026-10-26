@@ -14,6 +14,7 @@ from datetime import datetime,timezone
 from pathlib import Path
 import json,os,subprocess,sys,shutil
 from check_svhl_league_intelligence import verify,ReleaseHold
+from track_svhl_division_movements import enrich,MovementHold
 class Hold(ValueError):pass
 TARGET="widgets/league-intelligence.json"
 def require(ok,reason):
@@ -43,6 +44,16 @@ def monotonic(old,new):
   historical={(g["date"],g["opponent"],g["result"],g["gf"],g["ga"]) for g in prior["completedGames"]}
   fresh={(g["date"],g["opponent"],g["result"],g["gf"],g["ga"]) for g in later["completedGames"]}
   require(historical.issubset(fresh),"PREVIOUSLY_CONFIRMED_MATCHUP_CHANGED_"+prior["leagueName"])
+ previous_ledger=old.get("movementLedger")
+ new_ledger=new.get("movementLedger")
+ if previous_ledger:
+  require(new_ledger and new_ledger.get("schema")==previous_ledger.get("schema"),
+          "MOVEMENT_HISTORY_MUST_REMAIN_ADMITTED")
+  for key in ("events","incomingCristilloReports","previouslyTrackedTeams"):
+   before=previous_ledger.get(key,[])
+   after=new_ledger.get(key,[])
+   require(len(after)>=len(before) and after[:len(before)]==before,
+           "IMMUTABLE_LEAGUE_MOVEMENT_HISTORY_REGRESSED_"+key)
  return True
 def pipeline(repo,private,receipt,check_only=False):
  repo=Path(repo);private=Path(private);receipt=Path(receipt)
@@ -70,9 +81,23 @@ def pipeline(repo,private,receipt,check_only=False):
          "--opponent-ledger",private.parent/"Opponent Intelligence"/"Online_Opponent_Ledger_PRIVATE_LATEST.json",
          "--out",candidate,timeout=30)
   current=read(candidate)
+  baseline_path=repo/"widgets"/"cristillo-membership-20261026-baseline.json"
+  if check_only and not baseline_path.is_file():
+   # The new historical baseline cannot exist in the public publishing clone
+   # until the audited PR has merged. Pre-release QA only may use the exact
+   # source-controlled candidate from beside this publisher.
+   baseline_path=Path(__file__).resolve().parents[1]/"widgets"/baseline_path.name
+  baseline=read(baseline_path)
+  current=enrich(previous,current,baseline)
+  # The enriched file is a private staged candidate until all source,
+  # immutable-event and publisher checks have passed.
+  candidate.write_text(json.dumps(current,indent=2,ensure_ascii=False)+"\n",encoding="utf8")
   accepted=read(repo/"widgets"/"opponent-intelligence.json")
   verified=verify(current,accepted,fresh=True)
   monotonic(previous,current)
+  report.update(movementCount=current["movementLedger"]["eventsRecorded"],
+       incomingCristilloCount=current["movementLedger"]["incomingCristilloEventsRecorded"],
+       departedProfilesRetained=current["movementLedger"]["departedTeamProfilesRetained"])
   report.update(sourceSnapshot=str(source),publicCandidate=str(candidate),
       teams=verified["teams"],divisions=verified["divisions"],
       pairedGames=verified["pairedGames"],priorQualified=verified["priorRosterQualified"])
@@ -99,7 +124,7 @@ def pipeline(repo,private,receipt,check_only=False):
     report.update(state="SOURCE_VERIFIED_ALL_DIVISIONS_PUBLISHED",siteWritten=True,commit=sha)
    else:
     report["state"]="PUBLIC_NO_CHANGE"
- except (ReleaseHold,Hold,ValueError,TypeError,KeyError,OSError,subprocess.TimeoutExpired) as e:
+ except (ReleaseHold,MovementHold,Hold,ValueError,TypeError,KeyError,OSError,subprocess.TimeoutExpired) as e:
   report.update(state="HOLD",reason=str(e)[:600])
   # Restore only known unstaged candidate; never reset commits or other changes.
   if not check_only:
