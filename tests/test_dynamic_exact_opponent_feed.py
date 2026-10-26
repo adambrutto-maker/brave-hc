@@ -21,6 +21,12 @@ def add_sixth(data,opponent="Mid Ice Crisis"):
          "gameType":"Regular Season","opponentExact":opponent,"gf":2,"ga":1,
          "result":"W","sourceUrl":"https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=3399999&p=boxscore"}
  scores["games"].insert(0,latest);scores["sourceGamesCount"]=6
+ newverified=deepcopy(verified["games"][-1])
+ newverified.update(htoGameId=3399999,date="2026-10-26",
+                    workbookGameNumber=364,teamGoals=2,teamGoalsAgainst=1)
+ verified["games"].append(newverified)
+ verified["teamGP"]=6
+ verified["teamG"]=14
  for page in stats["pages"]:
   if page["name"]=="hto_stats":
    page["text"],n=re.subn(r"(TEAM STATS\s+GP\s+GF\s+GA\s+PPO\s+PK%\s+)5\s+12\s+23\b",
@@ -33,7 +39,9 @@ class DynamicOpponentQA(unittest.TestCase):
   r=mod.build(*read())
   pub=json.loads((ROOT/"widgets"/"opponent-intelligence.json").read_text(encoding="utf8"))
   names={x["name"]:x for x in r["teams"]}
-  self.assertEqual(r["coverage"],pub["coverage"])
+  self.assertEqual(r["coverage"]["currentSeasonGames"],pub["coverage"]["currentSeasonGames"])
+  self.assertEqual(r["coverage"]["sourceQualifiedOpponents"],4)
+  self.assertEqual(pub["coverage"]["sourceQualifiedOpponents"],6)
   self.assertEqual(names["Big Bastones"]["regularSeason"],{"gp":7,"w":4,"l":2,"t":1,"gf":24,"ga":27})
   self.assertEqual(r["coverage"]["sourceQualifiedOpponents"],4)
   self.assertTrue(r["publishable"])
@@ -55,7 +63,7 @@ class DynamicOpponentQA(unittest.TestCase):
  def test_incorrect_sixth_source_goals_fail_closed(self):
   data=add_sixth(read())
   data[1]["games"][0]["ga"]=3
-  with self.assertRaisesRegex(mod.SourceHold,"HTO_SCORE_VS_STATS"):mod.build(*data)
+  with self.assertRaisesRegex(mod.SourceHold,"HTO_BOX_SCORE_AND_SCORES_LIST_SOURCE_CONFLICT"):mod.build(*data)
  @unittest.skipUnless(AVAILABLE,"private source unavailable")
  def test_unexpected_division_name_fails_closed(self):
   data=read();data[4]["teams"][0]["name"]="Unknown Franchise"

@@ -1,0 +1,33 @@
+const puppeteer=require("puppeteer"),assert=require("node:assert/strict"),fs=require("node:fs"),http=require("node:http"),path=require("node:path");
+const root=path.resolve(__dirname,"..","widgets");
+const types={".html":"text/html",".js":"text/javascript",".css":"text/css",".json":"application/json",".png":"image/png"};
+const server=http.createServer((req,res)=>{const f=path.resolve(root,"."+new URL(req.url,"http://localhost").pathname);if(!f.startsWith(root+path.sep))return res.writeHead(403).end();fs.readFile(f,(e,b)=>{if(e)return res.writeHead(404).end();res.setHeader("content-type",types[path.extname(f)]||"text/plain");res.end(b)})});
+(async()=>{await new Promise(r=>server.listen(0,"127.0.0.1",r));const b=await puppeteer.launch({headless:true,args:["--no-sandbox"]});
+ try{
+  const p=await b.newPage(),errors=[];p.on("pageerror",e=>errors.push(e.message));
+  await p.setViewport({width:625,height:460});
+  await p.goto("http://127.0.0.1:"+server.address().port+"/standings.html?embed=1",{waitUntil:"networkidle0"});
+  const own=await p.$eval("#standings-rows",e=>e.textContent);
+  assert.ok(own.includes("Brave H.C."),"canonical home-team branding visible");
+  assert.ok(own.includes("Mohawks H.C.")&&own.includes("Michelob Morts"),"HTO names displayed instead of league spelling");
+  assert.equal(await p.$$eval("#standings-rows tr",x=>x.length),8);
+  await p.click("#tab-intel");
+  await p.select("#opponent","Mohawks HC");
+  let a=await p.$eval("#intel-metrics",e=>e.textContent),n=await p.$eval("#intel-note",e=>e.textContent);
+  const history=await p.$eval("#headtohead",e=>e.textContent);
+  assert.ok(a.includes("19–20–11")&&history.includes("193 GF")&&history.includes("176 GA"));
+  assert.equal(await p.$eval("#headtohead-section",e=>e.hidden),false);
+  assert.ok(n.includes("workbook")&&a.includes("Mohawks H.C."));
+  await p.select("#opponent","Sugo Sundays");
+  a=await p.$eval("#intel-metrics",e=>e.textContent);n=await p.$eval("#intel-note",e=>e.textContent);
+  assert.ok(a.includes("0–1–0")&&a.includes("2")&&a.includes("3"));
+  assert.ok(n.includes("One source-verified current game only"));
+  assert.equal(await p.$eval("#headtohead-section",e=>e.hidden),false);
+  await p.select("#opponent","Other Way");
+  assert.equal(await p.$eval("#headtohead-section",e=>e.hidden),true);
+  await p.select("#opponent","Big Bastones");
+  assert.equal(await p.$eval("#headtohead-section",e=>e.hidden),false);
+  assert.deepEqual(errors,[]);
+  console.log(JSON.stringify({status:"SOURCE_CANONICAL_UI_PASS",homeTeam:"Brave H.C.",opponents:["Mohawks H.C.","Michelob Morts"],mohawksAllTime:"19-20-11",sugoCurrent:"0-1-0",otherWayHeld:true,allStandingsTeams:8,errors}));
+ }finally{await b.close();server.close()}
+})().catch(e=>{console.error(e.stack||e);server.close();process.exitCode=2});

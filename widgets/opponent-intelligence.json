@@ -1,18 +1,21 @@
 {
   "schema": "brave-hc-opponent-intelligence/v1",
-  "status": "PUBLIC_VERIFIED_EXACT_ONLY",
+  "status": "PUBLIC_VERIFIED_SOURCE_IDENTITY",
   "publishable": true,
-  "asOf": "2026-10-26T13:31:00.231Z",
-  "source": "Canonical Brave H.C. Master Schedule plus completed official HTO game scores. Historical exact-name matches only.",
-  "releaseScope": "VERIFIED_EXACT_NAMES_ONLY; no inferred aliases",
+  "asOf": "2026-10-26T16:31:00.568Z",
+  "source": "Original Brave H.C. Master Schedule and its historical reports, plus verified HTO completed boxscores. SVHL names are display aliases, not master franchise identities.",
+  "releaseScope": "FOUR_EXACT_NAMES; ONE_WORKBOOK_HTO_HISTORICAL_PUNCTUATION_LINK; ONE_HTO_CURRENT_ONLY_NAME_LINK",
   "workbookScope": "Private Master Workbook preserved. Not an online editable workbook.",
-  "generatedAt": "2026-10-26T13:33:58.218686+00:00",
+  "generatedAt": "2026-10-26T16:56:07.870886+00:00",
   "coverage": {
     "historicalGameRecords": 358,
     "currentSeasonGames": 5,
-    "sourceQualifiedOpponents": 4,
-    "aliasesNeedingReview": 2,
-    "noExactHistory": 1
+    "sourceQualifiedOpponents": 6,
+    "aliasesNeedingReview": 0,
+    "noExactHistory": 1,
+    "canonicalHistoricalLinks": 1,
+    "verifiedCurrentGameAliases": 1,
+    "historicalContinuityNotEstablished": 1
   },
   "teams": [
     {
@@ -79,13 +82,129 @@
     },
     {
       "name": "Mohawks HC",
-      "verification": "ALIAS_REVIEW_REQUIRED",
-      "message": "Historical team identity requires reviewed name/alias evidence. No inferred franchise matchup record is displayed."
+      "canonicalName": "Mohawks H.C.",
+      "leagueDisplayAlias": "Mohawks HC",
+      "sourceNames": {
+        "workbook": "Mohawks HC",
+        "hto": "Mohawks H.C."
+      },
+      "verification": "VERIFIED_HISTORICAL_NAME_VARIANT",
+      "identityScope": "WORKBOOK_HISTORY_AND_HTO_CURRENT_GAME",
+      "regularSeason": {
+        "gp": 43,
+        "w": 16,
+        "l": 19,
+        "t": 8,
+        "gf": 164,
+        "ga": 161
+      },
+      "allTime": {
+        "gp": 50,
+        "w": 19,
+        "l": 20,
+        "t": 11,
+        "gf": 193,
+        "ga": 176
+      },
+      "playoffs": {
+        "gp": 7,
+        "w": 3,
+        "l": 1,
+        "t": 3,
+        "gf": 29,
+        "ga": 15
+      },
+      "lastFive": [
+        {
+          "date": "2024-12-08",
+          "result": "W",
+          "gf": 3,
+          "ga": 2
+        },
+        {
+          "date": "2025-01-12",
+          "result": "L",
+          "gf": 2,
+          "ga": 3
+        },
+        {
+          "date": "2025-03-23",
+          "result": "W",
+          "gf": 4,
+          "ga": 2
+        },
+        {
+          "date": "2025-09-14",
+          "result": "L",
+          "gf": 2,
+          "ga": 3
+        },
+        {
+          "date": "2026-09-27",
+          "result": "L",
+          "gf": 3,
+          "ga": 6
+        }
+      ],
+      "sourceHTOGames": 1,
+      "sourceLinks": {
+        "svhl": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13680&page_type=Adult",
+        "hto": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=3356178&p=boxscore"
+      },
+      "historicalWorkbookReport": "Master Schedule!J317",
+      "historicalRecordsAreLimited": false,
+      "notice": "Consolidated historical Brave H.C. workbook record and current HTO spelling."
     },
     {
       "name": "Sugo Sundays",
-      "verification": "ALIAS_REVIEW_REQUIRED",
-      "message": "Historical team identity requires reviewed name/alias evidence. No inferred franchise matchup record is displayed."
+      "canonicalName": "Michelob Morts",
+      "leagueDisplayAlias": "Sugo Sundays",
+      "sourceNames": {
+        "workbook": null,
+        "hto": "Michelob Morts"
+      },
+      "verification": "VERIFIED_CURRENT_NAME_ALIAS_ONLY",
+      "identityScope": "HTO_CURRENT_GAME_ONLY",
+      "regularSeason": {
+        "gp": 1,
+        "w": 0,
+        "l": 1,
+        "t": 0,
+        "gf": 2,
+        "ga": 3
+      },
+      "allTime": {
+        "gp": 1,
+        "w": 0,
+        "l": 1,
+        "t": 0,
+        "gf": 2,
+        "ga": 3
+      },
+      "playoffs": {
+        "gp": 0,
+        "w": 0,
+        "l": 0,
+        "t": 0,
+        "gf": 0,
+        "ga": 0
+      },
+      "lastFive": [
+        {
+          "date": "2026-10-04",
+          "result": "L",
+          "gf": 2,
+          "ga": 3
+        }
+      ],
+      "sourceHTOGames": 1,
+      "sourceLinks": {
+        "svhl": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13709&page_type=Adult",
+        "hto": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=3369564&p=boxscore"
+      },
+      "historicalWorkbookReport": null,
+      "historicalRecordsAreLimited": true,
+      "notice": "One source-verified current game only. No older Sugo/Michelob franchise history is asserted."
     },
     {
       "name": "Other Way",
@@ -254,5 +373,13 @@
         }
       ]
     }
-  ]
+  ],
+  "sourceTeamCanonical": "Brave H.C.",
+  "sourceLeagueTeamAlias": "Braves HC",
+  "canonicalEvidence": {
+    "sheet": "Master Schedule",
+    "cell": "J317",
+    "historicalHTOStyleName": "Mohawks H.C.",
+    "date": "2024-09-22"
+  }
 }

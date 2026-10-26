@@ -37,18 +37,20 @@ const server=http.createServer((req,res)=>{
    assert.ok(data.includes(wlt)&&data.includes(String(gf))&&data.includes(String(ga)),name+" exact source GF/GA/WLT");
    samples.push({name,wlt,gf,ga});
   }
-  for(const [name,sentence] of [
-   ["Mohawks HC","unreviewed name/identity alias"],
-   ["Sugo Sundays","unreviewed name/identity alias"],
-   ["Other Way","No completed matchup"]
+  for(const [name,wlt,canonical] of [
+   ["Mohawks HC","19–20–11","Mohawks H.C."],
+   ["Sugo Sundays","0–1–0","Michelob Morts"]
   ]){
    await page.select("#opponent",name);
-   assert.equal(await page.$eval("#headtohead-section",e=>e.hidden),true,name+" no invented historical card");
-   assert.ok((await page.$eval("#intel-metrics",e=>e.textContent)).includes(sentence));
+   assert.equal(await page.$eval("#headtohead-section",e=>e.hidden),false,name+" source-qualified record visible");
+   assert.ok((await page.$eval("#intel-metrics",e=>e.textContent)).includes(wlt));
+   assert.equal(await page.$eval("#intel-team",e=>e.textContent),canonical);
   }
+  await page.select("#opponent","Other Way");
+  assert.equal(await page.$eval("#headtohead-section",e=>e.hidden),true,"no exact HTO/workbook source history for Other Way");
   const scroller=await page.$eval(".shell",e=>{e.scrollTop=400;return e.scrollTop});
   assert.ok(scroller>0,"HTO-height iframe remains scrollable");
   assert.deepEqual(errors,[]);
-  console.log(JSON.stringify({pass:true,verified:samples,aliasHeld:["Mohawks HC","Sugo Sundays"],noExactHistory:["Other Way"],errors}));
+  console.log(JSON.stringify({pass:true,verified:samples,canonicalAliases:["Mohawks H.C.","Michelob Morts"],noExactHistory:["Other Way"],errors}));
  }finally{await browser.close();server.close();}
 })().catch(e=>{console.error(e.stack||e);server.close();process.exitCode=1});

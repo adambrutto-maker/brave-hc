@@ -38,8 +38,25 @@ def reconcile(master,hto,readback,verified,now=None):
         raise Hold("HTO_COMPLETED_GAME_IDS_INVALID")
     if verified.get("schema")!="brave-hc-hto-verified-game-feed/v1" or verified.get("sourceValidationState")!="PASS_COMPLETE_FIELDS_WITH_EXPLICIT_UNKNOWNS" or verified.get("workbookWritten") is not False:
         raise Hold("AUDITED_FOUR_PRIOR_SOURCE_NOT_QUALIFIED")
-    audited={g.get("htoGameId") for g in verified.get("games",[])}
-    if audited!=set(AUDITED_FOUR):raise Hold("AUDITED_FOUR_IDS_DRIFT")
+    verified_games=verified.get("games",[])
+    audited={g.get("htoGameId") for g in verified_games}
+    if (verified.get("allGamesDiscovered") is not True or
+        verified.get("playerAggregateParity") is not True or
+        not isinstance(verified_games,list) or
+        len(verified_games)!=len(completed) or len(audited)!=len(completed) or
+        verified.get("teamGP")!=len(completed) or
+        not set(AUDITED_FOUR).issubset(audited)):
+        raise Hold("CURRENT_OPERATIONAL_GAME_FEED_NOT_ADMITTED")
+    by_id={g["htoGameId"]:g for g in verified_games}
+    if audited!=set(ids):
+        raise Hold("OPERATIONAL_BOX_FEED_AND_HTO_SCORE_IDS_DIFFER")
+    for game in completed:
+        official=by_id[game["htoGameId"]]
+        if (official.get("date"),official.get("teamGoals"),official.get("teamGoalsAgainst")) != (
+            game["date"],game["gf"],game["ga"]):
+            raise Hold("HTO_BOX_SCORE_AND_SCORES_LIST_SOURCE_CONFLICT_"+str(game["htoGameId"]))
+    if verified.get("teamG")!=sum(g["gf"] for g in completed):
+        raise Hold("HTO_OPERATIONAL_SCORE_TOTAL_CONFLICT")
     for gid,(day,name,gf,ga) in AUDITED_FOUR.items():
         x=next((g for g in completed if g["htoGameId"]==gid),None)
         if not x or (x.get("date"),x.get("opponentExact"),x.get("gf"),x.get("ga"))!=(day,name,gf,ga):
