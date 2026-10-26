@@ -1,0 +1,2403 @@
+{
+  "schema": "brave-hc-league-intelligence/public-v1",
+  "status": "OFFICIAL_LEAGUE_RESULTS_SOURCE_QUALIFIED",
+  "asOf": "2026-10-26T18:49:57.235867+00:00",
+  "season": "Sunday Winter 2026/27",
+  "leagueId": 570,
+  "previousSeason": "Sunday Winter 2025/26",
+  "previousLeagueId": 547,
+  "source": "https://leagues.sportsvillage.ca/Leagues.aspx?leagueid=570&page_type=Adult&sc=HOCKEY",
+  "sourceSHA256": "2b341716de10e3b189a5afc8907f87d82b8e6e9300df3fbb405556d992b26a9d",
+  "currentDivisionCount": 4,
+  "allPublishedDivisions": 5,
+  "currentLeagueTeamCount": 27,
+  "verifiedReciprocalCompletedGames": 49,
+  "currentSourceDataConcordant": true,
+  "unverifiedZeroZeroScheduleSlots": 62,
+  "priorSeasonRosterContinuityQualifiedCount": 19,
+  "previousSeasonGameDetailCoverage": {
+    "teamsWithAllGameResultsReconciled": 27,
+    "totalTeams": 34,
+    "note": "The other previous-season game pages omit some draw/forfeit details. Published season standings remain authoritative."
+  },
+  "divisions": [
+    {
+      "name": "Fazzari Partners",
+      "competitive": true,
+      "teams": [
+        "Degenerates",
+        "Bushwackers",
+        "Pinheads",
+        "Hawks",
+        "Last Pass",
+        "We're Curved"
+      ],
+      "teamCount": 6
+    },
+    {
+      "name": "The Cristillo Division",
+      "competitive": true,
+      "teams": [
+        "Mid Ice Crisis",
+        "Mohawks HC",
+        "Other Way",
+        "Big Bastones",
+        "Zamboner Crew",
+        "Dateline Predators",
+        "Maplewolves",
+        "Braves HC"
+      ],
+      "teamCount": 8
+    },
+    {
+      "name": "VAHL Division",
+      "competitive": true,
+      "teams": [
+        "Philadelphia",
+        "Toronto",
+        "LA KIngs",
+        "Dallas"
+      ],
+      "teamCount": 4
+    },
+    {
+      "name": "Remax Division",
+      "competitive": true,
+      "teams": [
+        "Butcher Brothers",
+        "Sugo Sundays",
+        "Primary Auto",
+        "Thrillers",
+        "Young Guns",
+        "VR Delta",
+        "Batman Prep",
+        "Mighty Drunks"
+      ],
+      "teamCount": 8
+    },
+    {
+      "name": "x-playoff Division",
+      "competitive": false,
+      "teams": [
+        "Schmelts"
+      ],
+      "teamCount": 1
+    }
+  ],
+  "teams": [
+    {
+      "leagueName": "Degenerates",
+      "displayName": "Degenerates",
+      "sourceTeamId": 13717,
+      "divisionNow": "Fazzari Partners",
+      "record": {
+        "gp": 4,
+        "w": 3,
+        "l": 0,
+        "t": 1,
+        "pts": 7,
+        "gf": 17,
+        "ga": 8
+      },
+      "winPct": 0.875,
+      "goalDiffPerGame": 2.25,
+      "opponentCurrentWinPctAverage": 0.5312,
+      "source": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13717&page_type=Adult",
+      "gamesConfirmed": 4,
+      "gamesVsTeamsNowInOtherDivisions": 4,
+      "opponentsByCurrentDivision": {
+        "Remax Division": 4
+      },
+      "completedGames": [
+        {
+          "date": "2026-09-20",
+          "opponent": "Young Guns",
+          "opponentCurrentDivision": "Remax Division",
+          "gf": 2,
+          "ga": 2,
+          "result": "T"
+        },
+        {
+          "date": "2026-09-27",
+          "opponent": "Thrillers",
+          "opponentCurrentDivision": "Remax Division",
+          "gf": 4,
+          "ga": 3,
+          "result": "W"
+        },
+        {
+          "date": "2026-10-04",
+          "opponent": "VR Delta",
+          "opponentCurrentDivision": "Remax Division",
+          "gf": 6,
+          "ga": 1,
+          "result": "W"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Butcher Brothers",
+          "opponentCurrentDivision": "Remax Division",
+          "gf": 5,
+          "ga": 2,
+          "result": "W"
+        }
+      ],
+      "bravesMatchHistory": {
+        "state": "NO_VERIFIED_BRAVES_MATCH_HISTORY"
+      },
+      "previousWinter": {
+        "division": "Lormel Division",
+        "record": {
+          "gp": 23,
+          "w": 17,
+          "l": 3,
+          "t": 3,
+          "pts": 37,
+          "gf": 100,
+          "ga": 48
+        },
+        "winPct": 0.8043,
+        "goalsDiffPerGame": 2.261,
+        "verifiedGameDetails": 23,
+        "completeGameDetails": true,
+        "officialRosterSharedIDs": 8,
+        "rosterContinuityShare": 0.571,
+        "association": "ROSTER_ID_CONTINUITY_CONFIRMED",
+        "originalPriorLeagueTeamId": 13149,
+        "sourceUrl": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=547&teamid=13149&page_type=Adult"
+      }
+    },
+    {
+      "leagueName": "Bushwackers",
+      "displayName": "Bushwackers",
+      "sourceTeamId": 13596,
+      "divisionNow": "Fazzari Partners",
+      "record": {
+        "gp": 4,
+        "w": 3,
+        "l": 1,
+        "t": 0,
+        "pts": 6,
+        "gf": 17,
+        "ga": 9
+      },
+      "winPct": 0.75,
+      "goalDiffPerGame": 2.0,
+      "opponentCurrentWinPctAverage": 0.4375,
+      "source": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13596&page_type=Adult",
+      "gamesConfirmed": 4,
+      "gamesVsTeamsNowInOtherDivisions": 1,
+      "opponentsByCurrentDivision": {
+        "Remax Division": 1,
+        "Fazzari Partners": 3
+      },
+      "completedGames": [
+        {
+          "date": "2026-09-20",
+          "opponent": "Batman Prep",
+          "opponentCurrentDivision": "Remax Division",
+          "gf": 6,
+          "ga": 1,
+          "result": "W"
+        },
+        {
+          "date": "2026-09-27",
+          "opponent": "Pinheads",
+          "opponentCurrentDivision": "Fazzari Partners",
+          "gf": 1,
+          "ga": 2,
+          "result": "L"
+        },
+        {
+          "date": "2026-10-04",
+          "opponent": "We're Curved",
+          "opponentCurrentDivision": "Fazzari Partners",
+          "gf": 3,
+          "ga": 2,
+          "result": "W"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Last Pass",
+          "opponentCurrentDivision": "Fazzari Partners",
+          "gf": 7,
+          "ga": 4,
+          "result": "W"
+        }
+      ],
+      "bravesMatchHistory": {
+        "state": "NO_VERIFIED_BRAVES_MATCH_HISTORY"
+      },
+      "previousWinter": {
+        "division": "Fazzari Division",
+        "record": {
+          "gp": 22,
+          "w": 15,
+          "l": 6,
+          "t": 1,
+          "pts": 31,
+          "gf": 87,
+          "ga": 53
+        },
+        "winPct": 0.7045,
+        "goalsDiffPerGame": 1.545,
+        "verifiedGameDetails": 22,
+        "completeGameDetails": true,
+        "officialRosterSharedIDs": 9,
+        "rosterContinuityShare": 0.75,
+        "association": "ROSTER_ID_CONTINUITY_CONFIRMED",
+        "originalPriorLeagueTeamId": 13077,
+        "sourceUrl": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=547&teamid=13077&page_type=Adult"
+      }
+    },
+    {
+      "leagueName": "Pinheads",
+      "displayName": "Pinheads",
+      "sourceTeamId": 13700,
+      "divisionNow": "Fazzari Partners",
+      "record": {
+        "gp": 4,
+        "w": 3,
+        "l": 1,
+        "t": 0,
+        "pts": 6,
+        "gf": 13,
+        "ga": 6
+      },
+      "winPct": 0.75,
+      "goalDiffPerGame": 1.75,
+      "opponentCurrentWinPctAverage": 0.4688,
+      "source": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13700&page_type=Adult",
+      "gamesConfirmed": 4,
+      "gamesVsTeamsNowInOtherDivisions": 1,
+      "opponentsByCurrentDivision": {
+        "Fazzari Partners": 3,
+        "Remax Division": 1
+      },
+      "completedGames": [
+        {
+          "date": "2026-09-20",
+          "opponent": "We're Curved",
+          "opponentCurrentDivision": "Fazzari Partners",
+          "gf": 4,
+          "ga": 2,
+          "result": "W"
+        },
+        {
+          "date": "2026-09-27",
+          "opponent": "Bushwackers",
+          "opponentCurrentDivision": "Fazzari Partners",
+          "gf": 2,
+          "ga": 1,
+          "result": "W"
+        },
+        {
+          "date": "2026-10-04",
+          "opponent": "Hawks",
+          "opponentCurrentDivision": "Fazzari Partners",
+          "gf": 2,
+          "ga": 3,
+          "result": "L"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Batman Prep",
+          "opponentCurrentDivision": "Remax Division",
+          "gf": 5,
+          "ga": 0,
+          "result": "W"
+        }
+      ],
+      "bravesMatchHistory": {
+        "state": "NO_VERIFIED_BRAVES_MATCH_HISTORY"
+      },
+      "previousWinter": {
+        "division": "Fazzari Division",
+        "record": {
+          "gp": 22,
+          "w": 16,
+          "l": 3,
+          "t": 3,
+          "pts": 35,
+          "gf": 83,
+          "ga": 39
+        },
+        "winPct": 0.7955,
+        "goalsDiffPerGame": 2.0,
+        "verifiedGameDetails": 21,
+        "completeGameDetails": false,
+        "officialRosterSharedIDs": 8,
+        "rosterContinuityShare": 0.471,
+        "association": "ROSTER_ID_CONTINUITY_CONFIRMED",
+        "originalPriorLeagueTeamId": 13142,
+        "sourceUrl": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=547&teamid=13142&page_type=Adult"
+      }
+    },
+    {
+      "leagueName": "Hawks",
+      "displayName": "Hawks",
+      "sourceTeamId": 13671,
+      "divisionNow": "Fazzari Partners",
+      "record": {
+        "gp": 4,
+        "w": 1,
+        "l": 1,
+        "t": 2,
+        "pts": 4,
+        "gf": 9,
+        "ga": 10
+      },
+      "winPct": 0.5,
+      "goalDiffPerGame": -0.25,
+      "opponentCurrentWinPctAverage": 0.4375,
+      "source": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13671&page_type=Adult",
+      "gamesConfirmed": 4,
+      "gamesVsTeamsNowInOtherDivisions": 1,
+      "opponentsByCurrentDivision": {
+        "Fazzari Partners": 3,
+        "Remax Division": 1
+      },
+      "completedGames": [
+        {
+          "date": "2026-09-20",
+          "opponent": "Last Pass",
+          "opponentCurrentDivision": "Fazzari Partners",
+          "gf": 2,
+          "ga": 4,
+          "result": "L"
+        },
+        {
+          "date": "2026-09-27",
+          "opponent": "Batman Prep",
+          "opponentCurrentDivision": "Remax Division",
+          "gf": 2,
+          "ga": 2,
+          "result": "T"
+        },
+        {
+          "date": "2026-10-04",
+          "opponent": "Pinheads",
+          "opponentCurrentDivision": "Fazzari Partners",
+          "gf": 3,
+          "ga": 2,
+          "result": "W"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "We're Curved",
+          "opponentCurrentDivision": "Fazzari Partners",
+          "gf": 2,
+          "ga": 2,
+          "result": "T"
+        }
+      ],
+      "bravesMatchHistory": {
+        "state": "SOURCE_VERIFIED_H2H",
+        "sourceScope": "EXACT_MATCH_ONLY_NO_UNREVIEWED_ALIASES",
+        "bravesAllTime": {
+          "gp": 6,
+          "w": 3,
+          "l": 2,
+          "t": 1,
+          "gf": 36,
+          "ga": 24
+        },
+        "bravesRegularSeason": {
+          "gp": 6,
+          "w": 3,
+          "l": 2,
+          "t": 1,
+          "gf": 36,
+          "ga": 24
+        },
+        "bravesPlayoffs": {
+          "gp": 0,
+          "w": 0,
+          "l": 0,
+          "t": 0,
+          "gf": 0,
+          "ga": 0
+        },
+        "originalLeagueName": "Hawks"
+      },
+      "previousWinter": {
+        "division": "Fazzari Division",
+        "record": {
+          "gp": 22,
+          "w": 8,
+          "l": 9,
+          "t": 5,
+          "pts": 21,
+          "gf": 56,
+          "ga": 66
+        },
+        "winPct": 0.4773,
+        "goalsDiffPerGame": -0.455,
+        "verifiedGameDetails": 22,
+        "completeGameDetails": true,
+        "officialRosterSharedIDs": 7,
+        "rosterContinuityShare": 0.5,
+        "association": "ROSTER_ID_CONTINUITY_CONFIRMED",
+        "originalPriorLeagueTeamId": 13137,
+        "sourceUrl": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=547&teamid=13137&page_type=Adult"
+      }
+    },
+    {
+      "leagueName": "Last Pass",
+      "displayName": "Last Pass",
+      "sourceTeamId": 13627,
+      "divisionNow": "Fazzari Partners",
+      "record": {
+        "gp": 4,
+        "w": 1,
+        "l": 2,
+        "t": 1,
+        "pts": 3,
+        "gf": 11,
+        "ga": 13
+      },
+      "winPct": 0.375,
+      "goalDiffPerGame": -0.5,
+      "opponentCurrentWinPctAverage": 0.4688,
+      "source": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13627&page_type=Adult",
+      "gamesConfirmed": 4,
+      "gamesVsTeamsNowInOtherDivisions": 1,
+      "opponentsByCurrentDivision": {
+        "Fazzari Partners": 3,
+        "Remax Division": 1
+      },
+      "completedGames": [
+        {
+          "date": "2026-09-20",
+          "opponent": "Hawks",
+          "opponentCurrentDivision": "Fazzari Partners",
+          "gf": 4,
+          "ga": 2,
+          "result": "W"
+        },
+        {
+          "date": "2026-09-27",
+          "opponent": "We're Curved",
+          "opponentCurrentDivision": "Fazzari Partners",
+          "gf": 2,
+          "ga": 2,
+          "result": "T"
+        },
+        {
+          "date": "2026-10-04",
+          "opponent": "Batman Prep",
+          "opponentCurrentDivision": "Remax Division",
+          "gf": 1,
+          "ga": 2,
+          "result": "L"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Bushwackers",
+          "opponentCurrentDivision": "Fazzari Partners",
+          "gf": 4,
+          "ga": 7,
+          "result": "L"
+        }
+      ],
+      "bravesMatchHistory": {
+        "state": "NO_VERIFIED_BRAVES_MATCH_HISTORY"
+      },
+      "previousWinter": {
+        "division": "Hot Shots Division",
+        "record": {
+          "gp": 24,
+          "w": 10,
+          "l": 10,
+          "t": 4,
+          "pts": 24,
+          "gf": 67,
+          "ga": 61
+        },
+        "winPct": 0.5,
+        "goalsDiffPerGame": 0.25,
+        "verifiedGameDetails": 24,
+        "completeGameDetails": true,
+        "officialRosterSharedIDs": 9,
+        "rosterContinuityShare": 0.6,
+        "association": "ROSTER_ID_CONTINUITY_CONFIRMED",
+        "originalPriorLeagueTeamId": 13145,
+        "sourceUrl": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=547&teamid=13145&page_type=Adult"
+      }
+    },
+    {
+      "leagueName": "We're Curved",
+      "displayName": "We're Curved",
+      "sourceTeamId": 13663,
+      "divisionNow": "Fazzari Partners",
+      "record": {
+        "gp": 4,
+        "w": 0,
+        "l": 2,
+        "t": 2,
+        "pts": 2,
+        "gf": 8,
+        "ga": 11
+      },
+      "winPct": 0.25,
+      "goalDiffPerGame": -0.75,
+      "opponentCurrentWinPctAverage": 0.5938,
+      "source": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13663&page_type=Adult",
+      "gamesConfirmed": 4,
+      "gamesVsTeamsNowInOtherDivisions": 0,
+      "opponentsByCurrentDivision": {
+        "Fazzari Partners": 4
+      },
+      "completedGames": [
+        {
+          "date": "2026-09-20",
+          "opponent": "Pinheads",
+          "opponentCurrentDivision": "Fazzari Partners",
+          "gf": 2,
+          "ga": 4,
+          "result": "L"
+        },
+        {
+          "date": "2026-09-27",
+          "opponent": "Last Pass",
+          "opponentCurrentDivision": "Fazzari Partners",
+          "gf": 2,
+          "ga": 2,
+          "result": "T"
+        },
+        {
+          "date": "2026-10-04",
+          "opponent": "Bushwackers",
+          "opponentCurrentDivision": "Fazzari Partners",
+          "gf": 2,
+          "ga": 3,
+          "result": "L"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Hawks",
+          "opponentCurrentDivision": "Fazzari Partners",
+          "gf": 2,
+          "ga": 2,
+          "result": "T"
+        }
+      ],
+      "bravesMatchHistory": {
+        "state": "NO_VERIFIED_BRAVES_MATCH_HISTORY"
+      },
+      "previousWinter": {
+        "division": "Fazzari Division",
+        "record": {
+          "gp": 22,
+          "w": 14,
+          "l": 5,
+          "t": 3,
+          "pts": 31,
+          "gf": 78,
+          "ga": 60
+        },
+        "winPct": 0.7045,
+        "goalsDiffPerGame": 0.818,
+        "verifiedGameDetails": 22,
+        "completeGameDetails": true,
+        "officialRosterSharedIDs": 15,
+        "rosterContinuityShare": 0.938,
+        "association": "ROSTER_ID_CONTINUITY_CONFIRMED",
+        "originalPriorLeagueTeamId": 13164,
+        "sourceUrl": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=547&teamid=13164&page_type=Adult"
+      }
+    },
+    {
+      "leagueName": "Mid Ice Crisis",
+      "displayName": "Mid Ice Crisis",
+      "sourceTeamId": 13708,
+      "divisionNow": "The Cristillo Division",
+      "record": {
+        "gp": 4,
+        "w": 3,
+        "l": 1,
+        "t": 0,
+        "pts": 6,
+        "gf": 19,
+        "ga": 11
+      },
+      "winPct": 0.75,
+      "goalDiffPerGame": 2.0,
+      "opponentCurrentWinPctAverage": 0.5938,
+      "source": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13708&page_type=Adult",
+      "gamesConfirmed": 4,
+      "gamesVsTeamsNowInOtherDivisions": 1,
+      "opponentsByCurrentDivision": {
+        "The Cristillo Division": 3,
+        "Remax Division": 1
+      },
+      "completedGames": [
+        {
+          "date": "2026-09-20",
+          "opponent": "Other Way",
+          "opponentCurrentDivision": "The Cristillo Division",
+          "gf": 3,
+          "ga": 4,
+          "result": "L"
+        },
+        {
+          "date": "2026-09-27",
+          "opponent": "Big Bastones",
+          "opponentCurrentDivision": "The Cristillo Division",
+          "gf": 4,
+          "ga": 2,
+          "result": "W"
+        },
+        {
+          "date": "2026-10-04",
+          "opponent": "Zamboner Crew",
+          "opponentCurrentDivision": "The Cristillo Division",
+          "gf": 6,
+          "ga": 2,
+          "result": "W"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Sugo Sundays",
+          "opponentCurrentDivision": "Remax Division",
+          "gf": 6,
+          "ga": 3,
+          "result": "W"
+        }
+      ],
+      "bravesMatchHistory": {
+        "state": "SOURCE_VERIFIED_H2H",
+        "sourceScope": "EXACT_NAME_ONLY_NO_UNREVIEWED_ALIASES",
+        "bravesAllTime": {
+          "gp": 7,
+          "w": 1,
+          "l": 4,
+          "t": 2,
+          "gf": 15,
+          "ga": 25
+        },
+        "bravesRegularSeason": {
+          "gp": 5,
+          "w": 1,
+          "l": 2,
+          "t": 2,
+          "gf": 13,
+          "ga": 19
+        },
+        "bravesPlayoffs": {
+          "gp": 2,
+          "w": 0,
+          "l": 2,
+          "t": 0,
+          "gf": 2,
+          "ga": 6
+        },
+        "originalLeagueName": "Mid Ice Crisis"
+      },
+      "previousWinter": {
+        "division": "Swiss Chalet Division",
+        "record": {
+          "gp": 24,
+          "w": 7,
+          "l": 12,
+          "t": 5,
+          "pts": 19,
+          "gf": 63,
+          "ga": 75
+        },
+        "winPct": 0.3958,
+        "goalsDiffPerGame": -0.5,
+        "verifiedGameDetails": 24,
+        "completeGameDetails": true,
+        "officialRosterSharedIDs": 9,
+        "rosterContinuityShare": 0.529,
+        "association": "ROSTER_ID_CONTINUITY_CONFIRMED",
+        "originalPriorLeagueTeamId": 13159,
+        "sourceUrl": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=547&teamid=13159&page_type=Adult"
+      }
+    },
+    {
+      "leagueName": "Mohawks HC",
+      "displayName": "Mohawks H.C.",
+      "sourceTeamId": 13680,
+      "divisionNow": "The Cristillo Division",
+      "record": {
+        "gp": 4,
+        "w": 3,
+        "l": 1,
+        "t": 0,
+        "pts": 6,
+        "gf": 17,
+        "ga": 9
+      },
+      "winPct": 0.75,
+      "goalDiffPerGame": 2.0,
+      "opponentCurrentWinPctAverage": 0.375,
+      "source": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13680&page_type=Adult",
+      "gamesConfirmed": 4,
+      "gamesVsTeamsNowInOtherDivisions": 1,
+      "opponentsByCurrentDivision": {
+        "Remax Division": 1,
+        "The Cristillo Division": 3
+      },
+      "completedGames": [
+        {
+          "date": "2026-09-20",
+          "opponent": "Sugo Sundays",
+          "opponentCurrentDivision": "Remax Division",
+          "gf": 3,
+          "ga": 4,
+          "result": "L"
+        },
+        {
+          "date": "2026-09-27",
+          "opponent": "Braves HC",
+          "opponentCurrentDivision": "The Cristillo Division",
+          "gf": 6,
+          "ga": 3,
+          "result": "W"
+        },
+        {
+          "date": "2026-10-04",
+          "opponent": "Dateline Predators",
+          "opponentCurrentDivision": "The Cristillo Division",
+          "gf": 4,
+          "ga": 1,
+          "result": "W"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Big Bastones",
+          "opponentCurrentDivision": "The Cristillo Division",
+          "gf": 4,
+          "ga": 1,
+          "result": "W"
+        }
+      ],
+      "bravesMatchHistory": {
+        "state": "SOURCE_VERIFIED_H2H",
+        "sourceScope": "WORKBOOK_HISTORY_AND_HTO_CURRENT_GAME",
+        "bravesAllTime": {
+          "gp": 50,
+          "w": 19,
+          "l": 20,
+          "t": 11,
+          "gf": 193,
+          "ga": 176
+        },
+        "bravesRegularSeason": {
+          "gp": 43,
+          "w": 16,
+          "l": 19,
+          "t": 8,
+          "gf": 164,
+          "ga": 161
+        },
+        "bravesPlayoffs": {
+          "gp": 7,
+          "w": 3,
+          "l": 1,
+          "t": 3,
+          "gf": 29,
+          "ga": 15
+        },
+        "originalLeagueName": "Mohawks HC"
+      },
+      "previousWinter": {
+        "division": "Prostar Division",
+        "record": {
+          "gp": 24,
+          "w": 5,
+          "l": 12,
+          "t": 7,
+          "pts": 17,
+          "gf": 67,
+          "ga": 82
+        },
+        "winPct": 0.3542,
+        "goalsDiffPerGame": -0.625,
+        "verifiedGameDetails": 24,
+        "completeGameDetails": true,
+        "officialRosterSharedIDs": 10,
+        "rosterContinuityShare": 0.588,
+        "association": "ROSTER_ID_CONTINUITY_CONFIRMED",
+        "originalPriorLeagueTeamId": 13116,
+        "sourceUrl": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=547&teamid=13116&page_type=Adult"
+      }
+    },
+    {
+      "leagueName": "Other Way",
+      "displayName": "Other Way",
+      "sourceTeamId": 13704,
+      "divisionNow": "The Cristillo Division",
+      "record": {
+        "gp": 4,
+        "w": 2,
+        "l": 1,
+        "t": 1,
+        "pts": 5,
+        "gf": 18,
+        "ga": 16
+      },
+      "winPct": 0.625,
+      "goalDiffPerGame": 0.5,
+      "opponentCurrentWinPctAverage": 0.5,
+      "source": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13704&page_type=Adult",
+      "gamesConfirmed": 4,
+      "gamesVsTeamsNowInOtherDivisions": 0,
+      "opponentsByCurrentDivision": {
+        "The Cristillo Division": 4
+      },
+      "completedGames": [
+        {
+          "date": "2026-09-20",
+          "opponent": "Mid Ice Crisis",
+          "opponentCurrentDivision": "The Cristillo Division",
+          "gf": 4,
+          "ga": 3,
+          "result": "W"
+        },
+        {
+          "date": "2026-09-27",
+          "opponent": "Zamboner Crew",
+          "opponentCurrentDivision": "The Cristillo Division",
+          "gf": 6,
+          "ga": 6,
+          "result": "T"
+        },
+        {
+          "date": "2026-10-04",
+          "opponent": "Big Bastones",
+          "opponentCurrentDivision": "The Cristillo Division",
+          "gf": 0,
+          "ga": 2,
+          "result": "L"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Dateline Predators",
+          "opponentCurrentDivision": "The Cristillo Division",
+          "gf": 8,
+          "ga": 5,
+          "result": "W"
+        }
+      ],
+      "bravesMatchHistory": {
+        "state": "NO_VERIFIED_BRAVES_MATCH_HISTORY"
+      },
+      "previousWinter": {
+        "division": "Prostar Division",
+        "record": {
+          "gp": 24,
+          "w": 6,
+          "l": 14,
+          "t": 4,
+          "pts": 16,
+          "gf": 67,
+          "ga": 101
+        },
+        "winPct": 0.3333,
+        "goalsDiffPerGame": -1.417,
+        "verifiedGameDetails": 24,
+        "completeGameDetails": true,
+        "officialRosterSharedIDs": 8,
+        "rosterContinuityShare": 0.727,
+        "association": "ROSTER_ID_CONTINUITY_CONFIRMED",
+        "originalPriorLeagueTeamId": 13101,
+        "sourceUrl": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=547&teamid=13101&page_type=Adult"
+      }
+    },
+    {
+      "leagueName": "Big Bastones",
+      "displayName": "Big Bastones",
+      "sourceTeamId": 13649,
+      "divisionNow": "The Cristillo Division",
+      "record": {
+        "gp": 4,
+        "w": 2,
+        "l": 2,
+        "t": 0,
+        "pts": 4,
+        "gf": 6,
+        "ga": 8
+      },
+      "winPct": 0.5,
+      "goalDiffPerGame": -0.5,
+      "opponentCurrentWinPctAverage": 0.5312,
+      "source": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13649&page_type=Adult",
+      "gamesConfirmed": 4,
+      "gamesVsTeamsNowInOtherDivisions": 1,
+      "opponentsByCurrentDivision": {
+        "x-playoff Division": 1,
+        "The Cristillo Division": 3
+      },
+      "completedGames": [
+        {
+          "date": "2026-09-20",
+          "opponent": "Schmelts",
+          "opponentCurrentDivision": "x-playoff Division",
+          "gf": 1,
+          "ga": 0,
+          "result": "W"
+        },
+        {
+          "date": "2026-09-27",
+          "opponent": "Mid Ice Crisis",
+          "opponentCurrentDivision": "The Cristillo Division",
+          "gf": 2,
+          "ga": 4,
+          "result": "L"
+        },
+        {
+          "date": "2026-10-04",
+          "opponent": "Other Way",
+          "opponentCurrentDivision": "The Cristillo Division",
+          "gf": 2,
+          "ga": 0,
+          "result": "W"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Mohawks HC",
+          "opponentCurrentDivision": "The Cristillo Division",
+          "gf": 1,
+          "ga": 4,
+          "result": "L"
+        }
+      ],
+      "bravesMatchHistory": {
+        "state": "SOURCE_VERIFIED_H2H",
+        "sourceScope": "EXACT_NAME_ONLY_NO_UNREVIEWED_ALIASES",
+        "bravesAllTime": {
+          "gp": 8,
+          "w": 4,
+          "l": 3,
+          "t": 1,
+          "gf": 24,
+          "ga": 32
+        },
+        "bravesRegularSeason": {
+          "gp": 7,
+          "w": 4,
+          "l": 2,
+          "t": 1,
+          "gf": 24,
+          "ga": 27
+        },
+        "bravesPlayoffs": {
+          "gp": 1,
+          "w": 0,
+          "l": 1,
+          "t": 0,
+          "gf": 0,
+          "ga": 5
+        },
+        "originalLeagueName": "Big Bastones"
+      },
+      "previousWinter": {
+        "division": "Swiss Chalet Division",
+        "record": {
+          "gp": 24,
+          "w": 8,
+          "l": 11,
+          "t": 5,
+          "pts": 21,
+          "gf": 52,
+          "ga": 65
+        },
+        "winPct": 0.4375,
+        "goalsDiffPerGame": -0.542,
+        "verifiedGameDetails": 24,
+        "completeGameDetails": true,
+        "officialRosterSharedIDs": 10,
+        "rosterContinuityShare": 0.667,
+        "association": "ROSTER_ID_CONTINUITY_CONFIRMED",
+        "originalPriorLeagueTeamId": 13088,
+        "sourceUrl": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=547&teamid=13088&page_type=Adult"
+      }
+    },
+    {
+      "leagueName": "Zamboner Crew",
+      "displayName": "Zamboner Crew",
+      "sourceTeamId": 13730,
+      "divisionNow": "The Cristillo Division",
+      "record": {
+        "gp": 3,
+        "w": 1,
+        "l": 1,
+        "t": 1,
+        "pts": 3,
+        "gf": 15,
+        "ga": 13
+      },
+      "winPct": 0.5,
+      "goalDiffPerGame": 0.667,
+      "opponentCurrentWinPctAverage": 0.4583,
+      "source": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13730&page_type=Adult",
+      "gamesConfirmed": 3,
+      "gamesVsTeamsNowInOtherDivisions": 0,
+      "opponentsByCurrentDivision": {
+        "The Cristillo Division": 3
+      },
+      "completedGames": [
+        {
+          "date": "2026-09-27",
+          "opponent": "Other Way",
+          "opponentCurrentDivision": "The Cristillo Division",
+          "gf": 6,
+          "ga": 6,
+          "result": "T"
+        },
+        {
+          "date": "2026-10-04",
+          "opponent": "Mid Ice Crisis",
+          "opponentCurrentDivision": "The Cristillo Division",
+          "gf": 2,
+          "ga": 6,
+          "result": "L"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Braves HC",
+          "opponentCurrentDivision": "The Cristillo Division",
+          "gf": 7,
+          "ga": 1,
+          "result": "W"
+        }
+      ],
+      "bravesMatchHistory": {
+        "state": "SOURCE_VERIFIED_H2H",
+        "sourceScope": "EXACT_NAME_ONLY_NO_UNREVIEWED_ALIASES",
+        "bravesAllTime": {
+          "gp": 1,
+          "w": 0,
+          "l": 1,
+          "t": 0,
+          "gf": 1,
+          "ga": 7
+        },
+        "bravesRegularSeason": {
+          "gp": 1,
+          "w": 0,
+          "l": 1,
+          "t": 0,
+          "gf": 1,
+          "ga": 7
+        },
+        "bravesPlayoffs": {
+          "gp": 0,
+          "w": 0,
+          "l": 0,
+          "t": 0,
+          "gf": 0,
+          "ga": 0
+        },
+        "originalLeagueName": "Zamboner Crew"
+      },
+      "previousWinter": null
+    },
+    {
+      "leagueName": "Dateline Predators",
+      "displayName": "Dateline Predators",
+      "sourceTeamId": 13668,
+      "divisionNow": "The Cristillo Division",
+      "record": {
+        "gp": 4,
+        "w": 1,
+        "l": 3,
+        "t": 0,
+        "pts": 2,
+        "gf": 10,
+        "ga": 15
+      },
+      "winPct": 0.25,
+      "goalDiffPerGame": -1.25,
+      "opponentCurrentWinPctAverage": 0.5312,
+      "source": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13668&page_type=Adult",
+      "gamesConfirmed": 4,
+      "gamesVsTeamsNowInOtherDivisions": 1,
+      "opponentsByCurrentDivision": {
+        "The Cristillo Division": 3,
+        "Remax Division": 1
+      },
+      "completedGames": [
+        {
+          "date": "2026-09-20",
+          "opponent": "Braves HC",
+          "opponentCurrentDivision": "The Cristillo Division",
+          "gf": 3,
+          "ga": 0,
+          "result": "W"
+        },
+        {
+          "date": "2026-09-27",
+          "opponent": "Sugo Sundays",
+          "opponentCurrentDivision": "Remax Division",
+          "gf": 1,
+          "ga": 3,
+          "result": "L"
+        },
+        {
+          "date": "2026-10-04",
+          "opponent": "Mohawks HC",
+          "opponentCurrentDivision": "The Cristillo Division",
+          "gf": 1,
+          "ga": 4,
+          "result": "L"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Other Way",
+          "opponentCurrentDivision": "The Cristillo Division",
+          "gf": 5,
+          "ga": 8,
+          "result": "L"
+        }
+      ],
+      "bravesMatchHistory": {
+        "state": "SOURCE_VERIFIED_H2H",
+        "sourceScope": "EXACT_NAME_ONLY_NO_UNREVIEWED_ALIASES",
+        "bravesAllTime": {
+          "gp": 13,
+          "w": 8,
+          "l": 5,
+          "t": 0,
+          "gf": 47,
+          "ga": 35
+        },
+        "bravesRegularSeason": {
+          "gp": 11,
+          "w": 8,
+          "l": 3,
+          "t": 0,
+          "gf": 41,
+          "ga": 25
+        },
+        "bravesPlayoffs": {
+          "gp": 2,
+          "w": 0,
+          "l": 2,
+          "t": 0,
+          "gf": 6,
+          "ga": 10
+        },
+        "originalLeagueName": "Dateline Predators"
+      },
+      "previousWinter": {
+        "division": "The Cristillo Division",
+        "record": {
+          "gp": 24,
+          "w": 7,
+          "l": 15,
+          "t": 2,
+          "pts": 16,
+          "gf": 45,
+          "ga": 95
+        },
+        "winPct": 0.3333,
+        "goalsDiffPerGame": -2.083,
+        "verifiedGameDetails": 24,
+        "completeGameDetails": true,
+        "officialRosterSharedIDs": 11,
+        "rosterContinuityShare": 0.688,
+        "association": "ROSTER_ID_CONTINUITY_CONFIRMED",
+        "originalPriorLeagueTeamId": 13089,
+        "sourceUrl": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=547&teamid=13089&page_type=Adult"
+      }
+    },
+    {
+      "leagueName": "Maplewolves",
+      "displayName": "Maplewolves",
+      "sourceTeamId": 13712,
+      "divisionNow": "The Cristillo Division",
+      "record": {
+        "gp": 4,
+        "w": 0,
+        "l": 4,
+        "t": 0,
+        "pts": 0,
+        "gf": 9,
+        "ga": 17
+      },
+      "winPct": 0.0,
+      "goalDiffPerGame": -2.0,
+      "opponentCurrentWinPctAverage": 0.5312,
+      "source": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13712&page_type=Adult",
+      "gamesConfirmed": 4,
+      "gamesVsTeamsNowInOtherDivisions": 4,
+      "opponentsByCurrentDivision": {
+        "Remax Division": 4
+      },
+      "completedGames": [
+        {
+          "date": "2026-09-20",
+          "opponent": "Primary Auto",
+          "opponentCurrentDivision": "Remax Division",
+          "gf": 3,
+          "ga": 4,
+          "result": "L"
+        },
+        {
+          "date": "2026-09-27",
+          "opponent": "Butcher Brothers",
+          "opponentCurrentDivision": "Remax Division",
+          "gf": 1,
+          "ga": 3,
+          "result": "L"
+        },
+        {
+          "date": "2026-10-04",
+          "opponent": "Mighty Drunks",
+          "opponentCurrentDivision": "Remax Division",
+          "gf": 2,
+          "ga": 6,
+          "result": "L"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Young Guns",
+          "opponentCurrentDivision": "Remax Division",
+          "gf": 3,
+          "ga": 4,
+          "result": "L"
+        }
+      ],
+      "bravesMatchHistory": {
+        "state": "SOURCE_VERIFIED_H2H",
+        "sourceScope": "EXACT_NAME_ONLY_NO_UNREVIEWED_ALIASES",
+        "bravesAllTime": {
+          "gp": 10,
+          "w": 3,
+          "l": 6,
+          "t": 1,
+          "gf": 39,
+          "ga": 56
+        },
+        "bravesRegularSeason": {
+          "gp": 8,
+          "w": 2,
+          "l": 5,
+          "t": 1,
+          "gf": 28,
+          "ga": 44
+        },
+        "bravesPlayoffs": {
+          "gp": 2,
+          "w": 1,
+          "l": 1,
+          "t": 0,
+          "gf": 11,
+          "ga": 12
+        },
+        "originalLeagueName": "Maplewolves"
+      },
+      "previousWinter": {
+        "division": "Maple Hyundai",
+        "record": {
+          "gp": 24,
+          "w": 11,
+          "l": 10,
+          "t": 3,
+          "pts": 25,
+          "gf": 100,
+          "ga": 84
+        },
+        "winPct": 0.5208,
+        "goalsDiffPerGame": 0.667,
+        "verifiedGameDetails": 24,
+        "completeGameDetails": true,
+        "officialRosterSharedIDs": 7,
+        "rosterContinuityShare": 0.467,
+        "association": "ROSTER_ID_CONTINUITY_CONFIRMED",
+        "originalPriorLeagueTeamId": 13103,
+        "sourceUrl": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=547&teamid=13103&page_type=Adult"
+      }
+    },
+    {
+      "leagueName": "Braves HC",
+      "displayName": "Brave H.C.",
+      "sourceTeamId": 13679,
+      "divisionNow": "The Cristillo Division",
+      "record": {
+        "gp": 4,
+        "w": 0,
+        "l": 4,
+        "t": 0,
+        "pts": 0,
+        "gf": 6,
+        "ga": 19
+      },
+      "winPct": 0.0,
+      "goalDiffPerGame": -3.25,
+      "opponentCurrentWinPctAverage": 0.5625,
+      "source": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13679&page_type=Adult",
+      "gamesConfirmed": 4,
+      "gamesVsTeamsNowInOtherDivisions": 1,
+      "opponentsByCurrentDivision": {
+        "The Cristillo Division": 3,
+        "Remax Division": 1
+      },
+      "completedGames": [
+        {
+          "date": "2026-09-20",
+          "opponent": "Dateline Predators",
+          "opponentCurrentDivision": "The Cristillo Division",
+          "gf": 0,
+          "ga": 3,
+          "result": "L"
+        },
+        {
+          "date": "2026-09-27",
+          "opponent": "Mohawks HC",
+          "opponentCurrentDivision": "The Cristillo Division",
+          "gf": 3,
+          "ga": 6,
+          "result": "L"
+        },
+        {
+          "date": "2026-10-04",
+          "opponent": "Sugo Sundays",
+          "opponentCurrentDivision": "Remax Division",
+          "gf": 2,
+          "ga": 3,
+          "result": "L"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Zamboner Crew",
+          "opponentCurrentDivision": "The Cristillo Division",
+          "gf": 1,
+          "ga": 7,
+          "result": "L"
+        }
+      ],
+      "bravesMatchHistory": {
+        "state": "SELF_TEAM_NOT_APPLICABLE"
+      },
+      "previousWinter": {
+        "division": "The Cristillo Division",
+        "record": {
+          "gp": 24,
+          "w": 12,
+          "l": 9,
+          "t": 3,
+          "pts": 27,
+          "gf": 84,
+          "ga": 82
+        },
+        "winPct": 0.5625,
+        "goalsDiffPerGame": 0.083,
+        "verifiedGameDetails": 24,
+        "completeGameDetails": true,
+        "officialRosterSharedIDs": 12,
+        "rosterContinuityShare": 0.6,
+        "association": "ROSTER_ID_CONTINUITY_CONFIRMED",
+        "originalPriorLeagueTeamId": 13157,
+        "sourceUrl": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=547&teamid=13157&page_type=Adult"
+      }
+    },
+    {
+      "leagueName": "Philadelphia",
+      "displayName": "Philadelphia",
+      "sourceTeamId": 13737,
+      "divisionNow": "VAHL Division",
+      "record": {
+        "gp": 2,
+        "w": 2,
+        "l": 0,
+        "t": 0,
+        "pts": 4,
+        "gf": 9,
+        "ga": 4
+      },
+      "winPct": 1.0,
+      "goalDiffPerGame": 2.5,
+      "opponentCurrentWinPctAverage": 0.25,
+      "source": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13737&page_type=Adult",
+      "gamesConfirmed": 2,
+      "gamesVsTeamsNowInOtherDivisions": 0,
+      "opponentsByCurrentDivision": {
+        "VAHL Division": 2
+      },
+      "completedGames": [
+        {
+          "date": "2026-10-04",
+          "opponent": "LA KIngs",
+          "opponentCurrentDivision": "VAHL Division",
+          "gf": 4,
+          "ga": 3,
+          "result": "W"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Dallas",
+          "opponentCurrentDivision": "VAHL Division",
+          "gf": 5,
+          "ga": 1,
+          "result": "W"
+        }
+      ],
+      "bravesMatchHistory": {
+        "state": "NO_VERIFIED_BRAVES_MATCH_HISTORY"
+      },
+      "previousWinter": null
+    },
+    {
+      "leagueName": "Toronto",
+      "displayName": "Toronto",
+      "sourceTeamId": 13735,
+      "divisionNow": "VAHL Division",
+      "record": {
+        "gp": 2,
+        "w": 1,
+        "l": 0,
+        "t": 1,
+        "pts": 3,
+        "gf": 6,
+        "ga": 4
+      },
+      "winPct": 0.75,
+      "goalDiffPerGame": 1.0,
+      "opponentCurrentWinPctAverage": 0.25,
+      "source": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13735&page_type=Adult",
+      "gamesConfirmed": 2,
+      "gamesVsTeamsNowInOtherDivisions": 0,
+      "opponentsByCurrentDivision": {
+        "VAHL Division": 2
+      },
+      "completedGames": [
+        {
+          "date": "2026-10-04",
+          "opponent": "Dallas",
+          "opponentCurrentDivision": "VAHL Division",
+          "gf": 3,
+          "ga": 1,
+          "result": "W"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "LA KIngs",
+          "opponentCurrentDivision": "VAHL Division",
+          "gf": 3,
+          "ga": 3,
+          "result": "T"
+        }
+      ],
+      "bravesMatchHistory": {
+        "state": "NO_VERIFIED_BRAVES_MATCH_HISTORY"
+      },
+      "previousWinter": null
+    },
+    {
+      "leagueName": "LA KIngs",
+      "displayName": "LA KIngs",
+      "sourceTeamId": 13736,
+      "divisionNow": "VAHL Division",
+      "record": {
+        "gp": 3,
+        "w": 1,
+        "l": 1,
+        "t": 1,
+        "pts": 3,
+        "gf": 9,
+        "ga": 7
+      },
+      "winPct": 0.5,
+      "goalDiffPerGame": 0.667,
+      "opponentCurrentWinPctAverage": 0.5833,
+      "source": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13736&page_type=Adult",
+      "gamesConfirmed": 3,
+      "gamesVsTeamsNowInOtherDivisions": 0,
+      "opponentsByCurrentDivision": {
+        "VAHL Division": 3
+      },
+      "completedGames": [
+        {
+          "date": "2026-10-04",
+          "opponent": "Philadelphia",
+          "opponentCurrentDivision": "VAHL Division",
+          "gf": 3,
+          "ga": 4,
+          "result": "L"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Toronto",
+          "opponentCurrentDivision": "VAHL Division",
+          "gf": 3,
+          "ga": 3,
+          "result": "T"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Dallas",
+          "opponentCurrentDivision": "VAHL Division",
+          "gf": 3,
+          "ga": 0,
+          "result": "W"
+        }
+      ],
+      "bravesMatchHistory": {
+        "state": "NO_VERIFIED_BRAVES_MATCH_HISTORY"
+      },
+      "previousWinter": null
+    },
+    {
+      "leagueName": "Dallas",
+      "displayName": "Dallas",
+      "sourceTeamId": 13734,
+      "divisionNow": "VAHL Division",
+      "record": {
+        "gp": 3,
+        "w": 0,
+        "l": 3,
+        "t": 0,
+        "pts": 0,
+        "gf": 2,
+        "ga": 11
+      },
+      "winPct": 0.0,
+      "goalDiffPerGame": -3.0,
+      "opponentCurrentWinPctAverage": 0.75,
+      "source": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13734&page_type=Adult",
+      "gamesConfirmed": 3,
+      "gamesVsTeamsNowInOtherDivisions": 0,
+      "opponentsByCurrentDivision": {
+        "VAHL Division": 3
+      },
+      "completedGames": [
+        {
+          "date": "2026-10-04",
+          "opponent": "Toronto",
+          "opponentCurrentDivision": "VAHL Division",
+          "gf": 1,
+          "ga": 3,
+          "result": "L"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Philadelphia",
+          "opponentCurrentDivision": "VAHL Division",
+          "gf": 1,
+          "ga": 5,
+          "result": "L"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "LA KIngs",
+          "opponentCurrentDivision": "VAHL Division",
+          "gf": 0,
+          "ga": 3,
+          "result": "L"
+        }
+      ],
+      "bravesMatchHistory": {
+        "state": "NO_VERIFIED_BRAVES_MATCH_HISTORY"
+      },
+      "previousWinter": null
+    },
+    {
+      "leagueName": "Butcher Brothers",
+      "displayName": "Butcher Brothers",
+      "sourceTeamId": 13711,
+      "divisionNow": "Remax Division",
+      "record": {
+        "gp": 4,
+        "w": 3,
+        "l": 1,
+        "t": 0,
+        "pts": 6,
+        "gf": 14,
+        "ga": 8
+      },
+      "winPct": 0.75,
+      "goalDiffPerGame": 1.5,
+      "opponentCurrentWinPctAverage": 0.4688,
+      "source": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13711&page_type=Adult",
+      "gamesConfirmed": 4,
+      "gamesVsTeamsNowInOtherDivisions": 2,
+      "opponentsByCurrentDivision": {
+        "Remax Division": 2,
+        "The Cristillo Division": 1,
+        "Fazzari Partners": 1
+      },
+      "completedGames": [
+        {
+          "date": "2026-09-20",
+          "opponent": "Mighty Drunks",
+          "opponentCurrentDivision": "Remax Division",
+          "gf": 3,
+          "ga": 2,
+          "result": "W"
+        },
+        {
+          "date": "2026-09-27",
+          "opponent": "Maplewolves",
+          "opponentCurrentDivision": "The Cristillo Division",
+          "gf": 3,
+          "ga": 1,
+          "result": "W"
+        },
+        {
+          "date": "2026-10-04",
+          "opponent": "Primary Auto",
+          "opponentCurrentDivision": "Remax Division",
+          "gf": 6,
+          "ga": 0,
+          "result": "W"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Degenerates",
+          "opponentCurrentDivision": "Fazzari Partners",
+          "gf": 2,
+          "ga": 5,
+          "result": "L"
+        }
+      ],
+      "bravesMatchHistory": {
+        "state": "NO_VERIFIED_BRAVES_MATCH_HISTORY"
+      },
+      "previousWinter": {
+        "division": "Hot Shots Division",
+        "record": {
+          "gp": 24,
+          "w": 9,
+          "l": 9,
+          "t": 6,
+          "pts": 24,
+          "gf": 40,
+          "ga": 49
+        },
+        "winPct": 0.5,
+        "goalsDiffPerGame": -0.375,
+        "verifiedGameDetails": 23,
+        "completeGameDetails": false,
+        "officialRosterSharedIDs": 14,
+        "rosterContinuityShare": 0.875,
+        "association": "ROSTER_ID_CONTINUITY_CONFIRMED",
+        "originalPriorLeagueTeamId": 13095,
+        "sourceUrl": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=547&teamid=13095&page_type=Adult"
+      }
+    },
+    {
+      "leagueName": "Sugo Sundays",
+      "displayName": "Michelob Morts",
+      "sourceTeamId": 13709,
+      "divisionNow": "Remax Division",
+      "record": {
+        "gp": 4,
+        "w": 3,
+        "l": 1,
+        "t": 0,
+        "pts": 6,
+        "gf": 13,
+        "ga": 12
+      },
+      "winPct": 0.75,
+      "goalDiffPerGame": 0.25,
+      "opponentCurrentWinPctAverage": 0.4375,
+      "source": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13709&page_type=Adult",
+      "gamesConfirmed": 4,
+      "gamesVsTeamsNowInOtherDivisions": 4,
+      "opponentsByCurrentDivision": {
+        "The Cristillo Division": 4
+      },
+      "completedGames": [
+        {
+          "date": "2026-09-20",
+          "opponent": "Mohawks HC",
+          "opponentCurrentDivision": "The Cristillo Division",
+          "gf": 4,
+          "ga": 3,
+          "result": "W"
+        },
+        {
+          "date": "2026-09-27",
+          "opponent": "Dateline Predators",
+          "opponentCurrentDivision": "The Cristillo Division",
+          "gf": 3,
+          "ga": 1,
+          "result": "W"
+        },
+        {
+          "date": "2026-10-04",
+          "opponent": "Braves HC",
+          "opponentCurrentDivision": "The Cristillo Division",
+          "gf": 3,
+          "ga": 2,
+          "result": "W"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Mid Ice Crisis",
+          "opponentCurrentDivision": "The Cristillo Division",
+          "gf": 3,
+          "ga": 6,
+          "result": "L"
+        }
+      ],
+      "bravesMatchHistory": {
+        "state": "SOURCE_VERIFIED_H2H",
+        "sourceScope": "HTO_CURRENT_GAME_ONLY",
+        "bravesAllTime": {
+          "gp": 1,
+          "w": 0,
+          "l": 1,
+          "t": 0,
+          "gf": 2,
+          "ga": 3
+        },
+        "bravesRegularSeason": {
+          "gp": 1,
+          "w": 0,
+          "l": 1,
+          "t": 0,
+          "gf": 2,
+          "ga": 3
+        },
+        "bravesPlayoffs": {
+          "gp": 0,
+          "w": 0,
+          "l": 0,
+          "t": 0,
+          "gf": 0,
+          "ga": 0
+        },
+        "originalLeagueName": "Sugo Sundays"
+      },
+      "previousWinter": null
+    },
+    {
+      "leagueName": "Primary Auto",
+      "displayName": "Primary Auto",
+      "sourceTeamId": 13713,
+      "divisionNow": "Remax Division",
+      "record": {
+        "gp": 4,
+        "w": 3,
+        "l": 1,
+        "t": 0,
+        "pts": 6,
+        "gf": 11,
+        "ga": 14
+      },
+      "winPct": 0.75,
+      "goalDiffPerGame": -0.75,
+      "opponentCurrentWinPctAverage": 0.3438,
+      "source": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13713&page_type=Adult",
+      "gamesConfirmed": 4,
+      "gamesVsTeamsNowInOtherDivisions": 1,
+      "opponentsByCurrentDivision": {
+        "The Cristillo Division": 1,
+        "Remax Division": 3
+      },
+      "completedGames": [
+        {
+          "date": "2026-09-20",
+          "opponent": "Maplewolves",
+          "opponentCurrentDivision": "The Cristillo Division",
+          "gf": 4,
+          "ga": 3,
+          "result": "W"
+        },
+        {
+          "date": "2026-09-27",
+          "opponent": "Mighty Drunks",
+          "opponentCurrentDivision": "Remax Division",
+          "gf": 4,
+          "ga": 3,
+          "result": "W"
+        },
+        {
+          "date": "2026-10-04",
+          "opponent": "Butcher Brothers",
+          "opponentCurrentDivision": "Remax Division",
+          "gf": 0,
+          "ga": 6,
+          "result": "L"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "VR Delta",
+          "opponentCurrentDivision": "Remax Division",
+          "gf": 3,
+          "ga": 2,
+          "result": "W"
+        }
+      ],
+      "bravesMatchHistory": {
+        "state": "SOURCE_VERIFIED_H2H",
+        "sourceScope": "EXACT_MATCH_ONLY_NO_UNREVIEWED_ALIASES",
+        "bravesAllTime": {
+          "gp": 1,
+          "w": 0,
+          "l": 1,
+          "t": 0,
+          "gf": 1,
+          "ga": 6
+        },
+        "bravesRegularSeason": {
+          "gp": 1,
+          "w": 0,
+          "l": 1,
+          "t": 0,
+          "gf": 1,
+          "ga": 6
+        },
+        "bravesPlayoffs": {
+          "gp": 0,
+          "w": 0,
+          "l": 0,
+          "t": 0,
+          "gf": 0,
+          "ga": 0
+        },
+        "originalLeagueName": "Primary Auto"
+      },
+      "previousWinter": {
+        "division": "Lormel Division",
+        "record": {
+          "gp": 24,
+          "w": 9,
+          "l": 11,
+          "t": 4,
+          "pts": 22,
+          "gf": 72,
+          "ga": 76
+        },
+        "winPct": 0.4583,
+        "goalsDiffPerGame": -0.167,
+        "verifiedGameDetails": 23,
+        "completeGameDetails": false,
+        "officialRosterSharedIDs": 8,
+        "rosterContinuityShare": 0.571,
+        "association": "ROSTER_ID_CONTINUITY_CONFIRMED",
+        "originalPriorLeagueTeamId": 13155,
+        "sourceUrl": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=547&teamid=13155&page_type=Adult"
+      }
+    },
+    {
+      "leagueName": "Thrillers",
+      "displayName": "Thrillers",
+      "sourceTeamId": 13714,
+      "divisionNow": "Remax Division",
+      "record": {
+        "gp": 4,
+        "w": 2,
+        "l": 1,
+        "t": 1,
+        "pts": 5,
+        "gf": 12,
+        "ga": 8
+      },
+      "winPct": 0.625,
+      "goalDiffPerGame": 1.0,
+      "opponentCurrentWinPctAverage": 0.4688,
+      "source": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13714&page_type=Adult",
+      "gamesConfirmed": 4,
+      "gamesVsTeamsNowInOtherDivisions": 1,
+      "opponentsByCurrentDivision": {
+        "Remax Division": 3,
+        "Fazzari Partners": 1
+      },
+      "completedGames": [
+        {
+          "date": "2026-09-20",
+          "opponent": "VR Delta",
+          "opponentCurrentDivision": "Remax Division",
+          "gf": 1,
+          "ga": 1,
+          "result": "T"
+        },
+        {
+          "date": "2026-09-27",
+          "opponent": "Degenerates",
+          "opponentCurrentDivision": "Fazzari Partners",
+          "gf": 3,
+          "ga": 4,
+          "result": "L"
+        },
+        {
+          "date": "2026-10-04",
+          "opponent": "Young Guns",
+          "opponentCurrentDivision": "Remax Division",
+          "gf": 4,
+          "ga": 1,
+          "result": "W"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Mighty Drunks",
+          "opponentCurrentDivision": "Remax Division",
+          "gf": 4,
+          "ga": 2,
+          "result": "W"
+        }
+      ],
+      "bravesMatchHistory": {
+        "state": "NO_VERIFIED_BRAVES_MATCH_HISTORY"
+      },
+      "previousWinter": {
+        "division": "Lormel Division",
+        "record": {
+          "gp": 24,
+          "w": 13,
+          "l": 7,
+          "t": 4,
+          "pts": 30,
+          "gf": 82,
+          "ga": 69
+        },
+        "winPct": 0.625,
+        "goalsDiffPerGame": 0.542,
+        "verifiedGameDetails": 24,
+        "completeGameDetails": true,
+        "officialRosterSharedIDs": 10,
+        "rosterContinuityShare": 0.556,
+        "association": "ROSTER_ID_CONTINUITY_CONFIRMED",
+        "originalPriorLeagueTeamId": 13147,
+        "sourceUrl": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=547&teamid=13147&page_type=Adult"
+      }
+    },
+    {
+      "leagueName": "Young Guns",
+      "displayName": "Young Guns",
+      "sourceTeamId": 13716,
+      "divisionNow": "Remax Division",
+      "record": {
+        "gp": 4,
+        "w": 1,
+        "l": 2,
+        "t": 1,
+        "pts": 3,
+        "gf": 10,
+        "ga": 13
+      },
+      "winPct": 0.375,
+      "goalDiffPerGame": -0.75,
+      "opponentCurrentWinPctAverage": 0.4688,
+      "source": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13716&page_type=Adult",
+      "gamesConfirmed": 4,
+      "gamesVsTeamsNowInOtherDivisions": 2,
+      "opponentsByCurrentDivision": {
+        "Fazzari Partners": 1,
+        "Remax Division": 2,
+        "The Cristillo Division": 1
+      },
+      "completedGames": [
+        {
+          "date": "2026-09-20",
+          "opponent": "Degenerates",
+          "opponentCurrentDivision": "Fazzari Partners",
+          "gf": 2,
+          "ga": 2,
+          "result": "T"
+        },
+        {
+          "date": "2026-09-27",
+          "opponent": "VR Delta",
+          "opponentCurrentDivision": "Remax Division",
+          "gf": 3,
+          "ga": 4,
+          "result": "L"
+        },
+        {
+          "date": "2026-10-04",
+          "opponent": "Thrillers",
+          "opponentCurrentDivision": "Remax Division",
+          "gf": 1,
+          "ga": 4,
+          "result": "L"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Maplewolves",
+          "opponentCurrentDivision": "The Cristillo Division",
+          "gf": 4,
+          "ga": 3,
+          "result": "W"
+        }
+      ],
+      "bravesMatchHistory": {
+        "state": "SOURCE_VERIFIED_H2H",
+        "sourceScope": "EXACT_MATCH_ONLY_NO_UNREVIEWED_ALIASES",
+        "bravesAllTime": {
+          "gp": 1,
+          "w": 1,
+          "l": 0,
+          "t": 0,
+          "gf": 11,
+          "ga": 1
+        },
+        "bravesRegularSeason": {
+          "gp": 1,
+          "w": 1,
+          "l": 0,
+          "t": 0,
+          "gf": 11,
+          "ga": 1
+        },
+        "bravesPlayoffs": {
+          "gp": 0,
+          "w": 0,
+          "l": 0,
+          "t": 0,
+          "gf": 0,
+          "ga": 0
+        },
+        "originalLeagueName": "Young Guns"
+      },
+      "previousWinter": {
+        "division": "Maple Hyundai",
+        "record": {
+          "gp": 24,
+          "w": 7,
+          "l": 13,
+          "t": 4,
+          "pts": 18,
+          "gf": 69,
+          "ga": 79
+        },
+        "winPct": 0.375,
+        "goalsDiffPerGame": -0.417,
+        "verifiedGameDetails": 24,
+        "completeGameDetails": true,
+        "officialRosterSharedIDs": 9,
+        "rosterContinuityShare": 0.6,
+        "association": "ROSTER_ID_CONTINUITY_CONFIRMED",
+        "originalPriorLeagueTeamId": 13163,
+        "sourceUrl": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=547&teamid=13163&page_type=Adult"
+      }
+    },
+    {
+      "leagueName": "VR Delta",
+      "displayName": "VR Delta",
+      "sourceTeamId": 13715,
+      "divisionNow": "Remax Division",
+      "record": {
+        "gp": 4,
+        "w": 1,
+        "l": 2,
+        "t": 1,
+        "pts": 3,
+        "gf": 8,
+        "ga": 13
+      },
+      "winPct": 0.375,
+      "goalDiffPerGame": -1.25,
+      "opponentCurrentWinPctAverage": 0.6562,
+      "source": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13715&page_type=Adult",
+      "gamesConfirmed": 4,
+      "gamesVsTeamsNowInOtherDivisions": 1,
+      "opponentsByCurrentDivision": {
+        "Remax Division": 3,
+        "Fazzari Partners": 1
+      },
+      "completedGames": [
+        {
+          "date": "2026-09-20",
+          "opponent": "Thrillers",
+          "opponentCurrentDivision": "Remax Division",
+          "gf": 1,
+          "ga": 1,
+          "result": "T"
+        },
+        {
+          "date": "2026-09-27",
+          "opponent": "Young Guns",
+          "opponentCurrentDivision": "Remax Division",
+          "gf": 4,
+          "ga": 3,
+          "result": "W"
+        },
+        {
+          "date": "2026-10-04",
+          "opponent": "Degenerates",
+          "opponentCurrentDivision": "Fazzari Partners",
+          "gf": 1,
+          "ga": 6,
+          "result": "L"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Primary Auto",
+          "opponentCurrentDivision": "Remax Division",
+          "gf": 2,
+          "ga": 3,
+          "result": "L"
+        }
+      ],
+      "bravesMatchHistory": {
+        "state": "NO_VERIFIED_BRAVES_MATCH_HISTORY"
+      },
+      "previousWinter": {
+        "division": "Lormel Division",
+        "record": {
+          "gp": 24,
+          "w": 10,
+          "l": 10,
+          "t": 4,
+          "pts": 24,
+          "gf": 83,
+          "ga": 95
+        },
+        "winPct": 0.5,
+        "goalsDiffPerGame": -0.5,
+        "verifiedGameDetails": 24,
+        "completeGameDetails": true,
+        "officialRosterSharedIDs": 9,
+        "rosterContinuityShare": 0.75,
+        "association": "ROSTER_ID_CONTINUITY_CONFIRMED",
+        "originalPriorLeagueTeamId": 13156,
+        "sourceUrl": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=547&teamid=13156&page_type=Adult"
+      }
+    },
+    {
+      "leagueName": "Batman Prep",
+      "displayName": "Batman Prep",
+      "sourceTeamId": 13686,
+      "divisionNow": "Remax Division",
+      "record": {
+        "gp": 4,
+        "w": 1,
+        "l": 2,
+        "t": 1,
+        "pts": 3,
+        "gf": 5,
+        "ga": 14
+      },
+      "winPct": 0.375,
+      "goalDiffPerGame": -2.25,
+      "opponentCurrentWinPctAverage": 0.5938,
+      "source": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13686&page_type=Adult",
+      "gamesConfirmed": 4,
+      "gamesVsTeamsNowInOtherDivisions": 4,
+      "opponentsByCurrentDivision": {
+        "Fazzari Partners": 4
+      },
+      "completedGames": [
+        {
+          "date": "2026-09-20",
+          "opponent": "Bushwackers",
+          "opponentCurrentDivision": "Fazzari Partners",
+          "gf": 1,
+          "ga": 6,
+          "result": "L"
+        },
+        {
+          "date": "2026-09-27",
+          "opponent": "Hawks",
+          "opponentCurrentDivision": "Fazzari Partners",
+          "gf": 2,
+          "ga": 2,
+          "result": "T"
+        },
+        {
+          "date": "2026-10-04",
+          "opponent": "Last Pass",
+          "opponentCurrentDivision": "Fazzari Partners",
+          "gf": 2,
+          "ga": 1,
+          "result": "W"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Pinheads",
+          "opponentCurrentDivision": "Fazzari Partners",
+          "gf": 0,
+          "ga": 5,
+          "result": "L"
+        }
+      ],
+      "bravesMatchHistory": {
+        "state": "NO_VERIFIED_BRAVES_MATCH_HISTORY"
+      },
+      "previousWinter": null
+    },
+    {
+      "leagueName": "Mighty Drunks",
+      "displayName": "Mighty Drunks",
+      "sourceTeamId": 13710,
+      "divisionNow": "Remax Division",
+      "record": {
+        "gp": 4,
+        "w": 1,
+        "l": 3,
+        "t": 0,
+        "pts": 2,
+        "gf": 13,
+        "ga": 13
+      },
+      "winPct": 0.25,
+      "goalDiffPerGame": 0.0,
+      "opponentCurrentWinPctAverage": 0.5312,
+      "source": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13710&page_type=Adult",
+      "gamesConfirmed": 4,
+      "gamesVsTeamsNowInOtherDivisions": 1,
+      "opponentsByCurrentDivision": {
+        "Remax Division": 3,
+        "The Cristillo Division": 1
+      },
+      "completedGames": [
+        {
+          "date": "2026-09-20",
+          "opponent": "Butcher Brothers",
+          "opponentCurrentDivision": "Remax Division",
+          "gf": 2,
+          "ga": 3,
+          "result": "L"
+        },
+        {
+          "date": "2026-09-27",
+          "opponent": "Primary Auto",
+          "opponentCurrentDivision": "Remax Division",
+          "gf": 3,
+          "ga": 4,
+          "result": "L"
+        },
+        {
+          "date": "2026-10-04",
+          "opponent": "Maplewolves",
+          "opponentCurrentDivision": "The Cristillo Division",
+          "gf": 6,
+          "ga": 2,
+          "result": "W"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Thrillers",
+          "opponentCurrentDivision": "Remax Division",
+          "gf": 2,
+          "ga": 4,
+          "result": "L"
+        }
+      ],
+      "bravesMatchHistory": {
+        "state": "SOURCE_VERIFIED_H2H",
+        "sourceScope": "EXACT_MATCH_ONLY_NO_UNREVIEWED_ALIASES",
+        "bravesAllTime": {
+          "gp": 12,
+          "w": 5,
+          "l": 4,
+          "t": 3,
+          "gf": 42,
+          "ga": 41
+        },
+        "bravesRegularSeason": {
+          "gp": 11,
+          "w": 5,
+          "l": 4,
+          "t": 2,
+          "gf": 38,
+          "ga": 37
+        },
+        "bravesPlayoffs": {
+          "gp": 1,
+          "w": 0,
+          "l": 0,
+          "t": 1,
+          "gf": 4,
+          "ga": 4
+        },
+        "originalLeagueName": "Mighty Drunks"
+      },
+      "previousWinter": {
+        "division": "Hot Shots Division",
+        "record": {
+          "gp": 24,
+          "w": 11,
+          "l": 11,
+          "t": 2,
+          "pts": 24,
+          "gf": 74,
+          "ga": 78
+        },
+        "winPct": 0.5,
+        "goalsDiffPerGame": -0.167,
+        "verifiedGameDetails": 24,
+        "completeGameDetails": true,
+        "officialRosterSharedIDs": 9,
+        "rosterContinuityShare": 0.6,
+        "association": "ROSTER_ID_CONTINUITY_CONFIRMED",
+        "originalPriorLeagueTeamId": 13083,
+        "sourceUrl": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=547&teamid=13083&page_type=Adult"
+      }
+    },
+    {
+      "leagueName": "Schmelts",
+      "displayName": "Schmelts",
+      "sourceTeamId": 13707,
+      "divisionNow": "x-playoff Division",
+      "record": {
+        "gp": 1,
+        "w": 0,
+        "l": 1,
+        "t": 0,
+        "pts": 0,
+        "gf": 0,
+        "ga": 1
+      },
+      "winPct": 0.0,
+      "goalDiffPerGame": -1.0,
+      "opponentCurrentWinPctAverage": 0.5,
+      "source": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13707&page_type=Adult",
+      "gamesConfirmed": 1,
+      "gamesVsTeamsNowInOtherDivisions": 1,
+      "opponentsByCurrentDivision": {
+        "The Cristillo Division": 1
+      },
+      "completedGames": [
+        {
+          "date": "2026-09-20",
+          "opponent": "Big Bastones",
+          "opponentCurrentDivision": "The Cristillo Division",
+          "gf": 0,
+          "ga": 1,
+          "result": "L"
+        }
+      ],
+      "bravesMatchHistory": {
+        "state": "SOURCE_VERIFIED_H2H",
+        "sourceScope": "EXACT_MATCH_ONLY_NO_UNREVIEWED_ALIASES",
+        "bravesAllTime": {
+          "gp": 8,
+          "w": 4,
+          "l": 3,
+          "t": 1,
+          "gf": 29,
+          "ga": 30
+        },
+        "bravesRegularSeason": {
+          "gp": 5,
+          "w": 3,
+          "l": 1,
+          "t": 1,
+          "gf": 22,
+          "ga": 21
+        },
+        "bravesPlayoffs": {
+          "gp": 3,
+          "w": 1,
+          "l": 2,
+          "t": 0,
+          "gf": 7,
+          "ga": 9
+        },
+        "originalLeagueName": "Schmelts"
+      },
+      "previousWinter": null
+    }
+  ],
+  "interpretation": {
+    "record": "Official league current GP/W/L/T/PTS/GF/GA by source team ID",
+    "reciprocalGames": "Completed nonzero-score matches agreed by both teams' published TeamInfo pages",
+    "zeroZero": "0-0 placeholder excluded; actual 0-0 ties require independent verification",
+    "opponentDifficulty": "Mean CURRENT published opponent (wins + 0.5 ties)/GP, not a predictive rating",
+    "previousWinter": "2025/26 season remains separate and linked only where official player-ID overlap substantiates team continuity",
+    "historicHeadToHead": "Brave H.C. Master Workbook / HTO canonical matchup aggregates, never inferred from league rename",
+    "crossDivision": "Opponent division labels are CURRENT as of source capture, not guaranteed division labels on the original game date",
+    "smallSample": "2026/27 has only the currently published first few league games. Do not treat record ranks as predicted playoff strength."
+  },
+  "originalWorkbookWritten": false
+}

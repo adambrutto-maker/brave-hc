@@ -1,0 +1,62 @@
+name: Brave H.C. all-division league intelligence
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'widgets/league-intelligence.json'
+      - 'widgets/league-intelligence.html'
+      - 'widgets/league-intelligence.js'
+      - 'widgets/home-panels.html'
+      - 'scripts/collect_svhl_league_intelligence.py'
+      - 'scripts/build_svhl_league_intelligence_public.py'
+      - 'scripts/check_svhl_league_intelligence.py'
+      - 'scripts/publish_svhl_league_intelligence.py'
+      - 'tests/test_svhl_league_intelligence_public.py'
+      - 'tests/test_svhl_league_daily_publisher.py'
+      - '.github/workflows/brave-league-intelligence.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'widgets/league-intelligence.json'
+      - 'widgets/league-intelligence.html'
+      - 'widgets/league-intelligence.js'
+      - 'widgets/home-panels.html'
+      - 'scripts/collect_svhl_league_intelligence.py'
+      - 'scripts/build_svhl_league_intelligence_public.py'
+      - 'scripts/check_svhl_league_intelligence.py'
+      - 'scripts/publish_svhl_league_intelligence.py'
+      - 'tests/test_svhl_league_intelligence_public.py'
+      - 'tests/test_svhl_league_daily_publisher.py'
+      - '.github/workflows/brave-league-intelligence.yml'
+  schedule:
+    - cron: '0 15 * * *'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: league-intelligence-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  source-parity:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout accepted public source
+        uses: actions/checkout@v4
+      - name: Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Recheck all-division source and game pairing
+        run: python scripts/check_svhl_league_intelligence.py
+      - name: Guard previous season and Brave H.C. history
+        run: python -m unittest discover -s tests -p test_svhl_league_intelligence_public.py
+      - name: Guard no-regression daily publication
+        run: python -m unittest discover -s tests -p test_svhl_league_daily_publisher.py
+      - name: Detect stalled daily local collector
+        if: github.event_name == 'schedule'
+        run: python scripts/check_svhl_league_intelligence.py --fresh
