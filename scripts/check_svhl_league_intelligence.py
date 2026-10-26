@@ -132,8 +132,16 @@ def verify(data,accepted=None,fresh=False,now=None):
        event.get("detectedBetween",{}).get("firstObservedAt")==proof["firstObservedAt"],
        "INCOMING_TEAM_SCOUTING_NOT_SOURCE_QUALIFIED")
  for item in archives:
-  need(type(item.get("sourceTeamId")) is int and
-       item.get("sourceTeamId") not in {t["sourceTeamId"] for t in teams} and
+  # An exit receipt is immutable even when that SAME source team ID later
+  # returns to the current league directory. Returning does not erase history.
+  tid=item.get("sourceTeamId")
+  exitProof=any(e.get("eventType")=="LEFT_CURRENT_LEAGUE_DIRECTORY" and
+                e.get("sourceTeamId")==tid and
+                e.get("leagueName")==item.get("leagueName") and
+                e.get("lastObservedAt")==item.get("lastSeenUTC")
+                for e in events)
+  need(type(tid) is int and exitProof and
+       utc_stamp(item.get("lastSeenUTC"))<=ts and
        isinstance(item.get("completedGames"),list) and
        item.get("recordLastSeen",{}).get("gp")==len(item["completedGames"]),
        "DEPARTED_LEAGUE_TEAM_ARCHIVE_INVALID")
