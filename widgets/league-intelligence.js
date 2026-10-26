@@ -16,6 +16,11 @@
    doc.strengthModel?.schema==="svhl-schedule-adjusted-context/v1" &&
    doc.strengthModel.type==="DESCRIPTIVE_NOT_PREDICTIVE" &&
    doc.strengthModel.probabilityOfWinning===false &&
+   doc.trendLedger?.schema==="brave-hc-svhl-context-trend-ledger/v1" &&
+   doc.trendLedger.sourceScope==="ACCEPTED_PUBLIC_SNAPSHOT_CHANGES_NOT_PREDICTED_FORM" &&
+   Array.isArray(doc.trendLedger.teams) &&
+   doc.trendLedger.trackedTeams===doc.trendLedger.teams.length &&
+   doc.trendLedger.observationsRecorded===doc.trendLedger.teams.reduce((n,g)=>n+g.observations.length,0) &&
    doc.currentDivisionCount>=4 &&
    Array.isArray(doc.divisions)&&Array.isArray(doc.teams)&&
    doc.currentLeagueTeamCount===doc.teams.length &&
@@ -169,6 +174,38 @@
    cell.colSpan=13;row.append(cell);body.append(row);
   }
  }
+ function renderTrend(team){
+  const summary=q("trend-summary"),grid=q("trend-rows");grid.replaceChildren();
+  const group=data.trendLedger.teams.find(x=>x.sourceTeamId===team.sourceTeamId);
+  const observations=group?.observations||[];
+  if(!observations.length){
+   summary.textContent="No verified historical context observations are available.";
+   return;
+  }
+  const last=observations[observations.length-1];
+  if(observations.length===1){
+   summary.textContent="Baseline only: first accepted observation "+
+    new Date(last.observedAtUTC).toLocaleDateString("en-CA")+
+    ". No measured trend yet; unchanged daily refreshes are not counted as improvement or decline.";
+  }else{
+   const prior=observations[observations.length-2];
+   const a=last.contextIndex,b=prior.contextIndex;
+   const change=Number.isFinite(a)&&Number.isFinite(b)?
+     "Index "+(a-b>0?"+":"")+(a-b).toFixed(1)+" since prior material observation":
+     "Comparison unavailable for an unrated team";
+   summary.textContent=observations.length+" accepted material observations. "+
+    change+". Recorded snapshots show changes in verified standings or context, not future outcomes.";
+  }
+  for(const p of observations.slice(-6).reverse()){
+   const item=el("div","trend-point");
+   text(item,"strong","",p.contextIndex===null?"Unrated":p.contextIndex.toFixed(1)+"/100");
+   text(item,"span","","GP "+p.record.gp+" · "+record(p.record)+" · "+p.divisionNow);
+   text(item,"small","","Observed "+new Date(p.observedAtUTC).toLocaleString("en-CA",
+    {dateStyle:"medium",timeStyle:"short"})+
+    " · "+p.confidence.replace(/_/g," ").toLowerCase());
+   grid.append(item);
+  }
+ }
  function profile(){
   const x=data.teams.find(item=>item.leagueName===selected);
   if(!x)return;
@@ -206,6 +243,7 @@
    context(strength,"Not rated","No completed games available or not a competitive division.");
    q("strength-method").textContent="Index unavailable: insufficient verified competitive game evidence.";
   }
+  renderTrend(x);
   const prior=q("prior-summary");prior.replaceChildren();
   if(x.previousWinter){
    const p=x.previousWinter;

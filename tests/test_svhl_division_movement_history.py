@@ -115,6 +115,9 @@ class MovementHistoryQA(unittest.TestCase):
   previous=next(x for x in accepted["teams"] if x["leagueName"]=="Big Bastones")
   later["teams"].append(deepcopy(previous))
   restored=m.enrich(after_exit,later,historical())
+  # Source publisher also adds the trend ledger before independent validation.
+  from track_svhl_strength_trends import enrich as enrich_trends
+  restored=enrich_trends(accepted,restored)
   ledger=restored["movementLedger"]
   self.assertEqual(ledger["departedTeamProfilesRetained"],1)
   self.assertEqual(ledger["previouslyTrackedTeams"][0]["leagueName"],"Big Bastones")
