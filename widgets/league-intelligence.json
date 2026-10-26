@@ -165,6 +165,21 @@
         "association": "ROSTER_ID_CONTINUITY_CONFIRMED",
         "originalPriorLeagueTeamId": 13149,
         "sourceUrl": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=547&teamid=13149&page_type=Adult"
+      },
+      "strengthContext": {
+        "status": "SOURCE_SUPPORTED_DESCRIPTIVE_CONTEXT",
+        "contextIndex": 65.5,
+        "rank": 1,
+        "confidence": "EARLY_SAMPLE",
+        "currentForm": 67.3,
+        "scheduleDifficulty": 57.1,
+        "priorWinterForm": 75.4,
+        "weights": {
+          "currentForm": 0.55,
+          "scheduleDifficulty": 0.3,
+          "previousWinterForm": 0.15
+        },
+        "completedGames": 4
       }
     },
     {
@@ -248,6 +263,21 @@
         "association": "ROSTER_ID_CONTINUITY_CONFIRMED",
         "originalPriorLeagueTeamId": 13077,
         "sourceUrl": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=547&teamid=13077&page_type=Adult"
+      },
+      "strengthContext": {
+        "status": "SOURCE_SUPPORTED_DESCRIPTIVE_CONTEXT",
+        "contextIndex": 59.4,
+        "rank": 3,
+        "confidence": "EARLY_SAMPLE",
+        "currentForm": 62.5,
+        "scheduleDifficulty": 50.0,
+        "priorWinterForm": 67.0,
+        "weights": {
+          "currentForm": 0.55,
+          "scheduleDifficulty": 0.3,
+          "previousWinterForm": 0.15
+        },
+        "completedGames": 4
       }
     },
     {
@@ -331,6 +361,21 @@
         "association": "ROSTER_ID_CONTINUITY_CONFIRMED",
         "originalPriorLeagueTeamId": 13142,
         "sourceUrl": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=547&teamid=13142&page_type=Adult"
+      },
+      "strengthContext": {
+        "status": "SOURCE_SUPPORTED_DESCRIPTIVE_CONTEXT",
+        "contextIndex": 60.7,
+        "rank": 2,
+        "confidence": "EARLY_SAMPLE",
+        "currentForm": 62.0,
+        "scheduleDifficulty": 51.8,
+        "priorWinterForm": 73.8,
+        "weights": {
+          "currentForm": 0.55,
+          "scheduleDifficulty": 0.3,
+          "previousWinterForm": 0.15
+        },
+        "completedGames": 4
       }
     },
     {
@@ -440,6 +485,21 @@
         "association": "ROSTER_ID_CONTINUITY_CONFIRMED",
         "originalPriorLeagueTeamId": 13137,
         "sourceUrl": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=547&teamid=13137&page_type=Adult"
+      },
+      "strengthContext": {
+        "status": "SOURCE_SUPPORTED_DESCRIPTIVE_CONTEXT",
+        "contextIndex": 48.3,
+        "rank": 16,
+        "confidence": "EARLY_SAMPLE",
+        "currentForm": 49.5,
+        "scheduleDifficulty": 46.4,
+        "priorWinterForm": 47.2,
+        "weights": {
+          "currentForm": 0.55,
+          "scheduleDifficulty": 0.3,
+          "previousWinterForm": 0.15
+        },
+        "completedGames": 4
       }
     },
     {
@@ -523,6 +583,21 @@
         "association": "ROSTER_ID_CONTINUITY_CONFIRMED",
         "originalPriorLeagueTeamId": 13145,
         "sourceUrl": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=547&teamid=13145&page_type=Adult"
+      },
+      "strengthContext": {
+        "status": "SOURCE_SUPPORTED_DESCRIPTIVE_CONTEXT",
+        "contextIndex": 46.1,
+        "rank": 19,
+        "confidence": "EARLY_SAMPLE",
+        "currentForm": 44.7,
+        "scheduleDifficulty": 46.4,
+        "priorWinterForm": 50.8,
+        "weights": {
+          "currentForm": 0.55,
+          "scheduleDifficulty": 0.3,
+          "previousWinterForm": 0.15
+        },
+        "completedGames": 4
       }
     },
     {
@@ -605,6 +680,21 @@
         "association": "ROSTER_ID_CONTINUITY_CONFIRMED",
         "originalPriorLeagueTeamId": 13164,
         "sourceUrl": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=547&teamid=13164&page_type=Adult"
+      },
+      "strengthContext": {
+        "status": "SOURCE_SUPPORTED_DESCRIPTIVE_CONTEXT",
+        "contextIndex": 47.2,
+        "rank": 18,
+        "confidence": "EARLY_SAMPLE",
+        "currentForm": 39.8,
+        "scheduleDifficulty": 51.8,
+        "priorWinterForm": 64.7,
+        "weights": {
+          "currentForm": 0.55,
+          "scheduleDifficulty": 0.3,
+          "previousWinterForm": 0.15
+        },
+        "completedGames": 4
       }
     },
     {
@@ -714,6 +804,21 @@
         "association": "ROSTER_ID_CONTINUITY_CONFIRMED",
         "originalPriorLeagueTeamId": 13159,
         "sourceUrl": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=547&teamid=13159&page_type=Adult"
+      },
+      "strengthContext": {
+        "status": "SOURCE_SUPPORTED_DESCRIPTIVE_CONTEXT",
+        "contextIndex": 58.5,
+        "rank": 5,
+        "confidence": "EARLY_SAMPLE",
+        "currentForm": 62.5,
+        "scheduleDifficulty": 59.2,
+        "priorWinterForm": 42.1,
+        "weights": {
+          "currentForm": 0.55,
+          "scheduleDifficulty": 0.3,
+          "previousWinterForm": 0.15
+        },
+        "completedGames": 4
       }
     },
     {
@@ -823,6 +928,21 @@
         "association": "ROSTER_ID_CONTINUITY_CONFIRMED",
         "originalPriorLeagueTeamId": 13116,
         "sourceUrl": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=547&teamid=13116&page_type=Adult"
+      },
+      "strengthContext": {
+        "status": "SOURCE_SUPPORTED_DESCRIPTIVE_CONTEXT",
+        "contextIndex": 54.2,
+        "rank": 9,
+        "confidence": "EARLY_SAMPLE",
+        "currentForm": 62.5,
+        "scheduleDifficulty": 46.4,
+        "priorWinterForm": 39.2,
+        "weights": {
+          "currentForm": 0.55,
+          "scheduleDifficulty": 0.3,
+          "previousWinterForm": 0.15
+        },
+        "completedGames": 4
       }
     },
     {
@@ -905,6 +1025,21 @@
         "association": "ROSTER_ID_CONTINUITY_CONFIRMED",
         "originalPriorLeagueTeamId": 13101,
         "sourceUrl": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=547&teamid=13101&page_type=Adult"
+      },
+      "strengthContext": {
+        "status": "SOURCE_SUPPORTED_DESCRIPTIVE_CONTEXT",
+        "contextIndex": 51.3,
+        "rank": 12,
+        "confidence": "EARLY_SAMPLE",
+        "currentForm": 55.3,
+        "scheduleDifficulty": 51.8,
+        "priorWinterForm": 35.4,
+        "weights": {
+          "currentForm": 0.55,
+          "scheduleDifficulty": 0.3,
+          "previousWinterForm": 0.15
+        },
+        "completedGames": 4
       }
     },
     {
@@ -1014,6 +1149,21 @@
         "association": "ROSTER_ID_CONTINUITY_CONFIRMED",
         "originalPriorLeagueTeamId": 13088,
         "sourceUrl": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=547&teamid=13088&page_type=Adult"
+      },
+      "strengthContext": {
+        "status": "SOURCE_SUPPORTED_DESCRIPTIVE_CONTEXT",
+        "contextIndex": 50.8,
+        "rank": 14,
+        "confidence": "EARLY_SAMPLE",
+        "currentForm": 49.1,
+        "scheduleDifficulty": 57.1,
+        "priorWinterForm": 44.5,
+        "weights": {
+          "currentForm": 0.55,
+          "scheduleDifficulty": 0.3,
+          "previousWinterForm": 0.15
+        },
+        "completedGames": 4
       }
     },
     {
@@ -1094,7 +1244,22 @@
         },
         "originalLeagueName": "Zamboner Crew"
       },
-      "previousWinter": null
+      "previousWinter": null,
+      "strengthContext": {
+        "status": "SOURCE_SUPPORTED_DESCRIPTIVE_CONTEXT",
+        "contextIndex": 50.0,
+        "rank": 15,
+        "confidence": "EARLY_SAMPLE",
+        "currentForm": 51.1,
+        "scheduleDifficulty": 47.6,
+        "priorWinterForm": null,
+        "weights": {
+          "currentForm": 0.7,
+          "scheduleDifficulty": 0.3,
+          "previousWinterForm": 0.0
+        },
+        "completedGames": 3
+      }
     },
     {
       "leagueName": "Dateline Predators",
@@ -1203,6 +1368,21 @@
         "association": "ROSTER_ID_CONTINUITY_CONFIRMED",
         "originalPriorLeagueTeamId": 13089,
         "sourceUrl": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=547&teamid=13089&page_type=Adult"
+      },
+      "strengthContext": {
+        "status": "SOURCE_SUPPORTED_DESCRIPTIVE_CONTEXT",
+        "contextIndex": 40.9,
+        "rank": 23,
+        "confidence": "EARLY_SAMPLE",
+        "currentForm": 38.9,
+        "scheduleDifficulty": 48.2,
+        "priorWinterForm": 33.3,
+        "weights": {
+          "currentForm": 0.55,
+          "scheduleDifficulty": 0.3,
+          "previousWinterForm": 0.15
+        },
+        "completedGames": 4
       }
     },
     {
@@ -1311,6 +1491,21 @@
         "association": "ROSTER_ID_CONTINUITY_CONFIRMED",
         "originalPriorLeagueTeamId": 13103,
         "sourceUrl": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=547&teamid=13103&page_type=Adult"
+      },
+      "strengthContext": {
+        "status": "SOURCE_SUPPORTED_DESCRIPTIVE_CONTEXT",
+        "contextIndex": 37.2,
+        "rank": 24,
+        "confidence": "EARLY_SAMPLE",
+        "currentForm": 28.7,
+        "scheduleDifficulty": 44.6,
+        "priorWinterForm": 53.4,
+        "weights": {
+          "currentForm": 0.55,
+          "scheduleDifficulty": 0.3,
+          "previousWinterForm": 0.15
+        },
+        "completedGames": 4
       }
     },
     {
@@ -1394,6 +1589,21 @@
         "association": "ROSTER_ID_CONTINUITY_CONFIRMED",
         "originalPriorLeagueTeamId": 13157,
         "sourceUrl": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=547&teamid=13157&page_type=Adult"
+      },
+      "strengthContext": {
+        "status": "SOURCE_SUPPORTED_DESCRIPTIVE_CONTEXT",
+        "contextIndex": 36.5,
+        "rank": 25,
+        "confidence": "EARLY_SAMPLE",
+        "currentForm": 26.4,
+        "scheduleDifficulty": 46.1,
+        "priorWinterForm": 54.0,
+        "weights": {
+          "currentForm": 0.55,
+          "scheduleDifficulty": 0.3,
+          "previousWinterForm": 0.15
+        },
+        "completedGames": 4
       }
     },
     {
@@ -1440,7 +1650,22 @@
       "bravesMatchHistory": {
         "state": "NO_VERIFIED_BRAVES_MATCH_HISTORY"
       },
-      "previousWinter": null
+      "previousWinter": null,
+      "strengthContext": {
+        "status": "SOURCE_SUPPORTED_DESCRIPTIVE_CONTEXT",
+        "contextIndex": 59.1,
+        "rank": 4,
+        "confidence": "EARLY_SAMPLE",
+        "currentForm": 64.8,
+        "scheduleDifficulty": 45.8,
+        "priorWinterForm": null,
+        "weights": {
+          "currentForm": 0.7,
+          "scheduleDifficulty": 0.3,
+          "previousWinterForm": 0.0
+        },
+        "completedGames": 2
+      }
     },
     {
       "leagueName": "Toronto",
@@ -1486,7 +1711,22 @@
       "bravesMatchHistory": {
         "state": "NO_VERIFIED_BRAVES_MATCH_HISTORY"
       },
-      "previousWinter": null
+      "previousWinter": null,
+      "strengthContext": {
+        "status": "SOURCE_SUPPORTED_DESCRIPTIVE_CONTEXT",
+        "contextIndex": 52.5,
+        "rank": 10,
+        "confidence": "EARLY_SAMPLE",
+        "currentForm": 57.1,
+        "scheduleDifficulty": 41.7,
+        "priorWinterForm": null,
+        "weights": {
+          "currentForm": 0.7,
+          "scheduleDifficulty": 0.3,
+          "previousWinterForm": 0.0
+        },
+        "completedGames": 2
+      }
     },
     {
       "leagueName": "LA KIngs",
@@ -1540,7 +1780,22 @@
       "bravesMatchHistory": {
         "state": "NO_VERIFIED_BRAVES_MATCH_HISTORY"
       },
-      "previousWinter": null
+      "previousWinter": null,
+      "strengthContext": {
+        "status": "SOURCE_SUPPORTED_DESCRIPTIVE_CONTEXT",
+        "contextIndex": 51.1,
+        "rank": 13,
+        "confidence": "EARLY_SAMPLE",
+        "currentForm": 51.1,
+        "scheduleDifficulty": 51.1,
+        "priorWinterForm": null,
+        "weights": {
+          "currentForm": 0.7,
+          "scheduleDifficulty": 0.3,
+          "previousWinterForm": 0.0
+        },
+        "completedGames": 3
+      }
     },
     {
       "leagueName": "Dallas",
@@ -1594,7 +1849,22 @@
       "bravesMatchHistory": {
         "state": "NO_VERIFIED_BRAVES_MATCH_HISTORY"
       },
-      "previousWinter": null
+      "previousWinter": null,
+      "strengthContext": {
+        "status": "SOURCE_SUPPORTED_DESCRIPTIVE_CONTEXT",
+        "contextIndex": 36.3,
+        "rank": 26,
+        "confidence": "EARLY_SAMPLE",
+        "currentForm": 30.2,
+        "scheduleDifficulty": 50.6,
+        "priorWinterForm": null,
+        "weights": {
+          "currentForm": 0.7,
+          "scheduleDifficulty": 0.3,
+          "previousWinterForm": 0.0
+        },
+        "completedGames": 3
+      }
     },
     {
       "leagueName": "Butcher Brothers",
@@ -1678,6 +1948,21 @@
         "association": "ROSTER_ID_CONTINUITY_CONFIRMED",
         "originalPriorLeagueTeamId": 13095,
         "sourceUrl": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=547&teamid=13095&page_type=Adult"
+      },
+      "strengthContext": {
+        "status": "SOURCE_SUPPORTED_DESCRIPTIVE_CONTEXT",
+        "contextIndex": 56.7,
+        "rank": 6,
+        "confidence": "EARLY_SAMPLE",
+        "currentForm": 61.6,
+        "scheduleDifficulty": 51.8,
+        "priorWinterForm": 48.8,
+        "weights": {
+          "currentForm": 0.55,
+          "scheduleDifficulty": 0.3,
+          "previousWinterForm": 0.15
+        },
+        "completedGames": 4
       }
     },
     {
@@ -1766,7 +2051,22 @@
         },
         "originalLeagueName": "Sugo Sundays"
       },
-      "previousWinter": null
+      "previousWinter": null,
+      "strengthContext": {
+        "status": "SOURCE_SUPPORTED_DESCRIPTIVE_CONTEXT",
+        "contextIndex": 56.5,
+        "rank": 7,
+        "confidence": "EARLY_SAMPLE",
+        "currentForm": 59.2,
+        "scheduleDifficulty": 50.0,
+        "priorWinterForm": null,
+        "weights": {
+          "currentForm": 0.7,
+          "scheduleDifficulty": 0.3,
+          "previousWinterForm": 0.0
+        },
+        "completedGames": 4
+      }
     },
     {
       "leagueName": "Primary Auto",
@@ -1875,6 +2175,21 @@
         "association": "ROSTER_ID_CONTINUITY_CONFIRMED",
         "originalPriorLeagueTeamId": 13155,
         "sourceUrl": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=547&teamid=13155&page_type=Adult"
+      },
+      "strengthContext": {
+        "status": "SOURCE_SUPPORTED_DESCRIPTIVE_CONTEXT",
+        "contextIndex": 52.0,
+        "rank": 11,
+        "confidence": "EARLY_SAMPLE",
+        "currentForm": 57.3,
+        "scheduleDifficulty": 44.6,
+        "priorWinterForm": 47.0,
+        "weights": {
+          "currentForm": 0.55,
+          "scheduleDifficulty": 0.3,
+          "previousWinterForm": 0.15
+        },
+        "completedGames": 4
       }
     },
     {
@@ -1958,6 +2273,21 @@
         "association": "ROSTER_ID_CONTINUITY_CONFIRMED",
         "originalPriorLeagueTeamId": 13147,
         "sourceUrl": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=547&teamid=13147&page_type=Adult"
+      },
+      "strengthContext": {
+        "status": "SOURCE_SUPPORTED_DESCRIPTIVE_CONTEXT",
+        "contextIndex": 54.8,
+        "rank": 8,
+        "confidence": "EARLY_SAMPLE",
+        "currentForm": 56.2,
+        "scheduleDifficulty": 50.0,
+        "priorWinterForm": 59.2,
+        "weights": {
+          "currentForm": 0.55,
+          "scheduleDifficulty": 0.3,
+          "previousWinterForm": 0.15
+        },
+        "completedGames": 4
       }
     },
     {
@@ -2068,6 +2398,21 @@
         "association": "ROSTER_ID_CONTINUITY_CONFIRMED",
         "originalPriorLeagueTeamId": 13163,
         "sourceUrl": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=547&teamid=13163&page_type=Adult"
+      },
+      "strengthContext": {
+        "status": "SOURCE_SUPPORTED_DESCRIPTIVE_CONTEXT",
+        "contextIndex": 44.4,
+        "rank": 22,
+        "confidence": "EARLY_SAMPLE",
+        "currentForm": 44.2,
+        "scheduleDifficulty": 46.4,
+        "priorWinterForm": 41.2,
+        "weights": {
+          "currentForm": 0.55,
+          "scheduleDifficulty": 0.3,
+          "previousWinterForm": 0.15
+        },
+        "completedGames": 4
       }
     },
     {
@@ -2151,6 +2496,21 @@
         "association": "ROSTER_ID_CONTINUITY_CONFIRMED",
         "originalPriorLeagueTeamId": 13156,
         "sourceUrl": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=547&teamid=13156&page_type=Adult"
+      },
+      "strengthContext": {
+        "status": "SOURCE_SUPPORTED_DESCRIPTIVE_CONTEXT",
+        "contextIndex": 48.2,
+        "rank": 17,
+        "confidence": "EARLY_SAMPLE",
+        "currentForm": 43.3,
+        "scheduleDifficulty": 57.1,
+        "priorWinterForm": 48.4,
+        "weights": {
+          "currentForm": 0.55,
+          "scheduleDifficulty": 0.3,
+          "previousWinterForm": 0.15
+        },
+        "completedGames": 4
       }
     },
     {
@@ -2213,7 +2573,22 @@
       "bravesMatchHistory": {
         "state": "NO_VERIFIED_BRAVES_MATCH_HISTORY"
       },
-      "previousWinter": null
+      "previousWinter": null,
+      "strengthContext": {
+        "status": "SOURCE_SUPPORTED_DESCRIPTIVE_CONTEXT",
+        "contextIndex": 45.1,
+        "rank": 20,
+        "confidence": "EARLY_SAMPLE",
+        "currentForm": 41.4,
+        "scheduleDifficulty": 53.6,
+        "priorWinterForm": null,
+        "weights": {
+          "currentForm": 0.7,
+          "scheduleDifficulty": 0.3,
+          "previousWinterForm": 0.0
+        },
+        "completedGames": 4
+      }
     },
     {
       "leagueName": "Mighty Drunks",
@@ -2322,6 +2697,21 @@
         "association": "ROSTER_ID_CONTINUITY_CONFIRMED",
         "originalPriorLeagueTeamId": 13083,
         "sourceUrl": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=547&teamid=13083&page_type=Adult"
+      },
+      "strengthContext": {
+        "status": "SOURCE_SUPPORTED_DESCRIPTIVE_CONTEXT",
+        "contextIndex": 44.6,
+        "rank": 21,
+        "confidence": "EARLY_SAMPLE",
+        "currentForm": 41.2,
+        "scheduleDifficulty": 48.2,
+        "priorWinterForm": 49.5,
+        "weights": {
+          "currentForm": 0.55,
+          "scheduleDifficulty": 0.3,
+          "previousWinterForm": 0.15
+        },
+        "completedGames": 4
       }
     },
     {
@@ -2386,7 +2776,22 @@
         },
         "originalLeagueName": "Schmelts"
       },
-      "previousWinter": null
+      "previousWinter": null,
+      "strengthContext": {
+        "status": "NONCOMPETITIVE_DIVISION_REFERENCE",
+        "contextIndex": 42.4,
+        "rank": null,
+        "confidence": "EARLY_SAMPLE",
+        "currentForm": 42.2,
+        "scheduleDifficulty": 42.9,
+        "priorWinterForm": null,
+        "weights": {
+          "currentForm": 0.7,
+          "scheduleDifficulty": 0.3,
+          "previousWinterForm": 0.0
+        },
+        "completedGames": 1
+      }
     }
   ],
   "interpretation": {
@@ -2548,5 +2953,33 @@
     "eventsRecorded": 2,
     "incomingCristilloEventsRecorded": 1,
     "departedTeamProfilesRetained": 0
+  },
+  "strengthModel": {
+    "schema": "svhl-schedule-adjusted-context/v1",
+    "type": "DESCRIPTIVE_NOT_PREDICTIVE",
+    "source": "Current official SVHL reciprocal games; independent roster-supported previous winter; no Brave H.C. H2H scoring input",
+    "eligibleTeams": 26,
+    "unratedTeams": 0,
+    "noncompetitiveUnrankedTeams": 1,
+    "currentPseudoGames": 4,
+    "previousPseudoGames": 4,
+    "formDefinition": "70% smoothed (W+0.5T)/GP; 30% shrunk goal-difference per game, capped +/-4",
+    "oppositionDefinition": "Average opponent (W+0.5T)/GP with THIS matchup removed, smoothed by 4 neutral pseudogames",
+    "weightsWithRosterQualifiedPrior": {
+      "currentForm": 0.55,
+      "scheduleDifficulty": 0.3,
+      "previousWinterForm": 0.15
+    },
+    "weightsWithoutQualifiedPrior": {
+      "currentForm": 0.7,
+      "scheduleDifficulty": 0.3,
+      "previousWinterForm": 0.0
+    },
+    "previousWinterOnlyWhenRosterContinuityQualified": true,
+    "bravesHistoricalHeadToHeadExcluded": true,
+    "probabilityOfWinning": false,
+    "smallSamples": true,
+    "scoreIsNotOpponentRatingOnItsOwn": true,
+    "notice": "Descriptive 0–100 context index. Not calibrated to outcomes, not a win probability or forecast. Teams with 1–4 games are early-sample."
   }
 }
