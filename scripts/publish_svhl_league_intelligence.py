@@ -17,6 +17,7 @@ from check_svhl_league_intelligence import verify,ReleaseHold
 from track_svhl_division_movements import enrich,MovementHold
 from model_svhl_schedule_strength import calculate
 from track_svhl_strength_trends import enrich as enrich_trends,TrendHold
+from build_svhl_weekly_strength import enrich as enrich_weekly,WeeklyHold
 class Hold(ValueError):pass
 TARGET="widgets/league-intelligence.json"
 def require(ok,reason):
@@ -69,6 +70,16 @@ def monotonic(old,new):
    require(series["leagueName"]==new_series["leagueName"] and
            new_series["observations"][:len(series["observations"])]==series["observations"],
            "IMMUTABLE_TREND_HISTORY_REGRESSED_"+str(tid))
+ previousWeeks=old.get("weeklyLedger")
+ if previousWeeks:
+  upcoming=new.get("weeklyLedger")
+  require(upcoming and upcoming.get("schema")==previousWeeks.get("schema"),
+          "PREVIOUS_WEEKLY_STRENGTH_DROPPED")
+  prior=previousWeeks["weeks"];later=upcoming["weeks"]
+  require(len(later)>=len(prior) and later[:len(prior)-1]==prior[:-1],
+          "CLOSED_WEEKLY_HISTORY_CHANGED")
+  if prior[-1]["weekStartToronto"]!=later[len(prior)-1]["weekStartToronto"]:
+   require(later[:len(prior)]==prior,"PRIOR_WEEKLY_HISTORY_CHANGED")
  return True
 def pipeline(repo,private,receipt,check_only=False):
  repo=Path(repo);private=Path(private);receipt=Path(receipt)
@@ -106,12 +117,14 @@ def pipeline(repo,private,receipt,check_only=False):
   current=enrich(previous,current,baseline)
   current=calculate(current)  # descriptive context only; game source still authoritative
   current=enrich_trends(previous,current)  # append only on verified material change
+  current=enrich_weekly(previous,current)  # latest accepted snapshot per Toronto week
   # The enriched file is a private staged candidate until all source,
   # immutable-event and publisher checks have passed.
   candidate.write_text(json.dumps(current,indent=2,ensure_ascii=False)+"\n",encoding="utf8")
   accepted=read(repo/"widgets"/"opponent-intelligence.json")
   verified=verify(current,accepted,fresh=True)
   monotonic(previous,current)
+  report.update(weeklySnapshots=current["weeklyLedger"]["weeksRecorded"])
   report.update(trendObservations=current["trendLedger"]["observationsRecorded"],
        materialTrendChanges=current["trendLedger"]["materialChangesRecorded"])
   report.update(strengthModel=current["strengthModel"]["schema"],
@@ -145,7 +158,7 @@ def pipeline(repo,private,receipt,check_only=False):
     report.update(state="SOURCE_VERIFIED_ALL_DIVISIONS_PUBLISHED",siteWritten=True,commit=sha)
    else:
     report["state"]="PUBLIC_NO_CHANGE"
- except (ReleaseHold,MovementHold,TrendHold,Hold,ValueError,TypeError,KeyError,OSError,subprocess.TimeoutExpired) as e:
+ except (ReleaseHold,MovementHold,TrendHold,WeeklyHold,Hold,ValueError,TypeError,KeyError,OSError,subprocess.TimeoutExpired) as e:
   report.update(state="HOLD",reason=str(e)[:600])
   # Restore only known unstaged candidate; never reset commits or other changes.
   if not check_only:
