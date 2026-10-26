@@ -96,3 +96,8 @@ body:not(.full) .titleline{align-items:start}
 body:not(.full) .shell:focus-visible{outline:2px solid #ddbe8f;outline-offset:-2px}
 
 html:has(body.full){height:auto;overflow:auto}
+
+/* Exact current-game HTO/SVHL proof — not an all-time franchise merge. */
+.intel-gate .verified-single-game{font-weight:900;color:#fff;background:#203c55;padding:9px;border:1px solid #647e94;border-radius:5px;font-size:12px;line-height:1.55}
+.same-game-links{display:flex;flex-wrap:wrap;gap:12px;margin-top:10px;font-weight:800;font-size:11px}
+.same-game-links a{color:#f5d1d8;text-decoration:underline}

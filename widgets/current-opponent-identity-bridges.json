@@ -1,0 +1,41 @@
+{
+  "schema": "brave-hc-2026-single-game-identity-proof/v1",
+  "status": "OFFICIAL_SAME_GAME_PROOF_VERIFIED",
+  "generatedUTC": "2026-10-26T16:11:06.543974+00:00",
+  "franchiseHistoryMerged": false,
+  "sameGamePairs": [
+    {
+      "divisionName": "Mohawks HC",
+      "htoRecordedOpponent": "Mohawks H.C.",
+      "htogameId": 3356178,
+      "date": "2026-09-27",
+      "gameTime": "6:15PM",
+      "bravesGoals": 3,
+      "opponentGoals": 6,
+      "result": "L",
+      "scope": "THIS_COMPLETED_GAME_ONLY",
+      "historicalFranchiseMergeAuthorized": false,
+      "svhlSource": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13680&page_type=Adult",
+      "htoSource": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=3356178&p=boxscore",
+      "svhlSourceSHA256": "a1e772d127dabfd861e86bef1756e827e64dd2c3cc8fe01ed394361ac217d438",
+      "htoSourceSHA256": "2a018f3f0b65b940af2964034f44c80856fdcd126ae4068229508ba3015c76b2"
+    },
+    {
+      "divisionName": "Sugo Sundays",
+      "htoRecordedOpponent": "Michelob Morts",
+      "htogameId": 3369564,
+      "date": "2026-10-04",
+      "gameTime": "8:15PM",
+      "bravesGoals": 2,
+      "opponentGoals": 3,
+      "result": "L",
+      "scope": "THIS_COMPLETED_GAME_ONLY",
+      "historicalFranchiseMergeAuthorized": false,
+      "svhlSource": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13709&page_type=Adult",
+      "htoSource": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=3369564&p=boxscore",
+      "svhlSourceSHA256": "37b45f5edb9b3769260704cfa99236321974ad3a5578289bf15fd8de910466e2",
+      "htoSourceSHA256": "7b4c2ae4846250b0bad5be782625fa5f1ae46318788cac5cd901343e867f55d4"
+    }
+  ],
+  "notice": "These links validate two individual 2026/27 Braves games between official SVHL and HTO records. Earlier franchise history remains unmerged."
+}
