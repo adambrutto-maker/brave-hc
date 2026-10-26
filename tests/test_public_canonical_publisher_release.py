@@ -40,4 +40,35 @@ class PublisherReleaseContract(unittest.TestCase):
  def test_original_mohawks_history_cannot_be_dropped(self):
   p,s=payload();p["teams"]=[x for x in p["teams"] if x["name"]!="Mohawks HC"]
   with self.assertRaisesRegex(m.ReleaseHold,"SOURCE_QUALIFIED_DIVISION"):m.require_public_scope(p,s)
+ def test_verified_current_hto_opponent_retained_after_division_exit(self):
+  prior,standings=payload()
+  later=deepcopy(prior)
+  for t in standings["teams"]:
+   if t["name"]=="Big Bastones":t["name"]="New League Member"
+  target=next(e for e in later["teams"] if e["name"]=="Big Bastones")
+  target["membershipStatus"]="SEASON_OPPONENT_ARCHIVE"
+  later["teams"].append({"name":"New League Member","verification":"NO_EXACT_HISTORY",
+     "membershipStatus":"CURRENT_DIVISION","message":"No verified original matchup"})
+  later["coverage"]["seasonOpponentArchives"]+=1
+  later["coverage"]["noExactHistory"]+=1
+  self.assertTrue(m.require_public_scope(later,standings))
+  self.assertTrue(m.require_retained_hto_opponents(prior,later))
+ def test_previously_admitted_source_HTO_opponent_cannot_disappear(self):
+  prior,standings=payload()
+  later=deepcopy(prior)
+  later["teams"]=[x for x in later["teams"] if x["name"]!="Big Bastones"]
+  with self.assertRaisesRegex(m.ReleaseHold,"PREVIOUSLY_VERIFIED_HTO_OPPONENT_DISAPPEARED"):
+   m.require_retained_hto_opponents(prior,later)
+ def test_accepted_opponent_cannot_lose_recorded_HTO_game(self):
+  prior,standings=payload()
+  later=deepcopy(prior)
+  next(x for x in later["teams"] if x["name"]=="Mohawks HC")["sourceHTOGames"]=0
+  with self.assertRaisesRegex(m.ReleaseHold,"HTO_OPPONENT_GAME_COVERAGE_REGRESSED"):
+   m.require_retained_hto_opponents(prior,later)
+ def test_archived_canonical_source_identity_cannot_be_reassigned(self):
+  prior,standings=payload()
+  later=deepcopy(prior)
+  next(x for x in later["teams"] if x["name"]=="Sugo Sundays")["canonicalName"]="Maplewolves"
+  with self.assertRaisesRegex(m.ReleaseHold,"VERIFIED_OPPONENT_IDENTITY_SCOPE_REGRESSED"):
+   m.require_retained_hto_opponents(prior,later)
 if __name__=="__main__":unittest.main(verbosity=2)

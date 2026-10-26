@@ -74,7 +74,7 @@ def validate(standings,opponents,proof,html,js,now=None,check_fresh=False):
     entries=opponents.get("teams")
     require(type(coverage) is dict and isinstance(entries,list) and
             type(coverage.get("seasonOpponentArchives")) is int and
-            0<=coverage["seasonOpponentArchives"]<=4 and
+            0<=coverage["seasonOpponentArchives"]<=min(24,coverage.get("currentSeasonGames",0)) and
             coverage.get("currentDivisionOpponents")==7 and
             len(entries)==7+coverage["seasonOpponentArchives"] and
             len({x.get("name") for x in entries})==len(entries),
@@ -96,6 +96,17 @@ def validate(standings,opponents,proof,html,js,now=None,check_fresh=False):
             coverage.get("historicalContinuityNotEstablished")==1,
             "PUBLIC_SOURCE_COVERAGE_SCOPE_DRIFT")
     identities={entry["name"]:entry for entry in entries}
+    for name in archived:
+        entry=identities[name]
+        require(entry.get("verification") in
+                ("VERIFIED_EXACT_NAME","VERIFIED_HISTORICAL_NAME_VARIANT",
+                 "VERIFIED_CURRENT_NAME_ALIAS_ONLY") and
+                type(entry.get("sourceHTOGames")) is int and
+                1<=entry["sourceHTOGames"]<=coverage["currentSeasonGames"] and
+                isinstance(entry.get("allTime"),dict) and
+                type(entry["allTime"].get("gp")) is int and
+                entry["allTime"]["gp"]>=entry["sourceHTOGames"],
+                "ARCHIVED_OPPONENT_NEEDS_SOURCE_QUALIFIED_HTO_HISTORY_"+name)
     for name in EXACT_CORE | {"Maplewolves"}:
         if name not in identities:continue
         e=identities[name]
