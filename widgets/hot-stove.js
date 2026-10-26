@@ -257,7 +257,7 @@ function feature(section,a,includePreview){
  if(!includePreview&&a.followingGamePreview)archivedNextGame(section,a.followingGamePreview);
  if(includePreview)verifiedClubNotes(section);
  if(includePreview&&publication.gamePreview){
-  section.append($("p","next-tab-hint","Want the full Big Bastones matchup analysis and player outlook? Select Next game above."));
+  section.append($("p","next-tab-hint","For the full matchup outlook, select Next game above."));
  }
 }
 function headToHeadStats(p){
