@@ -153,6 +153,11 @@
    Array.isArray(games) && doc.gamesCount===games.length &&
    new Set(games.map(g=>g.gameId)).size===games.length;
   if(!valid)throw Error("HTO schedule provenance or fixture totals not qualified");
+  // Determine today's date in the calendar's local timezone, not in the viewer's timezone.
+  const parts=new Intl.DateTimeFormat("en-CA",{timeZone:"America/Toronto",
+    year:"numeric",month:"2-digit",day:"2-digit"}).formatToParts(new Date());
+  const part=type=>parts.find(p=>p.type===type)?.value;
+  const today=part("year")+"-"+part("month")+"-"+part("day");
   for(const game of games){
    const url=new URL(game.gameUrl);
    if(!["www.hometeamsonline.com","www.htosports.com"].includes(url.hostname) ||
@@ -166,7 +171,7 @@
      throw Error("Fixture's HTO game identity or local date/time is unqualified");
    const matched=game.identityState==="MATCHED_CURRENT_SVHL_SEASON_TEAM"?
       data.teams.find(t=>t.sourceTeamId===game.sourceTeamId&&t.leagueName===game.leagueName):null;
-   upcomingFixtures.push({...game,matched:matched?.leagueName||null});
+   if(game.date>=today)upcomingFixtures.push({...game,matched:matched?.leagueName||null});
   }
   upcomingFixtures.sort((a,b)=>(a.date+"T"+a.localTime).localeCompare(b.date+"T"+b.localTime));
   const stamp=new Date(doc.capturedUTC),age=Date.now()-stamp.getTime();
@@ -198,14 +203,15 @@
   }
   if(!upcomingFixtures.length)text(grid,"p","tiny","No upcoming games listed within the currently checked calendar window.");
   renderScoutingBoard();
+  return !stale;
  }
  async function loadUpcomingFixtures(){
   try{
    const response=await fetch("./upcoming-matchups.json",{cache:"no-store"});
    if(!response.ok)throw Error("HTO fixture feed not published");
    const doc=await response.json();
-   renderUpcomingFixtures(doc);
-   const next=upcomingFixtures.find(g=>g.matched);
+   const fresh=renderUpcomingFixtures(doc);
+   const next=fresh?upcomingFixtures.find(g=>g.matched):null;
    const explicit=new URLSearchParams(location.search).get("team");
    if(next&&!explicit)choose(next.matched);
   }catch(e){
