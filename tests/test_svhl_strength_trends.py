@@ -15,49 +15,72 @@ def future(doc,hours=24):
  return result
 def maple(doc):return next(t for t in doc["teams"] if t["leagueName"]=="Maplewolves")
 class TrendHistoryQA(unittest.TestCase):
- def test_published_baseline_is_only_one_point_per_real_team(self):
-  doc=base()
+ def test_published_history_preserves_its_original_observation_dates(self):
+  doc=base();ledger=doc["trendLedger"]
   self.assertTrue(validate(doc))
-  self.assertEqual(doc["trendLedger"]["trackedTeams"],len(doc["teams"]))
-  self.assertEqual(doc["trendLedger"]["materialChangesRecorded"],0)
-  self.assertTrue(all(len(x["observations"])==1 for x in doc["trendLedger"]["teams"]))
-  self.assertTrue(all(x["observations"][0]["observedAtUTC"]==doc["asOf"]
-                      for x in doc["trendLedger"]["teams"]))
+  self.assertGreaterEqual(ledger["trackedTeams"],len(doc["teams"]))
+  self.assertEqual(ledger["observationsRecorded"],
+                   sum(len(x["observations"]) for x in ledger["teams"]))
+  self.assertEqual(ledger["materialChangesRecorded"],
+                   ledger["observationsRecorded"]-ledger["trackedTeams"])
+  self.assertTrue(all(datetime.fromisoformat(x["observations"][0]["observedAtUTC"])<=
+                      datetime.fromisoformat(doc["asOf"])
+                      for x in ledger["teams"]))
+  self.assertTrue(all(x["observations"][0]["observedAtUTC"]==
+     "2026-10-26T20:07:46.886724+00:00" for x in ledger["teams"]
+     if x["sourceTeamId"] in
+       {t["sourceTeamId"] for t in doc["teams"] if t["leagueName"]=="Maplewolves"}))
  def test_repeat_publisher_run_never_fakes_a_new_observation(self):
   doc=base();next_doc=enrich(doc,future(doc))
-  self.assertEqual(next_doc["trendLedger"]["observationsRecorded"],27)
-  self.assertEqual(next_doc["trendLedger"]["materialChangesRecorded"],0)
+  self.assertEqual(next_doc["trendLedger"]["observationsRecorded"],
+                   doc["trendLedger"]["observationsRecorded"])
+  self.assertEqual(next_doc["trendLedger"]["materialChangesRecorded"],
+                   doc["trendLedger"]["materialChangesRecorded"])
   self.assertTrue(monotonic(doc,next_doc))
  def test_new_public_source_fingerprint_without_metric_change_no_new_point(self):
   doc=base();candidate=future(doc)
   candidate["sourceSHA256"]="f"*64
   result=enrich(doc,candidate)
-  self.assertEqual(result["trendLedger"]["materialChangesRecorded"],0)
+  self.assertEqual(result["trendLedger"]["materialChangesRecorded"],
+                   doc["trendLedger"]["materialChangesRecorded"])
  def test_observed_score_change_even_without_new_games_is_recorded(self):
   doc=base();candidate=future(doc)
   maple(candidate)["strengthContext"]["scheduleDifficulty"]+=1
   maple(candidate)["strengthContext"]["contextIndex"]+=0.3
   result=enrich(doc,candidate)
-  self.assertEqual(result["trendLedger"]["materialChangesRecorded"],1)
+  self.assertEqual(result["trendLedger"]["materialChangesRecorded"],
+                   doc["trendLedger"]["materialChangesRecorded"]+1)
   trend=next(x for x in result["trendLedger"]["teams"] if x["leagueName"]=="Maplewolves")
-  self.assertEqual(len(trend["observations"]),2)
-  self.assertEqual(trend["observations"][0]["record"]["gp"],trend["observations"][1]["record"]["gp"])
+  self.assertEqual(len(trend["observations"]),
+                   len(next(x for x in doc["trendLedger"]["teams"] if
+                            x["leagueName"]=="Maplewolves")["observations"])+1)
+  self.assertEqual(trend["observations"][-2]["record"]["gp"],
+                   trend["observations"][-1]["record"]["gp"])
   self.assertTrue(monotonic(doc,result))
  def test_new_games_create_new_observation_after_verified_source(self):
   doc=base();candidate=future(doc)
   t=maple(candidate)
-  t["record"].update(gp=5,w=1,pts=2,gf=t["record"]["gf"]+2,ga=t["record"]["ga"]+1)
-  t["strengthContext"].update(contextIndex=42.3,currentForm=39.1,completedGames=5,
-                               confidence="LIMITED_SAMPLE")
+  oldgp=t["record"]["gp"];newgp=oldgp+1
+  t["record"].update(gp=newgp,w=t["record"]["w"]+1,pts=t["record"]["pts"]+2,
+                     gf=t["record"]["gf"]+2,ga=t["record"]["ga"]+1)
+  t["strengthContext"].update(
+      contextIndex=min(100,t["strengthContext"]["contextIndex"]+0.5),
+      completedGames=newgp,
+      confidence="EARLY_SAMPLE" if newgp<5 else
+                 "LIMITED_SAMPLE" if newgp<10 else "LARGER_SAMPLE")
   result=enrich(doc,candidate)
-  self.assertEqual(result["trendLedger"]["materialChangesRecorded"],1)
+  self.assertEqual(result["trendLedger"]["materialChangesRecorded"],
+                   doc["trendLedger"]["materialChangesRecorded"]+1)
   self.assertEqual(next(x for x in result["trendLedger"]["teams"] if x["leagueName"]=="Maplewolves")
-                   ["observations"][-1]["record"]["gp"],5)
+                   ["observations"][-1]["record"]["gp"],newgp)
  def test_same_timestamp_cannot_hide_changed_values(self):
-  doc=base();candidate=deepcopy(doc)
+  doc=base();candidate=future(doc)
   maple(candidate)["strengthContext"]["contextIndex"]+=0.1
+  accepted=enrich(doc,candidate)
+  altered=deepcopy(accepted)
+  maple(altered)["strengthContext"]["contextIndex"]+=0.1
   with self.assertRaisesRegex(TrendHold,"DIFFERENT_STATE_SAME_TIMESTAMP"):
-   enrich(doc,candidate)
+   enrich(accepted,altered)
  def test_backward_timestamp_is_held(self):
   doc=base()
   with self.assertRaisesRegex(TrendHold,"BACKDATED_SNAPSHOT"):
@@ -76,11 +99,13 @@ class TrendHistoryQA(unittest.TestCase):
   absent=maple(candidate)
   candidate["teams"]=[t for t in candidate["teams"] if t["leagueName"]!="Maplewolves"]
   gone=enrich(doc,candidate)
-  self.assertEqual(gone["trendLedger"]["trackedTeams"],27)
+  self.assertEqual(gone["trendLedger"]["trackedTeams"],
+                   doc["trendLedger"]["trackedTeams"])
   self.assertTrue(any(g["sourceTeamId"]==absent["sourceTeamId"] for g in gone["trendLedger"]["teams"]))
   returned=future(gone);returned["teams"].append(deepcopy(maple(doc)))
   back=enrich(gone,returned)
-  self.assertEqual(back["trendLedger"]["trackedTeams"],27)
+  self.assertEqual(back["trendLedger"]["trackedTeams"],
+                   doc["trendLedger"]["trackedTeams"])
   self.assertTrue(validate(back))
  def test_renaming_a_stable_source_id_fails(self):
   doc=base();candidate=future(doc);maple(candidate)["leagueName"]="Fictional identity"
