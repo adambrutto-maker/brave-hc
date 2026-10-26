@@ -8,7 +8,7 @@
  const dec=v=>Number.isFinite(v)?(v>0?"+":"")+v.toFixed(2):"—";
  const record=x=>x?(x.w+"–"+x.l+"–"+x.t):"—";
  const date=s=>{try{return new Date(s+"T12:00:00").toLocaleDateString("en-CA",{year:"numeric",month:"short",day:"numeric"})}catch(_){return s}};
- let data=null,selected=null;
+ let data=null,selected=null,currentScoutingBrief=null;
  function trusted(doc){
   return doc?.schema==="brave-hc-league-intelligence/public-v1" &&
    doc.status==="OFFICIAL_LEAGUE_RESULTS_SOURCE_QUALIFIED" &&
@@ -142,6 +142,82 @@
    " dated source observations retained. "+history.departedTeamProfilesRetained+
    " complete departed-league profiles archived. Old results are never replaced by division-name assumptions.";
  }
+ function renderScoutingBoard(){
+  const board=q("scout-board");board.replaceChildren();
+  const reports=window.BraveLeagueScouting.cristilloOpponents(data);
+  q("scout-count").textContent=reports.length+" current opponents";
+  for(const brief of reports){
+   const card=el("article","scout-card");
+   text(card,"strong","",brief.name);
+   text(card,"small","",brief.rec.gp+" GP · "+record(brief.rec)+
+    " · "+brief.rec.gf+" GF / "+brief.rec.ga+" GA");
+   text(card,"small","",Number.isFinite(brief.context)?
+    "Context "+brief.context.toFixed(1)+"/100 · "+brief.confidence.replace(/_/g," ").toLowerCase():
+    "Context not rated");
+   if(brief.bravesH2H)
+    text(card,"small","","Brave H.C. verified H2H: "+
+     record(brief.bravesH2H.record)+" ("+brief.bravesH2H.record.gp+" games)");
+   else text(card,"small","","No verified Brave H.C. historical matchup");
+   const button=text(card,"button","","View scouting report");
+   button.type="button";
+   button.addEventListener("click",()=>{
+    q("division-filter").value="all";
+    choose(brief.leagueName);
+    q("profile-title").scrollIntoView({block:"start",behavior:"smooth"});
+   });
+   board.append(card);
+  }
+  if(!reports.length)text(board,"p","tiny","No source-verified current Cristillo opponents.");
+ }
+ function renderScoutingProfile(team){
+  const brief=window.BraveLeagueScouting.build(data,team.leagueName);
+  currentScoutingBrief=brief;
+  const cards=q("scout-profile-summary");cards.replaceChildren();
+  context(cards,"SVHL source record",record(brief.rec)+" in "+brief.rec.gp+
+   " verified games · "+brief.rec.gf+" GF / "+brief.rec.ga+" GA");
+  context(cards,"Scoring and defending",brief.rec.gp?
+   (brief.gfRate.toFixed(2)+" GF/GP · "+brief.gaRate.toFixed(2)+
+    " GA/GP"):"No verified completed games");
+  if(brief.isBraves){
+   context(cards,"Club baseline","This is Brave H.C. itself; no self head-to-head matchup.");
+  }else if(brief.bravesH2H){
+   const h=brief.bravesH2H.record;
+   context(cards,"Verified Brave H.C. history",record(h)+" over "+h.gp+
+     " games · "+h.gf+" GF / "+h.ga+" GA");
+  }else context(cards,"Brave H.C. history","No source-verified matchup with this exact or approved team identity.");
+  q("scout-profile-context").textContent=brief.bravesComparison?
+   "Current SVHL context: "+brief.name+" "+brief.context.toFixed(1)+
+   "/100 versus Brave H.C. "+brief.bravesComparison.bravesIndex.toFixed(1)+
+   "/100. Difference "+(brief.bravesComparison.difference>0?"+":"")+
+   brief.bravesComparison.difference.toFixed(1)+
+   " descriptive index points. "+brief.crossDivisionGames+" of "+brief.rec.gp+
+   " opponents were from teams now in other divisions. No future fixture or win probability is inferred.":
+   "Source-qualified scouting only. The comparison is unavailable or this is Brave H.C. itself. "+
+   "No future fixture or win probability is inferred.";
+  const recent=q("scout-recent");recent.replaceChildren();
+  for(const game of brief.recent){
+   const li=el("li","",game.date+" · "+game.result+" "+game.gf+"–"+game.ga+
+     " vs "+game.opponent+" ("+game.divisionNow+" now)");
+   recent.append(li);
+  }
+  if(!brief.recent.length)text(recent,"li","","No source-verified completed games");
+  q("scout-copy-status").textContent="";
+ }
+ async function copyScoutingBrief(){
+  const status=q("scout-copy-status");
+  if(!currentScoutingBrief){status.textContent="Scouting data not available.";return}
+  if(!navigator.clipboard?.writeText){
+   status.textContent="Clipboard unavailable in this browser; copy from the on-screen report.";
+   return;
+  }
+  try{
+   const content=window.BraveLeagueScouting.format(currentScoutingBrief);
+   await navigator.clipboard.writeText(content);
+   status.textContent="Source-qualified scouting brief copied for WhatsApp.";
+  }catch(_){
+   status.textContent="Could not copy automatically. Browser clipboard permission may be required.";
+  }
+ }
  function table(){
   const choice=q("division-filter").value;
   const cards=data.teams.filter(t=>choice==="all"?
@@ -210,6 +286,7 @@
   const x=data.teams.find(item=>item.leagueName===selected);
   if(!x)return;
   q("profile-title").textContent=x.displayName;
+  renderScoutingProfile(x);
   q("profile-division").textContent=x.divisionNow+" · "+x.gamesConfirmed+" reciprocal completed fixtures";
   q("team-official-link").href=x.source;
   const panel=q("profile-metrics");panel.replaceChildren();
@@ -288,13 +365,15 @@
    if(!response.ok)throw Error("Source not yet published");
    const result=await response.json();
    if(!trusted(result))throw Error("Published league-source agreement not validated");
-   data=result;setup();movement();
+   if(!window.BraveLeagueScouting)throw Error("Verified scouting module unavailable");
+   data=result;setup();movement();renderScoutingBoard();
    const name=new URLSearchParams(location.search).get("team");
    selected=data.teams.some(x=>x.leagueName===name)?name:
     data.teams.some(x=>x.leagueName==="Maplewolves")?"Maplewolves":"Braves HC";
    q("division-filter").addEventListener("change",table);
    q("sort-field").addEventListener("change",table);
    q("team-filter").addEventListener("change",event=>choose(event.target.value));
+   q("copy-scout-brief").addEventListener("click",copyScoutingBrief);
    table();profile();
   }catch(e){
    q("source-status").textContent="SOURCE HELD: "+e.message+". Historical identities or strength figures were not guessed.";
