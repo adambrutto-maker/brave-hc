@@ -1,5 +1,5 @@
 {
-  "capturedAt": "2026-10-26T00:27:24.134750+00:00",
+  "capturedAt": "2026-10-26T03:58:54.949936+00:00",
   "sourceAuthority": "PUBLIC_HTO_HTTP_READBACK",
   "games": [
     {
@@ -1837,10 +1837,23 @@
                 "5:04",
                 "ES",
                 "Brave H.C.",
-                "-",
+                "22 Adam Povegliano ( 89 Justin Carosi , 67 Francesco Triumbari )",
                 "0-2 Brave H.C."
               ],
-              "players": []
+              "players": [
+                {
+                  "href": "https://www.htosports.com/teams/default.asp?s=hockey&u=BRAVESHOCKEY&p=profile&sportsHQ=BRAVESHOCKEY&playerID=844036",
+                  "name": "22 Adam Povegliano"
+                },
+                {
+                  "href": "https://www.htosports.com/teams/default.asp?s=hockey&u=BRAVESHOCKEY&p=profile&sportsHQ=BRAVESHOCKEY&playerID=354060",
+                  "name": "89 Justin Carosi"
+                },
+                {
+                  "href": "https://www.htosports.com/teams/default.asp?s=hockey&u=BRAVESHOCKEY&p=profile&sportsHQ=BRAVESHOCKEY&playerID=845364",
+                  "name": "67 Francesco Triumbari"
+                }
+              ]
             },
             {
               "cells": [
@@ -1848,10 +1861,19 @@
                 "2:25",
                 "ES",
                 "Brave H.C.",
-                "-",
+                "20 Stephane Saindon ( 28 Adam Brutto )",
                 "0-3 Brave H.C."
               ],
-              "players": []
+              "players": [
+                {
+                  "href": "https://www.htosports.com/teams/default.asp?s=hockey&u=BRAVESHOCKEY&p=profile&sportsHQ=BRAVESHOCKEY&playerID=738846",
+                  "name": "20 Stephane Saindon"
+                },
+                {
+                  "href": "https://www.htosports.com/teams/default.asp?s=hockey&u=BRAVESHOCKEY&p=profile&sportsHQ=BRAVESHOCKEY&playerID=354054",
+                  "name": "28 Adam Brutto"
+                }
+              ]
             },
             {
               "cells": [
@@ -1881,10 +1903,23 @@
                 "9:20",
                 "ES",
                 "Brave H.C.",
-                "-",
+                "25 Michael Provenzano ( 22 Adam Povegliano , 20 Stephane Saindon )",
                 "2-4 Brave H.C."
               ],
-              "players": []
+              "players": [
+                {
+                  "href": "https://www.htosports.com/teams/default.asp?s=hockey&u=BRAVESHOCKEY&p=profile&sportsHQ=BRAVESHOCKEY&playerID=686216",
+                  "name": "25 Michael Provenzano"
+                },
+                {
+                  "href": "https://www.htosports.com/teams/default.asp?s=hockey&u=BRAVESHOCKEY&p=profile&sportsHQ=BRAVESHOCKEY&playerID=844036",
+                  "name": "22 Adam Povegliano"
+                },
+                {
+                  "href": "https://www.htosports.com/teams/default.asp?s=hockey&u=BRAVESHOCKEY&p=profile&sportsHQ=BRAVESHOCKEY&playerID=738846",
+                  "name": "20 Stephane Saindon"
+                }
+              ]
             },
             {
               "cells": [
@@ -1892,10 +1927,23 @@
                 "6:23",
                 "ES",
                 "Brave H.C.",
-                "-",
+                "25 Michael Provenzano ( 44 Alex Pagnotta , 12 Adam Kober )",
                 "2-5 Brave H.C."
               ],
-              "players": []
+              "players": [
+                {
+                  "href": "https://www.htosports.com/teams/default.asp?s=hockey&u=BRAVESHOCKEY&p=profile&sportsHQ=BRAVESHOCKEY&playerID=686216",
+                  "name": "25 Michael Provenzano"
+                },
+                {
+                  "href": "https://www.htosports.com/teams/default.asp?s=hockey&u=BRAVESHOCKEY&p=profile&sportsHQ=BRAVESHOCKEY&playerID=354058",
+                  "name": "44 Alex Pagnotta"
+                },
+                {
+                  "href": "https://www.htosports.com/teams/default.asp?s=hockey&u=BRAVESHOCKEY&p=profile&sportsHQ=BRAVESHOCKEY&playerID=736317",
+                  "name": "12 Adam Kober"
+                }
+              ]
             },
             {
               "cells": [
@@ -1925,10 +1973,19 @@
                 "0:10",
                 "ES",
                 "Brave H.C.",
-                "-",
+                "18 Jamie Rosenberg ( 67 Francesco Triumbari )",
                 "4-6 Brave H.C."
               ],
-              "players": []
+              "players": [
+                {
+                  "href": "https://www.htosports.com/teams/default.asp?s=hockey&u=BRAVESHOCKEY&p=profile&sportsHQ=BRAVESHOCKEY&playerID=843644",
+                  "name": "18 Jamie Rosenberg"
+                },
+                {
+                  "href": "https://www.htosports.com/teams/default.asp?s=hockey&u=BRAVESHOCKEY&p=profile&sportsHQ=BRAVESHOCKEY&playerID=845364",
+                  "name": "67 Francesco Triumbari"
+                }
+              ]
             }
           ]
         },
@@ -2017,6 +2074,7 @@
                 "G",
                 "A",
                 "Pts",
+                "GWG",
                 "PIM",
                 "+/-",
                 "POTG"
@@ -2030,7 +2088,8 @@
                 "LD",
                 "",
                 "0",
-                "0",
+                "1",
+                "1",
                 "0",
                 "0",
                 "2",
@@ -2050,8 +2109,9 @@
                 "C",
                 "",
                 "1",
-                "0",
                 "1",
+                "2",
+                "0",
                 "2",
                 "2",
                 "0"
@@ -2070,7 +2130,8 @@
                 "LW/LD",
                 "",
                 "0",
-                "0",
+                "1",
+                "1",
                 "0",
                 "0",
                 "2",
@@ -2093,6 +2154,7 @@
                 "0",
                 "0",
                 "0",
+                "0",
                 "2",
                 "0"
               ],
@@ -2110,7 +2172,8 @@
                 "RD",
                 "",
                 "0",
-                "0",
+                "1",
+                "1",
                 "0",
                 "0",
                 "2",
@@ -2132,6 +2195,7 @@
                 "0",
                 "1",
                 "1",
+                "0",
                 "2",
                 "2",
                 "0"
@@ -2149,8 +2213,9 @@
                 "Povegliano, Adam",
                 "F",
                 "",
-                "0",
-                "0",
+                "1",
+                "1",
+                "2",
                 "0",
                 "0",
                 "2",
@@ -2172,6 +2237,7 @@
                 "0",
                 "0",
                 "0",
+                "0",
                 "2",
                 "2",
                 "0"
@@ -2189,9 +2255,10 @@
                 "Provenzano, Michael",
                 "C/LW",
                 "",
+                "2",
                 "0",
-                "0",
-                "0",
+                "2",
+                "1",
                 "0",
                 "2",
                 "1"
@@ -2213,6 +2280,7 @@
                 "0",
                 "0",
                 "0",
+                "0",
                 "2",
                 "0"
               ],
@@ -2229,8 +2297,9 @@
                 "Rosenberg, Jamie",
                 "C/LW",
                 "",
+                "1",
                 "0",
-                "0",
+                "1",
                 "0",
                 "0",
                 "2",
@@ -2249,8 +2318,9 @@
                 "Saindon, Stephane",
                 "C",
                 "",
-                "0",
-                "0",
+                "1",
+                "1",
+                "2",
                 "0",
                 "0",
                 "2",
@@ -2270,7 +2340,8 @@
                 "LD",
                 "",
                 "0",
-                "0",
+                "2",
+                "2",
                 "0",
                 "0",
                 "2",
@@ -2289,9 +2360,10 @@
                 "Team Stats",
                 "",
                 "",
+                "6",
+                "9",
+                "15",
                 "1",
-                "1",
-                "2",
                 "6",
                 "26",
                 "2"
@@ -2356,7 +2428,7 @@
         }
       ],
       "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3375682",
-      "heading": "SCORE BOARD\nREGULAR SEASON\n\t1\t2\t3\tF\n\nBig Bastones\n0\t2\t2\t4\n\nBrave H.C.\n3\t0\t3\t6\n"
+      "heading": "SCORE BOARD\nREGULAR SEASON\n\t1\t2\t3\tOT\t2OT\tF\n\nBig Bastones\n0\t2\t2\t0\t0\t4\n\nBrave H.C.\n3\t0\t3\t0\t0\t6\n"
     }
   ]
 }
