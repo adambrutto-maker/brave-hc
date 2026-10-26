@@ -1,0 +1,58 @@
+# Source-identity data remains verified from the Brave H.C. workbook/HTO.
+# This public-only QA cannot authorize a historical alias merge.
+name: Brave H.C. canonical identity integrity
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'widgets/opponent-intelligence.json'
+      - 'widgets/standings.json'
+      - 'widgets/current-opponent-identity-bridges.json'
+      - 'widgets/home-premium.js'
+      - 'widgets/home-panels.html'
+      - 'scripts/check_public_canonical_identities.py'
+      - 'tests/test_public_canonical_identity_contract.py'
+      - '.github/workflows/brave-identity-integrity.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'widgets/opponent-intelligence.json'
+      - 'widgets/standings.json'
+      - 'widgets/current-opponent-identity-bridges.json'
+      - 'widgets/home-premium.js'
+      - 'widgets/home-panels.html'
+      - 'scripts/check_public_canonical_identities.py'
+      - 'tests/test_public_canonical_identity_contract.py'
+      - '.github/workflows/brave-identity-integrity.yml'
+  # Scheduled protection catches stale public identity data if BRUTTECH 1 is
+  # offline and no source publisher push occurs. UTC avoids DST ambiguity.
+  schedule:
+    - cron: '43 14 * * *'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: brave-identity-integrity-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  canonical-identity:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Fetch source-controlled published widgets
+        uses: actions/checkout@v4
+      - name: Use Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate public canonical team and franchise source scope
+        run: python scripts/check_public_canonical_identities.py
+      - name: Regress invalid source identities and invented history
+        run: python -m unittest discover -s tests -p test_public_canonical_identity_contract.py
+      - name: Confirm public feed freshness on daily schedule only
+        if: github.event_name == 'schedule'
+        run: python scripts/check_public_canonical_identities.py --check-fresh
