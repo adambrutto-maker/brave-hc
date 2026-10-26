@@ -1,5 +1,5 @@
 {
-  "capturedAt": "2026-10-21T00:42:41.468582+00:00",
+  "capturedAt": "2026-10-26T00:27:24.134750+00:00",
   "sourceAuthority": "PUBLIC_HTO_HTTP_READBACK",
   "games": [
     {
@@ -1790,6 +1790,573 @@
       ],
       "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3375601",
       "heading": "SCORE BOARD\nREGULAR SEASON\n\t1\t2\t3\tOT\t2OT\tF\n\nZamboner Crew\n2\t3\t2\t0\t0\t7\n\nBrave H.C.\n1\t0\t0\t0\t0\t1\n"
+    },
+    {
+      "schedule": {
+        "href": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3375682",
+        "text": "Box Score\n\t\nSun, 10/25/26\n\t\n6:15 pm\n\t\nBig Bastones\n\t\nW 4 - 6\n\t\nVaughan Sports Village - A Rink",
+        "season": "Winter 2026/2027"
+      },
+      "tables": [
+        {
+          "rows": [
+            {
+              "cells": [
+                "Per Period",
+                "Time",
+                "Str Strength",
+                "Team",
+                "Scorer (Assisted by)",
+                "Total"
+              ],
+              "players": []
+            },
+            {
+              "cells": [
+                "1",
+                "8:44",
+                "ES",
+                "Brave H.C.",
+                "89 Justin Carosi ( 39 Keith Pearsoll )",
+                "0-1 Brave H.C."
+              ],
+              "players": [
+                {
+                  "href": "https://www.htosports.com/teams/default.asp?s=hockey&u=BRAVESHOCKEY&p=profile&sportsHQ=BRAVESHOCKEY&playerID=354060",
+                  "name": "89 Justin Carosi"
+                },
+                {
+                  "href": "https://www.htosports.com/teams/default.asp?s=hockey&u=BRAVESHOCKEY&p=profile&sportsHQ=BRAVESHOCKEY&playerID=354056",
+                  "name": "39 Keith Pearsoll"
+                }
+              ]
+            },
+            {
+              "cells": [
+                "1",
+                "5:04",
+                "ES",
+                "Brave H.C.",
+                "-",
+                "0-2 Brave H.C."
+              ],
+              "players": []
+            },
+            {
+              "cells": [
+                "1",
+                "2:25",
+                "ES",
+                "Brave H.C.",
+                "-",
+                "0-3 Brave H.C."
+              ],
+              "players": []
+            },
+            {
+              "cells": [
+                "2",
+                "7:03",
+                "ES",
+                "Big Bastones",
+                "-",
+                "1-3 Brave H.C."
+              ],
+              "players": []
+            },
+            {
+              "cells": [
+                "2",
+                "0:02",
+                "ES",
+                "Big Bastones",
+                "-",
+                "2-3 Brave H.C."
+              ],
+              "players": []
+            },
+            {
+              "cells": [
+                "3",
+                "9:20",
+                "ES",
+                "Brave H.C.",
+                "-",
+                "2-4 Brave H.C."
+              ],
+              "players": []
+            },
+            {
+              "cells": [
+                "3",
+                "6:23",
+                "ES",
+                "Brave H.C.",
+                "-",
+                "2-5 Brave H.C."
+              ],
+              "players": []
+            },
+            {
+              "cells": [
+                "3",
+                "5:39",
+                "ES",
+                "Big Bastones",
+                "-",
+                "3-5 Brave H.C."
+              ],
+              "players": []
+            },
+            {
+              "cells": [
+                "3",
+                "3:22",
+                "ES",
+                "Big Bastones",
+                "-",
+                "4-5 Brave H.C."
+              ],
+              "players": []
+            },
+            {
+              "cells": [
+                "3",
+                "0:10",
+                "ES",
+                "Brave H.C.",
+                "-",
+                "4-6 Brave H.C."
+              ],
+              "players": []
+            }
+          ]
+        },
+        {
+          "rows": [
+            {
+              "cells": [
+                "Per Period",
+                "Time",
+                "Player",
+                "Team",
+                "Infraction",
+                "Length"
+              ],
+              "players": []
+            },
+            {
+              "cells": [
+                "1",
+                "11:18",
+                "8 Mario Provenzano",
+                "Brave H.C.",
+                "Tripping (Minor)",
+                "2:00"
+              ],
+              "players": [
+                {
+                  "href": "https://www.htosports.com/teams/default.asp?s=hockey&u=BRAVESHOCKEY&p=profile&sportsHQ=BRAVESHOCKEY&playerID=354045",
+                  "name": "8 Mario Provenzano"
+                }
+              ]
+            },
+            {
+              "cells": [
+                "1",
+                "4:37",
+                "89 Justin Carosi",
+                "Brave H.C.",
+                "Slashing (Minor)",
+                "2:00"
+              ],
+              "players": [
+                {
+                  "href": "https://www.htosports.com/teams/default.asp?s=hockey&u=BRAVESHOCKEY&p=profile&sportsHQ=BRAVESHOCKEY&playerID=354060",
+                  "name": "89 Justin Carosi"
+                }
+              ]
+            },
+            {
+              "cells": [
+                "3",
+                "6:39",
+                "39 Keith Pearsoll",
+                "Brave H.C.",
+                "Tripping (Minor)",
+                "2:00"
+              ],
+              "players": [
+                {
+                  "href": "https://www.htosports.com/teams/default.asp?s=hockey&u=BRAVESHOCKEY&p=profile&sportsHQ=BRAVESHOCKEY&playerID=354056",
+                  "name": "39 Keith Pearsoll"
+                }
+              ]
+            },
+            {
+              "cells": [
+                "3",
+                "6:30",
+                "-",
+                "Big Bastones",
+                "Slashing (Minor)",
+                "2:00"
+              ],
+              "players": []
+            }
+          ]
+        },
+        {
+          "rows": [
+            {
+              "cells": [
+                "No",
+                "Name",
+                "POS",
+                "",
+                "G",
+                "A",
+                "Pts",
+                "PIM",
+                "+/-",
+                "POTG"
+              ],
+              "players": []
+            },
+            {
+              "cells": [
+                "28",
+                "Brutto, Adam",
+                "LD",
+                "",
+                "0",
+                "0",
+                "0",
+                "0",
+                "2",
+                "0"
+              ],
+              "players": [
+                {
+                  "href": "https://www.htosports.com/teams/default.asp?t=&s=hockey&u=BRAVESHOCKEY&p=profile&sportsHQ=BRAVESHOCKEY&playerID=354054",
+                  "name": "Brutto, Adam"
+                }
+              ]
+            },
+            {
+              "cells": [
+                "89",
+                "Carosi, Justin",
+                "C",
+                "",
+                "1",
+                "0",
+                "1",
+                "2",
+                "2",
+                "0"
+              ],
+              "players": [
+                {
+                  "href": "https://www.htosports.com/teams/default.asp?t=&s=hockey&u=BRAVESHOCKEY&p=profile&sportsHQ=BRAVESHOCKEY&playerID=354060",
+                  "name": "Carosi, Justin"
+                }
+              ]
+            },
+            {
+              "cells": [
+                "12",
+                "Kober, Adam",
+                "LW/LD",
+                "",
+                "0",
+                "0",
+                "0",
+                "0",
+                "2",
+                "0"
+              ],
+              "players": [
+                {
+                  "href": "https://www.htosports.com/teams/default.asp?t=&s=hockey&u=BRAVESHOCKEY&p=profile&sportsHQ=BRAVESHOCKEY&playerID=736317",
+                  "name": "Kober, Adam"
+                }
+              ]
+            },
+            {
+              "cells": [
+                "34",
+                "Kong, Henry",
+                "F/D",
+                "",
+                "0",
+                "0",
+                "0",
+                "0",
+                "2",
+                "0"
+              ],
+              "players": [
+                {
+                  "href": "https://www.htosports.com/teams/default.asp?t=&s=hockey&u=BRAVESHOCKEY&p=profile&sportsHQ=BRAVESHOCKEY&playerID=846200",
+                  "name": "Kong, Henry"
+                }
+              ]
+            },
+            {
+              "cells": [
+                "44",
+                "Pagnotta, Alex",
+                "RD",
+                "",
+                "0",
+                "0",
+                "0",
+                "0",
+                "2",
+                "0"
+              ],
+              "players": [
+                {
+                  "href": "https://www.htosports.com/teams/default.asp?t=&s=hockey&u=BRAVESHOCKEY&p=profile&sportsHQ=BRAVESHOCKEY&playerID=354058",
+                  "name": "Pagnotta, Alex"
+                }
+              ]
+            },
+            {
+              "cells": [
+                "39",
+                "Pearsoll, Keith",
+                "RW",
+                "",
+                "0",
+                "1",
+                "1",
+                "2",
+                "2",
+                "0"
+              ],
+              "players": [
+                {
+                  "href": "https://www.htosports.com/teams/default.asp?t=&s=hockey&u=BRAVESHOCKEY&p=profile&sportsHQ=BRAVESHOCKEY&playerID=354056",
+                  "name": "Pearsoll, Keith"
+                }
+              ]
+            },
+            {
+              "cells": [
+                "22",
+                "Povegliano, Adam",
+                "F",
+                "",
+                "0",
+                "0",
+                "0",
+                "0",
+                "2",
+                "0"
+              ],
+              "players": [
+                {
+                  "href": "https://www.htosports.com/teams/default.asp?t=&s=hockey&u=BRAVESHOCKEY&p=profile&sportsHQ=BRAVESHOCKEY&playerID=844036",
+                  "name": "Povegliano, Adam"
+                }
+              ]
+            },
+            {
+              "cells": [
+                "8",
+                "Provenzano, Mario",
+                "C",
+                "",
+                "0",
+                "0",
+                "0",
+                "2",
+                "2",
+                "0"
+              ],
+              "players": [
+                {
+                  "href": "https://www.htosports.com/teams/default.asp?t=&s=hockey&u=BRAVESHOCKEY&p=profile&sportsHQ=BRAVESHOCKEY&playerID=354045",
+                  "name": "Provenzano, Mario"
+                }
+              ]
+            },
+            {
+              "cells": [
+                "25",
+                "Provenzano, Michael",
+                "C/LW",
+                "",
+                "0",
+                "0",
+                "0",
+                "0",
+                "2",
+                "1"
+              ],
+              "players": [
+                {
+                  "href": "https://www.htosports.com/teams/default.asp?t=&s=hockey&u=BRAVESHOCKEY&p=profile&sportsHQ=BRAVESHOCKEY&playerID=686216",
+                  "name": "Provenzano, Michael"
+                }
+              ]
+            },
+            {
+              "cells": [
+                "49",
+                "Rajkumar, Sanjay",
+                "D/LD",
+                "",
+                "0",
+                "0",
+                "0",
+                "0",
+                "2",
+                "0"
+              ],
+              "players": [
+                {
+                  "href": "https://www.htosports.com/teams/default.asp?t=&s=hockey&u=BRAVESHOCKEY&p=profile&sportsHQ=BRAVESHOCKEY&playerID=845365",
+                  "name": "Rajkumar, Sanjay"
+                }
+              ]
+            },
+            {
+              "cells": [
+                "18",
+                "Rosenberg, Jamie",
+                "C/LW",
+                "",
+                "0",
+                "0",
+                "0",
+                "0",
+                "2",
+                "0"
+              ],
+              "players": [
+                {
+                  "href": "https://www.htosports.com/teams/default.asp?t=&s=hockey&u=BRAVESHOCKEY&p=profile&sportsHQ=BRAVESHOCKEY&playerID=843644",
+                  "name": "Rosenberg, Jamie"
+                }
+              ]
+            },
+            {
+              "cells": [
+                "20",
+                "Saindon, Stephane",
+                "C",
+                "",
+                "0",
+                "0",
+                "0",
+                "0",
+                "2",
+                "1"
+              ],
+              "players": [
+                {
+                  "href": "https://www.htosports.com/teams/default.asp?t=&s=hockey&u=BRAVESHOCKEY&p=profile&sportsHQ=BRAVESHOCKEY&playerID=738846",
+                  "name": "Saindon, Stephane"
+                }
+              ]
+            },
+            {
+              "cells": [
+                "67",
+                "Triumbari, Francesco",
+                "LD",
+                "",
+                "0",
+                "0",
+                "0",
+                "0",
+                "2",
+                "0"
+              ],
+              "players": [
+                {
+                  "href": "https://www.htosports.com/teams/default.asp?t=&s=hockey&u=BRAVESHOCKEY&p=profile&sportsHQ=BRAVESHOCKEY&playerID=845364",
+                  "name": "Triumbari, Francesco"
+                }
+              ]
+            },
+            {
+              "cells": [
+                "",
+                "Team Stats",
+                "",
+                "",
+                "1",
+                "1",
+                "2",
+                "6",
+                "26",
+                "2"
+              ],
+              "players": []
+            }
+          ]
+        },
+        {
+          "rows": [
+            {
+              "cells": [
+                "No",
+                "Name",
+                "",
+                "GP",
+                "W",
+                "GA",
+                "GAA",
+                "POTG",
+                "+/-",
+                "Win %"
+              ],
+              "players": []
+            },
+            {
+              "cells": [
+                "70",
+                "Logue, Stephen",
+                "",
+                "1",
+                "1",
+                "4",
+                "4.00",
+                "1",
+                "2",
+                "1.000"
+              ],
+              "players": [
+                {
+                  "href": "https://www.htosports.com/teams/default.asp?t=&s=hockey&u=BRAVESHOCKEY&p=profile&sportsHQ=BRAVESHOCKEY&playerID=354055",
+                  "name": "Logue, Stephen"
+                }
+              ]
+            },
+            {
+              "cells": [
+                "",
+                "Team Stats",
+                "",
+                "1",
+                "1",
+                "4",
+                "4.00",
+                "1",
+                "2",
+                "1.000"
+              ],
+              "players": []
+            }
+          ]
+        }
+      ],
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3375682",
+      "heading": "SCORE BOARD\nREGULAR SEASON\n\t1\t2\t3\tF\n\nBig Bastones\n0\t2\t2\t4\n\nBrave H.C.\n3\t0\t3\t6\n"
     }
   ]
 }
