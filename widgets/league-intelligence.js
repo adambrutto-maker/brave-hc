@@ -1,0 +1,147 @@
+/* Brave H.C. League Intelligence: only source-admitted public data. */
+"use strict";
+(()=>{
+ const q=id=>document.getElementById(id);
+ const el=(tag,cls,value)=>{const x=document.createElement(tag);if(cls)x.className=cls;if(value!==undefined&&value!==null)x.textContent=String(value);return x};
+ const text=(parent,tag,cls,value)=>{const x=el(tag,cls,value);parent.append(x);return x};
+ const pct=v=>Number.isFinite(v)?(v*100).toFixed(1)+"%":"—";
+ const dec=v=>Number.isFinite(v)?(v>0?"+":"")+v.toFixed(2):"—";
+ const record=x=>x?(x.w+"–"+x.l+"–"+x.t):"—";
+ const date=s=>{try{return new Date(s+"T12:00:00").toLocaleDateString("en-CA",{year:"numeric",month:"short",day:"numeric"})}catch(_){return s}};
+ let data=null,selected=null;
+ function trusted(doc){
+  return doc?.schema==="brave-hc-league-intelligence/public-v1" &&
+   doc.status==="OFFICIAL_LEAGUE_RESULTS_SOURCE_QUALIFIED" &&
+   doc.currentSourceDataConcordant===true &&
+   doc.currentDivisionCount>=4 &&
+   Array.isArray(doc.divisions)&&Array.isArray(doc.teams)&&
+   doc.currentLeagueTeamCount===doc.teams.length &&
+   doc.verifiedReciprocalCompletedGames>=40 &&
+   new Set(doc.teams.map(x=>x.sourceTeamId)).size===doc.teams.length &&
+   doc.teams.every(x=>x.leagueName&&x.displayName&&x.divisionNow&&
+        x.record?.gp===x.gamesConfirmed &&
+        x.record.gp===x.completedGames?.length);
+ }
+ function tile(parent,value,caption){
+  const card=el("div","metric");text(card,"span","",value);text(card,"small","",caption);parent.append(card);
+ }
+ function context(parent,title,description){
+  const card=el("div","outline");text(card,"h3","",title);text(card,"p","small",description);parent.append(card);
+ }
+ function setup(){
+  const timestamp=new Date(data.asOf);
+  q("source-status").textContent="SVHL official sources checked "+
+   (Number.isNaN(timestamp.getTime())?data.asOf:timestamp.toLocaleString("en-CA",{dateStyle:"medium",timeStyle:"short"}))+
+   " · every reported nonzero result confirmed from both teams";
+  const info=q("overview");info.replaceChildren();
+  tile(info,data.currentDivisionCount,"Competitive divisions");
+  tile(info,data.currentLeagueTeamCount,"Team entries, including playoff placeholder");
+  tile(info,data.verifiedReciprocalCompletedGames,"Verified completed matchups");
+  tile(info,data.priorSeasonRosterContinuityQualifiedCount,"Prior-winter roster-supported team links");
+  const divisions=q("division-filter");divisions.replaceChildren();divisions.add(new Option("All competitive divisions","all"));
+  for(const x of data.divisions)divisions.add(new Option(x.name+(x.competitive?"":" · playoff placeholder"),x.name));
+  const teams=q("team-filter");teams.replaceChildren();
+  for(const x of [...data.teams].sort((a,b)=>a.displayName.localeCompare(b.displayName)))
+   teams.add(new Option(x.displayName+" · "+x.divisionNow,x.leagueName));
+ }
+ function table(){
+  const choice=q("division-filter").value;
+  const cards=data.teams.filter(t=>choice==="all"?
+    data.divisions.some(x=>x.name===t.divisionNow&&x.competitive):t.divisionNow===choice);
+  cards.sort((a,b)=>(b.winPct??-1)-(a.winPct??-1) || b.record.pts-a.record.pts ||
+       (b.goalDiffPerGame??-99)-(a.goalDiffPerGame??-99)||a.displayName.localeCompare(b.displayName));
+  const body=q("league-rows");body.replaceChildren();
+  for(const x of cards){
+   const row=el("tr");row.tabIndex=0;row.dataset.team=x.leagueName;
+   if(selected===x.leagueName)row.classList.add("active");
+   const name=el("td");text(name,"span","team",x.displayName);text(name,"span","minor",x.divisionNow);row.append(name);
+   for(const k of ["gp","w","l","t","pts","gf","ga"])text(row,"td","score",x.record[k]);
+   text(row,"td","score",pct(x.winPct));
+   text(row,"td","score",dec(x.goalDiffPerGame));
+   text(row,"td","score",pct(x.opponentCurrentWinPctAverage));
+   row.addEventListener("click",()=>choose(x.leagueName));
+   row.addEventListener("keydown",event=>{
+    if(event.key==="Enter"||event.key===" "){event.preventDefault();choose(x.leagueName)}
+   });
+   body.append(row);
+  }
+  if(!cards.length){
+   const row=el("tr"),cell=el("td","","No qualified teams in this division");
+   cell.colSpan=11;row.append(cell);body.append(row);
+  }
+ }
+ function profile(){
+  const x=data.teams.find(item=>item.leagueName===selected);
+  if(!x)return;
+  q("profile-title").textContent=x.displayName;
+  q("profile-division").textContent=x.divisionNow+" · "+x.gamesConfirmed+" reciprocal completed fixtures";
+  q("team-official-link").href=x.source;
+  const panel=q("profile-metrics");panel.replaceChildren();
+  context(panel,"Current 2026/27",record(x.record)+" · "+x.record.gf+
+          " GF / "+x.record.ga+" GA · "+pct(x.winPct)+" win percentage");
+  context(panel,"Competition faced",
+          "Opponents' current mean WIN%: "+pct(x.opponentCurrentWinPctAverage)+
+          ". "+x.gamesVsTeamsNowInOtherDivisions+" of "+x.gamesConfirmed+
+          " games were against teams now in other divisions.");
+  context(panel,"Goal difference",
+          (x.record.gf-x.record.ga>0?"+":"")+(x.record.gf-x.record.ga)+
+          " this season · "+dec(x.goalDiffPerGame)+" per game");
+  const prior=q("prior-summary");prior.replaceChildren();
+  if(x.previousWinter){
+   const p=x.previousWinter;
+   context(prior,"Previous Winter 2025/26 · "+p.division,
+     record(p.record)+" · "+p.record.gf+" GF / "+p.record.ga+" GA · "+
+     pct(p.winPct)+". Linked by "+p.officialRosterSharedIDs+" matching official player IDs ("+
+     pct(p.rosterContinuityShare)+" of smaller roster). Results stay separate from this winter.");
+   const link=text(prior,"a","sourcelink","Official previous-winter team record");
+   link.href=p.sourceUrl;link.target="_blank";link.rel="noopener noreferrer";
+  }else text(prior,"p","tiny","Previous-winter franchise identity has not been roster-verified. No cross-season record has been merged.");
+  const his=q("braves-history");his.replaceChildren();
+  const history=x.bravesMatchHistory;
+  if(history?.state==="SOURCE_VERIFIED_H2H"){
+   const h=history.bravesAllTime;
+   context(his,"Brave H.C. head-to-head history",record(h)+" across "+h.gp+
+      " all-time verified games · "+h.gf+" GF / "+h.ga+" GA. Scope: "+
+      history.sourceScope.replace(/_/g," ").toLowerCase()+".");
+  }else if(history?.state==="SELF_TEAM_NOT_APPLICABLE"){
+   context(his,"Brave H.C.","Own club — a self-matchup record does not apply.");
+  }else context(his,"Brave H.C. head-to-head history","No verified Master Workbook/HTO matchup was admitted for this exact or approved identity.");
+  const body=q("fixture-rows");body.replaceChildren();
+  const games=[...x.completedGames].sort((a,b)=>b.date.localeCompare(a.date));
+  for(const g of games){
+   const tr=el("tr");
+   text(tr,"td","",date(g.date)+" · "+g.opponent);
+   text(tr,"td","small",g.opponentCurrentDivision);
+   const status=text(tr,"td",g.result==="W"?"positive":g.result==="L"?"negative":"",g.result);
+   status.style.fontWeight="900";
+   text(tr,"td","",g.gf);text(tr,"td","",g.ga);body.append(tr);
+  }
+  if(!games.length){
+   const tr=el("tr"),td=el("td","","No source-verified completed matchup recorded");
+   td.colSpan=5;tr.append(td);body.append(tr);
+  }
+  q("profile-source").textContent="Official source: "+x.source+
+   ". Opponent division names are current at capture, not necessarily their division when each game was played.";
+ }
+ function choose(name){selected=name;q("team-filter").value=name;table();profile()}
+ async function init(){
+  try{
+   const response=await fetch("./league-intelligence.json",{cache:"no-store"});
+   if(!response.ok)throw Error("Source not yet published");
+   const result=await response.json();
+   if(!trusted(result))throw Error("Published league-source agreement not validated");
+   data=result;setup();
+   const name=new URLSearchParams(location.search).get("team");
+   selected=data.teams.some(x=>x.leagueName===name)?name:
+    data.teams.some(x=>x.leagueName==="Maplewolves")?"Maplewolves":"Braves HC";
+   q("division-filter").addEventListener("change",table);
+   q("team-filter").addEventListener("change",event=>choose(event.target.value));
+   table();profile();
+  }catch(e){
+   q("source-status").textContent="SOURCE HELD: "+e.message+". Historical identities or strength figures were not guessed.";
+   q("source-status").style.color="#ffa6af";
+   q("profile-title").textContent="Verified league source unavailable";
+  }
+ }
+ init();
+})();
