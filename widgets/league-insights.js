@@ -41,6 +41,29 @@
   }
   return matches;
  }
+ function verifiedSeasonNames(links,name){
+  if(!links)return [];
+  return links.teamSeasons.filter(g=>exact(g.officialTeamName,name))
+   .map(g=>({season:g.season,division:g.officialDivision,
+     count:g.bravesRecord.gp,bravesRecord:g.bravesRecord,
+     officialSource:g.officialTeamPage,
+     caution:"VERIFIED_SEASON_GAMES_NOT_VERIFIED_CURRENT_FRANCHISE_CONTINUITY"}));
+ }
+ function divisionHistoricalBridges(links){
+  if(!links)return [];
+  const group=new Map();
+  for(const item of links.teamSeasons){
+   const k=item.season+"|"+item.officialDivision;
+   if(!group.has(k))group.set(k,{season:item.season,
+     division:item.officialDivision,games:0,w:0,l:0,t:0,
+     gf:0,ga:0,opponents:[],source:item.officialTeamPage});
+   const a=group.get(k),r=item.bravesRecord;
+   a.games+=r.gp;a.w+=r.w;a.l+=r.l;a.t+=r.t;a.gf+=r.gf;a.ga+=r.ga;
+   a.opponents.push(item.officialTeamName);
+  }
+  return [...group.values()].sort((a,b)=>b.season.localeCompare(a.season)||
+     b.games-a.games||a.division.localeCompare(b.division));
+ }
  function weekly(league,team){
   const series=league.weeklyLedger.weeks.map(w=>({
     week:w.weekStartToronto,asOf:w.observedAtUTC,
@@ -52,7 +75,7 @@
     Number((latest.team.contextIndex-prior.team.contextIndex).toFixed(1)):null;
   return {count:series.length,latest,previous:prior,delta,points:series};
  }
- function plain(league,archive,name){
+ function plain(league,archive,name,links=null){
   verify(league,archive);
   const team=league.teams.find(x=>x.leagueName===name);
   need(Boolean(team),"TEAM_NOT_FOUND");
@@ -82,6 +105,7 @@
      source:prior.sourceUrl,division:prior.division,
      record:prior.record,identityEvidence:"OFFICIAL_PLAYER_ID_ROSTER_CONTINUITY_CONFIRMED"}:null,
    exactHistoricalNameObservations:historicalNames(archive,team.leagueName),
+   sourceMatchedOldGameSeasons:verifiedSeasonNames(links,team.leagueName),
    weekly:weeks,
    date:league.asOf,
    caution:"Rating is descriptive, not a win probability. Same-name historical teams are not assumed to be the same roster."
@@ -121,5 +145,5 @@
     "Division changes are not recommended yet. Wait for at least four weekly observations and ten current games for 75% of competitive teams before proposing a grouping.",
    method:"Descriptive source-qualified context only. Group averages and spreads do not compare division strength as a calibrated skill scale."};
  }
- return Object.freeze({verify,plain,weekly,divisionReview,historicalNames});
+ return Object.freeze({verify,plain,weekly,divisionReview,historicalNames,verifiedSeasonNames,divisionHistoricalBridges});
 });
