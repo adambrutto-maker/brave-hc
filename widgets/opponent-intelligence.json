@@ -1,0 +1,258 @@
+{
+  "schema": "brave-hc-opponent-intelligence/v1",
+  "status": "PUBLIC_VERIFIED_EXACT_ONLY",
+  "publishable": true,
+  "asOf": "2026-10-26T12:31:01.197Z",
+  "workbookScope": "Completed historical games through last saved source; not a live Excel workbook",
+  "source": "Original Brave H.C. Master Schedule + official HTO completed game scores, exact opponent names",
+  "coverage": {
+    "historicalGameRecords": 358,
+    "currentSeasonGames": 5,
+    "sourceQualifiedOpponents": 4,
+    "aliasesNeedingReview": 2,
+    "noExactHistory": 1
+  },
+  "teams": [
+    {
+      "name": "Mid Ice Crisis",
+      "verification": "VERIFIED_EXACT_NAME",
+      "identityScope": "EXACT_NAME_ONLY_NO_UNREVIEWED_ALIASES",
+      "sourceHTOGames": 0,
+      "regularSeason": {
+        "gp": 5,
+        "w": 1,
+        "l": 2,
+        "t": 2,
+        "gf": 13,
+        "ga": 19
+      },
+      "allTime": {
+        "gp": 7,
+        "w": 1,
+        "l": 4,
+        "t": 2,
+        "gf": 15,
+        "ga": 25
+      },
+      "playoffs": {
+        "gp": 2,
+        "w": 0,
+        "l": 2,
+        "t": 0,
+        "gf": 2,
+        "ga": 6
+      },
+      "lastFive": [
+        {
+          "date": "2025-03-16",
+          "result": "T",
+          "gf": 2,
+          "ga": 2
+        },
+        {
+          "date": "2025-03-30",
+          "result": "L",
+          "gf": 2,
+          "ga": 3
+        },
+        {
+          "date": "2025-04-06",
+          "result": "L",
+          "gf": 0,
+          "ga": 3
+        },
+        {
+          "date": "2025-10-26",
+          "result": "L",
+          "gf": 1,
+          "ga": 7
+        },
+        {
+          "date": "2025-12-14",
+          "result": "T",
+          "gf": 3,
+          "ga": 3
+        }
+      ]
+    },
+    {
+      "name": "Mohawks HC",
+      "verification": "ALIAS_REVIEW_REQUIRED",
+      "message": "Historical name association is unverified; no merged matchup record is displayed."
+    },
+    {
+      "name": "Sugo Sundays",
+      "verification": "ALIAS_REVIEW_REQUIRED",
+      "message": "Historical name association is unverified; no merged matchup record is displayed."
+    },
+    {
+      "name": "Other Way",
+      "verification": "NO_EXACT_HISTORY",
+      "message": "No exact-name completed matchup appears in the qualified source history."
+    },
+    {
+      "name": "Big Bastones",
+      "verification": "VERIFIED_EXACT_NAME",
+      "identityScope": "EXACT_NAME_ONLY_NO_UNREVIEWED_ALIASES",
+      "sourceHTOGames": 1,
+      "regularSeason": {
+        "gp": 7,
+        "w": 4,
+        "l": 2,
+        "t": 1,
+        "gf": 24,
+        "ga": 27
+      },
+      "allTime": {
+        "gp": 8,
+        "w": 4,
+        "l": 3,
+        "t": 1,
+        "gf": 24,
+        "ga": 32
+      },
+      "playoffs": {
+        "gp": 1,
+        "w": 0,
+        "l": 1,
+        "t": 0,
+        "gf": 0,
+        "ga": 5
+      },
+      "lastFive": [
+        {
+          "date": "2023-09-17",
+          "result": "W",
+          "gf": 5,
+          "ga": 4
+        },
+        {
+          "date": "2023-11-12",
+          "result": "L",
+          "gf": 1,
+          "ga": 8
+        },
+        {
+          "date": "2025-10-05",
+          "result": "W",
+          "gf": 4,
+          "ga": 2
+        },
+        {
+          "date": "2025-11-23",
+          "result": "L",
+          "gf": 1,
+          "ga": 3
+        },
+        {
+          "date": "2026-10-25",
+          "result": "W",
+          "gf": 6,
+          "ga": 4
+        }
+      ]
+    },
+    {
+      "name": "Zamboner Crew",
+      "verification": "VERIFIED_EXACT_NAME",
+      "identityScope": "EXACT_NAME_ONLY_NO_UNREVIEWED_ALIASES",
+      "sourceHTOGames": 1,
+      "regularSeason": {
+        "gp": 1,
+        "w": 0,
+        "l": 1,
+        "t": 0,
+        "gf": 1,
+        "ga": 7
+      },
+      "allTime": {
+        "gp": 1,
+        "w": 0,
+        "l": 1,
+        "t": 0,
+        "gf": 1,
+        "ga": 7
+      },
+      "playoffs": {
+        "gp": 0,
+        "w": 0,
+        "l": 0,
+        "t": 0,
+        "gf": 0,
+        "ga": 0
+      },
+      "lastFive": [
+        {
+          "date": "2026-10-18",
+          "result": "L",
+          "gf": 1,
+          "ga": 7
+        }
+      ]
+    },
+    {
+      "name": "Dateline Predators",
+      "verification": "VERIFIED_EXACT_NAME",
+      "identityScope": "EXACT_NAME_ONLY_NO_UNREVIEWED_ALIASES",
+      "sourceHTOGames": 1,
+      "regularSeason": {
+        "gp": 11,
+        "w": 8,
+        "l": 3,
+        "t": 0,
+        "gf": 41,
+        "ga": 25
+      },
+      "allTime": {
+        "gp": 13,
+        "w": 8,
+        "l": 5,
+        "t": 0,
+        "gf": 47,
+        "ga": 35
+      },
+      "playoffs": {
+        "gp": 2,
+        "w": 0,
+        "l": 2,
+        "t": 0,
+        "gf": 6,
+        "ga": 10
+      },
+      "lastFive": [
+        {
+          "date": "2025-12-07",
+          "result": "W",
+          "gf": 5,
+          "ga": 3
+        },
+        {
+          "date": "2026-01-11",
+          "result": "W",
+          "gf": 6,
+          "ga": 3
+        },
+        {
+          "date": "2026-02-01",
+          "result": "W",
+          "gf": 5,
+          "ga": 1
+        },
+        {
+          "date": "2026-03-01",
+          "result": "L",
+          "gf": 3,
+          "ga": 4
+        },
+        {
+          "date": "2026-09-20",
+          "result": "L",
+          "gf": 0,
+          "ga": 3
+        }
+      ]
+    }
+  ],
+  "releaseScope": "EXACT_OPPONENT_NAME_MATCH_ONLY; 4/7 qualified; aliases and no-history withheld",
+  "generatedAt": "2026-10-26T13:17:31.535928+00:00"
+}
