@@ -6,6 +6,13 @@ const maple=published.teams.find(t=>t.leagueName==="Maplewolves");
 const leagueDivision=published.divisions.find(t=>t.name==="The Cristillo Division");
 const ranked=[...published.teams].filter(t=>t.strengthContext?.rank!==null).sort((a,b)=>a.strengthContext.rank-b.strengthContext.rank);
 const competitiveCount=published.teams.filter(t=>published.divisions.some(d=>d.name===t.divisionNow&&d.competitive)).length;
+const upcoming=JSON.parse(fs.readFileSync(path.join(root,"upcoming-matchups.json"),"utf8"));
+const dateParts=new Intl.DateTimeFormat("en-CA",{timeZone:"America/Toronto",
+  year:"numeric",month:"2-digit",day:"2-digit"}).formatToParts(new Date());
+const localType=t=>dateParts.find(x=>x.type===t).value;
+const today=localType("year")+"-"+localType("month")+"-"+localType("day");
+const listed=upcoming.games.filter(g=>g.date>=today).sort((a,b)=>
+ (a.date+"T"+a.localTime).localeCompare(b.date+"T"+b.localTime));
 const server=http.createServer((req,res)=>{
  const f=path.resolve(root,"."+new URL(req.url,"http://localhost").pathname);
  if(!f.startsWith(root+path.sep))return res.writeHead(403).end();
@@ -36,6 +43,9 @@ const server=http.createServer((req,res)=>{
      trendSummary:document.querySelector("#trend-summary")?.textContent,
      trendCount:document.querySelectorAll("#trend-rows .trend-point").length,
      scoutingBoardCount:document.querySelectorAll("#scout-board .scout-card").length,
+     upcomingCount:document.querySelectorAll("#upcoming-fixtures .fixture-card").length,
+     upcomingStatus:document.querySelector("#fixture-status")?.textContent,
+     firstFixture:document.querySelector("#upcoming-fixtures .fixture-card")?.textContent,
      scoutingSummary:document.querySelector("#scout-profile-summary")?.textContent,
      scoutingRecent:[...document.querySelectorAll("#scout-recent li")].map(x=>x.textContent),
      scoutingComparison:document.querySelector("#scout-profile-context")?.textContent,
@@ -69,6 +79,14 @@ const server=http.createServer((req,res)=>{
    assert.equal(info.rows,competitiveCount,"all competitive team entries");
    assert.equal(info.divisions.length,published.divisions.length+1,"all source divisions plus all");
    assert.equal(info.selected,"Maplewolves");
+   assert.equal(info.upcomingCount,listed.length,"future fixtures match published HTO source");
+   assert.ok(info.upcomingStatus.includes("HTO calendar checked") &&
+      !info.upcomingStatus.includes("Upcoming schedule held"),
+      "fixture feed independently admitted without blocking standings");
+   if(listed.length)
+    assert.ok(info.firstFixture.includes(listed[0].opponentHTO)&&
+      info.firstFixture.includes(listed[0].localTime),
+      "earliest verified future game shown first");
    assert.equal(info.scoutingBoardCount,leagueDivision.teams.length-1,
       "scouting board covers all seven current Cristillo opponents");
    assert.ok(info.scoutingSummary.includes(maple.record.gf+" GF / "+maple.record.ga+" GA")&&
@@ -101,6 +119,14 @@ const server=http.createServer((req,res)=>{
         maple.bravesMatchHistory.bravesAllTime.gp+" GP")&&
       pasted.includes("No upcoming fixture or game date is asserted"),
       "copy control produces verifiable WhatsApp text without fictional schedule");
+   if(listed.some(g=>g.sourceTeamId!==null)){
+    await page.click("#upcoming-fixtures .fixture-card button");
+    const next=listed.find(g=>g.sourceTeamId!==null);
+    assert.equal(await page.$eval("#profile-title",el=>el.textContent),
+      published.teams.find(t=>t.sourceTeamId===next.sourceTeamId).displayName,
+      "upcoming fixture opens only the exact source-matched scouting profile");
+    await page.select("#team-filter","Maplewolves");
+   }
    await page.select("#sort-field","official");
    assert.ok((await page.$eval("#league-rows tr[data-team]",x=>x.dataset.team)),"official sorting remains available");
    await page.select("#sort-field","context");
