@@ -2,241 +2,112 @@
   "schema": "brave-hc-hot-stove-editorial-preview/v1",
   "team": "Brave H.C.",
   "season": {
-    "gp": 4,
-    "wins": 0,
+    "gp": 5,
+    "wins": 1,
     "losses": 4,
     "ties": 0,
-    "goalsFor": 6,
-    "goalsAgainst": 19
+    "goalsFor": 12,
+    "goalsAgainst": 23
   },
-  "sourceAuthority": "HTO official player score sheets, box scores and schedule",
-  "sourceVerifiedAt": "2026-10-19T14:31:00.274Z",
-  "generatedAt": "2026-10-19T14:47:22.403171+00:00",
+  "sourceAuthority": "Adam-verified October 25 HTO scoring sheet, LiveBarn review, and historical Master Workbook",
+  "sourceVerifiedAt": "2026-10-25",
+  "generatedAt": "2026-10-26T02:34:13.827Z",
   "editorialState": "FOUNDER_APPROVED",
-  "publicationPolicy": "Founder-directed snapshot for HTO homepage. Do not auto-publish subsequent game content or changes without a new approval.",
+  "publicationPolicy": "Founder-approved October 25 edition. Subsequent game recaps require fresh approval.",
   "latestArticle": {
-    "id": "recap-3375601",
+    "id": "recap-3375682",
     "articleType": "GAME_RECAP",
-    "gameId": 3375601,
-    "headline": "Pearsoll Nets First of Season as Brave H.C. Falls 7–1 to Zamboner Crew",
-    "date": "2026-10-18",
-    "displayDate": "Sunday, October 18, 2026",
-    "dek": "Official final: Brave H.C. 1, Zamboner Crew 7.",
+    "gameId": 3375682,
+    "headline": "Provenzano Scores Twice as Brave H.C. Earns First Win, 6–4 Over Big Bastones",
+    "date": "2026-10-25",
+    "displayDate": "Sunday, October 25, 2026",
+    "dek": "Brave H.C. 6, Big Bastones 4 — the Braves' first win of the 2026–27 season.",
     "paragraphs": [
-      "Brave H.C. entered the game without an earlier regular-season result against Zamboner Crew recorded under that team name in the club’s historical schedule.",
-      "Brave H.C. found the net in the opening period but could not add another, falling 7–1 to Zamboner Crew on October 18.",
-      "Marco Congiusti, Anthony Paolucci, Michael Provenzano and Sanjay Rajkumar were out of the lineup against Zamboner Crew. Adam Kober and Krishnan Rajasooriar stepped into the lineup in relief.",
-      "Adam Kober made his third appearance of the season in relief, while Krishnan Rajasooriar made his second. Both finished without a point, and neither had a previous recorded regular-season appearance against Zamboner Crew under that team name.",
-      "In goal, Dev Leong made his 2nd recorded Brave H.C. appearance of the season. No prior regular-season appearance against Zamboner Crew was verified in the historical goalie records.",
-      "Keith Pearsoll scored his first goal of the season at 9:17 of the first period. The assists went to Alex Pagnotta (1), Stephane Saindon (1).",
-      "Zamboner Crew led 2–1 after the first period, then added 3 in the second and 2 in the third. Brave H.C. did not score again. Dev Leong was listed in goal for Brave H.C.",
-      "The result leaves Brave H.C. at 0–4 through 4 games, with 6 goals scored and 19 allowed.",
-      "Next up is Big Bastones on Sunday, October 25 at 6:15 pm ET, at Vaughan Sports Village - A Rink.",
-      "Looking ahead to Big Bastones, Stephane Saindon has 6 points in 6 recorded regular-season meetings, while Keith Pearsoll has 5 in 4. Those records provide matchup context, not a prediction or confirmation that either player will dress."
+      "*Sunday, October 25, 2026 | Vaughan Sports Village — A Rink*",
+      "Brave H.C. broke through for its first win of the 2026–27 season Sunday, defeating Big Bastones 6–4 behind a three-goal opening period and two third-period goals from Michael Provenzano. The victory lifted the Braves to 1–4 through five games.",
+      "Entering the contest, Brave H.C. held a 3–2–1 regular-season record against Big Bastones across six previous meetings, with 18 goals for and 23 against. The clubs split their two 2025 regular-season games, with the Braves winning 4–2 on October 5 before falling 3–1 on November 23.",
+      "The Braves dressed 12 full-timers and one part-timer, with Marco Congiusti and Anthony Paolucci out of the lineup. Part-timer Adam Kober filled in for his fourth appearance of the season and assisted on the eventual game-winner. Stephen Logue made his second appearance of the season in goal.",
+      "Sunday also marked an important leadership milestone: Stephane Saindon wore the assistant captain’s “A” for the first time after being selected by a team vote. He celebrated with his first goal of the season, an assist and Player of the Game honours.",
+      "First Period — Braves Set the Pace",
+      "Justin Carosi opened the scoring with 8:44 remaining, netting his fourth goal of the season from Keith Pearsoll. At 5:04, Adam Povegliano scored his first of the season, assisted by Carosi and Francesco Triumbari.",
+      "Saindon made it 3–0 at 2:25 with his first goal of the season, assisted by Adam Brutto.",
+      "Second Period — Big Bastones Battle Back",
+      "Big Bastones scored at 7:03 and again with just two seconds left in the period, cutting the Braves’ lead to 3–2 entering the third.",
+      "Third Period — Provenzano Delivers",
+      "Michael Provenzano restored the two-goal cushion at 9:20, scoring his first goal of the season from Povegliano and Saindon. He struck again at 6:23 for his second goal of the night and second of the season, assisted by Alex Pagnotta and Kober.",
+      "That four-on-four goal put Brave H.C. ahead 5–2 and ultimately stood as the game-winner.",
+      "Big Bastones answered at 5:39 and 3:22 to make it 5–4, but Jamie Rosenberg settled the result with ten seconds remaining, scoring his first goal of the season into an empty net from Triumbari.",
+      "Game Leaders and Recognition",
+      "Provenzano led the way with two goals, including the winner. Carosi, Povegliano and Saindon each recorded a goal and an assist, while Triumbari added two assists. Pearsoll, Brutto, Pagnotta and Kober each contributed one assist.",
+      "Logue earned his first win of the season, allowing four goals.",
+      "Players of the Game: Michael Provenzano, Stephane Saindon and Stephen Logue.",
+      "After five games, the Braves stand at 1–4 with 12 goals for and 23 against. Their regular-season record against Big Bastones improves to 4–2–1 through seven meetings, with 24 goals scored and 27 allowed.",
+      "Next Up — Mid Ice Crisis",
+      "The Braves face Mid Ice Crisis on Sunday, November 1 at 8:15 p.m. at Vaughan Sports Village — D Rink, seeking to build on their first victory against a familiar rival.",
+      "The historical matchup favours Mid Ice Crisis. Across seven regular-season and playoff meetings, Brave H.C. holds a 1–4–2 record, having scored 15 goals and allowed 25. The Braves are 1–2–2 in five regular-season games and lost both 2025 playoff meetings, 3–2 on March 30 and 3–0 on April 6.",
+      "The Braves’ lone win in the series was a 5–2 victory on February 23, 2025. Last season, Mid Ice Crisis won 7–1 on October 26 before the teams played to a 3–3 tie on December 14, their most recent meeting.",
+      "After scoring six against Big Bastones, the Braves have reason for optimism. The challenge next Sunday will be pairing that offence with a tighter defensive effort against a team that has repeatedly tested them."
     ],
     "boxScore": {
-      "opponent": "Zamboner Crew",
-      "ourGoals": 1,
-      "theirGoals": 7,
+      "opponent": "Big Bastones",
+      "ourGoals": 6,
+      "theirGoals": 4,
       "ourPeriods": [
-        1,
+        3,
         0,
-        0,
+        3,
         0,
         0
       ],
       "theirPeriods": [
+        0,
         2,
-        3,
         2,
         0,
         0
       ]
     },
     "sourceUrls": [
-      "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=3375601&p=boxscore"
+      "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=3375682&p=boxscore"
     ],
     "videoEvidence": null,
     "opponentHistory": {
       "beforeGame": {
-        "gp": 0,
-        "w": 0,
-        "l": 0,
-        "t": 0,
-        "gf": 0,
-        "ga": 0
+        "gp": 6,
+        "w": 3,
+        "l": 2,
+        "t": 1,
+        "gf": 18,
+        "ga": 23
       },
       "beforeGameAllTime": {
-        "gp": 0,
-        "w": 0,
-        "l": 0,
-        "t": 0,
-        "gf": 0,
-        "ga": 0
+        "gp": 7,
+        "w": 3,
+        "l": 3,
+        "t": 1,
+        "gf": 18,
+        "ga": 28
       },
-      "previousRegularSeasonMeeting": null,
+      "previousRegularSeasonMeeting": {
+        "date": "2025-11-23",
+        "gf": 1,
+        "ga": 3,
+        "result": "L"
+      },
       "sourceScope": "Exact normalized opponent name only; no assumed team aliases"
     },
-    "goalEvents": [
-      {
-        "player": "Pearsoll, Keith",
-        "no": "39",
-        "period": 1,
-        "clock": "9:17",
-        "periodSeconds": 557,
-        "strength": "ES",
-        "officialText": "39 Keith Pearsoll (20 Stephane Saindon, 44 Alex Pagnotta)",
-        "teamGoalOrdinal": 1,
-        "playerGameGoalOrdinal": 1,
-        "playerSeasonGoalOrdinal": 1,
-        "gameId": 3375601,
-        "gameDate": "2026-10-18"
-      }
-    ],
+    "goalEvents": [],
     "verification": {
-      "statementsFrom": "HTO official box score",
+      "statementsFrom": "Adam-verified October 25 HTO game sheet, LiveBarn review, and Master Workbook history",
       "status": "SOURCE_VERIFIED",
       "gameBoxscoreMatched": true,
       "unsupportedClaimsExcluded": true,
-      "headToHeadSource": "Workbook AllTimeSchedule + HTO finalized games",
-      "goalNumbers": "Verified HTO scorer events ordered across completed season games"
+      "headToHeadSource": "Master Workbook AllTimeSchedule"
     },
     "editorialState": "FOUNDER_APPROVED",
     "milestones": [],
     "recordClaimsVerified": false,
-    "upcomingPlayerContext": [
-      {
-        "name": "Saindon, Stephane",
-        "displayName": "Stephane Saindon",
-        "rosterStatus": "FT",
-        "historical": {
-          "gp": 6,
-          "g": 5,
-          "a": 1,
-          "pts": 6
-        },
-        "season": {
-          "gp": 3,
-          "g": 0,
-          "a": 1,
-          "pts": 1
-        },
-        "recent": {
-          "gp": 2,
-          "g": 0,
-          "a": 1,
-          "pts": 1
-        },
-        "recentWindowGames": 3,
-        "bestMeeting": {
-          "gameNumber": 338,
-          "date": "2025-10-05",
-          "opponent": "Big Bastones",
-          "player": "Saindon, Stephane",
-          "gp": 1,
-          "g": 2,
-          "a": 1,
-          "pts": 3,
-          "score": "4–2",
-          "result": "W",
-          "season": "W2025/26",
-          "source": "Master Workbook SkaterStatsByGame / AllTimeSchedule"
-        },
-        "lastMeeting": {
-          "gameNumber": 344,
-          "date": "2025-11-23",
-          "opponent": "Big Bastones",
-          "player": "Saindon, Stephane",
-          "gp": 1,
-          "g": 0,
-          "a": 0,
-          "pts": 0,
-          "score": "1–3",
-          "result": "L",
-          "season": "W2025/26",
-          "source": "Master Workbook SkaterStatsByGame / AllTimeSchedule"
-        },
-        "historyGameNumbers": [
-          271,
-          279,
-          284,
-          291,
-          338,
-          344
-        ],
-        "editorialPriority": 9,
-        "availability": "NOT_CONFIRMED"
-      },
-      {
-        "name": "Pearsoll, Keith",
-        "displayName": "Keith Pearsoll",
-        "rosterStatus": "FT",
-        "historical": {
-          "gp": 4,
-          "g": 2,
-          "a": 3,
-          "pts": 5
-        },
-        "season": {
-          "gp": 3,
-          "g": 1,
-          "a": 0,
-          "pts": 1
-        },
-        "recent": {
-          "gp": 2,
-          "g": 1,
-          "a": 0,
-          "pts": 1
-        },
-        "recentWindowGames": 3,
-        "bestMeeting": {
-          "gameNumber": 338,
-          "date": "2025-10-05",
-          "opponent": "Big Bastones",
-          "player": "Pearsoll, Keith",
-          "gp": 1,
-          "g": 2,
-          "a": 2,
-          "pts": 4,
-          "score": "4–2",
-          "result": "W",
-          "season": "W2025/26",
-          "source": "Master Workbook SkaterStatsByGame / AllTimeSchedule"
-        },
-        "lastMeeting": {
-          "gameNumber": 338,
-          "date": "2025-10-05",
-          "opponent": "Big Bastones",
-          "player": "Pearsoll, Keith",
-          "gp": 1,
-          "g": 2,
-          "a": 2,
-          "pts": 4,
-          "score": "4–2",
-          "result": "W",
-          "season": "W2025/26",
-          "source": "Master Workbook SkaterStatsByGame / AllTimeSchedule"
-        },
-        "historyGameNumbers": [
-          279,
-          284,
-          291,
-          338
-        ],
-        "editorialPriority": 8,
-        "availability": "NOT_CONFIRMED"
-      }
-    ],
-    "evidenceFingerprint": "c39dae7c2752c54611e05fc8bef575cd704a01995d12725e7a49b54720b76c48",
-    "rosterEditorial": {
-      "source": "Official HTO game sheet, October 19 current-season roster classification and historical Master Workbook",
-      "classificationAsOf": "2026-10-19",
-      "verifiedFingerprint": "c39dae7c2752c54611e05fc8bef575cd704a01995d12725e7a49b54720b76c48",
-      "gameId": 3375601,
-      "commentaryType": "LINEUP_CONTEXT_AS_OF_GAME_DATE",
-      "sourceCaveat": "No unverified absence reasons"
-    }
+    "evidenceFingerprint": "90774983aee808cd72728447d6b325b6b60c68582d1831edcb614bc014d83363"
   },
   "teamNotes": {
     "title": "Around the Club",
@@ -277,406 +148,676 @@
     "recordBreakingClaimsVerified": false
   },
   "gamePreview": {
-    "headline": "Next Up: Brave H.C. Faces Big Bastones",
-    "gameId": 3375682,
-    "opponent": "Big Bastones",
-    "puckDrop": "2026-10-25T18:15:00-04:00",
+    "headline": "Next Up: Brave H.C. Faces Mid Ice Crisis",
+    "opponent": "Mid Ice Crisis",
+    "puckDrop": "2026-11-01T20:15:00-05:00",
     "paragraphs": [
-      "Brave H.C. holds a 3–2–1 regular-season record across 6 contested meetings with Big Bastones.",
-      "Across those 6 regular-season meetings, Brave H.C. has scored 18 goals and allowed 23. Including 1 playoff meeting, the all-competition record is 3–3–1.",
-      "The teams met twice in the 2025–26 winter season, with Brave H.C. recording a 4–2 win on October 5, 2025, then a 3–1 loss on November 23, 2025.",
-      "The next game is scheduled for Sunday, October 25 at 6:15 pm ET at Vaughan Sports Village - A Rink, listed as a home game."
+      "Brave H.C. faces Mid Ice Crisis on Sunday, November 1 at 8:15 p.m. at Vaughan Sports Village — D Rink.",
+      "In seven previous regular-season and playoff meetings, Brave H.C. holds a 1–4–2 record with 15 goals for and 25 against. The regular-season record is 1–2–2 through five games.",
+      "The Braves won 5–2 on February 23, 2025. Last season, Mid Ice Crisis won 7–1 on October 26 before the teams tied 3–3 on December 14. Mid Ice Crisis also won both 2025 playoff meetings."
     ],
-    "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=preview&sportsHQ=BRAVESHOCKEY&gameID=3375682",
+    "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=schedule",
     "editorialState": "FOUNDER_APPROVED",
     "headToHead": {
       "regularSeason": {
-        "gp": 6,
-        "w": 3,
+        "gp": 5,
+        "w": 1,
         "l": 2,
-        "t": 1,
-        "gf": 18,
-        "ga": 23
+        "t": 2,
+        "gf": 13,
+        "ga": 19
       },
       "allTime": {
         "gp": 7,
-        "w": 3,
-        "l": 3,
-        "t": 1,
-        "gf": 18,
-        "ga": 28
+        "w": 1,
+        "l": 4,
+        "t": 2,
+        "gf": 15,
+        "ga": 25
       },
       "playoffs": {
-        "gp": 1,
+        "gp": 2,
         "w": 0,
-        "l": 1,
+        "l": 2,
         "t": 0,
-        "gf": 0,
-        "ga": 5
-      },
-      "lastRegular": {
-        "source": "Master Workbook AllTimeSchedule",
-        "sourceRow": 352,
-        "gameNumber": 344,
-        "date": "2025-11-23",
-        "season": "W2025/26",
-        "gameType": "Regular Season",
-        "opponent": "Big Bastones",
-        "gf": 1,
-        "ga": 3,
-        "result": "L"
-      },
-      "lastTwoRegular": [
-        {
-          "source": "Master Workbook AllTimeSchedule",
-          "sourceRow": 352,
-          "gameNumber": 344,
-          "date": "2025-11-23",
-          "season": "W2025/26",
-          "gameType": "Regular Season",
-          "opponent": "Big Bastones",
-          "gf": 1,
-          "ga": 3,
-          "result": "L"
-        },
-        {
-          "source": "Master Workbook AllTimeSchedule",
-          "sourceRow": 346,
-          "gameNumber": 338,
-          "date": "2025-10-05",
-          "season": "W2025/26",
-          "gameType": "Regular Season",
-          "opponent": "Big Bastones",
-          "gf": 4,
-          "ga": 2,
-          "result": "W"
-        }
-      ],
-      "recordScope": "Exact normalized opponent name only; no assumed team aliases"
+        "gf": 2,
+        "ga": 6
+      }
     },
     "milestoneWatch": [],
-    "milestoneCoverage": "VERIFIED_SUPPORTED_CATEGORIES_ONLY",
-    "playerOutlook": {
-      "scope": "Source-verified workbook head-to-head and HTO current form; no confirmed upcoming lineup",
-      "opponent": "Big Bastones",
-      "recentWindowGames": 3,
-      "currentTeamGames": 4,
-      "status": "VERIFIED_HISTORICAL_SCOUTING_NOT_LINEUP_OR_FORECAST",
-      "players": [
-        {
-          "name": "Saindon, Stephane",
-          "displayName": "Stephane Saindon",
-          "rosterStatus": "FT",
-          "historical": {
-            "gp": 6,
-            "g": 5,
-            "a": 1,
-            "pts": 6
-          },
-          "season": {
-            "gp": 3,
-            "g": 0,
-            "a": 1,
-            "pts": 1
-          },
-          "recent": {
-            "gp": 2,
-            "g": 0,
-            "a": 1,
-            "pts": 1
-          },
-          "recentWindowGames": 3,
-          "bestMeeting": {
-            "gameNumber": 338,
-            "date": "2025-10-05",
-            "opponent": "Big Bastones",
-            "player": "Saindon, Stephane",
-            "gp": 1,
-            "g": 2,
-            "a": 1,
-            "pts": 3,
-            "score": "4–2",
-            "result": "W",
-            "season": "W2025/26",
-            "source": "Master Workbook SkaterStatsByGame / AllTimeSchedule"
-          },
-          "lastMeeting": {
-            "gameNumber": 344,
-            "date": "2025-11-23",
-            "opponent": "Big Bastones",
-            "player": "Saindon, Stephane",
-            "gp": 1,
-            "g": 0,
-            "a": 0,
-            "pts": 0,
-            "score": "1–3",
-            "result": "L",
-            "season": "W2025/26",
-            "source": "Master Workbook SkaterStatsByGame / AllTimeSchedule"
-          },
-          "historyGameNumbers": [
-            271,
-            279,
-            284,
-            291,
-            338,
-            344
-          ],
-          "editorialPriority": 9,
-          "availability": "NOT_CONFIRMED"
-        },
-        {
-          "name": "Pearsoll, Keith",
-          "displayName": "Keith Pearsoll",
-          "rosterStatus": "FT",
-          "historical": {
-            "gp": 4,
-            "g": 2,
-            "a": 3,
-            "pts": 5
-          },
-          "season": {
-            "gp": 3,
-            "g": 1,
-            "a": 0,
-            "pts": 1
-          },
-          "recent": {
-            "gp": 2,
-            "g": 1,
-            "a": 0,
-            "pts": 1
-          },
-          "recentWindowGames": 3,
-          "bestMeeting": {
-            "gameNumber": 338,
-            "date": "2025-10-05",
-            "opponent": "Big Bastones",
-            "player": "Pearsoll, Keith",
-            "gp": 1,
-            "g": 2,
-            "a": 2,
-            "pts": 4,
-            "score": "4–2",
-            "result": "W",
-            "season": "W2025/26",
-            "source": "Master Workbook SkaterStatsByGame / AllTimeSchedule"
-          },
-          "lastMeeting": {
-            "gameNumber": 338,
-            "date": "2025-10-05",
-            "opponent": "Big Bastones",
-            "player": "Pearsoll, Keith",
-            "gp": 1,
-            "g": 2,
-            "a": 2,
-            "pts": 4,
-            "score": "4–2",
-            "result": "W",
-            "season": "W2025/26",
-            "source": "Master Workbook SkaterStatsByGame / AllTimeSchedule"
-          },
-          "historyGameNumbers": [
-            279,
-            284,
-            291,
-            338
-          ],
-          "editorialPriority": 8,
-          "availability": "NOT_CONFIRMED"
-        },
-        {
-          "name": "Carosi, Justin",
-          "displayName": "Justin Carosi",
-          "rosterStatus": "FT",
-          "historical": {
-            "gp": 6,
-            "g": 3,
-            "a": 1,
-            "pts": 4
-          },
-          "season": {
-            "gp": 4,
-            "g": 3,
-            "a": 0,
-            "pts": 3
-          },
-          "recent": {
-            "gp": 3,
-            "g": 3,
-            "a": 0,
-            "pts": 3
-          },
-          "recentWindowGames": 3,
-          "bestMeeting": {
-            "gameNumber": 279,
-            "date": "2023-03-05",
-            "opponent": "Big Bastones",
-            "player": "Carosi, Justin",
-            "gp": 1,
-            "g": 2,
-            "a": 1,
-            "pts": 3,
-            "score": "3–3",
-            "result": "T",
-            "season": "W2022/23",
-            "source": "Master Workbook SkaterStatsByGame / AllTimeSchedule"
-          },
-          "lastMeeting": {
-            "gameNumber": 344,
-            "date": "2025-11-23",
-            "opponent": "Big Bastones",
-            "player": "Carosi, Justin",
-            "gp": 1,
-            "g": 0,
-            "a": 0,
-            "pts": 0,
-            "score": "1–3",
-            "result": "L",
-            "season": "W2025/26",
-            "source": "Master Workbook SkaterStatsByGame / AllTimeSchedule"
-          },
-          "historyGameNumbers": [
-            271,
-            279,
-            284,
-            291,
-            338,
-            344
-          ],
-          "editorialPriority": 13,
-          "availability": "NOT_CONFIRMED"
-        },
-        {
-          "name": "Pagnotta, Alex",
-          "displayName": "Alex Pagnotta",
-          "rosterStatus": "FT",
-          "historical": {
-            "gp": 6,
-            "g": 0,
-            "a": 1,
-            "pts": 1
-          },
-          "season": {
-            "gp": 4,
-            "g": 0,
-            "a": 3,
-            "pts": 3
-          },
-          "recent": {
-            "gp": 3,
-            "g": 0,
-            "a": 3,
-            "pts": 3
-          },
-          "recentWindowGames": 3,
-          "bestMeeting": {
-            "gameNumber": 279,
-            "date": "2023-03-05",
-            "opponent": "Big Bastones",
-            "player": "Pagnotta, Alex",
-            "gp": 1,
-            "g": 0,
-            "a": 1,
-            "pts": 1,
-            "score": "3–3",
-            "result": "T",
-            "season": "W2022/23",
-            "source": "Master Workbook SkaterStatsByGame / AllTimeSchedule"
-          },
-          "lastMeeting": {
-            "gameNumber": 344,
-            "date": "2025-11-23",
-            "opponent": "Big Bastones",
-            "player": "Pagnotta, Alex",
-            "gp": 1,
-            "g": 0,
-            "a": 0,
-            "pts": 0,
-            "score": "1–3",
-            "result": "L",
-            "season": "W2025/26",
-            "source": "Master Workbook SkaterStatsByGame / AllTimeSchedule"
-          },
-          "historyGameNumbers": [
-            271,
-            279,
-            284,
-            291,
-            338,
-            344
-          ],
-          "editorialPriority": 10,
-          "availability": "NOT_CONFIRMED"
-        },
-        {
-          "name": "Provenzano, Michael",
-          "displayName": "Michael Provenzano",
-          "rosterStatus": "FT",
-          "historical": {
-            "gp": 2,
-            "g": 0,
-            "a": 1,
-            "pts": 1
-          },
-          "season": {
-            "gp": 3,
-            "g": 0,
-            "a": 3,
-            "pts": 3
-          },
-          "recent": {
-            "gp": 2,
-            "g": 0,
-            "a": 3,
-            "pts": 3
-          },
-          "recentWindowGames": 3,
-          "bestMeeting": {
-            "gameNumber": 344,
-            "date": "2025-11-23",
-            "opponent": "Big Bastones",
-            "player": "Provenzano, Michael",
-            "gp": 1,
-            "g": 0,
-            "a": 1,
-            "pts": 1,
-            "score": "1–3",
-            "result": "L",
-            "season": "W2025/26",
-            "source": "Master Workbook SkaterStatsByGame / AllTimeSchedule"
-          },
-          "lastMeeting": {
-            "gameNumber": 344,
-            "date": "2025-11-23",
-            "opponent": "Big Bastones",
-            "player": "Provenzano, Michael",
-            "gp": 1,
-            "g": 0,
-            "a": 1,
-            "pts": 1,
-            "score": "1–3",
-            "result": "L",
-            "season": "W2025/26",
-            "source": "Master Workbook SkaterStatsByGame / AllTimeSchedule"
-          },
-          "historyGameNumbers": [
-            338,
-            344
-          ],
-          "editorialPriority": 10,
-          "availability": "NOT_CONFIRMED"
-        }
-      ],
-      "paragraphs": [
-        "The opponent-specific history points first to Stephane Saindon and Keith Pearsoll. Stephane Saindon has 5 goals and 1 assist in 6 recorded appearances against Big Bastones, while Keith Pearsoll has 2 goals and 3 assists in 4 recorded appearances. Those are established matchup records, not estimates of what they will produce next.",
-        "In the October 5, 2025 meeting, Keith Pearsoll recorded 2 goals and 2 assists as Brave H.C. won 4–2.",
-        "Recent form adds another angle. Across Brave H.C.’s last 3 team games, Justin Carosi has 3 goals in 3 appearances; Alex Pagnotta has 3 assists in 3 appearances; Michael Provenzano has 3 assists in 2 appearances. Their current production provides another reason to follow their contributions if they are in the lineup.",
-        "If available, Stephane Saindon and Keith Pearsoll bring documented experience against Big Bastones, while Justin Carosi enters with recent scoring production. Those are players worth watching, not promised starters or statistical forecasts."
-      ]
-    }
+    "milestoneCoverage": "VERIFIED_SUPPORTED_CATEGORIES_ONLY"
   },
   "archive": [
+    {
+      "id": "recap-3375601",
+      "headline": "Pearsoll Nets First of Season as Brave H.C. Falls 7–1 to Zamboner Crew",
+      "date": "2026-10-18",
+      "gameId": 3375601,
+      "article": {
+        "id": "recap-3375601",
+        "articleType": "GAME_RECAP",
+        "gameId": 3375601,
+        "headline": "Pearsoll Nets First of Season as Brave H.C. Falls 7–1 to Zamboner Crew",
+        "date": "2026-10-18",
+        "displayDate": "Sunday, October 18, 2026",
+        "dek": "Official final: Brave H.C. 1, Zamboner Crew 7.",
+        "paragraphs": [
+          "Brave H.C. entered the game without an earlier regular-season result against Zamboner Crew recorded under that team name in the club’s historical schedule.",
+          "Brave H.C. found the net in the opening period but could not add another, falling 7–1 to Zamboner Crew on October 18.",
+          "Marco Congiusti, Anthony Paolucci, Michael Provenzano and Sanjay Rajkumar were out of the lineup against Zamboner Crew. Adam Kober and Krishnan Rajasooriar stepped into the lineup in relief.",
+          "Adam Kober made his third appearance of the season in relief, while Krishnan Rajasooriar made his second. Both finished without a point, and neither had a previous recorded regular-season appearance against Zamboner Crew under that team name.",
+          "In goal, Dev Leong made his 2nd recorded Brave H.C. appearance of the season. No prior regular-season appearance against Zamboner Crew was verified in the historical goalie records.",
+          "Keith Pearsoll scored his first goal of the season at 9:17 of the first period. The assists went to Alex Pagnotta (1), Stephane Saindon (1).",
+          "Zamboner Crew led 2–1 after the first period, then added 3 in the second and 2 in the third. Brave H.C. did not score again. Dev Leong was listed in goal for Brave H.C.",
+          "The result leaves Brave H.C. at 0–4 through 4 games, with 6 goals scored and 19 allowed.",
+          "Next up is Big Bastones on Sunday, October 25 at 6:15 pm ET, at Vaughan Sports Village - A Rink.",
+          "Looking ahead to Big Bastones, Stephane Saindon has 6 points in 6 recorded regular-season meetings, while Keith Pearsoll has 5 in 4. Those records provide matchup context, not a prediction or confirmation that either player will dress."
+        ],
+        "boxScore": {
+          "opponent": "Zamboner Crew",
+          "ourGoals": 1,
+          "theirGoals": 7,
+          "ourPeriods": [
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "theirPeriods": [
+            2,
+            3,
+            2,
+            0,
+            0
+          ]
+        },
+        "sourceUrls": [
+          "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=3375601&p=boxscore"
+        ],
+        "videoEvidence": null,
+        "opponentHistory": {
+          "beforeGame": {
+            "gp": 0,
+            "w": 0,
+            "l": 0,
+            "t": 0,
+            "gf": 0,
+            "ga": 0
+          },
+          "beforeGameAllTime": {
+            "gp": 0,
+            "w": 0,
+            "l": 0,
+            "t": 0,
+            "gf": 0,
+            "ga": 0
+          },
+          "previousRegularSeasonMeeting": null,
+          "sourceScope": "Exact normalized opponent name only; no assumed team aliases"
+        },
+        "goalEvents": [
+          {
+            "player": "Pearsoll, Keith",
+            "no": "39",
+            "period": 1,
+            "clock": "9:17",
+            "periodSeconds": 557,
+            "strength": "ES",
+            "officialText": "39 Keith Pearsoll (20 Stephane Saindon, 44 Alex Pagnotta)",
+            "teamGoalOrdinal": 1,
+            "playerGameGoalOrdinal": 1,
+            "playerSeasonGoalOrdinal": 1,
+            "gameId": 3375601,
+            "gameDate": "2026-10-18"
+          }
+        ],
+        "verification": {
+          "statementsFrom": "HTO official box score",
+          "status": "SOURCE_VERIFIED",
+          "gameBoxscoreMatched": true,
+          "unsupportedClaimsExcluded": true,
+          "headToHeadSource": "Workbook AllTimeSchedule + HTO finalized games",
+          "goalNumbers": "Verified HTO scorer events ordered across completed season games"
+        },
+        "editorialState": "FOUNDER_APPROVED",
+        "milestones": [],
+        "recordClaimsVerified": false,
+        "upcomingPlayerContext": [
+          {
+            "name": "Saindon, Stephane",
+            "displayName": "Stephane Saindon",
+            "rosterStatus": "FT",
+            "historical": {
+              "gp": 6,
+              "g": 5,
+              "a": 1,
+              "pts": 6
+            },
+            "season": {
+              "gp": 3,
+              "g": 0,
+              "a": 1,
+              "pts": 1
+            },
+            "recent": {
+              "gp": 2,
+              "g": 0,
+              "a": 1,
+              "pts": 1
+            },
+            "recentWindowGames": 3,
+            "bestMeeting": {
+              "gameNumber": 338,
+              "date": "2025-10-05",
+              "opponent": "Big Bastones",
+              "player": "Saindon, Stephane",
+              "gp": 1,
+              "g": 2,
+              "a": 1,
+              "pts": 3,
+              "score": "4–2",
+              "result": "W",
+              "season": "W2025/26",
+              "source": "Master Workbook SkaterStatsByGame / AllTimeSchedule"
+            },
+            "lastMeeting": {
+              "gameNumber": 344,
+              "date": "2025-11-23",
+              "opponent": "Big Bastones",
+              "player": "Saindon, Stephane",
+              "gp": 1,
+              "g": 0,
+              "a": 0,
+              "pts": 0,
+              "score": "1–3",
+              "result": "L",
+              "season": "W2025/26",
+              "source": "Master Workbook SkaterStatsByGame / AllTimeSchedule"
+            },
+            "historyGameNumbers": [
+              271,
+              279,
+              284,
+              291,
+              338,
+              344
+            ],
+            "editorialPriority": 9,
+            "availability": "NOT_CONFIRMED"
+          },
+          {
+            "name": "Pearsoll, Keith",
+            "displayName": "Keith Pearsoll",
+            "rosterStatus": "FT",
+            "historical": {
+              "gp": 4,
+              "g": 2,
+              "a": 3,
+              "pts": 5
+            },
+            "season": {
+              "gp": 3,
+              "g": 1,
+              "a": 0,
+              "pts": 1
+            },
+            "recent": {
+              "gp": 2,
+              "g": 1,
+              "a": 0,
+              "pts": 1
+            },
+            "recentWindowGames": 3,
+            "bestMeeting": {
+              "gameNumber": 338,
+              "date": "2025-10-05",
+              "opponent": "Big Bastones",
+              "player": "Pearsoll, Keith",
+              "gp": 1,
+              "g": 2,
+              "a": 2,
+              "pts": 4,
+              "score": "4–2",
+              "result": "W",
+              "season": "W2025/26",
+              "source": "Master Workbook SkaterStatsByGame / AllTimeSchedule"
+            },
+            "lastMeeting": {
+              "gameNumber": 338,
+              "date": "2025-10-05",
+              "opponent": "Big Bastones",
+              "player": "Pearsoll, Keith",
+              "gp": 1,
+              "g": 2,
+              "a": 2,
+              "pts": 4,
+              "score": "4–2",
+              "result": "W",
+              "season": "W2025/26",
+              "source": "Master Workbook SkaterStatsByGame / AllTimeSchedule"
+            },
+            "historyGameNumbers": [
+              279,
+              284,
+              291,
+              338
+            ],
+            "editorialPriority": 8,
+            "availability": "NOT_CONFIRMED"
+          }
+        ],
+        "evidenceFingerprint": "c39dae7c2752c54611e05fc8bef575cd704a01995d12725e7a49b54720b76c48",
+        "rosterEditorial": {
+          "source": "Official HTO game sheet, October 19 current-season roster classification and historical Master Workbook",
+          "classificationAsOf": "2026-10-19",
+          "verifiedFingerprint": "c39dae7c2752c54611e05fc8bef575cd704a01995d12725e7a49b54720b76c48",
+          "gameId": 3375601,
+          "commentaryType": "LINEUP_CONTEXT_AS_OF_GAME_DATE",
+          "sourceCaveat": "No unverified absence reasons"
+        },
+        "followingGamePreview": {
+          "headline": "Next Up: Brave H.C. Faces Big Bastones",
+          "gameId": 3375682,
+          "opponent": "Big Bastones",
+          "puckDrop": "2026-10-25T18:15:00-04:00",
+          "paragraphs": [
+            "Brave H.C. holds a 3–2–1 regular-season record across 6 contested meetings with Big Bastones.",
+            "Across those 6 regular-season meetings, Brave H.C. has scored 18 goals and allowed 23. Including 1 playoff meeting, the all-competition record is 3–3–1.",
+            "The teams met twice in the 2025–26 winter season, with Brave H.C. recording a 4–2 win on October 5, 2025, then a 3–1 loss on November 23, 2025.",
+            "The next game is scheduled for Sunday, October 25 at 6:15 pm ET at Vaughan Sports Village - A Rink, listed as a home game."
+          ],
+          "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=preview&sportsHQ=BRAVESHOCKEY&gameID=3375682",
+          "editorialState": "FOUNDER_APPROVED",
+          "headToHead": {
+            "regularSeason": {
+              "gp": 6,
+              "w": 3,
+              "l": 2,
+              "t": 1,
+              "gf": 18,
+              "ga": 23
+            },
+            "allTime": {
+              "gp": 7,
+              "w": 3,
+              "l": 3,
+              "t": 1,
+              "gf": 18,
+              "ga": 28
+            },
+            "playoffs": {
+              "gp": 1,
+              "w": 0,
+              "l": 1,
+              "t": 0,
+              "gf": 0,
+              "ga": 5
+            },
+            "lastRegular": {
+              "source": "Master Workbook AllTimeSchedule",
+              "sourceRow": 352,
+              "gameNumber": 344,
+              "date": "2025-11-23",
+              "season": "W2025/26",
+              "gameType": "Regular Season",
+              "opponent": "Big Bastones",
+              "gf": 1,
+              "ga": 3,
+              "result": "L"
+            },
+            "lastTwoRegular": [
+              {
+                "source": "Master Workbook AllTimeSchedule",
+                "sourceRow": 352,
+                "gameNumber": 344,
+                "date": "2025-11-23",
+                "season": "W2025/26",
+                "gameType": "Regular Season",
+                "opponent": "Big Bastones",
+                "gf": 1,
+                "ga": 3,
+                "result": "L"
+              },
+              {
+                "source": "Master Workbook AllTimeSchedule",
+                "sourceRow": 346,
+                "gameNumber": 338,
+                "date": "2025-10-05",
+                "season": "W2025/26",
+                "gameType": "Regular Season",
+                "opponent": "Big Bastones",
+                "gf": 4,
+                "ga": 2,
+                "result": "W"
+              }
+            ],
+            "recordScope": "Exact normalized opponent name only; no assumed team aliases"
+          },
+          "milestoneWatch": [],
+          "milestoneCoverage": "VERIFIED_SUPPORTED_CATEGORIES_ONLY",
+          "playerOutlook": {
+            "scope": "Source-verified workbook head-to-head and HTO current form; no confirmed upcoming lineup",
+            "opponent": "Big Bastones",
+            "recentWindowGames": 3,
+            "currentTeamGames": 4,
+            "status": "VERIFIED_HISTORICAL_SCOUTING_NOT_LINEUP_OR_FORECAST",
+            "players": [
+              {
+                "name": "Saindon, Stephane",
+                "displayName": "Stephane Saindon",
+                "rosterStatus": "FT",
+                "historical": {
+                  "gp": 6,
+                  "g": 5,
+                  "a": 1,
+                  "pts": 6
+                },
+                "season": {
+                  "gp": 3,
+                  "g": 0,
+                  "a": 1,
+                  "pts": 1
+                },
+                "recent": {
+                  "gp": 2,
+                  "g": 0,
+                  "a": 1,
+                  "pts": 1
+                },
+                "recentWindowGames": 3,
+                "bestMeeting": {
+                  "gameNumber": 338,
+                  "date": "2025-10-05",
+                  "opponent": "Big Bastones",
+                  "player": "Saindon, Stephane",
+                  "gp": 1,
+                  "g": 2,
+                  "a": 1,
+                  "pts": 3,
+                  "score": "4–2",
+                  "result": "W",
+                  "season": "W2025/26",
+                  "source": "Master Workbook SkaterStatsByGame / AllTimeSchedule"
+                },
+                "lastMeeting": {
+                  "gameNumber": 344,
+                  "date": "2025-11-23",
+                  "opponent": "Big Bastones",
+                  "player": "Saindon, Stephane",
+                  "gp": 1,
+                  "g": 0,
+                  "a": 0,
+                  "pts": 0,
+                  "score": "1–3",
+                  "result": "L",
+                  "season": "W2025/26",
+                  "source": "Master Workbook SkaterStatsByGame / AllTimeSchedule"
+                },
+                "historyGameNumbers": [
+                  271,
+                  279,
+                  284,
+                  291,
+                  338,
+                  344
+                ],
+                "editorialPriority": 9,
+                "availability": "NOT_CONFIRMED"
+              },
+              {
+                "name": "Pearsoll, Keith",
+                "displayName": "Keith Pearsoll",
+                "rosterStatus": "FT",
+                "historical": {
+                  "gp": 4,
+                  "g": 2,
+                  "a": 3,
+                  "pts": 5
+                },
+                "season": {
+                  "gp": 3,
+                  "g": 1,
+                  "a": 0,
+                  "pts": 1
+                },
+                "recent": {
+                  "gp": 2,
+                  "g": 1,
+                  "a": 0,
+                  "pts": 1
+                },
+                "recentWindowGames": 3,
+                "bestMeeting": {
+                  "gameNumber": 338,
+                  "date": "2025-10-05",
+                  "opponent": "Big Bastones",
+                  "player": "Pearsoll, Keith",
+                  "gp": 1,
+                  "g": 2,
+                  "a": 2,
+                  "pts": 4,
+                  "score": "4–2",
+                  "result": "W",
+                  "season": "W2025/26",
+                  "source": "Master Workbook SkaterStatsByGame / AllTimeSchedule"
+                },
+                "lastMeeting": {
+                  "gameNumber": 338,
+                  "date": "2025-10-05",
+                  "opponent": "Big Bastones",
+                  "player": "Pearsoll, Keith",
+                  "gp": 1,
+                  "g": 2,
+                  "a": 2,
+                  "pts": 4,
+                  "score": "4–2",
+                  "result": "W",
+                  "season": "W2025/26",
+                  "source": "Master Workbook SkaterStatsByGame / AllTimeSchedule"
+                },
+                "historyGameNumbers": [
+                  279,
+                  284,
+                  291,
+                  338
+                ],
+                "editorialPriority": 8,
+                "availability": "NOT_CONFIRMED"
+              },
+              {
+                "name": "Carosi, Justin",
+                "displayName": "Justin Carosi",
+                "rosterStatus": "FT",
+                "historical": {
+                  "gp": 6,
+                  "g": 3,
+                  "a": 1,
+                  "pts": 4
+                },
+                "season": {
+                  "gp": 4,
+                  "g": 3,
+                  "a": 0,
+                  "pts": 3
+                },
+                "recent": {
+                  "gp": 3,
+                  "g": 3,
+                  "a": 0,
+                  "pts": 3
+                },
+                "recentWindowGames": 3,
+                "bestMeeting": {
+                  "gameNumber": 279,
+                  "date": "2023-03-05",
+                  "opponent": "Big Bastones",
+                  "player": "Carosi, Justin",
+                  "gp": 1,
+                  "g": 2,
+                  "a": 1,
+                  "pts": 3,
+                  "score": "3–3",
+                  "result": "T",
+                  "season": "W2022/23",
+                  "source": "Master Workbook SkaterStatsByGame / AllTimeSchedule"
+                },
+                "lastMeeting": {
+                  "gameNumber": 344,
+                  "date": "2025-11-23",
+                  "opponent": "Big Bastones",
+                  "player": "Carosi, Justin",
+                  "gp": 1,
+                  "g": 0,
+                  "a": 0,
+                  "pts": 0,
+                  "score": "1–3",
+                  "result": "L",
+                  "season": "W2025/26",
+                  "source": "Master Workbook SkaterStatsByGame / AllTimeSchedule"
+                },
+                "historyGameNumbers": [
+                  271,
+                  279,
+                  284,
+                  291,
+                  338,
+                  344
+                ],
+                "editorialPriority": 13,
+                "availability": "NOT_CONFIRMED"
+              },
+              {
+                "name": "Pagnotta, Alex",
+                "displayName": "Alex Pagnotta",
+                "rosterStatus": "FT",
+                "historical": {
+                  "gp": 6,
+                  "g": 0,
+                  "a": 1,
+                  "pts": 1
+                },
+                "season": {
+                  "gp": 4,
+                  "g": 0,
+                  "a": 3,
+                  "pts": 3
+                },
+                "recent": {
+                  "gp": 3,
+                  "g": 0,
+                  "a": 3,
+                  "pts": 3
+                },
+                "recentWindowGames": 3,
+                "bestMeeting": {
+                  "gameNumber": 279,
+                  "date": "2023-03-05",
+                  "opponent": "Big Bastones",
+                  "player": "Pagnotta, Alex",
+                  "gp": 1,
+                  "g": 0,
+                  "a": 1,
+                  "pts": 1,
+                  "score": "3–3",
+                  "result": "T",
+                  "season": "W2022/23",
+                  "source": "Master Workbook SkaterStatsByGame / AllTimeSchedule"
+                },
+                "lastMeeting": {
+                  "gameNumber": 344,
+                  "date": "2025-11-23",
+                  "opponent": "Big Bastones",
+                  "player": "Pagnotta, Alex",
+                  "gp": 1,
+                  "g": 0,
+                  "a": 0,
+                  "pts": 0,
+                  "score": "1–3",
+                  "result": "L",
+                  "season": "W2025/26",
+                  "source": "Master Workbook SkaterStatsByGame / AllTimeSchedule"
+                },
+                "historyGameNumbers": [
+                  271,
+                  279,
+                  284,
+                  291,
+                  338,
+                  344
+                ],
+                "editorialPriority": 10,
+                "availability": "NOT_CONFIRMED"
+              },
+              {
+                "name": "Provenzano, Michael",
+                "displayName": "Michael Provenzano",
+                "rosterStatus": "FT",
+                "historical": {
+                  "gp": 2,
+                  "g": 0,
+                  "a": 1,
+                  "pts": 1
+                },
+                "season": {
+                  "gp": 3,
+                  "g": 0,
+                  "a": 3,
+                  "pts": 3
+                },
+                "recent": {
+                  "gp": 2,
+                  "g": 0,
+                  "a": 3,
+                  "pts": 3
+                },
+                "recentWindowGames": 3,
+                "bestMeeting": {
+                  "gameNumber": 344,
+                  "date": "2025-11-23",
+                  "opponent": "Big Bastones",
+                  "player": "Provenzano, Michael",
+                  "gp": 1,
+                  "g": 0,
+                  "a": 1,
+                  "pts": 1,
+                  "score": "1–3",
+                  "result": "L",
+                  "season": "W2025/26",
+                  "source": "Master Workbook SkaterStatsByGame / AllTimeSchedule"
+                },
+                "lastMeeting": {
+                  "gameNumber": 344,
+                  "date": "2025-11-23",
+                  "opponent": "Big Bastones",
+                  "player": "Provenzano, Michael",
+                  "gp": 1,
+                  "g": 0,
+                  "a": 1,
+                  "pts": 1,
+                  "score": "1–3",
+                  "result": "L",
+                  "season": "W2025/26",
+                  "source": "Master Workbook SkaterStatsByGame / AllTimeSchedule"
+                },
+                "historyGameNumbers": [
+                  338,
+                  344
+                ],
+                "editorialPriority": 10,
+                "availability": "NOT_CONFIRMED"
+              }
+            ],
+            "paragraphs": [
+              "The opponent-specific history points first to Stephane Saindon and Keith Pearsoll. Stephane Saindon has 5 goals and 1 assist in 6 recorded appearances against Big Bastones, while Keith Pearsoll has 2 goals and 3 assists in 4 recorded appearances. Those are established matchup records, not estimates of what they will produce next.",
+              "In the October 5, 2025 meeting, Keith Pearsoll recorded 2 goals and 2 assists as Brave H.C. won 4–2.",
+              "Recent form adds another angle. Across Brave H.C.’s last 3 team games, Justin Carosi has 3 goals in 3 appearances; Alex Pagnotta has 3 assists in 3 appearances; Michael Provenzano has 3 assists in 2 appearances. Their current production provides another reason to follow their contributions if they are in the lineup.",
+              "If available, Stephane Saindon and Keith Pearsoll bring documented experience against Big Bastones, while Justin Carosi enters with recent scoring production. Those are players worth watching, not promised starters or statistical forecasts."
+            ]
+          }
+        }
+      }
+    },
     {
       "id": "recap-3369564",
       "headline": "Brave H.C. Edged 3–2 by Michelob Morts",
@@ -1200,5 +1341,12 @@
     "articleCount": 4,
     "furtherPublicationRequiresApproval": true,
     "rosterContextExpansion": "2026-10-19 Founder follow-up instruction to explicitly include roster participation in existing approved game recaps"
+  },
+  "publicationAuthorization": {
+    "decision": "APPROVED_FOR_HTO_PUBLICATION",
+    "role": "Founder",
+    "date": "2026-10-25",
+    "articleId": "recap-3375682",
+    "approvedArticleHash": "90774983aee808cd72728447d6b325b6b60c68582d1831edcb614bc014d83363"
   }
 }
