@@ -46,7 +46,7 @@ def build(master,candidates):
    html,source_sha=get(url)
    receipt["officialPageSHA256"]=source_sha
    team={"name":c["officialPublishedTeamName"],"sourceTeamId":c["officialLeagueSeasonTeamId"],
-    "division":c["officialDivision"]}
+    "division":c["officialDivisionName"]}
    page=team_schedule(c["officialLeagueId"],team,html,source_sha)
    schedule=page["publishedScheduleRows"]
    for game in original:
