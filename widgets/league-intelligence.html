@@ -23,7 +23,7 @@ td .team{font-weight:850;font-size:13px;display:block}td .minor{color:var(--mute
 .details{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap;align-items:center;margin-bottom:14px}.state{font-size:11px;color:var(--gold);font-weight:800}
 .tiny{color:var(--muted);font-size:11px}.sourcelink{font-weight:800;font-size:12px}.positive{color:#99e8cc}.negative{color:#ffa6af}
 .move-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(245px,1fr));gap:10px;margin:10px 0 15px}.move-card{background:#102b43;border:1px solid #476985;border-radius:7px;padding:11px}.move-card strong{display:block;color:#fff;font-size:14px}.move-card p{font-size:11px}.move-card .flow{font-size:12px;color:#edd2ab;font-weight:800;margin:4px 0}.move-card button{margin-top:7px;background:#a3223a;color:white;border:1px solid #e57385;padding:8px 12px;border-radius:5px;font-weight:800}.move-card .minor{font-size:11px;color:#bdd1e5}
-.context-score{font-weight:900;color:#f5ce99}.early-warning{color:#f2b7bf;font-weight:700}.strength-explain{color:#e3ecf5;font-size:12px}
+.trend-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(175px,1fr));gap:9px;margin:12px 0 16px}.trend-point{background:#0a2338;border:1px solid #365c77;padding:11px;border-radius:7px}.trend-point strong{font-size:17px;display:block;color:#f5ce99}.trend-point span,.trend-point small{display:block;color:#bfd0df;font-size:11px}.context-score{font-weight:900;color:#f5ce99}.early-warning{color:#f2b7bf;font-weight:700}.strength-explain{color:#e3ecf5;font-size:12px}
 @media(max-width:680px){main{padding:13px 9px 35px}.info{grid-template-columns:repeat(2,minmax(0,1fr))}.three{grid-template-columns:1fr}.metric span{font-size:19px}.panel{padding:12px}.toolbar label,select{width:100%}}
 </style></head>
 <body><main>
@@ -56,6 +56,8 @@ td .team{font-weight:850;font-size:13px;display:block}td .minor{color:var(--mute
  <div class="three" id="profile-metrics"></div>
  <h3>Schedule-adjusted strength context (not a win probability)</h3><div class="three" id="strength-metrics"></div>
  <p class="note" id="strength-method">The comparison is descriptive, provisional and based only on the source-published league games.</p>
+ <h3>Verified context history</h3><p class="note" id="trend-summary">Checking source-backed observations…</p>
+ <div id="trend-rows" class="trend-grid" aria-label="Recorded team context changes"></div>
  <div id="prior-summary"></div><div id="braves-history"></div>
  <h3>Completed fixtures and opposition</h3><div class="scroll"><table aria-label="Recorded results against named opponents"><thead><tr><th>DATE / OPPONENT</th><th>OPPONENT CURRENT DIVISION</th><th>RESULT</th><th>GF</th><th>GA</th></tr></thead><tbody id="fixture-rows"></tbody></table></div>
  <p class="tiny" id="profile-source"></p>
@@ -65,4 +67,4 @@ td .team{font-weight:850;font-size:13px;display:block}td .minor{color:var(--mute
  <p class="small">Prior winter results are shown only when official player IDs provide meaningful roster continuity. They are a separate season, not added to current standings. Brave H.C. head-to-head records come from the verified Master Workbook and HTO source, never by guessing that a team with a similar league name is the same franchise.</p>
  <p class="tiny">Sources: <a href="https://leagues.sportsvillage.ca/Leagues.aspx?leagueid=570&amp;page_type=Adult&amp;sc=HOCKEY" target="_blank" rel="noopener noreferrer">Sunday Winter 2026/27 standings and teams</a> · <a href="https://leagues.sportsvillage.ca/Leagues.aspx?leagueid=547&amp;page_type=Adult&amp;sc=HOCKEY" target="_blank" rel="noopener noreferrer">Previous Winter 2025/26</a>.</p>
 </section>
-</main><script src="./league-intelligence.js?v=20261026-incoming2" defer></script></body></html>
+</main><script src="./league-intelligence.js?v=20261026-trends1" defer></script></body></html>
