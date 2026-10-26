@@ -27,15 +27,15 @@ const chrome=["C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe","C:\\
   const teams=await page.$$eval("#standings-rows tr",r=>r.length);
   assert.equal(teams,8,"all eight division teams included");
   const first=await page.$eval("#standings-rows tr",e=>e.textContent);
-  assert.ok(first.includes("19")&&first.includes("11")&&first.includes("75.0%"),"complete GF/GA/WIN% displayed");
+  assert.ok(first.includes("19")&&first.includes("11")&&first.includes(".750"),"complete GF/GA/WIN% displayed");
   await page.click("#tab-intel");
   assert.equal(await page.$eval("#intel-view",e=>e.hidden),false);
   const optionCount=await page.$$eval("#opponent option",n=>n.length);
   assert.equal(optionCount,7,"all 7 opponents selectable");
   await page.select("#opponent","Mid Ice Crisis");
   assert.equal(await page.$eval("#intel-team",e=>e.textContent),"Mid Ice Crisis");
-  assert.equal(await page.$eval("#headtohead-section",e=>e.hidden),false,"founder-approved H2H disclosed for Mid Ice Crisis");
-  assert.ok((await page.$eval("#headtohead",e=>e.textContent)).includes("1–2–2"),"verified regular-season H2H rendered");
+  assert.equal(await page.$eval("#headtohead-section",e=>e.hidden),true,"head-to-head withheld until master-workbook source is verified");
+  assert.ok((await page.$eval("#intel-metrics",e=>e.textContent)).includes("Source verification required"),"opponent intelligence is fail-closed");
   await page.setViewport({width:358,height:690});
   await page.click("#tab-standing");
   const isMobile=await page.$eval(".standings-table tr:nth-child(1)",e=>getComputedStyle(e).display==="grid");

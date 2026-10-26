@@ -8,11 +8,11 @@
 <script defer src="./home-premium.js?v=20261025-1"></script>
 </head>
 <body data-hto-season="Winter_2026/2027">
-<main class="shell"><div class="card"><div class="accent"></div><div class="content">
+<main class="shell" tabindex="0" aria-label="Scrollable Brave H.C. statistics and opponent centre"><div class="card"><div class="accent"></div><div class="content">
 <header class="top"><div class="identity"><img src="./brave_hc_logo.png" alt="Brave H.C. crest">
 <div><strong>BRAVE H.C. <span class="muted">|</span> HOCKEYOS</strong><small id="subtitle">Season Centre · 2026–27</small></div></div><span id="state" class="tag">SOURCE-TRACKED</span></header>
 <section id="standings" hidden>
-<div class="titleline"><div><div class="kicker">SVHL · Cristillo Division</div><h1>Division Centre</h1></div><span class="meta" id="standing-date">Checking league data</span></div>
+<div class="titleline"><div><div class="kicker">SVHL · Cristillo Division</div><h1>Division Centre</h1><a class="full-link" href="./home-panels.html?panel=standings&amp;full=1" target="_blank" rel="noopener">Open full-page ↗</a></div><span class="meta" id="standing-date">Checking league data</span></div>
 <div class="tabs" role="tablist" aria-label="Division Centre views">
 <button id="tab-standing" type="button" role="tab" aria-selected="true" aria-controls="standing-view">Full Standings</button>
 <button id="tab-intel" type="button" role="tab" aria-selected="false" aria-controls="intel-view">Opponent Intelligence</button>
@@ -20,7 +20,7 @@
 <div id="standing-view" role="tabpanel" aria-labelledby="tab-standing">
 <div class="note" id="standings-note">Loading SVHL standings…</div>
 <table class="stats-table standings-table" aria-label="Complete Cristillo Division standings">
-<thead><tr><th class="team">TEAM</th><th>GP</th><th>W</th><th>L</th><th>T</th><th>PTS</th><th>GF</th><th>GA</th><th>WIN%</th></tr></thead><tbody id="standings-rows"></tbody></table>
+<thead><tr><th class="team">TEAM</th><th>GP</th><th>W</th><th>L</th><th>T</th><th>PTS</th><th>GF</th><th>GA</th><th>WIN%</th></tr></thead><tbody id="standings-rows"></tbody></table><div class="pager" id="standings-pager"></div>
 </div>
 <div id="intel-view" role="tabpanel" aria-labelledby="tab-intel" hidden>
 <div class="intel-header"><div><label for="opponent">Choose an opponent</label><br><select id="opponent" aria-label="Choose a division opponent"></select></div><span class="tag" id="opponent-date">LEAGUE DATA</span></div>
@@ -33,7 +33,7 @@
 <div class="foot"><span class="source" id="standings-source">Official SVHL league snapshot</span><a id="standings-link" href="https://leagues.sportsvillage.ca/Leagues.aspx?leagueid=570&page_type=Adult&amp;sc=HOCKEY" target="_parent" rel="noopener noreferrer">Official SVHL standings ↗</a></div>
 </section>
 <section id="projection" hidden>
-<div class="titleline"><div><div class="kicker">Official HTO actuals · Workbook season model</div><h1>Team Projections</h1></div><span class="tag" id="projection-state">Checking model</span></div>
+<div class="titleline"><div><div class="kicker">Official HTO actuals · Workbook season model</div><h1>Team Projections</h1><a class="full-link" href="./home-panels.html?panel=projection&amp;full=1" target="_blank" rel="noopener">Open all 22 players ↗</a></div><span class="tag" id="projection-state">Checking model</span></div>
 <p class="note" id="projection-note">Loading the latest model snapshot…</p>
 <div class="summary"><div><div class="kicker">Projected Player Scoring</div><div class="metric" id="proj-total">—</div><div class="minor">Combined roster projection · not league standings points</div></div>
 <div><div class="minor">HTO games in model input</div><div class="metric" id="proj-games">—</div></div></div>
@@ -41,7 +41,7 @@
 <button type="button" data-group="ALL" aria-pressed="true">All Players</button><button type="button" data-group="FT" aria-pressed="false">Full-Time</button><button type="button" data-group="CU" aria-pressed="false">Call-Ups</button><button type="button" data-group="DI" aria-pressed="false">Drop-Ins</button>
 </div>
 <table class="stats-table projection-table" aria-label="Full player projections showing projected season totals, current actuals and career trends">
-<thead><tr><th class="team">PLAYER</th><th>GP</th><th>G</th><th>A</th><th>PTS</th><th>P/G</th><th>TREND</th></tr></thead><tbody id="projection-rows"></tbody></table>
+<thead><tr><th class="team">PLAYER</th><th>GP</th><th>G</th><th>A</th><th>PTS</th><th>P/G</th><th>TREND</th></tr></thead><tbody id="projection-rows"></tbody></table><div class="pager" id="projection-pager"></div>
 <div id="trend-legend" class="legend" aria-label="Trend strength key"></div>
 <p class="model">Bold numbers = projected season totals. <span class="muted">(Parentheses)</span> = actual statistics at the model input date. P/G = projected points per game. Tap a trend arrow for comparison details. Arrows follow the master workbook's exact five thresholds.</p>
 <div class="foot"><span class="source" id="projection-source">Workbook reconciliation status pending</span><a href="https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&amp;s=hockey&amp;p=stats" target="_parent" rel="noopener noreferrer">Official current HTO stats ↗</a></div>
