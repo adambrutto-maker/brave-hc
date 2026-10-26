@@ -6,6 +6,9 @@ const maple=published.teams.find(t=>t.leagueName==="Maplewolves");
 const leagueDivision=published.divisions.find(t=>t.name==="The Cristillo Division");
 const ranked=[...published.teams].filter(t=>t.strengthContext?.rank!==null).sort((a,b)=>a.strengthContext.rank-b.strengthContext.rank);
 const competitiveCount=published.teams.filter(t=>published.divisions.some(d=>d.name===t.divisionNow&&d.competitive)).length;
+const archive=JSON.parse(fs.readFileSync(path.join(root,"historical-svhl-standings.json"),"utf8"));
+const historicalLinks=JSON.parse(fs.readFileSync(path.join(root,"brave-historical-verified-games.json"),"utf8"));
+
 const schedule=JSON.parse(fs.readFileSync(path.join(root,"svhl-upcoming.json"),"utf8"));
 const dp=new Intl.DateTimeFormat("en-CA",{timeZone:"America/Toronto",year:"numeric",month:"2-digit",day:"2-digit"}).formatToParts(new Date());
 const dpart=k=>dp.find(x=>x.type===k).value;
@@ -40,6 +43,15 @@ const server=http.createServer((req,res)=>{
      contextBreakdown:document.querySelector("#strength-metrics")?.textContent,
      trendSummary:document.querySelector("#trend-summary")?.textContent,
      trendCount:document.querySelectorAll("#trend-rows .trend-point").length,
+     archiveStatus:document.querySelector("#archive-status")?.textContent,
+     archiveChoices:document.querySelectorAll("#archive-season option").length,
+     archivedDivisionCount:document.querySelectorAll("#archive-divisions .archive-division").length,
+     balanceCount:document.querySelectorAll("#balance-cards .insights-card").length,
+     balanceText:document.querySelector("#balance-readiness")?.textContent,
+     pastEvidence:document.querySelector("#plain-verified-past")?.textContent,
+     pastCards:document.querySelectorAll("#history-bridge-cards .insights-card").length,
+     plainSummary:document.querySelector("#plain-opponent-summary")?.textContent,
+     weeklyPlain:document.querySelector("#weekly-team-summary")?.textContent,
      scoutingBoardCount:document.querySelectorAll("#scout-board .scout-card").length,
      fixtureCount:document.querySelectorAll("#upcoming-fixtures .fixture-card").length,
      fixtureStatus:document.querySelector("#fixture-status")?.textContent,
@@ -77,6 +89,21 @@ const server=http.createServer((req,res)=>{
    assert.equal(info.rows,competitiveCount,"all competitive team entries");
    assert.equal(info.divisions.length,published.divisions.length+1,"all source divisions plus all");
    assert.equal(info.selected,"Maplewolves");
+   assert.ok(info.archiveStatus.includes(archive.competitiveTeamSeasonEntries+" competitive team-season entries"));
+   assert.ok(info.archiveStatus.includes(historicalLinks.matchedGameCount+" Brave H.C. game/date/score matches"));
+   assert.equal(info.archiveChoices,archive.seasons.length);
+   assert.equal(info.archivedDivisionCount,archive.seasons.at(-1).divisions.length);
+   assert.equal(info.balanceCount,published.currentDivisionCount);
+   assert.ok(info.balanceText.includes("Division changes are not recommended yet"),
+      "early-season ranking may not be presented as league realignment recommendation");
+   assert.equal(info.pastCards,new Set(historicalLinks.teamSeasons.map(g=>g.season+"|"+g.officialDivision)).size>12?12:
+      new Set(historicalLinks.teamSeasons.map(g=>g.season+"|"+g.officialDivision)).size);
+   assert.ok(info.plainSummary.includes("wins")&&info.plainSummary.includes("Who they have faced"),
+      "opponent scouting includes plain-language performance explanations");
+   assert.ok(info.pastEvidence.includes("W2022/23") && info.pastEvidence.includes("NOT evidence"),
+      "historical season-matched Brave result distinguished from modern roster");
+   assert.ok(info.weeklyPlain.includes("Weekly monitoring: 1 verified week"),
+      "weekly view discloses one genuine baseline, never manufactured trend");
    assert.equal(info.fixtureCount,upcoming.length,"all and only future official SVHL fixtures shown");
    assert.ok(info.fixtureStatus.includes("SVHL calendar checked") &&
      !info.fixtureStatus.includes("Upcoming schedule held"),"independent schedule source accepted");
@@ -148,6 +175,18 @@ const server=http.createServer((req,res)=>{
     }
     await page.select("#team-filter","Maplewolves");
    }
+   await page.evaluate(()=>Object.defineProperty(navigator,"clipboard",{
+     configurable:true,value:{writeText:async text=>{window.__divisionReviewCopied=text}}
+    }));
+    await page.click("#copy-division-review");
+    await page.waitForFunction(()=>Boolean(window.__divisionReviewCopied));
+    const beforeReview=await page.evaluate(()=>window.__divisionReviewCopied);
+   assert.ok(beforeReview.includes("HOCKEYOS | SVHL SUNDAY WINTER DIVISION RESEARCH")&&
+      beforeReview.includes("No realignment recommendation is made"),
+      "division-copy action must generate research only");
+   await page.select("#archive-season","Sunday Winter 2018/19");
+   assert.equal(await page.$$eval("#archive-divisions .archive-division",list=>list.length),
+      archive.seasons[0].divisions.length,"historical league year selector works");
    await page.select("#sort-field","official");
    assert.ok((await page.$eval("#league-rows tr[data-team]",x=>x.dataset.team)),"official sorting remains available");
    await page.select("#sort-field","context");

@@ -1,0 +1,1225 @@
+{
+  "schema": "brave-hc-source-matched-historical-team-seasons/v1",
+  "status": "DUAL_SOURCE_VERIFIED_HISTORICAL_GAMES_SEASON_SCOPED",
+  "privateAuditSHA256": "5a1ce757986577697b24f8df50c3233522a5b2bf1d2aa6ef153388ca7b2e1b52",
+  "sourceMasterSHA256": "0002fd9f06596af8d0a00fc1b53a618ef15479f941ad5c1e6265b27002a65154",
+  "reviewedSameSeasonCandidates": 41,
+  "matchedGameCount": 79,
+  "heldGameComparisons": 24,
+  "matchedTeamSeasonGroups": 35,
+  "teamSeasons": [
+    {
+      "season": "W2022/23",
+      "officialLeagueId": 494,
+      "officialTeamSeasonId": 11496,
+      "officialTeamName": "Bears",
+      "officialDivision": "Pepsi Division",
+      "officialTeamPage": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=494&teamid=11496&page_type=Adult",
+      "officialTeamPageSHA256": "4cb8a9a99e9491e33df466a97c1cc131ac1c5eec9d4ec34e0f8eb6defbe86136",
+      "bravesRecord": {
+        "gp": 2,
+        "w": 0,
+        "l": 2,
+        "t": 0,
+        "gf": 4,
+        "ga": 7
+      },
+      "games": [
+        {
+          "date": "2022-10-30",
+          "gf": 1,
+          "ga": 3,
+          "result": "L"
+        },
+        {
+          "date": "2023-01-08",
+          "gf": 3,
+          "ga": 4,
+          "result": "L"
+        }
+      ],
+      "qualification": "SAME_SEASON_MASTER_VS_OFFICIAL_TEAMINFO_DATE_OPPONENT_SCORE",
+      "continuousFranchiseNotVerified": true
+    },
+    {
+      "season": "W2022/23",
+      "officialLeagueId": 494,
+      "officialTeamSeasonId": 11476,
+      "officialTeamName": "Big Bastones",
+      "officialDivision": "Pizzaville Division",
+      "officialTeamPage": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=494&teamid=11476&page_type=Adult",
+      "officialTeamPageSHA256": "dcc2be3d4147c20f90e57f65b551449a4edf45bc12e2c64e3af7359cfa64a2e5",
+      "bravesRecord": {
+        "gp": 2,
+        "w": 1,
+        "l": 0,
+        "t": 1,
+        "gf": 7,
+        "ga": 6
+      },
+      "games": [
+        {
+          "date": "2022-12-11",
+          "gf": 4,
+          "ga": 3,
+          "result": "W"
+        },
+        {
+          "date": "2023-03-05",
+          "gf": 3,
+          "ga": 3,
+          "result": "T"
+        }
+      ],
+      "qualification": "SAME_SEASON_MASTER_VS_OFFICIAL_TEAMINFO_DATE_OPPONENT_SCORE",
+      "continuousFranchiseNotVerified": true
+    },
+    {
+      "season": "W2022/23",
+      "officialLeagueId": 494,
+      "officialTeamSeasonId": 11595,
+      "officialTeamName": "Ceramic Pro Vaughan",
+      "officialDivision": "Pepsi Division",
+      "officialTeamPage": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=494&teamid=11595&page_type=Adult",
+      "officialTeamPageSHA256": "fdb0a76f0ec4bde4eb2613bff936a29d68d4afeefd7a226d3719c29810d4608d",
+      "bravesRecord": {
+        "gp": 2,
+        "w": 1,
+        "l": 1,
+        "t": 0,
+        "gf": 3,
+        "ga": 4
+      },
+      "games": [
+        {
+          "date": "2022-10-23",
+          "gf": 0,
+          "ga": 2,
+          "result": "L"
+        },
+        {
+          "date": "2022-12-18",
+          "gf": 3,
+          "ga": 2,
+          "result": "W"
+        }
+      ],
+      "qualification": "SAME_SEASON_MASTER_VS_OFFICIAL_TEAMINFO_DATE_OPPONENT_SCORE",
+      "continuousFranchiseNotVerified": true
+    },
+    {
+      "season": "W2022/23",
+      "officialLeagueId": 494,
+      "officialTeamSeasonId": 11499,
+      "officialTeamName": "Dirty Dogs",
+      "officialDivision": "Pizzaville Division",
+      "officialTeamPage": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=494&teamid=11499&page_type=Adult",
+      "officialTeamPageSHA256": "b066f234ac472c9a279a46b18595466d3022255b66ad1feba6314277e4fb6464",
+      "bravesRecord": {
+        "gp": 5,
+        "w": 2,
+        "l": 3,
+        "t": 0,
+        "gf": 21,
+        "ga": 21
+      },
+      "games": [
+        {
+          "date": "2022-09-25",
+          "gf": 2,
+          "ga": 4,
+          "result": "L"
+        },
+        {
+          "date": "2022-10-16",
+          "gf": 4,
+          "ga": 5,
+          "result": "L"
+        },
+        {
+          "date": "2022-12-04",
+          "gf": 5,
+          "ga": 2,
+          "result": "W"
+        },
+        {
+          "date": "2023-02-19",
+          "gf": 7,
+          "ga": 3,
+          "result": "W"
+        },
+        {
+          "date": "2023-03-26",
+          "gf": 3,
+          "ga": 7,
+          "result": "L"
+        }
+      ],
+      "qualification": "SAME_SEASON_MASTER_VS_OFFICIAL_TEAMINFO_DATE_OPPONENT_SCORE",
+      "continuousFranchiseNotVerified": true
+    },
+    {
+      "season": "W2022/23",
+      "officialLeagueId": 494,
+      "officialTeamSeasonId": 11588,
+      "officialTeamName": "Maplewolves",
+      "officialDivision": "Pepsi Division",
+      "officialTeamPage": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=494&teamid=11588&page_type=Adult",
+      "officialTeamPageSHA256": "aaee9771a7e1b2b54e9a7cbb60bf5c991bb987b9e5671df115cdb94e0d6841d3",
+      "bravesRecord": {
+        "gp": 1,
+        "w": 0,
+        "l": 1,
+        "t": 0,
+        "gf": 4,
+        "ga": 5
+      },
+      "games": [
+        {
+          "date": "2022-11-13",
+          "gf": 4,
+          "ga": 5,
+          "result": "L"
+        }
+      ],
+      "qualification": "SAME_SEASON_MASTER_VS_OFFICIAL_TEAMINFO_DATE_OPPONENT_SCORE",
+      "continuousFranchiseNotVerified": true
+    },
+    {
+      "season": "W2022/23",
+      "officialLeagueId": 494,
+      "officialTeamSeasonId": 11492,
+      "officialTeamName": "Marlboro Reds",
+      "officialDivision": "Hot Shots",
+      "officialTeamPage": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=494&teamid=11492&page_type=Adult",
+      "officialTeamPageSHA256": "77d7630c30391412e037f6a029796aa27ce94f2685e18ad39bee54100d792f92",
+      "bravesRecord": {
+        "gp": 2,
+        "w": 0,
+        "l": 1,
+        "t": 1,
+        "gf": 3,
+        "ga": 7
+      },
+      "games": [
+        {
+          "date": "2022-10-02",
+          "gf": 3,
+          "ga": 3,
+          "result": "T"
+        },
+        {
+          "date": "2022-11-27",
+          "gf": 0,
+          "ga": 4,
+          "result": "L"
+        }
+      ],
+      "qualification": "SAME_SEASON_MASTER_VS_OFFICIAL_TEAMINFO_DATE_OPPONENT_SCORE",
+      "continuousFranchiseNotVerified": true
+    },
+    {
+      "season": "W2022/23",
+      "officialLeagueId": 494,
+      "officialTeamSeasonId": 11531,
+      "officialTeamName": "Mohawks HC",
+      "officialDivision": "Pizzaville Division",
+      "officialTeamPage": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=494&teamid=11531&page_type=Adult",
+      "officialTeamPageSHA256": "ee7a70ade7befe511b1c3814d4936cbbd7e848627c7c8e99e57bbabd990040ba",
+      "bravesRecord": {
+        "gp": 4,
+        "w": 2,
+        "l": 2,
+        "t": 0,
+        "gf": 19,
+        "ga": 18
+      },
+      "games": [
+        {
+          "date": "2022-09-18",
+          "gf": 5,
+          "ga": 3,
+          "result": "W"
+        },
+        {
+          "date": "2022-11-20",
+          "gf": 3,
+          "ga": 4,
+          "result": "L"
+        },
+        {
+          "date": "2023-01-22",
+          "gf": 4,
+          "ga": 5,
+          "result": "L"
+        },
+        {
+          "date": "2023-03-19",
+          "gf": 7,
+          "ga": 6,
+          "result": "W"
+        }
+      ],
+      "qualification": "SAME_SEASON_MASTER_VS_OFFICIAL_TEAMINFO_DATE_OPPONENT_SCORE",
+      "continuousFranchiseNotVerified": true
+    },
+    {
+      "season": "W2022/23",
+      "officialLeagueId": 494,
+      "officialTeamSeasonId": 11505,
+      "officialTeamName": "NorDekes",
+      "officialDivision": "Pepsi Division",
+      "officialTeamPage": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=494&teamid=11505&page_type=Adult",
+      "officialTeamPageSHA256": "e7c7d6d129de5e6cefed6b74246dbb3a2555052c2104df5ea9fa08e74bd7b12c",
+      "bravesRecord": {
+        "gp": 2,
+        "w": 0,
+        "l": 1,
+        "t": 1,
+        "gf": 4,
+        "ga": 8
+      },
+      "games": [
+        {
+          "date": "2022-11-06",
+          "gf": 2,
+          "ga": 6,
+          "result": "L"
+        },
+        {
+          "date": "2023-01-15",
+          "gf": 2,
+          "ga": 2,
+          "result": "T"
+        }
+      ],
+      "qualification": "SAME_SEASON_MASTER_VS_OFFICIAL_TEAMINFO_DATE_OPPONENT_SCORE",
+      "continuousFranchiseNotVerified": true
+    },
+    {
+      "season": "W2022/23",
+      "officialLeagueId": 494,
+      "officialTeamSeasonId": 11600,
+      "officialTeamName": "Vaughan Lightning",
+      "officialDivision": "Pizzaville Division",
+      "officialTeamPage": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=494&teamid=11600&page_type=Adult",
+      "officialTeamPageSHA256": "d79016ffe7a00fd9614cd9d26013a7e79ea70488c434c45b77304d1199f32e55",
+      "bravesRecord": {
+        "gp": 2,
+        "w": 2,
+        "l": 0,
+        "t": 0,
+        "gf": 8,
+        "ga": 3
+      },
+      "games": [
+        {
+          "date": "2023-01-29",
+          "gf": 6,
+          "ga": 3,
+          "result": "W"
+        },
+        {
+          "date": "2023-02-26",
+          "gf": 2,
+          "ga": 0,
+          "result": "W"
+        }
+      ],
+      "qualification": "SAME_SEASON_MASTER_VS_OFFICIAL_TEAMINFO_DATE_OPPONENT_SCORE",
+      "continuousFranchiseNotVerified": true
+    },
+    {
+      "season": "W2023/24",
+      "officialLeagueId": 512,
+      "officialTeamSeasonId": 12019,
+      "officialTeamName": "Bears",
+      "officialDivision": "Pizzaville Division",
+      "officialTeamPage": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=512&teamid=12019&page_type=Adult",
+      "officialTeamPageSHA256": "28c507aa4b50c932514a180530877a6fe6343edeaff4bda3544faae32d333552",
+      "bravesRecord": {
+        "gp": 4,
+        "w": 2,
+        "l": 2,
+        "t": 0,
+        "gf": 20,
+        "ga": 21
+      },
+      "games": [
+        {
+          "date": "2023-11-26",
+          "gf": 2,
+          "ga": 4,
+          "result": "L"
+        },
+        {
+          "date": "2024-01-07",
+          "gf": 4,
+          "ga": 7,
+          "result": "L"
+        },
+        {
+          "date": "2024-02-18",
+          "gf": 8,
+          "ga": 6,
+          "result": "W"
+        },
+        {
+          "date": "2024-03-10",
+          "gf": 6,
+          "ga": 4,
+          "result": "W"
+        }
+      ],
+      "qualification": "SAME_SEASON_MASTER_VS_OFFICIAL_TEAMINFO_DATE_OPPONENT_SCORE",
+      "continuousFranchiseNotVerified": true
+    },
+    {
+      "season": "W2023/24",
+      "officialLeagueId": 512,
+      "officialTeamSeasonId": 12029,
+      "officialTeamName": "Big Bastones",
+      "officialDivision": "Hot Shots Division",
+      "officialTeamPage": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=512&teamid=12029&page_type=Adult",
+      "officialTeamPageSHA256": "6f3a7274bbf8b17503c91d6c44fd779d74be128f94c960c864ba7d31d9790516",
+      "bravesRecord": {
+        "gp": 2,
+        "w": 1,
+        "l": 1,
+        "t": 0,
+        "gf": 6,
+        "ga": 12
+      },
+      "games": [
+        {
+          "date": "2023-09-17",
+          "gf": 5,
+          "ga": 4,
+          "result": "W"
+        },
+        {
+          "date": "2023-11-12",
+          "gf": 1,
+          "ga": 8,
+          "result": "L"
+        }
+      ],
+      "qualification": "SAME_SEASON_MASTER_VS_OFFICIAL_TEAMINFO_DATE_OPPONENT_SCORE",
+      "continuousFranchiseNotVerified": true
+    },
+    {
+      "season": "W2023/24",
+      "officialLeagueId": 512,
+      "officialTeamSeasonId": 12055,
+      "officialTeamName": "Cobras",
+      "officialDivision": "Pepsi Division",
+      "officialTeamPage": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=512&teamid=12055&page_type=Adult",
+      "officialTeamPageSHA256": "8ee8b43f2c18821a5f860f42344c3f3392821a5f6935b989bab48b27526e68f2",
+      "bravesRecord": {
+        "gp": 3,
+        "w": 2,
+        "l": 1,
+        "t": 0,
+        "gf": 9,
+        "ga": 7
+      },
+      "games": [
+        {
+          "date": "2023-09-24",
+          "gf": 6,
+          "ga": 3,
+          "result": "W"
+        },
+        {
+          "date": "2023-10-22",
+          "gf": 3,
+          "ga": 1,
+          "result": "W"
+        },
+        {
+          "date": "2023-12-10",
+          "gf": 0,
+          "ga": 3,
+          "result": "L"
+        }
+      ],
+      "qualification": "SAME_SEASON_MASTER_VS_OFFICIAL_TEAMINFO_DATE_OPPONENT_SCORE",
+      "continuousFranchiseNotVerified": true
+    },
+    {
+      "season": "W2023/24",
+      "officialLeagueId": 512,
+      "officialTeamSeasonId": 12031,
+      "officialTeamName": "Dateline Predators",
+      "officialDivision": "Pizzaville Division",
+      "officialTeamPage": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=512&teamid=12031&page_type=Adult",
+      "officialTeamPageSHA256": "0cbdeca3c8daa79cc1e6a6a982699737dbf28e558f15698fd25750f22795c7ec",
+      "bravesRecord": {
+        "gp": 3,
+        "w": 3,
+        "l": 0,
+        "t": 0,
+        "gf": 10,
+        "ga": 6
+      },
+      "games": [
+        {
+          "date": "2024-01-14",
+          "gf": 3,
+          "ga": 2,
+          "result": "W"
+        },
+        {
+          "date": "2024-02-25",
+          "gf": 3,
+          "ga": 2,
+          "result": "W"
+        },
+        {
+          "date": "2024-03-17",
+          "gf": 4,
+          "ga": 2,
+          "result": "W"
+        }
+      ],
+      "qualification": "SAME_SEASON_MASTER_VS_OFFICIAL_TEAMINFO_DATE_OPPONENT_SCORE",
+      "continuousFranchiseNotVerified": true
+    },
+    {
+      "season": "W2023/24",
+      "officialLeagueId": 512,
+      "officialTeamSeasonId": 12120,
+      "officialTeamName": "Fang",
+      "officialDivision": "Pepsi Division",
+      "officialTeamPage": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=512&teamid=12120&page_type=Adult",
+      "officialTeamPageSHA256": "36bc319bbcfd5c79baa4d2e7457764875543589b9d8a2e1003bde84838fe3ee3",
+      "bravesRecord": {
+        "gp": 3,
+        "w": 1,
+        "l": 2,
+        "t": 0,
+        "gf": 10,
+        "ga": 12
+      },
+      "games": [
+        {
+          "date": "2023-10-15",
+          "gf": 3,
+          "ga": 5,
+          "result": "L"
+        },
+        {
+          "date": "2023-12-03",
+          "gf": 3,
+          "ga": 6,
+          "result": "L"
+        },
+        {
+          "date": "2024-01-21",
+          "gf": 4,
+          "ga": 1,
+          "result": "W"
+        }
+      ],
+      "qualification": "SAME_SEASON_MASTER_VS_OFFICIAL_TEAMINFO_DATE_OPPONENT_SCORE",
+      "continuousFranchiseNotVerified": true
+    },
+    {
+      "season": "W2023/24",
+      "officialLeagueId": 512,
+      "officialTeamSeasonId": 12059,
+      "officialTeamName": "Mighty Drunks",
+      "officialDivision": "Pepsi Division",
+      "officialTeamPage": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=512&teamid=12059&page_type=Adult",
+      "officialTeamPageSHA256": "2019193a38582d49a3c7f974b1fe62f164b356cb831c56473869910878323ecd",
+      "bravesRecord": {
+        "gp": 3,
+        "w": 1,
+        "l": 2,
+        "t": 0,
+        "gf": 7,
+        "ga": 12
+      },
+      "games": [
+        {
+          "date": "2023-11-05",
+          "gf": 2,
+          "ga": 4,
+          "result": "L"
+        },
+        {
+          "date": "2023-12-17",
+          "gf": 5,
+          "ga": 4,
+          "result": "W"
+        },
+        {
+          "date": "2024-02-04",
+          "gf": 0,
+          "ga": 4,
+          "result": "L"
+        }
+      ],
+      "qualification": "SAME_SEASON_MASTER_VS_OFFICIAL_TEAMINFO_DATE_OPPONENT_SCORE",
+      "continuousFranchiseNotVerified": true
+    },
+    {
+      "season": "W2023/24",
+      "officialLeagueId": 512,
+      "officialTeamSeasonId": 12060,
+      "officialTeamName": "Mighty Munch",
+      "officialDivision": "Pizzaville Division",
+      "officialTeamPage": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=512&teamid=12060&page_type=Adult",
+      "officialTeamPageSHA256": "d87b276050134aede1f57d8689ae3fdfb6c1d350e5676c3c5d5352591c3b4540",
+      "bravesRecord": {
+        "gp": 3,
+        "w": 2,
+        "l": 1,
+        "t": 0,
+        "gf": 12,
+        "ga": 12
+      },
+      "games": [
+        {
+          "date": "2024-01-28",
+          "gf": 7,
+          "ga": 3,
+          "result": "W"
+        },
+        {
+          "date": "2024-03-03",
+          "gf": 4,
+          "ga": 2,
+          "result": "W"
+        },
+        {
+          "date": "2024-03-24",
+          "gf": 1,
+          "ga": 7,
+          "result": "L"
+        }
+      ],
+      "qualification": "SAME_SEASON_MASTER_VS_OFFICIAL_TEAMINFO_DATE_OPPONENT_SCORE",
+      "continuousFranchiseNotVerified": true
+    },
+    {
+      "season": "W2023/24",
+      "officialLeagueId": 512,
+      "officialTeamSeasonId": 12054,
+      "officialTeamName": "Primary Auto",
+      "officialDivision": "Gatorade Division",
+      "officialTeamPage": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=512&teamid=12054&page_type=Adult",
+      "officialTeamPageSHA256": "6e1da729b5933644dc64bdd41efaac6673e8e3c801ec20ac1457a301b59f55a1",
+      "bravesRecord": {
+        "gp": 1,
+        "w": 0,
+        "l": 1,
+        "t": 0,
+        "gf": 1,
+        "ga": 6
+      },
+      "games": [
+        {
+          "date": "2023-10-01",
+          "gf": 1,
+          "ga": 6,
+          "result": "L"
+        }
+      ],
+      "qualification": "SAME_SEASON_MASTER_VS_OFFICIAL_TEAMINFO_DATE_OPPONENT_SCORE",
+      "continuousFranchiseNotVerified": true
+    },
+    {
+      "season": "W2023/24",
+      "officialLeagueId": 512,
+      "officialTeamSeasonId": 12057,
+      "officialTeamName": "Warriors",
+      "officialDivision": "Gatorade Division",
+      "officialTeamPage": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=512&teamid=12057&page_type=Adult",
+      "officialTeamPageSHA256": "218b20c30aa07f9c3ab89630107248d0d7d20c1caf0f3357ed88970c443670f7",
+      "bravesRecord": {
+        "gp": 1,
+        "w": 0,
+        "l": 1,
+        "t": 0,
+        "gf": 2,
+        "ga": 5
+      },
+      "games": [
+        {
+          "date": "2023-10-29",
+          "gf": 2,
+          "ga": 5,
+          "result": "L"
+        }
+      ],
+      "qualification": "SAME_SEASON_MASTER_VS_OFFICIAL_TEAMINFO_DATE_OPPONENT_SCORE",
+      "continuousFranchiseNotVerified": true
+    },
+    {
+      "season": "W2024/25",
+      "officialLeagueId": 531,
+      "officialTeamSeasonId": 12606,
+      "officialTeamName": "Bears",
+      "officialDivision": "Mug Division",
+      "officialTeamPage": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=531&teamid=12606&page_type=Adult",
+      "officialTeamPageSHA256": "2efd1f1b5d9096cd9519f7d7b45abb212f536d8521623fb841f7f5b94ae52ba6",
+      "bravesRecord": {
+        "gp": 2,
+        "w": 1,
+        "l": 1,
+        "t": 0,
+        "gf": 7,
+        "ga": 7
+      },
+      "games": [
+        {
+          "date": "2024-10-27",
+          "gf": 5,
+          "ga": 4,
+          "result": "W"
+        },
+        {
+          "date": "2024-12-15",
+          "gf": 2,
+          "ga": 3,
+          "result": "L"
+        }
+      ],
+      "qualification": "SAME_SEASON_MASTER_VS_OFFICIAL_TEAMINFO_DATE_OPPONENT_SCORE",
+      "continuousFranchiseNotVerified": true
+    },
+    {
+      "season": "W2024/25",
+      "officialLeagueId": 531,
+      "officialTeamSeasonId": 12638,
+      "officialTeamName": "Call Ups",
+      "officialDivision": "Hot Shots Division",
+      "officialTeamPage": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=531&teamid=12638&page_type=Adult",
+      "officialTeamPageSHA256": "37c249a2bd7a2dd6d7881522084256c5bead671104b143d19b4a86c8bba1e19f",
+      "bravesRecord": {
+        "gp": 1,
+        "w": 0,
+        "l": 1,
+        "t": 0,
+        "gf": 1,
+        "ga": 10
+      },
+      "games": [
+        {
+          "date": "2024-12-01",
+          "gf": 1,
+          "ga": 10,
+          "result": "L"
+        }
+      ],
+      "qualification": "SAME_SEASON_MASTER_VS_OFFICIAL_TEAMINFO_DATE_OPPONENT_SCORE",
+      "continuousFranchiseNotVerified": true
+    },
+    {
+      "season": "W2024/25",
+      "officialLeagueId": 531,
+      "officialTeamSeasonId": 12538,
+      "officialTeamName": "Dateline Predators",
+      "officialDivision": "Pizzaville Division",
+      "officialTeamPage": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=531&teamid=12538&page_type=Adult",
+      "officialTeamPageSHA256": "cec19248643b4236e71aab60d6c3527657276d964a472c6580302a0eb22404eb",
+      "bravesRecord": {
+        "gp": 2,
+        "w": 2,
+        "l": 0,
+        "t": 0,
+        "gf": 9,
+        "ga": 1
+      },
+      "games": [
+        {
+          "date": "2024-10-06",
+          "gf": 6,
+          "ga": 0,
+          "result": "W"
+        },
+        {
+          "date": "2024-11-17",
+          "gf": 3,
+          "ga": 1,
+          "result": "W"
+        }
+      ],
+      "qualification": "SAME_SEASON_MASTER_VS_OFFICIAL_TEAMINFO_DATE_OPPONENT_SCORE",
+      "continuousFranchiseNotVerified": true
+    },
+    {
+      "season": "W2024/25",
+      "officialLeagueId": 531,
+      "officialTeamSeasonId": 12636,
+      "officialTeamName": "Don's Cherries",
+      "officialDivision": "Pepsi Division",
+      "officialTeamPage": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=531&teamid=12636&page_type=Adult",
+      "officialTeamPageSHA256": "29c5e8e20e0a8df800c9cdfb605465ad7fa614e68b9e0e215abb9ed06ec00628",
+      "bravesRecord": {
+        "gp": 2,
+        "w": 1,
+        "l": 1,
+        "t": 0,
+        "gf": 10,
+        "ga": 9
+      },
+      "games": [
+        {
+          "date": "2024-11-24",
+          "gf": 5,
+          "ga": 3,
+          "result": "W"
+        },
+        {
+          "date": "2025-03-09",
+          "gf": 5,
+          "ga": 6,
+          "result": "L"
+        }
+      ],
+      "qualification": "SAME_SEASON_MASTER_VS_OFFICIAL_TEAMINFO_DATE_OPPONENT_SCORE",
+      "continuousFranchiseNotVerified": true
+    },
+    {
+      "season": "W2024/25",
+      "officialLeagueId": 531,
+      "officialTeamSeasonId": 12609,
+      "officialTeamName": "Goodfellas",
+      "officialDivision": "Mug Division",
+      "officialTeamPage": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=531&teamid=12609&page_type=Adult",
+      "officialTeamPageSHA256": "31440aab4ac0ce49db34c53cb6b05e3b91ed76fadf477ab4b42062d6898969a7",
+      "bravesRecord": {
+        "gp": 1,
+        "w": 0,
+        "l": 1,
+        "t": 0,
+        "gf": 1,
+        "ga": 4
+      },
+      "games": [
+        {
+          "date": "2024-12-29",
+          "gf": 1,
+          "ga": 4,
+          "result": "L"
+        }
+      ],
+      "qualification": "SAME_SEASON_MASTER_VS_OFFICIAL_TEAMINFO_DATE_OPPONENT_SCORE",
+      "continuousFranchiseNotVerified": true
+    },
+    {
+      "season": "W2024/25",
+      "officialLeagueId": 531,
+      "officialTeamSeasonId": 12610,
+      "officialTeamName": "Mid Ice Crisis",
+      "officialDivision": "Pepsi Division",
+      "officialTeamPage": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=531&teamid=12610&page_type=Adult",
+      "officialTeamPageSHA256": "13971e3da2c391d78534c3414e2a57e9b5364997d7438abaac40f37dfc89a44e",
+      "bravesRecord": {
+        "gp": 3,
+        "w": 1,
+        "l": 1,
+        "t": 1,
+        "gf": 9,
+        "ga": 9
+      },
+      "games": [
+        {
+          "date": "2025-02-23",
+          "gf": 5,
+          "ga": 2,
+          "result": "W"
+        },
+        {
+          "date": "2025-03-02",
+          "gf": 2,
+          "ga": 5,
+          "result": "L"
+        },
+        {
+          "date": "2025-03-16",
+          "gf": 2,
+          "ga": 2,
+          "result": "T"
+        }
+      ],
+      "qualification": "SAME_SEASON_MASTER_VS_OFFICIAL_TEAMINFO_DATE_OPPONENT_SCORE",
+      "continuousFranchiseNotVerified": true
+    },
+    {
+      "season": "W2024/25",
+      "officialLeagueId": 531,
+      "officialTeamSeasonId": 12542,
+      "officialTeamName": "Mighty Drunks",
+      "officialDivision": "Hot Shots Division",
+      "officialTeamPage": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=531&teamid=12542&page_type=Adult",
+      "officialTeamPageSHA256": "37b09151cb2a0332ab87be045596b21c4c6c321b51ba697d8a505ead96514ace",
+      "bravesRecord": {
+        "gp": 1,
+        "w": 0,
+        "l": 1,
+        "t": 0,
+        "gf": 1,
+        "ga": 4
+      },
+      "games": [
+        {
+          "date": "2025-01-26",
+          "gf": 1,
+          "ga": 4,
+          "result": "L"
+        }
+      ],
+      "qualification": "SAME_SEASON_MASTER_VS_OFFICIAL_TEAMINFO_DATE_OPPONENT_SCORE",
+      "continuousFranchiseNotVerified": true
+    },
+    {
+      "season": "W2024/25",
+      "officialLeagueId": 531,
+      "officialTeamSeasonId": 12648,
+      "officialTeamName": "Milkmen",
+      "officialDivision": "Mug Division",
+      "officialTeamPage": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=531&teamid=12648&page_type=Adult",
+      "officialTeamPageSHA256": "a2c2268aeed9163a4e30fa18d609ee211a6b4c6b27a32f1afe6d878f1a77d48c",
+      "bravesRecord": {
+        "gp": 1,
+        "w": 0,
+        "l": 1,
+        "t": 0,
+        "gf": 2,
+        "ga": 6
+      },
+      "games": [
+        {
+          "date": "2024-11-03",
+          "gf": 2,
+          "ga": 6,
+          "result": "L"
+        }
+      ],
+      "qualification": "SAME_SEASON_MASTER_VS_OFFICIAL_TEAMINFO_DATE_OPPONENT_SCORE",
+      "continuousFranchiseNotVerified": true
+    },
+    {
+      "season": "W2024/25",
+      "officialLeagueId": 531,
+      "officialTeamSeasonId": 12570,
+      "officialTeamName": "Schmelts",
+      "officialDivision": "Pizzaville Division",
+      "officialTeamPage": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=531&teamid=12570&page_type=Adult",
+      "officialTeamPageSHA256": "38be613844f09358a7487bd0dc9137e87f8d89d7b7d9c14416724b94a84a3361",
+      "bravesRecord": {
+        "gp": 2,
+        "w": 1,
+        "l": 1,
+        "t": 0,
+        "gf": 6,
+        "ga": 9
+      },
+      "games": [
+        {
+          "date": "2024-09-29",
+          "gf": 1,
+          "ga": 6,
+          "result": "L"
+        },
+        {
+          "date": "2024-11-10",
+          "gf": 5,
+          "ga": 3,
+          "result": "W"
+        }
+      ],
+      "qualification": "SAME_SEASON_MASTER_VS_OFFICIAL_TEAMINFO_DATE_OPPONENT_SCORE",
+      "continuousFranchiseNotVerified": true
+    },
+    {
+      "season": "W2024/25",
+      "officialLeagueId": 531,
+      "officialTeamSeasonId": 12551,
+      "officialTeamName": "Whalers",
+      "officialDivision": "Pizzaville Division",
+      "officialTeamPage": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=531&teamid=12551&page_type=Adult",
+      "officialTeamPageSHA256": "d4542ac776e91d0f9542974fffc5084380d4da5c3ccbebbe1685d5149f103fa9",
+      "bravesRecord": {
+        "gp": 1,
+        "w": 0,
+        "l": 0,
+        "t": 1,
+        "gf": 6,
+        "ga": 6
+      },
+      "games": [
+        {
+          "date": "2024-12-22",
+          "gf": 6,
+          "ga": 6,
+          "result": "T"
+        }
+      ],
+      "qualification": "SAME_SEASON_MASTER_VS_OFFICIAL_TEAMINFO_DATE_OPPONENT_SCORE",
+      "continuousFranchiseNotVerified": true
+    },
+    {
+      "season": "W2025/26",
+      "officialLeagueId": 547,
+      "officialTeamSeasonId": 13088,
+      "officialTeamName": "Big Bastones",
+      "officialDivision": "Swiss Chalet Division",
+      "officialTeamPage": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=547&teamid=13088&page_type=Adult",
+      "officialTeamPageSHA256": "48968c5c5fc461e268bcab36b156fd3c163a31efc115edad099dda9462462593",
+      "bravesRecord": {
+        "gp": 2,
+        "w": 1,
+        "l": 1,
+        "t": 0,
+        "gf": 5,
+        "ga": 5
+      },
+      "games": [
+        {
+          "date": "2025-10-05",
+          "gf": 4,
+          "ga": 2,
+          "result": "W"
+        },
+        {
+          "date": "2025-11-23",
+          "gf": 1,
+          "ga": 3,
+          "result": "L"
+        }
+      ],
+      "qualification": "SAME_SEASON_MASTER_VS_OFFICIAL_TEAMINFO_DATE_OPPONENT_SCORE",
+      "continuousFranchiseNotVerified": true
+    },
+    {
+      "season": "W2025/26",
+      "officialLeagueId": 547,
+      "officialTeamSeasonId": 13102,
+      "officialTeamName": "Blackhawks",
+      "officialDivision": "Prostar Division",
+      "officialTeamPage": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=547&teamid=13102&page_type=Adult",
+      "officialTeamPageSHA256": "38998e706da5391b50ded60181e310b8ade4355c16528c35a8c1e5838047b1eb",
+      "bravesRecord": {
+        "gp": 1,
+        "w": 0,
+        "l": 1,
+        "t": 0,
+        "gf": 4,
+        "ga": 8
+      },
+      "games": [
+        {
+          "date": "2025-09-21",
+          "gf": 4,
+          "ga": 8,
+          "result": "L"
+        }
+      ],
+      "qualification": "SAME_SEASON_MASTER_VS_OFFICIAL_TEAMINFO_DATE_OPPONENT_SCORE",
+      "continuousFranchiseNotVerified": true
+    },
+    {
+      "season": "W2025/26",
+      "officialLeagueId": 547,
+      "officialTeamSeasonId": 13089,
+      "officialTeamName": "Dateline Predators",
+      "officialDivision": "The Cristillo Division",
+      "officialTeamPage": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=547&teamid=13089&page_type=Adult",
+      "officialTeamPageSHA256": "4e810abd6c8d2eae98724844a11ae79297f15924f73399cd54e3688eefc271d9",
+      "bravesRecord": {
+        "gp": 5,
+        "w": 3,
+        "l": 2,
+        "t": 0,
+        "gf": 22,
+        "ga": 15
+      },
+      "games": [
+        {
+          "date": "2025-10-19",
+          "gf": 3,
+          "ga": 4,
+          "result": "L"
+        },
+        {
+          "date": "2025-12-07",
+          "gf": 5,
+          "ga": 3,
+          "result": "W"
+        },
+        {
+          "date": "2026-01-11",
+          "gf": 6,
+          "ga": 3,
+          "result": "W"
+        },
+        {
+          "date": "2026-02-01",
+          "gf": 5,
+          "ga": 1,
+          "result": "W"
+        },
+        {
+          "date": "2026-03-01",
+          "gf": 3,
+          "ga": 4,
+          "result": "L"
+        }
+      ],
+      "qualification": "SAME_SEASON_MASTER_VS_OFFICIAL_TEAMINFO_DATE_OPPONENT_SCORE",
+      "continuousFranchiseNotVerified": true
+    },
+    {
+      "season": "W2025/26",
+      "officialLeagueId": 547,
+      "officialTeamSeasonId": 13084,
+      "officialTeamName": "Hammers",
+      "officialDivision": "Fazzari Division",
+      "officialTeamPage": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=547&teamid=13084&page_type=Adult",
+      "officialTeamPageSHA256": "808e06de1b9a5c42bb967d6446190707c5f774ad7c3be79f269a6e3878f5c907",
+      "bravesRecord": {
+        "gp": 1,
+        "w": 0,
+        "l": 1,
+        "t": 0,
+        "gf": 1,
+        "ga": 8
+      },
+      "games": [
+        {
+          "date": "2025-09-28",
+          "gf": 1,
+          "ga": 8,
+          "result": "L"
+        }
+      ],
+      "qualification": "SAME_SEASON_MASTER_VS_OFFICIAL_TEAMINFO_DATE_OPPONENT_SCORE",
+      "continuousFranchiseNotVerified": true
+    },
+    {
+      "season": "W2025/26",
+      "officialLeagueId": 547,
+      "officialTeamSeasonId": 13159,
+      "officialTeamName": "Mid Ice Crisis",
+      "officialDivision": "Swiss Chalet Division",
+      "officialTeamPage": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=547&teamid=13159&page_type=Adult",
+      "officialTeamPageSHA256": "258027b7fc302964861ad101846ad2fa21b3987783a8b38eca827fe1f17f39ae",
+      "bravesRecord": {
+        "gp": 2,
+        "w": 0,
+        "l": 1,
+        "t": 1,
+        "gf": 4,
+        "ga": 10
+      },
+      "games": [
+        {
+          "date": "2025-10-26",
+          "gf": 1,
+          "ga": 7,
+          "result": "L"
+        },
+        {
+          "date": "2025-12-14",
+          "gf": 3,
+          "ga": 3,
+          "result": "T"
+        }
+      ],
+      "qualification": "SAME_SEASON_MASTER_VS_OFFICIAL_TEAMINFO_DATE_OPPONENT_SCORE",
+      "continuousFranchiseNotVerified": true
+    },
+    {
+      "season": "W2025/26",
+      "officialLeagueId": 547,
+      "officialTeamSeasonId": 13160,
+      "officialTeamName": "Royal Flushers",
+      "officialDivision": "The Cristillo Division",
+      "officialTeamPage": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=547&teamid=13160&page_type=Adult",
+      "officialTeamPageSHA256": "c3b677f41a5e4e88efe6acb99bcf6963761ce3f0eb871c9dd430fd430601ac0b",
+      "bravesRecord": {
+        "gp": 4,
+        "w": 3,
+        "l": 1,
+        "t": 0,
+        "gf": 18,
+        "ga": 9
+      },
+      "games": [
+        {
+          "date": "2025-11-02",
+          "gf": 2,
+          "ga": 6,
+          "result": "L"
+        },
+        {
+          "date": "2025-12-21",
+          "gf": 7,
+          "ga": 0,
+          "result": "W"
+        },
+        {
+          "date": "2026-01-04",
+          "gf": 4,
+          "ga": 2,
+          "result": "W"
+        },
+        {
+          "date": "2026-02-22",
+          "gf": 5,
+          "ga": 1,
+          "result": "W"
+        }
+      ],
+      "qualification": "SAME_SEASON_MASTER_VS_OFFICIAL_TEAMINFO_DATE_OPPONENT_SCORE",
+      "continuousFranchiseNotVerified": true
+    },
+    {
+      "season": "W2025/26",
+      "officialLeagueId": 547,
+      "officialTeamSeasonId": 13191,
+      "officialTeamName": "Schmelts",
+      "officialDivision": "The Cristillo Division",
+      "officialTeamPage": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=547&teamid=13191&page_type=Adult",
+      "officialTeamPageSHA256": "e0e3e5d1905444ea5cd852f8cbf63a479d92ec614eebdf46d68143288b622a9b",
+      "bravesRecord": {
+        "gp": 3,
+        "w": 2,
+        "l": 0,
+        "t": 1,
+        "gf": 16,
+        "ga": 12
+      },
+      "games": [
+        {
+          "date": "2025-11-09",
+          "gf": 7,
+          "ga": 6,
+          "result": "W"
+        },
+        {
+          "date": "2025-12-28",
+          "gf": 3,
+          "ga": 3,
+          "result": "T"
+        },
+        {
+          "date": "2026-01-18",
+          "gf": 6,
+          "ga": 3,
+          "result": "W"
+        }
+      ],
+      "qualification": "SAME_SEASON_MASTER_VS_OFFICIAL_TEAMINFO_DATE_OPPONENT_SCORE",
+      "continuousFranchiseNotVerified": true
+    }
+  ],
+  "identityNotice": "Game dates and scores checked against archived official Sports Village TeamInfo and immutable Brave H.C. Master. This verifies games in specific seasons only; it does NOT connect historical team rosters to 2026/27 teams.",
+  "sourcePrivacy": "TEAM_SEASON_AND_SCORES_ONLY_NO_PLAYER_DATA",
+  "independentCurrentFormSource": "league-intelligence.json",
+  "currentContextNotModified": true
+}
