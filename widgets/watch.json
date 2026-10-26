@@ -5,15 +5,48 @@
   "sourceWorkbookHash": "0002fd9f06596af8d0a00fc1b53a618ef15479f941ad5c1e6265b27002a65154",
   "workbookAsOf": "2026-09-20",
   "lastVerifiedGameNumber": 359,
-  "latestOfficialCompletedGameDate": "2026-10-18",
-  "completedGames": 4,
+  "latestOfficialCompletedGameDate": "2026-10-25",
+  "completedGames": 5,
   "workbookScoreParity": false,
-  "sourceGameIndex": 362,
+  "sourceGameIndex": 363,
   "dataStatus": "HISTORICAL_WORKBOOK_SNAPSHOT",
   "sourceValidated": false,
   "dataIssue": "Workbook game-level scoring and career watch must be recalculated for completed matches; no current streak/milestone claim is permitted.",
-  "streaks": [],
+  "streaks": [
+    {
+      "player": "Provenzano, Michael",
+      "description": "Point Streak: 3 games",
+      "type": "pointStreak",
+      "games": 3,
+      "through": "2026-10-25",
+      "sourceAuthority": "HTO boxscore pergame and Master Workbook >=3 streak predicate"
+    }
+  ],
   "records": [
+    {
+      "player": "Kober, Adam",
+      "description": "2 games away from 50 career games",
+      "rankKey": 900000,
+      "type": "countdown",
+      "category": "gp",
+      "threshold": 50,
+      "eventDate": null,
+      "remaining": 2,
+      "careerTotal": 48,
+      "source": "Excel WebStreaksHelper countdown <=2 / HTO current boxscores"
+    },
+    {
+      "player": "Pearsoll, Keith",
+      "description": "2 games away from 300 career games",
+      "rankKey": 900000,
+      "type": "countdown",
+      "category": "gp",
+      "threshold": 300,
+      "eventDate": null,
+      "remaining": 2,
+      "careerTotal": 298,
+      "source": "Excel WebStreaksHelper countdown <=2 / HTO current boxscores"
+    },
     {
       "player": "Carosi, Justin",
       "description": "300 Game Club Reached (Sep 20)",
@@ -71,9 +104,9 @@
     ],
     "status": "VERIFIED_SUPPORTED_CATEGORIES_ONLY"
   },
-  "recordAsOf": "2026-10-18",
+  "recordAsOf": "2026-10-25",
   "streaksVerified": true,
-  "streaksAsOf": "2026-10-18",
+  "streaksAsOf": "2026-10-25",
   "streaksDataStatus": "VERIFIED_SUPPORTED_CATEGORIES_PARTIAL",
   "verifiedStreakCategories": [
     "Point Streak",
@@ -95,19 +128,20 @@
       "description": "POTG Streak: 0 games",
       "type": "potgStreak",
       "games": 0,
-      "through": "2026-10-18",
+      "through": "2026-10-25",
       "sourceAuthority": "HTO boxscore per-game POTG & workbook threshold",
       "gameIds": [
         3356177,
         3356178,
         3369564,
-        3375601
+        3375601,
+        3375682
       ]
     }
   ],
   "streakVerification": {
     "supportedCategoryAudit": "VERIFIED_SUPPORTED_STREAK_CATEGORIES",
-    "HTOBoxscoreGames": 4,
+    "HTOBoxscoreGames": 5,
     "observedGames": [
       {
         "date": "2026-09-20",
@@ -140,12 +174,20 @@
         "POTG": 0,
         "played": true,
         "source": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=3375601&p=boxscore"
+      },
+      {
+        "date": "2026-10-25",
+        "gameNumber": 363,
+        "htoGameId": 3375682,
+        "POTG": 0,
+        "played": true,
+        "source": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=3375682&p=boxscore"
       }
     ],
     "sourceCurrentTotals": {
-      "gp": 4,
+      "gp": 5,
       "potg": 3,
-      "teamGP": 4
+      "teamGP": 5
     },
     "workbookThreshold": 3
   },
@@ -160,5 +202,5 @@
     "hto": "https://www.htosports.com/teams/default.asp?p=stats&s=hockey&u=BRAVESHOCKEY",
     "svhl": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13679&page_type=Adult"
   },
-  "exportedAt": "2026-10-19T03:52:22.092744+00:00"
+  "exportedAt": "2026-10-26T13:53:00.076142+00:00"
 }
