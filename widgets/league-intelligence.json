@@ -1,13 +1,13 @@
 {
   "schema": "brave-hc-league-intelligence/public-v1",
   "status": "OFFICIAL_LEAGUE_RESULTS_SOURCE_QUALIFIED",
-  "asOf": "2026-10-26T20:07:46.886724+00:00",
+  "asOf": "2026-10-26T20:33:08.974063+00:00",
   "season": "Sunday Winter 2026/27",
   "leagueId": 570,
   "previousSeason": "Sunday Winter 2025/26",
   "previousLeagueId": 547,
   "source": "https://leagues.sportsvillage.ca/Leagues.aspx?leagueid=570&page_type=Adult&sc=HOCKEY",
-  "sourceSHA256": "02a68c1d390bc4ecf5a7a3caa01471ee14a160250ecb26124355ca156bdb744e",
+  "sourceSHA256": "f5070f29f49abc21be83b2e48bc704afd6db9c603484d58ef6223934c76dc63a",
   "currentDivisionCount": 4,
   "allPublishedDivisions": 5,
   "currentLeagueTeamCount": 27,
@@ -197,7 +197,7 @@
         "ga": 9
       },
       "winPct": 0.75,
-      "goalDiffPerGame": 2,
+      "goalDiffPerGame": 2.0,
       "opponentCurrentWinPctAverage": 0.4375,
       "source": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13596&page_type=Adult",
       "gamesConfirmed": 4,
@@ -270,8 +270,8 @@
         "rank": 3,
         "confidence": "EARLY_SAMPLE",
         "currentForm": 62.5,
-        "scheduleDifficulty": 50,
-        "priorWinterForm": 67,
+        "scheduleDifficulty": 50.0,
+        "priorWinterForm": 67.0,
         "weights": {
           "currentForm": 0.55,
           "scheduleDifficulty": 0.3,
@@ -353,7 +353,7 @@
           "ga": 39
         },
         "winPct": 0.7955,
-        "goalsDiffPerGame": 2,
+        "goalsDiffPerGame": 2.0,
         "verifiedGameDetails": 21,
         "completeGameDetails": false,
         "officialRosterSharedIDs": 8,
@@ -367,7 +367,7 @@
         "contextIndex": 60.7,
         "rank": 2,
         "confidence": "EARLY_SAMPLE",
-        "currentForm": 62,
+        "currentForm": 62.0,
         "scheduleDifficulty": 51.8,
         "priorWinterForm": 73.8,
         "weights": {
@@ -712,7 +712,7 @@
         "ga": 11
       },
       "winPct": 0.75,
-      "goalDiffPerGame": 2,
+      "goalDiffPerGame": 2.0,
       "opponentCurrentWinPctAverage": 0.5938,
       "source": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13708&page_type=Adult",
       "gamesConfirmed": 4,
@@ -836,7 +836,7 @@
         "ga": 9
       },
       "winPct": 0.75,
-      "goalDiffPerGame": 2,
+      "goalDiffPerGame": 2.0,
       "opponentCurrentWinPctAverage": 0.375,
       "source": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13680&page_type=Adult",
       "gamesConfirmed": 4,
@@ -1247,7 +1247,7 @@
       "previousWinter": null,
       "strengthContext": {
         "status": "SOURCE_SUPPORTED_DESCRIPTIVE_CONTEXT",
-        "contextIndex": 50,
+        "contextIndex": 50.0,
         "rank": 15,
         "confidence": "EARLY_SAMPLE",
         "currentForm": 51.1,
@@ -1256,7 +1256,7 @@
         "weights": {
           "currentForm": 0.7,
           "scheduleDifficulty": 0.3,
-          "previousWinterForm": 0
+          "previousWinterForm": 0.0
         },
         "completedGames": 3
       }
@@ -1399,8 +1399,8 @@
         "gf": 9,
         "ga": 17
       },
-      "winPct": 0,
-      "goalDiffPerGame": -2,
+      "winPct": 0.0,
+      "goalDiffPerGame": -2.0,
       "opponentCurrentWinPctAverage": 0.5312,
       "source": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13712&page_type=Adult",
       "gamesConfirmed": 4,
@@ -1522,7 +1522,7 @@
         "gf": 6,
         "ga": 19
       },
-      "winPct": 0,
+      "winPct": 0.0,
       "goalDiffPerGame": -3.25,
       "opponentCurrentWinPctAverage": 0.5625,
       "source": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13679&page_type=Adult",
@@ -1597,7 +1597,7 @@
         "confidence": "EARLY_SAMPLE",
         "currentForm": 26.4,
         "scheduleDifficulty": 46.1,
-        "priorWinterForm": 54,
+        "priorWinterForm": 54.0,
         "weights": {
           "currentForm": 0.55,
           "scheduleDifficulty": 0.3,
@@ -1620,7 +1620,7 @@
         "gf": 9,
         "ga": 4
       },
-      "winPct": 1,
+      "winPct": 1.0,
       "goalDiffPerGame": 2.5,
       "opponentCurrentWinPctAverage": 0.25,
       "source": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13737&page_type=Adult",
@@ -1662,7 +1662,7 @@
         "weights": {
           "currentForm": 0.7,
           "scheduleDifficulty": 0.3,
-          "previousWinterForm": 0
+          "previousWinterForm": 0.0
         },
         "completedGames": 2
       }
@@ -1682,7 +1682,7 @@
         "ga": 4
       },
       "winPct": 0.75,
-      "goalDiffPerGame": 1,
+      "goalDiffPerGame": 1.0,
       "opponentCurrentWinPctAverage": 0.25,
       "source": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13735&page_type=Adult",
       "gamesConfirmed": 2,
@@ -1723,7 +1723,7 @@
         "weights": {
           "currentForm": 0.7,
           "scheduleDifficulty": 0.3,
-          "previousWinterForm": 0
+          "previousWinterForm": 0.0
         },
         "completedGames": 2
       }
@@ -1792,7 +1792,7 @@
         "weights": {
           "currentForm": 0.7,
           "scheduleDifficulty": 0.3,
-          "previousWinterForm": 0
+          "previousWinterForm": 0.0
         },
         "completedGames": 3
       }
@@ -1811,8 +1811,8 @@
         "gf": 2,
         "ga": 11
       },
-      "winPct": 0,
-      "goalDiffPerGame": -3,
+      "winPct": 0.0,
+      "goalDiffPerGame": -3.0,
       "opponentCurrentWinPctAverage": 0.75,
       "source": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13734&page_type=Adult",
       "gamesConfirmed": 3,
@@ -1861,7 +1861,7 @@
         "weights": {
           "currentForm": 0.7,
           "scheduleDifficulty": 0.3,
-          "previousWinterForm": 0
+          "previousWinterForm": 0.0
         },
         "completedGames": 3
       }
@@ -2058,12 +2058,12 @@
         "rank": 7,
         "confidence": "EARLY_SAMPLE",
         "currentForm": 59.2,
-        "scheduleDifficulty": 50,
+        "scheduleDifficulty": 50.0,
         "priorWinterForm": null,
         "weights": {
           "currentForm": 0.7,
           "scheduleDifficulty": 0.3,
-          "previousWinterForm": 0
+          "previousWinterForm": 0.0
         },
         "completedGames": 4
       }
@@ -2178,12 +2178,12 @@
       },
       "strengthContext": {
         "status": "SOURCE_SUPPORTED_DESCRIPTIVE_CONTEXT",
-        "contextIndex": 52,
+        "contextIndex": 52.0,
         "rank": 11,
         "confidence": "EARLY_SAMPLE",
         "currentForm": 57.3,
         "scheduleDifficulty": 44.6,
-        "priorWinterForm": 47,
+        "priorWinterForm": 47.0,
         "weights": {
           "currentForm": 0.55,
           "scheduleDifficulty": 0.3,
@@ -2207,7 +2207,7 @@
         "ga": 8
       },
       "winPct": 0.625,
-      "goalDiffPerGame": 1,
+      "goalDiffPerGame": 1.0,
       "opponentCurrentWinPctAverage": 0.4688,
       "source": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13714&page_type=Adult",
       "gamesConfirmed": 4,
@@ -2280,7 +2280,7 @@
         "rank": 8,
         "confidence": "EARLY_SAMPLE",
         "currentForm": 56.2,
-        "scheduleDifficulty": 50,
+        "scheduleDifficulty": 50.0,
         "priorWinterForm": 59.2,
         "weights": {
           "currentForm": 0.55,
@@ -2585,7 +2585,7 @@
         "weights": {
           "currentForm": 0.7,
           "scheduleDifficulty": 0.3,
-          "previousWinterForm": 0
+          "previousWinterForm": 0.0
         },
         "completedGames": 4
       }
@@ -2605,7 +2605,7 @@
         "ga": 13
       },
       "winPct": 0.25,
-      "goalDiffPerGame": 0,
+      "goalDiffPerGame": 0.0,
       "opponentCurrentWinPctAverage": 0.5312,
       "source": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13710&page_type=Adult",
       "gamesConfirmed": 4,
@@ -2728,8 +2728,8 @@
         "gf": 0,
         "ga": 1
       },
-      "winPct": 0,
-      "goalDiffPerGame": -1,
+      "winPct": 0.0,
+      "goalDiffPerGame": -1.0,
       "opponentCurrentWinPctAverage": 0.5,
       "source": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13707&page_type=Adult",
       "gamesConfirmed": 1,
@@ -2788,7 +2788,7 @@
         "weights": {
           "currentForm": 0.7,
           "scheduleDifficulty": 0.3,
-          "previousWinterForm": 0
+          "previousWinterForm": 0.0
         },
         "completedGames": 1
       }
@@ -2949,7 +2949,7 @@
     ],
     "previouslyTrackedTeams": [],
     "changeState": "SOURCE_OBSERVATION_NOT_AN_OFFICIAL_RESCHEDULE_DATE",
-    "latestSnapshotUTC": "2026-10-26T20:07:46.886724+00:00",
+    "latestSnapshotUTC": "2026-10-26T20:33:08.974063+00:00",
     "eventsRecorded": 2,
     "incomingCristilloEventsRecorded": 1,
     "departedTeamProfilesRetained": 0
@@ -2973,7 +2973,7 @@
     "weightsWithoutQualifiedPrior": {
       "currentForm": 0.7,
       "scheduleDifficulty": 0.3,
-      "previousWinterForm": 0
+      "previousWinterForm": 0.0
     },
     "previousWinterOnlyWhenRosterContinuityQualified": true,
     "bravesHistoricalHeadToHeadExcluded": true,
@@ -2986,7 +2986,7 @@
     "schema": "brave-hc-svhl-context-trend-ledger/v1",
     "sourceScope": "ACCEPTED_PUBLIC_SNAPSHOT_CHANGES_NOT_PREDICTED_FORM",
     "leagueId": 570,
-    "latestSnapshotUTC": "2026-10-26T20:07:46.886724+00:00",
+    "latestSnapshotUTC": "2026-10-26T20:33:08.974063+00:00",
     "teams": [
       {
         "sourceTeamId": 13717,
