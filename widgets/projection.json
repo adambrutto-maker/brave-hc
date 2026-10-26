@@ -6,20 +6,20 @@
   "modelDriver": "HTO_PUBLISHED_TEAM_STATISTICS",
   "publicationStatus": "HTO_MODEL_RECONCILIATION_PENDING",
   "modelCurrent": false,
-  "modelSnapshotDate": "2026-10-19",
+  "modelSnapshotDate": "2026-10-26",
   "workbookBaselineDate": "2026-09-20",
-  "exportedAt": "2026-10-19T03:55:22.134668+00:00",
+  "exportedAt": "2026-10-26T13:07:21.797800+00:00",
   "workbookSourceHash": "0002fd9f06596af8d0a00fc1b53a618ef15479f941ad5c1e6265b27002a65154",
   "sourceInputs": {
     "workbookRecordedTeamGP": 1,
-    "publicLeagueRecordedTeamGP": 3,
-    "htoRecordedTeamGP": 4,
+    "publicLeagueRecordedTeamGP": 4,
+    "htoRecordedTeamGP": 5,
     "liveSVHLVerification": false,
-    "verifiedHTOBoxscoreGP": 4,
-    "htoTeamGoals": 6,
-    "htoTeamAssists": 10
+    "verifiedHTOBoxscoreGP": 5,
+    "htoTeamGoals": 12,
+    "htoTeamAssists": 19
   },
-  "htoreadback": "2026-10-19T03:55:10.771Z",
+  "htoreadback": "2026-10-26T12:31:01.197Z",
   "modelParity": {
     "replayedRows": 21,
     "mismatches": 0
@@ -38,21 +38,22 @@
   ],
   "unclassifiedHTOPlayers": [],
   "workbookPlayersAbsentFromHTO": [
-    "Mazzei, Stefano"
+    "Mazzei, Stefano",
+    "Congiusti, Marco"
   ],
   "classificationAuthority": "Founder confirmation: Damian Pavaday=DI",
   "projectionComplete": false,
   "unmodelledHTOPoints": 1,
   "modelCoefficients": {
-    "FTProjectedAttendance": 0.8149860579368091,
-    "callUpBaseOpportunity": 7.3607807555386895,
+    "FTProjectedAttendance": 0.813522469325683,
+    "callUpBaseOpportunity": 7.640604631873667,
     "existingDISeasonGP": 2,
     "additionalDISeasonGP": 1,
     "DIModelAttendanceRate": {
-      "Pavaday, Damian": 0.25
+      "Pavaday, Damian": 0.2
     },
-    "careerWeight": 0.8333333333333334,
-    "seasonWeight": 0.16666666666666666
+    "careerWeight": 0.7916666666666666,
+    "seasonWeight": 0.20833333333333334
   },
   "diProjectionPolicy": {
     "source": "Explicit bounded public prediction correction, not original workbook DI formula",
@@ -60,17 +61,17 @@
     "futureGamesAssumed": 0,
     "audit": [
       {
-        "name": "Unknown, Johnny",
+        "name": "Ardizzi, Stefano",
         "htoActualGP": 1,
-        "workbookAnnualizedGP": 6.0,
+        "workbookAnnualizedGP": 4.8,
         "publicProjectedGP": 1.0,
-        "previousProjectedPts": 4,
+        "previousProjectedPts": 2,
         "newProjectedPts": 0
       },
       {
-        "name": "Ardizzi, Stefano",
+        "name": "Unknown, Johnny",
         "htoActualGP": 1,
-        "workbookAnnualizedGP": 6.0,
+        "workbookAnnualizedGP": 4.8,
         "publicProjectedGP": 1.0,
         "previousProjectedPts": 2,
         "newProjectedPts": 0
@@ -78,9 +79,9 @@
       {
         "name": "Pavaday, Damian",
         "htoActualGP": 1,
-        "workbookAnnualizedGP": 6.0,
+        "workbookAnnualizedGP": 4.8,
         "publicProjectedGP": 1.0,
-        "previousProjectedPts": 6,
+        "previousProjectedPts": 4,
         "newProjectedPts": 1
       }
     ]
@@ -90,21 +91,21 @@
       "name": "Carosi, Justin",
       "number": "89",
       "rosterStatus": "FT",
-      "gp": 22.46,
-      "g": 12,
-      "a": 10,
-      "pts": 22,
-      "ptsPerGame": 0.979,
-      "trend": -0.056803,
+      "gp": 22.61,
+      "g": 13,
+      "a": 11,
+      "pts": 24,
+      "ptsPerGame": 1.061,
+      "trend": -0.025228,
       "workbookRow": 14,
-      "currentGP": 4,
-      "currentG": 3,
-      "currentA": 0,
+      "currentGP": 5,
+      "currentG": 4,
+      "currentA": 1,
       "trendInputs": {
         "firstSeasonOrNoCareer": false,
         "careerScoringRate": 1.1377777777777778,
-        "projectedScoringRate": 1.0731481481481482,
-        "seasonScoringRate": 0.75
+        "projectedScoringRate": 1.1090740740740739,
+        "seasonScoringRate": 1.0
       },
       "rank": 1
     },
@@ -112,21 +113,21 @@
       "name": "Saindon, Stephane",
       "number": "20",
       "rosterStatus": "FT",
-      "gp": 20.33,
-      "g": 10,
-      "a": 12,
-      "pts": 22,
-      "ptsPerGame": 1.082,
-      "trend": -0.126138,
+      "gp": 20.55,
+      "g": 11,
+      "a": 13,
+      "pts": 24,
+      "ptsPerGame": 1.168,
+      "trend": -0.094348,
       "workbookRow": 13,
-      "currentGP": 3,
-      "currentG": 0,
-      "currentA": 1,
+      "currentGP": 4,
+      "currentG": 1,
+      "currentA": 2,
       "trendInputs": {
         "firstSeasonOrNoCareer": false,
         "careerScoringRate": 1.3707865168539326,
-        "projectedScoringRate": 1.1978776529338329,
-        "seasonScoringRate": 0.3333333333333333
+        "projectedScoringRate": 1.2414559925093633,
+        "seasonScoringRate": 0.75
       },
       "rank": 1
     },
@@ -134,21 +135,21 @@
       "name": "Provenzano, Michael",
       "number": "25",
       "rosterStatus": "FT",
-      "gp": 18.57,
-      "g": 8,
-      "a": 13,
-      "pts": 21,
-      "ptsPerGame": 1.131,
-      "trend": -0.027778,
+      "gp": 18.96,
+      "g": 11,
+      "a": 12,
+      "pts": 23,
+      "ptsPerGame": 1.213,
+      "trend": 0.008681,
       "workbookRow": 15,
-      "currentGP": 3,
-      "currentG": 0,
+      "currentGP": 4,
+      "currentG": 2,
       "currentA": 3,
       "trendInputs": {
         "firstSeasonOrNoCareer": false,
         "careerScoringRate": 1.2,
-        "projectedScoringRate": 1.1666666666666665,
-        "seasonScoringRate": 1.0
+        "projectedScoringRate": 1.2104166666666665,
+        "seasonScoringRate": 1.25
       },
       "rank": 3
     },
@@ -156,21 +157,21 @@
       "name": "Kong, Henry",
       "number": "34",
       "rosterStatus": "FT",
-      "gp": 20.66,
-      "g": 7,
-      "a": 8,
-      "pts": 15,
-      "ptsPerGame": 0.726,
+      "gp": 20.99,
+      "g": 6,
+      "a": 7,
+      "pts": 13,
+      "ptsPerGame": 0.619,
       "trend": 0.0,
       "workbookRow": 17,
-      "currentGP": 4,
+      "currentGP": 5,
       "currentG": 1,
       "currentA": 1,
       "trendInputs": {
         "firstSeasonOrNoCareer": true,
         "careerScoringRate": 0.8123873873873872,
-        "projectedScoringRate": 0.7603228228228228,
-        "seasonScoringRate": 0.5
+        "projectedScoringRate": 0.7264733483483483,
+        "seasonScoringRate": 0.4
       },
       "rank": 4
     },
@@ -178,210 +179,232 @@
       "name": "Pearsoll, Keith",
       "number": "39",
       "rosterStatus": "FT",
-      "gp": 19.4,
+      "gp": 19.71,
       "g": 6,
-      "a": 6,
-      "pts": 12,
-      "ptsPerGame": 0.618,
-      "trend": -0.091717,
+      "a": 7,
+      "pts": 13,
+      "ptsPerGame": 0.659,
+      "trend": -0.067804,
       "workbookRow": 69,
-      "currentGP": 3,
+      "currentGP": 4,
       "currentG": 1,
-      "currentA": 0,
+      "currentA": 1,
       "trendInputs": {
         "firstSeasonOrNoCareer": false,
         "careerScoringRate": 0.7412429378531074,
-        "projectedScoringRate": 0.6732580037664784,
-        "seasonScoringRate": 0.3333333333333333
+        "projectedScoringRate": 0.6909839924670432,
+        "seasonScoringRate": 0.5
       },
-      "rank": 5
-    },
-    {
-      "name": "Pagnotta, Alex",
-      "number": "44",
-      "rosterStatus": "FT",
-      "gp": 22.48,
-      "g": 1,
-      "a": 11,
-      "pts": 12,
-      "ptsPerGame": 0.534,
-      "trend": 0.116569,
-      "workbookRow": 73,
-      "currentGP": 4,
-      "currentG": 0,
-      "currentA": 3,
-      "trendInputs": {
-        "firstSeasonOrNoCareer": false,
-        "careerScoringRate": 0.44132917964693663,
-        "projectedScoringRate": 0.49277431637244723,
-        "seasonScoringRate": 0.75
-      },
-      "rank": 5
+      "rank": 4
     },
     {
       "name": "Povegliano, Adam",
       "number": "22",
       "rosterStatus": "FT",
-      "gp": 18.83,
-      "g": 5,
-      "a": 6,
-      "pts": 11,
-      "ptsPerGame": 0.584,
+      "gp": 19.2,
+      "g": 6,
+      "a": 7,
+      "pts": 13,
+      "ptsPerGame": 0.677,
       "trend": 0.0,
       "workbookRow": 16,
-      "currentGP": 3,
-      "currentG": 0,
-      "currentA": 0,
+      "currentGP": 4,
+      "currentG": 1,
+      "currentA": 1,
       "trendInputs": {
         "firstSeasonOrNoCareer": true,
         "careerScoringRate": 0.8123873873873872,
-        "projectedScoringRate": 0.6769894894894894,
-        "seasonScoringRate": 0.0
+        "projectedScoringRate": 0.7473066816816816,
+        "seasonScoringRate": 0.5
       },
-      "rank": 7
+      "rank": 4
+    },
+    {
+      "name": "Pagnotta, Alex",
+      "number": "44",
+      "rosterStatus": "FT",
+      "gp": 22.63,
+      "g": 1,
+      "a": 12,
+      "pts": 13,
+      "ptsPerGame": 0.575,
+      "trend": 0.169314,
+      "workbookRow": 73,
+      "currentGP": 5,
+      "currentG": 0,
+      "currentA": 4,
+      "trendInputs": {
+        "firstSeasonOrNoCareer": false,
+        "careerScoringRate": 0.44132917964693663,
+        "projectedScoringRate": 0.5160522672204915,
+        "seasonScoringRate": 0.8
+      },
+      "rank": 4
     },
     {
       "name": "Rosenberg, Jamie",
       "number": "18",
       "rosterStatus": "FT",
-      "gp": 18.83,
-      "g": 5,
-      "a": 6,
+      "gp": 19.2,
+      "g": 6,
+      "a": 5,
       "pts": 11,
-      "ptsPerGame": 0.584,
+      "ptsPerGame": 0.573,
       "trend": 0.0,
       "workbookRow": 70,
-      "currentGP": 3,
-      "currentG": 0,
+      "currentGP": 4,
+      "currentG": 1,
       "currentA": 0,
       "trendInputs": {
         "firstSeasonOrNoCareer": true,
         "careerScoringRate": 0.8123873873873872,
-        "projectedScoringRate": 0.6769894894894894,
-        "seasonScoringRate": 0.0
+        "projectedScoringRate": 0.6952233483483482,
+        "seasonScoringRate": 0.25
       },
-      "rank": 7
+      "rank": 8
     },
     {
       "name": "Brutto, Adam",
       "number": "28",
       "rosterStatus": "FT",
-      "gp": 22.95,
+      "gp": 23.05,
       "g": 1,
-      "a": 6,
-      "pts": 7,
-      "ptsPerGame": 0.305,
-      "trend": -0.166667,
+      "a": 7,
+      "pts": 8,
+      "ptsPerGame": 0.347,
+      "trend": -0.111531,
       "workbookRow": 76,
-      "currentGP": 4,
+      "currentGP": 5,
       "currentG": 0,
-      "currentA": 0,
-      "trendInputs": {
-        "firstSeasonOrNoCareer": false,
-        "careerScoringRate": 0.43043043043043044,
-        "projectedScoringRate": 0.35869202535869205,
-        "seasonScoringRate": 0.0
-      },
-      "rank": 9
-    },
-    {
-      "name": "Provenzano, Mario",
-      "number": "8",
-      "rosterStatus": "FT",
-      "gp": 19.5,
-      "g": 2,
-      "a": 4,
-      "pts": 6,
-      "ptsPerGame": 0.308,
-      "trend": -0.166667,
-      "workbookRow": 79,
-      "currentGP": 4,
-      "currentG": 0,
-      "currentA": 0,
-      "trendInputs": {
-        "firstSeasonOrNoCareer": false,
-        "careerScoringRate": 0.4177040110650069,
-        "projectedScoringRate": 0.34808667588750575,
-        "seasonScoringRate": 0.0
-      },
-      "rank": 10
-    },
-    {
-      "name": "Kober, Adam",
-      "number": "12",
-      "rosterStatus": "CU",
-      "gp": 10.61,
-      "g": 2,
-      "a": 3,
-      "pts": 5,
-      "ptsPerGame": 0.471,
-      "trend": 0.090643,
-      "workbookRow": 86,
-      "currentGP": 3,
-      "currentG": 1,
       "currentA": 1,
       "trendInputs": {
         "firstSeasonOrNoCareer": false,
-        "careerScoringRate": 0.4318181818181818,
-        "projectedScoringRate": 0.47095959595959597,
-        "seasonScoringRate": 0.6666666666666666
+        "careerScoringRate": 0.43043043043043044,
+        "projectedScoringRate": 0.3824240907574241,
+        "seasonScoringRate": 0.2
       },
-      "rank": 11
-    },
-    {
-      "name": "Rajkumar, Sanjay",
-      "number": "49",
-      "rosterStatus": "FT",
-      "gp": 18.83,
-      "g": 1,
-      "a": 4,
-      "pts": 5,
-      "ptsPerGame": 0.266,
-      "trend": 0.0,
-      "workbookRow": 77,
-      "currentGP": 3,
-      "currentG": 0,
-      "currentA": 0,
-      "trendInputs": {
-        "firstSeasonOrNoCareer": true,
-        "careerScoringRate": 0.41324736225087927,
-        "projectedScoringRate": 0.3443728018757327,
-        "seasonScoringRate": 0.0
-      },
-      "rank": 11
+      "rank": 9
     },
     {
       "name": "Triumbari, Francesco",
       "number": "67",
       "rosterStatus": "FT",
-      "gp": 20.66,
+      "gp": 20.99,
+      "g": 1,
+      "a": 7,
+      "pts": 8,
+      "ptsPerGame": 0.381,
+      "trend": 0.0,
+      "workbookRow": 78,
+      "currentGP": 5,
+      "currentG": 0,
+      "currentA": 2,
+      "trendInputs": {
+        "firstSeasonOrNoCareer": true,
+        "careerScoringRate": 0.41324736225087927,
+        "projectedScoringRate": 0.4104874951152794,
+        "seasonScoringRate": 0.4
+      },
+      "rank": 9
+    },
+    {
+      "name": "Kober, Adam",
+      "number": "12",
+      "rosterStatus": "CU",
+      "gp": 11.96,
+      "g": 2,
+      "a": 5,
+      "pts": 7,
+      "ptsPerGame": 0.586,
+      "trend": 0.153509,
+      "workbookRow": 86,
+      "currentGP": 4,
+      "currentG": 1,
+      "currentA": 2,
+      "trendInputs": {
+        "firstSeasonOrNoCareer": false,
+        "careerScoringRate": 0.4318181818181818,
+        "projectedScoringRate": 0.4981060606060606,
+        "seasonScoringRate": 0.75
+      },
+      "rank": 11
+    },
+    {
+      "name": "Provenzano, Mario",
+      "number": "8",
+      "rosterStatus": "FT",
+      "gp": 19.94,
+      "g": 2,
+      "a": 3,
+      "pts": 5,
+      "ptsPerGame": 0.251,
+      "trend": -0.208333,
+      "workbookRow": 79,
+      "currentGP": 5,
+      "currentG": 0,
+      "currentA": 0,
+      "trendInputs": {
+        "firstSeasonOrNoCareer": false,
+        "careerScoringRate": 0.4177040110650069,
+        "projectedScoringRate": 0.3306823420931304,
+        "seasonScoringRate": 0.0
+      },
+      "rank": 12
+    },
+    {
+      "name": "Rajkumar, Sanjay",
+      "number": "49",
+      "rosterStatus": "FT",
+      "gp": 19.2,
       "g": 1,
       "a": 4,
       "pts": 5,
-      "ptsPerGame": 0.242,
+      "ptsPerGame": 0.26,
       "trend": 0.0,
-      "workbookRow": 78,
+      "workbookRow": 77,
       "currentGP": 4,
       "currentG": 0,
       "currentA": 0,
       "trendInputs": {
         "firstSeasonOrNoCareer": true,
         "careerScoringRate": 0.41324736225087927,
-        "projectedScoringRate": 0.3443728018757327,
+        "projectedScoringRate": 0.32715416178194606,
         "seasonScoringRate": 0.0
       },
-      "rank": 11
+      "rank": 12
+    },
+    {
+      "name": "Duffy, Lorcan",
+      "number": "10",
+      "rosterStatus": "CU",
+      "gp": 6.58,
+      "g": 1,
+      "a": 2,
+      "pts": 3,
+      "ptsPerGame": 0.456,
+      "trend": -0.208333,
+      "workbookRow": 82,
+      "currentGP": 1,
+      "currentG": 0,
+      "currentA": 0,
+      "trendInputs": {
+        "firstSeasonOrNoCareer": false,
+        "careerScoringRate": 0.6788617886178863,
+        "projectedScoringRate": 0.5374322493224932,
+        "seasonScoringRate": 0.0
+      },
+      "rank": 14
     },
     {
       "name": "Paolucci, Anthony",
       "number": "43",
       "rosterStatus": "FT",
-      "gp": 13.74,
+      "gp": 12.54,
       "g": 1,
-      "a": 3,
-      "pts": 4,
-      "ptsPerGame": 0.291,
-      "trend": -0.166667,
+      "a": 2,
+      "pts": 3,
+      "ptsPerGame": 0.239,
+      "trend": -0.208333,
       "workbookRow": 81,
       "currentGP": 1,
       "currentG": 0,
@@ -389,7 +412,7 @@
       "trendInputs": {
         "firstSeasonOrNoCareer": false,
         "careerScoringRate": 0.31851851851851853,
-        "projectedScoringRate": 0.26543209876543217,
+        "projectedScoringRate": 0.2521604938271605,
         "seasonScoringRate": 0.0
       },
       "rank": 14
@@ -398,12 +421,12 @@
       "name": "Mazzei, Stefano",
       "number": "88",
       "rosterStatus": "CU",
-      "gp": 5.11,
-      "g": 2,
+      "gp": 4.79,
+      "g": 1,
       "a": 1,
-      "pts": 3,
-      "ptsPerGame": 0.587,
-      "trend": -0.166667,
+      "pts": 2,
+      "ptsPerGame": 0.418,
+      "trend": -0.208333,
       "workbookRow": 83,
       "currentGP": 0,
       "currentG": 0,
@@ -411,43 +434,21 @@
       "trendInputs": {
         "firstSeasonOrNoCareer": false,
         "careerScoringRate": 0.5767195767195767,
-        "projectedScoringRate": 0.480599647266314,
+        "projectedScoringRate": 0.4565696649029982,
         "seasonScoringRate": 0
       },
-      "rank": 15
-    },
-    {
-      "name": "Duffy, Lorcan",
-      "number": "10",
-      "rosterStatus": "CU",
-      "gp": 6.94,
-      "g": 1,
-      "a": 2,
-      "pts": 3,
-      "ptsPerGame": 0.432,
-      "trend": -0.166667,
-      "workbookRow": 82,
-      "currentGP": 1,
-      "currentG": 0,
-      "currentA": 0,
-      "trendInputs": {
-        "firstSeasonOrNoCareer": false,
-        "careerScoringRate": 0.6788617886178863,
-        "projectedScoringRate": 0.5657181571815719,
-        "seasonScoringRate": 0.0
-      },
-      "rank": 15
+      "rank": 16
     },
     {
       "name": "Rajasooriar, Krishnan",
       "number": "15",
       "rosterStatus": "CU",
-      "gp": 8.78,
+      "gp": 8.37,
       "g": 1,
-      "a": 2,
-      "pts": 3,
-      "ptsPerGame": 0.342,
-      "trend": -0.166667,
+      "a": 1,
+      "pts": 2,
+      "ptsPerGame": 0.239,
+      "trend": -0.208333,
       "workbookRow": 87,
       "currentGP": 2,
       "currentG": 0,
@@ -455,43 +456,43 @@
       "trendInputs": {
         "firstSeasonOrNoCareer": false,
         "careerScoringRate": 0.42592592592592593,
-        "projectedScoringRate": 0.3549382716049383,
+        "projectedScoringRate": 0.33719135802469136,
         "seasonScoringRate": 0.0
       },
-      "rank": 15
+      "rank": 16
     },
     {
       "name": "Congiusti, Marco",
       "number": "3",
       "rosterStatus": "FT",
-      "gp": 14.94,
+      "gp": 11.83,
       "g": 0,
       "a": 2,
       "pts": 2,
-      "ptsPerGame": 0.134,
-      "trend": -0.166667,
+      "ptsPerGame": 0.169,
+      "trend": -0.208333,
       "workbookRow": 88,
-      "currentGP": 1,
+      "currentGP": 0,
       "currentG": 0,
       "currentA": 0,
       "trendInputs": {
         "firstSeasonOrNoCareer": false,
         "careerScoringRate": 0.22422062350119903,
-        "projectedScoringRate": 0.18685051958433255,
-        "seasonScoringRate": 0.0
+        "projectedScoringRate": 0.1775079936051159,
+        "seasonScoringRate": 0
       },
-      "rank": 18
+      "rank": 16
     },
     {
       "name": "Atkins, Nolan",
       "number": "6",
       "rosterStatus": "CU",
-      "gp": 8.78,
+      "gp": 8.37,
       "g": 0,
       "a": 1,
       "pts": 1,
-      "ptsPerGame": 0.114,
-      "trend": -0.166667,
+      "ptsPerGame": 0.119,
+      "trend": -0.208333,
       "workbookRow": 89,
       "currentGP": 2,
       "currentG": 0,
@@ -499,7 +500,7 @@
       "trendInputs": {
         "firstSeasonOrNoCareer": false,
         "careerScoringRate": 0.14285714285714285,
-        "projectedScoringRate": 0.11904761904761904,
+        "projectedScoringRate": 0.11309523809523808,
         "seasonScoringRate": 0.0
       },
       "rank": 19
@@ -530,14 +531,14 @@
       "trendInputs": {
         "firstSeasonOrNoCareer": true,
         "careerScoringRate": 0.8123873873873872,
-        "projectedScoringRate": 0.8436561561561562,
+        "projectedScoringRate": 0.8514733483483483,
         "seasonScoringRate": 1.0
       },
       "workbookAnnualizedProjection": {
-        "gp": 6.0,
-        "g": 2,
-        "a": 4,
-        "pts": 6
+        "gp": 4.8,
+        "g": 1,
+        "a": 3,
+        "pts": 4
       },
       "forecastBasis": "HTO_CONFIRMED_APPEARANCES_ONLY"
     },
@@ -550,7 +551,7 @@
       "a": 0,
       "pts": 0,
       "ptsPerGame": 0.0,
-      "trend": -0.166667,
+      "trend": -0.208333,
       "workbookRow": 71,
       "currentGP": 1,
       "currentG": 0,
@@ -558,12 +559,12 @@
       "trendInputs": {
         "firstSeasonOrNoCareer": false,
         "careerScoringRate": 0.6066066066066067,
-        "projectedScoringRate": 0.5055055055055055,
+        "projectedScoringRate": 0.48023023023023026,
         "seasonScoringRate": 0.0
       },
       "rank": 21,
       "workbookAnnualizedProjection": {
-        "gp": 6.0,
+        "gp": 4.8,
         "g": 1,
         "a": 1,
         "pts": 2
@@ -588,15 +589,15 @@
       "trendInputs": {
         "firstSeasonOrNoCareer": true,
         "careerScoringRate": 0.8123873873873872,
-        "projectedScoringRate": 0.6769894894894894,
+        "projectedScoringRate": 0.6431400150150148,
         "seasonScoringRate": 0.0
       },
       "rank": 21,
       "workbookAnnualizedProjection": {
-        "gp": 6.0,
-        "g": 2,
-        "a": 2,
-        "pts": 4
+        "gp": 4.8,
+        "g": 1,
+        "a": 1,
+        "pts": 2
       },
       "attendanceSource": "DI_CONFIRMED_APPEARANCES_ONLY_PUBLIC_POLICY",
       "forecastBasis": "HTO_CONFIRMED_APPEARANCES_ONLY"
@@ -604,26 +605,26 @@
   ],
   "total": {
     "games": 24,
-    "goals": 66,
-    "assists": 105,
-    "points": 171,
-    "ptsPerGame": 0.542,
-    "trend": -0.083162
+    "goals": 71,
+    "assists": 110,
+    "points": 181,
+    "ptsPerGame": 0.576,
+    "trend": -0.069383
   },
   "conditionalFormatting": {
     "schema": "brave-hc-workbook-cf/v1",
     "source": "Master Workbook Player Projections sheet6.xml conditionalFormatting and x14 custom 5Arrows",
     "samples": 22,
-    "sampleStandardDeviation": 0.09372084325181063,
+    "sampleStandardDeviation": 0.12046170786292325,
     "arrowIconSet": {
       "type": "5Arrows",
       "showValue": false,
       "sourceRange": "X6:X94",
       "thresholds": {
-        "AB100": -0.18744168650362125,
-        "AB99": -0.09372084325181063,
-        "AB97": 0.04686042162590531,
-        "AB96": 0.09372084325181063
+        "AB100": -0.2409234157258465,
+        "AB99": -0.12046170786292325,
+        "AB97": 0.060230853931461624,
+        "AB96": 0.12046170786292325
       },
       "thresholdSources": {
         "AB100": "-2 * STDEV(X6:X93)",
@@ -661,40 +662,40 @@
     },
     "trendColorScale": {
       "sourceRange": "X6:X94",
-      "low": -0.18744168650362125,
+      "low": -0.2409234157258465,
       "mid": 0.0,
-      "high": 0.09372084325181063
+      "high": 0.12046170786292325
     },
     "statColorScales": {
       "gp": {
         "sourceRange": "Y6:Y93",
         "low": 1.0,
-        "mid": 18.7,
-        "high": 22.95
+        "mid": 19.08,
+        "high": 23.05
       },
       "g": {
         "sourceRange": "Z6:Z93",
         "low": 0.0,
         "mid": 1.0,
-        "high": 12.0
+        "high": 13.0
       },
       "a": {
         "sourceRange": "AA6:AA93",
         "low": 0.0,
-        "mid": 4.0,
+        "mid": 4.5,
         "high": 13.0
       },
       "pts": {
         "sourceRange": "AB6:AB93",
         "low": 0.0,
-        "mid": 5.0,
-        "high": 22.0
+        "mid": 6.0,
+        "high": 24.0
       },
       "ptsPerGame": {
         "sourceRange": "AC6:AC93",
         "low": 0.0,
-        "mid": 0.4515,
-        "high": 1.131
+        "mid": 0.437,
+        "high": 1.213
       }
     },
     "palette": {
@@ -706,8 +707,8 @@
   },
   "trendCalculation": {
     "sourceCell": "Player Projections!X94",
-    "numerator": -0.885244314,
-    "denominator": 10.644799218,
+    "numerator": -0.811416504,
+    "denominator": 11.694799218,
     "method": "SUM(history projected scoring rates - history career rates) / (SUM(history career rates)+SUM(no-history season rates))",
     "sourceCachedValueStatus": "Historical workbook X94 cached 0; recalculated directly from source formula"
   },
