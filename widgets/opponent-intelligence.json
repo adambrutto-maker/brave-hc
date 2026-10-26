@@ -2,9 +2,11 @@
   "schema": "brave-hc-opponent-intelligence/v1",
   "status": "PUBLIC_VERIFIED_EXACT_ONLY",
   "publishable": true,
-  "asOf": "2026-10-26T12:31:01.197Z",
-  "workbookScope": "Completed historical games through last saved source; not a live Excel workbook",
-  "source": "Original Brave H.C. Master Schedule + official HTO completed game scores, exact opponent names",
+  "asOf": "2026-10-26T13:31:00.231Z",
+  "source": "Canonical Brave H.C. Master Schedule plus completed official HTO game scores. Historical exact-name matches only.",
+  "releaseScope": "VERIFIED_EXACT_NAMES_ONLY; no inferred aliases",
+  "workbookScope": "Private Master Workbook preserved. Not an online editable workbook.",
+  "generatedAt": "2026-10-26T13:33:58.218686+00:00",
   "coverage": {
     "historicalGameRecords": 358,
     "currentSeasonGames": 5,
@@ -78,17 +80,17 @@
     {
       "name": "Mohawks HC",
       "verification": "ALIAS_REVIEW_REQUIRED",
-      "message": "Historical name association is unverified; no merged matchup record is displayed."
+      "message": "Historical team identity requires reviewed name/alias evidence. No inferred franchise matchup record is displayed."
     },
     {
       "name": "Sugo Sundays",
       "verification": "ALIAS_REVIEW_REQUIRED",
-      "message": "Historical name association is unverified; no merged matchup record is displayed."
+      "message": "Historical team identity requires reviewed name/alias evidence. No inferred franchise matchup record is displayed."
     },
     {
       "name": "Other Way",
       "verification": "NO_EXACT_HISTORY",
-      "message": "No exact-name completed matchup appears in the qualified source history."
+      "message": "No completed Brave H.C. meeting under this exact opponent name has been admitted to the verified source ledger."
     },
     {
       "name": "Big Bastones",
@@ -252,7 +254,5 @@
         }
       ]
     }
-  ],
-  "releaseScope": "EXACT_OPPONENT_NAME_MATCH_ONLY; 4/7 qualified; aliases and no-history withheld",
-  "generatedAt": "2026-10-26T13:17:31.535928+00:00"
+  ]
 }
