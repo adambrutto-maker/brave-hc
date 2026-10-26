@@ -237,67 +237,6 @@ function draw(container,segment,options={}){
  return {status:"SOURCE_ROWS_RENDERED",kind,charts:4,rows:rows.length,
   sourceRows:source.length,filter:options.filter||"all",sourceIsHistoricalArchive:true};
 }
-function drawGames(container,feed,playerID,role){
- if(!container)return {status:"NO_GAME_CONTAINER",charts:0};
- container.replaceChildren();
- if(feed?.schema!=="brave-hc-player-games-private-five-source/v1"||
-    feed.status!=="PRIVATE_ACCEPTED_SOURCE_NOT_PRODUCTION"||
-    feed.sourceAcceptance!=="PRIVATE_FIVE_GAME_SOURCE_ACCEPTANCE_PASS"||
-    feed.productionAccepted!==false||feed.publication?.allowed!==false||
-    !Array.isArray(feed.games)||feed.games.length!==5){
-   noRows(container,"A complete accepted player-by-game source is not available. No game trend has been estimated.");
-   return {status:"GAME_SOURCE_UNAVAILABLE",charts:0};
- }
- const pid=String(playerID);
- const kind=role==="goalie"?"goalie":"skater";
- const records=feed[kind==="goalie"?"goalies":"skaters"]?.[pid]||[];
- const known=new Map();
- for(const item of records){
-  if(known.has(item.gameID))return {status:"DUPLICATE_GAME_HOLD",charts:0};
-  known.set(item.gameID,item);
- }
- const rows=feed.games.map(g=>{
-  const item=known.get(g.gameID);
-  if(!item)return {Season:g.date,gameID:g.gameID,recorded:false};
-  if(item.date!==g.date)return {Season:g.date,gameID:g.gameID,recorded:false};
-  if(kind==="skater"){
-   if(![item.g,item.a,item.pts].every(valid)||item.g+item.a!==item.pts)
-    return {Season:g.date,gameID:g.gameID,recorded:false};
-   return {Season:g.date,gameID:g.gameID,recorded:true,
-           g:item.g,a:item.a,pts:item.pts};
-  }
-  if(!valid(item.goalsAgainst))return {Season:g.date,gameID:g.gameID,recorded:false};
-  const outcome=item.result==="LOSS"?{W:0,L:1}
-       :item.result==="WIN_SCOREBOARD_BOUNDED_ACCEPTED"?{W:1,L:0}:{W:null,L:null};
-  return {Season:g.date,gameID:g.gameID,recorded:true,goalsAgainst:item.goalsAgainst,...outcome};
- });
- const used=rows.filter(r=>r.recorded).length;
- if(used===0){
-   noRows(container,"No HTO player appearance row is recorded in these five verified games. This is not a zero-point or zero-goals claim.");
-   return {status:"NO_RECORDED_GAME_APPEARANCES",charts:0,kind,sourceGames:5,recordedAppearances:0,unrecordedGames:5};
- }
- if(kind==="skater"){
-   showGame("Points by recorded game","A visible zero means the player appeared but recorded zero points. No row means no documented appearance.",
-     parent=>barChart(parent,rows,{field:"pts",label:"Points",color:colors.gp}));
-   showGame("Goals and assists per game","Goals (rose), assists (gold). The bars omit games without an HTO player appearance row.",
-     parent=>barChart(parent,rows,{fields:["g","a"],label:"Scoring",color:[colors.goals,colors.assists]}));
-   let acc=0;
-   const series=rows.map(r=>{if(!r.recorded)return null;acc+=r.pts;return acc;});
-   showGame("Cumulative points on recorded appearances","Totals include only this accepted five-game source; no contribution is imputed for an unrecorded appearance.",
-     parent=>lineChart(parent,rows,{label:"Cumulative points",values:(r,i)=>series[i],color:colors.cumulative}));
- }else{
-   showGame("Goals against per recorded game","Goals against as published in each verified goalie game row.",
-     parent=>barChart(parent,rows,{field:"goalsAgainst",label:"Goals against",color:colors.gp}));
-   showGame("Recorded goaltending results","Green = verified win; red = published loss. An unknown result is omitted.",
-     parent=>barChart(parent,rows,{fields:["W","L"],label:"W/L",color:[colors.wins,colors.losses]}));
- }
- function showGame(title,description,render){
-   const root=buildPanel(container,title,description);
-   render(root);
- }
- return {status:"GAME_ROWS_RENDERED",charts:kind==="skater"?3:2,
-         kind,sourceGames:5,recordedAppearances:used,unrecordedGames:5-used,
-         sourceOnlyAccepted:true,productionAccepted:false};
-}
-global.BraveBioCharts=Object.freeze({draw,drawGames,filterRows});
+/* Per-game charts are gated until the approved production collector is live. */
+global.BraveBioCharts=Object.freeze({draw,filterRows});
 })(window);
