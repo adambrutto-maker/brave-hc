@@ -77,10 +77,35 @@
    leagueHTOTimingSeparate:true
   };
  }
- function format(brief){
-  const heading="BRAVE H.C. | VERIFIED OPPONENT SCOUTING";
+ function format(brief,options={}){
+  const fixture=options.fixture||null;
+  if(fixture){
+   const normalized=s=>String(s||"").toLowerCase().replace(/[^a-z0-9]/g,"");
+   const sig=[fixture.date,fixture.time,fixture.opponent,fixture.rink,fixture.side].join("|");
+   need(sig===fixture.fixtureSignature && normalized(fixture.opponent)===normalized(brief.leagueName) &&
+      /^\d{4}-\d{2}-\d{2}$/.test(fixture.date) &&
+      /^\d{2}:\d{2}$/.test(fixture.time) &&
+      ["home","away"].includes(fixture.side) && fixture.rink &&
+      Number.isFinite(new Date(fixture.checkedAt).getTime()),
+      "UNVERIFIED_GAME_DAY_FIXTURE");
+   need(fixture.htoUrl===null ||
+     (fixture.htoSyncStatus==="MATCH" && fixture.assignmentKey==="hto:"+fixture.htoGameId &&
+      /^\d+$/.test(String(fixture.htoGameId)) &&
+      fixture.htoUrl.includes("gameID="+fixture.htoGameId)),
+      "HTO_GAME_ID_NOT_SOURCE_QUALIFIED");
+  }
+  const heading=fixture?"BRAVE H.C. | VERIFIED GAME-DAY SCOUTING":"BRAVE H.C. | VERIFIED OPPONENT SCOUTING";
   const parts=[heading,
    "Opponent: "+brief.name+" | "+brief.division,
+   ...(fixture?[
+     "Upcoming SVHL fixture: "+fixture.date+" at "+fixture.time+" ET | "+
+       fixture.side.toUpperCase()+" | Vaughan Sports Village · "+fixture.rink,
+     "Fixture schedule checked: "+new Date(fixture.checkedAt).toISOString()+
+       ". Subject to changes by the league.",
+     fixture.htoUrl?"HTO synchronized game ID: "+fixture.htoGameId+
+       " | "+fixture.htoUrl:
+       "HTO game ID not synchronized; verify against official Sports Village schedule."
+    ]:[]),
    "Source: SVHL Sunday Winter 2026/27, checked "+safeDate(brief.asOf)+" (UTC)",
    "Official league: "+record(brief.rec)+" in "+brief.rec.gp+" GP | "+brief.rec.gf+
     " GF / "+brief.rec.ga+" GA | GF/GP "+fixed(brief.gfRate)+
@@ -106,9 +131,15 @@
   if(brief.prior)parts.push("Qualified prior winter (separate season): "+record(brief.prior.record)+
     " | "+brief.prior.division+".");
   parts.push("Caution: early results are descriptive, NOT win probabilities or a game prediction.",
-   "HTO Brave H.C. game verification may be ahead of the SVHL league source.",
-   "No upcoming fixture or game date is asserted by this report.",
-   "Official team source: "+brief.source);
+   "HTO Brave H.C. game verification may be ahead of the SVHL league source.");
+  if(fixture){
+   parts.push(fixture.requiresGoalieReconfirmation?
+     "Goalie assignment: reconfirmation required; check the approved goalie-manager record.":
+     "Goalie assignment: confirmation is not established by this scouting brief; check the approved goalie-manager record.");
+   parts.push("Scheduled fixture source: https://leagues.sportsvillage.ca/Leagues.aspx?leagueid=570&page_type=Adult&sc=HOCKEY");
+   parts.push("This is published schedule information, not a confirmed game outcome.");
+  }else parts.push("No upcoming fixture or game date is asserted by this report.");
+  parts.push("Official team source: "+brief.source);
   return parts.join("\n");
  }
  function cristilloOpponents(doc){
