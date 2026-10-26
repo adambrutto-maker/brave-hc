@@ -8,7 +8,7 @@
  const dec=v=>Number.isFinite(v)?(v>0?"+":"")+v.toFixed(2):"—";
  const record=x=>x?(x.w+"–"+x.l+"–"+x.t):"—";
  const date=s=>{try{return new Date(s+"T12:00:00").toLocaleDateString("en-CA",{year:"numeric",month:"short",day:"numeric"})}catch(_){return s}};
- let data=null,selected=null,currentScoutingBrief=null;
+ let data=null,selected=null,currentScoutingBrief=null,upcomingFixtures=[];
  function trusted(doc){
   return doc?.schema==="brave-hc-league-intelligence/public-v1" &&
    doc.status==="OFFICIAL_LEAGUE_RESULTS_SOURCE_QUALIFIED" &&
@@ -142,6 +142,94 @@
    " dated source observations retained. "+history.departedTeamProfilesRetained+
    " complete departed-league profiles archived. Old results are never replaced by division-name assumptions.";
  }
+ function normalName(s){return String(s||"").toLowerCase().replace(/[^a-z0-9]/g,"")}
+ function torontoToday(){
+  const p=new Intl.DateTimeFormat("en-CA",{timeZone:"America/Toronto",
+   year:"numeric",month:"2-digit",day:"2-digit"}).formatToParts(new Date());
+  const get=type=>p.find(x=>x.type===type)?.value;
+  return get("year")+"-"+get("month")+"-"+get("day");
+ }
+ function renderUpcoming(doc){
+  const source="https://leagues.sportsvillage.ca/Leagues.aspx?leagueid=570&page_type=Adult&sc=HOCKEY";
+  const status=q("fixture-status"),grid=q("upcoming-fixtures");grid.replaceChildren();
+  upcomingFixtures=[];
+  if(doc?.schema!=="brave-hc-svhl-schedule/v1" ||
+     doc.source!==source || !Array.isArray(doc.games) ||
+     !Array.isArray(doc.missingFixtureReviews))
+   throw Error("SVHL schedule source not qualified");
+  const stamp=new Date(doc.checkedAt),age=Date.now()-stamp.getTime();
+  if(!Number.isFinite(stamp.getTime())||age< -900000)throw Error("SVHL schedule source time invalid");
+  const currentIds=new Map(data.teams.map(t=>[normalName(t.leagueName),t]));
+  const today=torontoToday();
+  const seen=new Set();
+  for(const game of doc.games){
+   const signature=[game.date,game.time,game.opponent,game.rink,game.side].join("|");
+   if(signature!==game.fixtureSignature ||
+      !/^\d{4}-\d{2}-\d{2}$/.test(game.date) ||
+      !/^\d{2}:\d{2}$/.test(game.time) ||
+      !["home","away"].includes(game.side) ||
+      typeof game.opponent!=="string" || !game.opponent ||
+      typeof game.rink!=="string" || !game.rink ||
+      seen.has(game.fixtureSignature))
+     throw Error("Fixture signature or schedule fields inconsistent");
+   seen.add(game.fixtureSignature);
+   const matched=currentIds.get(normalName(game.opponent));
+   const htoMatched=game.htoSyncStatus==="MATCH" &&
+    /^\d+$/.test(String(game.htoGameId||"")) &&
+    game.assignmentKey==="hto:"+game.htoGameId;
+   // If HTO synchronization has not admitted a game, never construct a preview link.
+   if(game.date>=today)upcomingFixtures.push({...game,
+    matched:matched?.leagueName||null,
+    htoUrl:htoMatched?"https://www.hometeamsonline.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=preview&sportsHQ=BRAVESHOCKEY&gameID="+game.htoGameId:null});
+  }
+  upcomingFixtures.sort((a,b)=>(a.date+"T"+a.time).localeCompare(b.date+"T"+b.time));
+  const stale=age>8*60*60*1000;
+  status.textContent="SVHL calendar checked "+stamp.toLocaleString("en-CA",{dateStyle:"medium",timeStyle:"short"})+
+   " · "+upcomingFixtures.length+" upcoming fixtures · "+
+   doc.missingFixtureReviews.length+" unresolved source-review items"+
+   (stale?" · STALE — verify schedule before using":"")+
+   ". Only MATCH status provides an HTO game-ID link.";
+  const first=upcomingFixtures[0];
+  q("next-fixture-tag").textContent=first?
+   "Next: "+first.date+" · "+first.time+" ET":"No future listed games";
+  for(const [index,game] of upcomingFixtures.entries()){
+   const card=el("article","fixture-card"+(index===0?" next":""));
+   text(card,"strong","",game.date+" · "+game.time+" ET");
+   text(card,"span","",game.opponent);
+   text(card,"small","",game.side.toUpperCase()+" · Vaughan Sports Village · "+game.rink);
+   text(card,"small","",game.htoUrl?"HTO game ID verified: "+game.htoGameId:
+    "HTO game ID not synchronized — check source");
+   if(game.requiresGoalieReconfirmation===true)
+    text(card,"small early-warning","","Goalie assignment reconfirmation required");
+   if(index===0)text(card,"small","","Next source-listed fixture");
+   if(game.matched){
+    const button=text(card,"button","","Open opponent scouting");
+    button.type="button";button.addEventListener("click",()=>{
+     q("division-filter").value="all";choose(game.matched);
+     q("profile-title").scrollIntoView({block:"start",behavior:"smooth"});
+    });
+   }else text(card,"small","","No verified match to current SVHL League Intelligence team ID");
+   const link=text(card,"a","sourcelink",game.htoUrl?"Verified HTO game preview":"Official SVHL schedule");
+   link.href=game.htoUrl||source;link.target="_blank";link.rel="noopener noreferrer";
+   grid.append(card);
+  }
+  if(!first)text(grid,"p","tiny","No upcoming source-listed fixtures in this feed.");
+  renderScoutingBoard();
+  return !stale;
+ }
+ async function loadUpcoming(){
+  try{
+   const response=await fetch("./svhl-upcoming.json",{cache:"no-store"});
+   if(!response.ok)throw Error("SVHL fixture feed unavailable");
+   const fresh=renderUpcoming(await response.json());
+   const query=new URLSearchParams(location.search).get("team");
+   if(fresh&&!query&&upcomingFixtures[0]?.matched)choose(upcomingFixtures[0].matched);
+  }catch(error){
+   q("fixture-status").textContent="Upcoming schedule held: "+error.message+
+    ". Existing source-verified standings and scouting remain available.";
+   q("next-fixture-tag").textContent="Schedule unavailable";
+  }
+ }
  function renderScoutingBoard(){
   const board=q("scout-board");board.replaceChildren();
   const reports=window.BraveLeagueScouting.cristilloOpponents(data);
@@ -149,6 +237,9 @@
   for(const brief of reports){
    const card=el("article","scout-card");
    text(card,"strong","",brief.name);
+   if(upcomingFixtures[0]?.matched===brief.leagueName){
+    card.classList.add("next-fixture");text(card,"small","","NEXT VERIFIED LEAGUE FIXTURE");
+   }
    text(card,"small","",brief.rec.gp+" GP · "+record(brief.rec)+
     " · "+brief.rec.gf+" GF / "+brief.rec.ga+" GA");
    text(card,"small","",Number.isFinite(brief.context)?
@@ -374,7 +465,7 @@
    q("sort-field").addEventListener("change",table);
    q("team-filter").addEventListener("change",event=>choose(event.target.value));
    q("copy-scout-brief").addEventListener("click",copyScoutingBrief);
-   table();profile();
+   table();profile();loadUpcoming();
   }catch(e){
    q("source-status").textContent="SOURCE HELD: "+e.message+". Historical identities or strength figures were not guessed.";
    q("source-status").style.color="#ffa6af";
