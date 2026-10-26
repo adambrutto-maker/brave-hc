@@ -18,7 +18,8 @@
    doc.strengthModel.probabilityOfWinning===false &&
    doc.trendLedger?.schema==="brave-hc-svhl-context-trend-ledger/v1" &&
    doc.trendLedger.sourceScope==="ACCEPTED_PUBLIC_SNAPSHOT_CHANGES_NOT_PREDICTED_FORM" &&
-   doc.trendLedger.trackedTeams===doc.trendLedger.teams?.length &&
+   Array.isArray(doc.trendLedger.teams) &&
+   doc.trendLedger.trackedTeams===doc.trendLedger.teams.length &&
    doc.trendLedger.observationsRecorded===doc.trendLedger.teams.reduce((n,g)=>n+g.observations.length,0) &&
    doc.currentDivisionCount>=4 &&
    Array.isArray(doc.divisions)&&Array.isArray(doc.teams)&&
