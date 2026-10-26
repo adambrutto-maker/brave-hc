@@ -12,6 +12,8 @@ on:
       - 'scripts/collect_svhl_league_intelligence.py'
       - 'scripts/build_svhl_league_intelligence_public.py'
       - 'scripts/check_svhl_league_intelligence.py'
+      - 'scripts/model_svhl_schedule_strength.py'
+      - 'tests/test_svhl_schedule_adjusted_context.py'
       - 'scripts/publish_svhl_league_intelligence.py'
       - 'scripts/track_svhl_division_movements.py'
       - 'scripts/seed_cristillo_division_observation.py'
@@ -30,6 +32,8 @@ on:
       - 'scripts/collect_svhl_league_intelligence.py'
       - 'scripts/build_svhl_league_intelligence_public.py'
       - 'scripts/check_svhl_league_intelligence.py'
+      - 'scripts/model_svhl_schedule_strength.py'
+      - 'tests/test_svhl_schedule_adjusted_context.py'
       - 'scripts/publish_svhl_league_intelligence.py'
       - 'scripts/track_svhl_division_movements.py'
       - 'scripts/seed_cristillo_division_observation.py'
@@ -67,6 +71,8 @@ jobs:
         run: python -m unittest discover -s tests -p test_svhl_league_daily_publisher.py
       - name: Protect source-observed division movements and incoming scouting
         run: python -m unittest discover -s tests -p test_svhl_division_movement_history.py
+      - name: Verify schedule-adjusted index mathematics and excluded head-to-head
+        run: python -m unittest discover -s tests -p test_svhl_schedule_adjusted_context.py
       - name: Detect stalled daily local collector
         if: github.event_name == 'schedule'
         run: python scripts/check_svhl_league_intelligence.py --fresh

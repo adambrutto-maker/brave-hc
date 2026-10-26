@@ -5,6 +5,7 @@ from datetime import datetime,timezone,timedelta
 from pathlib import Path
 from urllib.parse import urlparse,parse_qs
 import json,argparse,sys
+from model_svhl_schedule_strength import calculate,VERSION
 class ReleaseHold(ValueError):pass
 def need(cond,msg):
  if not cond:raise ReleaseHold(msg)
@@ -147,6 +148,18 @@ def verify(data,accepted=None,fresh=False,now=None):
        "DEPARTED_LEAGUE_TEAM_ARCHIVE_INVALID")
  need(len({x["sourceTeamId"] for x in archives})==len(archives),
       "DUPLICATED_DEPARTED_LEAGUE_TEAM")
+ model=data.get("strengthModel")
+ need(isinstance(model,dict) and model.get("schema")==VERSION and
+      model.get("type")=="DESCRIPTIVE_NOT_PREDICTIVE" and
+      model.get("probabilityOfWinning") is False and
+      model.get("bravesHistoricalHeadToHeadExcluded") is True,
+      "SCHEDULE_CONTEXT_SOURCE_LABEL_OR_SCOPE_CHANGED")
+ calculated=calculate(data)
+ need(calculated["strengthModel"]==model,
+      "SCHEDULE_ADJUSTMENT_MODEL_PARAMETERS_OR_COVERAGE_DRIFT")
+ for a,b in zip(data["teams"],calculated["teams"]):
+  need(a.get("strengthContext")==b.get("strengthContext"),
+       "SOURCE_SUPPORTED_STRENGTH_CALCULATION_MISMATCH_"+a["leagueName"])
  if accepted:
   acceptedTeams={x["name"]:x for x in accepted["teams"]}
   for name,source in acceptedTeams.items():

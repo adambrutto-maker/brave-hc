@@ -13,6 +13,9 @@
   return doc?.schema==="brave-hc-league-intelligence/public-v1" &&
    doc.status==="OFFICIAL_LEAGUE_RESULTS_SOURCE_QUALIFIED" &&
    doc.currentSourceDataConcordant===true &&
+   doc.strengthModel?.schema==="svhl-schedule-adjusted-context/v1" &&
+   doc.strengthModel.type==="DESCRIPTIVE_NOT_PREDICTIVE" &&
+   doc.strengthModel.probabilityOfWinning===false &&
    doc.currentDivisionCount>=4 &&
    Array.isArray(doc.divisions)&&Array.isArray(doc.teams)&&
    doc.currentLeagueTeamCount===doc.teams.length &&
@@ -24,7 +27,10 @@
    new Set(doc.teams.map(x=>x.sourceTeamId)).size===doc.teams.length &&
    doc.teams.every(x=>x.leagueName&&x.displayName&&x.divisionNow&&
         x.record?.gp===x.gamesConfirmed &&
-        x.record.gp===x.completedGames?.length);
+        x.record.gp===x.completedGames?.length &&
+        x.strengthContext?.status &&
+        (x.record.gp===0 ? x.strengthContext.contextIndex===null :
+         Number.isFinite(x.strengthContext.contextIndex)));
  }
  function tile(parent,value,caption){
   const card=el("div","metric");text(card,"span","",value);text(card,"small","",caption);parent.append(card);
@@ -116,8 +122,12 @@
   const choice=q("division-filter").value;
   const cards=data.teams.filter(t=>choice==="all"?
     data.divisions.some(x=>x.name===t.divisionNow&&x.competitive):t.divisionNow===choice);
-  cards.sort((a,b)=>(b.winPct??-1)-(a.winPct??-1) || b.record.pts-a.record.pts ||
-       (b.goalDiffPerGame??-99)-(a.goalDiffPerGame??-99)||a.displayName.localeCompare(b.displayName));
+  const byContext=q("sort-field").value==="context";
+  cards.sort((a,b)=>byContext?
+    ((b.strengthContext?.contextIndex??-1)-(a.strengthContext?.contextIndex??-1) ||
+     b.record.gp-a.record.gp || a.displayName.localeCompare(b.displayName)):
+    ((b.winPct??-1)-(a.winPct??-1) || b.record.pts-a.record.pts ||
+     (b.goalDiffPerGame??-99)-(a.goalDiffPerGame??-99)||a.displayName.localeCompare(b.displayName)));
   const body=q("league-rows");body.replaceChildren();
   for(const x of cards){
    const row=el("tr");row.tabIndex=0;row.dataset.team=x.leagueName;
@@ -127,6 +137,8 @@
    text(row,"td","score",pct(x.winPct));
    text(row,"td","score",dec(x.goalDiffPerGame));
    text(row,"td","score",pct(x.opponentCurrentWinPctAverage));
+   text(row,"td","context-score",x.strengthContext.contextIndex===null?"—":x.strengthContext.contextIndex.toFixed(1));
+   text(row,"td","score",x.strengthContext.rank===null?"—":"#"+x.strengthContext.rank);
    row.addEventListener("click",()=>choose(x.leagueName));
    row.addEventListener("keydown",event=>{
     if(event.key==="Enter"||event.key===" "){event.preventDefault();choose(x.leagueName)}
@@ -135,7 +147,7 @@
   }
   if(!cards.length){
    const row=el("tr"),cell=el("td","","No qualified teams in this division");
-   cell.colSpan=11;row.append(cell);body.append(row);
+   cell.colSpan=13;row.append(cell);body.append(row);
   }
  }
  function profile(){
@@ -154,6 +166,27 @@
   context(panel,"Goal difference",
           (x.record.gf-x.record.ga>0?"+":"")+(x.record.gf-x.record.ga)+
           " this season · "+dec(x.goalDiffPerGame)+" per game");
+  const strength=q("strength-metrics");strength.replaceChildren();
+  const score=x.strengthContext;
+  if(score?.status==="SOURCE_SUPPORTED_DESCRIPTIVE_CONTEXT"){
+   context(strength,"Current form",score.currentForm.toFixed(1)+"/100 · official results with neutral smoothing");
+   context(strength,"Schedule difficulty",score.scheduleDifficulty.toFixed(1)+"/100 · opponent record with each direct result removed");
+   context(strength,"Qualified previous winter",score.priorWinterForm===null?
+     "Not roster-verified · prior results excluded from index":
+     score.priorWinterForm.toFixed(1)+"/100 · previous season weighted 15%");
+   const weights=score.weights;
+   q("strength-method").textContent="Context index "+score.contextIndex.toFixed(1)+
+    "/100 · "+(score.rank===null?"unranked playoff placeholder":"#"+score.rank+" among competitive teams")+
+    " · "+score.confidence.replace(/_/g," ").toLowerCase()+
+    " · "+(weights.currentForm*100).toFixed(0)+"% current form, "+
+    (weights.scheduleDifficulty*100).toFixed(0)+"% schedule difficulty, "+
+    (weights.previousWinterForm*100).toFixed(0)+"% qualified prior winter. "+
+    "Neutral four-game smoothing; descriptive only, NOT win probability. "+
+    "Brave H.C. historical matchups do not contribute to the index.";
+  }else{
+   context(strength,"Not rated","No completed games available or not a competitive division.");
+   q("strength-method").textContent="Index unavailable: insufficient verified competitive game evidence.";
+  }
   const prior=q("prior-summary");prior.replaceChildren();
   if(x.previousWinter){
    const p=x.previousWinter;
@@ -203,6 +236,7 @@
    selected=data.teams.some(x=>x.leagueName===name)?name:
     data.teams.some(x=>x.leagueName==="Maplewolves")?"Maplewolves":"Braves HC";
    q("division-filter").addEventListener("change",table);
+   q("sort-field").addEventListener("change",table);
    q("team-filter").addEventListener("change",event=>choose(event.target.value));
    table();profile();
   }catch(e){

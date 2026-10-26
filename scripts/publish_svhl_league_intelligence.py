@@ -15,6 +15,7 @@ from pathlib import Path
 import json,os,subprocess,sys,shutil
 from check_svhl_league_intelligence import verify,ReleaseHold
 from track_svhl_division_movements import enrich,MovementHold
+from model_svhl_schedule_strength import calculate
 class Hold(ValueError):pass
 TARGET="widgets/league-intelligence.json"
 def require(ok,reason):
@@ -89,12 +90,15 @@ def pipeline(repo,private,receipt,check_only=False):
    baseline_path=Path(__file__).resolve().parents[1]/"widgets"/baseline_path.name
   baseline=read(baseline_path)
   current=enrich(previous,current,baseline)
+  current=calculate(current)  # descriptive context only; game source still authoritative
   # The enriched file is a private staged candidate until all source,
   # immutable-event and publisher checks have passed.
   candidate.write_text(json.dumps(current,indent=2,ensure_ascii=False)+"\n",encoding="utf8")
   accepted=read(repo/"widgets"/"opponent-intelligence.json")
   verified=verify(current,accepted,fresh=True)
   monotonic(previous,current)
+  report.update(strengthModel=current["strengthModel"]["schema"],
+       rankedCompetitiveTeams=current["strengthModel"]["eligibleTeams"])
   report.update(movementCount=current["movementLedger"]["eventsRecorded"],
        incomingCristilloCount=current["movementLedger"]["incomingCristilloEventsRecorded"],
        departedProfilesRetained=current["movementLedger"]["departedTeamProfilesRetained"])
