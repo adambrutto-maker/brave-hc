@@ -35,6 +35,10 @@ const server=http.createServer((req,res)=>{
      contextBreakdown:document.querySelector("#strength-metrics")?.textContent,
      trendSummary:document.querySelector("#trend-summary")?.textContent,
      trendCount:document.querySelectorAll("#trend-rows .trend-point").length,
+     scoutingBoardCount:document.querySelectorAll("#scout-board .scout-card").length,
+     scoutingSummary:document.querySelector("#scout-profile-summary")?.textContent,
+     scoutingRecent:[...document.querySelectorAll("#scout-recent li")].map(x=>x.textContent),
+     scoutingComparison:document.querySelector("#scout-profile-context")?.textContent,
      method:document.querySelector("#strength-method")?.textContent,
      firstRankedTeam:document.querySelector("#league-rows tr[data-team]")?.dataset.team,
      status:document.querySelector("#source-status")?.textContent
@@ -59,11 +63,34 @@ const server=http.createServer((req,res)=>{
    assert.equal(info.rows,competitiveCount,"all competitive team entries");
    assert.equal(info.divisions.length,published.divisions.length+1,"all source divisions plus all");
    assert.equal(info.selected,"Maplewolves");
+   assert.equal(info.scoutingBoardCount,leagueDivision.teams.length-1,
+      "scouting board covers all seven current Cristillo opponents");
+   assert.ok(info.scoutingSummary.includes("9 GF / 17 GA")&&
+      info.scoutingSummary.includes("3–6–1"),
+      "scouting cards use only verified season and Brave H.C. history");
+   assert.equal(info.scoutingRecent.length,maple.completedGames.length);
+   assert.ok(info.scoutingRecent.some(x=>x.includes("Primary Auto"))&&
+      info.scoutingComparison.includes("No future fixture or win probability is inferred."),
+      "selected opponent brief is factual and does not guess fixtures");
    assert.ok(info.prior.includes("11–10–3")&&info.prior.includes("Maple Hyundai"));
    assert.ok(info.historical.includes("3–6–1")&&info.historical.includes("10 all-time verified"));
    assert.equal(info.fixtures.length,maple.completedGames.length);
    assert.ok(["Primary Auto","Butcher Brothers","Mighty Drunks","Young Guns"].every(n=>info.fixtures.some(x=>x.includes(n))));
    assert.ok(info.bodyOverflow<=1,"mobile page must not overflow");
+   // Capture only the output of the real UI copy event; no external WhatsApp action.
+   await page.evaluate(()=>{
+    Object.defineProperty(navigator,"clipboard",{
+     configurable:true,value:{writeText:async text=>{window.__scoutingCopied=text}}
+    });
+   });
+   await page.click("#copy-scout-brief");
+   await page.waitForFunction(()=>Boolean(window.__scoutingCopied));
+   const pasted=await page.evaluate(()=>window.__scoutingCopied);
+   assert.ok(pasted.includes("Opponent: Maplewolves")&&
+      pasted.includes("9 GF / 17 GA")&&
+      pasted.includes("3–6–1 in 10 GP")&&
+      pasted.includes("No upcoming fixture or game date is asserted"),
+      "copy control produces verifiable WhatsApp text without fictional schedule");
    await page.select("#sort-field","official");
    assert.ok((await page.$eval("#league-rows tr[data-team]",x=>x.dataset.team)),"official sorting remains available");
    await page.select("#sort-field","context");
@@ -72,6 +99,8 @@ const server=http.createServer((req,res)=>{
    await page.select("#team-filter","Braves HC");
    assert.equal(await page.$eval("#profile-title",e=>e.textContent),"Brave H.C.");
    assert.ok((await page.$eval("#braves-history",e=>e.textContent)).includes("Own club"));
+   assert.ok((await page.$eval("#scout-profile-summary",e=>e.textContent)).includes("Club baseline"),
+     "self club does not fabricate a head-to-head matchup");
    assert.ok((await page.$eval("#strength-method",e=>e.textContent)).includes("Brave H.C. historical matchups do not contribute"));
    results.push({width,allCompetitiveRows:info.rows,maplewolvesPrior:true,maplewolvesBravesHistory:true,opponentResults:info.fixtures.length,
       mobileOverflow:info.bodyOverflow});
