@@ -153,5 +153,38 @@
       "a": 0,
       "pts": 0
     }
-  ]
+  ],
+  "rosterCoverage": {
+    "schema": "brave-hc-hto-rostered-no-appearance/v1",
+    "status": "SOURCE_QUALIFIED_NO_RECORDED_APPEARANCES",
+    "season": "W2026/27",
+    "teamGP": 5,
+    "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=roster",
+    "qualifiedAtUTC": "2026-10-26T15:48:10.892223+00:00",
+    "rosterCount": 25,
+    "observedSkaters": 20,
+    "observedGoalies": 3,
+    "rosteredWithoutRecordedAppearance": [
+      {
+        "name": "Congiusti, Marco",
+        "gp": 0,
+        "g": 0,
+        "a": 0,
+        "pts": 0,
+        "classification": "FT",
+        "jerseyNo": "3",
+        "evidence": "Rostered on HTO; no recorded appearance in all completed HTO games"
+      },
+      {
+        "name": "Mazzei, Stefano",
+        "gp": 0,
+        "g": 0,
+        "a": 0,
+        "pts": 0,
+        "classification": "CU",
+        "jerseyNo": "88",
+        "evidence": "Rostered on HTO; no recorded appearance in all completed HTO games"
+      }
+    ]
+  }
 }

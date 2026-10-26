@@ -186,9 +186,9 @@ function drawProjection(){
  players.slice(start,start+size).forEach((p,i)=>{
   const tr=node("tr");const name=node("td","team player");
   name.append(node("span","name",cleanName(p.name)));
-  name.append(node("span","role",p.rosterStatus+" · #"+(p.number||"—")));
+  name.append(node("span","role",p.rosterStatus+" · #"+(p.number||"—")+(latestHTOActuals?.verifiedZero?.has(p.name)?" · Rostered / 0 GP":"")));
   tr.append(name);
-  const actual=latestHTOActuals?latestHTOActuals.players.get(p.name):null;
+  const actual=latestHTOActuals?(latestHTOActuals.players.get(p.name)||latestHTOActuals.verifiedZero?.get(p.name)):null;
   const unavailable=Boolean(latestHTOActuals&&!actual);
   const currentGP=latestHTOActuals?actual?.gp:p.currentGP;
   const currentG=latestHTOActuals?actual?.g:p.currentG;
@@ -240,7 +240,22 @@ async function loadProjection(){
        Number.isFinite(age)&&age>=0&&age<=10*24*60*60*1000 &&
        new Set(feed.players.map(x=>x.name)).size===feed.players.length&&
        feed.players.every(x=>num(x.gp)&&num(x.g)&&num(x.a)&&num(x.pts)&&x.pts===x.g+x.a)){
-        latestHTOActuals={gp:feed.teamGP,asOf:feed.asOf,players:new Map(feed.players.map(p=>[p.name,p]))};
+        const coverage=feed.rosterCoverage;
+       let zeroMap=new Map();
+       if(coverage?.schema==="brave-hc-hto-rostered-no-appearance/v1"&&
+          coverage.status==="SOURCE_QUALIFIED_NO_RECORDED_APPEARANCES"&&
+          coverage.teamGP===feed.teamGP&&coverage.season==="W2026/27"&&
+          Array.isArray(coverage.rosteredWithoutRecordedAppearance)&&
+          coverage.rosteredWithoutRecordedAppearance.every(x=>
+             typeof x.name==="string" && !feed.players.some(p=>p.name===x.name)&&
+             x.gp===0&&x.g===0&&x.a===0&&x.pts===0&&
+             ["FT","CU"].includes(x.classification)) &&
+          new Set(coverage.rosteredWithoutRecordedAppearance.map(x=>x.name)).size===
+             coverage.rosteredWithoutRecordedAppearance.length){
+          zeroMap=new Map(coverage.rosteredWithoutRecordedAppearance.map(p=>[p.name,p]));
+       }
+       latestHTOActuals={gp:feed.teamGP,asOf:feed.asOf,
+          players:new Map(feed.players.map(p=>[p.name,p])),verifiedZero:zeroMap};
     }
   }catch(_noValidLiveActuals){}
   set("proj-games",latestHTOActuals?latestHTOActuals.gp:num(sourceGames)?sourceGames:"—");
@@ -248,7 +263,7 @@ async function loadProjection(){
   set("projection-state",latestHTOActuals&&!d.modelCurrent?"HTO ACTUALS CURRENT · FORECAST HELD":d.modelCurrent?"MODEL RECONCILED":"SCENARIO · PARITY PENDING");
   const date=dateText(d.htoreadback||d.exportedAt);
   if(latestHTOActuals){
-     set("projection-note","Current figures in parentheses are verified HTO statistics through "+latestHTOActuals.gp+" games ("+dateText(latestHTOActuals.asOf)+"). Projected season totals and trend arrows still use the unreconciled workbook model based on "+sourceGames+" HTO games. (—) means not reported on the current HTO roster.");
+     set("projection-note","Current figures in parentheses are verified HTO statistics through "+latestHTOActuals.gp+" games ("+dateText(latestHTOActuals.asOf)+"). Projected season totals and trend arrows still use the unreconciled workbook model based on "+sourceGames+" HTO games. Verified rostered players with no recorded appearances show (0); (—) means an unverified or unavailable current value.");
   }else{
      set("projection-note",d.modelCurrent===true?"Workbook projections reconciled to official HTO actuals.":"Projection feed reflects "+sourceGames+" HTO games at "+date+". Workbook baseline: "+(d.sourceInputs?.workbookRecordedTeamGP??"—")+" game(s). Forecasts and displayed actuals are not up to date.");
   }

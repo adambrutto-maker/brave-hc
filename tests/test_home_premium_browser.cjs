@@ -34,8 +34,10 @@ const chrome=["C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe","C:\\
   assert.equal(optionCount,7,"all 7 opponents selectable");
   await page.select("#opponent","Mid Ice Crisis");
   assert.equal(await page.$eval("#intel-team",e=>e.textContent),"Mid Ice Crisis");
-  assert.equal(await page.$eval("#headtohead-section",e=>e.hidden),true,"head-to-head withheld until master-workbook source is verified");
-  assert.ok((await page.$eval("#intel-metrics",e=>e.textContent)).includes("Historical identity verification"),"opponent intelligence is fail-closed");
+  assert.equal(await page.$eval("#headtohead-section",e=>e.hidden),false,"source-verified Mid Ice Crisis history is displayed");
+  assert.ok((await page.$eval("#intel-metrics",e=>e.textContent)).includes("1–2–2"),"historical matchup uses the qualified Master Workbook source");
+  await page.select("#opponent","Mohawks HC");
+  assert.equal(await page.$eval("#headtohead-section",e=>e.hidden),true,"unreviewed alias remains withheld");
   await page.setViewport({width:358,height:690});
   await page.click("#tab-standing");
   const isMobile=await page.$eval(".standings-table tr:nth-child(1)",e=>getComputedStyle(e).display==="grid");
@@ -55,6 +57,17 @@ const chrome=["C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe","C:\\
   assert.ok(/unreconciled workbook model|Forecasts and displayed actuals are not up to date|reconciled to/.test(projected),"accurate model freshness disclaimer");
   assert.equal(await page.$eval("#proj-games",e=>e.textContent),"5","latest HTO GP displayed");
   assert.ok(firstRow.includes("(4)")&&firstRow.includes("(5)"),"latest HTO current goals and points used for Carosi");
+  const noGames=await page.$$eval("#projection-rows tr:not(.details)",rows=>
+    rows.filter(row=>/Marco Congiusti|Stefano Mazzei/.test(row.textContent)).map(row=>({
+       name:row.querySelector(".name")?.textContent,
+       role:row.querySelector(".role")?.textContent,
+       actuals:[...row.querySelectorAll("td .actual")].map(x=>x.textContent)
+    })));
+  assert.equal(noGames.length,2,"both rostered/no appearance historical model rows present");
+  for(const row of noGames){
+     assert.ok(row.role.includes("Rostered / 0 GP"),row.name+" current official roster status");
+     assert.deepEqual(row.actuals,["(0)","(0)","(0)","(0)"],row.name+" verified zero actuals");
+  }
   assert.deepEqual(errors,[],"no browser script failures");
   const out=path.resolve(__dirname,"..",".qa-output");fs.mkdirSync(out,{recursive:true});
   await page.screenshot({path:path.join(out,"projection-mobile.png"),fullPage:true});

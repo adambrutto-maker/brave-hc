@@ -10,6 +10,7 @@ from pathlib import Path
 import json,subprocess,sys
 
 from export_hto_verified_player_actuals import parse,Hold
+from enrich_hto_rostered_zero_appearances import qualify,parse_roster,fetch_roster,SourceHold
 
 def git(repo,*args):
     p=subprocess.run(["git","-C",str(repo),*args],capture_output=True,text=True,timeout=45)
@@ -26,12 +27,15 @@ def publish(repo,readback):
     git(repo,"merge","--ff-only","origin/main")
     before=json.loads(target.read_text(encoding="utf8")) if target.exists() else None
     after=parse(json.loads(source.read_text(encoding="utf-8-sig")))
+    verified=json.loads(source.with_name("261017_HTO_Verified_GameLevel_Skater_Attendance.json").read_text(encoding="utf8"))
+    projection=json.loads((repo/"widgets"/"projection.json").read_text(encoding="utf8"))
+    after=qualify(after,verified,projection,parse_roster(fetch_roster()))
     if before and before.get("schema")!=after["schema"]:raise Hold("PUBLIC_FEED_SCHEMA_CHANGED")
     if before and before.get("teamGP",0)>after["teamGP"]:
         raise Hold("HTO_PUBLIC_SEASON_GP_REGRESSION")
     before_sig=None if before is None else (before.get("teamGP"),before.get("teamGF"),before.get("teamGA"),before.get("players"))
     now_sig=(after["teamGP"],after["teamGF"],after["teamGA"],after["players"])
-    if before_sig==now_sig and before:
+    if before_sig==now_sig and before and before.get("rosterCoverage",{}).get("rosteredWithoutRecordedAppearance")==after["rosterCoverage"]["rosteredWithoutRecordedAppearance"]:
         stamp=datetime.fromisoformat(before.get("asOf","1970-01-01T00:00:00Z").replace("Z","+00:00"))
         age=(datetime.now(timezone.utc)-stamp).total_seconds()/3600
         if 0<=age<120:
@@ -61,7 +65,7 @@ def main():
     a=p.parse_args()
     try:
         r=publish(a.repo,a.readback);print(json.dumps(r));return 0
-    except (Hold,ValueError,OSError,KeyError,subprocess.TimeoutExpired) as e:
+    except (Hold,SourceHold,ValueError,OSError,KeyError,subprocess.TimeoutExpired) as e:
         print(json.dumps({"status":"HTO_ACTUALS_PUBLISH_HELD","reason":str(e),
                           "modelRecalculated":False}),file=sys.stderr)
         return 2
