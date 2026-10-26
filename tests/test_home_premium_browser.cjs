@@ -35,7 +35,7 @@ const chrome=["C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe","C:\\
   await page.select("#opponent","Mid Ice Crisis");
   assert.equal(await page.$eval("#intel-team",e=>e.textContent),"Mid Ice Crisis");
   assert.equal(await page.$eval("#headtohead-section",e=>e.hidden),true,"head-to-head withheld until master-workbook source is verified");
-  assert.ok((await page.$eval("#intel-metrics",e=>e.textContent)).includes("Source verification required"),"opponent intelligence is fail-closed");
+  assert.ok((await page.$eval("#intel-metrics",e=>e.textContent)).includes("Historical identity verification"),"opponent intelligence is fail-closed");
   await page.setViewport({width:358,height:690});
   await page.click("#tab-standing");
   const isMobile=await page.$eval(".standings-table tr:nth-child(1)",e=>getComputedStyle(e).display==="grid");
