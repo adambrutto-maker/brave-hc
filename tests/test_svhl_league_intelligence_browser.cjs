@@ -47,16 +47,22 @@ const server=http.createServer((req,res)=>{
    assert.equal(info.firstRankedTeam,ranked[0].leagueName,"context order follows current accepted score");
    assert.ok(info.contextBreakdown.includes("Current form")&&info.contextBreakdown.includes("Schedule difficulty")&&info.contextBreakdown.includes("previous winter"));
    assert.ok(info.method.includes(maple.strengthContext.contextIndex.toFixed(1)+"/100")&&info.method.includes("NOT win probability"),"Maplewolves context follows the published model");
-   assert.ok(info.trendSummary.includes("Baseline only") && info.trendSummary.includes("No measured trend yet") && info.trendCount===1,
-      "single accepted observation never implies a fabricated trend");
+   const points=published.trendLedger.teams.find(g=>g.sourceTeamId===maple.sourceTeamId).observations;
+   assert.equal(info.trendCount,Math.min(6,points.length),"display accepted trend observations only");
+   assert.ok(points.length===1?
+      info.trendSummary.includes("No measured trend yet"):
+      info.trendSummary.includes("accepted material observations"),
+      "trend narration is derived from accepted observations");
    const brave=published.teams.find(t=>t.leagueName==="Braves HC");
    assert.ok(info.incomingContent.includes("Current SVHL context: Maplewolves "+
      maple.strengthContext.contextIndex.toFixed(1)+"/100 vs Brave H.C. "+
      brave.strengthContext.contextIndex.toFixed(1)+"/100") &&
      info.incomingContent.includes("Descriptive only, not a win probability."),
      "incoming scouting compares published current team components without predictive claims");
-   assert.equal(info.movementCount,2,"two source-observed Cristillo membership changes");
-   assert.equal(info.incomingCount,1,"one incoming Maplewolves source profile");
+   assert.equal(info.movementCount,Math.min(12,published.movementLedger.events.length),
+      "movement count follows source-observed events");
+   assert.equal(info.incomingCount,Math.min(8,published.movementLedger.incomingCristilloReports.length),
+      "incoming reports follow accepted ledger");
    assert.ok(info.movementContent.includes("Sugo Sundays")&&info.movementContent.includes("Maplewolves"));
    assert.ok(info.incomingContent.includes("11–10–3")&&info.incomingContent.includes("Primary Auto")&&
              info.incomingContent.includes("3–6–1"),"prior winter, competition and Braves history visible");
@@ -65,9 +71,10 @@ const server=http.createServer((req,res)=>{
    assert.equal(info.selected,"Maplewolves");
    assert.equal(info.scoutingBoardCount,leagueDivision.teams.length-1,
       "scouting board covers all seven current Cristillo opponents");
-   assert.ok(info.scoutingSummary.includes("9 GF / 17 GA")&&
-      info.scoutingSummary.includes("3–6–1"),
-      "scouting cards use only verified season and Brave H.C. history");
+   assert.ok(info.scoutingSummary.includes(maple.record.gf+" GF / "+maple.record.ga+" GA")&&
+      info.scoutingSummary.includes(maple.bravesMatchHistory.bravesAllTime.w+"–"+
+       maple.bravesMatchHistory.bravesAllTime.l+"–"+maple.bravesMatchHistory.bravesAllTime.t),
+      "scouting cards use current verified source and H2H without fixed game totals");
    assert.equal(info.scoutingRecent.length,maple.completedGames.length);
    assert.ok(info.scoutingRecent.some(x=>x.includes("Primary Auto"))&&
       info.scoutingComparison.includes("No future fixture or win probability is inferred."),
@@ -87,8 +94,11 @@ const server=http.createServer((req,res)=>{
    await page.waitForFunction(()=>Boolean(window.__scoutingCopied));
    const pasted=await page.evaluate(()=>window.__scoutingCopied);
    assert.ok(pasted.includes("Opponent: Maplewolves")&&
-      pasted.includes("9 GF / 17 GA")&&
-      pasted.includes("3–6–1 in 10 GP")&&
+      pasted.includes(maple.record.gf+" GF / "+maple.record.ga+" GA")&&
+      pasted.includes(maple.bravesMatchHistory.bravesAllTime.w+"–"+
+        maple.bravesMatchHistory.bravesAllTime.l+"–"+
+        maple.bravesMatchHistory.bravesAllTime.t+" in "+
+        maple.bravesMatchHistory.bravesAllTime.gp+" GP")&&
       pasted.includes("No upcoming fixture or game date is asserted"),
       "copy control produces verifiable WhatsApp text without fictional schedule");
    await page.select("#sort-field","official");
