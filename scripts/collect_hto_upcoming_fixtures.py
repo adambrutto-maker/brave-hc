@@ -82,6 +82,8 @@ def parse(html,month):
   need(dt.strftime("%Y-%m")==month,"SOURCE_PAGE_MONTH_MISMATCH")
   href=urljoin(HOST,row["href"].replace("&amp;","&"))
   u=urlparse(href);p=parse_qs(u.query)
+  # Completed games link to a different HTO view; never admit them as future fixtures.
+  if p.get("p")!=["preview"]:continue
   need(u.scheme=="https" and u.hostname in ("www.hometeamsonline.com","www.htosports.com") and
        u.path=="/teams/default.asp" and p.get("u")==["BRAVESHOCKEY"] and
        p.get("p")==["preview"] and len(p.get("gameID",[]))==1 and
