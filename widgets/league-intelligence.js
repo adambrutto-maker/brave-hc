@@ -104,6 +104,25 @@
    text(card,"p","small",h?.state==="SOURCE_VERIFIED_H2H"?
      "Brave H.C. history: "+record(h.bravesAllTime)+" over "+h.bravesAllTime.gp+" verified games.":
      "Brave H.C.: no approved historical meeting.");
+   // Compare source-qualified team contexts, not projected game outcomes.
+   const brave=data.teams.find(t=>t.leagueName==="Braves HC");
+   const incomingScore=now?.strengthContext;
+   const braveScore=brave?.strengthContext;
+   if(Number.isFinite(incomingScore?.contextIndex)&&Number.isFinite(braveScore?.contextIndex)){
+    const difference=incomingScore.contextIndex-braveScore.contextIndex;
+    text(card,"p","small strength-explain","Current SVHL context: "+
+      now.displayName+" "+incomingScore.contextIndex.toFixed(1)+"/100 vs Brave H.C. "+
+      braveScore.contextIndex.toFixed(1)+"/100 ("+
+      (difference>0?"+":"")+difference.toFixed(1)+" index points).");
+    text(card,"p","small","Form "+incomingScore.currentForm.toFixed(1)+" vs "+
+      braveScore.currentForm.toFixed(1)+"; schedule difficulty "+
+      incomingScore.scheduleDifficulty.toFixed(1)+" vs "+
+      braveScore.scheduleDifficulty.toFixed(1)+". "+
+      now.gamesConfirmed+" vs "+brave.gamesConfirmed+
+      " league-verified games. Descriptive only, not a win probability.");
+   }else{
+    text(card,"p","small","Current Brave H.C. comparison unavailable without verified games for both clubs.");
+   }
    if(now){
     const button=text(card,"button","","View updated team profile");
     button.type="button";button.addEventListener("click",()=>{
