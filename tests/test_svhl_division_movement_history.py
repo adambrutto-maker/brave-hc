@@ -118,6 +118,8 @@ class MovementHistoryQA(unittest.TestCase):
   # Source publisher also adds the trend ledger before independent validation.
   from track_svhl_strength_trends import enrich as enrich_trends
   restored=enrich_trends(accepted,restored)
+  from build_svhl_weekly_strength import enrich as enrich_weekly
+  restored=enrich_weekly(accepted,restored)
   ledger=restored["movementLedger"]
   self.assertEqual(ledger["departedTeamProfilesRetained"],1)
   self.assertEqual(ledger["previouslyTrackedTeams"][0]["leagueName"],"Big Bastones")
