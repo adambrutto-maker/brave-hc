@@ -204,7 +204,7 @@ def main():
  a.add_argument("--days",type=int,default=75);a.add_argument("--check-only",action="store_true")
  v=a.parse_args()
  try:
-  league=json.loads(Path(v.league).read_text(encoding="utf8-sig"))
+  league=json.loads(Path(v.league).read_text(encoding="utf-8-sig"))
   now=datetime.now(ZoneInfo(ZONE))
   pages=[]
   for i in range(4):
