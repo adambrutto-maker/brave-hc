@@ -33,6 +33,8 @@ const server=http.createServer((req,res)=>{
      bodyOverflow:document.body.scrollWidth-innerWidth,
      contextHeaders:[...document.querySelectorAll("thead th")].map(x=>x.textContent),
      contextBreakdown:document.querySelector("#strength-metrics")?.textContent,
+     trendSummary:document.querySelector("#trend-summary")?.textContent,
+     trendCount:document.querySelectorAll("#trend-rows .trend-point").length,
      method:document.querySelector("#strength-method")?.textContent,
      firstRankedTeam:document.querySelector("#league-rows tr[data-team]")?.dataset.team,
      status:document.querySelector("#source-status")?.textContent
@@ -41,6 +43,8 @@ const server=http.createServer((req,res)=>{
    assert.equal(info.firstRankedTeam,ranked[0].leagueName,"context order follows current accepted score");
    assert.ok(info.contextBreakdown.includes("Current form")&&info.contextBreakdown.includes("Schedule difficulty")&&info.contextBreakdown.includes("previous winter"));
    assert.ok(info.method.includes(maple.strengthContext.contextIndex.toFixed(1)+"/100")&&info.method.includes("NOT win probability"),"Maplewolves context follows the published model");
+   assert.ok(info.trendSummary.includes("Baseline only") && info.trendSummary.includes("No measured trend yet") && info.trendCount===1,
+      "single accepted observation never implies a fabricated trend");
    const brave=published.teams.find(t=>t.leagueName==="Braves HC");
    assert.ok(info.incomingContent.includes("Current SVHL context: Maplewolves "+
      maple.strengthContext.contextIndex.toFixed(1)+"/100 vs Brave H.C. "+
