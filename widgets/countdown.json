@@ -9,7 +9,7 @@
     "offsetMinutesAfterPuckDrop": 60,
     "condition": "clock threshold, not official final score"
   },
-  "generatedAt": "2026-10-19T04:12:47.296827Z",
+  "generatedAt": "2026-10-26T12:31:15.113803Z",
   "sourcePages": [
     "https://www.htosports.com/teams/default.asp?p=schedule&s=hockey&u=BRAVESHOCKEY&d=20261001",
     "https://www.htosports.com/teams/default.asp?p=schedule&s=hockey&u=BRAVESHOCKEY&d=20261101",
@@ -24,17 +24,6 @@
     "https://www.htosports.com/teams/default.asp?p=schedule&s=hockey&u=BRAVESHOCKEY&d=20270801"
   ],
   "games": [
-    {
-      "id": 3375682,
-      "opponent": "Big Bastones",
-      "homeAway": "Home",
-      "rink": "Vaughan Sports Village - A Rink",
-      "gameDate": "2026-10-25",
-      "puckDrop": "2026-10-25T18:15:00-04:00",
-      "puckDropUTC": "2026-10-25T22:15:00Z",
-      "rolloverAtUTC": "2026-10-25T23:15:00Z",
-      "eventURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=preview&sportsHQ=BRAVESHOCKEY&gameID=3375682"
-    },
     {
       "id": 3375683,
       "opponent": "Mid Ice Crisis",
