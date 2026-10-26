@@ -84,24 +84,72 @@ async function loadStandings(){
   let games=[];
   try{const schedule=await fetchJSON("svhl-upcoming.json");if(schedule.schema==="brave-hc-svhl-schedule/v1"&&Array.isArray(schedule.games))games=schedule.games;}catch(_ignored){}
   const upcoming=games.filter(g=>g.date+"T"+g.time>=todayDate()).sort((a,b)=>(a.date+"T"+a.time).localeCompare(b.date+"T"+b.time));
-  let approved=null;
+  let approved=null,qualifiedOpponentFeed=null;
+  // Release-gated optional source. An absent, stale or review-only feed must
+  // never unlock unverified matchup statistics.
+  try{
+    const candidate=await fetchJSON("opponent-intelligence.json");
+    const stamp=new Date(candidate.asOf),age=Date.now()-stamp.getTime();
+    if(candidate.schema==="brave-hc-opponent-intelligence/v1" &&
+       candidate.status==="PUBLIC_VERIFIED_EXACT_ONLY" && candidate.publishable===true &&
+       candidate.coverage?.currentSeasonGames>=5 && Array.isArray(candidate.teams) &&
+       candidate.teams.length===7 && Number.isFinite(age) && age>=0 &&
+       age<=10*24*60*60*1000 && new Set(candidate.teams.map(t=>t.name)).size===7){
+       qualifiedOpponentFeed=candidate;
+    }
+  }catch(_notReleased){}
   const next=upcoming.find(g=>d.teams.some(t=>t.name===g.opponent));
   if(next)select.value=next.opponent;
   function updateOpponent(){
-   const o=d.teams.find(t=>t.name===select.value);if(!o)return;
-   set("intel-team",o.name);
-   set("opponent-date","HISTORY ON HOLD");
-   set("intel-next","Full opponent intelligence is being rebuilt from the Master Workbook and verified HTO results.");
-   const grid=$("intel-metrics");grid.replaceChildren();
-   const tile=node("div","intel-gate");
-   tile.append(node("strong","", "Source verification required"),
-               node("p","", "The previous opponent comparison and head-to-head figures have been withdrawn. This tab will publish matchup intelligence only after the complete Master Workbook history, HTO source identities and results are reconciled."),
-               node("p","", "The official division standings remain available in the Standings tab."));
-   grid.append(tile);
-   $("intel-comparison").replaceChildren();
-   $("headtohead-section").hidden=true;
-   $("intel-comparison").parentElement.hidden=true;
-   set("intel-note","Opponent history withheld pending verified workbook-driven feed. No speculative scouting or provisional historical comparison is published.");
+    const o=d.teams.find(t=>t.name===select.value);if(!o)return;
+    const entry=qualifiedOpponentFeed?.teams.find(t=>t.name===o.name);
+    const nextGame=upcoming.find(g=>g.opponent===o.name);
+    const gameTime=nextGame?.time?nextGame.time.split(":"):null;
+    const formattedTime=gameTime?((Number(gameTime[0])%12)||12)+":"+gameTime[1]+(Number(gameTime[0])>=12?" PM":" AM"):"";
+    set("intel-team",o.name);
+    set("intel-next",nextGame?"Upcoming: "+nextGame.date+" · "+formattedTime+" · "+(nextGame.rink||"Venue pending"):"No confirmed future fixture in saved HTO schedule");
+    $("intel-comparison").replaceChildren();
+    $("intel-comparison").parentElement.hidden=true;
+    const grid=$("intel-metrics");grid.replaceChildren();
+    const h2h=$("headtohead"),section=$("headtohead-section");
+    h2h.replaceChildren();section.hidden=true;
+    if(!entry || entry.verification!=="VERIFIED_EXACT_NAME"){
+      set("opponent-date","HISTORY ON HOLD");
+      const gate=node("div","intel-gate");
+      const reason=entry?.verification==="ALIAS_REVIEW_REQUIRED"?
+        "This opponent has an unreviewed name/identity alias in the Master Workbook. Historical records must not be merged by guess.":
+        entry?.verification==="NO_EXACT_HISTORY"?
+        "No completed matchup is confirmed under this exact opponent name in the accepted Master Workbook and official HTO records.":
+        "The official-source opponent intelligence feed is not yet released, is stale, or did not pass the verification contract.";
+      gate.append(node("strong","","Historical identity verification"),
+                  node("p","",reason),
+                  node("p","","No zero-game historical record or unsupported scouting claims have been substituted."));
+      grid.append(gate);
+      set("intel-note","Source-gated: completed game history is withheld until released from the verified HockeyOS ledger.");
+      return;
+    }
+    const stats=entry.regularSeason,all=entry.allTime,play=entry.playoffs;
+    if(!stats||!all||!play)return;
+    set("opponent-date","HTO + MASTER · "+dateText(qualifiedOpponentFeed.asOf));
+    [["REGULAR SEASON",stats.w+"–"+stats.l+"–"+stats.t],
+     ["GOALS FOR",stats.gf],["GOALS AGAINST",stats.ga],
+     ["ALL-TIME RECORD",all.w+"–"+all.l+"–"+all.t]].forEach(([label,value])=>{
+      const card=node("div","metricbox");
+      card.append(node("div","number",value),node("div","label",label));grid.append(card);
+    });
+    section.hidden=false;
+    [["REGULAR SEASON",stats],["ALL MEETINGS",all],["PLAYOFFS",play]].forEach(([label,value])=>{
+      const card=node("div");
+      card.append(node("div","muted",label),
+                  node("strong","",value.w+"–"+value.l+"–"+value.t),
+                  node("div","muted",value.gp+" GP · "+value.gf+" GF · "+value.ga+" GA"));
+      h2h.append(card);
+    });
+    const last=Array.isArray(entry.lastFive)?entry.lastFive.slice(-3).reverse():[];
+    const recent=last.map(g=>g.date+" "+g.result+" "+g.gf+"–"+g.ga).join(" · ");
+    set("intel-note","Verified exact-name Braves matchup history through "+dateText(qualifiedOpponentFeed.asOf)+
+      ". "+(recent?"Recent meetings: "+recent+". ":"")+
+      "No unreviewed opponent aliases are included.");
   }
   select.addEventListener("change",updateOpponent);updateOpponent();
   // Editorial verification provides a newer Braves result, not an amendment to the official league table.
