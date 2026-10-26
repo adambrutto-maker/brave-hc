@@ -1,0 +1,94 @@
+{
+  "schema": "brave-hc-hto-upcoming-fixtures/v1",
+  "status": "SOURCE_LINKED_BRAVES_HTO_SCHEDULE_NOT_SVHL_VERIFIED",
+  "teamAccount": "BRAVESHOCKEY",
+  "timeZone": "America/Toronto",
+  "capturedUTC": "2026-10-26T20:57:42.885843+00:00",
+  "windowStart": "2026-10-26",
+  "windowEnd": "2027-01-09",
+  "leagueSourceAsOf": "2026-10-26T20:33:08.974063+00:00",
+  "sourcePages": [
+    {
+      "month": "2026-10",
+      "url": "https://www.hometeamsonline.com/teams/default.asp?d=20261001&p=schedule&s=hockey&u=BRAVESHOCKEY",
+      "htmlSHA256": "4fb91022bb005b4e10dbb2011535c68c21a124447b0a2819dd92ac8a33e1bc83",
+      "listedGames": 0
+    },
+    {
+      "month": "2026-11",
+      "url": "https://www.hometeamsonline.com/teams/default.asp?d=20261101&p=schedule&s=hockey&u=BRAVESHOCKEY",
+      "htmlSHA256": "6f05815e0664f3cdf5b2799924571358cc0826abf37e1bd55e5f0426e2660beb",
+      "listedGames": 4
+    },
+    {
+      "month": "2026-12",
+      "url": "https://www.hometeamsonline.com/teams/default.asp?d=20261201&p=schedule&s=hockey&u=BRAVESHOCKEY",
+      "htmlSHA256": "7dc024a9f424dc8d132e3f53876a4ed69e0a85d6bc01be1ddbcd2a3339020328",
+      "listedGames": 0
+    },
+    {
+      "month": "2027-01",
+      "url": "https://www.hometeamsonline.com/teams/default.asp?d=20270101&p=schedule&s=hockey&u=BRAVESHOCKEY",
+      "htmlSHA256": "8d2a70ff52f753cffd44cbcd36cc08f88145b52ada720482863ece617f007ed5",
+      "listedGames": 0
+    }
+  ],
+  "games": [
+    {
+      "gameId": 3375683,
+      "date": "2026-11-01",
+      "localTime": "20:15",
+      "homeAway": "AWAY",
+      "opponentHTO": "Mid Ice Crisis",
+      "location": "Vaughan Sports Village - D Rink",
+      "gameUrl": "https://www.hometeamsonline.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=preview&sportsHQ=BRAVESHOCKEY&gameID=3375683",
+      "sourceTeamId": 13708,
+      "leagueName": "Mid Ice Crisis",
+      "divisionNow": "The Cristillo Division",
+      "identityState": "MATCHED_CURRENT_SVHL_SEASON_TEAM"
+    },
+    {
+      "gameId": 3375684,
+      "date": "2026-11-08",
+      "localTime": "21:15",
+      "homeAway": "HOME",
+      "opponentHTO": "Other Way",
+      "location": "Vaughan Sports Village - D Rink",
+      "gameUrl": "https://www.hometeamsonline.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=preview&sportsHQ=BRAVESHOCKEY&gameID=3375684",
+      "sourceTeamId": 13704,
+      "leagueName": "Other Way",
+      "divisionNow": "The Cristillo Division",
+      "identityState": "MATCHED_CURRENT_SVHL_SEASON_TEAM"
+    },
+    {
+      "gameId": 3375685,
+      "date": "2026-11-15",
+      "localTime": "20:15",
+      "homeAway": "HOME",
+      "opponentHTO": "Dateline Predators",
+      "location": "Vaughan Sports Village - A Rink",
+      "gameUrl": "https://www.hometeamsonline.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=preview&sportsHQ=BRAVESHOCKEY&gameID=3375685",
+      "sourceTeamId": 13668,
+      "leagueName": "Dateline Predators",
+      "divisionNow": "The Cristillo Division",
+      "identityState": "MATCHED_CURRENT_SVHL_SEASON_TEAM"
+    },
+    {
+      "gameId": 3375686,
+      "date": "2026-11-22",
+      "localTime": "20:15",
+      "homeAway": "HOME",
+      "opponentHTO": "Mohawks H.C.",
+      "location": "Vaughan Sports Village - A Rink",
+      "gameUrl": "https://www.hometeamsonline.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=preview&sportsHQ=BRAVESHOCKEY&gameID=3375686",
+      "sourceTeamId": 13680,
+      "leagueName": "Mohawks HC",
+      "divisionNow": "The Cristillo Division",
+      "identityState": "MATCHED_CURRENT_SVHL_SEASON_TEAM"
+    }
+  ],
+  "gamesCount": 4,
+  "matchedCurrentLeagueCount": 4,
+  "nonpredictive": true,
+  "note": "Upcoming fixtures are read from Brave H.C.'s published HTO calendar, not independently verified with SVHL. Times are Vaughan/Toronto local; source may reschedule. Scores are not collected here."
+}
