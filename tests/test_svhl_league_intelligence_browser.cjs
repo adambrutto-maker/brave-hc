@@ -41,6 +41,12 @@ const server=http.createServer((req,res)=>{
    assert.equal(info.firstRankedTeam,ranked[0].leagueName,"context order follows current accepted score");
    assert.ok(info.contextBreakdown.includes("Current form")&&info.contextBreakdown.includes("Schedule difficulty")&&info.contextBreakdown.includes("previous winter"));
    assert.ok(info.method.includes(maple.strengthContext.contextIndex.toFixed(1)+"/100")&&info.method.includes("NOT win probability"),"Maplewolves context follows the published model");
+   const brave=published.teams.find(t=>t.leagueName==="Braves HC");
+   assert.ok(info.incomingContent.includes("Current SVHL context: Maplewolves "+
+     maple.strengthContext.contextIndex.toFixed(1)+"/100 vs Brave H.C. "+
+     brave.strengthContext.contextIndex.toFixed(1)+"/100") &&
+     info.incomingContent.includes("Descriptive only, not a win probability."),
+     "incoming scouting compares published current team components without predictive claims");
    assert.equal(info.movementCount,2,"two source-observed Cristillo membership changes");
    assert.equal(info.incomingCount,1,"one incoming Maplewolves source profile");
    assert.ok(info.movementContent.includes("Sugo Sundays")&&info.movementContent.includes("Maplewolves"));
