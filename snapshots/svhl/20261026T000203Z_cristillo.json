@@ -1,0 +1,118 @@
+{
+  "source_url": "https://leagues.sportsvillage.ca/Leagues.aspx?leagueid=570&page_type=Adult&sc=HOCKEY",
+  "league": "Sunday Winter - 2026/27",
+  "division": "The Cristillo Division",
+  "captured_at_utc": "2026-10-26T00:02:03.422Z",
+  "capture_timezone": "America/Toronto",
+  "scope": "Official league publication with Braves HC at 4 GP, 0-4-0; excludes October 25 Braves 6-4 win, which has not yet entered these league standings.",
+  "source_order_preserved": true,
+  "columns": [
+    "Team",
+    "GP",
+    "W",
+    "L",
+    "T",
+    "PTS",
+    "GF",
+    "GA",
+    "PIM"
+  ],
+  "standings": [
+    {
+      "source_position": 1,
+      "Team": "Mid Ice Crisis",
+      "GP": 4,
+      "W": 3,
+      "L": 1,
+      "T": 0,
+      "PTS": 6,
+      "GF": 19,
+      "GA": 11,
+      "PIM": 0
+    },
+    {
+      "source_position": 2,
+      "Team": "Mohawks HC",
+      "GP": 4,
+      "W": 3,
+      "L": 1,
+      "T": 0,
+      "PTS": 6,
+      "GF": 17,
+      "GA": 9,
+      "PIM": 0
+    },
+    {
+      "source_position": 3,
+      "Team": "Sugo Sundays",
+      "GP": 4,
+      "W": 3,
+      "L": 1,
+      "T": 0,
+      "PTS": 6,
+      "GF": 13,
+      "GA": 12,
+      "PIM": 0
+    },
+    {
+      "source_position": 4,
+      "Team": "Other Way",
+      "GP": 4,
+      "W": 2,
+      "L": 1,
+      "T": 1,
+      "PTS": 5,
+      "GF": 18,
+      "GA": 16,
+      "PIM": 0
+    },
+    {
+      "source_position": 5,
+      "Team": "Big Bastones",
+      "GP": 4,
+      "W": 2,
+      "L": 2,
+      "T": 0,
+      "PTS": 4,
+      "GF": 6,
+      "GA": 8,
+      "PIM": 0
+    },
+    {
+      "source_position": 6,
+      "Team": "Zamboner Crew",
+      "GP": 3,
+      "W": 1,
+      "L": 1,
+      "T": 1,
+      "PTS": 3,
+      "GF": 15,
+      "GA": 13,
+      "PIM": 0
+    },
+    {
+      "source_position": 7,
+      "Team": "Dateline Predators",
+      "GP": 4,
+      "W": 1,
+      "L": 3,
+      "T": 0,
+      "PTS": 2,
+      "GF": 10,
+      "GA": 15,
+      "PIM": 0
+    },
+    {
+      "source_position": 8,
+      "Team": "Braves HC",
+      "GP": 4,
+      "W": 0,
+      "L": 4,
+      "T": 0,
+      "PTS": 0,
+      "GF": 6,
+      "GA": 19,
+      "PIM": 0
+    }
+  ]
+}
