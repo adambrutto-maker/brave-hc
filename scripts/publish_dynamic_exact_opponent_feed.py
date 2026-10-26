@@ -11,7 +11,7 @@ from datetime import datetime,timezone
 from pathlib import Path
 import json,os,subprocess,sys
 sys.path.insert(0,str(Path(__file__).resolve().parent))
-from build_dynamic_exact_opponent_feed import build,load,Hold,SourceHold
+from build_canonical_opponent_feed import build,load,Hold,SourceHold
 
 PUBLISH_REL="widgets/opponent-intelligence.json"
 class ReleaseHold(ValueError):pass
@@ -35,14 +35,16 @@ def publish(repo,private,hto_source,report_file):
   git(repo,"fetch","origin","main")
   git(repo,"merge","--ff-only","origin/main")
   old=load(target)
-  if old.get("schema")!="brave-hc-opponent-intelligence/v1" or old.get("status")!="PUBLIC_VERIFIED_EXACT_ONLY":
+  if old.get("schema")!="brave-hc-opponent-intelligence/v1" or old.get("status") not in ("PUBLIC_VERIFIED_EXACT_ONLY","PUBLIC_VERIFIED_SOURCE_IDENTITY"):
    raise ReleaseHold("EXISTING_PUBLIC_SOURCE_CONTRACT_MISSING")
   new=build(
    load(private/"261026_Master_Complete_Game_History_PRIVATE_STAGE.json"),
    load(private/"HTO_Completed_Scores_PRIVATE_LATEST.json"),
    load(hto_source/"261016_HTO_SVHL_Latest_Readback.json"),
    load(hto_source/"261017_HTO_Verified_GameLevel_Skater_Attendance.json"),
-   load(repo/"widgets"/"standings.json"))
+   load(repo/"widgets"/"standings.json"),
+   load(repo/"widgets"/"current-opponent-identity-bridges.json"),
+   private.parent.parent/"Reference Implementations"/"Brave H.C"/"01 Team Records"/"261001_Brave_HC_Master_Workbook.xlsx")
   if new["coverage"]["currentSeasonGames"]<old["coverage"].get("currentSeasonGames",0):
    raise ReleaseHold("HTO_GAME_COUNT_REGRESSION")
   if old.get("releaseScope") and "EXACT" not in new["releaseScope"]:
@@ -63,7 +65,7 @@ def publish(repo,private,hto_source,report_file):
    user=git(repo,"log","-1","--format=%an")
    mail=git(repo,"log","-1","--format=%ae")
    git(repo,"-c","user.name="+user,"-c","user.email="+mail,
-       "commit","-m","Refresh verified Brave HC opponent exact-name history")
+       "commit","-m","Refresh Brave H.C. workbook/HTO-canonical opponent histories")
    commit=git(repo,"rev-parse","HEAD")
    git(repo,"push","origin","HEAD:main")
    status.update(state="SOURCE_VERIFIED_PUBLICATION_PASS",published=True,commit=commit,

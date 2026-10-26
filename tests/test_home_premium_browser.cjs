@@ -37,7 +37,8 @@ const chrome=["C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe","C:\\
   assert.equal(await page.$eval("#headtohead-section",e=>e.hidden),false,"source-verified Mid Ice Crisis history is displayed");
   assert.ok((await page.$eval("#intel-metrics",e=>e.textContent)).includes("1–2–2"),"historical matchup uses the qualified Master Workbook source");
   await page.select("#opponent","Mohawks HC");
-  assert.equal(await page.$eval("#headtohead-section",e=>e.hidden),true,"unreviewed alias remains withheld");
+  assert.equal(await page.$eval("#headtohead-section",e=>e.hidden),false,"Mohawks H.C. workbook/HTO historical name has a verified canonical map");
+  assert.ok((await page.$eval("#headtohead",e=>e.textContent)).includes("19–20–11"),"50-game source history is not omitted");
   await page.setViewport({width:358,height:690});
   await page.click("#tab-standing");
   const isMobile=await page.$eval(".standings-table tr:nth-child(1)",e=>getComputedStyle(e).display==="grid");

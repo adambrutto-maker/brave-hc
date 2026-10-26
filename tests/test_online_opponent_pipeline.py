@@ -55,7 +55,7 @@ class CurrentHTOCollectorQA(unittest.TestCase):
     def test_source_mutations_fail_closed(self):
         m,s,r,v=source()
         broken=deepcopy(s);broken["games"][0]["gf"]+=1
-        with self.assertRaisesRegex(ledger.Hold,"HTO_OCT25_FOUNDER_VERIFIED"):ledger.reconcile(m,broken,r,v)
+        with self.assertRaisesRegex(ledger.Hold,"HTO_BOX_SCORE_AND_SCORES_LIST_SOURCE_CONFLICT"):ledger.reconcile(m,broken,r,v)
         broken=deepcopy(s);broken["games"][1]["opponentExact"]="Made-up Name"
         with self.assertRaisesRegex(ledger.Hold,"AUDITED_FOUR"):ledger.reconcile(m,broken,r,v)
         broken=deepcopy(m);broken["source"]["sha256"]="wrong"
@@ -71,13 +71,20 @@ class CurrentHTOCollectorQA(unittest.TestCase):
                                "opponentExact":"Mid Ice Crisis","gf":2,"ga":1,"result":"W",
                                "sourceUrl":"https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=3399999&p=boxscore"})
         nxt["sourceGamesCount"]=6
+        v=deepcopy(v)
+        official=deepcopy(v["games"][-1])
+        official.update(htoGameId=3399999,date="2026-10-26",
+                        workbookGameNumber=364,teamGoals=2,teamGoalsAgainst=1)
+        v["games"].append(official)
+        v["teamGP"]=6
+        v["teamG"]=14
         fresh=deepcopy(r)
         for p in fresh["pages"]:
             if p["name"]=="hto_stats":
                 p["text"],hits=re.subn(r"(TEAM STATS\s+GP\s+GF\s+GA\s+PPO\s+PK%\s+)5\s+12\s+23\b",r"\g<1>6 14 24",p["text"]);self.assertEqual(hits,1)
         # Synthetic check is allowed only within the current testing date:
         # use the day of the synthetic game as the test clock.
-        report=ledger.reconcile(m,nxt,fresh,v,now=datetime(2026,10,26,12,0,tzinfo=timezone.utc))
+        report=ledger.reconcile(m,nxt,fresh,v,now=datetime(2026,10,26,18,0,tzinfo=timezone.utc))
         self.assertEqual(report["sourceCounts"]["currentOfficialHTOGames"],6)
         self.assertEqual(report["sourceCounts"]["latestCompletedGameId"],3399999)
         self.assertFalse(report["released"])

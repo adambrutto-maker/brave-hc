@@ -63,12 +63,17 @@ async function loadStandings(){
   set("standing-date",dateText(d.capturedAt));set("standings-source","SVHL league standings · "+dateText(d.capturedAt));
   if(linkAllowed(d.source))$("standings-link").href=d.source;
   const body=$("standings-rows");
+  let qualifiedOpponentFeed=null;
   function drawStandingPage(){
    const size=pageSize("standings"),start=standingsPage*size;body.replaceChildren();
    d.teams.slice(start,start+size).forEach((t,i)=>{
    const row=node("tr",t.name===d.team?"braves":"");
    const name=makeTD(null,"team","Team");
-   name.append(node("span","rank",start+i+1+". "),node("span","",t.name));
+   const alias=qualifiedOpponentFeed?.teams.find(x=>x.name===t.name);
+   const publicName=t.name===d.team?"Brave H.C.":(alias?.canonicalName||t.name);
+   const nameSpan=node("span","",publicName);
+   if(publicName!==t.name)nameSpan.title="SVHL lists: "+t.name;
+   name.append(node("span","rank",start+i+1+". "),nameSpan);
    row.append(name);
    [["GP",t.gp],["W",t.w],["L",t.l],["T",t.t],["PTS",t.pts],["GF",t.gf],["GA",t.ga],["WIN%",labelPercent(t)]].forEach(([head,val])=>row.append(makeTD(val,head==="PTS"?"points":head==="WIN%"?"pct":"",head)));
    body.append(row);
@@ -84,18 +89,23 @@ async function loadStandings(){
   let games=[];
   try{const schedule=await fetchJSON("svhl-upcoming.json");if(schedule.schema==="brave-hc-svhl-schedule/v1"&&Array.isArray(schedule.games))games=schedule.games;}catch(_ignored){}
   const upcoming=games.filter(g=>g.date+"T"+g.time>=todayDate()).sort((a,b)=>(a.date+"T"+a.time).localeCompare(b.date+"T"+b.time));
-  let approved=null,qualifiedOpponentFeed=null,verifiedSameGames=new Map();
+  let approved=null,verifiedSameGames=new Map();
   // Release-gated optional source. An absent, stale or review-only feed must
   // never unlock unverified matchup statistics.
   try{
     const candidate=await fetchJSON("opponent-intelligence.json");
     const stamp=new Date(candidate.asOf),age=Date.now()-stamp.getTime();
     if(candidate.schema==="brave-hc-opponent-intelligence/v1" &&
-       candidate.status==="PUBLIC_VERIFIED_EXACT_ONLY" && candidate.publishable===true &&
+       ["PUBLIC_VERIFIED_EXACT_ONLY","PUBLIC_VERIFIED_SOURCE_IDENTITY"].includes(candidate.status) && candidate.publishable===true &&
        candidate.coverage?.currentSeasonGames>=5 && Array.isArray(candidate.teams) &&
        candidate.teams.length===7 && Number.isFinite(age) && age>=0 &&
        age<=10*24*60*60*1000 && new Set(candidate.teams.map(t=>t.name)).size===7){
        qualifiedOpponentFeed=candidate;
+       drawStandingPage();
+       for(const option of select.options){
+         const identity=candidate.teams.find(x=>x.name===option.value);
+         if(identity?.canonicalName)option.textContent=identity.canonicalName+" (SVHL: "+option.value+")";
+       }
     }
   }catch(_notReleased){}
   // Narrow official-game bridge: distinct SVHL/HTO display names refer to the
@@ -123,14 +133,14 @@ async function loadStandings(){
     const nextGame=upcoming.find(g=>g.opponent===o.name);
     const gameTime=nextGame?.time?nextGame.time.split(":"):null;
     const formattedTime=gameTime?((Number(gameTime[0])%12)||12)+":"+gameTime[1]+(Number(gameTime[0])>=12?" PM":" AM"):"";
-    set("intel-team",o.name);
+    set("intel-team",entry?.canonicalName||o.name);
     set("intel-next",nextGame?"Upcoming: "+nextGame.date+" · "+formattedTime+" · "+(nextGame.rink||"Venue pending"):"No confirmed future fixture in saved HTO schedule");
     $("intel-comparison").replaceChildren();
     $("intel-comparison").parentElement.hidden=true;
     const grid=$("intel-metrics");grid.replaceChildren();
     const h2h=$("headtohead"),section=$("headtohead-section");
     h2h.replaceChildren();section.hidden=true;
-    if(!entry || entry.verification!=="VERIFIED_EXACT_NAME"){
+    if(!entry || !["VERIFIED_EXACT_NAME","VERIFIED_HISTORICAL_NAME_VARIANT","VERIFIED_CURRENT_NAME_ALIAS_ONLY"].includes(entry.verification)){
       set("opponent-date","HISTORY ON HOLD");
       const gate=node("div","intel-gate");
       const reason=entry?.verification==="ALIAS_REVIEW_REQUIRED"?
@@ -161,7 +171,7 @@ async function loadStandings(){
     }
     const stats=entry.regularSeason,all=entry.allTime,play=entry.playoffs;
     if(!stats||!all||!play)return;
-    set("opponent-date","HTO + MASTER · "+dateText(qualifiedOpponentFeed.asOf));
+    set("opponent-date","BRAVE H.C. + HTO · "+dateText(qualifiedOpponentFeed.asOf));
     [["REGULAR SEASON",stats.w+"–"+stats.l+"–"+stats.t],
      ["GOALS FOR",stats.gf],["GOALS AGAINST",stats.ga],
      ["ALL-TIME RECORD",all.w+"–"+all.l+"–"+all.t]].forEach(([label,value])=>{
@@ -178,9 +188,22 @@ async function loadStandings(){
     });
     const last=Array.isArray(entry.lastFive)?entry.lastFive.slice(-3).reverse():[];
     const recent=last.map(g=>g.date+" "+g.result+" "+g.gf+"–"+g.ga).join(" · ");
-    set("intel-note","Verified exact-name Braves matchup history through "+dateText(qualifiedOpponentFeed.asOf)+
-      ". "+(recent?"Recent meetings: "+recent+". ":"")+
-      "No unreviewed opponent aliases are included.");
+    const scopeMessage=entry.notice||"Verified exact-name Brave H.C. match history.";
+    if(entry.canonicalName && entry.leagueDisplayAlias){
+      const provenance=node("div","intel-gate");
+      provenance.append(node("strong","",scopeMessage),
+        node("p","","HTO / workbook: "+entry.canonicalName+" · SVHL listing: "+entry.leagueDisplayAlias));
+      if(entry.sourceLinks?.svhl && entry.sourceLinks?.hto){
+        const links=node("div","same-game-links");
+        for(const [label,url] of [["League fixture",entry.sourceLinks.svhl],["Official HTO boxscore",entry.sourceLinks.hto]]){
+          const a=node("a","",label);a.href=url;a.target="_blank";a.rel="noopener noreferrer";links.append(a);
+        }
+        provenance.append(links);
+      }
+      grid.append(provenance);
+    }
+    set("intel-note",scopeMessage+" "+(recent?"Recent recorded meetings: "+recent+". ":"")+
+       "Source current through "+dateText(qualifiedOpponentFeed.asOf)+".");
   }
   select.addEventListener("change",updateOpponent);updateOpponent();
   // Editorial verification provides a newer Braves result, not an amendment to the official league table.

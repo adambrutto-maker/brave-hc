@@ -13,16 +13,17 @@ const srv=http.createServer((req,res)=>{
   await p.setViewport({width:358,height:500});
   await p.goto("http://127.0.0.1:"+srv.address().port+"/home-panels.html?panel=standings&embed=1",{waitUntil:"networkidle0"});
   await p.click("#tab-intel");
-  for(const [team,opponent,date,result] of [
-   ["Mohawks HC","Mohawks H.C.","Sep","3–6"],
-   ["Sugo Sundays","Michelob Morts","Oct","2–3"]
+  for(const [team,canonical,history,scope] of [
+   ["Mohawks HC","Mohawks H.C.","19–20–11","Consolidated historical"],
+   ["Sugo Sundays","Michelob Morts","0–1–0","One source-verified current game only"]
   ]){
    await p.select("#opponent",team);
-   const el=await p.$eval("#intel-metrics",e=>e.textContent);
-   assert.ok(el.includes("VERIFIED 2026–27 MEETING"),team+" source proof");
-   assert.ok(el.includes("HTO name: "+opponent),team+" exact HTO identity");
-   assert.ok(el.includes("Braves L "+result),team+" factual final score");
-   assert.equal(await p.$eval("#headtohead-section",e=>e.hidden),true,team+" cannot merge historical H2H");
+   const metrics=await p.$eval("#intel-metrics",e=>e.textContent);
+   const note=await p.$eval("#intel-note",e=>e.textContent);
+   assert.equal(await p.$eval("#intel-team",e=>e.textContent),canonical);
+   assert.ok(metrics.includes(history),team+" certified identity record");
+   assert.ok(note.includes(scope),team+" appropriate history scope");
+   assert.equal(await p.$eval("#headtohead-section",e=>e.hidden),false);
    const sources=await p.$$eval(".same-game-links a",els=>els.map(a=>a.href));
    assert.equal(sources.length,2);
    assert.ok(sources[0].includes("sportsvillage.ca/TeamInfo.aspx"));
@@ -34,6 +35,6 @@ const srv=http.createServer((req,res)=>{
   await p.select("#opponent","Big Bastones");
   assert.equal(await p.$eval("#headtohead-section",e=>e.hidden),false,"existing exact-name history preserved");
   assert.deepEqual(errors,[]);
-  console.log(JSON.stringify({pass:true,sourceVerifiedCurrentGameLinks:2,historicalAliasMerging:false,otherWayHeld:true,exactOpponentUnchanged:true,errors}));
+  console.log(JSON.stringify({pass:true,sourceVerifiedCurrentGameLinks:2,mohawksHistoricalConsolidation:true,sugoHistoryOnlyCurrent:true,otherWayHeld:true,exactOpponentUnchanged:true,errors}));
  }finally{await b.close();srv.close()}
 })().catch(e=>{console.error(e.stack||e);srv.close();process.exitCode=2});
