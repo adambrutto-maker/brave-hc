@@ -42,8 +42,23 @@ const BraveWatchEvidence=(function(){
     if(recordAsOf>viewed)throw Error('WATCH_SOURCE_CHRONOLOGY_INVALID');
     const capture=new Date(history.capturedAt), exported=new Date(watch.exportedAt);
     if(!Number.isFinite(capture.getTime())||!Number.isFinite(exported.getTime()))throw Error('HISTORICAL_CAPTURE_TIMESTAMP_INVALID');
-    const results=[], seen=new Set();
+    const results=[], seen=new Set(), countdowns=new Set();
     for(const entry of watch.records){
+      if(entry?.type==='countdown'){
+        if(!Number.isInteger(entry.threshold)||entry.threshold<1
+          ||!Object.hasOwn(categories,entry.category)||typeof entry.player!=='string'
+          ||entry.eventDate!==null||!Number.isInteger(entry.remaining)
+          ||entry.remaining<1||entry.remaining>2
+          ||!Number.isInteger(entry.careerTotal)||entry.careerTotal<0
+          ||entry.careerTotal+entry.remaining!==entry.threshold
+          ||typeof entry.source!=='string'||!entry.source.includes('HTO current boxscores'))
+          throw Error('INVALID_NONREACHED_COUNTDOWN');
+        const name=playerName(entry.player);
+        const key=name+'|'+entry.threshold+'|'+entry.category;
+        if(countdowns.has(key))throw Error('DUPLICATE_COUNTDOWN');
+        countdowns.add(key);
+        continue;
+      }
       if(entry?.type!=='reached'||!Number.isInteger(entry.threshold)||entry.threshold<1
         ||!Object.hasOwn(categories,entry.category)||typeof entry.player!=='string')
         throw Error('UNSUPPORTED_MILESTONE_IN_SNAPSHOT');
@@ -64,6 +79,7 @@ const BraveWatchEvidence=(function(){
     return Object.freeze({
       state:'HTO_PUBLISHED_HISTORICAL_RECORD_MATCH',
       entries:Object.freeze(results),
+      countdownArithmeticChecks:countdowns.size,
       latestRecordedGame:watch.latestOfficialCompletedGameDate,
       capturedAt:history.capturedAt,
       watchExportedAt:watch.exportedAt,
