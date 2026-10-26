@@ -76,10 +76,13 @@ def monotonic(old,new):
   require(upcoming and upcoming.get("schema")==previousWeeks.get("schema"),
           "PREVIOUS_WEEKLY_STRENGTH_DROPPED")
   prior=previousWeeks["weeks"];later=upcoming["weeks"]
-  require(len(later)>=len(prior) and later[:len(prior)-1]==prior[:-1],
-          "CLOSED_WEEKLY_HISTORY_CHANGED")
-  if prior[-1]["weekStartToronto"]!=later[len(prior)-1]["weekStartToronto"]:
+  require(len(later)>=len(prior),"WEEKLY_HISTORY_SHRANK")
+  if len(later)>len(prior):
    require(later[:len(prior)]==prior,"PRIOR_WEEKLY_HISTORY_CHANGED")
+  else:
+   require(later[:-1]==prior[:-1] and
+           later[-1]["weekStartToronto"]==prior[-1]["weekStartToronto"],
+           "CLOSED_WEEKLY_HISTORY_CHANGED")
  return True
 def pipeline(repo,private,receipt,check_only=False):
  repo=Path(repo);private=Path(private);receipt=Path(receipt)
