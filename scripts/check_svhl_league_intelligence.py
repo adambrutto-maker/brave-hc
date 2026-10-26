@@ -6,6 +6,7 @@ from pathlib import Path
 from urllib.parse import urlparse,parse_qs
 import json,argparse,sys
 from model_svhl_schedule_strength import calculate,VERSION
+from track_svhl_strength_trends import validate as validate_trends
 class ReleaseHold(ValueError):pass
 def need(cond,msg):
  if not cond:raise ReleaseHold(msg)
@@ -160,6 +161,7 @@ def verify(data,accepted=None,fresh=False,now=None):
  for a,b in zip(data["teams"],calculated["teams"]):
   need(a.get("strengthContext")==b.get("strengthContext"),
        "SOURCE_SUPPORTED_STRENGTH_CALCULATION_MISMATCH_"+a["leagueName"])
+ validate_trends(data)
  if accepted:
   acceptedTeams={x["name"]:x for x in accepted["teams"]}
   for name,source in acceptedTeams.items():
