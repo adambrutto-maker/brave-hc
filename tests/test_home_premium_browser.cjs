@@ -52,7 +52,9 @@ const chrome=["C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe","C:\\
   await firstButton.click();
   assert.equal(await page.$eval(".details",e=>e.hidden),false,"tap-to-expand accessible");
   const projected=await page.$eval("#projection-note",e=>e.textContent);
-  assert.ok(/unreconciled scenarios|reconciled to/.test(projected),"accurate model freshness disclaimer");
+  assert.ok(/unreconciled workbook model|Forecasts and displayed actuals are not up to date|reconciled to/.test(projected),"accurate model freshness disclaimer");
+  assert.equal(await page.$eval("#proj-games",e=>e.textContent),"5","latest HTO GP displayed");
+  assert.ok(firstRow.includes("(4)")&&firstRow.includes("(5)"),"latest HTO current goals and points used for Carosi");
   assert.deepEqual(errors,[],"no browser script failures");
   const out=path.resolve(__dirname,"..",".qa-output");fs.mkdirSync(out,{recursive:true});
   await page.screenshot({path:path.join(out,"projection-mobile.png"),fullPage:true});

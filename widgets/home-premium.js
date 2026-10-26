@@ -23,7 +23,7 @@ const states=[
  {name:"Hot",desc:"Strong rise",rotate:0,color:"#f0344d"}
 ];
 const linkAllowed=s=>/^https:\/\/leagues\.sportsvillage\.ca\//.test(s||"");
-let league=null,projection=null,filter="ALL",standingsPage=0,projectionPage=0;
+let league=null,projection=null,latestHTOActuals=null,filter="ALL",standingsPage=0,projectionPage=0;
 const isFull=()=>params.has("full");
 const pageSize=kind=>9999; // all rows are visible in an independently scrollable iframe shell
 function pager(id,total,size,page,onChange){
@@ -169,10 +169,11 @@ function trendState(p,cf){
  const idx=t<th.AB100?0:t<th.AB99?1:t<th.AB97?2:t<th.AB96?3:4;
  return{...states[idx],label:states[idx].name+" · "+states[idx].desc,value:t};
 }
-function projectedCell(amount,actual,decimals=0){
+function projectedCell(amount,actual,decimals=0,unreported=false){
  const td=node("td");
  td.append(node("span","total",num(amount)?(decimals?amount.toFixed(decimals):String(amount)):"—"));
  if(num(actual))td.append(node("span","actual","("+actual+")"));
+ else if(unreported)td.append(node("span","actual","(—)"));
  return td;
 }
 function cleanName(s){return typeof s==="string"&&s.startsWith("Unknown,")?"Unverified roster entry":(String(s).includes(",")?s.split(",").slice(1).join(",").trim()+" "+s.split(",")[0].trim():String(s))}
@@ -187,8 +188,13 @@ function drawProjection(){
   name.append(node("span","name",cleanName(p.name)));
   name.append(node("span","role",p.rosterStatus+" · #"+(p.number||"—")));
   tr.append(name);
-  const ptsActual=num(p.currentPts)?p.currentPts:num(p.currentG)&&num(p.currentA)?p.currentG+p.currentA:null;
-  const stats=[projectedCell(p.gp,p.currentGP,1),projectedCell(p.g,p.currentG),projectedCell(p.a,p.currentA),projectedCell(p.pts,ptsActual)];
+  const actual=latestHTOActuals?latestHTOActuals.players.get(p.name):null;
+  const unavailable=Boolean(latestHTOActuals&&!actual);
+  const currentGP=latestHTOActuals?actual?.gp:p.currentGP;
+  const currentG=latestHTOActuals?actual?.g:p.currentG;
+  const currentA=latestHTOActuals?actual?.a:p.currentA;
+  const ptsActual=latestHTOActuals?actual?.pts:(num(p.currentPts)?p.currentPts:num(p.currentG)&&num(p.currentA)?p.currentG+p.currentA:null);
+  const stats=[projectedCell(p.gp,currentGP,1,unavailable),projectedCell(p.g,currentG,0,unavailable),projectedCell(p.a,currentA,0,unavailable),projectedCell(p.pts,ptsActual,0,unavailable)];
   ["GP","G","A","PTS"].forEach((h,j)=>{stats[j].dataset.label=h;tr.append(stats[j])});
   tr.append(makeTD(num(p.ptsPerGame)?p.ptsPerGame.toFixed(2):"—","rate","P/G"));
   const state=trendState(p,projection.conditionalFormatting);
@@ -226,12 +232,27 @@ async function loadProjection(){
   if(d.schema!=="brave-hc-workbook-projection/v1"||!Array.isArray(d.players)||!d.conditionalFormatting?.arrowIconSet?.thresholds)throw Error("Workbook data contract invalid");
   projection=d;
   const sourceGames=d.sourceInputs?.verifiedHTOBoxscoreGP;
-  set("proj-games",num(sourceGames)?sourceGames:"—");
+  try{
+    const feed=await fetchJSON("player-actuals.json"),stamp=new Date(feed.asOf),age=Date.now()-stamp.getTime();
+    if(feed.schema==="brave-hc-hto-player-actuals/v1"&&feed.status==="VERIFIED_HTO_CURRENT"&&
+       feed.season==="W2026/27"&&num(feed.teamGP)&&feed.teamGP>=Number(sourceGames)&&
+       Array.isArray(feed.players)&&feed.players.length===feed.playerCount&&
+       Number.isFinite(age)&&age>=0&&age<=10*24*60*60*1000 &&
+       new Set(feed.players.map(x=>x.name)).size===feed.players.length&&
+       feed.players.every(x=>num(x.gp)&&num(x.g)&&num(x.a)&&num(x.pts)&&x.pts===x.g+x.a)){
+        latestHTOActuals={gp:feed.teamGP,asOf:feed.asOf,players:new Map(feed.players.map(p=>[p.name,p]))};
+    }
+  }catch(_noValidLiveActuals){}
+  set("proj-games",latestHTOActuals?latestHTOActuals.gp:num(sourceGames)?sourceGames:"—");
   set("proj-total",num(d.total?.points)?d.total.points+" PTS":"—");
-  set("projection-state",d.modelCurrent===true?"MODEL RECONCILED":"SCENARIO · PARITY PENDING");
+  set("projection-state",latestHTOActuals&&!d.modelCurrent?"HTO ACTUALS CURRENT · FORECAST HELD":d.modelCurrent?"MODEL RECONCILED":"SCENARIO · PARITY PENDING");
   const date=dateText(d.htoreadback||d.exportedAt);
-  set("projection-note",d.modelCurrent===true?"Workbook projections reconciled to official HTO actuals.":"Projection feed reflects "+sourceGames+" HTO games at "+date+". Workbook baseline: "+(d.sourceInputs?.workbookRecordedTeamGP??"—")+" game(s). Projections are unreconciled scenarios; actuals may now be higher.");
-  set("projection-source","Source: HTO model readback "+date+" · Master Workbook trend thresholds preserved. "+d.players.length+" player rows.");
+  if(latestHTOActuals){
+     set("projection-note","Current figures in parentheses are verified HTO statistics through "+latestHTOActuals.gp+" games ("+dateText(latestHTOActuals.asOf)+"). Projected season totals and trend arrows still use the unreconciled workbook model based on "+sourceGames+" HTO games. (—) means not reported on the current HTO roster.");
+  }else{
+     set("projection-note",d.modelCurrent===true?"Workbook projections reconciled to official HTO actuals.":"Projection feed reflects "+sourceGames+" HTO games at "+date+". Workbook baseline: "+(d.sourceInputs?.workbookRecordedTeamGP??"—")+" game(s). Forecasts and displayed actuals are not up to date.");
+  }
+  set("projection-source","Sources: "+(latestHTOActuals?"current official HTO "+dateText(latestHTOActuals.asOf)+"; ":"")+"projection model readback "+date+" · Original workbook trend thresholds retained. "+d.players.length+" player rows.");
   drawLegend();drawProjection();
  }catch(e){set("projection-note","Projection data could not be validated. No replacement estimates or trend arrows have been invented. ("+e.message+")");}
 }
