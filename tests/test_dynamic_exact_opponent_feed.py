@@ -40,10 +40,12 @@ class DynamicOpponentQA(unittest.TestCase):
   pub=json.loads((ROOT/"widgets"/"opponent-intelligence.json").read_text(encoding="utf8"))
   names={x["name"]:x for x in r["teams"]}
   self.assertEqual(r["coverage"]["currentSeasonGames"],pub["coverage"]["currentSeasonGames"])
-  self.assertEqual(r["coverage"]["sourceQualifiedOpponents"],4)
-  self.assertEqual(pub["coverage"]["sourceQualifiedOpponents"],6)
+  self.assertEqual(r["coverage"]["sourceQualifiedOpponents"],5)
+  self.assertEqual(pub["coverage"]["sourceQualifiedOpponents"],7)
+  self.assertEqual(pub["coverage"]["seasonOpponentArchives"],1)
+  self.assertEqual(names["Maplewolves"]["allTime"],{"gp":10,"w":3,"l":6,"t":1,"gf":39,"ga":56})
   self.assertEqual(names["Big Bastones"]["regularSeason"],{"gp":7,"w":4,"l":2,"t":1,"gf":24,"ga":27})
-  self.assertEqual(r["coverage"]["sourceQualifiedOpponents"],4)
+  self.assertEqual(r["coverage"]["sourceQualifiedOpponents"],5)
   self.assertTrue(r["publishable"])
  @unittest.skipUnless(AVAILABLE,"private source unavailable")
  def test_sixth_game_auto_admits_verified_exact_name_without_new_code(self):
@@ -54,20 +56,28 @@ class DynamicOpponentQA(unittest.TestCase):
   self.assertEqual(names["Mid Ice Crisis"]["regularSeason"],{"gp":6,"w":2,"l":2,"t":2,"gf":15,"ga":20})
   self.assertEqual(names["Mid Ice Crisis"]["lastFive"][-1]["date"],"2026-10-26")
  @unittest.skipUnless(AVAILABLE,"private source unavailable")
- def test_new_game_under_unreviewed_alias_stays_withheld(self):
+ def test_departed_division_sugo_cannot_occupy_current_slot(self):
   r=mod.build(*add_sixth(read(),"Sugo Sundays"))
   name={x["name"]:x for x in r["teams"]}
-  self.assertEqual(name["Sugo Sundays"]["verification"],"ALIAS_REVIEW_REQUIRED")
-  self.assertNotIn("regularSeason",name["Sugo Sundays"])
+  self.assertNotIn("Sugo Sundays",name)
+  self.assertEqual(len(name),7)
+  self.assertEqual(name["Maplewolves"]["verification"],"VERIFIED_EXACT_NAME")
  @unittest.skipUnless(AVAILABLE,"private source unavailable")
  def test_incorrect_sixth_source_goals_fail_closed(self):
   data=add_sixth(read())
   data[1]["games"][0]["ga"]=3
   with self.assertRaisesRegex(mod.SourceHold,"HTO_BOX_SCORE_AND_SCORES_LIST_SOURCE_CONFLICT"):mod.build(*data)
  @unittest.skipUnless(AVAILABLE,"private source unavailable")
- def test_unexpected_division_name_fails_closed(self):
-  data=read();data[4]["teams"][0]["name"]="Unknown Franchise"
+ def test_duplicate_division_name_fails_closed(self):
+  data=read();data[4]["teams"][0]["name"]="Mohawks HC"
   with self.assertRaisesRegex(mod.Hold,"DIVISION_TEAM_NAME_SCOPE"):mod.build(*data)
+ @unittest.skipUnless(AVAILABLE,"private source unavailable")
+ def test_new_league_team_does_not_invent_historical_games(self):
+  data=read();data[4]["teams"][0]["name"]="Unknown Franchise"
+  r=mod.build(*data)
+  team=next(x for x in r["teams"] if x["name"]=="Unknown Franchise")
+  self.assertEqual(team["verification"],"NO_EXACT_HISTORY")
+  self.assertNotIn("allTime",team)
  @unittest.skipUnless(AVAILABLE,"private source unavailable")
  def test_master_history_source_hash_drift_held(self):
   data=read();data[0]["source"]["sha256"]="wrong"

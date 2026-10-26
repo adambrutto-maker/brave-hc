@@ -98,13 +98,23 @@ async function loadStandings(){
     if(candidate.schema==="brave-hc-opponent-intelligence/v1" &&
        ["PUBLIC_VERIFIED_EXACT_ONLY","PUBLIC_VERIFIED_SOURCE_IDENTITY"].includes(candidate.status) && candidate.publishable===true &&
        candidate.coverage?.currentSeasonGames>=5 && Array.isArray(candidate.teams) &&
-       candidate.teams.length===7 && Number.isFinite(age) && age>=0 &&
-       age<=10*24*60*60*1000 && new Set(candidate.teams.map(t=>t.name)).size===7){
+       candidate.coverage?.currentDivisionOpponents===7 &&
+       candidate.teams.length===7+(candidate.coverage?.seasonOpponentArchives||0) &&
+       candidate.teams.length<=10 &&
+       d.teams.filter(t=>t.name!==d.team).every(t=>candidate.teams.some(x=>x.name===t.name && x.membershipStatus==="CURRENT_DIVISION")) &&
+       candidate.teams.filter(x=>x.membershipStatus==="SEASON_OPPONENT_ARCHIVE").length===(candidate.coverage?.seasonOpponentArchives||0) &&
+       Number.isFinite(age) && age>=0 &&
+       age<=10*24*60*60*1000 && new Set(candidate.teams.map(t=>t.name)).size===candidate.teams.length){
        qualifiedOpponentFeed=candidate;
        drawStandingPage();
        for(const option of select.options){
          const identity=candidate.teams.find(x=>x.name===option.value);
          if(identity?.canonicalName)option.textContent=identity.canonicalName+" (SVHL: "+option.value+")";
+       }
+       for(const archive of candidate.teams.filter(x=>x.membershipStatus==="SEASON_OPPONENT_ARCHIVE")){
+         const opt=node("option","", (archive.canonicalName||archive.name)+" · 2026–27 past opponent");
+         opt.value=archive.name;
+         select.append(opt);
        }
     }
   }catch(_notReleased){}
@@ -128,13 +138,15 @@ async function loadStandings(){
   const next=upcoming.find(g=>d.teams.some(t=>t.name===g.opponent));
   if(next)select.value=next.opponent;
   function updateOpponent(){
-    const o=d.teams.find(t=>t.name===select.value);if(!o)return;
-    const entry=qualifiedOpponentFeed?.teams.find(t=>t.name===o.name);
+    const entry=qualifiedOpponentFeed?.teams.find(t=>t.name===select.value);
+    const o=d.teams.find(t=>t.name===select.value) ||
+      (entry?.membershipStatus==="SEASON_OPPONENT_ARCHIVE"?{name:entry.name}:null);
+    if(!o)return;
     const nextGame=upcoming.find(g=>g.opponent===o.name);
     const gameTime=nextGame?.time?nextGame.time.split(":"):null;
     const formattedTime=gameTime?((Number(gameTime[0])%12)||12)+":"+gameTime[1]+(Number(gameTime[0])>=12?" PM":" AM"):"";
     set("intel-team",entry?.canonicalName||o.name);
-    set("intel-next",nextGame?"Upcoming: "+nextGame.date+" · "+formattedTime+" · "+(nextGame.rink||"Venue pending"):"No confirmed future fixture in saved HTO schedule");
+    set("intel-next",entry?.membershipStatus==="SEASON_OPPONENT_ARCHIVE"?"2026–27 completed opponent · not in current Cristillo Division":nextGame?"Upcoming: "+nextGame.date+" · "+formattedTime+" · "+(nextGame.rink||"Venue pending"):"No confirmed future fixture in saved HTO schedule");
     $("intel-comparison").replaceChildren();
     $("intel-comparison").parentElement.hidden=true;
     const grid=$("intel-metrics");grid.replaceChildren();

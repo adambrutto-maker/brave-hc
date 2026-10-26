@@ -151,20 +151,40 @@ def build(master,scores,official_stats,prior_four,league,proof,book):
     source_proofs=certify_proof(proof,scores)
     past,current=source_records(master,scores)
     byname={x["name"]:x for x in baseline["teams"]}
-    require(all(byname[x]["verification"]=="ALIAS_REVIEW_REQUIRED" for x in AUDITED),
+    division_names={x["name"] for x in baseline["teams"]}
+    require(all(byname[x]["verification"]=="ALIAS_REVIEW_REQUIRED"
+                for x in AUDITED if x in division_names),
             "BASELINE_PRE_CANONICAL_HOLD_SCHEMA_CHANGED")
     for name,cfg in AUDITED.items():
-        byname[name]=merge_opponent(cfg,past,current,source_proofs[name])
+        admitted=merge_opponent(cfg,past,current,source_proofs[name])
+        admitted["membershipStatus"]=("CURRENT_DIVISION" if name in division_names
+                                       else "SEASON_OPPONENT_ARCHIVE")
+        if name not in division_names:
+            require(admitted["sourceHTOGames"]>=1,
+                    "UNVERIFIED_ARCHIVED_CURRENT_SEASON_OPPONENT")
+        byname[name]=admitted
     entries=[byname[x["name"]] for x in baseline["teams"]]
-    require(len(entries)==7 and len({x["name"] for x in entries})==7,
-            "QUALIFIED_DIVISION_CANONICAL_NAME_DUPLICATE")
+    # A current-season opponent may leave the division after league
+    # rebalancing. Preserve its HTO-verified matchup in a separate archive,
+    # without claiming it occupies one of the current seven SVHL slots.
+    archives=[byname[k] for k in AUDITED if k not in division_names]
+    entries.extend(archives)
+    require(len({x["name"] for x in entries})==len(entries) and
+            len(entries)==len(division_names)+len(archives) and
+            len(division_names)==7,
+            "QUALIFIED_DIVISION_AND_SEASON_ARCHIVE_DUPLICATE")
+    for x in entries:
+        x.setdefault("membershipStatus","CURRENT_DIVISION")
     metadata=dict(baseline["coverage"])
-    metadata.update(sourceQualifiedOpponents=6,aliasesNeedingReview=0,
+    metadata.update(sourceQualifiedOpponents=sum(x["verification"]!="NO_EXACT_HISTORY" for x in entries),
+                    aliasesNeedingReview=0,
                     canonicalHistoricalLinks=1,verifiedCurrentGameAliases=1,
-                    historicalContinuityNotEstablished=1)
+                    historicalContinuityNotEstablished=1,
+                    currentDivisionOpponents=len(division_names),
+                    seasonOpponentArchives=len(archives))
     baseline.update(status="PUBLIC_VERIFIED_SOURCE_IDENTITY",
         sourceTeamCanonical="Brave H.C.",sourceLeagueTeamAlias="Braves HC",
-        releaseScope="FOUR_EXACT_NAMES; ONE_WORKBOOK_HTO_HISTORICAL_PUNCTUATION_LINK; ONE_HTO_CURRENT_ONLY_NAME_LINK",
+        releaseScope="DYNAMIC_SVHL_DIVISION_KEYS; WORKBOOK_HTO_HISTORICAL_NAME_LINK; VERIFIED_HTO_SEASON_ARCHIVE",
         source="Original Brave H.C. Master Schedule and its historical reports, plus verified HTO completed boxscores. SVHL names are display aliases, not master franchise identities.",
         canonicalEvidence=editorial,coverage=metadata,teams=entries)
     return baseline

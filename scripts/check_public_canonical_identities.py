@@ -18,7 +18,9 @@ LEAGUE="Braves HC"
 CANONICAL="Brave H.C."
 EXPECTED={"Mohawks HC":("Mohawks H.C.","VERIFIED_HISTORICAL_NAME_VARIANT"),
           "Sugo Sundays":("Michelob Morts","VERIFIED_CURRENT_NAME_ALIAS_ONLY")}
-EXACT={"Mid Ice Crisis","Big Bastones","Zamboner Crew","Dateline Predators"}
+EXACT_CORE={"Mid Ice Crisis","Big Bastones","Zamboner Crew","Dateline Predators"}
+MAPLEWOLVES_HISTORICAL={"gp":10,"w":3,"l":6,"t":1,"gf":39,"ga":56}
+MAPLEWOLVES_PLAYOFFS={"gp":2,"w":1,"l":1,"t":0,"gf":11,"ga":12}
 ORIGINAL_MOHAWKS={"gp":49,"w":19,"l":19,"t":11,"gf":190,"ga":170}
 ORIGINAL_MOHAWKS_RS={"gp":42,"w":16,"l":18,"t":8,"gf":161,"ga":155}
 MOHAWKS_PLAYOFFS={"gp":7,"w":3,"l":1,"t":3,"gf":29,"ga":15}
@@ -54,7 +56,8 @@ def validate(standings,opponents,proof,html,js,now=None,check_fresh=False):
     teams=standings.get("teams")
     require(isinstance(teams,list) and len(teams)==8 and
             len({t.get("name") for t in teams})==8 and
-            {t.get("name") for t in teams}.issuperset(set(EXPECTED)|EXACT|{LEAGUE,"Other Way"}),
+            all(isinstance(t.get("name"),str) and t["name"].strip() for t in teams) and
+            sum(t["name"]==LEAGUE for t in teams)==1,
             "DIVISION_TEAM_SOURCE_IDENTITIES_CHANGED")
     for t in teams:
         require(type(t.get("gp")) is int and type(t.get("w")) is int and
@@ -69,9 +72,20 @@ def validate(standings,opponents,proof,html,js,now=None,check_fresh=False):
             "CANONICAL_TEAM_SOURCE_AUTHORITY_REGRESSED")
     coverage=opponents.get("coverage",{})
     entries=opponents.get("teams")
-    require(type(coverage) is dict and isinstance(entries,list) and len(entries)==7 and
-            len({x.get("name") for x in entries})==7 and
-            {x["name"] for x in entries}=={x["name"] for x in teams}-{LEAGUE},
+    require(type(coverage) is dict and isinstance(entries,list) and
+            type(coverage.get("seasonOpponentArchives")) is int and
+            0<=coverage["seasonOpponentArchives"]<=4 and
+            coverage.get("currentDivisionOpponents")==7 and
+            len(entries)==7+coverage["seasonOpponentArchives"] and
+            len({x.get("name") for x in entries})==len(entries),
+            "OPPONENT_VS_DIVISION_MEMBERSHIP_MISMATCH")
+    current_keys={x["name"] for x in teams if x["name"]!=LEAGUE}
+    present_division={x["name"] for x in entries if x.get("membershipStatus")=="CURRENT_DIVISION"}
+    archived={x["name"] for x in entries if x.get("membershipStatus")=="SEASON_OPPONENT_ARCHIVE"}
+    require(present_division==current_keys and
+            not current_keys.intersection(archived) and
+            len(archived)==coverage["seasonOpponentArchives"] and
+            current_keys|archived=={x["name"] for x in entries},
             "OPPONENT_VS_DIVISION_MEMBERSHIP_MISMATCH")
     require(coverage.get("historicalGameRecords")==358 and
             type(coverage.get("currentSeasonGames")) is int and
@@ -82,16 +96,29 @@ def validate(standings,opponents,proof,html,js,now=None,check_fresh=False):
             coverage.get("historicalContinuityNotEstablished")==1,
             "PUBLIC_SOURCE_COVERAGE_SCOPE_DRIFT")
     identities={entry["name"]:entry for entry in entries}
-    for name in EXACT:
+    for name in EXACT_CORE | {"Maplewolves"}:
+        if name not in identities:continue
         e=identities[name]
         require(e.get("verification")=="VERIFIED_EXACT_NAME" and
                 e.get("identityScope")=="EXACT_NAME_ONLY_NO_UNREVIEWED_ALIASES" and
                 not e.get("canonicalName"),"EXACT_OPPONENT_ARBITRARILY_RENAMED_"+name)
-    remaining=identities["Other Way"]
-    require(remaining.get("verification")=="NO_EXACT_HISTORY" and
-            not any(k in remaining for k in ("regularSeason","allTime","playoffs","lastFive")),
-            "NO_HISTORY_MUST_NOT_BECOME_ZERO_GAME_RECORD")
+    if "Maplewolves" in identities:
+        m=identities["Maplewolves"]
+        require(m.get("allTime") is not None and m.get("regularSeason") is not None and
+                m.get("playoffs")==MAPLEWOLVES_PLAYOFFS and
+                m["allTime"].get("gp")==MAPLEWOLVES_HISTORICAL["gp"]+m.get("sourceHTOGames",0) and
+                m["regularSeason"].get("gp")==8+m.get("sourceHTOGames",0),
+                "MAPLEWOLVES_TEN_GAME_MASTER_HISTORY_DRIFT")
+        if m.get("sourceHTOGames")==0:
+            require(m["allTime"]==MAPLEWOLVES_HISTORICAL,
+                    "MAPLEWOLVES_ORIGINAL_WORKBOOK_RESULTS_CHANGED")
+    if "Other Way" in identities:
+        remaining=identities["Other Way"]
+        require(remaining.get("verification")=="NO_EXACT_HISTORY" and
+                not any(k in remaining for k in ("regularSeason","allTime","playoffs","lastFive")),
+                "NO_HISTORY_MUST_NOT_BECOME_ZERO_GAME_RECORD")
     for name,(canonical,status) in EXPECTED.items():
+        require(name in identities,"APPROVED_CANONICAL_IDENTITY_MISSING_"+name)
         e=identities[name]
         require(e.get("canonicalName")==canonical and
                 e.get("leagueDisplayAlias")==name and
@@ -130,9 +157,16 @@ def validate(standings,opponents,proof,html,js,now=None,check_fresh=False):
     if sugo["sourceHTOGames"]==1:
         require(sugo["allTime"]=={"gp":1,"w":0,"l":1,"t":0,"gf":2,"ga":3},
                 "MICHELOB_FIRST_OFFICIAL_RESULT_DRIFT")
-    require(coverage.get("sourceQualifiedOpponents")==len(EXACT)+len(EXPECTED) and
-            coverage.get("noExactHistory")==1,
+    require(coverage.get("sourceQualifiedOpponents")==
+            sum(x.get("verification")!="NO_EXACT_HISTORY" for x in entries) and
+            coverage.get("noExactHistory")==
+            sum(x.get("verification")=="NO_EXACT_HISTORY" for x in entries),
             "CANONICAL_PUBLIC_RECORD_COUNT_REGRESSED")
+    for name in EXPECTED:
+        e=identities[name]
+        require(e.get("membershipStatus")==
+                ("CURRENT_DIVISION" if name in current_keys else "SEASON_OPPONENT_ARCHIVE"),
+                "CANONICAL_CURRENT_VS_ARCHIVE_MEMBERSHIP_DRIFT_"+name)
     require(proof.get("schema")=="brave-hc-2026-single-game-identity-proof/v1" and
             proof.get("status")=="OFFICIAL_SAME_GAME_PROOF_VERIFIED" and
             proof.get("franchiseHistoryMerged") is False,
@@ -150,7 +184,7 @@ def validate(standings,opponents,proof,html,js,now=None,check_fresh=False):
                  else (3369564,"2026-10-04",2,3)) and
                 g.get("result")=="L",
                 "HTO_SVHL_ONE_GAME_PROOF_DRIFT")
-    require("home-premium.js?v=20261026-canonical" in html and
+    require("home-premium.js?v=20261026-division" in html and
             'home-premium.css?v=20261026-readability' in html,
             "HTML_JS_CSS_RELEASE_VERSION_NOT_PINNED")
     require('t.name===d.team?"Brave H.C.":(alias?.canonicalName||t.name)' in js and
@@ -164,7 +198,9 @@ def validate(standings,opponents,proof,html,js,now=None,check_fresh=False):
                 "PUBLIC_CANONICAL_SOURCE_STALE_OVER_TEN_DAYS")
     return {"status":"CANONICAL_PUBLIC_IDENTITY_CONTRACT_PASS",
             "teamName":CANONICAL,"leagueSourceKey":LEAGUE,
-            "divisionTeams":len(teams),"verifiedOpponents":coverage["sourceQualifiedOpponents"],
+            "divisionTeams":len(teams),            "verifiedOpponents":coverage["sourceQualifiedOpponents"],
+            "currentDivisionOpponents":len(current_keys),
+            "seasonOpponentArchives":len(archived),
             "mohawksAllTimeGames":moh["allTime"]["gp"],
             "mohawksSourceHTOGames":moh["sourceHTOGames"],
             "michelobCurrentGames":sugo["allTime"]["gp"],

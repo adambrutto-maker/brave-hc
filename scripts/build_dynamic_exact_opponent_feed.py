@@ -14,7 +14,8 @@ sys.path.insert(0,str(Path(__file__).resolve().parent))
 from build_private_online_opponent_ledger import reconcile,Hold as SourceHold
 from build_public_opponent_preview import Hold
 MASTER_SHA="0002fd9f06596af8d0a00fc1b53a618ef15479f941ad5c1e6265b27002a65154"
-DIVISION=("Mid Ice Crisis","Mohawks HC","Sugo Sundays","Other Way","Big Bastones","Zamboner Crew","Dateline Predators")
+# The league can reassign division opponents during the season.
+# Membership is from current SVHL, identities/history from the Workbook + HTO.
 ALIAS_HOLD={"Mohawks HC","Sugo Sundays"}
 def require(ok,message):
  if not ok:raise Hold(message)
@@ -44,8 +45,12 @@ def build(master,scores,official_stats,prior_four,league):
  if league.get("schema")!="brave-hc-svhl-standings/v1" or league.get("division")!="Cristillo" or league.get("team")!="Braves HC":
   raise Hold("SVHL_DIVISION_SOURCE_NOT_QUALIFIED")
  teams=league.get("teams",[])
- require(len(teams)==8 and {t.get("name") for t in teams}==set(DIVISION)|{"Braves HC"},
+ require(isinstance(teams,list) and len(teams)==8 and
+         len({t.get("name") for t in teams})==8 and
+         all(isinstance(t.get("name"),str) and t["name"].strip() for t in teams) and
+         sum(t["name"]=="Braves HC" for t in teams)==1,
          "DIVISION_TEAM_NAME_SCOPE_CHANGED")
+ division=tuple(t["name"] for t in teams if t["name"]!="Braves HC")
  events=[{"date":g["date"],"result":g["result"],
           "opponentExact":g["opponentExact"],"type":g["type"],
           "bravesGF":g["bravesGF"],"bravesGA":g["bravesGA"],"source":"MASTER"}
@@ -63,7 +68,7 @@ def build(master,scores,official_stats,prior_four,league):
  privateProfile={x["opponentExact"]:x for x in source["profiles"]}
  require(len(privateProfile)==counts["exactOpponentIdentities"],"SOURCE_PROFILE_NAME_DUPLICATE")
  output=[]
- for name in DIVISION:
+ for name in division:
   if name in ALIAS_HOLD:
    output.append({"name":name,"verification":"ALIAS_REVIEW_REQUIRED",
                   "message":"Historical team identity requires reviewed name/alias evidence. No inferred franchise matchup record is displayed."})
@@ -91,7 +96,9 @@ def build(master,scores,official_stats,prior_four,league):
        "sourceQualifiedOpponents":sum(x["verification"]=="VERIFIED_EXACT_NAME" for x in output),
        "aliasesNeedingReview":sum(x["verification"]=="ALIAS_REVIEW_REQUIRED" for x in output),
        "noExactHistory":sum(x["verification"]=="NO_EXACT_HISTORY" for x in output)}
- require(meta["aliasesNeedingReview"]==2,"UNREVIEWED_ALIAS_SCOPE_NOT_HELD")
+ meta["currentDivisionOpponents"]=len(division)
+ require(meta["aliasesNeedingReview"]==len(set(division)&ALIAS_HOLD),
+         "UNREVIEWED_ALIAS_SCOPE_NOT_HELD")
  return {"schema":"brave-hc-opponent-intelligence/v1",
          "status":"PUBLIC_VERIFIED_EXACT_ONLY","publishable":True,
          "asOf":source["sourceHTOStatsReadback"],

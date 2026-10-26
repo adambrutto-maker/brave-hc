@@ -2,20 +2,22 @@
   "schema": "brave-hc-opponent-intelligence/v1",
   "status": "PUBLIC_VERIFIED_SOURCE_IDENTITY",
   "publishable": true,
-  "asOf": "2026-10-26T16:31:00.568Z",
+  "asOf": "2026-10-26T17:31:00.617Z",
   "source": "Original Brave H.C. Master Schedule and its historical reports, plus verified HTO completed boxscores. SVHL names are display aliases, not master franchise identities.",
-  "releaseScope": "FOUR_EXACT_NAMES; ONE_WORKBOOK_HTO_HISTORICAL_PUNCTUATION_LINK; ONE_HTO_CURRENT_ONLY_NAME_LINK",
+  "releaseScope": "DYNAMIC_SVHL_DIVISION_KEYS; WORKBOOK_HTO_HISTORICAL_NAME_LINK; VERIFIED_HTO_SEASON_ARCHIVE",
   "workbookScope": "Private Master Workbook preserved. Not an online editable workbook.",
-  "generatedAt": "2026-10-26T17:07:05.488348+00:00",
+  "generatedAt": "2026-10-26T17:40:04.643003+00:00",
   "coverage": {
     "historicalGameRecords": 358,
     "currentSeasonGames": 5,
-    "sourceQualifiedOpponents": 6,
+    "sourceQualifiedOpponents": 7,
     "aliasesNeedingReview": 0,
     "noExactHistory": 1,
+    "currentDivisionOpponents": 7,
     "canonicalHistoricalLinks": 1,
     "verifiedCurrentGameAliases": 1,
-    "historicalContinuityNotEstablished": 1
+    "historicalContinuityNotEstablished": 1,
+    "seasonOpponentArchives": 1
   },
   "teams": [
     {
@@ -78,7 +80,8 @@
           "gf": 3,
           "ga": 3
         }
-      ]
+      ],
+      "membershipStatus": "CURRENT_DIVISION"
     },
     {
       "name": "Mohawks HC",
@@ -153,63 +156,14 @@
       },
       "historicalWorkbookReport": "Master Schedule!J317",
       "historicalRecordsAreLimited": false,
-      "notice": "Consolidated historical Brave H.C. workbook record and current HTO spelling."
-    },
-    {
-      "name": "Sugo Sundays",
-      "canonicalName": "Michelob Morts",
-      "leagueDisplayAlias": "Sugo Sundays",
-      "sourceNames": {
-        "workbook": null,
-        "hto": "Michelob Morts"
-      },
-      "verification": "VERIFIED_CURRENT_NAME_ALIAS_ONLY",
-      "identityScope": "HTO_CURRENT_GAME_ONLY",
-      "regularSeason": {
-        "gp": 1,
-        "w": 0,
-        "l": 1,
-        "t": 0,
-        "gf": 2,
-        "ga": 3
-      },
-      "allTime": {
-        "gp": 1,
-        "w": 0,
-        "l": 1,
-        "t": 0,
-        "gf": 2,
-        "ga": 3
-      },
-      "playoffs": {
-        "gp": 0,
-        "w": 0,
-        "l": 0,
-        "t": 0,
-        "gf": 0,
-        "ga": 0
-      },
-      "lastFive": [
-        {
-          "date": "2026-10-04",
-          "result": "L",
-          "gf": 2,
-          "ga": 3
-        }
-      ],
-      "sourceHTOGames": 1,
-      "sourceLinks": {
-        "svhl": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13709&page_type=Adult",
-        "hto": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=3369564&p=boxscore"
-      },
-      "historicalWorkbookReport": null,
-      "historicalRecordsAreLimited": true,
-      "notice": "One source-verified current game only. No older Sugo/Michelob franchise history is asserted."
+      "notice": "Consolidated historical Brave H.C. workbook record and current HTO spelling.",
+      "membershipStatus": "CURRENT_DIVISION"
     },
     {
       "name": "Other Way",
       "verification": "NO_EXACT_HISTORY",
-      "message": "No completed Brave H.C. meeting under this exact opponent name has been admitted to the verified source ledger."
+      "message": "No completed Brave H.C. meeting under this exact opponent name has been admitted to the verified source ledger.",
+      "membershipStatus": "CURRENT_DIVISION"
     },
     {
       "name": "Big Bastones",
@@ -271,7 +225,8 @@
           "gf": 6,
           "ga": 4
         }
-      ]
+      ],
+      "membershipStatus": "CURRENT_DIVISION"
     },
     {
       "name": "Zamboner Crew",
@@ -309,7 +264,8 @@
           "gf": 1,
           "ga": 7
         }
-      ]
+      ],
+      "membershipStatus": "CURRENT_DIVISION"
     },
     {
       "name": "Dateline Predators",
@@ -371,7 +327,123 @@
           "gf": 0,
           "ga": 3
         }
-      ]
+      ],
+      "membershipStatus": "CURRENT_DIVISION"
+    },
+    {
+      "name": "Maplewolves",
+      "verification": "VERIFIED_EXACT_NAME",
+      "identityScope": "EXACT_NAME_ONLY_NO_UNREVIEWED_ALIASES",
+      "sourceHTOGames": 0,
+      "regularSeason": {
+        "gp": 8,
+        "w": 2,
+        "l": 5,
+        "t": 1,
+        "gf": 28,
+        "ga": 44
+      },
+      "allTime": {
+        "gp": 10,
+        "w": 3,
+        "l": 6,
+        "t": 1,
+        "gf": 39,
+        "ga": 56
+      },
+      "playoffs": {
+        "gp": 2,
+        "w": 1,
+        "l": 1,
+        "t": 0,
+        "gf": 11,
+        "ga": 12
+      },
+      "lastFive": [
+        {
+          "date": "2015-12-20",
+          "result": "W",
+          "gf": 3,
+          "ga": 2
+        },
+        {
+          "date": "2016-06-12",
+          "result": "L",
+          "gf": 1,
+          "ga": 12
+        },
+        {
+          "date": "2017-07-09",
+          "result": "L",
+          "gf": 5,
+          "ga": 7
+        },
+        {
+          "date": "2017-07-30",
+          "result": "L",
+          "gf": 4,
+          "ga": 6
+        },
+        {
+          "date": "2022-11-13",
+          "result": "L",
+          "gf": 4,
+          "ga": 5
+        }
+      ],
+      "membershipStatus": "CURRENT_DIVISION"
+    },
+    {
+      "name": "Sugo Sundays",
+      "canonicalName": "Michelob Morts",
+      "leagueDisplayAlias": "Sugo Sundays",
+      "sourceNames": {
+        "workbook": null,
+        "hto": "Michelob Morts"
+      },
+      "verification": "VERIFIED_CURRENT_NAME_ALIAS_ONLY",
+      "identityScope": "HTO_CURRENT_GAME_ONLY",
+      "regularSeason": {
+        "gp": 1,
+        "w": 0,
+        "l": 1,
+        "t": 0,
+        "gf": 2,
+        "ga": 3
+      },
+      "allTime": {
+        "gp": 1,
+        "w": 0,
+        "l": 1,
+        "t": 0,
+        "gf": 2,
+        "ga": 3
+      },
+      "playoffs": {
+        "gp": 0,
+        "w": 0,
+        "l": 0,
+        "t": 0,
+        "gf": 0,
+        "ga": 0
+      },
+      "lastFive": [
+        {
+          "date": "2026-10-04",
+          "result": "L",
+          "gf": 2,
+          "ga": 3
+        }
+      ],
+      "sourceHTOGames": 1,
+      "sourceLinks": {
+        "svhl": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13709&page_type=Adult",
+        "hto": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=3369564&p=boxscore"
+      },
+      "historicalWorkbookReport": null,
+      "historicalRecordsAreLimited": true,
+      "notice": "One source-verified current game only. No older Sugo/Michelob franchise history is asserted.",
+      "membershipStatus": "SEASON_OPPONENT_ARCHIVE"
     }
   ],
   "sourceTeamCanonical": "Brave H.C.",
