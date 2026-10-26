@@ -31,7 +31,7 @@ const chrome=["C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe","C:\\
   await page.click("#tab-intel");
   assert.equal(await page.$eval("#intel-view",e=>e.hidden),false);
   const optionCount=await page.$$eval("#opponent option",n=>n.length);
-  assert.equal(optionCount,7,"all 7 opponents selectable");
+  assert.equal(optionCount,8,"seven current division opponents plus one verified season archive");
   await page.select("#opponent","Mid Ice Crisis");
   assert.equal(await page.$eval("#intel-team",e=>e.textContent),"Mid Ice Crisis");
   assert.equal(await page.$eval("#headtohead-section",e=>e.hidden),false,"source-verified Mid Ice Crisis history is displayed");

@@ -69,7 +69,7 @@ class IdentityContractQA(unittest.TestCase):
         args=list(data());args[1]["asOf"]=datetime.now(timezone.utc).isoformat()
         self.assertEqual(m.validate(*args,check_fresh=True)["divisionTeams"],8)
     def test_missing_canonical_js_cache_version_fails(self):
-        args=list(data());args[3]=args[3].replace("20261026-canonical","old-cached")
+        args=list(data());args[3]=args[3].replace("20261026-division","old-cached")
         with self.assertRaisesRegex(m.IdentityHold,"HTML_JS_CSS_RELEASE_VERSION"):m.validate(*args)
     def test_decimal_win_percentage_format_cannot_revert(self):
         args=list(data());args[4]=args[4].replace(".toFixed(3)",".toFixed(0)")
@@ -77,4 +77,39 @@ class IdentityContractQA(unittest.TestCase):
     def test_missing_canonical_opponent_row_blocks(self):
         args=list(data());args[1]["teams"]=args[1]["teams"][:-1]
         with self.assertRaisesRegex(m.IdentityHold,"OPPONENT_VS_DIVISION_MEMBERSHIP"):m.validate(*args)
+    def test_current_maplewolves_source_history_is_preserved(self):
+        a,b,c,d,e=data()
+        self.assertIn("Maplewolves",{x["name"] for x in a["teams"]})
+        opponents={x["name"]:x for x in b["teams"]}
+        self.assertEqual(opponents["Maplewolves"]["allTime"],{"gp":10,"w":3,"l":6,"t":1,"gf":39,"ga":56})
+        self.assertEqual(opponents["Maplewolves"]["playoffs"],{"gp":2,"w":1,"l":1,"t":0,"gf":11,"ga":12})
+        self.assertEqual(opponents["Maplewolves"]["membershipStatus"],"CURRENT_DIVISION")
+        self.assertNotIn("Sugo Sundays",{x["name"] for x in a["teams"]})
+    def test_departed_opponent_remains_archived_with_proven_one_game(self):
+        a,b,c,d,e=data()
+        archived=[x for x in b["teams"] if x["membershipStatus"]=="SEASON_OPPONENT_ARCHIVE"]
+        self.assertEqual(len(archived),1)
+        self.assertEqual(archived[0]["name"],"Sugo Sundays")
+        self.assertEqual(archived[0]["canonicalName"],"Michelob Morts")
+        self.assertEqual(archived[0]["identityScope"],"HTO_CURRENT_GAME_ONLY")
+        self.assertEqual(archived[0]["allTime"],{"gp":1,"w":0,"l":1,"t":0,"gf":2,"ga":3})
+    def test_archived_opponent_cannot_be_presented_as_current(self):
+        args=list(data());x=next(e for e in args[1]["teams"] if e["name"]=="Sugo Sundays")
+        x["membershipStatus"]="CURRENT_DIVISION"
+        with self.assertRaisesRegex(m.IdentityHold,"OPPONENT_VS_DIVISION_MEMBERSHIP"):
+            m.validate(*args)
+    def test_qualifying_maplewolves_not_removed_from_current_opponents(self):
+        args=list(data());args[1]["teams"]=[e for e in args[1]["teams"] if e["name"]!="Maplewolves"]
+        with self.assertRaisesRegex(m.IdentityHold,"OPPONENT_VS_DIVISION_MEMBERSHIP"):
+            m.validate(*args)
+    def test_canonical_franchise_archive_cannot_be_deleted_silently(self):
+        args=list(data());args[1]["teams"]=[e for e in args[1]["teams"] if e["name"]!="Sugo Sundays"]
+        args[1]["coverage"]["seasonOpponentArchives"]=0
+        with self.assertRaisesRegex(m.IdentityHold,"APPROVED_CANONICAL_IDENTITY"):
+            m.validate(*args)
+    def test_maplewolves_histories_cannot_be_fabricated(self):
+        args=list(data());x=next(e for e in args[1]["teams"] if e["name"]=="Maplewolves")
+        x["allTime"]["gp"]=11;x["allTime"]["w"]=4
+        with self.assertRaisesRegex(m.IdentityHold,"MAPLEWOLVES_TEN_GAME_MASTER_HISTORY"):
+            m.validate(*args)
 if __name__=="__main__":unittest.main(verbosity=2)

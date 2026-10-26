@@ -9,7 +9,8 @@ const server=http.createServer((req,res)=>{const f=path.resolve(root,"."+new URL
   await p.goto("http://127.0.0.1:"+server.address().port+"/standings.html?embed=1",{waitUntil:"networkidle0"});
   const own=await p.$eval("#standings-rows",e=>e.textContent);
   assert.ok(own.includes("Brave H.C."),"canonical home-team branding visible");
-  assert.ok(own.includes("Mohawks H.C.")&&own.includes("Michelob Morts"),"HTO names displayed instead of league spelling");
+  assert.ok(own.includes("Mohawks H.C.")&&own.includes("Maplewolves"),"current division shows official SVHL membership with canonical Mohawks name");
+  assert.ok(!own.includes("Michelob Morts"),"historical Michelob matchup is not a current division membership");
   assert.equal(await p.$$eval("#standings-rows tr",x=>x.length),8);
   await p.click("#tab-intel");
   await p.select("#opponent","Mohawks HC");
@@ -18,11 +19,16 @@ const server=http.createServer((req,res)=>{const f=path.resolve(root,"."+new URL
   assert.ok(a.includes("19–20–11")&&history.includes("193 GF")&&history.includes("176 GA"));
   assert.equal(await p.$eval("#headtohead-section",e=>e.hidden),false);
   assert.ok(n.includes("workbook")&&a.includes("Mohawks H.C."));
+  assert.ok((await p.$$eval("#opponent option",x=>x.map(y=>y.textContent))).some(x=>x.includes("Michelob Morts")&&x.includes("past opponent")),"season archive option is visible");
   await p.select("#opponent","Sugo Sundays");
   a=await p.$eval("#intel-metrics",e=>e.textContent);n=await p.$eval("#intel-note",e=>e.textContent);
   assert.ok(a.includes("0–1–0")&&a.includes("2")&&a.includes("3"));
   assert.ok(n.includes("One source-verified current game only"));
   assert.equal(await p.$eval("#headtohead-section",e=>e.hidden),false);
+  assert.ok((await p.$eval("#intel-next",x=>x.textContent)).includes("not in current Cristillo Division"),"season archive is not mislabelled as a current division team");
+  await p.select("#opponent","Maplewolves");
+  const maple=await p.$eval("#headtohead",x=>x.textContent);
+  assert.ok(maple.includes("3–6–1")&&maple.includes("39 GF")&&maple.includes("56 GA"));
   await p.select("#opponent","Other Way");
   assert.equal(await p.$eval("#headtohead-section",e=>e.hidden),true);
   await p.select("#opponent","Big Bastones");
