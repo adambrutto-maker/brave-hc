@@ -185,7 +185,7 @@ const server=http.createServer((req,res)=>{
       beforeReview.includes("No realignment recommendation is made"),
       "division-copy action must generate research only");
    await page.select("#archive-season","Sunday Winter 2018/19");
-   assert.equal(await page.$eval("#archive-divisions .archive-division",list=>list.length),
+   assert.equal(await page.$$eval("#archive-divisions .archive-division",list=>list.length),
       archive.seasons[0].divisions.length,"historical league year selector works");
    await page.select("#sort-field","official");
    assert.ok((await page.$eval("#league-rows tr[data-team]",x=>x.dataset.team)),"official sorting remains available");
