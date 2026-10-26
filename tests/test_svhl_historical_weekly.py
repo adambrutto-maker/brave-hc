@@ -55,7 +55,7 @@ class HistoricWeeklyQA(unittest.TestCase):
   next_doc=weekly.enrich(doc,later(doc,7))
   modified=deepcopy(next_doc)
   modified["weeklyLedger"]["weeks"][0]["teams"][0]["gf"]+=1
-  with self.assertRaisesRegex(Exception,"PRIOR_WEEKLY_HISTORY_CHANGED"):
+  with self.assertRaisesRegex(Exception,"CLOSED_WEEKLY_HISTORY_CHANGED"):
    monotonic(next_doc,modified)
  def test_same_week_change_only_affects_open_week(self):
   doc=read("league-intelligence.json")
