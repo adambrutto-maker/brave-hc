@@ -7,8 +7,9 @@ from __future__ import annotations
 from copy import deepcopy
 from datetime import datetime,timezone,timedelta
 from pathlib import Path
-import importlib.util,json,unittest
+import importlib.util,json,unittest,sys
 R=Path(__file__).resolve().parents[1]
+sys.path.insert(0,str(R/"scripts"))
 spec=importlib.util.spec_from_file_location("moves",R/"scripts"/"track_svhl_division_movements.py")
 m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m)
 def read(name):return json.loads((R/"widgets"/name).read_text(encoding="utf8"))
@@ -103,4 +104,21 @@ class MovementHistoryQA(unittest.TestCase):
   bad=historical();bad["sourceCommit"]="unverified"
   with self.assertRaisesRegex(m.MovementHold,"UNVERIFIED_HISTORICAL_CRISTILLO_BASELINE"):
    m.enrich(doc,doc,bad)
+ def test_formerly_departed_team_can_return_without_erasing_the_exit(self):
+  from check_svhl_league_intelligence import verify
+  baseline=base();baseline.pop("movementLedger",None)
+  accepted=m.enrich(baseline,baseline,historical())
+  absent=current(accepted)
+  absent["teams"]=[x for x in absent["teams"] if x["leagueName"]!="Big Bastones"]
+  after_exit=m.enrich(accepted,absent,historical())
+  later=current(after_exit)
+  previous=next(x for x in accepted["teams"] if x["leagueName"]=="Big Bastones")
+  later["teams"].append(deepcopy(previous))
+  restored=m.enrich(after_exit,later,historical())
+  ledger=restored["movementLedger"]
+  self.assertEqual(ledger["departedTeamProfilesRetained"],1)
+  self.assertEqual(ledger["previouslyTrackedTeams"][0]["leagueName"],"Big Bastones")
+  self.assertEqual(ledger["events"][-1]["eventType"],"ENTERED_CURRENT_LEAGUE_DIRECTORY")
+  self.assertEqual(ledger["events"][-2]["eventType"],"LEFT_CURRENT_LEAGUE_DIRECTORY")
+  self.assertEqual(verify(restored,now=datetime.fromisoformat(restored["asOf"].replace("Z","+00:00"))+timedelta(minutes=1))["status"],"SVHL_ALL_DIVISIONS_PUBLIC_PARITY_PASS")
 if __name__=="__main__":unittest.main(verbosity=2)
