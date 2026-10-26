@@ -1,0 +1,53 @@
+name: Brave H.C. source-qualified upcoming HTO schedule
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'widgets/upcoming-matchups.json'
+      - 'widgets/league-intelligence.html'
+      - 'widgets/league-intelligence.js'
+      - 'scripts/collect_hto_upcoming_fixtures.py'
+      - 'scripts/check_hto_upcoming_fixtures.py'
+      - 'scripts/publish_hto_upcoming_fixtures.py'
+      - 'tests/test_hto_upcoming_fixtures.py'
+      - 'tests/test_svhl_league_intelligence_browser.cjs'
+      - '.github/workflows/brave-upcoming-fixtures.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'widgets/upcoming-matchups.json'
+      - 'widgets/league-intelligence.html'
+      - 'widgets/league-intelligence.js'
+      - 'scripts/collect_hto_upcoming_fixtures.py'
+      - 'scripts/check_hto_upcoming_fixtures.py'
+      - 'scripts/publish_hto_upcoming_fixtures.py'
+      - 'tests/test_hto_upcoming_fixtures.py'
+      - 'tests/test_svhl_league_intelligence_browser.cjs'
+      - '.github/workflows/brave-upcoming-fixtures.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: hto-upcoming-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  source-qualified-fixtures:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout public fixtures and league identities
+        uses: actions/checkout@v4
+      - name: Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Independently recheck published fixture IDs, source URLs and team identity
+        run: python scripts/check_hto_upcoming_fixtures.py
+      - name: Verify HTO schedule admission and fail-closed parser cases
+        run: python -m unittest discover -s tests -p test_hto_upcoming_fixtures.py -v
+      - name: Verify public dashboard script syntax
+        run: node --check widgets/league-intelligence.js
