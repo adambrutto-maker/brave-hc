@@ -22,6 +22,40 @@ def git(repo,*args):
   raise ReleaseHold("GIT_"+args[0].upper()+"_FAILED:"+(result.stderr or result.stdout)[-330:])
  return result.stdout.strip()
 
+def require_public_scope(feed,standings):
+ """Fail closed on unproven current membership and erased past opponents."""
+ if (feed.get("schema")!="brave-hc-opponent-intelligence/v1" or
+     feed.get("status")!="PUBLIC_VERIFIED_SOURCE_IDENTITY" or
+     feed.get("publishable") is not True or
+     feed.get("sourceTeamCanonical")!="Brave H.C." or
+     feed.get("sourceLeagueTeamAlias")!="Braves HC" or
+     not feed.get("releaseScope","").startswith("DYNAMIC_SVHL_DIVISION_KEYS;")):
+  raise ReleaseHold("RELEASE_PROVENANCE_OR_CANONICAL_SCOPE_INVALID")
+ rows=feed.get("teams",[])
+ coverage=feed.get("coverage",{})
+ current=[e for e in rows if e.get("membershipStatus")=="CURRENT_DIVISION"]
+ past=[e for e in rows if e.get("membershipStatus")=="SEASON_OPPONENT_ARCHIVE"]
+ expected={t.get("name") for t in standings.get("teams",[]) if t.get("name")!="Braves HC"}
+ if (len(standings.get("teams",[]))!=8 or
+     len(rows)!=len({e.get("name") for e in rows}) or
+     len(rows)!=len(current)+len(past) or
+     len(expected)!=7 or len(current)!=7 or
+     {x.get("name") for x in current}!=expected or
+     coverage.get("currentDivisionOpponents")!=7 or
+     coverage.get("seasonOpponentArchives")!=len(past) or
+     any(x.get("sourceHTOGames",0)<1 or
+         x.get("verification")=="NO_EXACT_HISTORY" for x in past)):
+  raise ReleaseHold("SOURCE_QUALIFIED_DIVISION_AND_ARCHIVE_MEMBERSHIP_CONFLICT")
+ names={x.get("name"):x for x in rows}
+ if ("Mohawks HC" not in names or "Sugo Sundays" not in names or
+     names["Mohawks HC"].get("canonicalName")!="Mohawks H.C." or
+     names["Sugo Sundays"].get("canonicalName")!="Michelob Morts" or
+     names["Mohawks HC"].get("sourceHTOGames",0)<1 or
+     names["Sugo Sundays"].get("sourceHTOGames",0)<1 or
+     names["Sugo Sundays"].get("historicalRecordsAreLimited") is not True):
+  raise ReleaseHold("CANONICAL_OPPONENT_PROOF_OR_ARCHIVED_HISTORY_MISSING")
+ return True
+
 def publish(repo,private,hto_source,report_file):
  repo=Path(repo);private=Path(private);hto_source=Path(hto_source)
  target=repo/PUBLISH_REL
@@ -47,8 +81,10 @@ def publish(repo,private,hto_source,report_file):
    private.parent.parent/"Reference Implementations"/"Brave H.C"/"01 Team Records"/"261001_Brave_HC_Master_Workbook.xlsx")
   if new["coverage"]["currentSeasonGames"]<old["coverage"].get("currentSeasonGames",0):
    raise ReleaseHold("HTO_GAME_COUNT_REGRESSION")
-  if old.get("releaseScope") and "EXACT" not in new["releaseScope"]:
-   raise ReleaseHold("EXACT_SOURCE_SCOPE_ABANDONED")
+  # Validate source provenance/membership explicitly, not the spelling of
+  # an old releaseScope sentence. The latter erroneously held correct SVHL
+  # division changes when the accepted release scope was renamed.
+  require_public_scope(new, load(repo/"widgets"/"standings.json"))
   # A released source can be more recent while a completed-game record stays the same.
   # Keep the public data fresh, but do not churn when the exact JSON is unchanged.
   target.write_text(json.dumps(new,indent=2,ensure_ascii=False)+"\n",encoding="utf8")
