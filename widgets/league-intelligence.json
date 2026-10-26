@@ -1,13 +1,13 @@
 {
   "schema": "brave-hc-league-intelligence/public-v1",
   "status": "OFFICIAL_LEAGUE_RESULTS_SOURCE_QUALIFIED",
-  "asOf": "2026-10-26T20:33:08.974063+00:00",
+  "asOf": "2026-10-26T21:53:28.875042+00:00",
   "season": "Sunday Winter 2026/27",
   "leagueId": 570,
   "previousSeason": "Sunday Winter 2025/26",
   "previousLeagueId": 547,
   "source": "https://leagues.sportsvillage.ca/Leagues.aspx?leagueid=570&page_type=Adult&sc=HOCKEY",
-  "sourceSHA256": "f5070f29f49abc21be83b2e48bc704afd6db9c603484d58ef6223934c76dc63a",
+  "sourceSHA256": "cacf03ff7fbaed9206083d184c99153347c2af7c6b0f82b19d0f02e4d73d4623",
   "currentDivisionCount": 4,
   "allPublishedDivisions": 5,
   "currentLeagueTeamCount": 27,
@@ -2949,7 +2949,7 @@
     ],
     "previouslyTrackedTeams": [],
     "changeState": "SOURCE_OBSERVATION_NOT_AN_OFFICIAL_RESCHEDULE_DATE",
-    "latestSnapshotUTC": "2026-10-26T20:33:08.974063+00:00",
+    "latestSnapshotUTC": "2026-10-26T21:53:28.875042+00:00",
     "eventsRecorded": 2,
     "incomingCristilloEventsRecorded": 1,
     "departedTeamProfilesRetained": 0
@@ -2986,7 +2986,7 @@
     "schema": "brave-hc-svhl-context-trend-ledger/v1",
     "sourceScope": "ACCEPTED_PUBLIC_SNAPSHOT_CHANGES_NOT_PREDICTED_FORM",
     "leagueId": 570,
-    "latestSnapshotUTC": "2026-10-26T20:33:08.974063+00:00",
+    "latestSnapshotUTC": "2026-10-26T21:53:28.875042+00:00",
     "teams": [
       {
         "sourceTeamId": 13717,
@@ -3841,8 +3841,8 @@
     "weeks": [
       {
         "weekStartToronto": "2026-10-26",
-        "observedAtUTC": "2026-10-26T20:33:08.974063+00:00",
-        "sourceSHA256": "f5070f29f49abc21be83b2e48bc704afd6db9c603484d58ef6223934c76dc63a",
+        "observedAtUTC": "2026-10-26T21:53:28.875042+00:00",
+        "sourceSHA256": "cacf03ff7fbaed9206083d184c99153347c2af7c6b0f82b19d0f02e4d73d4623",
         "teams": [
           {
             "sourceTeamId": 13717,
