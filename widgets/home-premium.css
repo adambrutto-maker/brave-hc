@@ -1,0 +1,47 @@
+/* Brave H.C. premium homepage / full-view design 2026-10-25.
+   Pure CSS/SVG: avoids platform-coloured emoji arrows. */
+:root{color-scheme:dark;--night:#061323;--navy:#0d2339;--navy2:#142d46;--red:#d82942;--red-soft:#ed5b72;--white:#f6f9fe;--silver:#b9c9da;--muted:#8da4ba;--line:#3a5369;--gold:#ddbe8f;--hot:#f0344d;--warm:#dc7383;--neutral:#fff;--cool:#79bdec;--cold:#217fd4}
+*{box-sizing:border-box}html,body{margin:0;min-width:0;background:var(--night);color:var(--white);font:13px/1.4 "Segoe UI",Arial,sans-serif}
+button,select,a{font:inherit}button{cursor:pointer}a{color:#e5f0fd;text-underline-offset:3px}
+button:focus-visible,a:focus-visible,select:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+[hidden]{display:none!important}.shell{max-width:1040px;margin:0 auto;padding:15px}.card{border:1px solid #617b91;border-radius:13px;background:linear-gradient(145deg,#142e49,#07192b 72%);box-shadow:0 15px 35px #01081180;overflow:hidden}.accent{height:4px;background:linear-gradient(90deg,#9a162c,#f14358 45%,#861326 75%,#335876)}.content{padding:17px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-bottom:10px;border-bottom:1px solid var(--line)}
+.identity{display:flex;align-items:center;gap:9px;min-width:0}.identity img{width:40px;height:40px;object-fit:contain}.identity strong{display:block;letter-spacing:.045em;font-size:13px}.identity small{display:block;font-size:10px;color:var(--silver)}
+.kicker{text-transform:uppercase;font-size:9px;font-weight:900;letter-spacing:.14em;color:var(--gold)}
+.titleline{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:12px 0 8px}
+.titleline h1{font-size:23px;font-weight:900;letter-spacing:-.025em;line-height:1.05;margin:3px 0}.meta{text-transform:none;font-size:10px;color:var(--silver)}
+.tag{font-size:9px;color:#e4ebf4;border:1px solid #58748d;border-radius:4px;padding:4px 7px;font-weight:800;white-space:nowrap}
+.note{margin:8px 0 10px;font-size:10px;color:var(--silver);line-height:1.35}.note.warn{border-left:3px solid var(--gold);padding-left:8px;color:#ebd4b1}.source{font-size:9px;color:var(--muted);line-height:1.35;margin:8px 0 0}
+.tabs{display:flex;gap:4px;margin:8px 0 10px}.tabs button{border:1px solid var(--line);border-radius:5px;background:#152c42;color:#b7c8d9;flex:1;padding:7px 8px;font-weight:800;font-size:11px;min-height:31px}.tabs button[aria-selected=true]{background:#a81932;border-color:#ee6072;color:#fff}
+.stats-table{border-collapse:collapse;width:100%;font-variant-numeric:tabular-nums;table-layout:auto}.stats-table th{text-align:right;padding:6px 4px;font-size:9px;color:#b7c6d5;letter-spacing:.03em;border-bottom:1px solid #67839b}.stats-table th.team,.stats-table td.team{text-align:left}.stats-table td{text-align:right;padding:7px 4px;font-size:11px;border-bottom:1px solid #2a465f;white-space:nowrap}.stats-table tbody tr:last-child td{border-bottom:none}.stats-table tbody tr.braves{background:#4c1a2a}.stats-table tbody tr.braves td.team{box-shadow:inset 3px 0 0 var(--red-soft)}
+.stats-table td.team{font-weight:750;white-space:normal;min-width:106px}.stats-table td.pct,.stats-table td.points{font-weight:900}
+.stats-table .rank{display:inline-block;color:#9fb5ca;min-width:14px;margin-right:4px;font-size:10px}.stats-table .braves .rank{color:#ffe6ea}
+.faux-action{border:0;background:none;color:#d7e8fc;text-decoration:underline;font-size:10px;font-weight:850;padding:0}
+.foot{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:7px;margin-top:9px}
+.foot a{font-size:10px;font-weight:850;text-decoration:none}
+.summary{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;padding:8px 10px;border:1px solid #4c657a;background:#0b2135;border-radius:8px;margin:10px 0}
+.summary .metric{font-weight:900;font-size:15px}.summary .minor{font-size:10px;color:var(--silver)}
+select{color:var(--white);background:#112f4c;border:1px solid #607c93;border-radius:6px;padding:8px;width:min(100%,290px);font-weight:800}
+.intel-header{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:7px;margin-bottom:9px}.intel-header label{color:var(--silver);font-size:10px}
+.intel-name{font-size:17px;font-weight:900;margin:0 0 2px}.intel-next{font-size:10px;color:var(--gold);font-weight:700;margin:0 0 8px}
+.metric-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}.metricbox{padding:10px 5px;background:#0d263f;border:1px solid #3f5d75;border-top:2px solid #be354b;text-align:center;border-radius:5px}.metricbox .number{font-size:18px;font-weight:900;font-variant-numeric:tabular-nums}.metricbox .label{color:var(--silver);font-size:9px}
+.intel-section{margin-top:12px;background:#081e32;border:1px solid #395a72;padding:9px;border-radius:8px}.intel-section h2{margin:0 0 7px;color:var(--gold);font-size:11px;letter-spacing:.03em}.comparison{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;font-size:10px}.comparison div{background:#122a42;border-radius:4px;padding:6px;text-align:center}.comparison strong{display:block;font-size:14px;color:#fff}
+.muted{color:var(--silver)}
+.filters{display:flex;flex-wrap:wrap;gap:5px;margin:7px 0 10px}.filters button{padding:4px 10px;border:1px solid #50728d;background:#122d45;color:#d8e4ef;font-size:10px;font-weight:850;border-radius:5px;min-height:27px}.filters button[aria-pressed=true]{background:#a71932;color:#fff;border-color:#e46a7e}
+.projection-table th{padding:4px 3px;text-align:right}.projection-table td{padding:6px 3px}.projection-table td.team{min-width:124px}
+.projection-table td.player{white-space:normal;text-align:left;font-weight:750}.projection-table .name{display:block;color:#fff}.projection-table .role{font-size:9px;font-weight:500;color:var(--muted)}
+.total{display:block;white-space:nowrap;font-weight:850;font-size:11px}.actual{font-size:9px;color:#a9bcd1;font-weight:550;padding-left:2px}
+.rate{font-size:12px;font-weight:850;color:#fff}.trend-button{appearance:none;background:none;border:0;min-width:32px;min-height:27px;padding:2px 1px;display:inline-flex;align-items:center;justify-content:center;vertical-align:middle;color:#fff}
+.trend-svg{width:26px;height:26px;display:block}.trend-button .new{font-size:10px;font-weight:900;letter-spacing:.01em;color:#fff}.trend-button:focus-visible{border-radius:4px}
+.details{background:#102c44}.details td{padding:10px 12px!important;text-align:left!important;color:#dae5ee;font-size:11px;white-space:normal!important}.details strong{color:var(--gold)}.details .detail-rate{font-weight:800;color:#fff}
+.model{border-top:1px solid var(--line);margin-top:8px;padding-top:8px;font-size:9px;color:#a8bed2}
+.legend{display:flex;gap:9px;flex-wrap:wrap;margin-top:8px;font-size:9px;color:#c7d3de}.legend span{display:inline-flex;align-items:center;gap:4px}.legend svg{width:14px;height:14px}
+body.full .shell{max-width:980px;padding:18px}body.full .content{padding:24px}body.full .titleline h1{font-size:30px}body.full .stats-table td{font-size:13px;padding:10px 7px}body.full .projection-table td{font-size:13px;padding:9px 7px}body.full .projection-table .total{font-size:13px}body.full .projection-table .actual{font-size:11px}body.full .trend-svg{width:32px;height:32px}
+@media(max-width:650px){.shell{padding:3px}.card{border-radius:6px;box-shadow:none}.content{padding:10px}.top{padding-bottom:6px}.identity img{width:30px;height:30px}.titleline h1{font-size:19px}.metric-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.stats-table th,.stats-table td{font-size:10px;padding:5px 2px}.projection-table td.team{min-width:86px}.projection-table td{padding:5px 2px}.projection-table .total{font-size:10px}.projection-table .actual{font-size:8px}.projection-table .rate{font-size:11px}body.full .content{padding:12px}}
+@media(max-width:450px){
+ .standings-table{display:block}.standings-table thead{display:none}.standings-table tbody{display:block}.standings-table tr{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));align-items:center;padding:4px 1px 5px;border-bottom:1px solid #36546b;min-height:49px}.standings-table td{display:flex;align-items:center;justify-content:center;flex-direction:column;padding:1px!important;border:0!important;font-size:10px}.standings-table td::before{content:attr(data-label);color:#8fa5b8;font-size:8px;font-weight:700}.standings-table td.team{grid-column:1 / -1;display:block;padding-bottom:3px!important;min-width:0;font-size:11px;text-align:left}.standings-table td.team::before{display:none}
+ .standings-table tr.braves td.team{box-shadow:none;border-left:3px solid var(--red-soft)!important;padding-left:6px!important}
+ .projection-table td.team{min-width:78px;max-width:91px;font-size:9px}.projection-table .role{font-size:8px}.projection-table .actual{display:block;padding-left:0;line-height:1.05}.projection-table td{padding:4px 2px}.projection-table th{font-size:8px;padding:4px 1px}.projection-table .trend-svg{height:22px;width:22px}.projection-table .trend-button{min-width:22px;padding:0}.projection-table .rate{font-size:10px}
+ .legend{gap:6px;font-size:8px}.top .identity strong{font-size:11px}.top .identity small{font-size:9px}
+}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}

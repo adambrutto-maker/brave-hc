@@ -1,109 +1,50 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="robots" content="noindex,follow"><meta name="color-scheme" content="dark">
-<title>Brave H.C. HockeyOS — Homepage Snapshot</title>
-<link rel="stylesheet" href="./hockeyos-modern.css?v=3">
-<style>
-html,body{background:#081626}.app{max-width:650px;padding:4px}.frame{border-radius:8px}.inner{padding:12px}
-.identity img{width:36px;height:36px}.topline{margin-bottom:8px}.title-row{padding-bottom:8px}.title-row h1{font-size:18px;margin:3px 0}
-.cardtable{width:100%;border-collapse:collapse}.cardtable th,.cardtable td{padding:6px 5px;font-size:11px}.cardtable th{font-size:9px}
-.summary{display:flex;gap:8px;align-items:center;justify-content:space-between;margin:8px 0;padding:8px;border:1px solid #35546e;border-radius:8px;background:#122b44}
-.summary strong{font-size:16px}.summary small{font-size:10px;color:#cbddec}
-.summary .record{text-align:right;font-size:10px}.summary .record strong{display:block;font-size:13px}
-.bottom{border-top:1px solid #3b5b74;display:flex;justify-content:space-between;align-items:center;gap:9px;padding-top:8px;margin-top:9px}
-.bottom .cta{font-size:10px;padding:6px 8px}.micro{line-height:1.35}
-.notice{font-size:10px;margin:7px 0;padding:7px 9px}
-.entry{padding:10px}.entry h3{font-size:12px}.entry p{font-size:10px}
-.panel-only{display:none}body[data-panel=standings] #standings,body[data-panel=projection] #projection,body[data-panel=watch] #watch{display:block}
-.mini{margin:0;border:none;background:transparent;padding:0}.mini .table-wrap{margin:6px 0}
-#projection .cardtable td:nth-child(2),#standings .cardtable td:nth-child(2){max-width:168px;white-space:normal}
-#standings .cardtable td,#standings .cardtable th{padding:3px 4px;line-height:1.13}
-#watch #watch-list{grid-template-columns:repeat(2,minmax(0,1fr))}
-#watch #watch-list .entry{padding:8px}
-#watch #watch-list .entry p{font-size:10px;line-height:1.35}
-@media(max-width:380px){.inner{padding:8px}.cardtable th,.cardtable td{padding:4px 3px;font-size:10px}#watch #watch-list .entry h3{font-size:10px}}
-@media(max-width:520px){
-body[data-panel=watch] .topline{display:none}
-body[data-panel=watch] #watch-note{display:none}
-body[data-panel=watch] .inner{padding:7px}
-body[data-panel=watch] .title-row{padding-bottom:4px;margin-bottom:4px}
-body[data-panel=watch] .title-row h1{font-size:15px;line-height:1.05;margin:2px 0}
-body[data-panel=watch] .title-row .eyebrow{font-size:8px}
-body[data-panel=watch] #watch-date{font-size:8px;padding:3px 5px}
-body[data-panel=watch] #watch-list{gap:5px}
-body[data-panel=watch] #watch-list .entry{padding:6px}
-body[data-panel=watch] #watch-list .entry h3{font-size:10px;margin:0 0 2px}
-body[data-panel=watch] #watch-list .entry p{font-size:9px;line-height:1.22;margin:2px 0}
-body[data-panel=watch] #watch-list .entry .micro{display:none}
-body[data-panel=watch] .bottom{margin-top:5px;padding-top:4px;justify-content:flex-end}
-body[data-panel=watch] .bottom .micro{display:none}
-body[data-panel=watch] .bottom .cta{font-size:9px;padding:4px 7px}
-}
-</style>
-<script defer src="./player-links.js?v=3"></script><script src="./watch-evidence.js?v=1"></script></head><body>
-<div class="app"><div class="frame"><div class="accent"></div><div class="inner">
-<div class="topline"><div class="identity"><img src="./brave_hc_logo.png" alt="Brave H.C. crest"><div><div class="eyebrow">HockeyOS · Brave H.C.</div><div class="identity-name">Season Dashboard</div></div></div><span class="badge" id="season">2026–27</span></div>
-<section id="standings" class="panel-only">
-<div class="title-row"><div><div class="eyebrow">Cristillo Division · SVHL</div><h1>Division Standings</h1></div><span class="badge" id="standings-date">Checking source</span></div>
-<div class="notice info" id="standings-note">Reading official SVHL standings…</div>
-<div class="mini"><div class="table-wrap"><table class="cardtable" aria-label="SVHL division snapshot"><thead><tr><th class="num">#</th><th>Team</th><th class="num">GP</th><th class="num">PTS</th><th class="num">GD</th></tr></thead><tbody id="standings-list"></tbody></table></div></div>
-<div class="bottom"><span class="micro">League rankings update on SVHL’s posting schedule</span><a class="cta" href="./standings-v2.html" target="_parent" rel="noopener">Full standings ↗</a></div></section>
-<section id="projection" class="panel-only">
-<div class="title-row"><div><div class="eyebrow">Workbook-derived · HTO current season</div><h1>Scoring Projections</h1></div><span class="badge warn" id="projection-date">Source check</span></div>
-<div class="notice" id="projection-note">Verifying HTO-fed projection model…</div>
-<div class="summary"><div><span class="label">Team projected points</span><strong id="projected-total">—</strong></div><div class="record"><span>HTO verified games</span><strong id="projected-gp">—</strong></div></div>
-<div class="mini"><div class="table-wrap"><table class="cardtable" aria-label="Top projected team scorers"><thead><tr><th class="num">#</th><th>Player</th><th class="num">G</th><th class="num">A</th><th class="num">PTS</th></tr></thead><tbody id="projected-list"></tbody></table></div></div>
-<div class="bottom"><span class="micro">Projected season totals are estimates</span><a class="cta" href="./projection-v2.html" target="_parent" rel="noopener">Full projections ↗</a></div></section>
-<section id="watch" class="panel-only">
-<div class="title-row"><div><div class="eyebrow">Published HTO milestones · Historical snapshot</div><h1>Streaks & Record Watch</h1></div><span class="badge" id="watch-date">Source check</span></div>
-<div class="notice info" id="watch-note">Cross-checking HTO Records with the historical Watch snapshot…</div>
-<div id="watch-list" class="grid2"></div>
-<div class="bottom"><span class="micro">Historical HTO Records matches; not a live record-watch feed</span><a class="cta" href="./watch-v2.html" target="_parent" rel="noopener">Full record watch ↗</a></div></section>
-</div></div></div>
-<script>
-(function(){
-"use strict";
-const params=new URLSearchParams(location.search),panel=params.get("panel");
-if(!["standings","projection","watch"].includes(panel)){document.querySelector(".app").textContent="Select a supported HockeyOS homepage panel.";return;}
-document.body.dataset.panel=panel;
-const $=(tag,cls,value)=>{const n=document.createElement(tag);if(cls)n.className=cls;if(value!==undefined)n.textContent=String(value);return n;};
-const put=(id,value)=>document.getElementById(id).textContent=String(value);
-function appendRow(target,values,highlight=false){
-const tr=$("tr");if(highlight)tr.className="highlight";
-values.forEach((v,i)=>tr.append($("td",i===1?"team-name":"num",v)));target.append(tr);
-}
-async function load(){
-try{
-const r=await fetch("./"+(panel==="standings"?"standings":panel==="projection"?"projection":"watch")+".json",{cache:"no-store"});
-if(!r.ok)throw Error("Feed currently unavailable");
-const d=await r.json();
-if(panel==="standings"){
- if(d.schema!=="brave-hc-svhl-standings/v1"||!Array.isArray(d.teams)||d.teams.length<5)throw Error("Unexpected standings feed");
- const asOf=new Date(d.capturedAt);put("standings-date",Number.isNaN(asOf.getTime())?"Source date unavailable":asOf.toLocaleDateString("en-CA",{month:"short",day:"numeric",timeZone:"America/Toronto"}));
- const tbody=document.getElementById("standings-list");d.teams.forEach((t,i)=>appendRow(tbody,[i+1,t.name,t.gp,t.pts,(t.gf-t.ga>0?"+":"")+(t.gf-t.ga)],t.name===d.team));
- put("standings-note","Official SVHL division snapshot. Brave H.C. game totals may be ahead of the league publication feed.");
-}else if(panel==="projection"){
- if(d.schema!=="brave-hc-workbook-projection/v1"||!Array.isArray(d.players)||!d.total)throw Error("Unexpected projection feed");
- put("projected-total",d.total.points);put("projected-gp",d.sourceInputs?.verifiedHTOBoxscoreGP??"—");
- const current=d.modelCurrent===true;
- put("projection-date",current?"Model current":"Pending parity");
- put("projection-note",current?"Current workbook-based projections, verified against HTO results.":"HTO-driven projected scoring is available, but the saved workbook contains fewer games than the HTO feed. These are scenario estimates, not current fully reconciled workbook results.");
- document.getElementById("projection-note").className="notice"+(current?" ok":"");
- d.players.filter(p=>Number.isFinite(p.pts)&&p.currentGP>0).sort((a,b)=>b.pts-a.pts||b.g-a.g||a.name.localeCompare(b.name)).slice(0,6).forEach((p,i)=>appendRow(document.getElementById("projected-list"),[i+1,p.name,p.g,p.a,p.pts]));
-}else{
- if(d.schema!=="brave-hc-workbook-watch/v2"||!Array.isArray(d.records))throw Error("Unexpected record feed");
- const hr=await fetch("./history-records.json",{cache:"no-store"});
- if(!hr.ok)throw Error("Official HTO historical snapshot missing");
- const h=await hr.json(),proven=BraveWatchEvidence.verify(d,h);
- put("watch-date","HTO archive · "+proven.latestRecordedGame);
- put("watch-note","Published HTO milestone matches only. Current workbook scores, live streaks and future countdowns are not verified.");
- const box=document.getElementById("watch-list"),valid=proven.entries;
- if(!valid.length){box.append($("div","empty","No official historical milestone match in the saved snapshot."));return}
- valid.slice(0,2).forEach(p=>{const n=$("article","entry");n.append($("h3",null,p.name),$("p",null,p.title),$("span","micro",p.date));box.append(n);});
-}
-}catch(err){put(panel+"-note",panel==="watch"?"Historical milestone display withheld because official HTO record entries could not be cross-verified.":"This HockeyOS panel could not be verified. The official HTO and SVHL source pages remain available.");}
-}
-load();
-})();
-</script>
-</body></html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark"><meta name="robots" content="noindex,follow">
+<title>Brave H.C. | Season Centre</title>
+<link rel="stylesheet" href="./home-premium.css?v=20261025-1">
+<script defer src="./player-links.js?v=3"></script>
+<script defer src="./home-premium.js?v=20261025-1"></script>
+</head>
+<body data-hto-season="Winter_2026/2027">
+<main class="shell"><div class="card"><div class="accent"></div><div class="content">
+<header class="top"><div class="identity"><img src="./brave_hc_logo.png" alt="Brave H.C. crest">
+<div><strong>BRAVE H.C. <span class="muted">|</span> HOCKEYOS</strong><small id="subtitle">Season Centre · 2026–27</small></div></div><span id="state" class="tag">SOURCE-TRACKED</span></header>
+<section id="standings" hidden>
+<div class="titleline"><div><div class="kicker">SVHL · Cristillo Division</div><h1>Division Centre</h1></div><span class="meta" id="standing-date">Checking league data</span></div>
+<div class="tabs" role="tablist" aria-label="Division Centre views">
+<button id="tab-standing" type="button" role="tab" aria-selected="true" aria-controls="standing-view">Full Standings</button>
+<button id="tab-intel" type="button" role="tab" aria-selected="false" aria-controls="intel-view">Opponent Intelligence</button>
+</div>
+<div id="standing-view" role="tabpanel" aria-labelledby="tab-standing">
+<div class="note" id="standings-note">Loading SVHL standings…</div>
+<table class="stats-table standings-table" aria-label="Complete Cristillo Division standings">
+<thead><tr><th class="team">TEAM</th><th>GP</th><th>W</th><th>L</th><th>T</th><th>PTS</th><th>GF</th><th>GA</th><th>WIN%</th></tr></thead><tbody id="standings-rows"></tbody></table>
+</div>
+<div id="intel-view" role="tabpanel" aria-labelledby="tab-intel" hidden>
+<div class="intel-header"><div><label for="opponent">Choose an opponent</label><br><select id="opponent" aria-label="Choose a division opponent"></select></div><span class="tag" id="opponent-date">LEAGUE DATA</span></div>
+<div class="intel-name" id="intel-team"></div><div class="intel-next" id="intel-next"></div>
+<div id="intel-metrics" class="metric-grid"></div>
+<div class="intel-section"><h2>Braves vs. Opponent · League Snapshot</h2><div id="intel-comparison" class="comparison"></div></div>
+<div class="intel-section" id="headtohead-section" hidden><h2>Verified Head-to-Head History</h2><div id="headtohead" class="comparison"></div></div>
+<p class="note" id="intel-note">Opponent statistics use verified league totals. No private scouting notes or unverified head-to-head claims are shown.</p>
+</div>
+<div class="foot"><span class="source" id="standings-source">Official SVHL league snapshot</span><a id="standings-link" href="https://leagues.sportsvillage.ca/Leagues.aspx?leagueid=570&page_type=Adult&amp;sc=HOCKEY" target="_parent" rel="noopener noreferrer">Official SVHL standings ↗</a></div>
+</section>
+<section id="projection" hidden>
+<div class="titleline"><div><div class="kicker">Official HTO actuals · Workbook season model</div><h1>Team Projections</h1></div><span class="tag" id="projection-state">Checking model</span></div>
+<p class="note" id="projection-note">Loading the latest model snapshot…</p>
+<div class="summary"><div><div class="kicker">Projected Player Scoring</div><div class="metric" id="proj-total">—</div><div class="minor">Combined roster projection · not league standings points</div></div>
+<div><div class="minor">HTO games in model input</div><div class="metric" id="proj-games">—</div></div></div>
+<div class="filters" aria-label="Roster groups">
+<button type="button" data-group="ALL" aria-pressed="true">All Players</button><button type="button" data-group="FT" aria-pressed="false">Full-Time</button><button type="button" data-group="CU" aria-pressed="false">Call-Ups</button><button type="button" data-group="DI" aria-pressed="false">Drop-Ins</button>
+</div>
+<table class="stats-table projection-table" aria-label="Full player projections showing projected season totals, current actuals and career trends">
+<thead><tr><th class="team">PLAYER</th><th>GP</th><th>G</th><th>A</th><th>PTS</th><th>P/G</th><th>TREND</th></tr></thead><tbody id="projection-rows"></tbody></table>
+<div id="trend-legend" class="legend" aria-label="Trend strength key"></div>
+<p class="model">Bold numbers = projected season totals. <span class="muted">(Parentheses)</span> = actual statistics at the model input date. P/G = projected points per game. Tap a trend arrow for comparison details. Arrows follow the master workbook's exact five thresholds.</p>
+<div class="foot"><span class="source" id="projection-source">Workbook reconciliation status pending</span><a href="https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&amp;s=hockey&amp;p=stats" target="_parent" rel="noopener noreferrer">Official current HTO stats ↗</a></div>
+</section>
+<section id="watch" hidden><div class="titleline"><div><div class="kicker">Brave H.C. · News</div><h1>Milestones in Hot Stove</h1></div></div><p class="note">Career milestones and achievements now belong with the latest game stories. Historical records remain available separately.</p><div class="foot"><a href="./hot-stove.html" target="_parent" rel="noopener noreferrer">Read Hot Stove ↗</a><a href="./history.html?view=records" target="_parent" rel="noopener noreferrer">Historical records ↗</a></div></section>
+</div></div></main></body></html>
