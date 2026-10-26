@@ -84,7 +84,7 @@ async function loadStandings(){
   let games=[];
   try{const schedule=await fetchJSON("svhl-upcoming.json");if(schedule.schema==="brave-hc-svhl-schedule/v1"&&Array.isArray(schedule.games))games=schedule.games;}catch(_ignored){}
   const upcoming=games.filter(g=>g.date+"T"+g.time>=todayDate()).sort((a,b)=>(a.date+"T"+a.time).localeCompare(b.date+"T"+b.time));
-  let approved=null,qualifiedOpponentFeed=null;
+  let approved=null,qualifiedOpponentFeed=null,verifiedSameGames=new Map();
   // Release-gated optional source. An absent, stale or review-only feed must
   // never unlock unverified matchup statistics.
   try{
@@ -98,6 +98,23 @@ async function loadStandings(){
        qualifiedOpponentFeed=candidate;
     }
   }catch(_notReleased){}
+  // Narrow official-game bridge: distinct SVHL/HTO display names refer to the
+  // SAME verified 2026/27 completed game, not necessarily the full franchise.
+  try{
+    const proof=await fetchJSON("current-opponent-identity-bridges.json");
+    if(proof.schema==="brave-hc-2026-single-game-identity-proof/v1" &&
+       proof.status==="OFFICIAL_SAME_GAME_PROOF_VERIFIED" &&
+       proof.franchiseHistoryMerged===false && Array.isArray(proof.sameGamePairs) &&
+       proof.sameGamePairs.length===2 &&
+       proof.sameGamePairs.every(g=>g.scope==="THIS_COMPLETED_GAME_ONLY" &&
+         g.historicalFranchiseMergeAuthorized===false &&
+         ["W","L","T"].includes(g.result) && num(g.bravesGoals)&&num(g.opponentGoals) &&
+         /^https:\/\/leagues\.sportsvillage\.ca\/TeamInfo\.aspx\?/.test(g.svhlSource||"") &&
+         /^https:\/\/www\.htosports\.com\/teams\/default\.asp\?/.test(g.htoSource||"")) &&
+       new Set(proof.sameGamePairs.map(g=>g.divisionName)).size===2){
+      verifiedSameGames=new Map(proof.sameGamePairs.map(g=>[g.divisionName,g]));
+    }
+  }catch(_noApprovedSameGameSource){}
   const next=upcoming.find(g=>d.teams.some(t=>t.name===g.opponent));
   if(next)select.value=next.opponent;
   function updateOpponent(){
@@ -124,8 +141,22 @@ async function loadStandings(){
       gate.append(node("strong","","Historical identity verification"),
                   node("p","",reason),
                   node("p","","No zero-game historical record or unsupported scouting claims have been substituted."));
+      const sameGame=entry?.verification==="ALIAS_REVIEW_REQUIRED"?verifiedSameGames.get(o.name):null;
+      if(sameGame){
+        const line=node("p","verified-single-game",
+          "VERIFIED 2026–27 MEETING · "+dateText(sameGame.date)+
+          " · Braves "+sameGame.result+" "+sameGame.bravesGoals+"–"+sameGame.opponentGoals+
+          " · HTO name: "+sameGame.htoRecordedOpponent);
+        gate.append(line,node("p","",
+          "This official game is matched across SVHL and HTO. Earlier franchise history remains unmerged."));
+        const links=node("div","same-game-links");
+        const a=node("a","","SVHL team record");a.href=sameGame.svhlSource;
+        const b=node("a","","Official HTO boxscore");b.href=sameGame.htoSource;
+        for(const item of [a,b]){item.target="_blank";item.rel="noopener noreferrer";links.append(item)}
+        gate.append(links);
+      }
       grid.append(gate);
-      set("intel-note","Source-gated: completed game history is withheld until released from the verified HockeyOS ledger.");
+      set("intel-note",sameGame?"One 2026–27 meeting is source-verified; historical franchise identity remains withheld.":"Source-gated: completed game history is withheld until released from the verified HockeyOS ledger.");
       return;
     }
     const stats=entry.regularSeason,all=entry.allTime,play=entry.playoffs;
