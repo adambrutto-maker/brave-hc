@@ -8,7 +8,7 @@
  const dec=v=>Number.isFinite(v)?(v>0?"+":"")+v.toFixed(2):"—";
  const record=x=>x?(x.w+"–"+x.l+"–"+x.t):"—";
  const date=s=>{try{return new Date(s+"T12:00:00").toLocaleDateString("en-CA",{year:"numeric",month:"short",day:"numeric"})}catch(_){return s}};
- let data=null,selected=null,currentScoutingBrief=null,upcomingFixtures=[];
+ let data=null,selected=null,currentScoutingBrief=null,upcomingFixtures=[],historicalArchive=null,balanceSummary=null;
  function trusted(doc){
   return doc?.schema==="brave-hc-league-intelligence/public-v1" &&
    doc.status==="OFFICIAL_LEAGUE_RESULTS_SOURCE_QUALIFIED" &&
@@ -148,6 +148,145 @@
    year:"numeric",month:"2-digit",day:"2-digit"}).formatToParts(new Date());
   const get=type=>p.find(x=>x.type===type)?.value;
   return get("year")+"-"+get("month")+"-"+get("day");
+ }
+ function renderPlainLanguage(team){
+  const cards=q("plain-opponent-summary"),caveat=q("plain-history-caveat");
+  cards.replaceChildren();
+  if(!historicalArchive){
+   text(cards,"p","tiny","Older Sports Village source archive not available. Current verified season scouting remains operational.");
+   q("weekly-team-summary").textContent="Weekly archive not verified in this view.";
+   return;
+  }
+  const info=window.BraveLeagueInsights.plain(data,historicalArchive,team.leagueName);
+  const add=(heading,value)=>{
+   const c=el("div","insights-card");text(c,"strong","",heading);
+   text(c,"p","small",value);cards.append(c);
+  };
+  add("This season",info.form+" "+info.evidence);
+  add("Goals scored / allowed",info.scored+" "+info.conceded);
+  add("Who they have faced",info.crosses+" Schedule context "+
+      (Number.isFinite(info.schedule)?info.schedule.toFixed(1)+"/100":"unrated")+
+      ". These are observed results, not opponent predictions.");
+  const h=info.historicalH2H;
+  if(h)add("Brave H.C. historical matchups","Brave H.C.: "+h.w+" wins, "+h.l+
+     " losses, "+h.t+" ties against this approved opponent identity ("+h.gp+
+     " verified meetings). Older results do not automatically reflect today's roster.");
+  else add("Brave H.C. history","No approved exact or independently matched historical Brave H.C. record for this current opponent.");
+  if(info.officialPreviousWinter)
+   add("Qualified previous winter",info.officialPreviousWinter.record.w+"–"+
+     info.officialPreviousWinter.record.l+"–"+info.officialPreviousWinter.record.t+
+     " in "+info.officialPreviousWinter.division+
+     "; official returning player-ID overlap qualifies this comparison.");
+  else add("Previous winter","No qualified returning-roster evidence was admitted; last season is excluded from this team's index.");
+  const matches=info.exactHistoricalNameObservations;
+  add("Older league archive",matches.length?
+      "The same published team name occurs in "+matches.length+" older team-season record(s): "+
+      matches.slice(-3).map(x=>x.season.replace("Sunday Winter ","")+
+      " / "+x.division).join("; ")+
+      ". Roster/franchise continuity has NOT been verified. These are not blended into today's rating.":
+      "No exact-name source observation found in the six archived winter seasons. This does not mean the team never existed.");
+  const w=info.weekly;
+  q("weekly-team-summary").textContent=w.count<2?
+   "Weekly monitoring: "+w.count+" verified week on record. No defensible week-over-week change is available yet.":
+   "Weekly monitoring: "+w.count+" verified weeks. Most recent descriptive index change "+
+    (w.delta===null?"unavailable":(w.delta>0?"+":"")+w.delta.toFixed(1))+
+    " index points versus previous recorded week; roster strength changes have not been independently confirmed.";
+  caveat.textContent="League source checked "+new Date(info.date).toLocaleString("en-CA")+
+   ". Historical name matches are leads for source review, not automatic team identities. "+
+   info.caution;
+ }
+ function renderArchive(){
+  const box=q("archive-divisions");box.replaceChildren();
+  if(!historicalArchive)return;
+  const season=historicalArchive.seasons.find(x=>x.season===q("archive-season").value);
+  if(!season)return;
+  const top=text(box,"p","small",season.competitiveTeamEntries+
+   " competitive team-season entries · "+season.divisionCount+" published division tables.");
+  const source=text(box,"a","sourcelink","View original Sports Village "+season.season+" source");
+  source.href=season.source;source.target="_blank";source.rel="noopener noreferrer";
+  for(const division of season.divisions){
+   const details=el("details","archive-division");
+   const meta=division.category==="COMPETITIVE_SUNDAY_DIVISION"?"competitive":
+      "separate/placeholder category";
+   text(details,"summary","",division.name+" · "+division.teams.length+" teams · "+meta);
+   const table=el("table","archive-teams");
+   const head=el("thead"),hrow=el("tr");
+   for(const label of ["TEAM","GP","W","L","T","GF","GA"])text(hrow,"th","",label);
+   head.append(hrow);table.append(head);
+   const tbody=el("tbody");
+   for(const team of [...division.teams].sort((a,b)=>b.pts-a.pts||a.name.localeCompare(b.name))){
+    const row=el("tr");text(row,"td","",team.name);
+    for(const key of ["gp","w","l","t","gf","ga"])text(row,"td","score",team[key]);
+    tbody.append(row);
+   }
+   table.append(tbody);
+   const scroll=el("div","scroll");scroll.append(table);details.append(scroll);
+   box.append(details);
+  }
+ }
+ function renderBalance(){
+  const cards=q("balance-cards");cards.replaceChildren();
+  if(!historicalArchive)return;
+  balanceSummary=window.BraveLeagueInsights.divisionReview(data,historicalArchive);
+  q("balance-status").textContent=balanceSummary.weeksObserved+
+   " accepted weekly observation(s) · "+balanceSummary.atLeastTenGames+
+   "/"+balanceSummary.eligibleTeams+" competitive teams with at least 10 games · "+
+   balanceSummary.historicalSeasons+" historical winter archives.";
+  q("balance-readiness").textContent=balanceSummary.rationale;
+  for(const d of balanceSummary.groups){
+   const card=el("article","insights-card");
+   text(card,"strong","",d.division);
+   text(card,"p","small",d.teams+" teams · average "+d.avgGames+
+    " GP/team · "+d.ranked+" source-rated teams.");
+   text(card,"p","small",d.meanIndex===null?"No rated comparison yet":
+    "Descriptive context: average "+d.meanIndex.toFixed(1)+
+    "/100, range "+d.lowest.toFixed(1)+"–"+d.highest.toFixed(1)+
+    " (spread "+d.spread.toFixed(1)+" points).");
+   text(card,"small","",d.crossDivisionGameRows+" team-game observations against clubs now in other divisions.");
+   text(card,"p","small",d.interpretation);
+   cards.append(card);
+  }
+ }
+ async function copyDivisionReview(){
+  const status=q("division-copy-status");
+  if(!balanceSummary||!historicalArchive){status.textContent="Verified division review not available.";return;}
+  const lines=["HOCKEYOS | SVHL SUNDAY WINTER DIVISION RESEARCH",
+   "SOURCE: "+data.source+" | checked "+data.asOf,
+   "STATUS: "+balanceSummary.status,
+   balanceSummary.rationale,
+   ...balanceSummary.groups.map(d=>d.division+": "+d.teams+" teams, "+
+     d.avgGames+" avg GP, context range "+
+     (d.lowest===null?"unavailable":d.lowest+"–"+d.highest)+
+     "; "+d.crossDivisionGameRows+" cross-division team-game observations"),
+   "Historical coverage: "+balanceSummary.historicalSeasons+
+     " sourced seasons; published names are not verified continuous franchises.",
+   "Context index is descriptive, not a win probability or league-endorsed tier.",
+   "No realignment recommendation is made at this early sample size."];
+  if(!navigator.clipboard?.writeText){status.textContent="Clipboard unavailable in browser.";return;}
+  try{await navigator.clipboard.writeText(lines.join("\n"));
+      status.textContent="Research notes copied. Not a formal league proposal.";}
+  catch(_){status.textContent="Could not copy the reviewed notes.";}
+ }
+ async function loadHistoricalArchive(){
+  try{
+   if(!window.BraveLeagueInsights)throw Error("Historical comparison module not installed");
+   const response=await fetch("./historical-svhl-standings.json",{cache:"no-store"});
+   if(!response.ok)throw Error("Historical source file unavailable");
+   const doc=await response.json();
+   window.BraveLeagueInsights.verify(data,doc);
+   historicalArchive=doc;
+   const selector=q("archive-season");selector.replaceChildren();
+   for(const season of [...doc.seasons].reverse())
+    selector.add(new Option(season.season,season.season));
+   selector.addEventListener("change",renderArchive);
+   q("archive-status").textContent=doc.seasons.length+
+    " official winter archives, "+doc.competitiveTeamSeasonEntries+
+    " competitive team-season entries. 2019/20 and 2020/21 gaps remain unverified.";
+   renderArchive();renderBalance();
+  }catch(err){
+   q("archive-status").textContent="Archived season data held: "+err.message;
+   q("balance-status").textContent="Historical comparison unavailable; live scouting still operational.";
+  }
  }
  function renderUpcoming(doc){
   const source="https://leagues.sportsvillage.ca/Leagues.aspx?leagueid=570&page_type=Adult&sc=HOCKEY";
@@ -399,6 +538,7 @@
   if(!x)return;
   q("profile-title").textContent=x.displayName;
   renderScoutingProfile(x);
+  renderPlainLanguage(x);
   q("profile-division").textContent=x.divisionNow+" · "+x.gamesConfirmed+" reciprocal completed fixtures";
   q("team-official-link").href=x.source;
   const panel=q("profile-metrics");panel.replaceChildren();
@@ -479,6 +619,7 @@
    if(!trusted(result))throw Error("Published league-source agreement not validated");
    if(!window.BraveLeagueScouting)throw Error("Verified scouting module unavailable");
    data=result;setup();movement();renderScoutingBoard();
+   await loadHistoricalArchive();
    const name=new URLSearchParams(location.search).get("team");
    selected=data.teams.some(x=>x.leagueName===name)?name:
     data.teams.some(x=>x.leagueName==="Maplewolves")?"Maplewolves":"Braves HC";
@@ -486,6 +627,7 @@
    q("sort-field").addEventListener("change",table);
    q("team-filter").addEventListener("change",event=>choose(event.target.value));
    q("copy-scout-brief").addEventListener("click",copyScoutingBrief);
+   q("copy-division-review").addEventListener("click",copyDivisionReview);
    table();profile();loadUpcoming();
   }catch(e){
    q("source-status").textContent="SOURCE HELD: "+e.message+". Historical identities or strength figures were not guessed.";
