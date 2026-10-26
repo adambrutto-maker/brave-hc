@@ -12,19 +12,14 @@ const fetchJSON=async name=>{const r=await fetch("./"+name,{cache:"no-store"});i
 let career,actuals,tenures,gameFeed;
 try{
  const results=await Promise.allSettled([
- fetchJSON("player-career-insights.json"),fetchJSON("player-actuals.json"),fetchJSON("player-bio-leadership.json"),
- Promise.reject(new Error("Current per-game series awaits production approval"))]);
+ fetchJSON("player-career-insights.json"),fetchJSON("player-actuals.json"),fetchJSON("player-bio-leadership.json")]);
  if(results[0].status!=="fulfilled"||results[1].status!=="fulfilled")throw Error("Verified statistics source unavailable");
  career=results[0].value;actuals=results[1].value;
  if(career.schema!=="brave-hc-player-career-insights/v1"||career.sourceAuthority!=="NATIVE_HTO_PROFILE_STATS_PUBLIC_READBACK")throw Error("Career source invalid");
  if(actuals.schema!=="brave-hc-hto-player-actuals/v1"||actuals.status!=="VERIFIED_HTO_CURRENT"||actuals.teamGP!==5)throw Error("Current source invalid");
  const candidate=results[2].status==="fulfilled"?results[2].value:null;
  tenures=candidate?.schema==="brave-hc-bio-public-leadership/v1"&&candidate.status==="PUBLIC_BIO_SOURCE_AND_FOUNDER_CONFIRMED"?candidate:{items:[]};
- const observed=results[3].status==="fulfilled"?results[3].value:null;
- gameFeed=observed?.schema==="brave-hc-player-games-private-five-source/v1"&&
-  observed.status==="PRIVATE_ACCEPTED_SOURCE_NOT_PRODUCTION"&&observed.sourceAcceptance==="PRIVATE_FIVE_GAME_SOURCE_ACCEPTANCE_PASS"&&
-  observed.teamGP===actuals.teamGP&&observed.currentActualsAsOf===actuals.asOf&&observed.productionAccepted===false?
-  observed:null;
+ gameFeed=null; // Player game logs are deliberately withheld until production source approval.
 }catch(e){$("careerNote").textContent="Source validation unavailable: "+e.message;return;}
 const ids=Object.keys(career.players);
 if(ids.length!==109||window.BravePlayerLinks?.knownPlayers!==109){$("careerNote").textContent="109-player identity parity failed.";return;}
