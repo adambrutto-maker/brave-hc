@@ -8,7 +8,7 @@
  const dec=v=>Number.isFinite(v)?(v>0?"+":"")+v.toFixed(2):"—";
  const record=x=>x?(x.w+"–"+x.l+"–"+x.t):"—";
  const date=s=>{try{return new Date(s+"T12:00:00").toLocaleDateString("en-CA",{year:"numeric",month:"short",day:"numeric"})}catch(_){return s}};
- let data=null,selected=null,currentScoutingBrief=null;
+ let data=null,selected=null,currentScoutingBrief=null,upcomingFixtures=[];
  function trusted(doc){
   return doc?.schema==="brave-hc-league-intelligence/public-v1" &&
    doc.status==="OFFICIAL_LEAGUE_RESULTS_SOURCE_QUALIFIED" &&
@@ -142,6 +142,78 @@
    " dated source observations retained. "+history.departedTeamProfilesRetained+
    " complete departed-league profiles archived. Old results are never replaced by division-name assumptions.";
  }
+ function renderUpcomingFixtures(doc){
+  const status=q("fixture-status"),grid=q("upcoming-fixtures");
+  grid.replaceChildren();upcomingFixtures=[];
+  const pages=doc?.sourcePages,games=doc?.games;
+  const valid=doc?.schema==="brave-hc-hto-upcoming-fixtures/v1" &&
+   doc.status==="SOURCE_LINKED_BRAVES_HTO_SCHEDULE_NOT_SVHL_VERIFIED" &&
+   doc.teamAccount==="BRAVESHOCKEY" && doc.timeZone==="America/Toronto" &&
+   doc.nonpredictive===true && Array.isArray(pages) && pages.length>=3 &&
+   Array.isArray(games) && doc.gamesCount===games.length &&
+   new Set(games.map(g=>g.gameId)).size===games.length;
+  if(!valid)throw Error("HTO schedule provenance or fixture totals not qualified");
+  for(const game of games){
+   const url=new URL(game.gameUrl);
+   if(!["www.hometeamsonline.com","www.htosports.com"].includes(url.hostname) ||
+      url.protocol!=="https:" || url.pathname!=="/teams/default.asp" ||
+      url.searchParams.get("gameID")!==String(game.gameId) ||
+      url.searchParams.get("u")!=="BRAVESHOCKEY" ||
+      url.searchParams.get("p")!=="preview" ||
+      !/^\d{4}-\d{2}-\d{2}$/.test(game.date) ||
+      !/^\d{2}:\d{2}$/.test(game.localTime) ||
+      !["HOME","AWAY"].includes(game.homeAway))
+     throw Error("Fixture's HTO game identity or local date/time is unqualified");
+   const matched=game.identityState==="MATCHED_CURRENT_SVHL_SEASON_TEAM"?
+      data.teams.find(t=>t.sourceTeamId===game.sourceTeamId&&t.leagueName===game.leagueName):null;
+   upcomingFixtures.push({...game,matched:matched?.leagueName||null});
+  }
+  upcomingFixtures.sort((a,b)=>(a.date+"T"+a.localTime).localeCompare(b.date+"T"+b.localTime));
+  const stamp=new Date(doc.capturedUTC),age=Date.now()-stamp.getTime();
+  if(!Number.isFinite(stamp.getTime())||age< -900000)throw Error("Schedule collection time invalid");
+  const stale=age>72*60*60*1000;
+  status.textContent="HTO calendar checked "+stamp.toLocaleString("en-CA",{dateStyle:"medium",timeStyle:"short"})+
+   " · "+upcomingFixtures.length+" scheduled games in published window"+
+   (stale?" · STALE — confirm directly with HTO":"")+
+   ". Matchups are scheduled, not verified game outcomes.";
+  q("next-fixture-tag").textContent=upcomingFixtures.length?
+   "Next: "+upcomingFixtures[0].date+" · "+upcomingFixtures[0].localTime+" ET":"No future HTO fixtures";
+  for(const [index,game] of upcomingFixtures.entries()){
+   const card=el("article","fixture-card"+(index===0?" next":""));
+   text(card,"strong","",game.date+" · "+game.localTime+" ET");
+   text(card,"span","",game.opponentHTO);
+   text(card,"small","",game.homeAway+" · "+game.location);
+   if(index===0)text(card,"small","","Next source-listed fixture");
+   if(game.matched){
+    const button=text(card,"button","","Open opponent scouting");
+    button.type="button";button.addEventListener("click",()=>{
+     q("division-filter").value="all";
+     choose(game.matched);
+     q("profile-title").scrollIntoView({block:"start",behavior:"smooth"});
+    });
+   }else text(card,"small","","Opponent identity not matched to the current SVHL team directory");
+   const link=text(card,"a","sourcelink","Official HTO game details");
+   link.href=game.gameUrl;link.target="_blank";link.rel="noopener noreferrer";
+   grid.append(card);
+  }
+  if(!upcomingFixtures.length)text(grid,"p","tiny","No upcoming games listed within the currently checked calendar window.");
+  renderScoutingBoard();
+ }
+ async function loadUpcomingFixtures(){
+  try{
+   const response=await fetch("./upcoming-matchups.json",{cache:"no-store"});
+   if(!response.ok)throw Error("HTO fixture feed not published");
+   const doc=await response.json();
+   renderUpcomingFixtures(doc);
+   const next=upcomingFixtures.find(g=>g.matched);
+   const explicit=new URLSearchParams(location.search).get("team");
+   if(next&&!explicit)choose(next.matched);
+  }catch(e){
+   q("fixture-status").textContent="Upcoming schedule held: "+e.message+
+     ". Existing source-verified standings and scouting remain available.";
+   q("next-fixture-tag").textContent="Schedule unavailable";
+  }
+ }
  function renderScoutingBoard(){
   const board=q("scout-board");board.replaceChildren();
   const reports=window.BraveLeagueScouting.cristilloOpponents(data);
@@ -149,6 +221,10 @@
   for(const brief of reports){
    const card=el("article","scout-card");
    text(card,"strong","",brief.name);
+   if(upcomingFixtures[0]?.matched===brief.leagueName){
+    card.classList.add("next-fixture");
+    text(card,"small","","NEXT PUBLISHED HTO OPPONENT");
+   }
    text(card,"small","",brief.rec.gp+" GP · "+record(brief.rec)+
     " · "+brief.rec.gf+" GF / "+brief.rec.ga+" GA");
    text(card,"small","",Number.isFinite(brief.context)?
@@ -374,7 +450,7 @@
    q("sort-field").addEventListener("change",table);
    q("team-filter").addEventListener("change",event=>choose(event.target.value));
    q("copy-scout-brief").addEventListener("click",copyScoutingBrief);
-   table();profile();
+   table();profile();loadUpcomingFixtures();
   }catch(e){
    q("source-status").textContent="SOURCE HELD: "+e.message+". Historical identities or strength figures were not guessed.";
    q("source-status").style.color="#ffa6af";
