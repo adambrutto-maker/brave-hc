@@ -8,6 +8,11 @@ import json,argparse,sys
 class ReleaseHold(ValueError):pass
 def need(cond,msg):
  if not cond:raise ReleaseHold(msg)
+def utc_stamp(value):
+ try:ts=datetime.fromisoformat(value.replace("Z","+00:00"))
+ except (TypeError,AttributeError,ValueError) as err:raise ReleaseHold("MOVEMENT_TIMESTAMP_INVALID") from err
+ need(ts.tzinfo is not None,"MOVEMENT_TIMESTAMP_WITHOUT_TIMEZONE")
+ return ts.astimezone(timezone.utc)
 def verify(data,accepted=None,fresh=False,now=None):
  now=now or datetime.now(timezone.utc)
  need(data.get("schema")=="brave-hc-league-intelligence/public-v1" and
@@ -91,6 +96,49 @@ def verify(data,accepted=None,fresh=False,now=None):
        data.get("priorSeasonRosterContinuityQualifiedCount") and
       data.get("unverifiedZeroZeroScheduleSlots",0)>=0,
       "LEAGUE_TOTALS_OR_ROSTER_CONTINUITY_COUNT_DRIFT")
+ movement=data.get("movementLedger")
+ need(isinstance(movement,dict) and
+      movement.get("schema")=="brave-hc-svhl-division-movement-ledger/v1" and
+      movement.get("sourceScope")=="RECORDED_SVHL_TEAM_DIRECTORY_MEMBERSHIP_NOT_EFFECTIVE_DATES" and
+      movement.get("changeState")=="SOURCE_OBSERVATION_NOT_AN_OFFICIAL_RESCHEDULE_DATE",
+      "MOVEMENT_LEDGER_EVIDENCE_MISSING")
+ events=movement.get("events",[])
+ arrivals=movement.get("incomingCristilloReports",[])
+ archives=movement.get("previouslyTrackedTeams",[])
+ need(isinstance(events,list) and isinstance(arrivals,list) and isinstance(archives,list) and
+      len(events)==movement.get("eventsRecorded") and
+      len(arrivals)==movement.get("incomingCristilloEventsRecorded") and
+      len(archives)==movement.get("departedTeamProfilesRetained") and
+      len({e.get("eventId") for e in events})==len(events),
+      "MOVEMENT_HISTORY_COUNT_OR_ID_DUPLICATE")
+ valid_types={"OBSERVED_EXIT_FROM_CRISTILLO","OBSERVED_ENTRY_TO_CRISTILLO",
+              "OBSERVED_DIVISION_TRANSFER","ENTERED_CURRENT_LEAGUE_DIRECTORY",
+              "LEFT_CURRENT_LEAGUE_DIRECTORY"}
+ events_by_id={e["eventId"]:e for e in events}
+ for event in events:
+  need(event.get("eventType") in valid_types and
+       type(event.get("sourceTeamId")) is int and
+       isinstance(event.get("leagueName"),str) and
+       event.get("effectiveDateNotVerified") is True and
+       utc_stamp(event.get("lastObservedAt"))<=utc_stamp(event.get("firstObservedAt"))<=ts,
+       "UNVERIFIED_DIVISION_CHANGE_PROVENANCE")
+ for event in arrivals:
+  proof=events_by_id.get(event.get("eventId"))
+  need(proof and proof.get("toDivision")=="The Cristillo Division" and
+       event.get("sourceTeamId")==proof["sourceTeamId"] and
+       event.get("displayName") and
+       event.get("isPrediction") is False and
+       isinstance(event.get("opponentsFacedAtFirstDetection"),list) and
+       event.get("detectedBetween",{}).get("firstObservedAt")==proof["firstObservedAt"],
+       "INCOMING_TEAM_SCOUTING_NOT_SOURCE_QUALIFIED")
+ for item in archives:
+  need(type(item.get("sourceTeamId")) is int and
+       item.get("sourceTeamId") not in {t["sourceTeamId"] for t in teams} and
+       isinstance(item.get("completedGames"),list) and
+       item.get("recordLastSeen",{}).get("gp")==len(item["completedGames"]),
+       "DEPARTED_LEAGUE_TEAM_ARCHIVE_INVALID")
+ need(len({x["sourceTeamId"] for x in archives})==len(archives),
+      "DUPLICATED_DEPARTED_LEAGUE_TEAM")
  if accepted:
   acceptedTeams={x["name"]:x for x in accepted["teams"]}
   for name,source in acceptedTeams.items():

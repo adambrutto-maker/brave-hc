@@ -1,0 +1,46 @@
+{
+  "schema": "brave-hc-cristillo-membership-observation/v1",
+  "sourceScope": "ONLY_CRISTILLO_MEMBER_LIST_AT_RECORDED_CAPTURE",
+  "sourceCommit": "7ece75e",
+  "sourceFile": "widgets/standings.json",
+  "sourceLeagueId": 570,
+  "sourceDivision": "The Cristillo Division",
+  "observedAt": "2026-10-26T00:02:03.422Z",
+  "teams": [
+    {
+      "leagueName": "Mid Ice Crisis",
+      "officialSeasonTeamId": 13708
+    },
+    {
+      "leagueName": "Mohawks HC",
+      "officialSeasonTeamId": 13680
+    },
+    {
+      "leagueName": "Sugo Sundays",
+      "officialSeasonTeamId": 13709
+    },
+    {
+      "leagueName": "Other Way",
+      "officialSeasonTeamId": 13704
+    },
+    {
+      "leagueName": "Big Bastones",
+      "officialSeasonTeamId": 13649
+    },
+    {
+      "leagueName": "Zamboner Crew",
+      "officialSeasonTeamId": 13730
+    },
+    {
+      "leagueName": "Dateline Predators",
+      "officialSeasonTeamId": 13668
+    },
+    {
+      "leagueName": "Braves HC",
+      "officialSeasonTeamId": 13679
+    }
+  ],
+  "knownNotToContainCurrentMaplewolves": true,
+  "otherPriorDivisionMembershipKnown": false,
+  "originalStandingsDataRewritten": false
+}

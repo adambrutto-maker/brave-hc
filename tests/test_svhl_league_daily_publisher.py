@@ -1,5 +1,6 @@
 """Daily publisher safety: no silently vanished source-qualified SVHL result."""
 from copy import deepcopy
+from datetime import datetime,timedelta,timezone
 from pathlib import Path
 import importlib.util,json,unittest,sys
 ROOT=Path(__file__).resolve().parents[1]
@@ -45,4 +46,32 @@ class PublisherQA(unittest.TestCase):
   newer=deepcopy(doc);newer["leagueId"]=571
   with self.assertRaisesRegex(m.Hold,"LEAGUE_IDENTITY_RESET"):
    m.monotonic(doc,newer)
+ def test_immutable_movement_events_are_kept_after_daily_refresh(self):
+  prior=deepcopy(doc)
+  newer=deepcopy(doc)
+  newer["asOf"]=datetime.now(timezone.utc).isoformat()
+  self.assertTrue(m.monotonic(prior,newer))
+ def test_original_movement_event_cannot_be_erased(self):
+  prior=deepcopy(doc);newer=deepcopy(doc)
+  newer["movementLedger"]["events"]=newer["movementLedger"]["events"][1:]
+  with self.assertRaisesRegex(m.Hold,"IMMUTABLE_LEAGUE_MOVEMENT_HISTORY_REGRESSED"):
+   m.monotonic(prior,newer)
+ def test_original_incoming_scouting_report_cannot_be_erased(self):
+  prior=deepcopy(doc);newer=deepcopy(doc)
+  newer["movementLedger"]["incomingCristilloReports"]=[]
+  with self.assertRaisesRegex(m.Hold,"IMMUTABLE_LEAGUE_MOVEMENT_HISTORY_REGRESSED"):
+   m.monotonic(prior,newer)
+ def test_departed_league_team_profile_cannot_be_erased(self):
+  from track_svhl_division_movements import enrich
+  baseline=json.loads((ROOT/"widgets"/"cristillo-membership-20261026-baseline.json").read_text(encoding="utf8"))
+  prior=deepcopy(doc);newer=deepcopy(doc)
+  newer["asOf"]=(datetime.fromisoformat(newer["asOf"].replace("Z","+00:00"))+timedelta(hours=1)).isoformat()
+  newer["teams"]=[x for x in newer["teams"] if x["leagueName"]!="Big Bastones"]
+  released=enrich(prior,newer,baseline)
+  self.assertEqual(len(released["movementLedger"]["previouslyTrackedTeams"]),1)
+  self.assertTrue(m.monotonic(prior,released))
+  removed=deepcopy(released)
+  removed["movementLedger"]["previouslyTrackedTeams"]=[]
+  with self.assertRaisesRegex(m.Hold,"IMMUTABLE_LEAGUE_MOVEMENT_HISTORY_REGRESSED"):
+   m.monotonic(released,removed)
 if __name__=="__main__":unittest.main(verbosity=2)
