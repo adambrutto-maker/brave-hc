@@ -1,0 +1,70 @@
+name: Brave H.C. verified HTO skater actuals hourly
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '41 * * * *'
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/refresh_verified_hto_player_actuals_hourly.py'
+      - 'tests/test_hourly_hto_player_actuals.py'
+      - '.github/workflows/brave-hto-player-actuals-hourly.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: brave-hc-hourly-public-hto-skater-source
+  cancel-in-progress: false
+
+jobs:
+  verify-and-publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 9
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 2
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install public HTO parser
+        run: python -m pip install 'requests==2.32.5' 'beautifulsoup4==4.14.2'
+      - name: Guard source parsing and no-publication cases
+        run: python -m unittest discover -s tests -p test_hourly_hto_player_actuals.py
+      - name: Refresh main without replacing parallel writer changes
+        run: git pull --ff-only origin main
+      - name: Independently validate official skater statistics against final scoreboards
+        run: |
+          python scripts/refresh_verified_hto_player_actuals_hourly.py \
+            --output widgets/player-actuals-hourly.json \
+            --receipt "${RUNNER_TEMP}/hto-hourly-validation.json"
+      - name: Upload check receipt even on held updates
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: brave-hto-hourly-source-${{ github.run_id }}
+          path: ${{ runner.temp }}/hto-hourly-validation.json
+          if-no-files-found: ignore
+          retention-days: 30
+      - name: Commit only a changed verified skater feed
+        shell: bash
+        run: |
+          set -euo pipefail
+          git add -- widgets/player-actuals-hourly.json
+          if git diff --cached --quiet; then
+            echo "No change in public HTO skater totals; no commit"
+            exit 0
+          fi
+          if [ "$(git diff --cached --name-only)" != "widgets/player-actuals-hourly.json" ]; then
+            echo "Unexpected path staged" >&2; exit 5
+          fi
+          git diff --cached --check
+          git config user.name 'Brave H.C. Verified HTO Public Feed'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Refresh verified Brave HC HTO skater actuals'
+          # Never force-push: if main advanced concurrently, next scheduled check retries.
+          git push origin HEAD:main

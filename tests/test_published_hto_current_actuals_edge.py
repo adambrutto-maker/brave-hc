@@ -18,6 +18,8 @@ class Handler(SimpleHTTPRequestHandler):
  def __init__(self,*a,**kw):super().__init__(*a,directory=str(R),**kw)
  def log_message(self,*a):pass
  def do_GET(self):
+  if self.path.split("?")[0]=="/widgets/player-actuals-hourly.json":
+   self.send_error(404);return
   if self.path.split("?")[0]=="/widgets/player-actuals.json":
    obj=old if state["kind"]=="old" else new
    if state["kind"]=="invalid":obj=copy.deepcopy(new);obj["status"]="UNVERIFIED_FROM_PREDICTED_AWARDS"
