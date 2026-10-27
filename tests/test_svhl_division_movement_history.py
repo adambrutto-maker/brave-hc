@@ -23,6 +23,7 @@ def current(previous,hours=1):
 class MovementHistoryQA(unittest.TestCase):
  def test_original_two_membership_changes_are_grounded(self):
   snapshot=base()
+  originalLedger=deepcopy(snapshot["movementLedger"])
   # The published feed may already be seeded; recompute from a plain source.
   snapshot.pop("movementLedger",None)
   doc=m.enrich(snapshot,snapshot,historical())
@@ -38,8 +39,16 @@ class MovementHistoryQA(unittest.TestCase):
   info=ledger["incomingCristilloReports"][0]
   self.assertEqual(info["leagueName"],"Maplewolves")
   self.assertTrue(info["fromDivisionUnknown"])
-  self.assertEqual(info["currentRecordAtFirstDetection"]["gp"],4)
-  self.assertEqual(len(info["opponentsFacedAtFirstDetection"]),4)
+  # Regenerating from the LATEST source is not the original detection:
+  # compare against the updated official source, not an obsolete 4-game
+  # constant. The accepted append-only ledger below MUST still retain the
+  # original 4-game observation from October 26.
+  current_team=next(t for t in snapshot["teams"] if t["leagueName"]=="Maplewolves")
+  self.assertEqual(info["currentRecordAtFirstDetection"]["gp"],current_team["record"]["gp"])
+  self.assertEqual(len(info["opponentsFacedAtFirstDetection"]),len(current_team["completedGames"]))
+  accepted=originalLedger["incomingCristilloReports"][0]
+  self.assertEqual(accepted["currentRecordAtFirstDetection"]["gp"],4)
+  self.assertEqual(len(accepted["opponentsFacedAtFirstDetection"]),4)
   self.assertEqual(info["previousWinter"]["division"],"Maple Hyundai")
   self.assertEqual(info["bravesHistoryAtFirstDetection"]["bravesAllTime"]["gp"],10)
  def test_repeat_same_source_not_duplicate_events(self):

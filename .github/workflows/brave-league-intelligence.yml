@@ -7,6 +7,14 @@ on:
     paths:
       - 'widgets/league-intelligence.json'
       - 'widgets/league-intelligence.html'
+      - 'widgets/hockeyos-simple-view.js'
+      - 'widgets/hockeyos-decision-cards.js'
+      - 'widgets/hockeyos-decision-cards.css'
+      - 'tests/test_hockeyos_decision_cards.cjs'
+      - 'widgets/hockeyos-simple-view.css'
+      - 'tests/test_hockeyos_simple_view.cjs'
+      - 'tests/test_hockeyos_quick_actions.cjs'
+      - 'tests/test_hockeyos_deeplink_selection.cjs'
       - 'widgets/league-intelligence.js'
       - 'widgets/league-scouting.js'
       - 'tests/test_svhl_league_scouting.cjs'
@@ -31,8 +39,27 @@ on:
       - 'widgets/division-layout-optimizer.js'
       - 'widgets/division-lineup-refinement.js'
       - 'widgets/roster-strength-scouting.js'
+      - 'widgets/roster-era-strength.js'
+      - 'widgets/roster-era-view.js'
+      - 'widgets/roster-era-view.css'
+      - 'tests/test_roster_era_strength.cjs'
       - 'widgets/roster-division-evidence.js'
       - 'widgets/svhl-roster-intelligence.json'
+      - 'widgets/player-game-audit.html'
+      - 'widgets/player-game-audit.js'
+      - 'widgets/player-participation-evidence.js'
+      - 'widgets/svhl-penalty-source-coverage.json'
+      - 'scripts/audit_svhl_gameinfo_penalty_coverage.py'
+      - 'scripts/check_svhl_penalty_coverage.py'
+      - 'tests/test_player_participation_evidence.cjs'
+      - 'widgets/svhl-player-game-*.json'
+      - 'scripts/collect_svhl_player_game_events.py'
+      - 'scripts/build_svhl_player_game_reconciliation.py'
+      - 'scripts/split_svhl_player_game_evidence.py'
+      - 'scripts/check_svhl_player_game_evidence.py'
+      - 'tests/test_svhl_player_game_sources.py'
+      - 'tests/test_roster_source_time_boundary.py'
+      - 'tests/test_svhl_player_game_browser.cjs'
       - 'scripts/collect_svhl_roster_season_evidence.py'
       - 'scripts/check_svhl_roster_intelligence.py'
       - 'scripts/publish_svhl_roster_intelligence.py'
@@ -66,6 +93,14 @@ on:
     paths:
       - 'widgets/league-intelligence.json'
       - 'widgets/league-intelligence.html'
+      - 'widgets/hockeyos-simple-view.js'
+      - 'widgets/hockeyos-decision-cards.js'
+      - 'widgets/hockeyos-decision-cards.css'
+      - 'tests/test_hockeyos_decision_cards.cjs'
+      - 'widgets/hockeyos-simple-view.css'
+      - 'tests/test_hockeyos_simple_view.cjs'
+      - 'tests/test_hockeyos_quick_actions.cjs'
+      - 'tests/test_hockeyos_deeplink_selection.cjs'
       - 'widgets/league-intelligence.js'
       - 'widgets/league-scouting.js'
       - 'tests/test_svhl_league_scouting.cjs'
@@ -90,8 +125,27 @@ on:
       - 'widgets/division-layout-optimizer.js'
       - 'widgets/division-lineup-refinement.js'
       - 'widgets/roster-strength-scouting.js'
+      - 'widgets/roster-era-strength.js'
+      - 'widgets/roster-era-view.js'
+      - 'widgets/roster-era-view.css'
+      - 'tests/test_roster_era_strength.cjs'
       - 'widgets/roster-division-evidence.js'
       - 'widgets/svhl-roster-intelligence.json'
+      - 'widgets/player-game-audit.html'
+      - 'widgets/player-game-audit.js'
+      - 'widgets/player-participation-evidence.js'
+      - 'widgets/svhl-penalty-source-coverage.json'
+      - 'scripts/audit_svhl_gameinfo_penalty_coverage.py'
+      - 'scripts/check_svhl_penalty_coverage.py'
+      - 'tests/test_player_participation_evidence.cjs'
+      - 'widgets/svhl-player-game-*.json'
+      - 'scripts/collect_svhl_player_game_events.py'
+      - 'scripts/build_svhl_player_game_reconciliation.py'
+      - 'scripts/split_svhl_player_game_evidence.py'
+      - 'scripts/check_svhl_player_game_evidence.py'
+      - 'tests/test_svhl_player_game_sources.py'
+      - 'tests/test_roster_source_time_boundary.py'
+      - 'tests/test_svhl_player_game_browser.cjs'
       - 'scripts/collect_svhl_roster_season_evidence.py'
       - 'scripts/check_svhl_roster_intelligence.py'
       - 'scripts/publish_svhl_roster_intelligence.py'
@@ -153,6 +207,14 @@ jobs:
         run: python -m unittest discover -s tests -p test_svhl_schedule_adjusted_context.py
       - name: Verify append-only trend history, source changes and no invented points
         run: python -m unittest discover -s tests -p test_svhl_strength_trends.py
+      - name: Verify source-bound opponent snapshots, adult-only team browser and division tradeoffs
+        run: node tests/test_hockeyos_decision_cards.cjs
+      - name: Prevent cross-team deep-link/selector/scouting snapshot mismatch
+        run: node tests/test_hockeyos_deeplink_selection.cjs
+      - name: Guard accessible default game-day WhatsApp and matchup copy controls
+        run: node tests/test_hockeyos_quick_actions.cjs
+      - name: Guard essentials/full-data scouting UX and progressive disclosure
+        run: node tests/test_hockeyos_simple_view.cjs
       - name: Verify source-only scouting and WhatsApp briefs
         run: node tests/test_svhl_league_scouting.cjs
       - name: Guard source-proven upcoming scouting against the existing SVHL↔HTO feed
@@ -175,6 +237,8 @@ jobs:
         run: node tests/test_division_lineup_refinement.cjs
       - name: Independently verify public historical player ID and roster team source hashes
         run: python scripts/check_svhl_roster_intelligence.py
+      - name: Verify current-roster same-player-ID historical scoring and era context
+        run: node tests/test_roster_era_strength.cjs
       - name: Verify roster strength scouting, opponent identities and division context
         run: node tests/test_roster_strength_scouting.cjs
       - name: Guard supplemental roster construction across source-qualified division layouts
@@ -186,6 +250,16 @@ jobs:
           test -z "$(git -C "$RUNNER_TEMP/roster-clean-qa" status --porcelain)"
       - name: Fail closed on Git porcelain status and unauthorized roster publisher file changes
         run: python -B -m unittest discover -s tests -p test_roster_publisher_scope.py -v
+      - name: Validate score-matched official game sheets and player-ID reconciliations
+        run: python -B scripts/check_svhl_player_game_evidence.py
+      - name: Refuse invented GameInfo scorers, assists, source URLs and appearances
+        run: python -B -m unittest discover -s tests -p test_svhl_player_game_sources.py -v
+      - name: Guard source-stamped weekly roster age without equating separate daily captures
+        run: python -B -m unittest discover -s tests -p test_roster_source_time_boundary.py -v
+      - name: Verify sampled official GameInfo penalty tables without fake PIM or GP
+        run: python -B scripts/check_svhl_penalty_coverage.py
+      - name: Validate distinct score-linked attendance lower bound and reject forged records
+        run: node tests/test_player_participation_evidence.cjs
       - name: Detect stalled daily local collector
         if: github.event_name == 'schedule'
         run: python scripts/check_svhl_league_intelligence.py --fresh

@@ -738,6 +738,7 @@
   renderRosterScouting(x);
   q("profile-division").textContent=x.divisionNow+" · "+x.gamesConfirmed+" reciprocal completed fixtures";
   q("team-official-link").href=x.source;
+  q("game-audit-link").href="./player-game-audit.html?team="+encodeURIComponent(x.leagueName);
   const panel=q("profile-metrics");panel.replaceChildren();
   context(panel,"Current 2026/27",record(x.record)+" · "+x.record.gf+
           " GF / "+x.record.ga+" GA · "+pct(x.winPct)+" win percentage");
@@ -827,7 +828,7 @@
    q("copy-scout-brief").addEventListener("click",copyScoutingBrief);
    q("copy-roster-plan").addEventListener("click",copyRosterPlan);
    q("copy-division-review").addEventListener("click",copyDivisionReview);
-   table();profile();loadUpcoming();
+   choose(selected);loadUpcoming();
   }catch(e){
    q("source-status").textContent="SOURCE HELD: "+e.message+". Historical identities or strength figures were not guessed.";
    q("source-status").style.color="#ffa6af";

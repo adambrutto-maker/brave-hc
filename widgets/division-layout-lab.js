@@ -148,6 +148,7 @@
     const t=team.get(id);
     if(!t)continue;
     const row=make("div","team-row"),info=make("div");
+    row.dataset.sourceTeamId=String(id);
     add(info,"span","",t.name);
     add(info,"small","",t.divisionNow+" (current)");
     row.append(info);

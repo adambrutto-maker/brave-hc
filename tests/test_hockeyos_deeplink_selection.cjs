@@ -1,0 +1,15 @@
+"use strict";
+const assert=require("node:assert/strict"),fs=require("node:fs"),path=require("node:path");
+const root=path.resolve(__dirname,"../widgets");
+const source=fs.readFileSync(path.join(root,"league-intelligence.js"),"utf8");
+const html=fs.readFileSync(path.join(root,"league-intelligence.html"),"utf8");
+assert.match(source,/function choose\(name\)\{[^\n]*selected=name;q\("team-filter"\)\.value=name;table\(\);profile\(\)\}/);
+assert.match(source,/const name=new URLSearchParams\(location\.search\)\.get\("team"\)/);
+assert.match(source,/selected=window\.BraveAdultLeagueScope\.teams\(data\)/);
+assert.match(source,/choose\(selected\);loadUpcoming\(\);/);
+assert.doesNotMatch(source,/table\(\);profile\(\);loadUpcoming\(\);/);
+assert.match(html,/league-intelligence\.js\?v=20261027-team1/);
+assert.equal((html.match(/id="team-filter"/g)||[]).length,1);
+assert.equal((html.match(/id="profile-title"/g)||[]).length,1);
+assert.equal((html.match(/id="copy-scout-brief"/g)||[]).length,1);
+console.log("HOCKEYOS_DEEPLINK_SELECTION_SOURCE_CONTRACT_PASS");

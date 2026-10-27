@@ -27,21 +27,28 @@ const tests=[
   assert.equal(x.rosterCount,19);assert.equal(x.priorLinkedIds,11);
   assert.equal(x.experiencedCount,10);
   assert.equal(x.topTwoShare,.333);
-  assert.equal(x.strengthContextIndex,58.5);
-  assert.equal(x.divisionContextMean,47.4);
-  assert.equal(x.withinDivisionGap,11.1);
+  const team=l.teams.find(t=>t.leagueName==="Mid Ice Crisis");
+  const division=l.teams.filter(t=>t.divisionNow===team.divisionNow);
+  const average=Number((division.reduce((n,t)=>n+t.strengthContext.contextIndex,0)/
+     division.length).toFixed(1));
+  assert.equal(x.strengthContextIndex,team.strengthContext.contextIndex);
+  assert.equal(x.divisionContextMean,average);
+  assert.equal(x.withinDivisionGap,Number((x.strengthContextIndex-average).toFixed(1)));
   assert.equal(x.noCurrentGameDayAttendanceEvidence,true);
   assert.equal(x.noWinProbability,true);
  }],
  ["Cross-division observations are reciprocal and sample-cautioned rather than strength-equated",()=>{
   const b=model.bridge(l),groups=b.groups;
-  assert.equal(b.verifiedAdultGames,43);
-  assert.equal(b.verifiedCrossDivisionGames,16);
+  const leagueGames=require("../widgets/division-fit-model.js").analyze(l).gameGraph;
+  assert.equal(b.verifiedAdultGames,leagueGames.verifiedGamesInPool);
+  assert.equal(b.verifiedCrossDivisionGames,leagueGames.crossCurrentDivisionGames);
   assert.deepEqual(groups.map(x=>x.teams),[6,8,8]);
-  assert.deepEqual(groups.map(x=>[x.crossRecord.w,x.crossRecord.l,x.crossRecord.t]),
-    [[5,1,2],[1,7,0],[8,6,2]]);
+  assert.equal(groups.reduce((n,g)=>n+g.crossRecord.w,0),
+    groups.reduce((n,g)=>n+g.crossRecord.l,0),
+    "cross-division winners and losers reciprocally balance");
+  assert.equal(groups.reduce((n,g)=>n+g.crossDivisionGames,0),
+    2*b.verifiedCrossDivisionGames);
   assert.ok(b.note.includes("losing record"));
-  assert.equal(groups.reduce((n,g)=>n+g.crossDivisionGames,0),32);
  }],
  ["Current player production is a prioritized cue, not an attendance or position claim",()=>{
   const x=model.analyze(l,r,"Mid Ice Crisis");

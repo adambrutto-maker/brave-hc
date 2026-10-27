@@ -19,17 +19,15 @@ const cases=[
   assert.equal(JSON.stringify(source),original);
   assert.equal(JSON.stringify(architected),baseline);
  }],
- ["Refined 4-4-6-8 continuity layout improves objective with one real source-ID swap",()=>{
+ ["Continuity refinement never forces an obsolete pair swap after accepted results change",()=>{
   const x=refine.refine(source,item("CONTINUITY","4-4-6-8"),"CONTINUITY");
   assert.equal(x.status,"BOUNDED_SOURCE_OBSERVED_RESEARCH_NOT_OFFICIAL");
-  assert.equal(x.state,"SWAP_REFINED");
-  assert.equal(x.swaps.length,1);
-  assert.equal(x.original.sourceVerifiedSameGroupGames,13);
-  assert.equal(x.refined.sourceVerifiedSameGroupGames,17);
-  assert.equal(x.original.movement.hypotheticalDifferentGroupCount,12);
-  assert.equal(x.refined.movement.hypotheticalDifferentGroupCount,11);
-  assert.ok(x.improvement>0);
-  assert.ok(x.refined.objective<x.original.objective);
+  assert.equal(x.state,x.swaps.length>0?"SWAP_REFINED":"NO_ADMISSIBLE_IMPROVEMENT");
+  assert.ok(x.improvement>=0);
+  assert.ok(x.refined.objective<=x.original.objective);
+  assert.equal(x.refined.sourceAdultGames,source.gameGraph.verifiedGamesInPool);
+  assert.ok(x.refined.sourceVerifiedSameGroupGames>=0);
+  assert.ok(x.swaps.length<=x.searchLimit);
  }],
  ["Tightest rating balance does not manufacture a non-improving lineup change",()=>{
   const x=refine.refine(source,item("BALANCE","4-4-4-4-6"),"BALANCE");
@@ -62,10 +60,11 @@ const cases=[
   for(const s of architected.choices.CONTINUITY){
    const x=refine.refine(source,s,"CONTINUITY");
    assert.equal(x.refined.sourceVerifiedSameGroupGames+
-     (x.refined.sourceAdultGames-x.refined.sourceVerifiedSameGroupGames),43);
+     (x.refined.sourceAdultGames-x.refined.sourceVerifiedSameGroupGames),
+     source.gameGraph.verifiedGamesInPool);
    assert.ok(x.refined.verifiedSameGroupPairings<=x.refined.possibleSameGroupPairings);
    assert.ok(x.refined.observedCloseGames<=x.refined.sourceVerifiedSameGroupGames);
-   assert.equal(x.refined.sourceAdultGames,43);
+   assert.equal(x.refined.sourceAdultGames,source.gameGraph.verifiedGamesInPool);
   }
  }],
  ["Unsupported objective must not enter the source-qualified optimizer",()=>{

@@ -1,0 +1,84 @@
+/* Simple-by-default HockeyOS UI. Original data modules and DOM ids remain intact. */
+body.hockeyos-simplified{--os-focus:#f1cb94;--os-stroke:#45657c;--os-tile:#112b40;--os-quiet:#cfdeea}
+.hockeyos-simplified main{max-width:1200px}
+.os-topnav{position:relative;z-index:2;display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin:14px 0 18px;padding:10px;background:#10283b;border:1px solid var(--os-stroke);border-radius:14px}
+.os-views,.os-modes{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.os-views a{display:inline-flex;justify-content:center;align-items:center;min-height:43px;padding:8px 14px;border-radius:8px;text-decoration:none;font-weight:800;color:var(--os-quiet);border:1px solid transparent}
+.os-views a:hover{background:#22415a;color:white}
+.os-views a.current{background:#263c50;border-color:#dbad70;color:#fff}
+.os-mode{font:inherit;font-weight:800;min-height:42px;padding:9px 14px;background:transparent;color:#d5e1eb;border:1px solid #647d93;border-radius:8px}
+.os-mode:hover{background:#28455a}.os-mode[aria-pressed=true]{background:#d6b17e;color:#102538;border-color:#e9d2a6}
+.os-hero{border:1px solid #ab805b!important;background:linear-gradient(120deg,#19374c,#0b263b)!important;box-shadow:0 12px 40px #0002}
+.os-eyebrow{font-size:11px;letter-spacing:.12em;font-weight:900;color:#f1cb94}
+.os-hero h2{font-size:clamp(19px,3vw,25px);margin:5px 0 14px;color:#fff}
+.os-select-label{display:block;font-size:13px;font-weight:750;color:#e0eaf3;margin-bottom:6px}
+.os-quick-select{width:100%;max-width:550px;min-height:48px;font-size:16px;font-weight:700;padding:11px;border:1px solid #a7bcd0;background:#112a3f;color:white;border-radius:9px}
+.os-helper{color:var(--os-quiet);font-size:12px;line-height:1.55;margin:8px 0 14px}
+.os-data-vault{margin:17px 0;padding:0!important;background:transparent!important;border:1px solid #58728a!important;border-radius:12px!important}
+.os-data-vault>summary{display:block;position:relative;padding:17px 48px 17px 18px;font-size:16px;font-weight:850;color:white;cursor:pointer;background:#183247;border-radius:11px}
+.os-data-vault>summary::after,.os-disclosure:not(.os-data-vault)>summary::after{content:"+";position:absolute;right:18px;font-weight:900;font-size:22px;top:50%;transform:translateY(-50%);color:#f1cb94}
+.os-data-vault[open]>summary::after,.os-disclosure[open]>summary::after{content:"−"}
+.os-data-vault>summary::marker{content:""}.os-disclosure>summary::marker{content:""}
+.os-data-vault>.os-helper{margin:12px 16px}
+.os-data-jumps{display:flex;flex-wrap:wrap;gap:8px;padding:0 15px 8px}
+.os-data-jumps a{display:inline-flex;align-items:center;min-height:36px;padding:6px 11px;border:1px solid #5b7b91;border-radius:7px;background:#153a53;color:#ecf6fd;text-decoration:none;font-size:12px;font-weight:800}
+.os-data-jumps a:hover{background:#265a7a}
+.os-data-vault>section{margin:12px}
+.os-disclosure:not(.os-data-vault){display:block;margin:12px 0;padding:0!important;background:#0b2438;border:1px solid #476681!important;border-radius:10px}
+.os-disclosure:not(.os-data-vault)>summary{display:block;position:relative;padding:13px 47px 13px 15px;font-weight:800;font-size:14px;cursor:pointer;color:#f4f8fc;list-style:none}
+.os-disclosure:not(.os-data-vault)>.os-helper{padding:0 14px}
+.os-disclosure:not(.os-data-vault)[open]>:not(summary){margin-left:12px;margin-right:12px;margin-bottom:12px}
+.os-main-profile,.os-main-layout{border-color:#7090a5!important;box-shadow:0 6px 26px #0002}
+.os-main-profile .details h2{font-size:clamp(21px,3vw,27px)}
+.os-main-profile #profile-metrics{margin:14px 0}
+.os-main-profile #plain-opponent-summary{margin:10px 0 18px}
+.os-main-profile #roster-player-priorities{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.os-main-profile #roster-player-priorities .insights-card{padding:14px;min-width:0;background:#133048;border-color:#56758b}
+.os-main-profile #roster-player-priorities .insights-card>strong{font-size:17px}
+.os-main-profile #roster-player-priorities .insights-card p{line-height:1.55;margin:5px 0}
+.os-main-profile #roster-player-priorities .insights-card>a{display:inline-block;margin-top:3px}
+.os-main-profile #roster-player-priorities .os-matchup-control{background:#0c263a}
+.os-main-profile #roster-player-priorities .os-matchup-control select{max-width:100%;min-width:0;font-size:14px;min-height:42px}
+.os-main-profile #roster-player-priorities .os-matchup-control summary{font-size:13px}
+.os-main-profile #copy-roster-plan{min-height:44px;font-size:14px;margin-top:10px;background:#b3344c;border-color:#f49ba6}
+.os-main-profile h3{margin-top:16px}
+.os-main-profile #roster-scouting-status{font-size:11px;line-height:1.5}
+.os-main-layout>.layout-research-bar{align-items:end}
+.os-main-layout #layout-proposed-recommendation{font-size:15px;line-height:1.55;color:#ffe3b7;border-left:3px solid #d9b783;padding:13px 15px;background:#193549;border-radius:5px;font-weight:750}
+.os-main-layout .layout-grid{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+.os-main-layout .layout-option{min-height:112px;border-radius:10px}
+.os-main-layout #os-team-details>.division-grid{margin-top:12px}
+.os-main-layout #layout-design-focus{min-height:46px;font-size:15px}
+.os-main-layout #layout-caveat{margin:15px 0}
+.os-main-layout #layout-copy{min-height:44px}
+.hockeyos-simplified details summary:focus-visible,.hockeyos-simplified .os-quick-select:focus-visible,.hockeyos-simplified .os-mode:focus-visible,.hockeyos-simplified .os-views a:focus-visible{outline:3px solid #ffdca7;outline-offset:3px}
+.hockeyos-simplified .os-data-vault .scroll{scrollbar-color:#b7cad8 #172d43}
+.hockeyos-simplified .os-data-vault section{max-width:100%}
+@media(max-width:760px){
+ .os-topnav{margin:8px 0 13px;gap:10px;padding:8px}
+ .os-views,.os-modes{display:grid;grid-template-columns:1fr 1fr;width:100%}
+ .os-views a,.os-mode{font-size:13px;min-height:43px;padding:9px 5px;text-align:center}
+ .os-hero{padding:15px!important}
+ .hockeyos-simplified main h1{font-size:clamp(23px,6.3vw,29px);line-height:1.17}
+ .os-main-profile #roster-player-priorities{grid-template-columns:1fr}
+ .os-main-profile #profile-metrics{grid-template-columns:1fr}
+ .os-main-layout .layout-grid{grid-template-columns:1fr}
+ .os-data-vault>section{margin:8px}
+ .os-main-layout #layout-proposed-recommendation{font-size:14px}
+ .hockeyos-simplified .info{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .hockeyos-simplified .os-main-layout .metrics{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media print{
+ .os-topnav,.os-matchup-control,.os-hero{display:none!important}
+ .os-data-vault{display:block!important}
+ .os-main-profile,.os-main-layout{box-shadow:none}
+}
+.os-scout-actions{margin:16px 0 12px;padding:15px;background:#18384d;border:1px solid #64859a;border-radius:11px}
+.os-scout-actions .os-action-heading{display:block;color:#fff;font-size:15px;margin-bottom:10px}
+.os-action-buttons{display:flex;flex-wrap:wrap;gap:9px}
+.os-action-buttons button{min-height:45px;font-weight:850;font-size:14px;padding:10px 15px;border-radius:8px}
+.os-action-buttons .os-primary-action{background:#b53550;color:#fff;border:1px solid #ec8da0}
+.os-action-buttons .os-secondary-action{background:#24495f;color:#f6fbff;border:1px solid #9bb6c9}
+.os-action-buttons button:hover{filter:brightness(1.14)}
+.os-scout-actions .os-helper{margin:10px 0 7px}
+@media(max-width:500px){.os-action-buttons{display:grid;grid-template-columns:1fr}.os-action-buttons button{width:100%;min-height:48px}}

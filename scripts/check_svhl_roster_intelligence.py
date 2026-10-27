@@ -2,6 +2,7 @@
 from __future__ import annotations
 from argparse import ArgumentParser
 from pathlib import Path
+from datetime import datetime,timedelta,timezone
 from urllib.parse import urlparse,parse_qs
 import json,re,sys
 ADULT={"Fazzari Partners","The Cristillo Division","Remax Division"}
@@ -10,12 +11,30 @@ class RosterSourceHold(ValueError):pass
 def need(ok,why):
  if not ok:raise RosterSourceHold("PUBLIC_ROSTER_SOURCE_HOLD:"+why)
 def verify(league,doc):
+ # League results publish daily, official player rosters refresh weekly.
+ # Do not falsely demand identical capture timestamps from independent,
+ # source-stamped publishers. Require an actual dated roster source no older
+ # than 8 days and preserve exact source-player/team IDs and page hashes.
+ def when(raw):
+  try:
+   value=datetime.fromisoformat(str(raw).replace("Z","+00:00"))
+   need(value.tzinfo is not None,"NAIVE_SOURCE_CAPTURE_TIMESTAMP")
+   return value.astimezone(timezone.utc)
+  except RosterSourceHold:
+   raise
+  except (TypeError,ValueError) as err:
+   raise RosterSourceHold("PUBLIC_ROSTER_SOURCE_HOLD:SOURCE_CAPTURE_TIMESTAMP_INVALID") from err
+ current=when(league.get("asOf"))
+ source=when(doc.get("sourceLeagueAsOf"))
+ captured=when(doc.get("asOf"))
+ need(source<=current<=source+timedelta(days=8) and
+   source<=captured<=current+timedelta(hours=1),
+   "ROSTER_LEAGUE_SOURCE_STALE_OR_FUTURE")
  need(league.get("schema")=="brave-hc-league-intelligence/public-v1" and
   league.get("currentSourceDataConcordant") is True and
   doc.get("schema")=="brave-hc-public-svhl-roster-seasons/v1" and
   doc.get("status")=="SOURCE_LINKED_OFFICIAL_ROSTER_SEASON_OBSERVATIONS" and
   doc.get("sourceLeagueId")==570 and
-  doc.get("sourceLeagueAsOf")==league.get("asOf") and
   doc.get("identityBasis")=="EXACT_OFFICIAL_PLAYER_ID_PER_ROSTER_SEASON_NOT_NAMES" and
   doc.get("lineupAvailability")=="NOT_VERIFIED_BY_SEASON_ROSTER" and
   doc.get("statTreatment")=="PUBLISHED_COUNT_DATA_NOT_RECONCILED_TO_INDIVIDUAL_GAME_LOGS" and
