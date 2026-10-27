@@ -5,7 +5,7 @@
 <style>
 :root{color-scheme:dark;font-family:Segoe UI,Arial,sans-serif;background:#071829;color:#e8f1fb}
 *{box-sizing:border-box}body{margin:0}main{max-width:880px;padding:12px;margin:auto}
-.shell{background:#0c233a;border:1px solid #3a5875;border-radius:12px;overflow:hidden}.embed-mode main{padding:0}.embed-mode .shell{border:0;border-radius:0}.embed-mode header{padding:10px 14px}.embed-mode header .brand,.embed-mode header>.controls{display:none}.embed-mode header:before{content:'PLAYER BIO · STATS & DEVELOPMENT';font-size:11px;font-weight:800;letter-spacing:1px;color:#e3be7e;display:block}.embed-mode .notice{padding:7px 14px}
+.shell{background:#0c233a;border:1px solid #3a5875;border-radius:12px;overflow:hidden}.embed-mode main{padding:0}.embed-mode .shell{border:0;border-radius:0}.embed-mode header{padding:10px 14px}.embed-mode header>.controls{display:none}.embed-mode header img,.embed-mode .kicker{display:none}.embed-mode h1{font-size:1.1rem}.embed-mode header:before{margin-bottom:6px}.embed-mode header:before{content:'PLAYER BIO · STATS & DEVELOPMENT';font-size:11px;font-weight:800;letter-spacing:1px;color:#e3be7e;display:block}.embed-mode .notice{padding:7px 14px}
 .stripe{height:5px;background:linear-gradient(90deg,#b32342,#e04d60,#e3bd7e)}
 header{padding:16px 20px;background:#102b43}header .brand{display:flex;align-items:center;gap:12px}
 header img{width:52px;height:52px;object-fit:contain}.kicker{font-size:.7rem;color:#e7bc7e;letter-spacing:1.4px;font-weight:800}
@@ -30,6 +30,7 @@ th:first-child,td:first-child{text-align:left}th{position:sticky;top:0;backgroun
 select{min-width:210px;max-width:100%;background:#193b57;border:1px solid #6c8fa9;border-radius:7px;padding:8px;color:#eef7ff;font:inherit;font-size:.84rem}
 a{color:#e6c083}footer{padding:13px 20px;font-size:.75rem;color:#adc5d9}
 @media(max-width:650px){.bio-chart-grid{grid-template-columns:minmax(0,1fr)}.bio-chart-help{min-height:0}}@media(max-width:400px){main{padding:4px}.shell{border-radius:0}header,section{padding:13px 12px}.notice{padding:9px 12px}.grid{gap:5px}.stat{padding:9px 2px}.stlab{font-size:.62rem}.table-scroll{margin:0 -3px}header img{width:43px;height:43px}}
+#profileNav{display:flex;flex-wrap:wrap;gap:7px;padding:12px 14px;border-bottom:1px solid #38536d}#profileNav a,.retry{min-height:44px;padding:11px 13px;border:1px solid #688ca8;border-radius:8px;background:#183b56;color:#f5dcad;font-size:.85rem;text-decoration:none}.retry{margin:12px;cursor:pointer}a:focus-visible,button:focus-visible,select:focus-visible{outline:3px solid #f5d18d;outline-offset:3px}section{scroll-margin-top:10px}.system-cues{padding-left:20px;font-size:.85rem;line-height:1.6}.system-cues li{margin:7px 0}.entry .date{font-size:.7rem}.notice:empty{display:none}.bio-fold>summary{min-height:44px}#sourceSection p{font-size:.8rem}#playerName a{text-decoration:none} @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
 [hidden]{display:none!important}
 </style>
 <script defer src="./player-links.js"></script>
@@ -37,28 +38,35 @@ a{color:#e6c083}footer{padding:13px 20px;font-size:.75rem;color:#adc5d9}
 <script defer src="./player-bio.js"></script></head>
 <body><main><article class="shell"><div class="stripe"></div>
 <header><div class="brand"><img src="./brave_hc_logo.png" alt="Brave H.C. crest">
-<div><div class="kicker">BRAVE H.C. · PLAYER PROFILE</div><h1 id="playerName">Player Bio</h1>
-<div id="playerMeta" class="subtitle">Career · Leadership · Analysis · Development</div></div></div>
+<div><div class="kicker">BRAVE H.C. · PLAYER PROFILE</div><h1 id="playerName" data-brave-no-link>Player Bio</h1>
+<div id="playerMeta" class="subtitle">Season · Career · Leadership</div></div></div>
 <div class="controls"><label for="playerChoice">Player preview</label>
 <select id="playerChoice" aria-label="Preview verified player"><option value="">Select player</option></select></div></header>
-<div class="notice">OFFICIAL HTO STATISTICS · Current and historical snapshots may have different dates</div>
+<div id="loadState" class="notice" role="status" aria-live="polite">Loading player profile…</div>
+<button id="retryLoad" class="retry" type="button" hidden>Try again</button>
+<nav id="profileNav" aria-label="Player profile sections" hidden>
+<a href="#currentSection">Season</a><a href="#careerSection">Career</a><a href="#chartsSection">Charts</a><a href="#leadershipSection">Leadership</a><a href="#systemSection">Team system</a>
+</nav><div id="profileContent" hidden>
 <section id="currentSection" hidden><h2>Current Season · Winter 2026/27</h2><div id="currentCards" class="grid"></div>
 <div id="currentDate" class="date"></div></section>
 <section id="gameTrendsSection"><details id="gameChartsDetails" class="bio-fold" open><summary>Game-by-Game Performance · Winter 2026/27</summary>
 <p id="gameSource" class="date">Game charts require a separate, source-reconciled player-by-game feed.</p>
 <div id="gameCharts" class="bio-chart-grid" aria-live="polite"><p class="muted">Choose a player to see verified game trends.</p></div>
 <p class="date" id="gameNote">A recorded appearance with zero points differs from a game with no HTO player appearance row. Unrecorded games are never assigned zero points.</p></details></section>
-<section><h2>Career Statistics</h2><div id="roleControls" class="controls" hidden><label for="roleChoice">Recorded role</label><select id="roleChoice"></select></div><div id="careerCards" class="grid"></div>
+<section id="careerSection"><h2>Career Statistics</h2><div id="roleControls" class="controls" hidden><label for="roleChoice">Recorded role</label><select id="roleChoice"></select></div><div id="careerCards" class="grid"></div>
 <p class="date" id="careerDate"></p><div class="report" id="careerNote">Choose a player to see published career statistics.</div></section>
-<section><h2>Statistical Analysis</h2><div id="analysis" class="report muted">Descriptive, source-qualified insights will appear here.</div></section>
-<section id="chartsSection"><details id="seasonChartsDetails" class="bio-fold"><summary>Career Trends · Season-by-season charts</summary><div class="controls"><label for="chartSeasonFilter">Season filter</label><select id="chartSeasonFilter" aria-label="Select seasons to graph"><option value="all">All recorded seasons</option><option value="winter">Winter seasons</option><option value="summer">Summer seasons</option></select></div><p class="date" id="chartSource">Career archive charts use only historical season rows; they are not updated with the separate five-game feed.</p><div id="careerCharts" class="bio-chart-grid" aria-live="polite"><p class="muted">Choose a player to view performance trends.</p></div><p class="date">Hover or focus a chart point for its season and exact value. Historical season rows may omit fields; missing values are not zero. The separate game charts above use a specifically audited five-game source, not an updated career archive.</p></details></section>
+<section id="analysisSection"><h2>At a glance</h2><div id="analysis" class="report muted">Descriptive, source-qualified insights will appear here.</div></section>
+<section id="chartsSection"><details id="seasonChartsDetails" class="bio-fold"><summary>Career Trends · Season-by-season charts</summary><div class="controls"><label for="chartSeasonFilter">Season filter</label><select id="chartSeasonFilter" aria-label="Select seasons to graph"><option value="all">All recorded seasons</option><option value="winter">Winter seasons</option><option value="summer">Summer seasons</option></select></div><p class="date" id="chartSource">Career archive charts use only historical season rows; they are not updated with the separate five-game feed.</p><div id="careerCharts" class="bio-chart-grid" aria-live="polite"><p class="muted">Choose a player to view performance trends.</p></div><p class="date">Tap a chart point or use its season selector for exact values. Missing values are not zero. These charts use the dated career archive.</p></details></section>
 <section><details id="seasonTableDetails" class="bio-fold"><summary>Season-by-Season Performance · Full table</summary><div class="table-scroll"><table>
 <thead><tr><th>Season</th><th>GP</th><th id="c1">G</th><th id="c2">A</th><th id="c3">PTS</th></tr></thead>
 <tbody id="seasons"><tr><td colspan="5">Select a player</td></tr></tbody></table></div></details></section>
-<section><h2>Leadership & Team Service</h2><div id="leadership"><p class="muted">Historical tenure records, where available.</p></div></section>
-<section><h2>System & Player Development</h2><div class="report">
+<section id="leadershipSection"><h2>Leadership & Team Service</h2><div id="leadership"><p class="muted">Historical tenure records, where available.</p></div></section>
+<section id="systemSection"><h2>Team system</h2><div class="report">
 <h3>Braves team system · 1-2-2</h3><p>Protect the middle. Force the puck carrier outside. Maintain coverage before attacking together after the turnover.</p>
-<p id="coachingState" class="muted">Individual coaching assignments and reviewed clips are private until access, evidence and approval are confirmed.</p></div></section>
-<footer><span id="sourceSummary">Source: official HTO player identity and archived statistical observations.</span>
+<ul class="system-cues"><li><strong>F1:</strong> Guide the puck carrier toward the boards.</li><li><strong>F2 and F3:</strong> Protect your lanes and close the middle.</li><li><strong>Defence:</strong> Keep the middle covered and support behind the forwards.</li></ul>
+<p class="date">General team framework. Game-night roles are set by the coach.</p><p id="coachingState" class="muted">Individual coaching assignments and reviewed clips are private until access, evidence and approval are confirmed.</p></div></section>
+<section id="sourceSection"><details class="bio-fold"><summary>About these numbers</summary>
+<p id="sourceDetail"></p><p>Career totals include all published HTO game types. The season snapshot and career archive may have different dates; they are never added together.</p><p>A missing value means unavailable, not zero. Games played do not measure ice time. Game-by-game charts will appear when a verified series is available.</p></details></section>
+</div><footer><span id="sourceSummary">Source: official HTO player identity and archived statistical observations.</span>
  <a id="officialLink" target="_blank" rel="noopener noreferrer" hidden>Official HTO profile</a></footer>
 </article></main></body></html>
