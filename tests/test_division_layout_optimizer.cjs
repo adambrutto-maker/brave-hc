@@ -11,9 +11,25 @@ const rules=[
   assert.deepEqual(patterns,["6-8-8","4-4-6-8","4-6-6-6","4-4-4-4-6"]);
   assert.ok(patterns.every(p=>p.split("-").map(Number).reduce((a,b)=>a+b,0)===22));
  }],
+ ["Every division has an EVEN team count, regardless of division count",()=>{
+   const m=optimizer.run(ref);
+   assert.equal(m.groupSizeParity,"EVEN_TEAMS_PER_DIVISION_REQUIRED");
+   assert.equal(m.teams.length,22);
+   assert.equal(new Set(m.teams.map(x=>x.sourceTeamId)).size,22);
+   for(const mode of optimizer.focuses)for(const candidate of m.choices[mode]){
+    assert.ok(candidate.divisionCount===candidate.groups.length);
+    assert.ok(candidate.groups.every(g=>g.capacity%2===0 && [4,6,8].includes(g.capacity)));
+    assert.equal(candidate.groups.reduce((n,g)=>n+g.ids.length,0),22);
+   }
+   assert.throws(()=>optimizer.patterns(21),/ODD_NUMBER_OF_TEAMS_CANNOT_FORM_EVEN_DIVISIONS/);
+   assert.throws(()=>optimizer.patterns(23),/ODD_NUMBER_OF_TEAMS_CANNOT_FORM_EVEN_DIVISIONS/);
+ }],
  ["All valid capacity orders are considered and every proposal partitions exactly 22 IDs",()=>{
   const m=optimizer.run(ref);
   assert.equal(m.exploredShapes,4);
+  assert.ok(m.teams.every(t=>Number.isInteger(t.sourceTeamId)&&t.name&&t.divisionNow));
+  assert.ok(m.choices.BALANCE.every(candidate=>
+      candidate.groups.every(g=>g.ids.every(id=>m.teams.some(t=>t.sourceTeamId===id)))));
   assert.deepEqual(m.layouts.map(x=>x.permutationsEvaluated),[3,12,4,5]);
   for(const mode of optimizer.focuses)for(const proposed of m.choices[mode]){
    const ids=proposed.groups.flatMap(g=>g.ids);
