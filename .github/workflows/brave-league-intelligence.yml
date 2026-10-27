@@ -68,6 +68,9 @@ on:
       - 'scripts/triage_historical_43_schedule_holds.py'
       - 'scripts/triage_historical_43_near_date_candidates.py'
       - 'tests/test_historical_43_near_date_candidates.py'
+      - 'scripts/check_eng59_release_evidence.py'
+      - 'tests/test_eng59_release_evidence.py'
+      - 'docs/ENG59_Independent_Review_Handoff_20261027.md'
       - 'tests/test_historical_43_schedule_triage.py'
       - 'tests/test_svhl_raw_gameinfo_disposition_packet.py'
       - 'tests/test_svhl_roster_receipt_merge.py'
@@ -183,6 +186,9 @@ on:
       - 'scripts/triage_historical_43_schedule_holds.py'
       - 'scripts/triage_historical_43_near_date_candidates.py'
       - 'tests/test_historical_43_near_date_candidates.py'
+      - 'scripts/check_eng59_release_evidence.py'
+      - 'tests/test_eng59_release_evidence.py'
+      - 'docs/ENG59_Independent_Review_Handoff_20261027.md'
       - 'tests/test_historical_43_schedule_triage.py'
       - 'tests/test_svhl_raw_gameinfo_disposition_packet.py'
       - 'tests/test_svhl_roster_receipt_merge.py'
@@ -344,6 +350,10 @@ jobs:
         run: python -B -m unittest discover -s tests -p test_historical_43_schedule_triage.py -v
       - name: Guard historical 14-day lead identity, already-admitted H2H duplication and no-goal promotion
         run: python -B -m unittest discover -s tests -p test_historical_43_near_date_candidates.py -v
+      - name: Fail closed on all ENG59 release source hashes, historical holds and unapproved video/score promotion
+        run: python -B scripts/check_eng59_release_evidence.py
+      - name: Reject forged release boundary artifacts and false independent approval
+        run: python -B -m unittest discover -s tests -p test_eng59_release_evidence.py -v
       - name: Guard source-stamped weekly roster age without equating separate daily captures
         run: python -B -m unittest discover -s tests -p test_roster_source_time_boundary.py -v
       - name: Verify sampled official GameInfo penalty tables without fake PIM or GP
