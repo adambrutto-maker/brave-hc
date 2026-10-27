@@ -1,0 +1,103 @@
+{
+  "schema": "brave-hc-award-art/v1",
+  "sourceAuthority": "BRUTTECH_HOCKEYOS_OWNED_AWARD_LOGO_FILES",
+  "scope": "eight illustrated award winners; Hall of Fame Vote image excluded as misleading for induction",
+  "assets": [
+    {
+      "label": "Andrew Cristillo / Dedication",
+      "path": "assets/awards/cristillo-dedication.webp",
+      "sourceFile": "ChatGPT Image Jun 27, 2026, 01_47_14 PM.png",
+      "sourceSha256": "e8fbdcf9a6617cd651abc9df34e41b97e7bc459a22df8e6c94fcb039f22fb588",
+      "sha256": "296e0b2f2241b656d19c88443103382ec86e46cbaf98e28b657a648b13ab3032",
+      "bytes": 8174,
+      "pixels": [
+        200,
+        200
+      ]
+    },
+    {
+      "label": "Hart MVP",
+      "path": "assets/awards/hart-mvp.webp",
+      "sourceFile": "ChatGPT Image Jun 27, 2026, 01_56_48 PM.png",
+      "sourceSha256": "e184e3e91bb50605e75da9f4e838b2bddeb0b03fdf49fb0af9ec464d41cc4b4e",
+      "sha256": "51b159e130562dea1cf9e4fbd91f466456c3dd5fa2b49fcd70ff3dd5caf723f9",
+      "bytes": 13832,
+      "pixels": [
+        200,
+        200
+      ]
+    },
+    {
+      "label": "Conn Smythe",
+      "path": "assets/awards/conn-smythe.webp",
+      "sourceFile": "ChatGPT Image Jun 27, 2026, 01_59_01 PM.png",
+      "sourceSha256": "d1838465da1f49afef74344ee2cdb343d2f7172b26f758ab228a6d4c2cff7c84",
+      "sha256": "445b1298730c4b80ea5f63e4bbc851f52e0ba243ed722bae9cb437c5e0862b12",
+      "bytes": 16080,
+      "pixels": [
+        200,
+        200
+      ]
+    },
+    {
+      "label": "James Norris",
+      "path": "assets/awards/james-norris.webp",
+      "sourceFile": "ChatGPT Image Jun 27, 2026, 02_07_13 PM.png",
+      "sourceSha256": "fd4de67f63241316c8deca8b5b60baef21153cc82d4654d1b69f5ce46bd43c7c",
+      "sha256": "57ac42d48219d0f6b085438d307bffe8543082933928c228845edfda10a801fe",
+      "bytes": 15656,
+      "pixels": [
+        200,
+        200
+      ]
+    },
+    {
+      "label": "Lady Byng",
+      "path": "assets/awards/lady-byng.webp",
+      "sourceFile": "ChatGPT Image Jun 27, 2026, 02_09_20 PM.png",
+      "sourceSha256": "4df32ad8471a83a4b713fcfe5532b1a3f2161df7de3f5bd10ece1eba1b7da53f",
+      "sha256": "59468bad7ceff296ae6f4ec6365f459d0eb76dc506eca2e979978ab289049632",
+      "bytes": 15772,
+      "pixels": [
+        200,
+        200
+      ]
+    },
+    {
+      "label": "Rookie of the Year",
+      "path": "assets/awards/rookie-of-the-year.webp",
+      "sourceFile": "ChatGPT Image Jun 27, 2026, 02_22_52 PM.png",
+      "sourceSha256": "817dfbb2457c11cf627a07ec26f3ac7c1f5fa7cd9ef08d8d28d2f7c439b3ea56",
+      "sha256": "195182bf40ced1ebf2e1114e660a7f5d75229f459e578e65d4f90c02de2632c4",
+      "bytes": 14128,
+      "pixels": [
+        200,
+        200
+      ]
+    },
+    {
+      "label": "Most Improved Player",
+      "path": "assets/awards/most-improved.webp",
+      "sourceFile": "ChatGPT Image Jun 27, 2026, 02_31_51 PM.png",
+      "sourceSha256": "a0611585273d19d485bb81ed3879e2e60f5a70558a47cfc24b361b0e70b3068e",
+      "sha256": "4eeb57595afce383601acac6be3481578849476d37710fa915f7ba20f7b80c92",
+      "bytes": 14974,
+      "pixels": [
+        200,
+        200
+      ]
+    },
+    {
+      "label": "Rolaids Relief Man",
+      "path": "assets/awards/rolaids-relief.webp",
+      "sourceFile": "ChatGPT Image Jun 27, 2026, 02_38_34 PM.png",
+      "sourceSha256": "370e598d17a56a4da23022fedbabb547b75b3824a014379ead4a1593d6479a11",
+      "sha256": "02dca460d36b7649c220fc5b8c85ab53429223a83e4e36ff94f75e2e1d315c50",
+      "bytes": 15756,
+      "pixels": [
+        200,
+        200
+      ]
+    }
+  ]
+}
