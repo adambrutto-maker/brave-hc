@@ -15,6 +15,7 @@ from html.parser import HTMLParser
 from urllib.parse import urlsplit,unquote
 
 EXT={".html",".js",".css",".json",".png",".jpg",".jpeg",".webp",".svg",".gif",".ico"}
+TEXT={".html",".js",".css",".json",".svg"}
 MARK="ENG59_SCOPED_WEB_ASSET_PREVIEW_V1"
 class PreviewHold(ValueError):pass
 def need(ok,why):
@@ -24,6 +25,31 @@ def digest(path):
  with path.open("rb") as f:
   for block in iter(lambda:f.read(65536),b""):h.update(block)
  return h.hexdigest()
+def canonical_source(path):
+ """Use Git blob LF representation instead of checkout-specific CRLF text."""
+ raw=Path(path).read_bytes()
+ return raw.replace(b"\r\n",b"\n") if Path(path).suffix.lower() in TEXT else raw
+
+def git_stage(repo):
+ try:
+  algo=subprocess.check_output(["git","-C",str(repo),"rev-parse",
+    "--show-object-format"],text=True).strip()
+  need(algo in ("sha1","sha256"),"GIT_OBJECT_HASH_FORMAT_UNSUPPORTED")
+  raw=subprocess.check_output(["git","-C",str(repo),"ls-files","--stage","-z"])
+ except (OSError,subprocess.CalledProcessError) as e:
+  raise PreviewHold("GIT_INDEX_UNAVAILABLE") from e
+ entries={}
+ for item in raw.split(b"\0"):
+  if not item:continue
+  spec,name=item.split(b"\t",1)
+  mode,oid,stage=spec.decode("ascii").split()
+  if stage=="0":entries[name.decode("utf-8")]=(mode,oid)
+ return algo,entries
+
+def git_hash(data,algo):
+ record=b"blob "+str(len(data)).encode("ascii")+b"\0"+data
+ return hashlib.new(algo,record).hexdigest()
+
 def tracked(repo):
  return set(subprocess.check_output(["git","-C",str(repo),"ls-files","-z"]).decode("utf-8").rstrip("\0").split("\0"))
 def head(repo):
@@ -43,13 +69,21 @@ def index(repo,files=None):
     p.startswith("widgets/") and Path(p).suffix.lower() in EXT))
  need("index.html" in included,"HOME_REDIRECT_NOT_IN_PACKAGE")
  pathsData={}
+ algorithm,gitIndex=git_stage(repo)
  for rel in included:
   f=(repo/rel).resolve()
   need(f.is_relative_to(repo) and f.is_file() and not f.is_symlink(),
        "WEB_ASSET_MISSING_OR_SYMLINK:"+rel)
   need(not re.search(r"(?i)(?:PRIVATE|secret|password|token|credential|\.pem$|\.key$)",rel),
        "PRIVATE_NAMED_WEB_ASSET:"+rel)
-  pathsData[rel]={"sha256":digest(f),"bytes":f.stat().st_size}
+  data=canonical_source(f)
+  mode,gitOID=gitIndex.get(rel,(None,None))
+  need(mode=="100644" or mode=="100755",
+       "WEB_ASSET_NOT_REGULAR_SOURCE_FILE:"+rel)
+  need(git_hash(data,algorithm)==gitOID,
+       "WEB_SOURCE_DIFFERS_FROM_COMMITTED_GIT_BLOB:"+rel)
+  pathsData[rel]={"sha256":hashlib.sha256(data).hexdigest(),
+    "bytes":len(data),"gitBlob":gitOID}
  return included,pathsData,paths
 
 class References(HTMLParser):
@@ -101,7 +135,7 @@ def build(repo,output,check_only=False):
    for rel in inc:
     src=repo/rel;dest=stage/rel
     dest.parent.mkdir(parents=True,exist_ok=True)
-    shutil.copyfile(src,dest)
+    dest.write_bytes(canonical_source(src))
     need(digest(dest)==sources[rel]["sha256"],"COPY_SHA256_MISMATCH:"+rel)
    need(validate_html(stage,set(inc))==references,"COPIED_PACKAGE_HTML_REFERENCES_CHANGED")
    os.replace(stage,output)
@@ -114,6 +148,7 @@ def build(repo,output,check_only=False):
   "status":"PRIVATE_SCOPED_PREVIEW_VALIDATED_NOT_PRODUCTION_OR_PRIVACY_APPROVED",
   "sourceGitHead":srcHash,
   "rootPagesWorkflowChanged":False,
+  "canonicalGitBlobBytes":True,
   "previewFiles":len(inc),
   "previewBytes":sum(x["bytes"] for x in sources.values()),
   "validatedHTMLReferences":references,

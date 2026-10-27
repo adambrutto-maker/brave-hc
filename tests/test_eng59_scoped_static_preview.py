@@ -7,7 +7,7 @@ from pathlib import Path
 import tempfile,sys,unittest,json
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/"scripts"))
-from build_eng59_scoped_static_preview import index,build,validate_html,PreviewHold
+from build_eng59_scoped_static_preview import index,build,validate_html,PreviewHold,canonical_source,git_stage,git_hash
 class ScopedPreviewTests(unittest.TestCase):
  def test_real_website_minimal_scoped_preview_without_nonweb_files(self):
   allowed,source,tracked=index(ROOT)
@@ -22,6 +22,15 @@ class ScopedPreviewTests(unittest.TestCase):
   self.assertEqual(set(source),set(allowed))
   self.assertGreaterEqual(validate_html(ROOT,set(allowed)),100)
   self.assertGreater(len(allowed),100)
+ def test_text_line_ending_conversion_does_not_change_git_blob_identity(self):
+  algorithm,entries=git_stage(ROOT)
+  for name in ("index.html","widgets/analytics.html",
+      "widgets/league-intelligence.json","widgets/svhl-official-game-id-bridges.json"):
+   data=canonical_source(ROOT/name)
+   self.assertEqual(git_hash(data,algorithm),entries[name][1])
+   mutated=data.replace(b"\\n",b"\\r\\n")
+   self.assertEqual(git_hash(mutated.replace(b"\\r\\n",b"\\n"),algorithm),entries[name][1])
+   self.assertNotEqual(git_hash(data+b"CHANGED",algorithm),entries[name][1])
  def test_check_only_never_creates_any_output(self):
   with tempfile.TemporaryDirectory() as d:
    output=Path(d)/"private_preview"
@@ -40,7 +49,7 @@ class ScopedPreviewTests(unittest.TestCase):
     ("docs","scripts","archive","snapshots",".github","widgets/README.md")))
    self.assertTrue((output/"index.html").is_file())
    self.assertEqual(validate_html(output,included),result["validatedHTMLReferences"])
-   for rel in included:self.assertEqual((output/rel).read_bytes(),(ROOT/rel).read_bytes())
+   for rel in included:self.assertEqual((output/rel).read_bytes(),canonical_source(ROOT/rel))
  def test_output_already_exists_never_overwrites(self):
   with tempfile.TemporaryDirectory() as d:
    out=Path(d)/"private_preview"
