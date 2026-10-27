@@ -42,7 +42,7 @@ footer{margin-top:25px;color:var(--muted);font-size:11px}
  <div id="cross-division-links" class="connect-grid"></div></section>
 <section aria-labelledby="layout-title">
  <div class="row"><div><div class="kicker">Flexible division design · 4, 6 or 8 teams</div><h2 id="layout-title">HockeyOS provisional division proposals</h2></div><span class="research-only">UNAPPROVED RESEARCH</span></div>
- <p class="small"><strong>Every proposed division must contain an even number of teams.</strong> The permitted sizes are 4, 6 and 8. You can add divisions or change their sizes, but no division can contain 3, 5, 7 or any other odd team count. The displayed proposal is for research, not an official league assignment.</p>
+ <p class="small"><strong>If the total number of teams is even, every division must be even-sized (4, 6 or 8 teams). If the league has an odd total, exactly one division must have an odd team count (5 or 7), and all remaining divisions stay even-sized.</strong> This keeps every source team accounted for. Proposed layouts are internal research, not official league assignments.</p>
  <div class="layout-research-bar"><label for="layout-design-focus">What matters most?
    <select id="layout-design-focus" aria-label="Division optimization priority"><option>Checking verified model…</option></select>
  </label><span id="layout-design-status" class="label">Analysing size combinations…</span></div>
@@ -52,6 +52,14 @@ footer{margin-top:25px;color:var(--muted);font-size:11px}
  <p id="layout-proposal-comparison" class="layout-outcome"></p>
  <div id="layout-proposal-groups" class="division-grid"></div>
  <p id="layout-caveat" class="layout-warning"></p>
+ <details id="layout-total-planning">
+   <summary>Plan for a different total: what if there are 21 or 23 clubs?</summary>
+   <p class="small">The accepted adult Sunday league currently has 22 clubs. Try 21 or 23 to compare legal capacity combinations only. No hypothetical team is added or removed from any source record, and these previews do not assign named clubs.</p>
+   <label for="layout-total-preview" class="small">Total adult Sunday teams</label>
+   <select id="layout-total-preview" aria-label="Hypothetical total number of adult Sunday teams"></select>
+   <p id="layout-total-preview-status" role="status" class="small"></p>
+   <div id="layout-total-patterns" class="week-list" aria-label="Legal division size combinations for hypothetical total"></div>
+ </details>
  <button id="layout-copy" type="button">Copy proposed division layout</button>
  <p id="layout-copy-result" class="small" role="status" aria-live="polite"></p>
 </section>
@@ -88,12 +96,12 @@ footer{margin-top:25px;color:var(--muted);font-size:11px}
  <button id="copy-research" type="button">Copy research note</button> <button id="print-research" type="button">Print research view</button>
  <p id="copy-feedback" class="small" role="status" aria-live="polite"></p>
  <details><summary>Methodology, source boundaries and exclusions</summary>
- <p class="small">The current season index uses verified reciprocal games, smoothed goal and W/L/T performance, schedule difficulty and independently qualified prior-winter results where supported. It is not a calibrated ranking or win probability. Alternative grouping layouts are read-only arithmetic exercises; no division changes are made. Other leagues and placeholder categories are outside this adult Sunday division comparison. Historical Brave H.C. game matches prove opponents and scores in a specific season, not roster continuity in 2026. No same-named older team is automatically credited with current strength. Four-, six- and eight-team division groupings are compared using source ratings and transparent operational penalties; more divisions require ice-time, opponent variety, roster and league scheduling review. Four accepted weeks, at least ten games for 75% of the adult pool and independent cross-division fixtures are minimum evidence thresholds; none substitutes for human review.</p>
+ <p class="small">The current season index uses verified reciprocal games, smoothed goal and W/L/T performance, schedule difficulty and independently qualified prior-winter results where supported. It is not a calibrated ranking or win probability. Alternative grouping layouts are read-only arithmetic exercises; no division changes are made. Other leagues and placeholder categories are outside this adult Sunday division comparison. Historical Brave H.C. game matches prove opponents and scores in a specific season, not roster continuity in 2026. No same-named older team is automatically credited with current strength. Four-, six- and eight-team groupings are compared for an even total. With an odd total, exactly one 5- or 7-team group may be introduced; all others must stay even. More divisions require ice-time, opponent variety, roster and league scheduling review. Four accepted weeks, at least ten games for 75% of the adult pool and independent cross-division fixtures are minimum evidence thresholds; none substitutes for human review.</p>
  </details>
 </section>
 <footer>Sources: <a href="https://leagues.sportsvillage.ca/Leagues.aspx?leagueid=570&amp;page_type=Adult&amp;sc=HOCKEY">Official Sunday Winter 2026/27 standings</a> · <a href="./league-intelligence.html">Verified HockeyOS League Intelligence</a>. Source and methodology are date-stamped in the copied report. No original HTO, Sports Village, goalie or Master Workbook records are modified.</footer>
 </main><script src="./adult-league-scope.js?v=20261026-adult1" defer></script><script src="./division-fit-model.js?v=20261026-adult1" defer></script>
 <script src="./weekly-strength-stability.js?v=20261026-weekly1" defer></script>
-<script src="./division-layout-optimizer.js?v=20261026-layout1" defer></script>
-<script src="./division-layout-lab.js?v=20261026-layout1" defer></script>
-<script src="./division-fit-lab.js?v=20261026-layout1" defer></script></body></html>
+<script src="./division-layout-optimizer.js?v=20261026-parity2" defer></script>
+<script src="./division-layout-lab.js?v=20261026-parity2" defer></script>
+<script src="./division-fit-lab.js?v=20261026-parity2" defer></script></body></html>
