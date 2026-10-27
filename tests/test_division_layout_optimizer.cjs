@@ -11,9 +11,12 @@ const rules=[
   assert.deepEqual(patterns,["6-8-8","4-4-6-8","4-6-6-6","4-4-4-4-6"]);
   assert.ok(patterns.every(p=>p.split("-").map(Number).reduce((a,b)=>a+b,0)===22));
  }],
- ["Every division has an EVEN team count, regardless of division count",()=>{
+ ["Even total uses only even divisions; odd total requires exactly one odd division",()=>{
    const m=optimizer.run(ref);
-   assert.equal(m.groupSizeParity,"EVEN_TEAMS_PER_DIVISION_REQUIRED");
+   assert.equal(m.groupSizeParity,"EVEN_TOTAL_ALL_EVEN_ODD_TOTAL_EXACTLY_ONE_ODD");
+   assert.equal(m.oddDivisionCountRequired,0);
+   assert.deepEqual(m.evenSizes,[4,6,8]);
+   assert.deepEqual(m.oddSizes,[5,7]);
    assert.equal(m.teams.length,22);
    assert.equal(new Set(m.teams.map(x=>x.sourceTeamId)).size,22);
    for(const mode of optimizer.focuses)for(const candidate of m.choices[mode]){
@@ -21,8 +24,16 @@ const rules=[
     assert.ok(candidate.groups.every(g=>g.capacity%2===0 && [4,6,8].includes(g.capacity)));
     assert.equal(candidate.groups.reduce((n,g)=>n+g.ids.length,0),22);
    }
-   assert.throws(()=>optimizer.patterns(21),/ODD_NUMBER_OF_TEAMS_CANNOT_FORM_EVEN_DIVISIONS/);
-   assert.throws(()=>optimizer.patterns(23),/ODD_NUMBER_OF_TEAMS_CANNOT_FORM_EVEN_DIVISIONS/);
+   for(const total of [21,23]){
+    const patterns=optimizer.patterns(total);
+    assert.ok(patterns.length>=3);
+    for(const sizes of patterns){
+     assert.equal(sizes.reduce((a,b)=>a+b,0),total);
+     assert.equal(sizes.filter(n=>n%2!==0).length,1);
+     assert.ok(sizes.filter(n=>n%2!==0).every(n=>n===5||n===7));
+     assert.ok(sizes.filter(n=>n%2===0).every(n=>[4,6,8].includes(n)));
+    }
+   }
  }],
  ["All valid capacity orders are considered and every proposal partitions exactly 22 IDs",()=>{
   const m=optimizer.run(ref);
@@ -105,7 +116,39 @@ const rules=[
  }],
  ["Unsupported capacity templates fail rather than quietly omit clubs",()=>{
   assert.throws(()=>optimizer.patterns(3),/INVALID_ADULT_POOL_SIZE/);
-  assert.throws(()=>optimizer.patterns(17),/ODD_NUMBER_OF_TEAMS_CANNOT_FORM_EVEN_DIVISIONS/);
+  assert.ok(optimizer.patterns(17).every(sizes=>
+    sizes.filter(n=>n%2!==0).length===1 && sizes.reduce((a,b)=>a+b,0)===17));
+ }],
+ ["A synthetic 21-team QA pool gets exactly one 5/7-team group without claiming any club was removed",()=>{
+  const draft=copy(ref),removed=draft.teams.pop();
+  draft.adultPoolTeamCount=draft.teams.length;
+  draft.gameGraph.verifiedMatches=draft.gameGraph.verifiedMatches.filter(g=>
+    !g.teamIds.includes(removed.sourceTeamId));
+  draft.gameGraph.verifiedGamesInPool=draft.gameGraph.verifiedMatches.length;
+  const model=optimizer.run(draft);
+  assert.equal(model.adultTeams,21);
+  assert.equal(model.oddDivisionCountRequired,1);
+  assert.equal(model.readyForLeagueSubmission,false);
+  assert.ok(model.choices.PRACTICAL.length>0);
+  for(const candidate of model.choices.BALANCE){
+   assert.equal(candidate.groups.filter(g=>g.capacity%2!==0).length,1);
+   assert.equal(candidate.groups.flatMap(g=>g.ids).length,21);
+   assert.equal(new Set(candidate.groups.flatMap(g=>g.ids)).size,21);
+  }
+  assert.equal(league.teams.length,27);
+ }],
+ ["A synthetic 23-team QA pool adds one nonpublic placeholder only in memory for parity testing",()=>{
+  const draft=copy(ref);
+  const virtual={...draft.teams[0],sourceTeamId:99990001,name:"SYNTHETIC QA ONLY",
+    leagueName:"SYNTHETIC QA ONLY",score:50,gp:0};
+  draft.teams.push(virtual);
+  draft.adultPoolTeamCount=23;
+  const model=optimizer.run(draft);
+  assert.equal(model.adultTeams,23);
+  assert.equal(model.oddDivisionCountRequired,1);
+  assert.ok(model.choices.CONTINUITY.every(c=>c.groups.filter(g=>g.capacity%2!==0).length===1));
+  assert.equal(model.sourceAdultGames,43);
+  assert.equal(league.teams.length,27);
  }],
  ["Repeat analysis is deterministic and writes no original league records",()=>{
   const before=JSON.stringify(league),old=JSON.stringify(history);
