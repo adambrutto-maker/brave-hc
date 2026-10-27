@@ -19,7 +19,7 @@
   metric(metrics,analysis.weekCount,"real weekly source observation(s)");
   q("source-note").textContent="Source observed "+
    new Date(analysis.sourceAsOf).toLocaleString("en-CA",{dateStyle:"medium",timeStyle:"short"})+
-   ". "+analysis.sourceGameCount+" league-wide completed reciprocal results. "+
+   ". "+analysis.gameGraph.verifiedGamesInPool+" adult-pool source-confirmed completed games. "+
    "Only Fazzari, Cristillo and Remax are represented. Other competitions are outside this report; source records are unchanged." ;
  }
  function connections(){
