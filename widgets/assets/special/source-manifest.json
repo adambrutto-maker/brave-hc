@@ -18,20 +18,33 @@
     {
       "file": "svhl-cup-champion.svg",
       "label": "SVHL Cup Champion",
-      "bytes": 5244,
-      "sha256": "8393ec2284b3279fa58a2b1a4ac2c121e3e560c78a12ba81acbd26c2e6fa6f1d"
+      "bytes": 3342,
+      "sha256": "e21b8d589d83cfb1965c1c199aaaf3ce16ab6600b2ba46b1c783a88389ffea15",
+      "pixels": [
+        200,
+        200
+      ]
     },
     {
       "file": "all-star-nomination.svg",
       "label": "All-Star Nomination",
-      "bytes": 1591,
-      "sha256": "c03f0cd267c6f5f081ee83981e96f540536fd5eedafefedda476882ab11ba10e"
+      "bytes": 2588,
+      "sha256": "77d4e74fd88229bf32ddd7a18898cbc7008d0ea4886ff4b87a97ebbeab7449f1",
+      "pixels": [
+        200,
+        200
+      ]
     },
     {
       "file": "all-star-selected.svg",
       "label": "All-Star Selected",
-      "bytes": 1586,
-      "sha256": "5e38a6521f5f1a7456448e5dfa3a97867ce495f6becf510ace8fd9d1f4a2a5a5"
+      "bytes": 2587,
+      "sha256": "cf5bbf177a3d38f3bde9e6d17dbccface2ced9415ab47cc9f87b0a4ba5e730c6",
+      "pixels": [
+        200,
+        200
+      ]
     }
-  ]
+  ],
+  "presentation": "White-ground original-award-matched 200px shield illustrations, 58px desktop/48px mobile."
 }

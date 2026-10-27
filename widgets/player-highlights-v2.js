@@ -61,7 +61,7 @@ const awardArtCatalog=[
  [/^Lady Byng Award for Sportsmanship\b/i,'lady-byng.webp','Lady Byng sportsmanship award'],
  [/^Rookie of the Year(?: Award)?\b/i,'rookie-of-the-year.webp','Rookie of the Year award'],
  [/^Most Improved Award\b/i,'most-improved.webp','Most Improved Player award'],
- [/^Rolaids Relief Man Award\b/i,'rolaids-relief.webp','Rolaids Relief Man award']
+ [/^Rolaids Relief(?: Man)? Award\b/i,'rolaids-relief.webp','Rolaids Relief Man award']
 ];
 function awardArtFor(item){
  if(item.category!=='award'&&!(item.category==='record'&&(item.includesAward===true||item.summaryCounts?.award>0)))return null;
@@ -71,15 +71,15 @@ function awardArtFor(item){
  return null;
 }
 // Club emblems are released only for verified HTO milestone ledger entries.
-const clubLevels={game:[50,100,200,300],point:[50,100,200,300],win:[50,100]};
+const clubLevels={game:[50,100,200,300,400,500,750,1000],point:[50,100,200,300,400,500,750,1000],win:[50,100,200,300,400,500]};
 function clubArtFor(item){
  if(item.category!=='milestone')return null;
  const source=String(item.sourceText||'').replace(/\u00a0/g,' ').trim();
- const match=/^(50|100|200|300) (Game|Point|Win) Club\b/i.exec(source);
+ const match=/^(50|100|200|300|400|500|750|1000) (Game|Point|Win) Club\b/i.exec(source);
  if(!match)return null;
  const count=Number(match[1]),type=match[2].toLowerCase();
  if(!clubLevels[type]?.includes(count))return null;
- return {file:'club-'+type+'-'+count+'.svg',kind:'milestone',
+ return {file:'club-'+type+'-'+count+'.svg',kind:'milestone',tier:count<100?'bronze':count<200?'silver':count<300?'gold':count<400?'platinum':count<750?'diamond':'legend',
          label:'Brave H.C. '+count+' '+match[2]+' Club'};
 }
 // The native HTO source is preserved verbatim; only the on-screen award label is renamed.
@@ -232,10 +232,12 @@ function renderLegacy(record,ledgerTime){
    if(art){
     const kind=art.kind;
     row.className+=' ph-with-'+kind+'-art';
+    if(kind==='milestone'&&art.tier)row.className+=' ph-tier-'+art.tier;
     icon.className+=' ph-'+kind+'-art';
+    if(kind==='award'&&art.file==='cristillo-dedication.webp')icon.className+=' ph-cristillo-black-patch';
     icon.replaceChildren();
     const img=document.createElement('img');
-    img.src=root+(kind==='milestone'?'assets/clubs/':kind==='special'?'assets/special/':kind==='heritage'?'assets/heritage/':'assets/awards/')+art.file;
+    img.src=root+(kind==='milestone'?'assets/clubs/':kind==='special'?'assets/special/':kind==='heritage'?'assets/heritage/':'assets/awards/')+art.file+(kind==='award'?'':'?v=bright-20261027');
     img.alt=art.label+' emblem';
     img.loading='lazy';
     img.decoding='async';

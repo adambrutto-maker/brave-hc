@@ -14,6 +14,8 @@ on:
       - 'widgets/assets/special/**'
       - 'widgets/assets/heritage/**'
       - 'scripts/build-player-heritage-art.py'
+      - 'scripts/brave_hc_light_icons.py'
+      - 'tests/test_patch_rolaids_and_tiers_edge.py'
       - 'scripts/test-player-highlights-v2.cjs'
       - 'scripts/build-player-award-art.py'
       - 'scripts/build-club-milestone-art.py'

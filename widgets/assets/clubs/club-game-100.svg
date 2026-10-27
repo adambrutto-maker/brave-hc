@@ -1,17 +1,25 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200">
-<title>Brave H.C. 100 Game Club</title>
-<defs>
- <linearGradient id="badge" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#183d58"/><stop offset="1" stop-color="#061727"/></linearGradient>
- <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f7e1a0"/><stop offset=".54" stop-color="#bb8840"/><stop offset="1" stop-color="#f8e5ad"/></linearGradient>
-</defs>
-<circle cx="100" cy="100" r="96" fill="#071b2b" stroke="#8b172b" stroke-width="7"/>
-<circle cx="100" cy="100" r="86" fill="url(#badge)" stroke="url(#gold)" stroke-width="5"/>
-<path d="M40 63 L100 37 L160 63 L153 136 Q133 162 100 174 Q67 162 47 136 Z" fill="#102f49" stroke="#a07c4c" stroke-width="1.8"/>
-<text x="100" y="60" fill="#f4deb1" font-size="13" font-family="Arial,sans-serif" font-weight="bold" letter-spacing="1.1" text-anchor="middle">BRAVE H.C.</text>
-<path d="M38 73 H162" stroke="#ad203c" stroke-width="5"/>
-<text x="100" y="128" text-anchor="middle" font-family="Arial,sans-serif" font-size="60" font-weight="900" fill="#ffffff">100</text>
-<text x="100" y="146" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" letter-spacing="2.3" font-weight="bold" fill="#eecb79">GAMES</text>
-<path d="M52 155 H148" stroke="#8b2336" stroke-width="3"/>
-<text x="100" y="168" text-anchor="middle" font-family="Arial,sans-serif" font-size="11" letter-spacing="3" font-weight="bold" fill="#f9ecce">CLUB</text>
-<circle cx="30" cy="100" r="3.3" fill="#f2d58f"/><circle cx="170" cy="100" r="3.3" fill="#f2d58f"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200"><title>Brave H.C. club game 100 icon</title><defs>
+<linearGradient id="silver" x1="0" x2="1"><stop stop-color="#637f99"/>
+ <stop offset=".24" stop-color="#f8ffff"/><stop offset=".53" stop-color="#9babbb"/>
+ <stop offset=".77" stop-color="#fff"/><stop offset="1" stop-color="#50677c"/></linearGradient>
+<linearGradient id="gold" x1="0" x2="1"><stop stop-color="#8a561f"/>
+ <stop offset=".28" stop-color="#ffe4a2"/><stop offset=".58" stop-color="#bd832d"/>
+ <stop offset=".83" stop-color="#ffebae"/><stop offset="1" stop-color="#805021"/></linearGradient>
+</defs><rect width="200" height="200" fill="#ffffff"/>
+<path d="M100 5 L180 31 L175 125 Q168 169 100 195 Q32 169 25 125 L20 31 Z"
+  fill="#0a2744" stroke="#071c35" stroke-width="3.5"/>
+<path d="M100 15 L169 39 L165 121 Q158 159 100 184 Q42 159 35 121 L31 39 Z"
+  fill="#ffffff" stroke="#bb2344" stroke-width="5"/>
+<path d="M35 40 L100 17 L165 40 L162 60 L38 60 Z" fill="#122f51"/>
+<text x="100" y="46" font-family="Arial,sans-serif" font-size="12.6"
+ font-weight="900" letter-spacing="1.4" text-anchor="middle" fill="#fff">BRAVE H.C.</text>
+<path d="M40 61 Q100 68 160 61" stroke="#dcac5f" stroke-width="3.5" fill="none"/><g fill="#d3a04c" stroke="#76502b" stroke-width="1">
+<ellipse cx="46" cy="90" rx="6" ry="13" transform="rotate(-27 46 90)"/>
+<ellipse cx="40" cy="109" rx="6" ry="13" transform="rotate(-10 40 109)"/>
+<ellipse cx="48" cy="127" rx="6" ry="12" transform="rotate(27 48 127)"/>
+<ellipse cx="154" cy="90" rx="6" ry="13" transform="rotate(27 154 90)"/>
+<ellipse cx="160" cy="109" rx="6" ry="13" transform="rotate(10 160 109)"/>
+<ellipse cx="152" cy="127" rx="6" ry="12" transform="rotate(-27 152 127)"/>
+</g>
+<path d="M48 139 Q29 114 49 78 M152 139 Q171 114 151 78"
+ stroke="#996123" stroke-width="3" fill="none"/><path d="M61 77 L139 77 L147 116 L100 147 L53 116 Z" fill="#123657" stroke="#8da8ba" stroke-width="5.050000000000001"/><path d="M63 82 H137" stroke="#f1f9fc" stroke-width="3.6"/><text x="100" y="128" text-anchor="middle" font-family="Arial,sans-serif" font-size="60" font-weight="900" fill="#f1f9fc" stroke="#071f3c" stroke-width="2.4" paint-order="stroke" letter-spacing=".3">100</text><path d="M58 145 Q100 153.25 142 145" fill="none" stroke="#8da8ba" stroke-width="2.8"/><path d="M32 147 Q100 157 168 147 L162 168 Q100 190 38 168 Z" fill="#a42040" stroke="#061d38" stroke-width="3"/><path d="M43 149 Q100 160 158 149" fill="none" stroke="#ffe0a0" stroke-width="2"/><text x="100" y="169" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" font-weight="900" fill="#fff" stroke="none" stroke-width="0" paint-order="stroke" letter-spacing=".3">GAMES</text></svg>
