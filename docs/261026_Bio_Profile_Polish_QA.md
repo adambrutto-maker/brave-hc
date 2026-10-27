@@ -50,3 +50,11 @@ The original player-link suite had 10 pass / 1 fail because it required an inlin
 The revised contract keeps direct linker checks on active pages and separately verifies both legacy redirect pages (`projection-v2.html` and `standings-v2.html`). It executes their JavaScript redirect, checks the HTML refresh and fallback anchor, requires the exact panel and full-view parameters, and confirms the canonical destination loads the shared linker. No production redirect code was changed and no route is excluded from coverage. `node tests/test_player_links.js`: 12 pass, 0 fail.
 
 The expanded Bio browser suite also passes after the career-shape validation change. Draft PR #110 remains unmerged; deployment remains blocked as explicitly requested by the user. A future authorized release must verify public HTO Bio and Highlights on representative skater, goalie, mixed-role, leadership, and missing-history profiles. Local browser verification is not a claim of public HTO verification.
+
+## Verified season refresh support
+
+Removed the five-game-only runtime restriction. Later verified Winter 2026/27 snapshots can now display their published game count and capture date without changing the historical career archive. Season rollover remains explicit: a different season is withheld rather than displayed beneath the current winter heading.
+
+Validation checks integer/nonnegative player statistics, appearance bounds, goals plus assists equals points, player count, duplicate resolved identities, and whole-source goals/assists/points totals. Unresolved names in the source are included in total reconciliation but never assigned to a guessed player profile. The current published source includes `Unknown, Johnny`; excluding that row from identity mapping is intentional.
+
+Browser fixtures cover a six-game snapshot with unchanged career totals, an additional unresolved player, duplicate rows, inconsistent points, fractional scoring, mismatched team totals, invalid capture dates, incorrect season, and mismatched player count. Invalid season feeds leave career and leadership available. The source JSON and publisher were not modified.

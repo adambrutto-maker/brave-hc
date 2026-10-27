@@ -25,6 +25,23 @@ const fetchJSON=async name=>{
  try{const r=await fetch("./"+name,{cache:"no-store",signal:controller.signal});if(!r.ok)throw Error(name+" unavailable");return await r.json();}
  finally{clearTimeout(timer);}
 };
+// Accept later verified snapshots of this season without mixing them into the career archive.
+function validSeason(feed){
+ if(feed?.schema!=="brave-hc-hto-player-actuals/v1"||feed.status!=="VERIFIED_HTO_CURRENT"||feed.season!=="W2026/27"||
+  !Number.isInteger(feed.teamGP)||feed.teamGP<1||typeof feed.asOf!=="string"||!Number.isFinite(Date.parse(feed.asOf))||
+  !Array.isArray(feed.players)||feed.playerCount!==feed.players.length)return false;
+ const ids=new Set(),totals={g:0,a:0,pts:0};
+ for(const row of feed.players){
+  if(!row||typeof row.name!=="string"||![row.gp,row.g,row.a,row.pts].every(n=>Number.isSafeInteger(n)&&n>=0)||
+   row.gp>feed.teamGP||row.g+row.a!==row.pts||(row.gp===0&&row.pts!==0))return false;
+  const url=window.BravePlayerLinks.profileUrl(row.name);
+  // Unresolved source names contribute to reconciliation but never map to a profile.
+  const id=url?new URL(url).searchParams.get("playerID"):"unmapped:"+row.name.trim().toLowerCase();
+  if(ids.has(id))return false;
+  ids.add(id);for(const key of Object.keys(totals))totals[key]+=row[key];
+ }
+ return totals.g===feed.teamGoals&&totals.g===feed.teamGF&&totals.a===feed.teamAssists&&totals.pts===feed.teamPlayerPoints;
+}
 let career,actuals,tenures,gameFeed=null,leadershipAvailable=false;
 try{
  const results=await Promise.allSettled([
@@ -42,7 +59,7 @@ try{
  };
  if(entries.length!==109||window.BravePlayerLinks?.knownPlayers!==109||!entries.every(validProfile))throw Error("Identity registry mismatch");
  const season=results[1].status==="fulfilled"?results[1].value:null;
- actuals=season?.schema==="brave-hc-hto-player-actuals/v1"&&season.status==="VERIFIED_HTO_CURRENT"&&season.teamGP===5&&Array.isArray(season.players)?season:null;
+ actuals=validSeason(season)?season:null;
  const candidate=results[2].status==="fulfilled"?results[2].value:null;
  leadershipAvailable=candidate?.schema==="brave-hc-bio-public-leadership/v1"&&candidate.status==="PUBLIC_BIO_SOURCE_AND_FOUNDER_CONFIRMED"&&Array.isArray(candidate.items)&&candidate.items.every(x=>x&&suffix(x.htoPlayerID)?.name===x.player&&typeof x.text==="string"&&x.status==="SOURCE_DOCUMENTED"&&["PUBLIC_HTO_BIO","FOUNDER_CONFIRMED"].includes(x.source))&&new Set(candidate.items.map(x=>x.htoPlayerID+":"+x.text)).size===candidate.items.length;
  tenures=leadershipAvailable?candidate:{items:[]};

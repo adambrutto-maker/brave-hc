@@ -75,6 +75,33 @@ const server=http.createServer((req,res)=>{
   assert.equal(await recovery.$eval('#retryLoad',e=>e.hidden),true);
   assert.equal(await recovery.locator('#currentCards .stat').count(),4);
   assert.equal(await recovery.textContent('#playerName'),'Justin Carosi');await recovery.close();
+  const later=structuredClone(actuals);later.teamGP=6;later.asOf='2026-11-02T12:00:00Z';
+  later.players.find(p=>p.name==='Carosi, Justin').gp=6;
+  const nextWeek=await pageFor('?playerID=354060&embed=1',{'player-actuals.json':later});
+  assert.match(await nextWeek.textContent('#currentDate'),/6 team games/);
+  assert.equal(await nextWeek.locator('#currentCards .num').first().textContent(),'6');
+  assert.equal(await nextWeek.locator('#careerCards .num').first().textContent(),String(career.players['354060'].segments[0].total.GP));
+  assert.equal(await nextWeek.$eval('#retryLoad',e=>e.hidden),true);await nextWeek.close();
+  // The published source contains Unknown, Johnny. It must never create a guessed profile.
+  const unresolved=structuredClone(actuals);unresolved.players.push({name:'Another Unverified Player',gp:1,g:0,a:0,pts:0});unresolved.playerCount++;
+  const safe=await pageFor('?playerID=354060&embed=1',{'player-actuals.json':unresolved});
+  assert.equal(await safe.locator('#currentCards .stat').count(),4);
+  assert.ok(!(await safe.locator('#playerChoice').textContent()).includes('Another Unverified Player'));await safe.close();
+  for(const defect of ['duplicate','point mismatch','fractional scoring','team mismatch','invalid date','wrong season','count mismatch']){
+   const feed=structuredClone(actuals);
+   if(defect==='duplicate'){feed.players.push({...feed.players[0]});feed.playerCount++;}
+   if(defect==='point mismatch')feed.players[0].pts++;
+   if(defect==='fractional scoring'){feed.players[0].g+=0.5;feed.players[0].pts+=0.5;}
+   if(defect==='team mismatch')feed.teamGoals++;
+   if(defect==='invalid date')feed.asOf='not a date';
+   if(defect==='wrong season')feed.season='W2027/28';
+   if(defect==='count mismatch')feed.playerCount++;
+   const held=await pageFor('?playerID=354054&embed=1',{'player-actuals.json':feed});
+   assert.match(await held.textContent('#loadState'),/temporarily unavailable/,defect);
+   assert.equal(await held.locator('#currentCards .stat').count(),0,defect);
+   assert.equal(await held.locator('#leadership .entry').count(),4,defect);
+   assert.equal(await held.$eval('#profileContent',e=>e.hidden),false,defect);await held.close();
+  }
   const badLeadership=structuredClone(leadership);badLeadership.items.push(null);const bl=await pageFor('?playerID=354054&embed=1',{'player-bio-leadership.json':badLeadership});assert.match(await bl.textContent('#leadership'),/temporarily unavailable/);await bl.close();
   const zero=structuredClone(actuals);zero.players.find(p=>/Carosi/.test(p.name)).gp=0;const zp=await pageFor('?playerID=354060&embed=1',{'player-actuals.json':zero});assert.ok(!/NaN|Infinity/.test(await zp.textContent('#analysis')));await zp.close();
   const charts=await pageFor('?playerID=354054');
@@ -83,6 +110,6 @@ const server=http.createServer((req,res)=>{
    return [...box.querySelectorAll('.bio-chart-card')].at(-1).querySelectorAll('[data-row-index]').length;
   });assert.equal(gaps,1,'Cumulative series cannot resume after missing data');await charts.close();
   assert.deepEqual(errors,[]);
-  console.log(JSON.stringify({status:'PASS',identities:results.length,responsiveWidths:[320,390,625,1280],leadershipEntries:leadership.items.length,cases:['all identities','all tenure rows','no overflow','chart navigation and filters','mixed roles and chooser reset','invalid/missing/noncanonical IDs','career failure','current failure','leadership failure','identity spoof','unknown career status','malformed career segments','retry recovery','malformed leadership','zero GP','cumulative gap'],pageErrors:errors},null,2));
+  console.log(JSON.stringify({status:'PASS',identities:results.length,responsiveWidths:[320,390,625,1280],leadershipEntries:leadership.items.length,cases:['all identities','all tenure rows','no overflow','chart navigation and filters','mixed roles and chooser reset','invalid/missing/noncanonical IDs','career failure','current failure','leadership failure','identity spoof','unknown career status','malformed career segments','retry recovery','six-game refresh without career merge','unresolved source identity','current-source reconciliation failures','malformed leadership','zero GP','cumulative gap'],pageErrors:errors},null,2));
  }finally{await browser.close();}
 })().catch(e=>{console.error(e);process.exitCode=1;}).finally(()=>server.close());
