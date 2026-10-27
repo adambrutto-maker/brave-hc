@@ -7,7 +7,9 @@ Status: LOCAL CANDIDATE — NOT DEPLOYED
 Replace generic AWD text badges in Brave H.C. player-profile Highlights rows with original HockeyOS award artwork when the verified native HTO record identifies an actual award winner.
 
 ## Provenance
-Original asset root: D:\BruTTech\Products\HockeyOS\App Source\BraveHC-Video-Agent\assets\Award Logos
+Legacy Hockey project source: `D:\Desktop\Hockey\BraveHC-Video-Agent\assets\Award Logos` (alongside the project's `input\Admin` folder containing the awards survey administration files).
+Current BruTTech product mirror: `D:\BruTTech\Products\HockeyOS\App Source\BraveHC-Video-Agent\assets\Award Logos`.
+On 2026-10-27, **all 9/9 source PNG files were confirmed SHA-256 identical** between the older Hockey project and current product mirror. Therefore, the existing PR #121 artwork was derived from the same original files; no image replacement or reclassification is needed. The user confirms these designs were also used for the Brave H.C. Google Forms award ballot; direct Google Forms media-file readback has not been performed. The `input\Admin\Awards` and `input\Admin\Player Ratings Analysis\Awards` folders contained no files at the time of this check.
 Eight of nine pre-existing PNG designs were optimized to 200 × 200 WebP files (114,372 bytes combined). The original PNGs remain untouched. Per-file original and optimized SHA-256 digests are in widgets/assets/awards/source-manifest.json. A standalone reproducible image conversion script is at scripts/build-player-award-art.py.
 
 Artwork mappings: Andrew Cristillo / historical Bill Masterton dedication, Hart MVP, Conn Smythe playoff MVP, James Norris top defenceman, Lady Byng sportsmanship, Rookie of the Year, Most Improved Player, and Rolaids Relief Man.
