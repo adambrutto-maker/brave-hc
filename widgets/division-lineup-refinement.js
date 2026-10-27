@@ -156,6 +156,7 @@
     notes:[
       "This is a deterministic bounded local swap search, NOT an exhaustive global optimization.",
       "Source matches enter only as retrospective pair-coverage; absent matchups are unknown rather than predicted losses.",
+      "No future games are simulated and no predicted winners or scores are generated.",
       "Teams retain verified source-team IDs and the original divisions stay unchanged outside this research view.",
       "Current adult source may contain only one accepted week; resulting lineups are provisional.",
       "The objective uses documented editorial penalties, not league-approved policy or calibrated win probabilities."
