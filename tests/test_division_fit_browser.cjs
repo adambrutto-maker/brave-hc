@@ -34,6 +34,12 @@ const srv=http.createServer((req,res)=>{
     over:document.body.scrollWidth-innerWidth
    }));
    assert.ok(first.status.includes("Preliminary research only"));
+   assert.ok(first.evidence.includes("27")&&first.evidence.includes("16"),
+     "current division comparison must show source-confirmed game coverage");
+   assert.ok(first.caveat.includes("actual historic schedules")&&
+     first.note.includes("adult-pool source-confirmed"),
+     "coverage must not imply simulated matchups or count other leagues");
+   assert.ok(!first.note.includes("VAHL"),"separate-league name must not enter adult research interface");
    assert.ok(first.metrics.includes("22")&&first.metrics.includes("43")&&first.metrics.includes("16"));
    assert.equal(first.scenarios,3);
    assert.ok(first.current.includes("Current divisions"));
@@ -53,8 +59,12 @@ const srv=http.createServer((req,res)=>{
    assert.ok(limited.chosen.includes("Two-pair swap test"));
    assert.ok(limited.info.includes("Research sandbox only"));
    assert.equal(limited.groups,3);assert.equal(limited.teamNames.length,22);
+   assert.ok((await page.$eval("#scenario-evidence",e=>e.textContent)).includes("16"),
+     "limited swap must disclose narrower source-matched game evidence");
    await page.click("#scenario-options button:nth-child(3)");
    assert.equal(await page.$$eval("#division-groups .team-row",nodes=>nodes.length),22);
+   assert.ok((await page.$eval("#scenario-evidence",e=>e.textContent)).includes("13"),
+     "score-band research is supported by only 13 previously observed games");
    await page.evaluate(()=>Object.defineProperty(navigator,"clipboard",{
     configurable:true,value:{writeText:async data=>{window.__researchNote=data}}
    }));
@@ -64,6 +74,9 @@ const srv=http.createServer((req,res)=>{
    assert.ok(copied.includes("INTERNAL RESEARCH — NOT A DIVISION REALIGNMENT RECOMMENDATION"));
    assert.ok(copied.includes("43")&&copied.includes("79")&&copied.includes("4 weekly")===false);
    assert.ok(copied.includes("proposalReady = FALSE"));
+   assert.ok(copied.includes("13 prior completed games")&&
+     copied.includes("CRITICAL: those games occurred under real schedules."),
+     "research copy must disclose incomplete retrospective pair coverage");
    assert.ok(!copied.includes("Approved by"));
    assert.deepEqual(errors,[]);
    results.push({width,status:"PASS",adultPool:22,verifiedGames:43,
