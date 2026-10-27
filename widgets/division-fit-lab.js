@@ -230,6 +230,8 @@
   const lines=[
    "BRAVE H.C. | HOCKEYOS DIVISION FIT RESEARCH",
    "INTERNAL RESEARCH — NOT A DIVISION REALIGNMENT RECOMMENDATION",
+   ...(window.BraveDivisionLayoutView?
+     [window.BraveDivisionLayoutView.researchText()]:[]),
    "Current source: "+analysis.sourceReferences.league,
    "Official league snapshot checked: "+analysis.sourceAsOf,
    "Scope: "+analysis.adultPoolTeamCount+" adult-pool teams in "+analysis.poolDivisions.join(", "),
@@ -295,6 +297,8 @@
    analysis=window.BraveDivisionFit.analyze(league,hist);
    if(!window.BraveWeeklyStability)throw Error("Weekly stability module not installed");
    stability=window.BraveWeeklyStability.analyze(league);
+   if(!window.BraveDivisionLayoutView)throw Error("Flexible division layout module missing");
+   window.BraveDivisionLayoutView.init(analysis);
    source();connections();renderScenario();renderStability();readiness();historical();
    q("notice").textContent=analysis.proposalReady?
      "Research source verified; proposal held for human review.":
