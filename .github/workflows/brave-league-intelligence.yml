@@ -53,6 +53,9 @@ on:
       - 'widgets/svhl-gameinfo-hold-review.json'
       - 'scripts/build_svhl_gameinfo_hold_review.py'
       - 'scripts/audit_svhl_held_gameinfo_live.py'
+      - 'scripts/audit_svhl_roster_exceptions.py'
+      - 'scripts/build_svhl_roster_source_owner_packet.py'
+      - 'tests/test_svhl_roster_source_owner_packet.py'
       - 'tests/test_svhl_gameinfo_hold_review.py'
       - 'tests/test_svhl_held_gameinfo_live.py'
       - 'widgets/player-participation-evidence.js'
@@ -149,6 +152,9 @@ on:
       - 'widgets/svhl-gameinfo-hold-review.json'
       - 'scripts/build_svhl_gameinfo_hold_review.py'
       - 'scripts/audit_svhl_held_gameinfo_live.py'
+      - 'scripts/audit_svhl_roster_exceptions.py'
+      - 'scripts/build_svhl_roster_source_owner_packet.py'
+      - 'tests/test_svhl_roster_source_owner_packet.py'
       - 'tests/test_svhl_gameinfo_hold_review.py'
       - 'tests/test_svhl_held_gameinfo_live.py'
       - 'widgets/player-participation-evidence.js'
@@ -286,6 +292,8 @@ jobs:
         run: python -B -m unittest discover -s tests -p test_svhl_gameinfo_hold_review.py -v
       - name: Verify replayed source classification without any network or player score changes
         run: python -B -m unittest discover -s tests -p test_svhl_held_gameinfo_live.py -v
+      - name: Guard source-owner roster review packets against unverified scorer identity and admission
+        run: python -B -m unittest discover -s tests -p test_svhl_roster_source_owner_packet.py -v
       - name: Guard source-stamped weekly roster age without equating separate daily captures
         run: python -B -m unittest discover -s tests -p test_roster_source_time_boundary.py -v
       - name: Verify sampled official GameInfo penalty tables without fake PIM or GP
