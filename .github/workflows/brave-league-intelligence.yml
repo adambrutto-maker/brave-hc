@@ -7,6 +7,9 @@ on:
     paths:
       - 'widgets/league-intelligence.json'
       - 'widgets/league-intelligence.html'
+      - 'widgets/hockeyos-simple-view.js'
+      - 'widgets/hockeyos-simple-view.css'
+      - 'tests/test_hockeyos_simple_view.cjs'
       - 'widgets/league-intelligence.js'
       - 'widgets/league-scouting.js'
       - 'tests/test_svhl_league_scouting.cjs'
@@ -66,6 +69,9 @@ on:
     paths:
       - 'widgets/league-intelligence.json'
       - 'widgets/league-intelligence.html'
+      - 'widgets/hockeyos-simple-view.js'
+      - 'widgets/hockeyos-simple-view.css'
+      - 'tests/test_hockeyos_simple_view.cjs'
       - 'widgets/league-intelligence.js'
       - 'widgets/league-scouting.js'
       - 'tests/test_svhl_league_scouting.cjs'
@@ -153,6 +159,8 @@ jobs:
         run: python -m unittest discover -s tests -p test_svhl_schedule_adjusted_context.py
       - name: Verify append-only trend history, source changes and no invented points
         run: python -m unittest discover -s tests -p test_svhl_strength_trends.py
+      - name: Guard essentials/full-data scouting UX and progressive disclosure
+        run: node tests/test_hockeyos_simple_view.cjs
       - name: Verify source-only scouting and WhatsApp briefs
         run: node tests/test_svhl_league_scouting.cjs
       - name: Guard source-proven upcoming scouting against the existing SVHL↔HTO feed
