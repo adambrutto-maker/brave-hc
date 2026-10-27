@@ -89,7 +89,13 @@ const server=http.createServer((req,res)=>{
    assert.ok(info.movementContent.includes("Sugo Sundays")&&info.movementContent.includes("Maplewolves"));
    assert.ok(info.incomingContent.includes("11–10–3")&&info.incomingContent.includes("Primary Auto")&&
              info.incomingContent.includes("3–6–1"),"prior winter, competition and Braves history visible");
-   assert.equal(info.rows,competitiveCount,"all competitive team entries");
+   assert.equal(info.rows,competitiveCount,"adult-only competitive team entries");
+   assert.equal(info.teamChoices.length,competitiveCount,"select menu only contains adult teams");
+   assert.ok(!["Philadelphia","Toronto","LA KIngs","Dallas"].some(n=>info.teamChoices.includes(n)),
+      "teams belonging to a separate league are absent from public selectors");
+   assert.deepEqual([...info.adultRankValues].sort((a,b)=>
+      Number(a.slice(1))-Number(b.slice(1))),Array.from({length:22},(_,i)=>"#"+(i+1)),
+      "public ranking spans adult teams only");
    assert.equal(info.divisions.length,adultScope.divisions(published).length+1,"adult Sunday divisions only");
    assert.ok(!info.divisions.includes("VAHL Division"),"separate league must not appear in filter");
    assert.equal(info.selected,"Maplewolves");
