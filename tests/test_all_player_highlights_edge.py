@@ -50,11 +50,12 @@ overflow:document.documentElement.scrollWidth>innerWidth+4,notice:document.query
                 results["retroactiveDedicationTitles"]+=expected_historic
     assert results["tested"]==86,results
     assert results["highlights"]==306,results
-    assert results["awardImages"]==104,results
+    assert results["awardImages"]==105,results
     assert results["clubImages"]==97,results
     assert results["retroactiveDedicationTitles"]==10,results
     results["status"]="PASS"
-    receipt=root/"docs/261027_Profile_All43_Responsive_Asset_Readback_QA.json"
+    # Preserve the original PR #121 release receipt; write ongoing QA to a new file.
+    receipt=root/"docs/261027_Profile_All43_Current_Responsive_QA.json"
     receipt.write_text(json.dumps(results,indent=2)+"\n",encoding="utf-8")
     print(json.dumps(results,indent=2))
 finally:

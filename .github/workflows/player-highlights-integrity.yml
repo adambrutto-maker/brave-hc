@@ -11,9 +11,11 @@ on:
       - 'widgets/player-highlights-display-corrections.json'
       - 'widgets/assets/awards/**'
       - 'widgets/assets/clubs/**'
+      - 'widgets/assets/special/**'
       - 'scripts/test-player-highlights-v2.cjs'
       - 'scripts/build-player-award-art.py'
       - 'scripts/build-club-milestone-art.py'
+      - 'scripts/build-player-special-art.py'
       - '.github/workflows/player-highlights-integrity.yml'
   workflow_dispatch:
 
@@ -41,3 +43,7 @@ jobs:
         run: python scripts/build-club-milestone-art.py
       - name: Confirm committed branded icons and SHA manifest match generator
         run: git diff --exit-code -- widgets/assets/clubs/
+      - name: Recreate sourced championship and All-Star artwork
+        run: python scripts/build-player-special-art.py
+      - name: Confirm special icons and provenance manifest are reproducible
+        run: git diff --exit-code -- widgets/assets/special/

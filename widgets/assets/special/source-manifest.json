@@ -1,0 +1,37 @@
+{
+  "schema": "brave-hc-special-emblems/v1",
+  "artSource": "Brave H.C. HTO championship photos, Winter 2015/16 and Summer 2016",
+  "photoAlbums": [
+    {
+      "season": "Summer 2016",
+      "id": 17381,
+      "image": "Braves.jpg"
+    },
+    {
+      "season": "Winter 2015/16",
+      "id": 15938,
+      "image": "6127aa1f-033e-445c-ab8f-35baf4a0537f1.jpg"
+    }
+  ],
+  "sourcePolicy": "Detailed silver miniature Stanley Cup-style shape and engraved lower tiers follow the SVHL cup visible in historic HTO team photos; not a photo crop, NHL logo, or claim of NHL affiliation.",
+  "assets": [
+    {
+      "file": "svhl-cup-champion.svg",
+      "label": "SVHL Cup Champion",
+      "bytes": 5244,
+      "sha256": "8393ec2284b3279fa58a2b1a4ac2c121e3e560c78a12ba81acbd26c2e6fa6f1d"
+    },
+    {
+      "file": "all-star-nomination.svg",
+      "label": "All-Star Nomination",
+      "bytes": 1591,
+      "sha256": "c03f0cd267c6f5f081ee83981e96f540536fd5eedafefedda476882ab11ba10e"
+    },
+    {
+      "file": "all-star-selected.svg",
+      "label": "All-Star Selected",
+      "bytes": 1586,
+      "sha256": "5e38a6521f5f1a7456448e5dfa3a97867ce495f6becf510ace8fd9d1f4a2a5a5"
+    }
+  ]
+}
