@@ -30,7 +30,9 @@
  }
  function historicalNames(archive,teamName){
   const matches=[];
-  for(const season of archive.seasons)for(const division of season.divisions){
+  const scope=typeof module!=="undefined"&&module.exports?
+    require("./adult-league-scope.js"):window.BraveAdultLeagueScope;
+  for(const season of archive.seasons)for(const division of scope.archiveDivisions(season)){
    if(division.category!==COMP)continue;
    for(const record of division.teams)
     if(exact(record.name,teamName))
