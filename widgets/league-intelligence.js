@@ -9,6 +9,7 @@
  const record=x=>x?(x.w+"–"+x.l+"–"+x.t):"—";
  const date=s=>{try{return new Date(s+"T12:00:00").toLocaleDateString("en-CA",{year:"numeric",month:"short",day:"numeric"})}catch(_){return s}};
  let data=null,selected=null,currentScoutingBrief=null,upcomingFixtures=[],historicalArchive=null,historicalLinks=null,balanceSummary=null;
+ let rosterEvidence=null,braveHTOPlayers=null,selectedRosterReport=null,rosterAssignmentValues=[];
  function trusted(doc){
   return doc?.schema==="brave-hc-league-intelligence/public-v1" &&
    doc.status==="OFFICIAL_LEAGUE_RESULTS_SOURCE_QUALIFIED" &&
@@ -480,6 +481,141 @@
   }
   if(!reports.length)text(board,"p","tiny","No source-verified current Cristillo opponents.");
  }
+ function currentBraveNames(){
+  if(!braveHTOPlayers)return [];
+  const known=new Set();
+  for(const p of braveHTOPlayers.players||[]){
+   if(!p.name||/unknown/i.test(p.name))continue;known.add(p.name);
+  }
+  for(const p of braveHTOPlayers.rosterCoverage?.rosteredWithoutRecordedAppearance||[]){
+   if(!p.name||/unknown/i.test(p.name))continue;known.add(p.name);
+  }
+  return [...known].sort((a,b)=>a.localeCompare(b));
+ }
+ function renderRosterScouting(team){
+  const status=q("roster-scouting-status"),
+    metrics=q("roster-construction-metrics"),
+    bridge=q("roster-competition-bridge"),
+    threats=q("roster-player-priorities");
+  metrics.replaceChildren();bridge.replaceChildren();threats.replaceChildren();
+  rosterAssignmentValues=[];selectedRosterReport=null;
+  q("roster-copy-status").textContent="";
+  if(!rosterEvidence||!window.BraveRosterIntelligence){
+   status.textContent="Roster source unavailable or not yet source-qualified. Existing official team scouting remains available.";
+   return;
+  }
+  let r;
+  try{r=window.BraveRosterIntelligence.analyze(data,rosterEvidence,team.leagueName)}
+  catch(error){
+   status.textContent="Roster scouting held: "+error.message+
+     ". No player identities or historical totals have been guessed.";
+   return;
+  }
+  selectedRosterReport=r;
+  const delta=r.withinDivisionGap;
+  status.textContent="Current roster source captured "+new Date(r.sourceRosterCaptureUTC).toLocaleString("en-CA")+
+    "; league result source checked "+new Date(r.sourceLeagueAsOf).toLocaleString("en-CA")+
+    ". Sources may update at different times.";
+  for(const d of r.leagueBridge.groups){
+   const stats=d.crossRecord,detail=d.division===r.division?
+     "SELECTED TEAM'S DIVISION · ":"";
+   context(bridge,detail+d.division,
+      d.teams+" source teams · mean descriptor "+d.descriptiveMean+
+      "/100 · verified external games "+d.crossDivisionGames+" ("+
+      stats.w+"–"+stats.l+"–"+stats.t+", "+stats.gf+" GF / "+stats.ga+" GA). "+
+      (d.limitedSample?"Very small bridge sample.":"Sample is observational and schedule-dependent."));
+  }
+  context(metrics,"In this strength division",
+   r.strengthContextIndex+"/100 versus current division mean "+
+   r.divisionContextMean+"/100 ("+(delta>0?"+":"")+delta+
+   "). A losing record in a strong division does not equal weak overall ability.");
+  context(metrics,"Source-linked returning-player experience",
+   r.rosterCount+" listed players, "+r.activeListedWithGP+" with published GP. "+
+   r.priorLinkedIds+" have official earlier player-ID observations, "+
+   r.experiencedCount+" have 10+ archived games. Not a confirmed next-game roster.");
+  context(metrics,"Who drives published scoring",
+   "Top two registered "+(r.topTwoShare===null?"unavailable":(100*r.topTwoShare).toFixed(1)+"%")+
+   " of recorded player points. This is scoring concentration, not an individual future production rate.");
+  q("roster-scouting-caution").textContent=r.note+
+   " Player positions can be missing and game-day availability is NOT established by archived team rosters.";
+  if(team.leagueName==="Braves HC"){
+   text(threats,"p","small","Brave H.C. is the home-club source baseline. Choose another opponent to prepare player-specific matchups.");
+   return;
+  }
+  const ourPlayers=currentBraveNames();
+  const roles=[
+   ["","Choose a tactical responsibility"],
+   ["F1 pressure puck carrier outside","F1 — pressure carrier outside"],
+   ["Strong-side winger deny middle pass","Strong winger — deny middle pass"],
+   ["Weak-side winger protect far lane","Weak winger — protect far lane"],
+   ["Defense inside lane and net-front","Defense — hold inside and net-front"],
+   ["Centre support middle and backcheck","Centre — support middle / backcheck"]];
+  for(const threat of r.highPriority.slice(0,4)){
+   const card=el("article","insights-card");
+   text(card,"strong","",threat.name+" · #"+threat.jersey);
+   text(card,"p","small",threat.g+" goals · "+threat.a+" assists · "+
+    threat.gp+" published current GP. Prior linked official GP: "+
+    threat.previous.gp+" across "+threat.previous.seasons+" seasons."+
+    (threat.previous.duplicateSeasonTeamMayOvercount?
+      " Historical totals may contain same-season multiple-team duplication.":""));
+   const cues=threat.goalScoringCue?
+      "Protect inside shooting lanes. ":"Do not infer finishing ability from sparse scoring. ";
+   text(card,"p","small",cues+(threat.playmakingCue?
+       "Take away central passing options.":"Force progression toward outside boards.")+
+      " Confirm the player is dressed and position before assignment.");
+   const official=text(card,"a","sourcelink","Official player statistics");
+   official.href=threat.profileUrl;official.target="_blank";official.rel="noopener noreferrer";
+   text(card,"p","tiny","Possible matchup assignment — planning only");
+   const our=text(card,"select","roster-pair-select");
+   our.setAttribute("aria-label","Choose Brave H.C. player to scout "+threat.name);
+   our.add(new Option("No Brave H.C. player assigned",""));
+   for(const name of ourPlayers)our.add(new Option(name,name));
+   const task=text(card,"select","roster-pair-select");
+   task.setAttribute("aria-label","Choose tactical job against "+threat.name);
+   for(const [value,label] of roles)task.add(new Option(label,value));
+   const choice={playerId:threat.playerId,threatName:threat.name,ourName:"",task:""};
+   rosterAssignmentValues.push(choice);
+   our.addEventListener("change",()=>{choice.ourName=our.value});
+   task.addEventListener("change",()=>{choice.task=task.value});
+   threats.append(card);
+  }
+ }
+ async function loadRosterEvidence(){
+  try{
+   if(!window.BraveRosterIntelligence)throw Error("Player-roster source module not loaded");
+   const [a,b]=await Promise.all([
+    fetch("./svhl-roster-intelligence.json",{cache:"no-store"}),
+    fetch("./player-actuals.json",{cache:"no-store"})
+   ]);
+   if(!a.ok)throw Error("Official Sports Village roster capture not published");
+   const doc=await a.json();
+   window.BraveRosterIntelligence.valid(data,doc);
+   rosterEvidence=doc;
+   if(b.ok){
+    const hto=await b.json();
+    if(hto?.schema==="brave-hc-hto-player-actuals/v1"&&
+       hto.status==="VERIFIED_HTO_CURRENT"&&hto.season==="W2026/27"&&
+       Array.isArray(hto.players))braveHTOPlayers=hto;
+   }
+  }catch(error){
+   q("roster-scouting-status").textContent="Roster source held: "+error.message+
+      ". Team statistics and verified opponent history remain available.";
+  }
+ }
+ async function copyRosterPlan(){
+  const status=q("roster-copy-status");
+  if(!selectedRosterReport){status.textContent="Roster source is not admitted.";return}
+  if(!navigator.clipboard?.writeText){status.textContent="Clipboard unavailable in browser.";return}
+  const lines=rosterAssignmentValues.filter(x=>x.ourName||x.task).map(x=>
+    "PLANNED ONLY — "+x.threatName+": Brave H.C. "+
+    (x.ourName||"player not yet selected")+
+    "; job "+(x.task||"not assigned")+". Verify actual lineup before use.");
+  try{
+   const report=window.BraveRosterIntelligence.message(selectedRosterReport,lines);
+   await navigator.clipboard.writeText(report);
+   status.textContent="Source-qualified roster scouting and proposed matchup plan copied; not sent.";
+  }catch(_){status.textContent="Could not copy verified plan."}
+ }
  function renderScoutingProfile(team){
   const brief=window.BraveLeagueScouting.build(data,team.leagueName);
   currentScoutingBrief=brief;
@@ -599,6 +735,7 @@
   q("profile-title").textContent=x.displayName;
   renderScoutingProfile(x);
   renderPlainLanguage(x);
+  renderRosterScouting(x);
   q("profile-division").textContent=x.divisionNow+" · "+x.gamesConfirmed+" reciprocal completed fixtures";
   q("team-official-link").href=x.source;
   const panel=q("profile-metrics");panel.replaceChildren();
@@ -680,6 +817,7 @@
    if(!window.BraveLeagueScouting||!window.BraveAdultLeagueScope)throw Error("Verified scouting/adult scope modules unavailable");
    data=result;setup();movement();renderScoutingBoard();
    await loadHistoricalArchive();
+   await loadRosterEvidence();
    const name=new URLSearchParams(location.search).get("team");
    selected=window.BraveAdultLeagueScope.teams(data).some(x=>x.leagueName===name)?name:
     window.BraveAdultLeagueScope.teams(data).some(x=>x.leagueName==="Maplewolves")?"Maplewolves":"Braves HC";
@@ -687,6 +825,7 @@
    q("sort-field").addEventListener("change",table);
    q("team-filter").addEventListener("change",event=>choose(event.target.value));
    q("copy-scout-brief").addEventListener("click",copyScoutingBrief);
+   q("copy-roster-plan").addEventListener("click",copyRosterPlan);
    q("copy-division-review").addEventListener("click",copyDivisionReview);
    table();profile();loadUpcoming();
   }catch(e){
