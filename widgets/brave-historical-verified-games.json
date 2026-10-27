@@ -1,11 +1,11 @@
 {
   "schema": "brave-hc-source-matched-historical-team-seasons/v1",
   "status": "DUAL_SOURCE_VERIFIED_HISTORICAL_GAMES_SEASON_SCOPED",
-  "privateAuditSHA256": "5a1ce757986577697b24f8df50c3233522a5b2bf1d2aa6ef153388ca7b2e1b52",
+  "privateAuditSHA256": "c8c0e2426718a7348120bb6a829a73a74d0e096652848eda82dfc7c74ffef6b5",
   "sourceMasterSHA256": "0002fd9f06596af8d0a00fc1b53a618ef15479f941ad5c1e6265b27002a65154",
-  "reviewedSameSeasonCandidates": 41,
+  "reviewedSameSeasonCandidates": 47,
   "matchedGameCount": 79,
-  "heldGameComparisons": 24,
+  "heldGameComparisons": 43,
   "matchedTeamSeasonGroups": 35,
   "teamSeasons": [
     {
