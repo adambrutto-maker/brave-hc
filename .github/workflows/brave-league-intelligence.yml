@@ -14,6 +14,7 @@ on:
       - 'widgets/hockeyos-simple-view.css'
       - 'tests/test_hockeyos_simple_view.cjs'
       - 'tests/test_hockeyos_quick_actions.cjs'
+      - 'tests/test_hockeyos_deeplink_selection.cjs'
       - 'widgets/league-intelligence.js'
       - 'widgets/league-scouting.js'
       - 'tests/test_svhl_league_scouting.cjs'
@@ -80,6 +81,7 @@ on:
       - 'widgets/hockeyos-simple-view.css'
       - 'tests/test_hockeyos_simple_view.cjs'
       - 'tests/test_hockeyos_quick_actions.cjs'
+      - 'tests/test_hockeyos_deeplink_selection.cjs'
       - 'widgets/league-intelligence.js'
       - 'widgets/league-scouting.js'
       - 'tests/test_svhl_league_scouting.cjs'
@@ -169,6 +171,8 @@ jobs:
         run: python -m unittest discover -s tests -p test_svhl_strength_trends.py
       - name: Verify source-bound opponent snapshots, adult-only team browser and division tradeoffs
         run: node tests/test_hockeyos_decision_cards.cjs
+      - name: Prevent cross-team deep-link/selector/scouting snapshot mismatch
+        run: node tests/test_hockeyos_deeplink_selection.cjs
       - name: Guard accessible default game-day WhatsApp and matchup copy controls
         run: node tests/test_hockeyos_quick_actions.cjs
       - name: Guard essentials/full-data scouting UX and progressive disclosure
