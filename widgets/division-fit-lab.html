@@ -48,6 +48,16 @@ footer{margin-top:25px;color:var(--muted);font-size:11px}
  </label><span id="layout-design-status" class="label">Analysing size combinations…</span></div>
  <p class="layout-model-leader" id="layout-proposed-recommendation">No unsupported proposal is generated.</p>
  <div id="layout-design-options" class="layout-grid" role="group" aria-label="Compare proposed division sizes"></div>
+ <div class="layout-research-bar">
+  <label for="layout-placement-mode">Team placement method
+    <select id="layout-placement-mode" aria-label="Compare source-ranked bands or evidence-refined team assignments">
+      <option value="INDEX_BANDS">Source score-ranked bands</option>
+      <option value="REFINED">Evidence-aware pair-swap refinement</option>
+    </select>
+  </label><span id="layout-refinement-indicator" class="label">Source bands selected</span>
+ </div>
+ <p id="layout-refinement-detail" class="notes" role="status">Refinement assesses bounded real team swaps using existing verified games and member continuity.</p>
+ <div id="layout-refinement-swaps" class="week-list" aria-label="Source-ID team swaps improving the chosen research objective"></div>
  <h3 id="layout-proposal-label">Selected research divisions</h3>
  <p id="layout-proposal-comparison" class="layout-outcome"></p>
  <div id="layout-proposal-groups" class="division-grid"></div>
@@ -103,5 +113,6 @@ footer{margin-top:25px;color:var(--muted);font-size:11px}
 </main><script src="./adult-league-scope.js?v=20261026-adult1" defer></script><script src="./division-fit-model.js?v=20261026-adult1" defer></script>
 <script src="./weekly-strength-stability.js?v=20261026-weekly1" defer></script>
 <script src="./division-layout-optimizer.js?v=20261026-parity2" defer></script>
-<script src="./division-layout-lab.js?v=20261026-parity2" defer></script>
-<script src="./division-fit-lab.js?v=20261026-parity2" defer></script></body></html>
+<script src="./division-lineup-refinement.js?v=20261026-lineup1" defer></script>
+<script src="./division-layout-lab.js?v=20261026-lineup1" defer></script>
+<script src="./division-fit-lab.js?v=20261026-lineup1" defer></script></body></html>
