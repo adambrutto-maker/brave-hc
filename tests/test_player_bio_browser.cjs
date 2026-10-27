@@ -61,6 +61,20 @@ const server=http.createServer((req,res)=>{
    await missing.close();
   }
   const spoof=structuredClone(career);spoof.players['354054'].name='Wrong Person';const bad=await pageFor('?playerID=354054&embed=1',{'player-career-insights.json':spoof});assert.equal(await bad.$eval('#profileContent',e=>e.hidden),true);await bad.close();
+  for(const malformed of ['unknown status','invalid segments']){
+   const feed=structuredClone(career),profile=Object.values(feed.players).find(p=>p.status==='NO_PUBLISHED_STATS');
+   if(malformed==='unknown status')profile.status='UNVERIFIED';else profile.segments={};
+   const invalid=await pageFor('?playerID=354054&embed=1',{'player-career-insights.json':feed});
+   assert.equal(await invalid.$eval('#profileContent',e=>e.hidden),true,malformed);
+   assert.match(await invalid.textContent('#loadState'),/could not load/);await invalid.close();
+  }
+  const recovery=await pageFor('?playerID=354060&embed=1',{'player-actuals.json':null});
+  assert.equal(await recovery.$eval('#retryLoad',e=>e.hidden),false);
+  await recovery.route('**/player-actuals.json',route=>route.fulfill({contentType:'application/json',body:JSON.stringify(actuals)}));
+  await recovery.click('#retryLoad');await recovery.waitForSelector('#profileContent:not([hidden])');
+  assert.equal(await recovery.$eval('#retryLoad',e=>e.hidden),true);
+  assert.equal(await recovery.locator('#currentCards .stat').count(),4);
+  assert.equal(await recovery.textContent('#playerName'),'Justin Carosi');await recovery.close();
   const badLeadership=structuredClone(leadership);badLeadership.items.push(null);const bl=await pageFor('?playerID=354054&embed=1',{'player-bio-leadership.json':badLeadership});assert.match(await bl.textContent('#leadership'),/temporarily unavailable/);await bl.close();
   const zero=structuredClone(actuals);zero.players.find(p=>/Carosi/.test(p.name)).gp=0;const zp=await pageFor('?playerID=354060&embed=1',{'player-actuals.json':zero});assert.ok(!/NaN|Infinity/.test(await zp.textContent('#analysis')));await zp.close();
   const charts=await pageFor('?playerID=354054');
@@ -69,6 +83,6 @@ const server=http.createServer((req,res)=>{
    return [...box.querySelectorAll('.bio-chart-card')].at(-1).querySelectorAll('[data-row-index]').length;
   });assert.equal(gaps,1,'Cumulative series cannot resume after missing data');await charts.close();
   assert.deepEqual(errors,[]);
-  console.log(JSON.stringify({status:'PASS',identities:results.length,responsiveWidths:[320,390,625,1280],leadershipEntries:leadership.items.length,cases:['all identities','all tenure rows','no overflow','chart navigation and filters','mixed roles and chooser reset','invalid/missing/noncanonical IDs','career failure','current failure','leadership failure','identity spoof','malformed leadership','zero GP','cumulative gap'],pageErrors:errors},null,2));
+  console.log(JSON.stringify({status:'PASS',identities:results.length,responsiveWidths:[320,390,625,1280],leadershipEntries:leadership.items.length,cases:['all identities','all tenure rows','no overflow','chart navigation and filters','mixed roles and chooser reset','invalid/missing/noncanonical IDs','career failure','current failure','leadership failure','identity spoof','unknown career status','malformed career segments','retry recovery','malformed leadership','zero GP','cumulative gap'],pageErrors:errors},null,2));
  }finally{await browser.close();}
 })().catch(e=>{console.error(e);process.exitCode=1;}).finally(()=>server.close());

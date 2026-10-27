@@ -34,7 +34,8 @@ try{
  const entries=Object.entries(career.players);
  const validProfile=([id,p])=>{
   if(!suffix(id)||suffix(id).name!==p?.name)return false;
-  if(p.status!=="VERIFIED_PROFILE_CAREER_SUM_PARITY")return true;
+  if(p.status==="NO_PUBLISHED_STATS")return Array.isArray(p.segments)&&p.segments.length===0;
+  if(p.status!=="VERIFIED_PROFILE_CAREER_SUM_PARITY")return false;
   return Array.isArray(p.segments)&&p.segments.every(segment=>
    segment&&["skater","goalie"].includes(segment.kind)&&Array.isArray(segment.seasons)&&
    segment.seasons.every(row=>row&&typeof row.Season==="string"));

@@ -40,14 +40,34 @@ test('Season filter uses HTO profile; unverified game ID does not create game li
 });
 test('Every active public HockeyOS page loads the shared linker',()=>{
  for(const file of [
-  'analytics.html','projection-v2.html','watch-v2.html','home-panels.html',
-  'standings-v2.html','awards-races.html','awards-races-v3.html',
+  'analytics.html','watch-v2.html','home-panels.html',
+  'awards-races.html','awards-races-v3.html',
   'awards-races-preview.html','hot-stove.html','hot-stove-review.html',
   'hot-stove-teaser.html','goalie-manager-v1.2.html','countdown.html',
   'index.html','preview.html'
  ]) {
   const html=fs.readFileSync(path.resolve(__dirname,'../widgets',file),'utf8');
   assert.match(html,/<script defer src="\.\/player-links\.js\?v=3"><\/script>/,file);
+ }
+});
+
+test('Legacy projection and standings routes reach the linked canonical panel',()=>{
+ const read=file=>fs.readFileSync(path.resolve(__dirname,'../widgets',file),'utf8');
+ for(const [file,panel] of [['projection-v2.html','projection'],['standings-v2.html','standings']]){
+  const html=read(file),base='https://example.test/brave-hc/widgets/'+file;
+  const expected=new URL('./home-panels.html?panel='+panel+'&full=1',base).href;
+  // All three supported navigation paths must agree, including no-JavaScript fallback.
+  const refresh=html.match(/<meta\s+http-equiv="refresh"\s+content="0;\s*url=([^"]+)"/i);
+  const fallback=html.match(/<a\s+href="([^"]+)"/i);
+  assert.ok(refresh,file+' refresh');assert.ok(fallback,file+' fallback link');
+  assert.equal(new URL(refresh[1].replaceAll('&amp;','&'),base).href,expected);
+  assert.equal(new URL(fallback[1].replaceAll('&amp;','&'),base).href,expected);
+  const navigations=[];
+  for(const script of html.matchAll(/<script>([\s\S]*?)<\/script>/g)){
+   vm.runInNewContext(script[1],{URL,location:{href:base,replace:url=>navigations.push(url)}},{timeout:1000});
+  }
+  assert.deepEqual(navigations,[expected],file+' JavaScript redirect');
+  assert.match(read('home-panels.html'),/<script defer src="\.\/player-links\.js\?v=3"><\/script>/);
  }
 });
 

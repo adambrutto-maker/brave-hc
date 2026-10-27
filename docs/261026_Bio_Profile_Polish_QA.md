@@ -4,7 +4,7 @@ Related: HockeyOS issue #79. Base: `de9a850`. Build branch: `codex/bio-profile-p
 
 ## Result
 
-Implementation complete; release held. The new Bio browser suite passes. The existing broader player-link suite fails on `projection-v2.html`, including on an isolated unchanged checkout of the base commit. No production deployment or HTO editor writes were performed for this build.
+Implementation complete; release held under the user's draft-only authorization. The Bio browser suite and all 12 player-link tests pass. The earlier redirect-related test failure is resolved with explicit redirect and destination coverage. No production deployment or HTO editor writes were performed for this build.
 
 ## Changes
 
@@ -38,12 +38,15 @@ Observed with Chromium 153:
 - No horizontal overflow at the per-player mobile viewport; responsive chart navigation and filters pass at widths 320, 390, 625, and 1280.
 - Mixed skater/goalie roles, player switching, chooser reset, and missing/noncanonical/unknown IDs pass.
 - Career, current-season, and leadership source outage fixtures produce the expected visible states.
-- Spoofed identity and malformed leadership are rejected; zero GP does not create invalid rates.
+- Spoofed identity, unknown career status, malformed career segments, and malformed leadership are rejected; zero GP does not create invalid rates.
+- Retry after a current-season outage restores all four statistics cards and preserves the selected player identity.
 - A cumulative series with a missing middle value does not resume after the gap.
 - No browser page errors. Mobile and desktop screenshots visually reviewed.
 
-## Release blocker and next steps
+## Redirect validation resolved; deployment remains held
 
-`node tests/test_player_links.js`: 10 pass, 1 fail. The test at line 41 requires an inline shared linker script in `projection-v2.html`; that file is now a redirect to `home-panels.html`. The identical failure reproduces at base `de9a850`. It is not caused by this Bio change.
+The original player-link suite had 10 pass / 1 fail because it required an inline linker script in `projection-v2.html`, now a redirect. The same failure reproduced at base `de9a850`.
 
-Per the user's stop-on-validation-failure instruction, release work stopped. Resolve the redirect/link validation contract before releasing. Then rerun both suites, deploy the shared widget, and verify public HTO Bio and Highlights on representative skater, goalie, mixed-role, leadership, and missing-history profiles. Local browser verification is not a claim of public HTO verification.
+The revised contract keeps direct linker checks on active pages and separately verifies both legacy redirect pages (`projection-v2.html` and `standings-v2.html`). It executes their JavaScript redirect, checks the HTML refresh and fallback anchor, requires the exact panel and full-view parameters, and confirms the canonical destination loads the shared linker. No production redirect code was changed and no route is excluded from coverage. `node tests/test_player_links.js`: 12 pass, 0 fail.
+
+The expanded Bio browser suite also passes after the career-shape validation change. Draft PR #110 remains unmerged; deployment remains blocked as explicitly requested by the user. A future authorized release must verify public HTO Bio and Highlights on representative skater, goalie, mixed-role, leadership, and missing-history profiles. Local browser verification is not a claim of public HTO verification.
