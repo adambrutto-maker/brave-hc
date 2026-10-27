@@ -156,6 +156,7 @@
   for(const mode of FOCUSES){
    choices[mode]=layouts.map(layout=>({
     shapeId:layout.shapeId,divisionCount:layout.divisionCount,
+    capacities:[...layout.capacities],
     ...layout[mode],objective:mode,objectiveScore:layout[mode].scores[mode]
    })).sort((a,b)=>a.objectiveScore-b.objectiveScore||
        a.divisionCount-b.divisionCount||a.shapeId.localeCompare(b.shapeId));
