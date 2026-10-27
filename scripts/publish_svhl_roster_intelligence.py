@@ -64,7 +64,7 @@ def run(repo,private,receipt,check_only=False,candidate_only=None):
    target=repo/TARGET
    target.write_text(candidate.read_text(encoding="utf8"),encoding="utf8")
    changed=git(repo,"status","--porcelain").splitlines()
-   need(not changed or changed==[" M "+TARGET],
+   need(not changed or changed==["M "+TARGET],
      "PUBLIC_WRITE_SCOPE_EXCEEDED:"+repr(changed))
    if changed:
     git(repo,"add","--",TARGET)
