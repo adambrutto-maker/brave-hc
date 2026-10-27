@@ -13,10 +13,14 @@
  const round=(x,n=2)=>Number(x.toFixed(n));
  function patterns(total,limit=6){
   need(Number.isInteger(total)&&total>=12&&total<=48,"INVALID_ADULT_POOL_SIZE");
+  need(total%2===0,"ODD_NUMBER_OF_TEAMS_CANNOT_FORM_EVEN_DIVISIONS");
   const results=[];
   function search(remaining,from,array){
    if(remaining===0){
-    if(array.length>=2&&array.length<=limit)results.push([...array]);return;
+    if(array.length>=2&&array.length<=limit &&
+      array.every(size=>size%2===0 && ALLOWED.includes(size)))
+      results.push([...array]);
+    return;
    }
    for(let i=from;i<ALLOWED.length;i++){
     const n=ALLOWED[i];
@@ -49,7 +53,8 @@
    const scores=g.ids.map(id=>{
     need(byId.has(id),"UNQUALIFIED_TEAM_ID");return byId.get(id).score;
    });
-   need(scores.length===g.capacity&&ALLOWED.includes(g.capacity),"UNSUPPORTED_GROUP_SIZE");
+   need(scores.length===g.capacity&&g.capacity%2===0&&
+      ALLOWED.includes(g.capacity),"GROUP_SIZE_MUST_BE_EVEN");
    const mean=scores.reduce((a,b)=>a+b,0)/scores.length;
    const sq=scores.reduce((n,x)=>n+(x-mean)**2,0);
    squared+=sq;mad+=scores.reduce((n,x)=>n+Math.abs(x-mean),0);total+=scores.length;
@@ -163,6 +168,12 @@
   }
   const output={schema:SCHEMA,status:"PROVISIONAL_RESEARCH_LAYOUTS_NOT_LEAGUE_APPROVED",
     sourceAsOf:analysis.sourceAsOf,adultTeams:ranked.length,
+    teams:ranked.map(t=>({sourceTeamId:t.sourceTeamId,name:t.name,
+       leagueName:t.leagueName,divisionNow:t.divisionNow,
+       score:t.score,gp:t.gp})),
+    groupSizeParity:"EVEN_TEAMS_PER_DIVISION_REQUIRED",
+    maximumTeamsPerDivision:Math.max(...ALLOWED),
+    minimumTeamsPerDivision:Math.min(...ALLOWED),
     admittedWeeks:analysis.weekCount,
     sourceAdultGames:analysis.gameGraph.verifiedGamesInPool,
     historicalBravesComparisons:analysis.historical.matchedGameComparisons,
@@ -183,6 +194,8 @@
       "The algorithm searches all permutations of legal 4/6/8 size patterns; within each pattern it assigns CONTIGUOUS score-ranked bands. It does not prove a global fair-scheduling optimum.",
       "A lower dispersion with more divisions can be a mathematical artifact of smaller groups.",
       "The exact objective penalties are editorial research preferences, not learned or league-approved coefficients.",
+      "Every proposed division must contain an EVEN number of teams. Current supported sizes are exactly 4, 6 and 8.",
+      "The number of divisions may be odd or even; this rule is about the NUMBER OF TEAMS INSIDE EACH DIVISION.",
       "Additional divisions require league ice-time, scheduling, round-robin, promotion/relegation and registration checks.",
       "Retrospective game coverage is not a prediction of future head-to-head competitiveness.",
       "Only actual source weeks inform stability; one accepted week cannot establish reliable tiers.",
@@ -190,7 +203,9 @@
     ]};
   need(choices.PRACTICAL.length===comps.length&&
     choices.BALANCE.length===comps.length&&
-    layouts.every(l=>l.capacities.reduce((a,b)=>a+b,0)===ranked.length),
+    layouts.every(l=>l.capacities.reduce((a,b)=>a+b,0)===ranked.length &&
+      l.capacities.every(n=>n%2===0 && ALLOWED.includes(n)) &&
+      FOCUSES.every(mode=>l[mode].groups.every(g=>g.capacity%2===0))),
     "MODEL_LAYOUT_CAPACITY_QA");
   return output;
  }
