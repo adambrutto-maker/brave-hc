@@ -827,7 +827,7 @@
    q("copy-scout-brief").addEventListener("click",copyScoutingBrief);
    q("copy-roster-plan").addEventListener("click",copyRosterPlan);
    q("copy-division-review").addEventListener("click",copyDivisionReview);
-   table();profile();loadUpcoming();
+   choose(selected);loadUpcoming();
   }catch(e){
    q("source-status").textContent="SOURCE HELD: "+e.message+". Historical identities or strength figures were not guessed.";
    q("source-status").style.color="#ffa6af";
