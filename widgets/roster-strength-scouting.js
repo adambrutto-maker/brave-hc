@@ -29,6 +29,20 @@
   const eligible=league.teams.filter(t=>DIV.includes(t.divisionNow));
   need(eligible.length===22,"CURRENT_SCOPE_CHANGED");
   const sourceIds=new Map(eligible.map(t=>[t.sourceTeamId,t]));
+  need(Array.isArray(roster.historicalRosterManifest)&&
+    roster.historicalRosterManifest.length===roster.historicalManifestCount &&
+    roster.historicalManifestCount===roster.sourceHistoricalTeamsRead &&
+    roster.historicalManifestCount>=150,"HISTORICAL_ROSTER_SOURCE_MANIFEST_MISSING");
+  const past=new Map();
+  for(const entry of roster.historicalRosterManifest){
+   const key=entry.leagueId+"|"+entry.sourceTeamId;
+   need(roster.historicalLeagueIds.includes(entry.leagueId)&&
+    !past.has(key)&&entry.sourceSHA256?.match(/^[a-f0-9]{64}$/)&&
+    entry.sourceUrl==="https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid="+
+      entry.leagueId+"&teamid="+entry.sourceTeamId+"&page_type=Adult",
+    "HISTORICAL_ROSTER_SOURCE_PAGE_MISMATCH");
+   past.set(key,entry);
+  }
   const unique=new Set();
   for(const team of roster.teams){
    const official=sourceIds.get(team.sourceTeamId);
@@ -54,6 +68,8 @@
     for(const h of p.previousOfficialObservations)
      need(roster.historicalLeagueIds.includes(h.leagueId)&&
        h.source===profileUrl(h.leagueId,h.sourceTeamId,p.playerId)&&
+       past.has(h.leagueId+"|"+h.sourceTeamId)&&
+       h.sourcePageSHA256===past.get(h.leagueId+"|"+h.sourceTeamId).sourceSHA256&&
        Number.isInteger(h.gp)&&h.gp>=0&&
        ["PUBLISHED_ARITHMETICALLY_CONSISTENT","SOURCE_CONFLICT_HOLD"].includes(h.statStatus),
        "PREVIOUS_SEASON_PLAYER_ID_NOT_LINKED");
