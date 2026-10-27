@@ -58,7 +58,7 @@ def verify_artwork_manifests(widgets,package_paths,manifest_overrides=None):
  candidate website package.
  """
  widgets=Path(widgets).resolve()
- kinds=("awards","clubs","heritage","round-clubs","special")
+ kinds=("approved","awards","clubs","heritage","round-clubs","special")
  count=0
  seen=set()
  for kind in kinds:
@@ -70,10 +70,11 @@ def verify_artwork_manifests(widgets,package_paths,manifest_overrides=None):
    manifest_bytes=canonical_source(widgets/source)
   if isinstance(manifest_bytes,str):manifest_bytes=manifest_bytes.encode("utf8")
   doc=json.loads(manifest_bytes)
-  need(isinstance(doc.get("assets"),list) and doc["assets"],
+  entries=doc.get("files") if kind=="approved" else doc.get("assets")
+  need(isinstance(entries,list) and entries,
        "ARTWORK_SOURCE_MANIFEST_EMPTY:"+kind)
-  for entry in doc["assets"]:
-   local=entry.get("path") or f"assets/{kind}/{entry.get('file','')}"
+  for entry in entries:
+   local=(entry.get("file") if kind=="approved" else entry.get("path")) or f"assets/{kind}/{entry.get('file','')}"
    need(local.startswith("assets/"+kind+"/") and
         ".." not in local.split("/") and "\\" not in local and
         not local.startswith("/") and

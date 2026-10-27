@@ -31,11 +31,15 @@ class ScopedPreviewTests(unittest.TestCase):
    mutated=data.replace(b"\\n",b"\\r\\n")
    self.assertEqual(git_hash(mutated.replace(b"\\r\\n",b"\\n"),algorithm),entries[name][1])
    self.assertNotEqual(git_hash(data+b"CHANGED",algorithm),entries[name][1])
- def test_all_61_artwork_assets_and_five_source_manifests_stay_consistent(self):
+ def test_all_78_artwork_assets_and_six_source_manifests_stay_consistent(self):
   included=set(index(ROOT)[0])
   qa=verify_artwork_manifests(ROOT/"widgets",included)
-  self.assertEqual(qa["manifestsVerified"],5)
-  self.assertEqual(qa["artworkAssetsVerified"],61)
+  self.assertEqual(qa["manifestsVerified"],6)
+  self.assertEqual(qa["artworkAssetsVerified"],78)
+ def test_missing_new_approved_htO_icon_cannot_sneak_into_preview(self):
+  included=set(index(ROOT)[0]);included.remove("widgets/assets/approved/hart_mvp.webp")
+  with self.assertRaisesRegex(PreviewHold,"ARTWORK_ASSET_MISSING_OR_UNSAFE"):
+   verify_artwork_manifests(ROOT/"widgets",included)
  def test_a_missing_round_milestone_image_is_not_a_complete_release(self):
   included=set(index(ROOT)[0])
   included.remove("widgets/assets/round-clubs/300_wins_platinum_200.webp")
