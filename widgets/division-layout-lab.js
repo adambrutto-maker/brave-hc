@@ -18,8 +18,11 @@
   options.replaceChildren();result.replaceChildren();
   const shapes=sorted(),current=shapes.find(x=>x.divisionCount===3);
   const chosen=selected(),leading=shapes[0];
+  if(!chosen || chosen.groups.some(group=>group.capacity%2!==0) ||
+     chosen.groups.flatMap(group=>group.ids).length!==study.adultTeams)
+    throw Error("Division layout must retain every team and have even-sized divisions");
   q("layout-proposed-recommendation").textContent=
-    "Model-first research proposal: "+leading.capacitySequence.join(" + ")+" teams in "+
+    "Model-first research proposal: "+leading.shapeId.split("-").join(" + ")+" teams in "+
       leading.divisionCount+" divisions. "+(focus==="BALANCE"?
       "This has the tightest CURRENT descriptive rating spread; smaller groups tend to reduce this mathematically.":
       focus==="PRACTICAL"?
@@ -30,7 +33,7 @@
    const button=make("button","scenario layout-option");
    button.type="button";button.setAttribute("aria-pressed",String(entry.shapeId===chosen.shapeId));
    button.setAttribute("data-shape",entry.shapeId);
-   add(button,"strong","",entry.capacitySequence.join(" + ")+" teams · "+entry.divisionCount+" divisions");
+   add(button,"strong","",entry.shapeId.split("-").join(" + ")+" teams · "+entry.divisionCount+" divisions");
    add(button,"span","number",as(entry.dispersion,2));
    add(button,"small","","rating spread (lower = tighter)");
    add(button,"small","",entry.sameGroupObservedGames+" actual games link teams within these research divisions"+
@@ -41,7 +44,7 @@
    options.append(button);
   }
   q("layout-proposal-label").textContent="Viewing "+
-    chosen.capacitySequence.join(" / ")+" — "+chosen.divisionCount+" draft research divisions";
+    chosen.shapeId.split("-").join(" / ")+" — "+chosen.divisionCount+" draft research divisions";
   q("layout-proposal-comparison").textContent="Within-group descriptive dispersion "+
     as(chosen.dispersion)+"; "+chosen.sameGroupObservedGames+" of "+
     study.sourceAdultGames+" source-confirmed games occurred between clubs now grouped together "+
@@ -93,10 +96,10 @@
    "STATUS: PROVISIONAL MODEL PROPOSAL; NOT APPROVED OR SUBMITTED",
    "Data accepted: "+study.sourceAsOf+"; "+study.adultTeams+" adult Sunday teams.",
    "Source: Fazzari, Cristillo and Remax ONLY. Other leagues excluded.",
-   "Permitted capacity sizes: 4, 6, 8 teams.",
+   "MANDATORY: each division must have an EVEN number of teams; permitted sizes 4, 6 and 8.",
    "Research focus: "+focus,
-   "TOP-RANKED STRUCTURE BY THIS OBJECTIVE: "+leader.capacitySequence.join("+"),
-   "SELECTED DRAFT: "+chosen.capacitySequence.join("+"),
+   "TOP-RANKED STRUCTURE BY THIS OBJECTIVE: "+leader.shapeId.split("-").join("+"),
+   "SELECTED DRAFT: "+chosen.shapeId.split("-").join("+"),
    "Descriptive rating spread (RMSE within groups): "+as(chosen.dispersion),
    "Proposed number of research divisions: "+chosen.divisionCount+
       "; new groups above current three: "+chosen.movement.newResearchGroupsNeeded,
@@ -144,7 +147,7 @@
    }catch(_){q("layout-copy-result").textContent="Could not copy; check clipboard permission."}
   });
   q("layout-design-status").textContent=study.exploredShapes+
-    " feasible 4/6/8 size patterns found for "+study.adultTeams+
+     "+study.adultTeams+
     " adult teams. Each unique capacity ordering has been compared.";
   paint();
  }
