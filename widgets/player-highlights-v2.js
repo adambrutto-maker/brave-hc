@@ -67,8 +67,27 @@ function awardArtFor(item){
  if(item.category!=='award'&&!(item.category==='record'&&item.includesAward===true))return null;
  // Original, manually published HTO source controls award identity; display corrections cannot add badges.
  const name=String(item.sourceText||'').replace(/\u00a0/g,' ').split('\n')[0].trim();
- for(const [pattern,file,label] of awardArtCatalog)if(pattern.test(name))return {file,label};
+ for(const [pattern,file,label] of awardArtCatalog)if(pattern.test(name))return {file,label,kind:'award'};
  return null;
+}
+// Club emblems are released only for verified HTO milestone ledger entries.
+const clubLevels={game:[50,100,200,300],point:[50,100,200,300],win:[50,100]};
+function clubArtFor(item){
+ if(item.category!=='milestone')return null;
+ const source=String(item.sourceText||'').replace(/\u00a0/g,' ').trim();
+ const match=/^(50|100|200|300) (Game|Point|Win) Club\b/i.exec(source);
+ if(!match)return null;
+ const count=Number(match[1]),type=match[2].toLowerCase();
+ if(!clubLevels[type]?.includes(count))return null;
+ return {file:'club-'+type+'-'+count+'.svg',kind:'milestone',
+         label:'Brave H.C. '+count+' '+match[2]+' Club'};
+}
+// The native HTO source is preserved verbatim; only the on-screen award label is renamed.
+function achievementDisplayText(item){
+ const raw=String(item.displayText||'');
+ if(item.category!=='award'||!/^Bill Masterton Award for (?:Dedication|Decidation)\b/i.test(item.sourceText||''))return raw;
+ return raw.replace(/^Bill Masterton Award for (?:Dedication|Decidation)\b/i,
+                    'Andrew Cristillo Award for Dedication');
 }
 function setNotice(s){
  $('notice').textContent=s;
@@ -171,23 +190,25 @@ function renderLegacy(record,ledgerTime){
   for(const item of expanded?items:items.slice(0,first)){
    const row=text('article','','ph-event'+(item.sourceEmphasis?' ph-champion':''));
    const icon=text('span',symbol[item.category]||'AWD','ph-symbol');
-   const art=awardArtFor(item);
+   const art=awardArtFor(item)||clubArtFor(item);
    if(art){
-    row.className+=' ph-with-award-art';
-    icon.className+=' ph-award-art';
+    const kind=art.kind;
+    row.className+=' ph-with-'+kind+'-art';
+    icon.className+=' ph-'+kind+'-art';
     icon.replaceChildren();
     const img=document.createElement('img');
-    img.src=root+'assets/awards/'+art.file;
+    img.src=root+(kind==='milestone'?'assets/clubs/':'assets/awards/')+art.file;
     img.alt=art.label+' emblem';
     img.loading='lazy';
     img.decoding='async';
-    img.onerror=()=>{icon.replaceChildren();icon.textContent='AWD';icon.className='ph-symbol';row.className=row.className.replace(' ph-with-award-art','');};
+    img.onerror=()=>{icon.replaceChildren();icon.textContent=kind==='milestone'?'CLUB':'AWD';icon.className='ph-symbol';row.className=row.className.replace(' ph-with-'+kind+'-art','');};
     icon.append(img);
    }else icon.setAttribute('aria-hidden','true');
    const info=text('div','');
-   const raw=item.displayText;
+   const raw=achievementDisplayText(item);
    // Rendering is text-only: source labels are never evaluated as HTML.
-   const runs=item.displayRuns||item.sourceRuns;
+   const originalRuns=item.displayRuns||item.sourceRuns;
+   const runs=originalRuns&&raw!==item.displayText?[{...originalRuns[0],text:raw}]:originalRuns;
    if(runs){
     const sourceTitle=text('div','','ph-event-title');
     sourceTitle.style.whiteSpace='pre-line';

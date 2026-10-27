@@ -1,0 +1,67 @@
+{
+  "schema": "brave-hc-club-milestone-art/v1",
+  "created": "2026-10-27",
+  "scope": "Verified 50/100/200/300 game/point clubs and 50/100 goalie win clubs",
+  "assets": [
+    {
+      "label": "50 Game Club",
+      "path": "assets/clubs/club-game-50.svg",
+      "bytes": 1596,
+      "sha256": "f8a3d1a8486be81f35727a3f83ca3426468215e5c8d4e322ae10101634473a46"
+    },
+    {
+      "label": "100 Game Club",
+      "path": "assets/clubs/club-game-100.svg",
+      "bytes": 1598,
+      "sha256": "81964ff1ea63897fca329d13e975a649653253718a90a0ddfa0a28bb810780f7"
+    },
+    {
+      "label": "200 Game Club",
+      "path": "assets/clubs/club-game-200.svg",
+      "bytes": 1598,
+      "sha256": "dd9ecd78cc8ac07ebcd8745f1c5436657965dcb43055fc0513a1dd0146e21e0d"
+    },
+    {
+      "label": "300 Game Club",
+      "path": "assets/clubs/club-game-300.svg",
+      "bytes": 1598,
+      "sha256": "5458094c23909b1cd86897f3b5201cd93d620cd942746efb7df3b8eb867a66b0"
+    },
+    {
+      "label": "50 Point Club",
+      "path": "assets/clubs/club-point-50.svg",
+      "bytes": 1598,
+      "sha256": "ea53a4f63dd2aae9f2cae7866cb8093346e9b4ed43a5e6178c4bc7a90cc7aa34"
+    },
+    {
+      "label": "100 Point Club",
+      "path": "assets/clubs/club-point-100.svg",
+      "bytes": 1600,
+      "sha256": "2a79807e795595b70e09e703e646c1a42d38302ab15c9bef4b644e644b40b886"
+    },
+    {
+      "label": "200 Point Club",
+      "path": "assets/clubs/club-point-200.svg",
+      "bytes": 1600,
+      "sha256": "3e4caa3e314897585c6537138c43099ab45af9f382d4fd68ea0a2ea4d012b92e"
+    },
+    {
+      "label": "300 Point Club",
+      "path": "assets/clubs/club-point-300.svg",
+      "bytes": 1600,
+      "sha256": "8cc010d4201db744ef71b30017baedc98ad018397750f936ccea527a10693638"
+    },
+    {
+      "label": "50 Win Club",
+      "path": "assets/clubs/club-win-50.svg",
+      "bytes": 1594,
+      "sha256": "714cb7eb319a12a8d764b84935a56c7482b818cd2be3232783e5f0097f735022"
+    },
+    {
+      "label": "100 Win Club",
+      "path": "assets/clubs/club-win-100.svg",
+      "bytes": 1596,
+      "sha256": "9253229d384b6fdac7c5d7860ad0061f53e6ab50dc7f1e54c2bfd351a3962635"
+    }
+  ]
+}

@@ -23,6 +23,16 @@ for(const art of artManifest.assets){
  assert.equal(bytes.toString('ascii',0,4),'RIFF');
  assert.equal(bytes.toString('ascii',8,12),'WEBP');
 }
+const clubManifest=parse('widgets/assets/clubs/source-manifest.json');
+assert.equal(clubManifest.schema,'brave-hc-club-milestone-art/v1');
+assert.equal(clubManifest.assets.length,10);
+for(const art of clubManifest.assets){
+ assert(art.path.startsWith('assets/clubs/')&&art.path.endsWith('.svg'));
+ const bytes=fs.readFileSync('widgets/'+art.path);
+ assert.equal(bytes.length,art.bytes);
+ assert.equal(crypto.createHash('sha256').update(bytes).digest('hex'),art.sha256);
+ assert(bytes.toString('utf8').includes('<svg')&&!bytes.toString('utf8').includes('<script'));
+}
 const corrections=parse('widgets/player-highlights-display-corrections.json');
 const feeds={'player-highlights-ledger.json':ledger,'awards-participants.json':parse('widgets/awards-participants.json'),'player-career-insights.json':career,'player-record-book.json':book,'player-highlights-display-corrections.json':corrections};
 const expectedCorrections={
@@ -41,7 +51,7 @@ async function render(id,overrides={}){
  vm.runInContext(links,context);vm.runInContext(code,context);await new Promise(setImmediate);return nodes;
 }
 (async()=>{
- let profiles=0,highlights=0,records=0,corrected=0,awardLogoDisplays=0;
+ let profiles=0,highlights=0,records=0,corrected=0,awardLogoDisplays=0,milestoneLogoDisplays=0,retitledDedications=0;
  assert.deepEqual(corrections.corrections.map(c=>[c.itemID,c.displayText,c.sortDate]),Object.entries(expectedCorrections).map(([id,c])=>[id,c.text,c.date]));
  for(const [id,p] of Object.entries(career.players)){
  const n=await render(id);assert.equal(n.playerName.textContent,p.name);assert(n.notice.hidden,id+' unexpected warning');
@@ -50,9 +60,12 @@ async function render(id,overrides={}){
  assert.equal(n.legacy.children.length,Math.min(3,items.length));
  if(items.length>3)n.expand.onclick();
  assert.equal(n.legacy.children.length,items.length);
- awardLogoDisplays+=n.legacy.children.filter(row=>row.children[0].children.some(child=>child.tagName==='img')).length;
+ awardLogoDisplays+=n.legacy.children.filter(row=>row.children[0].children.some(child=>child.tagName==='img'&&child.src.includes('assets/awards/'))).length;
+ milestoneLogoDisplays+=n.legacy.children.filter(row=>row.children[0].children.some(child=>child.tagName==='img'&&child.src.includes('assets/clubs/'))).length;
  for(let i=0;i<items.length;i++){
-  const item=items[i],expectedText=expectedCorrections[item.id]?.text||item.displayText;
+  const item=items[i],isHistoricDedication=item.category==='award'&&/^Bill Masterton Award for (?:Dedication|Decidation)\b/i.test(item.sourceText);
+  const expectedText=(expectedCorrections[item.id]?.text||item.displayText).replace(isHistoricDedication?/^Bill Masterton Award for (?:Dedication|Decidation)\b/i:/^$/,'Andrew Cristillo Award for Dedication');
+  if(isHistoricDedication)retitledDedications++;
   const row=n.legacy.children.find(row=>{const parts=expectedText.split(' - ');const title=item.sourceRuns||item.preserveLines?expectedText:parts.length>1?parts.slice(0,-1).join(' - '):expectedText;return row.children[1].children[0].textContent===title&&(item.sourceRuns||item.preserveLines||parts.length===1||row.children[1].children[1].textContent.endsWith(parts.at(-1)))});assert(row,'Source highlight lost after sorting: '+item.id);const info=row.children[1];
   if(expectedCorrections[item.id])corrected++;
   if(item.sourceRuns){const spans=info.children[0].children;assert.equal(spans.map(s=>s.textContent).join(''),expectedText);assert.equal(spans.length,item.sourceRuns.length);for(let j=0;j<spans.length;j++){assert.equal(spans[j].style.fontWeight,item.sourceRuns[j].strong?'800':'400');assert.equal(spans[j].style.fontStyle,item.sourceRuns[j].italic?'italic':'normal');}}
@@ -77,10 +90,15 @@ async function render(id,overrides={}){
  const broken=structuredClone(ledger);broken.players['354054'].name='Wrong Player';const withheld=await render('354054',{'player-highlights-ledger.json':broken});assert.equal(withheld.legacy.children.length,0);assert(!withheld.notice.hidden);
  const empty=await render('999999');assert.equal(empty.records.children.length,0);assert.equal(empty.highs.children.length,0);
  assert.equal(corrected,4);
+ assert.equal(retitledDedications,10,'All ten historically named award wins must be retitled');
+ assert.equal(milestoneLogoDisplays,97,'Every verified club milestone must show a branded emblem');
+ assert.equal(awardLogoDisplays,104,'No award logo coverage regression');
+ assert.equal(ledger.players['354054'].items[0].sourceText,'Bill Masterton Award for Dedication - Winter 2024/25',
+   'Native original historical wording must be preserved for audit');
  const expanded=async(id,overrides={})=>{const n=await render(id,overrides);if(!n.expand.hidden)n.expand.onclick();return n;};
  const artCases=[
   ['354060','Andrew Cristillo Award','cristillo-dedication.webp'],
-  ['354054','Bill Masterton Award','cristillo-dedication.webp'],
+  ['354054','Andrew Cristillo Award','cristillo-dedication.webp'],
   ['354060','Hart Award Team MVP','hart-mvp.webp'],
   ['354060','Conn Smythe Award','conn-smythe.webp'],
   ['354058','James Norris Award','james-norris.webp'],
@@ -151,5 +169,5 @@ async function render(id,overrides={}){
  reformatted.players['354046'].items.find(i=>i.id==='hto-legacy-354046-06').sourceRuns=[{...run,text:'100 Point Club - '},{...run,text:'August 9, 2014'}];
  const changedRuns=await render('354046',{'player-highlights-ledger.json':reformatted});assert.equal(changedRuns.legacy.children.length,0);assert(!changedRuns.notice.hidden);negativeChecks++;
  const repeated=await expanded('354285');assert.deepEqual(repeated.legacy.children.map(r=>r.textContent),benRows,'Repeated rendering must not accumulate changes');
- console.log(JSON.stringify({profiles,expandedHighlightItems:highlights,recordBookEntries:records,awardLogoDisplays,displayCorrections:corrected,negativeCorrectionChecks:negativeChecks,identityMismatchWithheld:true,unregisteredIdentityWithheld:true,formattingRunsPreserved:true,frozenSourceInputsPreserved:true,correctedChronology:true,unrelatedBenMilestonePreserved:true,unaffectedProfileSurvivesUnavailableCorrections:true}));
+ console.log(JSON.stringify({profiles,expandedHighlightItems:highlights,recordBookEntries:records,awardLogoDisplays,milestoneLogoDisplays,retitledDedications,displayCorrections:corrected,negativeCorrectionChecks:negativeChecks,identityMismatchWithheld:true,unregisteredIdentityWithheld:true,formattingRunsPreserved:true,frozenSourceInputsPreserved:true,correctedChronology:true,unrelatedBenMilestonePreserved:true,unaffectedProfileSurvivesUnavailableCorrections:true}));
 })().catch(e=>{console.error(e);process.exitCode=1});
