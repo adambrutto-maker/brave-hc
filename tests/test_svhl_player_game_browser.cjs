@@ -35,7 +35,7 @@ const server=http.createServer((req,res)=>{
    }));
    assert.ok(first.source.includes("GameInfo sources captured"));
    assert.equal(first.team,"Mid Ice Crisis");
-   assert.ok(first.coverage.includes("1994")&&first.coverage.includes("1872"),
+   assert.ok(first.coverage.includes("2206")&&first.coverage.includes("2069"),
      "at least seven source seasons admitted before browser test");
    assert.equal(first.playerCount,19);assert.equal(first.teamRows,19);
    assert.ok(first.status.includes("official league season 570"));
@@ -74,7 +74,7 @@ const server=http.createServer((req,res)=>{
    const link=await page.$eval("#game-audit-link",el=>el.getAttribute("href"));
    assert.ok(link.includes("player-game-audit.html?team=Mid%20Ice%20Crisis"));
    assert.deepEqual(errors,[]);
-   results.push({width,yearGameSheets:1994,fullGoalParity:1872,
+   results.push({width,yearGameSheets:2206,fullGoalParity:2069,
      currentPlayers:19,oldGameEvidence:"PASS",clipboard:"PASS",
      opponentProfileNavigation:"PASS",pageOverflow:0,jsErrors:0});
    await page.close();
