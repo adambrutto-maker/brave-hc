@@ -101,7 +101,7 @@ const tests=[
  }],
  ["Source-stat inconsistency cannot be represented as independently verified scoring",()=>{
   const x=clone(r);x.teams[0].players[0].pts+=1;
-  assert.throws(()=>model.valid(l,x),/PUBLISHED_PLAYER_POINTS_MISMATCH/);
+  assert.throws(()=>model.valid(l,x),/PLAYER_SOURCE_ARITHMETIC_INVALID/);
  }],
  ["Rejected mismatched team or separate league cannot sneak into adult strength model",()=>{
   const bad=clone(r);bad.teams[0].name="Invented Franchise";
