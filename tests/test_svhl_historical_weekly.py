@@ -20,12 +20,12 @@ class HistoricWeeklyQA(unittest.TestCase):
   source=read("historical-svhl-standings.json")
   self.assertTrue(archive.validate(source))
   self.assertEqual(source["seasonsCollected"],len(archive.SEASONS))
-  self.assertEqual(source["competitiveTeamSeasonEntries"],175)
+  self.assertEqual(source["competitiveTeamSeasonEntries"],195)
  def test_old_season_team_ids_are_not_assumed_to_be_franchise_ids(self):
   source=read("historical-svhl-standings.json")
   self.assertIn("Matching names across years are search candidates",source["identityRule"])
   self.assertFalse(source["publishedPersonalRosterData"])
-  self.assertEqual(source["missingSeasonsNotInferred"],["2019/20","2020/21"])
+  self.assertEqual(source["missingSeasonsNotInferred"],["2017/18","2019/20","2020/21"])
  def test_all_standings_records_arithmetically_consistent(self):
   source=read("historical-svhl-standings.json")
   for season in source["seasons"]:
