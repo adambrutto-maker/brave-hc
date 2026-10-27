@@ -50,6 +50,16 @@ for(const art of heritageManifest.assets){
  assert.equal(crypto.createHash('sha256').update(bytes).digest('hex'),art.sha256);
  assert(bytes.toString('utf8').includes('<svg')&&!bytes.toString('utf8').includes('<script'));
 }
+const roundManifest=parse('widgets/assets/round-clubs/source-manifest.json');
+assert.equal(roundManifest.schema,'brave-hc-rounded-milestone-art/v1');
+assert.equal(roundManifest.assets.length,22);
+for(const entry of roundManifest.assets){
+ assert(entry.path.startsWith('assets/round-clubs/')&&entry.path.endsWith('.webp'));
+ const b=fs.readFileSync('widgets/'+entry.path);
+ assert.equal(b.length,entry.bytes);
+ assert.equal(crypto.createHash('sha256').update(b).digest('hex'),entry.sha256);
+ assert.equal(b.toString('ascii',0,4),'RIFF');
+}
 const corrections=parse('widgets/player-highlights-display-corrections.json');
 const feeds={'player-highlights-ledger.json':ledger,'awards-participants.json':parse('widgets/awards-participants.json'),'player-career-insights.json':career,'player-record-book.json':book,'player-highlights-display-corrections.json':corrections};
 const expectedCorrections={
@@ -78,7 +88,7 @@ async function render(id,overrides={}){
  if(items.length>3)n.expand.onclick();
  assert.equal(n.legacy.children.length,items.length);
  awardLogoDisplays+=n.legacy.children.filter(row=>row.children[0].children.some(child=>child.tagName==='img'&&child.src.includes('assets/awards/'))).length;
- milestoneLogoDisplays+=n.legacy.children.filter(row=>row.children[0].children.some(child=>child.tagName==='img'&&child.src.includes('assets/clubs/'))).length;
+ milestoneLogoDisplays+=n.legacy.children.filter(row=>row.children[0].children.some(child=>child.tagName==='img'&&child.src.includes('assets/round-clubs/'))).length;
  specialLogoDisplays+=n.legacy.children.filter(row=>row.children[0].children.some(child=>child.tagName==='img'&&child.src.includes('assets/special/'))).length;
  heritageLogoDisplays+=n.legacy.children.filter(row=>row.children[0].children.some(child=>child.tagName==='img'&&child.src.includes('assets/heritage/'))).length;
  for(const row of n.legacy.children)assert(row.children[0].children.some(x=>x.tagName==='img'),'Unbranded historical item: '+id+' '+row.textContent);
@@ -216,6 +226,21 @@ for(const [id,label,file] of [
   assert(row,'Missing verified club '+label);
   assert(row.className.includes('ph-tier-'+tier),'Expected '+tier+' tier for '+label);
  }
+ const future=structuredClone(ledger);
+ const existing=future.players['354054'];
+ const example=structuredClone(existing.items.find(x=>x.category==='milestone'));
+ example.id='hto-legacy-354054-future-fixture';
+ example.sourceText='1250 Game Club - January 1, 2040';
+ example.displayText=example.sourceText;
+ example.sortDate='2040-01-01';
+ delete example.sourceRuns;delete example.displayRuns;
+ existing.items=[...existing.items,example];
+ existing.originalCount=existing.items.length;
+ const futureView=await expanded('354054',{'player-highlights-ledger.json':future});
+ const futureRow=futureView.legacy.children.find(row=>row.textContent.includes('1250 Game Club'));
+ assert(futureRow,'New verified 1250 club badge not rendered');
+ assert(futureRow.className.includes('ph-tier-platinum'));
+ assert(futureRow.children[0].children[0]?.src==='./brave_hc_logo.png','New threshold falls back to official lion and runtime number');
  const norrisAlias=structuredClone(ledger);
  const alexAlias=norrisAlias.players['354058'].items.find(x=>x.sourceText.startsWith('James Norris Award'));
  alexAlias.sourceText=alexAlias.sourceText.replace('James Norris Award','James Norris Trophy');
