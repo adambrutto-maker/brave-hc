@@ -105,7 +105,7 @@ const rules=[
  }],
  ["Unsupported capacity templates fail rather than quietly omit clubs",()=>{
   assert.throws(()=>optimizer.patterns(3),/INVALID_ADULT_POOL_SIZE/);
-  assert.throws(()=>optimizer.patterns(17),/NO_SUPPORTED_4_6_8_PARTITION/);
+  assert.throws(()=>optimizer.patterns(17),/ODD_NUMBER_OF_TEAMS_CANNOT_FORM_EVEN_DIVISIONS/);
  }],
  ["Repeat analysis is deterministic and writes no original league records",()=>{
   const before=JSON.stringify(league),old=JSON.stringify(history);
