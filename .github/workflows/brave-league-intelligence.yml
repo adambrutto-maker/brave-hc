@@ -53,6 +53,7 @@ on:
       - 'scripts/split_svhl_player_game_evidence.py'
       - 'scripts/check_svhl_player_game_evidence.py'
       - 'tests/test_svhl_player_game_sources.py'
+      - 'tests/test_roster_source_time_boundary.py'
       - 'tests/test_svhl_player_game_browser.cjs'
       - 'scripts/collect_svhl_roster_season_evidence.py'
       - 'scripts/check_svhl_roster_intelligence.py'
@@ -133,6 +134,7 @@ on:
       - 'scripts/split_svhl_player_game_evidence.py'
       - 'scripts/check_svhl_player_game_evidence.py'
       - 'tests/test_svhl_player_game_sources.py'
+      - 'tests/test_roster_source_time_boundary.py'
       - 'tests/test_svhl_player_game_browser.cjs'
       - 'scripts/collect_svhl_roster_season_evidence.py'
       - 'scripts/check_svhl_roster_intelligence.py'
@@ -242,6 +244,8 @@ jobs:
         run: python -B scripts/check_svhl_player_game_evidence.py
       - name: Refuse invented GameInfo scorers, assists, source URLs and appearances
         run: python -B -m unittest discover -s tests -p test_svhl_player_game_sources.py -v
+      - name: Guard source-stamped weekly roster age without equating separate daily captures
+        run: python -B -m unittest discover -s tests -p test_roster_source_time_boundary.py -v
       - name: Detect stalled daily local collector
         if: github.event_name == 'schedule'
         run: python scripts/check_svhl_league_intelligence.py --fresh
