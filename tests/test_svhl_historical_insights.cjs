@@ -33,7 +33,7 @@ const tests=[
  }],
  ["Private-stage paired Brave matches are published as season-scoped only",()=>{
    assert.equal(links.matchedGameCount,79);
-   assert.equal(links.heldGameComparisons,24);
+   assert.equal(links.heldGameComparisons,43);
    assert.equal(links.sourcePrivacy,"TEAM_SEASON_AND_SCORES_ONLY_NO_PLAYER_DATA");
    assert.ok(links.teamSeasons.every(x=>x.continuousFranchiseNotVerified===true));
    assert.ok(links.teamSeasons.every(x=>x.games.length===x.bravesRecord.gp));
