@@ -5,7 +5,8 @@ const published=JSON.parse(fs.readFileSync(path.join(root,"league-intelligence.j
 const maple=published.teams.find(t=>t.leagueName==="Maplewolves");
 const leagueDivision=published.divisions.find(t=>t.name==="The Cristillo Division");
 const ranked=[...published.teams].filter(t=>t.strengthContext?.rank!==null).sort((a,b)=>a.strengthContext.rank-b.strengthContext.rank);
-const competitiveCount=published.teams.filter(t=>published.divisions.some(d=>d.name===t.divisionNow&&d.competitive)).length;
+const adultScope=require("../widgets/adult-league-scope.js");
+const competitiveCount=adultScope.teams(published).length;
 const archive=JSON.parse(fs.readFileSync(path.join(root,"historical-svhl-standings.json"),"utf8"));
 const historicalLinks=JSON.parse(fs.readFileSync(path.join(root,"brave-historical-verified-games.json"),"utf8"));
 
@@ -87,13 +88,14 @@ const server=http.createServer((req,res)=>{
    assert.ok(info.incomingContent.includes("11–10–3")&&info.incomingContent.includes("Primary Auto")&&
              info.incomingContent.includes("3–6–1"),"prior winter, competition and Braves history visible");
    assert.equal(info.rows,competitiveCount,"all competitive team entries");
-   assert.equal(info.divisions.length,published.divisions.length+1,"all source divisions plus all");
+   assert.equal(info.divisions.length,adultScope.divisions(published).length+1,"adult Sunday divisions only");
+   assert.ok(!info.divisions.includes("VAHL Division"),"separate league must not appear in filter");
    assert.equal(info.selected,"Maplewolves");
-   assert.ok(info.archiveStatus.includes(archive.competitiveTeamSeasonEntries+" competitive team-season entries"));
+   assert.ok(info.archiveStatus.includes(adultScope.archiveCompetitiveCount(archive)+" adult-scope competitive team-season entries"));
    assert.ok(info.archiveStatus.includes(historicalLinks.matchedGameCount+" Brave H.C. game/date/score matches"));
    assert.equal(info.archiveChoices,archive.seasons.length);
-   assert.equal(info.archivedDivisionCount,archive.seasons.at(-1).divisions.length);
-   assert.equal(info.balanceCount,published.currentDivisionCount);
+   assert.equal(info.archivedDivisionCount,adultScope.archiveDivisions(archive.seasons.at(-1)).length);
+   assert.equal(info.balanceCount,adultScope.divisions(published).length);
    assert.ok(info.balanceText.includes("Division changes are not recommended yet"),
       "early-season ranking may not be presented as league realignment recommendation");
    assert.equal(info.pastCards,new Set(historicalLinks.teamSeasons.map(g=>g.season+"|"+g.officialDivision)).size>12?12:
