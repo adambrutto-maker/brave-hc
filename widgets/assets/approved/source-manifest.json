@@ -1,0 +1,128 @@
+{
+  "schema": "brave-hc-approved-icon-art/v1",
+  "status": "EXACT_VISUAL_CONCEPT_ART_IMPORTED_NOT_AN_AWARD_SOURCE",
+  "sourceZipSha256": "78fa843abf9c53450cc25d0438007624f31f4c94ae446201d4c0b54b7d59e8d7",
+  "sourceZipName": "BraveHC_Approved_Set_Neutral_Discipline_ReleaseCandidate_20261027.zip",
+  "files": [
+    {
+      "slug": "hart_mvp",
+      "file": "assets/approved/hart_mvp.webp",
+      "bytes": 10766,
+      "sha256": "c2055a209eafed605e61029f159ec707c90ff140c9e9c1b1e3fae9085227ac90",
+      "source": "APPROVED_USER_ARTWORK_PACKAGE"
+    },
+    {
+      "slug": "conn_smythe",
+      "file": "assets/approved/conn_smythe.webp",
+      "bytes": 11212,
+      "sha256": "db872bb3c5847f96eb521fa29620817c6779575b8c677ec940a7f7adb46b107d",
+      "source": "APPROVED_USER_ARTWORK_PACKAGE"
+    },
+    {
+      "slug": "james_norris",
+      "file": "assets/approved/james_norris.webp",
+      "bytes": 11430,
+      "sha256": "d19bb745810ddc98452dfacf29690a6516d4ebd529ba095ae68e3c2b50f4d458",
+      "source": "APPROVED_USER_ARTWORK_PACKAGE"
+    },
+    {
+      "slug": "lady_byng",
+      "file": "assets/approved/lady_byng.webp",
+      "bytes": 11260,
+      "sha256": "73c31dfaebd800854e0f2f5587d0364ed7be7b4b8ac73b4dd87bb82945cbf446",
+      "source": "APPROVED_USER_ARTWORK_PACKAGE"
+    },
+    {
+      "slug": "rookie_of_the_year",
+      "file": "assets/approved/rookie_of_the_year.webp",
+      "bytes": 10906,
+      "sha256": "34542f776b7f3bf344ffbde81ab9317eacba101fe1c8bcfc0b15c1ca8b28611b",
+      "source": "APPROVED_USER_ARTWORK_PACKAGE"
+    },
+    {
+      "slug": "most_improved",
+      "file": "assets/approved/most_improved.webp",
+      "bytes": 10864,
+      "sha256": "ccff668a19957a7a7bbd704d736be2793953718039e95adfeed87bb5ca63f4b6",
+      "source": "APPROVED_USER_ARTWORK_PACKAGE"
+    },
+    {
+      "slug": "rolaids_relief",
+      "file": "assets/approved/rolaids_relief.webp",
+      "bytes": 11372,
+      "sha256": "681153555445e4180e5c70d1126f1019ef20ed5b717365e380e88ed120fe89da",
+      "source": "APPROVED_USER_ARTWORK_PACKAGE"
+    },
+    {
+      "slug": "andrew_cristillo",
+      "file": "assets/approved/andrew_cristillo.webp",
+      "bytes": 11746,
+      "sha256": "3443a098486e3c1a701a926e50b0207ca7220cca37348d6be6e5ee29975e7fac",
+      "source": "APPROVED_USER_ARTWORK_PACKAGE"
+    },
+    {
+      "slug": "art_ross",
+      "file": "assets/approved/art_ross.webp",
+      "bytes": 12744,
+      "sha256": "a489139d246b3b871b6bf5a31df24c6aafed56e128b548dc0a67a2cd0c2bc48d",
+      "source": "APPROVED_USER_ARTWORK_PACKAGE"
+    },
+    {
+      "slug": "rocket_richard",
+      "file": "assets/approved/rocket_richard.webp",
+      "bytes": 12880,
+      "sha256": "6c394f06926ef59ec3b30a598c8cb1daf9d1d85e955895035e40ac68c3b9d3bd",
+      "source": "APPROVED_USER_ARTWORK_PACKAGE"
+    },
+    {
+      "slug": "svhl_cup",
+      "file": "assets/approved/svhl_cup.webp",
+      "bytes": 11856,
+      "sha256": "2a6fc655948d5606df9d2710438d44ccf826823ba0dde0c7739d823e09794f55",
+      "source": "APPROVED_USER_ARTWORK_PACKAGE"
+    },
+    {
+      "slug": "hall_of_fame",
+      "file": "assets/approved/hall_of_fame.webp",
+      "bytes": 12884,
+      "sha256": "a1c9fe73d7e7536dec364e85b52189abc3cefae04769ad4d55a54496d0031947",
+      "source": "APPROVED_USER_ARTWORK_PACKAGE"
+    },
+    {
+      "slug": "all_star_nomination",
+      "file": "assets/approved/all_star_nomination.webp",
+      "bytes": 9676,
+      "sha256": "b7b460fbcb5392326e421ac81d942d9179242f820ef3d621179348719632830c",
+      "source": "APPROVED_USER_ARTWORK_PACKAGE"
+    },
+    {
+      "slug": "all_star_selection",
+      "file": "assets/approved/all_star_selection.webp",
+      "bytes": 9908,
+      "sha256": "fe7415d672979b7438e8c947020c0568f43e615c0d4c2cb73a7f13ebf96b4b2e",
+      "source": "APPROVED_USER_ARTWORK_PACKAGE"
+    },
+    {
+      "slug": "captain",
+      "file": "assets/approved/captain.webp",
+      "bytes": 9794,
+      "sha256": "d7085d447b8bcf30f21181db09a95e24b304b6d809d34270ef7825995b86051e",
+      "source": "APPROVED_USER_ARTWORK_PACKAGE"
+    },
+    {
+      "slug": "assistant_captain",
+      "file": "assets/approved/assistant_captain.webp",
+      "bytes": 10068,
+      "sha256": "f0ad38cd85d8aa99ad63ba61914d589dd062c12542e44a07ad23dc221b8f6486",
+      "source": "APPROVED_USER_ARTWORK_PACKAGE"
+    },
+    {
+      "slug": "discipline_record",
+      "file": "assets/approved/discipline_record.webp",
+      "bytes": 2524,
+      "sha256": "7644c21e4cae30c37455026a8c22c0e3a867ed94d9ce9042fd8c5dcf059aaf5d",
+      "source": "APPROVED_USER_ARTWORK_PACKAGE"
+    }
+  ],
+  "suspensionPolicy": "Muted administrative record icon, not a medal or honour."
+}
