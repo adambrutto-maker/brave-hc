@@ -64,7 +64,7 @@ const server=http.createServer((req,res)=>{
      firstRankedTeam:document.querySelector("#league-rows tr[data-team]")?.dataset.team,
      status:document.querySelector("#source-status")?.textContent
    }));
-   assert.ok(info.contextHeaders.includes("CONTEXT /100")&&info.contextHeaders.includes("CONTEXT RANK"),"descriptive new comparison columns");
+   assert.ok(info.contextHeaders.includes("CONTEXT /100")&&info.contextHeaders.includes("ADULT CONTEXT RANK"),"descriptive new comparison columns");
    assert.equal(info.firstRankedTeam,ranked[0].leagueName,"context order follows current accepted score");
    assert.ok(info.contextBreakdown.includes("Current form")&&info.contextBreakdown.includes("Schedule difficulty")&&info.contextBreakdown.includes("previous winter"));
    assert.ok(info.method.includes(maple.strengthContext.contextIndex.toFixed(1)+"/100")&&info.method.includes("NOT win probability"),"Maplewolves context follows the published model");
