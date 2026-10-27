@@ -12,6 +12,8 @@ on:
       - 'widgets/assets/awards/**'
       - 'widgets/assets/clubs/**'
       - 'widgets/assets/special/**'
+      - 'widgets/assets/heritage/**'
+      - 'scripts/build-player-heritage-art.py'
       - 'scripts/test-player-highlights-v2.cjs'
       - 'scripts/build-player-award-art.py'
       - 'scripts/build-club-milestone-art.py'
@@ -47,3 +49,7 @@ jobs:
         run: python scripts/build-player-special-art.py
       - name: Confirm special icons and provenance manifest are reproducible
         run: git diff --exit-code -- widgets/assets/special/
+      - name: Recreate complete historic award and leadership emblems
+        run: python scripts/build-player-heritage-art.py
+      - name: Confirm six final heritage images are reproducible
+        run: git diff --exit-code -- widgets/assets/heritage/

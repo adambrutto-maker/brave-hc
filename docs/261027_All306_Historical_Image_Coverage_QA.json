@@ -1,0 +1,19 @@
+{
+  "schema": "brave-hc-historical-icons-complete-browser/v1",
+  "sessions": 86,
+  "players": 43,
+  "highlights": 306,
+  "award": 105,
+  "club": 97,
+  "special": 58,
+  "heritage": 46,
+  "norris": 16,
+  "imagesMissing": 0,
+  "genericBadges": 0,
+  "layoutOverflows": 0,
+  "widths": [
+    355,
+    810
+  ],
+  "status": "PASS"
+}

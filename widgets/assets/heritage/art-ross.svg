@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200"><title>Brave H.C. Art Ross Award</title><defs>
+<linearGradient id="navy" x1="0" y1="0" x2="1" y2="1">
+<stop stop-color="#1b4466"/><stop offset=".6" stop-color="#09233e"/><stop offset="1" stop-color="#05152a"/></linearGradient>
+<linearGradient id="gold" x1="0" x2=".8" y1="0" y2="1"><stop stop-color="#fff1b5"/><stop offset=".45" stop-color="#d09d51"/><stop offset="1" stop-color="#785328"/></linearGradient>
+<linearGradient id="steel" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#6c8296"/><stop offset=".35" stop-color="#f0f9ff"/><stop offset=".65" stop-color="#a1b6c8"/><stop offset="1" stop-color="#fff"/></linearGradient>
+</defs><circle cx="100" cy="100" r="95" fill="#061929" stroke="#dfad61" stroke-width="7"/>
+<circle cx="100" cy="100" r="85" fill="url(#navy)" stroke="#a92d43" stroke-width="3.5"/><text x="100" y="35" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" font-weight="900" letter-spacing="1.7" fill="#f9d991">BRAVE H.C.</text><g fill="none" stroke="url(#gold)" stroke-width="3">
+<path d="M45 133 Q23 101 48 66"/><path d="M155 133 Q177 101 152 66"/></g>
+<g fill="url(#gold)">
+<ellipse cx="43" cy="78" rx="6" ry="14" transform="rotate(-28 43 78)"/>
+<ellipse cx="35" cy="99" rx="6" ry="14" transform="rotate(-15 35 99)"/>
+<ellipse cx="42" cy="118" rx="6" ry="12" transform="rotate(26 42 118)"/>
+<ellipse cx="157" cy="78" rx="6" ry="14" transform="rotate(28 157 78)"/>
+<ellipse cx="165" cy="99" rx="6" ry="14" transform="rotate(15 165 99)"/>
+<ellipse cx="158" cy="118" rx="6" ry="12" transform="rotate(-26 158 118)"/></g><path d="M72 79 L82 69 L93 82 L100 60 L109 82 L120 69 L130 79 L125 101 L75 101 Z" fill="url(#gold)" stroke="#fff0c1" stroke-width="2.1"/>
+<rect x="77" y="102" width="46" height="7" rx="3" fill="url(#gold)" stroke="#755332" stroke-width="1.2"/>
+<ellipse cx="100" cy="126" rx="24" ry="10" fill="#192733" stroke="url(#steel)" stroke-width="3"/>
+<path d="M76 126 L76 137 Q100 144 124 137 L124 126" fill="#1c2b3a" stroke="url(#steel)" stroke-width="3"/>
+<text x="100" y="133" text-anchor="middle" font-family="Arial" font-size="11" font-weight="900" fill="#ffffff">PTS</text><path d="M29 150 L171 150 L160 175 L40 175 Z" fill="#97223b" stroke="#dfad61" stroke-width="3.2"/>
+<text x="100" y="167" font-family="Arial,sans-serif" font-size="16" font-weight="900" letter-spacing=".5" text-anchor="middle" fill="#ffffff">ART ROSS</text>
+<text x="100" y="190" font-family="Arial,sans-serif" font-size="10" font-weight="800" letter-spacing="1.2" text-anchor="middle" fill="#f9d991">POINT LEADER</text></svg>

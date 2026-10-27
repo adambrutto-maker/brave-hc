@@ -105,6 +105,28 @@ function specialArtFor(item){
  }
  return null;
 }
+// Complete verified historical-award categories without inferring any winners, induction or leadership.
+function heritageArtFor(item){
+ const source=String(item.sourceText||'').replace(/\u00a0/g,' ').trim();
+ if(item.category==='award'){
+  if(/^Art Ross Award\s+\(\d+\s+Points\)\s+-\s+/i.test(source))
+   return {kind:'heritage',file:'art-ross.svg',label:'Brave H.C. Art Ross point leader',fallback:'AWD'};
+  if(/^Maurice\s+['\"]Rocket['\"]\s+Richard Award\s+\(\d+\s+Goals\)\s+-\s+/i.test(source))
+   return {kind:'heritage',file:'rocket-richard.svg',label:'Brave H.C. Rocket Richard goal leader',fallback:'AWD'};
+ }
+ if(item.category==='recognition'&&/^Hall of Fame Inductee\s+-\s+/i.test(source))
+  return {kind:'heritage',file:'hall-of-fame-inductee.svg',label:'Brave H.C. Hall of Fame inducted member',fallback:'STAR'};
+ if(item.category==='leadership'){
+  if(/^Elected Assistant Captain\s+-\s+/i.test(source))
+   return {kind:'heritage',file:'assistant-captain.svg',label:'Brave H.C. elected assistant captain',fallback:'CAP'};
+  if(/^Elected (?:Team )?Captain\s+-\s+/i.test(source))
+   return {kind:'heritage',file:'captain.svg',label:'Brave H.C. elected captain',fallback:'CAP'};
+ }
+ // Explicitly historical discipline records: monochrome report emblem, never trophy-like art.
+ if(item.category==='discipline'&&/^\d+ Game Suspension\s+\([^)]+\)\s+-\s+/i.test(source))
+  return {kind:'heritage',file:'discipline-record.svg',label:'Recorded disciplinary suspension',fallback:'NOTE'};
+ return null;
+}
 function setNotice(s){
  $('notice').textContent=s;
 }
@@ -206,14 +228,14 @@ function renderLegacy(record,ledgerTime){
   for(const item of expanded?items:items.slice(0,first)){
    const row=text('article','','ph-event'+(item.sourceEmphasis?' ph-champion':''));
    const icon=text('span',symbol[item.category]||'AWD','ph-symbol');
-   const art=awardArtFor(item)||clubArtFor(item)||specialArtFor(item);
+   const art=awardArtFor(item)||clubArtFor(item)||specialArtFor(item)||heritageArtFor(item);
    if(art){
     const kind=art.kind;
     row.className+=' ph-with-'+kind+'-art';
     icon.className+=' ph-'+kind+'-art';
     icon.replaceChildren();
     const img=document.createElement('img');
-    img.src=root+(kind==='milestone'?'assets/clubs/':kind==='special'?'assets/special/':'assets/awards/')+art.file;
+    img.src=root+(kind==='milestone'?'assets/clubs/':kind==='special'?'assets/special/':kind==='heritage'?'assets/heritage/':'assets/awards/')+art.file;
     img.alt=art.label+' emblem';
     img.loading='lazy';
     img.decoding='async';
