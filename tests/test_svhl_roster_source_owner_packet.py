@@ -29,6 +29,8 @@ class RosterOwnerTests(unittest.TestCase):
                 "perEventEvidence":[{
                   "leagueId":x["leagueId"],"gameId":x["gameId"],
                   "officialPlayerId":999998,"officialGoalTeamId":13704,
+                  "officialGoalTeamName":"Other Way",
+                  "officialScorerLink":"playerinfo.aspx?leagueid=570&teamid=13704&playerid=999998&page_type=Adult",
                   "scorerDisplayInGoalTable":"SYNTHETIC FIXTURE ONLY",
                   "reason":"OFFICIAL_GOAL_SCORER_ID_ABSENT_SOURCE_SEASON_TEAM_ROSTER",
                   "registrationOrGameAttendanceProved":False,
@@ -90,6 +92,17 @@ class RosterOwnerTests(unittest.TestCase):
             parse_player_link(link,570,13730)
         with self.assertRaisesRegex(ValueError,"SCORER_URL_IDENTITY_INVALID"):
             parse_player_link(link.replace("playerid=86365","playerid=86365&playerid=123"),570,13704)
+
+    def test_official_scorer_profile_link_must_match_exact_player_and_team(self):
+        p=self.pilot()
+        p["perEventEvidence"][0]["officialScorerLink"] = (
+            "playerinfo.aspx?leagueid=570&teamid=13704&playerid=123&page_type=Adult")
+        with self.assertRaisesRegex(ValueError,"PILOT_LINK_IDENTITY_OR_TEAM_MISMATCH"):
+            compile_packet(self.review,p)
+        p=self.pilot()
+        p["perEventEvidence"][0]["officialGoalTeamName"]="Unknown Team"
+        with self.assertRaisesRegex(ValueError,"PILOT_LINK_IDENTITY_OR_TEAM_MISMATCH"):
+            compile_packet(self.review,p)
 
     def test_unverified_extra_pilot_game_rejected(self):
         p=self.pilot()

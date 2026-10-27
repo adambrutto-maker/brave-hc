@@ -10,6 +10,7 @@ import csv
 import json
 from collections import Counter
 from pathlib import Path
+from urllib.parse import urlparse,parse_qs
 
 SCHEMA="brave-hc-svhl-scorer-roster-source-owner-packet/v1"
 CATEGORY="RAW_SCORE_PARITY_WITH_SEASON_ROSTER_ID_HOLD"
@@ -50,6 +51,17 @@ def compile_packet(review,private_pilot):
                 and f["registrationOrGameAttendanceProved"] is False
                 and f["rosterAndGoalsOverwritten"] is False,
                 "PILOT_SCORER_QUALIFICATION_INVALID")
+        link=urlparse(f.get("officialScorerLink","").replace("&amp;","&"))
+        link_query=parse_qs(link.query)
+        require(link.path.lower().lstrip("/")=="playerinfo.aspx"
+                and link.scheme in ("","https")
+                and link.netloc in ("","leagues.sportsvillage.ca")
+                and link_query.get("leagueid")==[str(key[0])]
+                and link_query.get("teamid")==[str(f["officialGoalTeamId"])]
+                and link_query.get("playerid")==[str(f["officialPlayerId"])]
+                and f["officialGoalTeamName"] in
+                  (records[key]["homeTeam"],records[key]["awayTeam"]),
+                "PILOT_LINK_IDENTITY_OR_TEAM_MISMATCH")
         require(records[key]["heldReasons"].get(
                 "GOAL_PLAYER_ID_NOT_LISTED_ON_VERIFIED_TEAM_ROSTER",0)>=1,
                 "PILOT_HELD_REASONS_DIFFER")
@@ -70,6 +82,8 @@ def compile_packet(review,private_pilot):
             "officialScorerId":f["officialPlayerId"] if f else None,
             "officialGoalTeamId":f["officialGoalTeamId"] if f else None,
             "officialScorerDisplay":f["scorerDisplayInGoalTable"] if f else None,
+            "officialScorerProfileURL":("https://leagues.sportsvillage.ca/"+
+              f["officialScorerLink"].lstrip("/") if f else None),
             "identifiedScorerStatus":(
                 "EXACT_SOURCE_LINK_AND_ROSTER_GAP_VERIFIED_PRIVATE_PILOT"
                 if f else "IDENTITY_NOT_YET_REPLAYED_FOR_THIS_GAME"),
