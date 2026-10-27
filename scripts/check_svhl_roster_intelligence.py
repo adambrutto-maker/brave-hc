@@ -20,6 +20,8 @@ def verify(league,doc):
    value=datetime.fromisoformat(str(raw).replace("Z","+00:00"))
    need(value.tzinfo is not None,"NAIVE_SOURCE_CAPTURE_TIMESTAMP")
    return value.astimezone(timezone.utc)
+  except RosterSourceHold:
+   raise
   except (TypeError,ValueError) as err:
    raise RosterSourceHold("PUBLIC_ROSTER_SOURCE_HOLD:SOURCE_CAPTURE_TIMESTAMP_INVALID") from err
  current=when(league.get("asOf"))
