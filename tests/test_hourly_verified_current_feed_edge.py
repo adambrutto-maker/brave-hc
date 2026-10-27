@@ -17,6 +17,8 @@ class Handler(http.server.SimpleHTTPRequestHandler):
  def __init__(self,*a,**kw):super().__init__(*a,directory=str(ROOT),**kw)
  def log_message(self,*a):pass
  def do_GET(self):
+  if self.path.split("?")[0]=="/widgets/player-actuals-hourly.json":
+   self.send_error(404);return
   if self.path.split("?")[0]=="/widgets/awards-participants.json":
    obj=NEW if state["kind"]=="new" else OLD
    if state["kind"]=="invalid":
