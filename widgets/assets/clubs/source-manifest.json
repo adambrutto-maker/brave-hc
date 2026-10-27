@@ -6,62 +6,278 @@
     {
       "label": "50 Game Club",
       "path": "assets/clubs/club-game-50.svg",
-      "bytes": 1596,
-      "sha256": "f8a3d1a8486be81f35727a3f83ca3426468215e5c8d4e322ae10101634473a46"
+      "bytes": 2730,
+      "sha256": "4c8cad1138cd3a058b1ef6071ed8d5b9efb72939baf8e2bd1f79226f4c817c45",
+      "pixels": [
+        200,
+        200
+      ]
     },
     {
       "label": "100 Game Club",
       "path": "assets/clubs/club-game-100.svg",
-      "bytes": 1598,
-      "sha256": "81964ff1ea63897fca329d13e975a649653253718a90a0ddfa0a28bb810780f7"
+      "bytes": 2747,
+      "sha256": "a771f1afe9b2061164eb80f4f2a6e22c4d2652394fe7fd1ca25b59e0b01843d1",
+      "pixels": [
+        200,
+        200
+      ]
     },
     {
       "label": "200 Game Club",
       "path": "assets/clubs/club-game-200.svg",
-      "bytes": 1598,
-      "sha256": "dd9ecd78cc8ac07ebcd8745f1c5436657965dcb43055fc0513a1dd0146e21e0d"
+      "bytes": 2812,
+      "sha256": "c8c675632c611c324aac91d848d7f9f7111121fdc2f2d0c1348cd8e2de343d5a",
+      "pixels": [
+        200,
+        200
+      ]
     },
     {
       "label": "300 Game Club",
       "path": "assets/clubs/club-game-300.svg",
-      "bytes": 1598,
-      "sha256": "5458094c23909b1cd86897f3b5201cd93d620cd942746efb7df3b8eb867a66b0"
+      "bytes": 2951,
+      "sha256": "3878fca11bfbba19d4141d918e2f2a8f6ce8078e2bf01ae34eb24b5da6e8fb8e",
+      "pixels": [
+        200,
+        200
+      ]
     },
     {
       "label": "50 Point Club",
       "path": "assets/clubs/club-point-50.svg",
-      "bytes": 1598,
-      "sha256": "ea53a4f63dd2aae9f2cae7866cb8093346e9b4ed43a5e6178c4bc7a90cc7aa34"
+      "bytes": 2732,
+      "sha256": "246ff9af3b8426f1945e48b05cfc18c51d7db3210b98e1a19eebe50eaf34848d",
+      "pixels": [
+        200,
+        200
+      ]
     },
     {
       "label": "100 Point Club",
       "path": "assets/clubs/club-point-100.svg",
-      "bytes": 1600,
-      "sha256": "2a79807e795595b70e09e703e646c1a42d38302ab15c9bef4b644e644b40b886"
+      "bytes": 2749,
+      "sha256": "6641e32e4dd479a00ae52283cc1380ca7e7b556899b2987958a30aab6f822def",
+      "pixels": [
+        200,
+        200
+      ]
     },
     {
       "label": "200 Point Club",
       "path": "assets/clubs/club-point-200.svg",
-      "bytes": 1600,
-      "sha256": "3e4caa3e314897585c6537138c43099ab45af9f382d4fd68ea0a2ea4d012b92e"
+      "bytes": 2814,
+      "sha256": "4f1f43dca746d605f78b7a87606827da524b5b74239c8706f7faddb316d958f6",
+      "pixels": [
+        200,
+        200
+      ]
     },
     {
       "label": "300 Point Club",
       "path": "assets/clubs/club-point-300.svg",
-      "bytes": 1600,
-      "sha256": "8cc010d4201db744ef71b30017baedc98ad018397750f936ccea527a10693638"
+      "bytes": 2953,
+      "sha256": "9f15cb72221cc747c92e3d9b222999810e0c524d4621ac7997d5b09597a48512",
+      "pixels": [
+        200,
+        200
+      ]
     },
     {
       "label": "50 Win Club",
       "path": "assets/clubs/club-win-50.svg",
-      "bytes": 1594,
-      "sha256": "714cb7eb319a12a8d764b84935a56c7482b818cd2be3232783e5f0097f735022"
+      "bytes": 2728,
+      "sha256": "fa1064012022ba467f1e82c39006f6d0f1a9178fd292b2efedee48aa54094234",
+      "pixels": [
+        200,
+        200
+      ]
     },
     {
       "label": "100 Win Club",
       "path": "assets/clubs/club-win-100.svg",
-      "bytes": 1596,
-      "sha256": "9253229d384b6fdac7c5d7860ad0061f53e6ab50dc7f1e54c2bfd351a3962635"
+      "bytes": 2745,
+      "sha256": "dbbac1375f62e1ad1ca806cdca3d2740a4327b4fd672645f5a68322400b0cc75",
+      "pixels": [
+        200,
+        200
+      ]
+    },
+    {
+      "file": "club-game-400.svg",
+      "path": "assets/clubs/club-game-400.svg",
+      "label": "400 Game Club",
+      "sha256": "a4cca6591f5cabe6efeda4212d094b31359963a5547cdbb02dc3ff632e5ec8a6",
+      "bytes": 3030,
+      "pixels": [
+        200,
+        200
+      ],
+      "status": "ART_TEMPLATE_ONLY_NOT_A_HISTORIC_AWARD"
+    },
+    {
+      "file": "club-game-500.svg",
+      "path": "assets/clubs/club-game-500.svg",
+      "label": "500 Game Club",
+      "sha256": "a0152ed6791389e2d603418996f10ae29bbae84ba7f1b4caf639da41fd9e1178",
+      "bytes": 3030,
+      "pixels": [
+        200,
+        200
+      ],
+      "status": "ART_TEMPLATE_ONLY_NOT_A_HISTORIC_AWARD"
+    },
+    {
+      "file": "club-game-750.svg",
+      "path": "assets/clubs/club-game-750.svg",
+      "label": "750 Game Club",
+      "sha256": "8c06ed47b46e61f42c0343a20de3f8e7cc590115f38ccb02b0bf9532a2d4e938",
+      "bytes": 3096,
+      "pixels": [
+        200,
+        200
+      ],
+      "status": "ART_TEMPLATE_ONLY_NOT_A_HISTORIC_AWARD"
+    },
+    {
+      "file": "club-game-1000.svg",
+      "path": "assets/clubs/club-game-1000.svg",
+      "label": "1000 Game Club",
+      "sha256": "23999d7a3b6b4a5ba5e35ab3742b789c409a7e6d0770d0a63bfa05b06915979c",
+      "bytes": 3098,
+      "pixels": [
+        200,
+        200
+      ],
+      "status": "ART_TEMPLATE_ONLY_NOT_A_HISTORIC_AWARD"
+    },
+    {
+      "file": "club-point-400.svg",
+      "path": "assets/clubs/club-point-400.svg",
+      "label": "400 Point Club",
+      "sha256": "fd68ffb1511a35c4b41e4a20ecf3fa101e4bbcbc89cc0f8b13ec1249f737e724",
+      "bytes": 3032,
+      "pixels": [
+        200,
+        200
+      ],
+      "status": "ART_TEMPLATE_ONLY_NOT_A_HISTORIC_AWARD"
+    },
+    {
+      "file": "club-point-500.svg",
+      "path": "assets/clubs/club-point-500.svg",
+      "label": "500 Point Club",
+      "sha256": "8c11e9eb59632e71d392ca2b57521b6b96369acabc2f42967b2e422ba6b142bb",
+      "bytes": 3032,
+      "pixels": [
+        200,
+        200
+      ],
+      "status": "ART_TEMPLATE_ONLY_NOT_A_HISTORIC_AWARD"
+    },
+    {
+      "file": "club-point-750.svg",
+      "path": "assets/clubs/club-point-750.svg",
+      "label": "750 Point Club",
+      "sha256": "68fb817b2b110ab7f02fbb81634c6287bb5c7d6947c30c57ca8787ddc9ce4d93",
+      "bytes": 3098,
+      "pixels": [
+        200,
+        200
+      ],
+      "status": "ART_TEMPLATE_ONLY_NOT_A_HISTORIC_AWARD"
+    },
+    {
+      "file": "club-point-1000.svg",
+      "path": "assets/clubs/club-point-1000.svg",
+      "label": "1000 Point Club",
+      "sha256": "e69d37aba56354a5162210a92bcca0bc7c456a17b71d30dffc5d65a5fd3a4203",
+      "bytes": 3100,
+      "pixels": [
+        200,
+        200
+      ],
+      "status": "ART_TEMPLATE_ONLY_NOT_A_HISTORIC_AWARD"
+    },
+    {
+      "file": "club-win-200.svg",
+      "path": "assets/clubs/club-win-200.svg",
+      "label": "200 Win Club",
+      "sha256": "a3f0da2f7b2d4c729cf39964bc0ecb837139feaaf99d438ff049cb9f26c7e102",
+      "bytes": 2810,
+      "pixels": [
+        200,
+        200
+      ],
+      "status": "ART_TEMPLATE_ONLY_NOT_A_HISTORIC_AWARD"
+    },
+    {
+      "file": "club-win-300.svg",
+      "path": "assets/clubs/club-win-300.svg",
+      "label": "300 Win Club",
+      "sha256": "31875d6dcf0ec37547585192c2c717b704ea25b93bf3a00fa84ceec40ae64daa",
+      "bytes": 2949,
+      "pixels": [
+        200,
+        200
+      ],
+      "status": "ART_TEMPLATE_ONLY_NOT_A_HISTORIC_AWARD"
+    },
+    {
+      "file": "club-win-400.svg",
+      "path": "assets/clubs/club-win-400.svg",
+      "label": "400 Win Club",
+      "sha256": "73ab7ffcb86e2076161b0e41c07dc74bc856ad719d008f94335374180ae6f55f",
+      "bytes": 3028,
+      "pixels": [
+        200,
+        200
+      ],
+      "status": "ART_TEMPLATE_ONLY_NOT_A_HISTORIC_AWARD"
+    },
+    {
+      "file": "club-win-500.svg",
+      "path": "assets/clubs/club-win-500.svg",
+      "label": "500 Win Club",
+      "sha256": "30ff2be152f52dda88e9d462ebfab840c4a356eb0a921935bb9be809dbc9c878",
+      "bytes": 3028,
+      "pixels": [
+        200,
+        200
+      ],
+      "status": "ART_TEMPLATE_ONLY_NOT_A_HISTORIC_AWARD"
     }
-  ]
+  ],
+  "presentation": "White-ground original-award-matched 200px shield illustrations, 58px desktop/48px mobile.",
+  "availableThresholds": {
+    "game": [
+      50,
+      100,
+      200,
+      300,
+      400,
+      500,
+      750,
+      1000
+    ],
+    "point": [
+      50,
+      100,
+      200,
+      300,
+      400,
+      500,
+      750,
+      1000
+    ],
+    "win": [
+      50,
+      100,
+      200,
+      300,
+      400,
+      500
+    ]
+  },
+  "policy": "Only exact verified HTO source milestones qualify. No projection-based awards."
 }

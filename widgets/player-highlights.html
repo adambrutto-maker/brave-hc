@@ -34,14 +34,23 @@ body{background:#071829;color:#eef4fb;font-family:Arial,"Helvetica Neue",sans-se
 .ph-award-art{width:58px;height:58px;border:1px solid #55758f;border-radius:8px;overflow:hidden;background:#fff}
 .ph-award-art img{display:block;width:100%;height:100%;object-fit:contain}
 .ph-event.ph-with-milestone-art{grid-template-columns:60px minmax(0,1fr);align-items:center}
-.ph-milestone-art{width:58px;height:58px;border:1px solid #d4a559;border-radius:8px;overflow:hidden;background:#081b2d}
+.ph-milestone-art{width:58px;height:58px;border:1px solid #55758f;border-radius:8px;overflow:hidden;background:#fff}
 .ph-milestone-art img{display:block;width:100%;height:100%;object-fit:contain}
 .ph-event.ph-with-special-art{grid-template-columns:60px minmax(0,1fr);align-items:center}
-.ph-special-art{width:58px;height:58px;border:1px solid #cda45e;border-radius:8px;overflow:hidden;background:#061829}
+.ph-special-art{width:58px;height:58px;border:1px solid #55758f;border-radius:8px;overflow:hidden;background:#fff}
 .ph-special-art img{display:block;width:100%;height:100%;object-fit:contain}
 .ph-event.ph-with-heritage-art{grid-template-columns:60px minmax(0,1fr);align-items:center}
-.ph-heritage-art{width:58px;height:58px;border:1px solid #cda45e;border-radius:8px;overflow:hidden;background:#061829}
+.ph-heritage-art{width:58px;height:58px;border:1px solid #55758f;border-radius:8px;overflow:hidden;background:#fff}
 .ph-heritage-art img{display:block;width:100%;height:100%;object-fit:contain}
+/* All images keep original 58px/48px size; progress is indicated by badge colour and detail. */
+.ph-event.ph-tier-bronze{border-left:3px solid #ad7045}
+.ph-event.ph-tier-silver{border-left:3px solid #a5b9cb}
+.ph-event.ph-tier-gold{border-left:3px solid #e1b35a}
+.ph-event.ph-tier-platinum{border-left:4px solid #daeefa}
+.ph-event.ph-tier-diamond{border-left:4px solid #9ddff8}
+.ph-event.ph-tier-legend{border-left:4px solid #f1d07b}
+.ph-cristillo-black-patch{border:2px solid #15191c!important;background:#fff!important}
+
 .ph-event-title{font-size:13px;font-weight:720;line-height:1.4;color:#f3f7fc}
 .ph-event.ph-champion .ph-event-title{color:#f5d18d}
 .ph-event-meta{font-size:11px;color:#bdd0e0;margin-top:3px}
@@ -56,6 +65,7 @@ body{background:#071829;color:#eef4fb;font-family:Arial,"Helvetica Neue",sans-se
 @media(max-width:375px){.ph-event.ph-with-special-art{grid-template-columns:50px minmax(0,1fr)}.ph-special-art{width:48px;height:48px}}
 @media(max-width:375px){.ph-event.ph-with-milestone-art{grid-template-columns:50px minmax(0,1fr)}.ph-milestone-art{width:48px;height:48px}}
 @media(max-width:375px){.ph-grid{gap:5px}.ph-stat{padding:8px 3px}.ph-label{font-size:10px}.ph-number{font-size:20px}.ph-event{grid-template-columns:27px minmax(0,1fr);gap:8px}.ph-symbol{width:26px;height:26px}.ph-event.ph-with-award-art{grid-template-columns:50px minmax(0,1fr)}.ph-award-art{width:48px;height:48px}}
+@media(max-width:375px){.ph-symbol.ph-milestone-art,.ph-symbol.ph-special-art,.ph-symbol.ph-heritage-art{width:48px;height:48px}}
 [hidden]{display:none!important}
 .ph-footer{display:flex;gap:8px;flex-wrap:wrap}
 .ph-detail{font-size:10px;color:#a9c0d4;line-height:1.45;margin-top:6px}
@@ -68,7 +78,7 @@ details[open] summary{margin-bottom:10px}
 a{color:#f4cb83}
 </style>
 <script defer src="./player-links.js?v=5"></script>
-<script defer src="./player-highlights-v2.js?v=9"></script>
+<script defer src="./player-highlights-v2.js?v=11"></script>
 </head>
 <body>
 <main class="ph-shell">

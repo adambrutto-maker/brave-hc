@@ -25,7 +25,7 @@ for(const art of artManifest.assets){
 }
 const clubManifest=parse('widgets/assets/clubs/source-manifest.json');
 assert.equal(clubManifest.schema,'brave-hc-club-milestone-art/v1');
-assert.equal(clubManifest.assets.length,10);
+assert.equal(clubManifest.assets.length,22);
 for(const art of clubManifest.assets){
  assert(art.path.startsWith('assets/clubs/')&&art.path.endsWith('.svg'));
  const bytes=fs.readFileSync('widgets/'+art.path);
@@ -154,7 +154,7 @@ async function render(id,overrides={}){
   assert(row,'Missing explicit historic achievement '+id+' '+label);
   const img=row.children[0].children[0];
   assert.equal(img?.tagName,'img','Missing heritage artwork '+label);
-  assert(img.src.endsWith('/assets/heritage/'+file),'Incorrect category logo '+label);
+  assert(img.src.split('?')[0].endsWith('/assets/heritage/'+file),'Incorrect category logo '+label);
  }
  const forged=structuredClone(ledger);
  const fake=forged.players['354060'].items.find(x=>x.displayText.includes('Hart Award'));
@@ -171,7 +171,7 @@ for(const [id,label,file] of [
   const n=await expanded(id),row=n.legacy.children.find(x=>x.children[1].textContent.includes(label));
   assert(row,'Missing Special achievement '+id+' '+label);
   const img=row.children[0].children[0];assert.equal(img?.tagName,'img');
-  assert(img.src.endsWith('/assets/special/'+file),'Wrong special emblem '+id+' '+label);
+  assert(img.src.split('?')[0].endsWith('/assets/special/'+file),'Wrong special emblem '+id+' '+label);
  }
  // Negative cases: published source must identify a winner or an inductee, not a prospect.
  for(const [pid,needle,replacement] of [
@@ -190,6 +190,31 @@ for(const [id,label,file] of [
   const row=outcome.legacy.children.find(x=>x.children[1].textContent.includes(replacement));
   assert(row,'Missing rendered negative test '+replacement);
   assert(!row.children[0].children.some(x=>x.tagName==='img'), 'Nomination should never inherit an awarded/inducted emblem: '+replacement);
+ }
+ // Original award artwork must be visible for both documented Rolaids winners.
+ for(const [pid,season] of [['595514','Winter 2024/25'],['736317','Winter 2025/26']]){
+  const rows=await expanded(pid);
+  const row=rows.legacy.children.find(x=>x.children[1].textContent.includes('Rolaids Relief Man Award')&&x.children[1].textContent.includes(season));
+  assert(row,'Recorded Rolaids Relief Award missing: '+pid);
+  assert(row.children[0].children[0]?.src.includes('/assets/awards/rolaids-relief.webp'),
+   'Missing original Rolaids artwork for '+pid);
+ }
+ // Andrew Cristillo's memorial is the source-owned black 32-73 patch, not a recoloured generic award.
+ for(const pid of ['354054','354060','634098']){
+  const rows=await expanded(pid);
+  const row=rows.legacy.children.find(x=>x.children[1].textContent.includes('Andrew Cristillo Award for Dedication'));
+  assert(row,'Missing original memorial record '+pid);
+  assert(row.children[0].children[0]?.src.includes('/assets/awards/cristillo-dedication.webp'));
+  assert(row.children[0].className.includes('ph-cristillo-black-patch'),
+   'Black patch framing should be retained');
+ }
+ // Artwork tiers grow in detail while every published club remains source-verified.
+ const milestoneRows=await expanded('354054');
+ for(const [label,tier] of [['50 Game Club','bronze'],['100 Game Club','silver'],
+  ['200 Game Club','gold'],['300 Game Club','platinum']]){
+  const row=milestoneRows.legacy.children.find(x=>x.children[1].textContent.includes(label));
+  assert(row,'Missing verified club '+label);
+  assert(row.className.includes('ph-tier-'+tier),'Expected '+tier+' tier for '+label);
  }
  const norrisAlias=structuredClone(ledger);
  const alexAlias=norrisAlias.players['354058'].items.find(x=>x.sourceText.startsWith('James Norris Award'));

@@ -1,0 +1,48 @@
+{
+  "schema": "brave-hc-award-fidelity-and-scaled-milestones/v1",
+  "records": [
+    {
+      "pid": "354054",
+      "width": 355,
+      "art": "cristillo-dedication.webp",
+      "size": 48,
+      "loaded": true
+    },
+    {
+      "pid": "595514",
+      "width": 355,
+      "art": "rolaids-relief.webp",
+      "size": 48,
+      "loaded": true
+    },
+    {
+      "pid": "736317",
+      "width": 355,
+      "art": "rolaids-relief.webp",
+      "size": 48,
+      "loaded": true
+    },
+    {
+      "pid": "354054",
+      "width": 810,
+      "art": "cristillo-dedication.webp",
+      "size": 58,
+      "loaded": true
+    },
+    {
+      "pid": "595514",
+      "width": 810,
+      "art": "rolaids-relief.webp",
+      "size": 58,
+      "loaded": true
+    },
+    {
+      "pid": "736317",
+      "width": 810,
+      "art": "rolaids-relief.webp",
+      "size": 58,
+      "loaded": true
+    }
+  ],
+  "status": "PASS"
+}
