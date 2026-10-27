@@ -213,7 +213,46 @@ const server=http.createServer((req,res)=>{
    results.push({width,allCompetitiveRows:info.rows,maplewolvesPrior:true,maplewolvesBravesHistory:true,opponentResults:info.fixtures.length,
       mobileOverflow:info.bodyOverflow});
   }
+  for(const width of [1150,358]){
+   await page.setViewport({width,height:850});
+   await page.goto("http://127.0.0.1:"+server.address().port+
+      "/league-intelligence.html?team=Big%20Bastones",
+      {waitUntil:"networkidle0",timeout:45000});
+   const joined=await page.evaluate(()=>({
+    archive:document.querySelector("#archive-status")?.textContent,
+    links:[...document.querySelectorAll("#plain-verified-past a")].map(a=>a.href),
+    caveat:document.querySelector("#plain-history-caveat")?.textContent,
+    over:document.body.scrollWidth-innerWidth
+   }));
+   const official=joined.links.filter(x=>x.includes("/gameinfo.aspx?leagueid="));
+   assert.equal(official.length,6,"historic Big Bastones results must link six official games");
+   assert.equal(new Set(official).size,6);
+   assert.ok(joined.archive.includes("79 exact official GameInfo IDs linked")&&
+     joined.archive.includes("4 player-scoring holds"));
+   assert.ok(official.every(x=>x.startsWith("https://leagues.sportsvillage.ca/gameinfo.aspx?")));
+   assert.ok(joined.over<=1);
+  }
+  const missing=await b.newPage();
+  await missing.setRequestInterception(true);
+  missing.on("request",r=>r.url().includes("brave-historical-gameinfo-ids.json")?
+    r.abort():r.continue());
+  await missing.goto("http://127.0.0.1:"+server.address().port+
+      "/league-intelligence.html?team=Big%20Bastones",
+      {waitUntil:"networkidle0",timeout:45000});
+  const fallback=await missing.evaluate(()=>({
+   archive:document.querySelector("#archive-status")?.textContent,
+   links:[...document.querySelectorAll("#plain-verified-past a")].map(a=>a.href),
+   status:document.querySelector("#source-status")?.textContent
+  }));
+  assert.ok(fallback.archive.includes("79 Brave H.C. game/date/score matches"));
+  assert.ok(!fallback.archive.includes("79 exact official GameInfo IDs linked"));
+  assert.ok(fallback.links.some(x=>x.includes("/TeamInfo.aspx?")));
+  assert.ok(!fallback.links.some(x=>x.includes("/gameinfo.aspx?")));
+  assert.ok(fallback.archive.includes("official winter archives"));
+  await missing.close();
   assert.deepEqual(errors,[]);
-  console.log(JSON.stringify({status:"PASS",results,scriptErrors:errors}));
+  console.log(JSON.stringify({status:"PASS",results,scriptErrors:errors,
+    historicalOfficialGameIDs:"79/79 VERIFIED; 4 PLAYER EVENTS HELD",
+    missingHistoricalIDFeedKeepsAcceptedHistory:"PASS"}));
  }finally{await b.close();server.close()}
 })().catch(e=>{console.error(e.stack||e);server.close();process.exitCode=2});

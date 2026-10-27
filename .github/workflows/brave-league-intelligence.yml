@@ -40,6 +40,9 @@ on:
       - 'widgets/video-strength-evidence.js'
       - 'widgets/svhl-official-game-id-bridges.json'
       - 'scripts/build_svhl_official_game_id_bridges.cjs'
+      - 'scripts/build_brave_historical_gameinfo_id_bridges.cjs'
+      - 'widgets/brave-historical-gameinfo-ids.json'
+      - 'tests/test_brave_historical_gameinfo_id_bridges.cjs'
       - 'tests/test_svhl_official_game_id_bridges.cjs'
       - 'tests/test_video_strength_evidence.cjs'
       - 'docs/ENG59_VideoIntelligence_Dependency_Handoff_20261027.md'
@@ -148,6 +151,9 @@ on:
       - 'widgets/video-strength-evidence.js'
       - 'widgets/svhl-official-game-id-bridges.json'
       - 'scripts/build_svhl_official_game_id_bridges.cjs'
+      - 'scripts/build_brave_historical_gameinfo_id_bridges.cjs'
+      - 'widgets/brave-historical-gameinfo-ids.json'
+      - 'tests/test_brave_historical_gameinfo_id_bridges.cjs'
       - 'tests/test_svhl_official_game_id_bridges.cjs'
       - 'tests/test_video_strength_evidence.cjs'
       - 'docs/ENG59_VideoIntelligence_Dependency_Handoff_20261027.md'
@@ -281,6 +287,10 @@ jobs:
         run: node scripts/build_svhl_official_game_id_bridges.cjs --check
       - name: Reject mismatched official game IDs, score sides, duplicate games and held scorer promotion
         run: node tests/test_svhl_official_game_id_bridges.cjs
+      - name: Rebuild 79 historical Brave GameInfo IDs with unchanged source hashes
+        run: node scripts/build_brave_historical_gameinfo_id_bridges.cjs --check
+      - name: Refuse forged historical opponent, period-goal admission and game ID linkage
+        run: node tests/test_brave_historical_gameinfo_id_bridges.cjs
       - name: Guard adult Sunday scope and retrospective matchup evidence
         run: node tests/test_adult_division_evidence.cjs
       - name: Verify source-qualified weekly rating drift, adult band changes and missing week holds
