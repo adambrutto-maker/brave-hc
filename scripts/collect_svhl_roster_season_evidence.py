@@ -150,7 +150,8 @@ def assemble(current,jobs,source):
        "teamName":entry["name"],"sourceTeamId":entry["sourceTeamId"],
        "division":entry["division"],"gp":old["gp"],"g":old["g"],"a":old["a"],
        "pts":old["pts"],"warnings":old["statWarnings"],
-       "statStatus":old["statStatus"],"source":old["profileUrl"]})
+       "statStatus":old["statStatus"],"source":old["profileUrl"],
+       "sourcePageSHA256":entry["sourceSHA256"]})
    reliable=[x for x in prior if x["statStatus"]=="PUBLISHED_ARITHMETICALLY_CONSISTENT" and x["gp"]>0]
    gp=sum(x["gp"] for x in reliable);points=sum(x["pts"] for x in reliable)
    analysis.append({**p,"previousOfficialObservations":prior,
@@ -176,6 +177,13 @@ def assemble(current,jobs,source):
   "asOf":now,"sourceLeagueId":570,"sourceLeagueAsOf":current["asOf"],
   "historicalLeagueIds":[547,531,512,494,476,420,375],
   "sourceArchiveSeasonTeamEntries":len(archival),
+  "historicalRosterManifest":[
+    {"leagueId":t["leagueId"],"season":t["season"],
+     "sourceTeamId":t["sourceTeamId"],"name":t["name"],
+     "division":t["division"],"sourceUrl":t["sourceUrl"],
+     "sourceSHA256":t["sourceSHA256"],"rosterCount":t["rosterCount"]}
+    for t in archival],
+  "historicalManifestCount":len(archival),
   "currentTeams":len(result),
   "sourceHistoricalTeamsRead":len(archival),
   "playerSeasonObservations":sum(len(t["players"]) for t in source),
