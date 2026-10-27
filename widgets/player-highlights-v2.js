@@ -57,14 +57,14 @@ const awardArtCatalog=[
  [/^(?:Andrew Cristillo|Bill Masterton) Award for (?:Dedication|Decidation)\b/i,'cristillo-dedication.webp','Brave H.C. dedication award'],
  [/^Hart Award(?: Team MVP)?\b/i,'hart-mvp.webp','Hart MVP award'],
  [/^Conn Smythe(?: Award)?(?: Playoff MVP)?\b/i,'conn-smythe.webp','Conn Smythe playoff MVP award'],
- [/^James Norris Award\b/i,'james-norris.webp','James Norris top defenceman award'],
+ [/^James Norris (?:Award|Trophy)\b/i,'james-norris.webp','James Norris top defenceman award'],
  [/^Lady Byng Award for Sportsmanship\b/i,'lady-byng.webp','Lady Byng sportsmanship award'],
  [/^Rookie of the Year(?: Award)?\b/i,'rookie-of-the-year.webp','Rookie of the Year award'],
  [/^Most Improved Award\b/i,'most-improved.webp','Most Improved Player award'],
  [/^Rolaids Relief Man Award\b/i,'rolaids-relief.webp','Rolaids Relief Man award']
 ];
 function awardArtFor(item){
- if(item.category!=='award'&&!(item.category==='record'&&item.includesAward===true))return null;
+ if(item.category!=='award'&&!(item.category==='record'&&(item.includesAward===true||item.summaryCounts?.award>0)))return null;
  // Original, manually published HTO source controls award identity; display corrections cannot add badges.
  const name=String(item.sourceText||'').replace(/\u00a0/g,' ').split('\n')[0].trim();
  for(const [pattern,file,label] of awardArtCatalog)if(pattern.test(name))return {file,label,kind:'award'};
@@ -88,6 +88,22 @@ function achievementDisplayText(item){
  if(item.category!=='award'||!/^Bill Masterton Award for (?:Dedication|Decidation)\b/i.test(item.sourceText||''))return raw;
  return raw.replace(/^Bill Masterton Award for (?:Dedication|Decidation)\b/i,
                     'Andrew Cristillo Award for Dedication');
+}
+// Separate winner, nominee and Cup badges; only source-published achievements qualify.
+function specialArtFor(item){
+ const source=String(item.sourceText||'').replace(/\u00a0/g,' ').trim();
+ if(item.category==='championship'&&/^SVHL Cup Champion(?: \(Call-Up\))?(?:\s+-|$)/i.test(source))
+  return {file:'svhl-cup-champion.svg',kind:'special',label:'Brave H.C. SVHL championship cup',fallback:'CUP'};
+ // A historical multiline HTO record can contain both a club milestone and a verified Cup title.
+ if(item.category==='record'&&item.summaryCounts?.championship>0&&/(?:^|\n)SVHL Cup Champion\s+-\s+/i.test(source))
+  return {file:'svhl-cup-champion.svg',kind:'special',label:'Brave H.C. SVHL championship cup',fallback:'CUP'};
+ if(item.category==='recognition'){
+  if(/^All-Star Nomination\b/i.test(source))
+   return {file:'all-star-nomination.svg',kind:'special',label:'Brave H.C. All-Star nominee',fallback:'STAR'};
+  if(/^All-Star(?:\s+-|$)/i.test(source))
+   return {file:'all-star-selected.svg',kind:'special',label:'Brave H.C. All-Star selection',fallback:'STAR'};
+ }
+ return null;
 }
 function setNotice(s){
  $('notice').textContent=s;
@@ -190,18 +206,18 @@ function renderLegacy(record,ledgerTime){
   for(const item of expanded?items:items.slice(0,first)){
    const row=text('article','','ph-event'+(item.sourceEmphasis?' ph-champion':''));
    const icon=text('span',symbol[item.category]||'AWD','ph-symbol');
-   const art=awardArtFor(item)||clubArtFor(item);
+   const art=awardArtFor(item)||clubArtFor(item)||specialArtFor(item);
    if(art){
     const kind=art.kind;
     row.className+=' ph-with-'+kind+'-art';
     icon.className+=' ph-'+kind+'-art';
     icon.replaceChildren();
     const img=document.createElement('img');
-    img.src=root+(kind==='milestone'?'assets/clubs/':'assets/awards/')+art.file;
+    img.src=root+(kind==='milestone'?'assets/clubs/':kind==='special'?'assets/special/':'assets/awards/')+art.file;
     img.alt=art.label+' emblem';
     img.loading='lazy';
     img.decoding='async';
-    img.onerror=()=>{icon.replaceChildren();icon.textContent=kind==='milestone'?'CLUB':'AWD';icon.className='ph-symbol';row.className=row.className.replace(' ph-with-'+kind+'-art','');};
+    img.onerror=()=>{icon.replaceChildren();icon.textContent=art.fallback||(kind==='milestone'?'CLUB':'AWD');icon.className='ph-symbol';row.className=row.className.replace(' ph-with-'+kind+'-art','');};
     icon.append(img);
    }else icon.setAttribute('aria-hidden','true');
    const info=text('div','');

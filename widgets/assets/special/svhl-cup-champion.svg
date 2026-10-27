@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><title>Brave H.C. SVHL Cup Champion</title><defs>
+<linearGradient id="silver" x1="0" x2="1"><stop stop-color="#8299ae"/><stop offset=".21" stop-color="#fcffff"/><stop offset=".47" stop-color="#a7b5c4"/><stop offset=".76" stop-color="#eef5fa"/><stop offset="1" stop-color="#6e8194"/></linearGradient>
+<linearGradient id="navy" x1="0" x2="0.6" y1="0" y2="1"><stop stop-color="#194267"/><stop offset="1" stop-color="#071728"/></linearGradient>
+</defs><circle cx="100" cy="100" r="95" fill="#061829" stroke="#c49b57" stroke-width="7"/>
+<circle cx="100" cy="100" r="84" fill="url(#navy)" stroke="#8b1630" stroke-width="4"/>
+<text x="100" y="34" text-anchor="middle" font-family="Arial,sans-serif" font-size="14" letter-spacing="2.2" font-weight="bold" fill="#f9d690">BRAVE H.C.</text><ellipse cx="100" cy="58" rx="36" ry="8" fill="url(#silver)" stroke="#213b54" stroke-width="2"/>
+<path d="M64 57 Q72 75 80 76 L80 85 Q69 92 71 98 L75 104 L74 111 L77 121 L76 130 Q72 135 72 140 L128 140 Q128 135 124 130 L123 121 L126 111 L125 104 L129 98 Q131 92 120 85 L120 76 Q128 75 136 57" fill="url(#silver)" stroke="#3b4c5f" stroke-width="2.2"/>
+<path d="M80 77 L120 77 M78 86 L122 86 M76 96 L124 96 M76 105 L124 105 M77 114 L123 114 M77 122 L123 122 M76 131 L124 131" stroke="#61778c" stroke-width="2.8" opacity=".9"/>
+<path d="M69 141 Q66 145 69 149 L131 149 Q134 145 131 141 Z" fill="url(#silver)" stroke="#475c6e" stroke-width="2"/>
+<ellipse cx="100" cy="58" rx="30" ry="4" fill="#d0dce6" stroke="#526c80" stroke-width="1.3"/>
+<path d="M49 151 L151 151 L144 174 L56 174 Z" fill="#951b34" stroke="#e2b768" stroke-width="3"/>
+<text x="100" y="167" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" font-weight="900" letter-spacing=".4" fill="#ffffff">SVHL CUP</text>
+<text x="100" y="185" text-anchor="middle" font-family="Arial,sans-serif" font-size="10.5" font-weight="bold" letter-spacing="1.7" fill="#f7db9b">CHAMPION</text></svg>
