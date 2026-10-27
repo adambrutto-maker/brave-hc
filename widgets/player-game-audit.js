@@ -269,6 +269,131 @@
       status.textContent="Source-scoped game audit copied. No message has been sent.";}
   catch(_){status.textContent="Clipboard permission not granted.";}
  }
+ const REVIEW_LABELS={
+  RAW_GAMEINFO_ROWS_BELOW_PUBLISHED_SCORE:"Official scoring rows below final score",
+  RAW_GAMEINFO_ROWS_ABOVE_PUBLISHED_SCORE:"Official scoring rows above final score",
+  RAW_SCORE_PARITY_WITH_SEASON_ROSTER_ID_HOLD:"Goal rows match; scorer not listed on source roster",
+  RAW_SCORE_PARITY_WITH_OTHER_EVENT_QUALIFICATION_HOLD:"Goal rows match; another player-event hold",
+  RAW_SOURCE_SCORE_AND_CANDIDATES_MATCH_INSPECT_HOLD_POLICY:"Counts match; review the unresolved admission rule"
+ };
+ let heldReview=null,heldLimit=10;
+ function renderHeldReview(){
+  if(!heldReview)return;
+  const category=$("audit-hold-review-category").value;
+  const lid=$("audit-hold-review-season").value;
+  const rows=heldReview.games.filter(g=>
+    (category==="ALL"||g.category===category)&&
+    (lid==="ALL"||String(g.leagueId)===lid));
+  const shown=rows.slice(0,heldLimit),list=$("audit-hold-review-list");
+  list.replaceChildren();
+  for(const g of shown){
+   const card=node("article","review-card");
+   add(card,"strong","",g.date+" — "+g.homeTeam+" vs "+g.awayTeam);
+   add(card,"small","",
+     "SVHL league "+g.leagueId+" | official game #"+g.gameId+
+     " | final "+g.finalScore.join("-")+
+     " | raw scoring rows "+g.rawScoringRows+
+     " | roster-qualified scoring events "+g.rosterQualifiedEvents);
+   add(card,"small","hold",REVIEW_LABELS[g.category]);
+   const source=add(card,"a","small","Open the original GameInfo record");
+   source.href=g.officialGameInfoURL;
+   source.target="_blank";source.rel="noopener noreferrer";
+   list.append(card);
+  }
+  if(!shown.length)add(list,"p","small","No games in this source category and season.");
+  $("audit-hold-review-count").textContent=
+    "Showing "+shown.length+" of "+rows.length+" unresolved game(s) in this selection. "+
+    "Source-qualified only; no official player record was corrected.";
+  const next=$("audit-hold-review-next");next.hidden=shown.length>=rows.length;
+  next.textContent="Show 10 more games";
+ }
+ async function loadHeldReview(){
+  const res=await fetch("./svhl-gameinfo-hold-review.json",{cache:"no-store"});
+  ok(res.ok,"SOURCE_REVIEW_DATA_NOT_AVAILABLE");
+  const doc=await res.json();
+  const total=Object.values(index.seasons).reduce((s,x)=>s+x.completedGames,0);
+  const held=Object.values(index.seasons).reduce((s,x)=>s+x.partialScoringGames,0);
+  const full=Object.values(index.seasons).reduce((s,x)=>s+x.fullScoringGames,0);
+  ok(doc.schema==="brave-hc-svhl-gameinfo-raw-source-holds-review/v1"&&
+    doc.status==="SOURCE_HASH_VERIFIED_AUTHOR_AUDIT_NOT_INDEPENDENTLY_ACCEPTED"&&
+    doc.scope==="SVHL_ONLY_SEPARATE_VAHL_EXCLUDED"&&
+    doc.reviewOnly===true&&doc.publicStatsOrScoresChanged===false&&
+    doc.seasonGPOrPIMVerified===false&&
+    doc.originalGameSourceCapturedUTC===index.capturedUTC&&
+    doc.allCompletedGameSheets===total&&doc.fullScoringGames===full&&
+    doc.gamePages===held&&doc.gamePageHashesMatched===held&&
+    doc.games?.length===held,"SOURCE_REVIEW_COVERAGE_NOT_VERIFIED");
+  const keys=new Set(),countByCategory={};
+  for(const g of doc.games){
+   const key=g.leagueId+"|"+g.gameId;
+   ok(!keys.has(key),"SOURCE_REVIEW_GAME_DUPLICATED");keys.add(key);
+   const source=new URL(g.officialGameInfoURL);
+   ok(source.protocol==="https:"&&source.hostname==="leagues.sportsvillage.ca"&&
+      source.pathname.toLowerCase()==="/gameinfo.aspx"&&
+      source.searchParams.get("leagueid")===String(g.leagueId)&&
+      source.searchParams.get("gameid")===String(g.gameId)&&
+      Object.prototype.hasOwnProperty.call(index.seasons,String(g.leagueId))&&
+      typeof REVIEW_LABELS[g.category]==="string"&&
+      Array.isArray(g.finalScore)&&g.finalScore.length===2&&
+      g.finalScore.every(n=>Number.isInteger(n)&&n>=0)&&
+      Number.isInteger(g.rawScoringRows)&&g.rawScoringRows>=0&&
+      Number.isInteger(g.rosterQualifiedEvents)&&
+      g.rosterQualifiedEvents>=0&&g.rosterQualifiedEvents<=g.rawScoringRows&&
+      /^[a-f0-9]{64}$/.test(g.officialPageSHA256)&&
+      g.status==="SOURCE_PROVEN_REVIEW_PENDING"&&
+      g.acceptedPlayerCorrection===false,"SOURCE_REVIEW_GAME_INVALID");
+   const goals=g.finalScore[0]+g.finalScore[1];
+   ok(g.category==="RAW_GAMEINFO_ROWS_BELOW_PUBLISHED_SCORE"?
+       g.rawScoringRows<goals:
+      g.category==="RAW_GAMEINFO_ROWS_ABOVE_PUBLISHED_SCORE"?
+       g.rawScoringRows>goals:g.rawScoringRows===goals,
+      "SOURCE_REVIEW_CATEGORY_MISCLASSIFIED");
+   countByCategory[g.category]=(countByCategory[g.category]||0)+1;
+  }
+  ok(Object.entries(doc.categories).every(([k,v])=>
+    REVIEW_LABELS[k]&&countByCategory[k]===v)&&
+    Object.values(doc.categories).reduce((s,x)=>s+x,0)===held,
+    "SOURCE_REVIEW_CATEGORY_COUNTS_MISMATCH");
+  heldReview=doc;
+  const metrics=$("audit-hold-review-metrics");metrics.replaceChildren();
+  const overview=[
+   [doc.gamePages,"GameInfo sheets still held"],
+   [doc.categories.RAW_GAMEINFO_ROWS_BELOW_PUBLISHED_SCORE||0,
+    "Raw scoring rows below official score"],
+   [doc.categories.RAW_GAMEINFO_ROWS_ABOVE_PUBLISHED_SCORE||0,
+    "Raw scoring rows above official score"],
+   [doc.categories.RAW_SCORE_PARITY_WITH_SEASON_ROSTER_ID_HOLD||0,
+    "Scorer roster qualification holds"]
+  ];
+  for(const [v,label] of overview){
+   const card=node("article","metric");add(card,"strong","",v);
+   add(card,"small","",label);metrics.append(card);
+  }
+  const cat=$("audit-hold-review-category");
+  cat.replaceChildren();const all=node("option","","All source reasons");
+  all.value="ALL";cat.append(all);
+  for(const [k,v] of Object.entries(doc.categories)){
+   const o=node("option","",REVIEW_LABELS[k]+" ("+v+")");
+   o.value=k;cat.append(o);
+  }
+  const season=$("audit-hold-review-season");
+  season.replaceChildren();const allYears=node("option","","All eight seasons");
+  allYears.value="ALL";season.append(allYears);
+  for(const leagueId of Object.keys(index.seasons).sort((a,b)=>Number(b)-Number(a))){
+   const option=node("option","","League season "+leagueId);
+   option.value=leagueId;season.append(option);
+  }
+  cat.addEventListener("change",()=>{heldLimit=10;renderHeldReview()});
+  season.addEventListener("change",()=>{heldLimit=10;renderHeldReview()});
+  $("audit-hold-review-next").addEventListener("click",()=>{
+   heldLimit+=10;renderHeldReview();
+  });
+  $("audit-hold-review-status").textContent=
+    doc.gamePageHashesMatched+" of "+doc.gamePages+
+    " official GameInfo pages matched archived source hashes. "+
+    "Author-verified evidence, NOT independent acceptance. All remain held from player scoring totals.";
+  renderHeldReview();
+ }
  async function init(){
   try{
    ok(window.BravePlayerParticipationEvidence,"PARTICIPATION_MODULE_MISSING");
@@ -282,6 +407,16 @@
       doc.goalsQualification==="SCORE_MATCHED_GAME_EVENT_OFFICIAL_PLAYER_ID_ONLY",
       "INDEX_SOURCE_SCOPE_INVALID");
    index=doc;coverage();teams();
+   // The source-only reviewer works independently of player selection and PIM.
+   // A missing or unqualified review feed never disables existing player audit.
+   loadHeldReview().catch(error=>{
+     $("audit-hold-review-status").textContent=
+       "GAMEINFO REVIEW HELD: "+error.message+
+       ". Existing player and league records have not been changed.";
+     $("audit-hold-review-metrics").replaceChildren();
+     $("audit-hold-review-list").replaceChildren();
+     $("audit-hold-review-next").hidden=true;
+   });
    sourceStatus("Official GameInfo sources captured "+new Date(doc.capturedUTC).toLocaleString("en-CA")+
      " · "+doc.sourceSeasonCount+" historical season(s). Scoring validation is separate from published player appearances.");
    await renderTeam();

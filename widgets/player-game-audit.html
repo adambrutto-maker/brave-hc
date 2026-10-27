@@ -8,7 +8,7 @@ section{background:var(--panel);border:1px solid var(--line);border-radius:10px;
 .metrics,.game-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:9px}.metric,.game-card{border:1px solid var(--line);border-radius:7px;background:#16354a;padding:11px}.metric strong{display:block;font-size:22px;font-variant-numeric:tabular-nums}.metric small,.game-card small{display:block;color:var(--muted)}
 .note{border-left:3px solid var(--warning);padding:9px 12px;color:var(--muted);font-size:12px}.hold{color:var(--warning)}.ok{color:var(--accent)}.danger{color:#ffbabc}
 .scroll{overflow-x:auto}table{width:100%;border-collapse:collapse;text-align:left;font-size:12px}th,td{padding:8px;border-bottom:1px solid #43627a;white-space:nowrap}th{color:#b3cadb}tbody tr:hover{background:#1a425a}.player-button{background:none;border:0;color:#aee3ff;font-weight:650;padding:0;min-height:24px;text-align:left}
-.row{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.row{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}.review-controls{display:flex;flex-wrap:wrap;gap:12px;margin:10px 0}.review-controls label{display:grid;gap:4px;flex:1 1 190px;color:var(--muted);font-weight:650}.review-controls select{width:100%}.review-card{border:1px solid var(--line);border-radius:8px;padding:10px;background:#16354a;margin:9px 0;overflow-wrap:anywhere}.review-card a{display:inline-block;margin-top:5px}.review-card small{display:block;color:var(--muted)}details>summary{cursor:pointer;font-weight:750;font-size:17px}details>summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 footer{font-size:11px;color:var(--muted);margin-top:20px}
 @media(max-width:650px){main{padding:12px 8px 35px}section{padding:11px}.filters{grid-template-columns:1fr}.metrics{grid-template-columns:repeat(2,minmax(0,1fr))}table{font-size:11px}.metric strong{font-size:18px}}
 @media print{body{background:white;color:black}main{max-width:100%}section,.metric,.game-card{background:white;color:black;border-color:#aaa}select,button{display:none}.muted,p,.note,small{color:#333!important}}
@@ -18,6 +18,14 @@ footer{font-size:11px;color:var(--muted);margin-top:20px}
 <p>This compares published season goals and assists against <strong>official Sports Village GameInfo scoring events</strong> tied to season-specific team IDs. Goal scorers have linked player IDs. Assist names require an exact unique same-team match, and incomplete games remain held. A goal sheet does <strong>not</strong> prove who dressed, games played, or penalty minutes.</p>
 <p id="audit-source-status" role="status">Loading verified source evidence…</p>
 <section><h2>Source coverage</h2><div id="audit-coverage" class="metrics"></div><p id="audit-cover-note" class="note"></p></section>
+<section><details id="audit-hold-review"><summary>Review incomplete historical GameInfo evidence</summary>
+<p class="small">Official game-score checks are separate from player registration. Replayed source pages are author-checked, not independently accepted or corrected.</p>
+<p id="audit-hold-review-status" class="note" role="status">Checking source-qualified game review evidence...</p>
+<div id="audit-hold-review-metrics" class="metrics"></div>
+<div class="review-controls"><label for="audit-hold-review-category">Reason for review<select id="audit-hold-review-category"><option value="ALL">All source holds</option></select></label><label for="audit-hold-review-season">Official league season<select id="audit-hold-review-season"><option value="ALL">All eight seasons</option></select></label></div>
+<p id="audit-hold-review-count" class="small"></p><div id="audit-hold-review-list" aria-label="Unresolved official game source records"></div>
+<button type="button" id="audit-hold-review-next" hidden>Show 10 more games</button>
+<p class="note">Raw scoring rows and roster-qualified candidate events are different measures. None of these records authorizes a player score, GP, PIM, roster or historical correction.</p></details></section>
 <section><h2>Choose team, player and season</h2>
 <div class="filters">
 <label for="audit-team">Current adult Sunday team<select id="audit-team"><option>Loading official teams…</option></select></label>
@@ -44,4 +52,4 @@ footer{font-size:11px;color:var(--muted);margin-top:20px}
 </section>
 <footer><p>Official public Sports Village game sheets and team rosters only. Dates and counts refer to specific archived seasons and may not match a newer live scoreboard until the next accepted source collection. Historical player identities are established only by identical official player IDs, not similar names. No official statistic has been corrected, written or sent.</p></footer>
 </main><script src="./player-participation-evidence.js?v=20261027-participation1" defer></script>
-<script src="./player-game-audit.js?v=20261027-participation1" defer></script></body></html>
+<script src="./player-game-audit.js?v=20261027-eng59-holdreview1" defer></script></body></html>

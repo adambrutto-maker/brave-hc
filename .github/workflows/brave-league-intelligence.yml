@@ -48,7 +48,13 @@ on:
       - 'widgets/roster-division-evidence.js'
       - 'widgets/svhl-roster-intelligence.json'
       - 'widgets/player-game-audit.html'
+      - 'widgets/player-game-audit.html'
       - 'widgets/player-game-audit.js'
+      - 'widgets/svhl-gameinfo-hold-review.json'
+      - 'scripts/build_svhl_gameinfo_hold_review.py'
+      - 'scripts/audit_svhl_held_gameinfo_live.py'
+      - 'tests/test_svhl_gameinfo_hold_review.py'
+      - 'tests/test_svhl_held_gameinfo_live.py'
       - 'widgets/player-participation-evidence.js'
       - 'widgets/svhl-penalty-source-coverage.json'
       - 'scripts/audit_svhl_gameinfo_penalty_coverage.py'
@@ -138,7 +144,13 @@ on:
       - 'widgets/roster-division-evidence.js'
       - 'widgets/svhl-roster-intelligence.json'
       - 'widgets/player-game-audit.html'
+      - 'widgets/player-game-audit.html'
       - 'widgets/player-game-audit.js'
+      - 'widgets/svhl-gameinfo-hold-review.json'
+      - 'scripts/build_svhl_gameinfo_hold_review.py'
+      - 'scripts/audit_svhl_held_gameinfo_live.py'
+      - 'tests/test_svhl_gameinfo_hold_review.py'
+      - 'tests/test_svhl_held_gameinfo_live.py'
       - 'widgets/player-participation-evidence.js'
       - 'widgets/svhl-penalty-source-coverage.json'
       - 'scripts/audit_svhl_gameinfo_penalty_coverage.py'
@@ -270,6 +282,10 @@ jobs:
         run: python -B scripts/build_svhl_scoring_source_holds_triage.py > /dev/null
       - name: Reject scoring-sheet undercount overcount confusion and source tampering
         run: python -B -m unittest discover -s tests -p test_svhl_scoring_source_holds_triage.py -v
+      - name: Validate complete 137-game author-audited raw-GameInfo source review feed
+        run: python -B -m unittest discover -s tests -p test_svhl_gameinfo_hold_review.py -v
+      - name: Verify replayed source classification without any network or player score changes
+        run: python -B -m unittest discover -s tests -p test_svhl_held_gameinfo_live.py -v
       - name: Guard source-stamped weekly roster age without equating separate daily captures
         run: python -B -m unittest discover -s tests -p test_roster_source_time_boundary.py -v
       - name: Verify sampled official GameInfo penalty tables without fake PIM or GP
