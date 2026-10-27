@@ -47,6 +47,11 @@ on:
       - 'widgets/svhl-roster-intelligence.json'
       - 'widgets/player-game-audit.html'
       - 'widgets/player-game-audit.js'
+      - 'widgets/player-participation-evidence.js'
+      - 'widgets/svhl-penalty-source-coverage.json'
+      - 'scripts/audit_svhl_gameinfo_penalty_coverage.py'
+      - 'scripts/check_svhl_penalty_coverage.py'
+      - 'tests/test_player_participation_evidence.cjs'
       - 'widgets/svhl-player-game-*.json'
       - 'scripts/collect_svhl_player_game_events.py'
       - 'scripts/build_svhl_player_game_reconciliation.py'
@@ -128,6 +133,11 @@ on:
       - 'widgets/svhl-roster-intelligence.json'
       - 'widgets/player-game-audit.html'
       - 'widgets/player-game-audit.js'
+      - 'widgets/player-participation-evidence.js'
+      - 'widgets/svhl-penalty-source-coverage.json'
+      - 'scripts/audit_svhl_gameinfo_penalty_coverage.py'
+      - 'scripts/check_svhl_penalty_coverage.py'
+      - 'tests/test_player_participation_evidence.cjs'
       - 'widgets/svhl-player-game-*.json'
       - 'scripts/collect_svhl_player_game_events.py'
       - 'scripts/build_svhl_player_game_reconciliation.py'
@@ -246,6 +256,10 @@ jobs:
         run: python -B -m unittest discover -s tests -p test_svhl_player_game_sources.py -v
       - name: Guard source-stamped weekly roster age without equating separate daily captures
         run: python -B -m unittest discover -s tests -p test_roster_source_time_boundary.py -v
+      - name: Verify sampled official GameInfo penalty tables without fake PIM or GP
+        run: python -B scripts/check_svhl_penalty_coverage.py
+      - name: Validate distinct score-linked attendance lower bound and reject forged records
+        run: node tests/test_player_participation_evidence.cjs
       - name: Detect stalled daily local collector
         if: github.event_name == 'schedule'
         run: python scripts/check_svhl_league_intelligence.py --fresh

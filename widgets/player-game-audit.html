@@ -25,14 +25,23 @@ footer{font-size:11px;color:var(--muted);margin-top:20px}
 <label for="audit-season">Current or linked previous season<select id="audit-season"><option>Choose a player</option></select></label></div>
 <p id="audit-selection-status" class="small"></p>
 <div id="audit-player-metrics" class="metrics"></div>
+<p id="audit-scoring-attendance" class="note">Source-linked game scoring proves only a minimum number of appearances, never the full attendance record.</p>
+<div id="audit-scoring-game-proofs" class="game-cards" aria-label="Official games proving scoring participation"></div>
 <p id="audit-player-caution" class="note"></p>
 <div class="row"><h3>Scoring events traced to individual games</h3><button id="audit-copy" type="button">Copy game-by-game audit</button></div>
 <p id="audit-copy-status" class="tiny" aria-live="polite"></p>
 <div id="audit-event-list" class="game-cards"></div>
+</section>
+<section aria-labelledby="audit-penalty-heading">
+<h2 id="audit-penalty-heading">Penalties and game attendance: what can we verify?</h2>
+<p id="audit-penalty-coverage-status" class="note" role="status">Checking official GameInfo penalty event coverage…</p>
+<div class="metrics" id="audit-penalty-coverage-metrics"></div>
+<p class="small">An empty penalty table is not an official zero-penalty record. The GameInfo scoring sheet does not list every participant, so it cannot reconcile full GP or PIM. The linked game participation minimum above only counts games with source-qualified scoring involvement.</p>
 </section>
 <section><h2>Team scoring reconciliation</h2><p class="small">Each row contrasts source-published G/A with events found in complete game sheets. A zero event count does not mean the player did not dress. Select a player to review their actual events.</p>
 <div id="audit-team-table" class="scroll"></div><p id="audit-held-explanation" class="note"></p>
 <h3>Source gaps requiring review</h3><div id="audit-held-games" class="game-cards"></div>
 </section>
 <footer><p>Official public Sports Village game sheets and team rosters only. Dates and counts refer to specific archived seasons and may not match a newer live scoreboard until the next accepted source collection. Historical player identities are established only by identical official player IDs, not similar names. No official statistic has been corrected, written or sent.</p></footer>
-</main><script src="./player-game-audit.js?v=20261027-gameaudit1" defer></script></body></html>
+</main><script src="./player-participation-evidence.js?v=20261027-participation1" defer></script>
+<script src="./player-game-audit.js?v=20261027-participation1" defer></script></body></html>

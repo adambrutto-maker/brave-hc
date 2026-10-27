@@ -29,6 +29,9 @@ const server=http.createServer((req,res)=>{
     playerCount:document.querySelectorAll("#audit-player option").length,
     status:document.querySelector("#audit-selection-status")?.textContent,
     detail:document.querySelector("#audit-player-metrics")?.textContent,
+    proof:document.querySelector("#audit-scoring-attendance")?.textContent,
+    penalty:document.querySelector("#audit-penalty-coverage-status")?.textContent,
+    penaltyMetrics:document.querySelector("#audit-penalty-coverage-metrics")?.textContent,
     caveat:document.querySelector("#audit-player-caution")?.textContent,
     teamRows:document.querySelectorAll("#audit-team-table tbody tr").length,
     overflow:document.body.scrollWidth-innerWidth
@@ -39,6 +42,14 @@ const server=http.createServer((req,res)=>{
      "at least seven source seasons admitted before browser test");
    assert.equal(first.playerCount,19);assert.equal(first.teamRows,19);
    assert.ok(first.status.includes("official league season 570"));
+   assert.ok(first.detail.includes("participation LOWER BOUND") &&
+     first.detail.includes("NOT absences"));
+   assert.ok(first.proof.includes("minimum")||first.proof.includes("At least")||
+      first.proof.includes("lower bound"));
+   assert.ok(first.penalty.includes("NOT proof of zero penalties") &&
+     first.penaltyMetrics.includes("136")&&
+     first.penaltyMetrics.includes("Unverified"),
+     "penalty source samples must not be interpreted as no PIM");
    assert.ok(first.caveat.includes("does not")||first.caveat.includes("cannot")||
       first.caveat.includes("NOT fully verified"));
    assert.ok(first.overflow<=1);
@@ -60,6 +71,9 @@ const server=http.createServer((req,res)=>{
    }));
    assert.ok(historical.title.includes("official league season"));
    assert.ok(historical.metrics.includes("NOT game-sheet verified"));
+   assert.ok(historical.metrics.includes("participation LOWER BOUND") &&
+     historical.metrics.includes("NOT absences"),
+     "historical players must retain distinct-game scored participation bound");
    assert.ok(historical.count>5);assert.ok(historical.overflow<=1);
    await page.evaluate(()=>Object.defineProperty(navigator,"clipboard",{
     configurable:true,value:{writeText:async text=>window.__gameCopy=text}
@@ -68,7 +82,9 @@ const server=http.createServer((req,res)=>{
    const message=await page.evaluate(()=>window.__gameCopy);
    assert.ok(message.includes("OFFICIAL INDIVIDUAL GAME SCORING AUDIT")&&
        message.includes("Rocchetti")&&message.includes("NOT game-sheet verified")&&
-       message.includes("NOT been overwritten"));
+       message.includes("NOT been overwritten") &&
+       message.includes("SCORING GAME PARTICIPATION LOWER BOUND") &&
+       message.includes("PUBLISHED GP WITHOUT INDIVIDUAL GAME ATTENDANCE PROOF"));
    await page.goto(base+"/league-intelligence.html?team=Mid%20Ice%20Crisis",
       {waitUntil:"networkidle0",timeout:45000});
    const link=await page.$eval("#game-audit-link",el=>el.getAttribute("href"));
