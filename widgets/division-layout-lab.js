@@ -147,8 +147,8 @@
    }catch(_){q("layout-copy-result").textContent="Could not copy; check clipboard permission."}
   });
   q("layout-design-status").textContent=study.exploredShapes+
-     "+study.adultTeams+
-    " adult teams. Each unique capacity ordering has been compared.";
+    " valid even-sized patterns for "+study.adultTeams+
+    " adult teams. Allowed division team counts: 4, 6 or 8.";
   paint();
  }
  window.BraveDivisionLayoutView=Object.freeze({init,researchText:textProposal,getSelected:selected});
