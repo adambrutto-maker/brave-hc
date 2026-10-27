@@ -20,8 +20,7 @@
   q("source-note").textContent="Source observed "+
    new Date(analysis.sourceAsOf).toLocaleString("en-CA",{dateStyle:"medium",timeStyle:"short"})+
    ". "+analysis.sourceGameCount+" league-wide completed reciprocal results. "+
-   "The separate VAHL category and playoff placeholders are excluded from adult grouping experiments "+
-   "pending league eligibility confirmation; their original standings remain unchanged.";
+   "Only Fazzari, Cristillo and Remax are represented. Other competitions are outside this report; source records are unchanged." ;
  }
  function connections(){
   const grid=q("cross-division-links");grid.replaceChildren();
@@ -133,8 +132,7 @@
    "Current source: "+analysis.sourceReferences.league,
    "Official league snapshot checked: "+analysis.sourceAsOf,
    "Scope: "+analysis.adultPoolTeamCount+" adult-pool teams in "+analysis.poolDivisions.join(", "),
-   "Excluded pending competition eligibility: "+analysis.separateDivisions.map(d=>d.name).join(", ")+
-      "; playoff placeholder excluded.",
+   "Other competitions excluded from this adult-only report: "+analysis.separateLeagueRecordsExcluded+" separate source records.",
    "Completed source-confirmed games in pool: "+analysis.gameGraph.verifiedGamesInPool,
    "Of those, "+analysis.gameGraph.crossCurrentDivisionGames+
       " were between teams NOW in different divisions; divisions at time of each game not inferred.",
