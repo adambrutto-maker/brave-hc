@@ -30,7 +30,7 @@ try:
    fact=browser.execute_script("""const rows=[...document.querySelectorAll('#legacy .ph-event')];
 const imgs=[...document.querySelectorAll('#legacy img')];
 return {name:document.querySelector('#playerName').textContent,rows:rows.length,
- counts:Object.fromEntries(['awards','clubs','special','heritage'].map(p=>[p,imgs.filter(i=>i.src.includes('/assets/'+p+'/')).length])),
+ counts:Object.fromEntries(['awards','round-clubs','special','heritage'].map(p=>[p,imgs.filter(i=>i.src.includes('/assets/'+p+'/')).length])),
  broken:imgs.filter(i=>!i.naturalWidth).map(i=>i.src),generic:rows.filter(r=>!r.querySelector('img')).map(r=>r.textContent),
  wrongSize:imgs.filter(i=>Math.round(i.parentElement.getBoundingClientRect().width)!==arguments[0]||Math.round(i.parentElement.getBoundingClientRect().height)!==arguments[0]).map(i=>i.src),viewport:innerWidth,
  norris:rows.filter(r=>r.querySelector('.ph-event-title')?.textContent.includes('James Norris Award'))

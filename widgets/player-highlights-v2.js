@@ -1,6 +1,31 @@
 (() => {
 'use strict';
 const root='./';
+let approvedArtworkReady=false;
+const approvedNames=new Set([
+ 'hart_mvp','conn_smythe','james_norris','lady_byng','rookie_of_the_year',
+ 'most_improved','rolaids_relief','andrew_cristillo','art_ross','rocket_richard',
+ 'svhl_cup','hall_of_fame','all_star_nomination','all_star_selection',
+ 'captain','assistant_captain','discipline_record'
+]);
+function validApprovedArtwork(data){
+ if(data?.schema!=='brave-hc-approved-icon-art/v1'||!Array.isArray(data.files)||
+    data.files.length!==approvedNames.size)return false;
+ const found=new Set();
+ for(const file of data.files){
+  if(!approvedNames.has(file.slug)||found.has(file.slug)||
+    file.file!=='assets/approved/'+file.slug+'.webp'||
+    !/^[a-f0-9]{64}$/.test(file.sha256)||!(file.bytes>1000))return false;
+  found.add(file.slug);
+ }
+ return found.size===approvedNames.size;
+}
+function approvedOrFallback(art,slug){
+ if(!art||!approvedArtworkReady||!approvedNames.has(slug))return art;
+ return {kind:'approved',file:slug+'.webp',label:art.label,
+  backupKind:art.kind,backupFile:art.file,backupFallback:art.fallback};
+}
+
 const $=id=>document.getElementById(id);
 const text=(tag,value,cls)=>{
  const n=document.createElement(tag);
@@ -67,20 +92,69 @@ function awardArtFor(item){
  if(item.category!=='award'&&!(item.category==='record'&&(item.includesAward===true||item.summaryCounts?.award>0)))return null;
  // Original, manually published HTO source controls award identity; display corrections cannot add badges.
  const name=String(item.sourceText||'').replace(/\u00a0/g,' ').split('\n')[0].trim();
- for(const [pattern,file,label] of awardArtCatalog)if(pattern.test(name))return {file,label,kind:'award'};
+ for(const [pattern,file,label] of awardArtCatalog)if(pattern.test(name)){
+  const slugs={'hart-mvp.webp':'hart_mvp','conn-smythe.webp':'conn_smythe',
+   'james-norris.webp':'james_norris','lady-byng.webp':'lady_byng',
+   'rookie-of-the-year.webp':'rookie_of_the_year','most-improved.webp':'most_improved',
+   'rolaids-relief.webp':'rolaids_relief','cristillo-dedication.webp':'andrew_cristillo'};
+  return approvedOrFallback({file,label,kind:'award'},slugs[file]||'');
+ }
  return null;
 }
 // Club emblems are released only for verified HTO milestone ledger entries.
-const clubLevels={game:[50,100,200,300,400,500,750,1000],point:[50,100,200,300,400,500,750,1000],win:[50,100,200,300,400,500]};
+// A milestone is only illustrated if a published, dated HTO achievement exists.
+const knownClubValues={
+ game:new Set([50,100,200,300,400,500,750,1000]),
+ point:new Set([50,100,200,300,400,500,750,1000]),
+ win:new Set([50,100,200,300,400,500])
+};
+const clubTier=n=>n<100?'bronze':n<200?'silver':n<300?'gold':'platinum';
 function clubArtFor(item){
  if(item.category!=='milestone')return null;
  const source=String(item.sourceText||'').replace(/\u00a0/g,' ').trim();
- const match=/^(50|100|200|300|400|500|750|1000) (Game|Point|Win) Club\b/i.exec(source);
+ const match=/^(\d+) (Game|Point|Win) Club\s+-\s+(January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2},\s+20\d{2}$/i.exec(source);
  if(!match)return null;
  const count=Number(match[1]),type=match[2].toLowerCase();
- if(!clubLevels[type]?.includes(count))return null;
- return {file:'club-'+type+'-'+count+'.svg',kind:'milestone',tier:count<100?'bronze':count<200?'silver':count<300?'gold':count<400?'platinum':count<750?'diamond':'legend',
-         label:'Brave H.C. '+count+' '+match[2]+' Club'};
+ if(!Number.isSafeInteger(count)||count<50||count>100000)return null;
+ const tier=clubTier(count), metric=type==='game'?'games':type==='point'?'points':'wins';
+ return {kind:'milestone',tier,count,metric,
+  file:count+'_'+metric+'_'+tier+'_200.webp',
+  generated:!knownClubValues[type]?.has(count),
+  label:'Brave H.C. '+count+' '+match[2]+' Club'};
+}
+function paintVerifiedFutureClub(image,art){
+ // Current archive templates cover existing levels; future published levels are
+ // rendered in-browser from the genuine team crest with the exact verified number.
+ if(typeof document.createElement!=='function')return;
+ const canvas=document.createElement('canvas');
+ if(typeof canvas.getContext!=='function')return;
+ canvas.width=canvas.height=200;
+ const ctx=canvas.getContext('2d');
+ if(!ctx)return;
+ const metals={bronze:['#bd824a','#f7d3a9'],silver:['#aabed1','#f9fcff'],
+  gold:['#d7a547','#fff0b9'],platinum:['#c6dbe9','#ffffff']};
+ const [ring,light]=metals[art.tier]||metals.platinum;
+ const lion=new Image();
+ lion.onload=()=>{
+  ctx.clearRect(0,0,200,200);
+  ctx.fillStyle='#081b32';ctx.beginPath();ctx.arc(100,100,95,0,2*Math.PI);ctx.fill();
+  ctx.strokeStyle=ring;ctx.lineWidth=6;ctx.stroke();
+  ctx.beginPath();ctx.arc(100,100,87,0,2*Math.PI);ctx.strokeStyle=light;ctx.lineWidth=2;ctx.stroke();
+  ctx.beginPath();ctx.arc(100,100,81,0,2*Math.PI);ctx.strokeStyle='#b32b45';ctx.lineWidth=3;ctx.stroke();
+  ctx.drawImage(lion,50,15,100,100);
+  ctx.beginPath();ctx.moveTo(52,120);ctx.lineTo(148,120);ctx.strokeStyle=ring;ctx.lineWidth=2;ctx.stroke();
+  ctx.font=(art.count<1000?'bold 38px':'bold 32px')+' Arial';
+  ctx.textAlign='center';ctx.textBaseline='middle';
+  ctx.lineWidth=3;ctx.strokeStyle='#061a2d';ctx.fillStyle='#fff';
+  ctx.strokeText(String(art.count),100,145);ctx.fillText(String(art.count),100,145);
+  ctx.fillStyle='#071f39';ctx.fillRect(50,168,100,20);
+  ctx.strokeStyle=ring;ctx.lineWidth=2;ctx.strokeRect(50,168,100,20);
+  ctx.font='bold 12px Arial';ctx.fillStyle=light;
+  ctx.fillText(art.metric.toUpperCase(),100,178);
+  image.src=canvas.toDataURL('image/png');
+ };
+ lion.onerror=()=>{image.src='./brave_hc_logo.png';};
+ lion.src='./brave_hc_logo.png';
 }
 // The native HTO source is preserved verbatim; only the on-screen award label is renamed.
 function achievementDisplayText(item){
@@ -106,6 +180,29 @@ function specialArtFor(item){
  return null;
 }
 // Complete verified historical-award categories without inferring any winners, induction or leadership.
+function approvalForPublishedItem(item,art){
+ if(!approvedArtworkReady||!art)return art;
+ const src=String(item.sourceText||'').trim();
+ if(item.category==='award'){
+  if(/^Art Ross Award\s+\(\d+\s+Points\)\s+-\s+/i.test(src))
+   return approvedOrFallback(art,'art_ross');
+  if(/^Maurice\s+['\"]Rocket['\"]\s+Richard Award\s+\(\d+\s+Goals\)\s+-\s+/i.test(src))
+   return approvedOrFallback(art,'rocket_richard');
+ }
+ if(item.category==='championship'||item.category==='record'&&art.file==='svhl-cup-champion.svg')
+  return approvedOrFallback(art,'svhl_cup');
+ if(item.category==='recognition'){
+  if(/^Hall of Fame Inductee\s+-\s+/i.test(src))return approvedOrFallback(art,'hall_of_fame');
+  if(/^All-Star Nomination\b/i.test(src))return approvedOrFallback(art,'all_star_nomination');
+  if(/^All-Star(?:\s+-|$)/i.test(src))return approvedOrFallback(art,'all_star_selection');
+ }
+ if(item.category==='leadership'){
+  if(/^Elected Assistant Captain\b/i.test(src))return approvedOrFallback(art,'assistant_captain');
+  return approvedOrFallback(art,'captain');
+ }
+ if(item.category==='discipline')return approvedOrFallback(art,'discipline_record');
+ return art;
+}
 function heritageArtFor(item){
  const source=String(item.sourceText||'').replace(/\u00a0/g,' ').trim();
  if(item.category==='award'){
@@ -228,20 +325,31 @@ function renderLegacy(record,ledgerTime){
   for(const item of expanded?items:items.slice(0,first)){
    const row=text('article','','ph-event'+(item.sourceEmphasis?' ph-champion':''));
    const icon=text('span',symbol[item.category]||'AWD','ph-symbol');
-   const art=awardArtFor(item)||clubArtFor(item)||specialArtFor(item)||heritageArtFor(item);
+   const art=approvalForPublishedItem(item,awardArtFor(item)||clubArtFor(item)||
+    specialArtFor(item)||heritageArtFor(item));
    if(art){
     const kind=art.kind;
     row.className+=' ph-with-'+kind+'-art';
     if(kind==='milestone'&&art.tier)row.className+=' ph-tier-'+art.tier;
     icon.className+=' ph-'+kind+'-art';
-    if(kind==='award'&&art.file==='cristillo-dedication.webp')icon.className+=' ph-cristillo-black-patch';
+    if(kind==='award'&&art.file==='cristillo-dedication.webp'||kind==='approved'&&art.file==='andrew_cristillo.webp')icon.className+=' ph-cristillo-black-patch';
     icon.replaceChildren();
     const img=document.createElement('img');
-    img.src=root+(kind==='milestone'?'assets/clubs/':kind==='special'?'assets/special/':kind==='heritage'?'assets/heritage/':'assets/awards/')+art.file+(kind==='award'?'':'?v=bright-20261027');
+    img.src=kind==='approved'?root+'assets/approved/'+art.file:
+      kind==='milestone'
+      ?(art.generated?'./brave_hc_logo.png':root+'assets/round-clubs/'+art.file)
+      :root+(kind==='special'?'assets/special/':kind==='heritage'?'assets/heritage/':'assets/awards/')+art.file+(kind==='award'?'':'?v=bright-20261027');
+    if(kind==='milestone'&&art.generated)paintVerifiedFutureClub(img,art);
     img.alt=art.label+' emblem';
     img.loading='lazy';
     img.decoding='async';
-    img.onerror=()=>{icon.replaceChildren();icon.textContent=art.fallback||(kind==='milestone'?'CLUB':'AWD');icon.className='ph-symbol';row.className=row.className.replace(' ph-with-'+kind+'-art','');};
+    img.onerror=()=>{
+     if(kind==='approved'&&art.backupFile){
+      const backup=art.backupKind==='special'?'assets/special/':
+       art.backupKind==='heritage'?'assets/heritage/':'assets/awards/';
+      img.onerror=null;img.src=root+backup+art.backupFile;return;
+     }
+     icon.replaceChildren();icon.textContent=art.fallback||(kind==='milestone'?'CLUB':'AWD');icon.className='ph-symbol';row.className=row.className.replace(' ph-with-'+kind+'-art','');};
     icon.append(img);
    }else icon.setAttribute('aria-hidden','true');
    const info=text('div','');
@@ -407,6 +515,11 @@ function renderCurrent(feed,career) {
   if(!r.ok)throw Error(file+' HTTP '+r.status);return validate(await r.json());
  })));
  const [legacyResult,feedResult,careerResult,recordsResult,correctionsResult]=results;
+ try{
+  const check=await fetch(root+'assets/approved/source-manifest.json',{cache:'no-store'});
+  if(check.ok)approvedArtworkReady=validApprovedArtwork(await check.json());
+ }catch{/* Missing release assets safely retain the previously verified artwork. */}
+
  let career=null;
  if(careerResult.status==='fulfilled')career=renderCareer(careerResult.value);
  if(recordsResult.status==='fulfilled')renderRecords(recordsResult.value);
@@ -420,6 +533,32 @@ function renderCurrent(feed,career) {
   }else warnings.push('Career highlights temporarily unavailable');
  }else warnings.push('Career highlights unavailable');
  if(feedResult.status==='fulfilled')renderCurrent(feedResult.value,career);
+ // Auto-refresh existing player iframe when the authoritative verified ledger
+ // gets a new readback. Never create a winner from derived/stale stats.
+ if(legacyResult.status==='fulfilled' && typeof window.setInterval==='function'){
+  let fingerprint=JSON.stringify(legacyResult.value.players[String(playerId)]?.items||[]);
+  let inflight=false;
+  window.setInterval(async()=>{
+   if(inflight||document.hidden)return;
+   inflight=true;
+   try{
+    const response=await fetch(root+'player-highlights-ledger.json',{cache:'no-store'});
+    if(!response.ok)return;
+    const fresh=validLedger(await response.json());
+    const next=fresh.players[String(playerId)];
+    if(!next||next.name!==identity.name||
+       !next.profileUrl.endsWith('playerID='+playerId))return;
+    const value=JSON.stringify(next.items);
+    if(value===fingerprint)return;
+    if(correctedPlayerIds.has(String(playerId))){
+      if(correctionsResult.status!=='fulfilled')return;
+      renderLegacy(correctedLegacyDisplay(next,correctionsResult.value),fresh.capturedAt);
+    }else renderLegacy(next,fresh.capturedAt);
+    fingerprint=value;
+   }catch(e){console.warn('Verified highlight refresh skipped',e);}
+   finally{inflight=false;}
+  },180000);
+ }
  const source=publicProfileLink();
  if(source){source.textContent='Full HTO profile ↗';$('profileSource').append(source);}
  $('notice').hidden=!warnings.length;

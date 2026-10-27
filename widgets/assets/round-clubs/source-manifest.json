@@ -1,0 +1,212 @@
+{
+  "schema": "brave-hc-rounded-milestone-art/v1",
+  "source": "BRUTTECH_1_AUTHENTIC_5000PX_LOGO_ARCHIVE",
+  "logoSha256": "e245640bd0c1f3c3c8e3caea89e69a446d465f97724d9c6878992670229730b5",
+  "tierPolicy": {
+    "50": "bronze",
+    "100": "silver",
+    "200": "gold",
+    "300+": "platinum"
+  },
+  "rule": "Artwork maps exact verified HTO published club milestones. No award inference from raw stats.",
+  "assets": [
+    {
+      "path": "assets/round-clubs/50_games_bronze_200.webp",
+      "metric": "GAMES",
+      "value": 50,
+      "tier": "bronze",
+      "sourceVerifiedInSnapshot": true,
+      "bytes": 14042,
+      "sha256": "88f63a61d35f77661852305f32e823ddb01c81faf1a0eb93b19b76f5fa31fe80"
+    },
+    {
+      "path": "assets/round-clubs/100_games_silver_200.webp",
+      "metric": "GAMES",
+      "value": 100,
+      "tier": "silver",
+      "sourceVerifiedInSnapshot": true,
+      "bytes": 13504,
+      "sha256": "c2651000b0f07da99b1985efbb72d83635c8bfc21f0ebdc7efcca07ace98f6ba"
+    },
+    {
+      "path": "assets/round-clubs/200_games_gold_200.webp",
+      "metric": "GAMES",
+      "value": 200,
+      "tier": "gold",
+      "sourceVerifiedInSnapshot": true,
+      "bytes": 14348,
+      "sha256": "82c72ff61fdffcfb45778ca18eaf31f5f6e7fc68eee70a377cea763d0056d458"
+    },
+    {
+      "path": "assets/round-clubs/300_games_platinum_200.webp",
+      "metric": "GAMES",
+      "value": 300,
+      "tier": "platinum",
+      "sourceVerifiedInSnapshot": true,
+      "bytes": 13722,
+      "sha256": "71884474cf7a47674d60150810c8e1d98427bf1e6ad152725c0d72e0cdf514bf"
+    },
+    {
+      "path": "assets/round-clubs/400_games_platinum_200.webp",
+      "metric": "GAMES",
+      "value": 400,
+      "tier": "platinum",
+      "sourceVerifiedInSnapshot": false,
+      "bytes": 13662,
+      "sha256": "fb25eb410e78eda404a87dc55a673000d6caeef086fe4ebc6207848426e96584"
+    },
+    {
+      "path": "assets/round-clubs/500_games_platinum_200.webp",
+      "metric": "GAMES",
+      "value": 500,
+      "tier": "platinum",
+      "sourceVerifiedInSnapshot": false,
+      "bytes": 13698,
+      "sha256": "25b95f36548717f112e1cc46fe5d27fb49e75e473f14a740e386cfad14f0b058"
+    },
+    {
+      "path": "assets/round-clubs/750_games_platinum_200.webp",
+      "metric": "GAMES",
+      "value": 750,
+      "tier": "platinum",
+      "sourceVerifiedInSnapshot": false,
+      "bytes": 13602,
+      "sha256": "900d976347bfb9d13d6944f291655429e0bf076e59393355bba12caa1dccf583"
+    },
+    {
+      "path": "assets/round-clubs/1000_games_platinum_200.webp",
+      "metric": "GAMES",
+      "value": 1000,
+      "tier": "platinum",
+      "sourceVerifiedInSnapshot": false,
+      "bytes": 13602,
+      "sha256": "a00266f672a4f29318b122d28f29d9e90968d038047393ac687bf721a5fb55fc"
+    },
+    {
+      "path": "assets/round-clubs/50_points_bronze_200.webp",
+      "metric": "POINTS",
+      "value": 50,
+      "tier": "bronze",
+      "sourceVerifiedInSnapshot": true,
+      "bytes": 14068,
+      "sha256": "6233197ea2aa1a6b2102998f2110579ba9b04b192c8825cdf0b308a10c77eb28"
+    },
+    {
+      "path": "assets/round-clubs/100_points_silver_200.webp",
+      "metric": "POINTS",
+      "value": 100,
+      "tier": "silver",
+      "sourceVerifiedInSnapshot": true,
+      "bytes": 13496,
+      "sha256": "e6954fb39e791ab2529718fbbfa02fd5ffb41a16bef888eaf37311676ad239cc"
+    },
+    {
+      "path": "assets/round-clubs/200_points_gold_200.webp",
+      "metric": "POINTS",
+      "value": 200,
+      "tier": "gold",
+      "sourceVerifiedInSnapshot": true,
+      "bytes": 14412,
+      "sha256": "cd8bb2348928f758dc9046e199b54cd0260902d68602bd676df78beb8db01c56"
+    },
+    {
+      "path": "assets/round-clubs/300_points_platinum_200.webp",
+      "metric": "POINTS",
+      "value": 300,
+      "tier": "platinum",
+      "sourceVerifiedInSnapshot": true,
+      "bytes": 13734,
+      "sha256": "c625aef49ba08535cca0a0c6d28f5b187b6b43620e1ca499815063b054f372d8"
+    },
+    {
+      "path": "assets/round-clubs/400_points_platinum_200.webp",
+      "metric": "POINTS",
+      "value": 400,
+      "tier": "platinum",
+      "sourceVerifiedInSnapshot": false,
+      "bytes": 13588,
+      "sha256": "eb181a37cee681a25179bb38ec66d7732257a25f38026e7721158371e107a645"
+    },
+    {
+      "path": "assets/round-clubs/500_points_platinum_200.webp",
+      "metric": "POINTS",
+      "value": 500,
+      "tier": "platinum",
+      "sourceVerifiedInSnapshot": false,
+      "bytes": 13704,
+      "sha256": "53fbda86891bfc9e648de5e83cdb228d14fcf116a44feea61257257ab3887672"
+    },
+    {
+      "path": "assets/round-clubs/750_points_platinum_200.webp",
+      "metric": "POINTS",
+      "value": 750,
+      "tier": "platinum",
+      "sourceVerifiedInSnapshot": false,
+      "bytes": 13616,
+      "sha256": "de085b262cde0bffb93c2609b5510cd2b13902fbed7b2596e06f5a39f8da1e7a"
+    },
+    {
+      "path": "assets/round-clubs/1000_points_platinum_200.webp",
+      "metric": "POINTS",
+      "value": 1000,
+      "tier": "platinum",
+      "sourceVerifiedInSnapshot": false,
+      "bytes": 13618,
+      "sha256": "31424b6d3844a101f9921c5d838927198198c09d86255d40a8cfd9c9e7ec5a35"
+    },
+    {
+      "path": "assets/round-clubs/50_wins_bronze_200.webp",
+      "metric": "WINS",
+      "value": 50,
+      "tier": "bronze",
+      "sourceVerifiedInSnapshot": true,
+      "bytes": 13964,
+      "sha256": "ee6c728fe307bb95baf307924eee75cb8e477ff3f8d31912308d80cafc71efa8"
+    },
+    {
+      "path": "assets/round-clubs/100_wins_silver_200.webp",
+      "metric": "WINS",
+      "value": 100,
+      "tier": "silver",
+      "sourceVerifiedInSnapshot": true,
+      "bytes": 13392,
+      "sha256": "694c5ee71b3fb53ac7fbcd0b1f31ad823ecf2026482229cb3d302613f8118207"
+    },
+    {
+      "path": "assets/round-clubs/200_wins_gold_200.webp",
+      "metric": "WINS",
+      "value": 200,
+      "tier": "gold",
+      "sourceVerifiedInSnapshot": false,
+      "bytes": 14278,
+      "sha256": "66c3b52621056c8d5fda6c9daceac1435f51a90fe8be2e57097166bf4546d455"
+    },
+    {
+      "path": "assets/round-clubs/300_wins_platinum_200.webp",
+      "metric": "WINS",
+      "value": 300,
+      "tier": "platinum",
+      "sourceVerifiedInSnapshot": false,
+      "bytes": 13626,
+      "sha256": "2d47169ce71565fd2d804897f9d337cf170b8920d1965b8a21b34fa306f8d0d7"
+    },
+    {
+      "path": "assets/round-clubs/400_wins_platinum_200.webp",
+      "metric": "WINS",
+      "value": 400,
+      "tier": "platinum",
+      "sourceVerifiedInSnapshot": false,
+      "bytes": 13472,
+      "sha256": "6590461c55f98b1295d9a7d9d30f8ff29b424eb48265aaecf98f5cb548aafddd"
+    },
+    {
+      "path": "assets/round-clubs/500_wins_platinum_200.webp",
+      "metric": "WINS",
+      "value": 500,
+      "tier": "platinum",
+      "sourceVerifiedInSnapshot": false,
+      "bytes": 13618,
+      "sha256": "845c68482968f18bfc18315ceeedac00e79641cd90e59909b891fcaee7208ed6"
+    }
+  ]
+}
