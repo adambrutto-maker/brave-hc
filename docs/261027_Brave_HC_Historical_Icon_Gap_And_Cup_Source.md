@@ -10,7 +10,7 @@ The actual SVHL championship trophy is a **tall silver cylindrical cup with a wi
 - [Summer 2016 championship HTO album](https://www.htosports.com/teams/default.asp?s=hockey&u=BRAVESHOCKEY&p=gallery&albumID=17381), team photo `Braves.jpg`.
 - [Winter 2015/16 championship HTO album](https://www.htosports.com/teams/default.asp?s=hockey&u=BRAVESHOCKEY&p=gallery&albumID=15938), team photo `6127aa1f-033e-445c-ab8f-35baf4a0537f1.jpg`.
 
-The SVG badge is a **new vector illustration informed by the actual trophy shape**, not a pixel crop of the photo and not an NHL Stanley Cup logo. Source-photo links and icon hashes are recorded in `widgets/assets/special/source-manifest.json`.
+**Updated design — October 27:** The SVG deliberately uses a **miniature Stanley Cup-style silhouette**, consistent with the team's clarification about the physical SVHL Cup. The flared bowl, narrow connecting neck, tiered engraved silver base, and bright metallic bands are now more distinct, including at the 58-pixel widget size. This is an original SVHL championship emblem, not an NHL logo or a claim of NHL affiliation. The HTO championship photographs remain the reference; source links and asset hashes are in `widgets/assets/special/source-manifest.json`. Both All-Star logos remain byte-for-byte unchanged.
 
 ## Updated mappings
 

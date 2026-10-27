@@ -13,13 +13,13 @@
       "image": "6127aa1f-033e-445c-ab8f-35baf4a0537f1.jpg"
     }
   ],
-  "sourcePolicy": "Vector illustration faithfully follows the tall silver SVHL cup visible in historic HTO photos; not a photo crop or NHL Stanley Cup.",
+  "sourcePolicy": "Detailed silver miniature Stanley Cup-style shape and engraved lower tiers follow the SVHL cup visible in historic HTO team photos; not a photo crop, NHL logo, or claim of NHL affiliation.",
   "assets": [
     {
       "file": "svhl-cup-champion.svg",
       "label": "SVHL Cup Champion",
-      "bytes": 2025,
-      "sha256": "725d3188777d43b7c9f330683265d79bcfb7cbeee8ea7ba3b4bdd44451bc29a7"
+      "bytes": 5244,
+      "sha256": "8393ec2284b3279fa58a2b1a4ac2c121e3e560c78a12ba81acbd26c2e6fa6f1d"
     },
     {
       "file": "all-star-nomination.svg",
