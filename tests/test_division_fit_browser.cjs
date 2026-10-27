@@ -23,6 +23,10 @@ const srv=http.createServer((req,res)=>{
     status:document.querySelector("#notice")?.textContent,
     metrics:document.querySelector("#source-metrics")?.textContent,
     scenarios:document.querySelectorAll("#scenario-options button").length,
+    layoutPatterns:document.querySelectorAll("#layout-design-options button").length,
+    layoutLead:document.querySelector("#layout-proposed-recommendation")?.textContent,
+    layoutTeams:document.querySelectorAll("#layout-proposal-groups .team-row").length,
+    layoutGroupCount:document.querySelectorAll("#layout-proposal-groups .group").length,
     current:document.querySelector("#scenario-options button[aria-pressed=true]")?.textContent,
     groups:document.querySelectorAll("#division-groups .group").length,
     crossLinks:document.querySelectorAll("#cross-division-links .link-card").length,
@@ -47,6 +51,29 @@ const srv=http.createServer((req,res)=>{
    assert.ok(!first.note.includes("VAHL"),"separate-league name must not enter adult research interface");
    assert.ok(first.metrics.includes("22")&&first.metrics.includes("43")&&first.metrics.includes("16"));
    assert.equal(first.scenarios,3);
+   assert.equal(first.layoutPatterns,4,"must offer all legal 4/6/8 division compositions");
+   assert.ok(first.layoutLead.includes("4 + 4 + 4 + 4 + 6"),
+     "tightest objective proposes five small divisions, subject to qualification");
+   assert.equal(first.layoutTeams,22);
+   assert.equal(first.layoutGroupCount,5);
+   await page.select("#layout-design-focus","PRACTICAL");
+   assert.ok((await page.$eval("#layout-proposed-recommendation",e=>e.textContent))
+     .includes("6 + 8 + 8"),"operations penalty changes the leading research pattern");
+   await page.click('#layout-design-options button[data-shape="4-6-6-6"]');
+   assert.equal(await page.$$eval("#layout-proposal-groups .group",els=>els.length),4);
+   assert.equal(await page.$$eval("#layout-proposal-groups .team-row",els=>els.length),22);
+   assert.ok((await page.$eval("#layout-proposal-comparison",e=>e.textContent))
+     .includes("NEW division(s)"));
+   await page.evaluate(()=>Object.defineProperty(navigator,"clipboard",{
+    configurable:true,value:{writeText:async data=>{window.__layoutText=data}}
+   }));
+   await page.click("#layout-copy");
+   await page.waitForFunction(()=>Boolean(window.__layoutText));
+   const draft=await page.evaluate(()=>window.__layoutText);
+   assert.ok(draft.includes("4+6+6+6")&&draft.includes("RESEARCH DIVISION 4")&&
+     draft.includes("NOT APPROVED OR SUBMITTED")&&
+     draft.includes("No user authorization to change official assignments"),
+     "explicit four-division research copy must include actual membership and no approval");
    assert.ok(first.current.includes("Current divisions"));
    assert.equal(first.groups,3);
    assert.ok(first.crossLinks>=2);
@@ -91,6 +118,9 @@ const srv=http.createServer((req,res)=>{
    assert.ok(copied.includes("INTERNAL RESEARCH — NOT A DIVISION REALIGNMENT RECOMMENDATION"));
    assert.ok(copied.includes("43")&&copied.includes("79")&&copied.includes("4 weekly")===false);
    assert.ok(copied.includes("proposalReady = FALSE"));
+   assert.ok(copied.includes("SELECTED DRAFT: 4+6+6+6")&&
+     copied.includes("NOT APPROVED OR SUBMITTED"),
+     "research note includes the selected flexible candidate, not just fixed-size swaps");
    assert.ok(copied.includes("WEEKLY SOURCE STABILITY: SOURCE_BACKED_BASELINE_ONLY") &&
      copied.includes("NOT MEASURABLE — one source-backed baseline only."),
      "research copy may never call a single week stable");
