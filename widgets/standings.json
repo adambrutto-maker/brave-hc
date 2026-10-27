@@ -3,7 +3,7 @@
   "season": "W2026/27",
   "division": "Cristillo",
   "source": "https://leagues.sportsvillage.ca/Leagues.aspx?leagueid=570&page_type=Adult&sc=HOCKEY",
-  "capturedAt": "2026-10-26T23:31:10.205009+00:00",
+  "capturedAt": "2026-10-27T00:31:10.404150+00:00",
   "team": "Braves HC",
   "teams": [
     {
@@ -85,13 +85,13 @@
     },
     {
       "name": "Maplewolves",
-      "gp": 4,
+      "gp": 5,
       "w": 0,
-      "l": 4,
+      "l": 5,
       "t": 0,
       "pts": 0,
-      "gf": 9,
-      "ga": 17,
+      "gf": 10,
+      "ga": 21,
       "winPct": 0.0
     }
   ],
