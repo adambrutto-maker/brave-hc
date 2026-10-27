@@ -20,7 +20,7 @@ ROOT=Path(__file__).resolve().parents[1]
 LEDGER=json.loads((ROOT/"widgets/player-highlights-ledger.json").read_text(encoding="utf-8"))
 PLAYERS={pid:p for pid,p in LEDGER["players"].items() if p["items"]}
 EXPECTED={"award":105,"club":97,"special":58,"heritage":46}
-ICON_GROUPS={"award":"awards","club":"clubs","special":"special","heritage":"heritage"}
+ICON_GROUPS={"award":"awards","club":"round-clubs","special":"special","heritage":"heritage"}
 
 class QuietHandler(http.server.SimpleHTTPRequestHandler):
     def log_message(self,*args): pass
@@ -84,7 +84,7 @@ def run():
                   const expectedPx=arguments[0],rows=[...document.querySelectorAll('#legacy .ph-event')];
                   const imgs=[...document.querySelectorAll('#legacy .ph-event img')];
                   const title=r=>r.querySelector('.ph-event-title')?.textContent||'';
-                  const categories=Object.fromEntries(['awards','clubs','special','heritage'].map(g=>[g,
+                  const categories=Object.fromEntries(['awards','round-clubs','special','heritage'].map(g=>[g,
                     imgs.filter(i=>i.getAttribute('src').includes('/assets/'+g+'/')).length]));
                   const wrongSize=imgs.filter(i=> {
                     const r=i.parentElement.getBoundingClientRect();

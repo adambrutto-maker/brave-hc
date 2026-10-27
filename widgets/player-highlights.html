@@ -47,10 +47,14 @@ body{background:#071829;color:#eef4fb;font-family:Arial,"Helvetica Neue",sans-se
 .ph-event.ph-tier-silver{border-left:3px solid #a5b9cb}
 .ph-event.ph-tier-gold{border-left:3px solid #e1b35a}
 .ph-event.ph-tier-platinum{border-left:4px solid #daeefa}
-.ph-event.ph-tier-diamond{border-left:4px solid #9ddff8}
-.ph-event.ph-tier-legend{border-left:4px solid #f1d07b}
+.ph-event.ph-tier-diamond{border-left:4px solid #daeefa}
+.ph-event.ph-tier-legend{border-left:4px solid #daeefa}
 .ph-cristillo-black-patch{border:2px solid #15191c!important;background:#fff!important}
 
+.ph-event.ph-with-approved-art{grid-template-columns:60px minmax(0,1fr);align-items:center}
+.ph-approved-art{width:58px;height:58px;border:1px solid #55758f;border-radius:8px;overflow:hidden;background:white}
+.ph-approved-art img{display:block;width:100%;height:100%;object-fit:contain}
+@media(max-width:375px){.ph-event.ph-with-approved-art{grid-template-columns:50px minmax(0,1fr)}.ph-approved-art{width:48px;height:48px}}
 .ph-event-title{font-size:13px;font-weight:720;line-height:1.4;color:#f3f7fc}
 .ph-event.ph-champion .ph-event-title{color:#f5d18d}
 .ph-event-meta{font-size:11px;color:#bdd0e0;margin-top:3px}
@@ -78,7 +82,7 @@ details[open] summary{margin-bottom:10px}
 a{color:#f4cb83}
 </style>
 <script defer src="./player-links.js?v=5"></script>
-<script defer src="./player-highlights-v2.js?v=11"></script>
+<script defer src="./player-highlights-v2.js?v=13"></script>
 </head>
 <body>
 <main class="ph-shell">

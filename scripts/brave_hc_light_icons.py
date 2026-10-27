@@ -148,7 +148,29 @@ stroke="#37506a" stroke-width="4" stroke-linecap="round"/>
 <circle cx="100" cy="135" r="2" fill="#445a70"/>"""
     raise ValueError(name)
 
+def neutral_discipline_icon():
+    # No gold, fleur-de-lis, lion, trophy, laurel wreath, or celebratory star.
+    return """<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"
+      viewBox="0 0 200 200" role="img">
+      <title>Brave H.C. recorded suspension — administrative notice</title>
+      <rect x="9" y="9" width="182" height="182" rx="28" fill="#27394c"
+            stroke="#8d9dab" stroke-width="5"/>
+      <rect x="22" y="22" width="156" height="156" rx="20" fill="none"
+            stroke="#536a80" stroke-width="3"/>
+      <rect x="56" y="32" width="88" height="117" rx="7" fill="#d9e1e9"
+            stroke="#62788e" stroke-width="4"/>
+      <path d="M68 54H132M68 68H129M68 82H116M68 97H124"
+            stroke="#597088" stroke-width="5" stroke-linecap="round"/>
+      <circle cx="138" cy="116" r="19" fill="#536b82" stroke="#ffffff" stroke-width="3"/>
+      <path d="M138 105V122" stroke="#ffffff" stroke-width="4" stroke-linecap="round"/>
+      <circle cx="138" cy="128" r="2" fill="#ffffff"/>
+      <text x="100" y="169" font-size="19" font-weight="bold" text-anchor="middle"
+            font-family="Arial,sans-serif" fill="#e9f0f6">SUSPENSION</text>
+    </svg>\n"""
+
 def draw(group,filename):
+    if group=='heritage' and filename=='discipline-record.svg':
+        return neutral_discipline_icon()
     if group=="clubs":
         m=re.match(r"club-(game|point|win)-(\d+)\.svg$",filename)
         if not m: raise ValueError(filename)
