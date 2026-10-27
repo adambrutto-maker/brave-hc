@@ -1,10 +1,25 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><title>Brave H.C. All-Star Selected</title><defs>
-<linearGradient id="silver" x1="0" x2="1"><stop stop-color="#8299ae"/><stop offset=".21" stop-color="#fcffff"/><stop offset=".47" stop-color="#a7b5c4"/><stop offset=".76" stop-color="#eef5fa"/><stop offset="1" stop-color="#6e8194"/></linearGradient>
-<linearGradient id="navy" x1="0" x2="0.6" y1="0" y2="1"><stop stop-color="#194267"/><stop offset="1" stop-color="#071728"/></linearGradient>
-</defs><circle cx="100" cy="100" r="95" fill="#061829" stroke="#c49b57" stroke-width="7"/>
-<circle cx="100" cy="100" r="84" fill="url(#navy)" stroke="#8b1630" stroke-width="4"/>
-<text x="100" y="34" text-anchor="middle" font-family="Arial,sans-serif" font-size="14" letter-spacing="2.2" font-weight="bold" fill="#f9d690">BRAVE H.C.</text><polygon points="100,46 114,84 154,84 123,108 134,149 100,126 66,149 77,108 46,84 86,84" fill="#eacb75" stroke="#fff0b0" stroke-width="5" stroke-linejoin="round"/>
-<polygon points="100,62 111,91 141,91 117,108 125,135 100,119 75,135 83,108 59,91 89,91" fill="#f9e5a3" stroke="#bc9a58" stroke-width="2"/>
-<path d="M32 146 L168 146 L161 172 L39 172 Z" fill="#9d1c39" stroke="#e7c07b" stroke-width="3"/>
-<text x="100" y="165" text-anchor="middle" font-family="Arial,sans-serif" font-weight="bold" letter-spacing="1" font-size="17" fill="#fff">ALL-STAR</text>
-<text x="100" y="184" text-anchor="middle" font-family="Arial,sans-serif" font-weight="bold" font-size="11" letter-spacing="2" fill="#f3d99f">SELECTED</text></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200"><title>Brave H.C. all star selected icon</title><defs>
+<linearGradient id="silver" x1="0" x2="1"><stop stop-color="#637f99"/>
+ <stop offset=".24" stop-color="#f8ffff"/><stop offset=".53" stop-color="#9babbb"/>
+ <stop offset=".77" stop-color="#fff"/><stop offset="1" stop-color="#50677c"/></linearGradient>
+<linearGradient id="gold" x1="0" x2="1"><stop stop-color="#8a561f"/>
+ <stop offset=".28" stop-color="#ffe4a2"/><stop offset=".58" stop-color="#bd832d"/>
+ <stop offset=".83" stop-color="#ffebae"/><stop offset="1" stop-color="#805021"/></linearGradient>
+</defs><rect width="200" height="200" fill="#ffffff"/>
+<path d="M100 5 L180 31 L175 125 Q168 169 100 195 Q32 169 25 125 L20 31 Z"
+  fill="#0a2744" stroke="#071c35" stroke-width="3.5"/>
+<path d="M100 15 L169 39 L165 121 Q158 159 100 184 Q42 159 35 121 L31 39 Z"
+  fill="#ffffff" stroke="#bb2344" stroke-width="5"/>
+<path d="M35 40 L100 17 L165 40 L162 60 L38 60 Z" fill="#122f51"/>
+<text x="100" y="46" font-family="Arial,sans-serif" font-size="12.6"
+ font-weight="900" letter-spacing="1.4" text-anchor="middle" fill="#fff">BRAVE H.C.</text>
+<path d="M40 61 Q100 68 160 61" stroke="#dcac5f" stroke-width="3.5" fill="none"/><polygon points="100,65 113,94 147,96 122,116 130,145 100,129 70,145 78,116 53,96 87,94" fill="url(#gold)" stroke="#c99043" stroke-width="5" stroke-linejoin="round"/><polygon points="100,76 109,99 134,100 115,114 122,134 100,123 78,134 85,114 66,100 91,99" fill="none" stroke="#fff6d5" stroke-width="2.5" /><g fill="#d3a04c" stroke="#76502b" stroke-width="1">
+<ellipse cx="46" cy="90" rx="6" ry="13" transform="rotate(-27 46 90)"/>
+<ellipse cx="40" cy="109" rx="6" ry="13" transform="rotate(-10 40 109)"/>
+<ellipse cx="48" cy="127" rx="6" ry="12" transform="rotate(27 48 127)"/>
+<ellipse cx="154" cy="90" rx="6" ry="13" transform="rotate(27 154 90)"/>
+<ellipse cx="160" cy="109" rx="6" ry="13" transform="rotate(10 160 109)"/>
+<ellipse cx="152" cy="127" rx="6" ry="12" transform="rotate(-27 152 127)"/>
+</g>
+<path d="M48 139 Q29 114 49 78 M152 139 Q171 114 151 78"
+ stroke="#996123" stroke-width="3" fill="none"/><path d="M32 147 Q100 157 168 147 L162 168 Q100 190 38 168 Z" fill="#a42040" stroke="#061d38" stroke-width="3"/><path d="M43 149 Q100 160 158 149" fill="none" stroke="#ffe0a0" stroke-width="2"/><text x="100" y="169" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" font-weight="900" fill="#fff" stroke="none" stroke-width="0" paint-order="stroke" letter-spacing=".3">ALL-STAR</text></svg>

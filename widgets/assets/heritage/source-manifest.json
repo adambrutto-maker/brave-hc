@@ -12,8 +12,8 @@
     {
       "file": "art-ross.svg",
       "label": "Art Ross Award",
-      "sha256": "c8e6e8e5bbbdb665f6a1662b4caa953f7027f8a1145cacc9e11452999e206e0c",
-      "bytes": 2639,
+      "sha256": "10c170173aa1ddaab10d380b1976936a0432ffaebbbd6488b16e517c56e0ed04",
+      "bytes": 2279,
       "pixels": [
         200,
         200
@@ -22,8 +22,8 @@
     {
       "file": "rocket-richard.svg",
       "label": "Rocket Richard Award",
-      "sha256": "3509a85ea40ac892ae4416b6f838219b3e708478eabd5a076d95d31a58e45335",
-      "bytes": 2259,
+      "sha256": "0cedf60d3f089234168b41b32421c187894b533bf7c2246f25a5ffb5e2edbe54",
+      "bytes": 2145,
       "pixels": [
         200,
         200
@@ -32,8 +32,8 @@
     {
       "file": "hall-of-fame-inductee.svg",
       "label": "Hall of Fame Inductee",
-      "sha256": "e6495dbb3ccf38ba891b6d20209d81219dd88a448c28eb1b67520b9e1f3a4cee",
-      "bytes": 2533,
+      "sha256": "a668b79b4e61f4804f900ee13e151129acc1aabdc23d7e0159b0734b9c68b543",
+      "bytes": 2612,
       "pixels": [
         200,
         200
@@ -42,8 +42,8 @@
     {
       "file": "captain.svg",
       "label": "Elected Team Captain",
-      "sha256": "8e3f0e81fd5eaa5ad1a0162f10a7878bb3e843896e365fcf9f6839c95ae6bee8",
-      "bytes": 1861,
+      "sha256": "119a67c8d79afbca781bce358a7e18376d39e3ee15edcae4aeed8f7d4de9247c",
+      "bytes": 2587,
       "pixels": [
         200,
         200
@@ -52,8 +52,8 @@
     {
       "file": "assistant-captain.svg",
       "label": "Elected Assistant Captain",
-      "sha256": "318105010ea33bd576198cc386b38d28cd9102f2c4a6bf73686aac50d5750d17",
-      "bytes": 1873,
+      "sha256": "8ce48423df2da818a414a3f7a4f5850a9115aa1050d7e00ee7d58d38edd2b5bf",
+      "bytes": 2599,
       "pixels": [
         200,
         200
@@ -62,12 +62,13 @@
     {
       "file": "discipline-record.svg",
       "label": "Disciplinary Record",
-      "sha256": "ce66e509d41724ac7869b5c7387d006d14651010b05a5aaba6b346685110d0b9",
-      "bytes": 1913,
+      "sha256": "63e5e40fb87ea33ecfab438347a6bba8f833135bff263d5b610351293852e951",
+      "bytes": 2078,
       "pixels": [
         200,
         200
       ]
     }
-  ]
+  ],
+  "presentation": "White-ground original-award-matched 200px shield illustrations, 58px desktop/48px mobile."
 }
