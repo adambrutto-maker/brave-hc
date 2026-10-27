@@ -7,7 +7,7 @@ from pathlib import Path
 import tempfile,sys,unittest,json
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/"scripts"))
-from build_eng59_scoped_static_preview import index,build,validate_html,PreviewHold,canonical_source,git_stage,git_hash
+from build_eng59_scoped_static_preview import index,build,validate_html,PreviewHold,canonical_source,git_stage,git_hash,verify_artwork_manifests
 class ScopedPreviewTests(unittest.TestCase):
  def test_real_website_minimal_scoped_preview_without_nonweb_files(self):
   allowed,source,tracked=index(ROOT)
@@ -31,6 +31,22 @@ class ScopedPreviewTests(unittest.TestCase):
    mutated=data.replace(b"\\n",b"\\r\\n")
    self.assertEqual(git_hash(mutated.replace(b"\\r\\n",b"\\n"),algorithm),entries[name][1])
    self.assertNotEqual(git_hash(data+b"CHANGED",algorithm),entries[name][1])
+ def test_all_61_artwork_assets_and_five_source_manifests_stay_consistent(self):
+  included=set(index(ROOT)[0])
+  qa=verify_artwork_manifests(ROOT/"widgets",included)
+  self.assertEqual(qa["manifestsVerified"],5)
+  self.assertEqual(qa["artworkAssetsVerified"],61)
+ def test_a_missing_round_milestone_image_is_not_a_complete_release(self):
+  included=set(index(ROOT)[0])
+  included.remove("widgets/assets/round-clubs/300_wins_platinum_200.webp")
+  with self.assertRaisesRegex(PreviewHold,"ARTWORK_ASSET_MISSING_OR_UNSAFE"):
+   verify_artwork_manifests(ROOT/"widgets",included)
+ def test_a_forged_manifest_source_hash_is_rejected(self):
+  included=set(index(ROOT)[0])
+  source=(ROOT/"widgets/assets/round-clubs/source-manifest.json").read_text(encoding="utf8")
+  bad=source.replace('"sha256": "','"sha256": "0',1)
+  with self.assertRaisesRegex(PreviewHold,"ARTWORK_SOURCE_MANIFEST_HASH_OR_SIZE_CONFLICT"):
+   verify_artwork_manifests(ROOT/"widgets",included,{"round-clubs":bad})
  def test_check_only_never_creates_any_output(self):
   with tempfile.TemporaryDirectory() as d:
    output=Path(d)/"private_preview"

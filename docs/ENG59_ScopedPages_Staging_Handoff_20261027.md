@@ -41,3 +41,15 @@ Canonical receipt:
 **Source preview:** 156 Git-verified files, **16,403,441** canonical Git-blob bytes, **134** verified relative HTML references. No docs/scripts, no credential/private-named web assets, no media/source-owner private captures. The original staged preview remains separate and is not an approved release target. The builder produces no public deployment and the existing GitHub Pages workflow is unchanged. The handoff document itself was renamed to avoid creating an additional `Private`-named tracked source path in the unrelated strict root-Pages privacy inventory (the three existing flagged paths stay exactly the same).
 
 The independent isolated Git checkout must re-run the canonical builder and compare the SHA256 manifest **file-by-file** before any release recommendation. Human privacy/rights and production approval remain separate.
+
+## 2026-10-27 — Reconciled accepted PR #133 icon source assets
+
+`main` accepted source PR #133 via merge `092116f` (player artwork and approved round-club icon manifests). ENG59 merged that main commit without changing any original source, image, Highlights system or award decision. The existing private Pages preview builder now additionally checks all **five** accepted icon source manifests (awards, clubs, heritage, round-clubs, special) against the **61 source-declared assets**: matching relative names, Git index object identity, canonical bytes, declared sizes and SHA256 digest. Missing or tampered artwork is a release-preview hold rather than a fallback invented award.
+
+New isolated local web-only preview:
+`D:\BruTTech\Products\HockeyOS\Implementation Control\ENG59_ScopedSite_CanonicalPreview_Main133_261027`
+
+New PRIVATE manifest:
+`D:\BruTTech\Products\HockeyOS\Implementation Control\261027_ENG59_Main133_StaticPreview_Manifest_PRIVATE.json`
+
+**Preview scope:** 179 Git-verified web files, **16,719,711** canonical Git bytes, 134 validated static HTML relative links, 5 source manifests and 61 image assets. Browser private-preview smoke at 1140px desktop and 358px mobile passed homepage navigation, League Intelligence, Division Fit Lab and Player Game Audit; no missing local assets, JavaScript errors or horizontal overflow; optional video strength remains `INSUFFICIENT_VIDEO`. No publication occurs, and neither privacy/legal rights nor independent release QA is implied by a source hash. Prior canonical preview remains preserved and reproducible for its own earlier source HEAD. Do not overwrite historical receipts or replace Pages deployment without human approval.

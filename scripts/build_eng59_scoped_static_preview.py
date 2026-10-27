@@ -50,6 +50,48 @@ def git_hash(data,algo):
  record=b"blob "+str(len(data)).encode("ascii")+b"\0"+data
  return hashlib.new(algo,record).hexdigest()
 
+def verify_artwork_manifests(widgets,package_paths,manifest_overrides=None):
+ """Cross-check the existing five HTO icon source manifests and web assets.
+
+ This does not accept artwork rights/ownership or change awards. It only
+ proves declared assets are complete and source-hash-concordant in the
+ candidate website package.
+ """
+ widgets=Path(widgets).resolve()
+ kinds=("awards","clubs","heritage","round-clubs","special")
+ count=0
+ seen=set()
+ for kind in kinds:
+  source=f"assets/{kind}/source-manifest.json"
+  need("widgets/"+source in package_paths,
+       "ARTWORK_SOURCE_MANIFEST_NOT_INCLUDED:"+kind)
+  manifest_bytes=(manifest_overrides or {}).get(kind)
+  if manifest_bytes is None:
+   manifest_bytes=canonical_source(widgets/source)
+  if isinstance(manifest_bytes,str):manifest_bytes=manifest_bytes.encode("utf8")
+  doc=json.loads(manifest_bytes)
+  need(isinstance(doc.get("assets"),list) and doc["assets"],
+       "ARTWORK_SOURCE_MANIFEST_EMPTY:"+kind)
+  for entry in doc["assets"]:
+   local=entry.get("path") or f"assets/{kind}/{entry.get('file','')}"
+   need(local.startswith("assets/"+kind+"/") and
+        ".." not in local.split("/") and "\\" not in local and
+        not local.startswith("/") and
+        ("widgets/"+local) in package_paths,
+        "ARTWORK_ASSET_MISSING_OR_UNSAFE:"+kind)
+   need(local not in seen,"DUPLICATE_ARTWORK_ASSET:"+local)
+   seen.add(local)
+   path=(widgets/local).resolve()
+   need(path.is_relative_to(widgets) and path.is_file() and
+        not path.is_symlink(),"ARTWORK_ASSET_FILE_UNQUALIFIED:"+local)
+   data=canonical_source(path)
+   need(entry.get("bytes")==len(data) and
+        re.fullmatch("[a-f0-9]{64}",str(entry.get("sha256",""))) and
+        hashlib.sha256(data).hexdigest()==entry["sha256"],
+        "ARTWORK_SOURCE_MANIFEST_HASH_OR_SIZE_CONFLICT:"+local)
+   count+=1
+ return {"manifestsVerified":len(kinds),"artworkAssetsVerified":count}
+
 def tracked(repo):
  return set(subprocess.check_output(["git","-C",str(repo),"ls-files","-z"]).decode("utf-8").rstrip("\0").split("\0"))
 def head(repo):
@@ -84,6 +126,7 @@ def index(repo,files=None):
        "WEB_SOURCE_DIFFERS_FROM_COMMITTED_GIT_BLOB:"+rel)
   pathsData[rel]={"sha256":hashlib.sha256(data).hexdigest(),
     "bytes":len(data),"gitBlob":gitOID}
+ verify_artwork_manifests(repo/"widgets",set(included))
  return included,pathsData,paths
 
 class References(HTMLParser):
@@ -120,6 +163,7 @@ def build(repo,output,check_only=False):
       "PREVIEW_OUTPUT_CANNOT_BE_INSIDE_OR_ABOVE_REPO")
  need(not output.exists(),"CANDIDATE_ALREADY_EXISTS_NO_OVERWRITE")
  inc,sources,alltracked=index(repo)
+ artwork=verify_artwork_manifests(repo/"widgets",set(inc))
  need(not any(p.startswith(("docs/","scripts/","archive/","snapshots/",".github/"))
     for p in inc),"NON_WEB_SOURCE_FILES_IN_PREVIEW")
  # Preflight all existing HTML links against exact selected source files
@@ -149,6 +193,7 @@ def build(repo,output,check_only=False):
   "sourceGitHead":srcHash,
   "rootPagesWorkflowChanged":False,
   "canonicalGitBlobBytes":True,
+  "artworkManifestCoverage":artwork,
   "previewFiles":len(inc),
   "previewBytes":sum(x["bytes"] for x in sources.values()),
   "validatedHTMLReferences":references,
