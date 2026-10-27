@@ -58,7 +58,7 @@
  function gameGraph(doc,teams){
   const byName=new Map(doc.teams.map(t=>[t.leagueName,t]));
   const ids=new Set(teams.map(t=>t.sourceTeamId));
-  const seen=new Set(),games=[],pairs=new Map();
+  const seen=new Map(),games=[],pairs=new Map();
   for(const team of teams){
    for(const g of team.completedGames){
     const opponent=byName.get(g.opponent);
@@ -67,9 +67,12 @@
     const lo=Math.min(team.sourceTeamId,opponent.sourceTeamId);
     const hi=Math.max(team.sourceTeamId,opponent.sourceTeamId);
     const goals=team.sourceTeamId===lo?[g.gf,g.ga]:[g.ga,g.gf];
-    const key=[g.date,lo,hi,goals.join("-")].join("|");
-    if(seen.has(key))continue;
-    seen.add(key);
+    const key=[g.date,lo,hi].join("|");
+    if(seen.has(key)){
+     need(seen.get(key)===goals.join("-"),"RECIPROCAL_OFFICIAL_RESULT_CONFLICT");
+     continue;
+    }
+    seen.set(key,goals.join("-"));
     const same=team.divisionNow===opponent.divisionNow;
     const divisions=[team.divisionNow,opponent.divisionNow].sort();
     const result={sourceGameKey:key,date:g.date,teamIds:[lo,hi],
@@ -87,7 +90,7 @@
   })).sort((a,b)=>b.games-a.games||a.divisionPair.join("|").localeCompare(b.divisionPair.join("|")));
   const cross=games.filter(g=>!g.sameCurrentDivision).length;
   return {verifiedGamesInPool:games.length,crossCurrentDivisionGames:cross,
-    withinCurrentDivisionGames:games.length-cross,links:result,
+    withinCurrentDivisionGames:games.length-cross,links:result,verifiedMatches:games,
     caveat:"Divisions mean each team's CURRENT assignment; they may have differed on the game date. Cross-division links are schedule evidence, not team skill predictions."};
  }
  function statsFor(groups,teamById){
@@ -182,6 +185,40 @@
      limitation:"Capacity-preserving grouping by descriptive score alone; not viable without scheduling, opponent, roster and league review."}
   ];
  }
+
+ function scenarioEvidence(groups,verifiedGames){
+  const assigned=new Map();
+  for(const group of groups){
+   for(const id of group.ids){
+    need(!assigned.has(id),"SCENARIO_TEAM_ASSIGNED_TWICE");
+    assigned.set(id,group.key);
+   }
+  }
+  const within=[],outside=[],uniquePairs=new Set();
+  for(const game of verifiedGames){
+   const a=assigned.get(game.teamIds[0]),b=assigned.get(game.teamIds[1]);
+   need(a!==undefined&&b!==undefined,"EVIDENCE_TEAM_MISSING_FROM_SCENARIO");
+   if(a===b){
+    within.push(game);
+    uniquePairs.add(game.teamIds.join("|"));
+   }else outside.push(game);
+  }
+  const possiblePairs=groups.reduce((n,g)=>n+g.ids.length*(g.ids.length-1)/2,0);
+  const close=within.filter(g=>g.absoluteGoalMargin<=2).length;
+  const decidedByOne=within.filter(g=>g.absoluteGoalMargin<=1).length;
+  const big=within.filter(g=>g.absoluteGoalMargin>=5).length;
+  return {
+   observedSameGroupGames:within.length,observedAcrossGroupGames:outside.length,
+   observedUniqueSameGroupPairings:uniquePairs.size,
+   allPossibleSameGroupPairings:possiblePairs,
+   observedPairingCoverage:round(possiblePairs?uniquePairs.size/possiblePairs:0,3),
+   twoGoalOrCloserGames:close,oneGoalOrCloserGames:decidedByOne,
+   fivePlusGoalMarginGames:big,
+   percentTwoGoalOrCloser:within.length?round(100*close/within.length,1):null,
+   meanObservedGoalMargin:within.length?round(avg(within.map(g=>g.absoluteGoalMargin)),2):null,
+   sampleWarning:"Retrospective evidence only: a game played between clubs currently assigned to one hypothetical group is not a prediction of future group performance. Small samples and selection effects remain."
+  };
+ }
  function historySummary(history,teams){
   if(!history)return {matchedGameComparisons:0,matchedSeasonTeams:0,heldComparisons:null,
     sameCurrentTeamClaims:0};
@@ -224,7 +261,9 @@
        "Numeric source coverage achieved. This remains a review exercise—not a league-approved reassignment.":
        "Too early for reassignment: collect 4 weeks, at least 10 games for 75% of the adult pool, and 4 verified cross-division games before reviewing scenarios."
    },
-   gameGraph:graph,scenarios:candidateSets(doc,teams),
+   gameGraph:graph,scenarios:candidateSets(doc,teams).map(s=>({
+     ...s,evidence:scenarioEvidence(s.groups,graph.verifiedMatches)
+   })),
    teams:teams.map(t=>({sourceTeamId:t.sourceTeamId,name:t.displayName,
       leagueName:t.leagueName,divisionNow:t.divisionNow,
       gp:t.record.gp,score:t.strengthContext.contextIndex,
@@ -234,6 +273,7 @@
    historical:historySummary(history,teams),
    notes:["Only actual verified current-season games affect the underlying rating.",
      "Scenario dispersion measures within-group spread of an editorial descriptive index, not true opponent equality.",
+     "Observed same-group head-to-head coverage and actual goal margins describe prior matches only; no score simulation or counterfactual outcomes.",
      "Research scenarios are sandbox examples; no assignment is made and current groups remain authoritative.",
      "Only Fazzari, Cristillo and Remax teams are within adult Sunday research scope.",
      "Cross-division source connections reflect CURRENT division membership, which may differ from the division when the game was played."],
