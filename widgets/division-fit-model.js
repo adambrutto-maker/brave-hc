@@ -6,9 +6,9 @@
  else root.BraveDivisionFit=model;
 })(typeof window==="undefined"?globalThis:window,function(){
  "use strict";
- // Scope is the same adult Sunday SVHL pool only. VAHL is a separately named
- // competition and the x-playoff category is an exhibition placeholder.
- const POOL=["Fazzari Partners","The Cristillo Division","Remax Division"];
+ // This is only the adult Sunday hockey competition, not other leagues.
+ const POLICY=typeof module!=="undefined"&&module.exports?require("./adult-league-scope.js"):window.BraveAdultLeagueScope;
+ const POOL=POLICY.divisionsList;
  const SCHEMA="brave-hc-division-fit-research/v1";
  const need=(ok,m)=>{if(!ok)throw Error("DIVISION_FIT_HOLD:"+m)};
  const round=(v,n=1)=>Number(v.toFixed(n));
@@ -212,9 +212,7 @@
    proposalReady:false, // hard gate: cannot automatically issue a league proposal
    sourceGameCount:doc.verifiedReciprocalCompletedGames,
    poolDivisions:POOL,adultPoolTeamCount:teams.length,
-   separateDivisions:doc.divisions.filter(d=>d.competitive&&!POOL.includes(d.name))
-     .map(d=>({name:d.name,teamEntries:d.teams.length,
-      reason:"SEPARATE_COMPETITION_NOT_IN_ADULT_REALIGNMENT_POOL"})),
+   separateLeagueRecordsExcluded:doc.teams.length-teams.length,
    weekCount:weeks,playedTen,readiness:{
      minWeeks:4,minGames:10,minCoverage:.75,minCrossGames:4,
      coverage:round(playedTen/teams.length,3),
@@ -237,7 +235,7 @@
    notes:["Only actual verified current-season games affect the underlying rating.",
      "Scenario dispersion measures within-group spread of an editorial descriptive index, not true opponent equality.",
      "Research scenarios are sandbox examples; no assignment is made and current groups remain authoritative.",
-     "The VAHL and playoff placeholder entries are excluded from adult division scenarios.",
+     "Only Fazzari, Cristillo and Remax teams are within adult Sunday research scope.",
      "Cross-division source connections reflect CURRENT division membership, which may differ from the division when the game was played."],
    sourceReferences:{league:doc.source,historical:history?.teamSeasons[0]?.officialTeamPage||null}};
  }
