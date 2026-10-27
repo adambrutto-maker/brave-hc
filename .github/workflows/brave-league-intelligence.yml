@@ -71,6 +71,10 @@ on:
       - 'scripts/check_eng59_release_evidence.py'
       - 'scripts/check_eng59_static_release_surface.py'
       - 'scripts/check_eng59_preexisting_pages_exposure.py'
+      - 'scripts/build_eng59_scoped_static_preview.py'
+      - 'tests/test_eng59_scoped_static_preview.py'
+      - 'tests/test_eng59_scoped_preview_browser.cjs'
+      - 'docs/ENG59_ScopedPages_PrivatePreview_Handoff_20261027.md'
       - 'tests/test_eng59_preexisting_pages_exposure.py'
       - 'tests/test_eng59_static_release_surface.py'
       - 'tests/test_eng59_release_evidence.py'
@@ -193,6 +197,10 @@ on:
       - 'scripts/check_eng59_release_evidence.py'
       - 'scripts/check_eng59_static_release_surface.py'
       - 'scripts/check_eng59_preexisting_pages_exposure.py'
+      - 'scripts/build_eng59_scoped_static_preview.py'
+      - 'tests/test_eng59_scoped_static_preview.py'
+      - 'tests/test_eng59_scoped_preview_browser.cjs'
+      - 'docs/ENG59_ScopedPages_PrivatePreview_Handoff_20261027.md'
       - 'tests/test_eng59_preexisting_pages_exposure.py'
       - 'tests/test_eng59_static_release_surface.py'
       - 'tests/test_eng59_release_evidence.py'
@@ -370,6 +378,10 @@ jobs:
         run: python -B scripts/check_eng59_preexisting_pages_exposure.py
       - name: Reject embedded credentials, new private-named paths and fabricated publication approvals
         run: python -B -m unittest discover -s tests -p test_eng59_preexisting_pages_exposure.py -v
+      - name: Check private scoped Pages preview manifest without creating or publishing assets
+        run: python -B scripts/build_eng59_scoped_static_preview.py --check-only --output "$RUNNER_TEMP/eng59-private-preview-candidate"
+      - name: Refuse internal docs/scripts/credentials in isolated web-asset packaging
+        run: python -B -m unittest discover -s tests -p test_eng59_scoped_static_preview.py -v
       - name: Guard source-stamped weekly roster age without equating separate daily captures
         run: python -B -m unittest discover -s tests -p test_roster_source_time_boundary.py -v
       - name: Verify sampled official GameInfo penalty tables without fake PIM or GP

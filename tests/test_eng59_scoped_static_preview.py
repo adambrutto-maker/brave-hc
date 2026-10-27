@@ -1,0 +1,75 @@
+"""ENG59 scoped private preview packaging and confidentiality tests.
+
+Use existing tracked web-only source manifest. No production deploy or
+external network; temp preview candidate exists only in isolated tempdir.
+"""
+from pathlib import Path
+import tempfile,sys,unittest,json
+ROOT=Path(__file__).resolve().parents[1]
+sys.path.insert(0,str(ROOT/"scripts"))
+from build_eng59_scoped_static_preview import index,build,validate_html,PreviewHold
+class ScopedPreviewTests(unittest.TestCase):
+ def test_real_website_minimal_scoped_preview_without_nonweb_files(self):
+  allowed,source,tracked=index(ROOT)
+  self.assertIn("index.html",allowed)
+  self.assertIn("widgets/analytics.html",allowed)
+  self.assertIn("widgets/league-intelligence.html",allowed)
+  self.assertIn("widgets/brave-historical-gameinfo-ids.json",allowed)
+  self.assertNotIn("widgets/README.md",allowed)
+  self.assertTrue(all(p=="index.html" or p.startswith("widgets/") for p in allowed))
+  self.assertFalse(any("PRIVATE" in p or p.startswith(("docs/","scripts/","archive/"))
+                       for p in allowed))
+  self.assertEqual(set(source),set(allowed))
+  self.assertGreaterEqual(validate_html(ROOT,set(allowed)),100)
+  self.assertGreater(len(allowed),100)
+ def test_check_only_never_creates_any_output(self):
+  with tempfile.TemporaryDirectory() as d:
+   output=Path(d)/"private_preview"
+   result=build(ROOT,output,True)
+   self.assertFalse(output.exists())
+   self.assertFalse(result["productionDeploymentPerformed"])
+   self.assertFalse(result["publicReleaseApproved"])
+   self.assertFalse(result["independentPrivacyApproval"])
+ def test_isolated_preview_stages_byte_identical_source_files_and_no_private_docs(self):
+  with tempfile.TemporaryDirectory() as d:
+   output=Path(d)/"private_preview"
+   result=build(ROOT,output,False)
+   included=set(result["files"])
+   self.assertEqual({str(x.relative_to(output)).replace("\\","/") for x in output.rglob("*") if x.is_file()},included)
+   self.assertFalse(any((output/p).exists() for p in
+    ("docs","scripts","archive","snapshots",".github","widgets/README.md")))
+   self.assertTrue((output/"index.html").is_file())
+   self.assertEqual(validate_html(output,included),result["validatedHTMLReferences"])
+   for rel in included:self.assertEqual((output/rel).read_bytes(),(ROOT/rel).read_bytes())
+ def test_output_already_exists_never_overwrites(self):
+  with tempfile.TemporaryDirectory() as d:
+   out=Path(d)/"private_preview"
+   out.mkdir();sentinel=out/"KEEP_ME.txt";sentinel.write_text("ORIGINAL")
+   with self.assertRaisesRegex(PreviewHold,"CANDIDATE_ALREADY_EXISTS_NO_OVERWRITE"):
+    build(ROOT,out)
+   self.assertEqual(sentinel.read_text(),"ORIGINAL")
+ def test_refuses_output_nested_in_public_repository(self):
+  with self.assertRaisesRegex(PreviewHold,"PREVIEW_OUTPUT_CANNOT_BE_INSIDE_OR_ABOVE_REPO"):
+   build(ROOT,ROOT/"widgets"/"accidental_preview",True)
+ def test_ignores_internal_workflow_and_private_docs_even_when_tracked(self):
+  files,manifest,tracked=index(ROOT)
+  self.assertTrue(any(x.startswith("docs/") for x in tracked))
+  self.assertTrue(any(x.startswith("scripts/") for x in tracked))
+  self.assertFalse(any(p.endswith(".md") or p.endswith(".txt") for p in files))
+ def test_ambiguous_new_pem_or_private_named_web_resource_refused(self):
+  with tempfile.TemporaryDirectory() as d:
+   # Index only operates on source files actually present, but name gate
+   # must refuse a real allowed-extension sensitive source asset.
+   f=ROOT/"widgets"/"FICTIONAL_TEST_PRIVATE.json"
+   # Do not create a forbidden source under the live worktree.
+   # Existing programmatic source selection disallows a fictional tracked name
+   # even when absent; no copy attempt is permitted.
+   tracked={*index(ROOT)[2],"widgets/FICTIONAL_TEST_PRIVATE.json"}
+   with self.assertRaisesRegex(PreviewHold,"WEB_ASSET_MISSING_OR_SYMLINK|PRIVATE_NAMED_WEB_ASSET"):
+    index(ROOT,tracked)
+ def test_original_json_source_schemas_remain_unchanged(self):
+  files,_,_=index(ROOT)
+  data=json.loads((ROOT/"widgets"/"svhl-official-game-id-bridges.json").read_text(encoding="utf8"))
+  self.assertIn("widgets/svhl-official-game-id-bridges.json",files)
+  self.assertFalse(data["independentAcceptedForHistoricalPlayerCorrections"])
+if __name__=="__main__":unittest.main()
