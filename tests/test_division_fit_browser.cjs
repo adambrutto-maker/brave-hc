@@ -36,7 +36,8 @@ const srv=http.createServer((req,res)=>{
    assert.ok(first.current.includes("Current divisions"));
    assert.equal(first.groups,3);
    assert.ok(first.crossLinks>=2);
-   assert.ok(first.history.includes("79")&&first.history.includes("24"));
+   assert.ok(first.history.includes(String(historical.matchedGameCount)) &&
+      first.history.includes(String(historical.heldGameComparisons)));
    assert.ok(first.gate.includes("Not ready"));
    assert.ok(first.over<=1,"No full-page horizontal overflow");
    await page.click("#scenario-options button:nth-child(2)");
