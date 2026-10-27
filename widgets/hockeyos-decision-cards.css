@@ -1,0 +1,52 @@
+/* HockeyOS evidence-backed decision cards — no data/model changes */
+.os-decision-panel{margin:15px 0;padding:17px;background:linear-gradient(135deg,#1a3d54,#0b263a);border:1px solid #60829b;border-radius:12px;box-shadow:0 5px 20px #0002}
+.os-decision-panel h3{font-size:17px;color:#fff;margin:3px 0 13px;line-height:1.3}
+.os-section-eyebrow{font-size:11px;font-weight:900;letter-spacing:.12em;color:#f0ce9c}
+.os-fact-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px}
+.os-fact{min-width:0;padding:13px 11px;background:#102d42;border:1px solid #486a82;border-radius:9px;display:grid;gap:4px}
+.os-fact-label{font-size:12px;font-weight:750;color:#e0eaf4}
+.os-fact-value{font-size:clamp(18px,2vw,25px);line-height:1.2;color:#fff;overflow-wrap:anywhere;font-variant-numeric:tabular-nums}
+.os-fact-help{font-size:11px;line-height:1.5;color:#bed4e6}
+.os-source-note{color:#c9dbe9;font-size:12px;line-height:1.65;margin:12px 0 7px}
+.os-game-plan{padding:12px 14px;margin:13px 0 5px;border-left:3px solid #e5ba80;background:#102e43;border-radius:5px;color:#f2f7fb}
+.os-game-plan>strong{display:block;font-size:14px}
+.os-game-plan ol{margin:8px 0;padding-left:22px;display:grid;gap:6px;color:#e1eff8;font-size:13px;line-height:1.5}
+.os-game-plan .os-source-note{display:block;color:#b7ccdb}
+.os-compare-panel{margin:13px 0 2px;padding:0;border:1px solid #426783;background:#0b2538;border-radius:9px}
+.os-compare-panel>summary{position:relative;list-style:none;cursor:pointer;padding:13px 37px 13px 13px;color:#f9fcff;font-weight:850;min-height:45px}
+.os-compare-panel>summary::after{content:"+";position:absolute;right:14px;top:10px;font-size:20px;color:#eccc99}
+.os-compare-panel[open]>summary::after{content:"−"}
+.os-compare-controls{padding:11px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.os-compare-controls label{font-weight:700;color:#dbe7f1;font-size:12px}
+.os-compare-controls select{min-height:42px;max-width:100%;font-size:14px}
+.os-compare-results{padding:0 10px 8px;overflow-x:auto}
+.os-compare-row{display:grid;grid-template-columns:minmax(105px,.9fr) repeat(2,minmax(100px,1fr));gap:9px;align-items:center;padding:8px 3px;border-bottom:1px solid #34576d;font-size:12px;color:#dfebf4;font-variant-numeric:tabular-nums}
+.os-compare-row>span:not(:first-child),.os-compare-row>strong{text-align:right;overflow-wrap:anywhere}
+.os-compare-head{font-weight:850;color:#fff}
+.os-compare-panel>.os-source-note{margin:10px 14px 14px}
+.os-team-browser{margin:14px 0 20px}
+.os-team-browser h3{font-size:16px;color:#fff;margin:8px 0 12px}
+.os-team-filters{display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+.os-team-filters input,.os-team-filters select{min-height:43px;border-radius:7px;background:#102d45;border:1px solid #7492a6;color:#fff;font:inherit;padding:9px 11px}
+.os-team-filters input{flex:1;min-width:160px}
+.os-team-filters select{flex:1;min-width:200px}
+.os-team-card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:9px;margin:10px 0 18px}
+.os-team-card{border-radius:9px;padding:13px;min-height:100px;text-align:left;background:#13334a;color:#f8fbff;border:1px solid #55758a;cursor:pointer;display:grid;gap:4px;align-content:start;white-space:normal}
+.os-team-card:hover,.os-team-card:focus-visible{background:#1d4a64;border-color:#f0ce9c;outline-offset:2px}
+.os-team-card strong{font-size:15px;line-height:1.3;color:#fff}
+.os-team-card small{font-size:11px;color:#cad9e5}
+.os-team-card span{font-size:12px;color:#f0ddbf;font-weight:700}
+.os-show-teams{margin:8px 0 0;min-height:43px;padding:10px 14px;border-radius:8px;background:#ba4057;color:#fff;font-weight:800;border:1px solid #ef8397}
+.os-show-teams:hover{background:#ce5365}
+.os-division-summary .os-fact-value{font-size:21px}
+@media(max-width:850px){.os-fact-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:440px){
+ .os-decision-panel{padding:12px}
+ .os-fact-grid{gap:7px}
+ .os-fact{padding:11px 9px}
+ .os-fact-value{font-size:18px}
+ .os-compare-row{grid-template-columns:minmax(85px,.8fr) repeat(2,minmax(95px,1fr));gap:5px;font-size:11px}
+ .os-compare-controls select,.os-team-filters select{width:100%}
+ .os-team-card-grid{grid-template-columns:1fr}
+}
+@media print{.os-game-plan{border-color:#444}.os-team-filters,.os-team-card-grid,.os-show-teams{display:none!important}}
