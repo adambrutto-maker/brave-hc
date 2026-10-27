@@ -23,6 +23,7 @@ def current(previous,hours=1):
 class MovementHistoryQA(unittest.TestCase):
  def test_original_two_membership_changes_are_grounded(self):
   snapshot=base()
+  originalLedger=deepcopy(snapshot["movementLedger"])
   # The published feed may already be seeded; recompute from a plain source.
   snapshot.pop("movementLedger",None)
   doc=m.enrich(snapshot,snapshot,historical())
@@ -45,7 +46,7 @@ class MovementHistoryQA(unittest.TestCase):
   current_team=next(t for t in snapshot["teams"] if t["leagueName"]=="Maplewolves")
   self.assertEqual(info["currentRecordAtFirstDetection"]["gp"],current_team["record"]["gp"])
   self.assertEqual(len(info["opponentsFacedAtFirstDetection"]),len(current_team["completedGames"]))
-  accepted=snapshot["movementLedger"]["incomingCristilloReports"][0]
+  accepted=originalLedger["incomingCristilloReports"][0]
   self.assertEqual(accepted["currentRecordAtFirstDetection"]["gp"],4)
   self.assertEqual(len(accepted["opponentsFacedAtFirstDetection"]),4)
   self.assertEqual(info["previousWinter"]["division"],"Maple Hyundai")
