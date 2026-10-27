@@ -124,20 +124,27 @@ def team_sheet(lid,team,html,sha):
    "homeGoals":goals[0],"visitorGoals":goals[1],
    "scoreStatus":"ZERO_ZERO_HOLD" if goals==[0,0] else "SOURCE_NONZERO",
    "teamPageHash":sha})
- need(len({f["gameId"] for f in fixtures})==len(fixtures),
-      "DUPLICATED_TEAM_SCHEDULE_GAME_ID")
- return fixtures
+ count=Counter(f["gameId"] for f in fixtures)
+ duplicate={gid for gid,v in count.items() if v>1}
+ holds=[]
+ for gid in duplicate:
+  repeated=[f for f in fixtures if f["gameId"]==gid]
+  need(all(x["scoreStatus"]=="ZERO_ZERO_HOLD" for x in repeated),
+       "DUPLICATED_NONZERO_COMPLETED_TEAM_GAME_ID")
+  holds.append({"leagueId":lid,"gameId":gid,
+    "reason":"DUPLICATED_UNPLAYED_ZERO_ZERO_SCHEDULE_ID"})
+ return [f for f in fixtures if f["gameId"] not in duplicate],holds
 def season_games(lid,teams,fetch=get):
  need(lid in ALLOW and len(teams)>=2,"SOURCE_SEASON_TEAM_DIRECTORY_INVALID")
  byid={t["sourceTeamId"]:t for t in teams}
  need(len(byid)==len(teams),"DUPLICATE_TEAM_IDENTIFIER")
  def worker(t):
   html,sha=fetch(url_team(lid,t["sourceTeamId"]))
-  fixt=team_sheet(lid,t,html,sha)
+  fixt,held=team_sheet(lid,t,html,sha)
   players=parse_roster(lid,t,html,sha)
   return {"leagueId":lid,"sourceTeamId":t["sourceTeamId"],"name":t["name"],
    "division":t["division"],"sourceSHA256":sha,"players":players,
-   "fixtures":fixt}
+   "fixtures":fixt,"teamScheduleHolds":held}
  pages=[];holds=[]
  with ThreadPoolExecutor(max_workers=4) as pool:
   fut={pool.submit(worker,t):t for t in teams}
@@ -151,7 +158,7 @@ def season_games(lid,teams,fetch=get):
  for page in pages:
   for game in page["fixtures"]:
    sources[game["gameId"]].append(game)
- qualified=[];held=[]
+ qualified=[];held=[h for page in pages for h in page["teamScheduleHolds"]]
  for gid,observations in sources.items():
   if len(observations)!=2:
    held.append({"leagueId":lid,"gameId":gid,"reason":"ONE_OR_MORE_TEAMS_OUTSIDE_SELECTED_SCOPE"})
