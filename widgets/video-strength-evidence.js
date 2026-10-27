@@ -317,6 +317,7 @@
   need(official?.schema==="brave-hc-svhl-current-official-game-id-bridge/v1"&&
     official.status==="OFFICIAL_GAMEINFO_IDENTITY_MATCHED_NO_RATING_OR_STATS_WRITE"&&
     official.policy==="EXACT_SOURCE_GAME_ID_AND_TEAM_SIDE_SCORES_IN_SVHL_570_ONLY"&&
+    official.sourceHashBytePolicy==="UTF8_LF_GIT_BLOB"&&
     official.leagueId===existing.originalLeagueId&&
     official.teams===inventory.adultTeamCount&&
     official.officialGames===inventory.verifiedPoolGames&&
