@@ -1,15 +1,15 @@
-# HockeyOS — Even-Team Division Architect
+# HockeyOS — Division Team-Count Parity Architect
 
 **Status:** Implementation of flexible, unapproved research proposals.  
 **Source:** Sports Village Sunday Winter, Brave H.C. HockeyOS adult-only League Intelligence, as of October 26, 2026.
 
 ## User-approved structural rule
 
-**Every proposed division must contain an even number of teams.** HockeyOS currently supports exactly **4, 6, or 8 clubs per division**, never 3, 5, 7 or any other odd number. This is a rule about how many teams are **inside** each division; the total number of divisions can be three, four or five.
+**Even total enrollment:** every proposed division contains an even number of teams (4, 6, or 8). **Odd total enrollment:** exactly one division contains an odd number of teams (5 or 7), with all remaining divisions at 4, 6 or 8. The number of divisions may itself be odd or even. Odd-sized divisions are not permitted when the total enrollment is even.
 
 No teams from the separate VAHL or playoff-placeholder record are admitted. The 22 official adult Sunday team IDs and three original official divisions remain unchanged in source files.
 
-## Exhaustive division-capacity configurations for 22 adult clubs
+## Exhaustive division-capacity configurations for the currently accepted 22 adult clubs
 
 | Number of divisions | Available size patterns |
 |---|---|
@@ -31,11 +31,15 @@ The existing 43 source-verified adult completed games, 79 independently admitted
 
 ## Validation & no mutation
 
-- Optimizer rejects odd overall adult team counts, odd division sizes, duplicate or omitted official team IDs, unsupported capacities and unqualified existing source data.
-- Browser action rejects any selected candidate with odd division size or fewer than all 22 source clubs.
+- Optimizer rejects any group structure that fails team-count parity (zero odd divisions for even league enrollment; exactly one odd division for odd enrollment), duplicates or omits team IDs, uses unsupported capacities or has unqualified source data.
+- Browser action rejects a candidate with the wrong number of odd-sized groups or missing/duplicate original source clubs. A separate 21/23-team preview enumerates hypothetical legal capacities only, without inserting or deleting actual clubs.
 - Independent Node regression tests cover all capacity partitions, all legal ordering permutations, parity, deterministic best-scoring selection, proof limits, source invariants and no user authorization for actual league changes.
 - Desktop and phone Chromium tests cover all four layout choices, focus selection, complete memberships, copy controls and no script errors or horizontal overflow.
 - GitHub PR/main CI enforces source and even-size admission. Live original workbook, HTO, SVHL assignments and scheduled publisher are untouched.
 - User-triggered **Copy proposed division layout** produces a plainly marked *provisional, not approved or submitted* internal briefing.
 
 **Rollback:** Revert the scoped optimizer/UX pull request and leave existing completed games, weekly source history and official records intact.
+
+## Odd enrollment scenarios (added after Founder correction)
+
+The live 22-team pool remains unchanged. Future odd-sized 21- or 23-team pools are valid inputs: every generated pattern contains **exactly one 5- or 7-team division**, with every other group containing 4, 6 or 8 teams. The public comparison widget can preview these capacity combinations without assigning fictitious team names or mutating source records. Dedicated QA-only synthetic pools validate the behavior but are never published as factual league enrollment.

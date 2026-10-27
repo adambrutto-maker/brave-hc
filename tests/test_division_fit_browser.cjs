@@ -56,6 +56,26 @@ const srv=http.createServer((req,res)=>{
      "tightest objective proposes five small divisions, subject to qualification");
    assert.equal(first.layoutTeams,22);
    assert.equal(first.layoutGroupCount,5);
+   assert.equal(await page.$eval("#layout-total-preview",x=>x.value),"22");
+   assert.equal(await page.$$eval("#layout-total-patterns .week-card",x=>x.length),4);
+   for(const oddTotal of ["21","23"]){
+    await page.select("#layout-total-preview",oddTotal);
+    const hypothetical=await page.evaluate(()=>({
+     text:document.querySelector("#layout-total-preview-status").textContent,
+     options:[...document.querySelectorAll("#layout-total-patterns .week-card")]
+       .map(x=>x.textContent),
+     actualTeamCount:document.querySelectorAll("#layout-proposal-groups .team-row").length
+    }));
+    assert.ok(hypothetical.text.includes("Exactly ONE")&&
+      hypothetical.text.includes("CAPACITY PLANNING ONLY"));
+    assert.ok(hypothetical.options.length>=3);
+    assert.ok(hypothetical.options.every(row=>row.includes("1 odd-sized division(s)")));
+    assert.equal(hypothetical.actualTeamCount,22,
+      "odd-total hypothetical preview must not add or remove source roster teams");
+   }
+   await page.select("#layout-total-preview","22");
+   assert.ok((await page.$eval("#layout-total-preview-status",x=>x.textContent))
+     .includes("All divisions even-sized."),"22-team source remains all even");
    await page.select("#layout-design-focus","PRACTICAL");
    assert.ok((await page.$eval("#layout-proposed-recommendation",e=>e.textContent))
      .includes("6 + 8 + 8"),"operations penalty changes the leading research pattern");

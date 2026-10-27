@@ -7,28 +7,31 @@
 })(typeof window==="undefined"?globalThis:window,function(){
  "use strict";
  const SCHEMA="brave-hc-adult-division-architect/v1";
- const ALLOWED=Object.freeze([4,6,8]);
+ const EVEN=Object.freeze([4,6,8]);
+ const ODD=Object.freeze([5,7]);
+ const ALLOWED=Object.freeze([4,5,6,7,8]);
  const FOCUSES=Object.freeze(["BALANCE","PRACTICAL","CONTINUITY"]);
  const need=(pass,reason)=>{if(!pass)throw Error("DIVISION_ARCHITECT_HOLD:"+reason)};
  const round=(x,n=2)=>Number(x.toFixed(n));
  function patterns(total,limit=6){
   need(Number.isInteger(total)&&total>=12&&total<=48,"INVALID_ADULT_POOL_SIZE");
-  need(total%2===0,"ODD_NUMBER_OF_TEAMS_CANNOT_FORM_EVEN_DIVISIONS");
+  const requiredOdd=total%2;
   const results=[];
-  function search(remaining,from,array){
+  function search(remaining,from,array,oddCount){
    if(remaining===0){
-    if(array.length>=2&&array.length<=limit &&
-      array.every(size=>size%2===0 && ALLOWED.includes(size)))
+    if(array.length>=2&&array.length<=limit && oddCount===requiredOdd &&
+      array.every(size=>ALLOWED.includes(size)))
       results.push([...array]);
     return;
    }
+   if(array.length>=limit)return;
    for(let i=from;i<ALLOWED.length;i++){
-    const n=ALLOWED[i];
-    if(n>remaining||array.length>=limit)continue;
-    array.push(n);search(remaining-n,i,array);array.pop();
+    const n=ALLOWED[i],nextOdd=oddCount+n%2;
+    if(n>remaining || nextOdd>requiredOdd)continue;
+    array.push(n);search(remaining-n,i,array,nextOdd);array.pop();
    }
   }
-  search(total,0,[]);
+  search(total,0,[],0);
   need(results.length>0,"NO_SUPPORTED_4_6_8_PARTITION");
   return results.sort((a,b)=>a.length-b.length||
    a.join("-").localeCompare(b.join("-")));
@@ -53,8 +56,8 @@
    const scores=g.ids.map(id=>{
     need(byId.has(id),"UNQUALIFIED_TEAM_ID");return byId.get(id).score;
    });
-   need(scores.length===g.capacity&&g.capacity%2===0&&
-      ALLOWED.includes(g.capacity),"GROUP_SIZE_MUST_BE_EVEN");
+   need(scores.length===g.capacity && ALLOWED.includes(g.capacity),
+      "UNSUPPORTED_OR_INCORRECT_GROUP_SIZE");
    const mean=scores.reduce((a,b)=>a+b,0)/scores.length;
    const sq=scores.reduce((n,x)=>n+(x-mean)**2,0);
    squared+=sq;mad+=scores.reduce((n,x)=>n+Math.abs(x-mean),0);total+=scores.length;
@@ -67,6 +70,11 @@
      spread:round(Math.max(...scores)-Math.min(...scores),1)});
   }
   need(assignment.size===ranked.length,"SOURCE_TEAM_OMITTED");
+  const oddGroups=groups.filter(g=>g.capacity%2!==0);
+  need(oddGroups.length===ranked.length%2 &&
+    oddGroups.every(g=>ODD.includes(g.capacity)) &&
+    groups.every(g=>g.capacity%2!==0 || EVEN.includes(g.capacity)),
+    "ODD_TEAM_COUNT_MUST_HAVE_EXACTLY_ONE_ODD_DIVISION");
   const within=verified.filter(g=>assignment.get(g.teamIds[0])===assignment.get(g.teamIds[1]));
   const samePairs=new Set(within.map(g=>g.teamIds.join("|")));
   const possible=groups.reduce((n,g)=>n+g.capacity*(g.capacity-1)/2,0);
@@ -171,7 +179,10 @@
     teams:ranked.map(t=>({sourceTeamId:t.sourceTeamId,name:t.name,
        leagueName:t.leagueName,divisionNow:t.divisionNow,
        score:t.score,gp:t.gp})),
-    groupSizeParity:"EVEN_TEAMS_PER_DIVISION_REQUIRED",
+    groupSizeParity:"EVEN_TOTAL_ALL_EVEN_ODD_TOTAL_EXACTLY_ONE_ODD",
+    oddDivisionRequired:ranked.length%2===1,
+    oddDivisionCountRequired:ranked.length%2,
+    evenSizes:[...EVEN],oddSizes:[...ODD],
     maximumTeamsPerDivision:Math.max(...ALLOWED),
     minimumTeamsPerDivision:Math.min(...ALLOWED),
     admittedWeeks:analysis.weekCount,
@@ -194,8 +205,9 @@
       "The algorithm searches all permutations of legal 4/6/8 size patterns; within each pattern it assigns CONTIGUOUS score-ranked bands. It does not prove a global fair-scheduling optimum.",
       "A lower dispersion with more divisions can be a mathematical artifact of smaller groups.",
       "The exact objective penalties are editorial research preferences, not learned or league-approved coefficients.",
-      "Every proposed division must contain an EVEN number of teams. Current supported sizes are exactly 4, 6 and 8.",
-      "The number of divisions may be odd or even; this rule is about the NUMBER OF TEAMS INSIDE EACH DIVISION.",
+      "When the adult team total is EVEN, every proposed division must have an EVEN team count (4, 6 or 8).",
+      "When the adult team total is ODD, EXACTLY ONE division must have an ODD team count (5 or 7); every other division remains even-sized (4, 6 or 8).",
+      "The count of divisions may itself be odd or even; only the number of TEAMS within each division determines this parity rule.",
       "Additional divisions require league ice-time, scheduling, round-robin, promotion/relegation and registration checks.",
       "Retrospective game coverage is not a prediction of future head-to-head competitiveness.",
       "Only actual source weeks inform stability; one accepted week cannot establish reliable tiers.",
@@ -204,10 +216,11 @@
   need(choices.PRACTICAL.length===comps.length&&
     choices.BALANCE.length===comps.length&&
     layouts.every(l=>l.capacities.reduce((a,b)=>a+b,0)===ranked.length &&
-      l.capacities.every(n=>n%2===0 && ALLOWED.includes(n)) &&
-      FOCUSES.every(mode=>l[mode].groups.every(g=>g.capacity%2===0))),
+      l.capacities.filter(n=>n%2!==0).length===ranked.length%2 &&
+      l.capacities.every(n=>ALLOWED.includes(n)) &&
+      FOCUSES.every(mode=>l[mode].groups.filter(g=>g.capacity%2!==0).length===ranked.length%2)),
     "MODEL_LAYOUT_CAPACITY_QA");
   return output;
  }
- return Object.freeze({schema:SCHEMA,allowedSizes:ALLOWED,focuses:FOCUSES,patterns,run});
+ return Object.freeze({schema:SCHEMA,allowedSizes:ALLOWED,evenSizes:EVEN,oddSizes:ODD,focuses:FOCUSES,patterns,run});
 });
