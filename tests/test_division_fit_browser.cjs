@@ -2,6 +2,7 @@
 const fs=require("node:fs"),path=require("node:path"),http=require("node:http"),
  puppeteer=require("puppeteer"),assert=require("node:assert/strict");
 const root=path.resolve(__dirname,"../widgets");
+const historical=JSON.parse(fs.readFileSync(path.join(root,"brave-historical-verified-games.json"),"utf8"));
 const types={".html":"text/html",".js":"text/javascript",".json":"application/json",".png":"image/png",".css":"text/css"};
 const srv=http.createServer((req,res)=>{
  const f=path.resolve(root,"."+new URL(req.url,"http://localhost").pathname);
