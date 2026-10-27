@@ -177,6 +177,11 @@ jobs:
         run: node tests/test_roster_strength_scouting.cjs
       - name: Guard supplemental roster construction across source-qualified division layouts
         run: node tests/test_roster_division_evidence.cjs
+      - name: Check no-publication roster replay against a fresh isolated checkout
+        run: |
+          git clone -q . "$RUNNER_TEMP/roster-clean-qa"
+          python -B "$RUNNER_TEMP/roster-clean-qa/scripts/publish_svhl_roster_intelligence.py" --repo "$RUNNER_TEMP/roster-clean-qa" --private "$RUNNER_TEMP" --receipt "$RUNNER_TEMP/roster-check-only.json" --check-only --candidate-only "$RUNNER_TEMP/roster-clean-qa/widgets/svhl-roster-intelligence.json"
+          test -z "$(git -C "$RUNNER_TEMP/roster-clean-qa" status --porcelain)"
       - name: Detect stalled daily local collector
         if: github.event_name == 'schedule'
         run: python scripts/check_svhl_league_intelligence.py --fresh
