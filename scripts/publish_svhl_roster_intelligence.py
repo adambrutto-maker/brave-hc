@@ -20,7 +20,7 @@ def git(repo,*args):
  need(p.returncode==0,"GIT_"+args[0]+":"+(p.stderr or p.stdout)[-420:])
  return p.stdout.strip()
 def python(*args,timeout=185):
- p=subprocess.run([sys.executable,*map(str,args)],capture_output=True,text=True,
+ p=subprocess.run([sys.executable,"-B",*map(str,args)],capture_output=True,text=True,
     timeout=timeout)
  need(p.returncode==0,"PYTHON_"+Path(str(args[0])).name+":"+
     (p.stderr or p.stdout)[-700:])
