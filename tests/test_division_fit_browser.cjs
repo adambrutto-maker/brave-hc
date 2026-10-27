@@ -94,6 +94,44 @@ const srv=http.createServer((req,res)=>{
      draft.includes("NOT APPROVED OR SUBMITTED")&&
      draft.includes("No user authorization to change official assignments"),
      "explicit four-division research copy must include actual membership and no approval");
+   // The optimized lineup is optional; compare and never mutate the actual
+   // Sports Village source or any current division assignment.
+   await page.select("#layout-design-focus","CONTINUITY");
+   await page.click('#layout-design-options button[data-shape="4-4-6-8"]');
+   assert.ok((await page.$eval("#layout-refinement-detail",x=>x.textContent))
+      .includes("13 before / 17 after"),
+      "must disclose source-verified matchup change");
+   await page.select("#layout-placement-mode","REFINED");
+   const refinedUI=await page.evaluate(()=>({
+    detail:document.querySelector("#layout-refinement-detail")?.textContent,
+    label:document.querySelector("#layout-refinement-indicator")?.textContent,
+    proposal:document.querySelector("#layout-proposal-comparison")?.textContent,
+    swaps:document.querySelectorAll("#layout-refinement-swaps .week-card").length,
+    sourceIds:[...document.querySelectorAll("#layout-proposal-groups .team-row")]
+      .map(el=>el.textContent),
+    groupCount:document.querySelectorAll("#layout-proposal-groups .group").length
+   }));
+   assert.ok(refinedUI.label.includes("1 tested swap(s) applied"));
+   assert.equal(refinedUI.swaps,1);
+   assert.equal(refinedUI.groupCount,4);
+   assert.equal(refinedUI.sourceIds.length,22);
+   assert.ok(refinedUI.proposal.includes("Source-ID swap-refined lineup"));
+   assert.ok(refinedUI.proposal.includes("17 of 43 source-confirmed games"),
+     "one source-backed same-group pairing gain is explained clearly");
+   await page.evaluate(()=>Object.defineProperty(navigator,"clipboard",{
+    configurable:true,value:{writeText:async data=>{window.__refinedLayoutText=data}}
+   }));
+   await page.click("#layout-copy");
+   await page.waitForFunction(()=>Boolean(window.__refinedLayoutText));
+   const refinedText=await page.evaluate(()=>window.__refinedLayoutText);
+   assert.ok(refinedText.includes("BOUNDED EVIDENCE-AWARE SOURCE-ID SWAP REFINEMENT"));
+   assert.ok(refinedText.includes("1 improving pair swaps admitted") &&
+      refinedText.includes("SOURCE-ID TEAM SWAP:") &&
+      refinedText.includes("NOT APPROVED OR SUBMITTED"),
+      "copy reflects actual source-backed chosen lineup and its nonapproval");
+   await page.select("#layout-placement-mode","INDEX_BANDS");
+   await page.select("#layout-design-focus","PRACTICAL");
+   await page.click('#layout-design-options button[data-shape="4-6-6-6"]');
    assert.ok(first.current.includes("Current divisions"));
    assert.equal(first.groups,3);
    assert.ok(first.crossLinks>=2);
