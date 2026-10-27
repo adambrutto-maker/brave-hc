@@ -194,9 +194,10 @@ function lineChart(parent,rows,metric,opts={}){
  attachInspector(parent,rows,(row,i)=>row.Season+" — "+(valid(computed[i])?label+": "+fmt(computed[i]):"No verified value for this metric"));
 }
 function cumulative(rows,field){
- let sum=0;
+ let sum=0,complete=true;
  return rows.map(r=>{
-   if(!valid(r[field]))return null;
+   if(!valid(r[field]))complete=false;
+   if(!complete)return null;
    sum+=r[field];return sum;
  });
 }
@@ -219,8 +220,8 @@ function draw(container,segment,options={}){
   render(elem);return elem;
  };
  const notes=kind==="skater"
-  ?["Stacked goals and assists (only complete scoring rows)","Games played per season","Published points per game","Cumulative points across published season rows"]
-  :["Wins, losses and ties (only complete W/L/T rows)","Games played per season","Published goals-against average","Cumulative wins from complete season W rows"];
+  ?["Stacked goals and assists (only complete scoring rows)","Games played per season","Published points per game","Running total until the first missing points value"]
+  :["Wins, losses and ties (only complete W/L/T rows)","Games played per season","Published goals-against average","Running total until the first missing wins value"];
  if(kind==="skater"){
   show("Goals & assists by season",notes[0],root=>barChart(root,rows,{fields:["G","A"],label:"Goals and assists",color:[colors.goals,colors.assists]}));
   show("Games played",notes[1],root=>barChart(root,rows,{field:"GP",label:"GP",color:colors.gp}));
