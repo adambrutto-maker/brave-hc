@@ -101,6 +101,11 @@ const tests=[
    brave.leagueName="Invented Franchise";
    assert.throws(()=>weekly.analyze(d),/LATEST_ADULT_WEEK_INCOMPLETE/);
  }],
+ ["A fabricated source-week fingerprint is held before reporting movement",()=>{
+   const doc=addSyntheticWeek(source);
+   doc.weeklyLedger.weeks.at(-1).sourceSHA256="not-a-real-source-hash";
+   assert.throws(()=>weekly.analyze(doc),/SOURCE_WEEK_CHRONOLOGY_INVALID/);
+ }],
  ["Out-of-order weekly records are not accepted",()=>{
    const d=addSyntheticWeek(source);d.weeklyLedger.weeks[1].weekStartToronto="2026-10-26";
    assert.throws(()=>weekly.analyze(d),/SOURCE_WEEK_CHRONOLOGY_INVALID/);
