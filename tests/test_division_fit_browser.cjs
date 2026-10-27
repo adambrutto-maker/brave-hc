@@ -5,6 +5,7 @@ const root=path.resolve(__dirname,"../widgets");
 const historical=JSON.parse(fs.readFileSync(path.join(root,"brave-historical-verified-games.json"),"utf8"));
 const league=JSON.parse(fs.readFileSync(path.join(root,"league-intelligence.json"),"utf8"));
 const verified=require("../widgets/division-fit-model.js").analyze(league,historical);
+const verifiedBridges=require("../widgets/video-strength-evidence.js").opponentBridgeInventory(verified);
 const architected=require("../widgets/division-layout-optimizer.js").run(verified);
 const refine=require("../widgets/division-lineup-refinement.js");
 const referenceProposal=architected.choices.CONTINUITY.find(x=>x.shapeId==="4-4-6-8");
@@ -48,9 +49,20 @@ const srv=http.createServer((req,res)=>{
     evidence:document.querySelector("#scenario-evidence")?.textContent,
     caveat:document.querySelector("#scenario-evidence-caution")?.textContent,
     note:document.querySelector("#source-note")?.textContent,
+    videoStatus:document.querySelector("#video-readiness-status")?.textContent,
+    videoMetrics:document.querySelector("#video-bridge-metrics")?.textContent,
+    videoCaveat:document.querySelector("#video-bridge-caveat")?.textContent,
     over:document.body.scrollWidth-innerWidth
    }));
    assert.ok(first.status.includes("Preliminary research only"));
+   assert.ok(first.videoStatus.includes("INSUFFICIENT_VIDEO")&&
+      first.videoStatus.includes("existing Division Fit indexes and all scenarios remain unchanged"),
+      "video candidate must not become an empirical division rating");
+   assert.ok(first.videoMetrics.includes(String(verifiedBridges.crossCurrentDivisionGames))&&
+      first.videoMetrics.includes(String(verifiedBridges.teamsWithoutCrossDivisionEvidence))&&
+      first.videoMetrics.includes(String(verifiedBridges.teamsWithCrossDivisionEvidence)));
+   assert.ok(first.videoCaveat.includes("Camera")&&
+      first.videoCaveat.includes("No VAHL team is included"));
    assert.ok(first.evidence.includes(String(verified.scenarios[0].evidence.observedSameGroupGames))&&
      first.evidence.includes(String(verified.scenarios[0].evidence.observedAcrossGroupGames)),
      "current division comparison must show up-to-date source-confirmed game coverage");
@@ -221,6 +233,27 @@ const srv=http.createServer((req,res)=>{
      overflow:first.over,jsErrors:0});
    await page.close();
   }
-  console.log(JSON.stringify({status:"DIVISION_FIT_BROWSER_PASS",results}));
+  const held=await browser.newPage(),heldErrors=[];
+  held.on("pageerror",e=>heldErrors.push(e.message));
+  await held.setRequestInterception(true);
+  held.on("request",request=>
+    request.url().includes("video-strength-evidence.js")?request.abort():request.continue());
+  await held.goto("http://127.0.0.1:"+srv.address().port+"/division-fit-lab.html",
+    {waitUntil:"networkidle0",timeout:45000});
+  const isolation=await held.evaluate(()=>({
+    normal:document.querySelector("#notice")?.textContent,
+    video:document.querySelector("#video-readiness-status")?.textContent,
+    scenarios:document.querySelectorAll("#scenario-options button").length,
+    source:document.querySelector("#source-metrics")?.textContent
+  }));
+  assert.ok(isolation.normal.includes("Preliminary research only"));
+  assert.ok(isolation.video.includes("INSUFFICIENT_VIDEO")&&
+    isolation.video.includes("video source bridge held"));
+  assert.equal(isolation.scenarios,3);
+  assert.ok(isolation.source.includes(String(verified.adultPoolTeamCount)));
+  assert.deepEqual(heldErrors,[]);
+  await held.close();
+  console.log(JSON.stringify({status:"DIVISION_FIT_BROWSER_PASS",results,
+    missingVideoAdapterKeepsExistingResearch:"PASS"}));
  }finally{await browser.close();srv.close()}
 })().catch(error=>{console.error(error.stack||error);srv.close();process.exitCode=2});

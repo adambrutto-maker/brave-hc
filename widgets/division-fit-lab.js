@@ -110,6 +110,27 @@
    ". "+analysis.gameGraph.verifiedGamesInPool+" adult-pool source-confirmed completed games. "+
    "Only Fazzari, Cristillo and Remax are represented. Other competitions are outside this report; source records are unchanged." ;
  }
+ function videoBridgeReadiness(){
+  const status=q("video-readiness-status"),metrics=q("video-bridge-metrics");
+  metrics.replaceChildren();
+  try{
+   if(!window.BraveVideoStrengthEvidence)
+    throw Error("SOURCE_QUALIFIED_VIDEO_INTAKE_NOT_INSTALLED");
+   const bridge=window.BraveVideoStrengthEvidence.opponentBridgeInventory(analysis);
+   metric(metrics,bridge.adultTeamCount,"adult SVHL teams with confirmed source IDs");
+   metric(metrics,bridge.crossCurrentDivisionGames,"source games between current divisions");
+   metric(metrics,bridge.teamsWithCrossDivisionEvidence,"teams with observed cross-division opponents");
+   metric(metrics,bridge.teamsWithoutCrossDivisionEvidence,"teams without direct cross-division game evidence");
+   status.textContent="INSUFFICIENT_VIDEO — no independently accepted actual-play feature rates or calibrated video-strength rating. "+
+    "The "+bridge.crossCurrentDivisionGames+" source-confirmed cross-current-division games are opponent/context bridges only; "+
+    "the existing Division Fit indexes and all scenarios remain unchanged.";
+   q("video-bridge-caveat").textContent=bridge.caveat+
+    " No VAHL team is included. Camera, era, source rights, moving-play coverage, opponent tier and independent QA remain gating conditions.";
+  }catch(error){
+   status.textContent="INSUFFICIENT_VIDEO — video source bridge held: "+error.message+
+     ". Existing division research continues unchanged; no team performance is inferred.";
+  }
+ }
  function connections(){
   const grid=q("cross-division-links");grid.replaceChildren();
   const cross=analysis.gameGraph.links.filter(p=>p.crossDivision);
@@ -299,7 +320,7 @@
    stability=window.BraveWeeklyStability.analyze(league);
    if(!window.BraveDivisionLayoutView)throw Error("Flexible division layout module missing");
    window.BraveDivisionLayoutView.init(analysis);
-   source();connections();renderScenario();renderStability();readiness();historical();
+   source();connections();videoBridgeReadiness();renderScenario();renderStability();readiness();historical();
    q("notice").textContent=analysis.proposalReady?
      "Research source verified; proposal held for human review.":
      "Source verified. Preliminary research only — no division changes recommended.";
