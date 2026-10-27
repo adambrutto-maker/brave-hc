@@ -147,9 +147,9 @@ def aggregate(league,roster,audits):
    for p in sheet["players"]:
     pid=p["playerId"];goal=teamRecord["G"][pid];assist=teamRecord["A"][pid]
     exact=(goal==p["g"] and assist==p["a"])
-    fullCoverage=incomplete==0 and
+    fullCoverage=(incomplete==0 and
       not teamRecord["assistHeld"] and
-      outScope==0 and not y["gamePageHolds"]
+      outScope==0 and not y["gamePageHolds"])
     state=("RECONCILED_GOALS_ASSISTS_ON_SOURCE_COMPLETE_EVENTS" if
       fullCoverage and exact else
       "OBSERVED_EVENTS_MATCH_PUBLISHED_TOTALS_COVERAGE_PARTIAL" if exact else
