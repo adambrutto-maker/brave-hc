@@ -8,6 +8,8 @@ main{max-width:1150px;margin:auto;padding:22px 16px 50px}h1{font-size:clamp(25px
 header{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:17px}header strong{font-size:18px}
 .kicker{font-size:11px;letter-spacing:.12em;font-weight:900;text-transform:uppercase;color:var(--warm)}.muted{color:var(--muted)}.small{font-size:12px}.tiny{font-size:11px}.intro{max-width:900px}
 section{background:linear-gradient(135deg,var(--panel),#0a2133);border:1px solid var(--line);border-radius:12px;padding:17px;margin-top:18px}
+.layout-research-bar{display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:space-between;margin:10px 0}.layout-research-bar label{display:grid;gap:5px;color:var(--muted);font-size:12px;font-weight:700}.layout-research-bar select{font:inherit;background:var(--panel2);border:1px solid var(--line);color:var(--text);border-radius:6px;padding:10px;max-width:100%;min-width:245px}.layout-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(175px,1fr));gap:9px}.layout-option{min-height:164px}.layout-draft{margin:8px 0}.layout-model-leader{font-size:13px;color:var(--warm);font-weight:800}.layout-outcome{border-left:3px solid var(--mint);padding:11px 12px;background:#103342;color:var(--text)}.layout-warning{border-left:3px solid var(--warm);padding-left:12px;color:var(--muted);font-size:12px;margin:13px 0}
+
 .weekly-info{color:var(--warm);font-size:12px}.week-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:9px}.week-card{padding:11px;border:1px solid var(--line);background:var(--panel2);border-radius:7px}.week-card strong{display:block;font-variant-numeric:tabular-nums}.week-card small{display:block;color:var(--muted)}.week-card .barline{height:6px;background:#37546d;border-radius:5px;overflow:hidden;margin:5px 0}.barline span{display:block;height:100%;background:#90cbe4}.week-card .baseline{color:var(--warm)}.weekly-summary{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:9px}#stability-team-filter{font:inherit;padding:8px 11px;border:1px solid var(--line);background:var(--panel2);color:var(--text);border-radius:6px;min-width:190px;max-width:100%}#weekly-team-history{margin-top:10px}.cutoff-note{font-size:11px;color:var(--muted)}
 
 .metrics,.scenario-grid,.division-grid,.connect-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px}
@@ -29,8 +31,8 @@ footer{margin-top:25px;color:var(--muted);font-size:11px}
 </style></head><body><main>
 <header><div><div class="kicker">Brave H.C. · HockeyOS League Research</div><strong>Division Fit Lab</strong></div>
  <a href="./league-intelligence.html">Return to League Intelligence</a></header>
-<h1>Are the current divisions competitively balanced?</h1>
-<p class="intro">This research view compares <strong>verified games and current division ratings</strong>, then tests possible ways to reduce the spread of ratings. It is not a promotion/relegation decision, an official league realignment or a prediction of future match results.</p>
+<h1>What division structure would give teams the best balance?</h1>
+<p class="intro">HockeyOS can now <strong>propose and recreate adult Sunday division layouts using 4, 6 or 8 teams per division</strong>. Compare the lowest rating spread against additional division costs, actual past games and the amount of reorganization. These are provisional research drafts—not league-approved assignments or future-game predictions.</p>
 <p id="notice" role="status">Checking Sports Village and the verified HockeyOS source…</p>
 <section aria-labelledby="source-title"><div class="row"><div><div class="kicker">Evidence available</div><h2 id="source-title">Current competition snapshot</h2></div><span class="label">Source-qualified · descriptive</span></div>
  <div class="metrics" id="source-metrics"></div>
@@ -38,9 +40,24 @@ footer{margin-top:25px;color:var(--muted);font-size:11px}
 <section aria-labelledby="connection-title"><h2 id="connection-title">Who has played across divisions?</h2>
  <p class="small">These are games played, not assumed future matchups. Divisions are each club's latest published assignment, which may differ from the date of the game.</p>
  <div id="cross-division-links" class="connect-grid"></div></section>
+<section aria-labelledby="layout-title">
+ <div class="row"><div><div class="kicker">Flexible division design · 4, 6 or 8 teams</div><h2 id="layout-title">HockeyOS provisional division proposals</h2></div><span class="research-only">UNAPPROVED RESEARCH</span></div>
+ <p class="small">Change the priorities, select a division structure, and see exactly which teams HockeyOS would place together. The lab evaluates adding divisions, not only swapping teams within today's fixed sizes. The top design is a <em>model preference</em>, not an official league proposal.</p>
+ <div class="layout-research-bar"><label for="layout-design-focus">What matters most?
+   <select id="layout-design-focus" aria-label="Division optimization priority"><option>Checking verified model…</option></select>
+ </label><span id="layout-design-status" class="label">Analysing size combinations…</span></div>
+ <p class="layout-model-leader" id="layout-proposed-recommendation">No unsupported proposal is generated.</p>
+ <div id="layout-design-options" class="layout-grid" role="group" aria-label="Compare proposed division sizes"></div>
+ <h3 id="layout-proposal-label">Selected research divisions</h3>
+ <p id="layout-proposal-comparison" class="layout-outcome"></p>
+ <div id="layout-proposal-groups" class="division-grid"></div>
+ <p id="layout-caveat" class="layout-warning"></p>
+ <button id="layout-copy" type="button">Copy proposed division layout</button>
+ <p id="layout-copy-result" class="small" role="status" aria-live="polite"></p>
+</section>
 <section aria-labelledby="scenario-title">
  <div class="row"><div><div class="kicker">Controlled what-if test</div><h2 id="scenario-title">Compare grouping patterns</h2></div><span class="research-only">SCENARIOS ARE NOT ASSIGNMENTS</span></div>
- <p class="small">All test layouts retain the current sizes of the three adult divisions. A lower dispersion number means the descriptive ratings sit closer together <em>within</em> groups; it does not guarantee fairer games.</p>
+ <p class="small">Legacy comparison: the original fixed 6/8/8 divisions, two pair swaps, and score bands with those same sizes. For new 4-, 6- and 8-team division counts, use the flexible proposals above. A lower descriptive score spread does not guarantee closer hockey games.</p>
  <div id="scenario-options" class="scenario-grid" role="group" aria-label="Select a grouping experiment"></div>
  <p id="scenario-info" class="notes"></p>
  <h3>What actual head-to-head games support this grouping?</h3>
@@ -71,10 +88,12 @@ footer{margin-top:25px;color:var(--muted);font-size:11px}
  <button id="copy-research" type="button">Copy research note</button> <button id="print-research" type="button">Print research view</button>
  <p id="copy-feedback" class="small" role="status" aria-live="polite"></p>
  <details><summary>Methodology, source boundaries and exclusions</summary>
- <p class="small">The current season index uses verified reciprocal games, smoothed goal and W/L/T performance, schedule difficulty and independently qualified prior-winter results where supported. It is not a calibrated ranking or win probability. Alternative grouping layouts are read-only arithmetic exercises; no division changes are made. Other leagues and placeholder categories are outside this adult Sunday division comparison. Historical Brave H.C. game matches prove opponents and scores in a specific season, not roster continuity in 2026. No same-named older team is automatically credited with current strength. Four accepted weeks, at least ten games for 75% of the adult pool and independent cross-division fixtures are minimum evidence thresholds; none substitutes for human review.</p>
+ <p class="small">The current season index uses verified reciprocal games, smoothed goal and W/L/T performance, schedule difficulty and independently qualified prior-winter results where supported. It is not a calibrated ranking or win probability. Alternative grouping layouts are read-only arithmetic exercises; no division changes are made. Other leagues and placeholder categories are outside this adult Sunday division comparison. Historical Brave H.C. game matches prove opponents and scores in a specific season, not roster continuity in 2026. No same-named older team is automatically credited with current strength. Four-, six- and eight-team division groupings are compared using source ratings and transparent operational penalties; more divisions require ice-time, opponent variety, roster and league scheduling review. Four accepted weeks, at least ten games for 75% of the adult pool and independent cross-division fixtures are minimum evidence thresholds; none substitutes for human review.</p>
  </details>
 </section>
 <footer>Sources: <a href="https://leagues.sportsvillage.ca/Leagues.aspx?leagueid=570&amp;page_type=Adult&amp;sc=HOCKEY">Official Sunday Winter 2026/27 standings</a> · <a href="./league-intelligence.html">Verified HockeyOS League Intelligence</a>. Source and methodology are date-stamped in the copied report. No original HTO, Sports Village, goalie or Master Workbook records are modified.</footer>
 </main><script src="./adult-league-scope.js?v=20261026-adult1" defer></script><script src="./division-fit-model.js?v=20261026-adult1" defer></script>
 <script src="./weekly-strength-stability.js?v=20261026-weekly1" defer></script>
-<script src="./division-fit-lab.js?v=20261026-weekly1" defer></script></body></html>
+<script src="./division-layout-optimizer.js?v=20261026-layout1" defer></script>
+<script src="./division-layout-lab.js?v=20261026-layout1" defer></script>
+<script src="./division-fit-lab.js?v=20261026-layout1" defer></script></body></html>
