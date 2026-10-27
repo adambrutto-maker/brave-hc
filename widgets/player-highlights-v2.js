@@ -192,7 +192,7 @@ function validParticipant(data){
  if(data?.schema!=='brave-hc-awards-participants/v1'||!Array.isArray(data.players)||
     !/^W20\d{2}\/\d{2}$/.test(data.season)||
     data.status!=='UNRANKED_VERIFIED_SEASON_APPEARANCES_NOT_AWARD_SCORES'||
-    !data.sourceReference?.htoReadback)return false;
+    typeof data.sourceReference?.htoReadback!=='string'||!Number.isFinite(Date.parse(data.sourceReference.htoReadback)))return false;
  return true;
 }
 
@@ -272,7 +272,7 @@ function renderCurrent(feed,career) {
   const ga=obs.goalsAgainst;
   if(!isFiniteNonnegative(ga))return;
   const priorGA=prior.reduce((n,s)=>n+(s.GA||0),0);
-  stats.push(detailStat('Current GAA',isFiniteNonnegative(obs.gaa)?obs.gaa.toFixed(2):(ga/gp).toFixed(2),
+  stats.push(detailStat('Snapshot GAA',isFiniteNonnegative(obs.gaa)?obs.gaa.toFixed(2):(ga/gp).toFixed(2),
     priorGP?'Prior career: '+(priorGA/priorGP).toFixed(2)+' GAA':gp+' appearances'));
   if(Number.isInteger(feed.officialTeamGames)&&feed.officialTeamGames>=gp)
    stats.push(detailStat('Share of team games',Math.round(gp/feed.officialTeamGames*100)+'%',gp+' of '+feed.officialTeamGames+' games'));
@@ -291,6 +291,13 @@ function renderCurrent(feed,career) {
  }
  if(!stats.length)return;
  $('currentSection').hidden=false;
+ $('currentSection').setAttribute('aria-label','Dated season snapshot');
+ $('currentSection').querySelector('h2').textContent='Season snapshot · '+shortDate(feed.sourceReference.htoReadback);
+ const context=text('p','These figures use a separate historical snapshot. ','ph-source');
+ const bio=text('a','View Bio statistics ↗');
+ bio.href='./player-bio.html?playerID='+playerId+'&embed=1';
+ bio.target='_blank';bio.rel='noopener noreferrer';context.append(bio);
+ $('form').before(context);
  $('form').replaceChildren(...stats);
  $('statsDate').textContent='Stats snapshot: '+shortDate(feed.sourceReference.htoReadback)+' · '+feed.season;
 }
