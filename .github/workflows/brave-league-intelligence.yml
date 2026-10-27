@@ -38,6 +38,7 @@ on:
       - 'scripts/publish_svhl_roster_intelligence.py'
       - 'tests/test_roster_strength_scouting.cjs'
       - 'tests/test_roster_division_evidence.cjs'
+      - 'tests/test_roster_publisher_scope.py'
       - 'tests/test_svhl_roster_scout_browser.cjs'
       - 'tests/test_division_lineup_refinement.cjs'
       - 'widgets/division-layout-lab.js'
@@ -96,6 +97,7 @@ on:
       - 'scripts/publish_svhl_roster_intelligence.py'
       - 'tests/test_roster_strength_scouting.cjs'
       - 'tests/test_roster_division_evidence.cjs'
+      - 'tests/test_roster_publisher_scope.py'
       - 'tests/test_svhl_roster_scout_browser.cjs'
       - 'tests/test_division_lineup_refinement.cjs'
       - 'widgets/division-layout-lab.js'
@@ -182,6 +184,8 @@ jobs:
           git clone -q . "$RUNNER_TEMP/roster-clean-qa"
           python -B "$RUNNER_TEMP/roster-clean-qa/scripts/publish_svhl_roster_intelligence.py" --repo "$RUNNER_TEMP/roster-clean-qa" --private "$RUNNER_TEMP" --receipt "$RUNNER_TEMP/roster-check-only.json" --check-only --candidate-only "$RUNNER_TEMP/roster-clean-qa/widgets/svhl-roster-intelligence.json"
           test -z "$(git -C "$RUNNER_TEMP/roster-clean-qa" status --porcelain)"
+      - name: Fail closed on Git porcelain status and unauthorized roster publisher file changes
+        run: python -B -m unittest discover -s tests -p test_roster_publisher_scope.py -v
       - name: Detect stalled daily local collector
         if: github.event_name == 'schedule'
         run: python scripts/check_svhl_league_intelligence.py --fresh
