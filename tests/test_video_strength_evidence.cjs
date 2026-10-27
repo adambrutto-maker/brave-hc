@@ -141,6 +141,36 @@ const tests=[
   assert.equal(r.status,"INSUFFICIENT_VIDEO");
   assert.ok(r.reasons.includes("SAMPLE_MINUTES_OPPONENTS_GAMES_OR_CAMERA_COVERAGE_INSUFFICIENT"));
  }],
+ ["Inferred video events cannot satisfy the independently observed gameplay gate",()=>{
+  const pkg=featurePackage();
+  pkg.features[0].evidenceClass="INFERRED";
+  const r=model.featureReadiness(pkg,policy());
+  assert.equal(r.status,"INSUFFICIENT_VIDEO");
+  assert.equal(r.independentCandidateFeatures,0);
+  assert.equal(r.videoScore,null);
+  assert.ok(r.reasons.includes("NO_INDEPENDENTLY_QUALIFIED_ACTUAL_PLAY_MEASUREMENTS"));
+ }],
+ ["Zero events, empty opportunity denominators or a zero confidence floor cannot qualify actual play",()=>{
+  for(const [field,value] of [["eventCount",0],["opportunities",0],
+      ["confidenceLowerBound",0]]){
+   const pkg=featurePackage();
+   pkg.features[0][field]=value;
+   if(field==="opportunities")pkg.features[0].eventCount=0;
+   const r=model.featureReadiness(pkg,policy());
+   assert.equal(r.status,"INSUFFICIENT_VIDEO",field);
+   assert.equal(r.independentCandidateFeatures,0,field);
+   assert.equal(r.eligibleForRealignment,false,field);
+  }
+ }],
+ ["Zero approved observed-seconds, games or opponent minimums are not valid calibration policies",()=>{
+  for(const name of ["minimumObservedMovingPlaySeconds","minimumQualifiedGames",
+      "minimumDistinctOpponents"]){
+   const approved=policy();approved[name]=0;
+   const r=model.featureReadiness(featurePackage(),approved);
+   assert.equal(r.status,"INSUFFICIENT_VIDEO",name);
+   assert.ok(r.reasons.includes("INDEPENDENTLY_APPROVED_VIDEO_COVERAGE_THRESHOLDS_ABSENT"));
+  }
+ }],
  ["Synthetic fully signed conditions yield only review readiness, never a rating",()=>{
   const r=model.featureReadiness(featurePackage(),policy());
   assert.equal(r.status,"READY_FOR_SEPARATE_INDEPENDENT_STRENGTH_EVALUATION");

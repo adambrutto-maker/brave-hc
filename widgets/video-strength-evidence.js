@@ -166,7 +166,11 @@
    const g=pkg.games.find(g=>g.gameId===f.gameId&&g.leagueId===f.leagueId&&
       g.sourceTeamId===f.sourceTeamId&&g.videoSourceSHA256===f.videoSourceSHA256);
    need(g,"VIDEO_FEATURE_UNLINKED_TO_QUALIFIED_GAME_SOURCE");
-   if(f.independentAccepted&&f.teamIdentityVerified&&
+   // Only independently observed positive event evidence with a non-empty,
+   // verified opportunity denominator is eligible to enter future evaluation.
+   // Inferred or zero-denominator events remain provisional even if signed.
+   if(f.evidenceClass==="OBSERVED"&&f.opportunities>0&&f.eventCount>0&&
+      f.confidenceLowerBound>0&&f.independentAccepted&&f.teamIdentityVerified&&
       f.timestampWindowVerified&&f.opportunityDenominatorVerified&&
       g.sourceReviewStatus==="ACCEPTED"&&g.independentQA&&
       g.rightsToUseInScouting&&g.opponentStrengthSourceQualified)validFeatureCount++;
@@ -175,8 +179,11 @@
   const policy=acceptedPolicy;
   if(!policy||policy.schema!=="HOCKEYOS_VIDEO_STRENGTH_ACCEPTED_COVERAGE_POLICY_V0_1"||
      policy.independentApproval!==true||!nonEmpty(policy.reviewReceiptId)||
-     !hash(policy.sourceSHA256)||!integer(policy.minimumObservedMovingPlaySeconds)||
-     !integer(policy.minimumQualifiedGames)||!integer(policy.minimumDistinctOpponents)||
+     !hash(policy.sourceSHA256)||
+     !integer(policy.minimumObservedMovingPlaySeconds)||
+     policy.minimumObservedMovingPlaySeconds===0||
+     !integer(policy.minimumQualifiedGames)||policy.minimumQualifiedGames===0||
+     !integer(policy.minimumDistinctOpponents)||policy.minimumDistinctOpponents===0||
      typeof policy.minimumCameraCoverageFraction!=="number"||
      policy.minimumCameraCoverageFraction<=0||
      policy.minimumCameraCoverageFraction>1){
