@@ -7,7 +7,7 @@
    if(content!==undefined)x.textContent=String(content);return x};
  const add=(parent,tag,cls,content)=>{const x=node(tag,cls,content);parent.append(x);return x};
  const ok=(test,reason)=>{if(!test)throw Error("GAME_AUDIT_HOLD:"+reason)};
- let index=null,team=null,player=null,season=null,detail=null,pending=0;
+ let index=null,team=null,player=null,season=null,detail=null,pending=0,participation=null;
  const cache=new Map();
  const sourceStatus=s=>{const el=$("audit-source-status");el.textContent=s};
  const teamPlayers=t=>index.currentPlayers.filter(p=>p.currentTeamId===Number(t));
@@ -128,6 +128,8 @@
  }
  function renderDetails(){
   const r=detail.player,y=detail.source,t=detail.team;
+  ok(window.BravePlayerParticipationEvidence,"PARTICIPATION_MODEL_MISSING");
+  participation=window.BravePlayerParticipationEvidence.analyze(index,y,t.sourceTeamId,r.playerId);
   $("audit-selection-status").textContent=player.name+" · "+t.name+
    " · official league season "+y.leagueId+
    " · "+t.fullyScoredGameSheets+" full source sheets, "+
@@ -139,7 +141,12 @@
      "from fully score-matched GameInfo sheets"],
    [r.deltaPublishedMinusObserved.g+" G / "+r.deltaPublishedMinusObserved.a+" A",
      "published minus source-observed scoring"],
-   [r.registeredSeasonGP,"published season GP (NOT game-sheet verified)"]
+   [r.registeredSeasonGP,"published season GP (NOT game-sheet verified)"],
+   [participation.provenScoringInvolvementGames,
+     "distinct verified games with source-linked goals or assists — participation LOWER BOUND"],
+   [participation.sourceContradiction?"Source contradiction":
+     participation.otherPublishedGPNotGameVerified,
+     "published GP without score-event participation proof — NOT absences"]
   ];
   for(const [v,label] of m){
    const card=node("article","metric");add(card,"strong","",v);
@@ -153,6 +160,23 @@
       "Difference or incomplete source game sheets: do NOT replace the published season totals. ")+
    "GameInfo goal scorers are linked to official player IDs. Assists were credited only when an exact UNIQUE team-roster name could be matched. "+
    "A scoring sheet cannot establish every appearance, penalty minute, player position or why a player did not score.";
+  $("audit-scoring-attendance").textContent=participation.note+
+    " The lower bound includes only admitted goal scorers or unique-team-name assistants from final-score-matched sheets."+
+    (participation.sourceContradiction?
+      " WARNING: scoring-linked appearances exceed published GP; source conflict held.":
+      " Missing source scoring events cannot establish that a player did not dress.");
+  const proof=$("audit-scoring-game-proofs");proof.replaceChildren();
+  if(!participation.scoringEvidenceGames.length)
+    add(proof,"p","small","No admitted scoring-game appearance is observed. This does NOT mean zero games played.");
+  for(const observedGame of participation.scoringEvidenceGames){
+    const card=node("article","game-card");
+    add(card,"strong","",observedGame.date+" · Game #"+observedGame.gameId);
+    add(card,"small","",observedGame.goalEvents+" source goal(s), "+
+      observedGame.admittedAssistEvents+" uniquely linked assist(s). One game counts only once as an appearance lower bound.");
+    const link=add(card,"a","small","Official GameInfo proof");
+    link.href=observedGame.officialUrl;link.target="_blank";link.rel="noopener noreferrer";
+    proof.append(card);
+  }
   const out=$("audit-event-list");out.replaceChildren();
   const events=[...r.events].sort((a,b)=>b.date.localeCompare(a.date)||
     b.gameId-a.gameId||a.period-b.period);
@@ -233,7 +257,13 @@
     " full, "+t.partiallyScoredGameSheets+" partial.",
    ...p.events.map(e=>e.date+" | Official #"+e.gameId+" period "+e.period+
     " "+e.time+" "+e.credited+" | "+e.gameSource),
-   "No inferred GP, PIM or dressing; unresolved sheets and source timing can prevent complete agreement. Published official statistics have NOT been overwritten."
+   "SCORING GAME PARTICIPATION LOWER BOUND: "+participation.provenScoringInvolvementGames+
+    " distinct verified GameInfo games with scored goals or admitted assists.",
+   "PUBLISHED GP WITHOUT INDIVIDUAL GAME ATTENDANCE PROOF: "+
+    participation.otherPublishedGPNotGameVerified+
+    "; these are NOT absence records or verified nonscoring appearances.",
+   "SCORING-BASED PARTICIPATION CONFLICT: "+(participation.sourceContradiction?"YES — review required":"No lower-bound contradiction observed"),
+   "No inferred full GP, PIM or dressing; unresolved sheets and source timing can prevent complete agreement. Published official statistics have NOT been overwritten."
   ];
   try{await navigator.clipboard.writeText(lines.join("\n"));
       status.textContent="Source-scoped game audit copied. No message has been sent.";}
@@ -241,6 +271,7 @@
  }
  async function init(){
   try{
+   ok(window.BravePlayerParticipationEvidence,"PARTICIPATION_MODULE_MISSING");
    const response=await fetch("./svhl-player-game-index.json",{cache:"no-store"});
    ok(response.ok,"INDEX_NOT_PUBLISHED");
    const doc=await response.json();
@@ -254,6 +285,25 @@
    sourceStatus("Official GameInfo sources captured "+new Date(doc.capturedUTC).toLocaleString("en-CA")+
      " · "+doc.sourceSeasonCount+" historical season(s). Scoring validation is separate from published player appearances.");
    await renderTeam();
+   try{
+     const r=await fetch("./svhl-penalty-source-coverage.json",{cache:"no-store"});
+     ok(r.ok,"PENALTY_SOURCE_COVERAGE_NOT_PUBLISHED");
+     const source=await r.json();
+     const proof=window.BravePlayerParticipationEvidence.penaltySource(source);
+     const area=$("audit-penalty-coverage-metrics");area.replaceChildren();
+     for(const [value,label] of [
+      [proof.sampledGames,"official game sheets independently sampled"],
+      [proof.seasons,"official seasons checked"],
+      ["None recorded","populated penalty rows found in sampled sheets"],
+      ["Unverified","actual penalties, penalty minutes and game appearances"]]){
+      const card=node("article","metric");add(card,"strong","",value);add(card,"small","",label);area.append(card);
+     }
+     $("audit-penalty-coverage-status").textContent=proof.message;
+   }catch(error){
+     $("audit-penalty-coverage-status").textContent=
+       "Penalty coverage held: "+error.message+
+       ". No zero-PIM, full attendance or penalty identity claim is made.";
+   }
   }catch(error){
    sourceStatus("GAME-LEVEL SOURCE HELD: "+error.message+
      ". Player totals are not independently verified or corrected.");
