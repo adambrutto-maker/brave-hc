@@ -150,8 +150,10 @@ def aggregate(league,roster,audits):
     fullCoverage=(incomplete==0 and
       not teamRecord["assistHeld"] and
       outScope==0 and not y["gamePageHolds"])
-    state=("RECONCILED_GOALS_ASSISTS_ON_SOURCE_COMPLETE_EVENTS" if
-      fullCoverage and exact else
+    sourceArithmetic=(p["statStatus"]=="PUBLISHED_ARITHMETICALLY_CONSISTENT" and
+      p["pts"]==p["g"]+p["a"])
+    state=("SOURCE_PUBLISHED_STATS_CONFLICT_HOLD" if not sourceArithmetic else
+      "RECONCILED_GOALS_ASSISTS_ON_SOURCE_COMPLETE_EVENTS" if fullCoverage and exact else
       "OBSERVED_EVENTS_MATCH_PUBLISHED_TOTALS_COVERAGE_PARTIAL" if exact else
       "OBSERVED_GOAL_ASSIST_DIFFERENCE_OR_INCOMPLETE_COVERAGE")
     counts[state]+=1
