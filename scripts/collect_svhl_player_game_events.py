@@ -17,6 +17,7 @@ from hashlib import sha256
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import urlparse,parse_qs
+from urllib.request import Request,urlopen
 import json,re,sys,unicodedata
 from collect_svhl_league_intelligence import get,url_team
 from collect_svhl_roster_season_evidence import roster as parse_roster
@@ -29,6 +30,19 @@ SCORE_ID=re.compile(r"^ctl00_MainContent_GridViewScoresPeriod([1234])$")
 class EventHold(ValueError):pass
 def need(ok,s):
  if not ok:raise EventHold("INDIVIDUAL_GAME_HOLD:"+s)
+def fetch_game(url):
+ u=urlparse(url)
+ need(u.scheme=="https" and u.hostname=="leagues.sportsvillage.ca" and
+      u.path.lower()=="/gameinfo.aspx" and
+      parse_qs(u.query).get("leagueid",[""])[0].isdigit() and
+      parse_qs(u.query).get("gameid",[""])[0].isdigit() and
+      int(parse_qs(u.query)["leagueid"][0]) in ALLOW,
+      "GAMEINFO_SOURCE_URL_NOT_ALLOWLISTED")
+ with urlopen(Request(url,headers={"User-Agent":"Mozilla/5.0 BraveHC-HockeyOS public-game-reconciliation-read-only"}),timeout=18) as resp:
+  need(resp.status==200,"GAMEINFO_HTTP_"+str(resp.status))
+  raw=resp.read(350001)
+ need(0<len(raw)<=350000,"GAMEINFO_SOURCE_SIZE_HOLD")
+ return raw.decode("utf8",errors="replace"),sha256(raw).hexdigest()
 def url_game(lid,gid):
  need(lid in ALLOW and type(gid) is int and gid>0,"GAME_ID_NOT_ALLOWED")
  return f"https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid={lid}&gameid={gid}&page_type=Adult"
@@ -226,7 +240,7 @@ def official_game(lid,game,html,sha,rosters):
   "sourceLinkedTeamGoalCounts":{str(k):observed.get(k,0) for k in expected},
   "events":events,"heldEvents":holds,
   "unresolvedAssistCount":sum(len(e["unresolvedAssistNames"]) for e in events)}
-def collect_games(lid,season,fetch=get):
+def collect_games(lid,season,fetch=fetch_game):
  candidates=season["qualified"];rosters={t["sourceTeamId"]:t["players"]
     for t in season["teams"]}
  evidence=[];hold=[]
