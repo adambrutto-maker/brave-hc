@@ -738,6 +738,7 @@
   renderRosterScouting(x);
   q("profile-division").textContent=x.divisionNow+" · "+x.gamesConfirmed+" reciprocal completed fixtures";
   q("team-official-link").href=x.source;
+  q("game-audit-link").href="./player-game-audit.html?team="+encodeURIComponent(x.leagueName);
   const panel=q("profile-metrics");panel.replaceChildren();
   context(panel,"Current 2026/27",record(x.record)+" · "+x.record.gf+
           " GF / "+x.record.ga+" GA · "+pct(x.winPct)+" win percentage");
