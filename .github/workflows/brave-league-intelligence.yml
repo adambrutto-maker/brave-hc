@@ -45,6 +45,15 @@ on:
       - 'tests/test_roster_era_strength.cjs'
       - 'widgets/roster-division-evidence.js'
       - 'widgets/svhl-roster-intelligence.json'
+      - 'widgets/player-game-audit.html'
+      - 'widgets/player-game-audit.js'
+      - 'widgets/svhl-player-game-*.json'
+      - 'scripts/collect_svhl_player_game_events.py'
+      - 'scripts/build_svhl_player_game_reconciliation.py'
+      - 'scripts/split_svhl_player_game_evidence.py'
+      - 'scripts/check_svhl_player_game_evidence.py'
+      - 'tests/test_svhl_player_game_sources.py'
+      - 'tests/test_svhl_player_game_browser.cjs'
       - 'scripts/collect_svhl_roster_season_evidence.py'
       - 'scripts/check_svhl_roster_intelligence.py'
       - 'scripts/publish_svhl_roster_intelligence.py'
@@ -116,6 +125,15 @@ on:
       - 'tests/test_roster_era_strength.cjs'
       - 'widgets/roster-division-evidence.js'
       - 'widgets/svhl-roster-intelligence.json'
+      - 'widgets/player-game-audit.html'
+      - 'widgets/player-game-audit.js'
+      - 'widgets/svhl-player-game-*.json'
+      - 'scripts/collect_svhl_player_game_events.py'
+      - 'scripts/build_svhl_player_game_reconciliation.py'
+      - 'scripts/split_svhl_player_game_evidence.py'
+      - 'scripts/check_svhl_player_game_evidence.py'
+      - 'tests/test_svhl_player_game_sources.py'
+      - 'tests/test_svhl_player_game_browser.cjs'
       - 'scripts/collect_svhl_roster_season_evidence.py'
       - 'scripts/check_svhl_roster_intelligence.py'
       - 'scripts/publish_svhl_roster_intelligence.py'
@@ -220,6 +238,10 @@ jobs:
           test -z "$(git -C "$RUNNER_TEMP/roster-clean-qa" status --porcelain)"
       - name: Fail closed on Git porcelain status and unauthorized roster publisher file changes
         run: python -B -m unittest discover -s tests -p test_roster_publisher_scope.py -v
+      - name: Validate score-matched official game sheets and player-ID reconciliations
+        run: python -B scripts/check_svhl_player_game_evidence.py
+      - name: Refuse invented GameInfo scorers, assists, source URLs and appearances
+        run: python -B -m unittest discover -s tests -p test_svhl_player_game_sources.py -v
       - name: Detect stalled daily local collector
         if: github.event_name == 'schedule'
         run: python scripts/check_svhl_league_intelligence.py --fresh
