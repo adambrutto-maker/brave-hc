@@ -137,8 +137,36 @@
     }
     profile.append(profileDeep);
     expandable.push(profileDeep);
+    // The actual game-day sharing action belongs in Essentials, not behind All data.
+    // Move existing, source-checked controls; never create duplicate handlers or send messages.
+    const quickActions = node("div", "os-scout-actions");
+    quickActions.id = "os-scout-actions";
+    quickActions.setAttribute("aria-label", "Game-day scouting actions");
+    quickActions.append(node("strong", "os-action-heading", "Ready to share the scouting brief?"));
+    const actionButtons = node("div", "os-action-buttons");
+    const whatsapp = $("copy-scout-brief");
+    const matchup = $("copy-roster-plan");
+    if (whatsapp) {
+      whatsapp.textContent = "Copy scouting brief for WhatsApp";
+      whatsapp.classList.add("os-primary-action");
+      actionButtons.append(whatsapp);
+    }
+    if (matchup) {
+      matchup.textContent = "Copy planned player matchups";
+      matchup.classList.add("os-secondary-action");
+      actionButtons.append(matchup);
+    }
+    quickActions.append(actionButtons);
+    const actionHelp = node("p", "os-helper",
+      "Copy only—nothing is sent. Verify the current opponent, actual lineup and game time before sharing.");
+    quickActions.append(actionHelp);
+    for (const id of ["scout-copy-status", "roster-copy-status"]) {
+      const feedback = $(id);
+      if (feedback) quickActions.append(feedback);
+    }
+    $("roster-player-priorities")?.after(quickActions);
     const copy = $("copy-roster-plan");
-    if (copy) copy.textContent = "Copy pregame matchup plan";
+    if (copy) copy.textContent = "Copy planned player matchups";
     const threats = $("roster-player-priorities");
     const enhanceThreatCards = () => {
       if (!threats) return;

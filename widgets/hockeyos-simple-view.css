@@ -73,3 +73,12 @@ body.hockeyos-simplified{--os-focus:#f1cb94;--os-stroke:#45657c;--os-tile:#112b4
  .os-data-vault{display:block!important}
  .os-main-profile,.os-main-layout{box-shadow:none}
 }
+.os-scout-actions{margin:16px 0 12px;padding:15px;background:#18384d;border:1px solid #64859a;border-radius:11px}
+.os-scout-actions .os-action-heading{display:block;color:#fff;font-size:15px;margin-bottom:10px}
+.os-action-buttons{display:flex;flex-wrap:wrap;gap:9px}
+.os-action-buttons button{min-height:45px;font-weight:850;font-size:14px;padding:10px 15px;border-radius:8px}
+.os-action-buttons .os-primary-action{background:#b53550;color:#fff;border:1px solid #ec8da0}
+.os-action-buttons .os-secondary-action{background:#24495f;color:#f6fbff;border:1px solid #9bb6c9}
+.os-action-buttons button:hover{filter:brightness(1.14)}
+.os-scout-actions .os-helper{margin:10px 0 7px}
+@media(max-width:500px){.os-action-buttons{display:grid;grid-template-columns:1fr}.os-action-buttons button{width:100%;min-height:48px}}
