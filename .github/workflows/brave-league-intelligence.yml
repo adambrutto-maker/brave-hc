@@ -37,6 +37,9 @@ on:
       - 'widgets/division-fit-lab.html'
       - 'widgets/division-fit-lab.js'
       - 'widgets/division-fit-model.js'
+      - 'widgets/video-strength-evidence.js'
+      - 'tests/test_video_strength_evidence.cjs'
+      - 'docs/ENG59_VideoIntelligence_Dependency_Handoff_20261027.md'
       - 'widgets/weekly-strength-stability.js'
       - 'widgets/division-layout-optimizer.js'
       - 'widgets/division-lineup-refinement.js'
@@ -137,6 +140,9 @@ on:
       - 'widgets/division-fit-lab.html'
       - 'widgets/division-fit-lab.js'
       - 'widgets/division-fit-model.js'
+      - 'widgets/video-strength-evidence.js'
+      - 'tests/test_video_strength_evidence.cjs'
+      - 'docs/ENG59_VideoIntelligence_Dependency_Handoff_20261027.md'
       - 'widgets/weekly-strength-stability.js'
       - 'widgets/division-layout-optimizer.js'
       - 'widgets/division-lineup-refinement.js'
@@ -259,6 +265,8 @@ jobs:
         run: node tests/test_svhl_historical_insights.cjs
       - name: Verify evidence-only division grouping and explicit no-release gate
         run: node tests/test_division_fit_model.cjs
+      - name: Guard provisional video strength with strict read-only source and opponent bridge gates
+        run: node tests/test_video_strength_evidence.cjs
       - name: Guard adult Sunday scope and retrospective matchup evidence
         run: node tests/test_adult_division_evidence.cjs
       - name: Verify source-qualified weekly rating drift, adult band changes and missing week holds
