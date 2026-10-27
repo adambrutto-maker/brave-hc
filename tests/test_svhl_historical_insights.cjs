@@ -8,8 +8,8 @@ const links=read("brave-historical-verified-games.json");
 const tests=[
  ["Source archives remain separated from current identities",()=>{
    assert.doesNotThrow(()=>model.verify(league,archive));
-   assert.equal(archive.seasons.length,6);
-   assert.equal(archive.competitiveTeamSeasonEntries,175);
+   assert.equal(archive.seasons.length,7);
+   assert.equal(archive.competitiveTeamSeasonEntries,195);
    assert.equal(archive.publishedPersonalRosterData,false);
    assert.ok(archive.identityRule.includes("not verified"));
  }],
