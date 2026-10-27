@@ -27,6 +27,8 @@ on:
       - 'widgets/division-fit-lab.html'
       - 'widgets/division-fit-lab.js'
       - 'widgets/division-fit-model.js'
+      - 'widgets/weekly-strength-stability.js'
+      - 'tests/test_weekly_strength_stability.cjs'
       - 'widgets/adult-league-scope.js'
       - 'tests/test_adult_division_evidence.cjs'
       - 'tests/test_division_fit_model.cjs'
@@ -69,6 +71,8 @@ on:
       - 'widgets/division-fit-lab.html'
       - 'widgets/division-fit-lab.js'
       - 'widgets/division-fit-model.js'
+      - 'widgets/weekly-strength-stability.js'
+      - 'tests/test_weekly_strength_stability.cjs'
       - 'widgets/adult-league-scope.js'
       - 'tests/test_adult_division_evidence.cjs'
       - 'tests/test_division_fit_model.cjs'
@@ -133,6 +137,8 @@ jobs:
         run: node tests/test_division_fit_model.cjs
       - name: Guard adult Sunday scope and retrospective matchup evidence
         run: node tests/test_adult_division_evidence.cjs
+      - name: Verify source-qualified weekly rating drift, adult band changes and missing week holds
+        run: node tests/test_weekly_strength_stability.cjs
       - name: Detect stalled daily local collector
         if: github.event_name == 'schedule'
         run: python scripts/check_svhl_league_intelligence.py --fresh

@@ -4,12 +4,100 @@
  const put=(parent,tag,cls,value)=>{const node=el(tag,cls,value);parent.append(node);return node};
  const q=id=>document.getElementById(id);
  const num=(v,n=1)=>Number.isFinite(v)?v.toFixed(n):"unavailable";
- let analysis=null,activeScenario="CURRENT";
+ let analysis=null,stability=null,activeScenario="CURRENT";
  function metric(parent,value,description){
   const node=el("div","metric");
   put(node,"span","number",value);
   put(node,"small","",description);
   parent.append(node);
+ }
+ function renderTeamHistory(){
+  const grid=q("weekly-team-history");grid.replaceChildren();
+  if(!stability)return;
+  const team=stability.trajectories.find(x=>String(x.sourceTeamId)===
+    q("stability-team-filter").value);
+  if(!team){
+   put(grid,"p","small","No accepted team history for this source identifier.");return;
+  }
+  for(const point of [...team.series].reverse()){
+   const card=el("article","week-card");
+   put(card,"strong","",point.week+" · "+num(point.contextIndex)+"/100");
+   put(card,"small","","Adult research rank #"+point.rank+
+     " · research band "+point.band+" · "+point.gp+
+     " source-verified completed games");
+   put(card,"small","",point.divisionNow+" · source observed "+
+     new Date(point.observedAtUTC).toLocaleString("en-CA"));
+   const bar=el("div","barline"),fill=el("span");
+   fill.style.width=Math.max(0,Math.min(100,point.contextIndex))+"%";
+   bar.append(fill);card.append(bar);grid.append(card);
+  }
+  if(team.observedWeeks===1){
+   const note=put(grid,"p","small baseline","Baseline only: no verified second week exists. "+
+     "No improving, declining, stable or reshuffled-band claim.");
+  }else{
+   const delta=team.latestChange;
+   put(grid,"p","small","Latest week-to-week index change "+
+     (delta.indexDelta>=0?"+":"")+num(delta.indexDelta)+
+     " points; rank movement "+(delta.rankChange>=0?"+":"")+delta.rankChange+
+     "; band crossed: "+(delta.crossedResearchBand?"yes":"no")+
+     ". Descriptive only, not a performance prediction.");
+  }
+ }
+ function renderStability(){
+  const status=q("weekly-stability-status"),metrics=q("weekly-stability-metrics");
+  metrics.replaceChildren();
+  if(!stability){status.textContent="Weekly source stability unavailable.";return}
+  status.textContent=stability.completeObservedWeeks+" source-verified week(s) "+
+    "from "+stability.earliestVerifiedWeek+" to "+stability.latestVerifiedWeek+
+    "; "+stability.poolTeamCount+" adult teams tracked. "+
+    (stability.state==="SOURCE_BACKED_BASELINE_ONLY"?
+      "BASELINE ONLY — no week-to-week movement is yet measurable.": 
+      "Observed changes available; still a provisional descriptive model.");
+  metric(metrics,stability.completeObservedWeeks,"complete source-backed adult weeks");
+  metric(metrics,stability.lastTransition?.bandCrossings??"Not yet measurable",
+    "clubs crossing research bands in latest observed transition");
+  metric(metrics,stability.lastTransition?.meanAbsoluteScoreChange===undefined?
+    "Not yet measurable":num(stability.lastTransition.meanAbsoluteScoreChange,2),
+    "mean absolute index movement, latest observed transition");
+  metric(metrics,stability.latestWeekBandRetention===null?"Not yet measurable":
+    num(stability.latestWeekBandRetention)+"%",
+    "research-band retention over latest source-observed interval");
+  q("weekly-stability-caveat").textContent=stability.disclaimer+
+    (stability.incompleteWeeksHeld.length?
+     " "+stability.incompleteWeeksHeld.length+" incomplete source week(s) held; none interpolated.":"")+
+    " "+stability.researchBandMeaning;
+  q("stability-band-note").textContent="Fixed group capacities: "+
+    stability.bandCapacities.join(" / ")+". The research bands have NO official division authority.";
+  const selector=q("stability-team-filter");selector.replaceChildren();
+  for(const t of [...stability.trajectories].sort((a,b)=>a.name.localeCompare(b.name))){
+   const option=el("option","",t.name);option.value=String(t.sourceTeamId);
+   selector.append(option);
+  }
+  const brave=stability.trajectories.find(x=>x.name==="Brave H.C."||
+    x.name==="Braves HC");
+  selector.value=String(brave?.sourceTeamId||stability.trajectories[0].sourceTeamId);
+  selector.addEventListener("change",renderTeamHistory);
+  renderTeamHistory();
+  const transitions=q("weekly-transitions");transitions.replaceChildren();
+  if(!stability.transitions.length){
+   const p=put(transitions,"p","small",
+      "No second accepted weekly observation. HockeyOS will show actual movement only when a later verified source week is published.");
+   p.classList.add("baseline");
+   return;
+  }
+  for(const x of [...stability.transitions].reverse().slice(0,8)){
+   const card=el("article","week-card");
+   put(card,"strong","",x.from+" → "+x.to);
+   put(card,"small","",x.bandCrossings+" / "+x.teamsCompared+
+     " research-band crossings · "+x.rankChanges+" adult rank changes");
+   put(card,"small","",num(x.meanAbsoluteScoreChange,2)+
+     " average absolute context-index change · "+x.officialDivisionChanges+
+     " changes in published adult division");
+   if(x.skippedCalendarWeeks)
+    put(card,"small","warning",x.skippedCalendarWeeks+
+      " unsampled calendar week(s) between these two source observations.");
+   transitions.append(card);
+  }
  }
  function source(){
   const metrics=q("source-metrics");metrics.replaceChildren();
@@ -150,6 +238,20 @@
    "Of those, "+analysis.gameGraph.crossCurrentDivisionGames+
       " were between teams NOW in different divisions; divisions at time of each game not inferred.",
    "Latest weekly observations: "+analysis.weekCount,
+   ...(stability?[
+     "WEEKLY SOURCE STABILITY: "+stability.state+
+        " across "+stability.completeObservedWeeks+" complete weeks.",
+     "Weekly index movement: "+(stability.lastTransition?
+        num(stability.lastTransition.meanAbsoluteScoreChange,2)+
+        " mean absolute points, "+stability.lastTransition.bandCrossings+
+        " band crossings across "+stability.lastTransition.teamsCompared+" same official team IDs":
+        "NOT MEASURABLE — one source-backed baseline only."),
+     "Team research-band stability is not real league assignment evidence; "+
+        stability.incompleteWeeksHeld.length+" incomplete weeks held. No missing weeks imputed.",
+     "Stability readiness: "+(stability.dataReadyForHumanReview?
+        "source-history minimum met, human evaluation still required":
+        "NOT READY FOR DIVISION RECOMMENDATION")
+   ]:[]),
    "Games coverage: "+analysis.playedTen+"/"+analysis.adultPoolTeamCount+" adult teams with >=10 games.",
    "CURRENT group dispersion (descriptive): "+num(original.dispersion,2),
    "VIEWED SCENARIO: "+s.title+"; dispersion "+num(s.dispersion,2)+
@@ -191,7 +293,9 @@
    const league=await leagueR.json();
    const hist=historyR.ok?await historyR.json():null;
    analysis=window.BraveDivisionFit.analyze(league,hist);
-   source();connections();renderScenario();readiness();historical();
+   if(!window.BraveWeeklyStability)throw Error("Weekly stability module not installed");
+   stability=window.BraveWeeklyStability.analyze(league);
+   source();connections();renderScenario();renderStability();readiness();historical();
    q("notice").textContent=analysis.proposalReady?
      "Research source verified; proposal held for human review.":
      "Source verified. Preliminary research only — no division changes recommended.";

@@ -28,6 +28,11 @@ const srv=http.createServer((req,res)=>{
     crossLinks:document.querySelectorAll("#cross-division-links .link-card").length,
     history:document.querySelector("#historical-metrics")?.textContent,
     gate:document.querySelector("#gate-summary")?.textContent,
+    weeklyStatus:document.querySelector("#weekly-stability-status")?.textContent,
+    weeklyMetrics:document.querySelector("#weekly-stability-metrics")?.textContent,
+    weeklyTeams:document.querySelectorAll("#stability-team-filter option").length,
+    weeklyHistory:document.querySelectorAll("#weekly-team-history .week-card").length,
+    weeklyTransitions:document.querySelector("#weekly-transitions")?.textContent,
     evidence:document.querySelector("#scenario-evidence")?.textContent,
     caveat:document.querySelector("#scenario-evidence-caution")?.textContent,
     note:document.querySelector("#source-note")?.textContent,
@@ -48,6 +53,18 @@ const srv=http.createServer((req,res)=>{
    assert.ok(first.history.includes(String(historical.matchedGameCount)) &&
       first.history.includes(String(historical.heldGameComparisons)));
    assert.ok(first.gate.includes("Not ready"));
+   assert.ok(first.weeklyStatus.includes("1 source-verified week(s)") &&
+     first.weeklyStatus.includes("BASELINE ONLY"),"must label one week as baseline only");
+   assert.ok(first.weeklyMetrics.includes("Not yet measurable"),"no fabricated weekly change metrics");
+   assert.equal(first.weeklyTeams,22);
+   assert.equal(first.weeklyHistory,1,"only one actual Brave H.C. weekly point shown");
+   assert.ok(first.weeklyTransitions.includes("No second accepted weekly observation"));
+   assert.ok(!first.weeklyStatus.includes("stable divisions"),"one week cannot establish stability");
+   await page.select("#stability-team-filter",
+     await page.$eval("#stability-team-filter",node=>
+      [...node.options].find(o=>o.textContent==="Maplewolves")?.value));
+   assert.ok((await page.$eval("#weekly-team-history",e=>e.textContent))
+      .includes("Baseline only"),"team switch retains one-week caution");
    assert.ok(first.over<=1,"No full-page horizontal overflow");
    await page.click("#scenario-options button:nth-child(2)");
    const limited=await page.evaluate(()=>({
@@ -74,6 +91,9 @@ const srv=http.createServer((req,res)=>{
    assert.ok(copied.includes("INTERNAL RESEARCH — NOT A DIVISION REALIGNMENT RECOMMENDATION"));
    assert.ok(copied.includes("43")&&copied.includes("79")&&copied.includes("4 weekly")===false);
    assert.ok(copied.includes("proposalReady = FALSE"));
+   assert.ok(copied.includes("WEEKLY SOURCE STABILITY: SOURCE_BACKED_BASELINE_ONLY") &&
+     copied.includes("NOT MEASURABLE — one source-backed baseline only."),
+     "research copy may never call a single week stable");
    assert.ok(copied.includes("13 prior completed games")&&
      copied.includes("CRITICAL: those games occurred under real schedules."),
      "research copy must disclose incomplete retrospective pair coverage");
