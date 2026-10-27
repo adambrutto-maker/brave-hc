@@ -56,6 +56,9 @@
   need(originalTimes.every(Number.isFinite),"WEEKLY_TIMESTAMP_INVALID");
   for(const [idx,w] of snapshots.entries()){
    need(completeDate(w.weekStartToronto) &&
+      typeof w.sourceSHA256==="string" &&
+      /^[0-9a-f]{64}$/.test(w.sourceSHA256) &&
+      Array.isArray(w.teams) &&
       (idx===0||w.weekStartToronto>snapshots[idx-1].weekStartToronto) &&
       originalTimes[idx]<=new Date(league.asOf).getTime() &&
       (idx===0||originalTimes[idx]>originalTimes[idx-1]),
@@ -170,7 +173,8 @@
       "Same-name historical franchise matches do not establish current roster continuity.",
       "Band labels and cutoff changes are research constructs, not official league movement.",
       "The current week is mutable until the next Monday and prior closed weeks are immutable.",
-      "A stable index does not prove the club has played against equally matched opponents."],
+      "A stable index does not prove the club has played against equally matched opponents.",
+      "Historical week labels use source-preserved Toronto Monday dates; historical bands use fixed capacity sizes chosen from the current comparison pool."],
     sourceReadOnly:true};
  }
  return Object.freeze({schema:SCHEMA,analyze});
