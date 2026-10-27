@@ -86,7 +86,11 @@ class TrendHistoryQA(unittest.TestCase):
   with self.assertRaisesRegex(TrendHold,"BACKDATED_SNAPSHOT"):
    enrich(doc,future(doc,-1))
  def test_point_tampering_is_rejected(self):
-  doc=base();doc["trendLedger"]["teams"][0]["observations"][0]["contextIndex"]=99
+  doc=base()
+  # A public source can have multiple real observation points. The most recent
+  # must match the latest accepted team; changing an old historical point is
+  # instead guarded by the append-only publisher monotonic source comparison.
+  doc["trendLedger"]["teams"][0]["observations"][-1]["contextIndex"]=99
   with self.assertRaisesRegex(TrendHold,"LATEST_POINT_DOES_NOT_MATCH"):
    validate(doc)
  def test_erased_historical_point_is_held_by_monotonic(self):

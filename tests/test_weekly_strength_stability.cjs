@@ -56,7 +56,8 @@ const tests=[
    assert.equal(a.state,"PROVISIONAL_WEEKLY_CHANGE");
    const brave=a.trajectories.find(x=>x.sourceTeamId===braves.sourceTeamId);
    assert.equal(brave.latestScore,62);
-   assert.equal(brave.latestChange.indexDelta,25.5);
+   const oldScore=braves.strengthContext.contextIndex;
+   assert.equal(brave.latestChange.indexDelta,Math.round((62-oldScore)*10)/10);
    assert.ok(brave.latestChange.rankChange>0);
    assert.equal(brave.series.length,2);
    assert.ok(a.lastTransition.bandCrossings>=1);

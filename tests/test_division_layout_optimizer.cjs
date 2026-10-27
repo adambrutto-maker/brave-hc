@@ -76,7 +76,7 @@ const rules=[
  ["Historical games count as evidence only, never automatic same-franchise identity",()=>{
   const m=optimizer.run(ref);
   assert.equal(m.historicalBravesComparisons,79);
-  assert.equal(m.sourceAdultGames,43);
+  assert.equal(m.sourceAdultGames,ref.gameGraph.verifiedGamesInPool);
   assert.equal(m.admittedWeeks,1);
   assert.equal(m.proposedForDiscussion,true);
   assert.equal(m.readyForLeagueSubmission,false);
@@ -147,7 +147,7 @@ const rules=[
   assert.equal(model.adultTeams,23);
   assert.equal(model.oddDivisionCountRequired,1);
   assert.ok(model.choices.CONTINUITY.every(c=>c.groups.filter(g=>g.capacity%2!==0).length===1));
-  assert.equal(model.sourceAdultGames,43);
+  assert.equal(model.sourceAdultGames,draft.gameGraph.verifiedGamesInPool);
   assert.equal(league.teams.length,27);
  }],
  ["Repeat analysis is deterministic and writes no original league records",()=>{

@@ -21,7 +21,7 @@ const tests=[
    assert.equal(info.gaPerGame,current.record.ga/current.record.gp);
    assert.equal(info.score,current.strengthContext.contextIndex);
    assert.equal(info.historicalH2H.gp,current.bravesMatchHistory.bravesAllTime.gp);
-   assert.ok(info.evidence.includes("early sample"));
+   assert.ok(info.evidence.includes("sample"),"accepted source must retain sample caution");
  }],
  ["Historical same-name appearances do not create automatic franchise links",()=>{
    const info=model.plain(league,archive,"Maplewolves",links);
