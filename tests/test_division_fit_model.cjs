@@ -72,6 +72,33 @@ const tests=[
   assert.equal(result.historical.heldComparisons,null);
   assert.equal(result.proposalReady,false);
  }],
+ ["Individual-game pairs declare two-sided evidence and non-official identity keys",()=>{
+  const graph=model.analyze(src,history).gameGraph;
+  assert.equal(graph.reciprocalPairsVerified,true);
+  assert.equal(graph.identityPolicy,"DATE_AND_UNORDERED_TEAM_PAIR_NO_OFFICIAL_GAME_ID");
+  assert.ok(graph.identityLimitation.includes("Same-day rematches"));
+ }],
+ ["A same-day second game cannot silently vanish as a duplicate",()=>{
+  const altered=copy(src);
+  const eligible=altered.teams.filter(t=>model.poolDivisions.includes(t.divisionNow));
+  const team=eligible.find(t=>t.completedGames.some(g=>eligible.some(o=>o.leagueName===g.opponent)));
+  const game=team.completedGames.find(g=>eligible.some(o=>o.leagueName===g.opponent));
+  team.completedGames.push({...game});
+  assert.throws(()=>model.gameGraph(altered,eligible),
+    /AMBIGUOUS_SAME_DAY_PAIR_NO_SOURCE_GAME_ID/);
+ }],
+ ["Unpaired opponent reports cannot be certified as verified games",()=>{
+  const altered=copy(src);
+  const eligible=altered.teams.filter(t=>model.poolDivisions.includes(t.divisionNow));
+  const team=eligible.find(t=>t.completedGames.some(g=>eligible.some(o=>o.leagueName===g.opponent)));
+  const game=team.completedGames.find(g=>eligible.some(o=>o.leagueName===g.opponent));
+  const opponent=eligible.find(o=>o.leagueName===game.opponent);
+  const i=opponent.completedGames.findIndex(g=>g.date===game.date && g.opponent===team.leagueName);
+  assert.ok(i>=0);
+  opponent.completedGames.splice(i,1);
+  assert.throws(()=>model.gameGraph(altered,eligible),
+    /RECIPROCAL_SOURCE_GAME_SIDE_MISSING/);
+ }],
  ["Source games/teams cannot disappear unnoticed",()=>{
   const wrong=copy(src);
   const braves=wrong.teams.find(t=>t.leagueName==="Braves HC");

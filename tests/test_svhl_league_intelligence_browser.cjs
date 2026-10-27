@@ -188,6 +188,8 @@ const server=http.createServer((req,res)=>{
    await page.evaluate(()=>Object.defineProperty(navigator,"clipboard",{
      configurable:true,value:{writeText:async text=>{window.__divisionReviewCopied=text}}
     }));
+    await page.evaluate(()=>[...document.querySelectorAll(".os-mode")]
+      .find(b=>b.textContent.trim()==="All data").click());
     await page.click("#copy-division-review");
     await page.waitForFunction(()=>Boolean(window.__divisionReviewCopied));
     const beforeReview=await page.evaluate(()=>window.__divisionReviewCopied);

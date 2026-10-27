@@ -22,6 +22,8 @@ on:
       - 'scripts/collect_svhl_league_intelligence.py'
       - 'scripts/build_svhl_league_intelligence_public.py'
       - 'scripts/check_svhl_league_intelligence.py'
+      - 'scripts/report_hockeyos_scouting_coverage.py'
+      - 'tests/test_hockeyos_scouting_coverage_report.py'
       - 'scripts/model_svhl_schedule_strength.py'
       - 'scripts/track_svhl_strength_trends.py'
       - 'scripts/build_svhl_weekly_strength.py'
@@ -108,6 +110,8 @@ on:
       - 'scripts/collect_svhl_league_intelligence.py'
       - 'scripts/build_svhl_league_intelligence_public.py'
       - 'scripts/check_svhl_league_intelligence.py'
+      - 'scripts/report_hockeyos_scouting_coverage.py'
+      - 'tests/test_hockeyos_scouting_coverage_report.py'
       - 'scripts/model_svhl_schedule_strength.py'
       - 'scripts/track_svhl_strength_trends.py'
       - 'scripts/build_svhl_weekly_strength.py'
@@ -197,6 +201,10 @@ jobs:
           python-version: '3.12'
       - name: Recheck all-division source and game pairing
         run: python scripts/check_svhl_league_intelligence.py
+      - name: Verify unified scouting coverage and source limitation report
+        run: python -B scripts/report_hockeyos_scouting_coverage.py > /dev/null
+      - name: Reject unsupported scouting coverage and invented history
+        run: python -B -m unittest discover -s tests -p test_hockeyos_scouting_coverage_report.py
       - name: Guard previous season and Brave H.C. history
         run: python -m unittest discover -s tests -p test_svhl_league_intelligence_public.py
       - name: Guard no-regression daily publication

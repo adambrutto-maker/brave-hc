@@ -3,6 +3,12 @@ const fs=require("node:fs"),path=require("node:path"),http=require("node:http"),
  puppeteer=require("puppeteer"),assert=require("node:assert/strict");
 const root=path.resolve(__dirname,"../widgets");
 const historical=JSON.parse(fs.readFileSync(path.join(root,"brave-historical-verified-games.json"),"utf8"));
+const league=JSON.parse(fs.readFileSync(path.join(root,"league-intelligence.json"),"utf8"));
+const verified=require("../widgets/division-fit-model.js").analyze(league,historical);
+const architected=require("../widgets/division-layout-optimizer.js").run(verified);
+const refine=require("../widgets/division-lineup-refinement.js");
+const referenceProposal=architected.choices.CONTINUITY.find(x=>x.shapeId==="4-4-6-8");
+const referenceRefinement=refine.refine(verified,referenceProposal,"CONTINUITY");
 const types={".html":"text/html",".js":"text/javascript",".json":"application/json",".png":"image/png",".css":"text/css"};
 const srv=http.createServer((req,res)=>{
  const f=path.resolve(root,"."+new URL(req.url,"http://localhost").pathname);
@@ -45,13 +51,16 @@ const srv=http.createServer((req,res)=>{
     over:document.body.scrollWidth-innerWidth
    }));
    assert.ok(first.status.includes("Preliminary research only"));
-   assert.ok(first.evidence.includes("27")&&first.evidence.includes("16"),
-     "current division comparison must show source-confirmed game coverage");
+   assert.ok(first.evidence.includes(String(verified.scenarios[0].evidence.observedSameGroupGames))&&
+     first.evidence.includes(String(verified.scenarios[0].evidence.observedAcrossGroupGames)),
+     "current division comparison must show up-to-date source-confirmed game coverage");
    assert.ok(first.caveat.includes("actual historic schedules")&&
      first.note.includes("adult-pool source-confirmed"),
      "coverage must not imply simulated matchups or count other leagues");
    assert.ok(!first.note.includes("VAHL"),"separate-league name must not enter adult research interface");
-   assert.ok(first.metrics.includes("22")&&first.metrics.includes("43")&&first.metrics.includes("16"));
+   assert.ok(first.metrics.includes(String(verified.adultPoolTeamCount))&&
+     first.metrics.includes(String(verified.gameGraph.verifiedGamesInPool))&&
+     first.metrics.includes(String(verified.gameGraph.crossCurrentDivisionGames)));
    assert.equal(first.scenarios,3);
    assert.equal(first.layoutPatterns,4,"must offer all legal 4/6/8 division compositions");
    assert.ok(first.layoutLead.includes("4 + 4 + 4 + 4 + 6"),
@@ -101,8 +110,9 @@ const srv=http.createServer((req,res)=>{
    await page.select("#layout-design-focus","CONTINUITY");
    await page.click('#layout-design-options button[data-shape="4-4-6-8"]');
    assert.ok((await page.$eval("#layout-refinement-detail",x=>x.textContent))
-      .includes("13 before / 17 after"),
-      "must disclose source-verified matchup change");
+      .includes(referenceRefinement.original.sourceVerifiedSameGroupGames+" before / "+
+        referenceRefinement.refined.sourceVerifiedSameGroupGames+" after"),
+      "must disclose actual source-verified matchup coverage, even when no swap improves it");
    await page.select("#layout-placement-mode","REFINED");
    const refinedUI=await page.evaluate(()=>({
     detail:document.querySelector("#layout-refinement-detail")?.textContent,
@@ -113,13 +123,16 @@ const srv=http.createServer((req,res)=>{
       .map(el=>el.textContent),
     groupCount:document.querySelectorAll("#layout-proposal-groups .group").length
    }));
-   assert.ok(refinedUI.label.includes("1 tested swap(s) applied"));
-   assert.equal(refinedUI.swaps,1);
-   assert.equal(refinedUI.groupCount,4);
-   assert.equal(refinedUI.sourceIds.length,22);
+   assert.equal(refinedUI.swaps,referenceRefinement.swaps.length);
+   if(referenceRefinement.swaps.length)
+     assert.ok(refinedUI.label.includes(referenceRefinement.swaps.length+" tested swap(s) applied"));
+   else assert.ok(refinedUI.label.includes("No admissible improvement"));
+   assert.equal(refinedUI.groupCount,referenceProposal.divisionCount);
+   assert.equal(refinedUI.sourceIds.length,verified.adultPoolTeamCount);
    assert.ok(refinedUI.proposal.includes("Source-ID swap-refined lineup"));
-   assert.ok(refinedUI.proposal.includes("17 of 43 source-confirmed games"),
-     "one source-backed same-group pairing gain is explained clearly");
+   assert.ok(refinedUI.proposal.includes(referenceRefinement.refined.sourceVerifiedSameGroupGames+
+     " of "+verified.gameGraph.verifiedGamesInPool+" source-confirmed games"),
+     "source-linked same-group coverage must follow accepted league refreshes");
    await page.evaluate(()=>Object.defineProperty(navigator,"clipboard",{
     configurable:true,value:{writeText:async data=>{window.__refinedLayoutText=data}}
    }));
@@ -127,10 +140,11 @@ const srv=http.createServer((req,res)=>{
    await page.waitForFunction(()=>Boolean(window.__refinedLayoutText));
    const refinedText=await page.evaluate(()=>window.__refinedLayoutText);
    assert.ok(refinedText.includes("BOUNDED EVIDENCE-AWARE SOURCE-ID SWAP REFINEMENT"));
-   assert.ok(refinedText.includes("1 improving pair swaps admitted") &&
-      refinedText.includes("SOURCE-ID TEAM SWAP:") &&
+   assert.ok(refinedText.includes(referenceRefinement.swaps.length+" improving pair swaps admitted") &&
       refinedText.includes("NOT APPROVED OR SUBMITTED"),
-      "copy reflects actual source-backed chosen lineup and its nonapproval");
+      "copy reflects the actual bounded refinement, including a zero-improvement hold");
+   if(referenceRefinement.swaps.length)
+     assert.ok(refinedText.includes("SOURCE-ID TEAM SWAP:"));
    await page.select("#layout-placement-mode","INDEX_BANDS");
    await page.select("#layout-design-focus","PRACTICAL");
    await page.click('#layout-design-options button[data-shape="4-6-6-6"]');
@@ -158,6 +172,9 @@ const srv=http.createServer((req,res)=>{
    assert.ok((await page.$eval("#weekly-team-history",e=>e.textContent))
       .includes("Baseline only"),"team switch retains one-week caution");
    assert.ok(first.over<=1,"No full-page horizontal overflow");
+   // Original scenario controls live in All data after progressive disclosure.
+   await page.evaluate(()=>[...document.querySelectorAll(".os-mode")]
+     .find(b=>b.textContent.trim()==="All data").click());
    await page.click("#scenario-options button:nth-child(2)");
    const limited=await page.evaluate(()=>({
     chosen:document.querySelector("#scenario-options button[aria-pressed=true]")?.textContent,
@@ -168,12 +185,14 @@ const srv=http.createServer((req,res)=>{
    assert.ok(limited.chosen.includes("Two-pair swap test"));
    assert.ok(limited.info.includes("Research sandbox only"));
    assert.equal(limited.groups,3);assert.equal(limited.teamNames.length,22);
-   assert.ok((await page.$eval("#scenario-evidence",e=>e.textContent)).includes("16"),
-     "limited swap must disclose narrower source-matched game evidence");
+   assert.ok((await page.$eval("#scenario-evidence",e=>e.textContent))
+     .includes(String(verified.scenarios[1].evidence.observedSameGroupGames)),
+     "limited swap must disclose current source-matched game evidence");
    await page.click("#scenario-options button:nth-child(3)");
    assert.equal(await page.$$eval("#division-groups .team-row",nodes=>nodes.length),22);
-   assert.ok((await page.$eval("#scenario-evidence",e=>e.textContent)).includes("13"),
-     "score-band research is supported by only 13 previously observed games");
+   assert.ok((await page.$eval("#scenario-evidence",e=>e.textContent))
+     .includes(String(verified.scenarios[2].evidence.observedSameGroupGames)),
+     "score-band research uses only verified observed games");
    await page.evaluate(()=>Object.defineProperty(navigator,"clipboard",{
     configurable:true,value:{writeText:async data=>{window.__researchNote=data}}
    }));
@@ -181,7 +200,8 @@ const srv=http.createServer((req,res)=>{
    await page.waitForFunction(()=>Boolean(window.__researchNote),{timeout:10000});
    const copied=await page.evaluate(()=>window.__researchNote);
    assert.ok(copied.includes("INTERNAL RESEARCH — NOT A DIVISION REALIGNMENT RECOMMENDATION"));
-   assert.ok(copied.includes("43")&&copied.includes("79")&&copied.includes("4 weekly")===false);
+   assert.ok(copied.includes(String(verified.gameGraph.verifiedGamesInPool))&&
+     copied.includes(String(historical.matchedGameCount))&&copied.includes("4 weekly")===false);
    assert.ok(copied.includes("proposalReady = FALSE"));
    assert.ok(copied.includes("SELECTED DRAFT: 4+6+6+6")&&
      copied.includes("NOT APPROVED OR SUBMITTED"),
@@ -189,13 +209,15 @@ const srv=http.createServer((req,res)=>{
    assert.ok(copied.includes("WEEKLY SOURCE STABILITY: SOURCE_BACKED_BASELINE_ONLY") &&
      copied.includes("NOT MEASURABLE — one source-backed baseline only."),
      "research copy may never call a single week stable");
-   assert.ok(copied.includes("13 prior completed games")&&
+   assert.ok(copied.includes(verified.scenarios[2].evidence.observedSameGroupGames+" prior completed games")&&
      copied.includes("CRITICAL: those games occurred under real schedules."),
      "research copy must disclose incomplete retrospective pair coverage");
    assert.ok(!copied.includes("Approved by"));
    assert.deepEqual(errors,[]);
-   results.push({width,status:"PASS",adultPool:22,verifiedGames:43,
-     crossDivisionGames:16,scenarios:3,history:79,copied:"PASS",
+   results.push({width,status:"PASS",adultPool:verified.adultPoolTeamCount,
+     verifiedGames:verified.gameGraph.verifiedGamesInPool,
+     crossDivisionGames:verified.gameGraph.crossCurrentDivisionGames,
+     scenarios:verified.scenarios.length,history:historical.matchedGameCount,copied:"PASS",
      overflow:first.over,jsErrors:0});
    await page.close();
   }
