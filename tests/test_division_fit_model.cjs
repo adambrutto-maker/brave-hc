@@ -12,12 +12,12 @@ const tests=[
   const h=copy(history);h.teamSeasons[0].continuousFranchiseNotVerified=false;
   assert.throws(()=>model.analyze(src,h),/HISTORICAL_LINK_PROOF_INVALID/);
  }],
- ["Excludes separate VAHL and playoff placeholder from adult re-grouping",()=>{
+ ["Excludes non-adult league team records and playoff placeholder from adult re-grouping",()=>{
   const result=model.analyze(src,history);
   assert.equal(result.adultPoolTeamCount,22);
   assert.deepEqual(result.poolDivisions,["Fazzari Partners","The Cristillo Division","Remax Division"]);
-  assert.ok(result.separateDivisions.some(d=>d.name==="VAHL Division"));
-  assert.ok(result.teams.every(t=>!["VAHL Division","x-playoff Division"].includes(t.divisionNow)));
+  assert.equal(result.separateLeagueRecordsExcluded,src.teams.length-result.adultPoolTeamCount);
+  assert.ok(result.teams.every(t=>model.poolDivisions.includes(t.divisionNow)));
  }],
  ["Counts reciprocal games once and retains verifiable current-division cross-links",()=>{
   const result=model.analyze(src,history);
