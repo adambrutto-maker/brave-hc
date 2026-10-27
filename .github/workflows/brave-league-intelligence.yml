@@ -61,6 +61,8 @@ on:
       - 'scripts/audit_svhl_roster_exceptions.py'
       - 'scripts/build_svhl_roster_source_owner_packet.py'
       - 'scripts/merge_svhl_roster_exception_receipts.py'
+      - 'scripts/build_svhl_raw_gameinfo_disposition_packet.py'
+      - 'tests/test_svhl_raw_gameinfo_disposition_packet.py'
       - 'tests/test_svhl_roster_receipt_merge.py'
       - 'tests/test_svhl_roster_source_owner_packet.py'
       - 'tests/test_svhl_gameinfo_hold_review.py'
@@ -167,6 +169,8 @@ on:
       - 'scripts/audit_svhl_roster_exceptions.py'
       - 'scripts/build_svhl_roster_source_owner_packet.py'
       - 'scripts/merge_svhl_roster_exception_receipts.py'
+      - 'scripts/build_svhl_raw_gameinfo_disposition_packet.py'
+      - 'tests/test_svhl_raw_gameinfo_disposition_packet.py'
       - 'tests/test_svhl_roster_receipt_merge.py'
       - 'tests/test_svhl_roster_source_owner_packet.py'
       - 'tests/test_svhl_gameinfo_hold_review.py'
@@ -316,6 +320,8 @@ jobs:
         run: python -B -m unittest discover -s tests -p test_svhl_roster_source_owner_packet.py -v
       - name: Verify bounded 39-source-game scorer receipt merging without admitting goals
         run: python -B -m unittest discover -s tests -p test_svhl_roster_receipt_merge.py -v
+      - name: Guard original 98 raw GameInfo discrepancies and no source-owner score promotions
+        run: python -B -m unittest discover -s tests -p test_svhl_raw_gameinfo_disposition_packet.py -v
       - name: Guard source-stamped weekly roster age without equating separate daily captures
         run: python -B -m unittest discover -s tests -p test_roster_source_time_boundary.py -v
       - name: Verify sampled official GameInfo penalty tables without fake PIM or GP

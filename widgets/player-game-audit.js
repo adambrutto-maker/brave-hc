@@ -276,13 +276,22 @@
   RAW_SCORE_PARITY_WITH_OTHER_EVENT_QUALIFICATION_HOLD:"Goal rows match; another player-event hold",
   RAW_SOURCE_SCORE_AND_CANDIDATES_MATCH_INSPECT_HOLD_POLICY:"Counts match; review the unresolved admission rule"
  };
+ const rawSubtype=g=>g.category==="RAW_GAMEINFO_ROWS_BELOW_PUBLISHED_SCORE"?
+   (g.rawScoringRows===0?"RAW_EMPTY_SCORING_TABLE":"RAW_PARTIAL_SCORING_TABLE"):
+   g.category==="RAW_GAMEINFO_ROWS_ABOVE_PUBLISHED_SCORE"?
+    "RAW_EXCESS_SCORING_ROWS":null;
+ const RAW_SUBTYPE_LABELS={
+  RAW_EMPTY_SCORING_TABLE:"Official scoring table empty despite published goals",
+  RAW_PARTIAL_SCORING_TABLE:"Partially populated official goal table below final score",
+  RAW_EXCESS_SCORING_ROWS:"Official scoring table contains more goal rows than final score"
+ };
  let heldReview=null,heldLimit=10;
  function renderHeldReview(){
   if(!heldReview)return;
   const category=$("audit-hold-review-category").value;
   const lid=$("audit-hold-review-season").value;
   const rows=heldReview.games.filter(g=>
-    (category==="ALL"||g.category===category)&&
+    (category==="ALL"||g.category===category||rawSubtype(g)===category)&&
     (lid==="ALL"||String(g.leagueId)===lid));
   const shown=rows.slice(0,heldLimit),list=$("audit-hold-review-list");
   list.replaceChildren();
@@ -294,7 +303,7 @@
      " | final "+g.finalScore.join("-")+
      " | raw scoring rows "+g.rawScoringRows+
      " | roster-qualified scoring events "+g.rosterQualifiedEvents);
-   add(card,"small","hold",REVIEW_LABELS[g.category]);
+   add(card,"small","hold",RAW_SUBTYPE_LABELS[rawSubtype(g)]||REVIEW_LABELS[g.category]);
    const source=add(card,"a","small","Open the original GameInfo record");
    source.href=g.officialGameInfoURL;
    source.target="_blank";source.rel="noopener noreferrer";
@@ -356,10 +365,19 @@
     "SOURCE_REVIEW_CATEGORY_COUNTS_MISMATCH");
   heldReview=doc;
   const metrics=$("audit-hold-review-metrics");metrics.replaceChildren();
+  const rawCounts={};
+  for(const item of doc.games){const subtype=rawSubtype(item);
+   if(subtype)rawCounts[subtype]=(rawCounts[subtype]||0)+1;}
+  ok((rawCounts.RAW_EMPTY_SCORING_TABLE||0)+(rawCounts.RAW_PARTIAL_SCORING_TABLE||0)===
+    doc.categories.RAW_GAMEINFO_ROWS_BELOW_PUBLISHED_SCORE&&
+    (rawCounts.RAW_EXCESS_SCORING_ROWS||0)===doc.categories.RAW_GAMEINFO_ROWS_ABOVE_PUBLISHED_SCORE,
+    "RAW_OFFICIAL_ROW_SUBTYPES_NOT_SOURCE_CONCORDANT");
   const overview=[
    [doc.gamePages,"GameInfo sheets still held"],
-   [doc.categories.RAW_GAMEINFO_ROWS_BELOW_PUBLISHED_SCORE||0,
-    "Raw scoring rows below official score"],
+   [rawCounts.RAW_EMPTY_SCORING_TABLE||0,
+    "Official tables with zero goal rows despite final scores"],
+   [rawCounts.RAW_PARTIAL_SCORING_TABLE||0,
+    "Official goal tables partially populated below final score"],
    [doc.categories.RAW_GAMEINFO_ROWS_ABOVE_PUBLISHED_SCORE||0,
     "Raw scoring rows above official score"],
    [doc.categories.RAW_SCORE_PARITY_WITH_SEASON_ROSTER_ID_HOLD||0,
@@ -374,6 +392,10 @@
   all.value="ALL";cat.append(all);
   for(const [k,v] of Object.entries(doc.categories)){
    const o=node("option","",REVIEW_LABELS[k]+" ("+v+")");
+   o.value=k;cat.append(o);
+  }
+  for(const [k,v] of Object.entries(rawCounts)){
+   const o=node("option","",RAW_SUBTYPE_LABELS[k]+" ("+v+")");
    o.value=k;cat.append(o);
   }
   const season=$("audit-hold-review-season");

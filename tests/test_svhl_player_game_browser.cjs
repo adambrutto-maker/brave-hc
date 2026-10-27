@@ -63,11 +63,27 @@ const server=http.createServer((req,res)=>{
      overflow:document.body.scrollWidth-innerWidth
    }));
    assert.ok(reviewBefore.status.includes("NOT independent acceptance"));
-   assert.ok(reviewBefore.metrics.includes("86")&&reviewBefore.metrics.includes("12")&&reviewBefore.metrics.includes("39"));
+   assert.ok(reviewBefore.metrics.includes("84")&&reviewBefore.metrics.includes("2")&&
+     reviewBefore.metrics.includes("12")&&reviewBefore.metrics.includes("39"));
+   assert.ok(reviewBefore.metrics.includes("zero goal rows")&&
+      reviewBefore.metrics.includes("partially populated"));
    assert.ok(reviewBefore.count.includes("10 of 137")&&reviewBefore.listed===10);
    assert.ok(reviewBefore.overflow<=1);
    await page.click("#audit-hold-review-next");
    assert.equal(await page.$$eval("#audit-hold-review-list .review-card",x=>x.length),20);
+   await page.select("#audit-hold-review-category","RAW_EMPTY_SCORING_TABLE");
+   const emptyStatus=await page.$eval("#audit-hold-review-count",x=>x.textContent);
+   assert.ok(emptyStatus.includes("10 of 84"));
+   assert.ok((await page.$eval("#audit-hold-review-list",x=>x.textContent))
+     .includes("Official scoring table empty despite published goals"));
+   await page.select("#audit-hold-review-category","RAW_PARTIAL_SCORING_TABLE");
+   const partialStatus=await page.$eval("#audit-hold-review-count",x=>x.textContent);
+   assert.ok(partialStatus.includes("2 of 2"));
+   assert.ok((await page.$eval("#audit-hold-review-list",x=>x.textContent))
+     .includes("Partially populated official goal table below final score"));
+   await page.select("#audit-hold-review-category","RAW_EXCESS_SCORING_ROWS");
+   assert.ok((await page.$eval("#audit-hold-review-count",x=>x.textContent))
+     .includes("10 of 12"));
    await page.select("#audit-hold-review-category","RAW_SCORE_PARITY_WITH_SEASON_ROSTER_ID_HOLD");
    await page.select("#audit-hold-review-season","570");
    const currentReview=await page.evaluate(()=>({
