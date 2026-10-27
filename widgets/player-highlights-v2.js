@@ -397,6 +397,57 @@ function validParticipant(data){
  return true;
 }
 
+// Independent official HTO skater totals, distinct from awards-participant ranking.
+function validPublishedHTOActuals(data){
+ if(data?.schema!=='brave-hc-hto-player-actuals/v1'||
+    data.status!=='VERIFIED_HTO_CURRENT'||
+    data.sourceUrl!=='https://www.htosports.com/teams/default.asp?p=stats&s=hockey&u=BRAVESHOCKEY'||
+    !/^W20[0-9]{2}[/][0-9]{2}$/.test(data.season)||
+    !Number.isFinite(Date.parse(data.asOf))||
+    !Number.isInteger(data.teamGP)||data.teamGP<0||
+    !Number.isInteger(data.playerCount)||!Array.isArray(data.players)||
+    data.players.length<15||data.playerCount!==data.players.length||
+    ![data.teamGoals,data.teamAssists,data.teamPlayerPoints,data.teamGF,data.teamGA].every(
+      x=>Number.isInteger(x)&&x>=0)||data.teamGF!==data.teamGoals)return false;
+ const names=new Set();
+ for(const p of data.players){
+  if(typeof p.name!=='string'||!p.name.trim()||names.has(p.name)||
+     ![p.gp,p.g,p.a,p.pts].every(x=>Number.isInteger(x)&&x>=0)||
+     p.gp>data.teamGP||p.pts!==p.g+p.a)return false;
+  names.add(p.name);
+ }
+ if(data.players.reduce((n,p)=>n+p.g,0)!==data.teamGoals||
+    data.players.reduce((n,p)=>n+p.a,0)!==data.teamAssists||
+    data.players.reduce((n,p)=>n+p.pts,0)!==data.teamPlayerPoints)return false;
+ return true;
+}
+function renderPublishedHTOActuals(data,minimumTime=-Infinity,season=null){
+ if(!validPublishedHTOActuals(data)||
+    season!==null&&data.season!==season||
+    Date.parse(data.asOf)<=minimumTime)return false;
+ const name=identity.name.split(' ').slice(1).join(' ')+', '+identity.name.split(' ')[0];
+ const player=data.players.find(p=>p.name.localeCompare(name,'en-CA',{sensitivity:'base'})===0);
+ if(!player)return false;
+ const cards=[
+  detailStat('HTO games played',player.gp),
+  detailStat('HTO goals',player.g),
+  detailStat('HTO assists',player.a),
+  detailStat('HTO points',player.pts)
+ ];
+ const previous=$('form').previousElementSibling;
+ if(previous?.classList?.contains('ph-source'))previous.remove();
+ const context=text('p','Official published HTO skater totals only. These are not award decisions. ','ph-source');
+ const link=text('a','View official scoring source');
+ link.href=data.sourceUrl;link.rel='noopener noreferrer';link.target='_blank';
+ context.append(link);
+ $('form').before(context);
+ $('form').replaceChildren(...cards);
+ $('currentSection').hidden=false;
+ $('currentSection').setAttribute('aria-label','Verified current HTO skater scoring');
+ $('currentSection').querySelector('h2').textContent='Official HTO scoring · '+shortDate(data.asOf);
+ $('statsDate').textContent='HTO skater scoring as of '+shortDate(data.asOf)+' · '+data.season;
+ return true;
+}
 function detailStat(label,value,detail){
  const card=statistic(label,value);
  if(detail)card.append(text('div',detail,'ph-detail'));
@@ -511,12 +562,13 @@ function renderCurrent(feed,career) {
  ['awards-participants.json',x=>x],
  ['player-career-insights.json',x=>x],
  ['player-record-book.json',x=>x],
- ['player-highlights-display-corrections.json',validDisplayCorrections]
+ ['player-highlights-display-corrections.json',validDisplayCorrections],
+ ['player-actuals.json',x=>x]
  ];
  const results=await Promise.allSettled(resources.map(([file,validate])=>fetch(root+file,{cache:'no-store'}).then(async r=>{
   if(!r.ok)throw Error(file+' HTTP '+r.status);return validate(await r.json());
  })));
- const [legacyResult,feedResult,careerResult,recordsResult,correctionsResult]=results;
+ const [legacyResult,feedResult,careerResult,recordsResult,correctionsResult,actualResult]=results;
  try{
   const check=await fetch(root+'assets/approved/source-manifest.json',{cache:'no-store'});
   if(check.ok)approvedArtworkReady=validApprovedArtwork(await check.json());
@@ -534,30 +586,60 @@ function renderCurrent(feed,career) {
    catch{warnings.push('Career highlights temporarily unavailable');}
   }else warnings.push('Career highlights temporarily unavailable');
  }else warnings.push('Career highlights unavailable');
- if(feedResult.status==='fulfilled')renderCurrent(feedResult.value,career);
- // Re-read the independent verified current-season feed once per hour while visible.
- // Never promote point totals into awards, never accept stale or regressing snapshots.
- if(feedResult.status==='fulfilled' && typeof window.setInterval==='function'){
-  let latest=feedResult.value;
+ let latestParticipant=feedResult.status==='fulfilled'&&validParticipant(feedResult.value)?feedResult.value:null;
+ if(latestParticipant)renderCurrent(latestParticipant,career);
+ let displayedTime=latestParticipant?Date.parse(latestParticipant.sourceReference.htoReadback):-Infinity;
+ let latestActual=actualResult.status==='fulfilled'&&validPublishedHTOActuals(actualResult.value)?actualResult.value:null;
+ if(latestActual&&renderPublishedHTOActuals(latestActual,displayedTime,latestParticipant?.season||null))
+  displayedTime=Date.parse(latestActual.asOf);
+ // Source-aware hourly refresh: select the newest independently verified public feed
+ // rather than repeatedly displaying a stale participant/award snapshot.
+ if(typeof window.setInterval==='function'&&(latestParticipant||latestActual)){
   let inflight=false;
   window.setInterval(async()=>{
    if(inflight||document.hidden)return;
    inflight=true;
    try{
-    const response=await fetch(root+'awards-participants.json',{cache:'no-store'});
-    if(!response.ok)return;
-    const incoming=await response.json();
-    if(!validParticipant(incoming))return;
-    const currentTime=Date.parse(latest.sourceReference.htoReadback);
-    const nextTime=Date.parse(incoming.sourceReference.htoReadback);
-    if(!(nextTime>currentTime))return;
-    if(incoming.season===latest.season &&
-       incoming.officialTeamGames<latest.officialTeamGames)return;
-    if(!incoming.players.some(p=>String(p.name||'').localeCompare(
-      identity.name.split(' ').slice(1).join(' ')+', '+identity.name.split(' ')[0],
-      'en-CA',{sensitivity:'base'})===0))return;
-    renderCurrent(incoming,career);
-    latest=incoming;
+    const feeds=await Promise.allSettled(
+      ['awards-participants.json','player-actuals.json'].map(async file=>{
+       const resp=await fetch(root+file,{cache:'no-store'});
+       if(!resp.ok)throw Error(file+' HTTP '+resp.status);
+       return await resp.json();
+      }));
+    const opportunities=[];
+    if(feeds[0].status==='fulfilled'){
+     const next=feeds[0].value;
+     if(validParticipant(next)&&
+       (!latestParticipant||next.season!==latestParticipant.season||
+        next.officialTeamGames>=latestParticipant.officialTeamGames)&&
+       Date.parse(next.sourceReference.htoReadback)>displayedTime){
+      opportunities.push({time:Date.parse(next.sourceReference.htoReadback),kind:'participant',value:next});
+     }
+    }
+    if(feeds[1].status==='fulfilled'){
+     const next=feeds[1].value;
+     if(validPublishedHTOActuals(next)&&
+       (!latestActual||next.season!==latestActual.season||
+        next.teamGP>=latestActual.teamGP)&&
+       Date.parse(next.asOf)>displayedTime)
+      opportunities.push({time:Date.parse(next.asOf),kind:'actual',value:next});
+    }
+    opportunities.sort((a,b)=>b.time-a.time);
+    for(const next of opportunities){
+     if(next.kind==='actual'){
+      if(renderPublishedHTOActuals(next.value,displayedTime,
+          latestParticipant?.season||latestActual?.season||null)){
+       latestActual=next.value;displayedTime=next.time;break;
+      }
+     }else{
+      const wanted=identity.name.split(' ').slice(1).join(' ')+', '+identity.name.split(' ')[0];
+      if(next.value.players.some(p=>String(p.name||'').localeCompare(wanted,'en-CA',
+         {sensitivity:'base'})===0)){
+       renderCurrent(next.value,career);
+       latestParticipant=next.value;displayedTime=next.time;break;
+      }
+     }
+    }
    }catch(e){console.warn('Verified current-season refresh skipped',e);}
    finally{inflight=false;}
   },3600000);
