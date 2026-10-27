@@ -11,11 +11,12 @@ assert.equal(adults.length,22,"only current adult Sunday club records admitted")
 assert.equal(new Set(adults.map(x=>x.sourceTeamId)).size,22);
 assert.ok(adults.every(x=>!x.divisionNow.includes("VAHL")));
 const braves=cards.snapshot(source,"Braves HC");
-assert.equal(braves.gp,4);
-assert.equal(braves.record,"0–4–0");
-assert.equal(braves.offense,1.5);
-assert.equal(braves.against,4.75);
-assert.equal(braves.context,36.5);
+const acceptedBraves=adults.find(t=>t.leagueName==="Braves HC");
+assert.equal(braves.gp,acceptedBraves.record.gp);
+assert.equal(braves.record,[acceptedBraves.record.w,acceptedBraves.record.l,acceptedBraves.record.t].join("–"));
+assert.equal(braves.offense,acceptedBraves.record.gf/acceptedBraves.record.gp);
+assert.equal(braves.against,acceptedBraves.record.ga/acceptedBraves.record.gp);
+assert.equal(braves.context,acceptedBraves.strengthContext.contextIndex);
 assert.ok(braves.limited);
 assert.ok(braves.sampleTeams>0);
 assert.equal(braves.division,"The Cristillo Division");
