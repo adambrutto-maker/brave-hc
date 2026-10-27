@@ -120,8 +120,8 @@ const cases=[
   const x=refine.refine(source,item("CONTINUITY","4-4-6-8"),"CONTINUITY");
   assert.ok(x.turnsEvaluated<=6);
   assert.ok(x.candidateSwapsEvaluated<=6*22*22);
-  assert.ok(x.notes.some(n=>n.includes("not a prediction")||
-      n.includes("not a prediction".toUpperCase())||n.includes("not a game simulation")));
+  assert.ok(x.notes.some(n=>n.includes("No future games are simulated")));
+  assert.ok(x.notes.some(n=>n.includes("not league-approved")||n.includes("not an exhaustive global optimization")));
  }]
 ];
 let fails=0;
