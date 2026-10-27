@@ -1,0 +1,73 @@
+{
+  "schema": "brave-hc-heritage-icons/v1",
+  "basis": "Verified native HTO player Highlights, not inferred statistics or future predictions",
+  "policy": {
+    "artRoss": "Original Brave H.C. design; do not imitate unowned awards marks",
+    "rocketRichard": "Original Brave H.C. design; do not copy NHL trophy logo",
+    "hallOfFame": "Only explicitly inducted people, not candidates or the legacy VOTE artwork",
+    "leadership": "Only previously published HTO elected captain/assistant-captain titles",
+    "discipline": "Restrained neutral caution-record symbol; no celebration of penalties"
+  },
+  "assets": [
+    {
+      "file": "art-ross.svg",
+      "label": "Art Ross Award",
+      "sha256": "c8e6e8e5bbbdb665f6a1662b4caa953f7027f8a1145cacc9e11452999e206e0c",
+      "bytes": 2639,
+      "pixels": [
+        200,
+        200
+      ]
+    },
+    {
+      "file": "rocket-richard.svg",
+      "label": "Rocket Richard Award",
+      "sha256": "3509a85ea40ac892ae4416b6f838219b3e708478eabd5a076d95d31a58e45335",
+      "bytes": 2259,
+      "pixels": [
+        200,
+        200
+      ]
+    },
+    {
+      "file": "hall-of-fame-inductee.svg",
+      "label": "Hall of Fame Inductee",
+      "sha256": "e6495dbb3ccf38ba891b6d20209d81219dd88a448c28eb1b67520b9e1f3a4cee",
+      "bytes": 2533,
+      "pixels": [
+        200,
+        200
+      ]
+    },
+    {
+      "file": "captain.svg",
+      "label": "Elected Team Captain",
+      "sha256": "8e3f0e81fd5eaa5ad1a0162f10a7878bb3e843896e365fcf9f6839c95ae6bee8",
+      "bytes": 1861,
+      "pixels": [
+        200,
+        200
+      ]
+    },
+    {
+      "file": "assistant-captain.svg",
+      "label": "Elected Assistant Captain",
+      "sha256": "318105010ea33bd576198cc386b38d28cd9102f2c4a6bf73686aac50d5750d17",
+      "bytes": 1873,
+      "pixels": [
+        200,
+        200
+      ]
+    },
+    {
+      "file": "discipline-record.svg",
+      "label": "Disciplinary Record",
+      "sha256": "ce66e509d41724ac7869b5c7387d006d14651010b05a5aaba6b346685110d0b9",
+      "bytes": 1913,
+      "pixels": [
+        200,
+        200
+      ]
+    }
+  ]
+}
