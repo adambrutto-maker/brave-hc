@@ -19,8 +19,9 @@ from selenium.webdriver.support.ui import WebDriverWait
 ROOT=Path(__file__).resolve().parents[1]
 LEDGER=json.loads((ROOT/"widgets/player-highlights-ledger.json").read_text(encoding="utf-8"))
 PLAYERS={pid:p for pid,p in LEDGER["players"].items() if p["items"]}
-EXPECTED={"award":105,"club":97,"special":58,"heritage":46}
-ICON_GROUPS={"award":"awards","club":"round-clubs","special":"special","heritage":"heritage"}
+HAS_APPROVED=(ROOT/"widgets/assets/approved/source-manifest.json").is_file()
+EXPECTED={"approved":209,"club":97} if HAS_APPROVED else {"award":105,"club":97,"special":58,"heritage":46}
+ICON_GROUPS={"award":"awards","club":"round-clubs","special":"special","heritage":"heritage","approved":"approved"}
 
 class QuietHandler(http.server.SimpleHTTPRequestHandler):
     def log_message(self,*args): pass
@@ -84,7 +85,7 @@ def run():
                   const expectedPx=arguments[0],rows=[...document.querySelectorAll('#legacy .ph-event')];
                   const imgs=[...document.querySelectorAll('#legacy .ph-event img')];
                   const title=r=>r.querySelector('.ph-event-title')?.textContent||'';
-                  const categories=Object.fromEntries(['awards','round-clubs','special','heritage'].map(g=>[g,
+                  const categories=Object.fromEntries(['awards','round-clubs','special','heritage','approved'].map(g=>[g,
                     imgs.filter(i=>i.getAttribute('src').includes('/assets/'+g+'/')).length]));
                   const wrongSize=imgs.filter(i=> {
                     const r=i.parentElement.getBoundingClientRect();
@@ -112,17 +113,17 @@ def run():
                 assert not data["broken"],(pid,width,"missing assets",data["broken"])
                 assert not data["noImage"],(pid,width,"unbranded highlight",data["noImage"])
                 assert not data["overflow"],(pid,width,"overflow")
-                assert all("james-norris.webp" in u for u in data["norris"]),(pid,"Norris")
-                assert all("cristillo-dedication.webp" in x["logo"] and x["framed"]
+                assert all("james-norris.webp" in u or "james_norris.webp" in u for u in data["norris"]),(pid,"Norris")
+                assert all(("cristillo-dedication.webp" in x["logo"] or "andrew_cristillo.webp" in x["logo"]) and x["framed"]
                           for x in data["patch"]),(pid,"Cristillo black patch lost")
-                assert all("rolaids-relief.webp" in x for x in data["rolaids"]),(pid,"Rolaids")
+                assert all("rolaids-relief.webp" in x or "rolaids_relief.webp" in x for x in data["rolaids"]),(pid,"Rolaids")
                 assert not any("Bill Masterton Award" in x for x in data["titles"]),(pid,"old dedication label")
                 result["sessions"]+=1
                 if width==355:
                     result["highlights"]+=data["rows"]
                     for group,count in data["categories"].items():
                         key={v:k for k,v in ICON_GROUPS.items()}[group]
-                        result["categories"][key]+=count
+                        if count:result["categories"][key]+=count
                     result["blackPatch"]+=len(data["patch"])
                     result["rolaids"]+=len(data["rolaids"])
         assert result["sessions"]==86,result
