@@ -18,9 +18,13 @@
   options.replaceChildren();result.replaceChildren();
   const shapes=sorted(),current=shapes.find(x=>x.divisionCount===3);
   const chosen=selected(),leading=shapes[0];
-  if(!chosen || chosen.groups.some(group=>group.capacity%2!==0) ||
-     chosen.groups.flatMap(group=>group.ids).length!==study.adultTeams)
-    throw Error("Division layout must retain every team and have even-sized divisions");
+  const expectedOdd=study.adultTeams%2;
+  if(!chosen ||
+     chosen.groups.filter(group=>group.capacity%2!==0).length!==expectedOdd ||
+     chosen.groups.some(group=>!window.BraveDivisionArchitect.allowedSizes.includes(group.capacity)) ||
+     chosen.groups.flatMap(group=>group.ids).length!==study.adultTeams ||
+     new Set(chosen.groups.flatMap(group=>group.ids)).size!==study.adultTeams)
+    throw Error("Division layout must retain every team and satisfy parity of total enrollment");
   q("layout-proposed-recommendation").textContent=
     "Model-first research proposal: "+leading.shapeId.split("-").join(" + ")+" teams in "+
       leading.divisionCount+" divisions. "+(focus==="BALANCE"?
@@ -44,7 +48,9 @@
    options.append(button);
   }
   q("layout-proposal-label").textContent="Viewing "+
-    chosen.shapeId.split("-").join(" / ")+" — "+chosen.divisionCount+" draft research divisions";
+    chosen.shapeId.split("-").join(" / ")+" — "+chosen.divisionCount+
+    " research divisions ("+(expectedOdd?
+     "exactly one odd-size division":"every division even-sized")+")";
   q("layout-proposal-comparison").textContent="Within-group descriptive dispersion "+
     as(chosen.dispersion)+"; "+chosen.sameGroupObservedGames+" of "+
     study.sourceAdultGames+" source-confirmed games occurred between clubs now grouped together "+
@@ -96,7 +102,7 @@
    "STATUS: PROVISIONAL MODEL PROPOSAL; NOT APPROVED OR SUBMITTED",
    "Data accepted: "+study.sourceAsOf+"; "+study.adultTeams+" adult Sunday teams.",
    "Source: Fazzari, Cristillo and Remax ONLY. Other leagues excluded.",
-   "MANDATORY: each division must have an EVEN number of teams; permitted sizes 4, 6 and 8.",
+   "MANDATORY: for EVEN overall team total, every division has 4, 6 or 8 teams. For ODD overall team total, exactly ONE division has 5 or 7 teams and every other division has 4, 6 or 8.",
    "Research focus: "+focus,
    "TOP-RANKED STRUCTURE BY THIS OBJECTIVE: "+leader.shapeId.split("-").join("+"),
    "SELECTED DRAFT: "+chosen.shapeId.split("-").join("+"),
@@ -126,6 +132,26 @@
    "ADDITIONAL ACTION REQUIRED: validate rosters, head-to-head competitiveness, ice slots, team consultation and four+ actual weekly observations."
   ].join("\n");
  }
+ function previewEnrollment(total){
+  const container=q("layout-total-patterns"),summary=q("layout-total-preview-status");
+  if(!container||!summary)return;
+  container.replaceChildren();
+  const count=Number(total),patterns=window.BraveDivisionArchitect.patterns(count);
+  summary.textContent="Hypothetical size planning for "+count+" adult teams: "+
+    patterns.length+" legal combinations. "+
+    (count%2===0?"All divisions even-sized.":
+      "Exactly ONE 5- or 7-team division; all others even-sized.")+
+    (count===study.adultTeams?
+      " Source-backed club assignments are available above.":
+      " CAPACITY PLANNING ONLY: no clubs are added, removed or assigned.");
+  for(const sizes of patterns){
+   const card=make("div","week-card");
+   add(card,"strong","",sizes.join(" + ")+" = "+count+" teams");
+   add(card,"small","",sizes.length+" divisions · "+
+      sizes.filter(n=>n%2!==0).length+" odd-sized division(s)");
+   container.append(card);
+  }
+ }
  function init(analysis){
   if(!window.BraveDivisionArchitect)throw Error("Division architect module unavailable");
   study=window.BraveDivisionArchitect.run(analysis);
@@ -146,9 +172,24 @@
     q("layout-copy-result").textContent="Provisional draft copied. It has not been submitted.";
    }catch(_){q("layout-copy-result").textContent="Could not copy; check clipboard permission."}
   });
+  const planned=q("layout-total-preview");
+  if(planned){
+   planned.replaceChildren();
+   const counts=[study.adultTeams-1,study.adultTeams,study.adultTeams+1]
+     .filter(count=>count>=12&&count<=48);
+   for(const count of counts){
+    const option=make("option","",count+" teams"+(count===study.adultTeams?
+      " — accepted current source":" — hypothetical only"));
+    option.value=String(count);planned.append(option);
+   }
+   planned.value=String(study.adultTeams);
+   planned.addEventListener("change",()=>previewEnrollment(planned.value));
+   previewEnrollment(study.adultTeams);
+  }
   q("layout-design-status").textContent=study.exploredShapes+
-    " valid even-sized patterns for "+study.adultTeams+
-    " adult teams. Allowed division team counts: 4, 6 or 8.";
+    " valid parity-constrained patterns for "+study.adultTeams+" verified adult teams."+
+    (study.oddDivisionRequired?" Exactly one 5/7-team division required.":
+      " All divisions have even team counts.");
   paint();
  }
  window.BraveDivisionLayoutView=Object.freeze({init,researchText:textProposal,getSelected:selected});
