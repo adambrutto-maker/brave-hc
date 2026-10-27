@@ -39,6 +39,10 @@ on:
       - 'widgets/division-layout-optimizer.js'
       - 'widgets/division-lineup-refinement.js'
       - 'widgets/roster-strength-scouting.js'
+      - 'widgets/roster-era-strength.js'
+      - 'widgets/roster-era-view.js'
+      - 'widgets/roster-era-view.css'
+      - 'tests/test_roster_era_strength.cjs'
       - 'widgets/roster-division-evidence.js'
       - 'widgets/svhl-roster-intelligence.json'
       - 'scripts/collect_svhl_roster_season_evidence.py'
@@ -106,6 +110,10 @@ on:
       - 'widgets/division-layout-optimizer.js'
       - 'widgets/division-lineup-refinement.js'
       - 'widgets/roster-strength-scouting.js'
+      - 'widgets/roster-era-strength.js'
+      - 'widgets/roster-era-view.js'
+      - 'widgets/roster-era-view.css'
+      - 'tests/test_roster_era_strength.cjs'
       - 'widgets/roster-division-evidence.js'
       - 'widgets/svhl-roster-intelligence.json'
       - 'scripts/collect_svhl_roster_season_evidence.py'
@@ -199,6 +207,8 @@ jobs:
         run: node tests/test_division_lineup_refinement.cjs
       - name: Independently verify public historical player ID and roster team source hashes
         run: python scripts/check_svhl_roster_intelligence.py
+      - name: Verify current-roster same-player-ID historical scoring and era context
+        run: node tests/test_roster_era_strength.cjs
       - name: Verify roster strength scouting, opponent identities and division context
         run: node tests/test_roster_strength_scouting.cjs
       - name: Guard supplemental roster construction across source-qualified division layouts

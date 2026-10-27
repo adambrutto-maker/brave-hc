@@ -1,0 +1,37 @@
+/* HockeyOS roster-age evidence: source-owned, readable on phone and in All data. */
+.era-panel{margin:16px 0;padding:17px;border:1px solid #53768d;border-radius:12px;background:linear-gradient(145deg,#102b41,#092336);color:#f4f7fb}
+.era-panel h3{font-size:18px;margin:7px 0 11px;color:#fff}
+.era-kicker{font-size:11px;font-weight:900;letter-spacing:.09em;color:#f0cd9c}
+.era-stat-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.era-stat{border:1px solid #4a6e86;border-radius:9px;background:#14354d;padding:12px;display:grid;gap:4px;min-width:0}
+.era-stat-label{font-weight:750;font-size:12px;color:#dcebf7}
+.era-stat-value{font-size:19px;overflow-wrap:anywhere;font-weight:900;color:#fff;font-variant-numeric:tabular-nums}
+.era-stat-extra{font-size:11px;color:#bfd5e5;line-height:1.45}
+.era-context{font-size:12px;color:#c9dae6;line-height:1.65;margin:12px 0}
+.era-held{font-size:12px;font-weight:750;color:#f6c7be;border-left:3px solid #e09283;padding:9px}
+.era-detail{border:1px solid #486c82;border-radius:8px;background:#092337;margin-top:13px}
+.era-detail summary{padding:13px 15px;cursor:pointer;color:#fff;font-weight:800}
+.era-detail>p{padding:0 13px}
+.era-scrolling{margin:12px;max-width:100%;overflow-x:auto}
+.era-table{width:100%;min-width:820px;border-collapse:collapse}
+.era-table th,.era-table td{padding:9px 10px;border-bottom:1px solid #38556b;font-size:12px;text-align:left;vertical-align:top}
+.era-table th{font-weight:800;color:#e8d0ac;white-space:normal}
+.era-table td:first-child{font-weight:700;color:#fff}
+.era-table a{color:#acdafa;text-decoration:underline;text-underline-offset:2px}
+.era-past-row{padding:4px 0}
+.era-copy{min-height:43px;margin-top:12px;background:#a92f4c;border:1px solid #e9a5b0;color:#fff;font-size:13px;font-weight:800;padding:10px 15px;border-radius:8px;cursor:pointer}
+.era-copy:hover{background:#ca4964}
+.era-group-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(205px,1fr));gap:10px;margin:14px 0}
+.era-group{border:1px solid #53768d;background:#16374d;border-radius:8px;padding:12px}
+.era-group strong{font-size:15px;color:#fff}
+.era-group p{font-size:12px;line-height:1.55;color:#d9e8f3}
+.era-group small{font-size:11px;color:#c1d3e1}
+@media(max-width:800px){.era-stat-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:490px){
+ .era-panel{padding:12px}
+ .era-stat-grid{gap:7px}
+ .era-stat{padding:10px}
+ .era-stat-value{font-size:16px}
+ .era-stat-label{font-size:11px}
+ .era-group-grid{grid-template-columns:1fr}
+}
