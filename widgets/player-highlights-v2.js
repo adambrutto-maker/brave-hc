@@ -494,6 +494,8 @@ function renderCurrent(feed,career) {
  $('currentSection').hidden=false;
  $('currentSection').setAttribute('aria-label','Dated season snapshot');
  $('currentSection').querySelector('h2').textContent='Season snapshot · '+shortDate(feed.sourceReference.htoReadback);
+ const previousContext=$('form').previousElementSibling;
+ if(previousContext?.classList?.contains('ph-source'))previousContext.remove();
  const context=text('p','These figures use a separate historical snapshot. ','ph-source');
  const bio=text('a','View Bio statistics ↗');
  bio.href='./player-bio.html?playerID='+playerId+'&embed=1';
@@ -533,6 +535,33 @@ function renderCurrent(feed,career) {
   }else warnings.push('Career highlights temporarily unavailable');
  }else warnings.push('Career highlights unavailable');
  if(feedResult.status==='fulfilled')renderCurrent(feedResult.value,career);
+ // Re-read the independent verified current-season feed once per hour while visible.
+ // Never promote point totals into awards, never accept stale or regressing snapshots.
+ if(feedResult.status==='fulfilled' && typeof window.setInterval==='function'){
+  let latest=feedResult.value;
+  let inflight=false;
+  window.setInterval(async()=>{
+   if(inflight||document.hidden)return;
+   inflight=true;
+   try{
+    const response=await fetch(root+'awards-participants.json',{cache:'no-store'});
+    if(!response.ok)return;
+    const incoming=await response.json();
+    if(!validParticipant(incoming))return;
+    const currentTime=Date.parse(latest.sourceReference.htoReadback);
+    const nextTime=Date.parse(incoming.sourceReference.htoReadback);
+    if(!(nextTime>currentTime))return;
+    if(incoming.season===latest.season &&
+       incoming.officialTeamGames<latest.officialTeamGames)return;
+    if(!incoming.players.some(p=>String(p.name||'').localeCompare(
+      identity.name.split(' ').slice(1).join(' ')+', '+identity.name.split(' ')[0],
+      'en-CA',{sensitivity:'base'})===0))return;
+    renderCurrent(incoming,career);
+    latest=incoming;
+   }catch(e){console.warn('Verified current-season refresh skipped',e);}
+   finally{inflight=false;}
+  },3600000);
+ }
  // Auto-refresh existing player iframe when the authoritative verified ledger
  // gets a new readback. Never create a winner from derived/stale stats.
  if(legacyResult.status==='fulfilled' && typeof window.setInterval==='function'){
