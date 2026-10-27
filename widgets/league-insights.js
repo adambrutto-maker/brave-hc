@@ -30,7 +30,9 @@
  }
  function historicalNames(archive,teamName){
   const matches=[];
-  for(const season of archive.seasons)for(const division of season.divisions){
+  const scope=typeof module!=="undefined"&&module.exports?
+    require("./adult-league-scope.js"):window.BraveAdultLeagueScope;
+  for(const season of archive.seasons)for(const division of scope.archiveDivisions(season)){
    if(division.category!==COMP)continue;
    for(const record of division.teams)
     if(exact(record.name,teamName))
@@ -113,7 +115,8 @@
  }
  function divisionReview(league,archive){
   verify(league,archive);
-  const groups=league.divisions.filter(d=>d.competitive).map(d=>{
+  const scope=typeof module!=="undefined"&&module.exports?require("./adult-league-scope.js"):window.BraveAdultLeagueScope;
+  const groups=scope.divisions(league).map(d=>{
    const teams=league.teams.filter(t=>t.divisionNow===d.name);
    const indices=teams.map(t=>t.strengthContext?.contextIndex).filter(Number.isFinite);
    const sorted=[...indices].sort((a,b)=>a-b);
@@ -132,7 +135,7 @@
        spread===null?"Insufficient rated teams.":spread>=20?
        "Wide descriptive ratings spread; review head-to-head and lineup continuity.":"Ratings are closer; verify actual matchup competitiveness."};
   });
-  const eligible=league.teams.filter(t=>league.divisions.some(d=>d.competitive&&d.name===t.divisionNow));
+  const eligible=scope.teams(league);
   const enough=eligible.filter(t=>t.record.gp>=10).length;
   const observedWeeks=league.weeklyLedger.weeks.length;
   const proposalReady=eligible.length>0 && enough/eligible.length>=.75 && observedWeeks>=4;

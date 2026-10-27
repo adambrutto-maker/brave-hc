@@ -5,7 +5,8 @@ const published=JSON.parse(fs.readFileSync(path.join(root,"league-intelligence.j
 const maple=published.teams.find(t=>t.leagueName==="Maplewolves");
 const leagueDivision=published.divisions.find(t=>t.name==="The Cristillo Division");
 const ranked=[...published.teams].filter(t=>t.strengthContext?.rank!==null).sort((a,b)=>a.strengthContext.rank-b.strengthContext.rank);
-const competitiveCount=published.teams.filter(t=>published.divisions.some(d=>d.name===t.divisionNow&&d.competitive)).length;
+const adultScope=require("../widgets/adult-league-scope.js");
+const competitiveCount=adultScope.teams(published).length;
 const archive=JSON.parse(fs.readFileSync(path.join(root,"historical-svhl-standings.json"),"utf8"));
 const historicalLinks=JSON.parse(fs.readFileSync(path.join(root,"brave-historical-verified-games.json"),"utf8"));
 
@@ -31,6 +32,8 @@ const server=http.createServer((req,res)=>{
      rows:document.querySelectorAll("#league-rows tr[data-team]").length,
      divisions:[...document.querySelectorAll("#division-filter option")].map(x=>x.value),
      selected:document.querySelector("#profile-title")?.textContent,
+     teamChoices:[...document.querySelectorAll("#team-filter option")].map(x=>x.value),
+     adultRankValues:[...document.querySelectorAll("#league-rows tr[data-team]")].map(x=>x.lastElementChild?.textContent),
      prior:document.querySelector("#prior-summary")?.textContent,
      historical:document.querySelector("#braves-history")?.textContent,
      fixtures:[...document.querySelectorAll("#fixture-rows tr")].map(x=>x.textContent),
@@ -63,7 +66,7 @@ const server=http.createServer((req,res)=>{
      firstRankedTeam:document.querySelector("#league-rows tr[data-team]")?.dataset.team,
      status:document.querySelector("#source-status")?.textContent
    }));
-   assert.ok(info.contextHeaders.includes("CONTEXT /100")&&info.contextHeaders.includes("CONTEXT RANK"),"descriptive new comparison columns");
+   assert.ok(info.contextHeaders.includes("CONTEXT /100")&&info.contextHeaders.includes("ADULT CONTEXT RANK"),"descriptive new comparison columns");
    assert.equal(info.firstRankedTeam,ranked[0].leagueName,"context order follows current accepted score");
    assert.ok(info.contextBreakdown.includes("Current form")&&info.contextBreakdown.includes("Schedule difficulty")&&info.contextBreakdown.includes("previous winter"));
    assert.ok(info.method.includes(maple.strengthContext.contextIndex.toFixed(1)+"/100")&&info.method.includes("NOT win probability"),"Maplewolves context follows the published model");
@@ -86,14 +89,21 @@ const server=http.createServer((req,res)=>{
    assert.ok(info.movementContent.includes("Sugo Sundays")&&info.movementContent.includes("Maplewolves"));
    assert.ok(info.incomingContent.includes("11–10–3")&&info.incomingContent.includes("Primary Auto")&&
              info.incomingContent.includes("3–6–1"),"prior winter, competition and Braves history visible");
-   assert.equal(info.rows,competitiveCount,"all competitive team entries");
-   assert.equal(info.divisions.length,published.divisions.length+1,"all source divisions plus all");
+   assert.equal(info.rows,competitiveCount,"adult-only competitive team entries");
+   assert.equal(info.teamChoices.length,competitiveCount,"select menu only contains adult teams");
+   assert.ok(!["Philadelphia","Toronto","LA KIngs","Dallas"].some(n=>info.teamChoices.includes(n)),
+      "teams belonging to a separate league are absent from public selectors");
+   assert.deepEqual([...info.adultRankValues].sort((a,b)=>
+      Number(a.slice(1))-Number(b.slice(1))),Array.from({length:22},(_,i)=>"#"+(i+1)),
+      "public ranking spans adult teams only");
+   assert.equal(info.divisions.length,adultScope.divisions(published).length+1,"adult Sunday divisions only");
+   assert.ok(!info.divisions.includes("VAHL Division"),"separate league must not appear in filter");
    assert.equal(info.selected,"Maplewolves");
-   assert.ok(info.archiveStatus.includes(archive.competitiveTeamSeasonEntries+" competitive team-season entries"));
+   assert.ok(info.archiveStatus.includes(adultScope.archiveCompetitiveCount(archive)+" adult-scope competitive team-season entries"));
    assert.ok(info.archiveStatus.includes(historicalLinks.matchedGameCount+" Brave H.C. game/date/score matches"));
    assert.equal(info.archiveChoices,archive.seasons.length);
-   assert.equal(info.archivedDivisionCount,archive.seasons.at(-1).divisions.length);
-   assert.equal(info.balanceCount,published.currentDivisionCount);
+   assert.equal(info.archivedDivisionCount,adultScope.archiveDivisions(archive.seasons.at(-1)).length);
+   assert.equal(info.balanceCount,adultScope.divisions(published).length);
    assert.ok(info.balanceText.includes("Division changes are not recommended yet"),
       "early-season ranking may not be presented as league realignment recommendation");
    assert.equal(info.pastCards,new Set(historicalLinks.teamSeasons.map(g=>g.season+"|"+g.officialDivision)).size>12?12:

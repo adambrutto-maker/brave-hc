@@ -41,6 +41,9 @@ footer{margin-top:25px;color:var(--muted);font-size:11px}
  <p class="small">All test layouts retain the current sizes of the three adult divisions. A lower dispersion number means the descriptive ratings sit closer together <em>within</em> groups; it does not guarantee fairer games.</p>
  <div id="scenario-options" class="scenario-grid" role="group" aria-label="Select a grouping experiment"></div>
  <p id="scenario-info" class="notes"></p>
+ <h3>What actual head-to-head games support this grouping?</h3>
+ <div id="scenario-evidence" class="metrics" aria-label="Retrospective observed-game evidence for selected grouping"></div>
+ <p id="scenario-evidence-caution" class="notes">Observed games cannot demonstrate what would happen if divisions were changed.</p>
  <div id="division-groups" class="division-grid"></div>
 </section>
 <section aria-labelledby="gate-title"><h2 id="gate-title">Can we responsibly make a recommendation yet?</h2>
@@ -53,9 +56,9 @@ footer{margin-top:25px;color:var(--muted);font-size:11px}
  <button id="copy-research" type="button">Copy research note</button> <button id="print-research" type="button">Print research view</button>
  <p id="copy-feedback" class="small" role="status" aria-live="polite"></p>
  <details><summary>Methodology, source boundaries and exclusions</summary>
- <p class="small">The current season index uses verified reciprocal games, smoothed goal and W/L/T performance, schedule difficulty and independently qualified prior-winter results where supported. It is not a calibrated ranking or win probability. Alternative grouping layouts are read-only arithmetic exercises; no division changes are made. Playoff placeholders and separately named VAHL entries are held outside the initial adult-grouping scope pending eligibility review. Historical Brave H.C. game matches prove opponents and scores in a specific season, not roster continuity in 2026. No same-named older team is automatically credited with current strength. Four accepted weeks, at least ten games for 75% of the adult pool and independent cross-division fixtures are minimum evidence thresholds; none substitutes for human review.</p>
+ <p class="small">The current season index uses verified reciprocal games, smoothed goal and W/L/T performance, schedule difficulty and independently qualified prior-winter results where supported. It is not a calibrated ranking or win probability. Alternative grouping layouts are read-only arithmetic exercises; no division changes are made. Other leagues and placeholder categories are outside this adult Sunday division comparison. Historical Brave H.C. game matches prove opponents and scores in a specific season, not roster continuity in 2026. No same-named older team is automatically credited with current strength. Four accepted weeks, at least ten games for 75% of the adult pool and independent cross-division fixtures are minimum evidence thresholds; none substitutes for human review.</p>
  </details>
 </section>
 <footer>Sources: <a href="https://leagues.sportsvillage.ca/Leagues.aspx?leagueid=570&amp;page_type=Adult&amp;sc=HOCKEY">Official Sunday Winter 2026/27 standings</a> · <a href="./league-intelligence.html">Verified HockeyOS League Intelligence</a>. Source and methodology are date-stamped in the copied report. No original HTO, Sports Village, goalie or Master Workbook records are modified.</footer>
-</main><script src="./division-fit-model.js?v=20261026-research1" defer></script>
-<script src="./division-fit-lab.js?v=20261026-research1" defer></script></body></html>
+</main><script src="./adult-league-scope.js?v=20261026-adult1" defer></script><script src="./division-fit-model.js?v=20261026-adult1" defer></script>
+<script src="./division-fit-lab.js?v=20261026-adult1" defer></script></body></html>
