@@ -11,7 +11,7 @@ The old League Intelligence page explains current team form but is not a complet
 - VAHL's four season entries are shown as a **separate, pending-eligibility competition** and are not casually mixed into the adult team-realignment example. Noncompetitive playoff placeholder also excluded.
 - **43** distinct verified completed games have both current participants inside this pool, **16** of which were played between teams in different **currently recorded** divisions; **27** are within current divisions. The divisions at the date of each game are not inferred.
 - Current season source only has one weekly observation; sample counts are early, not statistically validated.
-- Separate historical source: 79 previously admitted Brave H.C. matches against 35 historical team-seasons, 24 held comparisons. They contextualize historical competition but **do not** silently boost 2026/27 strength or prove continuing roster identity.
+- Separate historical source: 79 independently admitted Brave H.C. matches against 35 historical team-seasons, 43 held comparisons after extending the 2016/17 source audit. They contextualize historical competition but **do not** silently boost 2026/27 strength or prove continuing roster identity.
 
 ## Analysis design
 Read-only `widgets/division-fit-model.js` runs in Node and the browser with the identical code. `analyze(league,history)` confirms source schema, official W/L/T and completed-game parity, stable team IDs, a nonpredictive strength index, accepted weekly history, and historic source-provenance restrictions before returning its report.

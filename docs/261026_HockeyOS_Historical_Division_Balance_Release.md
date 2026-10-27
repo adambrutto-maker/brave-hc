@@ -9,12 +9,12 @@ Support game preparation and an eventual evidence-backed Sports Village division
 
 ## Historical sources admitted
 
-- **Official Sports Village Sunday Winter standings:** 2018/19 (league 420), 2021/22 (476), 2022/23 (494), 2023/24 (512), 2024/25 (531) and 2025/26 (547). Six source-hash-pinned seasons, 49 published division tables and 175 competitive team-season entries (excluding auxiliary old-timers and playoff-placeholder tables).
+- **Official Sports Village Sunday Winter standings:** 2016/17 (league 375), 2018/19 (420), 2021/22 (476), 2022/23 (494), 2023/24 (512), 2024/25 (531) and 2025/26 (547). Seven source-hash-pinned seasons, 54 published division tables and 195 competitive team-season entries (excluding auxiliary old-timers and playoff-placeholder tables).
 - Sports Village's archived page markup changed around the earlier seasons; the standalone historical parser accepts both the older logo-bearing division headings and newer ones, without altering the existing live collector.
 - The original Brave H.C. **Master Workbook is unchanged** and SHA256-pinned to `0002fd9f06596af8d0a00fc1b53a618ef15479f941ad5c1e6265b27002a65154`. Its private source stage covers 358 completed games from May 5, 2013 through March 22, 2026, across 17 source-labelled seasons.
-- A private season/name matching review identified 41 same-season, exact-name candidates. A second independent check against the official archived TeamInfo game schedule admitted **79 game-date/opponent/opposite-perspective-score comparisons** across 35 season-team sources and held **24** game comparisons, including cases where the public site displayed unverified 0–0 placeholders. All 15 2018/19 Master candidate comparisons remained held; no invented bridge was created.
+- A private season/name matching review identified 47 same-season, exact-name candidates. A second independent check against the official archived TeamInfo game schedule admitted **79 game-date/opponent/opposite-perspective-score comparisons** across 35 season-team sources and held **43** game comparisons, including cases where the public site displayed unverified 0–0 placeholders. All 15 2018/19 Master candidate comparisons remained held; no invented bridge was created.
 - Only the **79 admitted**, privacy-minimal team-season game facts are published in `widgets/brave-historical-verified-games.json`, with official original team page URL, source page SHA, Master source SHA, season, date, opponent, Brave GF/GA/result and qualified aggregate. No player roster details, private file paths or unrelated Master game rows are exported.
-- **2019/20 and 2020/21 official league archives remain unresolved.** The Brave Master still supplies historical context for those seasons privately; missing official archives are not silently reconstructed.
+- **2017/18, 2019/20 and 2020/21 official league archives remain unresolved.** The Brave Master still supplies historical context for those seasons privately; missing official archives are not silently reconstructed.
 
 ## Identity and statistical separation
 
@@ -45,7 +45,7 @@ The League Intelligence page now adds:
 - Qualified previous-winter performance and Brave H.C. historical head-to-head records clearly separated from same-name unqualified historical archive entries.
 - Links to **source-confirmed Brave H.C. game observations** for matching archived team-seasons, each labelled not proof of a current roster link.
 - Current division balance summaries (team count, average games, range/spread of 0–100 descriptive index, and cross-division game observations).
-- A six-season browsable original standings archive, with original official links and visibly separated ancillary/noncompetitive sections.
+- A seven-season browsable original standings archive, with original official links and visibly separated ancillary/noncompetitive sections.
 - A human-readable **Copy division review notes** action; no sending to league management or other staff.
 
 ## Readiness threshold for division realignment

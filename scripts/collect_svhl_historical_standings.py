@@ -13,7 +13,7 @@ from urllib.parse import urlparse,parse_qs
 import hashlib,json,re,sys
 from collect_svhl_league_intelligence import BASE,get,url_league,Parsed,HEAD
 SCHEMA="brave-hc-svhl-historical-divisions/v1"
-SEASONS=((420,"2018/19"),(476,"2021/22"),(494,"2022/23"),
+SEASONS=((375,"2016/17"),(420,"2018/19"),(476,"2021/22"),(494,"2022/23"),
          (512,"2023/24"),(531,"2024/25"),(547,"2025/26"))
 SEASON_IDS={i for i,_ in SEASONS}
 TABLE=re.compile(r'(?is)<b\s+class="blue">\s*([^<]+)\s*</b>\s*<br\s*/?>\s*(?:<img\b[^>]*>\s*)?<div>\s*<table\s+class="Grid"[^>]*>(.*?)</table>')
@@ -82,7 +82,7 @@ def build(captures,now=None):
          "seasonsCollected":len(years),
          "competitiveTeamSeasonEntries":sum(x["competitiveTeamEntries"] for x in years),
          "sourceScope":"OFFICIAL_SEASON_STANDINGS_NOT_CROSS_SEASON_TEAM_IDENTITY",
-         "missingSeasonsNotInferred":["2019/20","2020/21"],
+         "missingSeasonsNotInferred":["2017/18","2019/20","2020/21"],
          "identityRule":"Sports Village team IDs identify a single league season. Matching names across years are search candidates, not verified roster/franchise continuity.",
          "publishedPersonalRosterData":False}
 def validate(data):

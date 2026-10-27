@@ -338,7 +338,7 @@
     (historicalLinks?historicalLinks.matchedGameCount+" Brave H.C. game/date/score matches across "+
       historicalLinks.matchedTeamSeasonGroups+" historical team-seasons; "+
       historicalLinks.heldGameComparisons+" held. ":"Historical game joins remain held. ")+
-    "2019/20 and 2020/21 official archive gaps remain unverified.";
+    doc.missingSeasonsNotInferred.join(", ")+" official archive gaps remain unverified.";
    renderArchive();renderBalance();
   }catch(err){
    q("archive-status").textContent="Archived season data held: "+err.message;
