@@ -49,14 +49,14 @@
    (Number.isNaN(timestamp.getTime())?data.asOf:timestamp.toLocaleString("en-CA",{dateStyle:"medium",timeStyle:"short"}))+
    " · every reported nonzero result confirmed from both teams";
   const info=q("overview");info.replaceChildren();
-  tile(info,data.currentDivisionCount,"Competitive divisions");
-  tile(info,data.currentLeagueTeamCount,"Team entries, including playoff placeholder");
+  tile(info,window.BraveAdultLeagueScope.divisions(data).length,"Adult Sunday divisions");
+  tile(info,window.BraveAdultLeagueScope.teams(data).length,"Adult Sunday teams");
   tile(info,data.verifiedReciprocalCompletedGames,"Verified completed matchups");
   tile(info,data.priorSeasonRosterContinuityQualifiedCount,"Prior-winter roster-supported team links");
   const divisions=q("division-filter");divisions.replaceChildren();divisions.add(new Option("All competitive divisions","all"));
-  for(const x of data.divisions)divisions.add(new Option(x.name+(x.competitive?"":" · playoff placeholder"),x.name));
+  for(const x of window.BraveAdultLeagueScope.divisions(data))divisions.add(new Option(x.name,x.name));
   const teams=q("team-filter");teams.replaceChildren();
-  for(const x of [...data.teams].sort((a,b)=>a.displayName.localeCompare(b.displayName)))
+  for(const x of window.BraveAdultLeagueScope.teams(data).sort((a,b)=>a.displayName.localeCompare(b.displayName)))
    teams.add(new Option(x.displayName+" · "+x.divisionNow,x.leagueName));
  }
  function movement(){
@@ -213,11 +213,14 @@
   if(!historicalArchive)return;
   const season=historicalArchive.seasons.find(x=>x.season===q("archive-season").value);
   if(!season)return;
-  const top=text(box,"p","small",season.competitiveTeamEntries+
-   " competitive team-season entries · "+season.divisionCount+" published division tables.");
+  const eligible=window.BraveAdultLeagueScope.archiveDivisions(season);
+  const count=eligible.filter(d=>d.category==="COMPETITIVE_SUNDAY_DIVISION")
+    .reduce((n,d)=>n+d.teams.length,0);
+  const top=text(box,"p","small",count+" adult-scope competitive team-season entries · "+
+    eligible.length+" historical division tables.");
   const source=text(box,"a","sourcelink","View original Sports Village "+season.season+" source");
   source.href=season.source;source.target="_blank";source.rel="noopener noreferrer";
-  for(const division of season.divisions){
+  for(const division of window.BraveAdultLeagueScope.archiveDivisions(season)){
    const details=el("details","archive-division");
    const meta=division.category==="COMPETITIVE_SUNDAY_DIVISION"?"competitive":
       "separate/placeholder category";
@@ -333,8 +336,8 @@
     selector.add(new Option(season.season,season.season));
    selector.addEventListener("change",renderArchive);
    q("archive-status").textContent=doc.seasons.length+
-    " official winter archives, "+doc.competitiveTeamSeasonEntries+
-    " competitive team-season entries. "+
+    " official winter archives, "+window.BraveAdultLeagueScope.archiveCompetitiveCount(doc)+
+    " adult-scope competitive team-season entries. "+
     (historicalLinks?historicalLinks.matchedGameCount+" Brave H.C. game/date/score matches across "+
       historicalLinks.matchedTeamSeasonGroups+" historical team-seasons; "+
       historicalLinks.heldGameComparisons+" held. ":"Historical game joins remain held. ")+
@@ -528,8 +531,7 @@
  }
  function table(){
   const choice=q("division-filter").value;
-  const cards=data.teams.filter(t=>choice==="all"?
-    data.divisions.some(x=>x.name===t.divisionNow&&x.competitive):t.divisionNow===choice);
+  const cards=window.BraveAdultLeagueScope.teams(data).filter(t=>choice==="all"||t.divisionNow===choice);
   const byContext=q("sort-field").value==="context";
   cards.sort((a,b)=>byContext?
     ((b.strengthContext?.contextIndex??-1)-(a.strengthContext?.contextIndex??-1) ||
@@ -546,7 +548,8 @@
    text(row,"td","score",dec(x.goalDiffPerGame));
    text(row,"td","score",pct(x.opponentCurrentWinPctAverage));
    text(row,"td","context-score",x.strengthContext.contextIndex===null?"—":x.strengthContext.contextIndex.toFixed(1));
-   text(row,"td","score",x.strengthContext.rank===null?"—":"#"+x.strengthContext.rank);
+   const adultRank=window.BraveAdultLeagueScope.adultRanks(data).get(x.sourceTeamId);
+   text(row,"td","score",adultRank?"#"+adultRank:"—");
    row.addEventListener("click",()=>choose(x.leagueName));
    row.addEventListener("keydown",event=>{
     if(event.key==="Enter"||event.key===" "){event.preventDefault();choose(x.leagueName)}
@@ -618,7 +621,7 @@
      score.priorWinterForm.toFixed(1)+"/100 · previous season weighted 15%");
    const weights=score.weights;
    q("strength-method").textContent="Context index "+score.contextIndex.toFixed(1)+
-    "/100 · "+(score.rank===null?"unranked playoff placeholder":"#"+score.rank+" among competitive teams")+
+    "/100 · "+(window.BraveAdultLeagueScope.adultRanks(data).has(x.sourceTeamId)? "#"+window.BraveAdultLeagueScope.adultRanks(data).get(x.sourceTeamId)+" among adult Sunday teams":"not ranked in adult Sunday league")+
     " · "+score.confidence.replace(/_/g," ").toLowerCase()+
     " · "+(weights.currentForm*100).toFixed(0)+"% current form, "+
     (weights.scheduleDifficulty*100).toFixed(0)+"% schedule difficulty, "+
@@ -667,19 +670,19 @@
   q("profile-source").textContent="Official source: "+x.source+
    ". Opponent division names are current at capture, not necessarily their division when each game was played.";
  }
- function choose(name){selected=name;q("team-filter").value=name;table();profile()}
+ function choose(name){if(!window.BraveAdultLeagueScope.teams(data).some(t=>t.leagueName===name))return;selected=name;q("team-filter").value=name;table();profile()}
  async function init(){
   try{
    const response=await fetch("./league-intelligence.json",{cache:"no-store"});
    if(!response.ok)throw Error("Source not yet published");
    const result=await response.json();
    if(!trusted(result))throw Error("Published league-source agreement not validated");
-   if(!window.BraveLeagueScouting)throw Error("Verified scouting module unavailable");
+   if(!window.BraveLeagueScouting||!window.BraveAdultLeagueScope)throw Error("Verified scouting/adult scope modules unavailable");
    data=result;setup();movement();renderScoutingBoard();
    await loadHistoricalArchive();
    const name=new URLSearchParams(location.search).get("team");
-   selected=data.teams.some(x=>x.leagueName===name)?name:
-    data.teams.some(x=>x.leagueName==="Maplewolves")?"Maplewolves":"Braves HC";
+   selected=window.BraveAdultLeagueScope.teams(data).some(x=>x.leagueName===name)?name:
+    window.BraveAdultLeagueScope.teams(data).some(x=>x.leagueName==="Maplewolves")?"Maplewolves":"Braves HC";
    q("division-filter").addEventListener("change",table);
    q("sort-field").addEventListener("change",table);
    q("team-filter").addEventListener("change",event=>choose(event.target.value));
