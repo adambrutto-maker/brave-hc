@@ -18,7 +18,7 @@ from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import urlparse,parse_qs
 from urllib.request import Request,urlopen
-import json,re,sys,unicodedata
+import json,re,sys,unicodedata,time
 from collect_svhl_league_intelligence import get,url_team
 from collect_svhl_roster_season_evidence import roster as parse_roster
 
@@ -43,6 +43,14 @@ def fetch_game(url):
   raw=resp.read(350001)
  need(0<len(raw)<=350000,"GAMEINFO_SOURCE_SIZE_HOLD")
  return raw.decode("utf8",errors="replace"),sha256(raw).hexdigest()
+def read_retry(fetch,url,limit=3):
+ last=None
+ for attempt in range(limit):
+  try:return fetch(url)
+  except (TimeoutError,OSError) as err:
+   last=err
+   if attempt+1<limit:time.sleep(1.25*(attempt+1))
+ raise EventHold("OFFICIAL_SOURCE_TIMEOUT_OR_NETWORK_HOLD:"+str(last)[:120])
 def url_game(lid,gid):
  need(lid in ALLOW and type(gid) is int and gid>0,"GAME_ID_NOT_ALLOWED")
  return f"https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid={lid}&gameid={gid}&page_type=Adult"
@@ -139,7 +147,7 @@ def season_games(lid,teams,fetch=get):
  byid={t["sourceTeamId"]:t for t in teams}
  need(len(byid)==len(teams),"DUPLICATE_TEAM_IDENTIFIER")
  def worker(t):
-  html,sha=fetch(url_team(lid,t["sourceTeamId"]))
+  html,sha=read_retry(fetch,url_team(lid,t["sourceTeamId"]))
   fixt,held=team_sheet(lid,t,html,sha)
   players=parse_roster(lid,t,html,sha)
   return {"leagueId":lid,"sourceTeamId":t["sourceTeamId"],"name":t["name"],
@@ -252,7 +260,7 @@ def collect_games(lid,season,fetch=fetch_game):
     for t in season["teams"]}
  evidence=[];hold=[]
  def worker(g):
-  html,sha=fetch(url_game(lid,g["gameId"]))
+  html,sha=read_retry(fetch,url_game(lid,g["gameId"]))
   return official_game(lid,g,html,sha,rosters)
  with ThreadPoolExecutor(max_workers=6) as pool:
   fut={pool.submit(worker,g):g for g in candidates}
