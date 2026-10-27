@@ -29,3 +29,7 @@ Run `python -B scripts/check_eng59_release_evidence.py` in the isolated source c
 All 48 source-owner **bundles** are case groupings, not a claim of 48 independent score fixes or proportion of engineering tasks completed.
 
 **Candidate release status:** developer-tested and CI guarded, **independent QA PENDING**, source owner corrections PENDING, **PR draft/unmerged**, no production approval. Reviewer should specifically distinguish the source-only scouting UI's potential release from later scoring correction and Video Intelligence calibration gates rather than blocking every feature on unrelated evidence.
+
+## Fresh isolated checkout QA (October 27)
+
+An actual new `git clone --single-branch` on BRUTTECH 1 independently reproduced a platform-only snapshot failure: in the source checkout Git converted committed JSON file line endings to CRLF. All other scoped offline tests passed, but the two `--check` snapshot reproduction commands compared original LF text bytes and failed. This was **not** an official score/source change. The revised builders normalize only JSON snapshot worktree line endings for equality; the SHA256 source-input policy already canonicalizes Git LF bytes, and independent source URL/game/score validations remain strict. Two negative tests verify CRLF acceptance *and* refusal of genuine content drift. Recheck the original and a freshly fetched isolated clone, then retain original source-owner and independent release review gates. Developer/automated QA cannot self-approve PR merge or publication.

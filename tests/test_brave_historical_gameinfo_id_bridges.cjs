@@ -1,6 +1,6 @@
 "use strict";
 const fs=require("node:fs"),assert=require("node:assert/strict"),path=require("node:path");
-const {build,gitSourceHash}=require("../scripts/build_brave_historical_gameinfo_id_bridges.cjs");
+const {build,gitSourceHash,snapshotEquals}=require("../scripts/build_brave_historical_gameinfo_id_bridges.cjs");
 const dir=path.resolve(__dirname,"../widgets");
 const read=n=>fs.readFileSync(path.join(dir,n));
 const src=JSON.parse(read("brave-historical-verified-games.json"));
@@ -11,6 +11,12 @@ const hashes={historicalVerifiedJSON:gitSourceHash(read("brave-historical-verifi
  seasons:Object.fromEntries(leagues.map(lid=>[lid,gitSourceHash(inputs[lid])]))};
 const clone=x=>JSON.parse(JSON.stringify(x));
 const tests=[
+ ["Cross-platform Git snapshot accepts CRLF checkout and rejects substantive mutations",()=>{
+  const expected=JSON.stringify({league:547,game:122910},null,2)+"\n";
+  const windows=expected.split(String.fromCharCode(10)).join(String.fromCharCode(13,10));
+  assert.equal(snapshotEquals(expected,windows),true);
+  assert.equal(snapshotEquals(expected,windows.replace("122910","122999")),false);
+ }],
  ["All 79 cross-source Brave H.C. meetings have a unique historical official GameInfo ID",()=>{
   const d=build(src,seasons,hashes);
   assert.equal(d.matchedHistoricalGames,79);

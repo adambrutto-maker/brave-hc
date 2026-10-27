@@ -7,6 +7,9 @@
 const fs=require("node:fs"),path=require("node:path"),crypto=require("node:crypto");
 const need=(x,s)=>{if(!x)throw Error("HISTORICAL_GAMEINFO_ID_BRIDGE_HOLD:"+s)};
 const hex=/^[0-9a-f]{64}$/;
+// Git snapshots use LF; normalize only worktree CRLF for equality checks.
+const snapshotEquals=(expected,actual)=>
+  actual.split(String.fromCharCode(13,10)).join(String.fromCharCode(10))===expected;
 const gitSourceHash=buf=>crypto.createHash("sha256").update(
   buf.toString("utf8").split(String.fromCharCode(13,10)).join(String.fromCharCode(10))
 ).digest("hex");
@@ -156,7 +159,7 @@ function main(){
  const dest=path.join(root,"widgets","brave-historical-gameinfo-ids.json");
  const out=JSON.stringify(result,null,2)+"\n";
  if(process.argv.includes("--check")){
-  need(fs.existsSync(dest)&&fs.readFileSync(dest,"utf8")===out,
+  need(fs.existsSync(dest)&&snapshotEquals(out,fs.readFileSync(dest,"utf8")),
    "CHECK_ONLY_GAMEINFO_HISTORICAL_SOURCE_NOT_REPRODUCIBLE");
  }else fs.writeFileSync(dest,out,"utf8");
  console.log(JSON.stringify({status:"HISTORICAL_GAMEINFO_EXACT_MATCH_PASS",
@@ -166,4 +169,4 @@ function main(){
   writesOriginalSource:false,joinsToCurrentStrength:false}));
 }
 if(require.main===module)main();
-module.exports={build,gitSourceHash};
+module.exports={build,gitSourceHash,snapshotEquals};

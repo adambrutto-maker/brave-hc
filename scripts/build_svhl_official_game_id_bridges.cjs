@@ -7,6 +7,10 @@
 const fs=require("node:fs"),path=require("node:path"),crypto=require("node:crypto");
 const fit=require("../widgets/division-fit-model.js");
 const hex=/^[a-f0-9]{64}$/;
+// Git blobs store LF; a fresh Windows checkout may present CRLF in JSON.
+// Compare canonical text only: all content, IDs, source hashes must match.
+const snapshotEquals=(expected,actual)=>
+  actual.split(String.fromCharCode(13,10)).join(String.fromCharCode(10))===expected;
 // Git stores source JSON with LF, while Windows may check out CRLF.
 // Hash the canonical UTF-8 Git-blob bytes, not local worktree line endings.
 const gitBlobSHA256=buf=>crypto.createHash("sha256").update(
@@ -148,7 +152,7 @@ function main(){
  const serialized=JSON.stringify(result,null,2)+"\n";
  const dest=path.join(root,"widgets","svhl-official-game-id-bridges.json");
  if(checkOnly){
-   need(fs.existsSync(dest)&&fs.readFileSync(dest,"utf8")===serialized,
+   need(fs.existsSync(dest)&&snapshotEquals(serialized,fs.readFileSync(dest,"utf8")),
         "CHECK_ONLY_SOURCE_BRIDGE_SNAPSHOT_NOT_REPRODUCIBLE");
  }else fs.writeFileSync(dest,serialized);
  console.log(JSON.stringify({status:"OFFICIAL_IDENTITY_CROSSWALK_PASS",
@@ -158,4 +162,4 @@ function main(){
   publisherWrites:false,officialStatisticsModified:false}));
 }
 if(require.main===module)main();
-module.exports={build};
+module.exports={build,snapshotEquals};

@@ -1,6 +1,6 @@
 "use strict";
 const fs=require("node:fs"),assert=require("node:assert/strict"),path=require("node:path"),crypto=require("node:crypto");
-const build=require("../scripts/build_svhl_official_game_id_bridges.cjs").build;
+const {build,snapshotEquals}=require("../scripts/build_svhl_official_game_id_bridges.cjs");
 const root=path.resolve(__dirname,"../widgets");
 const input=x=>fs.readFileSync(path.join(root,x));
 const doc=x=>JSON.parse(input(x).toString("utf8"));
@@ -15,6 +15,12 @@ const opts={sourceHashPolicy:"UTF8_LF_GIT_BLOB",
 const copy=x=>JSON.parse(JSON.stringify(x));
 const good=()=>build(league,official,opts);
 const tests=[
+ ["Checkout CRLF does not break a canonical LF snapshot, but content drift is still refused",()=>{
+  const expected=JSON.stringify({a:1,b:2},null,2)+"\n";
+  const clonedWindows=expected.split(String.fromCharCode(10)).join(String.fromCharCode(13,10));
+  assert.equal(snapshotEquals(expected,clonedWindows),true);
+  assert.equal(snapshotEquals(expected,clonedWindows.replace("2","3")),false);
+ }],
  ["Official GameInfo IDs identify all 54 source-only adult matchups without score changes",()=>{
   const bridge=good();
   assert.equal(bridge.officialGames,54);
