@@ -34,8 +34,8 @@
     new Date(index.acceptedLeagueAsOf).toLocaleString("en-CA")+
     ". Public player source captured "+new Date(index.rosterAsOf).toLocaleString("en-CA")+
     ". "+(current?
-     current.sourceCurrentSnapshotMatches+" current-season game sheets match the accepted HockeyOS snapshot; "+
-     extra+" other live completed GameInfo sheets need league snapshot reconciliation. ":"")+
+     current.sourceCurrentSnapshotMatches+" current-season GameInfo sheets matched the league snapshot AT AUDIT CAPTURE; "+
+     extra+" additional sheets were outside that earlier snapshot (they may already appear in a more recent accepted league feed). ":"")+
     "Games played and penalty minutes are NOT independently verified by scoring events. Published season totals are never silently changed.";
  }
  function teams(){
