@@ -1,0 +1,16 @@
+{
+  "schema": "brave-hc-special-icons-browser-acceptance/v1",
+  "profiles": 86,
+  "highlights": 306,
+  "awardImages": 105,
+  "clubImages": 97,
+  "specialImages": 58,
+  "norrisVerified": 16,
+  "missedAssets": 0,
+  "overflow": 0,
+  "widths": [
+    355,
+    810
+  ],
+  "status": "PASS"
+}

@@ -33,6 +33,14 @@ for(const art of clubManifest.assets){
  assert.equal(crypto.createHash('sha256').update(bytes).digest('hex'),art.sha256);
  assert(bytes.toString('utf8').includes('<svg')&&!bytes.toString('utf8').includes('<script'));
 }
+const specialManifest=parse('widgets/assets/special/source-manifest.json');
+assert.equal(specialManifest.schema,'brave-hc-special-emblems/v1');
+assert.equal(specialManifest.assets.length,3);
+for(const a of specialManifest.assets){
+ const b=fs.readFileSync('widgets/assets/special/'+a.file);
+ assert.equal(b.length,a.bytes);assert.equal(crypto.createHash('sha256').update(b).digest('hex'),a.sha256);
+ assert(b.toString('utf8').includes('<svg')&&!b.toString('utf8').includes('<script'));
+}
 const corrections=parse('widgets/player-highlights-display-corrections.json');
 const feeds={'player-highlights-ledger.json':ledger,'awards-participants.json':parse('widgets/awards-participants.json'),'player-career-insights.json':career,'player-record-book.json':book,'player-highlights-display-corrections.json':corrections};
 const expectedCorrections={
@@ -51,7 +59,7 @@ async function render(id,overrides={}){
  vm.runInContext(links,context);vm.runInContext(code,context);await new Promise(setImmediate);return nodes;
 }
 (async()=>{
- let profiles=0,highlights=0,records=0,corrected=0,awardLogoDisplays=0,milestoneLogoDisplays=0,retitledDedications=0;
+ let profiles=0,highlights=0,records=0,corrected=0,awardLogoDisplays=0,milestoneLogoDisplays=0,retitledDedications=0,specialLogoDisplays=0;
  assert.deepEqual(corrections.corrections.map(c=>[c.itemID,c.displayText,c.sortDate]),Object.entries(expectedCorrections).map(([id,c])=>[id,c.text,c.date]));
  for(const [id,p] of Object.entries(career.players)){
  const n=await render(id);assert.equal(n.playerName.textContent,p.name);assert(n.notice.hidden,id+' unexpected warning');
@@ -62,6 +70,7 @@ async function render(id,overrides={}){
  assert.equal(n.legacy.children.length,items.length);
  awardLogoDisplays+=n.legacy.children.filter(row=>row.children[0].children.some(child=>child.tagName==='img'&&child.src.includes('assets/awards/'))).length;
  milestoneLogoDisplays+=n.legacy.children.filter(row=>row.children[0].children.some(child=>child.tagName==='img'&&child.src.includes('assets/clubs/'))).length;
+ specialLogoDisplays+=n.legacy.children.filter(row=>row.children[0].children.some(child=>child.tagName==='img'&&child.src.includes('assets/special/'))).length;
  for(let i=0;i<items.length;i++){
   const item=items[i],isHistoricDedication=item.category==='award'&&/^Bill Masterton Award for (?:Dedication|Decidation)\b/i.test(item.sourceText);
   const expectedText=(expectedCorrections[item.id]?.text||item.displayText).replace(isHistoricDedication?/^Bill Masterton Award for (?:Dedication|Decidation)\b/i:/^$/,'Andrew Cristillo Award for Dedication');
@@ -92,7 +101,8 @@ async function render(id,overrides={}){
  assert.equal(corrected,4);
  assert.equal(retitledDedications,10,'All ten historically named award wins must be retitled');
  assert.equal(milestoneLogoDisplays,97,'Every verified club milestone must show a branded emblem');
- assert.equal(awardLogoDisplays,104,'No award logo coverage regression');
+ assert.equal(awardLogoDisplays,105,'James Norris composite winner must display existing artwork');
+ assert.equal(specialLogoDisplays,58,'All 51 championship rows, 1 composite Cup and 6 All-Star rows must show specials');
  assert.equal(ledger.players['354054'].items[0].sourceText,'Bill Masterton Award for Dedication - Winter 2024/25',
    'Native original historical wording must be preserved for audit');
  const expanded=async(id,overrides={})=>{const n=await render(id,overrides);if(!n.expand.hidden)n.expand.onclick();return n;};
@@ -121,7 +131,6 @@ async function render(id,overrides={}){
  }
  for(const [id,label] of [
    ['354049','Hall of Fame Inductee'],
-   ['354054','All-Star Nomination'],
    ['354061','Art Ross Award'],
    ['354061','Rocket']
  ]){
@@ -135,6 +144,25 @@ async function render(id,overrides={}){
  const noFalseWin=await expanded('354060',{'player-highlights-ledger.json':forged});
  assert(noFalseWin.legacy.children.find(x=>x.children[1].textContent.includes('Hart Award')).children[0].children.length===0,
   'Non-award source category must not gain winning emblem');
+for(const [id,label,file] of [
+  ['354054','SVHL Cup Champion','svhl-cup-champion.svg'],
+  ['354285','SVHL Cup Champion (Call-Up)','svhl-cup-champion.svg'],
+  ['354054','All-Star Nomination','all-star-nomination.svg'],
+  ['354285','All-Star - Winter 2013/14','all-star-selected.svg']
+ ]){
+  const n=await expanded(id),row=n.legacy.children.find(x=>x.children[1].textContent.includes(label));
+  assert(row,'Missing Special achievement '+id+' '+label);
+  const img=row.children[0].children[0];assert.equal(img?.tagName,'img');
+  assert(img.src.endsWith('/assets/special/'+file),'Wrong special emblem '+id+' '+label);
+ }
+ const norrisAlias=structuredClone(ledger);
+ const alexAlias=norrisAlias.players['354058'].items.find(x=>x.sourceText.startsWith('James Norris Award'));
+ alexAlias.sourceText=alexAlias.sourceText.replace('James Norris Award','James Norris Trophy');
+ alexAlias.displayText=alexAlias.displayText.replace('James Norris Award','James Norris Trophy');
+ const norrisAliasView=await expanded('354058',{'player-highlights-ledger.json':norrisAlias});
+ assert(norrisAliasView.legacy.children.some(x=>x.children[1].textContent.includes('James Norris Trophy')&&
+  x.children[0].children[0]?.src.endsWith('/assets/awards/james-norris.webp')),
+  'Alternate verified James Norris Trophy label should retain existing image');
  const ben=await expanded('354285'),benRows=ben.legacy.children.map(r=>r.textContent);
  const benPoint=benRows.findIndex(s=>s.includes('100 Point Club')),benGame=benRows.findIndex(s=>s.includes('50 Game Club'));
  assert(benPoint>benGame,'Corrected November13 milestone must follow November20 game milestone');
@@ -169,5 +197,5 @@ async function render(id,overrides={}){
  reformatted.players['354046'].items.find(i=>i.id==='hto-legacy-354046-06').sourceRuns=[{...run,text:'100 Point Club - '},{...run,text:'August 9, 2014'}];
  const changedRuns=await render('354046',{'player-highlights-ledger.json':reformatted});assert.equal(changedRuns.legacy.children.length,0);assert(!changedRuns.notice.hidden);negativeChecks++;
  const repeated=await expanded('354285');assert.deepEqual(repeated.legacy.children.map(r=>r.textContent),benRows,'Repeated rendering must not accumulate changes');
- console.log(JSON.stringify({profiles,expandedHighlightItems:highlights,recordBookEntries:records,awardLogoDisplays,milestoneLogoDisplays,retitledDedications,displayCorrections:corrected,negativeCorrectionChecks:negativeChecks,identityMismatchWithheld:true,unregisteredIdentityWithheld:true,formattingRunsPreserved:true,frozenSourceInputsPreserved:true,correctedChronology:true,unrelatedBenMilestonePreserved:true,unaffectedProfileSurvivesUnavailableCorrections:true}));
+ console.log(JSON.stringify({profiles,expandedHighlightItems:highlights,recordBookEntries:records,awardLogoDisplays,milestoneLogoDisplays,specialLogoDisplays,retitledDedications,displayCorrections:corrected,negativeCorrectionChecks:negativeChecks,identityMismatchWithheld:true,unregisteredIdentityWithheld:true,formattingRunsPreserved:true,frozenSourceInputsPreserved:true,correctedChronology:true,unrelatedBenMilestonePreserved:true,unaffectedProfileSurvivesUnavailableCorrections:true}));
 })().catch(e=>{console.error(e);process.exitCode=1});
