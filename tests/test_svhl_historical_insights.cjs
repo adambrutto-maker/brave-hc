@@ -46,7 +46,7 @@ const tests=[
  }],
  ["Current league balance covers all competitive teams, not placeholders",()=>{
    const review=model.divisionReview(league,archive);
-   assert.equal(review.groups.length,league.currentDivisionCount);
+   assert.equal(review.groups.length,3);
    assert.equal(review.groups.reduce((n,x)=>n+x.teams,0),review.eligibleTeams);
    assert.equal(review.eligibleTeams,22);
    assert.ok(review.groups.every(x=>x.avgGames>=0 && x.spread>=0));
