@@ -2,6 +2,9 @@
 name: Brave H.C. record source refresh
 on:
   workflow_dispatch:
+  # Hourly UTC source reconciliation; may be delayed slightly by Actions scheduling.
+  schedule:
+    - cron: '23 * * * *'
   workflow_run:
     workflows: ['Brave H.C. SVHL schedule reconciliation']
     types: [completed]
