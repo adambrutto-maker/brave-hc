@@ -38,6 +38,9 @@ on:
       - 'widgets/division-fit-lab.js'
       - 'widgets/division-fit-model.js'
       - 'widgets/video-strength-evidence.js'
+      - 'widgets/svhl-official-game-id-bridges.json'
+      - 'scripts/build_svhl_official_game_id_bridges.cjs'
+      - 'tests/test_svhl_official_game_id_bridges.cjs'
       - 'tests/test_video_strength_evidence.cjs'
       - 'docs/ENG59_VideoIntelligence_Dependency_Handoff_20261027.md'
       - 'widgets/weekly-strength-stability.js'
@@ -141,6 +144,9 @@ on:
       - 'widgets/division-fit-lab.js'
       - 'widgets/division-fit-model.js'
       - 'widgets/video-strength-evidence.js'
+      - 'widgets/svhl-official-game-id-bridges.json'
+      - 'scripts/build_svhl_official_game_id_bridges.cjs'
+      - 'tests/test_svhl_official_game_id_bridges.cjs'
       - 'tests/test_video_strength_evidence.cjs'
       - 'docs/ENG59_VideoIntelligence_Dependency_Handoff_20261027.md'
       - 'widgets/weekly-strength-stability.js'
@@ -267,6 +273,10 @@ jobs:
         run: node tests/test_division_fit_model.cjs
       - name: Guard provisional video strength with strict read-only source and opponent bridge gates
         run: node tests/test_video_strength_evidence.cjs
+      - name: Rebuild official GameInfo IDs for 54 adult games without new source writes
+        run: node scripts/build_svhl_official_game_id_bridges.cjs --check
+      - name: Reject mismatched official game IDs, score sides, duplicate games and held scorer promotion
+        run: node tests/test_svhl_official_game_id_bridges.cjs
       - name: Guard adult Sunday scope and retrospective matchup evidence
         run: node tests/test_adult_division_evidence.cjs
       - name: Verify source-qualified weekly rating drift, adult band changes and missing week holds

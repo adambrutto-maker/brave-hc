@@ -310,6 +310,72 @@
     caveat:"Current-division links describe observed historical games, not tier-adjusted team talent; preserve era, schedule selection, opponent quality and source identity uncertainty."
   };
  }
+ // Source-only join to exact official GameInfo IDs. No performance-rating use.
+ // To audit original file hashes, CI rebuilds the bridge byte for byte.
+ function officialGameIdentityCoverage(existing,official){
+  const inventory=opponentBridgeInventory(existing);
+  need(official?.schema==="brave-hc-svhl-current-official-game-id-bridge/v1"&&
+    official.status==="OFFICIAL_GAMEINFO_IDENTITY_MATCHED_NO_RATING_OR_STATS_WRITE"&&
+    official.policy==="EXACT_SOURCE_GAME_ID_AND_TEAM_SIDE_SCORES_IN_SVHL_570_ONLY"&&
+    official.leagueId===existing.originalLeagueId&&
+    official.teams===inventory.adultTeamCount&&
+    official.officialGames===inventory.verifiedPoolGames&&
+    official.crossCurrentDivisionGames===inventory.crossCurrentDivisionGames&&
+    official.allSourceGameKeysOfficiallyMatched===true&&
+    official.sourceGameIDsStable===true&&
+    official.leagueRatingsChanged===false&&
+    official.officialDivisionAssignmentsChanged===false&&
+    official.videoStrengthCalibrated===false&&
+    official.independentAcceptedForHistoricalPlayerCorrections===false&&
+    /^[a-f0-9]{64}$/.test(official.originalSourceSHA256?.leagueIntelligenceJSON||"")&&
+    /^[a-f0-9]{64}$/.test(official.originalSourceSHA256?.officialGameInfoSeasonJSON||"")&&
+    Array.isArray(official.games)&&official.games.length===inventory.verifiedPoolGames,
+    "OFFICIAL_GAME_ID_MAP_NOT_SOURCE_ADMITTED");
+  const graph=new Map(existing.gameGraph.verifiedMatches.map(g=>[g.sourceGameKey,g]));
+  const uniqueKeys=new Set(),uniqueIDs=new Set();
+  let cross=0,partial=0;
+  for(const g of official.games){
+   const original=graph.get(g.sourceGameKey);
+   need(Number.isSafeInteger(g.officialGameId)&&g.officialGameId>0&&
+     !uniqueIDs.has(g.officialGameId)&&!uniqueKeys.has(g.sourceGameKey)&&
+     original&&g.date===original.date&&
+     Array.isArray(g.publishedFinalGoals)&&g.publishedFinalGoals.length===2&&
+     g.publishedFinalGoals.every(x=>Number.isSafeInteger(x)&&x>=0)&&
+     Math.abs(g.publishedFinalGoals[0]-g.publishedFinalGoals[1])===original.absoluteGoalMargin&&
+     g.homeTeamId!==g.awayTeamId&&
+     original.teamIds[0]===Math.min(g.homeTeamId,g.awayTeamId)&&
+     original.teamIds[1]===Math.max(g.homeTeamId,g.awayTeamId)&&
+     g.crossCurrentDivision===!original.sameCurrentDivision&&
+     JSON.stringify(g.currentDivisionPair)===JSON.stringify(original.divisionPair)&&
+     g.officialGameInfoURL===
+       "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid="+
+       g.officialGameId+"&page_type=Adult"&&
+     /^[a-f0-9]{64}$/.test(g.officialGameInfoPageSHA256)&&
+     g.originalOfficialScoreOverwritten===false&&
+     g.videoPerformanceMeasurements===null&&
+     ["FULL_GOAL_EVENTS_SCORE_PARITY",
+      "HELD_PLAYER_SCORING_NOT_SEASON_ADMISSION"].includes(g.scoringEventAdmission),
+     "OFFICIAL_GAME_ID_LINK_SCORE_OR_SOURCE_HASH_UNQUALIFIED");
+   uniqueKeys.add(g.sourceGameKey);uniqueIDs.add(g.officialGameId);
+   if(g.crossCurrentDivision)cross++;
+   if(g.scoringEventAdmission==="HELD_PLAYER_SCORING_NOT_SEASON_ADMISSION")partial++;
+  }
+  need(uniqueKeys.size===graph.size&&cross===inventory.crossCurrentDivisionGames&&
+    partial===official.heldPlayerScoringGames&&
+    uniqueKeys.size-partial===official.fullScoringSheetEvents,
+    "OFFICIAL_ID_LINK_COVERAGE_OR_SCORER_HOLD_PARITY");
+  return {schema:"HOCKEYOS_SCOUT_GAME_ID_JOIN_STATUS_V0_1",
+    status:"OFFICIAL_SOURCE_GAME_IDS_VERIFIED_VIDEO_INSUFFICIENT",
+    sourceGameIDsVerified:uniqueIDs.size,
+    verifiedCrossDivisionIDs:cross,
+    scorerHeldOfficialGames:partial,
+    sourceInputHashes:official.originalSourceSHA256,
+    videoStrengthStatus:STATUS,teamRating:null,
+    ratingAppliedToExistingLeague:false,
+    opponentTierEquivalenceAccepted:false,
+    realignmentApproved:false,
+    reason:"Official GameInfo identity is reconciled; actual moving-play evidence and independent tier calibration are still unavailable."};
+ }
  function overlayExistingDivisionFit(baseAnalysis,videoEvidence){
   need(baseAnalysis&&Array.isArray(baseAnalysis.scenarios)&&
       Array.isArray(baseAnalysis.teams||baseAnalysis.teamProfiles) ,
@@ -324,6 +390,6 @@
     videoStrengthScore:null,legacyDivisionFitUnchanged:true,
     videoEvidenceOnlyForSeparateResearch:true};
  }
- return Object.freeze({pilot,featureReadiness,opponentBridgeInventory,overlayExistingDivisionFit,
+ return Object.freeze({pilot,featureReadiness,opponentBridgeInventory,officialGameIdentityCoverage,overlayExistingDivisionFit,
    constants:Object.freeze({SCHEMA,SHADOW,FEATURE,STATUS})});
 });

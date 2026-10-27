@@ -131,6 +131,45 @@
      ". Existing division research continues unchanged; no team performance is inferred.";
   }
  }
+ async function loadOfficialGameIDBridges(){
+  const r=await fetch("./svhl-official-game-id-bridges.json",{cache:"no-store"});
+  if(!r.ok)throw Error("SOURCE_QUALIFIED_GAMEINFO_ID_MAP_UNAVAILABLE");
+  const official=await r.json();
+  if(!window.BraveVideoStrengthEvidence)
+    throw Error("SOURCE_QUALIFIED_VIDEO_EVIDENCE_ADAPTER_UNAVAILABLE");
+  const verified=window.BraveVideoStrengthEvidence.officialGameIdentityCoverage(
+    analysis,official);
+  // This only upgrades the source-linked identity/evidence LABEL, never a team rating.
+  const sourceMatches=official.games.filter(g=>g.crossCurrentDivision).sort(
+    (a,b)=>a.date.localeCompare(b.date)||a.officialGameId-b.officialGameId);
+  const list=q("video-bridge-games-list");list.replaceChildren();
+  for(const g of sourceMatches){
+   const card=el("article","week-card");
+   put(card,"strong","",g.date+" · "+g.homeTeamName+" vs "+g.awayTeamName);
+   put(card,"small","",g.publishedFinalGoals.join("-")+
+     " · official SVHL game #"+g.officialGameId+" · "+
+     g.currentDivisionPair.join(" / "));
+   if(g.scoringEventAdmission==="HELD_PLAYER_SCORING_NOT_SEASON_ADMISSION")
+    put(card,"small","warning","Official result confirmed; individual player scoring sheet held");
+   const link=put(card,"a","small","Inspect source GameInfo");
+   link.href=g.officialGameInfoURL;link.target="_blank";
+   link.rel="noopener noreferrer";
+   list.append(card);
+  }
+  const detail=q("video-bridge-games");
+  detail.hidden=sourceMatches.length===0;
+  detail.querySelector("summary").textContent=
+    "Inspect "+sourceMatches.length+" official cross-division GameInfo matches";
+  metric(q("video-bridge-metrics"),verified.sourceGameIDsVerified,
+    "official GameInfo game IDs verified in this pool");
+  q("video-readiness-status").textContent=
+    "INSUFFICIENT_VIDEO — "+verified.sourceGameIDsVerified+
+    " of "+analysis.gameGraph.verifiedGamesInPool+
+    " source-confirmed games now have exact official GameInfo IDs; "+
+    verified.verifiedCrossDivisionIDs+" connect current divisions. "+
+    verified.scorerHeldOfficialGames+" games retain player scoring evidence holds. "+
+    "No independent actual-play strength, calibrated tier rating or division assignment authorized.";
+ }
  function connections(){
   const grid=q("cross-division-links");grid.replaceChildren();
   const cross=analysis.gameGraph.links.filter(p=>p.crossDivision);
@@ -321,6 +360,12 @@
    if(!window.BraveDivisionLayoutView)throw Error("Flexible division layout module missing");
    window.BraveDivisionLayoutView.init(analysis);
    source();connections();videoBridgeReadiness();renderScenario();renderStability();readiness();historical();
+   loadOfficialGameIDBridges().catch(error=>{
+    const status=q("video-readiness-status");
+    if(status.textContent.includes("INSUFFICIENT_VIDEO"))
+     status.textContent+=" Official GameInfo ID crosswalk held: "+error.message+
+       ". Original results and division scenarios remain unchanged.";
+   });
    q("notice").textContent=analysis.proposalReady?
      "Research source verified; proposal held for human review.":
      "Source verified. Preliminary research only — no division changes recommended.";

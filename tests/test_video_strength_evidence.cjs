@@ -204,6 +204,42 @@ const tests=[
   const f=clone(baseline);f.poolDivisions[1]="VAHL Division";
   assert.throws(()=>model.opponentBridgeInventory(f),/HISTORICAL_GAME_BRIDGE_UNVERIFIED/);
  }],
+ ["All current adult games now have exact officially confirmed game IDs",()=>{
+  const baseline=division.analyze(read("league-intelligence.json"),
+    read("brave-historical-verified-games.json"));
+  const official=read("svhl-official-game-id-bridges.json");
+  const original=JSON.stringify(baseline);
+  const result=model.officialGameIdentityCoverage(baseline,official);
+  assert.equal(result.status,"OFFICIAL_SOURCE_GAME_IDS_VERIFIED_VIDEO_INSUFFICIENT");
+  assert.equal(result.sourceGameIDsVerified,54);
+  assert.equal(result.verifiedCrossDivisionIDs,19);
+  assert.equal(result.scorerHeldOfficialGames,2);
+  assert.equal(result.videoStrengthStatus,"INSUFFICIENT_VIDEO");
+  assert.equal(result.teamRating,null);
+  assert.equal(result.ratingAppliedToExistingLeague,false);
+  assert.equal(result.realignmentApproved,false);
+  assert.equal(JSON.stringify(baseline),original);
+ }],
+ ["Official game IDs refuse altered matchup, duplicate, or unsupported goal admission",()=>{
+  const baseline=division.analyze(read("league-intelligence.json"),
+    read("brave-historical-verified-games.json"));
+  const original=read("svhl-official-game-id-bridges.json");
+  const tampered=clone(original);
+  tampered.games[0].officialGameId=tampered.games[1].officialGameId;
+  assert.throws(()=>model.officialGameIdentityCoverage(baseline,tampered),
+    /OFFICIAL_GAME_ID_LINK_SCORE_OR_SOURCE_HASH_UNQUALIFIED/);
+  const wrong=clone(original);
+  wrong.games[0].publishedFinalGoals[0]+=1;
+  assert.throws(()=>model.officialGameIdentityCoverage(baseline,wrong),
+    /OFFICIAL_GAME_ID_LINK_SCORE_OR_SOURCE_HASH_UNQUALIFIED/);
+  const forged=clone(original);
+  forged.games[0].videoPerformanceMeasurements={pressure:99};
+  assert.throws(()=>model.officialGameIdentityCoverage(baseline,forged),
+    /OFFICIAL_GAME_ID_LINK_SCORE_OR_SOURCE_HASH_UNQUALIFIED/);
+  const removed=clone(original);removed.games.pop();
+  assert.throws(()=>model.officialGameIdentityCoverage(baseline,removed),
+    /OFFICIAL_GAME_ID_MAP_NOT_SOURCE_ADMITTED/);
+ }],
  ["No video number can be pushed into existing scenario rating",()=>{
   const baseline=division.analyze(read("league-intelligence.json"),
     read("brave-historical-verified-games.json"));

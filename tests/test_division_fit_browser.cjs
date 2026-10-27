@@ -52,15 +52,21 @@ const srv=http.createServer((req,res)=>{
     videoStatus:document.querySelector("#video-readiness-status")?.textContent,
     videoMetrics:document.querySelector("#video-bridge-metrics")?.textContent,
     videoCaveat:document.querySelector("#video-bridge-caveat")?.textContent,
+    crossGameLinks:document.querySelectorAll("#video-bridge-games-list .week-card").length,
+    crossGameSources:[...document.querySelectorAll("#video-bridge-games-list .week-card a")].map(a=>a.href),
     over:document.body.scrollWidth-innerWidth
    }));
    assert.ok(first.status.includes("Preliminary research only"));
    assert.ok(first.videoStatus.includes("INSUFFICIENT_VIDEO")&&
-      first.videoStatus.includes("existing Division Fit indexes and all scenarios remain unchanged"),
-      "video candidate must not become an empirical division rating");
+      first.videoStatus.includes("54 of 54")&&
+      first.videoStatus.includes("exact official GameInfo IDs")&&
+      first.videoStatus.includes("2 games retain player scoring evidence holds"),
+      "official score game IDs must join without video strength calibration");
    assert.ok(first.videoMetrics.includes(String(verifiedBridges.crossCurrentDivisionGames))&&
       first.videoMetrics.includes(String(verifiedBridges.teamsWithoutCrossDivisionEvidence))&&
       first.videoMetrics.includes(String(verifiedBridges.teamsWithCrossDivisionEvidence)));
+   assert.equal(first.crossGameLinks,verifiedBridges.crossCurrentDivisionGames);
+   assert.ok(first.crossGameSources.every(url=>url.startsWith("https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=")));
    assert.ok(first.videoCaveat.includes("Camera")&&
       first.videoCaveat.includes("No VAHL team is included"));
    assert.ok(first.evidence.includes(String(verified.scenarios[0].evidence.observedSameGroupGames))&&
@@ -253,7 +259,24 @@ const srv=http.createServer((req,res)=>{
   assert.ok(isolation.source.includes(String(verified.adultPoolTeamCount)));
   assert.deepEqual(heldErrors,[]);
   await held.close();
+  const missingIDs=await browser.newPage();
+  await missingIDs.setRequestInterception(true);
+  missingIDs.on("request",req=>req.url().includes("svhl-official-game-id-bridges.json")?
+    req.abort():req.continue());
+  await missingIDs.goto("http://127.0.0.1:"+srv.address().port+"/division-fit-lab.html",
+    {waitUntil:"networkidle0",timeout:45000});
+  const idsHeld=await missingIDs.evaluate(()=>({
+    status:document.querySelector("#notice")?.textContent,
+    video:document.querySelector("#video-readiness-status")?.textContent,
+    options:document.querySelectorAll("#scenario-options button").length
+  }));
+  assert.ok(idsHeld.status.includes("Preliminary research only"));
+  assert.ok(idsHeld.video.includes("INSUFFICIENT_VIDEO")&&
+    idsHeld.video.includes("Official GameInfo ID crosswalk held"));
+  assert.equal(idsHeld.options,3);
+  await missingIDs.close();
   console.log(JSON.stringify({status:"DIVISION_FIT_BROWSER_PASS",results,
-    missingVideoAdapterKeepsExistingResearch:"PASS"}));
+    missingVideoAdapterKeepsExistingResearch:"PASS",
+    missingOfficialGameIDsKeepsExistingResearch:"PASS"}));
  }finally{await browser.close();srv.close()}
 })().catch(error=>{console.error(error.stack||error);srv.close();process.exitCode=2});
