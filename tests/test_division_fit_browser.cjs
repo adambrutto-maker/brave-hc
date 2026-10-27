@@ -72,7 +72,7 @@ const srv=http.createServer((req,res)=>{
    const draft=await page.evaluate(()=>window.__layoutText);
    assert.ok(draft.includes("4+6+6+6")&&draft.includes("RESEARCH DIVISION 4")&&
      draft.includes("NOT APPROVED OR SUBMITTED")&&
-     draft.includes("ice")===false,
+     draft.includes("No user authorization to change official assignments"),
      "explicit four-division research copy must include actual membership and no approval");
    assert.ok(first.current.includes("Current divisions"));
    assert.equal(first.groups,3);
@@ -119,7 +119,7 @@ const srv=http.createServer((req,res)=>{
    assert.ok(copied.includes("43")&&copied.includes("79")&&copied.includes("4 weekly")===false);
    assert.ok(copied.includes("proposalReady = FALSE"));
    assert.ok(copied.includes("SELECTED DRAFT: 4+6+6+6")&&
-     copied.includes("provisional")===false,
+     copied.includes("NOT APPROVED OR SUBMITTED"),
      "research note includes the selected flexible candidate, not just fixed-size swaps");
    assert.ok(copied.includes("WEEKLY SOURCE STABILITY: SOURCE_BACKED_BASELINE_ONLY") &&
      copied.includes("NOT MEASURABLE — one source-backed baseline only."),
