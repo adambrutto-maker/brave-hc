@@ -28,6 +28,9 @@ const srv=http.createServer((req,res)=>{
     crossLinks:document.querySelectorAll("#cross-division-links .link-card").length,
     history:document.querySelector("#historical-metrics")?.textContent,
     gate:document.querySelector("#gate-summary")?.textContent,
+    evidence:document.querySelector("#scenario-evidence")?.textContent,
+    caveat:document.querySelector("#scenario-evidence-caution")?.textContent,
+    note:document.querySelector("#source-note")?.textContent,
     over:document.body.scrollWidth-innerWidth
    }));
    assert.ok(first.status.includes("Preliminary research only"));
