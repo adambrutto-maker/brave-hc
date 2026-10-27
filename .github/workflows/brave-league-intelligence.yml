@@ -70,6 +70,8 @@ on:
       - 'tests/test_historical_43_near_date_candidates.py'
       - 'scripts/check_eng59_release_evidence.py'
       - 'scripts/check_eng59_static_release_surface.py'
+      - 'scripts/check_eng59_preexisting_pages_exposure.py'
+      - 'tests/test_eng59_preexisting_pages_exposure.py'
       - 'tests/test_eng59_static_release_surface.py'
       - 'tests/test_eng59_release_evidence.py'
       - 'docs/ENG59_Independent_Review_Handoff_20261027.md'
@@ -190,6 +192,8 @@ on:
       - 'tests/test_historical_43_near_date_candidates.py'
       - 'scripts/check_eng59_release_evidence.py'
       - 'scripts/check_eng59_static_release_surface.py'
+      - 'scripts/check_eng59_preexisting_pages_exposure.py'
+      - 'tests/test_eng59_preexisting_pages_exposure.py'
       - 'tests/test_eng59_static_release_surface.py'
       - 'tests/test_eng59_release_evidence.py'
       - 'docs/ENG59_Independent_Review_Handoff_20261027.md'
@@ -362,6 +366,10 @@ jobs:
         run: python -B scripts/check_eng59_static_release_surface.py
       - name: Reject missing runtime assets, mismatched feeds and false privacy acceptance
         run: python -B -m unittest discover -s tests -p test_eng59_static_release_surface.py -v
+      - name: Review pre-existing private-named Pages source surface without leaking file contents
+        run: python -B scripts/check_eng59_preexisting_pages_exposure.py
+      - name: Reject embedded credentials, new private-named paths and fabricated publication approvals
+        run: python -B -m unittest discover -s tests -p test_eng59_preexisting_pages_exposure.py -v
       - name: Guard source-stamped weekly roster age without equating separate daily captures
         run: python -B -m unittest discover -s tests -p test_roster_source_time_boundary.py -v
       - name: Verify sampled official GameInfo penalty tables without fake PIM or GP
