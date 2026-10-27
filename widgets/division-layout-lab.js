@@ -5,12 +5,29 @@
  const make=(tag,cls,value)=>{const n=document.createElement(tag);if(cls)n.className=cls;if(value!==undefined)n.textContent=String(value);return n};
  const add=(p,tag,cls,value)=>{const x=make(tag,cls,value);p.append(x);return x};
  const as=(v,n=2)=>Number.isFinite(v)?v.toFixed(n):"unavailable";
- let study=null,focus="BALANCE",shape=null;
+ let study=null,accepted=null,focus="BALANCE",shape=null,method="INDEX_BANDS";
+ const refinedCache=new Map();
  function sorted(){
   return study?.choices[focus]||[];
  }
  function selected(){
   return sorted().find(x=>x.shapeId===shape)||sorted()[0];
+ }
+ function refinementFor(proposal){
+  const key=focus+"|"+proposal.shapeId;
+  if(!refinedCache.has(key)){
+   if(!window.BraveLineupRefinement)throw Error("Verified lineup refinement module not installed");
+   refinedCache.set(key,window.BraveLineupRefinement.refine(accepted,proposal,focus));
+  }
+  return refinedCache.get(key);
+ }
+ function activePlacement(){
+  const proposed=selected();
+  if(!proposed)return null;
+  const refinement=refinementFor(proposed);
+  const groups=method==="REFINED"?refinement.groups:proposed.groups;
+  return {proposed,refinement,groups,
+    metrics:method==="REFINED"?refinement.refined:refinement.original};
  }
  function paint(){
   if(!study)return;
@@ -18,6 +35,8 @@
   options.replaceChildren();result.replaceChildren();
   const shapes=sorted(),current=shapes.find(x=>x.divisionCount===3);
   const chosen=selected(),leading=shapes[0];
+  const placement=activePlacement(),refined=placement.refinement;
+  const shown=placement.metrics,groups=placement.groups;
   const expectedOdd=study.adultTeams%2;
   if(!chosen ||
      chosen.groups.filter(group=>group.capacity%2!==0).length!==expectedOdd ||
@@ -25,6 +44,34 @@
      chosen.groups.flatMap(group=>group.ids).length!==study.adultTeams ||
      new Set(chosen.groups.flatMap(group=>group.ids)).size!==study.adultTeams)
     throw Error("Division layout must retain every team and satisfy parity of total enrollment");
+  const swapBox=q("layout-refinement-swaps");swapBox.replaceChildren();
+  const selectedRefinement=method==="REFINED";
+  const objectiveGain=refined.improvement;
+  q("layout-refinement-indicator").textContent=selectedRefinement?
+    (refined.swaps.length?refined.swaps.length+" tested swap(s) applied":
+     "No admissible improvement"):"Original ranked-band lineup";
+  q("layout-refinement-detail").textContent=
+    "Selected "+focus.toLowerCase()+" objective: "+as(refined.original.objective,3)+
+    " before vs "+as(refined.refined.objective,3)+" after up to "+
+    refined.searchLimit+" non-predictive swaps; improvement "+as(objectiveGain,3)+
+    ". Source-verified in-group completed games: "+
+    refined.original.sourceVerifiedSameGroupGames+" before / "+
+    refined.refined.sourceVerifiedSameGroupGames+" after. "+
+    "Hypothetical clubs reassigned: "+
+    refined.original.movement.hypotheticalDifferentGroupCount+" before / "+
+    refined.refined.movement.hypotheticalDifferentGroupCount+" after. "+
+    "Lower is a better editorial objective—not proof of better future games.";
+  if(selectedRefinement){
+   if(!refined.swaps.length)add(swapBox,"p","small",
+     "No pair swap improved the selected source-qualified objective. Existing band assignments remain unchanged.");
+   for(const change of refined.swaps){
+    const card=make("article","week-card");
+    add(card,"strong","",change.left+" ↔ "+change.right);
+    add(card,"small","","Source-linked team IDs "+change.sourceIds.join(" / ")+
+      " · objective improvement "+as(change.indexGain,3));
+    swapBox.append(card);
+   }
+  }
   q("layout-proposed-recommendation").textContent=
     "Model-first research proposal: "+leading.shapeId.split("-").join(" + ")+" teams in "+
       leading.divisionCount+" divisions. "+(focus==="BALANCE"?
@@ -51,24 +98,30 @@
     chosen.shapeId.split("-").join(" / ")+" — "+chosen.divisionCount+
     " research divisions ("+(expectedOdd?
      "exactly one odd-size division":"every division even-sized")+")";
-  q("layout-proposal-comparison").textContent="Within-group descriptive dispersion "+
-    as(chosen.dispersion)+"; "+chosen.sameGroupObservedGames+" of "+
+  q("layout-proposal-comparison").textContent=(selectedRefinement?
+    "Source-ID swap-refined lineup. ":"Original ranked-band lineup. ")+
+    "Within-group descriptive dispersion "+as(shown.dispersion)+
+    "; "+(selectedRefinement?shown.sourceVerifiedSameGroupGames:chosen.sameGroupObservedGames)+" of "+
     study.sourceAdultGames+" source-confirmed games occurred between clubs now grouped together "+
-    "in this hypothetical layout ("+as(100*chosen.directPairCoverage,1)+
+    "in this hypothetical layout ("+as(100*shown.directPairCoverage,1)+
     "% of possible within-group pairings have a verified matchup). "+
-    "Observed 2-goal-or-closer games: "+chosen.twoGoalOrCloserObserved+
-    " of "+chosen.sameGroupObservedGames+". "+
+    "Observed 2-goal-or-closer games: "+
+      (selectedRefinement?shown.observedCloseGames:chosen.twoGoalOrCloserObserved)+
+    " of "+(selectedRefinement?shown.sourceVerifiedSameGroupGames:chosen.sameGroupObservedGames)+". "+
     "At least "+chosen.movement.newResearchGroupsNeeded+
     " NEW division(s) would need to be administered beyond the current three."+
     " One complete round-robin would involve "+chosen.prospectiveOneRoundRobinGames+
     " distinct within-division pairings; that is a scheduling quantity, not a published schedule.";
   const team=new Map(study.teams.map(t=>[t.sourceTeamId,t]));
-  chosen.groups.forEach((group,i)=>{
+  groups.forEach((group,i)=>{
    const card=make("article","group");
    add(card,"strong","",group.label+" · "+group.capacity+" teams");
-   add(card,"p","small","Descriptive index "+as(group.min,1)+"–"+
-     as(group.max,1)+"; average "+as(group.average,1)+
-     "; within-group spread "+as(group.spread,1));
+   const groupScores=group.ids.map(id=>team.get(id).score),
+      lowest=Math.min(...groupScores),highest=Math.max(...groupScores),
+      groupMean=groupScores.reduce((a,b)=>a+b,0)/groupScores.length;
+   add(card,"p","small","Descriptive index "+as(lowest,1)+"–"+
+     as(highest,1)+"; average "+as(groupMean,1)+
+     "; within-group spread "+as(highest-lowest,1));
    for(const id of group.ids){
     const t=team.get(id);
     if(!t)continue;
@@ -86,7 +139,8 @@
   const warnings=q("layout-caveat");
   warnings.textContent="PROVISIONAL MODEL PROPOSAL ONLY. Current data has "+
     study.admittedWeeks+" accepted weekly observation(s). "+
-    "This algorithm ranks contiguous bands of CURRENT smoothed source index scores. "+
+    "The initial lineup uses contiguous score bands; optional refinement tests "+
+    "actual source-ID pair swaps under the selected editorial objective. "+
     "Source-recorded opponents, past score margins and earlier seasons inform evidence warnings, "+
     "not fabricated future matchups or assumed roster continuity. "+
     "A four-team division offers only three distinct opponents in one round robin, "+
@@ -95,7 +149,9 @@
  }
  function textProposal(){
   if(!study)return "";
-  const chosen=selected(),leader=sorted()[0];
+  const placement=activePlacement(),chosen=placement.proposed,
+    leader=sorted()[0],refinement=placement.refinement,
+    sourceMetric=placement.metrics,groups=placement.groups;
   const team=new Map(study.teams.map(t=>[t.sourceTeamId,t]));
   return [
    "HOCKEYOS / BRAVE H.C. — DIVISION STRUCTURE RESEARCH DRAFT",
@@ -106,19 +162,30 @@
    "Research focus: "+focus,
    "TOP-RANKED STRUCTURE BY THIS OBJECTIVE: "+leader.shapeId.split("-").join("+"),
    "SELECTED DRAFT: "+chosen.shapeId.split("-").join("+"),
-   "Descriptive rating spread (RMSE within groups): "+as(chosen.dispersion),
+   "Team placement method: "+(method==="REFINED"?
+      "BOUNDED EVIDENCE-AWARE SOURCE-ID SWAP REFINEMENT":"CONTIGUOUS SOURCE SCORE-RANKED BANDS"),
+   "Editorial objective: "+as(refinement.original.objective,3)+" initial / "+
+      as(refinement.refined.objective,3)+" source-ID refined; improvement "+as(refinement.improvement,3),
+   "Descriptive rating spread (RMSE within groups): "+as(sourceMetric.dispersion),
    "Proposed number of research divisions: "+chosen.divisionCount+
       "; new groups above current three: "+chosen.movement.newResearchGroupsNeeded,
-   "Hypothetical teams changing grouping: "+chosen.movement.hypotheticalDifferentGroupCount+
+   "Hypothetical teams changing grouping: "+sourceMetric.movement.hypotheticalDifferentGroupCount+
       " (label-matched maximum-retention comparison only).",
-   "Historical matchup evidence: "+chosen.sameGroupObservedGames+
+   "Historical matchup evidence: "+(method==="REFINED"?
+      sourceMetric.sourceVerifiedSameGroupGames:chosen.sameGroupObservedGames)+
       " past verified games within proposed group membership, out of "+
       study.sourceAdultGames+" pool games.",
-   "Observed pair coverage "+chosen.sameGroupSourcePairings+"/"+
+   "Observed pair coverage "+
+      (method==="REFINED"?sourceMetric.verifiedSameGroupPairings:chosen.sameGroupSourcePairings)+"/"+
       chosen.possibleGroupPairings+" possible group pairings.",
+   "Refinement search: "+refinement.candidateSwapsEvaluated+
+      " pair candidates evaluated; "+refinement.swaps.length+
+      " improving pair swaps admitted; bounded at "+refinement.searchLimit+".",
+   ...refinement.swaps.map(x=>"SOURCE-ID TEAM SWAP: "+x.left+" / "+x.right+
+      " (objective gain "+as(x.indexGain,3)+")"),
    "One complete round robin would schedule "+chosen.prospectiveOneRoundRobinGames+
       " distinct group matchups (not an official calendar).",
-   ...chosen.groups.map((g,i)=>[
+   ...groups.map((g,i)=>[
     "RESEARCH DIVISION "+(i+1)+" — "+g.capacity+" teams; index "+
       as(g.min,1)+"–"+as(g.max,1),
     ...g.ids.map(id=>{const t=team.get(id);return "  "+t.name+" ("+
@@ -155,6 +222,17 @@
  function init(analysis){
   if(!window.BraveDivisionArchitect)throw Error("Division architect module unavailable");
   study=window.BraveDivisionArchitect.run(analysis);
+  accepted=analysis;refinedCache.clear();
+  const placementSelector=q("layout-placement-mode");
+  if(placementSelector){
+    placementSelector.value=method;
+    placementSelector.addEventListener("change",()=>{
+      method=placementSelector.value;
+      if(!["INDEX_BANDS","REFINED"].includes(method))
+        throw Error("Invalid lineup placement method");
+      paint();
+    });
+  }
   focus="BALANCE";shape=study.leading[focus];
   const modes=q("layout-design-focus");modes.replaceChildren();
   for(const mode of study.modes){
