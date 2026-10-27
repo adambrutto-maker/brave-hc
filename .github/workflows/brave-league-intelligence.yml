@@ -59,6 +59,8 @@ on:
       - 'scripts/build_svhl_player_game_reconciliation.py'
       - 'scripts/split_svhl_player_game_evidence.py'
       - 'scripts/check_svhl_player_game_evidence.py'
+      - 'scripts/build_svhl_scoring_source_holds_triage.py'
+      - 'tests/test_svhl_scoring_source_holds_triage.py'
       - 'tests/test_svhl_player_game_sources.py'
       - 'tests/test_roster_source_time_boundary.py'
       - 'tests/test_svhl_player_game_browser.cjs'
@@ -147,6 +149,8 @@ on:
       - 'scripts/build_svhl_player_game_reconciliation.py'
       - 'scripts/split_svhl_player_game_evidence.py'
       - 'scripts/check_svhl_player_game_evidence.py'
+      - 'scripts/build_svhl_scoring_source_holds_triage.py'
+      - 'tests/test_svhl_scoring_source_holds_triage.py'
       - 'tests/test_svhl_player_game_sources.py'
       - 'tests/test_roster_source_time_boundary.py'
       - 'tests/test_svhl_player_game_browser.cjs'
@@ -262,6 +266,10 @@ jobs:
         run: python -B scripts/check_svhl_player_game_evidence.py
       - name: Refuse invented GameInfo scorers, assists, source URLs and appearances
         run: python -B -m unittest discover -s tests -p test_svhl_player_game_sources.py -v
+      - name: Rebuild held GameInfo discrepancy triage without modifying league sources
+        run: python -B scripts/build_svhl_scoring_source_holds_triage.py > /dev/null
+      - name: Reject scoring-sheet undercount overcount confusion and source tampering
+        run: python -B -m unittest discover -s tests -p test_svhl_scoring_source_holds_triage.py -v
       - name: Guard source-stamped weekly roster age without equating separate daily captures
         run: python -B -m unittest discover -s tests -p test_roster_source_time_boundary.py -v
       - name: Verify sampled official GameInfo penalty tables without fake PIM or GP
