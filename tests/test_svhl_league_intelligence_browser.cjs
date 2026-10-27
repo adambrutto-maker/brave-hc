@@ -32,6 +32,8 @@ const server=http.createServer((req,res)=>{
      rows:document.querySelectorAll("#league-rows tr[data-team]").length,
      divisions:[...document.querySelectorAll("#division-filter option")].map(x=>x.value),
      selected:document.querySelector("#profile-title")?.textContent,
+     teamChoices:[...document.querySelectorAll("#team-filter option")].map(x=>x.value),
+     adultRankValues:[...document.querySelectorAll("#league-rows tr[data-team]")].map(x=>x.lastElementChild?.textContent),
      prior:document.querySelector("#prior-summary")?.textContent,
      historical:document.querySelector("#braves-history")?.textContent,
      fixtures:[...document.querySelectorAll("#fixture-rows tr")].map(x=>x.textContent),
