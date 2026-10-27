@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark"><title>Brave H.C. HockeyOS | Division Fit Research Lab</title>
+<style>
+:root{color-scheme:dark;--background:#061725;--panel:#102a3e;--panel2:#16364d;--line:#3e627c;--text:#f2f6fa;--muted:#c0d1e0;--warm:#f0cca2;--accent:#cb3755;--mint:#a2e4cc}
+*{box-sizing:border-box}body{margin:0;font:14px/1.55 system-ui,"Segoe UI",sans-serif;background:var(--background);color:var(--text)}
+main{max-width:1150px;margin:auto;padding:22px 16px 50px}h1{font-size:clamp(25px,4vw,37px);line-height:1.15;margin:15px 0 10px}h2{font-size:20px;margin:0 0 10px}h3{font-size:16px;margin:5px 0}p{color:var(--muted)}a{color:#a7d8fb}a:focus-visible,button:focus-visible{outline:2px solid var(--warm);outline-offset:3px}
+header{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:17px}header strong{font-size:18px}
+.kicker{font-size:11px;letter-spacing:.12em;font-weight:900;text-transform:uppercase;color:var(--warm)}.muted{color:var(--muted)}.small{font-size:12px}.tiny{font-size:11px}.intro{max-width:900px}
+section{background:linear-gradient(135deg,var(--panel),#0a2133);border:1px solid var(--line);border-radius:12px;padding:17px;margin-top:18px}
+.metrics,.scenario-grid,.division-grid,.connect-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px}
+.metric,.group,.scenario,.link-card{background:var(--panel2);border:1px solid var(--line);border-radius:8px;padding:13px}
+.metric .number{display:block;font-size:28px;font-weight:800;line-height:1.1;font-variant-numeric:tabular-nums}.metric small{display:block;color:var(--muted);margin-top:5px}
+.group strong{font-size:15px;display:block}.team-row{display:flex;justify-content:space-between;gap:14px;padding:7px 0;border-top:1px solid #426078;align-items:center}.team-row small{color:var(--muted);display:block}.team-row .value{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}.group .team-row:first-of-type{margin-top:8px}
+button{font:inherit;cursor:pointer;background:#a92946;border:1px solid #ec8593;border-radius:7px;padding:10px 13px;color:#fff;font-weight:750}button:hover{background:#bd3553}
+.scenario{width:100%;text-align:left;background:#102b43;min-height:135px;display:block}.scenario[aria-pressed=true]{border:2px solid var(--warm);background:#2b3046}.scenario strong{display:block;font-size:15px;margin-bottom:7px}.scenario small{display:block;color:var(--muted)}.scenario .number{font-size:23px;color:var(--warm)}
+.label{display:inline-block;font-size:11px;color:var(--warm);border:1px solid var(--line);padding:3px 7px;border-radius:4px}
+.bar{height:7px;background:#36546b;border-radius:6px;overflow:hidden;margin:7px 0 5px}.bar>span{display:block;height:100%;background:#b4d8eb}
+.notes{border-left:3px solid var(--warm);padding-left:12px;font-size:12px;color:var(--muted)}.warning{color:#f0c3c9}.positive{color:var(--mint)}
+.rule{padding:9px 0;border-bottom:1px solid #426078}.rule:last-child{border:0}.rule strong{display:block}
+.row{display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap}
+details{margin:8px 0;border:1px solid var(--line);border-radius:7px;padding:10px;background:#0b2639}summary{cursor:pointer;font-weight:800}
+#notice[role=status]{color:var(--warm)}.research-only{font-size:12px;color:var(--warm);font-weight:800}
+footer{margin-top:25px;color:var(--muted);font-size:11px}
+@media(max-width:650px){main{padding:14px 9px 35px}section{padding:13px}.metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.metric .number{font-size:23px}.scenario-grid,.division-grid,.connect-grid{grid-template-columns:1fr}button{min-height:42px}.team-row{font-size:13px}}
+@media print{body{background:white;color:black;font-size:11px}main{max-width:none}header a,button{display:none}section,.group,.scenario,.metric{background:white;color:black;border-color:#bbb;break-inside:avoid}.kicker,.label,.research-only{color:#333}p,.muted,.small{color:#333!important}.division-grid{grid-template-columns:repeat(3,minmax(0,1fr))}#scenario-info{display:block}h1{font-size:25px}}
+</style></head><body><main>
+<header><div><div class="kicker">Brave H.C. · HockeyOS League Research</div><strong>Division Fit Lab</strong></div>
+ <a href="./league-intelligence.html">Return to League Intelligence</a></header>
+<h1>Are the current divisions competitively balanced?</h1>
+<p class="intro">This research view compares <strong>verified games and current division ratings</strong>, then tests possible ways to reduce the spread of ratings. It is not a promotion/relegation decision, an official league realignment or a prediction of future match results.</p>
+<p id="notice" role="status">Checking Sports Village and the verified HockeyOS source…</p>
+<section aria-labelledby="source-title"><div class="row"><div><div class="kicker">Evidence available</div><h2 id="source-title">Current competition snapshot</h2></div><span class="label">Source-qualified · descriptive</span></div>
+ <div class="metrics" id="source-metrics"></div>
+ <p id="source-note" class="notes"></p></section>
+<section aria-labelledby="connection-title"><h2 id="connection-title">Who has played across divisions?</h2>
+ <p class="small">These are games played, not assumed future matchups. Divisions are each club's latest published assignment, which may differ from the date of the game.</p>
+ <div id="cross-division-links" class="connect-grid"></div></section>
+<section aria-labelledby="scenario-title">
+ <div class="row"><div><div class="kicker">Controlled what-if test</div><h2 id="scenario-title">Compare grouping patterns</h2></div><span class="research-only">SCENARIOS ARE NOT ASSIGNMENTS</span></div>
+ <p class="small">All test layouts retain the current sizes of the three adult divisions. A lower dispersion number means the descriptive ratings sit closer together <em>within</em> groups; it does not guarantee fairer games.</p>
+ <div id="scenario-options" class="scenario-grid" role="group" aria-label="Select a grouping experiment"></div>
+ <p id="scenario-info" class="notes"></p>
+ <div id="division-groups" class="division-grid"></div>
+</section>
+<section aria-labelledby="gate-title"><h2 id="gate-title">Can we responsibly make a recommendation yet?</h2>
+ <p id="gate-summary" class="notes"></p><div id="readiness-checks"></div></section>
+<section aria-labelledby="history-title"><h2 id="history-title">What history adds—and what it doesn't</h2>
+ <div id="historical-metrics" class="metrics"></div>
+ <p class="notes" id="historical-note"></p></section>
+<section aria-labelledby="handoff-title"><div class="row"><div><div class="kicker">League discussion preparation</div><h2 id="handoff-title">Evidence note for Sports Village</h2></div><span class="research-only">NOT FOR SUBMISSION YET</span></div>
+ <p class="small">The note includes source counts, assumptions, the selected mathematical experiment and missing evidence. Copy or print it for internal review; it does not submit or contact anyone.</p>
+ <button id="copy-research" type="button">Copy research note</button> <button id="print-research" type="button">Print research view</button>
+ <p id="copy-feedback" class="small" role="status" aria-live="polite"></p>
+ <details><summary>Methodology, source boundaries and exclusions</summary>
+ <p class="small">The current season index uses verified reciprocal games, smoothed goal and W/L/T performance, schedule difficulty and independently qualified prior-winter results where supported. It is not a calibrated ranking or win probability. Alternative grouping layouts are read-only arithmetic exercises; no division changes are made. Playoff placeholders and separately named VAHL entries are held outside the initial adult-grouping scope pending eligibility review. Historical Brave H.C. game matches prove opponents and scores in a specific season, not roster continuity in 2026. No same-named older team is automatically credited with current strength. Four accepted weeks, at least ten games for 75% of the adult pool and independent cross-division fixtures are minimum evidence thresholds; none substitutes for human review.</p>
+ </details>
+</section>
+<footer>Sources: <a href="https://leagues.sportsvillage.ca/Leagues.aspx?leagueid=570&amp;page_type=Adult&amp;sc=HOCKEY">Official Sunday Winter 2026/27 standings</a> · <a href="./league-intelligence.html">Verified HockeyOS League Intelligence</a>. Source and methodology are date-stamped in the copied report. No original HTO, Sports Village, goalie or Master Workbook records are modified.</footer>
+</main><script src="./division-fit-model.js?v=20261026-research1" defer></script>
+<script src="./division-fit-lab.js?v=20261026-research1" defer></script></body></html>
