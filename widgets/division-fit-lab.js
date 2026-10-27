@@ -57,6 +57,19 @@
    "Research sandbox only: descriptive dispersion "+num(chosen.dispersion,2)+" versus "+num(original.dispersion,2)+
    " in the current divisions. "+chosen.movedTeams+" possible re-groupings. "+
    chosen.limitation+" Not a league recommendation, team movement approval or win prediction.";
+  const evidence=chosen.evidence;
+  const box=q("scenario-evidence");box.replaceChildren();
+  metric(box,evidence.observedSameGroupGames,"real completed games between teams grouped together in this view");
+  metric(box,evidence.observedAcrossGroupGames,"real games between teams assigned to different groups in this view");
+  metric(box,num(100*evidence.observedPairingCoverage,1)+"%",
+      "possible in-group team pairings represented by at least one result");
+  metric(box,evidence.percentTwoGoalOrCloser===null?"unavailable":num(evidence.percentTwoGoalOrCloser,1)+"%",
+      "games decided by two goals or fewer, among observed in-group meetings");
+  q("scenario-evidence-caution").textContent=
+     "Only "+evidence.observedSameGroupGames+" of "+analysis.gameGraph.verifiedGamesInPool+
+     " completed games tested this hypothetical same-group membership. "+
+     "These games occurred under the actual historic schedules, not the hypothetical divisions. "+
+     evidence.sampleWarning;
   const grid=q("division-groups");grid.replaceChildren();
   const lookup=new Map(analysis.teams.map(t=>[t.sourceTeamId,t]));
   for(const group of chosen.groups){
@@ -141,6 +154,16 @@
    "CURRENT group dispersion (descriptive): "+num(original.dispersion,2),
    "VIEWED SCENARIO: "+s.title+"; dispersion "+num(s.dispersion,2)+
        "; "+s.movedTeams+" hypothetical moves; "+s.kind,
+   "Actual head-to-head evidence for VIEWED grouping: "+s.evidence.observedSameGroupGames+
+      " prior completed games would fall within those hypothetical groups, "+
+      s.evidence.observedAcrossGroupGames+" across groups. "+
+      s.evidence.observedUniqueSameGroupPairings+"/"+s.evidence.allPossibleSameGroupPairings+
+      " possible in-group team pairings have a verified result.",
+   "Observed games within selected groups decided by at most two goals: "+
+      s.evidence.twoGoalOrCloserGames+"/"+s.evidence.observedSameGroupGames+
+      "; mean observed absolute goal margin "+
+      num(s.evidence.meanObservedGoalMargin,2)+".",
+   "CRITICAL: those games occurred under real schedules. This is NOT a simulated matchup, inferred result or proof of a better division.",
    ...s.groups.map(g=>g.label+" | "+g.capacity+" clubs | descriptive range "+
        num(g.minIndex)+"–"+num(g.maxIndex)+
        " | teams "+g.ids.map(id=>analysis.teams.find(t=>t.sourceTeamId===id)?.name||"unresolved").join(", ")),
