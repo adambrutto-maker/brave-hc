@@ -50,7 +50,7 @@ const server=http.createServer((req,res)=>{
    const older=choices.find(v=>v.startsWith("547|"))||choices.find(v=>!v.startsWith("570|"));
    assert.ok(older,"official playerID has historical previous season");
    await page.select("#audit-season",older);
-   await page.waitForFunction(()=>document.querySelector("#audit-selection-status")?.textContent.includes("official league season "+older.split("|")[0]));
+   await page.waitForFunction((leagueId)=>document.querySelector("#audit-selection-status")?.textContent.includes("official league season "+leagueId),{},older.split("|")[0]);
    const historical=await page.evaluate(()=>({
     title:document.querySelector("#audit-selection-status")?.textContent,
     metrics:document.querySelector("#audit-player-metrics")?.textContent,
