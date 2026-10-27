@@ -7,6 +7,10 @@
 const fs=require("node:fs"),path=require("node:path"),crypto=require("node:crypto");
 const fit=require("../widgets/division-fit-model.js");
 const hex=/^[a-f0-9]{64}$/;
+// Git stores source JSON with LF, while Windows may check out CRLF.
+// Hash the canonical UTF-8 Git-blob bytes, not local worktree line endings.
+const gitBlobSHA256=buf=>crypto.createHash("sha256").update(
+  buf.toString("utf8").split(String.fromCharCode(13,10)).join(String.fromCharCode(10)),"utf8").digest("hex");
 const need=(p,r)=>{if(!p)throw Error("OFFICIAL_GAME_BRIDGE_HOLD:"+r)};
 const key=(date,a,b)=>[date,Math.min(a,b),Math.max(a,b)].join("|");
 function build(league,season,opts){
@@ -17,7 +21,8 @@ function build(league,season,opts){
       season.status==="SOURCE_GAME_EVENT_EVIDENCE_WITH_EXPLICIT_PARTIAL_HOLDS"&&
       Array.isArray(season.games)&&Array.isArray(season.teams),
       "ADMITTED_OFFICIAL_SOURCE_REQUIRED");
- need(opts&&hex.test(opts.leagueJSONSHA256||"")&&hex.test(opts.seasonJSONSHA256||""),
+ need(opts&&opts.sourceHashPolicy==="UTF8_LF_GIT_BLOB"&&
+      hex.test(opts.leagueJSONSHA256||"")&&hex.test(opts.seasonJSONSHA256||""),
       "ORIGINAL_SOURCE_BYTE_HASHES_REQUIRED");
  const analysis=fit.analyze(league);
  const poolTeams=new Map(analysis.teams.map(t=>[t.sourceTeamId,t]));
@@ -108,6 +113,7 @@ function build(league,season,opts){
   policy:"EXACT_SOURCE_GAME_ID_AND_TEAM_SIDE_SCORES_IN_SVHL_570_ONLY",
   leagueId:570,sourceLeagueAsOf:league.asOf,
   sourceGameInfoCapturedUTC:season.capturedUTC,
+  sourceHashBytePolicy:"UTF8_LF_GIT_BLOB",
   originalSourceSHA256:{leagueIntelligenceJSON:opts.leagueJSONSHA256,
      officialGameInfoSeasonJSON:opts.seasonJSONSHA256},
   teams:poolTeams.size,officialGames:ordered.length,
@@ -135,8 +141,9 @@ function main(){
  const buffers=paths.map(x=>fs.readFileSync(x));
  const sources=buffers.map(buf=>JSON.parse(buf.toString("utf8")));
  const result=build(...sources,{
-   leagueJSONSHA256:crypto.createHash("sha256").update(buffers[0]).digest("hex"),
-   seasonJSONSHA256:crypto.createHash("sha256").update(buffers[1]).digest("hex")
+   sourceHashPolicy:"UTF8_LF_GIT_BLOB",
+   leagueJSONSHA256:gitBlobSHA256(buffers[0]),
+   seasonJSONSHA256:gitBlobSHA256(buffers[1])
  });
  const serialized=JSON.stringify(result,null,2)+"\n";
  const dest=path.join(root,"widgets","svhl-official-game-id-bridges.json");

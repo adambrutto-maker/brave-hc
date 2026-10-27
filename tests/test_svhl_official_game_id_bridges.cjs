@@ -6,9 +6,11 @@ const input=x=>fs.readFileSync(path.join(root,x));
 const doc=x=>JSON.parse(input(x).toString("utf8"));
 const official=doc("svhl-player-game-570.json");
 const league=doc("league-intelligence.json");
-const opts={
- leagueJSONSHA256:crypto.createHash("sha256").update(input("league-intelligence.json")).digest("hex"),
- seasonJSONSHA256:crypto.createHash("sha256").update(input("svhl-player-game-570.json")).digest("hex")
+const normalizedSourceSHA=buf=>crypto.createHash("sha256").update(
+ buf.toString("utf8").split(String.fromCharCode(13,10)).join(String.fromCharCode(10)),"utf8").digest("hex");
+const opts={sourceHashPolicy:"UTF8_LF_GIT_BLOB",
+ leagueJSONSHA256:normalizedSourceSHA(input("league-intelligence.json")),
+ seasonJSONSHA256:normalizedSourceSHA(input("svhl-player-game-570.json"))
 };
 const copy=x=>JSON.parse(JSON.stringify(x));
 const good=()=>build(league,official,opts);
@@ -52,6 +54,7 @@ const tests=[
  ["The committed crosswalk is deterministic and source hashes match current raw files",()=>{
   const built=good();
   assert.deepEqual(built,doc("svhl-official-game-id-bridges.json"));
+  assert.equal(built.sourceHashBytePolicy,"UTF8_LF_GIT_BLOB");
   assert.equal(built.originalSourceSHA256.leagueIntelligenceJSON,opts.leagueJSONSHA256);
   assert.equal(built.originalSourceSHA256.officialGameInfoSeasonJSON,opts.seasonJSONSHA256);
  }],
