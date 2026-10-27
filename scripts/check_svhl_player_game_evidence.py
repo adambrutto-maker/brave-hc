@@ -57,7 +57,8 @@ def check(index,yearFiles):
    for p in t["playerSeasonSummaries"]:
     need(p["gpStatus"]=="CANNOT_VERIFY_GAME_APPEARANCE_FROM_GOAL_EVENT_SHEET" and
       p["registeredSeasonGP"]>=0 and
-      p["published"]["pts"]==p["published"]["g"]+p["published"]["a"] and
+      (p["published"]["pts"]==p["published"]["g"]+p["published"]["a"] or
+       p["status"]=="SOURCE_PUBLISHED_STATS_CONFLICT_HOLD") and
       all(v>=0 for v in p["observedFullGameEvents"].values()) and
       p["observedFullGameEvents"]["pts"]==
       p["observedFullGameEvents"]["g"]+p["observedFullGameEvents"]["a"],
