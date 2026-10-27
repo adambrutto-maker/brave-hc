@@ -309,6 +309,16 @@
     catch(_){q("copy-feedback").textContent="Clipboard permission not granted."}
    });
    q("print-research").addEventListener("click",()=>window.print());
+   // The optional player-roster evidence never gates accepted team standings.
+   try{
+    const rosterR=await fetch("./svhl-roster-intelligence.json",{cache:"no-store"});
+    if(!rosterR.ok)throw Error("public roster-season source unavailable");
+    const roster=await rosterR.json();
+    window.BraveDivisionLayoutView.setRosterSource(league,roster);
+   }catch(error){
+    q("layout-roster-source-status").textContent="Roster evidence held: "+error.message+
+      ". Grouping suggestions remain based only on admitted team/game results.";
+   }
   }catch(error){
    q("notice").textContent="Research source held: "+error.message+
      ". No team grouping is displayed without qualified sources.";

@@ -6,6 +6,7 @@
  const add=(p,tag,cls,value)=>{const x=make(tag,cls,value);p.append(x);return x};
  const as=(v,n=2)=>Number.isFinite(v)?v.toFixed(n):"unavailable";
  let study=null,accepted=null,focus="BALANCE",shape=null,method="INDEX_BANDS";
+ let sourceRosterEvidence=null,sourceLeagueData=null;
  const refinedCache=new Map();
  function sorted(){
   return study?.choices[focus]||[];
@@ -37,6 +38,16 @@
   const chosen=selected(),leading=shapes[0];
   const placement=activePlacement(),refined=placement.refinement;
   const shown=placement.metrics,groups=placement.groups;
+  const groupRosterSource=sourceRosterEvidence&&window.BraveRosterDivisionContext?
+    window.BraveRosterDivisionContext.summarize(sourceLeagueData,sourceRosterEvidence,groups):null;
+  const groupRosterMap=new Map((groupRosterSource?.groups||[]).map(x=>[x.groupKey,x]));
+  const rosterStatus=q("layout-roster-source-status");
+  if(rosterStatus)rosterStatus.textContent=groupRosterSource?
+    "Supplementary public roster evidence: "+groupRosterSource.teamCount+
+    " current source teams, "+groupRosterSource.sourceHistoricalPlayerSeasons+
+    " player-season observations, captured "+new Date(groupRosterSource.sourceRosterCaptureUTC).toLocaleString("en-CA")+
+    ". Player availability and accuracy NOT verified; no numerical roster weight in grouping objective.":
+    "Historical player roster context not available. Division optimization uses source-qualified games and index only.";
   const expectedOdd=study.adultTeams%2;
   if(!chosen ||
      chosen.groups.filter(group=>group.capacity%2!==0).length!==expectedOdd ||
@@ -122,6 +133,17 @@
    add(card,"p","small","Descriptive index "+as(lowest,1)+"–"+
      as(highest,1)+"; average "+as(groupMean,1)+
      "; within-group spread "+as(highest-lowest,1));
+   const rosterGroup=groupRosterMap.get(group.key);
+   if(rosterGroup){
+    add(card,"p","small","Source roster construction (supplementary, NOT scored): "+
+      rosterGroup.avgRosteredPlayers+" listed players/team; "+
+      rosterGroup.avgHistoricallyExperienced+" with 10+ archived GP/team; "+
+      rosterGroup.avgLinkedPriorPlayerIDs+" with earlier official IDs/team. "+
+      "Mean top-two points share: "+
+      (rosterGroup.meanTopTwoPointShare===null?"unavailable":
+         (rosterGroup.meanTopTwoPointShare*100).toFixed(1)+"%")+
+      ". Not a confirmed game-night lineup.");
+   }
    for(const id of group.ids){
     const t=team.get(id);
     if(!t)continue;
@@ -167,6 +189,16 @@
    "Editorial objective: "+as(refinement.original.objective,3)+" initial / "+
       as(refinement.refined.objective,3)+" source-ID refined; improvement "+as(refinement.improvement,3),
    "Descriptive rating spread (RMSE within groups): "+as(sourceMetric.dispersion),
+   ...(sourceRosterEvidence&&window.BraveRosterDivisionContext?
+      [ "ROSTER BUILD EVIDENCE: public official player IDs over "+
+        sourceRosterEvidence.playerSeasonObservations+" roster-season observations.",
+        ...window.BraveRosterDivisionContext.summarize(sourceLeagueData,sourceRosterEvidence,groups)
+         .groups.map(g=>g.groupKey+": "+g.avgHistoricallyExperienced+
+          " source players per club with 10+ archived GP, "+g.avgLinkedPriorPlayerIDs+
+          " with exact-linked prior player IDs, "+(g.meanTopTwoPointShare===null?
+          "unavailable":(g.meanTopTwoPointShare*100).toFixed(1)+"%")+
+          " mean two-player point concentration. ROSTER INDICATORS NOT WEIGHTED.")
+      ]:[]) ,
    "Proposed number of research divisions: "+chosen.divisionCount+
       "; new groups above current three: "+chosen.movement.newResearchGroupsNeeded,
    "Hypothetical teams changing grouping: "+sourceMetric.movement.hypotheticalDifferentGroupCount+
@@ -219,6 +251,12 @@
    container.append(card);
   }
  }
+ function setRosterSource(league,roster){
+  if(!window.BraveRosterDivisionContext)throw Error("Roster division evidence module unavailable");
+  window.BraveRosterIntelligence.valid(league,roster);
+  sourceLeagueData=league;sourceRosterEvidence=roster;
+  if(study)paint();
+ }
  function init(analysis){
   if(!window.BraveDivisionArchitect)throw Error("Division architect module unavailable");
   study=window.BraveDivisionArchitect.run(analysis);
@@ -270,5 +308,5 @@
       " All divisions have even team counts.");
   paint();
  }
- window.BraveDivisionLayoutView=Object.freeze({init,researchText:textProposal,getSelected:selected});
+ window.BraveDivisionLayoutView=Object.freeze({init,setRosterSource,researchText:textProposal,getSelected:selected});
 })();

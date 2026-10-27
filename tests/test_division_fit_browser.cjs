@@ -31,6 +31,8 @@ const srv=http.createServer((req,res)=>{
     groups:document.querySelectorAll("#division-groups .group").length,
     crossLinks:document.querySelectorAll("#cross-division-links .link-card").length,
     history:document.querySelector("#historical-metrics")?.textContent,
+    rosterSource:document.querySelector("#layout-roster-source-status")?.textContent,
+    groupRoster:document.querySelector("#layout-proposal-groups .group")?.textContent,
     gate:document.querySelector("#gate-summary")?.textContent,
     weeklyStatus:document.querySelector("#weekly-stability-status")?.textContent,
     weeklyMetrics:document.querySelector("#weekly-stability-metrics")?.textContent,
@@ -135,6 +137,11 @@ const srv=http.createServer((req,res)=>{
    assert.ok(first.current.includes("Current divisions"));
    assert.equal(first.groups,3);
    assert.ok(first.crossLinks>=2);
+   assert.ok(first.rosterSource.includes("3222 player-season observations")&&
+     first.rosterSource.includes("NOT verified")&&
+     first.groupRoster.includes("Source roster construction")&&
+     first.groupRoster.includes("10+ archived GP/team"),
+     "division layout must display separate roster-construction evidence without unverified talent score");
    assert.ok(first.history.includes(String(historical.matchedGameCount)) &&
       first.history.includes(String(historical.heldGameComparisons)));
    assert.ok(first.gate.includes("Not ready"));
