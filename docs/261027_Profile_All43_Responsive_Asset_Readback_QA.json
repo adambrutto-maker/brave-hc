@@ -1,0 +1,16 @@
+{
+  "schema": "brave-hc-legacy-highlights-browser-acceptance/v1",
+  "tested": 86,
+  "identities": 43,
+  "highlights": 306,
+  "awardImages": 104,
+  "clubImages": 97,
+  "retroactiveDedicationTitles": 10,
+  "missingImages": 0,
+  "horizontalOverflows": 0,
+  "widths": [
+    355,
+    810
+  ],
+  "status": "PASS"
+}

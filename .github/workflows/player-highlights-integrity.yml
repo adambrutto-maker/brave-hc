@@ -1,0 +1,43 @@
+name: Player highlight award and milestone integrity
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'widgets/player-highlights-v2.js'
+      - 'widgets/player-highlights.html'
+      - 'widgets/player-highlights-v2-preview.html'
+      - 'widgets/player-highlights-ledger.json'
+      - 'widgets/player-highlights-display-corrections.json'
+      - 'widgets/assets/awards/**'
+      - 'widgets/assets/clubs/**'
+      - 'scripts/test-player-highlights-v2.cjs'
+      - 'scripts/build-player-award-art.py'
+      - 'scripts/build-club-milestone-art.py'
+      - '.github/workflows/player-highlights-integrity.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  highlights-integrity:
+    name: Verify source-preserving artwork and highlights
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate browser source syntax
+        run: node --check widgets/player-highlights-v2.js
+      - name: Verify all 109 player identities, historic records, images and labels
+        run: node scripts/test-player-highlights-v2.cjs
+      - name: Recreate branded SVG icons deterministically
+        run: python scripts/build-club-milestone-art.py
+      - name: Confirm committed branded icons and SHA manifest match generator
+        run: git diff --exit-code -- widgets/assets/clubs/
