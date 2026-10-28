@@ -53,20 +53,25 @@ async function wait(page,selector,expected){
   const compactErrors=[];compact.on('pageerror',e=>compactErrors.push(e.message));
   const cr=await compact.goto(base+'home-panels.html?panel=watch&embed=1',{waitUntil:'domcontentloaded'});
   assert.equal(cr.status(),200);
-  await wait(compact,'#watch-date','HTO archive');
+  await compact.waitForFunction(()=>document.getElementById('watch')?.hidden===false);
   const part=await compact.evaluate(()=>({
-    entries:[...document.querySelectorAll('#watch-list article.entry')].map(e=>e.textContent),
-    message:document.getElementById('watch-note').textContent,
+    heading:document.querySelector('#watch h1')?.textContent||'',
+    note:document.querySelector('#watch .note')?.textContent||'',
+    links:[...document.querySelectorAll('#watch a[href]')].map(x=>x.getAttribute('href')),
     width:document.documentElement.scrollWidth,viewport:innerWidth
   }));
-  assert.equal(part.entries.length,2);
-  assert.match(part.message,/not verified/i);
+  // Current milestone news is under Hot Stove, not the removed home Watch list.
+  // The original dated Watch remains source-locked in its historical page.
+  assert.match(part.heading,/Milestones in Hot Stove/);
+  assert.match(part.note,/Career milestones and achievements now belong with the latest game stories/);
+  assert(part.links.some(x=>x.includes('hot-stove.html')));
+  assert(part.links.some(x=>x.includes('history.html?view=records')));
   assert.ok(part.width<=part.viewport+4,JSON.stringify(part));
   assert.deepEqual(compactErrors,[]);
-  console.log('COMPACT_WATCH_HISTORY_QA_PASS',JSON.stringify({count:part.entries.length,width:part.width,errors:compactErrors}));
+  console.log('COMPACT_HOT_STOVE_MILESTONE_REDIRECT_PASS',JSON.stringify({heading:part.heading,width:part.width,errors:compactErrors}));
   await compact.close();
   const degraded=await browser.newPage();await degraded.setRequestInterception(true);
-  degraded.on('request',req=>req.url().includes('history-records.json')?req.respond({status:404,body:'not available'}):req.continue());
+  degraded.on('request',req=>req.url().includes('history-records-legacy-558.json')?req.respond({status:404,body:'not available'}):req.continue());
   await degraded.goto(base+'watch-v2.html',{waitUntil:'domcontentloaded'});
   await wait(degraded,'#notice','Historical milestones withheld');
   assert.equal(await degraded.evaluate(()=>document.querySelectorAll('#milestones article.entry').length),0);

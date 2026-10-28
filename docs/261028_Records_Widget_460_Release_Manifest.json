@@ -1,0 +1,31 @@
+{
+  "schema": "brave-hc-hto-native-statistical-records-widget-port/v1",
+  "status": "READY_FOR_RELEASE",
+  "original_hto_records": 558,
+  "new_hto_statistical_records": 460,
+  "milestone_club_rows_moved_to_awards": 98,
+  "original_player_book_rows": 327,
+  "original_player_statistical_rows": 229,
+  "ported_player_entries": 229,
+  "mapping_holds": [],
+  "source_public_individual_rows": 231,
+  "source_public_team_rows": 229,
+  "unattributed_public_individual_rows": [
+    {
+      "category": "Summer - Wins",
+      "scope": "Playoffs",
+      "sourceText": "2 - Rènt Goaliê (2016)"
+    },
+    {
+      "category": "Summer - Goals Against Average",
+      "scope": "Playoffs",
+      "sourceText": "3.50 - Rènt Goaliê (2016)"
+    }
+  ],
+  "heading_aliases": 38,
+  "original_history_sha256": "affab0a369a757848e5a2f06c74e860eb8a19081de92e5532ec50a2617f0cafa",
+  "original_book_sha256": "4379ed1af4bda6d025678649960b56c859b5a6d244cf65ca8c43219b616816f1",
+  "public_records_sha256": "3b4f7afa7b951dbc710af2fd034c557e62d1aee8aa66ecd537e2c6fe48d8986e",
+  "capturedAt": "2026-10-28T08:01:05.767690+00:00",
+  "native_hto_writes": 0
+}

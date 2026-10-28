@@ -53,7 +53,7 @@ return {name:document.querySelector('#playerName').textContent,rows:rows.length,
      rec[key]+=fact["counts"][k]
     rec["norris"]+=len(fact["norris"])
  assert rec["sessions"]==86,rec
- assert rec["players"]==43 and rec["highlights"]==306,rec
+ assert rec["players"]==43 and rec["highlights"]==343,rec
  assert (rec["award"],rec["club"],rec["special"],rec["heritage"])==(105,97,58,46),rec
  assert rec["norris"]==16,rec
  rec["status"]="PASS"

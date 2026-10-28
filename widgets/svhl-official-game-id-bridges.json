@@ -3,11 +3,11 @@
   "status": "OFFICIAL_GAMEINFO_IDENTITY_MATCHED_NO_RATING_OR_STATS_WRITE",
   "policy": "EXACT_SOURCE_GAME_ID_AND_TEAM_SIDE_SCORES_IN_SVHL_570_ONLY",
   "leagueId": 570,
-  "sourceLeagueAsOf": "2026-10-27T14:15:06.382188+00:00",
+  "sourceLeagueAsOf": "2026-10-28T14:15:07.194640+00:00",
   "sourceGameInfoCapturedUTC": "2026-10-27T14:06:34.151623+00:00",
   "sourceHashBytePolicy": "UTF8_LF_GIT_BLOB",
   "originalSourceSHA256": {
-    "leagueIntelligenceJSON": "b4d51ee1610e9822f3f3315e1e9026e8305ad314b4720258fa417ef3bf54107b",
+    "leagueIntelligenceJSON": "840f8aeda051f542e64a905968a6afee65cd9d0815c3811ff5db171b5949f41e",
     "officialGameInfoSeasonJSON": "77f7e6d37ef625bc8dbfbbca0a88aa7e666d3d1cc10577e5c56406560033d9a4"
   },
   "teams": 22,

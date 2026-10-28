@@ -44,7 +44,7 @@ def browser_driver():
 
 def run():
     assert len(PLAYERS)==43
-    assert sum(len(p["items"]) for p in PLAYERS.values())==306
+    assert sum(len(p["items"]) for p in PLAYERS.values())==343
     for group in ("awards","clubs","special","heritage"):
         path=ROOT/"widgets/assets"/group
         m=json.loads((path/"source-manifest.json").read_text("utf-8"))
@@ -75,6 +75,7 @@ def run():
                 WebDriverWait(driver,20).until(
                     lambda d:d.execute_script("return !!document.querySelector('#legacy .ph-event')"))
                 driver.execute_script("""
+                  const history=document.querySelector('#historyDetails');if(history)history.open=true;
                   const btn=document.querySelector('#expand');
                   if(btn&&!btn.hidden)btn.click();
                   document.querySelectorAll('#legacy .ph-event img').forEach(img=>img.loading='eager');
@@ -135,7 +136,7 @@ def run():
                     result["rolaids"]+=len(data["rolaids"])
                     result["discipline"]+=len(data["discipline"])
         assert result["sessions"]==86,result
-        assert result["highlights"]==306,result
+        assert result["highlights"]==343,result
         assert dict(result["categories"])==EXPECTED,result
         assert result["rolaids"]==2,result
         assert result["discipline"]==3,result
