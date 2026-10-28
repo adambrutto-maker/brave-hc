@@ -44,3 +44,17 @@ python scripts/aw19_latest_official_hto_candidates.py --feed "D:\BruTTech\Produc
 First live source-only run on October 28 checked HTO Game 3375682 (October 25, 2026), all five reconciled season games, and 14 official player IDs. It proposed **zero new milestone grants** because no crossed source threshold was proven. Three player profiles were held when native HTO omitted a required career-stat column (rather than guessing a zero). The private receipt contains source SHA256 hashes; do not add that receipt to public source control.
 
 The adapter does not mutate HTO or live GitHub, grant a badge, create a new category, or send a notification. Pending runtime integration: invoke it after verified HTO collector receipt, reconcile it against existing 244 native Awards entries, independently verify new category ordering, and use supported authenticated HTO native editing with post-save public source parity before automatic grant claims. Future category sorting in draft PR #143 is a pure input/output planning function, not a native HTO publisher by itself.
+
+## Native Awards action staging and preserve-originals gate
+
+The new `scripts/aw19_stage_native_hto_awards_actions.py` reads the latest verified AW-19 source receipt, the immutable 98-record historical club source manifest and the current HTO Awards public page. It validates 146 historical honours and all 98 original dated milestone entries, rejects unknown categories, flags duplicate player-name/club combinations for authenticated player ID review, and emits the **new club creation + missing award entry plan in goalie-first ascending tier order**. It does not write the live site.
+
+BRUTTECH 1 command after the collector and source reconciler succeed (private outputs must stay on BRUTTECH 1):
+
+```powershell
+python scripts/aw19_stage_native_hto_awards_actions.py --candidates "D:\BruTTech\Products\HockeyOS\Implementation Control\PlayerCoaching\261028_HTO_Awards_Milestones_Embed_CANDIDATE\261028_AW19_Latest_Official_HTO_Club_Proposals_READONLY.json" --historic-source "D:\BruTTech\Products\HockeyOS\Implementation Control\PlayerCoaching\261028_HTO_Awards_Milestones_Embed_CANDIDATE\261028_AW16_Separate_Club_Categories_Source_Manifest.json" --output "D:\BruTTech\Products\HockeyOS\Implementation Control\PlayerCoaching\261028_HTO_Awards_Milestones_Embed_CANDIDATE\261028_AW19_Native_Award_Action_Plan_READONLY.json"
+```
+
+The October 28 live staging check accepted current 244 Awards entries and returned **READ_ONLY_NO_ACTIONS** for the verified October 25 game—there was no qualifying career threshold crossing. Seven additional synthetic tests cover source history preservation, successful new category planning, stale source rejection, exact recipient duplication/identity hold, and no actions for no new achievements. Together with source and club ordering tests, **20 deterministic tests** now cover the AW-19 staged path.
+
+An authenticated native HTO editor is required before applying proposed actions. After each candidate, re-check exact player identity and official earned date, add the new category only if the first award qualifies, verify independent 244-source parity plus the new award, re-sort native category headings, and save official HTO order. No unattended native grant is claimed by this source-only PR.

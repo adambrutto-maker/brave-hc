@@ -7,6 +7,8 @@ on:
       - 'scripts/test_aw19_verified_club_engine.py'
       - 'scripts/aw19_latest_official_hto_candidates.py'
       - 'scripts/test_aw19_latest_official_hto_candidates.py'
+      - 'scripts/aw19_stage_native_hto_awards_actions.py'
+      - 'scripts/test_aw19_stage_native_hto_awards_actions.py'
       - '.github/workflows/aw19-verified-clubs-integrity.yml'
   workflow_dispatch:
 
@@ -27,3 +29,4 @@ jobs:
         run: |
           python scripts/test_aw19_verified_club_engine.py
           python scripts/test_aw19_latest_official_hto_candidates.py
+          python scripts/test_aw19_stage_native_hto_awards_actions.py
