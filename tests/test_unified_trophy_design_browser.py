@@ -6,6 +6,7 @@ No HTO/admin state mutations or award decisions.
 """
 from pathlib import Path
 from collections import Counter
+from composite_badge_expectations import projected_items
 import functools,http.server,json,threading,os
 from selenium import webdriver
 from selenium.webdriver.edge.options import Options
@@ -16,10 +17,11 @@ ledger=json.loads((ROOT/"widgets/player-highlights-ledger.json").read_text(encod
 book=json.loads((ROOT/"widgets/player-record-book.json").read_text(encoding="utf-8"))["players"]
 discipline=next(pid for pid,p in ledger.items() if any(x["category"]=="discipline" for x in p["items"]))
 cases=[("354060",355),("354060",810),("354055",355),("354055",810),
-       ("354054",320),("354054",1280),("354046",355),("354049",810),(discipline,355)]
+       ("354054",320),("354054",1280),("354046",355),("354049",810),
+       ("354058",355),("354058",810),("354062",355),("652571",810),(discipline,355)]
 gold="rgb(229, 182, 84)"
 ring={"bronze":"rgb(201, 145, 95)","silver":"rgb(185, 202, 217)",
-      "gold":gold,"platinum":"rgb(216, 233, 244)"}
+      "gold":gold,"platinum":"rgb(57, 199, 243)"}
 class Quiet(http.server.SimpleHTTPRequestHandler):
  def log_message(self,*args):pass
 server=http.server.ThreadingHTTPServer(("127.0.0.1",0),functools.partial(Quiet,directory=str(ROOT)))
@@ -35,9 +37,10 @@ try:
  driver=webdriver.Chrome(options=opts) if browser_kind=="chrome" else webdriver.Edge(options=opts)
  for pid,width in cases:
   player=ledger[pid]
-  milestones=[x for x in player["items"] if x["category"]=="milestone"]
-  honors=[x for x in player["items"] if x["category"] not in ("milestone","discipline")]
-  disciplines=[x for x in player["items"] if x["category"]=="discipline"]
+  display=projected_items(pid,player["name"],player["items"])
+  milestones=[x for x in display if x["category"]=="milestone"]
+  honors=[x for x in display if x["category"] not in ("milestone","discipline")]
+  disciplines=[x for x in display if x["category"]=="discipline"]
   recordcount=len(book[pid]["entries"])
   driver.set_window_size(1100,1050)
   driver.execute_cdp_cmd("Emulation.setDeviceMetricsOverride",
@@ -45,7 +48,7 @@ try:
   driver.get(f"http://127.0.0.1:{server.server_port}/widgets/player-highlights.html?playerID={pid}")
   WebDriverWait(driver,24).until(lambda d:d.execute_script(
    "return !document.getElementById('lockerSection').hidden && Number(document.getElementById('lockerAllCount').textContent)==arguments[0]",
-   len(player["items"])+recordcount))
+   len(display)+recordcount))
   driver.execute_script("document.querySelector('#lockerMilestones').click();")
   medals=driver.execute_script("""return [...document.querySelectorAll('#milestoneGrid .ph-earned-tile')].map(t=>{
    const im=t.querySelector('img'),label=t.querySelector('.ph-earned-name'),date=t.querySelector('.ph-earned-date'),
@@ -91,7 +94,7 @@ try:
     titleFont:label?getComputedStyle(label).fontSize:null,titleAlign:label?getComputedStyle(label).textAlign:null,
     dateFont:date?getComputedStyle(date).fontSize:null,icon:t.querySelector('img')?.src||''};
   })""")
-  assert len(allstatus)==len(player["items"])+recordcount,(pid,width,len(allstatus))
+  assert len(allstatus)==len(display)+recordcount,(pid,width,len(allstatus))
   allmedals=[a for a in allstatus if "ph-inventory-milestone" in a["className"]]
   allhonors=[a for a in allstatus if "ph-gold-honour" in a["className"]]
   allDiscipline=[a for a in allstatus if "ph-inventory-discipline" in a["className"]]

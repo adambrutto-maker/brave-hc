@@ -43,7 +43,7 @@ check=Counter()
 sample_cases=[("354055",355),("354055",810),("354060",355),("354060",810),
  ("354054",355),("354054",810),("354046",355),("354049",810)]
 expected_colors={"bronze":"rgb(201, 145, 95)","silver":"rgb(185, 202, 217)",
- "gold":"rgb(229, 182, 84)","platinum":"rgb(216, 233, 244)"}
+ "gold":"rgb(229, 182, 84)","platinum":"rgb(57, 199, 243)"}
 try:
  browser=webdriver.Chrome(options=opts) if kind=="chrome" else webdriver.Edge(options=opts)
  for pid,width in sample_cases:

@@ -77,15 +77,48 @@ async function render(id,overrides={}){
  const context=vm.createContext({window:{},URL,URLSearchParams,Date,Number,String,Object,Array,Map,Promise,Error,console,location:{search:'?playerID='+id},document:{getElementById:id=>{assert(nodes[id],'missing element '+id);return nodes[id]},createElement:tag=>new Element(tag),createTextNode:s=>String(s)},fetch:async url=>({ok:true,json:async()=>freeze(structuredClone(Object.hasOwn(overrides,url.slice(2))?overrides[url.slice(2)]:feeds[url.slice(2)]))})});
  vm.runInContext(links,context);vm.runInContext(code,context);await new Promise(setImmediate);return nodes;
 }
+// Independent exact-source test oracle: three published HTO multiline
+// records comprise 7 source-qualified individual achievement lines.
+const displayComposites={
+ '354058':{
+  id:'hto-legacy-354058-04',name:'Alex Pagnotta',
+  parts:[['award','James Norris Award - Winter 2019/20'],
+         ['leadership','Elected Assistant Captain - Winter 2019/20']]
+ },
+ '354062':{
+  id:'hto-legacy-354062-03',name:'Daniel Buzzelli',
+  parts:[['milestone','50 Game Club - September 23, 2018'],
+         ['championship','SVHL Cup Champion - Winter 2012/13']]
+ },
+ '652571':{
+  id:'hto-legacy-652571-01',name:'David Corasaniti',
+  parts:[['award','Conn Smythe Award Playoff MVP - Winter 2019/20'],
+         ['award','Hart Award Team MVP - Winter 2019/20'],
+         ['award','Rookie of the Year Award - Winter 2019/20']]
+ }
+};
+function sourceDisplayItems(pid,items){
+ const spec=displayComposites[pid];
+ if(!spec)return items;
+ assert.equal(ledger.players[pid].name,spec.name);
+ const entry=items.find(x=>x.id===spec.id);
+ assert(entry&&entry.category==='record'&&entry.sourceText===spec.parts.map(x=>x[1]).join('\n'));
+ assert.equal(entry.provenance,'EXISTING_NATIVE_HTO_HIGHLIGHTS');
+ return items.flatMap(x=>x.id!==spec.id?[x]:spec.parts.map(([category,sourceText],index)=>({
+  id:x.id+'::presentation-'+(index+1),category,sourceText,displayText:sourceText,
+  sourceRecordID:x.id,presentationOnly:true
+ })));
+}
 (async()=>{
  let profiles=0,highlights=0,records=0,corrected=0,awardLogoDisplays=0,milestoneLogoDisplays=0,retitledDedications=0,specialLogoDisplays=0,heritageLogoDisplays=0,earnedWallBadges=0;
  assert.deepEqual(corrections.corrections.map(c=>[c.itemID,c.displayText,c.sortDate]),Object.entries(expectedCorrections).map(([id,c])=>[id,c.text,c.date]));
  for(const [id,p] of Object.entries(career.players)){
  const n=await render(id);assert.equal(n.playerName.textContent,p.name);assert(n.notice.hidden,id+' unexpected warning');
- const items=ledger.players[id]?.items||[];
+ const items=ledger.players[id]?.items||[]; // immutable HTO history
+ const displayItems=sourceDisplayItems(id,items); // card-only badge projections
  assert.equal(n.legacySection.hidden,items.length===0);
- const sourceMilestones=items.filter(x=>x.category==='milestone');
- const otherItems=items.filter(x=>x.category!=='milestone'&&x.category!=='discipline');
+ const sourceMilestones=displayItems.filter(x=>x.category==='milestone');
+ const otherItems=displayItems.filter(x=>x.category!=='milestone'&&x.category!=='discipline');
  assert.equal(n.lockerSection.hidden,false,'Every verified player profile has the selectable collection');
  assert.equal(n.historyDetails.hidden,items.length===0);
  assert.equal(n.honorsCount.textContent,otherItems.length+' records');
@@ -96,7 +129,7 @@ async function render(id,overrides={}){
  assert.equal(n.lockerMilestonesCount.textContent,String(sourceMilestones.length));
  assert.equal(n.lockerHonorsCount.textContent,String(otherItems.length));
  assert.equal(n.lockerRecordsCount.textContent,String(book.players[id].entries.length));
- assert.equal(n.lockerAllCount.textContent,String(items.length+book.players[id].entries.length));
+ assert.equal(n.lockerAllCount.textContent,String(displayItems.length+book.players[id].entries.length));
  if(sourceMilestones.length&&otherItems.length){
   assert.equal(n.milestoneSection.hidden,false);
   n.lockerHonors.onclick();
@@ -153,9 +186,9 @@ async function render(id,overrides={}){
  n.lockerAll.onclick();
  assert.equal(n.allSection.hidden,false);
  assert.equal(n.recordsSection.hidden,true);
- assert.equal(n.allCount.textContent,String(items.length+entries.length));
+ assert.equal(n.allCount.textContent,String(displayItems.length+entries.length));
  assert.equal(n.allGrid.children.filter(x=>x.className?.includes('ph-inventory-card')).length,
-   Math.min(12,items.length+entries.length));
+   Math.min(12,displayItems.length+entries.length));
  const expectedHighs=p.segments.flatMap(s=>s.highs).length;assert.equal(n.highs.children.length,expectedHighs);assert.equal(n.highsSection.hidden,!expectedHighs);
  assert(!Object.values(n).some(el=>/NaN|Infinity/.test(el.textContent)),id+' non-finite value');
  profiles++;
@@ -179,7 +212,7 @@ async function render(id,overrides={}){
  assert.equal(corrected,4);
  assert.equal(retitledDedications,10,'All ten historically named award wins must be retitled');
  assert.equal(milestoneLogoDisplays,134,'All 134 officially verified milestone items use the uniform full-crest artwork');
- assert.equal(earnedWallBadges,134,'All 97 original and 37 newly HTO-verified club milestones must appear in the earned badge gallery');
+ assert.equal(earnedWallBadges,135,'All 134 original milestone-category entries plus Daniel Buzzelli source-qualified embedded 50 Game Club must appear');
  assert.equal(awardLogoDisplays,105,'James Norris composite winner must display existing artwork');
  assert.equal(specialLogoDisplays,58,'All 51 championship rows, 1 composite Cup and 6 All-Star rows must show specials');
  assert.equal(heritageLogoDisplays,46,'Every remaining historical badge has unique emblem');

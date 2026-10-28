@@ -164,7 +164,7 @@ function paintVerifiedFutureClub(image,art){
    // Number + category live ON TOP of the logo with a translucent dark plate.
    const colors={bronze:['#c9915f','#f8d6ab'],
     silver:['#b9cad9','#f1f7fc'],gold:['#e5b654','#ffe8af'],
-    platinum:['#d8e9f4','#ffffff']};
+    platinum:['#39c7f3','#e5fcff']};
    const [metal,bright]=colors[art.tier]||colors.platinum;
    ctx.save();ctx.beginPath();ctx.arc(100,100,91,0,Math.PI*2);ctx.clip();
    ctx.drawImage(lion,11,11,178,178);
@@ -177,6 +177,12 @@ function paintVerifiedFutureClub(image,art){
    ctx.strokeStyle=metal;ctx.lineWidth=4;ctx.stroke();
    ctx.beginPath();ctx.arc(100,100,87,0,2*Math.PI);
    ctx.strokeStyle=bright;ctx.lineWidth=1.4;ctx.stroke();
+   if(art.tier==='platinum'){
+    ctx.beginPath();ctx.arc(100,100,91,Math.PI*1.75,Math.PI*1.95);
+    ctx.strokeStyle='#ab83ff';ctx.lineWidth=3.8;ctx.stroke();
+    ctx.beginPath();ctx.arc(100,100,91,Math.PI*.7,Math.PI*.9);
+    ctx.strokeStyle='#9165ed';ctx.lineWidth=3.8;ctx.stroke();
+   }
    ctx.beginPath();ctx.roundRect(31,108,138,66,10);
    ctx.fillStyle='rgba(4,18,35,0.91)';ctx.fill();
    ctx.strokeStyle=metal;ctx.lineWidth=1.7;ctx.stroke();
@@ -700,11 +706,71 @@ function showLockerFaces(record){
  };
  activate();
 }
+// The original HTO Highlights table contains exactly three verified multiline
+// source records. Each line is an independent published achievement, but the
+// CMS stores those lines as one record. Split only PRESENTATION cards: the
+// unedited source remains one row in Complete Achievement Timeline, retaining
+// its original formatting, identity, provenance, source counts and dates.
+// Strict source/id/player guard: unknown or changed composites remain intact.
+const publishedCompositeBadgePreimages=Object.freeze({
+ 'hto-legacy-354058-04':{
+  playerID:'354058',name:'Alex Pagnotta',
+  lines:[
+   ['award','James Norris Award - Winter 2019/20'],
+   ['leadership','Elected Assistant Captain - Winter 2019/20']
+  ]
+ },
+ 'hto-legacy-354062-03':{
+  playerID:'354062',name:'Daniel Buzzelli',
+  lines:[
+   ['milestone','50 Game Club - September 23, 2018'],
+   ['championship','SVHL Cup Champion - Winter 2012/13']
+  ]
+ },
+ 'hto-legacy-652571-01':{
+  playerID:'652571',name:'David Corasaniti',
+  lines:[
+   ['award','Conn Smythe Award Playoff MVP - Winter 2019/20'],
+   ['award','Hart Award Team MVP - Winter 2019/20'],
+   ['award','Rookie of the Year Award - Winter 2019/20']
+  ]
+ }
+});
+function projectVerifiedCompositeBadges(record){
+ if(!record||!Array.isArray(record.items))return record;
+ const result=[];
+ for(const item of record.items){
+  const spec=publishedCompositeBadgePreimages[item.id];
+  if(!spec){result.push(item);continue;}
+  const exact=spec.lines.map(x=>x[1]).join('\n');
+  // Source-authority requirement: do not infer winners from arbitrary multiline
+  // text, projections, unknown identities, renamed or stale HTO entries.
+  if(String(playerId)!==spec.playerID||record.name!==spec.name||
+     item.category!=='record'||item.provenance!=='EXISTING_NATIVE_HTO_HIGHLIGHTS'||
+     item.publication!=='EXISTING_HTO_MANUAL_RECORD'||
+     item.sourceText!==exact||item.displayText!==exact){
+   result.push(item);
+   continue;
+  }
+  for(const [index,[category,sourceText]] of spec.lines.entries()){
+   result.push({
+    id:item.id+'::presentation-'+(index+1),
+    category,sourceText,displayText:sourceText,
+    sourceEmphasis:item.sourceEmphasis===true,
+    sourceOrder:Number(item.sourceOrder||0)+(index/100),
+    provenance:item.provenance,publication:item.publication,
+    sourceRecordID:item.id,presentationOnly:true
+   });
+  }
+ }
+ return {...record,items:result};
+}
 function renderLegacy(record,ledgerTime){
  const container=$('legacy'),items=newestAchievements(record?.items||[]);
- renderMilestoneWall(record);
- renderHonorsWall(record);
- showLockerFaces(record);
+ const cardRecord=projectVerifiedCompositeBadges(record);
+ renderMilestoneWall(cardRecord);
+ renderHonorsWall(cardRecord);
+ showLockerFaces(cardRecord);
  $('historyDetails').hidden=!items.length;
  container.replaceChildren();
  $('careerSummary').replaceChildren();

@@ -9,6 +9,10 @@
   "design": "One full-crest medallion with exact centred foreground number and label, tier metallic outline and transparent exterior for all six metric families.",
   "uniformBadgeNumberFontPxAt600": 118,
   "uniformBadgeMetricFontPxAt600": 51,
+  "platinumVisualFinish": "PRISMATIC_DIAMOND_CYAN_AZURE_VIOLET_DISTINCT_FROM_SILVER",
+  "platinumCyanRim": "#39C7F3",
+  "platinumVioletFacet": "#AB83FF",
+  "platinumTierNamePreserved": true,
   "tierPolicy": {
     "50": "bronze",
     "100": "silver",
@@ -81,8 +85,8 @@
       "value": 300,
       "tier": "platinum",
       "sourceVerifiedInSnapshot": true,
-      "bytes": 34254,
-      "sha256": "59a2fe42280d8f277b61e789e790f747b880edb310c093117319cdc7f499c3ec",
+      "bytes": 36348,
+      "sha256": "0dbe6c1c3aff50fe8612313e5d42fb6b0413f44d5bcacfc041ac58fd3918209f",
       "size": [
         200,
         200
@@ -98,8 +102,8 @@
       "value": 400,
       "tier": "platinum",
       "sourceVerifiedInSnapshot": false,
-      "bytes": 33868,
-      "sha256": "57f4fa38135c55b24b78ab6e1feea4e1045d46c3267c9c72be5a77fc303c1e76",
+      "bytes": 36202,
+      "sha256": "b711f9a710ae751c676936c501500502e7b78e84e0e210372c68d3852092fa98",
       "size": [
         200,
         200
@@ -115,8 +119,8 @@
       "value": 500,
       "tier": "platinum",
       "sourceVerifiedInSnapshot": false,
-      "bytes": 33996,
-      "sha256": "4490f33c6236bcd0c18bf525a5758118f8b2055d4db2d2c36fb6332e2fbc6f97",
+      "bytes": 36408,
+      "sha256": "0defd646aecb4e3233666f08fef7bb8aae2d85e0088a8e6d28a86e9545b6bb85",
       "size": [
         200,
         200
@@ -132,8 +136,8 @@
       "value": 750,
       "tier": "platinum",
       "sourceVerifiedInSnapshot": false,
-      "bytes": 33722,
-      "sha256": "75fc109a2f31986afbe8fd4f4d0ec7ef3b4ccc46d614461af97452bd183ab22d",
+      "bytes": 36272,
+      "sha256": "820ec763ead65fe0e9cdfcfd8c360d10a84a1655a470d6fe7a5030ed53e11777",
       "size": [
         200,
         200
@@ -149,8 +153,8 @@
       "value": 1000,
       "tier": "platinum",
       "sourceVerifiedInSnapshot": false,
-      "bytes": 34250,
-      "sha256": "3a8c2c6aa6e636906c57aa472c7c1d98dca2465daaf4c7214cacfab143f15858",
+      "bytes": 36504,
+      "sha256": "7cb9249c6a0b785ce58aaa4b820854443581fdaa3a60aa68f35bf6583a6ef50e",
       "size": [
         200,
         200
@@ -217,8 +221,8 @@
       "value": 300,
       "tier": "platinum",
       "sourceVerifiedInSnapshot": true,
-      "bytes": 34232,
-      "sha256": "f3f5fc1d36074455f02a9517d1031732319a30bfb1a11612ce66a677557bb8e3",
+      "bytes": 36286,
+      "sha256": "21cb1ce598c4b859272c8b75d5db0b69fe89b023a2c7879bcd713edfd7c029ee",
       "size": [
         200,
         200
@@ -234,8 +238,8 @@
       "value": 400,
       "tier": "platinum",
       "sourceVerifiedInSnapshot": false,
-      "bytes": 33804,
-      "sha256": "aecbe9c570d686dda7ecb31cdb40ee8f35ebfa3c3e9cbf0a6fabccf098beade4",
+      "bytes": 35728,
+      "sha256": "d6ba3e6ae8a99be80aaeeb45f400af4bdba62606e5c8a420eab3de497f211a0f",
       "size": [
         200,
         200
@@ -251,8 +255,8 @@
       "value": 500,
       "tier": "platinum",
       "sourceVerifiedInSnapshot": false,
-      "bytes": 34150,
-      "sha256": "748a1718a100cb50167e3cce808fa9d1f1aa0f0054d083452e7041ff7a9345a9",
+      "bytes": 35996,
+      "sha256": "76571b79ce0cc8f0a8d247b82e0d3ff0c4b3e345a25ebe2b7dd223e0718ae6f5",
       "size": [
         200,
         200
@@ -268,8 +272,8 @@
       "value": 750,
       "tier": "platinum",
       "sourceVerifiedInSnapshot": false,
-      "bytes": 33628,
-      "sha256": "96717903de665f37626592d6eed1c2d07fc71320eb1862ff1031907dc6a20ee4",
+      "bytes": 36038,
+      "sha256": "55bb753feebda603a92f7bf256b80c2f62bfaa80ad0252bbd13a953e4c60bd77",
       "size": [
         200,
         200
@@ -285,8 +289,8 @@
       "value": 1000,
       "tier": "platinum",
       "sourceVerifiedInSnapshot": false,
-      "bytes": 34136,
-      "sha256": "179cb2f8b8d8c38d1df54b55f77e5b70eeb27a63c2fea9661e10030d5df0c82b",
+      "bytes": 36322,
+      "sha256": "d0215eb6eb8e005f649bc6f6305069e62edc7d79d353ab81c72aa7e3b5ee29c6",
       "size": [
         200,
         200
@@ -353,8 +357,8 @@
       "value": 300,
       "tier": "platinum",
       "sourceVerifiedInSnapshot": false,
-      "bytes": 33882,
-      "sha256": "d60548df8368303e50c1679162b61bd680124110abe434517e18037073808091",
+      "bytes": 36026,
+      "sha256": "e3b221793749cc348d63a3f950438edd90018a365f0a679843848c62e223e291",
       "size": [
         200,
         200
@@ -370,8 +374,8 @@
       "value": 400,
       "tier": "platinum",
       "sourceVerifiedInSnapshot": false,
-      "bytes": 33332,
-      "sha256": "a2e9aa6fa48edc0806f00bf4ee55b9ce8e688afa461edc30d8ce0dad61d6f0ab",
+      "bytes": 35470,
+      "sha256": "121c1477f1014f51e41e3af1b469bcff0dd2998a70d41d3ba2fe1254814ca250",
       "size": [
         200,
         200
@@ -387,8 +391,8 @@
       "value": 500,
       "tier": "platinum",
       "sourceVerifiedInSnapshot": false,
-      "bytes": 33696,
-      "sha256": "598011940240a9142bba5fc5a28d347cd07b7cd1aabe91029efdb26310783e97",
+      "bytes": 35886,
+      "sha256": "2658a469f1093f61dd6608f7c73e531ceae2f64a966539a8000b3b9cc841d111",
       "size": [
         200,
         200

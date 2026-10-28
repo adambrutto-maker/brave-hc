@@ -24,7 +24,7 @@ RIM={
  "bronze":{"rim":"#C9915F","light":"#F8D6AB","dark":"#65452A"},
  "silver":{"rim":"#B9CAD9","light":"#F1F7FC","dark":"#516A80"},
  "gold":{"rim":"#E5B654","light":"#FFE8AF","dark":"#84632C"},
- "platinum":{"rim":"#D8E9F4","light":"#FFFFFF","dark":"#6F91AA"}
+ "platinum":{"rim":"#39C7F3","light":"#E5FCFF","dark":"#6145BE"}
 }
 ORIGINAL= json.loads(PREVIOUS.read_text(encoding="utf-8"))
 assert ORIGINAL["schema"]=="brave-hc-rounded-milestone-art/v1"
@@ -69,6 +69,13 @@ def render(logo:Image.Image,count:int,metric:str,tier:str)->Image.Image:
  rings.ellipse((25,25,575,575),outline=m["rim"],width=11)
  rings.ellipse((39,39,561,561),outline=m["light"],width=4)
  rings.ellipse((48,48,552,552),outline="#11253C",width=4)
+ if tier=="platinum":
+  # Sapphire/cyan rim with violet facets: visibly different from muted silver.
+  rings.arc((25,25,575,575),315,350,fill="#AB83FF",width=11)
+  rings.arc((25,25,575,575),125,160,fill="#9165ED",width=11)
+  rings.arc((39,39,561,561),198,222,fill="#E8FDFF",width=4)
+  rings.polygon(((509,119),(516,135),(532,142),(516,149),(509,165),(502,149),(486,142),(502,135)),
+                fill="#DCFBFF")
  overlay=Image.new("RGBA",(S,S),(0,0,0,0))
  pixels=overlay.load()
  for y in range(298,555):
@@ -143,6 +150,9 @@ def build():
   "design":"One full-crest medallion with exact centred foreground number and label, tier metallic outline and transparent exterior for all six metric families.",
   "uniformBadgeNumberFontPxAt600":NUMBER_FONT_SIZE,
   "uniformBadgeMetricFontPxAt600":METRIC_FONT_SIZE,
+  "platinumVisualFinish":"PRISMATIC_DIAMOND_CYAN_AZURE_VIOLET_DISTINCT_FROM_SILVER",
+  "platinumCyanRim":"#39C7F3","platinumVioletFacet":"#AB83FF",
+  "platinumTierNamePreserved":True,
   "tierPolicy":{"50":"bronze","100":"silver","200":"gold","300+":"platinum",
                 "5_shutouts":"bronze","10_shutouts":"silver","20_shutouts":"gold","30+_shutouts":"platinum"},
   "earnedMilestoneEvents":134,"earnedRecipientEvents":37,

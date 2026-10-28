@@ -1,5 +1,6 @@
 """Real Edge visual and source-integrity acceptance of earned milestone wall."""
 import collections,functools,http.server,json,threading,os
+from composite_badge_expectations import projected_items
 from pathlib import Path
 from selenium import webdriver
 from selenium.webdriver.edge.options import Options
@@ -33,7 +34,8 @@ try:
       titles:tiles.map(t=>t.textContent),sourceCount:document.querySelector('#milestoneCount').textContent,
       filters:filters.map(b=>b.textContent),outOfBounds:document.documentElement.scrollWidth>innerWidth+4,
       history:history.length};""")
-   expected=sum(i["category"]=="milestone" for i in player["items"])
+   visible=projected_items(pid,player["name"],player["items"])
+   expected=sum(i["category"]=="milestone" for i in visible)
    assert current["name"]==player["name"] and current["hidden"]==(expected==0),(pid,current)
    assert current["earned"]==expected,(pid,current,expected)
    assert not current["outOfBounds"],(pid,width,"horizontal overflow")
@@ -55,7 +57,7 @@ try:
      d.execute_script("""const target=arguments[0];[...document.querySelectorAll('#milestoneFilters button')].find(b=>b.textContent.startsWith(target)).click();""",metric+" (")
      filtered=d.execute_script("""return {count:document.querySelectorAll('#milestoneGrid .ph-earned-tile').length,
        active:[...document.querySelectorAll('#milestoneFilters button')].filter(b=>b.getAttribute('aria-pressed')==='true').map(b=>b.textContent)};""")
-     assert filtered["count"]==sum(i["category"]=="milestone" and (" "+metric[:-1]+" Club") in i["sourceText"] for i in player["items"]),(pid,metric,filtered)
+     assert filtered["count"]==sum(i["category"]=="milestone" and (" "+metric[:-1]+" Club") in i["sourceText"] for i in visible),(pid,metric,filtered)
      assert len(filtered["active"])==1 and filtered["active"][0].startswith(metric),(pid,filtered)
     d.execute_script("document.querySelector('#milestoneFilters button').click();")
    if kind=='edge' and (pid,width) in [("354054",355),("354054",810),("354060",810)]:
@@ -64,6 +66,6 @@ try:
     samples.append({"id":pid,"width":width,"milestones":expected})
    totals["sessions"]+=1;totals["badges"]+=expected if width==355 else 0
    if width==355:totals["profiles"]+=1
- assert totals["sessions"]==86 and totals["badges"]==134 and totals["profiles"]==43,totals
+ assert totals["sessions"]==86 and totals["badges"]==135 and totals["profiles"]==43,totals
  print(json.dumps({"status":"PASS","totals":dict(totals),"sampleScreenshots":samples},indent=2))
 finally:d.quit();server.shutdown()

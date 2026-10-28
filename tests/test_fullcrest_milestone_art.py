@@ -18,7 +18,7 @@ KNOWN={
  ("ASSISTS",50,"bronze"),("ASSISTS",100,"silver"),("ASSISTS",200,"gold"),
  ("SHUTOUTS",5,"bronze"),("SHUTOUTS",10,"silver")
 }
-RIM={"bronze":(201,145,95),"silver":(185,202,217),"gold":(229,182,84),"platinum":(216,233,244)}
+RIM={"bronze":(201,145,95),"silver":(185,202,217),"gold":(229,182,84),"platinum":(57,199,243)}
 def sha(raw):return hashlib.sha256(raw).hexdigest()
 
 class UnifiedMedalSourceIntegrity(unittest.TestCase):
