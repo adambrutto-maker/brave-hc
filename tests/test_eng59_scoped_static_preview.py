@@ -37,7 +37,22 @@ class ScopedPreviewTests(unittest.TestCase):
   self.assertEqual(qa["manifestsVerified"],6)
   self.assertEqual(qa["artworkAssetsVerified"],78)
   self.assertEqual(qa["sourceBackupsVerifiedButNotPublished"],39)
-  self.assertFalse(any(x.startswith("widgets/assets/opaque-originals/") for x in included))
+  self.assertEqual(qa["additionalProvenanceAssetsVerifiedButNotPublished"],3)
+  self.assertFalse(any(x.startswith((
+   "widgets/assets/opaque-originals/",
+   "widgets/assets/approved-sources/",
+   "widgets/assets/approved-history/")) for x in included))
+ def test_forged_whistle_source_art_and_prior_neutral_image_are_held(self):
+  included=set(index(ROOT)[0]);source=(ROOT/"widgets/assets/approved/source-manifest.json").read_text(encoding="utf8")
+  for field in ("sourceArtSha256","sourceWebpSha256","priorNeutralSha256"):
+   forged=source.replace('"'+field+'": "','"'+field+'": "0',1)
+   with self.subTest(checksum=field):
+    with self.assertRaisesRegex(PreviewHold,"ARTWORK_PROVENANCE_HASH_CONFLICT"):
+     verify_artwork_manifests(ROOT/"widgets",included,{"approved":forged})
+ def test_source_artwork_backup_must_not_be_published_from_staging(self):
+  included=set(index(ROOT)[0]);included.add("widgets/assets/approved-sources/discipline_record_whistle_redcard_master.png")
+  with self.assertRaisesRegex(PreviewHold,"ARTWORK_PROVENANCE_FILE_UNSAFE_OR_PUBLIC"):
+   verify_artwork_manifests(ROOT/"widgets",included)
  def test_missing_new_approved_htO_icon_cannot_sneak_into_preview(self):
   included=set(index(ROOT)[0]);included.remove("widgets/assets/approved/hart_mvp.webp")
   with self.assertRaisesRegex(PreviewHold,"ARTWORK_ASSET_MISSING_OR_UNSAFE"):

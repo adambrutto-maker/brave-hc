@@ -61,6 +61,7 @@ def verify_artwork_manifests(widgets,package_paths,manifest_overrides=None):
  kinds=("approved","awards","clubs","heritage","round-clubs","special")
  count=0
  backupCount=0
+ additionalProvenanceCount=0
  seen=set()
  backups=set()
  for kind in kinds:
@@ -106,9 +107,30 @@ def verify_artwork_manifests(widgets,package_paths,manifest_overrides=None):
      hashlib.sha256(canonical_source(backing)).hexdigest()==entry["opaqueSourceSha256"],
      "OPAQUE_BACKUP_SOURCE_HASH_CONFLICT:"+backup)
     backupCount+=1
+   # Three approved discipline-art provenance files are not runtime imagery.
+   # Verify their exact original bytes while keeping them off the web surface.
+   for name,checksum in (("sourceArtPath","sourceArtSha256"),
+       ("sourceWebpPath","sourceWebpSha256"),
+       ("priorNeutralBackup","priorNeutralSha256")):
+    artifact=entry.get(name)
+    if artifact is None:continue
+    need(isinstance(artifact,str) and
+     artifact.startswith(("assets/approved-sources/","assets/approved-history/")) and
+     ".." not in artifact.split("/") and "\\" not in artifact and
+     artifact not in backups and ("widgets/"+artifact) not in package_paths,
+     "ARTWORK_PROVENANCE_FILE_UNSAFE_OR_PUBLIC:"+str(artifact))
+    backing=(widgets/artifact).resolve()
+    need(backing.is_relative_to(widgets) and backing.is_file() and
+     not backing.is_symlink() and
+     re.fullmatch("[a-f0-9]{64}",str(entry.get(checksum,""))) and
+     hashlib.sha256(canonical_source(backing)).hexdigest()==entry[checksum],
+     "ARTWORK_PROVENANCE_HASH_CONFLICT:"+artifact)
+    backups.add(artifact)
+    additionalProvenanceCount+=1
    count+=1
  return {"manifestsVerified":len(kinds),"artworkAssetsVerified":count,
-  "sourceBackupsVerifiedButNotPublished":backupCount}
+  "sourceBackupsVerifiedButNotPublished":backupCount,
+  "additionalProvenanceAssetsVerifiedButNotPublished":additionalProvenanceCount}
 
 def tracked(repo):
  return set(subprocess.check_output(["git","-C",str(repo),"ls-files","-z"]).decode("utf-8").rstrip("\0").split("\0"))
@@ -125,15 +147,18 @@ def index(repo,files=None):
            "widgets/svhl-official-game-id-bridges.json",
            "widgets/svhl-gameinfo-hold-review.json"}
  need(required<=paths,"MANDATORY_WEB_ENTRYPOINT_OR_SOURCE_MISSING")
+ source_only_prefixes=("widgets/assets/opaque-originals/",
+   "widgets/assets/approved-sources/","widgets/assets/approved-history/")
  included=sorted(p for p in paths if p=="index.html" or (
     p.startswith("widgets/") and
-    not p.startswith("widgets/assets/opaque-originals/") and
+    not p.startswith(source_only_prefixes) and
     Path(p).suffix.lower() in EXT))
  # Opaque originals are preserved in Git for provenance, but they are not
  # runtime website resources and must never be packaged in a public preview.
  for rel in included:
   if rel.endswith((".html",".js")):
-   need(b"opaque-originals" not in canonical_source(repo/rel),
+   need(not any(prefix in canonical_source(repo/rel) for prefix in
+     (b"opaque-originals",b"approved-sources/",b"approved-history/")),
     "BACKUP_ARTWORK_LINKED_FROM_PUBLIC_RUNTIME:"+rel)
  need("index.html" in included,"HOME_REDIRECT_NOT_IN_PACKAGE")
  pathsData={}
@@ -220,6 +245,7 @@ def build(repo,output,check_only=False):
   "rootPagesWorkflowChanged":False,
   "canonicalGitBlobBytes":True,
   "excludedNonRuntimeOpaqueBackups":len([x for x in alltracked if x.startswith("widgets/assets/opaque-originals/")]),
+  "excludedApprovedSourceAndHistoryFiles":len([x for x in alltracked if x.startswith(("widgets/assets/approved-sources/","widgets/assets/approved-history/"))]),
   "artworkManifestCoverage":artwork,
   "previewFiles":len(inc),
   "previewBytes":sum(x["bytes"] for x in sources.values()),
