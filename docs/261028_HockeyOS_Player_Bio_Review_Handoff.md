@@ -20,7 +20,7 @@ Date: October 28, 2026. Lead: BruTTech Engineering. Execution: BRUTTECH 1, isola
 - Legacy QA also checked 109 verified identities, leadership tenure parity and 320 / 390 / 625 / 1280-pixel screens.
 - New premium browser QA exercises 109 player profiles and actual/winter/summer controls, goalie profile panel, source-valid opponent cards and coaching filter.
 - 17 normalization contract tests PASS; 7 source-gated goalie model tests PASS. Candidate JavaScript syntax checks PASS.
-- Screenshots from actual isolated Edge browser test: ![Player Bio — skater mobile](previews/261028_Player_Bio_Skater_Mobile.png) and ![Player Bio — goalie mobile](previews/261028_Player_Bio_Goalie_Mobile.png).
+- Screenshots from actual isolated Edge browser test: ![Player Bio — skater mobile](previews/261028_Player_Bio_Skater_Mobile.png) and ![Player Bio — goalie mobile](previews/261028_Player_Bio_Goalie_Mobile.png). Desktop: ![Player Bio — skater desktop](previews/261028_Player_Bio_Skater_Desktop.png).
 
 ## Source and publication gates
 

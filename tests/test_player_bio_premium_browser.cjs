@@ -74,6 +74,29 @@ const server=http.createServer((req,res)=>{
    assert.equal(await page.$eval('#systemSection',e=>e.hidden),false);
    assert.equal(await page.$eval('#bioSpotlight',e=>e.hidden),true);
    await page.close();
+   for(const width of [320,625,1280]){
+     const desktop=await browser.newPage({viewport:{width,height:950}});
+     desktop.on('pageerror',err=>problems.push('responsive '+width+': '+err.message));
+     await desktop.goto(origin+'/widgets/player-bio.html?playerID=354060&embed=1');
+     await desktop.waitForFunction(()=>document.body.classList.contains('bio-premium-ready'));
+     assert.equal(await desktop.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1),false,'overflow '+width);
+     assert.equal(await desktop.$eval('#bioSpotlight',e=>e.hidden),false);
+     assert.ok(await desktop.locator('#bioComboChart svg').count()>=1);
+     if(screens&&width===1280)await desktop.screenshot({path:path.join(screens,'bio-premium-desktop-354060.png'),fullPage:true});
+     await desktop.close();
+   }
+   // A manually staged goalie file cannot bypass independent source parity and release gates.
+   const forged=await browser.newPage({viewport:{width:390,height:820}});
+   const forgedData={schema:'hockeyos-verified-goalie-projection-inputs/v1',season:'W2026/27',
+     players:{'354055':{sourceVerified:true,currentSourceVerified:true,seasonGames:24,teamGamesPlayed:5,
+       current:{gp:2,w:1,l:1,t:0,ga:7},history:[{gp:12,w:6,l:6,t:0,ga:40,teamGames:24}]}}};
+   await forged.route('**/goalie-projection-verified-inputs.json',r=>r.fulfill({status:200,
+      contentType:'application/json',body:JSON.stringify(forgedData)}));
+   await forged.goto(origin+'/widgets/player-bio.html?playerID=354055&embed=1');
+   await forged.waitForFunction(()=>document.body.classList.contains('bio-premium-ready'));
+   assert.match(await forged.textContent('#bioGoalieStatus'),/held/i);
+   assert.equal(await forged.locator('#bioGoalieCards .bio-metric').count(),5);
+   await forged.close();
    assert.deepEqual(problems,[]);
    console.log(JSON.stringify({status:'PASS',playerProfiles:ids.length,issues:problems,formats:['Actual','Winter equivalent','Summer equivalent'],screenshots:!!screens},null,2));
  }finally{await browser.close();}

@@ -261,6 +261,10 @@ function renderGoalie(){
   const model=window.BraveGoalieProjection;
   let result=null;
   if(model&&approved?.schema==='hockeyos-verified-goalie-projection-inputs/v1'&&
+     approved.publicationGate?.state==='GOALIE_HISTORICAL_CURRENT_PARITY_ACCEPTED'&&
+     approved.publicationGate?.releaseAuthorized===true&&
+     typeof approved.publicationGate?.independentEvidenceId==='string'&&
+     approved.publicationGate.independentEvidenceId.length>12&&
      approved.players?.[state.player]&&approved.season==='W2026/27'){
     result=model.forecast(approved.players[state.player]);
   }
