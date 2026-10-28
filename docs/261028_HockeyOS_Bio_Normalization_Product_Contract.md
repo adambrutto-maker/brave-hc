@@ -7,7 +7,7 @@ Status: Source-verified workbook conversion, stage-only code contract; **not an 
 
 The native HTO Stats tab is authoritative for raw season and career totals. The Records and Player Highlights views display **earned official actuals** in their appropriate historical category, including distinct Summer vs Winter records. The Bio is a separate advanced analytics and player-development visualization, not a copy of the Stats table. Never overwrite raw records, award results, milestones, career points, dated source events, game sheets or club records with an equivalent or projection.
 
-The Bio visual style should match the newly polished Milestone Highlights (header, spacing, legible cards, mobile layout and in-place category tabs). User-visible top-level controls: **All, Production, Trends, Goaltending (where relevant), Coaching**. Avoid an obstructive collection of dropdowns, accordions and redundant raw season tables. Main skater historical chart: **stacked goals and assists with an overlaid points-per-game line**, with separate units/axes, accessible values and a source date. Respect missing values, zero-game seasons and zero-point appearances. Game-level charts require a reconciled game-event feed; no inferred appearances or ice time.
+The Bio visual style should match the newly polished Milestone Highlights (header, spacing, legible cards, mobile layout and in-place category tabs). User-visible top-level controls: **All, Production, Trends, Goaltending (where relevant), Coaching**. Avoid an obstructive collection of dropdowns, accordions and redundant raw season tables. Main skater historical chart: **raw actual goals and assists remain the stacked bars** while **ONLY the overlaid points-per-game line** changes with No adjustment / Winter-adjusted / Summer-adjusted. Provide separate axes, accessible values, source date, and missing-rate gaps for unverified historic format mappings. Respect missing values, zero-game seasons and zero-point appearances. Game-level charts require a reconciled game-event feed; no inferred appearances or ice time.
 
 ## Verified original Master Workbook calculations
 
@@ -51,6 +51,16 @@ Recommended comparative views:
 
 A separate **season-length projection** may eventually be implemented as a clearly labelled scenario, using actual appearances, chosen target-game count and properly normalized per-game production. Never pass a projected total to the Records or Awards pipelines.
 
+## Native player Bio projection — share data, not homepage UI
+
+- Homepage Projections and the player Bio both consume the same already-published widgets/projection.json: schema brave-hc-workbook-projection/v1, model BravesRegularSeasonProjection. Do not fork or recompute the workbook forecast or make a points-per-game extrapolation.
+- The selected player has their OWN polished, responsive projection panel INSIDE the Bio, with model-published projected GP, G, A, PTS and projected Pts/GP. The model Pts/GP is not the ratio of rounded display totals.
+- Match each row by the verified official HTO player ID through the shared name resolver; reject duplicates, ambiguous names and missing source, never assign invented zeros.
+- October 28, 2026 published feed is provisional: modelCurrent=false, projectionComplete=false, publicationStatus=HTO_MODEL_RECONCILIATION_PENDING, five verified HTO games versus the older one-game workbook baseline. Never describe it as a certified current projection or actual stats. Explicitly disclose source dates and both input coverages.
+- HTO current GP/G/A/PTS actuals are separate, source dated, and never added to the projected full-season model values.
+- Homepage redesign remains deliberately deferred until Bio first; never embed the homepage widget or merely link to it as the player Bio experience.
+- No changes to official HTO records, AwardsScoring, original Master Workbook, private player coaching, or native HTO profile editors.
+
 ## Data contract and safeguards
 
 - Save format definitions with IDs, game minutes/period durations and a verification state; each historic season/game type binds to its source format with its own evidence/version. An unverified, conflicting or missing assignment results in HELD, not a guessed number.
@@ -68,7 +78,8 @@ A separate **season-length projection** may eventually be implemented as a clear
 - [x] Stage pure duration-normalization module, format configuration and positive/negative regression tests on a feature branch.
 - [ ] Reconcile a full historical season/game-type mapping for each applicable HTO profile and workbook segment; compare original vs adjusted workbook outputs, preserving regular-season/playoff scope. This mapping is **not yet supplied** by the currently published Bio career feed.
 - [ ] Wire a controlled, dated, validated public analytical feed to the Bio. Do not present normalized live player statistics until a source-verified season format and complete source parity exist.
-- [ ] Implement Milestone-quality Bio header, five-button in-place category navigation, one combined scoring/rate chart with separate scales, accessible Actual/Winter/Summer toggle, source states and mobile QA.
+- [ ] Implement Milestone-quality Bio header, in-place category navigation, RAW stacked goals+assists with ADJUSTABLE rate line and distinct scales; responsive/browser QA.
+- [ ] Implement native individual projection cards driven by the single homepage forecast JSON, with source status and identity verification; homepage redesign intentionally out of scope.
 - [ ] Build authenticated coach-approved lineup/role/season-status instructions; no private notes in public repository.
 - [ ] Run all existing 109-player/leadership regression tests plus new normalization tests, confirm no change to HTO Records/Awards/Highlights and publish only after explicit release approval.
 
