@@ -1,0 +1,29 @@
+/* Scoped styling for the EXISTING native Brave H.C. Awards page only. */
+#brave-hc-awards-milestones.bhma {box-sizing:border-box;max-width:100%;margin:1.5rem auto;clear:both;color:#eff5ff;font-family:Arial,Helvetica,sans-serif}
+#brave-hc-awards-milestones.bhma *,#brave-hc-awards-milestones.bhma *::before,#brave-hc-awards-milestones.bhma *::after {box-sizing:border-box}
+.bhma .bhma-section {width:100%;padding:clamp(16px,3vw,28px);border:1px solid #31516a;border-radius:16px;background:linear-gradient(140deg,#071a2e,#122b47);box-shadow:0 8px 26px rgba(0,0,0,.23)}
+.bhma .bhma-heading h2 {margin:0 0 .4rem;font-size:clamp(22px,3.4vw,29px);line-height:1.2;color:#fff}
+.bhma .bhma-heading p {margin:.2rem 0 1rem;font-size:14px;line-height:1.5;color:#d3dfed}
+.bhma .bhma-status {margin:0 0 12px;font-size:12px;color:#d1dce8}
+.bhma .bhma-filters {display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 17px}
+.bhma .bhma-filter,.bhma .bhma-more {font:600 13px/1.3 Arial,Helvetica,sans-serif;cursor:pointer;border:1px solid #7892a7;background:#152d46;color:#f4f7fc;padding:10px 14px;border-radius:22px;min-height:40px}
+.bhma .bhma-filter[aria-pressed="true"] {background:#b82c48;border-color:#e67289;color:#fff}
+.bhma .bhma-filter:focus-visible,.bhma .bhma-more:focus-visible,.bhma .bhma-player:focus-visible {outline:3px solid #f1d477;outline-offset:3px}
+.bhma .bhma-grid {display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:12px;min-width:0}
+.bhma .bhma-card {min-width:0;display:flex;align-items:center;gap:10px;border:1px solid #36516c;border-radius:12px;background:#091e35;padding:12px}
+.bhma .bhma-artwork {flex:0 0 90px;width:90px;height:90px;display:flex;align-items:center;justify-content:center}
+.bhma .bhma-artwork img {width:90px;height:90px;object-fit:contain;display:block}
+.bhma .bhma-art-fallback {display:flex;align-items:center;justify-content:center;text-align:center;width:90px;min-height:80px;padding:8px;border:2px solid #b9c7d5;border-radius:50%;color:#fff;font-size:12px}
+.bhma .bhma-copy {min-width:0;display:flex;flex-direction:column;gap:5px}
+.bhma .bhma-tier {font-size:10px;font-weight:800;letter-spacing:.1em;color:#eac580}
+.bhma .bhma-bronze .bhma-tier {color:#e9b483}
+.bhma .bhma-silver .bhma-tier {color:#c9d7ee}
+.bhma .bhma-gold .bhma-tier {color:#ffe59c}
+.bhma .bhma-platinum .bhma-tier {color:#e2efff}
+.bhma .bhma-name {font-weight:800;font-size:14px;line-height:1.3;color:white}
+.bhma .bhma-player {font-size:13px;line-height:1.3;color:#c0defb;text-decoration:underline;overflow-wrap:anywhere}
+.bhma .bhma-date {font-size:11px;color:#c1cfdd;line-height:1.35}
+.bhma .bhma-more {display:block;margin:16px auto 0}
+.bhma .bhma-more[hidden] {display:none}
+@media(max-width:520px) {.bhma .bhma-section {padding:14px}.bhma .bhma-grid {grid-template-columns:1fr}.bhma .bhma-card {padding:10px}.bhma .bhma-artwork,.bhma .bhma-artwork img {width:76px;height:76px}.bhma .bhma-artwork {flex-basis:76px}.bhma .bhma-filter {padding:10px 12px}}
+@media(prefers-reduced-motion:reduce){.bhma * {scroll-behavior:auto !important;animation:none !important;transition:none !important}}
