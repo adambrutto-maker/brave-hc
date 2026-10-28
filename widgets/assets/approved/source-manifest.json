@@ -167,13 +167,20 @@
     {
       "slug": "discipline_record",
       "file": "assets/approved/discipline_record.webp",
-      "bytes": 11566,
-      "sha256": "279d73dec4c84be8c75bdbc09261ae6d8ca78f353a6bc6bd855a9f9f57431df4",
-      "source": "APPROVED_USER_ARTWORK_PACKAGE",
+      "bytes": 50614,
+      "sha256": "505420c0403ea6645d579747a33beddcdb68e29cd92fdf901f53faf815c4d9c4",
+      "source": "USER_APPROVED_WHISTLE_AND_RED_YELLOW_CARDS",
       "background": "TRANSPARENT_EXTERIOR_APPROVED_ART_PRESERVED",
       "opaqueSourcePath": "assets/opaque-originals/approved/discipline_record.webp",
-      "opaqueSourceSha256": "7644c21e4cae30c37455026a8c22c0e3a867ed94d9ce9042fd8c5dcf059aaf5d"
+      "opaqueSourceSha256": "7644c21e4cae30c37455026a8c22c0e3a867ed94d9ce9042fd8c5dcf059aaf5d",
+      "sourceArtPath": "assets/approved-sources/discipline_record_whistle_redcard_master.png",
+      "sourceArtSha256": "5a83253b6b6130aad2beb80b9bd75ab7ddba22e5f22c75793a15a2946064c625",
+      "sourceWebpPath": "assets/approved-sources/discipline_record_whistle_redcard_200.webp",
+      "sourceWebpSha256": "505420c0403ea6645d579747a33beddcdb68e29cd92fdf901f53faf815c4d9c4",
+      "priorNeutralBackup": "assets/approved-history/discipline_record_neutral_20261027.webp",
+      "priorNeutralSha256": "279d73dec4c84be8c75bdbc09261ae6d8ca78f353a6bc6bd855a9f9f57431df4",
+      "approval": "USER_APPROVED_2026-10-27_WHISTLE_RED_AND_YELLOW_CARDS"
     }
   ],
-  "suspensionPolicy": "Muted administrative record icon, not a medal or honour."
+  "suspensionPolicy": "Neutral disciplinary record, not an award: whistle and referee cards, no crown, laurels or trophies."
 }

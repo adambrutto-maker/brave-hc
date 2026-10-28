@@ -17,6 +17,10 @@ on:
       - 'widgets/assets/clubs/**'
       - 'widgets/assets/round-clubs/**'
       - 'widgets/assets/approved/**'
+      - 'widgets/assets/approved-sources/**'
+      - 'widgets/assets/approved-history/**'
+      - 'scripts/install-approved-discipline-whistle.py'
+      - 'tests/test_discipline_whistle_replacement.py'
       - 'widgets/assets/opaque-originals/**'
       - 'scripts/build-transparent-badge-art.py'
       - 'tests/test_transparent_badge_background.py'
@@ -68,6 +72,8 @@ jobs:
         run: python scripts/verify-approved-artwork.py --require-approved
       - name: Verify transparent approved and milestone emblems against opaque originals
         run: python -m unittest discover -s tests -p test_transparent_badge_background.py
+      - name: Verify locked discipline whistle and red-card artwork, provenance and three published suspensions
+        run: python -m unittest discover -s tests -p test_discipline_whistle_replacement.py
       - name: Recreate branded SVG icons deterministically
         run: python scripts/build-club-milestone-art.py
       - name: Confirm committed branded icons and SHA manifest match generator

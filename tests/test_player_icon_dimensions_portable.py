@@ -61,7 +61,7 @@ def run():
     result={"schema":"brave-hc-46-categorized-awards-pixel-parity/v1",
             "browser":os.getenv("BRAVE_QA_BROWSER","edge"),
             "profiles":len(PLAYERS),"sessions":0,"highlights":0,
-            "categories":collections.Counter(),"blackPatch":0,"rolaids":0,
+            "categories":collections.Counter(),"blackPatch":0,"rolaids":0,"discipline":0,
             "badImages":0,"badSizes":0,"overflow":0}
     try:
         driver=browser_driver()
@@ -106,6 +106,7 @@ def run():
                       framed:!!r.querySelector('.ph-cristillo-black-patch')
                     })),
                     rolaids:rows.filter(r=>title(r).includes('Rolaids Relief Man Award')).map(r=>r.querySelector('img')?.src||''),
+                    discipline:rows.filter(r=>title(r).includes('Game Suspension')).map(r=>r.querySelector('img')?.src||''),
                     tiers:rows.filter(r=>r.className.includes('ph-with-milestone-art')).map(r=>r.className),
                     titles:rows.map(title)
                   };
@@ -122,6 +123,7 @@ def run():
                 assert all(("cristillo-dedication.webp" in x["logo"] or "andrew_cristillo.webp" in x["logo"]) and x["framed"]
                           for x in data["patch"]),(pid,"Cristillo black patch lost")
                 assert all("rolaids-relief.webp" in x or "rolaids_relief.webp" in x for x in data["rolaids"]),(pid,"Rolaids")
+                assert all("discipline_record.webp?v=whistle-cards-20261028" in u for u in data["discipline"]),(pid,"discipline artwork")
                 assert not any("Bill Masterton Award" in x for x in data["titles"]),(pid,"old dedication label")
                 result["sessions"]+=1
                 if width==355:
@@ -131,10 +133,12 @@ def run():
                         if count:result["categories"][key]+=count
                     result["blackPatch"]+=len(data["patch"])
                     result["rolaids"]+=len(data["rolaids"])
+                    result["discipline"]+=len(data["discipline"])
         assert result["sessions"]==86,result
         assert result["highlights"]==306,result
         assert dict(result["categories"])==EXPECTED,result
         assert result["rolaids"]==2,result
+        assert result["discipline"]==3,result
         assert result["blackPatch"]==11,result
         result["status"]="PASS"
         # Summary only. Do not rewrite release receipts during the CI run.
