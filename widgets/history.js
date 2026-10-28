@@ -18,7 +18,14 @@ const shortRecordDate=(entry)=>{
  // season totals. Shorten confirmed day/month/year labels to Sep 2, 2026.
  const month={January:'Jan',February:'Feb',March:'Mar',April:'Apr',May:'May',June:'Jun',
    July:'Jul',August:'Aug',September:'Sep',October:'Oct',November:'Nov',December:'Dec'};
- return String(entry).replace(/\b(January|February|March|April|May|June|July|August|September|October|November|December)\s+(\d{1,2}),\s*((?:19|20)\d{2})\b/g,
+ const iso=String(entry).replace(/\b((?:19|20)\d{2})-(0[1-9]|1[0-2])-([0-2]\d|3[01])\b/g,
+  (raw,year,m,d)=>{
+   const parsed=new Date(Date.UTC(Number(year),Number(m)-1,Number(d)));
+   if(parsed.getUTCFullYear()!==Number(year)||parsed.getUTCMonth()+1!==Number(m)||
+      parsed.getUTCDate()!==Number(d))return raw;
+   return Object.values(month)[Number(m)-1]+' '+Number(d)+', '+year;
+  });
+ return iso.replace(/\b(January|February|March|April|May|June|July|August|September|October|November|December)\s+(\d{1,2}),\s*((?:19|20)\d{2})\b/g,
   (_,m,day,year)=>month[m]+' '+Number(day)+', '+year);
 };
 function validate(data,type) {
