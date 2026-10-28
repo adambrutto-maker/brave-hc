@@ -266,6 +266,12 @@ const tests=[
   forged.games[0].videoPerformanceMeasurements={pressure:99};
   assert.throws(()=>model.officialGameIdentityCoverage(baseline,forged),
     /OFFICIAL_GAME_ID_LINK_SCORE_OR_SOURCE_HASH_UNQUALIFIED/);
+  const renamed=clone(original);renamed.games[0].homeTeamName="Forged team alias";
+  assert.throws(()=>model.officialGameIdentityCoverage(baseline,renamed),
+    /OFFICIAL_GAME_ID_LINK_SCORE_OR_SOURCE_HASH_UNQUALIFIED/);
+  const wrongAway=clone(original);wrongAway.games[0].awayTeamName="Wrong opponent";
+  assert.throws(()=>model.officialGameIdentityCoverage(baseline,wrongAway),
+    /OFFICIAL_GAME_ID_LINK_SCORE_OR_SOURCE_HASH_UNQUALIFIED/);
   const removed=clone(original);removed.games.pop();
   assert.throws(()=>model.officialGameIdentityCoverage(baseline,removed),
     /OFFICIAL_GAME_ID_MAP_NOT_SOURCE_ADMITTED/);

@@ -67,6 +67,27 @@ const srv=http.createServer((req,res)=>{
       first.videoMetrics.includes(String(verifiedBridges.teamsWithCrossDivisionEvidence)));
    assert.equal(first.crossGameLinks,verifiedBridges.crossCurrentDivisionGames);
    assert.ok(first.crossGameSources.every(url=>url.startsWith("https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=")));
+   // All source-qualified official games are independently inspectable, not
+   // just cross-division links. No rating, scenario or scorer admission changes.
+   assert.equal(await page.$eval("#gameinfo-scope-filter",x=>x.value),"CROSS");
+   await page.select("#gameinfo-scope-filter","ALL");
+   assert.equal(await page.$$eval("#video-bridge-games-list .week-card",x=>x.length),54);
+   assert.ok((await page.$eval("#gameinfo-source-count",x=>x.textContent)).includes("54 of 54"));
+   assert.equal(await page.$$eval("#video-bridge-games-list .week-card.warning",x=>x.length),0);
+   assert.equal(await page.$$eval("#video-bridge-games-list .week-card .warning",x=>x.length),2);
+   await page.select("#gameinfo-scope-filter","WITHIN");
+   assert.equal(await page.$$eval("#video-bridge-games-list .week-card",x=>x.length),35);
+   await page.select("#gameinfo-scope-filter","ALL");
+   await page.$eval("#video-bridge-games",x=>{x.open=true});
+   await page.type("#gameinfo-source-search","127707");
+   assert.equal(await page.$$eval("#video-bridge-games-list .week-card",x=>x.length),1);
+   assert.ok((await page.$eval("#video-bridge-games-list .week-card a",x=>x.href)).includes("gameid=127707"));
+   await page.$eval("#gameinfo-source-search",x=>{x.value="no-such-game";x.dispatchEvent(new Event("input",{bubbles:true}))});
+   assert.equal(await page.$$eval("#video-bridge-games-list .week-card",x=>x.length),0);
+   await page.$eval("#gameinfo-source-search",x=>{x.value="";x.dispatchEvent(new Event("input",{bubbles:true}))});
+   await page.select("#gameinfo-scope-filter","CROSS");
+   assert.equal(await page.$$eval("#video-bridge-games-list .week-card",x=>x.length),19);
+   assert.ok((await page.$eval("#video-readiness-status",x=>x.textContent)).includes("INSUFFICIENT_VIDEO"));
    assert.ok(first.videoCaveat.includes("Camera")&&
       first.videoCaveat.includes("No VAHL team is included"));
    assert.ok(first.evidence.includes(String(verified.scenarios[0].evidence.observedSameGroupGames))&&

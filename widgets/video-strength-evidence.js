@@ -340,6 +340,7 @@
     Array.isArray(official.games)&&official.games.length===inventory.verifiedPoolGames,
     "OFFICIAL_GAME_ID_MAP_NOT_SOURCE_ADMITTED");
   const graph=new Map(existing.gameGraph.verifiedMatches.map(g=>[g.sourceGameKey,g]));
+  const verifiedTeamNames=new Map(existing.teams.map(t=>[t.sourceTeamId,t.leagueName]));
   const uniqueKeys=new Set(),uniqueIDs=new Set();
   let cross=0,partial=0;
   for(const g of official.games){
@@ -359,6 +360,8 @@
        g.awayTeamId===original.teamIds[0]?0:1]&&
      Math.abs(g.publishedFinalGoals[0]-g.publishedFinalGoals[1])===original.absoluteGoalMargin&&
      g.homeTeamId!==g.awayTeamId&&
+     g.homeTeamName===verifiedTeamNames.get(g.homeTeamId)&&
+     g.awayTeamName===verifiedTeamNames.get(g.awayTeamId)&&
      original.teamIds[0]===Math.min(g.homeTeamId,g.awayTeamId)&&
      original.teamIds[1]===Math.max(g.homeTeamId,g.awayTeamId)&&
      g.crossCurrentDivision===!original.sameCurrentDivision&&

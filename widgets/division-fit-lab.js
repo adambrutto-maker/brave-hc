@@ -140,26 +140,47 @@
   const verified=window.BraveVideoStrengthEvidence.officialGameIdentityCoverage(
     analysis,official);
   // This only upgrades the source-linked identity/evidence LABEL, never a team rating.
-  const sourceMatches=official.games.filter(g=>g.crossCurrentDivision).sort(
+  // Default remains actual cross-division matches; the source-only inventory can
+  // also show every exact official GameInfo ID (including within-division games).
+  const sourceMatches=[...official.games].sort(
     (a,b)=>a.date.localeCompare(b.date)||a.officialGameId-b.officialGameId);
-  const list=q("video-bridge-games-list");list.replaceChildren();
-  for(const g of sourceMatches){
-   const card=el("article","week-card");
-   put(card,"strong","",g.date+" · "+g.homeTeamName+" vs "+g.awayTeamName);
-   put(card,"small","",g.publishedFinalGoals.join("-")+
-     " · official SVHL game #"+g.officialGameId+" · "+
-     g.currentDivisionPair.join(" / "));
-   if(g.scoringEventAdmission==="HELD_PLAYER_SCORING_NOT_SEASON_ADMISSION")
-    put(card,"small","warning","Official result confirmed; individual player scoring sheet held");
-   const link=put(card,"a","small","Inspect source GameInfo");
-   link.href=g.officialGameInfoURL;link.target="_blank";
-   link.rel="noopener noreferrer";
-   list.append(card);
-  }
+  const list=q("video-bridge-games-list"),scope=q("gameinfo-scope-filter"),
+    search=q("gameinfo-source-search"),count=q("gameinfo-source-count");
+  const renderSourceMatches=()=>{
+   const query=search.value.trim().toLocaleLowerCase();
+   const filtered=sourceMatches.filter(g=>
+     (scope.value==="ALL"||
+      (scope.value==="CROSS"?g.crossCurrentDivision:!g.crossCurrentDivision))&&
+     (!query||[g.date,g.homeTeamName,g.awayTeamName,String(g.officialGameId)]
+       .some(v=>String(v).toLocaleLowerCase().includes(query))));
+   list.replaceChildren();
+   for(const g of filtered){
+    const card=el("article","week-card");
+    put(card,"strong","",g.date+" · "+g.homeTeamName+" vs "+g.awayTeamName);
+    put(card,"small","",g.publishedFinalGoals.join("-")+
+      " · official SVHL game #"+g.officialGameId+" · "+
+      g.currentDivisionPair.join(" / ")+
+      (g.crossCurrentDivision?" · cross-current-division":" · within-current-division"));
+    if(g.scoringEventAdmission==="HELD_PLAYER_SCORING_NOT_SEASON_ADMISSION")
+     put(card,"small","warning","Official result confirmed; individual player scoring sheet held");
+    const link=put(card,"a","small","Inspect source GameInfo");
+    link.href=g.officialGameInfoURL;link.target="_blank";
+    link.rel="noopener noreferrer";
+    list.append(card);
+   }
+   if(!filtered.length)put(list,"p","small","No verified GameInfo matches meet these filters.");
+   count.textContent=filtered.length+" of "+sourceMatches.length+
+     " exact official GameInfo IDs displayed · "+
+     verified.verifiedCrossDivisionIDs+" cross-current-division games in full source";
+  };
+  scope.onchange=renderSourceMatches;
+  search.oninput=renderSourceMatches;
+  renderSourceMatches();
   const detail=q("video-bridge-games");
   detail.hidden=sourceMatches.length===0;
   detail.querySelector("summary").textContent=
-    "Inspect "+sourceMatches.length+" official cross-division GameInfo matches";
+    "Inspect "+sourceMatches.length+" verified official GameInfo matches ("+
+    verified.verifiedCrossDivisionIDs+" cross-current-division)";
   metric(q("video-bridge-metrics"),verified.sourceGameIDsVerified,
     "official GameInfo game IDs verified in this pool");
   q("video-readiness-status").textContent=

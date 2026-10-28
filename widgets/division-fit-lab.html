@@ -46,9 +46,22 @@ footer{margin-top:25px;color:var(--muted);font-size:11px}
  <div class="metrics" id="video-bridge-metrics"></div>
  <p id="video-bridge-caveat" class="small">Current-division matchup bridges are not proof of historical tier equivalence. No accepted video-derived feature rates or team strength scores are available.</p>
  <details id="video-bridge-games" hidden>
-  <summary>Inspect official cross-division GameInfo matches</summary>
-  <p class="small">These verified match identities are source-only. Some official game scoring-event sheets have separate player-registration holds. No video performance or division rating is inferred.</p>
-  <div id="video-bridge-games-list" class="week-list" aria-label="Official cross-division GameInfo evidence"></div>
+  <summary>Inspect source-verified official GameInfo matches</summary>
+  <p class="small">Exact current-season official game IDs and published finals only. A game result does not establish an individual scorer, game attendance, video performance, or division strength.</p>
+  <div class="layout-research-bar">
+   <label for="gameinfo-scope-filter" class="small">Match scope
+    <select id="gameinfo-scope-filter" aria-label="Filter official games by current division relationship">
+     <option value="CROSS">Cross-division (default)</option>
+     <option value="WITHIN">Within-division</option>
+     <option value="ALL">All verified games</option>
+    </select>
+   </label>
+   <label for="gameinfo-source-search" class="small">Find team or game date
+    <input id="gameinfo-source-search" type="search" placeholder="Team, YYYY-MM-DD or GameInfo ID" aria-label="Find verified official game" />
+   </label>
+  </div>
+  <p id="gameinfo-source-count" class="small" role="status" aria-live="polite"></p>
+  <div id="video-bridge-games-list" class="week-list" aria-label="Source-verified official GameInfo game evidence"></div>
  </details>
  </section>
 <section aria-labelledby="layout-title">
