@@ -38,7 +38,7 @@ try:
    assert current["earned"]==expected,(pid,current,expected)
    assert not current["outOfBounds"],(pid,width,"horizontal overflow")
    if expected:assert current["visibleGridColumns"]==(2 if width==355 else 3),(pid,width,current["visibleGridColumns"])
-   assert all("assets/round-clubs/" in path or path.startswith("data:image/png;base64,") or "brave_hc_logo.png" in path for path in current["img"]),(pid,"invalid original or verified future club badge")
+   assert all("assets/round-clubs/" in path or "assets/full-crest-clubs/" in path or path.startswith("data:image/png;base64,") or "brave_hc_logo.png" in path for path in current["img"]),(pid,"invalid original or verified full-crest club badge")
    extra_expected=sum(i.get("provenance")=="OFFICIAL_DATED_HTO_AWARDS_PARITY" for i in player["items"])
    assert sum("assets/round-clubs/" not in path for path in current["img"])==extra_expected,(pid,"future verified club art mismatch")
    assert len(current["titles"])==expected,(pid,"missing badge")

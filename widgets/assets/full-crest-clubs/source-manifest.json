@@ -1,0 +1,126 @@
+{
+  "schema": "brave-hc-full-crest-milestone-art/v1",
+  "source": "EXACT_AUTHENTIC_BRAVE_HC_CREST_IN_PUBLIC_WIDGET_VERIFIED_AGAINST_ORIGINAL_5000PX_ARCHIVE",
+  "sourceLogoPath": "widgets/brave_hc_logo.png",
+  "sourceLogoSha256": "d27f74ca6c64ebcd1cd7d1a7f4758315987c10ad0ef2f7da5f99e8757568d51e",
+  "original5000PixelLogoSha256": "e245640bd0c1f3c3c8e3caea89e69a446d465f97724d9c6878992670229730b5",
+  "design": "Full original crest behind legible number and category, tier-aligned outer rings; transparent exterior. Never infer achievement.",
+  "tierPolicy": {
+    "50": "bronze",
+    "100": "silver",
+    "200": "gold",
+    "300+": "platinum",
+    "5_shutouts": "bronze",
+    "10_shutouts": "silver",
+    "20_shutouts": "gold",
+    "30+_shutouts": "platinum"
+  },
+  "earnedRecipientEvents": 37,
+  "assets": [
+    {
+      "path": "assets/full-crest-clubs/50_goals_bronze_200.webp",
+      "metric": "GOALS",
+      "value": 50,
+      "tier": "bronze",
+      "sourceVerifiedInSnapshot": true,
+      "bytes": 34026,
+      "sha256": "e00f725fe93c65d93c8867b90c1b06cbde2cb38f64a58f56bd57c11d4b91f278",
+      "size": [
+        200,
+        200
+      ],
+      "background": "AUTHENTIC_FULL_BLEED_BRAVE_HC_CREST",
+      "foreground": "TIER_OUTLINE_NUMBER_METRIC_DARK_PLAQUE"
+    },
+    {
+      "path": "assets/full-crest-clubs/100_goals_silver_200.webp",
+      "metric": "GOALS",
+      "value": 100,
+      "tier": "silver",
+      "sourceVerifiedInSnapshot": true,
+      "bytes": 33290,
+      "sha256": "2e701d169f17188620b287039fdbecf3ea73053cc5b021cc25831f2c18ba57e1",
+      "size": [
+        200,
+        200
+      ],
+      "background": "AUTHENTIC_FULL_BLEED_BRAVE_HC_CREST",
+      "foreground": "TIER_OUTLINE_NUMBER_METRIC_DARK_PLAQUE"
+    },
+    {
+      "path": "assets/full-crest-clubs/50_assists_bronze_200.webp",
+      "metric": "ASSISTS",
+      "value": 50,
+      "tier": "bronze",
+      "sourceVerifiedInSnapshot": true,
+      "bytes": 34166,
+      "sha256": "be6ecba7b53238ea7a11df480487cb5186fd78249ed929f0e0efe1443f1d47f8",
+      "size": [
+        200,
+        200
+      ],
+      "background": "AUTHENTIC_FULL_BLEED_BRAVE_HC_CREST",
+      "foreground": "TIER_OUTLINE_NUMBER_METRIC_DARK_PLAQUE"
+    },
+    {
+      "path": "assets/full-crest-clubs/100_assists_silver_200.webp",
+      "metric": "ASSISTS",
+      "value": 100,
+      "tier": "silver",
+      "sourceVerifiedInSnapshot": true,
+      "bytes": 33062,
+      "sha256": "37e19607c9255375077058efa39718e0296dbb32210db39381bfa08af9f68e26",
+      "size": [
+        200,
+        200
+      ],
+      "background": "AUTHENTIC_FULL_BLEED_BRAVE_HC_CREST",
+      "foreground": "TIER_OUTLINE_NUMBER_METRIC_DARK_PLAQUE"
+    },
+    {
+      "path": "assets/full-crest-clubs/200_assists_gold_200.webp",
+      "metric": "ASSISTS",
+      "value": 200,
+      "tier": "gold",
+      "sourceVerifiedInSnapshot": true,
+      "bytes": 35328,
+      "sha256": "67e1e7e651a0b03376e0fe3cf1c3681cc0c91bdf34fbabc408cbe1b56df1aa1d",
+      "size": [
+        200,
+        200
+      ],
+      "background": "AUTHENTIC_FULL_BLEED_BRAVE_HC_CREST",
+      "foreground": "TIER_OUTLINE_NUMBER_METRIC_DARK_PLAQUE"
+    },
+    {
+      "path": "assets/full-crest-clubs/5_shutouts_bronze_200.webp",
+      "metric": "SHUTOUTS",
+      "value": 5,
+      "tier": "bronze",
+      "sourceVerifiedInSnapshot": true,
+      "bytes": 33468,
+      "sha256": "3bef9cdbcde63c19f53a8207b0f78c174d9f979e5a0e0add14b6437b5b978994",
+      "size": [
+        200,
+        200
+      ],
+      "background": "AUTHENTIC_FULL_BLEED_BRAVE_HC_CREST",
+      "foreground": "TIER_OUTLINE_NUMBER_METRIC_DARK_PLAQUE"
+    },
+    {
+      "path": "assets/full-crest-clubs/10_shutouts_silver_200.webp",
+      "metric": "SHUTOUTS",
+      "value": 10,
+      "tier": "silver",
+      "sourceVerifiedInSnapshot": true,
+      "bytes": 33002,
+      "sha256": "d6e025ba55b94b112f7c3bb5ce710ca4dc5a6d51d4f2b0c0a250838db0c8005a",
+      "size": [
+        200,
+        200
+      ],
+      "background": "AUTHENTIC_FULL_BLEED_BRAVE_HC_CREST",
+      "foreground": "TIER_OUTLINE_NUMBER_METRIC_DARK_PLAQUE"
+    }
+  ]
+}

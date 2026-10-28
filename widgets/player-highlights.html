@@ -277,6 +277,60 @@ body{background:#071829;color:#eef4fb;font-family:Arial,"Helvetica Neue",sans-se
  .ph-inventory-card,.ph-record-card{transition:border-color .15s ease,transform .15s ease}
  .ph-inventory-card:hover,.ph-record-card:hover{border-color:#be9b64;transform:translateY(-1px)}}
 
+/* Goal/Assist/Shutout full-crest clubs: rarity-tier metal on BOTH the
+   circular emblem and each badge card, with readable navy foreground panels.
+   This is per-badge colour, not a whole-widget recolour when mixed tiers show. */
+.ph-earned-tile.ph-fullcrest-family,
+.ph-inventory-card.ph-fullcrest-family{
+ --fc-ring:#C9915F;
+ --fc-light:#F8D6AB;
+ --fc-top:#493728;
+ --fc-bottom:#0B1E32;
+ border-color:var(--fc-ring);
+ border-top:3px solid var(--fc-ring);
+ background:radial-gradient(ellipse at 22% 0%,var(--fc-top),transparent 80%),
+   linear-gradient(155deg,var(--fc-top) 0%,#13273a 64%,var(--fc-bottom) 100%);
+ box-shadow:inset 0 1px 0 #ffffff19,inset 0 0 0 1px #07152466,0 3px 12px #050c1c55;
+}
+.ph-earned-tile.ph-fullcrest-family.ph-earned-bronze,
+.ph-inventory-card.ph-fullcrest-family.ph-fullcrest-bronze{
+ --fc-ring:#C9915F;--fc-light:#F8D6AB;--fc-top:#533C2A;--fc-bottom:#14202B
+}
+.ph-earned-tile.ph-fullcrest-family.ph-earned-silver,
+.ph-inventory-card.ph-fullcrest-family.ph-fullcrest-silver{
+ --fc-ring:#B9CAD9;--fc-light:#F1F7FC;--fc-top:#3C556B;--fc-bottom:#112438
+}
+.ph-earned-tile.ph-fullcrest-family.ph-earned-gold,
+.ph-inventory-card.ph-fullcrest-family.ph-fullcrest-gold{
+ --fc-ring:#E5B654;--fc-light:#FFE8AF;--fc-top:#604A2B;--fc-bottom:#172333
+}
+.ph-earned-tile.ph-fullcrest-family.ph-earned-platinum,
+.ph-inventory-card.ph-fullcrest-family.ph-fullcrest-platinum{
+ --fc-ring:#D8E9F4;--fc-light:#FFFFFF;--fc-top:#536B7F;--fc-bottom:#15283F
+}
+.ph-earned-tile.ph-fullcrest-family .ph-earned-state,
+.ph-inventory-card.ph-fullcrest-family .ph-inventory-kind{color:var(--fc-light)}
+.ph-earned-tile.ph-fullcrest-family .ph-earned-tier{
+ border-color:var(--fc-ring);color:var(--fc-light);background:#071726a6
+}
+.ph-locker .ph-earned-tile.ph-fullcrest-family .ph-earned-graphic{width:84px;height:84px;max-width:100%}
+.ph-inventory-card.ph-fullcrest-family .ph-inventory-image{width:84px;height:84px;max-width:100%}
+.ph-earned-tile.ph-fullcrest-family .ph-earned-graphic,
+.ph-inventory-card.ph-fullcrest-family .ph-inventory-image{
+ filter:drop-shadow(0 2px 5px #0107108c);
+}
+.ph-earned-tile.ph-fullcrest-family .ph-earned-name,
+.ph-inventory-card.ph-fullcrest-family .ph-inventory-name{color:#FFFFFF}
+.ph-earned-tile.ph-fullcrest-family .ph-earned-date,
+.ph-inventory-card.ph-fullcrest-family .ph-inventory-date{color:#DCE9F4}
+@media(prefers-reduced-motion:no-preference){
+ .ph-earned-tile.ph-fullcrest-family:hover,
+ .ph-inventory-card.ph-fullcrest-family:hover{
+  border-color:var(--fc-light);
+  box-shadow:inset 0 1px 0 #ffffff19,0 4px 18px #050d1ca8,0 0 0 1px var(--fc-ring);
+ }
+}
+
 [hidden]{display:none!important}
 .ph-footer{display:flex;gap:8px;flex-wrap:wrap}
 .ph-detail{font-size:10px;color:#a9c0d4;line-height:1.45;margin-top:6px}
@@ -289,7 +343,7 @@ details[open] summary{margin-bottom:10px}
 a{color:#f4cb83}
 </style>
 <script defer src="./player-links.js?v=5"></script>
-<script defer src="./player-highlights-v2.js?v=18"></script>
+<script defer src="./player-highlights-v2.js?v=19"></script>
 </head>
 <body>
 <main class="ph-shell">

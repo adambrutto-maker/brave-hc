@@ -69,7 +69,7 @@ try:
      filters:[...document.querySelectorAll('#milestoneFilters button')].map(x=>x.textContent)};""")
    assert milestone["cards"]==countMilestone,(pid,width,milestone)
    assert milestone["count"]==str(countMilestone)+" earned" if countMilestone else milestone["count"]=="",(pid,width,milestone)
-   assert all("round-clubs/" in src or "brave_hc_logo.png" in src or "data:image/png;base64," in src for src in milestone["pictures"]),(pid,width)
+   assert all("round-clubs/" in src or "full-crest-clubs/" in src or "brave_hc_logo.png" in src or "data:image/png;base64," in src for src in milestone["pictures"]),(pid,width)
    if countMilestone:
     assert milestone["filters"][0].startswith("All (")
    driver.execute_script("document.querySelector('#lockerHonors').click()")

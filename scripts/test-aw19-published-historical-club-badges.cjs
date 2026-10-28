@@ -50,7 +50,14 @@ const artctx={};vm.runInNewContext(source.slice(artStart,artEnd)+'\nthis.clubArt
 for(const item of additional){
  const art=artctx.clubArt(item);
  assert(art,'Every source verified goal/assist/shutout badge must display');
- assert.equal(art.generated,true,'New clubs use verified logo-based generated badges when no static original exists');
+ assert.equal(art.generated,false,'The 37 historical Goal/Assist/Shutout badges now have source-verified fixed authentic full-crest artwork');
+ assert.equal(art.fullCrest,true,'Only existing dated verified supplemental club thresholds use the new full-crest asset');
+ assert.equal(art.fullCrestFamily,true);
  assert(['bronze','silver','gold','platinum'].includes(art.tier));
 }
-console.log('PASS 306 preserved originals + 37 dated HTO Awards in 15 player widgets; 134 earned milestones; exact game/date/identity guards');
+const futureFixture={...additional.find(x=>x.awardCategory==='50 Goal Club'),sourceText:'300 Goal Club - May 28, 2017'};
+const futureArt=artctx.clubArt(futureFixture);
+assert.equal(futureArt.generated,true,'Future verified Goal threshold must stay dynamically generated');
+assert.equal(futureArt.fullCrestFamily,true);
+assert.equal(futureArt.tier,'platinum');
+console.log('PASS 306 original highlights + 37 dated HTO Awards: 7 exact authentic full-crest source artworks; future platinum stays generated; date/identity/award guards');
