@@ -3,6 +3,7 @@ Old 558-row history remains a frozen source; two rental goalie rows unassigned."
 from pathlib import Path
 from collections import Counter
 import json,re,unittest
+from record_date_aliases import original_statistical_value
 ROOT=Path(__file__).resolve().parents[1]
 def load(file):return json.loads((ROOT/file).read_text(encoding="utf-8"))
 OLD=load("widgets/history-records-legacy-558.json")
@@ -22,7 +23,7 @@ class RecordsSource(unittest.TestCase):
   self.assertEqual(len(NOW["groups"]),112)
   self.assertFalse(any(club(g["category"]) for g in NOW["groups"]))
   before=Counter(row(g,x) for g in OLD["groups"] if not club(g["category"]) for x in g["items"])
-  after=Counter(row(g,x) for g in NOW["groups"] for x in g["items"])
+  after=Counter(row(g,original_statistical_value(g,x)) for g in NOW["groups"] for x in g["items"])
   self.assertEqual(list((before-after).elements()),[])
   extra=list((after-before).elements())
   self.assertEqual(len(extra),3)

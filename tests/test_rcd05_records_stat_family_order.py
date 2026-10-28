@@ -2,6 +2,7 @@
 from pathlib import Path
 from collections import Counter
 import json,re,unittest
+from record_date_aliases import original_statistical_value
 ROOT=Path(__file__).resolve().parents[1]
 def load(s):return json.loads((ROOT/s).read_text(encoding="utf-8"))
 SPEC=load("docs/261028_RCD05_Records_Stat_Family_Order_Spec.json")
@@ -40,7 +41,7 @@ class FamilyOrder(unittest.TestCase):
   self.assertEqual(ACTIVE["entryCount"],463)
   self.assertEqual(len(ACTIVE["groups"]),112)
   old=Counter(key(g,x) for g in OLD["groups"] if not re.fullmatch(r"\d+ (Game|Point|Win|Goal|Assist|Shutout) Club",g["category"]) for x in g["items"])
-  new=Counter(key(g,x) for g in ACTIVE["groups"] for x in g["items"])
+  new=Counter(key(g,original_statistical_value(g,x)) for g in ACTIVE["groups"] for x in g["items"])
   self.assertEqual(list((old-new).elements()),[])
   self.assertEqual(sum((new-old).values()),3)
   self.assertEqual(sum(len(g["items"]) for g in ACTIVE["groups"] if g["section"]=="Individual Records"),232)

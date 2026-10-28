@@ -16,6 +16,8 @@ on:
       - 'scripts/sync_463_hto_records_and_player_gtg.py'
       - 'widgets/history.js'
       - 'tests/test_record_dates_readable.cjs'
+      - 'tests/record_date_aliases.py'
+      - 'docs/261028_RCD05_HTO_Native6_Date_Source_Adoption.json'
       - 'scripts/refresh_record_sources.py'
       - 'tests/test_record_source_refresh.py'
       - 'tests/test_historical_bulletin_milestones.py'
