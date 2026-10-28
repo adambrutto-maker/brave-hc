@@ -9,7 +9,7 @@
     "offsetMinutesAfterPuckDrop": 60,
     "condition": "clock threshold, not official final score"
   },
-  "generatedAt": "2026-10-28T05:31:16.764381Z",
+  "generatedAt": "2026-10-28T17:31:19.330527Z",
   "sourcePages": [
     "https://www.htosports.com/teams/default.asp?p=schedule&s=hockey&u=BRAVESHOCKEY&d=20261001",
     "https://www.htosports.com/teams/default.asp?p=schedule&s=hockey&u=BRAVESHOCKEY&d=20261101",
