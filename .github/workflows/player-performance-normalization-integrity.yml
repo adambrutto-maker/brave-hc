@@ -1,0 +1,32 @@
+name: HockeyOS player Bio duration-normalization contract
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'AGENTS.md'
+      - 'docs/261028_HockeyOS_Bio_Normalization_Product_Contract.md'
+      - 'widgets/league-game-formats.json'
+      - 'widgets/player-performance-normalization.js'
+      - 'tests/test_player_performance_normalization.cjs'
+      - '.github/workflows/player-performance-normalization-integrity.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify-normalization-contract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Check pure normalization module syntax
+        run: node --check widgets/player-performance-normalization.js
+      - name: Check source-preserving regression syntax
+        run: node --check tests/test_player_performance_normalization.cjs
+      - name: Check both conversions, manager period settings, record preservation and fail-closed historical mappings
+        run: node --test tests/test_player_performance_normalization.cjs
