@@ -1,10 +1,14 @@
 {
-  "schema": "brave-hc-full-crest-milestone-art/v1",
+  "schema": "brave-hc-full-crest-milestone-art/v2",
   "source": "EXACT_AUTHENTIC_BRAVE_HC_CREST_IN_PUBLIC_WIDGET_VERIFIED_AGAINST_ORIGINAL_5000PX_ARCHIVE",
   "sourceLogoPath": "widgets/brave_hc_logo.png",
   "sourceLogoSha256": "d27f74ca6c64ebcd1cd7d1a7f4758315987c10ad0ef2f7da5f99e8757568d51e",
   "original5000PixelLogoSha256": "e245640bd0c1f3c3c8e3caea89e69a446d465f97724d9c6878992670229730b5",
-  "design": "Full original crest behind legible number and category, tier-aligned outer rings; transparent exterior. Never infer achievement.",
+  "approvedRoundClubSourceManifestSha256": "487f1355b95fce62f83a82e4bbf9c5e545b39c2662f176c975ff15e3d811e1fc",
+  "original22ApprovedClubAssetsUnchanged": true,
+  "design": "One full-crest medallion with exact centred foreground number and label, tier metallic outline and transparent exterior for all six metric families.",
+  "uniformBadgeNumberFontPxAt600": 118,
+  "uniformBadgeMetricFontPxAt600": 51,
   "tierPolicy": {
     "50": "bronze",
     "100": "silver",
@@ -15,22 +19,401 @@
     "20_shutouts": "gold",
     "30+_shutouts": "platinum"
   },
+  "earnedMilestoneEvents": 134,
   "earnedRecipientEvents": 37,
+  "legacyApprovedAssetCount": 22,
+  "newGoalAssistShutoutAssetCount": 7,
   "assets": [
+    {
+      "path": "assets/full-crest-clubs/50_games_bronze_200.webp",
+      "metric": "GAMES",
+      "value": 50,
+      "tier": "bronze",
+      "sourceVerifiedInSnapshot": true,
+      "bytes": 33986,
+      "sha256": "58e27288d78dc461d2351b78f0bff6cdd8b8c59434e212891f40cb0087e52888",
+      "size": [
+        200,
+        200
+      ],
+      "background": "AUTHENTIC_FULL_BLEED_BRAVE_HC_CREST",
+      "foreground": "UNIFORM_CENTERED_NUMBER_AND_METRIC_DARK_PLAQUE",
+      "originalApprovedArtPath": "assets/round-clubs/50_games_bronze_200.webp",
+      "originalApprovedArtSha256": "a1cc42bb157543d3f9253f4d2cf061bbfdd3c440cade66026ac062dbf5c5de35"
+    },
+    {
+      "path": "assets/full-crest-clubs/100_games_silver_200.webp",
+      "metric": "GAMES",
+      "value": 100,
+      "tier": "silver",
+      "sourceVerifiedInSnapshot": true,
+      "bytes": 33104,
+      "sha256": "06d37283d03bd2d68d358317c95a98ed1aa141e60a186451828105949d1c62a4",
+      "size": [
+        200,
+        200
+      ],
+      "background": "AUTHENTIC_FULL_BLEED_BRAVE_HC_CREST",
+      "foreground": "UNIFORM_CENTERED_NUMBER_AND_METRIC_DARK_PLAQUE",
+      "originalApprovedArtPath": "assets/round-clubs/100_games_silver_200.webp",
+      "originalApprovedArtSha256": "b3982cf9374420a13b09c8be2bb69f23a3e17fcf71ed8d1b3127eacb3284cc87"
+    },
+    {
+      "path": "assets/full-crest-clubs/200_games_gold_200.webp",
+      "metric": "GAMES",
+      "value": 200,
+      "tier": "gold",
+      "sourceVerifiedInSnapshot": true,
+      "bytes": 35012,
+      "sha256": "c34795dbfe40be9afe0fdc1eb2cdff10d91090a74fc7b9437b1768ef9faf8882",
+      "size": [
+        200,
+        200
+      ],
+      "background": "AUTHENTIC_FULL_BLEED_BRAVE_HC_CREST",
+      "foreground": "UNIFORM_CENTERED_NUMBER_AND_METRIC_DARK_PLAQUE",
+      "originalApprovedArtPath": "assets/round-clubs/200_games_gold_200.webp",
+      "originalApprovedArtSha256": "b641f8ed6cb7dd9dbfaaacb3b9f34074ecfe266f40ca47d2a133fd30d86dfb5e"
+    },
+    {
+      "path": "assets/full-crest-clubs/300_games_platinum_200.webp",
+      "metric": "GAMES",
+      "value": 300,
+      "tier": "platinum",
+      "sourceVerifiedInSnapshot": true,
+      "bytes": 34254,
+      "sha256": "59a2fe42280d8f277b61e789e790f747b880edb310c093117319cdc7f499c3ec",
+      "size": [
+        200,
+        200
+      ],
+      "background": "AUTHENTIC_FULL_BLEED_BRAVE_HC_CREST",
+      "foreground": "UNIFORM_CENTERED_NUMBER_AND_METRIC_DARK_PLAQUE",
+      "originalApprovedArtPath": "assets/round-clubs/300_games_platinum_200.webp",
+      "originalApprovedArtSha256": "426d05bc3f291de4fadc8c7ef666f123642b486f8a928158dc38eca2a470c37b"
+    },
+    {
+      "path": "assets/full-crest-clubs/400_games_platinum_200.webp",
+      "metric": "GAMES",
+      "value": 400,
+      "tier": "platinum",
+      "sourceVerifiedInSnapshot": false,
+      "bytes": 33868,
+      "sha256": "57f4fa38135c55b24b78ab6e1feea4e1045d46c3267c9c72be5a77fc303c1e76",
+      "size": [
+        200,
+        200
+      ],
+      "background": "AUTHENTIC_FULL_BLEED_BRAVE_HC_CREST",
+      "foreground": "UNIFORM_CENTERED_NUMBER_AND_METRIC_DARK_PLAQUE",
+      "originalApprovedArtPath": "assets/round-clubs/400_games_platinum_200.webp",
+      "originalApprovedArtSha256": "050d8ce380e8c0c538e0095789279c6641e7aff451f3310acdac5bc98b39541e"
+    },
+    {
+      "path": "assets/full-crest-clubs/500_games_platinum_200.webp",
+      "metric": "GAMES",
+      "value": 500,
+      "tier": "platinum",
+      "sourceVerifiedInSnapshot": false,
+      "bytes": 33996,
+      "sha256": "4490f33c6236bcd0c18bf525a5758118f8b2055d4db2d2c36fb6332e2fbc6f97",
+      "size": [
+        200,
+        200
+      ],
+      "background": "AUTHENTIC_FULL_BLEED_BRAVE_HC_CREST",
+      "foreground": "UNIFORM_CENTERED_NUMBER_AND_METRIC_DARK_PLAQUE",
+      "originalApprovedArtPath": "assets/round-clubs/500_games_platinum_200.webp",
+      "originalApprovedArtSha256": "fffb91b1ab1d020abebfbd2f3b62cceed3d16d22874f2bc3923b67dfac781027"
+    },
+    {
+      "path": "assets/full-crest-clubs/750_games_platinum_200.webp",
+      "metric": "GAMES",
+      "value": 750,
+      "tier": "platinum",
+      "sourceVerifiedInSnapshot": false,
+      "bytes": 33722,
+      "sha256": "75fc109a2f31986afbe8fd4f4d0ec7ef3b4ccc46d614461af97452bd183ab22d",
+      "size": [
+        200,
+        200
+      ],
+      "background": "AUTHENTIC_FULL_BLEED_BRAVE_HC_CREST",
+      "foreground": "UNIFORM_CENTERED_NUMBER_AND_METRIC_DARK_PLAQUE",
+      "originalApprovedArtPath": "assets/round-clubs/750_games_platinum_200.webp",
+      "originalApprovedArtSha256": "30210d37cd917bd1bde5185d70cdc50f59666d5222d737da466686948d527cbc"
+    },
+    {
+      "path": "assets/full-crest-clubs/1000_games_platinum_200.webp",
+      "metric": "GAMES",
+      "value": 1000,
+      "tier": "platinum",
+      "sourceVerifiedInSnapshot": false,
+      "bytes": 34250,
+      "sha256": "3a8c2c6aa6e636906c57aa472c7c1d98dca2465daaf4c7214cacfab143f15858",
+      "size": [
+        200,
+        200
+      ],
+      "background": "AUTHENTIC_FULL_BLEED_BRAVE_HC_CREST",
+      "foreground": "UNIFORM_CENTERED_NUMBER_AND_METRIC_DARK_PLAQUE",
+      "originalApprovedArtPath": "assets/round-clubs/1000_games_platinum_200.webp",
+      "originalApprovedArtSha256": "f81b8c8ec6c45a6b830c79ec0fdb721d0af97639775a0fce892f0525143c7a92"
+    },
+    {
+      "path": "assets/full-crest-clubs/50_points_bronze_200.webp",
+      "metric": "POINTS",
+      "value": 50,
+      "tier": "bronze",
+      "sourceVerifiedInSnapshot": true,
+      "bytes": 33874,
+      "sha256": "1bba502b2944775ec0d3ed754ea6c69ce6355aa69673e7bc3c1fcfe8adaae69e",
+      "size": [
+        200,
+        200
+      ],
+      "background": "AUTHENTIC_FULL_BLEED_BRAVE_HC_CREST",
+      "foreground": "UNIFORM_CENTERED_NUMBER_AND_METRIC_DARK_PLAQUE",
+      "originalApprovedArtPath": "assets/round-clubs/50_points_bronze_200.webp",
+      "originalApprovedArtSha256": "3d699e1400346062d96d23991437fc64cf5b7cd2b9e48c08dbf2c83dbeb454d7"
+    },
+    {
+      "path": "assets/full-crest-clubs/100_points_silver_200.webp",
+      "metric": "POINTS",
+      "value": 100,
+      "tier": "silver",
+      "sourceVerifiedInSnapshot": true,
+      "bytes": 32740,
+      "sha256": "8314c078d268f47976beb0b1bc830527475a4b37bc485407af39a7ffbc565d14",
+      "size": [
+        200,
+        200
+      ],
+      "background": "AUTHENTIC_FULL_BLEED_BRAVE_HC_CREST",
+      "foreground": "UNIFORM_CENTERED_NUMBER_AND_METRIC_DARK_PLAQUE",
+      "originalApprovedArtPath": "assets/round-clubs/100_points_silver_200.webp",
+      "originalApprovedArtSha256": "99402f96d349183da48a7f271e5218598c351d335ec8db9c992d37bbeb1f1e22"
+    },
+    {
+      "path": "assets/full-crest-clubs/200_points_gold_200.webp",
+      "metric": "POINTS",
+      "value": 200,
+      "tier": "gold",
+      "sourceVerifiedInSnapshot": true,
+      "bytes": 35010,
+      "sha256": "f55d5c0ff04e462ec1ced7c3bb75f4cff72fd9fc67aa1c7ba35363607495281b",
+      "size": [
+        200,
+        200
+      ],
+      "background": "AUTHENTIC_FULL_BLEED_BRAVE_HC_CREST",
+      "foreground": "UNIFORM_CENTERED_NUMBER_AND_METRIC_DARK_PLAQUE",
+      "originalApprovedArtPath": "assets/round-clubs/200_points_gold_200.webp",
+      "originalApprovedArtSha256": "8666bc382935779e06211aad4440664799d23f6771cf254356ba2b8e1b8edf04"
+    },
+    {
+      "path": "assets/full-crest-clubs/300_points_platinum_200.webp",
+      "metric": "POINTS",
+      "value": 300,
+      "tier": "platinum",
+      "sourceVerifiedInSnapshot": true,
+      "bytes": 34232,
+      "sha256": "f3f5fc1d36074455f02a9517d1031732319a30bfb1a11612ce66a677557bb8e3",
+      "size": [
+        200,
+        200
+      ],
+      "background": "AUTHENTIC_FULL_BLEED_BRAVE_HC_CREST",
+      "foreground": "UNIFORM_CENTERED_NUMBER_AND_METRIC_DARK_PLAQUE",
+      "originalApprovedArtPath": "assets/round-clubs/300_points_platinum_200.webp",
+      "originalApprovedArtSha256": "80a8730aaed8938ef5e8a1ee1b25579dda5546fa87b3bc50f0a2c142c1fa03cf"
+    },
+    {
+      "path": "assets/full-crest-clubs/400_points_platinum_200.webp",
+      "metric": "POINTS",
+      "value": 400,
+      "tier": "platinum",
+      "sourceVerifiedInSnapshot": false,
+      "bytes": 33804,
+      "sha256": "aecbe9c570d686dda7ecb31cdb40ee8f35ebfa3c3e9cbf0a6fabccf098beade4",
+      "size": [
+        200,
+        200
+      ],
+      "background": "AUTHENTIC_FULL_BLEED_BRAVE_HC_CREST",
+      "foreground": "UNIFORM_CENTERED_NUMBER_AND_METRIC_DARK_PLAQUE",
+      "originalApprovedArtPath": "assets/round-clubs/400_points_platinum_200.webp",
+      "originalApprovedArtSha256": "6e45d82ca8dae6083ec729eeaeb6c7199d2bc3bb3ad8931b9a3eff105c13f5e0"
+    },
+    {
+      "path": "assets/full-crest-clubs/500_points_platinum_200.webp",
+      "metric": "POINTS",
+      "value": 500,
+      "tier": "platinum",
+      "sourceVerifiedInSnapshot": false,
+      "bytes": 34150,
+      "sha256": "748a1718a100cb50167e3cce808fa9d1f1aa0f0054d083452e7041ff7a9345a9",
+      "size": [
+        200,
+        200
+      ],
+      "background": "AUTHENTIC_FULL_BLEED_BRAVE_HC_CREST",
+      "foreground": "UNIFORM_CENTERED_NUMBER_AND_METRIC_DARK_PLAQUE",
+      "originalApprovedArtPath": "assets/round-clubs/500_points_platinum_200.webp",
+      "originalApprovedArtSha256": "0c196c649cb876897ed44b5c18a28d6fc8c415fc81117d910ea89c0adbccebd2"
+    },
+    {
+      "path": "assets/full-crest-clubs/750_points_platinum_200.webp",
+      "metric": "POINTS",
+      "value": 750,
+      "tier": "platinum",
+      "sourceVerifiedInSnapshot": false,
+      "bytes": 33628,
+      "sha256": "96717903de665f37626592d6eed1c2d07fc71320eb1862ff1031907dc6a20ee4",
+      "size": [
+        200,
+        200
+      ],
+      "background": "AUTHENTIC_FULL_BLEED_BRAVE_HC_CREST",
+      "foreground": "UNIFORM_CENTERED_NUMBER_AND_METRIC_DARK_PLAQUE",
+      "originalApprovedArtPath": "assets/round-clubs/750_points_platinum_200.webp",
+      "originalApprovedArtSha256": "a2e5ff86da5320466fe5d124ff96bf2055c5fecf11bcda8f42060413c1791716"
+    },
+    {
+      "path": "assets/full-crest-clubs/1000_points_platinum_200.webp",
+      "metric": "POINTS",
+      "value": 1000,
+      "tier": "platinum",
+      "sourceVerifiedInSnapshot": false,
+      "bytes": 34136,
+      "sha256": "179cb2f8b8d8c38d1df54b55f77e5b70eeb27a63c2fea9661e10030d5df0c82b",
+      "size": [
+        200,
+        200
+      ],
+      "background": "AUTHENTIC_FULL_BLEED_BRAVE_HC_CREST",
+      "foreground": "UNIFORM_CENTERED_NUMBER_AND_METRIC_DARK_PLAQUE",
+      "originalApprovedArtPath": "assets/round-clubs/1000_points_platinum_200.webp",
+      "originalApprovedArtSha256": "3ab4bc1b6c5929a283da0760e161fe63258ce178acb039a33393960ae9301b50"
+    },
+    {
+      "path": "assets/full-crest-clubs/50_wins_bronze_200.webp",
+      "metric": "WINS",
+      "value": 50,
+      "tier": "bronze",
+      "sourceVerifiedInSnapshot": true,
+      "bytes": 33496,
+      "sha256": "1a02d5d6d60b2d97cfed0d61991d4167a71cdccaae9b109084379ce700d13cb4",
+      "size": [
+        200,
+        200
+      ],
+      "background": "AUTHENTIC_FULL_BLEED_BRAVE_HC_CREST",
+      "foreground": "UNIFORM_CENTERED_NUMBER_AND_METRIC_DARK_PLAQUE",
+      "originalApprovedArtPath": "assets/round-clubs/50_wins_bronze_200.webp",
+      "originalApprovedArtSha256": "287175ab3a64122a8206d20ea762ad5e370f205cb225c515a6634d4cd85ca44c"
+    },
+    {
+      "path": "assets/full-crest-clubs/100_wins_silver_200.webp",
+      "metric": "WINS",
+      "value": 100,
+      "tier": "silver",
+      "sourceVerifiedInSnapshot": true,
+      "bytes": 32676,
+      "sha256": "3b5a60014b753ce50b9aca00c4df79326a9a84cb6454572ab8b73a51ba028bdf",
+      "size": [
+        200,
+        200
+      ],
+      "background": "AUTHENTIC_FULL_BLEED_BRAVE_HC_CREST",
+      "foreground": "UNIFORM_CENTERED_NUMBER_AND_METRIC_DARK_PLAQUE",
+      "originalApprovedArtPath": "assets/round-clubs/100_wins_silver_200.webp",
+      "originalApprovedArtSha256": "7a779d5363b353881f4375512d4615a9c4287824fd29cebbef53b6f5c5172cb6"
+    },
+    {
+      "path": "assets/full-crest-clubs/200_wins_gold_200.webp",
+      "metric": "WINS",
+      "value": 200,
+      "tier": "gold",
+      "sourceVerifiedInSnapshot": false,
+      "bytes": 34600,
+      "sha256": "c5b17914116ed65f4af8851aebf752621999b71521601b1080c32b22a2cc89ae",
+      "size": [
+        200,
+        200
+      ],
+      "background": "AUTHENTIC_FULL_BLEED_BRAVE_HC_CREST",
+      "foreground": "UNIFORM_CENTERED_NUMBER_AND_METRIC_DARK_PLAQUE",
+      "originalApprovedArtPath": "assets/round-clubs/200_wins_gold_200.webp",
+      "originalApprovedArtSha256": "436dc0f379dfc80d98db95c7723f41d966ece9b6dc78b70ac3b55d98e1529306"
+    },
+    {
+      "path": "assets/full-crest-clubs/300_wins_platinum_200.webp",
+      "metric": "WINS",
+      "value": 300,
+      "tier": "platinum",
+      "sourceVerifiedInSnapshot": false,
+      "bytes": 33882,
+      "sha256": "d60548df8368303e50c1679162b61bd680124110abe434517e18037073808091",
+      "size": [
+        200,
+        200
+      ],
+      "background": "AUTHENTIC_FULL_BLEED_BRAVE_HC_CREST",
+      "foreground": "UNIFORM_CENTERED_NUMBER_AND_METRIC_DARK_PLAQUE",
+      "originalApprovedArtPath": "assets/round-clubs/300_wins_platinum_200.webp",
+      "originalApprovedArtSha256": "329830ee66ce7be33b9c61bf9f63ba0be24409d0fc00eee1b0b271b861bc4b87"
+    },
+    {
+      "path": "assets/full-crest-clubs/400_wins_platinum_200.webp",
+      "metric": "WINS",
+      "value": 400,
+      "tier": "platinum",
+      "sourceVerifiedInSnapshot": false,
+      "bytes": 33332,
+      "sha256": "a2e9aa6fa48edc0806f00bf4ee55b9ce8e688afa461edc30d8ce0dad61d6f0ab",
+      "size": [
+        200,
+        200
+      ],
+      "background": "AUTHENTIC_FULL_BLEED_BRAVE_HC_CREST",
+      "foreground": "UNIFORM_CENTERED_NUMBER_AND_METRIC_DARK_PLAQUE",
+      "originalApprovedArtPath": "assets/round-clubs/400_wins_platinum_200.webp",
+      "originalApprovedArtSha256": "69dc14ea16c2635b94bb797c7079d4cf9c1b1357c76affca2b82f19b613621d1"
+    },
+    {
+      "path": "assets/full-crest-clubs/500_wins_platinum_200.webp",
+      "metric": "WINS",
+      "value": 500,
+      "tier": "platinum",
+      "sourceVerifiedInSnapshot": false,
+      "bytes": 33696,
+      "sha256": "598011940240a9142bba5fc5a28d347cd07b7cd1aabe91029efdb26310783e97",
+      "size": [
+        200,
+        200
+      ],
+      "background": "AUTHENTIC_FULL_BLEED_BRAVE_HC_CREST",
+      "foreground": "UNIFORM_CENTERED_NUMBER_AND_METRIC_DARK_PLAQUE",
+      "originalApprovedArtPath": "assets/round-clubs/500_wins_platinum_200.webp",
+      "originalApprovedArtSha256": "4b4b667798d8d98b2d02a49c50065244eee897b47eeb545db676d5b0d2e64569"
+    },
     {
       "path": "assets/full-crest-clubs/50_goals_bronze_200.webp",
       "metric": "GOALS",
       "value": 50,
       "tier": "bronze",
       "sourceVerifiedInSnapshot": true,
-      "bytes": 34026,
-      "sha256": "e00f725fe93c65d93c8867b90c1b06cbde2cb38f64a58f56bd57c11d4b91f278",
+      "bytes": 33950,
+      "sha256": "daee268447059950c36f4a8c2d0b603f68eb7cd0e5dde322363344b608fa9c67",
       "size": [
         200,
         200
       ],
       "background": "AUTHENTIC_FULL_BLEED_BRAVE_HC_CREST",
-      "foreground": "TIER_OUTLINE_NUMBER_METRIC_DARK_PLAQUE"
+      "foreground": "UNIFORM_CENTERED_NUMBER_AND_METRIC_DARK_PLAQUE",
+      "originalApprovedArtPath": null,
+      "originalApprovedArtSha256": null
     },
     {
       "path": "assets/full-crest-clubs/100_goals_silver_200.webp",
@@ -38,14 +421,16 @@
       "value": 100,
       "tier": "silver",
       "sourceVerifiedInSnapshot": true,
-      "bytes": 33290,
-      "sha256": "2e701d169f17188620b287039fdbecf3ea73053cc5b021cc25831f2c18ba57e1",
+      "bytes": 32792,
+      "sha256": "bdb1147b2dafb7bcbc2c6fcbec5cd509e9abbb2ba9b41c27bc416ba7e8b76f87",
       "size": [
         200,
         200
       ],
       "background": "AUTHENTIC_FULL_BLEED_BRAVE_HC_CREST",
-      "foreground": "TIER_OUTLINE_NUMBER_METRIC_DARK_PLAQUE"
+      "foreground": "UNIFORM_CENTERED_NUMBER_AND_METRIC_DARK_PLAQUE",
+      "originalApprovedArtPath": null,
+      "originalApprovedArtSha256": null
     },
     {
       "path": "assets/full-crest-clubs/50_assists_bronze_200.webp",
@@ -53,14 +438,16 @@
       "value": 50,
       "tier": "bronze",
       "sourceVerifiedInSnapshot": true,
-      "bytes": 34166,
-      "sha256": "be6ecba7b53238ea7a11df480487cb5186fd78249ed929f0e0efe1443f1d47f8",
+      "bytes": 34668,
+      "sha256": "5902444f66f666b25adedba36cb6305f6793a457cf8043e527279497a2b29d89",
       "size": [
         200,
         200
       ],
       "background": "AUTHENTIC_FULL_BLEED_BRAVE_HC_CREST",
-      "foreground": "TIER_OUTLINE_NUMBER_METRIC_DARK_PLAQUE"
+      "foreground": "UNIFORM_CENTERED_NUMBER_AND_METRIC_DARK_PLAQUE",
+      "originalApprovedArtPath": null,
+      "originalApprovedArtSha256": null
     },
     {
       "path": "assets/full-crest-clubs/100_assists_silver_200.webp",
@@ -68,14 +455,16 @@
       "value": 100,
       "tier": "silver",
       "sourceVerifiedInSnapshot": true,
-      "bytes": 33062,
-      "sha256": "37e19607c9255375077058efa39718e0296dbb32210db39381bfa08af9f68e26",
+      "bytes": 33316,
+      "sha256": "8b961d2c9619385ae562da977ed95a552d9f5ba3e625ab7fff4903571772c6e1",
       "size": [
         200,
         200
       ],
       "background": "AUTHENTIC_FULL_BLEED_BRAVE_HC_CREST",
-      "foreground": "TIER_OUTLINE_NUMBER_METRIC_DARK_PLAQUE"
+      "foreground": "UNIFORM_CENTERED_NUMBER_AND_METRIC_DARK_PLAQUE",
+      "originalApprovedArtPath": null,
+      "originalApprovedArtSha256": null
     },
     {
       "path": "assets/full-crest-clubs/200_assists_gold_200.webp",
@@ -83,14 +472,16 @@
       "value": 200,
       "tier": "gold",
       "sourceVerifiedInSnapshot": true,
-      "bytes": 35328,
-      "sha256": "67e1e7e651a0b03376e0fe3cf1c3681cc0c91bdf34fbabc408cbe1b56df1aa1d",
+      "bytes": 35298,
+      "sha256": "fa530af09ec420a5472ee3acb3c2e17423a1a8f1c13ae0e5a4d87af5f6ca4235",
       "size": [
         200,
         200
       ],
       "background": "AUTHENTIC_FULL_BLEED_BRAVE_HC_CREST",
-      "foreground": "TIER_OUTLINE_NUMBER_METRIC_DARK_PLAQUE"
+      "foreground": "UNIFORM_CENTERED_NUMBER_AND_METRIC_DARK_PLAQUE",
+      "originalApprovedArtPath": null,
+      "originalApprovedArtSha256": null
     },
     {
       "path": "assets/full-crest-clubs/5_shutouts_bronze_200.webp",
@@ -98,14 +489,16 @@
       "value": 5,
       "tier": "bronze",
       "sourceVerifiedInSnapshot": true,
-      "bytes": 33468,
-      "sha256": "3bef9cdbcde63c19f53a8207b0f78c174d9f979e5a0e0add14b6437b5b978994",
+      "bytes": 34132,
+      "sha256": "0ddbb25166bb329e195172d7efe16788fca3169b0e6b1c2803142ac65d48bbbd",
       "size": [
         200,
         200
       ],
       "background": "AUTHENTIC_FULL_BLEED_BRAVE_HC_CREST",
-      "foreground": "TIER_OUTLINE_NUMBER_METRIC_DARK_PLAQUE"
+      "foreground": "UNIFORM_CENTERED_NUMBER_AND_METRIC_DARK_PLAQUE",
+      "originalApprovedArtPath": null,
+      "originalApprovedArtSha256": null
     },
     {
       "path": "assets/full-crest-clubs/10_shutouts_silver_200.webp",
@@ -113,14 +506,16 @@
       "value": 10,
       "tier": "silver",
       "sourceVerifiedInSnapshot": true,
-      "bytes": 33002,
-      "sha256": "d6e025ba55b94b112f7c3bb5ce710ca4dc5a6d51d4f2b0c0a250838db0c8005a",
+      "bytes": 33106,
+      "sha256": "76d848e39e69586616a36e3079cd4248eb2fa1dced1219303dfc440927cfc494",
       "size": [
         200,
         200
       ],
       "background": "AUTHENTIC_FULL_BLEED_BRAVE_HC_CREST",
-      "foreground": "TIER_OUTLINE_NUMBER_METRIC_DARK_PLAQUE"
+      "foreground": "UNIFORM_CENTERED_NUMBER_AND_METRIC_DARK_PLAQUE",
+      "originalApprovedArtPath": null,
+      "originalApprovedArtSha256": null
     }
   ]
 }

@@ -54,9 +54,9 @@ try:
    "return document.getElementById('lockerAllCount') && Number(document.getElementById('lockerAllCount').textContent)>0"))
   browser.execute_script("document.getElementById('lockerMilestones').click()")
   expectedSupp=[
-   i for i in original["players"][pid]["items"] if i.get("provenance")=="OFFICIAL_DATED_HTO_AWARDS_PARITY"
+   i for i in original["players"][pid]["items"] if i.get("category")=="milestone"
   ]
-  names=Counter(i["awardCategory"] for i in expectedSupp)
+  names=Counter(i.get("awardCategory",i["sourceText"].split(" - ")[0]) for i in expectedSupp)
   actual=browser.execute_script("""const tiles=[...document.querySelectorAll('#milestoneGrid .ph-earned-tile')];
    return {cards:tiles.map(t=>{
     const img=t.querySelector('img');
@@ -68,7 +68,7 @@ try:
     }),overflow:document.documentElement.scrollWidth>innerWidth+4};""")
   assert not actual["overflow"],(pid,width)
   full=[c for c in actual["cards"] if "ph-fullcrest-family" in c["className"]]
-  self_ref=set(i["awardCategory"] for i in expectedSupp)
+  self_ref=set(i.get("awardCategory",i["sourceText"].split(" - ")[0]) for i in expectedSupp)
   assert len(full)==len(expectedSupp),(pid,width,len(full),len(expectedSupp))
   for b in full:
    assert "/assets/full-crest-clubs/" in b["source"],(pid,width,b)
@@ -78,7 +78,7 @@ try:
    assert tier in b["className"],(pid,width,b)
    check[tier]+=1
   stock=[c for c in actual["cards"] if "ph-fullcrest-family" not in c["className"]]
-  assert all("assets/round-clubs/" in c["source"] or "data:image/png;base64" in c["source"] for c in stock),(pid,stock)
+  assert not stock,(pid,width,"All six verified milestone families should share full-crest design",stock)
   browser.execute_script("document.querySelector('#milestoneGrid img').loading='eager'")
   WebDriverWait(browser,20).until(lambda b:b.execute_script(
    "return [...document.querySelectorAll('#milestoneGrid img')].every(i=>i.complete && i.naturalWidth>0)"))

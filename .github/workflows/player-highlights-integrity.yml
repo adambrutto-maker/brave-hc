@@ -21,6 +21,8 @@ on:
       - 'widgets/assets/round-clubs/**'
       - 'widgets/assets/full-crest-clubs/**'
       - 'scripts/build_fullcrest_milestones.py'
+      - 'scripts/build_unified_milestone_art.py'
+      - 'tests/test_unified_trophy_design_browser.py'
       - 'tests/test_fullcrest_milestone_art.py'
       - 'tests/test_fullcrest_badge_browser.py'
       - 'widgets/assets/approved/**'
@@ -80,7 +82,7 @@ jobs:
         run: python -m pip install 'pillow==11.3.0'
       - name: Validate authentic round milestone art and optional approved shield art
         run: python scripts/verify-approved-artwork.py --require-approved
-      - name: Verify authentic full-crest Goal Assist Shutout metal-tier badge assets
+      - name: Verify all 29 unified full-crest milestone medals and intact original 22-source archive
         run: python -m unittest discover -s tests -p test_fullcrest_milestone_art.py
       - name: Verify transparent approved and milestone emblems against opaque originals
         run: python -m unittest discover -s tests -p test_transparent_badge_background.py
@@ -122,6 +124,10 @@ jobs:
         env:
           BRAVE_QA_BROWSER: chrome
         run: python tests/test_fullcrest_badge_browser.py
+      - name: Verify gold award backgrounds, all-metal milestone cards, centered uniform typography and neutral discipline
+        env:
+          BRAVE_QA_BROWSER: chrome
+        run: python tests/test_unified_trophy_design_browser.py
       - name: Verify hourly current-season refresh and reject unverified changes
         env:
           BRAVE_QA_BROWSER: chrome

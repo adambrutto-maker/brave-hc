@@ -126,7 +126,7 @@ async function render(id,overrides={}){
  if(items.length>3)n.expand.onclick();
  assert.equal(n.legacy.children.length,items.length);
  awardLogoDisplays+=n.legacy.children.filter(row=>row.children[0].children.some(child=>child.tagName==='img'&&child.src.includes('assets/awards/'))).length;
- milestoneLogoDisplays+=n.legacy.children.filter(row=>row.children[0].children.some(child=>child.tagName==='img'&&child.src.includes('assets/round-clubs/'))).length;
+ milestoneLogoDisplays+=n.legacy.children.filter(row=>row.children[0].children.some(child=>child.tagName==='img'&&child.src.includes('assets/full-crest-clubs/'))).length;
  specialLogoDisplays+=n.legacy.children.filter(row=>row.children[0].children.some(child=>child.tagName==='img'&&child.src.includes('assets/special/'))).length;
  heritageLogoDisplays+=n.legacy.children.filter(row=>row.children[0].children.some(child=>child.tagName==='img'&&child.src.includes('assets/heritage/'))).length;
  for(const row of n.legacy.children)assert(row.children[0].children.some(x=>x.tagName==='img'),'Unbranded historical item: '+id+' '+row.textContent);
@@ -178,12 +178,12 @@ async function render(id,overrides={}){
  const empty=await render('999999');assert.equal(empty.records.children.length,0);assert.equal(empty.highs.children.length,0);
  assert.equal(corrected,4);
  assert.equal(retitledDedications,10,'All ten historically named award wins must be retitled');
- assert.equal(milestoneLogoDisplays,97,'Every verified club milestone must show a branded emblem');
+ assert.equal(milestoneLogoDisplays,134,'All 134 officially verified milestone items use the uniform full-crest artwork');
  assert.equal(earnedWallBadges,134,'All 97 original and 37 newly HTO-verified club milestones must appear in the earned badge gallery');
  assert.equal(awardLogoDisplays,105,'James Norris composite winner must display existing artwork');
  assert.equal(specialLogoDisplays,58,'All 51 championship rows, 1 composite Cup and 6 All-Star rows must show specials');
  assert.equal(heritageLogoDisplays,46,'Every remaining historical badge has unique emblem');
- assert.equal(awardLogoDisplays+milestoneLogoDisplays+specialLogoDisplays+heritageLogoDisplays,306,'All historical rows must have an emblem');
+ assert.equal(awardLogoDisplays+milestoneLogoDisplays+specialLogoDisplays+heritageLogoDisplays,343,'All 343 published highlight rows must have an authentic emblem');
  assert.equal(ledger.players['354054'].items[0].sourceText,'Bill Masterton Award for Dedication - Winter 2024/25',
    'Native original historical wording must be preserved for audit');
  const expanded=async(id,overrides={})=>{const n=await render(id,overrides);if(!n.expand.hidden)n.expand.onclick();return n;};

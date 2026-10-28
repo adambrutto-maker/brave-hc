@@ -27,7 +27,7 @@ try:
    x=browser.execute_script("""const rows=[...document.querySelectorAll('#legacy .ph-event')],images=[...document.querySelectorAll('#legacy img')];
 return {name:document.querySelector('#playerName').textContent,rows:rows.length,
 award:images.filter(x=>x.src.includes('/assets/awards/')).length,
-club:images.filter(x=>x.src.includes('/assets/round-clubs/')).length,
+club:images.filter(x=>x.src.includes('/assets/full-crest-clubs/')).length,
 special:images.filter(x=>x.src.includes('/assets/special/')).length,
 broken:images.filter(x=>!x.naturalWidth).map(x=>x.src),
 norris:rows.filter(x=>x.querySelector('.ph-event-title')?.textContent.includes('James Norris Award')).map(x=>x.querySelector('img')?.src||''),
