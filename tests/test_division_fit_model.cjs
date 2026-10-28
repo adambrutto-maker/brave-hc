@@ -30,6 +30,25 @@ const tests=[
     result.gameGraph.verifiedGamesInPool);
   assert.ok(result.gameGraph.links.every(g=>g.meanAbsoluteGoalMargin>=0));
  }],
+ ["Every reciprocal pool-game final is retained by source season-team ID",()=>{
+  const result=model.analyze(src,history),teams=new Map(src.teams.map(t=>[t.sourceTeamId,t]));
+  assert.equal(result.gameGraph.verifiedMatches.length,54);
+  for(const game of result.gameGraph.verifiedMatches){
+   assert.equal(game.teamIds.length,2);
+   assert.equal(game.scoreBySourceTeamId.length,2);
+   assert.ok(game.scoreBySourceTeamId.every(x=>Number.isSafeInteger(x)&&x>=0));
+   const [a,b]=game.teamIds;
+   const aGame=teams.get(a).completedGames.find(g=>
+      g.date===game.date&&g.opponent===teams.get(b).leagueName);
+   const bGame=teams.get(b).completedGames.find(g=>
+      g.date===game.date&&g.opponent===teams.get(a).leagueName);
+   assert.ok(aGame&&bGame);
+   assert.deepEqual(game.scoreBySourceTeamId,[aGame.gf,bGame.gf]);
+   assert.equal(aGame.gf,bGame.ga);
+   assert.equal(aGame.ga,bGame.gf);
+   assert.equal(Math.abs(aGame.gf-bGame.gf),game.absoluteGoalMargin);
+  }
+ }],
  ["Scenario assignments preserve all 22 distinct teams and fixed group capacities",()=>{
   const result=model.analyze(src,history);
   const original=result.scenarios[0].groups.map(g=>g.capacity).sort();

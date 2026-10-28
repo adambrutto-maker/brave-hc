@@ -270,6 +270,28 @@ const tests=[
   assert.throws(()=>model.officialGameIdentityCoverage(baseline,removed),
     /OFFICIAL_GAME_ID_MAP_NOT_SOURCE_ADMITTED/);
  }],
+ ["Original two-sided final scores must reject forged official equal-margin, swapped and incorrect-league links",()=>{
+  const base=division.analyze(read("league-intelligence.json"),
+      read("brave-historical-verified-games.json"));
+  const original=read("svhl-official-game-id-bridges.json");
+  const sameMargin=clone(original);
+  sameMargin.games[0].publishedFinalGoals[0]+=1;
+  sameMargin.games[0].publishedFinalGoals[1]+=1;
+  assert.equal(Math.abs(sameMargin.games[0].publishedFinalGoals[0]-
+    sameMargin.games[0].publishedFinalGoals[1]),
+    Math.abs(original.games[0].publishedFinalGoals[0]-
+    original.games[0].publishedFinalGoals[1]));
+  assert.throws(()=>model.officialGameIdentityCoverage(base,sameMargin),
+    /OFFICIAL_GAME_ID_LINK_SCORE_OR_SOURCE_HASH_UNQUALIFIED/);
+  const swapped=clone(original);
+  swapped.games[0].publishedFinalGoals.reverse();
+  assert.throws(()=>model.officialGameIdentityCoverage(base,swapped),
+    /OFFICIAL_GAME_ID_LINK_SCORE_OR_SOURCE_HASH_UNQUALIFIED/);
+  const league=clone(original);
+  league.games[0].officialLeagueId=999;
+  assert.throws(()=>model.officialGameIdentityCoverage(base,league),
+    /OFFICIAL_GAME_ID_LINK_SCORE_OR_SOURCE_HASH_UNQUALIFIED/);
+ }],
  ["No video number can be pushed into existing scenario rating",()=>{
   const baseline=division.analyze(read("league-intelligence.json"),
     read("brave-historical-verified-games.json"));

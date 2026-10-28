@@ -349,6 +349,14 @@
      original&&g.date===original.date&&
      Array.isArray(g.publishedFinalGoals)&&g.publishedFinalGoals.length===2&&
      g.publishedFinalGoals.every(x=>Number.isSafeInteger(x)&&x>=0)&&
+     g.officialLeagueId===existing.originalLeagueId&&
+     Array.isArray(original.scoreBySourceTeamId)&&
+     original.scoreBySourceTeamId.length===2&&
+     original.scoreBySourceTeamId.every(x=>Number.isSafeInteger(x)&&x>=0)&&
+     g.publishedFinalGoals[0]===original.scoreBySourceTeamId[
+       g.homeTeamId===original.teamIds[0]?0:1]&&
+     g.publishedFinalGoals[1]===original.scoreBySourceTeamId[
+       g.awayTeamId===original.teamIds[0]?0:1]&&
      Math.abs(g.publishedFinalGoals[0]-g.publishedFinalGoals[1])===original.absoluteGoalMargin&&
      g.homeTeamId!==g.awayTeamId&&
      original.teamIds[0]===Math.min(g.homeTeamId,g.awayTeamId)&&

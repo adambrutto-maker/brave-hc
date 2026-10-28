@@ -81,6 +81,9 @@
     const same=team.divisionNow===opponent.divisionNow;
     const divisions=[team.divisionNow,opponent.divisionNow].sort();
     const result={sourceGameKey:key,date:g.date,teamIds:[lo,hi],
+      // Exact reciprocal final score ordered by ascending season-team ID.
+      // A matching margin alone can hide a different final or swapped winner.
+      scoreBySourceTeamId:[...goals],
       divisionPair:divisions,sameCurrentDivision:same,
       absoluteGoalMargin:Math.abs(g.gf-g.ga)};
     games.push(result);
