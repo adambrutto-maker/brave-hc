@@ -66,7 +66,7 @@ async function wait(page,selector,expected){
   console.log('COMPACT_WATCH_HISTORY_QA_PASS',JSON.stringify({count:part.entries.length,width:part.width,errors:compactErrors}));
   await compact.close();
   const degraded=await browser.newPage();await degraded.setRequestInterception(true);
-  degraded.on('request',req=>req.url().includes('history-records.json')?req.respond({status:404,body:'not available'}):req.continue());
+  degraded.on('request',req=>req.url().includes('history-records-legacy-558.json')?req.respond({status:404,body:'not available'}):req.continue());
   await degraded.goto(base+'watch-v2.html',{waitUntil:'domcontentloaded'});
   await wait(degraded,'#notice','Historical milestones withheld');
   assert.equal(await degraded.evaluate(()=>document.querySelectorAll('#milestones article.entry').length),0);
