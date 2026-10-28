@@ -6,8 +6,8 @@
     "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=records",
     "authority": "OFFICIAL_HTO_PUBLIC_READBACK"
   },
-  "capturedAt": "2026-10-28T13:39:36.203626+00:00",
-  "stalePolicy": "HTO official native Records 463-statistical-entry source. Scheduled refresh requires manual review for changed rows or uncertain identity. Three new source-proven entries are Summer GTG and two all-seasons Team streak records. Source year-only labels are not invented as calendar days; immutable historical 558-entry archive is separate.",
+  "capturedAt": "2026-10-28T15:17:27.599860+00:00",
+  "stalePolicy": "Scheduled refresh: official HTO statistical Records are source-verified. Six native date-only labels now readable; 25 additional ISO dates are displayed human-readably by history.js without altering raw evidence. Any source-value, identity, category or period change requires manual review. Preserve the 558-entry historical archive.",
   "pageTitle": "Brave H.C. Records & Achievements",
   "entryCount": 463,
   "groups": [
@@ -722,7 +722,7 @@
       "category": "Summer - Longest Winning Streak",
       "period": "Season",
       "items": [
-        "5 - 2017-05-28 to 2017-06-25 (2017)"
+        "5 - May 28 - Jun 25, 2017 (2017)"
       ]
     },
     {
@@ -730,8 +730,8 @@
       "category": "Summer - Longest Point Streak",
       "period": "Season",
       "items": [
-        "5 - 2013-06-02 to 2013-07-07 (2013)",
-        "5 - 2017-05-28 to 2017-06-25 (2017)"
+        "5 - Jun 2 - Jul 7, 2013 (2013)",
+        "5 - May 28 - Jun 25, 2017 (2017)"
       ]
     },
     {
@@ -763,8 +763,8 @@
       "category": "Summer - Most Team Goals",
       "period": "Game",
       "items": [
-        "13 - vs. Village Idiots (13-4) (2016-05-15)",
-        "13 - vs. Lost In the Sauce (13-4) (2016-07-17)"
+        "13 - vs. Village Idiots (13-4) (May 15, 2016)",
+        "13 - vs. Lost In the Sauce (13-4) (Jul 17, 2016)"
       ]
     },
     {
@@ -772,7 +772,7 @@
       "category": "Summer - Most Team Goals",
       "period": "Playoffs",
       "items": [
-        "12 - vs. Mohawks Hockey (12-3) (2015-07-26)"
+        "12 - vs. Mohawks Hockey (12-3) (Jul 26, 2015)"
       ]
     },
     {

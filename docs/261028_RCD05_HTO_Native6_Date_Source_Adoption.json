@@ -1,0 +1,204 @@
+{
+  "status": "SIX_EXACT_NATIVE_DATE_DISPLAY_ROWS_MATCH_SOURCE",
+  "source_records": 463,
+  "native_records_changed_count": 6,
+  "date_source_first_model_sha256": "d7753dfe4654e8f166740a5c8bd3c8656021cb2beddceea3eebc636e57d796dd",
+  "previous_snapshot_sha256": "d11adf8eb2369926cb5c6be6f9e2332a3e4bcd002d91bb2b974bb5e1d5412c56",
+  "new_snapshot_sha256": "77b2afa800bb419084e513ff6bde960dabed533752d54b969cf9f660951c7633",
+  "unmodified_player_book_sha256": "4095cdf7c60572c206150c6216c75fafb98d928b1cc0bcefc2ddb3c162ed8127",
+  "official_HTO_records_sha256": "d4cbc7794b1dd314fe192eaa75586ee1cfadaff019482605433175b693722e74",
+  "changed_records": {
+    "old": [
+      [
+        "Team Records",
+        "Summer - Longest Winning Streak",
+        "Season",
+        "5 - 2017-05-28 to 2017-06-25 (2017)"
+      ],
+      [
+        "Team Records",
+        "Summer - Longest Point Streak",
+        "Season",
+        "5 - 2013-06-02 to 2013-07-07 (2013)"
+      ],
+      [
+        "Team Records",
+        "Summer - Longest Point Streak",
+        "Season",
+        "5 - 2017-05-28 to 2017-06-25 (2017)"
+      ],
+      [
+        "Team Records",
+        "Summer - Most Team Goals",
+        "Game",
+        "13 - vs. Village Idiots (13-4) (2016-05-15)"
+      ],
+      [
+        "Team Records",
+        "Summer - Most Team Goals",
+        "Game",
+        "13 - vs. Lost In the Sauce (13-4) (2016-07-17)"
+      ],
+      [
+        "Team Records",
+        "Summer - Most Team Goals",
+        "Playoffs",
+        "12 - vs. Mohawks Hockey (12-3) (2015-07-26)"
+      ]
+    ],
+    "new": [
+      [
+        "Team Records",
+        "Summer - Longest Winning Streak",
+        "Season",
+        "5 - May 28 - Jun 25, 2017 (2017)"
+      ],
+      [
+        "Team Records",
+        "Summer - Longest Point Streak",
+        "Season",
+        "5 - Jun 2 - Jul 7, 2013 (2013)"
+      ],
+      [
+        "Team Records",
+        "Summer - Longest Point Streak",
+        "Season",
+        "5 - May 28 - Jun 25, 2017 (2017)"
+      ],
+      [
+        "Team Records",
+        "Summer - Most Team Goals",
+        "Game",
+        "13 - vs. Village Idiots (13-4) (May 15, 2016)"
+      ],
+      [
+        "Team Records",
+        "Summer - Most Team Goals",
+        "Game",
+        "13 - vs. Lost In the Sauce (13-4) (Jul 17, 2016)"
+      ],
+      [
+        "Team Records",
+        "Summer - Most Team Goals",
+        "Playoffs",
+        "12 - vs. Mohawks Hockey (12-3) (Jul 26, 2015)"
+      ]
+    ]
+  },
+  "remaining_iso_source_entries_handled_display_only": 25,
+  "native_HTO_writes": 0,
+  "exact_verified_date_display_id_crosswalk": [
+    {
+      "native_record_id": 25738,
+      "old": [
+        "Team Records",
+        "Summer - Longest Winning Streak",
+        "Season",
+        "5 - 2017-05-28 to 2017-06-25 (2017)"
+      ],
+      "new": [
+        "Team Records",
+        "Summer - Longest Winning Streak",
+        "Season",
+        "5 - May 28 - Jun 25, 2017 (2017)"
+      ],
+      "source_date_iso": [
+        "2017-05-28",
+        "2017-06-25"
+      ]
+    },
+    {
+      "native_record_id": 25739,
+      "old": [
+        "Team Records",
+        "Summer - Longest Point Streak",
+        "Season",
+        "5 - 2013-06-02 to 2013-07-07 (2013)"
+      ],
+      "new": [
+        "Team Records",
+        "Summer - Longest Point Streak",
+        "Season",
+        "5 - Jun 2 - Jul 7, 2013 (2013)"
+      ],
+      "source_date_iso": [
+        "2013-06-02",
+        "2013-07-07"
+      ]
+    },
+    {
+      "native_record_id": 25740,
+      "old": [
+        "Team Records",
+        "Summer - Longest Point Streak",
+        "Season",
+        "5 - 2017-05-28 to 2017-06-25 (2017)"
+      ],
+      "new": [
+        "Team Records",
+        "Summer - Longest Point Streak",
+        "Season",
+        "5 - May 28 - Jun 25, 2017 (2017)"
+      ],
+      "source_date_iso": [
+        "2017-05-28",
+        "2017-06-25"
+      ]
+    },
+    {
+      "native_record_id": 25713,
+      "old": [
+        "Team Records",
+        "Summer - Most Team Goals",
+        "Game",
+        "13 - vs. Village Idiots (13-4) (2016-05-15)"
+      ],
+      "new": [
+        "Team Records",
+        "Summer - Most Team Goals",
+        "Game",
+        "13 - vs. Village Idiots (13-4) (May 15, 2016)"
+      ],
+      "source_date_iso": [
+        "2016-05-15"
+      ]
+    },
+    {
+      "native_record_id": 25714,
+      "old": [
+        "Team Records",
+        "Summer - Most Team Goals",
+        "Game",
+        "13 - vs. Lost In the Sauce (13-4) (2016-07-17)"
+      ],
+      "new": [
+        "Team Records",
+        "Summer - Most Team Goals",
+        "Game",
+        "13 - vs. Lost In the Sauce (13-4) (Jul 17, 2016)"
+      ],
+      "source_date_iso": [
+        "2016-07-17"
+      ]
+    },
+    {
+      "native_record_id": 25725,
+      "old": [
+        "Team Records",
+        "Summer - Most Team Goals",
+        "Playoffs",
+        "12 - vs. Mohawks Hockey (12-3) (2015-07-26)"
+      ],
+      "new": [
+        "Team Records",
+        "Summer - Most Team Goals",
+        "Playoffs",
+        "12 - vs. Mohawks Hockey (12-3) (Jul 26, 2015)"
+      ],
+      "source_date_iso": [
+        "2015-07-26"
+      ]
+    }
+  ],
+  "date_format_scope": "Six native HTO team record date-only labels; 25 additional source ISO dates presented human-readably by history.js without mutating official source."
+}
