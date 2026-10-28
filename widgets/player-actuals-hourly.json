@@ -1,0 +1,157 @@
+{
+  "schema": "brave-hc-hto-player-actuals/v1",
+  "status": "VERIFIED_HTO_CURRENT",
+  "source": "Official Brave H.C. HTO current-season player statistics",
+  "sourceUrl": "https://www.htosports.com/teams/default.asp?p=stats&s=hockey&u=BRAVESHOCKEY",
+  "season": "W2026/27",
+  "asOf": "2026-10-27T22:53:27.502Z",
+  "teamGP": 5,
+  "teamGF": 12,
+  "teamGA": 23,
+  "teamGoals": 12,
+  "teamAssists": 19,
+  "teamPlayerPoints": 31,
+  "playerCount": 20,
+  "players": [
+    {
+      "name": "Ardizzi, Stefano",
+      "gp": 1,
+      "g": 0,
+      "a": 0,
+      "pts": 0
+    },
+    {
+      "name": "Atkins, Nolan",
+      "gp": 2,
+      "g": 0,
+      "a": 0,
+      "pts": 0
+    },
+    {
+      "name": "Brutto, Adam",
+      "gp": 5,
+      "g": 0,
+      "a": 1,
+      "pts": 1
+    },
+    {
+      "name": "Carosi, Justin",
+      "gp": 5,
+      "g": 4,
+      "a": 1,
+      "pts": 5
+    },
+    {
+      "name": "Duffy, Lorcan",
+      "gp": 1,
+      "g": 0,
+      "a": 0,
+      "pts": 0
+    },
+    {
+      "name": "Kober, Adam",
+      "gp": 4,
+      "g": 1,
+      "a": 2,
+      "pts": 3
+    },
+    {
+      "name": "Kong, Henry",
+      "gp": 5,
+      "g": 1,
+      "a": 1,
+      "pts": 2
+    },
+    {
+      "name": "Pagnotta, Alex",
+      "gp": 5,
+      "g": 0,
+      "a": 4,
+      "pts": 4
+    },
+    {
+      "name": "Paolucci, Anthony",
+      "gp": 1,
+      "g": 0,
+      "a": 0,
+      "pts": 0
+    },
+    {
+      "name": "Pavaday, Damian",
+      "gp": 1,
+      "g": 0,
+      "a": 1,
+      "pts": 1
+    },
+    {
+      "name": "Pearsoll, Keith",
+      "gp": 4,
+      "g": 1,
+      "a": 1,
+      "pts": 2
+    },
+    {
+      "name": "Povegliano, Adam",
+      "gp": 4,
+      "g": 1,
+      "a": 1,
+      "pts": 2
+    },
+    {
+      "name": "Provenzano, Mario",
+      "gp": 5,
+      "g": 0,
+      "a": 0,
+      "pts": 0
+    },
+    {
+      "name": "Provenzano, Michael",
+      "gp": 4,
+      "g": 2,
+      "a": 3,
+      "pts": 5
+    },
+    {
+      "name": "Rajasooriar, Krishnan",
+      "gp": 2,
+      "g": 0,
+      "a": 0,
+      "pts": 0
+    },
+    {
+      "name": "Rajkumar, Sanjay",
+      "gp": 4,
+      "g": 0,
+      "a": 0,
+      "pts": 0
+    },
+    {
+      "name": "Rosenberg, Jamie",
+      "gp": 4,
+      "g": 1,
+      "a": 0,
+      "pts": 1
+    },
+    {
+      "name": "Saindon, Stephane",
+      "gp": 4,
+      "g": 1,
+      "a": 2,
+      "pts": 3
+    },
+    {
+      "name": "Triumbari, Francesco",
+      "gp": 5,
+      "g": 0,
+      "a": 2,
+      "pts": 2
+    },
+    {
+      "name": "Unknown, Johnny",
+      "gp": 1,
+      "g": 0,
+      "a": 0,
+      "pts": 0
+    }
+  ]
+}

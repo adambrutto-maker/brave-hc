@@ -563,12 +563,13 @@ function renderCurrent(feed,career) {
  ['player-career-insights.json',x=>x],
  ['player-record-book.json',x=>x],
  ['player-highlights-display-corrections.json',validDisplayCorrections],
- ['player-actuals.json',x=>x]
+ ['player-actuals.json',x=>x],
+ ['player-actuals-hourly.json',x=>x]
  ];
  const results=await Promise.allSettled(resources.map(([file,validate])=>fetch(root+file,{cache:'no-store'}).then(async r=>{
   if(!r.ok)throw Error(file+' HTTP '+r.status);return validate(await r.json());
  })));
- const [legacyResult,feedResult,careerResult,recordsResult,correctionsResult,actualResult]=results;
+ const [legacyResult,feedResult,careerResult,recordsResult,correctionsResult,actualResult,hourlyResult]=results;
  try{
   const check=await fetch(root+'assets/approved/source-manifest.json',{cache:'no-store'});
   if(check.ok)approvedArtworkReady=validApprovedArtwork(await check.json());
@@ -589,7 +590,9 @@ function renderCurrent(feed,career) {
  let latestParticipant=feedResult.status==='fulfilled'&&validParticipant(feedResult.value)?feedResult.value:null;
  if(latestParticipant)renderCurrent(latestParticipant,career);
  let displayedTime=latestParticipant?Date.parse(latestParticipant.sourceReference.htoReadback):-Infinity;
- let latestActual=actualResult.status==='fulfilled'&&validPublishedHTOActuals(actualResult.value)?actualResult.value:null;
+ const actualChoices=[actualResult,hourlyResult].filter(r=>r.status==='fulfilled'&&
+   validPublishedHTOActuals(r.value)).map(r=>r.value).sort((a,b)=>Date.parse(b.asOf)-Date.parse(a.asOf));
+ let latestActual=actualChoices[0]||null;
  if(latestActual&&renderPublishedHTOActuals(latestActual,displayedTime,latestParticipant?.season||null))
   displayedTime=Date.parse(latestActual.asOf);
  // Source-aware hourly refresh: select the newest independently verified public feed
@@ -601,7 +604,7 @@ function renderCurrent(feed,career) {
    inflight=true;
    try{
     const feeds=await Promise.allSettled(
-      ['awards-participants.json','player-actuals.json'].map(async file=>{
+      ['awards-participants.json','player-actuals.json','player-actuals-hourly.json'].map(async file=>{
        const resp=await fetch(root+file,{cache:'no-store'});
        if(!resp.ok)throw Error(file+' HTTP '+resp.status);
        return await resp.json();
@@ -616,8 +619,9 @@ function renderCurrent(feed,career) {
       opportunities.push({time:Date.parse(next.sourceReference.htoReadback),kind:'participant',value:next});
      }
     }
-    if(feeds[1].status==='fulfilled'){
-     const next=feeds[1].value;
+    for(const feed of feeds.slice(1)){
+     if(feed.status!=='fulfilled')continue;
+     const next=feed.value;
      if(validPublishedHTOActuals(next)&&
        (!latestActual||next.season!==latestActual.season||
         next.teamGP>=latestActual.teamGP)&&
