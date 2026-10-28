@@ -4,7 +4,7 @@
  const put=(parent,tag,cls,value)=>{const node=el(tag,cls,value);parent.append(node);return node};
  const q=id=>document.getElementById(id);
  const num=(v,n=1)=>Number.isFinite(v)?v.toFixed(n):"unavailable";
- let analysis=null,stability=null,activeScenario="CURRENT";
+ let analysis=null,stability=null,activeScenario="CURRENT",verifiedGameInfoBySourceKey=null;
  function metric(parent,value,description){
   const node=el("div","metric");
   put(node,"span","number",value);
@@ -139,6 +139,12 @@
     throw Error("SOURCE_QUALIFIED_VIDEO_EVIDENCE_ADAPTER_UNAVAILABLE");
   const verified=window.BraveVideoStrengthEvidence.officialGameIdentityCoverage(
     analysis,official);
+  // The existing adapter verified every official ID, team side, score, page
+  // URL and hash against all 54 source-paired games before this reference view.
+  verifiedGameInfoBySourceKey=new Map(official.games.map(g=>[g.sourceGameKey,g]));
+  if(verifiedGameInfoBySourceKey.size!==verified.sourceGameIDsVerified)
+   throw Error("SCENARIO_GAME_SOURCE_INDEX_DUPLICATED");
+  renderScenarioGameSources();
   // This only upgrades the source-linked identity/evidence LABEL, never a team rating.
   // Default remains actual cross-division matches; the source-only inventory can
   // also show every exact official GameInfo ID (including within-division games).
@@ -204,6 +210,51 @@
   }
   if(!cross.length)put(grid,"p","small","No verified cross-division games in the selected adult comparison pool.");
  }
+ function renderScenarioGameSources(){
+  const detail=q("scenario-game-sources"),list=q("scenario-game-list"),
+   count=q("scenario-game-count");
+  list.replaceChildren();
+  if(!verifiedGameInfoBySourceKey){
+   detail.hidden=true;
+   count.textContent="Official GameInfo identity evidence unavailable; no source game is inferred.";
+   return;
+  }
+  const chosen=analysis.scenarios.find(s=>s.code===activeScenario);
+  if(!chosen){detail.hidden=true;return;}
+  const assign=new Map(chosen.groups.flatMap(g=>g.ids.map(id=>[id,g.label])));
+  const games=analysis.gameGraph.verifiedMatches.map(game=>{
+   const verified=verifiedGameInfoBySourceKey.get(game.sourceGameKey);
+   if(!verified)throw Error("SCENARIO_OFFICIAL_GAME_ID_SOURCE_MISSING");
+   const a=assign.get(game.teamIds[0]),b=assign.get(game.teamIds[1]);
+   if(!a||!b)throw Error("SCENARIO_TEAM_MEMBERSHIP_UNVERIFIED");
+   return {verified,groupA:a,groupB:b,sameGroup:a===b};
+  }).sort((a,b)=>b.verified.date.localeCompare(a.verified.date)||
+        a.verified.officialGameId-b.verified.officialGameId);
+  const same=games.filter(g=>g.sameGroup).length;
+  if(games.length!==verifiedGameInfoBySourceKey.size||
+     same!==chosen.evidence.observedSameGroupGames)
+   throw Error("SCENARIO_GAME_COUNTS_NOT_MATCHING_VERIFIED_SOURCE");
+  count.textContent=games.length+" verified official GameInfo IDs · "+same+
+   " observed games between teams grouped together in this "+chosen.title+
+   " view · "+(games.length-same)+" across the displayed groups.";
+  for(const {verified:g,groupA,groupB,sameGroup} of games){
+   const card=el("article","week-card");
+   put(card,"strong","",g.date+" · "+g.homeTeamName+" vs "+g.awayTeamName+
+      " · "+g.publishedFinalGoals.join("-"));
+   put(card,"small","",("Official GameInfo #"+g.officialGameId+" · "+
+      (sameGroup?"SAME selected group: "+groupA:
+        "ACROSS selected groups: "+groupA+" / "+groupB))+
+      (chosen.code==="CURRENT"?" · actual current membership":
+        " · HYPOTHETICAL membership only"));
+   if(g.scoringEventAdmission==="HELD_PLAYER_SCORING_NOT_SEASON_ADMISSION")
+    put(card,"small","warning","Official team result source-confirmed; individual scoring events held");
+   const link=put(card,"a","small","Inspect exact SVHL GameInfo");
+   link.href=g.officialGameInfoURL;
+   link.target="_blank";link.rel="noopener noreferrer";
+   list.append(card);
+  }
+  detail.hidden=false;
+ }
  function renderScenario(){
   const chosen=analysis.scenarios.find(s=>s.code===activeScenario);
   const original=analysis.scenarios.find(s=>s.code==="CURRENT");
@@ -262,6 +313,7 @@
    }
    grid.append(card);
   }
+  renderScenarioGameSources();
  }
  function readiness(){
   const ready=analysis.readiness;
@@ -382,6 +434,8 @@
    window.BraveDivisionLayoutView.init(analysis);
    source();connections();videoBridgeReadiness();renderScenario();renderStability();readiness();historical();
    loadOfficialGameIDBridges().catch(error=>{
+    verifiedGameInfoBySourceKey=null;
+    renderScenarioGameSources();
     const status=q("video-readiness-status");
     if(status.textContent.includes("INSUFFICIENT_VIDEO"))
      status.textContent+=" Official GameInfo ID crosswalk held: "+error.message+

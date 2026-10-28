@@ -88,6 +88,33 @@ const srv=http.createServer((req,res)=>{
    await page.select("#gameinfo-scope-filter","CROSS");
    assert.equal(await page.$$eval("#video-bridge-games-list .week-card",x=>x.length),19);
    assert.ok((await page.$eval("#video-readiness-status",x=>x.textContent)).includes("INSUFFICIENT_VIDEO"));
+   // Scenario controls are in progressive disclosure ("All data"). Test
+   // genuine pointer clicks after opening the user's accessible mode.
+   await page.evaluate(()=>[...document.querySelectorAll(".os-mode")]
+     .find(b=>b.textContent.trim()==="All data").click());
+   // Every hypothetical grouping must cite exactly the same 54 *past*
+   // official games and vary only the retrospective group membership labels.
+   for(const [i,s] of verified.scenarios.entries()){
+    await page.click("#scenario-options button:nth-child("+(i+1)+")");
+    const snapshot=await page.evaluate(()=>({
+      rows:document.querySelectorAll("#scenario-game-list .week-card").length,
+      links:[...document.querySelectorAll("#scenario-game-list .week-card a")].map(x=>x.href),
+      count:document.querySelector("#scenario-game-count").textContent,
+      held:document.querySelectorAll("#scenario-game-list .week-card .warning").length,
+      hypothetical:document.querySelector("#scenario-game-list").textContent.includes("HYPOTHETICAL membership only"),
+      exists:!document.querySelector("#scenario-game-sources").hidden
+    }));
+    assert.equal(snapshot.rows,54);
+    assert.equal(snapshot.links.length,54);
+    assert.equal(new Set(snapshot.links).size,54);
+    assert.ok(snapshot.links.every(x=>x.startsWith("https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=")));
+    assert.ok(snapshot.count.includes(s.evidence.observedSameGroupGames+" observed games"),
+      JSON.stringify({scenario:s.code,expected:s.evidence.observedSameGroupGames,observedCount:snapshot.count,errors}));
+    assert.equal(snapshot.held,2);
+    assert.equal(snapshot.exists,true);
+    assert.equal(snapshot.hypothetical,i!==0);
+   }
+   await page.click("#scenario-options button:nth-child(1)");
    assert.ok(first.videoCaveat.includes("Camera")&&
       first.videoCaveat.includes("No VAHL team is included"));
    assert.ok(first.evidence.includes(String(verified.scenarios[0].evidence.observedSameGroupGames))&&
@@ -289,12 +316,16 @@ const srv=http.createServer((req,res)=>{
   const idsHeld=await missingIDs.evaluate(()=>({
     status:document.querySelector("#notice")?.textContent,
     video:document.querySelector("#video-readiness-status")?.textContent,
-    options:document.querySelectorAll("#scenario-options button").length
+    options:document.querySelectorAll("#scenario-options button").length,
+    sourcePanelHidden:document.querySelector("#scenario-game-sources").hidden,
+    sourceRows:document.querySelectorAll("#scenario-game-list .week-card").length
   }));
   assert.ok(idsHeld.status.includes("Preliminary research only"));
   assert.ok(idsHeld.video.includes("INSUFFICIENT_VIDEO")&&
     idsHeld.video.includes("Official GameInfo ID crosswalk held"));
   assert.equal(idsHeld.options,3);
+  assert.equal(idsHeld.sourcePanelHidden,true);
+  assert.equal(idsHeld.sourceRows,0);
   await missingIDs.close();
   console.log(JSON.stringify({status:"DIVISION_FIT_BROWSER_PASS",results,
     missingVideoAdapterKeepsExistingResearch:"PASS",
