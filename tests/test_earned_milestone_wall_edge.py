@@ -63,6 +63,6 @@ try:
     samples.append({"id":pid,"width":width,"milestones":expected})
    totals["sessions"]+=1;totals["badges"]+=expected if width==355 else 0
    if width==355:totals["profiles"]+=1
- assert totals["sessions"]==86 and totals["badges"]==97 and totals["profiles"]==43,totals
+ assert totals["sessions"]==86 and totals["badges"]==134 and totals["profiles"]==43,totals
  print(json.dumps({"status":"PASS","totals":dict(totals),"sampleScreenshots":samples},indent=2))
 finally:d.quit();server.shutdown()

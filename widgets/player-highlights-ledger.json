@@ -97,6 +97,35 @@
           "sourceOrder": 8,
           "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
           "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-aw19-354041-50-assist-club-1835516",
+          "category": "milestone",
+          "sourceText": "50 Assist Club - October 6, 2019",
+          "displayText": "50 Assist Club - October 6, 2019",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "50 Assist Club - October 6, 2019",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 0,
+            "milestone": 1
+          },
+          "sourceOrder": 9,
+          "sortDate": "2019-10-06",
+          "provenance": "OFFICIAL_DATED_HTO_AWARDS_PARITY",
+          "publication": "VERIFIED_NATIVE_HTO_AWARD",
+          "awardCategory": "50 Assist Club",
+          "officialPlayerId": "354041",
+          "sourceGameId": "1835516",
+          "sourceGameURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1835516&archTog=1",
+          "sourceGameSHA256": "8aa127952ab0a757210f97b202cf6d6485cac83b6d2317c3a0554464c5bcd1ee",
+          "evidenceTier": "HTO_PROFILE_FULL_GP_AND_METRIC_PARITY"
         }
       ],
       "originalCount": 9,
@@ -321,6 +350,35 @@
           "sourceOrder": 8,
           "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
           "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-aw19-354045-50-assist-club-1835529",
+          "category": "milestone",
+          "sourceText": "50 Assist Club - December 8, 2019",
+          "displayText": "50 Assist Club - December 8, 2019",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "50 Assist Club - December 8, 2019",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 0,
+            "milestone": 1
+          },
+          "sourceOrder": 9,
+          "sortDate": "2019-12-08",
+          "provenance": "OFFICIAL_DATED_HTO_AWARDS_PARITY",
+          "publication": "VERIFIED_NATIVE_HTO_AWARD",
+          "awardCategory": "50 Assist Club",
+          "officialPlayerId": "354045",
+          "sourceGameId": "1835529",
+          "sourceGameURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1835529&archTog=1",
+          "sourceGameSHA256": "ca31d3a2f354da3313033dc25522069c0975366e8c95a67148847943a1ded223",
+          "evidenceTier": "HTO_PROFILE_FULL_GP_AND_METRIC_PARITY"
         }
       ],
       "originalCount": 9,
@@ -571,6 +629,122 @@
           "sourceOrder": 10,
           "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
           "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-aw19-354046-50-goal-club-1384793",
+          "category": "milestone",
+          "sourceText": "50 Goal Club - January 3, 2016",
+          "displayText": "50 Goal Club - January 3, 2016",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "50 Goal Club - January 3, 2016",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 0,
+            "milestone": 1
+          },
+          "sourceOrder": 11,
+          "sortDate": "2016-01-03",
+          "provenance": "OFFICIAL_DATED_HTO_AWARDS_PARITY",
+          "publication": "VERIFIED_NATIVE_HTO_AWARD",
+          "awardCategory": "50 Goal Club",
+          "officialPlayerId": "354046",
+          "sourceGameId": "1384793",
+          "sourceGameURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1384793&archTog=1",
+          "sourceGameSHA256": "bb0352e617724c0a6d369cf100907377f6a0b39d1464fc089eb80f2e34895a37",
+          "evidenceTier": "EXACT_DATED_GOAL_ASSIST_SOURCE_WITH_COMPLETE_SEASON_SCORING_PARITY_GP_CAVEAT"
+        },
+        {
+          "id": "hto-aw19-354046-50-assist-club-1249336",
+          "category": "milestone",
+          "sourceText": "50 Assist Club - June 21, 2015",
+          "displayText": "50 Assist Club - June 21, 2015",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "50 Assist Club - June 21, 2015",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 0,
+            "milestone": 1
+          },
+          "sourceOrder": 12,
+          "sortDate": "2015-06-21",
+          "provenance": "OFFICIAL_DATED_HTO_AWARDS_PARITY",
+          "publication": "VERIFIED_NATIVE_HTO_AWARD",
+          "awardCategory": "50 Assist Club",
+          "officialPlayerId": "354046",
+          "sourceGameId": "1249336",
+          "sourceGameURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1249336&archTog=1",
+          "sourceGameSHA256": "020d3eb7d1ec4d3865ec1b6db68ff5643304a59db3ba1c38b526acde9b7716ab",
+          "evidenceTier": "HTO_PROFILE_FULL_GP_AND_METRIC_PARITY"
+        },
+        {
+          "id": "hto-aw19-354046-100-goal-club-1738948",
+          "category": "milestone",
+          "sourceText": "100 Goal Club - September 16, 2018",
+          "displayText": "100 Goal Club - September 16, 2018",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "100 Goal Club - September 16, 2018",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 0,
+            "milestone": 1
+          },
+          "sourceOrder": 13,
+          "sortDate": "2018-09-16",
+          "provenance": "OFFICIAL_DATED_HTO_AWARDS_PARITY",
+          "publication": "VERIFIED_NATIVE_HTO_AWARD",
+          "awardCategory": "100 Goal Club",
+          "officialPlayerId": "354046",
+          "sourceGameId": "1738948",
+          "sourceGameURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1738948&archTog=1",
+          "sourceGameSHA256": "3049f3d81ae4b2820297bcd0ca589700123f44708751031e4a374ce21843d81c",
+          "evidenceTier": "EXACT_DATED_GOAL_ASSIST_SOURCE_WITH_COMPLETE_SEASON_SCORING_PARITY_GP_CAVEAT"
+        },
+        {
+          "id": "hto-aw19-354046-100-assist-club-1664261",
+          "category": "milestone",
+          "sourceText": "100 Assist Club - March 18, 2018",
+          "displayText": "100 Assist Club - March 18, 2018",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "100 Assist Club - March 18, 2018",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 0,
+            "milestone": 1
+          },
+          "sourceOrder": 14,
+          "sortDate": "2018-03-18",
+          "provenance": "OFFICIAL_DATED_HTO_AWARDS_PARITY",
+          "publication": "VERIFIED_NATIVE_HTO_AWARD",
+          "awardCategory": "100 Assist Club",
+          "officialPlayerId": "354046",
+          "sourceGameId": "1664261",
+          "sourceGameURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1664261&archTog=1",
+          "sourceGameSHA256": "b70961edfefaff32466f010e08a3ee22a13c26d8f9ab80cc2f714f573af874bd",
+          "evidenceTier": "HTO_PROFILE_FULL_GP_AND_METRIC_PARITY"
         }
       ],
       "originalCount": 11,
@@ -1013,6 +1187,122 @@
           "sourceOrder": 16,
           "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
           "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-aw19-354049-50-goal-club-1442292",
+          "category": "milestone",
+          "sourceText": "50 Goal Club - June 19, 2016",
+          "displayText": "50 Goal Club - June 19, 2016",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "50 Goal Club - June 19, 2016",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 0,
+            "milestone": 1
+          },
+          "sourceOrder": 17,
+          "sortDate": "2016-06-19",
+          "provenance": "OFFICIAL_DATED_HTO_AWARDS_PARITY",
+          "publication": "VERIFIED_NATIVE_HTO_AWARD",
+          "awardCategory": "50 Goal Club",
+          "officialPlayerId": "354049",
+          "sourceGameId": "1442292",
+          "sourceGameURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1442292&archTog=1",
+          "sourceGameSHA256": "6a32f4638a251a7cc2f2acad28becb56ac28e45fbe3b2eb2c14e2f8ca2c525fc",
+          "evidenceTier": "HTO_PROFILE_FULL_GP_AND_METRIC_PARITY"
+        },
+        {
+          "id": "hto-aw19-354049-50-assist-club-1442289",
+          "category": "milestone",
+          "sourceText": "50 Assist Club - May 29, 2016",
+          "displayText": "50 Assist Club - May 29, 2016",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "50 Assist Club - May 29, 2016",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 0,
+            "milestone": 1
+          },
+          "sourceOrder": 18,
+          "sortDate": "2016-05-29",
+          "provenance": "OFFICIAL_DATED_HTO_AWARDS_PARITY",
+          "publication": "VERIFIED_NATIVE_HTO_AWARD",
+          "awardCategory": "50 Assist Club",
+          "officialPlayerId": "354049",
+          "sourceGameId": "1442289",
+          "sourceGameURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1442289&archTog=1",
+          "sourceGameSHA256": "7cb34211f5db143d56aa48ae25969b302556d8d6853c0c05179f36b43b809771",
+          "evidenceTier": "HTO_PROFILE_FULL_GP_AND_METRIC_PARITY"
+        },
+        {
+          "id": "hto-aw19-354049-100-goal-club-1835519",
+          "category": "milestone",
+          "sourceText": "100 Goal Club - October 27, 2019",
+          "displayText": "100 Goal Club - October 27, 2019",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "100 Goal Club - October 27, 2019",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 0,
+            "milestone": 1
+          },
+          "sourceOrder": 19,
+          "sortDate": "2019-10-27",
+          "provenance": "OFFICIAL_DATED_HTO_AWARDS_PARITY",
+          "publication": "VERIFIED_NATIVE_HTO_AWARD",
+          "awardCategory": "100 Goal Club",
+          "officialPlayerId": "354049",
+          "sourceGameId": "1835519",
+          "sourceGameURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1835519&archTog=1",
+          "sourceGameSHA256": "5df06963f0b43236d0b750968f93aed378333a3ce068f5e9920d2ad623c6cedc",
+          "evidenceTier": "HTO_PROFILE_FULL_GP_AND_METRIC_PARITY"
+        },
+        {
+          "id": "hto-aw19-354049-100-assist-club-1738995",
+          "category": "milestone",
+          "sourceText": "100 Assist Club - March 31, 2019",
+          "displayText": "100 Assist Club - March 31, 2019",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "100 Assist Club - March 31, 2019",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 0,
+            "milestone": 1
+          },
+          "sourceOrder": 20,
+          "sortDate": "2019-03-31",
+          "provenance": "OFFICIAL_DATED_HTO_AWARDS_PARITY",
+          "publication": "VERIFIED_NATIVE_HTO_AWARD",
+          "awardCategory": "100 Assist Club",
+          "officialPlayerId": "354049",
+          "sourceGameId": "1738995",
+          "sourceGameURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1738995&archTog=1",
+          "sourceGameSHA256": "ad95137806ad6433f2c9939e1ef0a60fc83bf1557a1bfed4c0167abc22a87079",
+          "evidenceTier": "EXACT_DATED_GOAL_ASSIST_SOURCE_WITH_COMPLETE_SEASON_SCORING_PARITY_GP_CAVEAT"
         }
       ],
       "originalCount": 17,
@@ -1447,6 +1737,64 @@
           "sourceOrder": 15,
           "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
           "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-aw19-354054-50-assist-club-1249342",
+          "category": "milestone",
+          "sourceText": "50 Assist Club - August 9, 2015",
+          "displayText": "50 Assist Club - August 9, 2015",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "50 Assist Club - August 9, 2015",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 0,
+            "milestone": 1
+          },
+          "sourceOrder": 16,
+          "sortDate": "2015-08-09",
+          "provenance": "OFFICIAL_DATED_HTO_AWARDS_PARITY",
+          "publication": "VERIFIED_NATIVE_HTO_AWARD",
+          "awardCategory": "50 Assist Club",
+          "officialPlayerId": "354054",
+          "sourceGameId": "1249342",
+          "sourceGameURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1249342&archTog=1",
+          "sourceGameSHA256": "9903d475e02f8a8c09df6e39d9845711a6ae8e2414be8229a12f81b3054c4448",
+          "evidenceTier": "EXACT_DATED_GOAL_ASSIST_SOURCE_WITH_COMPLETE_SEASON_SCORING_PARITY_GP_CAVEAT"
+        },
+        {
+          "id": "hto-aw19-354054-100-assist-club-1664263",
+          "category": "milestone",
+          "sourceText": "100 Assist Club - April 8, 2018",
+          "displayText": "100 Assist Club - April 8, 2018",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "100 Assist Club - April 8, 2018",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 0,
+            "milestone": 1
+          },
+          "sourceOrder": 17,
+          "sortDate": "2018-04-08",
+          "provenance": "OFFICIAL_DATED_HTO_AWARDS_PARITY",
+          "publication": "VERIFIED_NATIVE_HTO_AWARD",
+          "awardCategory": "100 Assist Club",
+          "officialPlayerId": "354054",
+          "sourceGameId": "1664263",
+          "sourceGameURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1664263&archTog=1",
+          "sourceGameSHA256": "18a6f1138741618e2b57255ac97a18cf44a5363d795760944938b72772d44bdd",
+          "evidenceTier": "EXACT_DATED_GOAL_ASSIST_SOURCE_WITH_COMPLETE_SEASON_SCORING_PARITY_GP_CAVEAT"
         }
       ],
       "originalCount": 16,
@@ -1565,6 +1913,64 @@
           "sourceOrder": 10,
           "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
           "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-aw19-354055-5-shutout-club-1384810",
+          "category": "milestone",
+          "sourceText": "5 Shutout Club - April 17, 2016",
+          "displayText": "5 Shutout Club - April 17, 2016",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "5 Shutout Club - April 17, 2016",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 0,
+            "milestone": 1
+          },
+          "sourceOrder": 11,
+          "sortDate": "2016-04-17",
+          "provenance": "OFFICIAL_DATED_HTO_AWARDS_PARITY",
+          "publication": "VERIFIED_NATIVE_HTO_AWARD",
+          "awardCategory": "5 Shutout Club",
+          "officialPlayerId": "354055",
+          "sourceGameId": "1384810",
+          "sourceGameURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1384810&archTog=1",
+          "sourceGameSHA256": "e895cf790007af6f07872a232d87f57ca34c6c20c655499a06fc2586d8280dd4",
+          "evidenceTier": "EXACT_DATED_EXPLICIT_HTO_SHUTOUT_SOURCE_WITH_FULL_SEASON_POSITIVE_SHO_PARITY"
+        },
+        {
+          "id": "hto-aw19-354055-10-shutout-club-1517108",
+          "category": "milestone",
+          "sourceText": "10 Shutout Club - March 5, 2017",
+          "displayText": "10 Shutout Club - March 5, 2017",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "10 Shutout Club - March 5, 2017",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 0,
+            "milestone": 1
+          },
+          "sourceOrder": 12,
+          "sortDate": "2017-03-05",
+          "provenance": "OFFICIAL_DATED_HTO_AWARDS_PARITY",
+          "publication": "VERIFIED_NATIVE_HTO_AWARD",
+          "awardCategory": "10 Shutout Club",
+          "officialPlayerId": "354055",
+          "sourceGameId": "1517108",
+          "sourceGameURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1517108&archTog=1",
+          "sourceGameSHA256": "b7537837fd016f38f1ed7756b457acc002ee4b5153c5d9f34ed1ba364b6344e1",
+          "evidenceTier": "EXACT_DATED_EXPLICIT_HTO_SHUTOUT_SOURCE_WITH_FULL_SEASON_POSITIVE_SHO_PARITY"
         }
       ],
       "originalCount": 11,
@@ -1733,6 +2139,122 @@
           "sourceOrder": 15,
           "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
           "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-aw19-354056-50-goal-club-1517113",
+          "category": "milestone",
+          "sourceText": "50 Goal Club - April 9, 2017",
+          "displayText": "50 Goal Club - April 9, 2017",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "50 Goal Club - April 9, 2017",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 0,
+            "milestone": 1
+          },
+          "sourceOrder": 16,
+          "sortDate": "2017-04-09",
+          "provenance": "OFFICIAL_DATED_HTO_AWARDS_PARITY",
+          "publication": "VERIFIED_NATIVE_HTO_AWARD",
+          "awardCategory": "50 Goal Club",
+          "officialPlayerId": "354056",
+          "sourceGameId": "1517113",
+          "sourceGameURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1517113&archTog=1",
+          "sourceGameSHA256": "0c6e6e4e0807b9399f3eed0d60cee2618aa094d8559e872e1f355b900ff289d5",
+          "evidenceTier": "EXACT_DATED_GOAL_ASSIST_SOURCE_WITH_COMPLETE_SEASON_SCORING_PARITY_GP_CAVEAT"
+        },
+        {
+          "id": "hto-aw19-354056-50-assist-club-1442294",
+          "category": "milestone",
+          "sourceText": "50 Assist Club - July 10, 2016",
+          "displayText": "50 Assist Club - July 10, 2016",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "50 Assist Club - July 10, 2016",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 0,
+            "milestone": 1
+          },
+          "sourceOrder": 17,
+          "sortDate": "2016-07-10",
+          "provenance": "OFFICIAL_DATED_HTO_AWARDS_PARITY",
+          "publication": "VERIFIED_NATIVE_HTO_AWARD",
+          "awardCategory": "50 Assist Club",
+          "officialPlayerId": "354056",
+          "sourceGameId": "1442294",
+          "sourceGameURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1442294&archTog=1",
+          "sourceGameSHA256": "c935bb84343eeb59074a363470be2ffbaa1005ad557ebd9d84c367a86b98734e",
+          "evidenceTier": "HTO_PROFILE_FULL_GP_AND_METRIC_PARITY"
+        },
+        {
+          "id": "hto-aw19-354056-100-goal-club-2214991",
+          "category": "milestone",
+          "sourceText": "100 Goal Club - October 5, 2025",
+          "displayText": "100 Goal Club - October 5, 2025",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "100 Goal Club - October 5, 2025",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 0,
+            "milestone": 1
+          },
+          "sourceOrder": 18,
+          "sortDate": "2025-10-05",
+          "provenance": "OFFICIAL_DATED_HTO_AWARDS_PARITY",
+          "publication": "VERIFIED_NATIVE_HTO_AWARD",
+          "awardCategory": "100 Goal Club",
+          "officialPlayerId": "354056",
+          "sourceGameId": "2214991",
+          "sourceGameURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=2214991&archTog=1",
+          "sourceGameSHA256": "1c4ebc803c1b4dab638401e18e731a3022c7a95c0c1c50c14461953316c8d8e6",
+          "evidenceTier": "HTO_PROFILE_FULL_GP_AND_METRIC_PARITY"
+        },
+        {
+          "id": "hto-aw19-354056-100-assist-club-1835531",
+          "category": "milestone",
+          "sourceText": "100 Assist Club - December 22, 2019",
+          "displayText": "100 Assist Club - December 22, 2019",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "100 Assist Club - December 22, 2019",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 0,
+            "milestone": 1
+          },
+          "sourceOrder": 19,
+          "sortDate": "2019-12-22",
+          "provenance": "OFFICIAL_DATED_HTO_AWARDS_PARITY",
+          "publication": "VERIFIED_NATIVE_HTO_AWARD",
+          "awardCategory": "100 Assist Club",
+          "officialPlayerId": "354056",
+          "sourceGameId": "1835531",
+          "sourceGameURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1835531&archTog=1",
+          "sourceGameSHA256": "3a53ee5083c18b396ce7d4744c60b5645011f6c076248a23833f2785f00ae128",
+          "evidenceTier": "HTO_PROFILE_FULL_GP_AND_METRIC_PARITY"
         }
       ],
       "originalCount": 16,
@@ -1971,6 +2493,64 @@
           "sourceOrder": 14,
           "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
           "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-aw19-354058-50-assist-club-1517108",
+          "category": "milestone",
+          "sourceText": "50 Assist Club - March 5, 2017",
+          "displayText": "50 Assist Club - March 5, 2017",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "50 Assist Club - March 5, 2017",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 0,
+            "milestone": 1
+          },
+          "sourceOrder": 15,
+          "sortDate": "2017-03-05",
+          "provenance": "OFFICIAL_DATED_HTO_AWARDS_PARITY",
+          "publication": "VERIFIED_NATIVE_HTO_AWARD",
+          "awardCategory": "50 Assist Club",
+          "officialPlayerId": "354058",
+          "sourceGameId": "1517108",
+          "sourceGameURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1517108&archTog=1",
+          "sourceGameSHA256": "b7537837fd016f38f1ed7756b457acc002ee4b5153c5d9f34ed1ba364b6344e1",
+          "evidenceTier": "EXACT_DATED_GOAL_ASSIST_SOURCE_WITH_COMPLETE_SEASON_SCORING_PARITY_GP_CAVEAT"
+        },
+        {
+          "id": "hto-aw19-354058-100-assist-club-2071745",
+          "category": "milestone",
+          "sourceText": "100 Assist Club - December 17, 2023",
+          "displayText": "100 Assist Club - December 17, 2023",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "100 Assist Club - December 17, 2023",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 0,
+            "milestone": 1
+          },
+          "sourceOrder": 16,
+          "sortDate": "2023-12-17",
+          "provenance": "OFFICIAL_DATED_HTO_AWARDS_PARITY",
+          "publication": "VERIFIED_NATIVE_HTO_AWARD",
+          "awardCategory": "100 Assist Club",
+          "officialPlayerId": "354058",
+          "sourceGameId": "2071745",
+          "sourceGameURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=2071745&archTog=1",
+          "sourceGameSHA256": "94922b83518c28f5e0c1ee098d12d64ecccec4a47579b3a9d65194a3161d2a32",
+          "evidenceTier": "EXACT_DATED_GOAL_ASSIST_SOURCE_WITH_COMPLETE_SEASON_SCORING_PARITY_GP_CAVEAT"
         }
       ],
       "originalCount": 15,
@@ -2479,6 +3059,151 @@
           "sourceOrder": 24,
           "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
           "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-aw19-354060-50-goal-club-1559158",
+          "category": "milestone",
+          "sourceText": "50 Goal Club - May 28, 2017",
+          "displayText": "50 Goal Club - May 28, 2017",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "50 Goal Club - May 28, 2017",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 0,
+            "milestone": 1
+          },
+          "sourceOrder": 25,
+          "sortDate": "2017-05-28",
+          "provenance": "OFFICIAL_DATED_HTO_AWARDS_PARITY",
+          "publication": "VERIFIED_NATIVE_HTO_AWARD",
+          "awardCategory": "50 Goal Club",
+          "officialPlayerId": "354060",
+          "sourceGameId": "1559158",
+          "sourceGameURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559158&archTog=1",
+          "sourceGameSHA256": "6f8009ca4078f29a7ce4ad2584945373b49329ad2f34c72b18180f63554778fa",
+          "evidenceTier": "EXACT_DATED_GOAL_ASSIST_SOURCE_WITH_COMPLETE_SEASON_SCORING_PARITY_GP_CAVEAT"
+        },
+        {
+          "id": "hto-aw19-354060-50-assist-club-1384799",
+          "category": "milestone",
+          "sourceText": "50 Assist Club - February 21, 2016",
+          "displayText": "50 Assist Club - February 21, 2016",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "50 Assist Club - February 21, 2016",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 0,
+            "milestone": 1
+          },
+          "sourceOrder": 26,
+          "sortDate": "2016-02-21",
+          "provenance": "OFFICIAL_DATED_HTO_AWARDS_PARITY",
+          "publication": "VERIFIED_NATIVE_HTO_AWARD",
+          "awardCategory": "50 Assist Club",
+          "officialPlayerId": "354060",
+          "sourceGameId": "1384799",
+          "sourceGameURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1384799&archTog=1",
+          "sourceGameSHA256": "00f82a1781de12320be7b88c400021b191b1d25652f16f638e70988edcf69e75",
+          "evidenceTier": "EXACT_DATED_GOAL_ASSIST_SOURCE_WITH_COMPLETE_SEASON_SCORING_PARITY_GP_CAVEAT"
+        },
+        {
+          "id": "hto-aw19-354060-100-goal-club-2012664",
+          "category": "milestone",
+          "sourceText": "100 Goal Club - November 20, 2022",
+          "displayText": "100 Goal Club - November 20, 2022",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "100 Goal Club - November 20, 2022",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 0,
+            "milestone": 1
+          },
+          "sourceOrder": 27,
+          "sortDate": "2022-11-20",
+          "provenance": "OFFICIAL_DATED_HTO_AWARDS_PARITY",
+          "publication": "VERIFIED_NATIVE_HTO_AWARD",
+          "awardCategory": "100 Goal Club",
+          "officialPlayerId": "354060",
+          "sourceGameId": "2012664",
+          "sourceGameURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=2012664&archTog=1",
+          "sourceGameSHA256": "f2895ba3126b759f944a64dba0be3867a8702add94a3f923a2428df17afd33b3",
+          "evidenceTier": "EXACT_DATED_GOAL_ASSIST_SOURCE_WITH_COMPLETE_SEASON_SCORING_PARITY_GP_CAVEAT"
+        },
+        {
+          "id": "hto-aw19-354060-100-assist-club-1559169",
+          "category": "milestone",
+          "sourceText": "100 Assist Club - June 25, 2017",
+          "displayText": "100 Assist Club - June 25, 2017",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "100 Assist Club - June 25, 2017",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 0,
+            "milestone": 1
+          },
+          "sourceOrder": 28,
+          "sortDate": "2017-06-25",
+          "provenance": "OFFICIAL_DATED_HTO_AWARDS_PARITY",
+          "publication": "VERIFIED_NATIVE_HTO_AWARD",
+          "awardCategory": "100 Assist Club",
+          "officialPlayerId": "354060",
+          "sourceGameId": "1559169",
+          "sourceGameURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559169&archTog=1",
+          "sourceGameSHA256": "3d5075832692304ab70a4a122be95c9a695a8628b2698a69f044dd740ba57df9",
+          "evidenceTier": "EXACT_DATED_GOAL_ASSIST_SOURCE_WITH_COMPLETE_SEASON_SCORING_PARITY_GP_CAVEAT"
+        },
+        {
+          "id": "hto-aw19-354060-200-assist-club-2148142",
+          "category": "milestone",
+          "sourceText": "200 Assist Club - November 10, 2024",
+          "displayText": "200 Assist Club - November 10, 2024",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "200 Assist Club - November 10, 2024",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 0,
+            "milestone": 1
+          },
+          "sourceOrder": 29,
+          "sortDate": "2024-11-10",
+          "provenance": "OFFICIAL_DATED_HTO_AWARDS_PARITY",
+          "publication": "VERIFIED_NATIVE_HTO_AWARD",
+          "awardCategory": "200 Assist Club",
+          "officialPlayerId": "354060",
+          "sourceGameId": "2148142",
+          "sourceGameURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=2148142&archTog=1",
+          "sourceGameSHA256": "e125e1f9365b54e4adb01695f39f47940bf5bc05fe41fc24f32cd5586fade056",
+          "evidenceTier": "EXACT_DATED_GOAL_ASSIST_SOURCE_WITH_COMPLETE_SEASON_SCORING_PARITY_GP_CAVEAT"
         }
       ],
       "originalCount": 25,
@@ -3015,6 +3740,93 @@
           "sourceOrder": 23,
           "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
           "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-aw19-354061-50-goal-club-1190758",
+          "category": "milestone",
+          "sourceText": "50 Goal Club - April 19, 2015",
+          "displayText": "50 Goal Club - April 19, 2015",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "50 Goal Club - April 19, 2015",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 0,
+            "milestone": 1
+          },
+          "sourceOrder": 24,
+          "sortDate": "2015-04-19",
+          "provenance": "OFFICIAL_DATED_HTO_AWARDS_PARITY",
+          "publication": "VERIFIED_NATIVE_HTO_AWARD",
+          "awardCategory": "50 Goal Club",
+          "officialPlayerId": "354061",
+          "sourceGameId": "1190758",
+          "sourceGameURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1190758&archTog=1",
+          "sourceGameSHA256": "8101221b5bc96c946259e4326b70a3ff2cb7773b8c0a74be35ee11eea8c6ad44",
+          "evidenceTier": "EXACT_DATED_GOAL_ASSIST_SOURCE_WITH_COMPLETE_SEASON_SCORING_PARITY_GP_CAVEAT"
+        },
+        {
+          "id": "hto-aw19-354061-50-assist-club-1384777",
+          "category": "milestone",
+          "sourceText": "50 Assist Club - September 20, 2015",
+          "displayText": "50 Assist Club - September 20, 2015",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "50 Assist Club - September 20, 2015",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 0,
+            "milestone": 1
+          },
+          "sourceOrder": 25,
+          "sortDate": "2015-09-20",
+          "provenance": "OFFICIAL_DATED_HTO_AWARDS_PARITY",
+          "publication": "VERIFIED_NATIVE_HTO_AWARD",
+          "awardCategory": "50 Assist Club",
+          "officialPlayerId": "354061",
+          "sourceGameId": "1384777",
+          "sourceGameURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1384777&archTog=1",
+          "sourceGameSHA256": "32bc6171399bb829e8d8c98ce0f54706cc236aa6ee2398993ce211ec88c53cd0",
+          "evidenceTier": "EXACT_DATED_GOAL_ASSIST_SOURCE_WITH_COMPLETE_SEASON_SCORING_PARITY_GP_CAVEAT"
+        },
+        {
+          "id": "hto-aw19-354061-100-goal-club-1442287",
+          "category": "milestone",
+          "sourceText": "100 Goal Club - May 15, 2016",
+          "displayText": "100 Goal Club - May 15, 2016",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "100 Goal Club - May 15, 2016",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 0,
+            "milestone": 1
+          },
+          "sourceOrder": 26,
+          "sortDate": "2016-05-15",
+          "provenance": "OFFICIAL_DATED_HTO_AWARDS_PARITY",
+          "publication": "VERIFIED_NATIVE_HTO_AWARD",
+          "awardCategory": "100 Goal Club",
+          "officialPlayerId": "354061",
+          "sourceGameId": "1442287",
+          "sourceGameURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1442287&archTog=1",
+          "sourceGameSHA256": "566893d83084458492ad0b29639d5f49575bf0f7ec8e23fd665e6c8b0eeda59b",
+          "evidenceTier": "HTO_PROFILE_FULL_GP_AND_METRIC_PARITY"
         }
       ],
       "originalCount": 24,
@@ -3758,6 +4570,93 @@
           "sourceOrder": 27,
           "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
           "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-aw19-354285-50-goal-club-1100303",
+          "category": "milestone",
+          "sourceText": "50 Goal Club - June 22, 2014",
+          "displayText": "50 Goal Club - June 22, 2014",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "50 Goal Club - June 22, 2014",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 0,
+            "milestone": 1
+          },
+          "sourceOrder": 28,
+          "sortDate": "2014-06-22",
+          "provenance": "OFFICIAL_DATED_HTO_AWARDS_PARITY",
+          "publication": "VERIFIED_NATIVE_HTO_AWARD",
+          "awardCategory": "50 Goal Club",
+          "officialPlayerId": "354285",
+          "sourceGameId": "1100303",
+          "sourceGameURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1100303&archTog=1",
+          "sourceGameSHA256": "18b4e8ac8c3663b5068701d2c81b00986f303101a4fa66b000d3cd6f2d8fc7cb",
+          "evidenceTier": "HTO_PROFILE_FULL_GP_AND_METRIC_PARITY"
+        },
+        {
+          "id": "hto-aw19-354285-50-assist-club-1559179",
+          "category": "milestone",
+          "sourceText": "50 Assist Club - August 20, 2017",
+          "displayText": "50 Assist Club - August 20, 2017",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "50 Assist Club - August 20, 2017",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 0,
+            "milestone": 1
+          },
+          "sourceOrder": 29,
+          "sortDate": "2017-08-20",
+          "provenance": "OFFICIAL_DATED_HTO_AWARDS_PARITY",
+          "publication": "VERIFIED_NATIVE_HTO_AWARD",
+          "awardCategory": "50 Assist Club",
+          "officialPlayerId": "354285",
+          "sourceGameId": "1559179",
+          "sourceGameURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559179&archTog=1",
+          "sourceGameSHA256": "f4184050a838d7a3414278e17d57c6f2de584d8c5ef05546784bbd589eb5ca44",
+          "evidenceTier": "HTO_PROFILE_FULL_GP_AND_METRIC_PARITY"
+        },
+        {
+          "id": "hto-aw19-354285-100-goal-club-1559159",
+          "category": "milestone",
+          "sourceText": "100 Goal Club - June 11, 2017",
+          "displayText": "100 Goal Club - June 11, 2017",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "100 Goal Club - June 11, 2017",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 0,
+            "milestone": 1
+          },
+          "sourceOrder": 30,
+          "sortDate": "2017-06-11",
+          "provenance": "OFFICIAL_DATED_HTO_AWARDS_PARITY",
+          "publication": "VERIFIED_NATIVE_HTO_AWARD",
+          "awardCategory": "100 Goal Club",
+          "officialPlayerId": "354285",
+          "sourceGameId": "1559159",
+          "sourceGameURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559159&archTog=1",
+          "sourceGameSHA256": "2a97fdeaf0fb676ca8196d3e1bcb51df92d86d527f6476953433c58d45999393",
+          "evidenceTier": "HTO_PROFILE_FULL_GP_AND_METRIC_PARITY"
         }
       ],
       "originalCount": 28,
@@ -3943,6 +4842,64 @@
           "sourceOrder": 11,
           "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
           "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-aw19-356089-50-goal-club-1835543",
+          "category": "milestone",
+          "sourceText": "50 Goal Club - March 1, 2020",
+          "displayText": "50 Goal Club - March 1, 2020",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "50 Goal Club - March 1, 2020",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 0,
+            "milestone": 1
+          },
+          "sourceOrder": 12,
+          "sortDate": "2020-03-01",
+          "provenance": "OFFICIAL_DATED_HTO_AWARDS_PARITY",
+          "publication": "VERIFIED_NATIVE_HTO_AWARD",
+          "awardCategory": "50 Goal Club",
+          "officialPlayerId": "356089",
+          "sourceGameId": "1835543",
+          "sourceGameURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1835543&archTog=1",
+          "sourceGameSHA256": "ef99c8d23c6ac518176134c316292745db601af6043c76e0a63bf0fe868494fa",
+          "evidenceTier": "HTO_PROFILE_FULL_GP_AND_METRIC_PARITY"
+        },
+        {
+          "id": "hto-aw19-356089-50-assist-club-1738977",
+          "category": "milestone",
+          "sourceText": "50 Assist Club - December 9, 2018",
+          "displayText": "50 Assist Club - December 9, 2018",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "50 Assist Club - December 9, 2018",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 0,
+            "milestone": 1
+          },
+          "sourceOrder": 13,
+          "sortDate": "2018-12-09",
+          "provenance": "OFFICIAL_DATED_HTO_AWARDS_PARITY",
+          "publication": "VERIFIED_NATIVE_HTO_AWARD",
+          "awardCategory": "50 Assist Club",
+          "officialPlayerId": "356089",
+          "sourceGameId": "1738977",
+          "sourceGameURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1738977&archTog=1",
+          "sourceGameSHA256": "54db25d7da9c4ffd2d8382e5e58c8bc4d9e5288c938f889d26993a96e9ca23be",
+          "evidenceTier": "EXACT_DATED_GOAL_ASSIST_SOURCE_WITH_COMPLETE_SEASON_SCORING_PARITY_GP_CAVEAT"
         }
       ],
       "originalCount": 12,
@@ -4113,6 +5070,35 @@
           "sourceOrder": 4,
           "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
           "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-aw19-382708-50-assist-club-1517092",
+          "category": "milestone",
+          "sourceText": "50 Assist Club - November 13, 2016",
+          "displayText": "50 Assist Club - November 13, 2016",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "50 Assist Club - November 13, 2016",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 0,
+            "milestone": 1
+          },
+          "sourceOrder": 5,
+          "sortDate": "2016-11-13",
+          "provenance": "OFFICIAL_DATED_HTO_AWARDS_PARITY",
+          "publication": "VERIFIED_NATIVE_HTO_AWARD",
+          "awardCategory": "50 Assist Club",
+          "officialPlayerId": "382708",
+          "sourceGameId": "1517092",
+          "sourceGameURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1517092&archTog=1",
+          "sourceGameSHA256": "276503ef28e321ecbc2b2e221dc2e377ea68745d162c00eb5f0eb2b485602c74",
+          "evidenceTier": "HTO_PROFILE_FULL_GP_AND_METRIC_PARITY"
         }
       ],
       "originalCount": 5,
@@ -4576,6 +5562,35 @@
           "sourceOrder": 6,
           "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
           "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-aw19-525407-50-assist-club-1738948",
+          "category": "milestone",
+          "sourceText": "50 Assist Club - September 16, 2018",
+          "displayText": "50 Assist Club - September 16, 2018",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "50 Assist Club - September 16, 2018",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 0,
+            "milestone": 1
+          },
+          "sourceOrder": 7,
+          "sortDate": "2018-09-16",
+          "provenance": "OFFICIAL_DATED_HTO_AWARDS_PARITY",
+          "publication": "VERIFIED_NATIVE_HTO_AWARD",
+          "awardCategory": "50 Assist Club",
+          "officialPlayerId": "525407",
+          "sourceGameId": "1738948",
+          "sourceGameURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1738948&archTog=1",
+          "sourceGameSHA256": "3049f3d81ae4b2820297bcd0ca589700123f44708751031e4a374ce21843d81c",
+          "evidenceTier": "EXACT_DATED_GOAL_ASSIST_SOURCE_WITH_COMPLETE_SEASON_SCORING_PARITY_GP_CAVEAT"
         }
       ],
       "originalCount": 7,
@@ -5352,6 +6367,64 @@
           "sourceOrder": 11,
           "provenance": "EXISTING_NATIVE_HTO_HIGHLIGHTS",
           "publication": "EXISTING_HTO_MANUAL_RECORD"
+        },
+        {
+          "id": "hto-aw19-738846-50-goal-club-2214999",
+          "category": "milestone",
+          "sourceText": "50 Goal Club - November 30, 2025",
+          "displayText": "50 Goal Club - November 30, 2025",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "50 Goal Club - November 30, 2025",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 0,
+            "milestone": 1
+          },
+          "sourceOrder": 12,
+          "sortDate": "2025-11-30",
+          "provenance": "OFFICIAL_DATED_HTO_AWARDS_PARITY",
+          "publication": "VERIFIED_NATIVE_HTO_AWARD",
+          "awardCategory": "50 Goal Club",
+          "officialPlayerId": "738846",
+          "sourceGameId": "2214999",
+          "sourceGameURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=2214999&archTog=1",
+          "sourceGameSHA256": "b534fcdf539e27d91e8f10925bb6dc1e3354910f071e1aae8d32ec1e32adc03e",
+          "evidenceTier": "EXACT_DATED_GOAL_ASSIST_SOURCE_WITH_COMPLETE_SEASON_SCORING_PARITY_GP_CAVEAT"
+        },
+        {
+          "id": "hto-aw19-738846-50-assist-club-2214999",
+          "category": "milestone",
+          "sourceText": "50 Assist Club - November 30, 2025",
+          "displayText": "50 Assist Club - November 30, 2025",
+          "sourceEmphasis": false,
+          "sourceRuns": [
+            {
+              "text": "50 Assist Club - November 30, 2025",
+              "strong": false,
+              "italic": false
+            }
+          ],
+          "summaryCounts": {
+            "championship": 0,
+            "award": 0,
+            "milestone": 1
+          },
+          "sourceOrder": 13,
+          "sortDate": "2025-11-30",
+          "provenance": "OFFICIAL_DATED_HTO_AWARDS_PARITY",
+          "publication": "VERIFIED_NATIVE_HTO_AWARD",
+          "awardCategory": "50 Assist Club",
+          "officialPlayerId": "738846",
+          "sourceGameId": "2214999",
+          "sourceGameURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=2214999&archTog=1",
+          "sourceGameSHA256": "b534fcdf539e27d91e8f10925bb6dc1e3354910f071e1aae8d32ec1e32adc03e",
+          "evidenceTier": "EXACT_DATED_GOAL_ASSIST_SOURCE_WITH_COMPLETE_SEASON_SCORING_PARITY_GP_CAVEAT"
         }
       ],
       "originalCount": 12,
@@ -5387,5 +6460,8 @@
       "originalCount": 1,
       "legacyStatus": "IMPORT_FROM_CURRENT_PUBLIC_HTO_NO_NEW_AWARD_APPROVAL"
     }
-  }
+  },
+  "supplementalSourceAuthority": "EXACT_VERIFIED_HTO_GAME_DATES_AND_PUBLIC_NATIVE_AWARDS_37",
+  "supplementalPublishedAt": "2026-10-28T07:53:46.032910+00:00",
+  "supplementalEvidencePublicAwardsSHA256": "99763bc69fc9c9e3a1ce57e655df430b008b4df605ac71b252251a612c65ad5b"
 }

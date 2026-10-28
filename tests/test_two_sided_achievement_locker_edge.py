@@ -103,7 +103,7 @@ try:
    if width==355:
     totals["profiles"]+=1;totals["milestones"]+=expectedMilestone;totals["otherRecords"]+=expectedOther
     totals["discipline"]+=expectedDiscipline
- assert dict(totals)=={"sessions":86,"profiles":43,"milestones":97,"otherRecords":209,"discipline":3},totals
+ assert dict(totals)=={"sessions":86,"profiles":43,"milestones":134,"otherRecords":209,"discipline":3},totals
  print(json.dumps({"status":"PASS","verifiedTotals":dict(totals),"screenshots":screenshots},indent=2))
 finally:
  if driver:driver.quit()

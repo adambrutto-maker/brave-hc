@@ -49,7 +49,7 @@ overflow:document.documentElement.scrollWidth>innerWidth+4,notice:document.query
                 results["clubImages"]+=facts["clubs"]
                 results["retroactiveDedicationTitles"]+=expected_historic
     assert results["tested"]==86,results
-    assert results["highlights"]==306,results
+    assert results["highlights"]==343,results
     assert results["awardImages"]==105,results
     assert results["clubImages"]==97,results
     assert results["retroactiveDedicationTitles"]==10,results

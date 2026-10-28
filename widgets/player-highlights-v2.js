@@ -108,15 +108,16 @@ const knownClubValues={
  point:new Set([50,100,200,300,400,500,750,1000]),
  win:new Set([50,100,200,300,400,500])
 };
-const clubTier=n=>n<100?'bronze':n<200?'silver':n<300?'gold':'platinum';
+const clubTier=(n,kind)=>kind==='shutout'?(n<10?'bronze':n<20?'silver':n<30?'gold':'platinum'):(n<100?'bronze':n<200?'silver':n<300?'gold':'platinum');
 function clubArtFor(item){
  if(item.category!=='milestone')return null;
  const source=String(item.sourceText||'').replace(/\u00a0/g,' ').trim();
- const match=/^(\d+) (Game|Point|Win) Club\s+-\s+(January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2},\s+20\d{2}$/i.exec(source);
+ const match=/^(\d+) (Game|Point|Win|Goal|Assist|Shutout) Club\s+-\s+(January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2},\s+20\d{2}$/i.exec(source);
  if(!match)return null;
  const count=Number(match[1]),type=match[2].toLowerCase();
- if(!Number.isSafeInteger(count)||count<50||count>100000)return null;
- const tier=clubTier(count), metric=type==='game'?'games':type==='point'?'points':'wins';
+ if(!Number.isSafeInteger(count)||count<(type==='shutout'?5:50)||count>100000)return null;
+ const tier=clubTier(count,type), metric=({game:'games',point:'points',win:'wins',goal:'goals',assist:'assists',shutout:'shutouts'})[type];
+ if(!metric)return null;
  return {kind:'milestone',tier,count,metric,
   file:count+'_'+metric+'_'+tier+'_200.webp',
   generated:!knownClubValues[type]?.has(count),
@@ -238,18 +239,35 @@ function statistic(label,value) {
  el.append(text('div',value,'ph-number'),text('div',label,'ph-label'));
  return el;
 }
+function validSupplementalClub(item,key){
+ if(item.category!=='milestone'||item.provenance!=='OFFICIAL_DATED_HTO_AWARDS_PARITY'||
+    item.publication!=='VERIFIED_NATIVE_HTO_AWARD'||item.officialPlayerId!==key||
+    item.sourceText!==item.displayText||item.sourceText!==item.awardCategory+' - '+String(item.sourceText.split(' - ').at(-1))||
+    !/^(?:\d+) (?:Goal|Assist|Shutout) Club - (?:January|February|March|April|May|June|July|August|September|October|November|December) \d{1,2}, 20\d\d$/.test(item.sourceText)||
+    !/^20\d\d-\d\d-\d\d$/.test(item.sortDate||'')||
+    !/^[a-f0-9]{64}$/.test(item.sourceGameSHA256||'')||
+    !/^\d+$/.test(String(item.sourceGameId||'')))return false;
+ try{
+  const url=new URL(item.sourceGameURL);
+  return url.protocol==='https:'&&url.hostname==='www.htosports.com'&&
+    url.pathname==='/teams/default.asp'&&url.searchParams.get('u')==='BRAVESHOCKEY'&&
+    url.searchParams.get('p')==='boxscore'&&url.searchParams.get('gameID')===String(item.sourceGameId)&&
+    achievementDateRank(item)===Number(item.sortDate.replaceAll('-',''));
+ }catch{return false;}
+}
 function validLedger(data){
  if(data?.schema!=='brave-hc-player-highlights/v1'||
     data.sourceAuthority!=='NATIVE_HTO_HIGHLIGHTS_PUBLIC_READBACK'||
     !data.players||typeof data.players!=='object')throw Error('Legacy ledger source invalid');
  for(const [key,p] of Object.entries(data.players)){
   if(!/^[1-9]\d+$/.test(key)||!p||!Array.isArray(p.items)||
-     !Number.isInteger(p.originalCount)||p.originalCount!==p.items.length)throw Error('Invalid ledger record');
+     !Number.isInteger(p.originalCount)||
+     p.originalCount!==p.items.filter(item=>item.provenance==='EXISTING_NATIVE_HTO_HIGHLIGHTS').length)throw Error('Invalid ledger record');
   for(const item of p.items)if(typeof item.sourceText!=='string'||typeof item.displayText!=='string'||
     item.sourceText.length>300||item.displayText.length>300||
     !Object.hasOwn(categoryLabel,item.category)||
-    item.provenance!=='EXISTING_NATIVE_HTO_HIGHLIGHTS'||
-    item.publication!=='EXISTING_HTO_MANUAL_RECORD')throw Error('Unapproved highlight state');
+    !((item.provenance==='EXISTING_NATIVE_HTO_HIGHLIGHTS'&&item.publication==='EXISTING_HTO_MANUAL_RECORD')||
+       validSupplementalClub(item,key)))throw Error('Unapproved highlight state');
   for(const item of p.items){
    if(item.sourceRuns!==undefined&&(!Array.isArray(item.sourceRuns)||!item.sourceRuns.length||
       item.sourceRuns.some(r=>typeof r.text!=='string'||typeof r.strong!=='boolean'||typeof r.italic!=='boolean')||
@@ -313,7 +331,7 @@ function renderMilestoneWall(record){
  section.hidden=earned.length===0;
  grid.replaceChildren();filters.replaceChildren();count.replaceChildren();
  if(!earned.length)return;
- const categories={all:earned.length,games:0,points:0,wins:0};
+ const categories={all:earned.length,games:0,points:0,wins:0,goals:0,assists:0,shutouts:0};
  for(const entry of earned)categories[entry.art.metric]++;
  if(!categories[milestoneFilter])milestoneFilter='all';
  const sorted=[...earned].sort((a,b)=>{
@@ -349,7 +367,7 @@ function renderMilestoneWall(record){
     img.onerror=null;visual.replaceChildren(text('span',String(art.count),'ph-earned-fallback'));
    };
    visual.append(img);
-   const sourceCategory={games:'Game',points:'Point',wins:'Win'}[art.metric];
+   const sourceCategory={games:'Game',points:'Point',wins:'Win',goals:'Goal',assists:'Assist',shutouts:'Shutout'}[art.metric];
    const name=text('strong',art.count+' '+sourceCategory+' Club','ph-earned-name');
    const raw=String(item.displayText||item.sourceText||'');
    const date=raw.includes(' - ')?raw.split(' - ').at(-1):'Date in published record';
