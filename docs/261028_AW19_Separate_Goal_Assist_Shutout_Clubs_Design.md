@@ -1,0 +1,66 @@
+# HockeyOS AW-19 — Future source-verified individual milestone club categories
+
+Status: source-only implementation in draft review; **not native HTO deployment**. User-approved existing Awards page only, no aggregate Milestones wall and no new navigation page.
+
+## Scope
+
+Use separate distinct native HTO Awards categories such as 50 Goal Club, 50 Assist Club, 5 Shutout Club, and subsequent threshold categories. The existing 98 historical Game/Point/Win entries in ten original source categories are a separate native migration under AW-16. Existing 146 nonmilestone historical honours and 460 statistical Records entries must remain unchanged.
+
+Engine: `scripts/aw19_verified_club_engine.py`. Required source event: official player ID, official game ID and date, previous/new career cumulative stat, verified official game source URL and immutable SHA256 evidence receipt, plus independent player identity/source validation.
+
+Provisional configurable thresholds: Goal/Assist 50, 100, 200, 300, then each +100; Shutout 5, 10, 20, 30, then each +10. Existing Game/Point/Win use 50/100/200/300+100; tier progression bronze/silver/gold/platinum, platinum retained above the maximum tier.
+
+Do not create an empty category. Create the category in the native Awards editor only upon the first fully verified dated threshold crossing. Deduplicate per exact player ID + category, preserve the official game date in Notes, and independently read back the public Awards page. The existing independent player Highlights badge pathway must have matching icon assets or an explicit safe fallback before claiming badge installation.
+
+## Historical source holds
+
+A read-only comparison of 103 sum-verified player profiles produced 37 potential source-level goal/assist/shutout threshold candidates: 21 assists, 14 goals, 2 shutouts, spread over seven earned-level candidate categories. The cumulative season at which a threshold was first exceeded is known, but **the exact official game date is not**. The private held source register remains only on authorized BRUTTECH 1 in the AW-19 implementation candidate and must not be published as awarded achievements.
+
+An HTO player career total alone is not proof of an achievement date. The scorer/goalie event stream must verify the crossing at game level before an award row is created; goalie shutout is awarded only for a validated completed 0-goals-against game, not by generic goalie-name matching.
+
+The current hourly HockeyOS implementation task has been updated to include AW-19, preserving its previous schedule and protections. It should source-check and prepare eligible new awards but must not claim unattended HTO admin mutation without authenticated UI/source parity checks.
+
+## Acceptance
+
+CI source validation: six tests prove correct family thresholds, correct date, required exact source URL/hash, no phantom grants, no duplicates, and rejection of future/invalid events. Deployment remains blocked until integrated with authenticated native HTO Awards category/record authoring and public readback. Never merge an aggregate Awards Milestones gallery for this project; PR #142 was closed as superseded.
+
+## October 28 founder-approved category presentation order
+
+Keep the existing native Awards page's established award/honour categories first, in their existing relative order. **All goalie and player/game clubs then share ONE globally numeric-ascending sequence**—smallest threshold to largest: 5 Shutout, 10 Shutout, 20 Shutout, 30 Shutout, then 50-level Win/Game/Goal/Assist/Point, 100-level Win/Game/Goal/Assist/Point, 200, 300, 400 and higher. Never split goalie clubs into a separate block. At the SAME numeric threshold, use Shutout, Win, Game, Goal, Assist, Point as the stable tie-breaker; types without actually earned milestones are not shown. Native HTO live acceptance on October 28, 2026 verified 244 unchanged award entries, 21 categories and 460 retained statistical Records after reordering the old Win Club categories into the 50 and 100 tiers.
+
+The native HTO Awards page was reordered October 28 through first-party Save_Order after 244 unique IDs, 21 exact titles and source row counts passed browser preflight. Independent public-page verification PASS: the existing 11 honour headings untouched, 10 existing milestone headings now 50 Win, 100 Win, 50 Game, 50 Point, 100 Game, 100 Point, 200 Game, 200 Point, 300 Game, 300 Point. All 244 award entries and within-category row order unchanged; native Records 460 preserved. Evidence: PlayerCoaching/261028_HTO_Awards_Milestones_Embed_CANDIDATE/261028_AW16_CategoryOrder_Live_Acceptance.json.
+
+AW-19 source engine now includes deterministic club_category_sort_key and order_native_awards_categories; no out-of-order category name suggestions on future verified threshold crossing. Native publisher must invoke source-parity-gated HTO category Save_Order following a first-achieved category creation, then check exact published order. Do not run that action outside authenticated approved HTO editing or award new milestones without official single-game date proof. Existing earned entries remain latest-first within each category.
+
+## Exact official latest-game adapter (October 28)
+
+The source parser now accepts the current HockeyOS complete-game verified feed as an input and uses *read-only* HTTPS fetches of its most recent official HTO boxscore and each participating official player-ID profile. It requires a recent source feed, complete unique game IDs and player aggregate parity, exact source HTO URLs, identical player identities and current-game G/A/PTS/GP vs feed, and matching official season totals against the entire verified current-season feed. Only then does it construct the game's before/after official career total and propose a crossed milestone. The goalie path verifies sole-goalie outcome and team clean sheet, holding ambiguous splits.
+
+Command for the authorized BRUTTECH1 user-owned data source, executed from the root of the repository:
+```powershell
+python scripts/aw19_latest_official_hto_candidates.py --feed "D:\BruTTech\Products\HockeyOS\261016_HTO_Widget_Phase0\261017_HTO_Verified_GameLevel_Skater_Attendance.json" --output "D:\BruTTech\Products\HockeyOS\Implementation Control\PlayerCoaching\261028_HTO_Awards_Milestones_Embed_CANDIDATE\261028_AW19_Latest_Official_HTO_Club_Proposals_READONLY.json"
+```
+
+First live source-only run on October 28 checked HTO Game 3375682 (October 25, 2026), all five reconciled season games, and 14 official player IDs. It proposed **zero new milestone grants** because no crossed source threshold was proven. Three player profiles were held when native HTO omitted a required career-stat column (rather than guessing a zero). The private receipt contains source SHA256 hashes; do not add that receipt to public source control.
+
+The adapter does not mutate HTO or live GitHub, grant a badge, create a new category, or send a notification. Pending runtime integration: invoke it after verified HTO collector receipt, reconcile it against existing 244 native Awards entries, independently verify new category ordering, and use supported authenticated HTO native editing with post-save public source parity before automatic grant claims. Future category sorting in draft PR #143 is a pure input/output planning function, not a native HTO publisher by itself.
+
+## Native Awards action staging and preserve-originals gate
+
+The new `scripts/aw19_stage_native_hto_awards_actions.py` reads the latest verified AW-19 source receipt, the immutable 98-record historical club source manifest and the current HTO Awards public page. It validates 146 historical honours and all 98 original dated milestone entries, rejects unknown categories, flags duplicate player-name/club combinations for authenticated player ID review, and emits the **new club creation + missing award entry plan in globally ascending numeric threshold order, with goalie clubs interleaved**. It does not write the live site.
+
+BRUTTECH 1 command after the collector and source reconciler succeed (private outputs must stay on BRUTTECH 1):
+
+```powershell
+python scripts/aw19_stage_native_hto_awards_actions.py --candidates "D:\BruTTech\Products\HockeyOS\Implementation Control\PlayerCoaching\261028_HTO_Awards_Milestones_Embed_CANDIDATE\261028_AW19_Latest_Official_HTO_Club_Proposals_READONLY.json" --historic-source "D:\BruTTech\Products\HockeyOS\Implementation Control\PlayerCoaching\261028_HTO_Awards_Milestones_Embed_CANDIDATE\261028_AW16_Separate_Club_Categories_Source_Manifest.json" --output "D:\BruTTech\Products\HockeyOS\Implementation Control\PlayerCoaching\261028_HTO_Awards_Milestones_Embed_CANDIDATE\261028_AW19_Native_Award_Action_Plan_READONLY.json"
+```
+
+The October 28 live staging check accepted current 244 Awards entries and returned **READ_ONLY_NO_ACTIONS** for the verified October 25 game—there was no qualifying career threshold crossing. Seven additional synthetic tests cover source history preservation, successful new category planning, stale source rejection, exact recipient duplication/identity hold, and no actions for no new achievements. Together with source and club ordering tests, **20 deterministic tests** now cover the AW-19 staged path.
+
+An authenticated native HTO editor is required before applying proposed actions. After each candidate, re-check exact player identity and official earned date, add the new category only if the first award qualifies, verify independent 244-source parity plus the new award, re-sort native category headings, and save official HTO order. No unattended native grant is claimed by this source-only PR.
+
+## Player-profile icon readiness
+
+The existing `widgets/player-highlights-v2.js` Achievement Locker is extended to parse a genuinely published, dated Goal, Assist or Shutout Club item in its **authorized player Highlights ledger**. New metrics appear as individual Games/Points/Wins/Goals/Assists/Shutouts filter choices. Shutout tier progression specifically uses 5 bronze / 10 silver / 20 gold / 30+ platinum; other new families use 50 bronze / 100 silver / 200 gold / 300+ platinum. If the current fixed brand-art pack lacks that exact earned club icon, existing approved crest-based future-club canvas art renders the correct number and metric (no fabricated or mislabelled 50 Point icon). The original Game/Point/Win art and entire 43-player historic Highlights ledger are preserved unchanged.
+
+This does not itself grant or publish awards: native Awards entry and a properly source-published player Highlights ledger update remain separate acceptance steps. The isolated Node award-art acceptance test verifies 13 source categories and invalid-source holds. Native HTO action planning is **read-only**, so unattended future site mutations remain gated on a supported authenticated HTO editor workflow and public proof. Do not treat passing tests as proof that these new badge families have been awarded to real players.

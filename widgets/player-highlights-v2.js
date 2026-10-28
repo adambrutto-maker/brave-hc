@@ -108,15 +108,16 @@ const knownClubValues={
  point:new Set([50,100,200,300,400,500,750,1000]),
  win:new Set([50,100,200,300,400,500])
 };
-const clubTier=n=>n<100?'bronze':n<200?'silver':n<300?'gold':'platinum';
+const clubTier=(n,kind)=>kind==='shutout'?(n<10?'bronze':n<20?'silver':n<30?'gold':'platinum'):(n<100?'bronze':n<200?'silver':n<300?'gold':'platinum');
 function clubArtFor(item){
  if(item.category!=='milestone')return null;
  const source=String(item.sourceText||'').replace(/\u00a0/g,' ').trim();
- const match=/^(\d+) (Game|Point|Win) Club\s+-\s+(January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2},\s+20\d{2}$/i.exec(source);
+ const match=/^(\d+) (Game|Point|Win|Goal|Assist|Shutout) Club\s+-\s+(January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2},\s+20\d{2}$/i.exec(source);
  if(!match)return null;
  const count=Number(match[1]),type=match[2].toLowerCase();
- if(!Number.isSafeInteger(count)||count<50||count>100000)return null;
- const tier=clubTier(count), metric=type==='game'?'games':type==='point'?'points':'wins';
+ if(!Number.isSafeInteger(count)||count<(type==='shutout'?5:50)||count>100000)return null;
+ const tier=clubTier(count,type), metric=({game:'games',point:'points',win:'wins',goal:'goals',assist:'assists',shutout:'shutouts'})[type];
+ if(!metric)return null;
  return {kind:'milestone',tier,count,metric,
   file:count+'_'+metric+'_'+tier+'_200.webp',
   generated:!knownClubValues[type]?.has(count),
@@ -313,7 +314,7 @@ function renderMilestoneWall(record){
  section.hidden=earned.length===0;
  grid.replaceChildren();filters.replaceChildren();count.replaceChildren();
  if(!earned.length)return;
- const categories={all:earned.length,games:0,points:0,wins:0};
+ const categories={all:earned.length,games:0,points:0,wins:0,goals:0,assists:0,shutouts:0};
  for(const entry of earned)categories[entry.art.metric]++;
  if(!categories[milestoneFilter])milestoneFilter='all';
  const sorted=[...earned].sort((a,b)=>{
@@ -349,7 +350,7 @@ function renderMilestoneWall(record){
     img.onerror=null;visual.replaceChildren(text('span',String(art.count),'ph-earned-fallback'));
    };
    visual.append(img);
-   const sourceCategory={games:'Game',points:'Point',wins:'Win'}[art.metric];
+   const sourceCategory={games:'Game',points:'Point',wins:'Win',goals:'Goal',assists:'Assist',shutouts:'Shutout'}[art.metric];
    const name=text('strong',art.count+' '+sourceCategory+' Club','ph-earned-name');
    const raw=String(item.displayText||item.sourceText||'');
    const date=raw.includes(' - ')?raw.split(' - ').at(-1):'Date in published record';
