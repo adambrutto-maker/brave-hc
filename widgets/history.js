@@ -13,6 +13,14 @@ const node=(tag,text,cls)=>{
 };
 const number=x=>Number(x).toLocaleString('en-CA');
 const normalize=x=>String(x??'').toLocaleLowerCase('en-CA').normalize('NFD').replace(/[\u0300-\u036f]/g,'').trim();
+const shortRecordDate=(entry)=>{
+ // Presentation only: preserve exact official HTO record source and year-only
+ // season totals. Shorten confirmed day/month/year labels to Sep 2, 2026.
+ const month={January:'Jan',February:'Feb',March:'Mar',April:'Apr',May:'May',June:'Jun',
+   July:'Jul',August:'Aug',September:'Sep',October:'Oct',November:'Nov',December:'Dec'};
+ return String(entry).replace(/\b(January|February|March|April|May|June|July|August|September|October|November|December)\s+(\d{1,2}),\s*((?:19|20)\d{2})\b/g,
+  (_,m,day,year)=>month[m]+' '+Number(day)+', '+year);
+};
 function validate(data,type) {
  if(!data||data.schema!=='brave-hc-hto-history-snapshot/v1'||data.type!==type
     ||data.source?.authority!=='OFFICIAL_HTO_PUBLIC_READBACK'
@@ -87,7 +95,7 @@ function render() {
   details.append(summary);
   const list=node('ul');
   for(const item of matches){
-   const li=node('li',item);
+   const li=node('li',state.view==='records'?shortRecordDate(item):item);
    const verified=confirmedSummerSeason(g,item);
    if(verified)li.dataset.htoSeason=verified;
    list.append(li);

@@ -17,3 +17,16 @@ Existing `widgets/history-records.json` now follows exactly those category famil
 Acceptance: all 57 categories match the order spec, all 460 original statistical rows retain exact public source values/scope, all 98 legacy milestone source rows remain solely in the separate immutable archive and in current Awards, browser history companion desktop/mobile category heading order matches spec, CI passes, production Pages readback follows the order, and current 281 Awards / 134 player achievement badges remain intact.
 
 Never fabricate unverified statistical thresholds, reinsert old club entries into statistical Records, or assign the two ambiguous historic rental-goalie rows to an unverified player.
+
+
+## Final live 463 source: Summer GTG, continuous team streaks, dates
+
+The official native HTO Records page now holds 463 entries in 60 category headings: the original 460 exact historical statistics and three independently verified additions. Summer - Game Tying Goals is located immediately after Summer - Game Winning Goals and records Ben Sherritt, 2 GTGs (2014), based on a direct 109-player official profile audit. There is no unsupported 2+ Assist record.
+
+Streaks may cross regular season into playoffs and from season to season. The official chronological source audit covered 371 completed boxscores over all 18 advertised seasons. The career-wide All Seasons - Longest Winning Streak is 7 consecutive games, Jul 10 - Sep 25, 2016, crossing Summer into Winter and game-type boundaries. The All Seasons - Longest Point Streak is 14 games, Oct 29, 2017 - Feb 11, 2018. Those two categories appear above the existing Summer/Winter Team Records categories. All original record values, year scopes and playoff distinctions remain intact.
+
+The individual streak review currently has 14 player careers with full game/season source parity and 71 player careers held for missing appearance evidence. Xav O'Krafka's 8-game verified goal run and David Corasaniti's 21-game verified point run are candidates, NOT yet certified global all-time individual records; no speculative native individual record has been added. All future individual streaks must respect consecutive player appearances across playoffs and seasons, subject to full game-source coverage.
+
+The website history widget now uses 463 official statistical entries and 230 verified player-specific records including Ben Sherritt's Summer GTG. Two ambiguous historic rental-goalie entries stay in the complete Records source rather than being attributed to any player. The original 558-entry milestone-era HTO Records source is archived verbatim. The history widget formats confirmed full dates as e.g. Sep 2, 2026 without altering official source strings, and leaves year-only records as year-only rather than guessing a date.
+
+Release gates: 460 old stat rows exact; 3 new direct official-source rows verified; all 463 current Records entries ordered across 32 individual and 28 team categories; original 281 native HTO Awards intact; 230 player-stat mappings and 2 unresolved source identities; archived 558 preserved; responsive browser CI and production readback required.

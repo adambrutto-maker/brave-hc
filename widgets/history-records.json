@@ -6,10 +6,10 @@
     "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=records",
     "authority": "OFFICIAL_HTO_PUBLIC_READBACK"
   },
-  "capturedAt": "2026-10-28T12:54:42.302139+00:00",
-  "stalePolicy": "Scheduled refresh of official HTO native Records statistical entries. manual review required for source value, heading, season/period scope, deletions, record holders and uncertain player identity. Original 98 milestone club entries belong to native HTO Awards and the independently archived historical source.",
+  "capturedAt": "2026-10-28T13:39:36.203626+00:00",
+  "stalePolicy": "HTO official native Records 463-statistical-entry source. Scheduled refresh requires manual review for changed rows or uncertain identity. Three new source-proven entries are Summer GTG and two all-seasons Team streak records. Source year-only labels are not invented as calendar days; immutable historical 558-entry archive is separate.",
   "pageTitle": "Brave H.C. Records & Achievements",
-  "entryCount": 460,
+  "entryCount": 463,
   "groups": [
     {
       "section": "Individual Records",
@@ -88,6 +88,14 @@
     },
     {
       "section": "Individual Records",
+      "category": "Summer - Game Tying Goals",
+      "period": "Season",
+      "items": [
+        "2 - Ben Sherritt (2014)"
+      ]
+    },
+    {
+      "section": "Individual Records",
       "category": "Summer - Powerplay Goals",
       "period": "Season",
       "items": [
@@ -108,9 +116,9 @@
       "period": "Game",
       "items": [
         "6 - Justin Carosi (May 15, 2016)",
+        "4 - Mark Pastore (May 8, 2016)",
         "4 - Ryan Logue (June 9, 2013)",
         "4 - Adam Brutto (July 26, 2015)",
-        "4 - Mark Pastore (May 8, 2016)",
         "3 - Adam Brutto (June 9, 2013)",
         "2 - Mark Pastore (June 2, 2013)",
         "2 - Adam Brutto (June 2, 2013)"
@@ -176,9 +184,9 @@
         "5 - Mark Pastore (May 10, 2015)",
         "4 - Mark Pastore (June 16, 2013)",
         "4 - Ryan Logue (June 9, 2013)",
+        "3 - Ryan Logue (June 2, 2013)",
         "3 - Keith Pearsoll (May 12, 2013)",
-        "3 - Keith Pearsoll (June 9, 2013)",
-        "3 - Ryan Logue (June 2, 2013)"
+        "3 - Keith Pearsoll (June 9, 2013)"
       ]
     },
     {
@@ -671,6 +679,22 @@
     },
     {
       "section": "Team Records",
+      "category": "All Seasons - Longest Winning Streak",
+      "period": "Career",
+      "items": [
+        "7 - Brave H.C. (Jul 10 - Sep 25, 2016)"
+      ]
+    },
+    {
+      "section": "Team Records",
+      "category": "All Seasons - Longest Point Streak",
+      "period": "Career",
+      "items": [
+        "14 - Brave H.C. (Oct 29, 2017 - Feb 11, 2018)"
+      ]
+    },
+    {
+      "section": "Team Records",
       "category": "Summer - Total Points/Record",
       "period": "Season",
       "items": [
@@ -920,8 +944,8 @@
       "items": [
         "31 - (14-5-3) (2017/18)",
         "30 - (13-7-4) (2013/14)",
-        "27 - (13-7-1) (2016/17)",
         "27 - (12-9-3) (2025/26)",
+        "27 - (13-7-1) (2016/17)",
         "26 - (11-11-4) (2018/19)",
         "24 - (12-12-0) (2023/24)",
         "22 - (10-12-2) (2024/25)",
@@ -943,11 +967,11 @@
         "6 - (3-2-0) - Lost Semi-Finals (2017/18)",
         "4 - (2-0-0) - COVID, Playoffs Cancelled (2019/20)",
         "3 - (1-3-1) - Won Bronze Finals (2016/17)",
-        "2 - (1-1-0) - Lost Semi-Finals (2022/23)",
         "2 - (1-2-0) - Lost Semi-Finals (2025/26)",
-        "0 - (0-3-0) - Lost Bronze Finals (2018/19)",
+        "2 - (1-1-0) - Lost Semi-Finals (2022/23)",
         "0 - (0-2-0) - Lost Semi-Finals (2023/24)",
-        "0 - (0-2-0) - Lost Semi-Finals (2024/25)"
+        "0 - (0-2-0) - Lost Semi-Finals (2024/25)",
+        "0 - (0-3-0) - Lost Bronze Finals (2018/19)"
       ]
     },
     {
@@ -1061,10 +1085,10 @@
       "period": "Playoffs",
       "items": [
         "5 - (2014/15)",
+        "2 - COVID, Playoffs Cancelled (2019/20)",
+        "2 - (2013/14)",
         "2 - (2017/18)",
         "2 - (2018/19)",
-        "2 - (2013/14)",
-        "2 - COVID, Playoffs Cancelled (2019/20)",
         "1 - (2015/16)",
         "1 - (2025/26)",
         "0 - (2016/17)",
@@ -1193,8 +1217,8 @@
         "70 - (2013/14)",
         "77 - (2018/19)",
         "78 - (2022/23)",
-        "90 - (2015/16)",
         "90 - (2014/15)",
+        "90 - (2015/16)",
         "124 - (2016/17)"
       ]
     },

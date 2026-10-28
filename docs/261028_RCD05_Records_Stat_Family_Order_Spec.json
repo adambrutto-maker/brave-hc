@@ -1,15 +1,16 @@
 {
   "schema": "brave-hc-hto-records-stat-family-order/v1",
-  "approved": "USER_APPROVED_LOGICAL_SCORING_STAT_FAMILY_GROUPING_2026-10-28",
-  "policy": "Summer before Winter; Goals then 2+ Games then Hat Tricks and special goals; Assists then 3+ Assist games; Points then 3+ Point games; Goalie then Discipline; analogous team stat families; no stat or threshold changes.",
-  "source_record_count": 460,
-  "individual_categories": 31,
-  "team_categories": 26,
+  "approved": "USER_APPROVED_GOALS_ASSISTS_POINTS_STREAKS_AND_SUMMERGTG_CROSSSEASON_TEAM_2026-10-28",
+  "policy": "Summer before Winter for seasonal categories; All Seasons verified Team streak categories first. Goals/2+ goals/Hat Tricks/GTG together; Assists/3+ Assist games together; Points/3+ Point games together; Goalie and Discipline together. Team streaks may span regular->playoffs and consecutive seasons. Individual future streak records require complete source. No guessed dates or thresholds.",
+  "source_record_count": 463,
+  "individual_categories": 32,
+  "team_categories": 28,
   "individual_order": [
     "Summer - Goals",
     "Summer - Games with 2+ Goals",
     "Summer - Hat Tricks",
     "Summer - Game Winning Goals",
+    "Summer - Game Tying Goals",
     "Summer - Powerplay Goals",
     "Summer - Shorthanded Goals",
     "Summer - Assists",
@@ -39,6 +40,8 @@
     "Winter - Penalty Minutes"
   ],
   "team_order": [
+    "All Seasons - Longest Winning Streak",
+    "All Seasons - Longest Point Streak",
     "Summer - Total Points/Record",
     "Summer - Longest Winning Streak",
     "Summer - Longest Point Streak",
