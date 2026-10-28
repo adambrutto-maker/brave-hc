@@ -48,7 +48,7 @@ const server=http.createServer((req,res)=>{
     assert.equal(v.entries,463);assert.equal(v.groups,112);
     const categoryOrder=await page.evaluate(()=>[...new Set([...document.querySelectorAll('.history-group .history-category')]
       .map(el=>el.textContent.split(' · ')[0]))]);
-    assert.deepEqual(categoryOrder,[...familySpec.individual_order,...familySpec.team_order],
+    assert.deepEqual(categoryOrder,[...new Set([...familySpec.individual_order,...familySpec.team_order])],
       'HTO Records history widget category grouping must follow official Summer/Winter logical stat families');
     assert.ok(v.marked[0]?.includes('playerID=354061'));assert.ok(v.official.includes('p=records'));
     assert.ok(v.summer.some(x=>x.includes('viewseas=Summer_2015')),'verified summer record did not deep link');
