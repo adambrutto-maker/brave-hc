@@ -67,6 +67,10 @@ body{background:#071829;color:#eef4fb;font-family:Arial,"Helvetica Neue",sans-se
 @media(max-width:375px){.ph-event.ph-with-milestone-art{grid-template-columns:50px minmax(0,1fr)}.ph-milestone-art{width:48px;height:48px}}
 @media(max-width:375px){.ph-grid{gap:5px}.ph-stat{padding:8px 3px}.ph-label{font-size:10px}.ph-number{font-size:20px}.ph-event{grid-template-columns:27px minmax(0,1fr);gap:8px}.ph-symbol{width:26px;height:26px}}
 @media(max-width:375px){.ph-symbol.ph-milestone-art,.ph-symbol.ph-special-art,.ph-symbol.ph-heritage-art{width:48px;height:48px}}
+/* Artwork has transparent exterior pixels: keep the native card navy visible. */
+.ph-symbol.ph-approved-art,.ph-symbol.ph-milestone-art{background:transparent;border:0;border-radius:0;overflow:visible}
+/* Cristillo's black memorial patch is INSIDE the approved artwork, never a white-tile frame. */
+.ph-symbol.ph-approved-art.ph-cristillo-black-patch{border:0!important;background:transparent!important}
 [hidden]{display:none!important}
 .ph-footer{display:flex;gap:8px;flex-wrap:wrap}
 .ph-detail{font-size:10px;color:#a9c0d4;line-height:1.45;margin-top:6px}

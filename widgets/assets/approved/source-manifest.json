@@ -7,121 +7,172 @@
     {
       "slug": "hart_mvp",
       "file": "assets/approved/hart_mvp.webp",
-      "bytes": 10766,
-      "sha256": "c2055a209eafed605e61029f159ec707c90ff140c9e9c1b1e3fae9085227ac90",
-      "source": "APPROVED_USER_ARTWORK_PACKAGE"
+      "bytes": 43494,
+      "sha256": "da6ddd27c19bfc2d96daf8a63e56eb0a1a4ca21288a54708eca1f86f58ee0aa9",
+      "source": "APPROVED_USER_ARTWORK_PACKAGE",
+      "background": "TRANSPARENT_EXTERIOR_APPROVED_ART_PRESERVED",
+      "opaqueSourcePath": "assets/opaque-originals/approved/hart_mvp.webp",
+      "opaqueSourceSha256": "c2055a209eafed605e61029f159ec707c90ff140c9e9c1b1e3fae9085227ac90"
     },
     {
       "slug": "conn_smythe",
       "file": "assets/approved/conn_smythe.webp",
-      "bytes": 11212,
-      "sha256": "db872bb3c5847f96eb521fa29620817c6779575b8c677ec940a7f7adb46b107d",
-      "source": "APPROVED_USER_ARTWORK_PACKAGE"
+      "bytes": 44308,
+      "sha256": "0fe841b1763080a7c1678bf3b9232f26bc0a593960100324989553733faa328f",
+      "source": "APPROVED_USER_ARTWORK_PACKAGE",
+      "background": "TRANSPARENT_EXTERIOR_APPROVED_ART_PRESERVED",
+      "opaqueSourcePath": "assets/opaque-originals/approved/conn_smythe.webp",
+      "opaqueSourceSha256": "db872bb3c5847f96eb521fa29620817c6779575b8c677ec940a7f7adb46b107d"
     },
     {
       "slug": "james_norris",
       "file": "assets/approved/james_norris.webp",
-      "bytes": 11430,
-      "sha256": "d19bb745810ddc98452dfacf29690a6516d4ebd529ba095ae68e3c2b50f4d458",
-      "source": "APPROVED_USER_ARTWORK_PACKAGE"
+      "bytes": 45058,
+      "sha256": "7b1dd4f2e1b23288b909aba81ed0d3c891c8d39eaa4fc558921ff0e0932b03da",
+      "source": "APPROVED_USER_ARTWORK_PACKAGE",
+      "background": "TRANSPARENT_EXTERIOR_APPROVED_ART_PRESERVED",
+      "opaqueSourcePath": "assets/opaque-originals/approved/james_norris.webp",
+      "opaqueSourceSha256": "d19bb745810ddc98452dfacf29690a6516d4ebd529ba095ae68e3c2b50f4d458"
     },
     {
       "slug": "lady_byng",
       "file": "assets/approved/lady_byng.webp",
-      "bytes": 11260,
-      "sha256": "73c31dfaebd800854e0f2f5587d0364ed7be7b4b8ac73b4dd87bb82945cbf446",
-      "source": "APPROVED_USER_ARTWORK_PACKAGE"
+      "bytes": 44440,
+      "sha256": "334e51c2384da2b17193750ba3a600ffda21b116f1dae50f76e915c00c9630bd",
+      "source": "APPROVED_USER_ARTWORK_PACKAGE",
+      "background": "TRANSPARENT_EXTERIOR_APPROVED_ART_PRESERVED",
+      "opaqueSourcePath": "assets/opaque-originals/approved/lady_byng.webp",
+      "opaqueSourceSha256": "73c31dfaebd800854e0f2f5587d0364ed7be7b4b8ac73b4dd87bb82945cbf446"
     },
     {
       "slug": "rookie_of_the_year",
       "file": "assets/approved/rookie_of_the_year.webp",
-      "bytes": 10906,
-      "sha256": "34542f776b7f3bf344ffbde81ab9317eacba101fe1c8bcfc0b15c1ca8b28611b",
-      "source": "APPROVED_USER_ARTWORK_PACKAGE"
+      "bytes": 43898,
+      "sha256": "509db76084863547cfe043d66a91b6282e86050594446aa48a0d163687285877",
+      "source": "APPROVED_USER_ARTWORK_PACKAGE",
+      "background": "TRANSPARENT_EXTERIOR_APPROVED_ART_PRESERVED",
+      "opaqueSourcePath": "assets/opaque-originals/approved/rookie_of_the_year.webp",
+      "opaqueSourceSha256": "34542f776b7f3bf344ffbde81ab9317eacba101fe1c8bcfc0b15c1ca8b28611b"
     },
     {
       "slug": "most_improved",
       "file": "assets/approved/most_improved.webp",
-      "bytes": 10864,
-      "sha256": "ccff668a19957a7a7bbd704d736be2793953718039e95adfeed87bb5ca63f4b6",
-      "source": "APPROVED_USER_ARTWORK_PACKAGE"
+      "bytes": 43674,
+      "sha256": "a7e88f64e5c2fc3d28813a49fa6d927e06592713f48c0a4da58d219ddf5e033b",
+      "source": "APPROVED_USER_ARTWORK_PACKAGE",
+      "background": "TRANSPARENT_EXTERIOR_APPROVED_ART_PRESERVED",
+      "opaqueSourcePath": "assets/opaque-originals/approved/most_improved.webp",
+      "opaqueSourceSha256": "ccff668a19957a7a7bbd704d736be2793953718039e95adfeed87bb5ca63f4b6"
     },
     {
       "slug": "rolaids_relief",
       "file": "assets/approved/rolaids_relief.webp",
-      "bytes": 11372,
-      "sha256": "681153555445e4180e5c70d1126f1019ef20ed5b717365e380e88ed120fe89da",
-      "source": "APPROVED_USER_ARTWORK_PACKAGE"
+      "bytes": 44856,
+      "sha256": "e3337f67fec4f5dc8b980ce0f0a1ce0ea302daeebd81c77e317d7523bbbe58c5",
+      "source": "APPROVED_USER_ARTWORK_PACKAGE",
+      "background": "TRANSPARENT_EXTERIOR_APPROVED_ART_PRESERVED",
+      "opaqueSourcePath": "assets/opaque-originals/approved/rolaids_relief.webp",
+      "opaqueSourceSha256": "681153555445e4180e5c70d1126f1019ef20ed5b717365e380e88ed120fe89da"
     },
     {
       "slug": "andrew_cristillo",
       "file": "assets/approved/andrew_cristillo.webp",
-      "bytes": 11746,
-      "sha256": "3443a098486e3c1a701a926e50b0207ca7220cca37348d6be6e5ee29975e7fac",
-      "source": "APPROVED_USER_ARTWORK_PACKAGE"
+      "bytes": 42970,
+      "sha256": "aed136238f7db4a8a87c912bd56541599eff32ab3ce6ade429c4e1194c6ba720",
+      "source": "APPROVED_USER_ARTWORK_PACKAGE",
+      "background": "TRANSPARENT_EXTERIOR_APPROVED_ART_PRESERVED",
+      "opaqueSourcePath": "assets/opaque-originals/approved/andrew_cristillo.webp",
+      "opaqueSourceSha256": "3443a098486e3c1a701a926e50b0207ca7220cca37348d6be6e5ee29975e7fac"
     },
     {
       "slug": "art_ross",
       "file": "assets/approved/art_ross.webp",
-      "bytes": 12744,
-      "sha256": "a489139d246b3b871b6bf5a31df24c6aafed56e128b548dc0a67a2cd0c2bc48d",
-      "source": "APPROVED_USER_ARTWORK_PACKAGE"
+      "bytes": 50668,
+      "sha256": "fac36e22ec73657aecc2e18980ea46121da46fb93e2f8e088cc068207c99eafc",
+      "source": "APPROVED_USER_ARTWORK_PACKAGE",
+      "background": "TRANSPARENT_EXTERIOR_APPROVED_ART_PRESERVED",
+      "opaqueSourcePath": "assets/opaque-originals/approved/art_ross.webp",
+      "opaqueSourceSha256": "a489139d246b3b871b6bf5a31df24c6aafed56e128b548dc0a67a2cd0c2bc48d"
     },
     {
       "slug": "rocket_richard",
       "file": "assets/approved/rocket_richard.webp",
-      "bytes": 12880,
-      "sha256": "6c394f06926ef59ec3b30a598c8cb1daf9d1d85e955895035e40ac68c3b9d3bd",
-      "source": "APPROVED_USER_ARTWORK_PACKAGE"
+      "bytes": 50916,
+      "sha256": "e27b326d34564c876dabfaad134c8eff3de9eef8404bf8639cc015f11fd6c1f5",
+      "source": "APPROVED_USER_ARTWORK_PACKAGE",
+      "background": "TRANSPARENT_EXTERIOR_APPROVED_ART_PRESERVED",
+      "opaqueSourcePath": "assets/opaque-originals/approved/rocket_richard.webp",
+      "opaqueSourceSha256": "6c394f06926ef59ec3b30a598c8cb1daf9d1d85e955895035e40ac68c3b9d3bd"
     },
     {
       "slug": "svhl_cup",
       "file": "assets/approved/svhl_cup.webp",
-      "bytes": 11856,
-      "sha256": "2a6fc655948d5606df9d2710438d44ccf826823ba0dde0c7739d823e09794f55",
-      "source": "APPROVED_USER_ARTWORK_PACKAGE"
+      "bytes": 48716,
+      "sha256": "a3f547b1adce00d9a74b8aebb6af98be27156db52f0ec49c347ae9cae8aa3e44",
+      "source": "APPROVED_USER_ARTWORK_PACKAGE",
+      "background": "TRANSPARENT_EXTERIOR_APPROVED_ART_PRESERVED",
+      "opaqueSourcePath": "assets/opaque-originals/approved/svhl_cup.webp",
+      "opaqueSourceSha256": "2a6fc655948d5606df9d2710438d44ccf826823ba0dde0c7739d823e09794f55"
     },
     {
       "slug": "hall_of_fame",
       "file": "assets/approved/hall_of_fame.webp",
-      "bytes": 12884,
-      "sha256": "a1c9fe73d7e7536dec364e85b52189abc3cefae04769ad4d55a54496d0031947",
-      "source": "APPROVED_USER_ARTWORK_PACKAGE"
+      "bytes": 50956,
+      "sha256": "96a5c0d37d2833658a55d00f40a2fe223f6c64bc12b4cd56c0bba2344b824d4b",
+      "source": "APPROVED_USER_ARTWORK_PACKAGE",
+      "background": "TRANSPARENT_EXTERIOR_APPROVED_ART_PRESERVED",
+      "opaqueSourcePath": "assets/opaque-originals/approved/hall_of_fame.webp",
+      "opaqueSourceSha256": "a1c9fe73d7e7536dec364e85b52189abc3cefae04769ad4d55a54496d0031947"
     },
     {
       "slug": "all_star_nomination",
       "file": "assets/approved/all_star_nomination.webp",
-      "bytes": 9676,
-      "sha256": "b7b460fbcb5392326e421ac81d942d9179242f820ef3d621179348719632830c",
-      "source": "APPROVED_USER_ARTWORK_PACKAGE"
+      "bytes": 37652,
+      "sha256": "8c8bd3de5dfef7bbaec60bc808fd1ea3281510328d099c6f45c987f20d9dd0d5",
+      "source": "APPROVED_USER_ARTWORK_PACKAGE",
+      "background": "TRANSPARENT_EXTERIOR_APPROVED_ART_PRESERVED",
+      "opaqueSourcePath": "assets/opaque-originals/approved/all_star_nomination.webp",
+      "opaqueSourceSha256": "b7b460fbcb5392326e421ac81d942d9179242f820ef3d621179348719632830c"
     },
     {
       "slug": "all_star_selection",
       "file": "assets/approved/all_star_selection.webp",
-      "bytes": 9908,
-      "sha256": "fe7415d672979b7438e8c947020c0568f43e615c0d4c2cb73a7f13ebf96b4b2e",
-      "source": "APPROVED_USER_ARTWORK_PACKAGE"
+      "bytes": 38916,
+      "sha256": "050047fd16bbe0517d3d4f94a8bf0fd43553ee51bea69d0557a4edf62aaed0e1",
+      "source": "APPROVED_USER_ARTWORK_PACKAGE",
+      "background": "TRANSPARENT_EXTERIOR_APPROVED_ART_PRESERVED",
+      "opaqueSourcePath": "assets/opaque-originals/approved/all_star_selection.webp",
+      "opaqueSourceSha256": "fe7415d672979b7438e8c947020c0568f43e615c0d4c2cb73a7f13ebf96b4b2e"
     },
     {
       "slug": "captain",
       "file": "assets/approved/captain.webp",
-      "bytes": 9794,
-      "sha256": "d7085d447b8bcf30f21181db09a95e24b304b6d809d34270ef7825995b86051e",
-      "source": "APPROVED_USER_ARTWORK_PACKAGE"
+      "bytes": 39618,
+      "sha256": "ebab88d1847cf87e3d8fd61393b2a68a0d2ca4f255f83065acb3672e464c2237",
+      "source": "APPROVED_USER_ARTWORK_PACKAGE",
+      "background": "TRANSPARENT_EXTERIOR_APPROVED_ART_PRESERVED",
+      "opaqueSourcePath": "assets/opaque-originals/approved/captain.webp",
+      "opaqueSourceSha256": "d7085d447b8bcf30f21181db09a95e24b304b6d809d34270ef7825995b86051e"
     },
     {
       "slug": "assistant_captain",
       "file": "assets/approved/assistant_captain.webp",
-      "bytes": 10068,
-      "sha256": "f0ad38cd85d8aa99ad63ba61914d589dd062c12542e44a07ad23dc221b8f6486",
-      "source": "APPROVED_USER_ARTWORK_PACKAGE"
+      "bytes": 39502,
+      "sha256": "0638fe434f36c13f6827bc29b740923e3a7f80aca040cd323c69884cd5de4ed6",
+      "source": "APPROVED_USER_ARTWORK_PACKAGE",
+      "background": "TRANSPARENT_EXTERIOR_APPROVED_ART_PRESERVED",
+      "opaqueSourcePath": "assets/opaque-originals/approved/assistant_captain.webp",
+      "opaqueSourceSha256": "f0ad38cd85d8aa99ad63ba61914d589dd062c12542e44a07ad23dc221b8f6486"
     },
     {
       "slug": "discipline_record",
       "file": "assets/approved/discipline_record.webp",
-      "bytes": 2524,
-      "sha256": "7644c21e4cae30c37455026a8c22c0e3a867ed94d9ce9042fd8c5dcf059aaf5d",
-      "source": "APPROVED_USER_ARTWORK_PACKAGE"
+      "bytes": 11566,
+      "sha256": "279d73dec4c84be8c75bdbc09261ae6d8ca78f353a6bc6bd855a9f9f57431df4",
+      "source": "APPROVED_USER_ARTWORK_PACKAGE",
+      "background": "TRANSPARENT_EXTERIOR_APPROVED_ART_PRESERVED",
+      "opaqueSourcePath": "assets/opaque-originals/approved/discipline_record.webp",
+      "opaqueSourceSha256": "7644c21e4cae30c37455026a8c22c0e3a867ed94d9ce9042fd8c5dcf059aaf5d"
     }
   ],
   "suspensionPolicy": "Muted administrative record icon, not a medal or honour."
