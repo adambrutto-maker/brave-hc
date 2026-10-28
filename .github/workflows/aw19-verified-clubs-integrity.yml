@@ -1,0 +1,23 @@
+name: AW19 Source-Verified Milestone Club Rules
+
+on:
+  pull_request:
+    paths:
+      - 'scripts/aw19_verified_club_engine.py'
+      - 'scripts/test_aw19_verified_club_engine.py'
+      - '.github/workflows/aw19-verified-clubs-integrity.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify-club-eligibility:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify official game events, thresholds and duplicate guards
+        run: python scripts/test_aw19_verified_club_engine.py
