@@ -71,6 +71,57 @@ body{background:#071829;color:#eef4fb;font-family:Arial,"Helvetica Neue",sans-se
 .ph-symbol.ph-approved-art,.ph-symbol.ph-milestone-art{background:transparent;border:0;border-radius:0;overflow:visible}
 /* Cristillo's black memorial patch is INSIDE the approved artwork, never a white-tile frame. */
 .ph-symbol.ph-approved-art.ph-cristillo-black-patch{border:0!important;background:transparent!important}
+
+/* Verified career milestones are displayed as earned, collectible game achievements. */
+.ph-earned-section{
+  margin-top:21px;padding:clamp(11px,2vw,17px);border:1px solid #365d7b;
+  border-radius:14px;background:linear-gradient(145deg,#0b2137,#122d46 62%,#0a2036);
+}
+.ph-earned-header{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.ph-earned-eyebrow{font-size:10px;letter-spacing:1.6px;font-weight:800;color:#efbf79;text-transform:uppercase}
+.ph-earned-title{font-size:clamp(16px,2.7vw,21px);font-weight:850;margin:5px 0 4px;color:#fff}
+.ph-earned-sub{font-size:11px;line-height:1.5;color:#b8ccdf;margin:0}
+.ph-earned-counter{font-size:12px;font-weight:800;color:#fff;border:1px solid #6a8096;
+  border-radius:8px;padding:9px 11px;background:#142d46;white-space:nowrap}
+.ph-earned-counter strong{font-size:20px;color:#f1d5a2;margin-right:4px;font-variant-numeric:tabular-nums}
+.ph-earned-filters{display:flex;flex-wrap:wrap;gap:7px;margin:14px 0 11px}
+.ph-earned-filter{border-radius:999px;border:1px solid #456780;background:#17344f;
+  color:#ceddec;padding:8px 11px;font-size:11px;font-weight:750;cursor:pointer}
+.ph-earned-filter:hover,.ph-earned-filter:focus-visible{border-color:#edc88d;color:#fff}
+.ph-earned-filter[aria-pressed="true"]{border-color:#e7c28a;background:#29435a;color:#fff}
+.ph-earned-filter:focus-visible{outline:2px solid #f2d2a0;outline-offset:2px}
+.ph-earned-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.ph-earned-tile{--earned-metal:#a4bac9;--earned-light:#e2eaf1;
+  position:relative;min-width:0;display:flex;flex-direction:column;align-items:center;text-align:center;
+  gap:5px;padding:11px 7px 13px;border:1px solid #43617a;border-top:3px solid var(--earned-metal);
+  border-radius:10px;background:linear-gradient(165deg,#1c3a55,#0c223b 84%);
+  box-shadow:inset 0 1px 0 #ffffff12,0 2px 10px #00000022}
+.ph-earned-tile.ph-earned-bronze{--earned-metal:#c68c59;--earned-light:#f4cfaa}
+.ph-earned-tile.ph-earned-silver{--earned-metal:#b8cfdf;--earned-light:#eff8ff}
+.ph-earned-tile.ph-earned-gold{--earned-metal:#e4bb69;--earned-light:#ffe9ad}
+.ph-earned-tile.ph-earned-platinum{--earned-metal:#d6e8f8;--earned-light:#fff}
+.ph-earned-state{align-self:flex-start;color:var(--earned-light);font-size:9px;font-weight:850;
+  letter-spacing:1.15px;text-transform:uppercase}
+.ph-earned-graphic{width:96px;height:96px;display:grid;place-items:center;max-width:100%;flex:none}
+.ph-earned-graphic img{display:block;width:100%;height:100%;object-fit:contain}
+.ph-earned-fallback{font-size:27px;font-weight:900;color:var(--earned-light)}
+.ph-earned-name{color:white;font-size:12px;line-height:1.3;font-weight:850;overflow-wrap:anywhere}
+.ph-earned-date{color:#bed0e1;font-size:10px;line-height:1.35;overflow-wrap:anywhere}
+.ph-earned-tier{margin-top:auto;padding:3px 8px;border-radius:999px;color:var(--earned-light);
+  border:1px solid var(--earned-metal);font-size:9px;font-weight:800;letter-spacing:1px}
+.ph-earned-note{font-size:10px;color:#9eb6c9;line-height:1.45;margin:12px 0 0}
+@media(max-width:640px){
+ .ph-earned-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+ .ph-earned-graphic{width:86px;height:86px}
+ .ph-earned-tile{padding:10px 5px 12px}
+ .ph-earned-filter{padding:8px 10px}
+}
+@media(min-width:860px){.ph-earned-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(prefers-reduced-motion:no-preference){
+ .ph-earned-tile{transition:border-color .15s ease,transform .15s ease}
+ .ph-earned-tile:hover{border-color:var(--earned-metal);transform:translateY(-2px)}
+}
+
 [hidden]{display:none!important}
 .ph-footer{display:flex;gap:8px;flex-wrap:wrap}
 .ph-detail{font-size:10px;color:#a9c0d4;line-height:1.45;margin-top:6px}
@@ -83,7 +134,7 @@ details[open] summary{margin-bottom:10px}
 a{color:#f4cb83}
 </style>
 <script defer src="./player-links.js?v=5"></script>
-<script defer src="./player-highlights-v2.js?v=15"></script>
+<script defer src="./player-highlights-v2.js?v=16"></script>
 </head>
 <body>
 <main class="ph-shell">
@@ -103,9 +154,20 @@ a{color:#f4cb83}
 <div id="highs" class="ph-grid ph-insights"></div>
 <p class="ph-source"><span id="careerDate"></span>All published HTO game types, including playoffs. Tied seasons are listed.</p>
 </section>
+<section id="milestoneSection" class="ph-earned-section" aria-label="Earned career milestone badges" hidden>
+<div class="ph-earned-header">
+ <div><div class="ph-earned-eyebrow">Achievement collection</div>
+ <h2 class="ph-earned-title">Career Badges Unlocked</h2>
+ <p class="ph-earned-sub">Verified milestones earned on the ice</p></div>
+ <div id="milestoneCount" class="ph-earned-counter" aria-live="polite"></div>
+</div>
+<div id="milestoneFilters" class="ph-earned-filters" role="group" aria-label="Filter earned milestones"></div>
+<div id="milestoneGrid" class="ph-earned-grid" aria-live="polite"></div>
+<p class="ph-earned-note">Only milestones recorded in the published Brave H.C. Highlights history appear as earned. Achievement dates are preserved from the verified record.</p>
+</section>
 <section id="legacySection" aria-label="Recorded career highlights" hidden>
 <div id="careerSummary" class="ph-grid" hidden></div>
-<h2 class="ph-panel-title">Career Highlights</h2>
+<h2 class="ph-panel-title">Complete Achievement Timeline</h2>
 <div id="legacy" class="ph-ledger"></div>
 <button id="expand" class="ph-button" type="button" hidden>Show all highlights</button>
 </section>
