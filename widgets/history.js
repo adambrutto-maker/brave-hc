@@ -14,18 +14,32 @@ const node=(tag,text,cls)=>{
 const number=x=>Number(x).toLocaleString('en-CA');
 const normalize=x=>String(x??'').toLocaleLowerCase('en-CA').normalize('NFD').replace(/[\u0300-\u036f]/g,'').trim();
 const shortRecordDate=(entry)=>{
- // Presentation only: preserve exact official HTO record source and year-only
- // season totals. Shorten confirmed day/month/year labels to Sep 2, 2026.
+ // Presentation only: retain exact HTO source text and date precision.
+ // A known YYYY-MM-DD becomes Sep 2, 2026, but year-only and season totals
+ // stay unchanged. This applies to single-game and streak-span dates.
  const month={January:'Jan',February:'Feb',March:'Mar',April:'Apr',May:'May',June:'Jun',
    July:'Jul',August:'Aug',September:'Sep',October:'Oct',November:'Nov',December:'Dec'};
- const iso=String(entry).replace(/\b((?:19|20)\d{2})-(0[1-9]|1[0-2])-([0-2]\d|3[01])\b/g,
-  (raw,year,m,d)=>{
-   const parsed=new Date(Date.UTC(Number(year),Number(m)-1,Number(d)));
-   if(parsed.getUTCFullYear()!==Number(year)||parsed.getUTCMonth()+1!==Number(m)||
-      parsed.getUTCDate()!==Number(d))return raw;
-   return Object.values(month)[Number(m)-1]+' '+Number(d)+', '+year;
+ const months=Object.values(month);
+ const iso=/\b((?:19|20)\d{2}-\d{2}-\d{2})\b/g;
+ const parsed=raw=>{
+  const m=/^((?:19|20)\d{2})-(\d{2})-(\d{2})$/.exec(raw);
+  if(!m)return null;
+  const y=Number(m[1]),mo=Number(m[2]),day=Number(m[3]);
+  const d=new Date(Date.UTC(y,mo-1,day));
+  if(!Number.isFinite(d.getTime())||d.getUTCFullYear()!==y||d.getUTCMonth()!==mo-1||d.getUTCDate()!==day)return null;
+  return {year:y,month:months[mo-1],day};
+ };
+ const format=d=>d.month+' '+d.day+', '+d.year;
+ let display=String(entry).replace(/\b((?:19|20)\d{2}-\d{2}-\d{2})\s+to\s+((?:19|20)\d{2}-\d{2}-\d{2})\b/g,
+  (raw,a,b)=>{
+   const start=parsed(a),end=parsed(b);
+   if(!start||!end)return raw;
+   return start.year===end.year
+    ?start.month+' '+start.day+' - '+end.month+' '+end.day+', '+end.year
+    :format(start)+' - '+format(end);
   });
- return iso.replace(/\b(January|February|March|April|May|June|July|August|September|October|November|December)\s+(\d{1,2}),\s*((?:19|20)\d{2})\b/g,
+ display=display.replace(iso,raw=>{const d=parsed(raw);return d?format(d):raw});
+ return display.replace(/\b(January|February|March|April|May|June|July|August|September|October|November|December)\s+(\d{1,2}),\s*((?:19|20)\d{2})\b/g,
   (_,m,day,year)=>month[m]+' '+Number(day)+', '+year);
 };
 function validate(data,type) {
