@@ -40,5 +40,8 @@ class TransparentBadges(unittest.TestCase):
    text=(ROOT/"widgets"/fname).read_text("utf-8")
    self.assertIn(".ph-symbol.ph-approved-art,.ph-symbol.ph-milestone-art{background:transparent;border:0",text)
    self.assertIn(".ph-symbol.ph-approved-art.ph-cristillo-black-patch{border:0!important;background:transparent!important}",text)
+   self.assertIn("player-highlights-v2.js?v=14",text)
+  javascript=(ROOT/"widgets/player-highlights-v2.js").read_text("utf-8")
+  self.assertIn("?v=transparent-20261027",javascript)
 
 if __name__=="__main__":unittest.main()
