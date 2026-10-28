@@ -71,19 +71,34 @@ const expectedCorrections={
 function freeze(value){if(value&&typeof value==='object'){Object.values(value).forEach(freeze);Object.freeze(value);}return value;}
 const code=read('widgets/player-highlights-v2.js'),links=read('widgets/player-links.js');
 async function render(id,overrides={}){
- const ids='playerName playerSub notice legacy careerSummary expand legacySection highsSection highs careerDate recordsSection records recordsSource currentSection form statsDate profileSource footer'.split(' ');
+ const ids='playerName playerSub notice legacy careerSummary expand legacySection milestoneSection milestoneGrid milestoneFilters milestoneCount highsSection highs careerDate recordsSection records recordsSource currentSection form statsDate profileSource footer'.split(' ');
  const nodes=Object.fromEntries(ids.map(id=>[id,new Element()]));
- for(const id of ['notice','legacySection','highsSection','recordsSection','currentSection'])nodes[id].hidden=true;
+ for(const id of ['notice','legacySection','milestoneSection','highsSection','recordsSection','currentSection'])nodes[id].hidden=true;
  const context=vm.createContext({window:{},URL,URLSearchParams,Date,Number,String,Object,Array,Map,Promise,Error,console,location:{search:'?playerID='+id},document:{getElementById:id=>{assert(nodes[id],'missing element '+id);return nodes[id]},createElement:tag=>new Element(tag),createTextNode:s=>String(s)},fetch:async url=>({ok:true,json:async()=>freeze(structuredClone(Object.hasOwn(overrides,url.slice(2))?overrides[url.slice(2)]:feeds[url.slice(2)]))})});
  vm.runInContext(links,context);vm.runInContext(code,context);await new Promise(setImmediate);return nodes;
 }
 (async()=>{
- let profiles=0,highlights=0,records=0,corrected=0,awardLogoDisplays=0,milestoneLogoDisplays=0,retitledDedications=0,specialLogoDisplays=0,heritageLogoDisplays=0;
+ let profiles=0,highlights=0,records=0,corrected=0,awardLogoDisplays=0,milestoneLogoDisplays=0,retitledDedications=0,specialLogoDisplays=0,heritageLogoDisplays=0,earnedWallBadges=0;
  assert.deepEqual(corrections.corrections.map(c=>[c.itemID,c.displayText,c.sortDate]),Object.entries(expectedCorrections).map(([id,c])=>[id,c.text,c.date]));
  for(const [id,p] of Object.entries(career.players)){
  const n=await render(id);assert.equal(n.playerName.textContent,p.name);assert(n.notice.hidden,id+' unexpected warning');
  const items=ledger.players[id]?.items||[];
  assert.equal(n.legacySection.hidden,items.length===0);
+ const sourceMilestones=items.filter(x=>x.category==='milestone');
+ assert.equal(n.milestoneSection.hidden,sourceMilestones.length===0);
+ assert.equal(n.milestoneGrid.children.length,sourceMilestones.length);
+ assert.equal(n.milestoneCount.textContent,sourceMilestones.length?sourceMilestones.length+' earned':'');
+ earnedWallBadges+=n.milestoneGrid.children.length;
+ for(const tile of n.milestoneGrid.children){
+  assert(tile.className.includes('ph-earned-tile')&&tile.textContent.includes('UNLOCKED'),'Earned tile missing');
+  assert(tile.children[1].children.some(x=>x.tagName==='img'),'Earned emblem missing');
+ }
+ if(sourceMilestones.length){
+  const games=n.milestoneFilters.children.find(b=>b.textContent.startsWith('Games ('));
+  if(games){games.onclick();assert.equal(n.milestoneGrid.children.length,sourceMilestones.filter(x=>x.sourceText.includes(' Game Club')).length);
+   const all=n.milestoneFilters.children.find(b=>b.textContent.startsWith('All ('));all.onclick();}
+  assert.equal(n.milestoneGrid.children.length,sourceMilestones.length);
+ }
  assert.equal(n.legacy.children.length,Math.min(3,items.length));
  if(items.length>3)n.expand.onclick();
  assert.equal(n.legacy.children.length,items.length);
@@ -122,6 +137,7 @@ async function render(id,overrides={}){
  assert.equal(corrected,4);
  assert.equal(retitledDedications,10,'All ten historically named award wins must be retitled');
  assert.equal(milestoneLogoDisplays,97,'Every verified club milestone must show a branded emblem');
+ assert.equal(earnedWallBadges,97,'Every verified HTO milestone must appear once in the earned badge gallery');
  assert.equal(awardLogoDisplays,105,'James Norris composite winner must display existing artwork');
  assert.equal(specialLogoDisplays,58,'All 51 championship rows, 1 composite Cup and 6 All-Star rows must show specials');
  assert.equal(heritageLogoDisplays,46,'Every remaining historical badge has unique emblem');
@@ -240,6 +256,8 @@ for(const [id,label,file] of [
  const futureRow=futureView.legacy.children.find(row=>row.textContent.includes('1250 Game Club'));
  assert(futureRow,'New verified 1250 club badge not rendered');
  assert(futureRow.className.includes('ph-tier-platinum'));
+ assert(futureView.milestoneGrid.children.some(tile=>tile.textContent.includes('1250 Game Club')&&tile.className.includes('ph-earned-platinum')),
+   'Future verified 1250 Game Club must unlock in the earned collection without a new static badge');
  assert(futureRow.children[0].children[0]?.src==='./brave_hc_logo.png','New threshold falls back to official lion and runtime number');
  const norrisAlias=structuredClone(ledger);
  const alexAlias=norrisAlias.players['354058'].items.find(x=>x.sourceText.startsWith('James Norris Award'));

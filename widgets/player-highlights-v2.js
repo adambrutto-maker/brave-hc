@@ -304,8 +304,68 @@ function correctedLegacyDisplay(record,data){
  }
  return {...record,items};
 }
+let milestoneFilter='all';
+function renderMilestoneWall(record){
+ const section=$('milestoneSection'),grid=$('milestoneGrid'),filters=$('milestoneFilters');
+ const count=$('milestoneCount');
+ const earned=(record?.items||[]).filter(item=>item.category==='milestone')
+  .map(item=>({item,art:clubArtFor(item)})).filter(x=>x.art);
+ section.hidden=earned.length===0;
+ grid.replaceChildren();filters.replaceChildren();count.replaceChildren();
+ if(!earned.length)return;
+ const categories={all:earned.length,games:0,points:0,wins:0};
+ for(const entry of earned)categories[entry.art.metric]++;
+ if(!categories[milestoneFilter])milestoneFilter='all';
+ const sorted=[...earned].sort((a,b)=>{
+  const tiers={bronze:0,silver:1,gold:2,platinum:3};
+  return tiers[b.art.tier]-tiers[a.art.tier]||
+   b.art.count-a.art.count||
+   achievementDateRank(b.item)-achievementDateRank(a.item);
+ });
+ const buttons=[];
+ count.append(text('strong',String(earned.length)),document.createTextNode(' earned'));
+ for(const key of Object.keys(categories)){
+  if(!categories[key])continue;
+  const button=text('button',key==='all'?'All ('+categories[key]+')':
+   key[0].toUpperCase()+key.slice(1)+' ('+categories[key]+')','ph-earned-filter');
+  button.type='button';
+  button.onclick=()=>{milestoneFilter=key;paint();};
+  buttons.push([key,button]);filters.append(button);
+ }
+ const paint=()=>{
+  for(const [key,button] of buttons)button.setAttribute('aria-pressed',String(milestoneFilter===key));
+  grid.replaceChildren();
+  for(const {item,art} of sorted.filter(({art})=>milestoneFilter==='all'||art.metric===milestoneFilter)){
+   const tile=text('article','','ph-earned-tile ph-earned-'+art.tier);
+   tile.setAttribute('aria-label',art.count+' '+art.metric+', '+art.tier+' badge earned');
+   const state=text('span','UNLOCKED','ph-earned-state');
+   const visual=text('span','','ph-earned-graphic');
+   const img=document.createElement('img');
+   img.src=art.generated?'./brave_hc_logo.png':root+'assets/round-clubs/'+art.file+'?v=transparent-20261027';
+   img.alt=art.count+' '+art.metric+' '+art.tier+' milestone badge';
+   img.loading='lazy';img.decoding='async';
+   if(art.generated)paintVerifiedFutureClub(img,art);
+   img.onerror=()=>{
+    img.onerror=null;visual.replaceChildren(text('span',String(art.count),'ph-earned-fallback'));
+   };
+   visual.append(img);
+   const sourceCategory={games:'Game',points:'Point',wins:'Win'}[art.metric];
+   const name=text('strong',art.count+' '+sourceCategory+' Club','ph-earned-name');
+   const raw=String(item.displayText||item.sourceText||'');
+   const date=raw.includes(' - ')?raw.split(' - ').at(-1):'Date in published record';
+   const achieved=text('span','Earned '+date,'ph-earned-date');
+   const tier=text('span',art.tier.toUpperCase(),'ph-earned-tier');
+   tile.append(state,visual,name,achieved,tier);
+   grid.append(tile);
+  }
+ };
+ // Rebuild filters once per update; tab state remains stable across verified-source refresh.
+ paint();
+}
+
 function renderLegacy(record,ledgerTime){
  const container=$('legacy'),items=newestAchievements(record?.items||[]);
+ renderMilestoneWall(record);
  container.replaceChildren();
  $('careerSummary').replaceChildren();
  $('expand').hidden=true;
