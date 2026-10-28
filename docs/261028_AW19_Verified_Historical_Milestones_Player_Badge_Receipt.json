@@ -1,0 +1,275 @@
+{
+  "status": "37_NEW_PLAYER_BADGES_CREATED_FROM_PUBLIC_HTO_DATE_EVIDENCE",
+  "original_sha256": "bfe8ad34a957f273c3c2bfa51afbd2f2d8bf4e8ceb4ab8f1a6b756115c85bf3c",
+  "final_sha256": "616d436681294a7d5309a3293f89ef9c9860d7926bcae3fcb88e567f41e3370c",
+  "original_legacy_rows": 306,
+  "original_legacy_milestones": 97,
+  "new_source_verified": 37,
+  "total_rows": 343,
+  "total_milestones": 134,
+  "affected_players": 15,
+  "public_awards_entries": 281,
+  "public_awards_sha256": "99763bc69fc9c9e3a1ce57e655df430b008b4df605ac71b252251a612c65ad5b",
+  "achievements": [
+    {
+      "player": "Stephen Logue",
+      "id": "354055",
+      "award": "5 Shutout Club",
+      "date": "2016-04-17",
+      "game": "1384810"
+    },
+    {
+      "player": "Stephen Logue",
+      "id": "354055",
+      "award": "10 Shutout Club",
+      "date": "2017-03-05",
+      "game": "1517108"
+    },
+    {
+      "player": "Ben Sherritt",
+      "id": "354285",
+      "award": "50 Goal Club",
+      "date": "2014-06-22",
+      "game": "1100303"
+    },
+    {
+      "player": "Mark Pastore",
+      "id": "354061",
+      "award": "50 Goal Club",
+      "date": "2015-04-19",
+      "game": "1190758"
+    },
+    {
+      "player": "Ryan Logue",
+      "id": "354046",
+      "award": "50 Goal Club",
+      "date": "2016-01-03",
+      "game": "1384793"
+    },
+    {
+      "player": "Cameron Buchanan",
+      "id": "354049",
+      "award": "50 Goal Club",
+      "date": "2016-06-19",
+      "game": "1442292"
+    },
+    {
+      "player": "Keith Pearsoll",
+      "id": "354056",
+      "award": "50 Goal Club",
+      "date": "2017-04-09",
+      "game": "1517113"
+    },
+    {
+      "player": "Justin Carosi",
+      "id": "354060",
+      "award": "50 Goal Club",
+      "date": "2017-05-28",
+      "game": "1559158"
+    },
+    {
+      "player": "Stefano Ardizzi",
+      "id": "356089",
+      "award": "50 Goal Club",
+      "date": "2020-03-01",
+      "game": "1835543"
+    },
+    {
+      "player": "Stephane Saindon",
+      "id": "738846",
+      "award": "50 Goal Club",
+      "date": "2025-11-30",
+      "game": "2214999"
+    },
+    {
+      "player": "Ryan Logue",
+      "id": "354046",
+      "award": "50 Assist Club",
+      "date": "2015-06-21",
+      "game": "1249336"
+    },
+    {
+      "player": "Adam Brutto",
+      "id": "354054",
+      "award": "50 Assist Club",
+      "date": "2015-08-09",
+      "game": "1249342"
+    },
+    {
+      "player": "Mark Pastore",
+      "id": "354061",
+      "award": "50 Assist Club",
+      "date": "2015-09-20",
+      "game": "1384777"
+    },
+    {
+      "player": "Justin Carosi",
+      "id": "354060",
+      "award": "50 Assist Club",
+      "date": "2016-02-21",
+      "game": "1384799"
+    },
+    {
+      "player": "Cameron Buchanan",
+      "id": "354049",
+      "award": "50 Assist Club",
+      "date": "2016-05-29",
+      "game": "1442289"
+    },
+    {
+      "player": "Keith Pearsoll",
+      "id": "354056",
+      "award": "50 Assist Club",
+      "date": "2016-07-10",
+      "game": "1442294"
+    },
+    {
+      "player": "Julian Kercz",
+      "id": "382708",
+      "award": "50 Assist Club",
+      "date": "2016-11-13",
+      "game": "1517092"
+    },
+    {
+      "player": "Alex Pagnotta",
+      "id": "354058",
+      "award": "50 Assist Club",
+      "date": "2017-03-05",
+      "game": "1517108"
+    },
+    {
+      "player": "Ben Sherritt",
+      "id": "354285",
+      "award": "50 Assist Club",
+      "date": "2017-08-20",
+      "game": "1559179"
+    },
+    {
+      "player": "Dylan Brennan",
+      "id": "525407",
+      "award": "50 Assist Club",
+      "date": "2018-09-16",
+      "game": "1738948"
+    },
+    {
+      "player": "Stefano Ardizzi",
+      "id": "356089",
+      "award": "50 Assist Club",
+      "date": "2018-12-09",
+      "game": "1738977"
+    },
+    {
+      "player": "Marco Congiusti",
+      "id": "354041",
+      "award": "50 Assist Club",
+      "date": "2019-10-06",
+      "game": "1835516"
+    },
+    {
+      "player": "Mario Provenzano",
+      "id": "354045",
+      "award": "50 Assist Club",
+      "date": "2019-12-08",
+      "game": "1835529"
+    },
+    {
+      "player": "Stephane Saindon",
+      "id": "738846",
+      "award": "50 Assist Club",
+      "date": "2025-11-30",
+      "game": "2214999"
+    },
+    {
+      "player": "Mark Pastore",
+      "id": "354061",
+      "award": "100 Goal Club",
+      "date": "2016-05-15",
+      "game": "1442287"
+    },
+    {
+      "player": "Ben Sherritt",
+      "id": "354285",
+      "award": "100 Goal Club",
+      "date": "2017-06-11",
+      "game": "1559159"
+    },
+    {
+      "player": "Ryan Logue",
+      "id": "354046",
+      "award": "100 Goal Club",
+      "date": "2018-09-16",
+      "game": "1738948"
+    },
+    {
+      "player": "Cameron Buchanan",
+      "id": "354049",
+      "award": "100 Goal Club",
+      "date": "2019-10-27",
+      "game": "1835519"
+    },
+    {
+      "player": "Justin Carosi",
+      "id": "354060",
+      "award": "100 Goal Club",
+      "date": "2022-11-20",
+      "game": "2012664"
+    },
+    {
+      "player": "Keith Pearsoll",
+      "id": "354056",
+      "award": "100 Goal Club",
+      "date": "2025-10-05",
+      "game": "2214991"
+    },
+    {
+      "player": "Justin Carosi",
+      "id": "354060",
+      "award": "100 Assist Club",
+      "date": "2017-06-25",
+      "game": "1559169"
+    },
+    {
+      "player": "Ryan Logue",
+      "id": "354046",
+      "award": "100 Assist Club",
+      "date": "2018-03-18",
+      "game": "1664261"
+    },
+    {
+      "player": "Adam Brutto",
+      "id": "354054",
+      "award": "100 Assist Club",
+      "date": "2018-04-08",
+      "game": "1664263"
+    },
+    {
+      "player": "Cameron Buchanan",
+      "id": "354049",
+      "award": "100 Assist Club",
+      "date": "2019-03-31",
+      "game": "1738995"
+    },
+    {
+      "player": "Keith Pearsoll",
+      "id": "354056",
+      "award": "100 Assist Club",
+      "date": "2019-12-22",
+      "game": "1835531"
+    },
+    {
+      "player": "Alex Pagnotta",
+      "id": "354058",
+      "award": "100 Assist Club",
+      "date": "2023-12-17",
+      "game": "2071745"
+    },
+    {
+      "player": "Justin Carosi",
+      "id": "354060",
+      "award": "200 Assist Club",
+      "date": "2024-11-10",
+      "game": "2148142"
+    }
+  ],
+  "native_hto_writes": 0
+}

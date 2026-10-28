@@ -44,7 +44,7 @@ def browser_driver():
 
 def run():
     assert len(PLAYERS)==43
-    assert sum(len(p["items"]) for p in PLAYERS.values())==306
+    assert sum(len(p["items"]) for p in PLAYERS.values())==343
     for group in ("awards","clubs","special","heritage"):
         path=ROOT/"widgets/assets"/group
         m=json.loads((path/"source-manifest.json").read_text("utf-8"))
@@ -136,7 +136,7 @@ def run():
                     result["rolaids"]+=len(data["rolaids"])
                     result["discipline"]+=len(data["discipline"])
         assert result["sessions"]==86,result
-        assert result["highlights"]==306,result
+        assert result["highlights"]==343,result
         assert dict(result["categories"])==EXPECTED,result
         assert result["rolaids"]==2,result
         assert result["discipline"]==3,result

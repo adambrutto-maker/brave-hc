@@ -154,7 +154,7 @@ async function render(id,overrides={}){
  assert.equal(corrected,4);
  assert.equal(retitledDedications,10,'All ten historically named award wins must be retitled');
  assert.equal(milestoneLogoDisplays,97,'Every verified club milestone must show a branded emblem');
- assert.equal(earnedWallBadges,97,'Every verified HTO milestone must appear once in the earned badge gallery');
+ assert.equal(earnedWallBadges,134,'All 97 original and 37 newly HTO-verified club milestones must appear in the earned badge gallery');
  assert.equal(awardLogoDisplays,105,'James Norris composite winner must display existing artwork');
  assert.equal(specialLogoDisplays,58,'All 51 championship rows, 1 composite Cup and 6 All-Star rows must show specials');
  assert.equal(heritageLogoDisplays,46,'Every remaining historical badge has unique emblem');
@@ -268,7 +268,7 @@ for(const [id,label,file] of [
  example.sortDate='2040-01-01';
  delete example.sourceRuns;delete example.displayRuns;
  existing.items=[...existing.items,example];
- existing.originalCount=existing.items.length;
+ existing.originalCount+=1; // Fixture extends only the old source rows without altering new HTO award receipts.
  const futureView=await expanded('354054',{'player-highlights-ledger.json':future});
  const futureRow=futureView.legacy.children.find(row=>row.textContent.includes('1250 Game Club'));
  assert(futureRow,'New verified 1250 club badge not rendered');

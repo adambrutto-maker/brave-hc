@@ -43,7 +43,7 @@ overflow:document.documentElement.scrollWidth>innerWidth+4};""")
     rec["norrisVerified"]+=len(x["norris"])
    rec["profiles"]+=1
  assert rec["profiles"]==86,rec
- assert rec["highlights"]==306,rec
+ assert rec["highlights"]==343,rec
  assert rec["awardImages"]==105,rec
  assert rec["clubImages"]==97,rec
  assert rec["specialImages"]==58,rec
