@@ -58,7 +58,10 @@ def verify_artwork_manifests(widgets,package_paths,manifest_overrides=None):
  candidate website package.
  """
  widgets=Path(widgets).resolve()
- kinds=("approved","awards","clubs","heritage","round-clubs","special")
+ kinds=("approved","awards","clubs","heritage","round-clubs","special","full-crest-clubs")
+ discovered={p.split("/")[2] for p in package_paths if
+  p.startswith("widgets/assets/") and p.endswith("/source-manifest.json")}
+ need(discovered==set(kinds),"ARTWORK_FAMILY_MANIFEST_SET_DRIFT")
  count=0
  backupCount=0
  additionalProvenanceCount=0
@@ -73,9 +76,29 @@ def verify_artwork_manifests(widgets,package_paths,manifest_overrides=None):
    manifest_bytes=canonical_source(widgets/source)
   if isinstance(manifest_bytes,str):manifest_bytes=manifest_bytes.encode("utf8")
   doc=json.loads(manifest_bytes)
+  if kind=="full-crest-clubs":
+   need(doc.get("schema")=="brave-hc-full-crest-milestone-art/v1" and
+    doc.get("sourceLogoPath")=="widgets/brave_hc_logo.png" and
+    isinstance(doc.get("sourceLogoSha256"),str) and
+    re.fullmatch("[a-f0-9]{64}",doc["sourceLogoSha256"]) and
+    re.fullmatch("[a-f0-9]{64}",str(doc.get("original5000PixelLogoSha256",""))) and
+    doc.get("earnedRecipientEvents")==37,
+    "NEW_FULL_CREST_MANIFEST_SOURCE_PROVENANCE_UNQUALIFIED")
+   logo=widgets.parent/doc["sourceLogoPath"]
+   need(doc["sourceLogoPath"] in package_paths and logo.is_file() and
+    not logo.is_symlink() and
+    hashlib.sha256(canonical_source(logo)).hexdigest()==doc["sourceLogoSha256"],
+    "NEW_FULL_CREST_SOURCE_LOGO_SHA_MISMATCH")
   entries=doc.get("files") if kind=="approved" else doc.get("assets")
   need(isinstance(entries,list) and entries,
        "ARTWORK_SOURCE_MANIFEST_EMPTY:"+kind)
+  if kind=="full-crest-clubs":
+   need(len(entries)==7 and all(isinstance(e,dict) and
+      e.get("metric") in ("GOALS","ASSISTS","SHUTOUTS") and
+      e.get("tier") in ("bronze","silver","gold") and
+      e.get("sourceVerifiedInSnapshot") is True and
+      e.get("size")==[200,200] for e in entries),
+      "NEW_FULL_CREST_BADGE_METADATA_UNQUALIFIED")
   for entry in entries:
    local=(entry.get("file") if kind=="approved" else entry.get("path")) or f"assets/{kind}/{entry.get('file','')}"
    need(local.startswith("assets/"+kind+"/") and
@@ -89,6 +112,10 @@ def verify_artwork_manifests(widgets,package_paths,manifest_overrides=None):
    need(path.is_relative_to(widgets) and path.is_file() and
         not path.is_symlink(),"ARTWORK_ASSET_FILE_UNQUALIFIED:"+local)
    data=canonical_source(path)
+   if kind=="full-crest-clubs":
+    need(path.suffix.lower()==".webp" and len(data)>=12 and
+      data[:4]==b"RIFF" and data[8:12]==b"WEBP",
+      "NEW_FULL_CREST_BADGE_WEBP_HEADER_INVALID")
    need(entry.get("bytes")==len(data) and
         re.fullmatch("[a-f0-9]{64}",str(entry.get("sha256",""))) and
         hashlib.sha256(data).hexdigest()==entry["sha256"],
