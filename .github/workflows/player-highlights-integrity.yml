@@ -8,6 +8,8 @@ on:
       - 'widgets/player-highlights.html'
       - 'widgets/player-highlights-v2-preview.html'
       - 'widgets/player-highlights-ledger.json'
+      - 'widgets/history-records.json'
+      - 'widgets/player-record-book.json'
       - 'widgets/player-actuals-hourly.json'
       - 'scripts/refresh_verified_hto_player_actuals_hourly.py'
       - 'tests/test_hourly_hto_player_actuals.py'
@@ -26,6 +28,8 @@ on:
       - 'tests/composite_badge_expectations.py'
       - 'tests/test_composite_badges_and_diamond_finish_browser.py'
       - 'scripts/test_source_guarded_composite_badges.cjs'
+      - 'scripts/test_record_set_tied_source_parity.cjs'
+      - 'tests/test_web07_badge_center_tier_record_browser.py'
       - 'tests/test_fullcrest_milestone_art.py'
       - 'tests/test_fullcrest_badge_browser.py'
       - 'widgets/assets/approved/**'
@@ -79,6 +83,8 @@ jobs:
           python -m unittest discover -s tests -p test_hourly_hto_player_actuals.py
       - name: Verify all 109 player identities, historic records, images and labels
         run: node scripts/test-player-highlights-v2.cjs
+      - name: Verify 230 source-mapped HTO marks identify Record Set or Record Tied without rank inference
+        run: node scripts/test_record_set_tied_source_parity.cjs
       - name: Verify three original multiline historical HTO records expand to exact independent display-only badges
         run: node scripts/test_source_guarded_composite_badges.cjs
       - name: Verify all 37 newly dated historical Goal Assist Shutout badges with official game source receipts
@@ -137,6 +143,10 @@ jobs:
         env:
           BRAVE_QA_BROWSER: chrome
         run: python tests/test_composite_badges_and_diamond_finish_browser.py
+      - name: Verify centred BRAVE/H.C. medals, All tier pill parity and gold/silver Set/Tied record statuses
+        env:
+          BRAVE_QA_BROWSER: chrome
+        run: python tests/test_web07_badge_center_tier_record_browser.py
       - name: Verify hourly current-season refresh and reject unverified changes
         env:
           BRAVE_QA_BROWSER: chrome

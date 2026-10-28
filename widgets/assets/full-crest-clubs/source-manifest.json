@@ -6,7 +6,25 @@
   "original5000PixelLogoSha256": "e245640bd0c1f3c3c8e3caea89e69a446d465f97724d9c6878992670229730b5",
   "approvedRoundClubSourceManifestSha256": "487f1355b95fce62f83a82e4bbf9c5e545b39c2662f176c975ff15e3d811e1fc",
   "original22ApprovedClubAssetsUnchanged": true,
-  "design": "One full-crest medallion with exact centred foreground number and label, tier metallic outline and transparent exterior for all six metric families.",
+  "design": "All 29 medals: full authentic crest, center text/number over lion, BRAVE clearly above and H.C. clearly below, tier rim and transparent exterior.",
+  "centeredOverlayGeometryAt600": [
+    83,
+    174,
+    517,
+    433
+  ],
+  "numberCenterAt600": [
+    300,
+    271
+  ],
+  "metricCenterAt600": [
+    300,
+    372
+  ],
+  "crestLetteringPreserved": [
+    "BRAVE",
+    "H.C."
+  ],
   "uniformBadgeNumberFontPxAt600": 118,
   "uniformBadgeMetricFontPxAt600": 51,
   "platinumVisualFinish": "PRISMATIC_DIAMOND_CYAN_AZURE_VIOLET_DISTINCT_FROM_SILVER",
@@ -34,14 +52,14 @@
       "value": 50,
       "tier": "bronze",
       "sourceVerifiedInSnapshot": true,
-      "bytes": 33986,
-      "sha256": "58e27288d78dc461d2351b78f0bff6cdd8b8c59434e212891f40cb0087e52888",
+      "bytes": 32546,
+      "sha256": "147d0a8a7265135f97ae45cf83ebfc924263ceb314382ec445bcf0b63b11052e",
       "size": [
         200,
         200
       ],
       "background": "AUTHENTIC_FULL_BLEED_BRAVE_HC_CREST",
-      "foreground": "UNIFORM_CENTERED_NUMBER_AND_METRIC_DARK_PLAQUE",
+      "foreground": "UNIFORM_CENTERED_NUMBER_METRIC_OVER_LION_BRAVE_TOP_HC_BOTTOM",
       "originalApprovedArtPath": "assets/round-clubs/50_games_bronze_200.webp",
       "originalApprovedArtSha256": "a1cc42bb157543d3f9253f4d2cf061bbfdd3c440cade66026ac062dbf5c5de35"
     },
@@ -51,14 +69,14 @@
       "value": 100,
       "tier": "silver",
       "sourceVerifiedInSnapshot": true,
-      "bytes": 33104,
-      "sha256": "06d37283d03bd2d68d358317c95a98ed1aa141e60a186451828105949d1c62a4",
+      "bytes": 31996,
+      "sha256": "6661387e4c2d41c397b50267e0bee427752757c8d246881180e57718176ad698",
       "size": [
         200,
         200
       ],
       "background": "AUTHENTIC_FULL_BLEED_BRAVE_HC_CREST",
-      "foreground": "UNIFORM_CENTERED_NUMBER_AND_METRIC_DARK_PLAQUE",
+      "foreground": "UNIFORM_CENTERED_NUMBER_METRIC_OVER_LION_BRAVE_TOP_HC_BOTTOM",
       "originalApprovedArtPath": "assets/round-clubs/100_games_silver_200.webp",
       "originalApprovedArtSha256": "b3982cf9374420a13b09c8be2bb69f23a3e17fcf71ed8d1b3127eacb3284cc87"
     },
@@ -68,14 +86,14 @@
       "value": 200,
       "tier": "gold",
       "sourceVerifiedInSnapshot": true,
-      "bytes": 35012,
-      "sha256": "c34795dbfe40be9afe0fdc1eb2cdff10d91090a74fc7b9437b1768ef9faf8882",
+      "bytes": 34092,
+      "sha256": "6825adab4597425d2a2b916b6bfb9beed3fcdce9910c32d8903e7e2660128729",
       "size": [
         200,
         200
       ],
       "background": "AUTHENTIC_FULL_BLEED_BRAVE_HC_CREST",
-      "foreground": "UNIFORM_CENTERED_NUMBER_AND_METRIC_DARK_PLAQUE",
+      "foreground": "UNIFORM_CENTERED_NUMBER_METRIC_OVER_LION_BRAVE_TOP_HC_BOTTOM",
       "originalApprovedArtPath": "assets/round-clubs/200_games_gold_200.webp",
       "originalApprovedArtSha256": "b641f8ed6cb7dd9dbfaaacb3b9f34074ecfe266f40ca47d2a133fd30d86dfb5e"
     },
@@ -85,14 +103,14 @@
       "value": 300,
       "tier": "platinum",
       "sourceVerifiedInSnapshot": true,
-      "bytes": 36348,
-      "sha256": "0dbe6c1c3aff50fe8612313e5d42fb6b0413f44d5bcacfc041ac58fd3918209f",
+      "bytes": 35076,
+      "sha256": "90137b30365e8720fff0d0bf7eac07ef4243024be698342668cf23af5c16d272",
       "size": [
         200,
         200
       ],
       "background": "AUTHENTIC_FULL_BLEED_BRAVE_HC_CREST",
-      "foreground": "UNIFORM_CENTERED_NUMBER_AND_METRIC_DARK_PLAQUE",
+      "foreground": "UNIFORM_CENTERED_NUMBER_METRIC_OVER_LION_BRAVE_TOP_HC_BOTTOM",
       "originalApprovedArtPath": "assets/round-clubs/300_games_platinum_200.webp",
       "originalApprovedArtSha256": "426d05bc3f291de4fadc8c7ef666f123642b486f8a928158dc38eca2a470c37b"
     },
@@ -102,14 +120,14 @@
       "value": 400,
       "tier": "platinum",
       "sourceVerifiedInSnapshot": false,
-      "bytes": 36202,
-      "sha256": "b711f9a710ae751c676936c501500502e7b78e84e0e210372c68d3852092fa98",
+      "bytes": 34946,
+      "sha256": "886e6122dbc73f730d45e10647087142c7e8d1f508fa9f43509bb5f4351cd622",
       "size": [
         200,
         200
       ],
       "background": "AUTHENTIC_FULL_BLEED_BRAVE_HC_CREST",
-      "foreground": "UNIFORM_CENTERED_NUMBER_AND_METRIC_DARK_PLAQUE",
+      "foreground": "UNIFORM_CENTERED_NUMBER_METRIC_OVER_LION_BRAVE_TOP_HC_BOTTOM",
       "originalApprovedArtPath": "assets/round-clubs/400_games_platinum_200.webp",
       "originalApprovedArtSha256": "050d8ce380e8c0c538e0095789279c6641e7aff451f3310acdac5bc98b39541e"
     },
@@ -119,14 +137,14 @@
       "value": 500,
       "tier": "platinum",
       "sourceVerifiedInSnapshot": false,
-      "bytes": 36408,
-      "sha256": "0defd646aecb4e3233666f08fef7bb8aae2d85e0088a8e6d28a86e9545b6bb85",
+      "bytes": 34826,
+      "sha256": "70bfd82001b47994b247d0ac45d48079a6495275941740deb468bc58d5ccc476",
       "size": [
         200,
         200
       ],
       "background": "AUTHENTIC_FULL_BLEED_BRAVE_HC_CREST",
-      "foreground": "UNIFORM_CENTERED_NUMBER_AND_METRIC_DARK_PLAQUE",
+      "foreground": "UNIFORM_CENTERED_NUMBER_METRIC_OVER_LION_BRAVE_TOP_HC_BOTTOM",
       "originalApprovedArtPath": "assets/round-clubs/500_games_platinum_200.webp",
       "originalApprovedArtSha256": "fffb91b1ab1d020abebfbd2f3b62cceed3d16d22874f2bc3923b67dfac781027"
     },
@@ -136,14 +154,14 @@
       "value": 750,
       "tier": "platinum",
       "sourceVerifiedInSnapshot": false,
-      "bytes": 36272,
-      "sha256": "820ec763ead65fe0e9cdfcfd8c360d10a84a1655a470d6fe7a5030ed53e11777",
+      "bytes": 34742,
+      "sha256": "ea7c914933e205dc55222410888b16387211bfa7900762a4ba5cf0b7265984f5",
       "size": [
         200,
         200
       ],
       "background": "AUTHENTIC_FULL_BLEED_BRAVE_HC_CREST",
-      "foreground": "UNIFORM_CENTERED_NUMBER_AND_METRIC_DARK_PLAQUE",
+      "foreground": "UNIFORM_CENTERED_NUMBER_METRIC_OVER_LION_BRAVE_TOP_HC_BOTTOM",
       "originalApprovedArtPath": "assets/round-clubs/750_games_platinum_200.webp",
       "originalApprovedArtSha256": "30210d37cd917bd1bde5185d70cdc50f59666d5222d737da466686948d527cbc"
     },
@@ -153,14 +171,14 @@
       "value": 1000,
       "tier": "platinum",
       "sourceVerifiedInSnapshot": false,
-      "bytes": 36504,
-      "sha256": "7cb9249c6a0b785ce58aaa4b820854443581fdaa3a60aa68f35bf6583a6ef50e",
+      "bytes": 34858,
+      "sha256": "cf952a5460163a45082608ed0fb6c674c8ab891b3f18587f84ec00b70bae84cb",
       "size": [
         200,
         200
       ],
       "background": "AUTHENTIC_FULL_BLEED_BRAVE_HC_CREST",
-      "foreground": "UNIFORM_CENTERED_NUMBER_AND_METRIC_DARK_PLAQUE",
+      "foreground": "UNIFORM_CENTERED_NUMBER_METRIC_OVER_LION_BRAVE_TOP_HC_BOTTOM",
       "originalApprovedArtPath": "assets/round-clubs/1000_games_platinum_200.webp",
       "originalApprovedArtSha256": "f81b8c8ec6c45a6b830c79ec0fdb721d0af97639775a0fce892f0525143c7a92"
     },
@@ -170,14 +188,14 @@
       "value": 50,
       "tier": "bronze",
       "sourceVerifiedInSnapshot": true,
-      "bytes": 33874,
-      "sha256": "1bba502b2944775ec0d3ed754ea6c69ce6355aa69673e7bc3c1fcfe8adaae69e",
+      "bytes": 32592,
+      "sha256": "3e25c967bd971c587cfc376d1f4a96feffafe7112dce3d2c36b507bbdd298fa8",
       "size": [
         200,
         200
       ],
       "background": "AUTHENTIC_FULL_BLEED_BRAVE_HC_CREST",
-      "foreground": "UNIFORM_CENTERED_NUMBER_AND_METRIC_DARK_PLAQUE",
+      "foreground": "UNIFORM_CENTERED_NUMBER_METRIC_OVER_LION_BRAVE_TOP_HC_BOTTOM",
       "originalApprovedArtPath": "assets/round-clubs/50_points_bronze_200.webp",
       "originalApprovedArtSha256": "3d699e1400346062d96d23991437fc64cf5b7cd2b9e48c08dbf2c83dbeb454d7"
     },
@@ -187,14 +205,14 @@
       "value": 100,
       "tier": "silver",
       "sourceVerifiedInSnapshot": true,
-      "bytes": 32740,
-      "sha256": "8314c078d268f47976beb0b1bc830527475a4b37bc485407af39a7ffbc565d14",
+      "bytes": 31858,
+      "sha256": "7773ba0dc024f04f27bb08e3c3b28c7f6e740c3252ef91fd77b12638e988a055",
       "size": [
         200,
         200
       ],
       "background": "AUTHENTIC_FULL_BLEED_BRAVE_HC_CREST",
-      "foreground": "UNIFORM_CENTERED_NUMBER_AND_METRIC_DARK_PLAQUE",
+      "foreground": "UNIFORM_CENTERED_NUMBER_METRIC_OVER_LION_BRAVE_TOP_HC_BOTTOM",
       "originalApprovedArtPath": "assets/round-clubs/100_points_silver_200.webp",
       "originalApprovedArtSha256": "99402f96d349183da48a7f271e5218598c351d335ec8db9c992d37bbeb1f1e22"
     },
@@ -204,14 +222,14 @@
       "value": 200,
       "tier": "gold",
       "sourceVerifiedInSnapshot": true,
-      "bytes": 35010,
-      "sha256": "f55d5c0ff04e462ec1ced7c3bb75f4cff72fd9fc67aa1c7ba35363607495281b",
+      "bytes": 34002,
+      "sha256": "bef62197eb5f910937f657b0117392e296bd39839dc27505aabe25c9af5f3ad2",
       "size": [
         200,
         200
       ],
       "background": "AUTHENTIC_FULL_BLEED_BRAVE_HC_CREST",
-      "foreground": "UNIFORM_CENTERED_NUMBER_AND_METRIC_DARK_PLAQUE",
+      "foreground": "UNIFORM_CENTERED_NUMBER_METRIC_OVER_LION_BRAVE_TOP_HC_BOTTOM",
       "originalApprovedArtPath": "assets/round-clubs/200_points_gold_200.webp",
       "originalApprovedArtSha256": "8666bc382935779e06211aad4440664799d23f6771cf254356ba2b8e1b8edf04"
     },
@@ -221,14 +239,14 @@
       "value": 300,
       "tier": "platinum",
       "sourceVerifiedInSnapshot": true,
-      "bytes": 36286,
-      "sha256": "21cb1ce598c4b859272c8b75d5db0b69fe89b023a2c7879bcd713edfd7c029ee",
+      "bytes": 34960,
+      "sha256": "36bed80c9d6e33e413bd7fdfb2718ad71a9f6d71faad1c03227cfc8cee931600",
       "size": [
         200,
         200
       ],
       "background": "AUTHENTIC_FULL_BLEED_BRAVE_HC_CREST",
-      "foreground": "UNIFORM_CENTERED_NUMBER_AND_METRIC_DARK_PLAQUE",
+      "foreground": "UNIFORM_CENTERED_NUMBER_METRIC_OVER_LION_BRAVE_TOP_HC_BOTTOM",
       "originalApprovedArtPath": "assets/round-clubs/300_points_platinum_200.webp",
       "originalApprovedArtSha256": "80a8730aaed8938ef5e8a1ee1b25579dda5546fa87b3bc50f0a2c142c1fa03cf"
     },
@@ -238,14 +256,14 @@
       "value": 400,
       "tier": "platinum",
       "sourceVerifiedInSnapshot": false,
-      "bytes": 35728,
-      "sha256": "d6ba3e6ae8a99be80aaeeb45f400af4bdba62606e5c8a420eab3de497f211a0f",
+      "bytes": 34480,
+      "sha256": "03be358b03357cdc339c7773ba831972684d98bd743be1ea4145940951ed0243",
       "size": [
         200,
         200
       ],
       "background": "AUTHENTIC_FULL_BLEED_BRAVE_HC_CREST",
-      "foreground": "UNIFORM_CENTERED_NUMBER_AND_METRIC_DARK_PLAQUE",
+      "foreground": "UNIFORM_CENTERED_NUMBER_METRIC_OVER_LION_BRAVE_TOP_HC_BOTTOM",
       "originalApprovedArtPath": "assets/round-clubs/400_points_platinum_200.webp",
       "originalApprovedArtSha256": "6e45d82ca8dae6083ec729eeaeb6c7199d2bc3bb3ad8931b9a3eff105c13f5e0"
     },
@@ -255,14 +273,14 @@
       "value": 500,
       "tier": "platinum",
       "sourceVerifiedInSnapshot": false,
-      "bytes": 35996,
-      "sha256": "76571b79ce0cc8f0a8d247b82e0d3ff0c4b3e345a25ebe2b7dd223e0718ae6f5",
+      "bytes": 34648,
+      "sha256": "3ab46051f7184bcf8905be69994c8aa20f596db7bc8910056f53c9eb9c66e829",
       "size": [
         200,
         200
       ],
       "background": "AUTHENTIC_FULL_BLEED_BRAVE_HC_CREST",
-      "foreground": "UNIFORM_CENTERED_NUMBER_AND_METRIC_DARK_PLAQUE",
+      "foreground": "UNIFORM_CENTERED_NUMBER_METRIC_OVER_LION_BRAVE_TOP_HC_BOTTOM",
       "originalApprovedArtPath": "assets/round-clubs/500_points_platinum_200.webp",
       "originalApprovedArtSha256": "0c196c649cb876897ed44b5c18a28d6fc8c415fc81117d910ea89c0adbccebd2"
     },
@@ -272,14 +290,14 @@
       "value": 750,
       "tier": "platinum",
       "sourceVerifiedInSnapshot": false,
-      "bytes": 36038,
-      "sha256": "55bb753feebda603a92f7bf256b80c2f62bfaa80ad0252bbd13a953e4c60bd77",
+      "bytes": 34548,
+      "sha256": "0b8dc6f78d7ac6dcc05cb857905fbe12a36e7dcfe9de68f034eb1f7ffd123cc3",
       "size": [
         200,
         200
       ],
       "background": "AUTHENTIC_FULL_BLEED_BRAVE_HC_CREST",
-      "foreground": "UNIFORM_CENTERED_NUMBER_AND_METRIC_DARK_PLAQUE",
+      "foreground": "UNIFORM_CENTERED_NUMBER_METRIC_OVER_LION_BRAVE_TOP_HC_BOTTOM",
       "originalApprovedArtPath": "assets/round-clubs/750_points_platinum_200.webp",
       "originalApprovedArtSha256": "a2e5ff86da5320466fe5d124ff96bf2055c5fecf11bcda8f42060413c1791716"
     },
@@ -289,14 +307,14 @@
       "value": 1000,
       "tier": "platinum",
       "sourceVerifiedInSnapshot": false,
-      "bytes": 36322,
-      "sha256": "d0215eb6eb8e005f649bc6f6305069e62edc7d79d353ab81c72aa7e3b5ee29c6",
+      "bytes": 34608,
+      "sha256": "b2e092f31438df815aef625255ddfedf853c6775cefc9105702f360ded3727da",
       "size": [
         200,
         200
       ],
       "background": "AUTHENTIC_FULL_BLEED_BRAVE_HC_CREST",
-      "foreground": "UNIFORM_CENTERED_NUMBER_AND_METRIC_DARK_PLAQUE",
+      "foreground": "UNIFORM_CENTERED_NUMBER_METRIC_OVER_LION_BRAVE_TOP_HC_BOTTOM",
       "originalApprovedArtPath": "assets/round-clubs/1000_points_platinum_200.webp",
       "originalApprovedArtSha256": "3ab4bc1b6c5929a283da0760e161fe63258ce178acb039a33393960ae9301b50"
     },
@@ -306,14 +324,14 @@
       "value": 50,
       "tier": "bronze",
       "sourceVerifiedInSnapshot": true,
-      "bytes": 33496,
-      "sha256": "1a02d5d6d60b2d97cfed0d61991d4167a71cdccaae9b109084379ce700d13cb4",
+      "bytes": 32120,
+      "sha256": "9676974b6a6200830d8711d7e13157f666d840994809dc088ef6957ba9187471",
       "size": [
         200,
         200
       ],
       "background": "AUTHENTIC_FULL_BLEED_BRAVE_HC_CREST",
-      "foreground": "UNIFORM_CENTERED_NUMBER_AND_METRIC_DARK_PLAQUE",
+      "foreground": "UNIFORM_CENTERED_NUMBER_METRIC_OVER_LION_BRAVE_TOP_HC_BOTTOM",
       "originalApprovedArtPath": "assets/round-clubs/50_wins_bronze_200.webp",
       "originalApprovedArtSha256": "287175ab3a64122a8206d20ea762ad5e370f205cb225c515a6634d4cd85ca44c"
     },
@@ -323,14 +341,14 @@
       "value": 100,
       "tier": "silver",
       "sourceVerifiedInSnapshot": true,
-      "bytes": 32676,
-      "sha256": "3b5a60014b753ce50b9aca00c4df79326a9a84cb6454572ab8b73a51ba028bdf",
+      "bytes": 31588,
+      "sha256": "06b47f244ab14e66fcd6f9c2d7fe706330794a6c69fb03e7654d587eb581a168",
       "size": [
         200,
         200
       ],
       "background": "AUTHENTIC_FULL_BLEED_BRAVE_HC_CREST",
-      "foreground": "UNIFORM_CENTERED_NUMBER_AND_METRIC_DARK_PLAQUE",
+      "foreground": "UNIFORM_CENTERED_NUMBER_METRIC_OVER_LION_BRAVE_TOP_HC_BOTTOM",
       "originalApprovedArtPath": "assets/round-clubs/100_wins_silver_200.webp",
       "originalApprovedArtSha256": "7a779d5363b353881f4375512d4615a9c4287824fd29cebbef53b6f5c5172cb6"
     },
@@ -340,14 +358,14 @@
       "value": 200,
       "tier": "gold",
       "sourceVerifiedInSnapshot": false,
-      "bytes": 34600,
-      "sha256": "c5b17914116ed65f4af8851aebf752621999b71521601b1080c32b22a2cc89ae",
+      "bytes": 33502,
+      "sha256": "b74371fbf5595b6007bb95a449f31426391577624eb5a2d7e9bf73158216a1a7",
       "size": [
         200,
         200
       ],
       "background": "AUTHENTIC_FULL_BLEED_BRAVE_HC_CREST",
-      "foreground": "UNIFORM_CENTERED_NUMBER_AND_METRIC_DARK_PLAQUE",
+      "foreground": "UNIFORM_CENTERED_NUMBER_METRIC_OVER_LION_BRAVE_TOP_HC_BOTTOM",
       "originalApprovedArtPath": "assets/round-clubs/200_wins_gold_200.webp",
       "originalApprovedArtSha256": "436dc0f379dfc80d98db95c7723f41d966ece9b6dc78b70ac3b55d98e1529306"
     },
@@ -357,14 +375,14 @@
       "value": 300,
       "tier": "platinum",
       "sourceVerifiedInSnapshot": false,
-      "bytes": 36026,
-      "sha256": "e3b221793749cc348d63a3f950438edd90018a365f0a679843848c62e223e291",
+      "bytes": 34506,
+      "sha256": "59ab779edd79c66b9e35edb9491efb77b1b59ff444209406b2fcef44ebcdb89d",
       "size": [
         200,
         200
       ],
       "background": "AUTHENTIC_FULL_BLEED_BRAVE_HC_CREST",
-      "foreground": "UNIFORM_CENTERED_NUMBER_AND_METRIC_DARK_PLAQUE",
+      "foreground": "UNIFORM_CENTERED_NUMBER_METRIC_OVER_LION_BRAVE_TOP_HC_BOTTOM",
       "originalApprovedArtPath": "assets/round-clubs/300_wins_platinum_200.webp",
       "originalApprovedArtSha256": "329830ee66ce7be33b9c61bf9f63ba0be24409d0fc00eee1b0b271b861bc4b87"
     },
@@ -374,14 +392,14 @@
       "value": 400,
       "tier": "platinum",
       "sourceVerifiedInSnapshot": false,
-      "bytes": 35470,
-      "sha256": "121c1477f1014f51e41e3af1b469bcff0dd2998a70d41d3ba2fe1254814ca250",
+      "bytes": 34162,
+      "sha256": "dce1edbf7a5f50da260c7fefd9ebab4d4f81cfae61d103c8b996319166a22ebb",
       "size": [
         200,
         200
       ],
       "background": "AUTHENTIC_FULL_BLEED_BRAVE_HC_CREST",
-      "foreground": "UNIFORM_CENTERED_NUMBER_AND_METRIC_DARK_PLAQUE",
+      "foreground": "UNIFORM_CENTERED_NUMBER_METRIC_OVER_LION_BRAVE_TOP_HC_BOTTOM",
       "originalApprovedArtPath": "assets/round-clubs/400_wins_platinum_200.webp",
       "originalApprovedArtSha256": "69dc14ea16c2635b94bb797c7079d4cf9c1b1357c76affca2b82f19b613621d1"
     },
@@ -391,14 +409,14 @@
       "value": 500,
       "tier": "platinum",
       "sourceVerifiedInSnapshot": false,
-      "bytes": 35886,
-      "sha256": "2658a469f1093f61dd6608f7c73e531ceae2f64a966539a8000b3b9cc841d111",
+      "bytes": 34746,
+      "sha256": "bf526a8e6629c7adca42b01330fafad9565ec0d06452668b6f3b5e3e79b28c92",
       "size": [
         200,
         200
       ],
       "background": "AUTHENTIC_FULL_BLEED_BRAVE_HC_CREST",
-      "foreground": "UNIFORM_CENTERED_NUMBER_AND_METRIC_DARK_PLAQUE",
+      "foreground": "UNIFORM_CENTERED_NUMBER_METRIC_OVER_LION_BRAVE_TOP_HC_BOTTOM",
       "originalApprovedArtPath": "assets/round-clubs/500_wins_platinum_200.webp",
       "originalApprovedArtSha256": "4b4b667798d8d98b2d02a49c50065244eee897b47eeb545db676d5b0d2e64569"
     },
@@ -408,14 +426,14 @@
       "value": 50,
       "tier": "bronze",
       "sourceVerifiedInSnapshot": true,
-      "bytes": 33950,
-      "sha256": "daee268447059950c36f4a8c2d0b603f68eb7cd0e5dde322363344b608fa9c67",
+      "bytes": 32398,
+      "sha256": "a49f733e080626324de1f02b81f03610d879b5fa5c4cc1fb1b1b6b3cf12978e0",
       "size": [
         200,
         200
       ],
       "background": "AUTHENTIC_FULL_BLEED_BRAVE_HC_CREST",
-      "foreground": "UNIFORM_CENTERED_NUMBER_AND_METRIC_DARK_PLAQUE",
+      "foreground": "UNIFORM_CENTERED_NUMBER_METRIC_OVER_LION_BRAVE_TOP_HC_BOTTOM",
       "originalApprovedArtPath": null,
       "originalApprovedArtSha256": null
     },
@@ -425,14 +443,14 @@
       "value": 100,
       "tier": "silver",
       "sourceVerifiedInSnapshot": true,
-      "bytes": 32792,
-      "sha256": "bdb1147b2dafb7bcbc2c6fcbec5cd509e9abbb2ba9b41c27bc416ba7e8b76f87",
+      "bytes": 31914,
+      "sha256": "380eb06649c375f7ad019030d4e0c4427eb03e9efba70e3dc01908ef5350b543",
       "size": [
         200,
         200
       ],
       "background": "AUTHENTIC_FULL_BLEED_BRAVE_HC_CREST",
-      "foreground": "UNIFORM_CENTERED_NUMBER_AND_METRIC_DARK_PLAQUE",
+      "foreground": "UNIFORM_CENTERED_NUMBER_METRIC_OVER_LION_BRAVE_TOP_HC_BOTTOM",
       "originalApprovedArtPath": null,
       "originalApprovedArtSha256": null
     },
@@ -442,14 +460,14 @@
       "value": 50,
       "tier": "bronze",
       "sourceVerifiedInSnapshot": true,
-      "bytes": 34668,
-      "sha256": "5902444f66f666b25adedba36cb6305f6793a457cf8043e527279497a2b29d89",
+      "bytes": 33340,
+      "sha256": "7d12ba2e7300a06b30054be33d014568de0d3766e25dec156c866dff722bb94a",
       "size": [
         200,
         200
       ],
       "background": "AUTHENTIC_FULL_BLEED_BRAVE_HC_CREST",
-      "foreground": "UNIFORM_CENTERED_NUMBER_AND_METRIC_DARK_PLAQUE",
+      "foreground": "UNIFORM_CENTERED_NUMBER_METRIC_OVER_LION_BRAVE_TOP_HC_BOTTOM",
       "originalApprovedArtPath": null,
       "originalApprovedArtSha256": null
     },
@@ -459,14 +477,14 @@
       "value": 100,
       "tier": "silver",
       "sourceVerifiedInSnapshot": true,
-      "bytes": 33316,
-      "sha256": "8b961d2c9619385ae562da977ed95a552d9f5ba3e625ab7fff4903571772c6e1",
+      "bytes": 32180,
+      "sha256": "70cc3233bc93e37bfc74191bf0f1d94874761d24824a153ee6f51b1f8209c341",
       "size": [
         200,
         200
       ],
       "background": "AUTHENTIC_FULL_BLEED_BRAVE_HC_CREST",
-      "foreground": "UNIFORM_CENTERED_NUMBER_AND_METRIC_DARK_PLAQUE",
+      "foreground": "UNIFORM_CENTERED_NUMBER_METRIC_OVER_LION_BRAVE_TOP_HC_BOTTOM",
       "originalApprovedArtPath": null,
       "originalApprovedArtSha256": null
     },
@@ -476,14 +494,14 @@
       "value": 200,
       "tier": "gold",
       "sourceVerifiedInSnapshot": true,
-      "bytes": 35298,
-      "sha256": "fa530af09ec420a5472ee3acb3c2e17423a1a8f1c13ae0e5a4d87af5f6ca4235",
+      "bytes": 34222,
+      "sha256": "e2bd618c99c040896f8f8923d0ca54fa5fb1253025bbdfe814aa8a0abf88bc1a",
       "size": [
         200,
         200
       ],
       "background": "AUTHENTIC_FULL_BLEED_BRAVE_HC_CREST",
-      "foreground": "UNIFORM_CENTERED_NUMBER_AND_METRIC_DARK_PLAQUE",
+      "foreground": "UNIFORM_CENTERED_NUMBER_METRIC_OVER_LION_BRAVE_TOP_HC_BOTTOM",
       "originalApprovedArtPath": null,
       "originalApprovedArtSha256": null
     },
@@ -493,14 +511,14 @@
       "value": 5,
       "tier": "bronze",
       "sourceVerifiedInSnapshot": true,
-      "bytes": 34132,
-      "sha256": "0ddbb25166bb329e195172d7efe16788fca3169b0e6b1c2803142ac65d48bbbd",
+      "bytes": 32686,
+      "sha256": "cccbd84a8c6732c66229c0aab2655b448b8967f4e0c09bd2a011f336fed3b576",
       "size": [
         200,
         200
       ],
       "background": "AUTHENTIC_FULL_BLEED_BRAVE_HC_CREST",
-      "foreground": "UNIFORM_CENTERED_NUMBER_AND_METRIC_DARK_PLAQUE",
+      "foreground": "UNIFORM_CENTERED_NUMBER_METRIC_OVER_LION_BRAVE_TOP_HC_BOTTOM",
       "originalApprovedArtPath": null,
       "originalApprovedArtSha256": null
     },
@@ -510,14 +528,14 @@
       "value": 10,
       "tier": "silver",
       "sourceVerifiedInSnapshot": true,
-      "bytes": 33106,
-      "sha256": "76d848e39e69586616a36e3079cd4248eb2fa1dced1219303dfc440927cfc494",
+      "bytes": 31532,
+      "sha256": "d4444b2a97e9f35d828cc96d786dd63597972920b22bc4533776662d1532fc80",
       "size": [
         200,
         200
       ],
       "background": "AUTHENTIC_FULL_BLEED_BRAVE_HC_CREST",
-      "foreground": "UNIFORM_CENTERED_NUMBER_AND_METRIC_DARK_PLAQUE",
+      "foreground": "UNIFORM_CENTERED_NUMBER_METRIC_OVER_LION_BRAVE_TOP_HC_BOTTOM",
       "originalApprovedArtPath": null,
       "originalApprovedArtSha256": null
     }

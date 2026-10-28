@@ -76,18 +76,14 @@ def render(logo:Image.Image,count:int,metric:str,tier:str)->Image.Image:
   rings.arc((39,39,561,561),198,222,fill="#E8FDFF",width=4)
   rings.polygon(((509,119),(516,135),(532,142),(516,149),(509,165),(502,149),(486,142),(502,135)),
                 fill="#DCFBFF")
- overlay=Image.new("RGBA",(S,S),(0,0,0,0))
- pixels=overlay.load()
- for y in range(298,555):
-  a=round(154*min(1,(y-298)/112))
-  for x in range(50,550):
-   if (x-300)**2+(y-300)**2<=248**2:pixels[x,y]=(4,16,28,a)
- medal=Image.alpha_composite(medal,overlay)
+ # An anchored center plate covers the lion while the original crest's
+ # BRAVE lettering (top) and H.C. lettering (bottom) remain unobstructed.
+ # Do not darken the bottom of the crest: previous lower shading hid H.C.
  plaque=Image.new("RGBA",(S,S),(0,0,0,0))
  pd=ImageDraw.Draw(plaque,"RGBA")
- pd.rounded_rectangle((95,325,505,521),radius=30,fill=(4,18,35,231),
+ pd.rounded_rectangle((83,174,517,433),radius=92,fill=(4,18,35,239),
                       outline=m["rim"],width=5)
- pd.line((149,445,451,445),fill=m["rim"],width=3)
+ pd.line((151,333,449,333),fill=m["rim"],width=3)
  medal=Image.alpha_composite(medal,plaque)
  dr=ImageDraw.Draw(medal)
  number=str(count)
@@ -99,9 +95,9 @@ def render(logo:Image.Image,count:int,metric:str,tier:str)->Image.Image:
  wordBBox=dr.textbbox((0,0),metricName,font=labelFont)
  assert numBBox[2]-numBBox[0]<390,(count,metric,"number overflow")
  assert wordBBox[2]-wordBBox[0]<390,(count,metric,"metric overflow")
- dr.text((300,384),number,font=numberFont,anchor="mm",fill="#FFFFFF",
+ dr.text((300,271),number,font=numberFont,anchor="mm",fill="#FFFFFF",
          stroke_width=4,stroke_fill="#092136")
- dr.text((300,479),metricName,font=labelFont,anchor="mm",fill=m["light"],
+ dr.text((300,372),metricName,font=labelFont,anchor="mm",fill=m["light"],
          stroke_width=1,stroke_fill="#091A2C")
  hard=Image.new("L",(S,S),0);ImageDraw.Draw(hard).ellipse((17,17,583,583),fill=255)
  medal.putalpha(ImageChops.darker(medal.getchannel("A"),hard))
@@ -136,7 +132,7 @@ def build():
    "sourceVerifiedInSnapshot":bool(source["sourceVerifiedInSnapshot"]) if source else True,
    "bytes":len(b),"sha256":sha(b),"size":[200,200],
    "background":"AUTHENTIC_FULL_BLEED_BRAVE_HC_CREST",
-   "foreground":"UNIFORM_CENTERED_NUMBER_AND_METRIC_DARK_PLAQUE",
+   "foreground":"UNIFORM_CENTERED_NUMBER_METRIC_OVER_LION_BRAVE_TOP_HC_BOTTOM",
    "originalApprovedArtPath":source["path"] if source else None,
    "originalApprovedArtSha256":source["sha256"] if source else None
   })
@@ -147,7 +143,11 @@ def build():
   "original5000PixelLogoSha256":PRIVATE_ARCHIVE_LOGO_SHA,
   "approvedRoundClubSourceManifestSha256":archivehash,
   "original22ApprovedClubAssetsUnchanged":True,
-  "design":"One full-crest medallion with exact centred foreground number and label, tier metallic outline and transparent exterior for all six metric families.",
+  "design":"All 29 medals: full authentic crest, center text/number over lion, BRAVE clearly above and H.C. clearly below, tier rim and transparent exterior.",
+  "centeredOverlayGeometryAt600":[83,174,517,433],
+  "numberCenterAt600":[300,271],
+  "metricCenterAt600":[300,372],
+  "crestLetteringPreserved":["BRAVE","H.C."],
   "uniformBadgeNumberFontPxAt600":NUMBER_FONT_SIZE,
   "uniformBadgeMetricFontPxAt600":METRIC_FONT_SIZE,
   "platinumVisualFinish":"PRISMATIC_DIAMOND_CYAN_AZURE_VIOLET_DISTINCT_FROM_SILVER",

@@ -142,7 +142,7 @@ function clubArtFor(item){
 function clubImageSource(art){
  if(art.generated)return './brave_hc_logo.png';
  return root+'assets/'+(art.fullCrest?'full-crest-clubs/':'round-clubs/')+art.file+
-        (art.fullCrest?'?v=fullcrest-20261028':'?v=transparent-20261027');
+        (art.fullCrest?'?v=centered-20261028':'?v=transparent-20261027');
 }
 function paintVerifiedFutureClub(image,art){
  // Current archive templates cover existing levels; future published levels are
@@ -168,10 +168,6 @@ function paintVerifiedFutureClub(image,art){
    const [metal,bright]=colors[art.tier]||colors.platinum;
    ctx.save();ctx.beginPath();ctx.arc(100,100,91,0,Math.PI*2);ctx.clip();
    ctx.drawImage(lion,11,11,178,178);
-   const fade=ctx.createLinearGradient(0,98,0,182);
-   fade.addColorStop(0,'rgba(4,16,28,0)');
-   fade.addColorStop(1,'rgba(4,16,28,0.65)');
-   ctx.fillStyle=fade;ctx.fillRect(8,98,184,90);
    ctx.restore();
    ctx.beginPath();ctx.arc(100,100,91,0,2*Math.PI);
    ctx.strokeStyle=metal;ctx.lineWidth=4;ctx.stroke();
@@ -183,20 +179,22 @@ function paintVerifiedFutureClub(image,art){
     ctx.beginPath();ctx.arc(100,100,91,Math.PI*.7,Math.PI*.9);
     ctx.strokeStyle='#9165ed';ctx.lineWidth=3.8;ctx.stroke();
    }
-   ctx.beginPath();ctx.roundRect(31,108,138,66,10);
-   ctx.fillStyle='rgba(4,18,35,0.91)';ctx.fill();
+   // Maintain BRAVE and H.C. visible: put only the lion under a dark,
+   // rounded central field. Matches every static 200px medal's proportions.
+   ctx.beginPath();ctx.roundRect(28,58,144,86,30);
+   ctx.fillStyle='rgba(4,18,35,0.94)';ctx.fill();
    ctx.strokeStyle=metal;ctx.lineWidth=1.7;ctx.stroke();
    // Same centred number and metric sizes for every future club threshold.
    ctx.font='bold 39px Arial';
    ctx.textAlign='center';ctx.textBaseline='middle';
    ctx.strokeStyle='#092136';ctx.lineWidth=2.5;ctx.fillStyle='#ffffff';
-   ctx.strokeText(String(art.count),100,128);
-   ctx.fillText(String(art.count),100,128);
-   ctx.beginPath();ctx.moveTo(50,148);ctx.lineTo(150,148);
+   ctx.strokeText(String(art.count),100,90);
+   ctx.fillText(String(art.count),100,90);
+   ctx.beginPath();ctx.moveTo(50,112);ctx.lineTo(150,112);
    ctx.strokeStyle=metal;ctx.lineWidth=1;ctx.stroke();
    ctx.font='bold 17px Arial';
    ctx.fillStyle=bright;
-   ctx.fillText(art.metric.toUpperCase(),100,159);
+   ctx.fillText(art.metric.toUpperCase(),100,126);
    image.src=canvas.toDataURL('image/png');
    return;
   }
@@ -582,14 +580,64 @@ function renderHonorsWall(record){
  more.onclick=()=>{honorsShowAll=!honorsShowAll;paint();};
  paint();
 }
+// A source-aware presentation class, not a new historical HTO record type.
+// A "tied" mark has another equal VALUE in the same exact HTO
+// Individual Records category/period. A "set" mark is unique at that value.
+// These labels describe the current official list, not first chronological
+// claimant, active all-time rank, or a newly certified club record.
+function resolveOfficialRecordMarkEvidence(book,history){
+ if(book?.sourceAuthority!=='NATIVE_HTO_RECORDS_PUBLIC_READBACK'||
+    book.schema!=='brave-hc-player-record-book/v1'||
+    history?.schema!=='brave-hc-hto-history-snapshot/v1'||
+    history.type!=='records'||history.source?.authority!=='OFFICIAL_HTO_PUBLIC_READBACK'||
+    history.source.url!==book.sourceURL||history.capturedAt!==book.capturedAt||
+    !Number.isInteger(history.entryCount)||!Array.isArray(history.groups))return null;
+ const groups=new Map();
+ let total=0;
+ for(const group of history.groups){
+  if(!['Individual Records','Team Records'].includes(group.section)||
+     typeof group.category!=='string'||typeof group.period!=='string'||
+     !Array.isArray(group.items))return null;
+  const key=JSON.stringify([group.section,group.category,group.period]);
+  if(groups.has(key))return null;
+  const names=new Map(),marks=new Map();
+  for(const source of group.items){
+   if(typeof source!=='string')return null;
+   names.set(source,(names.get(source)||0)+1);
+   const match=/^(.+?)\s+-\s+/.exec(source);
+   if(!match)return null;
+   const value=match[1].trim();
+   marks.set(value,(marks.get(value)||0)+1);
+   total++;
+  }
+  groups.set(key,{names,marks});
+ }
+ if(total!==history.entryCount)return null;
+ return {groups,snapshot:history.capturedAt};
+}
+function classifyVerifiedRecordMark(entry,evidence){
+ if(!evidence)return {status:'unverified',count:0};
+ const key=JSON.stringify(['Individual Records',entry.category,entry.scope]);
+ const group=evidence.groups.get(key);
+ if(!group||group.names.get(entry.sourceText)!==1||
+    !Number.isInteger(group.marks.get(entry.value)))return {status:'unverified',count:0};
+ const prefix=/^(.+?)\s+-\s+/.exec(entry.sourceText);
+ if(!prefix||prefix[1].trim()!==entry.value)return {status:'unverified',count:0};
+ const count=group.marks.get(entry.value);
+ return {status:count>1?'tied':'set',count};
+}
+const recordMarkLabel=e=>e.recordMark==='tied'?'RECORD TIED':
+ e.recordMark==='set'?'RECORD SET':'RECORD MARK';
+const recordMarkClass=e=>e.recordMark==='tied'?' ph-record-tied':
+ e.recordMark==='set'?' ph-record-set':' ph-record-unverified';
 function inventoryCard(item){
  const isStat=item.kind==='stat';
  const isDiscipline=!isStat&&item.item.category==='discipline';
  const isMilestone=!isStat&&item.item.category==='milestone';
  const badge=isMilestone?clubArtFor(item.item):null;
- const card=text('article','','ph-inventory-card '+(isStat?'ph-inventory-stat':isDiscipline?'ph-inventory-discipline':isMilestone?'ph-inventory-milestone':'ph-inventory-honor ph-gold-honour')+
+ const card=text('article','','ph-inventory-card '+(isStat?'ph-inventory-stat'+recordMarkClass(item.item):isDiscipline?'ph-inventory-discipline':isMilestone?'ph-inventory-milestone':'ph-inventory-honor ph-gold-honour')+
   (badge?.fullCrestFamily?' ph-fullcrest-family ph-fullcrest-'+badge.tier:''));
- let kind=isStat?'PUBLISHED RECORD':isDiscipline?'DISCIPLINARY RECORD — NOT AN AWARD':
+ let kind=isStat?recordMarkLabel(item.item):isDiscipline?'DISCIPLINARY RECORD — NOT AN AWARD':
   isMilestone?'EARNED MILESTONE':item.item.category==='award'?'AWARD':
   item.item.category==='championship'?'CHAMPIONSHIP':item.item.category==='leadership'?'LEADERSHIP':'HISTORICAL RECOGNITION';
  card.append(text('span',kind,'ph-inventory-kind'));
@@ -604,10 +652,15 @@ function inventoryCard(item){
    text('span',prettyRecordDate(item.item.dateLabel||''),'ph-inventory-date'));
  }else{
   const raw=achievementDisplayText(item.item);
-  const parts=item.item.preserveLines?[raw]:raw.split(' - ');
+  const parts=item.item.preserveLines?[raw]:raw.replace(/[\u00a0\ufffd]/g,' ').split(/\s+-\s+/);
   const title=parts.length>1?parts.slice(0,-1).join(' - '):raw;
   const when=parts.length>1?parts.at(-1):'Published historical entry';
   card.append(text('strong',title,'ph-inventory-name'),text('span',prettyRecordDate(when),'ph-inventory-date'));
+  if(isMilestone&&badge){
+   const tier=text('span',badge.tier.toUpperCase(),'ph-inventory-tier');
+   tier.setAttribute('aria-label',badge.tier+' milestone level');
+   card.append(tier);
+  }
  }
  return card;
 }
@@ -638,10 +691,10 @@ function renderRecordCards(){
  const paint=()=>{
   grid.replaceChildren();
   for(const entry of list.slice(0,recordsShowCount)){
-   const card=text('article','','ph-record-card');
+   const card=text('article','','ph-record-card'+recordMarkClass(entry));
    const metric=entry.category.replace(/^(?:Summer|Winter)\s+-\s+/,'');
    const season=entry.category.startsWith('Summer')?'Summer':entry.category.startsWith('Winter')?'Winter':'All seasons';
-   card.append(text('span','OFFICIAL RECORD','ph-record-kind'),
+   card.append(text('span',recordMarkLabel(entry),'ph-record-kind'),
     text('strong',String(entry.value??''),'ph-record-figure'),
     text('strong',metric,'ph-record-title'));
    const ctx=text('div','','ph-record-context');
@@ -937,15 +990,19 @@ function renderCareer(data){
  }
  return p;
 }
-function renderRecords(data){
+function renderRecords(data,history){
  if(data?.schema!=='brave-hc-player-record-book/v1'||
     data.sourceAuthority!=='NATIVE_HTO_RECORDS_PUBLIC_READBACK')return;
  const p=data.players?.[String(playerId)];
  if(!p||p.name!==identity.name||!Array.isArray(p.entries))return;
+ const evidence=resolveOfficialRecordMarkEvidence(data,history);
  const entries=p.entries.filter(e=>typeof e.category==='string'&&
   typeof e.scope==='string'&&typeof e.sourceText==='string'&&
-  typeof e.value==='string');
- currentRecordBook={entries,capturedAt:data.capturedAt};
+  typeof e.value==='string').map(e=>{
+    const mark=classifyVerifiedRecordMark(e,evidence);
+    return {...e,recordMark:mark.status,recordMarkCount:mark.count};
+  });
+ currentRecordBook={entries,capturedAt:data.capturedAt,sourceMatch:!!evidence};
  const a=text('a','Official HTO record book ↗');
  a.href='https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=records';
  a.target='_blank';a.rel='noopener noreferrer';
@@ -1009,6 +1066,7 @@ function renderCurrent(feed,career) {
  ['awards-participants.json',x=>x],
  ['player-career-insights.json',x=>x],
  ['player-record-book.json',x=>x],
+ ['history-records.json',x=>x],
  ['player-highlights-display-corrections.json',validDisplayCorrections],
  ['player-actuals.json',x=>x],
  ['player-actuals-hourly.json',x=>x]
@@ -1016,7 +1074,7 @@ function renderCurrent(feed,career) {
  const results=await Promise.allSettled(resources.map(([file,validate])=>fetch(root+file,{cache:'no-store'}).then(async r=>{
   if(!r.ok)throw Error(file+' HTTP '+r.status);return validate(await r.json());
  })));
- const [legacyResult,feedResult,careerResult,recordsResult,correctionsResult,actualResult,hourlyResult]=results;
+ const [legacyResult,feedResult,careerResult,recordsResult,historyResult,correctionsResult,actualResult,hourlyResult]=results;
  try{
   const check=await fetch(root+'assets/approved/source-manifest.json',{cache:'no-store'});
   if(check.ok)approvedArtworkReady=validApprovedArtwork(await check.json());
@@ -1024,7 +1082,8 @@ function renderCurrent(feed,career) {
 
  let career=null;
  if(careerResult.status==='fulfilled')career=renderCareer(careerResult.value);
- if(recordsResult.status==='fulfilled')renderRecords(recordsResult.value);
+ if(recordsResult.status==='fulfilled')renderRecords(recordsResult.value,
+  historyResult.status==='fulfilled'?historyResult.value:null);
  if(legacyResult.status==='fulfilled'){
   const ledger=legacyResult.value,record=ledger.players[String(playerId)];
   if(record&&(record.name!==identity.name||!record.profileUrl.endsWith('playerID='+playerId)))warnings.push('Career highlights unavailable');
