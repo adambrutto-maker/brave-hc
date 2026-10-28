@@ -47,7 +47,7 @@ class SourceRefreshTests(unittest.TestCase):
         # Its two official record values must remain, without guessing identity.
         self.assertEqual(len([x for x in lines if x.startswith('2 - R') and 'Goali' in x and x.endswith('(2016)')]),1)
         self.assertEqual(len([x for x in lines if x.startswith('3.50 - R') and 'Goali' in x and x.endswith('(2016)')]),1)
-        self.assertEqual(records['entryCount'],460)
+        self.assertEqual(records['entryCount'],463)
 
     def test_explicit_utf8_json_round_trip_on_windows_locale(self):
         import tempfile
@@ -60,6 +60,19 @@ class SourceRefreshTests(unittest.TestCase):
         history,book = refresh.sync_published(self.history,self.book,copy.deepcopy(self.history['groups']),'later')
         self.assertEqual(history,self.history)
         self.assertEqual(book,self.book)
+
+    def test_order_only_htorecords_change_updates_widget_without_touching_player_book(self):
+        # Native HTO category sorting must refresh the history display
+        # even though no source record value or player identity changed.
+        source=copy.deepcopy(self.history['groups'])
+        source[0],source[1]=source[1],source[0]
+        self.assertEqual(refresh.inventory(source),refresh.inventory(self.history['groups']))
+        revised,book=refresh.sync_published(self.history,self.book,source,'later')
+        self.assertEqual(revised['groups'],source)
+        self.assertEqual(revised['entryCount'],463)
+        self.assertEqual(revised['capturedAt'],'later')
+        self.assertEqual(book,self.book)
+        self.assertEqual(refresh.inventory(revised['groups']),refresh.inventory(self.history['groups']))
 
     def test_historical_removal_rejected(self):
         groups=copy.deepcopy(self.history['groups']); groups[0]['items'].pop()

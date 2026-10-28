@@ -1,0 +1,20 @@
+{
+  "status": "NATIVE_HTO_463_RECORDS_AND_230_PLAYER_STATS_SOURCE_PARITY_PASS",
+  "old_records": 460,
+  "current_records": 463,
+  "original_honours_and_milestones_archive": 558,
+  "additional_native": [
+    "2 - Ben Sherritt (2014)",
+    "7 - Brave H.C. (Jul 10 - Sep 25, 2016)",
+    "14 - Brave H.C. (Oct 29, 2017 - Feb 11, 2018)"
+  ],
+  "player_record_count_before": 229,
+  "player_record_count_after": 230,
+  "source_only": true,
+  "original_history_sha256": "3ea69e9eb23a45c8bc72e25df77db68e8971f1d8a16885b720fd27b46c48a5e7",
+  "updated_history_sha256": "b24b3fdc847a22542a73ca0fc7165e6735e2fe926db12a36fa904d35267848e2",
+  "original_playerbook_sha256": "cd2d5a002fc2d49603e3e42f522cd03985aee5b6a9aafde799585ff83d02fa24",
+  "updated_playerbook_sha256": "4095cdf7c60572c206150c6216c75fafb98d928b1cc0bcefc2ddb3c162ed8127",
+  "original_archive_sha256": "affab0a369a757848e5a2f06c74e860eb8a19081de92e5532ec50a2617f0cafa",
+  "source_html_sha256": "70f8e58ae1aa4eabe498867dff3c14f3bd206bf659c99568d6347feec7e5dfaa"
+}
