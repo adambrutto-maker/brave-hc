@@ -74,7 +74,8 @@ function build(ledger,history,career,raw){
   (players[item.id]??={})[item.season]??=[];
   players[item.id][item.season].push({type:item.type,award:item.award,sourceTypes:item.sourceTypes.slice().sort()});
  }
- const hash=s=>crypto.createHash('sha256').update(s,'utf8').digest('hex');
+ // Source audit hashes use canonical LF so Windows/Unix checkout line endings cannot drift.
+ const hash=s=>crypto.createHash('sha256').update(String(s).replace(/\r\n?/g,'\n'),'utf8').digest('hex');
  const result={schema:'hockeyos-verified-season-scoring-titles/v1',
   sourcePolicy:'EXPLICIT_PUBLIC_HTO_HONORS_ONLY_NO_STAT_RANK_INFERENCE',
   sourceCaptured:{native:ledger.capturedAt,history:history.capturedAt},

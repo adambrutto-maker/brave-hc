@@ -59,3 +59,15 @@ test('historical title existence is preserved without exposing conflicting sourc
  assert.equal(verified.award,'Art Ross');
  assert.ok(!Object.hasOwn(verified,'points'));
 });
+
+test('source audit digests are identical for Windows CRLF and Unix LF line endings',()=>{
+ const l=fs.readFileSync(path.join(root,'widgets/player-highlights-ledger.json'),'utf8');
+ const h=fs.readFileSync(path.join(root,'widgets/history-awards.json'),'utf8');
+ const c=require('../widgets/player-career-insights.json');
+ const canon=s=>s.replace(/\r\n?/g,'\n');
+ const native=build(JSON.parse(l),JSON.parse(h),c,{ledger:canon(l),history:canon(h)});
+ const windows=build(JSON.parse(l),JSON.parse(h),c,
+   {ledger:canon(l).replace(/\n/g,'\r\n'),history:canon(h).replace(/\n/g,'\r\n')});
+ assert.deepEqual(native.manifest.sourceHashes,windows.manifest.sourceHashes);
+ assert.deepEqual(native.manifest.sourceHashes,manifest.sourceHashes);
+});
