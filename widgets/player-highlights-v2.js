@@ -111,11 +111,15 @@ const knownClubValues={
 // Seven source-dated Goal/Assist/Shutout achievement thresholds have finished
 // full-crest artwork; original Game, Point and Win artwork is NOT replaced.
 const fullCrestValues={
+ game:new Set([50,100,200,300,400,500,750,1000]),
+ point:new Set([50,100,200,300,400,500,750,1000]),
+ win:new Set([50,100,200,300,400,500]),
  goal:new Set([50,100]),
  assist:new Set([50,100,200]),
  shutout:new Set([5,10])
 };
-const fullCrestFamily=new Set(['goal','assist','shutout']);
+// Every published medal family shares one authentic crest/foreground art system.
+const fullCrestFamily=new Set(['game','point','win','goal','assist','shutout']);
 const clubTier=(n,kind)=>kind==='shutout'?(n<10?'bronze':n<20?'silver':n<30?'gold':'platinum'):(n<100?'bronze':n<200?'silver':n<300?'gold':'platinum');
 function clubArtFor(item){
  if(item.category!=='milestone')return null;
@@ -173,19 +177,20 @@ function paintVerifiedFutureClub(image,art){
    ctx.strokeStyle=metal;ctx.lineWidth=4;ctx.stroke();
    ctx.beginPath();ctx.arc(100,100,87,0,2*Math.PI);
    ctx.strokeStyle=bright;ctx.lineWidth=1.4;ctx.stroke();
-   ctx.beginPath();ctx.roundRect(31,111,138,57,10);
-   ctx.fillStyle='rgba(5,22,39,0.90)';ctx.fill();
+   ctx.beginPath();ctx.roundRect(31,108,138,66,10);
+   ctx.fillStyle='rgba(4,18,35,0.91)';ctx.fill();
    ctx.strokeStyle=metal;ctx.lineWidth=1.7;ctx.stroke();
-   ctx.font=(art.count<100?'bold 38px':art.count<1000?'bold 35px':'bold 28px')+' Arial';
+   // Same centred number and metric sizes for every future club threshold.
+   ctx.font='bold 39px Arial';
    ctx.textAlign='center';ctx.textBaseline='middle';
-   ctx.strokeStyle='#092136';ctx.lineWidth=2.8;ctx.fillStyle='#ffffff';
-   ctx.strokeText(String(art.count),100,132);
-   ctx.fillText(String(art.count),100,132);
-   ctx.beginPath();ctx.moveTo(57,145);ctx.lineTo(143,145);
+   ctx.strokeStyle='#092136';ctx.lineWidth=2.5;ctx.fillStyle='#ffffff';
+   ctx.strokeText(String(art.count),100,128);
+   ctx.fillText(String(art.count),100,128);
+   ctx.beginPath();ctx.moveTo(50,148);ctx.lineTo(150,148);
    ctx.strokeStyle=metal;ctx.lineWidth=1;ctx.stroke();
-   ctx.font=(art.metric.length<=6?'bold 14px':'bold 12px')+' Arial';
+   ctx.font='bold 17px Arial';
    ctx.fillStyle=bright;
-   ctx.fillText(art.metric.toUpperCase(),100,156);
+   ctx.fillText(art.metric.toUpperCase(),100,159);
    image.src=canvas.toDataURL('image/png');
    return;
   }
@@ -519,7 +524,7 @@ function renderHonorsWall(record){
  }
  const cardFor=item=>{
   const isDiscipline=item.category==='discipline';
-  const card=text('article','','ph-honor-card'+(isDiscipline?' ph-honor-discipline':''));
+  const card=text('article','','ph-honor-card'+(isDiscipline?' ph-honor-discipline':' ph-gold-honour'));
   const art=approvalForPublishedItem(item,awardArtFor(item)||clubArtFor(item)||
       specialArtFor(item)||heritageArtFor(item));
   const icon=text('span','','ph-honor-image');
@@ -576,7 +581,7 @@ function inventoryCard(item){
  const isDiscipline=!isStat&&item.item.category==='discipline';
  const isMilestone=!isStat&&item.item.category==='milestone';
  const badge=isMilestone?clubArtFor(item.item):null;
- const card=text('article','','ph-inventory-card '+(isStat?'ph-inventory-stat':isDiscipline?'ph-inventory-discipline':isMilestone?'ph-inventory-milestone':'ph-inventory-honor')+
+ const card=text('article','','ph-inventory-card '+(isStat?'ph-inventory-stat':isDiscipline?'ph-inventory-discipline':isMilestone?'ph-inventory-milestone':'ph-inventory-honor ph-gold-honour')+
   (badge?.fullCrestFamily?' ph-fullcrest-family ph-fullcrest-'+badge.tier:''));
  let kind=isStat?'PUBLISHED RECORD':isDiscipline?'DISCIPLINARY RECORD — NOT AN AWARD':
   isMilestone?'EARNED MILESTONE':item.item.category==='award'?'AWARD':

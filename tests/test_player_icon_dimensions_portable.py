@@ -20,8 +20,8 @@ ROOT=Path(__file__).resolve().parents[1]
 LEDGER=json.loads((ROOT/"widgets/player-highlights-ledger.json").read_text(encoding="utf-8"))
 PLAYERS={pid:p for pid,p in LEDGER["players"].items() if p["items"]}
 HAS_APPROVED=(ROOT/"widgets/assets/approved/source-manifest.json").is_file()
-EXPECTED={"approved":209,"club":97} if HAS_APPROVED else {"award":105,"club":97,"special":58,"heritage":46}
-ICON_GROUPS={"award":"awards","club":"round-clubs","special":"special","heritage":"heritage","approved":"approved"}
+EXPECTED={"approved":209,"club":134} if HAS_APPROVED else {"award":105,"club":134,"special":58,"heritage":46}
+ICON_GROUPS={"award":"awards","club":"full-crest-clubs","special":"special","heritage":"heritage","approved":"approved"}
 
 class QuietHandler(http.server.SimpleHTTPRequestHandler):
     def log_message(self,*args): pass
@@ -45,7 +45,7 @@ def browser_driver():
 def run():
     assert len(PLAYERS)==43
     assert sum(len(p["items"]) for p in PLAYERS.values())==343
-    for group in ("awards","clubs","special","heritage"):
+    for group in ("awards","clubs","special","heritage","full-crest-clubs"):
         path=ROOT/"widgets/assets"/group
         m=json.loads((path/"source-manifest.json").read_text("utf-8"))
         for asset in m["assets"]:
@@ -87,7 +87,7 @@ def run():
                   const expectedPx=arguments[0],rows=[...document.querySelectorAll('#legacy .ph-event')];
                   const imgs=[...document.querySelectorAll('#legacy .ph-event img')];
                   const title=r=>r.querySelector('.ph-event-title')?.textContent||'';
-                  const categories=Object.fromEntries(['awards','round-clubs','special','heritage','approved'].map(g=>[g,
+                  const categories=Object.fromEntries(['awards','full-crest-clubs','special','heritage','approved'].map(g=>[g,
                     imgs.filter(i=>i.getAttribute('src').includes('/assets/'+g+'/')).length]));
                   const wrongSize=imgs.filter(i=> {
                     const r=i.parentElement.getBoundingClientRect();

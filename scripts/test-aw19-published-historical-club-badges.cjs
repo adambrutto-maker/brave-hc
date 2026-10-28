@@ -60,4 +60,4 @@ const futureArt=artctx.clubArt(futureFixture);
 assert.equal(futureArt.generated,true,'Future verified Goal threshold must stay dynamically generated');
 assert.equal(futureArt.fullCrestFamily,true);
 assert.equal(futureArt.tier,'platinum');
-console.log('PASS 306 original highlights + 37 dated HTO Awards: 7 exact authentic full-crest source artworks; future platinum stays generated; date/identity/award guards');
+console.log('PASS all 134 verified milestones use the same authentic full-crest style (22 preserved originals + 7 new art thresholds); 37 dated HTO awards remain exact; future platinum generated; date/identity guards');

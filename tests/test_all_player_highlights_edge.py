@@ -32,7 +32,7 @@ try:
             WebDriverWait(browser,18).until(lambda d: d.execute_script("return [...document.querySelectorAll('#legacy .ph-event img')].every(i=>i.complete)"))
             facts=browser.execute_script("""const rows=[...document.querySelectorAll('#legacy .ph-event')],imgs=[...document.querySelectorAll('#legacy .ph-event img')];
 return {name:document.querySelector('#playerName').textContent,rows:rows.length,broken:imgs.filter(i=>!i.naturalWidth).map(i=>i.src),
-award:imgs.filter(i=>i.src.includes('/assets/awards/')).length,clubs:imgs.filter(i=>i.src.includes('/assets/round-clubs/')).length,
+award:imgs.filter(i=>i.src.includes('/assets/awards/')).length,clubs:imgs.filter(i=>i.src.includes('/assets/full-crest-clubs/')).length,
 titles:rows.map(r=>r.querySelector('.ph-event-title')?.textContent||''),
 overflow:document.documentElement.scrollWidth>innerWidth+4,notice:document.querySelector('#notice').textContent};""")
             assert facts["name"]==rec["name"],(pid,"identity mismatch",facts["name"])
