@@ -167,8 +167,13 @@ def sync_published(history, book, groups, now):
         updated.update(groups=groups, entryCount=sum(len(g['items']) for g in groups), capturedAt=now)
         result['capturedAt'] = now
     else:
-        # Preserve source ordering and metadata on a no-change verification.
-        return history, book
+        # Native HTO may reorder existing verified record categories without
+        # changing a single record. Reflect their official display order in
+        # the Records widget while preserving the player-stat feed verbatim.
+        if groups == history['groups']:
+            return history, book
+        updated.update(groups=groups, entryCount=sum(len(g['items']) for g in groups), capturedAt=now)
+        return updated, book
     updated['stalePolicy'] = 'Verified public HTO readback. Scheduled refresh preserves existing entries and requires manual review for removals, revisions or uncertain identities.'
     return updated, result
 

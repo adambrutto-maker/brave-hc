@@ -6,7 +6,7 @@
     "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=records",
     "authority": "OFFICIAL_HTO_PUBLIC_READBACK"
   },
-  "capturedAt": "2026-10-28T08:01:05.767690+00:00",
+  "capturedAt": "2026-10-28T12:54:42.302139+00:00",
   "stalePolicy": "Scheduled refresh of official HTO native Records statistical entries. manual review required for source value, heading, season/period scope, deletions, record holders and uncertain player identity. Original 98 milestone club entries belong to native HTO Awards and the independently archived historical source.",
   "pageTitle": "Brave H.C. Records & Achievements",
   "entryCount": 460,
@@ -44,6 +44,123 @@
       "period": "Playoffs",
       "items": [
         "6 - Mark Pastore (2015)"
+      ]
+    },
+    {
+      "section": "Individual Records",
+      "category": "Summer - Games with 2+ Goals",
+      "period": "Season",
+      "items": [
+        "7 - Ben Sherritt (2017)"
+      ]
+    },
+    {
+      "section": "Individual Records",
+      "category": "Summer - Games with 2+ Goals",
+      "period": "Playoffs",
+      "items": [
+        "2 - Keith Pearsoll (2016)"
+      ]
+    },
+    {
+      "section": "Individual Records",
+      "category": "Summer - Hat Tricks",
+      "period": "Season",
+      "items": [
+        "4 - Ben Sherritt (2017)",
+        "3 - Ben Sherritt (2014)",
+        "3 - Mark Pastore (2016)",
+        "2 - Mark Pastore (2015)",
+        "2 - Cameron Buchanan (2016)"
+      ]
+    },
+    {
+      "section": "Individual Records",
+      "category": "Summer - Game Winning Goals",
+      "period": "Season",
+      "items": [
+        "4 - Ben Sherritt (2017)",
+        "2 - Ben Sherritt (2014)",
+        "2 - Ryan Logue (2014)",
+        "2 - Justin Carosi (2015)",
+        "2 - Mark Pastore (2015)"
+      ]
+    },
+    {
+      "section": "Individual Records",
+      "category": "Summer - Powerplay Goals",
+      "period": "Season",
+      "items": [
+        "2 - Mark Pastore (2014)"
+      ]
+    },
+    {
+      "section": "Individual Records",
+      "category": "Summer - Shorthanded Goals",
+      "period": "Season",
+      "items": [
+        "2 - Mark Pastore (2016)"
+      ]
+    },
+    {
+      "section": "Individual Records",
+      "category": "Summer - Assists",
+      "period": "Game",
+      "items": [
+        "6 - Justin Carosi (May 15, 2016)",
+        "4 - Ryan Logue (June 9, 2013)",
+        "4 - Adam Brutto (July 26, 2015)",
+        "4 - Mark Pastore (May 8, 2016)",
+        "3 - Adam Brutto (June 9, 2013)",
+        "2 - Mark Pastore (June 2, 2013)",
+        "2 - Adam Brutto (June 2, 2013)"
+      ]
+    },
+    {
+      "section": "Individual Records",
+      "category": "Summer - Assists",
+      "period": "Season",
+      "items": [
+        "15 - Justin Carosi (2016)",
+        "11 - Adam Brutto (2015)",
+        "10 - Justin Carosi (2015)",
+        "10 - Ryan Logue (2015)",
+        "9 - Ryan Logue (2014)",
+        "9 - Ben Sherritt (2014)",
+        "9 - Julian Kercz (2014)",
+        "8 - Justin Carosi (2014)",
+        "7 - Keith Pearsoll (2013)",
+        "7 - Ryan Logue (2013)",
+        "7 - Stefano Ardizzi (2014)"
+      ]
+    },
+    {
+      "section": "Individual Records",
+      "category": "Summer - Assists",
+      "period": "Playoffs",
+      "items": [
+        "8 - Adam Brutto (2015)"
+      ]
+    },
+    {
+      "section": "Individual Records",
+      "category": "Summer - Games with 3+ Assists",
+      "period": "Season",
+      "items": [
+        "3 - Keith Pearsoll (2016)",
+        "3 - Justin Carosi (2016)",
+        "3 - Mark Pastore (2016)",
+        "3 - Xav O'Krafka (2017)"
+      ]
+    },
+    {
+      "section": "Individual Records",
+      "category": "Summer - Games with 3+ Assists",
+      "period": "Playoffs",
+      "items": [
+        "1 - Adam Brutto (2015)",
+        "1 - Cameron Buchanan (2016)",
+        "1 - Adam Brutto (2016)"
       ]
     },
     {
@@ -91,62 +208,6 @@
     },
     {
       "section": "Individual Records",
-      "category": "Summer - Assists",
-      "period": "Game",
-      "items": [
-        "6 - Justin Carosi (May 15, 2016)",
-        "4 - Ryan Logue (June 9, 2013)",
-        "4 - Adam Brutto (July 26, 2015)",
-        "4 - Mark Pastore (May 8, 2016)",
-        "3 - Adam Brutto (June 9, 2013)",
-        "2 - Mark Pastore (June 2, 2013)",
-        "2 - Adam Brutto (June 2, 2013)"
-      ]
-    },
-    {
-      "section": "Individual Records",
-      "category": "Summer - Assists",
-      "period": "Season",
-      "items": [
-        "15 - Justin Carosi (2016)",
-        "11 - Adam Brutto (2015)",
-        "10 - Justin Carosi (2015)",
-        "10 - Ryan Logue (2015)",
-        "9 - Ryan Logue (2014)",
-        "9 - Ben Sherritt (2014)",
-        "9 - Julian Kercz (2014)",
-        "8 - Justin Carosi (2014)",
-        "7 - Keith Pearsoll (2013)",
-        "7 - Ryan Logue (2013)",
-        "7 - Stefano Ardizzi (2014)"
-      ]
-    },
-    {
-      "section": "Individual Records",
-      "category": "Summer - Assists",
-      "period": "Playoffs",
-      "items": [
-        "8 - Adam Brutto (2015)"
-      ]
-    },
-    {
-      "section": "Individual Records",
-      "category": "Summer - Games with 2+ Goals",
-      "period": "Season",
-      "items": [
-        "7 - Ben Sherritt (2017)"
-      ]
-    },
-    {
-      "section": "Individual Records",
-      "category": "Summer - Games with 2+ Goals",
-      "period": "Playoffs",
-      "items": [
-        "2 - Keith Pearsoll (2016)"
-      ]
-    },
-    {
-      "section": "Individual Records",
       "category": "Summer - Games with 3+ Points",
       "period": "Season",
       "items": [
@@ -160,67 +221,6 @@
       "items": [
         "2 - Keith Pearsoll (2016)",
         "2 - Ben Sherritt (2016)"
-      ]
-    },
-    {
-      "section": "Individual Records",
-      "category": "Summer - Games with 3+ Assists",
-      "period": "Season",
-      "items": [
-        "3 - Keith Pearsoll (2016)",
-        "3 - Justin Carosi (2016)",
-        "3 - Mark Pastore (2016)",
-        "3 - Xav O'Krafka (2017)"
-      ]
-    },
-    {
-      "section": "Individual Records",
-      "category": "Summer - Games with 3+ Assists",
-      "period": "Playoffs",
-      "items": [
-        "1 - Adam Brutto (2015)",
-        "1 - Cameron Buchanan (2016)",
-        "1 - Adam Brutto (2016)"
-      ]
-    },
-    {
-      "section": "Individual Records",
-      "category": "Summer - Game Winning Goals",
-      "period": "Season",
-      "items": [
-        "4 - Ben Sherritt (2017)",
-        "2 - Ben Sherritt (2014)",
-        "2 - Ryan Logue (2014)",
-        "2 - Justin Carosi (2015)",
-        "2 - Mark Pastore (2015)"
-      ]
-    },
-    {
-      "section": "Individual Records",
-      "category": "Summer - Powerplay Goals",
-      "period": "Season",
-      "items": [
-        "2 - Mark Pastore (2014)"
-      ]
-    },
-    {
-      "section": "Individual Records",
-      "category": "Summer - Shorthanded Goals",
-      "period": "Season",
-      "items": [
-        "2 - Mark Pastore (2016)"
-      ]
-    },
-    {
-      "section": "Individual Records",
-      "category": "Summer - Hat Tricks",
-      "period": "Season",
-      "items": [
-        "4 - Ben Sherritt (2017)",
-        "3 - Ben Sherritt (2014)",
-        "3 - Mark Pastore (2016)",
-        "2 - Mark Pastore (2015)",
-        "2 - Cameron Buchanan (2016)"
       ]
     },
     {
@@ -359,81 +359,6 @@
     },
     {
       "section": "Individual Records",
-      "category": "Winter - Points",
-      "period": "Game",
-      "items": [
-        "6 - Ben Sherritt (October 6, 2013)",
-        "6 - Ben Sherritt (March 2, 2014)",
-        "6 - Zach Kercz (December 21, 2014)",
-        "6 - Xav O'Krafka (November 12, 2017)",
-        "6 - Ben Sherritt (November 12, 2017)",
-        "3 - Mark Pastore (September 29, 2013)"
-      ]
-    },
-    {
-      "section": "Individual Records",
-      "category": "Winter - Points",
-      "period": "Season",
-      "items": [
-        "46 - Ben Sherritt (2013/14)"
-      ]
-    },
-    {
-      "section": "Individual Records",
-      "category": "Winter - Points",
-      "period": "Playoffs",
-      "items": [
-        "9 - Mark Pastore (2015/16)",
-        "8 - Mark Pastore (2014/15)",
-        "7 - Damian Aidemirski (2013/14)"
-      ]
-    },
-    {
-      "section": "Individual Records",
-      "category": "Winter - Assists",
-      "period": "Game",
-      "items": [
-        "4 - Damian Aidemirski (March 30, 2014)",
-        "4 - Dylan Brennan (September 18, 2016)",
-        "4 - Justin Carosi (October 16, 2016)",
-        "4 - Justin Carosi (November 24, 2019)",
-        "4 - David Corasaniti (February 9, 2020)",
-        "4 - David Corasaniti (February 16, 2020)",
-        "4 - Stephane Saindon (October 6, 2024)",
-        "4 - Stephane Saindon (November 9, 2025)",
-        "4 - Stephane Saindon (January 18, 2026)",
-        "3 - Michael Congiusti (October 6, 2013)",
-        "3 - Stefano Ardizzi (December 15, 2013)",
-        "3 - Mark Pastore (January 5, 2014)",
-        "3 - Stefano Ardizzi (March 2, 2014)",
-        "3 - Michael Congiusti (March 2, 2014)",
-        "2 - Mark Pastore (September 29, 2013)",
-        "2 - Ben Sherritt (September 29, 2013)",
-        "2 - Marco Congiusti (September 29, 2013)"
-      ]
-    },
-    {
-      "section": "Individual Records",
-      "category": "Winter - Assists",
-      "period": "Season",
-      "items": [
-        "22 - Dylan Brennan (2018/19)",
-        "19 - Justin Carosi (2016/17)",
-        "19 - Justin Carosi (2017/18)",
-        "17 - Mark Pastore (2013/14)"
-      ]
-    },
-    {
-      "section": "Individual Records",
-      "category": "Winter - Assists",
-      "period": "Playoffs",
-      "items": [
-        "6 - Damian Aidemirski (2013/14)",
-        "2 - Adam Brutto (2013/14)"
-      ]
-    },
-    {
-      "section": "Individual Records",
       "category": "Winter - Games with 2+ Goals",
       "period": "Season",
       "items": [
@@ -450,54 +375,10 @@
     },
     {
       "section": "Individual Records",
-      "category": "Winter - Games with 3+ Points",
+      "category": "Winter - Hat Tricks",
       "period": "Season",
       "items": [
-        "7 - Ben Sherritt (2013/14)"
-      ]
-    },
-    {
-      "section": "Individual Records",
-      "category": "Winter - Games with 3+ Points",
-      "period": "Playoffs",
-      "items": [
-        "1 - Damian Aidemirski (2013/14)",
-        "1 - Ben Sherritt (2013/14)",
-        "1 - Ryan Logue (2014/15)",
-        "1 - Mark Pastore (2014/15)",
-        "1 - Mark Pastore (2015/16)",
-        "1 - Carmine Cerrone (2015/16)",
-        "1 - Justin Carosi (2016/17)",
-        "1 - Ben Sherritt (2016/17)",
-        "1 - Mario Provenzano (2017/18)",
-        "1 - Ryan Logue (2017/18)",
-        "1 - Stefano Ardizzi (2017/18)",
-        "1 - David Corasaniti (2018/19)",
-        "1 - Ryan Logue (2019/20)",
-        "1 - Quenton Hunt (2019/20)",
-        "1 - David Corasaniti (2019/20)",
-        "1 - Justin Carosi (2023/24)",
-        "1 - Stephane Saindon (2023/24)",
-        "1 - Michael Provenzano (2025/26)",
-        "1 - Stephane Saindon (2025/26)"
-      ]
-    },
-    {
-      "section": "Individual Records",
-      "category": "Winter - Games with 3+ Assists",
-      "period": "Season",
-      "items": [
-        "3 - Justin Carosi (2016/17)"
-      ]
-    },
-    {
-      "section": "Individual Records",
-      "category": "Winter - Games with 3+ Assists",
-      "period": "Playoffs",
-      "items": [
-        "1 - Damian Aidemirski (2013/14)",
-        "1 - Mario Provenzano (2017/18)",
-        "1 - Stephane Saindon (2025/26)"
+        "5 - Ben Sherritt (2013/14)"
       ]
     },
     {
@@ -553,10 +434,129 @@
     },
     {
       "section": "Individual Records",
-      "category": "Winter - Hat Tricks",
+      "category": "Winter - Assists",
+      "period": "Game",
+      "items": [
+        "4 - Damian Aidemirski (March 30, 2014)",
+        "4 - Dylan Brennan (September 18, 2016)",
+        "4 - Justin Carosi (October 16, 2016)",
+        "4 - Justin Carosi (November 24, 2019)",
+        "4 - David Corasaniti (February 9, 2020)",
+        "4 - David Corasaniti (February 16, 2020)",
+        "4 - Stephane Saindon (October 6, 2024)",
+        "4 - Stephane Saindon (November 9, 2025)",
+        "4 - Stephane Saindon (January 18, 2026)",
+        "3 - Michael Congiusti (October 6, 2013)",
+        "3 - Stefano Ardizzi (December 15, 2013)",
+        "3 - Mark Pastore (January 5, 2014)",
+        "3 - Stefano Ardizzi (March 2, 2014)",
+        "3 - Michael Congiusti (March 2, 2014)",
+        "2 - Mark Pastore (September 29, 2013)",
+        "2 - Ben Sherritt (September 29, 2013)",
+        "2 - Marco Congiusti (September 29, 2013)"
+      ]
+    },
+    {
+      "section": "Individual Records",
+      "category": "Winter - Assists",
       "period": "Season",
       "items": [
-        "5 - Ben Sherritt (2013/14)"
+        "22 - Dylan Brennan (2018/19)",
+        "19 - Justin Carosi (2016/17)",
+        "19 - Justin Carosi (2017/18)",
+        "17 - Mark Pastore (2013/14)"
+      ]
+    },
+    {
+      "section": "Individual Records",
+      "category": "Winter - Assists",
+      "period": "Playoffs",
+      "items": [
+        "6 - Damian Aidemirski (2013/14)",
+        "2 - Adam Brutto (2013/14)"
+      ]
+    },
+    {
+      "section": "Individual Records",
+      "category": "Winter - Games with 3+ Assists",
+      "period": "Season",
+      "items": [
+        "3 - Justin Carosi (2016/17)"
+      ]
+    },
+    {
+      "section": "Individual Records",
+      "category": "Winter - Games with 3+ Assists",
+      "period": "Playoffs",
+      "items": [
+        "1 - Damian Aidemirski (2013/14)",
+        "1 - Mario Provenzano (2017/18)",
+        "1 - Stephane Saindon (2025/26)"
+      ]
+    },
+    {
+      "section": "Individual Records",
+      "category": "Winter - Points",
+      "period": "Game",
+      "items": [
+        "6 - Ben Sherritt (October 6, 2013)",
+        "6 - Ben Sherritt (March 2, 2014)",
+        "6 - Zach Kercz (December 21, 2014)",
+        "6 - Xav O'Krafka (November 12, 2017)",
+        "6 - Ben Sherritt (November 12, 2017)",
+        "3 - Mark Pastore (September 29, 2013)"
+      ]
+    },
+    {
+      "section": "Individual Records",
+      "category": "Winter - Points",
+      "period": "Season",
+      "items": [
+        "46 - Ben Sherritt (2013/14)"
+      ]
+    },
+    {
+      "section": "Individual Records",
+      "category": "Winter - Points",
+      "period": "Playoffs",
+      "items": [
+        "9 - Mark Pastore (2015/16)",
+        "8 - Mark Pastore (2014/15)",
+        "7 - Damian Aidemirski (2013/14)"
+      ]
+    },
+    {
+      "section": "Individual Records",
+      "category": "Winter - Games with 3+ Points",
+      "period": "Season",
+      "items": [
+        "7 - Ben Sherritt (2013/14)"
+      ]
+    },
+    {
+      "section": "Individual Records",
+      "category": "Winter - Games with 3+ Points",
+      "period": "Playoffs",
+      "items": [
+        "1 - Damian Aidemirski (2013/14)",
+        "1 - Ben Sherritt (2013/14)",
+        "1 - Ryan Logue (2014/15)",
+        "1 - Mark Pastore (2014/15)",
+        "1 - Mark Pastore (2015/16)",
+        "1 - Carmine Cerrone (2015/16)",
+        "1 - Justin Carosi (2016/17)",
+        "1 - Ben Sherritt (2016/17)",
+        "1 - Mario Provenzano (2017/18)",
+        "1 - Ryan Logue (2017/18)",
+        "1 - Stefano Ardizzi (2017/18)",
+        "1 - David Corasaniti (2018/19)",
+        "1 - Ryan Logue (2019/20)",
+        "1 - Quenton Hunt (2019/20)",
+        "1 - David Corasaniti (2019/20)",
+        "1 - Justin Carosi (2023/24)",
+        "1 - Stephane Saindon (2023/24)",
+        "1 - Michael Provenzano (2025/26)",
+        "1 - Stephane Saindon (2025/26)"
       ]
     },
     {
@@ -695,6 +695,23 @@
     },
     {
       "section": "Team Records",
+      "category": "Summer - Longest Winning Streak",
+      "period": "Season",
+      "items": [
+        "5 - 2017-05-28 to 2017-06-25 (2017)"
+      ]
+    },
+    {
+      "section": "Team Records",
+      "category": "Summer - Longest Point Streak",
+      "period": "Season",
+      "items": [
+        "5 - 2013-06-02 to 2013-07-07 (2013)",
+        "5 - 2017-05-28 to 2017-06-25 (2017)"
+      ]
+    },
+    {
+      "section": "Team Records",
       "category": "Summer - Goals For",
       "period": "Season",
       "items": [
@@ -719,26 +736,35 @@
     },
     {
       "section": "Team Records",
-      "category": "Summer - Goals Against",
-      "period": "Season",
+      "category": "Summer - Most Team Goals",
+      "period": "Game",
       "items": [
-        "36 - (2015)",
-        "40 - (2014)",
-        "48 - (2013)",
-        "53 - (2017)",
-        "62 - (2016)"
+        "13 - vs. Village Idiots (13-4) (2016-05-15)",
+        "13 - vs. Lost In the Sauce (13-4) (2016-07-17)"
       ]
     },
     {
       "section": "Team Records",
-      "category": "Summer - Goals Against",
+      "category": "Summer - Most Team Goals",
       "period": "Playoffs",
       "items": [
-        "8 - (2014)",
-        "11 - (2016)",
-        "15 - (2017)",
-        "16 - (2015)",
-        "19 - (2013)"
+        "12 - vs. Mohawks Hockey (12-3) (2015-07-26)"
+      ]
+    },
+    {
+      "section": "Team Records",
+      "category": "Summer - Largest Winning Margin",
+      "period": "Game",
+      "items": [
+        "10 - vs. Young Guns (11-1) (2017-06-18)"
+      ]
+    },
+    {
+      "section": "Team Records",
+      "category": "Summer - Largest Winning Margin",
+      "period": "Playoffs",
+      "items": [
+        "9 - vs. Mohawks Hockey (12-3) (2015-07-26)"
       ]
     },
     {
@@ -791,59 +817,26 @@
     },
     {
       "section": "Team Records",
-      "category": "Summer - Penalty Minutes",
+      "category": "Summer - Goals Against",
       "period": "Season",
       "items": [
-        "38 - (2016)",
+        "36 - (2015)",
+        "40 - (2014)",
         "48 - (2013)",
-        "48 - (2014)",
-        "59 - (2015)",
-        "60 - (2017)"
+        "53 - (2017)",
+        "62 - (2016)"
       ]
     },
     {
       "section": "Team Records",
-      "category": "Summer - Penalty Minutes",
+      "category": "Summer - Goals Against",
       "period": "Playoffs",
       "items": [
-        "8 - (2013)",
         "8 - (2014)",
-        "12 - (2016)",
-        "26 - (2017)",
-        "31 - (2015)"
-      ]
-    },
-    {
-      "section": "Team Records",
-      "category": "Summer - Most Team Goals",
-      "period": "Game",
-      "items": [
-        "13 - vs. Village Idiots (13-4) (2016-05-15)",
-        "13 - vs. Lost In the Sauce (13-4) (2016-07-17)"
-      ]
-    },
-    {
-      "section": "Team Records",
-      "category": "Summer - Most Team Goals",
-      "period": "Playoffs",
-      "items": [
-        "12 - vs. Mohawks Hockey (12-3) (2015-07-26)"
-      ]
-    },
-    {
-      "section": "Team Records",
-      "category": "Summer - Largest Winning Margin",
-      "period": "Game",
-      "items": [
-        "10 - vs. Young Guns (11-1) (2017-06-18)"
-      ]
-    },
-    {
-      "section": "Team Records",
-      "category": "Summer - Largest Winning Margin",
-      "period": "Playoffs",
-      "items": [
-        "9 - vs. Mohawks Hockey (12-3) (2015-07-26)"
+        "11 - (2016)",
+        "15 - (2017)",
+        "16 - (2015)",
+        "19 - (2013)"
       ]
     },
     {
@@ -882,6 +875,30 @@
     },
     {
       "section": "Team Records",
+      "category": "Summer - Penalty Minutes",
+      "period": "Season",
+      "items": [
+        "38 - (2016)",
+        "48 - (2013)",
+        "48 - (2014)",
+        "59 - (2015)",
+        "60 - (2017)"
+      ]
+    },
+    {
+      "section": "Team Records",
+      "category": "Summer - Penalty Minutes",
+      "period": "Playoffs",
+      "items": [
+        "8 - (2013)",
+        "8 - (2014)",
+        "12 - (2016)",
+        "26 - (2017)",
+        "31 - (2015)"
+      ]
+    },
+    {
+      "section": "Team Records",
       "category": "Summer - Most Team Penalty Minutes",
       "period": "Game",
       "items": [
@@ -898,30 +915,13 @@
     },
     {
       "section": "Team Records",
-      "category": "Summer - Longest Winning Streak",
-      "period": "Season",
-      "items": [
-        "5 - 2017-05-28 to 2017-06-25 (2017)"
-      ]
-    },
-    {
-      "section": "Team Records",
-      "category": "Summer - Longest Point Streak",
-      "period": "Season",
-      "items": [
-        "5 - 2013-06-02 to 2013-07-07 (2013)",
-        "5 - 2017-05-28 to 2017-06-25 (2017)"
-      ]
-    },
-    {
-      "section": "Team Records",
       "category": "Winter - Total Points/Record",
       "period": "Season",
       "items": [
         "31 - (14-5-3) (2017/18)",
         "30 - (13-7-4) (2013/14)",
-        "27 - (12-9-3) (2025/26)",
         "27 - (13-7-1) (2016/17)",
+        "27 - (12-9-3) (2025/26)",
         "26 - (11-11-4) (2018/19)",
         "24 - (12-12-0) (2023/24)",
         "22 - (10-12-2) (2024/25)",
@@ -943,11 +943,27 @@
         "6 - (3-2-0) - Lost Semi-Finals (2017/18)",
         "4 - (2-0-0) - COVID, Playoffs Cancelled (2019/20)",
         "3 - (1-3-1) - Won Bronze Finals (2016/17)",
-        "2 - (1-2-0) - Lost Semi-Finals (2025/26)",
         "2 - (1-1-0) - Lost Semi-Finals (2022/23)",
+        "2 - (1-2-0) - Lost Semi-Finals (2025/26)",
+        "0 - (0-3-0) - Lost Bronze Finals (2018/19)",
         "0 - (0-2-0) - Lost Semi-Finals (2023/24)",
-        "0 - (0-2-0) - Lost Semi-Finals (2024/25)",
-        "0 - (0-3-0) - Lost Bronze Finals (2018/19)"
+        "0 - (0-2-0) - Lost Semi-Finals (2024/25)"
+      ]
+    },
+    {
+      "section": "Team Records",
+      "category": "Winter - Longest Winning Streak",
+      "period": "Season",
+      "items": [
+        "5 - 2024-02-18 to 2024-03-17 (2023/24)"
+      ]
+    },
+    {
+      "section": "Team Records",
+      "category": "Winter - Longest Point Streak",
+      "period": "Season",
+      "items": [
+        "14 - 2017-10-29 to 2018-02-11 (2017/18)"
       ]
     },
     {
@@ -961,10 +977,10 @@
         "83 - (2019/20)",
         "81 - (2025/26)",
         "79 - (2023/24)",
-        "76 - (2015/16)",
         "76 - (2018/19)",
-        "73 - (2024/25)",
+        "76 - (2015/16)",
         "73 - (2022/23)",
+        "73 - (2024/25)",
         "64 - (2014/15)",
         "13 - COVID-shortened season (3 games) (2020/21)"
       ]
@@ -989,39 +1005,35 @@
     },
     {
       "section": "Team Records",
-      "category": "Winter - Goals Against",
-      "period": "Season",
+      "category": "Winter - Most Team Goals",
+      "period": "Game",
       "items": [
-        "13 - COVID-shortened season (3 games) (2020/21)",
-        "53 - (2013/14)",
-        "59 - (2016/17)",
-        "66 - (2017/18)",
-        "66 - (2014/15)",
-        "69 - (2018/19)",
-        "77 - (2019/20)",
-        "79 - (2022/23)",
-        "82 - (2025/26)",
-        "83 - (2015/16)",
-        "95 - (2024/25)",
-        "98 - (2023/24)"
+        "14 - vs. DC Crew (14-2) (2014-03-02)"
       ]
     },
     {
       "section": "Team Records",
-      "category": "Winter - Goals Against",
+      "category": "Winter - Most Team Goals",
       "period": "Playoffs",
       "items": [
-        "3 - COVID, Playoffs Cancelled (2019/20)",
-        "6 - (2024/25)",
-        "7 - (2022/23)",
-        "8 - (2013/14)",
-        "9 - (2025/26)",
-        "10 - (2023/24)",
-        "11 - (2017/18)",
-        "11 - (2015/16)",
-        "14 - (2014/15)",
-        "15 - (2018/19)",
-        "20 - (2016/17)"
+        "8 - vs. Big Sticks (8-0) (2017-04-09)"
+      ]
+    },
+    {
+      "section": "Team Records",
+      "category": "Winter - Largest Winning Margin",
+      "period": "Game",
+      "items": [
+        "12 - vs. DC Crew (14-2) (2014-03-02)",
+        "12 - vs. Vaughan Indies (13-1) (2016-02-21)"
+      ]
+    },
+    {
+      "section": "Team Records",
+      "category": "Winter - Largest Winning Margin",
+      "period": "Playoffs",
+      "items": [
+        "8 - vs. Big Sticks (8-0) (2017-04-09)"
       ]
     },
     {
@@ -1049,10 +1061,10 @@
       "period": "Playoffs",
       "items": [
         "5 - (2014/15)",
-        "2 - COVID, Playoffs Cancelled (2019/20)",
-        "2 - (2013/14)",
         "2 - (2017/18)",
         "2 - (2018/19)",
+        "2 - (2013/14)",
+        "2 - COVID, Playoffs Cancelled (2019/20)",
         "1 - (2015/16)",
         "1 - (2025/26)",
         "0 - (2016/17)",
@@ -1100,72 +1112,39 @@
     },
     {
       "section": "Team Records",
-      "category": "Winter - Penalty Minutes",
+      "category": "Winter - Goals Against",
       "period": "Season",
       "items": [
-        "2 - COVID-shortened season (3 games) (2020/21)",
-        "40 - (2025/26)",
-        "52 - (2023/24)",
-        "58 - (2024/25)",
-        "62 - (2019/20)",
-        "64 - (2017/18)",
-        "70 - (2013/14)",
-        "77 - (2018/19)",
-        "78 - (2022/23)",
-        "90 - (2014/15)",
-        "90 - (2015/16)",
-        "124 - (2016/17)"
+        "13 - COVID-shortened season (3 games) (2020/21)",
+        "53 - (2013/14)",
+        "59 - (2016/17)",
+        "66 - (2017/18)",
+        "66 - (2014/15)",
+        "69 - (2018/19)",
+        "77 - (2019/20)",
+        "79 - (2022/23)",
+        "82 - (2025/26)",
+        "83 - (2015/16)",
+        "95 - (2024/25)",
+        "98 - (2023/24)"
       ]
     },
     {
       "section": "Team Records",
-      "category": "Winter - Penalty Minutes",
+      "category": "Winter - Goals Against",
       "period": "Playoffs",
       "items": [
-        "0 - (2022/23)",
-        "4 - (2018/19)",
-        "8 - COVID, Playoffs Cancelled (2019/20)",
-        "14 - (2025/26)",
-        "16 - (2013/14)",
-        "18 - (2024/25)",
-        "20 - (2023/24)",
-        "28 - (2014/15)",
-        "31 - (2015/16)",
-        "32 - (2016/17)",
-        "32 - (2017/18)"
-      ]
-    },
-    {
-      "section": "Team Records",
-      "category": "Winter - Most Team Goals",
-      "period": "Game",
-      "items": [
-        "14 - vs. DC Crew (14-2) (2014-03-02)"
-      ]
-    },
-    {
-      "section": "Team Records",
-      "category": "Winter - Most Team Goals",
-      "period": "Playoffs",
-      "items": [
-        "8 - vs. Big Sticks (8-0) (2017-04-09)"
-      ]
-    },
-    {
-      "section": "Team Records",
-      "category": "Winter - Largest Winning Margin",
-      "period": "Game",
-      "items": [
-        "12 - vs. DC Crew (14-2) (2014-03-02)",
-        "12 - vs. Vaughan Indies (13-1) (2016-02-21)"
-      ]
-    },
-    {
-      "section": "Team Records",
-      "category": "Winter - Largest Winning Margin",
-      "period": "Playoffs",
-      "items": [
-        "8 - vs. Big Sticks (8-0) (2017-04-09)"
+        "3 - COVID, Playoffs Cancelled (2019/20)",
+        "6 - (2024/25)",
+        "7 - (2022/23)",
+        "8 - (2013/14)",
+        "9 - (2025/26)",
+        "10 - (2023/24)",
+        "11 - (2017/18)",
+        "11 - (2015/16)",
+        "14 - (2014/15)",
+        "15 - (2018/19)",
+        "20 - (2016/17)"
       ]
     },
     {
@@ -1202,6 +1181,43 @@
     },
     {
       "section": "Team Records",
+      "category": "Winter - Penalty Minutes",
+      "period": "Season",
+      "items": [
+        "2 - COVID-shortened season (3 games) (2020/21)",
+        "40 - (2025/26)",
+        "52 - (2023/24)",
+        "58 - (2024/25)",
+        "62 - (2019/20)",
+        "64 - (2017/18)",
+        "70 - (2013/14)",
+        "77 - (2018/19)",
+        "78 - (2022/23)",
+        "90 - (2015/16)",
+        "90 - (2014/15)",
+        "124 - (2016/17)"
+      ]
+    },
+    {
+      "section": "Team Records",
+      "category": "Winter - Penalty Minutes",
+      "period": "Playoffs",
+      "items": [
+        "0 - (2022/23)",
+        "4 - (2018/19)",
+        "8 - COVID, Playoffs Cancelled (2019/20)",
+        "14 - (2025/26)",
+        "16 - (2013/14)",
+        "18 - (2024/25)",
+        "20 - (2023/24)",
+        "28 - (2014/15)",
+        "31 - (2015/16)",
+        "32 - (2016/17)",
+        "32 - (2017/18)"
+      ]
+    },
+    {
+      "section": "Team Records",
       "category": "Winter - Most Team Penalty Minutes",
       "period": "Game",
       "items": [
@@ -1216,22 +1232,6 @@
       "items": [
         "18 - vs. Dateline Predators (1-4) (2024-04-14)",
         "18 - vs. Mid Ice Crisis (0-3) (2025-04-06)"
-      ]
-    },
-    {
-      "section": "Team Records",
-      "category": "Winter - Longest Winning Streak",
-      "period": "Season",
-      "items": [
-        "5 - 2024-02-18 to 2024-03-17 (2023/24)"
-      ]
-    },
-    {
-      "section": "Team Records",
-      "category": "Winter - Longest Point Streak",
-      "period": "Season",
-      "items": [
-        "14 - 2017-10-29 to 2018-02-11 (2017/18)"
       ]
     }
   ]

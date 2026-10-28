@@ -1,4 +1,4 @@
-name: RCD04 Current Records widget and historical archive integrity
+name: RCD04/RCD05 Records widget, historical archive and stat-family order integrity
 
 on:
   pull_request:
@@ -10,6 +10,10 @@ on:
       - 'tests/history_companion_browser_qa.cjs'
       - 'tests/watch_historical_browser_qa.cjs'
       - 'tests/test_current_native_records_widget_460.py'
+      - 'tests/test_rcd05_records_stat_family_order.py'
+      - 'docs/261028_RCD05_Records_Stat_Family_Order_Spec.json'
+      - 'scripts/sync_native_hto_records_family_order.py'
+      - 'scripts/refresh_record_sources.py'
       - 'tests/test_record_source_refresh.py'
       - 'tests/test_historical_bulletin_milestones.py'
       - 'tests/test_watch_historical_evidence.js'
@@ -35,6 +39,7 @@ jobs:
       - name: Verify live 460-source port and original 558-source archived evidence
         run: |
           python -m unittest discover -s tests -p test_current_native_records_widget_460.py
+          python -m unittest discover -s tests -p test_rcd05_records_stat_family_order.py
           python -m unittest discover -s tests -p test_record_source_refresh.py
           python -m unittest discover -s tests -p test_historical_bulletin_milestones.py
           python -m unittest discover -s tests -p test_hockeyos_plan03_release_health.py

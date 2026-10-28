@@ -1,0 +1,17 @@
+{
+  "status": "SOURCE_EXACT_CATEGORY_ORDER_RECONCILED",
+  "reordered": true,
+  "source_records": 460,
+  "category_groups": 109,
+  "individual_categories": 31,
+  "team_categories": 26,
+  "individual_rows": 231,
+  "team_rows": 229,
+  "player_record_rows_preserved": 229,
+  "legacy_history_file_untouched": true,
+  "awards_file_untouched": true,
+  "no_native_hto_writes": true,
+  "public_html_sha256": "486dd18cb6b4cc60117a85cb7a84812c89b6d17005a28f90116344af30716387",
+  "old_widget_sha256": "f47fb303babceaad1c387b06ff9867ccfea462236fd01d3d060c0a91099e438a",
+  "new_widget_sha256": "3ea69e9eb23a45c8bc72e25df77db68e8971f1d8a16885b720fd27b46c48a5e7"
+}

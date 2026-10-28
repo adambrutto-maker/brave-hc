@@ -5,6 +5,7 @@ const puppeteer=require(process.env.BRAVE_PUPPETEER_MODULE || 'puppeteer');
 const root=path.resolve(__dirname,'..');
 // Approved HTO record baseline from 2026-10-20: fail on unreviewed source count changes.
 const expect={records:460,awards:146};
+const familySpec=JSON.parse(fs.readFileSync(path.join(root,'docs/261028_RCD05_Records_Stat_Family_Order_Spec.json'),'utf8'));
 const server=http.createServer((req,res)=>{
  const name=decodeURIComponent((req.url||'/').split('?')[0]).replace(/^\/+/,'');
  const full=path.resolve(root,name);
@@ -45,6 +46,10 @@ const server=http.createServer((req,res)=>{
       official:document.getElementById('official').href
     }));
     assert.equal(v.entries,460);assert.equal(v.groups,109);
+    const categoryOrder=await page.evaluate(()=>[...new Set([...document.querySelectorAll('.history-group .history-category')]
+      .map(el=>el.textContent.split(' · ')[0]))]);
+    assert.deepEqual(categoryOrder,[...familySpec.individual_order,...familySpec.team_order],
+      'HTO Records history widget category grouping must follow official Summer/Winter logical stat families');
     assert.ok(v.marked[0]?.includes('playerID=354061'));assert.ok(v.official.includes('p=records'));
     assert.ok(v.summer.some(x=>x.includes('viewseas=Summer_2015')),'verified summer record did not deep link');
     assert.equal(v.incorrectlyWinterScoped,0,'ambiguous winter year must not be inferred');
