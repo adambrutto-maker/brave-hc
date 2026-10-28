@@ -1,0 +1,47 @@
+{
+  "schema": "hockeyos-league-game-formats/v1",
+  "teamId": "BRAVE_HC",
+  "owner": "HockeyOS",
+  "configurationStatus": "REFERENCE_FORMATS_VERIFIED_HISTORICAL_SEASON_BINDINGS_PENDING",
+  "sourceAuthority": "Read-only Brave H.C. Master Workbook SkaterStatsByGame W Adj. / S Adj. formulas verified 2026-10-28",
+  "formats": {
+    "brave-winter-32": {
+      "id": "brave-winter-32",
+      "label": "Winter-equivalent",
+      "verificationStatus": "VERIFIED",
+      "regulationGameMinutes": 32,
+      "periodMinutes": null,
+      "sourceEvidence": "Master Workbook SkaterStatsByGame W Adj. G/A/Pts"
+    },
+    "brave-summer-48": {
+      "id": "brave-summer-48",
+      "label": "Summer-equivalent",
+      "verificationStatus": "VERIFIED",
+      "regulationGameMinutes": 48,
+      "periodMinutes": null,
+      "sourceEvidence": "Master Workbook SkaterStatsByGame S Adj. G/A/Pts"
+    }
+  },
+  "defaultTargetFormatId": "brave-winter-32",
+  "views": [
+    {
+      "id": "actual",
+      "label": "Actual",
+      "targetFormatId": null
+    },
+    {
+      "id": "winter",
+      "label": "Winter-equivalent",
+      "targetFormatId": "brave-winter-32"
+    },
+    {
+      "id": "summer",
+      "label": "Summer-equivalent",
+      "targetFormatId": "brave-summer-48"
+    }
+  ],
+  "seasonBindings": {},
+  "sourceScope": "Unmapped historical player season/game-type rows must not be normalized until each binding is separately verified",
+  "formatSettingsAreHistoricalSnapshots": true,
+  "privacy": "PUBLIC_FORMAT_RULES_ONLY_NO_PRIVATE_COACHING_OR_PLAYER_DATA"
+}
