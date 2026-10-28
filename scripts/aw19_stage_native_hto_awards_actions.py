@@ -1,7 +1,7 @@
 """Safe source-bound native HTO Awards action planner. NOT a publisher.
 Read verified current-game milestone candidate receipt + authoritative original
 98 milestone manifest + current live HTO Awards HTML. Plan only missing individual
-club category/recipient entries, goalie-first and ascending club thresholds.
+club category/recipient entries, globally ascending numeric thresholds across all goalie and skater/game types.
 Never issue or grant a native award without external authenticated UI write and
 independent post-save public/Historical Records source-parity verification.
 """

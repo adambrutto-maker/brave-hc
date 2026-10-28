@@ -47,9 +47,24 @@ class Clubs(unittest.TestCase):
        "5 Shutout Club","300 Game Club","50 Goal Club","10 Shutout Club",
        "100 Win Club","50 Game Club","50 Assist Club","400 Game Club"]
   self.assertEqual(planned_awards_category_order(raw),
-   ["Hall of Fame","5 Shutout Club","10 Shutout Club","50 Win Club","100 Win Club",
-    "50 Game Club","50 Goal Club","50 Assist Club","50 Point Club","100 Game Club",
-    "300 Game Club","400 Game Club"])
+   ["Hall of Fame","5 Shutout Club","10 Shutout Club",
+    "50 Win Club","50 Game Club","50 Goal Club","50 Assist Club","50 Point Club",
+    "100 Win Club","100 Game Club","300 Game Club","400 Game Club"])
   with self.assertRaises(ValueError):
    planned_awards_category_order(["50 Game Club","50 Game Club"])
+ def test_existing_hto_global_numeric_order(self):
+  names=["Brave H.C. Hall of Fame","Maurice 'Rocket' Richard Trophy",
+    "Art Ross Award","Hart Award","Conn Smythe Award Playoff MVP",
+    "James Norris Trophy","Most Improved Player",
+    "Lady Byng Award for Sportsmanship","Andrew Cristillo Award for Dedication",
+    "Rookie of the Year","Rolaids Relief Man Award",
+    "50 Win Club","50 Game Club","50 Point Club","100 Win Club",
+    "100 Game Club","100 Point Club","200 Game Club","200 Point Club",
+    "300 Game Club","300 Point Club"]
+  self.assertEqual(planned_awards_category_order(names),names)
+  future=planned_awards_category_order(names+["5 Shutout Club","10 Shutout Club",
+    "50 Goal Club","50 Assist Club","100 Goal Club","400 Game Club"])
+  expected_levels=[5,10,50,50,50,50,50,100,100,100,100,200,200,300,300,400]
+  self.assertEqual([int(x.split(' ')[0]) for x in future[11:]],expected_levels)
+  self.assertEqual(future[11:13],["5 Shutout Club","10 Shutout Club"])
 if __name__=="__main__":unittest.main(verbosity=2)

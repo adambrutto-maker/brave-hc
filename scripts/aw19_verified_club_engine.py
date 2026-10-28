@@ -82,16 +82,18 @@ def deduplicate(existing_awards:list[dict],events:list[dict])->dict:
       "native_hto_writes":0}
 
 
-def club_sort_key(category:str)->tuple[int,int,int]:
-    """Native Awards club order: goalie clubs first, then skater/game clubs.
-    Numeric milestone threshold ascending within each group."""
+def club_sort_key(category:str)->tuple[int,int]:
+    """All verified goalie and skater clubs mixed by ascending numeric threshold.
+
+    Tie-breaker only applies within one numeric level; historical honours stay
+    separately ordered. No goalie-only section is created.
+    """
     match=re.fullmatch(r"(\d+)\s+(Shutout|Win|Game|Goal|Assist|Point)\s+Club",category)
     if not match:raise ValueError("Not a recognized threshold club: "+category)
     threshold=int(match[1]);kind=match[2]
     if threshold not in levels(kind,threshold):raise ValueError("Unapproved threshold")
-    goalie=kind in ("Shutout","Win")
-    precedence={"Shutout":0,"Win":1,"Game":0,"Goal":1,"Assist":2,"Point":3}
-    return (0 if goalie else 1,threshold,precedence[kind])
+    precedence={"Shutout":0,"Win":1,"Game":2,"Goal":3,"Assist":4,"Point":5}
+    return (threshold,precedence[kind])
 
 def planned_awards_category_order(categories:list[str])->list[str]:
     """Preserve historical honours order; re-sort individual threshold clubs only."""
