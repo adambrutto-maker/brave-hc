@@ -99,12 +99,14 @@ test('zero actual games yields no invented points-per-game rate', () => {
   assert.equal(result.equivalent.pointsPerGame,null);
 });
 
-test('fractional equivalence remains unrounded and reverses without changing raw actuals', () => {
+test('fractional equivalence stays unrounded; a derived value cannot masquerade as official recorded goals', () => {
   const actual={GP:7,G:1,A:0,Pts:1};
   const a=normal.normalizeSkater(actual,summer,winter);
   assert.equal(a.equivalent.G,2/3);
-  const b=normal.normalizeSkater(a.equivalent,winter,summer);
-  assert.equal(b.equivalent.G,1);
+  const reverseFactor=normal.factorBetween(winter,summer).factor;
+  assert.equal(a.equivalent.G*reverseFactor,1);
+  // A derived fractional goal is not a new official game-sheet record.
+  assert.equal(normal.normalizeSkater(a.equivalent,winter,summer).reason,'INVALID_SKATER_ACTUALS');
   assert.deepEqual(actual,{GP:7,G:1,A:0,Pts:1});
 });
 
