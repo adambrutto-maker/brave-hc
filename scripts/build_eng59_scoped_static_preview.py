@@ -51,7 +51,7 @@ def git_hash(data,algo):
  return hashlib.new(algo,record).hexdigest()
 
 def verify_artwork_manifests(widgets,package_paths,manifest_overrides=None):
- """Cross-check the existing five HTO icon source manifests and web assets.
+ """Cross-check approved artwork and retained non-runtime source-backup hashes.
 
  This does not accept artwork rights/ownership or change awards. It only
  proves declared assets are complete and source-hash-concordant in the
@@ -60,7 +60,9 @@ def verify_artwork_manifests(widgets,package_paths,manifest_overrides=None):
  widgets=Path(widgets).resolve()
  kinds=("approved","awards","clubs","heritage","round-clubs","special")
  count=0
+ backupCount=0
  seen=set()
+ backups=set()
  for kind in kinds:
   source=f"assets/{kind}/source-manifest.json"
   need("widgets/"+source in package_paths,
@@ -90,8 +92,23 @@ def verify_artwork_manifests(widgets,package_paths,manifest_overrides=None):
         re.fullmatch("[a-f0-9]{64}",str(entry.get("sha256",""))) and
         hashlib.sha256(data).hexdigest()==entry["sha256"],
         "ARTWORK_SOURCE_MANIFEST_HASH_OR_SIZE_CONFLICT:"+local)
+   backup=entry.get("opaqueSourcePath")
+   if backup is not None:
+    need(isinstance(backup,str) and backup.startswith("assets/opaque-originals/")
+     and ".." not in backup.split("/") and "\\" not in backup
+     and ("widgets/"+backup) not in package_paths and backup not in backups,
+     "OPAQUE_SOURCE_BACKUP_NOT_PRIVATE_OR_DUPLICATE:"+str(backup))
+    backups.add(backup)
+    backing=(widgets/backup).resolve()
+    need(backing.is_relative_to(widgets) and backing.is_file() and
+     not backing.is_symlink() and
+     re.fullmatch("[a-f0-9]{64}",str(entry.get("opaqueSourceSha256",""))) and
+     hashlib.sha256(canonical_source(backing)).hexdigest()==entry["opaqueSourceSha256"],
+     "OPAQUE_BACKUP_SOURCE_HASH_CONFLICT:"+backup)
+    backupCount+=1
    count+=1
- return {"manifestsVerified":len(kinds),"artworkAssetsVerified":count}
+ return {"manifestsVerified":len(kinds),"artworkAssetsVerified":count,
+  "sourceBackupsVerifiedButNotPublished":backupCount}
 
 def tracked(repo):
  return set(subprocess.check_output(["git","-C",str(repo),"ls-files","-z"]).decode("utf-8").rstrip("\0").split("\0"))
@@ -109,7 +126,15 @@ def index(repo,files=None):
            "widgets/svhl-gameinfo-hold-review.json"}
  need(required<=paths,"MANDATORY_WEB_ENTRYPOINT_OR_SOURCE_MISSING")
  included=sorted(p for p in paths if p=="index.html" or (
-    p.startswith("widgets/") and Path(p).suffix.lower() in EXT))
+    p.startswith("widgets/") and
+    not p.startswith("widgets/assets/opaque-originals/") and
+    Path(p).suffix.lower() in EXT))
+ # Opaque originals are preserved in Git for provenance, but they are not
+ # runtime website resources and must never be packaged in a public preview.
+ for rel in included:
+  if rel.endswith((".html",".js")):
+   need(b"opaque-originals" not in canonical_source(repo/rel),
+    "BACKUP_ARTWORK_LINKED_FROM_PUBLIC_RUNTIME:"+rel)
  need("index.html" in included,"HOME_REDIRECT_NOT_IN_PACKAGE")
  pathsData={}
  algorithm,gitIndex=git_stage(repo)
@@ -194,6 +219,7 @@ def build(repo,output,check_only=False):
   "sourceGitHead":srcHash,
   "rootPagesWorkflowChanged":False,
   "canonicalGitBlobBytes":True,
+  "excludedNonRuntimeOpaqueBackups":len([x for x in alltracked if x.startswith("widgets/assets/opaque-originals/")]),
   "artworkManifestCoverage":artwork,
   "previewFiles":len(inc),
   "previewBytes":sum(x["bytes"] for x in sources.values()),

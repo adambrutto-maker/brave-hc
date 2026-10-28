@@ -36,10 +36,18 @@ class ScopedPreviewTests(unittest.TestCase):
   qa=verify_artwork_manifests(ROOT/"widgets",included)
   self.assertEqual(qa["manifestsVerified"],6)
   self.assertEqual(qa["artworkAssetsVerified"],78)
+  self.assertEqual(qa["sourceBackupsVerifiedButNotPublished"],39)
+  self.assertFalse(any(x.startswith("widgets/assets/opaque-originals/") for x in included))
  def test_missing_new_approved_htO_icon_cannot_sneak_into_preview(self):
   included=set(index(ROOT)[0]);included.remove("widgets/assets/approved/hart_mvp.webp")
   with self.assertRaisesRegex(PreviewHold,"ARTWORK_ASSET_MISSING_OR_UNSAFE"):
    verify_artwork_manifests(ROOT/"widgets",included)
+ def test_tampered_retained_opaque_source_backup_hash_is_rejected(self):
+  included=set(index(ROOT)[0])
+  source=(ROOT/"widgets/assets/approved/source-manifest.json").read_text(encoding="utf8")
+  forged=source.replace('"opaqueSourceSha256": "','"opaqueSourceSha256": "0',1)
+  with self.assertRaisesRegex(PreviewHold,"OPAQUE_BACKUP_SOURCE_HASH_CONFLICT"):
+   verify_artwork_manifests(ROOT/"widgets",included,{"approved":forged})
  def test_a_missing_round_milestone_image_is_not_a_complete_release(self):
   included=set(index(ROOT)[0])
   included.remove("widgets/assets/round-clubs/300_wins_platinum_200.webp")
