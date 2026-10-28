@@ -306,7 +306,7 @@ body{background:#071829;color:#eef4fb;font-family:Arial,"Helvetica Neue",sans-se
 }
 .ph-earned-tile.ph-fullcrest-family.ph-earned-platinum,
 .ph-inventory-card.ph-fullcrest-family.ph-fullcrest-platinum{
- --fc-ring:#D8E9F4;--fc-light:#FFFFFF;--fc-top:#536B7F;--fc-bottom:#15283F
+ --fc-ring:#39C7F3;--fc-light:#E5FCFF;--fc-top:#103B79;--fc-bottom:#281552
 }
 .ph-earned-tile.ph-fullcrest-family .ph-earned-state,
 .ph-inventory-card.ph-fullcrest-family .ph-inventory-kind{color:var(--fc-light)}
@@ -422,7 +422,7 @@ body{background:#071829;color:#eef4fb;font-family:Arial,"Helvetica Neue",sans-se
 }
 .ph-trophy-room .ph-earned-tile.ph-fullcrest-family.ph-earned-platinum,
 .ph-trophy-room .ph-inventory-card.ph-fullcrest-family.ph-fullcrest-platinum{
- --fc-ring:#D8E9F4;--fc-light:#FFFFFF;--fc-top:#536B7F;--fc-bottom:#15283F
+ --fc-ring:#39C7F3;--fc-light:#E5FCFF;--fc-top:#103B79;--fc-bottom:#281552
 }
 /* Award, Cup, Leadership and Recognition collection CARDS use gold; their
    existing original award/nomination image colors are never recolored. */
@@ -461,6 +461,40 @@ body{background:#071829;color:#eef4fb;font-family:Arial,"Helvetica Neue",sans-se
  }
 }
 
+/* Diamond-finish platinum is one rarity tier above gold, not another silver.
+   The underlying milestone tier and existing achievement thresholds remain
+   PLATINUM; only the light, saturated cyan/violet visual identity changes. */
+.ph-trophy-room .ph-earned-tile.ph-earned-platinum.ph-fullcrest-family,
+.ph-trophy-room .ph-inventory-card.ph-fullcrest-platinum.ph-fullcrest-family{
+ position:relative;
+ border-color:#39C7F3;
+ border-top-color:#39C7F3;
+ background:
+  radial-gradient(ellipse at 16% 0%,#417DD4 0%,#224B8C 25%,transparent 68%),
+  radial-gradient(ellipse at 93% 100%,#6140A5 0%,transparent 55%),
+  linear-gradient(148deg,#112E67 0%,#14273F 54%,#26154D 100%);
+ box-shadow:inset 0 1px 0 #d8ffff55,inset 0 0 0 1px #9F81F244,0 0 0 1px #3BA7EF33,0 4px 15px #050b21aa;
+}
+.ph-trophy-room .ph-earned-tile.ph-earned-platinum.ph-fullcrest-family::after,
+.ph-trophy-room .ph-inventory-card.ph-fullcrest-platinum.ph-fullcrest-family::after{
+ content:"✦";
+ position:absolute;
+ right:8px;top:5px;
+ color:#C3F5FF;
+ font-size:13px;line-height:1;
+ text-shadow:0 0 8px #A874FF,0 0 5px #48D8FF;
+ pointer-events:none;
+}
+.ph-trophy-room .ph-earned-tile.ph-earned-platinum.ph-fullcrest-family .ph-earned-tier{
+ border-color:#39C7F3;
+ color:#E5FCFF;
+ background:linear-gradient(90deg,#15528E 0%,#40317D 100%);
+ box-shadow:0 0 0 1px #926DE655;
+}
+.ph-trophy-room .ph-inventory-card.ph-fullcrest-platinum.ph-fullcrest-family .ph-inventory-kind{
+ color:#C6F9FF;
+}
+
 [hidden]{display:none!important}
 .ph-footer{display:flex;gap:8px;flex-wrap:wrap}
 .ph-detail{font-size:10px;color:#a9c0d4;line-height:1.45;margin-top:6px}
@@ -473,7 +507,7 @@ details[open] summary{margin-bottom:10px}
 a{color:#f4cb83}
 </style>
 <script defer src="./player-links.js?v=5"></script>
-<script defer src="./player-highlights-v2.js?v=20"></script>
+<script defer src="./player-highlights-v2.js?v=21"></script>
 </head>
 <body>
 <main class="ph-shell">
