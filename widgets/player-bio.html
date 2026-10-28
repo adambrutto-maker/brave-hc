@@ -36,7 +36,9 @@ a{color:#e6c083}footer{padding:13px 20px;font-size:.75rem;color:#adc5d9}
 <script defer src="./player-links.js"></script>
 <script defer src="./player-bio-charts.js"></script>
 <link rel="stylesheet" href="./player-bio-premium.css">
+<link rel="stylesheet" href="./player-bio-collection.css">
 <script defer src="./player-performance-normalization.js"></script>
+<script defer src="./player-bio-advanced.js"></script>
 <script defer src="./goalie-projection-model.js"></script>
 <script defer src="./player-bio.js"></script>
 <script defer src="./player-bio-premium.js"></script></head>
@@ -50,17 +52,23 @@ a{color:#e6c083}footer{padding:13px 20px;font-size:.75rem;color:#adc5d9}
 <button id="retryLoad" class="retry" type="button" hidden>Try again</button>
 <nav id="profileNav" aria-label="Player profile sections" hidden>
 <a href="#currentSection">Season</a><a href="#careerSection">Career</a><a href="#chartsSection">Charts</a><a href="#leadershipSection">Leadership</a><a href="#systemSection">Team system</a>
-</nav><div id="profileContent" hidden><nav id="bioTabs" role="tablist" aria-label="Player intelligence categories" hidden>
-  <button type="button" data-bio-view="all" role="tab" aria-selected="true">All</button>
-  <button type="button" data-bio-view="production" role="tab" aria-selected="false">Production</button>
-  <button type="button" data-bio-view="trends" role="tab" aria-selected="false">Trends</button>
-  <button type="button" data-bio-view="goaltending" role="tab" aria-selected="false">Goaltending</button>
-  <button type="button" data-bio-view="coaching" role="tab" aria-selected="false">Coaching</button>
+</nav><div id="profileContent" hidden>
+<div id="bioStudio" class="bio-studio">
+<div class="bio-collection-head">
+  <div class="bio-collection-label">BRAVE H.C. // PLAYER COLLECTION</div>
+  <div class="bio-collection-title-row"><h2>Performance Lab</h2><span id="bioCollectionCount" class="bio-collection-count">Verified seasons</span></div>
+  <p id="bioCollectionSub">Advanced scoring, development and game preparation. Choose a view.</p>
+</div><nav id="bioTabs" class="bio-collection-nav" role="tablist" aria-label="Player performance collections" hidden>
+ <button type="button" data-bio-view="production" role="tab" aria-selected="true" aria-controls="bioSpotlight"><span class="bio-tab-icon" aria-hidden="true">◈</span><span class="bio-tab-label">Overview</span><span class="bio-tab-count">Stats</span></button>
+ <button type="button" data-bio-view="goaltending" role="tab" aria-selected="false" aria-controls="bioGoalieSection"><span class="bio-tab-icon" aria-hidden="true">◇</span><span class="bio-tab-label">Goalie</span><span class="bio-tab-count">Stats</span></button>
+ <button type="button" data-bio-view="trends" role="tab" aria-selected="false" aria-controls="bioDevelopmentSection"><span class="bio-tab-icon" aria-hidden="true">↗</span><span class="bio-tab-label">Trends</span><span class="bio-tab-count">Growth</span></button>
+ <button type="button" data-bio-view="coaching" role="tab" aria-selected="false" aria-controls="bioOpponentSection"><span class="bio-tab-icon" aria-hidden="true">▦</span><span class="bio-tab-label">Game Plan</span><span class="bio-tab-count">Next</span></button>
+ <button type="button" data-bio-view="all" role="tab" aria-selected="false" aria-controls="bioStudio"><span class="bio-tab-icon" aria-hidden="true">≡</span><span class="bio-tab-label">All</span><span class="bio-tab-count">Views</span></button>
 </nav>
 <section id="bioSpotlight" aria-label="Historical production analysis" hidden>
  <div class="bio-section-top"><div><div class="bio-eyebrow">Historical performance</div>
- <h2 class="bio-title">Production and scoring efficiency</h2>
- <p class="bio-desc">Earned goals and assists stay unchanged. The points-per-game line compares seasons on your selected game-length basis.</p></div>
+ <h2 class="bio-title">Scoring performance</h2>
+ <p class="bio-desc">Goals and assists are actual. Change the comparison basis for points per game.</p></div>
  <div class="bio-small-date" id="bioContext">Verified HTO player</div></div>
  <div class="bio-mode-row"><span class="bio-mode-label">Points / game</span>
  <div id="bioRateModes" role="group" aria-label="Historical scoring-rate comparison">
@@ -70,7 +78,8 @@ a{color:#e6c083}footer{padding:13px 20px;font-size:.75rem;color:#adc5d9}
  </div></div>
  <div class="bio-mode-row"><span class="bio-mode-label">Seasons</span>
  <div id="bioSeasonModes" role="group" aria-label="Season scope">
-  <button type="button" data-mode="all" aria-pressed="true">All</button>
+  <button type="button" data-mode="recent" aria-pressed="true">Recent 8</button>
+  <button type="button" data-mode="all" aria-pressed="false">Career</button>
   <button type="button" data-mode="winter" aria-pressed="false">Winter</button>
   <button type="button" data-mode="summer" aria-pressed="false">Summer</button>
  </div></div>
@@ -82,24 +91,45 @@ a{color:#e6c083}footer{padding:13px 20px;font-size:.75rem;color:#adc5d9}
  <div class="bio-chart-wrap" id="bioComboChart" aria-label="Scoring history graph"></div>
  <div class="bio-inspector" id="bioChartDetail" aria-live="polite">Choose a season for details.</div>
  <p class="bio-status" id="bioRateStatus" aria-live="polite"></p>
- <p class="bio-soft-note" id="bioChartSource"></p>
+ <details class="bio-evidence"><summary>Source and chart method</summary><p id="bioChartSource" class="bio-soft-note"></p></details>
+</section>
+<section id="bioAdvancedSection" aria-label="Advanced player performance indicators" hidden>
+ <div class="bio-section-top"><div><div class="bio-eyebrow">Advanced indicators</div>
+ <h2 class="bio-title">Beyond the box score</h2>
+ <p class="bio-desc">Comparable rates and meaningful situational measures, calculated from verified HTO history.</p></div></div>
+ <div id="bioAdvancedGrid" class="bio-analytics-grid" aria-live="polite"></div>
+ <div id="bioScoringMix" class="bio-scoring-mix" hidden></div>
+ <details id="bioOtherMetrics" class="bio-evidence"><summary>More advanced indicators</summary>
+  <div id="bioSecondaryMetrics" class="bio-secondary-grid"></div>
+ </details>
+ <p id="bioAdvancedSource" class="bio-source-line"></p>
 </section>
 <section id="bioProjectionSection" aria-label="Current season player projection" hidden>
  <div class="bio-section-top"><div><div class="bio-eyebrow">Forward outlook</div>
  <h2 class="bio-title">Current-season projection</h2>
- <p class="bio-desc">A native player view driven by the same underlying model as the homepage, not a second forecast.</p></div></div>
+ <p class="bio-desc">The same workbook-based projection used on the homepage, presented for this player.</p></div></div>
  <div class="bio-metrics" id="bioProjectionCards"></div>
  <div class="bio-projection-body">
   <p class="bio-status" id="bioProjectionState"></p>
   <p id="bioProjectionActual"></p>
-  <p class="bio-soft-note" id="bioModelContext"></p>
-  <p class="bio-soft-note" id="bioProjectionOpponent"></p>
+  <details class="bio-evidence"><summary>Model source and limitations</summary>
+   <p class="bio-soft-note" id="bioModelContext"></p>
+   <p class="bio-soft-note" id="bioProjectionOpponent"></p>
+  </details>
  </div>
+</section>
+<section id="bioDevelopmentSection" aria-label="Season-to-season development" hidden>
+ <div class="bio-section-top"><div><div class="bio-eyebrow">Personal trajectory</div>
+ <h2 class="bio-title">Development and consistency</h2>
+ <p class="bio-desc">Compare meaningful seasons on the same 32-minute Winter-equivalent basis.</p></div></div>
+ <div id="bioDevelopmentGrid" class="bio-analytics-grid"></div>
+ <div id="bioDevelopmentChart" class="bio-spark-panel" aria-label="Qualified season progression"></div>
+ <p id="bioDevelopmentSource" class="bio-source-line"></p>
 </section>
 <section id="bioGoalieSection" aria-label="Goaltender analysis and forecast" hidden>
  <div class="bio-section-top"><div><div class="bio-eyebrow">Goaltender intelligence</div>
  <h2 class="bio-title">Performance and season outlook</h2>
- <p class="bio-desc">Actual wins, goals against and goals-against-per-game remain separate from an experimental, attendance-weighted forecast.</p></div></div>
+ <p class="bio-desc">Historical goalie performance and a separately gated season outlook.</p></div></div>
  <div id="bioGoalieCards" class="bio-metrics"></div>
  <p class="bio-status" id="bioGoalieState"></p>
  <div id="bioGoalieTrend" class="bio-chart-wrap" aria-label="Historical goalie performance"></div>
@@ -107,17 +137,21 @@ a{color:#e6c083}footer{padding:13px 20px;font-size:.75rem;color:#adc5d9}
  <div class="bio-projection-body">
   <h3 class="bio-subhead">Goaltender projection</h3>
   <p class="bio-status" id="bioGoalieStatus"></p>
-  <p class="bio-soft-note" id="bioGoalieSource"></p>
-  <p class="bio-soft-note" id="bioGoalieOpponent"></p>
+  <details class="bio-evidence"><summary>Goalie source and projection limitations</summary>
+   <p class="bio-soft-note" id="bioGoalieSource"></p>
+   <p class="bio-soft-note" id="bioGoalieOpponent"></p>
+  </details>
  </div>
 </section>
 <section id="bioOpponentSection" aria-label="Upcoming opponent context" hidden>
  <div class="bio-section-top"><div><div class="bio-eyebrow">Schedule context</div>
  <h2 class="bio-title">Upcoming competition</h2>
- <p class="bio-desc">Verified upcoming fixtures and historical Brave H.C. matchups inform preparation. They do not change a forecast without a calibrated model.</p></div></div>
+ <p class="bio-desc">Schedule and source-verified head-to-head context. No fabricated matchup advantage.</p></div></div>
  <div class="bio-matchups" id="bioOpponentCards"></div>
- <p class="bio-soft-note" id="bioOpponentSource"></p>
+ <button class="bio-more-button" id="bioOpponentMore" type="button" aria-expanded="false" hidden>View remaining games</button>
+ <details class="bio-evidence"><summary>Schedule and opponent source</summary><p id="bioOpponentSource" class="bio-soft-note"></p></details>
 </section>
+</div><!-- close Bio Studio -->
 <section id="currentSection" hidden><h2>Current Season · Winter 2026/27</h2><div id="currentCards" class="grid"></div>
 <div id="currentDate" class="date"></div></section>
 <section id="gameTrendsSection"><details id="gameChartsDetails" class="bio-fold" open><summary>Game-by-Game Performance · Winter 2026/27</summary>
@@ -132,10 +166,11 @@ a{color:#e6c083}footer{padding:13px 20px;font-size:.75rem;color:#adc5d9}
 <thead><tr><th>Season</th><th>GP</th><th id="c1">G</th><th id="c2">A</th><th id="c3">PTS</th></tr></thead>
 <tbody id="seasons"><tr><td colspan="5">Select a player</td></tr></tbody></table></div></details></section>
 <section id="leadershipSection"><h2>Leadership & Team Service</h2><div id="leadership"><p class="muted">Historical tenure records, where available.</p></div></section>
-<section id="systemSection"><h2>Team system</h2><div class="report">
+<section id="systemSection"><h2>Game-day guidance</h2>
+<details class="bio-evidence" id="bioTeamSystem"><summary>Brave H.C. 1-2-2 team framework</summary><div class="report">
 <h3>Braves team system · 1-2-2</h3><p>Protect the middle. Force the puck carrier outside. Maintain coverage before attacking together after the turnover.</p>
 <ul class="system-cues"><li><strong>F1:</strong> Guide the puck carrier toward the boards.</li><li><strong>F2 and F3:</strong> Protect your lanes and close the middle.</li><li><strong>Defence:</strong> Keep the middle covered and support behind the forwards.</li></ul>
-<p class="date">General team framework. Game-night roles are set by the coach.</p><p id="bioCoachingContext" class="bio-status">Game-specific roles require coach verification.</p><p id="coachingState" class="muted">Individual coaching assignments and reviewed clips are private until access, evidence and approval are confirmed.</p></div></section>
+<p class="date">General team framework. Game-night roles are set by the coach.</p><p id="bioCoachingContext" class="bio-status">Game-specific roles require coach verification.</p><p id="coachingState" class="muted">Individual coaching assignments and reviewed clips are private until access, evidence and approval are confirmed.</p></div></details></section>
 <section id="sourceSection"><details class="bio-fold"><summary>About these numbers</summary>
 <p id="sourceDetail"></p><p>Career totals include all published HTO game types. The season snapshot and career archive may have different dates; they are never added together.</p><p>A missing value means unavailable, not zero. Games played do not measure ice time. Game-by-game charts will appear when a verified series is available.</p></details></section>
 </div><footer><span id="sourceSummary">Source: official HTO player identity and archived statistical observations.</span>

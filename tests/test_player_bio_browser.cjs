@@ -44,6 +44,8 @@ const server=http.createServer((req,res)=>{
    const m=await pageFor('?playerID=354060&embed=1');await m.setViewportSize({width,height:800});
    await m.waitForFunction(()=>document.body.classList.contains('bio-premium-ready'));
    await m.click('#bioTabs button[data-bio-view="trends"]');
+   assert.equal(await m.$eval('#bioDevelopmentSection',e=>e.hidden),false);
+   await m.click('#bioTabs button[data-bio-view="production"]');
    assert.equal(await m.$eval('#bioSpotlight',e=>e.hidden),false);
    await m.click('#bioSeasonModes button[data-mode="summer"]');
    assert.ok(await m.$eval('#bioComboChart',e=>e.querySelectorAll('svg').length)>0);
