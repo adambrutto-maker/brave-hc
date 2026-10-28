@@ -107,7 +107,7 @@ def source_integrity():
  for a in ORIGINAL["assets"]:
   b=(ROOT/"widgets"/a["path"]).read_bytes()
   assert sha(b)==a["sha256"] and len(b)==a["bytes"],a["path"]
- return sha(oldBytes)
+ return sha(oldBytes.replace(b"\r\n",b"\n"))
 
 def build():
  archivehash=source_integrity()

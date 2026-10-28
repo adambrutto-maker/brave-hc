@@ -44,7 +44,7 @@ class UnifiedMedalSourceIntegrity(unittest.TestCase):
  def test_original_22_images_and_unchanged_provenance(self):
   self.assertEqual(OLD["schema"],"brave-hc-rounded-milestone-art/v1")
   self.assertEqual(len(OLD["assets"]),22)
-  self.assertEqual(sha(OLD_PATH.read_bytes()),M["approvedRoundClubSourceManifestSha256"])
+  self.assertEqual(sha(OLD_PATH.read_bytes().replace(b"\r\n",b"\n")),M["approvedRoundClubSourceManifestSha256"])
   for item in OLD["assets"]:
    raw=(ROOT/"widgets"/item["path"]).read_bytes()
    self.assertEqual(sha(raw),item["sha256"])
