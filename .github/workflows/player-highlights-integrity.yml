@@ -13,6 +13,7 @@ on:
       - 'tests/test_hourly_hto_player_actuals.py'
       - 'tests/test_hourly_hto_player_visual_refresh_edge.py'
       - 'tests/test_earned_milestone_wall_edge.py'
+      - 'tests/test_two_sided_achievement_locker_edge.py'
       - 'widgets/player-highlights-display-corrections.json'
       - 'widgets/assets/awards/**'
       - 'widgets/assets/clubs/**'
@@ -99,6 +100,10 @@ jobs:
         env:
           BRAVE_QA_BROWSER: chrome
         run: python tests/test_earned_milestone_wall_edge.py
+      - name: Verify both sides of achievement locker and separate discipline
+        env:
+          BRAVE_QA_BROWSER: chrome
+        run: python tests/test_two_sided_achievement_locker_edge.py
       - name: Verify hourly current-season refresh and reject unverified changes
         env:
           BRAVE_QA_BROWSER: chrome

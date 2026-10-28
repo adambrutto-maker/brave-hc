@@ -75,6 +75,7 @@ def run():
                 WebDriverWait(driver,20).until(
                     lambda d:d.execute_script("return !!document.querySelector('#legacy .ph-event')"))
                 driver.execute_script("""
+                  const history=document.querySelector('#historyDetails');if(history)history.open=true;
                   const btn=document.querySelector('#expand');
                   if(btn&&!btn.hidden)btn.click();
                   document.querySelectorAll('#legacy .ph-event img').forEach(img=>img.loading='eager');
