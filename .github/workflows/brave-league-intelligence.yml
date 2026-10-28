@@ -72,6 +72,9 @@ on:
       - 'scripts/check_eng59_static_release_surface.py'
       - 'scripts/check_eng59_preexisting_pages_exposure.py'
       - 'scripts/build_eng59_scoped_static_preview.py'
+      - 'scripts/check_eng59_frozen_source_freshness.py'
+      - 'tests/test_eng59_frozen_source_freshness.py'
+      - 'widgets/player-actuals-hourly.json'
       - 'tests/test_eng59_scoped_static_preview.py'
       - 'tests/test_eng59_scoped_preview_browser.cjs'
       - 'docs/ENG59_ScopedPages_Staging_Handoff_20261027.md'
@@ -198,6 +201,9 @@ on:
       - 'scripts/check_eng59_static_release_surface.py'
       - 'scripts/check_eng59_preexisting_pages_exposure.py'
       - 'scripts/build_eng59_scoped_static_preview.py'
+      - 'scripts/check_eng59_frozen_source_freshness.py'
+      - 'tests/test_eng59_frozen_source_freshness.py'
+      - 'widgets/player-actuals-hourly.json'
       - 'tests/test_eng59_scoped_static_preview.py'
       - 'tests/test_eng59_scoped_preview_browser.cjs'
       - 'docs/ENG59_ScopedPages_Staging_Handoff_20261027.md'
@@ -382,6 +388,10 @@ jobs:
         run: python -B scripts/build_eng59_scoped_static_preview.py --check-only --output "$RUNNER_TEMP/eng59-private-preview-candidate"
       - name: Refuse internal docs/scripts/credentials in isolated web-asset packaging
         run: python -B -m unittest discover -s tests -p test_eng59_scoped_static_preview.py -v
+      - name: Hold release-current claims for dated hourly HTO and league-source preview snapshots
+        run: python -B scripts/check_eng59_frozen_source_freshness.py
+      - name: Reject stale, regressed, source-unqualified or re-used preview hourly evidence
+        run: python -B -m unittest discover -s tests -p test_eng59_frozen_source_freshness.py -v
       - name: Guard source-stamped weekly roster age without equating separate daily captures
         run: python -B -m unittest discover -s tests -p test_roster_source_time_boundary.py -v
       - name: Verify sampled official GameInfo penalty tables without fake PIM or GP

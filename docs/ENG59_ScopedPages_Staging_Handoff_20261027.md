@@ -79,3 +79,21 @@ The local developer-only runner `tests/test_eng59_all_static_pages_browser.cjs` 
 The bounded private artifact `D:\BruTTech\Products\HockeyOS\Implementation Control\261027_ENG59_Main136_All26Pages_OfflineBrowser_PRIVATE.json` records the verified result: **52/52 page loads, zero detected local HTTP failures, zero uncaught JavaScript exceptions, zero horizontal overflow cases**, no external requests permitted, no publication or remote site action. It does not include screenshots, protected source ledger content or private authenticated pages.
 
 Accepted source #134/#135/#136 remains unchanged in Git. The private package snapshot remains frozen at its captured SHA and is **not** an alternative source of fresh HTO statistics; actual publishing/preview parity with continuing accepted live upstream content will need a later controlled build and independent review. Human privacy/content approval, owner corrections, draft PR review and Pages packaging/deployment authorization all remain pending.
+
+## October 27 — Reconcile accepted hourly HTO publisher and frozen-preview freshness
+
+The ENG59 branch ingested accepted upstream PR #137 (`8cd70e3`, merged into `main` at `3a09dac`) plus the accepted subsequent source refresh commits `0cec055` and `30cd14f`. These changes add an **independent** hourly HTO skater source `widgets/player-actuals-hourly.json` and refresh verified current feeds. ENG59 does not own that source publisher, affect its schedule, overwrite the enriched `player-actuals.json` or automatically award player achievements.
+
+Source readback shows `VERIFIED_HTO_CURRENT` W2026/27 hourly skater data at `2026-10-27T22:53:27.502Z` with HTO 5 GP / 12 GF / 23 GA; original enriched source is older at `2026-10-26T12:31:01.197Z`. The values are independent public-source evidence, not an ENG59 scoring correction. The League Intelligence source is dated separately and is not a substitute for current HTO actuals. An approval to release can never be inferred from the word `VERIFIED`.
+
+New `scripts/check_eng59_frozen_source_freshness.py` and `tests/test_eng59_frozen_source_freshness.py` implement a **read-only** release-snapshot boundary: exact HTO identity, season, status, UTC-aware as-of, monotonic against prior enriched baseline, existing league scope and canonical Git source hashes; when passed a separately stored private-preview manifest, all three source JSON bytes must match the source snapshotted for review. Eight synthetic tests reject older/malformed timestamps, source drift, out-of-scope evidence and accidental reuse of an earlier preview. There is **no invented elapsed-time approval threshold**, remote fetch, source rewrite or production deploy. The check always returns `currentAtReleaseVerified=false` and `requiresLatestSourceRecheckBeforeHumanPromotion=true`.
+
+Updated PRIVATE candidate:
+`D:\BruTTech\Products\HockeyOS\Implementation Control\ENG59_ScopedSite_CanonicalPreview_Main137_261027`
+
+Related private receipts:
+`261027_ENG59_Main137_StaticPreview_Manifest_PRIVATE.json`;
+`261027_ENG59_Main137_SourceFreshness_PRIVATE.json`;
+`261027_ENG59_Main137_All26Pages_OfflineBrowser_PRIVATE.json`.
+
+**Scoped snapshot:** 198 tracked web files, 16,914,859 canonical Git bytes, 134 relative links, source-only 6 artwork manifests / 78 source-verified icons; all 26 widget HTML pages passed offline 1140px/358px smoke with external network explicitly blocked, no missing local HTTP resources, JS exceptions or horizontal overflow. This still does not verify nonlocal production integrations, source rights, active hourly freshness or end-user feature acceptance. Every promotion requires an explicit latest-source recheck against current accepted `main`, owner privacy/content assessment, independent PR acceptance and founder deployment approval.
