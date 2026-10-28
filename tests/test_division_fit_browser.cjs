@@ -133,6 +133,25 @@ const srv=http.createServer((req,res)=>{
      "tightest objective proposes five small divisions, subject to qualification");
    assert.equal(first.layoutTeams,22);
    assert.equal(first.layoutGroupCount,5);
+   const balanceLayout=architected.choices.BALANCE[0];
+   assert.equal(await page.$eval("#layout-source-game-evidence",x=>x.hidden),false);
+   assert.equal(await page.$eval("#layout-source-game-filter",x=>x.value),"WITHIN");
+   assert.equal(await page.$$eval("#layout-source-game-list .week-card",x=>x.length),
+     balanceLayout.sameGroupObservedGames);
+   assert.ok((await page.$eval("#layout-source-game-summary",x=>x.textContent))
+     .includes(balanceLayout.sameGroupObservedGames+" within selected"));
+   await page.select("#layout-source-game-filter","ALL");
+   assert.equal(await page.$$eval("#layout-source-game-list .week-card",x=>x.length),54);
+   const flexibleLinks=await page.$$eval("#layout-source-game-list .week-card a",
+     x=>x.map(a=>a.href));
+   assert.equal(new Set(flexibleLinks).size,54);
+   assert.ok(flexibleLinks.every(x=>x.startsWith(
+     "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=")));
+   assert.equal(await page.$$eval("#layout-source-game-list .week-card .warning",x=>x.length),2);
+   await page.select("#layout-source-game-filter","ACROSS");
+   assert.equal(await page.$$eval("#layout-source-game-list .week-card",x=>x.length),
+     54-balanceLayout.sameGroupObservedGames);
+   await page.select("#layout-source-game-filter","WITHIN");
    assert.equal(await page.$eval("#layout-total-preview",x=>x.value),"22");
    assert.equal(await page.$$eval("#layout-total-patterns .week-card",x=>x.length),4);
    for(const oddTotal of ["21","23"]){
@@ -161,6 +180,11 @@ const srv=http.createServer((req,res)=>{
    assert.equal(await page.$$eval("#layout-proposal-groups .team-row",els=>els.length),22);
    assert.ok((await page.$eval("#layout-proposal-comparison",e=>e.textContent))
      .includes("NEW division(s)"));
+   const practicalLayout=architected.choices.PRACTICAL.find(x=>x.shapeId==="4-6-6-6");
+   assert.equal(await page.$$eval("#layout-source-game-list .week-card",x=>x.length),
+     practicalLayout.sameGroupObservedGames,"verified game evidence follows selected 4/6/6/6 pattern");
+   assert.ok((await page.$eval("#layout-source-game-summary",x=>x.textContent))
+     .includes("4+6+6+6 research grouping"));
    await page.evaluate(()=>Object.defineProperty(navigator,"clipboard",{
     configurable:true,value:{writeText:async data=>{window.__layoutText=data}}
    }));
@@ -179,7 +203,18 @@ const srv=http.createServer((req,res)=>{
       .includes(referenceRefinement.original.sourceVerifiedSameGroupGames+" before / "+
         referenceRefinement.refined.sourceVerifiedSameGroupGames+" after"),
       "must disclose actual source-verified matchup coverage, even when no swap improves it");
+   assert.equal(await page.$$eval("#layout-source-game-list .week-card",x=>x.length),
+     referenceRefinement.original.sourceVerifiedSameGroupGames);
    await page.select("#layout-placement-mode","REFINED");
+   assert.equal(await page.$$eval("#layout-source-game-list .week-card",x=>x.length),
+     referenceRefinement.refined.sourceVerifiedSameGroupGames,
+     "verified games must reflect refined source-ID membership");
+   assert.ok((await page.$eval("#layout-source-game-summary",x=>x.textContent))
+     .includes("refined placements"));
+   await page.select("#layout-source-game-filter","ACROSS");
+   assert.equal(await page.$$eval("#layout-source-game-list .week-card",x=>x.length),
+     54-referenceRefinement.refined.sourceVerifiedSameGroupGames);
+   await page.select("#layout-source-game-filter","WITHIN");
    const refinedUI=await page.evaluate(()=>({
     detail:document.querySelector("#layout-refinement-detail")?.textContent,
     label:document.querySelector("#layout-refinement-indicator")?.textContent,
@@ -318,7 +353,9 @@ const srv=http.createServer((req,res)=>{
     video:document.querySelector("#video-readiness-status")?.textContent,
     options:document.querySelectorAll("#scenario-options button").length,
     sourcePanelHidden:document.querySelector("#scenario-game-sources").hidden,
-    sourceRows:document.querySelectorAll("#scenario-game-list .week-card").length
+    sourceRows:document.querySelectorAll("#scenario-game-list .week-card").length,
+    flexiblePanelHidden:document.querySelector("#layout-source-game-evidence").hidden,
+    flexibleSourceRows:document.querySelectorAll("#layout-source-game-list .week-card").length
   }));
   assert.ok(idsHeld.status.includes("Preliminary research only"));
   assert.ok(idsHeld.video.includes("INSUFFICIENT_VIDEO")&&
@@ -326,6 +363,8 @@ const srv=http.createServer((req,res)=>{
   assert.equal(idsHeld.options,3);
   assert.equal(idsHeld.sourcePanelHidden,true);
   assert.equal(idsHeld.sourceRows,0);
+  assert.equal(idsHeld.flexiblePanelHidden,true);
+  assert.equal(idsHeld.flexibleSourceRows,0);
   await missingIDs.close();
   console.log(JSON.stringify({status:"DIVISION_FIT_BROWSER_PASS",results,
     missingVideoAdapterKeepsExistingResearch:"PASS",

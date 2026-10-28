@@ -87,6 +87,19 @@ footer{margin-top:25px;color:var(--muted);font-size:11px}
  <p id="layout-roster-source-status" class="notes">Checking publicly sourced roster construction evidence…</p>
  <div id="layout-proposal-groups" class="division-grid"></div>
  <p id="layout-caveat" class="layout-warning"></p>
+ <details id="layout-source-game-evidence" hidden>
+  <summary>Inspect exact official games supporting this flexible layout</summary>
+  <p id="layout-source-game-summary" class="small" role="status"></p>
+  <p class="small">Past SVHL results only. Proposed group membership is hypothetical, not a division change, predicted outcome, or accepted individual scorer.</p>
+  <label for="layout-source-game-filter" class="small">Source games
+   <select id="layout-source-game-filter" aria-label="Filter official games by proposed research group membership">
+    <option value="WITHIN">Within proposed groups</option>
+    <option value="ACROSS">Across proposed groups</option>
+    <option value="ALL">All verified games</option>
+   </select>
+  </label>
+  <div id="layout-source-game-list" class="week-list" aria-label="Exact SVHL GameInfo evidence for flexible research groups"></div>
+ </details>
  <details id="layout-total-planning">
    <summary>Plan for a different total: what if there are 21 or 23 clubs?</summary>
    <p class="small">The accepted adult Sunday league currently has 22 clubs. Try 21 or 23 to compare legal capacity combinations only. No hypothetical team is added or removed from any source record, and these previews do not assign named clubs.</p>

@@ -144,6 +144,9 @@
   verifiedGameInfoBySourceKey=new Map(official.games.map(g=>[g.sourceGameKey,g]));
   if(verifiedGameInfoBySourceKey.size!==verified.sourceGameIDsVerified)
    throw Error("SCENARIO_GAME_SOURCE_INDEX_DUPLICATED");
+  if(!window.BraveDivisionLayoutView?.setOfficialGameInfoSource)
+   throw Error("LAYOUT_OFFICIAL_GAME_SOURCE_VIEW_MISSING");
+  window.BraveDivisionLayoutView.setOfficialGameInfoSource(analysis,official);
   renderScenarioGameSources();
   // This only upgrades the source-linked identity/evidence LABEL, never a team rating.
   // Default remains actual cross-division matches; the source-only inventory can
@@ -435,6 +438,7 @@
    source();connections();videoBridgeReadiness();renderScenario();renderStability();readiness();historical();
    loadOfficialGameIDBridges().catch(error=>{
     verifiedGameInfoBySourceKey=null;
+    window.BraveDivisionLayoutView?.clearOfficialGameInfoSource?.();
     renderScenarioGameSources();
     const status=q("video-readiness-status");
     if(status.textContent.includes("INSUFFICIENT_VIDEO"))
