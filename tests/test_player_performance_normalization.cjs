@@ -11,7 +11,14 @@ const deepCopy = value => JSON.parse(JSON.stringify(value));
 test('reference configuration exposes both directions without mapping unverified historical seasons', () => {
   assert.equal(formats.schema, normal.SCHEMA);
   assert.equal(formats.defaultTargetFormatId, 'brave-winter-32');
-  assert.deepEqual(Object.keys(formats.seasonBindings), []);
+  assert.equal(Object.keys(formats.seasonBindings).length,18);
+  for(const [scope,binding] of Object.entries(formats.seasonBindings)){
+    assert.ok(scope.endsWith('::ALL_HTO_GAME_TYPES'));
+    assert.equal(binding.verificationStatus,'VERIFIED');
+    assert.equal(binding.scope,'GAME_LENGTH_ONLY_ALL_HTO_PUBLISHED_GAME_TYPES');
+    assert.equal(binding.formatId,scope.startsWith('Summer ')?'brave-summer-48':'brave-winter-32');
+    assert.equal(binding.officialStatsUnchanged,true);
+  }
   assert.equal(normal.verifiedFormat(winter).regulationGameMinutes, 32);
   assert.equal(normal.verifiedFormat(summer).regulationGameMinutes, 48);
 });
@@ -167,4 +174,27 @@ test('neither skater nor goalkeeper normalization changes a season-length count 
   for(const key of ['summerSeasonGames','winterSeasonGames','projectedSeasonPts','milestones','records','awards']){
     assert.equal(Object.hasOwn(r.equivalent,key),false);
   }
+});
+
+test('source-verified all-game-type season mapping computes both scoring rate directions, bars remain original', () => {
+  const summerRow = Object.freeze({Season:'Summer 2016',GP:10,G:8,A:7,Pts:15});
+  const winterEquivalent=normal.normalizeHistorical(summerRow,formats,{role:'skater',
+    seasonKey:'Summer 2016',gameType:'ALL_HTO_GAME_TYPES',targetFormatId:'brave-winter-32'});
+  assert.equal(winterEquivalent.status,'VERIFIED_EQUIVALENT');
+  assert.equal(winterEquivalent.actual.Pts,15);
+  assert.equal(winterEquivalent.actual.G,8);
+  assert.equal(winterEquivalent.actual.A,7);
+  assert.equal(winterEquivalent.equivalent.pointsPerGame,1);
+  const winterRow=Object.freeze({Season:'Winter 2017/2018',GP:20,G:8,A:12,Pts:20});
+  const summerEquivalent=normal.normalizeHistorical(winterRow,formats,{role:'skater',
+    seasonKey:'Winter 2017/2018',gameType:'ALL_HTO_GAME_TYPES',targetFormatId:'brave-summer-48'});
+  assert.equal(summerEquivalent.status,'VERIFIED_EQUIVALENT');
+  assert.equal(summerEquivalent.equivalent.pointsPerGame,1.5);
+  assert.equal(winterRow.Pts,20);
+});
+test('unmapped hypothetical season cannot inherit the last known Winter or Summer format', () => {
+ const row={Season:'Summer 2028',GP:3,G:2,A:1,Pts:3};
+ assert.equal(normal.normalizeHistorical(row,formats,{role:'skater',seasonKey:row.Season,
+   gameType:'ALL_HTO_GAME_TYPES',targetFormatId:'brave-winter-32'}).reason,
+   'HISTORICAL_SOURCE_FORMAT_NOT_VERIFIED');
 });

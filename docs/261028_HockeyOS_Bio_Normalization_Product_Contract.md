@@ -76,12 +76,12 @@ A separate **season-length projection** may eventually be implemented as a clear
 - [x] Verify original 32/48 and 48/32 workbook source formulas via read-only inspection.
 - [x] Capture standing requirements in repository instructions and product contract.
 - [x] Stage pure duration-normalization module, format configuration and positive/negative regression tests on a feature branch.
-- [ ] Reconcile a full historical season/game-type mapping for each applicable HTO profile and workbook segment; compare original vs adjusted workbook outputs, preserving regular-season/playoff scope. This mapping is **not yet supplied** by the currently published Bio career feed.
-- [ ] Wire a controlled, dated, validated public analytical feed to the Bio. Do not present normalized live player statistics until a source-verified season format and complete source parity exist.
-- [ ] Implement Milestone-quality Bio header, in-place category navigation, RAW stacked goals+assists with ADJUSTABLE rate line and distinct scales; responsive/browser QA.
-- [ ] Implement native individual projection cards driven by the single homepage forecast JSON, with source status and identity verification; homepage redesign intentionally out of scope.
+- [x] Read-only verification: all **18 of 18** career-archive season labels map to original Master Schedule season codes and S/W duration factors for all published game types. Source receipt: docs/261028_Bio_Historical_Duration_Mapping_Evidence.md. Note: full player-level HTO versus Master Workbook game-stat parity remains a separate outstanding data-quality task.
+- [x] Wire a source-gated historic season-length conversion reference to the Bio's Pts/GP line using original HTO season totals and separately verified 18 season code/duration mappings. Never change raw G/A chart bars, official records or career statistics. Preserve distinct source capture dates and all-game-type scope.
+- [x] Stage Milestone-quality Bio header, five in-place category buttons, RAW stacked G/A plus adjustable rate line (Actual/Winter/Summer), responsive screen layout and accessible season inspection. 109-player browser regression passed; production release still gated.
+- [x] Stage native individual skater projection cards driven by the single homepage forecast JSON, with provisional status and source date/identity validation; homepage redesign intentionally out of scope. Numerical goalie projection is separately held.
 - [ ] Build authenticated coach-approved lineup/role/season-status instructions; no private notes in public repository.
-- [ ] Run all existing 109-player/leadership regression tests plus new normalization tests, confirm no change to HTO Records/Awards/Highlights and publish only after explicit release approval.
+- [x] Execute 109-profile premium mobile/desktop browser tests and 17 normalization contract tests. [ ] Complete final source checks, visual review, draft PR CI and human release approval; no live publication has yet occurred.
 
 Relates to GitHub issue #79; its prior player-Bio installation is complete, but advanced normalization, refreshed UI and protected individual coaching are **separate incomplete milestones**.
 
@@ -92,3 +92,14 @@ Relates to GitHub issue #79; its prior player-Bio installation is complete, but 
 - Manager-configured 3×15-minute target compared with 3×12-minute source → factor 45/36; no hard-coded season-name conversion.
 - Missing duration, mismatched period-minute totals, unverified season assignment, source/target ambiguity or source GP = 0 → explicit hold or unavailable rate, never fabricate.
 - Neither a positive nor a negative normalization test writes to Excel, HTO, award-grant logic, records or a public coaching source.
+
+
+## New goaltender projection and schedule-adjustment contract (2026-10-28)
+
+- **Skaters:** retain the existing workbook-authoritative BravesRegularSeasonProjection. The Bio renders its published model-derived forecast directly. An opponent-aware extension must build on that model, not replace its existing attendance, FT/CU/DI and career/current coefficients with a simplified extrapolation. It must be separately versioned, source-checked and back-tested before modifying live values.
+- **Goalies:** build a distinct Goalie Projection v0.1 with the same principles of historical attendance and increasing current-season weighting over completed team games. Inputs require verified current goalie appearances/W-L-T/GA, original historical goalie appearances and corresponding team season game counts, remaining verified schedule, and verified goalie participation eligibility. Output would include expected appearances, wins, total goals allowed, and goals against per appearance; all as estimates, never official results.
+- **Game time:** historical Summer vs Winter game duration must be normalized before comparing goalie goals allowed per appearance. Official goalie GAA and saves are not automatically inferred; HTO historical shots-against fields have known reliability questions. No fantasy-style fabricated save percentage or shutouts.
+- **Opponent context:** the existing source-qualified opponent-intelligence.json and SVHL fixtures can be shown descriptively in the Bio immediately. Use only verified exact-team/source-game identity. When a future matchup-adjustment model has independently validated predictive effects, apply it only to approved future fixtures. A never-before-met opponent uses a broad neutral baseline instead of a fabricated head-to-head comparison. The current descriptive strength index is not a calibrated win probability.
+- **Coaching:** game-specific coaching is private, accessible only when the player is confirmed in an authorized lineup and a coach-approved position/assignment exists. Public users see general system cues and publicly verified schedule context only.
+- **Important data gap:** the browser may show a polished goalie chart of actual historical W/GAA, but numerical 2026/27 goalie forecasts remain HELD until a complete dated team-game attendance denominator and verified current goalie W/L/T/GA source join exist. This must be explicit in the view.
+- **2026/27 source alignment:** the HTO five-game current team readback and the older one-game workbook model baseline remain different snapshots. Do not silently merge them.
