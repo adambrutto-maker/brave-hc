@@ -1,0 +1,332 @@
+{
+  "schema": "hockeyos-league-game-formats/v1",
+  "teamId": "BRAVE_HC",
+  "owner": "HockeyOS",
+  "configurationStatus": "REFERENCE_FORMATS_AND_18_MASTER_SCHEDULE_SEASON_BINDINGS_VERIFIED",
+  "sourceAuthority": "Read-only Brave H.C. Master Workbook SkaterStatsByGame W Adj. / S Adj. formulas verified 2026-10-28",
+  "formats": {
+    "brave-winter-32": {
+      "id": "brave-winter-32",
+      "label": "Winter-equivalent",
+      "verificationStatus": "VERIFIED",
+      "regulationGameMinutes": 32,
+      "periodMinutes": null,
+      "sourceEvidence": "Master Workbook SkaterStatsByGame W Adj. G/A/Pts"
+    },
+    "brave-summer-48": {
+      "id": "brave-summer-48",
+      "label": "Summer-equivalent",
+      "verificationStatus": "VERIFIED",
+      "regulationGameMinutes": 48,
+      "periodMinutes": null,
+      "sourceEvidence": "Master Workbook SkaterStatsByGame S Adj. G/A/Pts"
+    }
+  },
+  "defaultTargetFormatId": "brave-winter-32",
+  "views": [
+    {
+      "id": "actual",
+      "label": "Actual",
+      "targetFormatId": null
+    },
+    {
+      "id": "winter",
+      "label": "Winter-equivalent",
+      "targetFormatId": "brave-winter-32"
+    },
+    {
+      "id": "summer",
+      "label": "Summer-equivalent",
+      "targetFormatId": "brave-summer-48"
+    }
+  ],
+  "seasonBindings": {
+    "Summer 2013::ALL_HTO_GAME_TYPES": {
+      "formatId": "brave-summer-48",
+      "verificationStatus": "VERIFIED",
+      "evidenceRef": "261001_Brave_HC_Master_Workbook.xlsx Master Schedule C/D and Z/AC, workbook hash 0002fd9f06596af8; 2026-10-28 season crosswalk",
+      "workbookSeasonCode": "S2013",
+      "workbookGameTypes": [
+        "Regular Season",
+        "Playoffs"
+      ],
+      "workbookScheduledGamesByType": {
+        "Regular Season": 9,
+        "Playoffs": 4
+      },
+      "scope": "GAME_LENGTH_ONLY_ALL_HTO_PUBLISHED_GAME_TYPES",
+      "officialStatsUnchanged": true
+    },
+    "Summer 2014::ALL_HTO_GAME_TYPES": {
+      "formatId": "brave-summer-48",
+      "verificationStatus": "VERIFIED",
+      "evidenceRef": "261001_Brave_HC_Master_Workbook.xlsx Master Schedule C/D and Z/AC, workbook hash 0002fd9f06596af8; 2026-10-28 season crosswalk",
+      "workbookSeasonCode": "S2014",
+      "workbookGameTypes": [
+        "Regular Season",
+        "Playoffs"
+      ],
+      "workbookScheduledGamesByType": {
+        "Regular Season": 10,
+        "Playoffs": 2
+      },
+      "scope": "GAME_LENGTH_ONLY_ALL_HTO_PUBLISHED_GAME_TYPES",
+      "officialStatsUnchanged": true
+    },
+    "Summer 2015::ALL_HTO_GAME_TYPES": {
+      "formatId": "brave-summer-48",
+      "verificationStatus": "VERIFIED",
+      "evidenceRef": "261001_Brave_HC_Master_Workbook.xlsx Master Schedule C/D and Z/AC, workbook hash 0002fd9f06596af8; 2026-10-28 season crosswalk",
+      "workbookSeasonCode": "S2015",
+      "workbookGameTypes": [
+        "Regular Season",
+        "Playoffs"
+      ],
+      "workbookScheduledGamesByType": {
+        "Regular Season": 10,
+        "Playoffs": 3
+      },
+      "scope": "GAME_LENGTH_ONLY_ALL_HTO_PUBLISHED_GAME_TYPES",
+      "officialStatsUnchanged": true
+    },
+    "Summer 2016::ALL_HTO_GAME_TYPES": {
+      "formatId": "brave-summer-48",
+      "verificationStatus": "VERIFIED",
+      "evidenceRef": "261001_Brave_HC_Master_Workbook.xlsx Master Schedule C/D and Z/AC, workbook hash 0002fd9f06596af8; 2026-10-28 season crosswalk",
+      "workbookSeasonCode": "S2016",
+      "workbookGameTypes": [
+        "Regular Season",
+        "Playoffs"
+      ],
+      "workbookScheduledGamesByType": {
+        "Regular Season": 10,
+        "Playoffs": 3
+      },
+      "scope": "GAME_LENGTH_ONLY_ALL_HTO_PUBLISHED_GAME_TYPES",
+      "officialStatsUnchanged": true
+    },
+    "Summer 2017::ALL_HTO_GAME_TYPES": {
+      "formatId": "brave-summer-48",
+      "verificationStatus": "VERIFIED",
+      "evidenceRef": "261001_Brave_HC_Master_Workbook.xlsx Master Schedule C/D and Z/AC, workbook hash 0002fd9f06596af8; 2026-10-28 season crosswalk",
+      "workbookSeasonCode": "S2017",
+      "workbookGameTypes": [
+        "Regular Season",
+        "Playoffs"
+      ],
+      "workbookScheduledGamesByType": {
+        "Regular Season": 10,
+        "Playoffs": 4
+      },
+      "scope": "GAME_LENGTH_ONLY_ALL_HTO_PUBLISHED_GAME_TYPES",
+      "officialStatsUnchanged": true
+    },
+    "Winter 2013/2014::ALL_HTO_GAME_TYPES": {
+      "formatId": "brave-winter-32",
+      "verificationStatus": "VERIFIED",
+      "evidenceRef": "261001_Brave_HC_Master_Workbook.xlsx Master Schedule C/D and Z/AC, workbook hash 0002fd9f06596af8; 2026-10-28 season crosswalk",
+      "workbookSeasonCode": "W2013/14",
+      "workbookGameTypes": [
+        "Regular Season",
+        "Playoffs"
+      ],
+      "workbookScheduledGamesByType": {
+        "Regular Season": 24,
+        "Playoffs": 6
+      },
+      "scope": "GAME_LENGTH_ONLY_ALL_HTO_PUBLISHED_GAME_TYPES",
+      "officialStatsUnchanged": true
+    },
+    "Winter 2014/2015::ALL_HTO_GAME_TYPES": {
+      "formatId": "brave-winter-32",
+      "verificationStatus": "VERIFIED",
+      "evidenceRef": "261001_Brave_HC_Master_Workbook.xlsx Master Schedule C/D and Z/AC, workbook hash 0002fd9f06596af8; 2026-10-28 season crosswalk",
+      "workbookSeasonCode": "W2014/15",
+      "workbookGameTypes": [
+        "Regular Season",
+        "Playoffs"
+      ],
+      "workbookScheduledGamesByType": {
+        "Regular Season": 21,
+        "Playoffs": 6
+      },
+      "scope": "GAME_LENGTH_ONLY_ALL_HTO_PUBLISHED_GAME_TYPES",
+      "officialStatsUnchanged": true
+    },
+    "Winter 2015/2016::ALL_HTO_GAME_TYPES": {
+      "formatId": "brave-winter-32",
+      "verificationStatus": "VERIFIED",
+      "evidenceRef": "261001_Brave_HC_Master_Workbook.xlsx Master Schedule C/D and Z/AC, workbook hash 0002fd9f06596af8; 2026-10-28 season crosswalk",
+      "workbookSeasonCode": "W2015/16",
+      "workbookGameTypes": [
+        "Regular Season",
+        "Playoffs"
+      ],
+      "workbookScheduledGamesByType": {
+        "Regular Season": 23,
+        "Playoffs": 6
+      },
+      "scope": "GAME_LENGTH_ONLY_ALL_HTO_PUBLISHED_GAME_TYPES",
+      "officialStatsUnchanged": true
+    },
+    "Winter 2016/2017::ALL_HTO_GAME_TYPES": {
+      "formatId": "brave-winter-32",
+      "verificationStatus": "VERIFIED",
+      "evidenceRef": "261001_Brave_HC_Master_Workbook.xlsx Master Schedule C/D and Z/AC, workbook hash 0002fd9f06596af8; 2026-10-28 season crosswalk",
+      "workbookSeasonCode": "W2016/17",
+      "workbookGameTypes": [
+        "Regular Season",
+        "Playoffs"
+      ],
+      "workbookScheduledGamesByType": {
+        "Regular Season": 21,
+        "Playoffs": 7
+      },
+      "scope": "GAME_LENGTH_ONLY_ALL_HTO_PUBLISHED_GAME_TYPES",
+      "officialStatsUnchanged": true
+    },
+    "Winter 2017/2018::ALL_HTO_GAME_TYPES": {
+      "formatId": "brave-winter-32",
+      "verificationStatus": "VERIFIED",
+      "evidenceRef": "261001_Brave_HC_Master_Workbook.xlsx Master Schedule C/D and Z/AC, workbook hash 0002fd9f06596af8; 2026-10-28 season crosswalk",
+      "workbookSeasonCode": "W2017/18",
+      "workbookGameTypes": [
+        "Regular Season",
+        "Playoffs"
+      ],
+      "workbookScheduledGamesByType": {
+        "Regular Season": 22,
+        "Playoffs": 5
+      },
+      "scope": "GAME_LENGTH_ONLY_ALL_HTO_PUBLISHED_GAME_TYPES",
+      "officialStatsUnchanged": true
+    },
+    "Winter 2018/2019::ALL_HTO_GAME_TYPES": {
+      "formatId": "brave-winter-32",
+      "verificationStatus": "VERIFIED",
+      "evidenceRef": "261001_Brave_HC_Master_Workbook.xlsx Master Schedule C/D and Z/AC, workbook hash 0002fd9f06596af8; 2026-10-28 season crosswalk",
+      "workbookSeasonCode": "W2018/19",
+      "workbookGameTypes": [
+        "Regular Season",
+        "Playoffs"
+      ],
+      "workbookScheduledGamesByType": {
+        "Regular Season": 26,
+        "Playoffs": 3
+      },
+      "scope": "GAME_LENGTH_ONLY_ALL_HTO_PUBLISHED_GAME_TYPES",
+      "officialStatsUnchanged": true
+    },
+    "Winter 2019/2020::ALL_HTO_GAME_TYPES": {
+      "formatId": "brave-winter-32",
+      "verificationStatus": "VERIFIED",
+      "evidenceRef": "261001_Brave_HC_Master_Workbook.xlsx Master Schedule C/D and Z/AC, workbook hash 0002fd9f06596af8; 2026-10-28 season crosswalk",
+      "workbookSeasonCode": "W2019/20",
+      "workbookGameTypes": [
+        "Regular Season",
+        "Playoffs"
+      ],
+      "workbookScheduledGamesByType": {
+        "Regular Season": 22,
+        "Playoffs": 2
+      },
+      "scope": "GAME_LENGTH_ONLY_ALL_HTO_PUBLISHED_GAME_TYPES",
+      "officialStatsUnchanged": true
+    },
+    "Winter 2020/2021::ALL_HTO_GAME_TYPES": {
+      "formatId": "brave-winter-32",
+      "verificationStatus": "VERIFIED",
+      "evidenceRef": "261001_Brave_HC_Master_Workbook.xlsx Master Schedule C/D and Z/AC, workbook hash 0002fd9f06596af8; 2026-10-28 season crosswalk",
+      "workbookSeasonCode": "W2020/21",
+      "workbookGameTypes": [
+        "Regular Season"
+      ],
+      "workbookScheduledGamesByType": {
+        "Regular Season": 3
+      },
+      "scope": "GAME_LENGTH_ONLY_ALL_HTO_PUBLISHED_GAME_TYPES",
+      "officialStatsUnchanged": true
+    },
+    "Winter 2022/2023::ALL_HTO_GAME_TYPES": {
+      "formatId": "brave-winter-32",
+      "verificationStatus": "VERIFIED",
+      "evidenceRef": "261001_Brave_HC_Master_Workbook.xlsx Master Schedule C/D and Z/AC, workbook hash 0002fd9f06596af8; 2026-10-28 season crosswalk",
+      "workbookSeasonCode": "W2022/23",
+      "workbookGameTypes": [
+        "Regular Season",
+        "Playoffs"
+      ],
+      "workbookScheduledGamesByType": {
+        "Regular Season": 23,
+        "Playoffs": 2
+      },
+      "scope": "GAME_LENGTH_ONLY_ALL_HTO_PUBLISHED_GAME_TYPES",
+      "officialStatsUnchanged": true
+    },
+    "Winter 2023/2024::ALL_HTO_GAME_TYPES": {
+      "formatId": "brave-winter-32",
+      "verificationStatus": "VERIFIED",
+      "evidenceRef": "261001_Brave_HC_Master_Workbook.xlsx Master Schedule C/D and Z/AC, workbook hash 0002fd9f06596af8; 2026-10-28 season crosswalk",
+      "workbookSeasonCode": "W2023/24",
+      "workbookGameTypes": [
+        "Regular Season",
+        "Playoffs"
+      ],
+      "workbookScheduledGamesByType": {
+        "Regular Season": 24,
+        "Playoffs": 2
+      },
+      "scope": "GAME_LENGTH_ONLY_ALL_HTO_PUBLISHED_GAME_TYPES",
+      "officialStatsUnchanged": true
+    },
+    "Winter 2024/2025::ALL_HTO_GAME_TYPES": {
+      "formatId": "brave-winter-32",
+      "verificationStatus": "VERIFIED",
+      "evidenceRef": "261001_Brave_HC_Master_Workbook.xlsx Master Schedule C/D and Z/AC, workbook hash 0002fd9f06596af8; 2026-10-28 season crosswalk",
+      "workbookSeasonCode": "W2024/25",
+      "workbookGameTypes": [
+        "Regular Season",
+        "Playoffs"
+      ],
+      "workbookScheduledGamesByType": {
+        "Regular Season": 24,
+        "Playoffs": 2
+      },
+      "scope": "GAME_LENGTH_ONLY_ALL_HTO_PUBLISHED_GAME_TYPES",
+      "officialStatsUnchanged": true
+    },
+    "Winter 2025/2026::ALL_HTO_GAME_TYPES": {
+      "formatId": "brave-winter-32",
+      "verificationStatus": "VERIFIED",
+      "evidenceRef": "261001_Brave_HC_Master_Workbook.xlsx Master Schedule C/D and Z/AC, workbook hash 0002fd9f06596af8; 2026-10-28 season crosswalk",
+      "workbookSeasonCode": "W2025/26",
+      "workbookGameTypes": [
+        "Regular Season",
+        "Playoffs"
+      ],
+      "workbookScheduledGamesByType": {
+        "Regular Season": 24,
+        "Playoffs": 3
+      },
+      "scope": "GAME_LENGTH_ONLY_ALL_HTO_PUBLISHED_GAME_TYPES",
+      "officialStatsUnchanged": true
+    },
+    "Winter 2026/2027::ALL_HTO_GAME_TYPES": {
+      "formatId": "brave-winter-32",
+      "verificationStatus": "VERIFIED",
+      "evidenceRef": "261001_Brave_HC_Master_Workbook.xlsx Master Schedule C/D and Z/AC, workbook hash 0002fd9f06596af8; 2026-10-28 season crosswalk",
+      "workbookSeasonCode": "W2026/27",
+      "workbookGameTypes": [
+        "Regular Season"
+      ],
+      "workbookScheduledGamesByType": {
+        "Regular Season": 24
+      },
+      "scope": "GAME_LENGTH_ONLY_ALL_HTO_PUBLISHED_GAME_TYPES",
+      "officialStatsUnchanged": true
+    }
+  },
+  "sourceScope": "18 HTO career archive seasons mapped to matching original Master Schedule season codes; period length normalization only, no player/goalie source totals edited",
+  "formatSettingsAreHistoricalSnapshots": true,
+  "privacy": "PUBLIC_FORMAT_RULES_ONLY_NO_PRIVATE_COACHING_OR_PLAYER_DATA"
+}

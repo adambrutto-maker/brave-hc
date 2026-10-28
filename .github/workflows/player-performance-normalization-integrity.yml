@@ -1,0 +1,58 @@
+name: HockeyOS player Bio duration-normalization contract
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'AGENTS.md'
+      - 'docs/261028_HockeyOS_Bio_Normalization_Product_Contract.md'
+      - 'widgets/league-game-formats.json'
+      - 'widgets/player-performance-normalization.js'
+      - 'tests/test_player_performance_normalization.cjs'
+      - 'widgets/player-bio.html'
+      - 'widgets/player-bio-premium.js'
+      - 'widgets/player-bio-premium.css'
+      - 'widgets/goalie-projection-model.js'
+      - 'tests/test_goalie_projection_model.cjs'
+      - 'tests/test_player_bio_premium_browser.cjs'
+      - 'tests/test_player_bio_browser.cjs'
+      - 'docs/261028_Bio_Historical_Duration_Mapping_Evidence.md'
+      - '.github/workflows/player-performance-normalization-integrity.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify-normalization-contract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Check pure normalization module syntax
+        run: node --check widgets/player-performance-normalization.js
+      - name: Check source-preserving regression syntax
+        run: node --check tests/test_player_performance_normalization.cjs
+      - name: Check both conversion directions and 18 verified historical season bindings
+        run: node --test tests/test_player_performance_normalization.cjs
+      - name: Check new goalie projection safety and increasing current-season weighting
+        run: node --test tests/test_goalie_projection_model.cjs
+      - name: Check premium Bio JavaScript and goalie forecast module syntax
+        run: |
+          node --check widgets/player-bio-premium.js
+          node --check widgets/player-bio.js
+          node --check widgets/goalie-projection-model.js
+      - name: Verify premium markup and required source integrity controls
+        run: node -e "const fs=require('fs');const h=fs.readFileSync('widgets/player-bio.html','utf8');for(const x of ['id=\"bioTabs\"','id=\"bioComboChart\"','id=\"bioProjectionSection\"','id=\"bioGoalieSection\"','id=\"bioOpponentSection\"','player-bio-premium.js'])if(!h.includes(x))process.exit(2)"
+
+      - name: Install isolated Playwright test dependency
+        run: npm install --no-package-lock --no-save playwright
+      - name: Install browser for source-independent CI acceptance
+        run: npx playwright install --with-deps chromium
+      - name: Test polished player Bio across 109 HTO profiles and responsive viewports
+        run: node tests/test_player_bio_premium_browser.cjs
+      - name: Run historical Bio identity, leadership and fallback regression with production CSS
+        run: node tests/test_player_bio_browser.cjs
