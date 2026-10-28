@@ -95,6 +95,10 @@ def run():
                     rows:rows.length,viewport:innerWidth,categories,wrongSize,
                     broken:imgs.filter(i=>i.naturalWidth===0).map(i=>i.getAttribute('src')),
                     noImage:rows.filter(r=>!r.querySelector('img')).map(title),
+                    opaqueFrames:imgs.filter(i=>{
+                      const style=getComputedStyle(i.parentElement);
+                      return style.backgroundColor!=='rgba(0, 0, 0, 0)'||parseFloat(style.borderTopWidth)>0;
+                    }).map(i=>i.getAttribute('src')),
                     overflow:document.documentElement.scrollWidth>innerWidth+4,
                     norris:rows.filter(r=>title(r).includes('James Norris Award')).map(r=>r.querySelector('img')?.src||''),
                     patch:rows.filter(r=>title(r).includes('Andrew Cristillo Award for Dedication')).map(r=>({
@@ -112,6 +116,7 @@ def run():
                 assert not data["wrongSize"],(pid,width,"inconsistent icon sizes",data["wrongSize"])
                 assert not data["broken"],(pid,width,"missing assets",data["broken"])
                 assert not data["noImage"],(pid,width,"unbranded highlight",data["noImage"])
+                assert not data["opaqueFrames"],(pid,width,"icon still surrounded by white tile",data["opaqueFrames"])
                 assert not data["overflow"],(pid,width,"overflow")
                 assert all("james-norris.webp" in u or "james_norris.webp" in u for u in data["norris"]),(pid,"Norris")
                 assert all(("cristillo-dedication.webp" in x["logo"] or "andrew_cristillo.webp" in x["logo"]) and x["framed"]

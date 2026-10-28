@@ -16,8 +16,11 @@
       "value": 50,
       "tier": "bronze",
       "sourceVerifiedInSnapshot": true,
-      "bytes": 14042,
-      "sha256": "88f63a61d35f77661852305f32e823ddb01c81faf1a0eb93b19b76f5fa31fe80"
+      "bytes": 39716,
+      "sha256": "a1cc42bb157543d3f9253f4d2cf061bbfdd3c440cade66026ac062dbf5c5de35",
+      "background": "TRANSPARENT_EXTERIOR_APPROVED_ART_PRESERVED",
+      "opaqueSourcePath": "assets/opaque-originals/round-clubs/50_games_bronze_200.webp",
+      "opaqueSourceSha256": "88f63a61d35f77661852305f32e823ddb01c81faf1a0eb93b19b76f5fa31fe80"
     },
     {
       "path": "assets/round-clubs/100_games_silver_200.webp",
@@ -25,8 +28,11 @@
       "value": 100,
       "tier": "silver",
       "sourceVerifiedInSnapshot": true,
-      "bytes": 13504,
-      "sha256": "c2651000b0f07da99b1985efbb72d83635c8bfc21f0ebdc7efcca07ace98f6ba"
+      "bytes": 38012,
+      "sha256": "b3982cf9374420a13b09c8be2bb69f23a3e17fcf71ed8d1b3127eacb3284cc87",
+      "background": "TRANSPARENT_EXTERIOR_APPROVED_ART_PRESERVED",
+      "opaqueSourcePath": "assets/opaque-originals/round-clubs/100_games_silver_200.webp",
+      "opaqueSourceSha256": "c2651000b0f07da99b1985efbb72d83635c8bfc21f0ebdc7efcca07ace98f6ba"
     },
     {
       "path": "assets/round-clubs/200_games_gold_200.webp",
@@ -34,8 +40,11 @@
       "value": 200,
       "tier": "gold",
       "sourceVerifiedInSnapshot": true,
-      "bytes": 14348,
-      "sha256": "82c72ff61fdffcfb45778ca18eaf31f5f6e7fc68eee70a377cea763d0056d458"
+      "bytes": 41022,
+      "sha256": "b641f8ed6cb7dd9dbfaaacb3b9f34074ecfe266f40ca47d2a133fd30d86dfb5e",
+      "background": "TRANSPARENT_EXTERIOR_APPROVED_ART_PRESERVED",
+      "opaqueSourcePath": "assets/opaque-originals/round-clubs/200_games_gold_200.webp",
+      "opaqueSourceSha256": "82c72ff61fdffcfb45778ca18eaf31f5f6e7fc68eee70a377cea763d0056d458"
     },
     {
       "path": "assets/round-clubs/300_games_platinum_200.webp",
@@ -43,8 +52,11 @@
       "value": 300,
       "tier": "platinum",
       "sourceVerifiedInSnapshot": true,
-      "bytes": 13722,
-      "sha256": "71884474cf7a47674d60150810c8e1d98427bf1e6ad152725c0d72e0cdf514bf"
+      "bytes": 38450,
+      "sha256": "426d05bc3f291de4fadc8c7ef666f123642b486f8a928158dc38eca2a470c37b",
+      "background": "TRANSPARENT_EXTERIOR_APPROVED_ART_PRESERVED",
+      "opaqueSourcePath": "assets/opaque-originals/round-clubs/300_games_platinum_200.webp",
+      "opaqueSourceSha256": "71884474cf7a47674d60150810c8e1d98427bf1e6ad152725c0d72e0cdf514bf"
     },
     {
       "path": "assets/round-clubs/400_games_platinum_200.webp",
@@ -52,8 +64,11 @@
       "value": 400,
       "tier": "platinum",
       "sourceVerifiedInSnapshot": false,
-      "bytes": 13662,
-      "sha256": "fb25eb410e78eda404a87dc55a673000d6caeef086fe4ebc6207848426e96584"
+      "bytes": 38386,
+      "sha256": "050d8ce380e8c0c538e0095789279c6641e7aff451f3310acdac5bc98b39541e",
+      "background": "TRANSPARENT_EXTERIOR_APPROVED_ART_PRESERVED",
+      "opaqueSourcePath": "assets/opaque-originals/round-clubs/400_games_platinum_200.webp",
+      "opaqueSourceSha256": "fb25eb410e78eda404a87dc55a673000d6caeef086fe4ebc6207848426e96584"
     },
     {
       "path": "assets/round-clubs/500_games_platinum_200.webp",
@@ -61,8 +76,11 @@
       "value": 500,
       "tier": "platinum",
       "sourceVerifiedInSnapshot": false,
-      "bytes": 13698,
-      "sha256": "25b95f36548717f112e1cc46fe5d27fb49e75e473f14a740e386cfad14f0b058"
+      "bytes": 38148,
+      "sha256": "fffb91b1ab1d020abebfbd2f3b62cceed3d16d22874f2bc3923b67dfac781027",
+      "background": "TRANSPARENT_EXTERIOR_APPROVED_ART_PRESERVED",
+      "opaqueSourcePath": "assets/opaque-originals/round-clubs/500_games_platinum_200.webp",
+      "opaqueSourceSha256": "25b95f36548717f112e1cc46fe5d27fb49e75e473f14a740e386cfad14f0b058"
     },
     {
       "path": "assets/round-clubs/750_games_platinum_200.webp",
@@ -70,8 +88,11 @@
       "value": 750,
       "tier": "platinum",
       "sourceVerifiedInSnapshot": false,
-      "bytes": 13602,
-      "sha256": "900d976347bfb9d13d6944f291655429e0bf076e59393355bba12caa1dccf583"
+      "bytes": 38172,
+      "sha256": "30210d37cd917bd1bde5185d70cdc50f59666d5222d737da466686948d527cbc",
+      "background": "TRANSPARENT_EXTERIOR_APPROVED_ART_PRESERVED",
+      "opaqueSourcePath": "assets/opaque-originals/round-clubs/750_games_platinum_200.webp",
+      "opaqueSourceSha256": "900d976347bfb9d13d6944f291655429e0bf076e59393355bba12caa1dccf583"
     },
     {
       "path": "assets/round-clubs/1000_games_platinum_200.webp",
@@ -79,8 +100,11 @@
       "value": 1000,
       "tier": "platinum",
       "sourceVerifiedInSnapshot": false,
-      "bytes": 13602,
-      "sha256": "a00266f672a4f29318b122d28f29d9e90968d038047393ac687bf721a5fb55fc"
+      "bytes": 37816,
+      "sha256": "f81b8c8ec6c45a6b830c79ec0fdb721d0af97639775a0fce892f0525143c7a92",
+      "background": "TRANSPARENT_EXTERIOR_APPROVED_ART_PRESERVED",
+      "opaqueSourcePath": "assets/opaque-originals/round-clubs/1000_games_platinum_200.webp",
+      "opaqueSourceSha256": "a00266f672a4f29318b122d28f29d9e90968d038047393ac687bf721a5fb55fc"
     },
     {
       "path": "assets/round-clubs/50_points_bronze_200.webp",
@@ -88,8 +112,11 @@
       "value": 50,
       "tier": "bronze",
       "sourceVerifiedInSnapshot": true,
-      "bytes": 14068,
-      "sha256": "6233197ea2aa1a6b2102998f2110579ba9b04b192c8825cdf0b308a10c77eb28"
+      "bytes": 40002,
+      "sha256": "3d699e1400346062d96d23991437fc64cf5b7cd2b9e48c08dbf2c83dbeb454d7",
+      "background": "TRANSPARENT_EXTERIOR_APPROVED_ART_PRESERVED",
+      "opaqueSourcePath": "assets/opaque-originals/round-clubs/50_points_bronze_200.webp",
+      "opaqueSourceSha256": "6233197ea2aa1a6b2102998f2110579ba9b04b192c8825cdf0b308a10c77eb28"
     },
     {
       "path": "assets/round-clubs/100_points_silver_200.webp",
@@ -97,8 +124,11 @@
       "value": 100,
       "tier": "silver",
       "sourceVerifiedInSnapshot": true,
-      "bytes": 13496,
-      "sha256": "e6954fb39e791ab2529718fbbfa02fd5ffb41a16bef888eaf37311676ad239cc"
+      "bytes": 37976,
+      "sha256": "99402f96d349183da48a7f271e5218598c351d335ec8db9c992d37bbeb1f1e22",
+      "background": "TRANSPARENT_EXTERIOR_APPROVED_ART_PRESERVED",
+      "opaqueSourcePath": "assets/opaque-originals/round-clubs/100_points_silver_200.webp",
+      "opaqueSourceSha256": "e6954fb39e791ab2529718fbbfa02fd5ffb41a16bef888eaf37311676ad239cc"
     },
     {
       "path": "assets/round-clubs/200_points_gold_200.webp",
@@ -106,8 +136,11 @@
       "value": 200,
       "tier": "gold",
       "sourceVerifiedInSnapshot": true,
-      "bytes": 14412,
-      "sha256": "cd8bb2348928f758dc9046e199b54cd0260902d68602bd676df78beb8db01c56"
+      "bytes": 41238,
+      "sha256": "8666bc382935779e06211aad4440664799d23f6771cf254356ba2b8e1b8edf04",
+      "background": "TRANSPARENT_EXTERIOR_APPROVED_ART_PRESERVED",
+      "opaqueSourcePath": "assets/opaque-originals/round-clubs/200_points_gold_200.webp",
+      "opaqueSourceSha256": "cd8bb2348928f758dc9046e199b54cd0260902d68602bd676df78beb8db01c56"
     },
     {
       "path": "assets/round-clubs/300_points_platinum_200.webp",
@@ -115,8 +148,11 @@
       "value": 300,
       "tier": "platinum",
       "sourceVerifiedInSnapshot": true,
-      "bytes": 13734,
-      "sha256": "c625aef49ba08535cca0a0c6d28f5b187b6b43620e1ca499815063b054f372d8"
+      "bytes": 38856,
+      "sha256": "80a8730aaed8938ef5e8a1ee1b25579dda5546fa87b3bc50f0a2c142c1fa03cf",
+      "background": "TRANSPARENT_EXTERIOR_APPROVED_ART_PRESERVED",
+      "opaqueSourcePath": "assets/opaque-originals/round-clubs/300_points_platinum_200.webp",
+      "opaqueSourceSha256": "c625aef49ba08535cca0a0c6d28f5b187b6b43620e1ca499815063b054f372d8"
     },
     {
       "path": "assets/round-clubs/400_points_platinum_200.webp",
@@ -124,8 +160,11 @@
       "value": 400,
       "tier": "platinum",
       "sourceVerifiedInSnapshot": false,
-      "bytes": 13588,
-      "sha256": "eb181a37cee681a25179bb38ec66d7732257a25f38026e7721158371e107a645"
+      "bytes": 38990,
+      "sha256": "6e45d82ca8dae6083ec729eeaeb6c7199d2bc3bb3ad8931b9a3eff105c13f5e0",
+      "background": "TRANSPARENT_EXTERIOR_APPROVED_ART_PRESERVED",
+      "opaqueSourcePath": "assets/opaque-originals/round-clubs/400_points_platinum_200.webp",
+      "opaqueSourceSha256": "eb181a37cee681a25179bb38ec66d7732257a25f38026e7721158371e107a645"
     },
     {
       "path": "assets/round-clubs/500_points_platinum_200.webp",
@@ -133,8 +172,11 @@
       "value": 500,
       "tier": "platinum",
       "sourceVerifiedInSnapshot": false,
-      "bytes": 13704,
-      "sha256": "53fbda86891bfc9e648de5e83cdb228d14fcf116a44feea61257257ab3887672"
+      "bytes": 38604,
+      "sha256": "0c196c649cb876897ed44b5c18a28d6fc8c415fc81117d910ea89c0adbccebd2",
+      "background": "TRANSPARENT_EXTERIOR_APPROVED_ART_PRESERVED",
+      "opaqueSourcePath": "assets/opaque-originals/round-clubs/500_points_platinum_200.webp",
+      "opaqueSourceSha256": "53fbda86891bfc9e648de5e83cdb228d14fcf116a44feea61257257ab3887672"
     },
     {
       "path": "assets/round-clubs/750_points_platinum_200.webp",
@@ -142,8 +184,11 @@
       "value": 750,
       "tier": "platinum",
       "sourceVerifiedInSnapshot": false,
-      "bytes": 13616,
-      "sha256": "de085b262cde0bffb93c2609b5510cd2b13902fbed7b2596e06f5a39f8da1e7a"
+      "bytes": 38594,
+      "sha256": "a2e5ff86da5320466fe5d124ff96bf2055c5fecf11bcda8f42060413c1791716",
+      "background": "TRANSPARENT_EXTERIOR_APPROVED_ART_PRESERVED",
+      "opaqueSourcePath": "assets/opaque-originals/round-clubs/750_points_platinum_200.webp",
+      "opaqueSourceSha256": "de085b262cde0bffb93c2609b5510cd2b13902fbed7b2596e06f5a39f8da1e7a"
     },
     {
       "path": "assets/round-clubs/1000_points_platinum_200.webp",
@@ -151,8 +196,11 @@
       "value": 1000,
       "tier": "platinum",
       "sourceVerifiedInSnapshot": false,
-      "bytes": 13618,
-      "sha256": "31424b6d3844a101f9921c5d838927198198c09d86255d40a8cfd9c9e7ec5a35"
+      "bytes": 38430,
+      "sha256": "3ab4bc1b6c5929a283da0760e161fe63258ce178acb039a33393960ae9301b50",
+      "background": "TRANSPARENT_EXTERIOR_APPROVED_ART_PRESERVED",
+      "opaqueSourcePath": "assets/opaque-originals/round-clubs/1000_points_platinum_200.webp",
+      "opaqueSourceSha256": "31424b6d3844a101f9921c5d838927198198c09d86255d40a8cfd9c9e7ec5a35"
     },
     {
       "path": "assets/round-clubs/50_wins_bronze_200.webp",
@@ -160,8 +208,11 @@
       "value": 50,
       "tier": "bronze",
       "sourceVerifiedInSnapshot": true,
-      "bytes": 13964,
-      "sha256": "ee6c728fe307bb95baf307924eee75cb8e477ff3f8d31912308d80cafc71efa8"
+      "bytes": 39488,
+      "sha256": "287175ab3a64122a8206d20ea762ad5e370f205cb225c515a6634d4cd85ca44c",
+      "background": "TRANSPARENT_EXTERIOR_APPROVED_ART_PRESERVED",
+      "opaqueSourcePath": "assets/opaque-originals/round-clubs/50_wins_bronze_200.webp",
+      "opaqueSourceSha256": "ee6c728fe307bb95baf307924eee75cb8e477ff3f8d31912308d80cafc71efa8"
     },
     {
       "path": "assets/round-clubs/100_wins_silver_200.webp",
@@ -169,8 +220,11 @@
       "value": 100,
       "tier": "silver",
       "sourceVerifiedInSnapshot": true,
-      "bytes": 13392,
-      "sha256": "694c5ee71b3fb53ac7fbcd0b1f31ad823ecf2026482229cb3d302613f8118207"
+      "bytes": 37732,
+      "sha256": "7a779d5363b353881f4375512d4615a9c4287824fd29cebbef53b6f5c5172cb6",
+      "background": "TRANSPARENT_EXTERIOR_APPROVED_ART_PRESERVED",
+      "opaqueSourcePath": "assets/opaque-originals/round-clubs/100_wins_silver_200.webp",
+      "opaqueSourceSha256": "694c5ee71b3fb53ac7fbcd0b1f31ad823ecf2026482229cb3d302613f8118207"
     },
     {
       "path": "assets/round-clubs/200_wins_gold_200.webp",
@@ -178,8 +232,11 @@
       "value": 200,
       "tier": "gold",
       "sourceVerifiedInSnapshot": false,
-      "bytes": 14278,
-      "sha256": "66c3b52621056c8d5fda6c9daceac1435f51a90fe8be2e57097166bf4546d455"
+      "bytes": 41258,
+      "sha256": "436dc0f379dfc80d98db95c7723f41d966ece9b6dc78b70ac3b55d98e1529306",
+      "background": "TRANSPARENT_EXTERIOR_APPROVED_ART_PRESERVED",
+      "opaqueSourcePath": "assets/opaque-originals/round-clubs/200_wins_gold_200.webp",
+      "opaqueSourceSha256": "66c3b52621056c8d5fda6c9daceac1435f51a90fe8be2e57097166bf4546d455"
     },
     {
       "path": "assets/round-clubs/300_wins_platinum_200.webp",
@@ -187,8 +244,11 @@
       "value": 300,
       "tier": "platinum",
       "sourceVerifiedInSnapshot": false,
-      "bytes": 13626,
-      "sha256": "2d47169ce71565fd2d804897f9d337cf170b8920d1965b8a21b34fa306f8d0d7"
+      "bytes": 38266,
+      "sha256": "329830ee66ce7be33b9c61bf9f63ba0be24409d0fc00eee1b0b271b861bc4b87",
+      "background": "TRANSPARENT_EXTERIOR_APPROVED_ART_PRESERVED",
+      "opaqueSourcePath": "assets/opaque-originals/round-clubs/300_wins_platinum_200.webp",
+      "opaqueSourceSha256": "2d47169ce71565fd2d804897f9d337cf170b8920d1965b8a21b34fa306f8d0d7"
     },
     {
       "path": "assets/round-clubs/400_wins_platinum_200.webp",
@@ -196,8 +256,11 @@
       "value": 400,
       "tier": "platinum",
       "sourceVerifiedInSnapshot": false,
-      "bytes": 13472,
-      "sha256": "6590461c55f98b1295d9a7d9d30f8ff29b424eb48265aaecf98f5cb548aafddd"
+      "bytes": 38746,
+      "sha256": "69dc14ea16c2635b94bb797c7079d4cf9c1b1357c76affca2b82f19b613621d1",
+      "background": "TRANSPARENT_EXTERIOR_APPROVED_ART_PRESERVED",
+      "opaqueSourcePath": "assets/opaque-originals/round-clubs/400_wins_platinum_200.webp",
+      "opaqueSourceSha256": "6590461c55f98b1295d9a7d9d30f8ff29b424eb48265aaecf98f5cb548aafddd"
     },
     {
       "path": "assets/round-clubs/500_wins_platinum_200.webp",
@@ -205,8 +268,11 @@
       "value": 500,
       "tier": "platinum",
       "sourceVerifiedInSnapshot": false,
-      "bytes": 13618,
-      "sha256": "845c68482968f18bfc18315ceeedac00e79641cd90e59909b891fcaee7208ed6"
+      "bytes": 38456,
+      "sha256": "4b4b667798d8d98b2d02a49c50065244eee897b47eeb545db676d5b0d2e64569",
+      "background": "TRANSPARENT_EXTERIOR_APPROVED_ART_PRESERVED",
+      "opaqueSourcePath": "assets/opaque-originals/round-clubs/500_wins_platinum_200.webp",
+      "opaqueSourceSha256": "845c68482968f18bfc18315ceeedac00e79641cd90e59909b891fcaee7208ed6"
     }
   ]
 }

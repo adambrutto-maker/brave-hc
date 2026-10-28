@@ -335,9 +335,9 @@ function renderLegacy(record,ledgerTime){
     if(kind==='award'&&art.file==='cristillo-dedication.webp'||kind==='approved'&&art.file==='andrew_cristillo.webp')icon.className+=' ph-cristillo-black-patch';
     icon.replaceChildren();
     const img=document.createElement('img');
-    img.src=kind==='approved'?root+'assets/approved/'+art.file:
+    img.src=kind==='approved'?root+'assets/approved/'+art.file+'?v=transparent-20261027':
       kind==='milestone'
-      ?(art.generated?'./brave_hc_logo.png':root+'assets/round-clubs/'+art.file)
+      ?(art.generated?'./brave_hc_logo.png':root+'assets/round-clubs/'+art.file+'?v=transparent-20261027')
       :root+(kind==='special'?'assets/special/':kind==='heritage'?'assets/heritage/':'assets/awards/')+art.file+(kind==='award'?'':'?v=bright-20261027');
     if(kind==='milestone'&&art.generated)paintVerifiedFutureClub(img,art);
     img.alt=art.label+' emblem';
