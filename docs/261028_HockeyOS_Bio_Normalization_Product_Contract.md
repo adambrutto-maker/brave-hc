@@ -1,7 +1,7 @@
 # HockeyOS Bio / League-Normalization Product Contract — v1
 Date: October 28, 2026 (America/Toronto)  
 Owner: HockeyOS Engineering; product decision from the founder's October 28 Bio/Milestone review.  
-Status: Source-verified workbook conversion, stage-only code contract; **not an approved live Bio release**.
+Status: **Premium Bio LIVE** as of October 28, 2026, from authorized release PR #155 and merge 248be3d001c104b28842451696bbe4385b0b104e. Numerical goalie forecasts, predictive opponent modifiers and protected per-game coaching remain separate unreleased gates. See the live acceptance record.
 
 ## Product decision that must survive future chats
 
@@ -78,10 +78,10 @@ A separate **season-length projection** may eventually be implemented as a clear
 - [x] Stage pure duration-normalization module, format configuration and positive/negative regression tests on a feature branch.
 - [x] Read-only verification: all **18 of 18** career-archive season labels map to original Master Schedule season codes and S/W duration factors for all published game types. Source receipt: docs/261028_Bio_Historical_Duration_Mapping_Evidence.md. Note: full player-level HTO versus Master Workbook game-stat parity remains a separate outstanding data-quality task.
 - [x] Wire a source-gated historic season-length conversion reference to the Bio's Pts/GP line using original HTO season totals and separately verified 18 season code/duration mappings. Never change raw G/A chart bars, official records or career statistics. Preserve distinct source capture dates and all-game-type scope.
-- [x] Stage Milestone-quality Bio header, five in-place category buttons, RAW stacked G/A plus adjustable rate line (Actual/Winter/Summer), responsive screen layout and accessible season inspection. 109-player browser regression passed; production release still gated.
+- [x] Stage Milestone-quality Bio header, five in-place category buttons, RAW stacked G/A plus adjustable rate line (Actual/Winter/Summer), responsive screen layout and accessible season inspection. 109-player browser regression passed; production Bio release is live and verified in native HTO embeds.
 - [x] Stage native individual skater projection cards driven by the single homepage forecast JSON, with provisional status and source date/identity validation; homepage redesign intentionally out of scope. Numerical goalie projection is separately held.
 - [ ] Build authenticated coach-approved lineup/role/season-status instructions; no private notes in public repository.
-- [x] Execute 109-profile premium mobile/desktop browser tests and 17 normalization contract tests. [ ] Complete final source checks, visual review, draft PR CI and human release approval; no live publication has yet occurred.
+- [x] Execute 109-profile premium mobile/desktop browser tests and 17 normalization contract tests. [x] Final source checks, GitHub-hosted PR CI and user-directed release approval, main merge and live GitHub Pages/HTO iframe browser readback completed October 28, 2026. This is not a claim of independent human reviewer signoff.
 
 Relates to GitHub issue #79; its prior player-Bio installation is complete, but advanced normalization, refreshed UI and protected individual coaching are **separate incomplete milestones**.
 
@@ -103,3 +103,12 @@ Relates to GitHub issue #79; its prior player-Bio installation is complete, but 
 - **Coaching:** game-specific coaching is private, accessible only when the player is confirmed in an authorized lineup and a coach-approved position/assignment exists. Public users see general system cues and publicly verified schedule context only.
 - **Important data gap:** the browser may show a polished goalie chart of actual historical W/GAA, but numerical 2026/27 goalie forecasts remain HELD until a complete dated team-game attendance denominator and verified current goalie W/L/T/GA source join exist. This must be explicit in the view.
 - **2026/27 source alignment:** the HTO five-game current team readback and the older one-game workbook model baseline remain different snapshots. Do not silently merge them.
+
+## Live release acceptance — October 28, 2026
+
+Release commit: `248be3d001c104b28842451696bbe4385b0b104e`, PR #155.
+Real public GitHub Pages widget and official HTO Bio tab were tested after successful deployment. See `docs/261028_HockeyOS_Player_Bio_Live_Release_Acceptance.md` for execution evidence.
+
+**Shipping baseline**: authentic Brave H.C. header, accessible five-category buttons, original goals/assists with normalized *Pts/GP rate line only*, 18 verified historical season-duration mappings, existing provisional skater projections from the exact shared homepage `projection.json`, historical goalie charts, vetted upcoming opponent context, and general public team system.
+
+**Still held**: separately calibrated goalie win/GA projections, opponent-conditioned future scoring/win forecasts, private game-specific coaching, unsupported historical season formats, original workbook promotion, additional HTO statistical source corrections. Track in [HockeyOS BIO-V2 #156](https://github.com/adambrutto-maker/brave-hc/issues/156). Do not misread the deployed Bio as those future releases.

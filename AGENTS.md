@@ -2,6 +2,10 @@
 
 These are standing implementation rules for AI coding agents, contributors, and automation working in this repository. For player Bio, statistics, records, or league configuration, read docs/261028_HockeyOS_Bio_Normalization_Product_Contract.md and run the normalization integrity tests before proposing release. Do not treat conversation summaries as the sole specification.
 
+## Current production baseline (2026-10-28)
+
+The polished Player Bio is **LIVE** at https://adambrutto-maker.github.io/brave-hc/widgets/player-bio.html following user-authorized PR #155, merge 248be3d001c104b28842451696bbe4385b0b104e. Actual HTO Bio tab embeds were verified for player IDs 354060 and 354055 in public browser testing; 109 identities were tested in Playwright before release. The following have **NOT** been released: numerical goalie forecast, uncalibrated opponent predictive coefficients, individualized/private coaching delivery, or a homepage UI redesign. Never mistake these held roadmap items for missing deployed Bio UI; use issue #156 for their separate implementation and sources. Exact QA and rollback anchors: docs/261028_HockeyOS_Player_Bio_Live_Release_Acceptance.md.
+
 ## Statistical authority and nonnegotiable invariants
 
 1. **Official records are actuals.** Keep original recorded goals, assists, points, goalkeeper outcomes, career totals, game-by-game events, dates and Summer/Winter records as published by the verified HTO source or their separately approved record system. Do not rewrite, combine or re-rank official record books with normalized, projected, or estimated statistics.
