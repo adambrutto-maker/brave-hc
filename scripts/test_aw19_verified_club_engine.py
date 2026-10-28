@@ -1,6 +1,6 @@
 import unittest
 from datetime import date,timedelta
-from aw19_verified_club_engine import levels,tier,event_to_awards,deduplicate
+from aw19_verified_club_engine import levels,tier,event_to_awards,deduplicate,club_category_sort_key,order_native_awards_categories
 from copy import deepcopy
 class Clubs(unittest.TestCase):
  def sample(self,metric,old,new):
@@ -42,4 +42,25 @@ class Clubs(unittest.TestCase):
   e=self.sample("Shutout",4,5)
   e["game_date"]=(date.today()+timedelta(days=2)).isoformat()
   self.assertEqual(len(deduplicate([],[e])["held_unverified_events"]),1)
+ def test_native_current_10_club_category_order(self):
+  existing=["50 Point Club","100 Game Club","300 Point Club","50 Win Club","200 Game Club","50 Game Club","300 Game Club","100 Win Club","200 Point Club","100 Point Club"]
+  ordered=order_native_awards_categories(["Brave H.C. Hall of Fame","Art Ross Award"]+existing)
+  self.assertEqual(ordered,["Brave H.C. Hall of Fame","Art Ross Award","50 Win Club","100 Win Club","50 Game Club","50 Point Club","100 Game Club","100 Point Club","200 Game Club","200 Point Club","300 Game Club","300 Point Club"])
+ def test_future_goalie_first_then_thresholds_to_500(self):
+  mixed=["400 Goal Club","50 Assist Club","10 Shutout Club","50 Win Club","500 Point Club","5 Shutout Club","50 Goal Club","100 Assist Club","400 Game Club","20 Shutout Club","100 Win Club","50 Game Club","100 Point Club","200 Goal Club","30 Shutout Club","400 Win Club","40 Shutout Club"]
+  actual=order_native_awards_categories(["Hall of Fame","Hart Award"]+mixed)
+  self.assertEqual(actual[:2],["Hall of Fame","Hart Award"])
+  self.assertEqual(actual[2:9],["5 Shutout Club","10 Shutout Club","20 Shutout Club","30 Shutout Club","40 Shutout Club","50 Win Club","100 Win Club"])
+  self.assertEqual(actual[9],"400 Win Club")
+  self.assertEqual(actual[10:13],["50 Game Club","50 Goal Club","50 Assist Club"])
+  self.assertTrue(actual.index("50 Goal Club")<actual.index("100 Assist Club"))
+  self.assertTrue(actual.index("100 Point Club")<actual.index("200 Goal Club")<actual.index("400 Goal Club")<actual.index("500 Point Club"))
+ def test_invalid_or_duplicate_native_clubs_rejected(self):
+  for invalid in ("50 Save Club","75 Win Club","Career Milestones","50 Game Club "):
+   with self.assertRaises(ValueError):
+    order_native_awards_categories(["Hart Award",invalid]) if invalid!="50 Game Club " else club_category_sort_key(invalid)
+  with self.assertRaises(ValueError):order_native_awards_categories(["50 Game Club","50 Game Club"])
+ def test_proposed_new_categories_are_goalie_first_sorted(self):
+  events=[self.sample("Goal",49,50),self.sample("Win",49,50),self.sample("Shutout",4,5),self.sample("Assist",49,50),self.sample("Game",49,50)]
+  self.assertEqual(deduplicate([],events)["new_native_category_names"],["5 Shutout Club","50 Win Club","50 Game Club","50 Goal Club","50 Assist Club"])
 if __name__=="__main__":unittest.main(verbosity=2)

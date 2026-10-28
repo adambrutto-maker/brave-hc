@@ -64,6 +64,40 @@ def event_to_awards(event:dict[str,Any])->list[dict[str,Any]]:
           "source_sha256":event["source_sha256"],"status":"OFFICIAL_GAME_VERIFIED_READY_FOR_NATIVE_HOLD_UNTIL_PARITY"})
     return result
 
+# Canonical user-approved Awards page order:
+# Existing award/honour headings stay first, in their original relative order.
+# Goalie (Shutout/Win) clubs are ordered by numeric threshold ascending.
+# Skater/game clubs follow, grouped by threshold 50s, 100s, 200s, 300s, 400s...
+GOALIE_METRICS = frozenset(("Shutout", "Win"))
+METRIC_ORDER = {"Shutout":0, "Win":1, "Game":2, "Goal":3, "Assist":4, "Point":5}
+CLUB_RE = re.compile(r"^(\d+) (Game|Point|Win|Goal|Assist|Shutout) Club$")
+
+def club_category_sort_key(club: str)->tuple[int,int,int]:
+    if not isinstance(club,str):raise ValueError("Club name must be a string")
+    m=CLUB_RE.fullmatch(club)
+    if not m:raise ValueError("Unsupported threshold-specific native HTO club: "+club)
+    threshold=int(m[1]);metric=m[2]
+    if threshold not in levels(metric,threshold):raise ValueError("Unapproved club threshold "+club)
+    return (0 if metric in GOALIE_METRICS else 1, threshold, METRIC_ORDER[metric])
+
+def order_native_awards_categories(titles: list[str])->list[str]:
+    """Pure planned order; do not call native HTO Save_Order until source parity.
+    Nonmilestone awards stay intact at front in existing order.
+    """
+    if any(not isinstance(x,str) or not x.strip() for x in titles):
+        raise ValueError("Blank award category")
+    if len(set(titles))!=len(titles):raise ValueError("Duplicate category")
+    if "Career Milestones" in titles:raise ValueError("Aggregate milestone page category superseded")
+    original=[];clubs=[]
+    for title in titles:
+        if CLUB_RE.fullmatch(title):
+            club_category_sort_key(title)
+            clubs.append(title)
+        elif title.endswith(" Club"):
+            raise ValueError("Unrecognized club format "+title)
+        else:original.append(title)
+    return original + sorted(clubs,key=club_category_sort_key)
+
 def deduplicate(existing_awards:list[dict],events:list[dict])->dict:
     seen={(str(x["player_id"])+":"+x["club"]) for x in existing_awards}
     new=[];held=[]
@@ -77,6 +111,6 @@ def deduplicate(existing_awards:list[dict],events:list[dict])->dict:
             seen.add(award["award_key"]);new.append(award)
     return {"schema":"brave-hc-native-hto-earned-club-proposal/v1",
       "ready_for_native_source_parity_review":new,"held_unverified_events":held,
-      "new_native_category_names":sorted(set(a["club"] for a in new)),
+      "new_native_category_names":sorted(set(a["club"] for a in new),key=club_category_sort_key),
       "existing_and_proposed_award_count":len(seen),
       "native_hto_writes":0}
