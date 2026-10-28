@@ -29,6 +29,10 @@ class UnifiedMedalSourceIntegrity(unittest.TestCase):
   self.assertEqual(M["original5000PixelLogoSha256"],"e245640bd0c1f3c3c8e3caea89e69a446d465f97724d9c6878992670229730b5")
   self.assertEqual(M["uniformBadgeNumberFontPxAt600"],118)
   self.assertEqual(M["uniformBadgeMetricFontPxAt600"],51)
+  self.assertEqual(M["centeredOverlayGeometryAt600"],[83,174,517,433])
+  self.assertEqual(M["numberCenterAt600"],[300,271])
+  self.assertEqual(M["metricCenterAt600"],[300,372])
+  self.assertEqual(M["crestLetteringPreserved"],["BRAVE","H.C."])
   with Image.open(c) as image:self.assertEqual(image.size,(1000,1000))
  def test_exact_six_metric_families_and_29_assets(self):
   self.assertEqual(M["schema"],"brave-hc-full-crest-milestone-art/v2")
@@ -76,13 +80,21 @@ class UnifiedMedalSourceIntegrity(unittest.TestCase):
     self.assertEqual(im.size,(200,200))
     self.assertEqual([im.getpixel(q)[3] for q in ((0,0),(199,0),(0,199),(199,199))],[0]*4)
     self.assertLess(im.getpixel((100,130))[0]+im.getpixel((100,130))[1]+im.getpixel((100,130))[2],150)
+    def reds(rect):
+     return sum(1 for y in range(rect[1],rect[3]) for x in range(rect[0],rect[2])
+      if (lambda c:c[0]>150 and c[1]<150 and c[2]<170 and c[3]>200)(im.getpixel((x,y))))
+    # The original team's BRAVE and H.C. red lettering remains visible.
+    # Lion red in the centre is covered by the contrast plate.
+    self.assertGreater(reds((25,10,175,47)),300,p.name)
+    self.assertGreater(reds((55,160,145,199)),90,p.name)
+    self.assertLess(reds((40,60,160,145)),500,p.name)
     pixel=im.getpixel((100,9))
     self.assertGreater(pixel[3],210)
     self.assertTrue(all(abs(c-q)<36 for c,q in zip(pixel[:3],RIM[item["tier"]])),(p.name,pixel))
     horse=im.getpixel((100,55))
     self.assertGreater(horse[0],170,p.name)
     self.assertLess(horse[1],130,p.name)
-   self.assertEqual(item["foreground"],"UNIFORM_CENTERED_NUMBER_AND_METRIC_DARK_PLAQUE")
+   self.assertEqual(item["foreground"],"UNIFORM_CENTERED_NUMBER_METRIC_OVER_LION_BRAVE_TOP_HC_BOTTOM")
  def test_future_threshold_rarity_and_runtime_source_gate(self):
   self.assertEqual(M["tierPolicy"]["5_shutouts"],"bronze")
   self.assertEqual(M["tierPolicy"]["10_shutouts"],"silver")

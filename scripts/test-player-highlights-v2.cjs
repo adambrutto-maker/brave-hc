@@ -11,7 +11,7 @@ class Element {
  before(...children){this.beforeChildren=(this.beforeChildren||[]).concat(children);}
 }
 const read=p=>fs.readFileSync(p,'utf8'),parse=p=>JSON.parse(read(p));
-const ledger=parse('widgets/player-highlights-ledger.json'),career=parse('widgets/player-career-insights.json'),book=parse('widgets/player-record-book.json');
+const ledger=parse('widgets/player-highlights-ledger.json'),career=parse('widgets/player-career-insights.json'),book=parse('widgets/player-record-book.json'),historyRecords=parse('widgets/history-records.json');
 const artManifest=parse('widgets/assets/awards/source-manifest.json');
 assert.equal(artManifest.schema,'brave-hc-award-art/v1');
 assert.equal(artManifest.assets.length,8);
@@ -61,7 +61,7 @@ for(const entry of roundManifest.assets){
  assert.equal(b.toString('ascii',0,4),'RIFF');
 }
 const corrections=parse('widgets/player-highlights-display-corrections.json');
-const feeds={'player-highlights-ledger.json':ledger,'awards-participants.json':parse('widgets/awards-participants.json'),'player-career-insights.json':career,'player-record-book.json':book,'player-highlights-display-corrections.json':corrections};
+const feeds={'player-highlights-ledger.json':ledger,'awards-participants.json':parse('widgets/awards-participants.json'),'player-career-insights.json':career,'player-record-book.json':book,'history-records.json':historyRecords,'player-highlights-display-corrections.json':corrections};
 const expectedCorrections={
  'hto-legacy-354046-06':{text:'100 Point Club - August 9, 2015',date:'2015-08-09'},
  'hto-legacy-354055-09':{text:'50 Game Club - July 27, 2014',date:'2014-07-27'},
@@ -180,6 +180,7 @@ function sourceDisplayItems(pid,items){
  assert.equal(rows.length,Math.min(12,entries.length));
  assert.equal(n.recordsCount.textContent,String(entries.length));
  assert.equal(n.recordsMore.hidden,entries.length<=12);
+ for(const row of rows)assert(row.textContent.includes('RECORD SET')||row.textContent.includes('RECORD TIED'),'Every official mapped record must have verified set/tied mark');
  if(entries.length>12){n.recordsMore.onclick();
   assert.equal(n.records.children.filter(x=>x.className?.includes('ph-record-card')).length,Math.min(24,entries.length));}
  if(entries.length)records+=entries.length;

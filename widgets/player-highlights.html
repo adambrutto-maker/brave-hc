@@ -495,6 +495,81 @@ body{background:#071829;color:#eef4fb;font-family:Arial,"Helvetica Neue",sans-se
  color:#C6F9FF;
 }
 
+/* WEB-07: All uses the exact same medal rarity label as Milestones.
+   Set on the source-verified individual badge only; honor, discipline and
+   statistical record cards never receive an invented milestone level. */
+.ph-trophy-room .ph-inventory-card.ph-fullcrest-family .ph-inventory-tier{
+ margin-top:auto;
+ align-self:center;
+ padding:3px 8px;
+ border:1px solid var(--fc-ring);
+ border-radius:999px;
+ background:#071726a6;
+ color:var(--fc-light);
+ font-size:9px;
+ line-height:1.25;
+ font-weight:850;
+ text-align:center;
+ letter-spacing:1px;
+ white-space:nowrap;
+}
+.ph-trophy-room .ph-inventory-card.ph-fullcrest-platinum .ph-inventory-tier{
+ border-color:#39C7F3;
+ color:#E5FCFF;
+ background:linear-gradient(90deg,#15528E,#40317D);
+ box-shadow:0 0 0 1px #926DE655;
+}
+
+/* WEB-07: Source-verified historical HTO Record classification. Keep
+   subtle category-specific mark colours, not full gold award surfaces.
+   "Tied" means equal value in the same official category + scope, not
+   inferred first-to-set chronology. Missing evidence receives neutral mark. */
+.ph-trophy-room .ph-record-card.ph-record-set{
+ border-left:3px solid #C9A34C;
+ background:linear-gradient(160deg,#263943,#132A3C 62%,#10263B);
+}
+.ph-trophy-room .ph-record-card.ph-record-tied{
+ border-left:3px solid #B7C8D8;
+ background:linear-gradient(160deg,#253C4B,#132A3C 62%,#10263B);
+}
+.ph-trophy-room .ph-record-card.ph-record-set .ph-record-kind,
+.ph-trophy-room .ph-inventory-card.ph-record-set .ph-inventory-kind{
+ color:#F7DC9C;
+ background:#66532A66;
+ border:1px solid #D1AC665E;
+}
+.ph-trophy-room .ph-record-card.ph-record-tied .ph-record-kind,
+.ph-trophy-room .ph-inventory-card.ph-record-tied .ph-inventory-kind{
+ color:#DCECF9;
+ background:#40576D77;
+ border:1px solid #B3CCDD63;
+}
+.ph-trophy-room .ph-record-card .ph-record-kind,
+.ph-trophy-room .ph-inventory-card.ph-inventory-stat .ph-inventory-kind{
+ display:inline-block;
+ align-self:flex-start;
+ padding:3px 7px;
+ border-radius:6px;
+ font-size:9px;
+ font-weight:850;
+ letter-spacing:.65px;
+}
+.ph-trophy-room .ph-inventory-card.ph-inventory-stat.ph-record-set{
+ border-top:3px solid #C9A34C;
+ background:linear-gradient(156deg,#243940,#132A3C 65%,#10283F);
+}
+.ph-trophy-room .ph-inventory-card.ph-inventory-stat.ph-record-tied{
+ border-top:3px solid #B7C8D8;
+ background:linear-gradient(156deg,#293E4B,#132A3C 65%,#10283F);
+}
+.ph-trophy-room .ph-inventory-card.ph-inventory-stat .ph-inventory-kind{
+ align-self:center;
+}
+.ph-trophy-room .ph-record-card.ph-record-unverified,
+.ph-trophy-room .ph-inventory-card.ph-record-unverified{
+ border-color:#6D8190;
+}
+
 [hidden]{display:none!important}
 .ph-footer{display:flex;gap:8px;flex-wrap:wrap}
 .ph-detail{font-size:10px;color:#a9c0d4;line-height:1.45;margin-top:6px}
@@ -507,7 +582,7 @@ details[open] summary{margin-bottom:10px}
 a{color:#f4cb83}
 </style>
 <script defer src="./player-links.js?v=5"></script>
-<script defer src="./player-highlights-v2.js?v=21"></script>
+<script defer src="./player-highlights-v2.js?v=22"></script>
 </head>
 <body>
 <main class="ph-shell">
