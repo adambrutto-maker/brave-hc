@@ -78,6 +78,8 @@ on:
       - 'tests/test_eng59_scoped_static_preview.py'
       - 'tests/test_eng59_scoped_preview_browser.cjs'
       - 'docs/ENG59_ScopedPages_Staging_Handoff_20261027.md'
+      - 'docs/ENG59_Proposed_Scoped_Pages_Staging_Workflow_20261027.yml'
+      - 'tests/test_eng59_proposed_pages_staging_workflow.py'
       - 'tests/test_eng59_preexisting_pages_exposure.py'
       - 'tests/test_eng59_static_release_surface.py'
       - 'tests/test_eng59_release_evidence.py'
@@ -207,6 +209,8 @@ on:
       - 'tests/test_eng59_scoped_static_preview.py'
       - 'tests/test_eng59_scoped_preview_browser.cjs'
       - 'docs/ENG59_ScopedPages_Staging_Handoff_20261027.md'
+      - 'docs/ENG59_Proposed_Scoped_Pages_Staging_Workflow_20261027.yml'
+      - 'tests/test_eng59_proposed_pages_staging_workflow.py'
       - 'tests/test_eng59_preexisting_pages_exposure.py'
       - 'tests/test_eng59_static_release_surface.py'
       - 'tests/test_eng59_release_evidence.py'
@@ -388,6 +392,8 @@ jobs:
         run: python -B scripts/build_eng59_scoped_static_preview.py --check-only --output "$RUNNER_TEMP/eng59-private-preview-candidate"
       - name: Refuse internal docs/scripts/credentials in isolated web-asset packaging
         run: python -B -m unittest discover -s tests -p test_eng59_scoped_static_preview.py -v
+      - name: Verify proposed scoped Pages stage is inert, read-only and cannot deploy
+        run: python -B -m unittest discover -s tests -p test_eng59_proposed_pages_staging_workflow.py -v
       - name: Hold release-current claims for dated hourly HTO and league-source preview snapshots
         run: python -B scripts/check_eng59_frozen_source_freshness.py
       - name: Reject stale, regressed, source-unqualified or re-used preview hourly evidence
