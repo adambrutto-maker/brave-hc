@@ -79,7 +79,20 @@ def run():
                 original.write_bytes(target.read_bytes())
             opaque=Image.open(original)
             assert opaque.size==(200,200),original
-            output,white_pixels=rematte(opaque)
+            exact_source=item.get("sourceWebpPath")
+            if exact_source:
+                # Individually approved whistle + referee-card artwork supersedes
+                # the old monochrome notice. Never regenerate the rejected icon.
+                supplied=ROOT/"widgets"/exact_source
+                blob=supplied.read_bytes()
+                assert sha256(blob).hexdigest()==item["sourceWebpSha256"],("Approval source changed",name)
+                approved=ROOT/"widgets"/item["sourceArtPath"]
+                assert sha256(approved.read_bytes()).hexdigest()==item["sourceArtSha256"]
+                output=Image.open(supplied).convert("RGBA")
+                assert output.size==(200,200)
+                white_pixels=sum(a==0 for a in output.getchannel("A").getdata())
+            else:
+                output,white_pixels=rematte(opaque)
             # The approved All-Star source sheet contained a detached 1px
             # horizontal guide at y=7; this is not part of the star shield.
             if group=='approved' and name in ('all_star_nomination.webp','all_star_selection.webp'):
@@ -89,7 +102,10 @@ def run():
             assert white_pixels>=600,("No exterior white to remove",group,name,white_pixels)
             assert output.getpixel((0,0))[3]==0
             assert output.getpixel((100,100))[3]>200,(group,name,"badge centre lost")
-            output.save(target,format="WEBP",lossless=True,method=6,exact=True)
+            if exact_source:
+                target.write_bytes(blob)
+            else:
+                output.save(target,format="WEBP",lossless=True,method=6,exact=True)
             blob=target.read_bytes()
             item["sha256"]=sha256(blob).hexdigest()
             item["bytes"]=len(blob)
