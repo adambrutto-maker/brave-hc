@@ -28,7 +28,7 @@ try:
     tiles=[...grid.querySelectorAll('.ph-earned-tile')],history=[...document.querySelectorAll('#legacy .ph-event')],
     filters=[...document.querySelectorAll('#milestoneFilters button')];
     return {name:document.getElementById('playerName').textContent,hidden:section.hidden,earned:tiles.length,
-      img:tiles.map(t=>t.querySelector('img')?.src||''),header:section.querySelector('h2').textContent,
+      img:tiles.map(t=>t.querySelector('img')?.src||''),header:section.querySelector('h3').textContent,
       visibleGridColumns:getComputedStyle(grid).gridTemplateColumns.split(' ').length,
       titles:tiles.map(t=>t.textContent),sourceCount:document.querySelector('#milestoneCount').textContent,
       filters:filters.map(b=>b.textContent),outOfBounds:document.documentElement.scrollWidth>innerWidth+4,

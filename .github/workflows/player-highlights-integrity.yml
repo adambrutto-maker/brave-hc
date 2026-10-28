@@ -14,6 +14,7 @@ on:
       - 'tests/test_hourly_hto_player_visual_refresh_edge.py'
       - 'tests/test_earned_milestone_wall_edge.py'
       - 'tests/test_two_sided_achievement_locker_edge.py'
+      - 'tests/test_four_view_achievement_locker_browser.py'
       - 'widgets/player-highlights-display-corrections.json'
       - 'widgets/assets/awards/**'
       - 'widgets/assets/clubs/**'
@@ -103,10 +104,14 @@ jobs:
         env:
           BRAVE_QA_BROWSER: chrome
         run: python tests/test_earned_milestone_wall_edge.py
-      - name: Verify both sides of achievement locker and separate discipline
+      - name: Verify four in-place collection views across 43 profiles and discipline separation
         env:
           BRAVE_QA_BROWSER: chrome
         run: python tests/test_two_sided_achievement_locker_edge.py
+      - name: Verify in-place tabs at 320px, mobile and desktop including direct records and pagination
+        env:
+          BRAVE_QA_BROWSER: chrome
+        run: python tests/test_four_view_achievement_locker_browser.py
       - name: Verify hourly current-season refresh and reject unverified changes
         env:
           BRAVE_QA_BROWSER: chrome

@@ -52,5 +52,6 @@ class DisciplineArtwork(unittest.TestCase):
   self.assertIn("if(item.category==='discipline')return approvedOrFallback(art,'discipline_record')",code)
   self.assertIn("?v=whistle-cards-20261028",code)
   for name in ("player-highlights.html","player-highlights-v2-preview.html"):
-   self.assertIn("player-highlights-v2.js?v=17",(ROOT/"widgets"/name).read_text("utf-8"))
+   expected="player-highlights-v2.js?v="+("18" if name=="player-highlights.html" else "17")
+   self.assertIn(expected,(ROOT/"widgets"/name).read_text("utf-8"))
 if __name__=="__main__":unittest.main()
