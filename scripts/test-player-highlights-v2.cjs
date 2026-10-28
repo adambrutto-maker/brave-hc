@@ -1,6 +1,6 @@
 const fs=require('fs'),vm=require('vm'),crypto=require('crypto'),assert=require('assert/strict');
 class Element {
- constructor(tag='div'){this.tagName=tag;this.children=[];this.style={};this.hidden=false;this.attributes={};this.own='';}
+ constructor(tag='div'){this.tagName=tag;this.children=[];this.style={};this.hidden=false;this.attributes={};this.dataset={};this.own='';}
  set textContent(s){this.own=String(s??'');this.children=[];}
  get textContent(){return this.own+this.children.map(c=>typeof c==='string'?c:c.textContent).join('');}
  get childNodes(){return this.children;}
@@ -71,7 +71,7 @@ const expectedCorrections={
 function freeze(value){if(value&&typeof value==='object'){Object.values(value).forEach(freeze);Object.freeze(value);}return value;}
 const code=read('widgets/player-highlights-v2.js'),links=read('widgets/player-links.js');
 async function render(id,overrides={}){
- const ids='playerName playerSub notice legacy careerSummary expand legacySection milestoneSection milestoneGrid milestoneFilters milestoneCount lockerSection lockerMilestones lockerHonors honorsSection honorsCount honorsFilters honorsGrid disciplineGroup disciplineGrid honorsMore historyDetails highsSection highs careerDate recordsSection records recordsSource currentSection form statsDate profileSource footer'.split(' ');
+ const ids='playerName playerSub notice legacy careerSummary expand legacySection milestoneSection milestoneGrid milestoneFilters milestoneCount lockerSection lockerTabs lockerMilestones lockerHonors lockerAll lockerRecords lockerMilestonesCount lockerHonorsCount lockerAllCount lockerRecordsCount allSection allGrid allCount allMore honorsSection honorsCount honorsFilters honorsGrid disciplineGroup disciplineGrid honorsMore historyDetails highsSection highs careerDate recordsSection records recordsMore recordsCount recordsSource performanceDetails currentSection form statsDate profileSource footer'.split(' ');
  const nodes=Object.fromEntries(ids.map(id=>[id,new Element()]));
  for(const id of ['notice','legacySection','milestoneSection','honorsSection','lockerSection','historyDetails','disciplineGroup','highsSection','recordsSection','currentSection'])nodes[id].hidden=true;
  const context=vm.createContext({window:{},URL,URLSearchParams,Date,Number,String,Object,Array,Map,Promise,Error,console,location:{search:'?playerID='+id},document:{getElementById:id=>{assert(nodes[id],'missing element '+id);return nodes[id]},createElement:tag=>new Element(tag),createTextNode:s=>String(s)},fetch:async url=>({ok:true,json:async()=>freeze(structuredClone(Object.hasOwn(overrides,url.slice(2))?overrides[url.slice(2)]:feeds[url.slice(2)]))})});
@@ -85,28 +85,34 @@ async function render(id,overrides={}){
  const items=ledger.players[id]?.items||[];
  assert.equal(n.legacySection.hidden,items.length===0);
  const sourceMilestones=items.filter(x=>x.category==='milestone');
- const otherItems=items.filter(x=>x.category!=='milestone');
- assert.equal(n.lockerSection.hidden,items.length===0);
+ const otherItems=items.filter(x=>x.category!=='milestone'&&x.category!=='discipline');
+ assert.equal(n.lockerSection.hidden,false,'Every verified player profile has the selectable collection');
  assert.equal(n.historyDetails.hidden,items.length===0);
  assert.equal(n.honorsCount.textContent,otherItems.length+' records');
- assert.equal(n.lockerMilestones.hidden,sourceMilestones.length===0);
- assert.equal(n.lockerHonors.hidden,otherItems.length===0);
+ assert.equal(n.lockerMilestones.hidden,false);
+ assert.equal(n.lockerHonors.hidden,false);
+ assert.equal(n.lockerRecords.hidden,false);
+ assert.equal(n.lockerAll.hidden,false);
+ assert.equal(n.lockerMilestonesCount.textContent,String(sourceMilestones.length));
+ assert.equal(n.lockerHonorsCount.textContent,String(otherItems.length));
+ assert.equal(n.lockerRecordsCount.textContent,String(book.players[id].entries.length));
+ assert.equal(n.lockerAllCount.textContent,String(items.length+book.players[id].entries.length));
  if(sourceMilestones.length&&otherItems.length){
   assert.equal(n.milestoneSection.hidden,false);
   n.lockerHonors.onclick();
   assert.equal(n.honorsSection.hidden,false);
   assert.equal(n.milestoneSection.hidden,true);
   assert.equal(n.honorsGrid.children.length,Math.min(6,otherItems.filter(x=>x.category!=='discipline').length));
-  assert.equal(n.disciplineGrid.children.length,otherItems.filter(x=>x.category==='discipline').length);
+  assert.equal(n.disciplineGrid.children.length,0,'Discipline must appear under All, not Awards');
   n.lockerMilestones.onclick();
   assert.equal(n.honorsSection.hidden,true);
   assert.equal(n.milestoneSection.hidden,false);
  }
  assert.equal(n.milestoneSection.hidden,sourceMilestones.length===0);
- assert.equal(n.milestoneGrid.children.length,sourceMilestones.length);
+ assert.equal(n.milestoneGrid.children.filter(x=>x.className?.includes('ph-earned-tile')).length,sourceMilestones.length);
  assert.equal(n.milestoneCount.textContent,sourceMilestones.length?sourceMilestones.length+' earned':'');
- earnedWallBadges+=n.milestoneGrid.children.length;
- for(const tile of n.milestoneGrid.children){
+ earnedWallBadges+=n.milestoneGrid.children.filter(x=>x.className?.includes('ph-earned-tile')).length;
+ for(const tile of n.milestoneGrid.children.filter(x=>x.className?.includes('ph-earned-tile'))){
   assert(tile.className.includes('ph-earned-tile')&&tile.textContent.includes('UNLOCKED'),'Earned tile missing');
   assert(tile.children[1].children.some(x=>x.tagName==='img'),'Earned emblem missing');
  }
@@ -133,21 +139,40 @@ async function render(id,overrides={}){
   if(item.sourceRuns){const spans=info.children[0].children;assert.equal(spans.map(s=>s.textContent).join(''),expectedText);assert.equal(spans.length,item.sourceRuns.length);for(let j=0;j<spans.length;j++){assert.equal(spans[j].style.fontWeight,item.sourceRuns[j].strong?'800':'400');assert.equal(spans[j].style.fontStyle,item.sourceRuns[j].italic?'italic':'normal');}}
  }
  highlights+=items.length;
- const entries=book.players[id].entries;assert.equal(n.recordsSection.hidden,entries.length===0);
- if(entries.length){const rows=n.records.children[0].children[1].children;assert.equal(rows.length,entries.length);for(let i=0;i<entries.length;i++)assert(rows.some(row=>row.textContent.includes(entries[i].sourceText)));records+=entries.length;}
+ const entries=book.players[id].entries;
+ n.lockerRecords.onclick();
+ assert.equal(n.recordsSection.hidden,false,'Records view must open within locker');
+ assert.equal(n.milestoneSection.hidden,true);
+ const rows=n.records.children.filter(x=>x.className?.includes('ph-record-card'));
+ assert.equal(rows.length,Math.min(12,entries.length));
+ assert.equal(n.recordsCount.textContent,String(entries.length));
+ assert.equal(n.recordsMore.hidden,entries.length<=12);
+ if(entries.length>12){n.recordsMore.onclick();
+  assert.equal(n.records.children.filter(x=>x.className?.includes('ph-record-card')).length,Math.min(24,entries.length));}
+ if(entries.length)records+=entries.length;
+ n.lockerAll.onclick();
+ assert.equal(n.allSection.hidden,false);
+ assert.equal(n.recordsSection.hidden,true);
+ assert.equal(n.allCount.textContent,String(items.length+entries.length));
+ assert.equal(n.allGrid.children.filter(x=>x.className?.includes('ph-inventory-card')).length,
+   Math.min(12,items.length+entries.length));
  const expectedHighs=p.segments.flatMap(s=>s.highs).length;assert.equal(n.highs.children.length,expectedHighs);assert.equal(n.highsSection.hidden,!expectedHighs);
  assert(!Object.values(n).some(el=>/NaN|Infinity/.test(el.textContent)),id+' non-finite value');
  profiles++;
  }
  const sortedBook=structuredClone(book);sortedBook.players['354054'].entries=[
- {category:'Test',scope:'Career',sourceText:'Old 2013',dateLabel:'June 9, 2013'},
- {category:'Test',scope:'Career',sourceText:'Season 2020',dateLabel:'2019/20'},
- {category:'Test',scope:'Career',sourceText:'Newest 2026',sortDate:'2026-03-22',sourceURLs:['https://www.htosports.com/teams/default.asp?gameID=123','javascript:alert(1)','https://example.com/?gameID=2']},
- {category:'Test',scope:'Career',sourceText:'Milestone 2025',dateLabel:'January 5, 2025'},
- {category:'Test',scope:'Career',sourceText:'Undated'}];
- const sorted=await render('354054',{'player-record-book.json':sortedBook});const sortedRows=sorted.records.children[0].children[1].children;
- assert(sortedRows[0].textContent.includes('Newest 2026'));assert(sortedRows[1].textContent.includes('Milestone 2025'));assert(sortedRows[2].textContent.includes('Season 2020'));assert(sortedRows[4].textContent.includes('Undated'));
- const sourceLinks=sortedRows[0].children[2].children.filter(x=>typeof x!=='string');assert.equal(sourceLinks.length,1);assert(sourceLinks[0].href.includes('gameID=123'));
+ {category:'Test',scope:'Career',sourceText:'Old 2013',value:'1',dateLabel:'June 9, 2013'},
+ {category:'Test',scope:'Career',sourceText:'Season 2020',value:'2',dateLabel:'2019/20'},
+ {category:'Test',scope:'Career',sourceText:'Newest 2026',value:'3',sortDate:'2026-03-22',sourceURLs:['https://www.htosports.com/teams/default.asp?gameID=123','javascript:alert(1)','https://example.com/?gameID=2']},
+ {category:'Test',scope:'Career',sourceText:'Milestone 2025',value:'4',dateLabel:'January 5, 2025'},
+ {category:'Test',scope:'Career',sourceText:'Undated',value:'5'}];
+ const sorted=await render('354054',{'player-record-book.json':sortedBook});
+ const sortedRows=sorted.records.children.filter(x=>x.className?.includes('ph-record-card'));
+ assert.equal(sortedRows.length,5);
+ assert(sortedRows[0].textContent.includes('3'));assert(sortedRows[1].textContent.includes('Jan 5, 2025'));
+ assert(sortedRows[2].textContent.includes('2019/20'));assert(sortedRows[4].textContent.includes('Record year unavailable'));
+ const sourceLinks=sortedRows[0].children.flatMap(c=>c.children||[]).filter(x=>x.tagName==='a');
+ assert.equal(sourceLinks.length,1);assert(sourceLinks[0].href.includes('gameID=123'));
  const justin=await render('354060');assert(justin.form.textContent.includes('50%'));assert(justin.form.textContent.includes('3 of 6 goals'));assert(justin.form.textContent.includes('2/4'));assert(justin.highs.textContent.includes('Winter 2017/2018 · Winter 2022/2023'));
  const broken=structuredClone(ledger);broken.players['354054'].name='Wrong Player';const withheld=await render('354054',{'player-highlights-ledger.json':broken});assert.equal(withheld.legacy.children.length,0);assert(!withheld.notice.hidden);
  const empty=await render('999999');assert.equal(empty.records.children.length,0);assert.equal(empty.highs.children.length,0);
