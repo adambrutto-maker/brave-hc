@@ -14,6 +14,16 @@ on:
       - 'widgets/player-bio-premium.css'
       - 'widgets/player-bio-collection.css'
       - 'widgets/player-bio-advanced.js'
+      - 'widgets/player-bio-projection-trend.js'
+      - 'widgets/player-bio-season-titles.json'
+      - 'widgets/player-highlights-ledger.json'
+      - 'widgets/history-awards.json'
+      - 'widgets/player-career-insights.json'
+      - 'scripts/bio-season-titles-lib.cjs'
+      - 'scripts/build_bio_season_titles.cjs'
+      - 'tests/test_player_bio_season_titles.cjs'
+      - 'tests/test_player_bio_projection_trend.cjs'
+      - 'tests/test_player_bio_awards_trend_browser.cjs'
       - 'tests/test_player_bio_advanced.cjs'
       - 'tests/test_player_bio_collection_browser.cjs'
       - 'docs/261028_Player_Bio_Milestone_Parity_Analytics_V2.md'
@@ -49,6 +59,8 @@ jobs:
         run: |
           node --check widgets/player-bio-premium.js
           node --check widgets/player-bio-advanced.js
+          node --check widgets/player-bio-projection-trend.js
+          node --check scripts/build_bio_season_titles.cjs
           node --check widgets/player-bio.js
           node --check widgets/goalie-projection-model.js
       - name: Require Milestone-parity Bio collection and new advanced data slots
@@ -58,6 +70,10 @@ jobs:
 
       - name: Verify advanced stats calculations and fail-closed source coverage
         run: node --test tests/test_player_bio_advanced.cjs
+      - name: Verify scoring titles are generated only from current public HTO awards sources
+        run: node scripts/build_bio_season_titles.cjs --check
+      - name: Verify original workbook career-trend arrows and source-linked scoring-title awards
+        run: node --test tests/test_player_bio_projection_trend.cjs tests/test_player_bio_season_titles.cjs
       - name: Install isolated Playwright test dependency
         run: npm install --no-package-lock --no-save playwright
       - name: Install browser for source-independent CI acceptance
@@ -66,5 +82,7 @@ jobs:
         run: node tests/test_player_bio_premium_browser.cjs
       - name: Test Milestone-style collection, deep analytics, role switching and four mobile/desktop layouts
         run: node tests/test_player_bio_collection_browser.cjs
+      - name: Test scoring-title chart markers and native workbook trend arrows in the Bio
+        run: node tests/test_player_bio_awards_trend_browser.cjs
       - name: Run historical Bio identity, leadership and fallback regression with production CSS
         run: node tests/test_player_bio_browser.cjs

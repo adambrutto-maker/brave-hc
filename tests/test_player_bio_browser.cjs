@@ -47,9 +47,11 @@ const server=http.createServer((req,res)=>{
    assert.equal(await m.$eval('#bioDevelopmentSection',e=>e.hidden),false);
    await m.click('#bioTabs button[data-bio-view="production"]');
    assert.equal(await m.$eval('#bioSpotlight',e=>e.hidden),false);
+   await m.click('#bioMoreSeasonFilters summary');
    await m.click('#bioSeasonModes button[data-mode="summer"]');
    assert.ok(await m.$eval('#bioComboChart',e=>e.querySelectorAll('svg').length)>0);
    assert.equal(await m.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1),false);
+   await m.click('#bioMoreSeasonFilters summary');
    await m.click('#bioSeasonModes button[data-mode="winter"]');
    assert.ok((await m.textContent('#bioChartDetail')).includes('Winter'));
    if(process.env.BRAVE_QA_SCREENSHOTS){await m.screenshot({path:path.join(process.env.BRAVE_QA_SCREENSHOTS,'bio-'+width+'.png'),fullPage:true});}

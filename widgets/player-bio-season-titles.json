@@ -1,0 +1,346 @@
+{
+  "schema": "hockeyos-verified-season-scoring-titles/v1",
+  "sourcePolicy": "EXPLICIT_PUBLIC_HTO_HONORS_ONLY_NO_STAT_RANK_INFERENCE",
+  "sourceCaptured": {
+    "native": "2026-10-20T15:17:15.374Z",
+    "history": "2026-10-20T13:56:05.697Z"
+  },
+  "sourceHashes": {
+    "native": "616d436681294a7d5309a3293f89ef9c9860d7926bcae3fcb88e567f41e3370c",
+    "history": "860ade15844b66273f90c26ed5f37a682a11b669883539e01953488e7fceccae"
+  },
+  "verifiedSourceRows": {
+    "NATIVE_HTO_HIGHLIGHTS": 32,
+    "PUBLIC_HTO_AWARDS_HISTORY": 33
+  },
+  "verifiedEvents": 33,
+  "heldCount": 0,
+  "titleCounts": {
+    "goalTitle": 17,
+    "pointsTitle": 16
+  },
+  "notice": "Titles are published awards. The season chart totals may include playoffs or different HTO source scopes; title totals are not inferred from chart bars.",
+  "players": {
+    "354049": {
+      "Summer 2016": [
+        {
+          "type": "goalTitle",
+          "award": "Rocket Richard",
+          "sourceTypes": [
+            "NATIVE_HTO_HIGHLIGHTS",
+            "PUBLIC_HTO_AWARDS_HISTORY"
+          ]
+        }
+      ]
+    },
+    "354060": {
+      "Winter 2022/2023": [
+        {
+          "type": "pointsTitle",
+          "award": "Art Ross",
+          "sourceTypes": [
+            "NATIVE_HTO_HIGHLIGHTS",
+            "PUBLIC_HTO_AWARDS_HISTORY"
+          ]
+        }
+      ],
+      "Winter 2023/2024": [
+        {
+          "type": "pointsTitle",
+          "award": "Art Ross",
+          "sourceTypes": [
+            "NATIVE_HTO_HIGHLIGHTS",
+            "PUBLIC_HTO_AWARDS_HISTORY"
+          ]
+        }
+      ],
+      "Winter 2024/2025": [
+        {
+          "type": "goalTitle",
+          "award": "Rocket Richard",
+          "sourceTypes": [
+            "NATIVE_HTO_HIGHLIGHTS",
+            "PUBLIC_HTO_AWARDS_HISTORY"
+          ]
+        }
+      ]
+    },
+    "354061": {
+      "Summer 2013": [
+        {
+          "type": "goalTitle",
+          "award": "Rocket Richard",
+          "sourceTypes": [
+            "NATIVE_HTO_HIGHLIGHTS",
+            "PUBLIC_HTO_AWARDS_HISTORY"
+          ]
+        },
+        {
+          "type": "pointsTitle",
+          "award": "Art Ross",
+          "sourceTypes": [
+            "NATIVE_HTO_HIGHLIGHTS",
+            "PUBLIC_HTO_AWARDS_HISTORY"
+          ]
+        }
+      ],
+      "Summer 2015": [
+        {
+          "type": "goalTitle",
+          "award": "Rocket Richard",
+          "sourceTypes": [
+            "NATIVE_HTO_HIGHLIGHTS",
+            "PUBLIC_HTO_AWARDS_HISTORY"
+          ]
+        },
+        {
+          "type": "pointsTitle",
+          "award": "Art Ross",
+          "sourceTypes": [
+            "NATIVE_HTO_HIGHLIGHTS",
+            "PUBLIC_HTO_AWARDS_HISTORY"
+          ]
+        }
+      ],
+      "Summer 2016": [
+        {
+          "type": "pointsTitle",
+          "award": "Art Ross",
+          "sourceTypes": [
+            "PUBLIC_HTO_AWARDS_HISTORY"
+          ]
+        }
+      ],
+      "Winter 2014/2015": [
+        {
+          "type": "goalTitle",
+          "award": "Rocket Richard",
+          "sourceTypes": [
+            "NATIVE_HTO_HIGHLIGHTS",
+            "PUBLIC_HTO_AWARDS_HISTORY"
+          ]
+        },
+        {
+          "type": "pointsTitle",
+          "award": "Art Ross",
+          "sourceTypes": [
+            "NATIVE_HTO_HIGHLIGHTS",
+            "PUBLIC_HTO_AWARDS_HISTORY"
+          ]
+        }
+      ],
+      "Winter 2015/2016": [
+        {
+          "type": "goalTitle",
+          "award": "Rocket Richard",
+          "sourceTypes": [
+            "NATIVE_HTO_HIGHLIGHTS",
+            "PUBLIC_HTO_AWARDS_HISTORY"
+          ]
+        },
+        {
+          "type": "pointsTitle",
+          "award": "Art Ross",
+          "sourceTypes": [
+            "NATIVE_HTO_HIGHLIGHTS",
+            "PUBLIC_HTO_AWARDS_HISTORY"
+          ]
+        }
+      ]
+    },
+    "354285": {
+      "Summer 2014": [
+        {
+          "type": "goalTitle",
+          "award": "Rocket Richard",
+          "sourceTypes": [
+            "NATIVE_HTO_HIGHLIGHTS",
+            "PUBLIC_HTO_AWARDS_HISTORY"
+          ]
+        },
+        {
+          "type": "pointsTitle",
+          "award": "Art Ross",
+          "sourceTypes": [
+            "NATIVE_HTO_HIGHLIGHTS",
+            "PUBLIC_HTO_AWARDS_HISTORY"
+          ]
+        }
+      ],
+      "Summer 2017": [
+        {
+          "type": "goalTitle",
+          "award": "Rocket Richard",
+          "sourceTypes": [
+            "NATIVE_HTO_HIGHLIGHTS",
+            "PUBLIC_HTO_AWARDS_HISTORY"
+          ]
+        },
+        {
+          "type": "pointsTitle",
+          "award": "Art Ross",
+          "sourceTypes": [
+            "NATIVE_HTO_HIGHLIGHTS",
+            "PUBLIC_HTO_AWARDS_HISTORY"
+          ]
+        }
+      ],
+      "Winter 2013/2014": [
+        {
+          "type": "goalTitle",
+          "award": "Rocket Richard",
+          "sourceTypes": [
+            "NATIVE_HTO_HIGHLIGHTS",
+            "PUBLIC_HTO_AWARDS_HISTORY"
+          ]
+        },
+        {
+          "type": "pointsTitle",
+          "award": "Art Ross",
+          "sourceTypes": [
+            "NATIVE_HTO_HIGHLIGHTS",
+            "PUBLIC_HTO_AWARDS_HISTORY"
+          ]
+        }
+      ],
+      "Winter 2016/2017": [
+        {
+          "type": "goalTitle",
+          "award": "Rocket Richard",
+          "sourceTypes": [
+            "NATIVE_HTO_HIGHLIGHTS",
+            "PUBLIC_HTO_AWARDS_HISTORY"
+          ]
+        },
+        {
+          "type": "pointsTitle",
+          "award": "Art Ross",
+          "sourceTypes": [
+            "NATIVE_HTO_HIGHLIGHTS",
+            "PUBLIC_HTO_AWARDS_HISTORY"
+          ]
+        }
+      ],
+      "Winter 2017/2018": [
+        {
+          "type": "goalTitle",
+          "award": "Rocket Richard",
+          "sourceTypes": [
+            "NATIVE_HTO_HIGHLIGHTS",
+            "PUBLIC_HTO_AWARDS_HISTORY"
+          ]
+        },
+        {
+          "type": "pointsTitle",
+          "award": "Art Ross",
+          "sourceTypes": [
+            "NATIVE_HTO_HIGHLIGHTS",
+            "PUBLIC_HTO_AWARDS_HISTORY"
+          ]
+        }
+      ]
+    },
+    "525407": {
+      "Winter 2018/2019": [
+        {
+          "type": "goalTitle",
+          "award": "Rocket Richard",
+          "sourceTypes": [
+            "NATIVE_HTO_HIGHLIGHTS",
+            "PUBLIC_HTO_AWARDS_HISTORY"
+          ]
+        },
+        {
+          "type": "pointsTitle",
+          "award": "Art Ross",
+          "sourceTypes": [
+            "NATIVE_HTO_HIGHLIGHTS",
+            "PUBLIC_HTO_AWARDS_HISTORY"
+          ]
+        }
+      ]
+    },
+    "652571": {
+      "Winter 2019/2020": [
+        {
+          "type": "goalTitle",
+          "award": "Rocket Richard",
+          "sourceTypes": [
+            "NATIVE_HTO_HIGHLIGHTS",
+            "PUBLIC_HTO_AWARDS_HISTORY"
+          ]
+        },
+        {
+          "type": "pointsTitle",
+          "award": "Art Ross",
+          "sourceTypes": [
+            "NATIVE_HTO_HIGHLIGHTS",
+            "PUBLIC_HTO_AWARDS_HISTORY"
+          ]
+        }
+      ]
+    },
+    "686216": {
+      "Winter 2024/2025": [
+        {
+          "type": "goalTitle",
+          "award": "Rocket Richard",
+          "sourceTypes": [
+            "NATIVE_HTO_HIGHLIGHTS",
+            "PUBLIC_HTO_AWARDS_HISTORY"
+          ]
+        }
+      ]
+    },
+    "738846": {
+      "Winter 2022/2023": [
+        {
+          "type": "goalTitle",
+          "award": "Rocket Richard",
+          "sourceTypes": [
+            "NATIVE_HTO_HIGHLIGHTS",
+            "PUBLIC_HTO_AWARDS_HISTORY"
+          ]
+        }
+      ],
+      "Winter 2023/2024": [
+        {
+          "type": "goalTitle",
+          "award": "Rocket Richard",
+          "sourceTypes": [
+            "NATIVE_HTO_HIGHLIGHTS",
+            "PUBLIC_HTO_AWARDS_HISTORY"
+          ]
+        }
+      ],
+      "Winter 2024/2025": [
+        {
+          "type": "pointsTitle",
+          "award": "Art Ross",
+          "sourceTypes": [
+            "NATIVE_HTO_HIGHLIGHTS",
+            "PUBLIC_HTO_AWARDS_HISTORY"
+          ]
+        }
+      ],
+      "Winter 2025/2026": [
+        {
+          "type": "goalTitle",
+          "award": "Rocket Richard",
+          "sourceTypes": [
+            "NATIVE_HTO_HIGHLIGHTS",
+            "PUBLIC_HTO_AWARDS_HISTORY"
+          ]
+        },
+        {
+          "type": "pointsTitle",
+          "award": "Art Ross",
+          "sourceTypes": [
+            "NATIVE_HTO_HIGHLIGHTS",
+            "PUBLIC_HTO_AWARDS_HISTORY"
+          ]
+        }
+      ]
+    }
+  }
+}

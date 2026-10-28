@@ -37,3 +37,13 @@ Founder review on 2026-10-28: the V1 Player Bio is a good first pass but must ma
 - Goalie advanced features: derived 32-minute-equivalent GA/appearance, recorded win-point rate only with complete W/L/T, observed shutout frequency and qualifying-season trend. Never present inferred save percentage, future starts or forecasted wins before verification.
 - Present model disclaimers and detailed source information inside accessible disclosures instead of repeating them across multiple default cards. General game-plan cues only; game-specific personal coaching still requires authenticated coach approval.
 - Do not treat this V2 draft as released until hosted CI, independent source validation, visual review, explicit production approval, and verified HTO iframe publication. Also do not silently extend the existing homepage skater projection or new goalie model.
+
+## Refined Player Bio parity rules — 2026-10-28 V2.1
+
+The founder rejected V2's remaining visual noise. Default Overview must use **one** season chart, **two** primary derived indicators, **one** source-qualified workbook career-trend arrow, and no empty historical-player forecast card. Collapse full projected statistics, source explanations, extra analytics and optional filters. Four compact collection views; the Milestone Trophy Room is the visual reference.
+
+**Do not calculate a new trend classification.** Reuse `widgets/projection.json` `trend`, `trendInputs`, the workbook `conditionalFormatting.arrowIconSet.thresholds` and the original homepage's five arrow states/colors/rotations via `widgets/player-bio-projection-trend.js`. Current projections are provisional while modelCurrent=false. NEW or unsupported career trend means no arrow.
+
+**Do not infer awarded titles from season scoring.** Chart markers for Rocket Richard (G), Art Ross (P), and combined titles (one star) come only from `widgets/player-bio-season-titles.json`, derived from verified public HTO native Highlights and published historical award categories. For some award years the two HTO sources disagree on recorded award point totals; display title/season only, never a fabricated reconciled count. Official Records/Awards, raw G/A, and the source workbook remain unchanged.
+
+Regenerate and source-check the derived manifest on future accepted HTO award changes; never silently assign a marker by ranking. Source parity, 109-profile browser checks and latest UI review must pass before merging PR #158.

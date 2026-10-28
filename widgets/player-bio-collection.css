@@ -135,3 +135,92 @@ body{font-family:Arial,"Helvetica Neue",sans-serif;color:#eef4fb}
 .bio-split-assists{background:#e4b76b;height:100%}
 #bioTabs.bio-dual-role{grid-template-columns:repeat(5,minmax(0,1fr))}
 @media(max-width:440px){#bioTabs.bio-dual-role{grid-template-columns:repeat(3,minmax(0,1fr))}}
+
+/* V2.1: less chrome, fewer default metrics and truthful workbook trend + scoring-title markers */
+.bio-studio .bio-collection-head{margin-bottom:7px}
+.bio-studio .bio-collection-label{letter-spacing:1.05px;font-size:9px}
+.bio-studio .bio-collection-title-row{margin:3px 0 0}
+.bio-studio #bioCollectionCount[hidden],.bio-studio #bioCollectionSub[hidden]{display:none!important}
+#bioTabs.bio-collection-nav{gap:5px;margin:9px 0 6px}
+#bioTabs button[data-bio-view]{min-height:55px;padding:5px 3px;gap:2px}
+#bioTabs .bio-tab-icon{font-size:15px}
+#bioTabs .bio-tab-label{font-size:11px}
+#bioTabs .bio-tab-count{display:none!important}
+.bio-studio>section{padding:10px 2px!important}
+.bio-studio .bio-section-top{margin-bottom:6px}
+.bio-studio #bioSpotlight .bio-desc{font-size:10px;margin-top:2px}
+.bio-studio .bio-mode-row{margin:6px 0}
+.bio-studio .bio-mode-label{min-width:49px;font-size:10px}
+#bioRateModes button,#bioSeasonModes button{min-height:32px;padding:6px 9px}
+#bioSeasonModes .bio-filter-more{position:relative;display:inline-flex;flex-wrap:wrap;align-items:center;
+  border:0;margin:0;padding:0;gap:5px}
+#bioSeasonModes .bio-filter-more>summary{min-height:32px;min-width:46px;display:inline-flex;
+  align-items:center;justify-content:center;cursor:pointer;list-style:none;
+  border:1px solid #496b83;border-radius:18px;background:#193a54;color:#d1e2ee;
+  padding:6px 9px;font-size:10px;font-weight:750}
+#bioSeasonModes .bio-filter-more>summary::-webkit-details-marker{display:none}
+#bioSeasonModes .bio-filter-more[open]>summary{color:#f5dda9;border-color:#c5a16d}
+#bioSeasonModes .bio-filter-more>button{margin:0}
+.bio-studio .bio-legend{margin:8px 0 7px;font-size:10px}
+.bio-award-key{display:flex;align-items:center;flex-wrap:wrap;gap:8px 15px;
+ padding:8px 1px 0;color:#bfd3e3;font-size:10px;line-height:1.4}
+.bio-award-key[hidden]{display:none!important}
+.bio-award-key-item{display:inline-flex;align-items:center;gap:5px}
+.bio-award-g,.bio-award-p{display:inline-grid;place-items:center;font-size:9px;
+ font-weight:900;line-height:1;width:16px;height:16px;border-radius:50%}
+.bio-award-g{background:#805c32;border:1px solid #e9c58b;color:#fff}
+.bio-award-p{background:#204b64;border:1px solid #98d4e6;color:#fff}
+.bio-season-summary{line-height:1.5}
+.bio-season-summary>strong{color:#f8dca8}
+.bio-season-awards{display:flex;gap:5px;flex-wrap:wrap;margin:7px 0 3px}
+.bio-season-award{display:inline-flex;align-items:center;gap:5px;font-size:10px;
+ font-weight:750;border-radius:16px;padding:4px 7px;background:#173b55;
+ border:1px solid #547388;color:#f2e4c9}
+.bio-season-award.goal{border-color:#a78456}
+.bio-season-award.points{border-color:#77acc0}
+.bio-award-letter{font-weight:900}
+.bio-award-caveat{display:block;color:#afc8d8;font-size:9px;line-height:1.4;margin-top:5px}
+.bio-studio .bio-inspector{font-size:10.5px;margin:7px 0;padding:8px 10px}
+.bio-studio .bio-analytics-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;margin:8px 0}
+.bio-studio #bioAdvancedSection .bio-desc{display:none}
+.bio-studio #bioAdvancedSection .bio-insight-tile{min-height:86px;padding:9px 8px}
+.bio-studio #bioAdvancedSection .bio-insight-value{font-size:22px}
+.bio-studio #bioAdvancedSection .bio-insight-description{font-size:10px}
+.bio-studio #bioOtherMetrics{margin-top:7px}
+.bio-studio #bioProjectionSection{padding-top:10px!important}
+.bio-studio #bioProjectionSection .bio-section-top{margin-bottom:7px}
+.bio-trend-summary{border:1px solid #46657e;border-left:3px solid #b89a68;
+ background:linear-gradient(110deg,#1b3b55,#102a42);
+ border-radius:8px;display:flex;align-items:center;gap:10px;padding:9px 11px;min-height:55px}
+.bio-trend-summary.bio-trend-ready{border-left-color:#e3bc7b}
+.bio-trend-arrow{flex:0 0 29px;width:29px;height:29px;display:block}
+.bio-trend-copy{display:flex;flex-direction:column;min-width:0;gap:4px}
+.bio-trend-main{font-size:14px;font-weight:850;color:#fff;line-height:1.15}
+.bio-trend-minor{font-size:10px;color:#b9cedf}
+.bio-projection-headline{font-size:11px;color:#d7e6f1;line-height:1.45;margin:7px 0}
+.bio-studio .bio-projection-full{margin:8px 0 0}
+.bio-studio .bio-projection-full .bio-metrics{grid-template-columns:repeat(3,minmax(0,1fr))}
+.bio-studio #bioProjectionState{font-size:11px}
+@media(max-width:430px){
+ .bio-trend-main{font-size:13px}
+ .bio-trend-summary{gap:8px;padding:9px}
+ .bio-trend-arrow{width:26px;height:26px;flex-basis:26px}
+ #bioTabs button[data-bio-view]{min-height:55px;padding:5px 2px}
+ #bioTabs .bio-tab-label{font-size:10px}
+ #bioSeasonModes{gap:4px}
+ #bioRateModes button,#bioSeasonModes button{padding:6px 8px}
+}
+@media(max-width:350px){
+ .bio-studio #bioAdvancedSection .bio-insight-tile{min-height:93px}
+ #bioSeasonModes .bio-filter-more>summary{min-width:43px}
+}
+
+/* Final clutter pass: fewer repeated titles, single dual-title marker, no empty model panel */
+.bio-studio .bio-collection-label{display:none}
+.bio-studio .bio-eyebrow{display:none}
+.bio-studio .bio-section-top{margin-bottom:6px}
+.bio-studio #bioProjectionSection .bio-title{margin:3px 0 4px!important}
+.bio-award-both{display:inline-grid;place-items:center;width:16px;height:16px;line-height:1;
+  border-radius:50%;font-size:10px;font-weight:850;background:#654e61;color:#fff;border:1px solid #e2c3ec}
+.bio-season-awards{margin-top:5px}
+.bio-award-key{font-size:10px}

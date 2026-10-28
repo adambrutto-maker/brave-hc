@@ -18,7 +18,7 @@ const getJSON=async path=>{const timeout=new AbortController();const timer=setTi
   try{const r=await fetch('./'+path,{cache:'no-store',signal:timeout.signal});if(!r.ok)throw Error('unavailable');return await r.json();}
   finally{clearTimeout(timer);}
 };
-const fetches=Promise.allSettled(['player-career-insights.json','projection.json','league-game-formats.json','player-actuals.json','goalie-roster.json','opponent-intelligence.json','goalie-projection-verified-inputs.json','svhl-upcoming.json'].map(getJSON));
+const fetches=Promise.allSettled(['player-career-insights.json','projection.json','league-game-formats.json','player-actuals.json','goalie-roster.json','opponent-intelligence.json','goalie-projection-verified-inputs.json','svhl-upcoming.json','player-bio-season-titles.json'].map(getJSON));
 const playerID=()=>String($('playerChoice')?.value||new URLSearchParams(location.search).get('playerID')||'');
 const identity=id=>window.BravePlayerLinks?.identityById(Number(id))||null;
 const profileIdFromName=name=>{
@@ -56,7 +56,7 @@ function renderView(){
                    'bioGoalieSection','bioOpponentSection','leadershipSection','systemSection']){
     const el=$(id);if(!el)continue;
     const missingRole=(id==='bioGoalieSection'&&!state.isGoalie)||
-      (['bioSpotlight','bioProjectionSection'].includes(id)&&!state.isSkater);
+      (['bioSpotlight','bioProjectionSection'].includes(id)&&!state.isSkater)||(id==='bioProjectionSection'&&!state.hasProjection);
     const leadershipMissing=id==='leadershipSection'&&!state.hasLeadership;
     el.hidden=missingRole||leadershipMissing||!visible.includes(id);
   }
@@ -94,6 +94,11 @@ function setupTabs(){
       for(const b of $(group).querySelectorAll('button[data-mode]')){
         b.setAttribute('aria-pressed',String(b.dataset.mode===btn.dataset.mode));
       }
+      if(group==='bioSeasonModes'){
+        const more=$('bioMoreSeasonFilters');
+        more.querySelector('summary').textContent=state.filter==='winter'?'Winter only':state.filter==='summer'?'Summer only':'More';
+        more.open=false;
+      }
       renderChart();
     });
   }
@@ -122,12 +127,64 @@ function shortName(label){
   if(m)return window.innerWidth<=480?'W'+m[1].slice(-2):'W'+m[1].slice(-2)+'/'+m[2].slice(-2);
   return s.slice(0,10);
 }
+function titleMarks(season){
+  const verified=sources.titles;
+  if(!verified||verified.schema!=='hockeyos-verified-season-scoring-titles/v1'||
+     verified.sourcePolicy!=='EXPLICIT_PUBLIC_HTO_HONORS_ONLY_NO_STAT_RANK_INFERENCE'||
+     verified.heldCount!==0||!verified.sourceHashes?.native||!verified.sourceHashes?.history)return [];
+  const candidate=verified.players?.[state.player]?.[season];
+  if(!Array.isArray(candidate))return [];
+  const seen=new Set(),accepted=[];
+  for(const award of candidate){
+    if(!award||!['goalTitle','pointsTitle'].includes(award.type)||seen.has(award.type)||
+       !Array.isArray(award.sourceTypes)||!award.sourceTypes.length||
+       !award.sourceTypes.every(t=>['NATIVE_HTO_HIGHLIGHTS','PUBLIC_HTO_AWARDS_HISTORY'].includes(t)))continue;
+    seen.add(award.type);
+    accepted.push({type:award.type,label:award.type==='goalTitle'?'Rocket Richard — goal-scoring title':'Art Ross — points title'});
+  }
+  return accepted;
+}
+function renderAwardKey(rows){
+  const host=$('bioAwardKey');
+  host.replaceChildren();
+  const types=rows.map(r=>titleMarks(r.Season)).filter(items=>items.length);
+  const includes={goalTitle:types.some(x=>x.length===1&&x[0].type==='goalTitle'),
+    pointsTitle:types.some(x=>x.length===1&&x[0].type==='pointsTitle'),
+    doubleTitle:types.some(x=>x.length===2)};
+  host.hidden=!Object.values(includes).some(Boolean);
+  if(host.hidden)return;
+  for(const [type,text] of [['goalTitle','Rocket Richard'],['pointsTitle','Art Ross'],['doubleTitle','Both titles']]){
+    if(!includes[type])continue;
+    const label=build('span',undefined,'bio-award-key-item');
+    const symbol=type==='goalTitle'?'G':type==='pointsTitle'?'P':'★';
+    label.append(build('span',symbol,type==='goalTitle'?'bio-award-g':type==='pointsTitle'?'bio-award-p':'bio-award-both'),
+      build('span',text));
+    host.append(label);
+  }
+}
 function describeSeason(row,rate){
-  $('bioChartDetail').replaceChildren();
-  const title=build('strong',row.Season||'Historical season');
-  const details=build('span',' · Actual: '+fmt(row.G)+' G, '+fmt(row.A)+' A, '+fmt(row.Pts)+' PTS in '+fmt(row.GP)+' GP. ');
-  const rateText=build('span',num(rate)?'Pts/GP ('+state.rate+'): '+rate.toFixed(2)+'.':'Adjusted Pts/GP: source verification pending.');
-  $('bioChartDetail').append(title,details,rateText);
+  const host=$('bioChartDetail');
+  host.replaceChildren();
+  const awards=titleMarks(row.Season);
+  const summary=build('div',undefined,'bio-season-summary');
+  summary.append(build('strong',row.Season||'Historical season'));
+  const facts=build('span',
+    ' · '+(num(row.G)?fmt(row.G):'—')+' G / '+(num(row.A)?fmt(row.A):'—')+
+    ' A · '+(num(row.GP)?fmt(row.GP):'—')+' GP'+
+    (num(rate)?' · '+rate.toFixed(2)+' '+(state.rate==='actual'?'actual':state.rate+'-eq')+' P/GP':' · rate unavailable'));
+  summary.append(facts);host.append(summary);
+  if(awards.length){
+    const badges=build('div',undefined,'bio-season-awards');
+    for(const mark of awards){
+      const badge=build('span',undefined,'bio-season-award '+(mark.type==='goalTitle'?'goal':'points'));
+      badge.append(build('span',mark.type==='goalTitle'?'G':'P','bio-award-letter'),build('span',mark.label));
+      badges.append(badge);
+    }
+    host.append(badges);
+    host.append(build('span',
+      'Award titles are historical HTO honors; chart totals can include playoffs or a different statistical scope.',
+      'bio-award-caveat'));
+  }
 }
 function renderChart(){
   const p=sources.career?.players?.[state.player];
@@ -136,6 +193,8 @@ function renderChart(){
   const rows=state.filter==='recent'?matching.slice(-8):matching;
   const chart=$('bioComboChart');
   chart.replaceChildren();
+  $('bioAwardKey').hidden=true;
+  $('bioAwardKey').replaceChildren();
   const ready=rows.filter(r=>[r.G,r.A,r.Pts,r.GP].every(num));
   if(!rows.length||!ready.length){
     chart.append(build('p','No source-qualified skater season totals for this filter.','bio-inactive-note'));
@@ -196,17 +255,35 @@ function renderChart(){
     if(i%every===0||i===rows.length-1)picture.append(svg('text',{
       x:xc,y:baseline+22,fill:'#b5c9da','font-size':compact?10:Math.max(9,rows.length>18?9:11),
       'text-anchor':'middle'},shortName(row.Season)));
+    const awards=titleMarks(row.Season);
+    const double=awards.length===2;
+    const badgeTypes=double?[{type:'doubleTitle',label:'Rocket Richard AND Art Ross scoring titles'}]:awards;
+    badgeTypes.forEach(award=>{
+      const crowded=rows.length>12,yy=baseline+37;
+      const group=addInteractive(svg('g',{'data-award-type':award.type,'data-award-season':row.Season}),i,rate);
+      group.setAttribute('aria-label',row.Season+': '+award.label+'. Open season details');
+      group.append(svg('title',{},award.label+' · '+row.Season));
+      group.append(svg('circle',{cx:xc,cy:yy,r:crowded?5:6.5,
+        fill:award.type==='goalTitle'?'#805c32':award.type==='pointsTitle'?'#204b64':'#654e61',
+        stroke:award.type==='goalTitle'?'#e9c58b':award.type==='pointsTitle'?'#98d4e6':'#e2c3ec',
+        'stroke-width':1.3}));
+      group.append(svg('text',{x:xc,y:yy+2.7,'text-anchor':'middle',fill:'#fff',
+        'font-size':crowded?8:9,'font-weight':900},
+        award.type==='goalTitle'?'G':award.type==='pointsTitle'?'P':'★'));
+      picture.append(group);
+    });
   });
   flush();
   for(const m of marks){
     picture.append(addInteractive(svg('circle',{cx:m.xc,cy:m.yy,r:4.5,fill:'#a8d9ea',stroke:'#0b233b','stroke-width':1.5}),m.i,m.rate));
   }
   chart.append(picture);
+  renderAwardKey(rows);
   const first=rows.length-1;describeSeason(rows[first],rates[first]);
   $('bioChartSource').textContent='Official HTO career archive captured '+date(sources.career?.capturedAt)+
     ' · Raw goals/assists never change · '+(state.rate==='actual'?'Unadjusted rate.':
     rates.some(num)?'Game-duration class verified for 18 original Master Schedule seasons; HTO source totals remain unchanged.':'No qualified adjusted rate for the selected seasons; raw bars remain.');
-  $('bioRateStatus').textContent=state.rate==='actual'?'Actual Pts/GP = recorded points ÷ games played.':
+  $('bioRateStatus').textContent=state.rate==='actual'?'Actual points per game':
     rates.some(num)?(state.rate==='winter'?'32-minute Winter-equivalent points per game.':'48-minute Summer-equivalent points per game.')+' Goals and assists remain actual.':
     'The '+state.rate+' rate line is held until historic per-season/game-scope duration mapping is verified. Raw bars remain visible.';
 }
@@ -222,23 +299,72 @@ function validateProjection(p){
   }
   return result;
 }
+function paintProjectionTrend(row,projection){
+  const host=$('bioProjectionTrend'),detail=$('bioProjectionTrendDetail');
+  host.replaceChildren();detail.textContent='';
+  host.dataset.trendState='HELD';
+  host.className='bio-trend-summary';
+  const result=window.HockeyOSBioProjectionTrend?.classify(row,projection)||{status:'HELD'};
+  if(result.status==='VERIFIED_MODEL_TREND'){
+    host.dataset.trendState=result.name;
+    host.classList.add('bio-trend-ready','bio-trend-'+result.name.toLowerCase());
+    const glyph=svg('svg',{viewBox:'0 0 48 48',class:'bio-trend-arrow',role:'img',
+      'aria-label':result.name+' forecast compared with career'});
+    glyph.append(svg('path',{d:'M18 42V19H8L24 3L40 19H30V42Z',
+      transform:'rotate('+result.rotate+' 24 24)',fill:result.color}));
+    host.append(glyph);
+    const label=build('div',undefined,'bio-trend-copy');
+    const signed=(result.relativeChange>0?'+':'')+(result.relativeChange*100).toFixed(1)+'%';
+    label.append(build('strong',result.name+' · '+signed+' vs career','bio-trend-main'),
+      build('span','Original workbook career trend','bio-trend-minor'));
+    host.append(label);
+    detail.textContent='Original workbook trend: '+result.name+
+       '. Historical career regular-season scoring rate '+
+       (num(result.careerRate)?result.careerRate.toFixed(3):'unavailable')+
+       ' P/GP; projected scoring-rate component '+
+       (num(result.modelComponentRate)?result.modelComponentRate.toFixed(3):'unavailable')+
+       ' P/GP; career relative change '+signed+
+       '. The model trend component is distinct from the displayed full-season projected P/GP.';
+  }else{
+    host.dataset.trendState=result.status;
+    const label=build('div',undefined,'bio-trend-copy');
+    label.append(build('strong',result.status==='NEW'?'NEW · no career baseline':'Career trend unavailable',
+      'bio-trend-main'));
+    label.append(build('span',result.status==='NEW'?'First season / no established comparison':'The workbook trend is not source verified',
+      'bio-trend-minor'));
+    host.append(label);
+    detail.textContent=result.status==='NEW'?'No comparable established career average; no trend arrow is assigned.':
+      'No verified workbook trend. No arrow or comparison has been inferred.';
+  }
+}
+
 function renderSkaterProjection(){
   const section=$('bioProjectionSection');
+  state.hasProjection=false;
   const target=$('bioProjectionCards');target.replaceChildren();
   const projection=sources.projection;
   const profiles=validateProjection(projection);
   const row=profiles?.get(state.player);
   if(!profiles){
     $('bioProjectionState').textContent='Shared homepage model data could not be verified. No substitute forecast generated.';
+    $('bioProjectionHeadline').textContent='Forecast unavailable';
+    paintProjectionTrend(null,null);
     sourceLabel('Model source unavailable');
     return;
   }
   if(!row){
     $('bioProjectionState').textContent='No model-published projection is available for this verified player. This is not a prediction of zero.';
+    $('bioProjectionHeadline').textContent='No model-published forecast for this player';
+    paintProjectionTrend(null,projection);
     sourceLabel(projection.season+' · model '+date(projection.exportedAt));
     return;
   }
+  state.hasProjection=true;
   const provisional=projection.modelCurrent!==true||projection.projectionComplete!==true;
+  paintProjectionTrend(row,projection);
+  $('bioProjectionHeadline').textContent=(provisional?'Provisional · ':'')+
+    (num(row.pts)?fmt(row.pts)+' projected points':'Points forecast unavailable')+
+    (num(row.ptsPerGame)?' · '+row.ptsPerGame.toFixed(2)+' projected P/GP':'');
   $('bioProjectionState').textContent=provisional?
     'Provisional scenario · model reconciliation pending. Same workbook forecast as the homepage; not certified current-season totals.':
     'Reconciled workbook-derived season forecast, separate from official actuals.';
@@ -429,12 +555,10 @@ function renderAdvancedMetrics(player){
   if(result.kind==='skater'){
     insight(target,'Winter-equivalent points / GP',decimal(o.winterPtsPerGP??o.verifiedSeasonWinterPtsPerGP),
       (o.winterPtsPerGP===null?'Verified seasons only · ':'All published scoring seasons · ')+'32-minute basis');
-    insight(target,'Scoring mix',percent(o.goalsShare),
-      'Share of actual career points from goals');
+    extra(more,'Share of actual career points from goals',percent(o.goalsShare));
     insight(target,'Peak season',o.peak?decimal(o.peak.rate):'Unavailable',
       o.peak?o.peak.season+' · adjusted Pts/GP · 5+ GP':'No 5+ GP verified season');
-    insight(target,'Recent 3-season average',result.development?decimal(result.development.recent):'Unavailable',
-      result.development?'Winter-equivalent Pts/GP · 5+ GP per season':'Requires six 5+ GP seasons');
+    // This belongs in the Trends collection, not a duplicate Overview tile.
 
     if(num(o.goalsShare)){
       const share=o.goalsShare;
@@ -467,10 +591,9 @@ function renderAdvancedMetrics(player){
       o.careerWinterGAperAppearance===null?'Verified seasons only':'32-minute game-length basis');
     insight(target,'Recorded win-point rate',percent(o.winPointsPct,1),
       'Wins + half ties / actual goalie GP');
-    insight(target,'Shutouts per 100 appearances',decimal(o.shutoutPer100,1),
-      'Verified career shutouts / recorded GP');
-    insight(target,'Best 5+ GP season',o.peak?decimal(o.peak.rate):'Unavailable',
-      o.peak?o.peak.season+' · Winter-eq GA/appearance':'No qualifying goalie season');
+    extra(more,'Recorded shutouts per 100 goalie appearances',decimal(o.shutoutPer100,1));
+    extra(more,'Best 5+ GP season, Winter-equivalent GA/appearance',
+      o.peak?o.peak.season+' · '+decimal(o.peak.rate):'Unavailable');
     extra(more,'Actual recorded goals against per appearance',decimal(o.publishedActualGAA));
     extra(more,'Player of the Game awards per 100 goalie GP',decimal(o.playerOfGamePer100,1));
   }
@@ -544,6 +667,9 @@ function renderPlayer(){
   state.isGoalie=p.segments?.some(s=>s.kind==='goalie')||false;
   state.hasLeadership=Boolean($('leadership')?.querySelector('.entry'));
   if(changing){
+    $('bioProjectionFull').open=false;
+    $('bioMoreSeasonFilters').open=false;
+    $('bioMoreSeasonFilters').querySelector('summary').textContent='More';
     state.active=state.isSkater?'production':state.isGoalie?'goaltending':'all';
     state.rate='actual';state.filter='recent';
     for(const group of ['bioRateModes','bioSeasonModes']){
@@ -574,7 +700,8 @@ sources={career:inputs[0].status==='fulfilled'?inputs[0].value:null,
   roster:inputs[4].status==='fulfilled'?inputs[4].value:null,
   opponent:inputs[5].status==='fulfilled'?inputs[5].value:null,
   goalieVerified:inputs[6].status==='fulfilled'?inputs[6].value:null,
-  upcoming:inputs[7].status==='fulfilled'?inputs[7].value:null};
+  upcoming:inputs[7].status==='fulfilled'?inputs[7].value:null,
+  titles:inputs[8].status==='fulfilled'?inputs[8].value:null};
 setupTabs();
 const content=$('profileContent');
 const observer=new MutationObserver(()=>{if(!content.hidden)renderPlayer();});

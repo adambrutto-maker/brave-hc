@@ -79,3 +79,26 @@ Continue these through BIO-V2 tracker [#156](https://github.com/adambrutto-maker
 - [Game Plan collection, mobile](previews/261028_Bio_V2_GamePlan_Mobile.png)
 
 These are source-backed *candidate* visuals, not screenshots of the current public HTO page. The approved Milestone Highlights design remains the benchmark. All screenshots were generated from the isolated candidate browser test, not the live website.
+
+## V2.1 Founder refinement — compact Overview, original career arrows and verified scoring-title seasons
+
+**Founder request (2026-10-28):** even V2 looked too cluttered; match the Milestone Trophy Room usability more closely. Bring back the original workbook forecast arrows that compare projected scoring performance with established career scoring pace, and identify historical goal-scoring and points-title seasons on the chart.
+
+- **Streamlined Overview:** one Performance Lab heading with four compact collection buttons; actual season G/A + P/GP chart, two headline advanced indicators, and one compact model career-comparison arrow. Longer analysis, provenance and the five projected counting stats move behind disclosures. Hide empty projection panels for historical players absent from the current forecast rather than displaying a large unavailable card.
+- **Original workbook trend, not a second formula:** `widgets/player-bio-projection-trend.js` reuses every player's `trend` value, `trendInputs` and the four **AB100/AB99/AB97/AB96 thresholds** in `widgets/projection.json`. Its 5 state labels, SVG arrow rotations and colors must match the existing `home-premium.js` table: Cold, Cool, Neutral, Warm, Hot. Do not substitute season actual P/GP, adjusted P/GP, or displayed projected P/GP for the workbook's projected scoring-rate component. Show the trend as provisional if `modelCurrent` or `projectionComplete` is false. NEW or unknown history has no invented arrow.
+- **Scoring-title markers:** source-only `widgets/player-bio-season-titles.json` identifies **33 published title achievements** (17 Rocket Richard goal titles including a tie; 16 Art Ross point titles) using both HTO native `player-highlights-ledger.json` and public `history-awards.json`. They are mapped to verified player IDs and exact Summer/Winter seasons, not inferred from G, A, points, rankings, or year alone. A small **G** means Rocket Richard, **P** means Art Ross, and one **star** means both titles in the same season. Selecting a chart season reveals the full award names. Award icons do **not** alter raw G/A totals or record/award pipelines.
+- **Source conflicts:** some historical award *point totals* differ between the two official HTO sources. Since the title occurrence agrees, the Bio deliberately shows only the verified award and season, not a potentially contradictory award number. Raw bars may include multiple game types while the scoring title may have a regular-season basis. The UI must communicate this in selected-season detail, not as a large always-visible warning.
+- **Manifest regeneration:** use `node scripts/build_bio_season_titles.cjs` after the source award ledger or team history is updated, then `node scripts/build_bio_season_titles.cjs --check`. CI source parity tests prevent a changed source from silently replacing a title or adding an unverified award. Automated source-refresh wiring is a distinct future release decision, not silently assumed here.
+- **Testing:** `tests/test_player_bio_projection_trend.cjs`, `tests/test_player_bio_season_titles.cjs` and `tests/test_player_bio_awards_trend_browser.cjs` check exact workbook categorization, historical award provenance, two-title consolidation, HTO player/season join, missing-data holds, unchanged actual chart bars and mobile interaction.
+
+The current deployed V1 remains unaffected. V2.1 is a revision within draft [PR #158](https://github.com/adambrutto-maker/brave-hc/pull/158), pending fresh CI and visual review.
+
+### Refined visual acceptance — V2.1
+
+These two additional screenshots replace the previous cluttered forecast and chart-award presentations:
+
+- [Compact Overview with original workbook Neutral arrow](previews/261028_Bio_V2_Skater_Overview_Mobile.png)
+- [Selected season with a verified combined Rocket Richard and Art Ross title](previews/261028_Bio_V2_Scoring_Titles_Mobile.png)
+- [Expanded source-faithful workbook projection arrow explanation](previews/261028_Bio_V2_Projection_Arrow_Detail_Mobile.png)
+
+The refreshed Overview preview has only two default derived metrics and a collapsed five-metric forecast panel. The combined award star replaces overlapping G/P markers and cannot alter official HTO raw scoring. Historical names/seasons and source conflict are preserved by the source-derived manifest; titles do not carry numeric award totals.

@@ -39,6 +39,7 @@ a{color:#e6c083}footer{padding:13px 20px;font-size:.75rem;color:#adc5d9}
 <link rel="stylesheet" href="./player-bio-collection.css">
 <script defer src="./player-performance-normalization.js"></script>
 <script defer src="./player-bio-advanced.js"></script>
+<script defer src="./player-bio-projection-trend.js"></script>
 <script defer src="./goalie-projection-model.js"></script>
 <script defer src="./player-bio.js"></script>
 <script defer src="./player-bio-premium.js"></script></head>
@@ -55,9 +56,9 @@ a{color:#e6c083}footer{padding:13px 20px;font-size:.75rem;color:#adc5d9}
 </nav><div id="profileContent" hidden>
 <div id="bioStudio" class="bio-studio">
 <div class="bio-collection-head">
-  <div class="bio-collection-label">BRAVE H.C. // PLAYER COLLECTION</div>
-  <div class="bio-collection-title-row"><h2>Performance Lab</h2><span id="bioCollectionCount" class="bio-collection-count">Verified seasons</span></div>
-  <p id="bioCollectionSub">Advanced scoring, development and game preparation. Choose a view.</p>
+  <div class="bio-collection-label">BRAVE H.C. · PLAYER INTELLIGENCE</div>
+  <div class="bio-collection-title-row"><h2>Performance Lab</h2><span id="bioCollectionCount" class="bio-collection-count" hidden>Verified seasons</span></div>
+  <p id="bioCollectionSub" hidden>Player analytics</p>
 </div><nav id="bioTabs" class="bio-collection-nav" role="tablist" aria-label="Player performance collections" hidden>
  <button type="button" data-bio-view="production" role="tab" aria-selected="true" aria-controls="bioSpotlight"><span class="bio-tab-icon" aria-hidden="true">◈</span><span class="bio-tab-label">Overview</span><span class="bio-tab-count">Stats</span></button>
  <button type="button" data-bio-view="goaltending" role="tab" aria-selected="false" aria-controls="bioGoalieSection"><span class="bio-tab-icon" aria-hidden="true">◇</span><span class="bio-tab-label">Goalie</span><span class="bio-tab-count">Stats</span></button>
@@ -67,21 +68,23 @@ a{color:#e6c083}footer{padding:13px 20px;font-size:.75rem;color:#adc5d9}
 </nav>
 <section id="bioSpotlight" aria-label="Historical production analysis" hidden>
  <div class="bio-section-top"><div><div class="bio-eyebrow">Historical performance</div>
- <h2 class="bio-title">Scoring performance</h2>
- <p class="bio-desc">Goals and assists are actual. Change the comparison basis for points per game.</p></div>
- <div class="bio-small-date" id="bioContext">Verified HTO player</div></div>
+ <h2 class="bio-title">Season scoring</h2>
+ <p class="bio-desc">Recorded goals and assists · comparative points per game</p></div>
+ <div class="bio-small-date" id="bioContext" hidden>Verified HTO player</div></div>
  <div class="bio-mode-row"><span class="bio-mode-label">Points / game</span>
  <div id="bioRateModes" role="group" aria-label="Historical scoring-rate comparison">
   <button type="button" data-mode="actual" aria-pressed="true">Actual</button>
-  <button type="button" data-mode="winter" aria-pressed="false">Winter equivalent</button>
-  <button type="button" data-mode="summer" aria-pressed="false">Summer equivalent</button>
+  <button type="button" data-mode="winter" aria-pressed="false" aria-label="Winter-equivalent points per game">Winter</button>
+  <button type="button" data-mode="summer" aria-pressed="false" aria-label="Summer-equivalent points per game">Summer</button>
  </div></div>
  <div class="bio-mode-row"><span class="bio-mode-label">Seasons</span>
  <div id="bioSeasonModes" role="group" aria-label="Season scope">
   <button type="button" data-mode="recent" aria-pressed="true">Recent 8</button>
   <button type="button" data-mode="all" aria-pressed="false">Career</button>
-  <button type="button" data-mode="winter" aria-pressed="false">Winter</button>
-  <button type="button" data-mode="summer" aria-pressed="false">Summer</button>
+  <details id="bioMoreSeasonFilters" class="bio-filter-more"><summary>More</summary>
+   <button type="button" data-mode="winter" aria-pressed="false">Winter only</button>
+   <button type="button" data-mode="summer" aria-pressed="false">Summer only</button>
+  </details>
  </div></div>
  <div class="bio-legend" aria-label="Chart key">
   <span><i class="bio-key goals" aria-hidden="true"></i>Goals (actual)</span>
@@ -89,34 +92,40 @@ a{color:#e6c083}footer{padding:13px 20px;font-size:.75rem;color:#adc5d9}
   <span><i class="bio-key rate" aria-hidden="true"></i>Points / game</span>
  </div>
  <div class="bio-chart-wrap" id="bioComboChart" aria-label="Scoring history graph"></div>
+ <div id="bioAwardKey" class="bio-award-key" hidden aria-label="Scoring title award marker legend"></div>
  <div class="bio-inspector" id="bioChartDetail" aria-live="polite">Choose a season for details.</div>
- <p class="bio-status" id="bioRateStatus" aria-live="polite"></p>
- <details class="bio-evidence"><summary>Source and chart method</summary><p id="bioChartSource" class="bio-soft-note"></p></details>
+ <details class="bio-evidence"><summary>Chart source and comparison method</summary>
+  <p class="bio-status" id="bioRateStatus" aria-live="polite"></p>
+  <p id="bioChartSource" class="bio-soft-note"></p>
+ </details>
 </section>
 <section id="bioAdvancedSection" aria-label="Advanced player performance indicators" hidden>
  <div class="bio-section-top"><div><div class="bio-eyebrow">Advanced indicators</div>
  <h2 class="bio-title">Beyond the box score</h2>
  <p class="bio-desc">Comparable rates and meaningful situational measures, calculated from verified HTO history.</p></div></div>
  <div id="bioAdvancedGrid" class="bio-analytics-grid" aria-live="polite"></div>
- <div id="bioScoringMix" class="bio-scoring-mix" hidden></div>
- <details id="bioOtherMetrics" class="bio-evidence"><summary>More advanced indicators</summary>
+ <details id="bioOtherMetrics" class="bio-evidence"><summary>More player indicators and sources</summary>
+  <div id="bioScoringMix" class="bio-scoring-mix" hidden></div>
   <div id="bioSecondaryMetrics" class="bio-secondary-grid"></div>
+  <p id="bioAdvancedSource" class="bio-source-line"></p>
  </details>
- <p id="bioAdvancedSource" class="bio-source-line"></p>
 </section>
 <section id="bioProjectionSection" aria-label="Current season player projection" hidden>
  <div class="bio-section-top"><div><div class="bio-eyebrow">Forward outlook</div>
- <h2 class="bio-title">Current-season projection</h2>
- <p class="bio-desc">The same workbook-based projection used on the homepage, presented for this player.</p></div></div>
- <div class="bio-metrics" id="bioProjectionCards"></div>
- <div class="bio-projection-body">
-  <p class="bio-status" id="bioProjectionState"></p>
-  <p id="bioProjectionActual"></p>
-  <details class="bio-evidence"><summary>Model source and limitations</summary>
+ <h2 class="bio-title">Season outlook</h2></div></div>
+ <div id="bioProjectionTrend" class="bio-trend-summary" aria-live="polite">Career comparison unavailable.</div>
+ <p id="bioProjectionHeadline" class="bio-projection-headline"></p>
+ <details id="bioProjectionFull" class="bio-evidence bio-projection-full">
+  <summary>Full projection and model information</summary>
+  <div class="bio-metrics" id="bioProjectionCards"></div>
+  <div class="bio-projection-body">
+   <p class="bio-status" id="bioProjectionState"></p>
+   <p id="bioProjectionActual"></p>
    <p class="bio-soft-note" id="bioModelContext"></p>
    <p class="bio-soft-note" id="bioProjectionOpponent"></p>
-  </details>
- </div>
+   <p id="bioProjectionTrendDetail" class="bio-soft-note"></p>
+  </div>
+ </details>
 </section>
 <section id="bioDevelopmentSection" aria-label="Season-to-season development" hidden>
  <div class="bio-section-top"><div><div class="bio-eyebrow">Personal trajectory</div>
