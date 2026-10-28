@@ -5,7 +5,7 @@ const fs=require('node:fs'),path=require('node:path');
 const verify=require('../widgets/watch-evidence.js').verify;
 const widgets=path.resolve(__dirname,'../widgets');
 const watch=JSON.parse(fs.readFileSync(path.join(widgets,'watch.json'),'utf8'));
-const history=JSON.parse(fs.readFileSync(path.join(widgets,'history-records.json'),'utf8'));
+const history=JSON.parse(fs.readFileSync(path.join(widgets,'history-records-legacy-558.json'),'utf8'));
 const clone=x=>JSON.parse(JSON.stringify(x));
 test('two historical milestone entries have one matching published HTO record each',()=>{
  const r=verify(watch,history);

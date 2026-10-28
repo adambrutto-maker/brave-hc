@@ -14,7 +14,7 @@ NOW=datetime(2026, 10, 26, 16, 40, tzinfo=timezone.utc)
 
 def source():
     watch=json.loads((ROOT/"widgets/watch.json").read_text(encoding="utf-8"))
-    records=json.loads((ROOT/"widgets/history-records.json").read_text(encoding="utf-8"))
+    records=json.loads((ROOT/"widgets/history-records-legacy-558.json").read_text(encoding="utf-8"))
     stages={name:{"outcome":"PASS","returnCode":0,"stdoutTail":""} for name in STAGES}
     stages["projections"]["stdoutTail"]="HTO_MODEL_RECONCILIATION_PENDING"
     stages["record_watch"]["stdoutTail"]="WATCH_UNCHANGED"

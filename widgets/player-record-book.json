@@ -2,8 +2,8 @@
   "schema": "brave-hc-player-record-book/v1",
   "sourceAuthority": "NATIVE_HTO_RECORDS_PUBLIC_READBACK",
   "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=records",
-  "capturedAt": "2026-10-20T21:08:36.136Z",
-  "interpretation": "Published record-book entries include historical progression; inclusion does not assert an entry remains the current club record. Milestone dates are transcribed independently and do not replace Highlights dates.",
+  "capturedAt": "2026-10-28T08:01:05.767690+00:00",
+  "interpretation": "Native HTO Records statistical entries only (individual players); source values and scope retained, with concise approved public heading aliases. Historic milestone clubs now belong under native HTO Awards and the earned player Achievement Locker. Unattributable legacy goalie records remain on the complete HTO Records feed rather than being assigned a player ID.",
   "players": {
     "354041": {
       "name": "Marco Congiusti",
@@ -15,53 +15,12 @@
           "value": "2",
           "dateLabel": "September 29, 2013",
           "kind": "performance"
-        },
-        {
-          "category": "50 Game Club",
-          "scope": "Career",
-          "sourceText": "7 - Marco Congiusti (September 28, 2014)",
-          "value": "7",
-          "dateLabel": "September 28, 2014",
-          "kind": "milestone"
-        },
-        {
-          "category": "50 Point Club",
-          "scope": "Career",
-          "sourceText": "15 - Marco Congiusti (March 3, 2019)",
-          "value": "15",
-          "dateLabel": "March 3, 2019",
-          "kind": "milestone"
-        },
-        {
-          "category": "100 Game Club",
-          "scope": "Career",
-          "sourceText": "8 - Marco Congiusti (February 28, 2016)",
-          "value": "8",
-          "dateLabel": "February 28, 2016",
-          "kind": "milestone"
-        },
-        {
-          "category": "200 Game Club",
-          "scope": "Career",
-          "sourceText": "6 - Marco Congiusti (November 17, 2019)",
-          "value": "6",
-          "dateLabel": "November 17, 2019",
-          "kind": "milestone"
         }
       ]
     },
     "354042": {
       "name": "Lucas Brutto",
-      "entries": [
-        {
-          "category": "50 Game Club",
-          "scope": "Career",
-          "sourceText": "21 - Lucas Brutto (December 30, 2018)",
-          "value": "21",
-          "dateLabel": "December 30, 2018",
-          "kind": "milestone"
-        }
-      ]
+      "entries": []
     },
     "354043": {
       "name": "Italo Brutto",
@@ -83,47 +42,7 @@
           "kind": "performance"
         },
         {
-          "category": "50 Game Club",
-          "scope": "Career",
-          "sourceText": "10 - Mario Provenzano (November 9, 2014)",
-          "value": "10",
-          "dateLabel": "November 9, 2014",
-          "kind": "milestone"
-        },
-        {
-          "category": "50 Point Club",
-          "scope": "Career",
-          "sourceText": "14 - Mario Provenzano (February 11, 2018)",
-          "value": "14",
-          "dateLabel": "February 11, 2018",
-          "kind": "milestone"
-        },
-        {
-          "category": "100 Game Club",
-          "scope": "Career",
-          "sourceText": "11 - Mario Provenzano (December 18, 2016)",
-          "value": "11",
-          "dateLabel": "December 18, 2016",
-          "kind": "milestone"
-        },
-        {
-          "category": "100 Point Club",
-          "scope": "Career",
-          "sourceText": "11 - Mario Provenzano (November 16, 2025)",
-          "value": "11",
-          "dateLabel": "November 16, 2025",
-          "kind": "milestone"
-        },
-        {
-          "category": "200 Game Club",
-          "scope": "Career",
-          "sourceText": "10 - Mario Provenzano (March 24, 2024)",
-          "value": "10",
-          "dateLabel": "March 24, 2024",
-          "kind": "milestone"
-        },
-        {
-          "category": "Winter - Games with at least three points in one season - Playoffs",
+          "category": "Winter - Games with 3+ Points",
           "scope": "Playoffs",
           "sourceText": "1 - Mario Provenzano (2017/18)",
           "value": "1",
@@ -135,7 +54,7 @@
           "sortDate": "2018-03-25"
         },
         {
-          "category": "Winter - Games with at least three assists in one season - Playoffs",
+          "category": "Winter - Games with 3+ Assists",
           "scope": "Playoffs",
           "sourceText": "1 - Mario Provenzano (2017/18)",
           "value": "1",
@@ -272,55 +191,7 @@
           "kind": "performance"
         },
         {
-          "category": "50 Game Club",
-          "scope": "Career",
-          "sourceText": "3 - Ryan Logue (August 17, 2014)",
-          "value": "3",
-          "dateLabel": "August 17, 2014",
-          "kind": "milestone"
-        },
-        {
-          "category": "50 Point Club",
-          "scope": "Career",
-          "sourceText": "3 - Ryan Logue (June 22, 2014)",
-          "value": "3",
-          "dateLabel": "June 22, 2014",
-          "kind": "milestone"
-        },
-        {
-          "category": "100 Game Club",
-          "scope": "Career",
-          "sourceText": "2 - Ryan Logue (December 20, 2015)",
-          "value": "2",
-          "dateLabel": "December 20, 2015",
-          "kind": "milestone"
-        },
-        {
-          "category": "100 Point Club",
-          "scope": "Career",
-          "sourceText": "2 - Ryan Logue (August 9, 2015)",
-          "value": "2",
-          "dateLabel": "August 9, 2015",
-          "kind": "milestone"
-        },
-        {
-          "category": "200 Game Club",
-          "scope": "Career",
-          "sourceText": "4 - Ryan Logue (March 17, 2019)",
-          "value": "4",
-          "dateLabel": "March 17, 2019",
-          "kind": "milestone"
-        },
-        {
-          "category": "200 Point Club",
-          "scope": "Career",
-          "sourceText": "2 - Ryan Logue (September 16, 2018)",
-          "value": "2",
-          "dateLabel": "September 16, 2018",
-          "kind": "milestone"
-        },
-        {
-          "category": "Winter - Games with at least three points in one season - Playoffs",
+          "category": "Winter - Games with 3+ Points",
           "scope": "Playoffs",
           "sourceText": "1 - Ryan Logue (2014/15)",
           "value": "1",
@@ -332,7 +203,7 @@
           "sortDate": "2015-04-19"
         },
         {
-          "category": "Winter - Games with at least three points in one season - Playoffs",
+          "category": "Winter - Games with 3+ Points",
           "scope": "Playoffs",
           "sourceText": "1 - Ryan Logue (2017/18)",
           "value": "1",
@@ -344,7 +215,7 @@
           "sortDate": "2018-03-25"
         },
         {
-          "category": "Winter - Games with at least three points in one season - Playoffs",
+          "category": "Winter - Games with 3+ Points",
           "scope": "Playoffs",
           "sourceText": "1 - Ryan Logue (2019/20)",
           "value": "1",
@@ -417,55 +288,7 @@
           "kind": "performance"
         },
         {
-          "category": "50 Game Club",
-          "scope": "Career",
-          "sourceText": "4 - Cameron Buchanan (August 17, 2014)",
-          "value": "4",
-          "dateLabel": "August 17, 2014",
-          "kind": "milestone"
-        },
-        {
-          "category": "50 Point Club",
-          "scope": "Career",
-          "sourceText": "4 - Cameron Buchanan (November 30, 2014)",
-          "value": "4",
-          "dateLabel": "November 30, 2014",
-          "kind": "milestone"
-        },
-        {
-          "category": "100 Game Club",
-          "scope": "Career",
-          "sourceText": "9 - Cameron Buchanan (May 15, 2016)",
-          "value": "9",
-          "dateLabel": "May 15, 2016",
-          "kind": "milestone"
-        },
-        {
-          "category": "100 Point Club",
-          "scope": "Career",
-          "sourceText": "4 - Cameron Buchanan (June 19, 2016)",
-          "value": "4",
-          "dateLabel": "June 19, 2016",
-          "kind": "milestone"
-        },
-        {
-          "category": "200 Game Club",
-          "scope": "Career",
-          "sourceText": "5 - Cameron Buchanan (September 15, 2019)",
-          "value": "5",
-          "dateLabel": "September 15, 2019",
-          "kind": "milestone"
-        },
-        {
-          "category": "200 Point Club",
-          "scope": "Career",
-          "sourceText": "4 - Cameron Buchanan (October 20, 2019)",
-          "value": "4",
-          "dateLabel": "October 20, 2019",
-          "kind": "milestone"
-        },
-        {
-          "category": "Summer - Games with at least three assists in one season - Playoffs",
+          "category": "Summer - Games with 3+ Assists",
           "scope": "Playoffs",
           "sourceText": "1 - Cameron Buchanan (2016)",
           "value": "1",
@@ -510,31 +333,7 @@
           "kind": "performance"
         },
         {
-          "category": "50 Game Club",
-          "scope": "Career",
-          "sourceText": "9 - Damian Aidemirski (October 5, 2014)",
-          "value": "9",
-          "dateLabel": "October 5, 2014",
-          "kind": "milestone"
-        },
-        {
-          "category": "50 Point Club",
-          "scope": "Career",
-          "sourceText": "8 - Damian Aidemirski (November 22, 2015)",
-          "value": "8",
-          "dateLabel": "November 22, 2015",
-          "kind": "milestone"
-        },
-        {
-          "category": "100 Game Club",
-          "scope": "Career",
-          "sourceText": "5 - Damian Aidemirski (January 10, 2016)",
-          "value": "5",
-          "dateLabel": "January 10, 2016",
-          "kind": "milestone"
-        },
-        {
-          "category": "Winter - Games with at least three points in one season - Playoffs",
+          "category": "Winter - Games with 3+ Points",
           "scope": "Playoffs",
           "sourceText": "1 - Damian Aidemirski (2013/14)",
           "value": "1",
@@ -546,7 +345,7 @@
           "sortDate": "2014-03-30"
         },
         {
-          "category": "Winter - Games with at least three assists in one season - Playoffs",
+          "category": "Winter - Games with 3+ Assists",
           "scope": "Playoffs",
           "sourceText": "1 - Damian Aidemirski (2013/14)",
           "value": "1",
@@ -716,55 +515,7 @@
           "kind": "performance"
         },
         {
-          "category": "50 Game Club",
-          "scope": "Career",
-          "sourceText": "5 - Adam Brutto (September 21, 2014)",
-          "value": "5",
-          "dateLabel": "September 21, 2014",
-          "kind": "milestone"
-        },
-        {
-          "category": "50 Point Club",
-          "scope": "Career",
-          "sourceText": "7 - Adam Brutto (July 26, 2015)",
-          "value": "7",
-          "dateLabel": "July 26, 2015",
-          "kind": "milestone"
-        },
-        {
-          "category": "100 Game Club",
-          "scope": "Career",
-          "sourceText": "4 - Adam Brutto (January 3, 2016)",
-          "value": "4",
-          "dateLabel": "January 3, 2016",
-          "kind": "milestone"
-        },
-        {
-          "category": "100 Point Club",
-          "scope": "Career",
-          "sourceText": "7 - Adam Brutto (August 20, 2017)",
-          "value": "7",
-          "dateLabel": "August 20, 2017",
-          "kind": "milestone"
-        },
-        {
-          "category": "200 Game Club",
-          "scope": "Career",
-          "sourceText": "1 - Adam Brutto (January 6, 2019)",
-          "value": "1",
-          "dateLabel": "January 6, 2019",
-          "kind": "milestone"
-        },
-        {
-          "category": "300 Game Club",
-          "scope": "Career",
-          "sourceText": "1 - Adam Brutto (January 5, 2025)",
-          "value": "1",
-          "dateLabel": "January 5, 2025",
-          "kind": "milestone"
-        },
-        {
-          "category": "Summer - Games with at least three assists in one season - Playoffs",
+          "category": "Summer - Games with 3+ Assists",
           "scope": "Playoffs",
           "sourceText": "1 - Adam Brutto (2015)",
           "value": "1",
@@ -776,7 +527,7 @@
           "sortDate": "2015-07-26"
         },
         {
-          "category": "Summer - Games with at least three assists in one season - Playoffs",
+          "category": "Summer - Games with 3+ Assists",
           "scope": "Playoffs",
           "sourceText": "1 - Adam Brutto (2016)",
           "value": "1",
@@ -935,46 +686,6 @@
           "value": "1.33",
           "dateLabel": "2013/14",
           "kind": "performance"
-        },
-        {
-          "category": "50 Game Club",
-          "scope": "Career",
-          "sourceText": "1 - Stephen Logue (July 27, 2014)",
-          "value": "1",
-          "dateLabel": "July 27, 2014",
-          "kind": "milestone"
-        },
-        {
-          "category": "50 Win Club",
-          "scope": "Career",
-          "sourceText": "1 - Stephen Logue (April 17, 2016)",
-          "value": "1",
-          "dateLabel": "April 17, 2016",
-          "kind": "milestone"
-        },
-        {
-          "category": "100 Game Club",
-          "scope": "Career",
-          "sourceText": "7 - Stephen Logue (January 31, 2016)",
-          "value": "7",
-          "dateLabel": "January 31, 2016",
-          "kind": "milestone"
-        },
-        {
-          "category": "100 Win Club",
-          "scope": "Career",
-          "sourceText": "1 - Stephen Logue (March 1, 2020)",
-          "value": "1",
-          "dateLabel": "March 1, 2020",
-          "kind": "milestone"
-        },
-        {
-          "category": "200 Game Club",
-          "scope": "Career",
-          "sourceText": "7 - Stephen Logue (December 15, 2019)",
-          "value": "7",
-          "dateLabel": "December 15, 2019",
-          "kind": "milestone"
         }
       ]
     },
@@ -1038,55 +749,7 @@
           "kind": "performance"
         },
         {
-          "category": "50 Game Club",
-          "scope": "Career",
-          "sourceText": "8 - Keith Pearsoll (October 5, 2014)",
-          "value": "8",
-          "dateLabel": "October 5, 2014",
-          "kind": "milestone"
-        },
-        {
-          "category": "50 Point Club",
-          "scope": "Career",
-          "sourceText": "5 - Keith Pearsoll (May 24, 2015)",
-          "value": "5",
-          "dateLabel": "May 24, 2015",
-          "kind": "milestone"
-        },
-        {
-          "category": "100 Game Club",
-          "scope": "Career",
-          "sourceText": "6 - Keith Pearsoll (January 24, 2016)",
-          "value": "6",
-          "dateLabel": "January 24, 2016",
-          "kind": "milestone"
-        },
-        {
-          "category": "100 Point Club",
-          "scope": "Career",
-          "sourceText": "5 - Keith Pearsoll (August 14, 2016)",
-          "value": "5",
-          "dateLabel": "August 14, 2016",
-          "kind": "milestone"
-        },
-        {
-          "category": "200 Game Club",
-          "scope": "Career",
-          "sourceText": "3 - Keith Pearsoll (February 17, 2019)",
-          "value": "3",
-          "dateLabel": "February 17, 2019",
-          "kind": "milestone"
-        },
-        {
-          "category": "200 Point Club",
-          "scope": "Career",
-          "sourceText": "5 - Keith Pearsoll (February 19, 2023)",
-          "value": "5",
-          "dateLabel": "February 19, 2023",
-          "kind": "milestone"
-        },
-        {
-          "category": "Summer - Games with at least three assists in one season - Regular Season",
+          "category": "Summer - Games with 3+ Assists",
           "scope": "Season",
           "sourceText": "3 - Keith Pearsoll (2016)",
           "value": "3",
@@ -1100,7 +763,7 @@
           "sortDate": "2016-07-17"
         },
         {
-          "category": "Summer - Games with at least two goals in one season - Playoffs",
+          "category": "Summer - Games with 2+ Goals",
           "scope": "Playoffs",
           "sourceText": "2 - Keith Pearsoll (2016)",
           "value": "2",
@@ -1113,7 +776,7 @@
           "sortDate": "2016-08-14"
         },
         {
-          "category": "Summer - Games with at least three points in one season - Playoffs",
+          "category": "Summer - Games with 3+ Points",
           "scope": "Playoffs",
           "sourceText": "2 - Keith Pearsoll (2016)",
           "value": "2",
@@ -1129,16 +792,7 @@
     },
     "354057": {
       "name": "Anthony Paolucci",
-      "entries": [
-        {
-          "category": "50 Game Club",
-          "scope": "Career",
-          "sourceText": "15 - Anthony Paolucci (November 15, 2015)",
-          "value": "15",
-          "dateLabel": "November 15, 2015",
-          "kind": "milestone"
-        }
-      ]
+      "entries": []
     },
     "354058": {
       "name": "Alex Pagnotta",
@@ -1182,54 +836,6 @@
           "value": "4",
           "dateLabel": "October 19, 2014",
           "kind": "performance"
-        },
-        {
-          "category": "50 Game Club",
-          "scope": "Career",
-          "sourceText": "2 - Alex Pagnotta (August 17, 2014)",
-          "value": "2",
-          "dateLabel": "August 17, 2014",
-          "kind": "milestone"
-        },
-        {
-          "category": "50 Point Club",
-          "scope": "Career",
-          "sourceText": "10 - Alex Pagnotta (May 15, 2016)",
-          "value": "10",
-          "dateLabel": "May 15, 2016",
-          "kind": "milestone"
-        },
-        {
-          "category": "100 Game Club",
-          "scope": "Career",
-          "sourceText": "1 - Alex Pagnotta (December 20, 2015)",
-          "value": "1",
-          "dateLabel": "December 20, 2015",
-          "kind": "milestone"
-        },
-        {
-          "category": "100 Point Club",
-          "scope": "Career",
-          "sourceText": "10 - Alex Pagnotta (November 24, 2019)",
-          "value": "10",
-          "dateLabel": "November 24, 2019",
-          "kind": "milestone"
-        },
-        {
-          "category": "200 Game Club",
-          "scope": "Career",
-          "sourceText": "2 - Alex Pagnotta (January 27, 2019)",
-          "value": "2",
-          "dateLabel": "January 27, 2019",
-          "kind": "milestone"
-        },
-        {
-          "category": "300 Game Club",
-          "scope": "Career",
-          "sourceText": "2 - Alex Pagnotta (September 28, 2025)",
-          "value": "2",
-          "dateLabel": "September 28, 2025",
-          "kind": "milestone"
         }
       ]
     },
@@ -1251,22 +857,6 @@
           "value": "3",
           "dateLabel": "March 2, 2014",
           "kind": "performance"
-        },
-        {
-          "category": "50 Game Club",
-          "scope": "Career",
-          "sourceText": "11 - Michael Congiusti (December 7, 2014)",
-          "value": "11",
-          "dateLabel": "December 7, 2014",
-          "kind": "milestone"
-        },
-        {
-          "category": "100 Game Club",
-          "scope": "Career",
-          "sourceText": "12 - Michael Congiusti (January 15, 2017)",
-          "value": "12",
-          "dateLabel": "January 15, 2017",
-          "kind": "milestone"
         }
       ]
     },
@@ -1378,71 +968,7 @@
           "kind": "performance"
         },
         {
-          "category": "50 Game Club",
-          "scope": "Career",
-          "sourceText": "13 - Justin Carosi (June 14, 2015)",
-          "value": "13",
-          "dateLabel": "June 14, 2015",
-          "kind": "milestone"
-        },
-        {
-          "category": "50 Point Club",
-          "scope": "Career",
-          "sourceText": "6 - Justin Carosi (June 21, 2015)",
-          "value": "6",
-          "dateLabel": "June 21, 2015",
-          "kind": "milestone"
-        },
-        {
-          "category": "100 Game Club",
-          "scope": "Career",
-          "sourceText": "10 - Justin Carosi (October 30, 2016)",
-          "value": "10",
-          "dateLabel": "October 30, 2016",
-          "kind": "milestone"
-        },
-        {
-          "category": "100 Point Club",
-          "scope": "Career",
-          "sourceText": "3 - Justin Carosi (May 15, 2016)",
-          "value": "3",
-          "dateLabel": "May 15, 2016",
-          "kind": "milestone"
-        },
-        {
-          "category": "200 Game Club",
-          "scope": "Career",
-          "sourceText": "8 - Justin Carosi (February 23, 2020)",
-          "value": "8",
-          "dateLabel": "February 23, 2020",
-          "kind": "milestone"
-        },
-        {
-          "category": "200 Point Club",
-          "scope": "Career",
-          "sourceText": "3 - Justin Carosi (December 30, 2018)",
-          "value": "3",
-          "dateLabel": "December 30, 2018",
-          "kind": "milestone"
-        },
-        {
-          "category": "300 Game Club",
-          "scope": "Career",
-          "sourceText": "3 - Justin Carosi (September 20, 2026)",
-          "value": "3",
-          "dateLabel": "September 20, 2026",
-          "kind": "milestone"
-        },
-        {
-          "category": "300 Point Club",
-          "scope": "Career",
-          "sourceText": "1 - Justin Carosi (January 14, 2024)",
-          "value": "1",
-          "dateLabel": "January 14, 2024",
-          "kind": "milestone"
-        },
-        {
-          "category": "Summer - Games with at least three assists in one season - Regular Season",
+          "category": "Summer - Games with 3+ Assists",
           "scope": "Season",
           "sourceText": "3 - Justin Carosi (2016)",
           "value": "3",
@@ -1456,7 +982,7 @@
           "sortDate": "2016-07-10"
         },
         {
-          "category": "Winter - Games with at least three assists in one season - Regular Season",
+          "category": "Winter - Games with 3+ Assists",
           "scope": "Season",
           "sourceText": "3 - Justin Carosi (2016/17)",
           "value": "3",
@@ -1470,7 +996,7 @@
           "sortDate": "2017-01-08"
         },
         {
-          "category": "Winter - Games with at least three points in one season - Playoffs",
+          "category": "Winter - Games with 3+ Points",
           "scope": "Playoffs",
           "sourceText": "1 - Justin Carosi (2016/17)",
           "value": "1",
@@ -1482,7 +1008,7 @@
           "sortDate": "2017-04-09"
         },
         {
-          "category": "Winter - Games with at least three points in one season - Playoffs",
+          "category": "Winter - Games with 3+ Points",
           "scope": "Playoffs",
           "sourceText": "1 - Justin Carosi (2023/24)",
           "value": "1",
@@ -1763,39 +1289,7 @@
           "kind": "performance"
         },
         {
-          "category": "50 Game Club",
-          "scope": "Career",
-          "sourceText": "6 - Mark Pastore (September 21, 2014)",
-          "value": "6",
-          "dateLabel": "September 21, 2014",
-          "kind": "milestone"
-        },
-        {
-          "category": "50 Point Club",
-          "scope": "Career",
-          "sourceText": "1 - Mark Pastore (March 30, 2014)",
-          "value": "1",
-          "dateLabel": "March 30, 2014",
-          "kind": "milestone"
-        },
-        {
-          "category": "100 Game Club",
-          "scope": "Career",
-          "sourceText": "3 - Mark Pastore (December 27, 2015)",
-          "value": "3",
-          "dateLabel": "December 27, 2015",
-          "kind": "milestone"
-        },
-        {
-          "category": "100 Point Club",
-          "scope": "Career",
-          "sourceText": "1 - Mark Pastore (June 7, 2015)",
-          "value": "1",
-          "dateLabel": "June 7, 2015",
-          "kind": "milestone"
-        },
-        {
-          "category": "Summer - Games with at least three assists in one season - Regular Season",
+          "category": "Summer - Games with 3+ Assists",
           "scope": "Season",
           "sourceText": "3 - Mark Pastore (2016)",
           "value": "3",
@@ -1809,7 +1303,7 @@
           "sortDate": "2016-07-17"
         },
         {
-          "category": "Winter - Games with at least two goals in one season - Playoffs",
+          "category": "Winter - Games with 2+ Goals",
           "scope": "Playoffs",
           "sourceText": "3 - Mark Pastore (2015/16)",
           "value": "3",
@@ -1823,7 +1317,7 @@
           "sortDate": "2016-04-03"
         },
         {
-          "category": "Winter - Games with at least three points in one season - Playoffs",
+          "category": "Winter - Games with 3+ Points",
           "scope": "Playoffs",
           "sourceText": "1 - Mark Pastore (2014/15)",
           "value": "1",
@@ -1835,7 +1329,7 @@
           "sortDate": "2015-04-19"
         },
         {
-          "category": "Winter - Games with at least three points in one season - Playoffs",
+          "category": "Winter - Games with 3+ Points",
           "scope": "Playoffs",
           "sourceText": "1 - Mark Pastore (2015/16)",
           "value": "1",
@@ -1898,22 +1392,6 @@
           "value": "14",
           "dateLabel": "2013/14",
           "kind": "performance"
-        },
-        {
-          "category": "50 Game Club",
-          "scope": "Career",
-          "sourceText": "20 - Daniel Buzzelli (September 23, 2018)",
-          "value": "20",
-          "dateLabel": "September 23, 2018",
-          "kind": "milestone"
-        },
-        {
-          "category": "100 Game Club",
-          "scope": "Career",
-          "sourceText": "15 - Daniel Buzzelli (October 30, 2022)",
-          "value": "15",
-          "dateLabel": "October 30, 2022",
-          "kind": "milestone"
         }
       ]
     },
@@ -2141,47 +1619,7 @@
           "kind": "performance"
         },
         {
-          "category": "50 Game Club",
-          "scope": "Career",
-          "sourceText": "18 - Ben Sherritt (November 20, 2016)",
-          "value": "18",
-          "dateLabel": "November 20, 2016",
-          "kind": "milestone"
-        },
-        {
-          "category": "50 Point Club",
-          "scope": "Career",
-          "sourceText": "2 - Ben Sherritt (April 13, 2014)",
-          "value": "2",
-          "dateLabel": "April 13, 2014",
-          "kind": "milestone"
-        },
-        {
-          "category": "100 Game Club",
-          "scope": "Career",
-          "sourceText": "14 - Ben Sherritt (March 18, 2018)",
-          "value": "14",
-          "dateLabel": "March 18, 2018",
-          "kind": "milestone"
-        },
-        {
-          "category": "100 Point Club",
-          "scope": "Career",
-          "sourceText": "6 - Ben Sherritt (November 13, 2016)",
-          "value": "6",
-          "dateLabel": "November 13, 2016",
-          "kind": "milestone"
-        },
-        {
-          "category": "200 Point Club",
-          "scope": "Career",
-          "sourceText": "1 - Ben Sherritt (February 25, 2018)",
-          "value": "1",
-          "dateLabel": "February 25, 2018",
-          "kind": "milestone"
-        },
-        {
-          "category": "Summer - Games with at least two goals in one season - Regular Season",
+          "category": "Summer - Games with 2+ Goals",
           "scope": "Season",
           "sourceText": "7 - Ben Sherritt (2017)",
           "value": "7",
@@ -2199,7 +1637,7 @@
           "sortDate": "2017-07-23"
         },
         {
-          "category": "Summer - Games with at least three points in one season - Regular Season",
+          "category": "Summer - Games with 3+ Points",
           "scope": "Season",
           "sourceText": "7 - Ben Sherritt (2017)",
           "value": "7",
@@ -2217,7 +1655,7 @@
           "sortDate": "2017-07-23"
         },
         {
-          "category": "Summer - Games with at least three points in one season - Playoffs",
+          "category": "Summer - Games with 3+ Points",
           "scope": "Playoffs",
           "sourceText": "2 - Ben Sherritt (2016)",
           "value": "2",
@@ -2230,7 +1668,7 @@
           "sortDate": "2016-08-14"
         },
         {
-          "category": "Winter - Games with at least two goals in one season - Regular Season",
+          "category": "Winter - Games with 2+ Goals",
           "scope": "Season",
           "sourceText": "11 - Ben Sherritt (2013/14)",
           "value": "11",
@@ -2252,7 +1690,7 @@
           "sortDate": "2014-03-09"
         },
         {
-          "category": "Winter - Games with at least three points in one season - Regular Season",
+          "category": "Winter - Games with 3+ Points",
           "scope": "Season",
           "sourceText": "7 - Ben Sherritt (2013/14)",
           "value": "7",
@@ -2270,7 +1708,7 @@
           "sortDate": "2014-03-02"
         },
         {
-          "category": "Winter - Games with at least three points in one season - Playoffs",
+          "category": "Winter - Games with 3+ Points",
           "scope": "Playoffs",
           "sourceText": "1 - Ben Sherritt (2013/14)",
           "value": "1",
@@ -2282,7 +1720,7 @@
           "sortDate": "2014-03-30"
         },
         {
-          "category": "Winter - Games with at least three points in one season - Playoffs",
+          "category": "Winter - Games with 3+ Points",
           "scope": "Playoffs",
           "sourceText": "1 - Ben Sherritt (2016/17)",
           "value": "1",
@@ -2297,16 +1735,7 @@
     },
     "355501": {
       "name": "Neil Baghel",
-      "entries": [
-        {
-          "category": "50 Game Club",
-          "scope": "Career",
-          "sourceText": "14 - Neil Baghel (September 27, 2015)",
-          "value": "14",
-          "dateLabel": "September 27, 2015",
-          "kind": "milestone"
-        }
-      ]
+      "entries": []
     },
     "356089": {
       "name": "Stefano Ardizzi",
@@ -2384,47 +1813,7 @@
           "kind": "performance"
         },
         {
-          "category": "50 Game Club",
-          "scope": "Career",
-          "sourceText": "12 - Stefano Ardizzi (March 22, 2015)",
-          "value": "12",
-          "dateLabel": "March 22, 2015",
-          "kind": "milestone"
-        },
-        {
-          "category": "50 Point Club",
-          "scope": "Career",
-          "sourceText": "9 - Stefano Ardizzi (February 21, 2016)",
-          "value": "9",
-          "dateLabel": "February 21, 2016",
-          "kind": "milestone"
-        },
-        {
-          "category": "100 Game Club",
-          "scope": "Career",
-          "sourceText": "13 - Stefano Ardizzi (April 2, 2017)",
-          "value": "13",
-          "dateLabel": "April 2, 2017",
-          "kind": "milestone"
-        },
-        {
-          "category": "100 Point Club",
-          "scope": "Career",
-          "sourceText": "9 - Stefano Ardizzi (March 10, 2019)",
-          "value": "9",
-          "dateLabel": "March 10, 2019",
-          "kind": "milestone"
-        },
-        {
-          "category": "200 Game Club",
-          "scope": "Career",
-          "sourceText": "9 - Stefano Ardizzi (February 4, 2024)",
-          "value": "9",
-          "dateLabel": "February 4, 2024",
-          "kind": "milestone"
-        },
-        {
-          "category": "Winter - Games with at least three points in one season - Playoffs",
+          "category": "Winter - Games with 3+ Points",
           "scope": "Playoffs",
           "sourceText": "1 - Stefano Ardizzi (2017/18)",
           "value": "1",
@@ -2441,7 +1830,7 @@
       "name": "Carmine Cerrone",
       "entries": [
         {
-          "category": "Winter - Games with at least three points in one season - Playoffs",
+          "category": "Winter - Games with 3+ Points",
           "scope": "Playoffs",
           "sourceText": "1 - Carmine Cerrone (2015/16)",
           "value": "1",
@@ -2537,22 +1926,6 @@
           "value": "11",
           "dateLabel": "2015/16",
           "kind": "performance"
-        },
-        {
-          "category": "50 Game Club",
-          "scope": "Career",
-          "sourceText": "16 - Julian Kercz (December 20, 2015)",
-          "value": "16",
-          "dateLabel": "December 20, 2015",
-          "kind": "milestone"
-        },
-        {
-          "category": "50 Point Club",
-          "scope": "Career",
-          "sourceText": "11 - Julian Kercz (July 10, 2016)",
-          "value": "11",
-          "dateLabel": "July 10, 2016",
-          "kind": "milestone"
         }
       ]
     },
@@ -2573,7 +1946,7 @@
       "name": "Quenton Hunt",
       "entries": [
         {
-          "category": "Winter - Games with at least three points in one season - Playoffs",
+          "category": "Winter - Games with 3+ Points",
           "scope": "Playoffs",
           "sourceText": "1 - Quenton Hunt (2019/20)",
           "value": "1",
@@ -2592,24 +1965,7 @@
     },
     "399966": {
       "name": "Ryan Finlay",
-      "entries": [
-        {
-          "category": "50 Game Club",
-          "scope": "Career",
-          "sourceText": "27 - Ryan Finlay (December 15, 2024)",
-          "value": "27",
-          "dateLabel": "December 15, 2024",
-          "kind": "milestone"
-        },
-        {
-          "category": "50 Point Club",
-          "scope": "Career",
-          "sourceText": "19 - Ryan Finlay (December 7, 2025)",
-          "value": "19",
-          "dateLabel": "December 7, 2025",
-          "kind": "milestone"
-        }
-      ]
+      "entries": []
     },
     "401341": {
       "name": "Joe Carpino",
@@ -2659,15 +2015,7 @@
           "kind": "performance"
         },
         {
-          "category": "50 Point Club",
-          "scope": "Career",
-          "sourceText": "13 - Xav O'Krafka (November 19, 2017)",
-          "value": "13",
-          "dateLabel": "November 19, 2017",
-          "kind": "milestone"
-        },
-        {
-          "category": "Summer - Games with at least three assists in one season - Regular Season",
+          "category": "Summer - Games with 3+ Assists",
           "scope": "Season",
           "sourceText": "3 - Xav O'Krafka (2017)",
           "value": "3",
@@ -2688,16 +2036,7 @@
     },
     "453661": {
       "name": "Anthony Guerra",
-      "entries": [
-        {
-          "category": "50 Game Club",
-          "scope": "Career",
-          "sourceText": "17 - Anthony Guerra (July 17, 2016)",
-          "value": "17",
-          "dateLabel": "July 17, 2016",
-          "kind": "milestone"
-        }
-      ]
+      "entries": []
     },
     "453662": {
       "name": "Andrew Buchanan",
@@ -2709,14 +2048,6 @@
           "value": "6",
           "dateLabel": "2017",
           "kind": "performance"
-        },
-        {
-          "category": "50 Game Club",
-          "scope": "Career",
-          "sourceText": "22 - Andrew Buchanan (February 10, 2019)",
-          "value": "22",
-          "dateLabel": "February 10, 2019",
-          "kind": "milestone"
         }
       ]
     },
@@ -2758,30 +2089,6 @@
           "value": "22",
           "dateLabel": "2018/19",
           "kind": "performance"
-        },
-        {
-          "category": "50 Game Club",
-          "scope": "Career",
-          "sourceText": "19 - Dylan Brennan (January 23, 2018)",
-          "value": "19",
-          "dateLabel": "January 23, 2018",
-          "kind": "milestone"
-        },
-        {
-          "category": "50 Point Club",
-          "scope": "Career",
-          "sourceText": "12 - Dylan Brennan (August 27, 2017)",
-          "value": "12",
-          "dateLabel": "August 27, 2017",
-          "kind": "milestone"
-        },
-        {
-          "category": "100 Point Club",
-          "scope": "Career",
-          "sourceText": "8 - Dylan Brennan (December 30, 2018)",
-          "value": "8",
-          "dateLabel": "December 30, 2018",
-          "kind": "milestone"
         }
       ]
     },
@@ -2832,24 +2139,7 @@
     },
     "586425": {
       "name": "Lorcan Duffy",
-      "entries": [
-        {
-          "category": "50 Game Club",
-          "scope": "Career",
-          "sourceText": "23 - Lorcan Duffy (April 14, 2019)",
-          "value": "23",
-          "dateLabel": "April 14, 2019",
-          "kind": "milestone"
-        },
-        {
-          "category": "50 Point Club",
-          "scope": "Career",
-          "sourceText": "16 - Lorcan Duffy (March 1, 2020)",
-          "value": "16",
-          "dateLabel": "March 1, 2020",
-          "kind": "milestone"
-        }
-      ]
+      "entries": []
     },
     "594972": {
       "name": "Anthony Partland",
@@ -2857,16 +2147,7 @@
     },
     "595514": {
       "name": "Stefano Mazzei",
-      "entries": [
-        {
-          "category": "50 Game Club",
-          "scope": "Career",
-          "sourceText": "28 - Stefano Mazzei (December 22, 2024)",
-          "value": "28",
-          "dateLabel": "December 22, 2024",
-          "kind": "milestone"
-        }
-      ]
+      "entries": []
     },
     "605063": {
       "name": "Tom Cole",
@@ -2874,32 +2155,7 @@
     },
     "612364": {
       "name": "Mark Arruda",
-      "entries": [
-        {
-          "category": "50 Game Club",
-          "scope": "Career",
-          "sourceText": "25 - Mark Arruda (March 10, 2024)",
-          "value": "25",
-          "dateLabel": "March 10, 2024",
-          "kind": "milestone"
-        },
-        {
-          "category": "50 Point Club",
-          "scope": "Career",
-          "sourceText": "18 - Mark Arruda (March 9, 2025)",
-          "value": "18",
-          "dateLabel": "March 9, 2025",
-          "kind": "milestone"
-        },
-        {
-          "category": "100 Game Club",
-          "scope": "Career",
-          "sourceText": "16 - Mark Arruda (March 15, 2026)",
-          "value": "16",
-          "dateLabel": "March 15, 2026",
-          "kind": "milestone"
-        }
-      ]
+      "entries": []
     },
     "618955": {
       "name": "Anthony DiPardo",
@@ -2920,16 +2176,7 @@
     },
     "634098": {
       "name": "Andrew Cristillo",
-      "entries": [
-        {
-          "category": "50 Game Club",
-          "scope": "Career",
-          "sourceText": "24 - Andrew Cristillo (December 10, 2023)",
-          "value": "24",
-          "dateLabel": "December 10, 2023",
-          "kind": "milestone"
-        }
-      ]
+      "entries": []
     },
     "642165": {
       "name": "Dante Martella",
@@ -2971,7 +2218,7 @@
           "kind": "performance"
         },
         {
-          "category": "Winter - Games with at least three points in one season - Playoffs",
+          "category": "Winter - Games with 3+ Points",
           "scope": "Playoffs",
           "sourceText": "1 - David Corasaniti (2018/19)",
           "value": "1",
@@ -2983,7 +2230,7 @@
           "sortDate": "2019-03-31"
         },
         {
-          "category": "Winter - Games with at least three points in one season - Playoffs",
+          "category": "Winter - Games with 3+ Points",
           "scope": "Playoffs",
           "sourceText": "1 - David Corasaniti (2019/20)",
           "value": "1",
@@ -3008,15 +2255,7 @@
       "name": "Michael Provenzano",
       "entries": [
         {
-          "category": "50 Point Club",
-          "scope": "Career",
-          "sourceText": "20 - Michael Provenzano (September 27, 2026)",
-          "value": "20",
-          "dateLabel": "September 27, 2026",
-          "kind": "milestone"
-        },
-        {
-          "category": "Winter - Games with at least three points in one season - Playoffs",
+          "category": "Winter - Games with 3+ Points",
           "scope": "Playoffs",
           "sourceText": "1 - Michael Provenzano (2025/26)",
           "value": "1",
@@ -3071,16 +2310,7 @@
     },
     "700877": {
       "name": "Krishnan Rajasooriar",
-      "entries": [
-        {
-          "category": "50 Game Club",
-          "scope": "Career",
-          "sourceText": "29 - Krishnan Rajasooriar (January 4, 2026)",
-          "value": "29",
-          "dateLabel": "January 4, 2026",
-          "kind": "milestone"
-        }
-      ]
+      "entries": []
     },
     "733002": {
       "name": "Mearon Naman",
@@ -3146,31 +2376,7 @@
           "kind": "performance"
         },
         {
-          "category": "50 Game Club",
-          "scope": "Career",
-          "sourceText": "26 - Stephane Saindon (November 3, 2024)",
-          "value": "26",
-          "dateLabel": "November 3, 2024",
-          "kind": "milestone"
-        },
-        {
-          "category": "50 Point Club",
-          "scope": "Career",
-          "sourceText": "17 - Stephane Saindon (March 10, 2024)",
-          "value": "17",
-          "dateLabel": "March 10, 2024",
-          "kind": "milestone"
-        },
-        {
-          "category": "100 Point Club",
-          "scope": "Career",
-          "sourceText": "12 - Stephane Saindon (November 30, 2025)",
-          "value": "12",
-          "dateLabel": "November 30, 2025",
-          "kind": "milestone"
-        },
-        {
-          "category": "Winter - Games with at least three points in one season - Playoffs",
+          "category": "Winter - Games with 3+ Points",
           "scope": "Playoffs",
           "sourceText": "1 - Stephane Saindon (2023/24)",
           "value": "1",
@@ -3182,7 +2388,7 @@
           "sortDate": "2024-04-07"
         },
         {
-          "category": "Winter - Games with at least three points in one season - Playoffs",
+          "category": "Winter - Games with 3+ Points",
           "scope": "Playoffs",
           "sourceText": "1 - Stephane Saindon (2025/26)",
           "value": "1",
@@ -3194,7 +2400,7 @@
           "sortDate": "2026-03-22"
         },
         {
-          "category": "Winter - Games with at least three assists in one season - Playoffs",
+          "category": "Winter - Games with 3+ Assists",
           "scope": "Playoffs",
           "sourceText": "1 - Stephane Saindon (2025/26)",
           "value": "1",

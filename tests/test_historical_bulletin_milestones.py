@@ -24,7 +24,7 @@ CLAIMS=[
 class BulletinMilestoneReconciliation(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        data=json.loads((ROOT/"widgets/history-records.json").read_text(encoding="utf-8"))
+        data=json.loads((ROOT/"widgets/history-records-legacy-558.json").read_text(encoding="utf-8"))
         assert data["entryCount"]==sum(len(x["items"]) for x in data["groups"])
         cls.groups={(x["category"],x["period"]):x["items"] for x in data["groups"]}
 
