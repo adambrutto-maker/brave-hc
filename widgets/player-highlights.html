@@ -201,6 +201,82 @@ body{background:#071829;color:#eef4fb;font-family:Arial,"Helvetica Neue",sans-se
  .ph-honor-image{width:60px;height:60px}
 }
 
+/* Four-view Trophy Room: one selected collection, no jump-to-section navigation. */
+.ph-trophy-room{
+  --ph-game-gold:#f3ce8b;--ph-game-ink:#0c1b2b;
+  border:1px solid #b28b54;border-radius:15px;
+  box-shadow:0 0 0 1px #deb56c22,inset 0 1px 0 #ffffff16,0 10px 24px #050d1c30;
+  background:radial-gradient(ellipse at 100% 0%,#344c5a 0,transparent 42%),linear-gradient(145deg,#0b1b2d,#152f48 70%,#101c32);
+}
+.ph-trophy-room .ph-locker-head{align-items:center}
+.ph-trophy-room .ph-locker-head h2{font-size:clamp(19px,3.8vw,24px);letter-spacing:.2px}
+.ph-trophy-room .ph-locker-label{font-size:10px;color:#eccb96}
+.ph-trophy-seal{display:grid;place-items:center;flex:none;width:37px;height:37px;
+ border:1px solid #7d694f;border-radius:10px;background:linear-gradient(135deg,#384a53,#192b42);
+ color:#f2d093;font-size:24px;text-shadow:0 1px 8px #f0cd8540}
+.ph-trophy-room .ph-locker-sides{grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;margin:13px 0 10px}
+.ph-trophy-room .ph-locker-side{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;
+ gap:3px;min-width:0;min-height:67px;padding:6px 3px;
+ border-radius:10px;border:1px solid #4b6782;
+ background:linear-gradient(170deg,#243b54,#112941);color:#d5e0ed;overflow:hidden}
+.ph-trophy-room .ph-locker-side[aria-selected="true"]{background:linear-gradient(170deg,#3e4b5a,#243a50);
+ color:#fff;border-color:#f6d49c;box-shadow:inset 0 -3px 0 #e8ba69,0 0 0 1px #b382442f}
+.ph-trophy-room .ph-locker-side:hover{border-color:#f5d195}
+.ph-trophy-room .ph-locker-side:focus-visible{outline:2px solid #fbe1ad;outline-offset:2px}
+.ph-tab-icon{font-size:17px;line-height:1;color:#a6b6c9}
+.ph-locker-side[aria-selected="true"] .ph-tab-icon{color:#f4d49a}
+.ph-tab-label{font-size:clamp(9px,1.75vw,12px);font-weight:850;line-height:1.15;letter-spacing:.1px}
+.ph-tab-count{min-width:21px;padding:1px 5px;border-radius:8px;background:#0b2136;
+ border:1px solid #47647b;font-size:10px;color:#c8e0ed;font-variant-numeric:tabular-nums}
+.ph-locker-side[aria-selected="true"] .ph-tab-count{background:#493f30;border-color:#b38d58;color:#f9dcaa}
+.ph-trophy-display{border:1px solid #355772;border-radius:11px;background:#0e263c90;min-height:75px;padding:11px}
+@media(max-width:640px){.ph-trophy-seal{display:none}}
+.ph-trophy-room .ph-earned-section{margin:0}
+.ph-inventory-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:2px 0 13px}
+.ph-inventory-eyebrow{display:block;color:#e5c48a;font-size:9px;font-weight:900;letter-spacing:1.2px}
+.ph-inventory-head h3{font-size:16px;color:#fff;margin:3px 0}
+.ph-inventory-head p{color:#b9cede;font-size:10px;line-height:1.4;margin:0}
+.ph-inventory-counter{border:1px solid #5d7891;background:#1c3851;border-radius:8px;
+ padding:8px;color:#f9d9a5;font-size:17px;font-weight:850;font-variant-numeric:tabular-nums}
+.ph-inventory-grid,.ph-records-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.ph-inventory-card,.ph-record-card{display:flex;flex-direction:column;align-items:center;text-align:center;
+ gap:6px;min-width:0;padding:11px 8px;border:1px solid #41607b;border-radius:10px;
+ background:linear-gradient(160deg,#1a3b54,#102840);overflow-wrap:anywhere}
+.ph-inventory-card.ph-inventory-milestone{border-top:3px solid #dfbd7a}
+.ph-inventory-card.ph-inventory-honor{border-top:3px solid #b0c3d5}
+.ph-inventory-card.ph-inventory-stat{border-top:3px solid #c96d74}
+.ph-inventory-card.ph-inventory-discipline{border-color:#6d7b83;background:#172d3e;border-top:3px solid #8b98a4}
+.ph-inventory-kind,.ph-record-kind{color:#efca93;font-size:9px;font-weight:850;letter-spacing:.9px;text-transform:uppercase}
+.ph-inventory-card.ph-inventory-discipline .ph-inventory-kind{color:#c1d1d7}
+.ph-inventory-image{width:70px;height:70px;max-width:100%;display:grid;place-items:center}
+.ph-inventory-image img{width:100%;height:100%;object-fit:contain;display:block}
+.ph-inventory-fallback{font-size:20px;font-weight:900;color:#f8d09a}
+.ph-inventory-name,.ph-record-title{font-size:11px;line-height:1.35;font-weight:850;color:white}
+.ph-inventory-date,.ph-record-date{font-size:10px;line-height:1.4;color:#b5cddd}
+.ph-record-card{align-items:flex-start;text-align:left;border-left:3px solid #bc6c72}
+.ph-record-figure{font-size:clamp(24px,3.5vw,34px);color:#f5dcaa;font-weight:900;line-height:1.2}
+.ph-record-detail{color:#e3edf5;font-size:10px;line-height:1.45}
+.ph-record-context{display:flex;flex-wrap:wrap;gap:5px}
+.ph-record-chip{border:1px solid #456985;border-radius:99px;padding:4px 7px;font-size:9px;color:#d0e2ec;background:#1a3b54}
+.ph-record-source{margin-top:auto;font-size:10px;color:#f2d5a1;line-height:1.45}
+.ph-record-source a{color:#f2d5a1}
+.ph-record-empty,.ph-collection-empty{grid-column:1/-1;border:1px dashed #5b7186;border-radius:9px;
+ padding:22px 14px;color:#c8dae6;text-align:center;font-size:12px;line-height:1.5}
+.ph-trophy-room .ph-history-details{margin-top:12px}
+.ph-trophy-room .ph-history-details #legacySection{padding:0 10px 12px}
+.ph-all-performance{padding:2px 11px 12px}
+.ph-all-performance .ph-panel-title{font-size:14px;margin:9px 0}
+.ph-trophy-room .ph-honors-more{margin-top:11px}
+.ph-records-grid #recordsMore{grid-column:1/-1}
+@media(max-width:640px){.ph-inventory-grid,.ph-records-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .ph-trophy-display{padding:8px}.ph-trophy-room .ph-locker-sides{gap:4px}
+ .ph-inventory-image{width:65px;height:65px}}
+@media(max-width:350px){.ph-trophy-room .ph-locker-side{min-height:65px;padding:5px 2px}
+ .ph-tab-label{font-size:9px}.ph-trophy-seal{width:30px;height:30px}}
+@media(prefers-reduced-motion:no-preference){.ph-trophy-room .ph-locker-side,
+ .ph-inventory-card,.ph-record-card{transition:border-color .15s ease,transform .15s ease}
+ .ph-inventory-card:hover,.ph-record-card:hover{border-color:#be9b64;transform:translateY(-1px)}}
+
 [hidden]{display:none!important}
 .ph-footer{display:flex;gap:8px;flex-wrap:wrap}
 .ph-detail{font-size:10px;color:#a9c0d4;line-height:1.45;margin-top:6px}
@@ -213,7 +289,7 @@ details[open] summary{margin-bottom:10px}
 a{color:#f4cb83}
 </style>
 <script defer src="./player-links.js?v=5"></script>
-<script defer src="./player-highlights-v2.js?v=17"></script>
+<script defer src="./player-highlights-v2.js?v=18"></script>
 </head>
 <body>
 <main class="ph-shell">
@@ -225,59 +301,79 @@ a{color:#f4cb83}
 <div><div class="ph-kicker">BRAVE H.C. · PLAYER LEGACY</div><h1 class="ph-player" id="playerName" data-brave-no-link>Player Highlights</h1><p id="playerSub" class="ph-sub">Career highlights · Personal highs · Club record book</p></div>
 </header>
 <div id="notice" class="ph-notice" role="status" hidden></div>
-<section id="currentSection" aria-label="Season insights" hidden>
-<h2 class="ph-panel-title">Season Insights</h2><div id="form" class="ph-grid ph-insights"></div>
-</section>
-<section id="highsSection" aria-label="Personal season highs" hidden>
-<h2 class="ph-panel-title">Personal Season Highs</h2>
-<div id="highs" class="ph-grid ph-insights"></div>
-<p class="ph-source"><span id="careerDate"></span>All published HTO game types, including playoffs. Tied seasons are listed.</p>
-</section>
-<section id="lockerSection" class="ph-locker" aria-label="Achievement locker" hidden>
-<div class="ph-locker-head"><div>
-<div class="ph-locker-label">BRAVE H.C. · PLAYER COLLECTION</div>
-<h2>Achievement Locker</h2>
-<p class="ph-locker-sub">Switch between verified milestones and career honours</p>
-</div></div>
-<div class="ph-locker-sides" role="group" aria-label="Achievement locker side">
- <button id="lockerMilestones" class="ph-locker-side" type="button" aria-controls="milestoneSection" aria-pressed="true">Milestones</button>
- <button id="lockerHonors" class="ph-locker-side" type="button" aria-controls="honorsSection" aria-pressed="false">Awards &amp; Legacy</button>
-</div>
-<section id="milestoneSection" class="ph-earned-section" aria-label="Earned career milestone badges" hidden>
-<div class="ph-earned-header">
- <div><div class="ph-earned-eyebrow">Achievement collection</div>
- <h2 class="ph-earned-title">Career Badges Unlocked</h2>
- <p class="ph-earned-sub">Verified milestones earned on the ice</p></div>
- <div id="milestoneCount" class="ph-earned-counter" aria-live="polite"></div>
-</div>
-<div id="milestoneFilters" class="ph-earned-filters" role="group" aria-label="Filter earned milestones"></div>
-<div id="milestoneGrid" class="ph-earned-grid" aria-live="polite"></div>
-<p class="ph-earned-note">Only milestones recorded in the published Brave H.C. Highlights history appear as earned. Achievement dates are preserved from the verified record.</p>
-</section>
-<section id="honorsSection" aria-label="Awards, championships and legacy records" hidden>
-<div class="ph-honors-header"><h3>Awards &amp; Recognition</h3>
-<span id="honorsCount" class="ph-honors-count"></span></div>
-<p class="ph-honors-intro">Authentic awards, championships, honours and leadership. Disciplinary records remain separately labelled.</p>
-<div id="honorsFilters" class="ph-honors-filters" role="group" aria-label="Filter awards and legacy records"></div>
-<div id="honorsGrid" class="ph-honors-grid"></div>
-<div id="disciplineGroup" hidden><div class="ph-discipline-separator">Disciplinary records · not awards</div>
-<div id="disciplineGrid" class="ph-honors-grid"></div></div>
-<button id="honorsMore" class="ph-honors-more" type="button" hidden>View more records</button>
-<p class="ph-honors-note">Only entries recorded in published Brave H.C. history appear here. See the full timeline for original wording.</p>
-</section>
-</section>
-<details id="historyDetails" class="ph-history-details" hidden>
-<summary>View complete dated achievement history</summary>
-<section id="legacySection" aria-label="Recorded career highlights" hidden>
-<div id="careerSummary" class="ph-grid" hidden></div>
-<h2 class="ph-panel-title">Complete Achievement Timeline</h2>
-<div id="legacy" class="ph-ledger"></div>
-<button id="expand" class="ph-button" type="button" hidden>Show all highlights</button>
-</section>
-</details>
-<section id="recordsSection" aria-label="Club record book" hidden>
-<h2 class="ph-panel-title">Club Record Book</h2>
-<div id="records"></div><p id="recordsSource" class="ph-source"></p>
+<section id="lockerSection" class="ph-locker ph-trophy-room" aria-label="Player trophy room" hidden>
+ <div class="ph-locker-head">
+  <div><div class="ph-locker-label">BRAVE H.C. // PLAYER COLLECTION</div>
+  <h2>Trophy Room</h2>
+  <p class="ph-locker-sub">Your verified achievements and club records. Pick a collection to view it here.</p></div>
+  <div class="ph-trophy-seal" aria-hidden="true">★</div>
+ </div>
+ <div id="lockerTabs" class="ph-locker-sides" role="tablist" aria-label="Player collection">
+  <button id="lockerMilestones" class="ph-locker-side" type="button" role="tab" tabindex="0" aria-selected="true" aria-controls="milestoneSection"><span class="ph-tab-icon" aria-hidden="true">◆</span><span class="ph-tab-label">Milestones</span><span id="lockerMilestonesCount" class="ph-tab-count">0</span></button>
+  <button id="lockerHonors" class="ph-locker-side" type="button" role="tab" tabindex="-1" aria-selected="false" aria-controls="honorsSection"><span class="ph-tab-icon" aria-hidden="true">★</span><span class="ph-tab-label">Awards</span><span id="lockerHonorsCount" class="ph-tab-count">0</span></button>
+  <button id="lockerAll" class="ph-locker-side" type="button" role="tab" tabindex="-1" aria-selected="false" aria-controls="allSection"><span class="ph-tab-icon" aria-hidden="true">▦</span><span class="ph-tab-label">All</span><span id="lockerAllCount" class="ph-tab-count">0</span></button>
+  <button id="lockerRecords" class="ph-locker-side" type="button" role="tab" tabindex="-1" aria-selected="false" aria-controls="recordsSection"><span class="ph-tab-icon" aria-hidden="true">#</span><span class="ph-tab-label">Records</span><span id="lockerRecordsCount" class="ph-tab-count">0</span></button>
+ </div>
+ <div class="ph-trophy-display">
+  <section id="milestoneSection" class="ph-earned-section" role="tabpanel" aria-labelledby="lockerMilestones" aria-label="Earned career milestone badges" hidden>
+   <div class="ph-earned-header">
+    <div><div class="ph-earned-eyebrow">Unlocked collection</div>
+    <h3 class="ph-earned-title">Career Milestones</h3>
+    <p class="ph-earned-sub">Verified badges earned on the ice</p></div>
+    <div id="milestoneCount" class="ph-earned-counter" aria-live="polite"></div>
+   </div>
+   <div id="milestoneFilters" class="ph-earned-filters" role="group" aria-label="Filter earned milestones"></div>
+   <div id="milestoneGrid" class="ph-earned-grid"></div>
+   <p class="ph-earned-note">Only verified, historically earned badges appear. Dates are retained from official published evidence.</p>
+  </section>
+  <section id="honorsSection" role="tabpanel" aria-labelledby="lockerHonors" aria-label="Awards, championships and legacy recognition" hidden>
+   <div class="ph-honors-header"><h3>Awards &amp; Recognition</h3><span id="honorsCount" class="ph-honors-count"></span></div>
+   <p class="ph-honors-intro">Official honours, championship trophies and recognition. Disciplinary history appears only under All and is never an award.</p>
+   <div id="honorsFilters" class="ph-honors-filters" role="group" aria-label="Filter awards and legacy recognition"></div>
+   <div id="honorsGrid" class="ph-honors-grid"></div>
+   <div id="disciplineGroup" hidden><div class="ph-discipline-separator">Disciplinary records · not awards</div>
+    <div id="disciplineGrid" class="ph-honors-grid"></div></div>
+   <button id="honorsMore" class="ph-honors-more" type="button" hidden>Show more awards</button>
+   <p class="ph-honors-note">Published historical entries only. Original full-text history is available under All.</p>
+  </section>
+  <section id="allSection" role="tabpanel" aria-labelledby="lockerAll" aria-label="All verified achievements and records" hidden>
+   <div class="ph-inventory-head"><div><span class="ph-inventory-eyebrow">COMPLETE INVENTORY</span>
+    <h3>All Collections</h3><p>Milestones, honours and statistical records in one place.</p></div>
+    <div id="allCount" class="ph-inventory-counter"></div></div>
+   <div id="allGrid" class="ph-inventory-grid"></div>
+   <button id="allMore" class="ph-honors-more" type="button" hidden>Load more</button>
+   <details id="historyDetails" class="ph-history-details" hidden>
+    <summary>Complete dated achievement history</summary>
+    <section id="legacySection" aria-label="Recorded career highlights" hidden>
+     <div id="careerSummary" class="ph-grid" hidden></div>
+     <h3 class="ph-panel-title">Complete Achievement Timeline</h3>
+     <div id="legacy" class="ph-ledger"></div>
+     <button id="expand" class="ph-button" type="button" hidden>Show all highlights</button>
+    </section>
+   </details>
+   <details id="performanceDetails" class="ph-history-details">
+    <summary>Season performance details</summary>
+    <div class="ph-all-performance">
+     <section id="currentSection" aria-label="Season insights" hidden>
+      <h3 class="ph-panel-title">Season Insights</h3><div id="form" class="ph-grid ph-insights"></div>
+     </section>
+     <section id="highsSection" aria-label="Personal season highs" hidden>
+      <h3 class="ph-panel-title">Personal Season Highs</h3>
+      <div id="highs" class="ph-grid ph-insights"></div>
+      <p class="ph-source"><span id="careerDate"></span>All published HTO game types, including playoffs. Tied seasons are listed.</p>
+     </section>
+    </div>
+   </details>
+  </section>
+  <section id="recordsSection" role="tabpanel" aria-labelledby="lockerRecords" aria-label="Published player statistical records" hidden>
+   <div class="ph-inventory-head"><div><span class="ph-inventory-eyebrow">OFFICIAL CLUB RECORD BOOK</span>
+    <h3>Statistical Records</h3><p>Personal marks recorded by Brave H.C. — directly inside your collection.</p></div>
+    <div id="recordsCount" class="ph-inventory-counter"></div></div>
+   <div id="records" class="ph-records-grid"></div>
+   <button id="recordsMore" class="ph-honors-more" type="button" hidden>Load more records</button>
+   <p id="recordsSource" class="ph-source"></p>
+  </section>
+ </div>
 </section>
 <footer class="ph-footer" id="footer"><span id="statsDate"></span><span id="profileSource"></span></footer>
 </div></section>

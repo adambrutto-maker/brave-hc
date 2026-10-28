@@ -328,9 +328,11 @@ function renderMilestoneWall(record){
  const count=$('milestoneCount');
  const earned=(record?.items||[]).filter(item=>item.category==='milestone')
   .map(item=>({item,art:clubArtFor(item)})).filter(x=>x.art);
- section.hidden=earned.length===0;
  grid.replaceChildren();filters.replaceChildren();count.replaceChildren();
- if(!earned.length)return;
+ if(!earned.length){
+  grid.append(text('div','No verified milestone badges have been recorded for this player.','ph-collection-empty'));
+  return;
+ }
  const categories={all:earned.length,games:0,points:0,wins:0,goals:0,assists:0,shutouts:0};
  for(const entry of earned)categories[entry.art.metric]++;
  if(!categories[milestoneFilter])milestoneFilter='all';
@@ -382,10 +384,68 @@ function renderMilestoneWall(record){
 }
 
 let lockerFace='milestones';
+let lockerChosen=false;
+let activeHighlightRecord=null;
+let currentRecordBook=null;
+let recordsShowCount=12;
+let allShowCount=12;
+const playableTabs=[
+ ['milestones','lockerMilestones','milestoneSection'],
+ ['honors','lockerHonors','honorsSection'],
+ ['all','lockerAll','allSection'],
+ ['records','lockerRecords','recordsSection']
+];
+const prettyRecordDate=input=>{
+ const months=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+ return String(input??'').replace(/\b((?:19|20)\d{2})-(\d{2})-(\d{2})\b/g,(full,y,m,d)=>{
+  const date=new Date(Date.UTC(Number(y),Number(m)-1,Number(d)));
+  return date.getUTCFullYear()===Number(y)&&date.getUTCMonth()+1===Number(m)&&date.getUTCDate()===Number(d)?
+   months[Number(m)-1]+' '+Number(d)+', '+y:full;
+ }).replace(/\b(January|February|March|April|May|June|July|August|September|October|November|December)\s+(\d{1,2}),\s*((?:19|20)\d{2})\b/g,
+ (full,month,day,year)=>{
+  const names=['January','February','March','April','May','June','July','August','September','October','November','December'];
+  return months[names.indexOf(month)]+' '+Number(day)+', '+year;
+ });
+};
+function safeRecordSourceLinks(entry){
+ const links=[];
+ for(const value of Array.isArray(entry.sourceURLs)?entry.sourceURLs:[]){
+  try{
+   const url=new URL(value);
+   if(url.protocol==='https:'&&['www.htosports.com','htosports.com'].includes(url.hostname)&&
+      /^\d+$/.test(url.searchParams.get('gameID')||''))links.push(url.href);
+  }catch{}
+ }
+ return links;
+}
+function sourceArtwork(item){
+ return approvalForPublishedItem(item,awardArtFor(item)||clubArtFor(item)||
+     specialArtFor(item)||heritageArtFor(item));
+}
+function mountArtwork(target,item,plainFallback){
+ const art=sourceArtwork(item);
+ if(!art){target.append(text('strong',plainFallback,'ph-inventory-fallback'));return;}
+ const img=document.createElement('img'),kind=art.kind;
+ img.src=kind==='approved'?root+'assets/approved/'+art.file+
+   (art.file==='discipline_record.webp'?'?v=whistle-cards-20261028':'?v=transparent-20261027'):
+   kind==='milestone'?(art.generated?'./brave_hc_logo.png':root+'assets/round-clubs/'+art.file+'?v=transparent-20261027'):
+   root+(kind==='special'?'assets/special/':kind==='heritage'?'assets/heritage/':'assets/awards/')+
+     art.file+(kind==='award'?'':'?v=bright-20261027');
+ img.alt=art.label+' emblem';img.loading='lazy';img.decoding='async';
+ if(kind==='milestone'&&art.generated)paintVerifiedFutureClub(img,art);
+ img.onerror=()=>{
+  if(kind==='approved'&&art.backupFile){
+   const folder=art.backupKind==='special'?'assets/special/':
+    art.backupKind==='heritage'?'assets/heritage/':'assets/awards/';
+   img.onerror=null;img.src=root+folder+art.backupFile;
+  }else target.replaceChildren(text('strong',plainFallback,'ph-inventory-fallback'));
+ };
+ target.append(img);
+}
 let honorsFilter='all';
 let honorsShowAll=false;
 function renderHonorsWall(record){
- const items=newestAchievements((record?.items||[]).filter(x=>x.category!=='milestone'));
+ const items=newestAchievements((record?.items||[]).filter(x=>x.category!=='milestone'&&x.category!=='discipline'));
  const display=$('honorsSection'),container=$('honorsGrid'),disciplineGroup=$('disciplineGroup'),
   disciplineGrid=$('disciplineGrid'),filters=$('honorsFilters'),more=$('honorsMore');
  const categories={all:items.length,award:0,championship:0,recognition:0,
@@ -448,6 +508,7 @@ function renderHonorsWall(record){
   const discipline=subset.filter(x=>x.category==='discipline');
   const shown=honorsShowAll?honours:honours.slice(0,6);
   for(const item of shown)container.append(cardFor(item));
+  if(!items.length)container.append(text('div','No published awards or historical honours are currently recorded for this player.','ph-collection-empty'));
   disciplineGroup.hidden=discipline.length===0;
   for(const item of discipline)disciplineGrid.append(cardFor(item));
   more.hidden=honours.length<=6;
@@ -457,29 +518,128 @@ function renderHonorsWall(record){
  more.onclick=()=>{honorsShowAll=!honorsShowAll;paint();};
  paint();
 }
-function showLockerFaces(record){
- const items=record?.items||[];
- const milestones=items.filter(i=>i.category==='milestone'&&clubArtFor(i)).length;
- const other=items.filter(i=>i.category!=='milestone').length;
- const host=$('lockerSection'),m=$('milestoneSection'),h=$('honorsSection');
- host.hidden=!(milestones||other);
- if(!milestones&&lockerFace==='milestones')lockerFace='honors';
- if(!other&&lockerFace==='honors')lockerFace='milestones';
- const a=$('lockerMilestones'),b=$('lockerHonors');
- a.hidden=!milestones;b.hidden=!other;
- a.textContent='Milestones · '+milestones;
- b.textContent='Awards & Legacy · '+other;
- const show=()=>{
-  m.hidden=lockerFace!=='milestones'||!milestones;
-  h.hidden=lockerFace!=='honors'||!other;
-  a.setAttribute('aria-pressed',String(lockerFace==='milestones'));
-  b.setAttribute('aria-pressed',String(lockerFace==='honors'));
- };
- a.onclick=()=>{lockerFace='milestones';show();};
- b.onclick=()=>{lockerFace='honors';show();};
- show();
+function inventoryCard(item){
+ const isStat=item.kind==='stat';
+ const isDiscipline=!isStat&&item.item.category==='discipline';
+ const isMilestone=!isStat&&item.item.category==='milestone';
+ const card=text('article','','ph-inventory-card '+(isStat?'ph-inventory-stat':isDiscipline?'ph-inventory-discipline':isMilestone?'ph-inventory-milestone':'ph-inventory-honor'));
+ let kind=isStat?'PUBLISHED RECORD':isDiscipline?'DISCIPLINARY RECORD — NOT AN AWARD':
+  isMilestone?'EARNED MILESTONE':item.item.category==='award'?'AWARD':
+  item.item.category==='championship'?'CHAMPIONSHIP':item.item.category==='leadership'?'LEADERSHIP':'HISTORICAL RECOGNITION';
+ card.append(text('span',kind,'ph-inventory-kind'));
+ const icon=text('div','','ph-inventory-image');
+ if(isStat)icon.append(text('strong',String(item.item.value??'—'),'ph-inventory-fallback'));
+ else mountArtwork(icon,item.item,isMilestone?'CLUB':isDiscipline?'NOTE':'AWD');
+ card.append(icon);
+ if(isStat){
+  const metric=item.item.category.replace(/^(?:Summer|Winter)\s+-\s+/, '');
+  card.append(text('strong',metric,'ph-inventory-name'),
+   text('span',item.item.category+' · '+item.item.scope,'ph-inventory-date'),
+   text('span',prettyRecordDate(item.item.dateLabel||''),'ph-inventory-date'));
+ }else{
+  const raw=achievementDisplayText(item.item);
+  const parts=item.item.preserveLines?[raw]:raw.split(' - ');
+  const title=parts.length>1?parts.slice(0,-1).join(' - '):raw;
+  const when=parts.length>1?parts.at(-1):'Published historical entry';
+  card.append(text('strong',title,'ph-inventory-name'),text('span',prettyRecordDate(when),'ph-inventory-date'));
+ }
+ return card;
 }
-
+function renderAllCollections(){
+ const records=currentRecordBook?.entries||[];
+ const legacy=activeHighlightRecord?.items||[];
+ const collection=[
+  ...legacy.map(item=>({kind:'legacy',item,rank:achievementDateRank(item)})),
+  ...records.map(item=>({kind:'stat',item,rank:achievementDateRank(item)}))
+ ].sort((a,b)=>b.rank-a.rank);
+ $('allCount').textContent=collection.length;
+ const grid=$('allGrid'),more=$('allMore');
+ const paint=()=>{
+  grid.replaceChildren();
+  for(const item of collection.slice(0,allShowCount))grid.append(inventoryCard(item));
+  if(!collection.length)grid.append(text('div','No published achievements or statistical records are available for this player yet.','ph-collection-empty'));
+  more.hidden=collection.length<=allShowCount;
+  more.textContent='Load more ('+Math.min(12,collection.length-allShowCount)+' of '+(collection.length-allShowCount)+')';
+ };
+ more.onclick=()=>{allShowCount+=12;paint();};
+ paint();
+}
+function renderRecordCards(){
+ const records=currentRecordBook?.entries||[];
+ const grid=$('records'),more=$('recordsMore');
+ const list=newestAchievements(records);
+ $('recordsCount').textContent=records.length;
+ const paint=()=>{
+  grid.replaceChildren();
+  for(const entry of list.slice(0,recordsShowCount)){
+   const card=text('article','','ph-record-card');
+   const metric=entry.category.replace(/^(?:Summer|Winter)\s+-\s+/,'');
+   const season=entry.category.startsWith('Summer')?'Summer':entry.category.startsWith('Winter')?'Winter':'All seasons';
+   card.append(text('span','OFFICIAL RECORD','ph-record-kind'),
+    text('strong',String(entry.value??''),'ph-record-figure'),
+    text('strong',metric,'ph-record-title'));
+   const ctx=text('div','','ph-record-context');
+   ctx.append(text('span',season,'ph-record-chip'),text('span',entry.scope,'ph-record-chip'));
+   card.append(ctx);
+   card.append(text('span',prettyRecordDate(entry.dateLabel||'Record year unavailable'),'ph-record-date'));
+   const urls=safeRecordSourceLinks(entry);
+   if(urls.length){
+    const linkWrap=text('div','','ph-record-source');
+    urls.forEach((url,i)=>{
+     if(i)linkWrap.append(' · ');
+     const a=text('a',urls.length===1?'Official game source ↗':'Game '+(i+1)+' ↗');
+     a.href=url;a.target='_blank';a.rel='noopener noreferrer';
+     linkWrap.append(a);
+    });
+    card.append(linkWrap);
+   }
+   grid.append(card);
+  }
+  if(!list.length)grid.append(text('div','No published player statistical records have been mapped to this profile yet. This does not mean the player has no career statistics.','ph-record-empty'));
+  more.hidden=list.length<=recordsShowCount;
+  more.textContent='Load more records ('+Math.min(12,list.length-recordsShowCount)+' of '+(list.length-recordsShowCount)+')';
+ };
+ more.onclick=()=>{recordsShowCount+=12;paint();};
+ paint();
+}
+function showLockerFaces(record){
+ if(record)activeHighlightRecord=record;
+ const items=activeHighlightRecord?.items||[];
+ const milestoneCount=items.filter(i=>i.category==='milestone'&&clubArtFor(i)).length;
+ const honorsCount=items.filter(i=>i.category!=='milestone'&&i.category!=='discipline').length;
+ const recordsCount=currentRecordBook?.entries.length||0;
+ const total=items.length+recordsCount; // All includes discipline; Awards excludes it.
+ $('lockerSection').hidden=false;
+ $('lockerMilestonesCount').textContent=milestoneCount;
+ $('lockerHonorsCount').textContent=honorsCount;
+ $('lockerAllCount').textContent=total;
+ $('lockerRecordsCount').textContent=recordsCount;
+ if(!lockerChosen)lockerFace=milestoneCount?'milestones':honorsCount?'honors':recordsCount?'records':'all';
+ renderRecordCards();
+ renderAllCollections();
+ const activate=()=>{
+  for(const [key,buttonId,panelId] of playableTabs){
+   const button=$(buttonId),active=key===lockerFace;
+   button.setAttribute('aria-selected',String(active));
+   button.setAttribute('tabindex',active?'0':'-1');
+   $(panelId).hidden=!active;
+  }
+  $('lockerSection').dataset.activeCollection=lockerFace;
+ };
+ for(const [key,buttonId] of playableTabs){
+  $(buttonId).onclick=()=>{lockerFace=key;lockerChosen=true;activate();};
+ }
+ $('lockerTabs').onkeydown=event=>{
+  if(!['ArrowRight','ArrowLeft','Home','End'].includes(event.key))return;
+  const index=playableTabs.findIndex(x=>x[0]===lockerFace);
+  const next=event.key==='Home'?0:event.key==='End'?playableTabs.length-1:
+    (index+(event.key==='ArrowRight'?1:-1)+playableTabs.length)%playableTabs.length;
+  event.preventDefault();
+  $(playableTabs[next][1]).click();
+  $(playableTabs[next][1]).focus({preventScroll:true});
+ };
+ activate();
+}
 function renderLegacy(record,ledgerTime){
  const container=$('legacy'),items=newestAchievements(record?.items||[]);
  renderMilestoneWall(record);
@@ -624,7 +784,7 @@ function renderPublishedHTOActuals(data,minimumTime=-Infinity,season=null){
  $('form').replaceChildren(...cards);
  $('currentSection').hidden=false;
  $('currentSection').setAttribute('aria-label','Verified current HTO skater scoring');
- $('currentSection').querySelector('h2').textContent='Official HTO scoring · '+shortDate(data.asOf);
+ $('currentSection').querySelector('h3, h2').textContent='Official HTO scoring · '+shortDate(data.asOf);
  $('statsDate').textContent='HTO skater scoring as of '+shortDate(data.asOf)+' · '+data.season;
  return true;
 }
@@ -652,39 +812,20 @@ function renderCareer(data){
  return p;
 }
 function renderRecords(data){
- if(data?.schema!=='brave-hc-player-record-book/v1'||data.sourceAuthority!=='NATIVE_HTO_RECORDS_PUBLIC_READBACK')return;
+ if(data?.schema!=='brave-hc-player-record-book/v1'||
+    data.sourceAuthority!=='NATIVE_HTO_RECORDS_PUBLIC_READBACK')return;
  const p=data.players?.[String(playerId)];
- if(p?.name!==identity.name||!p.entries?.length)return;
- $('recordsSection').hidden=false;
- const details=document.createElement('details');
- details.append(text('summary','View '+p.entries.length+' published entries'));
- const list=text('div','','ph-ledger');
- for(const e of newestAchievements(p.entries)){
-  if(typeof e.category!=='string'||typeof e.scope!=='string'||typeof e.sourceText!=='string')continue;
-  const row=text('article','','ph-record');
-  row.append(text('div',e.category+' · '+e.scope,'ph-event-title'),
-    text('div',e.sourceText,'ph-event-meta'));
-  const urls=Array.isArray(e.sourceURLs)?e.sourceURLs:[];
-  const links=text('div','','ph-event-source');
-  urls.forEach((value,index)=>{
-   try{
-    const url=new URL(value);
-    if(url.protocol!=='https:'||!['www.htosports.com','htosports.com'].includes(url.hostname)||!/^\d+$/.test(url.searchParams.get('gameID')||''))return;
-    const link=text('a',urls.length===1?'Game source ↗':'Game '+(index+1)+' ↗');
-    link.href=url.href;link.target='_blank';link.rel='noopener noreferrer';
-    if(links.childNodes.length)links.append(' · ');
-    links.append(link);
-   }catch{}
-  });
-  if(links.childNodes.length)row.append(links);
-  list.append(row);
- }
- details.append(list);
- $('records').replaceChildren(details);
- const a=text('a','Full HTO record book ↗');
+ if(!p||p.name!==identity.name||!Array.isArray(p.entries))return;
+ const entries=p.entries.filter(e=>typeof e.category==='string'&&
+  typeof e.scope==='string'&&typeof e.sourceText==='string'&&
+  typeof e.value==='string');
+ currentRecordBook={entries,capturedAt:data.capturedAt};
+ const a=text('a','Official HTO record book ↗');
  a.href='https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=records';
  a.target='_blank';a.rel='noopener noreferrer';
- $('recordsSource').replaceChildren(document.createTextNode('Published historical entries · '+shortDate(data.capturedAt)+' · '),a);
+ $('recordsSource').replaceChildren(
+  document.createTextNode('Verified public records · '+shortDate(data.capturedAt)+' · '),a);
+ showLockerFaces(activeHighlightRecord);
 }
 function renderCurrent(feed,career) {
  if(!validParticipant(feed))return;
@@ -724,7 +865,7 @@ function renderCurrent(feed,career) {
  if(!stats.length)return;
  $('currentSection').hidden=false;
  $('currentSection').setAttribute('aria-label','Dated season snapshot');
- $('currentSection').querySelector('h2').textContent='Season snapshot · '+shortDate(feed.sourceReference.htoReadback);
+ $('currentSection').querySelector('h3, h2').textContent='Season snapshot · '+shortDate(feed.sourceReference.htoReadback);
  const previousContext=$('form').previousElementSibling;
  if(previousContext?.classList?.contains('ph-source'))previousContext.remove();
  const context=text('p','These figures use a separate historical snapshot. ','ph-source');
