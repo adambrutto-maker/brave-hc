@@ -1,12 +1,12 @@
 # HockeyOS — Premium Player Bio Live Release Acceptance
 
-**Date:** October 28, 2026, America/Toronto  
-**Lead:** BruTTech Engineering  
-**Authorized release:** Founder requested “continue toward completion, let's get it live” on October 28, 2026.  
-**Production repository:** `adambrutto-maker/brave-hc`  
-**Release PR:** [#155](https://github.com/adambrutto-maker/brave-hc/pull/155)  
-**Merge commit:** `248be3d001c104b28842451696bbe4385b0b104e`  
-**Deployment workflow:** [GitHub Pages run 40766828244](https://github.com/adambrutto-maker/brave-hc/actions/runs/40766828244) — success. Auto-build run 40766827444 also completed successfully.  
+**Date:** October 28, 2026, America/Toronto
+**Lead:** BruTTech Engineering
+**Authorized release:** Founder requested “continue toward completion, let's get it live” on October 28, 2026.
+**Production repository:** `adambrutto-maker/brave-hc`
+**Release PR:** [#155](https://github.com/adambrutto-maker/brave-hc/pull/155)
+**Merge commit:** `248be3d001c104b28842451696bbe4385b0b104e`
+**Deployment workflow:** [GitHub Pages run 40766828244](https://github.com/adambrutto-maker/brave-hc/actions/runs/40766828244) — success. Auto-build run 40766827444 also completed successfully.
 **Pre-release main anchor:** `559564671cfebdbb31364865e42c7eed936e80bb`
 
 ## Verified live output
