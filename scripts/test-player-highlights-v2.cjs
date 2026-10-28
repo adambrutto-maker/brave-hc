@@ -71,9 +71,9 @@ const expectedCorrections={
 function freeze(value){if(value&&typeof value==='object'){Object.values(value).forEach(freeze);Object.freeze(value);}return value;}
 const code=read('widgets/player-highlights-v2.js'),links=read('widgets/player-links.js');
 async function render(id,overrides={}){
- const ids='playerName playerSub notice legacy careerSummary expand legacySection milestoneSection milestoneGrid milestoneFilters milestoneCount highsSection highs careerDate recordsSection records recordsSource currentSection form statsDate profileSource footer'.split(' ');
+ const ids='playerName playerSub notice legacy careerSummary expand legacySection milestoneSection milestoneGrid milestoneFilters milestoneCount lockerSection lockerMilestones lockerHonors honorsSection honorsCount honorsFilters honorsGrid disciplineGroup disciplineGrid honorsMore historyDetails highsSection highs careerDate recordsSection records recordsSource currentSection form statsDate profileSource footer'.split(' ');
  const nodes=Object.fromEntries(ids.map(id=>[id,new Element()]));
- for(const id of ['notice','legacySection','milestoneSection','highsSection','recordsSection','currentSection'])nodes[id].hidden=true;
+ for(const id of ['notice','legacySection','milestoneSection','honorsSection','lockerSection','historyDetails','disciplineGroup','highsSection','recordsSection','currentSection'])nodes[id].hidden=true;
  const context=vm.createContext({window:{},URL,URLSearchParams,Date,Number,String,Object,Array,Map,Promise,Error,console,location:{search:'?playerID='+id},document:{getElementById:id=>{assert(nodes[id],'missing element '+id);return nodes[id]},createElement:tag=>new Element(tag),createTextNode:s=>String(s)},fetch:async url=>({ok:true,json:async()=>freeze(structuredClone(Object.hasOwn(overrides,url.slice(2))?overrides[url.slice(2)]:feeds[url.slice(2)]))})});
  vm.runInContext(links,context);vm.runInContext(code,context);await new Promise(setImmediate);return nodes;
 }
@@ -85,6 +85,23 @@ async function render(id,overrides={}){
  const items=ledger.players[id]?.items||[];
  assert.equal(n.legacySection.hidden,items.length===0);
  const sourceMilestones=items.filter(x=>x.category==='milestone');
+ const otherItems=items.filter(x=>x.category!=='milestone');
+ assert.equal(n.lockerSection.hidden,items.length===0);
+ assert.equal(n.historyDetails.hidden,items.length===0);
+ assert.equal(n.honorsCount.textContent,otherItems.length+' records');
+ assert.equal(n.lockerMilestones.hidden,sourceMilestones.length===0);
+ assert.equal(n.lockerHonors.hidden,otherItems.length===0);
+ if(sourceMilestones.length&&otherItems.length){
+  assert.equal(n.milestoneSection.hidden,false);
+  n.lockerHonors.onclick();
+  assert.equal(n.honorsSection.hidden,false);
+  assert.equal(n.milestoneSection.hidden,true);
+  assert.equal(n.honorsGrid.children.length,Math.min(6,otherItems.filter(x=>x.category!=='discipline').length));
+  assert.equal(n.disciplineGrid.children.length,otherItems.filter(x=>x.category==='discipline').length);
+  n.lockerMilestones.onclick();
+  assert.equal(n.honorsSection.hidden,true);
+  assert.equal(n.milestoneSection.hidden,false);
+ }
  assert.equal(n.milestoneSection.hidden,sourceMilestones.length===0);
  assert.equal(n.milestoneGrid.children.length,sourceMilestones.length);
  assert.equal(n.milestoneCount.textContent,sourceMilestones.length?sourceMilestones.length+' earned':'');

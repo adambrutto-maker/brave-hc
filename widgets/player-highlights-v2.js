@@ -363,9 +363,111 @@ function renderMilestoneWall(record){
  paint();
 }
 
+let lockerFace='milestones';
+let honorsFilter='all';
+let honorsShowAll=false;
+function renderHonorsWall(record){
+ const items=newestAchievements((record?.items||[]).filter(x=>x.category!=='milestone'));
+ const display=$('honorsSection'),container=$('honorsGrid'),disciplineGroup=$('disciplineGroup'),
+  disciplineGrid=$('disciplineGrid'),filters=$('honorsFilters'),more=$('honorsMore');
+ const categories={all:items.length,award:0,championship:0,recognition:0,
+  leadership:0,record:0,discipline:0};
+ for(const item of items)if(Object.hasOwn(categories,item.category))categories[item.category]++;
+ if(!categories[honorsFilter])honorsFilter='all';
+ $('honorsCount').textContent=items.length+' records';
+ const buttons=[];
+ filters.replaceChildren();
+ const label={all:'All',award:'Awards',championship:'Cups',
+  recognition:'Recognition',leadership:'Leadership',record:'Historical',discipline:'Discipline'};
+ for(const key of Object.keys(categories)){
+  if(!categories[key])continue;
+  const button=text('button',label[key]+' ('+categories[key]+')','ph-honors-filter');
+  button.type='button';
+  button.onclick=()=>{honorsFilter=key;honorsShowAll=false;paint();};
+  filters.append(button);buttons.push([key,button]);
+ }
+ const cardFor=item=>{
+  const isDiscipline=item.category==='discipline';
+  const card=text('article','','ph-honor-card'+(isDiscipline?' ph-honor-discipline':''));
+  const art=approvalForPublishedItem(item,awardArtFor(item)||clubArtFor(item)||
+      specialArtFor(item)||heritageArtFor(item));
+  const icon=text('span','','ph-honor-image');
+  if(art){
+   const img=document.createElement('img');
+   const kind=art.kind;
+   img.src=kind==='approved'?root+'assets/approved/'+art.file+
+       (art.file==='discipline_record.webp'?'?v=whistle-cards-20261028':'?v=transparent-20261027'):
+       kind==='milestone'?root+'assets/round-clubs/'+art.file+'?v=transparent-20261027':
+       root+(kind==='special'?'assets/special/':kind==='heritage'?'assets/heritage/':'assets/awards/')+
+         art.file+(kind==='award'?'':'?v=bright-20261027');
+   img.alt=art.label+' emblem';img.loading='lazy';img.decoding='async';
+   img.onerror=()=>{
+    if(kind==='approved'&&art.backupFile){
+     const backup=art.backupKind==='special'?'assets/special/':
+       art.backupKind==='heritage'?'assets/heritage/':'assets/awards/';
+     img.onerror=null;img.src=root+backup+art.backupFile;
+    }else icon.replaceChildren(text('strong',isDiscipline?'NOTE':'AWD','ph-honor-fallback'));
+   };
+   icon.append(img);
+  }else icon.append(text('strong',isDiscipline?'NOTE':'RECORD','ph-honor-fallback'));
+  const names={award:'Award',championship:'Champion',recognition:'Recognition',
+      leadership:'Leadership',record:'Historical entry',discipline:'Disciplinary record'};
+  const category=text('span',names[item.category]||'Record','ph-honor-class');
+  const raw=achievementDisplayText(item);
+  const pieces=item.preserveLines?[raw]:raw.split(' - ');
+  const title=pieces.length>1?pieces.slice(0,-1).join(' - '):raw;
+  const when=pieces.length>1?pieces.at(-1):'Date in published history';
+  const titleNode=text('strong',title,'ph-honor-title');
+  const dateNode=text('span',when,'ph-honor-date');
+  card.append(category,icon,titleNode,dateNode);
+  return card;
+ };
+ const paint=()=>{
+  for(const [key,button] of buttons)button.setAttribute('aria-pressed',String(honorsFilter===key));
+  container.replaceChildren();disciplineGrid.replaceChildren();
+  const subset=items.filter(i=>honorsFilter==='all'||i.category===honorsFilter);
+  const honours=subset.filter(x=>x.category!=='discipline');
+  const discipline=subset.filter(x=>x.category==='discipline');
+  const shown=honorsShowAll?honours:honours.slice(0,6);
+  for(const item of shown)container.append(cardFor(item));
+  disciplineGroup.hidden=discipline.length===0;
+  for(const item of discipline)disciplineGrid.append(cardFor(item));
+  more.hidden=honours.length<=6;
+  more.textContent=honorsShowAll?'Show fewer records':'View all '+honours.length+' records';
+  more.setAttribute('aria-expanded',String(honorsShowAll));
+ };
+ more.onclick=()=>{honorsShowAll=!honorsShowAll;paint();};
+ paint();
+}
+function showLockerFaces(record){
+ const items=record?.items||[];
+ const milestones=items.filter(i=>i.category==='milestone'&&clubArtFor(i)).length;
+ const other=items.filter(i=>i.category!=='milestone').length;
+ const host=$('lockerSection'),m=$('milestoneSection'),h=$('honorsSection');
+ host.hidden=!(milestones||other);
+ if(!milestones&&lockerFace==='milestones')lockerFace='honors';
+ if(!other&&lockerFace==='honors')lockerFace='milestones';
+ const a=$('lockerMilestones'),b=$('lockerHonors');
+ a.hidden=!milestones;b.hidden=!other;
+ a.textContent='Milestones · '+milestones;
+ b.textContent='Awards & Legacy · '+other;
+ const show=()=>{
+  m.hidden=lockerFace!=='milestones'||!milestones;
+  h.hidden=lockerFace!=='honors'||!other;
+  a.setAttribute('aria-pressed',String(lockerFace==='milestones'));
+  b.setAttribute('aria-pressed',String(lockerFace==='honors'));
+ };
+ a.onclick=()=>{lockerFace='milestones';show();};
+ b.onclick=()=>{lockerFace='honors';show();};
+ show();
+}
+
 function renderLegacy(record,ledgerTime){
  const container=$('legacy'),items=newestAchievements(record?.items||[]);
  renderMilestoneWall(record);
+ renderHonorsWall(record);
+ showLockerFaces(record);
+ $('historyDetails').hidden=!items.length;
  container.replaceChildren();
  $('careerSummary').replaceChildren();
  $('expand').hidden=true;
