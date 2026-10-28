@@ -14,6 +14,13 @@ EXPECTED={
  "svhl_cup","hall_of_fame","all_star_nomination","all_star_selection",
  "captain","assistant_captain","discipline_record"}
 def install(archive):
+    # The original 17-image package is a first-install archive. It must never
+    # overwrite later transparent or individually approved source-controlled art.
+    manifest_path=DEST/"source-manifest.json"
+    if manifest_path.exists():
+        existing=json.loads(manifest_path.read_text(encoding="utf-8"))
+        if any(a.get("background")=="TRANSPARENT_EXTERIOR_APPROVED_ART_PRESERVED" for a in existing.get("files",[])):
+            raise ValueError("REFUSE_OVERWRITING_LOCKED_TRANSPARENT_ARTWORK: use source-controlled icon generator")
     assert archive.is_file(),f"Artwork ZIP not downloaded on BRUTTECH 1: {archive}"
     with zipfile.ZipFile(archive) as z:
         entries=z.namelist()
