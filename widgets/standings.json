@@ -92,10 +92,11 @@
       "pts": 0,
       "gf": 10,
       "ga": 21,
-      "winPct": 0.0
+      "winPct": 0
     }
   ],
   "braveGP": 5,
   "sourceType": "SVHL_PUBLIC_LEAGUE_READBACK",
-  "sourceNote": "Official current league division table; independent of team-maintained HTO player scoring. Potential renamed teams are shown as SVHL currently reports them."
+  "sourceNote": "Official current league division table; independent of team-maintained HTO player scoring. Potential renamed teams are shown as SVHL currently reports them.",
+  "lastCheckedAt": "2026-10-28T13:16:10.150559+00:00"
 }
