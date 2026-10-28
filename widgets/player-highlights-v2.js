@@ -108,6 +108,14 @@ const knownClubValues={
  point:new Set([50,100,200,300,400,500,750,1000]),
  win:new Set([50,100,200,300,400,500])
 };
+// Seven source-dated Goal/Assist/Shutout achievement thresholds have finished
+// full-crest artwork; original Game, Point and Win artwork is NOT replaced.
+const fullCrestValues={
+ goal:new Set([50,100]),
+ assist:new Set([50,100,200]),
+ shutout:new Set([5,10])
+};
+const fullCrestFamily=new Set(['goal','assist','shutout']);
 const clubTier=(n,kind)=>kind==='shutout'?(n<10?'bronze':n<20?'silver':n<30?'gold':'platinum'):(n<100?'bronze':n<200?'silver':n<300?'gold':'platinum');
 function clubArtFor(item){
  if(item.category!=='milestone')return null;
@@ -118,10 +126,19 @@ function clubArtFor(item){
  if(!Number.isSafeInteger(count)||count<(type==='shutout'?5:50)||count>100000)return null;
  const tier=clubTier(count,type), metric=({game:'games',point:'points',win:'wins',goal:'goals',assist:'assists',shutout:'shutouts'})[type];
  if(!metric)return null;
+ const fullCrest=fullCrestValues[type]?.has(count)===true;
  return {kind:'milestone',tier,count,metric,
   file:count+'_'+metric+'_'+tier+'_200.webp',
-  generated:!knownClubValues[type]?.has(count),
+  generated:!knownClubValues[type]?.has(count)&&!fullCrest,
+  fullCrest,
+  fullCrestFamily:fullCrestFamily.has(type),
   label:'Brave H.C. '+count+' '+match[2]+' Club'};
+}
+// Preserve the exact 22 historical Game/Point/Win source paths.
+function clubImageSource(art){
+ if(art.generated)return './brave_hc_logo.png';
+ return root+'assets/'+(art.fullCrest?'full-crest-clubs/':'round-clubs/')+art.file+
+        (art.fullCrest?'?v=fullcrest-20261028':'?v=transparent-20261027');
 }
 function paintVerifiedFutureClub(image,art){
  // Current archive templates cover existing levels; future published levels are
@@ -138,6 +155,41 @@ function paintVerifiedFutureClub(image,art){
  const lion=new Image();
  lion.onload=()=>{
   ctx.clearRect(0,0,200,200);
+  if(art.fullCrestFamily){
+   // A full-bleed AUTHENTIC crest, cropped to circular badge shape.
+   // Number + category live ON TOP of the logo with a translucent dark plate.
+   const colors={bronze:['#c9915f','#f8d6ab'],
+    silver:['#b9cad9','#f1f7fc'],gold:['#e5b654','#ffe8af'],
+    platinum:['#d8e9f4','#ffffff']};
+   const [metal,bright]=colors[art.tier]||colors.platinum;
+   ctx.save();ctx.beginPath();ctx.arc(100,100,91,0,Math.PI*2);ctx.clip();
+   ctx.drawImage(lion,11,11,178,178);
+   const fade=ctx.createLinearGradient(0,98,0,182);
+   fade.addColorStop(0,'rgba(4,16,28,0)');
+   fade.addColorStop(1,'rgba(4,16,28,0.65)');
+   ctx.fillStyle=fade;ctx.fillRect(8,98,184,90);
+   ctx.restore();
+   ctx.beginPath();ctx.arc(100,100,91,0,2*Math.PI);
+   ctx.strokeStyle=metal;ctx.lineWidth=4;ctx.stroke();
+   ctx.beginPath();ctx.arc(100,100,87,0,2*Math.PI);
+   ctx.strokeStyle=bright;ctx.lineWidth=1.4;ctx.stroke();
+   ctx.beginPath();ctx.roundRect(31,111,138,57,10);
+   ctx.fillStyle='rgba(5,22,39,0.90)';ctx.fill();
+   ctx.strokeStyle=metal;ctx.lineWidth=1.7;ctx.stroke();
+   ctx.font=(art.count<100?'bold 38px':art.count<1000?'bold 35px':'bold 28px')+' Arial';
+   ctx.textAlign='center';ctx.textBaseline='middle';
+   ctx.strokeStyle='#092136';ctx.lineWidth=2.8;ctx.fillStyle='#ffffff';
+   ctx.strokeText(String(art.count),100,132);
+   ctx.fillText(String(art.count),100,132);
+   ctx.beginPath();ctx.moveTo(57,145);ctx.lineTo(143,145);
+   ctx.strokeStyle=metal;ctx.lineWidth=1;ctx.stroke();
+   ctx.font=(art.metric.length<=6?'bold 14px':'bold 12px')+' Arial';
+   ctx.fillStyle=bright;
+   ctx.fillText(art.metric.toUpperCase(),100,156);
+   image.src=canvas.toDataURL('image/png');
+   return;
+  }
+  // Preserve the already approved Game/Point/Win future-badge rendering.
   ctx.fillStyle='#081b32';ctx.beginPath();ctx.arc(100,100,95,0,2*Math.PI);ctx.fill();
   ctx.strokeStyle=ring;ctx.lineWidth=6;ctx.stroke();
   ctx.beginPath();ctx.arc(100,100,87,0,2*Math.PI);ctx.strokeStyle=light;ctx.lineWidth=2;ctx.stroke();
@@ -356,12 +408,13 @@ function renderMilestoneWall(record){
   for(const [key,button] of buttons)button.setAttribute('aria-pressed',String(milestoneFilter===key));
   grid.replaceChildren();
   for(const {item,art} of sorted.filter(({art})=>milestoneFilter==='all'||art.metric===milestoneFilter)){
-   const tile=text('article','','ph-earned-tile ph-earned-'+art.tier);
+   const tile=text('article','','ph-earned-tile ph-earned-'+art.tier+
+    (art.fullCrestFamily?' ph-fullcrest-family':''));
    tile.setAttribute('aria-label',art.count+' '+art.metric+', '+art.tier+' badge earned');
    const state=text('span','UNLOCKED','ph-earned-state');
    const visual=text('span','','ph-earned-graphic');
    const img=document.createElement('img');
-   img.src=art.generated?'./brave_hc_logo.png':root+'assets/round-clubs/'+art.file+'?v=transparent-20261027';
+   img.src=clubImageSource(art);
    img.alt=art.count+' '+art.metric+' '+art.tier+' milestone badge';
    img.loading='lazy';img.decoding='async';
    if(art.generated)paintVerifiedFutureClub(img,art);
@@ -428,7 +481,7 @@ function mountArtwork(target,item,plainFallback){
  const img=document.createElement('img'),kind=art.kind;
  img.src=kind==='approved'?root+'assets/approved/'+art.file+
    (art.file==='discipline_record.webp'?'?v=whistle-cards-20261028':'?v=transparent-20261027'):
-   kind==='milestone'?(art.generated?'./brave_hc_logo.png':root+'assets/round-clubs/'+art.file+'?v=transparent-20261027'):
+   kind==='milestone'?clubImageSource(art):
    root+(kind==='special'?'assets/special/':kind==='heritage'?'assets/heritage/':'assets/awards/')+
      art.file+(kind==='award'?'':'?v=bright-20261027');
  img.alt=art.label+' emblem';img.loading='lazy';img.decoding='async';
@@ -475,7 +528,7 @@ function renderHonorsWall(record){
    const kind=art.kind;
    img.src=kind==='approved'?root+'assets/approved/'+art.file+
        (art.file==='discipline_record.webp'?'?v=whistle-cards-20261028':'?v=transparent-20261027'):
-       kind==='milestone'?root+'assets/round-clubs/'+art.file+'?v=transparent-20261027':
+       kind==='milestone'?clubImageSource(art):
        root+(kind==='special'?'assets/special/':kind==='heritage'?'assets/heritage/':'assets/awards/')+
          art.file+(kind==='award'?'':'?v=bright-20261027');
    img.alt=art.label+' emblem';img.loading='lazy';img.decoding='async';
@@ -522,7 +575,9 @@ function inventoryCard(item){
  const isStat=item.kind==='stat';
  const isDiscipline=!isStat&&item.item.category==='discipline';
  const isMilestone=!isStat&&item.item.category==='milestone';
- const card=text('article','','ph-inventory-card '+(isStat?'ph-inventory-stat':isDiscipline?'ph-inventory-discipline':isMilestone?'ph-inventory-milestone':'ph-inventory-honor'));
+ const badge=isMilestone?clubArtFor(item.item):null;
+ const card=text('article','','ph-inventory-card '+(isStat?'ph-inventory-stat':isDiscipline?'ph-inventory-discipline':isMilestone?'ph-inventory-milestone':'ph-inventory-honor')+
+  (badge?.fullCrestFamily?' ph-fullcrest-family ph-fullcrest-'+badge.tier:''));
  let kind=isStat?'PUBLISHED RECORD':isDiscipline?'DISCIPLINARY RECORD — NOT AN AWARD':
   isMilestone?'EARNED MILESTONE':item.item.category==='award'?'AWARD':
   item.item.category==='championship'?'CHAMPIONSHIP':item.item.category==='leadership'?'LEADERSHIP':'HISTORICAL RECOGNITION';
@@ -677,7 +732,7 @@ function renderLegacy(record,ledgerTime){
     const img=document.createElement('img');
     img.src=kind==='approved'?root+'assets/approved/'+art.file+(art.file==='discipline_record.webp'?'?v=whistle-cards-20261028':'?v=transparent-20261027'):
       kind==='milestone'
-      ?(art.generated?'./brave_hc_logo.png':root+'assets/round-clubs/'+art.file+'?v=transparent-20261027')
+      ?clubImageSource(art)
       :root+(kind==='special'?'assets/special/':kind==='heritage'?'assets/heritage/':'assets/awards/')+art.file+(kind==='award'?'':'?v=bright-20261027');
     if(kind==='milestone'&&art.generated)paintVerifiedFutureClub(img,art);
     img.alt=art.label+' emblem';
