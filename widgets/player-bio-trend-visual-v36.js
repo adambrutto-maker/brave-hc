@@ -50,15 +50,31 @@ function badgeMarkup(s,id,size){const cold=s.cold,hot=s.hot;const gradientTop=co
  return `<div class="bio-trend-arrow-inset v36-badge ${cold?'v36-frosted':''}" data-deg="${s.angle.toFixed(8)}" style="${styles}"><div class="v36-crystals"></div><div class="v36-heat-haze"></div><svg class="bio-trend-direction-arrow v36-arrow-canvas" viewBox="0 0 100 100" role="img" aria-label="Arrow orientation ${s.angle.toFixed(1)} degrees, ${s.visualName}"><defs><linearGradient id="arr-${id}" x1="8%" y1="3%" x2="90%" y2="96%"><stop offset="0%" stop-color="${gradientTop}"/><stop offset="39%" stop-color="${s.cold?'#55c6fa':s.hot?'#ffad54':'#e9f4fc'}"/><stop offset="100%" stop-color="${gradBottom}"/></linearGradient></defs><g class="v36-arrow-rotor" data-arrow-angle="${s.angle.toFixed(8)}" data-z-score="${s.z}"><path class="v36-arrow-body v36-arrow-shape" fill="url(#arr-${id})" d="M40 69V50H32L50 29L68 50H60V69Z"/><path class="v36-arrow-gleam" d="M42.8 65V47H38L50 33"/></g></svg>${elementIcon(s,id)}<span class="v36-pivot"></span></div>`;
 }
 
+// V3.6.3 presentation tolerance: NOT a change to the workbook 5Arrows bands.
+ // +/-5% of verified career scoring pace reads visually neutral (slate, white,
+ // no frost/flame) even when the exact trend is nonzero. Angle remains continuous.
+const NEAR_CAREER_TOLERANCE=0.05;
+function nearCareerAverage(relativeChange,category){
+ return category==='Neutral' && typeof relativeChange==='number' &&
+  Number.isFinite(relativeChange) && Math.abs(relativeChange)<=NEAR_CAREER_TOLERANCE;
+}
+function nearAverageAppearance(s){
+ return {...s,cold:false,hot:false,intensity:0,accent:'#edf5fc',
+   rim:'#9aafbc',upper:'#304b5b',lower:'#162935',lit:'#7f96a8',
+   visualName:'NEAR CAREER AVERAGE'};
+}
 function createBadge(doc,direction,category,rookie=false){
  if(!doc||!Number.isFinite(direction?.zScore))return null;
- const s=compute(direction.zScore);
+ const near=(!rookie)&&nearCareerAverage(direction.sourceValue,category);
+ const base=compute(direction.zScore);
+ const s=near?nearAverageAppearance(base):base;
  const mount=doc.createElement('div');
  mount.innerHTML=badgeMarkup(s,'bioV36Main',78);
  const badge=mount.firstElementChild;
  badge.dataset.arrowCategory=category;
  badge.dataset.workbookCategory=category;
  badge.dataset.visualState=s.visualName;
+ badge.dataset.nearCareerAverage=String(near);
  badge.dataset.sourceZScore=rookie?'':String(direction.zScore);
  badge.dataset.angleConvention='0-up-90-right-180-down';
  badge.dataset.animationScope='corner-only';
@@ -75,10 +91,11 @@ function createBadge(doc,direction,category,rookie=false){
   arrow?.setAttribute('aria-label','Neutral rookie display marker; no established career comparison');
  }else{
   arrow?.setAttribute('aria-label',
-    category+' · '+direction.zScore.toFixed(2)+' workbook standard deviations; '
-    +s.angle.toFixed(2)+' degrees, 0 up, 90 right, 180 down');
+    category+(near?' · within 5 percent of career average; ':' · ')+
+    direction.zScore.toFixed(2)+' workbook standard deviations; '+
+    s.angle.toFixed(2)+' degrees, 0 up, 90 right, 180 down');
  }
  return badge;
 }
-return {compute,angleFromZ,createBadge,badgeMarkup};
+return {compute,angleFromZ,createBadge,badgeMarkup,nearCareerAverage,NEAR_CAREER_TOLERANCE};
 });
