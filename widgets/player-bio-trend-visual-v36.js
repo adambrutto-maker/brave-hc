@@ -54,6 +54,25 @@ function badgeMarkup(s,id,size){const cold=s.cold,hot=s.hot;const gradientTop=co
  // +/-5% of verified career scoring pace reads visually neutral (slate, white,
  // no frost/flame) even when the exact trend is nonzero. Angle remains continuous.
 const NEAR_CAREER_TOLERANCE=0.05;
+let badgeCounter=0;
+const VALID_SOURCE_CATEGORIES=new Set(['Cold','Cool','Neutral','Warm','Hot']);
+function visualLevelFromRelativeChange(relativeChange,sigma){
+ if(typeof relativeChange!=='number'||!Number.isFinite(relativeChange)||
+    typeof sigma!=='number'||!Number.isFinite(sigma)||sigma<=0)return null;
+ if(Math.abs(relativeChange)<=NEAR_CAREER_TOLERANCE)return 'NEUTRAL';
+ const z=relativeChange/sigma;
+ if(z< -2)return 'FROZEN';
+ if(z< -1)return 'COLD';
+ if(relativeChange<0)return 'COOL';
+ if(z<.5)return 'WARM';
+ if(z<1)return 'HOT';
+ return 'BLAZING';
+}
+function visualLevel(direction,category){
+ if(!VALID_SOURCE_CATEGORIES.has(category)||typeof direction?.sourceValue!=='number'||
+    !Number.isFinite(direction?.zScore)||!Number.isFinite(direction?.sigma))return null;
+ return visualLevelFromRelativeChange(direction.sourceValue,direction.sigma);
+}
 function nearCareerAverage(relativeChange,category){
  return category==='Neutral' && typeof relativeChange==='number' &&
   Number.isFinite(relativeChange) && Math.abs(relativeChange)<=NEAR_CAREER_TOLERANCE;
@@ -68,12 +87,15 @@ function createBadge(doc,direction,category,rookie=false){
  const near=(!rookie)&&nearCareerAverage(direction.sourceValue,category);
  const base=compute(direction.zScore);
  const s=near?nearAverageAppearance(base):base;
+ const level=rookie?'ROOKIE':visualLevel(direction,category);
+ if(!level)return null;
  const mount=doc.createElement('div');
- mount.innerHTML=badgeMarkup(s,'bioV36Main',78);
+ mount.innerHTML=badgeMarkup(s,'bioV36Main'+(++badgeCounter),78);
  const badge=mount.firstElementChild;
  badge.dataset.arrowCategory=category;
  badge.dataset.workbookCategory=category;
  badge.dataset.visualState=s.visualName;
+ badge.dataset.visualLevel=level;
  badge.dataset.nearCareerAverage=String(near);
  badge.dataset.sourceZScore=rookie?'':String(direction.zScore);
  badge.dataset.angleConvention='0-up-90-right-180-down';
@@ -91,11 +113,31 @@ function createBadge(doc,direction,category,rookie=false){
   arrow?.setAttribute('aria-label','Neutral rookie display marker; no established career comparison');
  }else{
   arrow?.setAttribute('aria-label',
-    category+(near?' · within 5 percent of career average; ':' · ')+
+    level+' visual trend · '+category+' workbook category'+
+    (near?' · within 5 percent of career average; ':'; ')+
     direction.zScore.toFixed(2)+' workbook standard deviations; '+
     s.angle.toFixed(2)+' degrees, 0 up, 90 right, 180 down');
  }
  return badge;
 }
-return {compute,angleFromZ,createBadge,badgeMarkup,nearCareerAverage,NEAR_CAREER_TOLERANCE};
+// Descriptive recent-form badge uses the exact same rendering and 7-word scale,
+ // but is never classified or represented as an official workbook forecast.
+ function createFormBadge(doc,relativeChange,sigma){
+  const level=visualLevelFromRelativeChange(relativeChange,sigma);
+  if(!doc||!level)return null;
+  const z=relativeChange/sigma,base=compute(z);
+  const s=level==='NEUTRAL'?nearAverageAppearance(base):base;
+  const mount=doc.createElement('div');
+  mount.innerHTML=badgeMarkup(s,'bioV36Form'+(++badgeCounter),78);
+  const badge=mount.firstElementChild;
+  badge.dataset.visualLevel=level;
+  badge.dataset.formOnly='DESCRIPTIVE_NOT_WORKBOOK';
+  badge.dataset.relativeChange=String(relativeChange);
+  badge.dataset.nearCareerAverage=String(level==='NEUTRAL');
+  badge.querySelector('svg.bio-trend-direction-arrow')?.setAttribute('aria-label',
+    level+' recent scoring pace relative to winter-equivalent career rate; '+
+    (relativeChange*100).toFixed(1)+' percent; descriptive comparison only');
+  return badge;
+ }
+ return {compute,angleFromZ,createBadge,createFormBadge,badgeMarkup,visualLevel,visualLevelFromRelativeChange,nearCareerAverage,NEAR_CAREER_TOLERANCE};
 });
