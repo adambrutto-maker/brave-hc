@@ -45,7 +45,7 @@ a{color:#e6c083}footer{padding:13px 20px;font-size:.75rem;color:#adc5d9}
 <script defer src="./player-bio-rolling-career-v27-preview.js"></script>
 <script defer src="./goalie-projection-model.js"></script>
 <script defer src="./player-bio.js"></script>
-<script defer src="./player-bio-premium-v27-preview.js"></script><meta name="robots" content="noindex,nofollow">
+<script defer src="./player-bio-premium-v29-coaching-preview.js"></script><meta name="robots" content="noindex,nofollow">
 <style>
 .v27-review-banner{color:#fff0c6;background:#35402f;border-bottom:1px solid #b99963;
 font:800 11px/1.5 system-ui,Arial,sans-serif;text-align:center;padding:8px 12px;letter-spacing:.35px}
@@ -129,6 +129,10 @@ font:800 11px/1.5 system-ui,Arial,sans-serif;text-align:center;padding:8px 12px;
 </section>
 
 <section id="bioProjectionSection" aria-label="Projected end-of-season performance" hidden>
+ <div id="bioCareerModelStrip" class="bio-career-model-strip" hidden>
+  <div><strong>CAREER AVERAGE</strong><span id="bioCareerModelBasis">Summer + Winter history · Winter-equivalent</span></div>
+  <div><strong id="bioCareerModelRate">—</strong><span>PTS / GP</span></div>
+ </div>
  <div class="bio-projection-hero">
   <div class="bio-projection-headline-row"><div><span class="bio-forecast-kicker">MODEL OUTLOOK · END OF SEASON</span><h2 class="bio-title">Projected season finish</h2>
    <p class="bio-forecast-desc">Full-season forecast, not the current scoring rate shown on the chart.</p></div><span id="bioForecastBadge" class="bio-forecast-badge">Provisional</span></div>
