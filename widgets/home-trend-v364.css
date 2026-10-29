@@ -1,0 +1,47 @@
+/* HockeyOS V3.6.4 — one shared seven-level badge across Bio and homepage.
+   This is a layout-only size adapter; all icon SVGs and σ-angles come from
+   player-bio-trend-visual-v36.js. Workbook projection formulas are untouched. */
+.projection-table .trend-button{
+  display:inline-flex;flex-direction:column;align-items:center;
+  justify-content:center;gap:3px;min-width:48px;min-height:52px;
+  background:transparent;border:0;padding:2px;color:#eef6ff;
+}
+.projection-table .trend-button .v36-badge.home-trend-badge{
+  flex:none;width:46px;height:43px;min-width:0;min-height:0;
+  border-radius:9px;box-sizing:border-box;
+}
+.projection-table .home-level-word{
+  display:block;max-width:62px;font-size:8px;line-height:1.15;
+  color:#f8fbff;letter-spacing:.035em;font-weight:850;text-align:center;
+}
+.projection-table .trend-button .v36-element,
+.legend .v36-badge .v36-element{
+  right:2px;top:2px;width:29%;height:32%;
+  min-width:0;min-height:0;border-radius:3px;
+}
+.legend .home-trend-key{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  flex:none;gap:3px;padding:5px 4px;
+  border:1px solid #3c5973;border-radius:7px;background:#102a40;
+}
+.legend .home-trend-legend-badge.v36-badge{
+  flex:none;width:32px;height:32px;min-width:0;min-height:0;border-radius:7px;
+}
+.legend .home-trend-key>span:last-child{
+  font-size:8px;line-height:1.15;letter-spacing:.025em;font-weight:850;
+  color:#eaf2fb;max-width:62px;overflow-wrap:anywhere;text-align:center;
+}
+@media(max-width:450px){
+  .projection-table tbody tr:not(.details) td .trend-button{
+    min-width:38px;min-height:48px;padding:1px 0;
+  }
+  .projection-table tbody tr:not(.details) td .v36-badge.home-trend-badge{
+    width:36px;height:35px;border-radius:7px;
+  }
+  .projection-table .home-level-word{font-size:7px;max-width:48px}
+  .legend .home-trend-key{padding:4px 2px}
+  .legend .home-trend-legend-badge.v36-badge{width:27px;height:27px}
+}
+@media(prefers-reduced-motion:reduce){
+  .projection-table .v36-badge *, .legend .v36-badge *{animation:none!important;transition:none!important}
+}
