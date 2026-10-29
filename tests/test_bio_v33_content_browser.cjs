@@ -106,6 +106,23 @@ const server=http.createServer((req,res)=>{
   assert.match(await fail.locator('#bioShareSource').innerText(),/held/i);
   console.log('BIO_V33_MISSING_RANK_ENGINE_HELD_PASS');
   await fail.close();
-  console.log('BIO_V33_ALL_CONTENT_QA_PASS',JSON.stringify({scenarios,sourceHeld:true,archiveProfiles:109}));
+  for(const optional of ['projection.json','league-game-formats.json']){
+   const lost=await browser.newPage({viewport:{width:390,height:900}}),err=[];
+   lost.on('pageerror',e=>err.push(e.message));
+   await lost.route('**/*',r=>new URL(r.request().url()).origin===origin?r.continue():r.abort());
+   await lost.route('**/'+optional,r=>r.fulfill({status:404,body:'Unavailable'}));
+   await lost.goto(origin+'/widgets/player-bio.html?playerID=354060&embed=1',{waitUntil:'domcontentloaded'});
+   await lost.locator('#bioTabs:not([hidden])').waitFor({timeout:15000});
+   await lost.locator('[data-bio-view="trends"]').click();
+   await lost.locator('#bioExtendedAnalytics>summary').click();
+   await lost.locator('#bioHistoricalShareGrid .bio-v33-card[data-metric="G"]').waitFor({state:'visible',timeout:9000});
+   assert.equal(await lost.locator('#bioHistoricalShareGrid .bio-v33-card').count(),6,
+     'Verified career-share evidence must survive absent optional '+optional);
+   assert.equal(await lost.locator('#bioHistoricalShareGrid .bio-v33-card[data-metric="G"] .bio-v33-value').innerText(),'10.9%');
+   assert.deepEqual(err,[],'Unrelated source failure must not crash UI');
+   console.log('BIO_V33_INDEPENDENT_SOURCE_PASS',optional);
+   await lost.close();
+  }
+  console.log('BIO_V33_ALL_CONTENT_QA_PASS',JSON.stringify({scenarios,sourceHeld:true,archiveProfiles:109,optionalSourcesFailClosed:2}));
  }finally{await browser.close();await new Promise(resolve=>server.close(resolve))}
 })().catch(e=>{console.error(e.stack||e);process.exitCode=1});
