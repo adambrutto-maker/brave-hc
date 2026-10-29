@@ -81,7 +81,7 @@ function renderView(){
                    'bioGoalieSection','bioOpponentSection','leadershipSection','systemSection']){
     const el=$(id);if(!el)continue;
     const missingRole=(id==='bioGoalieSection'&&!state.isGoalie)||
-      (['bioSpotlight','bioProjectionSection'].includes(id)&&!state.isSkater)||(id==='bioProjectionSection'&&!state.hasProjection);
+      (['bioSpotlight','bioProjectionSection'].includes(id)&&!state.isSkater);
     const leadershipMissing=id==='leadershipSection'&&!state.hasLeadership;
     el.hidden=missingRole||leadershipMissing||!visible.includes(id);
   }
@@ -568,10 +568,15 @@ function renderSkaterProjection(){
   const section=$('bioProjectionSection');
   state.hasProjection=false;
   const target=$('bioProjectionCards');target.replaceChildren();
+  const hold=$('bioProjectionHold');hold.hidden=true;
+  $('bioCareerModelStrip').hidden=true;
+  $('bioForecastBadge').textContent='SOURCE HELD';
+  $('bioForecastBadge').dataset.provisional='true';
   const projection=sources.projection;
   const profiles=validateProjection(projection);
   const row=profiles?.get(state.player);
   if(!profiles){
+    hold.hidden=false;hold.textContent='No verified projection source is available.';
     $('bioProjectionState').textContent='Shared homepage model data could not be verified. No substitute forecast generated.';
     $('bioProjectionHeadline').textContent='Forecast unavailable';
     paintProjectionTrend(null,null);
@@ -579,6 +584,7 @@ function renderSkaterProjection(){
     return;
   }
   if(!row){
+    hold.hidden=false;hold.textContent='No forecast published for this player.';
     $('bioProjectionState').textContent='No model-published projection is available for this verified player. This is not a prediction of zero.';
     $('bioProjectionHeadline').textContent='No model-published forecast for this player';
     paintProjectionTrend(null,projection);
