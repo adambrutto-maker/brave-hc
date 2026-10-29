@@ -11,6 +11,7 @@ const sigma=data.conditionalFormatting.sampleStandardDeviation;
 const mime={'.html':'text/html','.js':'text/javascript','.css':'text/css','.json':'application/json','.png':'image/png','.webp':'image/webp'};
 const cases=[
  {z:-2.75},{z:-2.1},{z:-1.73},{z:-1.15},{z:-.56},{z:-.21},{z:0},
+ {pct:-.051},{pct:-.05},{pct:-.049},{pct:.049},{pct:.05},{pct:.051},
  {z:.06},{z:.34},{z:.67},{z:1.12},{z:1.2743385655355493},{z:1.4055420847317484},
  {z:2.5},{rookie:true}
 ];
@@ -39,7 +40,7 @@ const server=http.createServer((req,res)=>{
     assert.ok(row,'official verified HTO identity is available');
     if(spec.held){row.trend=null;row.trendInputs.firstSeasonOrNoCareer=false;}
     else if(spec.rookie)row.trendInputs.firstSeasonOrNoCareer=true;
-    else{row.trend=spec.z*sigma;row.trendInputs.firstSeasonOrNoCareer=false;}
+    else{row.trend=spec.pct===undefined?spec.z*sigma:spec.pct;row.trendInputs.firstSeasonOrNoCareer=false;}
     return r.fulfill({status:200,contentType:'application/json',body:JSON.stringify(p)});
   });
   for(const c of cases){
@@ -69,6 +70,10 @@ const server=http.createServer((req,res)=>{
      const anim=b.querySelector(cold?'.v36-ice-shimmer':'.v36-flame-outer');
      return {
       category:host.dataset.trendState,trendDirection:host.dataset.trendDirection,
+      nearAverage:b.dataset.nearCareerAverage==='true',
+      nearAverageHost:host.dataset.nearCareerAverage,
+      visualName:b.dataset.visualState,
+      minor:host.querySelector('.bio-trend-minor')?.innerText,
       actualZ:b.dataset.sourceZScore,angle:b.dataset.deg,
       sourceSigma:b.dataset.sourceSigma,sourceTrend:b.dataset.sourceTrend,
       rotorAngle:g?.dataset.arrowAngle,rotorZ:g?.dataset.zScore,
@@ -85,6 +90,10 @@ const server=http.createServer((req,res)=>{
       panelBackground:getComputedStyle(panel).backgroundImage,
       panelBorder:getComputedStyle(panel).borderLeftColor,
       badgeBorder:getComputedStyle(b).borderLeftColor,
+      badgeRim:b.style.getPropertyValue('--rim'),
+      hasCornerEffect:!!b.querySelector('.v36-element'),
+      frostOpacity:getComputedStyle(b.querySelector('.v36-crystals')).opacity,
+      heatOpacity:getComputedStyle(b.querySelector('.v36-heat-haze')).opacity,
       captionColor:getComputedStyle(panel.querySelector('.bio-forecast-trend-caption')).color,
       motion:anim?getComputedStyle(anim).animationName:null,
       badgeLeft:br.left,badgeRight:br.right,copyRight:copyRect.right,
@@ -123,10 +132,12 @@ const server=http.createServer((req,res)=>{
      assert.equal(o.rotorAngle,undefined,'no rookie computed angle');
      assert.equal(o.rotorZ,undefined,'no rookie invented standard deviation');
      assert.equal(o.actualZ,'');
+     assert.equal(o.nearAverage,false,'rookie has no career-average comparison');
      assert.match(o.html,/Rookie Year/);
      assert.ok(o.tipX>6&&Math.abs(o.tipY)<2.4,'rookie neutral to right');
     }else{
-     const p=structuredClone(data),row=p.players.find(x=>x.name==='Carosi, Justin');row.trend=c.z*sigma;
+     const p=structuredClone(data),row=p.players.find(x=>x.name==='Carosi, Justin');
+     row.trend=c.pct===undefined?c.z*sigma:c.pct;
      const direction=engine.directionalArrow(row,p);
      assert.equal(direction.status,'VERIFIED_STANDARD_DEVIATION_ARROW');
      const expected=visual.angleFromZ(direction.zScore);
@@ -136,17 +147,44 @@ const server=http.createServer((req,res)=>{
      assert.ok(Math.abs(Number(o.actualZ)-direction.zScore)<1e-12);
      assert.equal(Number(o.sourceSigma),sigma);
      assert.ok(Math.abs(Number(o.sourceTrend)-row.trend)<1e-12);
-     if(c.z<0){assert.equal(o.ice,true);assert.equal(o.fire,false);assert.ok(o.tipY>0,'downward for '+c.z);}
-     else if(c.z>0){assert.equal(o.fire,true);assert.equal(o.ice,false);assert.ok(o.tipY<0,'upward for '+c.z);}
-     else{assert.equal(o.ice,false);assert.equal(o.fire,false);assert.ok(o.tipX>6&&Math.abs(o.tipY)<2.4,'neutral horizontal');}
-     if(c.z!==0)assert.ok(o.motion&&o.motion!=='none','animated ice or fire '+c.z);
+     const near=visual.nearCareerAverage(row.trend,direction.category);
+     assert.equal(o.nearAverage,near,'visual tolerance uses exact published career trend');
+     assert.equal(o.nearAverageHost,String(near),'panel and badge agree on near average');
+     if(near){
+       assert.equal(o.category,'Neutral','source workbook category remains Neutral');
+       assert.equal(o.badgeRim,'#9aafbc','near-average border is slate rather than icy or fiery');
+       assert.equal(o.visualName,'NEAR CAREER AVERAGE');
+       assert.equal(o.hasCornerEffect,false,'near average gets no frost or flame icon');
+       assert.equal(o.frostOpacity,'0','no visible crystals');
+       assert.equal(o.heatOpacity,'0','no visible sparks');
+       assert.equal(o.motion,null,'near-average symbol has no flame/ice animation');
+       assert.match(o.minor,row.trend===0?/At career average/:/Within ±5% of career average/);
+     }else if(row.trend!==0){
+       assert.equal(o.hasCornerEffect,true,'outside tolerance retains source-sign frost or flame');
+     }
+     if(near){
+       assert.equal(o.ice,false);
+       assert.equal(o.fire,false);
+       if(row.trend<0)assert.ok(o.tipY>0,'near-neutral negative angle remains individually downward');
+       if(row.trend>0)assert.ok(o.tipY<0,'near-neutral positive angle remains individually upward');
+       if(row.trend===0)assert.ok(o.tipX>6&&Math.abs(o.tipY)<2.4,'exact zero remains horizontal');
+     }else if(row.trend<0){
+       assert.equal(o.ice,true);assert.equal(o.fire,false);
+       assert.ok(o.tipY>0,'negative trend stays individually downward');
+     }else if(row.trend>0){
+       assert.equal(o.fire,true);assert.equal(o.ice,false);
+       assert.ok(o.tipY<0,'positive trend stays individually upward');
+     }else{
+       assert.equal(o.ice,false);assert.equal(o.fire,false);
+     }
+     if(!near&&row.trend!==0)assert.ok(o.motion&&o.motion!=='none','ice/flame motion outside tolerance');
     }
     assert.deepEqual(errs,[],'no runtime errors');
     if(width===390 && (c.z===-2.75||c.z===0||c.z===1.4055420847317484)){
      const dest=process.env.BRAVE_V36_SCREENSHOT_DIR;
      if(dest)await page.screenshot({path:path.join(dest,c.z<0?'v36-cold-390.png':c.z>0?'v36-hot-390.png':'v36-neutral-390.png'),fullPage:true});
     }
-    passes.push({width,z:c.z??null,angle:Number(o.angle),category:o.category,rookie:!!c.rookie,panelBorder:o.panelBorder});
+    passes.push({width,z:c.z??(c.pct===undefined?null:c.pct/sigma),angle:Number(o.angle),category:o.category,rookie:!!c.rookie,near:o.nearAverage,panelBorder:o.panelBorder});
    }catch(e){failures.push({width,scenario:c,error:e.message});}
   }
   // Invalid source must clear conditional variables: never retain a player's old colors.
@@ -185,6 +223,8 @@ const server=http.createServer((req,res)=>{
  assert.ok(unique.length>=14,'14 distinct supplied z-score examples must keep distinct angles');
  const panelColors=[...new Set(passes.filter(x=>x.width===390&&!x.rookie).map(x=>x.panelBorder))];
  assert.ok(panelColors.length>=6,'panel needs individualized conditional colors, not one green shade');
- console.log('BIO_V36_ANIMATION_QA',JSON.stringify({passed:passes.length,failures,sigma,uniqueAngles:unique.length,uniquePanelColors:panelColors.length,angleConvention:'0=up,90=right,180=down',sourceUnchanged:true}));
+ const nearAngles=[...new Set(passes.filter(x=>x.width===390&&x.near).map(x=>x.angle))];
+ assert.ok(nearAngles.length>=5,'all distinct near-zero source angles remain unique');
+ console.log('BIO_V36_ANIMATION_QA',JSON.stringify({passed:passes.length,failures,sigma,uniqueAngles:unique.length,uniquePanelColors:panelColors.length,nearAngles:nearAngles.length,angleConvention:'0=up,90=right,180=down',sourceUnchanged:true}));
  if(failures.length)process.exitCode=1;
 })().catch(e=>{console.error(e.stack||e);process.exitCode=1;});
