@@ -14,6 +14,14 @@ const add=(label,value,basis)=>{
 const number=x=>typeof x==='number'&&Number.isFinite(x)&&x>=0;
 const show=(value,digits=2)=>number(value)?value.toFixed(digits):'—';
 const per=(n,d,k=1)=>number(n)&&number(d)&&d>0?n*k/d:null;
+function eventPct(label,events,gp,code){
+ // One decimal place and raw counts make small-sample event frequency legible.
+ // Missing GP or source events are held rather than represented as zero.
+ if(!number(events)||!number(gp)||gp<=0)return;
+ const value=per(events,gp,100);
+ if(!number(value))return;
+ add(label,show(value,1)+'%',events+' '+code+' / '+gp+' recorded GP');
+}
 const fetchJSON=async file=>{const r=await fetch('./'+file,{cache:'no-store'});if(!r.ok)throw Error(file+' unavailable');return r.json()};
 let sources;
 try{
@@ -54,9 +62,9 @@ function render(){
   if(number(a)&&number(p)&&p>0)add('Assist share of points',show(per(a,p,100),1)+'%','Recorded A / PTS');
   if(number(t.PPG)&&number(g)&&g>0)add('Power-play goal share',show(per(t.PPG,g,100),1)+'%','PPG is power-play goals');
   if(number(t.SHG)&&number(g)&&g>0)add('Short-handed goal share',show(per(t.SHG,g,100),1)+'%','SHG / all goals');
-  if(number(t.GWG)&&number(gp)&&gp>0)add('Game-winners / 100 GP',show(per(t.GWG,gp,100)),'Recorded GWG');
-  if(number(t.GTG)&&number(gp)&&gp>0)add('Game-tying goals / 100 GP',show(per(t.GTG,gp,100)),'Recorded GTG');
-  if(number(t.POTG)&&number(gp)&&gp>0)add('Player of Game / 100 GP',show(per(t.POTG,gp,100)),'Recorded POTG');
+  eventPct('Game-winning goals / GP',t.GWG,gp,'GWG');
+  eventPct('Game-tying goals / GP',t.GTG,gp,'GTG');
+  eventPct('Player of Game / GP',t.POTG,gp,'POTG');
   if(number(t.PIM)&&number(gp)&&gp>0)add('Penalty minutes / GP',show(per(t.PIM,gp)),'Recorded PIM');
   if(number(t.HAT))add('Career hat tricks',String(t.HAT),'Recorded actual');
   const complete=(skater.seasons||[]).filter(s=>s.Season!==currentSeason()).map(normalizedRate).filter(Boolean);
@@ -82,7 +90,7 @@ function render(){
   if(number(t.T))add('Career ties',String(t.T),'HTO recorded');
   if(number(t.SHO))add('Career shutouts',String(t.SHO),'HTO recorded');
   if(number(t.GA)&&number(gp)&&gp>0)add('Recorded GA / appearance',show(per(t.GA,gp)),'Historical GA and actual GP');
-  if(number(t.POTG)&&number(gp)&&gp>0)add('Player of Game / 100 GP',show(per(t.POTG,gp,100)),'Published goalie POTG');
+  eventPct('Player of Game / GP',t.POTG,gp,'POTG');
   if(number(t.PIM)&&number(gp)&&gp>0)add('Penalty minutes / GP',show(per(t.PIM,gp)),'Recorded goalie PIM');
   status.textContent+=' · Save % and shots omitted: source reliability not established.';
  }
