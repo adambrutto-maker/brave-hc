@@ -23,6 +23,7 @@ on:
       - 'tests/test_player_bio_positive_streaks.cjs'
       - 'tests/test_player_bio_game_night_assignment_browser.cjs'
       - 'tests/test_countdown_lineup_review_browser.cjs'
+      - 'tests/test_countdown_lineup_approved_image_browser.cjs'
       - 'widgets/player-bio-premium.css'
       - 'widgets/player-bio-collection.css'
       - 'widgets/player-bio-advanced.js'
@@ -108,6 +109,8 @@ jobs:
         run: node tests/test_player_bio_game_night_assignment_browser.cjs
       - name: Test original Excel card remains hidden until manager approval
         run: node tests/test_countdown_lineup_review_browser.cjs
+      - name: Verify original-card PNG SHA-256, approval identity, tamper refusal and revocation
+        run: node tests/test_countdown_lineup_approved_image_browser.cjs
       - name: Test polished player Bio across 109 HTO profiles and responsive viewports
         run: node tests/test_player_bio_premium_browser.cjs
       - name: Test Milestone-style collection, deep analytics, role switching and four mobile/desktop layouts
