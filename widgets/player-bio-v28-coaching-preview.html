@@ -52,7 +52,10 @@ font:800 11px/1.5 system-ui,Arial,sans-serif;text-align:center;padding:8px 12px;
 .v27-review-banner strong{color:#fff}
 </style>
 <link rel="stylesheet" href="./player-bio-coaching-library-v28-preview.css">
+<link rel="stylesheet" href="./player-bio-rink-tactics-v29-preview.css">
 <script defer src="./player-bio-coaching-library-v28-preview.js"></script>
+<script defer src="./player-bio-rink-tactics-v29-preview.js"></script>
+<script defer src="./player-bio-expanded-analytics-v29-preview.js"></script>
 </head>
 <body><div id="bioV27ReviewBanner" class="v27-review-banner" role="status">
 <strong>REVIEW ONLY — BIO V2.8 VIDEO PLAYBOOK</strong> · Original HTO Bio remains live · No private lineups or coaching published
@@ -161,6 +164,12 @@ font:800 11px/1.5 system-ui,Arial,sans-serif;text-align:center;padding:8px 12px;
  <div id="bioDevelopmentGrid" class="bio-analytics-grid"></div>
  <div id="bioDevelopmentChart" class="bio-spark-panel" aria-label="Qualified season progression"></div>
  <p id="bioDevelopmentSource" class="bio-source-line"></p>
+ <details id="bioExtendedAnalytics" class="bio-evidence" aria-label="Additional verified advanced career analytics">
+ <summary>More advanced analytics · scoring and consistency</summary>
+ <div id="bioExtendedMetrics" class="bio-extended-grid" aria-live="polite"></div>
+ <p id="bioExtendedStatus" class="bio-soft-note">Loading separately sourced HTO analytics…</p>
+ <p class="bio-soft-note">Actual historical records remain unchanged. Only verified season formats are normalized; missing components are omitted.</p>
+</details>
  <details id="bioOtherMetrics" class="bio-evidence"><summary>More analytics</summary>
   <div id="bioScoringMix" class="bio-scoring-mix" hidden></div>
   <div id="bioSecondaryMetrics" class="bio-secondary-grid"></div>
@@ -204,16 +213,41 @@ font:800 11px/1.5 system-ui,Arial,sans-serif;text-align:center;padding:8px 12px;
   </div>
   <p class="bio-coach-source" id="bioCoachSource"></p>
  </div>
+<section id="bioTacticBoard" aria-label="Illustrative animated hockey coaching board">
+ <div class="board-kicker">BRAVE H.C. // ANIMATED TACTICS <span>COACH VIEW</span></div>
+ <p class="board-note">Moving player markers and puck paths show general tactics, not a confirmed game plan.</p>
+ <div class="board-modes" role="group" aria-label="Choose a tactics demonstration">
+  <button data-tactic="forecheck" aria-pressed="true" type="button">1–2–2</button>
+  <button data-tactic="breakout" aria-pressed="false" type="button">Breakout</button>
+  <button data-tactic="coverage" aria-pressed="false" type="button">Coverage</button>
+ </div>
+ <svg role="img" aria-label="Hockey rink with player and puck positions animated across four steps" viewBox="0 0 360 205">
+  <rect x="2" y="2" width="356" height="200" rx="39" fill="#e9f4f8" stroke="#9ec1d2" stroke-width="4"/>
+  <rect x="18" y="17" width="324" height="170" rx="29" fill="none" stroke="#c6dbe5" stroke-width="1.5"/>
+  <path d="M121 3V201M239 3V201" stroke="#4878bc" stroke-width="3"/>
+  <path d="M180 3V201" stroke="#c04d61" stroke-width="2" stroke-dasharray="5 3"/>
+  <circle cx="180" cy="102" r="27" fill="none" stroke="#c35a6c" stroke-width="2"/>
+  <g fill="none" stroke="#cf566b" stroke-width="1.7"><circle cx="77" cy="66" r="21"/><circle cx="77" cy="144" r="21"/><circle cx="283" cy="66" r="21"/><circle cx="283" cy="144" r="21"/></g>
+  <path d="M36 87H13V118H36M324 87H347V118H324" fill="none" stroke="#d96f83" stroke-width="3"/>
+ </svg>
+ <div class="board-readout"><span id="bioTacticStep">STEP 1/4</span><strong id="bioTacticCaption">Hold 1–2–2 shape</strong><span id="bioTacticHint">F1 approaches the carrier while support lanes remain covered.</span></div>
+ <div class="board-controls">
+  <button type="button" id="bioTacticPlay">▶ Play</button>
+  <button type="button" id="bioTacticNext">Next step ↗</button>
+  <button type="button" id="bioTacticReset">↺ Reset</button>
+ </div>
+ <div class="board-legend"><span class="legend-dot blue"></span>Team <span class="legend-dot red"></span>Opponent <span class="legend-dot puck"></span>Puck</div>
+</section>
  <section id="bioVideoPlaybook" aria-label="Public coaching reference-video library">
   <div class="playbook-head">
-   <div><div class="playbook-kicker">BRAVE H.C. // VIDEO PLAYBOOK</div>
-    <h3>Training Library</h3>
-    <p class="playbook-sub">Hockey systems, position skills and practice drills</p></div>
+   <div><div class="playbook-kicker">BRAVE H.C. // VISUAL COACHING LIBRARY</div>
+    <h3>Animated Training Resources</h3>
+    <p class="playbook-sub">Publisher-hosted rink diagrams, moving players and coaching videos</p></div>
    <span id="playbookCount" class="playbook-count" aria-live="polite">LOADING</span>
   </div>
-  <div id="playbookFilters" class="playbook-filters" role="group" aria-label="Filter coaching videos"></div>
+  <div id="playbookFilters" class="playbook-filters" role="group" aria-label="Filter coaching resources"></div>
   <div id="playbookList" class="playbook-list" aria-live="polite"></div>
-  <p class="playbook-note">Public YouTube reference lessons · The coach sets team assignments.</p>
+  <p class="playbook-note">Links open the original publishers. No unverified embeds or private footage.</p>
   <details id="playbookAdvanced" class="playbook-disclosure">
    <summary>More from the playbook</summary>
    <div class="playbook-guidance">
