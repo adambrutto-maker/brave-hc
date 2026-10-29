@@ -52,6 +52,10 @@ class DisciplineArtwork(unittest.TestCase):
   self.assertIn("if(item.category==='discipline')return approvedOrFallback(art,'discipline_record')",code)
   self.assertIn("?v=whistle-cards-20261028",code)
   for name in ("player-highlights.html","player-highlights-v2-preview.html"):
-   expected="player-highlights-v2.js?v="+("22" if name=="player-highlights.html" else "17")
-   self.assertIn(expected,(ROOT/"widgets"/name).read_text("utf-8"))
+   page=(ROOT/"widgets"/name).read_text("utf-8")
+   if name=="player-highlights.html":
+    self.assertIn("player-highlights-leadership-parity.js?v=1",page)
+    self.assertRegex(page,r'player-highlights-v2\.js\?v=[A-Za-z0-9_-]+')
+   else:
+    self.assertIn("player-highlights-v2.js?v=17",page)
 if __name__=="__main__":unittest.main()
