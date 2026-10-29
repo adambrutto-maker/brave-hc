@@ -26,6 +26,7 @@ const server=http.createServer((req,res)=>{
    assert.equal(await p.locator('#bioTabs .bio-tab-label').count(),3);
    assert.equal(await p.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1),false);
    if(kind!=='goalie'){
+     await p.click('#bioTabs button[data-bio-view="trends"]');
      const chart=p.locator('#bioComboChart svg');
      assert.equal(await chart.count(),1,'source scoring graph');
      assert.equal(await p.locator('[data-bar-label="G"]').count()>0,true);
@@ -50,13 +51,14 @@ const server=http.createServer((req,res)=>{
    }
    const cards=await p.locator('#bioProjectionCards .bio-metric-icon').count();
    if(id==='354060'){
-     assert.equal(cards,5,'icon-led full-season forecast visible by default');
+     await p.click('#bioTabs button[data-bio-view="production"]');
+     assert.equal(cards,5,'full-season forecast source cards preserved');
      assert.equal(await p.locator('#bioProjectionFull').evaluate(e=>e.open),false,'only source detail collapsed');
-     assert.equal(await p.locator('#bioProjectionHeadline').isVisible(),true);
-     assert.match(await p.locator('.bio-forecast-kicker').innerText(),/END OF SEASON/);
+     assert.match(await p.locator('#bioProjectionHeadline').textContent(),/Full regular-season projection/);
+     assert.match(await p.locator('.bio-forecast-kicker').innerText(),/FULL-SEASON ESTIMATE/);
      assert.match(await p.locator('#bioProjectionTrend').innerText(),/Projected season-finish trend vs career/);
      assert.equal(await p.locator('#bioProjectionCards .bio-stat-icon').count(),5);
-     assert.equal(await p.locator('#bioProjectionCards .bio-metric-icon').first().locator('.value').innerText(),'22.6');
+     assert.equal(await p.locator('#bioProjectionCards .bio-metric-icon').first().locator('.value').innerText(),'23');
    }
    await p.click('#bioTabs button[data-bio-view="trends"]');
    if(kind!=='goalie'){
