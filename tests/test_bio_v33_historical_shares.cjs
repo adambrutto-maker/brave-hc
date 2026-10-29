@@ -37,7 +37,7 @@ test('source-observed skater and full-roster totals match known archived HTO sum
  }
  const goals=r('354060','skater','G');
  assert.equal(goals.roleProfiles,87);
- assert.equal(goals.missingMetricCount,30);
+ assert.equal(goals.missingMetricCount,46,'103 verified career profiles screened; 57 publish G, including only skaters');
  assert.equal(goals.scope,'all','All-time goals screen skater + goalie archive roles');
 });
 test('goalie contribution compares historically published totals rather than inventing missing goalie values',()=>{
