@@ -8,6 +8,7 @@ on:
       - 'widgets/player-highlights-leadership-parity.js'
       - 'widgets/player-bio-leadership.json'
       - 'tests/test_highlights_leadership_parity.cjs'
+      - 'scripts/test-player-highlights-v2.cjs'
       - 'tests/test_highlights_leadership_browser.cjs'
       - 'tests/test_transparent_badge_background.py'
       - 'widgets/player-highlights.html'
