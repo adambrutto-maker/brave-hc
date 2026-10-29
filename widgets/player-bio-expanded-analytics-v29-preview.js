@@ -25,7 +25,7 @@ try{
  sources={career,formats,projection};
 }catch{status.textContent='Advanced analytics held: verified HTO/format source unavailable.';return;}
 function currentSeason(){
- const m=/^([WS])(20\\d{2})\\/(\\d{2})$/.exec(sources.projection.season||'');
+ const m=/^([WS])(20\d{2})\/(\d{2})$/.exec(sources.projection.season||'');
  if(!m)return null;
  return (m[1]==='W'?'Winter ':'Summer ')+m[2]+(m[1]==='W'?'/20'+m[3]:'');
 }
