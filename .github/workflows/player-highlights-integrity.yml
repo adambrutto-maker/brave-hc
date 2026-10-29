@@ -9,6 +9,7 @@ on:
       - 'widgets/player-bio-leadership.json'
       - 'tests/test_highlights_leadership_parity.cjs'
       - 'tests/test_highlights_leadership_browser.cjs'
+      - 'tests/test_transparent_badge_background.py'
       - 'widgets/player-highlights.html'
       - 'widgets/player-highlights-v2-preview.html'
       - 'widgets/player-highlights-ledger.json'
