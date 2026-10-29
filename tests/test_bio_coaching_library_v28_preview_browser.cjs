@@ -27,6 +27,11 @@ const server=http.createServer((req,res)=>{
     const page=await browser.newPage({viewport:{width,height:900}});
     const errors=[];page.on('pageerror',e=>errors.push(e.message));
     await page.route('**/*',r=>new URL(r.request().url()).origin===origin?r.continue():r.abort());
+    const privateAttendanceFile=process.env.BRAVE_PRIVATE_ATTENDANCE_PREVIEW;
+    if(privateAttendanceFile){
+      const privateAttendance=fs.readFileSync(privateAttendanceFile,'utf8');
+      await page.route('**/player-bio-attendance-verified-v30-preview.json',r=>r.fulfill({contentType:'application/json',body:privateAttendance}));
+    }
     const response=await page.goto(origin+'/widgets/player-bio-v28-coaching-preview.html?playerID='+playerID+'&embed=1',{waitUntil:'domcontentloaded'});
     assert.equal(response.status(),200);
     await page.locator('[data-bio-view="coaching"]').click();
@@ -59,6 +64,27 @@ const server=http.createServer((req,res)=>{
     await page.locator('#bioExtendedMetrics .bio-extended-stat').first().waitFor({timeout:8000});
     const advanced=await page.locator('#bioExtendedMetrics .bio-extended-stat').count();
     assert.ok(advanced>=4,'Expected derived stats for verified career data');
+    const careerAttCard=page.locator('#bioExtendedMetrics .bio-extended-stat').filter({hasText:'Career roster-adjusted attendance'});
+    const seasonAttCard=page.locator('#bioExtendedMetrics .bio-extended-stat').filter({hasText:'Season roster-adjusted attendance'});
+    assert.equal(await careerAttCard.count(),1);
+    assert.equal(await seasonAttCard.count(),1);
+    if(privateAttendanceFile){
+      const expected=playerID===354060?{career:'90.8%',rank:'#12/36'}:{career:'82.0%',rank:'#4/6'};
+      assert.equal(await careerAttCard.locator('.bio-extended-value').innerText(),expected.career,'Workbook score');
+      assert.equal(await careerAttCard.locator('.bio-extended-rank').innerText(),expected.rank,'Roster-adjusted rank');
+      if(playerID===354060){
+        assert.equal(await seasonAttCard.locator('.bio-extended-value').innerText(),'100.0%','Current FT appearances / contested team games');
+        assert.match(await seasonAttCard.locator('.bio-extended-basis').innerText(),/5 \/ 5 eligible/);
+      }else{
+        assert.equal(await seasonAttCard.locator('.bio-extended-value').innerText(),'—','Goalie current source held');
+      }
+    }else{
+      assert.equal(await careerAttCard.locator('.bio-extended-value').innerText(),'—','No private attendance publication until approved');
+      assert.equal(await careerAttCard.locator('.bio-extended-rank').count(),0,'No invented attendance ranking');
+    }
+    assert.ok(await page.locator('#bioExtendedMetrics .bio-extended-rank').count()>=1,
+      'Source-qualified HTO event rates receive ranking chips');
+    assert.equal(await page.locator('#bioExtendedMetrics .bio-extended-rank').first().evaluate(el=>getComputedStyle(el).position),'absolute');
     const rateCards=await page.locator('#bioExtendedMetrics .bio-extended-stat').evaluateAll(cards=>
       cards.map(c=>({
         label:c.querySelector('.bio-extended-label')?.textContent.trim(),
