@@ -52,7 +52,9 @@ class IdentityContractQA(unittest.TestCase):
         entry["allTime"]={"gp":0,"w":0,"l":0,"t":0,"gf":0,"ga":0}
         with self.assertRaisesRegex(m.IdentityHold,"NO_HISTORY_MUST_NOT_BECOME_ZERO"):m.validate(*args)
     def test_duplicate_division_identity_fails(self):
-        args=list(data());args[0]["teams"][0]["name"]="Mohawks HC"
+        args=list(data())
+        target=next(t for t in args[0]["teams"] if t["name"] not in ("Mohawks HC","Braves HC"))
+        target["name"]="Mohawks HC"
         with self.assertRaisesRegex(m.IdentityHold,"DIVISION_TEAM_SOURCE_IDENTITIES_CHANGED"):m.validate(*args)
     def test_release_source_proof_cannot_approve_full_franchise_merge(self):
         args=list(data());args[2]["franchiseHistoryMerged"]=True
