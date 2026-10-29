@@ -1,0 +1,120 @@
+{
+  "schema": "brave-hc-coaching-reference-video-library/v1",
+  "status": "REVIEW_ONLY_NO_PRODUCTION_RELEASE",
+  "asOf": "2026-10-29",
+  "publicationPolicy": "PUBLIC_THIRD_PARTY_YOUTUBE_REFERENCE_ONLY",
+  "guidance": "General public coaching education only. Original publishers retain ownership. No rehosting, autoplay, unverified personal player advice, or private/game video.",
+  "note": "Homepage YouTube embed ID recovered from prior archived website markup; video title/topic unverified. Playback and embedding permissions are not yet acceptance-verified.",
+  "categories": [
+    {
+      "id": "all",
+      "label": "All"
+    },
+    {
+      "id": "featured",
+      "label": "Featured"
+    },
+    {
+      "id": "systems",
+      "label": "Systems"
+    },
+    {
+      "id": "skills",
+      "label": "Skills"
+    },
+    {
+      "id": "defence",
+      "label": "Defence"
+    },
+    {
+      "id": "goalie",
+      "label": "Goalie"
+    }
+  ],
+  "videos": [
+    {
+      "id": "brave-home",
+      "youtubeId": "01jwwgblUfU",
+      "title": "From the Brave H.C. home screen",
+      "publisher": "Existing Brave H.C. homepage embed",
+      "category": "featured",
+      "skill": "Featured video",
+      "duration": "",
+      "focus": "A previously embedded team-homepage YouTube video; its exact title is not confirmed.",
+      "sourceUrl": "https://www.youtube.com/embed/01jwwgblUfU?si=EbPn9iLtZRimVG6q",
+      "sourceStatus": "EXISTING_RECORDED_EMBED_TITLE_UNCONFIRMED"
+    },
+    {
+      "id": "forecheck-122",
+      "youtubeId": "zHvqeFA9-WE",
+      "title": "The Aggressive 1–2–2 Forecheck",
+      "publisher": "Weiss Tech Hockey / Jeremy Weiss",
+      "category": "systems",
+      "skill": "Forecheck",
+      "duration": "",
+      "focus": "An example of aggressive forecheck shape and adjusting to chip-and-chase exits.",
+      "sourceUrl": "https://weisstechhockey.com/aggressive-1-2-2-forecheck/",
+      "sourceStatus": "PUBLISHER_ARTICLE_LINK_VERIFIED"
+    },
+    {
+      "id": "game-tactics",
+      "youtubeId": "ZD8cMYBVkTc",
+      "title": "Game Tactics Training Intensive",
+      "publisher": "iTrain Hockey",
+      "category": "systems",
+      "skill": "Game tactics",
+      "duration": "3:22",
+      "focus": "General tactical concepts to review alongside the team's 1–2–2 playbook.",
+      "sourceUrl": "https://portcredithockey.com/about-us/parent-resources/training-videos/",
+      "sourceStatus": "ASSOCIATION_CURATED_LINK_VERIFIED"
+    },
+    {
+      "id": "puck-protect",
+      "youtubeId": "Juwbmk2rSqA",
+      "title": "Puck Protection",
+      "publisher": "iTrain Hockey",
+      "category": "skills",
+      "skill": "Puck handling",
+      "duration": "1:29",
+      "focus": "Protect possession under pressure in puck battles.",
+      "sourceUrl": "https://portcredithockey.com/about-us/parent-resources/training-videos/",
+      "sourceStatus": "ASSOCIATION_CURATED_LINK_VERIFIED"
+    },
+    {
+      "id": "accel-decel",
+      "youtubeId": "PooWB9PcLqU",
+      "title": "Acceleration and Deceleration",
+      "publisher": "iTrain Hockey",
+      "category": "skills",
+      "skill": "Skating",
+      "duration": "2:24",
+      "focus": "Improve starts, stops, agility and defensive recovery footwork.",
+      "sourceUrl": "https://portcredithockey.com/about-us/parent-resources/training-videos/",
+      "sourceStatus": "ASSOCIATION_CURATED_LINK_VERIFIED"
+    },
+    {
+      "id": "one-touch-pass",
+      "youtubeId": "ikYpAt4vQaI",
+      "title": "One-Touch Pass and Move",
+      "publisher": "Hockey Canada",
+      "category": "skills",
+      "skill": "Passing",
+      "duration": "1:53",
+      "focus": "Move after passing to offer a new supporting option.",
+      "sourceUrl": "https://portcredithockey.com/about-us/parent-resources/training-videos/",
+      "sourceStatus": "ASSOCIATION_CURATED_LINK_VERIFIED"
+    },
+    {
+      "id": "defence-retrieval",
+      "youtubeId": "biOZ7TzMm_Q",
+      "title": "Defence Retrieval with Pressure",
+      "publisher": "Hockey Canada",
+      "category": "defence",
+      "skill": "Retrievals",
+      "duration": "1:13",
+      "focus": "Retrieve under forecheck pressure and prepare a safe breakout.",
+      "sourceUrl": "https://portcredithockey.com/about-us/parent-resources/training-videos/",
+      "sourceStatus": "ASSOCIATION_CURATED_LINK_VERIFIED"
+    }
+  ]
+}
