@@ -13,6 +13,8 @@ on:
       - 'widgets/player-bio-premium.js'
       - 'widgets/player-bio-current-v31.js'
       - 'widgets/player-bio-expanded-analytics-v31.js'
+      - 'widgets/player-bio-alltime-share-v33.js'
+      - 'widgets/player-bio-alltime-share-v33.css'
       - 'widgets/player-bio-attendance-rank-v31.js'
       - 'widgets/player-bio-attendance-verified-v31.json'
       - 'widgets/player-bio-rink-tactics-v31.js'
@@ -27,6 +29,9 @@ on:
       - 'tests/test_bio_v31_clean_attendance_rank.cjs'
       - 'tests/test_bio_v31_clean_coaching_browser.cjs'
       - 'tests/test_bio_v32_percent_and_cohort_browser.cjs'
+      - 'tests/test_bio_v33_historical_shares.cjs'
+      - 'tests/test_bio_v33_content_browser.cjs'
+      - 'docs/261029_Bio_V33_Five_Pass_All_Time_Content_Audit.md'
       - 'widgets/player-bio-coaching-roles.js'
       - 'widgets/player-bio-positive-streaks.js'
       - 'tests/test_player_bio_v27_browser.cjs'
@@ -84,6 +89,7 @@ jobs:
           node --check widgets/player-bio-premium.js
           node --check widgets/player-bio-current-v31.js
           node --check widgets/player-bio-expanded-analytics-v31.js
+          node --check widgets/player-bio-alltime-share-v33.js
           node --check widgets/player-bio-attendance-rank-v31.js
           node --check widgets/player-bio-rink-tactics-v31.js
           node --check widgets/player-bio-coaching-library-v31.js
@@ -107,6 +113,8 @@ jobs:
         run: node --test tests/test_bio_v31_clean_attendance_rank.cjs
       - name: Verify public attendance data stays held until separately authorized
         run: node -e "const d=require('./widgets/player-bio-attendance-verified-v31.json');if(d.status!=='HELD_PENDING_DERIVED_DATA_PUBLICATION_APPROVAL'||Object.keys(d.players||{}).length>0){process.exit(2)}"
+      - name: Verify published all-time Braves career contributions across 109 historical HTO profiles
+        run: node --test tests/test_bio_v33_historical_shares.cjs
       - name: Verify advanced stats calculations and fail-closed source coverage
         run: node --test tests/test_player_bio_advanced.cjs
       - name: Verify scoring titles are generated only from current public HTO awards sources
@@ -129,6 +137,8 @@ jobs:
         run: node tests/test_bio_v31_clean_coaching_browser.cjs
       - name: Verify percent-of-GP legacy and advanced rates and 10-GP qualifying ranks
         run: node tests/test_bio_v32_percent_and_cohort_browser.cjs
+      - name: Verify deduplicated V3.3 all-time shares and source holds on 16 mobile/desktop cases
+        run: node tests/test_bio_v33_content_browser.cjs
       - name: Test all 109 verified HTO identities across three tabs at narrow embed width
         run: node tests/test_bio_v31_clean_109_browser.cjs
       - name: Test visual Bio V3.1 (chart labels, whole-GP forecast, role explorer)
