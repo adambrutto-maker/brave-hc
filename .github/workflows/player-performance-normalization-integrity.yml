@@ -37,6 +37,7 @@ on:
       - 'widgets/player-bio-trend-visual-v36.js'
       - 'widgets/player-bio-trend-visual-v36.css'
       - 'widgets/player-bio-v361-layout.css'
+      - 'widgets/player-bio-v362-panel.css'
       - 'docs/261029_Bio_V33_Five_Pass_All_Time_Content_Audit.md'
       - 'widgets/player-bio-coaching-roles.js'
       - 'widgets/player-bio-positive-streaks.js'
@@ -148,7 +149,7 @@ jobs:
       # Historical V3.4 visual tests are superseded by V3.6 center, angle, motion and source checks.
       - name: Validate V3.6 original source sigma, personalized bearings and missing-data holds
         run: node --test tests/test_bio_v36_source_angle.cjs
-      - name: Verify V3.6.1 right-hand badge and bordered career rate across 4 widths
+      - name: Verify V3.6.2 condition-matched panel, arrow, layout and reduced motion
         run: node tests/test_bio_v36_angular_animation_browser.cjs
       - name: Test all 109 verified HTO identities across three tabs at narrow embed width
         run: node tests/test_bio_v31_clean_109_browser.cjs
