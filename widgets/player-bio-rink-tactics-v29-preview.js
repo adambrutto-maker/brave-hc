@@ -40,7 +40,7 @@ function draw(index,animate){
  progress.textContent='STEP '+(step+1)+'/4';prompt.textContent=scene.caption;hint.textContent=scene.tip;
  cancelAnimationFrame(frame);
  if(!animate||window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches){apply(scene.p);return;}
- const from=names.map(name=>{const t=elements[name].getAttribute('transform')||'';const m=/translate\\(([-\\d.]+)[, ]+([-\\d.]+)\\)/.exec(t);return m?[Number(m[1]),Number(m[2])]:scene.p[names.indexOf(name)];});
+ const from=names.map(name=>{const t=elements[name].getAttribute('transform')||'';const m=/translate\(([-\d.]+)[, ]+([-\d.]+)\)/.exec(t);return m?[Number(m[1]),Number(m[2])]:scene.p[names.indexOf(name)];});
  const start=performance.now();
  function tick(now){const a=Math.min(1,(now-start)/720),e=a*a*(3-2*a);
   apply(scene.p.map((point,i)=>point.map((v,j)=>+(from[i][j]+(v-from[i][j])*e).toFixed(2))));
