@@ -466,3 +466,28 @@ body{font-family:Arial,"Helvetica Neue",sans-serif;color:#eef4fb}
   .bio-career-arrow-panel .bio-trend-arrow-inset .bio-trend-direction-arrow{
     flex-basis:54px;width:54px;height:43px}
 }
+
+/* V3.4 refinement — retain the existing card; the σ-driven arrow, shaded
+   inset and miniature gradient icon share one continuous visual temperature.
+   The badge footprint is fixed; only the artwork gently scales. */
+.bio-career-arrow-panel .bio-trend-arrow-inset[data-arrow-category="Warm"],
+.bio-career-arrow-panel .bio-trend-arrow-inset[data-arrow-category="Hot"],
+.bio-career-arrow-panel .bio-trend-arrow-inset[data-arrow-category="Cool"],
+.bio-career-arrow-panel .bio-trend-arrow-inset[data-arrow-category="Cold"]{
+  background:linear-gradient(140deg,#f8fbff,var(--trend-tone,#e2eaf3));
+  border-color:var(--trend-accent,#aebfce);
+}
+.bio-career-arrow-panel .bio-trend-temperature-badge{
+  width:22px;height:22px;top:2px;left:2px;
+  background:linear-gradient(155deg,#fff7d7,var(--temp-accent,#eca145));
+  border-color:#fff2d4;box-shadow:0 1px 3px #081a2a99;
+}
+.bio-career-arrow-panel [data-temperature="ice"].bio-trend-temperature-badge{
+  background:linear-gradient(155deg,#f1fcff,var(--temp-accent,#82bada));
+  border-color:#e0f6ff;
+}
+.bio-career-arrow-panel .bio-trend-temperature-icon{
+  width:18px;height:18px;overflow:visible;
+  transform:scale(var(--temp-scale,1));
+  transform-origin:center;
+}

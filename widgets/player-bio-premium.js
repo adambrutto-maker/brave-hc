@@ -502,23 +502,91 @@ function paintProjectionTrend(row,projection){
   host.replaceChildren();detail.textContent='';
   host.dataset.trendState='HELD';
   host.className='bio-trend-summary';
-  // A fixed-size arrow inset preserves the approved Bio card and centres
-  // every angle. Temperature badges reflect workbook categories, never angle.
-  const appendArrowInset=(graphic,category)=>{
+  // V3.4: visual-only temperature intensity follows the same verified z-score
+  // as the arrow angle. This NEVER changes workbook 5Arrows classifications.
+  const clamp01=value=>Math.max(0,Math.min(1,value));
+  const mixHex=(a,b,t)=>{
+    const left=[1,3,5].map(i=>parseInt(a.slice(i,i+2),16));
+    const right=[1,3,5].map(i=>parseInt(b.slice(i,i+2),16));
+    return '#'+left.map((v,i)=>Math.round(v+(right[i]-v)*clamp01(t))
+      .toString(16).padStart(2,'0')).join('');
+  };
+  const temperatureAppearance=z=>{
+    const hot=z>=0,amount=Math.abs(z);
+    // Low heat: yellow; stronger heat: orange; maximum: red.
+    // Cool: light ice/water; cold: bright blue; deep cold: dark ice.
+    const stops=hot?
+      [[0,'#dce6ee'],[.5,'#f6cf53'],[1.25,'#ef9630'],[2,'#d82b42']]:
+      [[0,'#dce6ee'],[1,'#b1dff1'],[1.8,'#5ca9d8'],[2.75,'#134e8a']];
+    let color=stops[stops.length-1][1];
+    for(let i=1;i<stops.length;i++){
+      if(amount<=stops[i][0]){
+        const [begin,first]=stops[i-1],[end,last]=stops[i];
+        color=mixHex(first,last,(amount-begin)/(end-begin));
+        break;
+      }
+    }
+    const intensity=hot?clamp01((z-.5)/1.5):clamp01((amount-1)/1.75);
+    return {color,intensity,
+      tone:mixHex('#f6fafc',color,.24+.28*intensity),
+      size:(.84+.16*intensity).toFixed(3),
+      state:intensity<.34?'mild':intensity<.78?'building':'maximum'};
+  };
+  const appendArrowInset=(graphic,category,appearance)=>{
     const inset=build('span',undefined,'bio-trend-arrow-inset');
     inset.dataset.arrowCategory=category;
+    if(appearance){
+      inset.style.setProperty('--trend-tone',appearance.tone);
+      inset.style.setProperty('--trend-accent',appearance.color);
+    }
     inset.append(graphic);
-    if(category==='Hot'||category==='Cold'){
+    const flame=category==='Warm'||category==='Hot';
+    const ice=category==='Cool'||category==='Cold';
+    if((flame||ice)&&appearance){
       const badge=build('span',undefined,'bio-trend-temperature-badge');
+      badge.dataset.temperature=flame?'flame':'ice';
+      badge.dataset.intensity=appearance.intensity.toFixed(3);
+      badge.dataset.temperatureStage=appearance.state;
+      badge.style.setProperty('--temp-accent',appearance.color);
+      badge.style.setProperty('--temp-scale',appearance.size);
       badge.setAttribute('aria-hidden','true');
       const icon=svg('svg',{viewBox:'0 0 24 24',class:'bio-trend-temperature-icon',focusable:'false'});
-      if(category==='Hot'){
+      const defs=svg('defs',{});
+      const gradient=svg('linearGradient',{id:flame?'bioTrendFlameGradient':'bioTrendIceGradient',
+        x1:'5%',y1:'100%',x2:'90%',y2:'0%'});
+      if(flame){
+        gradient.append(svg('stop',{offset:'0%','stop-color':'#fff2a8'}),
+          svg('stop',{offset:'48%','stop-color':'#ffa82c'}),
+          svg('stop',{offset:'100%','stop-color':appearance.color}));
+        defs.append(gradient);icon.append(defs);
         icon.append(svg('path',{d:'M12 2c.6 3.5 5.8 5.2 5.8 11.1A5.8 5.8 0 0 1 12 21a5.8 5.8 0 0 1-5.8-5.9c0-2.8 1.6-5.6 4.3-8.4-.1 2.2.3 3.5 1.1 4.4 1-2.6.8-5.9.4-9.1Z',
-          fill:'currentColor'}));
+          fill:'url(#bioTrendFlameGradient)',stroke:'#a85426','stroke-width':.55}));
+        icon.append(svg('path',{d:'M12.4 12.2c.3 1.3 2.2 2.6 2.2 4.1a2.7 2.7 0 0 1-5.4 0c0-1.6 1.1-3 2.1-4.3-.1 1.2.1 1.9.5 2.3.5-.7.7-1.3.6-2.1Z',
+          fill:'#fff4bd',opacity:.9}));
       }else{
-        icon.append(svg('path',{d:'M12 2.7 20 7.4v9.2L12 21.3 4 16.6V7.4L12 2.7Z M4 7.4 12 12l8-4.6 M12 12v9.3',
-          fill:'none',stroke:'currentColor','stroke-width':1.8,
-          'stroke-linejoin':'round','stroke-linecap':'round'}));
+        gradient.append(svg('stop',{offset:'0%','stop-color':'#effaff'}),
+          svg('stop',{offset:'50%','stop-color':'#8fd4f2'}),
+          svg('stop',{offset:'100%','stop-color':appearance.color}));
+        defs.append(gradient);icon.append(defs);
+        // Melting progresses in reverse: tiny cube and a puddle at first
+        // Cool, larger cube/less puddle at medium cold, solid ice at maximum.
+        const t=appearance.intensity;
+        icon.append(svg('ellipse',{cx:12,cy:20.4,rx:(7.1-2*t).toFixed(2),
+          ry:(1.8-.5*t).toFixed(2),fill:appearance.color,
+          opacity:(.75*(1-t)).toFixed(3),'data-ice-puddle':'true'}));
+        const cubeScale=(.58+.42*t).toFixed(3);
+        const cube=svg('g',{transform:'translate(12 11.5) scale('+cubeScale+') translate(-12 -11.5)',
+          'data-ice-cube':'true','data-cube-scale':cubeScale});
+        cube.append(svg('path',{d:'M12 3 20 8 12 12 4 8Z',fill:'#e2f8ff',
+          stroke:appearance.color,'stroke-width':.65,'stroke-linejoin':'round'}));
+        cube.append(svg('path',{d:'M4 8 12 12v8L4 16Z',
+          fill:'url(#bioTrendIceGradient)',stroke:appearance.color,
+          'stroke-width':.65,'stroke-linejoin':'round'}));
+        cube.append(svg('path',{d:'M12 12 20 8v8l-8 4Z',
+          fill:appearance.color,stroke:'#d7f4ff','stroke-width':.7,'stroke-linejoin':'round'}));
+        cube.append(svg('path',{d:'M6.8 10.6 10.4 12.5v4.3',
+          fill:'none',stroke:'#ffffff','stroke-width':.9,'stroke-opacity':.65}));
+        icon.append(cube);
       }
       badge.append(icon);inset.append(badge);
     }
@@ -536,6 +604,7 @@ function paintProjectionTrend(row,projection){
           ' standard deviations; '+direction.direction.toLowerCase()+' career baseline'});
       graphic.append(svg('title',{},'Career performance '+(result.relativeChange*100).toFixed(1)+
         '%, '+direction.zScore.toFixed(2)+' standard deviations from zero.'));
+      const appearance=temperatureAppearance(direction.zScore);
       const angle=direction.renderRotationDegrees.toFixed(3);
       const arrowShape='M11 25H60V14L89 32L60 50V39H11Z';
       const group=svg('g',{transform:'rotate('+angle+' 50 32)',
@@ -543,11 +612,11 @@ function paintProjectionTrend(row,projection){
         'data-z-score':direction.zScore.toFixed(4)});
       group.append(svg('path',{d:arrowShape,fill:'#061a2d',stroke:'#93aac1',
         'stroke-width':3.8,'stroke-linejoin':'round',opacity:.8}));
-      group.append(svg('path',{d:arrowShape,fill:direction.color,
+      group.append(svg('path',{d:arrowShape,fill:appearance.color,
         stroke:'#eff6fc','stroke-width':.9,'stroke-linejoin':'round'}));
       group.append(svg('path',{d:'M19 30H58',fill:'none',stroke:'#ffffff',
         'stroke-opacity':.38,'stroke-width':2,'stroke-linecap':'round'}));
-      graphic.append(group);appendArrowInset(graphic,result.name);
+      graphic.append(group);appendArrowInset(graphic,result.name,appearance);
     }
     const label=build('div',undefined,'bio-trend-copy');
     const signed=(result.relativeChange>0?'+':'')+(result.relativeChange*100).toFixed(1)+'%';
