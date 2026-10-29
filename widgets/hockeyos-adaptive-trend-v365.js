@@ -25,9 +25,10 @@
      (projection.workbookSourceHash||null)!==(doc.model.workbookSourceHash||null))
    return hold('DISPERSION_PROJECTION_SNAPSHOT_MISMATCH');
   const provisional=projection.modelCurrent!==true||projection.projectionComplete!==true;
+  // Reconciled projections can legitimately use a historical-only reference
+  // when current player coverage or freshness gates hold the live update.
   if(doc.model.provisional!==provisional||
-    (doc.status==='LIVE_DYNAMIC_VERIFIED'&&provisional)||
-    (doc.status==='HISTORICAL_REFERENCE_ONLY'&&!provisional))
+    (doc.status==='LIVE_DYNAMIC_VERIFIED'&&provisional))
    return hold('DYNAMIC_MODEL_RECONCILIATION_MISMATCH');
   const h=doc.historical,e=doc.effective;
   if(h?.status!=='HISTORICAL_REFERENCE_VERIFIED'||

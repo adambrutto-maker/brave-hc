@@ -95,6 +95,17 @@ test('verified current snapshot can progressively update scale without rewriting
  const wrongGP=structuredClone(feed);wrongGP.teamGP++;
  assert.equal(b.current(canonical,wrongGP,full.historical,new Date('2026-10-29T20:00:00Z')).status,'HELD');
 });
+test('reconciled forecast with incomplete current source retains historical-only calibration',()=>{
+ const model=structuredClone(p);model.modelCurrent=true;model.projectionComplete=true;
+ const stale=structuredClone(feed);stale.asOf='2020-01-01T00:00:00Z';
+ const fallback=b.build({projection:model,actual:stale,now:new Date('2026-10-29T20:00:00Z')});
+ assert.equal(fallback.status,'HISTORICAL_REFERENCE_ONLY');
+ assert.equal(fallback.current.status,'HELD');
+ assert.equal(fallback.current.reason,'CURRENT_SOURCE_STALE_OR_FUTURE');
+ assert.equal(fallback.effective.weight,0);
+ assert.equal(a.validate(fallback,model).status,'VERIFIED');
+ assert.equal(a.validate(fallback,p).status,'HELD','historical fallback cannot be bound to wrong forecast snapshot');
+});
 test('collective slump is never normalized away or described as neutral',()=>{
  const model=structuredClone(p);model.modelCurrent=true;model.projectionComplete=true;
  for(const row of model.players){
