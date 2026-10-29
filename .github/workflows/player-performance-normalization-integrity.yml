@@ -11,6 +11,21 @@ on:
       - 'tests/test_player_performance_normalization.cjs'
       - 'widgets/player-bio.html'
       - 'widgets/player-bio-premium.js'
+      - 'widgets/player-bio-current-v31.js'
+      - 'widgets/player-bio-expanded-analytics-v31.js'
+      - 'widgets/player-bio-attendance-rank-v31.js'
+      - 'widgets/player-bio-attendance-verified-v31.json'
+      - 'widgets/player-bio-rink-tactics-v31.js'
+      - 'widgets/player-bio-rink-tactics-v31.css'
+      - 'widgets/player-bio-season-outlook-v31.css'
+      - 'widgets/player-bio-coaching-library-v31.json'
+      - 'widgets/player-bio-coaching-library-v31.js'
+      - 'widgets/player-bio-coaching-library-v31.css'
+      - 'tests/test_bio_v31_clean_109_browser.cjs'
+      - 'tests/test_bio_v31_clean_three_tab_browser.cjs'
+      - 'tests/test_bio_v31_clean_negative_browser.cjs'
+      - 'tests/test_bio_v31_clean_attendance_rank.cjs'
+      - 'tests/test_bio_v31_clean_coaching_browser.cjs'
       - 'widgets/player-bio-coaching-roles.js'
       - 'widgets/player-bio-positive-streaks.js'
       - 'widgets/game-night-lineup-contract.js'
@@ -57,7 +72,7 @@ permissions:
 jobs:
   verify-normalization-contract:
     runs-on: ubuntu-latest
-    timeout-minutes: 12
+    timeout-minutes: 18
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -74,6 +89,11 @@ jobs:
       - name: Check premium Bio JavaScript and goalie forecast module syntax
         run: |
           node --check widgets/player-bio-premium.js
+          node --check widgets/player-bio-current-v31.js
+          node --check widgets/player-bio-expanded-analytics-v31.js
+          node --check widgets/player-bio-attendance-rank-v31.js
+          node --check widgets/player-bio-rink-tactics-v31.js
+          node --check widgets/player-bio-coaching-library-v31.js
           node --check widgets/player-bio-coaching-roles.js
           node --check widgets/player-bio-positive-streaks.js
           node --check widgets/game-night-lineup-contract.js
@@ -89,6 +109,10 @@ jobs:
       - name: Verify premium markup and required source integrity controls
         run: node -e "const fs=require('fs');const h=fs.readFileSync('widgets/player-bio.html','utf8');for(const x of ['id=\"bioTabs\"','id=\"bioComboChart\"','id=\"bioProjectionSection\"','id=\"bioGoalieSection\"','id=\"bioOpponentSection\"','player-bio-premium.js'])if(!h.includes(x))process.exit(2)"
 
+      - name: Verify official FT/CU/DI attendance formula and qualified player rankings
+        run: node --test tests/test_bio_v31_clean_attendance_rank.cjs
+      - name: Verify public attendance data stays held until separately authorized
+        run: node -e "const d=require('./widgets/player-bio-attendance-verified-v31.json');if(d.status!=='HELD_PENDING_DERIVED_DATA_PUBLICATION_APPROVAL'||Object.keys(d.players||{}).length>0){process.exit(2)}"
       - name: Verify advanced stats calculations and fail-closed source coverage
         run: node --test tests/test_player_bio_advanced.cjs
       - name: Verify scoring titles are generated only from current public HTO awards sources
@@ -103,7 +127,15 @@ jobs:
         run: npm install --no-package-lock --no-save playwright
       - name: Install browser for source-independent CI acceptance
         run: npx playwright install --with-deps chromium
-      - name: Test visual Bio V2.7 (chart labels, five-icon forecast, role explorer)
+      - name: Test approved three-panel V3.1 Outlook, Trends and Coaching UI at 320–1280px
+        run: node tests/test_bio_v31_clean_three_tab_browser.cjs
+      - name: Test missing/tampered source feeds fail closed in Season Outlook
+        run: node tests/test_bio_v31_clean_negative_browser.cjs
+      - name: Test public video sources, interactive rink board and advanced ranking chips
+        run: node tests/test_bio_v31_clean_coaching_browser.cjs
+      - name: Test all 109 verified HTO identities across three tabs at narrow embed width
+        run: node tests/test_bio_v31_clean_109_browser.cjs
+      - name: Test visual Bio V3.1 (chart labels, whole-GP forecast, role explorer)
         run: node tests/test_player_bio_v27_browser.cjs
       - name: Test source-held approved lineup assignment in player Bio
         run: node tests/test_player_bio_game_night_assignment_browser.cjs
