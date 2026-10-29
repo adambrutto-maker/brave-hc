@@ -43,7 +43,14 @@
    return /^\d+$/.test(id)&&p&&typeof p.name==='string'&&p.name.trim()&&
      [VERIFIED,'NO_PUBLISHED_STATS'].includes(p.status)&&
      (p.status!==VERIFIED||(Array.isArray(p.segments)&&p.segments.length>=1&&
-     p.segments.every(s=>(s.kind==='skater'||s.kind==='goalie')&&s.total&&number(s.total.GP)&&s.total.GP>0)));
+     p.segments.every(s=>{
+       if(!['skater','goalie'].includes(s.kind)||!s.total||!number(s.total.GP)||s.total.GP<=0)return false;
+       // If HTO publishes all three scoring fields they must reconcile, but a
+       // missing field remains unavailable rather than being coerced to zero.
+       const t=s.total;
+       if(number(t.G)&&number(t.A)&&number(t.Pts)&&t.G+t.A!==t.Pts)return false;
+       return true;
+     })));
   });
  }
  function sourceValue(player,m){
