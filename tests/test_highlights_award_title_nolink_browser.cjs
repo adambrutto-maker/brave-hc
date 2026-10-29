@@ -19,7 +19,8 @@ const server=http.createServer((req,res)=>{
 (async()=>{
  await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
  const browser=await chromium.launch({executablePath:process.env.BRAVE_CHROMIUM_PATH||undefined,headless:true,args:['--no-sandbox']});
- const page=await browser.newPage({viewport:{width:390,height:850}});
+ const width=Number(process.env.BRAVE_QA_WIDTH||390);
+ const page=await browser.newPage({viewport:{width,height:850}});
  const errors=[];page.on('pageerror',e=>errors.push(e.message));
  try{
   const origin='http://127.0.0.1:'+server.address().port;
@@ -49,7 +50,8 @@ const server=http.createServer((req,res)=>{
   });
   await page.locator('#link-scope-control a.brave-player-link').waitFor({timeout:5000});
   assert.match(await page.locator('#link-scope-control a').getAttribute('href'),/playerID=634098/);
+  assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1),false,'No narrow horizontal overflow');
   assert.deepEqual(errors,[]);
-  console.log('HIGHLIGHTS_AWARD_TITLE_NOLINK_PASS',JSON.stringify({awardTitlePlainText:true,allCollectionPlainText:true,historicalPlainText:true,playerLinkElsewhere:true,width:390}));
+  console.log('HIGHLIGHTS_AWARD_TITLE_NOLINK_PASS',JSON.stringify({awardTitlePlainText:true,allCollectionPlainText:true,historicalPlainText:true,playerLinkElsewhere:true,width}));
  }finally{await browser.close();await new Promise(resolve=>server.close(resolve));}
 })().catch(e=>{console.error(e);process.exitCode=1;});
