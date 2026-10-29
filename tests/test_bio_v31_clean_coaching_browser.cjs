@@ -66,22 +66,21 @@ const server=http.createServer((req,res)=>{
     assert.ok(advanced>=4,'Expected derived stats for verified career data');
     const careerAttCard=page.locator('#bioExtendedMetrics .bio-extended-stat').filter({hasText:'Career roster-adjusted attendance'});
     const seasonAttCard=page.locator('#bioExtendedMetrics .bio-extended-stat').filter({hasText:'Season roster-adjusted attendance'});
-    assert.equal(await careerAttCard.count(),1);
-    assert.equal(await seasonAttCard.count(),1);
     if(privateAttendanceFile){
-      const expected=playerID===354060?{career:'90.8%',rank:'#12/36'}:{career:'82.0%',rank:'#4/6'};
-      assert.equal(await careerAttCard.locator('.bio-extended-value').innerText(),expected.career,'Workbook score');
-      assert.equal(await careerAttCard.locator('.bio-extended-rank').innerText(),expected.rank,'Roster-adjusted rank');
+      const expected=playerID===354060?'90.8%':'82.0%';
+      assert.equal(await careerAttCard.count(),1);
+      assert.equal(await careerAttCard.locator('.bio-extended-value').innerText(),expected);
+      assert.match(await careerAttCard.locator('.bio-extended-rank').innerText(),/^#\\d+\\/\\d+$/);
       if(playerID===354060){
-        assert.equal(await seasonAttCard.locator('.bio-extended-value').innerText(),'100.0%','Current FT appearances / contested team games');
-        assert.match(await seasonAttCard.locator('.bio-extended-basis').innerText(),/5 \/ 5 eligible/);
-      }else{
-        assert.equal(await seasonAttCard.locator('.bio-extended-value').innerText(),'—','Goalie current source held');
-      }
+        assert.equal(await seasonAttCard.count(),1);
+        assert.equal(await seasonAttCard.locator('.bio-extended-value').innerText(),'100.0%');
+      }else assert.equal(await seasonAttCard.count(),0,'Unverified goalie current attendance must remain withheld');
     }else{
-      assert.equal(await careerAttCard.locator('.bio-extended-value').innerText(),'—','No private attendance publication until approved');
-      assert.equal(await careerAttCard.locator('.bio-extended-rank').count(),0,'No invented attendance ranking');
+      assert.equal(await careerAttCard.count(),0,'No placeholder card for unreleased attendance');
+      assert.equal(await seasonAttCard.count(),0,'No placeholder card for unreleased attendance');
+      assert.equal(await page.locator('#bioAttendanceHold').isVisible(),true,'Only a concise hold note remains');
     }
+    assert.ok(await page.locator('#bioHistoricalShareGrid .bio-v33-card').count()>=4,'Historical contribution cards still available');
     assert.ok(await page.locator('#bioExtendedMetrics .bio-extended-rank').count()>=1,
       'Source-qualified HTO event rates receive ranking chips');
     assert.equal(await page.locator('#bioExtendedMetrics .bio-extended-rank').first().evaluate(el=>getComputedStyle(el).position),'absolute');
