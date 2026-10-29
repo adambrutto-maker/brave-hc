@@ -135,7 +135,7 @@ function render(){
  if(shareResult?.status==='SOURCE_CALCULATED'){
   drawShares();
   if(shareSource)shareSource.textContent=
-   formatCount(shareResult.archiveSize)+' HTO profiles checked · '
+   formatCount(shareResult.archiveSize)+' HTO profiles checked · '+
    new Date(shareResult.sourceAsOf).toLocaleDateString('en-CA',{year:'numeric',month:'short',day:'numeric',timeZone:'America/Toronto'})+
    ' · reported totals only.';
  }else{
