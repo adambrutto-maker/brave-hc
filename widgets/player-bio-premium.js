@@ -9,7 +9,8 @@ const NS='http://www.w3.org/2000/svg';
 const num=x=>typeof x==='number'&&Number.isFinite(x)&&x>=0;
 const fmt=x=>num(x)?x.toLocaleString('en-CA',{maximumFractionDigits:2}):'—';
 const fmtRate=x=>num(x)?x.toFixed(2):'Unavailable';
-const fmtProjectedGP=x=>num(x)?x.toFixed(1):'Unavailable';
+// Whole-GP presentation only; the published workbook model preserves full numeric precision.
+const fmtProjectedGP=x=>num(x)?String(Math.round(x)):'Unavailable';
 const date=x=>{const n=Date.parse(x||'');return Number.isFinite(n)?new Date(n).toLocaleDateString('en-CA',{year:'numeric',month:'short',day:'numeric',timeZone:'America/Toronto'}):'unavailable';};
 const build=(tag,text,klass)=>{const n=document.createElement(tag);if(klass)n.className=klass;if(text!==undefined)n.textContent=String(text);return n;};
 const svg=(tag,attrs={},text)=>{const n=document.createElementNS(NS,tag);for(const [k,v] of Object.entries(attrs))n.setAttribute(k,String(v));if(text!==undefined)n.textContent=String(text);return n;};
@@ -64,8 +65,8 @@ function setMetrics(el,values,iconic=false){
 function sourceLabel(text){$('bioModelContext').textContent=text;}
 function renderView(){
   const sections={
-    production:['bioSpotlight','bioAdvancedSection','bioProjectionSection','bioGoalieSection'],
-    trends:['bioDevelopmentSection'],
+    production:['bioSeasonCurrent','bioProjectionSection'],
+    trends:['bioSpotlight','bioAdvancedSection','bioDevelopmentSection','bioGoalieSection'],
     coaching:['bioOpponentSection']
   };
   const visible=sections[state.active]||[];
@@ -76,11 +77,11 @@ function renderView(){
     btn.setAttribute('aria-selected',String(chosen));btn.tabIndex=chosen?0:-1;
   }
   // Exactly three main tabs for skaters, goalies, and dual-role profiles.
-  for(const id of ['bioSpotlight','bioAdvancedSection','bioDevelopmentSection','bioProjectionSection',
+  for(const id of ['bioSeasonCurrent','bioSpotlight','bioAdvancedSection','bioDevelopmentSection','bioProjectionSection',
                    'bioGoalieSection','bioOpponentSection','leadershipSection','systemSection']){
     const el=$(id);if(!el)continue;
     const missingRole=(id==='bioGoalieSection'&&!state.isGoalie)||
-      (['bioSpotlight','bioProjectionSection'].includes(id)&&!state.isSkater)||(id==='bioProjectionSection'&&!state.hasProjection);
+      (['bioSpotlight','bioProjectionSection'].includes(id)&&!state.isSkater);
     const leadershipMissing=id==='leadershipSection'&&!state.hasLeadership;
     el.hidden=missingRole||leadershipMissing||!visible.includes(id);
   }
@@ -567,10 +568,15 @@ function renderSkaterProjection(){
   const section=$('bioProjectionSection');
   state.hasProjection=false;
   const target=$('bioProjectionCards');target.replaceChildren();
+  const hold=$('bioProjectionHold');hold.hidden=true;
+  $('bioCareerModelStrip').hidden=true;
+  $('bioForecastBadge').textContent='SOURCE HELD';
+  $('bioForecastBadge').dataset.provisional='true';
   const projection=sources.projection;
   const profiles=validateProjection(projection);
   const row=profiles?.get(state.player);
   if(!profiles){
+    hold.hidden=false;hold.textContent='No verified projection source is available.';
     $('bioProjectionState').textContent='Shared homepage model data could not be verified. No substitute forecast generated.';
     $('bioProjectionHeadline').textContent='Forecast unavailable';
     paintProjectionTrend(null,null);
@@ -578,6 +584,7 @@ function renderSkaterProjection(){
     return;
   }
   if(!row){
+    hold.hidden=false;hold.textContent='No forecast published for this player.';
     $('bioProjectionState').textContent='No model-published projection is available for this verified player. This is not a prediction of zero.';
     $('bioProjectionHeadline').textContent='No model-published forecast for this player';
     paintProjectionTrend(null,projection);
@@ -585,6 +592,14 @@ function renderSkaterProjection(){
     return;
   }
   state.hasProjection=true;
+  const baseline=$('bioCareerModelStrip');
+  const careerRate=row.trendInputs?.careerScoringRate;
+  const established=typeof careerRate==='number'&&Number.isFinite(careerRate)&&careerRate>=0&&row.trendInputs?.firstSeasonOrNoCareer!==true;
+  if(established){
+    baseline.hidden=false;
+    $('bioCareerModelRate').textContent=fmtRate(careerRate);
+    $('bioCareerModelBasis').textContent='Summer + Winter history · '+(String(projection.season).startsWith('S')?'Summer':'Winter')+'-equivalent';
+  }
   const provisional=projection.modelCurrent!==true||projection.projectionComplete!==true;
   paintProjectionTrend(row,projection);
   $('bioForecastBadge').textContent=provisional?'PROVISIONAL':'MODEL CURRENT';
@@ -595,8 +610,8 @@ function renderSkaterProjection(){
   $('bioProjectionState').textContent=provisional?
     'Provisional scenario · model reconciliation pending. Same workbook forecast as the homepage; not certified current-season totals.':
     'Reconciled workbook-derived season forecast, separate from official actuals.';
-  setMetrics(target,[['Projected GP',fmtProjectedGP(row.gp)],['Projected G',fmt(row.g)],['Projected A',fmt(row.a)],
-      ['Projected PTS',fmt(row.pts)],['Model Pts/GP',fmtRate(row.ptsPerGame)]],true);
+  setMetrics(target,[['GP',fmtProjectedGP(row.gp)],['G',fmt(row.g)],['A',fmt(row.a)],
+      ['PTS',fmt(row.pts)],['PTS/GP',fmtRate(row.ptsPerGame)]],true);
   sourceLabel('Source: BravesRegularSeasonProjection · '+projection.season+' · '+date(projection.exportedAt)+
    ' · Workbook baseline '+fmt(projection.sourceInputs?.workbookRecordedTeamGP)+' team GP / HTO inputs '+fmt(projection.sourceInputs?.htoRecordedTeamGP)+' team GP');
   const act=sources.actuals;
@@ -967,7 +982,7 @@ function renderPlayer(){
     }
   }
   $('bioTabs').hidden=false;document.body.classList.add('bio-premium-ready');
-  $('playerMeta').textContent='Advanced performance · Development · Game preparation';
+  $('playerMeta').textContent='Season Outlook · Career Trends · Coaching';
   $('bioContext').textContent='HTO verified player #'+pid+' · '+(state.isGoalie&&state.isSkater?'Dual role':state.isGoalie?'Goaltender':'Skater');
   $('bioSpotlight').hidden=!state.isSkater;
   if(state.isSkater)renderChart();
