@@ -38,6 +38,15 @@ on:
       - 'widgets/player-bio-trend-visual-v36.css'
       - 'widgets/player-bio-v361-layout.css'
       - 'widgets/player-bio-v362-panel.css'
+      - 'widgets/player-bio-form-model-v364.js'
+      - 'widgets/player-bio-form-v364.js'
+      - 'widgets/player-bio-form-v364.css'
+      - 'widgets/player-form-appearances-v364.json'
+      - 'widgets/home-panels.html'
+      - 'widgets/home-premium.js'
+      - 'widgets/home-trend-v364.css'
+      - 'tests/test_bio_form_v364.cjs'
+      - 'tests/test_bio_home_v364_browser.cjs'
       - 'docs/261029_Bio_V33_Five_Pass_All_Time_Content_Audit.md'
       - 'widgets/player-bio-coaching-roles.js'
       - 'widgets/player-bio-positive-streaks.js'
@@ -94,6 +103,10 @@ jobs:
       - name: Check premium Bio JavaScript and goalie forecast module syntax
         run: |
           node --check widgets/player-bio-premium.js
+          node --check widgets/player-bio-trend-visual-v36.js
+          node --check widgets/player-bio-form-model-v364.js
+          node --check widgets/player-bio-form-v364.js
+          node --check widgets/home-premium.js
           node --check widgets/player-bio-current-v31.js
           node --check widgets/player-bio-expanded-analytics-v31.js
           node --check widgets/player-bio-alltime-share-v33.js
@@ -132,6 +145,8 @@ jobs:
         run: node --test tests/test_player_bio_rolling_career.cjs
       - name: Verify position-only coaching and source-held personal streaks
         run: node --test tests/test_player_bio_coaching_roles.cjs tests/test_player_bio_positive_streaks.cjs
+      - name: Verify current/recent scoring form fails closed without individual appearances
+        run: node --test tests/test_bio_form_v364.cjs
       - name: Install isolated Playwright test dependency
         run: npm install --no-package-lock --no-save playwright
       - name: Install browser for source-independent CI acceptance
@@ -151,6 +166,8 @@ jobs:
         run: node --test tests/test_bio_v36_source_angle.cjs
       - name: Verify V3.6.2 condition-matched panel, arrow, layout and reduced motion
         run: node tests/test_bio_v36_angular_animation_browser.cjs
+      - name: Test seven-level Bio and Home badge parity, card order and recent form source holds
+        run: node tests/test_bio_home_v364_browser.cjs
       - name: Test all 109 verified HTO identities across three tabs at narrow embed width
         run: node tests/test_bio_v31_clean_109_browser.cjs
       - name: Test visual Bio V3.1 (chart labels, whole-GP forecast, role explorer)

@@ -44,16 +44,19 @@ a{color:#e6c083}footer{padding:13px 20px;font-size:.75rem;color:#adc5d9}
 <link rel="stylesheet" href="./player-bio-coaching-library-v31.css">
 <link rel="stylesheet" href="./player-bio-v361-layout.css?v=3.6.1">
 <link rel="stylesheet" href="./player-bio-v362-panel.css?v=3.6.2">
+<link rel="stylesheet" href="./player-bio-form-v364.css?v=3.6.4">
 <script defer src="./player-performance-normalization.js"></script>
 <script defer src="./player-bio-advanced.js?v=3.2"></script>
 <script defer src="./player-bio-coaching-roles.js"></script>
 <!-- Game Night assignment adapter intentionally absent from Bio-only release candidate. -->
 <script defer src="./player-bio-projection-trend.js"></script>
-<script defer src="./player-bio-trend-visual-v36.js?v=3.6.3"></script>
+<script defer src="./player-bio-trend-visual-v36.js?v=3.6.4"></script>
 <script defer src="./player-bio-rolling-career.js"></script>
 <script defer src="./goalie-projection-model.js"></script>
 <script defer src="./player-bio.js"></script>
-<script defer src="./player-bio-premium.js?v=3.6.3"></script>
+<script defer src="./player-bio-premium.js?v=3.6.4"></script>
+<script defer src="./player-bio-form-model-v364.js?v=3.6.4"></script>
+<script defer src="./player-bio-form-v364.js?v=3.6.4"></script>
 <script defer src="./player-bio-current-v31.js"></script>
 <script defer src="./player-bio-coaching-library-v31.js"></script>
 <script defer src="./player-bio-rink-tactics-v31.js"></script>
@@ -138,10 +141,6 @@ a{color:#e6c083}footer{padding:13px 20px;font-size:.75rem;color:#adc5d9}
 </section>
 
 <section id="bioProjectionSection" aria-label="Projected end-of-season performance" hidden>
- <div id="bioCareerModelStrip" class="bio-career-model-strip" hidden>
-  <div><strong>CAREER AVERAGE</strong><span id="bioCareerModelBasis">Summer + Winter history · Winter-equivalent</span></div>
-  <div><strong id="bioCareerModelRate">—</strong><span>PTS / GP</span></div>
- </div>
  <div class="bio-projection-hero">
   <div class="bio-projection-headline-row"><div><span class="bio-forecast-kicker">FULL-SEASON ESTIMATE</span><h2 class="bio-title">Projected Current Season</h2>
    <p class="bio-forecast-desc">Full-season forecast, not the current scoring rate shown on the chart.</p></div><span id="bioForecastBadge" class="bio-forecast-badge">Provisional</span></div>
@@ -158,11 +157,22 @@ a{color:#e6c083}footer{padding:13px 20px;font-size:.75rem;color:#adc5d9}
    </div>
   </details>
  </div>
+ <div id="bioCareerModelStrip" class="bio-career-model-strip" hidden>
+  <div><strong>CAREER AVERAGE</strong><span id="bioCareerModelBasis">Summer + Winter history · Winter-equivalent</span></div>
+  <div><strong id="bioCareerModelRate">—</strong><span>PTS / GP</span></div>
+ </div>
   <div id="bioProjectionSummarySlot" class="bio-forecast-inline bio-career-arrow-panel" hidden>
    <span class="bio-forecast-trend-caption">PROJECTED FINISH VS ESTABLISHED CAREER</span>
    <div id="bioProjectionTrend" class="bio-trend-summary" aria-live="polite">Career comparison unavailable.</div>
    <p id="bioProjectionHeadline" class="bio-projection-headline"></p>
   </div>
+</section>
+<section id="bioRecentFormSection" class="bio-form-section" aria-label="Verified player scoring form" hidden>
+  <div class="bio-section-top"><div><div class="bio-eyebrow">Recent performance · source-checked</div>
+    <h2 class="bio-title">Scoring Form · Points per Game</h2>
+    <p class="bio-desc">Career baseline, current season and last 3, 5 and 10 verified appearances. Comparison badges are descriptive, not the workbook forecast.</p></div></div>
+  <div id="bioRecentFormGrid" class="bio-form-grid" aria-live="polite"></div>
+  <p id="bioRecentFormStatus" class="bio-form-status" role="status">Checking individually verified game appearances.</p>
 </section>
 <section id="bioAdvancedSection" aria-label="Advanced player performance indicators" hidden>
  <div class="bio-section-top"><div><div class="bio-eyebrow">Advanced indicators</div>

@@ -1,0 +1,17 @@
+{
+  "schema": "brave-hc-individual-verified-appearances/v1",
+  "status": "HELD_PENDING_PLAYER_APPEARANCE_AUDIT",
+  "season": "W2026/27",
+  "asOf": null,
+  "players": {},
+  "reason": "Verified official goal/assist events do not establish individual nonscoring appearances. Full player-by-game appearances for last 3, 5 and 10 P/GP remain pending.",
+  "governance": {
+    "sourceRequirement": "An independently reconciled complete individual appearance log, including verified games with zero points, for the player and season.",
+    "exclusions": [
+      "Do not infer an appearance merely because a player is on the roster.",
+      "Do not infer that a player with no scoring event missed the game.",
+      "Do not treat a missing row as zero points.",
+      "Do not mix unreconciled HTO and SVHL identities or seasons."
+    ]
+  }
+}

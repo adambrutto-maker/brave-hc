@@ -66,7 +66,7 @@ function sourceLabel(text){$('bioModelContext').textContent=text;}
 function renderView(){
   const sections={
     production:['bioSeasonCurrent','bioProjectionSection'],
-    trends:['bioSpotlight','bioAdvancedSection','bioDevelopmentSection','bioGoalieSection'],
+    trends:['bioSpotlight','bioRecentFormSection','bioAdvancedSection','bioDevelopmentSection','bioGoalieSection'],
     coaching:['bioOpponentSection']
   };
   const visible=sections[state.active]||[];
@@ -77,11 +77,11 @@ function renderView(){
     btn.setAttribute('aria-selected',String(chosen));btn.tabIndex=chosen?0:-1;
   }
   // Exactly three main tabs for skaters, goalies, and dual-role profiles.
-  for(const id of ['bioSeasonCurrent','bioSpotlight','bioAdvancedSection','bioDevelopmentSection','bioProjectionSection',
+  for(const id of ['bioSeasonCurrent','bioSpotlight','bioRecentFormSection','bioAdvancedSection','bioDevelopmentSection','bioProjectionSection',
                    'bioGoalieSection','bioOpponentSection','leadershipSection','systemSection']){
     const el=$(id);if(!el)continue;
     const missingRole=(id==='bioGoalieSection'&&!state.isGoalie)||
-      (['bioSpotlight','bioProjectionSection'].includes(id)&&!state.isSkater);
+      (['bioSpotlight','bioProjectionSection','bioRecentFormSection'].includes(id)&&!state.isSkater);
     const leadershipMissing=id==='leadershipSection'&&!state.hasLeadership;
     el.hidden=missingRole||leadershipMissing||!visible.includes(id);
   }
@@ -511,6 +511,7 @@ function paintProjectionTrend(row,projection){
   };
   host.replaceChildren();detail.textContent='';
   host.dataset.trendState='HELD';
+  host.dataset.visualLevel='HELD';
   host.dataset.nearCareerAverage='false';
   host.className='bio-trend-summary';
   // V3.6 approved artwork is isolated in the visual-only module.
@@ -524,6 +525,7 @@ function paintProjectionTrend(row,projection){
     // It never changes classify(), exact percentages, or directionalArrow().
     const nearAverage=direction?.status==='VERIFIED_STANDARD_DEVIATION_ARROW' &&
       window.HockeyOSBioTrendVisualV36?.nearCareerAverage(result.relativeChange,result.name)===true;
+    let displayLevel=result.name.toUpperCase();
     if(direction?.status==='VERIFIED_STANDARD_DEVIATION_ARROW'){
       host.dataset.trendDirection=direction.direction;
       const badge=window.HockeyOSBioTrendVisualV36?.createBadge(
@@ -532,8 +534,10 @@ function paintProjectionTrend(row,projection){
         badge.dataset.sourceTrend=String(row.trend);
         badge.dataset.sourceSigma=String(direction.sigma);
         host.append(badge);
+        displayLevel=badge.dataset.visualLevel;
+        host.dataset.visualLevel=displayLevel;
         host.dataset.nearCareerAverage=String(nearAverage);
-        useBadgePanelTone(badge,result.name.toLowerCase());
+        useBadgePanelTone(badge,displayLevel.toLowerCase());
       }else{
         // Failed visual dependency is not a reason to invent a fallback angle.
         host.dataset.trendState='HELD';
@@ -544,12 +548,14 @@ function paintProjectionTrend(row,projection){
     const signed=(result.relativeChange>0?'+':'')+(result.relativeChange*100).toFixed(1)+'%';
     const comparison=nearAverage?
       (result.relativeChange===0?'At career average':'Within ±5% of career average'):
-      'Projected season-finish trend vs career';
-    label.append(build('strong',result.name+' · '+signed,'bio-trend-main'),
+      (result.relativeChange<0?'Below established career pace':'Above established career pace');
+    label.append(build('strong',displayLevel+' · '+signed,'bio-trend-main'),
       build('span',comparison+' · '+
         (result.modelCurrent?'model reconciled':'provisional workbook model'),'bio-trend-minor'));
     host.append(label);
-    detail.textContent='Original workbook trend: '+result.name+
+    detail.textContent='Original workbook category: '+result.name+
+       '. Seven-level display strength: '+displayLevel+
+       '. Display label follows the individualized arrow and colours, not the workbook five-arrow category. '+
        '. Historical career regular-season scoring rate '+
        (num(result.careerRate)?fmtRate(result.careerRate):'unavailable')+
        ' P/GP; projected scoring-rate component '+
@@ -565,7 +571,7 @@ function paintProjectionTrend(row,projection){
       // calculated trend. No angle, z-score, % change or invented career baseline.
       const badge=window.HockeyOSBioTrendVisualV36?.createBadge(
         document,{zScore:0},'Neutral',true);
-      if(badge){host.append(badge);useBadgePanelTone(badge,'rookie');}
+      if(badge){host.append(badge);host.dataset.visualLevel='ROOKIE';useBadgePanelTone(badge,'rookie');}
       label.append(build('strong','Neutral · Rookie Year','bio-trend-main'),
         build('span','No career baseline · forecast remains provisional','bio-trend-minor'));
       detail.textContent='Neutral rookie display state only. No model career baseline or statistical comparison is available.';

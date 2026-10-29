@@ -36,7 +36,7 @@ const server=http.createServer((req,res)=>{
   assert.equal(await j.$eval('#bioOtherMetrics',el=>el.open),false,'secondary stats collapsed');
   assert.equal(await j.$eval('#bioMoreSeasonFilters',el=>el.open),false,'extra season filters collapsed');
   assert.equal(await j.$eval('#bioProjectionTrend',el=>el.dataset.trendState),'Neutral');
-  assert.match(await j.locator('#bioProjectionTrend').innerText(),/Neutral.*-2\.5%.*Within ±5% of career average/s);
+  assert.match(await j.locator('#bioProjectionTrend').innerText(),/NEUTRAL.*-2\.5%.*Within ±5% of career average/s);
   assert.match(await j.locator('#bioProjectionHeadline').innerText(),/source reconciliation pending/i);
   assert.equal(await j.locator('#bioProjectionCards .bio-metric').nth(3).locator('.value').innerText(),'24');
   const arrow=await j.locator('#bioProjectionTrend .bio-trend-direction-arrow');

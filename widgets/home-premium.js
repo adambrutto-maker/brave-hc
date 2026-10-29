@@ -13,8 +13,8 @@ const num=x=>typeof x==="number"&&Number.isFinite(x);
 const todayDate=()=>{const parts=new Intl.DateTimeFormat("en-US",{timeZone:"America/Toronto",year:"numeric",month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit",hourCycle:"h23"}).formatToParts(new Date());const d=Object.fromEntries(parts.map(p=>[p.type,p.value]));return d.year+"-"+d.month+"-"+d.day+"T"+d.hour+":"+d.minute};
 const dateText=stamp=>{const d=new Date(stamp);return Number.isNaN(d.getTime())?"Source date unavailable":new Intl.DateTimeFormat("en-CA",{timeZone:"America/Toronto",month:"short",day:"numeric",year:"numeric"}).format(d)};
 const fetchJSON=async path=>{const res=await fetch("./"+path,{cache:"no-store"});if(!res.ok)throw Error(path+" HTTP "+res.status);return res.json()};
-const svgNS="http://www.w3.org/2000/svg";
-const svgArrow=(rotate,color)=>{const s=document.createElementNS(svgNS,"svg");s.setAttribute("viewBox","0 0 48 48");s.setAttribute("class","trend-svg");s.setAttribute("aria-hidden","true");const p=document.createElementNS(svgNS,"path");p.setAttribute("d","M18 42V19H8L24 3L40 19H30V42Z");p.setAttribute("transform","rotate("+rotate+" 24 24)");p.setAttribute("fill",color);s.append(p);return s};
+// Homepage trend icons reuse the source-verified Bio SVG renderer. Workbook five
+ // category thresholds are unchanged; seven names describe visual intensity.
 const states=[
  {name:"Cold",desc:"Strong decline",rotate:180,color:"#217fd4"},
  {name:"Cool",desc:"Moderate decline",rotate:135,color:"#79bdec"},
@@ -235,6 +235,16 @@ function trendState(p,cf){
  const idx=t<th.AB100?0:t<th.AB99?1:t<th.AB97?2:t<th.AB96?3:4;
  return{...states[idx],label:states[idx].name+" · "+states[idx].desc,value:t};
 }
+function sharedTrendBadge(p){
+ const engine=window.HockeyOSBioProjectionTrend,visual=window.HockeyOSBioTrendVisualV36;
+ if(!engine||!visual)return null;
+ const direction=engine.directionalArrow(p,projection);
+ if(direction.status==='ROOKIE')return visual.createBadge(document,{zScore:0},'Neutral',true);
+ if(direction.status!=='VERIFIED_STANDARD_DEVIATION_ARROW')return null;
+ const badge=visual.createBadge(document,direction,direction.category);
+ if(badge){badge.dataset.sourceTrend=String(p.trend);badge.dataset.sourceSigma=String(direction.sigma);}
+ return badge;
+}
 function projectedCell(amount,actual,decimals=0,unreported=false){
  const td=node("td");
  td.append(node("span","total",num(amount)?(decimals?amount.toFixed(decimals):String(amount)):"—"));
@@ -274,11 +284,24 @@ function drawProjection(){
   const baselineText=num(career)?career.toFixed(3):"unavailable";
   const modelRate=num(projected)?projected.toFixed(3):"unavailable";
   const diffText=num(p.trend)?(p.trend>0?"+":"")+(p.trend*100).toFixed(1)+"%":"unavailable";
-  detailTD.textContent="Workbook trend: "+state.label.replace(/ ·.*/,"")+". Historical career RS rate: "+baselineText+" P/G; model scoring-rate component: "+modelRate+" P/G; workbook trend: "+diffText+". Displayed projected P/G: "+(num(p.ptsPerGame)?p.ptsPerGame.toFixed(3):"—")+". Rates may differ because the workbook retains its established trend formula.";
+  const badge=sharedTrendBadge(p);
+  const displayLevel=badge?.dataset.visualLevel||(state.new?(state.label.startsWith("NEW")?"ROOKIE":"HELD"):"HELD");
+  detailTD.textContent="Seven-level visual strength: "+displayLevel+
+    ". Original workbook five-arrow category: "+state.label.replace(/ ·.*/,"")+
+    ". Historical career RS rate: "+baselineText+" P/G; model scoring-rate component: "+
+    modelRate+" P/G; workbook trend: "+diffText+
+    ". Displayed projected P/G: "+(num(p.ptsPerGame)?p.ptsPerGame.toFixed(3):"—")+
+    ". Display language follows the personalized arrow; the original workbook thresholds and calculations are unchanged.";
   details.append(detailTD);
-  if(state.new){button.append(node("span","new",state.label.startsWith("NEW")?"NEW":"—"))}
-  else button.append(svgArrow(state.rotate,state.color));
-  button.title=state.label+(num(state.value)?" · workbook "+diffText:"");
+  if(badge){
+    badge.classList.add("home-trend-badge");
+    badge.querySelector("svg.bio-trend-direction-arrow")?.setAttribute("aria-hidden","true");
+    button.dataset.visualLevel=displayLevel;
+    button.dataset.workbookCategory=state.label.replace(/ ·.*/,"");
+    button.append(badge,node("span","home-level-word",displayLevel));
+  }else button.append(node("span","new",state.label.startsWith("NEW")?"NEW":"—"));
+  button.title=displayLevel+" visual strength · "+state.label+
+    (num(state.value)?" · workbook "+diffText:"");
   button.setAttribute("aria-label",cleanName(p.name)+": "+button.title+". Show model comparison");
   button.addEventListener("click",()=>{details.hidden=!details.hidden;button.setAttribute("aria-expanded",String(!details.hidden))});
   trendTD.append(button);tr.append(trendTD);table.append(tr,details);
@@ -289,8 +312,25 @@ function drawProjection(){
 document.querySelectorAll("[data-group]").forEach(b=>b.addEventListener("click",()=>{filter=b.dataset.group;projectionPage=0;drawProjection()}));
 function drawLegend(){
  const box=$("trend-legend");box.replaceChildren();
- states.slice().reverse().forEach(t=>{const item=node("span");item.append(svgArrow(t.rotate,t.color),node("span","",t.name));box.append(item)});
- box.append(node("span","","NEW · No comparable career data"));
+ const sigma=projection?.conditionalFormatting?.sampleStandardDeviation;
+ const visual=window.HockeyOSBioTrendVisualV36;
+ const examples=[
+   {name:"FROZEN",z:-2.5},{name:"COLD",z:-1.5},{name:"COOL",z:-.75},
+   {name:"NEUTRAL",z:0},{name:"WARM",z:.46},{name:"HOT",z:.75},{name:"BLAZING",z:1.4}
+ ];
+ if(!num(sigma)||sigma<=0||!visual){box.textContent="Trend key unavailable: verified model source missing.";return;}
+ for(const e of examples){
+    const pct=e.z*sigma;
+    const row={trend:pct,trendInputs:{firstSeasonOrNoCareer:false}};
+    const category=trendState(row,projection.conditionalFormatting).name;
+    const badge=visual.createBadge(document,{zScore:e.z,sourceValue:pct,sigma},category);
+    if(!badge||badge.dataset.visualLevel!==e.name)throw Error("Visual legend scale mismatch: "+e.name);
+    badge.classList.add("home-trend-badge","home-trend-legend-badge");
+    badge.querySelector("svg.bio-trend-direction-arrow")?.setAttribute("aria-hidden","true");
+    const item=node("span","home-trend-key");
+    item.append(badge,node("span","",e.name));box.append(item);
+ }
+ box.append(node("span","","ROOKIE/— · No established or verified comparison"));
 }
 async function loadProjection(){
  try{
@@ -329,13 +369,13 @@ async function loadProjection(){
   set("projection-state",latestHTOActuals&&!d.modelCurrent?"HTO ACTUALS CURRENT · FORECAST HELD":d.modelCurrent?"MODEL RECONCILED":"SCENARIO · PARITY PENDING");
   const date=dateText(d.htoreadback||d.exportedAt);
   if(latestHTOActuals){
-     set("projection-note","Current figures in parentheses are verified HTO statistics through "+latestHTOActuals.gp+" games ("+dateText(latestHTOActuals.asOf)+"). Projected season totals and trend arrows still use the unreconciled workbook model based on "+sourceGames+" HTO games. Verified rostered players with no recorded appearances show (0); (—) means an unverified or unavailable current value.");
+     set("projection-note","Current figures in parentheses are verified HTO statistics through "+latestHTOActuals.gp+" games ("+dateText(latestHTOActuals.asOf)+"). Projected season totals and seven-level trend badges still use the unreconciled workbook model based on "+sourceGames+" HTO games. Verified rostered players with no recorded appearances show (0); (—) means an unverified or unavailable current value.");
   }else{
      set("projection-note",d.modelCurrent===true?"Workbook projections reconciled to official HTO actuals.":"Projection feed reflects "+sourceGames+" HTO games at "+date+". Workbook baseline: "+(d.sourceInputs?.workbookRecordedTeamGP??"—")+" game(s). Forecasts and displayed actuals are not up to date.");
   }
   set("projection-source","Sources: "+(latestHTOActuals?"current official HTO "+dateText(latestHTOActuals.asOf)+"; ":"")+"projection model readback "+date+" · Original workbook trend thresholds retained. "+d.players.length+" player rows.");
   drawLegend();drawProjection();
- }catch(e){set("projection-note","Projection data could not be validated. No replacement estimates or trend arrows have been invented. ("+e.message+")");}
+ }catch(e){set("projection-note","Projection data could not be validated. No replacement estimates or trend badges have been invented. ("+e.message+")");}
 }
 if(panel==="standings")loadStandings();
 if(panel==="projection")loadProjection();

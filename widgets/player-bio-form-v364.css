@@ -1,0 +1,26 @@
+/* V3.6.4 HockeyOS player form cards; mobile-first, read-only and source-qualified. */
+.bio-studio #bioProjectionSection #bioCareerModelStrip{margin:11px 0 0}
+.bio-studio #bioRecentFormSection{padding:10px 0 12px}
+.bio-form-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px}
+.bio-form-card{display:flex;flex-direction:column;align-items:center;text-align:center;
+ gap:5px;padding:10px 5px;min-width:0;min-height:144px;
+ background:linear-gradient(155deg,#17334b,#102638);
+ border:1px solid #496780;border-radius:9px}
+.bio-form-card .bio-form-title{color:#f2ce91;font-size:10px;font-weight:850;line-height:1.25}
+.bio-form-card .bio-form-value{font-size:21px;line-height:1.1;color:#fff2d5;
+ font-weight:900;font-variant-numeric:tabular-nums}
+.bio-form-card .bio-form-label{font-size:9px;color:#c9dce9;line-height:1.3}
+.bio-form-card .bio-form-level{font-size:9px;font-weight:850;letter-spacing:.05em;color:#f8fbff}
+.bio-form-card .v36-badge.bio-form-icon{flex:none;width:49px;height:45px;border-radius:8px}
+.bio-form-card .v36-element{min-width:0;min-height:0;top:2px;right:2px;width:30%;height:33%}
+.bio-form-card .bio-form-held-icon{display:grid;place-items:center;width:49px;height:45px;
+ border:1px dashed #617b92;border-radius:8px;color:#a5bacb;font-weight:900;font-size:22px}
+.bio-form-card[data-source-status=HELD]{border-style:dashed;border-color:#59738b}
+.bio-form-status{font-size:10px;line-height:1.5;color:#bbd0e0;margin:8px 0 0}
+@media(max-width:680px){.bio-form-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:400px){.bio-form-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .bio-form-card{min-height:133px;padding:8px 4px}
+ .bio-form-card .bio-form-value{font-size:19px}}
+@media(prefers-reduced-motion:reduce){
+ .bio-form-grid .v36-badge *, .bio-form-grid .v36-badge{animation:none!important;transition:none!important}
+}
