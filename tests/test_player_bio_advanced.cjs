@@ -50,6 +50,7 @@ test('skater normalized rate is games-played weighted, Summer/Winter totals and 
  assert.equal(result.overview.rawPtsPerGP,1);
  assert.equal(result.situational.powerPlayShare,1/5);
  assert.equal(result.situational.penaltyMinutesPerGP,.8);
+ assert.equal(result.situational.playerOfGameRateGP,.2,'Two POTG awards in ten actual GP = 20%');
  assert.equal(JSON.stringify(seg),before);
 });
 test('a missing HTO G/A row is never imputed as zero or used to claim career adjusted average',()=>{
@@ -77,10 +78,24 @@ test('goalie metrics do not infer missing wins, save percentage, shots or shutou
  const seg={kind:'goalie',total:{GP:5,GA:15},seasons:[{Season:'Summer 2013',GP:5,GA:15}]};
  const r=analyzer.goalie(seg,cfg);
  assert.equal(r.overview.winPointsPct,null);
- assert.equal(r.overview.shutoutPer100,null);
+ assert.equal(r.overview.shutoutRateGP,null);
  assert.equal(r.overview.verifiedWinterGAperAppearance,2);
  assert.equal(r.overview.publishedActualGAA,3);
  assert.ok(!Object.hasOwn(r.overview,'savePercentage'));
+});
+test('verified POTG and shutout frequency use true game fractions, never a per-100 display unit',()=>{
+ const justin=real.players['354060'].segments.find(s=>s.kind==='skater');
+ const r=analyzer.skater(justin,cfg);
+ assert.equal(justin.total.POTG,53);
+ assert.equal(justin.total.GP,303);
+ assert.ok(Math.abs(r.situational.playerOfGameRateGP-53/303)<1e-12);
+ assert.ok(!Object.hasOwn(r.situational,'playerOfGamePer100'));
+ const stephen=real.players['354055'].segments.find(s=>s.kind==='goalie');
+ const g=analyzer.goalie(stephen,cfg);
+ assert.equal(stephen.total.POTG,56);
+ assert.equal(stephen.total.GP,262);
+ assert.ok(Math.abs(g.overview.playerOfGameRateGP-56/262)<1e-12);
+ assert.ok(g.overview.shutoutRateGP===null||g.overview.shutoutRateGP<=1);
 });
 test('real goalie archive is source-qualified and missing outcome fields remain unknown',()=>{
  let goalies=0,held=0;
