@@ -54,7 +54,7 @@ const server=http.createServer((req,res)=>{
   const rAvg=await j.locator('#bioComboChart [data-series="rolling-prior-career-average"]').count();
   assert.ok(rAvg>=1,'rolling prior-career baseline is visible');
   assert.equal(await j.$eval('#bioCareerComparisonLegend',e=>e.hidden),false);
-  assert.match(await j.locator('#bioChartDetail').textContent(),/prior completed-career average/);
+  assert.match(await j.locator('#bioChartDetail').textContent(),/prior-career pace by 0\.49 P\/GP.*benchmark 1\.24 P\/GP/);
   const markG=j.locator('#bioComboChart [data-award-type="goalTitle"]');
   const markP=j.locator('#bioComboChart [data-award-type="pointsTitle"]');
   assert.equal(await markG.count(),1,'Justin recent8 G title only W2024/25');
@@ -109,8 +109,8 @@ const server=http.createServer((req,res)=>{
   await j.close();
   const mark=await open('354061');
   await mark.click('#bioSeasonModes button[data-mode="all"]');
-  assert.equal(await mark.locator('#bioComboChart [data-award-season="Summer 2015"]').count(),1,'dual titles use one compact star');
-  await mark.locator('#bioComboChart [data-award-season="Summer 2015"][data-award-type="doubleTitle"]').click();
+  assert.equal(await mark.locator('#bioComboChart [data-award-season="Summer 2015"]').count(),2,'both gold RR and AR medals');
+  await mark.locator('#bioComboChart [data-award-season="Summer 2015"][data-award-type="goalTitle"]').click();
   const text=await mark.locator('#bioChartDetail').textContent();
   assert.match(text,/Rocket Richard/i);assert.match(text,/Art Ross/i);
   assert.equal(await mark.locator('#bioComboChart [data-award-season="Summer 2016"][data-award-type="pointsTitle"]').count(),1);
@@ -134,8 +134,11 @@ const server=http.createServer((req,res)=>{
   const rookieData=structuredClone(projection);
   rookieData.players.find(p=>p.name==='Carosi, Justin').trendInputs.firstSeasonOrNoCareer=true;
   const rookie=await open('354060',{'projection.json':rookieData});
-  assert.match(await rookie.locator('#bioProjectionTrend').innerText(),/ROOKIE/);
-  assert.equal(await rookie.locator('#bioProjectionTrend .bio-trend-direction-arrow').count(),0);
+  assert.match(await rookie.locator('#bioProjectionTrend').innerText(),/Neutral.*Rookie Year/s);
+  assert.equal(await rookie.locator('#bioProjectionTrend .bio-trend-direction-arrow').count(),1);
+  assert.equal(await rookie.locator('#bioProjectionTrend [data-rookie-neutral]').getAttribute('fill'),'#f7fbff');
+  assert.match(await rookie.locator('#bioProjectionTrend').innerText(),/Neutral.*Rookie Year/s);
+  assert.equal(await rookie.locator('#bioProjectionTrend [data-z-score]').count(),0,'rookie visual has no invented z-score');
   assert.equal(await rookie.$eval('#bioProjectionTrend',e=>e.dataset.trendState),'ROOKIE');
   await rookie.close();
   const corrupt=structuredClone(projection);

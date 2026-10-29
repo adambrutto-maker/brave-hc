@@ -156,19 +156,17 @@ function titleMarks(season){
 function renderAwardKey(rows){
   const host=$('bioAwardKey');
   host.replaceChildren();
-  const types=rows.map(r=>titleMarks(r.Season)).filter(items=>items.length);
-  const includes={goalTitle:types.some(x=>x.length===1&&x[0].type==='goalTitle'),
-    pointsTitle:types.some(x=>x.length===1&&x[0].type==='pointsTitle'),
-    doubleTitle:types.some(x=>x.length===2)};
-  host.hidden=!Object.values(includes).some(Boolean);
-  if(host.hidden)return;
-  for(const [type,text] of [['goalTitle','Rocket Richard'],['pointsTitle','Art Ross'],['doubleTitle','Both titles']]){
-    if(!includes[type])continue;
-    const label=build('span',undefined,'bio-award-key-item');
-    const symbol=type==='goalTitle'?'G':type==='pointsTitle'?'P':'★';
-    label.append(build('span',symbol,type==='goalTitle'?'bio-award-g':type==='pointsTitle'?'bio-award-p':'bio-award-both'),
-      build('span',text));
-    host.append(label);
+  const found=new Set(rows.flatMap(row=>titleMarks(row.Season).map(item=>item.type)));
+  host.hidden=found.size===0;
+  for(const [type,abbreviation,title] of [
+     ['goalTitle','RR','Rocket Richard'],
+     ['pointsTitle','AR','Art Ross']
+  ]){
+    if(!found.has(type))continue;
+    const legend=build('span',undefined,'bio-award-key-item');
+    legend.append(build('span',abbreviation,'bio-award-gold'),
+      build('span',title));
+    host.append(legend);
   }
 }
 function describeSeason(row,rate,reference){
@@ -177,31 +175,29 @@ function describeSeason(row,rate,reference){
   const awards=titleMarks(row.Season);
   const summary=build('div',undefined,'bio-season-summary');
   summary.append(build('strong',row.Season||'Historical season'));
-  const facts=build('span',
-    ' · '+(num(row.G)?fmt(row.G):'—')+' G / '+(num(row.A)?fmt(row.A):'—')+
-    ' A · '+(num(row.GP)?fmt(row.GP):'—')+' GP'+
-    (num(rate)?' · '+rate.toFixed(2)+' '+(state.rate==='actual'?'actual':state.rate+'-eq')+' P/GP':' · rate unavailable'));
-  summary.append(facts);host.append(summary);
+  summary.append(build('span',' · '+(num(row.G)?fmt(row.G):'—')+'G · '+
+      (num(row.A)?fmt(row.A):'—')+'A · '+(num(row.GP)?fmt(row.GP):'—')+
+      'GP · '+(num(rate)?rate.toFixed(2)+' P/GP':'P/GP unavailable')));
+  host.append(summary);
   if(num(reference)&&num(rate)){
-    const difference=rate-reference;
-    const assessment=Math.abs(difference)<1e-9?'matched':
-      difference>0?'above':'below';
-    const comparison=state.baseline==='fixed'?'full-career retrospective average':
-      'prior completed-career average';
-    host.append(build('span','This season was '+assessment+' the '+comparison+
-      ': '+reference.toFixed(2)+' P/GP (difference '+(difference>0?'+':'')+
-      difference.toFixed(2)+').','bio-chart-benchmark-detail'));
+    const diff=rate-reference;
+    const comparable=state.baseline==='fixed'?'full-career pace':'prior-career pace';
+    const verb=Math.abs(diff)<.005?'At':diff>0?'Above':'Below';
+    const result=Math.abs(diff)<.005?'':(' by '+Math.abs(diff).toFixed(2)+' P/GP');
+    host.append(build('span',verb+' '+comparable+result+
+      ' · benchmark '+reference.toFixed(2)+' P/GP','bio-chart-benchmark-detail'));
   }
   if(awards.length){
     const badges=build('div',undefined,'bio-season-awards');
-    for(const mark of awards){
-      const badge=build('span',undefined,'bio-season-award '+(mark.type==='goalTitle'?'goal':'points'));
-      badge.append(build('span',mark.type==='goalTitle'?'G':'P','bio-award-letter'),build('span',mark.label));
+    for(const award of awards){
+      const badge=build('span',undefined,'bio-season-award bio-season-award-gold');
+      badge.append(build('span',award.type==='goalTitle'?'RR':'AR','bio-award-letter'),
+        build('span',award.label));
       badges.append(badge);
     }
     host.append(badges);
     host.append(build('span',
-      'Award titles are historical HTO honors; chart totals can include playoffs or a different statistical scope.',
+      'Award titles are published HTO honors; chart totals may include a different game-type scope.',
       'bio-award-caveat'));
   }
 }
@@ -293,20 +289,20 @@ function renderChart(){
       x:xc,y:baseline+22,fill:'#b5c9da','font-size':compact?10:Math.max(9,rows.length>18?9:11),
       'text-anchor':'middle'},shortName(row.Season)));
     const awards=titleMarks(row.Season);
-    const double=awards.length===2;
-    const badgeTypes=double?[{type:'doubleTitle',label:'Rocket Richard AND Art Ross scoring titles'}]:awards;
-    badgeTypes.forEach(award=>{
-      const crowded=rows.length>12,yy=baseline+37;
-      const group=addInteractive(svg('g',{'data-award-type':award.type,'data-award-season':row.Season}),i,rate);
+    awards.forEach((award,j)=>{
+      // Show source-approved Rocket Richard/Art Ross as separate gold RR/AR medals.
+      // In dense Career views badges shrink and retain full accessible titles.
+      const crowded=rows.length>12,yy=baseline+37,
+        dx=awards.length===2?(j===0?(crowded?-4.5:-7):(crowded?4.5:7)):0;
+      const group=addInteractive(svg('g',{'data-award-type':award.type,
+        'data-award-season':row.Season}),i,rate);
       group.setAttribute('aria-label',row.Season+': '+award.label+'. Open season details');
       group.append(svg('title',{},award.label+' · '+row.Season));
-      group.append(svg('circle',{cx:xc,cy:yy,r:crowded?5:6.5,
-        fill:award.type==='goalTitle'?'#805c32':award.type==='pointsTitle'?'#204b64':'#654e61',
-        stroke:award.type==='goalTitle'?'#e9c58b':award.type==='pointsTitle'?'#98d4e6':'#e2c3ec',
-        'stroke-width':1.3}));
-      group.append(svg('text',{x:xc,y:yy+2.7,'text-anchor':'middle',fill:'#fff',
-        'font-size':crowded?8:9,'font-weight':900},
-        award.type==='goalTitle'?'G':award.type==='pointsTitle'?'P':'★'));
+      group.append(svg('circle',{cx:xc+dx,cy:yy,r:crowded?5.0:7.0,
+        fill:'#75532a',stroke:'#efcd88','stroke-width':1.15}));
+      group.append(svg('text',{x:xc+dx,y:yy+2.6,'text-anchor':'middle',
+        fill:'#fff2cb','font-size':crowded?5.5:6.7,'font-weight':900},
+        award.type==='goalTitle'?'RR':'AR'));
       picture.append(group);
     });
   });
@@ -407,13 +403,24 @@ function paintProjectionTrend(row,projection){
   }else{
     host.dataset.trendState=result.status;
     const label=build('div',undefined,'bio-trend-copy');
-    label.append(build('strong',result.status==='ROOKIE'?'ROOKIE':'Career trend unavailable',
-      'bio-trend-main'));
-    label.append(build('span',result.status==='ROOKIE'?'No established career comparison':'The workbook trend is not source verified',
-      'bio-trend-minor'));
+    if(result.status==='ROOKIE'){
+      // Founder-approved rookie state: white horizontal neutral symbol, not a
+      // calculated trend. No angle, z-score, % change or invented career baseline.
+      const graphic=svg('svg',{viewBox:'0 0 100 64',class:'bio-trend-direction-arrow',
+        role:'img','aria-label':'Neutral display marker for rookie year; no established career comparison'});
+      const shape='M11 25H60V14L89 32L60 50V39H11Z';
+      graphic.append(svg('path',{d:shape,fill:'#f7fbff',stroke:'#91a7b8',
+        'stroke-width':1.5,'stroke-linejoin':'round','data-rookie-neutral':'true'}));
+      host.append(graphic);
+      label.append(build('strong','Neutral · Rookie Year','bio-trend-main'),
+        build('span','No established career comparison','bio-trend-minor'));
+      detail.textContent='Neutral rookie display state only. No model career baseline or statistical comparison is available.';
+    }else{
+      label.append(build('strong','Career trend unavailable','bio-trend-main'),
+        build('span','The workbook trend is not source verified','bio-trend-minor'));
+      detail.textContent='No verified workbook career trend. No arrow or comparison has been inferred.';
+    }
     host.append(label);
-    detail.textContent=result.status==='ROOKIE'?'Rookie · no established career average; no trend arrow is assigned.':
-      'No verified workbook trend. No arrow or comparison has been inferred.';
   }
 }
 

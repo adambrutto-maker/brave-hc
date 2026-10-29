@@ -289,3 +289,17 @@ body{font-family:Arial,"Helvetica Neue",sans-serif;color:#eef4fb}
 #bioAdvancedGrid.one-stat .bio-insight-description{align-self:start}
 @media(max-width:350px){#bioAdvancedGrid.one-stat .bio-insight-tile{
   grid-template-columns:minmax(68px,auto) minmax(0,1fr);column-gap:8px}}
+
+/* V2.6 user-approved award and rookie presentation, within the existing Milestone shell. */
+.bio-award-gold{display:inline-grid;place-items:center;min-width:19px;height:19px;
+ border:1.4px solid #f2d393;border-radius:50%;padding:0 3px;
+ background:linear-gradient(155deg,#8e6733,#62431d);color:#fff3d1;
+ font-size:9px;line-height:1;font-weight:900;letter-spacing:-.2px;
+ box-shadow:inset 0 1px 1px #fff2b440,0 1px 3px #030f1c88}
+.bio-season-award-gold{border-color:#c99e5e!important;background:#523d24!important;color:#fce6bc!important}
+.bio-season-award-gold .bio-award-letter{color:#fff3c4;font-weight:900}
+.bio-season-summary{display:flex;gap:3px 4px;flex-wrap:wrap;align-items:baseline}
+.bio-season-summary strong{white-space:nowrap}
+.bio-chart-benchmark-detail{margin-top:4px;line-height:1.45}
+.bio-trend-summary[data-trend-state="ROOKIE"]{border-left-color:#cad6e0}
+.bio-trend-summary[data-trend-state="ROOKIE"] .bio-trend-main{color:#fff}
