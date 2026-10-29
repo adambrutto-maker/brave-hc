@@ -606,8 +606,8 @@ function renderSkaterProjection(){
   $('bioProjectionState').textContent=provisional?
     'Provisional scenario · model reconciliation pending. Same workbook forecast as the homepage; not certified current-season totals.':
     'Reconciled workbook-derived season forecast, separate from official actuals.';
-  setMetrics(target,[['Projected GP',fmtProjectedGP(row.gp)],['Projected G',fmt(row.g)],['Projected A',fmt(row.a)],
-      ['Projected PTS',fmt(row.pts)],['Model Pts/GP',fmtRate(row.ptsPerGame)]],true);
+  setMetrics(target,[['GP',fmtProjectedGP(row.gp)],['G',fmt(row.g)],['A',fmt(row.a)],
+      ['PTS',fmt(row.pts)],['PTS/GP',fmtRate(row.ptsPerGame)]],true);
   sourceLabel('Source: BravesRegularSeasonProjection · '+projection.season+' · '+date(projection.exportedAt)+
    ' · Workbook baseline '+fmt(projection.sourceInputs?.workbookRecordedTeamGP)+' team GP / HTO inputs '+fmt(projection.sourceInputs?.htoRecordedTeamGP)+' team GP');
   const act=sources.actuals;
