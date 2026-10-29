@@ -45,18 +45,21 @@ a{color:#e6c083}footer{padding:13px 20px;font-size:.75rem;color:#adc5d9}
 <link rel="stylesheet" href="./player-bio-v361-layout.css?v=3.6.1">
 <link rel="stylesheet" href="./player-bio-v362-panel.css?v=3.6.2">
 <link rel="stylesheet" href="./player-bio-form-v364.css?v=3.6.4">
+<link rel="stylesheet" href="./hockeyos-dispersion-v365.css?v=3.6.5">
 <script defer src="./player-performance-normalization.js"></script>
 <script defer src="./player-bio-advanced.js?v=3.2"></script>
 <script defer src="./player-bio-coaching-roles.js"></script>
 <!-- Game Night assignment adapter intentionally absent from Bio-only release candidate. -->
 <script defer src="./player-bio-projection-trend.js"></script>
 <script defer src="./player-bio-trend-visual-v36.js?v=3.6.4"></script>
+<script defer src="./hockeyos-adaptive-trend-v365.js?v=3.6.5"></script>
 <script defer src="./player-bio-rolling-career.js"></script>
 <script defer src="./goalie-projection-model.js"></script>
 <script defer src="./player-bio.js"></script>
-<script defer src="./player-bio-premium.js?v=3.6.4"></script>
+<script defer src="./player-bio-premium.js?v=3.6.5"></script>
 <script defer src="./player-bio-form-model-v364.js?v=3.6.4"></script>
-<script defer src="./player-bio-form-v364.js?v=3.6.4"></script>
+<script defer src="./player-bio-form-v364.js?v=3.6.5"></script>
+<script defer src="./hockeyos-dispersion-widget-v365.js?v=3.6.5"></script>
 <script defer src="./player-bio-current-v31.js"></script>
 <script defer src="./player-bio-coaching-library-v31.js"></script>
 <script defer src="./player-bio-rink-tactics-v31.js"></script>
@@ -173,6 +176,9 @@ a{color:#e6c083}footer{padding:13px 20px;font-size:.75rem;color:#adc5d9}
     <p class="bio-desc">Career baseline, current season and last 3, 5 and 10 verified appearances. Comparison badges are descriptive, not the workbook forecast.</p></div></div>
   <div id="bioRecentFormGrid" class="bio-form-grid" aria-live="polite"></div>
   <p id="bioRecentFormStatus" class="bio-form-status" role="status">Checking individually verified game appearances.</p>
+</section>
+<section id="bioTeamDispersionSection" aria-label="Historical and current team dispersion" hidden>
+ <div id="bioTeamDispersion" class="team-dispersion-panel" aria-live="polite"></div>
 </section>
 <section id="bioAdvancedSection" aria-label="Advanced player performance indicators" hidden>
  <div class="bio-section-top"><div><div class="bio-eyebrow">Advanced indicators</div>
