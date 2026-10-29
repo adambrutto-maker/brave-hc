@@ -13,6 +13,11 @@
  const positive=n=>typeof n==='number'&&Number.isFinite(n)&&n>0;
  const count=n=>Number.isSafeInteger(n)&&n>=0;
  const fail=(reason)=>Object.freeze({status:'HELD',reason});
+ function officialUrl(url){
+  try{const u=new URL(url);return u.protocol==='https:'&&
+    ['htosports.com','www.htosports.com','leagues.sportsvillage.ca'].includes(u.hostname);
+  }catch{return false}
+ }
  function getRecentWindow(source,id,season,actual,windowSize){
   if(![3,5,10].includes(windowSize))return fail('INVALID_WINDOW');
   if(!source||source.schema!==SCHEMA||source.status!==VERIFIED ||
@@ -27,9 +32,9 @@
   const ids=new Set(),games=[];
   for(const g of p.games){
    if(!Number.isSafeInteger(g.gameId)||g.gameId<=0||ids.has(g.gameId)||
-      !/^20\\d{2}-\\d{2}-\\d{2}$/.test(g.date)||!Number.isFinite(Date.parse(g.date))||
+      !/^20[0-9]{2}-[0-9]{2}-[0-9]{2}$/.test(g.date)||!Number.isFinite(Date.parse(g.date))||
       g.appeared!==true||g.verification!==GAME_VERIFIED||
-      typeof g.sourceUrl!=='string'||!/^https:\\/\\/(www\\.)?(htosports\\.com|leagues\\.sportsvillage\\.ca)\\//i.test(g.sourceUrl)||
+      !officialUrl(g.sourceUrl)||
       ![g.g,g.a,g.pts].every(count)||g.g+g.a!==g.pts)
     return fail('GAME_APPEARANCE_OR_SCORING_PROOF_INVALID');
    ids.add(g.gameId);games.push(g);
