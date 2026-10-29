@@ -24,6 +24,8 @@ const server=http.createServer((req,res)=>{
    try{
     await page.goto(origin+'/widgets/player-bio.html?playerID='+id+'&embed=1',{waitUntil:'domcontentloaded'});
     await page.locator('#bioProjectionTrend .v36-badge').waitFor({timeout:15000});
+    // Recent-form analytics live in the Career Trends tab, not Season Outlook.
+    await page.locator('#bioTabs button[data-bio-view="trends"]').click();
     await page.locator('#bioRecentFormGrid .bio-form-card').first().waitFor({timeout:15000});
     const a=await page.evaluate(()=>{
      const section=document.querySelector('#bioProjectionSection');
