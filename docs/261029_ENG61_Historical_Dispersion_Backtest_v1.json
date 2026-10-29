@@ -1,0 +1,263 @@
+{
+  "schema": "hockeyos-dispersion-descriptive-historical-validation/v1",
+  "producedFrom": "HTO published completed season rows and verified league duration bindings",
+  "scopeNotice": "Historical completed-season performance variability is not a forecast-error backtest; no complete historical forecast snapshots are claimed.",
+  "activeTeamGP": 5,
+  "historical": {
+    "independentPlayers": 30,
+    "qualifiedObservations": 183,
+    "medianPlayerMedianAbs": 0.3143095874713521,
+    "equalPlayerWeightedThresholds": {
+      "neutral": 0.1282051282051282,
+      "cold": 0.28861788617886175,
+      "hot": 0.35582010582010537
+    },
+    "medianGP": 18
+  },
+  "current": {
+    "status": "UNRECONCILED_FORECAST_NOT_ADMITTED",
+    "qualifiedGPUsed": 0
+  },
+  "candidateThresholds": {
+    "fixed": {
+      "neutral": 0.05,
+      "cold": 0.15,
+      "hot": 0.15
+    },
+    "historical": {
+      "neutral": 0.1282051282051282,
+      "cold": 0.28861788617886175,
+      "hot": 0.35582010582010537
+    },
+    "hybrid": {
+      "neutral": 0.05,
+      "cold": 0.28861788617886175,
+      "hot": 0.35582010582010537
+    }
+  },
+  "presentProvisionalPlayers": [
+    {
+      "name": "Carosi, Justin",
+      "pct": -0.025228,
+      "historicalLabel": "NEUTRAL",
+      "fixedLabel": "NEUTRAL"
+    },
+    {
+      "name": "Saindon, Stephane",
+      "pct": -0.094348,
+      "historicalLabel": "NEUTRAL",
+      "fixedLabel": "COOL"
+    },
+    {
+      "name": "Provenzano, Michael",
+      "pct": 0.008681,
+      "historicalLabel": "NEUTRAL",
+      "fixedLabel": "NEUTRAL"
+    },
+    {
+      "name": "Pearsoll, Keith",
+      "pct": -0.067804,
+      "historicalLabel": "NEUTRAL",
+      "fixedLabel": "COOL"
+    },
+    {
+      "name": "Pagnotta, Alex",
+      "pct": 0.169314,
+      "historicalLabel": "WARM",
+      "fixedLabel": "HOT"
+    },
+    {
+      "name": "Brutto, Adam",
+      "pct": -0.111531,
+      "historicalLabel": "NEUTRAL",
+      "fixedLabel": "COOL"
+    },
+    {
+      "name": "Kober, Adam",
+      "pct": 0.153509,
+      "historicalLabel": "WARM",
+      "fixedLabel": "HOT"
+    },
+    {
+      "name": "Provenzano, Mario",
+      "pct": -0.208333,
+      "historicalLabel": "COOL",
+      "fixedLabel": "COLD"
+    },
+    {
+      "name": "Duffy, Lorcan",
+      "pct": -0.208333,
+      "historicalLabel": "COOL",
+      "fixedLabel": "COLD"
+    },
+    {
+      "name": "Paolucci, Anthony",
+      "pct": -0.208333,
+      "historicalLabel": "COOL",
+      "fixedLabel": "COLD"
+    },
+    {
+      "name": "Mazzei, Stefano",
+      "pct": -0.208333,
+      "historicalLabel": "COOL",
+      "fixedLabel": "COLD"
+    },
+    {
+      "name": "Rajasooriar, Krishnan",
+      "pct": -0.208333,
+      "historicalLabel": "COOL",
+      "fixedLabel": "COLD"
+    },
+    {
+      "name": "Congiusti, Marco",
+      "pct": -0.208333,
+      "historicalLabel": "COOL",
+      "fixedLabel": "COLD"
+    },
+    {
+      "name": "Atkins, Nolan",
+      "pct": -0.208333,
+      "historicalLabel": "COOL",
+      "fixedLabel": "COLD"
+    },
+    {
+      "name": "Ardizzi, Stefano",
+      "pct": -0.208333,
+      "historicalLabel": "COOL",
+      "fixedLabel": "COLD"
+    }
+  ],
+  "folds": [
+    {
+      "trainingCutoff": "pre-2020",
+      "trainingPlayers": 23,
+      "trainingObservations": 131,
+      "holdoutObservations": 52,
+      "trainedScale": 0.31611917494270425,
+      "trainedThresholds": {
+        "neutral": 0.13664596273291907,
+        "cold": 0.3047619047619048,
+        "hot": 0.3125
+      },
+      "heldOutBandCounts": {
+        "COLD": 13,
+        "COOL": 6,
+        "NEUTRAL": 18,
+        "WARM": 4,
+        "HOT": 11
+      },
+      "fixedBandCounts": {
+        "COLD": 19,
+        "COOL": 8,
+        "NEUTRAL": 8,
+        "WARM": 2,
+        "HOT": 15
+      },
+      "absoluteDifferenceFromFinal": {
+        "neutral": 0.008440834527790875,
+        "cold": 0.01614401858304304,
+        "hot": 0.04332010582010537
+      }
+    },
+    {
+      "trainingCutoff": "pre-2023",
+      "trainingPlayers": 23,
+      "trainingObservations": 140,
+      "holdoutObservations": 43,
+      "trainedScale": 0.32467532467532445,
+      "trainedThresholds": {
+        "neutral": 0.13664596273291907,
+        "cold": 0.30756302521008405,
+        "hot": 0.3125
+      },
+      "heldOutBandCounts": {
+        "COLD": 9,
+        "COOL": 5,
+        "NEUTRAL": 16,
+        "WARM": 3,
+        "HOT": 10
+      },
+      "fixedBandCounts": {
+        "COLD": 14,
+        "COOL": 7,
+        "NEUTRAL": 7,
+        "WARM": 2,
+        "HOT": 13
+      },
+      "absoluteDifferenceFromFinal": {
+        "neutral": 0.008440834527790875,
+        "cold": 0.018945139031222302,
+        "hot": 0.04332010582010537
+      }
+    },
+    {
+      "trainingCutoff": "pre-2024",
+      "trainingPlayers": 27,
+      "trainingObservations": 153,
+      "holdoutObservations": 30,
+      "trainedScale": 0.32221497252747244,
+      "trainedThresholds": {
+        "neutral": 0.1361196942592291,
+        "cold": 0.30756302521008405,
+        "hot": 0.35582010582010537
+      },
+      "heldOutBandCounts": {
+        "COLD": 6,
+        "COOL": 4,
+        "NEUTRAL": 11,
+        "WARM": 2,
+        "HOT": 7
+      },
+      "fixedBandCounts": {
+        "COLD": 10,
+        "COOL": 4,
+        "NEUTRAL": 6,
+        "WARM": 1,
+        "HOT": 9
+      },
+      "absoluteDifferenceFromFinal": {
+        "neutral": 0.007914566054100902,
+        "cold": 0.018945139031222302,
+        "hot": 0
+      }
+    },
+    {
+      "trainingCutoff": "pre-2025",
+      "trainingPlayers": 30,
+      "trainingObservations": 168,
+      "holdoutObservations": 15,
+      "trainedScale": 0.303469012605042,
+      "trainedThresholds": {
+        "neutral": 0.11184210526315796,
+        "cold": 0.25,
+        "hot": 0.3157894736842106
+      },
+      "heldOutBandCounts": {
+        "COLD": 3,
+        "COOL": 2,
+        "NEUTRAL": 3,
+        "WARM": 1,
+        "HOT": 6
+      },
+      "fixedBandCounts": {
+        "COLD": 5,
+        "COOL": 0,
+        "NEUTRAL": 3,
+        "WARM": 0,
+        "HOT": 7
+      },
+      "absoluteDifferenceFromFinal": {
+        "neutral": 0.01636302294197023,
+        "cold": 0.03861788617886175,
+        "hot": 0.04003063213589475
+      }
+    }
+  ],
+  "interpretation": [
+    "Source-driven thresholds may differ from prior seven-level labels; no player is forced into an expected category.",
+    "Per-player median historical deviations give each qualifying player one vote in the reference scale.",
+    "Equal-player weighted absolute/negative/positive quantiles determine the descriptive five-level boundaries.",
+    "Current calibration remains held while projection is provisional or model-source parity is incomplete.",
+    "No model predictive skill or dynamic current form has been established by these season-level folds."
+  ]
+}

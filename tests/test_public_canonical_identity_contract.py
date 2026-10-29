@@ -71,7 +71,7 @@ class IdentityContractQA(unittest.TestCase):
         args=list(data());args[1]["asOf"]=datetime.now(timezone.utc).isoformat()
         self.assertEqual(m.validate(*args,check_fresh=True)["divisionTeams"],8)
     def test_missing_canonical_js_cache_version_fails(self):
-        args=list(data());args[3]=args[3].replace("3.6.4","old-cached")
+        args=list(data());args[3]=args[3].replace("3.6.5","old-cached")
         with self.assertRaisesRegex(m.IdentityHold,"HTML_JS_CSS_RELEASE_VERSION"):m.validate(*args)
     def test_decimal_win_percentage_format_cannot_revert(self):
         args=list(data());args[4]=args[4].replace(".toFixed(3)",".toFixed(0)")

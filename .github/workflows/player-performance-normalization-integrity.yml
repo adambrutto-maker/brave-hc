@@ -1,4 +1,4 @@
-name: HockeyOS standalone Bio V3.1 source and visual contract
+name: HockeyOS Bio and adaptive team dispersion source contract
 
 on:
   pull_request:
@@ -47,6 +47,17 @@ on:
       - 'widgets/home-trend-v364.css'
       - 'tests/test_bio_form_v364.cjs'
       - 'tests/test_bio_home_v364_browser.cjs'
+      - 'tests/test_eng61_adaptive_v365_browser.cjs'
+      - 'tests/test_hockeyos_dispersion_v365.cjs'
+      - 'widgets/hockeyos-adaptive-trend-v365.js'
+      - 'widgets/hockeyos-team-dispersion-v365.json'
+      - 'widgets/hockeyos-dispersion-widget-v365.js'
+      - 'widgets/hockeyos-dispersion-v365.css'
+      - 'scripts/hockeyos-dispersion-v365.cjs'
+      - 'scripts/backtest_hockeyos_dispersion_v365.cjs'
+      - 'docs/261029_ENG61_Historical_Dispersion_Backtest_v1.json'
+      - 'widgets/projection.json'
+      - 'widgets/player-actuals-hourly.json'
       - 'docs/261029_Bio_V33_Five_Pass_All_Time_Content_Audit.md'
       - 'widgets/player-bio-coaching-roles.js'
       - 'widgets/player-bio-positive-streaks.js'
@@ -103,6 +114,11 @@ jobs:
       - name: Check premium Bio JavaScript and goalie forecast module syntax
         run: |
           node --check widgets/player-bio-premium.js
+          node --check widgets/hockeyos-adaptive-trend-v365.js
+          node --check widgets/hockeyos-dispersion-widget-v365.js
+          node --check widgets/player-bio-form-v364.js
+          node --check scripts/hockeyos-dispersion-v365.cjs
+          node --check scripts/backtest_hockeyos_dispersion_v365.cjs
           node --check widgets/player-bio-trend-visual-v36.js
           node --check widgets/player-bio-form-model-v364.js
           node --check widgets/player-bio-form-v364.js
@@ -147,6 +163,10 @@ jobs:
         run: node --test tests/test_player_bio_coaching_roles.cjs tests/test_player_bio_positive_streaks.cjs
       - name: Verify current/recent scoring form fails closed without individual appearances
         run: node --test tests/test_bio_form_v364.cjs
+      - name: Verify dynamic dispersion source, reproducible historical calibration and holds
+        run: |
+          node scripts/hockeyos-dispersion-v365.cjs --check
+          node --test tests/test_hockeyos_dispersion_v365.cjs
       - name: Install isolated Playwright test dependency
         run: npm install --no-package-lock --no-save playwright
       - name: Install browser for source-independent CI acceptance
@@ -161,13 +181,13 @@ jobs:
         run: node tests/test_bio_v32_percent_and_cohort_browser.cjs
       - name: Verify deduplicated V3.3 all-time shares and source holds on 16 mobile/desktop cases
         run: node tests/test_bio_v33_content_browser.cjs
-      # Historical V3.4 visual tests are superseded by V3.6 center, angle, motion and source checks.
+      # Original workbook sigma remains source-audited, but does not drive V3.6.5 displayed arrows.
       - name: Validate V3.6 original source sigma, personalized bearings and missing-data holds
         run: node --test tests/test_bio_v36_source_angle.cjs
-      - name: Verify V3.6.2 condition-matched panel, arrow, layout and reduced motion
-        run: node tests/test_bio_v36_angular_animation_browser.cjs
-      - name: Test seven-level Bio and Home badge parity, card order and recent form source holds
-        run: node tests/test_bio_home_v364_browser.cjs
+      - name: Verify adaptive five-level team-dispersion badges and physical angles across Bio and Home
+        run: node tests/test_eng61_adaptive_v365_browser.cjs
+      - name: Verify source-held recent form and original current HTO P/GP calculations
+        run: node --test tests/test_bio_form_v364.cjs
       - name: Test all 109 verified HTO identities across three tabs at narrow embed width
         run: node tests/test_bio_v31_clean_109_browser.cjs
       - name: Test visual Bio V3.1 (chart labels, whole-GP forecast, role explorer)

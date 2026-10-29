@@ -1,0 +1,150 @@
+{
+  "schema": "hockeyos-team-career-relative-dispersion/v1",
+  "version": "3.6.5",
+  "status": "HISTORICAL_REFERENCE_ONLY",
+  "calibrationStatus": "HISTORICAL_SEASON_DERIVED_NOT_FORECAST_BACKTEST_VALIDATED",
+  "generatedAt": "2026-10-29T12:31:24.479940+00:00",
+  "model": {
+    "sourceSeason": "W2026/27",
+    "projectionExportedAt": "2026-10-29T12:31:24.479940+00:00",
+    "workbookSourceHash": "0002fd9f06596af8d0a00fc1b53a618ef15479f941ad5c1e6265b27002a65154",
+    "projectionCanonicalHashSHA256": "9512fe72ea409cca4b068ce5d4fabe895c257142023d9e6cc0b804c54874155c",
+    "provisional": true,
+    "sourceWorkbookPreserved": true,
+    "sourcePlayerTrendsPreserved": true,
+    "fiveCategoryWorkbookModelPreserved": true
+  },
+  "definitions": {
+    "typicalCareerDeviation": "Median absolute signed player career-relative change, expressed as a decimal percentage.",
+    "playerToPlayerDispersion": "Median absolute deviation of qualified player percentages around team median.",
+    "signedTeamDirection": "Median qualified player signed career-relative percentage; never subtracted from player percentages.",
+    "effectiveDispersion": "Historical reference adjusted by verified current source confidence; bounded by historical player-scale quantiles."
+  },
+  "historical": {
+    "status": "HISTORICAL_REFERENCE_VERIFIED",
+    "method": "MEDIAN_OF_PLAYER_MEDIAN_ABS_PERCENT_CHANGES",
+    "effectiveSample": {
+      "independentPlayers": 30,
+      "qualifiedPlayerSeasons": 183,
+      "seasonGPMin": 5,
+      "priorCareerGPMin": 20,
+      "priorCareerSeasonsMin": 2,
+      "careerRateMinPtsGP": 0.2,
+      "sourceGameTypes": "PUBLISHED_ALL_HTO_GAME_TYPES",
+      "normalizeMinutes": 32
+    },
+    "dispersion": 0.3143095874713521,
+    "neutralAbs": 0.1282051282051282,
+    "coldAbs": 0.28861788617886175,
+    "hotAbs": 0.35582010582010537,
+    "multipliers": {
+      "neutral": 0.4078944242094222,
+      "cold": 0.9182598866958456,
+      "hot": 1.132068890047895
+    },
+    "historicalScaleBounds": {
+      "min": 0.12938301816886877,
+      "max": 0.6531944835350408
+    },
+    "playerWeightedQuantiles": {
+      "absP25": 0.1282051282051282,
+      "negativeAbsP50": 0.28861788617886175,
+      "positiveAbsP50": 0.35582010582010537
+    },
+    "medianQualifyingSeasonGP": 18,
+    "sourceCapturedAt": "2026-10-20T18:54:56.260Z",
+    "sourceBasis": "Qualified completed HTO skater seasons mapped to verified winter-equivalent game minutes; not historical forecast snapshots.",
+    "audit": {
+      "profiles": 109,
+      "skaters": 87,
+      "verifiedSeasonRows": 346,
+      "qualifiedObservations": 183,
+      "exclusions": {
+        "invalidSeason": 20,
+        "incompleteScoring": 34,
+        "unverifiedDuration": 0,
+        "insufficientPriorCareer": 73,
+        "insufficientSeasonGP": 86,
+        "tinyPriorRate": 4
+      },
+      "playerSamples": 0
+    }
+  },
+  "current": {
+    "status": "HELD",
+    "reason": "FORECAST_PROVISIONAL_OR_UNRECONCILED",
+    "weight": 0,
+    "qualifiedPlayers": 0
+  },
+  "effective": {
+    "dispersion": 0.3143095874713521,
+    "weight": 0,
+    "lowerScaleBound": 0.12938301816886877,
+    "upperScaleBound": 0.6531944835350408,
+    "referenceMode": "HISTORICAL_REFERENCE_ONLY",
+    "thresholds": {
+      "neutral": 0.1282051282051282,
+      "cold": 0.28861788617886175,
+      "hot": 0.35582010582010537
+    },
+    "orientation": "0_UP_90_RIGHT_180_DOWN",
+    "angleFormula": "90 - 180/Math.PI * atan(p / effectiveDispersion)",
+    "sourceModelIndependentOfStandardDeviation": true
+  },
+  "qualification": {
+    "history": "PREVIOUS_SEASONS_ONLY_WITH_CAREER_BASELINE",
+    "current": "RECONCILED_FORECAST_AND_LIVE_ACTUALS_ONLY",
+    "avoidsRepeatedLowGPDeltas": true,
+    "currentUpdateHeldReason": "FORECAST_PROVISIONAL_OR_UNRECONCILED"
+  },
+  "audit": {
+    "eligibleHistoricalPlayers": 30,
+    "historicalObservations": 183,
+    "historicalExamples": [
+      {
+        "id": "354041",
+        "name": "Marco Congiusti",
+        "n": 12,
+        "medianAbs": 0.36156606204777475
+      },
+      {
+        "id": "354042",
+        "name": "Lucas Brutto",
+        "n": 3,
+        "medianAbs": 0.625
+      },
+      {
+        "id": "354045",
+        "name": "Mario Provenzano",
+        "n": 12,
+        "medianAbs": 0.31611917494270425
+      },
+      {
+        "id": "354046",
+        "name": "Ryan Logue",
+        "n": 14,
+        "medianAbs": 0.15568170158438666
+      },
+      {
+        "id": "354049",
+        "name": "Cameron Buchanan",
+        "n": 10,
+        "medianAbs": 0.1298384708574506
+      }
+    ],
+    "excludedHistorical": {
+      "invalidSeason": 20,
+      "incompleteScoring": 34,
+      "unverifiedDuration": 0,
+      "insufficientPriorCareer": 73,
+      "insufficientSeasonGP": 86,
+      "tinyPriorRate": 4
+    }
+  },
+  "sourceFiles": [
+    "projection.json",
+    "player-career-insights.json",
+    "league-game-formats.json",
+    "player-actuals-hourly.json"
+  ]
+}

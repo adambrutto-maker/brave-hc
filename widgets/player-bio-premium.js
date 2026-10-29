@@ -21,7 +21,7 @@ const getJSON=async path=>{const timeout=new AbortController();const timer=setTi
   try{const r=await fetch('./'+path,{cache:'no-store',signal:timeout.signal});if(!r.ok)throw Error('unavailable');return await r.json();}
   finally{clearTimeout(timer);}
 };
-const fetches=Promise.allSettled(['player-career-insights.json','projection.json','league-game-formats.json','player-actuals.json','goalie-roster.json','opponent-intelligence.json','goalie-projection-verified-inputs.json','svhl-upcoming.json','player-bio-season-titles.json'].map(getJSON));
+const fetches=Promise.allSettled(['player-career-insights.json','projection.json','league-game-formats.json','player-actuals.json','goalie-roster.json','opponent-intelligence.json','goalie-projection-verified-inputs.json','svhl-upcoming.json','player-bio-season-titles.json','hockeyos-team-dispersion-v365.json'].map(getJSON));
 const playerID=()=>String($('playerChoice')?.value||new URLSearchParams(location.search).get('playerID')||'');
 const identity=id=>window.BravePlayerLinks?.identityById(Number(id))||null;
 const profileIdFromName=name=>{
@@ -66,7 +66,7 @@ function sourceLabel(text){$('bioModelContext').textContent=text;}
 function renderView(){
   const sections={
     production:['bioSeasonCurrent','bioProjectionSection'],
-    trends:['bioSpotlight','bioRecentFormSection','bioAdvancedSection','bioDevelopmentSection','bioGoalieSection'],
+    trends:['bioSpotlight','bioRecentFormSection','bioTeamDispersionSection','bioAdvancedSection','bioDevelopmentSection','bioGoalieSection'],
     coaching:['bioOpponentSection']
   };
   const visible=sections[state.active]||[];
@@ -77,11 +77,11 @@ function renderView(){
     btn.setAttribute('aria-selected',String(chosen));btn.tabIndex=chosen?0:-1;
   }
   // Exactly three main tabs for skaters, goalies, and dual-role profiles.
-  for(const id of ['bioSeasonCurrent','bioSpotlight','bioRecentFormSection','bioAdvancedSection','bioDevelopmentSection','bioProjectionSection',
+  for(const id of ['bioSeasonCurrent','bioSpotlight','bioRecentFormSection','bioTeamDispersionSection','bioAdvancedSection','bioDevelopmentSection','bioProjectionSection',
                    'bioGoalieSection','bioOpponentSection','leadershipSection','systemSection']){
     const el=$(id);if(!el)continue;
     const missingRole=(id==='bioGoalieSection'&&!state.isGoalie)||
-      (['bioSpotlight','bioProjectionSection','bioRecentFormSection'].includes(id)&&!state.isSkater);
+      (['bioSpotlight','bioProjectionSection','bioRecentFormSection','bioTeamDispersionSection'].includes(id)&&!state.isSkater);
     const leadershipMissing=id==='leadershipSection'&&!state.hasLeadership;
     el.hidden=missingRole||leadershipMissing||!visible.includes(id);
   }
@@ -500,88 +500,83 @@ function validateProjection(p){
 function paintProjectionTrend(row,projection){
   const host=$('bioProjectionTrend'),detail=$('bioProjectionTrendDetail');
   const panel=$('bioProjectionSummarySlot');
-  // V3.6.2: mirror the badge's own published-sigma palette onto its parent.
-  // Reset first to prevent stale colors on a missing or held source.
   panel.removeAttribute('data-panel-tone');
   for(const key of ['rim','upper','lower','lit'])panel.style.removeProperty('--bio-panel-'+key);
-  const useBadgePanelTone=(badge,tone)=>{
+  const colorFromBadge=(badge,tone)=>{
     panel.dataset.panelTone=tone;
     for(const key of ['rim','upper','lower','lit'])
       panel.style.setProperty('--bio-panel-'+key,badge.style.getPropertyValue('--'+key));
   };
   host.replaceChildren();detail.textContent='';
-  host.dataset.trendState='HELD';
-  host.dataset.visualLevel='HELD';
-  host.dataset.nearCareerAverage='false';
-  host.className='bio-trend-summary';
-  // V3.6 approved artwork is isolated in the visual-only module.
-  // Input z-score always comes from the existing source-verified engine.
-  const result=window.HockeyOSBioProjectionTrend?.classify(row,projection)||{status:'HELD'};
-  if(result.status==='VERIFIED_MODEL_TREND'){
-    host.dataset.trendState=result.name;
-    host.classList.add('bio-trend-ready','bio-trend-'+result.name.toLowerCase());
-    const direction=window.HockeyOSBioProjectionTrend?.directionalArrow(row,projection);
-    // Presentational ±5% band applies ONLY to a source-verified Neutral trend.
-    // It never changes classify(), exact percentages, or directionalArrow().
-    const nearAverage=direction?.status==='VERIFIED_STANDARD_DEVIATION_ARROW' &&
-      window.HockeyOSBioTrendVisualV36?.nearCareerAverage(result.relativeChange,result.name)===true;
-    let displayLevel=result.name.toUpperCase();
-    if(direction?.status==='VERIFIED_STANDARD_DEVIATION_ARROW'){
-      host.dataset.trendDirection=direction.direction;
-      const badge=window.HockeyOSBioTrendVisualV36?.createBadge(
-        document,direction,result.name);
-      if(badge){
-        badge.dataset.sourceTrend=String(row.trend);
-        badge.dataset.sourceSigma=String(direction.sigma);
-        host.append(badge);
-        displayLevel=badge.dataset.visualLevel;
-        host.dataset.visualLevel=displayLevel;
-        host.dataset.nearCareerAverage=String(nearAverage);
-        useBadgePanelTone(badge,displayLevel.toLowerCase());
-      }else{
-        // Failed visual dependency is not a reason to invent a fallback angle.
-        host.dataset.trendState='HELD';
-        host.classList.remove('bio-trend-ready');
-      }
-    }
-    const label=build('div',undefined,'bio-trend-copy');
-    const signed=(result.relativeChange>0?'+':'')+(result.relativeChange*100).toFixed(1)+'%';
-    const comparison=nearAverage?
-      (result.relativeChange===0?'At career average':'Within ±5% of career average'):
-      (result.relativeChange<0?'Below established career pace':'Above established career pace');
-    label.append(build('strong',displayLevel+' · '+signed,'bio-trend-main'),
-      build('span',comparison+' · '+
-        (result.modelCurrent?'model reconciled':'provisional workbook model'),'bio-trend-minor'));
-    host.append(label);
-    detail.textContent='Original workbook category: '+result.name+
-       '. Seven-level display strength: '+displayLevel+
-       '. Display label follows the individualized arrow and colours, not the workbook five-arrow category. '+
-       '. Historical career regular-season scoring rate '+
-       (num(result.careerRate)?fmtRate(result.careerRate):'unavailable')+
-       ' P/GP; projected scoring-rate component '+
-       (num(result.modelComponentRate)?fmtRate(result.modelComponentRate):'unavailable')+
-       ' P/GP; career relative change '+signed+
-       '. The model trend component is distinct from the displayed full-season projected P/GP.'+
-        (nearAverage?' Within the ±5% visual-neutral tolerance around the career average; the original workbook category and personalized arrow angle are unchanged.':'');
-  }else{
-    host.dataset.trendState=result.status;
-    const label=build('div',undefined,'bio-trend-copy');
-    if(result.status==='ROOKIE'){
-      // Founder-approved rookie state: white horizontal neutral symbol, not a
-      // calculated trend. No angle, z-score, % change or invented career baseline.
-      const badge=window.HockeyOSBioTrendVisualV36?.createBadge(
-        document,{zScore:0},'Neutral',true);
-      if(badge){host.append(badge);host.dataset.visualLevel='ROOKIE';useBadgePanelTone(badge,'rookie');}
-      label.append(build('strong','Neutral · Rookie Year','bio-trend-main'),
-        build('span','No career baseline · forecast remains provisional','bio-trend-minor'));
-      detail.textContent='Neutral rookie display state only. No model career baseline or statistical comparison is available.';
-    }else{
-      label.append(build('strong','Career trend unavailable','bio-trend-main'),
-        build('span','The workbook trend is not source verified','bio-trend-minor'));
-      detail.textContent='No verified workbook career trend. No arrow or comparison has been inferred.';
-    }
-    host.append(label);
+  host.dataset.trendState='HELD';host.dataset.visualLevel='HELD';
+  host.dataset.nearCareerAverage='false';host.className='bio-trend-summary';
+  const original=window.HockeyOSBioProjectionTrend?.classify(row,projection)||{status:'HELD'};
+  const adaptive=window.HockeyOSAdaptiveTrendV365;
+  if(original.status==='ROOKIE'){
+    host.dataset.trendState='ROOKIE';host.dataset.visualLevel='ROOKIE';
+    const badge=adaptive?.rookieBadge(document,window.HockeyOSBioTrendVisualV36);
+    if(badge){host.append(badge);colorFromBadge(badge,'rookie');}
+    const copy=build('div',undefined,'bio-trend-copy');
+    copy.append(build('strong','Rookie Year','bio-trend-main'),
+      build('span','No established career comparison · model remains provisional','bio-trend-minor'));
+    host.append(copy);
+    detail.textContent='Rookie has no verified individual career baseline. No adaptive percentage or angle is inferred.';
+    return;
   }
+  if(original.status!=='VERIFIED_MODEL_TREND'){
+    const copy=build('div',undefined,'bio-trend-copy');
+    copy.append(build('strong','Career trend unavailable','bio-trend-main'),
+      build('span','The original workbook source is not qualified','bio-trend-minor'));
+    host.append(copy);detail.textContent='No invented career trend or dynamic comparison.';
+    return;
+  }
+  host.dataset.trendState=original.name;host.dataset.sourceCategory=original.name;
+  const signed=(original.relativeChange>0?'+':'')+(original.relativeChange*100).toFixed(1)+'%';
+  const reading=adaptive?.classify(row,projection,sources.dispersion)||{status:'HELD',reason:'ENGINE_UNAVAILABLE'};
+  if(reading.status!=='VERIFIED'){
+    const copy=build('div',undefined,'bio-trend-copy');
+    copy.append(build('strong','Adaptive trend unavailable','bio-trend-main'),
+      build('span','Original workbook '+original.name+' · '+signed+' · '+reading.reason,'bio-trend-minor'));
+    host.append(copy);
+    detail.textContent='Original workbook category: '+original.name+
+      '. Model component change '+signed+'. Dispersion gate: '+reading.reason+
+      '. No fallback sigma-driven arrow or manufactured calibration.';
+    return;
+  }
+  const badge=adaptive.badge(document,reading,window.HockeyOSBioTrendVisualV36,'PROJECTION');
+  if(!badge){
+    host.append(build('div','Verified trend, but adaptive artwork unavailable','bio-trend-copy'));
+    detail.textContent='Model trend '+signed+'; renderer unavailable.';
+    return;
+  }
+  badge.dataset.workbookCategory=original.name;badge.dataset.sourceTrend=String(row.trend);
+  host.dataset.visualLevel=reading.level;
+  host.dataset.trendDirection=reading.percentage<0?'BELOW':reading.percentage>0?'ABOVE':'AT';
+  host.dataset.nearCareerAverage=String(reading.level==='NEUTRAL');
+  host.classList.add('bio-trend-ready','bio-trend-'+reading.level.toLowerCase());
+  host.append(badge);colorFromBadge(badge,reading.level.toLowerCase());
+  const copy=build('div',undefined,'bio-trend-copy');
+  const th=reading.thresholds,band=(th.neutral*100).toFixed(1);
+  const message=reading.level==='NEUTRAL'?
+    (reading.percentage===0?'Exactly at career baseline':'Within dynamic ±'+band+'% career band'):
+    (reading.percentage<0?'Below established career pace':'Above established career pace');
+  copy.append(build('strong',reading.level+' · '+signed,'bio-trend-main'),
+    build('span',message+' · '+
+      (reading.provisional?'historical-reference calibration; forecast provisional':
+      'reconciled team-dispersion calibration'),'bio-trend-minor'));
+  host.append(copy);
+  detail.textContent='Original workbook category: '+original.name+
+    '. Five-level adaptive display: '+reading.level+
+    '. Exact published projected scoring-component change '+signed+
+    '. Original career rate '+(num(original.careerRate)?fmtRate(original.careerRate):'unavailable')+
+    ' P/GP; original projected scoring-rate component '+
+    (num(original.modelComponentRate)?fmtRate(original.modelComponentRate):'unavailable')+
+    ' P/GP. Effective team career-relative dispersion '+(reading.dispersion*100).toFixed(2)+
+    '%. Dynamic limits: Cold ≤ '+(-th.cold*100).toFixed(1)+
+    '%, Neutral ±'+band+'%, Hot ≥ +'+(th.hot*100).toFixed(1)+
+    '%. Source mode: '+reading.mode+
+    '. Arrow physically measures '+reading.angle.toFixed(2)+'° (0 up, 90 right, 180 down). '+
+    'Display calibration does not modify the source workbook category, its percentage or the separate full-season headline P/GP.';
 }
 
 function renderSkaterProjection(){
@@ -1015,6 +1010,7 @@ sources={career:inputs[0].status==='fulfilled'?inputs[0].value:null,
   goalieVerified:inputs[6].status==='fulfilled'?inputs[6].value:null,
   upcoming:inputs[7].status==='fulfilled'?inputs[7].value:null,
   titles:inputs[8].status==='fulfilled'?inputs[8].value:null,
+   dispersion:inputs[9].status==='fulfilled'?inputs[9].value:null,
   // Game Night data is not part of this independently releaseable Bio candidate.
   gameLineup:null,
   gameCountdown:null};

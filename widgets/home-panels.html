@@ -6,10 +6,13 @@
 <link rel="stylesheet" href="./home-premium.css?v=20261026-readability">
 <link rel="stylesheet" href="./player-bio-trend-visual-v36.css?v=3.6.4">
 <link rel="stylesheet" href="./home-trend-v364.css?v=3.6.4">
+<link rel="stylesheet" href="./hockeyos-dispersion-v365.css?v=3.6.5">
 <script defer src="./player-links.js?v=3"></script>
 <script defer src="./player-bio-projection-trend.js?v=3.6.4"></script>
 <script defer src="./player-bio-trend-visual-v36.js?v=3.6.4"></script>
-<script defer src="./home-premium.js?v=3.6.4"></script>
+<script defer src="./hockeyos-adaptive-trend-v365.js?v=3.6.5"></script>
+<script defer src="./home-premium.js?v=3.6.5"></script>
+<script defer src="./hockeyos-dispersion-widget-v365.js?v=3.6.5"></script>
 </head>
 <body data-hto-season="Winter_2026/2027">
 <main class="shell" tabindex="0" aria-label="Scrollable Brave H.C. statistics and opponent centre"><div class="card"><div class="accent"></div><div class="content">
@@ -41,13 +44,17 @@
 <p class="note" id="projection-note">Loading the latest model snapshot…</p>
 <div class="summary"><div><div class="kicker">Projected Player Scoring</div><div class="metric" id="proj-total">—</div><div class="minor">Combined roster projection · not league standings points</div></div>
 <div><div class="minor">Current HTO games</div><div class="metric" id="proj-games">—</div></div></div>
+<details id="homeTeamDispersionDisclosure" class="team-dispersion-disclosure">
+ <summary id="homeTeamDispersionSummary">Team Dispersion · checking qualified source</summary>
+ <div id="homeTeamDispersion" class="team-dispersion-panel" aria-live="polite"></div>
+</details>
 <div class="filters" aria-label="Roster groups">
 <button type="button" data-group="ALL" aria-pressed="true">All Players</button><button type="button" data-group="FT" aria-pressed="false">Full-Time</button><button type="button" data-group="CU" aria-pressed="false">Call-Ups</button><button type="button" data-group="DI" aria-pressed="false">Drop-Ins</button>
 </div>
 <table class="stats-table projection-table" aria-label="Full player projections showing projected season totals, current actuals and career trends">
 <thead><tr><th class="team">PLAYER</th><th>GP</th><th>G</th><th>A</th><th>PTS</th><th>P/G</th><th>TREND</th></tr></thead><tbody id="projection-rows"></tbody></table><div class="pager" id="projection-pager"></div>
 <div id="trend-legend" class="legend" aria-label="Trend strength key"></div>
-<p class="model">Bold numbers = projected season totals. <span class="muted">(Parentheses)</span> = actual statistics at the model input date. P/G = projected points per game. Tap a trend badge for details. Seven display levels follow the same individual arrow intensity used in Player Bio; the original five workbook classifications and thresholds are unchanged.</p>
+<p class="model">Bold numbers = projected season totals. <span class="muted">(Parentheses)</span> = actual statistics at the model input date. P/G = projected points per game. Tap a trend badge for details. Five adaptive display levels follow the team career-relative dispersion; the original five workbook categories and their source thresholds remain unchanged.</p>
 <div class="foot"><span class="source" id="projection-source">Workbook reconciliation status pending</span><a href="https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&amp;s=hockey&amp;p=stats" target="_parent" rel="noopener noreferrer">Official current HTO stats ↗</a></div>
 </section>
 <section id="watch" hidden><div class="titleline"><div><div class="kicker">Brave H.C. · News</div><h1>Milestones in Hot Stove</h1></div></div><p class="note">Career milestones and achievements now belong with the latest game stories. Historical records remain available separately.</p><div class="foot"><a href="./hot-stove.html" target="_parent" rel="noopener noreferrer">Read Hot Stove ↗</a><a href="./history.html?view=records" target="_parent" rel="noopener noreferrer">Historical records ↗</a></div></section>
