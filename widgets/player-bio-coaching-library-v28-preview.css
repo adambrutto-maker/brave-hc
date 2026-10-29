@@ -1,0 +1,32 @@
+/* HockeyOS V2.8 public reference-library preview. Scoped to Coaching only. */
+#bioVideoPlaybook { margin:15px 0 5px; border-top:1px solid #526e85; padding:13px 0 0; }
+#bioVideoPlaybook .playbook-head{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:10px}
+#bioVideoPlaybook .playbook-kicker{font-size:9px;letter-spacing:1.15px;font-weight:900;color:#efc98e}
+#bioVideoPlaybook h3{font-size:17px;font-weight:900;margin:3px 0;color:#fff}
+#bioVideoPlaybook .playbook-sub{font-size:10.5px;color:#b3c9db;margin:0;line-height:1.3}
+#bioVideoPlaybook .playbook-count{flex:none;border:1px solid #9d7e4d;border-radius:6px;background:#433c2e;color:#f4d9a4;font-size:10px;font-weight:900;padding:6px 8px}
+#bioVideoPlaybook .playbook-filters{display:flex;gap:5px;overflow-x:auto;padding:3px 0 10px;scrollbar-width:thin;scrollbar-color:#678499 transparent}
+#bioVideoPlaybook .playbook-filters button{flex:none;min-height:35px;padding:7px 10px;border:1px solid #4d6b85;border-radius:6px;background:#183850;color:#d1e1eb;font:850 10px Arial,Helvetica,sans-serif;cursor:pointer}
+#bioVideoPlaybook .playbook-filters button[aria-pressed=true]{border-color:#dec186;color:#fff0c9;background:#554634}
+#bioVideoPlaybook .playbook-list{display:grid;gap:8px}
+#bioVideoPlaybook .playbook-card{padding:10px;background:linear-gradient(130deg,#1c3a54,#102b43);border:1px solid #446783;border-radius:9px;min-width:0}
+#bioVideoPlaybook .playbook-heading{display:grid;grid-template-columns:39px minmax(0,1fr);gap:9px;align-items:center}
+#bioVideoPlaybook .playbook-symbol{width:39px;height:39px;display:grid;place-items:center;border:1px solid #947758;border-radius:7px;color:#f7d99a;background:#294960;font-size:19px}
+#bioVideoPlaybook .playbook-category{font-size:9px;color:#f0c786;letter-spacing:.7px;font-weight:900}
+#bioVideoPlaybook .playbook-title{display:block;font-size:12px;line-height:1.3;color:#fff;font-weight:900;margin:3px 0 2px}
+#bioVideoPlaybook .playbook-byline{font-size:10px;color:#b7cedd;line-height:1.3}
+#bioVideoPlaybook .playbook-controls{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:9px}
+#bioVideoPlaybook .playbook-watch{min-height:33px;padding:6px 9px;border-radius:6px;border:1px solid #d6b172;background:#5a4630;color:#ffe4ad;font:850 10px Arial,Helvetica,sans-serif;cursor:pointer}
+#bioVideoPlaybook .playbook-youtube{color:#c7e1ed;font-size:10px;font-weight:850;white-space:nowrap}
+#bioVideoPlaybook .playbook-description{font-size:10px;color:#b1c7d9;line-height:1.45;border-top:1px solid #3a5a75;padding-top:8px;margin:9px 0 0}
+#bioVideoPlaybook .playbook-player{margin-top:9px;width:100%;aspect-ratio:16/9;border-radius:7px;border:1px solid #7b8fa4;overflow:hidden;background:#091625}
+#bioVideoPlaybook .playbook-player iframe{width:100%;height:100%;border:0;display:block}
+#bioVideoPlaybook .playbook-more{width:100%;padding:11px 8px;border:1px solid #b8945f;background:#403b31;border-radius:7px;color:#f7dfac;font:900 11px Arial,Helvetica,sans-serif;cursor:pointer}
+#bioVideoPlaybook .playbook-empty{padding:14px 10px;border:1px dashed #637f97;border-radius:8px;color:#c1d4df;font-size:11px}
+#bioVideoPlaybook .playbook-disclosure{border:1px solid #466880;background:#142e43;border-radius:8px;margin-top:12px}
+#bioVideoPlaybook .playbook-disclosure>summary{padding:11px 12px;color:#f1d19a;font-size:11px;font-weight:850;cursor:pointer}
+#bioVideoPlaybook .playbook-disclosure .playbook-guidance{border-top:1px solid #45637d;padding:10px 12px;color:#c5d7e3;font-size:11px;line-height:1.55}
+#bioVideoPlaybook .playbook-guidance strong{color:#ffdda3}
+#bioVideoPlaybook .playbook-guidance p{margin:4px 0 9px}
+#bioVideoPlaybook .playbook-note{color:#9cb7c9;font-size:9.5px;line-height:1.4;margin:9px 1px 0}
+#bioVideoPlaybook button:focus-visible,#bioVideoPlaybook a:focus-visible,#bioVideoPlaybook summary:focus-visible{outline:2px solid #ffdfaa;outline-offset:2px}
