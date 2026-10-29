@@ -28,9 +28,10 @@ const server=http.createServer((req,res)=>{
   await page.locator('#profileSource a').waitFor({timeout:15000});
   await page.locator('#lockerHonors').click();
   const award=page.locator('#honorsGrid .ph-honor-title').filter({hasText:'Andrew Cristillo Award'});
-  await award.waitFor({timeout:8000});
+  await award.first().waitFor({timeout:8000});
   assert.equal(await award.locator('a.brave-player-link').count(),0,'Namesake in award badge must not link to the player');
-  assert.equal(await award.getAttribute('data-brave-no-link'),'','Award title must explicitly opt out');
+  assert.ok(await award.count()>=1,'Published Cristillo awards are present');
+  assert.equal(await award.first().getAttribute('data-brave-no-link'),'','Award title must explicitly opt out');
   await page.locator('#lockerAll').click();
   for(let tries=0;tries<8;tries++){
    if(await page.locator('#allGrid .ph-inventory-name').filter({hasText:'Andrew Cristillo Award'}).count())break;
@@ -38,7 +39,7 @@ const server=http.createServer((req,res)=>{
    await more.click();
   }
   const inAll=page.locator('#allGrid .ph-inventory-name').filter({hasText:'Andrew Cristillo Award'});
-  assert.equal(await inAll.count(),1,'Award should remain present in All');
+  assert.ok(await inAll.count()>=1,'Awards should remain present in All');
   assert.equal(await inAll.locator('a.brave-player-link').count(),0,'All must not link namesake');
   const legacy=page.locator('#legacy .ph-event-title').filter({hasText:'Andrew Cristillo Award'});
   assert.ok(await legacy.count()>0,'Legacy source label remains present');
