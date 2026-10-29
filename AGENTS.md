@@ -1,3 +1,15 @@
+## V2.5 decisive presentation correction — no isolated Peak Season card (October 28, 2026)
+
+The founder rejected the standalone 'Peak season' figure as context-free. **Do not render a headline best/peak-season Pts/GP card in either Production or Trends.** Historical achievements remain in the source-qualified season chart and award markers; no season rate is presented as an earned club record.
+
+Production may show one concise **Career scoring pace** metric, but its rate MUST follow the current chart comparison basis: All = actual (no adjustment), Winter = 32-minute equivalent, Summer = 48-minute equivalent. Show exactly two decimal places, with explicit source completeness and selected game-length basis. Do not juxtapose a Winter-only figure beside an Actual chart.
+
+The founder prefers eventually to show **Last 3 / Last 5 / Last 10 verified player GP** using Winter-equivalent Pts/GP. Do not claim these three rates, create example numbers or show misleading placeholders until individual game-by-game appearances, scoring totals, game type and source identity are reconciled. The current public SVHL game-event index describes **SEASON_SCOPED_PARTIAL_PLAYER_GAME_EVENT_EVIDENCE**; it is insufficient to infer a complete 3/5/10-game participation window, particularly scoreless appearances. When the data becomes complete, source-date and sample size must accompany those recent-production rates. The Milestone-style shell remains the design baseline; do not substitute a generic conceptual dashboard image for the actual tested widget.
+
+This V2.5 direction supersedes any earlier instructions promoting a standalone Peak Season tile or claiming the proposed recent-GP cards are already populated.
+
+---
+
 ## CURRENT Bio implementation guidance — V2.4 review candidate, October 28, 2026
 
 These standing rules supersede conflicting legacy design descriptions below. **Bio main navigation: Production / Trends / Coaching only.** Production shows the earned raw G/A season chart with 2-decimal Pts/GP right axis, 33 verified Rocket Richard/Art Ross markers, a rolling GP-weighted Pts/GP line using **earlier completed seasons only**, a compact **zero-centered, σ-scaled directional arrow** for the published current-season forecast, two summary indicators and optional full projection. No gauge. Full-career fixed comparison is retrospective and optional, not confused with prior-only rolling means. Unverified earlier season rows hold the comparison, not zero. A negative workbook trend must point down even when the unchanged five-state workbook classifier says Neutral.

@@ -105,6 +105,10 @@ function setupTabs(){
         more.open=false;
       }
       renderChart();
+      if(group==='bioRateModes'&&state.player){
+        const player=sources.career?.players?.[state.player];
+        if(player)renderAdvancedMetrics(player);
+      }
     });
   }
 }
@@ -615,6 +619,7 @@ function renderAdvancedMetrics(player){
   const seg=player?.segments?.find(s=>s.kind===wanted);
   const target=$('bioAdvancedGrid'),more=$('bioSecondaryMetrics');
   target.replaceChildren();more.replaceChildren();
+  target.classList.remove('one-stat');
   const result=engine&&seg?(seg.kind==='skater'?engine.skater(seg,sources.formats):engine.goalie(seg,sources.formats)):null;
   const split=$('bioScoringMix');split.replaceChildren();split.hidden=true;
   state.analysis=result;
@@ -628,11 +633,26 @@ function renderAdvancedMetrics(player){
   $('bioCollectionCount').textContent=c.complete+' / '+c.total+' seasons';
   $('bioCollectionSub').textContent='Choose a collection · '+c.complete+' source-qualified '+(seg.kind==='goalie'?'goalie':'scoring')+' seasons';
   if(result.kind==='skater'){
-    insight(target,'Winter-equivalent points / GP',decimal(o.winterPtsPerGP??o.verifiedSeasonWinterPtsPerGP),
-      (o.winterPtsPerGP===null?'Verified seasons only · ':'All published scoring seasons · ')+'32-minute basis');
+    // The headline rate uses the SAME Actual / Winter / Summer time basis as
+    // the chart's Pts/GP line. Never show a Winter-only career value next to
+    // an Actual chart without an explicit basis change.
+    const rolling=window.HockeyOSBioRollingCareer?.calculate(
+      seg.seasons||[],sources.formats,state.rate);
+    const full=rolling?.status==='SOURCE_CALCULATED'&&rolling.complete&&
+      num(rolling.fullCareerRate);
+    const candidate=engine.verifiedSeasons(seg,'skater').valid
+      .filter(r=>num(engine.factor(r.Season,sources.formats,state.rate)));
+    const verifiedRate=engine.rate(candidate,'Pts',state.rate,sources.formats);
+    const shownRate=full?rolling.fullCareerRate:verifiedRate;
+    const basisLabel=state.rate==='actual'?'actual':
+      state.rate==='winter'?'Winter-equivalent':'Summer-equivalent';
+    const gameLength=state.rate==='winter'?' · 32-minute basis':
+      state.rate==='summer'?' · 48-minute basis':'';
+    insight(target,full?'Career scoring pace':'Verified-season scoring pace',
+      decimal(shownRate),
+      (full?'All source-complete seasons':'Available complete-scoring seasons only')+
+      ' · '+basisLabel+' P/GP'+gameLength);
     extra(more,'Share of actual career points from goals',percent(o.goalsShare));
-    insight(target,'Peak season',o.peak?decimal(o.peak.rate):'Unavailable',
-      o.peak?o.peak.season+' · adjusted Pts/GP · 5+ GP':'No 5+ GP verified season');
     // This belongs in the Trends collection, not a duplicate Overview tile.
 
     if(num(o.goalsShare)){
@@ -667,11 +687,10 @@ function renderAdvancedMetrics(player){
     insight(target,'Recorded win-point rate',percent(o.winPointsPct,1),
       'Wins + half ties / actual goalie GP');
     extra(more,'Recorded shutouts per 100 goalie appearances',decimal(o.shutoutPer100,1));
-    extra(more,'Best 5+ GP season, Winter-equivalent GA/appearance',
-      o.peak?o.peak.season+' · '+decimal(o.peak.rate):'Unavailable');
     extra(more,'Actual recorded goals against per appearance',decimal(o.publishedActualGAA));
     extra(more,'Player of the Game awards per 100 goalie GP',decimal(o.playerOfGamePer100,1));
   }
+  target.classList.toggle('one-stat',target.querySelectorAll('.bio-insight-tile').length===1);
   $('bioOtherMetrics').hidden=more.children.length===0;
   $('bioAdvancedSource').textContent='HTO career archive '+date(sources.career?.capturedAt)+
      ' · '+c.complete+'/'+c.total+' seasons with complete core values'+
@@ -691,9 +710,6 @@ function renderDevelopment(player){
     d?'Winter-equivalent '+unit+' · 5+ GP each':'Requires six qualifying seasons');
   insight(target,'Previous three seasons',d?decimal(d.previous):'Unavailable',
     d?'Previous three qualifying seasons':'Historical sample insufficient');
-  insight(target,isGoalie?'Lowest season GA rate':'Highest season scoring rate',
-    o.peak?decimal(o.peak.rate):'Unavailable',
-    o.peak?o.peak.season+' · 5+ GP':'5+ GP season needed');
   if(!isGoalie)insight(target,'Middle-half season range',
     o.middleHalf?decimal(o.middleHalf[0])+'–'+decimal(o.middleHalf[1]):'Unavailable',
     'Winter-equivalent Pts/GP · seasons with 5+ GP');

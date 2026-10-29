@@ -279,3 +279,13 @@ body{font-family:Arial,"Helvetica Neue",sans-serif;color:#eef4fb}
  .bio-trend-main{font-size:13px}
  .bio-reference-legend{font-size:9px}}
 @media(prefers-reduced-motion:reduce){.bio-trend-direction-arrow g{transition:none}}
+
+/* V2.5: never present a sample-size-free 'Peak season' as a headline performance fact. */
+#bioAdvancedGrid.one-stat{grid-template-columns:minmax(0,1fr)}
+#bioAdvancedGrid.one-stat .bio-insight-tile{min-height:66px;display:grid;
+  grid-template-columns:minmax(78px,auto) minmax(0,1fr);column-gap:12px;align-items:center}
+#bioAdvancedGrid.one-stat .bio-insight-value{grid-row:1/3;align-self:center}
+#bioAdvancedGrid.one-stat .bio-insight-title{align-self:end}
+#bioAdvancedGrid.one-stat .bio-insight-description{align-self:start}
+@media(max-width:350px){#bioAdvancedGrid.one-stat .bio-insight-tile{
+  grid-template-columns:minmax(68px,auto) minmax(0,1fr);column-gap:8px}}

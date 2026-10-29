@@ -44,6 +44,10 @@ const server=http.createServer((req,res)=>{
    assert.equal(state.oldStats,'none','no redundant stats table '+id);
    assert.equal(state.navVisible.length,expectedNav);
    assert.ok(state.insightCount>0,'analytics tiles '+id);
+   if(kind==='skater'||kind==='mixed'){
+     assert.equal(state.insightCount,1,'no stand-alone peak season card '+id);
+     assert.doesNotMatch(await page.locator('#bioAdvancedGrid').innerText(),/Peak season/i);
+   }
    assert.equal(state.sourceVisible,true);
    if(kind==='skater'){
      assert.equal(await page.$eval('#bioSpotlight',e=>e.hidden),false);
@@ -78,8 +82,8 @@ const server=http.createServer((req,res)=>{
      assert.equal(await page.locator('#bioTabs button[data-bio-view="goaltending"]').count(),0);
      assert.equal(await page.$eval('#bioSpotlight',e=>e.hidden),false);
      assert.equal(await page.$eval('#bioGoalieSection',e=>e.hidden),false);
-     assert.match(await page.locator('#bioAdvancedGrid').innerText(),/Winter-equivalent points/i,
-       'dual-role skater indicators retained');
+     assert.match(await page.locator('#bioAdvancedGrid').innerText(),/Career scoring pace/i,
+       'dual-role skater career pace retained');
      assert.equal(await page.locator('#bioGoalieCards .bio-metric').count(),2,
        'goalie role stats retained under Production');
      await page.click('#bioTabs button[data-bio-view="trends"]');

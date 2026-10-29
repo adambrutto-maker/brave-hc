@@ -27,7 +27,11 @@ const server=http.createServer((req,res)=>{
  }
  try{
   const j=await open('354060');
-  assert.equal(await j.locator('#bioAdvancedGrid .bio-insight-tile').count(),2,'only 2 default advanced cards');
+  assert.equal(await j.locator('#bioAdvancedGrid .bio-insight-tile').count(),1,'only one contextual career-pace card; no isolated peak');
+  assert.match(await j.locator('#bioAdvancedGrid').innerText(),/Career scoring pace/i);
+  assert.doesNotMatch(await j.locator('#bioAdvancedGrid').innerText(),/Peak season/i);
+  assert.equal(await j.locator('#bioAdvancedGrid .bio-insight-value').first().textContent(),'1.23',
+    'unadjusted career pace must match the Actual chart, not silently show Winter equivalent');
   assert.equal(await j.$eval('#bioProjectionFull',el=>el.open),false,'full model collapsed by default');
   assert.equal(await j.$eval('#bioOtherMetrics',el=>el.open),false,'secondary stats collapsed');
   assert.equal(await j.$eval('#bioMoreSeasonFilters',el=>el.open),false,'extra season filters collapsed');
@@ -78,6 +82,9 @@ const server=http.createServer((req,res)=>{
 
   for(const mode of ['winter','summer','actual']){
    await j.click('#bioRateModes button[data-mode="'+mode+'"]');
+   const expected=({winter:'1.14',summer:'1.70',actual:'1.23'})[mode];
+   assert.equal(await j.locator('#bioAdvancedGrid .bio-insight-value').first().textContent(),expected,
+     'career pace must use the same comparison basis as the chart '+mode);
    assert.equal(await j.locator('#bioComboChart rect').count(),before.bars,'official bars unchanged '+mode);
    assert.equal(await j.locator('#bioComboChart [data-award-type]').count(),before.titles,'titles unchanged '+mode);
   }
