@@ -1,0 +1,8 @@
+{
+  "schema": "brave-hc-workbook-roster-adjusted-attendance/v1",
+  "status": "HELD_PENDING_DERIVED_DATA_PUBLICATION_APPROVAL",
+  "sourceMasterSHA256": "0002fd9f06596af8d0a00fc1b53a618ef15479f941ad5c1e6265b27002a65154",
+  "authority": "Master Workbook RosterStatusBySeason cumulative GP / eligible games",
+  "note": "Source-matched workbook attendance has passed local read-only parity QA for 101 identities. Named derived results remain in private BruTTech QA until publication approval; never replace with naive HTO GP / entire team schedule.",
+  "players": {}
+}
