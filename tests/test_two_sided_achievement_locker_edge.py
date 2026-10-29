@@ -4,6 +4,7 @@ Preserves milestone art, awards, history, disciplinary distinction, and 230
 mapped player statistical records. No HTO/browser production writes.
 """
 from collections import Counter
+from composite_badge_expectations import counts as projected_counts
 from pathlib import Path
 import functools,http.server,json,os,threading
 from selenium import webdriver
@@ -27,9 +28,11 @@ totals=Counter()
 try:
  driver=webdriver.Chrome(options=opts) if kind=="chrome" else webdriver.Edge(options=opts)
  for pid,person in people.items():
-  countMilestone=sum(i["category"]=="milestone" for i in person["items"])
-  countOther=sum(i["category"] not in ("milestone","discipline") for i in person["items"])
-  countDiscipline=sum(i["category"]=="discipline" for i in person["items"])
+  expected=projected_counts(pid,person["name"],person["items"])
+  countMilestone=expected["milestones"]
+  countOther=expected["honors"]
+  countDiscipline=expected["discipline"]
+  countProjected=expected["all"]
   countRecords=len(book[pid]["entries"])
   for width in (355,810):
    driver.set_window_size(1100,1200)
@@ -38,7 +41,7 @@ try:
    driver.get(f"http://127.0.0.1:{server.server_port}/widgets/player-highlights.html?playerID={pid}")
    WebDriverWait(driver,20).until(lambda b:b.execute_script(
     "return !document.querySelector('#lockerSection').hidden && Number(document.querySelector('#lockerAllCount').textContent)==arguments[0]",
-     len(person["items"])+countRecords))
+     countProjected+countRecords))
    first=driver.execute_script("""return {
     name:document.querySelector('#playerName').textContent,
     counts:['lockerMilestonesCount','lockerHonorsCount','lockerRecordsCount','lockerAllCount'].map(id=>Number(document.getElementById(id).textContent)),
@@ -49,7 +52,7 @@ try:
     overflow:document.documentElement.scrollWidth>innerWidth+4,
     legacy:document.querySelectorAll('#legacy .ph-event').length,
     noSourceMutation:document.querySelector('#recordsSource').textContent.includes('Verified public records')};""")
-   assert first["name"]==person["name"] and first["counts"]==[countMilestone,countOther,countRecords,len(person["items"])+countRecords],(pid,width,first)
+   assert first["name"]==person["name"] and first["counts"]==[countMilestone,countOther,countRecords,countProjected+countRecords],(pid,width,first)
    assert first["historyInside"] and first["recordsInside"] and first["closed"] and first["noSourceMutation"],(pid,width,first)
    assert len(first["tabs"])==4 and not first["overflow"],(pid,width,first)
    assert first["legacy"]==min(3,len(person["items"])),(pid,first)
@@ -95,15 +98,15 @@ try:
    assert records["cards"]==min(12,countRecords) and records["count"]==str(countRecords),(pid,width,records)
    assert not records["nestedDetails"] and not records["fromOutside"],(pid,width,records)
    driver.execute_script("document.querySelector('#lockerAll').click()")
-   assert driver.execute_script("return document.querySelectorAll('#allGrid .ph-inventory-card').length")==min(12,len(person["items"])+countRecords)
+   assert driver.execute_script("return document.querySelectorAll('#allGrid .ph-inventory-card').length")==min(12,countProjected+countRecords)
    assert driver.execute_script("return document.querySelector('#historyDetails').open")==False
-   if len(person["items"])+countRecords>12:
+   if countProjected+countRecords>12:
     driver.execute_script("document.querySelector('#allMore').click()")
-    assert driver.execute_script("return document.querySelectorAll('#allGrid .ph-inventory-card').length")==min(24,len(person["items"])+countRecords)
+    assert driver.execute_script("return document.querySelectorAll('#allGrid .ph-inventory-card').length")==min(24,countProjected+countRecords)
    totals["sessions"]+=1
    if width==355:
     totals["profiles"]+=1;totals["milestones"]+=countMilestone;totals["honors"]+=countOther;totals["discipline"]+=countDiscipline;totals["records"]+=countRecords
- assert dict(totals)=={"sessions":86,"profiles":43,"milestones":134,"honors":206,"discipline":3,"records":sum(len(book[pid]["entries"]) for pid in people)},totals
+ assert dict(totals)=={"sessions":86,"profiles":43,"milestones":135,"honors":209,"discipline":3,"records":sum(len(book[pid]["entries"]) for pid in people)},totals
  print(json.dumps({"status":"PASS","verified":dict(totals),"selected_panels":"Milestones/Awards/All/Records","native_source_modified":False},indent=2))
 finally:
  if driver:driver.quit()

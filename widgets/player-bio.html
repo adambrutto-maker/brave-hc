@@ -35,11 +35,32 @@ a{color:#e6c083}footer{padding:13px 20px;font-size:.75rem;color:#adc5d9}
 </style>
 <script defer src="./player-links.js"></script>
 <script defer src="./player-bio-charts.js"></script>
-<script defer src="./player-bio.js"></script></head>
+<link rel="stylesheet" href="./player-bio-premium.css">
+<link rel="stylesheet" href="./player-bio-collection.css?v=3.4">
+<link rel="stylesheet" href="./player-bio-season-outlook-v31.css">
+<link rel="stylesheet" href="./player-bio-rink-tactics-v31.css">
+<link rel="stylesheet" href="./player-bio-alltime-share-v33.css">
+<link rel="stylesheet" href="./player-bio-coaching-library-v31.css">
+<script defer src="./player-performance-normalization.js"></script>
+<script defer src="./player-bio-advanced.js?v=3.2"></script>
+<script defer src="./player-bio-coaching-roles.js"></script>
+<!-- Game Night assignment adapter intentionally absent from Bio-only release candidate. -->
+<script defer src="./player-bio-projection-trend.js"></script>
+<script defer src="./player-bio-rolling-career.js"></script>
+<script defer src="./goalie-projection-model.js"></script>
+<script defer src="./player-bio.js"></script>
+<script defer src="./player-bio-premium.js?v=3.4"></script>
+<script defer src="./player-bio-current-v31.js"></script>
+<script defer src="./player-bio-coaching-library-v31.js"></script>
+<script defer src="./player-bio-rink-tactics-v31.js"></script>
+<script defer src="./player-bio-attendance-rank-v31.js?v=3.2"></script>
+<script defer src="./player-bio-alltime-share-v33.js"></script>
+<script defer src="./player-bio-expanded-analytics-v31.js?v=3.3"></script></head>
 <body><main><article class="shell"><div class="stripe"></div>
-<header><div class="brand"><img src="./brave_hc_logo.png" alt="Brave H.C. crest">
-<div><div class="kicker">BRAVE H.C. · PLAYER PROFILE</div><h1 id="playerName" data-brave-no-link>Player Bio</h1>
-<div id="playerMeta" class="subtitle">Season · Career · Leadership</div></div></div>
+<header><div class="brand brave-outlook-header"><img src="./brave_hc_logo.png" alt="Brave H.C. crest">
+<div><div class="brave-outlook-kicker">BRAVE H.C. · PERFORMANCE LAB</div><h1 class="brave-outlook-title">Player Intelligence</h1>
+<span id="playerName" data-brave-no-link hidden>Player Bio</span>
+<span id="playerMeta" class="subtitle" hidden>Season · Career · Leadership</span></div></div>
 <div class="controls"><label for="playerChoice">Player preview</label>
 <select id="playerChoice" aria-label="Preview verified player"><option value="">Select player</option></select></div></header>
 <div id="loadState" class="notice" role="status" aria-live="polite">Loading player profile…</div>
@@ -47,6 +68,219 @@ a{color:#e6c083}footer{padding:13px 20px;font-size:.75rem;color:#adc5d9}
 <nav id="profileNav" aria-label="Player profile sections" hidden>
 <a href="#currentSection">Season</a><a href="#careerSection">Career</a><a href="#chartsSection">Charts</a><a href="#leadershipSection">Leadership</a><a href="#systemSection">Team system</a>
 </nav><div id="profileContent" hidden>
+<div id="bioStudio" class="bio-studio">
+<div class="bio-collection-head">
+  <div class="bio-collection-label">BRAVE H.C. · PLAYER INTELLIGENCE</div>
+  <div class="bio-collection-title-row"><h2>Performance Lab</h2><span id="bioCollectionCount" class="bio-collection-count" hidden>Verified seasons</span></div>
+  <p id="bioCollectionSub" hidden>Player analytics</p>
+</div><nav id="bioTabs" class="bio-collection-nav" role="tablist" aria-label="Player performance collections" hidden>
+ <button type="button" data-bio-view="production" role="tab" aria-selected="true" aria-controls="bioSeasonCurrent"><span class="bio-tab-icon" aria-hidden="true">◈</span><span class="bio-tab-label">Season Outlook</span></button>
+ <button type="button" data-bio-view="trends" role="tab" aria-selected="false" aria-controls="bioSpotlight"><span class="bio-tab-icon" aria-hidden="true">↗</span><span class="bio-tab-label">Career Trends</span></button>
+ <button type="button" data-bio-view="coaching" role="tab" aria-selected="false" aria-controls="bioOpponentSection"><span class="bio-tab-icon" aria-hidden="true">▦</span><span class="bio-tab-label">Coaching</span></button>
+</nav>
+<section id="bioSeasonCurrent" aria-label="Verified current-season statistics" hidden>
+ <div class="bio-current-box">
+  <div class="bio-current-head"><div><span class="current-eyebrow">OFFICIAL SEASON-TO-DATE STATS</span><h3>Current Season</h3></div><span id="bioCurrentBadge">ACTUAL</span></div>
+  <div class="bio-current-grid" id="bioCurrentActuals" aria-label="Verified player current season GP, goals, assists, points and points per game"></div>
+  <p id="bioCurrentStatus" role="status" aria-live="polite">Checking published HTO current-season totals.</p>
+ </div>
+</section>
+<section id="bioSpotlight" aria-label="Historical production analysis" hidden>
+ <div class="bio-section-top"><div><div class="bio-eyebrow">Historical performance</div>
+ <h2 class="bio-title">Season scoring</h2>
+ <p class="bio-desc">Recorded goals and assists · comparative points per game</p></div>
+ <div class="bio-small-date" id="bioContext" hidden>Verified HTO player</div></div>
+ <div class="bio-mode-row bio-rate-toolbar"><span class="bio-mode-label">P/GP line</span>
+ <div id="bioRateModes" role="group" aria-label="Select the points-per-game trend line">
+  <button type="button" data-mode="actual" aria-pressed="true" aria-label="All actual game-length formats, original unadjusted points per game"><i class="bio-line-chip actual" aria-hidden="true"></i>All · actual</button>
+  <button type="button" data-mode="winter" aria-pressed="false" aria-label="Winter-equivalent points per game"><i class="bio-line-chip winter" aria-hidden="true"></i>Winter eq.</button>
+  <button type="button" data-mode="summer" aria-pressed="false" aria-label="Summer-equivalent points per game"><i class="bio-line-chip summer" aria-hidden="true"></i>Summer eq.</button>
+ </div></div>
+ <div class="bio-compare-toolbar"><button id="bioOverlayModes" type="button" aria-pressed="false">Compare lines</button><span id="bioOverlayHint">One line selected · additional formats optional</span></div>
+ <div class="bio-mode-row"><span class="bio-mode-label">Seasons</span>
+ <div id="bioSeasonModes" role="group" aria-label="Season scope">
+  <button type="button" data-mode="recent" aria-pressed="true">Recent 8</button>
+  <button type="button" data-mode="all" aria-pressed="false" aria-label="All recorded seasons on the scoring chart">Career</button>
+  <details id="bioMoreSeasonFilters" class="bio-filter-more"><summary>More</summary>
+   <button type="button" data-mode="winter" aria-pressed="false">Winter only</button>
+   <button type="button" data-mode="summer" aria-pressed="false">Summer only</button>
+  </details>
+ </div></div>
+ <div class="bio-legend" aria-label="Chart key">
+  <span><i class="bio-key goals" aria-hidden="true"></i>Goals (actual)</span>
+  <span><i class="bio-key assists" aria-hidden="true"></i>Assists (actual)</span>
+  <span><i class="bio-key rate" aria-hidden="true"></i>Selected P/GP line</span>
+  <span id="bioOverlayLegend" class="bio-overlay-legend" hidden></span>
+  <span id="bioCareerComparisonLegend" class="bio-reference-legend" hidden>
+    <i class="bio-reference-line" aria-hidden="true"></i>
+    <span id="bioCareerComparisonLegendLabel">Rolling prior-career Pts/GP</span>
+  </span>
+ </div>
+ <div class="bio-chart-wrap" id="bioComboChart" aria-label="Scoring history graph"></div>
+ <div id="bioAwardKey" class="bio-award-key" hidden aria-label="Scoring title award marker legend"></div>
+ <div class="bio-inspector" id="bioChartDetail" aria-live="polite">Choose a season for details.</div>
+ <details id="bioChartMethod" class="bio-evidence"><summary>Chart comparison options and source</summary>
+  <div class="bio-mode-row"><span class="bio-mode-label">Benchmark</span>
+   <div id="bioCareerComparisonModes" role="group" aria-label="Career Pts/GP reference line">
+    <button type="button" data-mode="rolling" aria-pressed="true">Rolling</button>
+    <button type="button" data-mode="fixed" aria-pressed="false">Career (fixed)</button>
+    <button type="button" data-mode="off" aria-pressed="false">Off</button>
+   </div>
+  </div>
+  <p class="bio-status" id="bioRateStatus" aria-live="polite"></p>
+  <p id="bioChartSource" class="bio-soft-note"></p>
+ </details>
+
+</section>
+
+<section id="bioProjectionSection" aria-label="Projected end-of-season performance" hidden>
+ <div id="bioCareerModelStrip" class="bio-career-model-strip" hidden>
+  <div><strong>CAREER AVERAGE</strong><span id="bioCareerModelBasis">Summer + Winter history · Winter-equivalent</span></div>
+  <div><strong id="bioCareerModelRate">—</strong><span>PTS / GP</span></div>
+ </div>
+ <div class="bio-projection-hero">
+  <div class="bio-projection-headline-row"><div><span class="bio-forecast-kicker">FULL-SEASON ESTIMATE</span><h2 class="bio-title">Projected Current Season</h2>
+   <p class="bio-forecast-desc">Full-season forecast, not the current scoring rate shown on the chart.</p></div><span id="bioForecastBadge" class="bio-forecast-badge">Provisional</span></div>
+<p id="bioProjectionHold" class="bio-projection-hold" hidden role="status">No verified projection available.</p>
+  <div class="bio-metrics bio-forecast-grid" id="bioProjectionCards" aria-label="Published full-season forecast metrics"></div>
+  <details id="bioProjectionFull" class="bio-evidence bio-projection-full">
+   <summary>Forecast assumptions and source status</summary>
+   <div class="bio-projection-body">
+    <p class="bio-status" id="bioProjectionState"></p>
+    <p id="bioProjectionActual"></p>
+    <p class="bio-soft-note" id="bioModelContext"></p>
+    <p class="bio-soft-note" id="bioProjectionOpponent"></p>
+    <p id="bioProjectionTrendDetail" class="bio-soft-note"></p>
+   </div>
+  </details>
+ </div>
+  <div id="bioProjectionSummarySlot" class="bio-forecast-inline bio-career-arrow-panel" hidden>
+   <span class="bio-forecast-trend-caption">PROJECTED FINISH VS ESTABLISHED CAREER</span>
+   <div id="bioProjectionTrend" class="bio-trend-summary" aria-live="polite">Career comparison unavailable.</div>
+   <p id="bioProjectionHeadline" class="bio-projection-headline"></p>
+  </div>
+</section>
+<section id="bioAdvancedSection" aria-label="Advanced player performance indicators" hidden>
+ <div class="bio-section-top"><div><div class="bio-eyebrow">Advanced indicators</div>
+ <h2 class="bio-title">Career scoring context</h2>
+ <p class="bio-desc">Comparable career pace; deeper metrics are available under Trends.</p></div></div>
+ <div id="bioAdvancedGrid" class="bio-analytics-grid" aria-live="polite"></div>
+
+</section>
+<section id="bioDevelopmentSection" aria-label="Season-to-season development" hidden>
+ <div class="bio-section-top"><div><div class="bio-eyebrow">Personal trajectory</div>
+ <h2 class="bio-title">Development and consistency</h2>
+ <p class="bio-desc">Compare meaningful seasons on the same 32-minute Winter-equivalent basis.</p></div></div>
+ <div id="bioDevelopmentGrid" class="bio-analytics-grid"></div>
+ <div id="bioDevelopmentChart" class="bio-spark-panel" aria-label="Qualified season progression"></div>
+ <p id="bioDevelopmentSource" class="bio-source-line"></p>
+ <details id="bioExtendedAnalytics" class="bio-evidence" aria-label="Verified all-time contributions and advanced career rates">
+ <summary>Braves all-time contributions &amp; advanced rates</summary>
+ <div class="bio-v33-heading"><strong>Braves All-Time Contributions</strong><span>Share of published career totals</span></div>
+ <div id="bioHistoricalShareGrid" class="bio-v33-grid" aria-live="polite"></div>
+ <button id="bioSharesMore" type="button" class="bio-v33-more" aria-expanded="false" hidden>All categories</button>
+ <p id="bioShareSource" class="bio-v33-source">Checking the official historical archive.</p>
+ <div class="bio-v33-heading bio-v33-rate-heading"><strong>Performance rates &amp; context</strong><span>Career comparisons</span></div>
+ <div id="bioExtendedMetrics" class="bio-extended-grid" aria-live="polite"></div>
+ <p class="bio-soft-note" id="bioRankCriteria">All-time ranks: reported values · Rate ranks: skaters 10+ GP, goalies 8+ GP.</p>
+ <p id="bioAttendanceHold" class="bio-v33-attendance" hidden>Roster-adjusted attendance · Awaiting approved source.</p>
+ <p id="bioExtendedStatus" class="bio-soft-note">Loading separately sourced HTO analytics…</p>
+</details>
+ <details id="bioOtherMetrics" class="bio-evidence"><summary>Scoring mix &amp; pace</summary>
+  <div id="bioScoringMix" class="bio-scoring-mix" hidden></div>
+  <div id="bioSecondaryMetrics" class="bio-secondary-grid"></div>
+  <p id="bioAdvancedSource" class="bio-source-line"></p>
+ </details>
+</section>
+<section id="bioGoalieSection" aria-label="Goaltender analysis and forecast" hidden>
+ <div class="bio-section-top"><div><div class="bio-eyebrow">Goaltender intelligence</div>
+ <h2 class="bio-title">Goaltender Career Trends</h2>
+ <p class="bio-desc">Historical goalie performance and a separately gated season outlook.</p></div></div>
+ <div id="bioGoalieCards" class="bio-metrics"></div>
+ <p class="bio-status" id="bioGoalieState"></p>
+ <div id="bioGoalieTrend" class="bio-chart-wrap" aria-label="Historical goalie performance"></div>
+ <div class="bio-inspector" id="bioGoalieDetail" aria-live="polite"></div>
+ <div class="bio-projection-body">
+  <h3 class="bio-subhead">Goaltender projection</h3>
+  <p class="bio-status" id="bioGoalieStatus"></p>
+  <details class="bio-evidence"><summary>Goalie source and projection limitations</summary>
+   <p class="bio-soft-note" id="bioGoalieSource"></p>
+   <p class="bio-soft-note" id="bioGoalieOpponent"></p>
+  </details>
+ </div>
+</section>
+<section id="bioOpponentSection" aria-label="General position-based coaching" hidden>
+ <div class="bio-coaching-hero">
+  <span class="bio-coaching-kicker">TEAM FRAMEWORK</span>
+  <h2 class="bio-title">Brave H.C. · 1–2–2</h2>
+  <p class="bio-coaching-motto">Protect the middle. Angle pressure outside. Support the puck and recover into position.</p>
+ </div>
+ <div id="bioApprovedGameAssignment" class="bio-assignment-card" hidden>
+  <strong id="bioApprovedGameRole"></strong>
+  <span id="bioApprovedGameFixture"></span>
+  <small>Published manager-approved lineup assignment. Position responsibilities remain general; private coach notes are separate.</small>
+ </div>
+ <div class="bio-coaching-roles">
+  <div class="bio-coaching-header"><h3>Your position, your responsibilities</h3>
+   <p>Explore a position to see general team-system guidance. A selected position is not a confirmed game-night assignment.</p></div>
+  <div id="bioPositionModes" class="bio-position-modes" role="group" aria-label="Explore hockey position responsibilities"></div>
+  <div id="bioPositionResponse" class="bio-position-response" aria-live="polite">
+    <p>Select C, RW, LW, LD or RD to review the role.</p>
+  </div>
+  <p class="bio-coach-source" id="bioCoachSource"></p>
+ </div>
+<section id="bioTacticBoard" aria-label="Illustrative animated hockey coaching board">
+ <div class="board-kicker">BRAVE H.C. // ANIMATED TACTICS <span>COACH VIEW</span></div>
+ <p class="board-note">Moving player markers and puck paths show general tactics, not a confirmed game plan.</p>
+ <div class="board-modes" role="group" aria-label="Choose a tactics demonstration">
+  <button data-tactic="forecheck" aria-pressed="true" type="button">1–2–2</button>
+  <button data-tactic="breakout" aria-pressed="false" type="button">Breakout</button>
+  <button data-tactic="coverage" aria-pressed="false" type="button">Coverage</button>
+ </div>
+ <svg role="img" aria-label="Hockey rink with player and puck positions animated across four steps" viewBox="0 0 360 205">
+  <rect x="2" y="2" width="356" height="200" rx="39" fill="#e9f4f8" stroke="#9ec1d2" stroke-width="4"/>
+  <rect x="18" y="17" width="324" height="170" rx="29" fill="none" stroke="#c6dbe5" stroke-width="1.5"/>
+  <path d="M121 3V201M239 3V201" stroke="#4878bc" stroke-width="3"/>
+  <path d="M180 3V201" stroke="#c04d61" stroke-width="2" stroke-dasharray="5 3"/>
+  <circle cx="180" cy="102" r="27" fill="none" stroke="#c35a6c" stroke-width="2"/>
+  <g fill="none" stroke="#cf566b" stroke-width="1.7"><circle cx="77" cy="66" r="21"/><circle cx="77" cy="144" r="21"/><circle cx="283" cy="66" r="21"/><circle cx="283" cy="144" r="21"/></g>
+  <path d="M36 87H13V118H36M324 87H347V118H324" fill="none" stroke="#d96f83" stroke-width="3"/>
+ </svg>
+ <div class="board-readout"><span id="bioTacticStep">STEP 1/4</span><strong id="bioTacticCaption">Hold 1–2–2 shape</strong><span id="bioTacticHint">F1 approaches the carrier while support lanes remain covered.</span></div>
+ <div class="board-controls">
+  <button type="button" id="bioTacticPlay">▶ Play</button>
+  <button type="button" id="bioTacticNext">Next step ↗</button>
+  <button type="button" id="bioTacticReset">↺ Reset</button>
+ </div>
+ <div class="board-legend"><span class="legend-dot blue"></span>Team <span class="legend-dot red"></span>Opponent <span class="legend-dot puck"></span>Puck</div>
+</section>
+ <section id="bioVideoPlaybook" aria-label="Public coaching reference-video library">
+  <div class="playbook-head">
+   <div><div class="playbook-kicker">BRAVE H.C. // VISUAL COACHING LIBRARY</div>
+    <h3>Animated Training Resources</h3>
+    <p class="playbook-sub">Publisher-hosted rink diagrams, moving players and coaching videos</p></div>
+   <span id="playbookCount" class="playbook-count" aria-live="polite">LOADING</span>
+  </div>
+  <div id="playbookFilters" class="playbook-filters" role="group" aria-label="Filter coaching resources"></div>
+  <div id="playbookList" class="playbook-list" aria-live="polite"></div>
+  <p class="playbook-note">Links open the original publishers. No unverified embeds or private footage.</p>
+  <details id="playbookAdvanced" class="playbook-disclosure">
+   <summary>More from the playbook</summary>
+   <div class="playbook-guidance">
+    <strong>1–2–2 fundamentals</strong>
+    <p>F1 angles outside, F2 supports pressure, F3 protects passing lanes; defence maintains inside spacing. Adjustments require a coach's instructions.</p>
+    <strong>Future modules</strong>
+    <p>Breakouts, special teams, goalie development, and verified game clips can be added by extending the curated public source register. No private clip is available in this preview.</p>
+   </div>
+  </details>
+ </section>
+ <details class="bio-evidence bio-coach-future" id="bioCoachReviewScope">
+  <summary>Game assignments, opponent matchups and personal coaching</summary>
+  <p id="bioCoachingContext">Personal assignments and position matchups require verified lineup, opponent/player identity and coach approval. The public Bio does not expose private coaching notes.</p>
+  <p id="coachingState">Personalized coaching, role-development history and reviewed clips will require authenticated, coach-approved access. No unverified upcoming opponent is assigned to a player.</p>
+ </details>
+</section>
+</div><!-- close Bio Studio -->
 <section id="currentSection" hidden><h2>Current Season · Winter 2026/27</h2><div id="currentCards" class="grid"></div>
 <div id="currentDate" class="date"></div></section>
 <section id="gameTrendsSection"><details id="gameChartsDetails" class="bio-fold" open><summary>Game-by-Game Performance · Winter 2026/27</summary>
@@ -61,10 +295,11 @@ a{color:#e6c083}footer{padding:13px 20px;font-size:.75rem;color:#adc5d9}
 <thead><tr><th>Season</th><th>GP</th><th id="c1">G</th><th id="c2">A</th><th id="c3">PTS</th></tr></thead>
 <tbody id="seasons"><tr><td colspan="5">Select a player</td></tr></tbody></table></div></details></section>
 <section id="leadershipSection"><h2>Leadership & Team Service</h2><div id="leadership"><p class="muted">Historical tenure records, where available.</p></div></section>
-<section id="systemSection"><h2>Team system</h2><div class="report">
+<section id="systemSection"><h2>Game-day guidance</h2>
+<details class="bio-evidence" id="bioTeamSystem"><summary>Brave H.C. 1-2-2 team framework</summary><div class="report">
 <h3>Braves team system · 1-2-2</h3><p>Protect the middle. Force the puck carrier outside. Maintain coverage before attacking together after the turnover.</p>
 <ul class="system-cues"><li><strong>F1:</strong> Guide the puck carrier toward the boards.</li><li><strong>F2 and F3:</strong> Protect your lanes and close the middle.</li><li><strong>Defence:</strong> Keep the middle covered and support behind the forwards.</li></ul>
-<p class="date">General team framework. Game-night roles are set by the coach.</p><p id="coachingState" class="muted">Individual coaching assignments and reviewed clips are private until access, evidence and approval are confirmed.</p></div></section>
+<p class="date">General team framework. Game-night roles are set by the coach.</p><p id="bioCoachingContext" class="bio-status">Game-specific roles require coach verification.</p><p id="coachingState" class="muted">Individual coaching assignments and reviewed clips are private until access, evidence and approval are confirmed.</p></div></details></section>
 <section id="sourceSection"><details class="bio-fold"><summary>About these numbers</summary>
 <p id="sourceDetail"></p><p>Career totals include all published HTO game types. The season snapshot and career archive may have different dates; they are never added together.</p><p>A missing value means unavailable, not zero. Games played do not measure ice time. Game-by-game charts will appear when a verified series is available.</p></details></section>
 </div><footer><span id="sourceSummary">Source: official HTO player identity and archived statistical observations.</span>

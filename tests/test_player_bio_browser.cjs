@@ -9,7 +9,7 @@ const actuals=JSON.parse(fs.readFileSync(path.join(root,'widgets/player-actuals.
 const server=http.createServer((req,res)=>{
  const f=path.resolve(root,'.'+new URL(req.url,'http://localhost').pathname);
  if(!f.startsWith(root+path.sep))return res.writeHead(403).end();
- fs.readFile(f,(e,b)=>{if(e)return res.writeHead(404).end();res.setHeader('content-type',({'.html':'text/html','.js':'text/javascript','.json':'application/json','.png':'image/png'})[path.extname(f)]||'text/plain');res.end(b);});
+ fs.readFile(f,(e,b)=>{if(e)return res.writeHead(404).end();res.setHeader('content-type',({'.html':'text/html','.js':'text/javascript','.css':'text/css','.json':'application/json','.png':'image/png'})[path.extname(f)]||'text/plain');res.end(b);});
 });
 (async()=>{
  await new Promise(r=>server.listen(0,'127.0.0.1',r));
@@ -42,15 +42,24 @@ const server=http.createServer((req,res)=>{
   await p.close();
   for(const width of [320,390,625,1280]){
    const m=await pageFor('?playerID=354060&embed=1');await m.setViewportSize({width,height:800});
-   await m.click('a[href="#chartsSection"]');assert.equal(await m.$eval('#seasonChartsDetails',e=>e.open),true);
-   await m.selectOption('#chartSeasonFilter','summer');assert.ok(await m.$eval('#careerCharts',e=>e.querySelectorAll('svg').length)>0);
+   await m.waitForFunction(()=>document.body.classList.contains('bio-premium-ready'));
+   await m.click('#bioTabs button[data-bio-view="trends"]');
+   assert.equal(await m.$eval('#bioDevelopmentSection',e=>e.hidden),false);
+   assert.equal(await m.$eval('#bioSpotlight',e=>e.hidden),false,'Historical chart belongs in Trends');
+   await m.click('#bioTabs button[data-bio-view="production"]');
+   assert.equal(await m.$eval('#bioSeasonCurrent',e=>e.hidden),false,'Current season under Outlook');
+   await m.click('#bioTabs button[data-bio-view="trends"]');
+   await m.click('#bioMoreSeasonFilters summary');
+   await m.click('#bioSeasonModes button[data-mode="summer"]');
+   assert.ok(await m.$eval('#bioComboChart',e=>e.querySelectorAll('svg').length)>0);
    assert.equal(await m.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1),false);
-   await m.selectOption('#chartSeasonFilter','winter');await m.locator('.bio-chart-inspector-select').first().selectOption({index:0});
-   assert.ok((await m.locator('.bio-chart-selected').first().textContent()).includes('Winter'));
-   if(process.env.BRAVE_QA_SCREENSHOTS){await m.click('a[href="#careerSection"]');await m.$eval('#seasonChartsDetails',e=>e.open=false);await m.screenshot({path:path.join(process.env.BRAVE_QA_SCREENSHOTS,'bio-'+width+'.png'),fullPage:true});}
+   await m.click('#bioMoreSeasonFilters summary');
+   await m.click('#bioSeasonModes button[data-mode="winter"]');
+   assert.ok((await m.textContent('#bioChartDetail')).includes('Winter'));
+   if(process.env.BRAVE_QA_SCREENSHOTS){await m.screenshot({path:path.join(process.env.BRAVE_QA_SCREENSHOTS,'bio-'+width+'.png'),fullPage:true});}
    await m.close();
   }
-  const mixed=await pageFor('?playerID=354057');assert.ok(await mixed.locator('#roleChoice option').count()>1);await mixed.selectOption('#roleChoice','1');assert.equal(await mixed.textContent('#c1'),'W');await mixed.selectOption('#playerChoice','354054');assert.equal(await mixed.textContent('#c1'),'G');assert.equal(await mixed.locator('#leadership .entry').count(),4);await mixed.selectOption('#playerChoice','');assert.equal(await mixed.$eval('#profileContent',e=>e.hidden),true);assert.ok(!mixed.url().includes('playerID='));await mixed.close();
+  const mixed=await pageFor('?playerID=354057');assert.ok(await mixed.locator('#roleChoice option').count()>1);await mixed.$eval('#roleChoice',e=>{e.value='1';e.dispatchEvent(new Event('change',{bubbles:true}));});assert.equal(await mixed.textContent('#c1'),'W');await mixed.selectOption('#playerChoice','354054');assert.equal(await mixed.textContent('#c1'),'G');assert.equal(await mixed.locator('#leadership .entry').count(),4);await mixed.selectOption('#playerChoice','');assert.equal(await mixed.$eval('#profileContent',e=>e.hidden),true);assert.ok(!mixed.url().includes('playerID='));await mixed.close();
   for(const query of ['?playerID=999999999&embed=1','?embed=1','?playerID=0354054&embed=1','?playerID=3.54054e5&embed=1']){
    const invalid=await pageFor(query);assert.match(await invalid.textContent('#loadState'),/does not identify/);assert.equal(await invalid.$eval('#profileContent',e=>e.hidden),true);await invalid.close();
   }

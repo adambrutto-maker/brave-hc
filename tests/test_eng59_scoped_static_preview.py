@@ -31,11 +31,11 @@ class ScopedPreviewTests(unittest.TestCase):
    mutated=data.replace(b"\\n",b"\\r\\n")
    self.assertEqual(git_hash(mutated.replace(b"\\r\\n",b"\\n"),algorithm),entries[name][1])
    self.assertNotEqual(git_hash(data+b"CHANGED",algorithm),entries[name][1])
- def test_all_85_artwork_assets_and_seven_source_manifests_stay_consistent(self):
+ def test_all_107_artwork_assets_and_seven_source_manifests_stay_consistent(self):
   included=set(index(ROOT)[0])
   qa=verify_artwork_manifests(ROOT/"widgets",included)
   self.assertEqual(qa["manifestsVerified"],7)
-  self.assertEqual(qa["artworkAssetsVerified"],85)
+  self.assertEqual(qa["artworkAssetsVerified"],107)
   self.assertEqual(qa["sourceBackupsVerifiedButNotPublished"],39)
   self.assertEqual(qa["additionalProvenanceAssetsVerifiedButNotPublished"],3)
   self.assertFalse(any(x.startswith((
@@ -45,7 +45,10 @@ class ScopedPreviewTests(unittest.TestCase):
  def test_new_full_crest_badges_require_exact_authenticated_logo_source(self):
   included=set(index(ROOT)[0])
   m=json.loads((ROOT/"widgets/assets/full-crest-clubs/source-manifest.json").read_text(encoding="utf8"))
-  self.assertEqual(len(m["assets"]),7)
+  self.assertEqual(len(m["assets"]),29)
+  self.assertEqual(m["schema"],"brave-hc-full-crest-milestone-art/v2")
+  self.assertEqual(sum(a["sourceVerifiedInSnapshot"] is True for a in m["assets"]),17)
+  self.assertEqual(sum(a["sourceVerifiedInSnapshot"] is False for a in m["assets"]),12)
   self.assertEqual(m["sourceLogoPath"],"widgets/brave_hc_logo.png")
   for badvalue in ("0"*64,"garbled"):
    altered=dict(m,sourceLogoSha256=badvalue)
@@ -76,6 +79,37 @@ class ScopedPreviewTests(unittest.TestCase):
   unknown.add("widgets/assets/unreviewed-family/source-manifest.json")
   with self.assertRaisesRegex(PreviewHold,"ARTWORK_FAMILY_MANIFEST_SET_DRIFT"):
    verify_artwork_manifests(ROOT/"widgets",unknown)
+ def test_future_platinum_and_wins_art_cannot_be_forced_into_earned_snapshot(self):
+  included=set(index(ROOT)[0])
+  doc=json.loads((ROOT/"widgets/assets/full-crest-clubs/source-manifest.json")
+    .read_text(encoding="utf8"))
+  future=next(a for a in doc["assets"] if a["sourceVerifiedInSnapshot"] is False)
+  self.assertIn(future["metric"],("GAMES","POINTS","WINS"))
+  altered=json.loads(json.dumps(doc))
+  next(a for a in altered["assets"] if a["path"]==future["path"])[
+    "sourceVerifiedInSnapshot"]=True
+  with self.assertRaisesRegex(PreviewHold,"NEW_FULL_CREST_BADGE_METADATA_UNQUALIFIED"):
+   verify_artwork_manifests(ROOT/"widgets",included,
+     {"full-crest-clubs":json.dumps(altered)})
+ def test_22_legacy_art_sources_and_original_manifest_are_hash_bound(self):
+  included=set(index(ROOT)[0])
+  doc=json.loads((ROOT/"widgets/assets/full-crest-clubs/source-manifest.json")
+    .read_text(encoding="utf8"))
+  legacy=[e for e in doc["assets"] if e.get("originalApprovedArtPath")]
+  self.assertEqual(len(legacy),22)
+  self.assertEqual(doc["legacyApprovedAssetCount"],22)
+  self.assertEqual(doc["newGoalAssistShutoutAssetCount"],7)
+  corrupted=json.loads(json.dumps(doc))
+  next(e for e in corrupted["assets"] if e.get("originalApprovedArtPath"))[
+   "originalApprovedArtSha256"]="f"*64
+  with self.assertRaisesRegex(PreviewHold,"FULL_CREST_ORIGINAL_APPROVED_ART_SOURCE_DRIFT"):
+   verify_artwork_manifests(ROOT/"widgets",included,
+     {"full-crest-clubs":json.dumps(corrupted)})
+  wrong=json.loads(json.dumps(doc))
+  wrong["approvedRoundClubSourceManifestSha256"]="0"*64
+  with self.assertRaisesRegex(PreviewHold,"NEW_FULL_CREST_MANIFEST_SOURCE_PROVENANCE_UNQUALIFIED"):
+   verify_artwork_manifests(ROOT/"widgets",included,
+     {"full-crest-clubs":json.dumps(wrong)})
  def test_forged_whistle_source_art_and_prior_neutral_image_are_held(self):
   included=set(index(ROOT)[0]);source=(ROOT/"widgets/assets/approved/source-manifest.json").read_text(encoding="utf8")
   for field in ("sourceArtSha256","sourceWebpSha256","priorNeutralSha256"):

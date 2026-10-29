@@ -177,6 +177,7 @@ body{background:#071829;color:#eef4fb;font-family:Arial,"Helvetica Neue",sans-se
 .ph-honor-class{font-size:9px;letter-spacing:1px;color:#eac587;font-weight:800;text-transform:uppercase}
 .ph-honor-title{font-size:11px;font-weight:800;color:#fff;line-height:1.35;overflow-wrap:anywhere;white-space:pre-line}
 .ph-honor-date{font-size:9px;line-height:1.3;color:#b5ccdf;overflow-wrap:anywhere}
+.ph-honor-source{font-size:9px;color:#a8c2d6;line-height:1.3;font-weight:550;max-width:100%}
 .ph-honor-card.ph-honor-discipline{background:#172b3c;border-color:#5d7482}
 .ph-honor-card.ph-honor-discipline .ph-honor-class{color:#b9c5cd}
 .ph-discipline-separator{margin:10px 0 7px;padding-top:10px;border-top:1px solid #435b6a;
@@ -306,7 +307,7 @@ body{background:#071829;color:#eef4fb;font-family:Arial,"Helvetica Neue",sans-se
 }
 .ph-earned-tile.ph-fullcrest-family.ph-earned-platinum,
 .ph-inventory-card.ph-fullcrest-family.ph-fullcrest-platinum{
- --fc-ring:#D8E9F4;--fc-light:#FFFFFF;--fc-top:#536B7F;--fc-bottom:#15283F
+ --fc-ring:#39C7F3;--fc-light:#E5FCFF;--fc-top:#103B79;--fc-bottom:#281552
 }
 .ph-earned-tile.ph-fullcrest-family .ph-earned-state,
 .ph-inventory-card.ph-fullcrest-family .ph-inventory-kind{color:var(--fc-light)}
@@ -331,6 +332,245 @@ body{background:#071829;color:#eef4fb;font-family:Arial,"Helvetica Neue",sans-se
  }
 }
 
+/* FINAL BADGE SYSTEM (WEB-05): one centered typography system, identical
+   authentic full-crest medallion treatment across all six milestone families.
+   Gold is an AWARD CARD presentation only: never recategorize nominations,
+   leadership, source categories, or disciplinary history as awarded winners. */
+.ph-trophy-room{
+ --badge-title-size:11px;
+ --badge-date-size:10px;
+ --badge-kicker-size:9px;
+ --badge-image-size:96px;
+}
+.ph-trophy-room.ph-locker .ph-earned-tile.ph-fullcrest-family .ph-earned-graphic,
+.ph-trophy-room .ph-honor-card .ph-honor-image,
+.ph-trophy-room .ph-inventory-card .ph-inventory-image{
+ width:var(--badge-image-size);
+ height:var(--badge-image-size);
+ max-width:100%;
+ min-height:var(--badge-image-size);
+ display:grid;
+ place-items:center;
+ flex:none;
+ margin-inline:auto;
+}
+.ph-trophy-room.ph-locker .ph-earned-tile.ph-fullcrest-family .ph-earned-graphic img,
+.ph-trophy-room .ph-honor-card .ph-honor-image img,
+.ph-trophy-room .ph-inventory-card .ph-inventory-image img{
+ display:block;
+ width:100%;
+ height:100%;
+ object-fit:contain;
+}
+.ph-trophy-room.ph-locker .ph-earned-tile .ph-earned-name,
+.ph-trophy-room .ph-honor-card .ph-honor-title,
+.ph-trophy-room .ph-inventory-card .ph-inventory-name{
+ font-size:var(--badge-title-size);
+ line-height:1.34;
+ font-weight:850;
+ min-height:2.68em;
+ width:100%;
+ margin:0;
+ text-align:center;
+ display:block;
+ align-content:center;
+ text-wrap:balance;
+ word-break:normal;
+ overflow-wrap:break-word;
+}
+.ph-trophy-room.ph-locker .ph-earned-tile .ph-earned-date,
+.ph-trophy-room .ph-honor-card .ph-honor-date,
+.ph-trophy-room .ph-inventory-card .ph-inventory-date{
+ font-size:var(--badge-date-size);
+ line-height:1.34;
+ text-align:center;
+ width:100%;
+ color:#E0EAF3;
+}
+.ph-trophy-room.ph-locker .ph-earned-tile.ph-fullcrest-family .ph-earned-tier{
+ font-size:9px;
+ line-height:1.25;
+ font-weight:850;
+ text-align:center;
+}
+.ph-trophy-room.ph-locker .ph-earned-state,
+.ph-trophy-room .ph-honor-card .ph-honor-class,
+.ph-trophy-room .ph-inventory-card .ph-inventory-kind{
+ font-size:var(--badge-kicker-size);
+ line-height:1.3;
+ letter-spacing:.65px;
+}
+.ph-trophy-room .ph-earned-tile.ph-fullcrest-family,
+.ph-trophy-room .ph-inventory-card.ph-fullcrest-family,
+.ph-trophy-room .ph-honor-card.ph-gold-honour,
+.ph-trophy-room .ph-inventory-card.ph-gold-honour{
+ padding:10px 8px 12px;
+ gap:6px;
+ border-radius:12px;
+}
+/* Every earned milestone card uses the metal from its actual verified tier. */
+.ph-trophy-room .ph-earned-tile.ph-fullcrest-family.ph-earned-bronze,
+.ph-trophy-room .ph-inventory-card.ph-fullcrest-family.ph-fullcrest-bronze{
+ --fc-ring:#C9915F;--fc-light:#F8D6AB;--fc-top:#533C2A;--fc-bottom:#14202B
+}
+.ph-trophy-room .ph-earned-tile.ph-fullcrest-family.ph-earned-silver,
+.ph-trophy-room .ph-inventory-card.ph-fullcrest-family.ph-fullcrest-silver{
+ --fc-ring:#B9CAD9;--fc-light:#F1F7FC;--fc-top:#3C556B;--fc-bottom:#112438
+}
+.ph-trophy-room .ph-earned-tile.ph-fullcrest-family.ph-earned-gold,
+.ph-trophy-room .ph-inventory-card.ph-fullcrest-family.ph-fullcrest-gold{
+ --fc-ring:#E5B654;--fc-light:#FFE8AF;--fc-top:#604A2B;--fc-bottom:#172333
+}
+.ph-trophy-room .ph-earned-tile.ph-fullcrest-family.ph-earned-platinum,
+.ph-trophy-room .ph-inventory-card.ph-fullcrest-family.ph-fullcrest-platinum{
+ --fc-ring:#39C7F3;--fc-light:#E5FCFF;--fc-top:#103B79;--fc-bottom:#281552
+}
+/* Award, Cup, Leadership and Recognition collection CARDS use gold; their
+   existing original award/nomination image colors are never recolored. */
+.ph-trophy-room .ph-honor-card.ph-gold-honour,
+.ph-trophy-room .ph-inventory-card.ph-gold-honour:not(.ph-inventory-discipline){
+ --fc-ring:#E5B654;--fc-light:#FFE8AF;
+ border:1px solid var(--fc-ring);
+ border-top:3px solid var(--fc-ring);
+ background:radial-gradient(ellipse at 24% 0%,#70562D,transparent 77%),
+  linear-gradient(155deg,#554124 0%,#192D3A 72%,#142334 100%);
+ box-shadow:inset 0 1px 0 #ffffff1b,0 3px 12px #050c1c66;
+}
+.ph-trophy-room .ph-honor-card.ph-gold-honour .ph-honor-class,
+.ph-trophy-room .ph-inventory-card.ph-gold-honour .ph-inventory-kind{
+ color:#FFE6A5;
+}
+.ph-trophy-room .ph-honor-card.ph-gold-honour .ph-honor-image,
+.ph-trophy-room .ph-inventory-card.ph-gold-honour .ph-inventory-image{
+ filter:drop-shadow(0 3px 6px #050c1cb5);
+}
+/* Discipline never appears in Awards and stays NEUTRAL in All; records remain
+   their established statistical panel, not achievement gold/medals. */
+.ph-trophy-room .ph-inventory-card.ph-inventory-discipline{
+ border-color:#6D7B83;
+ border-top:3px solid #8B98A4;
+ background:#172D3E;
+}
+.ph-trophy-room .ph-record-card{border-top-color:#41607B}
+@media(max-width:370px){
+ .ph-trophy-room{--badge-image-size:88px}
+ .ph-trophy-room .ph-earned-tile.ph-fullcrest-family,
+ .ph-trophy-room .ph-inventory-card.ph-fullcrest-family,
+ .ph-trophy-room .ph-honor-card.ph-gold-honour,
+ .ph-trophy-room .ph-inventory-card.ph-gold-honour{
+  padding:8px 5px 10px;
+ }
+}
+
+/* Diamond-finish platinum is one rarity tier above gold, not another silver.
+   The underlying milestone tier and existing achievement thresholds remain
+   PLATINUM; only the light, saturated cyan/violet visual identity changes. */
+.ph-trophy-room .ph-earned-tile.ph-earned-platinum.ph-fullcrest-family,
+.ph-trophy-room .ph-inventory-card.ph-fullcrest-platinum.ph-fullcrest-family{
+ position:relative;
+ border-color:#39C7F3;
+ border-top-color:#39C7F3;
+ background:
+  radial-gradient(ellipse at 16% 0%,#417DD4 0%,#224B8C 25%,transparent 68%),
+  radial-gradient(ellipse at 93% 100%,#6140A5 0%,transparent 55%),
+  linear-gradient(148deg,#112E67 0%,#14273F 54%,#26154D 100%);
+ box-shadow:inset 0 1px 0 #d8ffff55,inset 0 0 0 1px #9F81F244,0 0 0 1px #3BA7EF33,0 4px 15px #050b21aa;
+}
+.ph-trophy-room .ph-earned-tile.ph-earned-platinum.ph-fullcrest-family::after,
+.ph-trophy-room .ph-inventory-card.ph-fullcrest-platinum.ph-fullcrest-family::after{
+ content:"✦";
+ position:absolute;
+ right:8px;top:5px;
+ color:#C3F5FF;
+ font-size:13px;line-height:1;
+ text-shadow:0 0 8px #A874FF,0 0 5px #48D8FF;
+ pointer-events:none;
+}
+.ph-trophy-room .ph-earned-tile.ph-earned-platinum.ph-fullcrest-family .ph-earned-tier{
+ border-color:#39C7F3;
+ color:#E5FCFF;
+ background:linear-gradient(90deg,#15528E 0%,#40317D 100%);
+ box-shadow:0 0 0 1px #926DE655;
+}
+.ph-trophy-room .ph-inventory-card.ph-fullcrest-platinum.ph-fullcrest-family .ph-inventory-kind{
+ color:#C6F9FF;
+}
+
+/* WEB-07: All uses the exact same medal rarity label as Milestones.
+   Set on the source-verified individual badge only; honor, discipline and
+   statistical record cards never receive an invented milestone level. */
+.ph-trophy-room .ph-inventory-card.ph-fullcrest-family .ph-inventory-tier{
+ margin-top:auto;
+ align-self:center;
+ padding:3px 8px;
+ border:1px solid var(--fc-ring);
+ border-radius:999px;
+ background:#071726a6;
+ color:var(--fc-light);
+ font-size:9px;
+ line-height:1.25;
+ font-weight:850;
+ text-align:center;
+ letter-spacing:1px;
+ white-space:nowrap;
+}
+.ph-trophy-room .ph-inventory-card.ph-fullcrest-platinum .ph-inventory-tier{
+ border-color:#39C7F3;
+ color:#E5FCFF;
+ background:linear-gradient(90deg,#15528E,#40317D);
+ box-shadow:0 0 0 1px #926DE655;
+}
+
+/* WEB-07: Source-verified historical HTO Record classification. Keep
+   subtle category-specific mark colours, not full gold award surfaces.
+   "Tied" means equal value in the same official category + scope, not
+   inferred first-to-set chronology. Missing evidence receives neutral mark. */
+.ph-trophy-room .ph-record-card.ph-record-set{
+ border-left:3px solid #C9A34C;
+ background:linear-gradient(160deg,#263943,#132A3C 62%,#10263B);
+}
+.ph-trophy-room .ph-record-card.ph-record-tied{
+ border-left:3px solid #B7C8D8;
+ background:linear-gradient(160deg,#253C4B,#132A3C 62%,#10263B);
+}
+.ph-trophy-room .ph-record-card.ph-record-set .ph-record-kind,
+.ph-trophy-room .ph-inventory-card.ph-record-set .ph-inventory-kind{
+ color:#F7DC9C;
+ background:#66532A66;
+ border:1px solid #D1AC665E;
+}
+.ph-trophy-room .ph-record-card.ph-record-tied .ph-record-kind,
+.ph-trophy-room .ph-inventory-card.ph-record-tied .ph-inventory-kind{
+ color:#DCECF9;
+ background:#40576D77;
+ border:1px solid #B3CCDD63;
+}
+.ph-trophy-room .ph-record-card .ph-record-kind,
+.ph-trophy-room .ph-inventory-card.ph-inventory-stat .ph-inventory-kind{
+ display:inline-block;
+ align-self:flex-start;
+ padding:3px 7px;
+ border-radius:6px;
+ font-size:9px;
+ font-weight:850;
+ letter-spacing:.65px;
+}
+.ph-trophy-room .ph-inventory-card.ph-inventory-stat.ph-record-set{
+ border-top:3px solid #C9A34C;
+ background:linear-gradient(156deg,#243940,#132A3C 65%,#10283F);
+}
+.ph-trophy-room .ph-inventory-card.ph-inventory-stat.ph-record-tied{
+ border-top:3px solid #B7C8D8;
+ background:linear-gradient(156deg,#293E4B,#132A3C 65%,#10283F);
+}
+.ph-trophy-room .ph-inventory-card.ph-inventory-stat .ph-inventory-kind{
+ align-self:center;
+}
+.ph-trophy-room .ph-record-card.ph-record-unverified,
+.ph-trophy-room .ph-inventory-card.ph-record-unverified{
+ border-color:#6D8190;
+}
+
 [hidden]{display:none!important}
 .ph-footer{display:flex;gap:8px;flex-wrap:wrap}
 .ph-detail{font-size:10px;color:#a9c0d4;line-height:1.45;margin-top:6px}
@@ -341,9 +581,18 @@ summary{cursor:pointer;color:#f4cb83;font-weight:700}
 details[open] summary{margin-bottom:10px}
 .ph-source{font-size:10px;color:#a9c0d4;line-height:1.5;margin-top:8px}
 a{color:#f4cb83}
+
+.ph-service-history{margin:13px 0 0;padding:12px 0 0;border-top:1px solid #58718b}
+.ph-service-history[hidden]{display:none!important}
+.ph-service-heading{color:#f3d6a3;font-size:13px;font-weight:850;margin:0 0 4px}
+.ph-service-history>.ph-honors-note{margin:0 0 10px}
+.ph-service-history .ph-honors-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media(max-width:640px){.ph-service-history .ph-honors-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:375px){.ph-service-history .ph-honors-grid{grid-template-columns:repeat(1,minmax(0,1fr))}}
 </style>
 <script defer src="./player-links.js?v=5"></script>
-<script defer src="./player-highlights-v2.js?v=19"></script>
+<script defer src="./player-highlights-leadership-parity.js?v=1"></script>
+<script defer src="./player-highlights-v2.js?v=23-leadership"></script>
 </head>
 <body>
 <main class="ph-shell">
@@ -388,7 +637,12 @@ a{color:#f4cb83}
    <div id="disciplineGroup" hidden><div class="ph-discipline-separator">Disciplinary records · not awards</div>
     <div id="disciplineGrid" class="ph-honors-grid"></div></div>
    <button id="honorsMore" class="ph-honors-more" type="button" hidden>Show more awards</button>
-   <p class="ph-honors-note">Published historical entries only. Original full-text history is available under All.</p>
+   <div id="leadershipHistoryGroup" class="ph-service-history" hidden>
+    <h4 class="ph-service-heading">Team Leadership History</h4>
+    <p class="ph-honors-note">Previously documented team service, shown separately from awards and elections.</p>
+    <div id="leadershipHistoryGrid" class="ph-honors-grid"></div>
+   </div>
+   <p class="ph-honors-note">Published native honours are counted separately from verified leadership service history. Original full-text achievements remain under All.</p>
   </section>
   <section id="allSection" role="tabpanel" aria-labelledby="lockerAll" aria-label="All verified achievements and records" hidden>
    <div class="ph-inventory-head"><div><span class="ph-inventory-eyebrow">COMPLETE INVENTORY</span>

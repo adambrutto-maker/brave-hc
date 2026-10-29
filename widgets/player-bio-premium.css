@@ -1,0 +1,86 @@
+/* HockeyOS Player Bio premium preview — same design language as the Trophy Room. */
+:root{--bio-navy:#091c30;--bio-panel:#102940;--bio-edge:#385872;--bio-muted:#afc4d7;--bio-gold:#e0ba78;--bio-rose:#d14e68}
+body{background:#071829}
+main{max-width:940px;padding:8px}.shell{background:#0c233a;border:1px solid #395873;border-radius:12px}
+.stripe{height:5px;background:linear-gradient(90deg,#a81932 0%,#e04b63 56%,#d9ad69 100%)}
+.shell header{background:radial-gradient(ellipse at 90% -20%,#254766 0%,transparent 52%),linear-gradient(125deg,#102b44,#081a2f);padding:22px 24px 19px}
+.shell header .brand{gap:15px;align-items:center}
+.shell header .brand img{width:70px;height:70px;object-fit:contain;display:block;flex:none}
+.shell header h1{font-size:clamp(22px,5vw,30px);line-height:1.15;margin-top:4px;font-weight:800}
+.shell header .kicker{font-size:10px;letter-spacing:1.55px;color:#edc78a;display:block}
+.shell header .subtitle{font-size:12px;color:#c7d6e4}
+.embed-mode main{padding:0}.embed-mode .shell{border:0;border-radius:0}
+.embed-mode header{padding:20px 20px 17px!important}
+.embed-mode header:before{display:none}
+.embed-mode header img,.embed-mode header .kicker{display:block!important}
+.embed-mode header img{width:56px!important;height:56px!important}
+.embed-mode header h1{font-size:clamp(21px,5vw,27px)!important}
+.embed-mode header>.controls{display:none}
+.shell #profileNav{display:none!important}
+#bioTabs{display:flex;flex-wrap:wrap;gap:8px;border-bottom:1px solid #3e607c;padding:12px 20px;background:#0b2135}
+#bioTabs button{min-height:44px;flex:1 1 auto;padding:10px 14px;cursor:pointer;background:#142f49;color:#c8daeb;border:1px solid #3b5974;border-radius:9px;font-size:12px;font-weight:800;letter-spacing:.2px;transition:background .15s,border-color .15s}
+#bioTabs button[aria-selected="true"]{background:#463d33;color:#ffdfad;border-color:#b18c58;box-shadow:inset 0 0 0 1px #7d6a4c}
+#bioTabs button[hidden]{display:none!important}
+#bioTabs button:focus-visible,#bioRateModes button:focus-visible,#bioSeasonModes button:focus-visible{outline:3px solid #f1d18c;outline-offset:2px}
+#bioSpotlight,#bioProjectionSection,#bioGoalieSection{border-bottom:1px solid #2c4963;padding:19px 23px}
+.bio-section-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+.bio-eyebrow{font-size:10px;letter-spacing:1.3px;text-transform:uppercase;font-weight:800;color:var(--bio-gold)}
+.bio-title{font-size:19px!important;font-weight:800!important;margin:4px 0 5px!important;color:#fff!important}
+.bio-desc{font-size:12px;line-height:1.55;color:#bad0df;margin:0}
+.bio-small-date{font-size:11px;color:#b8cddd;line-height:1.55}
+.bio-mode-row{display:flex;gap:7px;flex-wrap:wrap;align-items:center;margin:14px 0}
+.bio-mode-label{font-size:11px;font-weight:800;color:#b1cadf;margin-right:4px}
+#bioRateModes,#bioSeasonModes{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+#bioRateModes button,#bioSeasonModes button{background:#1a3b55;color:#d4e4ef;border:1px solid #496a82;border-radius:20px;cursor:pointer;padding:8px 12px;font-size:11px;font-weight:800;min-height:38px}
+#bioRateModes button[aria-pressed="true"],#bioSeasonModes button[aria-pressed="true"]{background:#514231;border-color:#c3a574;color:#ffe1ad}
+.bio-legend{display:flex;flex-wrap:wrap;gap:9px 17px;align-items:center;color:#c9dced;font-size:11px;margin:10px 0 7px}
+.bio-legend span{display:inline-flex;align-items:center;gap:6px}
+.bio-key{width:11px;height:11px;display:inline-block;border-radius:2px}
+.bio-key.goals{background:#c7445d}.bio-key.assists{background:#d8b36c}
+.bio-key.rate{background:#8fcae4;height:3px;border-radius:0}
+.bio-chart-wrap{overflow-x:auto;overscroll-behavior-x:contain;border-radius:9px;border:1px solid #3a5772;background:#102b43}
+.bio-chart-wrap svg{display:block;width:100%;min-width:610px;height:auto;max-height:330px}
+.bio-chart-wrap svg [data-bio-point]{cursor:pointer;outline:none;touch-action:manipulation}
+.bio-chart-wrap svg [data-bio-point]:focus{filter:brightness(1.65);stroke:#fff;stroke-width:3}
+.bio-inspector{border:1px solid #3b5974;border-radius:8px;background:#142f47;padding:12px 13px;margin-top:11px;line-height:1.6;color:#ecf5fa;font-size:12px}
+.bio-inspector strong{color:#ffe0aa}
+.bio-status{border-left:3px solid #bfa078;padding:9px 12px;background:#152e45;margin:11px 0;color:#cfdfed;font-size:12px;line-height:1.55}
+.bio-status:empty{display:none}
+.bio-metrics{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;margin:12px 0}
+.bio-metric{border:1px solid #3d5b76;background:#15324c;border-radius:9px;text-align:center;padding:12px 6px;min-width:0}
+.bio-metric .value{color:#fff;font-size:clamp(17px,2.8vw,23px);font-weight:900;line-height:1.1;font-variant-numeric:tabular-nums}
+.bio-metric .label{margin-top:7px;color:#bfd1e0;font-size:10px}
+.bio-projection-body{background:#0d243b;border:1px solid #385670;border-radius:10px;padding:13px 15px;margin-top:12px}
+.bio-projection-body p{font-size:12px;line-height:1.6;color:#c7d8e7;margin:4px 0}
+.bio-subhead{font-size:14px;font-weight:850;color:#fff;margin:2px 0 8px}
+.bio-trend-row{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:12px}
+.bio-soft-note{font-size:11px;color:#b7cbdb;line-height:1.55}
+.bio-soft-note a{color:#f2d19a}
+.bio-linklike{color:#efce91;text-decoration:underline;text-underline-offset:2px}
+.bio-inactive-note{padding:13px;border:1px dashed #58738b;border-radius:8px;font-size:12px;color:#bfd2df}
+.bio-premium-ready #currentSection,.bio-premium-ready #careerSection,.bio-premium-ready #gameTrendsSection,.bio-premium-ready #chartsSection,.bio-premium-ready #analysisSection,.bio-premium-ready #seasonTableDetails{display:none!important}
+.bio-premium-ready #leadershipSection,.bio-premium-ready #systemSection{padding:18px 23px}
+.bio-premium-ready #leadershipSection h2,.bio-premium-ready #systemSection h2{font-size:17px;margin-bottom:12px}
+.bio-premium-ready #systemSection .report{background:#102d46}
+.bio-premium-ready #sourceSection{padding:11px 23px}
+.bio-premium-ready footer{padding:12px 23px}
+.bio-premium-ready [data-bio-view][hidden]{display:none!important}
+@media(max-width:650px){#bioTabs{padding:9px;gap:5px}#bioTabs button{padding:10px 6px;font-size:11px;min-width:0}#bioSpotlight,#bioProjectionSection,#bioGoalieSection{padding:15px 13px}.bio-metrics{grid-template-columns:repeat(3,minmax(0,1fr))}.bio-metric{padding:10px 5px}}
+@media(max-width:400px){main{padding:0}.shell{border-radius:0}.shell header{padding:15px 12px!important}.shell header .brand img{width:52px;height:52px}.bio-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}#bioTabs button{flex:1 1 30%;font-size:10px}#bioRateModes button,#bioSeasonModes button{font-size:10px;padding:7px 9px}}
+@media(prefers-reduced-motion:reduce){#bioTabs button{transition:none}}
+
+/* Source-qualified upcoming opponent cards, not a predictive strength multiplier. */
+#bioOpponentSection{border-bottom:1px solid #2c4963;padding:19px 23px}
+.bio-matchups{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:14px 0}
+.bio-matchup{background:linear-gradient(145deg,#15354e,#102b43);border:1px solid #405e76;border-radius:10px;padding:13px 15px;min-width:0}
+.bio-match-date{color:#e8c78d;letter-spacing:.5px;text-transform:uppercase;font-size:10px;font-weight:850}
+.bio-match-name{color:#fff;font-size:16px;font-weight:850;line-height:1.2;margin:6px 0 9px}
+.bio-match-note{font-size:11px;color:#c3d7e6;line-height:1.5;margin:0}
+#bioOpponentSource{margin:11px 0 0}
+#bioGoalieTrend svg{width:100%;height:auto;min-width:610px;display:block;max-height:315px}
+#bioGoalieTrend svg [role="button"]{cursor:pointer}
+#bioGoalieTrend svg [role="button"]:focus{outline:2px solid #f0d193;outline-offset:2px}
+.bio-premium-ready #systemSection .bio-status{border-left-color:#d3af76}
+.bio-premium-ready #bioSpotlight,.bio-premium-ready #bioProjectionSection,.bio-premium-ready #bioGoalieSection,.bio-premium-ready #bioOpponentSection{scroll-margin-top:12px}
+@media(max-width:650px){#bioOpponentSection{padding:16px 13px}.bio-matchups{gap:7px}.bio-matchup{padding:11px}}
+@media(max-width:400px){.bio-matchups{grid-template-columns:1fr}.bio-match-name{font-size:15px}}

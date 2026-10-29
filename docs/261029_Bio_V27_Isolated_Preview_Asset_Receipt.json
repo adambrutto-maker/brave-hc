@@ -1,0 +1,21 @@
+{
+  "status": "ISOLATED_REVIEW_ONLY",
+  "sourceBranch": "feat/hockeyos-bio-v26-clean-production-candidate-261028",
+  "sourceCommitAtCapture": "fe79d56bccbff05bbb89bf4dcbc25b6ba8f2fa0e",
+  "historicalAwardsUnchanged": true,
+  "officialHTOBioUnchanged": true,
+  "privatePollOrLineupPublished": false,
+  "approvedSourcePlayerNamesPublished": false,
+  "assetHashes": {
+    "player-bio-premium-v27-preview.js": "dcd711f788b86da0b2e7aba7cc7c46dda730fa5f5318591cd9d2c3ac8c3af21b",
+    "player-bio-collection-v27-preview.css": "ed18537562f668e3ed738a46c78b6b2be0697a295148c337a96d2b8ed787612b",
+    "player-bio-advanced-v27-preview.js": "08c2b3e29b16f63a3d09c55a45a859110c96f45392ac98433793b2e2190e6750",
+    "player-bio-coaching-roles-v27-preview.js": "428122e35cc715bb3886f11a0ddedb101037a1e73def8d01b55dcd8f3be7a64f",
+    "game-night-lineup-contract-v27-preview.js": "f50fb27d111caaecf4250fddceeca1a99025cfc2c08096e2c0ba15879f1b8db4",
+    "player-bio-projection-trend-v27-preview.js": "04768828fb2ac92ffcb3ac8062fe97ee0fe4bf71e65fe9b4ef394a0ffb711667",
+    "player-bio-rolling-career-v27-preview.js": "0c9e8376768681f54bdbc46e88b572bc897094ea526d9445b4951fe53b7eff54",
+    "player-bio-season-titles-v27-preview.json": "34673ef77f724cff5fdeb87dd8c3a793c51246f7666cb9d219272329a4261c86",
+    "game-night-lineup-public-v27-preview.json": "f36536fd3bd4ca82fa21b2befe3dfc291392b045ca84d163c5964ace611ca219",
+    "player-bio-v27-preview.html": "644f7974a33d2514d5e1d7dc3ce20e0eb118dd59f48fc55faeef81395abd3a5a"
+  }
+}
