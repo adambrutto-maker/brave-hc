@@ -81,24 +81,36 @@ function eventPct(label,events,gp,code){
 const fetchJSON=async file=>{const r=await fetch('./'+file,{cache:'no-store'});if(!r.ok)throw Error(file+' unavailable');return r.json()};
 let sources;
 try{
+ // All-time HTO shares depend on the verified HTO archive, NOT on the workbook
+ // model or unrelated historical game-duration config. Optional sources only
+ // unlock their respective technical comparison or attendance data.
  const [career,formats,projection,attendance]=await Promise.all([
-  fetchJSON('player-career-insights.json'),fetchJSON('league-game-formats.json'),fetchJSON('projection.json'),
+  fetchJSON('player-career-insights.json'),
+  fetchJSON('league-game-formats.json').catch(()=>null),
+  fetchJSON('projection.json').catch(()=>null),
   fetchJSON('player-bio-attendance-verified-v31.json').catch(()=>null)]);
- if(career.schema!=='brave-hc-player-career-insights/v1'||
-    formats.configurationStatus!=='REFERENCE_FORMATS_AND_18_MASTER_SCHEDULE_SEASON_BINDINGS_VERIFIED'||
-    projection.schema!=='brave-hc-workbook-projection/v1')throw Error('Source metadata does not match');
- sources={career,formats,projection,attendance};
-}catch{status.textContent='Advanced analytics held: verified HTO/format source unavailable.';return;}
+ if(career?.schema!=='brave-hc-player-career-insights/v1'||
+    career.sourceAuthority!=='NATIVE_HTO_PROFILE_STATS_PUBLIC_READBACK')throw Error('Career source invalid');
+ sources={career,
+  formats:formats?.configurationStatus==='REFERENCE_FORMATS_AND_18_MASTER_SCHEDULE_SEASON_BINDINGS_VERIFIED'?formats:null,
+  projection:projection?.schema==='brave-hc-workbook-projection/v1'?projection:null,
+  attendance};
+}catch{
+ status.textContent='Advanced stats held: verified HTO career archive unavailable.';
+ if(shareSource)shareSource.textContent='All-time contributions held: verified HTO archive unavailable.';
+ if(attendanceHold){attendanceHold.hidden=false;attendanceHold.textContent='Roster-adjusted attendance · Source pending approval';}
+ return;
+}
 function currentSeason(){
- const m=/^([WS])(20\d{2})\/(\d{2})$/.exec(sources.projection.season||'');
+ const m=/^([WS])(20\d{2})\/(\d{2})$/.exec(sources.projection?.season||'');
  if(!m)return null;
  return (m[1]==='W'?'Winter ':'Summer ')+m[2]+(m[1]==='W'?'/20'+m[3]:'');
 }
 function normalizedRate(season){
  if(!number(season.GP)||!number(season.Pts)||season.GP<=0)return null;
- const binding=sources.formats.seasonBindings?.[season.Season+'::ALL_HTO_GAME_TYPES'];
+ const binding=sources.formats?.seasonBindings?.[season.Season+'::ALL_HTO_GAME_TYPES'];
  if(binding?.verificationStatus!=='VERIFIED')return null;
- const format=sources.formats.formats?.[binding.formatId];
+ const format=sources.formats?.formats?.[binding.formatId];
  if(format?.verificationStatus!=='VERIFIED'||!number(format.regulationGameMinutes))return null;
  return {season:season.Season,gp:season.GP,pointsWinter:season.Pts*32/format.regulationGameMinutes,pointsRaw:season.Pts};
 }
@@ -150,7 +162,8 @@ function render(){
   eventPct('Game-tying goals / GP',t.GTG,gp,'GTG');
   eventPct('Player of Game / GP',t.POTG,gp,'POTG');
   if(number(t.PIM)&&number(gp)&&gp>0)add('Penalty minutes / GP',show(per(t.PIM,gp)),'Recorded PIM');
-  const complete=(skater.seasons||[]).filter(s=>s.Season!==currentSeason()).map(normalizedRate).filter(Boolean);
+  const active=currentSeason();
+  const complete=active?(skater.seasons||[]).filter(s=>s.Season!==active).map(normalizedRate).filter(Boolean):[];
   if(complete.length){
    const qualified=complete.filter(s=>s.gp>=5),mean=weightedRate(qualified);
    if(qualified.length>=4&&number(mean)){
