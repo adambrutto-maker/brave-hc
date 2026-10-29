@@ -21,7 +21,7 @@ const getJSON=async path=>{const timeout=new AbortController();const timer=setTi
   try{const r=await fetch('./'+path,{cache:'no-store',signal:timeout.signal});if(!r.ok)throw Error('unavailable');return await r.json();}
   finally{clearTimeout(timer);}
 };
-const fetches=Promise.allSettled(['player-career-insights.json','projection.json','league-game-formats.json','player-actuals.json','goalie-roster.json','opponent-intelligence.json','goalie-projection-verified-inputs.json','svhl-upcoming.json','player-bio-season-titles.json','game-night-lineup-public.json','countdown.json'].map(getJSON));
+const fetches=Promise.allSettled(['player-career-insights.json','projection.json','league-game-formats.json','player-actuals.json','goalie-roster.json','opponent-intelligence.json','goalie-projection-verified-inputs.json','svhl-upcoming.json','player-bio-season-titles.json'].map(getJSON));
 const playerID=()=>String($('playerChoice')?.value||new URLSearchParams(location.search).get('playerID')||'');
 const identity=id=>window.BravePlayerLinks?.identityById(Number(id))||null;
 const profileIdFromName=name=>{
@@ -1004,8 +1004,9 @@ sources={career:inputs[0].status==='fulfilled'?inputs[0].value:null,
   goalieVerified:inputs[6].status==='fulfilled'?inputs[6].value:null,
   upcoming:inputs[7].status==='fulfilled'?inputs[7].value:null,
   titles:inputs[8].status==='fulfilled'?inputs[8].value:null,
-  gameLineup:inputs[9].status==='fulfilled'?inputs[9].value:null,
-  gameCountdown:inputs[10].status==='fulfilled'?inputs[10].value:null};
+  // Game Night data is not part of this independently releaseable Bio candidate.
+  gameLineup:null,
+  gameCountdown:null};
 setupTabs();
 const content=$('profileContent');
 // Only source-approved PUBLIC game-night assignments are refreshed. WhatsApp
