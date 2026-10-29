@@ -13,6 +13,7 @@ const add=(label,value,basis,explicitRanking=null)=>{
  }
  const ranking=explicitRanking||window.BraveBioRankEngine?.rankMetric(sources?.career,rankContext.id,rankContext.role,label);
  if(ranking?.status==='QUALIFIED'){
+  card.classList.add('has-rank');
   const badge=document.createElement('span');badge.className='bio-extended-rank';
   badge.textContent='#'+ranking.rank+'/'+ranking.qualified;
   badge.title='Qualified Brave H.C. '+rankContext.role+' career comparison · minimum '+ranking.minimumGP+' GP'+(ranking.tied>1?' · tied with '+(ranking.tied-1):'');
