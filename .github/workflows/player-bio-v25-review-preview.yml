@@ -1,0 +1,45 @@
+name: HockeyOS Bio V2.5 isolated public review preview
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'widgets/player-bio-v25-preview.html'
+      - 'widgets/player-bio-collection-v25-preview.css'
+      - 'widgets/player-bio-premium-v25-preview.js'
+      - 'widgets/player-bio-advanced-v25-preview.js'
+      - 'widgets/player-bio-projection-trend-v25-preview.js'
+      - 'widgets/player-bio-rolling-career-v25-preview.js'
+      - 'widgets/player-bio-season-titles-v25-preview.json'
+      - 'tests/test_bio_v25_public_preview.cjs'
+      - 'docs/261028_Bio_V25_Safe_Public_Review_Preview.md'
+      - '.github/workflows/player-bio-v25-review-preview.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  preview:
+    name: Verify preview across all 109 official HTO player IDs and responsive sizes
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Validate isolated source JS syntax and explicit preview identity
+        run: |
+          node --check widgets/player-bio-premium-v25-preview.js
+          node --check widgets/player-bio-advanced-v25-preview.js
+          node --check widgets/player-bio-projection-trend-v25-preview.js
+          node --check widgets/player-bio-rolling-career-v25-preview.js
+          node --check tests/test_bio_v25_public_preview.cjs
+          node -e "const fs=require('fs');const a=fs.readFileSync('widgets/player-bio-v25-preview.html','utf8');const b=fs.readFileSync('widgets/player-bio.html','utf8');if(!a.includes('bioPreviewBanner')||!a.includes('noindex,nofollow')||b.includes('bioPreviewBanner')||!a.includes('player-bio-premium-v25-preview.js'))process.exit(2)"
+      - name: Install isolated Playwright and headless Chromium dependencies
+        run: |
+          npm install --no-package-lock --no-save playwright
+          npx playwright install --with-deps chromium
+      - name: Render all 109 player Bio previews without changing the official production widget
+        run: node tests/test_bio_v25_public_preview.cjs
