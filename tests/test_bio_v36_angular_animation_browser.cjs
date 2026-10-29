@@ -69,7 +69,7 @@ const server=http.createServer((req,res)=>{
      const cold=b.classList.contains('v36-frosted');
      const anim=b.querySelector(cold?'.v36-ice-shimmer':'.v36-flame-outer');
      return {
-      category:host.dataset.trendState,trendDirection:host.dataset.trendDirection,
+      category:host.dataset.trendState,visualLevel:host.dataset.visualLevel,badgeLevel:b.dataset.visualLevel,trendDirection:host.dataset.trendDirection,
       nearAverage:b.dataset.nearCareerAverage==='true',
       nearAverageHost:host.dataset.nearCareerAverage,
       visualName:b.dataset.visualState,
@@ -109,8 +109,10 @@ const server=http.createServer((req,res)=>{
     assert.ok(o.badgeLeft>=o.copyRight+1,'V3.6.1 badge must appear to the right of the copy at '+width);
     assert.ok(o.badgeRight<=o.hostRight+1,'right-side badge contained at '+width);
     assert.equal(o.copyAlign,'left','trend copy is left aligned at '+width);
-    assert.equal(o.panelTone,c.rookie?'rookie':o.category.toLowerCase(),
-      'panel follows workbook category at '+width);
+    if(!c.rookie){const expected=visual.visualLevelFromRelativeChange(Number(o.sourceTrend),sigma);assert.equal(o.visualLevel,expected,'7-level visual label follows angle intensity');}
+    assert.equal(o.panelTone,c.rookie?'rookie':o.visualLevel.toLowerCase(),
+      'panel follows displayed seven-word level at '+width);
+    if(!c.rookie)assert.equal(o.visualLevel,o.badgeLevel,'word and badge must agree');
     assert.equal(o.panelPaletteMatches,true,'all four panel palette colors mirror the actual badge');
     assert.equal(o.panelBorder,o.badgeBorder,'panel border follows badge rim');
     assert.match(o.panelBackground,/radial-gradient/i,'panel uses a badge-colored shade');
@@ -158,7 +160,7 @@ const server=http.createServer((req,res)=>{
        assert.equal(o.frostOpacity,'0','no visible crystals');
        assert.equal(o.heatOpacity,'0','no visible sparks');
        assert.equal(o.motion,null,'near-average symbol has no flame/ice animation');
-       assert.match(o.minor,row.trend===0?/At career average/:/Within ±5% of career average/);
+       assert.match(o.minor,row.trend===0?/At career average/:/Within.*5% of career average/);
      }else if(row.trend!==0){
        assert.equal(o.hasCornerEffect,true,'outside tolerance retains source-sign frost or flame');
      }
