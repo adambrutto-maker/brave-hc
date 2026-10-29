@@ -884,10 +884,8 @@ function renderAdvancedMetrics(player){
   // Personal 41%/59% composition remains in its graphic, not repeated as a rate card.
   // Only unique normalized scoring/assist pace and +/- context stay in this small panel.
   $('bioOtherMetrics').hidden=more.children.length===0;
-  $('bioAdvancedSource').textContent='HTO career archive '+date(sources.career?.capturedAt)+
-     ' · '+c.complete+'/'+c.total+' seasons with complete core values'+
-     (c.excluded?' · '+c.excluded+' incomplete season(s) excluded, not zeroed':'')+
-     ' · Rates are analysis only, not records.';
+  $('bioAdvancedSource').textContent='HTO career seasons · '+c.complete+'/'+c.total+
+    ' complete'+(c.excluded?' · '+c.excluded+' held':'');
 }
 function renderDevelopment(player){
   const target=$('bioDevelopmentGrid'),pane=$('bioDevelopmentChart');
