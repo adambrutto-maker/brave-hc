@@ -26,6 +26,7 @@ on:
       - 'tests/test_bio_v31_clean_negative_browser.cjs'
       - 'tests/test_bio_v31_clean_attendance_rank.cjs'
       - 'tests/test_bio_v31_clean_coaching_browser.cjs'
+      - 'tests/test_bio_v32_percent_and_cohort_browser.cjs'
       - 'widgets/player-bio-coaching-roles.js'
       - 'widgets/player-bio-positive-streaks.js'
       - 'tests/test_player_bio_v27_browser.cjs'
@@ -126,6 +127,8 @@ jobs:
         run: node tests/test_bio_v31_clean_negative_browser.cjs
       - name: Test public video sources, interactive rink board and advanced ranking chips
         run: node tests/test_bio_v31_clean_coaching_browser.cjs
+      - name: Verify percent-of-GP legacy and advanced rates and 10-GP qualifying ranks
+        run: node tests/test_bio_v32_percent_and_cohort_browser.cjs
       - name: Test all 109 verified HTO identities across three tabs at narrow embed width
         run: node tests/test_bio_v31_clean_109_browser.cjs
       - name: Test visual Bio V3.1 (chart labels, whole-GP forecast, role explorer)
