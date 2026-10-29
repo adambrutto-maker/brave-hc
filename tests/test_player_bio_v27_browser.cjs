@@ -56,7 +56,7 @@ const server=http.createServer((req,res)=>{
      assert.equal(await p.locator('#bioProjectionFull').evaluate(e=>e.open),false,'only source detail collapsed');
      assert.match(await p.locator('#bioProjectionHeadline').textContent(),/Full regular-season projection/);
      assert.match(await p.locator('.bio-forecast-kicker').innerText(),/FULL-SEASON ESTIMATE/);
-     assert.match(await p.locator('#bioProjectionTrend').innerText(),/Projected season-finish trend vs career/);
+     assert.match(await p.locator('#bioProjectionTrend').innerText(),/Within ±5% of career average/);
      assert.equal(await p.locator('#bioProjectionCards .bio-stat-icon').count(),5);
      assert.equal(await p.locator('#bioProjectionCards .bio-metric-icon').first().locator('.value').innerText(),'23');
    }
