@@ -42,12 +42,12 @@ const server=http.createServer((req,res)=>{
     assert.equal(status.legacy,'none','duplicate stats '+id);
     assert.notEqual(status.tabs,'none','tabs missing '+id);
     if(id==='354060'||id==='354054') {
-      assert.ok(status.chartShown);
+      assert.equal(status.chartShown,false,'Career scoring chart belongs under Trends');
       assert.equal(status.positions,6);
       assert.match(status.projection,/Provisional|model|projection/i);
     }
     if(id==='354055') {
-      assert.ok(status.goalieShown);
+      assert.equal(status.goalieShown,false,'Goalie historical analytics belong under Trends');
       assert.equal(status.chartShown,false,'goalies must not see empty skater chart');
       assert.match(status.goalie,/held|experimental/i);
     }
@@ -61,6 +61,7 @@ const server=http.createServer((req,res)=>{
    await page.goto(origin+'/widgets/player-bio.html?playerID=354054&embed=1');
    await page.waitForFunction(()=>document.body.classList.contains('bio-premium-ready'));
    const bars=await page.locator('#bioComboChart rect').count();
+   await page.click('#bioTabs button[data-bio-view="trends"]');
    await page.click('#bioRateModes button[data-mode="winter"]');
    assert.equal(await page.locator('#bioComboChart rect').count(),bars);
    assert.match(await page.textContent('#bioRateStatus'),/equivalent points per game/i);
@@ -81,6 +82,7 @@ const server=http.createServer((req,res)=>{
      await desktop.goto(origin+'/widgets/player-bio.html?playerID=354060&embed=1');
      await desktop.waitForFunction(()=>document.body.classList.contains('bio-premium-ready'));
      assert.equal(await desktop.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1),false,'overflow '+width);
+     await desktop.click('#bioTabs button[data-bio-view="trends"]');
      assert.equal(await desktop.$eval('#bioSpotlight',e=>e.hidden),false);
      assert.ok(await desktop.locator('#bioComboChart svg').count()>=1);
      if(screens&&width===1280)await desktop.screenshot({path:path.join(screens,'bio-premium-desktop-354060.png'),fullPage:true});
