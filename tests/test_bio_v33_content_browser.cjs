@@ -44,7 +44,8 @@ const server=http.createServer((req,res)=>{
      assert.match(await card.locator('.bio-v33-rank').getAttribute('title'),/historical HTO identities checked/);
      assert.match(await card.locator('.bio-v33-rank').getAttribute('title'),/Missing data not counted as zero/);
     }
-    assert.match(await p.locator('#bioShareSource').innerText(),/109 HTO profiles checked/);
+    assert.match(await p.locator('#bioShareSource').innerText(),/109 HTO profiles checked · Oct 20, 2026 · reported totals only/,
+     'Historical scope, source date and incomplete-metric disclosure all visible');
     const all=actual.metrics.length;
     if(actual.additional.length){
      await p.locator('#bioSharesMore').click();
