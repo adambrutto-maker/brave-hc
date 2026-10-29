@@ -5,11 +5,21 @@
 'use strict';
 const panel=document.getElementById('bioExtendedAnalytics');if(!panel)return;
 const grid=panel.querySelector('#bioExtendedMetrics'),status=panel.querySelector('#bioExtendedStatus');
-const add=(label,value,basis)=>{
+let rankContext={id:null,role:null};
+const add=(label,value,basis,explicitRanking=null)=>{
  const card=document.createElement('article');card.className='bio-extended-stat';
  for(const [tag,text,cls] of [['strong',value,'bio-extended-value'],['span',label,'bio-extended-label'],['small',basis,'bio-extended-basis']]){
   const el=document.createElement(tag);el.className=cls;el.textContent=String(text);card.append(el);
- }grid.append(card);
+ }
+ const ranking=explicitRanking||window.BraveBioRankEngine?.rankMetric(sources?.career,rankContext.id,rankContext.role,label);
+ if(ranking?.status==='QUALIFIED'){
+  const badge=document.createElement('span');badge.className='bio-extended-rank';
+  badge.textContent='#'+ranking.rank+'/'+ranking.qualified;
+  badge.title='Qualified Brave H.C. '+rankContext.role+' career comparison · minimum '+ranking.minimumGP+' GP'+(ranking.tied>1?' · tied with '+(ranking.tied-1):'');
+  badge.setAttribute('aria-label','Career rank '+ranking.rank+' of '+ranking.qualified+' qualified '+rankContext.role+'s');
+  card.append(badge);
+ }
+ grid.append(card);
 };
 const number=x=>typeof x==='number'&&Number.isFinite(x)&&x>=0;
 const show=(value,digits=2)=>number(value)?value.toFixed(digits):'—';
@@ -25,12 +35,13 @@ function eventPct(label,events,gp,code){
 const fetchJSON=async file=>{const r=await fetch('./'+file,{cache:'no-store'});if(!r.ok)throw Error(file+' unavailable');return r.json()};
 let sources;
 try{
- const [career,formats,projection]=await Promise.all([
-  fetchJSON('player-career-insights.json'),fetchJSON('league-game-formats.json'),fetchJSON('projection.json')]);
+ const [career,formats,projection,attendance]=await Promise.all([
+  fetchJSON('player-career-insights.json'),fetchJSON('league-game-formats.json'),fetchJSON('projection.json'),
+  fetchJSON('player-bio-attendance-verified-v30-preview.json').catch(()=>null)]);
  if(career.schema!=='brave-hc-player-career-insights/v1'||
     formats.configurationStatus!=='REFERENCE_FORMATS_AND_18_MASTER_SCHEDULE_SEASON_BINDINGS_VERIFIED'||
     projection.schema!=='brave-hc-workbook-projection/v1')throw Error('Source metadata does not match');
- sources={career,formats,projection};
+ sources={career,formats,projection,attendance};
 }catch{status.textContent='Advanced analytics held: verified HTO/format source unavailable.';return;}
 function currentSeason(){
  const m=/^([WS])(20\d{2})\/(\d{2})$/.exec(sources.projection.season||'');
@@ -54,6 +65,16 @@ function render(){
  if(!record){status.textContent='No source-verified historical profile for this player.';return}
  const skater=record.segments?.find(s=>s.kind==='skater');
  const goalie=record.segments?.find(s=>s.kind==='goalie');
+ rankContext={id:String(selected),role:skater?'skater':goalie?'goalie':null};
+ const ranks=window.BraveBioRankEngine;
+ const careerAttendance=rankContext.role?ranks?.rankAttendance(sources.attendance,selected,rankContext.role):null;
+ const currentAttendance=rankContext.role?ranks?.seasonAttendance(sources.attendance,selected):null;
+ if(currentAttendance?.status==='PROVISIONAL')
+  add('Season roster-adjusted attendance',show(currentAttendance.percent,1)+'%',currentAttendance.gp+' / '+currentAttendance.eligible+' eligible games · provisional');
+ else add('Season roster-adjusted attendance','—','Awaiting current source alignment');
+ if(careerAttendance?.percent!=null){
+  add('Career roster-adjusted attendance',show(careerAttendance.percent,1)+'%',careerAttendance.gp+' / '+careerAttendance.eligible+' eligible games',careerAttendance.status==='QUALIFIED'?careerAttendance:null);
+ }else add('Career roster-adjusted attendance','—','Workbook source parity held');
  const sourceDate=(sources.career.capturedAt||'').slice(0,10);
  status.textContent='HTO archive '+sourceDate+' · career and current snapshots may differ.';
  if(skater){
