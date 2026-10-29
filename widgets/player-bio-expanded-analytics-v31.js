@@ -16,8 +16,11 @@ const add=(label,value,basis,explicitRanking=null)=>{
   card.classList.add('has-rank');
   const badge=document.createElement('span');badge.className='bio-extended-rank';
   badge.textContent='#'+ranking.rank+'/'+ranking.qualified;
-  badge.title='Qualified Brave H.C. '+rankContext.role+' career comparison · minimum '+ranking.minimumGP+' GP'+(ranking.tied>1?' · tied with '+(ranking.tied-1):'');
-  badge.setAttribute('aria-label','Career rank '+ranking.rank+' of '+ranking.qualified+' qualified '+rankContext.role+'s');
+  const extraMinimum=ranking.minimumDenominator&&ranking.denominatorMetric!=='GP'?
+   ' · at least '+ranking.minimumDenominator+' '+ranking.denominatorMetric:'';
+  badge.title='Verified Brave H.C. '+rankContext.role+' ranking · '+ranking.minimumGP+'+ career GP'+extraMinimum+
+    ' · '+ranking.qualified+' players qualified'+(ranking.tied>1?' · tied with '+(ranking.tied-1):'');
+  badge.setAttribute('aria-label','Career rank '+ranking.rank+' of '+ranking.qualified+' qualified '+rankContext.role+'s, minimum '+ranking.minimumGP+' games played');
   card.append(badge);
  }
  grid.append(card);
@@ -28,7 +31,7 @@ const per=(n,d,k=1)=>number(n)&&number(d)&&d>0?n*k/d:null;
 function eventPct(label,events,gp,code){
  // One decimal place and raw counts make small-sample event frequency legible.
  // Missing GP or source events are held rather than represented as zero.
- if(!number(events)||!number(gp)||gp<=0)return;
+ if(!number(events)||!number(gp)||gp<=0||events>gp)return;
  const value=per(events,gp,100);
  if(!number(value))return;
  add(label,show(value,1)+'%',events+' '+code+' / '+gp+' recorded GP');

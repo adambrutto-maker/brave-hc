@@ -9,16 +9,18 @@
  else root.BraveBioRankEngine=api;
 })(typeof window==='undefined'?globalThis:window,function(){
  'use strict';
- const MIN_GP=Object.freeze({skater:25,goalie:8});
+ // A standard Summer regular season provides roughly 10 qualifying appearances.
+ // Goalies retain their existing 8-GP threshold because of their smaller role cohort.
+ const MIN_GP=Object.freeze({skater:10,goalie:8});
  const SH='0002fd9f06596af8d0a00fc1b53a618ef15479f941ad5c1e6265b27002a65154';
  const finite=x=>typeof x==='number'&&Number.isFinite(x)&&x>=0;
  const metricRules=Object.freeze({
-  'Goal share of points':{kind:'skater',num:'G',den:'Pts',minDen:15},
-  'Assist share of points':{kind:'skater',num:'A',den:'Pts',minDen:15},
-  'Power-play goal share':{kind:'skater',num:'PPG',den:'G',minDen:10},
-  'Short-handed goal share':{kind:'skater',num:'SHG',den:'G',minDen:10},
-  'Game-winning goals / GP':{kind:'skater',num:'GWG',den:'GP',minDen:25},
-  'Game-tying goals / GP':{kind:'skater',num:'GTG',den:'GP',minDen:25},
+  'Goal share of points':{kind:'skater',num:'G',den:'Pts',minDen:5},
+  'Assist share of points':{kind:'skater',num:'A',den:'Pts',minDen:5},
+  'Power-play goal share':{kind:'skater',num:'PPG',den:'G',minDen:3},
+  'Short-handed goal share':{kind:'skater',num:'SHG',den:'G',minDen:3},
+  'Game-winning goals / GP':{kind:'skater',num:'GWG',den:'GP',minDen:10},
+  'Game-tying goals / GP':{kind:'skater',num:'GTG',den:'GP',minDen:10},
   'Player of Game / GP':{kind:'either',num:'POTG',den:'GP'},
   'Penalty minutes / GP':{kind:'either',num:'PIM',den:'GP',ascending:true}
  });
@@ -41,12 +43,15 @@
    const s=p.segments?.find(x=>x.kind===role);
    const t=s?.total;
    if(!t||!finite(t.GP)||t.GP<MIN_GP[role]||!finite(t[rule.num])||
-     !finite(t[rule.den])||t[rule.den]<(rule.minDen||1))continue;
+     !finite(t[rule.den])||t[rule.den]<(rule.minDen||1)||
+     // A GP-percentage event may occur at most once per recorded appearance.
+     (rule.den==='GP'&&rule.num!=='PIM'&&t[rule.num]>t.GP))continue;
    rows.push({id,value:t[rule.num]/t[rule.den],minimumGP:MIN_GP[role]});
   }
   const result=rankRows(rows,playerId,rule.ascending);
   return Object.freeze({...result,metric:label,role,source:'HTO_VERIFIED_CAREER_TOTALS',
-   denominatorMetric:rule.den,ascending:!!rule.ascending});
+   denominatorMetric:rule.den,minimumDenominator:rule.minDen||null,
+   ascending:!!rule.ascending});
  }
  function workbookEligibleSeason(status,actualGP,teamContested){
   if(!finite(actualGP)||!finite(teamContested)||actualGP>teamContested)return null;

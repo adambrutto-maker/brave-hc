@@ -80,7 +80,7 @@
      powerPlayShare:completeTotals&&t.G>0&&count(t.PPG)&&t.PPG<=t.G?t.PPG/t.G:null,
      gameWinnersShare:completeTotals&&t.G>0&&count(t.GWG)&&t.GWG<=t.G?t.GWG/t.G:null,
      penaltyMinutesPerGP:gp>0&&count(t.PIM)?t.PIM/gp:null,
-     playerOfGamePer100:gp>0&&count(t.POTG)?t.POTG/gp*100:null,
+     playerOfGameRateGP:gp>0&&count(t.POTG)&&t.POTG<=gp?t.POTG/gp:null,
      plusMinusPerGP:gp>0&&safe(t['+/-'])?t['+/-']/gp:null,
      scoringGoalShare:goalsShare,
      shortHandedShare:completeTotals&&t.G>0&&count(t.SHG)&&t.SHG<=t.G?t.SHG/t.G:null
@@ -117,8 +117,8 @@
      careerWinterGAperAppearance:mapped.length===valid.length&&excluded===0?rate(mapped,'GA','winter',config):null,
      publishedActualGAA:gp>0&&count(t.GA)?t.GA/gp:null,
      winPointsPct:winPct,
-     shutoutPer100:gp>0&&count(t.SHO)?t.SHO/gp*100:null,
-     playerOfGamePer100:gp>0&&count(t.POTG)?t.POTG/gp*100:null,
+     shutoutRateGP:gp>0&&count(t.SHO)&&t.SHO<=gp?t.SHO/gp:null,
+     playerOfGameRateGP:gp>0&&count(t.POTG)&&t.POTG<=gp?t.POTG/gp:null,
      peak:peak||null,
      outcomeComplete,
      winPctRule:'(Recorded W + 0.5 * recorded T) / recorded goalie appearances'
