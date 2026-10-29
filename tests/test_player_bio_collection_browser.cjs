@@ -1,0 +1,141 @@
+'use strict';
+const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),http=require('node:http');
+const {chromium}=require(process.env.BRAVE_PLAYWRIGHT_MODULE||'playwright');
+const root=path.resolve(__dirname,'..');
+const career=require('../widgets/player-career-insights.json');
+const server=http.createServer((req,res)=>{
+ const file=path.resolve(root,'.'+new URL(req.url,'http://127.0.0.1').pathname);
+ if(!file.startsWith(root+path.sep))return res.writeHead(403).end();
+ fs.readFile(file,(err,body)=>{
+  if(err)return res.writeHead(404).end();
+  res.setHeader('content-type',({'.html':'text/html','.js':'text/javascript','.css':'text/css','.json':'application/json','.png':'image/png'})[path.extname(file)]||'text/plain');
+  res.end(body);
+ });
+});
+(async()=>{
+ await new Promise(ok=>server.listen(0,'127.0.0.1',ok));
+ const origin='http://127.0.0.1:'+server.address().port;
+ const browser=await chromium.launch({headless:true,executablePath:process.env.BRAVE_CHROMIUM_PATH});
+ const errors=[],checks=[],screens=process.env.BRAVE_QA_SCREENSHOTS;
+ async function open(id,width=390){
+  const page=await browser.newPage({viewport:{width,height:850}});
+  page.on('pageerror',e=>errors.push(id+' : '+e.message));
+  await page.goto(origin+'/widgets/player-bio.html?playerID='+id+'&embed=1');
+  await page.waitForFunction(()=>document.body.classList.contains('bio-premium-ready'),null,{timeout:14000});
+  return page;
+ }
+ try{
+  // Verify the same compact Trophy Room collection pattern on skater, goalie, and mixed-role profiles.
+  for(const [id,kind,expectedNav] of [['354060','skater',3],['354055','goalie',3],['354057','mixed',3]]){
+   const page=await open(id);
+   const state=await page.evaluate(()=>({
+      lab:document.querySelectorAll('#bioStudio').length,
+      name:document.querySelector('#playerName').textContent,
+      sourceVisible:document.querySelector('#sourceSection')!==null,
+      navVisible:[...document.querySelectorAll('#bioTabs button[data-bio-view]:not([hidden])')].map(x=>x.textContent.trim()),
+      mainContainer:getComputedStyle(document.querySelector('#bioStudio')).borderTopColor,
+      oldStats:getComputedStyle(document.querySelector('#careerSection')).display,
+      scroll:document.documentElement.scrollWidth>innerWidth+1,
+      insightCount:document.querySelectorAll('#bioAdvancedGrid .bio-insight-tile').length
+   }));
+   assert.equal(state.lab,1);
+   assert.equal(state.name,career.players[id].name);
+   assert.equal(state.scroll,false,'no overflow '+id);
+   assert.equal(state.oldStats,'none','no redundant stats table '+id);
+   assert.equal(state.navVisible.length,expectedNav);
+   assert.ok(state.insightCount>0,'analytics tiles '+id);
+   if(kind==='skater'||kind==='mixed'){
+     assert.equal(state.insightCount,1,'no stand-alone peak season card '+id);
+     assert.doesNotMatch(await page.locator('#bioAdvancedGrid').innerText(),/Peak season/i);
+   }
+   assert.equal(state.sourceVisible,true);
+   if(kind==='skater'){
+     assert.equal(await page.$eval('#bioSpotlight',e=>e.hidden),false);
+     assert.equal(await page.$eval('#bioOpponentSection',e=>e.hidden),true);
+     assert.ok(await page.locator('#bioScoringMix .bio-split-track').count()===1);
+     const bars=await page.locator('#bioComboChart rect').count();
+     await page.click('#bioRateModes button[data-mode="winter"]');
+     assert.equal(await page.locator('#bioComboChart rect').count(),bars);
+     await page.click('#bioRateModes button[data-mode="summer"]');
+     assert.equal(await page.locator('#bioComboChart rect').count(),bars);
+     await page.click('#bioRateModes button[data-mode="actual"]');
+     await page.click('#bioTabs button[data-bio-view="trends"]');
+     assert.equal(await page.$eval('#bioDevelopmentSection',e=>e.hidden),false);
+     assert.ok(await page.locator('#bioDevelopmentChart svg').count()>0,'qualified season trends');
+     if(screens)await page.screenshot({path:path.join(screens,'bio-collection-v2-trends-390.png'),fullPage:true});
+     await page.click('#bioTabs button[data-bio-view="coaching"]');
+     assert.equal(await page.$eval('#bioOpponentSection',e=>e.hidden),false);
+     assert.equal(await page.locator('#bioOpponentCards .bio-matchup:visible').count(),2);
+     if(screens)await page.screenshot({path:path.join(screens,'bio-collection-v2-gameplan-390.png'),fullPage:true});
+     await page.click('#bioOpponentMore');
+     assert.equal(await page.locator('#bioOpponentCards .bio-matchup:visible').count(),4);
+     assert.equal(await page.$eval('#bioTeamSystem',e=>e.open),false);
+     await page.click('#bioTabs button[data-bio-view="production"]');
+     assert.equal(await page.$eval('#bioSpotlight',e=>e.hidden),false);
+     assert.equal(await page.$eval('#bioOpponentSection',e=>e.hidden),true);
+     assert.equal(await page.locator('#bioTabs button[data-bio-view="all"]').count(),0);
+     assert.equal(await page.locator('#bioRateModes button[data-mode="actual"]').innerText(),'All');
+     assert.equal(await page.locator('#bioSeasonModes button[data-mode="all"]').innerText(),'Career');
+     assert.equal(await page.$eval('#bioProjectionSummarySlot',e=>e.hidden),false);
+   }
+   if(kind==='mixed'){
+     assert.equal(await page.locator('#bioTabs button[data-bio-view="goaltending"]').count(),0);
+     assert.equal(await page.$eval('#bioSpotlight',e=>e.hidden),false);
+     assert.equal(await page.$eval('#bioGoalieSection',e=>e.hidden),false);
+     assert.match(await page.locator('#bioAdvancedGrid').innerText(),/Career scoring pace/i,
+       'dual-role skater career pace retained');
+     assert.equal(await page.locator('#bioGoalieCards .bio-metric').count(),2,
+       'goalie role stats retained under Production');
+     await page.click('#bioTabs button[data-bio-view="trends"]');
+     assert.equal(await page.$eval('#bioDevelopmentSection',e=>e.hidden),false);
+   }
+   if(kind==='goalie'){
+     assert.equal(await page.$eval('#bioSpotlight',e=>e.hidden),true);
+     assert.equal(await page.$eval('#bioGoalieSection',e=>e.hidden),false);
+     assert.equal(await page.locator('#bioGoalieCards .bio-metric').count(),2);
+     assert.match(await page.textContent('#bioGoalieStatus'),/held/i);
+     assert.ok(await page.locator('#bioGoalieTrend svg').count()>0);
+     if(screens)await page.screenshot({path:path.join(screens,'bio-collection-v2-goalie-390.png'),fullPage:true});
+     await page.click('#bioTabs button[data-bio-view="trends"]');
+     assert.equal(await page.$eval('#bioDevelopmentSection',e=>e.hidden),false);
+   }
+   checks.push({id,kind,nav:state.navVisible.length,analytics:state.insightCount});
+   await page.close();
+  }
+  // Visual and accessibility validation across supported embed widths.
+  for(const width of [320,390,625,1280]){
+   const p=await open('354060',width);
+   assert.equal(await p.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1),false,'width '+width);
+   const buttons=await p.locator('#bioTabs button[data-bio-view]:visible').count();
+   assert.equal(buttons,3);
+   const top=await p.locator('#bioStudio').boundingBox(),header=await p.locator('#bioTabs').boundingBox();
+   assert.ok(top&&header&&header.width>250);
+   const tabs=await p.locator('#bioTabs button[data-bio-view]:visible .bio-tab-label').allTextContents();
+   assert.deepEqual(tabs.map(x=>x.trim()),['Production','Trends','Coaching']);
+   const ticks=await p.locator('#bioComboChart svg [data-axis-tick="pts-per-game"]').allTextContents();
+   assert.equal(ticks.length,5,'right Pts/GP axis has 5 visible numeric labels');
+   assert.ok(ticks.every(x=>/^\d+\.\d{2}$/.test(x)),'right Pts/GP axis is exactly 2dp');
+   const position=await p.evaluate(()=>{
+     const chart=document.querySelector('#bioComboChart svg');
+     const axis=chart.querySelector('[data-axis="pts-per-game"]');
+     const ticks=[...chart.querySelectorAll('[data-axis-tick="pts-per-game"]')];
+     return {right:Number(axis.getAttribute('x1')),
+       positions:ticks.map(n=>({x:Number(n.getAttribute('x')),
+         anchor:n.getAttribute('text-anchor'),len:n.getComputedTextLength()})),
+       total:Number(chart.getAttribute('viewBox').split(' ')[2])};
+   });
+   assert.ok(position.right>position.total*.6,'Y2 is on the right');
+   assert.ok(position.positions.every(x=>x.x>position.right&&x.x<position.total&&
+     x.anchor==='end'&&x.len>0),'Y2 labels are legible and inside chart');
+   if(screens)await p.screenshot({path:path.join(screens,'bio-collection-v2-'+width+'.png'),fullPage:true});
+   await p.close();
+  }
+  // Source-poor profile must fail closed, not display false zero-rate career analytics.
+  const missing=await open('354043');
+  assert.equal(await missing.locator('#bioAdvancedGrid .bio-inactive-note').count(),1);
+  assert.ok(!/NaN|Infinity/.test(await missing.locator('#bioStudio').innerText()));
+  await missing.close();
+  assert.deepEqual(errors,[]);
+  console.log(JSON.stringify({status:'PASS',profiles:checks,widths:[320,390,625,1280],errors,sourcePoorHeld:true},null,2));
+ }finally{await browser.close();}
+})().catch(e=>{console.error(e.stack||e);process.exitCode=1;}).finally(()=>server.close());

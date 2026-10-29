@@ -12,6 +12,24 @@ on:
       - 'widgets/player-bio.html'
       - 'widgets/player-bio-premium.js'
       - 'widgets/player-bio-premium.css'
+      - 'widgets/player-bio-collection.css'
+      - 'widgets/player-bio-advanced.js'
+      - 'widgets/player-bio-projection-trend.js'
+      - 'widgets/player-bio-rolling-career.js'
+      - 'tests/test_player_bio_rolling_career.cjs'
+      - 'docs/261028_HockeyOS_Video_Highlights_Coaching_Placement.md'
+      - 'widgets/player-bio-season-titles.json'
+      - 'widgets/player-highlights-ledger.json'
+      - 'widgets/history-awards.json'
+      - 'widgets/player-career-insights.json'
+      - 'scripts/bio-season-titles-lib.cjs'
+      - 'scripts/build_bio_season_titles.cjs'
+      - 'tests/test_player_bio_season_titles.cjs'
+      - 'tests/test_player_bio_projection_trend.cjs'
+      - 'tests/test_player_bio_awards_trend_browser.cjs'
+      - 'tests/test_player_bio_advanced.cjs'
+      - 'tests/test_player_bio_collection_browser.cjs'
+      - 'docs/261028_Player_Bio_Milestone_Parity_Analytics_V2.md'
       - 'widgets/goalie-projection-model.js'
       - 'tests/test_goalie_projection_model.cjs'
       - 'tests/test_player_bio_premium_browser.cjs'
@@ -43,16 +61,34 @@ jobs:
       - name: Check premium Bio JavaScript and goalie forecast module syntax
         run: |
           node --check widgets/player-bio-premium.js
+          node --check widgets/player-bio-advanced.js
+          node --check widgets/player-bio-projection-trend.js
+          node --check widgets/player-bio-rolling-career.js
+          node --check scripts/build_bio_season_titles.cjs
           node --check widgets/player-bio.js
           node --check widgets/goalie-projection-model.js
+      - name: Require Milestone-parity Bio collection and new advanced data slots
+        run: node -e "const fs=require('fs');const s=fs.readFileSync('widgets/player-bio.html','utf8');for(const q of ['id=\"bioStudio\"','id=\"bioAdvancedSection\"','id=\"bioDevelopmentSection\"','id=\"bioScoringMix\"','player-bio-advanced.js','player-bio-collection.css'])if(!s.includes(q)){console.error('missing '+q);process.exit(2)}"
       - name: Verify premium markup and required source integrity controls
         run: node -e "const fs=require('fs');const h=fs.readFileSync('widgets/player-bio.html','utf8');for(const x of ['id=\"bioTabs\"','id=\"bioComboChart\"','id=\"bioProjectionSection\"','id=\"bioGoalieSection\"','id=\"bioOpponentSection\"','player-bio-premium.js'])if(!h.includes(x))process.exit(2)"
 
+      - name: Verify advanced stats calculations and fail-closed source coverage
+        run: node --test tests/test_player_bio_advanced.cjs
+      - name: Verify scoring titles are generated only from current public HTO awards sources
+        run: node scripts/build_bio_season_titles.cjs --check
+      - name: Verify source-based directional arrows, ROOKIE presentation, and scoring titles
+        run: node --test tests/test_player_bio_projection_trend.cjs tests/test_player_bio_season_titles.cjs
+      - name: Verify rolling career baseline uses past-only source-valid games on selected time basis
+        run: node --test tests/test_player_bio_rolling_career.cjs
       - name: Install isolated Playwright test dependency
         run: npm install --no-package-lock --no-save playwright
       - name: Install browser for source-independent CI acceptance
         run: npx playwright install --with-deps chromium
       - name: Test polished player Bio across 109 HTO profiles and responsive viewports
         run: node tests/test_player_bio_premium_browser.cjs
+      - name: Test Milestone-style collection, deep analytics, role switching and four mobile/desktop layouts
+        run: node tests/test_player_bio_collection_browser.cjs
+      - name: Test scoring-title chart markers and native workbook trend arrows in the Bio
+        run: node tests/test_player_bio_awards_trend_browser.cjs
       - name: Run historical Bio identity, leadership and fallback regression with production CSS
         run: node tests/test_player_bio_browser.cjs

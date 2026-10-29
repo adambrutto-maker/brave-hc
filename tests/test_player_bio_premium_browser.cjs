@@ -63,11 +63,11 @@ const server=http.createServer((req,res)=>{
    const bars=await page.locator('#bioComboChart rect').count();
    await page.click('button[data-mode="winter"]');
    assert.equal(await page.locator('#bioComboChart rect').count(),bars);
-   assert.match(await page.textContent('#bioRateStatus'),/verified game-duration equivalents/i);
+   assert.match(await page.textContent('#bioRateStatus'),/equivalent points per game/i);
    assert.ok((await page.locator('#bioComboChart circle').count())>0,'winter-adjusted trend visible');
    if(screens)await page.screenshot({path:path.join(screens,'bio-adjusted-winter-354054.png'),fullPage:true});
    await page.click('button[data-mode="summer"]');
-   assert.match(await page.textContent('#bioRateStatus'),/verified game-duration equivalents/i);
+   assert.match(await page.textContent('#bioRateStatus'),/equivalent points per game/i);
    if(screens)await page.screenshot({path:path.join(screens,'bio-adjusted-summer-354054.png'),fullPage:true});
    assert.equal(await page.locator('#bioComboChart rect').count(),bars);
    await page.click('button[data-bio-view="coaching"]');
@@ -95,7 +95,7 @@ const server=http.createServer((req,res)=>{
    await forged.goto(origin+'/widgets/player-bio.html?playerID=354055&embed=1');
    await forged.waitForFunction(()=>document.body.classList.contains('bio-premium-ready'));
    assert.match(await forged.textContent('#bioGoalieStatus'),/held/i);
-   assert.equal(await forged.locator('#bioGoalieCards .bio-metric').count(),5);
+   assert.equal(await forged.locator('#bioGoalieCards .bio-metric').count(),2);
    await forged.close();
    assert.deepEqual(problems,[]);
    console.log(JSON.stringify({status:'PASS',playerProfiles:ids.length,issues:problems,formats:['Actual','Winter equivalent','Summer equivalent'],screenshots:!!screens},null,2));
