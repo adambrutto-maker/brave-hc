@@ -35,3 +35,11 @@
 .bio-career-model-strip>div:last-child strong{font-size:23px;color:#fff0cc;text-align:right}
 .bio-career-model-strip>div:last-child span{font-size:9px;color:#abc4d5;text-align:right}
 @media(max-width:350px){.bio-career-model-strip>div:first-child span{font-size:9px}#bioExtendedMetrics .bio-extended-value{font-size:16px}}
+
+/* Database ranking chip: quiet upper-right metadata, only when qualified. */
+#bioExtendedMetrics .bio-extended-stat{position:relative}
+#bioExtendedMetrics .bio-extended-stat.has-rank{padding-top:27px}
+#bioExtendedMetrics .bio-extended-rank{position:absolute;top:6px;right:6px;
+ padding:3px 6px;border-radius:5px;border:1px solid #7c835d;
+ background:#253e4c;color:#f1d5a1;font-size:9px;line-height:1.2;font-weight:900;
+ font-variant-numeric:tabular-nums;letter-spacing:.1px}
