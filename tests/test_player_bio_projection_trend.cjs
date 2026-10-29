@@ -16,7 +16,7 @@ test('all published players receive identical workbook conditional-formatted tre
  let qualified=0,newPlayers=0;
  for(const p of data.players){
   const res=trend.classify(p,data);
-  if(p.trendInputs?.firstSeasonOrNoCareer===true){newPlayers++;assert.equal(res.status,'NEW');continue;}
+  if(p.trendInputs?.firstSeasonOrNoCareer===true){newPlayers++;assert.equal(res.status,'ROOKIE');continue;}
   if(!Number.isFinite(p.trend)){assert.equal(res.status,'HELD');continue;}
   const idx=p.trend<th.AB100?0:p.trend<th.AB99?1:p.trend<th.AB97?2:p.trend<th.AB96?3:4;
   assert.equal(res.index,idx,p.name);assert.equal(res.status,'VERIFIED_MODEL_TREND');
@@ -50,5 +50,58 @@ test('missing or malicious model metadata never produces an arrow',()=>{
   assert.equal(trend.classify({trend:0},bad).status,'HELD');
  }
  assert.equal(trend.classify({trend:null},data).status,'HELD');
- assert.equal(trend.classify({trend:0,trendInputs:{firstSeasonOrNoCareer:true}},data).status,'NEW');
+ assert.equal(trend.classify({trend:0,trendInputs:{firstSeasonOrNoCareer:true}},data).status,'ROOKIE');
+});
+
+test('the polished σ-based arrow is continuously angled and remains downward even for mildly negative Neutral trends',()=>{
+ const p=data.players.find(x=>x.name==='Carosi, Justin');
+ const a=trend.directionalArrow(p,data),b=trend.directionalArrow({...p,trend:p.trend-.02},data);
+ assert.equal(a.status,'VERIFIED_STANDARD_DEVIATION_ARROW');
+ assert.equal(a.category,'Neutral');
+ assert.equal(a.direction,'BELOW');
+ assert.ok(a.angleDegrees<0,'negative trend must point down');
+ assert.ok(a.renderRotationDegrees>0,'SVG rotation direction must point down');
+ assert.equal(b.category,'Neutral');
+ assert.ok(b.angleDegrees<a.angleDegrees,'more negative value tilts further downward');
+ assert.notEqual(b.color,a.color,'color strength changes continuously with z');
+ assert.ok(Math.abs(a.zScore-p.trend/data.conditionalFormatting.sampleStandardDeviation)<1e-12);
+});
+test('zero points horizontally and positive/negative magnitudes angle from the same standard-deviation baseline',()=>{
+ const make=t=>({trend:t,trendInputs:{firstSeasonOrNoCareer:false}});
+ const sigma=data.conditionalFormatting.sampleStandardDeviation;
+ const zero=trend.directionalArrow(make(0),data);
+ assert.equal(zero.angleDegrees,0);assert.equal(zero.direction,'AT');
+ const negative=trend.directionalArrow(make(-.25*sigma),data);
+ const positive=trend.directionalArrow(make(.25*sigma),data);
+ assert.equal(negative.category,'Neutral');
+ assert.equal(positive.category,'Neutral');
+ assert.equal(negative.direction,'BELOW');
+ assert.equal(positive.direction,'ABOVE');
+ assert.equal(negative.angleDegrees,-7.5);
+ assert.equal(positive.angleDegrees,7.5);
+ assert.notEqual(negative.color,positive.color);
+});
+test('greater than ±2 workbook standard deviations saturates angle but does not alter the original classification',()=>{
+ const make=t=>({trend:t,trendInputs:{firstSeasonOrNoCareer:false}});
+ const sigma=data.conditionalFormatting.sampleStandardDeviation;
+ const cold=trend.directionalArrow(make(-5*sigma),data),hot=trend.directionalArrow(make(5*sigma),data);
+ assert.equal(cold.angleDegrees,-60);
+ assert.equal(hot.angleDegrees,60);
+ assert.equal(cold.category,'Cold');assert.equal(hot.category,'Hot');
+ assert.equal(cold.capped,true);assert.equal(hot.capped,true);
+});
+test('first-season users show ROOKIE, not NEW, with no invented angle or color',()=>{
+ const rookie=data.players.find(p=>p.trendInputs?.firstSeasonOrNoCareer===true);
+ assert.ok(rookie);
+ const c=trend.classify(rookie,data),a=trend.directionalArrow(rookie,data);
+ assert.equal(c.status,'ROOKIE');
+ assert.equal(c.symbol,'ROOKIE');
+ assert.equal(a.status,'ROOKIE');
+ assert.equal(a.angleDegrees,undefined);
+});
+test('missing workbook sigma or source threshold mismatch holds the arrow rather than estimating it',()=>{
+ const make={trend:-.05,trendInputs:{firstSeasonOrNoCareer:false}};
+ assert.equal(trend.directionalArrow(make,{...data,conditionalFormatting:{...data.conditionalFormatting,sampleStandardDeviation:null}}).status,'HELD');
+ const conflict={...data,conditionalFormatting:{...data.conditionalFormatting,sampleStandardDeviation:.01}};
+ assert.equal(trend.directionalArrow(make,conflict).status,'HELD');
 });

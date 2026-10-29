@@ -8,11 +8,13 @@ const $=id=>document.getElementById(id);
 const NS='http://www.w3.org/2000/svg';
 const num=x=>typeof x==='number'&&Number.isFinite(x)&&x>=0;
 const fmt=x=>num(x)?x.toLocaleString('en-CA',{maximumFractionDigits:2}):'—';
+const fmtRate=x=>num(x)?x.toFixed(2):'Unavailable';
+const fmtProjectedGP=x=>num(x)?x.toFixed(1):'Unavailable';
 const date=x=>{const n=Date.parse(x||'');return Number.isFinite(n)?new Date(n).toLocaleDateString('en-CA',{year:'numeric',month:'short',day:'numeric',timeZone:'America/Toronto'}):'unavailable';};
 const build=(tag,text,klass)=>{const n=document.createElement(tag);if(klass)n.className=klass;if(text!==undefined)n.textContent=String(text);return n;};
 const svg=(tag,attrs={},text)=>{const n=document.createElementNS(NS,tag);for(const [k,v] of Object.entries(attrs))n.setAttribute(k,String(v));if(text!==undefined)n.textContent=String(text);return n;};
 const honestSource=x=>x&&typeof x==='object';
-const state={active:'production',rate:'actual',filter:'recent',player:null,renderCount:0,analysis:null};
+const state={active:'production',rate:'actual',filter:'recent',baseline:'rolling',player:null,renderCount:0,analysis:null};
 let sources={};
 const getJSON=async path=>{const timeout=new AbortController();const timer=setTimeout(()=>timeout.abort(),8000);
   try{const r=await fetch('./'+path,{cache:'no-store',signal:timeout.signal});if(!r.ok)throw Error('unavailable');return await r.json();}
@@ -37,21 +39,18 @@ function setMetrics(el,values){
 function sourceLabel(text){$('bioModelContext').textContent=text;}
 function renderView(){
   const sections={
-    all:['bioSpotlight','bioAdvancedSection','bioDevelopmentSection','bioProjectionSection','bioGoalieSection','bioOpponentSection','leadershipSection','systemSection'],
-    production:['bioSpotlight','bioAdvancedSection','bioProjectionSection'],
-    goaltending:['bioGoalieSection','bioAdvancedSection'],
+    production:['bioSpotlight','bioAdvancedSection','bioProjectionSection','bioGoalieSection'],
     trends:['bioDevelopmentSection'],
-    coaching:['bioOpponentSection','systemSection']
+    coaching:['bioOpponentSection','leadershipSection','systemSection']
   };
   const visible=sections[state.active]||[];
   const bar=$('bioTabs');
   for(const btn of bar.querySelectorAll('button[data-bio-view]')){
     const key=btn.dataset.bioView;
-    btn.hidden=(key==='production'&&!state.isSkater)||(key==='goaltending'&&!state.isGoalie);
-    const chosen=key===state.active&&!btn.hidden;
+    const chosen=key===state.active;
     btn.setAttribute('aria-selected',String(chosen));btn.tabIndex=chosen?0:-1;
   }
-  bar.classList.toggle('bio-dual-role',Boolean(state.isGoalie&&state.isSkater));
+  // Exactly three main tabs for skaters, goalies, and dual-role profiles.
   for(const id of ['bioSpotlight','bioAdvancedSection','bioDevelopmentSection','bioProjectionSection',
                    'bioGoalieSection','bioOpponentSection','leadershipSection','systemSection']){
     const el=$(id);if(!el)continue;
@@ -60,6 +59,7 @@ function renderView(){
     const leadershipMissing=id==='leadershipSection'&&!state.hasLeadership;
     el.hidden=missingRole||leadershipMissing||!visible.includes(id);
   }
+  $('bioProjectionSummarySlot').hidden=!state.isSkater||!state.hasProjection;
 }
 function setupTabs(){
   const studio=$('bioStudio');
@@ -70,10 +70,6 @@ function setupTabs(){
     const btn=event.target.closest('button[data-bio-view]');
     if(!btn||btn.hidden)return;
     state.active=btn.dataset.bioView;
-    if(state.isGoalie&&state.isSkater&&state.player){
-      const profile=sources.career?.players?.[state.player];
-      if(profile){renderAdvancedMetrics(profile);renderDevelopment(profile);}
-    }
     renderView();
   });
   bar.addEventListener('keydown',event=>{
@@ -84,6 +80,15 @@ function setupTabs(){
     if(event.key==='Home')index=0;else if(event.key==='End')index=buttons.length-1;
     else index=(index+(event.key==='ArrowRight'?1:-1)+buttons.length)%buttons.length;
     buttons[index].focus();buttons[index].click();
+  });
+  $('bioCareerComparisonModes').addEventListener('click',event=>{
+    const button=event.target.closest('button[data-mode]');
+    if(!button||!['rolling','fixed','off'].includes(button.dataset.mode))return;
+    state.baseline=button.dataset.mode;
+    for(const b of $('bioCareerComparisonModes').querySelectorAll('button[data-mode]')){
+      b.setAttribute('aria-pressed',String(b.dataset.mode===state.baseline));
+    }
+    renderChart();
   });
   for(const group of ['bioRateModes','bioSeasonModes']){
     $(group).addEventListener('click',event=>{
@@ -162,7 +167,7 @@ function renderAwardKey(rows){
     host.append(label);
   }
 }
-function describeSeason(row,rate){
+function describeSeason(row,rate,reference){
   const host=$('bioChartDetail');
   host.replaceChildren();
   const awards=titleMarks(row.Season);
@@ -173,6 +178,16 @@ function describeSeason(row,rate){
     ' A · '+(num(row.GP)?fmt(row.GP):'—')+' GP'+
     (num(rate)?' · '+rate.toFixed(2)+' '+(state.rate==='actual'?'actual':state.rate+'-eq')+' P/GP':' · rate unavailable'));
   summary.append(facts);host.append(summary);
+  if(num(reference)&&num(rate)){
+    const difference=rate-reference;
+    const assessment=Math.abs(difference)<1e-9?'matched':
+      difference>0?'above':'below';
+    const comparison=state.baseline==='fixed'?'full-career retrospective average':
+      'prior completed-career average';
+    host.append(build('span','This season was '+assessment+' the '+comparison+
+      ': '+reference.toFixed(2)+' P/GP (difference '+(difference>0?'+':'')+
+      difference.toFixed(2)+').','bio-chart-benchmark-detail'));
+  }
   if(awards.length){
     const badges=build('div',undefined,'bio-season-awards');
     for(const mark of awards){
@@ -195,6 +210,7 @@ function renderChart(){
   chart.replaceChildren();
   $('bioAwardKey').hidden=true;
   $('bioAwardKey').replaceChildren();
+  $('bioCareerComparisonLegend').hidden=true;
   const ready=rows.filter(r=>[r.G,r.A,r.Pts,r.GP].every(num));
   if(!rows.length||!ready.length){
     chart.append(build('p','No source-qualified skater season totals for this filter.','bio-inactive-note'));
@@ -203,35 +219,52 @@ function renderChart(){
     return;
   }
   const rates=rows.map(historicalRate);
+  const career=window.HockeyOSBioRollingCareer?.calculate(
+    seg?.seasons||[],sources.formats,state.rate);
+  const bySeason=new Map(career?.status==='SOURCE_CALCULATED'?
+    career.entries.map(item=>[item.season,item]):[]);
+  const benchmarks=rows.map(row=>state.baseline==='off'?null:
+    state.baseline==='fixed'?career?.fullCareerRate??null:
+    bySeason.get(row.Season)?.priorRate??null);
+  const referenceVisible=benchmarks.some(num);
+  $('bioCareerComparisonLegend').hidden=!referenceVisible;
+  $('bioCareerComparisonLegendLabel').textContent=state.baseline==='fixed'?
+    'Full-career P/GP (retrospective)':'Rolling prior-career P/GP';
   const high=Math.max(1,...rows.filter(r=>num(r.G)&&num(r.A)).map(r=>r.G+r.A));
-  const maxRate=Math.max(.25,...rates.filter(num));
+  const maxRate=Math.max(.25,...rates.filter(num),...benchmarks.filter(num));
   const maxG=Math.ceil(high*1.12),maxR=Math.max(.5,maxRate*1.18);
   const compact=window.innerWidth<=480;
   const width=compact?365:850,height=compact?248:300;
-  const left=compact?32:50,right=compact?42:52,top=compact?29:23,bottom=compact?49:64;
+  const left=compact?32:50,right=compact?57:65,top=compact?29:23,bottom=compact?49:64;
   const plotW=width-left-right,plotH=height-top-bottom,baseline=height-bottom;
   const x=i=>left+(i+.5)*plotW/rows.length;
   const yCount=v=>baseline-(v/maxG)*plotH,yRate=v=>baseline-(v/maxR)*plotH;
   const picture=svg('svg',{viewBox:'0 0 '+width+' '+height,role:'img',
     'aria-label':'Actual goals and assists as season bars, and '+state.rate+' points per game as a separate-axis line'});
-  picture.append(svg('title',{},'Actual seasonal goals and assists, with independently scaled points-per-game trend'));
+  picture.append(svg('title',{},'Actual goals and assists (left Y-axis) with separately scaled points per game (right Y-axis)'));
+  picture.append(svg('line',{x1:width-right,x2:width-right,y1:top,y2:baseline,
+    stroke:'#91d7ee','stroke-width':1.3,'data-axis':'pts-per-game'}));
   for(let tick=0;tick<=4;tick++){
     const level=tick/4,py=baseline-level*plotH;
     picture.append(svg('line',{x1:left,x2:width-right,y1:py,y2:py,stroke:'#294d69','stroke-width':1}));
     picture.append(svg('text',{x:left-8,y:py+4,fill:'#b6cada','text-anchor':'end','font-size':11},String(Math.round(level*maxG))));
-    picture.append(svg('text',{x:width-right+9,y:py+4,fill:'#add8ea','font-size':11},(level*maxR).toFixed(2)));
+    picture.append(svg('line',{x1:width-right,y1:py,x2:width-right+4,y2:py,
+      stroke:'#91d7ee','stroke-width':1}));
+    picture.append(svg('text',{x:width-4,y:py+4,fill:'#dcf5ff','font-size':compact?12:12,
+      'font-weight':700,'text-anchor':'end','data-axis-tick':'pts-per-game'},(level*maxR).toFixed(2)));
   }
   picture.append(svg('text',{x:left,y:13,fill:'#bdcedf','font-size':11},'Goals + assists (actual)'));
-  picture.append(svg('text',{x:width-right,y:13,fill:'#a5d7e8','font-size':11,'text-anchor':'end'},'Pts/GP ('+state.rate+')'));
+  picture.append(svg('text',{x:width-4,y:13,fill:'#d9f4ff','font-size':12,
+    'font-weight':750,'text-anchor':'end'},'Pts/GP'));
   const barW=Math.max(compact?9:7,Math.min(compact?20:25,plotW/rows.length*.62));
   const marks=[];
   function addInteractive(node,i,rate){
     node.setAttribute('data-bio-point',String(i));node.setAttribute('tabindex','0');
     node.setAttribute('role','button');node.setAttribute('aria-label',
       rows[i].Season+' actual goals/assists and '+(num(rate)?state.rate+' points per game':'unavailable adjusted rate'));
-    node.addEventListener('click',()=>describeSeason(rows[i],rate));
-    node.addEventListener('focus',()=>describeSeason(rows[i],rate));
-    node.addEventListener('keydown',event=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();describeSeason(rows[i],rate);}});
+    node.addEventListener('click',()=>describeSeason(rows[i],rate,benchmarks[i]));
+    node.addEventListener('focus',()=>describeSeason(rows[i],rate,benchmarks[i]));
+    node.addEventListener('keydown',event=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();describeSeason(rows[i],rate,benchmarks[i]);}});
     return node;
   }
   let segment=[];
@@ -273,14 +306,40 @@ function renderChart(){
       picture.append(group);
     });
   });
+  // Compare current season P/GP to the rate entering that season, never future
+  // seasons. A separate optional full-career line is clearly labelled retrospective.
+  if(referenceVisible){
+    const segments=[],pts=[];
+    function addSegment(){
+      if(pts.length>=2){
+        picture.append(svg('polyline',{points:pts.join(' '),fill:'none',
+          stroke:'#c4dda7','stroke-width':2,'stroke-dasharray':'5 4',
+          'stroke-linecap':'round','data-series':state.baseline==='fixed'?'fixed-career-average':'rolling-prior-career-average'}));
+        segments.push(pts.length);
+      }
+      pts.length=0;
+    }
+    for(let i=0;i<rows.length;i++){
+      const value=benchmarks[i];
+      if(num(value)){
+        const xc=x(i),cy=yRate(value);
+        pts.push(xc.toFixed(2)+','+cy.toFixed(2));
+        if(pts.length===1){
+          picture.append(svg('circle',{cx:xc,cy,r:2.4,
+            fill:'#c4dda7','data-comparison-season':rows[i].Season}));
+        }
+      }else addSegment();
+    }
+    addSegment();
+  }
   flush();
   for(const m of marks){
     picture.append(addInteractive(svg('circle',{cx:m.xc,cy:m.yy,r:4.5,fill:'#a8d9ea',stroke:'#0b233b','stroke-width':1.5}),m.i,m.rate));
   }
   chart.append(picture);
   renderAwardKey(rows);
-  const first=rows.length-1;describeSeason(rows[first],rates[first]);
-  $('bioChartSource').textContent='Official HTO career archive captured '+date(sources.career?.capturedAt)+
+  const first=rows.length-1;describeSeason(rows[first],rates[first],benchmarks[first]);
+  $('bioChartSource').textContent='Rolling prior career uses ONLY earlier complete, GP-weighted seasons; the current season is never included in its own benchmark. Fixed full-career is retrospective. Unknown prior results hold the comparison. '+ 'Official HTO career archive captured '+date(sources.career?.capturedAt)+
     ' · Raw goals/assists never change · '+(state.rate==='actual'?'Unadjusted rate.':
     rates.some(num)?'Game-duration class verified for 18 original Master Schedule seasons; HTO source totals remain unchanged.':'No qualified adjusted rate for the selected seasons; raw bars remain.');
   $('bioRateStatus').textContent=state.rate==='actual'?'Actual points per game':
@@ -308,32 +367,48 @@ function paintProjectionTrend(row,projection){
   if(result.status==='VERIFIED_MODEL_TREND'){
     host.dataset.trendState=result.name;
     host.classList.add('bio-trend-ready','bio-trend-'+result.name.toLowerCase());
-    const glyph=svg('svg',{viewBox:'0 0 48 48',class:'bio-trend-arrow',role:'img',
-      'aria-label':result.name+' forecast compared with career'});
-    glyph.append(svg('path',{d:'M18 42V19H8L24 3L40 19H30V42Z',
-      transform:'rotate('+result.rotate+' 24 24)',fill:result.color}));
-    host.append(glyph);
+    const direction=window.HockeyOSBioProjectionTrend?.directionalArrow(row,projection);
+    if(direction?.status==='VERIFIED_STANDARD_DEVIATION_ARROW'){
+      host.dataset.trendDirection=direction.direction;
+      const graphic=svg('svg',{viewBox:'0 0 100 64',class:'bio-trend-direction-arrow',role:'img',
+        'aria-label':result.name+' · '+direction.zScore.toFixed(2)+
+          ' standard deviations; '+direction.direction.toLowerCase()+' career baseline'});
+      graphic.append(svg('title',{},'Career performance '+(result.relativeChange*100).toFixed(1)+
+        '%, '+direction.zScore.toFixed(2)+' standard deviations from zero.'));
+      const angle=direction.renderRotationDegrees.toFixed(3);
+      const arrowShape='M11 25H60V14L89 32L60 50V39H11Z';
+      const group=svg('g',{transform:'rotate('+angle+' 50 32)',
+        'data-arrow-angle':direction.angleDegrees.toFixed(4),
+        'data-z-score':direction.zScore.toFixed(4)});
+      group.append(svg('path',{d:arrowShape,fill:'#061a2d',stroke:'#93aac1',
+        'stroke-width':3.8,'stroke-linejoin':'round',opacity:.8}));
+      group.append(svg('path',{d:arrowShape,fill:direction.color,
+        stroke:'#eff6fc','stroke-width':.9,'stroke-linejoin':'round'}));
+      group.append(svg('path',{d:'M19 30H58',fill:'none',stroke:'#ffffff',
+        'stroke-opacity':.38,'stroke-width':2,'stroke-linecap':'round'}));
+      graphic.append(group);host.append(graphic);
+    }
     const label=build('div',undefined,'bio-trend-copy');
     const signed=(result.relativeChange>0?'+':'')+(result.relativeChange*100).toFixed(1)+'%';
     label.append(build('strong',result.name+' · '+signed+' vs career','bio-trend-main'),
-      build('span','Original workbook career trend','bio-trend-minor'));
+      build('span',result.modelCurrent?'Original workbook career trend':'Original workbook · provisional trend','bio-trend-minor'));
     host.append(label);
     detail.textContent='Original workbook trend: '+result.name+
        '. Historical career regular-season scoring rate '+
-       (num(result.careerRate)?result.careerRate.toFixed(3):'unavailable')+
+       (num(result.careerRate)?fmtRate(result.careerRate):'unavailable')+
        ' P/GP; projected scoring-rate component '+
-       (num(result.modelComponentRate)?result.modelComponentRate.toFixed(3):'unavailable')+
+       (num(result.modelComponentRate)?fmtRate(result.modelComponentRate):'unavailable')+
        ' P/GP; career relative change '+signed+
        '. The model trend component is distinct from the displayed full-season projected P/GP.';
   }else{
     host.dataset.trendState=result.status;
     const label=build('div',undefined,'bio-trend-copy');
-    label.append(build('strong',result.status==='NEW'?'NEW · no career baseline':'Career trend unavailable',
+    label.append(build('strong',result.status==='ROOKIE'?'ROOKIE':'Career trend unavailable',
       'bio-trend-main'));
-    label.append(build('span',result.status==='NEW'?'First season / no established comparison':'The workbook trend is not source verified',
+    label.append(build('span',result.status==='ROOKIE'?'No established career comparison':'The workbook trend is not source verified',
       'bio-trend-minor'));
     host.append(label);
-    detail.textContent=result.status==='NEW'?'No comparable established career average; no trend arrow is assigned.':
+    detail.textContent=result.status==='ROOKIE'?'Rookie · no established career average; no trend arrow is assigned.':
       'No verified workbook trend. No arrow or comparison has been inferred.';
   }
 }
@@ -368,8 +443,8 @@ function renderSkaterProjection(){
   $('bioProjectionState').textContent=provisional?
     'Provisional scenario · model reconciliation pending. Same workbook forecast as the homepage; not certified current-season totals.':
     'Reconciled workbook-derived season forecast, separate from official actuals.';
-  setMetrics(target,[['Projected GP',fmt(row.gp)],['Projected G',fmt(row.g)],['Projected A',fmt(row.a)],
-      ['Projected PTS',fmt(row.pts)],['Model Pts/GP',num(row.ptsPerGame)?row.ptsPerGame.toFixed(3):'—']]);
+  setMetrics(target,[['Projected GP',fmtProjectedGP(row.gp)],['Projected G',fmt(row.g)],['Projected A',fmt(row.a)],
+      ['Projected PTS',fmt(row.pts)],['Model Pts/GP',fmtRate(row.ptsPerGame)]]);
   sourceLabel('Source: BravesRegularSeasonProjection · '+projection.season+' · '+date(projection.exportedAt)+
    ' · Workbook baseline '+fmt(projection.sourceInputs?.workbookRecordedTeamGP)+' team GP / HTO inputs '+fmt(projection.sourceInputs?.htoRecordedTeamGP)+' team GP');
   const act=sources.actuals;
@@ -396,7 +471,7 @@ function renderGoalie(){
     'Historical or rental goalie · no verified future-start entitlement.';
   setMetrics(box,[
     ['2026/27 recorded appearances',latest&&num(latest.GP)?fmt(latest.GP):'Unavailable'],
-    ['2026/27 GA / appearance',latest&&num(latest.GAA)?fmt(latest.GAA):'Unavailable']
+    ['2026/27 GA / appearance',latest&&num(latest.GAA)?fmtRate(latest.GAA):'Unavailable']
   ]);
   const currentTotal=sources.actuals?.teamGP;
   const approved=sources.goalieVerified;
@@ -412,8 +487,8 @@ function renderGoalie(){
   }
   if(result?.status==='EXPERIMENTAL_SCENARIO'){
     $('bioGoalieStatus').textContent='Experimental, non-certified goalie scenario. Historical attendance, current results and remaining scheduled games are blended; opponent context is descriptive only.';
-    const list=[['Expected starts',fmt(result.forecast.starts)],['Expected wins',fmt(result.forecast.wins)],
-      ['Projected GA/game',fmt(result.forecast.goalsAgainstPerAppearance)]];
+    const list=[['Expected starts',fmtProjectedGP(result.forecast.starts)],['Expected wins',fmt(result.forecast.wins)],
+      ['Projected GA/game',fmtRate(result.forecast.goalsAgainstPerAppearance)]];
     for(const [label,value] of list){const n=build('div',undefined,'bio-metric');
       n.append(build('div',value,'value'),build('div',label,'label'));box.append(n);}
   }else{
@@ -670,8 +745,11 @@ function renderPlayer(){
     $('bioProjectionFull').open=false;
     $('bioMoreSeasonFilters').open=false;
     $('bioMoreSeasonFilters').querySelector('summary').textContent='More';
-    state.active=state.isSkater?'production':state.isGoalie?'goaltending':'all';
-    state.rate='actual';state.filter='recent';
+    state.active='production';
+    state.rate='actual';state.filter='recent';state.baseline='rolling';
+    for(const b of $('bioCareerComparisonModes').querySelectorAll('button[data-mode]')){
+      b.setAttribute('aria-pressed',String(b.dataset.mode===state.baseline));
+    }
     for(const group of ['bioRateModes','bioSeasonModes']){
       const current=group==='bioRateModes'?state.rate:state.filter;
       for(const b of $(group).querySelectorAll('button[data-mode]')){
@@ -689,7 +767,7 @@ function renderPlayer(){
   renderAdvancedMetrics(p);
   renderDevelopment(p);
   renderOpponents();
-  if(!state.isGoalie&&state.active==='goaltending')state.active='production';
+  if(!['production','trends','coaching'].includes(state.active))state.active='production';
   renderView();
 }
 const inputs=await fetches;

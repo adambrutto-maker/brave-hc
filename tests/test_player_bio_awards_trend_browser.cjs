@@ -35,7 +35,22 @@ const server=http.createServer((req,res)=>{
   assert.match(await j.locator('#bioProjectionTrend').innerText(),/Neutral.*-2\.5% vs career/s);
   assert.match(await j.locator('#bioProjectionHeadline').innerText(),/Provisional/);
   assert.match(await j.locator('#bioProjectionHeadline').innerText(),/24 projected points/);
-  assert.equal(await j.locator('#bioProjectionTrend svg path').getAttribute('transform'),'rotate(90 24 24)');
+  const arrow=await j.locator('#bioProjectionTrend .bio-trend-direction-arrow');
+  assert.equal(await arrow.count(),1,'one polished arrow and no gauge');
+  assert.equal(await j.locator('#bioProjectionTrend .bio-trend-gauge').count(),0,'no gauge');
+  const arrowAngle=Number(await j.locator('#bioProjectionTrend [data-arrow-angle]').getAttribute('data-arrow-angle'));
+  const z=Number(await j.locator('#bioProjectionTrend [data-z-score]').getAttribute('data-z-score'));
+  assert.ok(arrowAngle<0&&arrowAngle>-15,'negative but Neutral z-score must tilt down');
+  assert.ok(z<0,'workbook trend is below zero even when class is Neutral');
+  assert.equal(await j.$eval('#bioProjectionTrend',e=>e.dataset.trendDirection),'BELOW');
+  assert.equal(await j.locator('#bioTabs button').count(),3,'three main tabs');
+  assert.equal(await j.locator('#bioRateModes button[data-mode="actual"]').innerText(),'All');
+  assert.equal(await j.locator('#bioSeasonModes button[data-mode="all"]').innerText(),'Career');
+  assert.equal(await j.locator('#bioProjectionSummarySlot').isVisible(),true);
+  const rAvg=await j.locator('#bioComboChart [data-series="rolling-prior-career-average"]').count();
+  assert.ok(rAvg>=1,'rolling prior-career baseline is visible');
+  assert.equal(await j.$eval('#bioCareerComparisonLegend',e=>e.hidden),false);
+  assert.match(await j.locator('#bioChartDetail').textContent(),/prior completed-career average/);
   const markG=j.locator('#bioComboChart [data-award-type="goalTitle"]');
   const markP=j.locator('#bioComboChart [data-award-type="pointsTitle"]');
   assert.equal(await markG.count(),1,'Justin recent8 G title only W2024/25');
@@ -50,6 +65,17 @@ const server=http.createServer((req,res)=>{
   await j.locator('#bioComboChart [data-award-season="Winter 2023/2024"][data-award-type="pointsTitle"]').click();
   assert.match(await j.locator('#bioChartDetail').innerText(),/Art Ross/i);
   const before={bars:await j.locator('#bioComboChart rect').count(),titles:await j.locator('#bioComboChart [data-award-type]').count()};
+  assert.ok((await j.locator('#bioComboChart [data-axis-tick="pts-per-game"]').allTextContents())
+    .every(x=>/^\d+\.\d{2}$/.test(x)));
+  await j.locator('#bioChartMethod summary').click();
+  await j.click('#bioCareerComparisonModes button[data-mode="fixed"]');
+  assert.equal(await j.locator('#bioComboChart [data-series="fixed-career-average"]').count(),1,
+    'retrospective career benchmark is a horizontal fixed line');
+  await j.click('#bioCareerComparisonModes button[data-mode="off"]');
+  assert.equal(await j.locator('#bioComboChart [data-series]').count(),0,'baseline off');
+  await j.click('#bioCareerComparisonModes button[data-mode="rolling"]');
+  assert.ok(await j.locator('#bioComboChart [data-series="rolling-prior-career-average"]').count()>0);
+
   for(const mode of ['winter','summer','actual']){
    await j.click('#bioRateModes button[data-mode="'+mode+'"]');
    assert.equal(await j.locator('#bioComboChart rect').count(),before.bars,'official bars unchanged '+mode);
@@ -63,9 +89,14 @@ const server=http.createServer((req,res)=>{
   assert.equal(await j.locator('#bioMoreSeasonFilters summary').textContent(),'More');
   await j.locator('#bioProjectionFull summary').click();
   assert.equal(await j.locator('#bioProjectionCards .bio-metric:visible').count(),5);
+  assert.equal(await j.locator('#bioProjectionCards .bio-metric').first().locator('.value').innerText(),
+    '22.6','projected GP exactly 1 decimal');
+  assert.equal(await j.locator('#bioProjectionCards .bio-metric').nth(4).locator('.value').innerText(),
+    '1.06','projected P/GP exactly 2 decimals');
+  assert.match(await j.locator('#bioProjectionHeadline').innerText(),/1\.06 projected P\/GP/);
   const projectionDetail=await j.locator('#bioProjectionTrendDetail').textContent();
-  assert.match(projectionDetail,/Historical career regular-season scoring rate 1\.138 P\/GP/);
-  assert.match(projectionDetail,/projected scoring-rate component 1\.109 P\/GP/);
+  assert.match(projectionDetail,/Historical career regular-season scoring rate 1\.14 P\/GP/);
+  assert.match(projectionDetail,/projected scoring-rate component 1\.11 P\/GP/);
   assert.match(projectionDetail,/distinct from the displayed full-season projected P\/GP/);
   await photo(j,'bio-v21-justin-projection-detail.png');
   await j.close();
@@ -84,6 +115,22 @@ const server=http.createServer((req,res)=>{
   assert.equal(await adam.$eval('#bioAwardKey',el=>el.hidden),true);
   await adam.close();
   const projection=require('../widgets/projection.json');
+  const slightlyMoreNegative=structuredClone(projection);
+  slightlyMoreNegative.players.find(p=>p.name==='Carosi, Justin').trend=-.05;
+  const dynamic=await open('354060',{'projection.json':slightlyMoreNegative});
+  assert.equal(await dynamic.$eval('#bioProjectionTrend',e=>e.dataset.trendState),'Neutral');
+  const dynamicAngle=Number(await dynamic.locator('#bioProjectionTrend [data-arrow-angle]')
+    .getAttribute('data-arrow-angle'));
+  assert.ok(dynamicAngle<arrowAngle,'a more negative percentage tilts more downward');
+  assert.ok(Math.abs(dynamicAngle-arrowAngle)>2,'angle is not a fixed category rotation');
+  await dynamic.close();
+  const rookieData=structuredClone(projection);
+  rookieData.players.find(p=>p.name==='Carosi, Justin').trendInputs.firstSeasonOrNoCareer=true;
+  const rookie=await open('354060',{'projection.json':rookieData});
+  assert.match(await rookie.locator('#bioProjectionTrend').innerText(),/ROOKIE/);
+  assert.equal(await rookie.locator('#bioProjectionTrend .bio-trend-direction-arrow').count(),0);
+  assert.equal(await rookie.$eval('#bioProjectionTrend',e=>e.dataset.trendState),'ROOKIE');
+  await rookie.close();
   const corrupt=structuredClone(projection);
   corrupt.players.find(p=>p.name==='Carosi, Justin').trend=null;
   const held=await open('354060',{'projection.json':corrupt});

@@ -15,6 +15,9 @@ on:
       - 'widgets/player-bio-collection.css'
       - 'widgets/player-bio-advanced.js'
       - 'widgets/player-bio-projection-trend.js'
+      - 'widgets/player-bio-rolling-career.js'
+      - 'tests/test_player_bio_rolling_career.cjs'
+      - 'docs/261028_HockeyOS_Video_Highlights_Coaching_Placement.md'
       - 'widgets/player-bio-season-titles.json'
       - 'widgets/player-highlights-ledger.json'
       - 'widgets/history-awards.json'
@@ -60,6 +63,7 @@ jobs:
           node --check widgets/player-bio-premium.js
           node --check widgets/player-bio-advanced.js
           node --check widgets/player-bio-projection-trend.js
+          node --check widgets/player-bio-rolling-career.js
           node --check scripts/build_bio_season_titles.cjs
           node --check widgets/player-bio.js
           node --check widgets/goalie-projection-model.js
@@ -72,8 +76,10 @@ jobs:
         run: node --test tests/test_player_bio_advanced.cjs
       - name: Verify scoring titles are generated only from current public HTO awards sources
         run: node scripts/build_bio_season_titles.cjs --check
-      - name: Verify original workbook career-trend arrows and source-linked scoring-title awards
+      - name: Verify source-based directional arrows, ROOKIE presentation, and scoring titles
         run: node --test tests/test_player_bio_projection_trend.cjs tests/test_player_bio_season_titles.cjs
+      - name: Verify rolling career baseline uses past-only source-valid games on selected time basis
+        run: node --test tests/test_player_bio_rolling_career.cjs
       - name: Install isolated Playwright test dependency
         run: npm install --no-package-lock --no-save playwright
       - name: Install browser for source-independent CI acceptance

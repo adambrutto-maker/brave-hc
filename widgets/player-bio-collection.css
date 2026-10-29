@@ -224,3 +224,58 @@ body{font-family:Arial,"Helvetica Neue",sans-serif;color:#eef4fb}
   border-radius:50%;font-size:10px;font-weight:850;background:#654e61;color:#fff;border:1px solid #e2c3ec}
 .bio-season-awards{margin-top:5px}
 .bio-award-key{font-size:10px}
+
+/* V2.2: Milestone-parity navigation and display hierarchy, exactly three primary collections */
+#bioTabs.bio-collection-nav{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:7px}
+#bioTabs.bio-dual-role{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+#bioTabs button[data-bio-view]{min-height:58px}
+#bioTabs .bio-tab-label{font-size:11px;font-weight:850}
+#bioProjectionSummarySlot[hidden]{display:none!important}
+#bioProjectionSummarySlot{margin-top:11px}
+#bioProjectionSummarySlot .bio-trend-summary{margin-top:3px}
+#bioProjectionSection{padding-top:6px!important}
+#bioProjectionSection .bio-projection-full{margin:3px 0 0}
+#bioDevelopmentSection #bioOtherMetrics{margin:11px 0 0}
+#bioAdvancedSection>.bio-analytics-grid{margin:7px 0 0}
+#bioAdvancedSection .bio-section-top{margin-bottom:4px}
+#bioComboChart svg [data-axis="pts-per-game"]{stroke:#91d7ee}
+#bioComboChart svg [data-axis-tick="pts-per-game"]{font-variant-numeric:tabular-nums}
+@media(max-width:350px){#bioTabs.bio-collection-nav{gap:5px}
+ #bioTabs button[data-bio-view]{min-height:54px}}
+
+/* V2.2 continuous workbook-trend speedometer: five source-defined bands, smoothly positioned needle. */
+.bio-trend-summary{padding:8px 10px;min-height:83px;gap:8px;align-items:center}
+.bio-trend-gauge{display:block;width:112px;height:76px;flex:0 0 112px;overflow:visible}
+.bio-trend-gauge [data-needle-angle]{transition:none}
+.bio-trend-copy{flex:1;gap:4px}
+.bio-trend-main{font-size:15px}
+.bio-trend-minor{font-size:10px;line-height:1.4}
+@media(max-width:430px){
+ .bio-trend-summary{padding:6px 9px;gap:5px}
+ .bio-trend-gauge{width:104px;height:72px;flex-basis:104px}
+ .bio-trend-main{font-size:13px}
+}
+@media(max-width:350px){
+ .bio-trend-gauge{width:89px;height:64px;flex-basis:89px}
+ .bio-trend-main{font-size:12px}
+}
+
+/* V2.4: single source-based directional arrow — no semicircular speedometer. */
+.bio-trend-summary{min-height:65px;padding:8px 11px;gap:9px}
+.bio-trend-direction-arrow{display:block;flex:0 0 58px;width:58px;height:45px;overflow:visible}
+.bio-trend-direction-arrow g{transition:transform .23s ease-out;transform-origin:50px 32px}
+.bio-trend-copy{gap:4px}
+.bio-trend-main{font-size:14px}
+.bio-trend-minor{font-size:10px;line-height:1.35}
+.bio-reference-legend{display:inline-flex;align-items:center;gap:5px;color:#cbdcbb;font-size:10px}
+.bio-reference-legend[hidden]{display:none!important}
+.bio-reference-line{display:inline-block;width:21px;height:0;border-top:2px dashed #c4dda7;opacity:.95}
+#bioCareerComparisonModes{display:inline-flex;gap:6px;flex-wrap:wrap;align-items:center}
+#bioCareerComparisonModes button{border-radius:18px;min-height:33px;padding:6px 9px;
+ border:1px solid #496b83;background:#193a54;color:#d8e7f2;font-size:10px;cursor:pointer}
+#bioCareerComparisonModes button[aria-pressed="true"]{background:#584735;border-color:#e6be7b;color:#ffe5b3}
+.bio-chart-benchmark-detail{display:block;margin-top:4px;color:#c3dfa9;font-size:10px;line-height:1.45}
+@media(max-width:430px){.bio-trend-direction-arrow{width:53px;height:42px;flex-basis:53px}
+ .bio-trend-main{font-size:13px}
+ .bio-reference-legend{font-size:9px}}
+@media(prefers-reduced-motion:reduce){.bio-trend-direction-arrow g{transition:none}}

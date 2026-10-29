@@ -26,7 +26,7 @@ const server=http.createServer((req,res)=>{
  }
  try{
   // Verify the same compact Trophy Room collection pattern on skater, goalie, and mixed-role profiles.
-  for(const [id,kind,expectedNav] of [['354060','skater',4],['354055','goalie',4],['354057','mixed',5]]){
+  for(const [id,kind,expectedNav] of [['354060','skater',3],['354055','goalie',3],['354057','mixed',3]]){
    const page=await open(id);
    const state=await page.evaluate(()=>({
       lab:document.querySelectorAll('#bioStudio').length,
@@ -66,15 +66,24 @@ const server=http.createServer((req,res)=>{
      await page.click('#bioOpponentMore');
      assert.equal(await page.locator('#bioOpponentCards .bio-matchup:visible').count(),4);
      assert.equal(await page.$eval('#bioTeamSystem',e=>e.open),false);
-     await page.click('#bioTabs button[data-bio-view="all"]');
+     await page.click('#bioTabs button[data-bio-view="production"]');
      assert.equal(await page.$eval('#bioSpotlight',e=>e.hidden),false);
-     assert.equal(await page.$eval('#bioOpponentSection',e=>e.hidden),false);
+     assert.equal(await page.$eval('#bioOpponentSection',e=>e.hidden),true);
+     assert.equal(await page.locator('#bioTabs button[data-bio-view="all"]').count(),0);
+     assert.equal(await page.locator('#bioRateModes button[data-mode="actual"]').innerText(),'All');
+     assert.equal(await page.locator('#bioSeasonModes button[data-mode="all"]').innerText(),'Career');
+     assert.equal(await page.$eval('#bioProjectionSummarySlot',e=>e.hidden),false);
    }
    if(kind==='mixed'){
-     await page.click('#bioTabs button[data-bio-view="goaltending"]');
-     assert.match(await page.locator('#bioAdvancedGrid').innerText(),/Winter-equivalent GA/i,'dual-role goalie indicators');
-     await page.click('#bioTabs button[data-bio-view="production"]');
-     assert.match(await page.locator('#bioAdvancedGrid').innerText(),/Winter-equivalent points/i,'dual-role skater indicators');
+     assert.equal(await page.locator('#bioTabs button[data-bio-view="goaltending"]').count(),0);
+     assert.equal(await page.$eval('#bioSpotlight',e=>e.hidden),false);
+     assert.equal(await page.$eval('#bioGoalieSection',e=>e.hidden),false);
+     assert.match(await page.locator('#bioAdvancedGrid').innerText(),/Winter-equivalent points/i,
+       'dual-role skater indicators retained');
+     assert.equal(await page.locator('#bioGoalieCards .bio-metric').count(),2,
+       'goalie role stats retained under Production');
+     await page.click('#bioTabs button[data-bio-view="trends"]');
+     assert.equal(await page.$eval('#bioDevelopmentSection',e=>e.hidden),false);
    }
    if(kind==='goalie'){
      assert.equal(await page.$eval('#bioSpotlight',e=>e.hidden),true);
@@ -94,9 +103,26 @@ const server=http.createServer((req,res)=>{
    const p=await open('354060',width);
    assert.equal(await p.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1),false,'width '+width);
    const buttons=await p.locator('#bioTabs button[data-bio-view]:visible').count();
-   assert.equal(buttons,4);
+   assert.equal(buttons,3);
    const top=await p.locator('#bioStudio').boundingBox(),header=await p.locator('#bioTabs').boundingBox();
    assert.ok(top&&header&&header.width>250);
+   const tabs=await p.locator('#bioTabs button[data-bio-view]:visible .bio-tab-label').allTextContents();
+   assert.deepEqual(tabs.map(x=>x.trim()),['Production','Trends','Coaching']);
+   const ticks=await p.locator('#bioComboChart svg [data-axis-tick="pts-per-game"]').allTextContents();
+   assert.equal(ticks.length,5,'right Pts/GP axis has 5 visible numeric labels');
+   assert.ok(ticks.every(x=>/^\d+\.\d{2}$/.test(x)),'right Pts/GP axis is exactly 2dp');
+   const position=await p.evaluate(()=>{
+     const chart=document.querySelector('#bioComboChart svg');
+     const axis=chart.querySelector('[data-axis="pts-per-game"]');
+     const ticks=[...chart.querySelectorAll('[data-axis-tick="pts-per-game"]')];
+     return {right:Number(axis.getAttribute('x1')),
+       positions:ticks.map(n=>({x:Number(n.getAttribute('x')),
+         anchor:n.getAttribute('text-anchor'),len:n.getComputedTextLength()})),
+       total:Number(chart.getAttribute('viewBox').split(' ')[2])};
+   });
+   assert.ok(position.right>position.total*.6,'Y2 is on the right');
+   assert.ok(position.positions.every(x=>x.x>position.right&&x.x<position.total&&
+     x.anchor==='end'&&x.len>0),'Y2 labels are legible and inside chart');
    if(screens)await p.screenshot({path:path.join(screens,'bio-collection-v2-'+width+'.png'),fullPage:true});
    await p.close();
   }
