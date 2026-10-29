@@ -96,6 +96,7 @@ try{
   projection:projection?.schema==='brave-hc-workbook-projection/v1'?projection:null,
   attendance};
 }catch{
+ status.hidden=false;
  status.textContent='Advanced stats held: verified HTO career archive unavailable.';
  if(shareSource)shareSource.textContent='All-time contributions held: verified HTO archive unavailable.';
  if(attendanceHold){attendanceHold.hidden=false;attendanceHold.textContent='Roster-adjusted attendance · Source pending approval';}
@@ -134,9 +135,9 @@ function render(){
  if(shareResult?.status==='SOURCE_CALCULATED'){
   drawShares();
   if(shareSource)shareSource.textContent=
-   formatCount(shareResult.archiveSize)+' HTO profiles checked · '+
+   formatCount(shareResult.archiveSize)+' HTO profiles checked · '
    new Date(shareResult.sourceAsOf).toLocaleDateString('en-CA',{year:'numeric',month:'short',day:'numeric',timeZone:'America/Toronto'})+
-   ' · Only published values counted.';
+   ' · reported totals only.';
  }else{
   if(showMore)showMore.hidden=true;
   if(shareSource)shareSource.textContent='All-time contributions held: a verified HTO history source is unavailable.';
@@ -154,8 +155,9 @@ function render(){
   attendanceHold.hidden=currentAttendance?.status==='PROVISIONAL'&&careerAttendance?.percent!=null;
   attendanceHold.textContent='Roster-adjusted attendance · Source pending approval';
  }
- const sourceDate=(sources.career.capturedAt||'').slice(0,10);
- status.textContent='HTO archive '+sourceDate+' · career and current snapshots may differ.';
+ // Historical snapshot date already appears above with the all-time share cards.
+ // Do not repeat source disclaimers below every statistical section.
+ status.textContent='';status.hidden=true;
  if(skater){
   const t=skater.total||{},gp=t.GP;
   eventPct('Game-winning goals / GP',t.GWG,gp,'GWG');
@@ -180,9 +182,10 @@ function render(){
   eventPct('Shutouts / GP',t.SHO,gp,'SHO');
   eventPct('Player of Game / GP',t.POTG,gp,'POTG');
   if(number(t.PIM)&&number(gp)&&gp>0)add('Penalty minutes / GP',show(per(t.PIM,gp)),'Recorded goalie PIM');
-  status.textContent+=' · Save % and shots omitted: source reliability not established.';
+  status.hidden=false;
+  status.textContent='Shots and save % held: source unverified.';
  }
- if(!grid.children.length)status.textContent='Held: source does not verify any of these additional indicators.';
+ if(!grid.children.length){status.hidden=false;status.textContent='Rates held: no verified career metric.';}
 }
 render();
 document.getElementById('playerChoice')?.addEventListener('change',render);
