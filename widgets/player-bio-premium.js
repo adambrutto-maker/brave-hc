@@ -499,6 +499,16 @@ function validateProjection(p){
 }
 function paintProjectionTrend(row,projection){
   const host=$('bioProjectionTrend'),detail=$('bioProjectionTrendDetail');
+  const panel=$('bioProjectionSummarySlot');
+  // V3.6.2: mirror the badge's own published-sigma palette onto its parent.
+  // Reset first to prevent stale colors on a missing or held source.
+  panel.removeAttribute('data-panel-tone');
+  for(const key of ['rim','upper','lower','lit'])panel.style.removeProperty('--bio-panel-'+key);
+  const useBadgePanelTone=(badge,tone)=>{
+    panel.dataset.panelTone=tone;
+    for(const key of ['rim','upper','lower','lit'])
+      panel.style.setProperty('--bio-panel-'+key,badge.style.getPropertyValue('--'+key));
+  };
   host.replaceChildren();detail.textContent='';
   host.dataset.trendState='HELD';
   host.className='bio-trend-summary';
@@ -517,6 +527,7 @@ function paintProjectionTrend(row,projection){
         badge.dataset.sourceTrend=String(row.trend);
         badge.dataset.sourceSigma=String(direction.sigma);
         host.append(badge);
+        useBadgePanelTone(badge,result.name.toLowerCase());
       }else{
         // Failed visual dependency is not a reason to invent a fallback angle.
         host.dataset.trendState='HELD';
@@ -544,7 +555,7 @@ function paintProjectionTrend(row,projection){
       // calculated trend. No angle, z-score, % change or invented career baseline.
       const badge=window.HockeyOSBioTrendVisualV36?.createBadge(
         document,{zScore:0},'Neutral',true);
-      if(badge)host.append(badge);
+      if(badge){host.append(badge);useBadgePanelTone(badge,'rookie');}
       label.append(build('strong','Neutral · Rookie Year','bio-trend-main'),
         build('span','No career baseline · forecast remains provisional','bio-trend-minor'));
       detail.textContent='Neutral rookie display state only. No model career baseline or statistical comparison is available.';
