@@ -35,3 +35,10 @@
  #bioHistoricalShareGrid .bio-v33-basis{font-size:8.5px}
  #bioExtendedAnalytics .bio-v33-heading span{font-size:8.5px}
 }
+
+/* Keep the secondary three unique technical rates scannable on narrow HTO.
+   Original navy/gold cards and scoring-composition strip remain unchanged. */
+#bioOtherMetrics .bio-extra-metric{min-height:83px!important;padding:9px!important;align-items:flex-start!important;gap:4px!important}
+#bioOtherMetrics .bio-extra-metric .bio-stat-icon{width:30px!important;height:30px!important;max-width:30px!important;flex:0 0 30px!important}
+#bioOtherMetrics .bio-extra-metric strong{font-size:19px!important;line-height:1.13!important}
+#bioOtherMetrics .bio-extra-metric span{font-size:10px!important;line-height:1.35!important}
