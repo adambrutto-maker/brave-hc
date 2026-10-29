@@ -37,7 +37,8 @@ const server=http.createServer((req,res)=>{
   await page.route('**/projection.json*',r=>{
     const p=structuredClone(data),row=p.players.find(x=>x.name==='Carosi, Justin');
     assert.ok(row,'official verified HTO identity is available');
-    if(spec.rookie)row.trendInputs.firstSeasonOrNoCareer=true;
+    if(spec.held){row.trend=null;row.trendInputs.firstSeasonOrNoCareer=false;}
+    else if(spec.rookie)row.trendInputs.firstSeasonOrNoCareer=true;
     else{row.trend=spec.z*sigma;row.trendInputs.firstSeasonOrNoCareer=false;}
     return r.fulfill({status:200,contentType:'application/json',body:JSON.stringify(p)});
   });
@@ -49,6 +50,7 @@ const server=http.createServer((req,res)=>{
     else await page.locator('#bioProjectionTrend.bio-trend-ready .v36-badge').waitFor({timeout:14000});
     const o=await page.evaluate(()=>{
      const host=document.querySelector('#bioProjectionTrend');
+     const panel=document.querySelector('#bioProjectionSummarySlot');
      const b=host?.querySelector('.v36-badge');
      const arrow=b?.querySelector('svg.bio-trend-direction-arrow');
      const g=arrow?.querySelector('.v36-arrow-rotor');
@@ -77,6 +79,13 @@ const server=http.createServer((req,res)=>{
       centerY:(ar.top+ar.height/2)-(br.top+br.height/2),
       hasCorner:!!e,cornerContained:!e||e.left>=br.left-.5&&e.top>=br.top-.5&&e.right<=br.right+.5&&e.bottom<=br.bottom+.5,
       background:getComputedStyle(b).backgroundImage,
+      panelTone:panel.dataset.panelTone,
+      panelPaletteMatches:['rim','upper','lower','lit'].every(k=>
+        panel.style.getPropertyValue('--bio-panel-'+k)===b.style.getPropertyValue('--'+k)),
+      panelBackground:getComputedStyle(panel).backgroundImage,
+      panelBorder:getComputedStyle(panel).borderLeftColor,
+      badgeBorder:getComputedStyle(b).borderLeftColor,
+      captionColor:getComputedStyle(panel.querySelector('.bio-forecast-trend-caption')).color,
       motion:anim?getComputedStyle(anim).animationName:null,
       badgeLeft:br.left,badgeRight:br.right,copyRight:copyRect.right,
       hostRight:host.getBoundingClientRect().right,copyAlign:getComputedStyle(copy).textAlign,
@@ -91,6 +100,12 @@ const server=http.createServer((req,res)=>{
     assert.ok(o.badgeLeft>=o.copyRight+1,'V3.6.1 badge must appear to the right of the copy at '+width);
     assert.ok(o.badgeRight<=o.hostRight+1,'right-side badge contained at '+width);
     assert.equal(o.copyAlign,'left','trend copy is left aligned at '+width);
+    assert.equal(o.panelTone,c.rookie?'rookie':o.category.toLowerCase(),
+      'panel follows workbook category at '+width);
+    assert.equal(o.panelPaletteMatches,true,'all four panel palette colors mirror the actual badge');
+    assert.equal(o.panelBorder,o.badgeBorder,'panel border follows badge rim');
+    assert.match(o.panelBackground,/radial-gradient/i,'panel uses a badge-colored shade');
+    assert.equal(o.captionColor,'rgb(245, 249, 255)','white title, regardless of trend state');
     if(!c.rookie){
      assert.equal(o.careerVisible,true,'established career benchmark visible');
      assert.ok(parseFloat(o.careerMetricBorder)>=1,'career benchmark rate in bordered metric tile');
@@ -131,9 +146,28 @@ const server=http.createServer((req,res)=>{
      const dest=process.env.BRAVE_V36_SCREENSHOT_DIR;
      if(dest)await page.screenshot({path:path.join(dest,c.z<0?'v36-cold-390.png':c.z>0?'v36-hot-390.png':'v36-neutral-390.png'),fullPage:true});
     }
-    passes.push({width,z:c.z??null,angle:Number(o.angle),category:o.category,rookie:!!c.rookie});
+    passes.push({width,z:c.z??null,angle:Number(o.angle),category:o.category,rookie:!!c.rookie,panelBorder:o.panelBorder});
    }catch(e){failures.push({width,scenario:c,error:e.message});}
   }
+  // Invalid source must clear conditional variables: never retain a player's old colors.
+  spec={held:true};
+  try{
+   await page.goto(origin+'/widgets/player-bio.html?playerID=354060&embed=1',{waitUntil:'domcontentloaded'});
+   await page.locator('#bioProjectionTrend[data-trend-state="HELD"]').waitFor({timeout:14000});
+   const held=await page.evaluate(()=>{
+    const panel=document.querySelector('#bioProjectionSummarySlot');
+    return {
+     tone:panel.dataset.panelTone||'',
+     hasBadge:!!panel.querySelector('.v36-badge'),
+     hasVars:['rim','upper','lower','lit'].some(k=>panel.style.getPropertyValue('--bio-panel-'+k)!==''),
+     background:getComputedStyle(panel).backgroundImage
+    };
+   });
+   assert.equal(held.tone,'','held trend has no named conditional tone');
+   assert.equal(held.hasBadge,false,'held trend has no fabricated badge');
+   assert.equal(held.hasVars,false,'held trend clears all prior per-player colors');
+   assert.match(held.background,/linear-gradient/i,'held fallback is non-green slate');
+  }catch(e){failures.push({width,scenario:'source held',error:e.message});}
   // motion preferences must really stop motion in player Bio, not only the preview.
   await page.emulateMedia({reducedMotion:'reduce'});
   spec={z:1.15};
@@ -149,6 +183,8 @@ const server=http.createServer((req,res)=>{
  }finally{await browser.close();await new Promise(ok=>server.close(ok));}
  const unique=[...new Set(passes.filter(x=>x.width===390&&!x.rookie).map(x=>x.angle))];
  assert.ok(unique.length>=14,'14 distinct supplied z-score examples must keep distinct angles');
- console.log('BIO_V36_ANIMATION_QA',JSON.stringify({passed:passes.length,failures,sigma,uniqueAngles:unique.length,angleConvention:'0=up,90=right,180=down',sourceUnchanged:true}));
+ const panelColors=[...new Set(passes.filter(x=>x.width===390&&!x.rookie).map(x=>x.panelBorder))];
+ assert.ok(panelColors.length>=6,'panel needs individualized conditional colors, not one green shade');
+ console.log('BIO_V36_ANIMATION_QA',JSON.stringify({passed:passes.length,failures,sigma,uniqueAngles:unique.length,uniquePanelColors:panelColors.length,angleConvention:'0=up,90=right,180=down',sourceUnchanged:true}));
  if(failures.length)process.exitCode=1;
 })().catch(e=>{console.error(e.stack||e);process.exitCode=1;});
