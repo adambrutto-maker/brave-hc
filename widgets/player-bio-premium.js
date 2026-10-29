@@ -502,6 +502,28 @@ function paintProjectionTrend(row,projection){
   host.replaceChildren();detail.textContent='';
   host.dataset.trendState='HELD';
   host.className='bio-trend-summary';
+  // A fixed-size arrow inset preserves the approved Bio card and centres
+  // every angle. Temperature badges reflect workbook categories, never angle.
+  const appendArrowInset=(graphic,category)=>{
+    const inset=build('span',undefined,'bio-trend-arrow-inset');
+    inset.dataset.arrowCategory=category;
+    inset.append(graphic);
+    if(category==='Hot'||category==='Cold'){
+      const badge=build('span',undefined,'bio-trend-temperature-badge');
+      badge.setAttribute('aria-hidden','true');
+      const icon=svg('svg',{viewBox:'0 0 24 24',class:'bio-trend-temperature-icon',focusable:'false'});
+      if(category==='Hot'){
+        icon.append(svg('path',{d:'M12 2c.6 3.5 5.8 5.2 5.8 11.1A5.8 5.8 0 0 1 12 21a5.8 5.8 0 0 1-5.8-5.9c0-2.8 1.6-5.6 4.3-8.4-.1 2.2.3 3.5 1.1 4.4 1-2.6.8-5.9.4-9.1Z',
+          fill:'currentColor'}));
+      }else{
+        icon.append(svg('path',{d:'M12 2.7 20 7.4v9.2L12 21.3 4 16.6V7.4L12 2.7Z M4 7.4 12 12l8-4.6 M12 12v9.3',
+          fill:'none',stroke:'currentColor','stroke-width':1.8,
+          'stroke-linejoin':'round','stroke-linecap':'round'}));
+      }
+      badge.append(icon);inset.append(badge);
+    }
+    host.append(inset);
+  };
   const result=window.HockeyOSBioProjectionTrend?.classify(row,projection)||{status:'HELD'};
   if(result.status==='VERIFIED_MODEL_TREND'){
     host.dataset.trendState=result.name;
@@ -525,7 +547,7 @@ function paintProjectionTrend(row,projection){
         stroke:'#eff6fc','stroke-width':.9,'stroke-linejoin':'round'}));
       group.append(svg('path',{d:'M19 30H58',fill:'none',stroke:'#ffffff',
         'stroke-opacity':.38,'stroke-width':2,'stroke-linecap':'round'}));
-      graphic.append(group);host.append(graphic);
+      graphic.append(group);appendArrowInset(graphic,result.name);
     }
     const label=build('div',undefined,'bio-trend-copy');
     const signed=(result.relativeChange>0?'+':'')+(result.relativeChange*100).toFixed(1)+'%';
@@ -551,7 +573,7 @@ function paintProjectionTrend(row,projection){
       const shape='M11 25H60V14L89 32L60 50V39H11Z';
       graphic.append(svg('path',{d:shape,fill:'#f7fbff',stroke:'#91a7b8',
         'stroke-width':1.5,'stroke-linejoin':'round','data-rookie-neutral':'true'}));
-      host.append(graphic);
+      appendArrowInset(graphic,'Neutral');
       label.append(build('strong','Neutral · Rookie Year','bio-trend-main'),
         build('span','No career baseline · forecast remains provisional','bio-trend-minor'));
       detail.textContent='Neutral rookie display state only. No model career baseline or statistical comparison is available.';
