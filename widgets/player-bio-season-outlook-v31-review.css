@@ -49,3 +49,7 @@
  #bioStudio.bio-studio{margin:5px 6px 10px!important;padding:8px 7px!important}
  #bioTabs .bio-tab-label{font-size:10px!important}
 }
+
+.bio-studio .bio-projection-hold{margin:7px 0 0;padding:14px 11px;border:1px dashed #9c8565;
+ border-radius:7px;background:#132c41;color:#f2d3a2;font-size:12px;line-height:1.4;font-weight:750}
+.bio-studio .bio-projection-hold[hidden]{display:none!important}
