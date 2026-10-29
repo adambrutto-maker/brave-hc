@@ -32,26 +32,31 @@ const server=http.createServer((req,res)=>{
     const page=await open(id);
     const recorded=leadership.items.filter(x=>String(x.htoPlayerID)===id);
     const n=recorded.length;
-    const filter=page.locator('#honorsFilters .ph-honors-filter').filter({hasText:'Leadership'});
-    assert.equal(await filter.count(),1,id+' category visible');
-    assert.match(await filter.innerText(),new RegExp('Leadership \\('+String(n+legacy.players[id].items.filter(x=>x.category==='leadership').length+(id==='354058'?1:0))+'\\)'));
-    await filter.click();
-    const entries=await page.locator('#honorsGrid .ph-honor-card').allTextContents();
+    const group=page.locator('#leadershipHistoryGroup');
+    assert.equal(await group.isVisible(),true,id+' historical leadership section visible');
+    const entries=await page.locator('#leadershipHistoryGrid .ph-honor-card').allTextContents();
+    assert.equal(entries.length,n,id+' exact public leadership service count');
     for(const row of recorded){
       assert.ok(entries.some(x=>x.includes(row.text.split(' - ')[0])&&x.includes(row.text.split(' - ')[1])),
         id+' missing '+row.text);
     }
+    const expectedHonors=legacy.players[id].items.filter(x=>x.category!=='milestone'&&x.category!=='discipline').length+
+      (id==='354058'?1:0); // Alex's original native multi-line award projects to two cards.
+    assert.equal(Number(await page.locator('#lockerHonorsCount').innerText()),expectedHonors,
+      id+' native Honors count must not include supplementary service');
+    assert.equal(Number(await page.locator('#lockerAllCount').innerText())>=legacy.players[id].items.length,true,
+      id+' All collection must preserve published native history');
     if(id==='525407'){
       assert.equal(n,1);
       assert.equal(entries.length,1);
       assert.match(entries[0],/Team Captain/);
       assert.match(entries[0],/2018 to 2019/);
       assert.match(entries[0],/Public HTO Bio leadership history/);
-      assert.match(await page.locator('#honorsGrid img').first().getAttribute('alt'),/captain/i);
+      assert.match(await page.locator('#leadershipHistoryGrid img').first().getAttribute('alt'),/captain/i);
       if(qa)await page.screenshot({path:path.join(qa,'dylan-brennan-captain-highlights-candidate.png'),fullPage:true});
     }
     assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1),false,id+' mobile overflow');
-    receipts.push({playerID:id,player:legacy.players[id].name,publishedServiceTenures:n,leadershipFilter:true});
+    receipts.push({playerID:id,player:legacy.players[id].name,publishedServiceTenures:n,leadershipHistory:true,nativeHonorsUnchanged:true});
     await page.close();
   }
   const base=legacy.players['525407'].items.length;
@@ -61,7 +66,7 @@ const server=http.createServer((req,res)=>{
   await unavailable.goto(origin+'/widgets/player-highlights.html?playerID=525407');
   await unavailable.locator('#profileSource a').waitFor();
   await unavailable.locator('#lockerHonors').click();
-  assert.equal(await unavailable.locator('#honorsFilters .ph-honors-filter').filter({hasText:'Leadership'}).count(),0);
+  assert.equal(await unavailable.$eval('#leadershipHistoryGroup',x=>x.hidden),true);
   await unavailable.locator('#lockerAll').click();
   assert.ok((await unavailable.textContent('#allSection')).includes('Hart Award'));
   await unavailable.close();
@@ -74,7 +79,7 @@ const server=http.createServer((req,res)=>{
   await spoof.goto(origin+'/widgets/player-highlights.html?playerID=525407');
   await spoof.locator('#profileSource a').waitFor();
   await spoof.locator('#lockerHonors').click();
-  assert.equal(await spoof.locator('#honorsFilters .ph-honors-filter').filter({hasText:'Leadership'}).count(),0);
+  assert.equal(await spoof.$eval('#leadershipHistoryGroup',x=>x.hidden),true);
   await spoof.close();
   assert.deepEqual(errors,[]);
   console.log(JSON.stringify({status:'PASS',serviceRows:leadership.items.length,distinctLeaders:groups.length,

@@ -16,7 +16,7 @@ https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&pl
 
 The separately verified file widgets/player-bio-leadership.json contains thirteen SOURCE_DOCUMENTED leadership tenures across nine distinct officially matched player IDs. The dedicated widgets/player-highlights-leadership-parity.js module validates all thirteen and merges their historical team-service roles into a PRESENTATION-ONLY Highlights rendering view. The native player-highlights-ledger.json source is not edited.
 
-Tenures are displayed under Awards & Recognition → Leadership and in the existing Complete Achievement Timeline. Captain and assistant-captain roles receive the corresponding authentic existing leadership emblems; player-coach service does not automatically receive a captain badge.
+Tenures are displayed in a clearly separated Team Leadership History panel inside Awards & Recognition. They are not inserted into the original Complete Achievement Timeline or counted as additional native awards/achievement rows. Captain and assistant-captain roles receive the corresponding authentic existing leadership emblems; player-coach service does not automatically receive a captain badge.
 
 An existing Elected Captain achievement and a Captain service tenure are not treated as the same source event. Original HTO awards, scores, sourceText, sourceRuns, ordering, and originalCount are preserved. Founder's previously confirmed assistant captain tenures remain distinctly labelled team-management-confirmed; the public HTO Bio tenures remain separately sourced.
 

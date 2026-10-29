@@ -513,7 +513,7 @@ function mountArtwork(target,item,plainFallback){
 }
 let honorsFilter='all';
 let honorsShowAll=false;
-function renderHonorsWall(record){
+function renderHonorsWall(record,leadershipRecord=null){
  const items=newestAchievements((record?.items||[]).filter(x=>x.category!=='milestone'&&x.category!=='discipline'));
  const display=$('honorsSection'),container=$('honorsGrid'),disciplineGroup=$('disciplineGroup'),
   disciplineGrid=$('disciplineGrid'),filters=$('honorsFilters'),more=$('honorsMore');
@@ -588,6 +588,14 @@ function renderHonorsWall(record){
  };
  more.onclick=()=>{honorsShowAll=!honorsShowAll;paint();};
  paint();
+ // Captaincy TENURE is not an awarded/elected event. Display it in a
+ // separately sourced history section without modifying native Honors counts.
+ const serviceGroup=$('leadershipHistoryGroup'),serviceGrid=$('leadershipHistoryGrid');
+ serviceGrid.replaceChildren();
+ const serviceItems=(leadershipRecord?.items||[]).filter(x=>
+   x.recordType==='SERVICE_TENURE_NOT_ELECTION'&&x.category==='leadership');
+ serviceGroup.hidden=!serviceItems.length;
+ for(const item of newestAchievements(serviceItems))serviceGrid.append(cardFor(item));
 }
 // A source-aware presentation class, not a new historical HTO record type.
 // A "tied" mark has another equal VALUE in the same exact HTO
@@ -827,11 +835,11 @@ function projectVerifiedCompositeBadges(record){
  }
  return {...record,items:result};
 }
-function renderLegacy(record,ledgerTime){
+function renderLegacy(record,ledgerTime,leadershipRecord=null){
  const container=$('legacy'),items=newestAchievements(record?.items||[]);
  const cardRecord=projectVerifiedCompositeBadges(record);
  renderMilestoneWall(cardRecord);
- renderHonorsWall(cardRecord);
+ renderHonorsWall(cardRecord,leadershipRecord);
  showLockerFaces(cardRecord);
  $('historyDetails').hidden=!items.length;
  container.replaceChildren();
@@ -1105,9 +1113,10 @@ function renderCurrent(feed,career) {
   const ledger=legacyResult.value,record=ledger.players[String(playerId)];
   if(record&&(record.name!==identity.name||!record.profileUrl.endsWith('playerID='+playerId)))warnings.push('Career highlights unavailable');
   else if(!record?.items.length||!correctedPlayerIds.has(String(playerId)))
-   renderLegacy(withLeadership(record,ledger),ledger.capturedAt);
+   renderLegacy(record,ledger.capturedAt,withLeadership(record,ledger));
   else if(correctionsResult.status==='fulfilled'){
-   try{renderLegacy(correctedLegacyDisplay(withLeadership(record,ledger),correctionsResult.value),ledger.capturedAt);}
+   try{renderLegacy(correctedLegacyDisplay(record,correctionsResult.value),
+      ledger.capturedAt,withLeadership(record,ledger));}
    catch{warnings.push('Career highlights temporarily unavailable');}
   }else warnings.push('Career highlights temporarily unavailable');
  }else warnings.push('Career highlights unavailable');
@@ -1201,8 +1210,9 @@ function renderCurrent(feed,career) {
     if(value===fingerprint)return;
     if(correctedPlayerIds.has(String(playerId))){
       if(correctionsResult.status!=='fulfilled')return;
-      renderLegacy(correctedLegacyDisplay(presented,correctionsResult.value),fresh.capturedAt);
-    }else renderLegacy(presented,fresh.capturedAt);
+      renderLegacy(correctedLegacyDisplay(next,correctionsResult.value),
+        fresh.capturedAt,presented);
+    }else renderLegacy(next,fresh.capturedAt,presented);
     fingerprint=value;
    }catch(e){console.warn('Verified highlight refresh skipped',e);}
    finally{inflight=false;}

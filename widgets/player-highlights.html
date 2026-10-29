@@ -581,6 +581,14 @@ summary{cursor:pointer;color:#f4cb83;font-weight:700}
 details[open] summary{margin-bottom:10px}
 .ph-source{font-size:10px;color:#a9c0d4;line-height:1.5;margin-top:8px}
 a{color:#f4cb83}
+
+.ph-service-history{margin:13px 0 0;padding:12px 0 0;border-top:1px solid #58718b}
+.ph-service-history[hidden]{display:none!important}
+.ph-service-heading{color:#f3d6a3;font-size:13px;font-weight:850;margin:0 0 4px}
+.ph-service-history>.ph-honors-note{margin:0 0 10px}
+.ph-service-history .ph-honors-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media(max-width:640px){.ph-service-history .ph-honors-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:375px){.ph-service-history .ph-honors-grid{grid-template-columns:repeat(1,minmax(0,1fr))}}
 </style>
 <script defer src="./player-links.js?v=5"></script>
 <script defer src="./player-highlights-leadership-parity.js?v=1"></script>
@@ -629,7 +637,12 @@ a{color:#f4cb83}
    <div id="disciplineGroup" hidden><div class="ph-discipline-separator">Disciplinary records · not awards</div>
     <div id="disciplineGrid" class="ph-honors-grid"></div></div>
    <button id="honorsMore" class="ph-honors-more" type="button" hidden>Show more awards</button>
-   <p class="ph-honors-note">Published historical entries only. Original full-text history is available under All.</p>
+   <div id="leadershipHistoryGroup" class="ph-service-history" hidden>
+    <h4 class="ph-service-heading">Team Leadership History</h4>
+    <p class="ph-honors-note">Previously documented team service, shown separately from awards and elections.</p>
+    <div id="leadershipHistoryGrid" class="ph-honors-grid"></div>
+   </div>
+   <p class="ph-honors-note">Published native honours are counted separately from verified leadership service history. Original full-text achievements remain under All.</p>
   </section>
   <section id="allSection" role="tabpanel" aria-labelledby="lockerAll" aria-label="All verified achievements and records" hidden>
    <div class="ph-inventory-head"><div><span class="ph-inventory-eyebrow">COMPLETE INVENTORY</span>
