@@ -511,6 +511,7 @@ function paintProjectionTrend(row,projection){
   };
   host.replaceChildren();detail.textContent='';
   host.dataset.trendState='HELD';
+  host.dataset.nearCareerAverage='false';
   host.className='bio-trend-summary';
   // V3.6 approved artwork is isolated in the visual-only module.
   // Input z-score always comes from the existing source-verified engine.
@@ -519,6 +520,10 @@ function paintProjectionTrend(row,projection){
     host.dataset.trendState=result.name;
     host.classList.add('bio-trend-ready','bio-trend-'+result.name.toLowerCase());
     const direction=window.HockeyOSBioProjectionTrend?.directionalArrow(row,projection);
+    // Presentational ±5% band applies ONLY to a source-verified Neutral trend.
+    // It never changes classify(), exact percentages, or directionalArrow().
+    const nearAverage=direction?.status==='VERIFIED_STANDARD_DEVIATION_ARROW' &&
+      window.HockeyOSBioTrendVisualV36?.nearCareerAverage(result.relativeChange,result.name)===true;
     if(direction?.status==='VERIFIED_STANDARD_DEVIATION_ARROW'){
       host.dataset.trendDirection=direction.direction;
       const badge=window.HockeyOSBioTrendVisualV36?.createBadge(
@@ -527,6 +532,7 @@ function paintProjectionTrend(row,projection){
         badge.dataset.sourceTrend=String(row.trend);
         badge.dataset.sourceSigma=String(direction.sigma);
         host.append(badge);
+        host.dataset.nearCareerAverage=String(nearAverage);
         useBadgePanelTone(badge,result.name.toLowerCase());
       }else{
         // Failed visual dependency is not a reason to invent a fallback angle.
@@ -536,8 +542,11 @@ function paintProjectionTrend(row,projection){
     }
     const label=build('div',undefined,'bio-trend-copy');
     const signed=(result.relativeChange>0?'+':'')+(result.relativeChange*100).toFixed(1)+'%';
+    const comparison=nearAverage?
+      (result.relativeChange===0?'At career average':'Within ±5% of career average'):
+      'Projected season-finish trend vs career';
     label.append(build('strong',result.name+' · '+signed,'bio-trend-main'),
-      build('span','Projected season-finish trend vs career · '+
+      build('span',comparison+' · '+
         (result.modelCurrent?'model reconciled':'provisional workbook model'),'bio-trend-minor'));
     host.append(label);
     detail.textContent='Original workbook trend: '+result.name+
@@ -546,7 +555,8 @@ function paintProjectionTrend(row,projection){
        ' P/GP; projected scoring-rate component '+
        (num(result.modelComponentRate)?fmtRate(result.modelComponentRate):'unavailable')+
        ' P/GP; career relative change '+signed+
-       '. The model trend component is distinct from the displayed full-season projected P/GP.';
+       '. The model trend component is distinct from the displayed full-season projected P/GP.'+
+        (nearAverage?' Within the ±5% visual-neutral tolerance around the career average; the original workbook category and personalized arrow angle are unchanged.':'');
   }else{
     host.dataset.trendState=result.status;
     const label=build('div',undefined,'bio-trend-copy');
