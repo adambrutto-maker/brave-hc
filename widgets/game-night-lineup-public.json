@@ -1,0 +1,12 @@
+{
+  "schema": "hockeyos-game-night-lineup-public/v1",
+  "status": "AWAITING_MANAGER_APPROVAL",
+  "source": "HockeyOS original Lines!G5:J16 private approval pipeline",
+  "sourceState": "NO_PUBLIC_APPROVED_LINEUP",
+  "privacy": {
+    "namedPollVotesPublished": false,
+    "unapprovedPlayerAvailabilityPublished": false,
+    "managerDraftNamesPublished": false
+  },
+  "notice": "Public lineup not yet approved for the selected official fixture. Named WhatsApp votes, private roster review and unapproved positions are never published."
+}
