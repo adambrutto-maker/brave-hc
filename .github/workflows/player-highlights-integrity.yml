@@ -5,6 +5,12 @@ on:
     branches: [main]
     paths:
       - 'widgets/player-highlights-v2.js'
+      - 'widgets/player-highlights-leadership-parity.js'
+      - 'widgets/player-bio-leadership.json'
+      - 'tests/test_highlights_leadership_parity.cjs'
+      - 'scripts/test-player-highlights-v2.cjs'
+      - 'tests/test_highlights_leadership_browser.cjs'
+      - 'tests/test_transparent_badge_background.py'
       - 'widgets/player-highlights.html'
       - 'widgets/player-highlights-v2-preview.html'
       - 'widgets/player-highlights-ledger.json'
@@ -66,7 +72,7 @@ jobs:
   highlights-integrity:
     name: Verify source-preserving artwork and highlights
     runs-on: ubuntu-latest
-    timeout-minutes: 8
+    timeout-minutes: 12
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -77,6 +83,10 @@ jobs:
           python-version: '3.12'
       - name: Validate browser source syntax
         run: node --check widgets/player-highlights-v2.js
+      - name: Check source-verified public HTO Bio leadership history with no native Highlight mutations
+        run: |
+          node --check widgets/player-highlights-leadership-parity.js
+          node --test tests/test_highlights_leadership_parity.cjs
       - name: Test independent public HTO score and skater parity
         run: |
           python -m pip install 'requests==2.32.5' 'beautifulsoup4==4.14.2'
@@ -112,9 +122,16 @@ jobs:
       - name: Confirm six final heritage images are reproducible
         run: git diff --exit-code -- widgets/assets/heritage/
       - name: Install browser for real responsive layout checks
+        id: chrome
         uses: browser-actions/setup-chrome@v2.2.0
       - name: Install browser test dependency
         run: python -m pip install 'selenium==4.50.0'
+      - name: Install isolated Playwright dependency for sourced captaincy visual acceptance
+        run: npm install --no-save --no-package-lock playwright
+      - name: Check nine leaders in the live-equivalent Honors UI and reject forged captain records
+        env:
+          BRAVE_CHROMIUM_PATH: ${{ steps.chrome.outputs.chrome-path }}
+        run: node tests/test_highlights_leadership_browser.cjs
       - name: Verify 43 profiles at actual 355px and 810px browser widths
         env:
           BRAVE_QA_BROWSER: chrome

@@ -259,7 +259,7 @@ function approvalForPublishedItem(item,art){
   if(/^All-Star(?:\s+-|$)/i.test(src))return approvedOrFallback(art,'all_star_selection');
  }
  if(item.category==='leadership'){
-  if(/^Elected Assistant Captain\b/i.test(src))return approvedOrFallback(art,'assistant_captain');
+  if(/^(?:Elected )?Assistant Captain\b/i.test(src))return approvedOrFallback(art,'assistant_captain');
   return approvedOrFallback(art,'captain');
  }
  if(item.category==='discipline')return approvedOrFallback(art,'discipline_record');
@@ -276,6 +276,13 @@ function heritageArtFor(item){
  if(item.category==='recognition'&&/^Hall of Fame Inductee\s+-\s+/i.test(source))
   return {kind:'heritage',file:'hall-of-fame-inductee.svg',label:'Brave H.C. Hall of Fame inducted member',fallback:'STAR'};
  if(item.category==='leadership'){
+  if(item.recordType==='SERVICE_TENURE_NOT_ELECTION'){
+   if(item.sourceRole==='Assistant Captain')
+    return {kind:'heritage',file:'assistant-captain.svg',label:'Brave H.C. historical assistant captain service',fallback:'CAP'};
+   if(item.sourceRole==='Team Captain')
+    return {kind:'heritage',file:'captain.svg',label:'Brave H.C. historical team captain service',fallback:'CAP'};
+   return null; // Player-coach tenure is leadership, not a fabricated captain badge.
+  }
   if(/^Elected Assistant Captain\s+-\s+/i.test(source))
    return {kind:'heritage',file:'assistant-captain.svg',label:'Brave H.C. elected assistant captain',fallback:'CAP'};
   if(/^Elected (?:Team )?Captain\s+-\s+/i.test(source))
@@ -506,7 +513,7 @@ function mountArtwork(target,item,plainFallback){
 }
 let honorsFilter='all';
 let honorsShowAll=false;
-function renderHonorsWall(record){
+function renderHonorsWall(record,leadershipRecord=null){
  const items=newestAchievements((record?.items||[]).filter(x=>x.category!=='milestone'&&x.category!=='discipline'));
  const display=$('honorsSection'),container=$('honorsGrid'),disciplineGroup=$('disciplineGroup'),
   disciplineGrid=$('disciplineGrid'),filters=$('honorsFilters'),more=$('honorsMore');
@@ -549,7 +556,7 @@ function renderHonorsWall(record){
     }else icon.replaceChildren(text('strong',isDiscipline?'NOTE':'AWD','ph-honor-fallback'));
    };
    icon.append(img);
-  }else icon.append(text('strong',isDiscipline?'NOTE':'RECORD','ph-honor-fallback'));
+  }else icon.append(text('strong',isDiscipline?'NOTE':item.category==='leadership'?'LEAD':'RECORD','ph-honor-fallback'));
   const names={award:'Award',championship:'Champion',recognition:'Recognition',
       leadership:'Leadership',record:'Historical entry',discipline:'Disciplinary record'};
   const category=text('span',names[item.category]||'Record','ph-honor-class');
@@ -560,6 +567,8 @@ function renderHonorsWall(record){
   const titleNode=text('strong',title,'ph-honor-title');
   const dateNode=text('span',when,'ph-honor-date');
   card.append(category,icon,titleNode,dateNode);
+  if(item.recordType==='SERVICE_TENURE_NOT_ELECTION')
+   card.append(text('small',item.sourceNote,'ph-honor-source'));
   return card;
  };
  const paint=()=>{
@@ -579,6 +588,14 @@ function renderHonorsWall(record){
  };
  more.onclick=()=>{honorsShowAll=!honorsShowAll;paint();};
  paint();
+ // Captaincy TENURE is not an awarded/elected event. Display it in a
+ // separately sourced history section without modifying native Honors counts.
+ const serviceGroup=$('leadershipHistoryGroup'),serviceGrid=$('leadershipHistoryGrid');
+ serviceGrid.replaceChildren();
+ const serviceItems=(leadershipRecord?.items||[]).filter(x=>
+   x.recordType==='SERVICE_TENURE_NOT_ELECTION'&&x.category==='leadership');
+ serviceGroup.hidden=!serviceItems.length;
+ for(const item of newestAchievements(serviceItems))serviceGrid.append(cardFor(item));
 }
 // A source-aware presentation class, not a new historical HTO record type.
 // A "tied" mark has another equal VALUE in the same exact HTO
@@ -818,11 +835,11 @@ function projectVerifiedCompositeBadges(record){
  }
  return {...record,items:result};
 }
-function renderLegacy(record,ledgerTime){
+function renderLegacy(record,ledgerTime,leadershipRecord=null){
  const container=$('legacy'),items=newestAchievements(record?.items||[]);
  const cardRecord=projectVerifiedCompositeBadges(record);
  renderMilestoneWall(cardRecord);
- renderHonorsWall(cardRecord);
+ renderHonorsWall(cardRecord,leadershipRecord);
  showLockerFaces(cardRecord);
  $('historyDetails').hidden=!items.length;
  container.replaceChildren();
@@ -843,7 +860,7 @@ function renderLegacy(record,ledgerTime){
   container.replaceChildren();
   for(const item of expanded?items:items.slice(0,first)){
    const row=text('article','','ph-event'+(item.sourceEmphasis?' ph-champion':''));
-   const icon=text('span',symbol[item.category]||'AWD','ph-symbol');
+   const icon=text('span',item.sourceRole==='Team Player Coach'?'COACH':symbol[item.category]||'AWD','ph-symbol');
    const art=approvalForPublishedItem(item,awardArtFor(item)||clubArtFor(item)||
     specialArtFor(item)||heritageArtFor(item));
    if(art){
@@ -897,6 +914,8 @@ function renderLegacy(record,ledgerTime){
    info.append(titleNode);
    info.append(text('div',[categoryLabel[item.category],time].filter(Boolean).join(' \u00b7 '),'ph-event-meta'));
    }
+   if(item.recordType==='SERVICE_TENURE_NOT_ELECTION')
+    info.append(text('div',item.sourceNote,'ph-event-source'));
    row.append(icon,info);container.append(row);
   }
   const button=$('expand');
@@ -1069,12 +1088,18 @@ function renderCurrent(feed,career) {
  ['history-records.json',x=>x],
  ['player-highlights-display-corrections.json',validDisplayCorrections],
  ['player-actuals.json',x=>x],
- ['player-actuals-hourly.json',x=>x]
+ ['player-actuals-hourly.json',x=>x],
+ ['player-bio-leadership.json',x=>x]
  ];
  const results=await Promise.allSettled(resources.map(([file,validate])=>fetch(root+file,{cache:'no-store'}).then(async r=>{
   if(!r.ok)throw Error(file+' HTTP '+r.status);return validate(await r.json());
  })));
- const [legacyResult,feedResult,careerResult,recordsResult,historyResult,correctionsResult,actualResult,hourlyResult]=results;
+ const [legacyResult,feedResult,careerResult,recordsResult,historyResult,correctionsResult,actualResult,hourlyResult,leadershipResult]=results;
+ let leadershipSnapshot=legacyResult.status==='fulfilled'&&leadershipResult.status==='fulfilled'&&
+   window.BraveHighlightsLeadershipParity?.validateSource(leadershipResult.value,legacyResult.value).status==='VERIFIED'
+    ?leadershipResult.value:null;
+ const withLeadership=(record,ledger)=>record&&leadershipSnapshot?
+   window.BraveHighlightsLeadershipParity.enrichRecord(record,leadershipSnapshot,ledger):record;
  try{
   const check=await fetch(root+'assets/approved/source-manifest.json',{cache:'no-store'});
   if(check.ok)approvedArtworkReady=validApprovedArtwork(await check.json());
@@ -1087,9 +1112,11 @@ function renderCurrent(feed,career) {
  if(legacyResult.status==='fulfilled'){
   const ledger=legacyResult.value,record=ledger.players[String(playerId)];
   if(record&&(record.name!==identity.name||!record.profileUrl.endsWith('playerID='+playerId)))warnings.push('Career highlights unavailable');
-  else if(!record?.items.length||!correctedPlayerIds.has(String(playerId)))renderLegacy(record,ledger.capturedAt);
+  else if(!record?.items.length||!correctedPlayerIds.has(String(playerId)))
+   renderLegacy(record,ledger.capturedAt,withLeadership(record,ledger));
   else if(correctionsResult.status==='fulfilled'){
-   try{renderLegacy(correctedLegacyDisplay(record,correctionsResult.value),ledger.capturedAt);}
+   try{renderLegacy(correctedLegacyDisplay(record,correctionsResult.value),
+      ledger.capturedAt,withLeadership(record,ledger));}
    catch{warnings.push('Career highlights temporarily unavailable');}
   }else warnings.push('Career highlights temporarily unavailable');
  }else warnings.push('Career highlights unavailable');
@@ -1157,24 +1184,35 @@ function renderCurrent(feed,career) {
  // Auto-refresh existing player iframe when the authoritative verified ledger
  // gets a new readback. Never create a winner from derived/stale stats.
  if(legacyResult.status==='fulfilled' && typeof window.setInterval==='function'){
-  let fingerprint=JSON.stringify(legacyResult.value.players[String(playerId)]?.items||[]);
+  let fingerprint=JSON.stringify(withLeadership(legacyResult.value.players[String(playerId)],
+    legacyResult.value)?.items||[]);
   let inflight=false;
   window.setInterval(async()=>{
    if(inflight||document.hidden)return;
    inflight=true;
    try{
-    const response=await fetch(root+'player-highlights-ledger.json',{cache:'no-store'});
+    const [response,leadResponse]=await Promise.all([
+      fetch(root+'player-highlights-ledger.json',{cache:'no-store'}),
+      fetch(root+'player-bio-leadership.json',{cache:'no-store'}).catch(()=>null)
+    ]);
     if(!response.ok)return;
     const fresh=validLedger(await response.json());
+    if(leadResponse?.ok){
+      const candidate=await leadResponse.json();
+      if(window.BraveHighlightsLeadershipParity?.validateSource(candidate,fresh).status==='VERIFIED')
+        leadershipSnapshot=candidate;
+    }
     const next=fresh.players[String(playerId)];
     if(!next||next.name!==identity.name||
        !next.profileUrl.endsWith('playerID='+playerId))return;
-    const value=JSON.stringify(next.items);
+    const presented=withLeadership(next,fresh);
+    const value=JSON.stringify(presented.items);
     if(value===fingerprint)return;
     if(correctedPlayerIds.has(String(playerId))){
       if(correctionsResult.status!=='fulfilled')return;
-      renderLegacy(correctedLegacyDisplay(next,correctionsResult.value),fresh.capturedAt);
-    }else renderLegacy(next,fresh.capturedAt);
+      renderLegacy(correctedLegacyDisplay(next,correctionsResult.value),
+        fresh.capturedAt,presented);
+    }else renderLegacy(next,fresh.capturedAt,presented);
     fingerprint=value;
    }catch(e){console.warn('Verified highlight refresh skipped',e);}
    finally{inflight=false;}

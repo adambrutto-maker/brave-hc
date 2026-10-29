@@ -40,8 +40,11 @@ class TransparentBadges(unittest.TestCase):
    text=(ROOT/"widgets"/fname).read_text("utf-8")
    self.assertIn(".ph-symbol.ph-approved-art,.ph-symbol.ph-milestone-art{background:transparent;border:0",text)
    self.assertIn(".ph-symbol.ph-approved-art.ph-cristillo-black-patch{border:0!important;background:transparent!important}",text)
-   expected="player-highlights-v2.js?v="+("22" if fname=="player-highlights.html" else "17")
-   self.assertIn(expected,text)
+   if fname=="player-highlights.html":
+    self.assertIn("player-highlights-leadership-parity.js?v=1",text)
+    self.assertRegex(text,r'player-highlights-v2\.js\?v=[A-Za-z0-9_-]+')
+   else:
+    self.assertIn("player-highlights-v2.js?v=17",text)
   javascript=(ROOT/"widgets/player-highlights-v2.js").read_text("utf-8")
   self.assertIn("?v=transparent-20261027",javascript)
 

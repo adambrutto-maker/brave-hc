@@ -5,7 +5,8 @@ const root='widgets/';
 const ledger=JSON.parse(fs.readFileSync(root+'player-highlights-ledger.json','utf8'));
 const source=fs.readFileSync(root+'player-highlights-v2.js','utf8');
 const start=source.indexOf('const publishedCompositeBadgePreimages=');
-const end=source.indexOf('function renderLegacy(record,ledgerTime)',start);
+// Source-slicing guard follows the function boundary, not its evolving argument list.
+const end=source.indexOf('function renderLegacy(',start);
 assert(start>0&&end>start);
 const snippet=source.slice(start,end)+'\nthis.project=projectVerifiedCompositeBadges;';
 function project(pid,record=ledger.players[pid]){
