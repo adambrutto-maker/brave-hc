@@ -59,6 +59,29 @@ const server=http.createServer((req,res)=>{
     await page.locator('#bioExtendedMetrics .bio-extended-stat').first().waitFor({timeout:8000});
     const advanced=await page.locator('#bioExtendedMetrics .bio-extended-stat').count();
     assert.ok(advanced>=4,'Expected derived stats for verified career data');
+    const rateCards=await page.locator('#bioExtendedMetrics .bio-extended-stat').evaluateAll(cards=>
+      cards.map(c=>({
+        label:c.querySelector('.bio-extended-label')?.textContent.trim(),
+        value:c.querySelector('.bio-extended-value')?.textContent.trim(),
+        basis:c.querySelector('.bio-extended-basis')?.textContent.trim()
+      })));
+    assert.ok(!rateCards.some(c=>/per 100/i.test(c.label)),'Legacy per-100 labels removed');
+    const gpEvent=(label,pct,num,den)=>{
+      const item=rateCards.find(c=>c.label===label);
+      assert.ok(item,'Expected '+label);
+      assert.equal(item.value,pct.toFixed(1)+'%','Percentage of actual GP');
+      assert.ok(item.basis.includes(String(num))&&item.basis.includes(String(den)+' recorded GP'),
+        'Show raw event count and GP for small samples');
+    };
+    if(playerID===354060){
+      gpEvent('Game-winning goals / GP',16/303*100,16,303);
+      gpEvent('Game-tying goals / GP',8/303*100,8,303);
+      gpEvent('Player of Game / GP',53/303*100,53,303);
+    }else{
+      gpEvent('Player of Game / GP',56/262*100,56,262);
+    }
+    assert.ok(rateCards.some(c=>c.label==='Penalty minutes / GP'&&c.value.indexOf('%')===-1),
+      'PIM remains a minutes-per-appearance rate, not a percentage');
     await page.locator('[data-bio-view="production"]').click();
     if(playerID===354060){
      await page.locator('#bioCareerModelRate').getByText('1.14').waitFor({timeout:8000});
