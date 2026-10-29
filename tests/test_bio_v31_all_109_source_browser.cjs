@@ -50,7 +50,18 @@ const server=http.createServer((req,res)=>{
    const roleKinds=(profile.segments||[]).map(s=>s.kind);
    if(!roleKinds.length){roleless++;assert.equal(a.forecastVisible,false,id+' no profile must not get forecast');}
    if(roleKinds.includes('goalie')&&!roleKinds.includes('skater')){goalie++;assert.equal(a.forecastVisible,false,id+' goalie forecast remains held');}
-   if(roleKinds.includes('skater'))skater++;
+   if(roleKinds.includes('skater')){
+     skater++;
+     assert.equal(a.forecastVisible,true,id+' skater needs a visible forecast or held state');
+     if(a.forecastValues===0){
+       assert.equal(await page.locator('#bioProjectionHold').isVisible(),true,id+' no forecast tile');
+       assert.equal(await page.locator('#bioForecastBadge').innerText(),'SOURCE HELD',id+' missing model source badge');
+       assert.equal(await page.locator('#bioProjectionSummarySlot').isVisible(),false,id+' no invented trend');
+     }else{
+       assert.equal(a.forecastValues,5,id+' verified model fields');
+       assert.equal(await page.locator('#bioProjectionHold').isVisible(),false,id+' valid model should not be held');
+     }
+   }
    await page.locator('[data-bio-view="trends"]').click();
    assert.equal(await page.locator('#bioDevelopmentSection').isVisible(),true,id+' career trends');
    await page.locator('[data-bio-view="coaching"]').click();
