@@ -1,0 +1,45 @@
+/* Isolated illustrative moving-chalkboard player Bio review. */
+#bioTacticBoard{margin:12px 0;border:1px solid #6b899e;border-top:3px solid #e3bb79;border-radius:10px;background:linear-gradient(125deg,#173750,#0c283e);padding:10px}
+#bioTacticBoard .board-kicker{display:flex;align-items:center;justify-content:space-between;gap:8px;color:#ebc993;font-size:10px;letter-spacing:.8px;font-weight:900}
+#bioTacticBoard .board-kicker span{font-size:9px;color:#9ebfd0;font-weight:800}
+#bioTacticBoard .board-note{color:#bfd4e1;font-size:11px;line-height:1.45;margin:9px 0}
+#bioTacticBoard .board-modes,#bioTacticBoard .board-controls{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:5px;margin:10px 0}
+#bioTacticBoard button{min-width:0;min-height:36px;border:1px solid #59798e;border-radius:6px;background:#183c56;color:#d7e7ef;font-size:10px;font-weight:900;cursor:pointer}
+#bioTacticBoard button[aria-pressed="true"],#bioTacticBoard #bioTacticPlay{border-color:#e1bc7d;background:#614d34;color:#ffe7b8}
+#bioTacticBoard svg{display:block;width:100%;height:auto;border-radius:7px;border:2px solid #7097aa;background:#e9f4f8}
+#bioTacticBoard .board-readout{margin:9px 0;border:1px solid #43677d;border-radius:7px;background:#102c44;padding:9px;min-height:76px}
+#bioTacticBoard #bioTacticStep{display:block;color:#efcb90;font-size:9px;font-weight:900;letter-spacing:1px}
+#bioTacticBoard #bioTacticCaption{display:block;color:#fff;font-size:12px;margin:3px 0}
+#bioTacticBoard #bioTacticHint{display:block;color:#bed4e1;font-size:10px;line-height:1.4}
+#bioTacticBoard .board-legend{display:flex;align-items:center;gap:6px;color:#b5c8d6;font-size:9px;margin:8px 0 2px;flex-wrap:wrap}
+#bioTacticBoard .legend-dot{width:8px;height:8px;border-radius:50%;display:inline-block}
+#bioTacticBoard .blue{background:#115b89}.red{background:#ba3146}.puck{background:#15293c;border:1px solid #e0ad59}
+#bioTacticBoard button:focus-visible{outline:2px solid #fbe0ac;outline-offset:2px}
+#bioVideoPlaybook .playbook-watch{display:inline-flex;text-decoration:none;align-items:center;justify-content:center;min-height:36px}
+#bioVideoPlaybook .playbook-more{display:block;min-height:39px;cursor:pointer}
+@media(max-width:350px){#bioTacticBoard{padding:7px}#bioTacticBoard .board-kicker{font-size:9px}#bioTacticBoard button{font-size:9.3px}}
+
+/* Source-derived analytics in Career Trends; never overwrite native HTO figures. */
+#bioExtendedAnalytics{margin:12px 0;border:1px solid #46667f;background:#122c42;border-radius:9px}
+#bioExtendedAnalytics>summary{padding:10px 11px;color:#f2d1a0;font-size:11px;font-weight:900;cursor:pointer}
+#bioExtendedMetrics.bio-extended-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;padding:8px}
+#bioExtendedMetrics .bio-extended-stat{display:flex;flex-direction:column;gap:4px;min-width:0;border:1px solid #456b83;background:#193b54;border-radius:7px;padding:9px}
+#bioExtendedMetrics .bio-extended-value{font-size:18px;line-height:1.12;color:#ffe0a3;overflow-wrap:anywhere}
+#bioExtendedMetrics .bio-extended-label{font-size:10px;color:#cadce9;line-height:1.3}
+#bioExtendedMetrics .bio-extended-basis{font-size:9px;color:#91b5ca;line-height:1.35}
+#bioExtendedStatus{padding:0 10px 8px}
+.bio-career-model-strip{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:11px;margin:0 0 10px;border:1px solid #5c768b;border-radius:9px;background:#142e42}
+.bio-career-model-strip>div{display:flex;flex-direction:column;gap:4px}
+.bio-career-model-strip>div:first-child strong{color:#f1d7a5;font-size:10px;letter-spacing:.7px}
+.bio-career-model-strip>div:first-child span{color:#bed0df;font-size:10px}
+.bio-career-model-strip>div:last-child strong{font-size:23px;color:#fff0cc;text-align:right}
+.bio-career-model-strip>div:last-child span{font-size:9px;color:#abc4d5;text-align:right}
+@media(max-width:350px){.bio-career-model-strip>div:first-child span{font-size:9px}#bioExtendedMetrics .bio-extended-value{font-size:16px}}
+
+/* Database ranking chip: quiet upper-right metadata, only when qualified. */
+#bioExtendedMetrics .bio-extended-stat{position:relative}
+#bioExtendedMetrics .bio-extended-stat.has-rank{padding-top:27px}
+#bioExtendedMetrics .bio-extended-rank{position:absolute;top:6px;right:6px;
+ padding:3px 6px;border-radius:5px;border:1px solid #7c835d;
+ background:#253e4c;color:#f1d5a1;font-size:9px;line-height:1.2;font-weight:900;
+ font-variant-numeric:tabular-nums;letter-spacing:.1px}
