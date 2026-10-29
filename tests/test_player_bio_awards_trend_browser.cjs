@@ -44,7 +44,7 @@ const server=http.createServer((req,res)=>{
   assert.equal(await j.locator('#bioProjectionTrend .bio-trend-gauge').count(),0,'no gauge');
   const arrowAngle=Number(await j.locator('#bioProjectionTrend [data-arrow-angle]').getAttribute('data-arrow-angle'));
   const z=Number(await j.locator('#bioProjectionTrend [data-z-score]').getAttribute('data-z-score'));
-  assert.ok(arrowAngle<0&&arrowAngle>-15,'negative but Neutral z-score must tilt down');
+  assert.ok(arrowAngle>90&&arrowAngle<115,'negative but Neutral z-score must tilt down in 0-up/90-right/180-down convention');
   assert.ok(z<0,'workbook trend is below zero even when class is Neutral');
   assert.equal(await j.$eval('#bioProjectionTrend',e=>e.dataset.trendDirection),'BELOW');
   assert.equal(await j.locator('#bioTabs button').count(),3,'three main tabs');
@@ -136,7 +136,7 @@ const server=http.createServer((req,res)=>{
   assert.equal(await dynamic.$eval('#bioProjectionTrend',e=>e.dataset.trendState),'Neutral');
   const dynamicAngle=Number(await dynamic.locator('#bioProjectionTrend [data-arrow-angle]')
     .getAttribute('data-arrow-angle'));
-  assert.ok(dynamicAngle<arrowAngle,'a more negative percentage tilts more downward');
+  assert.ok(dynamicAngle>arrowAngle,'a more negative percentage tilts further toward 180 degrees down');
   assert.ok(Math.abs(dynamicAngle-arrowAngle)>2,'angle is not a fixed category rotation');
   await dynamic.close();
   const rookieData=structuredClone(projection);

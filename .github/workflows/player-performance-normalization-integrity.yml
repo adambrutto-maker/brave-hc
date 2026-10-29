@@ -32,6 +32,10 @@ on:
       - 'tests/test_bio_v33_historical_shares.cjs'
       - 'tests/test_bio_v33_content_browser.cjs'
       - 'tests/test_bio_v34_temperature_browser.cjs'
+      - 'tests/test_bio_v36_angular_animation_browser.cjs'
+      - 'tests/test_bio_v36_source_angle.cjs'
+      - 'widgets/player-bio-trend-visual-v36.js'
+      - 'widgets/player-bio-trend-visual-v36.css'
       - 'docs/261029_Bio_V33_Five_Pass_All_Time_Content_Audit.md'
       - 'widgets/player-bio-coaching-roles.js'
       - 'widgets/player-bio-positive-streaks.js'
@@ -140,8 +144,11 @@ jobs:
         run: node tests/test_bio_v32_percent_and_cohort_browser.cjs
       - name: Verify deduplicated V3.3 all-time shares and source holds on 16 mobile/desktop cases
         run: node tests/test_bio_v33_content_browser.cjs
-      - name: Verify V3.4 matched trend arrow, gradient flame, melting ice and σ-angle at 16 mobile cases
-        run: node tests/test_bio_v34_temperature_browser.cjs
+      # Historical V3.4 visual tests are superseded by V3.6 center, angle, motion and source checks.
+      - name: Validate V3.6 original source sigma, personalized bearings and missing-data holds
+        run: node --test tests/test_bio_v36_source_angle.cjs
+      - name: Verify V3.6 frost/fire badge and exact arrow center on 4 mobile and desktop widths
+        run: node tests/test_bio_v36_angular_animation_browser.cjs
       - name: Test all 109 verified HTO identities across three tabs at narrow embed width
         run: node tests/test_bio_v31_clean_109_browser.cjs
       - name: Test visual Bio V3.1 (chart labels, whole-GP forecast, role explorer)
