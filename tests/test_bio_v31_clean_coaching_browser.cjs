@@ -70,7 +70,7 @@ const server=http.createServer((req,res)=>{
       const expected=playerID===354060?'90.8%':'82.0%';
       assert.equal(await careerAttCard.count(),1);
       assert.equal(await careerAttCard.locator('.bio-extended-value').innerText(),expected);
-      assert.match(await careerAttCard.locator('.bio-extended-rank').innerText(),/^#\\d+\\/\\d+$/);
+      assert.match(await careerAttCard.locator('.bio-extended-rank').innerText(),/^#\d+\/\d+$/);
       if(playerID===354060){
         assert.equal(await seasonAttCard.count(),1);
         assert.equal(await seasonAttCard.locator('.bio-extended-value').innerText(),'100.0%');
