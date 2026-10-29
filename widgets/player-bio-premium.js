@@ -851,7 +851,6 @@ function renderAdvancedMetrics(player){
       decimal(shownRate),
       (full?'All source-complete seasons':'Available complete-scoring seasons only')+
       ' · '+basisLabel+' P/GP'+gameLength);
-    extra(more,'Share of actual career points from goals',percent(o.goalsShare));
     // This belongs in the Trends collection, not a duplicate Overview tile.
 
     if(num(o.goalsShare)){
@@ -871,11 +870,6 @@ function renderAdvancedMetrics(player){
     }
     extra(more,'Goal scoring / GP · Winter equivalent (qualified seasons)',decimal(o.verifiedSeasonWinterGoalsPerGP));
     extra(more,'Assists / GP · Winter equivalent (qualified seasons)',decimal(o.verifiedSeasonWinterAssistsPerGP));
-    extra(more,'Goals that were power-play goals · published career',percent(result.situational.powerPlayShare,1));
-    extra(more,'Goals that were game-winners · published career',percent(result.situational.gameWinnersShare,1));
-    extra(more,'Goals that were short-handed · published career',percent(result.situational.shortHandedShare,1));
-    extra(more,'Penalty minutes per actual game · published career',decimal(result.situational.penaltyMinutesPerGP));
-    extra(more,'Player of Game / GP',percent(result.situational.playerOfGameRateGP,1));
     const pm=result.situational.plusMinusPerGP;
     extra(more,'Published +/- per actual appearance · context only',
       pm===null?'Unavailable':(pm>=0?'+':'')+pm.toFixed(2));
@@ -885,16 +879,13 @@ function renderAdvancedMetrics(player){
       o.careerWinterGAperAppearance===null?'Verified seasons only':'32-minute game-length basis');
     insight(target,'Recorded win-point rate',percent(o.winPointsPct,1),
       'Wins + half ties / actual goalie GP');
-    extra(more,'Shutouts / goalie GP',percent(o.shutoutRateGP,1));
-    extra(more,'Actual recorded goals against per appearance',decimal(o.publishedActualGAA));
-    extra(more,'Player of Game / goalie GP',percent(o.playerOfGameRateGP,1));
   }
   target.classList.toggle('one-stat',target.querySelectorAll('.bio-insight-tile').length===1);
+  // Personal 41%/59% composition remains in its graphic, not repeated as a rate card.
+  // Only unique normalized scoring/assist pace and +/- context stay in this small panel.
   $('bioOtherMetrics').hidden=more.children.length===0;
-  $('bioAdvancedSource').textContent='HTO career archive '+date(sources.career?.capturedAt)+
-     ' · '+c.complete+'/'+c.total+' seasons with complete core values'+
-     (c.excluded?' · '+c.excluded+' incomplete season(s) excluded, not zeroed':'')+
-     ' · Rates are analysis only, not records.';
+  $('bioAdvancedSource').textContent='HTO career seasons · '+c.complete+'/'+c.total+
+    ' complete'+(c.excluded?' · '+c.excluded+' held':'');
 }
 function renderDevelopment(player){
   const target=$('bioDevelopmentGrid'),pane=$('bioDevelopmentChart');

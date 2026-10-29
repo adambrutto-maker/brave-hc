@@ -44,23 +44,26 @@ const srv=http.createServer((req,res)=>{
     const cutoff=await page.locator('#bioRankCriteria').innerText();
     assert.match(cutoff,/skaters 10\+ GP/);
     assert.match(cutoff,/goalies 8\+ GP/);
-    await page.locator('#bioOtherMetrics summary').click();
-    const extra=page.locator('#bioSecondaryMetrics .bio-extra-metric').filter({hasText:'Player of Game / '});
-    assert.equal(await extra.count(),1,'legacy card must use one percent of actual GP');
-    assert.equal(await extra.locator('strong').innerText(),expected,'legacy POTG percentage');
-    const otherText=await page.locator('#bioOtherMetrics').innerText();
-    assert.doesNotMatch(otherText,/per 100|per hundred/i,'obsolete per-100 text must be gone');
-    if(role==='goalie'&&Number.isFinite(total.SHO)){
-      const shut=page.locator('#bioSecondaryMetrics .bio-extra-metric').filter({hasText:'Shutouts / goalie GP'});
-      assert.equal(await shut.locator('strong').innerText(),(total.SHO/total.GP*100).toFixed(1)+'%');
-    }
+    // The old More analytics panel no longer repeats the same POTG/SHO/GP
+    // percentage that already appears in advanced rates.
+    const legacy=page.locator('#bioOtherMetrics');
     if(role==='skater'){
-      const goal=page.locator('#bioExtendedMetrics .bio-extended-stat').filter({hasText:'Goal share of points'});
+      await legacy.locator('summary').click();
+      assert.match(await legacy.locator('summary').innerText(),/Scoring mix & pace/i);
+      const extraText=await page.locator('#bioSecondaryMetrics').innerText();
+      assert.doesNotMatch(extraText,/Player of Game|Penalty minutes|power-play goals|short-handed/i);
+      assert.doesNotMatch(await legacy.innerText(),/per 100|per hundred/i);
+      const goal=page.locator('#bioHistoricalShareGrid .bio-v33-card[data-metric="G"]');
+      assert.equal(await goal.locator('.bio-v33-rank').innerText(),'#1/57');
+      assert.equal(await goal.locator('.bio-v33-value').innerText(),'10.9%');
       const expectedRank=engine.rankMetric(career,id,'skater','Goal share of points');
       assert.equal(expectedRank.minimumGP,10);
       assert.equal(expectedRank.minimumDenominator,5);
-      assert.equal(await goal.locator('.bio-extended-rank').innerText(),'#'+expectedRank.rank+'/'+expectedRank.qualified);
-      assert.match(await goal.locator('.bio-extended-rank').getAttribute('title'),/at least 5 Pts/);
+    }else{
+      assert.equal(await legacy.isVisible(),false,'No repeated goalie metrics panel');
+      const shot=page.locator('#bioExtendedMetrics .bio-extended-stat').filter({hasText:'Shutouts / GP'});
+      if(Number.isFinite(total.SHO))
+       assert.equal(await shot.locator('.bio-extended-value').innerText(),(total.SHO/total.GP*100).toFixed(1)+'%');
     }
     assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1),false);
     assert.deepEqual(errors,[]);

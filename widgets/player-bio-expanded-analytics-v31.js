@@ -5,7 +5,49 @@
 'use strict';
 const panel=document.getElementById('bioExtendedAnalytics');if(!panel)return;
 const grid=panel.querySelector('#bioExtendedMetrics'),status=panel.querySelector('#bioExtendedStatus');
-let rankContext={id:null,role:null};
+const shareGrid=document.getElementById('bioHistoricalShareGrid');
+const shareSource=document.getElementById('bioShareSource');
+const showMore=document.getElementById('bioSharesMore');
+const attendanceHold=document.getElementById('bioAttendanceHold');
+let rankContext={id:null,role:null},shareExpanded=false,shareSelection='',shareResult=null;
+const formatCount=n=>Number(n).toLocaleString('en-CA',{maximumFractionDigits:0});
+const formatShare=p=>p>0&&p<.1?p.toFixed(2)+'%':p.toFixed(1)+'%';
+const put=(tag,klass,content)=>{
+ const node=document.createElement(tag);if(klass)node.className=klass;
+ if(content!==undefined)node.textContent=String(content);return node;
+};
+function drawShares(){
+ if(!shareGrid||!showMore)return;
+ shareGrid.replaceChildren();
+ if(shareResult?.status!=='SOURCE_CALCULATED')return;
+ const all=shareResult.metrics;
+ const take=shareExpanded?all:shareResult.primary;
+ for(const metric of take){
+  const card=put('article','bio-v33-card has-rank');
+  card.dataset.metric=metric.metric;
+  card.append(
+   put('strong','bio-v33-value',formatShare(metric.sharePct)),
+   put('span','bio-v33-name',metric.label),
+   put('small','bio-v33-basis',formatCount(metric.value)+' / '+formatCount(metric.publishedTotal)+' published '+metric.noun)
+  );
+  const badge=put('span','bio-v33-rank','#'+metric.rank+'/'+metric.qualified);
+  badge.title='All-time recorded total rank, no GP cutoff. '+metric.qualified+
+    ' people have a published numeric '+metric.noun+' total; '+
+    metric.allHistoricalProfiles+' historical HTO identities checked. Missing data not counted as zero.'+
+    (metric.tied>1?' Tied with '+(metric.tied-1)+'.':'');
+  badge.setAttribute('aria-label',metric.label+' all-time rank '+metric.rank+
+    ' among '+metric.qualified+' profiles with published totals');
+  card.append(badge);
+  shareGrid.append(card);
+ }
+ const more=shareResult.additional.length>0;
+ showMore.hidden=!more;
+ showMore.setAttribute('aria-expanded',String(shareExpanded));
+ showMore.textContent=shareExpanded?'Show key categories':'View all '+all.length+' categories';
+}
+if(showMore)showMore.addEventListener('click',()=>{
+ shareExpanded=!shareExpanded;drawShares();
+});
 const add=(label,value,basis,explicitRanking=null)=>{
  const card=document.createElement('article');card.className='bio-extended-stat';
  for(const [tag,text,cls] of [['strong',value,'bio-extended-value'],['span',label,'bio-extended-label'],['small',basis,'bio-extended-basis']]){
@@ -39,24 +81,37 @@ function eventPct(label,events,gp,code){
 const fetchJSON=async file=>{const r=await fetch('./'+file,{cache:'no-store'});if(!r.ok)throw Error(file+' unavailable');return r.json()};
 let sources;
 try{
+ // All-time HTO shares depend on the verified HTO archive, NOT on the workbook
+ // model or unrelated historical game-duration config. Optional sources only
+ // unlock their respective technical comparison or attendance data.
  const [career,formats,projection,attendance]=await Promise.all([
-  fetchJSON('player-career-insights.json'),fetchJSON('league-game-formats.json'),fetchJSON('projection.json'),
+  fetchJSON('player-career-insights.json'),
+  fetchJSON('league-game-formats.json').catch(()=>null),
+  fetchJSON('projection.json').catch(()=>null),
   fetchJSON('player-bio-attendance-verified-v31.json').catch(()=>null)]);
- if(career.schema!=='brave-hc-player-career-insights/v1'||
-    formats.configurationStatus!=='REFERENCE_FORMATS_AND_18_MASTER_SCHEDULE_SEASON_BINDINGS_VERIFIED'||
-    projection.schema!=='brave-hc-workbook-projection/v1')throw Error('Source metadata does not match');
- sources={career,formats,projection,attendance};
-}catch{status.textContent='Advanced analytics held: verified HTO/format source unavailable.';return;}
+ if(career?.schema!=='brave-hc-player-career-insights/v1'||
+    career.sourceAuthority!=='NATIVE_HTO_PROFILE_STATS_PUBLIC_READBACK')throw Error('Career source invalid');
+ sources={career,
+  formats:formats?.configurationStatus==='REFERENCE_FORMATS_AND_18_MASTER_SCHEDULE_SEASON_BINDINGS_VERIFIED'?formats:null,
+  projection:projection?.schema==='brave-hc-workbook-projection/v1'?projection:null,
+  attendance};
+}catch{
+ status.hidden=false;
+ status.textContent='Advanced stats held: verified HTO career archive unavailable.';
+ if(shareSource)shareSource.textContent='All-time contributions held: verified HTO archive unavailable.';
+ if(attendanceHold){attendanceHold.hidden=false;attendanceHold.textContent='Roster-adjusted attendance · Source pending approval';}
+ return;
+}
 function currentSeason(){
- const m=/^([WS])(20\d{2})\/(\d{2})$/.exec(sources.projection.season||'');
+ const m=/^([WS])(20\d{2})\/(\d{2})$/.exec(sources.projection?.season||'');
  if(!m)return null;
  return (m[1]==='W'?'Winter ':'Summer ')+m[2]+(m[1]==='W'?'/20'+m[3]:'');
 }
 function normalizedRate(season){
  if(!number(season.GP)||!number(season.Pts)||season.GP<=0)return null;
- const binding=sources.formats.seasonBindings?.[season.Season+'::ALL_HTO_GAME_TYPES'];
+ const binding=sources.formats?.seasonBindings?.[season.Season+'::ALL_HTO_GAME_TYPES'];
  if(binding?.verificationStatus!=='VERIFIED')return null;
- const format=sources.formats.formats?.[binding.formatId];
+ const format=sources.formats?.formats?.[binding.formatId];
  if(format?.verificationStatus!=='VERIFIED'||!number(format.regulationGameMinutes))return null;
  return {season:season.Season,gp:season.GP,pointsWinter:season.Pts*32/format.regulationGameMinutes,pointsRaw:season.Pts};
 }
@@ -66,39 +121,52 @@ function render(){
   new URLSearchParams(location.search).get('playerID');
  const record=sources.career.players?.[selected];
  grid.replaceChildren();
+ if(shareGrid)shareGrid.replaceChildren();
+ if(attendanceHold)attendanceHold.hidden=true;
+ if(String(selected)!==shareSelection){
+  shareSelection=String(selected);shareExpanded=false;
+ }
  if(!record){status.textContent='No source-verified historical profile for this player.';return}
  const skater=record.segments?.find(s=>s.kind==='skater');
  const goalie=record.segments?.find(s=>s.kind==='goalie');
  rankContext={id:String(selected),role:skater?'skater':goalie?'goalie':null};
+ const historical=window.BraveBioAllTimeShares;
+ shareResult=rankContext.role?historical?.analyzePlayer(sources.career,String(selected),rankContext.role):null;
+ if(shareResult?.status==='SOURCE_CALCULATED'){
+  drawShares();
+  if(shareSource)shareSource.textContent=
+   formatCount(shareResult.archiveSize)+' HTO profiles checked · '+
+   new Date(shareResult.sourceAsOf).toLocaleDateString('en-CA',{year:'numeric',month:'short',day:'numeric',timeZone:'America/Toronto'})+
+   ' · reported totals only.';
+ }else{
+  if(showMore)showMore.hidden=true;
+  if(shareSource)shareSource.textContent='All-time contributions held: a verified HTO history source is unavailable.';
+ }
  const ranks=window.BraveBioRankEngine;
  const careerAttendance=rankContext.role?ranks?.rankAttendance(sources.attendance,selected,rankContext.role):null;
  const currentAttendance=rankContext.role?ranks?.seasonAttendance(sources.attendance,selected):null;
+ // One source-hold note replaces two duplicated "—" tiles. Never publish
+ // attendance without separately approved, roster-status-aligned source evidence.
  if(currentAttendance?.status==='PROVISIONAL')
   add('Season roster-adjusted attendance',show(currentAttendance.percent,1)+'%',currentAttendance.gp+' / '+currentAttendance.eligible+' eligible games · provisional');
- else add('Season roster-adjusted attendance','—','Awaiting current source alignment');
- if(careerAttendance?.percent!=null){
+ if(careerAttendance?.percent!=null)
   add('Career roster-adjusted attendance',show(careerAttendance.percent,1)+'%',careerAttendance.gp+' / '+careerAttendance.eligible+' eligible games',careerAttendance.status==='QUALIFIED'?careerAttendance:null);
- }else add('Career roster-adjusted attendance','—','Workbook source parity held');
- const sourceDate=(sources.career.capturedAt||'').slice(0,10);
- status.textContent='HTO archive '+sourceDate+' · career and current snapshots may differ.';
+ if(attendanceHold){
+  attendanceHold.hidden=currentAttendance?.status==='PROVISIONAL'&&careerAttendance?.percent!=null;
+  attendanceHold.textContent='Roster-adjusted attendance · Source pending approval';
+ }
+ // Historical snapshot date already appears above with the all-time share cards.
+ // Do not repeat source disclaimers below every statistical section.
+ status.textContent='';status.hidden=true;
  if(skater){
-  const t=skater.total||{},g=t.G,a=t.A,p=t.Pts,gp=t.GP;
-  if(number(g)&&number(p)&&p>0)add('Goal share of points',show(per(g,p,100),1)+'%','Recorded G / PTS');
-  if(number(a)&&number(p)&&p>0)add('Assist share of points',show(per(a,p,100),1)+'%','Recorded A / PTS');
-  if(number(t.PPG)&&number(g)&&g>0)add('Power-play goal share',show(per(t.PPG,g,100),1)+'%','PPG is power-play goals');
-  if(number(t.SHG)&&number(g)&&g>0)add('Short-handed goal share',show(per(t.SHG,g,100),1)+'%','SHG / all goals');
+  const t=skater.total||{},gp=t.GP;
   eventPct('Game-winning goals / GP',t.GWG,gp,'GWG');
   eventPct('Game-tying goals / GP',t.GTG,gp,'GTG');
   eventPct('Player of Game / GP',t.POTG,gp,'POTG');
   if(number(t.PIM)&&number(gp)&&gp>0)add('Penalty minutes / GP',show(per(t.PIM,gp)),'Recorded PIM');
-  if(number(t.HAT))add('Career hat tricks',String(t.HAT),'Recorded actual');
-  const complete=(skater.seasons||[]).filter(s=>s.Season!==currentSeason()).map(normalizedRate).filter(Boolean);
+  const active=currentSeason();
+  const complete=active?(skater.seasons||[]).filter(s=>s.Season!==active).map(normalizedRate).filter(Boolean):[];
   if(complete.length){
-   add('Completed-career P/GP',show(weightedRate(complete)),'Winter-equivalent · '+complete.length+' seasons');
-   const recent=complete.slice(-3),prior=complete.slice(-6,-3);
-   if(recent.length===3)add('Last 3 season P/GP',show(weightedRate(recent)),'GP-weighted Winter equivalent');
-   const r=weightedRate(recent),b=weightedRate(prior);
-   if(number(r)&&number(b)&&b>0&&prior.length===3)add('Recent vs previous 3',((r/b-1)*100).toFixed(1)+'%','Same Winter-equivalent basis');
    const qualified=complete.filter(s=>s.gp>=5),mean=weightedRate(qualified);
    if(qualified.length>=4&&number(mean)){
     const variance=qualified.reduce((n,s)=>n+s.gp*(s.pointsWinter/s.gp-mean)**2,0)/qualified.reduce((n,s)=>n+s.gp,0);
@@ -110,16 +178,14 @@ function render(){
   }
  }else if(goalie){
   const t=goalie.total||{},gp=t.GP;
-  if(number(t.W))add('Career wins',String(t.W),'HTO recorded');
-  if(number(t.L))add('Career losses',String(t.L),'HTO recorded');
-  if(number(t.T))add('Career ties',String(t.T),'HTO recorded');
-  if(number(t.SHO))add('Career shutouts',String(t.SHO),'HTO recorded');
   if(number(t.GA)&&number(gp)&&gp>0)add('Recorded GA / appearance',show(per(t.GA,gp)),'Historical GA and actual GP');
+  eventPct('Shutouts / GP',t.SHO,gp,'SHO');
   eventPct('Player of Game / GP',t.POTG,gp,'POTG');
   if(number(t.PIM)&&number(gp)&&gp>0)add('Penalty minutes / GP',show(per(t.PIM,gp)),'Recorded goalie PIM');
-  status.textContent+=' · Save % and shots omitted: source reliability not established.';
+  status.hidden=false;
+  status.textContent='Shots and save % held: source unverified.';
  }
- if(!grid.children.length)status.textContent='Held: source does not verify any of these additional indicators.';
+ if(!grid.children.length){status.hidden=false;status.textContent='Rates held: no verified career metric.';}
 }
 render();
 document.getElementById('playerChoice')?.addEventListener('change',render);

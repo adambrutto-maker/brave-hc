@@ -71,8 +71,8 @@ const server=http.createServer((req,res)=>{
     const ranks=await page.locator('#bioExtendedMetrics .bio-extended-rank').count();
     assert.ok(ranks>=1,'Qualified historical advanced rate has a rank chip');
     const rosterCareer=page.locator('#bioExtendedMetrics .bio-extended-stat').filter({hasText:'Career roster-adjusted attendance'});
-    assert.equal(await rosterCareer.locator('.bio-extended-value').innerText(),'—','Unreleased private attendance held');
-    assert.equal(await rosterCareer.locator('.bio-extended-rank').count(),0);
+    assert.equal(await rosterCareer.count(),0,'Unreleased private attendance is a concise hold note, not a placeholder card');
+    assert.equal(await page.locator('#bioAttendanceHold').isVisible(),true,'Source-held attendance never published');
     await page.locator('[data-bio-view="coaching"]').click();
     assert.equal(await page.locator('#bioOpponentSection').isVisible(),true);
     assert.equal(await page.locator('#bioTacticBoard [data-marker]').count(),8);
