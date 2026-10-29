@@ -55,6 +55,11 @@ const server=http.createServer((req,res)=>{
      const p=arrow?.querySelector('path.v36-arrow-shape');
      const elt=b?.querySelector('.v36-element');
      const br=b.getBoundingClientRect(),ar=arrow.getBoundingClientRect(),e=elt?.getBoundingClientRect();
+     const copy=host.querySelector('.bio-trend-copy');
+     const cr=document.querySelector('#bioCareerModelStrip');
+     const crRect=cr?.getBoundingClientRect(),metricRect=cr?.lastElementChild?.getBoundingClientRect();
+     const labelRect=cr?.firstElementChild?.getBoundingClientRect();
+     const copyRect=copy.getBoundingClientRect();
      const mat=p.getScreenCTM();
      const tip=new DOMPoint(50,29).matrixTransform(mat);
      const ctr=new DOMPoint(50,50).matrixTransform(mat);
@@ -73,11 +78,25 @@ const server=http.createServer((req,res)=>{
       hasCorner:!!e,cornerContained:!e||e.left>=br.left-.5&&e.top>=br.top-.5&&e.right<=br.right+.5&&e.bottom<=br.bottom+.5,
       background:getComputedStyle(b).backgroundImage,
       motion:anim?getComputedStyle(anim).animationName:null,
+      badgeLeft:br.left,badgeRight:br.right,copyRight:copyRect.right,
+      hostRight:host.getBoundingClientRect().right,copyAlign:getComputedStyle(copy).textAlign,
+      careerVisible:!!cr&&!cr.hidden,careerMetricBorder:cr?getComputedStyle(cr.lastElementChild).borderTopWidth:null,
+      careerMetricLeft:metricRect?.left,careerMetricRight:metricRect?.right,
+      careerLabelRight:labelRect?.right,careerRight:crRect?.right,
       overflow:document.documentElement.scrollWidth>innerWidth+1,
       shape:p.getAttribute('d'),html:host.innerText.slice(0,105)
      };
     });
     assert.equal(o.overflow,false,'no horizontal overflow '+width);
+    assert.ok(o.badgeLeft>=o.copyRight+1,'V3.6.1 badge must appear to the right of the copy at '+width);
+    assert.ok(o.badgeRight<=o.hostRight+1,'right-side badge contained at '+width);
+    assert.equal(o.copyAlign,'left','trend copy is left aligned at '+width);
+    if(!c.rookie){
+     assert.equal(o.careerVisible,true,'established career benchmark visible');
+     assert.ok(parseFloat(o.careerMetricBorder)>=1,'career benchmark rate in bordered metric tile');
+     assert.ok(o.careerMetricLeft>=o.careerLabelRight+1,'metric tile separate from career label');
+     assert.ok(o.careerMetricRight<=o.careerRight+1,'metric tile inside full career card');
+    }
     assert.match(o.background,/radial-gradient/i,'real production badge must use rich icy or fiery dark backgrounds');
     assert.ok(Math.abs(o.centerX)<.75&&Math.abs(o.centerY)<.75,'exact centered arrow '+width);
     assert.equal(o.cornerContained,true,'corner effects wholly within badge '+width);
