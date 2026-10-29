@@ -30,8 +30,8 @@ const server=http.createServer((req,res)=>{
     await page.route('**/*',r=>new URL(r.request().url()).origin===origin?r.continue():r.abort());
     const response=await page.goto(origin+'/widgets/player-bio-v28-coaching-preview.html?playerID='+playerID+'&embed=1',{waitUntil:'domcontentloaded'});
     assert.equal(response.status(),200,'Preview loaded');
-    await page.locator('#playbookCount').getByText('7 LESSONS').waitFor({timeout:15000});
     await page.locator('[data-bio-view="coaching"]').click();
+    await page.locator('#playbookCount').getByText('7 LESSONS').waitFor({timeout:15000});
     assert.equal(await page.locator('#bioVideoPlaybook').isVisible(),true);
     assert.equal(await page.locator('#playbookList .playbook-card').count(),3);
     const featured=page.locator('#playbookList .playbook-card').first();
