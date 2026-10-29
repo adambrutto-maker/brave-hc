@@ -45,8 +45,10 @@ const server=http.createServer((req,res)=>{
    await m.waitForFunction(()=>document.body.classList.contains('bio-premium-ready'));
    await m.click('#bioTabs button[data-bio-view="trends"]');
    assert.equal(await m.$eval('#bioDevelopmentSection',e=>e.hidden),false);
+   assert.equal(await m.$eval('#bioSpotlight',e=>e.hidden),false,'Historical chart belongs in Trends');
    await m.click('#bioTabs button[data-bio-view="production"]');
-   assert.equal(await m.$eval('#bioSpotlight',e=>e.hidden),false);
+   assert.equal(await m.$eval('#bioSeasonCurrent',e=>e.hidden),false,'Current season under Outlook');
+   await m.click('#bioTabs button[data-bio-view="trends"]');
    await m.click('#bioMoreSeasonFilters summary');
    await m.click('#bioSeasonModes button[data-mode="summer"]');
    assert.ok(await m.$eval('#bioComboChart',e=>e.querySelectorAll('svg').length)>0);
