@@ -101,7 +101,7 @@ jobs:
 
       - name: Reject Game Night modules and private assignments from Bio-only release
         run: |
-          node -e "const fs=require('fs');const blocked=['widgets/game-night-lineup-contract.js','widgets/game-night-lineup-public.json','widgets/game-night-approved-render.json'];const h=fs.readFileSync('widgets/player-bio.html','utf8');if(blocked.some(x=>fs.existsSync(x))||h.includes('src=\\"./game-night-lineup-contract.js\\"')){console.error('Game Night release contamination');process.exit(2)}"
+          node -e "const fs=require('fs');const blocked=['widgets/game-night-lineup-contract.js','widgets/game-night-lineup-public.json','widgets/game-night-approved-render.json'];const h=fs.readFileSync('widgets/player-bio.html','utf8');if(blocked.some(x=>fs.existsSync(x))||h.includes('game-night-lineup-contract.js')){console.error('Game Night release contamination');process.exit(2)}"
       - name: Verify official FT/CU/DI attendance formula and qualified player rankings
         run: node --test tests/test_bio_v31_clean_attendance_rank.cjs
       - name: Verify public attendance data stays held until separately authorized
