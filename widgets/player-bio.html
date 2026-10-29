@@ -39,6 +39,7 @@ a{color:#e6c083}footer{padding:13px 20px;font-size:.75rem;color:#adc5d9}
 <link rel="stylesheet" href="./player-bio-collection.css">
 <link rel="stylesheet" href="./player-bio-season-outlook-v31.css">
 <link rel="stylesheet" href="./player-bio-rink-tactics-v31.css">
+<link rel="stylesheet" href="./player-bio-alltime-share-v33.css">
 <link rel="stylesheet" href="./player-bio-coaching-library-v31.css">
 <script defer src="./player-performance-normalization.js"></script>
 <script defer src="./player-bio-advanced.js?v=3.2"></script>
@@ -48,12 +49,13 @@ a{color:#e6c083}footer{padding:13px 20px;font-size:.75rem;color:#adc5d9}
 <script defer src="./player-bio-rolling-career.js"></script>
 <script defer src="./goalie-projection-model.js"></script>
 <script defer src="./player-bio.js"></script>
-<script defer src="./player-bio-premium.js?v=3.2"></script>
+<script defer src="./player-bio-premium.js?v=3.3"></script>
 <script defer src="./player-bio-current-v31.js"></script>
 <script defer src="./player-bio-coaching-library-v31.js"></script>
 <script defer src="./player-bio-rink-tactics-v31.js"></script>
 <script defer src="./player-bio-attendance-rank-v31.js?v=3.2"></script>
-<script defer src="./player-bio-expanded-analytics-v31.js?v=3.2"></script></head>
+<script defer src="./player-bio-alltime-share-v33.js"></script>
+<script defer src="./player-bio-expanded-analytics-v31.js?v=3.3"></script></head>
 <body><main><article class="shell"><div class="stripe"></div>
 <header><div class="brand brave-outlook-header"><img src="./brave_hc_logo.png" alt="Brave H.C. crest">
 <div><div class="brave-outlook-kicker">BRAVE H.C. · PERFORMANCE LAB</div><h1 class="brave-outlook-title">Player Intelligence</h1>
@@ -172,10 +174,16 @@ a{color:#e6c083}footer{padding:13px 20px;font-size:.75rem;color:#adc5d9}
  <div id="bioDevelopmentGrid" class="bio-analytics-grid"></div>
  <div id="bioDevelopmentChart" class="bio-spark-panel" aria-label="Qualified season progression"></div>
  <p id="bioDevelopmentSource" class="bio-source-line"></p>
- <details id="bioExtendedAnalytics" class="bio-evidence" aria-label="Additional verified advanced career analytics">
- <summary>More advanced analytics · scoring and consistency</summary>
+ <details id="bioExtendedAnalytics" class="bio-evidence" aria-label="Verified all-time contributions and advanced career rates">
+ <summary>Braves all-time contributions &amp; advanced rates</summary>
+ <div class="bio-v33-heading"><strong>Braves All-Time Contributions</strong><span>Share of published career totals</span></div>
+ <div id="bioHistoricalShareGrid" class="bio-v33-grid" aria-live="polite"></div>
+ <button id="bioSharesMore" type="button" class="bio-v33-more" aria-expanded="false" hidden>All categories</button>
+ <p id="bioShareSource" class="bio-v33-source">Checking the official historical archive.</p>
+ <div class="bio-v33-heading bio-v33-rate-heading"><strong>Performance rates &amp; context</strong><span>Career comparisons</span></div>
  <div id="bioExtendedMetrics" class="bio-extended-grid" aria-live="polite"></div>
- <p class="bio-soft-note" id="bioRankCriteria">Ranks: skaters 10+ GP · goalies 8+ GP. Scoring shares require 5+ PTS or 3+ goals.</p>
+ <p class="bio-soft-note" id="bioRankCriteria">All-time: reported historical values · Rate ranks: skaters 10+ GP, goalies 8+ GP.</p>
+ <p id="bioAttendanceHold" class="bio-v33-attendance" hidden>Roster-adjusted attendance · Awaiting approved source.</p>
  <p id="bioExtendedStatus" class="bio-soft-note">Loading separately sourced HTO analytics…</p>
  <p class="bio-soft-note">Actual historical records remain unchanged. Only verified season formats are normalized; missing components are omitted.</p>
 </details>
