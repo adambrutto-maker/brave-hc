@@ -1,0 +1,57 @@
+/* HockeyOS Bio V3.6.1 — approved final Season Outlook presentation only.
+   Protect the workbook's 5-category model, per-player sigma angles and V3.6 animation. */
+
+/* The career benchmark is a full-width card with its own bordered metric tile,
+   consistent with Current Season and Projected Current Season figures. */
+.bio-studio #bioCareerModelStrip.bio-career-model-strip{
+  display:flex;align-items:center;justify-content:space-between;gap:10px;
+  margin:0 0 11px;padding:10px 11px;
+  border:1px solid #66849a;border-top:3px solid #d9b77d;border-radius:10px;
+  background:linear-gradient(155deg,#203b51,#122a40);
+}
+.bio-studio #bioCareerModelStrip>div:first-child{
+  display:flex;flex:1 1 0;flex-direction:column;gap:4px;min-width:0;
+}
+.bio-studio #bioCareerModelStrip>div:first-child>strong{
+  color:#f5d19b;font-size:11px;font-weight:900;letter-spacing:.55px;
+}
+.bio-studio #bioCareerModelStrip>div:first-child>span{
+  color:#c8deed;font-size:10px;line-height:1.4;overflow-wrap:break-word;
+}
+.bio-studio #bioCareerModelStrip>div:last-child{
+  display:flex;flex:0 0 101px;flex-direction:column;align-items:center;
+  justify-content:center;gap:4px;min-width:0;min-height:67px;padding:7px 4px;
+  border:1px solid #45647d;border-radius:7px;background:#122b43;text-align:center;
+}
+.bio-studio #bioCareerModelStrip>div:last-child>#bioCareerModelRate{
+  display:block;color:#fff2d2;font-size:24px;font-weight:900;
+  line-height:1.14;font-variant-numeric:tabular-nums;
+}
+.bio-studio #bioCareerModelStrip>div:last-child>span{
+  color:#b9cde0;font-size:9px;font-weight:800;line-height:1.15;
+}
+
+/* The dynamic badge stays physically on the RIGHT, without touching the
+   arrow artwork, model classifications, animations or screen-reader labels. */
+.bio-career-arrow-panel #bioProjectionTrend.bio-trend-summary{
+  display:flex;flex-direction:row-reverse;align-items:center;
+  justify-content:space-between;gap:12px;min-width:0;width:100%;
+}
+.bio-career-arrow-panel #bioProjectionTrend .bio-trend-copy{
+  display:flex;flex:1 1 0;flex-direction:column;align-items:flex-start;
+  min-width:0;gap:4px;text-align:left;overflow-wrap:anywhere;
+}
+.bio-career-arrow-panel #bioProjectionTrend .bio-trend-copy>*{
+  text-align:left;
+}
+.bio-career-arrow-panel #bioProjectionTrend .bio-trend-arrow-inset.v36-badge{
+  margin:0;flex-shrink:0;
+}
+@media(max-width:350px){
+  .bio-studio #bioCareerModelStrip.bio-career-model-strip{gap:7px;padding:8px}
+  .bio-studio #bioCareerModelStrip>div:last-child{
+    flex-basis:84px;min-height:63px;padding:6px 2px;
+  }
+  .bio-studio #bioCareerModelStrip>div:last-child>#bioCareerModelRate{font-size:21px}
+  .bio-career-arrow-panel #bioProjectionTrend.bio-trend-summary{gap:7px}
+}
