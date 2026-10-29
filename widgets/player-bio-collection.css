@@ -303,3 +303,125 @@ body{font-family:Arial,"Helvetica Neue",sans-serif;color:#eef4fb}
 .bio-chart-benchmark-detail{margin-top:4px;line-height:1.45}
 .bio-trend-summary[data-trend-state="ROOKIE"]{border-left-color:#cad6e0}
 .bio-trend-summary[data-trend-state="ROOKIE"] .bio-trend-main{color:#fff}
+
+/* V2.7 — Milestones-level legibility: source-earned chart labels and projected
+ * full-season card, visually distinct from actual season-to-date production. */
+.bio-studio .bio-rate-toolbar{margin-bottom:4px}
+.bio-line-chip{width:18px;height:0;display:inline-block;vertical-align:middle;
+ border-top:3px solid var(--line-color);margin-right:5px;position:relative;top:-1px}
+.bio-line-chip.actual{--line-color:#6de1ff}
+.bio-line-chip.winter{--line-color:#54ead2;border-top-style:dashed}
+.bio-line-chip.summer{--line-color:#caa4ff;border-top-style:dotted}
+#bioRateModes{display:flex;flex-wrap:wrap;gap:5px}
+#bioRateModes button{white-space:nowrap;display:inline-flex;align-items:center;
+ justify-content:center;min-height:35px}
+.bio-compare-toolbar{display:flex;align-items:center;justify-content:space-between;
+ gap:8px;margin:3px 0 6px;flex-wrap:wrap}
+#bioOverlayModes{color:#b4e4f1;background:#143951;border:1px solid #46758b;
+ border-radius:18px;min-height:30px;padding:5px 10px;font-size:10px;
+ font-weight:850;cursor:pointer}
+#bioOverlayModes[aria-pressed="true"]{color:#fff;border-color:#caad77;
+ background:#564b36}
+#bioOverlayHint{font-size:10px;color:#adbfcd}
+.bio-overlay-legend{display:inline-flex;flex-wrap:wrap;gap:8px;margin:0}
+.bio-overlay-legend[hidden]{display:none!important}
+.bio-overlay-key{font-size:10px;color:#dceaf4;font-weight:650;
+ display:inline-flex;align-items:center;gap:4px}
+.bio-overlay-key:before{content:"";width:18px;display:inline-block;
+ border-top:3px solid var(--key-color);height:0}
+.bio-overlay-key[data-active="false"]{opacity:.85}
+.bio-studio #bioComboChart svg{display:block;width:100%;height:auto}
+.bio-studio #bioSpotlight .bio-legend{gap:7px 12px;align-items:center}
+.bio-studio #bioProjectionSection{padding:10px 0 12px!important}
+.bio-projection-hero{background:linear-gradient(150deg,#1c3d59,#0e293f);
+ border:1px solid #b68f59;border-top:4px solid #e0bb7c;border-radius:13px;
+ padding:13px;box-shadow:inset 0 1px 0 #ffffff15,0 6px 15px #00000022}
+.bio-projection-headline-row{display:flex;align-items:start;
+ justify-content:space-between;gap:10px;margin-bottom:12px}
+.bio-forecast-kicker{font-size:10px;font-weight:900;letter-spacing:1.1px;color:#f6d392}
+.bio-projection-hero .bio-title{font-size:19px!important;margin:4px 0!important}
+.bio-forecast-desc{color:#c5d8e8;font-size:11px;line-height:1.4;margin:3px 0 0}
+.bio-forecast-badge{display:inline-block;flex-shrink:0;border-radius:16px;
+ background:#443e36;border:1px solid #ad9165;padding:5px 8px;
+ font-size:9px;font-weight:850;letter-spacing:.4px;color:#f4d6a2}
+.bio-forecast-badge[data-provisional="false"]{background:#173e43;border-color:#70aa97;color:#b8ead6}
+.bio-projection-hero .bio-forecast-grid{display:grid;
+ grid-template-columns:repeat(5,minmax(0,1fr));gap:6px;margin:3px 0 11px}
+.bio-projection-hero .bio-metric-icon{min-width:0;display:flex;flex-direction:column;
+ align-items:center;text-align:center;justify-content:center;
+ padding:11px 5px 10px;gap:5px;border:1px solid #6a8197;
+ border-top:3px solid #d7b277;border-radius:10px;
+ background:linear-gradient(160deg,#21415f,#122d47)}
+.bio-metric-icon .bio-stat-icon{width:24px;height:24px;color:#ebc485;flex:0 0 24px}
+.bio-metric-icon .bio-metric-copy{display:flex;flex-direction:column;gap:3px}
+.bio-metric-icon .value{color:#f9e1b4;font-size:clamp(16px,2.6vw,22px);line-height:1.1;font-weight:900}
+.bio-metric-icon .label{color:#d3e3f0;font-size:10px;line-height:1.35}
+.bio-forecast-inline{background:#102a42;border:1px solid #526e84;
+ border-radius:9px;padding:9px 10px 6px}
+.bio-forecast-trend-caption{display:block;color:#e5c28c;font-weight:850;
+ font-size:10px;letter-spacing:.6px;margin:0 0 5px}
+.bio-forecast-inline .bio-trend-summary{border:0;background:transparent;
+ padding:4px 0 2px;min-height:49px}
+.bio-forecast-inline .bio-projection-headline{margin:3px 0 1px;
+ font-size:10px;color:#bed4e5}
+.bio-projection-hero .bio-projection-full{background:#122c43;
+ border:1px solid #45647c;border-radius:7px;margin:9px 0 0}
+.bio-projection-hero .bio-projection-full>summary{min-height:30px;padding:4px 6px}
+.bio-projection-hero .bio-projection-body{padding:8px}
+.bio-studio .bio-analytics-grid .bio-insight-tile{display:grid;grid-template-columns:29px 1fr;
+ align-items:center;gap:2px 8px;padding:11px}
+.bio-insight-tile>.bio-stat-icon{width:26px;height:26px;color:#e6bc80;grid-row:1/4;align-self:center}
+.bio-insight-tile>.bio-insight-value{grid-column:2;font-size:clamp(17px,3vw,24px)}
+.bio-insight-tile>.bio-insight-title,.bio-insight-tile>.bio-insight-description{grid-column:2}
+.bio-insight-tile>.bio-insight-description{font-size:10px}
+.bio-studio #bioAdvancedGrid.one-stat .bio-insight-tile{display:grid;
+ grid-template-columns:30px auto minmax(0,1fr);gap:4px 9px}
+.bio-studio #bioAdvancedGrid.one-stat .bio-insight-tile>.bio-stat-icon{grid-column:1;grid-row:1/3}
+.bio-studio #bioAdvancedGrid.one-stat .bio-insight-tile>.bio-insight-value{grid-column:2;grid-row:1/3}
+.bio-studio #bioAdvancedGrid.one-stat .bio-insight-tile>.bio-insight-title{grid-column:3;grid-row:1}
+.bio-studio #bioAdvancedGrid.one-stat .bio-insight-tile>.bio-insight-description{grid-column:3;grid-row:2}
+.bio-studio #bioDevelopmentGrid .bio-insight-tile{min-height:86px}
+.bio-studio #bioDevelopmentChart svg{min-width:0}
+.bio-studio .bio-coaching-hero{padding:12px;background:linear-gradient(145deg,#1e3b56,#112c44);
+ border:1px solid #476a86;border-top:3px solid #d9b078;border-radius:9px}
+.bio-coaching-kicker{color:#f2c881;font-size:10px;font-weight:900;letter-spacing:1.2px}
+.bio-studio .bio-coaching-hero .bio-title{font-size:20px!important;margin:5px 0!important}
+.bio-coaching-motto{font-size:12px;color:#d1e2ed;line-height:1.48}
+.bio-coaching-roles{padding:12px 0 7px}
+.bio-coaching-header h3{font-size:15px;color:#fff;margin:3px 0}
+.bio-coaching-header p{font-size:11px;color:#b6cbdb;line-height:1.45;margin:4px 0 10px}
+.bio-position-modes{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:5px}
+.bio-position-button{background:#183a54;border:1px solid #5c7891;border-radius:8px;
+ color:#dceaf4;font-weight:900;min-height:40px;cursor:pointer;font-size:12px;padding:6px 2px}
+.bio-position-button.selected,.bio-position-button[aria-pressed="true"]{
+ background:#5a4933;border-color:#e4ba78;color:#fff5df;
+ box-shadow:inset 0 -2px #e5bc7c}
+.bio-position-response{margin:8px 0;background:#102940;border:1px solid #496680;border-radius:8px;padding:12px}
+.bio-role-heading{font-size:15px;color:#f4d396}
+.bio-role-subtitle{display:block;font-size:11px;color:#c5d9e8;line-height:1.4;margin:4px 0}
+.bio-role-guidance-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;margin:10px 0}
+.bio-coach-instruction{min-width:0;padding:9px;background:#1a3a54;border:1px solid #42647e;border-radius:8px}
+.bio-coach-instruction-title{font-size:11px;color:#e6c387;font-weight:850}
+.bio-coach-instruction-body{font-size:11px;line-height:1.5;color:#d6e3ee;margin:6px 0 0}
+.bio-role-cue{font-size:12px;color:#f6d9a5;font-weight:850}
+.bio-coach-source{font-size:10px;line-height:1.45;color:#b3c8d9;margin:7px 0}
+.bio-coach-future{margin:10px 0 0}
+@media(max-width:720px){
+ .bio-projection-hero .bio-forecast-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+ .bio-role-guidance-grid{grid-template-columns:1fr}
+}
+@media(max-width:425px){
+ .bio-projection-headline-row{flex-wrap:wrap}
+ .bio-projection-hero .bio-forecast-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+ .bio-position-modes{grid-template-columns:repeat(3,minmax(0,1fr))}
+ #bioOverlayHint{display:none}
+ .bio-metric-icon .value{font-size:18px}
+}
+
+.bio-assignment-card{margin:9px 0;background:linear-gradient(155deg,#243f52,#122f47);
+ border:1px solid #c1a06f;border-left:4px solid #e4be7d;
+ padding:11px 13px;border-radius:9px;display:flex;flex-direction:column;gap:5px}
+.bio-assignment-card[hidden]{display:none!important}
+.bio-assignment-card strong{font-size:13px;color:#f9e2ae}
+.bio-assignment-card span{font-size:11px;color:#fff}
+.bio-assignment-card small{font-size:10px;color:#bdcfdd;line-height:1.45}

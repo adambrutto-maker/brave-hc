@@ -36,9 +36,9 @@ const server=http.createServer((req,res)=>{
   assert.equal(await j.$eval('#bioOtherMetrics',el=>el.open),false,'secondary stats collapsed');
   assert.equal(await j.$eval('#bioMoreSeasonFilters',el=>el.open),false,'extra season filters collapsed');
   assert.equal(await j.$eval('#bioProjectionTrend',el=>el.dataset.trendState),'Neutral');
-  assert.match(await j.locator('#bioProjectionTrend').innerText(),/Neutral.*-2\.5% vs career/s);
-  assert.match(await j.locator('#bioProjectionHeadline').innerText(),/Provisional/);
-  assert.match(await j.locator('#bioProjectionHeadline').innerText(),/24 projected points/);
+  assert.match(await j.locator('#bioProjectionTrend').innerText(),/Neutral.*-2\.5%.*Projected season-finish trend vs career/s);
+  assert.match(await j.locator('#bioProjectionHeadline').innerText(),/source reconciliation pending/i);
+  assert.equal(await j.locator('#bioProjectionCards .bio-metric').nth(3).locator('.value').innerText(),'24');
   const arrow=await j.locator('#bioProjectionTrend .bio-trend-direction-arrow');
   assert.equal(await arrow.count(),1,'one polished arrow and no gauge');
   assert.equal(await j.locator('#bioProjectionTrend .bio-trend-gauge').count(),0,'no gauge');
@@ -48,7 +48,7 @@ const server=http.createServer((req,res)=>{
   assert.ok(z<0,'workbook trend is below zero even when class is Neutral');
   assert.equal(await j.$eval('#bioProjectionTrend',e=>e.dataset.trendDirection),'BELOW');
   assert.equal(await j.locator('#bioTabs button').count(),3,'three main tabs');
-  assert.equal(await j.locator('#bioRateModes button[data-mode="actual"]').innerText(),'All');
+  assert.equal(await j.locator('#bioRateModes button[data-mode="actual"]').innerText(),'All · actual');
   assert.equal(await j.locator('#bioSeasonModes button[data-mode="all"]').innerText(),'Career');
   assert.equal(await j.locator('#bioProjectionSummarySlot').isVisible(),true);
   const rAvg=await j.locator('#bioComboChart [data-series="rolling-prior-career-average"]').count();
@@ -76,7 +76,8 @@ const server=http.createServer((req,res)=>{
   assert.equal(await j.locator('#bioComboChart [data-series="fixed-career-average"]').count(),1,
     'retrospective career benchmark is a horizontal fixed line');
   await j.click('#bioCareerComparisonModes button[data-mode="off"]');
-  assert.equal(await j.locator('#bioComboChart [data-series]').count(),0,'baseline off');
+  assert.equal(await j.locator('#bioComboChart [data-series="rolling-prior-career-average"],[data-series="fixed-career-average"]').count(),0,'career baseline off');
+  assert.equal(await j.locator('#bioComboChart [data-series="selected-points-per-game"]').count(),1,'the selected P/GP line remains');
   await j.click('#bioCareerComparisonModes button[data-mode="rolling"]');
   assert.ok(await j.locator('#bioComboChart [data-series="rolling-prior-career-average"]').count()>0);
 
@@ -94,13 +95,14 @@ const server=http.createServer((req,res)=>{
   assert.match(await j.locator('#bioMoreSeasonFilters summary').textContent(),/Summer only/);
   await j.click('#bioSeasonModes button[data-mode="recent"]');
   assert.equal(await j.locator('#bioMoreSeasonFilters summary').textContent(),'More');
+  assert.equal(await j.locator('#bioProjectionCards .bio-metric-icon:visible').count(),5);
   await j.locator('#bioProjectionFull summary').click();
   assert.equal(await j.locator('#bioProjectionCards .bio-metric:visible').count(),5);
   assert.equal(await j.locator('#bioProjectionCards .bio-metric').first().locator('.value').innerText(),
     '22.6','projected GP exactly 1 decimal');
   assert.equal(await j.locator('#bioProjectionCards .bio-metric').nth(4).locator('.value').innerText(),
     '1.06','projected P/GP exactly 2 decimals');
-  assert.match(await j.locator('#bioProjectionHeadline').innerText(),/1\.06 projected P\/GP/);
+  assert.match(await j.locator('#bioProjectionHeadline').innerText(),/Full regular-season projection/);
   const projectionDetail=await j.locator('#bioProjectionTrendDetail').textContent();
   assert.match(projectionDetail,/Historical career regular-season scoring rate 1\.14 P\/GP/);
   assert.match(projectionDetail,/projected scoring-rate component 1\.11 P\/GP/);

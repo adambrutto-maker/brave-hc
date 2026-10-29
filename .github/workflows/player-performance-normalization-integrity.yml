@@ -11,6 +11,18 @@ on:
       - 'tests/test_player_performance_normalization.cjs'
       - 'widgets/player-bio.html'
       - 'widgets/player-bio-premium.js'
+      - 'widgets/player-bio-coaching-roles.js'
+      - 'widgets/player-bio-positive-streaks.js'
+      - 'widgets/game-night-lineup-contract.js'
+      - 'widgets/game-night-lineup-public.json'
+      - 'widgets/game-night-approved-render.json'
+      - 'widgets/countdown-lineup-review.html'
+      - 'widgets/countdown-lineup-review.js'
+      - 'tests/test_player_bio_v27_browser.cjs'
+      - 'tests/test_player_bio_coaching_roles.cjs'
+      - 'tests/test_player_bio_positive_streaks.cjs'
+      - 'tests/test_player_bio_game_night_assignment_browser.cjs'
+      - 'tests/test_countdown_lineup_review_browser.cjs'
       - 'widgets/player-bio-premium.css'
       - 'widgets/player-bio-collection.css'
       - 'widgets/player-bio-advanced.js'
@@ -61,6 +73,10 @@ jobs:
       - name: Check premium Bio JavaScript and goalie forecast module syntax
         run: |
           node --check widgets/player-bio-premium.js
+          node --check widgets/player-bio-coaching-roles.js
+          node --check widgets/player-bio-positive-streaks.js
+          node --check widgets/game-night-lineup-contract.js
+          node --check widgets/countdown-lineup-review.js
           node --check widgets/player-bio-advanced.js
           node --check widgets/player-bio-projection-trend.js
           node --check widgets/player-bio-rolling-career.js
@@ -80,10 +96,18 @@ jobs:
         run: node --test tests/test_player_bio_projection_trend.cjs tests/test_player_bio_season_titles.cjs
       - name: Verify rolling career baseline uses past-only source-valid games on selected time basis
         run: node --test tests/test_player_bio_rolling_career.cjs
+      - name: Verify position-only coaching and source-held personal streaks
+        run: node --test tests/test_player_bio_coaching_roles.cjs tests/test_player_bio_positive_streaks.cjs
       - name: Install isolated Playwright test dependency
         run: npm install --no-package-lock --no-save playwright
       - name: Install browser for source-independent CI acceptance
         run: npx playwright install --with-deps chromium
+      - name: Test visual Bio V2.7 (chart labels, five-icon forecast, role explorer)
+        run: node tests/test_player_bio_v27_browser.cjs
+      - name: Test source-held approved lineup assignment in player Bio
+        run: node tests/test_player_bio_game_night_assignment_browser.cjs
+      - name: Test original Excel card remains hidden until manager approval
+        run: node tests/test_countdown_lineup_review_browser.cjs
       - name: Test polished player Bio across 109 HTO profiles and responsive viewports
         run: node tests/test_player_bio_premium_browser.cjs
       - name: Test Milestone-style collection, deep analytics, role switching and four mobile/desktop layouts

@@ -65,16 +65,18 @@ const server=http.createServer((req,res)=>{
      if(screens)await page.screenshot({path:path.join(screens,'bio-collection-v2-trends-390.png'),fullPage:true});
      await page.click('#bioTabs button[data-bio-view="coaching"]');
      assert.equal(await page.$eval('#bioOpponentSection',e=>e.hidden),false);
-     assert.equal(await page.locator('#bioOpponentCards .bio-matchup:visible').count(),2);
+     assert.equal(await page.locator('#bioOpponentCards .bio-matchup').count(),0,'not a generic fixture page');
+     assert.equal(await page.locator('#bioPositionModes button').count(),6);
+     await page.click('#bioPositionModes button[data-position="C"]');
+     assert.match(await page.locator('#bioPositionResponse').innerText(),/Center/);
      if(screens)await page.screenshot({path:path.join(screens,'bio-collection-v2-gameplan-390.png'),fullPage:true});
-     await page.click('#bioOpponentMore');
-     assert.equal(await page.locator('#bioOpponentCards .bio-matchup:visible').count(),4);
-     assert.equal(await page.$eval('#bioTeamSystem',e=>e.open),false);
+     assert.equal(await page.$eval('#leadershipSection',e=>e.hidden),true,'leadership stays in Milestones');
+     assert.equal(await page.$eval('#systemSection',e=>e.hidden),true,'no duplicate F1/F2 system block');
      await page.click('#bioTabs button[data-bio-view="production"]');
      assert.equal(await page.$eval('#bioSpotlight',e=>e.hidden),false);
      assert.equal(await page.$eval('#bioOpponentSection',e=>e.hidden),true);
      assert.equal(await page.locator('#bioTabs button[data-bio-view="all"]').count(),0);
-     assert.equal(await page.locator('#bioRateModes button[data-mode="actual"]').innerText(),'All');
+     assert.equal(await page.locator('#bioRateModes button[data-mode="actual"]').innerText(),'All · actual');
      assert.equal(await page.locator('#bioSeasonModes button[data-mode="all"]').innerText(),'Career');
      assert.equal(await page.$eval('#bioProjectionSummarySlot',e=>e.hidden),false);
    }

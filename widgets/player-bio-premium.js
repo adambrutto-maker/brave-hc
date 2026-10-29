@@ -14,13 +14,13 @@ const date=x=>{const n=Date.parse(x||'');return Number.isFinite(n)?new Date(n).t
 const build=(tag,text,klass)=>{const n=document.createElement(tag);if(klass)n.className=klass;if(text!==undefined)n.textContent=String(text);return n;};
 const svg=(tag,attrs={},text)=>{const n=document.createElementNS(NS,tag);for(const [k,v] of Object.entries(attrs))n.setAttribute(k,String(v));if(text!==undefined)n.textContent=String(text);return n;};
 const honestSource=x=>x&&typeof x==='object';
-const state={active:'production',rate:'actual',filter:'recent',baseline:'rolling',player:null,renderCount:0,analysis:null};
+const state={active:'production',rate:'actual',filter:'recent',baseline:'rolling',compare:false,coachingPosition:null,player:null,renderCount:0,analysis:null};
 let sources={};
 const getJSON=async path=>{const timeout=new AbortController();const timer=setTimeout(()=>timeout.abort(),8000);
   try{const r=await fetch('./'+path,{cache:'no-store',signal:timeout.signal});if(!r.ok)throw Error('unavailable');return await r.json();}
   finally{clearTimeout(timer);}
 };
-const fetches=Promise.allSettled(['player-career-insights.json','projection.json','league-game-formats.json','player-actuals.json','goalie-roster.json','opponent-intelligence.json','goalie-projection-verified-inputs.json','svhl-upcoming.json','player-bio-season-titles.json'].map(getJSON));
+const fetches=Promise.allSettled(['player-career-insights.json','projection.json','league-game-formats.json','player-actuals.json','goalie-roster.json','opponent-intelligence.json','goalie-projection-verified-inputs.json','svhl-upcoming.json','player-bio-season-titles.json','game-night-lineup-public.json','countdown.json'].map(getJSON));
 const playerID=()=>String($('playerChoice')?.value||new URLSearchParams(location.search).get('playerID')||'');
 const identity=id=>window.BravePlayerLinks?.identityById(Number(id))||null;
 const profileIdFromName=name=>{
@@ -28,12 +28,37 @@ const profileIdFromName=name=>{
   if(!href)return null;
   try{return new URL(href).searchParams.get('playerID');}catch{return null;}
 };
-function setMetrics(el,values){
+// Self-contained SVG icons use a shared visual system with milestone cards.
+const metricIcon=kind=>{
+  const el=svg('svg',{viewBox:'0 0 24 24',class:'bio-stat-icon',
+    fill:'none',stroke:'currentColor','stroke-width':1.75,'stroke-linecap':'round',
+    'stroke-linejoin':'round','aria-hidden':'true'});
+  const draw=(tag,attrs)=>el.append(svg(tag,attrs));
+  if(/GP|appearances|starts/i.test(kind)){
+    draw('rect',{x:3,y:5,width:18,height:16,rx:2});
+    draw('path',{d:'M7 3V7M17 3V7M3 10H21M8 15H10M14 15H16'});
+  }else if(/^Projected G$|Goal scoring/i.test(kind)){
+    for(const r of [9,5,1.8])draw('circle',{cx:12,cy:12,r});
+  }else if(/Projected A|Assists/i.test(kind)){
+    draw('circle',{cx:6,cy:15,r:2.5});draw('circle',{cx:18,cy:7,r:2.5});
+    draw('path',{d:'M8.6 14L15.3 8.2M11.9 6H15.5V10'});
+  }else if(/PTS|point/i.test(kind)&&!/Pts\/GP/i.test(kind)){
+    draw('path',{d:'M12 2L15 9L22 9L16.5 13.5L18.5 21L12 17L5.5 21L7.5 13.5L2 9L9 9Z'});
+  }else if(/Pts\/GP|rate|GA\/game/i.test(kind)){
+    draw('path',{d:'M3 20H21M4 16L10 10L14 13L20 5M16 5H20V9'});
+  }else{
+    draw('circle',{cx:12,cy:12,r:9});draw('path',{d:'M12 7V12L16 15'});
+  }
+  return el;
+};
+function setMetrics(el,values,iconic=false){
   el.replaceChildren();
   for(const [label,value] of values){
-    const item=build('div',undefined,'bio-metric');
-    item.append(build('div',value,'value'),build('div',label,'label'));
-    el.append(item);
+    const item=build('article',undefined,iconic?'bio-metric bio-metric-icon':'bio-metric');
+    if(iconic)item.append(metricIcon(label));
+    const copy=build('div',undefined,iconic?'bio-metric-copy':'bio-metric-plain');
+    copy.append(build('div',value,'value'),build('div',label,'label'));
+    item.append(copy);el.append(item);
   }
 }
 function sourceLabel(text){$('bioModelContext').textContent=text;}
@@ -41,7 +66,7 @@ function renderView(){
   const sections={
     production:['bioSpotlight','bioAdvancedSection','bioProjectionSection','bioGoalieSection'],
     trends:['bioDevelopmentSection'],
-    coaching:['bioOpponentSection','leadershipSection','systemSection']
+    coaching:['bioOpponentSection']
   };
   const visible=sections[state.active]||[];
   const bar=$('bioTabs');
@@ -63,8 +88,7 @@ function renderView(){
 }
 function setupTabs(){
   const studio=$('bioStudio');
-  // Preserve published HTO leadership/system content but place it inside one Milestone-style collection.
-  studio.append($('leadershipSection'),$('systemSection'));
+  // Leadership remains in the authoritative Milestones collection, never repeated in Bio Coaching.
   const bar=$('bioTabs');
   bar.addEventListener('click',event=>{
     const btn=event.target.closest('button[data-bio-view]');
@@ -80,6 +104,21 @@ function setupTabs(){
     if(event.key==='Home')index=0;else if(event.key==='End')index=buttons.length-1;
     else index=(index+(event.key==='ArrowRight'?1:-1)+buttons.length)%buttons.length;
     buttons[index].focus();buttons[index].click();
+  });
+  $('bioPositionModes').addEventListener('click',event=>{
+    const btn=event.target.closest('button[data-position]');
+    if(!btn)return;
+    const role=btn.dataset.position;
+    if(!window.HockeyOSBioCoachingRoles?.positions[role])return;
+    state.coachingPosition=role;
+    renderCoachingPosition();
+  });
+  $('bioOverlayModes').addEventListener('click',()=>{
+    state.compare=!state.compare;
+    $('bioOverlayModes').setAttribute('aria-pressed',String(state.compare));
+    $('bioOverlayHint').textContent=state.compare?'All source-qualified P/GP lines, shared right axis':
+      'One line selected · additional formats optional';
+    renderChart();
   });
   $('bioCareerComparisonModes').addEventListener('click',event=>{
     const button=event.target.closest('button[data-mode]');
@@ -112,18 +151,19 @@ function setupTabs(){
     });
   }
 }
-function historicalRate(row){
+function historicalRateFor(row,basis){
   if(!num(row.GP)||row.GP<=0||![row.G,row.A,row.Pts].every(num)||Math.abs(row.G+row.A-row.Pts)>1e-9)return null;
-  if(state.rate==='actual')return row.Pts/row.GP;
+  if(basis==='actual')return row.Pts/row.GP;
   const config=sources.formats;
   const normal=window.HockeyOSPerformanceNormalization;
   if(config?.schema!==normal?.SCHEMA)return null;
   // Native HTO archive season rows combine game types. No rate until source and scope are reconciled.
-  const target=state.rate==='winter'?'brave-winter-32':'brave-summer-48';
+  const target=basis==='winter'?'brave-winter-32':'brave-summer-48';
   const result=normal.normalizeHistorical(row,config,{role:'skater',
     seasonKey:row.Season,gameType:'ALL_HTO_GAME_TYPES',targetFormatId:target});
   return result.status==='VERIFIED_EQUIVALENT'?result.equivalent.pointsPerGame:null;
 }
+function historicalRate(row){return historicalRateFor(row,state.rate);}
 function seasonMatches(row){
   return ['recent','all'].includes(state.filter)||
      String(row.Season||'').toLowerCase().startsWith(state.filter);
@@ -219,6 +259,9 @@ function renderChart(){
     return;
   }
   const rates=rows.map(historicalRate);
+  const otherModes=['actual','winter','summer'].filter(mode=>mode!==state.rate);
+  const overlays=state.compare?Object.fromEntries(otherModes.map(mode=>
+    [mode,rows.map(row=>historicalRateFor(row,mode))])):{};
   const career=window.HockeyOSBioRollingCareer?.calculate(
     seg?.seasons||[],sources.formats,state.rate);
   const bySeason=new Map(career?.status==='SOURCE_CALCULATED'?
@@ -231,7 +274,8 @@ function renderChart(){
   $('bioCareerComparisonLegendLabel').textContent=state.baseline==='fixed'?
     'Full-career P/GP (retrospective)':'Rolling prior-career P/GP';
   const high=Math.max(1,...rows.filter(r=>num(r.G)&&num(r.A)).map(r=>r.G+r.A));
-  const maxRate=Math.max(.25,...rates.filter(num),...benchmarks.filter(num));
+  const maxRate=Math.max(.25,...rates.filter(num),...benchmarks.filter(num),
+    ...Object.values(overlays).flat().filter(num));
   const maxG=Math.ceil(high*1.12),maxR=Math.max(.5,maxRate*1.18);
   const compact=window.innerWidth<=480;
   const width=compact?365:850,height=compact?248:300;
@@ -258,6 +302,13 @@ function renderChart(){
     'font-weight':750,'text-anchor':'end'},'Pts/GP'));
   const barW=Math.max(compact?9:7,Math.min(compact?20:25,plotW/rows.length*.62));
   const marks=[];
+  const modeColors={actual:'#6de1ff',winter:'#54ead2',summer:'#caa4ff'};
+  const primaryColor=modeColors[state.rate];
+  // Historical season labels are colored against a VERIFIED prior-career
+  // benchmark only. This is not the separate workbook projection hot/cold arrow.
+  const seasonBand=(rate,benchmark)=>!num(rate)||!num(benchmark)?'unknown':
+    rate>benchmark+.005?'above':rate<benchmark-.005?'below':'at';
+  const bandLabelColor={above:'#ff748a',below:'#74baff',at:'#eaf4fd',unknown:'#eaf4fd'};
   function addInteractive(node,i,rate){
     node.setAttribute('data-bio-point',String(i));node.setAttribute('tabindex','0');
     node.setAttribute('role','button');node.setAttribute('aria-label',
@@ -268,9 +319,17 @@ function renderChart(){
     return node;
   }
   let segment=[];
-  function flush(){if(segment.length>1)picture.append(svg('polyline',{
-    points:segment.map(p=>p.join(',')).join(' '),fill:'none',stroke:'#a8d9ea','stroke-width':3.3,
-    'stroke-linejoin':'round','stroke-linecap':'round'}));segment=[];}
+  function flush(){
+    if(segment.length>1)picture.append(svg('polyline',{
+      points:segment.map(p=>p.join(',')).join(' '),fill:'none',stroke:primaryColor,
+      'stroke-width':3.7,'stroke-linejoin':'round','stroke-linecap':'round',
+      'data-series':'selected-points-per-game','data-selected-basis':state.rate}));
+    segment=[];
+  }
+  const labelStroke={'paint-order':'stroke',stroke:'#0a263d','stroke-width':3,
+    'stroke-linejoin':'round'};
+  const barLabels=rows.length<=12;
+  const barLabelY=new Map();
   rows.forEach((row,i)=>{
     const xc=x(i),rate=rates[i];
     if(num(row.G)&&num(row.A)){
@@ -280,6 +339,25 @@ function renderChart(){
       const assist=svg('rect',{x:xc-barW/2,y:total,width:barW,
         height:Math.max(.1,gy-total),fill:'#d8b36c',rx:1});
       picture.append(addInteractive(goal,i,rate),addInteractive(assist,i,rate));
+      if(barLabels){
+        const font=compact?9.3:11;
+        const positions=[];
+        if(row.G>0){
+          const gY=baseline-gy>=14?(baseline+gy)/2+3:baseline-6;
+          picture.append(svg('text',{x:xc,y:gY,'text-anchor':'middle',
+            'font-size':font,'font-weight':850,fill:'#fff7fa',
+            'data-bar-label':'G','data-season':row.Season,...labelStroke},String(row.G)));
+          positions.push(gY);
+        }
+        if(row.A>0){
+          const aY=gy-total>=14?(gy+total)/2+3:total-6;
+          picture.append(svg('text',{x:xc,y:aY,'text-anchor':'middle',
+            'font-size':font,'font-weight':850,fill:'#fff9e8',
+            'data-bar-label':'A','data-season':row.Season,...labelStroke},String(row.A)));
+          positions.push(aY);
+        }
+        barLabelY.set(i,positions);
+      }
       if(row.G===0&&row.A===0)picture.append(addInteractive(svg('circle',{cx:xc,cy:baseline-2,r:3.4,fill:'#d9b978'}),i,rate));
     }
     if(num(rate)){segment.push([xc,yRate(rate)]);marks.push({i,xc,yy:yRate(rate),rate});}
@@ -306,6 +384,38 @@ function renderChart(){
       picture.append(group);
     });
   });
+  // Optional multiple rate lines, each with its own color and distinct
+  // stroke pattern on ONE source-qualified points-per-game Y axis. Raw
+  // goals/assists bars remain unmodified.
+  if(state.compare){
+    for(const mode of otherModes){
+      const ratesForMode=overlays[mode]||[],pts=[];
+      const append=()=>{
+        if(pts.length>1)picture.append(svg('polyline',{points:pts.join(' '),
+          fill:'none',stroke:modeColors[mode],'stroke-width':1.9,
+          'stroke-dasharray':mode==='winter'?'6 4':'2 4',
+          'stroke-linecap':'round','stroke-linejoin':'round',
+          'data-series':'comparison-points-per-game','data-comparison-basis':mode}));
+        pts.length=0;
+      };
+      ratesForMode.forEach((value,i)=>{
+        if(num(value)){pts.push(x(i).toFixed(2)+','+yRate(value).toFixed(2));}
+        else append();
+      });
+      append();
+    }
+  }
+  const legend=$('bioOverlayLegend');
+  legend.replaceChildren();legend.hidden=!state.compare;
+  if(state.compare){
+    for(const mode of ['actual','winter','summer']){
+      const key=build('span',mode==='actual'?'Actual P/GP':mode==='winter'?'Winter-eq P/GP':'Summer-eq P/GP',
+        'bio-overlay-key');
+      key.style.setProperty('--key-color',modeColors[mode]);
+      key.dataset.mode=mode;key.dataset.active=String(mode===state.rate);
+      legend.append(key);
+    }
+  }
   // Compare current season P/GP to the rate entering that season, never future
   // seasons. A separate optional full-career line is clearly labelled retrospective.
   if(referenceVisible){
@@ -313,7 +423,7 @@ function renderChart(){
     function addSegment(){
       if(pts.length>=2){
         picture.append(svg('polyline',{points:pts.join(' '),fill:'none',
-          stroke:'#c4dda7','stroke-width':2,'stroke-dasharray':'5 4',
+          stroke:'#e2e9f2','stroke-width':2,'stroke-dasharray':'5 4',
           'stroke-linecap':'round','data-series':state.baseline==='fixed'?'fixed-career-average':'rolling-prior-career-average'}));
         segments.push(pts.length);
       }
@@ -326,7 +436,7 @@ function renderChart(){
         pts.push(xc.toFixed(2)+','+cy.toFixed(2));
         if(pts.length===1){
           picture.append(svg('circle',{cx:xc,cy,r:2.4,
-            fill:'#c4dda7','data-comparison-season':rows[i].Season}));
+            fill:'#e2e9f2','data-comparison-season':rows[i].Season}));
         }
       }else addSegment();
     }
@@ -334,7 +444,35 @@ function renderChart(){
   }
   flush();
   for(const m of marks){
-    picture.append(addInteractive(svg('circle',{cx:m.xc,cy:m.yy,r:4.5,fill:'#a8d9ea',stroke:'#0b233b','stroke-width':1.5}),m.i,m.rate));
+    const band=seasonBand(m.rate,benchmarks[m.i]);
+    picture.append(addInteractive(svg('circle',{cx:m.xc,cy:m.yy,r:4.4,
+      fill:primaryColor,stroke:'#0b233b','stroke-width':1.5,
+      'data-rate-point':state.rate,'data-performance':band}),m.i,m.rate));
+    const show=rows.length<=12||m.i%2===0||m.i===rows.length-1;
+    if(show){
+      const rawRow=rows[m.i],barYs=barLabelY.get(m.i)||[];
+      const candidates=[m.yy-13,m.yy+21,m.yy-27,m.yy+33];
+      const near=(y,arr)=>arr.reduce((min,b)=>Math.min(min,Math.abs(y-b)),999);
+      const bounded=y=>Math.max(top+16,Math.min(baseline-10,y));
+      const possible=candidates.map(y=>bounded(y));
+      const y=possible.sort((a,b)=>{
+        const score=y=>{
+          const distance=near(y,barYs);
+          const penalty=distance<14?100-(distance*6):0;
+          return penalty+Math.abs(y-m.yy)*.35;
+        };
+        return score(a)-score(b);
+      })[0];
+      const widthLabel=compact?31:35,heightLabel=16;
+      picture.append(svg('rect',{x:m.xc-widthLabel/2,y:y-12,
+        width:widthLabel,height:heightLabel,rx:4,
+        fill:'#0e2c43',stroke:primaryColor,'stroke-width':.8,
+        'data-rate-chip':state.rate,'data-season':rawRow.Season}));
+      picture.append(svg('text',{x:m.xc,y,
+        'font-size':compact?10.1:11.5,'font-weight':900,'text-anchor':'middle',
+        fill:bandLabelColor[band],'data-rate-label':state.rate,
+        'data-performance':band,'data-season':rawRow.Season,...labelStroke},m.rate.toFixed(2)));
+    }
   }
   chart.append(picture);
   renderAwardKey(rows);
@@ -390,8 +528,9 @@ function paintProjectionTrend(row,projection){
     }
     const label=build('div',undefined,'bio-trend-copy');
     const signed=(result.relativeChange>0?'+':'')+(result.relativeChange*100).toFixed(1)+'%';
-    label.append(build('strong',result.name+' · '+signed+' vs career','bio-trend-main'),
-      build('span',result.modelCurrent?'Original workbook career trend':'Original workbook · provisional trend','bio-trend-minor'));
+    label.append(build('strong',result.name+' · '+signed,'bio-trend-main'),
+      build('span','Projected season-finish trend vs career · '+
+        (result.modelCurrent?'model reconciled':'provisional workbook model'),'bio-trend-minor'));
     host.append(label);
     detail.textContent='Original workbook trend: '+result.name+
        '. Historical career regular-season scoring rate '+
@@ -413,7 +552,7 @@ function paintProjectionTrend(row,projection){
         'stroke-width':1.5,'stroke-linejoin':'round','data-rookie-neutral':'true'}));
       host.append(graphic);
       label.append(build('strong','Neutral · Rookie Year','bio-trend-main'),
-        build('span','No established career comparison','bio-trend-minor'));
+        build('span','No career baseline · forecast remains provisional','bio-trend-minor'));
       detail.textContent='Neutral rookie display state only. No model career baseline or statistical comparison is available.';
     }else{
       label.append(build('strong','Career trend unavailable','bio-trend-main'),
@@ -448,14 +587,16 @@ function renderSkaterProjection(){
   state.hasProjection=true;
   const provisional=projection.modelCurrent!==true||projection.projectionComplete!==true;
   paintProjectionTrend(row,projection);
-  $('bioProjectionHeadline').textContent=(provisional?'Provisional · ':'')+
-    (num(row.pts)?fmt(row.pts)+' projected points':'Points forecast unavailable')+
-    (num(row.ptsPerGame)?' · '+row.ptsPerGame.toFixed(2)+' projected P/GP':'');
+  $('bioForecastBadge').textContent=provisional?'PROVISIONAL':'MODEL CURRENT';
+  $('bioForecastBadge').dataset.provisional=String(provisional);
+  $('bioProjectionHeadline').textContent='Full regular-season projection · '+
+    (provisional?'source reconciliation pending':'workbook model')+
+    ' · separate from the player’s actual season-to-date rate.';
   $('bioProjectionState').textContent=provisional?
     'Provisional scenario · model reconciliation pending. Same workbook forecast as the homepage; not certified current-season totals.':
     'Reconciled workbook-derived season forecast, separate from official actuals.';
   setMetrics(target,[['Projected GP',fmtProjectedGP(row.gp)],['Projected G',fmt(row.g)],['Projected A',fmt(row.a)],
-      ['Projected PTS',fmt(row.pts)],['Model Pts/GP',fmtRate(row.ptsPerGame)]]);
+      ['Projected PTS',fmt(row.pts)],['Model Pts/GP',fmtRate(row.ptsPerGame)]],true);
   sourceLabel('Source: BravesRegularSeasonProjection · '+projection.season+' · '+date(projection.exportedAt)+
    ' · Workbook baseline '+fmt(projection.sourceInputs?.workbookRecordedTeamGP)+' team GP / HTO inputs '+fmt(projection.sourceInputs?.htoRecordedTeamGP)+' team GP');
   const act=sources.actuals;
@@ -552,73 +693,109 @@ function renderGoalieTrend(seasons){
   };
   rows.forEach((r,i)=>{
     const xc=x(i);
-    if(num(r.W)&&r.W>0)picture.append(interactive(svg('rect',{x:xc-barW/2,y:yWins(r.W),width:barW,height:b-yWins(r.W),fill:'#d1ac68',rx:2}),i));
+    if(num(r.W)&&r.W>0){
+      picture.append(interactive(svg('rect',{x:xc-barW/2,y:yWins(r.W),width:barW,height:b-yWins(r.W),fill:'#d1ac68',rx:2}),i));
+      picture.append(svg('text',{x:xc,y:Math.max(top+11,yWins(r.W)-7),
+        'text-anchor':'middle',fill:'#f2dba5','font-size':10,
+        'font-weight':850,'data-goalie-wins-label':r.Season},String(r.W)));
+    }
     if(num(r.GAA))dots.push({x:xc,y:yGaa(r.GAA),i});
     const skip=Math.max(1,Math.ceil(rows.length/9));
     if(i%skip===0||i===rows.length-1)picture.append(svg('text',{x:xc,y:b+20,'text-anchor':'middle',fill:'#b9cddc','font-size':10},shortName(r.Season)));
   });
   if(dots.length>1)picture.append(svg('polyline',{points:dots.map(d=>d.x+','+d.y).join(' '),stroke:'#a6d9ea','stroke-width':3,fill:'none','stroke-linejoin':'round'}));
-  for(const d of dots)picture.append(interactive(svg('circle',{cx:d.x,cy:d.y,r:5,fill:'#a8d9ea',stroke:'#0b233b','stroke-width':1.5}),d.i));
+  for(const d of dots){
+    picture.append(interactive(svg('circle',{cx:d.x,cy:d.y,r:5,fill:'#a8d9ea',stroke:'#0b233b','stroke-width':1.5}),d.i));
+    picture.append(svg('text',{x:d.x,y:d.y>top+25?d.y-12:d.y+18,
+      fill:'#d7f3ff','text-anchor':'middle','font-size':9.3,'font-weight':850,
+      'paint-order':'stroke',stroke:'#09233a','stroke-width':3,
+      'data-goalie-gaa-label':rows[d.i].Season},rows[d.i].GAA.toFixed(2)));
+  }
   target.append(picture);describe(rows.length-1);
 }
-function renderOpponents(){
-  const box=$('bioOpponentCards');box.replaceChildren();
-  const fixtures=sources.upcoming,history=sources.opponent;
-  if(fixtures?.schema!=='brave-hc-svhl-schedule/v1'||!Array.isArray(fixtures.games)){
-    box.append(build('p','Upcoming opponent schedule is temporarily unavailable.','bio-inactive-note'));
-    $('bioOpponentSource').textContent='Opponent adjustments are not applied to player or goalie forecasts.';return;
+function renderCoachingPosition(){
+  const bank=window.HockeyOSBioCoachingRoles;
+  const target=$('bioPositionResponse'),controls=$('bioPositionModes');
+  target.replaceChildren();
+  for(const btn of controls.querySelectorAll('button[data-position]')){
+    const chosen=btn.dataset.position===state.coachingPosition;
+    btn.setAttribute('aria-pressed',String(chosen));
+    btn.classList.toggle('selected',chosen);
   }
-  const verified=fixtures.games.filter(g=>g&&g.htoSyncStatus==='MATCH'&&typeof g.opponent==='string'&&
-    /^\d{4}-\d{2}-\d{2}$/.test(g.date)).slice(0,4);
-  if(!verified.length){
-    box.append(build('p','No source-matched upcoming fixtures in this schedule snapshot.','bio-inactive-note'));
+  const role=bank?.explore(state.coachingPosition);
+  if(role?.status!=='GENERAL_TEAM_STRATEGY_ONLY'){
+    const empty=build('div',undefined,'bio-role-prompt');
+    empty.append(build('strong','Choose a position to explore','bio-role-heading'),
+      build('p','C · RW · LW · LD · RD. These are general positional responsibilities, not verified player assignments.','bio-role-subtitle'));
+    target.append(empty);return;
   }
-  for(const game of verified){
-    const item=build('article',undefined,'bio-matchup');
-    const dateText=date(game.date+'T12:00:00Z');
-    item.append(build('div',dateText,'bio-match-date'),build('div',game.opponent,'bio-match-name'));
-    const h=history?.status==='PUBLIC_VERIFIED_SOURCE_IDENTITY'&&Array.isArray(history.teams)
-      ?history.teams.find(t=>t.name===game.opponent):null;
-    const r=h?.regularSeason;
-    let note='No verified prior head-to-head record under this opponent identity.';
-    if(r&&[r.gp,r.w,r.l,r.t].every(num)&&r.w+r.l+r.t===r.gp&&r.gp>0){
-      note='Brave H.C. regular-season history: '+r.w+' W - '+r.l+' L - '+r.t+' T ('+r.gp+' GP)';
-    }
-    item.append(build('p',note,'bio-match-note'));
-    box.append(item);
+  const heading=build('div',undefined,'bio-role-header');
+  heading.append(build('strong',role.code+' · '+role.title,'bio-role-heading'),
+    build('span',role.area,'bio-role-subtitle'));
+  target.append(heading);
+  const grid=build('div',undefined,'bio-role-guidance-grid');
+  for(const [key,title] of [['withPuck','With the puck'],['withoutPuck','Without the puck'],['transition','Recovery and transition']]){
+    const card=build('article',undefined,'bio-coach-instruction');
+    card.append(build('span',title,'bio-coach-instruction-title'),
+      build('p',role[key],'bio-coach-instruction-body'));
+    grid.append(card);
   }
-  const more=$('bioOpponentMore');
-  more.hidden=verified.length<=2;
-  box.classList.remove('bio-opponents-expanded');
-  more.setAttribute('aria-expanded','false');more.textContent='View '+(verified.length-2)+' more games';
-  more.onclick=()=>{
-    const expanded=box.classList.toggle('bio-opponents-expanded');
-    more.setAttribute('aria-expanded',String(expanded));
-    more.textContent=expanded?'Show next 2 games':'View '+(verified.length-2)+' more games';
-  };
-  $('bioOpponentSource').textContent='SVHL schedule checked '+date(fixtures.checkedAt)+
-    ' | Opponent archive '+date(history?.asOf)+
-    ' | Historical head-to-head is context only. No uncalibrated matchup multiplier has been applied.';
-  const first=verified[0];
-  $('bioCoachingContext').textContent=first?
-    'Next verified fixture: '+date(first.date+'T12:00:00Z')+' vs '+first.opponent+
-    '. Coach-approved game assignments are not available on this public page; no role or attendance is assumed.':
-    'No verified upcoming game. Individual lineup assignments remain private until coach-approved.';
+  target.append(grid);
+  target.append(build('div','Coaching cue: '+role.cue,'bio-role-cue'));
 }
-
-
+function renderCoaching(){
+  const bank=window.HockeyOSBioCoachingRoles;
+  const controls=$('bioPositionModes');controls.replaceChildren();
+  if(bank?.sourceScope!=='GENERAL_1_2_2_TEAM_FRAMEWORK_NO_PRIVATE_COACHING'){
+    $('bioPositionResponse').textContent='General team framework temporarily unavailable.';
+    $('bioCoachSource').textContent='No player-specific instructions were inferred.';
+    return;
+  }
+  const allowed=['C','RW','LW','LD','RD','G'];
+  for(const code of allowed){
+    const item=bank.positions[code];
+    if(!item)continue;
+    const btn=build('button',code,'bio-position-button');
+    btn.type='button';btn.dataset.position=code;btn.title=item.title;
+    btn.setAttribute('aria-pressed',String(code===state.coachingPosition));
+    controls.append(btn);
+  }
+  const isGoalieOnly=state.isGoalie&&!state.isSkater;
+  const lineage=window.BraveGameNightContract;
+  const lookup=window.BravePlayerLinks?.identityById;
+  const approved=lineage?.confirm(sources.gameLineup,sources.gameCountdown,
+    typeof lookup==='function'?id=>lookup(Number(id)):null,new Date().toISOString());
+  const assignment=lineage?.assignmentForPlayer(approved,state.player)||null;
+  const assignmentCard=$('bioApprovedGameAssignment');
+  assignmentCard.hidden=!assignment;
+  if(assignment){
+    $('bioApprovedGameRole').textContent='GAME-NIGHT ASSIGNMENT · '+assignment.unit+' · '+assignment.position;
+    $('bioApprovedGameFixture').textContent=assignment.gameDate+' vs. '+assignment.opponent;
+    state.coachingPosition=assignment.position;
+  }
+  // Being a verified goalie is sufficient to show general goalie instruction.
+  // A skater's exact C/W/D game-night position is NOT source verified here.
+  if(state.coachingPosition===null&&isGoalieOnly)state.coachingPosition='G';
+  renderCoachingPosition();
+  $('bioCoachSource').textContent=assignment?
+    'The position shown above comes from a verified, manager-approved public lineup. These coaching tips remain general, not personal instructions.':
+    isGoalieOnly?'Verified HTO goalie role · these are general tips, not a game-night assignment.':
+    'Public HTO career data verifies skater status, not the player’s current C/RW/LW/LD/RD assignment.';
+  $('bioCoachingContext').textContent='Team strategy: Brave H.C. 1–2–2. Opponent-player assignments require matched game data and a coach-approved lineup.';
+  $('coachingState').textContent='Individualized skill plans, position history, opponent-specific clips and reviewed video require private authenticated, coach-approved development records. No personal coaching is published here.';
+}
 function percent(value,decimals=0){return num(value)?(value*100).toFixed(decimals)+'%':'Unavailable';}
 function decimal(value,dp=2){return num(value)?value.toFixed(dp):'Unavailable';}
 function insight(container,title,value,description){
   const tile=build('article',undefined,'bio-insight-tile');
-  tile.append(build('div',value,'bio-insight-value'),build('div',title,'bio-insight-title'),
+  tile.append(metricIcon(title),build('div',value,'bio-insight-value'),build('div',title,'bio-insight-title'),
     build('div',description,'bio-insight-description'));
   container.append(tile);
 }
 function extra(container,label,value){
   if(value===null||value===undefined||value==='Unavailable')return;
   const tile=build('div',undefined,'bio-extra-metric');
-  tile.append(build('strong',value),build('span',label));container.append(tile);
+  tile.append(metricIcon(label),build('strong',value),build('span',label));container.append(tile);
 }
 function renderAdvancedMetrics(player){
   const engine=window.HockeyOSBioAdvanced;
@@ -745,8 +922,15 @@ function renderDevelopment(player){
     picture.append(svg('polyline',{points:rows.map((r,i)=>x(i)+','+y(r.normalized)).join(' '),fill:'none',
       stroke:'#a8d9ea','stroke-width':3,'stroke-linecap':'round','stroke-linejoin':'round'}));
     rows.forEach((r,i)=>{
-      picture.append(svg('circle',{cx:x(i),cy:y(r.normalized),r:4.5,fill:'#f1cb88',stroke:'#0b233b','stroke-width':1.5}));
-      picture.append(svg('text',{x:x(i),y:height-bottom+17,'text-anchor':'middle',fill:'#c4d8e8',
+      const cx=x(i),cy=y(r.normalized);
+      picture.append(svg('circle',{cx,cy,r:4.5,fill:'#f1cb88',stroke:'#0b233b','stroke-width':1.5}));
+      const above=cy>top+24;
+      picture.append(svg('text',{x:cx,y:above?cy-11:cy+17,
+        'text-anchor':'middle','font-weight':900,fill:'#f4e8cd',
+        'font-size':window.innerWidth<=480?10.5:12,
+        'data-trend-point-label':r.Season,
+        'paint-order':'stroke',stroke:'#0b263e','stroke-width':3},r.normalized.toFixed(2)));
+      picture.append(svg('text',{x:cx,y:height-bottom+17,'text-anchor':'middle',fill:'#c4d8e8',
         'font-size':window.innerWidth<=480?10:12},shortName(r.Season)));
     });
     pane.append(picture);
@@ -769,7 +953,9 @@ function renderPlayer(){
     $('bioMoreSeasonFilters').open=false;
     $('bioMoreSeasonFilters').querySelector('summary').textContent='More';
     state.active='production';
-    state.rate='actual';state.filter='recent';state.baseline='rolling';
+    state.rate='actual';state.filter='recent';state.baseline='rolling';state.compare=false;state.coachingPosition=null;
+    $('bioOverlayModes').setAttribute('aria-pressed','false');
+    $('bioOverlayHint').textContent='One line selected · additional formats optional';
     for(const b of $('bioCareerComparisonModes').querySelectorAll('button[data-mode]')){
       b.setAttribute('aria-pressed',String(b.dataset.mode===state.baseline));
     }
@@ -789,7 +975,7 @@ function renderPlayer(){
   if(state.isGoalie)renderGoalie();
   renderAdvancedMetrics(p);
   renderDevelopment(p);
-  renderOpponents();
+  renderCoaching();
   if(!['production','trends','coaching'].includes(state.active))state.active='production';
   renderView();
 }
@@ -802,9 +988,32 @@ sources={career:inputs[0].status==='fulfilled'?inputs[0].value:null,
   opponent:inputs[5].status==='fulfilled'?inputs[5].value:null,
   goalieVerified:inputs[6].status==='fulfilled'?inputs[6].value:null,
   upcoming:inputs[7].status==='fulfilled'?inputs[7].value:null,
-  titles:inputs[8].status==='fulfilled'?inputs[8].value:null};
+  titles:inputs[8].status==='fulfilled'?inputs[8].value:null,
+  gameLineup:inputs[9].status==='fulfilled'?inputs[9].value:null,
+  gameCountdown:inputs[10].status==='fulfilled'?inputs[10].value:null};
 setupTabs();
 const content=$('profileContent');
+// Only source-approved PUBLIC game-night assignments are refreshed. WhatsApp
+// named votes and private lineup drafts never enter this public Bio process.
+let lineupRefreshActive=false;
+async function refreshGameNightLineup(){
+  if(lineupRefreshActive)return;
+  lineupRefreshActive=true;
+  try{
+    const result=await Promise.allSettled([
+      getJSON('game-night-lineup-public.json'),getJSON('countdown.json')
+    ]);
+    sources.gameLineup=result[0].status==='fulfilled'?result[0].value:null;
+    sources.gameCountdown=result[1].status==='fulfilled'?result[1].value:null;
+    if(!content.hidden&&state.player)renderCoaching();
+  }catch{
+    sources.gameLineup=null;
+    if(!content.hidden&&state.player)renderCoaching();
+  }finally{lineupRefreshActive=false;}
+}
+setInterval(refreshGameNightLineup,60_000);
+document.addEventListener('visibilitychange',()=>{if(!document.hidden)refreshGameNightLineup();});
+window.addEventListener('focus',refreshGameNightLineup);
 const observer=new MutationObserver(()=>{if(!content.hidden)renderPlayer();});
 observer.observe(content,{attributes:true,attributeFilter:['hidden']});
 $('playerChoice').addEventListener('change',()=>setTimeout(renderPlayer,0));
