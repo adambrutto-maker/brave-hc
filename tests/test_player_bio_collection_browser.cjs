@@ -50,6 +50,9 @@ const server=http.createServer((req,res)=>{
    }
    assert.equal(state.sourceVisible,true);
    if(kind==='skater'){
+     assert.equal(await page.$eval('#bioSeasonCurrent',e=>e.hidden),false,'Season Outlook default');
+     assert.equal(await page.$eval('#bioSpotlight',e=>e.hidden),true,'Historical chart is under Career Trends');
+     await page.click('#bioTabs button[data-bio-view="trends"]');
      assert.equal(await page.$eval('#bioSpotlight',e=>e.hidden),false);
      assert.equal(await page.$eval('#bioOpponentSection',e=>e.hidden),true);
      assert.ok(await page.locator('#bioScoringMix .bio-split-track').count()===1);
@@ -73,7 +76,8 @@ const server=http.createServer((req,res)=>{
      assert.equal(await page.$eval('#leadershipSection',e=>e.hidden),true,'leadership stays in Milestones');
      assert.equal(await page.$eval('#systemSection',e=>e.hidden),true,'no duplicate F1/F2 system block');
      await page.click('#bioTabs button[data-bio-view="production"]');
-     assert.equal(await page.$eval('#bioSpotlight',e=>e.hidden),false);
+     assert.equal(await page.$eval('#bioSeasonCurrent',e=>e.hidden),false);
+     assert.equal(await page.$eval('#bioSpotlight',e=>e.hidden),true);
      assert.equal(await page.$eval('#bioOpponentSection',e=>e.hidden),true);
      assert.equal(await page.locator('#bioTabs button[data-bio-view="all"]').count(),0);
      assert.equal(await page.locator('#bioRateModes button[data-mode="actual"]').innerText(),'All · actual');
@@ -82,6 +86,7 @@ const server=http.createServer((req,res)=>{
    }
    if(kind==='mixed'){
      assert.equal(await page.locator('#bioTabs button[data-bio-view="goaltending"]').count(),0);
+     await page.click('#bioTabs button[data-bio-view="trends"]');
      assert.equal(await page.$eval('#bioSpotlight',e=>e.hidden),false);
      assert.equal(await page.$eval('#bioGoalieSection',e=>e.hidden),false);
      assert.match(await page.locator('#bioAdvancedGrid').innerText(),/Career scoring pace/i,
@@ -93,6 +98,8 @@ const server=http.createServer((req,res)=>{
    }
    if(kind==='goalie'){
      assert.equal(await page.$eval('#bioSpotlight',e=>e.hidden),true);
+     assert.equal(await page.$eval('#bioSeasonCurrent',e=>e.hidden),false);
+     await page.click('#bioTabs button[data-bio-view="trends"]');
      assert.equal(await page.$eval('#bioGoalieSection',e=>e.hidden),false);
      assert.equal(await page.locator('#bioGoalieCards .bio-metric').count(),2);
      assert.match(await page.textContent('#bioGoalieStatus'),/held/i);
@@ -113,7 +120,8 @@ const server=http.createServer((req,res)=>{
    const top=await p.locator('#bioStudio').boundingBox(),header=await p.locator('#bioTabs').boundingBox();
    assert.ok(top&&header&&header.width>250);
    const tabs=await p.locator('#bioTabs button[data-bio-view]:visible .bio-tab-label').allTextContents();
-   assert.deepEqual(tabs.map(x=>x.trim()),['Production','Trends','Coaching']);
+   assert.deepEqual(tabs.map(x=>x.trim()),['Season Outlook','Career Trends','Coaching']);
+   await p.click('#bioTabs button[data-bio-view="trends"]');
    const ticks=await p.locator('#bioComboChart svg [data-axis-tick="pts-per-game"]').allTextContents();
    assert.equal(ticks.length,5,'right Pts/GP axis has 5 visible numeric labels');
    assert.ok(ticks.every(x=>/^\d+\.\d{2}$/.test(x)),'right Pts/GP axis is exactly 2dp');
