@@ -1,0 +1,49 @@
+name: HockeyOS Bio V2.7 isolated preview acceptance
+
+on:
+  pull_request:
+    paths:
+      - 'widgets/player-bio-v27-preview.html'
+      - 'widgets/*-v27-preview.js'
+      - 'widgets/*-v27-preview.css'
+      - 'widgets/*-v27-preview.json'
+      - 'tests/test_bio_v27_isolated_preview.cjs'
+      - '.github/workflows/bio-v27-isolated-preview.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'widgets/player-bio-v27-preview.html'
+      - 'widgets/*-v27-preview.js'
+      - 'widgets/*-v27-preview.css'
+      - 'widgets/*-v27-preview.json'
+      - '.github/workflows/bio-v27-isolated-preview.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  preview-source-and-browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Verify preview names and public-source privacy hold
+        run: |
+          node -e "const fs=require('fs'),assert=require('assert');const p=fs.readFileSync('widgets/player-bio-v27-preview.html','utf8');assert(p.includes('REVIEW ONLY'));for(const x of ['player-bio-premium-v27-preview.js','player-bio-collection-v27-preview.css','player-bio-coaching-roles-v27-preview.js','game-night-lineup-contract-v27-preview.js'])assert(p.includes(x));const f=require('./widgets/game-night-lineup-public-v27-preview.json');assert.equal(f.status,'AWAITING_MANAGER_APPROVAL');assert.equal(f.privacy.namedPollVotesPublished,false);assert.equal(f.privacy.unapprovedPlayerAvailabilityPublished,false);assert.equal(f.privacy.managerDraftNamesPublished,false)"
+      - name: Verify source-isolated preview JavaScript syntax
+        run: |
+          node --check widgets/player-bio-premium-v27-preview.js
+          node --check widgets/player-bio-advanced-v27-preview.js
+          node --check widgets/player-bio-projection-trend-v27-preview.js
+          node --check widgets/player-bio-rolling-career-v27-preview.js
+          node --check widgets/player-bio-coaching-roles-v27-preview.js
+          node --check widgets/game-night-lineup-contract-v27-preview.js
+      - name: Install browser test dependency
+        run: npm install --no-save --no-package-lock playwright
+      - name: Install isolated Chromium
+        run: npx playwright install --with-deps chromium
+      - name: Render skater, goalie and historical preview without external requests or private lineups
+        run: node tests/test_bio_v27_isolated_preview.cjs
