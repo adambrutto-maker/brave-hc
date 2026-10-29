@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Brave H.C. • Trend Indicator V3.6 • Review Only</title>
+<style>
+:root{color-scheme:dark;--bg:#081b2a;--muted:#a9bfd2;--line:#37566f;--gold:#e5b879;--white:#ecf7ff}
+*{box-sizing:border-box}html{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:#061726;color:var(--white)}body{margin:0;background:radial-gradient(ellipse at 5% -20%,#10456a55,transparent 58%),radial-gradient(ellipse at 98% 0%,#882a2d25,transparent 38%),linear-gradient(155deg,#0c2235,#061625);min-height:100vh}
+main{max-width:1140px;margin:0 auto;padding:clamp(15px,3vw,30px) 18px 42px}
+.top{display:flex;align-items:flex-start;justify-content:space-between;gap:15px;flex-wrap:wrap;border-bottom:1px solid #3d6079;padding-bottom:18px;margin-bottom:21px}
+.kicker{font-size:11px;letter-spacing:.15em;font-weight:900;color:var(--gold)}h1{font-size:clamp(23px,5vw,35px);margin:6px 0 4px;letter-spacing:-.035em}p{line-height:1.52} .sub{font-size:13px;color:#b2c9d8;margin:6px 0 0}
+.review{padding:8px 11px;background:#15364b;border:1px solid #7b9eb0;border-radius:7px;color:#d9effa;font-size:11px;font-weight:800;letter-spacing:.05em}
+.hero{border:1px solid #b18b58;border-radius:15px;background:linear-gradient(135deg,#18374e,#0b2338 70%);padding:clamp(13px,2.6vw,22px);box-shadow:0 12px 36px #020a1499,inset 0 1px #ffffff18}
+.hero-title{color:#efc989;font-size:11px;font-weight:900;letter-spacing:.12em;margin-bottom:9px}.hero-body{display:flex;gap:18px;align-items:center;min-height:154px}
+#heroBadge{flex:0 0 138px}.hero-copy h2{font-size:clamp(20px,4vw,27px);line-height:1.1;margin:0 0 5px}.hero-copy .metric{color:#f5d9a3;font-size:16px;font-weight:750;margin:4px 0}.hero-copy .hint{font-size:12px;color:#c3d8e7;max-width:500px;margin:4px 0}
+.mini-heading{font-size:12px;color:#e5c28a;font-weight:850;letter-spacing:.04em;margin:16px 0 9px}.selector{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px}
+.preset{background:#102c41;border:1px solid #547084;border-radius:8px;padding:9px 3px;color:#e4f0fa;cursor:pointer;font:800 10px/1.25 system-ui;text-align:center;min-height:48px}.preset.active{background:#4a3c30;border-color:#f1c582;color:#fff6e4;box-shadow:inset 0 -2px #f3c990}.preset:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid #ffe3a9;outline-offset:3px}
+.slider-area{margin-top:17px;border-top:1px solid #385973;padding-top:12px}.slider-row{display:flex;align-items:center;justify-content:space-between;gap:8px}.slider-label{font-size:12px;font-weight:850;color:#e2ecf7}.slider-value{font-size:12px;font-weight:900;color:#f3d29d;font-variant-numeric:tabular-nums}input[type=range]{width:100%;margin:10px 0 0;accent-color:#dfbc81;touch-action:pan-y;cursor:pointer}
+.range-ends{display:flex;justify-content:space-between;font-size:10px;color:#b4cedc}.controls{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:15px}.control-btn{padding:9px 12px;border:1px solid #7194ac;border-radius:8px;background:#1b3d58;font-size:12px;color:#fff2d6;cursor:pointer;font-weight:750}.quiet{font-size:11px;color:#aec5d5}
+.section-heading{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:25px 0 12px}.section-heading h2{font-size:19px;margin:0}.section-heading span{font-size:11px;color:#a7bfce}
+.state-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:9px}.state-card{padding:12px 4px 12px;text-align:center;border:1px solid #34566c;border-radius:12px;background:linear-gradient(165deg,#112f44,#071d2f);min-width:0;cursor:pointer;transition:border-color .15s,transform .15s;box-shadow:inset 0 1px #ffffff12}
+.state-card.active{border-color:#eac18b;background:linear-gradient(155deg,#253b4a,#0c2a40)}.state-card:hover{border-color:#bcac92;transform:translateY(-2px)}.state-card .badge{margin:auto}.state-name{font-weight:850;font-size:11px;margin:9px 0 3px;line-height:1.25}.state-angle{font-size:13px;font-weight:900;color:#d7e9fc;font-variant-numeric:tabular-nums}.state-desc{font-size:10px;color:#8daabb;margin-top:2px;min-height:26px;padding:0 3px}
+.info-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:22px}.info-panel{border:1px solid #34566e;background:#0d283c;border-radius:11px;padding:14px}.info-panel h3{margin:0 0 7px;font-size:13px;color:#f2cf97}.info-panel p{font-size:11px;color:#b4cbd8;margin:3px 0}
+footer{margin-top:24px;border-top:1px solid #33546b;padding-top:14px;font-size:11px;color:#a8c1d0;line-height:1.55}
+/* Deliberate 1:1 square, with a mathematically centered SVG coordinate system. */
+.badge{position:relative;width:var(--badge-size,88px);height:var(--badge-size,88px);border-radius:22%;isolation:isolate;overflow:hidden;display:grid;place-items:center;border:2px solid var(--rim,#7c91a1);background:radial-gradient(ellipse at 33% 26%,var(--lit,#376a8e) 0%,transparent 55%),linear-gradient(145deg,var(--upper,#14344a) 6%,var(--lower,#051727) 100%);box-shadow:0 2px 0 #f4fcff25 inset,0 -4px 14px #020a1a99 inset,0 0 calc(4px + 8px * var(--strength,0.2)) var(--glow,#72bcdf45),0 3px 8px #0008}
+.badge:before{content:"";position:absolute;inset:3px;border-radius:19%;border:1px solid #d6effd45;box-shadow:inset 0 2px 2px #c9f0ff26,inset 0 -2px 2px #00121b55;pointer-events:none;z-index:2}
+.badge:after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 85% 15%,#ffffff12,transparent 49%),linear-gradient(160deg,transparent 68%,#030e1b49 100%);pointer-events:none;z-index:0}
+.badge svg.arrow-canvas{position:absolute;inset:0;width:100%;height:100%;overflow:visible;z-index:1;pointer-events:none}
+.arrow-rotor{transform-box:view-box;transform-origin:50% 50%;transform:rotate(var(--angle,90deg));transition:transform .36s ease-out}
+.arrow-body{filter:drop-shadow(0 2px 2px #0214229c) drop-shadow(0 0 3px var(--accent,#8ecfff))}
+.arrow-gleam{opacity:.58;stroke:#fff;stroke-width:1.8;fill:none;stroke-linecap:round}
+.arrow-shape{stroke:#e4f8ff;stroke-width:2.15;stroke-linejoin:round;paint-order:stroke fill}
+/* Effects are self-contained, not page-wide overlays and never obstruct the center of the arrow. */
+.frosted:before{border-color:var(--frost-edge,#6bbcf7);box-shadow:inset 0 0 calc(2px + 5px * var(--strength)) var(--glow),inset 0 2px #defaff4b}
+.badge .crystals{position:absolute;inset:0;z-index:1;pointer-events:none;opacity:var(--frost-opacity,0);background:radial-gradient(circle at 10% 15%,#dcfcff 0 1px,transparent 2px),radial-gradient(circle at 17% 82%,#e4fcff 0 1px,transparent 2px),radial-gradient(circle at 67% 89%,#bff7ff 0 1px,transparent 2px),radial-gradient(circle at 90% 56%,#e1fcff 0 1px,transparent 2px),linear-gradient(36deg,transparent 12%,#afeaff30 13%,transparent 14%),linear-gradient(121deg,transparent 79%,#d0faff32 80%,transparent 81%)}
+.badge .heat-haze{position:absolute;inset:0;pointer-events:none;opacity:var(--spark-opacity,0);background:radial-gradient(circle at 11% 78%,#ffc85d 0 1px,transparent 2px),radial-gradient(circle at 81% 73%,#ff7e2d 0 1px,transparent 2px),radial-gradient(circle at 21% 16%,#ffe18d 0 1px,transparent 2px),radial-gradient(circle at 67% 88%,#ff6437 0 1px,transparent 2px);z-index:1}
+/* Top-right corner inset remains fully inside the same badge, independent of arrow rotation. */
+.element{position:absolute;z-index:4;right:3px;top:3px;width:29%;height:31%;min-width:18px;min-height:19px;border:1px solid #e0edff90;border-radius:5px;display:grid;place-items:center;box-shadow:0 1px 5px #00101a99,inset 0 1px #fff6;overflow:hidden;pointer-events:none;background:linear-gradient(150deg,#17659b,#031e3b)}
+.element.ice{background:linear-gradient(155deg,#a3e9ff88 0%,#165784 45%,#032444 100%);border-color:#bceaff}.element.fire{background:linear-gradient(145deg,#ffdd8d,#822918 43%,#2d0d13);border-color:#ffb66e}
+.element>svg{display:block;width:100%;height:100%;overflow:hidden}.element .ice-shimmer{animation:iceGlint 3.6s ease-in-out infinite}.element .flame-outer{transform-box:fill-box;transform-origin:50% 90%;animation:fireFlicker 1.2s ease-in-out infinite alternate}.element .sparks{animation:sparkRise 1.75s linear infinite}
+.badge .crystals{animation:frostPulse 4.2s ease-in-out infinite}.badge .heat-haze{animation:embers 2.9s ease-in-out infinite}
+@keyframes fireFlicker{0%{transform:scale(.94,1.00) skewX(-2deg);filter:brightness(1)}42%{transform:scale(1.03,.94) skewX(1deg);filter:brightness(1.16)}100%{transform:scale(.98,1.06) skewX(-1deg);filter:brightness(1.07)}}
+@keyframes sparkRise{0%{transform:translateY(3px);opacity:.15}40%{opacity:.82}100%{transform:translateY(-4px);opacity:0}}
+@keyframes iceGlint{0%,100%{filter:brightness(1)}50%{filter:brightness(1.38)}}
+@keyframes frostPulse{0%,100%{filter:brightness(1)}50%{filter:brightness(1.42)}}
+@keyframes embers{0%,100%{filter:brightness(.7);opacity:calc(var(--spark-opacity,0) * .65)}50%{filter:brightness(1.7);opacity:var(--spark-opacity,0)}}
+body.paused .element .ice-shimmer,body.paused .element .flame-outer,body.paused .element .sparks,body.paused .badge .crystals,body.paused .badge .heat-haze{animation-play-state:paused!important}
+.pivot{display:none;position:absolute;top:50%;left:50%;width:5px;height:5px;transform:translate(-50%,-50%);background:#fff;border:1px solid #101010;border-radius:50%;z-index:6;pointer-events:none}.debug-pivot .pivot{display:block}.debug-pivot .badge:after{background:linear-gradient(90deg,transparent calc(50% - .5px),#ffffff33 50%,transparent calc(50% + .5px)),linear-gradient(0deg,transparent calc(50% - .5px),#ffffff33 50%,transparent calc(50% + .5px))}
+.hero .badge{--badge-size:138px;border-radius:20%;}.hero .badge .element{min-width:34px;min-height:35px;border-radius:8px}
+@media(max-width:980px){.state-grid{grid-template-columns:repeat(4,minmax(0,1fr))}.state-card .badge{--badge-size:92px!important}}
+@media(max-width:670px){main{padding:14px 12px 30px}.state-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.state-card .badge{--badge-size:90px!important}.hero-body{gap:13px;min-height:124px}.hero .badge{--badge-size:104px!important}.hero #heroBadge{flex-basis:104px}.hero .badge .element{min-width:28px;min-height:28px}.hero-copy h2{font-size:20px}.selector{grid-template-columns:repeat(4,minmax(0,1fr))}.preset{min-height:44px;font-size:10px}.info-row{grid-template-columns:1fr}}
+@media(max-width:350px){.hero .badge{--badge-size:88px!important}.hero #heroBadge{flex-basis:88px}.hero-copy .hint{font-size:10px}.hero-copy h2{font-size:17px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}
+</style></head><body><main>
+<header class="top"><div><div class="kicker">BRAVE H.C. / PLAYER INTELLIGENCE</div><h1>Season Outlook / Trend Badge</h1><p class="sub">V3.6 interactive design review · Based on the saved V3.5 rectangular inset · Frost and fire stay within the badge</p></div><span class="review">DESIGN PREVIEW • NOT LIVE</span></header>
+<section class="hero" aria-label="Interactive trend demonstration"><div class="hero-title">INTERACTIVE PLAYER TREND</div><div class="hero-body"><div id="heroBadge"></div><div class="hero-copy"><h2 id="heroName">Neutral</h2><p class="metric" id="heroAngle">90° • Horizontal</p><p id="heroZ" class="hint">0.00 standard deviations • Model test value</p><p class="hint" id="heroDetail">Neutral metallic arrow. No temperature emblem.</p></div></div>
+<div class="mini-heading">Tap a state to see its color, angle and subtle motion</div><div id="presets" class="selector" role="group" aria-label="Seven illustrative temperature states"></div>
+<div class="slider-area"><div class="slider-row"><label for="zSlider" class="slider-label">Change standardized trend continuously</label><output for="zSlider" id="sliderReadout" class="slider-value">z = 0.00</output></div><input id="zSlider" type="range" min="-2.75" max="1.5" value="0" step="0.01" aria-label="Test the source-standardized trend score"><div class="range-ends"><span>−2.75σ · Deep cold</span><span>0σ · Neutral</span><span>+1.50σ · Deep heat</span></div>
+<div class="controls"><button class="control-btn" id="motionBtn" type="button" aria-pressed="true">Pause animations</button><button class="control-btn" id="pivotBtn" type="button" aria-pressed="false">Show exact center</button><span class="quiet">The arrow is always stationary unless you change the test value. Only ice shimmer and flame flicker animate.</span></div></div></section>
+<div class="section-heading"><h2>Seven visual checkpoints</h2><span>All badges share identical size and an exact center pivot</span></div>
+<section class="state-grid" id="stateGrid" aria-label="Seven temperature previews"></section>
+<div class="info-row"><div class="info-panel"><h3>Exact orientation convention</h3><p><strong>180° = down (coldest) · 90° = right (neutral) · 0° = up (hottest).</strong> All intermediate positions interpolate smoothly in this same coordinate system. The arrow is shorter and broader than V3.5 so it can rotate without collision.</p></div><div class="info-panel"><h3>Workbook-safe, asymmetric comparison</h3><p>For this visual draft, −2σ maps to 180° and +1σ maps to 0°. This respects the asymmetry of the source's 5Arrows thresholds (−2σ, −1σ, +0.5σ, +1σ). The preview uses synthetic slider values, not any person's live projection.</p></div></div>
+<footer><strong>PREVIEW ONLY.</strong> Standalone illustrative animation: no HTO connection, no analytics edits, no workbook recalculation, no live widget changes. Respect reduced-motion settings; all effects have a pause button. The source-defined five workbook categories remain unchanged. Actual player angles must continue to derive from source-verified trend values after design approval.</footer>
+</main><script>
+(()=>{'use strict';
+const presets=[
+ {name:'COLDEST',z:-2.3,desc:'Long clustered icicles'},
+ {name:'COLDER',z:-1.34,desc:'Medium crystalline icicles'},
+ {name:'COOL',z:-.67,desc:'Single short icicle'},
+ {name:'NEUTRAL',z:0,desc:'Silver, no emblem'},
+ {name:'WARM',z:.34,desc:'Tiny yellow flame'},
+ {name:'HOTTER',z:.67,desc:'Orange flame and embers'},
+ {name:'HOTTEST',z:1.24,desc:'Full red flame and sparks'}
+];
+const $=id=>document.getElementById(id); const clamp=(v,a,b)=>Math.min(b,Math.max(a,v));
+function lerpHex(a,b,t){const f=h=>[1,3,5].map(i=>parseInt(h.slice(i,i+2),16));const A=f(a),B=f(b);return '#'+A.map((v,i)=>Math.round(v+(B[i]-v)*clamp(t,0,1)).toString(16).padStart(2,'0')).join('');}
+function interpolate(stops,t){for(let i=1;i<stops.length;i++){if(t<=stops[i][0])return lerpHex(stops[i-1][1],stops[i][1],(t-stops[i-1][0])/(stops[i][0]-stops[i-1][0]));}return stops[stops.length-1][1];}
+function compute(z){
+ const cold=z<0,hot=z>0;const intensity=cold?clamp(-z/2,0,1):hot?clamp(z/1,0,1):0;
+ // The original source is asymmetric: full cold at −2 sigma, full heat at +1 sigma.
+ const angle=clamp(cold?90+intensity*90:hot?90-intensity*90:90,0,180);
+ const stops=cold?[[0,'#91ddf9'],[.4,'#4fb7f3'],[.73,'#187ac8'],[1,'#084f9b']]:[[0,'#ffe27a'],[.4,'#ffb72d'],[.72,'#ef6723'],[1,'#cc2139']];
+ const accent=(!cold&&!hot)?'#edf5fc':interpolate(stops,intensity);
+ const rim=(!cold&&!hot)?'#9aafbc':cold?interpolate([[0,'#75d4f7'],[1,'#168de0']],intensity):interpolate([[0,'#efbf68'],[1,'#ee3851']],intensity);
+ const upper=(!cold&&!hot)?'#304b5b':cold?interpolate([[0,'#194a69'],[1,'#05274e']],intensity):interpolate([[0,'#4d331f'],[1,'#5c0e20']],intensity);
+ const lower=(!cold&&!hot)?'#162935':cold?interpolate([[0,'#09283d'],[1,'#03152d']],intensity):interpolate([[0,'#321e15'],[1,'#270715']],intensity);
+ const lit=(!cold&&!hot)?'#7f96a8':cold?interpolate([[0,'#246f98'],[1,'#0b65ac']],intensity):interpolate([[0,'#aa7840'],[1,'#b3202c']],intensity);
+ const visualName=Math.abs(z)<.005?'NEUTRAL':cold?(intensity>=.93?'COLDEST':intensity>=.47?'COLDER':'COOL'):(intensity>=.93?'HOTTEST':intensity>=.48?'HOTTER':'WARM');
+ const band=z<-2?'Cold':z<-1?'Cool':z<.5?'Neutral':z<1?'Warm':'Hot';
+ return {z,cold,hot,intensity,angle,accent,rim,upper,lower,lit,visualName,band};
+}
+function elementIcon(s,id){if(!s.cold&&!s.hot)return '';
+ if(s.cold){
+  const n=s.intensity>.70?4:s.intensity>.35?2:1;
+  const lengths=[13,20,24,17],starts=n===4?[2.2,7.2,13.2,20]:n===2?[8,16]:[12];
+  const parts=starts.map((x,i)=>{let len=lengths[i]||15;len*=.28+.60*s.intensity;return `<path d="M${x} 4 L${x+4.5} 4 L${(x+2.2).toFixed(1)} ${(4+len).toFixed(1)} Z" fill="url(#ice-${id})" stroke="#c9f7ff" stroke-width=".7"/>`;}).join('');
+  return `<span class="element ice"><svg viewBox="0 0 28 28" aria-hidden="true"><defs><linearGradient id="ice-${id}" x1="10%" y1="10%" x2="90%" y2="90%"><stop stop-color="#e9fcff"/><stop offset=".48" stop-color="#7cd4fc"/><stop offset="1" stop-color="#0873b8"/></linearGradient></defs><g class="ice-shimmer"><path d="M0 1 Q14 -1 28 1 L28 5 Q14 4 0 5Z" fill="#9de6fc" stroke="#e4ffff" stroke-width=".6"/>${parts}<path d="M1 3 L27 3" stroke="#fff" stroke-width=".7" opacity=".8"/></g></svg></span>`;
+ }
+ const size=.57+.43*s.intensity; const color=interpolate([[0,'#ffc33b'],[.55,'#ff7d24'],[1,'#ec293f']],s.intensity);
+ const sparkOpacity=s.intensity<.40?0:.4+.6*s.intensity;
+ return `<span class="element fire"><svg viewBox="0 0 28 28" aria-hidden="true"><defs><linearGradient id="fire-${id}" x1="15%" y1="100%" x2="85%" y2="0%"><stop stop-color="#fff0aa"/><stop offset=".35" stop-color="#ffc23e"/><stop offset=".67" stop-color="#ff6b19"/><stop offset="1" stop-color="${color}"/></linearGradient></defs><g transform="translate(14 23) scale(${size.toFixed(3)}) translate(-14 -23)"><g class="flame-outer"><path d="M13.1 3 C15 9 21 11 21 18 C21 24 18 26 14 26 C9 26 6 22 7.3 17 C8 13 10.2 11 10.5 8 C11.4 11 12.4 12 13 13 C14 9 13.3 6 13.1 3Z" fill="url(#fire-${id})" stroke="#ffd677" stroke-width=".65"/><path d="M14 14 C14.3 17 17.2 18 17.2 21 C17.2 24 15.6 25 13.8 25 C11.2 25 10.2 22.7 11 21 C11.5 19.4 13.2 17.9 14 14Z" fill="#fff6b7" opacity=".96"/></g></g><g class="sparks" opacity="${sparkOpacity.toFixed(2)}" fill="#ffd47d"><circle cx="5" cy="6" r="1"/><circle cx="22" cy="5" r=".85"/><circle cx="25" cy="10" r=".7"/></g></svg></span>`;
+}
+function badgeMarkup(s,id,size){const cold=s.cold,hot=s.hot;const gradientTop=cold?'#c9fbff':hot?'#ffe7a3':'#ffffff';const gradBottom=s.accent;const glow=cold?lerpHex('#4ec4ff','#087bdf',s.intensity):hot?lerpHex('#ffcd5e','#ea243e',s.intensity):'#d8edf7';
+ const styles=[`--badge-size:${size}px`,`--angle:${s.angle.toFixed(2)}deg`,`--rim:${s.rim}`,`--upper:${s.upper}`,`--lower:${s.lower}`,`--lit:${s.lit}`,`--accent:${glow}`,`--glow:${glow}77`,`--strength:${s.intensity.toFixed(3)}`,`--frost-edge:${s.rim}`,`--frost-opacity:${(cold?.13+.5*s.intensity:0).toFixed(3)}`,`--spark-opacity:${(hot?.05+.6*s.intensity:0).toFixed(3)}`].join(';');
+ return `<div class="badge ${cold?'frosted':''}" data-deg="${s.angle.toFixed(3)}" style="${styles}"><div class="crystals"></div><div class="heat-haze"></div><svg class="arrow-canvas" viewBox="0 0 100 100" role="img" aria-label="Arrow orientation ${s.angle.toFixed(1)} degrees, ${s.visualName}"><defs><linearGradient id="arr-${id}" x1="8%" y1="3%" x2="90%" y2="96%"><stop offset="0%" stop-color="${gradientTop}"/><stop offset="39%" stop-color="${s.cold?'#55c6fa':s.hot?'#ffad54':'#e9f4fc'}"/><stop offset="100%" stop-color="${gradBottom}"/></linearGradient></defs><g class="arrow-rotor"><path class="arrow-body arrow-shape" fill="url(#arr-${id})" d="M40 69V50H32L50 29L68 50H60V69Z"/><path class="arrow-gleam" d="M42.8 65V47H38L50 33"/></g></svg>${elementIcon(s,id)}<span class="pivot"></span></div>`;
+}
+function orientation(angle){if(angle>166)return 'Down';if(angle>95)return 'Down-right';if(angle>85)return 'Horizontal right';if(angle>14)return 'Up-right';return 'Up';}
+function detail(s){return s.cold?'Ice: '+(s.intensity>.7?'four long crystals, dense frost':s.intensity>.35?'two medium crystals, clear frost':'one short icicle, slight shimmer')+'. Only frost shimmers; no rotating animation.':s.hot?'Fire: '+(s.intensity>.7?'full red flame with sparks':s.intensity>.35?'orange flame with restrained embers':'small yellow flame with gentle flicker')+'. Arrow color and ambient glow match heat strength.':'Neutral silver and slate. No icicle, flame, or environmental glow.';}
+function choose(z){z=clamp(Number(z),-2.75,1.5);const s=compute(z);$('zSlider').value=z;$('sliderReadout').textContent='z = '+(z>0?'+':'')+z.toFixed(2)+'σ';$('heroBadge').innerHTML=badgeMarkup(s,'hero',138);$('heroName').textContent=s.visualName;$('heroAngle').textContent=s.angle.toFixed(1)+'° • '+orientation(s.angle);$('heroZ').textContent='Trend '+(z>0?'+':'')+z.toFixed(2)+'σ  •  Workbook 5Arrows category: '+s.band;$('heroDetail').textContent=detail(s);
+ document.querySelectorAll('[data-preset]').forEach(b=>b.classList.toggle('active',Math.abs(Number(b.dataset.z)-z)<.015));document.querySelectorAll('[data-state]').forEach(b=>b.classList.toggle('active',Math.abs(Number(b.dataset.z)-z)<.015));}
+$('presets').innerHTML=presets.map((p,i)=>`<button type="button" class="preset" data-preset="${i}" data-z="${p.z}">${p.name}</button>`).join('');
+$('stateGrid').innerHTML=presets.map((p,i)=>{const s=compute(p.z);return `<button type="button" class="state-card" data-state="${i}" data-z="${p.z}" aria-label="Preview ${p.name}, ${s.angle.toFixed(1)} degrees">${badgeMarkup(s,'state'+i,88)}<div class="state-name">${p.name}</div><div class="state-angle">${s.angle.toFixed(1)}°</div><div class="state-desc">${p.desc}</div></button>`}).join('');
+function onSelect(e){const target=e.target.closest('[data-z]');if(target)choose(target.dataset.z);}
+$('presets').addEventListener('click',onSelect);$('stateGrid').addEventListener('click',onSelect);$('zSlider').addEventListener('input',e=>choose(e.target.value));
+$('motionBtn').addEventListener('click',()=>{document.body.classList.toggle('paused');const paused=document.body.classList.contains('paused');$('motionBtn').textContent=paused?'Play animations':'Pause animations';$('motionBtn').setAttribute('aria-pressed',String(!paused));});
+$('pivotBtn').addEventListener('click',()=>{document.body.classList.toggle('debug-pivot');const on=document.body.classList.contains('debug-pivot');$('pivotBtn').textContent=on?'Hide exact center':'Show exact center';$('pivotBtn').setAttribute('aria-pressed',String(on));});
+if(matchMedia('(prefers-reduced-motion: reduce)').matches){document.body.classList.add('paused');$('motionBtn').textContent='Play animations';$('motionBtn').setAttribute('aria-pressed','false');}
+choose(0);
+window.BRAVE_REVIEW={compute,presets,choose};
+})();
+</script></body></html>
