@@ -51,6 +51,7 @@ const server=http.createServer((req,res)=>{
   assert.equal(await j.locator('#bioRateModes button[data-mode="actual"]').innerText(),'All · actual');
   assert.equal(await j.locator('#bioSeasonModes button[data-mode="all"]').innerText(),'Career');
   assert.equal(await j.locator('#bioProjectionSummarySlot').isVisible(),true);
+  await j.click('#bioTabs button[data-bio-view="trends"]');
   const rAvg=await j.locator('#bioComboChart [data-series="rolling-prior-career-average"]').count();
   assert.ok(rAvg>=1,'rolling prior-career baseline is visible');
   assert.equal(await j.$eval('#bioCareerComparisonLegend',e=>e.hidden),false);
@@ -95,11 +96,12 @@ const server=http.createServer((req,res)=>{
   assert.match(await j.locator('#bioMoreSeasonFilters summary').textContent(),/Summer only/);
   await j.click('#bioSeasonModes button[data-mode="recent"]');
   assert.equal(await j.locator('#bioMoreSeasonFilters summary').textContent(),'More');
+  await j.click('#bioTabs button[data-bio-view="production"]');
   assert.equal(await j.locator('#bioProjectionCards .bio-metric-icon:visible').count(),5);
   await j.locator('#bioProjectionFull summary').click();
   assert.equal(await j.locator('#bioProjectionCards .bio-metric:visible').count(),5);
   assert.equal(await j.locator('#bioProjectionCards .bio-metric').first().locator('.value').innerText(),
-    '22.6','projected GP exactly 1 decimal');
+    '23','projected GP whole-number display without changing model precision');
   assert.equal(await j.locator('#bioProjectionCards .bio-metric').nth(4).locator('.value').innerText(),
     '1.06','projected P/GP exactly 2 decimals');
   assert.match(await j.locator('#bioProjectionHeadline').innerText(),/Full regular-season projection/);
@@ -110,13 +112,17 @@ const server=http.createServer((req,res)=>{
   await photo(j,'bio-v21-justin-projection-detail.png');
   await j.close();
   const mark=await open('354061');
+  await mark.click('#bioTabs button[data-bio-view="trends"]');
   await mark.click('#bioSeasonModes button[data-mode="all"]');
   assert.equal(await mark.locator('#bioComboChart [data-award-season="Summer 2015"]').count(),2,'both gold RR and AR medals');
   await mark.locator('#bioComboChart [data-award-season="Summer 2015"][data-award-type="goalTitle"]').click();
   const text=await mark.locator('#bioChartDetail').textContent();
   assert.match(text,/Rocket Richard/i);assert.match(text,/Art Ross/i);
   assert.equal(await mark.locator('#bioComboChart [data-award-season="Summer 2016"][data-award-type="pointsTitle"]').count(),1);
-  assert.equal(await mark.$eval('#bioProjectionSection',e=>e.hidden),true,'unmodelled historical player must not get blank projection panel');
+  await mark.click('#bioTabs button[data-bio-view="production"]');
+  assert.equal(await mark.$eval('#bioProjectionSection',e=>e.hidden),false,'Unmodelled player should receive an explicit held forecast');
+  assert.equal(await mark.locator('#bioProjectionHold').isVisible(),true);
+  assert.equal(await mark.locator('#bioProjectionCards .bio-metric').count(),0,'No manufactured projected totals');
   await photo(mark,'bio-v21-mark-double-title.png');
   await mark.close();
   const adam=await open('354054');
