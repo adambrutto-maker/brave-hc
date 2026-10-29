@@ -1,0 +1,47 @@
+name: HockeyOS 109-profile Highlights source-parity audit
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'scripts/audit_highlights_complete_109.cjs'
+      - 'scripts/build_highlights_109_audit_report.cjs'
+      - 'scripts/audit_hto_109_profile_iframes.cjs'
+      - 'tests/test_highlights_109_source_parity.cjs'
+      - 'docs/261028_Highlights_109_Profile_Parity_Register.json'
+      - 'docs/261028_Highlights_109_Profile_Source_Parity_Audit.md'
+      - 'widgets/player-links.js'
+      - 'widgets/player-career-insights.json'
+      - 'widgets/player-highlights-ledger.json'
+      - 'widgets/player-bio-leadership.json'
+      - 'widgets/history-awards.json'
+      - 'widgets/history-records.json'
+      - 'widgets/player-record-book.json'
+      - 'widgets/history-player-seasons.json'
+      - '.github/workflows/highlights-109-source-parity.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    name: Verify 109 HTO identities, published winners, records and leadership sources
+    runs-on: ubuntu-latest
+    timeout-minutes: 7
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Syntax and reproducibility of read-only audit scripts
+        run: |
+          node --check scripts/audit_highlights_complete_109.cjs
+          node --check scripts/build_highlights_109_audit_report.cjs
+          node --check scripts/audit_hto_109_profile_iframes.cjs
+          node scripts/audit_highlights_complete_109.cjs --check
+          node scripts/build_highlights_109_audit_report.cjs --check
+      - name: Negative and source-control contract acceptance for all 109 public player identities
+        run: node --test tests/test_highlights_109_source_parity.cjs
+      - name: Check original 109-profile native source and record-book controls remain valid
+        run: node scripts/test-player-highlights-v2.cjs
