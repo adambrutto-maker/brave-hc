@@ -62,6 +62,23 @@ test('synthetic extremities beyond workbook thresholds do not collapse into one 
  assert.ok(art.angleFromZ(1.4055420847317484)>0);
  assert.ok(art.angleFromZ(-2.75)<180);
 });
+test('V3.6.3 ±5% career tolerance is strictly presentation-only, inclusive, symmetric',()=>{
+ assert.equal(art.NEAR_CAREER_TOLERANCE,.05);
+ for(const change of [-.051,-.05001,.05001,.051])
+  assert.equal(art.nearCareerAverage(change,'Neutral'),false,'outside ±5%: '+change);
+ for(const change of [-.05,-.049,-.025228,0,.015,.049,.05])
+  assert.equal(art.nearCareerAverage(change,'Neutral'),true,'within ±5%: '+change);
+ for(const other of ['Cold','Cool','Warm','Hot','ROOKIE'])
+  assert.equal(art.nearCareerAverage(.02,other),false,'workbook categories unchanged');
+ for(const invalid of [null,undefined,NaN,Infinity,-Infinity,'0.02'])
+  assert.equal(art.nearCareerAverage(invalid,'Neutral'),false,'invalid trend fails closed');
+ const row=published.players.find(p=>p.name==='Carosi, Justin');
+ const direction=engine.directionalArrow(row,published);
+ assert.equal(direction.status,'VERIFIED_STANDARD_DEVIATION_ARROW');
+ assert.equal(direction.category,'Neutral');
+ assert.equal(art.nearCareerAverage(direction.sourceValue,direction.category),true);
+ assert.equal(art.angleFromZ(direction.zScore),art.compute(direction.zScore).angle);
+});
 test('visual-only module cannot turn a held or rookie source row into computed data',()=>{
  const rookie=published.players.find(p=>p.trendInputs?.firstSeasonOrNoCareer===true);
  assert.ok(rookie&&engine.directionalArrow(rookie,published).status==='ROOKIE');
