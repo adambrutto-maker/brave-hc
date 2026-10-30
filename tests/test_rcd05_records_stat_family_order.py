@@ -2,6 +2,9 @@
 from pathlib import Path
 from collections import Counter
 import json,re,unittest
+import sys
+sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'scripts'))
+from record_source_date_identity import canonical_record_text
 ROOT=Path(__file__).resolve().parents[1]
 def load(s):return json.loads((ROOT/s).read_text(encoding="utf-8"))
 SPEC=load("docs/261028_RCD05_Records_Stat_Family_Order_Spec.json")
@@ -16,7 +19,7 @@ def names(side):
 def key(g,v):
  category=g["category"]
  season="Summer" if category.startswith("Summer") else "Winter" if category.startswith("Winter") else "Career/Other"
- return g["section"],season,g["period"],v
+ return g["section"],season,g["period"],canonical_record_text(v)
 class FamilyOrder(unittest.TestCase):
  def test_native_order_and_scoring_families(self):
   self.assertEqual(names("Individual Records"),SPEC["individual_order"])
