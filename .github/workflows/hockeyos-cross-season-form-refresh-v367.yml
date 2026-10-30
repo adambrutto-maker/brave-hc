@@ -1,0 +1,66 @@
+name: HockeyOS verified cross-season scoring-form refresh
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'widgets/player-form-appearances-v364.json'
+      - 'widgets/player-actuals-hourly.json'
+      - 'widgets/player-career-insights.json'
+      - 'widgets/league-game-formats.json'
+      - 'docs/hto-highlights-rollout/261020_Historical_Boxscore_Index.json'
+      - 'docs/hto-highlights-rollout/261020_Game_Level_Readbacks.json'
+      - 'docs/hto-highlights-rollout/game-audit-evidence/live_boxscores.json'
+      - 'docs/hto-highlights-rollout/game-audit-evidence/261020_Continued_Boxscores_*.json'
+      - 'scripts/build_hto_cross_season_appearances_v367.py'
+  schedule:
+    - cron: '11 4 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: hockeyos-qualified-cross-season-appearances
+  cancel-in-progress: false
+
+jobs:
+  reconcile-cross-season-scores:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 13
+    steps:
+      - name: Read approved source and latest current-season appearance snapshot
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          persist-credentials: true
+      - name: Use Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Reconcile complete native historical appearances
+        run: |
+          python scripts/build_hto_cross_season_appearances_v367.py --write
+          python scripts/build_hto_cross_season_appearances_v367.py --check
+          python -m unittest tests.test_hto_cross_season_appearances_v367 -q
+      - name: Use Node 24
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Validate current-to-historical handoff and fail-closed form gates
+        run: |
+          node --test tests/test_bio_cross_season_v367.cjs
+          node --test tests/test_bio_form_v364.cjs
+          node --test tests/test_hockeyos_dispersion_v365.cjs
+      - name: Commit only source-qualified derived last-ten appearance timeline
+        run: |
+          git config user.name 'HockeyOS Verified Historical Form Bot'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- widgets/player-form-cross-season-v367.json
+          if git diff --cached --quiet; then
+            echo 'No changed source-qualified player appearance timeline.'
+            exit 0
+          fi
+          git commit -m 'chore(hockeyos): refresh verified cross-season Last N player timeline'
+          git push origin HEAD:main

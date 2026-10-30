@@ -6,6 +6,7 @@ const {chromium}=require(process.env.BRAVE_PLAYWRIGHT_MODULE||'playwright');
 const root=path.resolve(__dirname,'..');
 const mime={'.html':'text/html','.js':'text/javascript','.json':'application/json','.css':'text/css','.png':'image/png'};
 const ledger=require('../widgets/player-form-appearances-v364.json');
+const cross=require('../widgets/player-form-cross-season-v367.json');
 const actuals=require('../widgets/player-actuals-hourly.json');
 const model=require('../widgets/player-bio-form-model-v364.js');
 const server=http.createServer((req,res)=>{
@@ -36,6 +37,13 @@ const server=http.createServer((req,res)=>{
      return route.fulfill({status:200,contentType:'application/json',body:JSON.stringify(bad)});
     }
    }
+   if(url.pathname.endsWith('/player-form-cross-season-v367.json')){
+    if(variant==='missing-cross')return route.fulfill({status:404,body:'missing'});
+    if(variant==='corrupt-cross'){
+     const bad=structuredClone(cross);bad.players[playerID].games[0].pts+=1;
+     return route.fulfill({status:200,contentType:'application/json',body:JSON.stringify(bad)});
+    }
+   }
    return route.continue();
   });
   try{
@@ -55,9 +63,12 @@ const server=http.createServer((req,res)=>{
    const native=ledger.players[playerID],official=actuals.players.find(x=>x.name===native.name);
    assert.ok(native&&official,'native source identity');
    for(const [i,n] of [3,5,10].entries()){
-    const card=cards[i+2],expected=variant==='real'?
-      model.getRecentWindow(ledger,playerID,ledger.season,official,n):
-      {status:'HELD'};
+    const card=cards[i+2];
+    const across=variant==='real'?
+      model.getCrossSeasonWindow(cross,ledger,playerID,n):{status:'HELD'};
+    const currentOnly=['real','missing-cross','corrupt-cross'].includes(variant)?
+      model.getRecentWindow(ledger,playerID,ledger.season,official,n):{status:'HELD'};
+    const expected=across.status==='VERIFIED'?across:currentOnly;
     assert.equal(card.status,expected.status,'Last '+n+' source-gate');
     if(expected.status==='VERIFIED'){
      assert.equal(card.value,expected.rate.toFixed(2));
@@ -80,6 +91,8 @@ const server=http.createServer((req,res)=>{
   await inspect('354060',625,'real');
   await inspect('354060',390,'corrupt');
   await inspect('354060',390,'missing');
+  await inspect('354060',390,'missing-cross');
+  await inspect('354060',390,'corrupt-cross');
  }finally{await browser.close();await new Promise(ok=>server.close(ok))}
  console.log('ENG61_V366_RECENT_HTO_BROWSER_QA',JSON.stringify({passed:observed.length,failures,examples:observed.filter(x=>x.width===390)}));
  if(failures.length)process.exitCode=1;

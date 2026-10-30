@@ -42,6 +42,14 @@ on:
       - 'widgets/player-bio-form-v364.js'
       - 'widgets/player-bio-form-v364.css'
       - 'widgets/player-form-appearances-v364.json'
+      - 'widgets/player-form-cross-season-v367.json'
+      - 'scripts/build_hto_cross_season_appearances_v367.py'
+      - 'tests/test_hto_cross_season_appearances_v367.py'
+      - 'tests/test_bio_cross_season_v367.cjs'
+      - 'tests/test_bio_cross_season_v367_browser.cjs'
+      - 'docs/hto-highlights-rollout/261020_Game_Level_Readbacks.json'
+      - 'docs/hto-highlights-rollout/game-audit-evidence/261020_Continued_Boxscores_*.json'
+      - '.github/workflows/hockeyos-cross-season-form-refresh-v367.yml'
       - 'scripts/build_hto_verified_player_appearances_v366.py'
       - 'tests/test_hto_verified_player_appearances_v366.py'
       - 'tests/test_hto_recent_form_v366_browser.cjs'
@@ -177,6 +185,11 @@ jobs:
           python scripts/build_hto_verified_player_appearances_v366.py --check
           python -m unittest tests.test_hto_verified_player_appearances_v366 -q
           node --test tests/test_bio_form_v364.cjs
+      - name: Verify chronological cross-season HTO scoring form and individual archive parity
+        run: |
+          python scripts/build_hto_cross_season_appearances_v367.py --check
+          python -m unittest tests.test_hto_cross_season_appearances_v367 -q
+          node --test tests/test_bio_cross_season_v367.cjs
       - name: Verify dynamic dispersion source, reproducible historical calibration and holds
         run: |
           node scripts/hockeyos-dispersion-v365.cjs --check
@@ -202,7 +215,9 @@ jobs:
         run: node tests/test_eng61_adaptive_v365_browser.cjs
       - name: Verify independently reconciled recent P/GP and tampered-source browser holds
         run: node tests/test_hto_recent_form_v366_browser.cjs
-      - name: Verify source-qualified Last 3/5 P/GP and held Last 10
+      - name: Verify season-agnostic last ten across current, prior and earlier verified games
+        run: node tests/test_bio_cross_season_v367_browser.cjs
+      - name: Verify source-qualified Last 3/5 P/GP with season-agnostic Last 10
         run: node --test tests/test_bio_form_v364.cjs
       - name: Test all 109 verified HTO identities across three tabs at narrow embed width
         run: node tests/test_bio_v31_clean_109_browser.cjs
