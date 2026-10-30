@@ -86,6 +86,11 @@ function renderView(){
     el.hidden=missingRole||leadershipMissing||!visible.includes(id);
   }
   $('bioProjectionSummarySlot').hidden=!state.isSkater||!state.hasProjection;
+  // About these numbers is common to goalie/skater profiles; its skater-only
+  // workbook source explanation must not appear for a goalie-only profile.
+  $('bioProjectionFull').hidden=!state.isSkater;
+  $('bioNumbersSkaterExplanation').hidden=!state.isSkater;
+  $('bioNumbersGoalieExplanation').hidden=state.isSkater||!state.isGoalie;
 }
 function setupTabs(){
   const studio=$('bioStudio');
