@@ -26,6 +26,10 @@ STAT_URL="https://www.htosports.com/teams/default.asp?p=stats&s=hockey&u=BRAVESH
 SCORES_URL="https://www.htosports.com/teams/default.asp?p=scores&s=hockey&u=BRAVESHOCKEY"
 HEADER=["No","Name","POS","","GP","G","A","Pts"]
 SCORE_HEAD=["REGULAR SEASON","1","2","3","OT","2OT","F"]
+# Official HTO omits overtime columns for regulation-only games. Keep exact
+# accepted header variants; never infer game completion from unsupported shapes.
+SCORE_HEADERS=(SCORE_HEAD,["REGULAR SEASON","1","2","3","OT","F"],
+               ["REGULAR SEASON","1","2","3","F"])
 TEAM_HEAD=["GP","GF","GA","PPO","PK%"]
 OUTPUT=ROOT/"widgets/player-actuals-hourly.json"
 BASELINE=ROOT/"widgets/player-actuals.json"
@@ -103,11 +107,12 @@ def parse(stats_html,scores_html,read_at=None):
 
     scored=BeautifulSoup(scores_html,"html.parser")
     boards=[r for r in (rows(t) for t in scored.find_all("table"))
-            if r and r[0]==SCORE_HEAD]
+            if r and r[0] in SCORE_HEADERS]
     require(len(boards)==gp,"HTO_FINAL_SCORES_GP_MISMATCH")
     game_scores=[]
     for table in boards:
-        require(len(table)==3 and all(len(x)==len(SCORE_HEAD) for x in table),
+        # Each official table may differ in OT columns, never in row width.
+        require(len(table)==3 and all(len(x)==len(table[0]) for x in table),
                 "HTO_SCORE_BOARD_MALFORMED")
         require(sum(1 for r in table[1:] if r[0]=="Brave H.C.")==1,
                 "HTO_SCORE_OUR_TEAM_IDENTITY")
