@@ -1,4 +1,4 @@
-﻿/* HockeyOS V3.6.4 â€” scoring form with strict full-appearance evidence gates.
+/* HockeyOS V3.6.4 \u2014 scoring form with strict full-appearance evidence gates.
    Career and current-season HTO sources may be published independently of the
    held last-3/5/10 game windows. Never convert missing events to zero games. */
 (async function(){
@@ -26,7 +26,7 @@
   el.dataset.sourceStatus=accepted?'VERIFIED':'HELD';
   const h=document.createElement('strong');h.className='bio-form-title';h.textContent=title;
   const value=document.createElement('strong');value.className='bio-form-value';
-  value.textContent=accepted?result.rate.toFixed(2):'â€”';
+  value.textContent=accepted?result.rate.toFixed(2):'\u2014';
   const unit=document.createElement('span');unit.className='bio-form-label';unit.textContent='PTS / GP';
   const badgeBox=document.createElement('div');
   badgeBox.className='bio-form-badge-slot';
@@ -41,7 +41,7 @@
   }
   if(badge)badgeBox.append(badge);
   else{const hold=document.createElement('span');hold.className='bio-form-held-icon';
-    hold.textContent='â€”';hold.setAttribute('aria-label',accepted?'Comparison not available':'No verified scoring rate');badgeBox.append(hold);}
+    hold.textContent='\u2014';hold.setAttribute('aria-label',accepted?'Comparison not available':'No verified scoring rate');badgeBox.append(hold);}
   const level=document.createElement('span');level.className='bio-form-level';
   level.textContent=baseline?'BASELINE':badge?.dataset.visualLevel||
     (accepted?'COMPARISON HELD':'SOURCE HELD');
@@ -76,7 +76,7 @@
   const compareResult=(r)=>reference&&r?.status==='VERIFIED'?
     adaptive?.compareRate(r.rate,careerRate,dispersion,projection)||{status:'HELD'}:{status:'HELD'};
   card('CURRENT SEASON',current,current?.status==='VERIFIED'?
-     current.gp+' verified GP Â· HTO '+iso(feed.asOf):'Current HTO rate unavailable',compareResult(current));
+     current.gp+' verified GP \u00b7 HTO '+iso(feed.asOf):'Current HTO rate unavailable',compareResult(current));
   for(const count of [3,5,10]){
    const r=observation?model?.getRecentWindow(appearances,id,feed.season,observation,count):{status:'HELD'};
    card('LAST '+count+' GAMES',r,r?.status==='VERIFIED'?
@@ -85,7 +85,7 @@
   }
   status.textContent='Current season: official HTO individual season totals. '+
      'Career reference: published Winter-equivalent history. '+
-     'Last 3 / 5 / 10 P/GP are held until each game, including zero-point appearances, is source-verified. '+
+     'Last 3 / 5 / 10 P/GP display only where every appearance, including zero-point games, is source-verified; other windows stay held. '+
      'Adaptive trend badges use qualified team career-relative dispersion and describe rates, not official workbook classifications or lineup recommendations. '+
      (calibrated?.mode==='HISTORICAL_REFERENCE_ONLY'?'Historical-reference calibration; current model reconciliation held.':'');
  }

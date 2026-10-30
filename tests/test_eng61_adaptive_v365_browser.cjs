@@ -12,6 +12,9 @@ const server=http.createServer((req,res)=>{
 });
 const proposal=require('../widgets/projection.json'),disp=require('../widgets/hockeyos-team-dispersion-v365.json');
 const adapt=require('../widgets/hockeyos-adaptive-trend-v365.js');
+const appearances=require('../widgets/player-form-appearances-v364.json');
+const official=require('../widgets/player-actuals-hourly.json');
+const recent=require('../widgets/player-bio-form-model-v364.js');
 const cases=[
  {id:'354060',name:'Carosi, Justin',display:'NEUTRAL',source:'Neutral'},
  {id:'738846',name:'Saindon, Stephane',display:'NEUTRAL',source:'Neutral'},
@@ -67,14 +70,33 @@ const cases=[
      await page.locator('#bioRecentFormGrid .bio-form-card').first().waitFor({timeout:12000});
      const trend=await page.evaluate(()=>{
       const ds=document.querySelector('#bioTeamDispersion');
-      const cards=[...document.querySelectorAll('#bioRecentFormGrid .bio-form-card')].map(x=>({status:x.dataset.sourceStatus,value:x.querySelector('.bio-form-value').textContent}));
+      const cards=[...document.querySelectorAll('#bioRecentFormGrid .bio-form-card')].map(x=>({
+       status:x.dataset.sourceStatus,
+       value:x.querySelector('.bio-form-value').textContent,
+       icon:x.querySelector('.v365-adaptive')?.dataset.visualLevel||null
+      }));
       return {dsStatus:ds.dataset.status,thresholds:ds.textContent,cardData:cards,
        currentVisible:!document.querySelector('#bioRecentFormSection').hidden};
      });
      assert.equal(trend.dsStatus,'HISTORICAL_REFERENCE_ONLY');
      assert.match(trend.thresholds,/Current model update held/);
      assert.equal(trend.cardData.length,5);
-     assert.ok(trend.cardData.slice(2).every(c=>c.status==='HELD'&&Number.isNaN(Number(c.value))));
+     const person=appearances.players[x.id];
+     assert.ok(person,'Native HTO appearance identity exists '+x.id);
+     const actor=official.players.find(z=>z.name===person.name);
+     assert.ok(actor,'Matching official season stat source '+person.name);
+     for(const [idx,n] of [3,5,10].entries()){
+       const sourceRecent=recent.getRecentWindow(appearances,x.id,appearances.season,actor,n);
+       const displayed=trend.cardData[idx+2];
+       assert.equal(displayed.status,sourceRecent.status,'Last '+n+' status');
+       if(sourceRecent.status==='VERIFIED'){
+         assert.equal(displayed.value,sourceRecent.rate.toFixed(2),'Last '+n+' actual P/GP');
+         assert.ok(displayed.icon,'Source-qualified scoring rate receives adaptive badge');
+       }else{
+         assert.equal(displayed.value,'—','Insufficient source appearances stay held');
+         assert.equal(displayed.icon,null,'No icon for unqualified appearances');
+       }
+     }
      assert.equal(trend.currentVisible,true);
      results.push({width,surface:'bio',name:x.name,word:b.label,angle:b.angle});
     }catch(e){failures.push({width,surface:'bio',id:x.id,reason:e.message});}
