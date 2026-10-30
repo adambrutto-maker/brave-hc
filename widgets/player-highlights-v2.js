@@ -565,6 +565,8 @@ function renderHonorsWall(record,leadershipRecord=null){
   const title=pieces.length>1?pieces.slice(0,-1).join(' - '):raw;
   const when=pieces.length>1?pieces.at(-1):'Date in published history';
   const titleNode=text('strong',title,'ph-honor-title');
+  // An eponymous award title (e.g. Andrew Cristillo Award) is not a player reference.
+  if(item.category==='award')titleNode.setAttribute('data-brave-no-link','');
   const dateNode=text('span',when,'ph-honor-date');
   card.append(category,icon,titleNode,dateNode);
   if(item.recordType==='SERVICE_TENURE_NOT_ELECTION')
@@ -672,7 +674,9 @@ function inventoryCard(item){
   const parts=item.item.preserveLines?[raw]:raw.replace(/[\u00a0\ufffd]/g,' ').split(/\s+-\s+/);
   const title=parts.length>1?parts.slice(0,-1).join(' - '):raw;
   const when=parts.length>1?parts.at(-1):'Published historical entry';
-  card.append(text('strong',title,'ph-inventory-name'),text('span',prettyRecordDate(when),'ph-inventory-date'));
+  const titleNode=text('strong',title,'ph-inventory-name');
+  if(item.item.category==='award')titleNode.setAttribute('data-brave-no-link','');
+  card.append(titleNode,text('span',prettyRecordDate(when),'ph-inventory-date'));
   if(isMilestone&&badge){
    const tier=text('span',badge.tier.toUpperCase(),'ph-inventory-tier');
    tier.setAttribute('aria-label',badge.tier+' milestone level');
@@ -895,6 +899,7 @@ function renderLegacy(record,ledgerTime,leadershipRecord=null){
    const runs=originalRuns&&raw!==item.displayText?[{...originalRuns[0],text:raw}]:originalRuns;
    if(runs){
     const sourceTitle=text('div','','ph-event-title');
+    if(item.category==='award')sourceTitle.setAttribute('data-brave-no-link','');
     sourceTitle.style.whiteSpace='pre-line';
     sourceTitle.style.fontWeight='400';
     for(const run of runs){
@@ -910,6 +915,7 @@ function renderLegacy(record,ledgerTime,leadershipRecord=null){
    const title=parts.length>1?parts.slice(0,-1).join(' - '):raw;
    const time=parts.length>1?parts[parts.length-1]:'';
    const titleNode=text('div',title,'ph-event-title');
+   if(item.category==='award')titleNode.setAttribute('data-brave-no-link','');
    if(item.preserveLines)titleNode.style.whiteSpace='pre-line';
    info.append(titleNode);
    info.append(text('div',[categoryLabel[item.category],time].filter(Boolean).join(' \u00b7 '),'ph-event-meta'));
