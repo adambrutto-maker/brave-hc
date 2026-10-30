@@ -39,9 +39,10 @@ const server=http.createServer((req,res)=>{
     info.metrics.includes("11 have official earlier player-ID observations")&&
     info.metrics.includes("33.3%"));
    assert.ok(info.divisionBridge.includes("Fazzari Partners")&&
-     info.divisionBridge.includes("5–1–2")&&
      info.divisionBridge.includes("Cristillo")&&
-     info.divisionBridge.includes("1–7–0"));
+     info.divisionBridge.includes("Remax Division")&&
+     (info.divisionBridge.match(/verified external games/g)||[]).length===3,
+     "source-observed interdivision comparisons must update with the league, not stale hard-coded scores");
    assert.equal(info.cards,4);
    assert.ok(info.players.includes("Packowski, Mike")&&info.players.includes("Ieraci, Vito"));
    assert.ok(info.htoPlayers>15);

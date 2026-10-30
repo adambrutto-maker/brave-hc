@@ -7,6 +7,7 @@
  const as=(v,n=2)=>Number.isFinite(v)?v.toFixed(n):"unavailable";
  let study=null,accepted=null,focus="BALANCE",shape=null,method="INDEX_BANDS";
  let sourceRosterEvidence=null,sourceLeagueData=null;
+ let exactOfficialGames=null,officialGameByKey=null;
  const refinedCache=new Map();
  function sorted(){
   return study?.choices[focus]||[];
@@ -29,6 +30,79 @@
   const groups=method==="REFINED"?refinement.groups:proposed.groups;
   return {proposed,refinement,groups,
     metrics:method==="REFINED"?refinement.refined:refinement.original};
+ }
+ function renderOfficialLayoutGames(){
+  const panel=q("layout-source-game-evidence"),list=q("layout-source-game-list"),
+    summary=q("layout-source-game-summary"),filter=q("layout-source-game-filter");
+  list.replaceChildren();
+  if(!exactOfficialGames||!officialGameByKey||!accepted){
+   panel.hidden=true;
+   summary.textContent="Exact official GameInfo source not verified. No proposed-match evidence displayed.";
+   return;
+  }
+  const placement=activePlacement(),groups=placement.groups,assigned=new Map();
+  for(const group of groups){
+   for(const id of group.ids){
+    if(assigned.has(id))throw Error("LAYOUT_SOURCE_TEAM_ASSIGNED_TWICE");
+    assigned.set(id,group.label);
+   }
+  }
+  if(assigned.size!==study.adultTeams)
+   throw Error("LAYOUT_SOURCE_MISSING_VERIFIED_TEAM");
+  const compared=accepted.gameGraph.verifiedMatches.map(game=>{
+   const official=officialGameByKey.get(game.sourceGameKey);
+   if(!official)throw Error("LAYOUT_OFFICIAL_GAME_SOURCE_MISSING");
+   const a=assigned.get(game.teamIds[0]),b=assigned.get(game.teamIds[1]);
+   if(!a||!b)throw Error("LAYOUT_OFFICIAL_TEAM_MISSING");
+   return {official,a,b,within:a===b};
+  }).sort((x,y)=>y.official.date.localeCompare(x.official.date)||
+      x.official.officialGameId-y.official.officialGameId);
+  const same=compared.filter(x=>x.within).length;
+  if(compared.length!==exactOfficialGames.length||
+     same!==placement.metrics.sourceVerifiedSameGroupGames)
+   throw Error("LAYOUT_GAME_COUNT_DOES_NOT_MATCH_SOURCE_MODEL");
+  const subset=compared.filter(x=>filter.value==="ALL"||
+    (filter.value==="WITHIN"?x.within:!x.within));
+  summary.textContent=compared.length+" exact SVHL GameInfo IDs · "+same+
+    " within selected "+placement.proposed.shapeId.replace(/-/g,"+")+
+    " research grouping · "+(compared.length-same)+" across proposed groups · "+
+    subset.length+" displayed ("+(method==="REFINED"?"refined placements":"score bands")+")";
+  for(const {official:g,a,b,within} of subset){
+   const card=make("article","week-card");
+   add(card,"strong","",g.date+" · "+g.homeTeamName+" vs "+g.awayTeamName+
+     " · "+g.publishedFinalGoals.join("-"));
+   add(card,"small","",("SVHL official game #"+g.officialGameId+
+     " · "+(within?"WITHIN hypothetical group "+a:"ACROSS hypothetical groups "+a+" / "+b)));
+   if(g.scoringEventAdmission==="HELD_PLAYER_SCORING_NOT_SEASON_ADMISSION")
+    add(card,"small","warning","Team result source-confirmed; individual scoring held");
+   const link=add(card,"a","small","Inspect original GameInfo");
+   link.href=g.officialGameInfoURL;link.target="_blank";link.rel="noopener noreferrer";
+   list.append(card);
+  }
+  if(subset.length===0)add(list,"p","small","No source-verified games match this filter.");
+  panel.hidden=false;
+ }
+ function setOfficialGameInfoSource(analysis,official){
+  if(!study||analysis!==accepted||!window.BraveVideoStrengthEvidence)
+   throw Error("LAYOUT_OFFICIAL_SOURCE_NOT_READY");
+  // Independent adapter rejects altered IDs, team labels, score sides, URLs,
+  // source SHA256, missing game keys, and unsupported scorer promotions.
+  const receipt=window.BraveVideoStrengthEvidence.officialGameIdentityCoverage(
+    analysis,official);
+  if(receipt.sourceGameIDsVerified!==analysis.gameGraph.verifiedGamesInPool||
+     receipt.videoStrengthStatus!=="INSUFFICIENT_VIDEO"||
+     receipt.realignmentApproved!==false)
+   throw Error("LAYOUT_OFFICIAL_GAME_COVERAGE_UNQUALIFIED");
+  const entries=official.games.map(g=>[g.sourceGameKey,g]);
+  const index=new Map(entries);
+  if(index.size!==entries.length)throw Error("LAYOUT_OFFICIAL_GAME_DUPLICATE_SOURCE_KEY");
+  exactOfficialGames=Object.freeze([...official.games]);
+  officialGameByKey=index;
+  renderOfficialLayoutGames();
+ }
+ function clearOfficialGameInfoSource(){
+  exactOfficialGames=null;officialGameByKey=null;
+  if(study)renderOfficialLayoutGames();
  }
  function paint(){
   if(!study)return;
@@ -169,6 +243,7 @@
     "A four-team division offers only three distinct opponents in one round robin, "+
     "whereas a six-team division offers five and an eight-team division offers seven. "+
     "Ice allocation, age/roster mix, registration, scheduling and league rules still require independent review.";
+  renderOfficialLayoutGames();
  }
  function textProposal(){
   if(!study)return "";
@@ -262,6 +337,10 @@
   if(!window.BraveDivisionArchitect)throw Error("Division architect module unavailable");
   study=window.BraveDivisionArchitect.run(analysis);
   accepted=analysis;refinedCache.clear();
+  exactOfficialGames=null;officialGameByKey=null;
+  const gameFilter=q("layout-source-game-filter");
+  gameFilter.value="WITHIN";
+  gameFilter.onchange=renderOfficialLayoutGames;
   const placementSelector=q("layout-placement-mode");
   if(placementSelector){
     placementSelector.value=method;
@@ -309,5 +388,7 @@
       " All divisions have even team counts.");
   paint();
  }
- window.BraveDivisionLayoutView=Object.freeze({init,setRosterSource,researchText:textProposal,getSelected:selected});
+ window.BraveDivisionLayoutView=Object.freeze({init,setRosterSource,
+  setOfficialGameInfoSource,clearOfficialGameInfoSource,
+  researchText:textProposal,getSelected:selected});
 })();

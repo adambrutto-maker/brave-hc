@@ -1,0 +1,1328 @@
+{
+  "schema": "brave-hc-svhl-current-official-game-id-bridge/v1",
+  "status": "OFFICIAL_GAMEINFO_IDENTITY_MATCHED_NO_RATING_OR_STATS_WRITE",
+  "policy": "EXACT_SOURCE_GAME_ID_AND_TEAM_SIDE_SCORES_IN_SVHL_570_ONLY",
+  "leagueId": 570,
+  "sourceLeagueAsOf": "2026-10-29T14:15:06.066854+00:00",
+  "sourceGameInfoCapturedUTC": "2026-10-27T14:06:34.151623+00:00",
+  "sourceHashBytePolicy": "UTF8_LF_GIT_BLOB",
+  "originalSourceSHA256": {
+    "leagueIntelligenceJSON": "ce2f0efdd7ba4b7b2a3a68a0683aef243ea7254d5fce1306a4d7da29356f62d0",
+    "officialGameInfoSeasonJSON": "77f7e6d37ef625bc8dbfbbca0a88aa7e666d3d1cc10577e5c56406560033d9a4"
+  },
+  "teams": 22,
+  "officialGames": 54,
+  "crossCurrentDivisionGames": 19,
+  "fullScoringSheetEvents": 52,
+  "heldPlayerScoringGames": 2,
+  "allSourceGameKeysOfficiallyMatched": true,
+  "sourceGameIDsStable": true,
+  "leagueRatingsChanged": false,
+  "officialDivisionAssignmentsChanged": false,
+  "videoStrengthCalibrated": false,
+  "independentAcceptedForHistoricalPlayerCorrections": false,
+  "uncertainty": [
+    "Official game ID and reciprocal score prove this game identity, not player attendance, penalties or video eligibility.",
+    "Current division membership may not reflect the league's historical division at the game date.",
+    "Cross-division games are observed opponent bridges, not division equivalence, rating calibration or predicted outcomes.",
+    "This match join does not override existing held scorer/roster GameInfo events or create new official scoring statistics."
+  ],
+  "games": [
+    {
+      "officialLeagueId": 570,
+      "officialGameId": 127707,
+      "sourceGameKey": "2026-09-20|13596|13686",
+      "date": "2026-09-20",
+      "homeTeamId": 13686,
+      "awayTeamId": 13596,
+      "homeTeamName": "Batman Prep",
+      "awayTeamName": "Bushwackers",
+      "publishedFinalGoals": [
+        1,
+        6
+      ],
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=127707&page_type=Adult",
+      "officialGameInfoPageSHA256": "f7d6b9c42737d66e423e459703abef6f12a931c938590d6e61c079cc0f4aad02",
+      "currentDivisionPair": [
+        "Fazzari Partners",
+        "Remax Division"
+      ],
+      "crossCurrentDivision": true,
+      "scoringEventAdmission": "FULL_GOAL_EVENTS_SCORE_PARITY",
+      "originalOfficialScoreOverwritten": false,
+      "videoPerformanceMeasurements": null
+    },
+    {
+      "officialLeagueId": 570,
+      "officialGameId": 127708,
+      "sourceGameKey": "2026-09-20|13627|13671",
+      "date": "2026-09-20",
+      "homeTeamId": 13671,
+      "awayTeamId": 13627,
+      "homeTeamName": "Hawks",
+      "awayTeamName": "Last Pass",
+      "publishedFinalGoals": [
+        2,
+        4
+      ],
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=127708&page_type=Adult",
+      "officialGameInfoPageSHA256": "bee5588cf06d7b67de3e9c157f5c71c42a7ca61f9e43e5e91795eba605187153",
+      "currentDivisionPair": [
+        "Fazzari Partners",
+        "Fazzari Partners"
+      ],
+      "crossCurrentDivision": false,
+      "scoringEventAdmission": "FULL_GOAL_EVENTS_SCORE_PARITY",
+      "originalOfficialScoreOverwritten": false,
+      "videoPerformanceMeasurements": null
+    },
+    {
+      "officialLeagueId": 570,
+      "officialGameId": 127709,
+      "sourceGameKey": "2026-09-20|13663|13700",
+      "date": "2026-09-20",
+      "homeTeamId": 13700,
+      "awayTeamId": 13663,
+      "homeTeamName": "Pinheads",
+      "awayTeamName": "We're Curved",
+      "publishedFinalGoals": [
+        4,
+        2
+      ],
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=127709&page_type=Adult",
+      "officialGameInfoPageSHA256": "6f43e4dbaa2de62dfdbd791a474015e031260a3113788f24df36856d7ab84508",
+      "currentDivisionPair": [
+        "Fazzari Partners",
+        "Fazzari Partners"
+      ],
+      "crossCurrentDivision": false,
+      "scoringEventAdmission": "FULL_GOAL_EVENTS_SCORE_PARITY",
+      "originalOfficialScoreOverwritten": false,
+      "videoPerformanceMeasurements": null
+    },
+    {
+      "officialLeagueId": 570,
+      "officialGameId": 127710,
+      "sourceGameKey": "2026-09-27|13596|13700",
+      "date": "2026-09-27",
+      "homeTeamId": 13596,
+      "awayTeamId": 13700,
+      "homeTeamName": "Bushwackers",
+      "awayTeamName": "Pinheads",
+      "publishedFinalGoals": [
+        1,
+        2
+      ],
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=127710&page_type=Adult",
+      "officialGameInfoPageSHA256": "b2fa77fc2a9a451d5120756c11a5c11538c481036bf1e7b17886e844992d71a8",
+      "currentDivisionPair": [
+        "Fazzari Partners",
+        "Fazzari Partners"
+      ],
+      "crossCurrentDivision": false,
+      "scoringEventAdmission": "FULL_GOAL_EVENTS_SCORE_PARITY",
+      "originalOfficialScoreOverwritten": false,
+      "videoPerformanceMeasurements": null
+    },
+    {
+      "officialLeagueId": 570,
+      "officialGameId": 127711,
+      "sourceGameKey": "2026-09-27|13627|13663",
+      "date": "2026-09-27",
+      "homeTeamId": 13627,
+      "awayTeamId": 13663,
+      "homeTeamName": "Last Pass",
+      "awayTeamName": "We're Curved",
+      "publishedFinalGoals": [
+        2,
+        2
+      ],
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=127711&page_type=Adult",
+      "officialGameInfoPageSHA256": "d59b512cd238d222e626f293d7cd9d0f7f9596c7f758fc3ecd4645fae3f1c27f",
+      "currentDivisionPair": [
+        "Fazzari Partners",
+        "Fazzari Partners"
+      ],
+      "crossCurrentDivision": false,
+      "scoringEventAdmission": "FULL_GOAL_EVENTS_SCORE_PARITY",
+      "originalOfficialScoreOverwritten": false,
+      "videoPerformanceMeasurements": null
+    },
+    {
+      "officialLeagueId": 570,
+      "officialGameId": 127712,
+      "sourceGameKey": "2026-09-27|13671|13686",
+      "date": "2026-09-27",
+      "homeTeamId": 13686,
+      "awayTeamId": 13671,
+      "homeTeamName": "Batman Prep",
+      "awayTeamName": "Hawks",
+      "publishedFinalGoals": [
+        2,
+        2
+      ],
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=127712&page_type=Adult",
+      "officialGameInfoPageSHA256": "431aafee08a6f13f796c6268a93b61bc3d4afe6fcf973ecf9a961146cad20ca7",
+      "currentDivisionPair": [
+        "Fazzari Partners",
+        "Remax Division"
+      ],
+      "crossCurrentDivision": true,
+      "scoringEventAdmission": "FULL_GOAL_EVENTS_SCORE_PARITY",
+      "originalOfficialScoreOverwritten": false,
+      "videoPerformanceMeasurements": null
+    },
+    {
+      "officialLeagueId": 570,
+      "officialGameId": 127713,
+      "sourceGameKey": "2026-09-20|13710|13711",
+      "date": "2026-09-20",
+      "homeTeamId": 13711,
+      "awayTeamId": 13710,
+      "homeTeamName": "Butcher Brothers",
+      "awayTeamName": "Mighty Drunks",
+      "publishedFinalGoals": [
+        3,
+        2
+      ],
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=127713&page_type=Adult",
+      "officialGameInfoPageSHA256": "38b03e929b17dc79ede68806fb4a6d3beaae5dbc7a5a89987ea2c56a26c62726",
+      "currentDivisionPair": [
+        "Remax Division",
+        "Remax Division"
+      ],
+      "crossCurrentDivision": false,
+      "scoringEventAdmission": "FULL_GOAL_EVENTS_SCORE_PARITY",
+      "originalOfficialScoreOverwritten": false,
+      "videoPerformanceMeasurements": null
+    },
+    {
+      "officialLeagueId": 570,
+      "officialGameId": 127714,
+      "sourceGameKey": "2026-09-20|13712|13713",
+      "date": "2026-09-20",
+      "homeTeamId": 13712,
+      "awayTeamId": 13713,
+      "homeTeamName": "Maplewolves",
+      "awayTeamName": "Primary Auto",
+      "publishedFinalGoals": [
+        3,
+        4
+      ],
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=127714&page_type=Adult",
+      "officialGameInfoPageSHA256": "9355160fdd48b8664f087e9ed3da72622bd03d00132b461db5cd3e5210e5be69",
+      "currentDivisionPair": [
+        "Remax Division",
+        "The Cristillo Division"
+      ],
+      "crossCurrentDivision": true,
+      "scoringEventAdmission": "FULL_GOAL_EVENTS_SCORE_PARITY",
+      "originalOfficialScoreOverwritten": false,
+      "videoPerformanceMeasurements": null
+    },
+    {
+      "officialLeagueId": 570,
+      "officialGameId": 127715,
+      "sourceGameKey": "2026-09-20|13714|13715",
+      "date": "2026-09-20",
+      "homeTeamId": 13714,
+      "awayTeamId": 13715,
+      "homeTeamName": "Thrillers",
+      "awayTeamName": "VR Delta",
+      "publishedFinalGoals": [
+        1,
+        1
+      ],
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=127715&page_type=Adult",
+      "officialGameInfoPageSHA256": "2a17bdf2154ec6c1017627c2e594608759b273d5d412a4b60f92361da09e9764",
+      "currentDivisionPair": [
+        "Remax Division",
+        "Remax Division"
+      ],
+      "crossCurrentDivision": false,
+      "scoringEventAdmission": "FULL_GOAL_EVENTS_SCORE_PARITY",
+      "originalOfficialScoreOverwritten": false,
+      "videoPerformanceMeasurements": null
+    },
+    {
+      "officialLeagueId": 570,
+      "officialGameId": 127716,
+      "sourceGameKey": "2026-09-20|13716|13717",
+      "date": "2026-09-20",
+      "homeTeamId": 13717,
+      "awayTeamId": 13716,
+      "homeTeamName": "Degenerates",
+      "awayTeamName": "Young Guns",
+      "publishedFinalGoals": [
+        2,
+        2
+      ],
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=127716&page_type=Adult",
+      "officialGameInfoPageSHA256": "c7a631baf1b7949d1fc95c4f0774d8d7b6e32d8b328806fad81dcc793423d1c7",
+      "currentDivisionPair": [
+        "Fazzari Partners",
+        "Remax Division"
+      ],
+      "crossCurrentDivision": true,
+      "scoringEventAdmission": "FULL_GOAL_EVENTS_SCORE_PARITY",
+      "originalOfficialScoreOverwritten": false,
+      "videoPerformanceMeasurements": null
+    },
+    {
+      "officialLeagueId": 570,
+      "officialGameId": 127717,
+      "sourceGameKey": "2026-09-27|13711|13712",
+      "date": "2026-09-27",
+      "homeTeamId": 13711,
+      "awayTeamId": 13712,
+      "homeTeamName": "Butcher Brothers",
+      "awayTeamName": "Maplewolves",
+      "publishedFinalGoals": [
+        3,
+        1
+      ],
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=127717&page_type=Adult",
+      "officialGameInfoPageSHA256": "625c38e9d6162d7e6ae1af8628f8ea2358d522f88979f426f110fa44383bd926",
+      "currentDivisionPair": [
+        "Remax Division",
+        "The Cristillo Division"
+      ],
+      "crossCurrentDivision": true,
+      "scoringEventAdmission": "FULL_GOAL_EVENTS_SCORE_PARITY",
+      "originalOfficialScoreOverwritten": false,
+      "videoPerformanceMeasurements": null
+    },
+    {
+      "officialLeagueId": 570,
+      "officialGameId": 127718,
+      "sourceGameKey": "2026-09-27|13714|13717",
+      "date": "2026-09-27",
+      "homeTeamId": 13717,
+      "awayTeamId": 13714,
+      "homeTeamName": "Degenerates",
+      "awayTeamName": "Thrillers",
+      "publishedFinalGoals": [
+        4,
+        3
+      ],
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=127718&page_type=Adult",
+      "officialGameInfoPageSHA256": "6f8bde9746b3ed437778af001e0f584557a4bf13695ba729ec2411236dbac95f",
+      "currentDivisionPair": [
+        "Fazzari Partners",
+        "Remax Division"
+      ],
+      "crossCurrentDivision": true,
+      "scoringEventAdmission": "FULL_GOAL_EVENTS_SCORE_PARITY",
+      "originalOfficialScoreOverwritten": false,
+      "videoPerformanceMeasurements": null
+    },
+    {
+      "officialLeagueId": 570,
+      "officialGameId": 127719,
+      "sourceGameKey": "2026-09-27|13715|13716",
+      "date": "2026-09-27",
+      "homeTeamId": 13715,
+      "awayTeamId": 13716,
+      "homeTeamName": "VR Delta",
+      "awayTeamName": "Young Guns",
+      "publishedFinalGoals": [
+        4,
+        3
+      ],
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=127719&page_type=Adult",
+      "officialGameInfoPageSHA256": "1ed2e4bc0147869905547d3b952858e1f0c908102b234b8d2f136ed621eb7cce",
+      "currentDivisionPair": [
+        "Remax Division",
+        "Remax Division"
+      ],
+      "crossCurrentDivision": false,
+      "scoringEventAdmission": "FULL_GOAL_EVENTS_SCORE_PARITY",
+      "originalOfficialScoreOverwritten": false,
+      "videoPerformanceMeasurements": null
+    },
+    {
+      "officialLeagueId": 570,
+      "officialGameId": 127720,
+      "sourceGameKey": "2026-09-27|13710|13713",
+      "date": "2026-09-27",
+      "homeTeamId": 13710,
+      "awayTeamId": 13713,
+      "homeTeamName": "Mighty Drunks",
+      "awayTeamName": "Primary Auto",
+      "publishedFinalGoals": [
+        3,
+        4
+      ],
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=127720&page_type=Adult",
+      "officialGameInfoPageSHA256": "15fcec2a7722c5818b31eaba8cce3a65e5440aaa6af88b51388e1afaea00d8b0",
+      "currentDivisionPair": [
+        "Remax Division",
+        "Remax Division"
+      ],
+      "crossCurrentDivision": false,
+      "scoringEventAdmission": "FULL_GOAL_EVENTS_SCORE_PARITY",
+      "originalOfficialScoreOverwritten": false,
+      "videoPerformanceMeasurements": null
+    },
+    {
+      "officialLeagueId": 570,
+      "officialGameId": 127721,
+      "sourceGameKey": "2026-09-20|13668|13679",
+      "date": "2026-09-20",
+      "homeTeamId": 13679,
+      "awayTeamId": 13668,
+      "homeTeamName": "Braves HC",
+      "awayTeamName": "Dateline Predators",
+      "publishedFinalGoals": [
+        0,
+        3
+      ],
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=127721&page_type=Adult",
+      "officialGameInfoPageSHA256": "c4fffde46ad9cb83abc764ae81b87c8331e638be9edc14b7a483c41a0ff023a3",
+      "currentDivisionPair": [
+        "The Cristillo Division",
+        "The Cristillo Division"
+      ],
+      "crossCurrentDivision": false,
+      "scoringEventAdmission": "FULL_GOAL_EVENTS_SCORE_PARITY",
+      "originalOfficialScoreOverwritten": false,
+      "videoPerformanceMeasurements": null
+    },
+    {
+      "officialLeagueId": 570,
+      "officialGameId": 127722,
+      "sourceGameKey": "2026-09-20|13680|13709",
+      "date": "2026-09-20",
+      "homeTeamId": 13709,
+      "awayTeamId": 13680,
+      "homeTeamName": "Sugo Sundays",
+      "awayTeamName": "Mohawks HC",
+      "publishedFinalGoals": [
+        4,
+        3
+      ],
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=127722&page_type=Adult",
+      "officialGameInfoPageSHA256": "446f2a0c231387090f17aa33eec17495a2d125888ddb34c67546947d1fcf02b2",
+      "currentDivisionPair": [
+        "Remax Division",
+        "The Cristillo Division"
+      ],
+      "crossCurrentDivision": true,
+      "scoringEventAdmission": "FULL_GOAL_EVENTS_SCORE_PARITY",
+      "originalOfficialScoreOverwritten": false,
+      "videoPerformanceMeasurements": null
+    },
+    {
+      "officialLeagueId": 570,
+      "officialGameId": 127724,
+      "sourceGameKey": "2026-09-20|13704|13708",
+      "date": "2026-09-20",
+      "homeTeamId": 13708,
+      "awayTeamId": 13704,
+      "homeTeamName": "Mid Ice Crisis",
+      "awayTeamName": "Other Way",
+      "publishedFinalGoals": [
+        3,
+        4
+      ],
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=127724&page_type=Adult",
+      "officialGameInfoPageSHA256": "88afb81bf883d302196ef435e6bc98b5f8a79c69207a9f08787e6571665c737d",
+      "currentDivisionPair": [
+        "The Cristillo Division",
+        "The Cristillo Division"
+      ],
+      "crossCurrentDivision": false,
+      "scoringEventAdmission": "FULL_GOAL_EVENTS_SCORE_PARITY",
+      "originalOfficialScoreOverwritten": false,
+      "videoPerformanceMeasurements": null
+    },
+    {
+      "officialLeagueId": 570,
+      "officialGameId": 127725,
+      "sourceGameKey": "2026-09-27|13668|13709",
+      "date": "2026-09-27",
+      "homeTeamId": 13668,
+      "awayTeamId": 13709,
+      "homeTeamName": "Dateline Predators",
+      "awayTeamName": "Sugo Sundays",
+      "publishedFinalGoals": [
+        1,
+        3
+      ],
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=127725&page_type=Adult",
+      "officialGameInfoPageSHA256": "510a23a6e1565d7036ffc65c90c10e3539610283a57d2cafe207af1928134e8c",
+      "currentDivisionPair": [
+        "Remax Division",
+        "The Cristillo Division"
+      ],
+      "crossCurrentDivision": true,
+      "scoringEventAdmission": "FULL_GOAL_EVENTS_SCORE_PARITY",
+      "originalOfficialScoreOverwritten": false,
+      "videoPerformanceMeasurements": null
+    },
+    {
+      "officialLeagueId": 570,
+      "officialGameId": 127726,
+      "sourceGameKey": "2026-09-27|13704|13730",
+      "date": "2026-09-27",
+      "homeTeamId": 13730,
+      "awayTeamId": 13704,
+      "homeTeamName": "Zamboner Crew",
+      "awayTeamName": "Other Way",
+      "publishedFinalGoals": [
+        6,
+        6
+      ],
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=127726&page_type=Adult",
+      "officialGameInfoPageSHA256": "f8142198a6c97fd90c5911b68f3560865d2338b689d4b4099d1b28c0355d2ea7",
+      "currentDivisionPair": [
+        "The Cristillo Division",
+        "The Cristillo Division"
+      ],
+      "crossCurrentDivision": false,
+      "scoringEventAdmission": "HELD_PLAYER_SCORING_NOT_SEASON_ADMISSION",
+      "originalOfficialScoreOverwritten": false,
+      "videoPerformanceMeasurements": null
+    },
+    {
+      "officialLeagueId": 570,
+      "officialGameId": 127727,
+      "sourceGameKey": "2026-09-27|13649|13708",
+      "date": "2026-09-27",
+      "homeTeamId": 13649,
+      "awayTeamId": 13708,
+      "homeTeamName": "Big Bastones",
+      "awayTeamName": "Mid Ice Crisis",
+      "publishedFinalGoals": [
+        2,
+        4
+      ],
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=127727&page_type=Adult",
+      "officialGameInfoPageSHA256": "29c7f135f9a089b3e3abbaa92015d9799341b720c963d63b2a1d46f815200ea1",
+      "currentDivisionPair": [
+        "The Cristillo Division",
+        "The Cristillo Division"
+      ],
+      "crossCurrentDivision": false,
+      "scoringEventAdmission": "FULL_GOAL_EVENTS_SCORE_PARITY",
+      "originalOfficialScoreOverwritten": false,
+      "videoPerformanceMeasurements": null
+    },
+    {
+      "officialLeagueId": 570,
+      "officialGameId": 127728,
+      "sourceGameKey": "2026-09-27|13679|13680",
+      "date": "2026-09-27",
+      "homeTeamId": 13679,
+      "awayTeamId": 13680,
+      "homeTeamName": "Braves HC",
+      "awayTeamName": "Mohawks HC",
+      "publishedFinalGoals": [
+        3,
+        6
+      ],
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=127728&page_type=Adult",
+      "officialGameInfoPageSHA256": "420d0e451c8dca5918143d4a1940edffcfd9807b9ba0b6799c6380dd6c396001",
+      "currentDivisionPair": [
+        "The Cristillo Division",
+        "The Cristillo Division"
+      ],
+      "crossCurrentDivision": false,
+      "scoringEventAdmission": "FULL_GOAL_EVENTS_SCORE_PARITY",
+      "originalOfficialScoreOverwritten": false,
+      "videoPerformanceMeasurements": null
+    },
+    {
+      "officialLeagueId": 570,
+      "officialGameId": 127767,
+      "sourceGameKey": "2026-10-04|13671|13700",
+      "date": "2026-10-04",
+      "homeTeamId": 13671,
+      "awayTeamId": 13700,
+      "homeTeamName": "Hawks",
+      "awayTeamName": "Pinheads",
+      "publishedFinalGoals": [
+        3,
+        2
+      ],
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=127767&page_type=Adult",
+      "officialGameInfoPageSHA256": "5d13c955ca297546678041c889148409dc2c13f0f150c10b9c3b44ba1252e280",
+      "currentDivisionPair": [
+        "Fazzari Partners",
+        "Fazzari Partners"
+      ],
+      "crossCurrentDivision": false,
+      "scoringEventAdmission": "FULL_GOAL_EVENTS_SCORE_PARITY",
+      "originalOfficialScoreOverwritten": false,
+      "videoPerformanceMeasurements": null
+    },
+    {
+      "officialLeagueId": 570,
+      "officialGameId": 127768,
+      "sourceGameKey": "2026-10-04|13596|13663",
+      "date": "2026-10-04",
+      "homeTeamId": 13596,
+      "awayTeamId": 13663,
+      "homeTeamName": "Bushwackers",
+      "awayTeamName": "We're Curved",
+      "publishedFinalGoals": [
+        3,
+        2
+      ],
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=127768&page_type=Adult",
+      "officialGameInfoPageSHA256": "5263c4138300cb6cdc852103de20b5e79b7342f3faeaed01bcd01603c1c7ba06",
+      "currentDivisionPair": [
+        "Fazzari Partners",
+        "Fazzari Partners"
+      ],
+      "crossCurrentDivision": false,
+      "scoringEventAdmission": "FULL_GOAL_EVENTS_SCORE_PARITY",
+      "originalOfficialScoreOverwritten": false,
+      "videoPerformanceMeasurements": null
+    },
+    {
+      "officialLeagueId": 570,
+      "officialGameId": 127769,
+      "sourceGameKey": "2026-10-04|13627|13686",
+      "date": "2026-10-04",
+      "homeTeamId": 13686,
+      "awayTeamId": 13627,
+      "homeTeamName": "Batman Prep",
+      "awayTeamName": "Last Pass",
+      "publishedFinalGoals": [
+        2,
+        1
+      ],
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=127769&page_type=Adult",
+      "officialGameInfoPageSHA256": "5c4ebed777f242921f4074d756d947599ea119f00785281ba3236304c701ce7b",
+      "currentDivisionPair": [
+        "Fazzari Partners",
+        "Remax Division"
+      ],
+      "crossCurrentDivision": true,
+      "scoringEventAdmission": "FULL_GOAL_EVENTS_SCORE_PARITY",
+      "originalOfficialScoreOverwritten": false,
+      "videoPerformanceMeasurements": null
+    },
+    {
+      "officialLeagueId": 570,
+      "officialGameId": 127770,
+      "sourceGameKey": "2026-10-18|13663|13671",
+      "date": "2026-10-18",
+      "homeTeamId": 13663,
+      "awayTeamId": 13671,
+      "homeTeamName": "We're Curved",
+      "awayTeamName": "Hawks",
+      "publishedFinalGoals": [
+        2,
+        2
+      ],
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=127770&page_type=Adult",
+      "officialGameInfoPageSHA256": "4d16c9b41fcfc13a1e6c8b0e47ef3b267552988550c9eab544cb01497b10556d",
+      "currentDivisionPair": [
+        "Fazzari Partners",
+        "Fazzari Partners"
+      ],
+      "crossCurrentDivision": false,
+      "scoringEventAdmission": "FULL_GOAL_EVENTS_SCORE_PARITY",
+      "originalOfficialScoreOverwritten": false,
+      "videoPerformanceMeasurements": null
+    },
+    {
+      "officialLeagueId": 570,
+      "officialGameId": 127771,
+      "sourceGameKey": "2026-10-18|13686|13700",
+      "date": "2026-10-18",
+      "homeTeamId": 13686,
+      "awayTeamId": 13700,
+      "homeTeamName": "Batman Prep",
+      "awayTeamName": "Pinheads",
+      "publishedFinalGoals": [
+        0,
+        5
+      ],
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=127771&page_type=Adult",
+      "officialGameInfoPageSHA256": "16aae36473015cb0233a3274aa78597033e333c75034a4046fa86bc61d5e0286",
+      "currentDivisionPair": [
+        "Fazzari Partners",
+        "Remax Division"
+      ],
+      "crossCurrentDivision": true,
+      "scoringEventAdmission": "FULL_GOAL_EVENTS_SCORE_PARITY",
+      "originalOfficialScoreOverwritten": false,
+      "videoPerformanceMeasurements": null
+    },
+    {
+      "officialLeagueId": 570,
+      "officialGameId": 127772,
+      "sourceGameKey": "2026-10-18|13596|13627",
+      "date": "2026-10-18",
+      "homeTeamId": 13596,
+      "awayTeamId": 13627,
+      "homeTeamName": "Bushwackers",
+      "awayTeamName": "Last Pass",
+      "publishedFinalGoals": [
+        7,
+        4
+      ],
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=127772&page_type=Adult",
+      "officialGameInfoPageSHA256": "233b02fe33061fcf74b1939f4c09058dd2cacaacd92369cbb7c7ec3a408ec539",
+      "currentDivisionPair": [
+        "Fazzari Partners",
+        "Fazzari Partners"
+      ],
+      "crossCurrentDivision": false,
+      "scoringEventAdmission": "FULL_GOAL_EVENTS_SCORE_PARITY",
+      "originalOfficialScoreOverwritten": false,
+      "videoPerformanceMeasurements": null
+    },
+    {
+      "officialLeagueId": 570,
+      "officialGameId": 127773,
+      "sourceGameKey": "2026-10-04|13714|13716",
+      "date": "2026-10-04",
+      "homeTeamId": 13714,
+      "awayTeamId": 13716,
+      "homeTeamName": "Thrillers",
+      "awayTeamName": "Young Guns",
+      "publishedFinalGoals": [
+        4,
+        1
+      ],
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=127773&page_type=Adult",
+      "officialGameInfoPageSHA256": "0244e6f3e9b6e8b7a98f0f14885a97a2331ad35464d2010d4a8f5f6c31a485cb",
+      "currentDivisionPair": [
+        "Remax Division",
+        "Remax Division"
+      ],
+      "crossCurrentDivision": false,
+      "scoringEventAdmission": "FULL_GOAL_EVENTS_SCORE_PARITY",
+      "originalOfficialScoreOverwritten": false,
+      "videoPerformanceMeasurements": null
+    },
+    {
+      "officialLeagueId": 570,
+      "officialGameId": 127774,
+      "sourceGameKey": "2026-10-04|13715|13717",
+      "date": "2026-10-04",
+      "homeTeamId": 13715,
+      "awayTeamId": 13717,
+      "homeTeamName": "VR Delta",
+      "awayTeamName": "Degenerates",
+      "publishedFinalGoals": [
+        1,
+        6
+      ],
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=127774&page_type=Adult",
+      "officialGameInfoPageSHA256": "d37177259c27202c2407cfde34d97655b15d7920e52d8142f283d7d9d7e636d9",
+      "currentDivisionPair": [
+        "Fazzari Partners",
+        "Remax Division"
+      ],
+      "crossCurrentDivision": true,
+      "scoringEventAdmission": "FULL_GOAL_EVENTS_SCORE_PARITY",
+      "originalOfficialScoreOverwritten": false,
+      "videoPerformanceMeasurements": null
+    },
+    {
+      "officialLeagueId": 570,
+      "officialGameId": 127775,
+      "sourceGameKey": "2026-10-04|13710|13712",
+      "date": "2026-10-04",
+      "homeTeamId": 13710,
+      "awayTeamId": 13712,
+      "homeTeamName": "Mighty Drunks",
+      "awayTeamName": "Maplewolves",
+      "publishedFinalGoals": [
+        6,
+        2
+      ],
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=127775&page_type=Adult",
+      "officialGameInfoPageSHA256": "16e1b930f4b68aaabc5f5a5ad0ae9c4c1b80c91e0c716ebab8c33456e604eb1e",
+      "currentDivisionPair": [
+        "Remax Division",
+        "The Cristillo Division"
+      ],
+      "crossCurrentDivision": true,
+      "scoringEventAdmission": "FULL_GOAL_EVENTS_SCORE_PARITY",
+      "originalOfficialScoreOverwritten": false,
+      "videoPerformanceMeasurements": null
+    },
+    {
+      "officialLeagueId": 570,
+      "officialGameId": 127776,
+      "sourceGameKey": "2026-10-04|13711|13713",
+      "date": "2026-10-04",
+      "homeTeamId": 13711,
+      "awayTeamId": 13713,
+      "homeTeamName": "Butcher Brothers",
+      "awayTeamName": "Primary Auto",
+      "publishedFinalGoals": [
+        6,
+        0
+      ],
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=127776&page_type=Adult",
+      "officialGameInfoPageSHA256": "99cc070e05383fc7a598c2e9bdf028a9c1729b74c50624972e79f021b3e3d554",
+      "currentDivisionPair": [
+        "Remax Division",
+        "Remax Division"
+      ],
+      "crossCurrentDivision": false,
+      "scoringEventAdmission": "FULL_GOAL_EVENTS_SCORE_PARITY",
+      "originalOfficialScoreOverwritten": false,
+      "videoPerformanceMeasurements": null
+    },
+    {
+      "officialLeagueId": 570,
+      "officialGameId": 127777,
+      "sourceGameKey": "2026-10-18|13713|13715",
+      "date": "2026-10-18",
+      "homeTeamId": 13713,
+      "awayTeamId": 13715,
+      "homeTeamName": "Primary Auto",
+      "awayTeamName": "VR Delta",
+      "publishedFinalGoals": [
+        3,
+        2
+      ],
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=127777&page_type=Adult",
+      "officialGameInfoPageSHA256": "2cdab2dc958268e680d9ed2e0885a902da9b89e8978e0522d2d3b3449294f872",
+      "currentDivisionPair": [
+        "Remax Division",
+        "Remax Division"
+      ],
+      "crossCurrentDivision": false,
+      "scoringEventAdmission": "FULL_GOAL_EVENTS_SCORE_PARITY",
+      "originalOfficialScoreOverwritten": false,
+      "videoPerformanceMeasurements": null
+    },
+    {
+      "officialLeagueId": 570,
+      "officialGameId": 127778,
+      "sourceGameKey": "2026-10-18|13710|13714",
+      "date": "2026-10-18",
+      "homeTeamId": 13710,
+      "awayTeamId": 13714,
+      "homeTeamName": "Mighty Drunks",
+      "awayTeamName": "Thrillers",
+      "publishedFinalGoals": [
+        2,
+        4
+      ],
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=127778&page_type=Adult",
+      "officialGameInfoPageSHA256": "85c48fea27b062f72132ec542922586fecd3c50189c8e4cdf0492e77a9b2a309",
+      "currentDivisionPair": [
+        "Remax Division",
+        "Remax Division"
+      ],
+      "crossCurrentDivision": false,
+      "scoringEventAdmission": "FULL_GOAL_EVENTS_SCORE_PARITY",
+      "originalOfficialScoreOverwritten": false,
+      "videoPerformanceMeasurements": null
+    },
+    {
+      "officialLeagueId": 570,
+      "officialGameId": 127779,
+      "sourceGameKey": "2026-10-18|13711|13717",
+      "date": "2026-10-18",
+      "homeTeamId": 13711,
+      "awayTeamId": 13717,
+      "homeTeamName": "Butcher Brothers",
+      "awayTeamName": "Degenerates",
+      "publishedFinalGoals": [
+        2,
+        5
+      ],
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=127779&page_type=Adult",
+      "officialGameInfoPageSHA256": "8a0cbad4dc3fb42a8edb09df31632bec5c5fe3afe6e51800bce6597425bb0189",
+      "currentDivisionPair": [
+        "Fazzari Partners",
+        "Remax Division"
+      ],
+      "crossCurrentDivision": true,
+      "scoringEventAdmission": "FULL_GOAL_EVENTS_SCORE_PARITY",
+      "originalOfficialScoreOverwritten": false,
+      "videoPerformanceMeasurements": null
+    },
+    {
+      "officialLeagueId": 570,
+      "officialGameId": 127780,
+      "sourceGameKey": "2026-10-18|13712|13716",
+      "date": "2026-10-18",
+      "homeTeamId": 13712,
+      "awayTeamId": 13716,
+      "homeTeamName": "Maplewolves",
+      "awayTeamName": "Young Guns",
+      "publishedFinalGoals": [
+        3,
+        4
+      ],
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=127780&page_type=Adult",
+      "officialGameInfoPageSHA256": "f51da35c8e83a0ffcef2a979bbf11214d636ac2a47f53a9a7264845c511b0786",
+      "currentDivisionPair": [
+        "Remax Division",
+        "The Cristillo Division"
+      ],
+      "crossCurrentDivision": true,
+      "scoringEventAdmission": "FULL_GOAL_EVENTS_SCORE_PARITY",
+      "originalOfficialScoreOverwritten": false,
+      "videoPerformanceMeasurements": null
+    },
+    {
+      "officialLeagueId": 570,
+      "officialGameId": 127781,
+      "sourceGameKey": "2026-10-04|13708|13730",
+      "date": "2026-10-04",
+      "homeTeamId": 13730,
+      "awayTeamId": 13708,
+      "homeTeamName": "Zamboner Crew",
+      "awayTeamName": "Mid Ice Crisis",
+      "publishedFinalGoals": [
+        2,
+        6
+      ],
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=127781&page_type=Adult",
+      "officialGameInfoPageSHA256": "34aa7664aa46f3cb0c8191c31315321925555aed12f90fb8445fe8b85061d63d",
+      "currentDivisionPair": [
+        "The Cristillo Division",
+        "The Cristillo Division"
+      ],
+      "crossCurrentDivision": false,
+      "scoringEventAdmission": "FULL_GOAL_EVENTS_SCORE_PARITY",
+      "originalOfficialScoreOverwritten": false,
+      "videoPerformanceMeasurements": null
+    },
+    {
+      "officialLeagueId": 570,
+      "officialGameId": 127782,
+      "sourceGameKey": "2026-10-04|13649|13704",
+      "date": "2026-10-04",
+      "homeTeamId": 13649,
+      "awayTeamId": 13704,
+      "homeTeamName": "Big Bastones",
+      "awayTeamName": "Other Way",
+      "publishedFinalGoals": [
+        2,
+        0
+      ],
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=127782&page_type=Adult",
+      "officialGameInfoPageSHA256": "3862babc79efd3eadd4531f38bffc2421546d70b43de329899fa1723375c2063",
+      "currentDivisionPair": [
+        "The Cristillo Division",
+        "The Cristillo Division"
+      ],
+      "crossCurrentDivision": false,
+      "scoringEventAdmission": "FULL_GOAL_EVENTS_SCORE_PARITY",
+      "originalOfficialScoreOverwritten": false,
+      "videoPerformanceMeasurements": null
+    },
+    {
+      "officialLeagueId": 570,
+      "officialGameId": 127783,
+      "sourceGameKey": "2026-10-04|13679|13709",
+      "date": "2026-10-04",
+      "homeTeamId": 13679,
+      "awayTeamId": 13709,
+      "homeTeamName": "Braves HC",
+      "awayTeamName": "Sugo Sundays",
+      "publishedFinalGoals": [
+        2,
+        3
+      ],
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=127783&page_type=Adult",
+      "officialGameInfoPageSHA256": "341b76f01bdc32949910db71efd09f8ae9960ca3370eb5eeb8747d43755bd268",
+      "currentDivisionPair": [
+        "Remax Division",
+        "The Cristillo Division"
+      ],
+      "crossCurrentDivision": true,
+      "scoringEventAdmission": "FULL_GOAL_EVENTS_SCORE_PARITY",
+      "originalOfficialScoreOverwritten": false,
+      "videoPerformanceMeasurements": null
+    },
+    {
+      "officialLeagueId": 570,
+      "officialGameId": 127784,
+      "sourceGameKey": "2026-10-04|13668|13680",
+      "date": "2026-10-04",
+      "homeTeamId": 13668,
+      "awayTeamId": 13680,
+      "homeTeamName": "Dateline Predators",
+      "awayTeamName": "Mohawks HC",
+      "publishedFinalGoals": [
+        1,
+        4
+      ],
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=127784&page_type=Adult",
+      "officialGameInfoPageSHA256": "247808dcce094a2e1c328208a36021a61f10b1478997a8f695848a48170e9ace",
+      "currentDivisionPair": [
+        "The Cristillo Division",
+        "The Cristillo Division"
+      ],
+      "crossCurrentDivision": false,
+      "scoringEventAdmission": "FULL_GOAL_EVENTS_SCORE_PARITY",
+      "originalOfficialScoreOverwritten": false,
+      "videoPerformanceMeasurements": null
+    },
+    {
+      "officialLeagueId": 570,
+      "officialGameId": 127785,
+      "sourceGameKey": "2026-10-18|13649|13680",
+      "date": "2026-10-18",
+      "homeTeamId": 13680,
+      "awayTeamId": 13649,
+      "homeTeamName": "Mohawks HC",
+      "awayTeamName": "Big Bastones",
+      "publishedFinalGoals": [
+        4,
+        1
+      ],
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=127785&page_type=Adult",
+      "officialGameInfoPageSHA256": "fff8f433e858c21418c61272f9cf78995c4631370ee322dd5710c688e7c60193",
+      "currentDivisionPair": [
+        "The Cristillo Division",
+        "The Cristillo Division"
+      ],
+      "crossCurrentDivision": false,
+      "scoringEventAdmission": "FULL_GOAL_EVENTS_SCORE_PARITY",
+      "originalOfficialScoreOverwritten": false,
+      "videoPerformanceMeasurements": null
+    },
+    {
+      "officialLeagueId": 570,
+      "officialGameId": 127786,
+      "sourceGameKey": "2026-10-18|13679|13730",
+      "date": "2026-10-18",
+      "homeTeamId": 13679,
+      "awayTeamId": 13730,
+      "homeTeamName": "Braves HC",
+      "awayTeamName": "Zamboner Crew",
+      "publishedFinalGoals": [
+        1,
+        7
+      ],
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=127786&page_type=Adult",
+      "officialGameInfoPageSHA256": "7b6800ee23d83775da9fc130ef4500f5a7ed023c9b062e205eb3f8aac17523bc",
+      "currentDivisionPair": [
+        "The Cristillo Division",
+        "The Cristillo Division"
+      ],
+      "crossCurrentDivision": false,
+      "scoringEventAdmission": "FULL_GOAL_EVENTS_SCORE_PARITY",
+      "originalOfficialScoreOverwritten": false,
+      "videoPerformanceMeasurements": null
+    },
+    {
+      "officialLeagueId": 570,
+      "officialGameId": 127787,
+      "sourceGameKey": "2026-10-18|13668|13704",
+      "date": "2026-10-18",
+      "homeTeamId": 13668,
+      "awayTeamId": 13704,
+      "homeTeamName": "Dateline Predators",
+      "awayTeamName": "Other Way",
+      "publishedFinalGoals": [
+        5,
+        8
+      ],
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=127787&page_type=Adult",
+      "officialGameInfoPageSHA256": "64b140d695341b98a50c5ce1f6a420aed1febef3914b05d2e9b47acd31cbc1ea",
+      "currentDivisionPair": [
+        "The Cristillo Division",
+        "The Cristillo Division"
+      ],
+      "crossCurrentDivision": false,
+      "scoringEventAdmission": "HELD_PLAYER_SCORING_NOT_SEASON_ADMISSION",
+      "originalOfficialScoreOverwritten": false,
+      "videoPerformanceMeasurements": null
+    },
+    {
+      "officialLeagueId": 570,
+      "officialGameId": 127788,
+      "sourceGameKey": "2026-10-18|13708|13709",
+      "date": "2026-10-18",
+      "homeTeamId": 13709,
+      "awayTeamId": 13708,
+      "homeTeamName": "Sugo Sundays",
+      "awayTeamName": "Mid Ice Crisis",
+      "publishedFinalGoals": [
+        3,
+        6
+      ],
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=127788&page_type=Adult",
+      "officialGameInfoPageSHA256": "edc67dc1eb06f17f207ba6a1f5c630c70ced8cedbf150384f1c1a68420a7a3dd",
+      "currentDivisionPair": [
+        "Remax Division",
+        "The Cristillo Division"
+      ],
+      "crossCurrentDivision": true,
+      "scoringEventAdmission": "FULL_GOAL_EVENTS_SCORE_PARITY",
+      "originalOfficialScoreOverwritten": false,
+      "videoPerformanceMeasurements": null
+    },
+    {
+      "officialLeagueId": 570,
+      "officialGameId": 127928,
+      "sourceGameKey": "2026-10-25|13627|13700",
+      "date": "2026-10-25",
+      "homeTeamId": 13627,
+      "awayTeamId": 13700,
+      "homeTeamName": "Last Pass",
+      "awayTeamName": "Pinheads",
+      "publishedFinalGoals": [
+        4,
+        4
+      ],
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=127928&page_type=Adult",
+      "officialGameInfoPageSHA256": "5ed4c5489d2655834b74ae209cd0393d96c1b1321a3aa484f4084ef2ebb3c9a7",
+      "currentDivisionPair": [
+        "Fazzari Partners",
+        "Fazzari Partners"
+      ],
+      "crossCurrentDivision": false,
+      "scoringEventAdmission": "FULL_GOAL_EVENTS_SCORE_PARITY",
+      "originalOfficialScoreOverwritten": false,
+      "videoPerformanceMeasurements": null
+    },
+    {
+      "officialLeagueId": 570,
+      "officialGameId": 127929,
+      "sourceGameKey": "2026-10-25|13596|13671",
+      "date": "2026-10-25",
+      "homeTeamId": 13596,
+      "awayTeamId": 13671,
+      "homeTeamName": "Bushwackers",
+      "awayTeamName": "Hawks",
+      "publishedFinalGoals": [
+        4,
+        3
+      ],
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=127929&page_type=Adult",
+      "officialGameInfoPageSHA256": "e5fa22098f3063de7fe89c263eef4f675c851b496ef255782d262af335b4d1f7",
+      "currentDivisionPair": [
+        "Fazzari Partners",
+        "Fazzari Partners"
+      ],
+      "crossCurrentDivision": false,
+      "scoringEventAdmission": "FULL_GOAL_EVENTS_SCORE_PARITY",
+      "originalOfficialScoreOverwritten": false,
+      "videoPerformanceMeasurements": null
+    },
+    {
+      "officialLeagueId": 570,
+      "officialGameId": 127930,
+      "sourceGameKey": "2026-10-25|13663|13686",
+      "date": "2026-10-25",
+      "homeTeamId": 13686,
+      "awayTeamId": 13663,
+      "homeTeamName": "Batman Prep",
+      "awayTeamName": "We're Curved",
+      "publishedFinalGoals": [
+        1,
+        5
+      ],
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=127930&page_type=Adult",
+      "officialGameInfoPageSHA256": "02c68fbb75a1b1234f5e62901ddfc122de1af962fd58f7095345267d6d94c85c",
+      "currentDivisionPair": [
+        "Fazzari Partners",
+        "Remax Division"
+      ],
+      "crossCurrentDivision": true,
+      "scoringEventAdmission": "FULL_GOAL_EVENTS_SCORE_PARITY",
+      "originalOfficialScoreOverwritten": false,
+      "videoPerformanceMeasurements": null
+    },
+    {
+      "officialLeagueId": 570,
+      "officialGameId": 127943,
+      "sourceGameKey": "2026-10-25|13649|13679",
+      "date": "2026-10-25",
+      "homeTeamId": 13679,
+      "awayTeamId": 13649,
+      "homeTeamName": "Braves HC",
+      "awayTeamName": "Big Bastones",
+      "publishedFinalGoals": [
+        6,
+        4
+      ],
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=127943&page_type=Adult",
+      "officialGameInfoPageSHA256": "f674e61dc7f98eb7712263d18a0c6cc0429e98e20bf2c54d04c03a66978a45b1",
+      "currentDivisionPair": [
+        "The Cristillo Division",
+        "The Cristillo Division"
+      ],
+      "crossCurrentDivision": false,
+      "scoringEventAdmission": "FULL_GOAL_EVENTS_SCORE_PARITY",
+      "originalOfficialScoreOverwritten": false,
+      "videoPerformanceMeasurements": null
+    },
+    {
+      "officialLeagueId": 570,
+      "officialGameId": 127944,
+      "sourceGameKey": "2026-10-25|13704|13709",
+      "date": "2026-10-25",
+      "homeTeamId": 13709,
+      "awayTeamId": 13704,
+      "homeTeamName": "Sugo Sundays",
+      "awayTeamName": "Other Way",
+      "publishedFinalGoals": [
+        7,
+        7
+      ],
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=127944&page_type=Adult",
+      "officialGameInfoPageSHA256": "057999e172d670639f78e3b1a388a076232e8001e55bd384b497c3fd77c3802a",
+      "currentDivisionPair": [
+        "Remax Division",
+        "The Cristillo Division"
+      ],
+      "crossCurrentDivision": true,
+      "scoringEventAdmission": "FULL_GOAL_EVENTS_SCORE_PARITY",
+      "originalOfficialScoreOverwritten": false,
+      "videoPerformanceMeasurements": null
+    },
+    {
+      "officialLeagueId": 570,
+      "officialGameId": 127945,
+      "sourceGameKey": "2026-10-25|13668|13730",
+      "date": "2026-10-25",
+      "homeTeamId": 13668,
+      "awayTeamId": 13730,
+      "homeTeamName": "Dateline Predators",
+      "awayTeamName": "Zamboner Crew",
+      "publishedFinalGoals": [
+        0,
+        4
+      ],
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=127945&page_type=Adult",
+      "officialGameInfoPageSHA256": "db51a7e7edda956d66720ad8a52c4cf54c6c8836d3056260d55dba713974c7ea",
+      "currentDivisionPair": [
+        "The Cristillo Division",
+        "The Cristillo Division"
+      ],
+      "crossCurrentDivision": false,
+      "scoringEventAdmission": "FULL_GOAL_EVENTS_SCORE_PARITY",
+      "originalOfficialScoreOverwritten": false,
+      "videoPerformanceMeasurements": null
+    },
+    {
+      "officialLeagueId": 570,
+      "officialGameId": 127946,
+      "sourceGameKey": "2026-10-25|13680|13708",
+      "date": "2026-10-25",
+      "homeTeamId": 13680,
+      "awayTeamId": 13708,
+      "homeTeamName": "Mohawks HC",
+      "awayTeamName": "Mid Ice Crisis",
+      "publishedFinalGoals": [
+        2,
+        1
+      ],
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=127946&page_type=Adult",
+      "officialGameInfoPageSHA256": "e2c5aad8f89bfe9f24002564ec170cba1b718a3d0e8b90e3c5cecf9345cc923d",
+      "currentDivisionPair": [
+        "The Cristillo Division",
+        "The Cristillo Division"
+      ],
+      "crossCurrentDivision": false,
+      "scoringEventAdmission": "FULL_GOAL_EVENTS_SCORE_PARITY",
+      "originalOfficialScoreOverwritten": false,
+      "videoPerformanceMeasurements": null
+    },
+    {
+      "officialLeagueId": 570,
+      "officialGameId": 127955,
+      "sourceGameKey": "2026-10-25|13711|13714",
+      "date": "2026-10-25",
+      "homeTeamId": 13711,
+      "awayTeamId": 13714,
+      "homeTeamName": "Butcher Brothers",
+      "awayTeamName": "Thrillers",
+      "publishedFinalGoals": [
+        3,
+        4
+      ],
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=127955&page_type=Adult",
+      "officialGameInfoPageSHA256": "12454b5a607d9cd7948bbc33a8f883202a70cfe78bdfb031485c06105ff003ab",
+      "currentDivisionPair": [
+        "Remax Division",
+        "Remax Division"
+      ],
+      "crossCurrentDivision": false,
+      "scoringEventAdmission": "FULL_GOAL_EVENTS_SCORE_PARITY",
+      "originalOfficialScoreOverwritten": false,
+      "videoPerformanceMeasurements": null
+    },
+    {
+      "officialLeagueId": 570,
+      "officialGameId": 127956,
+      "sourceGameKey": "2026-10-25|13713|13716",
+      "date": "2026-10-25",
+      "homeTeamId": 13713,
+      "awayTeamId": 13716,
+      "homeTeamName": "Primary Auto",
+      "awayTeamName": "Young Guns",
+      "publishedFinalGoals": [
+        5,
+        8
+      ],
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=127956&page_type=Adult",
+      "officialGameInfoPageSHA256": "7f2afa095343ccc0709ae58b498dba140e9b42345bfe88fa693f22fcac73b832",
+      "currentDivisionPair": [
+        "Remax Division",
+        "Remax Division"
+      ],
+      "crossCurrentDivision": false,
+      "scoringEventAdmission": "FULL_GOAL_EVENTS_SCORE_PARITY",
+      "originalOfficialScoreOverwritten": false,
+      "videoPerformanceMeasurements": null
+    },
+    {
+      "officialLeagueId": 570,
+      "officialGameId": 127957,
+      "sourceGameKey": "2026-10-25|13712|13717",
+      "date": "2026-10-25",
+      "homeTeamId": 13712,
+      "awayTeamId": 13717,
+      "homeTeamName": "Maplewolves",
+      "awayTeamName": "Degenerates",
+      "publishedFinalGoals": [
+        1,
+        4
+      ],
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=127957&page_type=Adult",
+      "officialGameInfoPageSHA256": "e22bd5bc4a035b79193d5409c5a868ec8734f20c41ba1cf302a7c75fcd60bbb7",
+      "currentDivisionPair": [
+        "Fazzari Partners",
+        "The Cristillo Division"
+      ],
+      "crossCurrentDivision": true,
+      "scoringEventAdmission": "FULL_GOAL_EVENTS_SCORE_PARITY",
+      "originalOfficialScoreOverwritten": false,
+      "videoPerformanceMeasurements": null
+    },
+    {
+      "officialLeagueId": 570,
+      "officialGameId": 127958,
+      "sourceGameKey": "2026-10-25|13710|13715",
+      "date": "2026-10-25",
+      "homeTeamId": 13710,
+      "awayTeamId": 13715,
+      "homeTeamName": "Mighty Drunks",
+      "awayTeamName": "VR Delta",
+      "publishedFinalGoals": [
+        4,
+        4
+      ],
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=127958&page_type=Adult",
+      "officialGameInfoPageSHA256": "1117683d02abdb39b6203fcd5262a63a5a32016409c1f72cb9811e9c5afc356f",
+      "currentDivisionPair": [
+        "Remax Division",
+        "Remax Division"
+      ],
+      "crossCurrentDivision": false,
+      "scoringEventAdmission": "FULL_GOAL_EVENTS_SCORE_PARITY",
+      "originalOfficialScoreOverwritten": false,
+      "videoPerformanceMeasurements": null
+    }
+  ]
+}

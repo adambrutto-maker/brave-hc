@@ -1,0 +1,215 @@
+"""ENG59 scoped private preview packaging and confidentiality tests.
+
+Use existing tracked web-only source manifest. No production deploy or
+external network; temp preview candidate exists only in isolated tempdir.
+"""
+from pathlib import Path
+import tempfile,sys,unittest,json
+ROOT=Path(__file__).resolve().parents[1]
+sys.path.insert(0,str(ROOT/"scripts"))
+from build_eng59_scoped_static_preview import index,build,validate_html,PreviewHold,canonical_source,git_stage,git_hash,verify_artwork_manifests
+class ScopedPreviewTests(unittest.TestCase):
+ def test_real_website_minimal_scoped_preview_without_nonweb_files(self):
+  allowed,source,tracked=index(ROOT)
+  self.assertIn("index.html",allowed)
+  self.assertIn("widgets/analytics.html",allowed)
+  self.assertIn("widgets/league-intelligence.html",allowed)
+  self.assertIn("widgets/brave-historical-gameinfo-ids.json",allowed)
+  self.assertNotIn("widgets/README.md",allowed)
+  self.assertTrue(all(p=="index.html" or p.startswith("widgets/") for p in allowed))
+  self.assertFalse(any("PRIVATE" in p or p.startswith(("docs/","scripts/","archive/"))
+                       for p in allowed))
+  self.assertEqual(set(source),set(allowed))
+  self.assertGreaterEqual(validate_html(ROOT,set(allowed)),100)
+  self.assertGreater(len(allowed),100)
+ def test_bio_goalie_optional_source_is_explicitly_held_without_statistics(self):
+  rel="widgets/goalie-projection-verified-inputs.json"
+  self.assertIn(rel,index(ROOT)[0])
+  held=json.loads((ROOT/rel).read_text(encoding="utf8"))
+  self.assertEqual(held["schema"],"hockeyos-verified-goalie-projection-inputs/v1")
+  self.assertEqual(held["season"],"W2026/27")
+  self.assertEqual(held["status"],"HELD_NO_ACCEPTED_SOURCE_OBSERVATIONS")
+  self.assertIsNone(held["asOf"])
+  self.assertEqual(held["players"],{})
+  self.assertEqual(held["publicationGate"],{
+   "state":"GOALIE_SOURCE_EVIDENCE_NOT_ACCEPTED",
+   "releaseAuthorized":False,"independentEvidenceId":None})
+  for name in ("player-bio-premium.js","player-bio-premium-v25-preview.js",
+               "player-bio-premium-v27-preview.js"):
+   self.assertIn("goalie-projection-verified-inputs.json",
+      (ROOT/"widgets"/name).read_text(encoding="utf8"))
+   self.assertIn("GOALIE_HISTORICAL_CURRENT_PARITY_ACCEPTED",
+      (ROOT/"widgets"/name).read_text(encoding="utf8"))
+   self.assertIn("approved.publicationGate?.releaseAuthorized===true",
+      (ROOT/"widgets"/name).read_text(encoding="utf8"))
+ def test_text_line_ending_conversion_does_not_change_git_blob_identity(self):
+  algorithm,entries=git_stage(ROOT)
+  for name in ("index.html","widgets/analytics.html",
+      "widgets/league-intelligence.json","widgets/svhl-official-game-id-bridges.json"):
+   data=canonical_source(ROOT/name)
+   self.assertEqual(git_hash(data,algorithm),entries[name][1])
+   mutated=data.replace(b"\\n",b"\\r\\n")
+   self.assertEqual(git_hash(mutated.replace(b"\\r\\n",b"\\n"),algorithm),entries[name][1])
+   self.assertNotEqual(git_hash(data+b"CHANGED",algorithm),entries[name][1])
+ def test_all_107_artwork_assets_and_seven_source_manifests_stay_consistent(self):
+  included=set(index(ROOT)[0])
+  qa=verify_artwork_manifests(ROOT/"widgets",included)
+  self.assertEqual(qa["manifestsVerified"],7)
+  self.assertEqual(qa["artworkAssetsVerified"],107)
+  self.assertEqual(qa["sourceBackupsVerifiedButNotPublished"],39)
+  self.assertEqual(qa["additionalProvenanceAssetsVerifiedButNotPublished"],3)
+  self.assertFalse(any(x.startswith((
+   "widgets/assets/opaque-originals/",
+   "widgets/assets/approved-sources/",
+   "widgets/assets/approved-history/")) for x in included))
+ def test_new_full_crest_badges_require_exact_authenticated_logo_source(self):
+  included=set(index(ROOT)[0])
+  m=json.loads((ROOT/"widgets/assets/full-crest-clubs/source-manifest.json").read_text(encoding="utf8"))
+  self.assertEqual(len(m["assets"]),29)
+  self.assertEqual(m["schema"],"brave-hc-full-crest-milestone-art/v2")
+  self.assertEqual(sum(a["sourceVerifiedInSnapshot"] is True for a in m["assets"]),17)
+  self.assertEqual(sum(a["sourceVerifiedInSnapshot"] is False for a in m["assets"]),12)
+  self.assertEqual(m["sourceLogoPath"],"widgets/brave_hc_logo.png")
+  for badvalue in ("0"*64,"garbled"):
+   altered=dict(m,sourceLogoSha256=badvalue)
+   with self.subTest(sourceLogoSha256=badvalue):
+    with self.assertRaisesRegex(PreviewHold,
+       "NEW_FULL_CREST_SOURCE_LOGO_SHA_MISMATCH|NEW_FULL_CREST_MANIFEST_SOURCE_PROVENANCE_UNQUALIFIED"):
+     verify_artwork_manifests(ROOT/"widgets",included,
+       {"full-crest-clubs":json.dumps(altered)})
+ def test_new_full_crest_artwork_tampering_and_metadata_held(self):
+  included=set(index(ROOT)[0])
+  m=json.loads((ROOT/"widgets/assets/full-crest-clubs/source-manifest.json").read_text(encoding="utf8"))
+  tampered=json.loads(json.dumps(m))
+  tampered["assets"][0]["sha256"]="0"*64
+  with self.assertRaisesRegex(PreviewHold,"ARTWORK_SOURCE_MANIFEST_HASH_OR_SIZE_CONFLICT"):
+   verify_artwork_manifests(ROOT/"widgets",included,
+     {"full-crest-clubs":json.dumps(tampered)})
+  changed=json.loads(json.dumps(m))
+  changed["assets"][0]["sourceVerifiedInSnapshot"]=False
+  with self.assertRaisesRegex(PreviewHold,"NEW_FULL_CREST_BADGE_METADATA_UNQUALIFIED"):
+   verify_artwork_manifests(ROOT/"widgets",included,
+     {"full-crest-clubs":json.dumps(changed)})
+ def test_new_full_crest_missing_asset_and_unknown_family_held(self):
+  included=set(index(ROOT)[0])
+  included.remove("widgets/assets/full-crest-clubs/50_goals_bronze_200.webp")
+  with self.assertRaisesRegex(PreviewHold,"ARTWORK_ASSET_MISSING_OR_UNSAFE"):
+   verify_artwork_manifests(ROOT/"widgets",included)
+  unknown=set(index(ROOT)[0])
+  unknown.add("widgets/assets/unreviewed-family/source-manifest.json")
+  with self.assertRaisesRegex(PreviewHold,"ARTWORK_FAMILY_MANIFEST_SET_DRIFT"):
+   verify_artwork_manifests(ROOT/"widgets",unknown)
+ def test_future_platinum_and_wins_art_cannot_be_forced_into_earned_snapshot(self):
+  included=set(index(ROOT)[0])
+  doc=json.loads((ROOT/"widgets/assets/full-crest-clubs/source-manifest.json")
+    .read_text(encoding="utf8"))
+  future=next(a for a in doc["assets"] if a["sourceVerifiedInSnapshot"] is False)
+  self.assertIn(future["metric"],("GAMES","POINTS","WINS"))
+  altered=json.loads(json.dumps(doc))
+  next(a for a in altered["assets"] if a["path"]==future["path"])[
+    "sourceVerifiedInSnapshot"]=True
+  with self.assertRaisesRegex(PreviewHold,"NEW_FULL_CREST_BADGE_METADATA_UNQUALIFIED"):
+   verify_artwork_manifests(ROOT/"widgets",included,
+     {"full-crest-clubs":json.dumps(altered)})
+ def test_22_legacy_art_sources_and_original_manifest_are_hash_bound(self):
+  included=set(index(ROOT)[0])
+  doc=json.loads((ROOT/"widgets/assets/full-crest-clubs/source-manifest.json")
+    .read_text(encoding="utf8"))
+  legacy=[e for e in doc["assets"] if e.get("originalApprovedArtPath")]
+  self.assertEqual(len(legacy),22)
+  self.assertEqual(doc["legacyApprovedAssetCount"],22)
+  self.assertEqual(doc["newGoalAssistShutoutAssetCount"],7)
+  corrupted=json.loads(json.dumps(doc))
+  next(e for e in corrupted["assets"] if e.get("originalApprovedArtPath"))[
+   "originalApprovedArtSha256"]="f"*64
+  with self.assertRaisesRegex(PreviewHold,"FULL_CREST_ORIGINAL_APPROVED_ART_SOURCE_DRIFT"):
+   verify_artwork_manifests(ROOT/"widgets",included,
+     {"full-crest-clubs":json.dumps(corrupted)})
+  wrong=json.loads(json.dumps(doc))
+  wrong["approvedRoundClubSourceManifestSha256"]="0"*64
+  with self.assertRaisesRegex(PreviewHold,"NEW_FULL_CREST_MANIFEST_SOURCE_PROVENANCE_UNQUALIFIED"):
+   verify_artwork_manifests(ROOT/"widgets",included,
+     {"full-crest-clubs":json.dumps(wrong)})
+ def test_forged_whistle_source_art_and_prior_neutral_image_are_held(self):
+  included=set(index(ROOT)[0]);source=(ROOT/"widgets/assets/approved/source-manifest.json").read_text(encoding="utf8")
+  for field in ("sourceArtSha256","sourceWebpSha256","priorNeutralSha256"):
+   forged=source.replace('"'+field+'": "','"'+field+'": "0',1)
+   with self.subTest(checksum=field):
+    with self.assertRaisesRegex(PreviewHold,"ARTWORK_PROVENANCE_HASH_CONFLICT"):
+     verify_artwork_manifests(ROOT/"widgets",included,{"approved":forged})
+ def test_source_artwork_backup_must_not_be_published_from_staging(self):
+  included=set(index(ROOT)[0]);included.add("widgets/assets/approved-sources/discipline_record_whistle_redcard_master.png")
+  with self.assertRaisesRegex(PreviewHold,"ARTWORK_PROVENANCE_FILE_UNSAFE_OR_PUBLIC"):
+   verify_artwork_manifests(ROOT/"widgets",included)
+ def test_missing_new_approved_htO_icon_cannot_sneak_into_preview(self):
+  included=set(index(ROOT)[0]);included.remove("widgets/assets/approved/hart_mvp.webp")
+  with self.assertRaisesRegex(PreviewHold,"ARTWORK_ASSET_MISSING_OR_UNSAFE"):
+   verify_artwork_manifests(ROOT/"widgets",included)
+ def test_tampered_retained_opaque_source_backup_hash_is_rejected(self):
+  included=set(index(ROOT)[0])
+  source=(ROOT/"widgets/assets/approved/source-manifest.json").read_text(encoding="utf8")
+  forged=source.replace('"opaqueSourceSha256": "','"opaqueSourceSha256": "0',1)
+  with self.assertRaisesRegex(PreviewHold,"OPAQUE_BACKUP_SOURCE_HASH_CONFLICT"):
+   verify_artwork_manifests(ROOT/"widgets",included,{"approved":forged})
+ def test_a_missing_round_milestone_image_is_not_a_complete_release(self):
+  included=set(index(ROOT)[0])
+  included.remove("widgets/assets/round-clubs/300_wins_platinum_200.webp")
+  with self.assertRaisesRegex(PreviewHold,"ARTWORK_ASSET_MISSING_OR_UNSAFE"):
+   verify_artwork_manifests(ROOT/"widgets",included)
+ def test_a_forged_manifest_source_hash_is_rejected(self):
+  included=set(index(ROOT)[0])
+  source=(ROOT/"widgets/assets/round-clubs/source-manifest.json").read_text(encoding="utf8")
+  bad=source.replace('"sha256": "','"sha256": "0',1)
+  with self.assertRaisesRegex(PreviewHold,"ARTWORK_SOURCE_MANIFEST_HASH_OR_SIZE_CONFLICT"):
+   verify_artwork_manifests(ROOT/"widgets",included,{"round-clubs":bad})
+ def test_check_only_never_creates_any_output(self):
+  with tempfile.TemporaryDirectory() as d:
+   output=Path(d)/"private_preview"
+   result=build(ROOT,output,True)
+   self.assertFalse(output.exists())
+   self.assertFalse(result["productionDeploymentPerformed"])
+   self.assertFalse(result["publicReleaseApproved"])
+   self.assertFalse(result["independentPrivacyApproval"])
+ def test_isolated_preview_stages_byte_identical_source_files_and_no_private_docs(self):
+  with tempfile.TemporaryDirectory() as d:
+   output=Path(d)/"private_preview"
+   result=build(ROOT,output,False)
+   included=set(result["files"])
+   self.assertEqual({str(x.relative_to(output)).replace("\\","/") for x in output.rglob("*") if x.is_file()},included)
+   self.assertFalse(any((output/p).exists() for p in
+    ("docs","scripts","archive","snapshots",".github","widgets/README.md")))
+   self.assertTrue((output/"index.html").is_file())
+   self.assertEqual(validate_html(output,included),result["validatedHTMLReferences"])
+   for rel in included:self.assertEqual((output/rel).read_bytes(),canonical_source(ROOT/rel))
+ def test_output_already_exists_never_overwrites(self):
+  with tempfile.TemporaryDirectory() as d:
+   out=Path(d)/"private_preview"
+   out.mkdir();sentinel=out/"KEEP_ME.txt";sentinel.write_text("ORIGINAL")
+   with self.assertRaisesRegex(PreviewHold,"CANDIDATE_ALREADY_EXISTS_NO_OVERWRITE"):
+    build(ROOT,out)
+   self.assertEqual(sentinel.read_text(),"ORIGINAL")
+ def test_refuses_output_nested_in_public_repository(self):
+  with self.assertRaisesRegex(PreviewHold,"PREVIEW_OUTPUT_CANNOT_BE_INSIDE_OR_ABOVE_REPO"):
+   build(ROOT,ROOT/"widgets"/"accidental_preview",True)
+ def test_ignores_internal_workflow_and_private_docs_even_when_tracked(self):
+  files,manifest,tracked=index(ROOT)
+  self.assertTrue(any(x.startswith("docs/") for x in tracked))
+  self.assertTrue(any(x.startswith("scripts/") for x in tracked))
+  self.assertFalse(any(p.endswith(".md") or p.endswith(".txt") for p in files))
+ def test_ambiguous_new_pem_or_private_named_web_resource_refused(self):
+  with tempfile.TemporaryDirectory() as d:
+   # Index only operates on source files actually present, but name gate
+   # must refuse a real allowed-extension sensitive source asset.
+   f=ROOT/"widgets"/"FICTIONAL_TEST_PRIVATE.json"
+   # Do not create a forbidden source under the live worktree.
+   # Existing programmatic source selection disallows a fictional tracked name
+   # even when absent; no copy attempt is permitted.
+   tracked={*index(ROOT)[2],"widgets/FICTIONAL_TEST_PRIVATE.json"}
+   with self.assertRaisesRegex(PreviewHold,"WEB_ASSET_MISSING_OR_SYMLINK|PRIVATE_NAMED_WEB_ASSET"):
+    index(ROOT,tracked)
+ def test_original_json_source_schemas_remain_unchanged(self):
+  files,_,_=index(ROOT)
+  data=json.loads((ROOT/"widgets"/"svhl-official-game-id-bridges.json").read_text(encoding="utf8"))
+  self.assertIn("widgets/svhl-official-game-id-bridges.json",files)
+  self.assertFalse(data["independentAcceptedForHistoricalPlayerCorrections"])
+if __name__=="__main__":unittest.main()

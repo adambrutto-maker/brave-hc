@@ -32,7 +32,42 @@ def fixture():
     score="<html><head><title>Brave H.C. Winter 2026/2027 Scores</title></head><body>"+result("A",2,1)+result("B",1,1)+"</body></html>"
     return stat,score
 
+def official_scoreboard_variant(html,removed_columns):
+    # Replace columns on only one official game table; keep the other as-is.
+    soup=mod.BeautifulSoup(html,"html.parser")
+    first=soup.find("table")
+    for row in first.find_all("tr"):
+        cells=row.find_all("td",recursive=False)
+        for index in sorted(removed_columns,reverse=True):
+            cells[index].decompose()
+    return str(soup)
+
 class PublisherContract(unittest.TestCase):
+    def test_mixed_regulation_overtime_source_headers_preserve_score_parity(self):
+        stats,scores=fixture()
+        for cols in ((5,),(5,4)):
+            with self.subTest(omitted=cols):
+                revised=official_scoreboard_variant(scores,cols)
+                result=mod.parse(stats,revised)
+                self.assertEqual((result["teamGP"],result["teamGF"],result["teamGA"]),(2,3,2))
+                self.assertEqual(result["playerCount"],16)
+                self.assertEqual(mod.decide(result,dict(result)),"UNCHANGED_VERIFIED")
+    def test_unrecognized_or_malformed_hto_scoreboard_still_fails_closed(self):
+        stats,scores=fixture()
+        unrecognized=scores.replace("<td>2OT</td>","<td>SO</td>",1)
+        with self.assertRaisesRegex(mod.SourceHold,"HTO_FINAL_SCORES_GP_MISMATCH"):
+            mod.parse(stats,unrecognized)
+        mixed=official_scoreboard_variant(scores,(5,4))
+        soup=mod.BeautifulSoup(mixed,"html.parser")
+        soup.find("table").find_all("tr")[1].find_all("td")[-1].decompose()
+        with self.assertRaisesRegex(mod.SourceHold,"HTO_SCORE_BOARD_MALFORMED"):
+            mod.parse(stats,str(soup))
+        soup=mod.BeautifulSoup(mixed,"html.parser")
+        cells=soup.find("table").find_all("tr")[2].find_all("td")
+        cells[-1].string=str(int(cells[-1].get_text())+1)
+        with self.assertRaisesRegex(mod.SourceHold,"HTO_OFFICIAL_SCORES_VS_STATS_MISMATCH"):
+            mod.parse(stats,str(soup))
+
     def test_valid_parity(self):
         stats,scores=fixture()
         d=mod.parse(stats,scores,dt.datetime(2026,10,27,tzinfo=dt.timezone.utc))
@@ -59,6 +94,14 @@ class PublisherContract(unittest.TestCase):
         a,b=fixture()
         with self.assertRaises(mod.SourceHold):mod.parse(a.replace("Brave H.C. Stats","Other H.C. Stats"),b)
         with self.assertRaises(mod.SourceHold):mod.parse(a,b.replace("Winter 2026/2027","Winter 2025/2026"))
+    def test_corrected_official_assist_cannot_silently_replace_published_player_record(self):
+        stats,scores=fixture()
+        live=mod.parse(stats,official_scoreboard_variant(scores,(5,4)))
+        prior=copy.deepcopy(live)
+        prior["players"][0]["a"]+=1
+        prior["players"][0]["pts"]+=1
+        with self.assertRaisesRegex(mod.SourceHold,"HTO_PLAYER_STAT_CORRECTION_REQUIRES_REVIEW"):
+            mod.decide(live,prior)
     def test_published_total_decrease_held(self):
         a,b=fixture();d=mod.parse(a,b)
         invalid=copy.deepcopy(d);invalid["teamGP"]-=1

@@ -1,0 +1,2703 @@
+{
+  "schema": "brave-hc-svhl-gameinfo-raw-source-holds-review/v1",
+  "status": "SOURCE_HASH_VERIFIED_AUTHOR_AUDIT_NOT_INDEPENDENTLY_ACCEPTED",
+  "capturedUTC": "2026-10-27T16:47:31.972614+00:00",
+  "originalGameSourceCapturedUTC": "2026-10-27T14:06:34.151623+00:00",
+  "scope": "SVHL_ONLY_SEPARATE_VAHL_EXCLUDED",
+  "gamePages": 137,
+  "fullScoringGames": 2069,
+  "allCompletedGameSheets": 2206,
+  "categories": {
+    "RAW_GAMEINFO_ROWS_ABOVE_PUBLISHED_SCORE": 12,
+    "RAW_GAMEINFO_ROWS_BELOW_PUBLISHED_SCORE": 86,
+    "RAW_SCORE_PARITY_WITH_SEASON_ROSTER_ID_HOLD": 39
+  },
+  "gamePageHashesMatched": 137,
+  "reviewOnly": true,
+  "publicStatsOrScoresChanged": false,
+  "seasonGPOrPIMVerified": false,
+  "games": [
+    {
+      "leagueId": 570,
+      "gameId": 127726,
+      "date": "2026-09-27",
+      "homeTeam": "Zamboner Crew",
+      "awayTeam": "Other Way",
+      "finalScore": [
+        6,
+        6
+      ],
+      "rawScoringRows": 12,
+      "rosterQualifiedEvents": 11,
+      "category": "RAW_SCORE_PARITY_WITH_SEASON_ROSTER_ID_HOLD",
+      "heldReasons": {
+        "GOAL_PLAYER_ID_NOT_LISTED_ON_VERIFIED_TEAM_ROSTER": 1
+      },
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=127726&page_type=Adult",
+      "officialPageSHA256": "f8142198a6c97fd90c5911b68f3560865d2338b689d4b4099d1b28c0355d2ea7",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 570,
+      "gameId": 127787,
+      "date": "2026-10-18",
+      "homeTeam": "Dateline Predators",
+      "awayTeam": "Other Way",
+      "finalScore": [
+        5,
+        8
+      ],
+      "rawScoringRows": 13,
+      "rosterQualifiedEvents": 12,
+      "category": "RAW_SCORE_PARITY_WITH_SEASON_ROSTER_ID_HOLD",
+      "heldReasons": {
+        "GOAL_PLAYER_ID_NOT_LISTED_ON_VERIFIED_TEAM_ROSTER": 1
+      },
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=127787&page_type=Adult",
+      "officialPageSHA256": "64b140d695341b98a50c5ce1f6a420aed1febef3914b05d2e9b47acd31cbc1ea",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 547,
+      "gameId": 121739,
+      "date": "2025-09-14",
+      "homeTeam": "Blades of Steel",
+      "awayTeam": "Butcher Brothers",
+      "finalScore": [
+        0,
+        1
+      ],
+      "rawScoringRows": 0,
+      "rosterQualifiedEvents": 0,
+      "category": "RAW_GAMEINFO_ROWS_BELOW_PUBLISHED_SCORE",
+      "heldReasons": {},
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=547&gameid=121739&page_type=Adult",
+      "officialPageSHA256": "03808e4b6a18d7756751ae5ead45283acb7af6e9afa53e41748483a646c4a0c3",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 547,
+      "gameId": 122713,
+      "date": "2025-09-14",
+      "homeTeam": "Dateline Predators",
+      "awayTeam": "Hammers",
+      "finalScore": [
+        1,
+        3
+      ],
+      "rawScoringRows": 0,
+      "rosterQualifiedEvents": 0,
+      "category": "RAW_GAMEINFO_ROWS_BELOW_PUBLISHED_SCORE",
+      "heldReasons": {},
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=547&gameid=122713&page_type=Adult",
+      "officialPageSHA256": "9b089fa3b5942e63deeb191e648192d5ceec86160a263bc7e452c65251cf2adf",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 547,
+      "gameId": 122714,
+      "date": "2025-09-14",
+      "homeTeam": "Maplewolves",
+      "awayTeam": "Marlboro Reds",
+      "finalScore": [
+        3,
+        7
+      ],
+      "rawScoringRows": 0,
+      "rosterQualifiedEvents": 0,
+      "category": "RAW_GAMEINFO_ROWS_BELOW_PUBLISHED_SCORE",
+      "heldReasons": {},
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=547&gameid=122714&page_type=Adult",
+      "officialPageSHA256": "e3550c93fb8f30c42670821f0c7ba332bdc131e419b16200bdc7ca91934981ad",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 547,
+      "gameId": 121736,
+      "date": "2025-09-21",
+      "homeTeam": "Hawks",
+      "awayTeam": "Pinheads",
+      "finalScore": [
+        5,
+        2
+      ],
+      "rawScoringRows": 7,
+      "rosterQualifiedEvents": 6,
+      "category": "RAW_SCORE_PARITY_WITH_SEASON_ROSTER_ID_HOLD",
+      "heldReasons": {
+        "GOAL_PLAYER_ID_NOT_LISTED_ON_VERIFIED_TEAM_ROSTER": 1
+      },
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=547&gameid=121736&page_type=Adult",
+      "officialPageSHA256": "22b58ea705d6645e8ea5006a78b8a2a83f23ee6f09d089a9a77f025f168b0cc6",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 547,
+      "gameId": 121783,
+      "date": "2025-09-28",
+      "homeTeam": "Hawks",
+      "awayTeam": "Gooning Gingerbreads",
+      "finalScore": [
+        5,
+        3
+      ],
+      "rawScoringRows": 8,
+      "rosterQualifiedEvents": 7,
+      "category": "RAW_SCORE_PARITY_WITH_SEASON_ROSTER_ID_HOLD",
+      "heldReasons": {
+        "GOAL_PLAYER_ID_NOT_LISTED_ON_VERIFIED_TEAM_ROSTER": 1
+      },
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=547&gameid=121783&page_type=Adult",
+      "officialPageSHA256": "63aa2a26f1f4580656efebe5707d4167d87e6fa677261a9857fdb33cf947fe33",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 547,
+      "gameId": 121809,
+      "date": "2025-10-05",
+      "homeTeam": "Blackhawks",
+      "awayTeam": "Schmelts",
+      "finalScore": [
+        4,
+        4
+      ],
+      "rawScoringRows": 8,
+      "rosterQualifiedEvents": 6,
+      "category": "RAW_SCORE_PARITY_WITH_SEASON_ROSTER_ID_HOLD",
+      "heldReasons": {
+        "GOAL_PLAYER_ID_NOT_LISTED_ON_VERIFIED_TEAM_ROSTER": 2
+      },
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=547&gameid=121809&page_type=Adult",
+      "officialPageSHA256": "960b273429d7006e5ecb4b7b653132fafa92f2b79a564eabf6027173224275ad",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 547,
+      "gameId": 121797,
+      "date": "2025-10-19",
+      "homeTeam": "Blades of Steel",
+      "awayTeam": "Fangs",
+      "finalScore": [
+        0,
+        1
+      ],
+      "rawScoringRows": 0,
+      "rosterQualifiedEvents": 0,
+      "category": "RAW_GAMEINFO_ROWS_BELOW_PUBLISHED_SCORE",
+      "heldReasons": {},
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=547&gameid=121797&page_type=Adult",
+      "officialPageSHA256": "8e6e4195396a0b4eba6b06232ae719ab33c95a2f1f77a590f7666301d32e3173",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 547,
+      "gameId": 121812,
+      "date": "2025-10-19",
+      "homeTeam": "Schmelts",
+      "awayTeam": "Royal Flushers",
+      "finalScore": [
+        3,
+        3
+      ],
+      "rawScoringRows": 6,
+      "rosterQualifiedEvents": 5,
+      "category": "RAW_SCORE_PARITY_WITH_SEASON_ROSTER_ID_HOLD",
+      "heldReasons": {
+        "GOAL_PLAYER_ID_NOT_LISTED_ON_VERIFIED_TEAM_ROSTER": 1
+      },
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=547&gameid=121812&page_type=Adult",
+      "officialPageSHA256": "f01a124a79ebad09089eaaa7ab77570f6ae1e33d3209a01be5c0846f067d4881",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 547,
+      "gameId": 121818,
+      "date": "2025-10-19",
+      "homeTeam": "Hawks",
+      "awayTeam": "Last Pass",
+      "finalScore": [
+        1,
+        0
+      ],
+      "rawScoringRows": 0,
+      "rosterQualifiedEvents": 0,
+      "category": "RAW_GAMEINFO_ROWS_BELOW_PUBLISHED_SCORE",
+      "heldReasons": {},
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=547&gameid=121818&page_type=Adult",
+      "officialPageSHA256": "c6ce46fde8725846ecd024e05607b1a879ef3bb6faa7f081157f8daab064667d",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 547,
+      "gameId": 121824,
+      "date": "2025-10-19",
+      "homeTeam": "Butcher Brothers",
+      "awayTeam": "Italian Peppers",
+      "finalScore": [
+        0,
+        1
+      ],
+      "rawScoringRows": 0,
+      "rosterQualifiedEvents": 0,
+      "category": "RAW_GAMEINFO_ROWS_BELOW_PUBLISHED_SCORE",
+      "heldReasons": {},
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=547&gameid=121824&page_type=Adult",
+      "officialPageSHA256": "71515cf5e09dcc260af390343fb1181c1a324b5919f0ee2ca42948c34a70958a",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 547,
+      "gameId": 122017,
+      "date": "2025-10-26",
+      "homeTeam": "Last Pass",
+      "awayTeam": "Vengeance",
+      "finalScore": [
+        0,
+        1
+      ],
+      "rawScoringRows": 0,
+      "rosterQualifiedEvents": 0,
+      "category": "RAW_GAMEINFO_ROWS_BELOW_PUBLISHED_SCORE",
+      "heldReasons": {},
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=547&gameid=122017&page_type=Adult",
+      "officialPageSHA256": "b729b3c0b5d79d29eaaa3a71246beac089e49d3efd565c6fc11be7d0d2266a16",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 547,
+      "gameId": 121960,
+      "date": "2025-11-02",
+      "homeTeam": "Mid Ice Crisis",
+      "awayTeam": "Schmelts",
+      "finalScore": [
+        8,
+        5
+      ],
+      "rawScoringRows": 13,
+      "rosterQualifiedEvents": 12,
+      "category": "RAW_SCORE_PARITY_WITH_SEASON_ROSTER_ID_HOLD",
+      "heldReasons": {
+        "GOAL_PLAYER_ID_NOT_LISTED_ON_VERIFIED_TEAM_ROSTER": 1
+      },
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=547&gameid=121960&page_type=Adult",
+      "officialPageSHA256": "2a29b3e8b0a37790e1c59a654aca6f764eb40452c503c15e7112224203d70d5d",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 547,
+      "gameId": 122007,
+      "date": "2025-11-09",
+      "homeTeam": "Italian Peppers",
+      "awayTeam": "Mighty Drunks",
+      "finalScore": [
+        1,
+        0
+      ],
+      "rawScoringRows": 0,
+      "rosterQualifiedEvents": 0,
+      "category": "RAW_GAMEINFO_ROWS_BELOW_PUBLISHED_SCORE",
+      "heldReasons": {},
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=547&gameid=122007&page_type=Adult",
+      "officialPageSHA256": "d16db48a93544d3e64312fa4f2d69bcdf5e85c4db9c6cd29d16b9f374c5943da",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 547,
+      "gameId": 121995,
+      "date": "2025-11-23",
+      "homeTeam": "Hammers",
+      "awayTeam": "Blades of Steel",
+      "finalScore": [
+        1,
+        0
+      ],
+      "rawScoringRows": 0,
+      "rosterQualifiedEvents": 0,
+      "category": "RAW_GAMEINFO_ROWS_BELOW_PUBLISHED_SCORE",
+      "heldReasons": {},
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=547&gameid=121995&page_type=Adult",
+      "officialPageSHA256": "777bc0266f48d86e034c11d5f3324047b247ddeead0cb0be3bdc7e651425cde2",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 547,
+      "gameId": 122268,
+      "date": "2025-12-21",
+      "homeTeam": "Hawks",
+      "awayTeam": "Vengeance",
+      "finalScore": [
+        1,
+        0
+      ],
+      "rawScoringRows": 0,
+      "rosterQualifiedEvents": 0,
+      "category": "RAW_GAMEINFO_ROWS_BELOW_PUBLISHED_SCORE",
+      "heldReasons": {},
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=547&gameid=122268&page_type=Adult",
+      "officialPageSHA256": "1d7f6457b8a932be5d7a1885b25361c623a0d4ffaa2fc92aed07a8dcf94df2e3",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 547,
+      "gameId": 122286,
+      "date": "2025-12-28",
+      "homeTeam": "Thrillers",
+      "awayTeam": "Primary Auto",
+      "finalScore": [
+        0,
+        1
+      ],
+      "rawScoringRows": 0,
+      "rosterQualifiedEvents": 0,
+      "category": "RAW_GAMEINFO_ROWS_BELOW_PUBLISHED_SCORE",
+      "heldReasons": {},
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=547&gameid=122286&page_type=Adult",
+      "officialPageSHA256": "896515026605b4c749cf2317908c3a4b8985621047b289e48413a9ff64ecb6b5",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 547,
+      "gameId": 122332,
+      "date": "2025-12-28",
+      "homeTeam": "Gooning Gingerbreads",
+      "awayTeam": "Marlboro Reds",
+      "finalScore": [
+        0,
+        1
+      ],
+      "rawScoringRows": 0,
+      "rosterQualifiedEvents": 0,
+      "category": "RAW_GAMEINFO_ROWS_BELOW_PUBLISHED_SCORE",
+      "heldReasons": {},
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=547&gameid=122332&page_type=Adult",
+      "officialPageSHA256": "13b324c9ef891ddbad28500a47c6eac632f62c3174e89a4c523b4c404925733d",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 547,
+      "gameId": 122603,
+      "date": "2026-01-04",
+      "homeTeam": "Last Pass",
+      "awayTeam": "Mighty Drunks",
+      "finalScore": [
+        0,
+        1
+      ],
+      "rawScoringRows": 0,
+      "rosterQualifiedEvents": 0,
+      "category": "RAW_GAMEINFO_ROWS_BELOW_PUBLISHED_SCORE",
+      "heldReasons": {},
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=547&gameid=122603&page_type=Adult",
+      "officialPageSHA256": "abc7b1a471eff974cad26d079f4dfde04520b100fdae90d68482ef7fca4794b7",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 547,
+      "gameId": 122627,
+      "date": "2026-01-04",
+      "homeTeam": "Gooning Gingerbreads",
+      "awayTeam": "Young Guns",
+      "finalScore": [
+        1,
+        0
+      ],
+      "rawScoringRows": 0,
+      "rosterQualifiedEvents": 0,
+      "category": "RAW_GAMEINFO_ROWS_BELOW_PUBLISHED_SCORE",
+      "heldReasons": {},
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=547&gameid=122627&page_type=Adult",
+      "officialPageSHA256": "c84b796d9c45afd94421e5b165c72cdf415c229f27d84677b6f3bb5ac3c8f40c",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 547,
+      "gameId": 122606,
+      "date": "2026-01-18",
+      "homeTeam": "Last Pass",
+      "awayTeam": "Butcher Brothers",
+      "finalScore": [
+        0,
+        1
+      ],
+      "rawScoringRows": 0,
+      "rosterQualifiedEvents": 0,
+      "category": "RAW_GAMEINFO_ROWS_BELOW_PUBLISHED_SCORE",
+      "heldReasons": {},
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=547&gameid=122606&page_type=Adult",
+      "officialPageSHA256": "4e0e3b8ef0510fba289a5553db03a0bbfd23d13fe20ba8b0980735d766fd04d6",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 547,
+      "gameId": 122644,
+      "date": "2026-01-25",
+      "homeTeam": "Blackhawks",
+      "awayTeam": "Blades of Steel",
+      "finalScore": [
+        1,
+        0
+      ],
+      "rawScoringRows": 0,
+      "rosterQualifiedEvents": 0,
+      "category": "RAW_GAMEINFO_ROWS_BELOW_PUBLISHED_SCORE",
+      "heldReasons": {},
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=547&gameid=122644&page_type=Adult",
+      "officialPageSHA256": "5c91d0f42bacbe0ec67d397ac2a9de2badac0a11d1c8dc863b3ecc2ca6ec5aff",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 547,
+      "gameId": 122661,
+      "date": "2026-01-25",
+      "homeTeam": "Hawks",
+      "awayTeam": "Hammers",
+      "finalScore": [
+        0,
+        1
+      ],
+      "rawScoringRows": 0,
+      "rosterQualifiedEvents": 0,
+      "category": "RAW_GAMEINFO_ROWS_BELOW_PUBLISHED_SCORE",
+      "heldReasons": {},
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=547&gameid=122661&page_type=Adult",
+      "officialPageSHA256": "46e544973858450411cc75c5719750567915f117c6993f45bad13121eada765a",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 547,
+      "gameId": 122674,
+      "date": "2026-01-25",
+      "homeTeam": "Royal Flushers",
+      "awayTeam": "Braves HC",
+      "finalScore": [
+        0,
+        1
+      ],
+      "rawScoringRows": 0,
+      "rosterQualifiedEvents": 0,
+      "category": "RAW_GAMEINFO_ROWS_BELOW_PUBLISHED_SCORE",
+      "heldReasons": {},
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=547&gameid=122674&page_type=Adult",
+      "officialPageSHA256": "42e82ec59ebaae24345982fe6d7a8d52d561fbacad90a15fc7ae9e44ad198e2f",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 547,
+      "gameId": 122686,
+      "date": "2026-01-25",
+      "homeTeam": "Mid Ice Crisis",
+      "awayTeam": "Big Bastones",
+      "finalScore": [
+        0,
+        1
+      ],
+      "rawScoringRows": 0,
+      "rosterQualifiedEvents": 0,
+      "category": "RAW_GAMEINFO_ROWS_BELOW_PUBLISHED_SCORE",
+      "heldReasons": {},
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=547&gameid=122686&page_type=Adult",
+      "officialPageSHA256": "8d5a44803f330a6902085330c224183bf8ab8c8703708e87057ea7e0029369f6",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 547,
+      "gameId": 122706,
+      "date": "2026-01-25",
+      "homeTeam": "Pinheads",
+      "awayTeam": "Bushwackers",
+      "finalScore": [
+        0,
+        1
+      ],
+      "rawScoringRows": 0,
+      "rosterQualifiedEvents": 0,
+      "category": "RAW_GAMEINFO_ROWS_BELOW_PUBLISHED_SCORE",
+      "heldReasons": {},
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=547&gameid=122706&page_type=Adult",
+      "officialPageSHA256": "a4112bdc774c0531c150dead855402b20d25ae8e26f2cb67c21d2c474ea4d018",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 547,
+      "gameId": 122707,
+      "date": "2026-01-25",
+      "homeTeam": "Schmelts",
+      "awayTeam": "Dateline Predators",
+      "finalScore": [
+        0,
+        1
+      ],
+      "rawScoringRows": 0,
+      "rosterQualifiedEvents": 0,
+      "category": "RAW_GAMEINFO_ROWS_BELOW_PUBLISHED_SCORE",
+      "heldReasons": {},
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=547&gameid=122707&page_type=Adult",
+      "officialPageSHA256": "967327a2e7c75f60ffc8fbc908c203d0f504b2154a01b4504c01b67de0176ff0",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 547,
+      "gameId": 122708,
+      "date": "2026-01-25",
+      "homeTeam": "Vengeance",
+      "awayTeam": "Butcher Brothers",
+      "finalScore": [
+        0,
+        1
+      ],
+      "rawScoringRows": 0,
+      "rosterQualifiedEvents": 0,
+      "category": "RAW_GAMEINFO_ROWS_BELOW_PUBLISHED_SCORE",
+      "heldReasons": {},
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=547&gameid=122708&page_type=Adult",
+      "officialPageSHA256": "e6eeb202808aeaa900110fe6332f8dcab2e6a55d0c1c68de3870a6848a814198",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 547,
+      "gameId": 122709,
+      "date": "2026-01-25",
+      "homeTeam": "Fangs",
+      "awayTeam": "Don Cherries",
+      "finalScore": [
+        0,
+        1
+      ],
+      "rawScoringRows": 0,
+      "rosterQualifiedEvents": 0,
+      "category": "RAW_GAMEINFO_ROWS_BELOW_PUBLISHED_SCORE",
+      "heldReasons": {},
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=547&gameid=122709&page_type=Adult",
+      "officialPageSHA256": "0d193d4a6ffec5ad5efc2d454b94ad147933ccbe20bb11f4398079eec92d9f73",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 547,
+      "gameId": 122710,
+      "date": "2026-01-25",
+      "homeTeam": "Maplewolves",
+      "awayTeam": "Marlboro Reds",
+      "finalScore": [
+        4,
+        6
+      ],
+      "rawScoringRows": 12,
+      "rosterQualifiedEvents": 12,
+      "category": "RAW_GAMEINFO_ROWS_ABOVE_PUBLISHED_SCORE",
+      "heldReasons": {},
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=547&gameid=122710&page_type=Adult",
+      "officialPageSHA256": "acf1eb421c135b002ca850222ba6bb3a5801f9a6d5c4effc0c72de135fe2c72a",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 547,
+      "gameId": 122712,
+      "date": "2026-01-25",
+      "homeTeam": "Other Way",
+      "awayTeam": "Mohawks H/C",
+      "finalScore": [
+        1,
+        0
+      ],
+      "rawScoringRows": 0,
+      "rosterQualifiedEvents": 0,
+      "category": "RAW_GAMEINFO_ROWS_BELOW_PUBLISHED_SCORE",
+      "heldReasons": {},
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=547&gameid=122712&page_type=Adult",
+      "officialPageSHA256": "70309dfb82c12722dcfab638549cc34aa055cb9714cc5a14a63e1439e11344fe",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 547,
+      "gameId": 122678,
+      "date": "2026-02-15",
+      "homeTeam": "Braves HC",
+      "awayTeam": "Schmelts",
+      "finalScore": [
+        1,
+        0
+      ],
+      "rawScoringRows": 0,
+      "rosterQualifiedEvents": 0,
+      "category": "RAW_GAMEINFO_ROWS_BELOW_PUBLISHED_SCORE",
+      "heldReasons": {},
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=547&gameid=122678&page_type=Adult",
+      "officialPageSHA256": "da9b68779b6095e08017be6be6d056fc539b442255cb0498f0c4b4ab7092a575",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 547,
+      "gameId": 122910,
+      "date": "2026-03-08",
+      "homeTeam": "Schmelts",
+      "awayTeam": "Braves HC",
+      "finalScore": [
+        0,
+        1
+      ],
+      "rawScoringRows": 0,
+      "rosterQualifiedEvents": 0,
+      "category": "RAW_GAMEINFO_ROWS_BELOW_PUBLISHED_SCORE",
+      "heldReasons": {},
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=547&gameid=122910&page_type=Adult",
+      "officialPageSHA256": "c31317eafc21b20c083ed3c86b01f691d7d8d4f20aaf5dc0295c9b973362fced",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 531,
+      "gameId": 115652,
+      "date": "2024-09-22",
+      "homeTeam": "Goodfellas",
+      "awayTeam": "Mid Ice Crisis",
+      "finalScore": [
+        3,
+        1
+      ],
+      "rawScoringRows": 0,
+      "rosterQualifiedEvents": 0,
+      "category": "RAW_GAMEINFO_ROWS_BELOW_PUBLISHED_SCORE",
+      "heldReasons": {},
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=531&gameid=115652&page_type=Adult",
+      "officialPageSHA256": "fe04ca0b10802835311f5b64748ebc50c389c3ead7ac06683a74bb5664495850",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 531,
+      "gameId": 115674,
+      "date": "2024-09-22",
+      "homeTeam": "Dawgs",
+      "awayTeam": "Don's Cherries",
+      "finalScore": [
+        8,
+        4
+      ],
+      "rawScoringRows": 0,
+      "rosterQualifiedEvents": 0,
+      "category": "RAW_GAMEINFO_ROWS_BELOW_PUBLISHED_SCORE",
+      "heldReasons": {},
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=531&gameid=115674&page_type=Adult",
+      "officialPageSHA256": "c1d47e85a52215a05b416ebd76da8f8154da2819689983b2bf88467be8e45633",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 531,
+      "gameId": 116059,
+      "date": "2024-11-17",
+      "homeTeam": "Mighty Drunks",
+      "awayTeam": "Whalers",
+      "finalScore": [
+        1,
+        0
+      ],
+      "rawScoringRows": 0,
+      "rosterQualifiedEvents": 0,
+      "category": "RAW_GAMEINFO_ROWS_BELOW_PUBLISHED_SCORE",
+      "heldReasons": {},
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=531&gameid=116059&page_type=Adult",
+      "officialPageSHA256": "ce48c87de8827eea1e94972d810f7752ca12f70fe58d3cba56332a6fdeee086a",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 531,
+      "gameId": 116270,
+      "date": "2024-12-22",
+      "homeTeam": "Don's Cherries",
+      "awayTeam": "Schmelts",
+      "finalScore": [
+        1,
+        0
+      ],
+      "rawScoringRows": 0,
+      "rosterQualifiedEvents": 0,
+      "category": "RAW_GAMEINFO_ROWS_BELOW_PUBLISHED_SCORE",
+      "heldReasons": {},
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=531&gameid=116270&page_type=Adult",
+      "officialPageSHA256": "d6155b3ec97d66e6144b73f671222ed0804ade6dfe31d2bb7a13799f3cf5d74d",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 531,
+      "gameId": 116303,
+      "date": "2024-12-29",
+      "homeTeam": "Bushwhackers",
+      "awayTeam": "Hawks",
+      "finalScore": [
+        1,
+        0
+      ],
+      "rawScoringRows": 0,
+      "rosterQualifiedEvents": 0,
+      "category": "RAW_GAMEINFO_ROWS_BELOW_PUBLISHED_SCORE",
+      "heldReasons": {},
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=531&gameid=116303&page_type=Adult",
+      "officialPageSHA256": "645b887eccfa6e1a07b123a7153c7fcd80ed3abbcdd4aff11a18e7b55336cee8",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 531,
+      "gameId": 116319,
+      "date": "2025-01-26",
+      "homeTeam": "Primary Auto",
+      "awayTeam": "Last Pass",
+      "finalScore": [
+        1,
+        0
+      ],
+      "rawScoringRows": 0,
+      "rosterQualifiedEvents": 0,
+      "category": "RAW_GAMEINFO_ROWS_BELOW_PUBLISHED_SCORE",
+      "heldReasons": {},
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=531&gameid=116319&page_type=Adult",
+      "officialPageSHA256": "b75d8adc50bdca62cb5ba80571db237f97c3e6af09bac9eafdcbd856f592c571",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 531,
+      "gameId": 116684,
+      "date": "2025-02-16",
+      "homeTeam": "Pinheads",
+      "awayTeam": "Vengeance",
+      "finalScore": [
+        0,
+        1
+      ],
+      "rawScoringRows": 0,
+      "rosterQualifiedEvents": 0,
+      "category": "RAW_GAMEINFO_ROWS_BELOW_PUBLISHED_SCORE",
+      "heldReasons": {},
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=531&gameid=116684&page_type=Adult",
+      "officialPageSHA256": "390aec50576f07563873b9eb127a26d02142e2125d4606b21b3d8482fbcb38f0",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 531,
+      "gameId": 116721,
+      "date": "2025-02-16",
+      "homeTeam": "Braves H/C",
+      "awayTeam": "Don's Cherries",
+      "finalScore": [
+        1,
+        0
+      ],
+      "rawScoringRows": 0,
+      "rosterQualifiedEvents": 0,
+      "category": "RAW_GAMEINFO_ROWS_BELOW_PUBLISHED_SCORE",
+      "heldReasons": {},
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=531&gameid=116721&page_type=Adult",
+      "officialPageSHA256": "a65501ef5e7ebed3e44e7b2e3bd2f5ff560be5e6ccb99c3f83051b0792ada56f",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 531,
+      "gameId": 116722,
+      "date": "2025-02-16",
+      "homeTeam": "Thrillers",
+      "awayTeam": "Call Ups",
+      "finalScore": [
+        0,
+        1
+      ],
+      "rawScoringRows": 0,
+      "rosterQualifiedEvents": 0,
+      "category": "RAW_GAMEINFO_ROWS_BELOW_PUBLISHED_SCORE",
+      "heldReasons": {},
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=531&gameid=116722&page_type=Adult",
+      "officialPageSHA256": "7512068a0faa41f85aa920b4a074d9d7f485a9ad0bb1d5e4091e3fa31909351d",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 531,
+      "gameId": 116774,
+      "date": "2025-02-16",
+      "homeTeam": "Demon Time",
+      "awayTeam": "Dorco Pios",
+      "finalScore": [
+        0,
+        1
+      ],
+      "rawScoringRows": 0,
+      "rosterQualifiedEvents": 0,
+      "category": "RAW_GAMEINFO_ROWS_BELOW_PUBLISHED_SCORE",
+      "heldReasons": {},
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=531&gameid=116774&page_type=Adult",
+      "officialPageSHA256": "10078a44ed91f5ee61becf2665a67635af95f810c6384f9b3b1cc564a8ec9cf7",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 512,
+      "gameId": 109518,
+      "date": "2023-09-17",
+      "homeTeam": "Gladiators",
+      "awayTeam": "Hawks",
+      "finalScore": [
+        1,
+        0
+      ],
+      "rawScoringRows": 0,
+      "rosterQualifiedEvents": 0,
+      "category": "RAW_GAMEINFO_ROWS_BELOW_PUBLISHED_SCORE",
+      "heldReasons": {},
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=512&gameid=109518&page_type=Adult",
+      "officialPageSHA256": "b061cd5b693ccdd990370f01bf207fa5e3576841d49cfb4f7cc92bc83ef2a234",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 512,
+      "gameId": 109533,
+      "date": "2023-09-17",
+      "homeTeam": "Demon Time",
+      "awayTeam": "Multiple Scoregasms",
+      "finalScore": [
+        1,
+        0
+      ],
+      "rawScoringRows": 0,
+      "rosterQualifiedEvents": 0,
+      "category": "RAW_GAMEINFO_ROWS_BELOW_PUBLISHED_SCORE",
+      "heldReasons": {},
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=512&gameid=109533&page_type=Adult",
+      "officialPageSHA256": "1e3e0a6d60370539a3347ef7f918fca9a2e71d50fc73287e6f3571c51f5d8a38",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 512,
+      "gameId": 109534,
+      "date": "2023-09-17",
+      "homeTeam": "Degenerates",
+      "awayTeam": "Dorco Pios",
+      "finalScore": [
+        1,
+        0
+      ],
+      "rawScoringRows": 0,
+      "rosterQualifiedEvents": 0,
+      "category": "RAW_GAMEINFO_ROWS_BELOW_PUBLISHED_SCORE",
+      "heldReasons": {},
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=512&gameid=109534&page_type=Adult",
+      "officialPageSHA256": "74a6fe535cc0169b93bd7608da2dd4a6f112f64319b5234d824cb65e76653a28",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 512,
+      "gameId": 109528,
+      "date": "2023-09-24",
+      "homeTeam": "Dateline Predators",
+      "awayTeam": "Ceramic Pro Vaughan",
+      "finalScore": [
+        2,
+        1
+      ],
+      "rawScoringRows": 3,
+      "rosterQualifiedEvents": 2,
+      "category": "RAW_SCORE_PARITY_WITH_SEASON_ROSTER_ID_HOLD",
+      "heldReasons": {
+        "GOAL_PLAYER_ID_NOT_LISTED_ON_VERIFIED_TEAM_ROSTER": 1
+      },
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=512&gameid=109528&page_type=Adult",
+      "officialPageSHA256": "278aa95d28881fc766c684fd22d0a480433e50251c84302f8c6b0d2fc57d072e",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 512,
+      "gameId": 109530,
+      "date": "2023-09-24",
+      "homeTeam": "Blades of Steel",
+      "awayTeam": "Fang",
+      "finalScore": [
+        6,
+        3
+      ],
+      "rawScoringRows": 18,
+      "rosterQualifiedEvents": 18,
+      "category": "RAW_GAMEINFO_ROWS_ABOVE_PUBLISHED_SCORE",
+      "heldReasons": {},
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=512&gameid=109530&page_type=Adult",
+      "officialPageSHA256": "833a082fd910ffe4a81ed51efb0cb81a04567147cc5cda33c02b4d01263c66e6",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 512,
+      "gameId": 109542,
+      "date": "2023-09-24",
+      "homeTeam": "Primary Auto",
+      "awayTeam": "Warriors",
+      "finalScore": [
+        3,
+        2
+      ],
+      "rawScoringRows": 5,
+      "rosterQualifiedEvents": 4,
+      "category": "RAW_SCORE_PARITY_WITH_SEASON_ROSTER_ID_HOLD",
+      "heldReasons": {
+        "GOAL_PLAYER_ID_NOT_LISTED_ON_VERIFIED_TEAM_ROSTER": 1
+      },
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=512&gameid=109542&page_type=Adult",
+      "officialPageSHA256": "2ee20e448ca0e447e57c90083981cc0c3775fcaf9f84a749287cc2f7853594cd",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 512,
+      "gameId": 109669,
+      "date": "2023-10-01",
+      "homeTeam": "Blades of Steel",
+      "awayTeam": "Marlboro Reds",
+      "finalScore": [
+        4,
+        6
+      ],
+      "rawScoringRows": 10,
+      "rosterQualifiedEvents": 9,
+      "category": "RAW_SCORE_PARITY_WITH_SEASON_ROSTER_ID_HOLD",
+      "heldReasons": {
+        "GOAL_PLAYER_ID_NOT_LISTED_ON_VERIFIED_TEAM_ROSTER": 1
+      },
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=512&gameid=109669&page_type=Adult",
+      "officialPageSHA256": "6a15b6e0357d3cf4238b76ce1ba24f551baaaa0ae4128f4620b33c99e0122f18",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 512,
+      "gameId": 109677,
+      "date": "2023-10-01",
+      "homeTeam": "Brave H.C.",
+      "awayTeam": "Primary Auto",
+      "finalScore": [
+        1,
+        6
+      ],
+      "rawScoringRows": 7,
+      "rosterQualifiedEvents": 5,
+      "category": "RAW_SCORE_PARITY_WITH_SEASON_ROSTER_ID_HOLD",
+      "heldReasons": {
+        "GOAL_PLAYER_ID_NOT_LISTED_ON_VERIFIED_TEAM_ROSTER": 2
+      },
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=512&gameid=109677&page_type=Adult",
+      "officialPageSHA256": "47067b937f27418d21f208e116e3240b0aebd5adcc985c4247b240bed3cd7c21",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 512,
+      "gameId": 109670,
+      "date": "2023-10-15",
+      "homeTeam": "Marlboro Reds",
+      "awayTeam": "Thrillers",
+      "finalScore": [
+        1,
+        1
+      ],
+      "rawScoringRows": 2,
+      "rosterQualifiedEvents": 1,
+      "category": "RAW_SCORE_PARITY_WITH_SEASON_ROSTER_ID_HOLD",
+      "heldReasons": {
+        "GOAL_PLAYER_ID_NOT_LISTED_ON_VERIFIED_TEAM_ROSTER": 1
+      },
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=512&gameid=109670&page_type=Adult",
+      "officialPageSHA256": "5732cd9068c8375848e275da6e472889b931e339c4c452781837f19f0a65e84c",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 512,
+      "gameId": 109678,
+      "date": "2023-10-15",
+      "homeTeam": "Primary Auto",
+      "awayTeam": "Warriors",
+      "finalScore": [
+        3,
+        2
+      ],
+      "rawScoringRows": 5,
+      "rosterQualifiedEvents": 3,
+      "category": "RAW_SCORE_PARITY_WITH_SEASON_ROSTER_ID_HOLD",
+      "heldReasons": {
+        "GOAL_PLAYER_ID_NOT_LISTED_ON_VERIFIED_TEAM_ROSTER": 2
+      },
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=512&gameid=109678&page_type=Adult",
+      "officialPageSHA256": "2d2899b24b58fc9b53482f7a917c35965717c5589d141ff0d4d9706df17e812b",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 512,
+      "gameId": 109807,
+      "date": "2023-10-22",
+      "homeTeam": "Mighty Drunks",
+      "awayTeam": "Primary Auto",
+      "finalScore": [
+        5,
+        4
+      ],
+      "rawScoringRows": 9,
+      "rosterQualifiedEvents": 8,
+      "category": "RAW_SCORE_PARITY_WITH_SEASON_ROSTER_ID_HOLD",
+      "heldReasons": {
+        "GOAL_PLAYER_ID_NOT_LISTED_ON_VERIFIED_TEAM_ROSTER": 1
+      },
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=512&gameid=109807&page_type=Adult",
+      "officialPageSHA256": "5216ca32f42c0542e72916120cb4b35a7f3385d07bcb1b3fa5b43271061955d6",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 512,
+      "gameId": 109809,
+      "date": "2023-10-29",
+      "homeTeam": "Primary Auto",
+      "awayTeam": "Fang",
+      "finalScore": [
+        4,
+        0
+      ],
+      "rawScoringRows": 4,
+      "rosterQualifiedEvents": 1,
+      "category": "RAW_SCORE_PARITY_WITH_SEASON_ROSTER_ID_HOLD",
+      "heldReasons": {
+        "GOAL_PLAYER_ID_NOT_LISTED_ON_VERIFIED_TEAM_ROSTER": 3
+      },
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=512&gameid=109809&page_type=Adult",
+      "officialPageSHA256": "831aa531f40ff8ad5b7f30368fa4cf196eb847eff9b51b1e752f7095dcddd8e9",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 512,
+      "gameId": 109814,
+      "date": "2023-11-05",
+      "homeTeam": "Primary Auto",
+      "awayTeam": "Cobras",
+      "finalScore": [
+        1,
+        1
+      ],
+      "rawScoringRows": 2,
+      "rosterQualifiedEvents": 1,
+      "category": "RAW_SCORE_PARITY_WITH_SEASON_ROSTER_ID_HOLD",
+      "heldReasons": {
+        "GOAL_PLAYER_ID_NOT_LISTED_ON_VERIFIED_TEAM_ROSTER": 1
+      },
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=512&gameid=109814&page_type=Adult",
+      "officialPageSHA256": "0dce1536b6377764b5797fcb5cd1702a29ea5374d3ed1d2c8f9d6f8d22104336",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 512,
+      "gameId": 109815,
+      "date": "2023-11-05",
+      "homeTeam": "Big Bastones",
+      "awayTeam": "Fang",
+      "finalScore": [
+        0,
+        4
+      ],
+      "rawScoringRows": 4,
+      "rosterQualifiedEvents": 3,
+      "category": "RAW_SCORE_PARITY_WITH_SEASON_ROSTER_ID_HOLD",
+      "heldReasons": {
+        "GOAL_PLAYER_ID_NOT_LISTED_ON_VERIFIED_TEAM_ROSTER": 1
+      },
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=512&gameid=109815&page_type=Adult",
+      "officialPageSHA256": "42a81b0fc393be340c3c251ebdb94f56960790581dcdd4aba8141e247291862a",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 512,
+      "gameId": 110052,
+      "date": "2023-11-12",
+      "homeTeam": "Blades of Steel",
+      "awayTeam": "Primary Auto",
+      "finalScore": [
+        1,
+        6
+      ],
+      "rawScoringRows": 7,
+      "rosterQualifiedEvents": 3,
+      "category": "RAW_SCORE_PARITY_WITH_SEASON_ROSTER_ID_HOLD",
+      "heldReasons": {
+        "GOAL_PLAYER_ID_NOT_LISTED_ON_VERIFIED_TEAM_ROSTER": 4
+      },
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=512&gameid=110052&page_type=Adult",
+      "officialPageSHA256": "5dd397e1416d2476dcdfaa9b028d419fee1c4c35371b45b69b5d6b9a1e489eb5",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 512,
+      "gameId": 110055,
+      "date": "2023-11-19",
+      "homeTeam": "Primary Auto",
+      "awayTeam": "Marlboro Reds",
+      "finalScore": [
+        3,
+        5
+      ],
+      "rawScoringRows": 8,
+      "rosterQualifiedEvents": 7,
+      "category": "RAW_SCORE_PARITY_WITH_SEASON_ROSTER_ID_HOLD",
+      "heldReasons": {
+        "GOAL_PLAYER_ID_NOT_LISTED_ON_VERIFIED_TEAM_ROSTER": 1
+      },
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=512&gameid=110055&page_type=Adult",
+      "officialPageSHA256": "9eff99201bef7c8d306a9a0722080583451963a26620f3c56965d6c03b8efa2e",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 512,
+      "gameId": 110100,
+      "date": "2023-11-19",
+      "homeTeam": "Butcher Brothers",
+      "awayTeam": "Gladiators",
+      "finalScore": [
+        4,
+        2
+      ],
+      "rawScoringRows": 7,
+      "rosterQualifiedEvents": 7,
+      "category": "RAW_GAMEINFO_ROWS_ABOVE_PUBLISHED_SCORE",
+      "heldReasons": {},
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=512&gameid=110100&page_type=Adult",
+      "officialPageSHA256": "a3c08eea7ff779d4f368b0b948a8ed6c4cfcc381bba233326c6384e33cd8b297",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 512,
+      "gameId": 110101,
+      "date": "2023-11-19",
+      "homeTeam": "Bushwackers",
+      "awayTeam": "Pinheads",
+      "finalScore": [
+        1,
+        3
+      ],
+      "rawScoringRows": 5,
+      "rosterQualifiedEvents": 5,
+      "category": "RAW_GAMEINFO_ROWS_ABOVE_PUBLISHED_SCORE",
+      "heldReasons": {},
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=512&gameid=110101&page_type=Adult",
+      "officialPageSHA256": "42be2d87225bbe14b7e89bd4b84f4ef506ac0de3f3fd154ba1e9c5d56f533e8a",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 512,
+      "gameId": 110058,
+      "date": "2023-11-26",
+      "homeTeam": "Primary Auto",
+      "awayTeam": "Ceramic Pro Vaughan",
+      "finalScore": [
+        11,
+        1
+      ],
+      "rawScoringRows": 12,
+      "rosterQualifiedEvents": 9,
+      "category": "RAW_SCORE_PARITY_WITH_SEASON_ROSTER_ID_HOLD",
+      "heldReasons": {
+        "GOAL_PLAYER_ID_NOT_LISTED_ON_VERIFIED_TEAM_ROSTER": 3
+      },
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=512&gameid=110058&page_type=Adult",
+      "officialPageSHA256": "33b9c4679a460df81fe250a6701934f423cb586ad875662c8bd42360866ae993",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 512,
+      "gameId": 110061,
+      "date": "2023-12-03",
+      "homeTeam": "Primary Auto",
+      "awayTeam": "Nordekes",
+      "finalScore": [
+        2,
+        2
+      ],
+      "rawScoringRows": 4,
+      "rosterQualifiedEvents": 3,
+      "category": "RAW_SCORE_PARITY_WITH_SEASON_ROSTER_ID_HOLD",
+      "heldReasons": {
+        "GOAL_PLAYER_ID_NOT_LISTED_ON_VERIFIED_TEAM_ROSTER": 1
+      },
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=512&gameid=110061&page_type=Adult",
+      "officialPageSHA256": "d89c77bd0d881a0ffa194aed86afe068c4fd6a146a6890fb06bf0294763a2c07",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 512,
+      "gameId": 110065,
+      "date": "2023-12-10",
+      "homeTeam": "Blades of Steel",
+      "awayTeam": "Nordekes",
+      "finalScore": [
+        3,
+        2
+      ],
+      "rawScoringRows": 5,
+      "rosterQualifiedEvents": 4,
+      "category": "RAW_SCORE_PARITY_WITH_SEASON_ROSTER_ID_HOLD",
+      "heldReasons": {
+        "GOAL_PLAYER_ID_NOT_LISTED_ON_VERIFIED_TEAM_ROSTER": 1
+      },
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=512&gameid=110065&page_type=Adult",
+      "officialPageSHA256": "5dbb21099f5462db4cf697a230176b4f1bad59f315c54ba61e7036bb4c1fc179",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 512,
+      "gameId": 110068,
+      "date": "2023-12-10",
+      "homeTeam": "Primary Auto",
+      "awayTeam": "Multiple Scoregasms",
+      "finalScore": [
+        7,
+        2
+      ],
+      "rawScoringRows": 9,
+      "rosterQualifiedEvents": 6,
+      "category": "RAW_SCORE_PARITY_WITH_SEASON_ROSTER_ID_HOLD",
+      "heldReasons": {
+        "GOAL_PLAYER_ID_NOT_LISTED_ON_VERIFIED_TEAM_ROSTER": 3
+      },
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=512&gameid=110068&page_type=Adult",
+      "officialPageSHA256": "f6c24190464c25664d5261ca2300e1720cfb88ce17485c987e26fa523817b946",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 512,
+      "gameId": 110094,
+      "date": "2023-12-17",
+      "homeTeam": "Warriors",
+      "awayTeam": "Primary Auto",
+      "finalScore": [
+        0,
+        3
+      ],
+      "rawScoringRows": 3,
+      "rosterQualifiedEvents": 2,
+      "category": "RAW_SCORE_PARITY_WITH_SEASON_ROSTER_ID_HOLD",
+      "heldReasons": {
+        "GOAL_PLAYER_ID_NOT_LISTED_ON_VERIFIED_TEAM_ROSTER": 1
+      },
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=512&gameid=110094&page_type=Adult",
+      "officialPageSHA256": "50f65baadad25c6fef3483112b7582731d02951ca68b3cca7ada7b3b57cbd634",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 512,
+      "gameId": 110113,
+      "date": "2023-12-17",
+      "homeTeam": "Italian Peppers",
+      "awayTeam": "Last Pass",
+      "finalScore": [
+        1,
+        0
+      ],
+      "rawScoringRows": 0,
+      "rosterQualifiedEvents": 0,
+      "category": "RAW_GAMEINFO_ROWS_BELOW_PUBLISHED_SCORE",
+      "heldReasons": {},
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=512&gameid=110113&page_type=Adult",
+      "officialPageSHA256": "b4365c5a1d4f105ec6f46d6645b681155ffb1038f73fcbabf2a4a6179ef5a078",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 512,
+      "gameId": 110210,
+      "date": "2024-01-07",
+      "homeTeam": "Bears",
+      "awayTeam": "Brave H.C.",
+      "finalScore": [
+        7,
+        4
+      ],
+      "rawScoringRows": 14,
+      "rosterQualifiedEvents": 14,
+      "category": "RAW_GAMEINFO_ROWS_ABOVE_PUBLISHED_SCORE",
+      "heldReasons": {},
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=512&gameid=110210&page_type=Adult",
+      "officialPageSHA256": "686f54a9f31829a0f86d6bbb434be0a7aa71052eb5b2b16dadc08059c78cce9c",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 512,
+      "gameId": 110406,
+      "date": "2024-02-04",
+      "homeTeam": "Bears",
+      "awayTeam": "Fang",
+      "finalScore": [
+        5,
+        5
+      ],
+      "rawScoringRows": 10,
+      "rosterQualifiedEvents": 9,
+      "category": "RAW_SCORE_PARITY_WITH_SEASON_ROSTER_ID_HOLD",
+      "heldReasons": {
+        "GOAL_PLAYER_ID_NOT_LISTED_ON_VERIFIED_TEAM_ROSTER": 1
+      },
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=512&gameid=110406&page_type=Adult",
+      "officialPageSHA256": "d06490459c84fbd88b8e3268b277c775b352af02835e3d9d235bbfa4926ea9ac",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 494,
+      "gameId": 103050,
+      "date": "2022-09-18",
+      "homeTeam": "Hot Shots",
+      "awayTeam": "Whiskey Sticks",
+      "finalScore": [
+        1,
+        0
+      ],
+      "rawScoringRows": 0,
+      "rosterQualifiedEvents": 0,
+      "category": "RAW_GAMEINFO_ROWS_BELOW_PUBLISHED_SCORE",
+      "heldReasons": {},
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=494&gameid=103050&page_type=Adult",
+      "officialPageSHA256": "93bdbc8a6885b66ed2f75633fa33aa45c833fcb604740bd56a8c3476eff79259",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 494,
+      "gameId": 103232,
+      "date": "2022-10-16",
+      "homeTeam": "Braves H.C.",
+      "awayTeam": "Dirty Dogs",
+      "finalScore": [
+        4,
+        5
+      ],
+      "rawScoringRows": 10,
+      "rosterQualifiedEvents": 10,
+      "category": "RAW_GAMEINFO_ROWS_ABOVE_PUBLISHED_SCORE",
+      "heldReasons": {},
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=494&gameid=103232&page_type=Adult",
+      "officialPageSHA256": "502d7fb22a68268de368281363ef5bcffea0330d925dfd33b921b7337ee86dca",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 494,
+      "gameId": 103601,
+      "date": "2022-11-20",
+      "homeTeam": "69ers H.C.",
+      "awayTeam": "Book Hockey",
+      "finalScore": [
+        1,
+        0
+      ],
+      "rawScoringRows": 0,
+      "rosterQualifiedEvents": 0,
+      "category": "RAW_GAMEINFO_ROWS_BELOW_PUBLISHED_SCORE",
+      "heldReasons": {},
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=494&gameid=103601&page_type=Adult",
+      "officialPageSHA256": "91bd8fa0d6dc0191b0bfa75554fa5aa0e32dd7d92c529fd00d6360e6fa22ef73",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 494,
+      "gameId": 104106,
+      "date": "2023-02-12",
+      "homeTeam": "Bears",
+      "awayTeam": "Ceramic Pro Vaughan",
+      "finalScore": [
+        1,
+        0
+      ],
+      "rawScoringRows": 0,
+      "rosterQualifiedEvents": 0,
+      "category": "RAW_GAMEINFO_ROWS_BELOW_PUBLISHED_SCORE",
+      "heldReasons": {},
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=494&gameid=104106&page_type=Adult",
+      "officialPageSHA256": "9283a76ae5668e3f40baaee0548e17d8373a5d0e3ae033e41df1116bbe0526a9",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 494,
+      "gameId": 104107,
+      "date": "2023-02-12",
+      "homeTeam": "Big Bastones",
+      "awayTeam": "Braves H.C.",
+      "finalScore": [
+        1,
+        0
+      ],
+      "rawScoringRows": 0,
+      "rosterQualifiedEvents": 0,
+      "category": "RAW_GAMEINFO_ROWS_BELOW_PUBLISHED_SCORE",
+      "heldReasons": {},
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=494&gameid=104107&page_type=Adult",
+      "officialPageSHA256": "afdf084fae71a5950860d5a81d6dc96aab5fae920f74d1f4c8513fb3a4edd9b1",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 494,
+      "gameId": 104108,
+      "date": "2023-02-12",
+      "homeTeam": "Mohawks HC",
+      "awayTeam": "Dirty Dogs",
+      "finalScore": [
+        1,
+        0
+      ],
+      "rawScoringRows": 0,
+      "rosterQualifiedEvents": 0,
+      "category": "RAW_GAMEINFO_ROWS_BELOW_PUBLISHED_SCORE",
+      "heldReasons": {},
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=494&gameid=104108&page_type=Adult",
+      "officialPageSHA256": "cef2f7cf86ff07e183038cac9c595479e3ebc3b5323f939a58f6e307aaf55a8c",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 494,
+      "gameId": 104123,
+      "date": "2023-02-19",
+      "homeTeam": "Whiskey Sticks",
+      "awayTeam": "Gladiators",
+      "finalScore": [
+        4,
+        2
+      ],
+      "rawScoringRows": 6,
+      "rosterQualifiedEvents": 4,
+      "category": "RAW_SCORE_PARITY_WITH_SEASON_ROSTER_ID_HOLD",
+      "heldReasons": {
+        "GOAL_PLAYER_ID_NOT_LISTED_ON_VERIFIED_TEAM_ROSTER": 2
+      },
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=494&gameid=104123&page_type=Adult",
+      "officialPageSHA256": "51353bfec765b1cbc0652f5aa2206e6f3f14d3392e4aa545124336ff5f0271e3",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 494,
+      "gameId": 104142,
+      "date": "2023-02-19",
+      "homeTeam": "Big Bastones",
+      "awayTeam": "Mohawks HC",
+      "finalScore": [
+        4,
+        1
+      ],
+      "rawScoringRows": 11,
+      "rosterQualifiedEvents": 11,
+      "category": "RAW_GAMEINFO_ROWS_ABOVE_PUBLISHED_SCORE",
+      "heldReasons": {},
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=494&gameid=104142&page_type=Adult",
+      "officialPageSHA256": "3e2e3482615759c5364e66ee178dcbbc21d9e5e94bff5ec33e1957f9db8e4324",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 494,
+      "gameId": 104143,
+      "date": "2023-02-19",
+      "homeTeam": "Dirty Dogs",
+      "awayTeam": "Braves H.C.",
+      "finalScore": [
+        3,
+        7
+      ],
+      "rawScoringRows": 11,
+      "rosterQualifiedEvents": 11,
+      "category": "RAW_GAMEINFO_ROWS_ABOVE_PUBLISHED_SCORE",
+      "heldReasons": {},
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=494&gameid=104143&page_type=Adult",
+      "officialPageSHA256": "ac05ac88dc5e55b3bbf787dff6862241ec7b4c29bd854fd7f59ff9b04e75f036",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 476,
+      "gameId": 97139,
+      "date": "2021-09-19",
+      "homeTeam": "Last Place",
+      "awayTeam": "San Jose Sharts",
+      "finalScore": [
+        1,
+        0
+      ],
+      "rawScoringRows": 0,
+      "rosterQualifiedEvents": 0,
+      "category": "RAW_GAMEINFO_ROWS_BELOW_PUBLISHED_SCORE",
+      "heldReasons": {},
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=476&gameid=97139&page_type=Adult",
+      "officialPageSHA256": "799662db2d9b0cedc22bba16fb68d3165a67bedb626e9896511c85597049537d",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 476,
+      "gameId": 97146,
+      "date": "2021-09-19",
+      "homeTeam": "Italian Peppers",
+      "awayTeam": "Gladiators",
+      "finalScore": [
+        3,
+        6
+      ],
+      "rawScoringRows": 0,
+      "rosterQualifiedEvents": 0,
+      "category": "RAW_GAMEINFO_ROWS_BELOW_PUBLISHED_SCORE",
+      "heldReasons": {},
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=476&gameid=97146&page_type=Adult",
+      "officialPageSHA256": "c7f4f6be815a58f0001debddad10a4b1def0f0284251c24e55e38a8fe4ccd7bd",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 476,
+      "gameId": 97147,
+      "date": "2021-09-19",
+      "homeTeam": "Step Brothers",
+      "awayTeam": "Pin Heads",
+      "finalScore": [
+        2,
+        3
+      ],
+      "rawScoringRows": 5,
+      "rosterQualifiedEvents": 4,
+      "category": "RAW_SCORE_PARITY_WITH_SEASON_ROSTER_ID_HOLD",
+      "heldReasons": {
+        "GOAL_PLAYER_ID_NOT_LISTED_ON_VERIFIED_TEAM_ROSTER": 1
+      },
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=476&gameid=97147&page_type=Adult",
+      "officialPageSHA256": "36f5d7dec54818d93180e149812ae1342452905435326f1e0586db7f64f1186e",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 476,
+      "gameId": 97152,
+      "date": "2021-09-19",
+      "homeTeam": "Dateline Predators",
+      "awayTeam": "Blades of Steel",
+      "finalScore": [
+        3,
+        9
+      ],
+      "rawScoringRows": 0,
+      "rosterQualifiedEvents": 0,
+      "category": "RAW_GAMEINFO_ROWS_BELOW_PUBLISHED_SCORE",
+      "heldReasons": {},
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=476&gameid=97152&page_type=Adult",
+      "officialPageSHA256": "68beaa007fc7daa4ff15539041ce908e65e20f4902f0180aac62ecfe2e13068a",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 476,
+      "gameId": 97157,
+      "date": "2021-09-19",
+      "homeTeam": "NorDekes",
+      "awayTeam": "Dirty Dogs",
+      "finalScore": [
+        2,
+        1
+      ],
+      "rawScoringRows": 0,
+      "rosterQualifiedEvents": 0,
+      "category": "RAW_GAMEINFO_ROWS_BELOW_PUBLISHED_SCORE",
+      "heldReasons": {},
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=476&gameid=97157&page_type=Adult",
+      "officialPageSHA256": "2739fff0d8991c80b53437f4812d97254f80e657d4243eeb978c9d3f7a67d78b",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 476,
+      "gameId": 97159,
+      "date": "2021-09-19",
+      "homeTeam": "Thrillers",
+      "awayTeam": "Thrashers",
+      "finalScore": [
+        9,
+        1
+      ],
+      "rawScoringRows": 0,
+      "rosterQualifiedEvents": 0,
+      "category": "RAW_GAMEINFO_ROWS_BELOW_PUBLISHED_SCORE",
+      "heldReasons": {},
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=476&gameid=97159&page_type=Adult",
+      "officialPageSHA256": "1b502a0978c0e853b613174b31fe09eedd796e55cb596707b48ebff7fd3363ce",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 476,
+      "gameId": 97142,
+      "date": "2021-09-26",
+      "homeTeam": "San Jose Sharts",
+      "awayTeam": "Degenerates",
+      "finalScore": [
+        0,
+        1
+      ],
+      "rawScoringRows": 0,
+      "rosterQualifiedEvents": 0,
+      "category": "RAW_GAMEINFO_ROWS_BELOW_PUBLISHED_SCORE",
+      "heldReasons": {},
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=476&gameid=97142&page_type=Adult",
+      "officialPageSHA256": "acdc60124eed338bea12a7e8acb1d6d470e501a28c247f631041f7a857833f34",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 476,
+      "gameId": 97163,
+      "date": "2021-09-26",
+      "homeTeam": "Marlboro Reds",
+      "awayTeam": "NorDekes",
+      "finalScore": [
+        1,
+        3
+      ],
+      "rawScoringRows": 0,
+      "rosterQualifiedEvents": 0,
+      "category": "RAW_GAMEINFO_ROWS_BELOW_PUBLISHED_SCORE",
+      "heldReasons": {},
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=476&gameid=97163&page_type=Adult",
+      "officialPageSHA256": "0f5f0d67fdffbc5a3958d3a95559b417c6f7c63729ea4b5d3be44e6c167ca592",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 476,
+      "gameId": 97168,
+      "date": "2021-09-26",
+      "homeTeam": "Hill's Kills",
+      "awayTeam": "Bears",
+      "finalScore": [
+        4,
+        3
+      ],
+      "rawScoringRows": 0,
+      "rosterQualifiedEvents": 0,
+      "category": "RAW_GAMEINFO_ROWS_BELOW_PUBLISHED_SCORE",
+      "heldReasons": {},
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=476&gameid=97168&page_type=Adult",
+      "officialPageSHA256": "d2a6d2aad82605dc8093a955bcd4e4cc267bb6137a4ce6c9b2efa9e1e8249f1f",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 476,
+      "gameId": 97361,
+      "date": "2021-10-24",
+      "homeTeam": "Blades of Steel",
+      "awayTeam": "Italian Peppers",
+      "finalScore": [
+        6,
+        3
+      ],
+      "rawScoringRows": 6,
+      "rosterQualifiedEvents": 6,
+      "category": "RAW_GAMEINFO_ROWS_BELOW_PUBLISHED_SCORE",
+      "heldReasons": {},
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=476&gameid=97361&page_type=Adult",
+      "officialPageSHA256": "0af0bb49c27dab2de0b597f34135390f20c1ef29e8775d6853fe06be0033eb9e",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 476,
+      "gameId": 97421,
+      "date": "2021-10-24",
+      "homeTeam": "Book Hockey",
+      "awayTeam": "NorDekes",
+      "finalScore": [
+        0,
+        1
+      ],
+      "rawScoringRows": 0,
+      "rosterQualifiedEvents": 0,
+      "category": "RAW_GAMEINFO_ROWS_BELOW_PUBLISHED_SCORE",
+      "heldReasons": {},
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=476&gameid=97421&page_type=Adult",
+      "officialPageSHA256": "516ec2845375ec701ff0d4af685925e866cc3b633056d0f4a6161dc80418721a",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 476,
+      "gameId": 97396,
+      "date": "2021-11-07",
+      "homeTeam": "The Wooooo",
+      "awayTeam": "Stugats",
+      "finalScore": [
+        0,
+        1
+      ],
+      "rawScoringRows": 0,
+      "rosterQualifiedEvents": 0,
+      "category": "RAW_GAMEINFO_ROWS_BELOW_PUBLISHED_SCORE",
+      "heldReasons": {},
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=476&gameid=97396&page_type=Adult",
+      "officialPageSHA256": "46b8ea55948cea804c982b1442a3775f885b92105bfccf46feb6fe678dd1c353",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 476,
+      "gameId": 97681,
+      "date": "2021-12-05",
+      "homeTeam": "Butcher Brothers",
+      "awayTeam": "Nordiques",
+      "finalScore": [
+        1,
+        0
+      ],
+      "rawScoringRows": 0,
+      "rosterQualifiedEvents": 0,
+      "category": "RAW_GAMEINFO_ROWS_BELOW_PUBLISHED_SCORE",
+      "heldReasons": {},
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=476&gameid=97681&page_type=Adult",
+      "officialPageSHA256": "a22503b07231262e75adb811a1d72f5c77ba96b2cd0fdf82c9c743fbc8d67004",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 476,
+      "gameId": 97710,
+      "date": "2021-12-05",
+      "homeTeam": "Italian Peppers",
+      "awayTeam": "Thrillers",
+      "finalScore": [
+        7,
+        2
+      ],
+      "rawScoringRows": 16,
+      "rosterQualifiedEvents": 16,
+      "category": "RAW_GAMEINFO_ROWS_ABOVE_PUBLISHED_SCORE",
+      "heldReasons": {},
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=476&gameid=97710&page_type=Adult",
+      "officialPageSHA256": "de8ba3dcc82d594b467240c3c6bf72767adabc492c4fd8a1094c9cbf9d26135c",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 476,
+      "gameId": 97712,
+      "date": "2021-12-12",
+      "homeTeam": "Blades of Steel",
+      "awayTeam": "Thrillers",
+      "finalScore": [
+        5,
+        5
+      ],
+      "rawScoringRows": 10,
+      "rosterQualifiedEvents": 9,
+      "category": "RAW_SCORE_PARITY_WITH_SEASON_ROSTER_ID_HOLD",
+      "heldReasons": {
+        "GOAL_PLAYER_ID_NOT_LISTED_ON_VERIFIED_TEAM_ROSTER": 1
+      },
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=476&gameid=97712&page_type=Adult",
+      "officialPageSHA256": "9532877499583793a4faa84e945ef6b37eed4a2906264928ac3b57f7e5473c7b",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 476,
+      "gameId": 97700,
+      "date": "2021-12-19",
+      "homeTeam": "Multiple Scorgasms",
+      "awayTeam": "Pin Heads",
+      "finalScore": [
+        2,
+        5
+      ],
+      "rawScoringRows": 7,
+      "rosterQualifiedEvents": 6,
+      "category": "RAW_SCORE_PARITY_WITH_SEASON_ROSTER_ID_HOLD",
+      "heldReasons": {
+        "GOAL_PLAYER_ID_NOT_LISTED_ON_VERIFIED_TEAM_ROSTER": 1
+      },
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=476&gameid=97700&page_type=Adult",
+      "officialPageSHA256": "cabeaba4666c46b62d3458443c23973c650053e1aa5d3222ef34d4b499436b47",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 476,
+      "gameId": 97727,
+      "date": "2021-12-19",
+      "homeTeam": "Dateline Predators",
+      "awayTeam": "Dirty Dogs",
+      "finalScore": [
+        1,
+        0
+      ],
+      "rawScoringRows": 0,
+      "rosterQualifiedEvents": 0,
+      "category": "RAW_GAMEINFO_ROWS_BELOW_PUBLISHED_SCORE",
+      "heldReasons": {},
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=476&gameid=97727&page_type=Adult",
+      "officialPageSHA256": "8ffa8fdb4fa5e78fcc2f5aea373e6db63c45dfcec59ca339082e40c0838eecf3",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 476,
+      "gameId": 97745,
+      "date": "2021-12-19",
+      "homeTeam": "Book Hockey",
+      "awayTeam": "NorDekes",
+      "finalScore": [
+        0,
+        1
+      ],
+      "rawScoringRows": 0,
+      "rosterQualifiedEvents": 0,
+      "category": "RAW_GAMEINFO_ROWS_BELOW_PUBLISHED_SCORE",
+      "heldReasons": {},
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=476&gameid=97745&page_type=Adult",
+      "officialPageSHA256": "bfbf6f4c195a94f5c8917419e3c5bf2dc4e1f248945f53a61bd59bd6a34c64e7",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 476,
+      "gameId": 97730,
+      "date": "2022-01-02",
+      "homeTeam": "Dirty Dogs",
+      "awayTeam": "Thrashers",
+      "finalScore": [
+        0,
+        1
+      ],
+      "rawScoringRows": 0,
+      "rosterQualifiedEvents": 0,
+      "category": "RAW_GAMEINFO_ROWS_BELOW_PUBLISHED_SCORE",
+      "heldReasons": {},
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=476&gameid=97730&page_type=Adult",
+      "officialPageSHA256": "1a6a7a87634310083669038612ff890e957ca5c87dc975968e4070e53c279ec0",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 476,
+      "gameId": 98056,
+      "date": "2022-02-06",
+      "homeTeam": "Butcher Brothers",
+      "awayTeam": "Shooting Blanks",
+      "finalScore": [
+        3,
+        2
+      ],
+      "rawScoringRows": 6,
+      "rosterQualifiedEvents": 6,
+      "category": "RAW_GAMEINFO_ROWS_ABOVE_PUBLISHED_SCORE",
+      "heldReasons": {},
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=476&gameid=98056&page_type=Adult",
+      "officialPageSHA256": "8ba2b205dc0ea75a367923ee507dfd49e607827abcbfe4ad0e036ef9a49e84c4",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 476,
+      "gameId": 98061,
+      "date": "2022-02-06",
+      "homeTeam": "Last Place",
+      "awayTeam": "Pin Heads",
+      "finalScore": [
+        1,
+        6
+      ],
+      "rawScoringRows": 7,
+      "rosterQualifiedEvents": 6,
+      "category": "RAW_SCORE_PARITY_WITH_SEASON_ROSTER_ID_HOLD",
+      "heldReasons": {
+        "GOAL_PLAYER_ID_NOT_LISTED_ON_VERIFIED_TEAM_ROSTER": 1
+      },
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=476&gameid=98061&page_type=Adult",
+      "officialPageSHA256": "8190abdfba38b714e98d030a81475b1bb97e801b3c4e5c6e12f3fdf2a260bd8c",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 476,
+      "gameId": 98064,
+      "date": "2022-02-06",
+      "homeTeam": "Degenerates",
+      "awayTeam": "Multiple Scorgasms",
+      "finalScore": [
+        1,
+        0
+      ],
+      "rawScoringRows": 0,
+      "rosterQualifiedEvents": 0,
+      "category": "RAW_GAMEINFO_ROWS_BELOW_PUBLISHED_SCORE",
+      "heldReasons": {},
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=476&gameid=98064&page_type=Adult",
+      "officialPageSHA256": "c8f9049595df51af2b97d052e8129950bd0450f7100e988f29e1dce3aae0db67",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 476,
+      "gameId": 98092,
+      "date": "2022-02-13",
+      "homeTeam": "Maplewolves",
+      "awayTeam": "NorDekes",
+      "finalScore": [
+        0,
+        1
+      ],
+      "rawScoringRows": 0,
+      "rosterQualifiedEvents": 0,
+      "category": "RAW_GAMEINFO_ROWS_BELOW_PUBLISHED_SCORE",
+      "heldReasons": {},
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=476&gameid=98092&page_type=Adult",
+      "officialPageSHA256": "c177c8e594260c78402077fcf0bc72917aaa946cf8f2c6a507c09d5802dd6f95",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 476,
+      "gameId": 98093,
+      "date": "2022-02-13",
+      "homeTeam": "Book Hockey",
+      "awayTeam": "Marlboro Reds",
+      "finalScore": [
+        0,
+        1
+      ],
+      "rawScoringRows": 0,
+      "rosterQualifiedEvents": 0,
+      "category": "RAW_GAMEINFO_ROWS_BELOW_PUBLISHED_SCORE",
+      "heldReasons": {},
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=476&gameid=98093&page_type=Adult",
+      "officialPageSHA256": "82ba7e939f78af2c61ba5dc9f11d78c2d9c83a83a79fb7c15c67f2261204d695",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 476,
+      "gameId": 98095,
+      "date": "2022-02-13",
+      "homeTeam": "Nordiques",
+      "awayTeam": "San Jose Sharts",
+      "finalScore": [
+        0,
+        1
+      ],
+      "rawScoringRows": 0,
+      "rosterQualifiedEvents": 0,
+      "category": "RAW_GAMEINFO_ROWS_BELOW_PUBLISHED_SCORE",
+      "heldReasons": {},
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=476&gameid=98095&page_type=Adult",
+      "officialPageSHA256": "176656b579eb66bf4116366b302fcaf485b4ef5b10a8f7d91adf62416dfb1f24",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 476,
+      "gameId": 98096,
+      "date": "2022-02-13",
+      "homeTeam": "Last Place",
+      "awayTeam": "Multiple Scorgasms",
+      "finalScore": [
+        1,
+        0
+      ],
+      "rawScoringRows": 0,
+      "rosterQualifiedEvents": 0,
+      "category": "RAW_GAMEINFO_ROWS_BELOW_PUBLISHED_SCORE",
+      "heldReasons": {},
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=476&gameid=98096&page_type=Adult",
+      "officialPageSHA256": "936a4d686bc2e55cb4204e25ae481e67eb706ffd8624cccfe01e60bb3055a5e4",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 476,
+      "gameId": 98097,
+      "date": "2022-02-13",
+      "homeTeam": "Degenerates",
+      "awayTeam": "Pin Heads",
+      "finalScore": [
+        1,
+        0
+      ],
+      "rawScoringRows": 0,
+      "rosterQualifiedEvents": 0,
+      "category": "RAW_GAMEINFO_ROWS_BELOW_PUBLISHED_SCORE",
+      "heldReasons": {},
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=476&gameid=98097&page_type=Adult",
+      "officialPageSHA256": "3a06a8cbce4736ffc3b3f51ba881c18bc39060b41e55d7ee870c7e882214b2a9",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 476,
+      "gameId": 98098,
+      "date": "2022-02-13",
+      "homeTeam": "Hawks",
+      "awayTeam": "Shooting Blanks",
+      "finalScore": [
+        0,
+        1
+      ],
+      "rawScoringRows": 0,
+      "rosterQualifiedEvents": 0,
+      "category": "RAW_GAMEINFO_ROWS_BELOW_PUBLISHED_SCORE",
+      "heldReasons": {},
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=476&gameid=98098&page_type=Adult",
+      "officialPageSHA256": "977c96f5a2d235ab25db1075bc73cbce6b82669e616794c7a6d639752e09fe79",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 476,
+      "gameId": 98099,
+      "date": "2022-02-13",
+      "homeTeam": "Stugats",
+      "awayTeam": "Step Brothers",
+      "finalScore": [
+        1,
+        0
+      ],
+      "rawScoringRows": 0,
+      "rosterQualifiedEvents": 0,
+      "category": "RAW_GAMEINFO_ROWS_BELOW_PUBLISHED_SCORE",
+      "heldReasons": {},
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=476&gameid=98099&page_type=Adult",
+      "officialPageSHA256": "0cc30d77ebda0aff2d75dad03e74ef100a30613ee3eef7af9ca882e8352f85a3",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 476,
+      "gameId": 98100,
+      "date": "2022-02-13",
+      "homeTeam": "The Wooooo",
+      "awayTeam": "Gladiators",
+      "finalScore": [
+        0,
+        1
+      ],
+      "rawScoringRows": 0,
+      "rosterQualifiedEvents": 0,
+      "category": "RAW_GAMEINFO_ROWS_BELOW_PUBLISHED_SCORE",
+      "heldReasons": {},
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=476&gameid=98100&page_type=Adult",
+      "officialPageSHA256": "04cff287d7f46bfda29ed575af8c529a6f673a8326d0ad8c27b315cd34ff8cea",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 476,
+      "gameId": 98101,
+      "date": "2022-02-13",
+      "homeTeam": "Italian Peppers",
+      "awayTeam": "Thrillers",
+      "finalScore": [
+        1,
+        0
+      ],
+      "rawScoringRows": 0,
+      "rosterQualifiedEvents": 0,
+      "category": "RAW_GAMEINFO_ROWS_BELOW_PUBLISHED_SCORE",
+      "heldReasons": {},
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=476&gameid=98101&page_type=Adult",
+      "officialPageSHA256": "f3e983b94d32be96d61bb166169d1b9daa9af1b4409749cf6abb09ab969f0df6",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 476,
+      "gameId": 98102,
+      "date": "2022-02-13",
+      "homeTeam": "Dirty Dogs",
+      "awayTeam": "Thrashers",
+      "finalScore": [
+        0,
+        1
+      ],
+      "rawScoringRows": 0,
+      "rosterQualifiedEvents": 0,
+      "category": "RAW_GAMEINFO_ROWS_BELOW_PUBLISHED_SCORE",
+      "heldReasons": {},
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=476&gameid=98102&page_type=Adult",
+      "officialPageSHA256": "26ca2a0d37f05b9e913f25614048874982b2b2d537eef31bc01f9a4736fcebf0",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 476,
+      "gameId": 98103,
+      "date": "2022-02-13",
+      "homeTeam": "69ers",
+      "awayTeam": "Outlaws",
+      "finalScore": [
+        1,
+        0
+      ],
+      "rawScoringRows": 0,
+      "rosterQualifiedEvents": 0,
+      "category": "RAW_GAMEINFO_ROWS_BELOW_PUBLISHED_SCORE",
+      "heldReasons": {},
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=476&gameid=98103&page_type=Adult",
+      "officialPageSHA256": "ebcf1d5415302fa3be8443ff10466fb2e60516e1344990f7ffff407c78a22afb",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 476,
+      "gameId": 98228,
+      "date": "2022-02-20",
+      "homeTeam": "Pin Heads",
+      "awayTeam": "Multiple Scorgasms",
+      "finalScore": [
+        5,
+        1
+      ],
+      "rawScoringRows": 6,
+      "rosterQualifiedEvents": 5,
+      "category": "RAW_SCORE_PARITY_WITH_SEASON_ROSTER_ID_HOLD",
+      "heldReasons": {
+        "GOAL_PLAYER_ID_NOT_LISTED_ON_VERIFIED_TEAM_ROSTER": 1
+      },
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=476&gameid=98228&page_type=Adult",
+      "officialPageSHA256": "42c9a97da8df3ebbcf02859946af6c0370fe8f2c6871119129269449742080d8",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 420,
+      "gameId": 86688,
+      "date": "2018-09-23",
+      "homeTeam": "Bruised Bananas",
+      "awayTeam": "Multiple Scorgasms",
+      "finalScore": [
+        4,
+        4
+      ],
+      "rawScoringRows": 8,
+      "rosterQualifiedEvents": 7,
+      "category": "RAW_SCORE_PARITY_WITH_SEASON_ROSTER_ID_HOLD",
+      "heldReasons": {
+        "GOAL_PLAYER_ID_NOT_LISTED_ON_VERIFIED_TEAM_ROSTER": 1
+      },
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=420&gameid=86688&page_type=Adult",
+      "officialPageSHA256": "d12e6f77dc2298b0a67640884b8bb323180eb6bb475b0659d357341262732db5",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 420,
+      "gameId": 86690,
+      "date": "2018-09-23",
+      "homeTeam": "Mapoli",
+      "awayTeam": "Blades of Steel",
+      "finalScore": [
+        1,
+        0
+      ],
+      "rawScoringRows": 0,
+      "rosterQualifiedEvents": 0,
+      "category": "RAW_GAMEINFO_ROWS_BELOW_PUBLISHED_SCORE",
+      "heldReasons": {},
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=420&gameid=86690&page_type=Adult",
+      "officialPageSHA256": "2accc9bdca2468fbea477d5d850bce71f2b3b10289328b7be1a6b40e5a1646db",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 420,
+      "gameId": 87397,
+      "date": "2018-11-04",
+      "homeTeam": "Horsemen",
+      "awayTeam": "Spartans",
+      "finalScore": [
+        4,
+        2
+      ],
+      "rawScoringRows": 8,
+      "rosterQualifiedEvents": 8,
+      "category": "RAW_GAMEINFO_ROWS_ABOVE_PUBLISHED_SCORE",
+      "heldReasons": {},
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=420&gameid=87397&page_type=Adult",
+      "officialPageSHA256": "f280b013888541280effe3319386bbcd02e4bd73e1d692d30f77f006295fb0e0",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 420,
+      "gameId": 87623,
+      "date": "2018-12-30",
+      "homeTeam": "Spartans",
+      "awayTeam": "Braves",
+      "finalScore": [
+        3,
+        2
+      ],
+      "rawScoringRows": 6,
+      "rosterQualifiedEvents": 6,
+      "category": "RAW_GAMEINFO_ROWS_ABOVE_PUBLISHED_SCORE",
+      "heldReasons": {},
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=420&gameid=87623&page_type=Adult",
+      "officialPageSHA256": "6be8acb53f77e3d227c48893d9dafae10837ed81df7704fdf23efe617799bfb2",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 420,
+      "gameId": 87641,
+      "date": "2019-01-06",
+      "homeTeam": "Blades of Steel",
+      "awayTeam": "Multiple Scorgasms",
+      "finalScore": [
+        2,
+        5
+      ],
+      "rawScoringRows": 7,
+      "rosterQualifiedEvents": 6,
+      "category": "RAW_SCORE_PARITY_WITH_SEASON_ROSTER_ID_HOLD",
+      "heldReasons": {
+        "GOAL_PLAYER_ID_NOT_LISTED_ON_VERIFIED_TEAM_ROSTER": 1
+      },
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=420&gameid=87641&page_type=Adult",
+      "officialPageSHA256": "2155eb700b2574354fb634fcc23c9200f4cc15e1c3ad8b6dc4b81050f20134e5",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 420,
+      "gameId": 87628,
+      "date": "2019-01-13",
+      "homeTeam": "Spartans",
+      "awayTeam": "Horsemen",
+      "finalScore": [
+        1,
+        3
+      ],
+      "rawScoringRows": 4,
+      "rosterQualifiedEvents": 3,
+      "category": "RAW_SCORE_PARITY_WITH_SEASON_ROSTER_ID_HOLD",
+      "heldReasons": {
+        "GOAL_PLAYER_ID_NOT_LISTED_ON_VERIFIED_TEAM_ROSTER": 1
+      },
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=420&gameid=87628&page_type=Adult",
+      "officialPageSHA256": "82b40ac4c9b5be837432ed1a18ff050941275047f9e3853c6477acb194d5f6a2",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 420,
+      "gameId": 87735,
+      "date": "2019-01-20",
+      "homeTeam": "Maplewolves",
+      "awayTeam": "Vaughan Indies",
+      "finalScore": [
+        1,
+        0
+      ],
+      "rawScoringRows": 0,
+      "rosterQualifiedEvents": 0,
+      "category": "RAW_GAMEINFO_ROWS_BELOW_PUBLISHED_SCORE",
+      "heldReasons": {},
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=420&gameid=87735&page_type=Adult",
+      "officialPageSHA256": "e2f6a36fb258e5a87041a677ac7ee2384115062007cf15bf7d5e475850383c60",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 420,
+      "gameId": 87744,
+      "date": "2019-01-20",
+      "homeTeam": "Mohawks",
+      "awayTeam": "Book Hockey",
+      "finalScore": [
+        1,
+        0
+      ],
+      "rawScoringRows": 0,
+      "rosterQualifiedEvents": 0,
+      "category": "RAW_GAMEINFO_ROWS_BELOW_PUBLISHED_SCORE",
+      "heldReasons": {},
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=420&gameid=87744&page_type=Adult",
+      "officialPageSHA256": "606b859df2625e5c524cff224c50d04701429404f03227db095b31d606fc7da2",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 420,
+      "gameId": 88155,
+      "date": "2019-03-10",
+      "homeTeam": "Mohawks",
+      "awayTeam": "Di Roma Spartans",
+      "finalScore": [
+        3,
+        1
+      ],
+      "rawScoringRows": 4,
+      "rosterQualifiedEvents": 3,
+      "category": "RAW_SCORE_PARITY_WITH_SEASON_ROSTER_ID_HOLD",
+      "heldReasons": {
+        "GOAL_PLAYER_ID_NOT_LISTED_ON_VERIFIED_TEAM_ROSTER": 1
+      },
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=420&gameid=88155&page_type=Adult",
+      "officialPageSHA256": "3a75722bea0bdf1ebdd0082489db7b81ddd99b909e0cef040975380a71eb02d5",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 375,
+      "gameId": 75376,
+      "date": "2016-09-18",
+      "homeTeam": "Mighty Drunks",
+      "awayTeam": "The Hockey Team",
+      "finalScore": [
+        2,
+        7
+      ],
+      "rawScoringRows": 7,
+      "rosterQualifiedEvents": 7,
+      "category": "RAW_GAMEINFO_ROWS_BELOW_PUBLISHED_SCORE",
+      "heldReasons": {},
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=375&gameid=75376&page_type=Adult",
+      "officialPageSHA256": "0a2c6e5653ac9b3a6d6cb13a16d0284896ef1c9fc5d5e643b0ca97bcbe6fe7a5",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 375,
+      "gameId": 75379,
+      "date": "2016-09-18",
+      "homeTeam": "Hawks",
+      "awayTeam": "Spartans",
+      "finalScore": [
+        7,
+        1
+      ],
+      "rawScoringRows": 0,
+      "rosterQualifiedEvents": 0,
+      "category": "RAW_GAMEINFO_ROWS_BELOW_PUBLISHED_SCORE",
+      "heldReasons": {},
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=375&gameid=75379&page_type=Adult",
+      "officialPageSHA256": "2313ab20e387163a882c4329a9d8aead5378a5e119d798c08d868ea416feb719",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 375,
+      "gameId": 75475,
+      "date": "2016-10-02",
+      "homeTeam": "Braves",
+      "awayTeam": "BMS Goats",
+      "finalScore": [
+        4,
+        7
+      ],
+      "rawScoringRows": 0,
+      "rosterQualifiedEvents": 0,
+      "category": "RAW_GAMEINFO_ROWS_BELOW_PUBLISHED_SCORE",
+      "heldReasons": {},
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=375&gameid=75475&page_type=Adult",
+      "officialPageSHA256": "1232e8da44f9b835249d0ab886ea041aa4b1e70c5cee9df710eb591782bc4bcf",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 375,
+      "gameId": 75476,
+      "date": "2016-10-02",
+      "homeTeam": "Man Chest Hair United",
+      "awayTeam": "Step Brothers",
+      "finalScore": [
+        0,
+        4
+      ],
+      "rawScoringRows": 0,
+      "rosterQualifiedEvents": 0,
+      "category": "RAW_GAMEINFO_ROWS_BELOW_PUBLISHED_SCORE",
+      "heldReasons": {},
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=375&gameid=75476&page_type=Adult",
+      "officialPageSHA256": "ff55b99e9ab96044047cc56091771b32ab50ac1df1685212d1ed964e913860ba",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 375,
+      "gameId": 75482,
+      "date": "2016-10-02",
+      "homeTeam": "Men With Wood",
+      "awayTeam": "Big Sticks",
+      "finalScore": [
+        4,
+        6
+      ],
+      "rawScoringRows": 0,
+      "rosterQualifiedEvents": 0,
+      "category": "RAW_GAMEINFO_ROWS_BELOW_PUBLISHED_SCORE",
+      "heldReasons": {},
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=375&gameid=75482&page_type=Adult",
+      "officialPageSHA256": "4237e481486fabd9c8814422485ec76ab2800b76903bfa791302e7b2e0a5518f",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 375,
+      "gameId": 75483,
+      "date": "2016-10-02",
+      "homeTeam": "Horsemen",
+      "awayTeam": "Hawks",
+      "finalScore": [
+        7,
+        3
+      ],
+      "rawScoringRows": 0,
+      "rosterQualifiedEvents": 0,
+      "category": "RAW_GAMEINFO_ROWS_BELOW_PUBLISHED_SCORE",
+      "heldReasons": {},
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=375&gameid=75483&page_type=Adult",
+      "officialPageSHA256": "ba90b236b7cc335d0b8d9c7c40e80abce295e6781e81659624e63a3baa011e52",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 375,
+      "gameId": 76142,
+      "date": "2017-01-08",
+      "homeTeam": "Raiders",
+      "awayTeam": "Step Brothers",
+      "finalScore": [
+        10,
+        0
+      ],
+      "rawScoringRows": 10,
+      "rosterQualifiedEvents": 9,
+      "category": "RAW_SCORE_PARITY_WITH_SEASON_ROSTER_ID_HOLD",
+      "heldReasons": {
+        "GOAL_PLAYER_ID_NOT_LISTED_ON_VERIFIED_TEAM_ROSTER": 1
+      },
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=375&gameid=76142&page_type=Adult",
+      "officialPageSHA256": "5145a80da894e8471f12fcf5ae85c75c31eabdcdea167820850babdbc9581e9b",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 375,
+      "gameId": 76148,
+      "date": "2017-01-22",
+      "homeTeam": "Raiders",
+      "awayTeam": "BMS Goats",
+      "finalScore": [
+        2,
+        2
+      ],
+      "rawScoringRows": 4,
+      "rosterQualifiedEvents": 3,
+      "category": "RAW_SCORE_PARITY_WITH_SEASON_ROSTER_ID_HOLD",
+      "heldReasons": {
+        "GOAL_PLAYER_ID_NOT_LISTED_ON_VERIFIED_TEAM_ROSTER": 1
+      },
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=375&gameid=76148&page_type=Adult",
+      "officialPageSHA256": "3c0740c7c69a866725b8856cca538f00c36437d4c018f92ed53a64f906828630",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 375,
+      "gameId": 76520,
+      "date": "2017-01-29",
+      "homeTeam": "Braves",
+      "awayTeam": "Raiders",
+      "finalScore": [
+        5,
+        4
+      ],
+      "rawScoringRows": 0,
+      "rosterQualifiedEvents": 0,
+      "category": "RAW_GAMEINFO_ROWS_BELOW_PUBLISHED_SCORE",
+      "heldReasons": {},
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=375&gameid=76520&page_type=Adult",
+      "officialPageSHA256": "b98fd76d6aeeb7ac75ada8161207a59aa74e16b4e2857211a7a47a261d4d95df",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 375,
+      "gameId": 76514,
+      "date": "2017-02-05",
+      "homeTeam": "Mapoli",
+      "awayTeam": "Raiders",
+      "finalScore": [
+        0,
+        1
+      ],
+      "rawScoringRows": 0,
+      "rosterQualifiedEvents": 0,
+      "category": "RAW_GAMEINFO_ROWS_BELOW_PUBLISHED_SCORE",
+      "heldReasons": {},
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=375&gameid=76514&page_type=Adult",
+      "officialPageSHA256": "65484962d6084561a79473abeae56f1cbbe8c20a8071fb3f27216b542ea5320e",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 375,
+      "gameId": 76533,
+      "date": "2017-02-05",
+      "homeTeam": "Man Chest Hair United",
+      "awayTeam": "Step Brothers",
+      "finalScore": [
+        1,
+        0
+      ],
+      "rawScoringRows": 0,
+      "rosterQualifiedEvents": 0,
+      "category": "RAW_GAMEINFO_ROWS_BELOW_PUBLISHED_SCORE",
+      "heldReasons": {},
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=375&gameid=76533&page_type=Adult",
+      "officialPageSHA256": "8a7e76601f48fa7d1bdf5e3e1d0570236cd1c0c92332ff5dbcd60fa9d0efef2a",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 375,
+      "gameId": 76515,
+      "date": "2017-02-12",
+      "homeTeam": "Degenerates",
+      "awayTeam": "Northern Lights",
+      "finalScore": [
+        1,
+        0
+      ],
+      "rawScoringRows": 0,
+      "rosterQualifiedEvents": 0,
+      "category": "RAW_GAMEINFO_ROWS_BELOW_PUBLISHED_SCORE",
+      "heldReasons": {},
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=375&gameid=76515&page_type=Adult",
+      "officialPageSHA256": "5d3400aec526e4f3cd55974faaf65cda50f0dc4016bb4d8fc612424f646cc280",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 375,
+      "gameId": 76524,
+      "date": "2017-02-12",
+      "homeTeam": "Raiders",
+      "awayTeam": "Big Sticks",
+      "finalScore": [
+        10,
+        1
+      ],
+      "rawScoringRows": 11,
+      "rosterQualifiedEvents": 10,
+      "category": "RAW_SCORE_PARITY_WITH_SEASON_ROSTER_ID_HOLD",
+      "heldReasons": {
+        "GOAL_PLAYER_ID_NOT_LISTED_ON_VERIFIED_TEAM_ROSTER": 1
+      },
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=375&gameid=76524&page_type=Adult",
+      "officialPageSHA256": "2ee3668b1bd5f267128fc25897dd5c9b7e0c4c62071d1d5be34d6d1f44ea8133",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 375,
+      "gameId": 76535,
+      "date": "2017-02-12",
+      "homeTeam": "Man Chest Hair United",
+      "awayTeam": "Spartans",
+      "finalScore": [
+        1,
+        0
+      ],
+      "rawScoringRows": 0,
+      "rosterQualifiedEvents": 0,
+      "category": "RAW_GAMEINFO_ROWS_BELOW_PUBLISHED_SCORE",
+      "heldReasons": {},
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=375&gameid=76535&page_type=Adult",
+      "officialPageSHA256": "538686f893c07fa8356543ecd2631a6b6d5c864992bd9543ba7b96296b36176f",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    },
+    {
+      "leagueId": 375,
+      "gameId": 76789,
+      "date": "2017-02-26",
+      "homeTeam": "Raiders",
+      "awayTeam": "The Hockey Team",
+      "finalScore": [
+        7,
+        1
+      ],
+      "rawScoringRows": 8,
+      "rosterQualifiedEvents": 7,
+      "category": "RAW_SCORE_PARITY_WITH_SEASON_ROSTER_ID_HOLD",
+      "heldReasons": {
+        "GOAL_PLAYER_ID_NOT_LISTED_ON_VERIFIED_TEAM_ROSTER": 1
+      },
+      "officialGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=375&gameid=76789&page_type=Adult",
+      "officialPageSHA256": "44bc79a39c26472f1e2a99613ec4de76ea4b3efb145c5d9576808eee85ecd0ff",
+      "status": "SOURCE_PROVEN_REVIEW_PENDING",
+      "acceptedPlayerCorrection": false
+    }
+  ],
+  "note": "A raw GameInfo table count matching the published score does NOT independently qualify a scorer who is absent from the source season roster. All 137 games remain held from accepted player event totals."
+}

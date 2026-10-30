@@ -53,6 +53,51 @@ const server=http.createServer((req,res)=>{
    assert.ok(first.caveat.includes("does not")||first.caveat.includes("cannot")||
       first.caveat.includes("NOT fully verified"));
    assert.ok(first.overflow<=1);
+   await page.waitForFunction(()=>document.querySelector("#audit-hold-review-status")?.textContent.includes("137 of 137"),{timeout:15000});
+   await page.$eval("#audit-hold-review",el=>el.open=true);
+   const reviewBefore=await page.evaluate(()=>({
+     status:document.querySelector("#audit-hold-review-status")?.textContent,
+     metrics:document.querySelector("#audit-hold-review-metrics")?.textContent,
+     count:document.querySelector("#audit-hold-review-count")?.textContent,
+     listed:document.querySelectorAll("#audit-hold-review-list .review-card").length,
+     overflow:document.body.scrollWidth-innerWidth
+   }));
+   assert.ok(reviewBefore.status.includes("NOT independent acceptance"));
+   assert.ok(reviewBefore.metrics.includes("84")&&reviewBefore.metrics.includes("2")&&
+     reviewBefore.metrics.includes("12")&&reviewBefore.metrics.includes("39"));
+   assert.ok(reviewBefore.metrics.includes("zero goal rows")&&
+      reviewBefore.metrics.includes("partially populated"));
+   assert.ok(reviewBefore.count.includes("10 of 137")&&reviewBefore.listed===10);
+   assert.ok(reviewBefore.overflow<=1);
+   await page.click("#audit-hold-review-next");
+   assert.equal(await page.$$eval("#audit-hold-review-list .review-card",x=>x.length),20);
+   await page.select("#audit-hold-review-category","RAW_EMPTY_SCORING_TABLE");
+   const emptyStatus=await page.$eval("#audit-hold-review-count",x=>x.textContent);
+   assert.ok(emptyStatus.includes("10 of 84"));
+   assert.ok((await page.$eval("#audit-hold-review-list",x=>x.textContent))
+     .includes("Official scoring table empty despite published goals"));
+   await page.select("#audit-hold-review-category","RAW_PARTIAL_SCORING_TABLE");
+   const partialStatus=await page.$eval("#audit-hold-review-count",x=>x.textContent);
+   assert.ok(partialStatus.includes("2 of 2"));
+   assert.ok((await page.$eval("#audit-hold-review-list",x=>x.textContent))
+     .includes("Partially populated official goal table below final score"));
+   await page.select("#audit-hold-review-category","RAW_EXCESS_SCORING_ROWS");
+   assert.ok((await page.$eval("#audit-hold-review-count",x=>x.textContent))
+     .includes("10 of 12"));
+   await page.select("#audit-hold-review-category","RAW_SCORE_PARITY_WITH_SEASON_ROSTER_ID_HOLD");
+   await page.select("#audit-hold-review-season","570");
+   const currentReview=await page.evaluate(()=>({
+     count:document.querySelector("#audit-hold-review-count")?.textContent,
+     cards:[...document.querySelectorAll("#audit-hold-review-list .review-card")].map(x=>x.textContent),
+     links:[...document.querySelectorAll("#audit-hold-review-list .review-card a")].map(x=>x.href),
+     overflow:document.body.scrollWidth-innerWidth
+   }));
+   assert.ok(currentReview.count.includes("2 of 2"));
+   assert.equal(currentReview.cards.length,2);
+   assert.ok(currentReview.cards.every(t=>t.includes("roster-qualified scoring events")&&
+      t.includes("Goal rows match; scorer not listed on source roster")));
+   assert.ok(currentReview.links.every(x=>x.startsWith("https://leagues.sportsvillage.ca/gameinfo.aspx?")));
+   assert.ok(currentReview.overflow<=1);
    const roc=await page.$eval("#audit-player",node=>[...node.options]
      .find(o=>o.textContent.includes("Rocchetti"))?.value);
    assert.ok(roc);await page.select("#audit-player",roc);
@@ -101,6 +146,25 @@ const server=http.createServer((req,res)=>{
   await fail.goto(base+"/player-game-audit.html",{waitUntil:"networkidle0",timeout:45000});
   assert.ok((await fail.$eval("#audit-source-status",el=>el.textContent)).includes("GAME-LEVEL SOURCE HELD"));
   await fail.close();
-  console.log(JSON.stringify({status:"GAME_BY_GAME_PUBLIC_BROWSER_PASS",results,sourceHold:"PASS"}));
+  const reviewFail=await browser.newPage();
+  await reviewFail.setRequestInterception(true);
+  reviewFail.on("request",request=>
+    request.url().includes("svhl-gameinfo-hold-review.json")?
+      request.abort():request.continue());
+  await reviewFail.goto(base+"/player-game-audit.html?team=Mid%20Ice%20Crisis",
+    {waitUntil:"networkidle0",timeout:45000});
+  const isolated=await reviewFail.evaluate(()=>({
+    source:document.querySelector("#audit-source-status")?.textContent,
+    review:document.querySelector("#audit-hold-review-status")?.textContent,
+    players:document.querySelectorAll("#audit-player option").length,
+    list:document.querySelectorAll("#audit-hold-review-list .review-card").length
+  }));
+  assert.ok(isolated.source.includes("GameInfo sources captured"));
+  assert.ok(isolated.review.includes("GAMEINFO REVIEW HELD"));
+  assert.equal(isolated.players,19);
+  assert.equal(isolated.list,0);
+  await reviewFail.close();
+  console.log(JSON.stringify({status:"GAME_BY_GAME_PUBLIC_BROWSER_PASS",results,
+    sourceHold:"PASS",independentReviewSourceHold:"PASS"}));
  }finally{await browser.close();server.close()}
 })().catch(err=>{console.error(err.stack||err);server.close();process.exitCode=2});

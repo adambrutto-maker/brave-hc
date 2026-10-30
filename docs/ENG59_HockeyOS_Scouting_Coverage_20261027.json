@@ -1,0 +1,130 @@
+{
+  "schema": "brave-hc-hockeyos-eng59-coverage-report/v1",
+  "status": "READ_ONLY_EVIDENCE_REPORT_NOT_PUBLICATION_AUTHORITY",
+  "sourcesAsObserved": {
+    "currentLeague": "2026-10-27T14:15:06.382188+00:00",
+    "playerGameCapture": "2026-10-27T14:06:34.151623+00:00",
+    "playerGameAcceptedLeague": "2026-10-26T21:53:28.875042+00:00",
+    "historicalRoster": "2026-10-27T04:08:28.585604+00:00",
+    "penaltySample": "2026-10-27T15:25:04.040029+00:00"
+  },
+  "league": {
+    "sourceLeagueId": 570,
+    "publishedDivisions": 4,
+    "leagueTeams": 27,
+    "reciprocalScoredGames": 61,
+    "adultSundayDivisions": [
+      "Fazzari Partners",
+      "The Cristillo Division",
+      "Remax Division"
+    ],
+    "eligibleAdultSundayTeams": 22,
+    "otherDivisionTeamsExcludedFromLab": 5
+  },
+  "gameReconciliation": {
+    "seasons": 8,
+    "gamePages": 2206,
+    "fullGoalParity": 2069,
+    "partialOrHeld": 137,
+    "fullGoalParityPercent": 93.79,
+    "bySeason": [
+      {
+        "leagueId": 570,
+        "source": "./svhl-player-game-570.json",
+        "gamePages": 54,
+        "fullGoalParity": 52,
+        "partialOrHeld": 2,
+        "goalParityPercent": 96.3
+      },
+      {
+        "leagueId": 547,
+        "source": "./svhl-player-game-547.json",
+        "gamePages": 350,
+        "fullGoalParity": 318,
+        "partialOrHeld": 32,
+        "goalParityPercent": 90.86
+      },
+      {
+        "leagueId": 531,
+        "source": "./svhl-player-game-531.json",
+        "gamePages": 343,
+        "fullGoalParity": 333,
+        "partialOrHeld": 10,
+        "goalParityPercent": 97.08
+      },
+      {
+        "leagueId": 512,
+        "source": "./svhl-player-game-512.json",
+        "gamePages": 335,
+        "fullGoalParity": 309,
+        "partialOrHeld": 26,
+        "goalParityPercent": 92.24
+      },
+      {
+        "leagueId": 494,
+        "source": "./svhl-player-game-494.json",
+        "gamePages": 344,
+        "fullGoalParity": 335,
+        "partialOrHeld": 9,
+        "goalParityPercent": 97.38
+      },
+      {
+        "leagueId": 476,
+        "source": "./svhl-player-game-476.json",
+        "gamePages": 321,
+        "fullGoalParity": 287,
+        "partialOrHeld": 34,
+        "goalParityPercent": 89.41
+      },
+      {
+        "leagueId": 420,
+        "source": "./svhl-player-game-420.json",
+        "gamePages": 247,
+        "fullGoalParity": 238,
+        "partialOrHeld": 9,
+        "goalParityPercent": 96.36
+      },
+      {
+        "leagueId": 375,
+        "source": "./svhl-player-game-375.json",
+        "gamePages": 212,
+        "fullGoalParity": 197,
+        "partialOrHeld": 15,
+        "goalParityPercent": 92.92
+      }
+    ],
+    "gameGoalsVerifiedDoesNotProvePlayerAppearance": true,
+    "registeredGamesPlayedVerified": false,
+    "sourceAggregatesOverwritten": false
+  },
+  "historicalOpponentEvidence": {
+    "sourceMatchedGameComparisons": 79,
+    "unresolvedHeldComparisons": 43,
+    "matchedSeasonTeamGroups": 35,
+    "continuousFranchiseIdentityAsserted": false
+  },
+  "rosterEvidence": {
+    "currentPlayerIDs": 348,
+    "historicalPlayerSeasonObservations": 3222,
+    "historicalSeasonTeamSources": 191,
+    "lineupAvailabilityVerified": false,
+    "statTreatment": "PUBLISHED_COUNT_DATA_NOT_RECONCILED_TO_INDIVIDUAL_GAME_LOGS"
+  },
+  "penaltyEvidence": {
+    "sampledGameInfoPages": 136,
+    "populatedPenaltyRowsObserved": 0,
+    "sampleNotExhaustive": true,
+    "seasonPIMReconciled": false,
+    "seasonGPReconciled": false,
+    "zeroObservedPenaltyRowsDoesNotMeanZeroPenalties": true
+  },
+  "limitations": [
+    "Sources were captured at different times; counts are not one synchronized snapshot.",
+    "A source-matched score does not independently verify every player appearance.",
+    "Team name overlap across seasons does not establish a continuing franchise.",
+    "Published roster statistics do not prove expected lineups for a future game.",
+    "Division scenarios reflect present adult Sunday strength and observed game evidence, not forecast results.",
+    "The current league match ledger lacks distinct official game IDs for same-day rematches.",
+    "VAHL is a separate league and is excluded from all SVHL division research."
+  ]
+}

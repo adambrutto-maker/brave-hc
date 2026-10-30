@@ -1,0 +1,13 @@
+{
+  "schema": "hockeyos-verified-goalie-projection-inputs/v1",
+  "season": "W2026/27",
+  "status": "HELD_NO_ACCEPTED_SOURCE_OBSERVATIONS",
+  "asOf": null,
+  "players": {},
+  "publicationGate": {
+    "state": "GOALIE_SOURCE_EVIDENCE_NOT_ACCEPTED",
+    "releaseAuthorized": false,
+    "independentEvidenceId": null
+  },
+  "note": "Explicit held-state runtime contract only. No goalie source observations, projected starts, wins, or GAA are supplied. Independent source-owner verification and separate release authorization are required before any numerical goalie forecast."
+}

@@ -3,6 +3,13 @@ const fs=require("node:fs"),path=require("node:path"),http=require("node:http"),
  puppeteer=require("puppeteer"),assert=require("node:assert/strict");
 const root=path.resolve(__dirname,"../widgets");
 const historical=JSON.parse(fs.readFileSync(path.join(root,"brave-historical-verified-games.json"),"utf8"));
+const league=JSON.parse(fs.readFileSync(path.join(root,"league-intelligence.json"),"utf8"));
+const verified=require("../widgets/division-fit-model.js").analyze(league,historical);
+const verifiedBridges=require("../widgets/video-strength-evidence.js").opponentBridgeInventory(verified);
+const architected=require("../widgets/division-layout-optimizer.js").run(verified);
+const refine=require("../widgets/division-lineup-refinement.js");
+const referenceProposal=architected.choices.CONTINUITY.find(x=>x.shapeId==="4-4-6-8");
+const referenceRefinement=refine.refine(verified,referenceProposal,"CONTINUITY");
 const types={".html":"text/html",".js":"text/javascript",".json":"application/json",".png":"image/png",".css":"text/css"};
 const srv=http.createServer((req,res)=>{
  const f=path.resolve(root,"."+new URL(req.url,"http://localhost").pathname);
@@ -42,22 +49,109 @@ const srv=http.createServer((req,res)=>{
     evidence:document.querySelector("#scenario-evidence")?.textContent,
     caveat:document.querySelector("#scenario-evidence-caution")?.textContent,
     note:document.querySelector("#source-note")?.textContent,
+    videoStatus:document.querySelector("#video-readiness-status")?.textContent,
+    videoMetrics:document.querySelector("#video-bridge-metrics")?.textContent,
+    videoCaveat:document.querySelector("#video-bridge-caveat")?.textContent,
+    crossGameLinks:document.querySelectorAll("#video-bridge-games-list .week-card").length,
+    crossGameSources:[...document.querySelectorAll("#video-bridge-games-list .week-card a")].map(a=>a.href),
     over:document.body.scrollWidth-innerWidth
    }));
    assert.ok(first.status.includes("Preliminary research only"));
-   assert.ok(first.evidence.includes("27")&&first.evidence.includes("16"),
-     "current division comparison must show source-confirmed game coverage");
+   assert.ok(first.videoStatus.includes("INSUFFICIENT_VIDEO")&&
+      first.videoStatus.includes("54 of 54")&&
+      first.videoStatus.includes("exact official GameInfo IDs")&&
+      first.videoStatus.includes("2 games retain player scoring evidence holds"),
+      "official score game IDs must join without video strength calibration");
+   assert.ok(first.videoMetrics.includes(String(verifiedBridges.crossCurrentDivisionGames))&&
+      first.videoMetrics.includes(String(verifiedBridges.teamsWithoutCrossDivisionEvidence))&&
+      first.videoMetrics.includes(String(verifiedBridges.teamsWithCrossDivisionEvidence)));
+   assert.equal(first.crossGameLinks,verifiedBridges.crossCurrentDivisionGames);
+   assert.ok(first.crossGameSources.every(url=>url.startsWith("https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=")));
+   // All source-qualified official games are independently inspectable, not
+   // just cross-division links. No rating, scenario or scorer admission changes.
+   assert.equal(await page.$eval("#gameinfo-scope-filter",x=>x.value),"CROSS");
+   await page.select("#gameinfo-scope-filter","ALL");
+   assert.equal(await page.$$eval("#video-bridge-games-list .week-card",x=>x.length),54);
+   assert.ok((await page.$eval("#gameinfo-source-count",x=>x.textContent)).includes("54 of 54"));
+   assert.equal(await page.$$eval("#video-bridge-games-list .week-card.warning",x=>x.length),0);
+   assert.equal(await page.$$eval("#video-bridge-games-list .week-card .warning",x=>x.length),2);
+   await page.select("#gameinfo-scope-filter","WITHIN");
+   assert.equal(await page.$$eval("#video-bridge-games-list .week-card",x=>x.length),35);
+   await page.select("#gameinfo-scope-filter","ALL");
+   await page.$eval("#video-bridge-games",x=>{x.open=true});
+   await page.type("#gameinfo-source-search","127707");
+   assert.equal(await page.$$eval("#video-bridge-games-list .week-card",x=>x.length),1);
+   assert.ok((await page.$eval("#video-bridge-games-list .week-card a",x=>x.href)).includes("gameid=127707"));
+   await page.$eval("#gameinfo-source-search",x=>{x.value="no-such-game";x.dispatchEvent(new Event("input",{bubbles:true}))});
+   assert.equal(await page.$$eval("#video-bridge-games-list .week-card",x=>x.length),0);
+   await page.$eval("#gameinfo-source-search",x=>{x.value="";x.dispatchEvent(new Event("input",{bubbles:true}))});
+   await page.select("#gameinfo-scope-filter","CROSS");
+   assert.equal(await page.$$eval("#video-bridge-games-list .week-card",x=>x.length),19);
+   assert.ok((await page.$eval("#video-readiness-status",x=>x.textContent)).includes("INSUFFICIENT_VIDEO"));
+   // Scenario controls are in progressive disclosure ("All data"). Test
+   // genuine pointer clicks after opening the user's accessible mode.
+   await page.evaluate(()=>[...document.querySelectorAll(".os-mode")]
+     .find(b=>b.textContent.trim()==="All data").click());
+   // Every hypothetical grouping must cite exactly the same 54 *past*
+   // official games and vary only the retrospective group membership labels.
+   for(const [i,s] of verified.scenarios.entries()){
+    await page.click("#scenario-options button:nth-child("+(i+1)+")");
+    const snapshot=await page.evaluate(()=>({
+      rows:document.querySelectorAll("#scenario-game-list .week-card").length,
+      links:[...document.querySelectorAll("#scenario-game-list .week-card a")].map(x=>x.href),
+      count:document.querySelector("#scenario-game-count").textContent,
+      held:document.querySelectorAll("#scenario-game-list .week-card .warning").length,
+      hypothetical:document.querySelector("#scenario-game-list").textContent.includes("HYPOTHETICAL membership only"),
+      exists:!document.querySelector("#scenario-game-sources").hidden
+    }));
+    assert.equal(snapshot.rows,54);
+    assert.equal(snapshot.links.length,54);
+    assert.equal(new Set(snapshot.links).size,54);
+    assert.ok(snapshot.links.every(x=>x.startsWith("https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=")));
+    assert.ok(snapshot.count.includes(s.evidence.observedSameGroupGames+" observed games"),
+      JSON.stringify({scenario:s.code,expected:s.evidence.observedSameGroupGames,observedCount:snapshot.count,errors}));
+    assert.equal(snapshot.held,2);
+    assert.equal(snapshot.exists,true);
+    assert.equal(snapshot.hypothetical,i!==0);
+   }
+   await page.click("#scenario-options button:nth-child(1)");
+   assert.ok(first.videoCaveat.includes("Camera")&&
+      first.videoCaveat.includes("No VAHL team is included"));
+   assert.ok(first.evidence.includes(String(verified.scenarios[0].evidence.observedSameGroupGames))&&
+     first.evidence.includes(String(verified.scenarios[0].evidence.observedAcrossGroupGames)),
+     "current division comparison must show up-to-date source-confirmed game coverage");
    assert.ok(first.caveat.includes("actual historic schedules")&&
      first.note.includes("adult-pool source-confirmed"),
      "coverage must not imply simulated matchups or count other leagues");
    assert.ok(!first.note.includes("VAHL"),"separate-league name must not enter adult research interface");
-   assert.ok(first.metrics.includes("22")&&first.metrics.includes("43")&&first.metrics.includes("16"));
+   assert.ok(first.metrics.includes(String(verified.adultPoolTeamCount))&&
+     first.metrics.includes(String(verified.gameGraph.verifiedGamesInPool))&&
+     first.metrics.includes(String(verified.gameGraph.crossCurrentDivisionGames)));
    assert.equal(first.scenarios,3);
    assert.equal(first.layoutPatterns,4,"must offer all legal 4/6/8 division compositions");
    assert.ok(first.layoutLead.includes("4 + 4 + 4 + 4 + 6"),
      "tightest objective proposes five small divisions, subject to qualification");
    assert.equal(first.layoutTeams,22);
    assert.equal(first.layoutGroupCount,5);
+   const balanceLayout=architected.choices.BALANCE[0];
+   assert.equal(await page.$eval("#layout-source-game-evidence",x=>x.hidden),false);
+   assert.equal(await page.$eval("#layout-source-game-filter",x=>x.value),"WITHIN");
+   assert.equal(await page.$$eval("#layout-source-game-list .week-card",x=>x.length),
+     balanceLayout.sameGroupObservedGames);
+   assert.ok((await page.$eval("#layout-source-game-summary",x=>x.textContent))
+     .includes(balanceLayout.sameGroupObservedGames+" within selected"));
+   await page.select("#layout-source-game-filter","ALL");
+   assert.equal(await page.$$eval("#layout-source-game-list .week-card",x=>x.length),54);
+   const flexibleLinks=await page.$$eval("#layout-source-game-list .week-card a",
+     x=>x.map(a=>a.href));
+   assert.equal(new Set(flexibleLinks).size,54);
+   assert.ok(flexibleLinks.every(x=>x.startsWith(
+     "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=")));
+   assert.equal(await page.$$eval("#layout-source-game-list .week-card .warning",x=>x.length),2);
+   await page.select("#layout-source-game-filter","ACROSS");
+   assert.equal(await page.$$eval("#layout-source-game-list .week-card",x=>x.length),
+     54-balanceLayout.sameGroupObservedGames);
+   await page.select("#layout-source-game-filter","WITHIN");
    assert.equal(await page.$eval("#layout-total-preview",x=>x.value),"22");
    assert.equal(await page.$$eval("#layout-total-patterns .week-card",x=>x.length),4);
    for(const oddTotal of ["21","23"]){
@@ -86,6 +180,11 @@ const srv=http.createServer((req,res)=>{
    assert.equal(await page.$$eval("#layout-proposal-groups .team-row",els=>els.length),22);
    assert.ok((await page.$eval("#layout-proposal-comparison",e=>e.textContent))
      .includes("NEW division(s)"));
+   const practicalLayout=architected.choices.PRACTICAL.find(x=>x.shapeId==="4-6-6-6");
+   assert.equal(await page.$$eval("#layout-source-game-list .week-card",x=>x.length),
+     practicalLayout.sameGroupObservedGames,"verified game evidence follows selected 4/6/6/6 pattern");
+   assert.ok((await page.$eval("#layout-source-game-summary",x=>x.textContent))
+     .includes("4+6+6+6 research grouping"));
    await page.evaluate(()=>Object.defineProperty(navigator,"clipboard",{
     configurable:true,value:{writeText:async data=>{window.__layoutText=data}}
    }));
@@ -101,9 +200,21 @@ const srv=http.createServer((req,res)=>{
    await page.select("#layout-design-focus","CONTINUITY");
    await page.click('#layout-design-options button[data-shape="4-4-6-8"]');
    assert.ok((await page.$eval("#layout-refinement-detail",x=>x.textContent))
-      .includes("13 before / 17 after"),
-      "must disclose source-verified matchup change");
+      .includes(referenceRefinement.original.sourceVerifiedSameGroupGames+" before / "+
+        referenceRefinement.refined.sourceVerifiedSameGroupGames+" after"),
+      "must disclose actual source-verified matchup coverage, even when no swap improves it");
+   assert.equal(await page.$$eval("#layout-source-game-list .week-card",x=>x.length),
+     referenceRefinement.original.sourceVerifiedSameGroupGames);
    await page.select("#layout-placement-mode","REFINED");
+   assert.equal(await page.$$eval("#layout-source-game-list .week-card",x=>x.length),
+     referenceRefinement.refined.sourceVerifiedSameGroupGames,
+     "verified games must reflect refined source-ID membership");
+   assert.ok((await page.$eval("#layout-source-game-summary",x=>x.textContent))
+     .includes("refined placements"));
+   await page.select("#layout-source-game-filter","ACROSS");
+   assert.equal(await page.$$eval("#layout-source-game-list .week-card",x=>x.length),
+     54-referenceRefinement.refined.sourceVerifiedSameGroupGames);
+   await page.select("#layout-source-game-filter","WITHIN");
    const refinedUI=await page.evaluate(()=>({
     detail:document.querySelector("#layout-refinement-detail")?.textContent,
     label:document.querySelector("#layout-refinement-indicator")?.textContent,
@@ -113,13 +224,16 @@ const srv=http.createServer((req,res)=>{
       .map(el=>el.textContent),
     groupCount:document.querySelectorAll("#layout-proposal-groups .group").length
    }));
-   assert.ok(refinedUI.label.includes("1 tested swap(s) applied"));
-   assert.equal(refinedUI.swaps,1);
-   assert.equal(refinedUI.groupCount,4);
-   assert.equal(refinedUI.sourceIds.length,22);
+   assert.equal(refinedUI.swaps,referenceRefinement.swaps.length);
+   if(referenceRefinement.swaps.length)
+     assert.ok(refinedUI.label.includes(referenceRefinement.swaps.length+" tested swap(s) applied"));
+   else assert.ok(refinedUI.label.includes("No admissible improvement"));
+   assert.equal(refinedUI.groupCount,referenceProposal.divisionCount);
+   assert.equal(refinedUI.sourceIds.length,verified.adultPoolTeamCount);
    assert.ok(refinedUI.proposal.includes("Source-ID swap-refined lineup"));
-   assert.ok(refinedUI.proposal.includes("17 of 43 source-confirmed games"),
-     "one source-backed same-group pairing gain is explained clearly");
+   assert.ok(refinedUI.proposal.includes(referenceRefinement.refined.sourceVerifiedSameGroupGames+
+     " of "+verified.gameGraph.verifiedGamesInPool+" source-confirmed games"),
+     "source-linked same-group coverage must follow accepted league refreshes");
    await page.evaluate(()=>Object.defineProperty(navigator,"clipboard",{
     configurable:true,value:{writeText:async data=>{window.__refinedLayoutText=data}}
    }));
@@ -127,10 +241,11 @@ const srv=http.createServer((req,res)=>{
    await page.waitForFunction(()=>Boolean(window.__refinedLayoutText));
    const refinedText=await page.evaluate(()=>window.__refinedLayoutText);
    assert.ok(refinedText.includes("BOUNDED EVIDENCE-AWARE SOURCE-ID SWAP REFINEMENT"));
-   assert.ok(refinedText.includes("1 improving pair swaps admitted") &&
-      refinedText.includes("SOURCE-ID TEAM SWAP:") &&
+   assert.ok(refinedText.includes(referenceRefinement.swaps.length+" improving pair swaps admitted") &&
       refinedText.includes("NOT APPROVED OR SUBMITTED"),
-      "copy reflects actual source-backed chosen lineup and its nonapproval");
+      "copy reflects the actual bounded refinement, including a zero-improvement hold");
+   if(referenceRefinement.swaps.length)
+     assert.ok(refinedText.includes("SOURCE-ID TEAM SWAP:"));
    await page.select("#layout-placement-mode","INDEX_BANDS");
    await page.select("#layout-design-focus","PRACTICAL");
    await page.click('#layout-design-options button[data-shape="4-6-6-6"]');
@@ -158,6 +273,9 @@ const srv=http.createServer((req,res)=>{
    assert.ok((await page.$eval("#weekly-team-history",e=>e.textContent))
       .includes("Baseline only"),"team switch retains one-week caution");
    assert.ok(first.over<=1,"No full-page horizontal overflow");
+   // Original scenario controls live in All data after progressive disclosure.
+   await page.evaluate(()=>[...document.querySelectorAll(".os-mode")]
+     .find(b=>b.textContent.trim()==="All data").click());
    await page.click("#scenario-options button:nth-child(2)");
    const limited=await page.evaluate(()=>({
     chosen:document.querySelector("#scenario-options button[aria-pressed=true]")?.textContent,
@@ -168,12 +286,14 @@ const srv=http.createServer((req,res)=>{
    assert.ok(limited.chosen.includes("Two-pair swap test"));
    assert.ok(limited.info.includes("Research sandbox only"));
    assert.equal(limited.groups,3);assert.equal(limited.teamNames.length,22);
-   assert.ok((await page.$eval("#scenario-evidence",e=>e.textContent)).includes("16"),
-     "limited swap must disclose narrower source-matched game evidence");
+   assert.ok((await page.$eval("#scenario-evidence",e=>e.textContent))
+     .includes(String(verified.scenarios[1].evidence.observedSameGroupGames)),
+     "limited swap must disclose current source-matched game evidence");
    await page.click("#scenario-options button:nth-child(3)");
    assert.equal(await page.$$eval("#division-groups .team-row",nodes=>nodes.length),22);
-   assert.ok((await page.$eval("#scenario-evidence",e=>e.textContent)).includes("13"),
-     "score-band research is supported by only 13 previously observed games");
+   assert.ok((await page.$eval("#scenario-evidence",e=>e.textContent))
+     .includes(String(verified.scenarios[2].evidence.observedSameGroupGames)),
+     "score-band research uses only verified observed games");
    await page.evaluate(()=>Object.defineProperty(navigator,"clipboard",{
     configurable:true,value:{writeText:async data=>{window.__researchNote=data}}
    }));
@@ -181,7 +301,8 @@ const srv=http.createServer((req,res)=>{
    await page.waitForFunction(()=>Boolean(window.__researchNote),{timeout:10000});
    const copied=await page.evaluate(()=>window.__researchNote);
    assert.ok(copied.includes("INTERNAL RESEARCH — NOT A DIVISION REALIGNMENT RECOMMENDATION"));
-   assert.ok(copied.includes("43")&&copied.includes("79")&&copied.includes("4 weekly")===false);
+   assert.ok(copied.includes(String(verified.gameGraph.verifiedGamesInPool))&&
+     copied.includes(String(historical.matchedGameCount))&&copied.includes("4 weekly")===false);
    assert.ok(copied.includes("proposalReady = FALSE"));
    assert.ok(copied.includes("SELECTED DRAFT: 4+6+6+6")&&
      copied.includes("NOT APPROVED OR SUBMITTED"),
@@ -189,16 +310,64 @@ const srv=http.createServer((req,res)=>{
    assert.ok(copied.includes("WEEKLY SOURCE STABILITY: SOURCE_BACKED_BASELINE_ONLY") &&
      copied.includes("NOT MEASURABLE — one source-backed baseline only."),
      "research copy may never call a single week stable");
-   assert.ok(copied.includes("13 prior completed games")&&
+   assert.ok(copied.includes(verified.scenarios[2].evidence.observedSameGroupGames+" prior completed games")&&
      copied.includes("CRITICAL: those games occurred under real schedules."),
      "research copy must disclose incomplete retrospective pair coverage");
    assert.ok(!copied.includes("Approved by"));
    assert.deepEqual(errors,[]);
-   results.push({width,status:"PASS",adultPool:22,verifiedGames:43,
-     crossDivisionGames:16,scenarios:3,history:79,copied:"PASS",
+   results.push({width,status:"PASS",adultPool:verified.adultPoolTeamCount,
+     verifiedGames:verified.gameGraph.verifiedGamesInPool,
+     crossDivisionGames:verified.gameGraph.crossCurrentDivisionGames,
+     scenarios:verified.scenarios.length,history:historical.matchedGameCount,copied:"PASS",
      overflow:first.over,jsErrors:0});
    await page.close();
   }
-  console.log(JSON.stringify({status:"DIVISION_FIT_BROWSER_PASS",results}));
+  const held=await browser.newPage(),heldErrors=[];
+  held.on("pageerror",e=>heldErrors.push(e.message));
+  await held.setRequestInterception(true);
+  held.on("request",request=>
+    request.url().includes("video-strength-evidence.js")?request.abort():request.continue());
+  await held.goto("http://127.0.0.1:"+srv.address().port+"/division-fit-lab.html",
+    {waitUntil:"networkidle0",timeout:45000});
+  const isolation=await held.evaluate(()=>({
+    normal:document.querySelector("#notice")?.textContent,
+    video:document.querySelector("#video-readiness-status")?.textContent,
+    scenarios:document.querySelectorAll("#scenario-options button").length,
+    source:document.querySelector("#source-metrics")?.textContent
+  }));
+  assert.ok(isolation.normal.includes("Preliminary research only"));
+  assert.ok(isolation.video.includes("INSUFFICIENT_VIDEO")&&
+    isolation.video.includes("video source bridge held"));
+  assert.equal(isolation.scenarios,3);
+  assert.ok(isolation.source.includes(String(verified.adultPoolTeamCount)));
+  assert.deepEqual(heldErrors,[]);
+  await held.close();
+  const missingIDs=await browser.newPage();
+  await missingIDs.setRequestInterception(true);
+  missingIDs.on("request",req=>req.url().includes("svhl-official-game-id-bridges.json")?
+    req.abort():req.continue());
+  await missingIDs.goto("http://127.0.0.1:"+srv.address().port+"/division-fit-lab.html",
+    {waitUntil:"networkidle0",timeout:45000});
+  const idsHeld=await missingIDs.evaluate(()=>({
+    status:document.querySelector("#notice")?.textContent,
+    video:document.querySelector("#video-readiness-status")?.textContent,
+    options:document.querySelectorAll("#scenario-options button").length,
+    sourcePanelHidden:document.querySelector("#scenario-game-sources").hidden,
+    sourceRows:document.querySelectorAll("#scenario-game-list .week-card").length,
+    flexiblePanelHidden:document.querySelector("#layout-source-game-evidence").hidden,
+    flexibleSourceRows:document.querySelectorAll("#layout-source-game-list .week-card").length
+  }));
+  assert.ok(idsHeld.status.includes("Preliminary research only"));
+  assert.ok(idsHeld.video.includes("INSUFFICIENT_VIDEO")&&
+    idsHeld.video.includes("Official GameInfo ID crosswalk held"));
+  assert.equal(idsHeld.options,3);
+  assert.equal(idsHeld.sourcePanelHidden,true);
+  assert.equal(idsHeld.sourceRows,0);
+  assert.equal(idsHeld.flexiblePanelHidden,true);
+  assert.equal(idsHeld.flexibleSourceRows,0);
+  await missingIDs.close();
+  console.log(JSON.stringify({status:"DIVISION_FIT_BROWSER_PASS",results,
+    missingVideoAdapterKeepsExistingResearch:"PASS",
+    missingOfficialGameIDsKeepsExistingResearch:"PASS"}));
  }finally{await browser.close();srv.close()}
 })().catch(error=>{console.error(error.stack||error);srv.close();process.exitCode=2});
