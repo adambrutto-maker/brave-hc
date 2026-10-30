@@ -1,0 +1,11 @@
+{
+  "state": "SIX_PRODUCTION_INTERNAL_ARITHMETIC_PARITY_PASS",
+  "comparisons": 150,
+  "numericValueComparisons": 69,
+  "inapplicableBlankComparisons": 81,
+  "differenceCount": 0,
+  "differences": [],
+  "nativeExportSha256": "e8636061288812c2cdad9826a0e13c1f1214ce89817bea95522686d7ceab6057",
+  "currentCompositeScoresVerified": false,
+  "publicationAuthorized": false
+}

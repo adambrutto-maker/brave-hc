@@ -1,0 +1,178 @@
+{
+  "schema": "brave-hc-awards-attribute-contract-registry/v1",
+  "sourceWorkbookAuthoritySha256": "0002fd9f06596af8d0a00fc1b53a618ef15479f941ad5c1e6265b27002a65154",
+  "season": "W2026/27",
+  "status": "HISTORICAL_SOURCE_RULES_WITH_UNVERIFIED_CURRENT_SCORE_COMPONENTS",
+  "sourceFormulaEvidence": "awards-component-evidence.json",
+  "sourceModelScoreRecalculated": false,
+  "releaseAuthorized": false,
+  "awards": {
+    "hart": {
+      "status": "HOLD_ORIGINAL_ATTRIBUTE_FORMULAS_NOT_MAPPED",
+      "sourceTable": "AwardScoring",
+      "originalFormulaPairsVerifiedHistorically": false,
+      "roleWeights": {},
+      "scope": "No verified award-specific weighted attribute contract. Do not substitute the Rolaids fields or invent EA ratings."
+    },
+    "conn-smythe": {
+      "status": "HOLD_ORIGINAL_ATTRIBUTE_FORMULAS_NOT_MAPPED",
+      "sourceTable": "AwardScoring",
+      "originalFormulaPairsVerifiedHistorically": false,
+      "roleWeights": {},
+      "scope": "No verified award-specific weighted attribute contract. Do not substitute the Rolaids fields or invent EA ratings."
+    },
+    "art-ross": {
+      "status": "HOLD_ORIGINAL_ATTRIBUTE_FORMULAS_NOT_MAPPED",
+      "sourceTable": "AwardScoring",
+      "originalFormulaPairsVerifiedHistorically": false,
+      "roleWeights": {},
+      "scope": "No verified award-specific weighted attribute contract. Do not substitute the Rolaids fields or invent EA ratings."
+    },
+    "rocket": {
+      "status": "HOLD_ORIGINAL_ATTRIBUTE_FORMULAS_NOT_MAPPED",
+      "sourceTable": "AwardScoring",
+      "originalFormulaPairsVerifiedHistorically": false,
+      "roleWeights": {},
+      "scope": "No verified award-specific weighted attribute contract. Do not substitute the Rolaids fields or invent EA ratings."
+    },
+    "norris": {
+      "status": "HOLD_ORIGINAL_ATTRIBUTE_FORMULAS_NOT_MAPPED",
+      "sourceTable": "AwardScoring",
+      "originalFormulaPairsVerifiedHistorically": false,
+      "roleWeights": {},
+      "scope": "No verified award-specific weighted attribute contract. Do not substitute the Rolaids fields or invent EA ratings."
+    },
+    "lady-byng": {
+      "status": "HOLD_ORIGINAL_ATTRIBUTE_FORMULAS_NOT_MAPPED",
+      "sourceTable": "AwardScoring",
+      "originalFormulaPairsVerifiedHistorically": false,
+      "roleWeights": {},
+      "scope": "No verified award-specific weighted attribute contract. Do not substitute the Rolaids fields or invent EA ratings."
+    },
+    "rookie": {
+      "status": "HOLD_ORIGINAL_ATTRIBUTE_FORMULAS_NOT_MAPPED",
+      "sourceTable": "AwardScoring",
+      "originalFormulaPairsVerifiedHistorically": false,
+      "roleWeights": {},
+      "scope": "No verified award-specific weighted attribute contract. Do not substitute the Rolaids fields or invent EA ratings."
+    },
+    "improved": {
+      "status": "HOLD_ORIGINAL_ATTRIBUTE_FORMULAS_NOT_MAPPED",
+      "sourceTable": "AwardScoring",
+      "originalFormulaPairsVerifiedHistorically": false,
+      "roleWeights": {},
+      "scope": "No verified award-specific weighted attribute contract. Do not substitute the Rolaids fields or invent EA ratings."
+    },
+    "rolaids": {
+      "status": "HISTORICAL_ORIGINAL_FIELDS_AND_WEIGHTS_MAPPED_CURRENT_OVR_HELD",
+      "sourceTable": "AwardScoring",
+      "originalFormulaPairsVerifiedHistorically": true,
+      "roleWeights": {
+        "skater": [
+          {
+            "field": "Total Skater Production Consistency Web Display Score",
+            "weight": 0.18
+          },
+          {
+            "field": "Total Final Pts Web Display Score",
+            "weight": 0.18
+          },
+          {
+            "field": "Current True Attd. % Web Display Score",
+            "weight": 0.15
+          },
+          {
+            "field": "Total Award POTG Web Display Score",
+            "weight": 0.1
+          },
+          {
+            "field": "Total Final Special Teams Web Display Score",
+            "weight": 0.08
+          },
+          {
+            "field": "Total Final Clutch Web Display Score",
+            "weight": 0.07
+          },
+          {
+            "field": "Total Streak Heat Web Display Score",
+            "weight": 0.07
+          },
+          {
+            "field": "Total Skater Two-Way Reliability Web Display Score",
+            "weight": 0.06
+          },
+          {
+            "field": "Total Discipline Reliability Web Display Score",
+            "weight": 0.05
+          },
+          {
+            "field": "Total Final PIM Web Display Score",
+            "weight": 0.04
+          },
+          {
+            "field": "Total Final +/- Web Display Score",
+            "weight": 0.02
+          }
+        ],
+        "goalie": [
+          {
+            "field": "Total Goalie Reliability Web Display Score",
+            "weight": 0.18
+          },
+          {
+            "field": "Total Award POTG Web Display Score",
+            "weight": 0.1
+          },
+          {
+            "field": "Current True Attd. % Web Display Score",
+            "weight": 0.2
+          },
+          {
+            "field": "Total Award Goalie GAA Web Display Score",
+            "weight": 0.1
+          },
+          {
+            "field": "Total Award Goalie Win % Web Display Score",
+            "weight": 0.08
+          },
+          {
+            "field": "Total Final +/- Web Display Score",
+            "weight": 0.08
+          },
+          {
+            "field": "Total Goalie Discipline Reliability Web Display Score",
+            "weight": 0.12
+          },
+          {
+            "field": "Total Award Goalie W Web Display Score",
+            "weight": 0.08
+          },
+          {
+            "field": "Total Award Goalie SHO Web Display Score",
+            "weight": 0.03
+          },
+          {
+            "field": "Total Goalie Offensive Contribution Web Display Score",
+            "weight": 0.03
+          }
+        ]
+      },
+      "scope": "11 original skater fields and 10 original goalie fields, cached historical AwardScoring only; not current-season scoring"
+    },
+    "dedication": {
+      "status": "HOLD_ORIGINAL_ATTRIBUTE_FORMULAS_NOT_MAPPED",
+      "sourceTable": "AwardScoring",
+      "originalFormulaPairsVerifiedHistorically": false,
+      "roleWeights": {},
+      "scope": "No verified award-specific weighted attribute contract. Do not substitute the Rolaids fields or invent EA ratings."
+    },
+    "hof": {
+      "status": "HOLD_ORIGINAL_ATTRIBUTE_FORMULAS_NOT_MAPPED",
+      "sourceTable": "PlayerInfo",
+      "originalFormulaPairsVerifiedHistorically": false,
+      "roleWeights": {},
+      "scope": "No verified award-specific weighted attribute contract. Do not substitute the Rolaids fields or invent EA ratings."
+    }
+  },
+  "notes": "Source-specific historical field and weight contracts; not a current-season rating. Only Rolaids component contract is available. Each other award requires independently verified original formula-and-role mapping, never borrowed weights. Client-side checks are not approval."
+}

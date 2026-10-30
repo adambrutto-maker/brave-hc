@@ -1,0 +1,91 @@
+{
+  "runtime": {
+    "state": "METADATA_COPY_SAVED_REQUIRES_XML_CHECKS_AND_DOWNSTREAM_CALCULATION",
+    "copy": "D:\\BruTTech\\Products\\HockeyOS\\261019_Award_GameLog_Staging_v1\\Carlyle_Metadata_Review_20261021_052450\\Review_Only_Metadata_Candidate.xlsx",
+    "baseline": "D:\\BruTTech\\Products\\HockeyOS\\261019_Award_GameLog_Staging_v1\\Calculation_Review_20261021_050457\\Review_Only_Calculation_Candidate.xlsx",
+    "source": "D:\\BruTTech\\Products\\HockeyOS\\Reference Implementations\\Brave H.C\\01 Team Records\\261001_Brave_HC_Master_Workbook.xlsx",
+    "currentScoresVerified": false,
+    "publicationAuthorized": false,
+    "recalculationPerformed": false,
+    "rosterStatus": null,
+    "rosterStatusSource": "Unavailable; not inferred from goalie role",
+    "playerName": "Carlyle, Adam",
+    "addedRows": [
+      {
+        "row": 116,
+        "table": "PlayerInfo",
+        "range": "$A$5:$ZC$116",
+        "columnCount": 679,
+        "columnStart": 1
+      }
+    ],
+    "writes": [
+      {
+        "row": 116,
+        "table": "PlayerInfo",
+        "value": "G",
+        "field": "Position"
+      },
+      {
+        "row": 116,
+        "table": "PlayerInfo",
+        "value": "Carlyle",
+        "field": "Last Name"
+      },
+      {
+        "row": 116,
+        "table": "PlayerInfo",
+        "value": "Adam",
+        "field": "First Name"
+      },
+      {
+        "row": 116,
+        "table": "PlayerInfo",
+        "value": "Carlyle, Adam",
+        "field": "Website Name"
+      }
+    ],
+    "displacedCells": [
+      {
+        "column": 5,
+        "hasFormula": false,
+        "value": " ",
+        "fromRow": 116,
+        "toRow": 117
+      }
+    ],
+    "observedAt": "2026-10-21T05:25:57.1670701Z",
+    "openedFullName": "",
+    "openedName": "Review_Only_Metadata_Candidate.xlsx",
+    "openedPath": "D:\\BruTTech\\Products\\HockeyOS\\261019_Award_GameLog_Staging_v1\\Carlyle_Metadata_Review_20261021_052450",
+    "openedReadOnly": false,
+    "verifiedRuntimePath": "D:\\BruTTech\\Products\\HockeyOS\\261019_Award_GameLog_Staging_v1\\Carlyle_Metadata_Review_20261021_052450\\Review_Only_Metadata_Candidate.xlsx",
+    "runtimeIdentityMethod": "Path plus Name, collection member path, single workbook in isolated Excel instance and matching application Hwnd",
+    "fullNamePropertyAvailable": false,
+    "awardFormulaModeChecks": 146,
+    "unresolvedMetadata": [
+      "Current Roster Status",
+      "Position 2",
+      "Rookie Year",
+      "First FT Year"
+    ],
+    "expectedWrites": 4,
+    "copySaved": true,
+    "sourceHashUnchanged": true,
+    "baselineHashUnchanged": true
+  },
+  "postcheck": {
+    "state": "METADATA_COPY_PRESERVATION_PASS",
+    "historicalCellsChecked": 1956108,
+    "differenceCount": 0,
+    "differences": [],
+    "styleComparison": "Resolved font/fill/border/number-format/style-XF definitions; style numeric IDs may be reordered by Excel",
+    "copy": "D:\\BruTTech\\Products\\HockeyOS\\261019_Award_GameLog_Staging_v1\\Carlyle_Metadata_Review_20261021_052450\\Review_Only_Metadata_Candidate.xlsx",
+    "copySha256": "68392eccdd7087f4efbc32cabf23cb308aa7843eb33df72d714a3a099754a132",
+    "sourceHashUnchanged": true,
+    "baselineHashUnchanged": true,
+    "currentScoresVerified": false,
+    "recalculationPerformed": false,
+    "publicationAuthorized": false
+  }
+}

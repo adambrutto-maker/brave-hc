@@ -1,0 +1,753 @@
+{
+  "state": "WORKSHEET_ORDER_SKATER_STREAKS_REBUILT",
+  "sourceWorkbookSha256": "68392eccdd7087f4efbc32cabf23cb308aa7843eb33df72d714a3a099754a132",
+  "checked": 37705,
+  "differenceCount": 0,
+  "differences": [],
+  "sourceOrderPolicy": "Preserve native worksheet order and carry each player streak across seasons; do not sort by game date",
+  "worksheetGameOrderReversals": 0,
+  "teamRatePolicy": "Equal-player mean of career heat/GP among master skaters with career GP >0",
+  "players": [
+    {
+      "name": "Ardizzi, Stefano",
+      "values": {
+        "Current Total Skater Streak Heat Points": 0,
+        "Career Prior Skater GP": 221,
+        "Career Prior Total Skater Streak Heat/GP": 0.16832579185520363,
+        "All-Time Total Skater Streak Heat Team Rate Avg": 0.43279195094281864
+      },
+      "currentAppearances": [
+        {
+          "Game #": 359,
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "+/-": -3,
+          "sourceRow": 4655
+        }
+      ]
+    },
+    {
+      "name": "Brutto, Adam",
+      "values": {
+        "Current Total Skater Streak Heat Points": 0,
+        "Career Prior Skater GP": 332,
+        "Career Prior Total Skater Streak Heat/GP": 0.140210843373494,
+        "All-Time Total Skater Streak Heat Team Rate Avg": 0.43279195094281864
+      },
+      "currentAppearances": [
+        {
+          "Game #": 359,
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "+/-": -3,
+          "sourceRow": 4656
+        },
+        {
+          "Game #": 360,
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "+/-": -3,
+          "sourceRow": 4670
+        },
+        {
+          "Game #": 361,
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "+/-": -1,
+          "sourceRow": 4685
+        },
+        {
+          "Game #": 362,
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "+/-": -6,
+          "sourceRow": 4697
+        }
+      ]
+    },
+    {
+      "name": "Carosi, Justin",
+      "values": {
+        "Current Total Skater Streak Heat Points": 0.75,
+        "Career Prior Skater GP": 299,
+        "Career Prior Total Skater Streak Heat/GP": 1.4133779264214048,
+        "All-Time Total Skater Streak Heat Team Rate Avg": 0.43279195094281864
+      },
+      "currentAppearances": [
+        {
+          "Game #": 359,
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 1,
+          "+/-": -3,
+          "sourceRow": 4657
+        },
+        {
+          "Game #": 360,
+          "GP": 1,
+          "G": 2,
+          "A": 0,
+          "Pts": 2,
+          "POTG": 1,
+          "+/-": -3,
+          "sourceRow": 4671
+        },
+        {
+          "Game #": 361,
+          "GP": 1,
+          "G": 1,
+          "A": 0,
+          "Pts": 1,
+          "POTG": 1,
+          "+/-": -1,
+          "sourceRow": 4686
+        },
+        {
+          "Game #": 362,
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "+/-": -6,
+          "sourceRow": 4698
+        }
+      ]
+    },
+    {
+      "name": "Kong, Henry",
+      "values": {
+        "Current Total Skater Streak Heat Points": 0,
+        "Career Prior Skater GP": 0,
+        "Career Prior Total Skater Streak Heat/GP": 0,
+        "All-Time Total Skater Streak Heat Team Rate Avg": 0.43279195094281864
+      },
+      "currentAppearances": [
+        {
+          "Game #": 359,
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "+/-": -3,
+          "sourceRow": 4658
+        },
+        {
+          "Game #": 360,
+          "GP": 1,
+          "G": 0,
+          "A": 1,
+          "Pts": 1,
+          "POTG": 0,
+          "+/-": -3,
+          "sourceRow": 4674
+        },
+        {
+          "Game #": 361,
+          "GP": 1,
+          "G": 1,
+          "A": 0,
+          "Pts": 1,
+          "POTG": 1,
+          "+/-": -1,
+          "sourceRow": 4688
+        },
+        {
+          "Game #": 362,
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "+/-": -6,
+          "sourceRow": 4700
+        }
+      ]
+    },
+    {
+      "name": "Pagnotta, Alex",
+      "values": {
+        "Current Total Skater Streak Heat Points": 0,
+        "Career Prior Skater GP": 320,
+        "Career Prior Total Skater Streak Heat/GP": 0.10390625,
+        "All-Time Total Skater Streak Heat Team Rate Avg": 0.43279195094281864
+      },
+      "currentAppearances": [
+        {
+          "Game #": 359,
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "+/-": -3,
+          "sourceRow": 4659
+        },
+        {
+          "Game #": 360,
+          "GP": 1,
+          "G": 0,
+          "A": 2,
+          "Pts": 2,
+          "POTG": 0,
+          "+/-": -3,
+          "sourceRow": 4675
+        },
+        {
+          "Game #": 361,
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "+/-": -1,
+          "sourceRow": 4689
+        },
+        {
+          "Game #": 362,
+          "GP": 1,
+          "G": 0,
+          "A": 1,
+          "Pts": 1,
+          "POTG": 0,
+          "+/-": -6,
+          "sourceRow": 4701
+        }
+      ]
+    },
+    {
+      "name": "Paolucci, Anthony",
+      "values": {
+        "Current Total Skater Streak Heat Points": 0,
+        "Career Prior Skater GP": 89,
+        "Career Prior Total Skater Streak Heat/GP": 0.07303370786516854,
+        "All-Time Total Skater Streak Heat Team Rate Avg": 0.43279195094281864
+      },
+      "currentAppearances": [
+        {
+          "Game #": 359,
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "+/-": -3,
+          "sourceRow": 4660
+        }
+      ]
+    },
+    {
+      "name": "Pearsoll, Keith",
+      "values": {
+        "Current Total Skater Streak Heat Points": 0,
+        "Career Prior Skater GP": 294,
+        "Career Prior Total Skater Streak Heat/GP": 0.5431972789115646,
+        "All-Time Total Skater Streak Heat Team Rate Avg": 0.43279195094281864
+      },
+      "currentAppearances": [
+        {
+          "Game #": 359,
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "+/-": -3,
+          "sourceRow": 4661
+        },
+        {
+          "Game #": 360,
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "+/-": -3,
+          "sourceRow": 4676
+        },
+        {
+          "Game #": 362,
+          "GP": 1,
+          "G": 1,
+          "A": 0,
+          "Pts": 1,
+          "POTG": 1,
+          "+/-": -6,
+          "sourceRow": 4702
+        }
+      ]
+    },
+    {
+      "name": "Povegliano, Adam",
+      "values": {
+        "Current Total Skater Streak Heat Points": 0,
+        "Career Prior Skater GP": 0,
+        "Career Prior Total Skater Streak Heat/GP": 0,
+        "All-Time Total Skater Streak Heat Team Rate Avg": 0.43279195094281864
+      },
+      "currentAppearances": [
+        {
+          "Game #": 359,
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "+/-": -3,
+          "sourceRow": 4662
+        },
+        {
+          "Game #": 361,
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "+/-": -1,
+          "sourceRow": 4691
+        },
+        {
+          "Game #": 362,
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "+/-": -6,
+          "sourceRow": 4703
+        }
+      ]
+    },
+    {
+      "name": "Provenzano, Mario",
+      "values": {
+        "Current Total Skater Streak Heat Points": 0,
+        "Career Prior Skater GP": 240,
+        "Career Prior Total Skater Streak Heat/GP": 0.11312499999999999,
+        "All-Time Total Skater Streak Heat Team Rate Avg": 0.43279195094281864
+      },
+      "currentAppearances": [
+        {
+          "Game #": 359,
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "+/-": -3,
+          "sourceRow": 4663
+        },
+        {
+          "Game #": 360,
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "+/-": -3,
+          "sourceRow": 4677
+        },
+        {
+          "Game #": 361,
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "+/-": -1,
+          "sourceRow": 4692
+        },
+        {
+          "Game #": 362,
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "+/-": -6,
+          "sourceRow": 4704
+        }
+      ]
+    },
+    {
+      "name": "Provenzano, Michael",
+      "values": {
+        "Current Total Skater Streak Heat Points": 0,
+        "Career Prior Skater GP": 39,
+        "Career Prior Total Skater Streak Heat/GP": 1.7871794871794873,
+        "All-Time Total Skater Streak Heat Team Rate Avg": 0.43279195094281864
+      },
+      "currentAppearances": [
+        {
+          "Game #": 359,
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 1,
+          "+/-": -3,
+          "sourceRow": 4664
+        },
+        {
+          "Game #": 360,
+          "GP": 1,
+          "G": 0,
+          "A": 2,
+          "Pts": 2,
+          "POTG": 0,
+          "+/-": -3,
+          "sourceRow": 4678
+        },
+        {
+          "Game #": 361,
+          "GP": 1,
+          "G": 0,
+          "A": 1,
+          "Pts": 1,
+          "POTG": 0,
+          "+/-": -1,
+          "sourceRow": 4693
+        }
+      ]
+    },
+    {
+      "name": "Rajkumar, Sanjay",
+      "values": {
+        "Current Total Skater Streak Heat Points": 0,
+        "Career Prior Skater GP": 0,
+        "Career Prior Total Skater Streak Heat/GP": 0,
+        "All-Time Total Skater Streak Heat Team Rate Avg": 0.43279195094281864
+      },
+      "currentAppearances": [
+        {
+          "Game #": 359,
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "+/-": -3,
+          "sourceRow": 4665
+        },
+        {
+          "Game #": 360,
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "+/-": -3,
+          "sourceRow": 4680
+        },
+        {
+          "Game #": 361,
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "+/-": -1,
+          "sourceRow": 4694
+        }
+      ]
+    },
+    {
+      "name": "Saindon, Stephane",
+      "values": {
+        "Current Total Skater Streak Heat Points": 0,
+        "Career Prior Skater GP": 88,
+        "Career Prior Total Skater Streak Heat/GP": 0.7926136363636364,
+        "All-Time Total Skater Streak Heat Team Rate Avg": 0.43279195094281864
+      },
+      "currentAppearances": [
+        {
+          "Game #": 359,
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "+/-": -3,
+          "sourceRow": 4666
+        },
+        {
+          "Game #": 360,
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "+/-": -3,
+          "sourceRow": 4682
+        },
+        {
+          "Game #": 362,
+          "GP": 1,
+          "G": 0,
+          "A": 1,
+          "Pts": 1,
+          "POTG": 1,
+          "+/-": -6,
+          "sourceRow": 4707
+        }
+      ]
+    },
+    {
+      "name": "Triumbari, Francesco",
+      "values": {
+        "Current Total Skater Streak Heat Points": 0,
+        "Career Prior Skater GP": 0,
+        "Career Prior Total Skater Streak Heat/GP": 0,
+        "All-Time Total Skater Streak Heat Team Rate Avg": 0.43279195094281864
+      },
+      "currentAppearances": [
+        {
+          "Game #": 359,
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "+/-": -3,
+          "sourceRow": 4667
+        },
+        {
+          "Game #": 360,
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "+/-": -3,
+          "sourceRow": 4683
+        },
+        {
+          "Game #": 361,
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "+/-": -1,
+          "sourceRow": 4696
+        },
+        {
+          "Game #": 362,
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "+/-": -6,
+          "sourceRow": 4708
+        }
+      ]
+    },
+    {
+      "name": "Atkins, Nolan",
+      "values": {
+        "Current Total Skater Streak Heat Points": 0,
+        "Career Prior Skater GP": 7,
+        "Career Prior Total Skater Streak Heat/GP": 0,
+        "All-Time Total Skater Streak Heat Team Rate Avg": 0.43279195094281864
+      },
+      "currentAppearances": [
+        {
+          "Game #": 360,
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "+/-": -3,
+          "sourceRow": 4669
+        },
+        {
+          "Game #": 361,
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "+/-": -1,
+          "sourceRow": 4684
+        }
+      ]
+    },
+    {
+      "name": "Duffy, Lorcan",
+      "values": {
+        "Current Total Skater Streak Heat Points": 0,
+        "Career Prior Skater GP": 82,
+        "Career Prior Total Skater Streak Heat/GP": 0.174390243902439,
+        "All-Time Total Skater Streak Heat Team Rate Avg": 0.43279195094281864
+      },
+      "currentAppearances": [
+        {
+          "Game #": 360,
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "+/-": -3,
+          "sourceRow": 4672
+        }
+      ]
+    },
+    {
+      "name": "Kober, Adam",
+      "values": {
+        "Current Total Skater Streak Heat Points": 0,
+        "Career Prior Skater GP": 44,
+        "Career Prior Total Skater Streak Heat/GP": 0.07045454545454545,
+        "All-Time Total Skater Streak Heat Team Rate Avg": 0.43279195094281864
+      },
+      "currentAppearances": [
+        {
+          "Game #": 360,
+          "GP": 1,
+          "G": 1,
+          "A": 0,
+          "Pts": 1,
+          "POTG": 1,
+          "+/-": -3,
+          "sourceRow": 4673
+        },
+        {
+          "Game #": 361,
+          "GP": 1,
+          "G": 0,
+          "A": 1,
+          "Pts": 1,
+          "POTG": 0,
+          "+/-": -1,
+          "sourceRow": 4687
+        },
+        {
+          "Game #": 362,
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "+/-": -6,
+          "sourceRow": 4699
+        }
+      ]
+    },
+    {
+      "name": "Rajasooriar, Krishnan",
+      "values": {
+        "Current Total Skater Streak Heat Points": 0,
+        "Career Prior Skater GP": 54,
+        "Career Prior Total Skater Streak Heat/GP": 0.17037037037037037,
+        "All-Time Total Skater Streak Heat Team Rate Avg": 0.43279195094281864
+      },
+      "currentAppearances": [
+        {
+          "Game #": 360,
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "+/-": -3,
+          "sourceRow": 4679
+        },
+        {
+          "Game #": 362,
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "+/-": -6,
+          "sourceRow": 4705
+        }
+      ]
+    },
+    {
+      "name": "Rosenberg, Jamie",
+      "values": {
+        "Current Total Skater Streak Heat Points": 0,
+        "Career Prior Skater GP": 0,
+        "Career Prior Total Skater Streak Heat/GP": 0,
+        "All-Time Total Skater Streak Heat Team Rate Avg": 0.43279195094281864
+      },
+      "currentAppearances": [
+        {
+          "Game #": 360,
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "+/-": -3,
+          "sourceRow": 4681
+        },
+        {
+          "Game #": 361,
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "+/-": -1,
+          "sourceRow": 4695
+        },
+        {
+          "Game #": 362,
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 1,
+          "+/-": -6,
+          "sourceRow": 4706
+        }
+      ]
+    },
+    {
+      "name": "Pavaday, Damian",
+      "values": {
+        "Current Total Skater Streak Heat Points": 0,
+        "Career Prior Skater GP": 0,
+        "Career Prior Total Skater Streak Heat/GP": 0,
+        "All-Time Total Skater Streak Heat Team Rate Avg": 0.43279195094281864
+      },
+      "currentAppearances": [
+        {
+          "Game #": 361,
+          "GP": 1,
+          "G": 0,
+          "A": 1,
+          "Pts": 1,
+          "POTG": 0,
+          "+/-": -1,
+          "sourceRow": 4690
+        }
+      ]
+    }
+  ],
+  "publicationAuthorized": false,
+  "currentCompositeScoresVerified": false
+}

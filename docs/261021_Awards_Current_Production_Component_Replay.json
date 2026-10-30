@@ -1,0 +1,1697 @@
+{
+  "state": "THREE_CURRENT_STAT_COMPONENT_PIPELINES_IMPLEMENTED_NATIVE_CORRECTION_NOT_ACCEPTED",
+  "season": "W2026/27",
+  "cutoff": "2026-10-18",
+  "playerCoverage": 22,
+  "skaterCoverage": 19,
+  "internalComparisons": 57,
+  "changedInternalValuesFromLegacy": 50,
+  "components": {
+    "G": {
+      "currentFieldMean": 0.08771929824561403,
+      "currentCountLeader": 3,
+      "internalRows": [
+        {
+          "name": "Ardizzi, Stefano",
+          "currentInputs": {
+            "All-Time Total Skater G Team Rate Avg": 0.27270151579543844,
+            "Career Prior Skater GP": 221,
+            "Career Prior Total G/GP": 0.25037707390648567,
+            "Current Total G/GP": 0.0,
+            "Current Total Raw G": 0,
+            "Current Total Skater G Field Rate Avg": 0.08771929824561403,
+            "Current Total Skater G Raw Leader": 3,
+            "Current Total Skater Played Games": 1
+          },
+          "nativeInternalObserved": -0.12,
+          "calculated": {
+            "inputField": "G",
+            "phase": "Total",
+            "currentCompositeScoresVerified": false,
+            "state": "INTERNAL_VALUE_CANDIDATE",
+            "value": -0.121,
+            "terms": {
+              "production": 0.0,
+              "priorImprovement": -0.06259426847662142,
+              "fieldDifference": -0.017543859649122806,
+              "historicalTeamDifference": -0.04090522736931577
+            }
+          }
+        },
+        {
+          "name": "Brutto, Adam",
+          "currentInputs": {
+            "All-Time Total Skater G Team Rate Avg": 0.27270151579543844,
+            "Career Prior Skater GP": 332,
+            "Career Prior Total G/GP": 0.06927710843373494,
+            "Current Total G/GP": 0.0,
+            "Current Total Raw G": 0,
+            "Current Total Skater G Field Rate Avg": 0.08771929824561403,
+            "Current Total Skater G Raw Leader": 3,
+            "Current Total Skater Played Games": 4
+          },
+          "nativeInternalObserved": -0.075,
+          "calculated": {
+            "inputField": "G",
+            "phase": "Total",
+            "currentCompositeScoresVerified": false,
+            "state": "INTERNAL_VALUE_CANDIDATE",
+            "value": -0.076,
+            "terms": {
+              "production": 0.0,
+              "priorImprovement": -0.017319277108433735,
+              "fieldDifference": -0.017543859649122806,
+              "historicalTeamDifference": -0.04090522736931577
+            }
+          }
+        },
+        {
+          "name": "Carosi, Justin",
+          "currentInputs": {
+            "All-Time Total Skater G Team Rate Avg": 0.27270151579543844,
+            "Career Prior Skater GP": 299,
+            "Career Prior Total G/GP": 0.46599777034559636,
+            "Current Total G/GP": 0.75,
+            "Current Total Raw G": 3,
+            "Current Total Skater G Field Rate Avg": 0.08771929824561403,
+            "Current Total Skater G Raw Leader": 3,
+            "Current Total Skater Played Games": 4
+          },
+          "nativeInternalObserved": 0.676,
+          "calculated": {
+            "inputField": "G",
+            "phase": "Total",
+            "currentCompositeScoresVerified": false,
+            "state": "INTERNAL_VALUE_CANDIDATE",
+            "value": 0.675,
+            "terms": {
+              "production": 0.4,
+              "priorImprovement": 0.07100055741360091,
+              "fieldDifference": 0.1324561403508772,
+              "historicalTeamDifference": 0.07159477263068423
+            }
+          }
+        },
+        {
+          "name": "Kong, Henry",
+          "currentInputs": {
+            "All-Time Total Skater G Team Rate Avg": 0.27270151579543844,
+            "Career Prior Skater GP": 0,
+            "Career Prior Total G/GP": 0,
+            "Current Total G/GP": 0.25,
+            "Current Total Raw G": 1,
+            "Current Total Skater G Field Rate Avg": 0.08771929824561403,
+            "Current Total Skater G Raw Leader": 3,
+            "Current Total Skater Played Games": 4
+          },
+          "nativeInternalObserved": 0.163,
+          "calculated": {
+            "inputField": "G",
+            "phase": "Total",
+            "currentCompositeScoresVerified": false,
+            "state": "INTERNAL_VALUE_CANDIDATE",
+            "value": 0.162,
+            "terms": {
+              "production": 0.13333333333333333,
+              "priorImprovement": 0.0,
+              "fieldDifference": 0.0324561403508772,
+              "historicalTeamDifference": -0.003405227369315766
+            }
+          }
+        },
+        {
+          "name": "Pagnotta, Alex",
+          "currentInputs": {
+            "All-Time Total Skater G Team Rate Avg": 0.27270151579543844,
+            "Career Prior Skater GP": 320,
+            "Career Prior Total G/GP": 0.09375,
+            "Current Total G/GP": 0.0,
+            "Current Total Raw G": 0,
+            "Current Total Skater G Field Rate Avg": 0.08771929824561403,
+            "Current Total Skater G Raw Leader": 3,
+            "Current Total Skater Played Games": 4
+          },
+          "nativeInternalObserved": -0.081,
+          "calculated": {
+            "inputField": "G",
+            "phase": "Total",
+            "currentCompositeScoresVerified": false,
+            "state": "INTERNAL_VALUE_CANDIDATE",
+            "value": -0.082,
+            "terms": {
+              "production": 0.0,
+              "priorImprovement": -0.0234375,
+              "fieldDifference": -0.017543859649122806,
+              "historicalTeamDifference": -0.04090522736931577
+            }
+          }
+        },
+        {
+          "name": "Paolucci, Anthony",
+          "currentInputs": {
+            "All-Time Total Skater G Team Rate Avg": 0.27270151579543844,
+            "Career Prior Skater GP": 89,
+            "Career Prior Total G/GP": 0.08239700374531836,
+            "Current Total G/GP": 0.0,
+            "Current Total Raw G": 0,
+            "Current Total Skater G Field Rate Avg": 0.08771929824561403,
+            "Current Total Skater G Raw Leader": 3,
+            "Current Total Skater Played Games": 1
+          },
+          "nativeInternalObserved": -0.078,
+          "calculated": {
+            "inputField": "G",
+            "phase": "Total",
+            "currentCompositeScoresVerified": false,
+            "state": "INTERNAL_VALUE_CANDIDATE",
+            "value": -0.079,
+            "terms": {
+              "production": 0.0,
+              "priorImprovement": -0.02059925093632959,
+              "fieldDifference": -0.017543859649122806,
+              "historicalTeamDifference": -0.04090522736931577
+            }
+          }
+        },
+        {
+          "name": "Pearsoll, Keith",
+          "currentInputs": {
+            "All-Time Total Skater G Team Rate Avg": 0.27270151579543844,
+            "Career Prior Skater GP": 294,
+            "Career Prior Total G/GP": 0.3276643990929705,
+            "Current Total G/GP": 0.3333333333333333,
+            "Current Total Raw G": 1,
+            "Current Total Skater G Field Rate Avg": 0.08771929824561403,
+            "Current Total Skater G Raw Leader": 3,
+            "Current Total Skater Played Games": 3
+          },
+          "nativeInternalObserved": 0.194,
+          "calculated": {
+            "inputField": "G",
+            "phase": "Total",
+            "currentCompositeScoresVerified": false,
+            "state": "INTERNAL_VALUE_CANDIDATE",
+            "value": 0.193,
+            "terms": {
+              "production": 0.13333333333333333,
+              "priorImprovement": 0.0014172335600907,
+              "fieldDifference": 0.04912280701754386,
+              "historicalTeamDifference": 0.00909477263068423
+            }
+          }
+        },
+        {
+          "name": "Povegliano, Adam",
+          "currentInputs": {
+            "All-Time Total Skater G Team Rate Avg": 0.27270151579543844,
+            "Career Prior Skater GP": 0,
+            "Career Prior Total G/GP": 0,
+            "Current Total G/GP": 0.0,
+            "Current Total Raw G": 0,
+            "Current Total Skater G Field Rate Avg": 0.08771929824561403,
+            "Current Total Skater G Raw Leader": 3,
+            "Current Total Skater Played Games": 3
+          },
+          "nativeInternalObserved": -0.058,
+          "calculated": {
+            "inputField": "G",
+            "phase": "Total",
+            "currentCompositeScoresVerified": false,
+            "state": "INTERNAL_VALUE_CANDIDATE",
+            "value": -0.058,
+            "terms": {
+              "production": 0.0,
+              "priorImprovement": 0.0,
+              "fieldDifference": -0.017543859649122806,
+              "historicalTeamDifference": -0.04090522736931577
+            }
+          }
+        },
+        {
+          "name": "Provenzano, Mario",
+          "currentInputs": {
+            "All-Time Total Skater G Team Rate Avg": 0.27270151579543844,
+            "Career Prior Skater GP": 240,
+            "Career Prior Total G/GP": 0.12916666666666668,
+            "Current Total G/GP": 0.0,
+            "Current Total Raw G": 0,
+            "Current Total Skater G Field Rate Avg": 0.08771929824561403,
+            "Current Total Skater G Raw Leader": 3,
+            "Current Total Skater Played Games": 4
+          },
+          "nativeInternalObserved": -0.09,
+          "calculated": {
+            "inputField": "G",
+            "phase": "Total",
+            "currentCompositeScoresVerified": false,
+            "state": "INTERNAL_VALUE_CANDIDATE",
+            "value": -0.091,
+            "terms": {
+              "production": 0.0,
+              "priorImprovement": -0.03229166666666667,
+              "fieldDifference": -0.017543859649122806,
+              "historicalTeamDifference": -0.04090522736931577
+            }
+          }
+        },
+        {
+          "name": "Provenzano, Michael",
+          "currentInputs": {
+            "All-Time Total Skater G Team Rate Avg": 0.27270151579543844,
+            "Career Prior Skater GP": 39,
+            "Career Prior Total G/GP": 0.6410256410256411,
+            "Current Total G/GP": 0.0,
+            "Current Total Raw G": 0,
+            "Current Total Skater G Field Rate Avg": 0.08771929824561403,
+            "Current Total Skater G Raw Leader": 3,
+            "Current Total Skater Played Games": 3
+          },
+          "nativeInternalObserved": -0.218,
+          "calculated": {
+            "inputField": "G",
+            "phase": "Total",
+            "currentCompositeScoresVerified": false,
+            "state": "INTERNAL_VALUE_CANDIDATE",
+            "value": -0.219,
+            "terms": {
+              "production": 0.0,
+              "priorImprovement": -0.16025641025641027,
+              "fieldDifference": -0.017543859649122806,
+              "historicalTeamDifference": -0.04090522736931577
+            }
+          }
+        },
+        {
+          "name": "Rajkumar, Sanjay",
+          "currentInputs": {
+            "All-Time Total Skater G Team Rate Avg": 0.27270151579543844,
+            "Career Prior Skater GP": 0,
+            "Career Prior Total G/GP": 0,
+            "Current Total G/GP": 0.0,
+            "Current Total Raw G": 0,
+            "Current Total Skater G Field Rate Avg": 0.08771929824561403,
+            "Current Total Skater G Raw Leader": 3,
+            "Current Total Skater Played Games": 3
+          },
+          "nativeInternalObserved": -0.058,
+          "calculated": {
+            "inputField": "G",
+            "phase": "Total",
+            "currentCompositeScoresVerified": false,
+            "state": "INTERNAL_VALUE_CANDIDATE",
+            "value": -0.058,
+            "terms": {
+              "production": 0.0,
+              "priorImprovement": 0.0,
+              "fieldDifference": -0.017543859649122806,
+              "historicalTeamDifference": -0.04090522736931577
+            }
+          }
+        },
+        {
+          "name": "Saindon, Stephane",
+          "currentInputs": {
+            "All-Time Total Skater G Team Rate Avg": 0.27270151579543844,
+            "Career Prior Skater GP": 88,
+            "Career Prior Total G/GP": 0.7045454545454546,
+            "Current Total G/GP": 0.0,
+            "Current Total Raw G": 0,
+            "Current Total Skater G Field Rate Avg": 0.08771929824561403,
+            "Current Total Skater G Raw Leader": 3,
+            "Current Total Skater Played Games": 3
+          },
+          "nativeInternalObserved": -0.234,
+          "calculated": {
+            "inputField": "G",
+            "phase": "Total",
+            "currentCompositeScoresVerified": false,
+            "state": "INTERNAL_VALUE_CANDIDATE",
+            "value": -0.235,
+            "terms": {
+              "production": 0.0,
+              "priorImprovement": -0.17613636363636365,
+              "fieldDifference": -0.017543859649122806,
+              "historicalTeamDifference": -0.04090522736931577
+            }
+          }
+        },
+        {
+          "name": "Triumbari, Francesco",
+          "currentInputs": {
+            "All-Time Total Skater G Team Rate Avg": 0.27270151579543844,
+            "Career Prior Skater GP": 0,
+            "Career Prior Total G/GP": 0,
+            "Current Total G/GP": 0.0,
+            "Current Total Raw G": 0,
+            "Current Total Skater G Field Rate Avg": 0.08771929824561403,
+            "Current Total Skater G Raw Leader": 3,
+            "Current Total Skater Played Games": 4
+          },
+          "nativeInternalObserved": -0.058,
+          "calculated": {
+            "inputField": "G",
+            "phase": "Total",
+            "currentCompositeScoresVerified": false,
+            "state": "INTERNAL_VALUE_CANDIDATE",
+            "value": -0.058,
+            "terms": {
+              "production": 0.0,
+              "priorImprovement": 0.0,
+              "fieldDifference": -0.017543859649122806,
+              "historicalTeamDifference": -0.04090522736931577
+            }
+          }
+        },
+        {
+          "name": "Atkins, Nolan",
+          "currentInputs": {
+            "All-Time Total Skater G Team Rate Avg": 0.27270151579543844,
+            "Career Prior Skater GP": 7,
+            "Career Prior Total G/GP": 0,
+            "Current Total G/GP": 0.0,
+            "Current Total Raw G": 0,
+            "Current Total Skater G Field Rate Avg": 0.08771929824561403,
+            "Current Total Skater G Raw Leader": 3,
+            "Current Total Skater Played Games": 2
+          },
+          "nativeInternalObserved": -0.058,
+          "calculated": {
+            "inputField": "G",
+            "phase": "Total",
+            "currentCompositeScoresVerified": false,
+            "state": "INTERNAL_VALUE_CANDIDATE",
+            "value": -0.058,
+            "terms": {
+              "production": 0.0,
+              "priorImprovement": 0.0,
+              "fieldDifference": -0.017543859649122806,
+              "historicalTeamDifference": -0.04090522736931577
+            }
+          }
+        },
+        {
+          "name": "Duffy, Lorcan",
+          "currentInputs": {
+            "All-Time Total Skater G Team Rate Avg": 0.27270151579543844,
+            "Career Prior Skater GP": 82,
+            "Career Prior Total G/GP": 0.19918699186991867,
+            "Current Total G/GP": 0.0,
+            "Current Total Raw G": 0,
+            "Current Total Skater G Field Rate Avg": 0.08771929824561403,
+            "Current Total Skater G Raw Leader": 3,
+            "Current Total Skater Played Games": 1
+          },
+          "nativeInternalObserved": -0.107,
+          "calculated": {
+            "inputField": "G",
+            "phase": "Total",
+            "currentCompositeScoresVerified": false,
+            "state": "INTERNAL_VALUE_CANDIDATE",
+            "value": -0.108,
+            "terms": {
+              "production": 0.0,
+              "priorImprovement": -0.04979674796747967,
+              "fieldDifference": -0.017543859649122806,
+              "historicalTeamDifference": -0.04090522736931577
+            }
+          }
+        },
+        {
+          "name": "Kober, Adam",
+          "currentInputs": {
+            "All-Time Total Skater G Team Rate Avg": 0.27270151579543844,
+            "Career Prior Skater GP": 44,
+            "Career Prior Total G/GP": 0.13636363636363635,
+            "Current Total G/GP": 0.3333333333333333,
+            "Current Total Raw G": 1,
+            "Current Total Skater G Field Rate Avg": 0.08771929824561403,
+            "Current Total Skater G Raw Leader": 3,
+            "Current Total Skater Played Games": 3
+          },
+          "nativeInternalObserved": 0.242,
+          "calculated": {
+            "inputField": "G",
+            "phase": "Total",
+            "currentCompositeScoresVerified": false,
+            "state": "INTERNAL_VALUE_CANDIDATE",
+            "value": 0.241,
+            "terms": {
+              "production": 0.13333333333333333,
+              "priorImprovement": 0.04924242424242424,
+              "fieldDifference": 0.04912280701754386,
+              "historicalTeamDifference": 0.00909477263068423
+            }
+          }
+        },
+        {
+          "name": "Rajasooriar, Krishnan",
+          "currentInputs": {
+            "All-Time Total Skater G Team Rate Avg": 0.27270151579543844,
+            "Career Prior Skater GP": 54,
+            "Career Prior Total G/GP": 0.14814814814814814,
+            "Current Total G/GP": 0.0,
+            "Current Total Raw G": 0,
+            "Current Total Skater G Field Rate Avg": 0.08771929824561403,
+            "Current Total Skater G Raw Leader": 3,
+            "Current Total Skater Played Games": 2
+          },
+          "nativeInternalObserved": -0.095,
+          "calculated": {
+            "inputField": "G",
+            "phase": "Total",
+            "currentCompositeScoresVerified": false,
+            "state": "INTERNAL_VALUE_CANDIDATE",
+            "value": -0.095,
+            "terms": {
+              "production": 0.0,
+              "priorImprovement": -0.037037037037037035,
+              "fieldDifference": -0.017543859649122806,
+              "historicalTeamDifference": -0.04090522736931577
+            }
+          }
+        },
+        {
+          "name": "Rosenberg, Jamie",
+          "currentInputs": {
+            "All-Time Total Skater G Team Rate Avg": 0.27270151579543844,
+            "Career Prior Skater GP": 0,
+            "Career Prior Total G/GP": 0,
+            "Current Total G/GP": 0.0,
+            "Current Total Raw G": 0,
+            "Current Total Skater G Field Rate Avg": 0.08771929824561403,
+            "Current Total Skater G Raw Leader": 3,
+            "Current Total Skater Played Games": 3
+          },
+          "nativeInternalObserved": -0.058,
+          "calculated": {
+            "inputField": "G",
+            "phase": "Total",
+            "currentCompositeScoresVerified": false,
+            "state": "INTERNAL_VALUE_CANDIDATE",
+            "value": -0.058,
+            "terms": {
+              "production": 0.0,
+              "priorImprovement": 0.0,
+              "fieldDifference": -0.017543859649122806,
+              "historicalTeamDifference": -0.04090522736931577
+            }
+          }
+        },
+        {
+          "name": "Pavaday, Damian",
+          "currentInputs": {
+            "All-Time Total Skater G Team Rate Avg": 0.27270151579543844,
+            "Career Prior Skater GP": 0,
+            "Career Prior Total G/GP": 0,
+            "Current Total G/GP": 0.0,
+            "Current Total Raw G": 0,
+            "Current Total Skater G Field Rate Avg": 0.08771929824561403,
+            "Current Total Skater G Raw Leader": 3,
+            "Current Total Skater Played Games": 1
+          },
+          "nativeInternalObserved": -0.058,
+          "calculated": {
+            "inputField": "G",
+            "phase": "Total",
+            "currentCompositeScoresVerified": false,
+            "state": "INTERNAL_VALUE_CANDIDATE",
+            "value": -0.058,
+            "terms": {
+              "production": 0.0,
+              "priorImprovement": 0.0,
+              "fieldDifference": -0.017543859649122806,
+              "historicalTeamDifference": -0.04090522736931577
+            }
+          }
+        }
+      ],
+      "normalized": {
+        "season": "W2026/27",
+        "cutoff": "2026-10-18",
+        "inputField": "Total Final G Internal Score",
+        "formulaSha256": "8004d40107960ed19274580a95cbcece5e41999b8771d5c3760bf9f3dba83064",
+        "currentPlayerCoverage": 22,
+        "unavailable": [],
+        "currentCompositeScoresVerified": false,
+        "publicationAuthorized": false,
+        "state": "CURRENT_COMPONENT_NORMALIZATION_CANDIDATE",
+        "family": "MINMAX_MIDPOINT",
+        "numericPlayerCount": 19,
+        "scores": {
+          "Ardizzi, Stefano": 56.3,
+          "Brutto, Adam": 58.7,
+          "Carosi, Justin": 100.0,
+          "Kong, Henry": 71.8,
+          "Pagnotta, Alex": 58.4,
+          "Paolucci, Anthony": 58.6,
+          "Pearsoll, Keith": 73.5,
+          "Povegliano, Adam": 59.7,
+          "Provenzano, Mario": 57.9,
+          "Provenzano, Michael": 50.9,
+          "Rajkumar, Sanjay": 59.7,
+          "Saindon, Stephane": 50.0,
+          "Triumbari, Francesco": 59.7,
+          "Atkins, Nolan": 59.7,
+          "Duffy, Lorcan": 57.0,
+          "Kober, Adam": 76.2,
+          "Rajasooriar, Krishnan": 57.7,
+          "Rosenberg, Jamie": 59.7,
+          "Pavaday, Damian": 59.7
+        },
+        "notApplicable": {
+          "Leong, Dev": "Captured production formula excludes non-skaters",
+          "Logue, Stephen": "Captured production formula excludes non-skaters",
+          "Carlyle, Adam": "Captured production formula excludes non-skaters"
+        },
+        "upstreamParityVerified": false
+      }
+    },
+    "A": {
+      "currentFieldMean": 0.19298245614035087,
+      "currentCountLeader": 3,
+      "internalRows": [
+        {
+          "name": "Ardizzi, Stefano",
+          "currentInputs": {
+            "All-Time Total Skater A Team Rate Avg": 0.39148604618217886,
+            "Career Prior Skater GP": 221,
+            "Career Prior Total A/GP": 0.35897435897435903,
+            "Current Total A/GP": 0.0,
+            "Current Total Raw A": 0,
+            "Current Total Skater A Field Rate Avg": 0.19298245614035087,
+            "Current Total Skater A Raw Leader": 3,
+            "Current Total Skater Played Games": 1
+          },
+          "nativeInternalObserved": -0.185,
+          "calculated": {
+            "inputField": "A",
+            "phase": "Total",
+            "currentCompositeScoresVerified": false,
+            "state": "INTERNAL_VALUE_CANDIDATE",
+            "value": -0.187,
+            "terms": {
+              "production": 0.0,
+              "priorImprovement": -0.08974358974358976,
+              "fieldDifference": -0.03859649122807018,
+              "historicalTeamDifference": -0.058722906927326825
+            }
+          }
+        },
+        {
+          "name": "Brutto, Adam",
+          "currentInputs": {
+            "All-Time Total Skater A Team Rate Avg": 0.39148604618217886,
+            "Career Prior Skater GP": 332,
+            "Career Prior Total A/GP": 0.36244979919678716,
+            "Current Total A/GP": 0.0,
+            "Current Total Raw A": 0,
+            "Current Total Skater A Field Rate Avg": 0.19298245614035087,
+            "Current Total Skater A Raw Leader": 3,
+            "Current Total Skater Played Games": 4
+          },
+          "nativeInternalObserved": -0.186,
+          "calculated": {
+            "inputField": "A",
+            "phase": "Total",
+            "currentCompositeScoresVerified": false,
+            "state": "INTERNAL_VALUE_CANDIDATE",
+            "value": -0.188,
+            "terms": {
+              "production": 0.0,
+              "priorImprovement": -0.09061244979919679,
+              "fieldDifference": -0.03859649122807018,
+              "historicalTeamDifference": -0.058722906927326825
+            }
+          }
+        },
+        {
+          "name": "Carosi, Justin",
+          "currentInputs": {
+            "All-Time Total Skater A Team Rate Avg": 0.39148604618217886,
+            "Career Prior Skater GP": 299,
+            "Career Prior Total A/GP": 0.6755852842809364,
+            "Current Total A/GP": 0.0,
+            "Current Total Raw A": 0,
+            "Current Total Skater A Field Rate Avg": 0.19298245614035087,
+            "Current Total Skater A Raw Leader": 3,
+            "Current Total Skater Played Games": 4
+          },
+          "nativeInternalObserved": -0.264,
+          "calculated": {
+            "inputField": "A",
+            "phase": "Total",
+            "currentCompositeScoresVerified": false,
+            "state": "INTERNAL_VALUE_CANDIDATE",
+            "value": -0.266,
+            "terms": {
+              "production": 0.0,
+              "priorImprovement": -0.1688963210702341,
+              "fieldDifference": -0.03859649122807018,
+              "historicalTeamDifference": -0.058722906927326825
+            }
+          }
+        },
+        {
+          "name": "Kong, Henry",
+          "currentInputs": {
+            "All-Time Total Skater A Team Rate Avg": 0.39148604618217886,
+            "Career Prior Skater GP": 0,
+            "Career Prior Total A/GP": 0,
+            "Current Total A/GP": 0.25,
+            "Current Total Raw A": 1,
+            "Current Total Skater A Field Rate Avg": 0.19298245614035087,
+            "Current Total Skater A Raw Leader": 3,
+            "Current Total Skater Played Games": 4
+          },
+          "nativeInternalObserved": 0.125,
+          "calculated": {
+            "inputField": "A",
+            "phase": "Total",
+            "currentCompositeScoresVerified": false,
+            "state": "INTERNAL_VALUE_CANDIDATE",
+            "value": 0.124,
+            "terms": {
+              "production": 0.13333333333333333,
+              "priorImprovement": 0.0,
+              "fieldDifference": 0.011403508771929827,
+              "historicalTeamDifference": -0.02122290692732683
+            }
+          }
+        },
+        {
+          "name": "Pagnotta, Alex",
+          "currentInputs": {
+            "All-Time Total Skater A Team Rate Avg": 0.39148604618217886,
+            "Career Prior Skater GP": 320,
+            "Career Prior Total A/GP": 0.3489583333333333,
+            "Current Total A/GP": 0.75,
+            "Current Total Raw A": 3,
+            "Current Total Skater A Field Rate Avg": 0.19298245614035087,
+            "Current Total Skater A Raw Leader": 3,
+            "Current Total Skater Played Games": 4
+          },
+          "nativeInternalObserved": 0.667,
+          "calculated": {
+            "inputField": "A",
+            "phase": "Total",
+            "currentCompositeScoresVerified": false,
+            "state": "INTERNAL_VALUE_CANDIDATE",
+            "value": 0.665,
+            "terms": {
+              "production": 0.4,
+              "priorImprovement": 0.10026041666666667,
+              "fieldDifference": 0.11140350877192984,
+              "historicalTeamDifference": 0.05377709307267317
+            }
+          }
+        },
+        {
+          "name": "Paolucci, Anthony",
+          "currentInputs": {
+            "All-Time Total Skater A Team Rate Avg": 0.39148604618217886,
+            "Career Prior Skater GP": 89,
+            "Career Prior Total A/GP": 0.23970037453183524,
+            "Current Total A/GP": 0.0,
+            "Current Total Raw A": 0,
+            "Current Total Skater A Field Rate Avg": 0.19298245614035087,
+            "Current Total Skater A Raw Leader": 3,
+            "Current Total Skater Played Games": 1
+          },
+          "nativeInternalObserved": -0.155,
+          "calculated": {
+            "inputField": "A",
+            "phase": "Total",
+            "currentCompositeScoresVerified": false,
+            "state": "INTERNAL_VALUE_CANDIDATE",
+            "value": -0.157,
+            "terms": {
+              "production": 0.0,
+              "priorImprovement": -0.05992509363295881,
+              "fieldDifference": -0.03859649122807018,
+              "historicalTeamDifference": -0.058722906927326825
+            }
+          }
+        },
+        {
+          "name": "Pearsoll, Keith",
+          "currentInputs": {
+            "All-Time Total Skater A Team Rate Avg": 0.39148604618217886,
+            "Career Prior Skater GP": 294,
+            "Career Prior Total A/GP": 0.41609977324263037,
+            "Current Total A/GP": 0.0,
+            "Current Total Raw A": 0,
+            "Current Total Skater A Field Rate Avg": 0.19298245614035087,
+            "Current Total Skater A Raw Leader": 3,
+            "Current Total Skater Played Games": 3
+          },
+          "nativeInternalObserved": -0.199,
+          "calculated": {
+            "inputField": "A",
+            "phase": "Total",
+            "currentCompositeScoresVerified": false,
+            "state": "INTERNAL_VALUE_CANDIDATE",
+            "value": -0.201,
+            "terms": {
+              "production": 0.0,
+              "priorImprovement": -0.10402494331065759,
+              "fieldDifference": -0.03859649122807018,
+              "historicalTeamDifference": -0.058722906927326825
+            }
+          }
+        },
+        {
+          "name": "Povegliano, Adam",
+          "currentInputs": {
+            "All-Time Total Skater A Team Rate Avg": 0.39148604618217886,
+            "Career Prior Skater GP": 0,
+            "Career Prior Total A/GP": 0,
+            "Current Total A/GP": 0.0,
+            "Current Total Raw A": 0,
+            "Current Total Skater A Field Rate Avg": 0.19298245614035087,
+            "Current Total Skater A Raw Leader": 3,
+            "Current Total Skater Played Games": 3
+          },
+          "nativeInternalObserved": -0.095,
+          "calculated": {
+            "inputField": "A",
+            "phase": "Total",
+            "currentCompositeScoresVerified": false,
+            "state": "INTERNAL_VALUE_CANDIDATE",
+            "value": -0.097,
+            "terms": {
+              "production": 0.0,
+              "priorImprovement": 0.0,
+              "fieldDifference": -0.03859649122807018,
+              "historicalTeamDifference": -0.058722906927326825
+            }
+          }
+        },
+        {
+          "name": "Provenzano, Mario",
+          "currentInputs": {
+            "All-Time Total Skater A Team Rate Avg": 0.39148604618217886,
+            "Career Prior Skater GP": 240,
+            "Career Prior Total A/GP": 0.29027777777777775,
+            "Current Total A/GP": 0.0,
+            "Current Total Raw A": 0,
+            "Current Total Skater A Field Rate Avg": 0.19298245614035087,
+            "Current Total Skater A Raw Leader": 3,
+            "Current Total Skater Played Games": 4
+          },
+          "nativeInternalObserved": -0.168,
+          "calculated": {
+            "inputField": "A",
+            "phase": "Total",
+            "currentCompositeScoresVerified": false,
+            "state": "INTERNAL_VALUE_CANDIDATE",
+            "value": -0.17,
+            "terms": {
+              "production": 0.0,
+              "priorImprovement": -0.07256944444444444,
+              "fieldDifference": -0.03859649122807018,
+              "historicalTeamDifference": -0.058722906927326825
+            }
+          }
+        },
+        {
+          "name": "Provenzano, Michael",
+          "currentInputs": {
+            "All-Time Total Skater A Team Rate Avg": 0.39148604618217886,
+            "Career Prior Skater GP": 39,
+            "Career Prior Total A/GP": 0.5897435897435898,
+            "Current Total A/GP": 1.0,
+            "Current Total Raw A": 3,
+            "Current Total Skater A Field Rate Avg": 0.19298245614035087,
+            "Current Total Skater A Raw Leader": 3,
+            "Current Total Skater Played Games": 3
+          },
+          "nativeInternalObserved": 0.757,
+          "calculated": {
+            "inputField": "A",
+            "phase": "Total",
+            "currentCompositeScoresVerified": false,
+            "state": "INTERNAL_VALUE_CANDIDATE",
+            "value": 0.755,
+            "terms": {
+              "production": 0.4,
+              "priorImprovement": 0.10256410256410256,
+              "fieldDifference": 0.16140350877192985,
+              "historicalTeamDifference": 0.09127709307267316
+            }
+          }
+        },
+        {
+          "name": "Rajkumar, Sanjay",
+          "currentInputs": {
+            "All-Time Total Skater A Team Rate Avg": 0.39148604618217886,
+            "Career Prior Skater GP": 0,
+            "Career Prior Total A/GP": 0,
+            "Current Total A/GP": 0.0,
+            "Current Total Raw A": 0,
+            "Current Total Skater A Field Rate Avg": 0.19298245614035087,
+            "Current Total Skater A Raw Leader": 3,
+            "Current Total Skater Played Games": 3
+          },
+          "nativeInternalObserved": -0.095,
+          "calculated": {
+            "inputField": "A",
+            "phase": "Total",
+            "currentCompositeScoresVerified": false,
+            "state": "INTERNAL_VALUE_CANDIDATE",
+            "value": -0.097,
+            "terms": {
+              "production": 0.0,
+              "priorImprovement": 0.0,
+              "fieldDifference": -0.03859649122807018,
+              "historicalTeamDifference": -0.058722906927326825
+            }
+          }
+        },
+        {
+          "name": "Saindon, Stephane",
+          "currentInputs": {
+            "All-Time Total Skater A Team Rate Avg": 0.39148604618217886,
+            "Career Prior Skater GP": 88,
+            "Career Prior Total A/GP": 0.6818181818181818,
+            "Current Total A/GP": 0.3333333333333333,
+            "Current Total Raw A": 1,
+            "Current Total Skater A Field Rate Avg": 0.19298245614035087,
+            "Current Total Skater A Raw Leader": 3,
+            "Current Total Skater Played Games": 3
+          },
+          "nativeInternalObserved": 0.067,
+          "calculated": {
+            "inputField": "A",
+            "phase": "Total",
+            "currentCompositeScoresVerified": false,
+            "state": "INTERNAL_VALUE_CANDIDATE",
+            "value": 0.066,
+            "terms": {
+              "production": 0.13333333333333333,
+              "priorImprovement": -0.08712121212121211,
+              "fieldDifference": 0.028070175438596492,
+              "historicalTeamDifference": -0.00872290692732683
+            }
+          }
+        },
+        {
+          "name": "Triumbari, Francesco",
+          "currentInputs": {
+            "All-Time Total Skater A Team Rate Avg": 0.39148604618217886,
+            "Career Prior Skater GP": 0,
+            "Career Prior Total A/GP": 0,
+            "Current Total A/GP": 0.0,
+            "Current Total Raw A": 0,
+            "Current Total Skater A Field Rate Avg": 0.19298245614035087,
+            "Current Total Skater A Raw Leader": 3,
+            "Current Total Skater Played Games": 4
+          },
+          "nativeInternalObserved": -0.095,
+          "calculated": {
+            "inputField": "A",
+            "phase": "Total",
+            "currentCompositeScoresVerified": false,
+            "state": "INTERNAL_VALUE_CANDIDATE",
+            "value": -0.097,
+            "terms": {
+              "production": 0.0,
+              "priorImprovement": 0.0,
+              "fieldDifference": -0.03859649122807018,
+              "historicalTeamDifference": -0.058722906927326825
+            }
+          }
+        },
+        {
+          "name": "Atkins, Nolan",
+          "currentInputs": {
+            "All-Time Total Skater A Team Rate Avg": 0.39148604618217886,
+            "Career Prior Skater GP": 7,
+            "Career Prior Total A/GP": 0.14285714285714285,
+            "Current Total A/GP": 0.0,
+            "Current Total Raw A": 0,
+            "Current Total Skater A Field Rate Avg": 0.19298245614035087,
+            "Current Total Skater A Raw Leader": 3,
+            "Current Total Skater Played Games": 2
+          },
+          "nativeInternalObserved": -0.131,
+          "calculated": {
+            "inputField": "A",
+            "phase": "Total",
+            "currentCompositeScoresVerified": false,
+            "state": "INTERNAL_VALUE_CANDIDATE",
+            "value": -0.133,
+            "terms": {
+              "production": 0.0,
+              "priorImprovement": -0.03571428571428571,
+              "fieldDifference": -0.03859649122807018,
+              "historicalTeamDifference": -0.058722906927326825
+            }
+          }
+        },
+        {
+          "name": "Duffy, Lorcan",
+          "currentInputs": {
+            "All-Time Total Skater A Team Rate Avg": 0.39148604618217886,
+            "Career Prior Skater GP": 82,
+            "Career Prior Total A/GP": 0.47967479674796754,
+            "Current Total A/GP": 0.0,
+            "Current Total Raw A": 0,
+            "Current Total Skater A Field Rate Avg": 0.19298245614035087,
+            "Current Total Skater A Raw Leader": 3,
+            "Current Total Skater Played Games": 1
+          },
+          "nativeInternalObserved": -0.215,
+          "calculated": {
+            "inputField": "A",
+            "phase": "Total",
+            "currentCompositeScoresVerified": false,
+            "state": "INTERNAL_VALUE_CANDIDATE",
+            "value": -0.217,
+            "terms": {
+              "production": 0.0,
+              "priorImprovement": -0.11991869918699188,
+              "fieldDifference": -0.03859649122807018,
+              "historicalTeamDifference": -0.058722906927326825
+            }
+          }
+        },
+        {
+          "name": "Kober, Adam",
+          "currentInputs": {
+            "All-Time Total Skater A Team Rate Avg": 0.39148604618217886,
+            "Career Prior Skater GP": 44,
+            "Career Prior Total A/GP": 0.29545454545454547,
+            "Current Total A/GP": 0.3333333333333333,
+            "Current Total Raw A": 1,
+            "Current Total Skater A Field Rate Avg": 0.19298245614035087,
+            "Current Total Skater A Raw Leader": 3,
+            "Current Total Skater Played Games": 3
+          },
+          "nativeInternalObserved": 0.164,
+          "calculated": {
+            "inputField": "A",
+            "phase": "Total",
+            "currentCompositeScoresVerified": false,
+            "state": "INTERNAL_VALUE_CANDIDATE",
+            "value": 0.162,
+            "terms": {
+              "production": 0.13333333333333333,
+              "priorImprovement": 0.009469696969696961,
+              "fieldDifference": 0.028070175438596492,
+              "historicalTeamDifference": -0.00872290692732683
+            }
+          }
+        },
+        {
+          "name": "Rajasooriar, Krishnan",
+          "currentInputs": {
+            "All-Time Total Skater A Team Rate Avg": 0.39148604618217886,
+            "Career Prior Skater GP": 54,
+            "Career Prior Total A/GP": 0.2777777777777778,
+            "Current Total A/GP": 0.0,
+            "Current Total Raw A": 0,
+            "Current Total Skater A Field Rate Avg": 0.19298245614035087,
+            "Current Total Skater A Raw Leader": 3,
+            "Current Total Skater Played Games": 2
+          },
+          "nativeInternalObserved": -0.165,
+          "calculated": {
+            "inputField": "A",
+            "phase": "Total",
+            "currentCompositeScoresVerified": false,
+            "state": "INTERNAL_VALUE_CANDIDATE",
+            "value": -0.167,
+            "terms": {
+              "production": 0.0,
+              "priorImprovement": -0.06944444444444445,
+              "fieldDifference": -0.03859649122807018,
+              "historicalTeamDifference": -0.058722906927326825
+            }
+          }
+        },
+        {
+          "name": "Rosenberg, Jamie",
+          "currentInputs": {
+            "All-Time Total Skater A Team Rate Avg": 0.39148604618217886,
+            "Career Prior Skater GP": 0,
+            "Career Prior Total A/GP": 0,
+            "Current Total A/GP": 0.0,
+            "Current Total Raw A": 0,
+            "Current Total Skater A Field Rate Avg": 0.19298245614035087,
+            "Current Total Skater A Raw Leader": 3,
+            "Current Total Skater Played Games": 3
+          },
+          "nativeInternalObserved": -0.095,
+          "calculated": {
+            "inputField": "A",
+            "phase": "Total",
+            "currentCompositeScoresVerified": false,
+            "state": "INTERNAL_VALUE_CANDIDATE",
+            "value": -0.097,
+            "terms": {
+              "production": 0.0,
+              "priorImprovement": 0.0,
+              "fieldDifference": -0.03859649122807018,
+              "historicalTeamDifference": -0.058722906927326825
+            }
+          }
+        },
+        {
+          "name": "Pavaday, Damian",
+          "currentInputs": {
+            "All-Time Total Skater A Team Rate Avg": 0.39148604618217886,
+            "Career Prior Skater GP": 0,
+            "Career Prior Total A/GP": 0,
+            "Current Total A/GP": 1.0,
+            "Current Total Raw A": 1,
+            "Current Total Skater A Field Rate Avg": 0.19298245614035087,
+            "Current Total Skater A Raw Leader": 3,
+            "Current Total Skater Played Games": 1
+          },
+          "nativeInternalObserved": 0.388,
+          "calculated": {
+            "inputField": "A",
+            "phase": "Total",
+            "currentCompositeScoresVerified": false,
+            "state": "INTERNAL_VALUE_CANDIDATE",
+            "value": 0.386,
+            "terms": {
+              "production": 0.13333333333333333,
+              "priorImprovement": 0.0,
+              "fieldDifference": 0.16140350877192985,
+              "historicalTeamDifference": 0.09127709307267316
+            }
+          }
+        }
+      ],
+      "normalized": {
+        "season": "W2026/27",
+        "cutoff": "2026-10-18",
+        "inputField": "Total Final A Internal Score",
+        "formulaSha256": "4fd53ecb211f76f1ff031d88eee1ec42372497208ac640a87d6a4e707bcd8089",
+        "currentPlayerCoverage": 22,
+        "unavailable": [],
+        "currentCompositeScoresVerified": false,
+        "publicationAuthorized": false,
+        "state": "CURRENT_COMPONENT_NORMALIZATION_CANDIDATE",
+        "family": "MINMAX_MIDPOINT",
+        "numericPlayerCount": 19,
+        "scores": {
+          "Ardizzi, Stefano": 53.9,
+          "Brutto, Adam": 53.8,
+          "Carosi, Justin": 50.0,
+          "Kong, Henry": 69.1,
+          "Pagnotta, Alex": 95.6,
+          "Paolucci, Anthony": 55.3,
+          "Pearsoll, Keith": 53.2,
+          "Povegliano, Adam": 58.3,
+          "Provenzano, Mario": 54.7,
+          "Provenzano, Michael": 100.0,
+          "Rajkumar, Sanjay": 58.3,
+          "Saindon, Stephane": 66.3,
+          "Triumbari, Francesco": 58.3,
+          "Atkins, Nolan": 56.5,
+          "Duffy, Lorcan": 52.4,
+          "Kober, Adam": 71.0,
+          "Rajasooriar, Krishnan": 54.8,
+          "Rosenberg, Jamie": 58.3,
+          "Pavaday, Damian": 81.9
+        },
+        "notApplicable": {
+          "Leong, Dev": "Captured production formula excludes non-skaters",
+          "Logue, Stephen": "Captured production formula excludes non-skaters",
+          "Carlyle, Adam": "Captured production formula excludes non-skaters"
+        },
+        "upstreamParityVerified": false
+      }
+    },
+    "Pts": {
+      "currentFieldMean": 0.2807017543859649,
+      "currentCountLeader": 3,
+      "internalRows": [
+        {
+          "name": "Ardizzi, Stefano",
+          "currentInputs": {
+            "All-Time Total Skater Pts Team Rate Avg": 0.6641875619776171,
+            "Career Prior Skater GP": 221,
+            "Career Prior Total Pts/GP": 0.6093514328808447,
+            "Current Total Pts/GP": 0.0,
+            "Current Total Raw Pts": 0,
+            "Current Total Skater Played Games": 1,
+            "Current Total Skater Pts Field Rate Avg": 0.2807017543859649,
+            "Current Total Skater Pts Raw Leader": 3
+          },
+          "nativeInternalObserved": -0.305,
+          "calculated": {
+            "inputField": "Pts",
+            "phase": "Total",
+            "currentCompositeScoresVerified": false,
+            "state": "INTERNAL_VALUE_CANDIDATE",
+            "value": -0.308,
+            "terms": {
+              "production": 0.0,
+              "priorImprovement": -0.15233785822021118,
+              "fieldDifference": -0.056140350877192984,
+              "historicalTeamDifference": -0.09962813429664256
+            }
+          }
+        },
+        {
+          "name": "Brutto, Adam",
+          "currentInputs": {
+            "All-Time Total Skater Pts Team Rate Avg": 0.6641875619776171,
+            "Career Prior Skater GP": 332,
+            "Career Prior Total Pts/GP": 0.4317269076305221,
+            "Current Total Pts/GP": 0.0,
+            "Current Total Raw Pts": 0,
+            "Current Total Skater Played Games": 4,
+            "Current Total Skater Pts Field Rate Avg": 0.2807017543859649,
+            "Current Total Skater Pts Raw Leader": 3
+          },
+          "nativeInternalObserved": -0.261,
+          "calculated": {
+            "inputField": "Pts",
+            "phase": "Total",
+            "currentCompositeScoresVerified": false,
+            "state": "INTERNAL_VALUE_CANDIDATE",
+            "value": -0.264,
+            "terms": {
+              "production": 0.0,
+              "priorImprovement": -0.10793172690763053,
+              "fieldDifference": -0.056140350877192984,
+              "historicalTeamDifference": -0.09962813429664256
+            }
+          }
+        },
+        {
+          "name": "Carosi, Justin",
+          "currentInputs": {
+            "All-Time Total Skater Pts Team Rate Avg": 0.6641875619776171,
+            "Career Prior Skater GP": 299,
+            "Career Prior Total Pts/GP": 1.1415830546265329,
+            "Current Total Pts/GP": 0.75,
+            "Current Total Raw Pts": 3,
+            "Current Total Skater Played Games": 4,
+            "Current Total Skater Pts Field Rate Avg": 0.2807017543859649,
+            "Current Total Skater Pts Raw Leader": 3
+          },
+          "nativeInternalObserved": 0.412,
+          "calculated": {
+            "inputField": "Pts",
+            "phase": "Total",
+            "currentCompositeScoresVerified": false,
+            "state": "INTERNAL_VALUE_CANDIDATE",
+            "value": 0.409,
+            "terms": {
+              "production": 0.4,
+              "priorImprovement": -0.09789576365663322,
+              "fieldDifference": 0.09385964912280703,
+              "historicalTeamDifference": 0.012871865703357438
+            }
+          }
+        },
+        {
+          "name": "Kong, Henry",
+          "currentInputs": {
+            "All-Time Total Skater Pts Team Rate Avg": 0.6641875619776171,
+            "Career Prior Skater GP": 0,
+            "Career Prior Total Pts/GP": 0,
+            "Current Total Pts/GP": 0.5,
+            "Current Total Raw Pts": 2,
+            "Current Total Skater Played Games": 4,
+            "Current Total Skater Pts Field Rate Avg": 0.2807017543859649,
+            "Current Total Skater Pts Raw Leader": 3
+          },
+          "nativeInternalObserved": 0.289,
+          "calculated": {
+            "inputField": "Pts",
+            "phase": "Total",
+            "currentCompositeScoresVerified": false,
+            "state": "INTERNAL_VALUE_CANDIDATE",
+            "value": 0.286,
+            "terms": {
+              "production": 0.26666666666666666,
+              "priorImprovement": 0.0,
+              "fieldDifference": 0.04385964912280702,
+              "historicalTeamDifference": -0.02462813429664256
+            }
+          }
+        },
+        {
+          "name": "Pagnotta, Alex",
+          "currentInputs": {
+            "All-Time Total Skater Pts Team Rate Avg": 0.6641875619776171,
+            "Career Prior Skater GP": 320,
+            "Career Prior Total Pts/GP": 0.4427083333333333,
+            "Current Total Pts/GP": 0.75,
+            "Current Total Raw Pts": 3,
+            "Current Total Skater Played Games": 4,
+            "Current Total Skater Pts Field Rate Avg": 0.2807017543859649,
+            "Current Total Skater Pts Raw Leader": 3
+          },
+          "nativeInternalObserved": 0.586,
+          "calculated": {
+            "inputField": "Pts",
+            "phase": "Total",
+            "currentCompositeScoresVerified": false,
+            "state": "INTERNAL_VALUE_CANDIDATE",
+            "value": 0.584,
+            "terms": {
+              "production": 0.4,
+              "priorImprovement": 0.07682291666666667,
+              "fieldDifference": 0.09385964912280703,
+              "historicalTeamDifference": 0.012871865703357438
+            }
+          }
+        },
+        {
+          "name": "Paolucci, Anthony",
+          "currentInputs": {
+            "All-Time Total Skater Pts Team Rate Avg": 0.6641875619776171,
+            "Career Prior Skater GP": 89,
+            "Career Prior Total Pts/GP": 0.3220973782771536,
+            "Current Total Pts/GP": 0.0,
+            "Current Total Raw Pts": 0,
+            "Current Total Skater Played Games": 1,
+            "Current Total Skater Pts Field Rate Avg": 0.2807017543859649,
+            "Current Total Skater Pts Raw Leader": 3
+          },
+          "nativeInternalObserved": -0.233,
+          "calculated": {
+            "inputField": "Pts",
+            "phase": "Total",
+            "currentCompositeScoresVerified": false,
+            "state": "INTERNAL_VALUE_CANDIDATE",
+            "value": -0.236,
+            "terms": {
+              "production": 0.0,
+              "priorImprovement": -0.0805243445692884,
+              "fieldDifference": -0.056140350877192984,
+              "historicalTeamDifference": -0.09962813429664256
+            }
+          }
+        },
+        {
+          "name": "Pearsoll, Keith",
+          "currentInputs": {
+            "All-Time Total Skater Pts Team Rate Avg": 0.6641875619776171,
+            "Career Prior Skater GP": 294,
+            "Career Prior Total Pts/GP": 0.7437641723356009,
+            "Current Total Pts/GP": 0.3333333333333333,
+            "Current Total Raw Pts": 1,
+            "Current Total Skater Played Games": 3,
+            "Current Total Skater Pts Field Rate Avg": 0.2807017543859649,
+            "Current Total Skater Pts Raw Leader": 3
+          },
+          "nativeInternalObserved": -0.006,
+          "calculated": {
+            "inputField": "Pts",
+            "phase": "Total",
+            "currentCompositeScoresVerified": false,
+            "state": "INTERNAL_VALUE_CANDIDATE",
+            "value": -0.008,
+            "terms": {
+              "production": 0.13333333333333333,
+              "priorImprovement": -0.10260770975056689,
+              "fieldDifference": 0.010526315789473684,
+              "historicalTeamDifference": -0.04962813429664256
+            }
+          }
+        },
+        {
+          "name": "Povegliano, Adam",
+          "currentInputs": {
+            "All-Time Total Skater Pts Team Rate Avg": 0.6641875619776171,
+            "Career Prior Skater GP": 0,
+            "Career Prior Total Pts/GP": 0,
+            "Current Total Pts/GP": 0.0,
+            "Current Total Raw Pts": 0,
+            "Current Total Skater Played Games": 3,
+            "Current Total Skater Pts Field Rate Avg": 0.2807017543859649,
+            "Current Total Skater Pts Raw Leader": 3
+          },
+          "nativeInternalObserved": -0.153,
+          "calculated": {
+            "inputField": "Pts",
+            "phase": "Total",
+            "currentCompositeScoresVerified": false,
+            "state": "INTERNAL_VALUE_CANDIDATE",
+            "value": -0.156,
+            "terms": {
+              "production": 0.0,
+              "priorImprovement": 0.0,
+              "fieldDifference": -0.056140350877192984,
+              "historicalTeamDifference": -0.09962813429664256
+            }
+          }
+        },
+        {
+          "name": "Provenzano, Mario",
+          "currentInputs": {
+            "All-Time Total Skater Pts Team Rate Avg": 0.6641875619776171,
+            "Career Prior Skater GP": 240,
+            "Career Prior Total Pts/GP": 0.4194444444444444,
+            "Current Total Pts/GP": 0.0,
+            "Current Total Raw Pts": 0,
+            "Current Total Skater Played Games": 4,
+            "Current Total Skater Pts Field Rate Avg": 0.2807017543859649,
+            "Current Total Skater Pts Raw Leader": 3
+          },
+          "nativeInternalObserved": -0.258,
+          "calculated": {
+            "inputField": "Pts",
+            "phase": "Total",
+            "currentCompositeScoresVerified": false,
+            "state": "INTERNAL_VALUE_CANDIDATE",
+            "value": -0.261,
+            "terms": {
+              "production": 0.0,
+              "priorImprovement": -0.1048611111111111,
+              "fieldDifference": -0.056140350877192984,
+              "historicalTeamDifference": -0.09962813429664256
+            }
+          }
+        },
+        {
+          "name": "Provenzano, Michael",
+          "currentInputs": {
+            "All-Time Total Skater Pts Team Rate Avg": 0.6641875619776171,
+            "Career Prior Skater GP": 39,
+            "Career Prior Total Pts/GP": 1.2307692307692308,
+            "Current Total Pts/GP": 1.0,
+            "Current Total Raw Pts": 3,
+            "Current Total Skater Played Games": 3,
+            "Current Total Skater Pts Field Rate Avg": 0.2807017543859649,
+            "Current Total Skater Pts Raw Leader": 3
+          },
+          "nativeInternalObserved": 0.539,
+          "calculated": {
+            "inputField": "Pts",
+            "phase": "Total",
+            "currentCompositeScoresVerified": false,
+            "state": "INTERNAL_VALUE_CANDIDATE",
+            "value": 0.537,
+            "terms": {
+              "production": 0.4,
+              "priorImprovement": -0.05769230769230771,
+              "fieldDifference": 0.14385964912280702,
+              "historicalTeamDifference": 0.05037186570335744
+            }
+          }
+        },
+        {
+          "name": "Rajkumar, Sanjay",
+          "currentInputs": {
+            "All-Time Total Skater Pts Team Rate Avg": 0.6641875619776171,
+            "Career Prior Skater GP": 0,
+            "Career Prior Total Pts/GP": 0,
+            "Current Total Pts/GP": 0.0,
+            "Current Total Raw Pts": 0,
+            "Current Total Skater Played Games": 3,
+            "Current Total Skater Pts Field Rate Avg": 0.2807017543859649,
+            "Current Total Skater Pts Raw Leader": 3
+          },
+          "nativeInternalObserved": -0.153,
+          "calculated": {
+            "inputField": "Pts",
+            "phase": "Total",
+            "currentCompositeScoresVerified": false,
+            "state": "INTERNAL_VALUE_CANDIDATE",
+            "value": -0.156,
+            "terms": {
+              "production": 0.0,
+              "priorImprovement": 0.0,
+              "fieldDifference": -0.056140350877192984,
+              "historicalTeamDifference": -0.09962813429664256
+            }
+          }
+        },
+        {
+          "name": "Saindon, Stephane",
+          "currentInputs": {
+            "All-Time Total Skater Pts Team Rate Avg": 0.6641875619776171,
+            "Career Prior Skater GP": 88,
+            "Career Prior Total Pts/GP": 1.3863636363636365,
+            "Current Total Pts/GP": 0.3333333333333333,
+            "Current Total Raw Pts": 1,
+            "Current Total Skater Played Games": 3,
+            "Current Total Skater Pts Field Rate Avg": 0.2807017543859649,
+            "Current Total Skater Pts Raw Leader": 3
+          },
+          "nativeInternalObserved": -0.166,
+          "calculated": {
+            "inputField": "Pts",
+            "phase": "Total",
+            "currentCompositeScoresVerified": false,
+            "state": "INTERNAL_VALUE_CANDIDATE",
+            "value": -0.169,
+            "terms": {
+              "production": 0.13333333333333333,
+              "priorImprovement": -0.2632575757575758,
+              "fieldDifference": 0.010526315789473684,
+              "historicalTeamDifference": -0.04962813429664256
+            }
+          }
+        },
+        {
+          "name": "Triumbari, Francesco",
+          "currentInputs": {
+            "All-Time Total Skater Pts Team Rate Avg": 0.6641875619776171,
+            "Career Prior Skater GP": 0,
+            "Career Prior Total Pts/GP": 0,
+            "Current Total Pts/GP": 0.0,
+            "Current Total Raw Pts": 0,
+            "Current Total Skater Played Games": 4,
+            "Current Total Skater Pts Field Rate Avg": 0.2807017543859649,
+            "Current Total Skater Pts Raw Leader": 3
+          },
+          "nativeInternalObserved": -0.153,
+          "calculated": {
+            "inputField": "Pts",
+            "phase": "Total",
+            "currentCompositeScoresVerified": false,
+            "state": "INTERNAL_VALUE_CANDIDATE",
+            "value": -0.156,
+            "terms": {
+              "production": 0.0,
+              "priorImprovement": 0.0,
+              "fieldDifference": -0.056140350877192984,
+              "historicalTeamDifference": -0.09962813429664256
+            }
+          }
+        },
+        {
+          "name": "Atkins, Nolan",
+          "currentInputs": {
+            "All-Time Total Skater Pts Team Rate Avg": 0.6641875619776171,
+            "Career Prior Skater GP": 7,
+            "Career Prior Total Pts/GP": 0.14285714285714285,
+            "Current Total Pts/GP": 0.0,
+            "Current Total Raw Pts": 0,
+            "Current Total Skater Played Games": 2,
+            "Current Total Skater Pts Field Rate Avg": 0.2807017543859649,
+            "Current Total Skater Pts Raw Leader": 3
+          },
+          "nativeInternalObserved": -0.189,
+          "calculated": {
+            "inputField": "Pts",
+            "phase": "Total",
+            "currentCompositeScoresVerified": false,
+            "state": "INTERNAL_VALUE_CANDIDATE",
+            "value": -0.191,
+            "terms": {
+              "production": 0.0,
+              "priorImprovement": -0.03571428571428571,
+              "fieldDifference": -0.056140350877192984,
+              "historicalTeamDifference": -0.09962813429664256
+            }
+          }
+        },
+        {
+          "name": "Duffy, Lorcan",
+          "currentInputs": {
+            "All-Time Total Skater Pts Team Rate Avg": 0.6641875619776171,
+            "Career Prior Skater GP": 82,
+            "Career Prior Total Pts/GP": 0.6788617886178863,
+            "Current Total Pts/GP": 0.0,
+            "Current Total Raw Pts": 0,
+            "Current Total Skater Played Games": 1,
+            "Current Total Skater Pts Field Rate Avg": 0.2807017543859649,
+            "Current Total Skater Pts Raw Leader": 3
+          },
+          "nativeInternalObserved": -0.323,
+          "calculated": {
+            "inputField": "Pts",
+            "phase": "Total",
+            "currentCompositeScoresVerified": false,
+            "state": "INTERNAL_VALUE_CANDIDATE",
+            "value": -0.325,
+            "terms": {
+              "production": 0.0,
+              "priorImprovement": -0.16971544715447157,
+              "fieldDifference": -0.056140350877192984,
+              "historicalTeamDifference": -0.09962813429664256
+            }
+          }
+        },
+        {
+          "name": "Kober, Adam",
+          "currentInputs": {
+            "All-Time Total Skater Pts Team Rate Avg": 0.6641875619776171,
+            "Career Prior Skater GP": 44,
+            "Career Prior Total Pts/GP": 0.4318181818181818,
+            "Current Total Pts/GP": 0.6666666666666666,
+            "Current Total Raw Pts": 2,
+            "Current Total Skater Played Games": 3,
+            "Current Total Skater Pts Field Rate Avg": 0.2807017543859649,
+            "Current Total Skater Pts Raw Leader": 3
+          },
+          "nativeInternalObserved": 0.406,
+          "calculated": {
+            "inputField": "Pts",
+            "phase": "Total",
+            "currentCompositeScoresVerified": false,
+            "state": "INTERNAL_VALUE_CANDIDATE",
+            "value": 0.403,
+            "terms": {
+              "production": 0.26666666666666666,
+              "priorImprovement": 0.0587121212121212,
+              "fieldDifference": 0.07719298245614035,
+              "historicalTeamDifference": 0.0003718657033574324
+            }
+          }
+        },
+        {
+          "name": "Rajasooriar, Krishnan",
+          "currentInputs": {
+            "All-Time Total Skater Pts Team Rate Avg": 0.6641875619776171,
+            "Career Prior Skater GP": 54,
+            "Career Prior Total Pts/GP": 0.42592592592592593,
+            "Current Total Pts/GP": 0.0,
+            "Current Total Raw Pts": 0,
+            "Current Total Skater Played Games": 2,
+            "Current Total Skater Pts Field Rate Avg": 0.2807017543859649,
+            "Current Total Skater Pts Raw Leader": 3
+          },
+          "nativeInternalObserved": -0.259,
+          "calculated": {
+            "inputField": "Pts",
+            "phase": "Total",
+            "currentCompositeScoresVerified": false,
+            "state": "INTERNAL_VALUE_CANDIDATE",
+            "value": -0.262,
+            "terms": {
+              "production": 0.0,
+              "priorImprovement": -0.10648148148148148,
+              "fieldDifference": -0.056140350877192984,
+              "historicalTeamDifference": -0.09962813429664256
+            }
+          }
+        },
+        {
+          "name": "Rosenberg, Jamie",
+          "currentInputs": {
+            "All-Time Total Skater Pts Team Rate Avg": 0.6641875619776171,
+            "Career Prior Skater GP": 0,
+            "Career Prior Total Pts/GP": 0,
+            "Current Total Pts/GP": 0.0,
+            "Current Total Raw Pts": 0,
+            "Current Total Skater Played Games": 3,
+            "Current Total Skater Pts Field Rate Avg": 0.2807017543859649,
+            "Current Total Skater Pts Raw Leader": 3
+          },
+          "nativeInternalObserved": -0.153,
+          "calculated": {
+            "inputField": "Pts",
+            "phase": "Total",
+            "currentCompositeScoresVerified": false,
+            "state": "INTERNAL_VALUE_CANDIDATE",
+            "value": -0.156,
+            "terms": {
+              "production": 0.0,
+              "priorImprovement": 0.0,
+              "fieldDifference": -0.056140350877192984,
+              "historicalTeamDifference": -0.09962813429664256
+            }
+          }
+        },
+        {
+          "name": "Pavaday, Damian",
+          "currentInputs": {
+            "All-Time Total Skater Pts Team Rate Avg": 0.6641875619776171,
+            "Career Prior Skater GP": 0,
+            "Career Prior Total Pts/GP": 0,
+            "Current Total Pts/GP": 1.0,
+            "Current Total Raw Pts": 1,
+            "Current Total Skater Played Games": 1,
+            "Current Total Skater Pts Field Rate Avg": 0.2807017543859649,
+            "Current Total Skater Pts Raw Leader": 3
+          },
+          "nativeInternalObserved": 0.33,
+          "calculated": {
+            "inputField": "Pts",
+            "phase": "Total",
+            "currentCompositeScoresVerified": false,
+            "state": "INTERNAL_VALUE_CANDIDATE",
+            "value": 0.328,
+            "terms": {
+              "production": 0.13333333333333333,
+              "priorImprovement": 0.0,
+              "fieldDifference": 0.14385964912280702,
+              "historicalTeamDifference": 0.05037186570335744
+            }
+          }
+        }
+      ],
+      "normalized": {
+        "season": "W2026/27",
+        "cutoff": "2026-10-18",
+        "inputField": "Total Final Pts Internal Score",
+        "formulaSha256": "6cd59fc8fde62ae2ed8146ec64cec1421a62f85c31eea243552574cb1becd6d8",
+        "currentPlayerCoverage": 22,
+        "unavailable": [],
+        "currentCompositeScoresVerified": false,
+        "publicationAuthorized": false,
+        "state": "CURRENT_COMPONENT_NORMALIZATION_CANDIDATE",
+        "family": "MINMAX_MIDPOINT",
+        "numericPlayerCount": 19,
+        "scores": {
+          "Ardizzi, Stefano": 50.9,
+          "Brutto, Adam": 53.4,
+          "Carosi, Justin": 90.4,
+          "Kong, Henry": 83.6,
+          "Pagnotta, Alex": 100.0,
+          "Paolucci, Anthony": 54.9,
+          "Pearsoll, Keith": 67.4,
+          "Povegliano, Adam": 59.3,
+          "Provenzano, Mario": 53.5,
+          "Provenzano, Michael": 97.4,
+          "Rajkumar, Sanjay": 59.3,
+          "Saindon, Stephane": 58.6,
+          "Triumbari, Francesco": 59.3,
+          "Atkins, Nolan": 57.4,
+          "Duffy, Lorcan": 50.0,
+          "Kober, Adam": 90.0,
+          "Rajasooriar, Krishnan": 53.5,
+          "Rosenberg, Jamie": 59.3,
+          "Pavaday, Damian": 85.9
+        },
+        "notApplicable": {
+          "Leong, Dev": "Captured production formula excludes non-skaters",
+          "Logue, Stephen": "Captured production formula excludes non-skaters",
+          "Carlyle, Adam": "Captured production formula excludes non-skaters"
+        },
+        "upstreamParityVerified": false
+      }
+    }
+  },
+  "currentCompositeScoresVerified": false,
+  "publicationAuthorized": false,
+  "limitation": "Accepted current observations and original arithmetic are used. Historical baseline provenance is retained from native values; full historical dependency validation and corrected native/current-cohort parity remain open.",
+  "sourceFileHashes": {
+    "261020_Awards_Original_Formula_Capture.json": "73251e8e4fda7ecb229b9df096cacfcab8e92ddd4c474dcd6a3c646a2920390d",
+    "261021_Awards_Resolved_Game_Input_Candidate.json": "d940763965786aa4288217838e102eb5611a73995f5b5d71afc56f7247a31fe4",
+    "261021_Awards_Current_Population_Join.json": "7ef8f2a19b38a70cc18e9c58a6de5afcad27ec0e5e3e8983b95c438ed5f07186",
+    "261021_Awards_Production_Internal_Native_Reference.json": "984130a01cc39a893ca3fda695cae05745f68d3d772d495c11e73ec145bcbb6d"
+  }
+}

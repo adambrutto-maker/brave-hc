@@ -1,0 +1,434 @@
+{
+  "runtime": {
+    "state": "REVIEW_COPY_SAVED_NEEDS_XML_AND_SOURCE_PARITY_CHECKS",
+    "copy": "D:\\BruTTech\\Products\\HockeyOS\\261019_Award_GameLog_Staging_v1\\Disposable_Awards_Replay_20261021_023525\\Review_Only_Master_Workbook.xlsx",
+    "folder": "D:\\BruTTech\\Products\\HockeyOS\\261019_Award_GameLog_Staging_v1\\Disposable_Awards_Replay_20261021_023525",
+    "sourceWorkbookSha256": "0002fd9f06596af8d0a00fc1b53a618ef15479f941ad5c1e6265b27002a65154",
+    "publicationAuthorized": false,
+    "missingObservationsRetained": [
+      {
+        "name": "Ardizzi, Stefano",
+        "game": 359,
+        "copyRow": 4655,
+        "existingValue": 0,
+        "field": "PIM",
+        "sourceVerified": false
+      },
+      {
+        "name": "Brutto, Adam",
+        "game": 359,
+        "copyRow": 4656,
+        "existingValue": 0,
+        "field": "PIM",
+        "sourceVerified": false
+      },
+      {
+        "name": "Carosi, Justin",
+        "game": 359,
+        "copyRow": 4657,
+        "existingValue": 0,
+        "field": "PIM",
+        "sourceVerified": false
+      },
+      {
+        "name": "Kong, Henry",
+        "game": 359,
+        "copyRow": 4658,
+        "existingValue": 0,
+        "field": "PIM",
+        "sourceVerified": false
+      },
+      {
+        "name": "Pagnotta, Alex",
+        "game": 359,
+        "copyRow": 4659,
+        "existingValue": 0,
+        "field": "PIM",
+        "sourceVerified": false
+      },
+      {
+        "name": "Paolucci, Anthony",
+        "game": 359,
+        "copyRow": 4660,
+        "existingValue": 0,
+        "field": "PIM",
+        "sourceVerified": false
+      },
+      {
+        "name": "Pearsoll, Keith",
+        "game": 359,
+        "copyRow": 4661,
+        "existingValue": 0,
+        "field": "PIM",
+        "sourceVerified": false
+      },
+      {
+        "name": "Povegliano, Adam",
+        "game": 359,
+        "copyRow": 4662,
+        "existingValue": 0,
+        "field": "PIM",
+        "sourceVerified": false
+      },
+      {
+        "name": "Provenzano, Mario",
+        "game": 359,
+        "copyRow": 4663,
+        "existingValue": 0,
+        "field": "PIM",
+        "sourceVerified": false
+      },
+      {
+        "name": "Provenzano, Michael",
+        "game": 359,
+        "copyRow": 4664,
+        "existingValue": 0,
+        "field": "PIM",
+        "sourceVerified": false
+      },
+      {
+        "name": "Rajkumar, Sanjay",
+        "game": 359,
+        "copyRow": 4665,
+        "existingValue": 0,
+        "field": "PIM",
+        "sourceVerified": false
+      },
+      {
+        "name": "Saindon, Stephane",
+        "game": 359,
+        "copyRow": 4666,
+        "existingValue": 0,
+        "field": "PIM",
+        "sourceVerified": false
+      },
+      {
+        "name": "Triumbari, Francesco",
+        "game": 359,
+        "copyRow": 4667,
+        "existingValue": 0,
+        "field": "PIM",
+        "sourceVerified": false
+      },
+      {
+        "name": "Atkins, Nolan",
+        "game": 360,
+        "copyRow": 4669,
+        "existingValue": null,
+        "field": "PIM",
+        "sourceVerified": false
+      },
+      {
+        "name": "Brutto, Adam",
+        "game": 360,
+        "copyRow": 4670,
+        "existingValue": null,
+        "field": "PIM",
+        "sourceVerified": false
+      },
+      {
+        "name": "Carosi, Justin",
+        "game": 360,
+        "copyRow": 4671,
+        "existingValue": null,
+        "field": "PIM",
+        "sourceVerified": false
+      },
+      {
+        "name": "Duffy, Lorcan",
+        "game": 360,
+        "copyRow": 4672,
+        "existingValue": null,
+        "field": "PIM",
+        "sourceVerified": false
+      },
+      {
+        "name": "Kober, Adam",
+        "game": 360,
+        "copyRow": 4673,
+        "existingValue": null,
+        "field": "PIM",
+        "sourceVerified": false
+      },
+      {
+        "name": "Kong, Henry",
+        "game": 360,
+        "copyRow": 4674,
+        "existingValue": null,
+        "field": "PIM",
+        "sourceVerified": false
+      },
+      {
+        "name": "Pagnotta, Alex",
+        "game": 360,
+        "copyRow": 4675,
+        "existingValue": null,
+        "field": "PIM",
+        "sourceVerified": false
+      },
+      {
+        "name": "Pearsoll, Keith",
+        "game": 360,
+        "copyRow": 4676,
+        "existingValue": null,
+        "field": "PIM",
+        "sourceVerified": false
+      },
+      {
+        "name": "Provenzano, Mario",
+        "game": 360,
+        "copyRow": 4677,
+        "existingValue": null,
+        "field": "PIM",
+        "sourceVerified": false
+      },
+      {
+        "name": "Provenzano, Michael",
+        "game": 360,
+        "copyRow": 4678,
+        "existingValue": null,
+        "field": "PIM",
+        "sourceVerified": false
+      },
+      {
+        "name": "Rajasooriar, Krishnan",
+        "game": 360,
+        "copyRow": 4679,
+        "existingValue": null,
+        "field": "PIM",
+        "sourceVerified": false
+      },
+      {
+        "name": "Rajkumar, Sanjay",
+        "game": 360,
+        "copyRow": 4680,
+        "existingValue": null,
+        "field": "PIM",
+        "sourceVerified": false
+      },
+      {
+        "name": "Rosenberg, Jamie",
+        "game": 360,
+        "copyRow": 4681,
+        "existingValue": null,
+        "field": "PIM",
+        "sourceVerified": false
+      },
+      {
+        "name": "Saindon, Stephane",
+        "game": 360,
+        "copyRow": 4682,
+        "existingValue": null,
+        "field": "PIM",
+        "sourceVerified": false
+      },
+      {
+        "name": "Triumbari, Francesco",
+        "game": 360,
+        "copyRow": 4683,
+        "existingValue": null,
+        "field": "PIM",
+        "sourceVerified": false
+      },
+      {
+        "name": "Atkins, Nolan",
+        "game": 361,
+        "copyRow": 4684,
+        "existingValue": null,
+        "field": "PIM",
+        "sourceVerified": false
+      },
+      {
+        "name": "Brutto, Adam",
+        "game": 361,
+        "copyRow": 4685,
+        "existingValue": null,
+        "field": "PIM",
+        "sourceVerified": false
+      },
+      {
+        "name": "Carosi, Justin",
+        "game": 361,
+        "copyRow": 4686,
+        "existingValue": null,
+        "field": "PIM",
+        "sourceVerified": false
+      },
+      {
+        "name": "Kober, Adam",
+        "game": 361,
+        "copyRow": 4687,
+        "existingValue": null,
+        "field": "PIM",
+        "sourceVerified": false
+      },
+      {
+        "name": "Kong, Henry",
+        "game": 361,
+        "copyRow": 4688,
+        "existingValue": null,
+        "field": "PIM",
+        "sourceVerified": false
+      },
+      {
+        "name": "Pagnotta, Alex",
+        "game": 361,
+        "copyRow": 4689,
+        "existingValue": null,
+        "field": "PIM",
+        "sourceVerified": false
+      },
+      {
+        "name": "Pavaday, Damian",
+        "game": 361,
+        "copyRow": 4690,
+        "existingValue": null,
+        "field": "PIM",
+        "sourceVerified": false
+      },
+      {
+        "name": "Povegliano, Adam",
+        "game": 361,
+        "copyRow": 4691,
+        "existingValue": null,
+        "field": "PIM",
+        "sourceVerified": false
+      },
+      {
+        "name": "Provenzano, Mario",
+        "game": 361,
+        "copyRow": 4692,
+        "existingValue": null,
+        "field": "PIM",
+        "sourceVerified": false
+      },
+      {
+        "name": "Provenzano, Michael",
+        "game": 361,
+        "copyRow": 4693,
+        "existingValue": null,
+        "field": "PIM",
+        "sourceVerified": false
+      },
+      {
+        "name": "Rajkumar, Sanjay",
+        "game": 361,
+        "copyRow": 4694,
+        "existingValue": null,
+        "field": "PIM",
+        "sourceVerified": false
+      },
+      {
+        "name": "Rosenberg, Jamie",
+        "game": 361,
+        "copyRow": 4695,
+        "existingValue": null,
+        "field": "PIM",
+        "sourceVerified": false
+      },
+      {
+        "name": "Triumbari, Francesco",
+        "game": 361,
+        "copyRow": 4696,
+        "existingValue": null,
+        "field": "PIM",
+        "sourceVerified": false
+      },
+      {
+        "name": "Leong, Dev",
+        "game": 362,
+        "copyRow": 366,
+        "existingValue": null,
+        "field": "POTG",
+        "sourceVerified": false
+      }
+    ],
+    "expansionCellsPreserved": [
+      {
+        "value": " ",
+        "toRow": 4714,
+        "column": 25,
+        "fromRow": 4674,
+        "method": "Native ListRows.Add with AlwaysInsert=true",
+        "hasFormula": false
+      }
+    ],
+    "restoredCalculatedFlags": [
+      {
+        "scope": "Current matched row in disposable copy only",
+        "table": "GoalieStatsByGame",
+        "row": 363,
+        "templateRow": 362,
+        "field": "Goalie Unbeaten Game Flag",
+        "priorValue": 1
+      },
+      {
+        "scope": "Current matched row in disposable copy only",
+        "table": "GoalieStatsByGame",
+        "row": 363,
+        "templateRow": 362,
+        "field": "Goalie 1 GA or Less Game Flag",
+        "priorValue": -3
+      },
+      {
+        "scope": "Current matched row in disposable copy only",
+        "table": "GoalieStatsByGame",
+        "row": 363,
+        "templateRow": 362,
+        "field": "Goalie 2 GA or Less Game Flag",
+        "priorValue": 0
+      }
+    ],
+    "writes": 565,
+    "originalWorkbookModified": false,
+    "masterScheduleResultsImported": false,
+    "observedAt": "2026-10-21T03:09:27.0186796Z",
+    "sourceFormulaBaselineChecks": 146,
+    "sourceArrayColumns": 132,
+    "formulaFirstRowChecksBeforeRecalculation": 146,
+    "tableExtents": {
+      "SkaterStatsByGame": "$A$2:$FB$4708",
+      "GoalieStatsByGame": "$FD$2:$JO$366"
+    },
+    "formulaFirstRowChecksAfterRecalculation": 146,
+    "calculationState": 0,
+    "awardCellErrors": 0,
+    "copySaved": true,
+    "sourceHashUnchanged": true
+  },
+  "postSave": {
+    "state": "SAVED_REPLAY_XML_CHECKS_PASS",
+    "sourceHashUnchanged": true,
+    "historicalRawInputHashes": {
+      "source": "6d90e99be78e2061dcb74fae3236f405435b575790383930368ee20cb03438cd",
+      "copy": "6d90e99be78e2061dcb74fae3236f405435b575790383930368ee20cb03438cd"
+    },
+    "writtenInputChecks": 565,
+    "savedScoringFormulaReview": {
+      "checked": 146,
+      "nativeArrayColumns": 132,
+      "differences": [],
+      "allowedNotation": "Known current-table column and row shorthand; _xlfn namespace only. Standalone @ operators and quoted text are not removed.",
+      "currentScoresVerified": false,
+      "publicationAuthorized": false
+    },
+    "differenceCount": 0,
+    "differenceExamples": [],
+    "currentEligibilityVerified": false,
+    "currentScoresVerified": false,
+    "publicationAuthorized": false
+  },
+  "templates": {
+    "checked": 3,
+    "differences": [],
+    "publicationAuthorized": false
+  },
+  "loaded": {
+    "checked": 146,
+    "nativeArrayColumns": 132,
+    "differences": [],
+    "allowedNotation": "Known current-table column and row shorthand; _xlfn namespace only. Standalone @ operators and quoted text are not removed.",
+    "currentScoresVerified": false,
+    "publicationAuthorized": false
+  }
+}

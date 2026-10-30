@@ -1,0 +1,1946 @@
+{
+  "state": "THREE_RELIABILITY_COMPONENTS_REBUILT_CORRECTED_NATIVE_PARITY_OPEN",
+  "season": "W2026/27",
+  "cutoff": "2026-10-18",
+  "numericInternalCount": 79,
+  "components": {
+    "Current True Attd. % Internal Score": {
+      "rows": [
+        {
+          "name": "Ardizzi, Stefano",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 25.0,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current True Attd. % Score": 25.0,
+            "Current Total Skater Played Games": 1,
+            "Current Total Plus Game %": 0.0,
+            "Current Total Minus Games": 1,
+            "Current Total Point Game %": 0.0,
+            "Current Total PIM-Free Game %": 1.0,
+            "Current Total Multi-PIM Games": 0,
+            "Current Total Goal Game %": 0.0,
+            "Current Total Multi-Point Game %": 0.0,
+            "Current Total 3+ Point Games": 0,
+            "Current Total POTG Game %": 0.0,
+            "Current Total Special Teams Point Games": 0
+          }
+        },
+        {
+          "name": "Brutto, Adam",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 100,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current True Attd. % Score": 100,
+            "Current Total Skater Played Games": 4,
+            "Current Total Plus Game %": 0.0,
+            "Current Total Minus Games": 4,
+            "Current Total Point Game %": 0.0,
+            "Current Total PIM-Free Game %": 1.0,
+            "Current Total Multi-PIM Games": 0,
+            "Current Total Goal Game %": 0.0,
+            "Current Total Multi-Point Game %": 0.0,
+            "Current Total 3+ Point Games": 0,
+            "Current Total POTG Game %": 0.0,
+            "Current Total Special Teams Point Games": 0
+          }
+        },
+        {
+          "name": "Carosi, Justin",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 100,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current True Attd. % Score": 100,
+            "Current Total Skater Played Games": 4,
+            "Current Total Plus Game %": 0.0,
+            "Current Total Minus Games": 4,
+            "Current Total Point Game %": 0.5,
+            "Current Total PIM-Free Game %": 1.0,
+            "Current Total Multi-PIM Games": 0,
+            "Current Total Goal Game %": 0.5,
+            "Current Total Multi-Point Game %": 0.25,
+            "Current Total 3+ Point Games": 0,
+            "Current Total POTG Game %": 0.75,
+            "Current Total Special Teams Point Games": 0
+          }
+        },
+        {
+          "name": "Kong, Henry",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 100,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current True Attd. % Score": 100,
+            "Current Total Skater Played Games": 4,
+            "Current Total Plus Game %": 0.0,
+            "Current Total Minus Games": 4,
+            "Current Total Point Game %": 0.5,
+            "Current Total PIM-Free Game %": 1.0,
+            "Current Total Multi-PIM Games": 0,
+            "Current Total Goal Game %": 0.25,
+            "Current Total Multi-Point Game %": 0.0,
+            "Current Total 3+ Point Games": 0,
+            "Current Total POTG Game %": 0.25,
+            "Current Total Special Teams Point Games": 0
+          }
+        },
+        {
+          "name": "Pagnotta, Alex",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 100,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current True Attd. % Score": 100,
+            "Current Total Skater Played Games": 4,
+            "Current Total Plus Game %": 0.0,
+            "Current Total Minus Games": 4,
+            "Current Total Point Game %": 0.5,
+            "Current Total PIM-Free Game %": 1.0,
+            "Current Total Multi-PIM Games": 0,
+            "Current Total Goal Game %": 0.0,
+            "Current Total Multi-Point Game %": 0.25,
+            "Current Total 3+ Point Games": 0,
+            "Current Total POTG Game %": 0.0,
+            "Current Total Special Teams Point Games": 0
+          }
+        },
+        {
+          "name": "Paolucci, Anthony",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 25.0,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current True Attd. % Score": 25.0,
+            "Current Total Skater Played Games": 1,
+            "Current Total Plus Game %": 0.0,
+            "Current Total Minus Games": 1,
+            "Current Total Point Game %": 0.0,
+            "Current Total PIM-Free Game %": 1.0,
+            "Current Total Multi-PIM Games": 0,
+            "Current Total Goal Game %": 0.0,
+            "Current Total Multi-Point Game %": 0.0,
+            "Current Total 3+ Point Games": 0,
+            "Current Total POTG Game %": 0.0,
+            "Current Total Special Teams Point Games": 0
+          }
+        },
+        {
+          "name": "Pearsoll, Keith",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 75.0,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current True Attd. % Score": 75.0,
+            "Current Total Skater Played Games": 3,
+            "Current Total Plus Game %": 0.0,
+            "Current Total Minus Games": 3,
+            "Current Total Point Game %": 0.3333333333333333,
+            "Current Total PIM-Free Game %": 1.0,
+            "Current Total Multi-PIM Games": 0,
+            "Current Total Goal Game %": 0.3333333333333333,
+            "Current Total Multi-Point Game %": 0.0,
+            "Current Total 3+ Point Games": 0,
+            "Current Total POTG Game %": 0.3333333333333333,
+            "Current Total Special Teams Point Games": 0
+          }
+        },
+        {
+          "name": "Povegliano, Adam",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 75.0,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current True Attd. % Score": 75.0,
+            "Current Total Skater Played Games": 3,
+            "Current Total Plus Game %": 0.0,
+            "Current Total Minus Games": 3,
+            "Current Total Point Game %": 0.0,
+            "Current Total PIM-Free Game %": 1.0,
+            "Current Total Multi-PIM Games": 0,
+            "Current Total Goal Game %": 0.0,
+            "Current Total Multi-Point Game %": 0.0,
+            "Current Total 3+ Point Games": 0,
+            "Current Total POTG Game %": 0.0,
+            "Current Total Special Teams Point Games": 0
+          }
+        },
+        {
+          "name": "Provenzano, Mario",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 100,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current True Attd. % Score": 100,
+            "Current Total Skater Played Games": 4,
+            "Current Total Plus Game %": 0.0,
+            "Current Total Minus Games": 4,
+            "Current Total Point Game %": 0.0,
+            "Current Total PIM-Free Game %": 1.0,
+            "Current Total Multi-PIM Games": 0,
+            "Current Total Goal Game %": 0.0,
+            "Current Total Multi-Point Game %": 0.0,
+            "Current Total 3+ Point Games": 0,
+            "Current Total POTG Game %": 0.0,
+            "Current Total Special Teams Point Games": 0
+          }
+        },
+        {
+          "name": "Provenzano, Michael",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 75.0,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current True Attd. % Score": 75.0,
+            "Current Total Skater Played Games": 3,
+            "Current Total Plus Game %": 0.0,
+            "Current Total Minus Games": 3,
+            "Current Total Point Game %": 0.6666666666666666,
+            "Current Total PIM-Free Game %": 1.0,
+            "Current Total Multi-PIM Games": 0,
+            "Current Total Goal Game %": 0.0,
+            "Current Total Multi-Point Game %": 0.3333333333333333,
+            "Current Total 3+ Point Games": 0,
+            "Current Total POTG Game %": 0.3333333333333333,
+            "Current Total Special Teams Point Games": 0
+          }
+        },
+        {
+          "name": "Rajkumar, Sanjay",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 75.0,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current True Attd. % Score": 75.0,
+            "Current Total Skater Played Games": 3,
+            "Current Total Plus Game %": 0.0,
+            "Current Total Minus Games": 3,
+            "Current Total Point Game %": 0.0,
+            "Current Total PIM-Free Game %": 1.0,
+            "Current Total Multi-PIM Games": 0,
+            "Current Total Goal Game %": 0.0,
+            "Current Total Multi-Point Game %": 0.0,
+            "Current Total 3+ Point Games": 0,
+            "Current Total POTG Game %": 0.0,
+            "Current Total Special Teams Point Games": 0
+          }
+        },
+        {
+          "name": "Saindon, Stephane",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 75.0,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current True Attd. % Score": 75.0,
+            "Current Total Skater Played Games": 3,
+            "Current Total Plus Game %": 0.0,
+            "Current Total Minus Games": 3,
+            "Current Total Point Game %": 0.3333333333333333,
+            "Current Total PIM-Free Game %": 1.0,
+            "Current Total Multi-PIM Games": 0,
+            "Current Total Goal Game %": 0.0,
+            "Current Total Multi-Point Game %": 0.0,
+            "Current Total 3+ Point Games": 0,
+            "Current Total POTG Game %": 0.3333333333333333,
+            "Current Total Special Teams Point Games": 0
+          }
+        },
+        {
+          "name": "Triumbari, Francesco",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 100,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current True Attd. % Score": 100,
+            "Current Total Skater Played Games": 4,
+            "Current Total Plus Game %": 0.0,
+            "Current Total Minus Games": 4,
+            "Current Total Point Game %": 0.0,
+            "Current Total PIM-Free Game %": 0.75,
+            "Current Total Multi-PIM Games": 0,
+            "Current Total Goal Game %": 0.0,
+            "Current Total Multi-Point Game %": 0.0,
+            "Current Total 3+ Point Games": 0,
+            "Current Total POTG Game %": 0.0,
+            "Current Total Special Teams Point Games": 0
+          }
+        },
+        {
+          "name": "Leong, Dev",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 50.0,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current True Attd. % Score": 50.0,
+            "Current Total Skater Played Games": 2,
+            "Current Total Plus Game %": 0.0,
+            "Current Total Minus Games": 0,
+            "Current Total Point Game %": 0.0,
+            "Current Total PIM-Free Game %": 0.0,
+            "Current Total Multi-PIM Games": 0,
+            "Current Total Goal Game %": 0.0,
+            "Current Total Multi-Point Game %": 0.0,
+            "Current Total 3+ Point Games": 0,
+            "Current Total POTG Game %": 0.0,
+            "Current Total Special Teams Point Games": 0
+          }
+        },
+        {
+          "name": "Atkins, Nolan",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 50.0,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current True Attd. % Score": 50.0,
+            "Current Total Skater Played Games": 2,
+            "Current Total Plus Game %": 0.0,
+            "Current Total Minus Games": 2,
+            "Current Total Point Game %": 0.0,
+            "Current Total PIM-Free Game %": 1.0,
+            "Current Total Multi-PIM Games": 0,
+            "Current Total Goal Game %": 0.0,
+            "Current Total Multi-Point Game %": 0.0,
+            "Current Total 3+ Point Games": 0,
+            "Current Total POTG Game %": 0.0,
+            "Current Total Special Teams Point Games": 0
+          }
+        },
+        {
+          "name": "Duffy, Lorcan",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 25.0,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current True Attd. % Score": 25.0,
+            "Current Total Skater Played Games": 1,
+            "Current Total Plus Game %": 0.0,
+            "Current Total Minus Games": 1,
+            "Current Total Point Game %": 0.0,
+            "Current Total PIM-Free Game %": 1.0,
+            "Current Total Multi-PIM Games": 0,
+            "Current Total Goal Game %": 0.0,
+            "Current Total Multi-Point Game %": 0.0,
+            "Current Total 3+ Point Games": 0,
+            "Current Total POTG Game %": 0.0,
+            "Current Total Special Teams Point Games": 0
+          }
+        },
+        {
+          "name": "Kober, Adam",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 75.0,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current True Attd. % Score": 75.0,
+            "Current Total Skater Played Games": 3,
+            "Current Total Plus Game %": 0.0,
+            "Current Total Minus Games": 3,
+            "Current Total Point Game %": 0.6666666666666666,
+            "Current Total PIM-Free Game %": 1.0,
+            "Current Total Multi-PIM Games": 0,
+            "Current Total Goal Game %": 0.3333333333333333,
+            "Current Total Multi-Point Game %": 0.0,
+            "Current Total 3+ Point Games": 0,
+            "Current Total POTG Game %": 0.3333333333333333,
+            "Current Total Special Teams Point Games": 0
+          }
+        },
+        {
+          "name": "Rajasooriar, Krishnan",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 50.0,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current True Attd. % Score": 50.0,
+            "Current Total Skater Played Games": 2,
+            "Current Total Plus Game %": 0.0,
+            "Current Total Minus Games": 2,
+            "Current Total Point Game %": 0.0,
+            "Current Total PIM-Free Game %": 1.0,
+            "Current Total Multi-PIM Games": 0,
+            "Current Total Goal Game %": 0.0,
+            "Current Total Multi-Point Game %": 0.0,
+            "Current Total 3+ Point Games": 0,
+            "Current Total POTG Game %": 0.0,
+            "Current Total Special Teams Point Games": 0
+          }
+        },
+        {
+          "name": "Rosenberg, Jamie",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 75.0,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current True Attd. % Score": 75.0,
+            "Current Total Skater Played Games": 3,
+            "Current Total Plus Game %": 0.0,
+            "Current Total Minus Games": 3,
+            "Current Total Point Game %": 0.0,
+            "Current Total PIM-Free Game %": 1.0,
+            "Current Total Multi-PIM Games": 0,
+            "Current Total Goal Game %": 0.0,
+            "Current Total Multi-Point Game %": 0.0,
+            "Current Total 3+ Point Games": 0,
+            "Current Total POTG Game %": 0.3333333333333333,
+            "Current Total Special Teams Point Games": 0
+          }
+        },
+        {
+          "name": "Logue, Stephen",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 25.0,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current True Attd. % Score": 25.0,
+            "Current Total Skater Played Games": 1,
+            "Current Total Plus Game %": 0.0,
+            "Current Total Minus Games": 0,
+            "Current Total Point Game %": 0.0,
+            "Current Total PIM-Free Game %": 0.0,
+            "Current Total Multi-PIM Games": 0,
+            "Current Total Goal Game %": 0.0,
+            "Current Total Multi-Point Game %": 0.0,
+            "Current Total 3+ Point Games": 0,
+            "Current Total POTG Game %": 0.0,
+            "Current Total Special Teams Point Games": 0
+          }
+        },
+        {
+          "name": "Pavaday, Damian",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 25.0,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current True Attd. % Score": 25.0,
+            "Current Total Skater Played Games": 1,
+            "Current Total Plus Game %": 0.0,
+            "Current Total Minus Games": 1,
+            "Current Total Point Game %": 1.0,
+            "Current Total PIM-Free Game %": 1.0,
+            "Current Total Multi-PIM Games": 0,
+            "Current Total Goal Game %": 0.0,
+            "Current Total Multi-Point Game %": 0.0,
+            "Current Total 3+ Point Games": 0,
+            "Current Total POTG Game %": 0.0,
+            "Current Total Special Teams Point Games": 0
+          }
+        },
+        {
+          "name": "Carlyle, Adam",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 25.0,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current True Attd. % Score": 25.0,
+            "Current Total Skater Played Games": 1,
+            "Current Total Plus Game %": 0.0,
+            "Current Total Minus Games": 0,
+            "Current Total Point Game %": 0.0,
+            "Current Total PIM-Free Game %": 0.0,
+            "Current Total Multi-PIM Games": 0,
+            "Current Total Goal Game %": 0.0,
+            "Current Total Multi-Point Game %": 0.0,
+            "Current Total 3+ Point Games": 0,
+            "Current Total POTG Game %": 0.0,
+            "Current Total Special Teams Point Games": 0
+          }
+        }
+      ],
+      "normalized": {
+        "season": "W2026/27",
+        "cutoff": "2026-10-18",
+        "inputField": "Current True Attd. % Internal Score",
+        "formulaSha256": "416a532bbe01f52551f9087a4a6645383977f51e2ba4eae9d29a652ab205477f",
+        "currentPlayerCoverage": 22,
+        "unavailable": [],
+        "currentCompositeScoresVerified": false,
+        "publicationAuthorized": false,
+        "state": "CURRENT_COMPONENT_NORMALIZATION_CANDIDATE",
+        "family": "MINMAX_MIDPOINT",
+        "numericPlayerCount": 22,
+        "scores": {
+          "Ardizzi, Stefano": 50.0,
+          "Brutto, Adam": 100.0,
+          "Carosi, Justin": 100.0,
+          "Kong, Henry": 100.0,
+          "Pagnotta, Alex": 100.0,
+          "Paolucci, Anthony": 50.0,
+          "Pearsoll, Keith": 83.3,
+          "Povegliano, Adam": 83.3,
+          "Provenzano, Mario": 100.0,
+          "Provenzano, Michael": 83.3,
+          "Rajkumar, Sanjay": 83.3,
+          "Saindon, Stephane": 83.3,
+          "Triumbari, Francesco": 100.0,
+          "Leong, Dev": 66.7,
+          "Atkins, Nolan": 66.7,
+          "Duffy, Lorcan": 50.0,
+          "Kober, Adam": 83.3,
+          "Rajasooriar, Krishnan": 66.7,
+          "Rosenberg, Jamie": 83.3,
+          "Logue, Stephen": 50.0,
+          "Pavaday, Damian": 50.0,
+          "Carlyle, Adam": 50.0
+        },
+        "notApplicable": {},
+        "upstreamParityVerified": false
+      }
+    },
+    "Total Skater Two-Way Reliability Internal Score": {
+      "rows": [
+        {
+          "name": "Ardizzi, Stefano",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 0.0,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current True Attd. % Score": 25.0,
+            "Current Total Skater Played Games": 1,
+            "Current Total Plus Game %": 0.0,
+            "Current Total Minus Games": 1,
+            "Current Total Point Game %": 0.0,
+            "Current Total PIM-Free Game %": 1.0,
+            "Current Total Multi-PIM Games": 0,
+            "Current Total Goal Game %": 0.0,
+            "Current Total Multi-Point Game %": 0.0,
+            "Current Total 3+ Point Games": 0,
+            "Current Total POTG Game %": 0.0,
+            "Current Total Special Teams Point Games": 0
+          }
+        },
+        {
+          "name": "Brutto, Adam",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 0.0,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current True Attd. % Score": 100,
+            "Current Total Skater Played Games": 4,
+            "Current Total Plus Game %": 0.0,
+            "Current Total Minus Games": 4,
+            "Current Total Point Game %": 0.0,
+            "Current Total PIM-Free Game %": 1.0,
+            "Current Total Multi-PIM Games": 0,
+            "Current Total Goal Game %": 0.0,
+            "Current Total Multi-Point Game %": 0.0,
+            "Current Total 3+ Point Games": 0,
+            "Current Total POTG Game %": 0.0,
+            "Current Total Special Teams Point Games": 0
+          }
+        },
+        {
+          "name": "Carosi, Justin",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 10.0,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current True Attd. % Score": 100,
+            "Current Total Skater Played Games": 4,
+            "Current Total Plus Game %": 0.0,
+            "Current Total Minus Games": 4,
+            "Current Total Point Game %": 0.5,
+            "Current Total PIM-Free Game %": 1.0,
+            "Current Total Multi-PIM Games": 0,
+            "Current Total Goal Game %": 0.5,
+            "Current Total Multi-Point Game %": 0.25,
+            "Current Total 3+ Point Games": 0,
+            "Current Total POTG Game %": 0.75,
+            "Current Total Special Teams Point Games": 0
+          }
+        },
+        {
+          "name": "Kong, Henry",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 10.0,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current True Attd. % Score": 100,
+            "Current Total Skater Played Games": 4,
+            "Current Total Plus Game %": 0.0,
+            "Current Total Minus Games": 4,
+            "Current Total Point Game %": 0.5,
+            "Current Total PIM-Free Game %": 1.0,
+            "Current Total Multi-PIM Games": 0,
+            "Current Total Goal Game %": 0.25,
+            "Current Total Multi-Point Game %": 0.0,
+            "Current Total 3+ Point Games": 0,
+            "Current Total POTG Game %": 0.25,
+            "Current Total Special Teams Point Games": 0
+          }
+        },
+        {
+          "name": "Pagnotta, Alex",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 10.0,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current True Attd. % Score": 100,
+            "Current Total Skater Played Games": 4,
+            "Current Total Plus Game %": 0.0,
+            "Current Total Minus Games": 4,
+            "Current Total Point Game %": 0.5,
+            "Current Total PIM-Free Game %": 1.0,
+            "Current Total Multi-PIM Games": 0,
+            "Current Total Goal Game %": 0.0,
+            "Current Total Multi-Point Game %": 0.25,
+            "Current Total 3+ Point Games": 0,
+            "Current Total POTG Game %": 0.0,
+            "Current Total Special Teams Point Games": 0
+          }
+        },
+        {
+          "name": "Paolucci, Anthony",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 0.0,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current True Attd. % Score": 25.0,
+            "Current Total Skater Played Games": 1,
+            "Current Total Plus Game %": 0.0,
+            "Current Total Minus Games": 1,
+            "Current Total Point Game %": 0.0,
+            "Current Total PIM-Free Game %": 1.0,
+            "Current Total Multi-PIM Games": 0,
+            "Current Total Goal Game %": 0.0,
+            "Current Total Multi-Point Game %": 0.0,
+            "Current Total 3+ Point Games": 0,
+            "Current Total POTG Game %": 0.0,
+            "Current Total Special Teams Point Games": 0
+          }
+        },
+        {
+          "name": "Pearsoll, Keith",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 6.7,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current True Attd. % Score": 75.0,
+            "Current Total Skater Played Games": 3,
+            "Current Total Plus Game %": 0.0,
+            "Current Total Minus Games": 3,
+            "Current Total Point Game %": 0.3333333333333333,
+            "Current Total PIM-Free Game %": 1.0,
+            "Current Total Multi-PIM Games": 0,
+            "Current Total Goal Game %": 0.3333333333333333,
+            "Current Total Multi-Point Game %": 0.0,
+            "Current Total 3+ Point Games": 0,
+            "Current Total POTG Game %": 0.3333333333333333,
+            "Current Total Special Teams Point Games": 0
+          }
+        },
+        {
+          "name": "Povegliano, Adam",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 0.0,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current True Attd. % Score": 75.0,
+            "Current Total Skater Played Games": 3,
+            "Current Total Plus Game %": 0.0,
+            "Current Total Minus Games": 3,
+            "Current Total Point Game %": 0.0,
+            "Current Total PIM-Free Game %": 1.0,
+            "Current Total Multi-PIM Games": 0,
+            "Current Total Goal Game %": 0.0,
+            "Current Total Multi-Point Game %": 0.0,
+            "Current Total 3+ Point Games": 0,
+            "Current Total POTG Game %": 0.0,
+            "Current Total Special Teams Point Games": 0
+          }
+        },
+        {
+          "name": "Provenzano, Mario",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 0.0,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current True Attd. % Score": 100,
+            "Current Total Skater Played Games": 4,
+            "Current Total Plus Game %": 0.0,
+            "Current Total Minus Games": 4,
+            "Current Total Point Game %": 0.0,
+            "Current Total PIM-Free Game %": 1.0,
+            "Current Total Multi-PIM Games": 0,
+            "Current Total Goal Game %": 0.0,
+            "Current Total Multi-Point Game %": 0.0,
+            "Current Total 3+ Point Games": 0,
+            "Current Total POTG Game %": 0.0,
+            "Current Total Special Teams Point Games": 0
+          }
+        },
+        {
+          "name": "Provenzano, Michael",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 13.3,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current True Attd. % Score": 75.0,
+            "Current Total Skater Played Games": 3,
+            "Current Total Plus Game %": 0.0,
+            "Current Total Minus Games": 3,
+            "Current Total Point Game %": 0.6666666666666666,
+            "Current Total PIM-Free Game %": 1.0,
+            "Current Total Multi-PIM Games": 0,
+            "Current Total Goal Game %": 0.0,
+            "Current Total Multi-Point Game %": 0.3333333333333333,
+            "Current Total 3+ Point Games": 0,
+            "Current Total POTG Game %": 0.3333333333333333,
+            "Current Total Special Teams Point Games": 0
+          }
+        },
+        {
+          "name": "Rajkumar, Sanjay",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 0.0,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current True Attd. % Score": 75.0,
+            "Current Total Skater Played Games": 3,
+            "Current Total Plus Game %": 0.0,
+            "Current Total Minus Games": 3,
+            "Current Total Point Game %": 0.0,
+            "Current Total PIM-Free Game %": 1.0,
+            "Current Total Multi-PIM Games": 0,
+            "Current Total Goal Game %": 0.0,
+            "Current Total Multi-Point Game %": 0.0,
+            "Current Total 3+ Point Games": 0,
+            "Current Total POTG Game %": 0.0,
+            "Current Total Special Teams Point Games": 0
+          }
+        },
+        {
+          "name": "Saindon, Stephane",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 6.7,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current True Attd. % Score": 75.0,
+            "Current Total Skater Played Games": 3,
+            "Current Total Plus Game %": 0.0,
+            "Current Total Minus Games": 3,
+            "Current Total Point Game %": 0.3333333333333333,
+            "Current Total PIM-Free Game %": 1.0,
+            "Current Total Multi-PIM Games": 0,
+            "Current Total Goal Game %": 0.0,
+            "Current Total Multi-Point Game %": 0.0,
+            "Current Total 3+ Point Games": 0,
+            "Current Total POTG Game %": 0.3333333333333333,
+            "Current Total Special Teams Point Games": 0
+          }
+        },
+        {
+          "name": "Triumbari, Francesco",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 0.0,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current True Attd. % Score": 100,
+            "Current Total Skater Played Games": 4,
+            "Current Total Plus Game %": 0.0,
+            "Current Total Minus Games": 4,
+            "Current Total Point Game %": 0.0,
+            "Current Total PIM-Free Game %": 0.75,
+            "Current Total Multi-PIM Games": 0,
+            "Current Total Goal Game %": 0.0,
+            "Current Total Multi-Point Game %": 0.0,
+            "Current Total 3+ Point Games": 0,
+            "Current Total POTG Game %": 0.0,
+            "Current Total Special Teams Point Games": 0
+          }
+        },
+        {
+          "name": "Leong, Dev",
+          "state": "SOURCE_BLANK",
+          "value": "",
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current True Attd. % Score": 50.0,
+            "Current Total Skater Played Games": 2,
+            "Current Total Plus Game %": 0.0,
+            "Current Total Minus Games": 0,
+            "Current Total Point Game %": 0.0,
+            "Current Total PIM-Free Game %": 0.0,
+            "Current Total Multi-PIM Games": 0,
+            "Current Total Goal Game %": 0.0,
+            "Current Total Multi-Point Game %": 0.0,
+            "Current Total 3+ Point Games": 0,
+            "Current Total POTG Game %": 0.0,
+            "Current Total Special Teams Point Games": 0
+          }
+        },
+        {
+          "name": "Atkins, Nolan",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 0.0,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current True Attd. % Score": 50.0,
+            "Current Total Skater Played Games": 2,
+            "Current Total Plus Game %": 0.0,
+            "Current Total Minus Games": 2,
+            "Current Total Point Game %": 0.0,
+            "Current Total PIM-Free Game %": 1.0,
+            "Current Total Multi-PIM Games": 0,
+            "Current Total Goal Game %": 0.0,
+            "Current Total Multi-Point Game %": 0.0,
+            "Current Total 3+ Point Games": 0,
+            "Current Total POTG Game %": 0.0,
+            "Current Total Special Teams Point Games": 0
+          }
+        },
+        {
+          "name": "Duffy, Lorcan",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 0.0,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current True Attd. % Score": 25.0,
+            "Current Total Skater Played Games": 1,
+            "Current Total Plus Game %": 0.0,
+            "Current Total Minus Games": 1,
+            "Current Total Point Game %": 0.0,
+            "Current Total PIM-Free Game %": 1.0,
+            "Current Total Multi-PIM Games": 0,
+            "Current Total Goal Game %": 0.0,
+            "Current Total Multi-Point Game %": 0.0,
+            "Current Total 3+ Point Games": 0,
+            "Current Total POTG Game %": 0.0,
+            "Current Total Special Teams Point Games": 0
+          }
+        },
+        {
+          "name": "Kober, Adam",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 13.3,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current True Attd. % Score": 75.0,
+            "Current Total Skater Played Games": 3,
+            "Current Total Plus Game %": 0.0,
+            "Current Total Minus Games": 3,
+            "Current Total Point Game %": 0.6666666666666666,
+            "Current Total PIM-Free Game %": 1.0,
+            "Current Total Multi-PIM Games": 0,
+            "Current Total Goal Game %": 0.3333333333333333,
+            "Current Total Multi-Point Game %": 0.0,
+            "Current Total 3+ Point Games": 0,
+            "Current Total POTG Game %": 0.3333333333333333,
+            "Current Total Special Teams Point Games": 0
+          }
+        },
+        {
+          "name": "Rajasooriar, Krishnan",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 0.0,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current True Attd. % Score": 50.0,
+            "Current Total Skater Played Games": 2,
+            "Current Total Plus Game %": 0.0,
+            "Current Total Minus Games": 2,
+            "Current Total Point Game %": 0.0,
+            "Current Total PIM-Free Game %": 1.0,
+            "Current Total Multi-PIM Games": 0,
+            "Current Total Goal Game %": 0.0,
+            "Current Total Multi-Point Game %": 0.0,
+            "Current Total 3+ Point Games": 0,
+            "Current Total POTG Game %": 0.0,
+            "Current Total Special Teams Point Games": 0
+          }
+        },
+        {
+          "name": "Rosenberg, Jamie",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 0.0,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current True Attd. % Score": 75.0,
+            "Current Total Skater Played Games": 3,
+            "Current Total Plus Game %": 0.0,
+            "Current Total Minus Games": 3,
+            "Current Total Point Game %": 0.0,
+            "Current Total PIM-Free Game %": 1.0,
+            "Current Total Multi-PIM Games": 0,
+            "Current Total Goal Game %": 0.0,
+            "Current Total Multi-Point Game %": 0.0,
+            "Current Total 3+ Point Games": 0,
+            "Current Total POTG Game %": 0.3333333333333333,
+            "Current Total Special Teams Point Games": 0
+          }
+        },
+        {
+          "name": "Logue, Stephen",
+          "state": "SOURCE_BLANK",
+          "value": "",
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current True Attd. % Score": 25.0,
+            "Current Total Skater Played Games": 1,
+            "Current Total Plus Game %": 0.0,
+            "Current Total Minus Games": 0,
+            "Current Total Point Game %": 0.0,
+            "Current Total PIM-Free Game %": 0.0,
+            "Current Total Multi-PIM Games": 0,
+            "Current Total Goal Game %": 0.0,
+            "Current Total Multi-Point Game %": 0.0,
+            "Current Total 3+ Point Games": 0,
+            "Current Total POTG Game %": 0.0,
+            "Current Total Special Teams Point Games": 0
+          }
+        },
+        {
+          "name": "Pavaday, Damian",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 20.0,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current True Attd. % Score": 25.0,
+            "Current Total Skater Played Games": 1,
+            "Current Total Plus Game %": 0.0,
+            "Current Total Minus Games": 1,
+            "Current Total Point Game %": 1.0,
+            "Current Total PIM-Free Game %": 1.0,
+            "Current Total Multi-PIM Games": 0,
+            "Current Total Goal Game %": 0.0,
+            "Current Total Multi-Point Game %": 0.0,
+            "Current Total 3+ Point Games": 0,
+            "Current Total POTG Game %": 0.0,
+            "Current Total Special Teams Point Games": 0
+          }
+        },
+        {
+          "name": "Carlyle, Adam",
+          "state": "SOURCE_BLANK",
+          "value": "",
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current True Attd. % Score": 25.0,
+            "Current Total Skater Played Games": 1,
+            "Current Total Plus Game %": 0.0,
+            "Current Total Minus Games": 0,
+            "Current Total Point Game %": 0.0,
+            "Current Total PIM-Free Game %": 0.0,
+            "Current Total Multi-PIM Games": 0,
+            "Current Total Goal Game %": 0.0,
+            "Current Total Multi-Point Game %": 0.0,
+            "Current Total 3+ Point Games": 0,
+            "Current Total POTG Game %": 0.0,
+            "Current Total Special Teams Point Games": 0
+          }
+        }
+      ],
+      "normalized": {
+        "season": "W2026/27",
+        "cutoff": "2026-10-18",
+        "inputField": "Total Skater Two-Way Reliability Internal Score",
+        "formulaSha256": "69471afa623964f2e8fd4751d54bd87c8205b6a13c0b9bfc148e68683bf6f44f",
+        "currentPlayerCoverage": 22,
+        "unavailable": [],
+        "currentCompositeScoresVerified": false,
+        "publicationAuthorized": false,
+        "state": "CURRENT_COMPONENT_NORMALIZATION_CANDIDATE",
+        "family": "MINMAX_ABSOLUTE_TIE",
+        "numericPlayerCount": 19,
+        "scores": {
+          "Ardizzi, Stefano": 50.0,
+          "Brutto, Adam": 50.0,
+          "Carosi, Justin": 75.0,
+          "Kong, Henry": 75.0,
+          "Pagnotta, Alex": 75.0,
+          "Paolucci, Anthony": 50.0,
+          "Pearsoll, Keith": 66.8,
+          "Povegliano, Adam": 50.0,
+          "Provenzano, Mario": 50.0,
+          "Provenzano, Michael": 83.3,
+          "Rajkumar, Sanjay": 50.0,
+          "Saindon, Stephane": 66.8,
+          "Triumbari, Francesco": 50.0,
+          "Atkins, Nolan": 50.0,
+          "Duffy, Lorcan": 50.0,
+          "Kober, Adam": 83.3,
+          "Rajasooriar, Krishnan": 50.0,
+          "Rosenberg, Jamie": 50.0,
+          "Pavaday, Damian": 100.0
+        },
+        "notApplicable": {
+          "Leong, Dev": "Source excludes non-skaters",
+          "Logue, Stephen": "Source excludes non-skaters",
+          "Carlyle, Adam": "Source excludes non-skaters"
+        },
+        "upstreamParityVerified": false
+      }
+    },
+    "Total Discipline Reliability Internal Score": {
+      "rows": [
+        {
+          "name": "Ardizzi, Stefano",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 100.0,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current True Attd. % Score": 25.0,
+            "Current Total Skater Played Games": 1,
+            "Current Total Plus Game %": 0.0,
+            "Current Total Minus Games": 1,
+            "Current Total Point Game %": 0.0,
+            "Current Total PIM-Free Game %": 1.0,
+            "Current Total Multi-PIM Games": 0,
+            "Current Total Goal Game %": 0.0,
+            "Current Total Multi-Point Game %": 0.0,
+            "Current Total 3+ Point Games": 0,
+            "Current Total POTG Game %": 0.0,
+            "Current Total Special Teams Point Games": 0
+          }
+        },
+        {
+          "name": "Brutto, Adam",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 100.0,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current True Attd. % Score": 100,
+            "Current Total Skater Played Games": 4,
+            "Current Total Plus Game %": 0.0,
+            "Current Total Minus Games": 4,
+            "Current Total Point Game %": 0.0,
+            "Current Total PIM-Free Game %": 1.0,
+            "Current Total Multi-PIM Games": 0,
+            "Current Total Goal Game %": 0.0,
+            "Current Total Multi-Point Game %": 0.0,
+            "Current Total 3+ Point Games": 0,
+            "Current Total POTG Game %": 0.0,
+            "Current Total Special Teams Point Games": 0
+          }
+        },
+        {
+          "name": "Carosi, Justin",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 100.0,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current True Attd. % Score": 100,
+            "Current Total Skater Played Games": 4,
+            "Current Total Plus Game %": 0.0,
+            "Current Total Minus Games": 4,
+            "Current Total Point Game %": 0.5,
+            "Current Total PIM-Free Game %": 1.0,
+            "Current Total Multi-PIM Games": 0,
+            "Current Total Goal Game %": 0.5,
+            "Current Total Multi-Point Game %": 0.25,
+            "Current Total 3+ Point Games": 0,
+            "Current Total POTG Game %": 0.75,
+            "Current Total Special Teams Point Games": 0
+          }
+        },
+        {
+          "name": "Kong, Henry",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 100.0,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current True Attd. % Score": 100,
+            "Current Total Skater Played Games": 4,
+            "Current Total Plus Game %": 0.0,
+            "Current Total Minus Games": 4,
+            "Current Total Point Game %": 0.5,
+            "Current Total PIM-Free Game %": 1.0,
+            "Current Total Multi-PIM Games": 0,
+            "Current Total Goal Game %": 0.25,
+            "Current Total Multi-Point Game %": 0.0,
+            "Current Total 3+ Point Games": 0,
+            "Current Total POTG Game %": 0.25,
+            "Current Total Special Teams Point Games": 0
+          }
+        },
+        {
+          "name": "Pagnotta, Alex",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 100.0,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current True Attd. % Score": 100,
+            "Current Total Skater Played Games": 4,
+            "Current Total Plus Game %": 0.0,
+            "Current Total Minus Games": 4,
+            "Current Total Point Game %": 0.5,
+            "Current Total PIM-Free Game %": 1.0,
+            "Current Total Multi-PIM Games": 0,
+            "Current Total Goal Game %": 0.0,
+            "Current Total Multi-Point Game %": 0.25,
+            "Current Total 3+ Point Games": 0,
+            "Current Total POTG Game %": 0.0,
+            "Current Total Special Teams Point Games": 0
+          }
+        },
+        {
+          "name": "Paolucci, Anthony",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 100.0,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current True Attd. % Score": 25.0,
+            "Current Total Skater Played Games": 1,
+            "Current Total Plus Game %": 0.0,
+            "Current Total Minus Games": 1,
+            "Current Total Point Game %": 0.0,
+            "Current Total PIM-Free Game %": 1.0,
+            "Current Total Multi-PIM Games": 0,
+            "Current Total Goal Game %": 0.0,
+            "Current Total Multi-Point Game %": 0.0,
+            "Current Total 3+ Point Games": 0,
+            "Current Total POTG Game %": 0.0,
+            "Current Total Special Teams Point Games": 0
+          }
+        },
+        {
+          "name": "Pearsoll, Keith",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 100.0,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current True Attd. % Score": 75.0,
+            "Current Total Skater Played Games": 3,
+            "Current Total Plus Game %": 0.0,
+            "Current Total Minus Games": 3,
+            "Current Total Point Game %": 0.3333333333333333,
+            "Current Total PIM-Free Game %": 1.0,
+            "Current Total Multi-PIM Games": 0,
+            "Current Total Goal Game %": 0.3333333333333333,
+            "Current Total Multi-Point Game %": 0.0,
+            "Current Total 3+ Point Games": 0,
+            "Current Total POTG Game %": 0.3333333333333333,
+            "Current Total Special Teams Point Games": 0
+          }
+        },
+        {
+          "name": "Povegliano, Adam",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 100.0,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current True Attd. % Score": 75.0,
+            "Current Total Skater Played Games": 3,
+            "Current Total Plus Game %": 0.0,
+            "Current Total Minus Games": 3,
+            "Current Total Point Game %": 0.0,
+            "Current Total PIM-Free Game %": 1.0,
+            "Current Total Multi-PIM Games": 0,
+            "Current Total Goal Game %": 0.0,
+            "Current Total Multi-Point Game %": 0.0,
+            "Current Total 3+ Point Games": 0,
+            "Current Total POTG Game %": 0.0,
+            "Current Total Special Teams Point Games": 0
+          }
+        },
+        {
+          "name": "Provenzano, Mario",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 100.0,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current True Attd. % Score": 100,
+            "Current Total Skater Played Games": 4,
+            "Current Total Plus Game %": 0.0,
+            "Current Total Minus Games": 4,
+            "Current Total Point Game %": 0.0,
+            "Current Total PIM-Free Game %": 1.0,
+            "Current Total Multi-PIM Games": 0,
+            "Current Total Goal Game %": 0.0,
+            "Current Total Multi-Point Game %": 0.0,
+            "Current Total 3+ Point Games": 0,
+            "Current Total POTG Game %": 0.0,
+            "Current Total Special Teams Point Games": 0
+          }
+        },
+        {
+          "name": "Provenzano, Michael",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 100.0,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current True Attd. % Score": 75.0,
+            "Current Total Skater Played Games": 3,
+            "Current Total Plus Game %": 0.0,
+            "Current Total Minus Games": 3,
+            "Current Total Point Game %": 0.6666666666666666,
+            "Current Total PIM-Free Game %": 1.0,
+            "Current Total Multi-PIM Games": 0,
+            "Current Total Goal Game %": 0.0,
+            "Current Total Multi-Point Game %": 0.3333333333333333,
+            "Current Total 3+ Point Games": 0,
+            "Current Total POTG Game %": 0.3333333333333333,
+            "Current Total Special Teams Point Games": 0
+          }
+        },
+        {
+          "name": "Rajkumar, Sanjay",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 100.0,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current True Attd. % Score": 75.0,
+            "Current Total Skater Played Games": 3,
+            "Current Total Plus Game %": 0.0,
+            "Current Total Minus Games": 3,
+            "Current Total Point Game %": 0.0,
+            "Current Total PIM-Free Game %": 1.0,
+            "Current Total Multi-PIM Games": 0,
+            "Current Total Goal Game %": 0.0,
+            "Current Total Multi-Point Game %": 0.0,
+            "Current Total 3+ Point Games": 0,
+            "Current Total POTG Game %": 0.0,
+            "Current Total Special Teams Point Games": 0
+          }
+        },
+        {
+          "name": "Saindon, Stephane",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 100.0,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current True Attd. % Score": 75.0,
+            "Current Total Skater Played Games": 3,
+            "Current Total Plus Game %": 0.0,
+            "Current Total Minus Games": 3,
+            "Current Total Point Game %": 0.3333333333333333,
+            "Current Total PIM-Free Game %": 1.0,
+            "Current Total Multi-PIM Games": 0,
+            "Current Total Goal Game %": 0.0,
+            "Current Total Multi-Point Game %": 0.0,
+            "Current Total 3+ Point Games": 0,
+            "Current Total POTG Game %": 0.3333333333333333,
+            "Current Total Special Teams Point Games": 0
+          }
+        },
+        {
+          "name": "Triumbari, Francesco",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 81.3,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current True Attd. % Score": 100,
+            "Current Total Skater Played Games": 4,
+            "Current Total Plus Game %": 0.0,
+            "Current Total Minus Games": 4,
+            "Current Total Point Game %": 0.0,
+            "Current Total PIM-Free Game %": 0.75,
+            "Current Total Multi-PIM Games": 0,
+            "Current Total Goal Game %": 0.0,
+            "Current Total Multi-Point Game %": 0.0,
+            "Current Total 3+ Point Games": 0,
+            "Current Total POTG Game %": 0.0,
+            "Current Total Special Teams Point Games": 0
+          }
+        },
+        {
+          "name": "Leong, Dev",
+          "state": "SOURCE_BLANK",
+          "value": "",
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current True Attd. % Score": 50.0,
+            "Current Total Skater Played Games": 2,
+            "Current Total Plus Game %": 0.0,
+            "Current Total Minus Games": 0,
+            "Current Total Point Game %": 0.0,
+            "Current Total PIM-Free Game %": 0.0,
+            "Current Total Multi-PIM Games": 0,
+            "Current Total Goal Game %": 0.0,
+            "Current Total Multi-Point Game %": 0.0,
+            "Current Total 3+ Point Games": 0,
+            "Current Total POTG Game %": 0.0,
+            "Current Total Special Teams Point Games": 0
+          }
+        },
+        {
+          "name": "Atkins, Nolan",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 100.0,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current True Attd. % Score": 50.0,
+            "Current Total Skater Played Games": 2,
+            "Current Total Plus Game %": 0.0,
+            "Current Total Minus Games": 2,
+            "Current Total Point Game %": 0.0,
+            "Current Total PIM-Free Game %": 1.0,
+            "Current Total Multi-PIM Games": 0,
+            "Current Total Goal Game %": 0.0,
+            "Current Total Multi-Point Game %": 0.0,
+            "Current Total 3+ Point Games": 0,
+            "Current Total POTG Game %": 0.0,
+            "Current Total Special Teams Point Games": 0
+          }
+        },
+        {
+          "name": "Duffy, Lorcan",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 100.0,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current True Attd. % Score": 25.0,
+            "Current Total Skater Played Games": 1,
+            "Current Total Plus Game %": 0.0,
+            "Current Total Minus Games": 1,
+            "Current Total Point Game %": 0.0,
+            "Current Total PIM-Free Game %": 1.0,
+            "Current Total Multi-PIM Games": 0,
+            "Current Total Goal Game %": 0.0,
+            "Current Total Multi-Point Game %": 0.0,
+            "Current Total 3+ Point Games": 0,
+            "Current Total POTG Game %": 0.0,
+            "Current Total Special Teams Point Games": 0
+          }
+        },
+        {
+          "name": "Kober, Adam",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 100.0,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current True Attd. % Score": 75.0,
+            "Current Total Skater Played Games": 3,
+            "Current Total Plus Game %": 0.0,
+            "Current Total Minus Games": 3,
+            "Current Total Point Game %": 0.6666666666666666,
+            "Current Total PIM-Free Game %": 1.0,
+            "Current Total Multi-PIM Games": 0,
+            "Current Total Goal Game %": 0.3333333333333333,
+            "Current Total Multi-Point Game %": 0.0,
+            "Current Total 3+ Point Games": 0,
+            "Current Total POTG Game %": 0.3333333333333333,
+            "Current Total Special Teams Point Games": 0
+          }
+        },
+        {
+          "name": "Rajasooriar, Krishnan",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 100.0,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current True Attd. % Score": 50.0,
+            "Current Total Skater Played Games": 2,
+            "Current Total Plus Game %": 0.0,
+            "Current Total Minus Games": 2,
+            "Current Total Point Game %": 0.0,
+            "Current Total PIM-Free Game %": 1.0,
+            "Current Total Multi-PIM Games": 0,
+            "Current Total Goal Game %": 0.0,
+            "Current Total Multi-Point Game %": 0.0,
+            "Current Total 3+ Point Games": 0,
+            "Current Total POTG Game %": 0.0,
+            "Current Total Special Teams Point Games": 0
+          }
+        },
+        {
+          "name": "Rosenberg, Jamie",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 100.0,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current True Attd. % Score": 75.0,
+            "Current Total Skater Played Games": 3,
+            "Current Total Plus Game %": 0.0,
+            "Current Total Minus Games": 3,
+            "Current Total Point Game %": 0.0,
+            "Current Total PIM-Free Game %": 1.0,
+            "Current Total Multi-PIM Games": 0,
+            "Current Total Goal Game %": 0.0,
+            "Current Total Multi-Point Game %": 0.0,
+            "Current Total 3+ Point Games": 0,
+            "Current Total POTG Game %": 0.3333333333333333,
+            "Current Total Special Teams Point Games": 0
+          }
+        },
+        {
+          "name": "Logue, Stephen",
+          "state": "SOURCE_BLANK",
+          "value": "",
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current True Attd. % Score": 25.0,
+            "Current Total Skater Played Games": 1,
+            "Current Total Plus Game %": 0.0,
+            "Current Total Minus Games": 0,
+            "Current Total Point Game %": 0.0,
+            "Current Total PIM-Free Game %": 0.0,
+            "Current Total Multi-PIM Games": 0,
+            "Current Total Goal Game %": 0.0,
+            "Current Total Multi-Point Game %": 0.0,
+            "Current Total 3+ Point Games": 0,
+            "Current Total POTG Game %": 0.0,
+            "Current Total Special Teams Point Games": 0
+          }
+        },
+        {
+          "name": "Pavaday, Damian",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 100.0,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current True Attd. % Score": 25.0,
+            "Current Total Skater Played Games": 1,
+            "Current Total Plus Game %": 0.0,
+            "Current Total Minus Games": 1,
+            "Current Total Point Game %": 1.0,
+            "Current Total PIM-Free Game %": 1.0,
+            "Current Total Multi-PIM Games": 0,
+            "Current Total Goal Game %": 0.0,
+            "Current Total Multi-Point Game %": 0.0,
+            "Current Total 3+ Point Games": 0,
+            "Current Total POTG Game %": 0.0,
+            "Current Total Special Teams Point Games": 0
+          }
+        },
+        {
+          "name": "Carlyle, Adam",
+          "state": "SOURCE_BLANK",
+          "value": "",
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current True Attd. % Score": 25.0,
+            "Current Total Skater Played Games": 1,
+            "Current Total Plus Game %": 0.0,
+            "Current Total Minus Games": 0,
+            "Current Total Point Game %": 0.0,
+            "Current Total PIM-Free Game %": 0.0,
+            "Current Total Multi-PIM Games": 0,
+            "Current Total Goal Game %": 0.0,
+            "Current Total Multi-Point Game %": 0.0,
+            "Current Total 3+ Point Games": 0,
+            "Current Total POTG Game %": 0.0,
+            "Current Total Special Teams Point Games": 0
+          }
+        }
+      ],
+      "normalized": {
+        "season": "W2026/27",
+        "cutoff": "2026-10-18",
+        "inputField": "Total Discipline Reliability Internal Score",
+        "formulaSha256": "563bbc5f797a218d99c04129ea6f419a87ed5d94d48cee82baec9205bedaf857",
+        "currentPlayerCoverage": 22,
+        "unavailable": [],
+        "currentCompositeScoresVerified": false,
+        "publicationAuthorized": false,
+        "state": "CURRENT_COMPONENT_NORMALIZATION_CANDIDATE",
+        "family": "MINMAX_ABSOLUTE_TIE",
+        "numericPlayerCount": 19,
+        "scores": {
+          "Ardizzi, Stefano": 100.0,
+          "Brutto, Adam": 100.0,
+          "Carosi, Justin": 100.0,
+          "Kong, Henry": 100.0,
+          "Pagnotta, Alex": 100.0,
+          "Paolucci, Anthony": 100.0,
+          "Pearsoll, Keith": 100.0,
+          "Povegliano, Adam": 100.0,
+          "Provenzano, Mario": 100.0,
+          "Provenzano, Michael": 100.0,
+          "Rajkumar, Sanjay": 100.0,
+          "Saindon, Stephane": 100.0,
+          "Triumbari, Francesco": 50.0,
+          "Atkins, Nolan": 100.0,
+          "Duffy, Lorcan": 100.0,
+          "Kober, Adam": 100.0,
+          "Rajasooriar, Krishnan": 100.0,
+          "Rosenberg, Jamie": 100.0,
+          "Pavaday, Damian": 100.0
+        },
+        "notApplicable": {
+          "Leong, Dev": "Source excludes non-skaters",
+          "Logue, Stephen": "Source excludes non-skaters",
+          "Carlyle, Adam": "Source excludes non-skaters"
+        },
+        "upstreamParityVerified": false
+      }
+    },
+    "Total Skater Production Consistency Internal Score": {
+      "rows": [
+        {
+          "name": "Ardizzi, Stefano",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 0.0,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current True Attd. % Score": 25.0,
+            "Current Total Skater Played Games": 1,
+            "Current Total Plus Game %": 0.0,
+            "Current Total Minus Games": 1,
+            "Current Total Point Game %": 0.0,
+            "Current Total PIM-Free Game %": 1.0,
+            "Current Total Multi-PIM Games": 0,
+            "Current Total Goal Game %": 0.0,
+            "Current Total Multi-Point Game %": 0.0,
+            "Current Total 3+ Point Games": 0,
+            "Current Total POTG Game %": 0.0,
+            "Current Total Special Teams Point Games": 0
+          }
+        },
+        {
+          "name": "Brutto, Adam",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 0.0,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current True Attd. % Score": 100,
+            "Current Total Skater Played Games": 4,
+            "Current Total Plus Game %": 0.0,
+            "Current Total Minus Games": 4,
+            "Current Total Point Game %": 0.0,
+            "Current Total PIM-Free Game %": 1.0,
+            "Current Total Multi-PIM Games": 0,
+            "Current Total Goal Game %": 0.0,
+            "Current Total Multi-Point Game %": 0.0,
+            "Current Total 3+ Point Games": 0,
+            "Current Total POTG Game %": 0.0,
+            "Current Total Special Teams Point Games": 0
+          }
+        },
+        {
+          "name": "Carosi, Justin",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 40.0,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current True Attd. % Score": 100,
+            "Current Total Skater Played Games": 4,
+            "Current Total Plus Game %": 0.0,
+            "Current Total Minus Games": 4,
+            "Current Total Point Game %": 0.5,
+            "Current Total PIM-Free Game %": 1.0,
+            "Current Total Multi-PIM Games": 0,
+            "Current Total Goal Game %": 0.5,
+            "Current Total Multi-Point Game %": 0.25,
+            "Current Total 3+ Point Games": 0,
+            "Current Total POTG Game %": 0.75,
+            "Current Total Special Teams Point Games": 0
+          }
+        },
+        {
+          "name": "Kong, Henry",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 25.0,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current True Attd. % Score": 100,
+            "Current Total Skater Played Games": 4,
+            "Current Total Plus Game %": 0.0,
+            "Current Total Minus Games": 4,
+            "Current Total Point Game %": 0.5,
+            "Current Total PIM-Free Game %": 1.0,
+            "Current Total Multi-PIM Games": 0,
+            "Current Total Goal Game %": 0.25,
+            "Current Total Multi-Point Game %": 0.0,
+            "Current Total 3+ Point Games": 0,
+            "Current Total POTG Game %": 0.25,
+            "Current Total Special Teams Point Games": 0
+          }
+        },
+        {
+          "name": "Pagnotta, Alex",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 22.5,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current True Attd. % Score": 100,
+            "Current Total Skater Played Games": 4,
+            "Current Total Plus Game %": 0.0,
+            "Current Total Minus Games": 4,
+            "Current Total Point Game %": 0.5,
+            "Current Total PIM-Free Game %": 1.0,
+            "Current Total Multi-PIM Games": 0,
+            "Current Total Goal Game %": 0.0,
+            "Current Total Multi-Point Game %": 0.25,
+            "Current Total 3+ Point Games": 0,
+            "Current Total POTG Game %": 0.0,
+            "Current Total Special Teams Point Games": 0
+          }
+        },
+        {
+          "name": "Paolucci, Anthony",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 0.0,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current True Attd. % Score": 25.0,
+            "Current Total Skater Played Games": 1,
+            "Current Total Plus Game %": 0.0,
+            "Current Total Minus Games": 1,
+            "Current Total Point Game %": 0.0,
+            "Current Total PIM-Free Game %": 1.0,
+            "Current Total Multi-PIM Games": 0,
+            "Current Total Goal Game %": 0.0,
+            "Current Total Multi-Point Game %": 0.0,
+            "Current Total 3+ Point Games": 0,
+            "Current Total POTG Game %": 0.0,
+            "Current Total Special Teams Point Games": 0
+          }
+        },
+        {
+          "name": "Pearsoll, Keith",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 21.7,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current True Attd. % Score": 75.0,
+            "Current Total Skater Played Games": 3,
+            "Current Total Plus Game %": 0.0,
+            "Current Total Minus Games": 3,
+            "Current Total Point Game %": 0.3333333333333333,
+            "Current Total PIM-Free Game %": 1.0,
+            "Current Total Multi-PIM Games": 0,
+            "Current Total Goal Game %": 0.3333333333333333,
+            "Current Total Multi-Point Game %": 0.0,
+            "Current Total 3+ Point Games": 0,
+            "Current Total POTG Game %": 0.3333333333333333,
+            "Current Total Special Teams Point Games": 0
+          }
+        },
+        {
+          "name": "Povegliano, Adam",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 0.0,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current True Attd. % Score": 75.0,
+            "Current Total Skater Played Games": 3,
+            "Current Total Plus Game %": 0.0,
+            "Current Total Minus Games": 3,
+            "Current Total Point Game %": 0.0,
+            "Current Total PIM-Free Game %": 1.0,
+            "Current Total Multi-PIM Games": 0,
+            "Current Total Goal Game %": 0.0,
+            "Current Total Multi-Point Game %": 0.0,
+            "Current Total 3+ Point Games": 0,
+            "Current Total POTG Game %": 0.0,
+            "Current Total Special Teams Point Games": 0
+          }
+        },
+        {
+          "name": "Provenzano, Mario",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 0.0,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current True Attd. % Score": 100,
+            "Current Total Skater Played Games": 4,
+            "Current Total Plus Game %": 0.0,
+            "Current Total Minus Games": 4,
+            "Current Total Point Game %": 0.0,
+            "Current Total PIM-Free Game %": 1.0,
+            "Current Total Multi-PIM Games": 0,
+            "Current Total Goal Game %": 0.0,
+            "Current Total Multi-Point Game %": 0.0,
+            "Current Total 3+ Point Games": 0,
+            "Current Total POTG Game %": 0.0,
+            "Current Total Special Teams Point Games": 0
+          }
+        },
+        {
+          "name": "Provenzano, Michael",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 33.3,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current True Attd. % Score": 75.0,
+            "Current Total Skater Played Games": 3,
+            "Current Total Plus Game %": 0.0,
+            "Current Total Minus Games": 3,
+            "Current Total Point Game %": 0.6666666666666666,
+            "Current Total PIM-Free Game %": 1.0,
+            "Current Total Multi-PIM Games": 0,
+            "Current Total Goal Game %": 0.0,
+            "Current Total Multi-Point Game %": 0.3333333333333333,
+            "Current Total 3+ Point Games": 0,
+            "Current Total POTG Game %": 0.3333333333333333,
+            "Current Total Special Teams Point Games": 0
+          }
+        },
+        {
+          "name": "Rajkumar, Sanjay",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 0.0,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current True Attd. % Score": 75.0,
+            "Current Total Skater Played Games": 3,
+            "Current Total Plus Game %": 0.0,
+            "Current Total Minus Games": 3,
+            "Current Total Point Game %": 0.0,
+            "Current Total PIM-Free Game %": 1.0,
+            "Current Total Multi-PIM Games": 0,
+            "Current Total Goal Game %": 0.0,
+            "Current Total Multi-Point Game %": 0.0,
+            "Current Total 3+ Point Games": 0,
+            "Current Total POTG Game %": 0.0,
+            "Current Total Special Teams Point Games": 0
+          }
+        },
+        {
+          "name": "Saindon, Stephane",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 15.0,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current True Attd. % Score": 75.0,
+            "Current Total Skater Played Games": 3,
+            "Current Total Plus Game %": 0.0,
+            "Current Total Minus Games": 3,
+            "Current Total Point Game %": 0.3333333333333333,
+            "Current Total PIM-Free Game %": 1.0,
+            "Current Total Multi-PIM Games": 0,
+            "Current Total Goal Game %": 0.0,
+            "Current Total Multi-Point Game %": 0.0,
+            "Current Total 3+ Point Games": 0,
+            "Current Total POTG Game %": 0.3333333333333333,
+            "Current Total Special Teams Point Games": 0
+          }
+        },
+        {
+          "name": "Triumbari, Francesco",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 0.0,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current True Attd. % Score": 100,
+            "Current Total Skater Played Games": 4,
+            "Current Total Plus Game %": 0.0,
+            "Current Total Minus Games": 4,
+            "Current Total Point Game %": 0.0,
+            "Current Total PIM-Free Game %": 0.75,
+            "Current Total Multi-PIM Games": 0,
+            "Current Total Goal Game %": 0.0,
+            "Current Total Multi-Point Game %": 0.0,
+            "Current Total 3+ Point Games": 0,
+            "Current Total POTG Game %": 0.0,
+            "Current Total Special Teams Point Games": 0
+          }
+        },
+        {
+          "name": "Leong, Dev",
+          "state": "SOURCE_BLANK",
+          "value": "",
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current True Attd. % Score": 50.0,
+            "Current Total Skater Played Games": 2,
+            "Current Total Plus Game %": 0.0,
+            "Current Total Minus Games": 0,
+            "Current Total Point Game %": 0.0,
+            "Current Total PIM-Free Game %": 0.0,
+            "Current Total Multi-PIM Games": 0,
+            "Current Total Goal Game %": 0.0,
+            "Current Total Multi-Point Game %": 0.0,
+            "Current Total 3+ Point Games": 0,
+            "Current Total POTG Game %": 0.0,
+            "Current Total Special Teams Point Games": 0
+          }
+        },
+        {
+          "name": "Atkins, Nolan",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 0.0,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current True Attd. % Score": 50.0,
+            "Current Total Skater Played Games": 2,
+            "Current Total Plus Game %": 0.0,
+            "Current Total Minus Games": 2,
+            "Current Total Point Game %": 0.0,
+            "Current Total PIM-Free Game %": 1.0,
+            "Current Total Multi-PIM Games": 0,
+            "Current Total Goal Game %": 0.0,
+            "Current Total Multi-Point Game %": 0.0,
+            "Current Total 3+ Point Games": 0,
+            "Current Total POTG Game %": 0.0,
+            "Current Total Special Teams Point Games": 0
+          }
+        },
+        {
+          "name": "Duffy, Lorcan",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 0.0,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current True Attd. % Score": 25.0,
+            "Current Total Skater Played Games": 1,
+            "Current Total Plus Game %": 0.0,
+            "Current Total Minus Games": 1,
+            "Current Total Point Game %": 0.0,
+            "Current Total PIM-Free Game %": 1.0,
+            "Current Total Multi-PIM Games": 0,
+            "Current Total Goal Game %": 0.0,
+            "Current Total Multi-Point Game %": 0.0,
+            "Current Total 3+ Point Games": 0,
+            "Current Total POTG Game %": 0.0,
+            "Current Total Special Teams Point Games": 0
+          }
+        },
+        {
+          "name": "Kober, Adam",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 33.3,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current True Attd. % Score": 75.0,
+            "Current Total Skater Played Games": 3,
+            "Current Total Plus Game %": 0.0,
+            "Current Total Minus Games": 3,
+            "Current Total Point Game %": 0.6666666666666666,
+            "Current Total PIM-Free Game %": 1.0,
+            "Current Total Multi-PIM Games": 0,
+            "Current Total Goal Game %": 0.3333333333333333,
+            "Current Total Multi-Point Game %": 0.0,
+            "Current Total 3+ Point Games": 0,
+            "Current Total POTG Game %": 0.3333333333333333,
+            "Current Total Special Teams Point Games": 0
+          }
+        },
+        {
+          "name": "Rajasooriar, Krishnan",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 0.0,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current True Attd. % Score": 50.0,
+            "Current Total Skater Played Games": 2,
+            "Current Total Plus Game %": 0.0,
+            "Current Total Minus Games": 2,
+            "Current Total Point Game %": 0.0,
+            "Current Total PIM-Free Game %": 1.0,
+            "Current Total Multi-PIM Games": 0,
+            "Current Total Goal Game %": 0.0,
+            "Current Total Multi-Point Game %": 0.0,
+            "Current Total 3+ Point Games": 0,
+            "Current Total POTG Game %": 0.0,
+            "Current Total Special Teams Point Games": 0
+          }
+        },
+        {
+          "name": "Rosenberg, Jamie",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 3.3,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current True Attd. % Score": 75.0,
+            "Current Total Skater Played Games": 3,
+            "Current Total Plus Game %": 0.0,
+            "Current Total Minus Games": 3,
+            "Current Total Point Game %": 0.0,
+            "Current Total PIM-Free Game %": 1.0,
+            "Current Total Multi-PIM Games": 0,
+            "Current Total Goal Game %": 0.0,
+            "Current Total Multi-Point Game %": 0.0,
+            "Current Total 3+ Point Games": 0,
+            "Current Total POTG Game %": 0.3333333333333333,
+            "Current Total Special Teams Point Games": 0
+          }
+        },
+        {
+          "name": "Logue, Stephen",
+          "state": "SOURCE_BLANK",
+          "value": "",
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current True Attd. % Score": 25.0,
+            "Current Total Skater Played Games": 1,
+            "Current Total Plus Game %": 0.0,
+            "Current Total Minus Games": 0,
+            "Current Total Point Game %": 0.0,
+            "Current Total PIM-Free Game %": 0.0,
+            "Current Total Multi-PIM Games": 0,
+            "Current Total Goal Game %": 0.0,
+            "Current Total Multi-Point Game %": 0.0,
+            "Current Total 3+ Point Games": 0,
+            "Current Total POTG Game %": 0.0,
+            "Current Total Special Teams Point Games": 0
+          }
+        },
+        {
+          "name": "Pavaday, Damian",
+          "state": "INTERNAL_VALUE_CANDIDATE",
+          "value": 35.0,
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current True Attd. % Score": 25.0,
+            "Current Total Skater Played Games": 1,
+            "Current Total Plus Game %": 0.0,
+            "Current Total Minus Games": 1,
+            "Current Total Point Game %": 1.0,
+            "Current Total PIM-Free Game %": 1.0,
+            "Current Total Multi-PIM Games": 0,
+            "Current Total Goal Game %": 0.0,
+            "Current Total Multi-Point Game %": 0.0,
+            "Current Total 3+ Point Games": 0,
+            "Current Total POTG Game %": 0.0,
+            "Current Total Special Teams Point Games": 0
+          }
+        },
+        {
+          "name": "Carlyle, Adam",
+          "state": "SOURCE_BLANK",
+          "value": "",
+          "currentCompositeScoresVerified": false,
+          "rebuiltInputs": {
+            "Current True Attd. % Score": 25.0,
+            "Current Total Skater Played Games": 1,
+            "Current Total Plus Game %": 0.0,
+            "Current Total Minus Games": 0,
+            "Current Total Point Game %": 0.0,
+            "Current Total PIM-Free Game %": 0.0,
+            "Current Total Multi-PIM Games": 0,
+            "Current Total Goal Game %": 0.0,
+            "Current Total Multi-Point Game %": 0.0,
+            "Current Total 3+ Point Games": 0,
+            "Current Total POTG Game %": 0.0,
+            "Current Total Special Teams Point Games": 0
+          }
+        }
+      ],
+      "normalized": {
+        "season": "W2026/27",
+        "cutoff": "2026-10-18",
+        "inputField": "Total Skater Production Consistency Internal Score",
+        "formulaSha256": "ef6b0938953b74cf4f98a2b20fab185489296b1a4a2ddf7a314435dadf07786d",
+        "currentPlayerCoverage": 22,
+        "unavailable": [],
+        "currentCompositeScoresVerified": false,
+        "publicationAuthorized": false,
+        "state": "CURRENT_COMPONENT_NORMALIZATION_CANDIDATE",
+        "family": "MINMAX_ABSOLUTE_TIE",
+        "numericPlayerCount": 19,
+        "scores": {
+          "Ardizzi, Stefano": 50.0,
+          "Brutto, Adam": 50.0,
+          "Carosi, Justin": 100.0,
+          "Kong, Henry": 81.3,
+          "Pagnotta, Alex": 78.1,
+          "Paolucci, Anthony": 50.0,
+          "Pearsoll, Keith": 77.1,
+          "Povegliano, Adam": 50.0,
+          "Provenzano, Mario": 50.0,
+          "Provenzano, Michael": 91.6,
+          "Rajkumar, Sanjay": 50.0,
+          "Saindon, Stephane": 68.8,
+          "Triumbari, Francesco": 50.0,
+          "Atkins, Nolan": 50.0,
+          "Duffy, Lorcan": 50.0,
+          "Kober, Adam": 91.6,
+          "Rajasooriar, Krishnan": 50.0,
+          "Rosenberg, Jamie": 54.1,
+          "Pavaday, Damian": 93.8
+        },
+        "notApplicable": {
+          "Leong, Dev": "Source excludes non-skaters",
+          "Logue, Stephen": "Source excludes non-skaters",
+          "Carlyle, Adam": "Source excludes non-skaters"
+        },
+        "upstreamParityVerified": false
+      }
+    }
+  },
+  "correctedCarlyleRosterRowRequired": true,
+  "currentCompositeScoresVerified": false,
+  "publicationAuthorized": false
+}

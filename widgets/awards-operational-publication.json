@@ -1,0 +1,18 @@
+{
+  "schema": "brave-hc-awards-operational-publication/v1",
+  "status": "AWAITING_SOURCE_FAITHFUL_EXCEL_RECALCULATION",
+  "season": "W2026/27",
+  "immutableFormulaAuthoritySha256": "0002fd9f06596af8d0a00fc1b53a618ef15479f941ad5c1e6265b27002a65154",
+  "operationalWorkbookSha256": null,
+  "sourceFormulaMapFingerprintSha256": null,
+  "operationalFormulaMapFingerprintSha256": null,
+  "officialHTOReadbackAt": null,
+  "modelGameCount": null,
+  "scoringAsOf": null,
+  "awardFormulaParities": [],
+  "publisherReleaseReceiptSha256": null,
+  "independentlyApproved": false,
+  "sourceModelVerified": false,
+  "publicationAuthorized": false,
+  "note": "Explicit fail-closed website input. No operational recalculation or independently approved current-year award score exists. Browser-side field matching is not independent approval or cryptographic verification."
+}

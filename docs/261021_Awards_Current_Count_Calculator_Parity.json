@@ -1,0 +1,207 @@
+{
+  "state": "CURRENT_COUNT_ARITHMETIC_PARITY_PASS",
+  "playerComparisons": 19,
+  "numericComparisons": 76,
+  "differences": [],
+  "outputs": {
+    "rows": [
+      {
+        "name": "Ardizzi, Stefano",
+        "sourceWorksheetRow": 6,
+        "artRossScore": 0,
+        "artRossRankKey": 0.99994,
+        "rocketScore": 0,
+        "rocketRankKey": 0.99994
+      },
+      {
+        "name": "Atkins, Nolan",
+        "sourceWorksheetRow": 7,
+        "artRossScore": 0,
+        "artRossRankKey": 0.99993,
+        "rocketScore": 0,
+        "rocketRankKey": 0.99993
+      },
+      {
+        "name": "Brutto, Adam",
+        "sourceWorksheetRow": 8,
+        "artRossScore": 0,
+        "artRossRankKey": 0.99992,
+        "rocketScore": 0,
+        "rocketRankKey": 0.99992
+      },
+      {
+        "name": "Carosi, Justin",
+        "sourceWorksheetRow": 9,
+        "artRossScore": 3,
+        "artRossRankKey": 3000300000076.0,
+        "rocketScore": 3,
+        "rocketRankKey": 3000000.99991
+      },
+      {
+        "name": "Duffy, Lorcan",
+        "sourceWorksheetRow": 11,
+        "artRossScore": 0,
+        "artRossRankKey": 0.99989,
+        "rocketScore": 0,
+        "rocketRankKey": 0.99989
+      },
+      {
+        "name": "Kober, Adam",
+        "sourceWorksheetRow": 12,
+        "artRossScore": 2,
+        "artRossRankKey": 2000100010067.6667,
+        "rocketScore": 1,
+        "rocketRankKey": 1000000.99988
+      },
+      {
+        "name": "Kong, Henry",
+        "sourceWorksheetRow": 13,
+        "artRossScore": 2,
+        "artRossRankKey": 2000100010050.9998,
+        "rocketScore": 1,
+        "rocketRankKey": 1000000.99987
+      },
+      {
+        "name": "Pagnotta, Alex",
+        "sourceWorksheetRow": 17,
+        "artRossScore": 3,
+        "artRossRankKey": 3000000030076.0,
+        "rocketScore": 0,
+        "rocketRankKey": 0.99983
+      },
+      {
+        "name": "Paolucci, Anthony",
+        "sourceWorksheetRow": 18,
+        "artRossScore": 0,
+        "artRossRankKey": 0.99982,
+        "rocketScore": 0,
+        "rocketRankKey": 0.99982
+      },
+      {
+        "name": "Pearsoll, Keith",
+        "sourceWorksheetRow": 19,
+        "artRossScore": 1,
+        "artRossRankKey": 1000100000034.3331,
+        "rocketScore": 1,
+        "rocketRankKey": 1000000.99981
+      },
+      {
+        "name": "Povegliano, Adam",
+        "sourceWorksheetRow": 20,
+        "artRossScore": 0,
+        "artRossRankKey": 0.9998,
+        "rocketScore": 0,
+        "rocketRankKey": 0.9998
+      },
+      {
+        "name": "Provenzano, Mario",
+        "sourceWorksheetRow": 21,
+        "artRossScore": 0,
+        "artRossRankKey": 0.99979,
+        "rocketScore": 0,
+        "rocketRankKey": 0.99979
+      },
+      {
+        "name": "Provenzano, Michael",
+        "sourceWorksheetRow": 22,
+        "artRossScore": 3,
+        "artRossRankKey": 3000000030101.0,
+        "rocketScore": 0,
+        "rocketRankKey": 0.99978
+      },
+      {
+        "name": "Rajasooriar, Krishnan",
+        "sourceWorksheetRow": 23,
+        "artRossScore": 0,
+        "artRossRankKey": 0.99977,
+        "rocketScore": 0,
+        "rocketRankKey": 0.99977
+      },
+      {
+        "name": "Rosenberg, Jamie",
+        "sourceWorksheetRow": 24,
+        "artRossScore": 0,
+        "artRossRankKey": 0.99976,
+        "rocketScore": 0,
+        "rocketRankKey": 0.99976
+      },
+      {
+        "name": "Saindon, Stephane",
+        "sourceWorksheetRow": 25,
+        "artRossScore": 1,
+        "artRossRankKey": 1000000010034.3331,
+        "rocketScore": 0,
+        "rocketRankKey": 0.99975
+      },
+      {
+        "name": "Rajkumar, Sanjay",
+        "sourceWorksheetRow": 27,
+        "artRossScore": 0,
+        "artRossRankKey": 0.99973,
+        "rocketScore": 0,
+        "rocketRankKey": 0.99973
+      },
+      {
+        "name": "Triumbari, Francesco",
+        "sourceWorksheetRow": 28,
+        "artRossScore": 0,
+        "artRossRankKey": 0.99972,
+        "rocketScore": 0,
+        "rocketRankKey": 0.99972
+      },
+      {
+        "name": "Pavaday, Damian",
+        "sourceWorksheetRow": 30,
+        "artRossScore": 1,
+        "artRossRankKey": 1000000010100.9998,
+        "rocketScore": 0,
+        "rocketRankKey": 0.9997
+      }
+    ],
+    "artRossOrder": [
+      "Carosi, Justin",
+      "Provenzano, Michael",
+      "Pagnotta, Alex",
+      "Kober, Adam",
+      "Kong, Henry",
+      "Pearsoll, Keith",
+      "Pavaday, Damian",
+      "Saindon, Stephane",
+      "Ardizzi, Stefano",
+      "Atkins, Nolan",
+      "Brutto, Adam",
+      "Duffy, Lorcan",
+      "Paolucci, Anthony",
+      "Povegliano, Adam",
+      "Provenzano, Mario",
+      "Rajasooriar, Krishnan",
+      "Rosenberg, Jamie",
+      "Rajkumar, Sanjay",
+      "Triumbari, Francesco"
+    ],
+    "rocketOrder": [
+      "Carosi, Justin",
+      "Kober, Adam",
+      "Kong, Henry",
+      "Pearsoll, Keith",
+      "Ardizzi, Stefano",
+      "Atkins, Nolan",
+      "Brutto, Adam",
+      "Duffy, Lorcan",
+      "Pagnotta, Alex",
+      "Paolucci, Anthony",
+      "Povegliano, Adam",
+      "Provenzano, Mario",
+      "Provenzano, Michael",
+      "Rajasooriar, Krishnan",
+      "Rosenberg, Jamie",
+      "Saindon, Stephane",
+      "Rajkumar, Sanjay",
+      "Triumbari, Francesco",
+      "Pavaday, Damian"
+    ]
+  },
+  "comparison": "Exact IEEE numeric values; no score or rank tolerance",
+  "currentCompositeScoresVerified": false,
+  "publicationAuthorized": false
+}

@@ -1,0 +1,355 @@
+{
+  "status": "ALL_18_CAPTURED_DISPLAY_FORMULAS_SPREAD_AND_BLANK_PASS_EQUAL_CASES_OBSERVED",
+  "count": 18,
+  "method": "temporary defined expressions with legacy array evaluation",
+  "results": [
+    {
+      "component": "Current True Attd. % Web Display Score",
+      "spread": [
+        50,
+        75,
+        100
+      ],
+      "equalPositive": [
+        75,
+        75,
+        75
+      ],
+      "equalZero": [
+        75,
+        75,
+        75
+      ],
+      "blankSuppressed": true
+    },
+    {
+      "component": "Total Award Goalie GAA Web Display Score",
+      "spread": [
+        50,
+        75,
+        100
+      ],
+      "equalPositive": [
+        100,
+        100,
+        100
+      ],
+      "equalZero": [
+        75,
+        75,
+        75
+      ],
+      "blankSuppressed": true
+    },
+    {
+      "component": "Total Award Goalie SHO Web Display Score",
+      "spread": [
+        50,
+        75,
+        100
+      ],
+      "equalPositive": [
+        100,
+        100,
+        100
+      ],
+      "equalZero": [
+        75,
+        75,
+        75
+      ],
+      "blankSuppressed": true
+    },
+    {
+      "component": "Total Award Goalie W Web Display Score",
+      "spread": [
+        50,
+        75,
+        100
+      ],
+      "equalPositive": [
+        75,
+        75,
+        75
+      ],
+      "equalZero": [
+        75,
+        75,
+        75
+      ],
+      "blankSuppressed": true
+    },
+    {
+      "component": "Total Award Goalie Win % Web Display Score",
+      "spread": [
+        50,
+        75,
+        100
+      ],
+      "equalPositive": [
+        75,
+        75,
+        75
+      ],
+      "equalZero": [
+        75,
+        75,
+        75
+      ],
+      "blankSuppressed": true
+    },
+    {
+      "component": "Total Award POTG Web Display Score",
+      "spread": [
+        50,
+        75,
+        100
+      ],
+      "equalPositive": [
+        75,
+        75,
+        75
+      ],
+      "equalZero": [
+        75,
+        75,
+        75
+      ],
+      "blankSuppressed": true
+    },
+    {
+      "component": "Total Discipline Reliability Web Display Score",
+      "spread": [
+        50,
+        75,
+        100
+      ],
+      "equalPositive": [
+        60,
+        60,
+        60
+      ],
+      "equalZero": [
+        50,
+        50,
+        50
+      ],
+      "blankSuppressed": true
+    },
+    {
+      "component": "Total Final +/- Web Display Score",
+      "spread": [
+        50,
+        75,
+        100
+      ],
+      "equalPositive": [
+        75,
+        75,
+        75
+      ],
+      "equalZero": [
+        75,
+        75,
+        75
+      ],
+      "blankSuppressed": true
+    },
+    {
+      "component": "Total Final Clutch Web Display Score",
+      "spread": [
+        50,
+        75,
+        100
+      ],
+      "equalPositive": [
+        75,
+        75,
+        75
+      ],
+      "equalZero": [
+        75,
+        75,
+        75
+      ],
+      "blankSuppressed": true
+    },
+    {
+      "component": "Total Final PIM Web Display Score",
+      "spread": [
+        50,
+        75,
+        100
+      ],
+      "equalPositive": [
+        75,
+        75,
+        75
+      ],
+      "equalZero": [
+        75,
+        75,
+        75
+      ],
+      "blankSuppressed": true
+    },
+    {
+      "component": "Total Final Pts Web Display Score",
+      "spread": [
+        50,
+        75,
+        100
+      ],
+      "equalPositive": [
+        75,
+        75,
+        75
+      ],
+      "equalZero": [
+        75,
+        75,
+        75
+      ],
+      "blankSuppressed": true
+    },
+    {
+      "component": "Total Final Special Teams Web Display Score",
+      "spread": [
+        50,
+        75,
+        100
+      ],
+      "equalPositive": [
+        75,
+        75,
+        75
+      ],
+      "equalZero": [
+        75,
+        75,
+        75
+      ],
+      "blankSuppressed": true
+    },
+    {
+      "component": "Total Goalie Discipline Reliability Web Display Score",
+      "spread": [
+        50,
+        75,
+        100
+      ],
+      "equalPositive": [
+        60,
+        60,
+        60
+      ],
+      "equalZero": [
+        50,
+        50,
+        50
+      ],
+      "blankSuppressed": true
+    },
+    {
+      "component": "Total Goalie Offensive Contribution Web Display Score",
+      "spread": [
+        50,
+        75,
+        100
+      ],
+      "equalPositive": [
+        100,
+        100,
+        100
+      ],
+      "equalZero": [
+        75,
+        75,
+        75
+      ],
+      "blankSuppressed": true
+    },
+    {
+      "component": "Total Goalie Reliability Web Display Score",
+      "spread": [
+        50,
+        75,
+        100
+      ],
+      "equalPositive": [
+        60,
+        60,
+        60
+      ],
+      "equalZero": [
+        50,
+        50,
+        50
+      ],
+      "blankSuppressed": true
+    },
+    {
+      "component": "Total Skater Production Consistency Web Display Score",
+      "spread": [
+        50,
+        75,
+        100
+      ],
+      "equalPositive": [
+        60,
+        60,
+        60
+      ],
+      "equalZero": [
+        50,
+        50,
+        50
+      ],
+      "blankSuppressed": true
+    },
+    {
+      "component": "Total Skater Two-Way Reliability Web Display Score",
+      "spread": [
+        50,
+        75,
+        100
+      ],
+      "equalPositive": [
+        60,
+        60,
+        60
+      ],
+      "equalZero": [
+        50,
+        50,
+        50
+      ],
+      "blankSuppressed": true
+    },
+    {
+      "component": "Total Streak Heat Web Display Score",
+      "spread": [
+        50,
+        75,
+        100
+      ],
+      "equalPositive": [
+        100,
+        100,
+        100
+      ],
+      "equalZero": [
+        75,
+        75,
+        75
+      ],
+      "blankSuppressed": true
+    }
+  ],
+  "filesOpened": 0,
+  "filesSaved": 0,
+  "tablesCreated": 0,
+  "originalModelParity": false,
+  "sourceCommit": "9224b5619328caec40a9326bcdafd10e346a5f06",
+  "scope": "Fictional internal scores and adapted ranges only; equal-case results observed, not independently attested; no original table/model parity"
+}

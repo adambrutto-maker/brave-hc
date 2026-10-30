@@ -9,7 +9,7 @@
     3369564,
     3375601
   ],
-  "generatedFromFeedsAt": "2026-10-19",
+  "generatedFromFeedsAt": "2026-10-21",
   "sourceReference": {
     "htoReadback": "2026-10-19T03:55:10.771Z",
     "projectionSha": "ae96ff6f2044da25cb85d2e07be406776b2e7b44",
@@ -491,90 +491,6 @@
       }
     },
     {
-      "name": "Congiusti, Marco",
-      "role": "FT",
-      "position": "Skater",
-      "gp": 1,
-      "goals": 0,
-      "assists": 0,
-      "points": 0,
-      "source": "HTO published current-season skater scoring bridged to HockeyOS projection",
-      "officialHTOStats": {
-        "gp": 1,
-        "goals": 0,
-        "assists": 0,
-        "points": 0
-      },
-      "htoListedPosition": "RD",
-      "htoPositionHasDefenceOption": true,
-      "currentHTORaw": {
-        "name": "Congiusti, Marco",
-        "listedPosition": "RD",
-        "gamesPlayed": 1,
-        "goals": 0,
-        "assists": 0,
-        "points": 0,
-        "gameTyingGoals": 0,
-        "penaltyMinutes": 0,
-        "plusMinus": -3,
-        "pointsPerGame": 0,
-        "playerOfTheGameCount": 0,
-        "sourceKind": "OFFICIAL_HTO_PUBLISHED_SEASON_STATISTICS",
-        "season": "W2026/27"
-      },
-      "currentHTOEventEvidence": {
-        "reportedPIMFreeGameAppearances": 1,
-        "gamesWithPublishedPIM": 0,
-        "playedOfficialHTOGameIds": [
-          3356178
-        ],
-        "sourceKind": "HTO_SCORES_AND_BOX_SCORE_EVENTS_RECONCILED",
-        "publicationLimit": "Verified event input, not normalized workbook award subscore"
-      },
-      "verifiedHTOScoringByStrength": {
-        "evenStrengthGoals": 0,
-        "evenStrengthAssists": 0,
-        "powerPlayGoals": 0,
-        "powerPlayAssists": 0,
-        "shorthandedGoals": 0,
-        "shorthandedAssists": 0,
-        "publishedSpecialTeamsPointGames": 0,
-        "sourceGameIds": [
-          3356178
-        ],
-        "sourceStatus": "EXACT_HTO_GOAL_SCORER_AND_ASSISTANT_EVENTS_RECONCILED_NOT_AWARD_SCORE"
-      },
-      "sourceHTOGamePattern": {
-        "status": "HTO_PER_GAME_OBSERVATIONS_CROSSCHECKED_TO_CURRENT_SEASON",
-        "season": "W2026/27",
-        "games": [
-          {
-            "gameId": 3356178,
-            "date": "2026-09-27",
-            "g": 0,
-            "a": 0,
-            "points": 0,
-            "plusMinus": -3,
-            "playerOfTheGame": 0
-          }
-        ],
-        "observedCounts": {
-          "gamesPlayed": 1,
-          "pointScoringGames": 0,
-          "goalScoringGames": 0,
-          "multiPointGames": 0,
-          "threeOrMorePointGames": 0,
-          "positivePlusMinusGames": 0,
-          "negativePlusMinusGames": 1,
-          "evenPlusMinusGames": 0,
-          "playerOfTheGameCredits": 0
-        },
-        "modelAwardSubscore": null,
-        "provenance": "Four named skater game sheets, official HTO GP/G/A/PTS/plus-minus and Player of the Game parity",
-        "limitation": "Raw game pattern counts, not the original workbook weighted/normalized Consistency, Two-Way or Streak Heat subscore."
-      }
-    },
-    {
       "name": "Duffy, Lorcan",
       "role": "CU",
       "position": "Skater",
@@ -885,6 +801,20 @@
         "modelAwardSubscore": null,
         "provenance": "Four named skater game sheets, official HTO GP/G/A/PTS/plus-minus and Player of the Game parity",
         "limitation": "Raw game pattern counts, not the original workbook weighted/normalized Consistency, Two-Way or Streak Heat subscore."
+      },
+      "htoRookieYear": {
+        "year": 2026,
+        "sourceField": "Rookie Year",
+        "source": "HTO_TEAM_ROSTER_CURRENT_SEASON",
+        "status": "ROSTER_YEAR_OBSERVED_AWARD_ELIGIBILITY_NOT_VERIFIED"
+      },
+      "workbookRookieYear": {
+        "year": 2026,
+        "sourceTable": "PlayerInfo",
+        "sourceField": "Rookie Year",
+        "sourceCell": "AX70",
+        "sourceWorkbookSha256": "0002fd9f06596af8d0a00fc1b53a618ef15479f941ad5c1e6265b27002a65154",
+        "status": "SOURCE_WORKBOOK_CACHED_YEAR_VERIFIED_LIVE_ELIGIBILITY_UNRECONCILED"
       }
     },
     {
@@ -1514,6 +1444,20 @@
         "modelAwardSubscore": null,
         "provenance": "Four named skater game sheets, official HTO GP/G/A/PTS/plus-minus and Player of the Game parity",
         "limitation": "Raw game pattern counts, not the original workbook weighted/normalized Consistency, Two-Way or Streak Heat subscore."
+      },
+      "htoRookieYear": {
+        "year": 2026,
+        "sourceField": "Rookie Year",
+        "source": "HTO_TEAM_ROSTER_CURRENT_SEASON",
+        "status": "ROSTER_YEAR_OBSERVED_AWARD_ELIGIBILITY_NOT_VERIFIED"
+      },
+      "workbookRookieYear": {
+        "year": 2026,
+        "sourceTable": "PlayerInfo",
+        "sourceField": "Rookie Year",
+        "sourceCell": "AX95",
+        "sourceWorkbookSha256": "0002fd9f06596af8d0a00fc1b53a618ef15479f941ad5c1e6265b27002a65154",
+        "status": "SOURCE_WORKBOOK_CACHED_YEAR_VERIFIED_LIVE_ELIGIBILITY_UNRECONCILED"
       }
     },
     {
@@ -1944,6 +1888,20 @@
         "modelAwardSubscore": null,
         "provenance": "Four named skater game sheets, official HTO GP/G/A/PTS/plus-minus and Player of the Game parity",
         "limitation": "Raw game pattern counts, not the original workbook weighted/normalized Consistency, Two-Way or Streak Heat subscore."
+      },
+      "htoRookieYear": {
+        "year": 2026,
+        "sourceField": "Rookie Year",
+        "source": "HTO_TEAM_ROSTER_CURRENT_SEASON",
+        "status": "ROSTER_YEAR_OBSERVED_AWARD_ELIGIBILITY_NOT_VERIFIED"
+      },
+      "workbookRookieYear": {
+        "year": 2026,
+        "sourceTable": "PlayerInfo",
+        "sourceField": "Rookie Year",
+        "sourceCell": "AX112",
+        "sourceWorkbookSha256": "0002fd9f06596af8d0a00fc1b53a618ef15479f941ad5c1e6265b27002a65154",
+        "status": "SOURCE_WORKBOOK_CACHED_YEAR_VERIFIED_LIVE_ELIGIBILITY_UNRECONCILED"
       }
     },
     {
@@ -2050,6 +2008,20 @@
         "modelAwardSubscore": null,
         "provenance": "Four named skater game sheets, official HTO GP/G/A/PTS/plus-minus and Player of the Game parity",
         "limitation": "Raw game pattern counts, not the original workbook weighted/normalized Consistency, Two-Way or Streak Heat subscore."
+      },
+      "htoRookieYear": {
+        "year": 2026,
+        "sourceField": "Rookie Year",
+        "source": "HTO_TEAM_ROSTER_CURRENT_SEASON",
+        "status": "ROSTER_YEAR_OBSERVED_AWARD_ELIGIBILITY_NOT_VERIFIED"
+      },
+      "workbookRookieYear": {
+        "year": 2026,
+        "sourceTable": "PlayerInfo",
+        "sourceField": "Rookie Year",
+        "sourceCell": "AX106",
+        "sourceWorkbookSha256": "0002fd9f06596af8d0a00fc1b53a618ef15479f941ad5c1e6265b27002a65154",
+        "status": "SOURCE_WORKBOOK_CACHED_YEAR_VERIFIED_LIVE_ELIGIBILITY_UNRECONCILED"
       }
     },
     {
@@ -2279,6 +2251,20 @@
         "modelAwardSubscore": null,
         "provenance": "Four named skater game sheets, official HTO GP/G/A/PTS/plus-minus and Player of the Game parity",
         "limitation": "Raw game pattern counts, not the original workbook weighted/normalized Consistency, Two-Way or Streak Heat subscore."
+      },
+      "htoRookieYear": {
+        "year": 2026,
+        "sourceField": "Rookie Year",
+        "source": "HTO_TEAM_ROSTER_CURRENT_SEASON",
+        "status": "ROSTER_YEAR_OBSERVED_AWARD_ELIGIBILITY_NOT_VERIFIED"
+      },
+      "workbookRookieYear": {
+        "year": 2026,
+        "sourceTable": "PlayerInfo",
+        "sourceField": "Rookie Year",
+        "sourceCell": "AX113",
+        "sourceWorkbookSha256": "0002fd9f06596af8d0a00fc1b53a618ef15479f941ad5c1e6265b27002a65154",
+        "status": "SOURCE_WORKBOOK_CACHED_YEAR_VERIFIED_LIVE_ELIGIBILITY_UNRECONCILED"
       }
     }
   ],
@@ -2294,7 +2280,7 @@
   "verifiedSourceReadback": {
     "source": "Official Brave H.C. HTO player and goalie statistics",
     "sourceUrl": "https://www.htosports.com/teams/default.asp?p=stats&s=hockey&u=BRAVESHOCKEY",
-    "verifiedOn": "2026-10-19",
+    "verifiedOn": "2026-10-21",
     "status": "HTO_NAMED_SKATER_AND_GOALIE_GP_PARITY_PASS",
     "team": {
       "gp": 4,
@@ -2303,11 +2289,11 @@
       "points": 16
     },
     "sourceRows": {
-      "skaters": 21,
-      "namedSkaters": 20,
+      "skaters": 20,
+      "namedSkaters": 19,
       "goalies": 3
     },
-    "namedParticipantRows": 23,
+    "namedParticipantRows": 22,
     "goalieSourceTotals": {
       "gp": 4,
       "goalsAgainst": 19
@@ -2335,12 +2321,12 @@
     "htoPositionVerification": {
       "status": "HTO_POSITION_AND_GP_PARITY_PASS",
       "source": "Official HTO skater POS column and separate goalie table",
-      "namedSkatersChecked": 20,
+      "namedSkatersChecked": 19,
       "goaliesChecked": 3,
       "semantics": "HTO position listing is NOT proof of award-specific eligibility; dual-role players are position candidates only."
     },
     "currentHTOGameEventAudit": {
-      "status": "FOUR_GAME_HTO_SPECIAL_TEAMS_AND_MINOR_PENALTY_EVENT_PARITY_PASS",
+      "status": "ARCHIVED_EVENT_AUDIT_NOT_REVERIFIED_BY_CURRENT_CORE_STAT_REVIEW",
       "season": "W2026/27",
       "officialTeamGames": 4,
       "currentOfficialGameSources": [
@@ -2372,8 +2358,7 @@
       },
       "teamReportedPenaltyMinutes": 2,
       "reportedHTOPenaltyEvents": 1,
-      "namedSkaterGameAppearances": 54,
-      "reportedPIMFreeNamedSkaterGameAppearances": 53,
+      "namedSkaterGameAppearances": 53,
       "flaggedPlayer": "Triumbari, Francesco",
       "flaggedPlayerPenaltyGameId": 3375601,
       "sourceLimitations": [
@@ -2400,7 +2385,7 @@
         "powerPlay": 0,
         "shorthanded": 0
       },
-      "namedSkaters": 20,
+      "namedSkaters": 19,
       "derivedHTOSpecialTeamsPointGames": 0,
       "currentAwardScoringComponentScoreReady": false,
       "provenance": "Exact named scorer/assistant event attribution from four official HTO public Score Summary tables",
@@ -2432,7 +2417,7 @@
       ],
       "games": 4,
       "latestCompletedGameDate": "2026-10-18",
-      "namedSkaterCount": 20,
+      "namedSkaterCount": 19,
       "goalieCount": 3,
       "currentNamedPointScoringGameAppearances": 13,
       "currentNamedMultiPointGameAppearances": 3,
@@ -2440,7 +2425,8 @@
       "source": "Official HTO four game-level box scores and independently reconciled published season aggregate",
       "calculationsAllowed": "OBSERVATIONAL_COUNTS_ONLY_NO_AWARD_SCORING",
       "awardModelRatingsVerified": false
-    }
+    },
+    "refreshScope": "481 comparisons: named core season/per-game fields, skater POS/GTG/PIM/Pts-per-game and goalie GAA/plus-minus. Event strength, penalty event completeness and roster classes retain older dated evidence; not reverified in this pass."
   },
   "workbookRookieRosterWatch": {
     "status": "SAVED_WORKBOOK_FT_ROOKIE_FLAG_CROSSCHECKED_WITH_HTO_CURRENT_SEASON_APPEARANCE",
@@ -2461,9 +2447,9 @@
     "status": "PUBLIC_HTO_STAT_INPUT_RECONCILED_NO_AWARD_SCORES",
     "sourceUrl": "https://www.htosports.com/teams/default.asp?p=stats&s=hockey&u=BRAVESHOCKEY",
     "season": "W2026/27",
-    "verifiedAsOf": "2026-10-19",
+    "verifiedAsOf": "2026-10-21",
     "playerCounts": {
-      "skaters": 20,
+      "skaters": 19,
       "goalies": 3,
       "excludedAnonymousHTORows": 1
     },
@@ -2498,7 +2484,7 @@
       "points": 16,
       "gameTyingGoals": 3,
       "penaltyMinutes": 2,
-      "plusMinus": -175,
+      "plusMinus": -169,
       "playerOfTheGameCount": 9
     },
     "goalieTeamHTOStats": {
@@ -2511,5 +2497,119 @@
     },
     "warning": "These are actual HTO raw season statistics, NOT normalized AwardScoring public 50–100 subscores or candidate ranks. HTO source alone cannot reproduce historical baselines, per-game award helpers or award eligibility.",
     "modelScoresReady": false
+  },
+  "htoRookieYearReadback": {
+    "status": "HTO_ROSTER_ROOKIE_YEAR_CROSSCHECKED_WITH_APPEARANCES_NOT_ELIGIBILITY",
+    "season": "W2026/27",
+    "year": 2026,
+    "sourceUrl": "https://www.htosports.com/teams/default.asp?p=roster&s=hockey&u=BRAVESHOCKEY",
+    "verifiedOn": "2026-10-19",
+    "sourceField": "Rookie Year",
+    "sourceKind": "PUBLIC_HTO_OFFICIAL_TEAM_ROSTER",
+    "names": [
+      "Kong, Henry",
+      "Povegliano, Adam",
+      "Rajkumar, Sanjay",
+      "Rosenberg, Jamie",
+      "Triumbari, Francesco"
+    ],
+    "observedCount": 5,
+    "observedFirstYearFullTimersWithCurrentGP": 5,
+    "discrepancy": {
+      "name": "Rosenberg, Jamie",
+      "htoRookieYear": 2026,
+      "savedWorkbookRookieFlag": "NOT_PRESENT_IN_CACHED_ROOKIE_WATCH",
+      "resolution": "KEEP_HTO_ROSTER_ROOKIE_YEAR_VISIBLE; REQUIRE_WORKBOOK_RECONCILIATION_BEFORE_OFFICIAL_NOMINATION_OR_RATING"
+    },
+    "caveat": "HTO-listed Rookie Year is primary evidence for the unranked on-ice rookie watch. Full-time role and games played must independently match current season. The Sept 22 workbook flag remains separately retained and may conflict; no model eligibility or score is asserted."
+  },
+  "workbookRookieYearCrosscheck": {
+    "status": "SAVED_WORKBOOK_ROOKIE_YEAR_CROSSCHECKED_WITH_HTO_APPEARANCES_MODEL_ELIGIBILITY_HELD",
+    "sourceWorkbookSha256": "0002fd9f06596af8d0a00fc1b53a618ef15479f941ad5c1e6265b27002a65154",
+    "sourceWorkbookSnapshot": "2026-09-22",
+    "sourceSheet": "Player Information",
+    "sourceTable": "PlayerInfo",
+    "sourceField": "Rookie Year",
+    "sourceEligibilityTable": "AwardScoring",
+    "sourceRankingSheet": "Web Races",
+    "sourceRankingRange": "B39:D43",
+    "sourceRankingRule": "MIN(5,COUNTIF(AwardScoring[Rookie Eligible],1))",
+    "year": 2026,
+    "season": "W2026/27",
+    "workbookRecordedCurrentSeasonTeamGP": 1,
+    "currentHTOTeamGP": 4,
+    "sourceHTORosterUrl": "https://www.htosports.com/teams/default.asp?p=roster&s=hockey&u=BRAVESHOCKEY",
+    "names": [
+      "Kong, Henry",
+      "Povegliano, Adam",
+      "Rajkumar, Sanjay",
+      "Rosenberg, Jamie",
+      "Triumbari, Francesco"
+    ],
+    "observedCount": 5,
+    "workbookCachedRows": {
+      "Kong, Henry": {
+        "playerInfoRow": 70,
+        "awardScoringRow": 13,
+        "cachedRookieStatus": 1,
+        "cachedAwardEligible": 1,
+        "cachedSkaterGP": 1,
+        "cachedRecentSeason": "W2026/27"
+      },
+      "Povegliano, Adam": {
+        "playerInfoRow": 95,
+        "awardScoringRow": 20,
+        "cachedRookieStatus": 1,
+        "cachedAwardEligible": 1,
+        "cachedSkaterGP": 1,
+        "cachedRecentSeason": "W2026/27"
+      },
+      "Rajkumar, Sanjay": {
+        "playerInfoRow": 112,
+        "awardScoringRow": 27,
+        "cachedRookieStatus": 1,
+        "cachedAwardEligible": 1,
+        "cachedSkaterGP": 1,
+        "cachedRecentSeason": "W2026/27"
+      },
+      "Rosenberg, Jamie": {
+        "playerInfoRow": 106,
+        "awardScoringRow": 24,
+        "cachedRookieStatus": 0,
+        "cachedAwardEligible": 0,
+        "cachedSkaterGP": 0,
+        "cachedRecentSeason": "",
+        "cachedFirstSeason": "",
+        "missingOldestPlayerGame": true
+      },
+      "Triumbari, Francesco": {
+        "playerInfoRow": 113,
+        "awardScoringRow": 28,
+        "cachedRookieStatus": 1,
+        "cachedAwardEligible": 1,
+        "cachedSkaterGP": 1,
+        "cachedRecentSeason": "W2026/27"
+      }
+    },
+    "discrepancy": "Jamie Rosenberg has workbook Rookie Year 2026 (PlayerInfo!AX106) and FT roster, but cached Recent Season and First Season are blank, Skater GP 0, Rookie Status 0 and Rookie Eligible 0 because his current game events were not represented in the saved workbook. Official HTO records three appearances. Do not override the workbook formula: replay source-authorized games and recalculate in a controlled replica.",
+    "warning": "Unranked first-year candidate visibility is supported by workbook Rookie Year corroborated with official HTO participation; cached workbook award eligibility and all current model scores remain HELD pending authoritative game-log replay and formula recalculation."
+  },
+  "sourceReview": {
+    "status": "CORRECTED_NAMED_PARTICIPANTS_MATCH_FRESH_OFFICIAL_SOURCES",
+    "observedAt": "2026-10-21T02:11:15.057760+00:00",
+    "seasonFieldComparisons": 126,
+    "gameFieldComparisons": 273,
+    "additionalSeasonComparisons": 82,
+    "differences": [],
+    "correction": {
+      "name": "Congiusti, Marco",
+      "removedErroneousGameId": 3356178,
+      "basis": "Adam confirms mistaken entry, since deleted from HTO",
+      "identitySubstitution": false,
+      "archive": "docs/261020_Awards_Marco_Erroneous_Entry_Archive.json"
+    },
+    "excludedOfficialPlaceholder": "Unknown, Johnny",
+    "disposition": "Restore source-only watches for 22 named participants. No normalized award score or eligibility release.",
+    "awardScorePublicationAuthorized": false
   }
 }

@@ -1,0 +1,10 @@
+{
+  "sourceWorkbookSha256": "0002fd9f06596af8d0a00fc1b53a618ef15479f941ad5c1e6265b27002a65154",
+  "cell": "Master Schedule!C1",
+  "cachedValue": "W2026/27",
+  "cellType": "str",
+  "formula": "IFERROR(\n    INDEX(\n        SeasonInfo[Season Conc.],\n        MATCH(\n            INDEX(\n                SeasonInfo[Season Order],\n                MATCH(\n                    MAX(SeasonInfo[First Game '#]),\n                    SeasonInfo[First Game '#],\n                    0\n                )\n            ) + IF($V$2=\"ON\",1,0),\n            SeasonInfo[Season Order],\n            0\n        )\n    ),\n    \"\"\n)",
+  "formulaMetadata": {},
+  "recalculated": false,
+  "sourceHashUnchanged": true
+}

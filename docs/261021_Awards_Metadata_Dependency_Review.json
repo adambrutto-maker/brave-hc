@@ -1,0 +1,1310 @@
+{
+  "state": "METADATA_DEPENDENCY_INVENTORY_NOT_SCORING_VERIFICATION",
+  "sourceWorkbookSha256": "0002fd9f06596af8d0a00fc1b53a618ef15479f941ad5c1e6265b27002a65154",
+  "categories": {
+    "Hart": {
+      "structuredNodesVisited": 323,
+      "rawPlayerInfoFields": [
+        "Current Roster Status",
+        "Position",
+        "Position 2",
+        "Website Name"
+      ],
+      "rawRosterFields": [
+        "Name",
+        "Season"
+      ],
+      "rawInputTables": [
+        "AllTimeSchedule",
+        "GoalieStatsByGame",
+        "PlayerInfo",
+        "RosterStatusBySeason",
+        "SeasonInfo",
+        "SkaterStatsByGame"
+      ],
+      "rawInputsByTable": {
+        "AllTimeSchedule": [
+          "Date",
+          "Game #",
+          "Game Type",
+          "Home/Away",
+          "Location",
+          "Opponent",
+          "Season",
+          "Time"
+        ],
+        "GoalieStatsByGame": [
+          "GA",
+          "GP",
+          "Game #",
+          "Name",
+          "PIM",
+          "POTG",
+          "SHO",
+          "T",
+          "W",
+          "Win %"
+        ],
+        "PlayerInfo": [
+          "Current Roster Status",
+          "Position",
+          "Position 2",
+          "Website Name"
+        ],
+        "RosterStatusBySeason": [
+          "Name",
+          "Season"
+        ],
+        "SeasonInfo": [
+          "Game Type",
+          "Season",
+          "Season Order"
+        ],
+        "SkaterStatsByGame": [
+          "+/-",
+          "A",
+          "G",
+          "GP",
+          "GTG",
+          "GWG",
+          "Game #",
+          "Name",
+          "POTG",
+          "PPG",
+          "Pts",
+          "SHG"
+        ]
+      },
+      "historicalPlayerInfoFields": [
+        "All-Time Total Goalie +/- Team Rate Avg",
+        "All-Time Total Goalie GAA Team Rate Avg",
+        "All-Time Total Goalie POTG Team Rate Avg",
+        "All-Time Total Goalie Pts/GP Team Rate Avg",
+        "All-Time Total Goalie SHO Team Rate Avg",
+        "All-Time Total Goalie Streak Heat Team Rate Avg",
+        "All-Time Total Goalie Win % Team Rate Avg",
+        "All-Time Total Skater +/- Team Rate Avg",
+        "All-Time Total Skater A Team Rate Avg",
+        "All-Time Total Skater Clutch Team Rate Avg",
+        "All-Time Total Skater G Team Rate Avg",
+        "All-Time Total Skater POTG Team Rate Avg",
+        "All-Time Total Skater Pts Team Rate Avg",
+        "All-Time Total Skater Special Teams Team Rate Avg",
+        "All-Time Total Skater Streak Heat Team Rate Avg",
+        "Career Prior Goalie GP",
+        "Career Prior Skater GP",
+        "Career Prior Total +/-/GP",
+        "Career Prior Total A/GP",
+        "Career Prior Total Clutch Goals/GP",
+        "Career Prior Total G/GP",
+        "Career Prior Total Goalie +/-/GP",
+        "Career Prior Total Goalie GA",
+        "Career Prior Total Goalie GAA",
+        "Career Prior Total Goalie POTG",
+        "Career Prior Total Goalie POTG/GP",
+        "Career Prior Total Goalie Pts",
+        "Career Prior Total Goalie Pts/GP",
+        "Career Prior Total Goalie Raw +/-",
+        "Career Prior Total Goalie SHO",
+        "Career Prior Total Goalie SHO/GP",
+        "Career Prior Total Goalie Streak Heat/GP",
+        "Career Prior Total Goalie T",
+        "Career Prior Total Goalie W",
+        "Career Prior Total Goalie Win %",
+        "Career Prior Total POTG",
+        "Career Prior Total POTG/GP",
+        "Career Prior Total PPG/GP",
+        "Career Prior Total Pts/GP",
+        "Career Prior Total Raw +/-",
+        "Career Prior Total Raw A",
+        "Career Prior Total Raw Clutch Goals",
+        "Career Prior Total Raw G",
+        "Career Prior Total Raw PPG",
+        "Career Prior Total Raw Pts",
+        "Career Prior Total Raw SHG",
+        "Career Prior Total SHG/GP",
+        "Career Prior Total Skater Streak Heat/GP"
+      ],
+      "ordinaryReferencesRequiringSeparateResolution": [
+        "'Master Schedule'!$C$1",
+        "'Player Stats'!$A$3:$A$1500",
+        "'Player Stats'!$C$3:$C$1500",
+        "'Player Stats'!$CN$3:$CN$1500",
+        "'Player Stats'!$CO$3:$CO$1500",
+        "'Player Stats'!$CP$3:$CP$1500",
+        "'Player Stats'!$CR$3:$CR$1500",
+        "'Player Stats'!$CT$3:$CT$1500",
+        "'Player Stats'!$CU$3:$CU$1500",
+        "'Player Stats'!$DB$3:$DB$1500",
+        "'Player Stats'!$DC$3:$DC$1500",
+        "'Player Stats'!$DF$3:$DF$1500",
+        "'Player Stats'!$DG$3:$DG$1500",
+        "'Player Stats'!$DL$3:$DL$1500",
+        "'Player Stats'!$DM$3:$DM$1500",
+        "'Player Stats'!$M$3:$M$1500",
+        "'Player Stats'!$O$3:$O$1500",
+        "'Player Stats'!$Q$3:$Q$1500",
+        "'Player Stats'!$R$3:$R$1500",
+        "'Player Stats'!$S$3:$S$1500",
+        "'Player Stats'!$T$3:$T$1500",
+        "'Player Stats'!$W$3:$W$1500",
+        "'Player Stats'!$X$3:$X$1500",
+        "'Player Stats'!$Y$3:$Y$1500",
+        "'Player Stats'!$Z$3:$Z$1500"
+      ],
+      "unsupportedStructuredReferences": [],
+      "rootFields": [
+        "Hart Eligible",
+        "Hart Rank Key",
+        "Hart Raw Composite Score",
+        "Hart Award Score"
+      ]
+    },
+    "Conn Smythe": {
+      "structuredNodesVisited": 345,
+      "rawPlayerInfoFields": [
+        "Current Roster Status",
+        "Position",
+        "Position 2",
+        "Website Name"
+      ],
+      "rawRosterFields": [
+        "Name",
+        "Season"
+      ],
+      "rawInputTables": [
+        "AllTimeSchedule",
+        "GoalieStatsByGame",
+        "PlayerInfo",
+        "RosterStatusBySeason",
+        "SeasonInfo",
+        "SkaterStatsByGame"
+      ],
+      "rawInputsByTable": {
+        "AllTimeSchedule": [
+          "Date",
+          "Game #",
+          "Game Type",
+          "Home/Away",
+          "Location",
+          "Opponent",
+          "Season",
+          "Time"
+        ],
+        "GoalieStatsByGame": [
+          "GA",
+          "GP",
+          "Game #",
+          "Name",
+          "PIM",
+          "POTG",
+          "SHO",
+          "T",
+          "W",
+          "Win %"
+        ],
+        "PlayerInfo": [
+          "Current Roster Status",
+          "Position",
+          "Position 2",
+          "Website Name"
+        ],
+        "RosterStatusBySeason": [
+          "Name",
+          "Season"
+        ],
+        "SeasonInfo": [
+          "Game Type",
+          "Season",
+          "Season Order"
+        ],
+        "SkaterStatsByGame": [
+          "+/-",
+          "A",
+          "G",
+          "GP",
+          "GTG",
+          "GWG",
+          "Game #",
+          "Name",
+          "PIM",
+          "POTG",
+          "PPG",
+          "Pts",
+          "SHG"
+        ]
+      },
+      "historicalPlayerInfoFields": [
+        "All-Time Playoff Goalie +/- Team Rate Avg",
+        "All-Time Playoff Goalie GAA Team Rate Avg",
+        "All-Time Playoff Goalie PIM Team Rate Avg",
+        "All-Time Playoff Goalie POTG Team Rate Avg",
+        "All-Time Playoff Goalie Pts/GP Team Rate Avg",
+        "All-Time Playoff Goalie SHO Team Rate Avg",
+        "All-Time Playoff Goalie Streak Heat Team Rate Avg",
+        "All-Time Playoff Goalie Win % Team Rate Avg",
+        "All-Time Playoff Skater +/- Team Rate Avg",
+        "All-Time Playoff Skater A Team Rate Avg",
+        "All-Time Playoff Skater Clutch Team Rate Avg",
+        "All-Time Playoff Skater G Team Rate Avg",
+        "All-Time Playoff Skater PIM Team Rate Avg",
+        "All-Time Playoff Skater POTG Team Rate Avg",
+        "All-Time Playoff Skater Pts Team Rate Avg",
+        "All-Time Playoff Skater Special Teams Team Rate Avg",
+        "All-Time Playoff Skater Streak Heat Team Rate Avg",
+        "Career Prior Goalie Playoff GP",
+        "Career Prior Playoff +/-/GP",
+        "Career Prior Playoff A/GP",
+        "Career Prior Playoff Clutch Goals/GP",
+        "Career Prior Playoff G/GP",
+        "Career Prior Playoff Goalie +/-/GP",
+        "Career Prior Playoff Goalie GA",
+        "Career Prior Playoff Goalie GAA",
+        "Career Prior Playoff Goalie PIM",
+        "Career Prior Playoff Goalie PIM/GP",
+        "Career Prior Playoff Goalie POTG",
+        "Career Prior Playoff Goalie POTG/GP",
+        "Career Prior Playoff Goalie Pts",
+        "Career Prior Playoff Goalie Pts/GP",
+        "Career Prior Playoff Goalie Raw +/-",
+        "Career Prior Playoff Goalie SHO",
+        "Career Prior Playoff Goalie SHO/GP",
+        "Career Prior Playoff Goalie Streak Heat/GP",
+        "Career Prior Playoff Goalie T",
+        "Career Prior Playoff Goalie W",
+        "Career Prior Playoff Goalie Win %",
+        "Career Prior Playoff PIM/GP",
+        "Career Prior Playoff POTG",
+        "Career Prior Playoff POTG/GP",
+        "Career Prior Playoff PPG/GP",
+        "Career Prior Playoff Pts/GP",
+        "Career Prior Playoff Raw +/-",
+        "Career Prior Playoff Raw A",
+        "Career Prior Playoff Raw Clutch Goals",
+        "Career Prior Playoff Raw G",
+        "Career Prior Playoff Raw PIM",
+        "Career Prior Playoff Raw PPG",
+        "Career Prior Playoff Raw Pts",
+        "Career Prior Playoff Raw SHG",
+        "Career Prior Playoff SHG/GP",
+        "Career Prior Playoff Skater Streak Heat/GP",
+        "Career Prior Skater Playoff GP"
+      ],
+      "ordinaryReferencesRequiringSeparateResolution": [
+        "'Master Schedule'!$C$1",
+        "'Player Stats'!$A$3:$A$1500",
+        "'Player Stats'!$AA$3:$AA$1500",
+        "'Player Stats'!$AB$3:$AB$1500",
+        "'Player Stats'!$B$3:$B$1500",
+        "'Player Stats'!$C$3:$C$1500",
+        "'Player Stats'!$CN$3:$CN$1500",
+        "'Player Stats'!$CO$3:$CO$1500",
+        "'Player Stats'!$CP$3:$CP$1500",
+        "'Player Stats'!$CR$3:$CR$1500",
+        "'Player Stats'!$CT$3:$CT$1500",
+        "'Player Stats'!$CU$3:$CU$1500",
+        "'Player Stats'!$DB$3:$DB$1500",
+        "'Player Stats'!$DC$3:$DC$1500",
+        "'Player Stats'!$DF$3:$DF$1500",
+        "'Player Stats'!$DG$3:$DG$1500",
+        "'Player Stats'!$DL$3:$DL$1500",
+        "'Player Stats'!$DM$3:$DM$1500",
+        "'Player Stats'!$DN$3:$DN$1500",
+        "'Player Stats'!$DO$3:$DO$1500",
+        "'Player Stats'!$M$3:$M$1500",
+        "'Player Stats'!$O$3:$O$1500",
+        "'Player Stats'!$Q$3:$Q$1500",
+        "'Player Stats'!$R$3:$R$1500",
+        "'Player Stats'!$S$3:$S$1500",
+        "'Player Stats'!$T$3:$T$1500",
+        "'Player Stats'!$W$3:$W$1500",
+        "'Player Stats'!$X$3:$X$1500",
+        "'Player Stats'!$Y$3:$Y$1500",
+        "'Player Stats'!$Z$3:$Z$1500"
+      ],
+      "unsupportedStructuredReferences": [],
+      "rootFields": [
+        "Conn Smythe Eligible",
+        "Conn Smythe Rank Key",
+        "Conn Smythe Raw Composite Score",
+        "Conn Smythe Award Score"
+      ]
+    },
+    "Norris": {
+      "structuredNodesVisited": 244,
+      "rawPlayerInfoFields": [
+        "Current Roster Status",
+        "Position",
+        "Position 2",
+        "Website Name"
+      ],
+      "rawRosterFields": [
+        "Name",
+        "Season"
+      ],
+      "rawInputTables": [
+        "AllTimeSchedule",
+        "GoalieStatsByGame",
+        "PlayerInfo",
+        "RosterStatusBySeason",
+        "SeasonInfo",
+        "SkaterStatsByGame"
+      ],
+      "rawInputsByTable": {
+        "AllTimeSchedule": [
+          "Date",
+          "Game #",
+          "Game Type",
+          "Home/Away",
+          "Location",
+          "Opponent",
+          "Season",
+          "Time"
+        ],
+        "GoalieStatsByGame": [
+          "GP",
+          "Game #",
+          "Name",
+          "SHO",
+          "W",
+          "Win %"
+        ],
+        "PlayerInfo": [
+          "Current Roster Status",
+          "Position",
+          "Position 2",
+          "Website Name"
+        ],
+        "RosterStatusBySeason": [
+          "Name",
+          "Season"
+        ],
+        "SeasonInfo": [
+          "Game Type",
+          "Season",
+          "Season Order"
+        ],
+        "SkaterStatsByGame": [
+          "+/-",
+          "A",
+          "G",
+          "GP",
+          "GTG",
+          "GWG",
+          "Game #",
+          "Name",
+          "PIM",
+          "POTG",
+          "Pts"
+        ]
+      },
+      "historicalPlayerInfoFields": [
+        "All-Time Total Goalie +/- Team Rate Avg",
+        "All-Time Total Goalie PIM Team Rate Avg",
+        "All-Time Total Goalie POTG Team Rate Avg",
+        "All-Time Total Goalie Streak Heat Team Rate Avg",
+        "All-Time Total Skater +/- Team Rate Avg",
+        "All-Time Total Skater Clutch Team Rate Avg",
+        "All-Time Total Skater PIM Team Rate Avg",
+        "All-Time Total Skater POTG Team Rate Avg",
+        "All-Time Total Skater Pts Team Rate Avg",
+        "All-Time Total Skater Special Teams Team Rate Avg",
+        "All-Time Total Skater Streak Heat Team Rate Avg",
+        "Career Prior Goalie GP",
+        "Career Prior Playoff Raw +/-",
+        "Career Prior Skater GP",
+        "Career Prior Skater Playoff GP",
+        "Career Prior Total +/-/GP",
+        "Career Prior Total Clutch Goals/GP",
+        "Career Prior Total Goalie +/-/GP",
+        "Career Prior Total Goalie PIM",
+        "Career Prior Total Goalie PIM/GP",
+        "Career Prior Total Goalie POTG",
+        "Career Prior Total Goalie POTG/GP",
+        "Career Prior Total Goalie Raw +/-",
+        "Career Prior Total Goalie Streak Heat/GP",
+        "Career Prior Total PIM/GP",
+        "Career Prior Total POTG",
+        "Career Prior Total POTG/GP",
+        "Career Prior Total PPG/GP",
+        "Career Prior Total Pts/GP",
+        "Career Prior Total Raw +/-",
+        "Career Prior Total Raw A",
+        "Career Prior Total Raw Clutch Goals",
+        "Career Prior Total Raw G",
+        "Career Prior Total Raw PIM",
+        "Career Prior Total Raw PPG",
+        "Career Prior Total Raw Pts",
+        "Career Prior Total Raw SHG",
+        "Career Prior Total SHG/GP",
+        "Career Prior Total Skater Streak Heat/GP"
+      ],
+      "ordinaryReferencesRequiringSeparateResolution": [
+        "'Master Schedule'!$C$1",
+        "'Player Stats'!$A$3:$A$1500",
+        "'Player Stats'!$AA$3:$AA$1500",
+        "'Player Stats'!$AB$3:$AB$1500",
+        "'Player Stats'!$B$3:$B$1500",
+        "'Player Stats'!$C$3:$C$1500",
+        "'Player Stats'!$CN$3:$CN$1500",
+        "'Player Stats'!$CP$3:$CP$1500",
+        "'Player Stats'!$DB$3:$DB$1500",
+        "'Player Stats'!$DC$3:$DC$1500",
+        "'Player Stats'!$DN$3:$DN$1500",
+        "'Player Stats'!$DO$3:$DO$1500",
+        "'Player Stats'!$M$3:$M$1500",
+        "'Player Stats'!$O$3:$O$1500",
+        "'Player Stats'!$Q$3:$Q$1500",
+        "'Player Stats'!$R$3:$R$1500",
+        "'Player Stats'!$S$3:$S$1500",
+        "'Player Stats'!$T$3:$T$1500",
+        "'Player Stats'!$W$3:$W$1500",
+        "'Player Stats'!$X$3:$X$1500",
+        "'Player Stats'!$Y$3:$Y$1500",
+        "'Player Stats'!$Z$3:$Z$1500"
+      ],
+      "unsupportedStructuredReferences": [],
+      "rootFields": [
+        "Norris Eligible",
+        "Norris Rank Key",
+        "Norris Raw Composite Score",
+        "Norris Award Score"
+      ]
+    },
+    "Art Ross": {
+      "structuredNodesVisited": 44,
+      "rawPlayerInfoFields": [
+        "Current Roster Status",
+        "Position",
+        "Position 2",
+        "Website Name"
+      ],
+      "rawRosterFields": [],
+      "rawInputTables": [
+        "AllTimeSchedule",
+        "GoalieStatsByGame",
+        "PlayerInfo",
+        "SeasonInfo",
+        "SkaterStatsByGame"
+      ],
+      "rawInputsByTable": {
+        "AllTimeSchedule": [
+          "Date",
+          "Game #",
+          "Game Type",
+          "Home/Away",
+          "Location",
+          "Opponent",
+          "Season",
+          "Time"
+        ],
+        "GoalieStatsByGame": [
+          "Game #",
+          "Name"
+        ],
+        "PlayerInfo": [
+          "Current Roster Status",
+          "Position",
+          "Position 2",
+          "Website Name"
+        ],
+        "SeasonInfo": [
+          "Game Type",
+          "Season",
+          "Season Order"
+        ],
+        "SkaterStatsByGame": [
+          "Game #",
+          "Name"
+        ]
+      },
+      "historicalPlayerInfoFields": [],
+      "ordinaryReferencesRequiringSeparateResolution": [
+        "'Master Schedule'!$C$1",
+        "'Player Stats'!$A$3:$A$1500",
+        "'Player Stats'!$B$3:$B$1500",
+        "'Player Stats'!$C$3:$C$1500",
+        "'Player Stats'!$Q$3:$Q$1500",
+        "'Player Stats'!$R$3:$R$1500",
+        "'Player Stats'!$S$3:$S$1500",
+        "'Player Stats'!$T$3:$T$1500"
+      ],
+      "unsupportedStructuredReferences": [],
+      "rootFields": [
+        "Art Ross Eligible",
+        "Art Ross Rank Key",
+        "Art Ross Award Score"
+      ]
+    },
+    "Rocket Richard": {
+      "structuredNodesVisited": 40,
+      "rawPlayerInfoFields": [
+        "Current Roster Status",
+        "Position",
+        "Position 2",
+        "Website Name"
+      ],
+      "rawRosterFields": [],
+      "rawInputTables": [
+        "AllTimeSchedule",
+        "GoalieStatsByGame",
+        "PlayerInfo",
+        "SeasonInfo",
+        "SkaterStatsByGame"
+      ],
+      "rawInputsByTable": {
+        "AllTimeSchedule": [
+          "Date",
+          "Game #",
+          "Game Type",
+          "Home/Away",
+          "Location",
+          "Opponent",
+          "Season",
+          "Time"
+        ],
+        "GoalieStatsByGame": [
+          "Game #",
+          "Name"
+        ],
+        "PlayerInfo": [
+          "Current Roster Status",
+          "Position",
+          "Position 2",
+          "Website Name"
+        ],
+        "SeasonInfo": [
+          "Game Type",
+          "Season",
+          "Season Order"
+        ],
+        "SkaterStatsByGame": [
+          "Game #",
+          "Name"
+        ]
+      },
+      "historicalPlayerInfoFields": [],
+      "ordinaryReferencesRequiringSeparateResolution": [
+        "'Master Schedule'!$C$1",
+        "'Player Stats'!$A$3:$A$1500",
+        "'Player Stats'!$B$3:$B$1500",
+        "'Player Stats'!$C$3:$C$1500",
+        "'Player Stats'!$Q$3:$Q$1500",
+        "'Player Stats'!$R$3:$R$1500"
+      ],
+      "unsupportedStructuredReferences": [],
+      "rootFields": [
+        "Rocket Richard Eligible",
+        "Rocket Richard Rank Key",
+        "Rocket Richard Award Score"
+      ]
+    },
+    "Rookie": {
+      "structuredNodesVisited": 348,
+      "rawPlayerInfoFields": [
+        "Current Roster Status",
+        "Position",
+        "Position 2",
+        "Website Name"
+      ],
+      "rawRosterFields": [
+        "Name",
+        "Season",
+        "Status"
+      ],
+      "rawInputTables": [
+        "AllTimeSchedule",
+        "GoalieStatsByGame",
+        "PlayerInfo",
+        "RosterStatusBySeason",
+        "SeasonInfo",
+        "SkaterStatsByGame"
+      ],
+      "rawInputsByTable": {
+        "AllTimeSchedule": [
+          "Date",
+          "Game #",
+          "Game Type",
+          "Home/Away",
+          "Location",
+          "Opponent",
+          "Season",
+          "Time"
+        ],
+        "GoalieStatsByGame": [
+          "GA",
+          "GP",
+          "Game #",
+          "Name",
+          "PIM",
+          "POTG",
+          "SHO",
+          "T",
+          "W",
+          "Win %"
+        ],
+        "PlayerInfo": [
+          "Current Roster Status",
+          "Position",
+          "Position 2",
+          "Website Name"
+        ],
+        "RosterStatusBySeason": [
+          "Name",
+          "Season",
+          "Status"
+        ],
+        "SeasonInfo": [
+          "Game Type",
+          "Season",
+          "Season Order"
+        ],
+        "SkaterStatsByGame": [
+          "+/-",
+          "A",
+          "G",
+          "GP",
+          "Game #",
+          "Name",
+          "PIM",
+          "POTG",
+          "PPG",
+          "Pts",
+          "SHG"
+        ]
+      },
+      "historicalPlayerInfoFields": [
+        "All-Time Total Goalie +/- Team Rate Avg",
+        "All-Time Total Goalie GAA Team Rate Avg",
+        "All-Time Total Goalie PIM Team Rate Avg",
+        "All-Time Total Goalie POTG Team Rate Avg",
+        "All-Time Total Goalie Pts/GP Team Rate Avg",
+        "All-Time Total Goalie SHO Team Rate Avg",
+        "All-Time Total Goalie Streak Heat Team Rate Avg",
+        "All-Time Total Goalie Win % Team Rate Avg",
+        "All-Time Total Skater +/- Team Rate Avg",
+        "All-Time Total Skater A Team Rate Avg",
+        "All-Time Total Skater G Team Rate Avg",
+        "All-Time Total Skater PIM Team Rate Avg",
+        "All-Time Total Skater POTG Team Rate Avg",
+        "All-Time Total Skater Pts Team Rate Avg",
+        "All-Time Total Skater Special Teams Team Rate Avg",
+        "All-Time Total Skater Streak Heat Team Rate Avg",
+        "Career Prior Goalie GP",
+        "Career Prior Playoff Raw +/-",
+        "Career Prior Skater GP",
+        "Career Prior Skater Playoff GP",
+        "Career Prior Total +/-/GP",
+        "Career Prior Total A/GP",
+        "Career Prior Total G/GP",
+        "Career Prior Total Goalie +/-/GP",
+        "Career Prior Total Goalie GA",
+        "Career Prior Total Goalie GAA",
+        "Career Prior Total Goalie PIM",
+        "Career Prior Total Goalie PIM/GP",
+        "Career Prior Total Goalie POTG",
+        "Career Prior Total Goalie POTG/GP",
+        "Career Prior Total Goalie Pts",
+        "Career Prior Total Goalie Pts/GP",
+        "Career Prior Total Goalie Raw +/-",
+        "Career Prior Total Goalie SHO",
+        "Career Prior Total Goalie SHO/GP",
+        "Career Prior Total Goalie Streak Heat/GP",
+        "Career Prior Total Goalie T",
+        "Career Prior Total Goalie W",
+        "Career Prior Total Goalie Win %",
+        "Career Prior Total PIM/GP",
+        "Career Prior Total POTG",
+        "Career Prior Total POTG/GP",
+        "Career Prior Total PPG/GP",
+        "Career Prior Total Pts/GP",
+        "Career Prior Total Raw +/-",
+        "Career Prior Total Raw A",
+        "Career Prior Total Raw G",
+        "Career Prior Total Raw PIM",
+        "Career Prior Total Raw PPG",
+        "Career Prior Total Raw Pts",
+        "Career Prior Total Raw SHG",
+        "Career Prior Total SHG/GP",
+        "Career Prior Total Skater Streak Heat/GP"
+      ],
+      "ordinaryReferencesRequiringSeparateResolution": [
+        "'Master Schedule'!$C$1",
+        "'Player Stats'!$A$3:$A$1500",
+        "'Player Stats'!$AA$3:$AA$1500",
+        "'Player Stats'!$AB$3:$AB$1500",
+        "'Player Stats'!$B$3:$B$1500",
+        "'Player Stats'!$C$3:$C$1500",
+        "'Player Stats'!$CN$3:$CN$1500",
+        "'Player Stats'!$CO$3:$CO$1500",
+        "'Player Stats'!$CP$3:$CP$1500",
+        "'Player Stats'!$CR$3:$CR$1500",
+        "'Player Stats'!$CT$3:$CT$1500",
+        "'Player Stats'!$CU$3:$CU$1500",
+        "'Player Stats'!$DB$3:$DB$1500",
+        "'Player Stats'!$DC$3:$DC$1500",
+        "'Player Stats'!$DF$3:$DF$1500",
+        "'Player Stats'!$DG$3:$DG$1500",
+        "'Player Stats'!$DL$3:$DL$1500",
+        "'Player Stats'!$DM$3:$DM$1500",
+        "'Player Stats'!$DN$3:$DN$1500",
+        "'Player Stats'!$DO$3:$DO$1500",
+        "'Player Stats'!$M$3:$M$1500",
+        "'Player Stats'!$O$3:$O$1500",
+        "'Player Stats'!$Q$3:$Q$1500",
+        "'Player Stats'!$R$3:$R$1500",
+        "'Player Stats'!$S$3:$S$1500",
+        "'Player Stats'!$T$3:$T$1500",
+        "'Player Stats'!$W$3:$W$1500",
+        "'Player Stats'!$X$3:$X$1500",
+        "'Player Stats'!$Y$3:$Y$1500",
+        "'Player Stats'!$Z$3:$Z$1500"
+      ],
+      "unsupportedStructuredReferences": [],
+      "rootFields": [
+        "Rookie Eligible",
+        "Rookie Rank Key",
+        "Rookie Raw Composite Score",
+        "Rookie of the Year Award Score"
+      ]
+    },
+    "Lady Byng": {
+      "structuredNodesVisited": 254,
+      "rawPlayerInfoFields": [
+        "Current Roster Status",
+        "Position",
+        "Position 2",
+        "Website Name"
+      ],
+      "rawRosterFields": [
+        "Name",
+        "Season"
+      ],
+      "rawInputTables": [
+        "AllTimeSchedule",
+        "GoalieStatsByGame",
+        "PlayerInfo",
+        "RosterStatusBySeason",
+        "SeasonInfo",
+        "SkaterStatsByGame"
+      ],
+      "rawInputsByTable": {
+        "AllTimeSchedule": [
+          "Date",
+          "Game #",
+          "Game Type",
+          "Home/Away",
+          "Location",
+          "Opponent",
+          "Season",
+          "Time"
+        ],
+        "GoalieStatsByGame": [
+          "GA",
+          "GP",
+          "Game #",
+          "Name",
+          "PIM",
+          "POTG",
+          "SHO",
+          "T",
+          "W"
+        ],
+        "PlayerInfo": [
+          "Current Roster Status",
+          "Position",
+          "Position 2",
+          "Website Name"
+        ],
+        "RosterStatusBySeason": [
+          "Name",
+          "Season"
+        ],
+        "SeasonInfo": [
+          "Game Type",
+          "Season",
+          "Season Order"
+        ],
+        "SkaterStatsByGame": [
+          "+/-",
+          "G",
+          "GP",
+          "Game #",
+          "Name",
+          "PIM",
+          "POTG",
+          "PPG",
+          "Pts",
+          "SHG"
+        ]
+      },
+      "historicalPlayerInfoFields": [
+        "All-Time Total Goalie +/- Team Rate Avg",
+        "All-Time Total Goalie GAA Team Rate Avg",
+        "All-Time Total Goalie PIM Team Rate Avg",
+        "All-Time Total Goalie POTG Team Rate Avg",
+        "All-Time Total Goalie Pts/GP Team Rate Avg",
+        "All-Time Total Goalie SHO Team Rate Avg",
+        "All-Time Total Skater +/- Team Rate Avg",
+        "All-Time Total Skater PIM Team Rate Avg",
+        "All-Time Total Skater POTG Team Rate Avg",
+        "All-Time Total Skater Pts Team Rate Avg",
+        "Career Prior Goalie GP",
+        "Career Prior Playoff Raw +/-",
+        "Career Prior Skater GP",
+        "Career Prior Skater Playoff GP",
+        "Career Prior Total +/-/GP",
+        "Career Prior Total Goalie +/-/GP",
+        "Career Prior Total Goalie GA",
+        "Career Prior Total Goalie GAA",
+        "Career Prior Total Goalie PIM",
+        "Career Prior Total Goalie PIM/GP",
+        "Career Prior Total Goalie POTG",
+        "Career Prior Total Goalie POTG/GP",
+        "Career Prior Total Goalie Pts",
+        "Career Prior Total Goalie Pts/GP",
+        "Career Prior Total Goalie Raw +/-",
+        "Career Prior Total Goalie SHO",
+        "Career Prior Total Goalie SHO/GP",
+        "Career Prior Total PIM/GP",
+        "Career Prior Total POTG",
+        "Career Prior Total POTG/GP",
+        "Career Prior Total Pts/GP",
+        "Career Prior Total Raw +/-",
+        "Career Prior Total Raw A",
+        "Career Prior Total Raw G",
+        "Career Prior Total Raw PIM",
+        "Career Prior Total Raw Pts"
+      ],
+      "ordinaryReferencesRequiringSeparateResolution": [
+        "'Master Schedule'!$C$1",
+        "'Player Stats'!$A$3:$A$1500",
+        "'Player Stats'!$AA$3:$AA$1500",
+        "'Player Stats'!$AB$3:$AB$1500",
+        "'Player Stats'!$B$3:$B$1500",
+        "'Player Stats'!$C$3:$C$1500",
+        "'Player Stats'!$CN$3:$CN$1500",
+        "'Player Stats'!$CO$3:$CO$1500",
+        "'Player Stats'!$CP$3:$CP$1500",
+        "'Player Stats'!$CU$3:$CU$1500",
+        "'Player Stats'!$DB$3:$DB$1500",
+        "'Player Stats'!$DC$3:$DC$1500",
+        "'Player Stats'!$DF$3:$DF$1500",
+        "'Player Stats'!$DG$3:$DG$1500",
+        "'Player Stats'!$DL$3:$DL$1500",
+        "'Player Stats'!$DM$3:$DM$1500",
+        "'Player Stats'!$DN$3:$DN$1500",
+        "'Player Stats'!$DO$3:$DO$1500",
+        "'Player Stats'!$M$3:$M$1500",
+        "'Player Stats'!$O$3:$O$1500",
+        "'Player Stats'!$Q$3:$Q$1500",
+        "'Player Stats'!$R$3:$R$1500",
+        "'Player Stats'!$S$3:$S$1500",
+        "'Player Stats'!$T$3:$T$1500"
+      ],
+      "unsupportedStructuredReferences": [],
+      "rootFields": [
+        "Lady Byng Eligible",
+        "Lady Byng Rank Key",
+        "Lady Byng Raw Composite Score",
+        "Lady Byng Award Score"
+      ]
+    },
+    "Most Improved": {
+      "structuredNodesVisited": 116,
+      "rawPlayerInfoFields": [
+        "Current Roster Status",
+        "Position",
+        "Position 2",
+        "Website Name"
+      ],
+      "rawRosterFields": [
+        "Name",
+        "Season",
+        "Status"
+      ],
+      "rawInputTables": [
+        "AllTimeSchedule",
+        "GoalieStatsByGame",
+        "PlayerInfo",
+        "RosterStatusBySeason",
+        "SeasonInfo",
+        "SkaterStatsByGame"
+      ],
+      "rawInputsByTable": {
+        "AllTimeSchedule": [
+          "Date",
+          "Game #",
+          "Game Type",
+          "Home/Away",
+          "Location",
+          "Opponent",
+          "Season",
+          "Time"
+        ],
+        "GoalieStatsByGame": [
+          "Game #",
+          "Name"
+        ],
+        "PlayerInfo": [
+          "Current Roster Status",
+          "Position",
+          "Position 2",
+          "Website Name"
+        ],
+        "RosterStatusBySeason": [
+          "Name",
+          "Season",
+          "Status"
+        ],
+        "SeasonInfo": [
+          "Game Type",
+          "Season",
+          "Season Order"
+        ],
+        "SkaterStatsByGame": [
+          "GTG",
+          "GWG",
+          "Game #",
+          "Name"
+        ]
+      },
+      "historicalPlayerInfoFields": [
+        "Career Prior Goalie GP",
+        "Career Prior Skater GP",
+        "Career Prior Total +/-/GP",
+        "Career Prior Total A/GP",
+        "Career Prior Total Clutch Goals/GP",
+        "Career Prior Total G/GP",
+        "Career Prior Total Goalie +/-/GP",
+        "Career Prior Total Goalie GA",
+        "Career Prior Total Goalie GAA",
+        "Career Prior Total Goalie PIM",
+        "Career Prior Total Goalie PIM/GP",
+        "Career Prior Total Goalie POTG",
+        "Career Prior Total Goalie POTG/GP",
+        "Career Prior Total Goalie Pts",
+        "Career Prior Total Goalie Pts/GP",
+        "Career Prior Total Goalie Raw +/-",
+        "Career Prior Total Goalie SHO",
+        "Career Prior Total Goalie SHO/GP",
+        "Career Prior Total Goalie T",
+        "Career Prior Total Goalie W",
+        "Career Prior Total Goalie Win %",
+        "Career Prior Total PIM/GP",
+        "Career Prior Total POTG",
+        "Career Prior Total POTG/GP",
+        "Career Prior Total Pts/GP",
+        "Career Prior Total Raw +/-",
+        "Career Prior Total Raw A",
+        "Career Prior Total Raw Clutch Goals",
+        "Career Prior Total Raw G",
+        "Career Prior Total Raw PIM",
+        "Career Prior Total Raw Pts"
+      ],
+      "ordinaryReferencesRequiringSeparateResolution": [
+        "'Master Schedule'!$C$1",
+        "'Player Stats'!$A$3:$A$1500",
+        "'Player Stats'!$AA$3:$AA$1500",
+        "'Player Stats'!$AB$3:$AB$1500",
+        "'Player Stats'!$C$3:$C$1500",
+        "'Player Stats'!$CN$3:$CN$1500",
+        "'Player Stats'!$CP$3:$CP$1500",
+        "'Player Stats'!$CR$3:$CR$1500",
+        "'Player Stats'!$CT$3:$CT$1500",
+        "'Player Stats'!$CU$3:$CU$1500",
+        "'Player Stats'!$DB$3:$DB$1500",
+        "'Player Stats'!$DC$3:$DC$1500",
+        "'Player Stats'!$DF$3:$DF$1500",
+        "'Player Stats'!$DG$3:$DG$1500",
+        "'Player Stats'!$DL$3:$DL$1500",
+        "'Player Stats'!$DM$3:$DM$1500",
+        "'Player Stats'!$DN$3:$DN$1500",
+        "'Player Stats'!$DO$3:$DO$1500",
+        "'Player Stats'!$M$3:$M$1500",
+        "'Player Stats'!$O$3:$O$1500",
+        "'Player Stats'!$Q$3:$Q$1500",
+        "'Player Stats'!$R$3:$R$1500",
+        "'Player Stats'!$S$3:$S$1500",
+        "'Player Stats'!$T$3:$T$1500"
+      ],
+      "unsupportedStructuredReferences": [],
+      "rootFields": [
+        "Most Improved Eligible",
+        "Most Improved Player Rank Key",
+        "Most Improved Raw Composite Score",
+        "Most Improved Player Award Score"
+      ]
+    },
+    "Rolaids": {
+      "structuredNodesVisited": 338,
+      "rawPlayerInfoFields": [
+        "Current Roster Status",
+        "Position",
+        "Position 2",
+        "Website Name"
+      ],
+      "rawRosterFields": [
+        "Name",
+        "Season"
+      ],
+      "rawInputTables": [
+        "AllTimeSchedule",
+        "GoalieStatsByGame",
+        "PlayerInfo",
+        "RosterStatusBySeason",
+        "SeasonInfo",
+        "SkaterStatsByGame"
+      ],
+      "rawInputsByTable": {
+        "AllTimeSchedule": [
+          "Date",
+          "Game #",
+          "Game Type",
+          "Home/Away",
+          "Location",
+          "Opponent",
+          "Season",
+          "Time"
+        ],
+        "GoalieStatsByGame": [
+          "GA",
+          "GP",
+          "Game #",
+          "Name",
+          "PIM",
+          "POTG",
+          "SHO",
+          "T",
+          "W",
+          "Win %"
+        ],
+        "PlayerInfo": [
+          "Current Roster Status",
+          "Position",
+          "Position 2",
+          "Website Name"
+        ],
+        "RosterStatusBySeason": [
+          "Name",
+          "Season"
+        ],
+        "SeasonInfo": [
+          "Game Type",
+          "Season",
+          "Season Order"
+        ],
+        "SkaterStatsByGame": [
+          "+/-",
+          "A",
+          "G",
+          "GP",
+          "GTG",
+          "GWG",
+          "Game #",
+          "Name",
+          "PIM",
+          "POTG",
+          "PPG",
+          "Pts",
+          "SHG"
+        ]
+      },
+      "historicalPlayerInfoFields": [
+        "All-Time Total Goalie +/- Team Rate Avg",
+        "All-Time Total Goalie GAA Team Rate Avg",
+        "All-Time Total Goalie PIM Team Rate Avg",
+        "All-Time Total Goalie POTG Team Rate Avg",
+        "All-Time Total Goalie Pts/GP Team Rate Avg",
+        "All-Time Total Goalie SHO Team Rate Avg",
+        "All-Time Total Goalie Streak Heat Team Rate Avg",
+        "All-Time Total Goalie Win % Team Rate Avg",
+        "All-Time Total Skater +/- Team Rate Avg",
+        "All-Time Total Skater Clutch Team Rate Avg",
+        "All-Time Total Skater PIM Team Rate Avg",
+        "All-Time Total Skater POTG Team Rate Avg",
+        "All-Time Total Skater Pts Team Rate Avg",
+        "All-Time Total Skater Special Teams Team Rate Avg",
+        "All-Time Total Skater Streak Heat Team Rate Avg",
+        "Career Prior Goalie GP",
+        "Career Prior Playoff Raw +/-",
+        "Career Prior Skater GP",
+        "Career Prior Skater Playoff GP",
+        "Career Prior Total +/-/GP",
+        "Career Prior Total Clutch Goals/GP",
+        "Career Prior Total Goalie +/-/GP",
+        "Career Prior Total Goalie GA",
+        "Career Prior Total Goalie GAA",
+        "Career Prior Total Goalie PIM",
+        "Career Prior Total Goalie PIM/GP",
+        "Career Prior Total Goalie POTG",
+        "Career Prior Total Goalie POTG/GP",
+        "Career Prior Total Goalie Pts",
+        "Career Prior Total Goalie Pts/GP",
+        "Career Prior Total Goalie Raw +/-",
+        "Career Prior Total Goalie SHO",
+        "Career Prior Total Goalie SHO/GP",
+        "Career Prior Total Goalie Streak Heat/GP",
+        "Career Prior Total Goalie T",
+        "Career Prior Total Goalie W",
+        "Career Prior Total Goalie Win %",
+        "Career Prior Total PIM/GP",
+        "Career Prior Total POTG",
+        "Career Prior Total POTG/GP",
+        "Career Prior Total PPG/GP",
+        "Career Prior Total Pts/GP",
+        "Career Prior Total Raw +/-",
+        "Career Prior Total Raw A",
+        "Career Prior Total Raw Clutch Goals",
+        "Career Prior Total Raw G",
+        "Career Prior Total Raw PIM",
+        "Career Prior Total Raw PPG",
+        "Career Prior Total Raw Pts",
+        "Career Prior Total Raw SHG",
+        "Career Prior Total SHG/GP",
+        "Career Prior Total Skater Streak Heat/GP"
+      ],
+      "ordinaryReferencesRequiringSeparateResolution": [
+        "'Master Schedule'!$C$1",
+        "'Player Stats'!$A$3:$A$1500",
+        "'Player Stats'!$AA$3:$AA$1500",
+        "'Player Stats'!$AB$3:$AB$1500",
+        "'Player Stats'!$B$3:$B$1500",
+        "'Player Stats'!$C$3:$C$1500",
+        "'Player Stats'!$CN$3:$CN$1500",
+        "'Player Stats'!$CO$3:$CO$1500",
+        "'Player Stats'!$CP$3:$CP$1500",
+        "'Player Stats'!$CR$3:$CR$1500",
+        "'Player Stats'!$CT$3:$CT$1500",
+        "'Player Stats'!$CU$3:$CU$1500",
+        "'Player Stats'!$DB$3:$DB$1500",
+        "'Player Stats'!$DC$3:$DC$1500",
+        "'Player Stats'!$DF$3:$DF$1500",
+        "'Player Stats'!$DG$3:$DG$1500",
+        "'Player Stats'!$DL$3:$DL$1500",
+        "'Player Stats'!$DM$3:$DM$1500",
+        "'Player Stats'!$DN$3:$DN$1500",
+        "'Player Stats'!$DO$3:$DO$1500",
+        "'Player Stats'!$M$3:$M$1500",
+        "'Player Stats'!$O$3:$O$1500",
+        "'Player Stats'!$Q$3:$Q$1500",
+        "'Player Stats'!$R$3:$R$1500",
+        "'Player Stats'!$S$3:$S$1500",
+        "'Player Stats'!$T$3:$T$1500",
+        "'Player Stats'!$W$3:$W$1500",
+        "'Player Stats'!$X$3:$X$1500",
+        "'Player Stats'!$Y$3:$Y$1500",
+        "'Player Stats'!$Z$3:$Z$1500"
+      ],
+      "unsupportedStructuredReferences": [],
+      "rootFields": [
+        "Rolaids Eligible",
+        "Rolaids Relief Man Rank Key",
+        "Rolaids Raw Composite Score",
+        "Rolaids Relief Man Award Score"
+      ]
+    },
+    "Dedication": {
+      "structuredNodesVisited": 106,
+      "rawPlayerInfoFields": [
+        "Current Roster Status",
+        "Position",
+        "Position 2",
+        "Website Name"
+      ],
+      "rawRosterFields": [
+        "Name",
+        "Season"
+      ],
+      "rawInputTables": [
+        "AllTimeSchedule",
+        "GoalieStatsByGame",
+        "PlayerInfo",
+        "RosterStatusBySeason",
+        "SeasonInfo",
+        "SkaterStatsByGame"
+      ],
+      "rawInputsByTable": {
+        "AllTimeSchedule": [
+          "Date",
+          "Game #",
+          "Game Type",
+          "Home/Away",
+          "Location",
+          "Opponent",
+          "Season",
+          "Time"
+        ],
+        "GoalieStatsByGame": [
+          "GA",
+          "GP",
+          "Game #",
+          "Name",
+          "PIM",
+          "POTG",
+          "SHO",
+          "T",
+          "W"
+        ],
+        "PlayerInfo": [
+          "Current Roster Status",
+          "Position",
+          "Position 2",
+          "Website Name"
+        ],
+        "RosterStatusBySeason": [
+          "Name",
+          "Season"
+        ],
+        "SeasonInfo": [
+          "Game Type",
+          "Season",
+          "Season Order"
+        ],
+        "SkaterStatsByGame": [
+          "+/-",
+          "GP",
+          "Game #",
+          "Name",
+          "PIM",
+          "Pts"
+        ]
+      },
+      "historicalPlayerInfoFields": [
+        "Career Prior Goalie GP",
+        "Career Prior Skater GP"
+      ],
+      "ordinaryReferencesRequiringSeparateResolution": [],
+      "unsupportedStructuredReferences": [],
+      "rootFields": [
+        "Dedication Tenure Web Display Score",
+        "Dedication Tenure Internal Score",
+        "Dedication Eligible",
+        "Dedication Raw Composite Score"
+      ]
+    }
+  },
+  "damianSourceMasterSearch": {
+    "PlayerInfo": {
+      "registeredRange": "A5:ZC114",
+      "rowsSearched": 109,
+      "exactMatches": [],
+      "surnameMatches": []
+    },
+    "RosterStatusBySeason": {
+      "registeredRange": "ZE5:ZW495",
+      "rowsSearched": 490,
+      "exactMatches": [],
+      "surnameMatches": []
+    }
+  },
+  "limitations": [
+    "Structured-table closure only; ordinary and same-sheet cell precedents are not fully resolved.",
+    "Missing master history is not proof of rookie status or first full-time year.",
+    "No alias to another Damian is assumed.",
+    "Hall of Fame career rules remain a separate validation task."
+  ],
+  "currentScoresVerified": false,
+  "publicationAuthorized": false,
+  "sourceHashUnchanged": true
+}

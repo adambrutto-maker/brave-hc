@@ -1,0 +1,618 @@
+{
+  "state": "CURRENT_SEASON_POPULATION_JOINED_WITH_EXPLICIT_METADATA_EXCEPTIONS",
+  "season": "W2026/27",
+  "cutoff": "2026-10-18",
+  "playerCount": 22,
+  "appearanceCount": 57,
+  "players": [
+    {
+      "name": "Ardizzi, Stefano",
+      "season": "W2026/27",
+      "role": "Skater",
+      "position": "LW",
+      "rosterStatus": "DI",
+      "gp": 1,
+      "appearances": [
+        {
+          "sourceGameId": 3356177,
+          "game": 359,
+          "date": "2026-09-20"
+        }
+      ]
+    },
+    {
+      "name": "Brutto, Adam",
+      "season": "W2026/27",
+      "role": "Skater",
+      "position": "LD",
+      "rosterStatus": "FT",
+      "gp": 4,
+      "appearances": [
+        {
+          "sourceGameId": 3356177,
+          "game": 359,
+          "date": "2026-09-20"
+        },
+        {
+          "sourceGameId": 3356178,
+          "game": 360,
+          "date": "2026-09-27"
+        },
+        {
+          "sourceGameId": 3369564,
+          "game": 361,
+          "date": "2026-10-04"
+        },
+        {
+          "sourceGameId": 3375601,
+          "game": 362,
+          "date": "2026-10-18"
+        }
+      ]
+    },
+    {
+      "name": "Carosi, Justin",
+      "season": "W2026/27",
+      "role": "Skater",
+      "position": "C",
+      "rosterStatus": "FT",
+      "gp": 4,
+      "appearances": [
+        {
+          "sourceGameId": 3356177,
+          "game": 359,
+          "date": "2026-09-20"
+        },
+        {
+          "sourceGameId": 3356178,
+          "game": 360,
+          "date": "2026-09-27"
+        },
+        {
+          "sourceGameId": 3369564,
+          "game": 361,
+          "date": "2026-10-04"
+        },
+        {
+          "sourceGameId": 3375601,
+          "game": 362,
+          "date": "2026-10-18"
+        }
+      ]
+    },
+    {
+      "name": "Kong, Henry",
+      "season": "W2026/27",
+      "role": "Skater",
+      "position": "LW",
+      "rosterStatus": "FT",
+      "gp": 4,
+      "appearances": [
+        {
+          "sourceGameId": 3356177,
+          "game": 359,
+          "date": "2026-09-20"
+        },
+        {
+          "sourceGameId": 3356178,
+          "game": 360,
+          "date": "2026-09-27"
+        },
+        {
+          "sourceGameId": 3369564,
+          "game": 361,
+          "date": "2026-10-04"
+        },
+        {
+          "sourceGameId": 3375601,
+          "game": 362,
+          "date": "2026-10-18"
+        }
+      ]
+    },
+    {
+      "name": "Pagnotta, Alex",
+      "season": "W2026/27",
+      "role": "Skater",
+      "position": "RD",
+      "rosterStatus": "FT",
+      "gp": 4,
+      "appearances": [
+        {
+          "sourceGameId": 3356177,
+          "game": 359,
+          "date": "2026-09-20"
+        },
+        {
+          "sourceGameId": 3356178,
+          "game": 360,
+          "date": "2026-09-27"
+        },
+        {
+          "sourceGameId": 3369564,
+          "game": 361,
+          "date": "2026-10-04"
+        },
+        {
+          "sourceGameId": 3375601,
+          "game": 362,
+          "date": "2026-10-18"
+        }
+      ]
+    },
+    {
+      "name": "Paolucci, Anthony",
+      "season": "W2026/27",
+      "role": "Skater",
+      "position": "RW",
+      "rosterStatus": "FT",
+      "gp": 1,
+      "appearances": [
+        {
+          "sourceGameId": 3356177,
+          "game": 359,
+          "date": "2026-09-20"
+        }
+      ]
+    },
+    {
+      "name": "Pearsoll, Keith",
+      "season": "W2026/27",
+      "role": "Skater",
+      "position": "RW",
+      "rosterStatus": "FT",
+      "gp": 3,
+      "appearances": [
+        {
+          "sourceGameId": 3356177,
+          "game": 359,
+          "date": "2026-09-20"
+        },
+        {
+          "sourceGameId": 3356178,
+          "game": 360,
+          "date": "2026-09-27"
+        },
+        {
+          "sourceGameId": 3375601,
+          "game": 362,
+          "date": "2026-10-18"
+        }
+      ]
+    },
+    {
+      "name": "Povegliano, Adam",
+      "season": "W2026/27",
+      "role": "Skater",
+      "position": "LW",
+      "rosterStatus": "FT",
+      "gp": 3,
+      "appearances": [
+        {
+          "sourceGameId": 3356177,
+          "game": 359,
+          "date": "2026-09-20"
+        },
+        {
+          "sourceGameId": 3369564,
+          "game": 361,
+          "date": "2026-10-04"
+        },
+        {
+          "sourceGameId": 3375601,
+          "game": 362,
+          "date": "2026-10-18"
+        }
+      ]
+    },
+    {
+      "name": "Provenzano, Mario",
+      "season": "W2026/27",
+      "role": "Skater",
+      "position": "C",
+      "rosterStatus": "FT",
+      "gp": 4,
+      "appearances": [
+        {
+          "sourceGameId": 3356177,
+          "game": 359,
+          "date": "2026-09-20"
+        },
+        {
+          "sourceGameId": 3356178,
+          "game": 360,
+          "date": "2026-09-27"
+        },
+        {
+          "sourceGameId": 3369564,
+          "game": 361,
+          "date": "2026-10-04"
+        },
+        {
+          "sourceGameId": 3375601,
+          "game": 362,
+          "date": "2026-10-18"
+        }
+      ]
+    },
+    {
+      "name": "Provenzano, Michael",
+      "season": "W2026/27",
+      "role": "Skater",
+      "position": "C",
+      "rosterStatus": "FT",
+      "gp": 3,
+      "appearances": [
+        {
+          "sourceGameId": 3356177,
+          "game": 359,
+          "date": "2026-09-20"
+        },
+        {
+          "sourceGameId": 3356178,
+          "game": 360,
+          "date": "2026-09-27"
+        },
+        {
+          "sourceGameId": 3369564,
+          "game": 361,
+          "date": "2026-10-04"
+        }
+      ]
+    },
+    {
+      "name": "Rajkumar, Sanjay",
+      "season": "W2026/27",
+      "role": "Skater",
+      "position": "LD",
+      "rosterStatus": "FT",
+      "gp": 3,
+      "appearances": [
+        {
+          "sourceGameId": 3356177,
+          "game": 359,
+          "date": "2026-09-20"
+        },
+        {
+          "sourceGameId": 3356178,
+          "game": 360,
+          "date": "2026-09-27"
+        },
+        {
+          "sourceGameId": 3369564,
+          "game": 361,
+          "date": "2026-10-04"
+        }
+      ]
+    },
+    {
+      "name": "Saindon, Stephane",
+      "season": "W2026/27",
+      "role": "Skater",
+      "position": "C",
+      "rosterStatus": "FT",
+      "gp": 3,
+      "appearances": [
+        {
+          "sourceGameId": 3356177,
+          "game": 359,
+          "date": "2026-09-20"
+        },
+        {
+          "sourceGameId": 3356178,
+          "game": 360,
+          "date": "2026-09-27"
+        },
+        {
+          "sourceGameId": 3375601,
+          "game": 362,
+          "date": "2026-10-18"
+        }
+      ]
+    },
+    {
+      "name": "Triumbari, Francesco",
+      "season": "W2026/27",
+      "role": "Skater",
+      "position": "RD",
+      "rosterStatus": "FT",
+      "gp": 4,
+      "appearances": [
+        {
+          "sourceGameId": 3356177,
+          "game": 359,
+          "date": "2026-09-20"
+        },
+        {
+          "sourceGameId": 3356178,
+          "game": 360,
+          "date": "2026-09-27"
+        },
+        {
+          "sourceGameId": 3369564,
+          "game": 361,
+          "date": "2026-10-04"
+        },
+        {
+          "sourceGameId": 3375601,
+          "game": 362,
+          "date": "2026-10-18"
+        }
+      ]
+    },
+    {
+      "name": "Leong, Dev",
+      "season": "W2026/27",
+      "role": "Goaltender",
+      "position": "G",
+      "rosterStatus": "CU",
+      "gp": 2,
+      "appearances": [
+        {
+          "sourceGameId": 3356177,
+          "game": 359,
+          "date": "2026-09-20"
+        },
+        {
+          "sourceGameId": 3375601,
+          "game": 362,
+          "date": "2026-10-18"
+        }
+      ]
+    },
+    {
+      "name": "Atkins, Nolan",
+      "season": "W2026/27",
+      "role": "Skater",
+      "position": "C",
+      "rosterStatus": "CU",
+      "gp": 2,
+      "appearances": [
+        {
+          "sourceGameId": 3356178,
+          "game": 360,
+          "date": "2026-09-27"
+        },
+        {
+          "sourceGameId": 3369564,
+          "game": 361,
+          "date": "2026-10-04"
+        }
+      ]
+    },
+    {
+      "name": "Duffy, Lorcan",
+      "season": "W2026/27",
+      "role": "Skater",
+      "position": "LD",
+      "rosterStatus": "CU",
+      "gp": 1,
+      "appearances": [
+        {
+          "sourceGameId": 3356178,
+          "game": 360,
+          "date": "2026-09-27"
+        }
+      ]
+    },
+    {
+      "name": "Kober, Adam",
+      "season": "W2026/27",
+      "role": "Skater",
+      "position": "LW",
+      "rosterStatus": "CU",
+      "gp": 3,
+      "appearances": [
+        {
+          "sourceGameId": 3356178,
+          "game": 360,
+          "date": "2026-09-27"
+        },
+        {
+          "sourceGameId": 3369564,
+          "game": 361,
+          "date": "2026-10-04"
+        },
+        {
+          "sourceGameId": 3375601,
+          "game": 362,
+          "date": "2026-10-18"
+        }
+      ]
+    },
+    {
+      "name": "Rajasooriar, Krishnan",
+      "season": "W2026/27",
+      "role": "Skater",
+      "position": "RW",
+      "rosterStatus": "CU",
+      "gp": 2,
+      "appearances": [
+        {
+          "sourceGameId": 3356178,
+          "game": 360,
+          "date": "2026-09-27"
+        },
+        {
+          "sourceGameId": 3375601,
+          "game": 362,
+          "date": "2026-10-18"
+        }
+      ]
+    },
+    {
+      "name": "Rosenberg, Jamie",
+      "season": "W2026/27",
+      "role": "Skater",
+      "position": "C",
+      "rosterStatus": "FT",
+      "gp": 3,
+      "appearances": [
+        {
+          "sourceGameId": 3356178,
+          "game": 360,
+          "date": "2026-09-27"
+        },
+        {
+          "sourceGameId": 3369564,
+          "game": 361,
+          "date": "2026-10-04"
+        },
+        {
+          "sourceGameId": 3375601,
+          "game": 362,
+          "date": "2026-10-18"
+        }
+      ]
+    },
+    {
+      "name": "Logue, Stephen",
+      "season": "W2026/27",
+      "role": "Goaltender",
+      "position": "G",
+      "rosterStatus": "CU",
+      "gp": 1,
+      "appearances": [
+        {
+          "sourceGameId": 3356178,
+          "game": 360,
+          "date": "2026-09-27"
+        }
+      ]
+    },
+    {
+      "name": "Pavaday, Damian",
+      "season": "W2026/27",
+      "role": "Skater",
+      "position": "F",
+      "rosterStatus": "DI",
+      "gp": 1,
+      "appearances": [
+        {
+          "sourceGameId": 3369564,
+          "game": 361,
+          "date": "2026-10-04"
+        }
+      ]
+    },
+    {
+      "name": "Carlyle, Adam",
+      "season": "W2026/27",
+      "role": "Goaltender",
+      "position": "G",
+      "rosterStatus": null,
+      "gp": 1,
+      "appearances": [
+        {
+          "sourceGameId": 3369564,
+          "game": 361,
+          "date": "2026-10-04"
+        }
+      ]
+    }
+  ],
+  "unresolvedMetadata": [
+    {
+      "name": "Carlyle, Adam",
+      "field": "Current Roster Status",
+      "value": null
+    }
+  ],
+  "masterNamesOutsideCurrentPopulation": [
+    "Adeli, Kourosh",
+    "Aidemirski, Damian",
+    "Ardizzi, Anthony",
+    "Arruda, Mark",
+    "Arruda, Matthew",
+    "Babiak, Matt",
+    "Baghel, Neil",
+    "Brancatella, Dino",
+    "Brancatella, Medi",
+    "Brennan, Dylan",
+    "Brock, Brad",
+    "Brutto, Italo",
+    "Brutto, Lucas",
+    "Brutto, Matthew",
+    "Buchanan, Andrew",
+    "Buchanan, Cameron",
+    "Buzzelli, Daniel",
+    "Campbell, Ryan",
+    "Carosi, Aaron",
+    "Carpino, Joe",
+    "Cawkell, Will",
+    "Cerrone, Carmine",
+    "Cesario, Matt",
+    "Cianni, Mike",
+    "Cole, Tom",
+    "Congiusti, Marco",
+    "Congiusti, Michael",
+    "Coote, Jesse",
+    "Corasaniti, David",
+    "Cristillo, Andre",
+    "Cristillo, Andrew",
+    "Cristillo, Lucas",
+    "De Luca, Giancarlo",
+    "DeMarco, Stephen",
+    "Del Zotto, Enzo",
+    "DiPardo, Anthony",
+    "Duffy, Ronan",
+    "Dyer, Will",
+    "Finlay, Ryan",
+    "Florio, Nick",
+    "Fregonas, Eric",
+    "Gabor, Jason",
+    "Galdenzi, Robbie",
+    "Goaliê, Rènt",
+    "Grande, Michael",
+    "Granicolo, Christopher",
+    "Greenberg, Matthew",
+    "Guerra, Anthony",
+    "Helmer, Marcus",
+    "Hunt, Quenton",
+    "Ing, Aj",
+    "Keane, Stephen",
+    "Kercz, Julian",
+    "Kercz, Zach",
+    "Laliberte, Eric",
+    "Lamanna , Marco",
+    "Laramy, Andrew",
+    "Leddy, Luke",
+    "Logue, Michael",
+    "Logue, Ryan",
+    "Martella, Dante",
+    "Mazzei, Stefano",
+    "McGolrick, Michael",
+    "Micheli, Jeff",
+    "Naman, Mearon",
+    "Nearing, Michael",
+    "Noyek, Steve",
+    "Nunno, Adrian",
+    "Nunno, Brandon",
+    "Nunno, Chris",
+    "O'Krafka, Xav",
+    "Paglia, Emilio",
+    "Partland, Anthony",
+    "Pastore, Mark",
+    "Payne, Dale",
+    "Poleto, Chris",
+    "Pozzebon, Andrew",
+    "Quintos, Brandon",
+    "Ruscitti, Robert",
+    "Sadler, Justin",
+    "Salnek, Will",
+    "Scott, Simon",
+    "Sherritt, Ben",
+    "Spagnuolo, Luc",
+    "Svec, Matt",
+    "Unknown, Johnny",
+    "Weatherhead, Tristan",
+    "Wheeler, Kevin",
+    "Wright, Justin"
+  ],
+  "historicalMasterModified": false,
+  "missingObservationPolicy": "Only fields present in accepted appearances are supplied; missing fields and nulls remain distinct from zero.",
+  "currentScoresVerified": false,
+  "publicationAuthorized": false,
+  "inputCandidateSha256": "d940763965786aa4288217838e102eb5611a73995f5b5d71afc56f7247a31fe4",
+  "masterReviewCopySha256": "68392eccdd7087f4efbc32cabf23cb308aa7843eb33df72d714a3a099754a132"
+}

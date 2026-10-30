@@ -1,0 +1,3092 @@
+{
+  "state": "CURRENT_ELIGIBILITY_RECONCILED",
+  "season": "W2026/27",
+  "cutoff": "2026-10-18",
+  "decisions": [
+    {
+      "name": "Ardizzi, Stefano",
+      "field": "Hart Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "DI",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Ardizzi, Stefano",
+      "field": "Conn Smythe Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "DI",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Ardizzi, Stefano",
+      "field": "Norris Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "DI",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Ardizzi, Stefano",
+      "field": "Art Ross Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 1.0,
+      "possibleValues": [
+        1.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "DI",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Ardizzi, Stefano",
+      "field": "Rocket Richard Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 1.0,
+      "possibleValues": [
+        1.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "DI",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Ardizzi, Stefano",
+      "field": "Rookie Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "DI",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Ardizzi, Stefano",
+      "field": "Lady Byng Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "DI",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Ardizzi, Stefano",
+      "field": "Most Improved Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "DI",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Ardizzi, Stefano",
+      "field": "Rolaids Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "DI",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Ardizzi, Stefano",
+      "field": "Dedication Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "DI",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Brutto, Adam",
+      "field": "Hart Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Brutto, Adam",
+      "field": "Conn Smythe Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Brutto, Adam",
+      "field": "Norris Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Brutto, Adam",
+      "field": "Art Ross Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 1.0,
+      "possibleValues": [
+        1.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Brutto, Adam",
+      "field": "Rocket Richard Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 1.0,
+      "possibleValues": [
+        1.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Brutto, Adam",
+      "field": "Rookie Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Brutto, Adam",
+      "field": "Lady Byng Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Brutto, Adam",
+      "field": "Most Improved Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Brutto, Adam",
+      "field": "Rolaids Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Brutto, Adam",
+      "field": "Dedication Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Carosi, Justin",
+      "field": "Hart Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Carosi, Justin",
+      "field": "Conn Smythe Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Carosi, Justin",
+      "field": "Norris Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Carosi, Justin",
+      "field": "Art Ross Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 1.0,
+      "possibleValues": [
+        1.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Carosi, Justin",
+      "field": "Rocket Richard Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 1.0,
+      "possibleValues": [
+        1.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Carosi, Justin",
+      "field": "Rookie Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Carosi, Justin",
+      "field": "Lady Byng Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Carosi, Justin",
+      "field": "Most Improved Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Carosi, Justin",
+      "field": "Rolaids Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Carosi, Justin",
+      "field": "Dedication Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Kong, Henry",
+      "field": "Hart Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Kong, Henry",
+      "field": "Conn Smythe Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Kong, Henry",
+      "field": "Norris Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Kong, Henry",
+      "field": "Art Ross Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 1.0,
+      "possibleValues": [
+        1.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Kong, Henry",
+      "field": "Rocket Richard Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 1.0,
+      "possibleValues": [
+        1.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Kong, Henry",
+      "field": "Rookie Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 1.0,
+      "possibleValues": [
+        1.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Kong, Henry",
+      "field": "Lady Byng Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Kong, Henry",
+      "field": "Most Improved Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Kong, Henry",
+      "field": "Rolaids Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Kong, Henry",
+      "field": "Dedication Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Pagnotta, Alex",
+      "field": "Hart Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Pagnotta, Alex",
+      "field": "Conn Smythe Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Pagnotta, Alex",
+      "field": "Norris Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Pagnotta, Alex",
+      "field": "Art Ross Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 1.0,
+      "possibleValues": [
+        1.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Pagnotta, Alex",
+      "field": "Rocket Richard Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 1.0,
+      "possibleValues": [
+        1.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Pagnotta, Alex",
+      "field": "Rookie Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Pagnotta, Alex",
+      "field": "Lady Byng Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Pagnotta, Alex",
+      "field": "Most Improved Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Pagnotta, Alex",
+      "field": "Rolaids Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Pagnotta, Alex",
+      "field": "Dedication Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Paolucci, Anthony",
+      "field": "Hart Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Paolucci, Anthony",
+      "field": "Conn Smythe Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Paolucci, Anthony",
+      "field": "Norris Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Paolucci, Anthony",
+      "field": "Art Ross Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 1.0,
+      "possibleValues": [
+        1.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Paolucci, Anthony",
+      "field": "Rocket Richard Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 1.0,
+      "possibleValues": [
+        1.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Paolucci, Anthony",
+      "field": "Rookie Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Paolucci, Anthony",
+      "field": "Lady Byng Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Paolucci, Anthony",
+      "field": "Most Improved Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Paolucci, Anthony",
+      "field": "Rolaids Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Paolucci, Anthony",
+      "field": "Dedication Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Pearsoll, Keith",
+      "field": "Hart Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Pearsoll, Keith",
+      "field": "Conn Smythe Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Pearsoll, Keith",
+      "field": "Norris Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Pearsoll, Keith",
+      "field": "Art Ross Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 1.0,
+      "possibleValues": [
+        1.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Pearsoll, Keith",
+      "field": "Rocket Richard Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 1.0,
+      "possibleValues": [
+        1.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Pearsoll, Keith",
+      "field": "Rookie Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Pearsoll, Keith",
+      "field": "Lady Byng Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Pearsoll, Keith",
+      "field": "Most Improved Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Pearsoll, Keith",
+      "field": "Rolaids Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Pearsoll, Keith",
+      "field": "Dedication Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Povegliano, Adam",
+      "field": "Hart Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Povegliano, Adam",
+      "field": "Conn Smythe Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Povegliano, Adam",
+      "field": "Norris Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Povegliano, Adam",
+      "field": "Art Ross Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 1.0,
+      "possibleValues": [
+        1.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Povegliano, Adam",
+      "field": "Rocket Richard Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 1.0,
+      "possibleValues": [
+        1.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Povegliano, Adam",
+      "field": "Rookie Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 1.0,
+      "possibleValues": [
+        1.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Povegliano, Adam",
+      "field": "Lady Byng Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Povegliano, Adam",
+      "field": "Most Improved Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Povegliano, Adam",
+      "field": "Rolaids Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Povegliano, Adam",
+      "field": "Dedication Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Provenzano, Mario",
+      "field": "Hart Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Provenzano, Mario",
+      "field": "Conn Smythe Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Provenzano, Mario",
+      "field": "Norris Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Provenzano, Mario",
+      "field": "Art Ross Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 1.0,
+      "possibleValues": [
+        1.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Provenzano, Mario",
+      "field": "Rocket Richard Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 1.0,
+      "possibleValues": [
+        1.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Provenzano, Mario",
+      "field": "Rookie Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Provenzano, Mario",
+      "field": "Lady Byng Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Provenzano, Mario",
+      "field": "Most Improved Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Provenzano, Mario",
+      "field": "Rolaids Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Provenzano, Mario",
+      "field": "Dedication Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Provenzano, Michael",
+      "field": "Hart Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Provenzano, Michael",
+      "field": "Conn Smythe Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Provenzano, Michael",
+      "field": "Norris Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Provenzano, Michael",
+      "field": "Art Ross Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 1.0,
+      "possibleValues": [
+        1.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Provenzano, Michael",
+      "field": "Rocket Richard Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 1.0,
+      "possibleValues": [
+        1.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Provenzano, Michael",
+      "field": "Rookie Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Provenzano, Michael",
+      "field": "Lady Byng Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Provenzano, Michael",
+      "field": "Most Improved Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Provenzano, Michael",
+      "field": "Rolaids Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Provenzano, Michael",
+      "field": "Dedication Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Rajkumar, Sanjay",
+      "field": "Hart Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Rajkumar, Sanjay",
+      "field": "Conn Smythe Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Rajkumar, Sanjay",
+      "field": "Norris Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Rajkumar, Sanjay",
+      "field": "Art Ross Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 1.0,
+      "possibleValues": [
+        1.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Rajkumar, Sanjay",
+      "field": "Rocket Richard Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 1.0,
+      "possibleValues": [
+        1.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Rajkumar, Sanjay",
+      "field": "Rookie Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 1.0,
+      "possibleValues": [
+        1.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Rajkumar, Sanjay",
+      "field": "Lady Byng Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Rajkumar, Sanjay",
+      "field": "Most Improved Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Rajkumar, Sanjay",
+      "field": "Rolaids Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Rajkumar, Sanjay",
+      "field": "Dedication Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Saindon, Stephane",
+      "field": "Hart Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Saindon, Stephane",
+      "field": "Conn Smythe Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Saindon, Stephane",
+      "field": "Norris Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Saindon, Stephane",
+      "field": "Art Ross Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 1.0,
+      "possibleValues": [
+        1.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Saindon, Stephane",
+      "field": "Rocket Richard Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 1.0,
+      "possibleValues": [
+        1.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Saindon, Stephane",
+      "field": "Rookie Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Saindon, Stephane",
+      "field": "Lady Byng Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Saindon, Stephane",
+      "field": "Most Improved Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Saindon, Stephane",
+      "field": "Rolaids Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Saindon, Stephane",
+      "field": "Dedication Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Triumbari, Francesco",
+      "field": "Hart Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Triumbari, Francesco",
+      "field": "Conn Smythe Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Triumbari, Francesco",
+      "field": "Norris Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Triumbari, Francesco",
+      "field": "Art Ross Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 1.0,
+      "possibleValues": [
+        1.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Triumbari, Francesco",
+      "field": "Rocket Richard Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 1.0,
+      "possibleValues": [
+        1.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Triumbari, Francesco",
+      "field": "Rookie Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 1.0,
+      "possibleValues": [
+        1.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Triumbari, Francesco",
+      "field": "Lady Byng Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Triumbari, Francesco",
+      "field": "Most Improved Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Triumbari, Francesco",
+      "field": "Rolaids Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Triumbari, Francesco",
+      "field": "Dedication Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Leong, Dev",
+      "field": "Hart Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "CU",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Leong, Dev",
+      "field": "Conn Smythe Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "CU",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Leong, Dev",
+      "field": "Norris Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "CU",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Leong, Dev",
+      "field": "Art Ross Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "CU",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Leong, Dev",
+      "field": "Rocket Richard Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "CU",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Leong, Dev",
+      "field": "Rookie Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "CU",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Leong, Dev",
+      "field": "Lady Byng Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "CU",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Leong, Dev",
+      "field": "Most Improved Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "CU",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Leong, Dev",
+      "field": "Rolaids Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "CU",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Leong, Dev",
+      "field": "Dedication Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "CU",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Atkins, Nolan",
+      "field": "Hart Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "CU",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Atkins, Nolan",
+      "field": "Conn Smythe Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "CU",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Atkins, Nolan",
+      "field": "Norris Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "CU",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Atkins, Nolan",
+      "field": "Art Ross Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 1.0,
+      "possibleValues": [
+        1.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "CU",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Atkins, Nolan",
+      "field": "Rocket Richard Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 1.0,
+      "possibleValues": [
+        1.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "CU",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Atkins, Nolan",
+      "field": "Rookie Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "CU",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Atkins, Nolan",
+      "field": "Lady Byng Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "CU",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Atkins, Nolan",
+      "field": "Most Improved Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "CU",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Atkins, Nolan",
+      "field": "Rolaids Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "CU",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Atkins, Nolan",
+      "field": "Dedication Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "CU",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Duffy, Lorcan",
+      "field": "Hart Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "CU",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Duffy, Lorcan",
+      "field": "Conn Smythe Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "CU",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Duffy, Lorcan",
+      "field": "Norris Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "CU",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Duffy, Lorcan",
+      "field": "Art Ross Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 1.0,
+      "possibleValues": [
+        1.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "CU",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Duffy, Lorcan",
+      "field": "Rocket Richard Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 1.0,
+      "possibleValues": [
+        1.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "CU",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Duffy, Lorcan",
+      "field": "Rookie Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "CU",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Duffy, Lorcan",
+      "field": "Lady Byng Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "CU",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Duffy, Lorcan",
+      "field": "Most Improved Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "CU",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Duffy, Lorcan",
+      "field": "Rolaids Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "CU",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Duffy, Lorcan",
+      "field": "Dedication Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "CU",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Kober, Adam",
+      "field": "Hart Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "CU",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Kober, Adam",
+      "field": "Conn Smythe Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "CU",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Kober, Adam",
+      "field": "Norris Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "CU",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Kober, Adam",
+      "field": "Art Ross Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 1.0,
+      "possibleValues": [
+        1.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "CU",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Kober, Adam",
+      "field": "Rocket Richard Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 1.0,
+      "possibleValues": [
+        1.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "CU",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Kober, Adam",
+      "field": "Rookie Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "CU",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Kober, Adam",
+      "field": "Lady Byng Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "CU",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Kober, Adam",
+      "field": "Most Improved Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "CU",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Kober, Adam",
+      "field": "Rolaids Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "CU",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Kober, Adam",
+      "field": "Dedication Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "CU",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Rajasooriar, Krishnan",
+      "field": "Hart Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "CU",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Rajasooriar, Krishnan",
+      "field": "Conn Smythe Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "CU",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Rajasooriar, Krishnan",
+      "field": "Norris Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "CU",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Rajasooriar, Krishnan",
+      "field": "Art Ross Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 1.0,
+      "possibleValues": [
+        1.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "CU",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Rajasooriar, Krishnan",
+      "field": "Rocket Richard Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 1.0,
+      "possibleValues": [
+        1.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "CU",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Rajasooriar, Krishnan",
+      "field": "Rookie Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "CU",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Rajasooriar, Krishnan",
+      "field": "Lady Byng Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "CU",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Rajasooriar, Krishnan",
+      "field": "Most Improved Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "CU",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Rajasooriar, Krishnan",
+      "field": "Rolaids Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "CU",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Rajasooriar, Krishnan",
+      "field": "Dedication Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "CU",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Rosenberg, Jamie",
+      "field": "Hart Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Rosenberg, Jamie",
+      "field": "Conn Smythe Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Rosenberg, Jamie",
+      "field": "Norris Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Rosenberg, Jamie",
+      "field": "Art Ross Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 1.0,
+      "possibleValues": [
+        1.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Rosenberg, Jamie",
+      "field": "Rocket Richard Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 1.0,
+      "possibleValues": [
+        1.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Rosenberg, Jamie",
+      "field": "Rookie Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 1.0,
+      "possibleValues": [
+        1.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Rosenberg, Jamie",
+      "field": "Lady Byng Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Rosenberg, Jamie",
+      "field": "Most Improved Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Rosenberg, Jamie",
+      "field": "Rolaids Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Rosenberg, Jamie",
+      "field": "Dedication Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "FT",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Logue, Stephen",
+      "field": "Hart Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "CU",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Logue, Stephen",
+      "field": "Conn Smythe Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "CU",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Logue, Stephen",
+      "field": "Norris Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "CU",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Logue, Stephen",
+      "field": "Art Ross Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "CU",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Logue, Stephen",
+      "field": "Rocket Richard Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "CU",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Logue, Stephen",
+      "field": "Rookie Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "CU",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Logue, Stephen",
+      "field": "Lady Byng Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "CU",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Logue, Stephen",
+      "field": "Most Improved Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "CU",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Logue, Stephen",
+      "field": "Rolaids Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "CU",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Logue, Stephen",
+      "field": "Dedication Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "CU",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Pavaday, Damian",
+      "field": "Hart Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "DI",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Pavaday, Damian",
+      "field": "Conn Smythe Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "DI",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Pavaday, Damian",
+      "field": "Norris Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "DI",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Pavaday, Damian",
+      "field": "Art Ross Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 1.0,
+      "possibleValues": [
+        1.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "DI",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Pavaday, Damian",
+      "field": "Rocket Richard Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 1.0,
+      "possibleValues": [
+        1.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "DI",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Pavaday, Damian",
+      "field": "Rookie Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "DI",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Pavaday, Damian",
+      "field": "Lady Byng Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "DI",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Pavaday, Damian",
+      "field": "Most Improved Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "DI",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Pavaday, Damian",
+      "field": "Rolaids Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "DI",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Pavaday, Damian",
+      "field": "Dedication Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Direct reconciled inputs",
+      "rosterStatus": "DI",
+      "metadataAuthority": "Workbook source",
+      "scenarioCount": 1,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Carlyle, Adam",
+      "field": "Hart Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Invariant across remaining metadata possibilities; confirmed status retained",
+      "rosterStatus": "DI",
+      "metadataAuthority": "Adam confirmation",
+      "scenarioCount": 4,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Carlyle, Adam",
+      "field": "Conn Smythe Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Invariant across remaining metadata possibilities; confirmed status retained",
+      "rosterStatus": "DI",
+      "metadataAuthority": "Adam confirmation",
+      "scenarioCount": 4,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Carlyle, Adam",
+      "field": "Norris Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Invariant across remaining metadata possibilities; confirmed status retained",
+      "rosterStatus": "DI",
+      "metadataAuthority": "Adam confirmation",
+      "scenarioCount": 4,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Carlyle, Adam",
+      "field": "Art Ross Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Invariant across remaining metadata possibilities; confirmed status retained",
+      "rosterStatus": "DI",
+      "metadataAuthority": "Adam confirmation",
+      "scenarioCount": 4,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Carlyle, Adam",
+      "field": "Rocket Richard Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Invariant across remaining metadata possibilities; confirmed status retained",
+      "rosterStatus": "DI",
+      "metadataAuthority": "Adam confirmation",
+      "scenarioCount": 4,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Carlyle, Adam",
+      "field": "Rookie Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Invariant across remaining metadata possibilities; confirmed status retained",
+      "rosterStatus": "DI",
+      "metadataAuthority": "Adam confirmation",
+      "scenarioCount": 4,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Carlyle, Adam",
+      "field": "Lady Byng Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Invariant across remaining metadata possibilities; confirmed status retained",
+      "rosterStatus": "DI",
+      "metadataAuthority": "Adam confirmation",
+      "scenarioCount": 4,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Carlyle, Adam",
+      "field": "Most Improved Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Invariant across remaining metadata possibilities; confirmed status retained",
+      "rosterStatus": "DI",
+      "metadataAuthority": "Adam confirmation",
+      "scenarioCount": 4,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Carlyle, Adam",
+      "field": "Rolaids Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Invariant across remaining metadata possibilities; confirmed status retained",
+      "rosterStatus": "DI",
+      "metadataAuthority": "Adam confirmation",
+      "scenarioCount": 4,
+      "publicationAuthorized": false
+    },
+    {
+      "name": "Carlyle, Adam",
+      "field": "Dedication Eligible",
+      "state": "ELIGIBILITY_INPUTS_RECONCILED",
+      "value": 0.0,
+      "possibleValues": [
+        0.0
+      ],
+      "method": "Invariant across remaining metadata possibilities; confirmed status retained",
+      "rosterStatus": "DI",
+      "metadataAuthority": "Adam confirmation",
+      "scenarioCount": 4,
+      "publicationAuthorized": false
+    }
+  ],
+  "resolvedCount": 220,
+  "holdCount": 0,
+  "currentCompositeScoresVerified": false,
+  "publicationAuthorized": false,
+  "sourceWorkbookSha256": "68392eccdd7087f4efbc32cabf23cb308aa7843eb33df72d714a3a099754a132"
+}

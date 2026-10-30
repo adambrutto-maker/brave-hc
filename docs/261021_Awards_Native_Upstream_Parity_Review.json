@@ -1,0 +1,126 @@
+{
+  "state": "UPSTREAM_SEASON_TOTALS_MISMATCH",
+  "expectedPlayers": 19,
+  "playersChecked": 18,
+  "missingPlayerInfoNames": [
+    "Pavaday, Damian"
+  ],
+  "possibleNameVariantsForInspectionOnly": {
+    "Pavaday, Damian": []
+  },
+  "expectedTotals": {
+    "GP": 53,
+    "G": 6,
+    "A": 10,
+    "Pts": 16
+  },
+  "recalculatedPlayerInfoTotals": {
+    "GP": 52,
+    "G": 0,
+    "A": 0,
+    "Pts": 0
+  },
+  "differences": [
+    {
+      "name": "Carosi, Justin",
+      "field": "G",
+      "gameInputs": 3,
+      "recalculatedPlayerInfo": 0
+    },
+    {
+      "name": "Carosi, Justin",
+      "field": "Pts",
+      "gameInputs": 3,
+      "recalculatedPlayerInfo": 0
+    },
+    {
+      "name": "Kong, Henry",
+      "field": "G",
+      "gameInputs": 1,
+      "recalculatedPlayerInfo": 0
+    },
+    {
+      "name": "Kong, Henry",
+      "field": "A",
+      "gameInputs": 1,
+      "recalculatedPlayerInfo": 0
+    },
+    {
+      "name": "Kong, Henry",
+      "field": "Pts",
+      "gameInputs": 2,
+      "recalculatedPlayerInfo": 0
+    },
+    {
+      "name": "Pagnotta, Alex",
+      "field": "A",
+      "gameInputs": 3,
+      "recalculatedPlayerInfo": 0
+    },
+    {
+      "name": "Pagnotta, Alex",
+      "field": "Pts",
+      "gameInputs": 3,
+      "recalculatedPlayerInfo": 0
+    },
+    {
+      "name": "Pearsoll, Keith",
+      "field": "G",
+      "gameInputs": 1,
+      "recalculatedPlayerInfo": 0
+    },
+    {
+      "name": "Pearsoll, Keith",
+      "field": "Pts",
+      "gameInputs": 1,
+      "recalculatedPlayerInfo": 0
+    },
+    {
+      "name": "Provenzano, Michael",
+      "field": "A",
+      "gameInputs": 3,
+      "recalculatedPlayerInfo": 0
+    },
+    {
+      "name": "Provenzano, Michael",
+      "field": "Pts",
+      "gameInputs": 3,
+      "recalculatedPlayerInfo": 0
+    },
+    {
+      "name": "Saindon, Stephane",
+      "field": "A",
+      "gameInputs": 1,
+      "recalculatedPlayerInfo": 0
+    },
+    {
+      "name": "Saindon, Stephane",
+      "field": "Pts",
+      "gameInputs": 1,
+      "recalculatedPlayerInfo": 0
+    },
+    {
+      "name": "Kober, Adam",
+      "field": "G",
+      "gameInputs": 1,
+      "recalculatedPlayerInfo": 0
+    },
+    {
+      "name": "Kober, Adam",
+      "field": "A",
+      "gameInputs": 1,
+      "recalculatedPlayerInfo": 0
+    },
+    {
+      "name": "Kober, Adam",
+      "field": "Pts",
+      "gameInputs": 2,
+      "recalculatedPlayerInfo": 0
+    }
+  ],
+  "sourceGoalFormula": "IF(PlayerInfo[[#This Row],[Website Name]]=\"\",\"\",IF(PlayerInfo[[#This Row],[Season Adj. Type]]=\"S Adj.\",IFERROR(SUMIFS('Player Stats'!$R$3:$R$1500,'Player Stats'!$A$3:$A$1500,PlayerInfo[[#This Row],[Recent Season]],'Player Stats'!$C$3:$C$1500,PlayerInfo[[#This Row],[Website Name]]),0),IFERROR(SUMIFS('Player Stats'!$Q$3:$Q$1500,'Player Stats'!$A$3:$A$1500,PlayerInfo[[#This Row],[Recent Season]],'Player Stats'!$C$3:$C$1500,PlayerInfo[[#This Row],[Website Name]]),0)))",
+  "masterScheduleResultsImported": false,
+  "seasonTotalsImported": false,
+  "currentScoresVerified": false,
+  "publicationAuthorized": false
+}
