@@ -3,9 +3,9 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="color-scheme" content="dark"><meta name="robots" content="noindex,follow">
 <title>Brave H.C. — Game Centre</title>
-<link rel="stylesheet" href="./game-centre-next.css?v=20261030-r3">
+<link rel="stylesheet" href="./game-centre-next.css?v=20261030-r31">
 <script defer src="./game-night-lineup-contract-v27-preview.js"></script>
-<script defer src="./game-centre-next.js?v=20261030-r3"></script>
+<script defer src="./game-centre-next.js?v=20261030-r31"></script>
 </head><body>
 <main class="game-centre" id="game-centre">
 <header class="masthead">
@@ -29,7 +29,7 @@
  </nav>
  <div id="centre-standings-panel" class="tab-panel" role="tabpanel" data-group="centre" data-name="standings" aria-labelledby="centre-standings">
   <div class="division-identity">
-   <img class="division-patch" id="division-patch" src="./assets/approved/andrew_cristillo.webp" alt="Andrew Cristillo dedication patch">
+   <img class="division-patch" id="division-patch" src="./assets/awards/cristillo-dedication.webp" alt="Cristillo Division original black shield">
    <div class="division-title"><div class="eyebrow">THE SPORTS VILLAGE HOCKEY LEAGUE</div><h3 id="division-heading">The Cristillo Division</h3><p id="division-description">Official Sunday Winter standings · 2026/27</p></div>
   </div>
   <div class="selectrow"><label for="division-select">Select division</label>
@@ -38,7 +38,7 @@
   <table class="table standings-table" aria-label="Full selected Sunday division standings"><thead><tr>
    <th>Team</th><th>GP</th><th>W-L-T</th><th>Pts</th><th>Win %</th><th>GF</th><th>GA</th><th>Streak</th>
   </tr></thead><tbody id="standings-rows"><tr><td colspan="8">Checking standings…</td></tr></tbody></table>
-  <p class="source-note">Win % counts a tie as half a win. Streaks are calculated only from source-verified, consecutive completed results.</p>
+  <p class="source-note">Win percentage uses hockey decimal format (.800). A tie counts as half a win; streaks require complete verified results.</p>
   <div class="action-row"><a href="./standings-v2.html" target="_blank" rel="noopener noreferrer">Division Centre ↗</a>
    <a href="https://leagues.sportsvillage.ca/Leagues.aspx?leagueid=570&amp;page_type=Adult&amp;sc=HOCKEY" target="_blank" rel="noopener noreferrer">Official SVHL Standings ↗</a></div>
  </div>
@@ -51,9 +51,17 @@
  <div id="centre-lineup-panel" class="tab-panel" role="tabpanel" data-group="centre" data-name="lineup" aria-labelledby="centre-lineup" hidden>
   <div class="section-title"><div class="eyebrow">NEXT GAME · PLAYER AVAILABILITY</div><h3>Brave H.C. Lineup Card</h3><p id="lineup-fixture">Checking the next official fixture…</p></div>
   <div class="lineup-status" id="lineup-notice" role="status">Lineup awaiting manager approval; private WhatsApp votes are not published.</div>
-  <div class="lineup-card" aria-label="Blank team lineup card, positions to be filled after approval" id="lineup-card"></div>
-  <p class="source-note">A WhatsApp Yes is availability, not an assigned position or an accepted call-up. Names appear only after source verification and manager approval. The public page cannot read private poll responses directly.</p>
-  <div class="action-row"><a href="https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&amp;s=hockey&amp;p=roster" target="_blank" rel="noopener noreferrer">Official Team Roster ↗</a></div>
+  <div class="pdf-lineup" id="lineup-card" aria-label="Authentic Brave H.C. workbook-derived PDF lineup card">
+   <iframe id="lineup-pdf-frame" title="Printable original Brave H.C. lineup PDF" src="./assets/lineups/brave-hc-blank-original-card.pdf#view=FitH&amp;toolbar=0&amp;navpanes=0" loading="lazy" scrolling="no"></iframe>
+   <img id="lineup-pdf-preview" class="pdf-lineup-preview" src="./assets/lineups/brave-hc-blank-original-card.png" alt="Verified blank original Brave H.C. lineup PDF page preview" hidden>
+   <p class="pdf-fallback">If your device does not display the PDF, use Open PDF below. Print from the PDF viewer, not the full webpage.</p>
+  </div>
+  <p class="source-note">A WhatsApp Yes is availability, not an assigned position or an accepted call-up. Only a fixture-specific, verified and manager-approved PDF may replace the blank original card. Private WhatsApp replies are never published directly.</p>
+  <div class="action-row lineup-actions">
+   <a id="lineup-print" class="print-link" target="_blank" rel="noopener noreferrer" href="./assets/lineups/brave-hc-blank-original-card.pdf">Print Lineup PDF ↗</a>
+   <a id="lineup-open" target="_blank" rel="noopener noreferrer" href="./assets/lineups/brave-hc-blank-original-card.pdf">Open PDF ↗</a>
+   <a href="https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&amp;s=hockey&amp;p=roster" target="_blank" rel="noopener noreferrer">Official Team Roster ↗</a>
+  </div>
  </div>
  <div id="centre-goalies-panel" class="tab-panel" role="tabpanel" data-group="centre" data-name="goalies" aria-labelledby="centre-goalies" hidden>
   <div class="section-title"><div class="eyebrow">UPCOMING FIXTURES</div><h3>Goaltender Schedule</h3></div>
@@ -66,12 +74,53 @@
  <div id="centre-rankings-panel" class="tab-panel" role="tabpanel" data-group="centre" data-name="rankings" aria-labelledby="centre-rankings" hidden>
   <div class="section-title"><div class="eyebrow">SUNDAY ADULT HOCKEY · HOCKEYOS ANALYSIS</div><h3>Power Rankings</h3><p>All competitive Sunday clubs, compared with source-qualified strength analysis.</p></div>
   <p id="rankings-status" role="status" class="meta">Checking league source model…</p>
-  <table class="table ranking-table" aria-label="Source-qualified Sunday club power rankings"><thead><tr><th>Rank</th><th>Club</th><th>Division</th><th>Strength</th></tr></thead><tbody id="rankings-rows"></tbody></table>
+  <div class="calibration-strip" id="calibration-strip" aria-label="Relative Sunday strength rating scale">
+   <span><b>50</b> · Cohort low</span><span><b>75</b> · Sunday median</span><span><b>100</b> · Cohort high</span>
+  </div>
+  <p class="source-note" id="calibration-status">Strength is a relative 50–100 display calibrated to the current Sunday cohort; original HockeyOS scores remain unchanged.</p>
+  <div class="selectrow ranking-sort-mobile"><label for="rank-sort-select">Sort Power Rankings</label>
+   <select id="rank-sort-select" aria-label="Choose Power Rankings sort order">
+    <option value="strength:desc">Strength · highest first</option>
+    <option value="strength:asc">Strength · lowest first</option>
+    <option value="rank:asc">Rank · highest first</option>
+    <option value="rank:desc">Rank · lowest first</option>
+    <option value="team:asc">Club · A–Z</option>
+    <option value="team:desc">Club · Z–A</option>
+    <option value="division:asc">Division · A–Z</option>
+    <option value="division:desc">Division · Z–A</option>
+    <option value="gp:desc">GP · most first</option>
+    <option value="gp:asc">GP · fewest first</option>
+    <option value="ptsPerGame:desc">Pts/GP · highest first</option>
+    <option value="ptsPerGame:asc">Pts/GP · lowest first</option>
+    <option value="gfPerGame:desc">GF/GP · highest first</option>
+    <option value="gfPerGame:asc">GF/GP · lowest first</option>
+    <option value="gaPerGame:asc">GA/GP · fewest first</option>
+    <option value="gaPerGame:desc">GA/GP · most first</option>
+    <option value="gdPerGame:desc">GD/GP · highest first</option>
+    <option value="gdPerGame:asc">GD/GP · lowest first</option>
+    <option value="streak:desc">Streak · best first</option>
+    <option value="streak:asc">Streak · worst first</option>
+   </select>
+  </div>
+  <table class="table ranking-table" aria-label="Sortable, rate-first Sunday club power rankings">
+   <thead><tr>
+    <th aria-sort="none"><button type="button" data-rank-sort="rank">Rank</button></th>
+    <th aria-sort="none"><button type="button" data-rank-sort="team">Club</button></th>
+    <th aria-sort="none"><button type="button" data-rank-sort="division">Division</button></th>
+    <th aria-sort="descending"><button type="button" data-rank-sort="strength">Strength</button></th>
+    <th aria-sort="none"><button type="button" data-rank-sort="gp">GP</button></th>
+    <th aria-sort="none"><button type="button" data-rank-sort="ptsPerGame">Pts/GP</button></th>
+    <th aria-sort="none"><button type="button" data-rank-sort="gfPerGame">GF/GP</button></th>
+    <th aria-sort="none"><button type="button" data-rank-sort="gaPerGame">GA/GP</button></th>
+    <th aria-sort="none"><button type="button" data-rank-sort="gdPerGame">GD/GP</button></th>
+    <th aria-sort="none"><button type="button" data-rank-sort="streak">Streak</button></th>
+   </tr></thead><tbody id="rankings-rows"></tbody></table>
+  <div class="ranking-mobile-list" id="ranking-mobile-list" role="list" aria-label="Readable Sunday team rankings"></div>
   <div class="rank-pagination"><button type="button" id="rank-prev">Previous</button><span id="rank-page" aria-live="polite"></span><button type="button" id="rank-next">Next</button></div>
   <div class="selectrow"><label for="rank-team-select">Examine a team's schedule and division record</label><select id="rank-team-select"><option value="">Select team…</option></select></div>
   <div id="rank-team-detail" class="research-card">Select a club to inspect verified opposition and its current division.</div>
   <div class="research-card movement-box"><div class="eyebrow">OBSERVED DIVISION MOVES</div><div id="division-movements">Checking the movement ledger…</div></div>
-  <p class="source-note">Strength is a descriptive 0–100 HockeyOS context index, not a win probability. Comparisons span Fazzari, Cristillo and Remax; VAHL and playoff placeholder teams are excluded. Division change dates are observation dates, not necessarily effective dates.</p>
+  <p class="source-note">Relative strength uses a display-only 50–100 cohort scale, not award formulas or a win probability. Pts/GP, GF/GP, GA/GP and GD/GP are official totals divided by GP; GP and streak are context, not rates. Fazzari, Cristillo and Remax only. Division change dates are observation dates, not necessarily effective dates.</p>
   <div class="action-row"><a href="./league-intelligence.html" target="_blank" rel="noopener noreferrer">Full League Intelligence ↗</a><a href="./division-fit-lab.html" target="_blank" rel="noopener noreferrer">Research Division Changes ↗</a></div>
  </div>
  <div id="centre-coaching-panel" class="tab-panel" role="tabpanel" data-group="centre" data-name="coaching" aria-labelledby="centre-coaching" hidden>

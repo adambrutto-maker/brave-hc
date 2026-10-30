@@ -12,7 +12,10 @@ const fmt=(x,opts={})=>new Intl.DateTimeFormat("en-CA",{timeZone:"America/Toront
 const shortDate=day=>fmt(day+"T12:00:00Z",{timeZone:"UTC",month:"short",day:"numeric"});
 const when=day=>fmt(day+"T12:00:00Z",{timeZone:"UTC",weekday:"short",month:"short",day:"numeric"});
 const age=iso=>{const t=Date.parse(iso||"");return Number.isFinite(t)?Math.max(0,(Date.now()-t)/3600000):Infinity};
-const percent=x=>Number.isFinite(x)?(x*100).toFixed(0)+"%":"—";
+const hockeyPercent=x=>!Number.isFinite(x)?"—":x.toFixed(3).replace(/^0(?=\.)/,"");
+const rate=(x,den)=>Number.isFinite(x)&&Number.isInteger(den)&&den>0?x/den:null;
+const rateText=x=>Number.isFinite(x)?x.toFixed(2):"—";
+const signedRateText=x=>Number.isFinite(x)?(x>0?"+":"")+x.toFixed(2):"—";
 const number=(x,dec=0)=>Number.isFinite(x)?x.toFixed(dec):"—";
 const clean=s=>String(s||"").toLowerCase().replace(/[^a-z0-9]/g,"");
 const ADULT=["Fazzari Partners","The Cristillo Division","Remax Division"];
@@ -29,7 +32,9 @@ const lineupGroups=[
  {title:"GOALTENDER",rows:[ [["D16","G"]] ]}
 ];
 const state={standings:null,league:null,upcoming:null,schedule:null,assign:null,history:null,lineup:null,playerProfiles:null,
- division:"The Cristillo Division",opponent:null,rankIndex:0,rankTeam:null};
+ division:"The Cristillo Division",opponent:null,rankIndex:0,rankTeam:null,
+ calibration:null,rankSortKey:"strength",rankSortDirection:"desc",lineupPdf:null,
+ approvedBlankHashCache:null};
 function nextFixture(){return state.upcoming?.games?.find(g=>Date.now()<Date.parse(g.rolloverAtUTC))||null}
 function selectTab(tab){
  for(const button of root.querySelectorAll(".tabs button")){
@@ -67,6 +72,30 @@ function verifyHistory(x){if(x?.schema!=="brave-hc-opponent-intelligence/v1"||x.
 async function fetchJSON(name){const r=await fetch("./"+name,{cache:"no-store"});if(!r.ok)throw Error(name+" HTTP "+r.status);return r.json()}
 function eligibleTeams(){return state.league?.teams.filter(t=>ADULT.includes(t.divisionNow))||[]}
 function byName(name){return eligibleTeams().find(t=>clean(t.leagueName)===clean(name)||clean(t.displayName)===clean(name))}
+function calibrateSunday(teams){
+ const scores=teams.map(t=>t.strengthContext?.contextIndex).filter(Number.isFinite).sort((a,b)=>a-b);
+ if(scores.length<2)return null;
+ const min=scores[0],max=scores.at(-1),mid=Math.floor(scores.length/2);
+ const median=scores.length%2===0?(scores[mid-1]+scores[mid])/2:scores[mid];
+ return Object.freeze({count:scores.length,min,median,max,
+  sourceAsOf:state.league?.asOf||null,
+  status:min===max?"ALL_SCORES_EQUAL":"SOURCE_COHORT_CALIBRATED"});
+}
+function calibratedValue(raw,anchors=state.calibration){
+ if(!Number.isFinite(raw)||!anchors||!Number.isFinite(anchors.min)||!Number.isFinite(anchors.median)||!Number.isFinite(anchors.max))return null;
+ const {min,median,max}=anchors;
+ if(raw<min||raw>max)return null;
+ if(min===max)return 75;
+ if(raw<=median){
+  if(median===min)return 75; // no distinct below-median observed cohort values
+  return Math.min(100,Math.max(50,50+25*(raw-min)/(median-min)));
+ }
+ if(max===median)return 75;
+ return Math.min(100,Math.max(50,75+25*(raw-median)/(max-median)));
+}
+const relativeStrength=team=>calibratedValue(team?.strengthContext?.contextIndex);
+const relativeText=team=>rateTextOne(relativeStrength(team));
+const rateTextOne=x=>Number.isFinite(x)?x.toFixed(1):"—";
 function gameStreak(team,standingsRecord){
  if(!team||!Array.isArray(team.completedGames)||!validRecord(team.record))return null;
  const a=team.completedGames;
@@ -97,7 +126,7 @@ function selectDivisions(){
 }
 $("division-select").addEventListener("change",v=>{state.division=v.target.value;drawStandings()});
 function pointsPct(t,raw){
- const p=Number.isFinite(raw)?raw:(t.gp?((t.w+.5*t.t)/t.gp):0);
+ const p=t.gp>0?(t.w+.5*t.t)/t.gp:null;
  if(!Number.isFinite(p))return null;
  if(t.gp>0&&Math.abs(p-(t.w+.5*t.t)/t.gp)>0.02)return null;
  return p;
@@ -116,7 +145,7 @@ function drawStandings(){
   const streak=gameStreak(l,current?r:null),p=pointsPct(r,row.winPct);
   const cells=[
    ["Team",row.name],["GP",r.gp],["W-L-T",r.w+"-"+r.l+"-"+r.t],["Pts",r.pts],
-   ["Win %",percent(p)],["GF",r.gf],["GA",r.ga],["Streak",streak?streak.label:"—"]
+   ["Win %",hockeyPercent(p)],["GF",r.gf],["GA",r.ga],["Streak",streak?streak.label:"—"]
   ];
   for(const [i,[label,value]] of cells.entries()){
    const cell=n("td",i===7&&streak?"streak-"+({"W":"win","L":"loss","T":"tie"}[streak.kind]):null,value);
@@ -147,40 +176,102 @@ function drawGoalies(){
  const stamp=state.schedule.checkedAt;
  set("goalie-status",(age(stamp)>36?"Schedule check overdue · ":"")+"SVHL fixtures checked "+fmt(stamp,{month:"short",day:"numeric",hour:"numeric",minute:"2-digit"})+" ET · Unconfirmed goalies: TBD");
 }
-function blankLineup(result){
- const box=$("lineup-card");box.replaceChildren();
- for(const section of lineupGroups){
-  const sectionEl=n("section","lineup-section");sectionEl.append(n("div","section-label",section.title));
-  for(let i=0;i<section.rows.length;i++){
-   const line=n("div","lineup-unit "+(section.title==="DEFENCE"?"defence":section.title==="GOALTENDER"?"goalie":""));
-   for(const [cell,role] of section.rows[i]){
-    const tile=n("div","lineup-slot"),name=n("strong",null,"—");
-    const slot=result?.approved?result.slots[cell]:null;
-    if(slot&&slot!=="-")name.textContent=slot.name;
-    tile.append(n("span",null,role+(section.title!=="GOALTENDER"?" · "+(i+1):"")),name);line.append(tile);
-   }
-   sectionEl.append(line);
-  }
-  box.append(sectionEl);
- }
+const blankPdf="./assets/lineups/brave-hc-blank-original-card.pdf";
+const pdfCache=new Map();
+function allowedPdfPath(path){
+ return typeof path==="string"&&/^\.\/assets\/lineups\/[a-z0-9][a-z0-9_/-]*\.pdf$/.test(path)&&!path.includes("..");
 }
-function drawLineup(feed,profiles){
- const fixture=nextFixture();
- set("lineup-fixture",fixture?"Next: "+when(fixture.gameDate)+" · "+fixture.opponent:"Next game pending HTO verification");
- let result=null;
- if(fixture&&feed&&profiles&&profiles.schema==="brave-hc-player-career-insights/v1"&&
-   profiles.sourceAuthority==="NATIVE_HTO_PROFILE_STATS_PUBLIC_READBACK"&&window.BraveGameNightContract){
-  const lookup=id=>{
-   const hit=profiles.players?.[String(id)];
-   return hit&&hit.status==="VERIFIED_PROFILE_CAREER_SUM_PARITY"?{name:hit.name}:null;
-  };
-  result=window.BraveGameNightContract.confirm(feed,state.upcoming,lookup,new Date().toISOString());
- }
- blankLineup(result);
- const published=result?.approved===true;
- set("lineup-notice",published?"MANAGER-APPROVED PUBLIC LINEUP · "+fmt(result.approvedAt,{month:"short",day:"numeric"}):
-  "Blank lineup · WhatsApp responses remain in private review. Players are listed only after verified identities, selections and manager publication approval.");
+async function pdfIntegrity(entry){
+ if(!entry||!allowedPdfPath(entry.url)||typeof entry.sha256!=="string"||!/^[a-f0-9]{64}$/.test(entry.sha256))return false;
+ const key=entry.url+"|"+entry.sha256;
+ if(pdfCache.has(key))return pdfCache.get(key);
+ const pending=(async()=>{
+  const response=await fetch(entry.url,{cache:"no-store"});
+  if(!response.ok)return false;
+  const bytes=await response.arrayBuffer();
+  if(bytes.byteLength<15000||bytes.byteLength>3000000)return false;
+  const magic=new TextDecoder().decode(bytes.slice(0,5));
+  if(magic!=="%PDF-")return false;
+  if(!crypto?.subtle)return false;
+  const digest=new Uint8Array(await crypto.subtle.digest("SHA-256",bytes));
+  const sha=[...digest].map(b=>b.toString(16).padStart(2,"0")).join("");
+  return sha===entry.sha256;
+ })().catch(()=>false);
+ pdfCache.set(key,pending);
+ return pending;
 }
+async function pngPreviewIntegrity(entry){
+ const url=entry?.previewImage,sha=entry?.previewSHA256;
+ if(typeof url!=="string"||!/^\.\/assets\/lineups\/[a-z0-9][a-z0-9_-]*\.png$/.test(url)||
+    typeof sha!=="string"||!/^[a-f0-9]{64}$/.test(sha))return false;
+ const key=url+"|"+sha;
+ if(pdfCache.has(key))return pdfCache.get(key);
+ const work=(async()=>{
+  const response=await fetch(url,{cache:"no-store"});
+  if(!response.ok)return false;
+  const data=await response.arrayBuffer(),bytes=new Uint8Array(data);
+  if(bytes.length<5000||bytes.length>3000000||
+     bytes[0]!==137||bytes[1]!==80||bytes[2]!==78||bytes[3]!==71)return false;
+  if(!crypto?.subtle)return false;
+  const digest=new Uint8Array(await crypto.subtle.digest("SHA-256",data));
+  return [...digest].map(b=>b.toString(16).padStart(2,"0")).join("")===sha;
+ })().catch(()=>false);
+ pdfCache.set(key,work);return work;
+}
+function verifyPdfManifest(x){
+ if(x?.schema!=="brave-hc-game-centre-public-lineup-pdf/v1"||
+    x.sourceWorkbookSHA256!=="0002fd9f06596af8d0a00fc1b53a618ef15479f941ad5c1e6265b27002a65154"||
+    x.blank?.sourceRange!=="Lines!G5:J16"||x.blank?.pageCount!==1||
+    x.blank?.publicBlankTemplateApproved!==true||x.blank?.containsPlayerNames!==false||
+    !allowedPdfPath(x.blank.url)||x.weeklyAutoPublishEnabled!==false||
+    x.privateWhatsAppPollDataPublished!==false)throw Error("Public lineup PDF manifest not verified");
+ return x;
+}
+function validApprovedPdf(feed,profiles,manifest){
+ const fix=nextFixture(),approved=manifest?.approved;
+ if(!fix||manifest?.status!=="MANAGER_APPROVED_PUBLIC_LINEUP"||!approved)return false;
+ if(approved.authorizedForPublic!==true||approved.managerApproved!==true||
+    approved.fixtureId!==fix.id||approved.gameDate!==fix.gameDate||
+    approved.opponent!==fix.opponent||
+    approved.sourceRange!=="Lines!G5:J16"||
+    !allowedPdfPath(approved.url)||!approved.sha256||!approved.approvalId||
+    !approved.evidenceFingerprint||approved.outboundMessagesSent!==0)return false;
+ if(!window.BraveGameNightContract||!feed||!profiles||profiles.schema!=="brave-hc-player-career-insights/v1"||
+    profiles.sourceAuthority!=="NATIVE_HTO_PROFILE_STATS_PUBLIC_READBACK")return false;
+ const profile=id=>{
+  const p=profiles.players?.[String(id)];
+  return p&&p.status==="VERIFIED_PROFILE_CAREER_SUM_PARITY"?{name:p.name}:null;
+ };
+ const result=window.BraveGameNightContract.confirm(feed,state.upcoming,profile,new Date().toISOString());
+ return result?.approved===true&&result.fixture.id===fix.id&&
+   result.approvalId===approved.approvalId&&result.evidenceFingerprint===approved.evidenceFingerprint;
+}
+let lineupLoadVersion=0;
+async function drawLineup(){
+ const version=++lineupLoadVersion,fix=nextFixture();
+ set("lineup-fixture",fix?"Next: "+when(fix.gameDate)+" · "+fix.opponent:"Next fixture awaiting official HTO verification");
+ const manifest=state.lineupPdf;
+ const frame=$("lineup-pdf-frame"),preview=$("lineup-pdf-preview"),print=$("lineup-print"),open=$("lineup-open");
+ const block=()=>{frame.removeAttribute("src");preview.hidden=true;for(const a of [print,open]){a.removeAttribute("href");a.setAttribute("aria-disabled","true");a.tabIndex=-1}};
+ block();
+ if(!manifest){set("lineup-notice","Checking the original workbook-derived blank PDF…");return}
+ let entry=manifest.blank;
+ let approved=false;
+ if(validApprovedPdf(state.lineup,state.playerProfiles,manifest)){
+  if(await pdfIntegrity(manifest.approved)){entry=manifest.approved;approved=true}
+ }
+ if(!await pdfIntegrity(entry)){if(version===lineupLoadVersion)set("lineup-notice","Printable lineup temporarily unavailable. Source or PDF integrity check failed.");return}
+ const previewVerified=await pngPreviewIntegrity(entry);
+ if(version!==lineupLoadVersion)return;
+ const url=entry.url;
+ frame.src=url+"#view=FitH&toolbar=0&navpanes=0";
+ if(previewVerified){preview.src=entry.previewImage;preview.hidden=false}
+ for(const a of [print,open]){a.href=url;a.removeAttribute("aria-disabled");a.tabIndex=0}
+ set("lineup-notice",approved?
+   "Official manager-approved lineup PDF · "+when(fix.gameDate)+" vs "+fix.opponent:
+   "Blank original Brave H.C. card · lineup pending manager approval. Print or open the one-page PDF; do not use historical player sheets.");
+}
+
 function miniMetric(label,value){const box=n("div","tile");box.append(n("strong",null,value),n("span",null,label));return box}
 function renderOpponent(){
  const card=$("opponent-card"),name=state.opponent;
@@ -196,7 +287,7 @@ function renderOpponent(){
  const grid=n("div","bio-style-metrics");
  const streak=gameStreak(t);
  for(const [label,val] of [
-  ["Strength /100",number(strengths.contextIndex,1)],
+  ["Relative /100",relativeText(t)],
   ["W-L-T",r.w+"-"+r.l+"-"+r.t],
   ["Goals /game",r.gp?number(r.gf/r.gp,1):"—"],
   ["Against /game",r.gp?number(r.ga/r.gp,1):"—"]])grid.append(miniMetric(label,val));
@@ -222,7 +313,7 @@ function renderOpponent(){
   hh.append(n("p",null,q.gp+" verified regular-season meetings · "+q.w+" wins, "+q.l+" losses, "+q.t+" ties."));
  }else hh.append(n("p",null,"No exact, verified historical matchup linked to this source team."));
  card.append(hh);
- card.append(n("p","source-note","HockeyOS strength context: "+(strengths.confidence==="LIMITED_SAMPLE"?"small sample · early-season evidence":"source-qualified snapshot")+
+ card.append(n("p","source-note","Relative Sunday strength is a 50–100 cohort display of the unchanged HockeyOS source index; "+(strengths.confidence==="LIMITED_SAMPLE"?"small sample · early-season evidence":"source-qualified snapshot")+
   " · not a win probability. Opponent division and historical franchise identities are not presumed interchangeable."));
  $("opponent-details-link").href="./league-intelligence.html?team="+encodeURIComponent(t.leagueName);
 }
@@ -253,32 +344,113 @@ function adultRank(t){
  const i=rankRows().findIndex(x=>x.sourceTeamId===t.sourceTeamId);
  return i<0?null:i+1;
 }
+const sortableKeys=new Set(["rank","team","division","strength","gp","ptsPerGame","gfPerGame","gaPerGame","gdPerGame","streak"]);
+const sortedRates=team=>{
+ const r=team.record,streak=gameStreak(team);
+ return {rank:adultRank(team),team:team.leagueName,division:LABEL[team.divisionNow],
+  strength:relativeStrength(team),gp:r.gp,ptsPerGame:rate(r.pts,r.gp),
+  gfPerGame:rate(r.gf,r.gp),gaPerGame:rate(r.ga,r.gp),
+  gdPerGame:rate(r.gf-r.ga,r.gp),
+  streak:streak?streak.kind==="W"?streak.length:streak.kind==="L"?-streak.length:0:null,
+  streakLabel:streak?.label||"—"};
+};
+function rankedSortValue(team,key){return sortedRates(team)[key]}
+function sortRankings(){
+ const key=state.rankSortKey,dir=state.rankSortDirection==="asc"?1:-1;
+ return [...rankRows()].sort((a,b)=>{
+  const av=rankedSortValue(a,key),bv=rankedSortValue(b,key);
+  if(av==null&&bv!=null)return 1;if(bv==null&&av!=null)return -1;
+  let diff=0;
+  if(typeof av==="string"&&typeof bv==="string")diff=av.localeCompare(bv,"en",{sensitivity:"base"});
+  else if(Number.isFinite(av)&&Number.isFinite(bv))diff=av-bv;
+  if(diff)return diff*dir;
+  return a.sourceTeamId-b.sourceTeamId; // source-ID tie-break, stable
+ });
+}
+function setRankSort(key,dir){
+ if(!sortableKeys.has(key)||!["asc","desc"].includes(dir))return;
+ state.rankSortKey=key;state.rankSortDirection=dir;state.rankIndex=0;
+ const select=$("rank-sort-select");if(select)select.value=key+":"+dir;
+ for(const th of root.querySelectorAll(".ranking-table thead th")){
+  const active=th.querySelector("button")?.dataset.rankSort===key;
+  th.setAttribute("aria-sort",active?(dir==="asc"?"ascending":"descending"):"none");
+ }
+ drawRankings();
+}
+for(const button of root.querySelectorAll("[data-rank-sort]")){
+ button.addEventListener("click",()=>{
+  const key=button.dataset.rankSort;
+  const defaultDir=["rank","team","division","gaPerGame"].includes(key)?"asc":"desc";
+  const dir=state.rankSortKey===key?(state.rankSortDirection==="desc"?"asc":"desc"):defaultDir;
+  setRankSort(key,dir);
+ });
+}
+$("rank-sort-select").addEventListener("change",e=>{
+ const [key,dir]=e.target.value.split(":");setRankSort(key,dir);
+});
+function rankingCell(label,value){
+ const td=n("td",null,value);td.dataset.label=label;return td;
+}
+function renderRankCard(team){
+ const m=sortedRates(team),article=n("article","ranking-card"+(clean(team.leagueName)===clean("Braves HC")?" brave":""));
+ article.setAttribute("role","listitem");
+ const header=n("div","ranking-card-head"),left=n("div"),right=n("div","ranking-card-score");
+ left.append(n("strong",null,"#"+m.rank+" · "+m.team),n("span",null,m.division));
+ right.append(n("b",null,rateTextOne(m.strength)),n("span",null,"REL. STRENGTH"));
+ header.append(left,right);article.append(header);
+ const stats=n("div","ranking-rate-grid");
+ for(const [lab,v] of [["Pts/GP",rateText(m.ptsPerGame)],["GF/GP",rateText(m.gfPerGame)],
+  ["GA/GP",rateText(m.gaPerGame)],["GD/GP",signedRateText(m.gdPerGame)]]){
+  const tile=n("div","ranking-rate"),strong=n("strong",null,v);
+  tile.append(strong,n("small",null,lab));stats.append(tile);
+ }
+ article.append(stats);
+ const foot=n("div","ranking-card-foot");
+ foot.append(n("span",null,m.gp+" GP"),n("span",m.streak>0?"streak-win":m.streak<0?"streak-loss":"streak-tie",m.streakLabel));
+ article.append(foot);
+ return article;
+}
 function drawRankings(){
  if(!state.league)return;
- const all=rankRows(),size=8,pages=Math.ceil(all.length/size);
+ const all=sortRankings(),size=window.innerWidth<=400?3:window.innerWidth<=900?4:8,pages=Math.ceil(all.length/size);
  state.rankIndex=Math.min(Math.max(0,state.rankIndex),pages-1);
- const block=all.slice(state.rankIndex*size,(state.rankIndex+1)*size),body=$("rankings-rows");body.replaceChildren();
- for(const team of block){
-  const r=team.strengthContext||{},tr=n("tr",clean(team.leagueName)===clean("Braves HC")?"brave":null);
-  for(const value of [adultRank(team)||"—",team.leagueName,LABEL[team.divisionNow],number(r.contextIndex,1)]){
-   tr.append(n("td",null,value));
-  }
-  body.append(tr);
+ const batch=all.slice(state.rankIndex*size,(state.rankIndex+1)*size);
+ const body=$("rankings-rows"),list=$("ranking-mobile-list");body.replaceChildren();list.replaceChildren();
+ for(const team of batch){
+  const m=sortedRates(team),tr=n("tr",clean(team.leagueName)===clean("Braves HC")?"brave":null);
+  const vals=[["Rank",m.rank],["Club",m.team],["Division",m.division],
+   ["Strength",rateTextOne(m.strength)],["GP",m.gp],["Pts/GP",rateText(m.ptsPerGame)],
+   ["GF/GP",rateText(m.gfPerGame)],["GA/GP",rateText(m.gaPerGame)],
+   ["GD/GP",signedRateText(m.gdPerGame)],["Streak",m.streakLabel]];
+  for(const [name,value] of vals)tr.append(rankingCell(name,value));
+  body.append(tr);list.append(renderRankCard(team));
  }
  $("rank-prev").disabled=state.rankIndex===0;$("rank-next").disabled=state.rankIndex===pages-1;
  set("rank-page","Page "+(state.rankIndex+1)+" / "+pages);
- set("rankings-status",all.length+" adult Sunday teams · official league results, source-qualified strength as of "+shortDate(state.league.asOf.slice(0,10))+
-  ". Higher index means stronger observed competitive context, not predicted wins.");
+ const calib=state.calibration,tag=calib?.status==="ALL_SCORES_EQUAL"?" (all source indices tied)":"";
+ set("rankings-status",all.length+" adult Sunday clubs · rate statistics per completed game · relative strength "+
+  "50 / 75 / 100 anchored to source minimum, median and maximum"+tag+
+  " · "+shortDate(state.league.asOf.slice(0,10))+". Not win odds.");
 }
 $("rank-prev").addEventListener("click",()=>{state.rankIndex--;drawRankings()});
 $("rank-next").addEventListener("click",()=>{state.rankIndex++;drawRankings()});
 function drawRankTeam(){
  const target=$("rank-team-detail"),team=byName(state.rankTeam);
  target.replaceChildren();if(!team)return;
- const q=team.strengthContext||{},r=team.record;
+ const q=team.strengthContext||{},r=team.record,m=sortedRates(team);
  target.append(n("h4",null,team.leagueName+" · "+LABEL[team.divisionNow]));
- target.append(n("p",null,"HockeyOS strength: "+number(q.contextIndex,1)+"/100 · Sunday rank #"+(adultRank(team)||"—")+
- " · "+r.w+"-"+r.l+"-"+r.t+" · "+(q.confidence==="LIMITED_SAMPLE"?"limited game sample":"verified season sample")));
+ target.append(n("p",null,"Relative strength "+rateTextOne(m.strength)+"/100 · Sunday rank #"+m.rank+
+  " · "+r.gp+" GP · "+r.w+"-"+r.l+"-"+r.t+" W-L-T · "+m.streakLabel));
+ const g=n("div","research-rate-grid");
+ for(const [name,val] of [["Pts/GP",rateText(m.ptsPerGame)],["GF/GP",rateText(m.gfPerGame)],
+  ["GA/GP",rateText(m.gaPerGame)],["GD/GP",signedRateText(m.gdPerGame)]]){
+  const tile=n("div","ranking-rate");
+  tile.append(n("strong",null,val),n("small",null,name));g.append(tile);
+ }
+ target.append(g);
+ target.append(n("p","muted","Underlying HockeyOS context index: "+rateTextOne(q.contextIndex)+
+   ". This display is calibrated only relative to this snapshot's eligible Sunday cohort. "+
+   (q.confidence==="LIMITED_SAMPLE"?"Limited sample.":"Verified season sample.")));
  const section=n("div","mini-head","RESULTS AGAINST TEAMS NOW IN EACH DIVISION");target.append(section);
  const groups=new Map(ADULT.map(name=>[name,[]]));
  for(const game of team.completedGames||[])if(groups.has(game.opponentCurrentDivision))groups.get(game.opponentCurrentDivision).push(game);
@@ -286,9 +458,11 @@ function drawRankTeam(){
   if(!games.length)continue;
   const record={W:0,L:0,T:0};
   games.forEach(x=>{if(Object.hasOwn(record,x.result))record[x.result]++});
-  target.append(n("p",null,LABEL[division]+": "+record.W+" W · "+record.L+" L · "+record.T+" T in "+games.length+" verified game(s)"));
+  const gf=games.reduce((v,g)=>v+g.gf,0),ga=games.reduce((v,g)=>v+g.ga,0);
+  target.append(n("p",null,LABEL[division]+": "+record.W+" W · "+record.L+" L · "+record.T+" T · "+
+   rateText(gf/games.length)+" GF/GP · "+rateText(ga/games.length)+" GA/GP ("+games.length+" verified games)"));
  }
- target.append(n("p","source-note","The grouping uses opponents' currently listed divisions, which might not be their division when the game was played."));
+ target.append(n("p","source-note","Groups use opponents' CURRENT listed divisions; a team's division when games occurred may differ."));
 }
 function drawMovement(){
  const box=$("division-movements");box.replaceChildren();
@@ -314,18 +488,25 @@ function selectRankOptions(){
 $("rank-team-select").addEventListener("change",e=>{state.rankTeam=e.target.value;drawRankTeam()});
 function refreshLeagueInfo(){
  if(!state.league)return;
+ state.calibration=calibrateSunday(eligibleTeams());
+ if(state.calibration){
+  const {min,median,max,count,sourceAsOf}=state.calibration;
+  set("calibration-status",count+" competitive Sunday clubs · raw HockeyOS anchors "+min.toFixed(2)+" / "+median.toFixed(2)+" / "+max.toFixed(2)+
+   " map to relative 50 / 75 / 100. Source: "+shortDate(sourceAsOf.slice(0,10))+". Display-only calibration, not Award Races ratings or win odds.");
+ }
  selectDivisions();drawStandings();selectOpponentOptions();drawRankings();selectRankOptions();drawMovement();
 }
 async function updateData(){
  const jobs=[
   fetchJSON("standings.json").then(verifyStandings).then(t=>{state.standings=t;drawStandings()}).catch(()=>{set("standings-status","Cristillo official standings temporarily unavailable. Check the league website.")}),
   fetchJSON("league-intelligence.json").then(verifyLeague).then(t=>{state.league=t;refreshLeagueInfo()}).catch(()=>{set("rankings-status","Sunday power rankings withheld: verified league evidence unavailable.")}),
-  fetchJSON("countdown.json").then(verifyUpcoming).then(t=>{state.upcoming=t;selectOpponentOptions();drawLineup(state.lineup,state.playerProfiles)}).catch(()=>{set("lineup-notice","No verified current fixture. Lineup remains blank.")}),
+  fetchJSON("countdown.json").then(verifyUpcoming).then(t=>{state.upcoming=t;selectOpponentOptions();drawLineup()}).catch(()=>{set("lineup-notice","No verified current fixture. Lineup remains blank.")}),
   fetchJSON("svhl-upcoming.json").then(verifySchedule).then(t=>{state.schedule=t;drawGoalies()}).catch(()=>{set("goalie-status","SVHL schedule unavailable. Check the official league page.")}),
   fetchJSON("goalie-assignments.json").then(verifyAssignments).then(t=>{state.assign=t;drawGoalies()}).catch(()=>{set("goalie-status","Published goaltender confirmation unavailable.")}),
   fetchJSON("opponent-intelligence.json").then(verifyHistory).then(t=>{state.history=t;renderOpponent()}).catch(()=>{renderOpponent()}),
-  fetchJSON("game-night-lineup-public-v27-preview.json").then(t=>{state.lineup=t;drawLineup(t,state.playerProfiles)}).catch(()=>{blankLineup();set("lineup-notice","Public lineup not approved. No private WhatsApp votes are published.")}),
-  fetchJSON("player-career-insights.json").then(t=>{state.playerProfiles=t;drawLineup(state.lineup,t)}).catch(()=>{blankLineup()})
+  fetchJSON("game-night-lineup-public-v27-preview.json").then(t=>{state.lineup=t;drawLineup()}).catch(()=>{drawLineup()}),
+  fetchJSON("player-career-insights.json").then(t=>{state.playerProfiles=t;drawLineup()}).catch(()=>{drawLineup()}),
+  fetchJSON("game-centre-lineup-public.json").then(verifyPdfManifest).then(t=>{state.lineupPdf=t;drawLineup()}).catch(()=>{set("lineup-notice","Public lineup manifest not verified; printable PDF withheld.")})
  ];
  await Promise.allSettled(jobs);
 }
@@ -339,9 +520,9 @@ function publishHeight(){
 }
 if(typeof ResizeObserver==="function")new ResizeObserver(publishHeight).observe(root);
 window.addEventListener("load",publishHeight);
-blankLineup();
+drawLineup();
 updateData();
 setInterval(updateData,5*60*1000);
 document.addEventListener("visibilitychange",()=>{if(!document.hidden)updateData()});
-window.BraveGameCentreTest=Object.freeze({validRecord,gameStreak,verifyLeague,time12,rankRows,ADULT,pointsPct});
+window.BraveGameCentreTest=Object.freeze({validRecord,gameStreak,verifyLeague,time12,rankRows,ADULT,pointsPct,calibrateSunday,calibratedValue,hockeyPercent,rate,allowedPdfPath,verifyPdfManifest,sortedRates,sortRankings});
 })();

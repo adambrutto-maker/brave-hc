@@ -1,0 +1,21 @@
+{
+  "schema": "brave-hc-game-centre-public-lineup-pdf/v1",
+  "status": "BLANK_PENDING_APPROVAL",
+  "scope": "PUBLIC_BLANK_CARD_ONLY",
+  "source": "Original Brave H.C. workbook, Lines!G5:J16, isolated copy",
+  "sourceWorkbookSHA256": "0002fd9f06596af8d0a00fc1b53a618ef15479f941ad5c1e6265b27002a65154",
+  "blank": {
+    "url": "./assets/lineups/brave-hc-blank-original-card.pdf",
+    "sha256": "2ff3edfdc83cd7664fbe9be9779370e05529996db56ccb911e9f39efea0ec597",
+    "pageCount": 1,
+    "sourceRange": "Lines!G5:J16",
+    "containsPlayerNames": false,
+    "publicBlankTemplateApproved": true,
+    "previewImage": "./assets/lineups/brave-hc-blank-original-card.png",
+    "previewSHA256": "c439464bf8e448aa455df695bb08db126004b6193709629260fa2d942f8c8400"
+  },
+  "approved": null,
+  "weeklyAutoPublishEnabled": false,
+  "privateWhatsAppPollDataPublished": false,
+  "notice": "A current-game PDF requires verified attendance, goalie, legal lineup and manager approval; no WhatsApp yes alone authorizes publication."
+}
