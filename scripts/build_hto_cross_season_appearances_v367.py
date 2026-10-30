@@ -33,7 +33,10 @@ SUPPORTED_MINUTES={32,48}
 def check(ok,reason):
  if not ok:raise ValueError(reason)
 def load(p):return json.loads(p.read_text(encoding="utf-8"))
-def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
+def sha(p):
+ # GitHub checkout uses LF; Windows worktrees can use CRLF for the same
+ # read-only HTO evidence. Canonical hashes must be platform invariant.
+ return hashlib.sha256(p.read_bytes().replace(b"\r\n",b"\n").replace(b"\r",b"\n")).hexdigest()
 def url_id(url,kind="boxscore"):
  u=urlparse(url or "");q=parse_qs(u.query)
  check(u.scheme=="https" and u.hostname in ("www.htosports.com","htosports.com") and
