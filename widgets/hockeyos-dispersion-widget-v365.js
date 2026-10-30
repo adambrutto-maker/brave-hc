@@ -32,7 +32,9 @@
   target.dataset.status=doc.status;
   const homeSummary=document.getElementById('homeTeamDispersionSummary');
   if(target.id==='homeTeamDispersion'&&homeSummary)
-    homeSummary.textContent='Team Dispersion '+label(doc.effective.dispersion)+' · '+
+    homeSummary.textContent='Team Dispersion '+label(doc.effective.dispersion)+
+      ' · Neutral +/-'+label(doc.effective.thresholds.neutral)+
+      ' · HOT/COLD +/-'+label(doc.effective.thresholds.cold)+' · '+
       (doc.status==='HISTORICAL_REFERENCE_ONLY'?'Historical reference (current held)':'Live-qualified adaptive scale');
   target.dataset.dispersion=String(effective.dispersion);
   const top=mk('div','team-dispersion-top');
@@ -42,7 +44,12 @@
   state.dataset.live=String(currentValid);top.append(state);target.append(top);
   const grid=mk('div','team-dispersion-grid');
   const cards=[
-   ['Historical typical deviation',label(historical.dispersion),'30 qualified historical players, player-balanced'],
+   ['Historical typical deviation',label(historical.dispersion),
+     historical.effectiveSample.independentPlayers+' qualified historical players, player-balanced'],
+   ['Neutral display buffer','±'+label(effective.thresholds.neutral),
+     'Within 5 degrees of horizontal; no wider than +/-3.5%'],
+   ['HOT/COLD cutoff','±'+label(effective.thresholds.cold),
+     'Half qualified team dispersion; capped at +/-20%'],
    ['Current typical deviation',currentValid?label(current.dispersion):'—',
     currentValid?'Qualified verified current forecasts':'Held: forecast provisional or unreconciled'],
    ['Current player spread',currentValid?label(current.playerToPlayerMAD):'—',
@@ -72,6 +79,16 @@
     'Last source snapshot '+(doc.generatedAt||'unavailable')+'. '+
     'Historical completed seasons are not certified in-season forecast backtests. '+
     (currentValid?'Current forecast accepted.':'Current model update held: '+(current?.reason||'source unavailable')+'.'));
+  const evidence=doc.playerEvidence;
+  if(evidence?.status==='VERIFIED_CURRENT_HTO_GP_ONLY')
+   status.textContent+=' Evidence counts: '+
+     evidence.sampleSizeTiers.MORE_OBSERVED_GAMES+' with 5+ verified GP, '+
+     evidence.sampleSizeTiers.DEVELOPING_SAMPLE+' with 3-4 GP, '+
+     evidence.sampleSizeTiers.LIMITED_SAMPLE+' with 1-2 GP, '+
+     evidence.sampleSizeTiers.NO_VERIFIED_CURRENT_APPEARANCES+' with no independent GP in the feed. '+
+     evidence.sharedZeroScoringOutputs+
+     ' rows share a zero-scoring workbook output; this is not independent trend confirmation.';
+  else status.textContent+=' Individual GP evidence held ('+(evidence?.reason||'source unavailable')+').';
   target.append(status);
  }
  try{

@@ -68,6 +68,10 @@ on:
       - 'widgets/hockeyos-team-dispersion-v365.json'
       - 'widgets/hockeyos-dispersion-widget-v365.js'
       - 'widgets/hockeyos-dispersion-v365.css'
+      - 'widgets/hockeyos-band-evidence-v368.css'
+      - 'tests/test_eng61_v368_band_confidence.cjs'
+      - 'scripts/backtest_hockeyos_band_confidence_v368.cjs'
+      - 'docs/261030_ENG61_Narrow_Neutral_Confidence_Calibration_v368.json'
       - 'scripts/hockeyos-dispersion-v365.cjs'
       - 'scripts/backtest_hockeyos_dispersion_v365.cjs'
       - 'docs/261029_ENG61_Historical_Dispersion_Backtest_v1.json'
@@ -134,6 +138,7 @@ jobs:
           node --check widgets/player-bio-form-v364.js
           node --check scripts/hockeyos-dispersion-v365.cjs
           node --check scripts/backtest_hockeyos_dispersion_v365.cjs
+          node --check scripts/backtest_hockeyos_band_confidence_v368.cjs
           node --check widgets/player-bio-trend-visual-v36.js
           node --check widgets/player-bio-form-model-v364.js
           node --check widgets/player-bio-form-v364.js
@@ -194,6 +199,10 @@ jobs:
         run: |
           node scripts/hockeyos-dispersion-v365.cjs --check
           node --test tests/test_hockeyos_dispersion_v365.cjs
+          # Historical report is a reviewed release snapshot. Recalculate for source
+          # validity without rejecting future qualified current-game refreshes.
+          node scripts/backtest_hockeyos_band_confidence_v368.cjs
+          node --test tests/test_eng61_v368_band_confidence.cjs
       - name: Install isolated Playwright test dependency
         run: npm install --no-package-lock --no-save playwright
       - name: Install browser for source-independent CI acceptance

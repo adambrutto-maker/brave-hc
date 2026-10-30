@@ -66,7 +66,7 @@ test('V3.6.3 ±5% career tolerance is strictly presentation-only, inclusive, sym
  assert.equal(art.NEAR_CAREER_TOLERANCE,.05);
  const html=fs.readFileSync(path.join(__dirname,'../widgets/player-bio.html'),'utf8');
  assert.ok(html.includes('player-bio-trend-visual-v36.js?v=3.6.4'));
- assert.ok(html.includes('player-bio-premium.js?v=3.6.5'));
+ assert.ok(html.includes('player-bio-premium.js?v=3.6.8'));
  for(const change of [-.051,-.05001,.05001,.051])
   assert.equal(art.nearCareerAverage(change,'Neutral'),false,'outside ±5%: '+change);
  for(const change of [-.05,-.049,-.025228,0,.015,.049,.05])

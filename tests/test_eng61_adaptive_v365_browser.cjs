@@ -17,10 +17,11 @@ const crossSeason=require('../widgets/player-form-cross-season-v367.json');
 const official=require('../widgets/player-actuals-hourly.json');
 const recent=require('../widgets/player-bio-form-model-v364.js');
 const cases=[
- {id:'354060',name:'Carosi, Justin',display:'NEUTRAL',source:'Neutral'},
- {id:'738846',name:'Saindon, Stephane',display:'NEUTRAL',source:'Neutral'},
- {id:'354045',name:'Provenzano, Mario',display:'COOL',source:'Cool'},
- {id:'354058',name:'Pagnotta, Alex',display:'WARM',source:'Hot'}
+ {id:'354060',name:'Carosi, Justin',display:'NEUTRAL',source:'Neutral',gp:5,shared:false},
+ {id:'738846',name:'Saindon, Stephane',display:'COOL',source:'Neutral',gp:4,shared:false},
+ {id:'354045',name:'Provenzano, Mario',display:'COLD',source:'Cool',gp:5,shared:true},
+ {id:'354058',name:'Pagnotta, Alex',display:'HOT',source:'Hot',gp:5,shared:false},
+ {id:'586425',name:'Duffy, Lorcan',display:'COLD',source:'Cool',gp:1,shared:true}
 ];
 (async()=>{
  await new Promise(ok=>server.listen(0,'127.0.0.1',ok));
@@ -49,6 +50,11 @@ const cases=[
        rotAngle:Number(e.querySelector('.v36-arrow-rotor').dataset.arrowAngle),
        tipDeltaX:tip.x-ctr.x,tipDeltaY:tip.y-ctr.y,
        panel:document.querySelector('#bioProjectionSummarySlot').dataset.panelTone,
+       evidenceTier:e.dataset.evidenceTier,
+       evidenceGP:e.dataset.verifiedGp,
+       evidenceShared:e.dataset.sharedModelOutput,
+       bandIntensity:Number(e.dataset.bandIntensity),
+       evidenceText:h.querySelector('.bio-trend-evidence')?.textContent,
        order:[...document.querySelector('#bioProjectionSection').children].map(n=>n.id||n.className),
        overflow:document.documentElement.scrollWidth>innerWidth+1};
      });
@@ -59,6 +65,13 @@ const cases=[
      assert.ok(Math.abs(b.angle-b.rotAngle)<1e-8);
      assert.equal(b.modelMode,'HISTORICAL_REFERENCE_ONLY');
      assert.equal(b.panel,x.display.toLowerCase());
+     assert.equal(b.evidenceGP,String(x.gp));
+     assert.equal(b.evidenceShared,String(x.shared));
+     if(['COLD','HOT'].includes(x.display))assert.ok(b.bandIntensity>=.78,'extreme artwork must have pronounced colour');
+     if(x.display==='NEUTRAL')assert.equal(b.bandIntensity,0);
+     if(['COOL','WARM'].includes(x.display))assert.ok(b.bandIntensity>=.1&&b.bandIntensity<=.7);
+     assert.ok(b.evidenceText?.includes(String(x.gp)+' verified GP'));
+     assert.ok(b.evidenceText?.includes(x.shared?'shared zero-scoring model output':'Evidence:'));
      assert.deepEqual(b.order.slice(0,3),['bio-projection-hero','bioCareerModelStrip','bioProjectionSummarySlot']);
      if(b.pct<0)assert.ok(b.tipDeltaY>1,'negative arrowhead must be below center');
      if(b.pct>0)assert.ok(b.tipDeltaY< -1,'positive arrowhead must be above center');
@@ -128,8 +141,8 @@ const cases=[
       tableOverflow:table.scrollWidth>table.clientWidth+1};
     });
     assert.equal(h.total,22);assert.deepEqual(h.legend,['COLD','COOL','NEUTRAL','WARM','HOT']);
-    assert.equal(h.stephane.word,'NEUTRAL');assert.equal(h.stephane.source,'Neutral');
-    assert.equal(h.alex.word,'WARM');assert.equal(h.alex.source,'Hot');
+    assert.equal(h.stephane.word,'COOL');assert.equal(h.stephane.source,'Neutral');
+    assert.equal(h.alex.word,'HOT');assert.equal(h.alex.source,'Hot');
     assert.equal(h.dsStatus,'HISTORICAL_REFERENCE_ONLY');
     assert.equal(h.overflow,false);assert.equal(h.tableOverflow,false);
     assert.deepEqual(errors,[]);

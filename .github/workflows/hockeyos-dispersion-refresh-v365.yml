@@ -10,6 +10,7 @@ on:
       - 'widgets/league-game-formats.json'
       - 'scripts/hockeyos-dispersion-v365.cjs'
       - 'widgets/hockeyos-adaptive-trend-v365.js'
+      - 'scripts/backtest_hockeyos_band_confidence_v368.cjs'
   schedule:
     - cron: '23 12 * * *'
   workflow_dispatch:

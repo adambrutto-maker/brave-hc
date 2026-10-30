@@ -140,8 +140,9 @@ const server=http.createServer((req,res)=>{
     .getAttribute('data-arrow-angle'));
   assert.ok(dynamicAngle>arrowAngle,'a more negative percentage tilts further toward 180 degrees down');
   assert.ok(Math.abs(dynamicAngle-arrowAngle)>2,'angle is not a fixed category rotation');
-  assert.equal(await dynamic.locator('#bioProjectionTrend').getAttribute('data-near-career-average'),'true',
-    'a -5.0% change is within the dynamic Neutral band');
+  assert.equal(await dynamic.locator('#bioProjectionTrend').getAttribute('data-near-career-average'),'false',
+    'a -5.0% change is outside the narrow +/-5 degree Neutral dead zone');
+  assert.equal(await dynamic.locator('#bioProjectionTrend').getAttribute('data-visual-level'),'COOL');
   await dynamic.close();
   const rookieData=structuredClone(projection);
   rookieData.players.find(p=>p.name==='Carosi, Justin').trendInputs.firstSeasonOrNoCareer=true;

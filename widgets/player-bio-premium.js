@@ -564,6 +564,21 @@ function paintProjectionTrend(row,projection){
     build('span',message+' · '+
       (reading.provisional?'historical-reference calibration; forecast provisional':
       'reconciled team-dispersion calibration'),'bio-trend-minor'));
+  const ev=reading.evidence;
+  const evidenceWords={
+   MORE_OBSERVED_GAMES:'more observed games',
+   DEVELOPING_SAMPLE:'developing sample',
+   LIMITED_SAMPLE:'limited sample',
+   NO_VERIFIED_CURRENT_APPEARANCES:'GP evidence unavailable'
+  };
+  const evidenceText=ev?.status==='VERIFIED'?
+    String(ev.verifiedGP)+' verified GP ('+(evidenceWords[ev.tier]||'sample held')+')'+
+      (ev.sharedZeroScoringOutput?' | shared zero-scoring model output ('+ev.groupSize+' players)':''):
+    'GP evidence unavailable; forecast remains provisional';
+  const evidenceLine=build('span','Evidence: '+evidenceText,'bio-trend-evidence');
+  evidenceLine.dataset.tier=ev?.tier||'UNVERIFIED';
+  evidenceLine.dataset.sharedModelOutput=String(ev?.sharedZeroScoringOutput===true);
+  copy.append(evidenceLine);
   host.append(copy);
   detail.textContent='Original workbook category: '+original.name+
     '. Five-level adaptive display: '+reading.level+
@@ -576,6 +591,8 @@ function paintProjectionTrend(row,projection){
     '%, Neutral ±'+band+'%, Hot ≥ +'+(th.hot*100).toFixed(1)+
     '%. Source mode: '+reading.mode+
     '. Arrow physically measures '+reading.angle.toFixed(2)+'° (0 up, 90 right, 180 down). '+
+    'Evidence disclosure: '+evidenceText+
+    '. GP sample size is not a probability of accurate prediction. '+
     'Display calibration does not modify the source workbook category, its percentage or the separate full-season headline P/GP.';
 }
 
