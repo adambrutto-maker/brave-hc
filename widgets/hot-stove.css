@@ -128,3 +128,75 @@ body.embedded{background:transparent}
 .expand-article:hover,.expand-article:focus-visible{background:#204b6b}
 .next-tab-hint{font-size:11px;color:#d7e9f9;line-height:1.5;border-top:1px solid #53697d;padding-top:9px;margin:12px 0 0}
 @media(max-width:480px){.expand-article,.next-tab-hint{font-size:10px}}
+
+
+/* HockeyOS editorial reading scale v1 — October 30, 2026.
+ * Type-only improvement: retain Black Ice layout, authentic club colours,
+ * approved article, scoreboard, controls, HTO native shell and source links.
+ * Body copy is deliberately comfortable to read in its own full-article view.
+ * The HTO homepage iframe stays a fixed-height preview with the existing
+ * prominent Open full article link until the separate Media merge is approved.
+ */
+body{font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:1.55}
+.brand .heading{min-width:0}
+.brand h1{font-size:21px;line-height:1.18}
+.brand p{font-size:12.5px;line-height:1.45}
+.eyebrow{font-size:11.5px;letter-spacing:.11em;line-height:1.35}
+.tab{font-family:Arial,Helvetica,sans-serif;font-size:13.5px;line-height:1.25;min-height:42px;padding:9px 10px}
+.expand-article{font-size:13.5px;line-height:1.35;padding:10px 12px;min-height:42px}
+.tag{font-size:11.5px;line-height:1.4;letter-spacing:.055em}
+h2{font-size:24px;line-height:1.23;margin:13px 0 9px;overflow-wrap:break-word}
+.lead{font-size:16px;line-height:1.55;font-weight:600;margin:8px 0 12px}
+.meta{font-size:12.5px;line-height:1.5;margin:8px 0 12px}
+.score{gap:8px;padding:12px 7px}
+.score .team-name{font-size:12.5px;line-height:1.3}
+.score .numbers{font-size:31px}
+.article-body p{font-size:16px;line-height:1.62;margin:15px 0;color:#e4ecf5}
+.section-header{font-size:17px;line-height:1.35;margin:19px 0 10px}
+.preview h3{font-size:17px;line-height:1.3}
+.preview p{font-size:15px;line-height:1.55;margin:0 0 10px}
+.links{font-size:13px;line-height:1.45}
+.links a{font-size:13px;line-height:1.5}
+.archive button{font-size:14px;line-height:1.4;min-height:45px;padding:11px 12px}
+.archive button .date{font-size:12px;line-height:1.35}
+.note,.historical-note,.next-tab-hint{font-size:12.5px;line-height:1.5}
+.h2h-number{font-size:18px}
+.h2h-label{font-size:10.5px;line-height:1.3;letter-spacing:.015em}
+.milestone-item p{font-size:14px;line-height:1.55}
+.milestone-item a{font-size:12.5px}
+.milestone-radar p{font-size:13.5px;line-height:1.5}
+.scouting-narrative,.roster-narrative{font-size:14px;line-height:1.58}
+.scout-name{font-size:14px;line-height:1.35}
+.scout-stat,.scout-form{font-size:12.5px;line-height:1.5}
+.scouting-caveat,.roster-caveat{font-size:12px;line-height:1.5}
+.roster-depth-card .roster-type{font-size:11px}
+.roster-depth-card p,.goalie-note{font-size:13.5px;line-height:1.55}
+.goalie-heading{font-size:15px}
+@media(max-width:480px){
+ .brand h1{font-size:19px;line-height:1.2}
+ .brand p{font-size:12px}
+ .eyebrow{font-size:11px}
+ .tab{font-size:13px;padding:9px 5px;min-height:44px}
+ .expand-article{font-size:13px}
+ .tag{font-size:11px}
+ h2{font-size:21px;line-height:1.27}
+ .lead{font-size:15.5px;line-height:1.55}
+ .meta{font-size:12px}
+ .article-body p{font-size:16px;line-height:1.6;margin:14px 0}
+ .score .numbers{font-size:27px}
+ .score .team-name{font-size:11px}
+ .preview h3,.section-header{font-size:16px}
+ .preview p{font-size:14.5px}
+ .h2h-number{font-size:16px}
+ .h2h-label{font-size:10px;letter-spacing:0}
+ .milestone-item p{font-size:14px}
+ .milestone-item a,.milestone-radar p{font-size:12.5px}
+ .scouting-narrative,.roster-narrative{font-size:14px}
+ .scout-name{font-size:14px}
+ .scout-stat,.scout-form{font-size:12.5px}
+ .scouting-caveat,.roster-caveat{font-size:12px}
+ .roster-depth-card p,.goalie-note{font-size:13px}
+ .historical-note,.next-tab-hint,.note{font-size:12px}
+ .archive button{font-size:14px}
+ .archive button .date{font-size:12px}
+}
