@@ -1,0 +1,159 @@
+/* ENG CHAT 62 · HockeyOS Bio V3.6.9
+   Presentation only: one Projected Season card with its career benchmark,
+   aligned career/forecast metrics and comparison artwork. Source and model
+   identifiers remain untouched. */
+.bio-studio #bioProjectionSection .bio-projection-hero #bioCareerModelStrip.bio-career-model-strip{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,calc((100% - 20px) / 5));
+  align-items:center;
+  column-gap:5px;
+  margin:10px 0 0!important;
+  padding:10px 0 0!important;
+  background:none!important;
+  border:0!important;
+  border-top:1px solid #50687b!important;
+  border-radius:0!important;
+  box-shadow:none!important;
+  min-width:0;
+}
+.bio-studio #bioProjectionSection #bioCareerModelStrip>div:first-child.bio-career-benchmark-copy{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  gap:4px;
+  min-width:0;
+  margin:0!important;
+  padding:0 4px 0 0!important;
+}
+.bio-studio #bioProjectionSection #bioCareerModelStrip>div:first-child>strong{
+  color:#f5d19b;
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:.55px;
+}
+.bio-studio #bioProjectionSection #bioCareerModelStrip>div:first-child>span{
+  color:#c8deed;
+  font-size:10px;
+  line-height:1.4;
+  overflow-wrap:anywhere;
+}
+.bio-studio #bioProjectionSection #bioCareerModelStrip>div:last-child.bio-career-benchmark-stat{
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:center!important;
+  justify-content:center!important;
+  flex:initial!important;
+  width:100%!important;
+  min-width:0!important;
+  min-height:65px!important;
+  padding:9px 2px!important;
+  gap:4px!important;
+  border:1px solid #45647d!important;
+  border-radius:7px!important;
+  background:#122b43!important;
+  box-sizing:border-box;
+  text-align:center!important;
+}
+.bio-studio #bioCareerModelStrip .bio-career-benchmark-stat .bio-metric-copy{
+  display:contents!important;
+}
+.bio-studio #bioCareerModelStrip .bio-career-benchmark-stat #bioCareerModelRate.value{
+  display:block;
+  color:#fff2d2!important;
+  font-size:clamp(17px,5vw,22px)!important;
+  font-weight:900!important;
+  line-height:1.14!important;
+  font-variant-numeric:tabular-nums!important;
+}
+.bio-studio #bioCareerModelStrip .bio-career-benchmark-stat .label{
+  color:#b9cde0!important;
+  font-size:9px!important;
+  font-weight:800!important;
+  line-height:1.15!important;
+  white-space:normal!important;
+  overflow-wrap:normal!important;
+  text-align:center!important;
+}
+/* Align the icon's horizontal center with the fifth projected metric and
+   the fifth-column career-average box; the icon may be narrower. */
+.bio-studio #bioProjectionSummarySlot #bioProjectionTrend.bio-trend-summary{
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr) minmax(0,calc((100% - 20px) / 5));
+  align-items:center!important;
+  column-gap:5px!important;
+  width:100%!important;
+  min-width:0;
+}
+.bio-studio #bioProjectionSummarySlot #bioProjectionTrend .bio-trend-copy{
+  grid-column:1;
+  grid-row:1;
+  width:100%;
+  min-width:0;
+  flex:none;
+}
+.bio-studio #bioProjectionSummarySlot #bioProjectionTrend .bio-trend-arrow-inset.v36-badge{
+  grid-column:2;
+  grid-row:1;
+  place-self:center;
+  flex:none!important;
+  width:min(70px,100%)!important;
+  height:auto!important;
+  aspect-ratio:70 / 64;
+  min-width:0!important;
+  min-height:0!important;
+  margin:0!important;
+}
+.bio-studio #bioProjectionSummarySlot.bio-career-arrow-panel{
+  padding:11px;
+}
+/* Clear, compact language first; technical provenance remains nested
+   under a secondary disclosure and is never deleted from source state. */
+.bio-premium-ready #sourceSection #bioAboutNumbers>.bio-numbers-plain{
+  display:grid;
+  gap:8px;
+  padding:4px 0 9px;
+}
+.bio-premium-ready #sourceSection #bioAboutNumbers>.bio-numbers-plain>p{
+  margin:0;
+  font-size:12px;
+  line-height:1.55;
+  color:#d4e3ef;
+}
+.bio-premium-ready #sourceSection #bioAboutNumbers>.bio-numbers-plain strong{
+  color:#f4d7a5;
+}
+.bio-premium-ready #sourceSection #bioAboutNumbers>.bio-numbers-plain .bio-numbers-caution{
+  margin-top:2px;
+  padding:8px 10px;
+  background:#142e45;
+  border-left:3px solid #d4af78;
+  border-radius:5px;
+}
+.bio-premium-ready #sourceSection #bioAboutNumbers>#bioProjectionFull,
+.bio-premium-ready #sourceSection #bioAboutNumbers>#bioSourceExtra{
+  margin:8px 0 0!important;
+}
+.bio-premium-ready #sourceSection #bioAboutNumbers>#bioProjectionFull>summary,
+.bio-premium-ready #sourceSection #bioAboutNumbers>#bioSourceExtra>summary{
+  color:#dfebf5;
+  font-size:12px;
+  font-weight:700;
+}
+.bio-premium-ready #sourceSection #bioAboutNumbers #bioProjectionFull .bio-projection-body{
+  margin:6px 0;
+}
+@media(max-width:350px){
+  .bio-studio #bioProjectionSection #bioCareerModelStrip>div:last-child.bio-career-benchmark-stat{
+    min-height:62px!important;
+    padding:7px 1px!important;
+  }
+  .bio-studio #bioCareerModelStrip .bio-career-benchmark-stat #bioCareerModelRate.value{
+    font-size:16px!important;
+  }
+  .bio-studio #bioCareerModelStrip .bio-career-benchmark-stat .label{
+    font-size:8px!important;
+  }
+  .bio-studio #bioProjectionSection #bioCareerModelStrip>div:first-child>span{
+    font-size:9px;
+  }
+}

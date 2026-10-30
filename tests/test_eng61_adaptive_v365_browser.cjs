@@ -72,9 +72,11 @@ const cases=[
      if(['COOL','WARM'].includes(x.display))assert.ok(b.bandIntensity>=.1&&b.bandIntensity<=.7);
      assert.ok(b.evidenceText?.includes(String(x.gp)+' verified GP'));
      assert.ok(b.evidenceText?.includes(x.shared?'shared zero-scoring model output':'Evidence:'));
-     assert.deepEqual(b.order.slice(0,3),['bio-projection-hero','bioCareerModelStrip','bioProjectionSummarySlot']);
-     if(b.pct<0)assert.ok(b.tipDeltaY>1,'negative arrowhead must be below center');
-     if(b.pct>0)assert.ok(b.tipDeltaY< -1,'positive arrowhead must be above center');
+     assert.deepEqual(b.order.slice(0,2),['bio-projection-hero','bioProjectionSummarySlot']);
+     assert.equal(await page.locator('.bio-projection-hero > #bioCareerModelStrip').count(),1,
+       'The career reference stays inside the projected-season card');
+     if(b.pct<0)assert.ok(b.tipDeltaY>0.15,'negative arrowhead must be below center, including compact centered icons');
+     if(b.pct>0)assert.ok(b.tipDeltaY< -0.15,'positive arrowhead must be above center, including compact centered icons');
      assert.equal(b.overflow,false);
      assert.deepEqual(errors,[]);
      if(width===390&&x.id==='738846'&&process.env.BRAVE_ENG61_SHOTS)

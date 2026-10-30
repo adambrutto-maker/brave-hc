@@ -38,6 +38,8 @@ on:
       - 'widgets/player-bio-trend-visual-v36.css'
       - 'widgets/player-bio-v361-layout.css'
       - 'widgets/player-bio-v362-panel.css'
+      - 'widgets/player-bio-eng62-layout.css'
+      - 'tests/test_eng62_projection_card_layout_browser.cjs'
       - 'widgets/player-bio-form-model-v364.js'
       - 'widgets/player-bio-form-v364.js'
       - 'widgets/player-bio-form-v364.css'
@@ -207,6 +209,8 @@ jobs:
         run: npm install --no-package-lock --no-save playwright
       - name: Install browser for source-independent CI acceptance
         run: npx playwright install --with-deps chromium
+      - name: Verify ENG62 shared projected-season card, plain-language details and stat/icon alignment
+        run: node tests/test_eng62_projection_card_layout_browser.cjs
       - name: Test approved three-panel V3.1 Outlook, Trends and Coaching UI at 320–1280px
         run: node tests/test_bio_v31_clean_three_tab_browser.cjs
       - name: Test missing/tampered source feeds fail closed in Season Outlook

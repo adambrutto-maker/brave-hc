@@ -98,6 +98,7 @@ const server=http.createServer((req,res)=>{
   assert.equal(await j.locator('#bioMoreSeasonFilters summary').textContent(),'More');
   await j.click('#bioTabs button[data-bio-view="production"]');
   assert.equal(await j.locator('#bioProjectionCards .bio-metric-icon:visible').count(),5);
+  await j.locator('#bioAboutNumbers>summary').click();
   await j.locator('#bioProjectionFull summary').click();
   assert.equal(await j.locator('#bioProjectionCards .bio-metric:visible').count(),5);
   assert.equal(await j.locator('#bioProjectionCards .bio-metric').first().locator('.value').innerText(),
