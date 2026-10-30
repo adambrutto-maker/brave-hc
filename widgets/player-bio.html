@@ -37,19 +37,31 @@ a{color:#e6c083}footer{padding:13px 20px;font-size:.75rem;color:#adc5d9}
 <script defer src="./player-bio-charts.js"></script>
 <link rel="stylesheet" href="./player-bio-premium.css">
 <link rel="stylesheet" href="./player-bio-collection.css?v=3.4">
+<link rel="stylesheet" href="./player-bio-trend-visual-v36.css?v=3.6">
 <link rel="stylesheet" href="./player-bio-season-outlook-v31.css">
 <link rel="stylesheet" href="./player-bio-rink-tactics-v31.css">
 <link rel="stylesheet" href="./player-bio-alltime-share-v33.css">
 <link rel="stylesheet" href="./player-bio-coaching-library-v31.css">
+<link rel="stylesheet" href="./player-bio-v361-layout.css?v=3.6.1">
+<link rel="stylesheet" href="./player-bio-v362-panel.css?v=3.6.2">
+<link rel="stylesheet" href="./player-bio-form-v364.css?v=3.6.4">
+<link rel="stylesheet" href="./hockeyos-dispersion-v365.css?v=3.6.8">
+<link rel="stylesheet" href="./hockeyos-band-evidence-v368.css?v=3.6.8">
+<link rel="stylesheet" href="./player-bio-eng62-layout.css?v=3.6.9">
 <script defer src="./player-performance-normalization.js"></script>
 <script defer src="./player-bio-advanced.js?v=3.2"></script>
 <script defer src="./player-bio-coaching-roles.js"></script>
 <!-- Game Night assignment adapter intentionally absent from Bio-only release candidate. -->
 <script defer src="./player-bio-projection-trend.js"></script>
+<script defer src="./player-bio-trend-visual-v36.js?v=3.6.4"></script>
+<script defer src="./hockeyos-adaptive-trend-v365.js?v=3.6.8"></script>
 <script defer src="./player-bio-rolling-career.js"></script>
 <script defer src="./goalie-projection-model.js"></script>
 <script defer src="./player-bio.js"></script>
-<script defer src="./player-bio-premium.js?v=3.4"></script>
+<script defer src="./player-bio-premium.js?v=3.6.9"></script>
+<script defer src="./player-bio-form-model-v364.js?v=3.6.7"></script>
+<script defer src="./player-bio-form-v364.js?v=3.6.7"></script>
+<script defer src="./hockeyos-dispersion-widget-v365.js?v=3.6.8"></script>
 <script defer src="./player-bio-current-v31.js"></script>
 <script defer src="./player-bio-coaching-library-v31.js"></script>
 <script defer src="./player-bio-rink-tactics-v31.js"></script>
@@ -134,31 +146,35 @@ a{color:#e6c083}footer{padding:13px 20px;font-size:.75rem;color:#adc5d9}
 </section>
 
 <section id="bioProjectionSection" aria-label="Projected end-of-season performance" hidden>
- <div id="bioCareerModelStrip" class="bio-career-model-strip" hidden>
-  <div><strong>CAREER AVERAGE</strong><span id="bioCareerModelBasis">Summer + Winter history · Winter-equivalent</span></div>
-  <div><strong id="bioCareerModelRate">—</strong><span>PTS / GP</span></div>
- </div>
  <div class="bio-projection-hero">
   <div class="bio-projection-headline-row"><div><span class="bio-forecast-kicker">FULL-SEASON ESTIMATE</span><h2 class="bio-title">Projected Current Season</h2>
    <p class="bio-forecast-desc">Full-season forecast, not the current scoring rate shown on the chart.</p></div><span id="bioForecastBadge" class="bio-forecast-badge">Provisional</span></div>
 <p id="bioProjectionHold" class="bio-projection-hold" hidden role="status">No verified projection available.</p>
   <div class="bio-metrics bio-forecast-grid" id="bioProjectionCards" aria-label="Published full-season forecast metrics"></div>
-  <details id="bioProjectionFull" class="bio-evidence bio-projection-full">
-   <summary>Forecast assumptions and source status</summary>
-   <div class="bio-projection-body">
-    <p class="bio-status" id="bioProjectionState"></p>
-    <p id="bioProjectionActual"></p>
-    <p class="bio-soft-note" id="bioModelContext"></p>
-    <p class="bio-soft-note" id="bioProjectionOpponent"></p>
-    <p id="bioProjectionTrendDetail" class="bio-soft-note"></p>
+  <div id="bioCareerModelStrip" class="bio-career-model-strip bio-career-inside-projection" hidden>
+   <div class="bio-career-benchmark-copy"><strong>CAREER AVERAGE</strong>
+    <span id="bioCareerModelBasis">Summer + Winter history · Winter-equivalent</span></div>
+   <div class="bio-metric bio-career-benchmark-stat" aria-label="Career average points per game">
+    <div class="bio-metric-copy"><strong id="bioCareerModelRate" class="value">—</strong>
+     <span class="label">PTS / GP</span></div>
    </div>
-  </details>
+  </div>
  </div>
   <div id="bioProjectionSummarySlot" class="bio-forecast-inline bio-career-arrow-panel" hidden>
    <span class="bio-forecast-trend-caption">PROJECTED FINISH VS ESTABLISHED CAREER</span>
    <div id="bioProjectionTrend" class="bio-trend-summary" aria-live="polite">Career comparison unavailable.</div>
    <p id="bioProjectionHeadline" class="bio-projection-headline"></p>
   </div>
+</section>
+<section id="bioRecentFormSection" class="bio-form-section" aria-label="Verified player scoring form" hidden>
+  <div class="bio-section-top"><div><div class="bio-eyebrow">Recent performance · source-checked</div>
+    <h2 class="bio-title">Scoring Form · Points per Game</h2>
+    <p class="bio-desc">Career baseline, current season and last 3, 5 and 10 verified appearances. Comparison badges are descriptive, not the workbook forecast.</p></div></div>
+  <div id="bioRecentFormGrid" class="bio-form-grid" aria-live="polite"></div>
+  <p id="bioRecentFormStatus" class="bio-form-status" role="status">Checking individually verified game appearances.</p>
+</section>
+<section id="bioTeamDispersionSection" aria-label="Historical and current team dispersion" hidden>
+ <div id="bioTeamDispersion" class="team-dispersion-panel" aria-live="polite"></div>
 </section>
 <section id="bioAdvancedSection" aria-label="Advanced player performance indicators" hidden>
  <div class="bio-section-top"><div><div class="bio-eyebrow">Advanced indicators</div>
@@ -300,8 +316,35 @@ a{color:#e6c083}footer{padding:13px 20px;font-size:.75rem;color:#adc5d9}
 <h3>Braves team system · 1-2-2</h3><p>Protect the middle. Force the puck carrier outside. Maintain coverage before attacking together after the turnover.</p>
 <ul class="system-cues"><li><strong>F1:</strong> Guide the puck carrier toward the boards.</li><li><strong>F2 and F3:</strong> Protect your lanes and close the middle.</li><li><strong>Defence:</strong> Keep the middle covered and support behind the forwards.</li></ul>
 <p class="date">General team framework. Game-night roles are set by the coach.</p><p id="bioCoachingContext" class="bio-status">Game-specific roles require coach verification.</p><p id="coachingState" class="muted">Individual coaching assignments and reviewed clips are private until access, evidence and approval are confirmed.</p></div></details></section>
-<section id="sourceSection"><details class="bio-fold"><summary>About these numbers</summary>
-<p id="sourceDetail"></p><p>Career totals include all published HTO game types. The season snapshot and career archive may have different dates; they are never added together.</p><p>A missing value means unavailable, not zero. Games played do not measure ice time. Game-by-game charts will appear when a verified series is available.</p></details></section>
+<section id="sourceSection"><details class="bio-fold" id="bioAboutNumbers"><summary>About these numbers</summary>
+ <div id="bioNumbersSkaterExplanation" class="bio-numbers-plain">
+  <p><strong>Current Season:</strong> What the player has actually done so far, as recorded by HTO.</p>
+  <p><strong>Projected Current Season:</strong> An estimate of the player's full-season totals. It can change as more games are played.</p>
+  <p><strong>Career Average:</strong> The player's usual points per game from earlier seasons, with Summer and Winter adjusted to the same game length.</p>
+  <p><strong>Trend arrow:</strong> Shows whether the model's expected scoring pace is above or below that career average. Colour and direction describe the difference.</p>
+  <p class="bio-numbers-caution">These estimates are a guide, not a guarantee. Actual scores and career history are kept separate, and a missing number does not mean zero.</p>
+ </div>
+ <div id="bioNumbersGoalieExplanation" class="bio-numbers-plain" hidden>
+  <p><strong>Recorded games:</strong> Goalie numbers come from official HTO results and the seasons available in the player's history.</p>
+  <p><strong>Missing numbers:</strong> If a figure is not available, it is not treated as zero or guessed from the roster.</p>
+  <p class="bio-numbers-caution">Historical results can help show a player's progress, but do not promise future performance.</p>
+ </div>
+  <details id="bioProjectionFull" class="bio-evidence bio-projection-full">
+   <summary>Where this forecast comes from</summary>
+   <div class="bio-projection-body">
+    <p class="bio-status" id="bioProjectionState"></p>
+    <p id="bioProjectionActual"></p>
+    <p class="bio-soft-note" id="bioModelContext"></p>
+    <p class="bio-soft-note" id="bioProjectionOpponent"></p>
+    <p id="bioProjectionTrendDetail" class="bio-soft-note"></p>
+   </div>
+  </details>
+ <details class="bio-evidence bio-other-sources" id="bioSourceExtra"><summary>More about the source records</summary>
+  <p id="sourceDetail"></p>
+  <p>HTO career totals include the published game types. The career history and this season's results may have different update dates, so they are not added together.</p>
+  <p>Games played do not show ice time. Missing entries are not counted as zero-point games.</p>
+ </details>
+</details></section>
 </div><footer><span id="sourceSummary">Source: official HTO player identity and archived statistical observations.</span>
  <a id="officialLink" target="_blank" rel="noopener noreferrer" hidden>Official HTO profile</a></footer>
 </article></main></body></html>

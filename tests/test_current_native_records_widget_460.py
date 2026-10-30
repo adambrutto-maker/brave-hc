@@ -3,6 +3,9 @@ Old 558-row history remains a frozen source; two rental goalie rows unassigned."
 from pathlib import Path
 from collections import Counter
 import json,re,unittest
+import sys
+sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'scripts'))
+from record_source_date_identity import canonical_record_text
 ROOT=Path(__file__).resolve().parents[1]
 def load(file):return json.loads((ROOT/file).read_text(encoding="utf-8"))
 OLD=load("widgets/history-records-legacy-558.json")
@@ -10,7 +13,7 @@ NOW=load("widgets/history-records.json")
 BOOK=load("widgets/player-record-book.json")
 def club(s):return re.fullmatch(r"\d+\s+(?:Game|Point|Win|Goal|Assist|Shutout)\s+Club",s or "") is not None
 def season(s):return "Summer" if s.startswith("Summer") else "Winter" if s.startswith("Winter") else "Career/Other"
-def row(g,x):return (g["section"],season(g["category"]),g["period"],x)
+def row(g,x):return (g["section"],season(g["category"]),g["period"],canonical_record_text(x))
 class RecordsSource(unittest.TestCase):
  def test_immutable_original_source(self):
   self.assertEqual(OLD["entryCount"],558)

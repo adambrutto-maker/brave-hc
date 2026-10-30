@@ -13,6 +13,7 @@ on:
     branches: [main]
     paths:
       - 'scripts/refresh_record_sources.py'
+      - 'scripts/record_source_date_identity.py'
       - 'tests/test_record_source_refresh.py'
       - 'scripts/reconcile_hto_milestone_review.py'
       - 'tests/test_hto_milestone_review.py'
@@ -144,6 +145,13 @@ jobs:
         run: python scripts/refresh_record_sources.py
       - name: Recalculate complete-ledger record candidates
         run: python scripts/build_automatic_record_candidates.py
+      - name: Reconcile Highlights source hashes and record-set/tied proof against accepted HTO source
+        run: |
+          node scripts/audit_highlights_complete_109.cjs
+          node scripts/build_highlights_109_audit_report.cjs
+          node scripts/audit_highlights_complete_109.cjs --check
+          node scripts/build_highlights_109_audit_report.cjs --check
+          node scripts/test_record_set_tied_source_parity.cjs
       - name: Verify all player profile displays
         run: node scripts/test-player-highlights-v2.cjs
       - name: Store refresh evidence
@@ -160,7 +168,7 @@ jobs:
         id: commit
         shell: bash
         run: |
-          git add docs/hto-highlights-rollout/261020_Historical_Boxscore_Index.json docs/hto-highlights-rollout/game-audit-evidence/live_boxscores.json docs/hto-highlights-rollout/261020_Automatic_Record_Candidates.json docs/hto-highlights-rollout/261020_Automatic_Record_Candidates.md widgets/history-records.json widgets/player-record-book.json
+          git add docs/hto-highlights-rollout/261020_Historical_Boxscore_Index.json docs/hto-highlights-rollout/game-audit-evidence/live_boxscores.json docs/hto-highlights-rollout/261020_Automatic_Record_Candidates.json docs/hto-highlights-rollout/261020_Automatic_Record_Candidates.md widgets/history-records.json widgets/player-record-book.json docs/261028_Highlights_109_Profile_Parity_Register.json docs/261028_Highlights_109_Profile_Source_Parity_Audit.md
           if ! git diff --cached --quiet; then
             git config user.name 'BruTTech Record Refresh'
             git config user.email '41898282+github-actions[bot]@users.noreply.github.com'

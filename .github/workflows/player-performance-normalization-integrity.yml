@@ -1,4 +1,4 @@
-name: HockeyOS standalone Bio V3.1 source and visual contract
+name: HockeyOS Bio and adaptive team dispersion source contract
 
 on:
   pull_request:
@@ -32,6 +32,53 @@ on:
       - 'tests/test_bio_v33_historical_shares.cjs'
       - 'tests/test_bio_v33_content_browser.cjs'
       - 'tests/test_bio_v34_temperature_browser.cjs'
+      - 'tests/test_bio_v36_angular_animation_browser.cjs'
+      - 'tests/test_bio_v36_source_angle.cjs'
+      - 'widgets/player-bio-trend-visual-v36.js'
+      - 'widgets/player-bio-trend-visual-v36.css'
+      - 'widgets/player-bio-v361-layout.css'
+      - 'widgets/player-bio-v362-panel.css'
+      - 'widgets/player-bio-eng62-layout.css'
+      - 'tests/test_eng62_projection_card_layout_browser.cjs'
+      - 'widgets/player-bio-form-model-v364.js'
+      - 'widgets/player-bio-form-v364.js'
+      - 'widgets/player-bio-form-v364.css'
+      - 'widgets/player-form-appearances-v364.json'
+      - 'widgets/player-form-cross-season-v367.json'
+      - 'scripts/build_hto_cross_season_appearances_v367.py'
+      - 'tests/test_hto_cross_season_appearances_v367.py'
+      - 'tests/test_bio_cross_season_v367.cjs'
+      - 'tests/test_bio_cross_season_v367_browser.cjs'
+      - 'docs/hto-highlights-rollout/261020_Game_Level_Readbacks.json'
+      - 'docs/hto-highlights-rollout/game-audit-evidence/261020_Continued_Boxscores_*.json'
+      - '.github/workflows/hockeyos-cross-season-form-refresh-v367.yml'
+      - 'scripts/build_hto_verified_player_appearances_v366.py'
+      - 'tests/test_hto_verified_player_appearances_v366.py'
+      - 'tests/test_hto_recent_form_v366_browser.cjs'
+      - 'docs/hto-highlights-rollout/game-audit-evidence/live_boxscores.json'
+      - 'docs/hto-highlights-rollout/261020_Historical_Boxscore_Index.json'
+      - 'widgets/player-actuals-hourly.json'
+      - '.github/workflows/hockeyos-verified-appearances-refresh-v366.yml'
+      - 'widgets/home-panels.html'
+      - 'widgets/home-premium.js'
+      - 'widgets/home-trend-v364.css'
+      - 'tests/test_bio_form_v364.cjs'
+      - 'tests/test_bio_home_v364_browser.cjs'
+      - 'tests/test_eng61_adaptive_v365_browser.cjs'
+      - 'tests/test_hockeyos_dispersion_v365.cjs'
+      - 'widgets/hockeyos-adaptive-trend-v365.js'
+      - 'widgets/hockeyos-team-dispersion-v365.json'
+      - 'widgets/hockeyos-dispersion-widget-v365.js'
+      - 'widgets/hockeyos-dispersion-v365.css'
+      - 'widgets/hockeyos-band-evidence-v368.css'
+      - 'tests/test_eng61_v368_band_confidence.cjs'
+      - 'scripts/backtest_hockeyos_band_confidence_v368.cjs'
+      - 'docs/261030_ENG61_Narrow_Neutral_Confidence_Calibration_v368.json'
+      - 'scripts/hockeyos-dispersion-v365.cjs'
+      - 'scripts/backtest_hockeyos_dispersion_v365.cjs'
+      - 'docs/261029_ENG61_Historical_Dispersion_Backtest_v1.json'
+      - 'widgets/projection.json'
+      - 'widgets/player-actuals-hourly.json'
       - 'docs/261029_Bio_V33_Five_Pass_All_Time_Content_Audit.md'
       - 'widgets/player-bio-coaching-roles.js'
       - 'widgets/player-bio-positive-streaks.js'
@@ -74,6 +121,9 @@ jobs:
     timeout-minutes: 18
     steps:
       - uses: actions/checkout@v4
+        with:
+          # Read-only PR merge base for source-change qualification.
+          fetch-depth: 2
       - uses: actions/setup-node@v4
         with:
           node-version: '24'
@@ -88,6 +138,16 @@ jobs:
       - name: Check premium Bio JavaScript and goalie forecast module syntax
         run: |
           node --check widgets/player-bio-premium.js
+          node --check widgets/hockeyos-adaptive-trend-v365.js
+          node --check widgets/hockeyos-dispersion-widget-v365.js
+          node --check widgets/player-bio-form-v364.js
+          node --check scripts/hockeyos-dispersion-v365.cjs
+          node --check scripts/backtest_hockeyos_dispersion_v365.cjs
+          node --check scripts/backtest_hockeyos_band_confidence_v368.cjs
+          node --check widgets/player-bio-trend-visual-v36.js
+          node --check widgets/player-bio-form-model-v364.js
+          node --check widgets/player-bio-form-v364.js
+          node --check widgets/home-premium.js
           node --check widgets/player-bio-current-v31.js
           node --check widgets/player-bio-expanded-analytics-v31.js
           node --check widgets/player-bio-alltime-share-v33.js
@@ -126,10 +186,76 @@ jobs:
         run: node --test tests/test_player_bio_rolling_career.cjs
       - name: Verify position-only coaching and source-held personal streaks
         run: node --test tests/test_player_bio_coaching_roles.cjs tests/test_player_bio_positive_streaks.cjs
+      - name: Use Python 3.12 for official HTO appearance evidence
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify published form; source-changing PRs additionally require fresh native HTO audit
+        shell: bash
+        run: |
+          set -euo pipefail
+          node --test tests/test_bio_form_v364.cjs
+          if [ "$GITHUB_EVENT_NAME" = "pull_request" ]; then
+            git rev-parse HEAD^1 >/dev/null || { echo 'Cannot establish PR base'; exit 2; }
+            if git diff --quiet HEAD^1 HEAD -- \
+              widgets/player-actuals-hourly.json \
+              widgets/player-form-appearances-v364.json \
+              widgets/player-career-insights.json \
+              docs/hto-highlights-rollout/game-audit-evidence/live_boxscores.json \
+              docs/hto-highlights-rollout/261020_Historical_Boxscore_Index.json \
+              scripts/build_hto_verified_player_appearances_v366.py \
+              tests/test_hto_verified_player_appearances_v366.py; then
+              echo 'UI-only change: published HTO appearance feed unchanged.'
+              echo 'Native source recertification remains mandatory for source-changing PRs and scheduled refresh workflows.'
+            else
+              python scripts/build_hto_verified_player_appearances_v366.py --check
+              python -m unittest tests.test_hto_verified_player_appearances_v366 -q
+            fi
+          else
+            python scripts/build_hto_verified_player_appearances_v366.py --check
+            python -m unittest tests.test_hto_verified_player_appearances_v366 -q
+          fi
+      - name: Verify published cross-season form; recertify whenever source files change
+        shell: bash
+        run: |
+          set -euo pipefail
+          node --test tests/test_bio_cross_season_v367.cjs
+          if [ "$GITHUB_EVENT_NAME" = "pull_request" ]; then
+            git rev-parse HEAD^1 >/dev/null || { echo 'Cannot establish PR base'; exit 2; }
+            if git diff --quiet HEAD^1 HEAD -- \
+              widgets/player-form-cross-season-v367.json \
+              widgets/player-form-appearances-v364.json \
+              widgets/player-actuals-hourly.json \
+              widgets/player-career-insights.json \
+              widgets/league-game-formats.json \
+              docs/hto-highlights-rollout/261020_Game_Level_Readbacks.json \
+              docs/hto-highlights-rollout/game-audit-evidence/ \
+              scripts/build_hto_cross_season_appearances_v367.py \
+              tests/test_hto_cross_season_appearances_v367.py; then
+              echo 'UI-only change: published cross-season appearance feed unchanged.'
+              echo 'Native source recertification remains mandatory on source-changing PRs.'
+            else
+              python scripts/build_hto_cross_season_appearances_v367.py --check
+              python -m unittest tests.test_hto_cross_season_appearances_v367 -q
+            fi
+          else
+            python scripts/build_hto_cross_season_appearances_v367.py --check
+            python -m unittest tests.test_hto_cross_season_appearances_v367 -q
+          fi
+      - name: Verify dynamic dispersion source, reproducible historical calibration and holds
+        run: |
+          node scripts/hockeyos-dispersion-v365.cjs --check
+          node --test tests/test_hockeyos_dispersion_v365.cjs
+          # Historical report is a reviewed release snapshot. Recalculate for source
+          # validity without rejecting future qualified current-game refreshes.
+          node scripts/backtest_hockeyos_band_confidence_v368.cjs
+          node --test tests/test_eng61_v368_band_confidence.cjs
       - name: Install isolated Playwright test dependency
         run: npm install --no-package-lock --no-save playwright
       - name: Install browser for source-independent CI acceptance
         run: npx playwright install --with-deps chromium
+      - name: Verify ENG62 shared projected-season card, plain-language details and stat/icon alignment
+        run: node tests/test_eng62_projection_card_layout_browser.cjs
       - name: Test approved three-panel V3.1 Outlook, Trends and Coaching UI at 320–1280px
         run: node tests/test_bio_v31_clean_three_tab_browser.cjs
       - name: Test missing/tampered source feeds fail closed in Season Outlook
@@ -140,8 +266,17 @@ jobs:
         run: node tests/test_bio_v32_percent_and_cohort_browser.cjs
       - name: Verify deduplicated V3.3 all-time shares and source holds on 16 mobile/desktop cases
         run: node tests/test_bio_v33_content_browser.cjs
-      - name: Verify V3.4 matched trend arrow, gradient flame, melting ice and σ-angle at 16 mobile cases
-        run: node tests/test_bio_v34_temperature_browser.cjs
+      # Original workbook sigma remains source-audited, but does not drive V3.6.5 displayed arrows.
+      - name: Validate V3.6 original source sigma, personalized bearings and missing-data holds
+        run: node --test tests/test_bio_v36_source_angle.cjs
+      - name: Verify adaptive five-level team-dispersion badges and physical angles across Bio and Home
+        run: node tests/test_eng61_adaptive_v365_browser.cjs
+      - name: Verify independently reconciled recent P/GP and tampered-source browser holds
+        run: node tests/test_hto_recent_form_v366_browser.cjs
+      - name: Verify season-agnostic last ten across current, prior and earlier verified games
+        run: node tests/test_bio_cross_season_v367_browser.cjs
+      - name: Verify source-qualified Last 3/5 P/GP with season-agnostic Last 10
+        run: node --test tests/test_bio_form_v364.cjs
       - name: Test all 109 verified HTO identities across three tabs at narrow embed width
         run: node tests/test_bio_v31_clean_109_browser.cjs
       - name: Test visual Bio V3.1 (chart labels, whole-GP forecast, role explorer)

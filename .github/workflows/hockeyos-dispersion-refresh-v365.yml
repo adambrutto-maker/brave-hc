@@ -1,0 +1,61 @@
+name: HockeyOS source-qualified team dispersion refresh
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'widgets/projection.json'
+      - 'widgets/player-actuals-hourly.json'
+      - 'widgets/player-career-insights.json'
+      - 'widgets/league-game-formats.json'
+      - 'scripts/hockeyos-dispersion-v365.cjs'
+      - 'widgets/hockeyos-adaptive-trend-v365.js'
+      - 'scripts/backtest_hockeyos_band_confidence_v368.cjs'
+  schedule:
+    - cron: '23 12 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: hockeyos-qualified-dispersion-refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh-audited-dispersion:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - name: Read current approved production branch
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          persist-credentials: true
+      - name: Use Node 24
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Verify source identity and original workbook trend integrity
+        run: |
+          python scripts/check_public_canonical_identities.py
+          node --test tests/test_player_bio_projection_trend.cjs
+          node --check scripts/hockeyos-dispersion-v365.cjs
+          node --check widgets/hockeyos-adaptive-trend-v365.js
+      - name: Rebuild only derived, source-qualified dispersion snapshot
+        run: |
+          node scripts/hockeyos-dispersion-v365.cjs --write
+          node scripts/hockeyos-dispersion-v365.cjs --check
+          node -e "const a=require('./widgets/hockeyos-adaptive-trend-v365.js');const d=require('./widgets/hockeyos-team-dispersion-v365.json');const p=require('./widgets/projection.json');const r=a.validate(d,p);if(r.status!=='VERIFIED'){console.error('DISPERSION_REFRESH_HELD',r.reason);process.exit(2)}console.log('DISPERSION_QUALIFIED',r.mode,r.weight)"
+      - name: Commit only validated derived dispersion
+        run: |
+          git config user.name 'HockeyOS Source-Qualified Dispersion Bot'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add widgets/hockeyos-team-dispersion-v365.json
+          if git diff --cached --quiet; then
+            echo 'No new verified dispersion evidence; preserving prior snapshot.'
+            exit 0
+          fi
+          git commit -m 'chore(hockeyos): refresh audited team dispersion snapshot'
+          git push origin HEAD:main

@@ -1,0 +1,331 @@
+{
+  "schema": "hockeyos-eng61-v368-band-calibration-review/v1",
+  "source": {
+    "projectionExportedAt": "2026-10-30T00:31:25.868996+00:00",
+    "projectionSHA256": "2e7fefaa11549fa44524cfe54073051d6cd30afd03cfd037fa9375f8b8e74663",
+    "historicalPlayers": 30,
+    "qualifiedPlayerSeasons": 183
+  },
+  "status": "HISTORICAL_REFERENCE_ONLY",
+  "forecastCurrent": false,
+  "method": "Neutral within 5 degrees of 90 with 3.5 percent maximum; outer extremes half dispersion with 20 percent maximum, fixed around zero.",
+  "thresholds": {
+    "effectiveD": 0.3143095874713521,
+    "neutral": 0.027498525741253107,
+    "negativeCold": -0.15715479373567606,
+    "positiveHot": 0.15715479373567606,
+    "capNeutral": 0.035,
+    "capExtremes": 0.2,
+    "multiplier": 0.5,
+    "angleHalfWidth": 5
+  },
+  "evaluation": {
+    "historicalPercentileReference": {
+      "neutral": 0.1282051282051282,
+      "cold": 0.28861788617886175,
+      "hot": 0.35582010582010537
+    },
+    "provisionalFixedReference": {
+      "neutral": 0.05,
+      "cold": 0.15,
+      "hot": 0.15
+    },
+    "proposedCurrentBands": {
+      "COLD": 8,
+      "COOL": 3,
+      "NEUTRAL": 2,
+      "WARM": 1,
+      "HOT": 1
+    },
+    "percentileCurrentBands": {
+      "COLD": 0,
+      "COOL": 8,
+      "NEUTRAL": 5,
+      "WARM": 2,
+      "HOT": 0
+    },
+    "fixedCurrentBands": {
+      "COLD": 8,
+      "COOL": 3,
+      "NEUTRAL": 2,
+      "WARM": 0,
+      "HOT": 2
+    },
+    "temporalHistoricalDescriptiveFolds": [
+      {
+        "period": "pre-2020",
+        "trainPlayerCount": 23,
+        "trainingSeasonObservations": 131,
+        "holdoutSeasonObservations": 52,
+        "trainDerivedD": 0.31611917494270425,
+        "neutralWidth": 0.02765684413065496,
+        "outer": 0.15805958747135213,
+        "proposedBands": {
+          "COLD": 19,
+          "COOL": 9,
+          "NEUTRAL": 3,
+          "WARM": 6,
+          "HOT": 15
+        },
+        "olderPercentileBands": {
+          "COLD": 13,
+          "COOL": 6,
+          "NEUTRAL": 18,
+          "WARM": 4,
+          "HOT": 11
+        },
+        "fixedBands": {
+          "COLD": 19,
+          "COOL": 8,
+          "NEUTRAL": 8,
+          "WARM": 2,
+          "HOT": 15
+        }
+      },
+      {
+        "period": "pre-2023",
+        "trainPlayerCount": 23,
+        "trainingSeasonObservations": 140,
+        "holdoutSeasonObservations": 43,
+        "trainDerivedD": 0.32467532467532445,
+        "neutralWidth": 0.028405410235689592,
+        "outer": 0.16233766233766223,
+        "proposedBands": {
+          "COLD": 14,
+          "COOL": 8,
+          "NEUTRAL": 3,
+          "WARM": 5,
+          "HOT": 13
+        },
+        "olderPercentileBands": {
+          "COLD": 9,
+          "COOL": 5,
+          "NEUTRAL": 16,
+          "WARM": 3,
+          "HOT": 10
+        },
+        "fixedBands": {
+          "COLD": 14,
+          "COOL": 7,
+          "NEUTRAL": 7,
+          "WARM": 2,
+          "HOT": 13
+        }
+      },
+      {
+        "period": "pre-2024",
+        "trainPlayerCount": 27,
+        "trainingSeasonObservations": 153,
+        "holdoutSeasonObservations": 30,
+        "trainDerivedD": 0.32221497252747244,
+        "neutralWidth": 0.028190157314470884,
+        "outer": 0.16110748626373622,
+        "proposedBands": {
+          "COLD": 10,
+          "COOL": 5,
+          "NEUTRAL": 2,
+          "WARM": 4,
+          "HOT": 9
+        },
+        "olderPercentileBands": {
+          "COLD": 6,
+          "COOL": 4,
+          "NEUTRAL": 11,
+          "WARM": 2,
+          "HOT": 7
+        },
+        "fixedBands": {
+          "COLD": 10,
+          "COOL": 4,
+          "NEUTRAL": 6,
+          "WARM": 1,
+          "HOT": 9
+        }
+      },
+      {
+        "period": "pre-2025",
+        "trainPlayerCount": 30,
+        "trainingSeasonObservations": 168,
+        "holdoutSeasonObservations": 15,
+        "trainDerivedD": 0.303469012605042,
+        "neutralWidth": 0.02655009833434691,
+        "outer": 0.151734506302521,
+        "proposedBands": {
+          "COLD": 5,
+          "COOL": 0,
+          "NEUTRAL": 2,
+          "WARM": 1,
+          "HOT": 7
+        },
+        "olderPercentileBands": {
+          "COLD": 3,
+          "COOL": 2,
+          "NEUTRAL": 3,
+          "WARM": 1,
+          "HOT": 6
+        },
+        "fixedBands": {
+          "COLD": 5,
+          "COOL": 0,
+          "NEUTRAL": 3,
+          "WARM": 0,
+          "HOT": 7
+        }
+      }
+    ],
+    "limitations": "Completed historical player-seasons are not comparable out-of-sample in-season forecast predictions. Counts are descriptive and do not establish predictive accuracy."
+  },
+  "sourceConfidence": {
+    "officialPlayerCount": 20,
+    "gpSampleTiers": {
+      "MORE_OBSERVED_GAMES": 6,
+      "DEVELOPING_SAMPLE": 7,
+      "LIMITED_SAMPLE": 7,
+      "NO_VERIFIED_CURRENT_APPEARANCES": 2
+    },
+    "sharedZeroScoringModelPlayers": 8,
+    "sourceAuthority": "OFFICIAL_VERIFIED_HTO_CURRENT_SEASON_TOTALS_NOT_FORECAST_CERTIFICATION",
+    "meaning": "Official game appearance count and shared-source assumptions, not probability of forecast accuracy."
+  },
+  "playerExamples": [
+    {
+      "name": "Carosi, Justin",
+      "sourcePct": -0.025228,
+      "level": "NEUTRAL",
+      "angle": 94.58899707436711,
+      "verifiedGp": 5,
+      "gpEvidenceTier": "MORE_OBSERVED_GAMES",
+      "sharedModelOutput": false
+    },
+    {
+      "name": "Saindon, Stephane",
+      "sourcePct": -0.094348,
+      "level": "COOL",
+      "angle": 106.70846265124042,
+      "verifiedGp": 4,
+      "gpEvidenceTier": "DEVELOPING_SAMPLE",
+      "sharedModelOutput": false
+    },
+    {
+      "name": "Provenzano, Michael",
+      "sourcePct": 0.008681,
+      "level": "NEUTRAL",
+      "angle": 88.41793484088191,
+      "verifiedGp": 4,
+      "gpEvidenceTier": "DEVELOPING_SAMPLE",
+      "sharedModelOutput": false
+    },
+    {
+      "name": "Pearsoll, Keith",
+      "sourcePct": -0.067804,
+      "level": "COOL",
+      "angle": 102.17350246472677,
+      "verifiedGp": 4,
+      "gpEvidenceTier": "DEVELOPING_SAMPLE",
+      "sharedModelOutput": false
+    },
+    {
+      "name": "Pagnotta, Alex",
+      "sourcePct": 0.169314,
+      "level": "HOT",
+      "angle": 61.689299823170685,
+      "verifiedGp": 5,
+      "gpEvidenceTier": "MORE_OBSERVED_GAMES",
+      "sharedModelOutput": false
+    },
+    {
+      "name": "Brutto, Adam",
+      "sourcePct": -0.111531,
+      "level": "COOL",
+      "angle": 109.53694499786427,
+      "verifiedGp": 5,
+      "gpEvidenceTier": "MORE_OBSERVED_GAMES",
+      "sharedModelOutput": false
+    },
+    {
+      "name": "Kober, Adam",
+      "sourcePct": 0.153509,
+      "level": "WARM",
+      "angle": 63.96908772566397,
+      "verifiedGp": 4,
+      "gpEvidenceTier": "DEVELOPING_SAMPLE",
+      "sharedModelOutput": false
+    },
+    {
+      "name": "Provenzano, Mario",
+      "sourcePct": -0.208333,
+      "level": "COLD",
+      "angle": 123.53750717428184,
+      "verifiedGp": 5,
+      "gpEvidenceTier": "MORE_OBSERVED_GAMES",
+      "sharedModelOutput": true
+    },
+    {
+      "name": "Duffy, Lorcan",
+      "sourcePct": -0.208333,
+      "level": "COLD",
+      "angle": 123.53750717428184,
+      "verifiedGp": 1,
+      "gpEvidenceTier": "LIMITED_SAMPLE",
+      "sharedModelOutput": true
+    },
+    {
+      "name": "Paolucci, Anthony",
+      "sourcePct": -0.208333,
+      "level": "COLD",
+      "angle": 123.53750717428184,
+      "verifiedGp": 1,
+      "gpEvidenceTier": "LIMITED_SAMPLE",
+      "sharedModelOutput": true
+    },
+    {
+      "name": "Mazzei, Stefano",
+      "sourcePct": -0.208333,
+      "level": "COLD",
+      "angle": 123.53750717428184,
+      "verifiedGp": null,
+      "gpEvidenceTier": "NO_VERIFIED_CURRENT_APPEARANCES",
+      "sharedModelOutput": true
+    },
+    {
+      "name": "Rajasooriar, Krishnan",
+      "sourcePct": -0.208333,
+      "level": "COLD",
+      "angle": 123.53750717428184,
+      "verifiedGp": 2,
+      "gpEvidenceTier": "LIMITED_SAMPLE",
+      "sharedModelOutput": true
+    },
+    {
+      "name": "Congiusti, Marco",
+      "sourcePct": -0.208333,
+      "level": "COLD",
+      "angle": 123.53750717428184,
+      "verifiedGp": null,
+      "gpEvidenceTier": "NO_VERIFIED_CURRENT_APPEARANCES",
+      "sharedModelOutput": true
+    },
+    {
+      "name": "Atkins, Nolan",
+      "sourcePct": -0.208333,
+      "level": "COLD",
+      "angle": 123.53750717428184,
+      "verifiedGp": 2,
+      "gpEvidenceTier": "LIMITED_SAMPLE",
+      "sharedModelOutput": true
+    },
+    {
+      "name": "Ardizzi, Stefano",
+      "sourcePct": -0.208333,
+      "level": "COLD",
+      "angle": 123.53750717428184,
+      "verifiedGp": 1,
+      "gpEvidenceTier": "LIMITED_SAMPLE",
+      "sharedModelOutput": true
+    }
+  ],
+  "policy": "An entire verified team may be HOT or COLD; no normalization about current group median, no percentile quotas.",
+  "sourceWorkbookModified": false,
+  "archiveModified": false,
+  "currentUpdateHeldReason": "FORECAST_PROVISIONAL_OR_UNRECONCILED"
+}

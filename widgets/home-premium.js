@@ -13,8 +13,8 @@ const num=x=>typeof x==="number"&&Number.isFinite(x);
 const todayDate=()=>{const parts=new Intl.DateTimeFormat("en-US",{timeZone:"America/Toronto",year:"numeric",month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit",hourCycle:"h23"}).formatToParts(new Date());const d=Object.fromEntries(parts.map(p=>[p.type,p.value]));return d.year+"-"+d.month+"-"+d.day+"T"+d.hour+":"+d.minute};
 const dateText=stamp=>{const d=new Date(stamp);return Number.isNaN(d.getTime())?"Source date unavailable":new Intl.DateTimeFormat("en-CA",{timeZone:"America/Toronto",month:"short",day:"numeric",year:"numeric"}).format(d)};
 const fetchJSON=async path=>{const res=await fetch("./"+path,{cache:"no-store"});if(!res.ok)throw Error(path+" HTTP "+res.status);return res.json()};
-const svgNS="http://www.w3.org/2000/svg";
-const svgArrow=(rotate,color)=>{const s=document.createElementNS(svgNS,"svg");s.setAttribute("viewBox","0 0 48 48");s.setAttribute("class","trend-svg");s.setAttribute("aria-hidden","true");const p=document.createElementNS(svgNS,"path");p.setAttribute("d","M18 42V19H8L24 3L40 19H30V42Z");p.setAttribute("transform","rotate("+rotate+" 24 24)");p.setAttribute("fill",color);s.append(p);return s};
+// Homepage trend icons reuse the source-verified Bio SVG renderer. Workbook five
+ // category thresholds are unchanged; seven names describe visual intensity.
 const states=[
  {name:"Cold",desc:"Strong decline",rotate:180,color:"#217fd4"},
  {name:"Cool",desc:"Moderate decline",rotate:135,color:"#79bdec"},
@@ -23,7 +23,7 @@ const states=[
  {name:"Hot",desc:"Strong rise",rotate:0,color:"#f0344d"}
 ];
 const linkAllowed=s=>/^https:\/\/leagues\.sportsvillage\.ca\//.test(s||"");
-let league=null,projection=null,latestHTOActuals=null,filter="ALL",standingsPage=0,projectionPage=0;
+let league=null,projection=null,dispersion=null,latestHTOActuals=null,filter="ALL",standingsPage=0,projectionPage=0;
 const isFull=()=>params.has("full");
 const pageSize=kind=>9999; // all rows are visible in an independently scrollable iframe shell
 function pager(id,total,size,page,onChange){
@@ -235,6 +235,19 @@ function trendState(p,cf){
  const idx=t<th.AB100?0:t<th.AB99?1:t<th.AB97?2:t<th.AB96?3:4;
  return{...states[idx],label:states[idx].name+" · "+states[idx].desc,value:t};
 }
+function sharedTrendBadge(p){
+ const engine=window.HockeyOSAdaptiveTrendV365,visual=window.HockeyOSBioTrendVisualV36;
+ if(!engine)return null;
+ const reading=engine.classify(p,projection,dispersion);
+ if(reading.status==='ROOKIE')return engine.rookieBadge(document,visual);
+ if(reading.status!=='VERIFIED')return null;
+ const badge=engine.badge(document,reading,visual,'PROJECTION');
+ if(badge){
+  badge.dataset.sourceTrend=String(p.trend);
+  badge.dataset.workbookCategory=trendState(p,projection.conditionalFormatting).name||'HELD';
+ }
+ return badge;
+}
 function projectedCell(amount,actual,decimals=0,unreported=false){
  const td=node("td");
  td.append(node("span","total",num(amount)?(decimals?amount.toFixed(decimals):String(amount)):"—"));
@@ -274,11 +287,43 @@ function drawProjection(){
   const baselineText=num(career)?career.toFixed(3):"unavailable";
   const modelRate=num(projected)?projected.toFixed(3):"unavailable";
   const diffText=num(p.trend)?(p.trend>0?"+":"")+(p.trend*100).toFixed(1)+"%":"unavailable";
-  detailTD.textContent="Workbook trend: "+state.label.replace(/ ·.*/,"")+". Historical career RS rate: "+baselineText+" P/G; model scoring-rate component: "+modelRate+" P/G; workbook trend: "+diffText+". Displayed projected P/G: "+(num(p.ptsPerGame)?p.ptsPerGame.toFixed(3):"—")+". Rates may differ because the workbook retains its established trend formula.";
+  const badge=sharedTrendBadge(p);
+  const displayLevel=badge?.dataset.visualLevel||(state.new?(state.label.startsWith("NEW")?"ROOKIE":"HELD"):"HELD");
+  const gpProof=badge?.dataset.verifiedGp;
+  const tier=badge?.dataset.evidenceTier||'UNVERIFIED';
+  const tierPhrase={MORE_OBSERVED_GAMES:'more observed',
+    DEVELOPING_SAMPLE:'developing',LIMITED_SAMPLE:'limited',
+    NO_VERIFIED_CURRENT_APPEARANCES:'unverified'}[tier]||'unverified';
+  const sharedModel=badge?.dataset.sharedModelOutput==='true';
+  const evidenceShort=gpProof?gpProof+' GP | '+(sharedModel?'shared model':tierPhrase):
+    'GP unverified';
+  const evidenceLong=gpProof?
+    gpProof+' verified official GP; '+tierPhrase+' sample'+
+    (sharedModel?'; shared zero-scoring model formula across multiple players':''):
+    'No independent current-game appearance proof for this model player';
+  detailTD.textContent="Five-level adaptive visual strength: "+displayLevel+
+    ". Original workbook five-arrow category: "+state.label.replace(/ ·.*/,"")+
+    ". Historical career RS rate: "+baselineText+" P/G; model scoring-rate component: "+
+    modelRate+" P/G; workbook trend: "+diffText+
+    ". Displayed projected P/G: "+(num(p.ptsPerGame)?p.ptsPerGame.toFixed(3):"—")+
+    ". Badge sensitivity follows qualified team dispersion; original workbook thresholds and values remain unchanged."+
+    " Current evidence: "+evidenceLong+
+    "; this is a sample-size description, not forecast confidence.";
   details.append(detailTD);
-  if(state.new){button.append(node("span","new",state.label.startsWith("NEW")?"NEW":"—"))}
-  else button.append(svgArrow(state.rotate,state.color));
-  button.title=state.label+(num(state.value)?" · workbook "+diffText:"");
+  if(badge){
+    badge.classList.add("home-trend-badge");
+    badge.querySelector("svg.bio-trend-direction-arrow")?.setAttribute("aria-hidden","true");
+    button.dataset.visualLevel=displayLevel;
+    button.dataset.workbookCategory=state.label.replace(/ ·.*/,"");
+    button.append(badge,node("span","home-level-word",displayLevel),
+      node("span","home-evidence-word",evidenceShort));
+    button.dataset.evidenceTier=tier;
+    button.dataset.sharedModelOutput=String(sharedModel);
+    button.dataset.verifiedGp=gpProof||'';
+  }else button.append(node("span","new",state.label.startsWith("NEW")?"NEW":"—"));
+  button.title=displayLevel+" team-calibrated display · "+state.label+
+    (num(state.value)?" · workbook "+diffText:"")+
+    " · Evidence: "+evidenceLong+" · Forecast provisional until workbook reconciliation";
   button.setAttribute("aria-label",cleanName(p.name)+": "+button.title+". Show model comparison");
   button.addEventListener("click",()=>{details.hidden=!details.hidden;button.setAttribute("aria-expanded",String(!details.hidden))});
   trendTD.append(button);tr.append(trendTD);table.append(tr,details);
@@ -289,14 +334,26 @@ function drawProjection(){
 document.querySelectorAll("[data-group]").forEach(b=>b.addEventListener("click",()=>{filter=b.dataset.group;projectionPage=0;drawProjection()}));
 function drawLegend(){
  const box=$("trend-legend");box.replaceChildren();
- states.slice().reverse().forEach(t=>{const item=node("span");item.append(svgArrow(t.rotate,t.color),node("span","",t.name));box.append(item)});
- box.append(node("span","","NEW · No comparable career data"));
+ const adaptive=window.HockeyOSAdaptiveTrendV365;
+ const items=adaptive?.legend(document,dispersion,projection,window.HockeyOSBioTrendVisualV36)||[];
+ if(!items.length){
+  box.textContent='Adaptive trend source held; no unqualified legend.';
+  return;
+ }
+ for(const item of items){
+  item.badge.classList.add("home-trend-badge","home-trend-legend-badge");
+  item.badge.querySelector("svg.bio-trend-direction-arrow")?.setAttribute("aria-hidden","true");
+  const holder=node("span","home-trend-key");
+  holder.append(item.badge,node("span","",item.level));box.append(holder);
+ }
+ box.append(node("span","","ROOKIE/— · Career or source comparison unavailable"));
 }
 async function loadProjection(){
  try{
   const d=await fetchJSON("projection.json");
   if(d.schema!=="brave-hc-workbook-projection/v1"||!Array.isArray(d.players)||!d.conditionalFormatting?.arrowIconSet?.thresholds)throw Error("Workbook data contract invalid");
   projection=d;
+  dispersion=await fetchJSON("hockeyos-team-dispersion-v365.json").catch(()=>null);
   const sourceGames=d.sourceInputs?.verifiedHTOBoxscoreGP;
   try{
     const feed=await fetchJSON("player-actuals.json"),stamp=new Date(feed.asOf),age=Date.now()-stamp.getTime();
@@ -329,13 +386,13 @@ async function loadProjection(){
   set("projection-state",latestHTOActuals&&!d.modelCurrent?"HTO ACTUALS CURRENT · FORECAST HELD":d.modelCurrent?"MODEL RECONCILED":"SCENARIO · PARITY PENDING");
   const date=dateText(d.htoreadback||d.exportedAt);
   if(latestHTOActuals){
-     set("projection-note","Current figures in parentheses are verified HTO statistics through "+latestHTOActuals.gp+" games ("+dateText(latestHTOActuals.asOf)+"). Projected season totals and trend arrows still use the unreconciled workbook model based on "+sourceGames+" HTO games. Verified rostered players with no recorded appearances show (0); (—) means an unverified or unavailable current value.");
+     set("projection-note","Current figures in parentheses are verified HTO statistics through "+latestHTOActuals.gp+" games ("+dateText(latestHTOActuals.asOf)+"). Projected season totals and five-level calibrated trend badges still use the unreconciled workbook model based on "+sourceGames+" HTO games. Verified rostered players with no recorded appearances show (0); (—) means an unverified or unavailable current value.");
   }else{
      set("projection-note",d.modelCurrent===true?"Workbook projections reconciled to official HTO actuals.":"Projection feed reflects "+sourceGames+" HTO games at "+date+". Workbook baseline: "+(d.sourceInputs?.workbookRecordedTeamGP??"—")+" game(s). Forecasts and displayed actuals are not up to date.");
   }
   set("projection-source","Sources: "+(latestHTOActuals?"current official HTO "+dateText(latestHTOActuals.asOf)+"; ":"")+"projection model readback "+date+" · Original workbook trend thresholds retained. "+d.players.length+" player rows.");
   drawLegend();drawProjection();
- }catch(e){set("projection-note","Projection data could not be validated. No replacement estimates or trend arrows have been invented. ("+e.message+")");}
+ }catch(e){set("projection-note","Projection data could not be validated. No replacement estimates or trend badges have been invented. ("+e.message+")");}
 }
 if(panel==="standings")loadStandings();
 if(panel==="projection")loadProjection();

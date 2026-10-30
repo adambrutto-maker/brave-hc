@@ -1,0 +1,25 @@
+/* HockeyOS Bio V3.6.2 — condition-matched panel presentation only.
+   The panel takes its exact individualized V3.6 dark palette from the source-verified
+   badge. Its neutral fallback is slate, never a misleading green success state. */
+.bio-studio #bioProjectionSummarySlot.bio-career-arrow-panel{
+  --bio-panel-rim:#7d93a3;
+  --bio-panel-upper:#304b5b;
+  --bio-panel-lower:#162935;
+  --bio-panel-lit:#456375;
+  border:1px solid var(--bio-panel-rim);
+  border-left:4px solid var(--bio-panel-rim);
+  background:
+    radial-gradient(ellipse at 85% 12%,var(--bio-panel-lit) 0%,transparent 62%),
+    linear-gradient(138deg,var(--bio-panel-upper) 0%,var(--bio-panel-lower) 100%);
+  box-shadow:inset 0 1px 0 #ffffff1b,0 3px 12px #00000018;
+}
+.bio-studio #bioProjectionSummarySlot .bio-forecast-trend-caption{
+  color:#f5f9ff;
+}
+.bio-studio #bioProjectionSummarySlot .bio-trend-main{
+  color:#ffffff;
+}
+.bio-studio #bioProjectionSummarySlot .bio-trend-minor{
+  color:#e2ebf5;
+}
+/* All arrow artwork, temperatures, animation and directional angles are untouched. */

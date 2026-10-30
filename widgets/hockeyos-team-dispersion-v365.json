@@ -1,0 +1,374 @@
+{
+  "schema": "hockeyos-team-career-relative-dispersion/v1",
+  "version": "3.6.8",
+  "status": "HISTORICAL_REFERENCE_ONLY",
+  "calibrationStatus": "HISTORICAL_SCALE_WITH_APPROVED_VISUAL_BAND_POLICY_NOT_FORECAST_BACKTEST_VALIDATED",
+  "generatedAt": "2026-10-30T00:31:25.868996+00:00",
+  "model": {
+    "sourceSeason": "W2026/27",
+    "projectionExportedAt": "2026-10-30T00:31:25.868996+00:00",
+    "workbookSourceHash": "0002fd9f06596af8d0a00fc1b53a618ef15479f941ad5c1e6265b27002a65154",
+    "projectionCanonicalHashSHA256": "2e7fefaa11549fa44524cfe54073051d6cd30afd03cfd037fa9375f8b8e74663",
+    "provisional": true,
+    "sourceWorkbookPreserved": true,
+    "sourcePlayerTrendsPreserved": true,
+    "fiveCategoryWorkbookModelPreserved": true
+  },
+  "definitions": {
+    "typicalCareerDeviation": "Median absolute signed player career-relative change, expressed as a decimal percentage.",
+    "playerToPlayerDispersion": "Median absolute deviation of qualified player percentages around team median.",
+    "signedTeamDirection": "Median qualified player signed career-relative percentage; never subtracted from player percentages.",
+    "effectiveDispersion": "Historical reference adjusted by verified current source confidence; bounded by historical player-scale quantiles."
+  },
+  "historical": {
+    "status": "HISTORICAL_REFERENCE_VERIFIED",
+    "method": "MEDIAN_OF_PLAYER_MEDIAN_ABS_PERCENT_CHANGES",
+    "effectiveSample": {
+      "independentPlayers": 30,
+      "qualifiedPlayerSeasons": 183,
+      "seasonGPMin": 5,
+      "priorCareerGPMin": 20,
+      "priorCareerSeasonsMin": 2,
+      "careerRateMinPtsGP": 0.2,
+      "sourceGameTypes": "PUBLISHED_ALL_HTO_GAME_TYPES",
+      "normalizeMinutes": 32
+    },
+    "dispersion": 0.3143095874713521,
+    "neutralAbs": 0.1282051282051282,
+    "coldAbs": 0.28861788617886175,
+    "hotAbs": 0.35582010582010537,
+    "multipliers": {
+      "neutral": 0.4078944242094222,
+      "cold": 0.9182598866958456,
+      "hot": 1.132068890047895
+    },
+    "historicalScaleBounds": {
+      "min": 0.12938301816886877,
+      "max": 0.6531944835350408
+    },
+    "playerWeightedQuantiles": {
+      "absP25": 0.1282051282051282,
+      "negativeAbsP50": 0.28861788617886175,
+      "positiveAbsP50": 0.35582010582010537
+    },
+    "medianQualifyingSeasonGP": 18,
+    "sourceCapturedAt": "2026-10-20T18:54:56.260Z",
+    "sourceBasis": "Qualified completed HTO skater seasons mapped to verified winter-equivalent game minutes; not historical forecast snapshots.",
+    "audit": {
+      "profiles": 109,
+      "skaters": 87,
+      "verifiedSeasonRows": 346,
+      "qualifiedObservations": 183,
+      "exclusions": {
+        "invalidSeason": 20,
+        "incompleteScoring": 34,
+        "unverifiedDuration": 0,
+        "insufficientPriorCareer": 73,
+        "insufficientSeasonGP": 86,
+        "tinyPriorRate": 4
+      },
+      "playerSamples": 0
+    }
+  },
+  "current": {
+    "status": "HELD",
+    "reason": "FORECAST_PROVISIONAL_OR_UNRECONCILED",
+    "weight": 0,
+    "qualifiedPlayers": 0
+  },
+  "effective": {
+    "dispersion": 0.3143095874713521,
+    "weight": 0,
+    "lowerScaleBound": 0.12938301816886877,
+    "upperScaleBound": 0.6531944835350408,
+    "referenceMode": "HISTORICAL_REFERENCE_ONLY",
+    "bandPolicy": {
+      "key": "NEUTRAL_5DEG_MAX_3P5_OUTER_HALF_D_MAX_20",
+      "neutralAngleHalfWidthDegrees": 5,
+      "neutralMaximumFraction": 0.035,
+      "outerDispersionMultiplier": 0.5,
+      "outerMaximumFraction": 0.2
+    },
+    "thresholds": {
+      "neutral": 0.027498525741253107,
+      "cold": 0.15715479373567606,
+      "hot": 0.15715479373567606
+    },
+    "orientation": "0_UP_90_RIGHT_180_DOWN",
+    "angleFormula": "90 - 180/Math.PI * atan(p / effectiveDispersion)",
+    "sourceModelIndependentOfStandardDeviation": true
+  },
+  "playerEvidence": {
+    "status": "VERIFIED_CURRENT_HTO_GP_ONLY",
+    "sourceAuthority": "OFFICIAL_VERIFIED_HTO_CURRENT_SEASON_TOTALS_NOT_FORECAST_CERTIFICATION",
+    "season": "W2026/27",
+    "teamGP": 5,
+    "asOf": "2026-10-27T22:53:27.502Z",
+    "officialPlayerCount": 20,
+    "projectionPlayerCount": 22,
+    "sharedZeroScoringOutputs": 8,
+    "sampleSizeTiers": {
+      "MORE_OBSERVED_GAMES": 6,
+      "DEVELOPING_SAMPLE": 7,
+      "LIMITED_SAMPLE": 7,
+      "NO_VERIFIED_CURRENT_APPEARANCES": 2
+    },
+    "players": [
+      {
+        "name": "Carosi, Justin",
+        "verifiedGP": 5,
+        "tier": "MORE_OBSERVED_GAMES",
+        "sharedZeroScoringOutput": false,
+        "groupSize": 1,
+        "forecastProvisional": true,
+        "reason": "OFFICIAL_CURRENT_GP_SAMPLE_ONLY"
+      },
+      {
+        "name": "Saindon, Stephane",
+        "verifiedGP": 4,
+        "tier": "DEVELOPING_SAMPLE",
+        "sharedZeroScoringOutput": false,
+        "groupSize": 1,
+        "forecastProvisional": true,
+        "reason": "OFFICIAL_CURRENT_GP_SAMPLE_ONLY"
+      },
+      {
+        "name": "Provenzano, Michael",
+        "verifiedGP": 4,
+        "tier": "DEVELOPING_SAMPLE",
+        "sharedZeroScoringOutput": false,
+        "groupSize": 1,
+        "forecastProvisional": true,
+        "reason": "OFFICIAL_CURRENT_GP_SAMPLE_ONLY"
+      },
+      {
+        "name": "Kong, Henry",
+        "verifiedGP": 5,
+        "tier": "MORE_OBSERVED_GAMES",
+        "sharedZeroScoringOutput": false,
+        "groupSize": 1,
+        "forecastProvisional": true,
+        "reason": "OFFICIAL_CURRENT_GP_SAMPLE_ONLY"
+      },
+      {
+        "name": "Pearsoll, Keith",
+        "verifiedGP": 4,
+        "tier": "DEVELOPING_SAMPLE",
+        "sharedZeroScoringOutput": false,
+        "groupSize": 1,
+        "forecastProvisional": true,
+        "reason": "OFFICIAL_CURRENT_GP_SAMPLE_ONLY"
+      },
+      {
+        "name": "Povegliano, Adam",
+        "verifiedGP": 4,
+        "tier": "DEVELOPING_SAMPLE",
+        "sharedZeroScoringOutput": false,
+        "groupSize": 1,
+        "forecastProvisional": true,
+        "reason": "OFFICIAL_CURRENT_GP_SAMPLE_ONLY"
+      },
+      {
+        "name": "Pagnotta, Alex",
+        "verifiedGP": 5,
+        "tier": "MORE_OBSERVED_GAMES",
+        "sharedZeroScoringOutput": false,
+        "groupSize": 1,
+        "forecastProvisional": true,
+        "reason": "OFFICIAL_CURRENT_GP_SAMPLE_ONLY"
+      },
+      {
+        "name": "Rosenberg, Jamie",
+        "verifiedGP": 4,
+        "tier": "DEVELOPING_SAMPLE",
+        "sharedZeroScoringOutput": false,
+        "groupSize": 1,
+        "forecastProvisional": true,
+        "reason": "OFFICIAL_CURRENT_GP_SAMPLE_ONLY"
+      },
+      {
+        "name": "Brutto, Adam",
+        "verifiedGP": 5,
+        "tier": "MORE_OBSERVED_GAMES",
+        "sharedZeroScoringOutput": false,
+        "groupSize": 1,
+        "forecastProvisional": true,
+        "reason": "OFFICIAL_CURRENT_GP_SAMPLE_ONLY"
+      },
+      {
+        "name": "Triumbari, Francesco",
+        "verifiedGP": 5,
+        "tier": "MORE_OBSERVED_GAMES",
+        "sharedZeroScoringOutput": false,
+        "groupSize": 1,
+        "forecastProvisional": true,
+        "reason": "OFFICIAL_CURRENT_GP_SAMPLE_ONLY"
+      },
+      {
+        "name": "Kober, Adam",
+        "verifiedGP": 4,
+        "tier": "DEVELOPING_SAMPLE",
+        "sharedZeroScoringOutput": false,
+        "groupSize": 1,
+        "forecastProvisional": true,
+        "reason": "OFFICIAL_CURRENT_GP_SAMPLE_ONLY"
+      },
+      {
+        "name": "Provenzano, Mario",
+        "verifiedGP": 5,
+        "tier": "MORE_OBSERVED_GAMES",
+        "sharedZeroScoringOutput": true,
+        "groupSize": 8,
+        "forecastProvisional": true,
+        "reason": "SHARED_ZERO_SCORING_MODEL_COMPONENT"
+      },
+      {
+        "name": "Rajkumar, Sanjay",
+        "verifiedGP": 4,
+        "tier": "DEVELOPING_SAMPLE",
+        "sharedZeroScoringOutput": false,
+        "groupSize": 1,
+        "forecastProvisional": true,
+        "reason": "OFFICIAL_CURRENT_GP_SAMPLE_ONLY"
+      },
+      {
+        "name": "Duffy, Lorcan",
+        "verifiedGP": 1,
+        "tier": "LIMITED_SAMPLE",
+        "sharedZeroScoringOutput": true,
+        "groupSize": 8,
+        "forecastProvisional": true,
+        "reason": "SHARED_ZERO_SCORING_MODEL_COMPONENT"
+      },
+      {
+        "name": "Paolucci, Anthony",
+        "verifiedGP": 1,
+        "tier": "LIMITED_SAMPLE",
+        "sharedZeroScoringOutput": true,
+        "groupSize": 8,
+        "forecastProvisional": true,
+        "reason": "SHARED_ZERO_SCORING_MODEL_COMPONENT"
+      },
+      {
+        "name": "Mazzei, Stefano",
+        "verifiedGP": null,
+        "tier": "NO_VERIFIED_CURRENT_APPEARANCES",
+        "sharedZeroScoringOutput": true,
+        "groupSize": 8,
+        "forecastProvisional": true,
+        "reason": "NO_INDIVIDUAL_GP_IN_OFFICIAL_SEASON_FEED"
+      },
+      {
+        "name": "Rajasooriar, Krishnan",
+        "verifiedGP": 2,
+        "tier": "LIMITED_SAMPLE",
+        "sharedZeroScoringOutput": true,
+        "groupSize": 8,
+        "forecastProvisional": true,
+        "reason": "SHARED_ZERO_SCORING_MODEL_COMPONENT"
+      },
+      {
+        "name": "Congiusti, Marco",
+        "verifiedGP": null,
+        "tier": "NO_VERIFIED_CURRENT_APPEARANCES",
+        "sharedZeroScoringOutput": true,
+        "groupSize": 8,
+        "forecastProvisional": true,
+        "reason": "NO_INDIVIDUAL_GP_IN_OFFICIAL_SEASON_FEED"
+      },
+      {
+        "name": "Atkins, Nolan",
+        "verifiedGP": 2,
+        "tier": "LIMITED_SAMPLE",
+        "sharedZeroScoringOutput": true,
+        "groupSize": 8,
+        "forecastProvisional": true,
+        "reason": "SHARED_ZERO_SCORING_MODEL_COMPONENT"
+      },
+      {
+        "name": "Pavaday, Damian",
+        "verifiedGP": 1,
+        "tier": "LIMITED_SAMPLE",
+        "sharedZeroScoringOutput": false,
+        "groupSize": 1,
+        "forecastProvisional": true,
+        "reason": "OFFICIAL_CURRENT_GP_SAMPLE_ONLY"
+      },
+      {
+        "name": "Ardizzi, Stefano",
+        "verifiedGP": 1,
+        "tier": "LIMITED_SAMPLE",
+        "sharedZeroScoringOutput": true,
+        "groupSize": 8,
+        "forecastProvisional": true,
+        "reason": "SHARED_ZERO_SCORING_MODEL_COMPONENT"
+      },
+      {
+        "name": "Unknown, Johnny",
+        "verifiedGP": 1,
+        "tier": "LIMITED_SAMPLE",
+        "sharedZeroScoringOutput": false,
+        "groupSize": 1,
+        "forecastProvisional": true,
+        "reason": "OFFICIAL_CURRENT_GP_SAMPLE_ONLY"
+      }
+    ],
+    "definition": "GP exposure indicates source observation count, never probability of a correct forecast."
+  },
+  "qualification": {
+    "history": "PREVIOUS_SEASONS_ONLY_WITH_CAREER_BASELINE",
+    "current": "RECONCILED_FORECAST_AND_LIVE_ACTUALS_ONLY",
+    "avoidsRepeatedLowGPDeltas": true,
+    "currentUpdateHeldReason": "FORECAST_PROVISIONAL_OR_UNRECONCILED"
+  },
+  "audit": {
+    "eligibleHistoricalPlayers": 30,
+    "historicalObservations": 183,
+    "historicalExamples": [
+      {
+        "id": "354041",
+        "name": "Marco Congiusti",
+        "n": 12,
+        "medianAbs": 0.36156606204777475
+      },
+      {
+        "id": "354042",
+        "name": "Lucas Brutto",
+        "n": 3,
+        "medianAbs": 0.625
+      },
+      {
+        "id": "354045",
+        "name": "Mario Provenzano",
+        "n": 12,
+        "medianAbs": 0.31611917494270425
+      },
+      {
+        "id": "354046",
+        "name": "Ryan Logue",
+        "n": 14,
+        "medianAbs": 0.15568170158438666
+      },
+      {
+        "id": "354049",
+        "name": "Cameron Buchanan",
+        "n": 10,
+        "medianAbs": 0.1298384708574506
+      }
+    ],
+    "excludedHistorical": {
+      "invalidSeason": 20,
+      "incompleteScoring": 34,
+      "unverifiedDuration": 0,
+      "insufficientPriorCareer": 73,
+      "insufficientSeasonGP": 86,
+      "tinyPriorRate": 4
+    }
+  },
+  "sourceFiles": [
+    "projection.json",
+    "player-career-insights.json",
+    "league-game-formats.json",
+    "player-actuals-hourly.json"
+  ]
+}

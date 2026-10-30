@@ -21,7 +21,7 @@ const getJSON=async path=>{const timeout=new AbortController();const timer=setTi
   try{const r=await fetch('./'+path,{cache:'no-store',signal:timeout.signal});if(!r.ok)throw Error('unavailable');return await r.json();}
   finally{clearTimeout(timer);}
 };
-const fetches=Promise.allSettled(['player-career-insights.json','projection.json','league-game-formats.json','player-actuals.json','goalie-roster.json','opponent-intelligence.json','goalie-projection-verified-inputs.json','svhl-upcoming.json','player-bio-season-titles.json'].map(getJSON));
+const fetches=Promise.allSettled(['player-career-insights.json','projection.json','league-game-formats.json','player-actuals.json','goalie-roster.json','opponent-intelligence.json','goalie-projection-verified-inputs.json','svhl-upcoming.json','player-bio-season-titles.json','hockeyos-team-dispersion-v365.json'].map(getJSON));
 const playerID=()=>String($('playerChoice')?.value||new URLSearchParams(location.search).get('playerID')||'');
 const identity=id=>window.BravePlayerLinks?.identityById(Number(id))||null;
 const profileIdFromName=name=>{
@@ -66,7 +66,7 @@ function sourceLabel(text){$('bioModelContext').textContent=text;}
 function renderView(){
   const sections={
     production:['bioSeasonCurrent','bioProjectionSection'],
-    trends:['bioSpotlight','bioAdvancedSection','bioDevelopmentSection','bioGoalieSection'],
+    trends:['bioSpotlight','bioRecentFormSection','bioTeamDispersionSection','bioAdvancedSection','bioDevelopmentSection','bioGoalieSection'],
     coaching:['bioOpponentSection']
   };
   const visible=sections[state.active]||[];
@@ -77,15 +77,20 @@ function renderView(){
     btn.setAttribute('aria-selected',String(chosen));btn.tabIndex=chosen?0:-1;
   }
   // Exactly three main tabs for skaters, goalies, and dual-role profiles.
-  for(const id of ['bioSeasonCurrent','bioSpotlight','bioAdvancedSection','bioDevelopmentSection','bioProjectionSection',
+  for(const id of ['bioSeasonCurrent','bioSpotlight','bioRecentFormSection','bioTeamDispersionSection','bioAdvancedSection','bioDevelopmentSection','bioProjectionSection',
                    'bioGoalieSection','bioOpponentSection','leadershipSection','systemSection']){
     const el=$(id);if(!el)continue;
     const missingRole=(id==='bioGoalieSection'&&!state.isGoalie)||
-      (['bioSpotlight','bioProjectionSection'].includes(id)&&!state.isSkater);
+      (['bioSpotlight','bioProjectionSection','bioRecentFormSection','bioTeamDispersionSection'].includes(id)&&!state.isSkater);
     const leadershipMissing=id==='leadershipSection'&&!state.hasLeadership;
     el.hidden=missingRole||leadershipMissing||!visible.includes(id);
   }
   $('bioProjectionSummarySlot').hidden=!state.isSkater||!state.hasProjection;
+  // About these numbers is common to goalie/skater profiles; its skater-only
+  // workbook source explanation must not appear for a goalie-only profile.
+  $('bioProjectionFull').hidden=!state.isSkater;
+  $('bioNumbersSkaterExplanation').hidden=!state.isSkater;
+  $('bioNumbersGoalieExplanation').hidden=state.isSkater||!state.isGoalie;
 }
 function setupTabs(){
   const studio=$('bioStudio');
@@ -499,160 +504,101 @@ function validateProjection(p){
 }
 function paintProjectionTrend(row,projection){
   const host=$('bioProjectionTrend'),detail=$('bioProjectionTrendDetail');
+  const panel=$('bioProjectionSummarySlot');
+  panel.removeAttribute('data-panel-tone');
+  for(const key of ['rim','upper','lower','lit'])panel.style.removeProperty('--bio-panel-'+key);
+  const colorFromBadge=(badge,tone)=>{
+    panel.dataset.panelTone=tone;
+    for(const key of ['rim','upper','lower','lit'])
+      panel.style.setProperty('--bio-panel-'+key,badge.style.getPropertyValue('--'+key));
+  };
   host.replaceChildren();detail.textContent='';
-  host.dataset.trendState='HELD';
-  host.className='bio-trend-summary';
-  // V3.4: visual-only temperature intensity follows the same verified z-score
-  // as the arrow angle. This NEVER changes workbook 5Arrows classifications.
-  const clamp01=value=>Math.max(0,Math.min(1,value));
-  const mixHex=(a,b,t)=>{
-    const left=[1,3,5].map(i=>parseInt(a.slice(i,i+2),16));
-    const right=[1,3,5].map(i=>parseInt(b.slice(i,i+2),16));
-    return '#'+left.map((v,i)=>Math.round(v+(right[i]-v)*clamp01(t))
-      .toString(16).padStart(2,'0')).join('');
-  };
-  const temperatureAppearance=z=>{
-    const hot=z>=0,amount=Math.abs(z);
-    // Low heat: yellow; stronger heat: orange; maximum: red.
-    // Cool: light ice/water; cold: bright blue; deep cold: dark ice.
-    const stops=hot?
-      [[0,'#dce6ee'],[.5,'#f6cf53'],[1.25,'#ef9630'],[2,'#d82b42']]:
-      [[0,'#dce6ee'],[1,'#b1dff1'],[1.8,'#5ca9d8'],[2.75,'#134e8a']];
-    let color=stops[stops.length-1][1];
-    for(let i=1;i<stops.length;i++){
-      if(amount<=stops[i][0]){
-        const [begin,first]=stops[i-1],[end,last]=stops[i];
-        color=mixHex(first,last,(amount-begin)/(end-begin));
-        break;
-      }
-    }
-    const intensity=hot?clamp01((z-.5)/1.5):clamp01((amount-1)/1.75);
-    return {color,intensity,
-      tone:mixHex('#f6fafc',color,.24+.28*intensity),
-      size:(.84+.16*intensity).toFixed(3),
-      state:intensity<.34?'mild':intensity<.78?'building':'maximum'};
-  };
-  const appendArrowInset=(graphic,category,appearance)=>{
-    const inset=build('span',undefined,'bio-trend-arrow-inset');
-    inset.dataset.arrowCategory=category;
-    if(appearance){
-      inset.style.setProperty('--trend-tone',appearance.tone);
-      inset.style.setProperty('--trend-accent',appearance.color);
-    }
-    inset.append(graphic);
-    const flame=category==='Warm'||category==='Hot';
-    const ice=category==='Cool'||category==='Cold';
-    if((flame||ice)&&appearance){
-      const badge=build('span',undefined,'bio-trend-temperature-badge');
-      badge.dataset.temperature=flame?'flame':'ice';
-      badge.dataset.intensity=appearance.intensity.toFixed(3);
-      badge.dataset.temperatureStage=appearance.state;
-      badge.style.setProperty('--temp-accent',appearance.color);
-      badge.style.setProperty('--temp-scale',appearance.size);
-      badge.setAttribute('aria-hidden','true');
-      const icon=svg('svg',{viewBox:'0 0 24 24',class:'bio-trend-temperature-icon',focusable:'false'});
-      const defs=svg('defs',{});
-      const gradient=svg('linearGradient',{id:flame?'bioTrendFlameGradient':'bioTrendIceGradient',
-        x1:'5%',y1:'100%',x2:'90%',y2:'0%'});
-      if(flame){
-        gradient.append(svg('stop',{offset:'0%','stop-color':'#fff2a8'}),
-          svg('stop',{offset:'48%','stop-color':'#ffa82c'}),
-          svg('stop',{offset:'100%','stop-color':appearance.color}));
-        defs.append(gradient);icon.append(defs);
-        icon.append(svg('path',{d:'M12 2c.6 3.5 5.8 5.2 5.8 11.1A5.8 5.8 0 0 1 12 21a5.8 5.8 0 0 1-5.8-5.9c0-2.8 1.6-5.6 4.3-8.4-.1 2.2.3 3.5 1.1 4.4 1-2.6.8-5.9.4-9.1Z',
-          fill:'url(#bioTrendFlameGradient)',stroke:'#a85426','stroke-width':.55}));
-        icon.append(svg('path',{d:'M12.4 12.2c.3 1.3 2.2 2.6 2.2 4.1a2.7 2.7 0 0 1-5.4 0c0-1.6 1.1-3 2.1-4.3-.1 1.2.1 1.9.5 2.3.5-.7.7-1.3.6-2.1Z',
-          fill:'#fff4bd',opacity:.9}));
-      }else{
-        gradient.append(svg('stop',{offset:'0%','stop-color':'#effaff'}),
-          svg('stop',{offset:'50%','stop-color':'#8fd4f2'}),
-          svg('stop',{offset:'100%','stop-color':appearance.color}));
-        defs.append(gradient);icon.append(defs);
-        // Melting progresses in reverse: tiny cube and a puddle at first
-        // Cool, larger cube/less puddle at medium cold, solid ice at maximum.
-        const t=appearance.intensity;
-        icon.append(svg('ellipse',{cx:12,cy:20.4,rx:(7.1-2*t).toFixed(2),
-          ry:(1.8-.5*t).toFixed(2),fill:appearance.color,
-          opacity:(.75*(1-t)).toFixed(3),'data-ice-puddle':'true'}));
-        const cubeScale=(.58+.42*t).toFixed(3);
-        const cube=svg('g',{transform:'translate(12 11.5) scale('+cubeScale+') translate(-12 -11.5)',
-          'data-ice-cube':'true','data-cube-scale':cubeScale});
-        cube.append(svg('path',{d:'M12 3 20 8 12 12 4 8Z',fill:'#e2f8ff',
-          stroke:appearance.color,'stroke-width':.65,'stroke-linejoin':'round'}));
-        cube.append(svg('path',{d:'M4 8 12 12v8L4 16Z',
-          fill:'url(#bioTrendIceGradient)',stroke:appearance.color,
-          'stroke-width':.65,'stroke-linejoin':'round'}));
-        cube.append(svg('path',{d:'M12 12 20 8v8l-8 4Z',
-          fill:appearance.color,stroke:'#d7f4ff','stroke-width':.7,'stroke-linejoin':'round'}));
-        cube.append(svg('path',{d:'M6.8 10.6 10.4 12.5v4.3',
-          fill:'none',stroke:'#ffffff','stroke-width':.9,'stroke-opacity':.65}));
-        icon.append(cube);
-      }
-      badge.append(icon);inset.append(badge);
-    }
-    host.append(inset);
-  };
-  const result=window.HockeyOSBioProjectionTrend?.classify(row,projection)||{status:'HELD'};
-  if(result.status==='VERIFIED_MODEL_TREND'){
-    host.dataset.trendState=result.name;
-    host.classList.add('bio-trend-ready','bio-trend-'+result.name.toLowerCase());
-    const direction=window.HockeyOSBioProjectionTrend?.directionalArrow(row,projection);
-    if(direction?.status==='VERIFIED_STANDARD_DEVIATION_ARROW'){
-      host.dataset.trendDirection=direction.direction;
-      const graphic=svg('svg',{viewBox:'0 0 100 64',class:'bio-trend-direction-arrow',role:'img',
-        'aria-label':result.name+' · '+direction.zScore.toFixed(2)+
-          ' standard deviations; '+direction.direction.toLowerCase()+' career baseline'});
-      graphic.append(svg('title',{},'Career performance '+(result.relativeChange*100).toFixed(1)+
-        '%, '+direction.zScore.toFixed(2)+' standard deviations from zero.'));
-      const appearance=temperatureAppearance(direction.zScore);
-      const angle=direction.renderRotationDegrees.toFixed(3);
-      const arrowShape='M11 25H60V14L89 32L60 50V39H11Z';
-      const group=svg('g',{transform:'rotate('+angle+' 50 32)',
-        'data-arrow-angle':direction.angleDegrees.toFixed(4),
-        'data-z-score':direction.zScore.toFixed(4)});
-      group.append(svg('path',{d:arrowShape,fill:'#061a2d',stroke:'#93aac1',
-        'stroke-width':3.8,'stroke-linejoin':'round',opacity:.8}));
-      group.append(svg('path',{d:arrowShape,fill:appearance.color,
-        stroke:'#eff6fc','stroke-width':.9,'stroke-linejoin':'round'}));
-      group.append(svg('path',{d:'M19 30H58',fill:'none',stroke:'#ffffff',
-        'stroke-opacity':.38,'stroke-width':2,'stroke-linecap':'round'}));
-      graphic.append(group);appendArrowInset(graphic,result.name,appearance);
-    }
-    const label=build('div',undefined,'bio-trend-copy');
-    const signed=(result.relativeChange>0?'+':'')+(result.relativeChange*100).toFixed(1)+'%';
-    label.append(build('strong',result.name+' · '+signed,'bio-trend-main'),
-      build('span','Projected season-finish trend vs career · '+
-        (result.modelCurrent?'model reconciled':'provisional workbook model'),'bio-trend-minor'));
-    host.append(label);
-    detail.textContent='Original workbook trend: '+result.name+
-       '. Historical career regular-season scoring rate '+
-       (num(result.careerRate)?fmtRate(result.careerRate):'unavailable')+
-       ' P/GP; projected scoring-rate component '+
-       (num(result.modelComponentRate)?fmtRate(result.modelComponentRate):'unavailable')+
-       ' P/GP; career relative change '+signed+
-       '. The model trend component is distinct from the displayed full-season projected P/GP.';
-  }else{
-    host.dataset.trendState=result.status;
-    const label=build('div',undefined,'bio-trend-copy');
-    if(result.status==='ROOKIE'){
-      // Founder-approved rookie state: white horizontal neutral symbol, not a
-      // calculated trend. No angle, z-score, % change or invented career baseline.
-      const graphic=svg('svg',{viewBox:'0 0 100 64',class:'bio-trend-direction-arrow',
-        role:'img','aria-label':'Neutral display marker for rookie year; no established career comparison'});
-      const shape='M11 25H60V14L89 32L60 50V39H11Z';
-      graphic.append(svg('path',{d:shape,fill:'#f7fbff',stroke:'#91a7b8',
-        'stroke-width':1.5,'stroke-linejoin':'round','data-rookie-neutral':'true'}));
-      appendArrowInset(graphic,'Neutral');
-      label.append(build('strong','Neutral · Rookie Year','bio-trend-main'),
-        build('span','No career baseline · forecast remains provisional','bio-trend-minor'));
-      detail.textContent='Neutral rookie display state only. No model career baseline or statistical comparison is available.';
-    }else{
-      label.append(build('strong','Career trend unavailable','bio-trend-main'),
-        build('span','The workbook trend is not source verified','bio-trend-minor'));
-      detail.textContent='No verified workbook career trend. No arrow or comparison has been inferred.';
-    }
-    host.append(label);
+  host.dataset.trendState='HELD';host.dataset.visualLevel='HELD';
+  host.dataset.nearCareerAverage='false';host.className='bio-trend-summary';
+  const original=window.HockeyOSBioProjectionTrend?.classify(row,projection)||{status:'HELD'};
+  const adaptive=window.HockeyOSAdaptiveTrendV365;
+  if(original.status==='ROOKIE'){
+    host.dataset.trendState='ROOKIE';host.dataset.visualLevel='ROOKIE';
+    const badge=adaptive?.rookieBadge(document,window.HockeyOSBioTrendVisualV36);
+    if(badge){host.append(badge);colorFromBadge(badge,'rookie');}
+    const copy=build('div',undefined,'bio-trend-copy');
+    copy.append(build('strong','Rookie Year','bio-trend-main'),
+      build('span','No established career comparison · model remains provisional','bio-trend-minor'));
+    host.append(copy);
+    detail.textContent='Rookie has no verified individual career baseline. No adaptive percentage or angle is inferred.';
+    return;
   }
+  if(original.status!=='VERIFIED_MODEL_TREND'){
+    const copy=build('div',undefined,'bio-trend-copy');
+    copy.append(build('strong','Career trend unavailable','bio-trend-main'),
+      build('span','The original workbook source is not qualified','bio-trend-minor'));
+    host.append(copy);detail.textContent='No invented career trend or dynamic comparison.';
+    return;
+  }
+  host.dataset.trendState=original.name;host.dataset.sourceCategory=original.name;
+  const signed=(original.relativeChange>0?'+':'')+(original.relativeChange*100).toFixed(1)+'%';
+  const reading=adaptive?.classify(row,projection,sources.dispersion)||{status:'HELD',reason:'ENGINE_UNAVAILABLE'};
+  if(reading.status!=='VERIFIED'){
+    const copy=build('div',undefined,'bio-trend-copy');
+    copy.append(build('strong','Adaptive trend unavailable','bio-trend-main'),
+      build('span','Original workbook '+original.name+' · '+signed+' · '+reading.reason,'bio-trend-minor'));
+    host.append(copy);
+    detail.textContent='Original workbook category: '+original.name+
+      '. Model component change '+signed+'. Dispersion gate: '+reading.reason+
+      '. No fallback sigma-driven arrow or manufactured calibration.';
+    return;
+  }
+  const badge=adaptive.badge(document,reading,window.HockeyOSBioTrendVisualV36,'PROJECTION');
+  if(!badge){
+    host.append(build('div','Verified trend, but adaptive artwork unavailable','bio-trend-copy'));
+    detail.textContent='Model trend '+signed+'; renderer unavailable.';
+    return;
+  }
+  badge.dataset.workbookCategory=original.name;badge.dataset.sourceTrend=String(row.trend);
+  host.dataset.visualLevel=reading.level;
+  host.dataset.trendDirection=reading.percentage<0?'BELOW':reading.percentage>0?'ABOVE':'AT';
+  host.dataset.nearCareerAverage=String(reading.level==='NEUTRAL');
+  host.classList.add('bio-trend-ready','bio-trend-'+reading.level.toLowerCase());
+  host.append(badge);colorFromBadge(badge,reading.level.toLowerCase());
+  const copy=build('div',undefined,'bio-trend-copy');
+  const th=reading.thresholds,band=(th.neutral*100).toFixed(1);
+  const message=reading.level==='NEUTRAL'?
+    (reading.percentage===0?'Exactly at career baseline':'Within dynamic ±'+band+'% career band'):
+    (reading.percentage<0?'Below established career pace':'Above established career pace');
+  copy.append(build('strong',reading.level+' · '+signed,'bio-trend-main'),
+    build('span',message+' · '+
+      (reading.provisional?'historical-reference calibration; forecast provisional':
+      'reconciled team-dispersion calibration'),'bio-trend-minor'));
+  const ev=reading.evidence;
+  const evidenceWords={
+   MORE_OBSERVED_GAMES:'more observed games',
+   DEVELOPING_SAMPLE:'developing sample',
+   LIMITED_SAMPLE:'limited sample',
+   NO_VERIFIED_CURRENT_APPEARANCES:'GP evidence unavailable'
+  };
+  const evidenceText=ev?.status==='VERIFIED'?
+    String(ev.verifiedGP)+' verified GP ('+(evidenceWords[ev.tier]||'sample held')+')'+
+      (ev.sharedZeroScoringOutput?' | shared zero-scoring model output ('+ev.groupSize+' players)':''):
+    'GP evidence unavailable; forecast remains provisional';
+  const evidenceLine=build('span','Evidence: '+evidenceText,'bio-trend-evidence');
+  evidenceLine.dataset.tier=ev?.tier||'UNVERIFIED';
+  evidenceLine.dataset.sharedModelOutput=String(ev?.sharedZeroScoringOutput===true);
+  copy.append(evidenceLine);
+  host.append(copy);
+  detail.textContent='Original workbook category: '+original.name+
+    '. Five-level adaptive display: '+reading.level+
+    '. Exact published projected scoring-component change '+signed+
+    '. Original career rate '+(num(original.careerRate)?fmtRate(original.careerRate):'unavailable')+
+    ' P/GP; original projected scoring-rate component '+
+    (num(original.modelComponentRate)?fmtRate(original.modelComponentRate):'unavailable')+
+    ' P/GP. Effective team career-relative dispersion '+(reading.dispersion*100).toFixed(2)+
+    '%. Dynamic limits: Cold ≤ '+(-th.cold*100).toFixed(1)+
+    '%, Neutral ±'+band+'%, Hot ≥ +'+(th.hot*100).toFixed(1)+
+    '%. Source mode: '+reading.mode+
+    '. Arrow physically measures '+reading.angle.toFixed(2)+'° (0 up, 90 right, 180 down). '+
+    'Evidence disclosure: '+evidenceText+
+    '. GP sample size is not a probability of accurate prediction. '+
+    'Display calibration does not modify the source workbook category, its percentage or the separate full-season headline P/GP.';
 }
 
 function renderSkaterProjection(){
@@ -1086,6 +1032,7 @@ sources={career:inputs[0].status==='fulfilled'?inputs[0].value:null,
   goalieVerified:inputs[6].status==='fulfilled'?inputs[6].value:null,
   upcoming:inputs[7].status==='fulfilled'?inputs[7].value:null,
   titles:inputs[8].status==='fulfilled'?inputs[8].value:null,
+   dispersion:inputs[9].status==='fulfilled'?inputs[9].value:null,
   // Game Night data is not part of this independently releaseable Bio candidate.
   gameLineup:null,
   gameCountdown:null};

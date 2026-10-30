@@ -263,7 +263,7 @@
       "category": "Summer - Wins",
       "period": "Playoffs",
       "items": [
-        "2 - Rènt Goaliê (2016)"
+        "2 - R\u00e8nt Goali\u00ea (2016)"
       ]
     },
     {
@@ -291,7 +291,7 @@
       "period": "Playoffs",
       "items": [
         "2.50 - Stephen Logue (2017)",
-        "3.50 - Rènt Goaliê (2016)",
+        "3.50 - R\u00e8nt Goali\u00ea (2016)",
         "4.00 - Stephen Logue (2014)",
         "4.75 - Stephen Logue (2013)"
       ]
@@ -722,7 +722,7 @@
       "category": "Summer - Longest Winning Streak",
       "period": "Season",
       "items": [
-        "5 - 2017-05-28 to 2017-06-25 (2017)"
+        "5 - May 28 - Jun 25, 2017 (2017)"
       ]
     },
     {
@@ -730,8 +730,8 @@
       "category": "Summer - Longest Point Streak",
       "period": "Season",
       "items": [
-        "5 - 2013-06-02 to 2013-07-07 (2013)",
-        "5 - 2017-05-28 to 2017-06-25 (2017)"
+        "5 - Jun 2 - Jul 7, 2013 (2013)",
+        "5 - May 28 - Jun 25, 2017 (2017)"
       ]
     },
     {
@@ -763,8 +763,8 @@
       "category": "Summer - Most Team Goals",
       "period": "Game",
       "items": [
-        "13 - vs. Village Idiots (13-4) (2016-05-15)",
-        "13 - vs. Lost In the Sauce (13-4) (2016-07-17)"
+        "13 - vs. Village Idiots (13-4) (May 15, 2016)",
+        "13 - vs. Lost In the Sauce (13-4) (Jul 17, 2016)"
       ]
     },
     {
@@ -772,7 +772,7 @@
       "category": "Summer - Most Team Goals",
       "period": "Playoffs",
       "items": [
-        "12 - vs. Mohawks Hockey (12-3) (2015-07-26)"
+        "12 - vs. Mohawks Hockey (12-3) (Jul 26, 2015)"
       ]
     },
     {
@@ -780,7 +780,7 @@
       "category": "Summer - Largest Winning Margin",
       "period": "Game",
       "items": [
-        "10 - vs. Young Guns (11-1) (2017-06-18)"
+        "10 - vs. Young Guns (11-1) (Jun 18, 2017)"
       ]
     },
     {
@@ -1258,5 +1258,6 @@
         "18 - vs. Mid Ice Crisis (0-3) (2025-04-06)"
       ]
     }
-  ]
+  ],
+  "displayVerifiedAt": "2026-10-30T01:02:10.562012+00:00"
 }

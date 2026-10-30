@@ -47,7 +47,7 @@ const server=http.createServer((req,res)=>{
      assert.deepEqual(model,['23','13','11','24','1.06']);
      assert.equal(await page.locator('#bioCareerModelRate').innerText(),'1.14');
      assert.match(await page.locator('#bioCareerModelBasis').innerText(),/Summer \+ Winter history.*Winter-equivalent/);
-     const order=await page.evaluate(()=>['bioSeasonCurrent','bioCareerModelStrip','bioProjectionCards','bioProjectionSummarySlot'].map(id=>{
+     const order=await page.evaluate(()=>['bioSeasonCurrent','bioProjectionCards','bioCareerModelStrip','bioProjectionSummarySlot'].map(id=>{
       const r=document.getElementById(id).getBoundingClientRect();return {id,y:Math.round(r.top),bottom:Math.round(r.bottom)};
      }));
      for(let i=1;i<order.length;i++)assert.ok(order[i].y>=order[i-1].bottom-3,

@@ -45,10 +45,14 @@ const chrome=["C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe","C:\\
   assert.equal(isMobile,true,"mobile standings use readable card rows");
   await page.goto(url+"/home-panels.html?panel=projection",{waitUntil:"networkidle0"});
   assert.equal(await page.$$eval("#projection-rows tr:not(.details)",n=>n.length),22,"full model roster");
-  const legend=await page.$$eval("#trend-legend svg",n=>n.length);assert.equal(legend,5);
-  const colours=await page.$$eval(".trend-button svg path",ps=>[...new Set(ps.map(p=>p.getAttribute("fill")))]);
-  assert.ok(colours.some(c=>["#f0344d","#dc7383"].includes(c)),"red hot/warm arrow");
-  assert.ok(colours.some(c=>["#217fd4","#79bdec"].includes(c)),"blue cold/cool arrow");
+  const legend=await page.$$eval("#trend-legend .home-trend-key",n=>n.map(x=>x.querySelector('.v365-adaptive')?.dataset.visualLevel));
+  assert.deepEqual(legend,["COLD","COOL","NEUTRAL","WARM","HOT"]);
+  const colours=await page.$$eval(".trend-button .v365-adaptive",bs=>[...new Set(bs.map(b=>b.style.getPropertyValue('--rim')))]);
+  assert.ok(colours.length>=3,"player-specific icy/slate/fire colours");
+  const stephane=await page.$$eval("#projection-rows tr:not(.details)",rows=>rows.find(r=>r.textContent.includes("Stephane Saindon"))?.querySelector(".home-level-word")?.textContent);
+  assert.equal(stephane,"COOL","Stéphane's 9.4% decline is visually Cool");
+  const actualEvidence=await page.$$eval("#projection-rows tr:not(.details)",rows=>rows.find(r=>r.textContent.includes("Mario Provenzano"))?.querySelector(".home-evidence-word")?.textContent);
+  assert.match(actualEvidence,/5 GP/,"Mario has five source-verified GP despite shared model output");
   const firstRow=await page.$eval("#projection-rows tr:not(.details)",e=>e.textContent);
   assert.ok(firstRow.includes("(")&&firstRow.includes(")"),"actuals in parentheses");
   const firstButton=await page.$(".trend-button");

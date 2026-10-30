@@ -36,16 +36,16 @@ const server=http.createServer((req,res)=>{
   assert.equal(await j.$eval('#bioOtherMetrics',el=>el.open),false,'secondary stats collapsed');
   assert.equal(await j.$eval('#bioMoreSeasonFilters',el=>el.open),false,'extra season filters collapsed');
   assert.equal(await j.$eval('#bioProjectionTrend',el=>el.dataset.trendState),'Neutral');
-  assert.match(await j.locator('#bioProjectionTrend').innerText(),/Neutral.*-2\.5%.*Projected season-finish trend vs career/s);
+  assert.match(await j.locator('#bioProjectionTrend').innerText(),/NEUTRAL.*-2\.5%.*Within dynamic.*career band/s);
   assert.match(await j.locator('#bioProjectionHeadline').innerText(),/source reconciliation pending/i);
   assert.equal(await j.locator('#bioProjectionCards .bio-metric').nth(3).locator('.value').innerText(),'24');
   const arrow=await j.locator('#bioProjectionTrend .bio-trend-direction-arrow');
   assert.equal(await arrow.count(),1,'one polished arrow and no gauge');
   assert.equal(await j.locator('#bioProjectionTrend .bio-trend-gauge').count(),0,'no gauge');
   const arrowAngle=Number(await j.locator('#bioProjectionTrend [data-arrow-angle]').getAttribute('data-arrow-angle'));
-  const z=Number(await j.locator('#bioProjectionTrend [data-z-score]').getAttribute('data-z-score'));
-  assert.ok(arrowAngle<0&&arrowAngle>-15,'negative but Neutral z-score must tilt down');
-  assert.ok(z<0,'workbook trend is below zero even when class is Neutral');
+  const signedPct=Number(await j.locator('#bioProjectionTrend .v365-adaptive').getAttribute('data-percentage'));
+  assert.ok(arrowAngle>90&&arrowAngle<115,'negative but Neutral z-score must tilt down in 0-up/90-right/180-down convention');
+  assert.ok(signedPct<0,'original workbook trend is negative even with adaptive Neutral category');
   assert.equal(await j.$eval('#bioProjectionTrend',e=>e.dataset.trendDirection),'BELOW');
   assert.equal(await j.locator('#bioTabs button').count(),3,'three main tabs');
   assert.equal(await j.locator('#bioRateModes button[data-mode="actual"]').innerText(),'All · actual');
@@ -98,6 +98,7 @@ const server=http.createServer((req,res)=>{
   assert.equal(await j.locator('#bioMoreSeasonFilters summary').textContent(),'More');
   await j.click('#bioTabs button[data-bio-view="production"]');
   assert.equal(await j.locator('#bioProjectionCards .bio-metric-icon:visible').count(),5);
+  await j.locator('#bioAboutNumbers>summary').click();
   await j.locator('#bioProjectionFull summary').click();
   assert.equal(await j.locator('#bioProjectionCards .bio-metric:visible').count(),5);
   assert.equal(await j.locator('#bioProjectionCards .bio-metric').first().locator('.value').innerText(),
@@ -106,9 +107,9 @@ const server=http.createServer((req,res)=>{
     '1.06','projected P/GP exactly 2 decimals');
   assert.match(await j.locator('#bioProjectionHeadline').innerText(),/Full regular-season projection/);
   const projectionDetail=await j.locator('#bioProjectionTrendDetail').textContent();
-  assert.match(projectionDetail,/Historical career regular-season scoring rate 1\.14 P\/GP/);
-  assert.match(projectionDetail,/projected scoring-rate component 1\.11 P\/GP/);
-  assert.match(projectionDetail,/distinct from the displayed full-season projected P\/GP/);
+  assert.match(projectionDetail,/Original career rate 1\.14 P\/GP/);
+  assert.match(projectionDetail,/original projected scoring-rate component 1\.11 P\/GP/);
+  assert.match(projectionDetail,/separate full-season headline P\/GP/);
   await photo(j,'bio-v21-justin-projection-detail.png');
   await j.close();
   const mark=await open('354061');
@@ -131,21 +132,26 @@ const server=http.createServer((req,res)=>{
   await adam.close();
   const projection=require('../widgets/projection.json');
   const slightlyMoreNegative=structuredClone(projection);
-  slightlyMoreNegative.players.find(p=>p.name==='Carosi, Justin').trend=-.05;
+  const example=slightlyMoreNegative.players.find(p=>p.name==='Carosi, Justin');
+   example.trend=-.05;
+   example.trendInputs.projectedScoringRate=example.trendInputs.careerScoringRate*.95;
   const dynamic=await open('354060',{'projection.json':slightlyMoreNegative});
   assert.equal(await dynamic.$eval('#bioProjectionTrend',e=>e.dataset.trendState),'Neutral');
   const dynamicAngle=Number(await dynamic.locator('#bioProjectionTrend [data-arrow-angle]')
     .getAttribute('data-arrow-angle'));
-  assert.ok(dynamicAngle<arrowAngle,'a more negative percentage tilts more downward');
+  assert.ok(dynamicAngle>arrowAngle,'a more negative percentage tilts further toward 180 degrees down');
   assert.ok(Math.abs(dynamicAngle-arrowAngle)>2,'angle is not a fixed category rotation');
+  assert.equal(await dynamic.locator('#bioProjectionTrend').getAttribute('data-near-career-average'),'false',
+    'a -5.0% change is outside the narrow +/-5 degree Neutral dead zone');
+  assert.equal(await dynamic.locator('#bioProjectionTrend').getAttribute('data-visual-level'),'COOL');
   await dynamic.close();
   const rookieData=structuredClone(projection);
   rookieData.players.find(p=>p.name==='Carosi, Justin').trendInputs.firstSeasonOrNoCareer=true;
   const rookie=await open('354060',{'projection.json':rookieData});
-  assert.match(await rookie.locator('#bioProjectionTrend').innerText(),/Neutral.*Rookie Year/s);
+  assert.match(await rookie.locator('#bioProjectionTrend').innerText(),/Rookie Year/s);
   assert.equal(await rookie.locator('#bioProjectionTrend .bio-trend-direction-arrow').count(),1);
   assert.equal(await rookie.locator('#bioProjectionTrend [data-rookie-neutral]').getAttribute('fill'),'#f7fbff');
-  assert.match(await rookie.locator('#bioProjectionTrend').innerText(),/Neutral.*Rookie Year/s);
+  assert.match(await rookie.locator('#bioProjectionTrend').innerText(),/Rookie Year/s);
   assert.equal(await rookie.locator('#bioProjectionTrend [data-z-score]').count(),0,'rookie visual has no invented z-score');
   assert.equal(await rookie.$eval('#bioProjectionTrend',e=>e.dataset.trendState),'ROOKIE');
   await rookie.close();

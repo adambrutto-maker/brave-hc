@@ -1,0 +1,963 @@
+{
+  "schema": "brave-hc-individual-verified-appearances/v1",
+  "status": "VERIFIED_COMPLETE_PLAYER_APPEARANCES",
+  "season": "W2026/27",
+  "asOf": "2026-10-27T22:53:27.502Z",
+  "players": {
+    "354045": {
+      "playerId": "354045",
+      "name": "Provenzano, Mario",
+      "gp": 5,
+      "g": 0,
+      "a": 0,
+      "pts": 0,
+      "games": [
+        {
+          "gameId": 3375682,
+          "date": "2026-10-25",
+          "appeared": true,
+          "verification": "OFFICIAL_APPEARANCE_AND_BOX_SCORE_VERIFIED",
+          "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3375682",
+          "g": 0,
+          "a": 0,
+          "pts": 0
+        },
+        {
+          "gameId": 3375601,
+          "date": "2026-10-18",
+          "appeared": true,
+          "verification": "OFFICIAL_APPEARANCE_AND_BOX_SCORE_VERIFIED",
+          "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3375601",
+          "g": 0,
+          "a": 0,
+          "pts": 0
+        },
+        {
+          "gameId": 3369564,
+          "date": "2026-10-04",
+          "appeared": true,
+          "verification": "OFFICIAL_APPEARANCE_AND_BOX_SCORE_VERIFIED",
+          "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3369564",
+          "g": 0,
+          "a": 0,
+          "pts": 0
+        },
+        {
+          "gameId": 3356178,
+          "date": "2026-09-27",
+          "appeared": true,
+          "verification": "OFFICIAL_APPEARANCE_AND_BOX_SCORE_VERIFIED",
+          "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3356178",
+          "g": 0,
+          "a": 0,
+          "pts": 0
+        },
+        {
+          "gameId": 3356177,
+          "date": "2026-09-20",
+          "appeared": true,
+          "verification": "OFFICIAL_APPEARANCE_AND_BOX_SCORE_VERIFIED",
+          "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3356177",
+          "g": 0,
+          "a": 0,
+          "pts": 0
+        }
+      ]
+    },
+    "354054": {
+      "playerId": "354054",
+      "name": "Brutto, Adam",
+      "gp": 5,
+      "g": 0,
+      "a": 1,
+      "pts": 1,
+      "games": [
+        {
+          "gameId": 3375682,
+          "date": "2026-10-25",
+          "appeared": true,
+          "verification": "OFFICIAL_APPEARANCE_AND_BOX_SCORE_VERIFIED",
+          "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3375682",
+          "g": 0,
+          "a": 1,
+          "pts": 1
+        },
+        {
+          "gameId": 3375601,
+          "date": "2026-10-18",
+          "appeared": true,
+          "verification": "OFFICIAL_APPEARANCE_AND_BOX_SCORE_VERIFIED",
+          "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3375601",
+          "g": 0,
+          "a": 0,
+          "pts": 0
+        },
+        {
+          "gameId": 3369564,
+          "date": "2026-10-04",
+          "appeared": true,
+          "verification": "OFFICIAL_APPEARANCE_AND_BOX_SCORE_VERIFIED",
+          "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3369564",
+          "g": 0,
+          "a": 0,
+          "pts": 0
+        },
+        {
+          "gameId": 3356178,
+          "date": "2026-09-27",
+          "appeared": true,
+          "verification": "OFFICIAL_APPEARANCE_AND_BOX_SCORE_VERIFIED",
+          "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3356178",
+          "g": 0,
+          "a": 0,
+          "pts": 0
+        },
+        {
+          "gameId": 3356177,
+          "date": "2026-09-20",
+          "appeared": true,
+          "verification": "OFFICIAL_APPEARANCE_AND_BOX_SCORE_VERIFIED",
+          "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3356177",
+          "g": 0,
+          "a": 0,
+          "pts": 0
+        }
+      ]
+    },
+    "354056": {
+      "playerId": "354056",
+      "name": "Pearsoll, Keith",
+      "gp": 4,
+      "g": 1,
+      "a": 1,
+      "pts": 2,
+      "games": [
+        {
+          "gameId": 3375682,
+          "date": "2026-10-25",
+          "appeared": true,
+          "verification": "OFFICIAL_APPEARANCE_AND_BOX_SCORE_VERIFIED",
+          "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3375682",
+          "g": 0,
+          "a": 1,
+          "pts": 1
+        },
+        {
+          "gameId": 3375601,
+          "date": "2026-10-18",
+          "appeared": true,
+          "verification": "OFFICIAL_APPEARANCE_AND_BOX_SCORE_VERIFIED",
+          "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3375601",
+          "g": 1,
+          "a": 0,
+          "pts": 1
+        },
+        {
+          "gameId": 3356178,
+          "date": "2026-09-27",
+          "appeared": true,
+          "verification": "OFFICIAL_APPEARANCE_AND_BOX_SCORE_VERIFIED",
+          "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3356178",
+          "g": 0,
+          "a": 0,
+          "pts": 0
+        },
+        {
+          "gameId": 3356177,
+          "date": "2026-09-20",
+          "appeared": true,
+          "verification": "OFFICIAL_APPEARANCE_AND_BOX_SCORE_VERIFIED",
+          "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3356177",
+          "g": 0,
+          "a": 0,
+          "pts": 0
+        }
+      ]
+    },
+    "354057": {
+      "playerId": "354057",
+      "name": "Paolucci, Anthony",
+      "gp": 1,
+      "g": 0,
+      "a": 0,
+      "pts": 0,
+      "games": [
+        {
+          "gameId": 3356177,
+          "date": "2026-09-20",
+          "appeared": true,
+          "verification": "OFFICIAL_APPEARANCE_AND_BOX_SCORE_VERIFIED",
+          "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3356177",
+          "g": 0,
+          "a": 0,
+          "pts": 0
+        }
+      ]
+    },
+    "354058": {
+      "playerId": "354058",
+      "name": "Pagnotta, Alex",
+      "gp": 5,
+      "g": 0,
+      "a": 4,
+      "pts": 4,
+      "games": [
+        {
+          "gameId": 3375682,
+          "date": "2026-10-25",
+          "appeared": true,
+          "verification": "OFFICIAL_APPEARANCE_AND_BOX_SCORE_VERIFIED",
+          "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3375682",
+          "g": 0,
+          "a": 1,
+          "pts": 1
+        },
+        {
+          "gameId": 3375601,
+          "date": "2026-10-18",
+          "appeared": true,
+          "verification": "OFFICIAL_APPEARANCE_AND_BOX_SCORE_VERIFIED",
+          "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3375601",
+          "g": 0,
+          "a": 1,
+          "pts": 1
+        },
+        {
+          "gameId": 3369564,
+          "date": "2026-10-04",
+          "appeared": true,
+          "verification": "OFFICIAL_APPEARANCE_AND_BOX_SCORE_VERIFIED",
+          "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3369564",
+          "g": 0,
+          "a": 0,
+          "pts": 0
+        },
+        {
+          "gameId": 3356178,
+          "date": "2026-09-27",
+          "appeared": true,
+          "verification": "OFFICIAL_APPEARANCE_AND_BOX_SCORE_VERIFIED",
+          "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3356178",
+          "g": 0,
+          "a": 2,
+          "pts": 2
+        },
+        {
+          "gameId": 3356177,
+          "date": "2026-09-20",
+          "appeared": true,
+          "verification": "OFFICIAL_APPEARANCE_AND_BOX_SCORE_VERIFIED",
+          "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3356177",
+          "g": 0,
+          "a": 0,
+          "pts": 0
+        }
+      ]
+    },
+    "354060": {
+      "playerId": "354060",
+      "name": "Carosi, Justin",
+      "gp": 5,
+      "g": 4,
+      "a": 1,
+      "pts": 5,
+      "games": [
+        {
+          "gameId": 3375682,
+          "date": "2026-10-25",
+          "appeared": true,
+          "verification": "OFFICIAL_APPEARANCE_AND_BOX_SCORE_VERIFIED",
+          "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3375682",
+          "g": 1,
+          "a": 1,
+          "pts": 2
+        },
+        {
+          "gameId": 3375601,
+          "date": "2026-10-18",
+          "appeared": true,
+          "verification": "OFFICIAL_APPEARANCE_AND_BOX_SCORE_VERIFIED",
+          "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3375601",
+          "g": 0,
+          "a": 0,
+          "pts": 0
+        },
+        {
+          "gameId": 3369564,
+          "date": "2026-10-04",
+          "appeared": true,
+          "verification": "OFFICIAL_APPEARANCE_AND_BOX_SCORE_VERIFIED",
+          "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3369564",
+          "g": 1,
+          "a": 0,
+          "pts": 1
+        },
+        {
+          "gameId": 3356178,
+          "date": "2026-09-27",
+          "appeared": true,
+          "verification": "OFFICIAL_APPEARANCE_AND_BOX_SCORE_VERIFIED",
+          "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3356178",
+          "g": 2,
+          "a": 0,
+          "pts": 2
+        },
+        {
+          "gameId": 3356177,
+          "date": "2026-09-20",
+          "appeared": true,
+          "verification": "OFFICIAL_APPEARANCE_AND_BOX_SCORE_VERIFIED",
+          "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3356177",
+          "g": 0,
+          "a": 0,
+          "pts": 0
+        }
+      ]
+    },
+    "356089": {
+      "playerId": "356089",
+      "name": "Ardizzi, Stefano",
+      "gp": 1,
+      "g": 0,
+      "a": 0,
+      "pts": 0,
+      "games": [
+        {
+          "gameId": 3356177,
+          "date": "2026-09-20",
+          "appeared": true,
+          "verification": "OFFICIAL_APPEARANCE_AND_BOX_SCORE_VERIFIED",
+          "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3356177",
+          "g": 0,
+          "a": 0,
+          "pts": 0
+        }
+      ]
+    },
+    "586425": {
+      "playerId": "586425",
+      "name": "Duffy, Lorcan",
+      "gp": 1,
+      "g": 0,
+      "a": 0,
+      "pts": 0,
+      "games": [
+        {
+          "gameId": 3356178,
+          "date": "2026-09-27",
+          "appeared": true,
+          "verification": "OFFICIAL_APPEARANCE_AND_BOX_SCORE_VERIFIED",
+          "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3356178",
+          "g": 0,
+          "a": 0,
+          "pts": 0
+        }
+      ]
+    },
+    "686216": {
+      "playerId": "686216",
+      "name": "Provenzano, Michael",
+      "gp": 4,
+      "g": 2,
+      "a": 3,
+      "pts": 5,
+      "games": [
+        {
+          "gameId": 3375682,
+          "date": "2026-10-25",
+          "appeared": true,
+          "verification": "OFFICIAL_APPEARANCE_AND_BOX_SCORE_VERIFIED",
+          "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3375682",
+          "g": 2,
+          "a": 0,
+          "pts": 2
+        },
+        {
+          "gameId": 3369564,
+          "date": "2026-10-04",
+          "appeared": true,
+          "verification": "OFFICIAL_APPEARANCE_AND_BOX_SCORE_VERIFIED",
+          "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3369564",
+          "g": 0,
+          "a": 1,
+          "pts": 1
+        },
+        {
+          "gameId": 3356178,
+          "date": "2026-09-27",
+          "appeared": true,
+          "verification": "OFFICIAL_APPEARANCE_AND_BOX_SCORE_VERIFIED",
+          "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3356178",
+          "g": 0,
+          "a": 2,
+          "pts": 2
+        },
+        {
+          "gameId": 3356177,
+          "date": "2026-09-20",
+          "appeared": true,
+          "verification": "OFFICIAL_APPEARANCE_AND_BOX_SCORE_VERIFIED",
+          "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3356177",
+          "g": 0,
+          "a": 0,
+          "pts": 0
+        }
+      ]
+    },
+    "700877": {
+      "playerId": "700877",
+      "name": "Rajasooriar, Krishnan",
+      "gp": 2,
+      "g": 0,
+      "a": 0,
+      "pts": 0,
+      "games": [
+        {
+          "gameId": 3375601,
+          "date": "2026-10-18",
+          "appeared": true,
+          "verification": "OFFICIAL_APPEARANCE_AND_BOX_SCORE_VERIFIED",
+          "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3375601",
+          "g": 0,
+          "a": 0,
+          "pts": 0
+        },
+        {
+          "gameId": 3356178,
+          "date": "2026-09-27",
+          "appeared": true,
+          "verification": "OFFICIAL_APPEARANCE_AND_BOX_SCORE_VERIFIED",
+          "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3356178",
+          "g": 0,
+          "a": 0,
+          "pts": 0
+        }
+      ]
+    },
+    "736317": {
+      "playerId": "736317",
+      "name": "Kober, Adam",
+      "gp": 4,
+      "g": 1,
+      "a": 2,
+      "pts": 3,
+      "games": [
+        {
+          "gameId": 3375682,
+          "date": "2026-10-25",
+          "appeared": true,
+          "verification": "OFFICIAL_APPEARANCE_AND_BOX_SCORE_VERIFIED",
+          "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3375682",
+          "g": 0,
+          "a": 1,
+          "pts": 1
+        },
+        {
+          "gameId": 3375601,
+          "date": "2026-10-18",
+          "appeared": true,
+          "verification": "OFFICIAL_APPEARANCE_AND_BOX_SCORE_VERIFIED",
+          "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3375601",
+          "g": 0,
+          "a": 0,
+          "pts": 0
+        },
+        {
+          "gameId": 3369564,
+          "date": "2026-10-04",
+          "appeared": true,
+          "verification": "OFFICIAL_APPEARANCE_AND_BOX_SCORE_VERIFIED",
+          "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3369564",
+          "g": 0,
+          "a": 1,
+          "pts": 1
+        },
+        {
+          "gameId": 3356178,
+          "date": "2026-09-27",
+          "appeared": true,
+          "verification": "OFFICIAL_APPEARANCE_AND_BOX_SCORE_VERIFIED",
+          "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3356178",
+          "g": 1,
+          "a": 0,
+          "pts": 1
+        }
+      ]
+    },
+    "738846": {
+      "playerId": "738846",
+      "name": "Saindon, Stephane",
+      "gp": 4,
+      "g": 1,
+      "a": 2,
+      "pts": 3,
+      "games": [
+        {
+          "gameId": 3375682,
+          "date": "2026-10-25",
+          "appeared": true,
+          "verification": "OFFICIAL_APPEARANCE_AND_BOX_SCORE_VERIFIED",
+          "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3375682",
+          "g": 1,
+          "a": 1,
+          "pts": 2
+        },
+        {
+          "gameId": 3375601,
+          "date": "2026-10-18",
+          "appeared": true,
+          "verification": "OFFICIAL_APPEARANCE_AND_BOX_SCORE_VERIFIED",
+          "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3375601",
+          "g": 0,
+          "a": 1,
+          "pts": 1
+        },
+        {
+          "gameId": 3356178,
+          "date": "2026-09-27",
+          "appeared": true,
+          "verification": "OFFICIAL_APPEARANCE_AND_BOX_SCORE_VERIFIED",
+          "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3356178",
+          "g": 0,
+          "a": 0,
+          "pts": 0
+        },
+        {
+          "gameId": 3356177,
+          "date": "2026-09-20",
+          "appeared": true,
+          "verification": "OFFICIAL_APPEARANCE_AND_BOX_SCORE_VERIFIED",
+          "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3356177",
+          "g": 0,
+          "a": 0,
+          "pts": 0
+        }
+      ]
+    },
+    "769343": {
+      "playerId": "769343",
+      "name": "Atkins, Nolan",
+      "gp": 2,
+      "g": 0,
+      "a": 0,
+      "pts": 0,
+      "games": [
+        {
+          "gameId": 3369564,
+          "date": "2026-10-04",
+          "appeared": true,
+          "verification": "OFFICIAL_APPEARANCE_AND_BOX_SCORE_VERIFIED",
+          "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3369564",
+          "g": 0,
+          "a": 0,
+          "pts": 0
+        },
+        {
+          "gameId": 3356178,
+          "date": "2026-09-27",
+          "appeared": true,
+          "verification": "OFFICIAL_APPEARANCE_AND_BOX_SCORE_VERIFIED",
+          "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3356178",
+          "g": 0,
+          "a": 0,
+          "pts": 0
+        }
+      ]
+    },
+    "843644": {
+      "playerId": "843644",
+      "name": "Rosenberg, Jamie",
+      "gp": 4,
+      "g": 1,
+      "a": 0,
+      "pts": 1,
+      "games": [
+        {
+          "gameId": 3375682,
+          "date": "2026-10-25",
+          "appeared": true,
+          "verification": "OFFICIAL_APPEARANCE_AND_BOX_SCORE_VERIFIED",
+          "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3375682",
+          "g": 1,
+          "a": 0,
+          "pts": 1
+        },
+        {
+          "gameId": 3375601,
+          "date": "2026-10-18",
+          "appeared": true,
+          "verification": "OFFICIAL_APPEARANCE_AND_BOX_SCORE_VERIFIED",
+          "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3375601",
+          "g": 0,
+          "a": 0,
+          "pts": 0
+        },
+        {
+          "gameId": 3369564,
+          "date": "2026-10-04",
+          "appeared": true,
+          "verification": "OFFICIAL_APPEARANCE_AND_BOX_SCORE_VERIFIED",
+          "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3369564",
+          "g": 0,
+          "a": 0,
+          "pts": 0
+        },
+        {
+          "gameId": 3356178,
+          "date": "2026-09-27",
+          "appeared": true,
+          "verification": "OFFICIAL_APPEARANCE_AND_BOX_SCORE_VERIFIED",
+          "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3356178",
+          "g": 0,
+          "a": 0,
+          "pts": 0
+        }
+      ]
+    },
+    "844036": {
+      "playerId": "844036",
+      "name": "Povegliano, Adam",
+      "gp": 4,
+      "g": 1,
+      "a": 1,
+      "pts": 2,
+      "games": [
+        {
+          "gameId": 3375682,
+          "date": "2026-10-25",
+          "appeared": true,
+          "verification": "OFFICIAL_APPEARANCE_AND_BOX_SCORE_VERIFIED",
+          "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3375682",
+          "g": 1,
+          "a": 1,
+          "pts": 2
+        },
+        {
+          "gameId": 3375601,
+          "date": "2026-10-18",
+          "appeared": true,
+          "verification": "OFFICIAL_APPEARANCE_AND_BOX_SCORE_VERIFIED",
+          "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3375601",
+          "g": 0,
+          "a": 0,
+          "pts": 0
+        },
+        {
+          "gameId": 3369564,
+          "date": "2026-10-04",
+          "appeared": true,
+          "verification": "OFFICIAL_APPEARANCE_AND_BOX_SCORE_VERIFIED",
+          "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3369564",
+          "g": 0,
+          "a": 0,
+          "pts": 0
+        },
+        {
+          "gameId": 3356177,
+          "date": "2026-09-20",
+          "appeared": true,
+          "verification": "OFFICIAL_APPEARANCE_AND_BOX_SCORE_VERIFIED",
+          "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3356177",
+          "g": 0,
+          "a": 0,
+          "pts": 0
+        }
+      ]
+    },
+    "845364": {
+      "playerId": "845364",
+      "name": "Triumbari, Francesco",
+      "gp": 5,
+      "g": 0,
+      "a": 2,
+      "pts": 2,
+      "games": [
+        {
+          "gameId": 3375682,
+          "date": "2026-10-25",
+          "appeared": true,
+          "verification": "OFFICIAL_APPEARANCE_AND_BOX_SCORE_VERIFIED",
+          "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3375682",
+          "g": 0,
+          "a": 2,
+          "pts": 2
+        },
+        {
+          "gameId": 3375601,
+          "date": "2026-10-18",
+          "appeared": true,
+          "verification": "OFFICIAL_APPEARANCE_AND_BOX_SCORE_VERIFIED",
+          "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3375601",
+          "g": 0,
+          "a": 0,
+          "pts": 0
+        },
+        {
+          "gameId": 3369564,
+          "date": "2026-10-04",
+          "appeared": true,
+          "verification": "OFFICIAL_APPEARANCE_AND_BOX_SCORE_VERIFIED",
+          "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3369564",
+          "g": 0,
+          "a": 0,
+          "pts": 0
+        },
+        {
+          "gameId": 3356178,
+          "date": "2026-09-27",
+          "appeared": true,
+          "verification": "OFFICIAL_APPEARANCE_AND_BOX_SCORE_VERIFIED",
+          "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3356178",
+          "g": 0,
+          "a": 0,
+          "pts": 0
+        },
+        {
+          "gameId": 3356177,
+          "date": "2026-09-20",
+          "appeared": true,
+          "verification": "OFFICIAL_APPEARANCE_AND_BOX_SCORE_VERIFIED",
+          "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3356177",
+          "g": 0,
+          "a": 0,
+          "pts": 0
+        }
+      ]
+    },
+    "845365": {
+      "playerId": "845365",
+      "name": "Rajkumar, Sanjay",
+      "gp": 4,
+      "g": 0,
+      "a": 0,
+      "pts": 0,
+      "games": [
+        {
+          "gameId": 3375682,
+          "date": "2026-10-25",
+          "appeared": true,
+          "verification": "OFFICIAL_APPEARANCE_AND_BOX_SCORE_VERIFIED",
+          "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3375682",
+          "g": 0,
+          "a": 0,
+          "pts": 0
+        },
+        {
+          "gameId": 3369564,
+          "date": "2026-10-04",
+          "appeared": true,
+          "verification": "OFFICIAL_APPEARANCE_AND_BOX_SCORE_VERIFIED",
+          "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3369564",
+          "g": 0,
+          "a": 0,
+          "pts": 0
+        },
+        {
+          "gameId": 3356178,
+          "date": "2026-09-27",
+          "appeared": true,
+          "verification": "OFFICIAL_APPEARANCE_AND_BOX_SCORE_VERIFIED",
+          "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3356178",
+          "g": 0,
+          "a": 0,
+          "pts": 0
+        },
+        {
+          "gameId": 3356177,
+          "date": "2026-09-20",
+          "appeared": true,
+          "verification": "OFFICIAL_APPEARANCE_AND_BOX_SCORE_VERIFIED",
+          "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3356177",
+          "g": 0,
+          "a": 0,
+          "pts": 0
+        }
+      ]
+    },
+    "846200": {
+      "playerId": "846200",
+      "name": "Kong, Henry",
+      "gp": 5,
+      "g": 1,
+      "a": 1,
+      "pts": 2,
+      "games": [
+        {
+          "gameId": 3375682,
+          "date": "2026-10-25",
+          "appeared": true,
+          "verification": "OFFICIAL_APPEARANCE_AND_BOX_SCORE_VERIFIED",
+          "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3375682",
+          "g": 0,
+          "a": 0,
+          "pts": 0
+        },
+        {
+          "gameId": 3375601,
+          "date": "2026-10-18",
+          "appeared": true,
+          "verification": "OFFICIAL_APPEARANCE_AND_BOX_SCORE_VERIFIED",
+          "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3375601",
+          "g": 0,
+          "a": 0,
+          "pts": 0
+        },
+        {
+          "gameId": 3369564,
+          "date": "2026-10-04",
+          "appeared": true,
+          "verification": "OFFICIAL_APPEARANCE_AND_BOX_SCORE_VERIFIED",
+          "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3369564",
+          "g": 1,
+          "a": 0,
+          "pts": 1
+        },
+        {
+          "gameId": 3356178,
+          "date": "2026-09-27",
+          "appeared": true,
+          "verification": "OFFICIAL_APPEARANCE_AND_BOX_SCORE_VERIFIED",
+          "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3356178",
+          "g": 0,
+          "a": 1,
+          "pts": 1
+        },
+        {
+          "gameId": 3356177,
+          "date": "2026-09-20",
+          "appeared": true,
+          "verification": "OFFICIAL_APPEARANCE_AND_BOX_SCORE_VERIFIED",
+          "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3356177",
+          "g": 0,
+          "a": 0,
+          "pts": 0
+        }
+      ]
+    },
+    "847926": {
+      "playerId": "847926",
+      "name": "Unknown, Johnny",
+      "gp": 1,
+      "g": 0,
+      "a": 0,
+      "pts": 0,
+      "games": [
+        {
+          "gameId": 3356177,
+          "date": "2026-09-20",
+          "appeared": true,
+          "verification": "OFFICIAL_APPEARANCE_AND_BOX_SCORE_VERIFIED",
+          "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3356177",
+          "g": 0,
+          "a": 0,
+          "pts": 0
+        }
+      ]
+    },
+    "849368": {
+      "playerId": "849368",
+      "name": "Pavaday, Damian",
+      "gp": 1,
+      "g": 0,
+      "a": 1,
+      "pts": 1,
+      "games": [
+        {
+          "gameId": 3369564,
+          "date": "2026-10-04",
+          "appeared": true,
+          "verification": "OFFICIAL_APPEARANCE_AND_BOX_SCORE_VERIFIED",
+          "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3369564",
+          "g": 0,
+          "a": 1,
+          "pts": 1
+        }
+      ]
+    }
+  },
+  "sourceAuthority": "COMPLETE_CURRENT_NATIVE_HTO_SKATER_GAME_APPEARANCES_AND_OFFICIAL_SEASON_TOTALS",
+  "coverage": {
+    "officialTeamGames": 5,
+    "verifiedGameIds": [
+      3356177,
+      3356178,
+      3369564,
+      3375601,
+      3375682
+    ],
+    "reconciledSkaters": 20,
+    "verifiedSkaterAppearances": 67,
+    "seasonTotals": {
+      "gp": 67,
+      "g": 12,
+      "a": 19,
+      "pts": 31
+    },
+    "eligiblePlayerWindows": {
+      "3": 13,
+      "5": 6,
+      "10": 0
+    },
+    "zeroGoalGamesWithoutScoringColumns": 1,
+    "sourceReadback": {
+      "boxscores": "2026-10-26T04:30:02.498421+00:00",
+      "seasonTotals": "2026-10-27T22:53:27.502Z"
+    },
+    "gameChecks": [
+      {
+        "gameId": 3356177,
+        "date": "2026-09-20",
+        "teamGoals": 0,
+        "playerGoals": 0,
+        "playerAssists": 0,
+        "verifiedSkaterAppearances": 14,
+        "scorelessTableWithoutScoringColumns": true
+      },
+      {
+        "gameId": 3356178,
+        "date": "2026-09-27",
+        "teamGoals": 3,
+        "playerGoals": 3,
+        "playerAssists": 5,
+        "verifiedSkaterAppearances": 15,
+        "scorelessTableWithoutScoringColumns": false
+      },
+      {
+        "gameId": 3369564,
+        "date": "2026-10-04",
+        "teamGoals": 2,
+        "playerGoals": 2,
+        "playerAssists": 3,
+        "verifiedSkaterAppearances": 13,
+        "scorelessTableWithoutScoringColumns": false
+      },
+      {
+        "gameId": 3375601,
+        "date": "2026-10-18",
+        "teamGoals": 1,
+        "playerGoals": 1,
+        "playerAssists": 2,
+        "verifiedSkaterAppearances": 12,
+        "scorelessTableWithoutScoringColumns": false
+      },
+      {
+        "gameId": 3375682,
+        "date": "2026-10-25",
+        "teamGoals": 6,
+        "playerGoals": 6,
+        "playerAssists": 9,
+        "verifiedSkaterAppearances": 13,
+        "scorelessTableWithoutScoringColumns": false
+      }
+    ]
+  },
+  "governance": {
+    "noInferredAppearances": true,
+    "allGameIdsFromOfficialSeasonIndex": true,
+    "seasonGP_G_A_PTSReconciledForEverySkater": true,
+    "zeroPointAppearanceRequiresExplicitGP1": true,
+    "zeroGoalMissingScoringColumnsAcceptedOnlyWithGF0": true,
+    "originalHTOAndWorkbookRecordsUnchanged": true,
+    "last10UnqualifiedUntilTenConfirmedAppearances": true
+  }
+}

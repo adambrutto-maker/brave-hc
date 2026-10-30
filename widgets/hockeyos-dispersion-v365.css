@@ -1,0 +1,31 @@
+/* HockeyOS ENG61 historical/current team dispersion information panel. */
+.team-dispersion-panel{margin:10px 0;padding:10px;border:1px solid #54768d;
+ background:linear-gradient(150deg,#163149,#0b2034);border-radius:9px;min-width:0}
+.team-dispersion-top{display:flex;align-items:center;justify-content:space-between;
+ gap:9px;flex-wrap:wrap;margin-bottom:9px}
+.team-dispersion-title{color:#f1d19a;letter-spacing:.04em;font-size:12px;font-weight:900}
+.team-dispersion-state{font-size:9px;font-weight:900;color:#d7e8f5;
+ border:1px solid #68839a;padding:3px 6px;border-radius:7px;line-height:1.3}
+.team-dispersion-state[data-live=true]{color:#d7ffeb;border-color:#66ae91}
+.team-dispersion-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+.team-dispersion-metric{display:flex;flex-direction:column;gap:3px;min-width:0;
+ padding:9px 7px;border:1px solid #385972;border-radius:7px;background:#0e2a43}
+.team-dispersion-label{font-weight:750;color:#c7dceb;font-size:9px;line-height:1.35}
+.team-dispersion-value{font-size:19px;font-weight:900;color:#fff1d8;font-variant-numeric:tabular-nums}
+.team-dispersion-detail{font-size:9px;color:#b4c9da;overflow-wrap:anywhere;line-height:1.35}
+.team-dispersion-boundaries{font-size:10px;color:#eef5fa;margin:9px 0 4px;line-height:1.5}
+.team-dispersion-provenance,.team-dispersion-source-held{
+ font-size:9px;color:#b9d0e3;line-height:1.5;margin:6px 0 0;overflow-wrap:anywhere}
+@media(max-width:480px){
+ .team-dispersion-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .team-dispersion-value{font-size:17px}
+}
+
+.team-dispersion-disclosure{margin:10px 0;border:1px solid #4c657a;
+ border-radius:9px;background:#0c263c}
+.team-dispersion-disclosure>summary{cursor:pointer;min-height:39px;
+ padding:10px 12px;font-size:11px;line-height:1.4;font-weight:850;
+ color:#f3d19d;list-style-position:inside}
+.team-dispersion-disclosure>summary:focus-visible{outline:2px solid #ffe2aa}
+.team-dispersion-disclosure .team-dispersion-panel{margin:0;border:0;
+ border-top:1px solid #4b697f;border-radius:0 0 8px 8px}
