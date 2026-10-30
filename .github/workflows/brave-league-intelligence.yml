@@ -74,6 +74,8 @@ on:
       - 'scripts/build_eng59_scoped_static_preview.py'
       - 'scripts/check_eng59_frozen_source_freshness.py'
       - 'tests/test_eng59_frozen_source_freshness.py'
+      - 'scripts/check_eng59_hto_scoring_revision.py'
+      - 'tests/test_eng59_hto_scoring_revision.py'
       - 'widgets/player-actuals-hourly.json'
       - 'tests/test_eng59_scoped_static_preview.py'
       - 'tests/test_eng59_scoped_preview_browser.cjs'
@@ -205,6 +207,8 @@ on:
       - 'scripts/build_eng59_scoped_static_preview.py'
       - 'scripts/check_eng59_frozen_source_freshness.py'
       - 'tests/test_eng59_frozen_source_freshness.py'
+      - 'scripts/check_eng59_hto_scoring_revision.py'
+      - 'tests/test_eng59_hto_scoring_revision.py'
       - 'widgets/player-actuals-hourly.json'
       - 'tests/test_eng59_scoped_static_preview.py'
       - 'tests/test_eng59_scoped_preview_browser.cjs'
@@ -396,6 +400,10 @@ jobs:
         run: python -B -m unittest discover -s tests -p test_eng59_proposed_pages_staging_workflow.py -v
       - name: Hold release-current claims for dated hourly HTO and league-source preview snapshots
         run: python -B scripts/check_eng59_frozen_source_freshness.py
+      - name: Independently crosscheck five HTO game sheets against frozen public player totals without admission
+        run: python -B scripts/check_eng59_hto_scoring_revision.py
+      - name: Reject fabricated HTO assists and never auto-release corrected player totals
+        run: python -B -m unittest discover -s tests -p test_eng59_hto_scoring_revision.py -v
       - name: Reject stale, regressed, source-unqualified or re-used preview hourly evidence
         run: python -B -m unittest discover -s tests -p test_eng59_frozen_source_freshness.py -v
       - name: Guard source-stamped weekly roster age without equating separate daily captures
