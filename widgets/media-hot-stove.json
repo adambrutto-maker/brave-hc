@@ -1,0 +1,22 @@
+{
+  "schema": "brave-hc-media-home/v1",
+  "season": "W2026/27",
+  "team": "Brave H.C.",
+  "publishedVideo": {
+    "gameId": 3375682,
+    "date": "2026-10-25",
+    "videoId": "0UQeZEan2bk",
+    "videoUrl": "https://www.youtube.com/watch?v=0UQeZEan2bk",
+    "title": "Braves Highlights - October 25, 2026 - Big Bastones @ Brave H.C.",
+    "score": "Brave H.C. 6–4 Big Bastones",
+    "status": "PUBLIC_VIDEO_VERIFIED_BY_FOUNDER"
+  },
+  "videoPublicationState": "PUBLIC_VERIFIED",
+  "sourceAuthority": "Public YouTube video ID and founder-approved HTO Hot Stove game article",
+  "editorialFeed": "./hot-stove-approved.json",
+  "upcomingFeed": "./countdown.json",
+  "approvedFallbackImage": "./brave_hc_logo.png",
+  "publicLineupAllowed": false,
+  "updated": "2026-10-30",
+  "note": "Video identity is game-scoped and must not be relabeled when a later Hot Stove article replaces the game recap."
+}
