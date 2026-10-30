@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,follow"><meta name="color-scheme" content="dark">
+<title>Brave H.C. — Media &amp; Hot Stove</title>
+<link rel="stylesheet" href="./media-hot-stove.css?v=20261030-r1">
+</head>
+<body>
+<main class="media-shell" id="media-root">
+  <header class="media-header">
+    <img src="./brave_hc_logo.png" alt="Brave H.C. crest" width="48" height="48">
+    <div><div class="eyebrow">BRAVE H.C. · OFFICIAL GAME COVERAGE</div><h1>Media &amp; Hot Stove</h1><p>Game highlights, team reporting, next game and season archive</p></div>
+  </header>
+  <section class="video-panel" aria-label="Latest published game highlights">
+    <div class="video-ratio" id="media-video-container" aria-live="off"></div>
+  </section>
+  <nav class="story-tabs" role="tablist" aria-label="Hot Stove coverage">
+    <button type="button" role="tab" aria-selected="true" data-tab="recap" aria-controls="story-panel" id="tab-recap">Latest Recap</button>
+    <button type="button" role="tab" aria-selected="false" data-tab="next" aria-controls="story-panel" id="tab-next">Next Game</button>
+    <button type="button" role="tab" aria-selected="false" data-tab="archive" aria-controls="story-panel" id="tab-archive">Archive</button>
+  </nav>
+  <section id="story-panel" role="tabpanel" aria-live="polite" aria-labelledby="tab-recap">
+    <p class="notice" id="loading-status">Checking source-approved team coverage…</p>
+  </section>
+  <footer class="media-footer">Official game scoring and previews are sourced from HTO. Full articles open without an internal scrollbar.</footer>
+</main>
+<script defer src="./media-hot-stove.js?v=20261030-r1"></script>
+</body></html>

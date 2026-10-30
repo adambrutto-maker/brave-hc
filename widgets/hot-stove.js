@@ -5,7 +5,8 @@ const isReview=document.documentElement.dataset.review==="true";
 const params=new URLSearchParams(location.search);
 if(params.has("embed"))document.body.classList.add("embedded");
 const pathname=document.documentElement.dataset.feed;
-let publication=null,activeId=null,mode="feature";
+const initialTab=["feature","preview","archive"].includes(params.get("tab"))?params.get("tab"):"feature";
+let publication=null,activeId=initialTab==="archive"?params.get("article"):null,mode=initialTab;
 const $=(tag,cls,text)=>{
  const n=document.createElement(tag);if(cls)n.className=cls;
  if(text!==undefined)n.textContent=String(text);return n;
