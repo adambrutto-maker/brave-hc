@@ -173,3 +173,63 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
 .division-title h3{font-size:15px}
 .bio-style-metrics .tile span{font-size:8px}
 }
+
+/* ENG CHAT 63 R3.1: authentic PDF, readable sortable rates and original black Cristillo patch. */
+.division-patch{background:#f6f6f6;border-radius:6px;object-fit:contain;padding:2px}
+.pdf-lineup{margin:9px 0;border:1px solid #577890;background:#061726;padding:7px;border-radius:7px}
+.pdf-lineup iframe{width:100%;height:min(77vw,550px);min-height:255px;display:block;border:0;background:#fff}
+.pdf-fallback{font-size:11px;line-height:1.45;color:#d5e5f0;margin:7px 2px 2px}
+.lineup-actions{align-items:center}
+.lineup-actions .print-link{border:1px solid #bd7b8c;border-radius:5px;background:#b32642;color:#fff;padding:8px 12px;text-decoration:none;line-height:1.2}
+.lineup-actions .print-link:hover{background:#cf3452}
+.lineup-actions a[aria-disabled="true"]{pointer-events:none;color:#93aab9;background:#233448;border-color:#5c6b7b}
+.calibration-strip{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin:8px 0}
+.calibration-strip span{min-height:30px;border:1px solid #486781;background:#102c44;border-radius:6px;padding:8px 4px;text-align:center;color:#d8e5ef;font-size:11px}
+.calibration-strip b{color:#f6d49e;font-size:14px}
+.ranking-sort-mobile{display:none}
+.ranking-table{table-layout:auto;min-width:800px}
+.ranking-table th,.ranking-table td{width:auto!important;text-align:right!important;padding:6px 4px!important;overflow-wrap:normal}
+.ranking-table th:first-child,.ranking-table td:first-child{width:5%!important;text-align:center!important}
+.ranking-table th:nth-child(2),.ranking-table td:nth-child(2){text-align:left!important;min-width:118px}
+.ranking-table th:nth-child(3),.ranking-table td:nth-child(3){text-align:left!important;min-width:104px}
+.ranking-table th:nth-child(4),.ranking-table td:nth-child(4){width:9%!important}
+.ranking-table th button{width:100%;padding:4px 1px;text-align:inherit;border:0;background:transparent;color:#d7e8f6;cursor:pointer;font-size:10px;font-weight:850;line-height:1.2}
+.ranking-table th button:hover,.ranking-table th button:focus-visible{color:#fff2cd;text-decoration:underline}
+.ranking-table th[aria-sort="ascending"] button::after{content:" ↑";color:#f8d693}
+.ranking-table th[aria-sort="descending"] button::after{content:" ↓";color:#f8d693}
+.ranking-mobile-list{display:none}
+.ranking-card{background:#0e2a42;border:1px solid #486780;border-radius:7px;padding:9px;margin:7px 0}
+.ranking-card.brave{border-color:#e17b8e;background:#44283c}
+.ranking-card-head{display:flex;justify-content:space-between;align-items:flex-start;gap:7px}
+.ranking-card-head strong{font-size:13px;font-weight:850;line-height:1.2;color:#fff;display:block}
+.ranking-card-head span{display:block;font-size:10px;color:#bed6e5;margin-top:3px}
+.ranking-card-score{flex:none;text-align:center;background:#162d43;border:1px solid #5c778b;padding:5px;border-radius:5px;min-width:57px}
+.ranking-card-score b{display:block;font-size:19px;color:#f5d79b;line-height:1}
+.ranking-card-score span{font-size:8px;font-weight:750;color:#d0e0ed}
+.ranking-rate-grid,.research-rate-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px;margin:8px 0}
+.ranking-rate{border:1px solid #3f647e;border-radius:4px;background:#102b41;text-align:center;padding:6px 2px;min-width:0}
+.ranking-rate strong{display:block;font-size:13px;white-space:nowrap;color:#f5f7ff}
+.ranking-rate small{display:block;font-size:9px;color:#bad2e5;margin-top:2px}
+.ranking-card-foot{display:flex;gap:10px;justify-content:space-between;padding-top:6px;border-top:1px solid #3d5c73;color:#d6e4ef;font-size:10px;font-weight:750}
+.ranking-card-foot span:last-child{font-weight:900}
+.research-rate-grid{margin:10px 0}
+@media(max-width:900px){
+ .ranking-table{display:none!important}
+ .ranking-mobile-list{display:block}
+ .ranking-sort-mobile{display:grid}
+ .ranking-rate strong{font-size:13px}
+}
+@media(max-width:360px){
+ .pdf-lineup{padding:4px}
+ .pdf-lineup iframe{height:260px}
+ .ranking-rate strong{font-size:12px}
+ .calibration-strip span{font-size:9px}
+ .calibration-strip b{font-size:13px}
+}
+
+.pdf-lineup-preview{display:none;width:100%;height:auto;background:#fff;border:1px solid #d2d9df}
+@media(max-width:700px){
+ .pdf-lineup iframe{display:none}
+ .pdf-lineup-preview{display:block}
+ .pdf-fallback{font-size:10px}
+}
