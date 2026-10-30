@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark"><meta name="robots" content="noindex,follow">
+<title>Brave H.C. — Game Centre</title>
+<link rel="stylesheet" href="./game-centre-next.css?v=20261030-r3">
+<script defer src="./game-night-lineup-contract-v27-preview.js"></script>
+<script defer src="./game-centre-next.js?v=20261030-r3"></script>
+</head><body>
+<main class="game-centre" id="game-centre">
+<header class="masthead">
+ <img class="crest" src="./brave_hc_logo.png" alt="Brave H.C. crest" width="43" height="43">
+ <div class="masthead-text"><div class="kicker">BRAVE H.C. · SUNDAY HOCKEY</div><h1>Game Centre</h1><p>Division standings, opponents, game night and scouting</p></div>
+ <a href="https://www.sportsvillage.ca/adult-hockey-league-3/" title="Sports Village Hockey League" target="_blank" rel="noopener noreferrer"><img class="league-crest" src="./assets/official_svhl_logo.png" alt="Official SVHL logo" width="52" height="52"></a>
+</header>
+<section class="block compact-count" aria-label="Verified next-game countdown">
+ <div class="bar"><h2>Next Game</h2><a href="https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&amp;s=hockey&amp;p=schedule" target="_blank" rel="noopener noreferrer">Official Schedule ↗</a></div>
+ <iframe class="countdown" src="./countdown.html?embed=1" title="Brave H.C. official next-game countdown" loading="eager" scrolling="no"></iframe>
+</section>
+<section class="block body-block" aria-labelledby="coverage-title">
+ <div class="bar"><h2 id="coverage-title">SVHL · Sunday Winter 2026/27</h2><span class="source-tag">HOCKEYOS</span></div>
+ <nav class="tabs tabs-six" role="tablist" aria-label="Game Centre views" data-group="centre">
+  <button id="centre-standings" data-tab="standings" role="tab" type="button" aria-controls="centre-standings-panel" aria-selected="true" tabindex="0">Standings</button>
+  <button id="centre-opponent" data-tab="opponent" role="tab" type="button" aria-controls="centre-opponent-panel" aria-selected="false" tabindex="-1">Opponents</button>
+  <button id="centre-lineup" data-tab="lineup" role="tab" type="button" aria-controls="centre-lineup-panel" aria-selected="false" tabindex="-1">Lineup</button>
+  <button id="centre-goalies" data-tab="goalies" role="tab" type="button" aria-controls="centre-goalies-panel" aria-selected="false" tabindex="-1">Goaltenders</button>
+  <button id="centre-rankings" data-tab="rankings" role="tab" type="button" aria-controls="centre-rankings-panel" aria-selected="false" tabindex="-1">Power Rankings</button>
+  <button id="centre-coaching" data-tab="coaching" role="tab" type="button" aria-controls="centre-coaching-panel" aria-selected="false" tabindex="-1">Coaching</button>
+ </nav>
+ <div id="centre-standings-panel" class="tab-panel" role="tabpanel" data-group="centre" data-name="standings" aria-labelledby="centre-standings">
+  <div class="division-identity">
+   <img class="division-patch" id="division-patch" src="./assets/approved/andrew_cristillo.webp" alt="Andrew Cristillo dedication patch">
+   <div class="division-title"><div class="eyebrow">THE SPORTS VILLAGE HOCKEY LEAGUE</div><h3 id="division-heading">The Cristillo Division</h3><p id="division-description">Official Sunday Winter standings · 2026/27</p></div>
+  </div>
+  <div class="selectrow"><label for="division-select">Select division</label>
+    <select id="division-select" aria-label="Choose Sunday adult division"><option value="The Cristillo Division">Cristillo Division</option></select></div>
+  <p class="meta" id="standings-status" role="status">Checking official SVHL division results…</p>
+  <table class="table standings-table" aria-label="Full selected Sunday division standings"><thead><tr>
+   <th>Team</th><th>GP</th><th>W-L-T</th><th>Pts</th><th>Win %</th><th>GF</th><th>GA</th><th>Streak</th>
+  </tr></thead><tbody id="standings-rows"><tr><td colspan="8">Checking standings…</td></tr></tbody></table>
+  <p class="source-note">Win % counts a tie as half a win. Streaks are calculated only from source-verified, consecutive completed results.</p>
+  <div class="action-row"><a href="./standings-v2.html" target="_blank" rel="noopener noreferrer">Division Centre ↗</a>
+   <a href="https://leagues.sportsvillage.ca/Leagues.aspx?leagueid=570&amp;page_type=Adult&amp;sc=HOCKEY" target="_blank" rel="noopener noreferrer">Official SVHL Standings ↗</a></div>
+ </div>
+ <div id="centre-opponent-panel" class="tab-panel" role="tabpanel" data-group="centre" data-name="opponent" aria-labelledby="centre-opponent" hidden>
+  <div class="section-title"><div class="eyebrow">KNOW WHO YOU'RE PLAYING</div><h3>Opponent Scouting</h3><p>Recent results and verified strength context, in plain language.</p></div>
+  <div class="selectrow"><label for="opponent-select">Choose opponent</label><select id="opponent-select" aria-label="Select adult Sunday opponent"><option value="">Checking teams…</option></select></div>
+  <div id="opponent-card" class="opponent-card" role="status">Checking source-verified opponent intelligence…</div>
+  <div class="action-row"><a id="opponent-details-link" href="./league-intelligence.html" target="_blank" rel="noopener noreferrer">Complete Scouting Report ↗</a><a href="./division-fit-lab.html" target="_blank" rel="noopener noreferrer">Division Fit Lab ↗</a></div>
+ </div>
+ <div id="centre-lineup-panel" class="tab-panel" role="tabpanel" data-group="centre" data-name="lineup" aria-labelledby="centre-lineup" hidden>
+  <div class="section-title"><div class="eyebrow">NEXT GAME · PLAYER AVAILABILITY</div><h3>Brave H.C. Lineup Card</h3><p id="lineup-fixture">Checking the next official fixture…</p></div>
+  <div class="lineup-status" id="lineup-notice" role="status">Lineup awaiting manager approval; private WhatsApp votes are not published.</div>
+  <div class="lineup-card" aria-label="Blank team lineup card, positions to be filled after approval" id="lineup-card"></div>
+  <p class="source-note">A WhatsApp Yes is availability, not an assigned position or an accepted call-up. Names appear only after source verification and manager approval. The public page cannot read private poll responses directly.</p>
+  <div class="action-row"><a href="https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&amp;s=hockey&amp;p=roster" target="_blank" rel="noopener noreferrer">Official Team Roster ↗</a></div>
+ </div>
+ <div id="centre-goalies-panel" class="tab-panel" role="tabpanel" data-group="centre" data-name="goalies" aria-labelledby="centre-goalies" hidden>
+  <div class="section-title"><div class="eyebrow">UPCOMING FIXTURES</div><h3>Goaltender Schedule</h3></div>
+  <p class="meta" id="goalie-status" role="status">Checking published assignments…</p>
+  <table class="table goalie-table" aria-label="Upcoming SVHL goaltender assignments">
+   <thead><tr><th>Game</th><th>Time</th><th>Goalie</th></tr></thead>
+   <tbody id="goalie-rows"><tr><td colspan="3">Checking games…</td></tr></tbody></table>
+  <div class="action-row"><a href="./goalie-schedule-v1.2-HTO-embed.html" target="_blank" rel="noopener noreferrer">Full Goaltender Schedule ↗</a><a href="https://leagues.sportsvillage.ca/Leagues.aspx?leagueid=570&amp;page_type=Adult&amp;sc=HOCKEY" target="_blank" rel="noopener noreferrer">Official SVHL ↗</a></div>
+ </div>
+ <div id="centre-rankings-panel" class="tab-panel" role="tabpanel" data-group="centre" data-name="rankings" aria-labelledby="centre-rankings" hidden>
+  <div class="section-title"><div class="eyebrow">SUNDAY ADULT HOCKEY · HOCKEYOS ANALYSIS</div><h3>Power Rankings</h3><p>All competitive Sunday clubs, compared with source-qualified strength analysis.</p></div>
+  <p id="rankings-status" role="status" class="meta">Checking league source model…</p>
+  <table class="table ranking-table" aria-label="Source-qualified Sunday club power rankings"><thead><tr><th>Rank</th><th>Club</th><th>Division</th><th>Strength</th></tr></thead><tbody id="rankings-rows"></tbody></table>
+  <div class="rank-pagination"><button type="button" id="rank-prev">Previous</button><span id="rank-page" aria-live="polite"></span><button type="button" id="rank-next">Next</button></div>
+  <div class="selectrow"><label for="rank-team-select">Examine a team's schedule and division record</label><select id="rank-team-select"><option value="">Select team…</option></select></div>
+  <div id="rank-team-detail" class="research-card">Select a club to inspect verified opposition and its current division.</div>
+  <div class="research-card movement-box"><div class="eyebrow">OBSERVED DIVISION MOVES</div><div id="division-movements">Checking the movement ledger…</div></div>
+  <p class="source-note">Strength is a descriptive 0–100 HockeyOS context index, not a win probability. Comparisons span Fazzari, Cristillo and Remax; VAHL and playoff placeholder teams are excluded. Division change dates are observation dates, not necessarily effective dates.</p>
+  <div class="action-row"><a href="./league-intelligence.html" target="_blank" rel="noopener noreferrer">Full League Intelligence ↗</a><a href="./division-fit-lab.html" target="_blank" rel="noopener noreferrer">Research Division Changes ↗</a></div>
+ </div>
+ <div id="centre-coaching-panel" class="tab-panel" role="tabpanel" data-group="centre" data-name="coaching" aria-labelledby="centre-coaching" hidden>
+  <div class="section-title"><div class="eyebrow">BRAVE H.C. · TEAM IDENTITY</div><h3>Coaching Board</h3><p>Simple reminders for the team's defensive structure.</p></div>
+  <div class="coach-card"><div class="coach-title">Our System <strong>1–2–2</strong></div>
+   <p class="coach-lead">Protect the middle. Force the puck carrier outside. Stay in your lane.</p>
+   <div class="coaching-roles">
+    <div><b>F1 · Centre</b><span>Pressure the puck carrier and angle play toward the boards.</span></div>
+    <div><b>F2 / F3 · Wingers</b><span>Hold your sides, close central lanes and avoid chasing the puck across the ice.</span></div>
+    <div><b>Defence</b><span>Keep the middle protected and support behind the forwards.</span></div>
+   </div>
+  </div>
+  <div class="coach-card secondary"><div class="eyebrow">GAME-NIGHT ADJUSTMENTS</div><p>Captain and coach assignments will appear only when approved for public release. Private tactics, named matchups and attendance remain off this public page.</p></div>
+  <div class="action-row"><a href="./league-intelligence.html" target="_blank" rel="noopener noreferrer">Prepare Against Opponents ↗</a></div>
+ </div>
+</section>
+<footer class="footer">HTO &amp; SVHL public records · HockeyOS source-qualified analysis. No unverified roster, private poll vote or predicted game result is published.</footer>
+</main></body></html>
