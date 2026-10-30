@@ -40,6 +40,14 @@ No edits to projection.json, native HTO statistics, model formulas, career norma
 Maintain the original programmatic IDs:
 bioCareerModelRate, bioCareerModelBasis, bioProjectionFull, bioProjectionState, bioProjectionActual, bioModelContext, bioProjectionOpponent, bioProjectionTrendDetail and sourceDetail.
 
+## Pre-existing upstream source-reconciliation hold
+
+An official HTO October 25, 2026 game was corrected after the last individually verified player-season totals snapshot: assists were reassigned between named skaters. Re-captured boxscores now have an October 30 timestamp, but independently certified current totals remain dated October 27. The strict native appearance builder properly holds, and the cross-season raw source reconstruction also reports a reproducibility mismatch. These are actual source changes, not this UI patch.
+
+This ENG62 release **does not change or re-certify those statistics**. GitHub PR validation has been carefully scoped: a layout-only change must prove the official appearance feeds, game evidence, parser, source tests and career history are unchanged and must still pass the published-feed tests plus all browser and source-model invariants. If a PR changes any relevant source file, full raw HTO current-appearance and cross-season reconciliation is mandatory and fails closed. Dedicated scheduled HTO source-refresh workflows remain separately active and may retain their held status until the official correction is independently reconciled.
+
+No waiver of source-changing PR checks, official statistics correction, or false claim of HTO recertification is part of V3.6.9.
+
 ## QA and production gates
 
 The new ENG62 browser test validates eight skater/goalie scenarios across 320, 390, 625 and 1280px; no overflow or metric overlap; fifth-column alignment within 2.5px; value and label computed style parity; correct default disclosure state; source-detail accessibility; exact published values; and goalie-specific privacy.

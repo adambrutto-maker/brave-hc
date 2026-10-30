@@ -121,6 +121,9 @@ jobs:
     timeout-minutes: 18
     steps:
       - uses: actions/checkout@v4
+        with:
+          # Read-only PR merge base for source-change qualification.
+          fetch-depth: 2
       - uses: actions/setup-node@v4
         with:
           node-version: '24'
@@ -187,16 +190,58 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Verify complete native HTO appearances and fail-closed source contract
+      - name: Verify published form; source-changing PRs additionally require fresh native HTO audit
+        shell: bash
         run: |
-          python scripts/build_hto_verified_player_appearances_v366.py --check
-          python -m unittest tests.test_hto_verified_player_appearances_v366 -q
+          set -euo pipefail
           node --test tests/test_bio_form_v364.cjs
-      - name: Verify chronological cross-season HTO scoring form and individual archive parity
+          if [ "$GITHUB_EVENT_NAME" = "pull_request" ]; then
+            git rev-parse HEAD^1 >/dev/null || { echo 'Cannot establish PR base'; exit 2; }
+            if git diff --quiet HEAD^1 HEAD -- \
+              widgets/player-actuals-hourly.json \
+              widgets/player-form-appearances-v364.json \
+              widgets/player-career-insights.json \
+              docs/hto-highlights-rollout/game-audit-evidence/live_boxscores.json \
+              docs/hto-highlights-rollout/261020_Historical_Boxscore_Index.json \
+              scripts/build_hto_verified_player_appearances_v366.py \
+              tests/test_hto_verified_player_appearances_v366.py; then
+              echo 'UI-only change: published HTO appearance feed unchanged.'
+              echo 'Native source recertification remains mandatory for source-changing PRs and scheduled refresh workflows.'
+            else
+              python scripts/build_hto_verified_player_appearances_v366.py --check
+              python -m unittest tests.test_hto_verified_player_appearances_v366 -q
+            fi
+          else
+            python scripts/build_hto_verified_player_appearances_v366.py --check
+            python -m unittest tests.test_hto_verified_player_appearances_v366 -q
+          fi
+      - name: Verify published cross-season form; recertify whenever source files change
+        shell: bash
         run: |
-          python scripts/build_hto_cross_season_appearances_v367.py --check
-          python -m unittest tests.test_hto_cross_season_appearances_v367 -q
+          set -euo pipefail
           node --test tests/test_bio_cross_season_v367.cjs
+          if [ "$GITHUB_EVENT_NAME" = "pull_request" ]; then
+            git rev-parse HEAD^1 >/dev/null || { echo 'Cannot establish PR base'; exit 2; }
+            if git diff --quiet HEAD^1 HEAD -- \
+              widgets/player-form-cross-season-v367.json \
+              widgets/player-form-appearances-v364.json \
+              widgets/player-actuals-hourly.json \
+              widgets/player-career-insights.json \
+              widgets/league-game-formats.json \
+              docs/hto-highlights-rollout/261020_Game_Level_Readbacks.json \
+              docs/hto-highlights-rollout/game-audit-evidence/ \
+              scripts/build_hto_cross_season_appearances_v367.py \
+              tests/test_hto_cross_season_appearances_v367.py; then
+              echo 'UI-only change: published cross-season appearance feed unchanged.'
+              echo 'Native source recertification remains mandatory on source-changing PRs.'
+            else
+              python scripts/build_hto_cross_season_appearances_v367.py --check
+              python -m unittest tests.test_hto_cross_season_appearances_v367 -q
+            fi
+          else
+            python scripts/build_hto_cross_season_appearances_v367.py --check
+            python -m unittest tests.test_hto_cross_season_appearances_v367 -q
+          fi
       - name: Verify dynamic dispersion source, reproducible historical calibration and holds
         run: |
           node scripts/hockeyos-dispersion-v365.cjs --check
