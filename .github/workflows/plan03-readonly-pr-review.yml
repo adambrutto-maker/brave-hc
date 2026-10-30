@@ -1,0 +1,38 @@
+# Plan03 review-only checks. This workflow never refreshes or publishes source records.
+name: Plan03 read-only pull-request QA
+
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize, reopened, ready_for_review]
+    paths:
+      - 'scripts/audit_plan03_integrated_497_fullcalc.py'
+      - 'tests/test_plan03_integrated_497_fullcalc.py'
+      - '.github/workflows/plan03-readonly-pr-review.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: plan03-readonly-pr-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  test-plan03:
+    if: github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check out proposed PR merged code without persistent credentials
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 1
+      - name: Set up isolated Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run offline Plan03 regression suite only
+        env:
+          PYTHONDONTWRITEBYTECODE: '1'
+        run: python -m unittest discover -s tests -p 'test_plan03_*.py' -q
