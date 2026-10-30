@@ -42,6 +42,13 @@ on:
       - 'widgets/player-bio-form-v364.js'
       - 'widgets/player-bio-form-v364.css'
       - 'widgets/player-form-appearances-v364.json'
+      - 'scripts/build_hto_verified_player_appearances_v366.py'
+      - 'tests/test_hto_verified_player_appearances_v366.py'
+      - 'tests/test_hto_recent_form_v366_browser.cjs'
+      - 'docs/hto-highlights-rollout/game-audit-evidence/live_boxscores.json'
+      - 'docs/hto-highlights-rollout/261020_Historical_Boxscore_Index.json'
+      - 'widgets/player-actuals-hourly.json'
+      - '.github/workflows/hockeyos-verified-appearances-refresh-v366.yml'
       - 'widgets/home-panels.html'
       - 'widgets/home-premium.js'
       - 'widgets/home-trend-v364.css'
@@ -161,8 +168,15 @@ jobs:
         run: node --test tests/test_player_bio_rolling_career.cjs
       - name: Verify position-only coaching and source-held personal streaks
         run: node --test tests/test_player_bio_coaching_roles.cjs tests/test_player_bio_positive_streaks.cjs
-      - name: Verify current/recent scoring form fails closed without individual appearances
-        run: node --test tests/test_bio_form_v364.cjs
+      - name: Use Python 3.12 for official HTO appearance evidence
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify complete native HTO appearances and fail-closed source contract
+        run: |
+          python scripts/build_hto_verified_player_appearances_v366.py --check
+          python -m unittest tests.test_hto_verified_player_appearances_v366 -q
+          node --test tests/test_bio_form_v364.cjs
       - name: Verify dynamic dispersion source, reproducible historical calibration and holds
         run: |
           node scripts/hockeyos-dispersion-v365.cjs --check
@@ -186,7 +200,9 @@ jobs:
         run: node --test tests/test_bio_v36_source_angle.cjs
       - name: Verify adaptive five-level team-dispersion badges and physical angles across Bio and Home
         run: node tests/test_eng61_adaptive_v365_browser.cjs
-      - name: Verify source-held recent form and original current HTO P/GP calculations
+      - name: Verify independently reconciled recent P/GP and tampered-source browser holds
+        run: node tests/test_hto_recent_form_v366_browser.cjs
+      - name: Verify source-qualified Last 3/5 P/GP and held Last 10
         run: node --test tests/test_bio_form_v364.cjs
       - name: Test all 109 verified HTO identities across three tabs at narrow embed width
         run: node tests/test_bio_v31_clean_109_browser.cjs
