@@ -6,8 +6,8 @@
     "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=records",
     "authority": "OFFICIAL_HTO_PUBLIC_READBACK"
   },
-  "capturedAt": "2026-10-30T00:55:40.345617+00:00",
-  "stalePolicy": "Verified public HTO readback. Scheduled refresh preserves existing entries and requires manual review for removals, revisions or uncertain identities.",
+  "capturedAt": "2026-10-28T13:39:36.203626+00:00",
+  "stalePolicy": "HTO official native Records 463-statistical-entry source. Scheduled refresh requires manual review for changed rows or uncertain identity. Three new source-proven entries are Summer GTG and two all-seasons Team streak records. Source year-only labels are not invented as calendar days; immutable historical 558-entry archive is separate.",
   "pageTitle": "Brave H.C. Records & Achievements",
   "entryCount": 463,
   "groups": [
@@ -1258,5 +1258,6 @@
         "18 - vs. Mid Ice Crisis (0-3) (2025-04-06)"
       ]
     }
-  ]
+  ],
+  "displayVerifiedAt": "2026-10-30T01:02:10.562012+00:00"
 }

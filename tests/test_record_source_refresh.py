@@ -70,7 +70,8 @@ class SourceRefreshTests(unittest.TestCase):
         revised,book=refresh.sync_published(self.history,self.book,source,'later')
         self.assertEqual(revised['groups'],source)
         self.assertEqual(revised['entryCount'],463)
-        self.assertEqual(revised['capturedAt'],'later')
+        self.assertEqual(revised['capturedAt'],self.history['capturedAt'])
+        self.assertEqual(revised['displayVerifiedAt'],'later')
         self.assertEqual(book,self.book)
         self.assertEqual(refresh.inventory(revised['groups']),refresh.inventory(self.history['groups']))
 

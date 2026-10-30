@@ -191,6 +191,16 @@ def sync_published(history, book, groups, now):
             entry = dict(category=group['category'],scope=group['period'],sourceText=source,value=match[1],dateLabel=match[3],kind='milestone' if re.match(r'^\d+ (?:Game|Point|Win) Club$',group['category']) else 'performance')
             result['players'][matches[0]]['entries'].append(entry)
     updated = copy.deepcopy(history)
+    if semantic_inventory(groups) == semantic_inventory(history['groups']):
+        if groups == history['groups']:
+            return history, book
+        # Only verified formatting or group order changed, not the original
+        # record/owner snapshot. Keep capturedAt aligned with the player book,
+        # and record the newer visual-source readback separately.
+        updated.update(groups=groups,
+                       entryCount=sum(len(g['items']) for g in groups),
+                       displayVerifiedAt=now)
+        return updated, book
     if inventory(groups) != inventory(history['groups']):
         updated.update(groups=groups, entryCount=sum(len(g['items']) for g in groups), capturedAt=now)
         if result['players'] != book['players']:

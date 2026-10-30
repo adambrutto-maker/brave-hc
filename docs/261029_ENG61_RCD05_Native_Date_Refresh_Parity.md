@@ -36,6 +36,8 @@ Read-only live acceptance passed:
 - Exact semantic parity: 463/463
 - Date display changes: seven
 - Player record book unchanged: true
+- Original statistical snapshot `capturedAt` remains aligned with the immutable player record book; newer public date-format verification is documented separately as `displayVerifiedAt`.
+- The read-only 109-player Highlights parity register is regenerated from the approved history hash, preserving 230/230 verified individual record marks (82 SET, 148 TIED) and preventing a stale source-hash audit.
 - HTO native writes: zero
 - Reconciliation audit source-widget writes: zero
 
