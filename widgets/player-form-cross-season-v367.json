@@ -43,7 +43,7 @@
     "docs/hto-highlights-rollout/game-audit-evidence/261020_Continued_Boxscores_21.json": "386ae945e7687c780d3f3a48de6cace1db12379bbd54d32d5295ead61a04b096",
     "docs/hto-highlights-rollout/game-audit-evidence/261020_Continued_Boxscores_22.json": "b735667c3a599e606861243d89bf194985ccecbf30788e6529e40b6ae08721f0",
     "docs/hto-highlights-rollout/game-audit-evidence/261020_Continued_Boxscores_23.json": "99d16ff0f1a4758868bb1d6a336919d1d364b0bbff6c5b5ebd5918467f954075",
-    "docs/hto-highlights-rollout/game-audit-evidence/live_boxscores.json": "7217dd9d8ece3137053fe5bbb92fc72c89b0ee6e3f37880a6000071d795d9866"
+    "docs/hto-highlights-rollout/game-audit-evidence/live_boxscores.json": "2faf8f2a86717bf48e247ded6107639e05f7f305f79ef9df9bec09bb64f296da"
   },
   "scoringBasis": {
     "rawRate": "Raw sum of points divided by actual player appearances.",
