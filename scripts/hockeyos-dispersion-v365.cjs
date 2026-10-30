@@ -4,6 +4,7 @@
 const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto');
 const ROOT=path.resolve(__dirname,'..'),WD=path.join(ROOT,'widgets');
 const read=name=>JSON.parse(fs.readFileSync(path.join(WD,name),'utf8'));
+const adaptive=require('../widgets/hockeyos-adaptive-trend-v365.js');
 const int=n=>Number.isSafeInteger(n)&&n>=0;
 const positive=n=>typeof n==='number'&&Number.isFinite(n)&&n>0;
 const numeric=n=>typeof n==='number'&&Number.isFinite(n);
@@ -122,7 +123,75 @@ function historical(archive,formats,activeSeason){
   audit};
  return {reference:ref,perPlayer,records};
 }
-function current(projection,feed,reference,now=new Date()){
+// Official HTO current appearance totals are useful for sample-size disclosure.
+ // They NEVER certify a provisional forecast as accurate. Do not infer an
+ // unrecorded player has zero GP unless roster-specific evidence is available.
+ function playerEvidence(projection,feed){
+  const held=reason=>({status:'HELD',reason,season:projection.season,
+   players:[],teamGP:null,asOf:null});
+  if(feed?.schema!=='brave-hc-hto-player-actuals/v1'||
+    feed.status!=='VERIFIED_HTO_CURRENT'||
+    projection.season!==feed.season||
+    !int(feed.teamGP)||feed.teamGP<1||
+    feed.teamGP!==projection.sourceInputs?.htoRecordedTeamGP||
+    !Array.isArray(feed.players)||!Array.isArray(projection.players))
+    return held('OFFICIAL_CURRENT_GP_SOURCE_OR_TEAM_GAMES_MISMATCH');
+  const asOf=Date.parse(feed.asOf);
+  if(!Number.isFinite(asOf))return held('OFFICIAL_HTO_GP_DATE_UNVERIFIED');
+  const byName=new Map();
+  for(const row of feed.players){
+   if(typeof row?.name!=='string'||byName.has(row.name)||
+     ![row.gp,row.g,row.a,row.pts].every(int)||
+     row.gp>feed.teamGP||row.g+row.a!==row.pts||
+     (row.gp===0&&row.pts>0))
+    return held('DUPLICATE_OR_INVALID_HTO_PLAYER_ACTUAL');
+   byName.set(row.name,row);
+  }
+  const repeated=new Map();
+  for(const row of projection.players){
+   if(typeof row?.name!=='string'||!numeric(row.currentGP)||row.currentGP<0)
+    return held('PROJECTION_CURRENT_GP_SOURCE_INVALID');
+   if(numeric(row.trend)&&row.trendInputs?.seasonScoringRate===0)
+    repeated.set(row.trend,(repeated.get(row.trend)||0)+1);
+  }
+  const players=[],seen=new Set();
+  const tiers={MORE_OBSERVED_GAMES:0,DEVELOPING_SAMPLE:0,
+    LIMITED_SAMPLE:0,NO_VERIFIED_CURRENT_APPEARANCES:0};
+  let sharedZeroScoringOutputs=0;
+  for(const row of projection.players){
+   if(seen.has(row.name))return held('DUPLICATE_PROJECTION_PLAYER');
+   seen.add(row.name);
+   const person=byName.get(row.name);
+   if(person&&(person.gp!==row.currentGP||
+      (int(row.currentG)&&person.g!==row.currentG)||
+      (int(row.currentA)&&person.a!==row.currentA)))
+    return held('PROJECTION_CURRENT_GP_OR_STATS_DISAGREE_WITH_HTO');
+   if(!person&&row.currentGP!==0)return held('MISSING_OFFICIAL_PLAYER_FOR_RECORDED_GP');
+   const gp=person?person.gp:null;
+   const tier=gp===null?'NO_VERIFIED_CURRENT_APPEARANCES':
+    gp>=5?'MORE_OBSERVED_GAMES':gp>=3?'DEVELOPING_SAMPLE':
+    gp>=1?'LIMITED_SAMPLE':'NO_VERIFIED_CURRENT_APPEARANCES';
+   if(gp===0)return held('ZERO_GP_CANNOT_BE_ASSIGNED_FROM_INDIVIDUAL_ACTUAL_ROW');
+   const groupSize=row.trendInputs?.seasonScoringRate===0?
+     (repeated.get(row.trend)||0):0;
+   const sharedZeroScoringOutput=groupSize>=3;
+   if(sharedZeroScoringOutput)sharedZeroScoringOutputs++;
+   tiers[tier]++;
+   players.push({name:row.name,verifiedGP:gp,tier,
+     sharedZeroScoringOutput,groupSize:sharedZeroScoringOutput?groupSize:1,
+     forecastProvisional:projection.modelCurrent!==true||projection.projectionComplete!==true,
+     reason:gp===null?'NO_INDIVIDUAL_GP_IN_OFFICIAL_SEASON_FEED':
+       sharedZeroScoringOutput?'SHARED_ZERO_SCORING_MODEL_COMPONENT':
+       'OFFICIAL_CURRENT_GP_SAMPLE_ONLY'});
+  }
+  return {status:'VERIFIED_CURRENT_HTO_GP_ONLY',
+   sourceAuthority:'OFFICIAL_VERIFIED_HTO_CURRENT_SEASON_TOTALS_NOT_FORECAST_CERTIFICATION',
+   season:feed.season,teamGP:feed.teamGP,asOf:feed.asOf,
+   officialPlayerCount:byName.size,projectionPlayerCount:players.length,
+   sharedZeroScoringOutputs,sampleSizeTiers:tiers,players,
+   definition:'GP exposure indicates source observation count, never probability of a correct forecast.'};
+ }
+ function current(projection,feed,reference,now=new Date()){
  const held=reason=>({status:'HELD',reason,weight:0,qualifiedPlayers:0});
  if(projection?.modelCurrent!==true||projection?.projectionComplete!==true)
   return held('FORECAST_PROVISIONAL_OR_UNRECONCILED');
@@ -156,13 +225,33 @@ function current(projection,feed,reference,now=new Date()){
  }
  const coverage=known.length?rows.length/known.length:0;
  if(rows.length<6||coverage<.4)return held('LIVE_ELIGIBILITY_INSUFFICIENT');
- const values=rows.map(x=>x.pct),D=median(values.map(Math.abs));
+ // A workbook fallback shared by many zero-scoring rows is one independent
+ // MODEL assumption, not many independent confirmations of a decline.
+ const fallbackCounts=new Map();
+ for(const p of known){
+  if(p.trendInputs?.seasonScoringRate===0&&numeric(p.trend))
+   fallbackCounts.set(p.trend,(fallbackCounts.get(p.trend)||0)+1);
+ }
+ const distinct=[],seenFallback=new Set();
+ for(const r of rows.slice().sort((a,b)=>b.gp-a.gp)){
+  const original=known.find(p=>p.name===r.name);
+  const group=original?.trendInputs?.seasonScoringRate===0&&
+    (fallbackCounts.get(r.pct)||0)>=3 ? r.pct : null;
+  if(group!==null&&seenFallback.has(group))continue;
+  if(group!==null)seenFallback.add(group);
+  distinct.push(r);
+ }
+ if(distinct.length<6)return held('INDEPENDENT_MODEL_SIGNAL_COVERAGE_INSUFFICIENT');
+ const values=rows.map(x=>x.pct);
+ const D=median(distinct.map(x=>Math.abs(x.pct)));
  if(!numeric(D))return held('LIVE_DISPERSION_NOT_FINITE');
  const priorEquivalent=Math.max(1,reference.medianQualifyingSeasonGP*5);
  const confidence=Math.min(.8,(gpSum/(gpSum+priorEquivalent))*Math.min(1,rows.length/8));
  return {status:'CURRENT_VERIFIED',dispersion:D,
   teamMedianDirection:median(values),playerToPlayerMAD:median(values.map(x=>Math.abs(x-median(values)))),
   qualifiedPlayers:rows.length,eligiblePlayers:known.length,qualifiedPlayerGP:gpSum,
+  independentModelSignals:distinct.length,
+  correlatedFallbackRowsExcluded:rows.length-distinct.length,
   minimumPlayerGP:minGP,playerCoverage:coverage,confidence,weight:confidence,
   sourceAsOf:feed.asOf,teamGP:feed.teamGP,
   evidenceScope:'QUALIFIED_RECONCILED_CURRENT_MODEL_PERCENT_TRENDS',qualifiedNames:rows.map(x=>x.name)};
@@ -181,14 +270,14 @@ function build(options={}){
  const scale=cur.status==='CURRENT_VERIFIED'?
   Math.min(H.historicalScaleBounds.max,Math.max(H.historicalScaleBounds.min,
     (1-cur.confidence)*H.dispersion+cur.confidence*cur.dispersion)):H.dispersion;
- const boundaries={neutral:H.multipliers.neutral*scale,
-  cold:H.multipliers.cold*scale,hot:H.multipliers.hot*scale};
- if(!(positive(scale)&&boundaries.neutral<boundaries.cold&&boundaries.neutral<boundaries.hot))
+ const boundaries=adaptive.thresholdsFor(scale);
+ if(!(positive(scale)&&boundaries&&
+   boundaries.neutral<boundaries.cold&&boundaries.neutral<boundaries.hot))
   throw Error('DYNAMIC_BOUNDS_INVALID');
  const sha=crypto.createHash('sha256').update(JSON.stringify(p)).digest('hex');
  const status=cur.status==='CURRENT_VERIFIED'?'LIVE_DYNAMIC_VERIFIED':'HISTORICAL_REFERENCE_ONLY';
- return {schema:'hockeyos-team-career-relative-dispersion/v1',version:'3.6.5',
-  status,calibrationStatus:'HISTORICAL_SEASON_DERIVED_NOT_FORECAST_BACKTEST_VALIDATED',
+ return {schema:'hockeyos-team-career-relative-dispersion/v1',version:'3.6.8',
+  status,calibrationStatus:'HISTORICAL_SCALE_WITH_APPROVED_VISUAL_BAND_POLICY_NOT_FORECAST_BACKTEST_VALIDATED',
   generatedAt:cur.status==='CURRENT_VERIFIED'?feed.asOf:p.exportedAt,model:{
    sourceSeason:p.season,projectionExportedAt:p.exportedAt,
    workbookSourceHash:p.workbookSourceHash||null,projectionCanonicalHashSHA256:sha,
@@ -206,11 +295,13 @@ function build(options={}){
   effective:{dispersion:scale,weight:cur.status==='CURRENT_VERIFIED'?cur.confidence:0,
    lowerScaleBound:H.historicalScaleBounds.min,upperScaleBound:H.historicalScaleBounds.max,
    referenceMode:status,
+   bandPolicy:{...adaptive.BAND_POLICY},
    thresholds:boundaries,
    orientation:'0_UP_90_RIGHT_180_DOWN',
    angleFormula:'90 - 180/Math.PI * atan(p / effectiveDispersion)',
    sourceModelIndependentOfStandardDeviation:true
   },
+  playerEvidence:playerEvidence(p,feed),
   qualification:{history:'PREVIOUS_SEASONS_ONLY_WITH_CAREER_BASELINE',
    current:'RECONCILED_FORECAST_AND_LIVE_ACTUALS_ONLY',
    avoidsRepeatedLowGPDeltas:true,
@@ -240,7 +331,13 @@ if(require.main===module){
  }
  console.log(JSON.stringify({status:out.status,historical:out.historical.dispersion,
   current:out.current.status,weight:out.effective.weight,
-  thresholds:out.effective.thresholds,sample:out.historical.effectiveSample,
+  thresholds:out.effective.thresholds,
+  evidence:out.playerEvidence.status==='VERIFIED_CURRENT_HTO_GP_ONLY'?
+    {officialPlayers:out.playerEvidence.officialPlayerCount,
+     sampleTiers:out.playerEvidence.sampleSizeTiers,
+     sharedModelRows:out.playerEvidence.sharedZeroScoringOutputs}:
+    {held:out.playerEvidence.reason},
+  sample:out.historical.effectiveSample,
   sourceHash:out.model.projectionCanonicalHashSHA256,write:process.argv.includes('--write')}));
 }
-module.exports={build,historical,current,quantile,weightedQuantile,seasonKey};
+module.exports={build,historical,current,playerEvidence,quantile,weightedQuantile,seasonKey};

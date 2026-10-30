@@ -59,7 +59,7 @@ test('inclusive neutral, cold and hot boundaries are exact and independent of so
  const original=p.players.find(x=>x.name==='Saindon, Stephane');
  // The new display classifies independently of any workbook standard deviation.
  const r=a.classify(original,cloned,disp);
- assert.equal(r.status,'VERIFIED');assert.equal(r.level,'NEUTRAL');
+ assert.equal(r.status,'VERIFIED');assert.equal(r.level,'COOL');
  assert.equal(r.percentage,original.trend);
 });
 test('published percentages and individual angle remain source-parity exact',()=>{

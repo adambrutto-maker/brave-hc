@@ -94,7 +94,7 @@ test('current HTO rates and original workbook classification remain unchanged un
  assert.equal(diff.level,'COLD'); // Retained V3.6 legacy source-contract comparison only.
  const currentAdaptive=adaptive.compareRate(1,1.14,dispersion,projection);
  assert.equal(currentAdaptive.status,'VERIFIED');
- assert.equal(currentAdaptive.level,'NEUTRAL');
+ assert.equal(currentAdaptive.level,'COOL');
  assert.equal(currentAdaptive.mode,'HISTORICAL_REFERENCE_ONLY');
  assert.deepEqual(projection.conditionalFormatting.arrowIconSet.thresholds,{
     AB100:-2*sigma,AB99:-sigma,AB97:.5*sigma,AB96:sigma

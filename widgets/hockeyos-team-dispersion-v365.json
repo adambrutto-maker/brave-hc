@@ -1,8 +1,8 @@
 {
   "schema": "hockeyos-team-career-relative-dispersion/v1",
-  "version": "3.6.5",
+  "version": "3.6.8",
   "status": "HISTORICAL_REFERENCE_ONLY",
-  "calibrationStatus": "HISTORICAL_SEASON_DERIVED_NOT_FORECAST_BACKTEST_VALIDATED",
+  "calibrationStatus": "HISTORICAL_SCALE_WITH_APPROVED_VISUAL_BAND_POLICY_NOT_FORECAST_BACKTEST_VALIDATED",
   "generatedAt": "2026-10-30T00:31:25.868996+00:00",
   "model": {
     "sourceSeason": "W2026/27",
@@ -82,14 +82,238 @@
     "lowerScaleBound": 0.12938301816886877,
     "upperScaleBound": 0.6531944835350408,
     "referenceMode": "HISTORICAL_REFERENCE_ONLY",
+    "bandPolicy": {
+      "key": "NEUTRAL_5DEG_MAX_3P5_OUTER_HALF_D_MAX_20",
+      "neutralAngleHalfWidthDegrees": 5,
+      "neutralMaximumFraction": 0.035,
+      "outerDispersionMultiplier": 0.5,
+      "outerMaximumFraction": 0.2
+    },
     "thresholds": {
-      "neutral": 0.1282051282051282,
-      "cold": 0.28861788617886175,
-      "hot": 0.35582010582010537
+      "neutral": 0.027498525741253107,
+      "cold": 0.15715479373567606,
+      "hot": 0.15715479373567606
     },
     "orientation": "0_UP_90_RIGHT_180_DOWN",
     "angleFormula": "90 - 180/Math.PI * atan(p / effectiveDispersion)",
     "sourceModelIndependentOfStandardDeviation": true
+  },
+  "playerEvidence": {
+    "status": "VERIFIED_CURRENT_HTO_GP_ONLY",
+    "sourceAuthority": "OFFICIAL_VERIFIED_HTO_CURRENT_SEASON_TOTALS_NOT_FORECAST_CERTIFICATION",
+    "season": "W2026/27",
+    "teamGP": 5,
+    "asOf": "2026-10-27T22:53:27.502Z",
+    "officialPlayerCount": 20,
+    "projectionPlayerCount": 22,
+    "sharedZeroScoringOutputs": 8,
+    "sampleSizeTiers": {
+      "MORE_OBSERVED_GAMES": 6,
+      "DEVELOPING_SAMPLE": 7,
+      "LIMITED_SAMPLE": 7,
+      "NO_VERIFIED_CURRENT_APPEARANCES": 2
+    },
+    "players": [
+      {
+        "name": "Carosi, Justin",
+        "verifiedGP": 5,
+        "tier": "MORE_OBSERVED_GAMES",
+        "sharedZeroScoringOutput": false,
+        "groupSize": 1,
+        "forecastProvisional": true,
+        "reason": "OFFICIAL_CURRENT_GP_SAMPLE_ONLY"
+      },
+      {
+        "name": "Saindon, Stephane",
+        "verifiedGP": 4,
+        "tier": "DEVELOPING_SAMPLE",
+        "sharedZeroScoringOutput": false,
+        "groupSize": 1,
+        "forecastProvisional": true,
+        "reason": "OFFICIAL_CURRENT_GP_SAMPLE_ONLY"
+      },
+      {
+        "name": "Provenzano, Michael",
+        "verifiedGP": 4,
+        "tier": "DEVELOPING_SAMPLE",
+        "sharedZeroScoringOutput": false,
+        "groupSize": 1,
+        "forecastProvisional": true,
+        "reason": "OFFICIAL_CURRENT_GP_SAMPLE_ONLY"
+      },
+      {
+        "name": "Kong, Henry",
+        "verifiedGP": 5,
+        "tier": "MORE_OBSERVED_GAMES",
+        "sharedZeroScoringOutput": false,
+        "groupSize": 1,
+        "forecastProvisional": true,
+        "reason": "OFFICIAL_CURRENT_GP_SAMPLE_ONLY"
+      },
+      {
+        "name": "Pearsoll, Keith",
+        "verifiedGP": 4,
+        "tier": "DEVELOPING_SAMPLE",
+        "sharedZeroScoringOutput": false,
+        "groupSize": 1,
+        "forecastProvisional": true,
+        "reason": "OFFICIAL_CURRENT_GP_SAMPLE_ONLY"
+      },
+      {
+        "name": "Povegliano, Adam",
+        "verifiedGP": 4,
+        "tier": "DEVELOPING_SAMPLE",
+        "sharedZeroScoringOutput": false,
+        "groupSize": 1,
+        "forecastProvisional": true,
+        "reason": "OFFICIAL_CURRENT_GP_SAMPLE_ONLY"
+      },
+      {
+        "name": "Pagnotta, Alex",
+        "verifiedGP": 5,
+        "tier": "MORE_OBSERVED_GAMES",
+        "sharedZeroScoringOutput": false,
+        "groupSize": 1,
+        "forecastProvisional": true,
+        "reason": "OFFICIAL_CURRENT_GP_SAMPLE_ONLY"
+      },
+      {
+        "name": "Rosenberg, Jamie",
+        "verifiedGP": 4,
+        "tier": "DEVELOPING_SAMPLE",
+        "sharedZeroScoringOutput": false,
+        "groupSize": 1,
+        "forecastProvisional": true,
+        "reason": "OFFICIAL_CURRENT_GP_SAMPLE_ONLY"
+      },
+      {
+        "name": "Brutto, Adam",
+        "verifiedGP": 5,
+        "tier": "MORE_OBSERVED_GAMES",
+        "sharedZeroScoringOutput": false,
+        "groupSize": 1,
+        "forecastProvisional": true,
+        "reason": "OFFICIAL_CURRENT_GP_SAMPLE_ONLY"
+      },
+      {
+        "name": "Triumbari, Francesco",
+        "verifiedGP": 5,
+        "tier": "MORE_OBSERVED_GAMES",
+        "sharedZeroScoringOutput": false,
+        "groupSize": 1,
+        "forecastProvisional": true,
+        "reason": "OFFICIAL_CURRENT_GP_SAMPLE_ONLY"
+      },
+      {
+        "name": "Kober, Adam",
+        "verifiedGP": 4,
+        "tier": "DEVELOPING_SAMPLE",
+        "sharedZeroScoringOutput": false,
+        "groupSize": 1,
+        "forecastProvisional": true,
+        "reason": "OFFICIAL_CURRENT_GP_SAMPLE_ONLY"
+      },
+      {
+        "name": "Provenzano, Mario",
+        "verifiedGP": 5,
+        "tier": "MORE_OBSERVED_GAMES",
+        "sharedZeroScoringOutput": true,
+        "groupSize": 8,
+        "forecastProvisional": true,
+        "reason": "SHARED_ZERO_SCORING_MODEL_COMPONENT"
+      },
+      {
+        "name": "Rajkumar, Sanjay",
+        "verifiedGP": 4,
+        "tier": "DEVELOPING_SAMPLE",
+        "sharedZeroScoringOutput": false,
+        "groupSize": 1,
+        "forecastProvisional": true,
+        "reason": "OFFICIAL_CURRENT_GP_SAMPLE_ONLY"
+      },
+      {
+        "name": "Duffy, Lorcan",
+        "verifiedGP": 1,
+        "tier": "LIMITED_SAMPLE",
+        "sharedZeroScoringOutput": true,
+        "groupSize": 8,
+        "forecastProvisional": true,
+        "reason": "SHARED_ZERO_SCORING_MODEL_COMPONENT"
+      },
+      {
+        "name": "Paolucci, Anthony",
+        "verifiedGP": 1,
+        "tier": "LIMITED_SAMPLE",
+        "sharedZeroScoringOutput": true,
+        "groupSize": 8,
+        "forecastProvisional": true,
+        "reason": "SHARED_ZERO_SCORING_MODEL_COMPONENT"
+      },
+      {
+        "name": "Mazzei, Stefano",
+        "verifiedGP": null,
+        "tier": "NO_VERIFIED_CURRENT_APPEARANCES",
+        "sharedZeroScoringOutput": true,
+        "groupSize": 8,
+        "forecastProvisional": true,
+        "reason": "NO_INDIVIDUAL_GP_IN_OFFICIAL_SEASON_FEED"
+      },
+      {
+        "name": "Rajasooriar, Krishnan",
+        "verifiedGP": 2,
+        "tier": "LIMITED_SAMPLE",
+        "sharedZeroScoringOutput": true,
+        "groupSize": 8,
+        "forecastProvisional": true,
+        "reason": "SHARED_ZERO_SCORING_MODEL_COMPONENT"
+      },
+      {
+        "name": "Congiusti, Marco",
+        "verifiedGP": null,
+        "tier": "NO_VERIFIED_CURRENT_APPEARANCES",
+        "sharedZeroScoringOutput": true,
+        "groupSize": 8,
+        "forecastProvisional": true,
+        "reason": "NO_INDIVIDUAL_GP_IN_OFFICIAL_SEASON_FEED"
+      },
+      {
+        "name": "Atkins, Nolan",
+        "verifiedGP": 2,
+        "tier": "LIMITED_SAMPLE",
+        "sharedZeroScoringOutput": true,
+        "groupSize": 8,
+        "forecastProvisional": true,
+        "reason": "SHARED_ZERO_SCORING_MODEL_COMPONENT"
+      },
+      {
+        "name": "Pavaday, Damian",
+        "verifiedGP": 1,
+        "tier": "LIMITED_SAMPLE",
+        "sharedZeroScoringOutput": false,
+        "groupSize": 1,
+        "forecastProvisional": true,
+        "reason": "OFFICIAL_CURRENT_GP_SAMPLE_ONLY"
+      },
+      {
+        "name": "Ardizzi, Stefano",
+        "verifiedGP": 1,
+        "tier": "LIMITED_SAMPLE",
+        "sharedZeroScoringOutput": true,
+        "groupSize": 8,
+        "forecastProvisional": true,
+        "reason": "SHARED_ZERO_SCORING_MODEL_COMPONENT"
+      },
+      {
+        "name": "Unknown, Johnny",
+        "verifiedGP": 1,
+        "tier": "LIMITED_SAMPLE",
+        "sharedZeroScoringOutput": false,
+        "groupSize": 1,
+        "forecastProvisional": true,
+        "reason": "OFFICIAL_CURRENT_GP_SAMPLE_ONLY"
+      }
+    ],
+    "definition": "GP exposure indicates source observation count, never probability of a correct forecast."
   },
   "qualification": {
     "history": "PREVIOUS_SEASONS_ONLY_WITH_CAREER_BASELINE",

@@ -289,22 +289,41 @@ function drawProjection(){
   const diffText=num(p.trend)?(p.trend>0?"+":"")+(p.trend*100).toFixed(1)+"%":"unavailable";
   const badge=sharedTrendBadge(p);
   const displayLevel=badge?.dataset.visualLevel||(state.new?(state.label.startsWith("NEW")?"ROOKIE":"HELD"):"HELD");
+  const gpProof=badge?.dataset.verifiedGp;
+  const tier=badge?.dataset.evidenceTier||'UNVERIFIED';
+  const tierPhrase={MORE_OBSERVED_GAMES:'more observed',
+    DEVELOPING_SAMPLE:'developing',LIMITED_SAMPLE:'limited',
+    NO_VERIFIED_CURRENT_APPEARANCES:'unverified'}[tier]||'unverified';
+  const sharedModel=badge?.dataset.sharedModelOutput==='true';
+  const evidenceShort=gpProof?gpProof+' GP | '+(sharedModel?'shared model':tierPhrase):
+    'GP unverified';
+  const evidenceLong=gpProof?
+    gpProof+' verified official GP; '+tierPhrase+' sample'+
+    (sharedModel?'; shared zero-scoring model formula across multiple players':''):
+    'No independent current-game appearance proof for this model player';
   detailTD.textContent="Five-level adaptive visual strength: "+displayLevel+
     ". Original workbook five-arrow category: "+state.label.replace(/ ·.*/,"")+
     ". Historical career RS rate: "+baselineText+" P/G; model scoring-rate component: "+
     modelRate+" P/G; workbook trend: "+diffText+
     ". Displayed projected P/G: "+(num(p.ptsPerGame)?p.ptsPerGame.toFixed(3):"—")+
-    ". Badge sensitivity follows qualified team dispersion; original workbook thresholds and values remain unchanged.";
+    ". Badge sensitivity follows qualified team dispersion; original workbook thresholds and values remain unchanged."+
+    " Current evidence: "+evidenceLong+
+    "; this is a sample-size description, not forecast confidence.";
   details.append(detailTD);
   if(badge){
     badge.classList.add("home-trend-badge");
     badge.querySelector("svg.bio-trend-direction-arrow")?.setAttribute("aria-hidden","true");
     button.dataset.visualLevel=displayLevel;
     button.dataset.workbookCategory=state.label.replace(/ ·.*/,"");
-    button.append(badge,node("span","home-level-word",displayLevel));
+    button.append(badge,node("span","home-level-word",displayLevel),
+      node("span","home-evidence-word",evidenceShort));
+    button.dataset.evidenceTier=tier;
+    button.dataset.sharedModelOutput=String(sharedModel);
+    button.dataset.verifiedGp=gpProof||'';
   }else button.append(node("span","new",state.label.startsWith("NEW")?"NEW":"—"));
   button.title=displayLevel+" team-calibrated display · "+state.label+
-    (num(state.value)?" · workbook "+diffText:"");
+    (num(state.value)?" · workbook "+diffText:"")+
+    " · Evidence: "+evidenceLong+" · Forecast provisional until workbook reconciliation";
   button.setAttribute("aria-label",cleanName(p.name)+": "+button.title+". Show model comparison");
   button.addEventListener("click",()=>{details.hidden=!details.hidden;button.setAttribute("aria-expanded",String(!details.hidden))});
   trendTD.append(button);tr.append(trendTD);table.append(tr,details);

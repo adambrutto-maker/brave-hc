@@ -8,8 +8,8 @@ const timeline=require('../widgets/player-form-cross-season-v367.json');
 const current=require('../widgets/player-form-appearances-v364.json');
 const model=require('../widgets/player-bio-form-model-v364.js');
 const players=[
- {id:'354060',name:'Justin Carosi',rate:0.9,seasons:['W2026/27','W2025/26'],level:'COOL'},
- {id:'738846',name:'Stephane Saindon',rate:1.2,seasons:['W2026/27','W2025/26'],level:'NEUTRAL'},
+ {id:'354060',name:'Justin Carosi',rate:0.9,seasons:['W2026/27','W2025/26'],level:'COLD'},
+ {id:'738846',name:'Stephane Saindon',rate:1.2,seasons:['W2026/27','W2025/26'],level:'COOL'},
  {id:'356089',name:'Stefano Ardizzi',rate:0.9,seasons:['W2026/27','W2025/26','W2024/25']},
  {id:'769343',name:'Nolan Atkins',held:true}
 ];

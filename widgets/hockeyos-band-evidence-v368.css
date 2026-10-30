@@ -1,0 +1,16 @@
+/* ENG61 V3.6.8 — evidence confidence is displayed separately from trend temperature.
+   It describes official GP sample size, never predictive certainty. */
+.bio-career-arrow-panel .bio-trend-evidence{
+  display:block;color:#d9e7f4;font-size:10px;line-height:1.35;
+  text-align:left;font-weight:650;overflow-wrap:anywhere;
+}
+.bio-career-arrow-panel .bio-trend-evidence[data-shared-model-output=true]{
+  color:#f3dbac;
+}
+.projection-table .home-evidence-word{
+  display:block;font-size:8px;line-height:1.2;text-align:center;
+  font-weight:650;color:#d2e4f1;max-width:82px;overflow-wrap:anywhere;
+}
+@media(max-width:450px){
+  .projection-table .home-evidence-word{font-size:7px;max-width:60px}
+}
