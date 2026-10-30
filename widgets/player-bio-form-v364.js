@@ -53,7 +53,7 @@
     new URLSearchParams(location.search).get('playerID')||'');
   grid.replaceChildren();
   if(!id||!sources){status.textContent='Waiting for source-qualified player profile.';return;}
-  const {projection,feed,career,appearances,dispersion}=sources;
+  const {projection,feed,career,appearances,dispersion,crossSeason}=sources;
   const identity=career?.players?.[id];
   const match=identity?.status==='VERIFIED_PROFILE_CAREER_SUM_PARITY'&&
     window.BravePlayerLinks?.identityById(Number(id))?.name===identity.name;
@@ -74,32 +74,55 @@
   const observation=rows.length===1?rows[0]:null;
   const current=observation?model?.currentRate(observation,feed.teamGP):{status:'HELD'};
   const compareResult=(r)=>reference&&r?.status==='VERIFIED'?
-    adaptive?.compareRate(r.rate,careerRate,dispersion,projection)||{status:'HELD'}:{status:'HELD'};
+    adaptive?.compareRate(r.winterEquivalentRate??r.rate,careerRate,dispersion,projection)||{status:'HELD'}:{status:'HELD'};
   card('CURRENT SEASON',current,current?.status==='VERIFIED'?
      current.gp+' verified GP \u00b7 HTO '+iso(feed.asOf):'Current HTO rate unavailable',compareResult(current));
   for(const count of [3,5,10]){
-   const r=observation?model?.getRecentWindow(appearances,id,feed.season,observation,count):{status:'HELD'};
-   card('LAST '+count+' GAMES',r,r?.status==='VERIFIED'?
-      count+' individually verified appearances':
-      'Awaiting complete game-appearance log',compareResult(r));
+   // Player appearances have no artificial season boundary. Older Winter,
+   // playoff or verified Summer games count only with source-season GP parity.
+   const across=model?.getCrossSeasonWindow(crossSeason,appearances,id,count);
+   const currentOnly=observation?model?.getRecentWindow(appearances,id,feed.season,observation,count):
+     {status:'HELD',reason:'CURRENT_PLAYER_TOTALS_NOT_REPRESENTED'};
+   const r=across?.status==='VERIFIED'?across:currentOnly;
+   const qualified=r?.status==='VERIFIED';
+   const multiseason=qualified&&r.includesPriorSeason;
+   const older=r?.sourceSeasons?.length>1;
+   const desc=qualified?
+     count+' verified Brave H.C. appearances'+
+       (older?' · '+r.sourceSeasons.length+' seasons':' · current season')+
+       (r.includesPlayoffs?' incl. playoffs':'')+
+       (typeof r.winterEquivalentRate==='number'&&Math.abs(r.winterEquivalentRate-r.rate)>1e-8?
+        ' · icon normalized':''):
+     'Fewer than '+count+' qualifying appearances';
+   card('LAST '+count+' GAMES',r,desc,compareResult(r));
+   const latest=grid.lastElementChild;
+   if(latest&&qualified&&r.oldestDate&&r.newestDate)
+     latest.title='Actual last '+count+' Brave H.C. appearances: '+
+       r.oldestDate+' to '+r.newestDate+
+       ' · '+r.sourceSeasons.join(', ')+
+       '. PTS/GP is raw; icons compare winter-equivalent pace.';
+   if(latest)latest.dataset.crossSeason=String(!!multiseason);
   }
   status.textContent='Current season: official HTO individual season totals. '+
      'Career reference: published Winter-equivalent history. '+
-     'Last 3 / 5 / 10 P/GP display only where every appearance, including zero-point games, is source-verified; other windows stay held. '+
-     'Adaptive trend badges use qualified team career-relative dispersion and describe rates, not official workbook classifications or lineup recommendations. '+
+     'Last 3 / 5 / 10 count each player’s most recent verified Brave H.C. appearances, including qualified previous seasons and playoffs; forfeits are not appearances. '+
+     'Displayed PTS/GP is raw; cross-format icon comparisons use official winter-equivalent game-length normalization. Insufficient or incomplete archives remain held. '+
+     'Adaptive badges describe scoring rates, not official workbook categories or lineup recommendations. '+
      (calibrated?.mode==='HISTORICAL_REFERENCE_ONLY'?'Historical-reference calibration; current model reconciliation held.':'');
  }
  try{
   const results=await Promise.allSettled([
    get('player-career-insights.json'),get('projection.json'),
    get('player-actuals-hourly.json'),get('player-form-appearances-v364.json'),
-     get('hockeyos-team-dispersion-v365.json')
+     get('hockeyos-team-dispersion-v365.json'),
+     get('player-form-cross-season-v367.json')
   ]);
   sources={career:results[0].status==='fulfilled'?results[0].value:null,
     projection:results[1].status==='fulfilled'?results[1].value:null,
     feed:results[2].status==='fulfilled'?results[2].value:null,
     appearances:results[3].status==='fulfilled'?results[3].value:null,
-     dispersion:results[4].status==='fulfilled'?results[4].value:null};
+     dispersion:results[4].status==='fulfilled'?results[4].value:null,
+     crossSeason:results[5].status==='fulfilled'?results[5].value:null};
   render();
   document.getElementById('playerChoice')?.addEventListener('change',()=>setTimeout(render,0));
   const main=document.getElementById('profileContent');

@@ -13,6 +13,7 @@ const server=http.createServer((req,res)=>{
 const proposal=require('../widgets/projection.json'),disp=require('../widgets/hockeyos-team-dispersion-v365.json');
 const adapt=require('../widgets/hockeyos-adaptive-trend-v365.js');
 const appearances=require('../widgets/player-form-appearances-v364.json');
+const crossSeason=require('../widgets/player-form-cross-season-v367.json');
 const official=require('../widgets/player-actuals-hourly.json');
 const recent=require('../widgets/player-bio-form-model-v364.js');
 const cases=[
@@ -86,7 +87,9 @@ const cases=[
      const actor=official.players.find(z=>z.name===person.name);
      assert.ok(actor,'Matching official season stat source '+person.name);
      for(const [idx,n] of [3,5,10].entries()){
-       const sourceRecent=recent.getRecentWindow(appearances,x.id,appearances.season,actor,n);
+       const across=recent.getCrossSeasonWindow(crossSeason,appearances,x.id,n);
+       const local=recent.getRecentWindow(appearances,x.id,appearances.season,actor,n);
+       const sourceRecent=across.status==='VERIFIED'?across:local;
        const displayed=trend.cardData[idx+2];
        assert.equal(displayed.status,sourceRecent.status,'Last '+n+' status');
        if(sourceRecent.status==='VERIFIED'){
