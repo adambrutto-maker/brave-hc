@@ -22,6 +22,26 @@ class ScopedPreviewTests(unittest.TestCase):
   self.assertEqual(set(source),set(allowed))
   self.assertGreaterEqual(validate_html(ROOT,set(allowed)),100)
   self.assertGreater(len(allowed),100)
+ def test_bio_goalie_optional_source_is_explicitly_held_without_statistics(self):
+  rel="widgets/goalie-projection-verified-inputs.json"
+  self.assertIn(rel,index(ROOT)[0])
+  held=json.loads((ROOT/rel).read_text(encoding="utf8"))
+  self.assertEqual(held["schema"],"hockeyos-verified-goalie-projection-inputs/v1")
+  self.assertEqual(held["season"],"W2026/27")
+  self.assertEqual(held["status"],"HELD_NO_ACCEPTED_SOURCE_OBSERVATIONS")
+  self.assertIsNone(held["asOf"])
+  self.assertEqual(held["players"],{})
+  self.assertEqual(held["publicationGate"],{
+   "state":"GOALIE_SOURCE_EVIDENCE_NOT_ACCEPTED",
+   "releaseAuthorized":False,"independentEvidenceId":None})
+  for name in ("player-bio-premium.js","player-bio-premium-v25-preview.js",
+               "player-bio-premium-v27-preview.js"):
+   self.assertIn("goalie-projection-verified-inputs.json",
+      (ROOT/"widgets"/name).read_text(encoding="utf8"))
+   self.assertIn("GOALIE_HISTORICAL_CURRENT_PARITY_ACCEPTED",
+      (ROOT/"widgets"/name).read_text(encoding="utf8"))
+   self.assertIn("approved.publicationGate?.releaseAuthorized===true",
+      (ROOT/"widgets"/name).read_text(encoding="utf8"))
  def test_text_line_ending_conversion_does_not_change_git_blob_identity(self):
   algorithm,entries=git_stage(ROOT)
   for name in ("index.html","widgets/analytics.html",
