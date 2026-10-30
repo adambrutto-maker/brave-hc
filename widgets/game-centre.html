@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark"><meta name="robots" content="noindex,follow">
+<title>Brave H.C. — Game Centre</title>
+<link rel="stylesheet" href="./game-centre.css?v=20261030-r2">
+<script defer src="./game-centre.js?v=20261030-r2"></script>
+</head><body>
+<main class="game-centre" id="game-centre">
+<header class="masthead">
+<img class="crest" src="./brave_hc_logo.png" alt="Brave H.C. crest" width="44" height="44">
+<div class="masthead-text"><div class="kicker">BRAVE H.C. · GAME DAY &amp; DIVISION</div>
+<h1>Game Centre</h1>
+<p>Next game, published goaltenders, division standings and opponent coverage</p></div>
+</header>
+<section class="block" aria-label="Official next-game countdown">
+<div class="bar"><h2>Next Game</h2><a href="https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&amp;s=hockey&amp;p=schedule" target="_blank" rel="noopener noreferrer">HTO Schedule ↗</a></div>
+<iframe class="countdown" src="./countdown.html?embed=1" title="Brave H.C. verified next-game countdown" loading="eager" scrolling="no"></iframe>
+</section>
+<section class="block" aria-labelledby="coverage-title">
+<div class="bar"><h2 id="coverage-title">Game Night &amp; Division</h2><span class="source-tag">SVHL · HTO</span></div>
+<div class="tabs tabs-four" role="tablist" aria-label="Game Centre coverage" data-group="centre">
+<button type="button" id="centre-goalies" role="tab" data-tab="goalies" aria-selected="true" aria-controls="centre-goalies-panel" tabindex="0">Goaltenders</button>
+<button type="button" id="centre-lineup" role="tab" data-tab="lineup" aria-selected="false" aria-controls="centre-lineup-panel" tabindex="-1">Lineup</button>
+<button type="button" id="centre-standings" role="tab" data-tab="standings" aria-selected="false" aria-controls="centre-standings-panel" tabindex="-1">Standings</button>
+<button type="button" id="centre-opponent" role="tab" data-tab="opponent" aria-selected="false" aria-controls="centre-opponent-panel" tabindex="-1">Opponent</button>
+</div>
+<div class="tab-panel" id="centre-goalies-panel" data-group="centre" data-name="goalies" role="tabpanel" aria-labelledby="centre-goalies">
+<p class="meta" id="goalie-status" role="status">Checking verified SVHL fixtures and published goalie assignments…</p>
+<table class="table goalie-table" aria-label="Upcoming SVHL fixtures and goaltender assignments">
+<thead><tr><th>GAME</th><th>TIME</th><th>GOALTENDER</th></tr></thead>
+<tbody id="goalie-rows"><tr><td colspan="3">Checking schedule…</td></tr></tbody></table>
+<div class="action-row"><a href="./goalie-schedule-v1.2-HTO-embed.html" target="_blank" rel="noopener noreferrer">Full Goaltender Schedule ↗</a><a href="https://leagues.sportsvillage.ca/Leagues.aspx?leagueid=570&amp;page_type=Adult&amp;sc=HOCKEY" target="_blank" rel="noopener noreferrer">Official SVHL ↗</a></div>
+</div>
+<div class="tab-panel" id="centre-lineup-panel" data-group="centre" data-name="lineup" role="tabpanel" aria-labelledby="centre-lineup" hidden>
+<div class="notice" id="lineup-notice" role="status">Game-night lineup is not approved for public release. Player availability and private manager drafts are withheld.</div>
+<div class="action-row"><a href="https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&amp;s=hockey&amp;p=roster" target="_blank" rel="noopener noreferrer">Official Team Roster ↗</a></div>
+</div>
+<div class="tab-panel" id="centre-standings-panel" data-group="centre" data-name="standings" role="tabpanel" aria-labelledby="centre-standings" hidden>
+<p class="meta" id="standings-status" role="status">Checking verified Cristillo standings…</p>
+<table class="table standings-table" aria-label="Cristillo Division leaders and Brave H.C.">
+<thead><tr><th>TEAM</th><th>GP</th><th>W-L-T</th><th>PTS</th></tr></thead>
+<tbody id="standings-rows"><tr><td colspan="4">Checking standings…</td></tr></tbody></table>
+<div class="action-row"><a href="./standings-v2.html" target="_blank" rel="noopener noreferrer">Full Division Centre ↗</a><a href="https://leagues.sportsvillage.ca/Leagues.aspx?leagueid=570&amp;page_type=Adult&amp;sc=HOCKEY" target="_blank" rel="noopener noreferrer">Official League ↗</a></div>
+</div>
+<div class="tab-panel" id="centre-opponent-panel" data-group="centre" data-name="opponent" role="tabpanel" aria-labelledby="centre-opponent" hidden>
+<div class="opponent-card" id="opponent-card" role="status">Checking the next scheduled opponent against league records…</div>
+<p class="source-note">Historical Brave H.C. meetings are a separate source, not a win prediction or proof of franchise continuity.</p>
+<div class="action-row"><a id="opponent-details-link" href="./league-intelligence.html" target="_blank" rel="noopener noreferrer">Opponent Intelligence ↗</a><a href="./standings-v2.html" target="_blank" rel="noopener noreferrer">Division Centre ↗</a></div>
+</div>
+</section>
+<footer class="footer">Official HTO fixtures · SVHL standings · published goalie assignments. No private lineup, unverified result or unsupported forecast is shown.</footer>
+</main></body></html>
