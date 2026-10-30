@@ -1,5 +1,5 @@
 {
-  "capturedAt": "2026-10-26T04:30:02.498421+00:00",
+  "capturedAt": "2026-10-30T04:25:10.623121+00:00",
   "sourceAuthority": "PUBLIC_HTO_HTTP_READBACK",
   "games": [
     {
@@ -1969,7 +1969,7 @@
                 "2:25",
                 "ES",
                 "Brave H.C.",
-                "20 Stephane Saindon ( 28 Adam Brutto )",
+                "20 Stephane Saindon ( 28 Adam Brutto , 49 Sanjay Rajkumar )",
                 "0-3 Brave H.C."
               ],
               "players": [
@@ -1980,6 +1980,10 @@
                 {
                   "href": "https://www.htosports.com/teams/default.asp?s=hockey&u=BRAVESHOCKEY&p=profile&sportsHQ=BRAVESHOCKEY&playerID=354054",
                   "name": "28 Adam Brutto"
+                },
+                {
+                  "href": "https://www.htosports.com/teams/default.asp?s=hockey&u=BRAVESHOCKEY&p=profile&sportsHQ=BRAVESHOCKEY&playerID=845365",
+                  "name": "49 Sanjay Rajkumar"
                 }
               ]
             },
@@ -2011,7 +2015,7 @@
                 "9:20",
                 "ES",
                 "Brave H.C.",
-                "25 Michael Provenzano ( 22 Adam Povegliano , 20 Stephane Saindon )",
+                "25 Michael Provenzano ( 18 Jamie Rosenberg , 20 Stephane Saindon )",
                 "2-4 Brave H.C."
               ],
               "players": [
@@ -2020,8 +2024,8 @@
                   "name": "25 Michael Provenzano"
                 },
                 {
-                  "href": "https://www.htosports.com/teams/default.asp?s=hockey&u=BRAVESHOCKEY&p=profile&sportsHQ=BRAVESHOCKEY&playerID=844036",
-                  "name": "22 Adam Povegliano"
+                  "href": "https://www.htosports.com/teams/default.asp?s=hockey&u=BRAVESHOCKEY&p=profile&sportsHQ=BRAVESHOCKEY&playerID=843644",
+                  "name": "18 Jamie Rosenberg"
                 },
                 {
                   "href": "https://www.htosports.com/teams/default.asp?s=hockey&u=BRAVESHOCKEY&p=profile&sportsHQ=BRAVESHOCKEY&playerID=738846",
@@ -2337,9 +2341,9 @@
                 "",
                 "1",
                 "1",
+                "0",
                 "1",
-                "2",
-                "2.00",
+                "1.00",
                 "0",
                 "0",
                 "2",
@@ -2406,9 +2410,9 @@
                 "",
                 "1",
                 "0",
-                "0",
-                "0",
-                ".00",
+                "1",
+                "1",
+                "1.00",
                 "0",
                 "0",
                 "2",
@@ -2429,9 +2433,9 @@
                 "",
                 "1",
                 "1",
-                "0",
                 "1",
-                "1.00",
+                "2",
+                "2.00",
                 "0",
                 "0",
                 "2",
@@ -2498,9 +2502,9 @@
                 "",
                 "13",
                 "6",
-                "9",
-                "15",
-                "1.15",
+                "10",
+                "16",
+                "1.23",
                 "1",
                 "6",
                 "26",
@@ -2566,7 +2570,7 @@
         }
       ],
       "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3375682",
-      "heading": "SCORE BOARD\nREGULAR SEASON\n\t1\t2\t3\tOT\t2OT\tF\n\nBig Bastones\n0\t2\t2\t0\t0\t4\n\nBrave H.C.\n3\t0\t3\t0\t0\t6\n"
+      "heading": "SCORE BOARD\nREGULAR SEASON\n\t1\t2\t3\tF\n\nBig Bastones\n0\t2\t2\t4\n\nBrave H.C.\n3\t0\t3\t6\n"
     }
   ]
 }
