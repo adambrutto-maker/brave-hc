@@ -74,6 +74,77 @@ class SourceRefreshTests(unittest.TestCase):
         self.assertEqual(book,self.book)
         self.assertEqual(refresh.inventory(revised['groups']),refresh.inventory(self.history['groups']))
 
+    def test_seven_native_date_renderings_reconcile_with_identical_statistics(self):
+        aliases = [
+            ("Team Records","Summer - Longest Winning Streak","Season",
+             "5 - 2017-05-28 to 2017-06-25 (2017)",
+             "5 - May 28 - Jun 25, 2017 (2017)"),
+            ("Team Records","Summer - Longest Point Streak","Season",
+             "5 - 2013-06-02 to 2013-07-07 (2013)",
+             "5 - Jun 2 - Jul 7, 2013 (2013)"),
+            ("Team Records","Summer - Longest Point Streak","Season",
+             "5 - 2017-05-28 to 2017-06-25 (2017)",
+             "5 - May 28 - Jun 25, 2017 (2017)"),
+            ("Team Records","Summer - Most Team Goals","Game",
+             "13 - vs. Village Idiots (13-4) (2016-05-15)",
+             "13 - vs. Village Idiots (13-4) (May 15, 2016)"),
+            ("Team Records","Summer - Most Team Goals","Game",
+             "13 - vs. Lost In the Sauce (13-4) (2016-07-17)",
+             "13 - vs. Lost In the Sauce (13-4) (Jul 17, 2016)"),
+            ("Team Records","Summer - Most Team Goals","Playoffs",
+             "12 - vs. Mohawks Hockey (12-3) (2015-07-26)",
+             "12 - vs. Mohawks Hockey (12-3) (Jul 26, 2015)"),
+            ("Team Records","Summer - Largest Winning Margin","Game",
+             "10 - vs. Young Guns (11-1) (2017-06-18)",
+             "10 - vs. Young Guns (11-1) (Jun 18, 2017)")
+        ]
+        updated=copy.deepcopy(self.history["groups"])
+        for section,category,period,old,new in aliases:
+            from record_source_date_identity import canonical_record_text
+            groups=[g for g in updated if (g["section"],g["category"],g["period"])==
+                    (section,category,period)
+                    and any(canonical_record_text(v)==canonical_record_text(old)
+                            for v in g["items"])]
+            self.assertEqual(len(groups),1,old)
+            items=groups[0]["items"]
+            idx=next(i for i,v in enumerate(items)
+                     if canonical_record_text(v)==canonical_record_text(old))
+            items[idx]=new if items[idx]==old else old
+        self.assertEqual(sum(map(len,(g["items"] for g in updated))),463)
+        self.assertNotEqual(refresh.inventory(updated),refresh.inventory(self.history["groups"]))
+        self.assertEqual(refresh.semantic_inventory(updated),
+                         refresh.semantic_inventory(self.history["groups"]))
+        output,book=refresh.sync_published(self.history,self.book,updated,"later")
+        self.assertEqual(output["entryCount"],463)
+        self.assertEqual(output["groups"],updated)
+        self.assertEqual(book,self.book,"Team date-only changes must not rewrite player records")
+
+    def test_date_changes_do_not_permit_new_scores_or_changed_calendar_days(self):
+        groups=copy.deepcopy(self.history["groups"])
+        from record_source_date_identity import canonical_record_text
+        original="13 - vs. Village Idiots (13-4) (2016-05-15)"
+        target=next(g for g in groups if any(canonical_record_text(x)==original for x in g["items"]))
+        pos=next(i for i,v in enumerate(target["items"]) if canonical_record_text(v)==original)
+        target["items"][pos]="13 - vs. Village Idiots (14-4) (May 15, 2016)"
+        with self.assertRaisesRegex(ValueError,"removed or revised"):
+            refresh.sync_published(self.history,self.book,groups,"later")
+        target["items"][pos]="13 - vs. Village Idiots (13-4) (May 16, 2016)"
+        with self.assertRaisesRegex(ValueError,"removed or revised"):
+            refresh.sync_published(self.history,self.book,groups,"later")
+        target["items"][pos]="13 - vs. Changed Opponent (13-4) (May 15, 2016)"
+        with self.assertRaisesRegex(ValueError,"removed or revised"):
+            refresh.sync_published(self.history,self.book,groups,"later")
+
+    def test_invalid_date_strings_rejected_not_guessed(self):
+        groups=copy.deepcopy(self.history["groups"])
+        from record_source_date_identity import canonical_record_text
+        original="13 - vs. Village Idiots (13-4) (2016-05-15)"
+        target=next(g for g in groups if any(canonical_record_text(x)==original for x in g["items"]))
+        pos=next(i for i,v in enumerate(target["items"]) if canonical_record_text(v)==original)
+        target["items"][pos]="13 - vs. Village Idiots (13-4) (Feb 30, 2016)"
+        with self.assertRaisesRegex(ValueError,"RECORD_DATE_RENDER_UNQUALIFIED"):
+            refresh.sync_published(self.history,self.book,groups,"later")
+
     def test_historical_removal_rejected(self):
         groups=copy.deepcopy(self.history['groups']); groups[0]['items'].pop()
         with self.assertRaises(ValueError): refresh.sync_published(self.history,self.book,groups,'later')

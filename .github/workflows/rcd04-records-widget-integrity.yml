@@ -17,6 +17,7 @@ on:
       - 'widgets/history.js'
       - 'tests/test_record_dates_readable.cjs'
       - 'scripts/refresh_record_sources.py'
+      - 'scripts/record_source_date_identity.py'
       - 'tests/test_record_source_refresh.py'
       - 'tests/test_historical_bulletin_milestones.py'
       - 'tests/test_watch_historical_evidence.js'

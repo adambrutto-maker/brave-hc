@@ -14,6 +14,7 @@ from urllib.parse import parse_qs, urlencode, urljoin, urlparse
 from pathlib import Path
 import requests
 from bs4 import BeautifulSoup
+from record_source_date_identity import canonical_record_text
 
 ROOT = Path(__file__).resolve().parents[1]
 DIR = ROOT/'docs/hto-highlights-rollout'
@@ -134,25 +135,52 @@ def inventory(groups):
     return collections.Counter((g['section'],g['category'],g['period'],clean(s)) for g in groups for s in g['items'])
 
 
+def semantic_inventory(groups):
+    # Only verified equivalent calendar-date spellings are normalized.
+    # All category, scope, value, score and opponent fields remain exact.
+    return collections.Counter(
+        (g['section'],g['category'],g['period'],canonical_record_text(s))
+        for g in groups for s in g['items'])
+
+
 def sync_published(history, book, groups, now):
-    if inventory(history['groups']) - inventory(groups):
+    missing = semantic_inventory(history['groups']) - semantic_inventory(groups)
+    if missing:
+        # Reject real content changes; dated-only aliases require the exact same
+        # calendar date, numerical result, record group and opponent/identity.
         raise ValueError('Published historical records were removed or revised; manual reconciliation required: '+json.dumps(dict(missing=list((inventory(history['groups'])-inventory(groups)).elements())[:5], added=list((inventory(groups)-inventory(history['groups'])).elements())[:5])))
     result = copy.deepcopy(book)
     for player in result['players'].values():
         player['entries'] = []
-    known = {(e['category'],e['scope'],clean(e['sourceText'])):(pid,e) for pid,p in book['players'].items() for e in p['entries']}
+    known = {}
+    for pid,p in book['players'].items():
+        for e in p['entries']:
+            key=(e['category'],e['scope'],canonical_record_text(e['sourceText']))
+            if key in known and known[key][0] != pid:
+                raise ValueError('Ambiguous dated individual record identity')
+            known[key]=(pid,e)
     old_unmapped = set()
     for g in history['groups']:
         if g['section'] == 'Individual Records':
-            old_unmapped.update((g['category'],g['period'],clean(s)) for s in g['items'] if (g['category'],g['period'],clean(s)) not in known)
+            old_unmapped.update((g['category'],g['period'],canonical_record_text(s))
+                                for s in g['items']
+                                if (g['category'],g['period'],canonical_record_text(s)) not in known)
     for group in groups:
         if group['section'] != 'Individual Records':
             continue
         for source in group['items']:
-            key = (group['category'],group['period'],clean(source))
+            key = (group['category'],group['period'],canonical_record_text(source))
             if key in known:
                 pid, entry = known[key]
-                result['players'][pid]['entries'].append(copy.deepcopy(entry))
+                mapped=copy.deepcopy(entry)
+                if clean(mapped['sourceText']) != clean(source):
+                    # Semantic identity was verified above. Update display text,
+                    # but do not modify measured value, owner or award type.
+                    mapped['sourceText']=source
+                    date_match=re.fullmatch(r'([\d.]+)\s*-\s*(.*?)\s*\(([^()]*)\)',source)
+                    if date_match and 'dateLabel' in mapped:
+                        mapped['dateLabel']=date_match[3]
+                result['players'][pid]['entries'].append(mapped)
                 continue
             if key in old_unmapped:
                 continue
@@ -165,7 +193,8 @@ def sync_published(history, book, groups, now):
     updated = copy.deepcopy(history)
     if inventory(groups) != inventory(history['groups']):
         updated.update(groups=groups, entryCount=sum(len(g['items']) for g in groups), capturedAt=now)
-        result['capturedAt'] = now
+        if result['players'] != book['players']:
+            result['capturedAt'] = now
     else:
         # Native HTO may reorder existing verified record categories without
         # changing a single record. Reflect their official display order in
@@ -266,7 +295,9 @@ def run():
     if not LIVE.exists() or new_games != live['games']:
         outputs.append((LIVE,dict(capturedAt=now,sourceAuthority='PUBLIC_HTO_HTTP_READBACK',games=new_games)))
     if new_history != history:
-        outputs.extend([(history_path,new_history),(book_path,new_book)])
+        outputs.append((history_path,new_history))
+    if new_book != book:
+        outputs.append((book_path,new_book))
     for path,data in outputs:
         path.parent.mkdir(parents=True,exist_ok=True)
         path.write_text(json.dumps(data,indent=2)+'\n',encoding='utf-8')
