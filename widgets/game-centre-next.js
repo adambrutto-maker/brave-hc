@@ -246,11 +246,30 @@ function validApprovedPdf(feed,profiles,manifest){
  return result?.approved===true&&result.fixture.id===fix.id&&
    result.approvalId===approved.approvalId&&result.evidenceFingerprint===approved.evidenceFingerprint;
 }
+// Only roster-level counts are public; this summary cannot supply names or approve a PDF.
+function attendanceForFixture(s,fix,now){
+ if(!s||!fix||s.fixtureId!==fix.id||s.opponent!==fix.opponent||s.gameDate!==fix.gameDate||s.puckDropUTC!==fix.puckDropUTC)return null;
+ const checked=Date.parse(s.checkedAt),start=Date.parse(fix.puckDropUTC);
+ if(!Number.isFinite(checked)||!Number.isFinite(start)||checked>now||now>=start||now-checked>48*3600000)return null;
+ for(const v of [s.skatersIndicatingIn,s.partTimersAvailable])if(!Number.isInteger(v)||v<0||v>100)return null;
+ return {skaters:s.skatersIndicatingIn,available:s.partTimersAvailable,checked:s.checkedAt};
+}
+function drawAttendanceSummary(manifest,fix){
+ const host=$("lineup-attendance");if(!host)return;
+ host.hidden=true;host.replaceChildren();
+ if(manifest?.status!=="BLANK_PENDING_APPROVAL"||manifest.approved!=null)return;
+ const s=attendanceForFixture(manifest.attendanceSnapshot,fix,Date.now());if(!s)return;
+ host.append(n("div","eyebrow","PREGAME AVAILABILITY"),n("h4",null,s.skaters+" skater"+(s.skaters===1?"":"s")+" indicated in"),
+  n("p",null,s.available+" part-timer"+(s.available===1?"":"s")+" available if called. Not included in the skater count."),
+  n("p","source-note","Checked "+fmt(s.checked,{month:"short",day:"numeric",hour:"numeric",minute:"2-digit"})+" Toronto time. These are attendance responses, not assigned lines."));
+ host.hidden=false;
+}
 let lineupLoadVersion=0;
 async function drawLineup(){
  const version=++lineupLoadVersion,fix=nextFixture();
  set("lineup-fixture",fix?"Next: "+when(fix.gameDate)+" · "+fix.opponent:"Next fixture awaiting official HTO verification");
  const manifest=state.lineupPdf;
+ drawAttendanceSummary(manifest,fix);
  const frame=$("lineup-pdf-frame"),preview=$("lineup-pdf-preview"),print=$("lineup-print"),open=$("lineup-open");
  const block=()=>{frame.removeAttribute("src");preview.hidden=true;for(const a of [print,open]){a.removeAttribute("href");a.setAttribute("aria-disabled","true");a.tabIndex=-1}};
  block();
@@ -500,13 +519,13 @@ async function updateData(){
  const jobs=[
   fetchJSON("standings.json").then(verifyStandings).then(t=>{state.standings=t;drawStandings()}).catch(()=>{set("standings-status","Cristillo official standings temporarily unavailable. Check the league website.")}),
   fetchJSON("league-intelligence.json").then(verifyLeague).then(t=>{state.league=t;refreshLeagueInfo()}).catch(()=>{set("rankings-status","Sunday power rankings withheld: verified league evidence unavailable.")}),
-  fetchJSON("countdown.json").then(verifyUpcoming).then(t=>{state.upcoming=t;selectOpponentOptions();drawLineup()}).catch(()=>{set("lineup-notice","No verified current fixture. Lineup remains blank.")}),
+  fetchJSON("countdown.json").then(verifyUpcoming).then(t=>{state.upcoming=t;selectOpponentOptions();drawLineup()}).catch(()=>{state.upcoming=null;drawAttendanceSummary(null,null);set("lineup-notice","No verified current fixture. Lineup remains blank.")}),
   fetchJSON("svhl-upcoming.json").then(verifySchedule).then(t=>{state.schedule=t;drawGoalies()}).catch(()=>{set("goalie-status","SVHL schedule unavailable. Check the official league page.")}),
   fetchJSON("goalie-assignments.json").then(verifyAssignments).then(t=>{state.assign=t;drawGoalies()}).catch(()=>{set("goalie-status","Published goaltender confirmation unavailable.")}),
   fetchJSON("opponent-intelligence.json").then(verifyHistory).then(t=>{state.history=t;renderOpponent()}).catch(()=>{renderOpponent()}),
   fetchJSON("game-night-lineup-public-v27-preview.json").then(t=>{state.lineup=t;drawLineup()}).catch(()=>{drawLineup()}),
   fetchJSON("player-career-insights.json").then(t=>{state.playerProfiles=t;drawLineup()}).catch(()=>{drawLineup()}),
-  fetchJSON("game-centre-lineup-public.json").then(verifyPdfManifest).then(t=>{state.lineupPdf=t;drawLineup()}).catch(()=>{set("lineup-notice","Public lineup manifest not verified; printable PDF withheld.")})
+  fetchJSON("game-centre-lineup-public.json").then(verifyPdfManifest).then(t=>{state.lineupPdf=t;drawLineup()}).catch(()=>{state.lineupPdf=null;drawLineup();set("lineup-notice","Public lineup manifest not verified; printable PDF withheld.")})
  ];
  await Promise.allSettled(jobs);
 }

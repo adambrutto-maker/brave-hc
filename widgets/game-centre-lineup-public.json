@@ -17,5 +17,14 @@
   "approved": null,
   "weeklyAutoPublishEnabled": false,
   "privateWhatsAppPollDataPublished": false,
-  "notice": "A current-game PDF requires verified attendance, goalie, legal lineup and manager approval; no WhatsApp yes alone authorizes publication."
+  "notice": "A current-game PDF requires verified attendance, goalie, legal lineup and manager approval; no WhatsApp yes alone authorizes publication.",
+  "attendanceSnapshot": {
+    "fixtureId": 3375683,
+    "opponent": "Mid Ice Crisis",
+    "gameDate": "2026-11-01",
+    "puckDropUTC": "2026-11-02T01:15:00Z",
+    "checkedAt": "2026-10-31T12:25:19-04:00",
+    "skatersIndicatingIn": 10,
+    "partTimersAvailable": 1
+  }
 }
