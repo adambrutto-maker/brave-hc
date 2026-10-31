@@ -270,6 +270,7 @@ async function drawLineup(){
  set("lineup-fixture",fix?"Next: "+when(fix.gameDate)+" · "+fix.opponent:"Next fixture awaiting official HTO verification");
  const manifest=state.lineupPdf;
  drawAttendanceSummary(manifest,fix);
+ window.BraveManagerWorkingCard?.update(manifest,fix);
  const frame=$("lineup-pdf-frame"),preview=$("lineup-pdf-preview"),print=$("lineup-print"),open=$("lineup-open");
  const block=()=>{frame.removeAttribute("src");preview.hidden=true;for(const a of [print,open]){a.removeAttribute("href");a.setAttribute("aria-disabled","true");a.tabIndex=-1}};
  block();
@@ -519,7 +520,7 @@ async function updateData(){
  const jobs=[
   fetchJSON("standings.json").then(verifyStandings).then(t=>{state.standings=t;drawStandings()}).catch(()=>{set("standings-status","Cristillo official standings temporarily unavailable. Check the league website.")}),
   fetchJSON("league-intelligence.json").then(verifyLeague).then(t=>{state.league=t;refreshLeagueInfo()}).catch(()=>{set("rankings-status","Sunday power rankings withheld: verified league evidence unavailable.")}),
-  fetchJSON("countdown.json").then(verifyUpcoming).then(t=>{state.upcoming=t;selectOpponentOptions();drawLineup()}).catch(()=>{state.upcoming=null;drawAttendanceSummary(null,null);set("lineup-notice","No verified current fixture. Lineup remains blank.")}),
+  fetchJSON("countdown.json").then(verifyUpcoming).then(t=>{state.upcoming=t;selectOpponentOptions();drawLineup()}).catch(()=>{state.upcoming=null;drawAttendanceSummary(null,null);window.BraveManagerWorkingCard?.update(null,null);set("lineup-notice","No verified current fixture. Lineup remains blank.")}),
   fetchJSON("svhl-upcoming.json").then(verifySchedule).then(t=>{state.schedule=t;drawGoalies()}).catch(()=>{set("goalie-status","SVHL schedule unavailable. Check the official league page.")}),
   fetchJSON("goalie-assignments.json").then(verifyAssignments).then(t=>{state.assign=t;drawGoalies()}).catch(()=>{set("goalie-status","Published goaltender confirmation unavailable.")}),
   fetchJSON("opponent-intelligence.json").then(verifyHistory).then(t=>{state.history=t;renderOpponent()}).catch(()=>{renderOpponent()}),

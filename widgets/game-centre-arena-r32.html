@@ -1,12 +1,13 @@
 <!doctype html>
 <html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="color-scheme" content="dark"><meta name="robots" content="noindex,follow">
+<style>#manager-card-view[hidden],#manager-card-tools[hidden],#lineup-card[hidden]{display:none!important}</style><meta name="color-scheme" content="dark"><meta name="robots" content="noindex,follow">
 <title>Brave H.C. — Game Centre R3.2 Arena Preview</title>
 <link rel="stylesheet" href="./game-centre-next.css?v=20261030-r31">
 <link rel="stylesheet" href="./arena-power-r32.css?v=20261030-r32">
 <script defer src="./game-night-lineup-contract-v27-preview.js"></script>
-<script defer src="./game-centre-next.js?v=20261031-availability1"></script>
+<script defer src="./manager-working-card.js?v=1"></script>
+<script defer src="./game-centre-next.js?v=20261031-working1"></script>
 <script defer src="./adult-league-scope.js"></script>
 <script defer src="./division-fit-model.js"></script>
 <script defer src="./weekly-strength-stability.js"></script>
@@ -58,6 +59,12 @@
   <div class="section-title"><div class="eyebrow">NEXT GAME · PLAYER AVAILABILITY</div><h3>Brave H.C. Lineup Card</h3><p id="lineup-fixture">Checking the next official fixture…</p></div>
   <section id="lineup-attendance" class="coach-card" aria-label="Pregame availability" hidden></section>
   <div class="lineup-status" id="lineup-notice" role="status">Lineup awaiting manager approval; private WhatsApp votes are not published.</div>
+  <details id="manager-card-tools" class="coach-card" hidden><summary>Manager?s working lineup</summary>
+   <p>Preview the filled original card before the official lineup is released. Use this game?s private Drive link or select its PDF. Selected files stay on this device.</p>
+   <p><label>Private card link <input id="manager-card-url" type="url" autocomplete="off" spellcheck="false" style="max-width:95%"></label> <button id="manager-card-load" type="button">Show working card</button></p>
+   <p><label>Or select the verified PDF <input id="manager-card-pdf" type="file" accept="application/pdf,.pdf" style="max-width:95%"></label></p>
+   <p id="manager-card-status" role="status"></p></details>
+  <section id="manager-card-view" hidden aria-label="Manager?s working lineup, not official"><h4>Working lineup ? not final</h4><iframe id="manager-card-frame" title="Private working lineup card" referrerpolicy="no-referrer" style="display:block;width:100%;height:clamp(300px,65vw,620px);border:0"></iframe><div class="action-row"><a id="manager-card-open" target="_blank" rel="noopener noreferrer">Open / print working card</a><button type="button" id="manager-card-close">Back to official card</button></div></section>
   <div class="pdf-lineup" id="lineup-card" aria-label="Authentic Brave H.C. workbook-derived PDF lineup card">
    <iframe id="lineup-pdf-frame" title="Printable original Brave H.C. lineup PDF" src="./assets/lineups/brave-hc-blank-original-card.pdf#view=FitH&amp;toolbar=0&amp;navpanes=0" loading="lazy" scrolling="no"></iframe>
    <img id="lineup-pdf-preview" class="pdf-lineup-preview" src="./assets/lineups/brave-hc-blank-original-card.png" alt="Verified blank original Brave H.C. lineup PDF page preview" hidden>

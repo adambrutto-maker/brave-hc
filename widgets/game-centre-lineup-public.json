@@ -26,5 +26,13 @@
     "checkedAt": "2026-10-31T12:25:19-04:00",
     "skatersIndicatingIn": 10,
     "partTimersAvailable": 1
+  },
+  "workingCard": {
+    "fixtureId": 3375683,
+    "gameDate": "2026-11-01",
+    "puckDropUTC": "2026-11-02T01:15:00Z",
+    "opponent": "Mid Ice Crisis",
+    "sha256": "040eeca913e4df660bf3b250e803fbd6051aaba92c1b03f0ba42ef4dc1ef9e82",
+    "locatorSha256": "12740c3f1d68a8c641558e88f81d447f74be9db480c6e5d17d1218cab9a47487"
   }
 }
