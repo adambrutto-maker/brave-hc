@@ -1,0 +1,11 @@
+'use strict';
+const {test}=require('node:test'), assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),vm=require('node:vm');
+const base=path.join(__dirname,'..','widgets'),src=fs.readFileSync(path.join(base,'game-centre-next.js'),'utf8');
+const start=src.indexOf('function attendanceForFixture('),end=src.indexOf('function drawAttendanceSummary(',start);assert(start>=0&&end>start);
+const read=vm.runInNewContext('('+src.slice(start,end).trim()+')');
+const f={id:7,opponent:'Fixture',gameDate:'2026-11-01',puckDropUTC:'2026-11-02T01:15:00Z'},now=Date.parse('2026-10-31T17:00:00Z');
+const s={fixtureId:7,opponent:f.opponent,gameDate:f.gameDate,puckDropUTC:f.puckDropUTC,checkedAt:'2026-10-31T12:00:00-04:00',skatersIndicatingIn:10,partTimersAvailable:1};
+test('keeps potential call-ups out of attendance',()=>{const r=read(s,f,now);assert.equal(r.skaters,10);assert.equal(r.available,1);assert.equal(read({...s,skatersIndicatingIn:0},f,now).skaters,0)});
+test('withholds other game, changed date/time, opponent or missing source',()=>{for(const f2 of [null,{...f,id:8},{...f,gameDate:'2026-11-08'},{...f,opponent:'Other'},{...f,puckDropUTC:'2026-11-02T02:15:00Z'}])assert.equal(read(s,f2,now),null);assert.equal(read(null,f,now),null)});
+test('withholds stale, future or malformed summaries and drops at puck drop',()=>{for(const x of ['2026-10-24T00:00:00Z','2026-11-01T00:00:00Z','unknown'])assert.equal(read({...s,checkedAt:x},f,now),null);assert.equal(read(s,f,Date.parse(f.puckDropUTC)),null);for(const v of [-1,0.5,101,null,'10'])assert.equal(read({...s,skatersIndicatingIn:v},f,now),null)});
+test('public snapshot contains only the fixture identity, date, time and anonymous counts',()=>{const m=JSON.parse(fs.readFileSync(path.join(base,'game-centre-lineup-public.json')));if(m.attendanceSnapshot){assert.deepEqual(Object.keys(m.attendanceSnapshot).sort(),Object.keys(s).sort())}assert.equal(m.weeklyAutoPublishEnabled,false);assert.equal(m.privateWhatsAppPollDataPublished,false)});
