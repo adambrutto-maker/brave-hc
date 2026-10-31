@@ -1,20 +1,20 @@
 <!doctype html>
 <html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<style>#manager-card-view[hidden],#manager-card-tools[hidden],#lineup-card[hidden]{display:none!important}</style><meta name="color-scheme" content="dark"><meta name="robots" content="noindex,follow">
+<style> #lineup-pdf-preview[hidden],#manager-card-view[hidden],#manager-card-tools[hidden],#lineup-card[hidden]{display:none!important}</style><meta name="color-scheme" content="dark"><meta name="robots" content="noindex,follow">
 <title>Brave H.C. — Game Centre R3.2 Arena Preview</title>
 <link rel="stylesheet" href="./game-centre-next.css?v=20261030-r31">
 <link rel="stylesheet" href="./arena-power-r32.css?v=20261030-r32">
 <script defer src="./game-night-lineup-contract-v27-preview.js"></script>
 <script defer src="./manager-working-card.js?v=1"></script>
-<script defer src="./game-centre-next.js?v=20261031-working1"></script>
+<script defer src="./game-centre-next.js?v=20261031-public-working1"></script>
 <script defer src="./adult-league-scope.js"></script>
 <script defer src="./division-fit-model.js"></script>
 <script defer src="./weekly-strength-stability.js"></script>
 <script defer src="./arena-power-r32-core.js?v=20261030-r32"></script>
 <script defer src="./arena-power-r32.js?v=20261030-r32"></script>
 </head><body>
-<main class="game-centre" id="game-centre">
+<main class="game-centre" id="game-centre" data-public-working-lineup="1">
 <header class="masthead">
  <img class="crest" src="./brave_hc_logo.png" alt="Brave H.C. crest" width="43" height="43">
  <div class="masthead-text"><div class="kicker">BRAVE H.C. · SUNDAY HOCKEY</div><h1>Game Centre</h1><p>Division standings, opponents, game night and scouting</p></div>
@@ -58,7 +58,7 @@
  <div id="centre-lineup-panel" class="tab-panel" role="tabpanel" data-group="centre" data-name="lineup" aria-labelledby="centre-lineup" hidden>
   <div class="section-title"><div class="eyebrow">NEXT GAME · PLAYER AVAILABILITY</div><h3>Brave H.C. Lineup Card</h3><p id="lineup-fixture">Checking the next official fixture…</p></div>
   <section id="lineup-attendance" class="coach-card" aria-label="Pregame availability" hidden></section>
-  <div class="lineup-status" id="lineup-notice" role="status">Lineup awaiting manager approval; private WhatsApp votes are not published.</div>
+  <div class="lineup-status" id="lineup-notice" role="status">Loading the lineup card for the next game.</div>
   <details id="manager-card-tools" class="coach-card" hidden><summary>Manager?s working lineup</summary>
    <p>Preview the filled original card before the official lineup is released. Use this game?s private Drive link or select its PDF. Selected files stay on this device.</p>
    <p><label>Private card link <input id="manager-card-url" type="url" autocomplete="off" spellcheck="false" style="max-width:95%"></label> <button id="manager-card-load" type="button">Show working card</button></p>
@@ -66,14 +66,14 @@
    <p id="manager-card-status" role="status"></p></details>
   <section id="manager-card-view" hidden aria-label="Manager?s working lineup, not official"><h4>Working lineup ? not final</h4><iframe id="manager-card-frame" title="Private working lineup card" referrerpolicy="no-referrer" style="display:block;width:100%;height:clamp(300px,65vw,620px);border:0"></iframe><div class="action-row"><a id="manager-card-open" target="_blank" rel="noopener noreferrer">Open / print working card</a><button type="button" id="manager-card-close">Back to official card</button></div></section>
   <div class="pdf-lineup" id="lineup-card" aria-label="Authentic Brave H.C. workbook-derived PDF lineup card">
-   <iframe id="lineup-pdf-frame" title="Printable original Brave H.C. lineup PDF" src="./assets/lineups/brave-hc-blank-original-card.pdf#view=FitH&amp;toolbar=0&amp;navpanes=0" loading="lazy" scrolling="no"></iframe>
-   <img id="lineup-pdf-preview" class="pdf-lineup-preview" src="./assets/lineups/brave-hc-blank-original-card.png" alt="Verified blank original Brave H.C. lineup PDF page preview" hidden>
+   <iframe id="lineup-pdf-frame" title="Printable original Brave H.C. lineup PDF" loading="lazy" scrolling="no"></iframe>
+   <img id="lineup-pdf-preview" class="pdf-lineup-preview" alt="Verified blank original Brave H.C. lineup PDF page preview" hidden>
    <p class="pdf-fallback">If your device does not display the PDF, use Open PDF below. Print from the PDF viewer, not the full webpage.</p>
   </div>
-  <p class="source-note">A WhatsApp Yes is availability, not an assigned position or an accepted call-up. Only a fixture-specific, verified and manager-approved PDF may replace the blank original card. Private WhatsApp replies are never published directly.</p>
+  <p class="source-note">A working lineup shows the current skater assignments. It is not the final game sheet. A part-timer is not added just for indicating availability.</p>
   <div class="action-row lineup-actions">
-   <a id="lineup-print" class="print-link" target="_blank" rel="noopener noreferrer" href="./assets/lineups/brave-hc-blank-original-card.pdf">Print Lineup PDF ↗</a>
-   <a id="lineup-open" target="_blank" rel="noopener noreferrer" href="./assets/lineups/brave-hc-blank-original-card.pdf">Open PDF ↗</a>
+   <a id="lineup-print" class="print-link" target="_blank" rel="noopener noreferrer" aria-disabled="true" tabindex="-1">Print Lineup PDF ↗</a>
+   <a id="lineup-open" target="_blank" rel="noopener noreferrer" aria-disabled="true" tabindex="-1">Open PDF ↗</a>
    <a href="https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&amp;s=hockey&amp;p=roster" target="_blank" rel="noopener noreferrer">Official Team Roster ↗</a>
   </div>
  </div>

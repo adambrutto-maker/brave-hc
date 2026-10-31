@@ -109,7 +109,10 @@ let browser;const checks=[];
    nativeSourceScripts:[...document.querySelectorAll("script[src]")].filter(x=>x.src.includes("arena-power")).length
   }));
   assert.deepEqual(regression.tabs,["standings","opponent","lineup","goalies","rankings","coaching"]);
-  assert.ok(regression.pdf.endsWith("brave-hc-blank-original-card.pdf")&&!regression.pdfDisabled);
+  const manifest=JSON.parse(fs.readFileSync(path.join(root,'game-centre-lineup-public.json'))),snapshot=manifest.publishedWorkingCard;
+  const fix=JSON.parse(fs.readFileSync(path.join(root,'countdown.json'))).games.find(x=>Date.now()<Date.parse(x.rolloverAtUTC));
+  const released=snapshot?.authorizedForPublic===true&&snapshot.fixtureId===fix?.id&&snapshot.opponent===fix.opponent&&snapshot.puckDropUTC===fix.puckDropUTC&&Date.now()>=Date.parse(snapshot.publishedAt)&&Date.now()<Date.parse(snapshot.expiresAt);
+  assert.equal(regression.pdf,released?snapshot.url:manifest.blank.url);assert.equal(regression.pdfDisabled,false);
   assert.equal(regression.standings,8);assert.equal(regression.nativeSourceScripts,2);
   assert.equal(errors.length,0,JSON.stringify(errors));assert.equal(assets.length,0,JSON.stringify(assets));
   console.log("ARENA_R32_UI_PASS",name,width,"board",board.height,"team",braves.height,"fit",fit.height,"rows",board.rankCount);
