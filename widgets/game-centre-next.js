@@ -264,18 +264,31 @@ function drawAttendanceSummary(manifest,fix){
   n("p","source-note","Checked "+fmt(s.checked,{month:"short",day:"numeric",hour:"numeric",minute:"2-digit"})+" Toronto time. These are attendance responses, not assigned lines."));
  host.hidden=false;
 }
-let lineupLoadVersion=0;
+// Explicit manager release of this game?s skater card is separate from a final lineup or goalie booking.
+function publicWorkingEntry(m,fix,now){
+ const e=m?.publishedWorkingCard;
+ if(!fix||!e||!Number.isSafeInteger(fix.id)||m.approved!=null||m.status!=="BLANK_PENDING_APPROVAL"||m.weeklyAutoPublishEnabled!==false||m.privateWhatsAppPollDataPublished!==false)return null;
+ if(e.state!=="PUBLIC_WORKING_LINEUP"||e.authorizedForPublic!==true||e.goalieConfirmed!==false||e.sourceRange!=="Lines!G5:J16"||e.fixtureId!==fix.id||e.opponent!==fix.opponent||e.gameDate!==fix.gameDate||e.puckDropUTC!==fix.puckDropUTC||e.expiresAt!==fix.rolloverAtUTC)return null;
+ const pub=Date.parse(e.publishedAt),end=Date.parse(e.expiresAt);if(![now,pub,end].every(Number.isFinite)||now<pub||now>=end)return null;
+ const h=/^[a-f0-9]{64}$/;if(![e.sha256,e.previewSHA256,e.sourceSha256].every(v=>typeof v==='string'&&h.test(v))||e.sourceSha256!==m.workingCard?.sha256)return null;
+ if(!allowedPdfPath(e.url)||!e.url.endsWith('-'+fix.gameDate+'-working.pdf')||e.previewImage!==e.url.slice(0,-4)+'.png')return null;
+ return e;
+}
+let lineupLoadVersion=0,workingExpiryTimer=null;
 async function drawLineup(){
  const version=++lineupLoadVersion,fix=nextFixture();
  set("lineup-fixture",fix?"Next: "+when(fix.gameDate)+" · "+fix.opponent:"Next fixture awaiting official HTO verification");
  const manifest=state.lineupPdf;
  drawAttendanceSummary(manifest,fix);
- window.BraveManagerWorkingCard?.update(manifest,fix);
+ const released=root.dataset.publicWorkingLineup==="1"?publicWorkingEntry(manifest,fix,Date.now()):null;
+ window.BraveManagerWorkingCard?.update(released?null:manifest,fix);
+ if(workingExpiryTimer!==null)clearTimeout(workingExpiryTimer);workingExpiryTimer=null;
+ if(released)workingExpiryTimer=setTimeout(()=>void drawLineup(),Math.min(2147483000,Math.max(10,Date.parse(released.expiresAt)-Date.now()+10)));
  const frame=$("lineup-pdf-frame"),preview=$("lineup-pdf-preview"),print=$("lineup-print"),open=$("lineup-open");
- const block=()=>{frame.removeAttribute("src");preview.hidden=true;for(const a of [print,open]){a.removeAttribute("href");a.setAttribute("aria-disabled","true");a.tabIndex=-1}};
+ const block=()=>{frame.removeAttribute("src");preview.removeAttribute("src");preview.hidden=true;for(const a of [print,open]){a.removeAttribute("href");a.setAttribute("aria-disabled","true");a.tabIndex=-1}};
  block();
  if(!manifest){set("lineup-notice","Checking the original workbook-derived blank PDF…");return}
- let entry=manifest.blank;
+ let entry=released||manifest.blank;
  let approved=false;
  if(validApprovedPdf(state.lineup,state.playerProfiles,manifest)){
   if(await pdfIntegrity(manifest.approved)){entry=manifest.approved;approved=true}
@@ -285,10 +298,12 @@ async function drawLineup(){
  if(version!==lineupLoadVersion)return;
  const url=entry.url;
  frame.src=url+"#view=FitH&toolbar=0&navpanes=0";
- if(previewVerified){preview.src=entry.previewImage;preview.hidden=false}
+ if(previewVerified){preview.alt=released?"Working skater lineup vs "+fix.opponent+"; goalie unconfirmed. Open the PDF to read or print the assignments.":approved?"Approved lineup card":"Blank original lineup card";preview.src=entry.previewImage;preview.hidden=false}
+ frame.title=released?"Working skater lineup vs "+fix.opponent:approved?"Official lineup card":"Blank original lineup card";
  for(const a of [print,open]){a.href=url;a.removeAttribute("aria-disabled");a.tabIndex=0}
  set("lineup-notice",approved?
    "Official manager-approved lineup PDF · "+when(fix.gameDate)+" vs "+fix.opponent:
+   released?"Working lineup vs "+fix.opponent+" | Goalie unconfirmed. Open or print the filled card below.":
    "Blank original Brave H.C. card · lineup pending manager approval. Print or open the one-page PDF; do not use historical player sheets.");
 }
 
@@ -520,7 +535,7 @@ async function updateData(){
  const jobs=[
   fetchJSON("standings.json").then(verifyStandings).then(t=>{state.standings=t;drawStandings()}).catch(()=>{set("standings-status","Cristillo official standings temporarily unavailable. Check the league website.")}),
   fetchJSON("league-intelligence.json").then(verifyLeague).then(t=>{state.league=t;refreshLeagueInfo()}).catch(()=>{set("rankings-status","Sunday power rankings withheld: verified league evidence unavailable.")}),
-  fetchJSON("countdown.json").then(verifyUpcoming).then(t=>{state.upcoming=t;selectOpponentOptions();drawLineup()}).catch(()=>{state.upcoming=null;drawAttendanceSummary(null,null);window.BraveManagerWorkingCard?.update(null,null);set("lineup-notice","No verified current fixture. Lineup remains blank.")}),
+  fetchJSON("countdown.json").then(verifyUpcoming).then(t=>{state.upcoming=t;selectOpponentOptions();drawLineup()}).catch(()=>{state.upcoming=null;void drawLineup();set("lineup-notice","No verified current fixture. Lineup remains blank.")}),
   fetchJSON("svhl-upcoming.json").then(verifySchedule).then(t=>{state.schedule=t;drawGoalies()}).catch(()=>{set("goalie-status","SVHL schedule unavailable. Check the official league page.")}),
   fetchJSON("goalie-assignments.json").then(verifyAssignments).then(t=>{state.assign=t;drawGoalies()}).catch(()=>{set("goalie-status","Published goaltender confirmation unavailable.")}),
   fetchJSON("opponent-intelligence.json").then(verifyHistory).then(t=>{state.history=t;renderOpponent()}).catch(()=>{renderOpponent()}),

@@ -17,7 +17,7 @@
   "approved": null,
   "weeklyAutoPublishEnabled": false,
   "privateWhatsAppPollDataPublished": false,
-  "notice": "A current-game PDF requires verified attendance, goalie, legal lineup and manager approval; no WhatsApp yes alone authorizes publication.",
+  "notice": "An explicitly released working card may show assigned skaters while the goalie is unconfirmed. The official final lineup requires separate game-specific approval and goalie confirmation.",
   "attendanceSnapshot": {
     "fixtureId": 3375683,
     "opponent": "Mid Ice Crisis",
@@ -34,5 +34,22 @@
     "opponent": "Mid Ice Crisis",
     "sha256": "040eeca913e4df660bf3b250e803fbd6051aaba92c1b03f0ba42ef4dc1ef9e82",
     "locatorSha256": "12740c3f1d68a8c641558e88f81d447f74be9db480c6e5d17d1218cab9a47487"
+  },
+  "publishedWorkingCard": {
+    "fixtureId": 3375683,
+    "gameDate": "2026-11-01",
+    "opponent": "Mid Ice Crisis",
+    "puckDropUTC": "2026-11-02T01:15:00Z",
+    "state": "PUBLIC_WORKING_LINEUP",
+    "authorizedForPublic": true,
+    "goalieConfirmed": false,
+    "sourceRange": "Lines!G5:J16",
+    "sourceSha256": "040eeca913e4df660bf3b250e803fbd6051aaba92c1b03f0ba42ef4dc1ef9e82",
+    "publishedAt": "2026-10-31T18:09:37Z",
+    "expiresAt": "2026-11-02T02:15:00Z",
+    "url": "./assets/lineups/game-364-2026-11-01-working.pdf",
+    "sha256": "409e86f5d55008e7f1c40628c28706ea19c711c515597d8fe590fb29ab74134e",
+    "previewImage": "./assets/lineups/game-364-2026-11-01-working.png",
+    "previewSHA256": "ac51c1201ef1a43ed9280addfaf321a8f09b55cafbaa5f52ce7d3c9ef1bc4942"
   }
 }
