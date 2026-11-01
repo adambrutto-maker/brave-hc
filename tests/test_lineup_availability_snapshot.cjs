@@ -1,11 +1,41 @@
 'use strict';
-const {test}=require('node:test'), assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),vm=require('node:vm');
-const base=path.join(__dirname,'..','widgets'),src=fs.readFileSync(path.join(base,'game-centre-next.js'),'utf8');
-const start=src.indexOf('function attendanceForFixture('),end=src.indexOf('function drawAttendanceSummary(',start);assert(start>=0&&end>start);
-const read=vm.runInNewContext('('+src.slice(start,end).trim()+')');
-const f={id:7,opponent:'Fixture',gameDate:'2026-11-01',puckDropUTC:'2026-11-02T01:15:00Z'},now=Date.parse('2026-10-31T17:00:00Z');
-const s={fixtureId:7,opponent:f.opponent,gameDate:f.gameDate,puckDropUTC:f.puckDropUTC,checkedAt:'2026-10-31T12:00:00-04:00',skatersIndicatingIn:10,partTimersAvailable:1};
-test('keeps potential call-ups out of attendance',()=>{const r=read(s,f,now);assert.equal(r.skaters,10);assert.equal(r.available,1);assert.equal(read({...s,skatersIndicatingIn:0},f,now).skaters,0)});
-test('withholds other game, changed date/time, opponent or missing source',()=>{for(const f2 of [null,{...f,id:8},{...f,gameDate:'2026-11-08'},{...f,opponent:'Other'},{...f,puckDropUTC:'2026-11-02T02:15:00Z'}])assert.equal(read(s,f2,now),null);assert.equal(read(null,f,now),null)});
-test('withholds stale, future or malformed summaries and drops at puck drop',()=>{for(const x of ['2026-10-24T00:00:00Z','2026-11-01T00:00:00Z','unknown'])assert.equal(read({...s,checkedAt:x},f,now),null);assert.equal(read(s,f,Date.parse(f.puckDropUTC)),null);for(const v of [-1,0.5,101,null,'10'])assert.equal(read({...s,skatersIndicatingIn:v},f,now),null)});
-test('public snapshot contains only the fixture identity, date, time and anonymous counts',()=>{const m=JSON.parse(fs.readFileSync(path.join(base,'game-centre-lineup-public.json')));if(m.attendanceSnapshot){assert.deepEqual(Object.keys(m.attendanceSnapshot).sort(),Object.keys(s).sort())}assert.equal(m.weeklyAutoPublishEnabled,false);assert.equal(m.privateWhatsAppPollDataPublished,false)});
+// Regression: attendance evidence stays in private HockeyOS workflows, never public Game Centre.
+const {test}=require('node:test'),assert=require('node:assert/strict');
+const fs=require('node:fs'),path=require('node:path'),vm=require('node:vm');
+const root=path.join(__dirname,'../widgets');
+const manifest=JSON.parse(fs.readFileSync(path.join(root,'game-centre-lineup-public.json'),'utf8'));
+const html=fs.readFileSync(path.join(root,'game-centre-arena-r32.html'),'utf8');
+const js=fs.readFileSync(path.join(root,'game-centre-next.js'),'utf8');
+const legacyFields=['skatersIndicatingIn','partTimersAvailable','attendanceSnapshot','confirmedSkaters','fullTimers','callupsConfirmed','callupsAwaitingReply'];
+const verifySrc=js.slice(js.indexOf('function verifyPdfManifest('),js.indexOf('function validApprovedPdf('));
+assert(verifySrc.startsWith('function verifyPdfManifest('));
+const verify=vm.runInNewContext('('+verifySrc.trim()+')',{allowedPdfPath:x=>/^\.\/assets\/lineups\/[a-z0-9][a-z0-9_/-]*\.pdf$/.test(x)&&!x.includes('..')});
+test('pre-game availability section and source note are absent from the public R3.2 lineup UI',()=>{
+ assert.equal(html.includes('id="lineup-attendance"'),false);
+ assert.equal(html.includes('NEXT GAME · PLAYER AVAILABILITY'),false);
+ assert.equal(html.includes('Pregame availability'),false);
+ assert.equal(html.includes('A part-timer is not added'),false);
+ assert.equal(html.includes('Official Team Roster ↗'),false);
+ assert.equal(html.includes('class="pdf-fallback"'),false);
+ assert.equal(js.includes('drawAttendanceSummary('),false);
+ assert.equal(js.includes('function attendanceForFixture('),false);
+ assert.equal(js.includes('PREGAME AVAILABILITY'),false);
+ assert.match(html,/id="lineup-card"/);
+ assert.match(html,/id="lineup-print"/);
+ assert.match(html,/id="lineup-open"/);
+});
+test('public lineup JSON contains no RSVP tally, callup counts, or personal absence details',()=>{
+ assert.equal(Object.hasOwn(manifest,'attendanceSnapshot'),false);
+ for(const key of legacyFields){
+  assert.equal(Object.hasOwn(manifest.publishedWorkingCard||{},key),false,key);
+ }
+ const raw=JSON.stringify(manifest);
+ for(const term of ['Brutto, Adam','illness','sick','personal absence','Adam is out','adam.brutto@gmail.com'])
+  assert.equal(raw.toLowerCase().includes(term.toLowerCase()),false,term);
+ assert.equal(manifest.privateWhatsAppPollDataPublished,false);
+ assert.equal(manifest.weeklyAutoPublishEnabled,false);
+});
+test('public manifest accepts only card-only data and rejects accidental re-publication of poll counts',()=>{
+ assert.equal(verify(manifest),manifest);
+ assert.throws(()=>verify({...manifest,attendanceSnapshot:{skatersIndicatingIn:10,partTimersAvailable:1}}));
+});

@@ -24,6 +24,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
 
+      - name: Guard public lineup privacy
+        run: node --test tests/test_lineup_availability_snapshot.cjs
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 

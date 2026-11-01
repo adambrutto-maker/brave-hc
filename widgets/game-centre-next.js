@@ -220,6 +220,7 @@ async function pngPreviewIntegrity(entry){
 }
 function verifyPdfManifest(x){
  if(x?.schema!=="brave-hc-game-centre-public-lineup-pdf/v1"||
+    Object.prototype.hasOwnProperty.call(x,"attendanceSnapshot")||
     x.sourceWorkbookSHA256!=="0002fd9f06596af8d0a00fc1b53a618ef15479f941ad5c1e6265b27002a65154"||
     x.blank?.sourceRange!=="Lines!G5:J16"||x.blank?.pageCount!==1||
     x.blank?.publicBlankTemplateApproved!==true||x.blank?.containsPlayerNames!==false||
@@ -246,24 +247,7 @@ function validApprovedPdf(feed,profiles,manifest){
  return result?.approved===true&&result.fixture.id===fix.id&&
    result.approvalId===approved.approvalId&&result.evidenceFingerprint===approved.evidenceFingerprint;
 }
-// Only roster-level counts are public; this summary cannot supply names or approve a PDF.
-function attendanceForFixture(s,fix,now){
- if(!s||!fix||s.fixtureId!==fix.id||s.opponent!==fix.opponent||s.gameDate!==fix.gameDate||s.puckDropUTC!==fix.puckDropUTC)return null;
- const checked=Date.parse(s.checkedAt),start=Date.parse(fix.puckDropUTC);
- if(!Number.isFinite(checked)||!Number.isFinite(start)||checked>now||now>=start||now-checked>48*3600000)return null;
- for(const v of [s.skatersIndicatingIn,s.partTimersAvailable])if(!Number.isInteger(v)||v<0||v>100)return null;
- return {skaters:s.skatersIndicatingIn,available:s.partTimersAvailable,checked:s.checkedAt};
-}
-function drawAttendanceSummary(manifest,fix){
- const host=$("lineup-attendance");if(!host)return;
- host.hidden=true;host.replaceChildren();
- if(manifest?.status!=="BLANK_PENDING_APPROVAL"||manifest.approved!=null)return;
- const s=attendanceForFixture(manifest.attendanceSnapshot,fix,Date.now());if(!s)return;
- host.append(n("div","eyebrow","PREGAME AVAILABILITY"),n("h4",null,s.skaters+" skater"+(s.skaters===1?"":"s")+" indicated in"),
-  n("p",null,s.available+" part-timer"+(s.available===1?"":"s")+" available if called. Not included in the skater count."),
-  n("p","source-note","Checked "+fmt(s.checked,{month:"short",day:"numeric",hour:"numeric",minute:"2-digit"})+" Toronto time. These are attendance responses, not assigned lines."));
- host.hidden=false;
-}
+// Player RSVP and call-up availability are private operations data, never public widget content.
 // Explicit manager release of this game?s skater card is separate from a final lineup or goalie booking.
 function publicWorkingEntry(m,fix,now){
  const e=m?.publishedWorkingCard;
@@ -289,9 +273,9 @@ function publicWorkingEntry(m,fix,now){
 let lineupLoadVersion=0,workingExpiryTimer=null;
 async function drawLineup(){
  const version=++lineupLoadVersion,fix=nextFixture();
+ $("lineup-notice").hidden=false;
  set("lineup-fixture",fix?"Next: "+when(fix.gameDate)+" · "+fix.opponent:"Next fixture awaiting official HTO verification");
  const manifest=state.lineupPdf;
- drawAttendanceSummary(manifest,fix);
  const released=root.dataset.publicWorkingLineup==="1"?publicWorkingEntry(manifest,fix,Date.now()):null;
  window.BraveManagerWorkingCard?.update(released?null:manifest,fix);
  if(workingExpiryTimer!==null)clearTimeout(workingExpiryTimer);workingExpiryTimer=null;
@@ -315,9 +299,11 @@ async function drawLineup(){
  frame.title=released?"Working skater lineup vs "+fix.opponent:approved?"Official lineup card":"Blank original lineup card";
  for(const a of [print,open]){a.href=url;a.removeAttribute("aria-disabled");a.tabIndex=0}
  set("lineup-notice",approved?
-   "Official manager-approved lineup PDF · "+when(fix.gameDate)+" vs "+fix.opponent:
-   released?"Working lineup vs "+fix.opponent+" | "+goalieNotice+". Open or print the filled card below.":
+   "Official lineup card available.":
+   released?"Working lineup card available.":
    "Blank original Brave H.C. card · lineup pending manager approval. Print or open the one-page PDF; do not use historical player sheets.");
+ // The card itself is the public display. Text is shown only if a card is held or unavailable.
+ $("lineup-notice").hidden=Boolean(released||approved);
 }
 
 function miniMetric(label,value){const box=n("div","tile");box.append(n("strong",null,value),n("span",null,label));return box}

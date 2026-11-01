@@ -41,14 +41,14 @@ test('rental booking never implies official final manager or game sheet approval
  assert.equal(check({}, {approved:{fake:true}}),null);
  assert.equal(sel(pub,fix,Date.parse(e.expiresAt)),null);
  assert.equal(sel(pub,{...fix,id:fix.id+1},now),null);
- assert.equal(e.totalSkaters,14);
- assert.equal(e.fullTimers,12);
- assert.equal(e.callupsConfirmed,2);
+ assert.equal(Object.hasOwn(e,"totalSkaters"),false);
+ assert.equal(Object.hasOwn(e,"fullTimers"),false);
+ assert.equal(Object.hasOwn(e,"callupsConfirmed"),false);
 });
-test('public manifest preserves seven-field anonymous attendance poll and no private email contents',()=>{
- const keys=Object.keys(pub.attendanceSnapshot).sort();
- assert.deepEqual(keys,['checkedAt','fixtureId','gameDate','opponent','partTimersAvailable','puckDropUTC','skatersIndicatingIn']);
- assert.equal(pub.attendanceSnapshot.skatersIndicatingIn,10);
+test('public manifest excludes poll attendance, callup metadata and private email contents',()=>{
+ assert.equal(Object.hasOwn(pub,"attendanceSnapshot"),false);
+ for(const k of ["fullTimers","callupsConfirmed","callupsAwaitingReply","confirmedSkaters"])
+  assert.equal(Object.hasOwn(e,k),false,k);
  const raw=fs.readFileSync(path.join(root,'game-centre-lineup-public.json'),'utf8');
  for(const term of ['1a1979ee9d7e9153','adam.brutto@gmail.com','$40.00','goalieup.com/upcoming'])
   assert.equal(raw.includes(term),false);
