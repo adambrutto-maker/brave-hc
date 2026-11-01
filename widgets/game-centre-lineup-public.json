@@ -17,7 +17,7 @@
   "approved": null,
   "weeklyAutoPublishEnabled": false,
   "privateWhatsAppPollDataPublished": false,
-  "notice": "An explicitly released working card may show assigned skaters while the goalie is unconfirmed. The official final lineup requires separate game-specific approval and goalie confirmation.",
+  "notice": "Public WORKING lineup includes two manager-requested call-ups awaiting individual replies. Not the official final lineup; goalie remains unconfirmed.",
   "attendanceSnapshot": {
     "fixtureId": 3375683,
     "opponent": "Mid Ice Crisis",
@@ -32,8 +32,10 @@
     "gameDate": "2026-11-01",
     "puckDropUTC": "2026-11-02T01:15:00Z",
     "opponent": "Mid Ice Crisis",
-    "sha256": "040eeca913e4df660bf3b250e803fbd6051aaba92c1b03f0ba42ef4dc1ef9e82",
-    "locatorSha256": "12740c3f1d68a8c641558e88f81d447f74be9db480c6e5d17d1218cab9a47487"
+    "sha256": "1bff677c88541263974693cb5c94c2cb41d6cff01b3bf256249055306698522a",
+    "locatorSha256": "8abbfdd3ad06f793dce2844d7986f8afdab6dce8c88e73000f1f5aca34ca01a5",
+    "formation": "8F/5D",
+    "totalSkaters": 13
   },
   "publishedWorkingCard": {
     "fixtureId": 3375683,
@@ -44,12 +46,16 @@
     "authorizedForPublic": true,
     "goalieConfirmed": false,
     "sourceRange": "Lines!G5:J16",
-    "sourceSha256": "040eeca913e4df660bf3b250e803fbd6051aaba92c1b03f0ba42ef4dc1ef9e82",
-    "publishedAt": "2026-10-31T18:09:37Z",
+    "sourceSha256": "1bff677c88541263974693cb5c94c2cb41d6cff01b3bf256249055306698522a",
+    "publishedAt": "2026-11-01T14:48:31Z",
     "expiresAt": "2026-11-02T02:15:00Z",
     "url": "./assets/lineups/game-364-2026-11-01-working.pdf",
-    "sha256": "409e86f5d55008e7f1c40628c28706ea19c711c515597d8fe590fb29ab74134e",
+    "sha256": "c10c2face7982efea89fdf815013b202553b1792b3b7f06913ee62c112128235",
     "previewImage": "./assets/lineups/game-364-2026-11-01-working.png",
-    "previewSHA256": "ac51c1201ef1a43ed9280addfaf321a8f09b55cafbaa5f52ce7d3c9ef1bc4942"
+    "previewSHA256": "71f33e0b449ad1f42f7ad3432f8c360b56ace4319647786045334c8ed3728532",
+    "totalSkaters": 13,
+    "confirmedSkaters": 11,
+    "callupsAwaitingReply": 2,
+    "formation": "8F/5D"
   }
 }
