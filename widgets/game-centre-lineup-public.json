@@ -17,7 +17,7 @@
   "approved": null,
   "weeklyAutoPublishEnabled": false,
   "privateWhatsAppPollDataPublished": false,
-  "notice": "Working 14-skater lineup (8F/6D). Kober and Mazzei are confirmed call-ups, Marco confirmed directly, and Sanjay has been restored at defence. Goalie unconfirmed; not an official final lineup.",
+  "notice": "WORKING lineup: 14 skaters (8F/6D) plus confirmed GoalieUp rental goalie #0 Brian Haspel for Nov 1 at 8:15 PM. Not the official final lineup.",
   "attendanceSnapshot": {
     "fixtureId": 3375683,
     "opponent": "Mid Ice Crisis",
@@ -32,10 +32,13 @@
     "gameDate": "2026-11-01",
     "puckDropUTC": "2026-11-02T01:15:00Z",
     "opponent": "Mid Ice Crisis",
-    "sha256": "9537d0b07e07a8058765bf234210bcd312a551ccaa16cd8773804fc500918b65",
+    "sha256": "a203b9efe90bf6f99f342df45091fa932f7bbaf956251553d1ae256ec5fbe47a",
     "locatorSha256": "d1d2e2aa2043fe25c009760fe57a1f6854ad2882bc52761483961c8a6b36fac4",
     "formation": "8F/6D",
-    "totalSkaters": 14
+    "totalSkaters": 14,
+    "goalieConfirmed": true,
+    "goalieName": "Brian Haspel",
+    "goalieNumber": "0"
   },
   "publishedWorkingCard": {
     "fixtureId": 3375683,
@@ -44,20 +47,30 @@
     "puckDropUTC": "2026-11-02T01:15:00Z",
     "state": "PUBLIC_WORKING_LINEUP",
     "authorizedForPublic": true,
-    "goalieConfirmed": false,
+    "goalieConfirmed": true,
     "sourceRange": "Lines!G5:J16",
-    "sourceSha256": "9537d0b07e07a8058765bf234210bcd312a551ccaa16cd8773804fc500918b65",
-    "publishedAt": "2026-11-01T15:05:46Z",
+    "sourceSha256": "a203b9efe90bf6f99f342df45091fa932f7bbaf956251553d1ae256ec5fbe47a",
+    "publishedAt": "2026-11-01T15:11:52Z",
     "expiresAt": "2026-11-02T02:15:00Z",
     "url": "./assets/lineups/game-364-2026-11-01-working.pdf",
-    "sha256": "21123c4061ab5bc58063dccae98c2b0e5f06ffd51aa2b088a11fc3c761679416",
+    "sha256": "3aa918c3878138627223a92fcb43bb41a6ac4b3b0bba83ade61dce0edae521f1",
     "previewImage": "./assets/lineups/game-364-2026-11-01-working.png",
-    "previewSHA256": "64ce036b4b723303856a2a597c373a684a0005bca1d3e4cee3da62ddba4b281a",
+    "previewSHA256": "851bd1b637f7a780838986a76401ffad5d800c311f356efd45bdd594b4260ad2",
     "totalSkaters": 14,
     "confirmedSkaters": 14,
     "callupsAwaitingReply": 0,
     "formation": "8F/6D",
     "fullTimers": 12,
-    "callupsConfirmed": 2
+    "callupsConfirmed": 2,
+    "rentalGoalie": {
+      "source": "GOALIEUP_CONFIRMATION_EMAIL",
+      "status": "RENTAL_CONFIRMED",
+      "name": "Brian Haspel",
+      "number": "0",
+      "fixtureId": 3375683,
+      "gameDate": "2026-11-01",
+      "puckDropUTC": "2026-11-02T01:15:00Z",
+      "confirmedAtUTC": "2026-11-01T14:58:55Z"
+    }
   }
 }

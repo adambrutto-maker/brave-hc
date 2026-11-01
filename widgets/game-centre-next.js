@@ -268,7 +268,19 @@ function drawAttendanceSummary(manifest,fix){
 function publicWorkingEntry(m,fix,now){
  const e=m?.publishedWorkingCard;
  if(!fix||!e||!Number.isSafeInteger(fix.id)||m.approved!=null||m.status!=="BLANK_PENDING_APPROVAL"||m.weeklyAutoPublishEnabled!==false||m.privateWhatsAppPollDataPublished!==false)return null;
- if(e.state!=="PUBLIC_WORKING_LINEUP"||e.authorizedForPublic!==true||e.goalieConfirmed!==false||e.sourceRange!=="Lines!G5:J16"||e.fixtureId!==fix.id||e.opponent!==fix.opponent||e.gameDate!==fix.gameDate||e.puckDropUTC!==fix.puckDropUTC||e.expiresAt!==fix.rolloverAtUTC)return null;
+ if(e.state!=="PUBLIC_WORKING_LINEUP"||e.authorizedForPublic!==true||e.sourceRange!=="Lines!G5:J16"||e.fixtureId!==fix.id||e.opponent!==fix.opponent||e.gameDate!==fix.gameDate||e.puckDropUTC!==fix.puckDropUTC||e.expiresAt!==fix.rolloverAtUTC)return null;
+ // A confirmed rental goalie is supported only with a game-bound booking confirmation.
+ // This DOES NOT convert the working card into an official league-approved lineup.
+ if(e.goalieConfirmed!==false&&e.goalieConfirmed!==true)return null;
+ if(e.goalieConfirmed===true){
+  const g=e.rentalGoalie;
+  if(!g||g.source!=="GOALIEUP_CONFIRMATION_EMAIL"||g.status!=="RENTAL_CONFIRMED"||
+     typeof g.name!=="string"||!/^[A-Za-zÀ-ÿ][A-Za-zÀ-ÿ .'-]{2,80}$/.test(g.name)||
+     g.number!=="0"||g.fixtureId!==fix.id||g.gameDate!==fix.gameDate||g.puckDropUTC!==fix.puckDropUTC||
+     typeof g.confirmedAtUTC!=="string"||!Number.isFinite(Date.parse(g.confirmedAtUTC))||
+     Date.parse(g.confirmedAtUTC)>Date.parse(e.publishedAt)||
+     Date.parse(g.confirmedAtUTC)>=Date.parse(fix.puckDropUTC))return null;
+ }else if(e.rentalGoalie!=null)return null;
  const pub=Date.parse(e.publishedAt),end=Date.parse(e.expiresAt);if(![now,pub,end].every(Number.isFinite)||now<pub||now>=end)return null;
  const h=/^[a-f0-9]{64}$/;if(![e.sha256,e.previewSHA256,e.sourceSha256].every(v=>typeof v==='string'&&h.test(v))||e.sourceSha256!==m.workingCard?.sha256)return null;
  if(!allowedPdfPath(e.url)||!e.url.endsWith('-'+fix.gameDate+'-working.pdf')||e.previewImage!==e.url.slice(0,-4)+'.png')return null;
@@ -298,12 +310,13 @@ async function drawLineup(){
  if(version!==lineupLoadVersion)return;
  const url=entry.url;
  frame.src=url+"#view=FitH&toolbar=0&navpanes=0";
- if(previewVerified){preview.alt=released?"Working skater lineup vs "+fix.opponent+"; goalie unconfirmed. Open the PDF to read or print the assignments.":approved?"Approved lineup card":"Blank original lineup card";preview.src=entry.previewImage;preview.hidden=false}
+ const goalieNotice=released?.goalieConfirmed===true?"Rental goalie #"+released.rentalGoalie.number+" "+released.rentalGoalie.name+" confirmed (GoalieUp)":"Goalie unconfirmed";
+ if(previewVerified){preview.alt=released?"Working skater lineup vs "+fix.opponent+"; "+goalieNotice+". Open the PDF to read or print the assignments.":approved?"Approved lineup card":"Blank original lineup card";preview.src=entry.previewImage;preview.hidden=false}
  frame.title=released?"Working skater lineup vs "+fix.opponent:approved?"Official lineup card":"Blank original lineup card";
  for(const a of [print,open]){a.href=url;a.removeAttribute("aria-disabled");a.tabIndex=0}
  set("lineup-notice",approved?
    "Official manager-approved lineup PDF · "+when(fix.gameDate)+" vs "+fix.opponent:
-   released?"Working lineup vs "+fix.opponent+" | Goalie unconfirmed. Open or print the filled card below.":
+   released?"Working lineup vs "+fix.opponent+" | "+goalieNotice+". Open or print the filled card below.":
    "Blank original Brave H.C. card · lineup pending manager approval. Print or open the one-page PDF; do not use historical player sheets.");
 }
 
