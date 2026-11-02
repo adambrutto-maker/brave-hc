@@ -1,0 +1,83 @@
+{
+  "schema": "brave-hc-hto-native-readability-audit/v1",
+  "date": "2026-11-02",
+  "releaseStatus": "TWO_NATIVE_GAME_ARTICLES_RESTYLED_PUBLIC_VERIFIED",
+  "leadDepartment": "MEDIA",
+  "executionHost": "BRUTTECH 1 / AdamPCDesktop",
+  "scope": "HTO per-game native article markup only",
+  "nativeScoreDataModified": false,
+  "siteWideThemeModified": false,
+  "newPerGameWidgetsAdded": 0,
+  "videoOrHighlightsModified": false,
+  "globalHTOShellStillBlack": true,
+  "originalHTOArticlePresentation": {
+    "bodyFontPx": 14,
+    "headlineFontApproxPx": 17.234,
+    "textColor": "#666666",
+    "outerBodyBackgroundAsset": "vertical-black.gif"
+  },
+  "styledHTOArticlePresentation": {
+    "bodyFontPx": 16,
+    "lineHeightPx": 27.2,
+    "headlineFontPx": 25,
+    "sectionFontPx": 17,
+    "textColor": "#162e45",
+    "leadColor": "#18384f",
+    "cardBackground": "#ffffff",
+    "accent": "#ae263e",
+    "bodyContrastApprox": 12.2
+  },
+  "publicBrowserQA": {
+    "testCount": 68,
+    "passed": 68,
+    "failed": 0,
+    "viewports": [
+      320,
+      390,
+      625,
+      1280
+    ],
+    "browser": "Microsoft Edge",
+    "noHorizontalOverflow": true,
+    "noJavaScriptPageErrors": true
+  },
+  "sourceAndPublicationQA": {
+    "approvedTextBlocksChecked": 35,
+    "approvedTextBlocksUnchanged": 35,
+    "officialScoreAndStatTablesChecked": 6,
+    "officialScoreAndStatTablesUnchanged": 6,
+    "officialScoreAndStatTablesSHA256": "3a4a5bbfb18eddfa231fb80f24f254232e48ef2b532a893d2d05f648c8f4cd9b"
+  },
+  "formatterQA": {
+    "unitTests": 16,
+    "passed": 16,
+    "testsFailed": 0,
+    "twoOriginalSourceFilesReproducedLocalApprovedStyling": true
+  },
+  "games": [
+    {
+      "gameId": 3375684,
+      "date": "2026-11-08",
+      "field": "Game Preview",
+      "headline": "High-Scoring Other Way Next as Braves Look to Rebound",
+      "officialUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=3375684&p=preview",
+      "approvedTextBlocks": 13,
+      "unchanged": true,
+      "styledSectionHeadings": 2,
+      "localStyledCandidateSHA256": "ab513f01f702966c1a6e7c01006034d01617c55d9c22dce5e69ffd1c9b5cf5c1"
+    },
+    {
+      "gameId": 3375683,
+      "date": "2026-11-01",
+      "field": "Game Summary",
+      "headline": "Braves Fall 7–2 to Mid Ice Crisis in November Opener",
+      "officialUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=3375683&p=boxscore",
+      "approvedTextBlocks": 22,
+      "unchanged": true,
+      "styledSectionHeadings": 5,
+      "localStyledCandidateSHA256": "e4b0ad1040391998049e676ae7010f1499c27cff0290abfa7de3c4fd4d81453d"
+    }
+  ],
+  "historicalArchivePR198Unmerged": true,
+  "globalTemplateFollowup": "Separate site-wide HTO Design/Styles review if changing the black outer shell and site header is desired"
+}
