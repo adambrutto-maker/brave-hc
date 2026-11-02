@@ -215,8 +215,8 @@ def publish_pack(records, output):
         label = ("preview" if record["type"] == "pregame" else "summary")
         stem = record["date"].replace("-", "") + "_HTO_" + str(record["gameId"]) + "_" + label
         html_content, text_content = render_native(record)
-        (output / (stem + ".html")).write_text(html_content, encoding="utf-8")
-        (output / (stem + ".txt")).write_text(text_content, encoding="utf-8")
+        (output / (stem + ".html")).write_text(html_content, encoding="utf-8", newline="\n")
+        (output / (stem + ".txt")).write_text(text_content, encoding="utf-8", newline="\n")
         manifest["entries"].append({
             "gameId": record["gameId"], "date": record["date"],
             "targetField": record["targetField"], "nativePage": record["nativePage"],
@@ -228,7 +228,7 @@ def publish_pack(records, output):
             "verifiedExistingFieldBackup": False,
         })
     (output / "manifest.json").write_text(
-        json.dumps(manifest, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+        json.dumps(manifest, indent=2, ensure_ascii=False) + "\n", encoding="utf-8", newline="\n")
     return manifest
 
 
