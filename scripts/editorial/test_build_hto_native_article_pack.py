@@ -145,6 +145,9 @@ class NativePackTests(unittest.TestCase):
                 html=(Path(d)/entry["htmlFile"]).read_text(encoding="utf8")
                 self.assertTrue(html.startswith("<h2>"))
                 self.assertEqual(len(entry["contentSha256"]),64)
+                from hashlib import sha256
+                self.assertEqual(sha256((Path(d)/entry["htmlFile"]).read_bytes()).hexdigest(),
+                                 entry["contentSha256"],"Manifest hash must match actual bytes on any OS")
                 self.assertEqual(entry["publicationState"],
                                  "REQUIRES_NATIVE_ADMIN_EDIT_AND_READBACK")
 
