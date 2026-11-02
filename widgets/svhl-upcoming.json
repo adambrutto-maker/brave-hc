@@ -1,20 +1,8 @@
 {
   "schema": "brave-hc-svhl-schedule/v1",
   "source": "https://leagues.sportsvillage.ca/Leagues.aspx?leagueid=570&page_type=Adult&sc=HOCKEY",
-  "checkedAt": "2026-11-01T14:44:47.433577-05:00",
+  "checkedAt": "2026-11-02T01:19:52.507839-05:00",
   "games": [
-    {
-      "date": "2026-11-01",
-      "time": "20:15",
-      "opponent": "Mid Ice Crisis",
-      "rink": "D Rink",
-      "side": "away",
-      "fixtureSignature": "2026-11-01|20:15|Mid Ice Crisis|D Rink|away",
-      "assignmentKey": "hto:3375683",
-      "htoGameId": "3375683",
-      "htoSyncStatus": "MATCH",
-      "requiresGoalieReconfirmation": false
-    },
     {
       "date": "2026-11-08",
       "time": "21:15",
