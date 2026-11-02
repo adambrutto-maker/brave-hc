@@ -1,0 +1,20 @@
+/* BRAVE H.C. — verified colour-only HTO frame treatment, 2026-11-02.
+   Source palette: #0d2339 deep navy; #142d46 secondary navy.
+   Do not alter any layout, dimensions, fonts, module order, or navigation. */
+
+#frameOuterWrapper {
+  background-color: #0d2339 !important;
+}
+
+.fullPage .mainArea .modWrapper .modColorBG {
+  background-color: #142d46 !important;
+}
+
+.frameOuterWrapper .modTitle {
+  background-color: #142d46 !important;
+}
+
+#wideLinks_team .navInnerWrapper,
+#mobileNav_all .navInnerWrapper {
+  background-color: #142d46 !important;
+}
