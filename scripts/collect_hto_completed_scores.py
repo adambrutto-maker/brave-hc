@@ -78,7 +78,10 @@ def parse_native_html(html):
         rows=card["rows"]
         if len(rows)!=3 or not rows[0] or rows[0][0]!="REGULAR SEASON":
             raise Hold("GAME_SCORE_TABLE_SCHEMA_CHANGED")
-        if len(rows[0])!=7 or any(len(r)!=7 for r in rows[1:]):
+        headers=rows[0]
+        allowed_headers=(["REGULAR SEASON","1","2","3","F"],
+                         ["REGULAR SEASON","1","2","3","OT","2OT","F"])
+        if headers not in allowed_headers or any(len(r)!=len(headers) for r in rows[1:]):
             raise Hold("GAME_SCORE_TABLE_COLUMNS_CHANGED")
         ours=[r for r in rows[1:] if r[0]==TEAM]
         their=[r for r in rows[1:] if r[0]!=TEAM]
@@ -88,7 +91,7 @@ def parse_native_html(html):
             theirInts=[int(x) for x in their[0][1:]]
         except (TypeError,ValueError) as exc:raise Hold("GAME_SCORES_INVALID") from exc
         if any(x<0 for x in oursInts+theirInts):raise Hold("NEGATIVE_GOALS")
-        if sum(oursInts[:5])!=oursInts[-1] or sum(theirInts[:5])!=theirInts[-1]:
+        if sum(oursInts[:-1])!=oursInts[-1] or sum(theirInts[:-1])!=theirInts[-1]:
             raise Hold("PERIOD_SUMS_NOT_FINAL_SCORE")
         text=" ".join(" ".join(card["text"]).split())
         match=re.search(r"\b(?:Sep|Oct|Nov|Dec|Jan|Feb|Mar|Apr|May|Jun|Jul|Aug)\s+\d{1,2},\s+20\d\d\b",text)
