@@ -11,7 +11,7 @@
   },
   "sourceAuthority": "HTO verified November 1 game and season stats, approved source-matched goal narratives, verified historical opponent data; Official SVHL Sunday Winter 2026/27 league standings and historical game form verified Nov 2",
   "sourceVerifiedAt": "2026-11-02",
-  "generatedAt": "2026-11-02T15:20:59.845054+00:00",
+  "generatedAt": "2026-11-02T15:37:15.402992+00:00",
   "editorialState": "FOUNDER_APPROVED",
   "publicationPolicy": "Founder-approved November 1 game recap. Subsequent editions require fresh approval.",
   "latestArticle": {
@@ -23,11 +23,9 @@
     "displayDate": "Sunday, November 1, 2026",
     "dek": "Brave H.C. 2, Mid Ice Crisis 7 — the Braves scored twice in the third period.",
     "paragraphs": [
-      "Brave H.C. came into Sunday's meeting with Mid Ice Crisis holding a 1–2–2 record across five previous regular-season matchups, with 13 goals scored and 19 allowed. Including two playoff defeats, the Braves were 1–4–2 in seven meetings across all competitions. The clubs had last played to a 3–3 tie on December 14, 2025, after Mid Ice Crisis won their previous meeting 7–1. The latest encounter went Mid Ice Crisis's way as well: a 7–2 decision that left the Braves at 1–5 through six games of the 2026–27 season.",
-      "League Intelligence — Cristillo Division",
-      "League intelligence provided another measure of the matchup. In the latest officially posted five-game Cristillo Division standings before November 1, Mid Ice Crisis stood second in the eight-team division at 3–2–0 with 6 points, 20 goals scored and 13 allowed. That left it two points behind first-place Mohawks HC. Mid Ice had lost 2–1 to the Mohawks on October 25 before facing the Braves.",
-      "The league figures reflect the five-game table available on November 2; HTO's finalized November 1 result and six-game Brave H.C. season totals are reported separately.",
-      "Brave H.C. dressed 11 full-timers and two part-timers. Captain Adam Brutto, Anthony Paolucci and Keith Pearsoll were out of the lineup. Part-timer Adam Kober made his fifth appearance of the season, while part-timer Stefano Mazzei made his first appearance of the season. Marco Congiusti also made his first recorded appearance of the campaign. Brian Haspel started in goal for his first recorded Brave H.C. appearance.",
+      "Brave H.C. could not build on its first win of the season, falling 7–2 to Mid Ice Crisis on Sunday at Vaughan Sports Village. The Braves trailed 4–0 after two periods before Stefano Mazzei and Adam Povegliano scored in the third.",
+      "Mid Ice Crisis entered the game second in the eight-team Cristillo Division at 3–2, with 20 goals scored and 13 allowed through five games. The club had lost 2–1 to division-leading Mohawks HC the previous week. Against Mid Ice Crisis, the Braves had gone 1–2–2 in five previous regular-season meetings, including a 3–3 tie on December 14, 2025. Including two playoff losses, their record in the matchup stood at 1–4–2.",
+      "The Braves dressed 11 full-timers and two part-timers. Captain Adam Brutto, Anthony Paolucci and Keith Pearsoll were out of the lineup. Part-timer Adam Kober made his fifth appearance of the season, while part-timer Stefano Mazzei made his season debut. Marco Congiusti also made his first appearance of the season, and Brian Haspel made his Braves debut in goal.",
       "First Period — Mid Ice Crisis Takes the Lead",
       "Mid Ice Crisis opened the scoring at 9:14 remaining and carried a 1–0 lead into the intermission. A two-minute tripping penalty against Mid Ice Crisis at 6:51 gave the Braves a power-play opportunity, but they did not score.",
       "Second Period — Mid Ice Crisis Builds a Four-Goal Advantage",
@@ -41,8 +39,7 @@
       "Players of the Game: Alex Pagnotta, Adam Kober and Adam Povegliano.",
       "Through six games, the Braves stand at 1–5, with 14 goals scored and 30 allowed. The result moved their regular-season record against Mid Ice Crisis to 1–3–2 in six meetings, with 15 goals for and 26 against. Including playoffs, the series stands at 1–5–2 across eight meetings, with 17 goals scored and 32 allowed.",
       "Next Up — Other Way",
-      "Brave H.C. returns to Vaughan Sports Village — D Rink on Sunday, November 8 at 9:15 p.m. to face Other Way.",
-      "With no earlier Brave H.C.–Other Way meeting verified in the team archive, the current league results provide the clearest starting point. Other Way was third in the latest posted Cristillo Division table at 2–1–2 with 6 points, 25 goals scored and 23 allowed through five games. It defeated Dateline Predators 8–5 on October 18 and tied Sugo Sundays 7–7 on October 25, scoring 15 goals while conceding 12 across those two games. Other Way also beat Mid Ice Crisis 4–3 on September 20.",
+      "Brave H.C. returns to Vaughan Sports Village — D Rink on Sunday, November 8 at 9:15 p.m. to face Other Way. Third in the Cristillo Division at 2–1–2 through five games, Other Way has scored 25 goals and allowed 23. It defeated Dateline Predators 8–5 on October 18 and tied Sugo Sundays 7–7 on October 25. Other Way also beat Mid Ice Crisis 4–3 earlier this season.",
       "The Braves will look to return to the win column following Sunday's setback."
     ],
     "boxScore": {
@@ -140,7 +137,7 @@
     "milestones": [],
     "recordClaimsVerified": false,
     "upcomingPlayerContext": [],
-    "evidenceFingerprint": "fceda810711d2c8cc91b6f4b0bdaa276c9fbab9901efbbdaebc5927a1082b707",
+    "evidenceFingerprint": "e0920620560ccf5751b8b71a3d4fef84518330107006ba675029c31535e03280",
     "leagueIntelligence": {
       "schema": "hockeyos-article-league-source/v1",
       "source": "https://leagues.sportsvillage.ca/Leagues.aspx?leagueid=570&page_type=Adult&sc=HOCKEY",
@@ -206,16 +203,20 @@
       },
       "usesHistoryAndLeagueContext": true,
       "usesNoHistoryFallback": true,
-      "HTOSeparateFromLeague": true
+      "HTOSeparateFromLeague": true,
+      "editorialPlacement": "INTRO_AND_NEXT_UP_PROSE",
+      "publicQualifyingLanguageSuppressed": true
     },
     "editorialRevision": {
-      "type": "ADD_VERIFIED_LEAGUE_CONTEXT_WITH_HISTORY_AND_NO_HISTORY_FALLBACK",
+      "type": "NATURAL_SPORTS_JOURNALISM_LEAGUE_CONTEXT_INTEGRATION",
       "date": "2026-11-02",
-      "authority": "Founder explicit revision request",
-      "previousFingerprint": "07fb6516f11bc3a56077f3e8c09d557bf0b6c4904f39135c8986975c03739d5c",
-      "currentFingerprint": "fceda810711d2c8cc91b6f4b0bdaa276c9fbab9901efbbdaebc5927a1082b707",
-      "sourceLeague": "https://leagues.sportsvillage.ca/Leagues.aspx?leagueid=570&page_type=Adult&sc=HOCKEY",
-      "verification": "OFFICIAL_SVHL_LIVE_SOURCE_PARITY_CONFIRMED"
+      "authority": "Founder's explicit follow-up editorial direction",
+      "previousFingerprint": "fceda810711d2c8cc91b6f4b0bdaa276c9fbab9901efbbdaebc5927a1082b707",
+      "currentFingerprint": "e0920620560ccf5751b8b71a3d4fef84518330107006ba675029c31535e03280",
+      "leagueFactsUnchanged": true,
+      "headToHeadUnchanged": true,
+      "noSeparateLeagueHeading": true,
+      "sourceCaveatsRetainedPrivately": true
     }
   },
   "teamNotes": {
@@ -262,9 +263,8 @@
     "puckDrop": "2026-11-08T21:15:00-05:00",
     "paragraphs": [
       "Brave H.C. faces Other Way on Sunday, November 8 at 9:15 p.m. at Vaughan Sports Village — D Rink.",
-      "With no earlier Brave H.C.–Other Way meeting verified in the team archive, the current league results provide the clearest starting point. Other Way was third in the latest posted Cristillo Division table at 2–1–2 with 6 points, 25 goals scored and 23 allowed through five games. It defeated Dateline Predators 8–5 on October 18 and tied Sugo Sundays 7–7 on October 25, scoring 15 goals while conceding 12 across those two games. Other Way also beat Mid Ice Crisis 4–3 on September 20.",
-      "The Braves enter the fixture at 1–5 through six games, with 14 goals scored and 30 allowed.",
-      "The league figures reflect the five-game table available on November 2; HTO's finalized November 1 result and six-game Brave H.C. season totals are reported separately."
+      "Other Way is third in the Cristillo Division at 2–1–2 through five games, with 25 goals scored and 23 allowed.",
+      "It beat Dateline Predators 8–5 on October 18, tied Sugo Sundays 7–7 on October 25 and defeated Mid Ice Crisis 4–3 earlier this season. The Braves enter at 1–5, with 14 goals scored and 30 allowed through six games."
     ],
     "sourceUrl": "https://www.htosports.com/teams/default.asp?p=schedule&s=hockey&u=BRAVESHOCKEY",
     "editorialState": "FOUNDER_APPROVED",
@@ -1599,19 +1599,18 @@
     "role": "Founder",
     "date": "2026-11-02",
     "articleId": "recap-3375683",
-    "approvedArticleHash": "fceda810711d2c8cc91b6f4b0bdaa276c9fbab9901efbbdaebc5927a1082b707",
+    "approvedArticleHash": "e0920620560ccf5751b8b71a3d4fef84518330107006ba675029c31535e03280",
     "approvalScope": "User-authorized publication of November 1 revised article in chat",
     "previousArticleMovedToArchive": true,
-    "previousApprovedArticleHash": "07fb6516f11bc3a56077f3e8c09d557bf0b6c4904f39135c8986975c03739d5c",
+    "previousApprovedArticleHash": "fceda810711d2c8cc91b6f4b0bdaa276c9fbab9901efbbdaebc5927a1082b707",
     "amendment": {
       "date": "2026-11-02",
       "role": "Founder",
-      "decision": "FOUNDER_AUTHORIZED_LIVE_LEAGUE_INTELLIGENCE_REVISION",
-      "scope": "Enhance November 1 game recap and November 8 Next Up with verified league intelligence",
+      "decision": "FOUNDER_AUTHORIZED_NATURAL_PROSE_REVISION",
       "articleId": "recap-3375683",
-      "revisedFingerprint": "fceda810711d2c8cc91b6f4b0bdaa276c9fbab9901efbbdaebc5927a1082b707",
-      "source": "https://leagues.sportsvillage.ca/Leagues.aspx?leagueid=570&page_type=Adult&sc=HOCKEY",
-      "noHistoryFallback": true
+      "scope": "Move SVHL opponent form into game-story opening and use natural Next Up prose; remove standalone League Intelligence heading and technical qualifiers",
+      "previousFingerprint": "fceda810711d2c8cc91b6f4b0bdaa276c9fbab9901efbbdaebc5927a1082b707",
+      "revisedFingerprint": "e0920620560ccf5751b8b71a3d4fef84518330107006ba675029c31535e03280"
     }
   },
   "previousPublicationApproval": {
