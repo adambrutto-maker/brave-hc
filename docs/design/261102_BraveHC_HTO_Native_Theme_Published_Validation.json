@@ -1,0 +1,119 @@
+{
+  "schema": "brave-hc-hto-site-native-colour-only-release-evidence/v1",
+  "date": "2026-11-02",
+  "decision": "FOUNDER_APPROVED_VERIFIED_COLOURS_NO_LAYOUT_STRUCTURE_CHANGE",
+  "releaseStatus": "LIVE_AND_PUBLICLY_VERIFIED",
+  "nativeSystem": "HomeTeamsONLINE BRAVESHOCKEY",
+  "executionHost": "BRUTTECH 1 / AdamPCDesktop",
+  "changedFields": {
+    "nativeBannerBackground": {
+      "old": "default",
+      "new": "Color 2 (preset)",
+      "otherBannerSettingsUnchanged": true
+    },
+    "nativeColor1": {
+      "old": "#d42c2c",
+      "new": "#d82942"
+    },
+    "nativeColor2": {
+      "old": "#213a53",
+      "new": "#142d46"
+    },
+    "nativeBodyBackground": {
+      "old": "#213a53",
+      "new": "#0d2339"
+    },
+    "nativeBackgroundImage": {
+      "old": "/templates/backgrounds/vertical-black.gif",
+      "new": "none"
+    },
+    "siteDetailsNativeCSS": {
+      "old": "blank",
+      "new": "four background-color declarations only",
+      "exactSha256": "d9a9171fa792539b2dc66faf3022558dcd9728726423cf24a0b8e84602b5eb38",
+      "cssFile": "docs/design/261102_BraveHC_HTO_Native_Colour_Only_Frame_Overrides.css"
+    },
+    "siteHeadCode": "unchanged/blank",
+    "layoutTemplate": "unchanged",
+    "navigationLinks": "unchanged",
+    "bannerSize": "unchanged; HTO native desktop 200px and mobile 72px"
+  },
+  "browserQA": {
+    "testBrowser": "Microsoft Edge headless and Chrome authenticated native UI",
+    "publicPages": [
+      "Braves Home Page",
+      "Winter 2026/27 Schedule",
+      "Winter 2026/27 Scores",
+      "Winter 2026/27 Roster",
+      "HTO 3375684 Nov 8 Other Way Preview",
+      "HTO 3375683 Nov 1 Mid Ice Crisis Box Score/Summary"
+    ],
+    "widths": [
+      390,
+      1280
+    ],
+    "views": 12,
+    "liveNativeColorRelease": {
+      "checks": 150,
+      "passes": 150,
+      "failures": 0
+    },
+    "beforeSaveCssSameDocumentSimulation": {
+      "checks": 1266,
+      "passes": 1266,
+      "failures": 0
+    },
+    "finalActualHostedAfterCSSSave": {
+      "checks": 196,
+      "passes": 196,
+      "failures": 0
+    },
+    "layoutGeometryUnchanged": true,
+    "navigationLabelOrderUnchanged": true,
+    "noHorizontalOverflow": true,
+    "noNewPageJavascriptErrors": true,
+    "status": "PASS"
+  },
+  "dataIntegrity": {
+    "articles": [
+      {
+        "gameId": 3375684,
+        "sourceBlocks": 13,
+        "preserved": 13,
+        "status": "PUBLIC_ARTICLE_IDENTICAL"
+      },
+      {
+        "gameId": 3375683,
+        "sourceBlocks": 22,
+        "preserved": 22,
+        "status": "PUBLIC_ARTICLE_IDENTICAL"
+      }
+    ],
+    "publicStoryBlocksPreserved": 35,
+    "publicStoryBlocksChecked": 35,
+    "newsArchiveLinksUnchanged": true,
+    "officialScoringTableGroups": 6,
+    "officialScoringGroupsUnchanged": 6,
+    "officialSourceCanonicalSHA256": "3a4a5bbfb18eddfa231fb80f24f254232e48ef2b532a893d2d05f648c8f4cd9b",
+    "gameResult": "Brave H.C. 2 / Mid Ice Crisis 7 unchanged",
+    "originalWorkbookEdited": false,
+    "officialGameDataEdited": false
+  },
+  "safety": {
+    "newWidgets": 0,
+    "layoutTemplateChanges": 0,
+    "contentOrderChanges": 0,
+    "videoHighlightChanges": 0,
+    "credentialOrSessionMaterialStored": false,
+    "olderHistoricalArticlesStillDraft": true,
+    "historicalPR198Merged": false,
+    "beforeBackupCaptured": true,
+    "rollbackNativeEditorsSpecified": true
+  },
+  "primaryLinks": [
+    "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=schedule",
+    "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=3375684&p=preview",
+    "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=3375683&p=boxscore"
+  ],
+  "note": "All host-retained screenshots, pre-change complete HTO HTML/CSS and raw QA reports remain in approved local BruTTech HTOThemeAudit folder; public release JSON excludes private session data."
+}
