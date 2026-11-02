@@ -4,14 +4,14 @@
   "source": "Official Brave H.C. HTO current-season player statistics",
   "sourceUrl": "https://www.htosports.com/teams/default.asp?p=stats&s=hockey&u=BRAVESHOCKEY",
   "season": "W2026/27",
-  "asOf": "2026-10-26T12:31:01.197Z",
-  "teamGP": 5,
-  "teamGF": 12,
-  "teamGA": 23,
-  "teamGoals": 12,
-  "teamAssists": 19,
-  "teamPlayerPoints": 31,
-  "playerCount": 20,
+  "asOf": "2026-11-02T04:31:01.080Z",
+  "teamGP": 6,
+  "teamGF": 14,
+  "teamGA": 30,
+  "teamGoals": 14,
+  "teamAssists": 23,
+  "teamPlayerPoints": 37,
+  "playerCount": 22,
   "players": [
     {
       "name": "Ardizzi, Stefano",
@@ -36,10 +36,17 @@
     },
     {
       "name": "Carosi, Justin",
-      "gp": 5,
+      "gp": 6,
       "g": 4,
-      "a": 1,
-      "pts": 5
+      "a": 2,
+      "pts": 6
+    },
+    {
+      "name": "Congiusti, Marco",
+      "gp": 1,
+      "g": 0,
+      "a": 0,
+      "pts": 0
     },
     {
       "name": "Duffy, Lorcan",
@@ -50,24 +57,31 @@
     },
     {
       "name": "Kober, Adam",
-      "gp": 4,
+      "gp": 5,
       "g": 1,
       "a": 2,
       "pts": 3
     },
     {
       "name": "Kong, Henry",
-      "gp": 5,
+      "gp": 6,
       "g": 1,
       "a": 1,
       "pts": 2
     },
     {
+      "name": "Mazzei, Stefano",
+      "gp": 1,
+      "g": 1,
+      "a": 0,
+      "pts": 1
+    },
+    {
       "name": "Pagnotta, Alex",
-      "gp": 5,
+      "gp": 6,
       "g": 0,
-      "a": 4,
-      "pts": 4
+      "a": 6,
+      "pts": 6
     },
     {
       "name": "Paolucci, Anthony",
@@ -92,21 +106,21 @@
     },
     {
       "name": "Povegliano, Adam",
-      "gp": 4,
-      "g": 1,
-      "a": 1,
+      "gp": 5,
+      "g": 2,
+      "a": 0,
       "pts": 2
     },
     {
       "name": "Provenzano, Mario",
-      "gp": 5,
+      "gp": 6,
       "g": 0,
       "a": 0,
       "pts": 0
     },
     {
       "name": "Provenzano, Michael",
-      "gp": 4,
+      "gp": 5,
       "g": 2,
       "a": 3,
       "pts": 5
@@ -120,28 +134,28 @@
     },
     {
       "name": "Rajkumar, Sanjay",
-      "gp": 4,
+      "gp": 5,
       "g": 0,
-      "a": 0,
-      "pts": 0
-    },
-    {
-      "name": "Rosenberg, Jamie",
-      "gp": 4,
-      "g": 1,
-      "a": 0,
+      "a": 1,
       "pts": 1
     },
     {
+      "name": "Rosenberg, Jamie",
+      "gp": 5,
+      "g": 1,
+      "a": 1,
+      "pts": 2
+    },
+    {
       "name": "Saindon, Stephane",
-      "gp": 4,
+      "gp": 5,
       "g": 1,
       "a": 2,
       "pts": 3
     },
     {
       "name": "Triumbari, Francesco",
-      "gp": 5,
+      "gp": 6,
       "g": 0,
       "a": 2,
       "pts": 2
@@ -158,33 +172,12 @@
     "schema": "brave-hc-hto-rostered-no-appearance/v1",
     "status": "SOURCE_QUALIFIED_NO_RECORDED_APPEARANCES",
     "season": "W2026/27",
-    "teamGP": 5,
+    "teamGP": 6,
     "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=roster",
-    "qualifiedAtUTC": "2026-10-26T15:48:10.892223+00:00",
-    "rosterCount": 25,
-    "observedSkaters": 20,
-    "observedGoalies": 3,
-    "rosteredWithoutRecordedAppearance": [
-      {
-        "name": "Congiusti, Marco",
-        "gp": 0,
-        "g": 0,
-        "a": 0,
-        "pts": 0,
-        "classification": "FT",
-        "jerseyNo": "3",
-        "evidence": "Rostered on HTO; no recorded appearance in all completed HTO games"
-      },
-      {
-        "name": "Mazzei, Stefano",
-        "gp": 0,
-        "g": 0,
-        "a": 0,
-        "pts": 0,
-        "classification": "CU",
-        "jerseyNo": "88",
-        "evidence": "Rostered on HTO; no recorded appearance in all completed HTO games"
-      }
-    ]
+    "qualifiedAtUTC": "2026-11-02T04:47:53.930981+00:00",
+    "rosterCount": 26,
+    "observedSkaters": 22,
+    "observedGoalies": 4,
+    "rosteredWithoutRecordedAppearance": []
   }
 }
