@@ -82,3 +82,31 @@ The official Sports Village league schedule and HTO Brave H.C. schedule both sho
 - [Brave H.C. approved Hot Stove source feed](https://adambrutto-maker.github.io/brave-hc/widgets/hot-stove-approved.json)
 
 **Status:** Article prepared and source-audited; no production publication or founder approval asserted.
+
+
+---
+
+## 5. November 2 controlled release candidate — supplemental acceptance
+
+**Candidate commit before evidence update:** `e65554c68a2d18bb4bbaa807c10e6c460c10ddd4`  
+**Source confirmation (UTC):** 2026-11-02 18:51 — both HTO and official Sports Village pages returned HTTP 200; HTO schedule confirms Nov. 8, 9:15 p.m., Vaughan Sports Village D Rink; Sports Village lists the same fixture; Other Way team schedule still lists the five completed opponent results, with unverified 0–0 future placeholders excluded.
+
+### Browser and automated acceptance, BRUTTECH 1
+
+- Created a static read-only QA fixture from the exact candidate commit under the **BRUTTECH 1 temporary folder**. The dirty portfolio working tree was not touched.
+- Tested in actual **Microsoft Edge / Puppeteer** at **320, 390, 625 and 1280 pixels**, navigating the **Next Game**, **latest recap** and **Season Archive** views.
+- Initial run identified one real presentation deficiency: the Next Game view lacked an explicit game date because the draft's byline was not rendered. The release candidate was **corrected before acceptance** by adding `gameDateLine` and a source-bound metadata line beneath the preview headline; then the HTML asset version was bumped.
+- **Retest: 40 of 40 browser checks PASS**, zero JavaScript page errors and zero horizontal overflow. Tests covered the new feature headline, two sections, eight article paragraphs, source links, date/time/rink, November 1 recap, and all six archive entries at every tested width.
+- **13 of 13 data-and-scope comparisons PASS**: all six original recaps remain identical at JSON level; all other feed metadata unchanged; original source links and Nov. 8 HTO schedule preserved; preview `sections` flatten exactly to the eight approved draft paragraphs; absence of unverified player-availability and historical head-to-head claims; opt-in renderer only changes the new preview; HTML points at the same approved feed.
+- **6 of 6 live HTO scoring-event audits PASS**, **10 of 10 synthetic source-failure/negative/OT checks PASS** from the preceding run.
+- GitHub returned **no hosted workflow runs or status-check entries** for this candidate, so no hosted CI result is asserted. Local independent Edge and HTO checks supply the recorded acceptance evidence.
+
+### User release directive and exact scope
+
+Following presentation of the pending approval decision, the Founder directed **"good continue"** in the existing Brave H.C. article-work conversation on November 2. This is treated as authorization to **advance the validated article through the controlled GitHub Pages release path**, conditional on these stated checks. It is not authorization to change the HTO native CMS, original workbook, other widgets, player attendance, or unsupported video commentary.
+
+**Affected public feature:** `widgets/hot-stove-approved.json` `gamePreview` entry, and the minimal `widgets/hot-stove.js` / `widgets/hot-stove.html` presentation changes.
+
+**Rollback reference (before release):** main commit `02a01dd74fb838288d81a688bdfa5df3f0065cbb`; original widget blob IDs: `hot-stove-approved.json=c08ce6cbc6cb61c5627397136ed9d1b17fa8010a`, `hot-stove.js=b8aabf3df6c22e14fdb025992e9169da11f0f926`, `hot-stove.html=01f756cfa6d2e5e7e26537147fa668f39225a52a`. Preserve all six approved article IDs/hashes.
+
+**Conditional release decision:** GO for the **GitHub Pages Next Game preview only** once merge protections are satisfied. Post-merge verify hosted feed, visible Next Game date/headline, original six recaps and no script errors. Mark HOLD/rollback on any mismatch. Native HTO publication remains out of scope.
