@@ -49,7 +49,7 @@ Sunday's meeting offers the Braves another chance to turn those scoring flashes 
 
 ### Holds before release
 
-- **No verified historical Brave H.C.–Other Way head-to-head** exists in the current exact-name source ledger. Do not claim a prior record or call this a first meeting.
+- **No verified historical Brave H.C.–Other Way head-to-head** exists in the current exact-name source ledger (`NO_VERIFIED_BRAVES_MATCH_HISTORY`). Do not claim a prior record or call this a first meeting.
 - Other Way's official league snapshot includes **five** published games; Brave H.C.'s HTO record includes **six** completed games. These are distinct source cutoffs, not an error to be silently reconciled.
 - Game-night attendance, starting goaltender, future lineup and any unverified player milestones are **not asserted**.
 - No LiveBarn video or goal-play interpretation is added beyond the already approved recap text.
