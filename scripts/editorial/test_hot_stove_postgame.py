@@ -130,10 +130,33 @@ class EditorialAdmissionTests(unittest.TestCase):
         self.assertEqual(status,"WAITING_POSTGAME_CONFIRMATION")
         self.assertIsNone(g)
 
-    def test_unknown_final_game_is_held(self):
+    def test_unrecognized_same_day_game_conflicts_with_retained_schedule(self):
         bad=game(9899999,"2026-11-08","Unknown",3,2)
-        with self.assertRaisesRegex(app.EditorialHold,"NEW_GAME_NOT_IN_VERIFIED_SCHEDULE"):
+        with self.assertRaisesRegex(app.EditorialHold,"SAME_DAY_SCHEDULE_IDENTITY_CONFLICT"):
             app.qualify_next([bad,game()],feed_approved(),fixture_countdown(),utc("2026-11-09T05:00:00Z"))
+
+    def test_after_rollover_completed_official_game_is_admitted(self):
+        c=fixture_countdown()
+        c["games"]=[]
+        status,g=app.qualify_next([staged_game(),game()],feed_approved(),c,utc("2026-11-09T05:00:00Z"))
+        self.assertEqual(status,"READY_FOR_SCORING_PARITY")
+        self.assertEqual(g["schedule"]["source"],"HTO_COMPLETED_SCORE_ONLY")
+        self.assertIsNone(g["schedule"]["rink"])
+
+    def test_after_rollover_same_day_is_not_automatically_final(self):
+        c=fixture_countdown()
+        c["games"]=[]
+        status,g=app.qualify_next([staged_game(),game()],feed_approved(),c,utc("2026-11-09T02:00:00Z"))
+        self.assertEqual(status,"WAITING_POSTGAME_CONFIRMATION")
+        self.assertIsNone(g)
+
+    def test_after_rollover_matching_pregame_identity_required(self):
+        c=fixture_countdown()
+        c["games"]=[]
+        f=feed_approved()
+        f["gamePreview"]={"puckDrop":"2026-11-08T21:15:00-05:00","opponent":"Wrong Rival"}
+        with self.assertRaisesRegex(app.EditorialHold,"APPROVED_PREVIEW_FINAL_IDENTITY_CONFLICT"):
+            app.qualify_next([staged_game(),game()],f,c,utc("2026-11-09T05:00:00Z"))
 
     def test_approved_history_change_is_held(self):
         old=game(3375683,"2026-11-01","Mid Ice Crisis",4,7)
@@ -191,7 +214,7 @@ class BoxScoreTests(unittest.TestCase):
         facts=app.validate_boxscore(g,fake_goal_events(),app.parse_skater_stats(fake_stats()))
         md,title=app.draft_markdown(g,facts)
         self.assertIn("NOT APPROVED FOR PUBLICATION",md)
-        self.assertIn("separate chat owns that work",md) if False else self.assertIn("separate chat",md)
+        self.assertIn("separate chat",md)
         self.assertIn("Official points leaders",md)
         self.assertNotIn("empty-net goal",md)
         self.assertTrue(title.startswith("Braves Defeat"))
