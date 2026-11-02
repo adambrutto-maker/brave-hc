@@ -45,6 +45,18 @@ All 24 articles remain for human editorial review and separate founder approval.
 
 The separate current 2026/27 publication pilot is still pending: zero of seven native fields had full public readback at the last check. This archive extension does not claim native HTO publication, successful admin login or original workbook edits.
 
+## Editorial review wave — first five source-complete stories
+
+The five historical games with full HTO goal-by-goal event and individual player parity have now been separately rewritten as fuller sports-reporting drafts under docs/editorial/native_hto/2025-26/editorial_review/.
+
+- February 1, 2026 — Keith Pearsoll's three-goal game against Dateline Predators (HTO 2215008).
+- February 22, 2026 — two-goal performances by Stephane Saindon and Michael Provenzano against Royal Flushers (HTO 2215010).
+- March 1, 2026 — Dateline Predators scored three unanswered third-period goals after trailing 3–1 (HTO 2215011).
+- March 15, 2026 — Krishnan Rajasooriar scored the Braves' goal in the 6–1 playoff loss to Schmelts (HTO 2215013).
+- March 22, 2026 — a separately recorded 6–2 playoff win over Schmelts, including two HTO-recorded empty-net goals (HTO 2215015).
+
+The five standalone editorials were validated against their original boxscores, individual scorer/assist coverage, verified key facts, exact official ID and source SHA; 5/5 passed. These are REVIEW DRAFTS, not native HTO posts or recovered original 2025/26 news articles. The other 19 non-forfeit games remain strictly sourced scaffold drafts and should not be upgraded to event-rich journalism without additional evidence.
+
 ## Next sequence
 
-Prioritize the five full-event historical games for editorial polish, followed by the one overtime loss and the eighteen evidence-limited reports. Keep forfeits distinct. Older seasons have nine held score-parity exceptions, which require independent source resolution before retrospective publication.
+Review and approve the five source-complete historical articles for eventual native HTO Game Summary placement. Separately work on the overtime loss and the eighteen evidence-limited reports, preserving source gaps. Keep forfeits distinct. Nine older-season score-parity exceptions still require independent source resolution before retrospective publication.
