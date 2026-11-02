@@ -1,0 +1,63 @@
+{
+  "schema": "brave-hc-hto-native-article-publication-evidence/v1",
+  "decision": "FOUNDER_APPROVED_TWO_GAME_PILOT",
+  "approvedOn": "2026-11-02",
+  "recordedOn": "2026-11-02",
+  "state": "2_OF_2_NATIVE_GAME_ARTICLES_PUBLIC_READBACK_VERIFIED",
+  "nativePublicationMethod": "AUTHENTICATED_HTO_EDITOR_EXISTING_CHROME_SESSION",
+  "changesToHTOOfficialStats": 0,
+  "perGameWidgetsAdded": 0,
+  "videosOrHighlightsChanged": false,
+  "originalFieldsBackedUp": true,
+  "originalFieldsEmpty": true,
+  "sourceArchivesUnchanged": true,
+  "remainingFive2026_27NativeGameSummariesNotPublished": 5,
+  "historicalBackfillPR": 198,
+  "historicalReconstructionPublicationStatus": "DRAFT_NOT_APPROVED",
+  "games": [
+    {
+      "gameId": 3375683,
+      "originalDate": "2026-11-01",
+      "opponent": "Mid Ice Crisis",
+      "htoField": "Game Summary",
+      "title": "Braves Fall 7–2 to Mid Ice Crisis in November Opener",
+      "publicUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=3375683&p=boxscore",
+      "originalEditorFieldEmpty": true,
+      "backupCreatedBeforeEditing": true,
+      "approvedPreparedHtmlSha256": "5459e9f38eead1513a9d4b806e8763ceaad2b88783364c6285726b5ac6682d9b",
+      "publicVerifiedAtUTC": "2026-11-02T21:27:03.899572+00:00",
+      "expectedStoryBlocks": 21,
+      "matchingStoryBlocks": 21,
+      "headlineVisible": true,
+      "archiveMirrorLinkVisible": true,
+      "officialScore": "Brave H.C. 2 - Mid Ice Crisis 7",
+      "officialScoringTableGroupsPreserved": 6,
+      "officialStatsCanonicalSha256BeforeAndAfter": "3a4a5bbfb18eddfa231fb80f24f254232e48ef2b532a893d2d05f648c8f4cd9b",
+      "publicationState": "PUBLIC_READBACK_TEXT_VERIFIED"
+    },
+    {
+      "gameId": 3375684,
+      "originalDate": "2026-11-08",
+      "opponent": "Other Way",
+      "htoField": "Game Preview",
+      "title": "High-Scoring Other Way Next as Braves Look to Rebound",
+      "publicUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=3375684&p=preview",
+      "originalEditorFieldEmpty": true,
+      "backupCreatedBeforeEditing": true,
+      "approvedPreparedHtmlSha256": "6f20af651c76276fbba042be0ff5785f8c030a18decfc6022604b95cc45fa6e3",
+      "publicVerifiedAtUTC": "2026-11-02T21:16:33.099695+00:00",
+      "expectedStoryBlocks": 13,
+      "matchingStoryBlocks": 13,
+      "headlineVisible": true,
+      "archiveMirrorLinkVisible": true,
+      "officialScheduleChanged": false,
+      "publicationState": "PUBLIC_READBACK_TEXT_VERIFIED"
+    }
+  ],
+  "limitations": [
+    "The five remaining current-season HTO Game Summary fields have not been published or approved under this two-game pilot.",
+    "The 2025/26 retrospective drafts remain subject to separate Founder editorial approval.",
+    "This receipt contains public article metadata only. HTO credentials and session tokens are never stored.",
+    "A public exact-game article readback is required after any later editorial change."
+  ]
+}
