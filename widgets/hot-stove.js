@@ -104,8 +104,7 @@ function archivedArticleMilestones(section,a){
 function archivedNextGame(section,p){
  if(!p||!p.sourceUrl||!Array.isArray(p.paragraphs))return;
  const area=$("section","archive-retrospective");
- area.append($("h3","section-header","Next on the schedule · At the time"));
- area.append($("p","historical-note","This is the outlook as it stood after the game above, retained for the historical season archive."));
+ area.append($("h3","section-header","Next Up"));
  const inner=$("div","preview");
  inner.append($("h3",null,p.headline));
  const h=headToHeadStats(p);if(h)inner.append(h);
