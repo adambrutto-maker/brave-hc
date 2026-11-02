@@ -10,8 +10,8 @@
     "goalsAgainst": 23
   },
   "sourceAuthority": "Adam-verified October 25 HTO scoring sheet, LiveBarn review, and historical Master Workbook",
-  "sourceVerifiedAt": "2026-10-25",
-  "generatedAt": "2026-10-26T02:34:13.827Z",
+  "sourceVerifiedAt": "2026-11-02",
+  "generatedAt": "2026-11-02T13:49:33.831648+00:00",
   "editorialState": "FOUNDER_APPROVED",
   "publicationPolicy": "Founder-approved October 25 edition. Subsequent game recaps require fresh approval.",
   "latestArticle": {
@@ -29,18 +29,19 @@
       "Sunday also marked an important leadership milestone: Stephane Saindon wore the assistant captain’s “A” for the first time after being selected by a team vote. He celebrated with his first goal of the season, an assist and Player of the Game honours.",
       "First Period — Braves Set the Pace",
       "Justin Carosi opened the scoring with 8:44 remaining, netting his fourth goal of the season from Keith Pearsoll. At 5:04, Adam Povegliano scored his first of the season, assisted by Carosi and Francesco Triumbari.",
-      "Saindon made it 3–0 at 2:25 with his first goal of the season, assisted by Adam Brutto.",
+      "Saindon made it 3–0 at 2:25 with his first goal of the season, assisted by Adam Brutto and Sanjay Rajkumar.",
       "Second Period — Big Bastones Battle Back",
       "Big Bastones scored at 7:03 and again with just two seconds left in the period, cutting the Braves’ lead to 3–2 entering the third.",
       "Third Period — Provenzano Delivers",
-      "Michael Provenzano restored the two-goal cushion at 9:20, scoring his first goal of the season from Povegliano and Saindon. He struck again at 6:23 for his second goal of the night and second of the season, assisted by Alex Pagnotta and Kober.",
+      "Michael Provenzano restored the two-goal cushion at 9:20, scoring his first goal of the season from Jamie Rosenberg and Saindon. He struck again at 6:23 for his second goal of the night and second of the season, assisted by Alex Pagnotta and Kober.",
       "That four-on-four goal put Brave H.C. ahead 5–2 and ultimately stood as the game-winner.",
       "Big Bastones answered at 5:39 and 3:22 to make it 5–4, but Jamie Rosenberg settled the result with ten seconds remaining, scoring his first goal of the season into an empty net from Triumbari.",
       "Game Leaders and Recognition",
-      "Provenzano led the way with two goals, including the winner. Carosi, Povegliano and Saindon each recorded a goal and an assist, while Triumbari added two assists. Pearsoll, Brutto, Pagnotta and Kober each contributed one assist.",
+      "Provenzano led the way with two goals, including the winner. Carosi, Saindon and Rosenberg each recorded a goal and an assist, while Povegliano scored once. Triumbari added two assists, and Pearsoll, Brutto, Rajkumar, Pagnotta and Kober each contributed one assist.",
       "Logue earned his first win of the season, allowing four goals.",
       "Players of the Game: Michael Provenzano, Stephane Saindon and Stephen Logue.",
       "After five games, the Braves stand at 1–4 with 12 goals for and 23 against. Their regular-season record against Big Bastones improves to 4–2–1 through seven meetings, with 24 goals scored and 27 allowed.",
+      "Editor's correction (November 2, 2026): An earlier version misstated the assists on Saindon's goal and Provenzano's first goal, as well as the scoring totals for Povegliano, Rosenberg and Rajkumar. The credits above now match the finalized HTO game sheet.",
       "Next Up — Mid Ice Crisis",
       "The Braves face Mid Ice Crisis on Sunday, November 1 at 8:15 p.m. at Vaughan Sports Village — D Rink, seeking to build on their first victory against a familiar rival.",
       "The historical matchup favours Mid Ice Crisis. Across seven regular-season and playoff meetings, Brave H.C. holds a 1–4–2 record, having scored 15 goals and allowed 25. The Braves are 1–2–2 in five regular-season games and lost both 2025 playoff meetings, 3–2 on March 30 and 3–0 on April 6.",
@@ -97,16 +98,25 @@
     },
     "goalEvents": [],
     "verification": {
-      "statementsFrom": "Adam-verified October 25 HTO game sheet, LiveBarn review, and Master Workbook history",
+      "statementsFrom": "HTO finalized game 3375682 scoring and skater stats reread November 2, 2026; verified Master Workbook head-to-head and previously founder-confirmed context",
       "status": "SOURCE_VERIFIED",
       "gameBoxscoreMatched": true,
       "unsupportedClaimsExcluded": true,
-      "headToHeadSource": "Master Workbook AllTimeSchedule"
+      "headToHeadSource": "Master Workbook AllTimeSchedule",
+      "postPublicationHTOCorrection": "6 goals and 10 assists cross-checked; previously omitted Rajkumar and Rosenberg assists restored"
     },
     "editorialState": "FOUNDER_APPROVED",
     "milestones": [],
     "recordClaimsVerified": false,
-    "evidenceFingerprint": "90774983aee808cd72728447d6b325b6b60c68582d1831edcb614bc014d83363"
+    "evidenceFingerprint": "959fd03622b87257102a968ac342fdbd6e060950a645843b627b5a2af8bda257",
+    "correction": {
+      "type": "SCORING_RECONCILIATION",
+      "date": "2026-11-02",
+      "source": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=3375682&p=boxscore",
+      "editorNote": "Editor's correction (November 2, 2026): An earlier version misstated the assists on Saindon's goal and Provenzano's first goal, as well as the scoring totals for Povegliano, Rosenberg and Rajkumar. The credits above now match the finalized HTO game sheet.",
+      "supersededFingerprint": "90774983aee808cd72728447d6b325b6b60c68582d1831edcb614bc014d83363",
+      "revisedFingerprint": "959fd03622b87257102a968ac342fdbd6e060950a645843b627b5a2af8bda257"
+    }
   },
   "teamNotes": {
     "title": "Around the Club",
@@ -1346,6 +1356,14 @@
     "role": "Founder",
     "date": "2026-10-25",
     "articleId": "recap-3375682",
-    "approvedArticleHash": "90774983aee808cd72728447d6b325b6b60c68582d1831edcb614bc014d83363"
+    "approvedArticleHash": "959fd03622b87257102a968ac342fdbd6e060950a645843b627b5a2af8bda257",
+    "initialApprovedArticleHash": "90774983aee808cd72728447d6b325b6b60c68582d1831edcb614bc014d83363",
+    "amendment": {
+      "decision": "FOUNDER_EXPLICITLY_REQUESTED_POST_PUBLICATION_CORRECTION",
+      "date": "2026-11-02",
+      "articleId": "recap-3375682",
+      "revisedFingerprint": "959fd03622b87257102a968ac342fdbd6e060950a645843b627b5a2af8bda257",
+      "scope": "Correct October 25 official HTO scoring credits only"
+    }
   }
 }
