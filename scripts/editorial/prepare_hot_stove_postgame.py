@@ -62,21 +62,42 @@ def qualify_next(games,feed,countdown,now):
                    key=lambda g:(g["date"],g["htoGameId"]))
     if not pending: return "WAITING_OFFICIAL_FINAL",None
     game=pending[0]
-    slots=[x for x in countdown.get("games",[]) if x.get("id")==game["htoGameId"]]
-    require(len(slots)==1,"NEW_GAME_NOT_IN_VERIFIED_SCHEDULE")
-    slot=slots[0]
-    require((slot.get("gameDate"),slot.get("opponent"))==
-            (game["date"],game["opponentExact"]),"HTO_SCHEDULE_GAME_ID_MISMATCH")
     require(game.get("season")==SEASON and game.get("gameType")=="Regular Season",
             "UNSUPPORTED_GAME_SCOPE")
-    try: puck=datetime.fromisoformat(slot["puckDropUTC"].replace("Z","+00:00"))
-    except (ValueError,TypeError,KeyError) as exc:
-        raise EditorialHold("SCHEDULE_TIME_INVALID") from exc
-    require(puck.tzinfo is not None,"SCHEDULE_TIMEZONE_MISSING")
-    if now.astimezone(timezone.utc)<puck+timedelta(hours=2):
-        return "WAITING_POSTGAME_CONFIRMATION",None
-    require(slot.get("homeAway") in ("Home","Away") and slot.get("rink"),
-            "SCHEDULE_LOCATION_UNVERIFIED")
+    require(game["date"]>feed["latestArticle"]["date"],
+            "UNRECOGNIZED_HISTORICAL_GAME")
+    slots=[x for x in countdown.get("games",[]) if x.get("id")==game["htoGameId"]]
+    require(len(slots)<=1,"DUPLICATED_SCHEDULE_GAME_ID")
+    if slots:
+        slot=slots[0]
+        require((slot.get("gameDate"),slot.get("opponent"))==
+                (game["date"],game["opponentExact"]),"HTO_SCHEDULE_GAME_ID_MISMATCH")
+        try: puck=datetime.fromisoformat(slot["puckDropUTC"].replace("Z","+00:00"))
+        except (ValueError,TypeError,KeyError) as exc:
+            raise EditorialHold("SCHEDULE_TIME_INVALID") from exc
+        require(puck.tzinfo is not None,"SCHEDULE_TIMEZONE_MISSING")
+        if now.astimezone(timezone.utc)<puck+timedelta(hours=2):
+            return "WAITING_POSTGAME_CONFIRMATION",None
+        require(slot.get("homeAway") in ("Home","Away") and slot.get("rink"),
+                "SCHEDULE_LOCATION_UNVERIFIED")
+    else:
+        # The published countdown intentionally drops prior games after rollover.
+        # Official HTO Scores remains the source of finalized game identity.
+        # A same-day mismatched countdown entry signals a real identity conflict.
+        require(not any(x.get("gameDate")==game["date"] for x in countdown.get("games",[])),
+                "SAME_DAY_SCHEDULE_IDENTITY_CONFLICT")
+        from zoneinfo import ZoneInfo
+        local_today=now.astimezone(ZoneInfo("America/Toronto")).date()
+        if local_today<=datetime.strptime(game["date"],"%Y-%m-%d").date():
+            return "WAITING_POSTGAME_CONFIRMATION",None
+        preview=feed.get("gamePreview") or {}
+        if str(preview.get("puckDrop",""))[:10]==game["date"]:
+            require(preview.get("opponent")==game["opponentExact"],
+                    "APPROVED_PREVIEW_FINAL_IDENTITY_CONFLICT")
+        # No invented home/away or rink when the retained schedule is absent.
+        slot={"id":game["htoGameId"],"opponent":game["opponentExact"],
+              "gameDate":game["date"],"source":"HTO_COMPLETED_SCORE_ONLY",
+              "homeAway":None,"rink":None}
     return "READY_FOR_SCORING_PARITY",{**game,"schedule":slot}
 
 def official_boxscore_html(session,game):
@@ -164,7 +185,7 @@ def draft_markdown(game,facts):
     verb="defeated" if gf>ga else "lost to" if gf<ga else "tied"
     lines=["# "+md(headline),"",
            "**EDITORIAL DRAFT — NOT APPROVED FOR PUBLICATION**","",
-           "**Game:** "+md(day)+" · "+md(game["schedule"]["rink"]),"",
+           "**Game:** "+md(day)+(" · "+md(game["schedule"]["rink"]) if game["schedule"].get("rink") else ""),"",
            "## Verified opening facts","",
            "Brave H.C. "+verb+" "+md(game["opponentExact"])+" "+str(gf)+"–"+str(ga)+
            " on "+md(day)+", according to the finalized HTO game sheet.","",
