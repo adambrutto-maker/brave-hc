@@ -280,6 +280,8 @@ function preview(section){
  if(!p){section.append($("p","loading","No future game has been posted on HTO."));return}
  section.append($("span","tag","Pregame preview · HTO schedule"));
  section.append($("h2",null,p.headline));
+ if(typeof p.gameDateLine==="string"&&p.gameDateLine.length<=160)
+  section.append($("p","meta",p.gameDateLine));
  const summary=$("div","preview");
  const statbar=headToHeadStats(p);
  if(statbar)summary.append(statbar);
