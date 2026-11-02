@@ -5,34 +5,42 @@
   "sourceWorkbookHash": "0002fd9f06596af8d0a00fc1b53a618ef15479f941ad5c1e6265b27002a65154",
   "workbookAsOf": "2026-09-20",
   "lastVerifiedGameNumber": 359,
-  "latestOfficialCompletedGameDate": "2026-10-25",
-  "completedGames": 5,
+  "latestOfficialCompletedGameDate": "2026-11-01",
+  "completedGames": 6,
   "workbookScoreParity": false,
-  "sourceGameIndex": 363,
+  "sourceGameIndex": 364,
   "dataStatus": "HISTORICAL_WORKBOOK_SNAPSHOT",
   "sourceValidated": false,
-  "dataIssue": "Workbook game-level scoring and career watch must be recalculated for completed matches; no current streak/milestone claim is permitted.",
+  "dataIssue": "Historical workbook snapshot is still stale. Only source-verified HTO streaks and bounded milestone categories are current through November 1; missing plus/minus, PIM, goalie streaks and other unsupported categories remain excluded.",
   "streaks": [
     {
-      "player": "Provenzano, Michael",
+      "player": "Pagnotta, Alex",
       "description": "Point Streak: 3 games",
       "type": "pointStreak",
       "games": 3,
-      "through": "2026-10-25",
+      "through": "2026-11-01",
+      "sourceAuthority": "HTO boxscore pergame and Master Workbook >=3 streak predicate"
+    },
+    {
+      "player": "Pagnotta, Alex",
+      "description": "Assist Streak: 3 games",
+      "type": "assistStreak",
+      "games": 3,
+      "through": "2026-11-01",
       "sourceAuthority": "HTO boxscore pergame and Master Workbook >=3 streak predicate"
     }
   ],
   "records": [
     {
       "player": "Kober, Adam",
-      "description": "2 games away from 50 career games",
+      "description": "1 game away from 50 career games",
       "rankKey": 900000,
       "type": "countdown",
       "category": "gp",
       "threshold": 50,
       "eventDate": null,
-      "remaining": 2,
-      "careerTotal": 48,
+      "remaining": 1,
+      "careerTotal": 49,
       "source": "Excel WebStreaksHelper countdown <=2 / HTO current boxscores"
     },
     {
@@ -104,9 +112,9 @@
     ],
     "status": "VERIFIED_SUPPORTED_CATEGORIES_ONLY"
   },
-  "recordAsOf": "2026-10-25",
+  "recordAsOf": "2026-11-01",
   "streaksVerified": true,
-  "streaksAsOf": "2026-10-25",
+  "streaksAsOf": "2026-11-01",
   "streaksDataStatus": "VERIFIED_SUPPORTED_CATEGORIES_PARTIAL",
   "verifiedStreakCategories": [
     "Point Streak",
@@ -114,11 +122,11 @@
     "Assist Streak",
     "Multi-Point Streak",
     "Multi-Goal Streak",
-    "POTG Streak",
-    "Plus Streak"
+    "POTG Streak"
   ],
   "unverifiedStreakCategories": [
     "PIM",
+    "Plus Streak",
     "Goalie streaks",
     "Drought categories"
   ],
@@ -128,20 +136,21 @@
       "description": "POTG Streak: 0 games",
       "type": "potgStreak",
       "games": 0,
-      "through": "2026-10-25",
+      "through": "2026-11-01",
       "sourceAuthority": "HTO boxscore per-game POTG & workbook threshold",
       "gameIds": [
         3356177,
         3356178,
         3369564,
         3375601,
-        3375682
+        3375682,
+        3375683
       ]
     }
   ],
   "streakVerification": {
     "supportedCategoryAudit": "VERIFIED_SUPPORTED_STREAK_CATEGORIES",
-    "HTOBoxscoreGames": 5,
+    "HTOBoxscoreGames": 6,
     "observedGames": [
       {
         "date": "2026-09-20",
@@ -182,12 +191,20 @@
         "POTG": 0,
         "played": true,
         "source": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=3375682&p=boxscore"
+      },
+      {
+        "date": "2026-11-01",
+        "gameNumber": 364,
+        "htoGameId": 3375683,
+        "POTG": 0,
+        "played": true,
+        "source": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=3375683&p=boxscore"
       }
     ],
     "sourceCurrentTotals": {
-      "gp": 5,
+      "gp": 6,
       "potg": 3,
-      "teamGP": 5
+      "teamGP": 6
     },
     "workbookThreshold": 3
   },
@@ -202,5 +219,5 @@
     "hto": "https://www.htosports.com/teams/default.asp?p=stats&s=hockey&u=BRAVESHOCKEY",
     "svhl": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13679&page_type=Adult"
   },
-  "exportedAt": "2026-10-26T13:53:00.076142+00:00"
+  "exportedAt": "2026-11-02T04:57:09.125600+00:00"
 }
