@@ -2,121 +2,137 @@
   "schema": "brave-hc-hot-stove-editorial-preview/v1",
   "team": "Brave H.C.",
   "season": {
-    "gp": 5,
+    "gp": 6,
     "wins": 1,
-    "losses": 4,
+    "losses": 5,
     "ties": 0,
-    "goalsFor": 12,
-    "goalsAgainst": 23
+    "goalsFor": 14,
+    "goalsAgainst": 30
   },
-  "sourceAuthority": "Adam-verified October 25 HTO scoring sheet, LiveBarn review, and historical Master Workbook",
+  "sourceAuthority": "HTO verified November 1 game and season stats, approved source-matched goal narratives, verified historical opponent data",
   "sourceVerifiedAt": "2026-11-02",
-  "generatedAt": "2026-11-02T13:49:33.831648+00:00",
+  "generatedAt": "2026-11-02T15:05:20.488613+00:00",
   "editorialState": "FOUNDER_APPROVED",
-  "publicationPolicy": "Founder-approved October 25 edition. Subsequent game recaps require fresh approval.",
+  "publicationPolicy": "Founder-approved November 1 game recap. Subsequent editions require fresh approval.",
   "latestArticle": {
-    "id": "recap-3375682",
+    "id": "recap-3375683",
     "articleType": "GAME_RECAP",
-    "gameId": 3375682,
-    "headline": "Provenzano Scores Twice as Brave H.C. Earns First Win, 6–4 Over Big Bastones",
-    "date": "2026-10-25",
-    "displayDate": "Sunday, October 25, 2026",
-    "dek": "Brave H.C. 6, Big Bastones 4 — the Braves' first win of the 2026–27 season.",
+    "gameId": 3375683,
+    "headline": "Braves Fall 7–2 to Mid Ice Crisis in November Opener",
+    "date": "2026-11-01",
+    "displayDate": "Sunday, November 1, 2026",
+    "dek": "Brave H.C. 2, Mid Ice Crisis 7 — the Braves scored twice in the third period.",
     "paragraphs": [
-      "Brave H.C. broke through for its first win of the 2026–27 season Sunday, defeating Big Bastones 6–4 behind a three-goal opening period and two third-period goals from Michael Provenzano. The victory lifted the Braves to 1–4 through five games.",
-      "Entering the contest, Brave H.C. held a 3–2–1 regular-season record against Big Bastones across six previous meetings, with 18 goals for and 23 against. The clubs split their two 2025 regular-season games, with the Braves winning 4–2 on October 5 before falling 3–1 on November 23.",
-      "The Braves dressed 12 full-timers and one part-timer, with Marco Congiusti and Anthony Paolucci out of the lineup. Part-timer Adam Kober filled in for his fourth appearance of the season and assisted on the eventual game-winner. Stephen Logue made his second appearance of the season in goal.",
-      "Sunday also marked an important leadership milestone: Stephane Saindon wore the assistant captain’s “A” for the first time after being selected by a team vote. He celebrated with his first goal of the season, an assist and Player of the Game honours.",
-      "First Period — Braves Set the Pace",
-      "Justin Carosi opened the scoring with 8:44 remaining, netting his fourth goal of the season from Keith Pearsoll. At 5:04, Adam Povegliano scored his first of the season, assisted by Carosi and Francesco Triumbari.",
-      "Saindon made it 3–0 at 2:25 with his first goal of the season, assisted by Adam Brutto and Sanjay Rajkumar.",
-      "Second Period — Big Bastones Battle Back",
-      "Big Bastones scored at 7:03 and again with just two seconds left in the period, cutting the Braves’ lead to 3–2 entering the third.",
-      "Third Period — Provenzano Delivers",
-      "Michael Provenzano restored the two-goal cushion at 9:20, scoring his first goal of the season from Jamie Rosenberg and Saindon. He struck again at 6:23 for his second goal of the night and second of the season, assisted by Alex Pagnotta and Kober.",
-      "That four-on-four goal put Brave H.C. ahead 5–2 and ultimately stood as the game-winner.",
-      "Big Bastones answered at 5:39 and 3:22 to make it 5–4, but Jamie Rosenberg settled the result with ten seconds remaining, scoring his first goal of the season into an empty net from Triumbari.",
+      "Brave H.C. came into Sunday's meeting with Mid Ice Crisis holding a 1–2–2 record across five previous regular-season matchups, with 13 goals scored and 19 allowed. Including two playoff defeats, the Braves were 1–4–2 in seven meetings across all competitions. The clubs had last played to a 3–3 tie on December 14, 2025, after Mid Ice Crisis won their previous meeting 7–1. The latest encounter went Mid Ice Crisis's way as well: a 7–2 decision that left the Braves at 1–5 through six games of the 2026–27 season.",
+      "Brave H.C. dressed 11 full-timers and two part-timers. Captain Adam Brutto, Anthony Paolucci and Keith Pearsoll were out of the lineup. Part-timer Adam Kober made his fifth appearance of the season, while part-timer Stefano Mazzei made his first appearance of the season. Marco Congiusti also made his first recorded appearance of the campaign. Brian Haspel started in goal for his first recorded Brave H.C. appearance.",
+      "First Period — Mid Ice Crisis Takes the Lead",
+      "Mid Ice Crisis opened the scoring at 9:14 remaining and carried a 1–0 lead into the intermission. A two-minute tripping penalty against Mid Ice Crisis at 6:51 gave the Braves a power-play opportunity, but they did not score.",
+      "Second Period — Mid Ice Crisis Builds a Four-Goal Advantage",
+      "Mid Ice Crisis scored three unanswered goals at 9:22, 1:16 and 0:35 remaining. The Braves went into the third period trailing 4–0.",
+      "Third Period — Two Different Finishes for the Braves",
+      "At 8:53 remaining, Stefano Mazzei streaked up the far side after a pass from Alex Pagnotta, then came in and beat the goaltender cleanly with a wrist shot. The goal, Mazzei's first goal of the game and first of the season in his season debut, put Brave H.C. on the scoreboard at 4–1 and gave Pagnotta his fifth assist of the season.",
+      "Mid Ice Crisis responded at 4:22 and 2:40 remaining, moving ahead 6–1.",
+      "At 1:47 remaining, Justin Carosi won the faceoff cleanly back to Alex Pagnotta. Adam Povegliano gathered the rebound and scored. The finish was Povegliano's first goal of the game and second of the season. Pagnotta received his sixth assist of the season, while Carosi picked up his second. The goal made it 6–2 before Mid Ice Crisis completed the scoring at 0:54 remaining for the 7–2 final.",
       "Game Leaders and Recognition",
-      "Provenzano led the way with two goals, including the winner. Carosi, Saindon and Rosenberg each recorded a goal and an assist, while Povegliano scored once. Triumbari added two assists, and Pearsoll, Brutto, Rajkumar, Pagnotta and Kober each contributed one assist.",
-      "Logue earned his first win of the season, allowing four goals.",
-      "Players of the Game: Michael Provenzano, Stephane Saindon and Stephen Logue.",
-      "After five games, the Braves stand at 1–4 with 12 goals for and 23 against. Their regular-season record against Big Bastones improves to 4–2–1 through seven meetings, with 24 goals scored and 27 allowed.",
-      "Editor's correction (November 2, 2026): An earlier version misstated the assists on Saindon's goal and Provenzano's first goal, as well as the scoring totals for Povegliano, Rosenberg and Rajkumar. The credits above now match the finalized HTO game sheet.",
-      "Next Up — Mid Ice Crisis",
-      "The Braves face Mid Ice Crisis on Sunday, November 1 at 8:15 p.m. at Vaughan Sports Village — D Rink, seeking to build on their first victory against a familiar rival.",
-      "The historical matchup favours Mid Ice Crisis. Across seven regular-season and playoff meetings, Brave H.C. holds a 1–4–2 record, having scored 15 goals and allowed 25. The Braves are 1–2–2 in five regular-season games and lost both 2025 playoff meetings, 3–2 on March 30 and 3–0 on April 6.",
-      "The Braves’ lone win in the series was a 5–2 victory on February 23, 2025. Last season, Mid Ice Crisis won 7–1 on October 26 before the teams played to a 3–3 tie on December 14, their most recent meeting.",
-      "After scoring six against Big Bastones, the Braves have reason for optimism. The challenge next Sunday will be pairing that offence with a tighter defensive effort against a team that has repeatedly tested them."
+      "Alex Pagnotta finished with two assists, his fifth and sixth of the season, giving him six points in six games. Mazzei and Povegliano recorded a goal apiece, while Justin Carosi had one assist and moved to four goals and two assists on the season. Brian Haspel took the loss, allowing seven goals in his first recorded appearance for the club.",
+      "Players of the Game: Alex Pagnotta, Adam Kober and Adam Povegliano.",
+      "Through six games, the Braves stand at 1–5, with 14 goals scored and 30 allowed. The result moved their regular-season record against Mid Ice Crisis to 1–3–2 in six meetings, with 15 goals for and 26 against. Including playoffs, the series stands at 1–5–2 across eight meetings, with 17 goals scored and 32 allowed.",
+      "Next Up — Other Way",
+      "Brave H.C. returns to Vaughan Sports Village — D Rink on Sunday, November 8 at 9:15 p.m. to face Other Way. The verified historical archive does not establish a previous completed matchup under that exact opponent name, so no head-to-head record is assigned.",
+      "The Braves will look to return to the win column following Sunday's setback."
     ],
     "boxScore": {
-      "opponent": "Big Bastones",
-      "ourGoals": 6,
-      "theirGoals": 4,
+      "opponent": "Mid Ice Crisis",
+      "ourGoals": 2,
+      "theirGoals": 7,
       "ourPeriods": [
-        3,
         0,
-        3,
+        0,
+        2,
         0,
         0
       ],
       "theirPeriods": [
-        0,
-        2,
-        2,
+        1,
+        3,
+        3,
         0,
         0
       ]
     },
     "sourceUrls": [
-      "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=3375682&p=boxscore"
+      "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=3375683&p=boxscore"
     ],
     "videoEvidence": null,
     "opponentHistory": {
       "beforeGame": {
-        "gp": 6,
-        "w": 3,
+        "gp": 5,
+        "w": 1,
         "l": 2,
-        "t": 1,
-        "gf": 18,
-        "ga": 23
+        "t": 2,
+        "gf": 13,
+        "ga": 19
       },
       "beforeGameAllTime": {
         "gp": 7,
-        "w": 3,
-        "l": 3,
-        "t": 1,
-        "gf": 18,
-        "ga": 28
+        "w": 1,
+        "l": 4,
+        "t": 2,
+        "gf": 15,
+        "ga": 25
       },
       "previousRegularSeasonMeeting": {
-        "date": "2025-11-23",
-        "gf": 1,
+        "date": "2025-12-14",
+        "gf": 3,
         "ga": 3,
-        "result": "L"
+        "result": "T"
       },
-      "sourceScope": "Exact normalized opponent name only; no assumed team aliases"
+      "sourceScope": "Exact normalized opponent name, verified workbook/HTO history"
     },
-    "goalEvents": [],
+    "goalEvents": [
+      {
+        "player": "Mazzei, Stefano",
+        "no": "88",
+        "period": 3,
+        "clock": "8:53",
+        "periodSeconds": 533,
+        "strength": "ES",
+        "officialText": "88 Stefano Mazzei ( 44 Alex Pagnotta )",
+        "teamGoalOrdinal": 1,
+        "playerGameGoalOrdinal": 1,
+        "playerSeasonGoalOrdinal": 1,
+        "gameId": 3375683,
+        "gameDate": "2026-11-01"
+      },
+      {
+        "player": "Povegliano, Adam",
+        "no": "22",
+        "period": 3,
+        "clock": "1:47",
+        "periodSeconds": 107,
+        "strength": "ES",
+        "officialText": "22 Adam Povegliano ( 44 Alex Pagnotta , 89 Justin Carosi )",
+        "teamGoalOrdinal": 2,
+        "playerGameGoalOrdinal": 1,
+        "playerSeasonGoalOrdinal": 2,
+        "gameId": 3375683,
+        "gameDate": "2026-11-01"
+      }
+    ],
     "verification": {
-      "statementsFrom": "HTO finalized game 3375682 scoring and skater stats reread November 2, 2026; verified Master Workbook head-to-head and previously founder-confirmed context",
+      "statementsFrom": "HTO November 1 game 3375683 and season statistics; verified prior opponent archive; Founder-authorized source-matched goal narratives",
       "status": "SOURCE_VERIFIED",
       "gameBoxscoreMatched": true,
       "unsupportedClaimsExcluded": true,
-      "headToHeadSource": "Master Workbook AllTimeSchedule",
-      "postPublicationHTOCorrection": "6 goals and 10 assists cross-checked; previously omitted Rajkumar and Rosenberg assists restored"
+      "headToHeadSource": "Master Workbook AllTimeSchedule and source-qualified opponent ledger",
+      "goalNumbers": "HTO game scoring plus season statistics",
+      "goalNarrativeReview": "Only two explicitly approved and HTO-matched Brave H.C. goal descriptions"
     },
     "editorialState": "FOUNDER_APPROVED",
     "milestones": [],
     "recordClaimsVerified": false,
-    "evidenceFingerprint": "959fd03622b87257102a968ac342fdbd6e060950a645843b627b5a2af8bda257",
-    "correction": {
-      "type": "SCORING_RECONCILIATION",
-      "date": "2026-11-02",
-      "source": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=3375682&p=boxscore",
-      "editorNote": "Editor's correction (November 2, 2026): An earlier version misstated the assists on Saindon's goal and Provenzano's first goal, as well as the scoring totals for Povegliano, Rosenberg and Rajkumar. The credits above now match the finalized HTO game sheet.",
-      "supersededFingerprint": "90774983aee808cd72728447d6b325b6b60c68582d1831edcb614bc014d83363",
-      "revisedFingerprint": "959fd03622b87257102a968ac342fdbd6e060950a645843b627b5a2af8bda257"
-    }
+    "upcomingPlayerContext": [],
+    "evidenceFingerprint": "07fb6516f11bc3a56077f3e8c09d557bf0b6c4904f39135c8986975c03739d5c"
   },
   "teamNotes": {
     "title": "Around the Club",
@@ -157,46 +173,185 @@
     "recordBreakingClaimsVerified": false
   },
   "gamePreview": {
-    "headline": "Next Up: Brave H.C. Faces Mid Ice Crisis",
-    "opponent": "Mid Ice Crisis",
-    "puckDrop": "2026-11-01T20:15:00-05:00",
+    "headline": "Next Up: Brave H.C. Faces Other Way",
+    "opponent": "Other Way",
+    "puckDrop": "2026-11-08T21:15:00-05:00",
     "paragraphs": [
-      "Brave H.C. faces Mid Ice Crisis on Sunday, November 1 at 8:15 p.m. at Vaughan Sports Village — D Rink.",
-      "In seven previous regular-season and playoff meetings, Brave H.C. holds a 1–4–2 record with 15 goals for and 25 against. The regular-season record is 1–2–2 through five games.",
-      "The Braves won 5–2 on February 23, 2025. Last season, Mid Ice Crisis won 7–1 on October 26 before the teams tied 3–3 on December 14. Mid Ice Crisis also won both 2025 playoff meetings."
+      "Brave H.C. faces Other Way on Sunday, November 8 at 9:15 p.m. at Vaughan Sports Village — D Rink.",
+      "The verified Brave H.C. opponent archive does not establish a completed prior meeting under the exact name Other Way; no head-to-head results are asserted.",
+      "The Braves enter the fixture at 1–5 through six games, with 14 goals scored and 30 allowed."
     ],
-    "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=schedule",
+    "sourceUrl": "https://www.htosports.com/teams/default.asp?p=schedule&s=hockey&u=BRAVESHOCKEY",
     "editorialState": "FOUNDER_APPROVED",
-    "headToHead": {
-      "regularSeason": {
-        "gp": 5,
-        "w": 1,
-        "l": 2,
-        "t": 2,
-        "gf": 13,
-        "ga": 19
-      },
-      "allTime": {
-        "gp": 7,
-        "w": 1,
-        "l": 4,
-        "t": 2,
-        "gf": 15,
-        "ga": 25
-      },
-      "playoffs": {
-        "gp": 2,
-        "w": 0,
-        "l": 2,
-        "t": 0,
-        "gf": 2,
-        "ga": 6
-      }
-    },
     "milestoneWatch": [],
     "milestoneCoverage": "VERIFIED_SUPPORTED_CATEGORIES_ONLY"
   },
   "archive": [
+    {
+      "id": "recap-3375682",
+      "headline": "Provenzano Scores Twice as Brave H.C. Earns First Win, 6–4 Over Big Bastones",
+      "date": "2026-10-25",
+      "gameId": 3375682,
+      "article": {
+        "id": "recap-3375682",
+        "articleType": "GAME_RECAP",
+        "gameId": 3375682,
+        "headline": "Provenzano Scores Twice as Brave H.C. Earns First Win, 6–4 Over Big Bastones",
+        "date": "2026-10-25",
+        "displayDate": "Sunday, October 25, 2026",
+        "dek": "Brave H.C. 6, Big Bastones 4 — the Braves' first win of the 2026–27 season.",
+        "paragraphs": [
+          "Brave H.C. broke through for its first win of the 2026–27 season Sunday, defeating Big Bastones 6–4 behind a three-goal opening period and two third-period goals from Michael Provenzano. The victory lifted the Braves to 1–4 through five games.",
+          "Entering the contest, Brave H.C. held a 3–2–1 regular-season record against Big Bastones across six previous meetings, with 18 goals for and 23 against. The clubs split their two 2025 regular-season games, with the Braves winning 4–2 on October 5 before falling 3–1 on November 23.",
+          "The Braves dressed 12 full-timers and one part-timer, with Marco Congiusti and Anthony Paolucci out of the lineup. Part-timer Adam Kober filled in for his fourth appearance of the season and assisted on the eventual game-winner. Stephen Logue made his second appearance of the season in goal.",
+          "Sunday also marked an important leadership milestone: Stephane Saindon wore the assistant captain’s “A” for the first time after being selected by a team vote. He celebrated with his first goal of the season, an assist and Player of the Game honours.",
+          "First Period — Braves Set the Pace",
+          "Justin Carosi opened the scoring with 8:44 remaining, netting his fourth goal of the season from Keith Pearsoll. At 5:04, Adam Povegliano scored his first of the season, assisted by Carosi and Francesco Triumbari.",
+          "Saindon made it 3–0 at 2:25 with his first goal of the season, assisted by Adam Brutto and Sanjay Rajkumar.",
+          "Second Period — Big Bastones Battle Back",
+          "Big Bastones scored at 7:03 and again with just two seconds left in the period, cutting the Braves’ lead to 3–2 entering the third.",
+          "Third Period — Provenzano Delivers",
+          "Michael Provenzano restored the two-goal cushion at 9:20, scoring his first goal of the season from Jamie Rosenberg and Saindon. He struck again at 6:23 for his second goal of the night and second of the season, assisted by Alex Pagnotta and Kober.",
+          "That four-on-four goal put Brave H.C. ahead 5–2 and ultimately stood as the game-winner.",
+          "Big Bastones answered at 5:39 and 3:22 to make it 5–4, but Jamie Rosenberg settled the result with ten seconds remaining, scoring his first goal of the season into an empty net from Triumbari.",
+          "Game Leaders and Recognition",
+          "Provenzano led the way with two goals, including the winner. Carosi, Saindon and Rosenberg each recorded a goal and an assist, while Povegliano scored once. Triumbari added two assists, and Pearsoll, Brutto, Rajkumar, Pagnotta and Kober each contributed one assist.",
+          "Logue earned his first win of the season, allowing four goals.",
+          "Players of the Game: Michael Provenzano, Stephane Saindon and Stephen Logue.",
+          "After five games, the Braves stand at 1–4 with 12 goals for and 23 against. Their regular-season record against Big Bastones improves to 4–2–1 through seven meetings, with 24 goals scored and 27 allowed.",
+          "Editor's correction (November 2, 2026): An earlier version misstated the assists on Saindon's goal and Provenzano's first goal, as well as the scoring totals for Povegliano, Rosenberg and Rajkumar. The credits above now match the finalized HTO game sheet.",
+          "Next Up — Mid Ice Crisis",
+          "The Braves face Mid Ice Crisis on Sunday, November 1 at 8:15 p.m. at Vaughan Sports Village — D Rink, seeking to build on their first victory against a familiar rival.",
+          "The historical matchup favours Mid Ice Crisis. Across seven regular-season and playoff meetings, Brave H.C. holds a 1–4–2 record, having scored 15 goals and allowed 25. The Braves are 1–2–2 in five regular-season games and lost both 2025 playoff meetings, 3–2 on March 30 and 3–0 on April 6.",
+          "The Braves’ lone win in the series was a 5–2 victory on February 23, 2025. Last season, Mid Ice Crisis won 7–1 on October 26 before the teams played to a 3–3 tie on December 14, their most recent meeting.",
+          "After scoring six against Big Bastones, the Braves have reason for optimism. The challenge next Sunday will be pairing that offence with a tighter defensive effort against a team that has repeatedly tested them."
+        ],
+        "boxScore": {
+          "opponent": "Big Bastones",
+          "ourGoals": 6,
+          "theirGoals": 4,
+          "ourPeriods": [
+            3,
+            0,
+            3,
+            0,
+            0
+          ],
+          "theirPeriods": [
+            0,
+            2,
+            2,
+            0,
+            0
+          ]
+        },
+        "sourceUrls": [
+          "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=3375682&p=boxscore"
+        ],
+        "videoEvidence": null,
+        "opponentHistory": {
+          "beforeGame": {
+            "gp": 6,
+            "w": 3,
+            "l": 2,
+            "t": 1,
+            "gf": 18,
+            "ga": 23
+          },
+          "beforeGameAllTime": {
+            "gp": 7,
+            "w": 3,
+            "l": 3,
+            "t": 1,
+            "gf": 18,
+            "ga": 28
+          },
+          "previousRegularSeasonMeeting": {
+            "date": "2025-11-23",
+            "gf": 1,
+            "ga": 3,
+            "result": "L"
+          },
+          "sourceScope": "Exact normalized opponent name only; no assumed team aliases"
+        },
+        "goalEvents": [],
+        "verification": {
+          "statementsFrom": "HTO finalized game 3375682 scoring and skater stats reread November 2, 2026; verified Master Workbook head-to-head and previously founder-confirmed context",
+          "status": "SOURCE_VERIFIED",
+          "gameBoxscoreMatched": true,
+          "unsupportedClaimsExcluded": true,
+          "headToHeadSource": "Master Workbook AllTimeSchedule",
+          "postPublicationHTOCorrection": "6 goals and 10 assists cross-checked; previously omitted Rajkumar and Rosenberg assists restored"
+        },
+        "editorialState": "FOUNDER_APPROVED",
+        "milestones": [],
+        "recordClaimsVerified": false,
+        "evidenceFingerprint": "959fd03622b87257102a968ac342fdbd6e060950a645843b627b5a2af8bda257",
+        "correction": {
+          "type": "SCORING_RECONCILIATION",
+          "date": "2026-11-02",
+          "source": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=3375682&p=boxscore",
+          "editorNote": "Editor's correction (November 2, 2026): An earlier version misstated the assists on Saindon's goal and Provenzano's first goal, as well as the scoring totals for Povegliano, Rosenberg and Rajkumar. The credits above now match the finalized HTO game sheet.",
+          "supersededFingerprint": "90774983aee808cd72728447d6b325b6b60c68582d1831edcb614bc014d83363",
+          "revisedFingerprint": "959fd03622b87257102a968ac342fdbd6e060950a645843b627b5a2af8bda257"
+        },
+        "followingGamePreview": {
+          "headline": "Next Up: Brave H.C. Faces Mid Ice Crisis",
+          "opponent": "Mid Ice Crisis",
+          "puckDrop": "2026-11-01T20:15:00-05:00",
+          "paragraphs": [
+            "Brave H.C. faces Mid Ice Crisis on Sunday, November 1 at 8:15 p.m. at Vaughan Sports Village — D Rink.",
+            "In seven previous regular-season and playoff meetings, Brave H.C. holds a 1–4–2 record with 15 goals for and 25 against. The regular-season record is 1–2–2 through five games.",
+            "The Braves won 5–2 on February 23, 2025. Last season, Mid Ice Crisis won 7–1 on October 26 before the teams tied 3–3 on December 14. Mid Ice Crisis also won both 2025 playoff meetings."
+          ],
+          "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=schedule",
+          "editorialState": "FOUNDER_APPROVED",
+          "headToHead": {
+            "regularSeason": {
+              "gp": 5,
+              "w": 1,
+              "l": 2,
+              "t": 2,
+              "gf": 13,
+              "ga": 19
+            },
+            "allTime": {
+              "gp": 7,
+              "w": 1,
+              "l": 4,
+              "t": 2,
+              "gf": 15,
+              "ga": 25
+            },
+            "playoffs": {
+              "gp": 2,
+              "w": 0,
+              "l": 2,
+              "t": 0,
+              "gf": 2,
+              "ga": 6
+            }
+          },
+          "milestoneWatch": [],
+          "milestoneCoverage": "VERIFIED_SUPPORTED_CATEGORIES_ONLY"
+        }
+      },
+      "originalPublicationAuthorization": {
+        "decision": "APPROVED_FOR_HTO_PUBLICATION",
+        "role": "Founder",
+        "date": "2026-10-25",
+        "articleId": "recap-3375682",
+        "approvedArticleHash": "959fd03622b87257102a968ac342fdbd6e060950a645843b627b5a2af8bda257",
+        "initialApprovedArticleHash": "90774983aee808cd72728447d6b325b6b60c68582d1831edcb614bc014d83363",
+        "amendment": {
+          "decision": "FOUNDER_EXPLICITLY_REQUESTED_POST_PUBLICATION_CORRECTION",
+          "date": "2026-11-02",
+          "articleId": "recap-3375682",
+          "revisedFingerprint": "959fd03622b87257102a968ac342fdbd6e060950a645843b627b5a2af8bda257",
+          "scope": "Correct October 25 official HTO scoring credits only"
+        }
+      }
+    },
     {
       "id": "recap-3375601",
       "headline": "Pearsoll Nets First of Season as Brave H.C. Falls 7–1 to Zamboner Crew",
@@ -1344,26 +1499,28 @@
     "reviewRequired": false
   },
   "publicationApproval": {
+    "date": "2026-11-02",
+    "role": "Founder",
+    "basis": "Explicit request to post the final revised November 1 Hot Stove article",
+    "scope": "Exact November 1 Game 3375683 recap, 2–7 final, source-matched goals, and current Other Way preview",
+    "articleId": "recap-3375683",
+    "furtherPublicationRequiresApproval": true
+  },
+  "publicationAuthorization": {
+    "decision": "APPROVED_FOR_HTO_PUBLICATION",
+    "role": "Founder",
+    "date": "2026-11-02",
+    "articleId": "recap-3375683",
+    "approvedArticleHash": "07fb6516f11bc3a56077f3e8c09d557bf0b6c4904f39135c8986975c03739d5c",
+    "approvalScope": "User-authorized publication of November 1 revised article in chat",
+    "previousArticleMovedToArchive": true
+  },
+  "previousPublicationApproval": {
     "date": "2026-10-19",
     "basis": "Founder instructed completion of the Hot Stove archive after embedding the production widget on the Brave H.C. homepage",
     "scope": "Four verified games through October 18, 2026, with a dated next-game preview for October 25",
     "articleCount": 4,
     "furtherPublicationRequiresApproval": true,
     "rosterContextExpansion": "2026-10-19 Founder follow-up instruction to explicitly include roster participation in existing approved game recaps"
-  },
-  "publicationAuthorization": {
-    "decision": "APPROVED_FOR_HTO_PUBLICATION",
-    "role": "Founder",
-    "date": "2026-10-25",
-    "articleId": "recap-3375682",
-    "approvedArticleHash": "959fd03622b87257102a968ac342fdbd6e060950a645843b627b5a2af8bda257",
-    "initialApprovedArticleHash": "90774983aee808cd72728447d6b325b6b60c68582d1831edcb614bc014d83363",
-    "amendment": {
-      "decision": "FOUNDER_EXPLICITLY_REQUESTED_POST_PUBLICATION_CORRECTION",
-      "date": "2026-11-02",
-      "articleId": "recap-3375682",
-      "revisedFingerprint": "959fd03622b87257102a968ac342fdbd6e060950a645843b627b5a2af8bda257",
-      "scope": "Correct October 25 official HTO scoring credits only"
-    }
   }
 }
