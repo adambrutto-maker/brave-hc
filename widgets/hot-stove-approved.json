@@ -9,9 +9,9 @@
     "goalsFor": 14,
     "goalsAgainst": 30
   },
-  "sourceAuthority": "HTO verified November 1 game and season stats, approved source-matched goal narratives, verified historical opponent data",
+  "sourceAuthority": "HTO verified November 1 game and season stats, approved source-matched goal narratives, verified historical opponent data; Official SVHL Sunday Winter 2026/27 league standings and historical game form verified Nov 2",
   "sourceVerifiedAt": "2026-11-02",
-  "generatedAt": "2026-11-02T15:05:20.488613+00:00",
+  "generatedAt": "2026-11-02T15:20:59.845054+00:00",
   "editorialState": "FOUNDER_APPROVED",
   "publicationPolicy": "Founder-approved November 1 game recap. Subsequent editions require fresh approval.",
   "latestArticle": {
@@ -24,6 +24,9 @@
     "dek": "Brave H.C. 2, Mid Ice Crisis 7 — the Braves scored twice in the third period.",
     "paragraphs": [
       "Brave H.C. came into Sunday's meeting with Mid Ice Crisis holding a 1–2–2 record across five previous regular-season matchups, with 13 goals scored and 19 allowed. Including two playoff defeats, the Braves were 1–4–2 in seven meetings across all competitions. The clubs had last played to a 3–3 tie on December 14, 2025, after Mid Ice Crisis won their previous meeting 7–1. The latest encounter went Mid Ice Crisis's way as well: a 7–2 decision that left the Braves at 1–5 through six games of the 2026–27 season.",
+      "League Intelligence — Cristillo Division",
+      "League intelligence provided another measure of the matchup. In the latest officially posted five-game Cristillo Division standings before November 1, Mid Ice Crisis stood second in the eight-team division at 3–2–0 with 6 points, 20 goals scored and 13 allowed. That left it two points behind first-place Mohawks HC. Mid Ice had lost 2–1 to the Mohawks on October 25 before facing the Braves.",
+      "The league figures reflect the five-game table available on November 2; HTO's finalized November 1 result and six-game Brave H.C. season totals are reported separately.",
       "Brave H.C. dressed 11 full-timers and two part-timers. Captain Adam Brutto, Anthony Paolucci and Keith Pearsoll were out of the lineup. Part-timer Adam Kober made his fifth appearance of the season, while part-timer Stefano Mazzei made his first appearance of the season. Marco Congiusti also made his first recorded appearance of the campaign. Brian Haspel started in goal for his first recorded Brave H.C. appearance.",
       "First Period — Mid Ice Crisis Takes the Lead",
       "Mid Ice Crisis opened the scoring at 9:14 remaining and carried a 1–0 lead into the intermission. A two-minute tripping penalty against Mid Ice Crisis at 6:51 gave the Braves a power-play opportunity, but they did not score.",
@@ -38,7 +41,8 @@
       "Players of the Game: Alex Pagnotta, Adam Kober and Adam Povegliano.",
       "Through six games, the Braves stand at 1–5, with 14 goals scored and 30 allowed. The result moved their regular-season record against Mid Ice Crisis to 1–3–2 in six meetings, with 15 goals for and 26 against. Including playoffs, the series stands at 1–5–2 across eight meetings, with 17 goals scored and 32 allowed.",
       "Next Up — Other Way",
-      "Brave H.C. returns to Vaughan Sports Village — D Rink on Sunday, November 8 at 9:15 p.m. to face Other Way. The verified historical archive does not establish a previous completed matchup under that exact opponent name, so no head-to-head record is assigned.",
+      "Brave H.C. returns to Vaughan Sports Village — D Rink on Sunday, November 8 at 9:15 p.m. to face Other Way.",
+      "With no earlier Brave H.C.–Other Way meeting verified in the team archive, the current league results provide the clearest starting point. Other Way was third in the latest posted Cristillo Division table at 2–1–2 with 6 points, 25 goals scored and 23 allowed through five games. It defeated Dateline Predators 8–5 on October 18 and tied Sugo Sundays 7–7 on October 25, scoring 15 goals while conceding 12 across those two games. Other Way also beat Mid Ice Crisis 4–3 on September 20.",
       "The Braves will look to return to the win column following Sunday's setback."
     ],
     "boxScore": {
@@ -61,7 +65,8 @@
       ]
     },
     "sourceUrls": [
-      "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=3375683&p=boxscore"
+      "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=3375683&p=boxscore",
+      "https://leagues.sportsvillage.ca/Leagues.aspx?leagueid=570&page_type=Adult&sc=HOCKEY"
     ],
     "videoEvidence": null,
     "opponentHistory": {
@@ -120,19 +125,98 @@
       }
     ],
     "verification": {
-      "statementsFrom": "HTO November 1 game 3375683 and season statistics; verified prior opponent archive; Founder-authorized source-matched goal narratives",
+      "statementsFrom": "Finalized HTO Game 3375683 and current player/goalie statistics, verified historical workbook, source-qualified official Sunday Winter 2026/27 SVHL Cristillo Division intelligence as of November 2, and two owner-confirmed HTO-matched scoring play descriptions",
       "status": "SOURCE_VERIFIED",
       "gameBoxscoreMatched": true,
       "unsupportedClaimsExcluded": true,
       "headToHeadSource": "Master Workbook AllTimeSchedule and source-qualified opponent ledger",
       "goalNumbers": "HTO game scoring plus season statistics",
-      "goalNarrativeReview": "Only two explicitly approved and HTO-matched Brave H.C. goal descriptions"
+      "goalNarrativeReview": "Only two explicitly approved and HTO-matched Brave H.C. goal descriptions",
+      "leagueIntelligenceVerified": true,
+      "officialLeagueAsOf": "2026-11-02T14:15:07.530574+00:00",
+      "leagueFiveGameSnapshotSeparateFromHTOSixGameRecord": true
     },
     "editorialState": "FOUNDER_APPROVED",
     "milestones": [],
     "recordClaimsVerified": false,
     "upcomingPlayerContext": [],
-    "evidenceFingerprint": "07fb6516f11bc3a56077f3e8c09d557bf0b6c4904f39135c8986975c03739d5c"
+    "evidenceFingerprint": "fceda810711d2c8cc91b6f4b0bdaa276c9fbab9901efbbdaebc5927a1082b707",
+    "leagueIntelligence": {
+      "schema": "hockeyos-article-league-source/v1",
+      "source": "https://leagues.sportsvillage.ca/Leagues.aspx?leagueid=570&page_type=Adult&sc=HOCKEY",
+      "asOf": "2026-11-02T14:15:07.530574+00:00",
+      "scope": "verified league pre-Nov1 standings; HTO six-game Nov1 result independent",
+      "division": "The Cristillo Division",
+      "divisionTeamCount": 8,
+      "featuredOpponent": {
+        "name": "Mid Ice Crisis",
+        "source": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13708&page_type=Adult",
+        "rank": 2,
+        "record": {
+          "gp": 5,
+          "w": 3,
+          "l": 2,
+          "t": 0,
+          "pts": 6,
+          "gf": 20,
+          "ga": 13
+        },
+        "lastGame": {
+          "date": "2026-10-25",
+          "opponent": "Mohawks HC",
+          "opponentCurrentDivision": "The Cristillo Division",
+          "gf": 1,
+          "ga": 2,
+          "result": "L"
+        },
+        "bravesHistoryStatus": "SOURCE_VERIFIED_H2H"
+      },
+      "nextOpponent": {
+        "name": "Other Way",
+        "source": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13704&page_type=Adult",
+        "rank": 3,
+        "record": {
+          "gp": 5,
+          "w": 2,
+          "l": 1,
+          "t": 2,
+          "pts": 6,
+          "gf": 25,
+          "ga": 23
+        },
+        "lastTwo": [
+          {
+            "date": "2026-10-18",
+            "opponent": "Dateline Predators",
+            "opponentCurrentDivision": "The Cristillo Division",
+            "gf": 8,
+            "ga": 5,
+            "result": "W"
+          },
+          {
+            "date": "2026-10-25",
+            "opponent": "Sugo Sundays",
+            "opponentCurrentDivision": "Remax Division",
+            "gf": 7,
+            "ga": 7,
+            "result": "T"
+          }
+        ],
+        "bravesHistoryStatus": "NO_VERIFIED_BRAVES_MATCH_HISTORY"
+      },
+      "usesHistoryAndLeagueContext": true,
+      "usesNoHistoryFallback": true,
+      "HTOSeparateFromLeague": true
+    },
+    "editorialRevision": {
+      "type": "ADD_VERIFIED_LEAGUE_CONTEXT_WITH_HISTORY_AND_NO_HISTORY_FALLBACK",
+      "date": "2026-11-02",
+      "authority": "Founder explicit revision request",
+      "previousFingerprint": "07fb6516f11bc3a56077f3e8c09d557bf0b6c4904f39135c8986975c03739d5c",
+      "currentFingerprint": "fceda810711d2c8cc91b6f4b0bdaa276c9fbab9901efbbdaebc5927a1082b707",
+      "sourceLeague": "https://leagues.sportsvillage.ca/Leagues.aspx?leagueid=570&page_type=Adult&sc=HOCKEY",
+      "verification": "OFFICIAL_SVHL_LIVE_SOURCE_PARITY_CONFIRMED"
+    }
   },
   "teamNotes": {
     "title": "Around the Club",
@@ -178,13 +262,17 @@
     "puckDrop": "2026-11-08T21:15:00-05:00",
     "paragraphs": [
       "Brave H.C. faces Other Way on Sunday, November 8 at 9:15 p.m. at Vaughan Sports Village — D Rink.",
-      "The verified Brave H.C. opponent archive does not establish a completed prior meeting under the exact name Other Way; no head-to-head results are asserted.",
-      "The Braves enter the fixture at 1–5 through six games, with 14 goals scored and 30 allowed."
+      "With no earlier Brave H.C.–Other Way meeting verified in the team archive, the current league results provide the clearest starting point. Other Way was third in the latest posted Cristillo Division table at 2–1–2 with 6 points, 25 goals scored and 23 allowed through five games. It defeated Dateline Predators 8–5 on October 18 and tied Sugo Sundays 7–7 on October 25, scoring 15 goals while conceding 12 across those two games. Other Way also beat Mid Ice Crisis 4–3 on September 20.",
+      "The Braves enter the fixture at 1–5 through six games, with 14 goals scored and 30 allowed.",
+      "The league figures reflect the five-game table available on November 2; HTO's finalized November 1 result and six-game Brave H.C. season totals are reported separately."
     ],
     "sourceUrl": "https://www.htosports.com/teams/default.asp?p=schedule&s=hockey&u=BRAVESHOCKEY",
     "editorialState": "FOUNDER_APPROVED",
     "milestoneWatch": [],
-    "milestoneCoverage": "VERIFIED_SUPPORTED_CATEGORIES_ONLY"
+    "milestoneCoverage": "VERIFIED_SUPPORTED_CATEGORIES_ONLY",
+    "leagueSource": "https://leagues.sportsvillage.ca/Leagues.aspx?leagueid=570&page_type=Adult&sc=HOCKEY",
+    "leagueAsOf": "2026-11-02T14:15:07.530574+00:00",
+    "division": "The Cristillo Division"
   },
   "archive": [
     {
@@ -1511,9 +1599,20 @@
     "role": "Founder",
     "date": "2026-11-02",
     "articleId": "recap-3375683",
-    "approvedArticleHash": "07fb6516f11bc3a56077f3e8c09d557bf0b6c4904f39135c8986975c03739d5c",
+    "approvedArticleHash": "fceda810711d2c8cc91b6f4b0bdaa276c9fbab9901efbbdaebc5927a1082b707",
     "approvalScope": "User-authorized publication of November 1 revised article in chat",
-    "previousArticleMovedToArchive": true
+    "previousArticleMovedToArchive": true,
+    "previousApprovedArticleHash": "07fb6516f11bc3a56077f3e8c09d557bf0b6c4904f39135c8986975c03739d5c",
+    "amendment": {
+      "date": "2026-11-02",
+      "role": "Founder",
+      "decision": "FOUNDER_AUTHORIZED_LIVE_LEAGUE_INTELLIGENCE_REVISION",
+      "scope": "Enhance November 1 game recap and November 8 Next Up with verified league intelligence",
+      "articleId": "recap-3375683",
+      "revisedFingerprint": "fceda810711d2c8cc91b6f4b0bdaa276c9fbab9901efbbdaebc5927a1082b707",
+      "source": "https://leagues.sportsvillage.ca/Leagues.aspx?leagueid=570&page_type=Adult&sc=HOCKEY",
+      "noHistoryFallback": true
+    }
   },
   "previousPublicationApproval": {
     "date": "2026-10-19",
