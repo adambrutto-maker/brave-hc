@@ -87,7 +87,8 @@ def goal_parity(session, article):
             issues.append("Goal %d has wrong game date" % i)
     for team, count_field in (("Brave H.C.", "ourPeriods"), (opposition, "theirPeriods")):
         recorded = article["boxScore"].get(count_field, [])
-        for period in range(1, 4):
+        last_official_period = max((r["period"] for r in official), default=3)
+        for period in range(1, max(3, len(recorded), last_official_period) + 1):
             actual = sum(r["team"] == team and r["period"] == period for r in official)
             if len(recorded) < period or recorded[period - 1] != actual:
                 issues.append("%s period %d totals disagree with HTO" % (team, period))
