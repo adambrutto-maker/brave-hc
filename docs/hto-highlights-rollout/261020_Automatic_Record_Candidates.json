@@ -2,7 +2,7 @@
   "schema": "brave-hc-record-candidates/v1",
   "status": "REVIEW_ONLY_NOT_OFFICIAL",
   "coverage": {
-    "indexedGames": 371,
+    "indexedGames": 372,
     "administrativeExclusions": 8,
     "possibleDecidingEntries": 5
   },
