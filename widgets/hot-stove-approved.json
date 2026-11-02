@@ -258,13 +258,18 @@
     "recordBreakingClaimsVerified": false
   },
   "gamePreview": {
-    "headline": "Next Up: Brave H.C. Faces Other Way",
+    "headline": "High-Scoring Other Way Next as Braves Look to Rebound",
     "opponent": "Other Way",
     "puckDrop": "2026-11-08T21:15:00-05:00",
     "paragraphs": [
-      "Brave H.C. faces Other Way on Sunday, November 8 at 9:15 p.m. at Vaughan Sports Village — D Rink.",
-      "Other Way is third in the Cristillo Division at 2–1–2 through five games, with 25 goals scored and 23 allowed.",
-      "It beat Dateline Predators 8–5 on October 18, tied Sugo Sundays 7–7 on October 25 and defeated Mid Ice Crisis 4–3 earlier this season. The Braves enter at 1–5, with 14 goals scored and 30 allowed through six games."
+      "Brave H.C. has seen both sides of a scoring swing over its last two games. A six-goal breakthrough against Big Bastones delivered the club's first win of the 2026–27 season, but a 7–2 loss to Mid Ice Crisis followed on November 1. Sunday's assignment brings another challenge: Other Way, which has scored 25 goals through five published league games.",
+      "Other Way is third in the eight-team Cristillo Division at 2–1–2, with 25 goals for and 23 against. Its five-goal-per-game scoring average has come in some lively contests, including an 8–5 win over Dateline Predators and a 7–7 tie with Sugo Sundays in its last two completed games. Earlier, it traded six goals apiece with Zamboner Crew.",
+      "The numbers tell only part of the story. Other Way opened its season by beating Mid Ice Crisis 4–3, but also went scoreless in a 2–0 defeat to Big Bastones. Both opponents have already figured prominently in the Braves' season. Brave H.C. beat Big Bastones 6–4 on October 25, then fell to Mid Ice Crisis the following Sunday.",
+      "Four of Other Way's five completed opponents have also faced Brave H.C. this season. Against Zamboner Crew, Other Way drew 6–6 while the Braves lost 7–1 on October 18. Against Dateline Predators, Other Way scored eight times in a victory; Brave H.C. was held off the scoresheet in a 3–0 season-opening defeat.",
+      "Those comparisons do not establish a favourite for Sunday. They do, however, underline how differently the same teams have performed from one matchup to the next, and how quickly a game can change when Other Way's attack gets rolling.",
+      "The Braves enter Sunday at 1–5, with 14 goals scored and 30 allowed in six completed HTO games. They have scored eight times in their past two outings, but have surrendered eleven.",
+      "Against Big Bastones, three first-period goals gave the Braves an early advantage before Michael Provenzano scored twice in the third. Against Mid Ice Crisis, they were down 4–0 after two periods before Stefano Mazzei, making his season debut, and Adam Povegliano found the net in the final frame.",
+      "Sunday's meeting offers the Braves another chance to turn those scoring flashes into a more complete game. Other Way has shown it can produce goals in bunches, but its early results have also left room for opponents to answer. The puck drops at 9:15 p.m. on D Rink."
     ],
     "sourceUrl": "https://www.htosports.com/teams/default.asp?p=schedule&s=hockey&u=BRAVESHOCKEY",
     "editorialState": "FOUNDER_APPROVED",
@@ -272,7 +277,46 @@
     "milestoneCoverage": "VERIFIED_SUPPORTED_CATEGORIES_ONLY",
     "leagueSource": "https://leagues.sportsvillage.ca/Leagues.aspx?leagueid=570&page_type=Adult&sc=HOCKEY",
     "leagueAsOf": "2026-11-02T14:15:07.530574+00:00",
-    "division": "The Cristillo Division"
+    "division": "The Cristillo Division",
+    "sections": [
+      {
+        "heading": null,
+        "paragraphs": [
+          "Brave H.C. has seen both sides of a scoring swing over its last two games. A six-goal breakthrough against Big Bastones delivered the club's first win of the 2026–27 season, but a 7–2 loss to Mid Ice Crisis followed on November 1. Sunday's assignment brings another challenge: Other Way, which has scored 25 goals through five published league games.",
+          "Other Way is third in the eight-team Cristillo Division at 2–1–2, with 25 goals for and 23 against. Its five-goal-per-game scoring average has come in some lively contests, including an 8–5 win over Dateline Predators and a 7–7 tie with Sugo Sundays in its last two completed games. Earlier, it traded six goals apiece with Zamboner Crew.",
+          "The numbers tell only part of the story. Other Way opened its season by beating Mid Ice Crisis 4–3, but also went scoreless in a 2–0 defeat to Big Bastones. Both opponents have already figured prominently in the Braves' season. Brave H.C. beat Big Bastones 6–4 on October 25, then fell to Mid Ice Crisis the following Sunday."
+        ]
+      },
+      {
+        "heading": "Common Opponents Offer a Closer Look",
+        "paragraphs": [
+          "Four of Other Way's five completed opponents have also faced Brave H.C. this season. Against Zamboner Crew, Other Way drew 6–6 while the Braves lost 7–1 on October 18. Against Dateline Predators, Other Way scored eight times in a victory; Brave H.C. was held off the scoresheet in a 3–0 season-opening defeat.",
+          "Those comparisons do not establish a favourite for Sunday. They do, however, underline how differently the same teams have performed from one matchup to the next, and how quickly a game can change when Other Way's attack gets rolling."
+        ]
+      },
+      {
+        "heading": "A Chance to Carry the Offence Forward",
+        "paragraphs": [
+          "The Braves enter Sunday at 1–5, with 14 goals scored and 30 allowed in six completed HTO games. They have scored eight times in their past two outings, but have surrendered eleven.",
+          "Against Big Bastones, three first-period goals gave the Braves an early advantage before Michael Provenzano scored twice in the third. Against Mid Ice Crisis, they were down 4–0 after two periods before Stefano Mazzei, making his season debut, and Adam Povegliano found the net in the final frame.",
+          "Sunday's meeting offers the Braves another chance to turn those scoring flashes into a more complete game. Other Way has shown it can produce goals in bunches, but its early results have also left room for opponents to answer. The puck drops at 9:15 p.m. on D Rink."
+        ]
+      }
+    ],
+    "articleType": "PREGAME_FEATURE",
+    "articleDate": "2026-11-02",
+    "updatedAtSourceCheck": "2026-11-02T18:51:03Z",
+    "editorialRevision": {
+      "date": "2026-11-02",
+      "document": "docs/editorial/261102_BraveHC_OtherWay_Nov08_HotStove_Preview_DRAFT.md",
+      "qaReview": "docs/editorial/261102_BraveHC_HotStove_HTO_Parity_and_OtherWay_Release_Review.md",
+      "approvalContext": "User instructed 'good continue' after the November 8 editorial release decision was presented; release still conditional on source and browser checks",
+      "archiveRecapsPreserved": true,
+      "historicalH2HExcluded": true,
+      "leagueGamesSnapshot": 5,
+      "htoTeamGamesSnapshot": 6
+    },
+    "gameDateLine": "Sunday, November 8, 2026 · 9:15 p.m. · Vaughan Sports Village — D Rink"
   },
   "archive": [
     {

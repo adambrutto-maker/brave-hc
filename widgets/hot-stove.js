@@ -280,10 +280,22 @@ function preview(section){
  if(!p){section.append($("p","loading","No future game has been posted on HTO."));return}
  section.append($("span","tag","Pregame preview · HTO schedule"));
  section.append($("h2",null,p.headline));
+ if(typeof p.gameDateLine==="string"&&p.gameDateLine.length<=160)
+  section.append($("p","meta",p.gameDateLine));
  const summary=$("div","preview");
  const statbar=headToHeadStats(p);
  if(statbar)summary.append(statbar);
- for(const line of p.paragraphs){summary.append($("p",null,line))}
+ const blocks=Array.isArray(p.sections)&&p.sections.length&&p.sections.every(s=>
+  s&&(!s.heading||typeof s.heading==="string")&&Array.isArray(s.paragraphs)&&
+  s.paragraphs.every(line=>typeof line==="string"&&line.length<=1200))?p.sections:null;
+ if(blocks){
+  for(const block of blocks){
+   if(block.heading)summary.append($("h3","section-header",block.heading));
+   for(const line of block.paragraphs)summary.append($("p",null,line));
+  }
+ }else if(Array.isArray(p.paragraphs)){
+  for(const line of p.paragraphs)summary.append($("p",null,line));
+ }
  summary.append(link("View official schedule ↗",p.sourceUrl));section.append(summary);
  playerSpotlight(section,p,false);
  verifiedUpcomingWatch(section,p);
