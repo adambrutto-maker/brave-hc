@@ -1,0 +1,53 @@
+name: Brave H.C. Hot Stove postgame editorial draft
+
+on:
+  schedule:
+    # Mondays 17:00 UTC: noon EST / 1 p.m. EDT in Toronto.
+    # If HTO posts late, wait for official final rather than guessing.
+    - cron: "0 17 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: brave-hot-stove-postgame-draft
+  cancel-in-progress: false
+
+jobs:
+  prepare-private-draft:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout public code and approved source snapshots
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install read-only HTO parsing requirements
+        run: python -m pip install requests==2.32.5 beautifulsoup4==4.14.2
+
+      - name: Run offline goal-parity and postgame admission regressions
+        run: python -m unittest discover -s scripts/editorial -p "test_*.py" -v
+
+      - name: Prepare source-verified draft or hold receipt
+        shell: bash
+        run: |
+          mkdir -p "$RUNNER_TEMP/hot-stove-review"
+          python scripts/editorial/prepare_hot_stove_postgame.py \
+            --output-dir "$RUNNER_TEMP/hot-stove-review"
+
+      - name: Retain review files as Actions artifact, not GitHub Pages
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: hot-stove-review-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/hot-stove-review/
+          retention-days: 14
+          if-no-files-found: warn
+
+# No repository commits, public publishing, HTO/workbook edits or video processing.
+# Every completed draft requires a separate human/founder editorial release.
