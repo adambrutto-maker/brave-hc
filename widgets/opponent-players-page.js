@@ -88,8 +88,8 @@
    const form=p.sourceForm?.recentForm,game=p.sourceForm?.gameNight;
    const formCell=add(tr,"td","",null);
    const label={
-     HOT_MULTIGAME_SOURCE_TREND:"Multi-game hot trend",
-     COOLING_MULTIGAME_SOURCE_TREND:"Multi-game cooling trend",
+     HOT_MULTIGAME_SOURCE_TREND:"Multi-game hot PACE watch ? not a verified scoring streak",
+     COOLING_MULTIGAME_SOURCE_TREND:"Multi-game cooling PACE watch",
      ONE_GAME_SCORING_SURGE_WATCH:"One-game scoring surge WATCH",
      ONE_QUIET_GAME_NOT_A_COLD_STREAK:"One quiet game · NOT cold",
      LIMITED_RECENT_SOURCE_SAMPLE:"Limited new-game sample",

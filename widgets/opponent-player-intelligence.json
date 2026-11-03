@@ -87,7 +87,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.25,
               "pointsPerGameChange": -0.25,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -149,7 +151,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.8,
               "pointsPerGameChange": -0.8,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "OPPONENT_WATCH_REVIEW",
@@ -206,7 +210,9 @@
               "newReportedPoints": null,
               "recentPtsPerGP": null,
               "previousPtsPerGP": null,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -268,7 +274,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.2,
               "pointsPerGameChange": -0.2,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -330,7 +338,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.0,
               "pointsPerGameChange": 0.0,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -392,7 +402,9 @@
               "recentPtsPerGP": 1.0,
               "previousPtsPerGP": 0.4,
               "pointsPerGameChange": 0.6,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -454,7 +466,9 @@
               "recentPtsPerGP": 1.0,
               "previousPtsPerGP": 0.2,
               "pointsPerGameChange": 0.8,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -516,7 +530,9 @@
               "recentPtsPerGP": 1.0,
               "previousPtsPerGP": 0.0,
               "pointsPerGameChange": 1.0,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -578,7 +594,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.0,
               "pointsPerGameChange": 0.0,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -635,7 +653,9 @@
               "newReportedPoints": null,
               "recentPtsPerGP": null,
               "previousPtsPerGP": null,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -697,7 +717,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.0,
               "pointsPerGameChange": 0.0,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -759,7 +781,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.0,
               "pointsPerGameChange": 0.0,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -816,7 +840,9 @@
               "newReportedPoints": null,
               "recentPtsPerGP": null,
               "previousPtsPerGP": null,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -878,7 +904,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.0,
               "pointsPerGameChange": 0.0,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -990,7 +1018,9 @@
               "recentPtsPerGP": 1.0,
               "previousPtsPerGP": 0.5,
               "pointsPerGameChange": 0.5,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "OPPONENT_WATCH_REVIEW",
@@ -1109,7 +1139,9 @@
               "recentPtsPerGP": 1.0,
               "previousPtsPerGP": 0.0,
               "pointsPerGameChange": 1.0,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -1194,7 +1226,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.0,
               "pointsPerGameChange": 0.0,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -1313,7 +1347,9 @@
               "recentPtsPerGP": 1.0,
               "previousPtsPerGP": 0.5,
               "pointsPerGameChange": 0.5,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "OPPONENT_WATCH_REVIEW",
@@ -1432,7 +1468,9 @@
               "recentPtsPerGP": 1.0,
               "previousPtsPerGP": 0.667,
               "pointsPerGameChange": 0.333,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "SPECIAL_DEFENSIVE_ATTENTION_REVIEW",
@@ -1534,7 +1572,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.25,
               "pointsPerGameChange": -0.25,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -1619,7 +1659,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.0,
               "pointsPerGameChange": 0.0,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -1745,7 +1787,9 @@
               "newReportedPoints": null,
               "recentPtsPerGP": null,
               "previousPtsPerGP": null,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -1876,7 +1920,9 @@
               "newReportedPoints": null,
               "recentPtsPerGP": null,
               "previousPtsPerGP": null,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -2007,7 +2053,9 @@
               "newReportedPoints": null,
               "recentPtsPerGP": null,
               "previousPtsPerGP": null,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "OPPONENT_WATCH_REVIEW",
@@ -2143,7 +2191,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.25,
               "pointsPerGameChange": -0.25,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -2262,7 +2312,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.0,
               "pointsPerGameChange": 0.0,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -2381,7 +2433,9 @@
               "recentPtsPerGP": 1.0,
               "previousPtsPerGP": 0.0,
               "pointsPerGameChange": 1.0,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -2500,7 +2554,9 @@
               "recentPtsPerGP": 1.0,
               "previousPtsPerGP": 0.0,
               "pointsPerGameChange": 1.0,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -2562,7 +2618,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.333,
               "pointsPerGameChange": -0.333,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -2674,7 +2732,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.333,
               "pointsPerGameChange": -0.333,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -2736,7 +2796,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.25,
               "pointsPerGameChange": -0.25,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -2855,7 +2917,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.75,
               "pointsPerGameChange": -0.75,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "OPPONENT_WATCH_REVIEW",
@@ -2957,7 +3021,9 @@
               "recentPtsPerGP": 1.0,
               "previousPtsPerGP": 0.5,
               "pointsPerGameChange": 0.5,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "OPPONENT_WATCH_REVIEW",
@@ -3076,7 +3142,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.4,
               "pointsPerGameChange": -0.4,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -3195,7 +3263,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.0,
               "pointsPerGameChange": 0.0,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -3348,7 +3418,9 @@
               "recentPtsPerGP": 1.0,
               "previousPtsPerGP": 0.6,
               "pointsPerGameChange": 0.4,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "OPPONENT_WATCH_REVIEW",
@@ -3410,7 +3482,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.0,
               "pointsPerGameChange": 0.0,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -3546,7 +3620,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.6,
               "pointsPerGameChange": -0.6,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -3648,7 +3724,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.0,
               "pointsPerGameChange": 0.0,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -3767,7 +3845,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 1.0,
               "pointsPerGameChange": -1.0,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "OPPONENT_WATCH_REVIEW",
@@ -3829,7 +3909,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.25,
               "pointsPerGameChange": -0.25,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -3948,7 +4030,9 @@
               "recentPtsPerGP": 1.0,
               "previousPtsPerGP": 1.25,
               "pointsPerGameChange": -0.25,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "SPECIAL_DEFENSIVE_ATTENTION_REVIEW",
@@ -4084,7 +4168,9 @@
               "recentPtsPerGP": 3.0,
               "previousPtsPerGP": 1.25,
               "pointsPerGameChange": 1.75,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "SPECIAL_DEFENSIVE_ATTENTION_REVIEW",
@@ -4220,7 +4306,9 @@
               "recentPtsPerGP": 1.0,
               "previousPtsPerGP": 0.4,
               "pointsPerGameChange": 0.6,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -4334,7 +4422,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.0,
               "pointsPerGameChange": 0.0,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -4446,7 +4536,9 @@
               "recentPtsPerGP": 1.0,
               "previousPtsPerGP": 0.8,
               "pointsPerGameChange": 0.2,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "OPPONENT_WATCH_REVIEW",
@@ -4582,7 +4674,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.25,
               "pointsPerGameChange": -0.25,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -4735,7 +4829,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.333,
               "pointsPerGameChange": -0.333,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -4854,7 +4950,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.75,
               "pointsPerGameChange": -0.75,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "OPPONENT_WATCH_REVIEW",
@@ -5002,7 +5100,9 @@
               "newReportedPoints": null,
               "recentPtsPerGP": null,
               "previousPtsPerGP": null,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -5116,7 +5216,9 @@
               "newReportedPoints": null,
               "recentPtsPerGP": null,
               "previousPtsPerGP": null,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "OPPONENT_WATCH_REVIEW",
@@ -5247,7 +5349,9 @@
               "newReportedPoints": null,
               "recentPtsPerGP": null,
               "previousPtsPerGP": null,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "OPPONENT_WATCH_REVIEW",
@@ -5400,7 +5504,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.5,
               "pointsPerGameChange": -0.5,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -5519,7 +5625,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.0,
               "pointsPerGameChange": 0.0,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -5672,7 +5780,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.0,
               "pointsPerGameChange": 0.0,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -5757,7 +5867,9 @@
               "recentPtsPerGP": 2.0,
               "previousPtsPerGP": 0.8,
               "pointsPerGameChange": 1.2,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "SPECIAL_DEFENSIVE_ATTENTION_REVIEW",
@@ -5876,7 +5988,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.2,
               "pointsPerGameChange": -0.2,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -6012,7 +6126,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.8,
               "pointsPerGameChange": -0.8,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "OPPONENT_WATCH_REVIEW",
@@ -6097,7 +6213,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.0,
               "pointsPerGameChange": 0.0,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -6250,7 +6368,9 @@
               "recentPtsPerGP": 1.0,
               "previousPtsPerGP": 0.25,
               "pointsPerGameChange": 0.75,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -6403,7 +6523,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.0,
               "pointsPerGameChange": 0.0,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -6566,7 +6688,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.0,
               "pointsPerGameChange": 0.0,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -6668,7 +6792,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.2,
               "pointsPerGameChange": -0.2,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -6821,7 +6947,9 @@
               "recentPtsPerGP": 1.0,
               "previousPtsPerGP": 0.4,
               "pointsPerGameChange": 0.6,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "OPPONENT_WATCH_REVIEW",
@@ -6883,7 +7011,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.0,
               "pointsPerGameChange": 0.0,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -7002,7 +7132,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.2,
               "pointsPerGameChange": -0.2,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -7121,7 +7253,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.0,
               "pointsPerGameChange": 0.0,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -7206,7 +7340,9 @@
               "recentPtsPerGP": 1.0,
               "previousPtsPerGP": 0.2,
               "pointsPerGameChange": 0.8,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -7325,7 +7461,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.2,
               "pointsPerGameChange": -0.2,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -7387,7 +7525,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.25,
               "pointsPerGameChange": -0.25,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -7472,7 +7612,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.667,
               "pointsPerGameChange": -0.667,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "OPPONENT_WATCH_REVIEW",
@@ -7557,7 +7699,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.25,
               "pointsPerGameChange": -0.25,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -7619,7 +7763,9 @@
               "recentPtsPerGP": 1.0,
               "previousPtsPerGP": 0.0,
               "pointsPerGameChange": 1.0,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -7755,7 +7901,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.4,
               "pointsPerGameChange": -0.4,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -7817,7 +7965,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.8,
               "pointsPerGameChange": -0.8,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "OPPONENT_WATCH_REVIEW",
@@ -7970,7 +8120,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.0,
               "pointsPerGameChange": 0.0,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -8123,7 +8275,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.0,
               "pointsPerGameChange": 0.0,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -8195,7 +8349,9 @@
               "recentPtsPerGP": 1.0,
               "previousPtsPerGP": 0.4,
               "pointsPerGameChange": 0.6,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -8297,7 +8453,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.4,
               "pointsPerGameChange": -0.4,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -8359,7 +8517,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 1.6,
               "pointsPerGameChange": -1.6,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "SPECIAL_DEFENSIVE_ATTENTION_REVIEW",
@@ -8512,7 +8672,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.2,
               "pointsPerGameChange": -0.2,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -8614,7 +8776,9 @@
               "recentPtsPerGP": 1.0,
               "previousPtsPerGP": 0.4,
               "pointsPerGameChange": 0.6,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -8733,7 +8897,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.4,
               "pointsPerGameChange": -0.4,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -8835,7 +9001,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.8,
               "pointsPerGameChange": -0.8,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "OPPONENT_WATCH_REVIEW",
@@ -8920,7 +9088,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.0,
               "pointsPerGameChange": 0.0,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -9022,7 +9192,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.25,
               "pointsPerGameChange": -0.25,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -9124,7 +9296,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.0,
               "pointsPerGameChange": 0.0,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -9186,7 +9360,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.5,
               "pointsPerGameChange": -0.5,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "OPPONENT_WATCH_REVIEW",
@@ -9288,7 +9464,9 @@
               "recentPtsPerGP": 1.0,
               "previousPtsPerGP": 0.75,
               "pointsPerGameChange": 0.25,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "OPPONENT_WATCH_REVIEW",
@@ -9441,7 +9619,9 @@
               "recentPtsPerGP": 1.0,
               "previousPtsPerGP": 0.8,
               "pointsPerGameChange": 0.2,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "OPPONENT_WATCH_REVIEW",
@@ -9577,7 +9757,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.4,
               "pointsPerGameChange": -0.4,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -9662,7 +9844,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.0,
               "pointsPerGameChange": 0.0,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -9734,7 +9918,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.0,
               "pointsPerGameChange": 0.0,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -9887,7 +10073,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.75,
               "pointsPerGameChange": -0.75,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -10057,7 +10245,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.5,
               "pointsPerGameChange": -0.5,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -10193,7 +10383,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.4,
               "pointsPerGameChange": -0.4,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -10278,7 +10470,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.0,
               "pointsPerGameChange": 0.0,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -10431,7 +10625,9 @@
               "recentPtsPerGP": 1.0,
               "previousPtsPerGP": 0.25,
               "pointsPerGameChange": 0.75,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -10493,7 +10689,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.0,
               "pointsPerGameChange": 0.0,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -10555,7 +10753,9 @@
               "recentPtsPerGP": 1.0,
               "previousPtsPerGP": 0.75,
               "pointsPerGameChange": 0.25,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "OPPONENT_WATCH_REVIEW",
@@ -10640,7 +10840,9 @@
               "recentPtsPerGP": 1.0,
               "previousPtsPerGP": 0.5,
               "pointsPerGameChange": 0.5,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "OPPONENT_WATCH_REVIEW",
@@ -10742,7 +10944,9 @@
               "recentPtsPerGP": 1.0,
               "previousPtsPerGP": 1.333,
               "pointsPerGameChange": -0.333,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "SPECIAL_DEFENSIVE_ATTENTION_REVIEW",
@@ -10804,7 +11008,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.0,
               "pointsPerGameChange": 0.0,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -10889,7 +11095,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.0,
               "pointsPerGameChange": 0.0,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -11042,7 +11250,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.5,
               "pointsPerGameChange": -0.5,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -11104,7 +11314,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.75,
               "pointsPerGameChange": -0.75,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "OPPONENT_WATCH_REVIEW",
@@ -11206,7 +11418,9 @@
               "recentPtsPerGP": 1.0,
               "previousPtsPerGP": 0.333,
               "pointsPerGameChange": 0.667,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "OPPONENT_WATCH_REVIEW",
@@ -11278,7 +11492,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.0,
               "pointsPerGameChange": 0.0,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -11375,7 +11591,9 @@
               "newReportedPoints": null,
               "recentPtsPerGP": null,
               "previousPtsPerGP": null,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -11460,7 +11678,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.0,
               "pointsPerGameChange": 0.0,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -11579,7 +11799,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.25,
               "pointsPerGameChange": -0.25,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -11664,7 +11886,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.0,
               "pointsPerGameChange": 0.0,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -11721,7 +11945,9 @@
               "newReportedPoints": null,
               "recentPtsPerGP": null,
               "previousPtsPerGP": null,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -11818,7 +12044,9 @@
               "newReportedPoints": null,
               "recentPtsPerGP": null,
               "previousPtsPerGP": null,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -11903,7 +12131,9 @@
               "recentPtsPerGP": 1.0,
               "previousPtsPerGP": 2.0,
               "pointsPerGameChange": -1.0,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "SPECIAL_DEFENSIVE_ATTENTION_REVIEW",
@@ -11965,7 +12195,9 @@
               "recentPtsPerGP": 1.0,
               "previousPtsPerGP": 0.0,
               "pointsPerGameChange": 1.0,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -12062,7 +12294,9 @@
               "newReportedPoints": null,
               "recentPtsPerGP": null,
               "previousPtsPerGP": null,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -12193,7 +12427,9 @@
               "newReportedPoints": null,
               "recentPtsPerGP": null,
               "previousPtsPerGP": null,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -12273,7 +12509,9 @@
               "newReportedPoints": null,
               "recentPtsPerGP": null,
               "previousPtsPerGP": null,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "OPPONENT_WATCH_REVIEW",
@@ -12392,7 +12630,9 @@
               "recentPtsPerGP": 1.0,
               "previousPtsPerGP": 0.5,
               "pointsPerGameChange": 0.5,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -12511,7 +12751,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.0,
               "pointsPerGameChange": 0.0,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -12573,7 +12815,9 @@
               "recentPtsPerGP": 1.0,
               "previousPtsPerGP": 0.0,
               "pointsPerGameChange": 1.0,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -12692,7 +12936,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 1.0,
               "pointsPerGameChange": -1.0,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "OPPONENT_WATCH_REVIEW",
@@ -12811,7 +13057,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.0,
               "pointsPerGameChange": 0.0,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -12981,7 +13229,9 @@
               "recentPtsPerGP": 1.0,
               "previousPtsPerGP": 0.6,
               "pointsPerGameChange": 0.4,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "OPPONENT_WATCH_REVIEW",
@@ -13043,7 +13293,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.25,
               "pointsPerGameChange": -0.25,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -13105,7 +13357,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.0,
               "pointsPerGameChange": 0.0,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -13268,7 +13522,9 @@
               "recentPtsPerGP": 2.0,
               "previousPtsPerGP": 0.6,
               "pointsPerGameChange": 1.4,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "SPECIAL_DEFENSIVE_ATTENTION_REVIEW",
@@ -13330,7 +13586,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.0,
               "pointsPerGameChange": 0.0,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -13392,7 +13650,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.6,
               "pointsPerGameChange": -0.6,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "OPPONENT_WATCH_REVIEW",
@@ -13454,7 +13714,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.0,
               "pointsPerGameChange": 0.0,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -13556,7 +13818,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.0,
               "pointsPerGameChange": 0.0,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -13658,7 +13922,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.0,
               "pointsPerGameChange": 0.0,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -13777,7 +14043,9 @@
               "recentPtsPerGP": 1.0,
               "previousPtsPerGP": 0.25,
               "pointsPerGameChange": 0.75,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -13839,7 +14107,9 @@
               "recentPtsPerGP": 1.0,
               "previousPtsPerGP": 0.6,
               "pointsPerGameChange": 0.4,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "OPPONENT_WATCH_REVIEW",
@@ -13941,7 +14211,9 @@
               "recentPtsPerGP": 1.0,
               "previousPtsPerGP": 0.5,
               "pointsPerGameChange": 0.5,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "OPPONENT_WATCH_REVIEW",
@@ -14003,7 +14275,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.0,
               "pointsPerGameChange": 0.0,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -14088,7 +14362,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.25,
               "pointsPerGameChange": -0.25,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -14150,7 +14426,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.0,
               "pointsPerGameChange": 0.0,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -14212,7 +14490,9 @@
               "recentPtsPerGP": 1.0,
               "previousPtsPerGP": 0.5,
               "pointsPerGameChange": 0.5,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -14314,7 +14594,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.6,
               "pointsPerGameChange": -0.6,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -14433,7 +14715,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.2,
               "pointsPerGameChange": -0.2,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -14505,7 +14789,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.0,
               "pointsPerGameChange": 0.0,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -14567,7 +14853,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.333,
               "pointsPerGameChange": -0.333,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -14629,7 +14917,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.0,
               "pointsPerGameChange": 0.0,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -14691,7 +14981,9 @@
               "recentPtsPerGP": 1.0,
               "previousPtsPerGP": 0.333,
               "pointsPerGameChange": 0.667,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "OPPONENT_WATCH_REVIEW",
@@ -14753,7 +15045,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 1.0,
               "pointsPerGameChange": -1.0,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "OPPONENT_WATCH_REVIEW",
@@ -14838,7 +15132,9 @@
               "recentPtsPerGP": 2.0,
               "previousPtsPerGP": 0.2,
               "pointsPerGameChange": 1.8,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "OPPONENT_WATCH_REVIEW",
@@ -14900,7 +15196,9 @@
               "recentPtsPerGP": 1.0,
               "previousPtsPerGP": 0.667,
               "pointsPerGameChange": 0.333,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "OPPONENT_WATCH_REVIEW",
@@ -15002,7 +15300,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.6,
               "pointsPerGameChange": -0.6,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -15138,7 +15438,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.0,
               "pointsPerGameChange": 0.0,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -15200,7 +15502,9 @@
               "recentPtsPerGP": 1.0,
               "previousPtsPerGP": 2.333,
               "pointsPerGameChange": -1.333,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "SPECIAL_DEFENSIVE_ATTENTION_REVIEW",
@@ -15319,7 +15623,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.75,
               "pointsPerGameChange": -0.75,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "OPPONENT_WATCH_REVIEW",
@@ -15404,7 +15710,9 @@
               "recentPtsPerGP": 1.0,
               "previousPtsPerGP": 1.0,
               "pointsPerGameChange": 0.0,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "OPPONENT_WATCH_REVIEW",
@@ -15523,7 +15831,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.0,
               "pointsPerGameChange": 0.0,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -15608,7 +15918,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.5,
               "pointsPerGameChange": -0.5,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -15710,7 +16022,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.25,
               "pointsPerGameChange": -0.25,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -15812,7 +16126,9 @@
               "recentPtsPerGP": 1.0,
               "previousPtsPerGP": 1.0,
               "pointsPerGameChange": 0.0,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "OPPONENT_WATCH_REVIEW",
@@ -15897,7 +16213,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.0,
               "pointsPerGameChange": 0.0,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -15959,7 +16277,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.0,
               "pointsPerGameChange": 0.0,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -16044,7 +16364,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.667,
               "pointsPerGameChange": -0.667,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -16168,7 +16490,9 @@
               "newReportedPoints": null,
               "recentPtsPerGP": null,
               "previousPtsPerGP": null,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -16225,7 +16549,9 @@
               "newReportedPoints": null,
               "recentPtsPerGP": null,
               "previousPtsPerGP": null,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -16361,7 +16687,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.667,
               "pointsPerGameChange": -0.667,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -16480,7 +16808,9 @@
               "recentPtsPerGP": 1.0,
               "previousPtsPerGP": 0.8,
               "pointsPerGameChange": 0.2,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "OPPONENT_WATCH_REVIEW",
@@ -16542,7 +16872,9 @@
               "recentPtsPerGP": 1.0,
               "previousPtsPerGP": 0.667,
               "pointsPerGameChange": 0.333,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "OPPONENT_WATCH_REVIEW",
@@ -16678,7 +17010,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 1.0,
               "pointsPerGameChange": -1.0,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "OPPONENT_WATCH_REVIEW",
@@ -16740,7 +17074,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.25,
               "pointsPerGameChange": -0.25,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -16859,7 +17195,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.25,
               "pointsPerGameChange": -0.25,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -16921,7 +17259,9 @@
               "recentPtsPerGP": 1.0,
               "previousPtsPerGP": 0.75,
               "pointsPerGameChange": 0.25,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "SPECIAL_DEFENSIVE_ATTENTION_REVIEW",
@@ -17057,7 +17397,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.0,
               "pointsPerGameChange": 0.0,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -17171,7 +17513,9 @@
               "newReportedPoints": null,
               "recentPtsPerGP": null,
               "previousPtsPerGP": null,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -17228,7 +17572,9 @@
               "newReportedPoints": null,
               "recentPtsPerGP": null,
               "previousPtsPerGP": null,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -17313,7 +17659,9 @@
               "recentPtsPerGP": 1.0,
               "previousPtsPerGP": 0.2,
               "pointsPerGameChange": 0.8,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -17427,7 +17775,9 @@
               "newReportedPoints": null,
               "recentPtsPerGP": null,
               "previousPtsPerGP": null,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -17546,7 +17896,9 @@
               "recentPtsPerGP": 1.0,
               "previousPtsPerGP": 1.2,
               "pointsPerGameChange": -0.2,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "SPECIAL_DEFENSIVE_ATTENTION_REVIEW",
@@ -17641,7 +17993,9 @@
               "recentPtsPerGP": 2.0,
               "previousPtsPerGP": 0.0,
               "pointsPerGameChange": 2.0,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "OPPONENT_WATCH_REVIEW",
@@ -17743,7 +18097,9 @@
               "recentPtsPerGP": 1.0,
               "previousPtsPerGP": 0.25,
               "pointsPerGameChange": 0.75,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "OPPONENT_WATCH_REVIEW",
@@ -17845,7 +18201,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 1.2,
               "pointsPerGameChange": -1.2,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "OPPONENT_WATCH_REVIEW",
@@ -17947,7 +18305,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 1.5,
               "pointsPerGameChange": -1.5,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "SPECIAL_DEFENSIVE_ATTENTION_REVIEW",
@@ -18009,7 +18369,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.0,
               "pointsPerGameChange": 0.0,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -18111,7 +18473,9 @@
               "recentPtsPerGP": 1.0,
               "previousPtsPerGP": 0.0,
               "pointsPerGameChange": 1.0,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -18173,7 +18537,9 @@
               "recentPtsPerGP": 1.0,
               "previousPtsPerGP": 0.667,
               "pointsPerGameChange": 0.333,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "SPECIAL_DEFENSIVE_ATTENTION_REVIEW",
@@ -18275,7 +18641,9 @@
               "recentPtsPerGP": 1.0,
               "previousPtsPerGP": 0.25,
               "pointsPerGameChange": 0.75,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -18360,7 +18728,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.6,
               "pointsPerGameChange": -0.6,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -18445,7 +18815,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.0,
               "pointsPerGameChange": 0.0,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -18507,7 +18879,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.0,
               "pointsPerGameChange": 0.0,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -18609,7 +18983,9 @@
               "recentPtsPerGP": 1.0,
               "previousPtsPerGP": 0.333,
               "pointsPerGameChange": 0.667,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "OPPONENT_WATCH_REVIEW",
@@ -18728,7 +19104,9 @@
               "recentPtsPerGP": 1.0,
               "previousPtsPerGP": 0.0,
               "pointsPerGameChange": 1.0,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -18864,7 +19242,9 @@
               "recentPtsPerGP": 4.0,
               "previousPtsPerGP": 1.6,
               "pointsPerGameChange": 2.4,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "SPECIAL_DEFENSIVE_ATTENTION_REVIEW",
@@ -18926,7 +19306,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.0,
               "pointsPerGameChange": 0.0,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -18988,7 +19370,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.0,
               "pointsPerGameChange": 0.0,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -19107,7 +19491,9 @@
               "recentPtsPerGP": 1.0,
               "previousPtsPerGP": 0.5,
               "pointsPerGameChange": 0.5,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -19197,7 +19583,9 @@
               "newReportedPoints": null,
               "recentPtsPerGP": null,
               "previousPtsPerGP": null,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -19282,7 +19670,9 @@
               "recentPtsPerGP": 3.0,
               "previousPtsPerGP": 1.5,
               "pointsPerGameChange": 1.5,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "SPECIAL_DEFENSIVE_ATTENTION_REVIEW",
@@ -19344,7 +19734,9 @@
               "recentPtsPerGP": 4.0,
               "previousPtsPerGP": 1.0,
               "pointsPerGameChange": 3.0,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "SPECIAL_DEFENSIVE_ATTENTION_REVIEW",
@@ -19436,7 +19828,9 @@
               "newReportedPoints": null,
               "recentPtsPerGP": null,
               "previousPtsPerGP": null,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -19498,7 +19892,9 @@
               "recentPtsPerGP": 3.0,
               "previousPtsPerGP": 0.0,
               "pointsPerGameChange": 3.0,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "SPECIAL_DEFENSIVE_ATTENTION_REVIEW",
@@ -19583,7 +19979,9 @@
               "recentPtsPerGP": 2.0,
               "previousPtsPerGP": 0.5,
               "pointsPerGameChange": 1.5,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "SPECIAL_DEFENSIVE_ATTENTION_REVIEW",
@@ -19668,7 +20066,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.25,
               "pointsPerGameChange": -0.25,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -19753,7 +20153,9 @@
               "recentPtsPerGP": 2.0,
               "previousPtsPerGP": 1.4,
               "pointsPerGameChange": 0.6,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "SPECIAL_DEFENSIVE_ATTENTION_REVIEW",
@@ -19855,7 +20257,9 @@
               "recentPtsPerGP": 1.0,
               "previousPtsPerGP": 0.75,
               "pointsPerGameChange": 0.25,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "SPECIAL_DEFENSIVE_ATTENTION_REVIEW",
@@ -19952,7 +20356,9 @@
               "newReportedPoints": null,
               "recentPtsPerGP": null,
               "previousPtsPerGP": null,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -20071,7 +20477,9 @@
               "recentPtsPerGP": 1.0,
               "previousPtsPerGP": 0.8,
               "pointsPerGameChange": 0.2,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "OPPONENT_WATCH_REVIEW",
@@ -20200,7 +20608,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.8,
               "pointsPerGameChange": -0.8,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "OPPONENT_WATCH_REVIEW",
@@ -20319,7 +20729,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.0,
               "pointsPerGameChange": 0.0,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -20404,7 +20816,9 @@
               "recentPtsPerGP": 2.0,
               "previousPtsPerGP": 0.667,
               "pointsPerGameChange": 1.333,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "SPECIAL_DEFENSIVE_ATTENTION_REVIEW",
@@ -20461,7 +20875,9 @@
               "newReportedPoints": null,
               "recentPtsPerGP": null,
               "previousPtsPerGP": null,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "OPPONENT_WATCH_REVIEW",
@@ -20614,7 +21030,9 @@
               "recentPtsPerGP": 1.0,
               "previousPtsPerGP": 0.25,
               "pointsPerGameChange": 0.75,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -20676,7 +21094,9 @@
               "recentPtsPerGP": 1.0,
               "previousPtsPerGP": 0.75,
               "pointsPerGameChange": 0.25,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "OPPONENT_WATCH_REVIEW",
@@ -20829,7 +21249,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 1.0,
               "pointsPerGameChange": -1.0,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "OPPONENT_WATCH_REVIEW",
@@ -20982,7 +21404,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.4,
               "pointsPerGameChange": -0.4,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -21039,7 +21463,9 @@
               "newReportedPoints": null,
               "recentPtsPerGP": null,
               "previousPtsPerGP": null,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -21096,7 +21522,9 @@
               "newReportedPoints": null,
               "recentPtsPerGP": null,
               "previousPtsPerGP": null,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -21158,7 +21586,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.0,
               "pointsPerGameChange": 0.0,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -21243,7 +21673,9 @@
               "recentPtsPerGP": 1.0,
               "previousPtsPerGP": 0.333,
               "pointsPerGameChange": 0.667,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "OPPONENT_WATCH_REVIEW",
@@ -21362,7 +21794,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.333,
               "pointsPerGameChange": -0.333,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -21464,7 +21898,9 @@
               "recentPtsPerGP": 1.0,
               "previousPtsPerGP": 0.6,
               "pointsPerGameChange": 0.4,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "OPPONENT_WATCH_REVIEW",
@@ -21526,7 +21962,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.6,
               "pointsPerGameChange": -0.6,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -21588,7 +22026,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.0,
               "pointsPerGameChange": 0.0,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -21645,7 +22085,9 @@
               "newReportedPoints": null,
               "recentPtsPerGP": null,
               "previousPtsPerGP": null,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -21747,7 +22189,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.0,
               "pointsPerGameChange": 0.0,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -21893,7 +22337,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.0,
               "pointsPerGameChange": 0.0,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -22046,7 +22492,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.333,
               "pointsPerGameChange": -0.333,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -22165,7 +22613,9 @@
               "recentPtsPerGP": 1.0,
               "previousPtsPerGP": 0.75,
               "pointsPerGameChange": 0.25,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "OPPONENT_WATCH_REVIEW",
@@ -22245,7 +22695,9 @@
               "newReportedPoints": null,
               "recentPtsPerGP": null,
               "previousPtsPerGP": null,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -22381,7 +22833,9 @@
               "recentPtsPerGP": 1.0,
               "previousPtsPerGP": 0.4,
               "pointsPerGameChange": 0.6,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "OPPONENT_WATCH_REVIEW",
@@ -22517,7 +22971,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.25,
               "pointsPerGameChange": -0.25,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -22574,7 +23030,9 @@
               "newReportedPoints": null,
               "recentPtsPerGP": null,
               "previousPtsPerGP": null,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -22659,7 +23117,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 1.0,
               "pointsPerGameChange": -1.0,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "SPECIAL_DEFENSIVE_ATTENTION_REVIEW",
@@ -22744,7 +23204,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 1.0,
               "pointsPerGameChange": -1.0,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "OPPONENT_WATCH_REVIEW",
@@ -22846,7 +23308,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 1.25,
               "pointsPerGameChange": -1.25,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "OPPONENT_WATCH_REVIEW",
@@ -22908,7 +23372,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.4,
               "pointsPerGameChange": -0.4,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -23010,7 +23476,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.0,
               "pointsPerGameChange": 0.0,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -23141,7 +23609,9 @@
               "newReportedPoints": null,
               "recentPtsPerGP": null,
               "previousPtsPerGP": null,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -23277,7 +23747,9 @@
               "recentPtsPerGP": 1.0,
               "previousPtsPerGP": 0.5,
               "pointsPerGameChange": 0.5,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "OPPONENT_WATCH_REVIEW",
@@ -23413,7 +23885,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.0,
               "pointsPerGameChange": 0.0,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -23485,7 +23959,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.0,
               "pointsPerGameChange": 0.0,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -23604,7 +24080,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 1.75,
               "pointsPerGameChange": -1.75,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "SPECIAL_DEFENSIVE_ATTENTION_REVIEW",
@@ -23661,7 +24139,9 @@
               "newReportedPoints": null,
               "recentPtsPerGP": null,
               "previousPtsPerGP": null,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -23741,7 +24221,9 @@
               "newReportedPoints": null,
               "recentPtsPerGP": null,
               "previousPtsPerGP": null,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -23855,7 +24337,9 @@
               "newReportedPoints": null,
               "recentPtsPerGP": null,
               "previousPtsPerGP": null,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "SPECIAL_DEFENSIVE_ATTENTION_REVIEW",
@@ -23947,7 +24431,9 @@
               "newReportedPoints": null,
               "recentPtsPerGP": null,
               "previousPtsPerGP": null,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -24022,7 +24508,9 @@
               "newReportedPoints": null,
               "recentPtsPerGP": null,
               "previousPtsPerGP": null,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -24107,7 +24595,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.75,
               "pointsPerGameChange": -0.75,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "OPPONENT_WATCH_REVIEW",
@@ -24169,7 +24659,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.6,
               "pointsPerGameChange": -0.6,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -24231,7 +24723,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": null,
               "pointsPerGameChange": null,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -24367,7 +24861,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 1.4,
               "pointsPerGameChange": -1.4,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "SPECIAL_DEFENSIVE_ATTENTION_REVIEW",
@@ -24491,7 +24987,9 @@
               "newReportedPoints": null,
               "recentPtsPerGP": null,
               "previousPtsPerGP": null,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -24553,7 +25051,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.4,
               "pointsPerGameChange": -0.4,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -24638,7 +25138,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.0,
               "pointsPerGameChange": 0.0,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -24740,7 +25242,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.25,
               "pointsPerGameChange": -0.25,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -24859,7 +25363,9 @@
               "recentPtsPerGP": 2.0,
               "previousPtsPerGP": 1.0,
               "pointsPerGameChange": 1.0,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "SPECIAL_DEFENSIVE_ATTENTION_REVIEW",
@@ -24995,7 +25501,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.0,
               "pointsPerGameChange": 0.0,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -25097,7 +25605,9 @@
               "recentPtsPerGP": 1.0,
               "previousPtsPerGP": 0.5,
               "pointsPerGameChange": 0.5,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "OPPONENT_WATCH_REVIEW",
@@ -25199,7 +25709,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.25,
               "pointsPerGameChange": -0.25,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -25301,7 +25813,9 @@
               "recentPtsPerGP": 2.0,
               "previousPtsPerGP": 2.333,
               "pointsPerGameChange": -0.333,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "SPECIAL_DEFENSIVE_ATTENTION_REVIEW",
@@ -25358,7 +25872,9 @@
               "newReportedPoints": null,
               "recentPtsPerGP": null,
               "previousPtsPerGP": null,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "OPPONENT_WATCH_REVIEW",
@@ -25501,7 +26017,9 @@
               "newReportedPoints": null,
               "recentPtsPerGP": null,
               "previousPtsPerGP": null,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -25644,7 +26162,9 @@
               "newReportedPoints": null,
               "recentPtsPerGP": null,
               "previousPtsPerGP": null,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -25719,7 +26239,9 @@
               "newReportedPoints": null,
               "recentPtsPerGP": null,
               "previousPtsPerGP": null,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -25850,7 +26372,9 @@
               "newReportedPoints": null,
               "recentPtsPerGP": null,
               "previousPtsPerGP": null,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -25912,7 +26436,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.5,
               "pointsPerGameChange": -0.5,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -26021,7 +26547,9 @@
               "newReportedPoints": null,
               "recentPtsPerGP": null,
               "previousPtsPerGP": null,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -26101,7 +26629,9 @@
               "newReportedPoints": null,
               "recentPtsPerGP": null,
               "previousPtsPerGP": null,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -26181,7 +26711,9 @@
               "newReportedPoints": null,
               "recentPtsPerGP": null,
               "previousPtsPerGP": null,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -26300,7 +26832,9 @@
               "recentPtsPerGP": 3.0,
               "previousPtsPerGP": 0.5,
               "pointsPerGameChange": 2.5,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "SPECIAL_DEFENSIVE_ATTENTION_REVIEW",
@@ -26385,7 +26919,9 @@
               "newReportedPoints": null,
               "recentPtsPerGP": null,
               "previousPtsPerGP": null,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -26470,7 +27006,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 1.0,
               "pointsPerGameChange": -1.0,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "OPPONENT_WATCH_REVIEW",
@@ -26545,7 +27083,9 @@
               "newReportedPoints": null,
               "recentPtsPerGP": null,
               "previousPtsPerGP": null,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -26630,7 +27170,9 @@
               "recentPtsPerGP": 1.0,
               "previousPtsPerGP": 0.4,
               "pointsPerGameChange": 0.6,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "OPPONENT_WATCH_REVIEW",
@@ -26715,7 +27257,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.5,
               "pointsPerGameChange": -0.5,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -26777,7 +27321,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.0,
               "pointsPerGameChange": 0.0,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -26857,7 +27403,9 @@
               "newReportedPoints": null,
               "recentPtsPerGP": null,
               "previousPtsPerGP": null,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -26942,7 +27490,9 @@
               "recentPtsPerGP": 1.0,
               "previousPtsPerGP": 0.667,
               "pointsPerGameChange": 0.333,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "OPPONENT_WATCH_REVIEW",
@@ -26999,7 +27549,9 @@
               "newReportedPoints": null,
               "recentPtsPerGP": null,
               "previousPtsPerGP": null,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -27056,7 +27608,9 @@
               "newReportedPoints": null,
               "recentPtsPerGP": null,
               "previousPtsPerGP": null,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -27136,7 +27690,9 @@
               "newReportedPoints": null,
               "recentPtsPerGP": null,
               "previousPtsPerGP": null,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "SPECIAL_DEFENSIVE_ATTENTION_REVIEW",
@@ -27216,7 +27772,9 @@
               "newReportedPoints": null,
               "recentPtsPerGP": null,
               "previousPtsPerGP": null,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -27301,7 +27859,9 @@
               "recentPtsPerGP": 3.0,
               "previousPtsPerGP": 1.667,
               "pointsPerGameChange": 1.333,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "SPECIAL_DEFENSIVE_ATTENTION_REVIEW",
@@ -27396,7 +27956,9 @@
               "recentPtsPerGP": 1.0,
               "previousPtsPerGP": 0.75,
               "pointsPerGameChange": 0.25,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "OPPONENT_WATCH_REVIEW",
@@ -27476,7 +28038,9 @@
               "newReportedPoints": null,
               "recentPtsPerGP": null,
               "previousPtsPerGP": null,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -27556,7 +28120,9 @@
               "newReportedPoints": null,
               "recentPtsPerGP": null,
               "previousPtsPerGP": null,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "OPPONENT_WATCH_REVIEW",
@@ -27641,7 +28207,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.0,
               "pointsPerGameChange": 0.0,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -27703,7 +28271,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.333,
               "pointsPerGameChange": -0.333,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -27788,7 +28358,9 @@
               "recentPtsPerGP": 1.0,
               "previousPtsPerGP": 0.4,
               "pointsPerGameChange": 0.6,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -27873,7 +28445,9 @@
               "recentPtsPerGP": 3.0,
               "previousPtsPerGP": 1.0,
               "pointsPerGameChange": 2.0,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "SPECIAL_DEFENSIVE_ATTENTION_REVIEW",
@@ -27953,7 +28527,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.0,
               "pointsPerGameChange": 0.0,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -28038,7 +28614,9 @@
               "recentPtsPerGP": 1.0,
               "previousPtsPerGP": 0.0,
               "pointsPerGameChange": 1.0,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -28123,7 +28701,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.25,
               "pointsPerGameChange": -0.25,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -28203,7 +28783,9 @@
               "newReportedPoints": null,
               "recentPtsPerGP": null,
               "previousPtsPerGP": null,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -28283,7 +28865,9 @@
               "newReportedPoints": null,
               "recentPtsPerGP": null,
               "previousPtsPerGP": null,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -28363,7 +28947,9 @@
               "newReportedPoints": null,
               "recentPtsPerGP": null,
               "previousPtsPerGP": null,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "OPPONENT_WATCH_REVIEW",
@@ -28465,7 +29051,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.4,
               "pointsPerGameChange": -0.4,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -28550,7 +29138,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.75,
               "pointsPerGameChange": -0.75,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "OPPONENT_WATCH_REVIEW",
@@ -28647,7 +29237,9 @@
               "newReportedPoints": null,
               "recentPtsPerGP": null,
               "previousPtsPerGP": null,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -28742,7 +29334,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.667,
               "pointsPerGameChange": -0.667,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "OPPONENT_WATCH_REVIEW",
@@ -28804,7 +29398,9 @@
               "recentPtsPerGP": 1.0,
               "previousPtsPerGP": 1.333,
               "pointsPerGameChange": -0.333,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "SPECIAL_DEFENSIVE_ATTENTION_REVIEW",
@@ -28884,7 +29480,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.0,
               "pointsPerGameChange": 0.0,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -28941,7 +29539,9 @@
               "newReportedPoints": null,
               "recentPtsPerGP": null,
               "previousPtsPerGP": null,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -29003,7 +29603,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.0,
               "pointsPerGameChange": 0.0,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -29083,7 +29685,9 @@
               "newReportedPoints": null,
               "recentPtsPerGP": null,
               "previousPtsPerGP": null,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -29168,7 +29772,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.2,
               "pointsPerGameChange": -0.2,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -29230,7 +29836,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.25,
               "pointsPerGameChange": -0.25,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -29292,7 +29900,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.25,
               "pointsPerGameChange": -0.25,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -29349,7 +29959,9 @@
               "newReportedPoints": null,
               "recentPtsPerGP": null,
               "previousPtsPerGP": null,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -29434,7 +30046,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.5,
               "pointsPerGameChange": -0.5,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -29514,7 +30128,9 @@
               "newReportedPoints": null,
               "recentPtsPerGP": null,
               "previousPtsPerGP": null,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -29589,7 +30205,9 @@
               "newReportedPoints": null,
               "recentPtsPerGP": null,
               "previousPtsPerGP": null,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -29669,7 +30287,9 @@
               "newReportedPoints": null,
               "recentPtsPerGP": null,
               "previousPtsPerGP": null,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "OPPONENT_WATCH_REVIEW",
@@ -29754,7 +30374,9 @@
               "recentPtsPerGP": 1.0,
               "previousPtsPerGP": 0.4,
               "pointsPerGameChange": 0.6,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -29839,7 +30461,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.5,
               "pointsPerGameChange": -0.5,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "OPPONENT_WATCH_REVIEW",
@@ -29924,7 +30548,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.8,
               "pointsPerGameChange": -0.8,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "OPPONENT_WATCH_REVIEW",
@@ -29996,7 +30622,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 1.25,
               "pointsPerGameChange": -1.25,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "OPPONENT_WATCH_REVIEW",
@@ -30058,7 +30686,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 1.0,
               "pointsPerGameChange": -1.0,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "SPECIAL_DEFENSIVE_ATTENTION_REVIEW",
@@ -30120,7 +30750,9 @@
               "recentPtsPerGP": 2.0,
               "previousPtsPerGP": 1.75,
               "pointsPerGameChange": 0.25,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "SPECIAL_DEFENSIVE_ATTENTION_REVIEW",
@@ -30182,7 +30814,9 @@
               "recentPtsPerGP": 2.0,
               "previousPtsPerGP": 0.667,
               "pointsPerGameChange": 1.333,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "SPECIAL_DEFENSIVE_ATTENTION_REVIEW",
@@ -30244,7 +30878,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 1.0,
               "pointsPerGameChange": -1.0,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -30306,7 +30942,9 @@
               "recentPtsPerGP": 3.0,
               "previousPtsPerGP": 1.5,
               "pointsPerGameChange": 1.5,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "SPECIAL_DEFENSIVE_ATTENTION_REVIEW",
@@ -30368,7 +31006,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.0,
               "pointsPerGameChange": 0.0,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -30430,7 +31070,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.5,
               "pointsPerGameChange": -0.5,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -30492,7 +31134,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.5,
               "pointsPerGameChange": -0.5,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -30554,7 +31198,9 @@
               "recentPtsPerGP": 2.0,
               "previousPtsPerGP": 0.25,
               "pointsPerGameChange": 1.75,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "SPECIAL_DEFENSIVE_ATTENTION_REVIEW",
@@ -30616,7 +31262,9 @@
               "recentPtsPerGP": 2.0,
               "previousPtsPerGP": 1.75,
               "pointsPerGameChange": 0.25,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "SPECIAL_DEFENSIVE_ATTENTION_REVIEW",
@@ -30678,7 +31326,9 @@
               "recentPtsPerGP": 1.0,
               "previousPtsPerGP": 0.25,
               "pointsPerGameChange": 0.75,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -30740,7 +31390,9 @@
               "recentPtsPerGP": 0.0,
               "previousPtsPerGP": 0.5,
               "pointsPerGameChange": -0.5,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",
@@ -30802,7 +31454,9 @@
               "recentPtsPerGP": 1.0,
               "previousPtsPerGP": 0.0,
               "pointsPerGameChange": 1.0,
-              "verifiedHotStreak": false
+              "verifiedHotStreak": false,
+              "multiGameCumulativeWindow": false,
+              "notIndividualGameScoringEventProof": true
             },
             "gameNight": {
               "priority": "ROUTINE_UNCONFIRMED",

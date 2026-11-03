@@ -76,8 +76,18 @@ def prior_week_snapshot(private, current):
             continue
     if not found:
         return None,None
-    found.sort(key=lambda item:item[0],reverse=True)
-    return found[0][1],str(found[0][2])
+    # The league plays on Sundays, ordinarily just one new reported GP per
+    # seven-day capture. Prefer a genuine 10–15 day cumulative interval once
+    # two weekly observations exist, otherwise retain the most recent source.
+    # This estimates multi-game PACE, not a consecutive scoring streak.
+    current_dt=datetime.fromisoformat(current["asOf"].replace("Z","+00:00"))
+    longer=[item for item in found if
+        10 <= (current_dt-item[0]).total_seconds()/86400 <= 15]
+    if longer:
+        chosen=min(longer,key=lambda item:item[0])
+    else:
+        chosen=max(found,key=lambda item:item[0])
+    return chosen[1],str(chosen[2])
 
 def js_validate(repo, candidate, league):
     source = """const fs=require('fs');

@@ -134,8 +134,8 @@ async function loadStandings(){
       "No admissible same-ID previous-season scoring observation."));
     const form=p.sourceForm, recent=form?.recentForm, pace=form?.seasonPace;
     const signals={
-      HOT_MULTIGAME_SOURCE_TREND:"Hot across multiple new reported games",
-      COOLING_MULTIGAME_SOURCE_TREND:"Cooling across multiple new reported games",
+      HOT_MULTIGAME_SOURCE_TREND:"Hot PACE watch ? multiple reported GP, not a verified game-by-game streak",
+      COOLING_MULTIGAME_SOURCE_TREND:"Cooling PACE watch ? multiple reported GP, not a verified game-by-game streak",
       ONE_GAME_SCORING_SURGE_WATCH:"Scoring surge WATCH · one reported game only",
       ONE_QUIET_GAME_NOT_A_COLD_STREAK:"One quiet reported game · NOT a cold streak",
       LIMITED_RECENT_SOURCE_SAMPLE:"Recent sample too small to classify",

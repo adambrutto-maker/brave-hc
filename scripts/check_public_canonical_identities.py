@@ -195,8 +195,9 @@ def validate(standings,opponents,proof,html,js,now=None,check_fresh=False):
                  else (3369564,"2026-10-04",2,3)) and
                 g.get("result")=="L",
                 "HTO_SVHL_ONE_GAME_PROOF_DRIFT")
-    require("home-premium.js?v=3.6.8" in html and
-            'home-premium.css?v=20261026-readability' in html,
+    require("home-premium.js?v=20261103-opponent-p2" in html and
+            'home-premium.css?v=20261103-opponent-p2' in html and
+            "opponent-player-intelligence.js?v=20261103-p2" in html,
             "HTML_JS_CSS_RELEASE_VERSION_NOT_PINNED")
     require('t.name===d.team?"Brave H.C.":(alias?.canonicalName||t.name)' in js and
             '["PUBLIC_VERIFIED_EXACT_ONLY","PUBLIC_VERIFIED_SOURCE_IDENTITY"]' in js and

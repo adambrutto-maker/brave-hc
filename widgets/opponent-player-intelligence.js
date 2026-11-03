@@ -83,7 +83,9 @@
          ["DEFEND_INSIDE_SHOOTING_LANE","DENY_MIDDLE_PASSING_LANE",
            "F1_PRESSURE_AND_FORCE_OUTSIDE"].includes(game.defensiveFocus)&&
          typeof recent.state==="string"&&
-         recent.verifiedHotStreak===(recent.state==="HOT_MULTIGAME_SOURCE_TREND"),
+         recent.verifiedHotStreak===false&&
+         recent.notIndividualGameScoringEventProof===true&&
+         recent.multiGameCumulativeWindow===(Number.isInteger(recent.newReportedGP)&&recent.newReportedGP>=2),
          "DEFENSIVE_FORM_AUTHORITY_OR_SAFETY");
     if(["HOT_MULTIGAME_SOURCE_TREND","COOLING_MULTIGAME_SOURCE_TREND"].includes(recent.state))
      need(Number.isInteger(recent.newReportedGP)&&recent.newReportedGP>=2,

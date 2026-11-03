@@ -49,7 +49,9 @@ class FormSourceQA(unittest.TestCase):
         r=form.analyze(self.now,self.history,self.observation())
         self.assertEqual(r["recentForm"]["state"],
                          "HOT_MULTIGAME_SOURCE_TREND")
-        self.assertTrue(r["recentForm"]["verifiedHotStreak"])
+        self.assertFalse(r["recentForm"]["verifiedHotStreak"])
+        self.assertTrue(r["recentForm"]["multiGameCumulativeWindow"])
+        self.assertTrue(r["recentForm"]["notIndividualGameScoringEventProof"])
     def test_cooling_requires_multiple_new_games_and_prior_rate(self):
         self.old.update(gp=4,g=2,a=2,pts=4)
         self.now=deepcopy(self.old);self.now["gp"]=6
@@ -104,6 +106,20 @@ class FormSourceQA(unittest.TestCase):
         result=form.analyze(self.now,self.history,self.observation())
         self.assertFalse(result["sourceQualified"])
         self.assertEqual(result["gameNight"]["priority"],"HELD")
+    def test_weekly_controller_prefers_real_two_week_window_for_sunday_league(self):
+        from weekly_svhl_opponent_player_intelligence import prior_week_snapshot
+        import tempfile
+        source=json.loads((ROOT/"widgets"/"svhl-roster-intelligence.json").read_text("utf8"))
+        current=deepcopy(source);current["asOf"]="2026-11-17T16:40:00+00:00"
+        older=deepcopy(source);older["asOf"]="2026-11-03T15:40:00+00:00"
+        near=deepcopy(source);near["asOf"]="2026-11-10T15:40:00+00:00"
+        with tempfile.TemporaryDirectory() as temp:
+            base=Path(temp)
+            for folder,doc in (("r1103",older),("r1110",near)):
+                loc=base/"runs"/folder;loc.mkdir(parents=True)
+                (loc/"roster_source.json").write_text(json.dumps(doc),encoding="utf8")
+            chosen,_=prior_week_snapshot(base,current)
+            self.assertEqual(chosen["asOf"],older["asOf"])
     def test_live_form_source_counts_faithful_to_public_feed(self):
         doc=json.loads((ROOT/"widgets"/"opponent-player-intelligence.json").read_text("utf8"))
         self.assertEqual(doc["teamCount"],21)

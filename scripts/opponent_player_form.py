@@ -100,7 +100,9 @@ def recent_form(p, previous, previous_at=None, current_at=None):
     """Compare observed cumulative GP/G/A/PTS, not inferred game-scoring events."""
     empty = {"state": "NO_PRIOR_WEEKLY_PLAYER_SNAPSHOT", "newReportedGP": None,
              "newReportedPoints": None, "recentPtsPerGP": None,
-             "previousPtsPerGP": None, "verifiedHotStreak": False}
+             "previousPtsPerGP": None, "verifiedHotStreak": False,
+             "multiGameCumulativeWindow": False,
+             "notIndividualGameScoringEventProof": True}
     if previous is None:
         return empty
     need(previous_at is not None and current_at is not None and
@@ -144,7 +146,9 @@ def recent_form(p, previous, previous_at=None, current_at=None):
             "previousPtsPerGP": round(prior_rate, 3) if prior_rate is not None else None,
             "pointsPerGameChange": round(rate_change, 3)
                if rate_change is not None else None,
-            "verifiedHotStreak": state == "HOT_MULTIGAME_SOURCE_TREND"}
+            "verifiedHotStreak": False,
+            "multiGameCumulativeWindow": delta["gp"] >= 2,
+            "notIndividualGameScoringEventProof": True}
 
 def defensive_watch(p, season, recent):
     """Prioritize coach REVIEW only; never assign a named Brave H.C. player."""
