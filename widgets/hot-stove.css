@@ -213,3 +213,15 @@ h2{font-size:24px;line-height:1.23;margin:13px 0 9px;overflow-wrap:break-word}
 .native-archive-row .date,.native-archive-row .retrospective-label{display:block;margin-top:3px;color:#c2d5e7;font:400 12px/1.4 Arial,Helvetica,sans-serif}
 .native-archive-row .retrospective-label{color:#ecb1bf}
 @media(max-width:480px){.archive-season-heading{font-size:14px}.native-season-archive>summary{font-size:13px}.native-archive-row{font-size:13px}.native-archive-row .date,.native-archive-row .retrospective-label{font-size:11px}}
+
+/* League-verified administrative results are not played-game recaps. */
+.native-forfeit-results{margin:18px 10px 12px;padding:12px 10px 5px;background:#102940;border:1px solid #6e8ba6;border-top:3px solid #d82942}
+.native-forfeit-results h4{margin:0 0 7px;color:#fff;font-size:15px;line-height:1.45}
+.native-forfeit-results>.historical-note{margin:0 0 12px;font-size:12px;line-height:1.5}
+.native-forfeit-row{margin:8px 0;padding:10px;background:#0b2137;border:1px solid #506c84}
+.native-forfeit-row strong{display:block;font-size:14px;line-height:1.4;color:#f4f8fc}
+.native-forfeit-row .retrospective-label{display:block;font-size:12px;line-height:1.45;color:#efc1cb;margin-top:5px}
+.native-forfeit-links{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px}
+.native-forfeit-links a{color:#e6f3ff!important;text-decoration:underline;font-size:12.5px;line-height:1.5;min-height:24px}
+.native-forfeit-links a:focus-visible{outline:2px solid #e8b2be;outline-offset:2px}
+@media(max-width:480px){.native-forfeit-results{margin:14px 6px 9px;padding:9px 7px}.native-forfeit-results h4{font-size:14px}.native-forfeit-row{padding:8px}.native-forfeit-row strong{font-size:13px}.native-forfeit-row .retrospective-label,.native-forfeit-links a{font-size:11.5px}}
