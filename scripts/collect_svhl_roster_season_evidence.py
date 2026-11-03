@@ -223,7 +223,7 @@ def main():
   report=assemble(current,jobs,pages)
   if args.all_teams_out:
    private=Path(args.all_teams_out)
-   need(private.resolve().parent!=Path(args.out).resolve().parent and
+   need(private.resolve()!=Path(args.out).resolve() and
         "widgets" not in [x.lower() for x in private.parts],
         "ALL_SEASON_TEAM_CAPTURE_MUST_BE_PRIVATE")
    private.parent.mkdir(parents=True,exist_ok=True)
