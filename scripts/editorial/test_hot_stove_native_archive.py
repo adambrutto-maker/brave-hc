@@ -78,5 +78,54 @@ class NativeHistoryDiscoveryTests(unittest.TestCase):
         self.assertIn("Season-grouped native HTO discovery",css)
         self.assertIn(".native-season-archive",css)
 
+    def test_three_official_forfeit_wins_are_separate_from_recap_stories(self):
+        fs=self.index["officialAdministrativeResults"]
+        self.assertEqual(len(fs),3)
+        self.assertEqual({g["htoGameId"] for g in fs},{2215007,2215009,2215012})
+        self.assertFalse({g["htoGameId"] for g in fs}&{g["gameId"] for g in self.index["games"]})
+        self.assertEqual(self.index["officialAdministrativeResultsSource"]["authority"],
+                         "SVHL_LEAGUE_FINAL_HOME_FIRST_VISITOR_SECOND")
+        self.assertIn("/pull/206",self.index["officialAdministrativeResultsSource"]["sourcePR"])
+        for f in fs:
+            with self.subTest(game=f["htoGameId"]):
+                self.assertEqual(f["classification"],"OFFICIAL_LEAGUE_1_0_FORFEIT_WIN_UNPLAYED")
+                self.assertEqual(f["officialLeagueFinalBravesFirst"],{"braves":1,"opponent":0,"result":"W"})
+                self.assertIn(f["bravesHomeAway"],("HOME","VISITOR"))
+                shown=f["leagueDisplayedHomeVisitor"]
+                self.assertEqual((shown["home"],shown["visitor"]),
+                                 (1,0) if f["bravesHomeAway"]=="HOME" else (0,1))
+                self.assertNotIn("article",f)
+                self.assertNotIn("recapText",f)
+
+    def test_forfeit_links_preserve_official_league_and_original_hto(self):
+        for f in self.index["officialAdministrativeResults"]:
+            with self.subTest(game=f["htoGameId"]):
+                league=urlparse(f["officialLeagueURL"])
+                params=parse_qs(league.query)
+                self.assertEqual((league.scheme,league.hostname,league.path),
+                                 ("https","leagues.sportsvillage.ca","/gameinfo.aspx"))
+                self.assertEqual(params["leagueid"],["547"])
+                self.assertEqual(params["gameid"],[str(f["svhlGameId"])])
+                hto=urlparse(f["originalHTOURL"])
+                orig=parse_qs(hto.query)
+                self.assertEqual((hto.scheme,hto.hostname,hto.path),
+                                 ("https","www.htosports.com","/teams/default.asp"))
+                self.assertEqual(orig["gameID"],[str(f["htoGameId"])])
+                self.assertEqual(orig["viewseas"],["Winter_2025/2026"])
+                self.assertEqual(orig["p"],["boxscore"])
+
+    def test_archive_browser_guard_is_explicitly_administrative_not_played(self):
+        js=(ROOT/"widgets"/"hot-stove.js").read_text(encoding="utf-8")
+        css=(ROOT/"widgets"/"hot-stove.css").read_text(encoding="utf-8")
+        self.assertIn('source.officialAdministrativeResults.length!==3',js)
+        self.assertIn('seenForfeits.size!==3',js)
+        self.assertIn('source.officialAdministrativeResultsSource?.authority',js)
+        self.assertIn('official?.braves!==1||official?.opponent!==0',js)
+        self.assertIn('nativeHistory.officialAdministrativeResults',js)
+        self.assertIn('Official administrative results · 3 forfeit wins',js)
+        self.assertIn('forfeited, not played',js)
+        self.assertIn(".native-forfeit-results",css)
+        self.assertIn(".native-forfeit-row",css)
+
 if __name__=="__main__":
     unittest.main()
