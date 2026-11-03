@@ -62,7 +62,10 @@ const tests=[
   const evidence=x.scenarios.find(s=>s.code==="CURRENT").evidence;
   assert.ok(evidence.observedSameGroupGames>=27);
   assert.ok(evidence.observedAcrossGroupGames>=16);
-  assert.equal(evidence.allPossibleSameGroupPairings,71);
+  const expectedPairs=scope.divisions(league).reduce((n,d)=>
+   n+(d.teams.length*(d.teams.length-1))/2,0);
+  assert.equal(evidence.allPossibleSameGroupPairings,expectedPairs,
+   "possible pairings must follow source-observed division membership");
   assert.ok(evidence.observedUniqueSameGroupPairings<=evidence.observedSameGroupGames);
   assert.ok(evidence.twoGoalOrCloserGames<=evidence.observedSameGroupGames);
  }],
