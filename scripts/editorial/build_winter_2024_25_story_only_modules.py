@@ -118,7 +118,7 @@ def generate(out:Path)->dict:
           "includesOriginalHTOPhotosVideosOrTables":False,
           "publicationSafe":False,
           "sourceScope":"HISTORICAL_ARTICLE_TEXT_ONLY"})
-    if len(items)!=24 or {x["gameId"] for x in items}|{2148133,2148155}!={g["gameId"] for g in games}:
+    if len(items)!=24 or ({x["gameId"] for x in items}|{2148133,2148155})!=set(games):
         raise ValueError("24 draft cards do not exactly cover played games without a contemporary original")
     # Reconstruct approved style deterministically from immutable input, then
     # create the output only after all validation has passed.
