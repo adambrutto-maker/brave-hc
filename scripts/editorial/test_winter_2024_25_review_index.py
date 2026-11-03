@@ -24,6 +24,8 @@ class HistoricalIndexTests(unittest.TestCase):
         rows={int(re.search(r"\[(\d+)\]",line).group(1)):line for line in DOC.splitlines() if re.match(r"\| 20\d{2}-",line)}
         self.assertIn("Existing contemporary native article — preserve",rows[2148133])
         self.assertIn("Administrative forfeit",rows[2148155])
+        self.assertIn("1–0 SVHL W",rows[2148155])
+        self.assertIn("0–0 HTO",rows[2148155])
         self.assertNotIn("Unapproved draft",rows[2148133])
         self.assertNotIn("Unapproved draft",rows[2148155])
         self.assertIn("goalie discrepancy HOLD",rows[2148163])
