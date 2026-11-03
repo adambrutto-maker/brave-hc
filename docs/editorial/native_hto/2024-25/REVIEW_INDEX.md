@@ -51,6 +51,7 @@
 - [Seven event-table game chronology and exact HTO goal/assist parity](261103_Seven_Native_HTO_Game_Event_Parity.json)
 - [Fifteen media-only source-limited game reviews](261103_Fifteen_MediaOnly_Played_Source_Coverage.json)
 - [HTO/SVHL 23-game independent score cross-check and explicit forfeit/playoff holds](261103_Winter2024_25_HTO_SVHL_Source_Corroboration.json)
+- [April 6, 2025 HTO team/goalie accounting exception — source verified, cause unresolved](261103_April06_Official_HTO_Goalie_Residual_Exception.json)
 - [Editorial decisions, source limitations and release gates](261103_Winter2024_25_Public_Sources_Review.md)
 
 **Source disclaimer:** These stories were reconstructed in November 2026 from archived official information. No quotes, hidden goal timings, scorer identities for opposing players or video observations have been invented. The original HTO native Recap field is the intended publication destination **only after** an individually authorized release.
