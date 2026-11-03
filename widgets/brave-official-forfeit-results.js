@@ -18,6 +18,7 @@
     const ids = ledger.forfeits.map(x => x.htoGameId);
     assert(new Set(ids).size === 4, "duplicate game ID");
     for (const x of ledger.forfeits) validateRow(x);
+    validateScoringDomains(ledger);
     return true;
   }
   function validateRow(x) {
@@ -52,6 +53,54 @@
       contribution.gf === 1 && contribution.ga === 0, "league standings contribution");
     return true;
   }
+  function validateScoringDomains(ledger) {
+    const source = ledger.seasonScoringDomains;
+    assert(source?.scope === "REGULAR_SEASON_ONLY", "season scoring scope");
+    assert(source?.originalRecordType === "HTO_OFFICIAL_ON_ICE_TEAM_GOALS" &&
+      source?.awardedGoalType === "SVHL_ADMINISTRATIVE_FORFEIT_AWARD", "distinct goal accounting domains");
+    assert(source?.primaryHTORecordsSource?.url ===
+      "https://www.htosports.com/teams/default.asp?p=records&s=hockey&u=BRAVESHOCKEY",
+      "official HTO Records source");
+    assert(/^[a-f0-9]{64}$/.test(source.primaryHTORecordsSource.publicHTMLSHA256 || ""), "HTO source checksum");
+    assert(Array.isArray(source.seasons) && source.seasons.length === 2, "exact two verified seasons");
+    const seen = new Set();
+    for (const s of source.seasons) {
+      assert(!seen.has(s.season), "duplicated scoring season");
+      seen.add(s.season);
+      const standing = ledger.seasons?.find(x => x.season === s.season)?.officialLeagueStandings?.official;
+      assert(standing && Number.isInteger(standing.gf) && Number.isInteger(standing.ga), "source season standing");
+      const forfeitCount = ledger.forfeits.filter(f => f.season === s.season).length;
+      for (const name of ["playedGameGoalsFor","officialLeagueStandingsGoalsFor",
+                          "awardedAdministrativeGoalsFor","recordedTeamGoalsAgainst",
+                          "officialLeagueGoalsAgainst","forfeitWins"]) {
+        assert(Number.isInteger(s[name]) && s[name] >= 0, "season metric " + name);
+      }
+      assert(s.totalsIdentity ===
+        "HTO_ON_ICE_GOALS_PLUS_AWARDED_FORFEIT_GOALS_EQUALS_SVHL_OFFICIAL_GF", "source arithmetic rule");
+      assert(s.playedGameGoalsFor + s.awardedAdministrativeGoalsFor ===
+        s.officialLeagueStandingsGoalsFor, "forfeit-adjusted team goals");
+      assert(s.awardedAdministrativeGoalsFor === forfeitCount && s.forfeitWins === forfeitCount,
+        "awarded goals must match administrative wins");
+      assert(s.officialLeagueStandingsGoalsFor === standing.gf &&
+        s.recordedTeamGoalsAgainst === standing.ga &&
+        s.officialLeagueGoalsAgainst === standing.ga, "official GA/GF source parity");
+    }
+    assert(seen.has("Winter_2024/2025") && seen.has("Winter_2025/2026"), "verified season coverage");
+    return true;
+  }
+  function getSeasonGoalAccounting(ledger, season) {
+    validateLedger(ledger);
+    const s = ledger.seasonScoringDomains.seasons.find(x => x.season === season);
+    if (!s) return null;
+    return {
+      season: s.season, playedGameGoalsFor: s.playedGameGoalsFor,
+      officialLeagueStandingsGoalsFor: s.officialLeagueStandingsGoalsFor,
+      awardedAdministrativeGoalsFor: s.awardedAdministrativeGoalsFor,
+      officialTeamGoalsAgainst: s.officialLeagueGoalsAgainst,
+      awardedGoalsExcludedFromPlayerStats: true,
+      sourceAuthority: "HTO_RECORDS_AND_SVHL_LEAGUE_FINALS"
+    };
+  }
   function getCanonicalForfeit(ledger, season, htoGameId) {
     validateLedger(ledger);
     assert(typeof season === "string" && Number.isInteger(htoGameId), "lookup args");
@@ -74,7 +123,7 @@
     };
     return result;
   }
-  const api = Object.freeze({validateLedger, getCanonicalForfeit});
+  const api = Object.freeze({validateLedger, getCanonicalForfeit, getSeasonGoalAccounting});
   if (typeof module !== "undefined" && module.exports) module.exports = api;
   else root.BraveOfficialForfeitResults = api;
 })(typeof window !== "undefined" ? window : {});
