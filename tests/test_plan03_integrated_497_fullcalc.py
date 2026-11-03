@@ -56,10 +56,11 @@ def fake():
          "sourceSHA256":COMPOSITE_INPUT_SHA,
          "rollbackSHA256":COMPOSITE_INPUT_SHA,
          "candidateSHA256":COMPOSITE_CALCULATED_SHA,
-         "sourceWorkbookModified":False,"externalConnectionsRefreshed":False}
+         "sourceWorkbookModified":False,"externalConnectionsRefreshed":False,
+         "pivotRefreshAllUsed":False}
     audit={"schema":"brave-hc-plan03-private-full-calc-qa/v1",
            "status":"FULL_CALC_NO_NEW_FORMULA_ERRORS_REVIEW_ONLY",
-           "issues":[],"sourceSHA256":source.ORIGINAL_SHA,
+           "issues":[],"newErrorEvents":[],"sourceSHA256":source.ORIGINAL_SHA,
            "beforeSHA256":COMPOSITE_INPUT_SHA,"afterSHA256":COMPOSITE_CALCULATED_SHA,
            "totalFormulasBefore":545506,"totalFormulasAfter":545506,
            "originalWorkbookModified":False,"awardsAndLiveStatsApproved":False,
@@ -136,6 +137,22 @@ class IntegratedAcceptance(unittest.TestCase):
         a=list(fake())
         a[4]["games"][0]["htoGameId"]=3375682
         with self.assertRaisesRegex(CompositeHold,"OFFICIAL_HTO_GAME_IDS_CHANGED"):
+            run(tuple(a))
+    def test_external_pivot_refreshall_is_not_an_accepted_fullcalc(self):
+        a=list(fake());a[6]["pivotRefreshAllUsed"]=True
+        with self.assertRaisesRegex(CompositeHold,"EXCEL_PRIVATE_FULL_CALC_RECEIPT_INVALID"):
+            run(tuple(a))
+    def test_missing_pivot_refreshall_receipt_fails_closed(self):
+        a=list(fake());del a[6]["pivotRefreshAllUsed"]
+        with self.assertRaisesRegex(CompositeHold,"EXCEL_PRIVATE_FULL_CALC_RECEIPT_INVALID"):
+            run(tuple(a))
+    def test_new_excel_error_event_fails_even_when_baseline_array_unchanged(self):
+        a=list(fake());a[7]["newErrorEvents"]=[{"sheet":"Player Stats","ref":"A1","error":"#VALUE!"}]
+        with self.assertRaisesRegex(CompositeHold,"INDEPENDENT_FULL_CALC_AUDIT_NOT_ACCEPTED"):
+            run(tuple(a))
+    def test_missing_new_error_events_receipt_fails_closed(self):
+        a=list(fake());del a[7]["newErrorEvents"]
+        with self.assertRaisesRegex(CompositeHold,"INDEPENDENT_FULL_CALC_AUDIT_NOT_ACCEPTED"):
             run(tuple(a))
 
 if __name__=="__main__":
