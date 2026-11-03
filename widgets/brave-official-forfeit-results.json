@@ -1,0 +1,422 @@
+{
+  "schema": "brave-hc-svhl-canonical-administrative-forfeits/v1",
+  "checkedUTC": "2026-11-03T08:32:14.514571+00:00",
+  "status": "RECONCILED_DUAL_SOURCE_ALL_FOUR_FORFEITS_BOTH_SEASONS",
+  "authorityRules": {
+    "officialForfeitScoreAndWinner": "SVHL original official league team-season game final",
+    "leagueDisplayedScoreOrientation": "HOME_TEAM_FIRST_VISITOR_TEAM_SECOND_ON_BOTH_TEAM_PAGES",
+    "originalHTO": "HTO 0-0 source displays and - WIN / - Forfeit classification preserved unchanged",
+    "separateStatDomains": "Official awarded-forfeit 1-0 counts in season team GP/W/GF/GA; excluded from played hockey goals, assists and on-ice appearances",
+    "zeroPlayerCredits": true,
+    "preserveOriginalSources": true,
+    "normalizationUse": "Only canonical game-level league results; never write corrected final into an original HTO boxscore without separate authorization"
+  },
+  "seasons": [
+    {
+      "season": "Winter_2024/2025",
+      "svhlLeagueId": 531,
+      "bravesLeagueTeamId": 12572,
+      "bravesLeagueTeamName": "Braves H/C",
+      "officialLeagueStandings": {
+        "url": "https://leagues.sportsvillage.ca/Leagues.aspx?leagueid=531&page_type=Adult&sc=HOCKEY",
+        "http": 200,
+        "publicHTMLSHA256": "a670b9bb7c8c231ce63de9fa84a0cc891b54d0a80b448e4831bfe1c341dd316d",
+        "bravesTeamName": "Braves H/C",
+        "division": "The Cristillo Division",
+        "official": {
+          "gp": 24,
+          "w": 10,
+          "l": 12,
+          "t": 2,
+          "pts": 22,
+          "gf": 74,
+          "ga": 95,
+          "pim": 0
+        }
+      },
+      "reconstructedFromRawHTOPlusLeagueForfeits": {
+        "gp": 24,
+        "w": 10,
+        "l": 12,
+        "t": 2,
+        "pts": 22,
+        "gf": 74,
+        "ga": 95
+      },
+      "sourceHTOAudit": {
+        "sourceStatus": "READ_ONLY_SOURCE_INVENTORY_NO_ARTICLES_AUTHORIZED",
+        "regularGameCount": 24,
+        "playedGameCount": 23,
+        "adminForfeits": 1,
+        "playoffRecordCount": 2,
+        "evidenceStorage": "Private BRUTTECH 1 source QA — not included in public GitHub metadata",
+        "auditSource": "HTO Winter 2024/25 26-game audit (research PR #205)"
+      },
+      "forfeitGameIDs": [
+        2148155
+      ],
+      "result": "EXACT_LEAGUE_STANDINGS_PARITY"
+    },
+    {
+      "season": "Winter_2025/2026",
+      "svhlLeagueId": 547,
+      "bravesLeagueTeamId": 13157,
+      "bravesLeagueTeamName": "Braves HC",
+      "officialLeagueStandings": {
+        "url": "https://leagues.sportsvillage.ca/Leagues.aspx?leagueid=547&page_type=Adult&sc=HOCKEY",
+        "http": 200,
+        "publicHTMLSHA256": "ab4e9613ec6e3f796041eb732299b2bb9f0784c86eb78dd18fa34c73239317bb",
+        "bravesTeamName": "Braves HC",
+        "division": "The Cristillo Division",
+        "official": {
+          "gp": 24,
+          "w": 12,
+          "l": 9,
+          "t": 3,
+          "pts": 27,
+          "gf": 84,
+          "ga": 82,
+          "pim": 0
+        }
+      },
+      "reconstructedFromRawHTOPlusLeagueForfeits": {
+        "gp": 24,
+        "w": 12,
+        "l": 9,
+        "t": 3,
+        "gf": 84,
+        "ga": 82,
+        "pts": 27
+      },
+      "sourceHTOAudit": {
+        "sourceStatus": "PASSED_2025_26_LEAGUE_STANDINGS_RECONCILIATION",
+        "regularGameCount": 24,
+        "playedGameCount": 21,
+        "adminForfeits": 3,
+        "playoffRecordCount": 3,
+        "evidenceStorage": "Private BRUTTECH 1 source QA — not included in public GitHub metadata",
+        "auditSource": "HTO Winter 2025/26 full 27-game official score audit (private BRUTTECH 1)"
+      },
+      "forfeitGameIDs": [
+        2215007,
+        2215009,
+        2215012
+      ],
+      "result": "EXACT_LEAGUE_STANDINGS_PARITY"
+    }
+  ],
+  "forfeits": [
+    {
+      "season": "Winter_2024/2025",
+      "date": "2025-02-16",
+      "opponent": "Don's Cherries",
+      "htoGameId": 2148155,
+      "svhlLeagueId": 531,
+      "svhlGameId": 116721,
+      "bravesLeagueTeamId": 12572,
+      "opponentLeagueTeamId": 12636,
+      "bravesHomeAway": "HOME",
+      "leagueHomeAwayScore": {
+        "home": 1,
+        "visitor": 0
+      },
+      "leagueCanonicalTeamScore": {
+        "braves": 1,
+        "opponent": 0,
+        "outcome": "W"
+      },
+      "leagueActualHomeTeamId": 12572,
+      "eventType": "ADMINISTRATIVE_FORFEIT",
+      "playedOnIce": false,
+      "countsInLeagueStandings": {
+        "gp": 1,
+        "w": 1,
+        "l": 0,
+        "t": 0,
+        "gf": 1,
+        "ga": 0
+      },
+      "countsInOnIceGoalOrAssistStats": false,
+      "sourceCheck": {
+        "bravesLeagueTeamPage": {
+          "source": {
+            "url": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=531&teamid=12572&page_type=Adult",
+            "http": 200,
+            "publicHTMLSHA256": "09919d5288fb4f3554ec662211b1bb61b3f4e112ee65a9364501a7e4b93e9a5e"
+          },
+          "gameId": 116721,
+          "date": "2025-02-16",
+          "listing": "Feb 16, 2025 8:00PM vs. Don's Cherries Home 1  - 0",
+          "teamRole": "HOME",
+          "leagueHomeGoals": 1,
+          "leagueVisitorGoals": 0
+        },
+        "opponentLeagueTeamPage": {
+          "source": {
+            "url": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=531&teamid=12636&page_type=Adult",
+            "http": 200,
+            "publicHTMLSHA256": "29c5e8e20e0a8df800c9cdfb605465ad7fa614e68b9e0e215abb9ed06ec00628"
+          },
+          "gameId": 116721,
+          "date": "2025-02-16",
+          "listing": "Feb 16, 2025 8:00PM vs. Braves H/C Visitor 1  - 0",
+          "teamRole": "VISITOR",
+          "leagueHomeGoals": 1,
+          "leagueVisitorGoals": 0
+        },
+        "originalHTOBoxscore": {
+          "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2148155&p=boxscore&archTog=1&viewseas=Winter_2024%2F2025",
+          "http": 200,
+          "publicHTMLSHA256": "b473fe4e6a4945c40ad395e985b90e2d1d5034df61f475e8be0b926a2a32ee61",
+          "rawDisplay": {
+            "bravesLabel": "Brave H.C. - WIN",
+            "opponentLabel": "Don's Cherries - Forfeit",
+            "bravesGoals": 0,
+            "opponentGoals": 0
+          },
+          "classification": "ADMINISTRATIVE_FORFEIT_NOT_PLAYED"
+        },
+        "officialLeagueGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=531&gameid=116721&page_type=Adult",
+        "reciprocalScoresEqual": true,
+        "htoForfeitWinnerMatchesLeague": true
+      }
+    },
+    {
+      "season": "Winter_2025/2026",
+      "date": "2026-01-25",
+      "opponent": "Royal Flushers",
+      "htoGameId": 2215007,
+      "svhlLeagueId": 547,
+      "svhlGameId": 122674,
+      "bravesLeagueTeamId": 13157,
+      "opponentLeagueTeamId": 13160,
+      "bravesHomeAway": "VISITOR",
+      "leagueHomeAwayScore": {
+        "home": 0,
+        "visitor": 1
+      },
+      "leagueCanonicalTeamScore": {
+        "braves": 1,
+        "opponent": 0,
+        "outcome": "W"
+      },
+      "leagueActualHomeTeamId": 13160,
+      "eventType": "ADMINISTRATIVE_FORFEIT",
+      "playedOnIce": false,
+      "countsInLeagueStandings": {
+        "gp": 1,
+        "w": 1,
+        "l": 0,
+        "t": 0,
+        "gf": 1,
+        "ga": 0
+      },
+      "countsInOnIceGoalOrAssistStats": false,
+      "sourceCheck": {
+        "bravesLeagueTeamPage": {
+          "source": {
+            "url": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=547&teamid=13157&page_type=Adult",
+            "http": 200,
+            "publicHTMLSHA256": "53420b487078273348b6bb8097d7a1a099c3b3a849e760c6c46cd27271f8f6ab"
+          },
+          "gameId": 122674,
+          "date": "2026-01-25",
+          "listing": "Jan 25, 2026 7:15PM vs. Royal Flushers Visitor 0  - 1",
+          "teamRole": "VISITOR",
+          "leagueHomeGoals": 0,
+          "leagueVisitorGoals": 1
+        },
+        "opponentLeagueTeamPage": {
+          "source": {
+            "url": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=547&teamid=13160&page_type=Adult",
+            "http": 200,
+            "publicHTMLSHA256": "c3b677f41a5e4e88efe6acb99bcf6963761ce3f0eb871c9dd430fd430601ac0b"
+          },
+          "gameId": 122674,
+          "date": "2026-01-25",
+          "listing": "Jan 25, 2026 7:15PM vs. Braves HC Home 0  - 1",
+          "teamRole": "HOME",
+          "leagueHomeGoals": 0,
+          "leagueVisitorGoals": 1
+        },
+        "originalHTOBoxscore": {
+          "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2215007&p=boxscore&archTog=1&viewseas=Winter_2025%2F2026",
+          "http": 200,
+          "publicHTMLSHA256": "99df29cedfc78a5ebba1c7eef3b0525d7d46d7a8976a87b9bbd38c5b4705efd2",
+          "rawDisplay": {
+            "bravesLabel": "Brave H.C. - WIN",
+            "opponentLabel": "Royal Flushers - Forfeit",
+            "bravesGoals": 0,
+            "opponentGoals": 0
+          },
+          "classification": "ADMINISTRATIVE_FORFEIT_NOT_PLAYED"
+        },
+        "officialLeagueGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=547&gameid=122674&page_type=Adult",
+        "reciprocalScoresEqual": true,
+        "htoForfeitWinnerMatchesLeague": true
+      }
+    },
+    {
+      "season": "Winter_2025/2026",
+      "date": "2026-02-15",
+      "opponent": "Schmelts",
+      "htoGameId": 2215009,
+      "svhlLeagueId": 547,
+      "svhlGameId": 122678,
+      "bravesLeagueTeamId": 13157,
+      "opponentLeagueTeamId": 13191,
+      "bravesHomeAway": "HOME",
+      "leagueHomeAwayScore": {
+        "home": 1,
+        "visitor": 0
+      },
+      "leagueCanonicalTeamScore": {
+        "braves": 1,
+        "opponent": 0,
+        "outcome": "W"
+      },
+      "leagueActualHomeTeamId": 13157,
+      "eventType": "ADMINISTRATIVE_FORFEIT",
+      "playedOnIce": false,
+      "countsInLeagueStandings": {
+        "gp": 1,
+        "w": 1,
+        "l": 0,
+        "t": 0,
+        "gf": 1,
+        "ga": 0
+      },
+      "countsInOnIceGoalOrAssistStats": false,
+      "sourceCheck": {
+        "bravesLeagueTeamPage": {
+          "source": {
+            "url": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=547&teamid=13157&page_type=Adult",
+            "http": 200,
+            "publicHTMLSHA256": "53420b487078273348b6bb8097d7a1a099c3b3a849e760c6c46cd27271f8f6ab"
+          },
+          "gameId": 122678,
+          "date": "2026-02-15",
+          "listing": "Feb 15, 2026 8:15PM vs. Schmelts Home 1  - 0",
+          "teamRole": "HOME",
+          "leagueHomeGoals": 1,
+          "leagueVisitorGoals": 0
+        },
+        "opponentLeagueTeamPage": {
+          "source": {
+            "url": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=547&teamid=13191&page_type=Adult",
+            "http": 200,
+            "publicHTMLSHA256": "e0e3e5d1905444ea5cd852f8cbf63a479d92ec614eebdf46d68143288b622a9b"
+          },
+          "gameId": 122678,
+          "date": "2026-02-15",
+          "listing": "Feb 15, 2026 8:15PM vs. Braves HC Visitor 1  - 0",
+          "teamRole": "VISITOR",
+          "leagueHomeGoals": 1,
+          "leagueVisitorGoals": 0
+        },
+        "originalHTOBoxscore": {
+          "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2215009&p=boxscore&archTog=1&viewseas=Winter_2025%2F2026",
+          "http": 200,
+          "publicHTMLSHA256": "878e2c11ee0734d4e8906ca751a94f2c53fc7d7a181b9c061ae7cd5282e65339",
+          "rawDisplay": {
+            "bravesLabel": "Brave H.C. - WIN",
+            "opponentLabel": "Schmelts - Forfeit",
+            "bravesGoals": 0,
+            "opponentGoals": 0
+          },
+          "classification": "ADMINISTRATIVE_FORFEIT_NOT_PLAYED"
+        },
+        "officialLeagueGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=547&gameid=122678&page_type=Adult",
+        "reciprocalScoresEqual": true,
+        "htoForfeitWinnerMatchesLeague": true
+      }
+    },
+    {
+      "season": "Winter_2025/2026",
+      "date": "2026-03-08",
+      "opponent": "Schmelts",
+      "htoGameId": 2215012,
+      "svhlLeagueId": 547,
+      "svhlGameId": 122910,
+      "bravesLeagueTeamId": 13157,
+      "opponentLeagueTeamId": 13191,
+      "bravesHomeAway": "VISITOR",
+      "leagueHomeAwayScore": {
+        "home": 0,
+        "visitor": 1
+      },
+      "leagueCanonicalTeamScore": {
+        "braves": 1,
+        "opponent": 0,
+        "outcome": "W"
+      },
+      "leagueActualHomeTeamId": 13191,
+      "eventType": "ADMINISTRATIVE_FORFEIT",
+      "playedOnIce": false,
+      "countsInLeagueStandings": {
+        "gp": 1,
+        "w": 1,
+        "l": 0,
+        "t": 0,
+        "gf": 1,
+        "ga": 0
+      },
+      "countsInOnIceGoalOrAssistStats": false,
+      "sourceCheck": {
+        "bravesLeagueTeamPage": {
+          "source": {
+            "url": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=547&teamid=13157&page_type=Adult",
+            "http": 200,
+            "publicHTMLSHA256": "53420b487078273348b6bb8097d7a1a099c3b3a849e760c6c46cd27271f8f6ab"
+          },
+          "gameId": 122910,
+          "date": "2026-03-08",
+          "listing": "Mar 08, 2026 10:00PM vs. Schmelts Visitor 0  - 1",
+          "teamRole": "VISITOR",
+          "leagueHomeGoals": 0,
+          "leagueVisitorGoals": 1
+        },
+        "opponentLeagueTeamPage": {
+          "source": {
+            "url": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=547&teamid=13191&page_type=Adult",
+            "http": 200,
+            "publicHTMLSHA256": "e0e3e5d1905444ea5cd852f8cbf63a479d92ec614eebdf46d68143288b622a9b"
+          },
+          "gameId": 122910,
+          "date": "2026-03-08",
+          "listing": "Mar 08, 2026 10:00PM vs. Braves HC Home 0  - 1",
+          "teamRole": "HOME",
+          "leagueHomeGoals": 0,
+          "leagueVisitorGoals": 1
+        },
+        "originalHTOBoxscore": {
+          "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2215012&p=boxscore&archTog=1&viewseas=Winter_2025%2F2026",
+          "http": 200,
+          "publicHTMLSHA256": "3542ec8fcf3ff66a06325a403559145b1401d51af7439a774085973451146f5f",
+          "rawDisplay": {
+            "bravesLabel": "Brave H.C. - WIN",
+            "opponentLabel": "Schmelts - Forfeit",
+            "bravesGoals": 0,
+            "opponentGoals": 0
+          },
+          "classification": "ADMINISTRATIVE_FORFEIT_NOT_PLAYED"
+        },
+        "officialLeagueGameInfoURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=547&gameid=122910&page_type=Adult",
+        "reciprocalScoresEqual": true,
+        "htoForfeitWinnerMatchesLeague": true
+      }
+    }
+  ],
+  "aggregate": {
+    "count": 4,
+    "leagueAwardedForfeitWins": 4,
+    "leagueAwardedForfeitLosses": 0,
+    "officialTeamStandingsGoalsFor": 4,
+    "officialTeamStandingsGoalsAgainst": 0,
+    "playedGamesCreated": 0,
+    "individualSkaterGoalsCreated": 0
+  },
+  "immutableAudit": "Per-game official links, HTO and reciprocal SVHL public HTML source hashes retained. Source HTML not embedded in public normalized metadata.",
+  "recordUse": "CANONICAL_READ_ONLY_SUPPLEMENTAL_HOCKEYOS_RESULTS",
+  "publishedWebsiteChanged": false
+}
