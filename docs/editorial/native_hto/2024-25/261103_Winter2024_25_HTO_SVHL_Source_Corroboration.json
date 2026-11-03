@@ -430,17 +430,17 @@
       ],
       "officialLeagueResult": "W",
       "officialLeagueResultType": "ADMINISTRATIVE_FORFEIT_WIN",
-      "leagueCompetititiveStandingsContribution": {
+      "playedOnIce": false,
+      "awardedIndividualGoals": false,
+      "officialOpponentTeamSeasonURL": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=531&teamid=12636&page_type=Adult",
+      "leagueCompetitiveStandingsContribution": {
         "gp": 1,
         "w": 1,
         "l": 0,
         "t": 0,
         "gf": 1,
         "ga": 0
-      },
-      "playedOnIce": false,
-      "awardedIndividualGoals": false,
-      "officialOpponentTeamSeasonURL": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=531&teamid=12636&page_type=Adult"
+      }
     },
     {
       "htoGameId": 2148156,
