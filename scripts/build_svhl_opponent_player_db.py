@@ -150,7 +150,7 @@ def validate_sources(league, roster, full, profiles):
                      all(type(v.get(k)) is int and v[k] >= 0 for k in SPECIAL_FIELDS) and
                      all(v.get(src) == original[dst]
                          for src, dst in (("GP", "gp"), ("G", "g"),
-                                          ("A", "a"), ("PTS", "pts"), ("PIM", "pim")),
+                                          ("A", "a"), ("PTS", "pts"), ("PIM", "pim"))),
                      "PROFILE_SPECIAL_STATS_NOT_ROSTER_RECONCILED")
     return current
 

@@ -80,7 +80,7 @@
           h.sourceStatus!=="HTO_ACTUAL"&&
           (h.sourceStatus==="SOURCE_CONFLICT_HOLD"||
            h.sourceStatus==="PUBLISHED_ARITHMETICALLY_CONSISTENT"&&h.pts===h.g+h.a)&&
-          !keys.has(key)&&h.nameMatch===true||false,
+          !keys.has(key)&&typeof h.nameMatch==="boolean",
           "PRIOR_SEASON_SOURCE_BOUNDARY_OR_IDENTITY");
      keys.add(key);hist++;
     }

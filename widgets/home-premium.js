@@ -89,6 +89,62 @@ async function loadStandings(){
   let games=[];
   try{const schedule=await fetchJSON("svhl-upcoming.json");if(schedule.schema==="brave-hc-svhl-schedule/v1"&&Array.isArray(schedule.games))games=schedule.games;}catch(_ignored){}
   const upcoming=games.filter(g=>g.date+"T"+g.time>=todayDate()).sort((a,b)=>(a.date+"T"+a.time).localeCompare(b.date+"T"+b.time));
+  // Player-level SVHL opponent evidence is independent of HTO Brave H.C. actuals.
+  // Missing, stale or mismatched data fails closed without hiding team-level scouting.
+  let playerFeed=null,playerLeague=null,playerHold="Weekly opponent player source unavailable.";
+  try{
+   if(!window.BraveOpponentPlayers)throw Error("Opponent player source module unavailable");
+   const [candidate,official]=await Promise.all([
+    fetchJSON("opponent-player-intelligence.json"),fetchJSON("league-intelligence.json")]);
+   window.BraveOpponentPlayers.validate(candidate,official);
+   playerFeed=candidate;playerLeague=official;
+  }catch(error){playerHold="Player-level scouting held: "+error.message}
+  function renderOpponentPlayers(leagueName){
+   const cards=$("opponent-player-intel-cards");cards.replaceChildren();
+   const state=$("opponent-player-intel-status");
+   const sourceTeam=playerLeague?.teams.find(t=>t.leagueName===leagueName);
+   const report=sourceTeam&&playerFeed&&window.BraveOpponentPlayers?.team(
+      playerFeed,sourceTeam.sourceTeamId);
+   if(!report){
+    state.textContent=playerHold+" No opponent player totals or history are guessed.";
+    return;
+   }
+   state.textContent="SVHL public roster "+dateText(report.capturedAt)+
+    " · "+report.playerCount+" listed players, "+report.activeReported+
+    " with reported current GP · first six scoring leaders shown. Not a confirmed game roster.";
+   if(!report.leaders.length){
+    cards.append(node("p","note","No source-qualified current scoring leaders; prior records are not proof of attendance."));
+    return;
+   }
+   for(const p of report.leaders){
+    const card=node("article","opponent-player-intel-card");
+    card.append(node("strong","",p.name+
+      (p.jersey&&p.jersey!=="-"?" · #"+p.jersey:"")));
+    const now=p.current;
+    card.append(node("p","",now.gp+" reported GP · "+now.g+" G · "+
+      now.a+" A · "+now.pts+" PTS · "+now.pim+" PIM · "+
+      (now.ptsPerReportedGP===null?"P/GP unavailable":now.ptsPerReportedGP.toFixed(2)+" PTS/GP")));
+    if(p.priorLatest){
+     const h=p.priorLatest;
+     card.append(node("p","opponent-player-prior","Previous linked "+h.season+
+      " · "+h.teamName+": "+h.gp+" reported GP, "+h.g+" G, "+h.a+" A, "+
+      h.pts+" PTS ("+h.ptsPerReportedGP.toFixed(2)+" PTS/GP)."+
+      (p.pastObservations>1?" "+p.pastObservations+" prior team-season observations.":"")));
+    }else card.append(node("p","opponent-player-prior",
+      "No admissible same-ID previous-season scoring observation."));
+    if(p.special){
+     const s=p.special;
+     card.append(node("p","opponent-player-special",
+      "Profile-confirmed: Power play "+s.ppGoals+" G / "+s.ppAssists+
+      " A · Penalty kill "+s.pkGoals+" G / "+s.pkAssists+
+      " A · game-winning goals "+s.gameWinningGoals+
+      " · game-tying goals "+s.gameTyingGoals+"."));
+    }
+    const a=node("a","full-link","Official SVHL player source ↗");
+    a.href=p.profileUrl;a.target="_blank";a.rel="noopener noreferrer";
+    card.append(a);cards.append(card);
+   }
+  }
   let approved=null,verifiedSameGames=new Map();
   // Release-gated optional source. An absent, stale or review-only feed must
   // never unlock unverified matchup statistics.
@@ -142,6 +198,7 @@ async function loadStandings(){
     const o=d.teams.find(t=>t.name===select.value) ||
       (entry?.membershipStatus==="SEASON_OPPONENT_ARCHIVE"?{name:entry.name}:null);
     if(!o)return;
+    renderOpponentPlayers(o.name);
     const nextGame=upcoming.find(g=>g.opponent===o.name);
     const gameTime=nextGame?.time?nextGame.time.split(":"):null;
     const formattedTime=gameTime?((Number(gameTime[0])%12)||12)+":"+gameTime[1]+(Number(gameTime[0])>=12?" PM":" AM"):"";

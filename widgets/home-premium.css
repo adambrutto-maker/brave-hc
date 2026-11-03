@@ -114,3 +114,13 @@ html:has(body.full){height:auto;overflow:auto}
  .projection-table .actual{font-size:12px;line-height:1.3}
  .projection-table tbody tr:not(.details) td:before{font-size:11px}
 }
+
+/* Source-qualified player-level opponent scouting within the existing season centre. */
+.opponent-player-intel-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:9px}
+.opponent-player-intel-card{border:1px solid #51677b;background:#10283d;border-radius:8px;padding:10px;min-width:0}
+.opponent-player-intel-card strong{display:block;color:#fff;font-size:13px;line-height:1.4}
+.opponent-player-intel-card p{font-size:11px;line-height:1.55;margin:7px 0;color:#e8eef5;overflow-wrap:anywhere}
+.opponent-player-intel-card p.opponent-player-prior{color:#bdd6f0}
+.opponent-player-intel-card p.opponent-player-special{color:#f2d5a4}
+.opponent-player-intel-card a{display:inline-block;line-height:1.5;overflow-wrap:anywhere}
+@media(max-width:420px){.opponent-player-intel-cards{grid-template-columns:1fr}.opponent-player-intel-card{padding:9px}}

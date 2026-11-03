@@ -12,7 +12,8 @@
 <script defer src="./player-bio-projection-trend.js?v=3.6.4"></script>
 <script defer src="./player-bio-trend-visual-v36.js?v=3.6.4"></script>
 <script defer src="./hockeyos-adaptive-trend-v365.js?v=3.6.8"></script>
-<script defer src="./home-premium.js?v=3.6.8"></script>
+<script defer src="./opponent-player-intelligence.js?v=20261103-p1"></script>
+<script defer src="./home-premium.js?v=20261103-opponent-p1"></script>
 <script defer src="./hockeyos-dispersion-widget-v365.js?v=3.6.8"></script>
 </head>
 <body data-hto-season="Winter_2026/2027">
@@ -36,6 +37,13 @@
 <div id="intel-metrics" class="metric-grid"></div>
 <div class="intel-section"><h2>Braves vs. Opponent · League Snapshot</h2><div id="intel-comparison" class="comparison"></div></div>
 <div class="intel-section" id="headtohead-section" hidden><h2>Verified Head-to-Head History</h2><div id="headtohead" class="comparison"></div></div>
+<div class="intel-section" id="opponent-player-intel-section" aria-label="Official opponent player intelligence">
+<h2>Opponent Player Intelligence · Current + Prior Seasons</h2>
+<p class="note" id="opponent-player-intel-status" role="status">Checking official SVHL player source and historical IDs.</p>
+<div id="opponent-player-intel-cards" class="opponent-player-intel-cards"></div>
+<p class="note">SVHL-reported player totals may be incomplete or corrected. Published GP does not confirm next-game attendance. Power-play goals are not points per game. Brave H.C. statistics remain HTO-only.</p>
+<a class="full-link" href="./opponent-players.html" target="_blank" rel="noopener noreferrer">Explore all opponent players and source seasons ↗</a>
+</div>
 <p class="note" id="intel-note">Opponent statistics use verified league totals. No private scouting notes or unverified head-to-head claims are shown.</p>
 </div>
 <div class="foot"><span class="source" id="standings-source">Official SVHL league snapshot</span><a href="./league-intelligence.html?team=Maplewolves" target="_blank" rel="noopener noreferrer">All divisions &amp; incoming-team intelligence</a><a id="standings-link" href="https://leagues.sportsvillage.ca/Leagues.aspx?leagueid=570&page_type=Adult&amp;sc=HOCKEY" target="_parent" rel="noopener noreferrer">Official SVHL standings ↗</a></div>
