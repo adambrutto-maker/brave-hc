@@ -6,6 +6,7 @@ const params=new URLSearchParams(location.search);
 if(params.has("embed"))document.body.classList.add("embedded");
 const pathname=document.documentElement.dataset.feed;
 const initialTab=["feature","preview","archive"].includes(params.get("tab"))?params.get("tab"):"feature";
+let nativeHistory=null;
 let publication=null,activeId=initialTab==="archive"?params.get("article"):null,mode=initialTab;
 const $=(tag,cls,text)=>{
  const n=document.createElement(tag);if(cls)n.className=cls;
@@ -301,6 +302,37 @@ function preview(section){
  verifiedUpcomingWatch(section,p);
  section.append($("p","note","Based on the latest published HTO schedule; projected lineups and player availability are not verified."));
 }
+async function loadNativeHistory(){
+ try{
+  const response=await fetch("./hot-stove-native-history.json",{cache:"no-store"});
+  if(!response.ok)return;
+  const source=await response.json();
+  if(source.schema!=="brave-hc-hot-stove-native-history/v1"||
+     source.team!=="Brave H.C."||source.season!=="Winter_2025/2026"||
+     source.verificationStatus!=="ALL_24_PUBLISHED_AND_INDEPENDENTLY_VERIFIED"||
+     source.editorialState!=="PUBLIC_HTO_RETROSPECTIVE_LINKS_ONLY"||
+     !Array.isArray(source.games)||source.games.length!==24)return;
+  const seen=new Set();
+  for(const g of source.games){
+   if(!Number.isInteger(g.gameId)||seen.has(g.gameId)||
+      [2215007,2215009,2215012].includes(g.gameId)||
+      !/^202[56]-\d{2}-\d{2}$/.test(g.date)||
+      typeof g.title!=="string"||g.title.length<10||g.title.length>160)return;
+   const target=new URL(g.url);
+   if(target.protocol!=="https:"||target.hostname!=="www.htosports.com"||
+      target.pathname!=="/teams/default.asp"||
+      target.searchParams.get("u")!=="BRAVESHOCKEY"||
+      target.searchParams.get("sportsHQ")!=="BRAVESHOCKEY"||
+      target.searchParams.get("gameID")!==String(g.gameId)||
+      target.searchParams.get("p")!=="boxscore"||
+      target.searchParams.get("archTog")!=="1"||
+      target.searchParams.get("viewseas")!=="Winter_2025/2026")return;
+   seen.add(g.gameId);
+  }
+  nativeHistory=source;
+ }catch(_err){/* Native discovery is optional; retain the current approved archive on any source failure. */}
+}
+
 function archive(section){
  const items=[publication.latestArticle,...publication.archive.map(x=>x.article)];
  if(activeId){
@@ -312,6 +344,7 @@ function archive(section){
   }
  }
  section.append($("h2",null,"Season Game Archive"));
+ section.append($("h3","archive-season-heading","Winter 2026–27 · Current season"));
  const list=$("div","archive");
  for(const a of items){
   const btn=$("button");
@@ -322,6 +355,23 @@ function archive(section){
   list.append(btn);
  }
  section.append(list);
+ if(nativeHistory){
+  const details=$("details","native-season-archive");
+  const summary=$("summary",null,"Winter 2025–26 · 24 historical game recaps");
+  details.append(summary);
+  details.append($("p","historical-note",
+   "Retrospectives reconstructed in November 2026. Open the original HTO game summary for the complete story and official statistics."));
+  const historicalList=$("div","native-archive-list");
+  for(const g of nativeHistory.games){
+   const row=link(g.title,g.url);
+   row.className="native-archive-row";
+   row.append($("span","date",g.date));
+   row.append($("span","retrospective-label","Historical retrospective · Official HTO"));
+   historicalList.append(row);
+  }
+  details.append(historicalList);
+  section.append(details);
+ }
 }
 function render(){
  root.replaceChildren();
@@ -401,6 +451,7 @@ async function boot(){
   articleFacts(data.latestArticle);
   await applyArchiveEditorial(data);
   await applyVerifiedRosterContext(data);
+  await loadNativeHistory();
   publication=data;render();
  }catch(e){
   root.replaceChildren();
