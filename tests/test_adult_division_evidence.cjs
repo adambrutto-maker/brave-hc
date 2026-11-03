@@ -13,6 +13,23 @@ const tests=[
   assert.deepEqual(divisions.map(x=>x.name),["Fazzari Partners","The Cristillo Division","Remax Division"]);
   assert.equal(clubs.filter(x=>x.divisionNow==="VAHL Division").length,0);
  }],
+ ["Movement history excludes separate leagues on both sides without changing underlying source",()=>{
+  const existing=scope.movementEvents(league);
+  assert.equal(existing.length,league.movementLedger.events.length);
+  const altered=JSON.parse(JSON.stringify(league));
+  altered.movementLedger.events.push(
+   {sourceTeamId:990001,leagueName:"Foreign In",fromDivision:"VAHL Division",toDivision:"The Cristillo Division"},
+   {sourceTeamId:990002,leagueName:"Foreign Out",fromDivision:"Remax Division",toDivision:"VAHL Division"},
+   {sourceTeamId:990003,leagueName:"Foreign Only",fromDivision:"VAHL Division",toDivision:"VAHL Division"},
+   {sourceTeamId:990004,leagueName:"Unknown",fromDivision:null,toDivision:"Unverified Division"});
+  altered.movementLedger.incomingCristilloReports.push(
+   {sourceTeamId:990001,displayName:"Foreign In",fromDivision:"VAHL Division",toDivision:"The Cristillo Division"});
+  assert.deepEqual(scope.movementEvents(altered),existing);
+  assert.equal(scope.incomingCristilloReports(altered).length,
+               league.movementLedger.incomingCristilloReports.length);
+  assert.deepEqual(scope.movementEvents(league),existing);
+  assert.equal(JSON.stringify(league),original);
+ }],
  ["Adult league context rankings are 1 through 22, with no separate competition in denominator",()=>{
   const ranks=scope.adultRanks(league);
   assert.equal(ranks.size,22);
