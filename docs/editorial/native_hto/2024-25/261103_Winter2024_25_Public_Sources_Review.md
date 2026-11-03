@@ -49,3 +49,34 @@ The March 30 official periods are Brave H.C. 1–0–1 and Mid Ice Crisis 0–1�
 The April 6 official periods are Mid Ice Crisis 2–0–1 and Brave H.C. 0–0–0 (3–0 final). **Exception: the official HTO goalie table lists Stephen Logue with just two goals against despite the 3–0 team result.** Do not infer an empty-net goal, goaltender substitution or other explanation without an independent game-event source. The retrospective article is drafted conservatively from the scoreboard while that distinction is held for source reconciliation.
 
 No original native Recap field has been changed by these drafts. Neither draft is to be merged as approved publication content or posted to HTO without explicit Founder approval, authentic native field backups, source reconciliation and independent QA.
+
+## November 3 continuation — seven source-rich game stories and SVHL corroboration
+
+Seven additional **held**, prose-style historical retrospect­ives were drafted from the original HTO native game-event tables and verified individual player game totals. Their exact game IDs are:
+
+| Original date | Exact HTO ID | Editorial focus | Source strength |
+| --- | ---: | --- | --- |
+| October 6, 2024 | 2148137 | Ryan Finlay's two goals in the 6–0 win over Dateline Predators | Six named goals, skater G/A parity and Stephen Logue shutout |
+| November 10, 2024 | 2148142 | Three-goal second-period comeback against Schmelts, 5–3 | Eight original goal events; official jersey-number, G/A parity |
+| November 17, 2024 | 2148143 | Justin Carosi's two goals against Dateline Predators, 3–1 | Four original events and individual G/A parity |
+| December 8, 2024 | 2148146 | Adam Kober's goal and assist against Mohawks HC, 3–2 | Five original events and individual G/A parity |
+| December 15, 2024 | 2148147 | Bears' third-period comeback, 3–2 | Five original events and individual G/A parity |
+| January 26, 2025 | 2148153 | Stefano Mazzei's late goal in 4–1 loss to Mighty Drunks | Five original events and individual G/A parity |
+| March 16, 2025 | 2148159 | Justin Carosi's third-period equalizer against Mid Ice Crisis, 2–2 | Four original events and individual G/A parity |
+
+All **37 HTO-native goal events across these seven games** reconcile: individual scorer goals, assists and team finals all pass. Evidence stored in `261103_Seven_Native_HTO_Game_Event_Parity.json`. The original HTO source-table HTML stays intact; these are separate **unapproved** Markdown drafts under `review_drafts/`. Combined 2024–25 draft inventory is **nine** (seven event-rich and two limited-source playoff drafts).
+
+### Second-source result checks
+
+An independent exact-date score audit uses published Sports Village **Winter 2024/25, league 531, team 12572 (Braves H/C)** game-info records, cross-matched to the 26 HTO games.
+
+- **23 of 23 played regular-season games** with completed reciprocal SVHL events matched the HTO result *and both teams' goals*.
+- The February 16, 2025 Don's Cherries administrative forfeit is **HTO 0–0 / SVHL 1–0** due to differing public recording conventions. It remains an administrative forfeit, not a played game or tie.
+- March 30 and April 6, 2025 appear in the SVHL team schedule with **unscored 0–0 placeholders**, and have no completed game event records in the curated league dataset. These placeholders are not evidence that either playoff game ended in a 0–0 tie; HTO separately records 2–3 and 0–3 final scores.
+- The **April 6 HTO goalie two-GA versus team three-goal score discrepancy** is still unresolved; do not label an empty-net goal or assign missing-goal circumstances.
+
+The full 26-row cross-source register and original SVHL game-info URLs are saved in `261103_Winter2024_25_HTO_SVHL_Source_Corroboration.json`. Use HTO as the source of record for the two playoff scores until independent game-event details are obtained. The review branch has **no HTO administrative writes**, no new publication authority and no changed original media.
+
+### Final release gates remain unchanged
+
+All nine historical stories require editorial approval. The two playoff candidates additionally require authenticated exact-game HTO Recap field inspection/backup, while April 6 requires documented handling of the goalie discrepancy. For the seven event-rich games, preserve every original native scoring/event table and all prior photos/videos when a native posting is eventually considered. No automatic bulk overwrite of existing HTO recap fields is permitted.
