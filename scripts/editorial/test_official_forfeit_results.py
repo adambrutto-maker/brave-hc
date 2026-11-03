@@ -117,5 +117,21 @@ class OfficialForfeitResultsTests(unittest.TestCase):
             "officialTeamStandingsGoalsFor":4,"officialTeamStandingsGoalsAgainst":0,
             "playedGamesCreated":0,"individualSkaterGoalsCreated":0})
 
+    def test_native_2025_26_original_publication_remains_unmodified(self):
+        archive=ROOT/"docs"/"editorial"/"native_hto"/"2025-26"
+        receipt=json.loads((archive/"261103_Historical_Native_HTO_24_Recap_Publication_Verification.json").read_text(encoding="utf-8"))
+        self.assertEqual(receipt["status"],"ALL_24_PUBLISHED_AND_INDEPENDENTLY_VERIFIED")
+        self.assertEqual(receipt["totals"]["publishedAndVerified"],24)
+        self.assertEqual(receipt["totals"]["forfeitsOutsideScope"],3)
+        self.assertFalse({2215007,2215009,2215012}&{g["gameId"] for g in receipt["games"]})
+        addendum=(archive/"261103_Official_SVHL_Forfeit_Addendum.md").read_text(encoding="utf-8")
+        for g in LEDGER["forfeits"]:
+            if g["season"]!="Winter_2025/2026":continue
+            self.assertIn(str(g["htoGameId"]),addendum)
+            self.assertIn(str(g["svhlGameId"]),addendum)
+        self.assertIn("not played 0–0 ties",addendum)
+        self.assertIn("0–1 is a **Braves away win**",addendum)
+        self.assertIn("no player goal, assist, shot, goalie goal-against",addendum)
+
 if __name__=="__main__":
     unittest.main()
