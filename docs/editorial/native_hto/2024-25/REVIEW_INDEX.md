@@ -54,4 +54,6 @@
 - [April 6, 2025 HTO team/goalie accounting exception — source verified, cause unresolved](261103_April06_Official_HTO_Goalie_Residual_Exception.json)
 - [Editorial decisions, source limitations and release gates](261103_Winter2024_25_Public_Sources_Review.md)
 
+**Review tooling checkpoint:** All 24 source-graded drafts also have *private* story-only styled HTML review modules staged on BRUTTECH 1, not linked or published on this public website. **92/92** research/formatting tests passed and **24/24** private modules passed independent SHA-256 readback. Original authenticated HTO Recap field backup and Founder publication approval remain outstanding.
+
 **Source disclaimer:** These stories were reconstructed in November 2026 from archived official information. No quotes, hidden goal timings, scorer identities for opposing players or video observations have been invented. The original HTO native Recap field is the intended publication destination **only after** an individually authorized release.
