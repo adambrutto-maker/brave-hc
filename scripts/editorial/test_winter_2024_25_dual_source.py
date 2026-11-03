@@ -66,7 +66,8 @@ class TwoSourceParityTests(unittest.TestCase):
         self.assertFalse(f[0]["playedOnIce"])
         self.assertFalse(f[0]["awardedIndividualGoals"])
         self.assertEqual(f[0]["gameType"],"REGULAR SEASON")
-        self.assertIn("Separate administrative treatment",f[0]["sourceBoundary"])
+        self.assertIn("home-first/visitor-second 1-0",f[0]["sourceBoundary"])
+        self.assertIn("HTO 0-0 raw display",f[0]["sourceBoundary"])
 
     def test_playoffs_are_unscored_in_secondary_source(self):
         p=[r for r in SVHL["games"] if r["status"]=="PLAYOFF_UNSCORED_IN_SVHL_EVENT_DATASET"]
