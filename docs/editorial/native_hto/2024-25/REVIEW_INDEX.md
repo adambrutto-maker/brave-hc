@@ -9,14 +9,14 @@
 - **26** official scheduled-game score records: **25 played** and one administrative forfeit. All 26 official HTO game-page scores match their archived HTO Scores entries.
 - **One** existing contemporary native narrative remains original and must not be replaced (September 22, 2024, HTO 2148133).
 - **24** researched, **unapproved** retrospective drafts cover all other played games: seven detailed event/goal-assist-verified stories, fifteen source-limited video-only source stories, and two held playoff accounts.
-- **23 of 23** regular-season played games with completed independent SVHL league 531 game records have matching scores; the administrative forfeit uses different recording conventions (HTO 0–0, SVHL 1–0).
+- **23 of 23** regular-season played games with completed independent SVHL league 531 game records have matching scores. The February 16 administrative forfeit is officially a **1–0 Brave H.C. win** under the league's home-first/visitor-second scoring; HTO's original 0–0 WIN/Forfeit display is preserved, not interpreted as a played tie.
 - Original native recap contents include one written narrative, seven embedded scoring-event tables, sixteen media-only sections, five images, and fifteen video embeds. Preserve all originals.
 - **April 6 playoff hold:** HTO team score 0–3 vs Stephen Logue goalie 2 GA; no verified explanation. SVHL playoff schedule 0–0 is unscored, **not** evidence of a 0–0 tie.
 - Founder editorial sign-off, original authenticated per-game editor field inspection/backup, existing-media preservation and post-save independent verification are required before any HTO publication. Do not merge the draft PR as if article publication were approved.
 
 ## Exact-game review register
 
-| Original date | HTO ID | Opponent | Brave score | Original source | Review article |
+| Original date | HTO ID | Opponent | Source score (HTO raw / league forfeit) | Original source | Review article |
 | --- | ---: | --- | ---: | --- | --- |
 | 2024-09-22 | [2148133](https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&archTog=1&viewseas=Winter_2024%2F2025&p=boxscore&gameID=2148133) | Mohawks H.C. | 4–2 | Original written report | **Existing contemporary native article — preserve** |
 | 2024-09-29 | [2148134](https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&archTog=1&viewseas=Winter_2024%2F2025&p=boxscore&gameID=2148134) | Schmelts | 1–6 | Video + period/skater totals | [Unapproved draft](review_drafts/20240929_HTO_2148134_SOURCE_LIMITED_REVIEW.md) |
@@ -36,7 +36,7 @@
 | 2025-01-12 | [2148151](https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&archTog=1&viewseas=Winter_2024%2F2025&p=boxscore&gameID=2148151) | Mohawks H.C. | 2–3 | Video + period/skater totals | [Unapproved draft](review_drafts/20250112_HTO_2148151_SOURCE_LIMITED_REVIEW.md) |
 | 2025-01-26 | [2148153](https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&archTog=1&viewseas=Winter_2024%2F2025&p=boxscore&gameID=2148153) | Mighty Drunks | 1–4 | Verified game-event table | [Unapproved draft](review_drafts/20250126_HTO_2148153_REVIEW_DRAFT.md) |
 | 2025-02-02 | [2148154](https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&archTog=1&viewseas=Winter_2024%2F2025&p=boxscore&gameID=2148154) | Fang | 4–8 | Video + period/skater totals | [Unapproved draft](review_drafts/20250202_HTO_2148154_SOURCE_LIMITED_REVIEW.md) |
-| 2025-02-16 | [2148155](https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&archTog=1&viewseas=Winter_2024%2F2025&p=boxscore&gameID=2148155) | Don's Cherries | 0–0 | Video + period/skater totals | **Administrative forfeit — no played-game article** |
+| 2025-02-16 | [2148155](https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&archTog=1&viewseas=Winter_2024%2F2025&p=boxscore&gameID=2148155) | Don's Cherries | 0–0 HTO / **1–0 SVHL W** | Video + period/skater totals | **Administrative forfeit win — not a played-game article** |
 | 2025-02-23 | [2148156](https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&archTog=1&viewseas=Winter_2024%2F2025&p=boxscore&gameID=2148156) | Mid Ice Crisis | 5–2 | Video + period/skater totals | [Unapproved draft](review_drafts/20250223_HTO_2148156_SOURCE_LIMITED_REVIEW.md) |
 | 2025-03-02 | [2148157](https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&archTog=1&viewseas=Winter_2024%2F2025&p=boxscore&gameID=2148157) | Mid Ice Crisis | 2–5 | Video + period/skater totals | [Unapproved draft](review_drafts/20250302_HTO_2148157_SOURCE_LIMITED_REVIEW.md) |
 | 2025-03-09 | [2148158](https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&archTog=1&viewseas=Winter_2024%2F2025&p=boxscore&gameID=2148158) | Don's Cherries | 5–6 | Video + period/skater totals | [Unapproved draft](review_drafts/20250309_HTO_2148158_SOURCE_LIMITED_REVIEW.md) |
