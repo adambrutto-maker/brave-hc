@@ -1,11 +1,11 @@
 {
   "schema": "brave-hc-hto-current-season-five-styled-editor-pack/v1",
   "generatedAtUTC": "2026-11-03T02:19:28.092066+00:00",
-  "nativeHTOChanged": false,
+  "nativeHTOChanged": true,
   "automaticPublication": false,
-  "specificPilotAuthorization": "ONLY_PREVIOUS_TWO_GAMES_3375683_3375684",
-  "candidateState": "READY_FOR_FIELD_BACKUP_AND_INDIVIDUAL_RELEASE_DECISION",
-  "sourceState": "FOUNDER_APPROVED_SOURCE_CONTENT; NATIVE_PUBLICATION_NOT_APPROVED",
+  "specificPilotAuthorization": "FOUNDER_APPROVED_FIVE_EXACT_GAME_SUMMARIES_2026_11_02",
+  "candidateState": "NATIVE_HTO_FIVE_OF_FIVE_PUBLIC_READBACK_VERIFIED",
+  "sourceState": "FOUNDER_APPROVED_SOURCE_CONTENT_AND_NATIVE_RELEASE_COMPLETED",
   "siteWideStructureTouched": false,
   "stylesheetUsed": "merged native article formatter; no new widget",
   "games": [
@@ -24,12 +24,18 @@
       "styledH3SectionHeadings": 4,
       "sourceHTOHasNoStoryHeadline": true,
       "exactHTONativeFieldBackedUp": true,
-      "nativeHTOEdited": false,
-      "publicReadbackStatus": "STAGED_REVIEW_NOT_PUBLISHED",
+      "nativeHTOEdited": true,
+      "publicReadbackStatus": "NATIVE_PUBLICATION_PUBLIC_READBACK_VERIFIED",
       "originalNativeFieldEmpty": true,
       "originalNativeFieldBackupSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "sourceState": "FOUNDER_APPROVED_AND_SOURCE_VERIFIED",
-      "publicationState": "NOT_AUTHORIZED_BY_PRIOR_TWO_GAME_PILOT"
+      "publicationState": "PUBLISHED_SOURCE_VERIFIED",
+      "nativeFieldPublished": true,
+      "publicationVerifiedUTC": "2026-11-03T02:54:53.532875+00:00",
+      "publicArticleBlocksVerified": 17,
+      "officialStatTableGroupsPreserved": 4,
+      "officialStatTablesSHA256": "28d48a327607da8301744ed49fd3f031a889f68b532b784a4470aa71955c4f9e",
+      "releasePermission": "FOUNDER_APPROVED_FIVE_GAMES_2026_11_02"
     },
     {
       "gameId": 3356178,
@@ -46,12 +52,18 @@
       "styledH3SectionHeadings": 4,
       "sourceHTOHasNoStoryHeadline": true,
       "exactHTONativeFieldBackedUp": true,
-      "nativeHTOEdited": false,
-      "publicReadbackStatus": "STAGED_REVIEW_NOT_PUBLISHED",
+      "nativeHTOEdited": true,
+      "publicReadbackStatus": "NATIVE_PUBLICATION_PUBLIC_READBACK_VERIFIED",
       "originalNativeFieldEmpty": true,
       "originalNativeFieldBackupSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "sourceState": "FOUNDER_APPROVED_AND_SOURCE_VERIFIED",
-      "publicationState": "NOT_AUTHORIZED_BY_PRIOR_TWO_GAME_PILOT"
+      "publicationState": "PUBLISHED_SOURCE_VERIFIED",
+      "nativeFieldPublished": true,
+      "publicationVerifiedUTC": "2026-11-03T02:55:32.337383+00:00",
+      "publicArticleBlocksVerified": 18,
+      "officialStatTableGroupsPreserved": 4,
+      "officialStatTablesSHA256": "75e615389977567c1b4812faec002c2d879db9393a528045543b7edf6c61b645",
+      "releasePermission": "FOUNDER_APPROVED_FIVE_GAMES_2026_11_02"
     },
     {
       "gameId": 3369564,
@@ -68,12 +80,18 @@
       "styledH3SectionHeadings": 4,
       "sourceHTOHasNoStoryHeadline": true,
       "exactHTONativeFieldBackedUp": true,
-      "nativeHTOEdited": false,
-      "publicReadbackStatus": "STAGED_REVIEW_NOT_PUBLISHED",
+      "nativeHTOEdited": true,
+      "publicReadbackStatus": "NATIVE_PUBLICATION_PUBLIC_READBACK_VERIFIED",
       "originalNativeFieldEmpty": true,
       "originalNativeFieldBackupSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "sourceState": "FOUNDER_APPROVED_AND_SOURCE_VERIFIED",
-      "publicationState": "NOT_AUTHORIZED_BY_PRIOR_TWO_GAME_PILOT"
+      "publicationState": "PUBLISHED_SOURCE_VERIFIED",
+      "nativeFieldPublished": true,
+      "publicationVerifiedUTC": "2026-11-03T02:56:06.080652+00:00",
+      "publicArticleBlocksVerified": 17,
+      "officialStatTableGroupsPreserved": 4,
+      "officialStatTablesSHA256": "fd16bdf21559c30e93264e0e93228b9a80571232a07bf69a10b5e80c6db7fb37",
+      "releasePermission": "FOUNDER_APPROVED_FIVE_GAMES_2026_11_02"
     },
     {
       "gameId": 3375601,
@@ -90,12 +108,18 @@
       "styledH3SectionHeadings": 4,
       "sourceHTOHasNoStoryHeadline": true,
       "exactHTONativeFieldBackedUp": true,
-      "nativeHTOEdited": false,
-      "publicReadbackStatus": "STAGED_REVIEW_NOT_PUBLISHED",
+      "nativeHTOEdited": true,
+      "publicReadbackStatus": "NATIVE_PUBLICATION_PUBLIC_READBACK_VERIFIED",
       "originalNativeFieldEmpty": true,
       "originalNativeFieldBackupSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "sourceState": "FOUNDER_APPROVED_AND_SOURCE_VERIFIED",
-      "publicationState": "NOT_AUTHORIZED_BY_PRIOR_TWO_GAME_PILOT"
+      "publicationState": "PUBLISHED_SOURCE_VERIFIED",
+      "nativeFieldPublished": true,
+      "publicationVerifiedUTC": "2026-11-03T02:56:38.602572+00:00",
+      "publicArticleBlocksVerified": 16,
+      "officialStatTableGroupsPreserved": 6,
+      "officialStatTablesSHA256": "52a6c96cf46cd831047399c18a600e349df0f54ad452a27750f1aef2dd365756",
+      "releasePermission": "FOUNDER_APPROVED_FIVE_GAMES_2026_11_02"
     },
     {
       "gameId": 3375682,
@@ -112,12 +136,18 @@
       "styledH3SectionHeadings": 4,
       "sourceHTOHasNoStoryHeadline": true,
       "exactHTONativeFieldBackedUp": true,
-      "nativeHTOEdited": false,
-      "publicReadbackStatus": "STAGED_REVIEW_NOT_PUBLISHED",
+      "nativeHTOEdited": true,
+      "publicReadbackStatus": "NATIVE_PUBLICATION_PUBLIC_READBACK_VERIFIED",
       "originalNativeFieldEmpty": true,
       "originalNativeFieldBackupSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "sourceState": "FOUNDER_APPROVED_AND_SOURCE_VERIFIED",
-      "publicationState": "NOT_AUTHORIZED_BY_PRIOR_TWO_GAME_PILOT"
+      "publicationState": "PUBLISHED_SOURCE_VERIFIED",
+      "nativeFieldPublished": true,
+      "publicationVerifiedUTC": "2026-11-03T02:57:22.071372+00:00",
+      "publicArticleBlocksVerified": 20,
+      "officialStatTableGroupsPreserved": 6,
+      "officialStatTablesSHA256": "c5c5e0ee4d2b3a84b93571fdee8e8a7bc7e0f5d3b868459d7eeba52a7cc83b9c",
+      "releasePermission": "FOUNDER_APPROVED_FIVE_GAMES_2026_11_02"
     }
   ],
   "evidence": {
@@ -137,10 +167,27 @@
       ]
     },
     "exactScoreAndSkaterTables": "READ_ONLY_BACKUPS_RETAINED_ON_BRUTTECH1",
-    "releaseAuthority": "NEEDS_SEPARATE_EXPLICIT_NATIVE_PUBLICATION_APPROVAL",
+    "releaseAuthority": "FOUNDER_EXPLICIT_APPROVAL_2026_11_02",
     "siteLayoutModified": false,
     "HTOScoreWrites": 0,
     "historical2025RetrospectivesIncluded": false,
-    "livebarnHighlightFilesModified": false
+    "livebarnHighlightFilesModified": false,
+    "liveNativePublication": "FIVE_OF_FIVE_PUBLIC_AND_STATISTICS_VERIFIED",
+    "combinedCurrentSeason": "SIX_SUMMARIES_PLUS_ONE_PREVIEW_PUBLIC_VERIFIED",
+    "independentCombinedGameAudit": {
+      "articles": 7,
+      "sourceTextBlocks": 123,
+      "unchangedOfficialStatTableGroups": 30
+    },
+    "afterReleaseActualHostedBrowserQA": {
+      "checks": 168,
+      "passed": 168,
+      "failed": 0,
+      "pages": 14,
+      "widths": [
+        390,
+        1280
+      ]
+    }
   }
 }

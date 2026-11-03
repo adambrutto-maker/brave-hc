@@ -1,42 +1,48 @@
-# Brave H.C. — Remaining 2026–27 Native HTO Game Summaries
+# Brave H.C. — Five Remaining 2026–27 Native HTO Game Summaries
 
-**Date:** November 2, 2026
-**Lead:** Media Department / HockeyOS
-**Status:** REVIEW PACK STAGED — NO NEW NATIVE HTO PUBLICATIONS
-**HTO destination:** Schedule & Results → Scores → Recap / Game Summary
+**Founder authorization:** Approved, November 2, 2026.
+**Lead:** Media Department / HockeyOS.
+**Release status:** COMPLETE — FIVE OF FIVE NATIVE HTO GAME SUMMARIES LIVE AND VERIFIED.
+**Native destination:** Schedule & Results → Scores → Recap / Game Summary.
 
-## Scope
+## Exact published games
 
-This is the release-preparation package for five already Founder-approved and source-verified current-season Hot Stove recaps. It is independent of the earlier approved two-game native HTO pilot and draft PR #198's unapproved historical 2025–26 articles. It contains no HTO score/roster changes, new per-game widgets, site-wide CSS/layout changes, or LiveBarn/highlight work.
-
-| HTO game ID | Date | Official opponent and Brave H.C. result | Approved recap |
+| Game ID | Date | Brave H.C. final | Official native HTO page |
 | --- | --- | --- | --- |
-| 3356177 | 2026-09-20 | Dateline Predators, 0–3 | Braves Open Season with 3–0 Loss to Dateline Predators |
-| 3356178 | 2026-09-27 | Mohawks H.C., 3–6 | Braves Fall 6–3 to Mohawks as Provenzano Reaches 50 Career Points |
-| 3369564 | 2026-10-04 | Michelob Morts, 2–3 | Braves Edged 3–2 by Michelob Morts |
-| 3375601 | 2026-10-18 | Zamboner Crew, 1–7 | Braves Fall 7–1 to Zamboner Crew After Early Lead |
-| 3375682 | 2026-10-25 | Big Bastones, 6–4 | Braves Break Through with 6–4 Win Over Big Bastones |
+| 3356177 | September 20, 2026 | 0–3 vs Dateline Predators | [Game Summary](https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=3356177&p=boxscore) |
+| 3356178 | September 27, 2026 | 3–6 vs Mohawks H.C. | [Game Summary](https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=3356178&p=boxscore) |
+| 3369564 | October 4, 2026 | 2–3 vs Michelob Morts | [Game Summary](https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=3369564&p=boxscore) |
+| 3375601 | October 18, 2026 | 1–7 vs Zamboner Crew | [Game Summary](https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=3375601&p=boxscore) |
+| 3375682 | October 25, 2026 | 6–4 vs Big Bastones | [Game Summary](https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=3375682&p=boxscore) |
 
-## Evidence and release readiness
+The source stories were previously Founder-approved and source-verified in the canonical Hot Stove editorial feed; native publication of these exact five games was then separately explicitly authorized by the Founder. All five original native Recap fields were found blank and backed up. No original HTO article was displaced.
 
-- All five exact HTO public game pages returned HTTP 200; their official score/player tables were captured before native publishing. None shows the prepared recap headline yet.
-- All five exact native HTO Recap editor source fields were read in the authenticated Chrome admin session and were **empty**. Each original field has an individual backup under BRUTTECH 1's local HTOEditorAudit folder; no HTO writes occurred.
-- The source remains FOUNDER_APPROVED and SOURCE_VERIFIED in the latest Brave H.C. Hot Stove editorial feed.
-- The five high-contrast native HTML files were generated with the main-branch source-preserving formatter from merged PR #200. The verified colours from PR #201 and existing article layout are used, without additional widgets.
-- Every file is tied to its exact game ID, original approved content SHA-256, new styled SHA-256, title and date in manifest.json.
-- **88/88** source text blocks preserved; **280/280** staged browser checks PASSED across 20 viewport/game combinations (320px, 390px, 625px, 1280px for all five). No content or layout shifts, horizontal overflow or JavaScript page errors.
+## Controlled native HTO publication
 
-## Publication gate
+Each of the five source packages was confirmed by exact game ID, date, headline, canonical source SHA-256 and styled HTML checksum before being inserted into the existing HTO Recap rich-text Source editor in the authenticated BRUTTECH 1 Chrome session.
 
-The previous explicit Founder instruction authorized only game 3375684 Preview and game 3375683 Summary. It **does not by itself authorize inserting these five additional native recaps**.
+Before each Save, original editor content was rechecked, and Source → visual → Source text parity verified that CKEditor had preserved every approved story paragraph and the white/navy/crimson presentation. The exact HTO game ID, URL and selected Recap tab were checked again immediately before the Save action.
 
-For each game, once separately authorized:
-1. Re-read the exact native HTO Recap source; if it differs from the saved empty state, back up and reconcile.
-2. Select the exact game ID in the HTO Score editor, open its Recap field, paste the corresponding staged HTML through the existing Source editor, and verify a Source/visual roundtrip preserves approved text and styling.
-3. Save only the Recap field, with no optional message/announcement notifications.
-4. Verify the complete headline/article text and archive link at the original official HTO public game URL.
-5. Compare the official score/statistics tables to the pre-edit backup; if any differs, hold and investigate immediately.
-6. Record per-game publication proof before continuing to the next.
-7. Keep the separate historical backfill and highlights development isolated.
+After Save, a fresh public readback confirmed exact title and complete article, source link, white reading surface and official scoring/stat tables unchanged from their pre-edit backups. Each game has a separate release receipt and private local backup under the authorized BRUTTECH 1 HTOEditorAudit folder. No passwords, cookies or authentication tokens were exported to GitHub.
 
-**Disposition:** Five current-season native editor packages ready for controlled release; native HTO publication state remains NOT PUBLISHED for all five.
+## Acceptance results
+
+- Five of five newly authorized native Game Summaries published and independently verified.
+- 88 of 88 original approved story text blocks preserved across those five.
+- 24 of 24 official game scoring, skater and team-stat table groups unchanged across the five.
+- Combined season status: six published native Game Summaries and one native Game Preview = seven official game articles.
+- Independent seven-game public readback: 123 of 123 text blocks and 30 of 30 authoritative game-stat table groups identical.
+- 168 of 168 actual hosted browser checks passed at mobile width 390px and desktop width 1280px across the seven article pages, retaining the existing banner dimensions, website navy/red palette and original page layout.
+- The earlier five-article prepublication presentation QA also passed 280/280 checks at 320, 390, 625 and 1280px.
+
+The original five approved styled HTML source files remain in this folder. The manifest now records every native field as PUBLISHED_SOURCE_VERIFIED, with per-game public verification metadata. The separate five_game_native_public_release_evidence.json holds non-sensitive proof.
+
+No new per-game widget, theme/layout/template change, official score or roster edit, master workbook write, private feedback change, LiveBarn or highlights change occurred.
+
+## Separate historical scope
+
+Draft PR #198 remains unmerged. Its 24 reconstructed historical Winter 2025–26 articles and five polished retrospective reviews are **not** approved or published to HTO under this five-current-season-game authorization.
+
+The Hot Stove website archive remains the source-approved mirror/discovery layer and was not modified as part of these native HTO writes.
+
+**Final disposition: ALL FIVE NEWLY AUTHORIZED GAME SUMMARIES LIVE AND VERIFIED; CURRENT-SEASON NATIVE EDITORIAL COVERAGE COMPLETE.**
