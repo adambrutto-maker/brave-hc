@@ -91,11 +91,12 @@ test('current HTO rates and original workbook classification remain unchanged un
  assert.deepEqual(labels,['FROZEN','COLD','COOL','NEUTRAL','NEUTRAL','WARM','HOT','BLAZING']);
  const diff=form.compare(1,1.14,sigma,vis);
  assert.equal(diff.status,'VERIFIED');
- assert.equal(diff.level,'COLD'); // Retained V3.6 legacy source-contract comparison only.
+ assert.equal(diff.level,'COOL'); // Source sigma=0.15648; -12.28% exceeds neither -1 sigma nor a COLD boundary. Legacy source formulas unchanged.
  const currentAdaptive=adaptive.compareRate(1,1.14,dispersion,projection);
- assert.equal(currentAdaptive.status,'VERIFIED');
- assert.equal(currentAdaptive.level,'COOL');
- assert.equal(currentAdaptive.mode,'HISTORICAL_REFERENCE_ONLY');
+ assert.equal(currentAdaptive.status,'HELD');
+ assert.equal(currentAdaptive.reason,'DISPERSION_PROJECTION_SNAPSHOT_MISMATCH');
+ // Do not assert an adaptive badge while the released dispersion and
+ // projection source snapshots disagree. Legacy display-only comparison above remains COOL.
  assert.deepEqual(projection.conditionalFormatting.arrowIconSet.thresholds,{
     AB100:-2*sigma,AB99:-sigma,AB97:.5*sigma,AB96:sigma
  });
