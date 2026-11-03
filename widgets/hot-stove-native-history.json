@@ -1,0 +1,155 @@
+{
+  "schema": "brave-hc-hot-stove-native-history/v1",
+  "team": "Brave H.C.",
+  "season": "Winter_2025/2026",
+  "editorialState": "PUBLIC_HTO_RETROSPECTIVE_LINKS_ONLY",
+  "verificationStatus": "ALL_24_PUBLISHED_AND_INDEPENDENTLY_VERIFIED",
+  "verifiedAtUTC": "2026-11-03T06:29:47.111334+00:00",
+  "evidenceUrl": "https://github.com/adambrutto-maker/brave-hc/blob/main/docs/editorial/native_hto/2025-26/261103_Historical_Native_HTO_24_Recap_Publication_Verification.json",
+  "games": [
+    {
+      "gameId": 2215015,
+      "date": "2026-03-22",
+      "title": "Braves Earn 6–2 Playoff Win Over Schmelts",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2215015&p=boxscore&archTog=1&viewseas=Winter_2025/2026"
+    },
+    {
+      "gameId": 2215014,
+      "date": "2026-03-22",
+      "title": "Braves Fall 1–0 to Schmelts in Overtime",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2215014&p=boxscore&archTog=1&viewseas=Winter_2025/2026"
+    },
+    {
+      "gameId": 2215013,
+      "date": "2026-03-15",
+      "title": "Rajasooriar Scores as Braves Fall 6–1 to Schmelts in Playoffs",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2215013&p=boxscore&archTog=1&viewseas=Winter_2025/2026"
+    },
+    {
+      "gameId": 2215011,
+      "date": "2026-03-01",
+      "title": "Three-Goal Third Period Lifts Dateline Past Braves, 4–3",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2215011&p=boxscore&archTog=1&viewseas=Winter_2025/2026"
+    },
+    {
+      "gameId": 2215010,
+      "date": "2026-02-22",
+      "title": "Saindon and Provenzano Score Twice Each in 5–1 Win Over Royal Flushers",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2215010&p=boxscore&archTog=1&viewseas=Winter_2025/2026"
+    },
+    {
+      "gameId": 2215008,
+      "date": "2026-02-01",
+      "title": "Pearsoll Hat Trick Leads Braves to 5–1 Win Over Dateline Predators",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2215008&p=boxscore&archTog=1&viewseas=Winter_2025/2026"
+    },
+    {
+      "gameId": 2215006,
+      "date": "2026-01-18",
+      "title": "Braves Earn 6–3 Win Over Schmelts",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2215006&p=boxscore&archTog=1&viewseas=Winter_2025/2026"
+    },
+    {
+      "gameId": 2215005,
+      "date": "2026-01-11",
+      "title": "Braves Earn 6–3 Win Over Dateline Predators",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2215005&p=boxscore&archTog=1&viewseas=Winter_2025/2026"
+    },
+    {
+      "gameId": 2215004,
+      "date": "2026-01-04",
+      "title": "Braves Earn 4–2 Win Over Royal Flushers",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2215004&p=boxscore&archTog=1&viewseas=Winter_2025/2026"
+    },
+    {
+      "gameId": 2215003,
+      "date": "2025-12-28",
+      "title": "Braves and Schmelts Finish Tied 3–3",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2215003&p=boxscore&archTog=1&viewseas=Winter_2025/2026"
+    },
+    {
+      "gameId": 2215002,
+      "date": "2025-12-21",
+      "title": "Braves Earn 7–0 Win Over Royal Flushers",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2215002&p=boxscore&archTog=1&viewseas=Winter_2025/2026"
+    },
+    {
+      "gameId": 2215001,
+      "date": "2025-12-14",
+      "title": "Braves and Mid Ice Crisis Finish Tied 3–3",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2215001&p=boxscore&archTog=1&viewseas=Winter_2025/2026"
+    },
+    {
+      "gameId": 2215000,
+      "date": "2025-12-07",
+      "title": "Braves Earn 5–3 Win Over Dateline Predators",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2215000&p=boxscore&archTog=1&viewseas=Winter_2025/2026"
+    },
+    {
+      "gameId": 2214999,
+      "date": "2025-11-30",
+      "title": "Braves Fall 5–8 to Fangs",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2214999&p=boxscore&archTog=1&viewseas=Winter_2025/2026"
+    },
+    {
+      "gameId": 2214998,
+      "date": "2025-11-23",
+      "title": "Braves Fall 1–3 to Big Bastones",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2214998&p=boxscore&archTog=1&viewseas=Winter_2025/2026"
+    },
+    {
+      "gameId": 2214997,
+      "date": "2025-11-16",
+      "title": "Braves and Don's Cherries Finish Tied 4–4",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2214997&p=boxscore&archTog=1&viewseas=Winter_2025/2026"
+    },
+    {
+      "gameId": 2214996,
+      "date": "2025-11-09",
+      "title": "Braves Earn 7–6 Win Over Schmelts",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2214996&p=boxscore&archTog=1&viewseas=Winter_2025/2026"
+    },
+    {
+      "gameId": 2214995,
+      "date": "2025-11-02",
+      "title": "Braves Fall 2–6 to Royal Flushers",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2214995&p=boxscore&archTog=1&viewseas=Winter_2025/2026"
+    },
+    {
+      "gameId": 2214994,
+      "date": "2025-10-26",
+      "title": "Braves Fall 1–7 to Mid Ice Crisis",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2214994&p=boxscore&archTog=1&viewseas=Winter_2025/2026"
+    },
+    {
+      "gameId": 2214993,
+      "date": "2025-10-19",
+      "title": "Braves Fall 3–4 to Dateline Predators",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2214993&p=boxscore&archTog=1&viewseas=Winter_2025/2026"
+    },
+    {
+      "gameId": 2214991,
+      "date": "2025-10-05",
+      "title": "Braves Earn 4–2 Win Over Big Bastones",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2214991&p=boxscore&archTog=1&viewseas=Winter_2025/2026"
+    },
+    {
+      "gameId": 2214990,
+      "date": "2025-09-28",
+      "title": "Braves Fall 1–8 to Hammers",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2214990&p=boxscore&archTog=1&viewseas=Winter_2025/2026"
+    },
+    {
+      "gameId": 2214989,
+      "date": "2025-09-21",
+      "title": "Braves Fall 4–8 to Blackhawks",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2214989&p=boxscore&archTog=1&viewseas=Winter_2025/2026"
+    },
+    {
+      "gameId": 2214988,
+      "date": "2025-09-14",
+      "title": "Braves Fall 2–3 to Mohawks H.C.",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2214988&p=boxscore&archTog=1&viewseas=Winter_2025/2026"
+    }
+  ]
+}
