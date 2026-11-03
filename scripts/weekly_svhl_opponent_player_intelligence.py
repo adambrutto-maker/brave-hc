@@ -32,6 +32,7 @@ from collect_svhl_historical_standings import validate as validate_archive
 from check_svhl_league_intelligence import verify as verify_league
 from opponent_player_form import snapshot as verified_weekly_pair
 from build_game_night_defensive_watch import build as game_night_review
+from render_game_night_coach_brief import render as render_coach_brief
 
 class WorkflowHold(ValueError):
     pass
@@ -190,8 +191,17 @@ def run(repo, private, db, receipt, *, source_repo=None, use_prepared=None, chec
             game_night_meta={"fixture":prepared_review["fixture"],
                 "reviewTargets":len(prepared_review["reviewTargets"]),
                 "anyNamedAssignmentsApproved":False}
+            coach_sheet=render_coach_brief(prepared_review)
+            need("No Brave H.C. player assigned by HockeyOS." in coach_sheet,
+                 "PRIVATE_COACH_REVIEW_NOT_UNCONFIRMED")
+            game_night_meta["coachReviewSheetReady"]=True
             if not check_only:
                 atom(run_dir/"game_night_defensive_review_PRIVATE.json",prepared_review)
+                sheet=run_dir/"game_night_coach_brief_PRIVATE.md"
+                need(not sheet.exists(),"COACH_SHEET_ALREADY_EXISTS")
+                temporary=sheet.with_suffix(".md.tmp")
+                temporary.write_text(coach_sheet,encoding="utf8")
+                os.replace(temporary,sheet)
         except Exception as exc:
             game_night_status="HELD_FIXTURE_OR_SOURCE_GATE"
             game_night_meta={"reason":str(exc)[:250]}
