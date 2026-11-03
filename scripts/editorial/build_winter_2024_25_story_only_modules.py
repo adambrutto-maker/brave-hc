@@ -49,7 +49,8 @@ def generate(out:Path)->dict:
         sections=[x.strip() for x in md.split("\n\n") if x.strip()]
         if len(sections)<6 or not sections[0].startswith("# "):
             raise ValueError("Unexpected editorial draft layout: "+name)
-        if "NOT APPROVED OR PUBLISHED" not in sections[1]:
+        if not ("NOT APPROVED OR PUBLISHED" in sections[1] or
+                "UNAPPROVED EDITORIAL REVIEW DRAFT" in sections[1]):
             raise ValueError("No explicit editorial hold in draft "+name)
         if "---" not in sections:
             raise ValueError("Missing source/release-hold boundary: "+name)
@@ -69,7 +70,8 @@ def generate(out:Path)->dict:
         g=games[gid]
         if g["result"]=="ADMINISTRATIVE_FORFEIT":
             raise ValueError("Forfeit cannot become a played game story: "+name)
-        if gid==2148163 and "no verified" not in notes.lower() and "no original" not in notes.lower():
+        if gid==2148163 and not all(fragment in notes.lower() for fragment in (
+                "two goals against", "does not establish an empty-net goal", "no founder approval")):
             raise ValueError("April 6 disputed source note missing")
         forfeitClaim=re.search(r"(?<!\w)forfeit\s+win",md.lower())
         if forfeitClaim:raise ValueError("Played-game story makes unsupported forfeit claim: "+name)
