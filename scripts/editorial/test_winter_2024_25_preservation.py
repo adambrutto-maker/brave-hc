@@ -76,5 +76,25 @@ class HistoricalPreservationAuditTests(unittest.TestCase):
         self.assertTrue(all("articleText" not in x and "html" not in x for x in self.games))
         self.assertFalse(self.data.get("published",False))
 
+    def test_unapproved_playoff_drafts_are_identity_and_source_gated(self):
+        home=SOURCE.parent/"review_drafts"
+        for gid, filename, date, score in (
+            (2148162,"20250330_HTO_2148162_Preview_NotForPublication.md","March 30, 2025","3–2"),
+            (2148163,"20250406_HTO_2148163_Preview_NotForPublication.md","April 6, 2025","3–0"),
+        ):
+            with self.subTest(game=gid):
+                path=home/filename
+                self.assertTrue(path.exists(),str(path))
+                article=path.read_text(encoding="utf-8")
+                self.assertIn("RESEARCH DRAFT, NOT APPROVED OR PUBLISHED",article)
+                self.assertIn(str(gid),article)
+                self.assertIn(date,article)
+                self.assertIn(score,article)
+                self.assertIn("original",article.lower())
+                self.assertIn("No Founder approval to publish",article) if gid==2148163 else self.assertIn("No approval to publish",article)
+        april=(home/"20250406_HTO_2148163_Preview_NotForPublication.md").read_text(encoding="utf-8")
+        self.assertIn("goalie row lists Stephen Logue with **two goals against**",april)
+        self.assertIn("does not establish an empty-net goal",april)
+
 if __name__=="__main__":
     unittest.main()
