@@ -30,6 +30,8 @@ from check_svhl_roster_intelligence import verify as verify_roster
 from track_brave_svhl_shadow import examine as compare_braves, write_db as write_shadow
 from collect_svhl_historical_standings import validate as validate_archive
 from check_svhl_league_intelligence import verify as verify_league
+from opponent_player_form import snapshot as verified_weekly_pair
+from build_game_night_defensive_watch import build as game_night_review
 
 class WorkflowHold(ValueError):
     pass
@@ -54,6 +56,29 @@ def atom(path, data):
         file.write("\n")
     os.replace(tmp,path)
 
+def prior_week_snapshot(private, current):
+    """Latest verified distinct official roster capture 2-15 days before current."""
+    folder=Path(private)
+    paths=[folder/"roster_previous_261027_source.json"]
+    runs=folder/"runs"
+    if runs.is_dir():
+        paths.extend(runs.glob("*/roster_source.json"))
+    found=[]
+    for path in paths:
+        if not path.is_file():
+            continue
+        try:
+            prior,_=read(path)
+            if verified_weekly_pair(prior,current) is not None:
+                found.append((datetime.fromisoformat(prior["asOf"].replace("Z","+00:00")),
+                              prior,path))
+        except (ValueError, KeyError, TypeError, WorkflowHold, OSError):
+            continue
+    if not found:
+        return None,None
+    found.sort(key=lambda item:item[0],reverse=True)
+    return found[0][1],str(found[0][2])
+
 def js_validate(repo, candidate, league):
     source = """const fs=require('fs');
 const api=require('./widgets/opponent-player-intelligence.js');
@@ -66,23 +91,26 @@ console.log('OPPONENT_BROWSER_SOURCE_VALIDATION_PASS');"""
     need(p.returncode==0 and "OPPONENT_BROWSER_SOURCE_VALIDATION_PASS" in p.stdout,
          "PUBLIC_BROWSER_SOURCE_GATE_FAILED:" + (p.stderr or p.stdout)[-400:])
 
-def run(repo, private, db, receipt, *, use_prepared=None, check_only=False):
+def run(repo, private, db, receipt, *, source_repo=None, use_prepared=None, check_only=False):
     repo,private,db,receipt = map(Path,(repo,private,db,receipt))
+    source_repo=Path(source_repo) if source_repo is not None else repo
     status={"schema":"brave-hc-opponent-weekly-private-run/v1",
             "startedAtUTC":datetime.now(timezone.utc).isoformat(),
             "state":"STARTED","publicPublished":False,"htoChanged":False,
             "outboundMessages":0,"vaHLIncluded":False}
     try:
         need(repo.is_dir() and (repo/"widgets").is_dir() and private.is_dir() and
+             source_repo.is_dir() and (source_repo/"widgets").is_dir() and
+             source_repo.resolve() != private.resolve() and
              repo.resolve() not in private.resolve().parents and
              private.resolve() != repo.resolve() and
              receipt.resolve().parent==private.resolve() and
              db.resolve().parent==private.resolve() and
              db.name.startswith("svhl_opponent_players_") and db.suffix==".sqlite",
              "AUTHORIZED_PRIVATE_WORKSPACE_REQUIRED")
-        league_path=repo/"widgets"/"league-intelligence.json"
-        archive_path=repo/"widgets"/"historical-svhl-standings.json"
-        hto_path=repo/"widgets"/"player-actuals.json"
+        league_path=source_repo/"widgets"/"league-intelligence.json"
+        archive_path=source_repo/"widgets"/"historical-svhl-standings.json"
+        hto_path=source_repo/"widgets"/"player-actuals.json"
         league,leaguehash=read(league_path)
         archive,_=read(archive_path)
         hto,htohash=read(hto_path)
@@ -123,7 +151,8 @@ def run(repo, private, db, receipt, *, use_prepared=None, check_only=False):
         need(roster.get("schema")==ROSTER_SCHEMA and
              full.get("sourceLeagueAsOf")==league["asOf"],
              "ROSTER_SCOPE_OR_SOURCE_FRESHNESS_INVALID")
-        public=make_public(league,roster,full,profiles)
+        previous,previous_path=prior_week_snapshot(private,roster)
+        public=make_public(league,roster,full,profiles,previous_roster=previous)
         need(public.get("schema")==PUBLIC_SCHEMA and public["teamCount"]==21 and
              public["playerCount"]>=250 and
              profiles["profilesVerified"]>=0.95*profiles["playersAttempted"],
@@ -135,10 +164,27 @@ def run(repo, private, db, receipt, *, use_prepared=None, check_only=False):
             atom(run_dir/"full_source.json",full)
             atom(run_dir/"profiles.json",profiles)
             atom(run_dir/"public_candidate.json",public)
+            if previous is not None:
+                atom(run_dir/"previous_roster_source_PRIVATE.json",previous)
             js_validate(repo,run_dir/"public_candidate.json",league_path)
-            stats=install_sqlite(db,full,profiles,public)
+            stats=install_sqlite(db,full,profiles,public,previous_roster=previous)
         else:
             stats={"dbWritten":False}
+        game_night_status="NOT_CHECKED"
+        game_night_meta={}
+        try:
+            hto_schedule,_=read(source_repo/"widgets"/"countdown.json")
+            svhl_schedule,_=read(source_repo/"widgets"/"svhl-upcoming.json")
+            prepared_review=game_night_review(public,hto_schedule,svhl_schedule)
+            game_night_status=prepared_review["status"]
+            game_night_meta={"fixture":prepared_review["fixture"],
+                "reviewTargets":len(prepared_review["reviewTargets"]),
+                "anyNamedAssignmentsApproved":False}
+            if not check_only:
+                atom(run_dir/"game_night_defensive_review_PRIVATE.json",prepared_review)
+        except Exception as exc:
+            game_night_status="HELD_FIXTURE_OR_SOURCE_GATE"
+            game_night_meta={"reason":str(exc)[:250]}
         shadow_status="NOT_RUN"
         shadow_meta={}
         try:
@@ -176,6 +222,11 @@ def run(repo, private, db, receipt, *, use_prepared=None, check_only=False):
                       publicOpponentPlayers=public["playerCount"],
                       specialtyVerified=public["currentSpecialtyProfilesVerified"],
                       linkedPriorRows=public["linkedPriorPlayerSeasonTeamObservations"],
+                      sourceFormWindow=public["weeklyFormWindow"],
+                      previousSourcePath=previous_path,
+                      liveSourceRepository=str(source_repo),
+                      gameNightReviewStatus=game_night_status,
+                      gameNightReview=game_night_meta,
                       providerProfileHolds=profiles["profilesHeld"],
                       savedDatabase=stats,
                       braveShadowStatus=shadow_status,
@@ -198,9 +249,11 @@ def main():
     for key in ("repo","private","db","receipt"):
         p.add_argument("--"+key,required=True)
     p.add_argument("--prepared")
+    p.add_argument("--source-repo",help="Canonical read-only source checkout refreshed by existing authorized publishers")
     p.add_argument("--check-only",action="store_true")
     a=p.parse_args()
     return run(a.repo,a.private,a.db,a.receipt,
+               source_repo=a.source_repo,
                use_prepared=a.prepared,check_only=a.check_only)
 if __name__=="__main__":
     sys.exit(main())

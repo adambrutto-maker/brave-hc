@@ -41,7 +41,18 @@
   need(feed.teamCount===21&&feed.teams?.length===21&&
        new Set(feed.teams.map(t=>t.sourceTeamId)).size===21,
        "CURRENT_TEAM_COVERAGE");
-  let count=0,hist=0,extra=0;
+  const formStates=new Map();
+  const window=feed.weeklyFormWindow;
+  need(window&&["TWO_SOURCE_CAPTURE_COMPARISON","NO_PREVIOUS_SNAPSHOT"].includes(window.status)&&
+       window.currentAsOf===feed.capturedAt&&
+       window.notGameByGameEventProof===true&&
+       window.notIndividualPerformancePrediction===true&&
+       (window.status==="NO_PREVIOUS_SNAPSHOT"||
+       Number.isFinite(window.daysBetweenCaptures)&&
+       window.daysBetweenCaptures>=2&&window.daysBetweenCaptures<=15)&&
+       window.sourceStates&&typeof window.sourceStates==="object",
+       "WEEKLY_FORM_SOURCE_PROVENANCE");
+  let count=0,hist=0,extra=0,advanced=0;
   for(const team of feed.teams){
    const official=current.get(team.sourceTeamId);
    need(official&&official.leagueName===team.name&&
@@ -60,6 +71,29 @@
          p.nextGameAttendanceVerified===false, "PLAYER_COUNT_IDENTITY_OR_ATTENDANCE");
     ids.add(p.playerId);
     count++;
+    const form=p.sourceForm,recent=form?.recentForm,game=form?.gameNight;
+    need(form?.schema==="brave-hc-svhl-opponent-form/v1"&&
+         form.sourceQualified===(p.sourceStatus==="PUBLISHED_ARITHMETICALLY_CONSISTENT")&&
+         recent&&game&&game.status==="PROPOSED_COACH_REVIEW_ONLY"&&
+         game.coachApproved===false&&game.namedBravesAssignment===null&&
+         game.opponentDressed==="UNVERIFIED"&&
+         game.bravesLineupAndRole==="UNVERIFIED"&&
+         ["SPECIAL_DEFENSIVE_ATTENTION_REVIEW","OPPONENT_WATCH_REVIEW",
+           "ROUTINE_UNCONFIRMED"].includes(game.priority)&&
+         ["DEFEND_INSIDE_SHOOTING_LANE","DENY_MIDDLE_PASSING_LANE",
+           "F1_PRESSURE_AND_FORCE_OUTSIDE"].includes(game.defensiveFocus)&&
+         typeof recent.state==="string"&&
+         recent.verifiedHotStreak===(recent.state==="HOT_MULTIGAME_SOURCE_TREND"),
+         "DEFENSIVE_FORM_AUTHORITY_OR_SAFETY");
+    if(["HOT_MULTIGAME_SOURCE_TREND","COOLING_MULTIGAME_SOURCE_TREND"].includes(recent.state))
+     need(Number.isInteger(recent.newReportedGP)&&recent.newReportedGP>=2,
+          "UNSUPPORTED_MULTIGAME_FORM");
+    if(["ONE_GAME_SCORING_SURGE_WATCH","ONE_QUIET_GAME_NOT_A_COLD_STREAK"].includes(recent.state))
+     need(recent.newReportedGP===1,"UNSUPPORTED_SINGLE_GAME_FORM");
+    if(window.status==="NO_PREVIOUS_SNAPSHOT")
+     need(recent.state==="NO_PRIOR_WEEKLY_PLAYER_SNAPSHOT","UNSUPPORTED_WEEKLY_HISTORY");
+    formStates.set(recent.state,(formStates.get(recent.state)||0)+1);
+    if(Number.isInteger(recent.newReportedGP)&&recent.newReportedGP>0)advanced++;
     if(p.specialtyStats!==null){
      need(p.specialtyStatus==="PROFILE_VERIFIED"&&
           special.every(k=>number(p.specialtyStats[k]))&&
@@ -88,6 +122,10 @@
   }
   need(count===feed.playerCount&&hist===feed.linkedPriorPlayerSeasonTeamObservations&&
        extra===feed.currentSpecialtyProfilesVerified,"PLAYER_COVERAGE_COUNT_DRIFT");
+  need(advanced===window.playersWithNewReportedGP&&
+       [...formStates].every(([key,value])=>window.sourceStates[key]===value)&&
+       Object.keys(window.sourceStates).length===formStates.size,
+       "FORM_STATE_COUNT_OR_WEEKLY_SAMPLE_TAMPERED");
   return true;
  }
  function playerStats(p){
@@ -106,7 +144,7 @@
    pastObservations:history.length,heldPriorObservations:
     (p.priorSeasonTeamObservations||[]).length-history.length,
    special:p.specialtyStatus==="PROFILE_VERIFIED"?p.specialtyStats:null,
-   sourceStatus:p.sourceStatus};
+   sourceForm:p.sourceForm,sourceStatus:p.sourceStatus};
  }
  function team(qualifiedFeed,teamId){
   const source=qualifiedFeed.teams.find(t=>t.sourceTeamId===teamId);
@@ -116,9 +154,21 @@
    .sort((a,b)=>b.current.pts-a.current.pts||
     b.current.g-a.current.g||b.current.gp-a.current.gp||
     a.name.localeCompare(b.name));
+  const weight=p=>({"SPECIAL_DEFENSIVE_ATTENTION_REVIEW":2,
+      "OPPONENT_WATCH_REVIEW":1,"ROUTINE_UNCONFIRMED":0}
+      [p.sourceForm?.gameNight?.priority]||0);
+  const defensiveWatch=players.filter(p=>weight(p)>0&&p.current&&p.current.gp>=3)
+   .sort((a,b)=>weight(b)-weight(a)||
+    Number(b.sourceForm.recentForm.state==="ONE_GAME_SCORING_SURGE_WATCH")-
+    Number(a.sourceForm.recentForm.state==="ONE_GAME_SCORING_SURGE_WATCH")||
+    b.current.ptsPerReportedGP-a.current.ptsPerReportedGP||
+    a.name.localeCompare(b.name)).slice(0,4);
   return {sourceTeamId:source.sourceTeamId,name:source.name,division:source.division,
     sourceUrl:source.sourceUrl,playerCount:players.length,activeReported:active.length,
-    players,leaders:active.slice(0,6),capturedAt:qualifiedFeed.capturedAt,
+    players,leaders:active.slice(0,6),defensiveWatch,
+    gameNightApprovalStatus:"COACH_REVIEW_REQUIRED_NO_NAMED_ASSIGNMENT",
+    capturedAt:qualifiedFeed.capturedAt,
+    recentWindow:qualifiedFeed.weeklyFormWindow,
     note:qualifiedFeed.confidenceNotice};
  }
  return Object.freeze({validate,team,playerStats});

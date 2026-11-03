@@ -132,6 +132,21 @@ async function loadStandings(){
       (p.pastObservations>1?" "+p.pastObservations+" prior team-season observations.":"")));
     }else card.append(node("p","opponent-player-prior",
       "No admissible same-ID previous-season scoring observation."));
+    const form=p.sourceForm, recent=form?.recentForm, pace=form?.seasonPace;
+    const signals={
+      HOT_MULTIGAME_SOURCE_TREND:"Hot across multiple new reported games",
+      COOLING_MULTIGAME_SOURCE_TREND:"Cooling across multiple new reported games",
+      ONE_GAME_SCORING_SURGE_WATCH:"Scoring surge WATCH · one reported game only",
+      ONE_QUIET_GAME_NOT_A_COLD_STREAK:"One quiet reported game · NOT a cold streak",
+      LIMITED_RECENT_SOURCE_SAMPLE:"Recent sample too small to classify",
+      NO_NEW_REPORTED_APPEARANCES:"No new reported GP since prior capture"
+    };
+    card.append(node("p","opponent-player-form",
+      signals[recent?.state]||"No admitted recent player form comparison."));
+    if(pace?.priorSeason)card.append(node("p","opponent-player-prior",
+      "Season pace vs "+pace.priorSeason+": "+
+      (pace.pointsPerGameDelta>0?"+":"")+pace.pointsPerGameDelta.toFixed(2)+
+      " points per reported GP · "+pace.state.replace(/_/g," ").toLowerCase()+"."));
     if(p.special){
      const s=p.special;
      card.append(node("p","opponent-player-special",
@@ -143,6 +158,36 @@ async function loadStandings(){
     const a=node("a","full-link","Official SVHL player source ↗");
     a.href=p.profileUrl;a.target="_blank";a.rel="noopener noreferrer";
     card.append(a);cards.append(card);
+   }
+   const board=$("game-night-defence-board");board.replaceChildren();
+   const fixture=upcoming.find(g=>g.opponent===leagueName);
+   const validFixture=fixture&&fixture.htoSyncStatus==="MATCH";
+   const top=report.defensiveWatch||[];
+   const heading=node("h3","","Defensive attention · coach review proposals");
+   board.append(heading,node("p","note",
+     validFixture?"Next verified game "+fixture.date+" · "+fixture.time+
+     " · "+fixture.rink+". Player attendance and Brave H.C. assignments are NOT confirmed.":
+     "No verified next-game assignment for this club. These are scouting watch priorities only."));
+   const cues={
+    DEFEND_INSIDE_SHOOTING_LANE:"Defenders: guard the slot and shooting lane; do not chase wide.",
+    DENY_MIDDLE_PASSING_LANE:"Wingers: deny seam passes and protect the middle lane.",
+    F1_PRESSURE_AND_FORCE_OUTSIDE:"Centres: pressure the carrier outside, with support inside."
+   };
+   if(!top.length)board.append(node("p","note",
+       "No source-supported special attention target. Continue the standard system."));
+   for(const p of top){
+    const game=p.sourceForm.gameNight,form=p.sourceForm.recentForm;
+    const card=node("article","game-night-defence-card");
+    card.append(node("strong","",p.name+" · "+game.priority.replace(/_/g," ")));
+    card.append(node("p","",cues[game.defensiveFocus]||
+     "Use the standard outside-pressure, inside-protection system."));
+    card.append(node("p","opponent-player-form",
+     "Recent evidence: "+form.state.replace(/_/g," ").toLowerCase()+
+     (form.newReportedGP===null?"":" · "+form.newReportedGP+" newly reported GP, "+
+      form.newReportedPoints+" reported points.")));
+    card.append(node("p","note",
+     "Opponent dressed: UNVERIFIED · Brave H.C. player and role: UNASSIGNED · Coach approval REQUIRED."));
+    board.append(card);
    }
   }
   let approved=null,verifiedSameGames=new Map();

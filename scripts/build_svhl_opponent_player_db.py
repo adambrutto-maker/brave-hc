@@ -8,8 +8,9 @@ counts are inferred from the roster.
 """
 from __future__ import annotations
 from argparse import ArgumentParser
-from collections import defaultdict
+from collections import defaultdict, Counter
 from datetime import datetime, timezone
+from opponent_player_form import analyze as analyze_form, snapshot as form_snapshot
 from hashlib import sha256
 from pathlib import Path
 import json
@@ -154,8 +155,11 @@ def validate_sources(league, roster, full, profiles):
                      "PROFILE_SPECIAL_STATS_NOT_ROSTER_RECONCILED")
     return current
 
-def make_public(league, roster, full, profiles=None):
+def make_public(league, roster, full, profiles=None, previous_roster=None):
     current = validate_sources(league, roster, full, profiles)
+    weekly = form_snapshot(previous_roster, roster)
+    form_statuses = Counter()
+    source_gp_advances = 0
     byplayer = defaultdict(list)
     for team in full["sourceTeams"]:
         if team_is_brave(team):
@@ -197,6 +201,15 @@ def make_public(league, roster, full, profiles=None):
             if verified:
                 special_count += 1
             ok = p["statStatus"] == "PUBLISHED_ARITHMETICALLY_CONSISTENT"
+            comparison = ({
+                "player": weekly["older"].get((tid, pid)),
+                "previousAsOf": weekly["previousAsOf"],
+                "currentAsOf": weekly["currentAsOf"],
+            } if weekly else None)
+            form = analyze_form(p, history, comparison)
+            form_statuses[form["recentForm"]["state"]] += 1
+            if (form["recentForm"].get("newReportedGP") or 0) > 0:
+                source_gp_advances += 1
             players.append({
                 "playerId": pid, "name": p["name"], "jersey": p["jersey"],
                 "positionAsPublished": p["positionAsPublished"],
@@ -214,6 +227,7 @@ def make_public(league, roster, full, profiles=None):
                 "priorSeasonTeamObservations": history,
                 "priorSourceScope": "SAME_SVHL_PLAYER_ID_NOT_A_GAME_ATTENDANCE_PROOF",
                 "nextGameAttendanceVerified": False,
+                "sourceForm": form,
             })
         teams.append({
             "sourceTeamId": tid,
@@ -241,6 +255,16 @@ def make_public(league, roster, full, profiles=None):
         "historicalSeasonTeamSources": full["sourceTeamCount"],
         "linkedPriorPlayerSeasonTeamObservations": historical_count,
         "currentSpecialtyProfilesVerified": special_count,
+        "weeklyFormWindow": {
+            "status": "TWO_SOURCE_CAPTURE_COMPARISON" if weekly else "NO_PREVIOUS_SNAPSHOT",
+            "previousAsOf": weekly["previousAsOf"] if weekly else None,
+            "currentAsOf": roster["asOf"],
+            "daysBetweenCaptures": weekly["daysBetweenCaptures"] if weekly else None,
+            "playersWithNewReportedGP": source_gp_advances,
+            "sourceStates": dict(form_statuses),
+            "notGameByGameEventProof": True,
+            "notIndividualPerformancePrediction": True,
+        },
         "svhlBravePlayerStatsPublished": False,
         "VAHLExcluded": True,
         "completePlayerGameAttendanceVerified": False,
@@ -253,7 +277,7 @@ def make_public(league, roster, full, profiles=None):
         "teams": sorted(teams, key=lambda t: t["name"]),
     }
 
-def install_sqlite(db, full, profiles, public):
+def install_sqlite(db, full, profiles, public, previous_roster=None):
     db = Path(db)
     need(db.suffix.lower() == ".sqlite" and db.parent.is_dir(),
          "SQLITE_TARGET_MUST_BE_PRIVATE_EXISTING_FOLDER")
@@ -283,6 +307,17 @@ def install_sqlite(db, full, profiles, public):
             source_hash TEXT PRIMARY KEY, captured_at_utc TEXT NOT NULL,
             league_id INTEGER NOT NULL, source_team_count INTEGER NOT NULL,
             source_player_rows INTEGER NOT NULL, bravo_hto_only INTEGER NOT NULL)""")
+        con.execute("""CREATE TABLE IF NOT EXISTS player_weekly_snapshots (
+            captured_at_utc TEXT NOT NULL, league_id INTEGER NOT NULL,
+            team_id INTEGER NOT NULL, player_id INTEGER NOT NULL,
+            team_source_sha256 TEXT NOT NULL,
+            player_name TEXT NOT NULL, gp INTEGER NOT NULL,
+            g INTEGER NOT NULL, a INTEGER NOT NULL,
+            pts INTEGER NOT NULL, pim INTEGER NOT NULL,
+            stat_status TEXT NOT NULL,
+            PRIMARY KEY (captured_at_utc, team_id, player_id))""")
+        con.execute("CREATE INDEX IF NOT EXISTS idx_weekly_player_history ON "
+                    "player_weekly_snapshots(player_id, team_id, captured_at_utc)")
         con.execute("CREATE INDEX IF NOT EXISTS idx_player_season_identity ON "
                     "player_season_observations(player_id, league_id, team_id)")
         con.execute("CREATE INDEX IF NOT EXISTS idx_player_team_season ON "
@@ -305,6 +340,42 @@ def install_sqlite(db, full, profiles, public):
                      p["positionAsPublished"], p["gp"], p["g"], p["a"], p["pts"],
                      p["pim"], p["statStatus"], p["profileUrl"]))
                 records += 1
+        # Store both sides of the actual dated weekly comparison; repeated
+        # replays cannot rewrite a previously observed timestamp/player row.
+        weekly_sets = []
+        if previous_roster is not None:
+            need(public.get("weeklyFormWindow",{}).get("status") ==
+                 "TWO_SOURCE_CAPTURE_COMPARISON" and
+                 public["weeklyFormWindow"]["previousAsOf"] ==
+                 previous_roster.get("asOf"),
+                 "WEEKLY_HISTORY_NOT_SOURCE_BOUND")
+            weekly_sets.append((previous_roster["asOf"], [
+                t for t in previous_roster["teams"]
+                if t.get("sourceTeamId") != BRAVE]))
+        weekly_sets.append((full["capturedAt"], [
+            t for t in full["sourceTeams"] if
+            t["leagueId"] == 570 and t["sourceTeamId"] != BRAVE]))
+        for stamp, teams_for_week in weekly_sets:
+            for t in teams_for_week:
+                tid=t["sourceTeamId"]
+                need(tid != BRAVE and
+                     t["division"] != "VAHL Division" and
+                     HEX.fullmatch(t["sourceSHA256"]) is not None,
+                     "WEEKLY_SNAPSHOT_TEAM_PROVENANCE_INVALID")
+                for player in t["players"]:
+                    key=(stamp,tid,player["playerId"])
+                    row=(stamp,570,tid,player["playerId"],
+                         t["sourceSHA256"],player["name"],
+                         *(player[k] for k in ("gp","g","a","pts","pim")),
+                         player["statStatus"])
+                    prior=con.execute(
+                         "SELECT * FROM player_weekly_snapshots WHERE "
+                         "captured_at_utc=? AND team_id=? AND player_id=?",key).fetchone()
+                    need(prior is None or tuple(prior)==row,
+                         "IMMUTABLE_WEEKLY_SNAPSHOT_ID_CONFLICT")
+                    if prior is None:
+                        con.execute("INSERT INTO player_weekly_snapshots "
+                                    "VALUES (?,?,?,?,?,?,?,?,?,?,?,?)",row)
         for item in (profiles or {}).get("profileRows", []):
             if item["status"] != "PROFILE_VERIFIED_AGAINST_ROSTER":
                 continue
@@ -321,6 +392,8 @@ def install_sqlite(db, full, profiles, public):
                     "SELECT COUNT(*) FROM specialty_observations").fetchone()[0],
                 "storedCaptureRuns": con.execute(
                     "SELECT COUNT(*) FROM capture_runs").fetchone()[0],
+                "storedWeeklyPlayerSnapshots": con.execute(
+                    "SELECT COUNT(*) FROM player_weekly_snapshots").fetchone()[0],
                 "publicOpponentPlayers": public["playerCount"]}
     except Exception:
         con.rollback()
@@ -333,16 +406,19 @@ def main():
     for key in ("league", "roster", "full", "database", "public-out"):
         p.add_argument("--" + key, type=Path, required=True)
     p.add_argument("--profiles", type=Path)
+    p.add_argument("--previous-roster", type=Path,
+                   help="Prior official same-season roster snapshot for actual weekly deltas")
     p.add_argument("--check-only", action="store_true")
     args = p.parse_args()
     try:
         read = lambda f: json.loads(f.read_text(encoding="utf-8-sig"))
         league, roster, full = read(args.league), read(args.roster), read(args.full)
         profiles = read(args.profiles) if args.profiles else None
-        public = make_public(league, roster, full, profiles)
+        previous = read(args.previous_roster) if args.previous_roster else None
+        public = make_public(league, roster, full, profiles, previous_roster=previous)
         if not args.check_only:
             need(args.public_out.parent.is_dir(), "OUTPUT_FOLDER_NOT_FOUND")
-            state = install_sqlite(args.database, full, profiles, public)
+            state = install_sqlite(args.database, full, profiles, public, previous_roster=previous)
             target = args.public_out
             temp = target.with_suffix(target.suffix + ".tmp")
             temp.write_text(json.dumps(public, ensure_ascii=False,

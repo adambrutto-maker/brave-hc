@@ -45,11 +45,16 @@
   tbody.replaceChildren();
   if(!feed||!league)return;
   const selected=q("opponent-team").value,term=q("search-players").value
-   .toLowerCase().trim();
+   .toLowerCase().trim(),focus=q("attention-filter").value;
   const eligible=feed.teams.filter(t=>selected==="all"||String(t.sourceTeamId)===selected);
   const records=eligible.flatMap(team=>team.players.map(player=>({team,player})))
-   .filter(({player})=>!term||player.name.toLowerCase().includes(term)||
-     String(player.jersey||"").toLowerCase().includes(term))
+   .filter(({player})=>(!term||player.name.toLowerCase().includes(term)||
+     String(player.jersey||"").toLowerCase().includes(term))&&
+     (focus==="all"||
+      focus==="special"&&player.sourceForm?.gameNight?.priority==="SPECIAL_DEFENSIVE_ATTENTION_REVIEW"||
+      focus==="watch"&&player.sourceForm?.gameNight?.priority!=="ROUTINE_UNCONFIRMED"||
+      focus==="surge"&&player.sourceForm?.recentForm?.state==="ONE_GAME_SCORING_SURGE_WATCH"||
+      focus==="season-up"&&player.sourceForm?.seasonPace?.state==="SEASON_PACE_ABOVE_PRIOR"))
    .sort((a,b)=>{
     const ag=a.player.sourceStatus==="PUBLISHED_ARITHMETICALLY_CONSISTENT";
     const bg=b.player.sourceStatus==="PUBLISHED_ARITHMETICALLY_CONSISTENT";
@@ -80,12 +85,36 @@
    add(tr,"td","",p.publishedPtsPerGP===null?"—":
      p.publishedPtsPerGP.toFixed(2));
    special(add(tr,"td","",null),p);
+   const form=p.sourceForm?.recentForm,game=p.sourceForm?.gameNight;
+   const formCell=add(tr,"td","",null);
+   const label={
+     HOT_MULTIGAME_SOURCE_TREND:"Multi-game hot trend",
+     COOLING_MULTIGAME_SOURCE_TREND:"Multi-game cooling trend",
+     ONE_GAME_SCORING_SURGE_WATCH:"One-game scoring surge WATCH",
+     ONE_QUIET_GAME_NOT_A_COLD_STREAK:"One quiet game · NOT cold",
+     LIMITED_RECENT_SOURCE_SAMPLE:"Limited new-game sample",
+     NO_NEW_REPORTED_APPEARANCES:"No new source GP",
+     NO_PRIOR_WEEKLY_PLAYER_SNAPSHOT:"No earlier week source"
+   };
+   add(formCell,"strong","",label[form?.state]||"Form held");
+   if(form?.newReportedGP>0)add(formCell,"div","minor",
+     form.newReportedGP+" new reported GP · "+
+     form.newReportedPoints+" new points (cumulative snapshot difference)");
+   const pace=p.sourceForm?.seasonPace;
+   if(pace?.priorSeason)add(formCell,"div","minor",
+     "Versus "+pace.priorSeason+": "+
+     (pace.pointsPerGameDelta>0?"+":"")+pace.pointsPerGameDelta.toFixed(2)+" PTS/GP");
+   const assignment=add(tr,"td","",null);
+   add(assignment,"strong","",game?.priority?.replace(/_/g," ")||"Held");
+   add(assignment,"div","minor",
+     (game?.defensiveFocus||"STANDARD_SYSTEM").replace(/_/g," ").toLowerCase());
+   add(assignment,"div","minor","Unconfirmed opponent · no named Brave assignment · coach review");
    detail(add(tr,"td","",null),p);
   }
   if(!records.length){
    const tr=add(tbody,"tr","","");
    const td=add(tr,"td","muted","No source-qualified players match this filter.");
-   td.colSpan=10;
+   td.colSpan=12;
   }
  }
  async function main(){
@@ -106,6 +135,7 @@
    if(match)select.value=String(match.sourceTeamId);
    select.addEventListener("change",table);
    q("search-players").addEventListener("input",table);
+   q("attention-filter").addEventListener("change",table);
    table();
   }catch(err){
    q("opponent-status").textContent="Player intelligence held: "+err.message+

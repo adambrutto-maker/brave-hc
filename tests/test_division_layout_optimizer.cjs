@@ -77,7 +77,7 @@ const rules=[
   const m=optimizer.run(ref);
   assert.equal(m.historicalBravesComparisons,79);
   assert.equal(m.sourceAdultGames,ref.gameGraph.verifiedGamesInPool);
-  assert.equal(m.admittedWeeks,1);
+  assert.equal(m.admittedWeeks,league.weeklyLedger.weeksRecorded);
   assert.equal(m.proposedForDiscussion,true);
   assert.equal(m.readyForLeagueSubmission,false);
  }],
@@ -104,7 +104,7 @@ const rules=[
  }],
  ["One source week never establishes a league ready realignment proposal",()=>{
   const m=optimizer.run(ref);
-  assert.equal(m.admittedWeeks,1);
+  assert.equal(m.admittedWeeks,league.weeklyLedger.weeksRecorded);
   assert.equal(m.status,"PROVISIONAL_RESEARCH_LAYOUTS_NOT_LEAGUE_APPROVED");
   assert.ok(m.modes.every(x=>x.description.length>30));
  }],

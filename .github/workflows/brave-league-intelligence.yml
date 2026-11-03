@@ -45,6 +45,23 @@ on:
       - 'tests/test_roster_era_strength.cjs'
       - 'widgets/roster-division-evidence.js'
       - 'widgets/svhl-roster-intelligence.json'
+      - 'widgets/opponent-player-intelligence.json'
+      - 'widgets/opponent-player-intelligence.js'
+      - 'widgets/opponent-players.html'
+      - 'widgets/opponent-players-page.js'
+      - 'widgets/home-premium.js'
+      - 'widgets/home-premium.css'
+      - 'scripts/opponent_player_form.py'
+      - 'scripts/build_game_night_defensive_watch.py'
+      - 'scripts/build_svhl_opponent_player_db.py'
+      - 'scripts/weekly_svhl_opponent_player_intelligence.py'
+      - 'scripts/collect_svhl_opponent_profiles.py'
+      - 'scripts/collect_svhl_brave_shadow_profiles.py'
+      - 'scripts/track_brave_svhl_shadow.py'
+      - 'tests/test_opponent_player_form.py'
+      - 'tests/test_game_night_defensive_watch.py'
+      - 'tests/test_braves_svhl_shadow.py'
+      - 'tests/test_opponent_player_intelligence.cjs'
       - 'widgets/player-game-audit.html'
       - 'widgets/player-game-audit.js'
       - 'widgets/player-participation-evidence.js'
@@ -131,6 +148,23 @@ on:
       - 'tests/test_roster_era_strength.cjs'
       - 'widgets/roster-division-evidence.js'
       - 'widgets/svhl-roster-intelligence.json'
+      - 'widgets/opponent-player-intelligence.json'
+      - 'widgets/opponent-player-intelligence.js'
+      - 'widgets/opponent-players.html'
+      - 'widgets/opponent-players-page.js'
+      - 'widgets/home-premium.js'
+      - 'widgets/home-premium.css'
+      - 'scripts/opponent_player_form.py'
+      - 'scripts/build_game_night_defensive_watch.py'
+      - 'scripts/build_svhl_opponent_player_db.py'
+      - 'scripts/weekly_svhl_opponent_player_intelligence.py'
+      - 'scripts/collect_svhl_opponent_profiles.py'
+      - 'scripts/collect_svhl_brave_shadow_profiles.py'
+      - 'scripts/track_brave_svhl_shadow.py'
+      - 'tests/test_opponent_player_form.py'
+      - 'tests/test_game_night_defensive_watch.py'
+      - 'tests/test_braves_svhl_shadow.py'
+      - 'tests/test_opponent_player_intelligence.cjs'
       - 'widgets/player-game-audit.html'
       - 'widgets/player-game-audit.js'
       - 'widgets/player-participation-evidence.js'
@@ -250,6 +284,14 @@ jobs:
           test -z "$(git -C "$RUNNER_TEMP/roster-clean-qa" status --porcelain)"
       - name: Fail closed on Git porcelain status and unauthorized roster publisher file changes
         run: python -B -m unittest discover -s tests -p test_roster_publisher_scope.py -v
+      - name: Guard HTO-authoritative private Brave H.C. SVHL discrepancy source
+        run: python -B -m unittest discover -s tests -p test_braves_svhl_shadow.py -v
+      - name: Verify source-observed opponent weekly form, one-game uncertainty and no auto-assignments
+        run: python -B -m unittest discover -s tests -p test_opponent_player_form.py -v
+      - name: Require exact SVHL/HTO game identity and coach review for next defensive attention
+        run: python -B -m unittest discover -s tests -p test_game_night_defensive_watch.py -v
+      - name: Prevent VAHL, Brave H.C. shadow and unsupported hot/cold flags in public player intelligence
+        run: node tests/test_opponent_player_intelligence.cjs
       - name: Validate score-matched official game sheets and player-ID reconciliations
         run: python -B scripts/check_svhl_player_game_evidence.py
       - name: Refuse invented GameInfo scorers, assists, source URLs and appearances
