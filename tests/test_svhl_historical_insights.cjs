@@ -58,12 +58,20 @@ const tests=[
    assert.equal(review.status,"EARLY_RESEARCH_NOT_A_DIVISION_RECOMMENDATION");
    assert.ok(review.rationale.includes("four weekly observations"));
  }],
- ["Weekly base has no invented change from an unavailable prior week",()=>{
+ ["Weekly trend is based on accepted observations without invented weeks",()=>{
    const braves=model.plain(league,archive,"Braves HC",links);
-   assert.equal(braves.weekly.count,1);
-   assert.equal(braves.weekly.delta,null);
+   const team=league.teams.find(t=>t.leagueName==="Braves HC");
+   const points=league.weeklyLedger.weeks.map(w=>
+     w.teams.find(t=>t.sourceTeamId===team.sourceTeamId)).filter(Boolean);
+   assert.equal(braves.weekly.count,points.length);
+   const last=points.at(-1),prior=points.length>1?points.at(-2):null;
+   const delta=last&&prior&&Number.isFinite(last.contextIndex)&&
+     Number.isFinite(prior.contextIndex)?
+     Number((last.contextIndex-prior.contextIndex).toFixed(1)):null;
+   assert.equal(braves.weekly.delta,delta,
+      "only two verified consecutive weekly source observations can support a delta");
    assert.equal(braves.weekly.latest.team.contextIndex,
-       league.teams.find(t=>t.leagueName==="Braves HC").strengthContext.contextIndex);
+       team.strengthContext.contextIndex);
  }],
  ["Invalid historical source fails closed without affecting live league source",()=>{
    const copy=JSON.parse(JSON.stringify(archive));
