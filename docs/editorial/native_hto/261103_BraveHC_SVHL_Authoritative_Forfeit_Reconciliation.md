@@ -56,3 +56,15 @@ This release adds **supplemental canonical data**, not a new HTO scoreboard edit
 7. Investigate the independent April 6, 2025 **Mid Ice Crisis 3–0 / Stephen Logue 2 GA** goalie discrepancy separately. It is not a forfeit, and this reconciliation does not explain it. SVHL postseason unscored 0–0 placeholders remain non-final.
 
 **Rollback:** Revert the candidate contract PR. No authoritative league or HTO data are changed by the research or by this review branch.
+
+## Independent HTO Records confirmation — two scoring domains
+
+The authoritative public [Brave H.C. HTO Records](https://www.htosports.com/teams/default.asp?p=records&s=hockey&u=BRAVESHOCKEY) independently reports regular-season team scoring of **73 goals for in Winter 2024/25** and **81 in Winter 2025/26**, excluding the HTO 0–0 forfeit display rows. Official SVHL league standings show **74** and **84** respectively. The exact difference (**one** and **three**) equals the number of awarded 1–0 Brave H.C. forfeit wins in those seasons. Both sources agree on team goals against: **95** in 2024/25 and **82** in 2025/26.
+
+The source-verified scoring-domain audit and HTO public Records checksum are retained in [the Records and playoff accounting evidence](261103_HTO_Records_Scoring_Domains_And_2025_Playoff_Goalie_Residual.json). The canonical JSON now separates `playedGameGoalsFor` from `officialLeagueStandingsGoalsFor` and `awardedAdministrativeGoalsFor`. The optional read-only JavaScript lookup `getSeasonGoalAccounting` validates that **played goals + awarded forfeits = official league goals**; it fails closed on any inconsistency. This prevents artificial player goals or double counting when HockeyOS calculates history and award scores.
+
+### Separate April 2025 goalie record — not a forfeit correction
+
+The original HTO Records page reports **six team goals against** in the 2024/25 playoffs. Exact March 30 and April 6 HTO playoff boxscores report three goals against each (6 total), but the only listed goalie Stephen Logue has **3 GA** and **2 GA** (5 total). Thus one team goal is absent from the listed goalie GA total **in the April 6 game**. Neither the event circumstances nor the reason for that difference are verified; do not assert an empty-net goal, substitute goalie or stat-entry error as fact. The original team and goalie records remain untouched and the April 6 editorial approval hold continues in [the 2024/25 research review](https://github.com/adambrutto-maker/brave-hc/pull/205).
+
+**No live HTO changes, original source deletions, workbook modifications or retroactive player scoring credits were made.**
