@@ -97,12 +97,12 @@ def main():
              "fullEventReviewDrafts":5,"sourceLimitedRegularReviewDrafts":18,
              "overtimeLimitedReviewDrafts":1,"administrativeForfeits":3,
              "newRetrospectiveArticlesPublished":0,
-             "originalHistoricalNativeContentStatus":"UNKNOWN_NOT_INSPECTED",
+             "originalHistoricalNativeContentStatus":"20_FIELDS_WITH_33_ORIGINAL_IMAGES_AND_1_VIDEO;_4_EMPTY;_NO_ORIGINAL_WRITTEN_RECAPS",
              "reviewDecision":"NOT_APPROVED_FOR_PUBLICATION",
              "currentSeasonSeparate":"2026/27 six summaries and one preview already native-published and verified",
-             "historicalNativeSourceFieldBackupStatus":"NOT_YET_INSPECTED",
-             "archivedGameEditorAccess":"TEST_GAME_2215008_DIRECT_SCORES_EDIT_ROUTE_REDIRECTED_TO_CURRENT_SCHEDULE",
-             "supportDecisionRequired":"VERIFY_SAFE_ARCHIVED_GAME_SUMMARY_EDITING_WITH_HTO_SUPPORT",
+             "historicalNativeSourceFieldBackupStatus":"ALL_24_EXACT_HISTORICAL_RECAP_FIELDS_BACKED_UP_LOCAL",
+             "archivedGameEditorAccess":"CONFIRMED_SCHEDULE_SEASON_SELECTOR_WINTER_2025_2026_THEN_SCORES_ARCHTOG_1",
+             "supportDecisionRequired":"NONE_EDITOR_ACCESS_CONFIRMED_WITH_HISTORIC_SCHEDULE_SELECTION",
              "historicalRetrospectiveStatus":"NOT_ORIGINAL_CONTEMPORANEOUS_REPORTING",
              "sources":{"originalHTOAudit":str(AUDIT.relative_to(ROOT)).replace("\\","/"),
                         "freshFiveGameFullEvent":str(FIVE_CHECK.relative_to(ROOT)).replace("\\","/"),
@@ -149,10 +149,11 @@ def main():
       "Before any publication, an authorized HTO administrator must open the exact "
       "game ID's Game Summary field and preserve any original contemporary report. "
       "A blank public boxscore page does **not** prove an existing private editor field is empty. "
-      "In the current authenticated admin, directly opening archived HTO game #2215008's Scores editor "
-      "redirected to the current-season Schedule. HTO's Season Update FAQ advises contacting Support "
-      "for old-season reactivation; do **not** update or reset the active 2026/27 season as a workaround. "
-      "An HTO-supported historical text-edit route remains unverified. "
+      "The authenticated Winter 2025/2026 Schedule season selector exposes each historic Scores "
+      "button and Recap editor; its generated route includes viewseas=Winter_2025/2026 and archTog=1. "
+      "All 24 original Recap fields were backed up in BRUTTECH 1, with 33 historic images, "
+      "one existing video, four empty fields, and no original written paragraphs. "
+      "There is no need to reactivate the season or contact HTO Support for this editor route. "
       "A newly reconstructed story must be clearly labeled retrospective, "
       "approved individually and published without changing official scoring or game data. "
       "Only then should the Hot Stove season archive link to the native story.","",
@@ -163,7 +164,8 @@ def main():
       "- [Five detailed editorial review files](editorial_review/manifest.json)",
       "- [Nineteen source-limited reviews](source_limited_review/review_manifest.json)",
       "- [Machine-readable review index](review_index.json)",
-      "- [HTO official archived-season editing FAQ](https://www.hometeamsonline.com/sportswebsites/default.asp?p=helpdetails&topic=teaminfo)","",
+      "- [Preservation-first native HTO publication candidates](publication_candidates/README.md)",
+      "- [HTO original native source preservation manifest](publication_candidates/manifest.json)","",
       "**Release restrictions:** No archive story is automatically approved, no per-game widget is "
       "created, no site layout is changed and LiveBarn/highlights remain a separate workstream.",""])
     OUT_MD.write_text("\n".join(lines),encoding="utf8",newline="\n")

@@ -1,5 +1,7 @@
 # HomeTeamsONLINE support inquiry — editing archived Brave H.C. game summaries
 
+> **SUPERSEDED — DO NOT SEND.** The Founder demonstrated archived editing from the Schedule view by selecting Winter 2025/2026, then Scores. HTO generated a working viewseas=Winter_2025/2026&archTog=1 game editor route. All 24 original Recap fields were subsequently inspected and backed up. The support question is no longer blocking the archive.
+
 **Status:** DRAFT FOR REVIEW — NOT SENT
 **Prepared:** November 2, 2026
 **System:** HomeTeamsONLINE, official Brave H.C. team site (BRAVESHOCKEY)

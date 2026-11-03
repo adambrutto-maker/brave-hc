@@ -75,3 +75,14 @@ Added work products:
 Official HTO guidance: https://www.hometeamsonline.com/sportswebsites/default.asp?p=helpdetails&topic=teaminfo
 
 **Next controlled step:** Request HTO Support guidance for safely inserting retrospective Game Summary text into archived 2025/26 game IDs **without reactivating or changing the current season**. Verify a supported editor route and back up pre-existing historical text before any publication. Only Founder-approved historical stories may be posted; the three forfeits are administrative records. Older seasons contain nine held source-parity exceptions requiring separate investigation.
+
+
+## Historical HTO native access correction and media-preserving candidate build
+
+The Founder identified the correct administrative workflow: select **Winter 2025/2026** in **Schedule & Results**, then use each historical game's **Scores** button. The generated native editor URL includes **viewseas=Winter_2025/2026** and **archTog=1**; the prior attempt without those parameters had misleadingly redirected to the current-season Schedule. **HTO Support is not needed to access archived game Recap fields.** The Season Update setting was never altered.
+
+All 24 played-game original native Recap fields have now been inspected and backed up on BRUTTECH 1: 20 contain historic HTML with 33 standings/season-point-projection image embeds and one original YouTube iframe, four are empty, and none contains contemporary written Recap paragraphs. The 33 images and one iframe are preserved exactly in the 24 new combined high-contrast native article candidates. **Original source fields were not changed by this preparation.**
+
+The 24 native candidates have been tested in browser-only simulations on historical HTO game pages. **800/800 checks passed across 50 mobile/desktop views**, preserving official scoring tables, original image/video links, navigation/header geometry, and preventing new horizontal overflow. Full candidate manifest: docs/editorial/native_hto/2025-26/publication_candidates/manifest.json.
+
+**Publication still requires review of the retrospective article text, comparison against the live original-field backup, native save and exact-game public/statistics readback.** The candidate pack remains marked NOT PUBLISHED. The older support-request draft has been retained as an audit record but marked SUPERSEDED / DO NOT SEND.

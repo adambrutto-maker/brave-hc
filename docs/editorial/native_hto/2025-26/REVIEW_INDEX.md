@@ -50,7 +50,7 @@ The official HTO **Scores → Game Summary** field remains the intended primary 
 
 ## Native HTO publication gate
 
-Before any publication, an authorized HTO administrator must open the exact game ID's Game Summary field and preserve any original contemporary report. A blank public boxscore page does **not** prove an existing private editor field is empty. In the current authenticated admin, directly opening archived HTO game #2215008's Scores editor redirected to the current-season Schedule. HTO's Season Update FAQ advises contacting Support for old-season reactivation; do **not** update or reset the active 2026/27 season as a workaround. An HTO-supported historical text-edit route remains unverified. A newly reconstructed story must be clearly labeled retrospective, approved individually and published without changing official scoring or game data. Only then should the Hot Stove season archive link to the native story.
+Before any publication, an authorized HTO administrator must open the exact game ID's Game Summary field and preserve any original contemporary report. A blank public boxscore page does **not** prove an existing private editor field is empty. The authenticated Winter 2025/2026 Schedule season selector exposes each historic Scores button and Recap editor; its generated route includes viewseas=Winter_2025/2026 and archTog=1. All 24 original Recap fields were backed up in BRUTTECH 1, with 33 historic images, one existing video, four empty fields, and no original written paragraphs. There is no need to reactivate the season or contact HTO Support for this editor route. A newly reconstructed story must be clearly labeled retrospective, approved individually and published without changing official scoring or game data. Only then should the Hot Stove season archive link to the native story.
 
 ## Source evidence and validation
 
@@ -60,6 +60,7 @@ Before any publication, an authorized HTO administrator must open the exact game
 - [Five detailed editorial review files](editorial_review/manifest.json)
 - [Nineteen source-limited reviews](source_limited_review/review_manifest.json)
 - [Machine-readable review index](review_index.json)
-- [HTO official archived-season editing FAQ](https://www.hometeamsonline.com/sportswebsites/default.asp?p=helpdetails&topic=teaminfo)
+- [Preservation-first native HTO publication candidates](publication_candidates/README.md)
+- [HTO original native source preservation manifest](publication_candidates/manifest.json)
 
 **Release restrictions:** No archive story is automatically approved, no per-game widget is created, no site layout is changed and LiveBarn/highlights remain a separate workstream.

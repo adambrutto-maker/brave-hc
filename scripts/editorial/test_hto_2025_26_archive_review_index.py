@@ -29,9 +29,9 @@ class HistoricalSeasonArchiveRegisterTests(unittest.TestCase):
     def test_explicit_not_published_and_no_auto_authorization(self):
         self.assertEqual(self.index["newRetrospectiveArticlesPublished"],0)
         self.assertEqual(self.index["reviewDecision"],"NOT_APPROVED_FOR_PUBLICATION")
-        self.assertEqual(self.index["historicalNativeSourceFieldBackupStatus"],"NOT_YET_INSPECTED")
-        self.assertIn("2215008",self.index["archivedGameEditorAccess"])
-        self.assertIn("HTO_SUPPORT",self.index["supportDecisionRequired"])
+        self.assertEqual(self.index["historicalNativeSourceFieldBackupStatus"],"ALL_24_EXACT_HISTORICAL_RECAP_FIELDS_BACKED_UP_LOCAL")
+        self.assertIn("SCHEDULE_SEASON_SELECTOR",self.index["archivedGameEditorAccess"])
+        self.assertIn("NONE_EDITOR_ACCESS_CONFIRMED",self.index["supportDecisionRequired"])
         self.assertTrue(all(not g["nativeSummaryPublicationVerified"] for g in self.index["games"]))
 
     def test_source_editor_review_draft_files_exist(self):
