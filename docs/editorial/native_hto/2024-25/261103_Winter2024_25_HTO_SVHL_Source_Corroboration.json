@@ -1,0 +1,560 @@
+{
+  "schema": "brave-hc-winter-2024-25-hto-svhl-season-source-parity/v1",
+  "auditedUTC": "2026-11-03T07:50:24.343175+00:00",
+  "status": "READ_ONLY_SOURCE_CORROBORATION_WITH_EXPLICIT_HOLDS",
+  "team": "Brave H.C.",
+  "htoSeason": "Winter_2024/2025",
+  "svhlLeagueId": 531,
+  "svhlTeamId": 12572,
+  "svhlTeamName": "Braves H/C",
+  "svhlTeamSeasonURL": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=531&teamid=12572&page_type=Adult",
+  "sourceHTO": "26 exact HTO Scores and original game page records",
+  "sourceSVHL": "League 531 original game-info dataset and public team schedule; 24 in-season Braves H/C event-game records",
+  "counts": {
+    "PLAYED_EXACT_DATE_FINAL_SCORE_PARITY": 23,
+    "ADMIN_FORFEIT_DIFFERENT_SOURCE_SCORING_CONVENTION": 1,
+    "PLAYOFF_UNSCORED_IN_SVHL_EVENT_DATASET": 2
+  },
+  "majorHold": {
+    "htoGameId": 2148163,
+    "issue": "HTO official team 3-0 vs goalie Stephen Logue individual 2 GA; SVHL playoff source not scored",
+    "status": "UNRESOLVED_NO_EVENT_INFERENCE"
+  },
+  "games": [
+    {
+      "htoGameId": 2148133,
+      "date": "2024-09-22",
+      "opponentHTO": "Mohawks H.C.",
+      "HTOScore": [
+        4,
+        2
+      ],
+      "HTOURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&archTog=1&viewseas=Winter_2024%2F2025&p=boxscore&gameID=2148133",
+      "gameType": "REGULAR SEASON",
+      "status": "PLAYED_EXACT_DATE_FINAL_SCORE_PARITY",
+      "svhlGameId": 115659,
+      "svhlGameURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=531&gameid=115659&page_type=Adult",
+      "svhlGamePublicSourceSHA256": "57dff86a596140cb40d67d25c66545ccce15cfd2597a9ffb079da0d502269185",
+      "svhlOpponent": "Mohawks H/C",
+      "svhlScore": [
+        4,
+        2
+      ],
+      "sourceBoundary": "Scores corroborated; original player reporting still source-scoped."
+    },
+    {
+      "htoGameId": 2148134,
+      "date": "2024-09-29",
+      "opponentHTO": "Schmelts",
+      "HTOScore": [
+        1,
+        6
+      ],
+      "HTOURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&archTog=1&viewseas=Winter_2024%2F2025&p=boxscore&gameID=2148134",
+      "gameType": "REGULAR SEASON",
+      "status": "PLAYED_EXACT_DATE_FINAL_SCORE_PARITY",
+      "svhlGameId": 115677,
+      "svhlGameURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=531&gameid=115677&page_type=Adult",
+      "svhlGamePublicSourceSHA256": "5922790fb131a0c837f8d94b996339c050c3853a1e04f7aed65398e0f77d9792",
+      "svhlOpponent": "Schmelts",
+      "svhlScore": [
+        1,
+        6
+      ],
+      "sourceBoundary": "Scores corroborated; original player reporting still source-scoped."
+    },
+    {
+      "htoGameId": 2148137,
+      "date": "2024-10-06",
+      "opponentHTO": "Dateline Predators",
+      "HTOScore": [
+        6,
+        0
+      ],
+      "HTOURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&archTog=1&viewseas=Winter_2024%2F2025&p=boxscore&gameID=2148137",
+      "gameType": "REGULAR SEASON",
+      "status": "PLAYED_EXACT_DATE_FINAL_SCORE_PARITY",
+      "svhlGameId": 115790,
+      "svhlGameURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=531&gameid=115790&page_type=Adult",
+      "svhlGamePublicSourceSHA256": "ff925eebe3d083a549cf9b341c17fcb3520b77e3bcd9557d3cd30cc4fc8eed55",
+      "svhlOpponent": "Dateline Predators",
+      "svhlScore": [
+        6,
+        0
+      ],
+      "sourceBoundary": "Scores corroborated; original player reporting still source-scoped."
+    },
+    {
+      "htoGameId": 2148138,
+      "date": "2024-10-20",
+      "opponentHTO": "Fang",
+      "HTOScore": [
+        2,
+        7
+      ],
+      "HTOURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&archTog=1&viewseas=Winter_2024%2F2025&p=boxscore&gameID=2148138",
+      "gameType": "REGULAR SEASON",
+      "status": "PLAYED_EXACT_DATE_FINAL_SCORE_PARITY",
+      "svhlGameId": 115793,
+      "svhlGameURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=531&gameid=115793&page_type=Adult",
+      "svhlGamePublicSourceSHA256": "6ab858cd2d9f473cb58998b603a7bbe5d76ec88e358b7fa2e276c4374b8ca045",
+      "svhlOpponent": "Fangs",
+      "svhlScore": [
+        2,
+        7
+      ],
+      "sourceBoundary": "Scores corroborated; original player reporting still source-scoped."
+    },
+    {
+      "htoGameId": 2148140,
+      "date": "2024-10-27",
+      "opponentHTO": "Bears",
+      "HTOScore": [
+        5,
+        4
+      ],
+      "HTOURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&archTog=1&viewseas=Winter_2024%2F2025&p=boxscore&gameID=2148140",
+      "gameType": "REGULAR SEASON",
+      "status": "PLAYED_EXACT_DATE_FINAL_SCORE_PARITY",
+      "svhlGameId": 115794,
+      "svhlGameURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=531&gameid=115794&page_type=Adult",
+      "svhlGamePublicSourceSHA256": "ce6b4ff24b3b69be75f78c09429a1c0f61eb53cd8d46a54f93e3e75b8bf84eda",
+      "svhlOpponent": "Bears",
+      "svhlScore": [
+        5,
+        4
+      ],
+      "sourceBoundary": "Scores corroborated; original player reporting still source-scoped."
+    },
+    {
+      "htoGameId": 2148141,
+      "date": "2024-11-03",
+      "opponentHTO": "Milkmen",
+      "HTOScore": [
+        2,
+        6
+      ],
+      "HTOURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&archTog=1&viewseas=Winter_2024%2F2025&p=boxscore&gameID=2148141",
+      "gameType": "REGULAR SEASON",
+      "status": "PLAYED_EXACT_DATE_FINAL_SCORE_PARITY",
+      "svhlGameId": 115797,
+      "svhlGameURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=531&gameid=115797&page_type=Adult",
+      "svhlGamePublicSourceSHA256": "73354fe064d674ed539acc12f8d3e9764baebef3ed53c65d576368e469b8cffa",
+      "svhlOpponent": "Milkmen",
+      "svhlScore": [
+        2,
+        6
+      ],
+      "sourceBoundary": "Scores corroborated; original player reporting still source-scoped."
+    },
+    {
+      "htoGameId": 2148142,
+      "date": "2024-11-10",
+      "opponentHTO": "Schmelts",
+      "HTOScore": [
+        5,
+        3
+      ],
+      "HTOURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&archTog=1&viewseas=Winter_2024%2F2025&p=boxscore&gameID=2148142",
+      "gameType": "REGULAR SEASON",
+      "status": "PLAYED_EXACT_DATE_FINAL_SCORE_PARITY",
+      "svhlGameId": 116068,
+      "svhlGameURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=531&gameid=116068&page_type=Adult",
+      "svhlGamePublicSourceSHA256": "10f588f52b117a01bffc258db3d2839bac952939c265311561a4413d5254d4a6",
+      "svhlOpponent": "Schmelts",
+      "svhlScore": [
+        5,
+        3
+      ],
+      "sourceBoundary": "Scores corroborated; original player reporting still source-scoped."
+    },
+    {
+      "htoGameId": 2148143,
+      "date": "2024-11-17",
+      "opponentHTO": "Dateline Predators",
+      "HTOScore": [
+        3,
+        1
+      ],
+      "HTOURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&archTog=1&viewseas=Winter_2024%2F2025&p=boxscore&gameID=2148143",
+      "gameType": "REGULAR SEASON",
+      "status": "PLAYED_EXACT_DATE_FINAL_SCORE_PARITY",
+      "svhlGameId": 116069,
+      "svhlGameURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=531&gameid=116069&page_type=Adult",
+      "svhlGamePublicSourceSHA256": "7abe339c029dc6cc66ae918633612e09e7e172cca8a892e8ed6fa8bd22b32f95",
+      "svhlOpponent": "Dateline Predators",
+      "svhlScore": [
+        3,
+        1
+      ],
+      "sourceBoundary": "Scores corroborated; original player reporting still source-scoped."
+    },
+    {
+      "htoGameId": 2148144,
+      "date": "2024-11-24",
+      "opponentHTO": "Don's Cherries",
+      "HTOScore": [
+        5,
+        3
+      ],
+      "HTOURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&archTog=1&viewseas=Winter_2024%2F2025&p=boxscore&gameID=2148144",
+      "gameType": "REGULAR SEASON",
+      "status": "PLAYED_EXACT_DATE_FINAL_SCORE_PARITY",
+      "svhlGameId": 116072,
+      "svhlGameURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=531&gameid=116072&page_type=Adult",
+      "svhlGamePublicSourceSHA256": "de42fd8372de4bc89e5fba1ecbe3a4d0440865fb29e0ec9f1943d055cab9c9dd",
+      "svhlOpponent": "Don's Cherries",
+      "svhlScore": [
+        5,
+        3
+      ],
+      "sourceBoundary": "Scores corroborated; original player reporting still source-scoped."
+    },
+    {
+      "htoGameId": 2148145,
+      "date": "2024-12-01",
+      "opponentHTO": "Call Ups",
+      "HTOScore": [
+        1,
+        10
+      ],
+      "HTOURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&archTog=1&viewseas=Winter_2024%2F2025&p=boxscore&gameID=2148145",
+      "gameType": "REGULAR SEASON",
+      "status": "PLAYED_EXACT_DATE_FINAL_SCORE_PARITY",
+      "svhlGameId": 116063,
+      "svhlGameURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=531&gameid=116063&page_type=Adult",
+      "svhlGamePublicSourceSHA256": "3b3e23c3342e1e12efeeb95c99115e4adaf61c4eab550bc8b58916ea3b9fe4d8",
+      "svhlOpponent": "Call Ups",
+      "svhlScore": [
+        1,
+        10
+      ],
+      "sourceBoundary": "Scores corroborated; original player reporting still source-scoped."
+    },
+    {
+      "htoGameId": 2148146,
+      "date": "2024-12-08",
+      "opponentHTO": "Mohawks HC",
+      "HTOScore": [
+        3,
+        2
+      ],
+      "HTOURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&archTog=1&viewseas=Winter_2024%2F2025&p=boxscore&gameID=2148146",
+      "gameType": "REGULAR SEASON",
+      "status": "PLAYED_EXACT_DATE_FINAL_SCORE_PARITY",
+      "svhlGameId": 116264,
+      "svhlGameURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=531&gameid=116264&page_type=Adult",
+      "svhlGamePublicSourceSHA256": "ce9afb57a3d9a74a57eea852d83874b95bc1841cdb143a7cfb63b28145bc9981",
+      "svhlOpponent": "Mohawks H/C",
+      "svhlScore": [
+        3,
+        2
+      ],
+      "sourceBoundary": "Scores corroborated; original player reporting still source-scoped."
+    },
+    {
+      "htoGameId": 2148147,
+      "date": "2024-12-15",
+      "opponentHTO": "Bears",
+      "HTOScore": [
+        2,
+        3
+      ],
+      "HTOURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&archTog=1&viewseas=Winter_2024%2F2025&p=boxscore&gameID=2148147",
+      "gameType": "REGULAR SEASON",
+      "status": "PLAYED_EXACT_DATE_FINAL_SCORE_PARITY",
+      "svhlGameId": 116280,
+      "svhlGameURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=531&gameid=116280&page_type=Adult",
+      "svhlGamePublicSourceSHA256": "5d8ed74b4b005ef3decd00bffa36a17c71b96b76cc4fabdc903d4a6ebfa824e0",
+      "svhlOpponent": "Bears",
+      "svhlScore": [
+        2,
+        3
+      ],
+      "sourceBoundary": "Scores corroborated; original player reporting still source-scoped."
+    },
+    {
+      "htoGameId": 2148148,
+      "date": "2024-12-22",
+      "opponentHTO": "Whalers",
+      "HTOScore": [
+        6,
+        6
+      ],
+      "HTOURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&archTog=1&viewseas=Winter_2024%2F2025&p=boxscore&gameID=2148148",
+      "gameType": "REGULAR SEASON",
+      "status": "PLAYED_EXACT_DATE_FINAL_SCORE_PARITY",
+      "svhlGameId": 116283,
+      "svhlGameURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=531&gameid=116283&page_type=Adult",
+      "svhlGamePublicSourceSHA256": "0a2d44d15226b1f413a8dbe410dabdd58205d21b9fe628a472852c99f250335c",
+      "svhlOpponent": "Whalers",
+      "svhlScore": [
+        6,
+        6
+      ],
+      "sourceBoundary": "Scores corroborated; original player reporting still source-scoped."
+    },
+    {
+      "htoGameId": 2148149,
+      "date": "2024-12-29",
+      "opponentHTO": "Goodfellas",
+      "HTOScore": [
+        1,
+        4
+      ],
+      "HTOURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&archTog=1&viewseas=Winter_2024%2F2025&p=boxscore&gameID=2148149",
+      "gameType": "REGULAR SEASON",
+      "status": "PLAYED_EXACT_DATE_FINAL_SCORE_PARITY",
+      "svhlGameId": 116242,
+      "svhlGameURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=531&gameid=116242&page_type=Adult",
+      "svhlGamePublicSourceSHA256": "fb38589cbd9727a654604ca8ce2aae9dd61c358ac20f942dfec5b12b33b2741e",
+      "svhlOpponent": "Goodfellas",
+      "svhlScore": [
+        1,
+        4
+      ],
+      "sourceBoundary": "Scores corroborated; original player reporting still source-scoped."
+    },
+    {
+      "htoGameId": 2148150,
+      "date": "2025-01-05",
+      "opponentHTO": "Fang",
+      "HTOScore": [
+        2,
+        6
+      ],
+      "HTOURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&archTog=1&viewseas=Winter_2024%2F2025&p=boxscore&gameID=2148150",
+      "gameType": "REGULAR SEASON",
+      "status": "PLAYED_EXACT_DATE_FINAL_SCORE_PARITY",
+      "svhlGameId": 116306,
+      "svhlGameURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=531&gameid=116306&page_type=Adult",
+      "svhlGamePublicSourceSHA256": "6a6b79d86c503045ee5a7b7f6c12149b77ec686812842f193b9529275e3b3900",
+      "svhlOpponent": "Fangs",
+      "svhlScore": [
+        2,
+        6
+      ],
+      "sourceBoundary": "Scores corroborated; original player reporting still source-scoped."
+    },
+    {
+      "htoGameId": 2148151,
+      "date": "2025-01-12",
+      "opponentHTO": "Mohawks H.C.",
+      "HTOScore": [
+        2,
+        3
+      ],
+      "HTOURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&archTog=1&viewseas=Winter_2024%2F2025&p=boxscore&gameID=2148151",
+      "gameType": "REGULAR SEASON",
+      "status": "PLAYED_EXACT_DATE_FINAL_SCORE_PARITY",
+      "svhlGameId": 116351,
+      "svhlGameURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=531&gameid=116351&page_type=Adult",
+      "svhlGamePublicSourceSHA256": "7b376b5618aa335f5fff138d2251eb9897539441b9b28b290ed7e260f7993fe3",
+      "svhlOpponent": "Mohawks H/C",
+      "svhlScore": [
+        2,
+        3
+      ],
+      "sourceBoundary": "Scores corroborated; original player reporting still source-scoped."
+    },
+    {
+      "htoGameId": 2148153,
+      "date": "2025-01-26",
+      "opponentHTO": "Mighty Drunks",
+      "HTOScore": [
+        1,
+        4
+      ],
+      "HTOURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&archTog=1&viewseas=Winter_2024%2F2025&p=boxscore&gameID=2148153",
+      "gameType": "REGULAR SEASON",
+      "status": "PLAYED_EXACT_DATE_FINAL_SCORE_PARITY",
+      "svhlGameId": 116359,
+      "svhlGameURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=531&gameid=116359&page_type=Adult",
+      "svhlGamePublicSourceSHA256": "b8f67ff7b662cb223fdad02eb4daf82b4b664ccbc80c4c32ee232dcce571ddc1",
+      "svhlOpponent": "Mighty Drunks",
+      "svhlScore": [
+        1,
+        4
+      ],
+      "sourceBoundary": "Scores corroborated; original player reporting still source-scoped."
+    },
+    {
+      "htoGameId": 2148154,
+      "date": "2025-02-02",
+      "opponentHTO": "Fang",
+      "HTOScore": [
+        4,
+        8
+      ],
+      "HTOURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&archTog=1&viewseas=Winter_2024%2F2025&p=boxscore&gameID=2148154",
+      "gameType": "REGULAR SEASON",
+      "status": "PLAYED_EXACT_DATE_FINAL_SCORE_PARITY",
+      "svhlGameId": 116368,
+      "svhlGameURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=531&gameid=116368&page_type=Adult",
+      "svhlGamePublicSourceSHA256": "1721517737ffcf58a28800f836adbf88056eaf199e7c1933a729dd35f81bc9ce",
+      "svhlOpponent": "Fangs",
+      "svhlScore": [
+        4,
+        8
+      ],
+      "sourceBoundary": "Scores corroborated; original player reporting still source-scoped."
+    },
+    {
+      "htoGameId": 2148155,
+      "date": "2025-02-16",
+      "opponentHTO": "Don's Cherries",
+      "HTOScore": [
+        0,
+        0
+      ],
+      "HTOURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&archTog=1&viewseas=Winter_2024%2F2025&p=boxscore&gameID=2148155",
+      "gameType": "REGULAR SEASON",
+      "status": "ADMIN_FORFEIT_DIFFERENT_SOURCE_SCORING_CONVENTION",
+      "svhlGameId": 116721,
+      "svhlGameURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=531&gameid=116721&page_type=Adult",
+      "svhlGamePublicSourceSHA256": "a65501ef5e7ebed3e44e7b2e3bd2f5ff560be5e6ccb99c3f83051b0792ada56f",
+      "svhlOpponent": "Don's Cherries",
+      "svhlScore": [
+        1,
+        0
+      ],
+      "sourceBoundary": "Separate administrative treatment; do not turn forfeits into played ties."
+    },
+    {
+      "htoGameId": 2148156,
+      "date": "2025-02-23",
+      "opponentHTO": "Mid Ice Crisis",
+      "HTOScore": [
+        5,
+        2
+      ],
+      "HTOURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&archTog=1&viewseas=Winter_2024%2F2025&p=boxscore&gameID=2148156",
+      "gameType": "REGULAR SEASON",
+      "status": "PLAYED_EXACT_DATE_FINAL_SCORE_PARITY",
+      "svhlGameId": 116724,
+      "svhlGameURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=531&gameid=116724&page_type=Adult",
+      "svhlGamePublicSourceSHA256": "dc4babab50f5fdfca7697af11513596184a4d5f0df56138716137ddb1afa8b4b",
+      "svhlOpponent": "Mid Ice Crisis",
+      "svhlScore": [
+        5,
+        2
+      ],
+      "sourceBoundary": "Scores corroborated; original player reporting still source-scoped."
+    },
+    {
+      "htoGameId": 2148157,
+      "date": "2025-03-02",
+      "opponentHTO": "Mid Ice Crisis",
+      "HTOScore": [
+        2,
+        5
+      ],
+      "HTOURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&archTog=1&viewseas=Winter_2024%2F2025&p=boxscore&gameID=2148157",
+      "gameType": "REGULAR SEASON",
+      "status": "PLAYED_EXACT_DATE_FINAL_SCORE_PARITY",
+      "svhlGameId": 116726,
+      "svhlGameURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=531&gameid=116726&page_type=Adult",
+      "svhlGamePublicSourceSHA256": "c0d1c2483a21b8ba760bb1a9c24669e9b2378355ec9ac272d8189287112afa0b",
+      "svhlOpponent": "Mid Ice Crisis",
+      "svhlScore": [
+        2,
+        5
+      ],
+      "sourceBoundary": "Scores corroborated; original player reporting still source-scoped."
+    },
+    {
+      "htoGameId": 2148158,
+      "date": "2025-03-09",
+      "opponentHTO": "Don's Cherries",
+      "HTOScore": [
+        5,
+        6
+      ],
+      "HTOURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&archTog=1&viewseas=Winter_2024%2F2025&p=boxscore&gameID=2148158",
+      "gameType": "REGULAR SEASON",
+      "status": "PLAYED_EXACT_DATE_FINAL_SCORE_PARITY",
+      "svhlGameId": 116727,
+      "svhlGameURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=531&gameid=116727&page_type=Adult",
+      "svhlGamePublicSourceSHA256": "489c0dff8a05aefe91f7b59ac85d462ad9eca5f4262f9e47a6f4f32830c3f4a5",
+      "svhlOpponent": "Don's Cherries",
+      "svhlScore": [
+        5,
+        6
+      ],
+      "sourceBoundary": "Scores corroborated; original player reporting still source-scoped."
+    },
+    {
+      "htoGameId": 2148159,
+      "date": "2025-03-16",
+      "opponentHTO": "Mid Ice Crisis",
+      "HTOScore": [
+        2,
+        2
+      ],
+      "HTOURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&archTog=1&viewseas=Winter_2024%2F2025&p=boxscore&gameID=2148159",
+      "gameType": "REGULAR SEASON",
+      "status": "PLAYED_EXACT_DATE_FINAL_SCORE_PARITY",
+      "svhlGameId": 116729,
+      "svhlGameURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=531&gameid=116729&page_type=Adult",
+      "svhlGamePublicSourceSHA256": "c018d499b3acd78e243c682ec7370a73554880ede5c3d519d4966dc4ce4ecb15",
+      "svhlOpponent": "Mid Ice Crisis",
+      "svhlScore": [
+        2,
+        2
+      ],
+      "sourceBoundary": "Scores corroborated; original player reporting still source-scoped."
+    },
+    {
+      "htoGameId": 2148160,
+      "date": "2025-03-23",
+      "opponentHTO": "Mohawks H.C.",
+      "HTOScore": [
+        4,
+        2
+      ],
+      "HTOURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&archTog=1&viewseas=Winter_2024%2F2025&p=boxscore&gameID=2148160",
+      "gameType": "REGULAR SEASON",
+      "status": "PLAYED_EXACT_DATE_FINAL_SCORE_PARITY",
+      "svhlGameId": 116730,
+      "svhlGameURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=531&gameid=116730&page_type=Adult",
+      "svhlGamePublicSourceSHA256": "0fedb8b907bfc52b9770903ed978b8e8e59350f11e71f611f955869e602e7b08",
+      "svhlOpponent": "Mohawks H/C",
+      "svhlScore": [
+        4,
+        2
+      ],
+      "sourceBoundary": "Scores corroborated; original player reporting still source-scoped."
+    },
+    {
+      "htoGameId": 2148162,
+      "date": "2025-03-30",
+      "opponentHTO": "Mid Ice Crisis",
+      "HTOScore": [
+        2,
+        3
+      ],
+      "HTOURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&archTog=1&viewseas=Winter_2024%2F2025&p=boxscore&gameID=2148162",
+      "gameType": "PLAYOFFS",
+      "status": "PLAYOFF_UNSCORED_IN_SVHL_EVENT_DATASET",
+      "svhlTeamSeasonPage": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=531&teamid=12572&page_type=Adult",
+      "svhlPlayerGameRecord": null,
+      "sourceBoundary": "SVHL team schedule shows unscored 0-0 placeholders, not completed playoff results; HTO has scores."
+    },
+    {
+      "htoGameId": 2148163,
+      "date": "2025-04-06",
+      "opponentHTO": "Mid Ice Crisis",
+      "HTOScore": [
+        0,
+        3
+      ],
+      "HTOURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&archTog=1&viewseas=Winter_2024%2F2025&p=boxscore&gameID=2148163",
+      "gameType": "PLAYOFFS",
+      "status": "PLAYOFF_UNSCORED_IN_SVHL_EVENT_DATASET",
+      "svhlTeamSeasonPage": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=531&teamid=12572&page_type=Adult",
+      "svhlPlayerGameRecord": null,
+      "sourceBoundary": "SVHL team schedule shows unscored 0-0 placeholders, not completed playoff results; HTO has scores."
+    }
+  ],
+  "editorialPolicy": "Only 23 source-matched played results can be cited as dual-source scores. Administrative forfeit must remain a forfeit; both playoff games need official corroboration. No assertion of 0-0 playoff draws; no invented empty-net goal. No native HTO editing."
+}
