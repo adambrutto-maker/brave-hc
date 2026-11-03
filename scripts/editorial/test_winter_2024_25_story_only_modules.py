@@ -65,7 +65,8 @@ class Private2024StoryReviewTests(unittest.TestCase):
         self.assertEqual({x["candidateName"] for x in m["items"]},
                          {p.name for p in self.folder.glob("*_STORY_ONLY_DRAFT.html")})
         self.assertEqual(len(list(self.folder.iterdir())),25)
-        self.assertIn("not",m["nextGate"].lower())
+        self.assertIn("Founder approval",m["nextGate"])
+        self.assertIn("inspect/backup",m["nextGate"])
 
     def test_unsafe_output_directories_are_rejected(self):
         with self.assertRaisesRegex(ValueError,"outside the public GitHub repository"):
