@@ -298,7 +298,7 @@ def install_sqlite(db, full, profiles, public):
                 continue
             for p in team["players"]:
                 con.execute("INSERT OR IGNORE INTO player_season_observations VALUES "
-                    "(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+                    "(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
                     (team["leagueId"], team["sourceTeamId"], p["playerId"],
                      team["sourceSHA256"], full["capturedAt"], team["season"],
                      team["name"], team["division"], p["name"], p["jersey"],
