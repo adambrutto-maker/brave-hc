@@ -43,7 +43,7 @@ All 24 articles remain for human editorial review and separate founder approval.
 4. Read back the exact public game page, verify the title/opening/source and save the publication evidence.
 5. Only then add the native HTO page to the season-grouped Hot Stove mirror.
 
-The separate current 2026/27 publication pilot is still pending: zero of seven native fields had full public readback at the last check. This archive extension does not claim native HTO publication, successful admin login or original workbook edits.
+As of the later November 2 checkpoint, **all seven 2026/27 native HTO stories are live** (six Game Summaries plus one Game Preview), with publication evidence in merged PR #202. That completed current-season release is separate from this **unpublished 2025/26 historical archive**, and no original workbook data was modified.
 
 ## Editorial review wave — first five source-complete stories
 
@@ -55,8 +55,23 @@ The five historical games with full HTO goal-by-goal event and individual player
 - March 15, 2026 — Krishnan Rajasooriar scored the Braves' goal in the 6–1 playoff loss to Schmelts (HTO 2215013).
 - March 22, 2026 — a separately recorded 6–2 playoff win over Schmelts, including two HTO-recorded empty-net goals (HTO 2215015).
 
-The five standalone editorials were validated against their original boxscores, individual scorer/assist coverage, verified key facts, exact official ID and source SHA; 5/5 passed. These are REVIEW DRAFTS, not native HTO posts or recovered original 2025/26 news articles. The other 19 non-forfeit games remain strictly sourced scaffold drafts and should not be upgraded to event-rich journalism without additional evidence.
+The five detailed articles passed scorer/assist/event parity checks and remain REVIEW DRAFTS rather than original contemporary reporting. The other nineteen played games now also have source-limited editorial review drafts. These preserve official period and player statistics without fabricating missing goal events. None of the 24 historical stories has been approved or published in native HTO.
 
-## Next sequence
+## November 2 continuation — full season review register and archived HTO edit gate
 
-Review and approve the five source-complete historical articles for eventual native HTO Game Summary placement. Separately work on the overtime loss and the eighteen evidence-limited reports, preserving source gaps. Keep forfeits distinct. Nine older-season score-parity exceptions still require independent source resolution before retrospective publication.
+The public HTO sources for **all 24 played Winter 2025/26 games were independently rechecked**. The five complete-event games retained exact goal-event, skater and period parity, and the other nineteen retained their source-specific period/final/player statistical parity; no new source holds were found.
+
+Added work products:
+- docs/editorial/native_hto/2025-26/REVIEW_INDEX.md — one review queue with all 24 played games and three distinct forfeits
+- docs/editorial/native_hto/2025-26/review_index.json — machine-readable per-game HTO source, evidence grade, draft file and unpublished status
+- docs/editorial/native_hto/2025-26/source_limited_review/ — nineteen expanded retrospective review stories, all labeled retrospective and NOT APPROVED
+- docs/editorial/native_hto/2025-26/editorial_review/fresh_full_event_reverification.json — five detailed official source rechecks
+- scripts/editorial/reverify_hto_2025_26_source_limited.py and reverify_hto_2025_26_full_event_games.py — read-only historical source verification
+- scripts/editorial/build_hto_2025_26_source_limited_reviews.py and build_hto_2025_26_archive_review_index.py — reproducible review and index generators
+- independent source/identity/forfeit regression tests
+
+**Archived-season native editing is not yet accessible through the tested route:** in the authenticated HTO administrator, a direct historical ScoresEdit request for game ID 2215008 redirected to the current-season Schedule page. HTO's official Season Update FAQ says an archived season cannot normally be reactivated; special circumstances should be referred to Support. No season update was made, and the existing 2026/27 schedule must not be disturbed. This does not establish that every historical editor field is empty or that HTO has no support-assisted way to insert historical summaries.
+
+Official HTO guidance: https://www.hometeamsonline.com/sportswebsites/default.asp?p=helpdetails&topic=teaminfo
+
+**Next controlled step:** Request HTO Support guidance for safely inserting retrospective Game Summary text into archived 2025/26 game IDs **without reactivating or changing the current season**. Verify a supported editor route and back up pre-existing historical text before any publication. Only Founder-approved historical stories may be posted; the three forfeits are administrative records. Older seasons contain nine held source-parity exceptions requiring separate investigation.
