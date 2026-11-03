@@ -1,0 +1,87 @@
+{
+  "schema": "brave-hc-coaching-reference-library/v2",
+  "status": "REVIEW_ONLY_EXTERNAL_RESOURCE_PAGES",
+  "asOf": "2026-10-29",
+  "access": "PUBLISHER_PAGE_LINK_ONLY_NO_EMBED",
+  "note": "Previous YouTube embeds were reported broken/restricted and are withdrawn. Publisher resource pages are cited but playback of third-party videos is not guaranteed.",
+  "categories": [
+    {
+      "id": "all",
+      "label": "All"
+    },
+    {
+      "id": "systems",
+      "label": "Systems"
+    },
+    {
+      "id": "skills",
+      "label": "Skills"
+    },
+    {
+      "id": "defence",
+      "label": "Defence"
+    }
+  ],
+  "resources": [
+    {
+      "id": "coachvision",
+      "title": "Free Animated Hockey Drills",
+      "publisher": "Hockey Coach Vision",
+      "kind": "2D / 3D animated drills",
+      "category": "systems",
+      "focus": "Moving player representations for team drills, breakouts and game situations.",
+      "url": "https://hockeycoachvision.com/ice-hockey-drills/",
+      "sourceStatus": "PUBLISHER_PAGE_VERIFIED"
+    },
+    {
+      "id": "drillflow",
+      "title": "52 Animated Hockey Drills",
+      "publisher": "DrillFlow",
+      "kind": "Animated rink diagrams",
+      "category": "skills",
+      "focus": "Rink-board symbols and guided hockey drill movement.",
+      "url": "https://drillflow.ca/drills/",
+      "sourceStatus": "PUBLISHER_PAGE_VERIFIED"
+    },
+    {
+      "id": "savard",
+      "title": "Breaking the 1–2–2 and Trap Forecheck",
+      "publisher": "Denis Savard",
+      "kind": "Coaching system videos",
+      "category": "systems",
+      "focus": "NHL coaching discussion and diagrams, hosted by the original publisher.",
+      "url": "https://www.savard18.com/hockey-drills/",
+      "sourceStatus": "PUBLISHER_PAGE_VERIFIED"
+    },
+    {
+      "id": "benchiq",
+      "title": "Animated Tactics Board and Tutorials",
+      "publisher": "BenchIQ",
+      "kind": "Animated tactical whiteboard",
+      "category": "systems",
+      "focus": "Skater movement, puck paths and step-by-step rink play diagrams.",
+      "url": "https://benchiq.hockey/guides",
+      "sourceStatus": "PUBLISHER_PAGE_VERIFIED"
+    },
+    {
+      "id": "tacticalboard",
+      "title": "Hockey Tactical Animation Board",
+      "publisher": "Tactical Board",
+      "kind": "Animated coach whiteboard",
+      "category": "defence",
+      "focus": "Visualize defensive coverage, breakout lanes and puck movement.",
+      "url": "https://tactical-board.com/uk/hockey",
+      "sourceStatus": "PUBLISHER_PAGE_VERIFIED"
+    },
+    {
+      "id": "weiss",
+      "title": "Aggressive 1–2–2 Forecheck Explained",
+      "publisher": "Weiss Tech Hockey",
+      "kind": "Forecheck systems tutorial",
+      "category": "systems",
+      "focus": "Coach-created educational reference for 1–2–2 forecheck decisions.",
+      "url": "https://weisstechhockey.com/aggressive-1-2-2-forecheck/",
+      "sourceStatus": "PUBLISHER_PAGE_VERIFIED"
+    }
+  ]
+}
