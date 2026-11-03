@@ -26,3 +26,13 @@ Forfeits #2215007, #2215009 and #2215012 are excluded. The two separate March 22
 4. Founder review of the new seasonal archive presentation; only then merge to production. Retrospective story *publication* already happened in the separate native HTO release; **this draft is exclusively a discovery improvement**.
 
 **Rollback:** Revert this small index PR; the already published native HTO stories remain untouched.
+
+## Isolated execution evidence — November 3, 2026
+
+- BRUTTECH 1 isolated branch checkout at `D:\\BruTTech-Private\\HockeyOS\\MediaQA\\261103_NativeIndexPreview`; no pre-existing dirty worktree changed.
+- `node --check widgets/hot-stove.js` — **PASS**.
+- New `test_hot_stove_native_archive.py` source parity tests — **7/7 PASS**.
+- Existing `test_hot_stove_boxscore_parity.py`, `test_hot_stove_postgame.py`, `test_hto_native_article_readability.py` — **45/45 PASS** when run from `scripts/editorial` so existing local module imports resolve.
+- Real local Edge headless browser, emulated **exact 390px and 1280px** viewport width through DevTools — **16/16 PASS**: current six archive entries, 24 unique historical HTO links, collapse/expand, current recap opening, Next Game navigation, and zero horizontal overflow.
+- Unrelated favicon.ico absent in local static server; no content or QA failures.
+- `hot-stove.html` asset query versions bumped for fresh approved code when this PR is eventually merged. No live deployment performed in this review.
