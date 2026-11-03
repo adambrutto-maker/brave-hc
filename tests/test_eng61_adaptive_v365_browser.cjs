@@ -17,11 +17,11 @@ const crossSeason=require('../widgets/player-form-cross-season-v367.json');
 const official=require('../widgets/player-actuals-hourly.json');
 const recent=require('../widgets/player-bio-form-model-v364.js');
 const cases=[
- {id:'354060',name:'Carosi, Justin',display:'NEUTRAL',source:'Neutral',gp:5,shared:false},
- {id:'738846',name:'Saindon, Stephane',display:'COOL',source:'Neutral',gp:4,shared:false},
- {id:'354045',name:'Provenzano, Mario',display:'COLD',source:'Cool',gp:5,shared:true},
- {id:'354058',name:'Pagnotta, Alex',display:'HOT',source:'Hot',gp:5,shared:false},
- {id:'586425',name:'Duffy, Lorcan',display:'COLD',source:'Cool',gp:1,shared:true}
+ {id:'354060',name:'Carosi, Justin',source:'Neutral'},
+ {id:'738846',name:'Saindon, Stephane',source:'Neutral'},
+ {id:'354045',name:'Provenzano, Mario',source:'Cool'},
+ {id:'354058',name:'Pagnotta, Alex',source:'Hot'},
+ {id:'586425',name:'Duffy, Lorcan',source:'Cool'}
 ];
 (async()=>{
  await new Promise(ok=>server.listen(0,'127.0.0.1',ok));
@@ -45,6 +45,7 @@ const cases=[
       const tip=new DOMPoint(50,29).matrixTransform(m);
       const ctr=new DOMPoint(50,50).matrixTransform(m);
       return{word:h.querySelector('.bio-trend-main').textContent,
+       interpretation:h.querySelector('.bio-trend-minor')?.textContent,
        label:h.dataset.visualLevel,source:h.dataset.trendState,modelMode:e.dataset.adaptiveMode,
        pct:Number(e.dataset.percentage),angle:Number(e.dataset.deg),
        rotAngle:Number(e.querySelector('.v36-arrow-rotor').dataset.arrowAngle),
@@ -59,19 +60,23 @@ const cases=[
        overflow:document.documentElement.scrollWidth>innerWidth+1};
      });
      const expected=adapt.classify(proposal.players.find(p=>p.name===x.name),proposal,disp);
-     assert.equal(b.source,x.source);assert.equal(b.label,x.display);
-     assert.ok(b.word.startsWith(x.display+' · '));
+     assert.equal(b.source,x.source);assert.equal(b.label,expected.level);
+     assert.ok(b.word.startsWith(expected.level+' · '));
      assert.ok(Math.abs(b.angle-expected.angle)<1e-6);
      assert.ok(Math.abs(b.angle-b.rotAngle)<1e-8);
      assert.equal(b.modelMode,'HISTORICAL_REFERENCE_ONLY');
-     assert.equal(b.panel,x.display.toLowerCase());
-     assert.equal(b.evidenceGP,String(x.gp));
-     assert.equal(b.evidenceShared,String(x.shared));
-     if(['COLD','HOT'].includes(x.display))assert.ok(b.bandIntensity>=.78,'extreme artwork must have pronounced colour');
-     if(x.display==='NEUTRAL')assert.equal(b.bandIntensity,0);
-     if(['COOL','WARM'].includes(x.display))assert.ok(b.bandIntensity>=.1&&b.bandIntensity<=.7);
-     assert.ok(b.evidenceText?.includes(String(x.gp)+' verified GP'));
-     assert.ok(b.evidenceText?.includes(x.shared?'shared zero-scoring model output':'Evidence:'));
+     assert.equal(b.panel,expected.level.toLowerCase());
+     assert.equal(expected.evidence.status,'HELD','real six-game forecast versus five-game official feed is not qualified GP evidence');
+     assert.equal(expected.evidence.tier,'UNVERIFIED');
+     assert.equal(b.evidenceTier,'UNVERIFIED');
+     assert.equal(b.evidenceGP,'','must not imply verified GP across mismatched sources');
+     assert.equal(b.evidenceShared,'false','uncertified shared-model evidence is not claimed');
+     if(['COLD','HOT'].includes(expected.level))assert.ok(b.bandIntensity>=.78,'extreme artwork must have pronounced colour');
+     if(expected.level==='NEUTRAL')assert.equal(b.bandIntensity,0);
+     if(['COOL','WARM'].includes(expected.level))assert.ok(b.bandIntensity>=.1&&b.bandIntensity<=.7);
+     assert.match(b.evidenceText,/GP evidence unavailable; official current-source comparison held/i);
+     assert.match(b.interpretation,/historical-reference calibration; live source comparison held/i,
+      'reconciled forecast cannot claim verified live dispersion while official GP feeds disagree');
      assert.deepEqual(b.order.slice(0,2),['bio-projection-hero','bioProjectionSummarySlot']);
      assert.equal(await page.locator('.bio-projection-hero > #bioCareerModelStrip').count(),1,
        'The career reference stays inside the projected-season card');
