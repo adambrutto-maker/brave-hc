@@ -200,3 +200,16 @@ h2{font-size:24px;line-height:1.23;margin:13px 0 9px;overflow-wrap:break-word}
  .archive button{font-size:14px}
  .archive button .date{font-size:12px}
 }
+
+/* Season-grouped native HTO discovery. Only the Archive tab is affected. */
+.archive-season-heading{font:700 15px/1.4 Arial,Helvetica,sans-serif;color:#f3f7fc;margin:14px 0 9px}
+.native-season-archive{margin:18px 0 6px;padding:0;border:1px solid #6e8ba6;background:#102a42}
+.native-season-archive>summary{cursor:pointer;list-style-position:inside;padding:13px 12px;color:#fff;background:#183d5c;font:700 14px/1.5 Arial,Helvetica,sans-serif}
+.native-season-archive>summary:hover,.native-season-archive>summary:focus-visible{background:#28506c;outline:2px solid #f3d6dc;outline-offset:-2px}
+.native-season-archive .historical-note{margin:10px 12px;font-size:12px}
+.native-archive-list{display:grid;gap:5px;margin:8px 10px 12px}
+.native-archive-row{display:block;padding:10px 12px;min-height:45px;background:#0d2239;border:1px solid #45627c;border-left:3px solid #d82942;color:#f2f7fc!important;font:700 14px/1.5 Arial,Helvetica,sans-serif;text-decoration:none}
+.native-archive-row:hover,.native-archive-row:focus-visible{background:#21435e;outline:2px solid #e8b2be;outline-offset:1px}
+.native-archive-row .date,.native-archive-row .retrospective-label{display:block;margin-top:3px;color:#c2d5e7;font:400 12px/1.4 Arial,Helvetica,sans-serif}
+.native-archive-row .retrospective-label{color:#ecb1bf}
+@media(max-width:480px){.archive-season-heading{font-size:14px}.native-season-archive>summary{font-size:13px}.native-archive-row{font-size:13px}.native-archive-row .date,.native-archive-row .retrospective-label{font-size:11px}}
