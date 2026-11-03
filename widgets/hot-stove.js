@@ -329,6 +329,42 @@ async function loadNativeHistory(){
       target.searchParams.get("viewseas")!=="Winter_2025/2026")return;
    seen.add(g.gameId);
   }
+  // The three league-awarded forfeit wins are administrative results, not
+  // played games or retrospectives. Preserve source home-first/visitor-second
+  // display; a Brave VISITOR 0-1 means a 1-0 Brave away win.
+  if(source.officialAdministrativeResultsSource?.authority!==
+       "SVHL_LEAGUE_FINAL_HOME_FIRST_VISITOR_SECOND"||
+     !Array.isArray(source.officialAdministrativeResults)||
+     source.officialAdministrativeResults.length!==3)return;
+  const expected=new Set([2215007,2215009,2215012]), seenForfeits=new Set();
+  for(const f of source.officialAdministrativeResults){
+   if(!Number.isInteger(f.htoGameId)||!expected.has(f.htoGameId)||
+      seenForfeits.has(f.htoGameId)||seen.has(f.htoGameId)||
+      !Number.isInteger(f.svhlGameId)||
+      !/^2026-(01|02|03)-\d{2}$/.test(f.date)||
+      typeof f.opponent!=="string"||f.opponent.length<4||
+      f.classification!=="OFFICIAL_LEAGUE_1_0_FORFEIT_WIN_UNPLAYED"||
+      !["HOME","VISITOR"].includes(f.bravesHomeAway))return;
+   const scored=f.leagueDisplayedHomeVisitor, official=f.officialLeagueFinalBravesFirst;
+   if(!Number.isInteger(scored?.home)||!Number.isInteger(scored?.visitor)||
+      (f.bravesHomeAway==="HOME"?scored.home:scored.visitor)!==1||
+      (f.bravesHomeAway==="HOME"?scored.visitor:scored.home)!==0||
+      official?.braves!==1||official?.opponent!==0||official?.result!=="W")return;
+   const svhl=new URL(f.officialLeagueURL), hto=new URL(f.originalHTOURL);
+   if(svhl.protocol!=="https:"||svhl.hostname!=="leagues.sportsvillage.ca"||
+      svhl.pathname!=="/gameinfo.aspx"||
+      svhl.searchParams.get("leagueid")!=="547"||
+      svhl.searchParams.get("gameid")!==String(f.svhlGameId)||
+      svhl.searchParams.get("page_type")!=="Adult"||
+      hto.protocol!=="https:"||hto.hostname!=="www.htosports.com"||
+      hto.pathname!=="/teams/default.asp"||
+      hto.searchParams.get("u")!=="BRAVESHOCKEY"||
+      hto.searchParams.get("gameID")!==String(f.htoGameId)||
+      hto.searchParams.get("p")!=="boxscore"||
+      hto.searchParams.get("viewseas")!=="Winter_2025/2026")return;
+   seenForfeits.add(f.htoGameId);
+  }
+  if(seenForfeits.size!==3)return;
   nativeHistory=source;
  }catch(_err){/* Native discovery is optional; retain the current approved archive on any source failure. */}
 }
@@ -370,6 +406,20 @@ function archive(section){
    historicalList.append(row);
   }
   details.append(historicalList);
+  const forfeits=$("section","native-forfeit-results");
+  forfeits.append($("h4",null,"Official administrative results · 3 forfeit wins"));
+  forfeits.append($("p","historical-note",
+   "The league awards Brave H.C. a 1–0 win in each case. These games were forfeited, not played; HTO retains its original 0–0 WIN/Forfeit display."));
+  for(const f of nativeHistory.officialAdministrativeResults){
+   const item=$("div","native-forfeit-row");
+   item.append($("strong",null,f.date+" · Brave H.C. 1–0 "+f.opponent));
+   item.append($("span","retrospective-label","Official SVHL forfeit win · No game played"));
+   const links=$("div","native-forfeit-links");
+   links.append(link("League final",f.officialLeagueURL),link("Original HTO record",f.originalHTOURL));
+   item.append(links);
+   forfeits.append(item);
+  }
+  details.append(forfeits);
   section.append(details);
  }
 }
