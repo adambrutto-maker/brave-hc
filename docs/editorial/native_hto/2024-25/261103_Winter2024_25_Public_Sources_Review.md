@@ -34,3 +34,18 @@ The first audit used a word-count threshold. It incorrectly counted seven **stat
 This research record does **not** modify published HTO Recap fields, the Winter 2025–26 24-story release, current 2026–27 previews/recaps, site layout, team pages, original workbook, LiveBarn/highlights, or GitHub Pages feed. GitHub review is a separate nonproduction evidence gate; approval to merge documentation is not permission to publish new articles.
 
 **Acceptance:** 26 distinct official games; 26/26 independent score parity; source category counts 1 narrative / 7 table / 16 media / 2 no visible; one forfeit; separate held playoff IDs; archive source links and hashes present; all original media safeguarded.
+
+## Two source-bounded retrospective drafts prepared (not public/native releases)
+
+The research branch includes two **unapproved Markdown article candidates** corresponding to the only played 2024/25 games without a publicly visible native recap:
+
+| Game | Candidate | Status |
+|---|---|---|
+| March 30, 2025 — #2148162 | `review_drafts/20250330_HTO_2148162_Preview_NotForPublication.md` | Editorial draft only, field-inspection gate open |
+| April 6, 2025 — #2148163 | `review_drafts/20250406_HTO_2148163_Preview_NotForPublication.md` | Editorial draft only, **source discrepancy** and field-inspection gates open |
+
+The March 30 official periods are Brave H.C. 1–0–1 and Mid Ice Crisis 0–1–2 (2–3 final). The official HTO player totals identify Justin Carosi and Alex Pagnotta as Braves scorers, with Stefano Ardizzi and Keith Pearsoll each credited one assist; Stephen Logue is the listed goalie with three goals against. Goal-by-goal clocks were not provided in the verified public game page.
+
+The April 6 official periods are Mid Ice Crisis 2–0–1 and Brave H.C. 0–0–0 (3–0 final). **Exception: the official HTO goalie table lists Stephen Logue with just two goals against despite the 3–0 team result.** Do not infer an empty-net goal, goaltender substitution or other explanation without an independent game-event source. The retrospective article is drafted conservatively from the scoreboard while that distinction is held for source reconciliation.
+
+No original native Recap field has been changed by these drafts. Neither draft is to be merged as approved publication content or posted to HTO without explicit Founder approval, authentic native field backups, source reconciliation and independent QA.
