@@ -24,3 +24,7 @@ The canonical read-only crosswalk is maintained at widgets/brave-official-forfei
 The [published Winter 2025–26 native release report](261103_Historical_Native_HTO_24_Recap_Publication_Release.md) and its 24 original HTO recaps are **not edited**. The three administrative results are recorded **as results, not new recap articles**. The original HTO game pages retain their 0–0 source cells and administrative winner labels.
 
 **No automatic publication or HTO editing is authorized by this source-only addendum.** The remaining March playoff game summaries are separate from these administrative-forfeit entries.
+
+## Official Records verification of played versus awarded goals
+
+The HTO Records page independently lists **81 regular-season team goals for in 2025/26**, whereas official SVHL standings list **84**. The exact three-goal difference is the three awarded 1–0 forfeit wins documented above. The awarded goals are not played goals and must not enter HTO player, goalie or scoring-event totals. This reconciliation is preserved in the companion [official HTO/league accounting audit](../261103_HTO_Records_Scoring_Domains_And_2025_Playoff_Goalie_Residual.json); no original HTO record or already published native recap is being edited.
