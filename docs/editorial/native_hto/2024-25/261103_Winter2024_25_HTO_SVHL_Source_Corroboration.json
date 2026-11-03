@@ -418,7 +418,29 @@
         1,
         0
       ],
-      "sourceBoundary": "Separate administrative treatment; do not turn forfeits into played ties."
+      "sourceBoundary": "SVHL official home-first/visitor-second 1-0 is a Brave H.C. forfeit WIN; HTO 0-0 raw display and original forfeit category retained. Do not treat it as played game, 0-0 tie, or individually scored goal.",
+      "bravesHomeAway": "HOME",
+      "leagueDisplayedHomeVisitor": [
+        1,
+        0
+      ],
+      "officialLeagueFinalBravesFirst": [
+        1,
+        0
+      ],
+      "officialLeagueResult": "W",
+      "officialLeagueResultType": "ADMINISTRATIVE_FORFEIT_WIN",
+      "leagueCompetititiveStandingsContribution": {
+        "gp": 1,
+        "w": 1,
+        "l": 0,
+        "t": 0,
+        "gf": 1,
+        "ga": 0
+      },
+      "playedOnIce": false,
+      "awardedIndividualGoals": false,
+      "officialOpponentTeamSeasonURL": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=531&teamid=12636&page_type=Adult"
     },
     {
       "htoGameId": 2148156,
@@ -556,5 +578,14 @@
       "sourceBoundary": "SVHL team schedule shows unscored 0-0 placeholders, not completed playoff results; HTO has scores."
     }
   ],
-  "editorialPolicy": "Only 23 source-matched played results can be cited as dual-source scores. Administrative forfeit must remain a forfeit; both playoff games need official corroboration. No assertion of 0-0 playoff draws; no invented empty-net goal. No native HTO editing."
+  "editorialPolicy": "Only 23 source-matched played results can be cited as dual-source scores. Administrative forfeit must remain a forfeit; both playoff games need official corroboration. No assertion of 0-0 playoff draws; no invented empty-net goal. No native HTO editing. The Don's Cherries February 16 forfeit is an official SVHL 1-0 Brave H.C. win for standings; original HTO 0-0 is preserved as a source display, not the canonical competitive result.",
+  "officialForfeitPolicy": {
+    "finalAuthority": "SPORTS_VILLAGE_LEAGUE",
+    "leagueScoreOrientation": "HOME_FIRST_VISITOR_SECOND",
+    "canonicalForfeitResult": "BRAVE_HC_1_0_AWARDED_WIN",
+    "rawHTOCustody": "Original HTO 0-0 displayed with BRAVE_HC_WIN and opponent Forfeit",
+    "competitiveStandings": "Count 1 GP, 1 W and 1 awarded GF",
+    "onIcePlayerStatistics": "No played game, individual goal, assist, goalie goal against, or player appearance added",
+    "independentCrossSeasonReconciliation": "https://github.com/adambrutto-maker/brave-hc/pull/206"
+  }
 }
