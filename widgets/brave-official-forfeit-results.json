@@ -418,5 +418,39 @@
   },
   "immutableAudit": "Per-game official links, HTO and reciprocal SVHL public HTML source hashes retained. Source HTML not embedded in public normalized metadata.",
   "recordUse": "CANONICAL_READ_ONLY_SUPPLEMENTAL_HOCKEYOS_RESULTS",
-  "publishedWebsiteChanged": false
+  "publishedWebsiteChanged": false,
+  "seasonScoringDomains": {
+    "scope": "REGULAR_SEASON_ONLY",
+    "primaryHTORecordsSource": {
+      "url": "https://www.htosports.com/teams/default.asp?p=records&s=hockey&u=BRAVESHOCKEY",
+      "http": 200,
+      "publicHTMLSHA256": "8c9e1b59709198bf15b9713c93dd74b8b0af7bdb626ed0fd65a15da881f2a1ea",
+      "recordClass": "HTO_PUBLIC_RECORDS_PLAYED_GAME_SCORING"
+    },
+    "originalRecordType": "HTO_OFFICIAL_ON_ICE_TEAM_GOALS",
+    "awardedGoalType": "SVHL_ADMINISTRATIVE_FORFEIT_AWARD",
+    "sourceReconciliationDocument": "docs/editorial/native_hto/261103_HTO_Records_Scoring_Domains_And_2025_Playoff_Goalie_Residual.json",
+    "seasons": [
+      {
+        "season": "Winter_2024/2025",
+        "playedGameGoalsFor": 73,
+        "officialLeagueStandingsGoalsFor": 74,
+        "awardedAdministrativeGoalsFor": 1,
+        "recordedTeamGoalsAgainst": 95,
+        "officialLeagueGoalsAgainst": 95,
+        "forfeitWins": 1,
+        "totalsIdentity": "HTO_ON_ICE_GOALS_PLUS_AWARDED_FORFEIT_GOALS_EQUALS_SVHL_OFFICIAL_GF"
+      },
+      {
+        "season": "Winter_2025/2026",
+        "playedGameGoalsFor": 81,
+        "officialLeagueStandingsGoalsFor": 84,
+        "awardedAdministrativeGoalsFor": 3,
+        "recordedTeamGoalsAgainst": 82,
+        "officialLeagueGoalsAgainst": 82,
+        "forfeitWins": 3,
+        "totalsIdentity": "HTO_ON_ICE_GOALS_PLUS_AWARDED_FORFEIT_GOALS_EQUALS_SVHL_OFFICIAL_GF"
+      }
+    ]
+  }
 }
