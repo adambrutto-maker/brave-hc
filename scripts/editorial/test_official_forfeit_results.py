@@ -131,7 +131,7 @@ class OfficialForfeitResultsTests(unittest.TestCase):
             self.assertIn(str(g["svhlGameId"]),addendum)
         self.assertIn("not played 0–0 ties",addendum)
         self.assertIn("0–1 is a **Braves away win**",addendum)
-        self.assertIn("no player goal, assist, shot, goalie goal-against",addendum)
+        self.assertIn("without adding any player goal, assist, shot, goalie goal-against",addendum)
 
 if __name__=="__main__":
     unittest.main()
