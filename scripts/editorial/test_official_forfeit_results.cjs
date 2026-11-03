@@ -56,4 +56,25 @@ test("Reject wrong season or duplicate exact-game ID",()=>{
  bad.forfeits[1].htoGameId=bad.forfeits[0].htoGameId;
  assert.throws(()=>helper.validateLedger(bad),/Official forfeit validation failed/);
 });
-console.log("OFFICIAL_FORFEIT_NODE_QA_PASS",checks,"/ 9");
+test("Separate played-game goals and SVHL awarded forfeits",()=>{
+ const first=helper.getSeasonGoalAccounting(ledger,"Winter_2024/2025");
+ const next=helper.getSeasonGoalAccounting(ledger,"Winter_2025/2026");
+ assert.equal(first.playedGameGoalsFor,73);
+ assert.equal(first.awardedAdministrativeGoalsFor,1);
+ assert.equal(first.officialLeagueStandingsGoalsFor,74);
+ assert.equal(next.playedGameGoalsFor,81);
+ assert.equal(next.awardedAdministrativeGoalsFor,3);
+ assert.equal(next.officialLeagueStandingsGoalsFor,84);
+ assert.equal(next.officialTeamGoalsAgainst,82);
+ assert.equal(first.awardedGoalsExcludedFromPlayerStats,true);
+ assert.equal(helper.getSeasonGoalAccounting(ledger,"Winter_2026/2027"),null);
+});
+test("Reject double-counted awarded goals or distorted official standings",()=>{
+ const corrupt=structuredClone(ledger);
+ corrupt.seasonScoringDomains.seasons[0].playedGameGoalsFor=74;
+ assert.throws(()=>helper.validateLedger(corrupt),/Official forfeit validation failed/);
+ const bad=structuredClone(ledger);
+ bad.seasonScoringDomains.seasons[1].awardedAdministrativeGoalsFor=4;
+ assert.throws(()=>helper.getSeasonGoalAccounting(bad,"Winter_2025/2026"),/Official forfeit validation failed/);
+});
+console.log("OFFICIAL_FORFEIT_NODE_QA_PASS",checks,"/ 11");
