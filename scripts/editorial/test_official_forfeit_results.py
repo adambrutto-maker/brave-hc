@@ -133,5 +133,46 @@ class OfficialForfeitResultsTests(unittest.TestCase):
         self.assertIn("0–1 is a **Braves away win**",addendum)
         self.assertIn("without adding any player goal, assist, shot, goalie goal-against",addendum)
 
+    def test_distinct_on_ice_and_official_league_team_goal_domains(self):
+        sd=LEDGER["seasonScoringDomains"]
+        self.assertEqual(sd["scope"],"REGULAR_SEASON_ONLY")
+        self.assertEqual(sd["originalRecordType"],"HTO_OFFICIAL_ON_ICE_TEAM_GOALS")
+        self.assertEqual(sd["awardedGoalType"],"SVHL_ADMINISTRATIVE_FORFEIT_AWARD")
+        self.assertIn("p=records",sd["primaryHTORecordsSource"]["url"])
+        self.assertEqual(len(sd["primaryHTORecordsSource"]["publicHTMLSHA256"]),64)
+        byseason={x["season"]:x for x in sd["seasons"]}
+        self.assertEqual(len(byseason),2)
+        for name,played,awarded,league,ga in (
+                ("Winter_2024/2025",73,1,74,95),
+                ("Winter_2025/2026",81,3,84,82)):
+            with self.subTest(season=name):
+                s=byseason[name]
+                self.assertEqual((s["playedGameGoalsFor"],s["awardedAdministrativeGoalsFor"],
+                                  s["officialLeagueStandingsGoalsFor"],s["recordedTeamGoalsAgainst"],
+                                  s["officialLeagueGoalsAgainst"]),(played,awarded,league,ga,ga))
+                self.assertEqual(s["forfeitWins"],awarded)
+                self.assertEqual(s["playedGameGoalsFor"]+s["awardedAdministrativeGoalsFor"],
+                                 s["officialLeagueStandingsGoalsFor"])
+                self.assertEqual(s["totalsIdentity"],
+                    "HTO_ON_ICE_GOALS_PLUS_AWARDED_FORFEIT_GOALS_EQUALS_SVHL_OFFICIAL_GF")
+
+    def test_official_records_audit_keeps_april_goalie_cause_unresolved(self):
+        path=ROOT/"docs"/"editorial"/"native_hto"/"261103_HTO_Records_Scoring_Domains_And_2025_Playoff_Goalie_Residual.json"
+        audit=json.loads(path.read_text(encoding="utf-8"))
+        self.assertEqual(audit["status"],"SCORING_DOMAINS_RECONCILED_CAUSE_OF_APRIL_GOAL_NOT_VERIFIED")
+        self.assertEqual(audit["HTOOfficialRecordsSource"]["url"],
+                         LEDGER["seasonScoringDomains"]["primaryHTORecordsSource"]["url"])
+        self.assertEqual(audit["HTOOfficialRecordsSource"]["publicHTMLSHA256"],
+                         LEDGER["seasonScoringDomains"]["primaryHTORecordsSource"]["publicHTMLSHA256"])
+        playoff=audit["april2025PlayoffSourceComparison"]
+        self.assertEqual(playoff["HTORecordsTeamPlayoffsGoalsAgainst"],6)
+        self.assertEqual(playoff["listedGoalieTotalGoalsAgainst"],5)
+        self.assertEqual(playoff["teamMinusListedGoaliesGoalsAgainst"],1)
+        self.assertEqual({x["gameId"]:x["teamGoalsAgainstMinusListedGoalieGA"]
+                         for x in playoff["originalGamePages"]},{2148162:0,2148163:1})
+        self.assertIn("NOT_VERIFIED_EMPTY_NET_GOAL",playoff["excludedConclusions"])
+        self.assertIn("NOT_VERIFIED_GOALTENDER_CHANGE",playoff["excludedConclusions"])
+        self.assertIn("NOT_VERIFIED_STATS_CORRECTION",playoff["excludedConclusions"])
+
 if __name__=="__main__":
     unittest.main()
