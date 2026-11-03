@@ -201,6 +201,8 @@ def main():
  p=argparse.ArgumentParser()
  p.add_argument("--current",required=True);p.add_argument("--archive",required=True)
  p.add_argument("--out",required=True);p.add_argument("--limit",type=int,default=0)
+ p.add_argument("--all-teams-out",default=None,
+   help="Private full season-team source capture; never place under public widgets")
  args=p.parse_args()
  try:
   current=json.loads(Path(args.current).read_text(encoding="utf8"))
@@ -219,6 +221,21 @@ def main():
   pages,errors=collect(jobs)
   need(not errors,"SOURCE_ROSTER_PAGES_HELD:"+json.dumps(errors[:8]))
   report=assemble(current,jobs,pages)
+  if args.all_teams_out:
+   private=Path(args.all_teams_out)
+   need(private.resolve().parent!=Path(args.out).resolve().parent and
+        "widgets" not in [x.lower() for x in private.parts],
+        "ALL_SEASON_TEAM_CAPTURE_MUST_BE_PRIVATE")
+   private.parent.mkdir(parents=True,exist_ok=True)
+   capture={"schema":"brave-hc-svhl-full-season-team-capture/private-v1",
+     "capturedAt":report["asOf"],"sourceLeagueAsOf":current["asOf"],
+     "sourceTeamCount":len(pages),"playerSeasonRows":sum(len(t["players"]) for t in pages),
+     "sourceTeams":pages,
+     "sourceScope":"PUBLIC_SVHL_ADULT_SUNDAY_NON_VAHL_ONLY",
+     "braveHTOAuthoritative":True,"originalWorkbookWritten":False}
+   provisional=private.with_suffix(private.suffix+".tmp")
+   provisional.write_text(json.dumps(capture,ensure_ascii=False,indent=2)+"\n",encoding="utf8")
+   provisional.replace(private)
   path=Path(args.out);path.parent.mkdir(parents=True,exist_ok=True)
   path.write_text(json.dumps(report,ensure_ascii=False,indent=2)+"\n",encoding="utf8")
   print(json.dumps({"state":"PUBLIC_SVHL_ROSTER_HISTORY_PASS","teams":report["currentTeams"],
