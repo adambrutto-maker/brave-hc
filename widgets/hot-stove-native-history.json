@@ -151,5 +151,69 @@
       "title": "Braves Fall 2–3 to Mohawks H.C.",
       "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2214988&p=boxscore&archTog=1&viewseas=Winter_2025/2026"
     }
+  ],
+  "officialAdministrativeResultsSource": {
+    "authority": "SVHL_LEAGUE_FINAL_HOME_FIRST_VISITOR_SECOND",
+    "sourcePR": "https://github.com/adambrutto-maker/brave-hc/pull/206",
+    "scope": "THREE_ADMIN_FORFEIT_RESULTS_NOT_PLAYED_RECAPS"
+  },
+  "officialAdministrativeResults": [
+    {
+      "date": "2026-03-08",
+      "htoGameId": 2215012,
+      "svhlGameId": 122910,
+      "opponent": "Schmelts",
+      "classification": "OFFICIAL_LEAGUE_1_0_FORFEIT_WIN_UNPLAYED",
+      "bravesHomeAway": "VISITOR",
+      "leagueDisplayedHomeVisitor": {
+        "home": 0,
+        "visitor": 1
+      },
+      "officialLeagueFinalBravesFirst": {
+        "braves": 1,
+        "opponent": 0,
+        "result": "W"
+      },
+      "officialLeagueURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=547&gameid=122910&page_type=Adult",
+      "originalHTOURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2215012&p=boxscore&archTog=1&viewseas=Winter_2025%2F2026"
+    },
+    {
+      "date": "2026-02-15",
+      "htoGameId": 2215009,
+      "svhlGameId": 122678,
+      "opponent": "Schmelts",
+      "classification": "OFFICIAL_LEAGUE_1_0_FORFEIT_WIN_UNPLAYED",
+      "bravesHomeAway": "HOME",
+      "leagueDisplayedHomeVisitor": {
+        "home": 1,
+        "visitor": 0
+      },
+      "officialLeagueFinalBravesFirst": {
+        "braves": 1,
+        "opponent": 0,
+        "result": "W"
+      },
+      "officialLeagueURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=547&gameid=122678&page_type=Adult",
+      "originalHTOURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2215009&p=boxscore&archTog=1&viewseas=Winter_2025%2F2026"
+    },
+    {
+      "date": "2026-01-25",
+      "htoGameId": 2215007,
+      "svhlGameId": 122674,
+      "opponent": "Royal Flushers",
+      "classification": "OFFICIAL_LEAGUE_1_0_FORFEIT_WIN_UNPLAYED",
+      "bravesHomeAway": "VISITOR",
+      "leagueDisplayedHomeVisitor": {
+        "home": 0,
+        "visitor": 1
+      },
+      "officialLeagueFinalBravesFirst": {
+        "braves": 1,
+        "opponent": 0,
+        "result": "W"
+      },
+      "officialLeagueURL": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=547&gameid=122674&page_type=Adult",
+      "originalHTOURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2215007&p=boxscore&archTog=1&viewseas=Winter_2025%2F2026"
+    }
   ]
 }
