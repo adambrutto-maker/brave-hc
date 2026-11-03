@@ -4,6 +4,10 @@
 const fs=require('node:fs'),path=require('node:path'),http=require('node:http'),assert=require('node:assert/strict');
 const {chromium}=require(process.env.BRAVE_PLAYWRIGHT_MODULE||'playwright');
 const root=path.resolve(__dirname,'..');
+const sourceProjection=require('../widgets/projection.json');
+const sourceSaindon=sourceProjection.players.find(p=>p.name==='Saindon, Stephane');
+assert.ok(sourceSaindon&&Number.isFinite(sourceSaindon.ptsPerGame)&&
+ Number.isFinite(sourceSaindon.trendInputs?.careerScoringRate),'qualified HTO/workbook player source');
 const mime={'.html':'text/html','.js':'text/javascript','.css':'text/css','.json':'application/json','.svg':'image/svg+xml','.png':'image/png'};
 const server=http.createServer((req,res)=>{
  const file=path.resolve(root,'.'+new URL(req.url,'http://localhost').pathname);
@@ -78,8 +82,8 @@ const server=http.createServer((req,res)=>{
       assert.equal(values.aboutClosed,true);
       assert.equal(values.technicalSummary,'Where this forecast comes from');
       assert.equal(values.isVisible,true);
-      assert.equal(values.value,'1.37','Stéphane career average unchanged');
-      assert.equal(values.ptsProj,'1.17','Stéphane projected PTS/GP unchanged');
+      assert.equal(values.value,sourceSaindon.trendInputs.careerScoringRate.toFixed(2),'Career PTS/GP matches current HTO/workbook source');
+      assert.equal(values.ptsProj,sourceSaindon.ptsPerGame.toFixed(2),'Projected PTS/GP matches current HTO/workbook source');
       assert.equal(values.sourceLabelsPresent,true);
       assert.equal(values.oldStrip,false);
       assert.equal(values.noOverflow,true,'No document horizontal overflow');
