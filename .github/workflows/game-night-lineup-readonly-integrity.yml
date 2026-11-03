@@ -1,0 +1,44 @@
+name: HockeyOS game-night original Lines card — source-safe preview
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'widgets/game-night-*.html'
+      - 'widgets/game-night-*.js'
+      - 'widgets/game-night-*.json'
+      - 'widgets/game-night-*.css'
+      - 'tests/test_game_night_*.cjs'
+      - 'docs/261028_HockeyOS_GameNight_Home_Original_Lines_Card.md'
+      - '.github/workflows/game-night-lineup-readonly-integrity.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify-source-contract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Check exact workbook source mapping and no-public-votes state
+        run: |
+          node --check widgets/game-night-lineup-contract.js
+          node --check widgets/game-night-lineup.js
+          node --test tests/test_game_night_lineup_contract.cjs
+      - name: Check public preview source contains no named votes or unapproved lineup
+        run: |
+          node -e "const d=require('./widgets/game-night-lineup-public.json');if(d.status!=='AWAITING_MANAGER_APPROVAL'||d.cells||d.players||d.namedVotes||d.nativePollIDs||d.privacy?.namedPollVotesPublished!==false) process.exit(2)"
+      - name: Install browser and isolated Playwright for layout/withdrawal checks
+        uses: browser-actions/setup-chrome@v2.2.0
+        id: chrome
+      - name: Install isolated Playwright dependency
+        run: npm install --no-save --no-package-lock playwright
+      - name: Verify source-held original Lines card below countdown and rollback after approval revocation
+        env:
+          BRAVE_CHROMIUM_PATH: ${{ steps.chrome.outputs.chrome-path }}
+        run: node tests/test_game_night_lineup_browser.cjs
