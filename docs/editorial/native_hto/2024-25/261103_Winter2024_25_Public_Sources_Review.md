@@ -80,3 +80,30 @@ The full 26-row cross-source register and original SVHL game-info URLs are saved
 ### Final release gates remain unchanged
 
 All nine historical stories require editorial approval. The two playoff candidates additionally require authenticated exact-game HTO Recap field inspection/backup, while April 6 requires documented handling of the goalie discrepancy. For the seven event-rich games, preserve every original native scoring/event table and all prior photos/videos when a native posting is eventually considered. No automatic bulk overwrite of existing HTO recap fields is permitted.
+
+## Full seasonal review inventory — 24 source-graded drafts (November 3)
+
+The 15 remaining *played* Winter 2024–25 games whose native HTO Recap field publicly exposes video rather than written narrative have now been assessed without viewing or copying the source videos. **15/15** official HTO player goal totals equal the game-team score and **15/15** period sums match both team totals. Every one of these games also falls within the independently corroborated **23/23** HTO/SVHL regular-season score set. Public-only evidence is in `261103_Fifteen_MediaOnly_Played_Source_Coverage.json`.
+
+Fifteen additional **source-limited** game-story drafts now reside under `review_drafts/`. Their permitted evidence is score, opponent, period totals, and credited skater **game totals**; they do not reconstruct individual goal chronology, claim shots/goaltender details, interpret video footage, or invent interviews. The **15 original video embeds remain on HTO and must remain intact**. No original HTO field was edited for these drafts.
+
+The total 2024–25 editorial coverage is now:
+
+| Distinct official game status | Count | Draft disposition |
+| --- | ---: | --- |
+| Original written contemporary recap | 1 | **Preserve original**, no new replacement draft |
+| Played games with existing event-table recap | 7 | Seven event-verified retrospective drafts, **unapproved** |
+| Played games with original media-only recap | 15 | Fifteen period/skater-total-based retrospective drafts, **unapproved** |
+| Played games with no publicly visible native recap | 2 | Two source-limited playoff retrospective drafts, **held and unapproved** |
+| Administrative forfeit | 1 | **No played-game retrospective** |
+| **Total** | **26** | **24 unapproved drafts** plus one protected original and one forfeit |
+
+The canonical review navigator is [`REVIEW_INDEX.md`](REVIEW_INDEX.md), covering all **26 exact HTO game IDs** and linking to all **24 source-graded research drafts**. It carries each game's source category and exceptional hold.
+
+### Technical acceptance and release separation
+
+- **82/82** targeted HockeyOS editorial/source-integrity tests passed on the isolated BRUTTECH 1 checkout (four review-index, nine media-only, eight cross-source, eight scoring-event, eight original-preservation, and forty-five established article/regression tests).
+- 26/26 historical official HTO scores remain unchanged and exact-game identity preserved.
+- No site-level changes, video processing, native HTO Recap writes, goalie stat edits, game-score edits, workbook edits, or automatic releases were performed.
+- All **24 drafts remain unapproved and unpublished**. If the Founder elects to publish historical articles, first inspect/backup each authenticated HTO Recap field, preserve existing video, photo and event-table HTML, resolve or responsibly retain explicit source limitations, obtain article approval, and independently verify all published text, media and official score/stat tables after saving.
+- The April 6, 2025 discrepancy remains an explicit **release hold**: team 0–3 while the listed goalie has 2 GA; no verified event explanation is available. The two SVHL playoff 0–0 schedule placeholders are *not* actual played final scores.
