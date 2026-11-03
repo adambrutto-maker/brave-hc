@@ -107,3 +107,11 @@ The canonical review navigator is [`REVIEW_INDEX.md`](REVIEW_INDEX.md), covering
 - No site-level changes, video processing, native HTO Recap writes, goalie stat edits, game-score edits, workbook edits, or automatic releases were performed.
 - All **24 drafts remain unapproved and unpublished**. If the Founder elects to publish historical articles, first inspect/backup each authenticated HTO Recap field, preserve existing video, photo and event-table HTML, resolve or responsibly retain explicit source limitations, obtain article approval, and independently verify all published text, media and official score/stat tables after saving.
 - The April 6, 2025 discrepancy remains an explicit **release hold**: team 0–3 while the listed goalie has 2 GA; no verified event explanation is available. The two SVHL playoff 0–0 schedule placeholders are *not* actual played final scores.
+
+## League-authoritative forfeit final — reconciliation addendum (Nov. 3)
+
+The official Sports Village 2024/25 league record confirms the February 16, 2025 Don's Cherries administrative forfeit as a **1–0 Brave H.C. win** (HTO #2148155, league 531 game #116721). Both teams' league schedule pages display **home team first, visitor second**; Braves were the home team. The original HTO record remains **0–0 with Brave H.C. – WIN and Don's Cherries – Forfeit**. Those original values are preserved as historical source evidence, not promoted into a played 0–0 tie.
+
+Reconstructing all 24 regular-season results with the league's awarded 1–0 forfeit exactly matches the official 2024/25 league standings: **10–12–2, 22 points, 74 GF, 95 GA**. The administrative win and awarded goal count toward official team standings; the unplayed fixture adds **no** player goal, assist, goalie goal against or on-ice appearance.
+
+The cross-season four-forfeit canonical source contract and reciprocal verification are staged separately in [PR #206](https://github.com/adambrutto-maker/brave-hc/pull/206). This 2024/25 research PR remains unapproved for native HTO article publication, and the two playoff draft source holds remain intact.
