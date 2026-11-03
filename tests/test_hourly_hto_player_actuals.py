@@ -26,10 +26,13 @@ def fixture():
     stat="<html><head><title>Brave H.C. Stats - Winter 2026/2027</title></head><body>"+table(fields)+table([
        ["GP","GF","GA","PPO","PK%"],["2","3","2","1","75%"]])+"</body></html>"
     board=["REGULAR SEASON","1","2","3","OT","2OT","F"]
-    def result(opp,ours,against):
-        return table([board,[opp,"1","0","0","0","0",str(against)],
-                      ["Brave H.C.","1","0","0","0","0",str(ours)]])
-    score="<html><head><title>Brave H.C. Winter 2026/2027 Scores</title></head><body>"+result("A",2,1)+result("B",1,1)+"</body></html>"
+    def result(opp,ours,against,compact=False):
+        # Reproduce HTO's actual mixed full/three-period scoreboard shapes.
+        hdr=["REGULAR SEASON","1","2","3","F"] if compact else board
+        extra=[] if compact else ["0","0"]
+        return table([hdr,[opp,str(against),"0","0",*extra,str(against)],
+                      ["Brave H.C.",str(ours),"0","0",*extra,str(ours)]])
+    score="<html><head><title>Brave H.C. Winter 2026/2027 Scores</title></head><body>"+result("A",2,1)+result("B",1,1,compact=True)+"</body></html>"
     return stat,score
 
 class PublisherContract(unittest.TestCase):
@@ -51,6 +54,18 @@ class PublisherContract(unittest.TestCase):
         a,b=fixture()
         with self.assertRaises(mod.SourceHold):mod.parse(a,b.replace("Brave H.C.","Other H.C."))
         with self.assertRaises(mod.SourceHold):mod.parse(a,b.replace("<td>2</td></tr>","<td>8</td></tr>",1))
+    def test_mixed_scoreboard_shapes_do_not_relax_source_integrity(self):
+        stats,scores=fixture()
+        self.assertEqual(mod.parse(stats,scores)["teamGP"],2)
+        # A shortened board is permitted; incomplete or malformed headers are not.
+        incomplete=scores.replace("<td>3</td><td>F</td>","<td>F</td>",1)
+        with self.assertRaisesRegex(mod.SourceHold,"HTO_FINAL_SCORES_GP_MISMATCH"):
+            mod.parse(stats,incomplete)
+        inconsistent=scores.replace("<td>Brave H.C.</td><td>1</td><td>0</td><td>0</td><td>1</td>",
+                                    "<td>Brave H.C.</td><td>1</td><td>0</td><td>0</td><td>2</td>",1)
+        with self.assertRaisesRegex(mod.SourceHold,"HTO_SCORE_PERIOD_TO_FINAL_MISMATCH"):
+            mod.parse(stats,inconsistent)
+
     def test_bad_skater_and_duplicate_rejected(self):
         a,b=fixture()
         with self.assertRaises(mod.SourceHold):mod.parse(a.replace("Player01, Test","Player00, Test"),b)
@@ -63,6 +78,15 @@ class PublisherContract(unittest.TestCase):
         a,b=fixture();d=mod.parse(a,b)
         invalid=copy.deepcopy(d);invalid["teamGP"]-=1
         with self.assertRaises(mod.SourceHold):mod.decide(invalid,d)
+    def test_prior_published_player_stat_correction_stays_under_review(self):
+        stats,scores=fixture();current=mod.parse(stats,scores)
+        previous=copy.deepcopy(current)
+        # A prior assist is removed while a goal is added in a newly published HTO snapshot.
+        previous["players"][0]["g"]-=1
+        previous["players"][0]["a"]+=1
+        with self.assertRaisesRegex(mod.SourceHold,"HTO_PLAYER_STAT_CORRECTION_REQUIRES_REVIEW"):
+            mod.decide(current,previous)
+
     def test_denies_overwriting_richer_authoritative_file(self):
         a,b=fixture()
         with patch.object(mod,"read_html",side_effect=[a,b]):
