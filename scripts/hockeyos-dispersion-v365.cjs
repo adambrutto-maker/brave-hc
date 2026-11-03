@@ -280,6 +280,7 @@ function build(options={}){
   status,calibrationStatus:'HISTORICAL_SCALE_WITH_APPROVED_VISUAL_BAND_POLICY_NOT_FORECAST_BACKTEST_VALIDATED',
   generatedAt:cur.status==='CURRENT_VERIFIED'?feed.asOf:p.exportedAt,model:{
    sourceSeason:p.season,projectionExportedAt:p.exportedAt,
+   htoRecordedTeamGP:p.sourceInputs?.htoRecordedTeamGP??null,
    workbookSourceHash:p.workbookSourceHash||null,projectionCanonicalHashSHA256:sha,
    provisional:p.modelCurrent!==true||p.projectionComplete!==true,
    sourceWorkbookPreserved:true,sourcePlayerTrendsPreserved:true,

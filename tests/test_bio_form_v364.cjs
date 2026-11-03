@@ -93,10 +93,15 @@ test('current HTO rates and original workbook classification remain unchanged un
  assert.equal(diff.status,'VERIFIED');
  assert.equal(diff.level,'COOL'); // Source sigma=0.15648; -12.28% exceeds neither -1 sigma nor a COLD boundary. Legacy source formulas unchanged.
  const currentAdaptive=adaptive.compareRate(1,1.14,dispersion,projection);
- assert.equal(currentAdaptive.status,'HELD');
- assert.equal(currentAdaptive.reason,'DISPERSION_PROJECTION_SNAPSHOT_MISMATCH');
- // Do not assert an adaptive badge while the released dispersion and
- // projection source snapshots disagree. Legacy display-only comparison above remains COOL.
+ assert.equal(currentAdaptive.status,'VERIFIED','matching projection hashes allow historical-only calibrated display');
+ assert.equal(dispersion.status,'HISTORICAL_REFERENCE_ONLY');
+ assert.equal(dispersion.current.status,'HELD');
+ assert.equal(dispersion.current.reason,'FORECAST_ACTUAL_TEAM_GP_MISMATCH');
+ assert.equal(dispersion.effective.weight,0,'do not present unverifiable live calibration');
+ const mismatched=structuredClone(dispersion);
+ mismatched.model.projectionExportedAt='2026-10-30T00:31:25.868996+00:00';
+ assert.equal(adaptive.compareRate(1,1.14,mismatched,projection).status,'HELD','stale source pairing fails closed');
+ // Legacy workbook comparison above remains COOL; no official actuals changed.
  assert.deepEqual(projection.conditionalFormatting.arrowIconSet.thresholds,{
     AB100:-2*sigma,AB99:-sigma,AB97:.5*sigma,AB96:sigma
  });
