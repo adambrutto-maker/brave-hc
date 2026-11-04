@@ -1,0 +1,71 @@
+{
+  "schema": "brave-hc-hto-2025-26-five-full-event-source-recheck/v1",
+  "checkedAtUTC": "2026-11-03T03:34:29.530323+00:00",
+  "publicSource": "HTO official exact game boxscore",
+  "gamesRechecked": 5,
+  "verifiedGames": 5,
+  "nativeHTOWrites": 0,
+  "publicationAuthorized": false,
+  "games": [
+    {
+      "id": 2215015,
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2215015&p=boxscore",
+      "checks": [],
+      "status": "FULL_EVENT_AND_SKATER_SOURCE_RECONFIRMED",
+      "http": 200,
+      "sourceSHA256": "2cf3794cc2f5ba0e5e5491dd9cddee9fae80908caaba3b897707e3260884d2c3",
+      "scoringEvents": 8,
+      "skaterRows": 14,
+      "periodCount": 5,
+      "structuredSourceFingerprint": "95ddadc70d9f467371e492ea5aab9f946393eafbb746e481ed5593d429b3b6aa"
+    },
+    {
+      "id": 2215013,
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2215013&p=boxscore",
+      "checks": [],
+      "status": "FULL_EVENT_AND_SKATER_SOURCE_RECONFIRMED",
+      "http": 200,
+      "sourceSHA256": "34e3cea595de14a2a9763d054bb2a69e9e46129781fd3ff81c966efc1e716f70",
+      "scoringEvents": 7,
+      "skaterRows": 14,
+      "periodCount": 5,
+      "structuredSourceFingerprint": "c5f6575470579a6b300fbb4834271b685ce746124e0b97117f890a694c070be7"
+    },
+    {
+      "id": 2215011,
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2215011&p=boxscore",
+      "checks": [],
+      "status": "FULL_EVENT_AND_SKATER_SOURCE_RECONFIRMED",
+      "http": 200,
+      "sourceSHA256": "32541aaf3310ffdc86ca4b96b166bb6ae3dabb30a7b54408d38e4f9d8e2f6156",
+      "scoringEvents": 7,
+      "skaterRows": 12,
+      "periodCount": 5,
+      "structuredSourceFingerprint": "def2ff93d2d8780067cb77e74ee6abf41fc75b435d8d405abf1562e80390b43e"
+    },
+    {
+      "id": 2215010,
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2215010&p=boxscore",
+      "checks": [],
+      "status": "FULL_EVENT_AND_SKATER_SOURCE_RECONFIRMED",
+      "http": 200,
+      "sourceSHA256": "529e9d991e2a37ea6ff47a15d8b9ad6169eaf91bbe93069565831b3ad8bc2fba",
+      "scoringEvents": 6,
+      "skaterRows": 10,
+      "periodCount": 5,
+      "structuredSourceFingerprint": "40b6e096ea93b4e877475a9fbcee13419c87bc0243caa08bf31d01686972880d"
+    },
+    {
+      "id": 2215008,
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2215008&p=boxscore",
+      "checks": [],
+      "status": "FULL_EVENT_AND_SKATER_SOURCE_RECONFIRMED",
+      "http": 200,
+      "sourceSHA256": "86bb6adc3054873c672eab03c353cf0fd9476c434e2e25434798bfdbc262715d",
+      "scoringEvents": 6,
+      "skaterRows": 13,
+      "periodCount": 5,
+      "structuredSourceFingerprint": "7d1883cd3375e078e1e795459fb00bf056c1575f70bea2a1ce337fdd53267c54"
+    }
+  ]
+}
