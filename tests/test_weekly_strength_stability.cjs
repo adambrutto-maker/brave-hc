@@ -3,6 +3,11 @@ const assert=require("node:assert/strict"),fs=require("node:fs"),path=require("n
 const weekly=require("../widgets/weekly-strength-stability.js");
 const source=JSON.parse(fs.readFileSync(path.join(__dirname,"../widgets/league-intelligence.json"),"utf8"));
 const copy=o=>JSON.parse(JSON.stringify(o));
+// A pinned one-week fixture tests cold-start behavior even after the live
+// source has accumulated more accepted weeks. Never rewrite the live ledger.
+const oneWeek=copy(source);
+oneWeek.weeklyLedger.weeks=oneWeek.weeklyLedger.weeks.slice(-1);
+oneWeek.weeklyLedger.weeksRecorded=1;
 function addSyntheticWeek(original,{weekNumber=1,boosts=[],omitId=null,move=null}={}){
  const doc=copy(original),first=original.weeklyLedger.weeks.at(-1);
  const nextDate=new Date(Date.parse(first.observedAtUTC)+7*weekNumber*86400000);
@@ -34,7 +39,7 @@ function addSyntheticWeek(original,{weekNumber=1,boosts=[],omitId=null,move=null
 }
 const tests=[
  ["Current one-week release has no claimed band, index or skill trend",()=>{
-   const a=weekly.analyze(source);
+   const a=weekly.analyze(oneWeek);
    assert.equal(a.state,"SOURCE_BACKED_BASELINE_ONLY");
    assert.equal(a.completeObservedWeeks,1);
    assert.equal(a.poolTeamCount,22);
@@ -48,8 +53,8 @@ const tests=[
    assert.equal(a.recommendationIssued,false);
  }],
  ["One synthetic next-week observation allows measured source differences",()=>{
-   const braves=source.teams.find(t=>t.leagueName==="Braves HC");
-   const simulated=addSyntheticWeek(source,{boosts:[{id:braves.sourceTeamId,score:62}]});
+   const braves=oneWeek.teams.find(t=>t.leagueName==="Braves HC");
+   const simulated=addSyntheticWeek(oneWeek,{boosts:[{id:braves.sourceTeamId,score:62}]});
    const a=weekly.analyze(simulated);
    assert.equal(a.completeObservedWeeks,2);
    assert.equal(a.transitions.length,1);
@@ -64,7 +69,7 @@ const tests=[
    assert.equal(a.dataReadyForHumanReview,false);
  }],
  ["Four source-shaped QA weeks remain research-only, not fake current data",()=>{
-   let doc=copy(source);
+   let doc=copy(oneWeek);
    for(let i=1;i<=3;i++)doc=addSyntheticWeek(doc,{weekNumber:1});
    const a=weekly.analyze(doc);
    assert.equal(a.completeObservedWeeks,4);
@@ -73,64 +78,72 @@ const tests=[
    assert.equal(a.verifiedBandMovement,0);
    assert.equal(a.latestWeekBandRetention,100);
    assert.equal(a.dataReadyForHumanReview,false); // no actual ten-game team evidence
-   assert.equal(source.weeklyLedger.weeks.length,1);
+   assert.equal(oneWeek.weeklyLedger.weeks.length,1);
  }],
  ["A missing calendar week is disclosed rather than interpolated",()=>{
-   const a=weekly.analyze(addSyntheticWeek(source,{weekNumber:2}));
+   const a=weekly.analyze(addSyntheticWeek(oneWeek,{weekNumber:2}));
    assert.equal(a.completeObservedWeeks,2);
    assert.equal(a.transitions.length,1);
    assert.equal(a.transitions[0].weeksBetweenSnapshots,2);
    assert.equal(a.transitions[0].skippedCalendarWeeks,1);
    assert.deepEqual(a.trajectories[0].series.map(x=>x.week),
-     ["2026-10-26","2026-11-09"]);
+     [oneWeek.weeklyLedger.weeks[0].weekStartToronto,
+      new Date(Date.parse(oneWeek.weeklyLedger.weeks[0].weekStartToronto+"T00:00:00Z")+
+        14*86400000).toISOString().slice(0,10)]);
    assert.equal(a.dataReadyForHumanReview,false);
  }],
  ["Missing teammate in latest weekly capture blocks misleading adult comparison",()=>{
-   const id=source.teams.find(t=>t.leagueName==="Braves HC").sourceTeamId;
-   const d=addSyntheticWeek(source,{omitId:id});
+   const id=oneWeek.teams.find(t=>t.leagueName==="Braves HC").sourceTeamId;
+   const d=addSyntheticWeek(oneWeek,{omitId:id});
    assert.throws(()=>weekly.analyze(d),/LATEST_ADULT_WEEK_INCOMPLETE/);
  }],
  ["Malformed weekly team numeric score is held without fake fallback",()=>{
-   const d=copy(source);
+   const d=copy(oneWeek);
    const braves=d.weeklyLedger.weeks[0].teams.find(t=>t.leagueName==="Braves HC");
    braves.contextIndex="38";
    assert.throws(()=>weekly.analyze(d),/NO_COMPLETE_VERIFIED_WEEK/);
  }],
  ["Source team identity change under the same current identifier is held",()=>{
-   const d=addSyntheticWeek(source);
+   const d=addSyntheticWeek(oneWeek);
    const brave=d.weeklyLedger.weeks.at(-1).teams.find(t=>t.leagueName==="Braves HC");
    brave.leagueName="Invented Franchise";
    assert.throws(()=>weekly.analyze(d),/LATEST_ADULT_WEEK_INCOMPLETE/);
  }],
  ["A fabricated source-week fingerprint is held before reporting movement",()=>{
-   const doc=addSyntheticWeek(source);
+   const doc=addSyntheticWeek(oneWeek);
    doc.weeklyLedger.weeks.at(-1).sourceSHA256="not-a-real-source-hash";
    assert.throws(()=>weekly.analyze(doc),/SOURCE_WEEK_CHRONOLOGY_INVALID/);
  }],
  ["Out-of-order weekly records are not accepted",()=>{
-   const d=addSyntheticWeek(source);d.weeklyLedger.weeks[1].weekStartToronto="2026-10-26";
+   const d=addSyntheticWeek(oneWeek);d.weeklyLedger.weeks[1].weekStartToronto=oneWeek.weeklyLedger.weeks[0].weekStartToronto;
    assert.throws(()=>weekly.analyze(d),/SOURCE_WEEK_CHRONOLOGY_INVALID/);
  }],
  ["Publishing a previous current-week record for a new week fails parity",()=>{
-   const d=addSyntheticWeek(source);
+   const d=addSyntheticWeek(oneWeek);
    d.weeklyLedger.weeks.at(-1).teams.find(t=>t.leagueName==="Braves HC").gp+=1;
    assert.throws(()=>weekly.analyze(d),/LATEST_WEEK_CURRENT_SOURCE_DIVERGENCE/);
  }],
  ["Cross-division movement is counted only on actual recorded weeks",()=>{
-   const id=source.teams.find(t=>t.leagueName==="Maplewolves").sourceTeamId;
-   const d=addSyntheticWeek(source,{move:{id,to:"Remax Division"}});
+   const id=oneWeek.teams.find(t=>t.leagueName==="Maplewolves").sourceTeamId;
+   const d=addSyntheticWeek(oneWeek,{move:{id,to:"Remax Division"}});
    const a=weekly.analyze(d);
    const row=a.trajectories.find(t=>t.sourceTeamId===id);
    assert.equal(row.latestChange.changedRealDivision,true);
    assert.equal(a.transitions[0].officialDivisionChanges,1);
  }],
  ["VAHL teams remain outside weekly ranking and cannot alter adult denominators",()=>{
-   const d=copy(source);
+   const d=copy(oneWeek);
    const va=d.weeklyLedger.weeks[0].teams.find(t=>t.divisionNow==="VAHL Division");
    va.contextIndex=99.9;
    const a=weekly.analyze(d);
    assert.equal(a.poolTeamCount,22);
    assert.ok(a.trajectories.every(t=>t.name!=="Philadelphia"));
+ }],
+ ["The real accepted multiweek source is counted without fabricating observations",()=>{
+   const a=weekly.analyze(source);
+   assert.equal(a.completeObservedWeeks,source.weeklyLedger.weeks.length);
+   assert.equal(a.transitions.length,source.weeklyLedger.weeks.length-1);
+   assert.equal(a.dataReadyForHumanReview,false);
  }],
  ["Analysis is fully read-only and deterministic on same source",()=>{
    const before=JSON.stringify(source);

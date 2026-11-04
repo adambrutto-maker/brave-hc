@@ -22,3 +22,11 @@ No change to `widgets/league-intelligence.json`, `track_svhl_division_movements.
 
 ## Release gate
 This QA repair does not assert that the live schedule or division reshuffle is final. Keep the PR in draft pending the source-provider update and CI review. Schedule corrections under issue #209 remain separately held for manual approval.
+
+## Additional downstream UI/model regression coverage
+- Updated the division-fit, division-layout and historical-insights tests to compare source-observed week counts, not the obsolete assumption of exactly one week.
+- Exercised the weekly-stability cold-start and synthetic future-week tests using an in-memory **one-week fixture**, leaving the real multiweek public ledger intact; added an assertion that the actual multiweek record is counted without inventing observations.
+- Four corresponding JavaScript test suites passed locally on BRUTTECH 1.
+
+## Outstanding independent source holds
+Not all all-division CI steps are cleared. Separate checks still report drift in the adult reciprocal-game evidence and mismatches between roster-scoping source IDs/counts; Arena ranking expectations also depend on changing published divisions. These require independent source reconciliation. Do not relax roster identity or reciprocal-score controls merely to obtain a green CI status.
