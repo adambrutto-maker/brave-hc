@@ -1,13 +1,13 @@
 {
   "schema": "brave-hc-league-intelligence/public-v1",
   "status": "OFFICIAL_LEAGUE_RESULTS_SOURCE_QUALIFIED",
-  "asOf": "2026-11-03T14:15:07.277133+00:00",
+  "asOf": "2026-11-04T14:15:07.411011+00:00",
   "season": "Sunday Winter 2026/27",
   "leagueId": 570,
   "previousSeason": "Sunday Winter 2025/26",
   "previousLeagueId": 547,
   "source": "https://leagues.sportsvillage.ca/Leagues.aspx?leagueid=570&page_type=Adult&sc=HOCKEY",
-  "sourceSHA256": "9be8cb15d010437f5cca50a151b99358e69398ab104ccde1c00e1db3733cdfbe",
+  "sourceSHA256": "6ceef3db1b2f148b2b1ac829885a44eeea8a670c4208aa222d73803b27f35b77",
   "currentDivisionCount": 4,
   "allPublishedDivisions": 5,
   "currentLeagueTeamCount": 27,
@@ -41,12 +41,14 @@
         "Mid Ice Crisis",
         "Other Way",
         "Zamboner Crew",
+        "Sugo Sundays",
         "Big Bastones",
+        "Young Guns",
         "Braves HC",
         "Dateline Predators",
         "Maplewolves"
       ],
-      "teamCount": 8
+      "teamCount": 10
     },
     {
       "name": "VAHL Division",
@@ -65,15 +67,13 @@
       "teams": [
         "Degenerates",
         "Thrillers",
-        "Sugo Sundays",
         "Primary Auto",
         "Butcher Brothers",
         "VR Delta",
         "Mighty Drunks",
-        "Young Guns",
         "Batman Prep"
       ],
-      "teamCount": 9
+      "teamCount": 7
     },
     {
       "name": "x-playoff Division",
@@ -700,16 +700,15 @@
       "opponentCurrentWinPctAverage": 0.4583,
       "source": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13680&page_type=Adult",
       "gamesConfirmed": 6,
-      "gamesVsTeamsNowInOtherDivisions": 1,
+      "gamesVsTeamsNowInOtherDivisions": 0,
       "opponentsByCurrentDivision": {
-        "Remax Division": 1,
-        "The Cristillo Division": 5
+        "The Cristillo Division": 6
       },
       "completedGames": [
         {
           "date": "2026-09-20",
           "opponent": "Sugo Sundays",
-          "opponentCurrentDivision": "Remax Division",
+          "opponentCurrentDivision": "The Cristillo Division",
           "gf": 3,
           "ga": 4,
           "result": "L"
@@ -840,10 +839,9 @@
       "opponentCurrentWinPctAverage": 0.5472,
       "source": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13708&page_type=Adult",
       "gamesConfirmed": 6,
-      "gamesVsTeamsNowInOtherDivisions": 1,
+      "gamesVsTeamsNowInOtherDivisions": 0,
       "opponentsByCurrentDivision": {
-        "The Cristillo Division": 5,
-        "Remax Division": 1
+        "The Cristillo Division": 6
       },
       "completedGames": [
         {
@@ -873,7 +871,7 @@
         {
           "date": "2026-10-18",
           "opponent": "Sugo Sundays",
-          "opponentCurrentDivision": "Remax Division",
+          "opponentCurrentDivision": "The Cristillo Division",
           "gf": 6,
           "ga": 3,
           "result": "W"
@@ -980,10 +978,9 @@
       "opponentCurrentWinPctAverage": 0.5472,
       "source": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13704&page_type=Adult",
       "gamesConfirmed": 6,
-      "gamesVsTeamsNowInOtherDivisions": 1,
+      "gamesVsTeamsNowInOtherDivisions": 0,
       "opponentsByCurrentDivision": {
-        "The Cristillo Division": 5,
-        "Remax Division": 1
+        "The Cristillo Division": 6
       },
       "completedGames": [
         {
@@ -1021,7 +1018,7 @@
         {
           "date": "2026-10-25",
           "opponent": "Sugo Sundays",
-          "opponentCurrentDivision": "Remax Division",
+          "opponentCurrentDivision": "The Cristillo Division",
           "gf": 7,
           "ga": 7,
           "result": "T"
@@ -1187,6 +1184,126 @@
       }
     },
     {
+      "leagueName": "Sugo Sundays",
+      "displayName": "Michelob Morts",
+      "sourceTeamId": 13709,
+      "divisionNow": "The Cristillo Division",
+      "record": {
+        "gp": 6,
+        "w": 3,
+        "l": 2,
+        "t": 1,
+        "pts": 7,
+        "gf": 20,
+        "ga": 25
+      },
+      "winPct": 0.5833,
+      "goalDiffPerGame": -0.833,
+      "opponentCurrentWinPctAverage": 0.5139,
+      "source": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13709&page_type=Adult",
+      "gamesConfirmed": 6,
+      "gamesVsTeamsNowInOtherDivisions": 1,
+      "opponentsByCurrentDivision": {
+        "The Cristillo Division": 5,
+        "Remax Division": 1
+      },
+      "completedGames": [
+        {
+          "date": "2026-09-20",
+          "opponent": "Mohawks HC",
+          "opponentCurrentDivision": "The Cristillo Division",
+          "gf": 4,
+          "ga": 3,
+          "result": "W"
+        },
+        {
+          "date": "2026-09-27",
+          "opponent": "Dateline Predators",
+          "opponentCurrentDivision": "The Cristillo Division",
+          "gf": 3,
+          "ga": 1,
+          "result": "W"
+        },
+        {
+          "date": "2026-10-04",
+          "opponent": "Braves HC",
+          "opponentCurrentDivision": "The Cristillo Division",
+          "gf": 3,
+          "ga": 2,
+          "result": "W"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Mid Ice Crisis",
+          "opponentCurrentDivision": "The Cristillo Division",
+          "gf": 3,
+          "ga": 6,
+          "result": "L"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Other Way",
+          "opponentCurrentDivision": "The Cristillo Division",
+          "gf": 7,
+          "ga": 7,
+          "result": "T"
+        },
+        {
+          "date": "2026-11-01",
+          "opponent": "Thrillers",
+          "opponentCurrentDivision": "Remax Division",
+          "gf": 0,
+          "ga": 6,
+          "result": "L"
+        }
+      ],
+      "bravesMatchHistory": {
+        "state": "SOURCE_VERIFIED_H2H",
+        "sourceScope": "HTO_CURRENT_GAME_ONLY",
+        "bravesAllTime": {
+          "gp": 1,
+          "w": 0,
+          "l": 1,
+          "t": 0,
+          "gf": 2,
+          "ga": 3
+        },
+        "bravesRegularSeason": {
+          "gp": 1,
+          "w": 0,
+          "l": 1,
+          "t": 0,
+          "gf": 2,
+          "ga": 3
+        },
+        "bravesPlayoffs": {
+          "gp": 0,
+          "w": 0,
+          "l": 0,
+          "t": 0,
+          "gf": 0,
+          "ga": 0
+        },
+        "originalLeagueName": "Sugo Sundays"
+      },
+      "previousWinter": null,
+      "strengthContext": {
+        "status": "SOURCE_SUPPORTED_DESCRIPTIVE_CONTEXT",
+        "contextIndex": 51.7,
+        "rank": 11,
+        "confidence": "LIMITED_SAMPLE",
+        "currentForm": 51.6,
+        "scheduleDifficulty": 51.9,
+        "priorWinterForm": null,
+        "weights": {
+          "currentForm": 0.7,
+          "scheduleDifficulty": 0.3,
+          "previousWinterForm": 0.0
+        },
+        "completedGames": 6
+      }
+    },
+    {
       "leagueName": "Big Bastones",
       "displayName": "Big Bastones",
       "sourceTeamId": 13649,
@@ -1327,6 +1444,146 @@
       }
     },
     {
+      "leagueName": "Young Guns",
+      "displayName": "Young Guns",
+      "sourceTeamId": 13716,
+      "divisionNow": "The Cristillo Division",
+      "record": {
+        "gp": 6,
+        "w": 2,
+        "l": 3,
+        "t": 1,
+        "pts": 5,
+        "gf": 20,
+        "ga": 22
+      },
+      "winPct": 0.4167,
+      "goalDiffPerGame": -0.333,
+      "opponentCurrentWinPctAverage": 0.5,
+      "source": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13716&page_type=Adult",
+      "gamesConfirmed": 6,
+      "gamesVsTeamsNowInOtherDivisions": 5,
+      "opponentsByCurrentDivision": {
+        "Remax Division": 5,
+        "The Cristillo Division": 1
+      },
+      "completedGames": [
+        {
+          "date": "2026-09-20",
+          "opponent": "Degenerates",
+          "opponentCurrentDivision": "Remax Division",
+          "gf": 2,
+          "ga": 2,
+          "result": "T"
+        },
+        {
+          "date": "2026-09-27",
+          "opponent": "VR Delta",
+          "opponentCurrentDivision": "Remax Division",
+          "gf": 3,
+          "ga": 4,
+          "result": "L"
+        },
+        {
+          "date": "2026-10-04",
+          "opponent": "Thrillers",
+          "opponentCurrentDivision": "Remax Division",
+          "gf": 1,
+          "ga": 4,
+          "result": "L"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Maplewolves",
+          "opponentCurrentDivision": "The Cristillo Division",
+          "gf": 4,
+          "ga": 3,
+          "result": "W"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Primary Auto",
+          "opponentCurrentDivision": "Remax Division",
+          "gf": 8,
+          "ga": 5,
+          "result": "W"
+        },
+        {
+          "date": "2026-11-01",
+          "opponent": "Mighty Drunks",
+          "opponentCurrentDivision": "Remax Division",
+          "gf": 2,
+          "ga": 4,
+          "result": "L"
+        }
+      ],
+      "bravesMatchHistory": {
+        "state": "SOURCE_VERIFIED_H2H",
+        "sourceScope": "EXACT_MATCH_ONLY_NO_UNREVIEWED_ALIASES",
+        "bravesAllTime": {
+          "gp": 1,
+          "w": 1,
+          "l": 0,
+          "t": 0,
+          "gf": 11,
+          "ga": 1
+        },
+        "bravesRegularSeason": {
+          "gp": 1,
+          "w": 1,
+          "l": 0,
+          "t": 0,
+          "gf": 11,
+          "ga": 1
+        },
+        "bravesPlayoffs": {
+          "gp": 0,
+          "w": 0,
+          "l": 0,
+          "t": 0,
+          "gf": 0,
+          "ga": 0
+        },
+        "originalLeagueName": "Young Guns"
+      },
+      "previousWinter": {
+        "division": "Maple Hyundai",
+        "record": {
+          "gp": 24,
+          "w": 7,
+          "l": 13,
+          "t": 4,
+          "pts": 18,
+          "gf": 69,
+          "ga": 79
+        },
+        "winPct": 0.375,
+        "goalsDiffPerGame": -0.417,
+        "verifiedGameDetails": 24,
+        "completeGameDetails": true,
+        "officialRosterSharedIDs": 9,
+        "rosterContinuityShare": 0.6,
+        "association": "ROSTER_ID_CONTINUITY_CONFIRMED",
+        "originalPriorLeagueTeamId": 13163,
+        "sourceUrl": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=547&teamid=13163&page_type=Adult"
+      },
+      "strengthContext": {
+        "status": "SOURCE_SUPPORTED_DESCRIPTIVE_CONTEXT",
+        "contextIndex": 46.1,
+        "rank": 19,
+        "confidence": "LIMITED_SAMPLE",
+        "currentForm": 45.8,
+        "scheduleDifficulty": 49.1,
+        "priorWinterForm": 41.2,
+        "weights": {
+          "currentForm": 0.55,
+          "scheduleDifficulty": 0.3,
+          "previousWinterForm": 0.15
+        },
+        "completedGames": 6
+      }
+    },
+    {
       "leagueName": "Braves HC",
       "displayName": "Brave H.C.",
       "sourceTeamId": 13679,
@@ -1345,10 +1602,9 @@
       "opponentCurrentWinPctAverage": 0.5472,
       "source": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13679&page_type=Adult",
       "gamesConfirmed": 6,
-      "gamesVsTeamsNowInOtherDivisions": 1,
+      "gamesVsTeamsNowInOtherDivisions": 0,
       "opponentsByCurrentDivision": {
-        "The Cristillo Division": 5,
-        "Remax Division": 1
+        "The Cristillo Division": 6
       },
       "completedGames": [
         {
@@ -1370,7 +1626,7 @@
         {
           "date": "2026-10-04",
           "opponent": "Sugo Sundays",
-          "opponentCurrentDivision": "Remax Division",
+          "opponentCurrentDivision": "The Cristillo Division",
           "gf": 2,
           "ga": 3,
           "result": "L"
@@ -1459,10 +1715,9 @@
       "opponentCurrentWinPctAverage": 0.5472,
       "source": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13668&page_type=Adult",
       "gamesConfirmed": 6,
-      "gamesVsTeamsNowInOtherDivisions": 1,
+      "gamesVsTeamsNowInOtherDivisions": 0,
       "opponentsByCurrentDivision": {
-        "The Cristillo Division": 5,
-        "Remax Division": 1
+        "The Cristillo Division": 6
       },
       "completedGames": [
         {
@@ -1476,7 +1731,7 @@
         {
           "date": "2026-09-27",
           "opponent": "Sugo Sundays",
-          "opponentCurrentDivision": "Remax Division",
+          "opponentCurrentDivision": "The Cristillo Division",
           "gf": 1,
           "ga": 3,
           "result": "L"
@@ -1599,10 +1854,10 @@
       "opponentCurrentWinPctAverage": 0.5611,
       "source": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13712&page_type=Adult",
       "gamesConfirmed": 6,
-      "gamesVsTeamsNowInOtherDivisions": 5,
+      "gamesVsTeamsNowInOtherDivisions": 4,
       "opponentsByCurrentDivision": {
-        "Remax Division": 5,
-        "The Cristillo Division": 1
+        "Remax Division": 4,
+        "The Cristillo Division": 2
       },
       "completedGames": [
         {
@@ -1632,7 +1887,7 @@
         {
           "date": "2026-10-18",
           "opponent": "Young Guns",
-          "opponentCurrentDivision": "Remax Division",
+          "opponentCurrentDivision": "The Cristillo Division",
           "gf": 3,
           "ga": 4,
           "result": "L"
@@ -2047,17 +2302,17 @@
       "opponentCurrentWinPctAverage": 0.5,
       "source": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13717&page_type=Adult",
       "gamesConfirmed": 6,
-      "gamesVsTeamsNowInOtherDivisions": 2,
+      "gamesVsTeamsNowInOtherDivisions": 3,
       "opponentsByCurrentDivision": {
-        "Remax Division": 4,
-        "The Cristillo Division": 1,
+        "The Cristillo Division": 2,
+        "Remax Division": 3,
         "Fazzari Partners": 1
       },
       "completedGames": [
         {
           "date": "2026-09-20",
           "opponent": "Young Guns",
-          "opponentCurrentDivision": "Remax Division",
+          "opponentCurrentDivision": "The Cristillo Division",
           "gf": 2,
           "ga": 2,
           "result": "T"
@@ -2162,9 +2417,10 @@
       "opponentCurrentWinPctAverage": 0.5278,
       "source": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13714&page_type=Adult",
       "gamesConfirmed": 6,
-      "gamesVsTeamsNowInOtherDivisions": 0,
+      "gamesVsTeamsNowInOtherDivisions": 2,
       "opponentsByCurrentDivision": {
-        "Remax Division": 6
+        "Remax Division": 4,
+        "The Cristillo Division": 2
       },
       "completedGames": [
         {
@@ -2186,7 +2442,7 @@
         {
           "date": "2026-10-04",
           "opponent": "Young Guns",
-          "opponentCurrentDivision": "Remax Division",
+          "opponentCurrentDivision": "The Cristillo Division",
           "gf": 4,
           "ga": 1,
           "result": "W"
@@ -2210,7 +2466,7 @@
         {
           "date": "2026-11-01",
           "opponent": "Sugo Sundays",
-          "opponentCurrentDivision": "Remax Division",
+          "opponentCurrentDivision": "The Cristillo Division",
           "gf": 6,
           "ga": 0,
           "result": "W"
@@ -2257,126 +2513,6 @@
       }
     },
     {
-      "leagueName": "Sugo Sundays",
-      "displayName": "Michelob Morts",
-      "sourceTeamId": 13709,
-      "divisionNow": "Remax Division",
-      "record": {
-        "gp": 6,
-        "w": 3,
-        "l": 2,
-        "t": 1,
-        "pts": 7,
-        "gf": 20,
-        "ga": 25
-      },
-      "winPct": 0.5833,
-      "goalDiffPerGame": -0.833,
-      "opponentCurrentWinPctAverage": 0.5139,
-      "source": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13709&page_type=Adult",
-      "gamesConfirmed": 6,
-      "gamesVsTeamsNowInOtherDivisions": 5,
-      "opponentsByCurrentDivision": {
-        "The Cristillo Division": 5,
-        "Remax Division": 1
-      },
-      "completedGames": [
-        {
-          "date": "2026-09-20",
-          "opponent": "Mohawks HC",
-          "opponentCurrentDivision": "The Cristillo Division",
-          "gf": 4,
-          "ga": 3,
-          "result": "W"
-        },
-        {
-          "date": "2026-09-27",
-          "opponent": "Dateline Predators",
-          "opponentCurrentDivision": "The Cristillo Division",
-          "gf": 3,
-          "ga": 1,
-          "result": "W"
-        },
-        {
-          "date": "2026-10-04",
-          "opponent": "Braves HC",
-          "opponentCurrentDivision": "The Cristillo Division",
-          "gf": 3,
-          "ga": 2,
-          "result": "W"
-        },
-        {
-          "date": "2026-10-18",
-          "opponent": "Mid Ice Crisis",
-          "opponentCurrentDivision": "The Cristillo Division",
-          "gf": 3,
-          "ga": 6,
-          "result": "L"
-        },
-        {
-          "date": "2026-10-25",
-          "opponent": "Other Way",
-          "opponentCurrentDivision": "The Cristillo Division",
-          "gf": 7,
-          "ga": 7,
-          "result": "T"
-        },
-        {
-          "date": "2026-11-01",
-          "opponent": "Thrillers",
-          "opponentCurrentDivision": "Remax Division",
-          "gf": 0,
-          "ga": 6,
-          "result": "L"
-        }
-      ],
-      "bravesMatchHistory": {
-        "state": "SOURCE_VERIFIED_H2H",
-        "sourceScope": "HTO_CURRENT_GAME_ONLY",
-        "bravesAllTime": {
-          "gp": 1,
-          "w": 0,
-          "l": 1,
-          "t": 0,
-          "gf": 2,
-          "ga": 3
-        },
-        "bravesRegularSeason": {
-          "gp": 1,
-          "w": 0,
-          "l": 1,
-          "t": 0,
-          "gf": 2,
-          "ga": 3
-        },
-        "bravesPlayoffs": {
-          "gp": 0,
-          "w": 0,
-          "l": 0,
-          "t": 0,
-          "gf": 0,
-          "ga": 0
-        },
-        "originalLeagueName": "Sugo Sundays"
-      },
-      "previousWinter": null,
-      "strengthContext": {
-        "status": "SOURCE_SUPPORTED_DESCRIPTIVE_CONTEXT",
-        "contextIndex": 51.7,
-        "rank": 11,
-        "confidence": "LIMITED_SAMPLE",
-        "currentForm": 51.6,
-        "scheduleDifficulty": 51.9,
-        "priorWinterForm": null,
-        "weights": {
-          "currentForm": 0.7,
-          "scheduleDifficulty": 0.3,
-          "previousWinterForm": 0.0
-        },
-        "completedGames": 6
-      }
-    },
-    {
       "leagueName": "Primary Auto",
       "displayName": "Primary Auto",
       "sourceTeamId": 13713,
@@ -2395,10 +2531,10 @@
       "opponentCurrentWinPctAverage": 0.3611,
       "source": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13713&page_type=Adult",
       "gamesConfirmed": 6,
-      "gamesVsTeamsNowInOtherDivisions": 1,
+      "gamesVsTeamsNowInOtherDivisions": 2,
       "opponentsByCurrentDivision": {
-        "The Cristillo Division": 1,
-        "Remax Division": 5
+        "The Cristillo Division": 2,
+        "Remax Division": 4
       },
       "completedGames": [
         {
@@ -2436,7 +2572,7 @@
         {
           "date": "2026-10-25",
           "opponent": "Young Guns",
-          "opponentCurrentDivision": "Remax Division",
+          "opponentCurrentDivision": "The Cristillo Division",
           "gf": 5,
           "ga": 8,
           "result": "L"
@@ -2649,9 +2785,10 @@
       "opponentCurrentWinPctAverage": 0.5694,
       "source": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13715&page_type=Adult",
       "gamesConfirmed": 6,
-      "gamesVsTeamsNowInOtherDivisions": 0,
+      "gamesVsTeamsNowInOtherDivisions": 1,
       "opponentsByCurrentDivision": {
-        "Remax Division": 6
+        "Remax Division": 5,
+        "The Cristillo Division": 1
       },
       "completedGames": [
         {
@@ -2665,7 +2802,7 @@
         {
           "date": "2026-09-27",
           "opponent": "Young Guns",
-          "opponentCurrentDivision": "Remax Division",
+          "opponentCurrentDivision": "The Cristillo Division",
           "gf": 4,
           "ga": 3,
           "result": "W"
@@ -2762,10 +2899,10 @@
       "opponentCurrentWinPctAverage": 0.4583,
       "source": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13710&page_type=Adult",
       "gamesConfirmed": 6,
-      "gamesVsTeamsNowInOtherDivisions": 1,
+      "gamesVsTeamsNowInOtherDivisions": 2,
       "opponentsByCurrentDivision": {
-        "Remax Division": 5,
-        "The Cristillo Division": 1
+        "Remax Division": 4,
+        "The Cristillo Division": 2
       },
       "completedGames": [
         {
@@ -2811,7 +2948,7 @@
         {
           "date": "2026-11-01",
           "opponent": "Young Guns",
-          "opponentCurrentDivision": "Remax Division",
+          "opponentCurrentDivision": "The Cristillo Division",
           "gf": 4,
           "ga": 2,
           "result": "W"
@@ -2875,146 +3012,6 @@
         "currentForm": 47.2,
         "scheduleDifficulty": 46.3,
         "priorWinterForm": 49.5,
-        "weights": {
-          "currentForm": 0.55,
-          "scheduleDifficulty": 0.3,
-          "previousWinterForm": 0.15
-        },
-        "completedGames": 6
-      }
-    },
-    {
-      "leagueName": "Young Guns",
-      "displayName": "Young Guns",
-      "sourceTeamId": 13716,
-      "divisionNow": "Remax Division",
-      "record": {
-        "gp": 6,
-        "w": 2,
-        "l": 3,
-        "t": 1,
-        "pts": 5,
-        "gf": 20,
-        "ga": 22
-      },
-      "winPct": 0.4167,
-      "goalDiffPerGame": -0.333,
-      "opponentCurrentWinPctAverage": 0.5,
-      "source": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13716&page_type=Adult",
-      "gamesConfirmed": 6,
-      "gamesVsTeamsNowInOtherDivisions": 1,
-      "opponentsByCurrentDivision": {
-        "Remax Division": 5,
-        "The Cristillo Division": 1
-      },
-      "completedGames": [
-        {
-          "date": "2026-09-20",
-          "opponent": "Degenerates",
-          "opponentCurrentDivision": "Remax Division",
-          "gf": 2,
-          "ga": 2,
-          "result": "T"
-        },
-        {
-          "date": "2026-09-27",
-          "opponent": "VR Delta",
-          "opponentCurrentDivision": "Remax Division",
-          "gf": 3,
-          "ga": 4,
-          "result": "L"
-        },
-        {
-          "date": "2026-10-04",
-          "opponent": "Thrillers",
-          "opponentCurrentDivision": "Remax Division",
-          "gf": 1,
-          "ga": 4,
-          "result": "L"
-        },
-        {
-          "date": "2026-10-18",
-          "opponent": "Maplewolves",
-          "opponentCurrentDivision": "The Cristillo Division",
-          "gf": 4,
-          "ga": 3,
-          "result": "W"
-        },
-        {
-          "date": "2026-10-25",
-          "opponent": "Primary Auto",
-          "opponentCurrentDivision": "Remax Division",
-          "gf": 8,
-          "ga": 5,
-          "result": "W"
-        },
-        {
-          "date": "2026-11-01",
-          "opponent": "Mighty Drunks",
-          "opponentCurrentDivision": "Remax Division",
-          "gf": 2,
-          "ga": 4,
-          "result": "L"
-        }
-      ],
-      "bravesMatchHistory": {
-        "state": "SOURCE_VERIFIED_H2H",
-        "sourceScope": "EXACT_MATCH_ONLY_NO_UNREVIEWED_ALIASES",
-        "bravesAllTime": {
-          "gp": 1,
-          "w": 1,
-          "l": 0,
-          "t": 0,
-          "gf": 11,
-          "ga": 1
-        },
-        "bravesRegularSeason": {
-          "gp": 1,
-          "w": 1,
-          "l": 0,
-          "t": 0,
-          "gf": 11,
-          "ga": 1
-        },
-        "bravesPlayoffs": {
-          "gp": 0,
-          "w": 0,
-          "l": 0,
-          "t": 0,
-          "gf": 0,
-          "ga": 0
-        },
-        "originalLeagueName": "Young Guns"
-      },
-      "previousWinter": {
-        "division": "Maple Hyundai",
-        "record": {
-          "gp": 24,
-          "w": 7,
-          "l": 13,
-          "t": 4,
-          "pts": 18,
-          "gf": 69,
-          "ga": 79
-        },
-        "winPct": 0.375,
-        "goalsDiffPerGame": -0.417,
-        "verifiedGameDetails": 24,
-        "completeGameDetails": true,
-        "officialRosterSharedIDs": 9,
-        "rosterContinuityShare": 0.6,
-        "association": "ROSTER_ID_CONTINUITY_CONFIRMED",
-        "originalPriorLeagueTeamId": 13163,
-        "sourceUrl": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=547&teamid=13163&page_type=Adult"
-      },
-      "strengthContext": {
-        "status": "SOURCE_SUPPORTED_DESCRIPTIVE_CONTEXT",
-        "contextIndex": 46.1,
-        "rank": 19,
-        "confidence": "LIMITED_SAMPLE",
-        "currentForm": 45.8,
-        "scheduleDifficulty": 49.1,
-        "priorWinterForm": 41.2,
         "weights": {
           "currentForm": 0.55,
           "scheduleDifficulty": 0.3,
@@ -3248,6 +3245,30 @@
         "lastObservedAt": "2026-11-01T14:15:06.749708+00:00",
         "firstObservedAt": "2026-11-02T14:15:07.530574+00:00",
         "effectiveDateNotVerified": true
+      },
+      {
+        "eventId": "13709|2026-11-03T14:15:07.277133+00:00|2026-11-04T14:15:07.411011+00:00|Remax Division|The Cristillo Division",
+        "sourceTeamId": 13709,
+        "leagueName": "Sugo Sundays",
+        "fromDivision": "Remax Division",
+        "toDivision": "The Cristillo Division",
+        "eventType": "OBSERVED_DIVISION_TRANSFER",
+        "sourceBasis": "TWO_FULL_OFFICIAL_SVHL_LEAGUE_SNAPSHOTS",
+        "lastObservedAt": "2026-11-03T14:15:07.277133+00:00",
+        "firstObservedAt": "2026-11-04T14:15:07.411011+00:00",
+        "effectiveDateNotVerified": true
+      },
+      {
+        "eventId": "13716|2026-11-03T14:15:07.277133+00:00|2026-11-04T14:15:07.411011+00:00|Remax Division|The Cristillo Division",
+        "sourceTeamId": 13716,
+        "leagueName": "Young Guns",
+        "fromDivision": "Remax Division",
+        "toDivision": "The Cristillo Division",
+        "eventType": "OBSERVED_DIVISION_TRANSFER",
+        "sourceBasis": "TWO_FULL_OFFICIAL_SVHL_LEAGUE_SNAPSHOTS",
+        "lastObservedAt": "2026-11-03T14:15:07.277133+00:00",
+        "firstObservedAt": "2026-11-04T14:15:07.411011+00:00",
+        "effectiveDateNotVerified": true
       }
     ],
     "incomingCristilloReports": [
@@ -3360,13 +3381,245 @@
         "source": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13712&page_type=Adult",
         "isPrediction": false,
         "interpretation": "Source-supported context only. Previous league membership date is not inferred."
+      },
+      {
+        "eventId": "13709|2026-11-03T14:15:07.277133+00:00|2026-11-04T14:15:07.411011+00:00|Remax Division|The Cristillo Division",
+        "sourceTeamId": 13709,
+        "leagueName": "Sugo Sundays",
+        "displayName": "Michelob Morts",
+        "fromDivision": "Remax Division",
+        "fromDivisionUnknown": false,
+        "toDivision": "The Cristillo Division",
+        "detectedBetween": {
+          "lastObservedAt": "2026-11-03T14:15:07.277133+00:00",
+          "firstObservedAt": "2026-11-04T14:15:07.411011+00:00"
+        },
+        "currentRecordAtFirstDetection": {
+          "gp": 6,
+          "w": 3,
+          "l": 2,
+          "t": 1,
+          "pts": 7,
+          "gf": 20,
+          "ga": 25
+        },
+        "opponentsFacedAtFirstDetection": [
+          {
+            "date": "2026-09-20",
+            "opponent": "Mohawks HC",
+            "opponentCurrentDivision": "The Cristillo Division",
+            "gf": 4,
+            "ga": 3,
+            "result": "W"
+          },
+          {
+            "date": "2026-09-27",
+            "opponent": "Dateline Predators",
+            "opponentCurrentDivision": "The Cristillo Division",
+            "gf": 3,
+            "ga": 1,
+            "result": "W"
+          },
+          {
+            "date": "2026-10-04",
+            "opponent": "Braves HC",
+            "opponentCurrentDivision": "The Cristillo Division",
+            "gf": 3,
+            "ga": 2,
+            "result": "W"
+          },
+          {
+            "date": "2026-10-18",
+            "opponent": "Mid Ice Crisis",
+            "opponentCurrentDivision": "The Cristillo Division",
+            "gf": 3,
+            "ga": 6,
+            "result": "L"
+          },
+          {
+            "date": "2026-10-25",
+            "opponent": "Other Way",
+            "opponentCurrentDivision": "The Cristillo Division",
+            "gf": 7,
+            "ga": 7,
+            "result": "T"
+          },
+          {
+            "date": "2026-11-01",
+            "opponent": "Thrillers",
+            "opponentCurrentDivision": "Remax Division",
+            "gf": 0,
+            "ga": 6,
+            "result": "L"
+          }
+        ],
+        "opponentDifficultyAtFirstDetection": 0.5139,
+        "previousWinter": null,
+        "bravesHistoryAtFirstDetection": {
+          "state": "SOURCE_VERIFIED_H2H",
+          "sourceScope": "HTO_CURRENT_GAME_ONLY",
+          "bravesAllTime": {
+            "gp": 1,
+            "w": 0,
+            "l": 1,
+            "t": 0,
+            "gf": 2,
+            "ga": 3
+          },
+          "bravesRegularSeason": {
+            "gp": 1,
+            "w": 0,
+            "l": 1,
+            "t": 0,
+            "gf": 2,
+            "ga": 3
+          },
+          "bravesPlayoffs": {
+            "gp": 0,
+            "w": 0,
+            "l": 0,
+            "t": 0,
+            "gf": 0,
+            "ga": 0
+          },
+          "originalLeagueName": "Sugo Sundays"
+        },
+        "source": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13709&page_type=Adult",
+        "isPrediction": false,
+        "interpretation": "Source-supported context only. Previous league membership date is not inferred."
+      },
+      {
+        "eventId": "13716|2026-11-03T14:15:07.277133+00:00|2026-11-04T14:15:07.411011+00:00|Remax Division|The Cristillo Division",
+        "sourceTeamId": 13716,
+        "leagueName": "Young Guns",
+        "displayName": "Young Guns",
+        "fromDivision": "Remax Division",
+        "fromDivisionUnknown": false,
+        "toDivision": "The Cristillo Division",
+        "detectedBetween": {
+          "lastObservedAt": "2026-11-03T14:15:07.277133+00:00",
+          "firstObservedAt": "2026-11-04T14:15:07.411011+00:00"
+        },
+        "currentRecordAtFirstDetection": {
+          "gp": 6,
+          "w": 2,
+          "l": 3,
+          "t": 1,
+          "pts": 5,
+          "gf": 20,
+          "ga": 22
+        },
+        "opponentsFacedAtFirstDetection": [
+          {
+            "date": "2026-09-20",
+            "opponent": "Degenerates",
+            "opponentCurrentDivision": "Remax Division",
+            "gf": 2,
+            "ga": 2,
+            "result": "T"
+          },
+          {
+            "date": "2026-09-27",
+            "opponent": "VR Delta",
+            "opponentCurrentDivision": "Remax Division",
+            "gf": 3,
+            "ga": 4,
+            "result": "L"
+          },
+          {
+            "date": "2026-10-04",
+            "opponent": "Thrillers",
+            "opponentCurrentDivision": "Remax Division",
+            "gf": 1,
+            "ga": 4,
+            "result": "L"
+          },
+          {
+            "date": "2026-10-18",
+            "opponent": "Maplewolves",
+            "opponentCurrentDivision": "The Cristillo Division",
+            "gf": 4,
+            "ga": 3,
+            "result": "W"
+          },
+          {
+            "date": "2026-10-25",
+            "opponent": "Primary Auto",
+            "opponentCurrentDivision": "Remax Division",
+            "gf": 8,
+            "ga": 5,
+            "result": "W"
+          },
+          {
+            "date": "2026-11-01",
+            "opponent": "Mighty Drunks",
+            "opponentCurrentDivision": "Remax Division",
+            "gf": 2,
+            "ga": 4,
+            "result": "L"
+          }
+        ],
+        "opponentDifficultyAtFirstDetection": 0.5,
+        "previousWinter": {
+          "division": "Maple Hyundai",
+          "record": {
+            "gp": 24,
+            "w": 7,
+            "l": 13,
+            "t": 4,
+            "pts": 18,
+            "gf": 69,
+            "ga": 79
+          },
+          "winPct": 0.375,
+          "goalsDiffPerGame": -0.417,
+          "verifiedGameDetails": 24,
+          "completeGameDetails": true,
+          "officialRosterSharedIDs": 9,
+          "rosterContinuityShare": 0.6,
+          "association": "ROSTER_ID_CONTINUITY_CONFIRMED",
+          "originalPriorLeagueTeamId": 13163,
+          "sourceUrl": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=547&teamid=13163&page_type=Adult"
+        },
+        "bravesHistoryAtFirstDetection": {
+          "state": "SOURCE_VERIFIED_H2H",
+          "sourceScope": "EXACT_MATCH_ONLY_NO_UNREVIEWED_ALIASES",
+          "bravesAllTime": {
+            "gp": 1,
+            "w": 1,
+            "l": 0,
+            "t": 0,
+            "gf": 11,
+            "ga": 1
+          },
+          "bravesRegularSeason": {
+            "gp": 1,
+            "w": 1,
+            "l": 0,
+            "t": 0,
+            "gf": 11,
+            "ga": 1
+          },
+          "bravesPlayoffs": {
+            "gp": 0,
+            "w": 0,
+            "l": 0,
+            "t": 0,
+            "gf": 0,
+            "ga": 0
+          },
+          "originalLeagueName": "Young Guns"
+        },
+        "source": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13716&page_type=Adult",
+        "isPrediction": false,
+        "interpretation": "Source-supported context only. Previous league membership date is not inferred."
       }
     ],
     "previouslyTrackedTeams": [],
     "changeState": "SOURCE_OBSERVATION_NOT_AN_OFFICIAL_RESCHEDULE_DATE",
-    "latestSnapshotUTC": "2026-11-03T14:15:07.277133+00:00",
-    "eventsRecorded": 3,
-    "incomingCristilloEventsRecorded": 1,
+    "latestSnapshotUTC": "2026-11-04T14:15:07.411011+00:00",
+    "eventsRecorded": 5,
+    "incomingCristilloEventsRecorded": 3,
     "departedTeamProfilesRetained": 0
   },
   "strengthModel": {
@@ -3401,7 +3654,7 @@
     "schema": "brave-hc-svhl-context-trend-ledger/v1",
     "sourceScope": "ACCEPTED_PUBLIC_SNAPSHOT_CHANGES_NOT_PREDICTED_FORM",
     "leagueId": 570,
-    "latestSnapshotUTC": "2026-11-03T14:15:07.277133+00:00",
+    "latestSnapshotUTC": "2026-11-04T14:15:07.411011+00:00",
     "teams": [
       {
         "sourceTeamId": 13717,
@@ -5370,6 +5623,31 @@
               "scheduleDifficulty": 0.3,
               "previousWinterForm": 0.0
             }
+          },
+          {
+            "observedAtUTC": "2026-11-04T14:15:07.411011+00:00",
+            "sourceSHA256": "6ceef3db1b2f148b2b1ac829885a44eeea8a670c4208aa222d73803b27f35b77",
+            "divisionNow": "The Cristillo Division",
+            "record": {
+              "gp": 6,
+              "w": 3,
+              "l": 2,
+              "t": 1,
+              "pts": 7,
+              "gf": 20,
+              "ga": 25
+            },
+            "contextIndex": 51.7,
+            "currentForm": 51.6,
+            "scheduleDifficulty": 51.9,
+            "priorWinterForm": null,
+            "rank": 11,
+            "confidence": "LIMITED_SAMPLE",
+            "weights": {
+              "currentForm": 0.7,
+              "scheduleDifficulty": 0.3,
+              "previousWinterForm": 0.0
+            }
           }
         ]
       },
@@ -5668,6 +5946,31 @@
             "observedAtUTC": "2026-11-03T14:15:07.277133+00:00",
             "sourceSHA256": "9be8cb15d010437f5cca50a151b99358e69398ab104ccde1c00e1db3733cdfbe",
             "divisionNow": "Remax Division",
+            "record": {
+              "gp": 6,
+              "w": 2,
+              "l": 3,
+              "t": 1,
+              "pts": 5,
+              "gf": 20,
+              "ga": 22
+            },
+            "contextIndex": 46.1,
+            "currentForm": 45.8,
+            "scheduleDifficulty": 49.1,
+            "priorWinterForm": 41.2,
+            "rank": 19,
+            "confidence": "LIMITED_SAMPLE",
+            "weights": {
+              "currentForm": 0.55,
+              "scheduleDifficulty": 0.3,
+              "previousWinterForm": 0.15
+            }
+          },
+          {
+            "observedAtUTC": "2026-11-04T14:15:07.411011+00:00",
+            "sourceSHA256": "6ceef3db1b2f148b2b1ac829885a44eeea8a670c4208aa222d73803b27f35b77",
+            "divisionNow": "The Cristillo Division",
             "record": {
               "gp": 6,
               "w": 2,
@@ -6092,8 +6395,8 @@
       }
     ],
     "trackedTeams": 27,
-    "observationsRecorded": 101,
-    "materialChangesRecorded": 74,
+    "observationsRecorded": 103,
+    "materialChangesRecorded": 76,
     "baselineNote": "First point is the accepted public source at tracking adoption; no inferred earlier scores. Unchanged refreshes add no points."
   },
   "weeklyLedger": {
@@ -6572,8 +6875,8 @@
       },
       {
         "weekStartToronto": "2026-11-02",
-        "observedAtUTC": "2026-11-03T14:15:07.277133+00:00",
-        "sourceSHA256": "9be8cb15d010437f5cca50a151b99358e69398ab104ccde1c00e1db3733cdfbe",
+        "observedAtUTC": "2026-11-04T14:15:07.411011+00:00",
+        "sourceSHA256": "6ceef3db1b2f148b2b1ac829885a44eeea8a670c4208aa222d73803b27f35b77",
         "teams": [
           {
             "sourceTeamId": 13596,
@@ -6729,6 +7032,23 @@
             "qualifiedPriorWinterUsed": false
           },
           {
+            "sourceTeamId": 13709,
+            "leagueName": "Sugo Sundays",
+            "divisionNow": "The Cristillo Division",
+            "gp": 6,
+            "w": 3,
+            "l": 2,
+            "t": 1,
+            "gf": 20,
+            "ga": 25,
+            "contextIndex": 51.7,
+            "rank": 11,
+            "confidence": "LIMITED_SAMPLE",
+            "currentForm": 51.6,
+            "scheduleDifficulty": 51.9,
+            "qualifiedPriorWinterUsed": false
+          },
+          {
             "sourceTeamId": 13649,
             "leagueName": "Big Bastones",
             "divisionNow": "The Cristillo Division",
@@ -6743,6 +7063,23 @@
             "confidence": "LIMITED_SAMPLE",
             "currentForm": 48.9,
             "scheduleDifficulty": 47.2,
+            "qualifiedPriorWinterUsed": true
+          },
+          {
+            "sourceTeamId": 13716,
+            "leagueName": "Young Guns",
+            "divisionNow": "The Cristillo Division",
+            "gp": 6,
+            "w": 2,
+            "l": 3,
+            "t": 1,
+            "gf": 20,
+            "ga": 22,
+            "contextIndex": 46.1,
+            "rank": 19,
+            "confidence": "LIMITED_SAMPLE",
+            "currentForm": 45.8,
+            "scheduleDifficulty": 49.1,
             "qualifiedPriorWinterUsed": true
           },
           {
@@ -6899,23 +7236,6 @@
             "qualifiedPriorWinterUsed": true
           },
           {
-            "sourceTeamId": 13709,
-            "leagueName": "Sugo Sundays",
-            "divisionNow": "Remax Division",
-            "gp": 6,
-            "w": 3,
-            "l": 2,
-            "t": 1,
-            "gf": 20,
-            "ga": 25,
-            "contextIndex": 51.7,
-            "rank": 11,
-            "confidence": "LIMITED_SAMPLE",
-            "currentForm": 51.6,
-            "scheduleDifficulty": 51.9,
-            "qualifiedPriorWinterUsed": false
-          },
-          {
             "sourceTeamId": 13713,
             "leagueName": "Primary Auto",
             "divisionNow": "Remax Division",
@@ -6981,23 +7301,6 @@
             "confidence": "LIMITED_SAMPLE",
             "currentForm": 47.2,
             "scheduleDifficulty": 46.3,
-            "qualifiedPriorWinterUsed": true
-          },
-          {
-            "sourceTeamId": 13716,
-            "leagueName": "Young Guns",
-            "divisionNow": "Remax Division",
-            "gp": 6,
-            "w": 2,
-            "l": 3,
-            "t": 1,
-            "gf": 20,
-            "ga": 22,
-            "contextIndex": 46.1,
-            "rank": 19,
-            "confidence": "LIMITED_SAMPLE",
-            "currentForm": 45.8,
-            "scheduleDifficulty": 49.1,
             "qualifiedPriorWinterUsed": true
           },
           {
