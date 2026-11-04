@@ -1,0 +1,956 @@
+{
+  "schema": "brave-hc-winter-2024-25-seven-native-goal-event-reconciliation/v1",
+  "retrievedUTC": "2026-11-03T07:44:52.991523+00:00",
+  "status": "READ_ONLY_SOURCES_NO_HTO_WRITES",
+  "originalMediaPreservation": "SOURCE_SNAPSHOTS_PRIVATE_NO_NATIVE_RECAP_REPLACED",
+  "games": [
+    {
+      "gameId": 2148137,
+      "date": "2024-10-06",
+      "opponent": "Dateline Predators",
+      "score": {
+        "braves": 6,
+        "opponent": 0
+      },
+      "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&archTog=1&viewseas=Winter_2024%2F2025&p=boxscore&gameID=2148137",
+      "publicHTOBoxscoreSHA256": "8761df6225257e6df50c5c0539d581cde20c71f3d11caa50b679b12abb6b4051",
+      "nativeOriginalRecapSHA256": "654c69acfa37798832311762783d864fb34dd6975914914bcdb4f23bbf15b038",
+      "sourceTableFormat": "TIMED_NAMED_SCORERS",
+      "sourceStatus": "READ_ONLY_NATIVE_ORIGINAL_EVENT_TABLE",
+      "parity": {
+        "braveGoalCountMatchesFinal": true,
+        "opponentGoalCountMatchesFinal": true,
+        "individualGoalsMatchOfficial": true,
+        "individualAssistsMatchOfficial": true
+      },
+      "events": [
+        {
+          "period": 1,
+          "clock": "6:18",
+          "team": "Brave H.C.",
+          "eventType": "GOAL",
+          "strength": "ES",
+          "scorerNumber": 9,
+          "scorerName": "Logue, Ryan",
+          "assistNumbers": [
+            10,
+            20
+          ],
+          "assistNames": [
+            "Duffy, Lorcan",
+            "Saindon, Stephane"
+          ],
+          "scoreAfter": "1-0 Brave H.C."
+        },
+        {
+          "period": 1,
+          "clock": "5:09",
+          "team": "Brave H.C.",
+          "eventType": "GOAL",
+          "strength": "ES",
+          "scorerNumber": 89,
+          "scorerName": "Carosi, Justin",
+          "assistNumbers": [
+            28
+          ],
+          "assistNames": [
+            "Brutto, Adam"
+          ],
+          "scoreAfter": "2-0 Brave H.C."
+        },
+        {
+          "period": 2,
+          "clock": "7:52",
+          "team": "Brave H.C.",
+          "eventType": "GOAL",
+          "strength": "ES",
+          "scorerNumber": 20,
+          "scorerName": "Saindon, Stephane",
+          "assistNumbers": [
+            14,
+            73
+          ],
+          "assistNames": [
+            "Brancatella, Medi",
+            "Cristillo, Andrew"
+          ],
+          "scoreAfter": "3-0 Brave H.C."
+        },
+        {
+          "period": 2,
+          "clock": "5:17",
+          "team": "Brave H.C.",
+          "eventType": "GOAL",
+          "strength": "ES",
+          "scorerNumber": 69,
+          "scorerName": "Finlay, Ryan",
+          "assistNumbers": [
+            9,
+            20
+          ],
+          "assistNames": [
+            "Logue, Ryan",
+            "Saindon, Stephane"
+          ],
+          "scoreAfter": "4-0 Brave H.C."
+        },
+        {
+          "period": 2,
+          "clock": "4:38",
+          "team": "Brave H.C.",
+          "eventType": "GOAL",
+          "strength": "ES",
+          "scorerNumber": 3,
+          "scorerName": "Congiusti, Marco",
+          "assistNumbers": [
+            14,
+            20
+          ],
+          "assistNames": [
+            "Brancatella, Medi",
+            "Saindon, Stephane"
+          ],
+          "scoreAfter": "5-0 Brave H.C."
+        },
+        {
+          "period": 2,
+          "clock": "1:22",
+          "team": "Brave H.C.",
+          "eventType": "GOAL",
+          "strength": "ES",
+          "scorerNumber": 69,
+          "scorerName": "Finlay, Ryan",
+          "assistNumbers": [
+            20,
+            44
+          ],
+          "assistNames": [
+            "Saindon, Stephane",
+            "Pagnotta, Alex"
+          ],
+          "scoreAfter": "6-0 Brave H.C."
+        }
+      ],
+      "skatersCredited": [
+        {
+          "number": 14,
+          "name": "Brancatella, Medi",
+          "goals": 0,
+          "assists": 2
+        },
+        {
+          "number": 28,
+          "name": "Brutto, Adam",
+          "goals": 0,
+          "assists": 1
+        },
+        {
+          "number": 89,
+          "name": "Carosi, Justin",
+          "goals": 1,
+          "assists": 0
+        },
+        {
+          "number": 3,
+          "name": "Congiusti, Marco",
+          "goals": 1,
+          "assists": 0
+        },
+        {
+          "number": 73,
+          "name": "Cristillo, Andrew",
+          "goals": 0,
+          "assists": 1
+        },
+        {
+          "number": 10,
+          "name": "Duffy, Lorcan",
+          "goals": 0,
+          "assists": 1
+        },
+        {
+          "number": 69,
+          "name": "Finlay, Ryan",
+          "goals": 2,
+          "assists": 0
+        },
+        {
+          "number": 9,
+          "name": "Logue, Ryan",
+          "goals": 1,
+          "assists": 1
+        },
+        {
+          "number": 44,
+          "name": "Pagnotta, Alex",
+          "goals": 0,
+          "assists": 1
+        },
+        {
+          "number": 20,
+          "name": "Saindon, Stephane",
+          "goals": 1,
+          "assists": 4
+        }
+      ]
+    },
+    {
+      "gameId": 2148142,
+      "date": "2024-11-10",
+      "opponent": "Schmelts",
+      "score": {
+        "braves": 5,
+        "opponent": 3
+      },
+      "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&archTog=1&viewseas=Winter_2024%2F2025&p=boxscore&gameID=2148142",
+      "publicHTOBoxscoreSHA256": "8a83d5f2537ff939b3972a40a9bad58f094acf4bda383172b95136580c04f740",
+      "nativeOriginalRecapSHA256": "270f90c7e1a3e4db333b751bc60c83ded30ad532349fbec1ad7f1e64cdb325b0",
+      "sourceTableFormat": "TIMED_JERSEY_SCORERS",
+      "sourceStatus": "READ_ONLY_NATIVE_ORIGINAL_EVENT_TABLE",
+      "parity": {
+        "braveGoalCountMatchesFinal": true,
+        "opponentGoalCountMatchesFinal": true,
+        "individualGoalsMatchOfficial": true,
+        "individualAssistsMatchOfficial": true
+      },
+      "events": [
+        {
+          "period": 1,
+          "clock": "1:22",
+          "team": "Schmelts",
+          "eventType": "Goal",
+          "strength": "UNSPECIFIED",
+          "scorerNumber": null,
+          "scorerName": null,
+          "assistNumbers": [],
+          "assistNames": [],
+          "scoreAfter": null
+        },
+        {
+          "period": 2,
+          "clock": "9:28",
+          "team": "Schmelts",
+          "eventType": "PP Goal",
+          "strength": "PP",
+          "scorerNumber": null,
+          "scorerName": null,
+          "assistNumbers": [],
+          "assistNames": [],
+          "scoreAfter": null
+        },
+        {
+          "period": 2,
+          "clock": "5:02",
+          "team": "Brave H.C.",
+          "eventType": "Goal",
+          "strength": "UNSPECIFIED",
+          "scorerNumber": 20,
+          "scorerName": "Saindon, Stephane",
+          "assistNumbers": [
+            76
+          ],
+          "assistNames": [
+            "Arruda, Mark"
+          ],
+          "scoreAfter": null
+        },
+        {
+          "period": 2,
+          "clock": "2:48",
+          "team": "Brave H.C.",
+          "eventType": "Goal",
+          "strength": "UNSPECIFIED",
+          "scorerNumber": 14,
+          "scorerName": "Brancatella, Medi",
+          "assistNumbers": [
+            89,
+            90
+          ],
+          "assistNames": [
+            "Carosi, Justin",
+            "Ardizzi, Stefano"
+          ],
+          "scoreAfter": null
+        },
+        {
+          "period": 2,
+          "clock": "1:28",
+          "team": "Brave H.C.",
+          "eventType": "Goal",
+          "strength": "UNSPECIFIED",
+          "scorerNumber": 39,
+          "scorerName": "Pearsoll, Keith",
+          "assistNumbers": [
+            28
+          ],
+          "assistNames": [
+            "Brutto, Adam"
+          ],
+          "scoreAfter": null
+        },
+        {
+          "period": 3,
+          "clock": "4:39",
+          "team": "Brave H.C.",
+          "eventType": "Goal",
+          "strength": "UNSPECIFIED",
+          "scorerNumber": 8,
+          "scorerName": "Provenzano, Mario",
+          "assistNumbers": [
+            89
+          ],
+          "assistNames": [
+            "Carosi, Justin"
+          ],
+          "scoreAfter": null
+        },
+        {
+          "period": 3,
+          "clock": "3:14",
+          "team": "Schmelts",
+          "eventType": "Goal",
+          "strength": "UNSPECIFIED",
+          "scorerNumber": null,
+          "scorerName": null,
+          "assistNumbers": [],
+          "assistNames": [],
+          "scoreAfter": null
+        },
+        {
+          "period": 3,
+          "clock": "0:14",
+          "team": "Brave H.C.",
+          "eventType": "EN Goal",
+          "strength": "EN",
+          "scorerNumber": 76,
+          "scorerName": "Arruda, Mark",
+          "assistNumbers": [],
+          "assistNames": [],
+          "scoreAfter": null
+        }
+      ],
+      "skatersCredited": [
+        {
+          "number": 90,
+          "name": "Ardizzi, Stefano",
+          "goals": 0,
+          "assists": 1
+        },
+        {
+          "number": 76,
+          "name": "Arruda, Mark",
+          "goals": 1,
+          "assists": 1
+        },
+        {
+          "number": 14,
+          "name": "Brancatella, Medi",
+          "goals": 1,
+          "assists": 0
+        },
+        {
+          "number": 28,
+          "name": "Brutto, Adam",
+          "goals": 0,
+          "assists": 1
+        },
+        {
+          "number": 89,
+          "name": "Carosi, Justin",
+          "goals": 0,
+          "assists": 2
+        },
+        {
+          "number": 39,
+          "name": "Pearsoll, Keith",
+          "goals": 1,
+          "assists": 0
+        },
+        {
+          "number": 8,
+          "name": "Provenzano, Mario",
+          "goals": 1,
+          "assists": 0
+        },
+        {
+          "number": 20,
+          "name": "Saindon, Stephane",
+          "goals": 1,
+          "assists": 0
+        }
+      ]
+    },
+    {
+      "gameId": 2148143,
+      "date": "2024-11-17",
+      "opponent": "Dateline Predators",
+      "score": {
+        "braves": 3,
+        "opponent": 1
+      },
+      "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&archTog=1&viewseas=Winter_2024%2F2025&p=boxscore&gameID=2148143",
+      "publicHTOBoxscoreSHA256": "f4daf7132070a7c9a697614461f9c7010e523ca3feb528140663c6efa7abc340",
+      "nativeOriginalRecapSHA256": "78a2b13dfde363930698aac5440778b83575cbecf9da57e97a6a84f33041dff8",
+      "sourceTableFormat": "TIMED_NAMED_SCORERS",
+      "sourceStatus": "READ_ONLY_NATIVE_ORIGINAL_EVENT_TABLE",
+      "parity": {
+        "braveGoalCountMatchesFinal": true,
+        "opponentGoalCountMatchesFinal": true,
+        "individualGoalsMatchOfficial": true,
+        "individualAssistsMatchOfficial": true
+      },
+      "events": [
+        {
+          "period": 1,
+          "clock": "5:58",
+          "team": "Brave H.C.",
+          "eventType": "GOAL",
+          "strength": "ES",
+          "scorerNumber": 69,
+          "scorerName": "Finlay, Ryan",
+          "assistNumbers": [
+            28,
+            10
+          ],
+          "assistNames": [
+            "Brutto, Adam",
+            "Duffy, Lorcan"
+          ],
+          "scoreAfter": "1-0 Brave H.C."
+        },
+        {
+          "period": 1,
+          "clock": "2:12",
+          "team": "Brave H.C.",
+          "eventType": "GOAL",
+          "strength": "ES",
+          "scorerNumber": 89,
+          "scorerName": "Carosi, Justin",
+          "assistNumbers": [],
+          "assistNames": [],
+          "scoreAfter": "2-0 Brave H.C."
+        },
+        {
+          "period": 2,
+          "clock": "3:50",
+          "team": "Brave H.C.",
+          "eventType": "GOAL",
+          "strength": "ES",
+          "scorerNumber": 89,
+          "scorerName": "Carosi, Justin",
+          "assistNumbers": [
+            39,
+            28
+          ],
+          "assistNames": [
+            "Pearsoll, Keith",
+            "Brutto, Adam"
+          ],
+          "scoreAfter": "3-0 Brave H.C."
+        },
+        {
+          "period": 3,
+          "clock": "2:42",
+          "team": "Dateline Predators",
+          "eventType": "GOAL",
+          "strength": "ES",
+          "scorerNumber": null,
+          "scorerName": null,
+          "assistNumbers": [],
+          "assistNames": [],
+          "scoreAfter": "3-1 Brave H.C."
+        }
+      ],
+      "skatersCredited": [
+        {
+          "number": 28,
+          "name": "Brutto, Adam",
+          "goals": 0,
+          "assists": 2
+        },
+        {
+          "number": 89,
+          "name": "Carosi, Justin",
+          "goals": 2,
+          "assists": 0
+        },
+        {
+          "number": 10,
+          "name": "Duffy, Lorcan",
+          "goals": 0,
+          "assists": 1
+        },
+        {
+          "number": 69,
+          "name": "Finlay, Ryan",
+          "goals": 1,
+          "assists": 0
+        },
+        {
+          "number": 39,
+          "name": "Pearsoll, Keith",
+          "goals": 0,
+          "assists": 1
+        }
+      ]
+    },
+    {
+      "gameId": 2148146,
+      "date": "2024-12-08",
+      "opponent": "Mohawks HC",
+      "score": {
+        "braves": 3,
+        "opponent": 2
+      },
+      "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&archTog=1&viewseas=Winter_2024%2F2025&p=boxscore&gameID=2148146",
+      "publicHTOBoxscoreSHA256": "f2371871fe69ea27bbd013f461bf7cf325985045a19b01986a40a5bc20c6225b",
+      "nativeOriginalRecapSHA256": "6c4307f24821cdde3d19158c241e8a40b86d28ba03f8cabf597b48e3641a0a80",
+      "sourceTableFormat": "TIMED_NAMED_SCORERS",
+      "sourceStatus": "READ_ONLY_NATIVE_ORIGINAL_EVENT_TABLE",
+      "parity": {
+        "braveGoalCountMatchesFinal": true,
+        "opponentGoalCountMatchesFinal": true,
+        "individualGoalsMatchOfficial": true,
+        "individualAssistsMatchOfficial": true
+      },
+      "events": [
+        {
+          "period": 1,
+          "clock": "7:49",
+          "team": "Brave H.C.",
+          "eventType": "GOAL",
+          "strength": "ES",
+          "scorerNumber": 20,
+          "scorerName": "Saindon, Stephane",
+          "assistNumbers": [],
+          "assistNames": [],
+          "scoreAfter": "0-1 Brave H.C."
+        },
+        {
+          "period": 1,
+          "clock": "3:34",
+          "team": "Mohawks HC",
+          "eventType": "GOAL",
+          "strength": "ES",
+          "scorerNumber": null,
+          "scorerName": null,
+          "assistNumbers": [],
+          "assistNames": [],
+          "scoreAfter": "1-1 Tie"
+        },
+        {
+          "period": 2,
+          "clock": "1:16",
+          "team": "Brave H.C.",
+          "eventType": "GOAL",
+          "strength": "ES",
+          "scorerNumber": 89,
+          "scorerName": "Carosi, Justin",
+          "assistNumbers": [
+            12,
+            14
+          ],
+          "assistNames": [
+            "Kober, Adam",
+            "Brancatella, Medi"
+          ],
+          "scoreAfter": "1-2 Brave H.C."
+        },
+        {
+          "period": 2,
+          "clock": "0:48",
+          "team": "Brave H.C.",
+          "eventType": "GOAL",
+          "strength": "ES",
+          "scorerNumber": 12,
+          "scorerName": "Kober, Adam",
+          "assistNumbers": [
+            14,
+            44
+          ],
+          "assistNames": [
+            "Brancatella, Medi",
+            "Pagnotta, Alex"
+          ],
+          "scoreAfter": "1-3 Brave H.C."
+        },
+        {
+          "period": 3,
+          "clock": "6:38",
+          "team": "Mohawks HC",
+          "eventType": "GOAL",
+          "strength": "ES",
+          "scorerNumber": null,
+          "scorerName": null,
+          "assistNumbers": [],
+          "assistNames": [],
+          "scoreAfter": "2-3 Brave H.C."
+        }
+      ],
+      "skatersCredited": [
+        {
+          "number": 14,
+          "name": "Brancatella, Medi",
+          "goals": 0,
+          "assists": 2
+        },
+        {
+          "number": 89,
+          "name": "Carosi, Justin",
+          "goals": 1,
+          "assists": 0
+        },
+        {
+          "number": 12,
+          "name": "Kober, Adam",
+          "goals": 1,
+          "assists": 1
+        },
+        {
+          "number": 44,
+          "name": "Pagnotta, Alex",
+          "goals": 0,
+          "assists": 1
+        },
+        {
+          "number": 20,
+          "name": "Saindon, Stephane",
+          "goals": 1,
+          "assists": 0
+        }
+      ]
+    },
+    {
+      "gameId": 2148147,
+      "date": "2024-12-15",
+      "opponent": "Bears",
+      "score": {
+        "braves": 2,
+        "opponent": 3
+      },
+      "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&archTog=1&viewseas=Winter_2024%2F2025&p=boxscore&gameID=2148147",
+      "publicHTOBoxscoreSHA256": "6a14746d8e57cfce3174191598a4351d53056015338192552dc66d927c0b6efa",
+      "nativeOriginalRecapSHA256": "6b3c1637adbe73b76876ac19d2e3e1dbef1e2b3f623eee7cb79864fc2ffaa650",
+      "sourceTableFormat": "TIMED_NAMED_SCORERS",
+      "sourceStatus": "READ_ONLY_NATIVE_ORIGINAL_EVENT_TABLE",
+      "parity": {
+        "braveGoalCountMatchesFinal": true,
+        "opponentGoalCountMatchesFinal": true,
+        "individualGoalsMatchOfficial": true,
+        "individualAssistsMatchOfficial": true
+      },
+      "events": [
+        {
+          "period": 1,
+          "clock": "7:07",
+          "team": "Brave H.C.",
+          "eventType": "GOAL",
+          "strength": "ES",
+          "scorerNumber": 88,
+          "scorerName": "Mazzei, Stefano",
+          "assistNumbers": [
+            90,
+            2
+          ],
+          "assistNames": [
+            "Ardizzi, Stefano",
+            "Baghel, Neil"
+          ],
+          "scoreAfter": "0-1 Brave H.C."
+        },
+        {
+          "period": 1,
+          "clock": "2:51",
+          "team": "Bears",
+          "eventType": "GOAL",
+          "strength": "ES",
+          "scorerNumber": null,
+          "scorerName": null,
+          "assistNumbers": [],
+          "assistNames": [],
+          "scoreAfter": "1-1 Tie"
+        },
+        {
+          "period": 3,
+          "clock": "8:27",
+          "team": "Bears",
+          "eventType": "GOAL",
+          "strength": "ES",
+          "scorerNumber": null,
+          "scorerName": null,
+          "assistNumbers": [],
+          "assistNames": [],
+          "scoreAfter": "2-1 Bears"
+        },
+        {
+          "period": 3,
+          "clock": "6:10",
+          "team": "Bears",
+          "eventType": "GOAL",
+          "strength": "ES",
+          "scorerNumber": null,
+          "scorerName": null,
+          "assistNumbers": [],
+          "assistNames": [],
+          "scoreAfter": "3-1 Bears"
+        },
+        {
+          "period": 3,
+          "clock": "4:53",
+          "team": "Brave H.C.",
+          "eventType": "GOAL",
+          "strength": "ES",
+          "scorerNumber": 90,
+          "scorerName": "Ardizzi, Stefano",
+          "assistNumbers": [
+            2,
+            89
+          ],
+          "assistNames": [
+            "Baghel, Neil",
+            "Carosi, Justin"
+          ],
+          "scoreAfter": "3-2 Bears"
+        }
+      ],
+      "skatersCredited": [
+        {
+          "number": 90,
+          "name": "Ardizzi, Stefano",
+          "goals": 1,
+          "assists": 1
+        },
+        {
+          "number": 2,
+          "name": "Baghel, Neil",
+          "goals": 0,
+          "assists": 2
+        },
+        {
+          "number": 89,
+          "name": "Carosi, Justin",
+          "goals": 0,
+          "assists": 1
+        },
+        {
+          "number": 88,
+          "name": "Mazzei, Stefano",
+          "goals": 1,
+          "assists": 0
+        }
+      ]
+    },
+    {
+      "gameId": 2148153,
+      "date": "2025-01-26",
+      "opponent": "Mighty Drunks",
+      "score": {
+        "braves": 1,
+        "opponent": 4
+      },
+      "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&archTog=1&viewseas=Winter_2024%2F2025&p=boxscore&gameID=2148153",
+      "publicHTOBoxscoreSHA256": "362349d3f8519289bf19b2bee78af36b89b7949081e30e4c9396f4792cd815d5",
+      "nativeOriginalRecapSHA256": "8fe7657df6396de3c05ccd8c2d7b5768ec0b25ce6afa1d12e01741e6e6e587e4",
+      "sourceTableFormat": "TIMED_NAMED_SCORERS",
+      "sourceStatus": "READ_ONLY_NATIVE_ORIGINAL_EVENT_TABLE",
+      "parity": {
+        "braveGoalCountMatchesFinal": true,
+        "opponentGoalCountMatchesFinal": true,
+        "individualGoalsMatchOfficial": true,
+        "individualAssistsMatchOfficial": true
+      },
+      "events": [
+        {
+          "period": 1,
+          "clock": "7:51",
+          "team": "Mighty Drunks",
+          "eventType": "GOAL",
+          "strength": "ES",
+          "scorerNumber": null,
+          "scorerName": null,
+          "assistNumbers": [],
+          "assistNames": [],
+          "scoreAfter": "1-0 Mighty Drunks"
+        },
+        {
+          "period": 1,
+          "clock": "1:22",
+          "team": "Mighty Drunks",
+          "eventType": "GOAL",
+          "strength": "ES",
+          "scorerNumber": null,
+          "scorerName": null,
+          "assistNumbers": [],
+          "assistNames": [],
+          "scoreAfter": "2-0 Mighty Drunks"
+        },
+        {
+          "period": 2,
+          "clock": "7:28",
+          "team": "Mighty Drunks",
+          "eventType": "GOAL",
+          "strength": "ES",
+          "scorerNumber": null,
+          "scorerName": null,
+          "assistNumbers": [],
+          "assistNames": [],
+          "scoreAfter": "3-0 Mighty Drunks"
+        },
+        {
+          "period": 2,
+          "clock": "0:10",
+          "team": "Mighty Drunks",
+          "eventType": "GOAL",
+          "strength": "ES",
+          "scorerNumber": null,
+          "scorerName": null,
+          "assistNumbers": [],
+          "assistNames": [],
+          "scoreAfter": "4-0 Mighty Drunks"
+        },
+        {
+          "period": 3,
+          "clock": "0:39",
+          "team": "Brave H.C.",
+          "eventType": "GOAL",
+          "strength": "ES",
+          "scorerNumber": 88,
+          "scorerName": "Mazzei, Stefano",
+          "assistNumbers": [
+            20
+          ],
+          "assistNames": [
+            "Saindon, Stephane"
+          ],
+          "scoreAfter": "4-1 Mighty Drunks"
+        }
+      ],
+      "skatersCredited": [
+        {
+          "number": 88,
+          "name": "Mazzei, Stefano",
+          "goals": 1,
+          "assists": 0
+        },
+        {
+          "number": 20,
+          "name": "Saindon, Stephane",
+          "goals": 0,
+          "assists": 1
+        }
+      ]
+    },
+    {
+      "gameId": 2148159,
+      "date": "2025-03-16",
+      "opponent": "Mid Ice Crisis",
+      "score": {
+        "braves": 2,
+        "opponent": 2
+      },
+      "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&archTog=1&viewseas=Winter_2024%2F2025&p=boxscore&gameID=2148159",
+      "publicHTOBoxscoreSHA256": "288801c1c47ba7214ba1508ac5d32b3984fc88db87e5e1c4fe38b854d89ae283",
+      "nativeOriginalRecapSHA256": "fe1e3c7439016b356b56c82f1d3a7444e676ce74a1e058d65fb731b7d04591e3",
+      "sourceTableFormat": "TIMED_NAMED_SCORERS",
+      "sourceStatus": "READ_ONLY_NATIVE_ORIGINAL_EVENT_TABLE",
+      "parity": {
+        "braveGoalCountMatchesFinal": true,
+        "opponentGoalCountMatchesFinal": true,
+        "individualGoalsMatchOfficial": true,
+        "individualAssistsMatchOfficial": true
+      },
+      "events": [
+        {
+          "period": 1,
+          "clock": "3:12",
+          "team": "Brave H.C.",
+          "eventType": "GOAL",
+          "strength": "ES",
+          "scorerNumber": 10,
+          "scorerName": "Duffy, Lorcan",
+          "assistNumbers": [
+            76
+          ],
+          "assistNames": [
+            "Arruda, Mark"
+          ],
+          "scoreAfter": "0-1 Brave H.C."
+        },
+        {
+          "period": 1,
+          "clock": "1:25",
+          "team": "Mid Ice Crisis",
+          "eventType": "GOAL",
+          "strength": "PP",
+          "scorerNumber": null,
+          "scorerName": null,
+          "assistNumbers": [],
+          "assistNames": [],
+          "scoreAfter": "1-1 Tie"
+        },
+        {
+          "period": 2,
+          "clock": "3:21",
+          "team": "Mid Ice Crisis",
+          "eventType": "GOAL",
+          "strength": "ES",
+          "scorerNumber": null,
+          "scorerName": null,
+          "assistNumbers": [],
+          "assistNames": [],
+          "scoreAfter": "2-1 Mid Ice Crisis"
+        },
+        {
+          "period": 3,
+          "clock": "6:21",
+          "team": "Brave H.C.",
+          "eventType": "GOAL",
+          "strength": "ES",
+          "scorerNumber": 89,
+          "scorerName": "Carosi, Justin",
+          "assistNumbers": [
+            14,
+            44
+          ],
+          "assistNames": [
+            "Brancatella, Medi",
+            "Pagnotta, Alex"
+          ],
+          "scoreAfter": "2-2 Tie"
+        }
+      ],
+      "skatersCredited": [
+        {
+          "number": 76,
+          "name": "Arruda, Mark",
+          "goals": 0,
+          "assists": 1
+        },
+        {
+          "number": 14,
+          "name": "Brancatella, Medi",
+          "goals": 0,
+          "assists": 1
+        },
+        {
+          "number": 89,
+          "name": "Carosi, Justin",
+          "goals": 1,
+          "assists": 0
+        },
+        {
+          "number": 10,
+          "name": "Duffy, Lorcan",
+          "goals": 1,
+          "assists": 0
+        },
+        {
+          "number": 44,
+          "name": "Pagnotta, Alex",
+          "goals": 0,
+          "assists": 1
+        }
+      ]
+    }
+  ]
+}
