@@ -1,0 +1,100 @@
+{
+  "schema": "brave-hc-hto-svhl-season-and-goalie-accounting/v1",
+  "auditedUTC": "2026-11-03T09:01:51.642096+00:00",
+  "status": "SCORING_DOMAINS_RECONCILED_CAUSE_OF_APRIL_GOAL_NOT_VERIFIED",
+  "HTOOfficialRecordsSource": {
+    "url": "https://www.htosports.com/teams/default.asp?p=records&s=hockey&u=BRAVESHOCKEY",
+    "http": 200,
+    "publicHTMLSHA256": "8c9e1b59709198bf15b9713c93dd74b8b0af7bdb626ed0fd65a15da881f2a1ea",
+    "recordClass": "HTO_PUBLIC_RECORDS_PLAYED_GAME_SCORING"
+  },
+  "dualSourceSource": "Canonical four-forfeit official SVHL crosswalk, separately source-verified",
+  "seasons": [
+    {
+      "season": "Winter_2024/2025",
+      "HTORecordsPlayedScoringGoalsFor": 73,
+      "HTORecordsGoalsAgainst": 95,
+      "SVHLOfficialStandingsGoalsFor": 74,
+      "SVHLOfficialStandingsGoalsAgainst": 95,
+      "OfficialAdministrativeForfeitWins": 1,
+      "OfficialForfeitAwardedGoalsFor": 1,
+      "officialSeasonRecord": {
+        "GP": 24,
+        "W": 10,
+        "L": 12,
+        "T": 2,
+        "PTS": 22
+      },
+      "sourceParity": "EXACT_WITH_FORFEIT_AWARDED_GOALS",
+      "guardrail": "Do not assign awarded goals to players, on-ice goalie events or actually played game score"
+    },
+    {
+      "season": "Winter_2025/2026",
+      "HTORecordsPlayedScoringGoalsFor": 81,
+      "HTORecordsGoalsAgainst": 82,
+      "SVHLOfficialStandingsGoalsFor": 84,
+      "SVHLOfficialStandingsGoalsAgainst": 82,
+      "OfficialAdministrativeForfeitWins": 3,
+      "OfficialForfeitAwardedGoalsFor": 3,
+      "officialSeasonRecord": {
+        "GP": 24,
+        "W": 12,
+        "L": 9,
+        "T": 3,
+        "PTS": 27
+      },
+      "sourceParity": "EXACT_WITH_FORFEIT_AWARDED_GOALS",
+      "guardrail": "Do not assign awarded goals to players, on-ice goalie events or actually played game score"
+    }
+  ],
+  "april2025PlayoffSourceComparison": {
+    "HTORecordsTeamPlayoffsGoalsFor": 2,
+    "HTORecordsTeamPlayoffsGoalsAgainst": 6,
+    "originalGamePages": [
+      {
+        "gameId": 2148162,
+        "date": "2025-03-30",
+        "htoBravesGoals": 2,
+        "htoOpponentGoals": 3,
+        "goalie": "Logue, Stephen",
+        "expectedGoalieGA": 3,
+        "frozenPublicHTMLSHA256": "5b1f365fe3c77749c529c027c0c65a433da3c902113b973b02049adefb85c9bc",
+        "listedGoalies": [
+          {
+            "name": "Logue, Stephen",
+            "GA": 3
+          }
+        ],
+        "teamGoalsAgainstMinusListedGoalieGA": 0,
+        "goalAttributionCause": "UNDETERMINED_FROM_VERIFIED_PUBLIC_SOURCES"
+      },
+      {
+        "gameId": 2148163,
+        "date": "2025-04-06",
+        "htoBravesGoals": 0,
+        "htoOpponentGoals": 3,
+        "goalie": "Logue, Stephen",
+        "expectedGoalieGA": 2,
+        "frozenPublicHTMLSHA256": "6547e4d720f00aa51f82eb662084237a1462943a0061a94c2f30555eee205951",
+        "listedGoalies": [
+          {
+            "name": "Logue, Stephen",
+            "GA": 2
+          }
+        ],
+        "teamGoalsAgainstMinusListedGoalieGA": 1,
+        "goalAttributionCause": "UNDETERMINED_FROM_VERIFIED_PUBLIC_SOURCES"
+      }
+    ],
+    "listedGoalieTotalGoalsAgainst": 5,
+    "teamMinusListedGoaliesGoalsAgainst": 1,
+    "attribution": "ONE_GOAL_IN_TEAM_TOTAL_NOT_ACCOUNTED_FOR_IN_LISTED_GOALIE_GA;_CAUSE_UNVERIFIED",
+    "excludedConclusions": [
+      "NOT_VERIFIED_EMPTY_NET_GOAL",
+      "NOT_VERIFIED_GOALTENDER_CHANGE",
+      "NOT_VERIFIED_STATS_CORRECTION"
+    ],
+    "sourceHold": "Original 2025-04-06 HTO goalie 2 GA vs team 3 GA remains unresolved; no official event-level evidence from two SVHL playoff placeholders."
+  },
+  "publicationPolicy": "Record observed numeric differences but do not assert their cause. Preserve original HTO goalie rows, team final, all private native Recap HTML and source records."
+}
