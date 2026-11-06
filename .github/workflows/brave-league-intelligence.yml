@@ -22,6 +22,8 @@ on:
       - 'scripts/collect_svhl_league_intelligence.py'
       - 'scripts/build_svhl_league_intelligence_public.py'
       - 'scripts/check_svhl_league_intelligence.py'
+      - 'scripts/report_hockeyos_scouting_coverage.py'
+      - 'tests/test_hockeyos_scouting_coverage_report.py'
       - 'scripts/model_svhl_schedule_strength.py'
       - 'scripts/track_svhl_strength_trends.py'
       - 'scripts/build_svhl_weekly_strength.py'
@@ -35,6 +37,15 @@ on:
       - 'widgets/division-fit-lab.html'
       - 'widgets/division-fit-lab.js'
       - 'widgets/division-fit-model.js'
+      - 'widgets/video-strength-evidence.js'
+      - 'widgets/svhl-official-game-id-bridges.json'
+      - 'scripts/build_svhl_official_game_id_bridges.cjs'
+      - 'scripts/build_brave_historical_gameinfo_id_bridges.cjs'
+      - 'widgets/brave-historical-gameinfo-ids.json'
+      - 'tests/test_brave_historical_gameinfo_id_bridges.cjs'
+      - 'tests/test_svhl_official_game_id_bridges.cjs'
+      - 'tests/test_video_strength_evidence.cjs'
+      - 'docs/ENG59_VideoIntelligence_Dependency_Handoff_20261027.md'
       - 'widgets/weekly-strength-stability.js'
       - 'widgets/division-layout-optimizer.js'
       - 'widgets/division-lineup-refinement.js'
@@ -47,6 +58,40 @@ on:
       - 'widgets/svhl-roster-intelligence.json'
       - 'widgets/player-game-audit.html'
       - 'widgets/player-game-audit.js'
+      - 'widgets/svhl-gameinfo-hold-review.json'
+      - 'scripts/build_svhl_gameinfo_hold_review.py'
+      - 'scripts/audit_svhl_held_gameinfo_live.py'
+      - 'scripts/audit_svhl_roster_exceptions.py'
+      - 'scripts/build_svhl_roster_source_owner_packet.py'
+      - 'scripts/merge_svhl_roster_exception_receipts.py'
+      - 'scripts/build_svhl_raw_gameinfo_disposition_packet.py'
+      - 'scripts/triage_historical_43_schedule_holds.py'
+      - 'scripts/triage_historical_43_near_date_candidates.py'
+      - 'tests/test_historical_43_near_date_candidates.py'
+      - 'scripts/check_eng59_release_evidence.py'
+      - 'scripts/check_eng59_static_release_surface.py'
+      - 'scripts/check_eng59_preexisting_pages_exposure.py'
+      - 'scripts/build_eng59_scoped_static_preview.py'
+      - 'scripts/check_eng59_frozen_source_freshness.py'
+      - 'tests/test_eng59_frozen_source_freshness.py'
+      - 'scripts/check_eng59_hto_scoring_revision.py'
+      - 'tests/test_eng59_hto_scoring_revision.py'
+      - 'widgets/player-actuals-hourly.json'
+      - 'tests/test_eng59_scoped_static_preview.py'
+      - 'tests/test_eng59_scoped_preview_browser.cjs'
+      - 'docs/ENG59_ScopedPages_Staging_Handoff_20261027.md'
+      - 'docs/ENG59_Proposed_Scoped_Pages_Staging_Workflow_20261027.yml'
+      - 'tests/test_eng59_proposed_pages_staging_workflow.py'
+      - 'tests/test_eng59_preexisting_pages_exposure.py'
+      - 'tests/test_eng59_static_release_surface.py'
+      - 'tests/test_eng59_release_evidence.py'
+      - 'docs/ENG59_Independent_Review_Handoff_20261027.md'
+      - 'tests/test_historical_43_schedule_triage.py'
+      - 'tests/test_svhl_raw_gameinfo_disposition_packet.py'
+      - 'tests/test_svhl_roster_receipt_merge.py'
+      - 'tests/test_svhl_roster_source_owner_packet.py'
+      - 'tests/test_svhl_gameinfo_hold_review.py'
+      - 'tests/test_svhl_held_gameinfo_live.py'
       - 'widgets/player-participation-evidence.js'
       - 'widgets/svhl-penalty-source-coverage.json'
       - 'scripts/audit_svhl_gameinfo_penalty_coverage.py'
@@ -57,6 +102,8 @@ on:
       - 'scripts/build_svhl_player_game_reconciliation.py'
       - 'scripts/split_svhl_player_game_evidence.py'
       - 'scripts/check_svhl_player_game_evidence.py'
+      - 'scripts/build_svhl_scoring_source_holds_triage.py'
+      - 'tests/test_svhl_scoring_source_holds_triage.py'
       - 'tests/test_svhl_player_game_sources.py'
       - 'tests/test_roster_source_time_boundary.py'
       - 'tests/test_svhl_player_game_browser.cjs'
@@ -108,6 +155,8 @@ on:
       - 'scripts/collect_svhl_league_intelligence.py'
       - 'scripts/build_svhl_league_intelligence_public.py'
       - 'scripts/check_svhl_league_intelligence.py'
+      - 'scripts/report_hockeyos_scouting_coverage.py'
+      - 'tests/test_hockeyos_scouting_coverage_report.py'
       - 'scripts/model_svhl_schedule_strength.py'
       - 'scripts/track_svhl_strength_trends.py'
       - 'scripts/build_svhl_weekly_strength.py'
@@ -121,6 +170,15 @@ on:
       - 'widgets/division-fit-lab.html'
       - 'widgets/division-fit-lab.js'
       - 'widgets/division-fit-model.js'
+      - 'widgets/video-strength-evidence.js'
+      - 'widgets/svhl-official-game-id-bridges.json'
+      - 'scripts/build_svhl_official_game_id_bridges.cjs'
+      - 'scripts/build_brave_historical_gameinfo_id_bridges.cjs'
+      - 'widgets/brave-historical-gameinfo-ids.json'
+      - 'tests/test_brave_historical_gameinfo_id_bridges.cjs'
+      - 'tests/test_svhl_official_game_id_bridges.cjs'
+      - 'tests/test_video_strength_evidence.cjs'
+      - 'docs/ENG59_VideoIntelligence_Dependency_Handoff_20261027.md'
       - 'widgets/weekly-strength-stability.js'
       - 'widgets/division-layout-optimizer.js'
       - 'widgets/division-lineup-refinement.js'
@@ -133,6 +191,40 @@ on:
       - 'widgets/svhl-roster-intelligence.json'
       - 'widgets/player-game-audit.html'
       - 'widgets/player-game-audit.js'
+      - 'widgets/svhl-gameinfo-hold-review.json'
+      - 'scripts/build_svhl_gameinfo_hold_review.py'
+      - 'scripts/audit_svhl_held_gameinfo_live.py'
+      - 'scripts/audit_svhl_roster_exceptions.py'
+      - 'scripts/build_svhl_roster_source_owner_packet.py'
+      - 'scripts/merge_svhl_roster_exception_receipts.py'
+      - 'scripts/build_svhl_raw_gameinfo_disposition_packet.py'
+      - 'scripts/triage_historical_43_schedule_holds.py'
+      - 'scripts/triage_historical_43_near_date_candidates.py'
+      - 'tests/test_historical_43_near_date_candidates.py'
+      - 'scripts/check_eng59_release_evidence.py'
+      - 'scripts/check_eng59_static_release_surface.py'
+      - 'scripts/check_eng59_preexisting_pages_exposure.py'
+      - 'scripts/build_eng59_scoped_static_preview.py'
+      - 'scripts/check_eng59_frozen_source_freshness.py'
+      - 'tests/test_eng59_frozen_source_freshness.py'
+      - 'scripts/check_eng59_hto_scoring_revision.py'
+      - 'tests/test_eng59_hto_scoring_revision.py'
+      - 'widgets/player-actuals-hourly.json'
+      - 'tests/test_eng59_scoped_static_preview.py'
+      - 'tests/test_eng59_scoped_preview_browser.cjs'
+      - 'docs/ENG59_ScopedPages_Staging_Handoff_20261027.md'
+      - 'docs/ENG59_Proposed_Scoped_Pages_Staging_Workflow_20261027.yml'
+      - 'tests/test_eng59_proposed_pages_staging_workflow.py'
+      - 'tests/test_eng59_preexisting_pages_exposure.py'
+      - 'tests/test_eng59_static_release_surface.py'
+      - 'tests/test_eng59_release_evidence.py'
+      - 'docs/ENG59_Independent_Review_Handoff_20261027.md'
+      - 'tests/test_historical_43_schedule_triage.py'
+      - 'tests/test_svhl_raw_gameinfo_disposition_packet.py'
+      - 'tests/test_svhl_roster_receipt_merge.py'
+      - 'tests/test_svhl_roster_source_owner_packet.py'
+      - 'tests/test_svhl_gameinfo_hold_review.py'
+      - 'tests/test_svhl_held_gameinfo_live.py'
       - 'widgets/player-participation-evidence.js'
       - 'widgets/svhl-penalty-source-coverage.json'
       - 'scripts/audit_svhl_gameinfo_penalty_coverage.py'
@@ -143,6 +235,8 @@ on:
       - 'scripts/build_svhl_player_game_reconciliation.py'
       - 'scripts/split_svhl_player_game_evidence.py'
       - 'scripts/check_svhl_player_game_evidence.py'
+      - 'scripts/build_svhl_scoring_source_holds_triage.py'
+      - 'tests/test_svhl_scoring_source_holds_triage.py'
       - 'tests/test_svhl_player_game_sources.py'
       - 'tests/test_roster_source_time_boundary.py'
       - 'tests/test_svhl_player_game_browser.cjs'
@@ -197,6 +291,10 @@ jobs:
           python-version: '3.12'
       - name: Recheck all-division source and game pairing
         run: python scripts/check_svhl_league_intelligence.py
+      - name: Verify unified scouting coverage and source limitation report
+        run: python -B scripts/report_hockeyos_scouting_coverage.py > /dev/null
+      - name: Reject unsupported scouting coverage and invented history
+        run: python -B -m unittest discover -s tests -p test_hockeyos_scouting_coverage_report.py
       - name: Guard previous season and Brave H.C. history
         run: python -m unittest discover -s tests -p test_svhl_league_intelligence_public.py
       - name: Guard no-regression daily publication
@@ -227,6 +325,16 @@ jobs:
         run: node tests/test_svhl_historical_insights.cjs
       - name: Verify evidence-only division grouping and explicit no-release gate
         run: node tests/test_division_fit_model.cjs
+      - name: Guard provisional video strength with strict read-only source and opponent bridge gates
+        run: node tests/test_video_strength_evidence.cjs
+      - name: Rebuild official GameInfo IDs for 54 adult games without new source writes
+        run: node scripts/build_svhl_official_game_id_bridges.cjs --check
+      - name: Reject mismatched official game IDs, score sides, duplicate games and held scorer promotion
+        run: node tests/test_svhl_official_game_id_bridges.cjs
+      - name: Rebuild 79 historical Brave GameInfo IDs with unchanged source hashes
+        run: node scripts/build_brave_historical_gameinfo_id_bridges.cjs --check
+      - name: Refuse forged historical opponent, period-goal admission and game ID linkage
+        run: node tests/test_brave_historical_gameinfo_id_bridges.cjs
       - name: Guard adult Sunday scope and retrospective matchup evidence
         run: node tests/test_adult_division_evidence.cjs
       - name: Verify source-qualified weekly rating drift, adult band changes and missing week holds
@@ -254,6 +362,50 @@ jobs:
         run: python -B scripts/check_svhl_player_game_evidence.py
       - name: Refuse invented GameInfo scorers, assists, source URLs and appearances
         run: python -B -m unittest discover -s tests -p test_svhl_player_game_sources.py -v
+      - name: Rebuild held GameInfo discrepancy triage without modifying league sources
+        run: python -B scripts/build_svhl_scoring_source_holds_triage.py > /dev/null
+      - name: Reject scoring-sheet undercount overcount confusion and source tampering
+        run: python -B -m unittest discover -s tests -p test_svhl_scoring_source_holds_triage.py -v
+      - name: Validate complete 137-game author-audited raw-GameInfo source review feed
+        run: python -B -m unittest discover -s tests -p test_svhl_gameinfo_hold_review.py -v
+      - name: Verify replayed source classification without any network or player score changes
+        run: python -B -m unittest discover -s tests -p test_svhl_held_gameinfo_live.py -v
+      - name: Guard source-owner roster review packets against unverified scorer identity and admission
+        run: python -B -m unittest discover -s tests -p test_svhl_roster_source_owner_packet.py -v
+      - name: Verify bounded 39-source-game scorer receipt merging without admitting goals
+        run: python -B -m unittest discover -s tests -p test_svhl_roster_receipt_merge.py -v
+      - name: Guard original 98 raw GameInfo discrepancies and no source-owner score promotions
+        run: python -B -m unittest discover -s tests -p test_svhl_raw_gameinfo_disposition_packet.py -v
+      - name: Separate historical held matchup same-day and duplicate date source evidence without score promotion
+        run: python -B -m unittest discover -s tests -p test_historical_43_schedule_triage.py -v
+      - name: Guard historical 14-day lead identity, already-admitted H2H duplication and no-goal promotion
+        run: python -B -m unittest discover -s tests -p test_historical_43_near_date_candidates.py -v
+      - name: Fail closed on all ENG59 release source hashes, historical holds and unapproved video/score promotion
+        run: python -B scripts/check_eng59_release_evidence.py
+      - name: Reject forged release boundary artifacts and false independent approval
+        run: python -B -m unittest discover -s tests -p test_eng59_release_evidence.py -v
+      - name: Verify tracked static GitHub Pages assets and no ENG59 private reviewer packet leak
+        run: python -B scripts/check_eng59_static_release_surface.py
+      - name: Reject missing runtime assets, mismatched feeds and false privacy acceptance
+        run: python -B -m unittest discover -s tests -p test_eng59_static_release_surface.py -v
+      - name: Review pre-existing private-named Pages source surface without leaking file contents
+        run: python -B scripts/check_eng59_preexisting_pages_exposure.py
+      - name: Reject embedded credentials, new private-named paths and fabricated publication approvals
+        run: python -B -m unittest discover -s tests -p test_eng59_preexisting_pages_exposure.py -v
+      - name: Check private scoped Pages preview manifest without creating or publishing assets
+        run: python -B scripts/build_eng59_scoped_static_preview.py --check-only --output "$RUNNER_TEMP/eng59-private-preview-candidate"
+      - name: Refuse internal docs/scripts/credentials in isolated web-asset packaging
+        run: python -B -m unittest discover -s tests -p test_eng59_scoped_static_preview.py -v
+      - name: Verify proposed scoped Pages stage is inert, read-only and cannot deploy
+        run: python -B -m unittest discover -s tests -p test_eng59_proposed_pages_staging_workflow.py -v
+      - name: Hold release-current claims for dated hourly HTO and league-source preview snapshots
+        run: python -B scripts/check_eng59_frozen_source_freshness.py
+      - name: Independently crosscheck five HTO game sheets against frozen public player totals without admission
+        run: python -B scripts/check_eng59_hto_scoring_revision.py
+      - name: Reject fabricated HTO assists and never auto-release corrected player totals
+        run: python -B -m unittest discover -s tests -p test_eng59_hto_scoring_revision.py -v
+      - name: Reject stale, regressed, source-unqualified or re-used preview hourly evidence
+        run: python -B -m unittest discover -s tests -p test_eng59_frozen_source_freshness.py -v
       - name: Guard source-stamped weekly roster age without equating separate daily captures
         run: python -B -m unittest discover -s tests -p test_roster_source_time_boundary.py -v
       - name: Verify sampled official GameInfo penalty tables without fake PIM or GP

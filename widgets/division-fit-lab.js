@@ -4,7 +4,7 @@
  const put=(parent,tag,cls,value)=>{const node=el(tag,cls,value);parent.append(node);return node};
  const q=id=>document.getElementById(id);
  const num=(v,n=1)=>Number.isFinite(v)?v.toFixed(n):"unavailable";
- let analysis=null,stability=null,activeScenario="CURRENT";
+ let analysis=null,stability=null,activeScenario="CURRENT",verifiedGameInfoBySourceKey=null;
  function metric(parent,value,description){
   const node=el("div","metric");
   put(node,"span","number",value);
@@ -110,6 +110,96 @@
    ". "+analysis.gameGraph.verifiedGamesInPool+" adult-pool source-confirmed completed games. "+
    "Only Fazzari, Cristillo and Remax are represented. Other competitions are outside this report; source records are unchanged." ;
  }
+ function videoBridgeReadiness(){
+  const status=q("video-readiness-status"),metrics=q("video-bridge-metrics");
+  metrics.replaceChildren();
+  try{
+   if(!window.BraveVideoStrengthEvidence)
+    throw Error("SOURCE_QUALIFIED_VIDEO_INTAKE_NOT_INSTALLED");
+   const bridge=window.BraveVideoStrengthEvidence.opponentBridgeInventory(analysis);
+   metric(metrics,bridge.adultTeamCount,"adult SVHL teams with confirmed source IDs");
+   metric(metrics,bridge.crossCurrentDivisionGames,"source games between current divisions");
+   metric(metrics,bridge.teamsWithCrossDivisionEvidence,"teams with observed cross-division opponents");
+   metric(metrics,bridge.teamsWithoutCrossDivisionEvidence,"teams without direct cross-division game evidence");
+   status.textContent="INSUFFICIENT_VIDEO — no independently accepted actual-play feature rates or calibrated video-strength rating. "+
+    "The "+bridge.crossCurrentDivisionGames+" source-confirmed cross-current-division games are opponent/context bridges only; "+
+    "the existing Division Fit indexes and all scenarios remain unchanged.";
+   q("video-bridge-caveat").textContent=bridge.caveat+
+    " No VAHL team is included. Camera, era, source rights, moving-play coverage, opponent tier and independent QA remain gating conditions.";
+  }catch(error){
+   status.textContent="INSUFFICIENT_VIDEO — video source bridge held: "+error.message+
+     ". Existing division research continues unchanged; no team performance is inferred.";
+  }
+ }
+ async function loadOfficialGameIDBridges(){
+  const r=await fetch("./svhl-official-game-id-bridges.json",{cache:"no-store"});
+  if(!r.ok)throw Error("SOURCE_QUALIFIED_GAMEINFO_ID_MAP_UNAVAILABLE");
+  const official=await r.json();
+  if(!window.BraveVideoStrengthEvidence)
+    throw Error("SOURCE_QUALIFIED_VIDEO_EVIDENCE_ADAPTER_UNAVAILABLE");
+  const verified=window.BraveVideoStrengthEvidence.officialGameIdentityCoverage(
+    analysis,official);
+  // The existing adapter verified every official ID, team side, score, page
+  // URL and hash against all 54 source-paired games before this reference view.
+  verifiedGameInfoBySourceKey=new Map(official.games.map(g=>[g.sourceGameKey,g]));
+  if(verifiedGameInfoBySourceKey.size!==verified.sourceGameIDsVerified)
+   throw Error("SCENARIO_GAME_SOURCE_INDEX_DUPLICATED");
+  if(!window.BraveDivisionLayoutView?.setOfficialGameInfoSource)
+   throw Error("LAYOUT_OFFICIAL_GAME_SOURCE_VIEW_MISSING");
+  window.BraveDivisionLayoutView.setOfficialGameInfoSource(analysis,official);
+  renderScenarioGameSources();
+  // This only upgrades the source-linked identity/evidence LABEL, never a team rating.
+  // Default remains actual cross-division matches; the source-only inventory can
+  // also show every exact official GameInfo ID (including within-division games).
+  const sourceMatches=[...official.games].sort(
+    (a,b)=>a.date.localeCompare(b.date)||a.officialGameId-b.officialGameId);
+  const list=q("video-bridge-games-list"),scope=q("gameinfo-scope-filter"),
+    search=q("gameinfo-source-search"),count=q("gameinfo-source-count");
+  const renderSourceMatches=()=>{
+   const query=search.value.trim().toLocaleLowerCase();
+   const filtered=sourceMatches.filter(g=>
+     (scope.value==="ALL"||
+      (scope.value==="CROSS"?g.crossCurrentDivision:!g.crossCurrentDivision))&&
+     (!query||[g.date,g.homeTeamName,g.awayTeamName,String(g.officialGameId)]
+       .some(v=>String(v).toLocaleLowerCase().includes(query))));
+   list.replaceChildren();
+   for(const g of filtered){
+    const card=el("article","week-card");
+    put(card,"strong","",g.date+" · "+g.homeTeamName+" vs "+g.awayTeamName);
+    put(card,"small","",g.publishedFinalGoals.join("-")+
+      " · official SVHL game #"+g.officialGameId+" · "+
+      g.currentDivisionPair.join(" / ")+
+      (g.crossCurrentDivision?" · cross-current-division":" · within-current-division"));
+    if(g.scoringEventAdmission==="HELD_PLAYER_SCORING_NOT_SEASON_ADMISSION")
+     put(card,"small","warning","Official result confirmed; individual player scoring sheet held");
+    const link=put(card,"a","small","Inspect source GameInfo");
+    link.href=g.officialGameInfoURL;link.target="_blank";
+    link.rel="noopener noreferrer";
+    list.append(card);
+   }
+   if(!filtered.length)put(list,"p","small","No verified GameInfo matches meet these filters.");
+   count.textContent=filtered.length+" of "+sourceMatches.length+
+     " exact official GameInfo IDs displayed · "+
+     verified.verifiedCrossDivisionIDs+" cross-current-division games in full source";
+  };
+  scope.onchange=renderSourceMatches;
+  search.oninput=renderSourceMatches;
+  renderSourceMatches();
+  const detail=q("video-bridge-games");
+  detail.hidden=sourceMatches.length===0;
+  detail.querySelector("summary").textContent=
+    "Inspect "+sourceMatches.length+" verified official GameInfo matches ("+
+    verified.verifiedCrossDivisionIDs+" cross-current-division)";
+  metric(q("video-bridge-metrics"),verified.sourceGameIDsVerified,
+    "official GameInfo game IDs verified in this pool");
+  q("video-readiness-status").textContent=
+    "INSUFFICIENT_VIDEO — "+verified.sourceGameIDsVerified+
+    " of "+analysis.gameGraph.verifiedGamesInPool+
+    " source-confirmed games now have exact official GameInfo IDs; "+
+    verified.verifiedCrossDivisionIDs+" connect current divisions. "+
+    verified.scorerHeldOfficialGames+" games retain player scoring evidence holds. "+
+    "No independent actual-play strength, calibrated tier rating or division assignment authorized.";
+ }
  function connections(){
   const grid=q("cross-division-links");grid.replaceChildren();
   const cross=analysis.gameGraph.links.filter(p=>p.crossDivision);
@@ -122,6 +212,51 @@
    grid.append(card);
   }
   if(!cross.length)put(grid,"p","small","No verified cross-division games in the selected adult comparison pool.");
+ }
+ function renderScenarioGameSources(){
+  const detail=q("scenario-game-sources"),list=q("scenario-game-list"),
+   count=q("scenario-game-count");
+  list.replaceChildren();
+  if(!verifiedGameInfoBySourceKey){
+   detail.hidden=true;
+   count.textContent="Official GameInfo identity evidence unavailable; no source game is inferred.";
+   return;
+  }
+  const chosen=analysis.scenarios.find(s=>s.code===activeScenario);
+  if(!chosen){detail.hidden=true;return;}
+  const assign=new Map(chosen.groups.flatMap(g=>g.ids.map(id=>[id,g.label])));
+  const games=analysis.gameGraph.verifiedMatches.map(game=>{
+   const verified=verifiedGameInfoBySourceKey.get(game.sourceGameKey);
+   if(!verified)throw Error("SCENARIO_OFFICIAL_GAME_ID_SOURCE_MISSING");
+   const a=assign.get(game.teamIds[0]),b=assign.get(game.teamIds[1]);
+   if(!a||!b)throw Error("SCENARIO_TEAM_MEMBERSHIP_UNVERIFIED");
+   return {verified,groupA:a,groupB:b,sameGroup:a===b};
+  }).sort((a,b)=>b.verified.date.localeCompare(a.verified.date)||
+        a.verified.officialGameId-b.verified.officialGameId);
+  const same=games.filter(g=>g.sameGroup).length;
+  if(games.length!==verifiedGameInfoBySourceKey.size||
+     same!==chosen.evidence.observedSameGroupGames)
+   throw Error("SCENARIO_GAME_COUNTS_NOT_MATCHING_VERIFIED_SOURCE");
+  count.textContent=games.length+" verified official GameInfo IDs · "+same+
+   " observed games between teams grouped together in this "+chosen.title+
+   " view · "+(games.length-same)+" across the displayed groups.";
+  for(const {verified:g,groupA,groupB,sameGroup} of games){
+   const card=el("article","week-card");
+   put(card,"strong","",g.date+" · "+g.homeTeamName+" vs "+g.awayTeamName+
+      " · "+g.publishedFinalGoals.join("-"));
+   put(card,"small","",("Official GameInfo #"+g.officialGameId+" · "+
+      (sameGroup?"SAME selected group: "+groupA:
+        "ACROSS selected groups: "+groupA+" / "+groupB))+
+      (chosen.code==="CURRENT"?" · actual current membership":
+        " · HYPOTHETICAL membership only"));
+   if(g.scoringEventAdmission==="HELD_PLAYER_SCORING_NOT_SEASON_ADMISSION")
+    put(card,"small","warning","Official team result source-confirmed; individual scoring events held");
+   const link=put(card,"a","small","Inspect exact SVHL GameInfo");
+   link.href=g.officialGameInfoURL;
+   link.target="_blank";link.rel="noopener noreferrer";
+   list.append(card);
+  }
+  detail.hidden=false;
  }
  function renderScenario(){
   const chosen=analysis.scenarios.find(s=>s.code===activeScenario);
@@ -181,6 +316,7 @@
    }
    grid.append(card);
   }
+  renderScenarioGameSources();
  }
  function readiness(){
   const ready=analysis.readiness;
@@ -299,7 +435,16 @@
    stability=window.BraveWeeklyStability.analyze(league);
    if(!window.BraveDivisionLayoutView)throw Error("Flexible division layout module missing");
    window.BraveDivisionLayoutView.init(analysis);
-   source();connections();renderScenario();renderStability();readiness();historical();
+   source();connections();videoBridgeReadiness();renderScenario();renderStability();readiness();historical();
+   loadOfficialGameIDBridges().catch(error=>{
+    verifiedGameInfoBySourceKey=null;
+    window.BraveDivisionLayoutView?.clearOfficialGameInfoSource?.();
+    renderScenarioGameSources();
+    const status=q("video-readiness-status");
+    if(status.textContent.includes("INSUFFICIENT_VIDEO"))
+     status.textContent+=" Official GameInfo ID crosswalk held: "+error.message+
+       ". Original results and division scenarios remain unchanged.";
+   });
    q("notice").textContent=analysis.proposalReady?
      "Research source verified; proposal held for human review.":
      "Source verified. Preliminary research only — no division changes recommended.";

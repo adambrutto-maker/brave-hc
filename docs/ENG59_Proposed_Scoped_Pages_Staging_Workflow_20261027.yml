@@ -1,0 +1,62 @@
+# NOT AN ACTIVE GITHUB ACTIONS WORKFLOW.
+# Inert design artifact under docs/. Do not copy to .github/workflows
+# or activate without independent source/privacy review and explicit founder
+# deployment approval. This draft STAGES and UPLOADS A QA ARTIFACT ONLY.
+# It has no pages:write, id-token:write or deploy-pages permission/action.
+name: ENG59 proposed safe Pages staging - NOT ACTIVE
+on:
+  workflow_dispatch:
+jobs:
+  scoped-site-candidate:
+    name: Construct nonproduction public-assets candidate
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout exact reviewed revision
+        uses: actions/checkout@v6
+      - name: Setup Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Verify admitted source, no score/video promotion
+        run: python -B scripts/check_eng59_release_evidence.py
+      - name: Verify static Pages source and explicitly held privacy
+        run: |
+          python -B scripts/check_eng59_static_release_surface.py
+          python -B scripts/check_eng59_preexisting_pages_exposure.py
+          python -B scripts/check_eng59_frozen_source_freshness.py
+      - name: Reject missing assets, unsafe source provenance, or backup publication
+        run: python -B -m unittest discover -s tests -p test_eng59_scoped_static_preview.py -v
+      - name: Build exact canonical tracked web-only site (not production)
+        run: |
+          python -B scripts/build_eng59_scoped_static_preview.py \
+            --output "$RUNNER_TEMP/eng59_scoped_site" \
+            --receipt "$RUNNER_TEMP/eng59_scoped_site_manifest.json"
+      - name: Verify staged source snapshot and held release gates
+        run: |
+          python -B scripts/check_eng59_frozen_source_freshness.py \
+            --private-preview-manifest "$RUNNER_TEMP/eng59_scoped_site_manifest.json"
+          test -f "$RUNNER_TEMP/eng59_scoped_site/index.html"
+          test ! -d "$RUNNER_TEMP/eng59_scoped_site/docs"
+          test ! -d "$RUNNER_TEMP/eng59_scoped_site/scripts"
+          test ! -d "$RUNNER_TEMP/eng59_scoped_site/.github"
+          test ! -d "$RUNNER_TEMP/eng59_scoped_site/widgets/assets/opaque-originals"
+          test ! -d "$RUNNER_TEMP/eng59_scoped_site/widgets/assets/approved-sources"
+          test ! -d "$RUNNER_TEMP/eng59_scoped_site/widgets/assets/approved-history"
+      - name: Upload review-only candidate artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: eng59-scoped-web-only-review
+          path: ${{ runner.temp }}/eng59_scoped_site
+          retention-days: 3
+          if-no-files-found: error
+# REQUIRED HUMAN GATES BEFORE SEPARATE RELEASE WORKFLOW ACTIVATION:
+# - independent PR/code review (PR #128)
+# - source/content/publication rights review of every allowed web asset
+# - approvals for internal/owner source exclusions and no private content
+# - fresh source readback and independent current records validation
+# - founder authorizes deployment workflow change/merge/release
+# - rollback and postrelease smoke are independently confirmed
+# The EXISTING .github/workflows/pages.yml still publishes path: '.'
+# This proposed staging workflow deliberately does not change it.

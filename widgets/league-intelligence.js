@@ -8,7 +8,7 @@
  const dec=v=>Number.isFinite(v)?(v>0?"+":"")+v.toFixed(2):"—";
  const record=x=>x?(x.w+"–"+x.l+"–"+x.t):"—";
  const date=s=>{try{return new Date(s+"T12:00:00").toLocaleDateString("en-CA",{year:"numeric",month:"short",day:"numeric"})}catch(_){return s}};
- let data=null,selected=null,currentScoutingBrief=null,upcomingFixtures=[],historicalArchive=null,historicalLinks=null,balanceSummary=null;
+ let data=null,selected=null,currentScoutingBrief=null,upcomingFixtures=[],historicalArchive=null,historicalLinks=null,historicalGameIDs=null,balanceSummary=null;
  let rosterEvidence=null,braveHTOPlayers=null,selectedRosterReport=null,rosterAssignmentValues=[];
  function trusted(doc){
   return doc?.schema==="brave-hc-league-intelligence/public-v1" &&
@@ -197,6 +197,23 @@
     const link=text(row,"a","sourcelink"," Official season-team source");
     link.href=history.officialSource;link.target="_blank";link.rel="noopener noreferrer";
     proof.append(row);
+    if(historicalGameIDs){
+     const exact=historicalGameIDs.games.filter(g=>g.season===history.season&&
+       g.opponentName===team.leagueName&&
+       g.sourceOpponentTeamPageURL===history.officialSource);
+     if(exact.length){
+      const group=el("div","small");
+      text(group,"small","","Exact official GameInfo identities ("+exact.length+" source games; player scoring holds remain separate):");
+      for(const match of exact){
+       const a=text(group,"a","sourcelink",match.date+" · Game #"+match.gameId+
+        " · Brave H.C. "+match.braveGF+"-"+match.braveGA+
+        (match.scorerEventEvidenceStatus==="HELD_PLAYER_GOAL_EVENT_SHEET"?" (player events held)":""));
+       a.href=match.sourceGameInfoURL;a.target="_blank";a.rel="noopener noreferrer";
+       text(group,"span",""," ");
+      }
+      proof.append(group);
+     }
+    }
    }
   }else text(proof,"p","tiny","No separately source-matched historical game for this exact published team name in the admitted archive. Other Brave H.C. historical totals above remain distinct.");
   const w=info.weekly;
@@ -328,6 +345,59 @@
         x.teamSeasons.some(g=>g.continuousFranchiseNotVerified!==true))
        throw Error("Historical game-level proof or count invalid");
      historicalLinks=x;
+     // Optional GameInfo identity crosswalk; never a replacement for original
+     // 2-source H2H records or a player-scoring/statistical admission.
+     try{
+      const source=await fetch("./brave-historical-gameinfo-ids.json",{cache:"no-store"});
+      if(!source.ok)throw Error("ARCHIVED_GAMEINFO_IDS_NOT_AVAILABLE");
+      const ids=await source.json();
+      if(ids.schema!=="brave-hc-historical-source-matched-gameinfo-ids/v1"||
+        ids.status!=="HISTORICAL_EXACT_GAMEINFO_IDS_SOURCE_QUALIFIED_PLAYER_STATS_HELD_SEPARATELY"||
+        ids.sourceHashBytePolicy!=="UTF8_LF_GIT_BLOB"||
+        ids.matchedHistoricalGames!==x.matchedGameCount||
+        ids.sourceTeamSeasonOpponentGroups!==x.matchedTeamSeasonGroups||
+        ids.heldScorerEventSourceGames!==4||
+        ids.historicalComparisonsStillHeld!==x.heldGameComparisons||
+        ids.originalHistoricalH2HModified!==false||
+        ids.officialSourceOrPlayerDataWritten!==false||
+        ids.historicalFranchiseContinuityInferred!==false||
+        ids.videoTeamRatingProduced!==false||
+        !Array.isArray(ids.games)||ids.games.length!==x.matchedGameCount)
+         throw Error("ARCHIVED_GAMEINFO_CROSSWALK_COVERAGE_HELD");
+      const seen=new Set(),groups=new Map();
+      for(const row of ids.games){
+       const key=row.leagueId+"|"+row.gameId;
+       const page=new URL(row.sourceGameInfoURL);
+       const group=x.teamSeasons.find(g=>
+        g.officialLeagueId===row.leagueId&&
+        g.officialTeamSeasonId===row.opponentTeamId&&
+        g.officialTeamPage===row.sourceOpponentTeamPageURL&&
+        g.officialTeamName===row.opponentName&&g.season===row.season);
+       if(seen.has(key)||!group||
+         !group.games.some(g=>g.date===row.date&&g.gf===row.braveGF&&
+           g.ga===row.braveGA&&g.result===row.braveResult)||
+         row.currentRosterContinuityVerified!==false||
+         row.playerGPVerified!==false||
+         row.videoObservationAccepted!==false||
+         row.scoutingIndexModified!==false||
+         !/^[a-f0-9]{64}$/.test(row.sourceGameInfoSHA256)||
+         page.protocol!=="https:"||
+         page.hostname!=="leagues.sportsvillage.ca"||
+         page.pathname.toLowerCase()!=="/gameinfo.aspx"||
+         page.searchParams.get("leagueid")!==String(row.leagueId)||
+         page.searchParams.get("gameid")!==String(row.gameId)||
+         page.searchParams.get("page_type")!=="Adult")
+        throw Error("ARCHIVED_GAMEINFO_ID_OR_SCORING_HOLD_UNQUALIFIED");
+       seen.add(key);
+       const groupKey=row.leagueId+"|"+row.opponentTeamId;
+       groups.set(groupKey,(groups.get(groupKey)||0)+1);
+      }
+      if(seen.size!==x.matchedGameCount||
+         x.teamSeasons.some(g=>groups.get(g.officialLeagueId+"|"+
+           g.officialTeamSeasonId)!==g.bravesRecord.gp))
+       throw Error("ARCHIVED_GAMEINFO_ID_PER_OPPONENT_GROUP_PARITY");
+      historicalGameIDs=ids;
+     }catch(_){historicalGameIDs=null;}
     }
    }catch(error){
     q("plain-history-caveat").textContent="Historical Brave game links held: "+error.message;
@@ -341,7 +411,11 @@
     " adult-scope competitive team-season entries. "+
     (historicalLinks?historicalLinks.matchedGameCount+" Brave H.C. game/date/score matches across "+
       historicalLinks.matchedTeamSeasonGroups+" historical team-seasons; "+
-      historicalLinks.heldGameComparisons+" held. ":"Historical game joins remain held. ")+
+      historicalLinks.heldGameComparisons+" held. "+
+      (historicalGameIDs?historicalGameIDs.matchedHistoricalGames+
+      " exact official GameInfo IDs linked, including "+
+      historicalGameIDs.heldScorerEventSourceGames+" player-scoring holds. ":""):
+      "Historical game joins remain held. ")+
     doc.missingSeasonsNotInferred.join(", ")+" official archive gaps remain unverified.";
    renderArchive();renderBalance();
   }catch(err){

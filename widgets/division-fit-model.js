@@ -58,7 +58,7 @@
  function gameGraph(doc,teams){
   const byName=new Map(doc.teams.map(t=>[t.leagueName,t]));
   const ids=new Set(teams.map(t=>t.sourceTeamId));
-  const seen=new Map(),games=[],pairs=new Map();
+  const seen=new Map(),sourceSides=new Map(),games=[],pairs=new Map();
   for(const team of teams){
    for(const g of team.completedGames){
     const opponent=byName.get(g.opponent);
@@ -68,6 +68,11 @@
     const hi=Math.max(team.sourceTeamId,opponent.sourceTeamId);
     const goals=team.sourceTeamId===lo?[g.gf,g.ga]:[g.ga,g.gf];
     const key=[g.date,lo,hi].join("|");
+    // Without official game IDs, a repeated same-team/date/opponent row may
+    // be a doubleheader. Never silently merge that second game into the first.
+    const sides=sourceSides.get(key)||new Set();
+    need(!sides.has(team.sourceTeamId),"AMBIGUOUS_SAME_DAY_PAIR_NO_SOURCE_GAME_ID");
+    sides.add(team.sourceTeamId);sourceSides.set(key,sides);
     if(seen.has(key)){
      need(seen.get(key)===goals.join("-"),"RECIPROCAL_OFFICIAL_RESULT_CONFLICT");
      continue;
@@ -76,6 +81,9 @@
     const same=team.divisionNow===opponent.divisionNow;
     const divisions=[team.divisionNow,opponent.divisionNow].sort();
     const result={sourceGameKey:key,date:g.date,teamIds:[lo,hi],
+      // Exact reciprocal final score ordered by ascending season-team ID.
+      // A matching margin alone can hide a different final or swapped winner.
+      scoreBySourceTeamId:[...goals],
       divisionPair:divisions,sameCurrentDivision:same,
       absoluteGoalMargin:Math.abs(g.gf-g.ga)};
     games.push(result);
@@ -85,11 +93,16 @@
     const p=pairs.get(pairKey);p.games++;p.goalMarginSum+=result.absoluteGoalMargin;
    }
   }
+  need([...sourceSides.values()].every(s=>s.size===2),
+    "RECIPROCAL_SOURCE_GAME_SIDE_MISSING");
   const result=[...pairs.values()].map(p=>({
     ...p,meanAbsoluteGoalMargin:round(p.goalMarginSum/p.games,2)
   })).sort((a,b)=>b.games-a.games||a.divisionPair.join("|").localeCompare(b.divisionPair.join("|")));
   const cross=games.filter(g=>!g.sameCurrentDivision).length;
   return {verifiedGamesInPool:games.length,crossCurrentDivisionGames:cross,
+    reciprocalPairsVerified:true,
+    identityPolicy:"DATE_AND_UNORDERED_TEAM_PAIR_NO_OFFICIAL_GAME_ID",
+    identityLimitation:"Same-day rematches require distinct official game IDs; ambiguous rows are held rather than merged.",
     withinCurrentDivisionGames:games.length-cross,links:result,verifiedMatches:games,
     caveat:"Divisions mean each team's CURRENT assignment; they may have differed on the game date. Cross-division links are schedule evidence, not team skill predictions."};
  }

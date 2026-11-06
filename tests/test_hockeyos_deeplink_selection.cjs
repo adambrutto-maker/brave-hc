@@ -8,7 +8,7 @@ assert.match(source,/const name=new URLSearchParams\(location\.search\)\.get\("t
 assert.match(source,/selected=window\.BraveAdultLeagueScope\.teams\(data\)/);
 assert.match(source,/choose\(selected\);loadUpcoming\(\);/);
 assert.doesNotMatch(source,/table\(\);profile\(\);loadUpcoming\(\);/);
-assert.match(html,/league-intelligence\.js\?v=20261027-team1/);
+assert.match(html,/league-intelligence\.js\?v=20261027-eng59-historyGameIDs1/);
 assert.equal((html.match(/id="team-filter"/g)||[]).length,1);
 assert.equal((html.match(/id="profile-title"/g)||[]).length,1);
 assert.equal((html.match(/id="copy-scout-brief"/g)||[]).length,1);
