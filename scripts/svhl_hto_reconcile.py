@@ -10,6 +10,7 @@ import requests
 from bs4 import BeautifulSoup
 
 SVHL = 'https://leagues.sportsvillage.ca/Leagues.aspx?leagueid=570&page_type=Adult&sc=HOCKEY'
+SVHL_TEAM = 'https://leagues.sportsvillage.ca/teaminfo.aspx?leagueid=570&page_type=Adult&teamid=13679'
 HTO = 'https://www.htosports.com/teams/default.asp?p=schedule&s=hockey&u=BRAVESHOCKEY&format=List'
 TZ = ZoneInfo('America/Toronto')
 TEAM_ID = '13679'
@@ -59,10 +60,82 @@ def parse_svhl(html):
         home=ids[0]==TEAM_ID
         games.append(dict(date=date(text(cells[0])),time=time(text(cells[1])),
                           opponent=text(teams[1] if home else teams[0]),
+                          opponentTeamId=ids[1] if home else ids[0],
                           rink=rink(text(cells[3])),side='home' if home else 'away'))
     if not games:
         raise ValueError('No Braves games found; refusing empty feed')
     return sorted(games,key=kickoff)
+
+def parse_svhl_team(html):
+    """Read the Braves-specific league schedule, including official game IDs.
+
+    TeamInfo is an independent provider view; unlike the league-wide schedule
+    it exposes permanent game IDs but does not publish rink assignments.
+    """
+    doc=BeautifulSoup(html, 'html.parser')
+    if 'Sunday Winter - 2026/27' not in text(doc):
+        raise ValueError('SVHL team page season not verified')
+    table=doc.select_one('#ctl00_MainContent_ucTeamSchedules_GridViewTeamSchedule')
+    if not table:
+        raise ValueError('SVHL team season schedule grid not verified')
+    games=[]
+    for row in table.select('tbody tr'):
+        cells={c.get('data-label'):c for c in row.select('td[data-label]')}
+        if not all(k in cells for k in ('Date','Time','vs. Team','Home/Visitor','Score')):
+            continue
+        opponent=cells['vs. Team'].select_one('a[href*="teamid="]')
+        source_game=cells['Score'].select_one('a[href*="gameid="]')
+        if not opponent or not source_game:
+            raise ValueError('SVHL team fixture missing opponent or official game ID')
+        opp=re.search(r'teamid=(\d+)', opponent.get('href',''),re.I)
+        game_id=re.search(r'gameid=(\d+)',source_game.get('href',''),re.I)
+        side={'home':'home','visitor':'away','away':'away'}.get(text(cells['Home/Visitor']).lower())
+        if not opp or not game_id or side is None:
+            raise ValueError('SVHL team fixture identity not verified')
+        games.append(dict(date=date(text(cells['Date'])),time=time(text(cells['Time'])),
+                          opponent=text(opponent),opponentTeamId=opp.group(1),
+                          side=side,leagueGameId=game_id.group(1)))
+    if not games:
+        raise ValueError('No Braves-specific SVHL games found; refusing empty comparison')
+    ids=[g['leagueGameId'] for g in games]
+    if len(ids)!=len(set(ids)):
+        raise ValueError('SVHL team page contains duplicate official game IDs')
+    return sorted(games,key=kickoff)
+
+def verify_league_team_schedule(league_games, team_games, now=None):
+    """Require both official SVHL views to agree before source admission.
+
+    We compare only upcoming games because the league-wide Schedule page is
+    future-facing while the team page retains completed games. All-division
+    membership is deliberately irrelevant: only the Braves' team ID matters.
+    """
+    now=now or datetime.now(TZ)
+    def future(games):
+        return [g for g in games if kickoff(g)+timedelta(hours=3)>=now]
+    league=future(league_games)
+    team=future(team_games)
+    def key(g):
+        return (g['date'],g['time'],g['opponentTeamId'],norm(g['opponent']),g['side'])
+    league_map={}
+    team_map={}
+    for source,rows,lookup in (('league',league,league_map),('team',team,team_map)):
+        for g in rows:
+            k=key(g)
+            if k in lookup:
+                raise ValueError('SVHL '+source+' schedule has duplicate fixture identity')
+            lookup[k]=g
+    if not league_map or set(league_map)!=set(team_map):
+        only_league=sorted(set(league_map)-set(team_map))
+        only_team=sorted(set(team_map)-set(league_map))
+        raise ValueError('SVHL league/team schedule conflict; hold publication '
+                         '(league-only='+repr(only_league[:4])+', team-only='+repr(only_team[:4])+')')
+    verified=[]
+    for g in league_games:
+        item=dict(g)
+        if kickoff(g)+timedelta(hours=3)>=now:
+            item['leagueGameId']=team_map[key(g)]['leagueGameId']
+        verified.append(item)
+    return verified
 
 def parse_hto(html):
     doc=BeautifulSoup(html,'html.parser')
@@ -93,6 +166,18 @@ def prior_for(game, prior_games, used):
     """A unique prior fixture only. Never silently link an ambiguous matchup."""
     options=[p for p in prior_games if p.get("assignmentKey") not in used and
              all(k in p for k in ("date","time","opponent","rink","side","assignmentKey"))]
+    # An SVHL game ID is stronger than dates/opponent names. Never borrow a
+    # prior assignment key from a *different* identified league game, even
+    # if a division reshuffle has filled the old time slot.
+    source_id=game.get("leagueGameId")
+    if source_id:
+        identified=[p for p in options if p.get("leagueGameId")==source_id]
+        if len(identified)==1:
+            p=identified[0]
+            return p, norm(p["opponent"])!=norm(game["opponent"])
+        if len(identified)>1:
+            return None, False
+        options=[p for p in options if not p.get("leagueGameId")]
     exact=[p for p in options if p["date"]==game["date"] and norm(p["opponent"])==norm(game["opponent"])]
     if len(exact)==1:
         return exact[0], False
@@ -256,19 +341,22 @@ def retrieve(url):
 def main():
     ap=argparse.ArgumentParser()
     ap.add_argument('--svhl-file',type=Path)
+    ap.add_argument('--svhl-team-file',type=Path)
     ap.add_argument('--hto-file',type=Path)
     ap.add_argument('--out',type=Path,default=Path('build/svhl-review'))
     args=ap.parse_args()
     svhl_html=args.svhl_file.read_text() if args.svhl_file else retrieve(SVHL)
+    team_html=args.svhl_team_file.read_text() if args.svhl_team_file else retrieve(SVHL_TEAM)
     hto_html=args.hto_file.read_text() if args.hto_file else retrieve(HTO)
     previous_path=Path("widgets/svhl-upcoming.json")
     assignment_path=Path("widgets/goalie-assignments.json")
     previous=json.loads(previous_path.read_text(encoding="utf-8")) if previous_path.exists() else {}
     goalies=json.loads(assignment_path.read_text(encoding="utf-8")) if assignment_path.exists() else {}
-    fixtures,queue=reconcile(parse_svhl(svhl_html),parse_hto(hto_html),
+    verified=verify_league_team_schedule(parse_svhl(svhl_html),parse_svhl_team(team_html))
+    fixtures,queue=reconcile(verified,parse_hto(hto_html),
                              previous=previous,goalie_data=goalies)
     args.out.mkdir(parents=True,exist_ok=True)
-    feed={'schema':'brave-hc-svhl-schedule/v1','source':SVHL,
+    feed={'schema':'brave-hc-svhl-schedule/v1','source':SVHL,'sourceTeam':SVHL_TEAM,
           'checkedAt':datetime.now(TZ).isoformat(),'games':fixtures,
           'missingFixtureReviews':[
               dict(item['previous'])
