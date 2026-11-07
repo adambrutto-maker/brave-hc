@@ -565,10 +565,12 @@ function paintProjectionTrend(row,projection){
   const message=reading.level==='NEUTRAL'?
     (reading.percentage===0?'Exactly at career baseline':'Within dynamic ±'+band+'% career band'):
     (reading.percentage<0?'Below established career pace':'Above established career pace');
+  const calibrationNote=reading.mode==='HISTORICAL_REFERENCE_ONLY'?
+    (reading.provisional?'historical-reference calibration; forecast provisional':
+      'historical-reference calibration; live source comparison held'):
+    'verified current team-dispersion calibration';
   copy.append(build('strong',reading.level+' · '+signed,'bio-trend-main'),
-    build('span',message+' · '+
-      (reading.provisional?'historical-reference calibration; forecast provisional':
-      'reconciled team-dispersion calibration'),'bio-trend-minor'));
+    build('span',message+' · '+calibrationNote,'bio-trend-minor'));
   const ev=reading.evidence;
   const evidenceWords={
    MORE_OBSERVED_GAMES:'more observed games',
@@ -579,7 +581,8 @@ function paintProjectionTrend(row,projection){
   const evidenceText=ev?.status==='VERIFIED'?
     String(ev.verifiedGP)+' verified GP ('+(evidenceWords[ev.tier]||'sample held')+')'+
       (ev.sharedZeroScoringOutput?' | shared zero-scoring model output ('+ev.groupSize+' players)':''):
-    'GP evidence unavailable; forecast remains provisional';
+    (reading.provisional?'GP evidence unavailable; forecast remains provisional':
+      'GP evidence unavailable; official current-source comparison held');
   const evidenceLine=build('span','Evidence: '+evidenceText,'bio-trend-evidence');
   evidenceLine.dataset.tier=ev?.tier||'UNVERIFIED';
   evidenceLine.dataset.sharedModelOutput=String(ev?.sharedZeroScoringOutput===true);

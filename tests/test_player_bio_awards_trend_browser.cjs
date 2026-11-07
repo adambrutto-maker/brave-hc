@@ -2,6 +2,11 @@
 const assert=require('node:assert/strict'),fs=require('node:fs'),http=require('node:http'),path=require('node:path');
 const {chromium}=require(process.env.BRAVE_PLAYWRIGHT_MODULE||'playwright');
 const root=path.resolve(__dirname,'..'),screens=process.env.BRAVE_QA_SCREENSHOTS;
+const currentProjection=require('../widgets/projection.json');
+const currentCalibration=require('../widgets/hockeyos-team-dispersion-v365.json');
+const adaptive=require('../widgets/hockeyos-adaptive-trend-v365.js');
+const carosi=currentProjection.players.find(p=>p.name==='Carosi, Justin');
+assert.ok(carosi&&Number.isFinite(carosi.trend)&&Number.isFinite(carosi.ptsPerGame));
 const server=http.createServer((req,res)=>{
  const file=path.resolve(root,'.'+new URL(req.url,'http://127.0.0.1').pathname);
  if(!file.startsWith(root+path.sep))return res.writeHead(403).end();
@@ -36,16 +41,21 @@ const server=http.createServer((req,res)=>{
   assert.equal(await j.$eval('#bioOtherMetrics',el=>el.open),false,'secondary stats collapsed');
   assert.equal(await j.$eval('#bioMoreSeasonFilters',el=>el.open),false,'extra season filters collapsed');
   assert.equal(await j.$eval('#bioProjectionTrend',el=>el.dataset.trendState),'Neutral');
-  assert.match(await j.locator('#bioProjectionTrend').innerText(),/NEUTRAL.*-2\.5%.*Within dynamic.*career band/s);
-  assert.match(await j.locator('#bioProjectionHeadline').innerText(),/source reconciliation pending/i);
-  assert.equal(await j.locator('#bioProjectionCards .bio-metric').nth(3).locator('.value').innerText(),'24');
+  const sourceBadge=adaptive.classify(carosi,currentProjection,currentCalibration);
+  assert.equal(sourceBadge.status,'VERIFIED');
+  assert.equal(await j.$eval('#bioProjectionTrend',e=>e.dataset.visualLevel),sourceBadge.level,
+    'adaptive visual level follows published source and approved band thresholds');
+  assert.match(await j.locator('#bioProjectionTrend').innerText(),/GP evidence unavailable/i,
+    'mismatched official HTO teamGP cannot receive verified evidence tier');
+  assert.match(await j.locator('#bioProjectionHeadline').innerText(),/Full regular-season projection/i);
+  assert.equal(await j.locator('#bioProjectionCards .bio-metric').nth(3).locator('.value').innerText(),String(Math.round(carosi.pts)));
   const arrow=await j.locator('#bioProjectionTrend .bio-trend-direction-arrow');
   assert.equal(await arrow.count(),1,'one polished arrow and no gauge');
   assert.equal(await j.locator('#bioProjectionTrend .bio-trend-gauge').count(),0,'no gauge');
   const arrowAngle=Number(await j.locator('#bioProjectionTrend [data-arrow-angle]').getAttribute('data-arrow-angle'));
   const signedPct=Number(await j.locator('#bioProjectionTrend .v365-adaptive').getAttribute('data-percentage'));
-  assert.ok(arrowAngle>90&&arrowAngle<115,'negative but Neutral z-score must tilt down in 0-up/90-right/180-down convention');
-  assert.ok(signedPct<0,'original workbook trend is negative even with adaptive Neutral category');
+  assert.ok(Math.abs(arrowAngle-sourceBadge.angle)<1e-4,'angle is source-qualified and reflects signed career change');
+  assert.equal(signedPct,carosi.trend,'original workbook trend is preserved independently from adaptive band');
   assert.equal(await j.$eval('#bioProjectionTrend',e=>e.dataset.trendDirection),'BELOW');
   assert.equal(await j.locator('#bioTabs button').count(),3,'three main tabs');
   assert.equal(await j.locator('#bioRateModes button[data-mode="actual"]').innerText(),'All · actual');
@@ -104,11 +114,11 @@ const server=http.createServer((req,res)=>{
   assert.equal(await j.locator('#bioProjectionCards .bio-metric').first().locator('.value').innerText(),
     '23','projected GP whole-number display without changing model precision');
   assert.equal(await j.locator('#bioProjectionCards .bio-metric').nth(4).locator('.value').innerText(),
-    '1.06','projected P/GP exactly 2 decimals');
+    carosi.ptsPerGame.toFixed(2),'projected P/GP matches current source at 2 decimals');
   assert.match(await j.locator('#bioProjectionHeadline').innerText(),/Full regular-season projection/);
   const projectionDetail=await j.locator('#bioProjectionTrendDetail').textContent();
   assert.match(projectionDetail,/Original career rate 1\.14 P\/GP/);
-  assert.match(projectionDetail,/original projected scoring-rate component 1\.11 P\/GP/);
+  assert.ok(projectionDetail.includes('original projected scoring-rate component '+carosi.trendInputs.projectedScoringRate.toFixed(2)+' P/GP'));
   assert.match(projectionDetail,/separate full-season headline P\/GP/);
   await photo(j,'bio-v21-justin-projection-detail.png');
   await j.close();
@@ -169,6 +179,6 @@ const server=http.createServer((req,res)=>{
   assert.equal(await bad.locator('#bioComboChart rect').count(),before.bars,'raw chart preserved if award evidence missing');
   await bad.close();
   assert.deepEqual(errors,[]);
-  console.log(JSON.stringify({status:'PASS',awards:'33 source verified titles',justin:{goalTitle:1,pointsTitle:2,trend:'Neutral -2.5%'},model:"same homepage thresholds",falseAwards:0,errors},null,2));
+  console.log(JSON.stringify({status:'PASS',awards:'33 source verified titles',justin:{goalTitle:1,pointsTitle:2,trend:sourceBadge.level+' '+(100*carosi.trend).toFixed(1)+'%'},model:"same homepage thresholds",falseAwards:0,errors},null,2));
  }finally{await browser.close();}
 })().catch(e=>{console.error(e.stack||e);process.exitCode=1;}).finally(()=>server.close());

@@ -26,7 +26,7 @@ const tests=[
   const x=model.analyze(l,r,"Mid Ice Crisis");
   assert.equal(x.rosterCount,19);assert.equal(x.priorLinkedIds,11);
   assert.equal(x.experiencedCount,10);
-  assert.equal(x.topTwoShare,.333);
+  assert.equal(x.topTwoShare,r.teams.find(t=>t.name==='Mid Ice Crisis').twoPlayerPointsShare);
   const team=l.teams.find(t=>t.leagueName==="Mid Ice Crisis");
   const division=l.teams.filter(t=>t.divisionNow===team.divisionNow);
   const average=Number((division.reduce((n,t)=>n+t.strengthContext.contextIndex,0)/
@@ -42,7 +42,7 @@ const tests=[
   const leagueGames=require("../widgets/division-fit-model.js").analyze(l).gameGraph;
   assert.equal(b.verifiedAdultGames,leagueGames.verifiedGamesInPool);
   assert.equal(b.verifiedCrossDivisionGames,leagueGames.crossCurrentDivisionGames);
-  assert.deepEqual(groups.map(x=>x.teams),[6,8,8]);
+  assert.deepEqual(groups.map(x=>x.teams),groups.map(g=>l.divisions.find(d=>d.name===g.division).teams.length));
   assert.equal(groups.reduce((n,g)=>n+g.crossRecord.w,0),
     groups.reduce((n,g)=>n+g.crossRecord.l,0),
     "cross-division winners and losers reciprocally balance");
@@ -53,7 +53,7 @@ const tests=[
  ["Current player production is a prioritized cue, not an attendance or position claim",()=>{
   const x=model.analyze(l,r,"Mid Ice Crisis");
   assert.equal(x.highPriority[0].name,"Packowski, Mike");
-  assert.equal(x.highPriority[0].pts,7);
+  assert.equal(x.highPriority[0].pts,r.teams.find(t=>t.name==='Mid Ice Crisis').players.find(p=>p.name==='Packowski, Mike').pts);
   assert.equal(x.highPriority[0].previous.gp,0);
   assert.ok(x.highPriority.every(p=>p.availabilityVerified===false));
   assert.ok(x.highPriority.every(p=>p.profileUrl.startsWith(

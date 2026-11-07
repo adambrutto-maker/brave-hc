@@ -11,6 +11,15 @@
  const teams=source=>(source?.teams||[]).filter(isAdult);
  const divisions=source=>(source?.divisions||[]).filter(x=>DIVISIONS.includes(x.name));
  const archiveDivisions=season=>(season?.divisions||[]).filter(x=>x.name!=="VAHL Division");
+ // Private or official cross-league moves are not adult Sunday team intelligence.
+ // Fail closed when a movement references an unapproved competition on either side.
+ const movementEvents=source=>(source?.movementLedger?.events||[]).filter(x=>
+    (x.fromDivision==null||DIVISIONS.includes(x.fromDivision))&&
+    (x.toDivision==null||DIVISIONS.includes(x.toDivision))&&
+    (x.fromDivision!=null||x.toDivision!=null));
+ const incomingCristilloReports=source=>(source?.movementLedger?.incomingCristilloReports||[])
+   .filter(x=>(x.fromDivision==null||DIVISIONS.includes(x.fromDivision))&&
+     (x.toDivision==null||x.toDivision==="The Cristillo Division"));
  const archiveCompetitiveCount=archive=>(archive?.seasons||[]).reduce((n,season)=>
     n+archiveDivisions(season).reduce((sum,d)=>sum+
        (d.category==="COMPETITIVE_SUNDAY_DIVISION"?d.teams.length:0),0),0);
@@ -21,5 +30,5 @@
   return new Map(arr.map((t,i)=>[t.sourceTeamId,i+1]));
  };
  return Object.freeze({divisionsList:DIVISIONS,isAdult,teams,divisions,
-    archiveDivisions,archiveCompetitiveCount,adultRanks});
+    archiveDivisions,archiveCompetitiveCount,adultRanks,movementEvents,incomingCristilloReports});
 });

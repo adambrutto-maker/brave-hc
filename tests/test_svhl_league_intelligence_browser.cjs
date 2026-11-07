@@ -82,10 +82,12 @@ const server=http.createServer((req,res)=>{
      brave.strengthContext.contextIndex.toFixed(1)+"/100") &&
      info.incomingContent.includes("Descriptive only, not a win probability."),
      "incoming scouting compares published current team components without predictive claims");
-   assert.equal(info.movementCount,Math.min(12,published.movementLedger.events.length),
-      "movement count follows source-observed events");
-   assert.equal(info.incomingCount,Math.min(8,published.movementLedger.incomingCristilloReports.length),
-      "incoming reports follow accepted ledger");
+   assert.equal(info.movementCount,Math.min(12,adultScope.movementEvents(published).length),
+      "movement count includes adult Sunday source-observed events only");
+   assert.equal(info.incomingCount,Math.min(8,adultScope.incomingCristilloReports(published).length),
+      "incoming reports exclude other competitions");
+   assert.ok(!info.movementContent.includes("VAHL Division"),
+      "separate-league history must not leak through the movement display");
    assert.ok(info.movementContent.includes("Sugo Sundays")&&info.movementContent.includes("Maplewolves"));
    assert.ok(info.incomingContent.includes("11–10–3")&&info.incomingContent.includes("Primary Auto")&&
              info.incomingContent.includes("3–6–1"),"prior winter, competition and Braves history visible");

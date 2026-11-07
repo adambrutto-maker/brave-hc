@@ -6,12 +6,18 @@ from selenium.webdriver.edge.options import Options
 from selenium.webdriver.support.ui import WebDriverWait
 ROOT=Path(__file__).resolve().parents[1]
 OLD=json.loads((ROOT/"widgets/awards-participants.json").read_text(encoding="utf-8"))
+CURRENT=json.loads((ROOT/"widgets/player-actuals.json").read_text(encoding="utf-8"))
 NEW=copy.deepcopy(OLD)
-NEW["sourceReference"]["htoReadback"]="2026-10-27T22:10:00.000Z"
-NEW["officialTeamGames"]=OLD["officialTeamGames"]+1
+# Synthetic future readback: no published HTO or awards source is edited.
+NEW["sourceReference"]["htoReadback"]="2026-11-03T22:10:00.000Z"
+NEW["officialTeamGames"]=CURRENT["teamGP"]
 p=next(x for x in NEW["players"] if x["name"]=="Brutto, Adam")
-p["officialHTOStats"]["gp"]=p["officialHTOStats"]["gp"]+1
-p["currentHTORaw"]["gamesPlayed"]=p["officialHTOStats"]["gp"]
+source_p=next(x for x in CURRENT["players"] if x["name"]=="Brutto, Adam")
+p["officialHTOStats"]["gp"]=source_p["gp"]
+p["currentHTORaw"]["gamesPlayed"]=source_p["gp"]
+REGRESSED=copy.deepcopy(NEW)
+REGRESSED["officialTeamGames"]=CURRENT["teamGP"]-1
+REGRESSED["sourceReference"]["htoReadback"]="2026-11-04T22:10:00.000Z"
 state={"kind":"old"}
 class Handler(http.server.SimpleHTTPRequestHandler):
  def __init__(self,*a,**kw):super().__init__(*a,directory=str(ROOT),**kw)
@@ -23,6 +29,7 @@ class Handler(http.server.SimpleHTTPRequestHandler):
    obj=NEW if state["kind"]=="new" else OLD
    if state["kind"]=="invalid":
     obj=copy.deepcopy(NEW);obj["status"]="UNVERIFIED_INFERRED_AWARD_RANKING"
+   if state["kind"]=="regressed":obj=REGRESSED
    b=json.dumps(obj).encode()
    self.send_response(200);self.send_header("Content-Type","application/json")
    self.send_header("Cache-Control","no-store")
@@ -44,13 +51,17 @@ try:
  WebDriverWait(browser,20).until(lambda x:x.execute_script("return !!window.__scheduledCallbacks[3600000] && !!window.__scheduledCallbacks[180000] && !!document.getElementById('statsDate').textContent"))
  before=browser.execute_script("return document.getElementById('statsDate').textContent")
  assert "2026" in before,before
+ state["kind"]="regressed"
+ browser.execute_async_script("const cb=arguments[arguments.length-1];window.__scheduledCallbacks[3600000]().then(()=>cb('ok')).catch(e=>cb(e.message))")
+ rejected=browser.execute_script("return document.getElementById('statsDate').textContent")
+ assert rejected==before,("fewer team games overrode official current source",rejected)
  state["kind"]="invalid"
  browser.execute_async_script("const cb=arguments[arguments.length-1];window.__scheduledCallbacks[3600000]().then(()=>cb('ok')).catch(e=>cb(e.message))")
  rejected=browser.execute_script("return document.getElementById('statsDate').textContent")
  assert rejected==before,("unverified update rendered",rejected)
  state["kind"]="new"
  browser.execute_async_script("const cb=arguments[arguments.length-1];window.__scheduledCallbacks[3600000]().then(()=>cb('ok')).catch(e=>cb(e.message))")
- WebDriverWait(browser,10).until(lambda x:"Oct 27" in x.execute_script("return document.getElementById('statsDate').textContent"))
+ WebDriverWait(browser,10).until(lambda x:"Nov 3" in x.execute_script("return document.getElementById('statsDate').textContent"))
  current=browser.execute_script("""return {date:document.getElementById('statsDate').textContent,
     contextCount:document.querySelectorAll('#currentSection .ph-source').length,
     snapshot:document.getElementById('currentSection').textContent};""")

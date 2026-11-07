@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark">
+<meta name="robots" content="noindex,follow">
+<title>Brave H.C. | Opponent Player Intelligence</title>
+<style>
+:root{font-family:system-ui,-apple-system,Segoe UI,Arial,sans-serif;background:#071a29;color:#f4f7fc}
+*{box-sizing:border-box}body{margin:0;background:#071a29}
+main{max-width:1220px;margin:auto;padding:23px 16px 60px}
+header{display:flex;align-items:center;gap:14px}header img{width:58px;height:58px;object-fit:contain}
+h1{font-size:clamp(21px,3.5vw,34px);margin:0;color:#f5dba1}
+h2{font-size:17px;margin:8px 0}.muted{color:#b4c8d8;line-height:1.6}
+.panel{margin-top:18px;background:#0c2436;border:1px solid #3b5b72;border-radius:12px;padding:16px}
+.controls{display:flex;align-items:end;gap:12px;flex-wrap:wrap}
+label{display:grid;gap:6px;font-size:13px;font-weight:600;color:#d5e6f7;min-width:min(100%,260px)}
+input,select{color:#fff;background:#16354b;border:1px solid #7692a8;border-radius:8px;padding:10px;min-height:42px;font:inherit}
+input{min-width:250px;flex:1}
+a{color:#f6dca9}a:hover{text-decoration:underline}
+table{border-collapse:collapse;width:100%;font-size:12px;min-width:930px}
+th,td{text-align:left;vertical-align:top;padding:9px 8px;border-bottom:1px solid #25475a}
+th{color:#f1d5a0;background:#173248;position:sticky;top:0}
+tbody tr:hover{background:#173349}.scroll{overflow-x:auto;max-width:100%;border-radius:8px}
+.player{font-weight:750;font-size:13px}.minor{font-size:11px;color:#b5d4ef}.source-hold{color:#ffcf9a}
+details{margin-top:6px}summary{cursor:pointer;color:#d6e7f2}
+.history{margin:8px 0;padding-left:20px;color:#e0ebf4}.history li{margin:5px 0}
+.status{padding:11px 12px;border-left:3px solid #ddb86c;background:#1a3043;border-radius:6px}
+.pill{display:inline-block;border:1px solid #69879d;border-radius:20px;padding:2px 7px;margin:3px;font-size:10px}
+footer{margin-top:22px;font-size:12px;color:#b7cbd9}
+@media(max-width:560px){main{padding:16px 10px 45px}.panel{padding:12px}.controls{display:block}.controls label{margin:9px 0;width:100%}input,select{min-width:0;width:100%}}
+</style>
+<script defer src="./opponent-player-intelligence.js?v=20261103-p2"></script>
+<script defer src="./opponent-players-page.js?v=20261103-p2"></script>
+</head>
+<body><main>
+<header>
+<img src="./brave_hc_logo.png" alt="Brave H.C. crest">
+<div><h1>Opponent Player Intelligence</h1>
+<div class="muted">HockeyOS · Sunday adult league · current and historical public records</div></div>
+</header>
+<div class="panel">
+<a href="./home-panels.html?panel=standings&amp;full=1">Back to Brave H.C. Division Centre</a>
+<p class="muted">Brave H.C. player actuals remain HTO-authoritative. Other teams' figures come from official SVHL season rosters and individual player pages. They may be inaccurate, incomplete, changed, or out of date. Reported games played do not prove attendance at a particular game. VAHL is excluded.</p>
+<div class="controls">
+<label for="opponent-team">Opponent team<select id="opponent-team"><option>Loading sources…</option></select></label>
+<label for="search-players">Find a published player<input id="search-players" type="search" placeholder="Search player name or jersey" autocomplete="off"></label>
+<label for="attention-filter">Scouting priority<select id="attention-filter">
+<option value="all">All source-listed players</option>
+<option value="special">Special defensive attention review</option>
+<option value="watch">All game-night scouting watches</option>
+<option value="surge">One-game scoring surge watch</option>
+<option value="season-up">Above prior-season scoring pace</option>
+</select></label>
+</div>
+<p class="status" id="opponent-status" role="status">Validating source data…</p>
+</div>
+<section class="panel" aria-label="Opponent player statistics and historical season details">
+<h2 id="table-title">Public player-season records</h2>
+<div class="scroll"><table>
+<thead><tr><th>PLAYER</th><th>TEAM</th><th>GP</th><th>G</th><th>A</th><th>PTS</th><th>PIM</th><th>PTS/GP</th><th>PP / PK / GWG / GTG</th><th>RECENT FORM</th><th>DEFENSIVE ATTENTION</th><th>PRIOR SEASONS</th></tr></thead>
+<tbody id="opponent-rows"></tbody>
+</table></div>
+</section>
+<footer>Stat scope: GP, G, A, PTS, PIM, power-play/penalty-kill goals and assists, game-winning goals, game-tying goals, and source-linked prior-season observations. No invented shots, saves, shift time, game attendance or private player information.</footer>
+</main></body></html>

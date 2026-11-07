@@ -64,9 +64,11 @@
   const history=data.movementLedger;
   const moves=q("movement-rows"),arrivals=q("incoming-rows");
   moves.replaceChildren();arrivals.replaceChildren();
-  q("movement-summary").textContent=history.eventsRecorded+" observed changes · "+
-   history.incomingCristilloEventsRecorded+" incoming Cristillo";
-  const ordered=[...history.events].sort((a,b)=>b.firstObservedAt.localeCompare(a.firstObservedAt));
+  const scoped=window.BraveAdultLeagueScope.movementEvents(data);
+  const incoming=window.BraveAdultLeagueScope.incomingCristilloReports(data).slice().reverse();
+  q("movement-summary").textContent=scoped.length+" adult Sunday changes · "+
+   incoming.length+" incoming Cristillo";
+  const ordered=[...scoped].sort((a,b)=>b.firstObservedAt.localeCompare(a.firstObservedAt));
   for(const x of ordered.slice(0,12)){
    const card=el("article","move-card");
    text(card,"strong","",x.leagueName==="Braves HC"?"Brave H.C.":x.leagueName);
@@ -76,13 +78,13 @@
    text(card,"p","minor","Observed between "+new Date(x.lastObservedAt).toLocaleDateString("en-CA")+
     " and "+new Date(x.firstObservedAt).toLocaleDateString("en-CA")+
     " · effective date unknown");
-   const present=data.teams.some(t=>t.sourceTeamId===x.sourceTeamId);
+   const present=window.BraveAdultLeagueScope.teams(data).some(t=>t.sourceTeamId===x.sourceTeamId);
    if(present){
     const button=text(card,"button","","View team profile");
     button.type="button";
     button.addEventListener("click",()=>{
      q("division-filter").value="all";
-     const team=data.teams.find(t=>t.sourceTeamId===x.sourceTeamId);
+     const team=window.BraveAdultLeagueScope.teams(data).find(t=>t.sourceTeamId===x.sourceTeamId);
      choose(team.leagueName);
      q("profile-title").scrollIntoView({block:"start",behavior:"smooth"});
     });
@@ -90,7 +92,6 @@
    moves.append(card);
   }
   if(!ordered.length)text(moves,"p","tiny","No change between verified league membership snapshots yet.");
-  const incoming=[...history.incomingCristilloReports].reverse();
   for(const x of incoming.slice(0,8)){
    const card=el("article","move-card");
    const now=data.teams.find(t=>t.sourceTeamId===x.sourceTeamId);
@@ -139,9 +140,8 @@
    arrivals.append(card);
   }
   if(!incoming.length)text(arrivals,"p","tiny","No incoming Cristillo team detected in retained source snapshots.");
-  q("movement-source").textContent=history.eventsRecorded+
-   " dated source observations retained. "+history.departedTeamProfilesRetained+
-   " complete departed-league profiles archived. Old results are never replaced by division-name assumptions.";
+  q("movement-source").textContent=scoped.length+
+   " adult-scope source movements shown. Unrelated competition records remain in the audit feed, not in adult Sunday analysis. Old results are never replaced by division-name assumptions.";
  }
  function normalName(s){return String(s||"").toLowerCase().replace(/[^a-z0-9]/g,"")}
  function torontoToday(){
