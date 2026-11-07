@@ -58,12 +58,20 @@ const tests=[
    assert.equal(review.status,"EARLY_RESEARCH_NOT_A_DIVISION_RECOMMENDATION");
    assert.ok(review.rationale.includes("four weekly observations"));
  }],
- ["Weekly base has no invented change from an unavailable prior week",()=>{
+ ["Weekly movement uses only source-observed weeks and never invents a delta",()=>{
    const braves=model.plain(league,archive,"Braves HC",links);
-   assert.equal(braves.weekly.count,1);
-   assert.equal(braves.weekly.delta,null);
-   assert.equal(braves.weekly.latest.team.contextIndex,
-       league.teams.find(t=>t.leagueName==="Braves HC").strengthContext.contextIndex);
+   const team=league.teams.find(t=>t.leagueName==="Braves HC");
+   const observed=league.weeklyLedger.weeks.map(w=>({
+     week:w.weekStartToronto,team:w.teams.find(t=>t.sourceTeamId===team.sourceTeamId)
+   })).filter(w=>w.team);
+   assert.equal(braves.weekly.count,observed.length);
+   assert.deepEqual(braves.weekly.points.map(w=>w.week),observed.map(w=>w.week));
+   const latest=observed.at(-1),prior=observed.length>=2?observed.at(-2):null;
+   const expected=latest&&prior&&Number.isFinite(latest.team.contextIndex)&&
+     Number.isFinite(prior.team.contextIndex)?
+     Number((latest.team.contextIndex-prior.team.contextIndex).toFixed(1)):null;
+   assert.equal(braves.weekly.delta,expected);
+   assert.equal(braves.weekly.latest.team.contextIndex,team.strengthContext.contextIndex);
  }],
  ["Invalid historical source fails closed without affecting live league source",()=>{
    const copy=JSON.parse(JSON.stringify(archive));

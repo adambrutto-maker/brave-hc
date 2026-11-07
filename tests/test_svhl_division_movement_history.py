@@ -22,41 +22,61 @@ def current(previous,hours=1):
  return new
 class MovementHistoryQA(unittest.TestCase):
  def test_original_two_membership_changes_are_grounded(self):
-  snapshot=base()
-  originalLedger=deepcopy(snapshot["movementLedger"])
-  # The published feed may already be seeded; recompute from a plain source.
-  snapshot.pop("movementLedger",None)
-  doc=m.enrich(snapshot,snapshot,historical())
-  ledger=doc["movementLedger"]
-  self.assertEqual(ledger["eventsRecorded"],2)
-  self.assertEqual(ledger["incomingCristilloEventsRecorded"],1)
-  events={x["leagueName"]:x for x in ledger["events"]}
-  self.assertEqual(events["Sugo Sundays"]["fromDivision"],m.CRISTILLO)
-  self.assertEqual(events["Sugo Sundays"]["toDivision"],"Remax Division")
-  self.assertIsNone(events["Maplewolves"]["fromDivision"])
-  self.assertEqual(events["Maplewolves"]["toDivision"],m.CRISTILLO)
-  self.assertTrue(all(x["effectiveDateNotVerified"] for x in ledger["events"]))
-  info=ledger["incomingCristilloReports"][0]
+  # Verify the immutable October 26 observations in the ACCEPTED movement
+  # ledger. Do not reconstruct October membership from a mutable Nov/Dec
+  # all-division source after teams have subsequently moved again.
+  accepted=base()["movementLedger"]
+  self.assertEqual(accepted["schema"],m.SCHEMA)
+  observations={e["leagueName"]:e for e in accepted["events"]
+      if e["sourceBasis"] in ("PINNED_EARLIER_CRISTILLO_ONLY_SNAPSHOT",
+                             "NOT_IN_EARLIER_CRISTILLO_ONLY_SNAPSHOT")}
+  self.assertEqual(set(observations),{"Sugo Sundays","Maplewolves"})
+  sugo=observations["Sugo Sundays"]
+  self.assertEqual(sugo["eventType"],"OBSERVED_EXIT_FROM_CRISTILLO")
+  self.assertEqual(sugo["fromDivision"],m.CRISTILLO)
+  self.assertEqual(sugo["toDivision"],"Remax Division")
+  maple=observations["Maplewolves"]
+  self.assertEqual(maple["eventType"],"OBSERVED_ENTRY_TO_CRISTILLO")
+  self.assertIsNone(maple["fromDivision"])
+  self.assertEqual(maple["toDivision"],m.CRISTILLO)
+  self.assertTrue(all(e["effectiveDateNotVerified"] for e in observations.values()))
+  reports=[x for x in accepted["incomingCristilloReports"] if x["eventId"]==maple["eventId"]]
+  self.assertEqual(len(reports),1)
+  info=reports[0]
   self.assertEqual(info["leagueName"],"Maplewolves")
   self.assertTrue(info["fromDivisionUnknown"])
-  # Regenerating from the LATEST source is not the original detection:
-  # compare against the updated official source, not an obsolete 4-game
-  # constant. The accepted append-only ledger below MUST still retain the
-  # original 4-game observation from October 26.
-  current_team=next(t for t in snapshot["teams"] if t["leagueName"]=="Maplewolves")
-  self.assertEqual(info["currentRecordAtFirstDetection"]["gp"],current_team["record"]["gp"])
-  self.assertEqual(len(info["opponentsFacedAtFirstDetection"]),len(current_team["completedGames"]))
-  accepted=originalLedger["incomingCristilloReports"][0]
-  self.assertEqual(accepted["currentRecordAtFirstDetection"]["gp"],4)
-  self.assertEqual(len(accepted["opponentsFacedAtFirstDetection"]),4)
+  self.assertEqual(info["currentRecordAtFirstDetection"]["gp"],4)
+  self.assertEqual(len(info["opponentsFacedAtFirstDetection"]),4)
   self.assertEqual(info["previousWinter"]["division"],"Maple Hyundai")
   self.assertEqual(info["bravesHistoryAtFirstDetection"]["bravesAllTime"]["gp"],10)
+
+ def test_current_source_recalculation_is_not_the_october_history(self):
+  snapshot=base()
+  originalLedger=deepcopy(snapshot.pop("movementLedger"))
+  historical_ids={x["officialSeasonTeamId"] for x in historical()["teams"]}
+  expected_exits=sum(x["sourceTeamId"] in historical_ids and
+       x["divisionNow"]!=m.CRISTILLO for x in snapshot["teams"])
+  expected_entries=sum(x["sourceTeamId"] not in historical_ids and
+       x["divisionNow"]==m.CRISTILLO for x in snapshot["teams"])
+  recalculated=m.enrich(snapshot,snapshot,historical())["movementLedger"]
+  self.assertEqual(recalculated["eventsRecorded"],expected_exits+expected_entries)
+  self.assertEqual(recalculated["incomingCristilloEventsRecorded"],expected_entries)
+  self.assertEqual(originalLedger["eventsRecorded"],len(originalLedger["events"]))
+  self.assertEqual(originalLedger["incomingCristilloEventsRecorded"],
+                   len(originalLedger["incomingCristilloReports"]))
+  self.assertTrue(any(e["leagueName"]=="Sugo Sundays" and
+       e["eventType"]=="OBSERVED_EXIT_FROM_CRISTILLO" for e in originalLedger["events"]))
+
  def test_repeat_same_source_not_duplicate_events(self):
-  base_doc=base();base_doc.pop("movementLedger",None)
-  accepted=m.enrich(base_doc,base_doc,historical())
-  later=m.enrich(accepted,current(accepted),historical())
-  self.assertEqual(later["movementLedger"]["eventsRecorded"],2)
-  self.assertEqual(later["movementLedger"]["incomingCristilloEventsRecorded"],1)
+  accepted=base()
+  before=deepcopy(accepted["movementLedger"])
+  later=m.enrich(accepted,current(accepted),historical())["movementLedger"]
+  self.assertEqual(later["events"],before["events"])
+  self.assertEqual(later["incomingCristilloReports"],before["incomingCristilloReports"])
+  self.assertEqual(later["previouslyTrackedTeams"],before["previouslyTrackedTeams"])
+  self.assertEqual(later["eventsRecorded"],before["eventsRecorded"])
+  self.assertEqual(later["incomingCristilloEventsRecorded"],
+                   before["incomingCristilloEventsRecorded"])
  def test_move_any_team_between_full_divisions(self):
   base_doc=base();base_doc.pop("movementLedger",None)
   old=m.enrich(base_doc,base_doc,historical())
