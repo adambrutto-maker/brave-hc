@@ -300,10 +300,10 @@ async function drawLineup(){
  for(const a of [print,open]){a.href=url;a.removeAttribute("aria-disabled");a.tabIndex=0}
  set("lineup-notice",approved?
    "Official lineup card available.":
-   released?"Working lineup card available.":
+   released?"TENTATIVE LINEUP - subject to change. Goaltender not confirmed. This is not the final game sheet.":
    "Blank original Brave H.C. card · lineup pending manager approval. Print or open the one-page PDF; do not use historical player sheets.");
  // The card itself is the public display. Text is shown only if a card is held or unavailable.
- $("lineup-notice").hidden=Boolean(released||approved);
+ $("lineup-notice").hidden=Boolean(approved);
 }
 
 function miniMetric(label,value){const box=n("div","tile");box.append(n("strong",null,value),n("span",null,label));return box}
