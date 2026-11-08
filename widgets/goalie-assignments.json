@@ -1,11 +1,25 @@
 {
   "schema": "brave-hc-goalie-assignments/v1",
-  "sourceNote": "Existing public HTO goalie table checked 2026-10-19; others TBD",
+  "sourceNote": "Existing public HTO goalie table checked 2026-10-19; others TBD; November 8, 2026 Game 365: Jeff Rae confirmed by GoalieUp email",
   "assignments": {
     "hto:3375682": "Stephen Logue",
     "hto:3375683": "TBD",
-    "hto:3375684": "TBD",
+    "hto:3375684": "Jeff Rae",
     "hto:3375685": "TBD",
     "hto:3375686": "TBD"
+  },
+  "scheduleConfirmations": {
+    "hto:3375684": "2026-11-08|21:15|Other Way|D Rink|home"
+  },
+  "updatedAt": "2026-11-08T19:49:30.007557+00:00",
+  "lastChange": {
+    "key": "hto:3375684",
+    "date": "2026-11-08",
+    "opponent": "Other Way",
+    "previous": "TBD",
+    "confirmed": "Jeff Rae",
+    "actor": "manager-authorized final replacement",
+    "reason": "manager assignment",
+    "managerReason": "NEW_BOOKING"
   }
 }

@@ -294,13 +294,15 @@ async function drawLineup(){
  if(version!==lineupLoadVersion)return;
  const url=entry.url;
  frame.src=url+"#view=FitH&toolbar=0&navpanes=0";
- const goalieNotice=released?.goalieConfirmed===true?"Rental goalie #"+released.rentalGoalie.number+" "+released.rentalGoalie.name+" confirmed (GoalieUp)":"Goalie unconfirmed";
- if(previewVerified){preview.alt=released?"Working skater lineup vs "+fix.opponent+"; "+goalieNotice+". Open the PDF to read or print the assignments.":approved?"Approved lineup card":"Blank original lineup card";preview.src=entry.previewImage;preview.hidden=false}
- frame.title=released?"Working skater lineup vs "+fix.opponent:approved?"Official lineup card":"Blank original lineup card";
+ const goalieNotice=released?.goalieConfirmed===true?"Rental goalie "+(released.rentalGoalie.numberIsPlaceholder===true?"":"#"+released.rentalGoalie.number+" ")+released.rentalGoalie.name+" confirmed (GoalieUp)":"Goalie unconfirmed";
+ const managerFinalReady=released?.goalieConfirmed===true&&released.managerFinalReplacementAuthorized===true&&released.managerLineupStatus==="FINAL_TEAM_LINEUP";
+ const publicCardLabel=managerFinalReady?"Final team lineup":"Working skater lineup";
+ if(previewVerified){preview.alt=released?publicCardLabel+" vs "+fix.opponent+"; "+goalieNotice+". Open the PDF to read or print the assignments.":approved?"Approved lineup card":"Blank original lineup card";preview.src=entry.previewImage;preview.hidden=false}
+ frame.title=released?publicCardLabel+" vs "+fix.opponent:approved?"Official lineup card":"Blank original lineup card";
  for(const a of [print,open]){a.href=url;a.removeAttribute("aria-disabled");a.tabIndex=0}
  set("lineup-notice",approved?
    "Official lineup card available.":
-   released?"INTERIM LINEUP - 14 skaters confirmed for working card. Goaltender pending. Line assignments may change.":
+   released?(released.goalieConfirmed?((managerFinalReady?"FINAL TEAM LINEUP":"WORKING TEAM LINEUP")+" - 14 skaters; goalie "+released.rentalGoalie.name+" confirmed."):"INTERIM LINEUP - 14 skaters confirmed for working card. Goaltender pending. Line assignments may change."):
    "Blank original Brave H.C. card · lineup pending manager approval. Print or open the one-page PDF; do not use historical player sheets.");
  // The card itself is the public display. Text is shown only if a card is held or unavailable.
  $("lineup-notice").hidden=Boolean(approved);

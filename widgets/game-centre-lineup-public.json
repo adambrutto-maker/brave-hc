@@ -1,7 +1,7 @@
 {
   "schema": "brave-hc-game-centre-public-lineup-pdf/v1",
   "status": "BLANK_PENDING_APPROVAL",
-  "scope": "PUBLIC_MANAGER_AUTHORIZED_INTERIM_PENDING_GOALIE",
+  "scope": "PUBLIC_MANAGER_AUTHORIZED_FINAL_TEAM_LINEUP",
   "source": "Original Brave H.C. workbook, Lines!G5:J16, isolated copy",
   "sourceWorkbookSHA256": "0002fd9f06596af8d0a00fc1b53a618ef15479f941ad5c1e6265b27002a65154",
   "blank": {
@@ -17,14 +17,14 @@
   "approved": null,
   "weeklyAutoPublishEnabled": false,
   "privateWhatsAppPollDataPublished": false,
-  "notice": "INTERIM 14-skater lineup vs Other Way November 8. Goalie TBD; lines subject to change. Not final or league-official.",
+  "notice": "Final team lineup vs Other Way November 8: 14 skaters, 8F/6D; rental goalie Jeff Rae confirmed. All skater assignments preserved from revision 2.",
   "workingCard": {
     "fixtureId": 3375684,
     "gameDate": "2026-11-08",
     "puckDropUTC": "2026-11-09T02:15:00Z",
     "opponent": "Other Way",
-    "sha256": "02abda2527950abf0f6405f050ef118e872ff18dc1de596ac9a2524c43a6603f",
-    "locatorSha256": "0bc98b8e06c9d0486665b4291e95e1d4c866afe4a38073d77fc0232682420319"
+    "sha256": "298d201f27e8824cb7aaedfa9d35ea10b3ff5f8192d748dfeb90f7ddd303f85f",
+    "locatorSha256": "d61b5b8e8acd676e79b471796f9e9147c08a0d08c6bea062d85d74a3d20bb831"
   },
   "publishedWorkingCard": {
     "fixtureId": 3375684,
@@ -33,18 +33,30 @@
     "puckDropUTC": "2026-11-09T02:15:00Z",
     "state": "PUBLIC_WORKING_LINEUP",
     "authorizedForPublic": true,
-    "goalieConfirmed": false,
+    "goalieConfirmed": true,
     "sourceRange": "Lines!G5:J16",
-    "sourceSha256": "02abda2527950abf0f6405f050ef118e872ff18dc1de596ac9a2524c43a6603f",
-    "publishedAt": "2026-11-08T17:55:46Z",
+    "sourceSha256": "298d201f27e8824cb7aaedfa9d35ea10b3ff5f8192d748dfeb90f7ddd303f85f",
+    "publishedAt": "2026-11-08T19:47:34Z",
     "expiresAt": "2026-11-09T03:15:00Z",
-    "url": "./assets/lineups/game-365-2026-11-08-working-r2.pdf",
-    "sha256": "02abda2527950abf0f6405f050ef118e872ff18dc1de596ac9a2524c43a6603f",
-    "previewImage": "./assets/lineups/game-365-2026-11-08-working-r2.png",
-    "previewSHA256": "ccb0979ed3529e8015253aaac988ae899f9cb54979337ab7138a5f201ead78ea",
-    "rentalGoalie": null,
-    "revision": 2,
+    "url": "./assets/lineups/game-365-2026-11-08-working-r3.pdf",
+    "sha256": "298d201f27e8824cb7aaedfa9d35ea10b3ff5f8192d748dfeb90f7ddd303f85f",
+    "previewImage": "./assets/lineups/game-365-2026-11-08-working-r3.png",
+    "previewSHA256": "2d11be275873de5ed54393193b1dbbca8c9c9964fca4fc65ef7359f6728c955a",
+    "rentalGoalie": {
+      "source": "GOALIEUP_CONFIRMATION_EMAIL",
+      "status": "RENTAL_CONFIRMED",
+      "name": "Jeff Rae",
+      "number": "0",
+      "numberIsPlaceholder": true,
+      "fixtureId": 3375684,
+      "gameDate": "2026-11-08",
+      "puckDropUTC": "2026-11-09T02:15:00Z",
+      "confirmedAtUTC": "2026-11-08T19:30:54Z"
+    },
+    "revision": 3,
     "skaterCount": 14,
-    "rotationPolicy": "HISTORICAL_PUBLISHED_LINE_SLOT_FAIRNESS_NOT_GAME_ACTUAL"
+    "rotationPolicy": "HISTORICAL_PUBLISHED_LINE_SLOT_FAIRNESS_NOT_GAME_ACTUAL",
+    "managerLineupStatus": "FINAL_TEAM_LINEUP",
+    "managerFinalReplacementAuthorized": true
   }
 }
