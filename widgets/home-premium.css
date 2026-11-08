@@ -114,3 +114,23 @@ html:has(body.full){height:auto;overflow:auto}
  .projection-table .actual{font-size:12px;line-height:1.3}
  .projection-table tbody tr:not(.details) td:before{font-size:11px}
 }
+
+/* Source-qualified player-level opponent scouting within the existing season centre. */
+.opponent-player-intel-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:9px}
+.opponent-player-intel-card{border:1px solid #51677b;background:#10283d;border-radius:8px;padding:10px;min-width:0}
+.opponent-player-intel-card strong{display:block;color:#fff;font-size:13px;line-height:1.4}
+.opponent-player-intel-card p{font-size:11px;line-height:1.55;margin:7px 0;color:#e8eef5;overflow-wrap:anywhere}
+.opponent-player-intel-card p.opponent-player-prior{color:#bdd6f0}
+.opponent-player-intel-card p.opponent-player-special{color:#f2d5a4}
+.opponent-player-intel-card a{display:inline-block;line-height:1.5;overflow-wrap:anywhere}
+@media(max-width:420px){.opponent-player-intel-cards{grid-template-columns:1fr}.opponent-player-intel-card{padding:9px}}
+
+/* Game-night defensive watch is strictly proposed; no named Brave assignment. */
+.game-night-defence-board{margin-top:13px;border-top:1px solid #637486;padding-top:10px}
+.game-night-defence-board h3{color:#f4d6a0;font-size:13px;margin:0 0 6px}
+.game-night-defence-card{border-left:3px solid #d7b069;background:#132e43;
+ margin:8px 0;border-radius:5px;padding:9px}
+.game-night-defence-card strong{font-size:12px;color:#fff;line-height:1.4}
+.game-night-defence-card p{margin:5px 0;font-size:11px;line-height:1.5;overflow-wrap:anywhere}
+.opponent-player-intel-card p.opponent-player-form,.game-night-defence-card p.opponent-player-form{
+ color:#f9d99a;font-weight:600}

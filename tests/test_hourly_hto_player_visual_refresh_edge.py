@@ -5,9 +5,10 @@ from selenium import webdriver
 from selenium.webdriver.edge.options import Options
 from selenium.webdriver.support.ui import WebDriverWait
 ROOT=Path(__file__).resolve().parents[1]
-old=json.loads((ROOT/"widgets/player-actuals-hourly.json").read_text(encoding="utf-8"))
+old=json.loads((ROOT/"widgets/player-actuals.json").read_text(encoding="utf-8"))
+# Use the current authoritative six-game source; synthetic hourly updates must be newer.
 future=copy.deepcopy(old)
-future["asOf"]="2026-10-28T10:00:00Z"
+future["asOf"]="2026-11-03T10:00:00Z"
 future["teamGP"]+=1
 p=next(x for x in future["players"] if x["name"]=="Brutto, Adam")
 p["gp"]+=1;p["a"]+=1;p["pts"]+=1
@@ -47,14 +48,15 @@ try:
  """})
  url=f"http://127.0.0.1:{server.server_port}/widgets/player-highlights.html?playerID=354054"
  browser.get(url)
- WebDriverWait(browser,20).until(lambda d:d.execute_script("return !!window.__intervals[3600000] && !!window.__intervals[180000] && document.querySelector('#statsDate').textContent.includes('Oct')"))
+ WebDriverWait(browser,20).until(lambda d:d.execute_script("return !!window.__intervals[3600000] && !!window.__intervals[180000] && document.querySelector('#statsDate').textContent.includes('2026')"))
  def read():
   return browser.execute_script("""return {timestamp:document.querySelector('#statsDate').textContent,
      scoring:document.querySelector('#currentSection').textContent,
      historicalCount:document.querySelectorAll('#legacy .ph-event').length,
      sourceCount:document.querySelectorAll('#currentSection .ph-source').length};""")
  init=read()
- assert "Oct 27" in init["timestamp"],init
+ source_day=browser.execute_script("return new Date(arguments[0]).toLocaleDateString('en-CA',{timeZone:'America/Toronto',year:'numeric',month:'short',day:'numeric'})",old['asOf'])
+ assert source_day in init['timestamp'],init
  assert "HTO games played" in init["scoring"],init
  for mode in ("unverified","bad-aggregate"):
   state["mode"]=mode
@@ -62,12 +64,12 @@ try:
   assert read()["timestamp"]==init["timestamp"],(mode,read())
  state["mode"]="new"
  browser.execute_async_script("const done=arguments[arguments.length-1];window.__intervals[3600000]().then(()=>done('ok')).catch(e=>done(e.message))")
- WebDriverWait(browser,12).until(lambda d:"Oct 28" in d.execute_script("return document.querySelector('#statsDate').textContent"))
+ WebDriverWait(browser,12).until(lambda d:"Nov 3" in d.execute_script("return document.querySelector('#statsDate').textContent"))
  later=read()
  assert later["sourceCount"]==1 and later["historicalCount"]==init["historicalCount"],later
  assert later["scoring"]!=init["scoring"],later
- print(json.dumps({"status":"PASS","initialPublishedHTOHour":"2026-10-27",
-  "laterSource":"2026-10-28","historicalAwardsUnchanged":True,
+ print(json.dumps({"status":"PASS","initialPublishedHTOHour":old['asOf'][:10],
+  "laterSource":future['asOf'][:10],"historicalAwardsUnchanged":True,
   "unverifiedRejected":True,"aggregateDriftRejected":True,
   "verifiedHourlySelected":True,"verifiedHistoryPollSeconds":180,
   "currentStatsPollSeconds":3600},indent=2))

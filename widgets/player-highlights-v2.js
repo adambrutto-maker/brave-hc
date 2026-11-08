@@ -1148,6 +1148,10 @@ function renderCurrent(feed,career) {
      if(validParticipant(next)&&
        (!latestParticipant||next.season!==latestParticipant.season||
         next.officialTeamGames>=latestParticipant.officialTeamGames)&&
+       // An award-participation snapshot cannot replace an independently
+       // verified newer HTO skater feed with fewer team games.
+       (!latestActual||next.season!==latestActual.season||
+        next.officialTeamGames>=latestActual.teamGP)&&
        Date.parse(next.sourceReference.htoReadback)>displayedTime){
       opportunities.push({time:Date.parse(next.sourceReference.htoReadback),kind:'participant',value:next});
      }

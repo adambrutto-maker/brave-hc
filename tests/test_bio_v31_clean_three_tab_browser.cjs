@@ -5,6 +5,11 @@ const fs=require('node:fs'),path=require('node:path'),http=require('node:http');
 const {chromium}=require(process.env.BRAVE_PLAYWRIGHT_MODULE||'playwright');
 const root=path.resolve(__dirname,'..');
 const archive=JSON.parse(fs.readFileSync(path.join(root,'widgets/player-career-insights.json'),'utf8'));
+const sourceProjection=require('../widgets/projection.json');
+const sourceActuals=require('../widgets/player-actuals-hourly.json');
+const sourceCarosi=sourceProjection.players.find(p=>p.name==='Carosi, Justin');
+const actualCarosi=sourceActuals.players.find(p=>p.name==='Carosi, Justin');
+assert.ok(sourceCarosi&&actualCarosi&&actualCarosi.gp>0,'qualified player sources');
 const server=http.createServer((req,res)=>{
  const f=path.resolve(root,'.'+new URL(req.url,'http://localhost').pathname);
  if(!f.startsWith(root+path.sep)){res.writeHead(403);return res.end()}
@@ -42,17 +47,22 @@ const server=http.createServer((req,res)=>{
     if(kind==='skater'){
      assert.equal(current,5);
      const vals=await page.locator('#bioCurrentActuals .bio-outlook-value').allInnerTexts();
-     assert.deepEqual(vals,['5','4','1','5','1.00']);
+     assert.deepEqual(vals,[String(actualCarosi.gp),String(actualCarosi.g),String(actualCarosi.a),
+      String(actualCarosi.pts),(actualCarosi.pts/actualCarosi.gp).toFixed(2)],'HTO actuals match published official feed');
      const model=await page.locator('#bioProjectionCards .value').allInnerTexts();
-     assert.deepEqual(model,['23','13','11','24','1.06']);
-     assert.equal(await page.locator('#bioCareerModelRate').innerText(),'1.14');
+     assert.deepEqual(model,[String(Math.round(sourceCarosi.gp)),String(Math.round(sourceCarosi.g)),
+      String(Math.round(sourceCarosi.a)),String(Math.round(sourceCarosi.pts)),sourceCarosi.ptsPerGame.toFixed(2)],
+      'projection card must use the current source without stale point totals');
+     assert.equal(await page.locator('#bioCareerModelRate').innerText(),
+      sourceCarosi.trendInputs.careerScoringRate.toFixed(2));
      assert.match(await page.locator('#bioCareerModelBasis').innerText(),/Summer \+ Winter history.*Winter-equivalent/);
      const order=await page.evaluate(()=>['bioSeasonCurrent','bioProjectionCards','bioCareerModelStrip','bioProjectionSummarySlot'].map(id=>{
       const r=document.getElementById(id).getBoundingClientRect();return {id,y:Math.round(r.top),bottom:Math.round(r.bottom)};
      }));
      for(let i=1;i<order.length;i++)assert.ok(order[i].y>=order[i-1].bottom-3,
       'Outlook order incorrect '+JSON.stringify(order));
-     assert.equal(await page.locator('#bioForecastBadge').innerText(),'PROVISIONAL');
+     assert.equal(await page.locator('#bioForecastBadge').innerText(),
+      sourceProjection.modelCurrent===true&&sourceProjection.projectionComplete===true?'MODEL CURRENT':'PROVISIONAL');
      assert.equal(await page.locator('#bioProjectionTrend').isVisible(),true);
      const arrow=await page.locator('#bioProjectionSummarySlot').evaluate(el=>el.classList.contains('bio-career-arrow-panel'));
      assert.equal(arrow,true,'Separate tinted trend interpretation panel');

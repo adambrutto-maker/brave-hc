@@ -26,6 +26,10 @@ STAT_URL="https://www.htosports.com/teams/default.asp?p=stats&s=hockey&u=BRAVESH
 SCORES_URL="https://www.htosports.com/teams/default.asp?p=scores&s=hockey&u=BRAVESHOCKEY"
 HEADER=["No","Name","POS","","GP","G","A","Pts"]
 SCORE_HEAD=["REGULAR SEASON","1","2","3","OT","2OT","F"]
+SCORE_HEAD_SHORT=["REGULAR SEASON","1","2","3","F"]
+# HTO uses both full and regulation-only score tables in the SAME season page.
+# Admit only these two observed, explicitly sourced header schemas.
+SCORE_HEADERS=(SCORE_HEAD,SCORE_HEAD_SHORT)
 TEAM_HEAD=["GP","GF","GA","PPO","PK%"]
 OUTPUT=ROOT/"widgets/player-actuals-hourly.json"
 BASELINE=ROOT/"widgets/player-actuals.json"
@@ -103,16 +107,19 @@ def parse(stats_html,scores_html,read_at=None):
 
     scored=BeautifulSoup(scores_html,"html.parser")
     boards=[r for r in (rows(t) for t in scored.find_all("table"))
-            if r and r[0]==SCORE_HEAD]
+            if r and r[0] in SCORE_HEADERS]
     require(len(boards)==gp,"HTO_FINAL_SCORES_GP_MISMATCH")
     game_scores=[]
     for table in boards:
-        require(len(table)==3 and all(len(x)==len(SCORE_HEAD) for x in table),
+        require(len(table)==3 and table[0] in SCORE_HEADERS and
+                all(len(x)==len(table[0]) for x in table),
                 "HTO_SCORE_BOARD_MALFORMED")
         require(sum(1 for r in table[1:] if r[0]=="Brave H.C.")==1,
                 "HTO_SCORE_OUR_TEAM_IDENTITY")
         require(all(all(re.fullmatch(r"\d+",x) for x in r[1:]) for r in table[1:]),
                 "HTO_SCORE_NONINTEGER")
+        require(all(sum(int(x) for x in r[1:-1])==int(r[-1]) for r in table[1:]),
+                "HTO_SCORE_PERIOD_TO_FINAL_MISMATCH")
         ours=next(r for r in table[1:] if r[0]=="Brave H.C.")
         theirs=next(r for r in table[1:] if r[0]!="Brave H.C.")
         game_scores.append((int(ours[-1]),int(theirs[-1])))

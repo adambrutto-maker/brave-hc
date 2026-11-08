@@ -44,7 +44,7 @@ const server=http.createServer((req,res)=>{
     if(id==='354060'||id==='354054') {
       assert.equal(status.chartShown,false,'Career scoring chart belongs under Trends');
       assert.equal(status.positions,6);
-      assert.match(status.projection,/Provisional|model|projection/i);
+      assert.match(status.projection,/forecast|provisional|model|projection/i);
     }
     if(id==='354055') {
       assert.equal(status.goalieShown,false,'Goalie historical analytics belong under Trends');

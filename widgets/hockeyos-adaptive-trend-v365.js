@@ -42,6 +42,12 @@
      projection.exportedAt!==doc.model?.projectionExportedAt||
      (projection.workbookSourceHash||null)!==(doc.model.workbookSourceHash||null))
    return hold('DISPERSION_PROJECTION_SNAPSHOT_MISMATCH');
+  // Reject a snapshot reconstructed against a different official HTO game count,
+  // even when workbook hash and export timestamp happen to match.
+  const recorded=projection.sourceInputs?.htoRecordedTeamGP;
+  if(!Number.isSafeInteger(recorded)||recorded<0||
+      doc.model?.htoRecordedTeamGP!==recorded)
+   return hold('DISPERSION_PROJECTION_TEAM_GP_MISMATCH');
   const provisional=projection.modelCurrent!==true||projection.projectionComplete!==true;
   // Reconciled projections can legitimately use a historical-only reference
   // when current player coverage or freshness gates hold the live update.

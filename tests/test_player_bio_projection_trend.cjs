@@ -26,15 +26,15 @@ test('all published players receive identical workbook conditional-formatted tre
  }
  assert.ok(qualified>0&&newPlayers>0,'need both model evidence groups');
 });
-test('model result for Justin Carosi is neutral and -2.5% based on career model component not displayed Pts/GP',()=>{
+test('Justin Carosi trend reads the current workbook source, not displayed points per game',()=>{
  const p=data.players.find(x=>x.name==='Carosi, Justin');
  const r=trend.classify(p,data);
  assert.equal(r.name,'Neutral');assert.equal(r.symbol,'→');
- assert.ok(Math.abs(r.relativeChange+0.025228)<1e-8);
+ assert.equal(r.relativeChange,p.trend);
  assert.equal(r.careerRate,p.trendInputs.careerScoringRate);
  assert.equal(r.modelComponentRate,p.trendInputs.projectedScoringRate);
  assert.notEqual(r.modelComponentRate,p.ptsPerGame);
- assert.equal(r.modelCurrent,false);
+ assert.equal(r.modelCurrent,data.modelCurrent===true&&data.projectionComplete===true);
 });
 test('strongly negative, near neutral, warming, hot classifications follow source boundaries',()=>{
  const th=data.conditionalFormatting.arrowIconSet.thresholds;

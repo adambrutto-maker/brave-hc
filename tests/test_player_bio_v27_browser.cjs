@@ -3,6 +3,9 @@ const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('n
 const {chromium}=require(process.env.BRAVE_PLAYWRIGHT_MODULE||'playwright');
 const root=path.resolve(__dirname,'..');
 const career=require('../widgets/player-career-insights.json');
+const projection=require('../widgets/projection.json');
+const calibration=require('../widgets/hockeyos-team-dispersion-v365.json');
+const adaptive=require('../widgets/hockeyos-adaptive-trend-v365.js');
 const mime={'.js':'text/javascript','.html':'text/html','.css':'text/css','.json':'application/json','.png':'image/png','.svg':'image/svg+xml'};
 const server=http.createServer((req,res)=>{
  const u=new URL(req.url,'http://localhost'),f=path.resolve(root,'.'+u.pathname);
@@ -56,7 +59,13 @@ const server=http.createServer((req,res)=>{
      assert.equal(await p.locator('#bioProjectionFull').evaluate(e=>e.open),false,'only source detail collapsed');
      assert.match(await p.locator('#bioProjectionHeadline').textContent(),/Full regular-season projection/);
      assert.match(await p.locator('.bio-forecast-kicker').innerText(),/FULL-SEASON ESTIMATE/);
-      assert.match(await p.locator('#bioProjectionTrend').innerText(),/Within dynamic.*career band/);
+     const carosi=projection.players.find(x=>x.name==='Carosi, Justin');
+     const sourceBadge=adaptive.classify(carosi,projection,calibration);
+     assert.equal(sourceBadge.status,'VERIFIED');
+     assert.ok((await p.locator('#bioProjectionTrend').innerText()).includes(sourceBadge.level),
+       'visible adaptive direction matches qualified source');
+     assert.match(await p.locator('#bioProjectionTrend').innerText(),/GP evidence unavailable/,
+       'mismatched HTO game counts cannot silently create an evidence tier');
      assert.equal(await p.locator('#bioProjectionCards .bio-stat-icon').count(),5);
      assert.equal(await p.locator('#bioProjectionCards .bio-metric-icon').first().locator('.value').innerText(),'23');
    }

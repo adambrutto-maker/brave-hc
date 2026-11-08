@@ -27,8 +27,13 @@ def verify(league,doc):
  current=when(league.get("asOf"))
  source=when(doc.get("sourceLeagueAsOf"))
  captured=when(doc.get("asOf"))
+ # The independent league snapshot can precede the 200+ source-page
+ # weekly roster collection by more than an hour. Do not reject a *newer*
+ # roster solely because gathering full public-season evidence takes time.
+ # Preserve a bounded 24-hour capture window plus the 8-day league-age gate.
  need(source<=current<=source+timedelta(days=8) and
-   source<=captured<=current+timedelta(hours=1),
+   source<=captured<=source+timedelta(hours=24) and
+   captured<=current+timedelta(hours=24),
    "ROSTER_LEAGUE_SOURCE_STALE_OR_FUTURE")
  need(league.get("schema")=="brave-hc-league-intelligence/public-v1" and
   league.get("currentSourceDataConcordant") is True and
