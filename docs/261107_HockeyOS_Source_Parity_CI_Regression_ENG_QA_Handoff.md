@@ -31,3 +31,15 @@ Additional smoke tests should cover division intelligence readback, player-perfo
 The branch is limited to tests and documentation. Independent source review is appropriate before merge, and the existing homepage forecast source gate PR #214 remains a separate held production decision. Fixing CI's stale expectations **does not** resolve the workbook-versus-HTO game coverage mismatch or authorize current award scores.
 
 **Rollback:** Revert this PR's test-only commit; do not manipulate current league or player source data to make older assertions pass.
+
+## Additional source-driven test corrections after full GitHub CI feedback
+
+The published weekly ledger now contains **two accepted Toronto-local weeks**, starting October 26 and November 2. Three earlier tests incorrectly assumed that the published ledger would always contain exactly one week. Revised coverage checks the currently accepted week's date, the exact open-week snapshot and its update, every previous frozen week, and a one-week rollover adding precisely one new snapshot.
+
+The Bio form's V3.6 legacy percentage comparison is legitimately `COOL` under the current verified sigma rather than the earlier hard-coded `COLD`. More importantly, the actual **Oct 30 dispersion model** does not match the newer **Nov 2 projection export**. Its independent adaptive comparator correctly returns `HELD: DISPERSION_PROJECTION_SNAPSHOT_MISMATCH`. The revised test now checks that this current-source mismatch remains held (with no numeric level), while an explicitly constructed, source-matched historical-only test fixture validates the comparator's `COOL` positive control. No published model input is corrected or reclassified.
+
+Targeted tests now cover 10 division-movement cases, 12 weekly ledger cases, 18 Bio trend/title cases, 5 Bio form cases, and 20 normalization/Game365 preservation cases: **65/65 pass locally**. The independent all-division source checker reports 27 teams, five divisions and 74 paired games.
+
+A broader, bounded 32-suite source-only matrix returned **22 passing suites, 10 failing suites** against the candidate. Failures remain in roster-source time validation, multiple division model/scouting comparisons and dispersion-vs-projection snapshot reconciliation. These are explicit outstanding source/QA dependencies, not permission to fabricate data or relax a true release gate.
+
+The matrix receipt is retained privately on BRUTTECH 1 as `261107_HockeyOS_CI_Matrix_PRIVATE.txt` (not uploaded). PR #215 remains unmerged until its required checks and independent source-owner review are resolved; PR #214 remains separate and unmerged. No official source data, HTO CMS, Master Workbook or published November 8 tentative lineup is modified.
