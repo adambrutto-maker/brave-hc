@@ -513,9 +513,12 @@
   }
   selectedRosterReport=r;
   const delta=r.withinDivisionGap;
-  status.textContent="Current roster source captured "+new Date(r.sourceRosterCaptureUTC).toLocaleString("en-CA")+
-    "; league result source checked "+new Date(r.sourceLeagueAsOf).toLocaleString("en-CA")+
-    ". Sources may update at different times.";
+  status.textContent=(r.rosterSourceCurrentQualified?
+    "Roster source captured ":"HISTORICAL ROSTER ONLY — current membership not verified: captured ")+
+    new Date(r.sourceRosterCaptureUTC).toLocaleString("en-CA")+
+    "; current league source checked "+new Date(r.sourceLeagueAsOf).toLocaleString("en-CA")+
+    ". Roster snapshot is "+r.rosterSourceAgeDays+
+    " days behind the league source. Current game-day availability is not established.";
   for(const d of r.leagueBridge.groups){
    const stats=d.crossRecord,detail=d.division===r.division?
      "SELECTED TEAM'S DIVISION · ":"";
@@ -537,6 +540,11 @@
    "Top two registered "+(r.topTwoShare===null?"unavailable":(100*r.topTwoShare).toFixed(1)+"%")+
    " of recorded player points. This is scoring concentration, not an individual future production rate.");
   q("roster-scouting-caution").textContent=r.note+
+   (r.rosterSourceCurrentQualified?"":" STALE ROSTER OBSERVATION: historical player counts are not current player verification.")+
+   (r.divisionMovementEvidence?
+     " Division changed from "+r.divisionMovementEvidence.fromDivision+
+     " to "+r.divisionMovementEvidence.toDivision+
+     " after the roster capture; actual effective date unknown.":"")+
    " Player positions can be missing and game-day availability is NOT established by archived team rosters.";
   if(team.leagueName==="Braves HC"){
    text(threats,"p","small","Brave H.C. is the home-club source baseline. Choose another opponent to prepare player-specific matchups.");
