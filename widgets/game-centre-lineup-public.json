@@ -17,40 +17,14 @@
   "approved": null,
   "weeklyAutoPublishEnabled": false,
   "privateWhatsAppPollDataPublished": false,
-  "notice": "Current working lineup PDF for the verified fixture. Not the official final game sheet.",
+  "notice": "November 8 private manager working card prepared; public original blank card remains pending manager approval and goalie confirmation.",
   "workingCard": {
-    "fixtureId": 3375683,
-    "gameDate": "2026-11-01",
-    "puckDropUTC": "2026-11-02T01:15:00Z",
-    "opponent": "Mid Ice Crisis",
-    "sha256": "c5c23b1f2ee5acd8c7b3805c1b3a01610800492dff0f75fff1d02e956df3abf4",
-    "locatorSha256": "31663d9acb0a4481e271285391b79cae3be747ff780d875cde1d8e722744c910"
+    "fixtureId": 3375684,
+    "gameDate": "2026-11-08",
+    "puckDropUTC": "2026-11-09T02:15:00Z",
+    "opponent": "Other Way",
+    "sha256": "e125be75c31b2920178d919bf5642fb9e7366ac902154e4a278f811b497eef03",
+    "locatorSha256": "0232d41eaa36f861089f4b35847752ab50b8ea91f4f6738b86a1ec920e7fcce8"
   },
-  "publishedWorkingCard": {
-    "fixtureId": 3375683,
-    "gameDate": "2026-11-01",
-    "opponent": "Mid Ice Crisis",
-    "puckDropUTC": "2026-11-02T01:15:00Z",
-    "state": "PUBLIC_WORKING_LINEUP",
-    "authorizedForPublic": true,
-    "goalieConfirmed": true,
-    "sourceRange": "Lines!G5:J16",
-    "sourceSha256": "c5c23b1f2ee5acd8c7b3805c1b3a01610800492dff0f75fff1d02e956df3abf4",
-    "publishedAt": "2026-11-01T18:10:08Z",
-    "expiresAt": "2026-11-02T02:15:00Z",
-    "url": "./assets/lineups/game-364-2026-11-01-working.pdf",
-    "sha256": "c589866c133a172f7a5975a7abfa30c4d841bd4a33ebc0f0ce74604cff2f7255",
-    "previewImage": "./assets/lineups/game-364-2026-11-01-working.png",
-    "previewSHA256": "2488faaf96a3840b4cc3d8a51d0b4e8500aaa1c0d75eaf14b3d51d270cd51237",
-    "rentalGoalie": {
-      "source": "GOALIEUP_CONFIRMATION_EMAIL",
-      "status": "RENTAL_CONFIRMED",
-      "name": "Brian Haspel",
-      "number": "0",
-      "fixtureId": 3375683,
-      "gameDate": "2026-11-01",
-      "puckDropUTC": "2026-11-02T01:15:00Z",
-      "confirmedAtUTC": "2026-11-01T14:58:55Z"
-    }
-  }
+  "publishedWorkingCard": null
 }
