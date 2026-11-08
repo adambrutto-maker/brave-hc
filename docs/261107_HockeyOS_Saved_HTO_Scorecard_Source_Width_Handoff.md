@@ -54,3 +54,33 @@ This PR adds the narrow **portable** \`.gitignore\` rule \`/scripts/__pycache__/
 4. Confirm the next normal scheduled publisher run after the local Git hygiene repair; the controller may still be held by the collector's independent scoreboard schema gate.
 
 **Disposition:** SOURCE SHAPE VERIFIED / ACTIVE COLLECTOR SCHEMA HOLD / PER-GAME AND AWARDS RELEASE HOLD.
+
+## Follow-up: six-game link/date replay and shared two-format period contract
+
+The original November 4 private Engineering work already had a source-verified six-game HTO-to-Master Workbook date join and **55/55 independent source-admission tests passed**. The exact proof at HOME BRUTTECH 1 is SHA-256 `f5752015612956ae36d594e5f72d72090cea574aa44560c7e0084c0b77300dbf`. This work reuses that existing evidence; it does not claim to have recreated or reapproved the original boxscore audit.
+
+The November 8 03:31 UTC saved Scores page includes **six official boxscore links** and six scorecards. A new offline evidence helper, `scripts/audit_saved_hto_sixgame_identity_join.py`, checks their entire one-to-one set against the previously verified private source proof, original Master Workbook game dates and names, source page fingerprints, final scores, chronology and opponent details. It requires the **exact pinned source SHA values** and fails on altered source files, missing/duplicate/reordered links, mismatched game IDs, forged dates, incorrect source URL or inconsistent source status.
+
+| HTO game ID | Master # | Original game date | Opponent | GF–GA | HTO scorecard format |
+|---|---:|---|---|---:|---|
+| 3356177 | 359 | 2026-09-20 | Dateline Predators | 0–3 | 7 columns |
+| 3356178 | 360 | 2026-09-27 | Mohawks H.C. | 3–6 | 7 columns |
+| 3369564 | 361 | 2026-10-04 | Michelob Morts | 2–3 | 7 columns |
+| 3375601 | 362 | 2026-10-18 | Zamboner Crew | 1–7 | 7 columns |
+| 3375682 | 363 | 2026-10-25 | Big Bastones | 6–4 | **5 columns** |
+| 3375683 | 364 | 2026-11-01 | Mid Ice Crisis | 2–7 | 7 columns |
+
+A new `scripts/hockeyos_scorecard_period_contract.py` provides a **pure, source-agnostic normalization candidate** for both the Scores page and the separate boxscore verification code path. The only permitted headers are `REGULAR SEASON / 1 / 2 / 3 / F` and `REGULAR SEASON / 1 / 2 / 3 / OT / 2OT / F`. Regulation periods must match exactly between two source tables, official team/opponent/final totals must match, and mixed compact/extended layouts may agree only if omitted overtime periods are zero. Unknown headers, invalid score units and period conflicts are always held.
+
+### Added QA and execution evidence
+
+- 22/22 original saved-source width and portable Git hygiene tests passed.
+- **26/26** six-game source-link/date replay negative and positive tests passed.
+- **20/20** shared source-period comparison tests passed.
+- **68/68** total source-shape and linked-identity unit tests passed.
+- The real pinned November 8 saved readback, compared with the original pinned November 4 proof, passed **6/6 actual HTO game-ID/date/opponent/score associations**.
+- A private, unchanged 61 KB frozen copy of the November 8 readback is retained on HOME BRUTTECH 1 under `Implementation Control\261107_SixGame_Link_Replay_Evidence_PRIVATE` for independent repeatability. Neither the raw readback nor the historical private proof is included in this public PR.
+
+The new candidate **does not fetch a fresh live boxscore** or revalidate raw individual player-game/goalie rows. An operational collector patch must replace **both** seven-column assumptions in the pinned runtime: the Scores-page parser and the game-ID-scoped boxscore recheck. It must independently verify the actual source page/header, dates, official HTO ID, per-player game rows and real workbook input coverage. No source publication, original workbook recalculation, scheduled task change or numerical awards release is authorized by this offline replay.
+
+CI runs all three synthetic suites and the narrow Git ignore check. A green CI result certifies the candidate's negative-test behaviour, **not** completion of the operational release gates.
