@@ -352,6 +352,26 @@ async function loadProjection(){
  try{
   const d=await fetchJSON("projection.json");
   if(d.schema!=="brave-hc-workbook-projection/v1"||!Array.isArray(d.players)||!d.conditionalFormatting?.arrowIconSet?.thresholds)throw Error("Workbook data contract invalid");
+  // Homepage iframe: do not claim a season forecast from unmatched HTO/workbook
+  // participation or an expired model. Keep the full provisional analysis intact.
+  if(panel==="projection"&&!params.has("full")){
+    const admission=window.HockeyOSEmbeddedProjectionGate?.assess(d);
+    if(!admission?.ok){
+      document.body.dataset.homeProjectionGate="HELD";
+      const section=$("projection");
+      for(const selector of [".summary",".filters",".projection-table",
+          "#projection-pager","#trend-legend",".team-dispersion-disclosure",".model"]){
+        const el=section.querySelector(selector);
+        if(el)el.hidden=true;
+      }
+      set("proj-total","HELD");
+      set("projection-state","FORECAST HELD");
+      set("projection-note","The homepage forecast is withheld: current HTO game coverage, workbook inputs, model parity or source freshness could not be reconciled. View the full provisional analysis separately or consult official HTO statistics.");
+      set("projection-source","Homepage forecast source gate: "+(admission?.reason||"GATE_UNAVAILABLE")+". No unsupported current player projections or trend badges are displayed here.");
+      return;
+    }
+    document.body.dataset.homeProjectionGate="VERIFIED";
+  }
   projection=d;
   dispersion=await fetchJSON("hockeyos-team-dispersion-v365.json").catch(()=>null);
   const sourceGames=d.sourceInputs?.verifiedHTOBoxscoreGP;
