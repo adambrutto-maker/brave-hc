@@ -7,9 +7,11 @@ on:
       - "scripts/audit_saved_hto_scorecard_widths.py"
       - "scripts/audit_saved_hto_sixgame_identity_join.py"
       - "scripts/hockeyos_scorecard_period_contract.py"
+      - "scripts/audit_pinned_hto_boxscore_period_replay.py"
       - "tests/test_saved_hto_scorecard_widths.py"
       - "tests/test_saved_hto_sixgame_identity_join.py"
       - "tests/test_hockeyos_scorecard_period_contract.py"
+      - "tests/test_pinned_hto_boxscore_period_replay.py"
       - ".github/workflows/hockeyos-saved-scorecard-source-qa.yml"
   push:
     branches: [main]
@@ -18,9 +20,11 @@ on:
       - "scripts/audit_saved_hto_scorecard_widths.py"
       - "scripts/audit_saved_hto_sixgame_identity_join.py"
       - "scripts/hockeyos_scorecard_period_contract.py"
+      - "scripts/audit_pinned_hto_boxscore_period_replay.py"
       - "tests/test_saved_hto_scorecard_widths.py"
       - "tests/test_saved_hto_sixgame_identity_join.py"
       - "tests/test_hockeyos_scorecard_period_contract.py"
+      - "tests/test_pinned_hto_boxscore_period_replay.py"
       - ".github/workflows/hockeyos-saved-scorecard-source-qa.yml"
 
 permissions:
@@ -45,6 +49,9 @@ jobs:
       - name: Validate shared compact/extended scoreboard period semantics
         run: |
           python -B -m unittest discover -s tests -p test_hockeyos_scorecard_period_contract.py -v
+      - name: Independently replay archived per-game period scores using synthetic fixtures
+        run: |
+          python -B -m unittest discover -s tests -p test_pinned_hto_boxscore_period_replay.py -v
       - name: Confirm Git ignores only generated Python bytecode
         shell: bash
         run: |

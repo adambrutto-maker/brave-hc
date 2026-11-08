@@ -84,3 +84,18 @@ A new `scripts/hockeyos_scorecard_period_contract.py` provides a **pure, source-
 The new candidate **does not fetch a fresh live boxscore** or revalidate raw individual player-game/goalie rows. An operational collector patch must replace **both** seven-column assumptions in the pinned runtime: the Scores-page parser and the game-ID-scoped boxscore recheck. It must independently verify the actual source page/header, dates, official HTO ID, per-player game rows and real workbook input coverage. No source publication, original workbook recalculation, scheduled task change or numerical awards release is authorized by this offline replay.
 
 CI runs all three synthetic suites and the narrow Git ignore check. A green CI result certifies the candidate's negative-test behaviour, **not** completion of the operational release gates.
+
+## Further follow-up: archived native GameInfo periods independently replayed
+
+An existing November 3 private capture contains **six original HTO game-specific boxscore heading tables** with individual official `gameID` URLs and a separately qualified review of **80 verified skater appearances** (the original independent review; not recalculated here). Private source digests are:
+
+- Prior six-GameInfo source archive: `f718c438e7b2fc67fc675375daf67daca860be51bf710bbf3f54b43dde633fd0`
+- Previous independent boxscore review: `48cb5c19120099dd408e7fb5ceb9dbec642f0fc9a2bb96715654141285225bd1`
+
+A fourth source-only companion, `scripts/audit_pinned_hto_boxscore_period_replay.py`, verifies **four pinned sources simultaneously**: the later HTO Scores page, November 4 Master date/score proof, original November 3 game-specific boxscore capture, and the independently verified prior review. It parses the original GameInfo `SCORE BOARD` heading layouts into scorecard rows and calls the *same shared five-/seven-column period contract* used for the current Scores page.
+
+Real private replay: **6/6 exact same official game IDs, opponents, period-by-period score vectors and final scores matched**. Specifically, Big Bastones HTO 3375682 is regulation-only five columns in both sources; all five other games are extended seven columns in both. The original master date numbers remain 359–364, team totals remain 6 GP / 14 GF / 30 GA, and the previously certified skater appearance count is still 80.
+
+Twenty-one additional synthetic negative/positive tests reject forged source page links, altered period scores with unchanged finals, mismatched teams, changed source review status, missing/duplicate game IDs, an unqualified original source SHA, changed archived capture dates and improper publication claims. **All 89 new-and-prior tests (22 + 26 + 20 + 21) pass.**
+
+These are **archived-source replay results**, not a fresh November 8 GameInfo fetch and not a new current skater or goalie row certification. The source owner still must independently validate the full **operational collector** against current official pages, approved runtime integration, scheduler isolation/rollback, and original Workbook formula/eligibility parity before publication.
