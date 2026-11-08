@@ -267,7 +267,7 @@ function publicWorkingEntry(m,fix,now){
  }else if(e.rentalGoalie!=null)return null;
  const pub=Date.parse(e.publishedAt),end=Date.parse(e.expiresAt);if(![now,pub,end].every(Number.isFinite)||now<pub||now>=end)return null;
  const h=/^[a-f0-9]{64}$/;if(![e.sha256,e.previewSHA256,e.sourceSha256].every(v=>typeof v==='string'&&h.test(v))||e.sourceSha256!==m.workingCard?.sha256)return null;
- if(!allowedPdfPath(e.url)||!e.url.endsWith('-'+fix.gameDate+'-working.pdf')||e.previewImage!==e.url.slice(0,-4)+'.png')return null;
+ if(!allowedPdfPath(e.url)||!new RegExp('-'+fix.gameDate+'-working(?:-r[2-9][0-9]*)?\\.pdf$').test(e.url)||e.previewImage!==e.url.slice(0,-4)+'.png')return null;
  return e;
 }
 let lineupLoadVersion=0,workingExpiryTimer=null;
@@ -300,7 +300,7 @@ async function drawLineup(){
  for(const a of [print,open]){a.href=url;a.removeAttribute("aria-disabled");a.tabIndex=0}
  set("lineup-notice",approved?
    "Official lineup card available.":
-   released?"TENTATIVE LINEUP - subject to change. Goaltender not confirmed. This is not the final game sheet.":
+   released?"INTERIM LINEUP - 14 skaters confirmed for working card. Goaltender pending. Line assignments may change.":
    "Blank original Brave H.C. card · lineup pending manager approval. Print or open the one-page PDF; do not use historical player sheets.");
  // The card itself is the public display. Text is shown only if a card is held or unavailable.
  $("lineup-notice").hidden=Boolean(approved);
