@@ -14,9 +14,13 @@ class SourceCaptureBoundary(unittest.TestCase):
  @classmethod
  def setUpClass(cls):
   cls.league,cls.roster=load()
- def test_recent_separate_capture_dates_admitted(self):
-  r=verify(self.league,self.roster)
-  self.assertEqual(r["state"],"PUBLIC_HISTORICAL_ROSTER_PLAYER_ID_PARITY_PASS")
+ def test_current_public_roster_is_held_if_its_independent_capture_is_stale(self):
+  # This uses original published dates: NEVER advance or re-stamp source.
+  current=datetime.fromisoformat(self.league["asOf"].replace("Z","+00:00"))
+  published=datetime.fromisoformat(self.roster["sourceLeagueAsOf"].replace("Z","+00:00"))
+  self.assertGreater(current-published,timedelta(days=8))
+  with self.assertRaisesRegex(RosterSourceHold,"ROSTER_LEAGUE_SOURCE_STALE_OR_FUTURE"):
+   verify(self.league,self.roster)
  def test_older_than_eight_days_refused(self):
   source=deepcopy(self.roster)
   old=datetime.fromisoformat(self.league["asOf"])-timedelta(days=9)
@@ -44,7 +48,12 @@ class SourceCaptureBoundary(unittest.TestCase):
    verify(self.league,x)
  def test_duplicate_current_season_team_id_still_refused(self):
   x=deepcopy(self.roster)
+  # Synthetic negative fixture only: align capture timestamps IN MEMORY to
+  # exercise the duplicate-team guard. It never validates the stale source.
+  x["sourceLeagueAsOf"]=self.league["asOf"]
+  x["asOf"]=self.league["asOf"]
   x["teams"][1]["sourceTeamId"]=x["teams"][0]["sourceTeamId"]
   with self.assertRaisesRegex(RosterSourceHold,"ADULT_CURRENT_TEAM_COVERAGE_BAD"):
    verify(self.league,x)
+  self.assertNotEqual(self.roster["sourceLeagueAsOf"],self.league["asOf"])
 if __name__=="__main__":unittest.main(verbosity=2)

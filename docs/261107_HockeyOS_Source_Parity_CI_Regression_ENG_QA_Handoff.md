@@ -43,3 +43,20 @@ Targeted tests now cover 10 division-movement cases, 12 weekly ledger cases, 18 
 A broader, bounded 32-suite source-only matrix returned **22 passing suites, 10 failing suites** against the candidate. Failures remain in roster-source time validation, multiple division model/scouting comparisons and dispersion-vs-projection snapshot reconciliation. These are explicit outstanding source/QA dependencies, not permission to fabricate data or relax a true release gate.
 
 The matrix receipt is retained privately on BRUTTECH 1 as `261107_HockeyOS_CI_Matrix_PRIVATE.txt` (not uploaded). PR #215 remains unmerged until its required checks and independent source-owner review are resolved; PR #214 remains separate and unmerged. No official source data, HTO CMS, Master Workbook or published November 8 tentative lineup is modified.
+
+## November 7 (late) — bounded source-count recovery
+
+A third separate 32-suite, source-only run now passes **28/32** and holds **4/32**. The private matrix receipts R1, R2, and R3 are preserved; no successful result overwrote a prior unsuccessful run.
+
+Six more independent test modules were updated to follow the real source history, without editing any public JSON, calculations, roster identities, the Master Workbook or HTO records:
+
+- Historical league insights now derive weekly changes from actual accepted source snapshots and demonstrate that a one-week-only fixture does not fabricate a preceding observation.
+- Division-fit and layout optimizer tests use the accepted two-week observation count, retaining the no-official-realignment and insufficient evidence gates.
+- Adult-division evidence independently recomputes current same-group pair capacity from verified current adult group membership.
+- Weekly stability tests preserve the true two-week history, derive scenarios from the latest source, keep previous-week immutable checks and exercise missing-week, identity tampering, invalid score and synthetic movement guards.
+- Roster timestamp tests now **require** the currently published Oct 26 roster capture to be held against the Nov 7 league update; a deliberately synthetic in-memory timestamp alignment is used only to exercise the duplicate-team-ID negative guard. It does not certify the published roster as fresh.
+
+The four remaining failing **suites** all concern real unmet source dependencies:
+`test_roster_era_strength.cjs`, `test_roster_strength_scouting.cjs`, `test_roster_division_evidence.cjs` and `test_hockeyos_dispersion_v365.cjs`. The first three depend on stale/mismatched current public roster coverage; the fourth is tied to the October 30 dispersion calibration and November 2 projection-model mismatch. The correct disposition is **source HOLD**, not fictional league facts or manually promoted projections.
+
+The unmodified public source still reports 27 league teams, five divisions, two recorded Toronto weeks, the Game 365 tentative working card and an unconfirmed goaltender. Engineering and QA remain responsible for source reconciliation before the public-facing predictive modules can be released.
