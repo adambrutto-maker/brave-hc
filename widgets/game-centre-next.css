@@ -227,9 +227,9 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
  .calibration-strip b{font-size:13px}
 }
 
-.pdf-lineup-preview{display:none;width:100%;height:auto;background:#fff;border:1px solid #d2d9df}
+/* The verified card is immediately visible at every viewport size. Native PDF is fallback only. */
+.pdf-lineup-preview{display:block;width:100%;max-width:100%;height:auto;box-sizing:border-box;background:#fff;border:1px solid #d2d9df}
+.pdf-lineup-preview[hidden],.pdf-lineup iframe[hidden]{display:none!important}
 @media(max-width:700px){
- .pdf-lineup iframe{display:none}
- .pdf-lineup-preview{display:block}
  .pdf-fallback{font-size:10px}
 }

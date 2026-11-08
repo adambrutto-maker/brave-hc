@@ -3,11 +3,11 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <style> #lineup-pdf-preview[hidden],#manager-card-view[hidden],#manager-card-tools[hidden],#lineup-card[hidden]{display:none!important}</style><meta name="color-scheme" content="dark"><meta name="robots" content="noindex,follow">
 <title>Brave H.C. — Game Centre R3.2 Arena Preview</title>
-<link rel="stylesheet" href="./game-centre-next.css?v=20261030-r31">
+<link rel="stylesheet" href="./game-centre-next.css?v=20261108-inline-r3">
 <link rel="stylesheet" href="./arena-power-r32.css?v=20261030-r32">
 <script defer src="./game-night-lineup-contract-v27-preview.js"></script>
 <script defer src="./manager-working-card.js?v=1"></script>
-<script defer src="./game-centre-next.js?v=20261101-cardonly-r5"></script>
+<script defer src="./game-centre-next.js?v=20261108-inline-r3"></script>
 <script defer src="./adult-league-scope.js"></script>
 <script defer src="./division-fit-model.js"></script>
 <script defer src="./weekly-strength-stability.js"></script>
@@ -66,7 +66,7 @@
   <section id="manager-card-view" hidden aria-label="Manager?s working lineup, not official"><h4>Working lineup ? not final</h4><iframe id="manager-card-frame" title="Private working lineup card" referrerpolicy="no-referrer" style="display:block;width:100%;height:clamp(300px,65vw,620px);border:0"></iframe><div class="action-row"><a id="manager-card-open" target="_blank" rel="noopener noreferrer">Open / print working card</a><button type="button" id="manager-card-close">Back to official card</button></div></section>
   <div class="pdf-lineup" id="lineup-card" aria-label="Authentic Brave H.C. workbook-derived PDF lineup card">
    <iframe id="lineup-pdf-frame" title="Printable original Brave H.C. lineup PDF" loading="lazy" scrolling="no"></iframe>
-   <img id="lineup-pdf-preview" class="pdf-lineup-preview" alt="Verified blank original Brave H.C. lineup PDF page preview" hidden>
+   <img id="lineup-pdf-preview" class="pdf-lineup-preview" loading="eager" decoding="async" width="1188" height="918" alt="Verified blank original Brave H.C. lineup PDF page preview" hidden>
   </div>
   <div class="action-row lineup-actions">
    <a id="lineup-print" class="print-link" target="_blank" rel="noopener noreferrer" aria-disabled="true" tabindex="-1">Print Lineup PDF ↗</a>

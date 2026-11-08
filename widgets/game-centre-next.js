@@ -281,7 +281,7 @@ async function drawLineup(){
  if(workingExpiryTimer!==null)clearTimeout(workingExpiryTimer);workingExpiryTimer=null;
  if(released)workingExpiryTimer=setTimeout(()=>void drawLineup(),Math.min(2147483000,Math.max(10,Date.parse(released.expiresAt)-Date.now()+10)));
  const frame=$("lineup-pdf-frame"),preview=$("lineup-pdf-preview"),print=$("lineup-print"),open=$("lineup-open");
- const block=()=>{frame.removeAttribute("src");preview.removeAttribute("src");preview.hidden=true;for(const a of [print,open]){a.removeAttribute("href");a.setAttribute("aria-disabled","true");a.tabIndex=-1}};
+ const block=()=>{frame.removeAttribute("src");frame.hidden=true;preview.removeAttribute("src");preview.hidden=true;for(const a of [print,open]){a.removeAttribute("href");a.setAttribute("aria-disabled","true");a.tabIndex=-1}};
  block();
  if(!manifest){set("lineup-notice","Checking the original workbook-derived blank PDF…");return}
  let entry=released||manifest.blank;
@@ -293,7 +293,9 @@ async function drawLineup(){
  const previewVerified=await pngPreviewIntegrity(entry);
  if(version!==lineupLoadVersion)return;
  const url=entry.url;
- frame.src=url+"#view=FitH&toolbar=0&navpanes=0";
+ // Prefer the verified inline image; PDF remains the open/print fallback.
+ frame.hidden=previewVerified;
+ if(!previewVerified)frame.src=url+"#view=FitH&toolbar=0&navpanes=0";
  const goalieNotice=released?.goalieConfirmed===true?"Rental goalie "+(released.rentalGoalie.numberIsPlaceholder===true?"":"#"+released.rentalGoalie.number+" ")+released.rentalGoalie.name+" confirmed (GoalieUp)":"Goalie unconfirmed";
  const managerFinalReady=released?.goalieConfirmed===true&&released.managerFinalReplacementAuthorized===true&&released.managerLineupStatus==="FINAL_TEAM_LINEUP";
  const publicCardLabel=managerFinalReady?"Final team lineup":"Working skater lineup";
