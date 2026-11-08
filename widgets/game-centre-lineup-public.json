@@ -1,7 +1,7 @@
 {
   "schema": "brave-hc-game-centre-public-lineup-pdf/v1",
   "status": "BLANK_PENDING_APPROVAL",
-  "scope": "PUBLIC_BLANK_CARD_ONLY",
+  "scope": "PUBLIC_BLANK_AND_MANAGER_AUTHORIZED_TENTATIVE_WORKING_CARD",
   "source": "Original Brave H.C. workbook, Lines!G5:J16, isolated copy",
   "sourceWorkbookSHA256": "0002fd9f06596af8d0a00fc1b53a618ef15479f941ad5c1e6265b27002a65154",
   "blank": {
@@ -17,7 +17,7 @@
   "approved": null,
   "weeklyAutoPublishEnabled": false,
   "privateWhatsAppPollDataPublished": false,
-  "notice": "November 8 private manager working card prepared; public original blank card remains pending manager approval and goalie confirmation.",
+  "notice": "TENTATIVE lineup vs Other Way November 8: lines subject to change; goalie TBD. Not official.",
   "workingCard": {
     "fixtureId": 3375684,
     "gameDate": "2026-11-08",
@@ -26,5 +26,22 @@
     "sha256": "e125be75c31b2920178d919bf5642fb9e7366ac902154e4a278f811b497eef03",
     "locatorSha256": "0232d41eaa36f861089f4b35847752ab50b8ea91f4f6738b86a1ec920e7fcce8"
   },
-  "publishedWorkingCard": null
+  "publishedWorkingCard": {
+    "fixtureId": 3375684,
+    "gameDate": "2026-11-08",
+    "opponent": "Other Way",
+    "puckDropUTC": "2026-11-09T02:15:00Z",
+    "state": "PUBLIC_WORKING_LINEUP",
+    "authorizedForPublic": true,
+    "goalieConfirmed": false,
+    "sourceRange": "Lines!G5:J16",
+    "sourceSha256": "e125be75c31b2920178d919bf5642fb9e7366ac902154e4a278f811b497eef03",
+    "publishedAt": "2026-11-08T02:37:34Z",
+    "expiresAt": "2026-11-09T03:15:00Z",
+    "url": "./assets/lineups/game-365-2026-11-08-working.pdf",
+    "sha256": "e125be75c31b2920178d919bf5642fb9e7366ac902154e4a278f811b497eef03",
+    "previewImage": "./assets/lineups/game-365-2026-11-08-working.png",
+    "previewSHA256": "dd6f3b5082833a9c506e627f466ab4d1484c4be1f6ea72cf9ffe76c6beb5afab",
+    "rentalGoalie": null
+  }
 }
