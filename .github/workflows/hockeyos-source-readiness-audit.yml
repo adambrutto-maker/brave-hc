@@ -1,0 +1,33 @@
+name: HockeyOS Source Readiness Telemetry
+
+on:
+  pull_request:
+    paths:
+      - "scripts/hockeyos_readiness_snapshot.py"
+      - "tests/test_hockeyos_readiness_snapshot.py"
+      - ".github/workflows/hockeyos-source-readiness-audit.yml"
+  push:
+    branches: [main]
+    paths:
+      - "scripts/hockeyos_readiness_snapshot.py"
+      - "tests/test_hockeyos_readiness_snapshot.py"
+      - ".github/workflows/hockeyos-source-readiness-audit.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  source-evidence-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - name: Read isolated repository source
+        uses: actions/checkout@v4
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Run fail-closed readiness unit tests
+        run: python -B -m unittest discover -s tests -p test_hockeyos_readiness_snapshot.py -v
+      - name: Report source status without changing data
+        run: python -B scripts/hockeyos_readiness_snapshot.py
