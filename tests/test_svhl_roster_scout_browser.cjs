@@ -49,6 +49,9 @@ const server=http.createServer((req,res)=>{
    }
    assert.equal(info.cards,4);
    assert.ok(info.players.includes("Packowski, Mike")&&info.players.includes("Ieraci, Vito"));
+   assert.ok(info.players.includes("GP in saved roster source"));
+   assert.ok(!info.players.includes("published current GP"));
+   assert.ok(info.metrics.includes("Scoring recorded at roster capture"));
    assert.ok(info.htoPlayers>15);
    assert.ok(info.overflow<=1);
    const choices=await page.evaluate(()=>{
@@ -74,6 +77,8 @@ const server=http.createServer((req,res)=>{
    assert.ok(copied.includes("Division")||copied.includes("division"));
    assert.ok(!copied.includes("confirmed lineup"));
    assert.ok(copied.includes("historical scouting reference only"));
+   assert.ok(copied.includes("GP recorded in source capture"));
+   assert.ok(!copied.includes("public current GP"));
    for(const [team,oldDivision,newDivision] of [
     ["Sugo Sundays","Remax Division","The Cristillo Division"],
     ["Young Guns","Remax Division","The Cristillo Division"],

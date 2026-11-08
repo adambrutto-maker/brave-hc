@@ -1,0 +1,59 @@
+name: HockeyOS roster ledger source-bound review
+
+# This review workflow qualifies the scoped roster consumer only.
+# A green result NEVER overrides the broad all-division source-parity hold,
+# authorizes publication, or treats historical roster evidence as current.
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'widgets/roster-strength-scouting.js'
+      - 'widgets/league-intelligence.js'
+      - 'widgets/league-intelligence.json'
+      - 'widgets/svhl-roster-intelligence.json'
+      - 'tests/test_roster_strength_scouting.cjs'
+      - 'tests/test_roster_division_movement_ledger.cjs'
+      - 'tests/test_roster_division_evidence.cjs'
+      - 'tests/test_roster_era_strength.cjs'
+      - 'tests/test_svhl_roster_scout_browser.cjs'
+      - '.github/workflows/hockeyos-roster-ledger-source-review.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: hockeyos-roster-ledger-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  source-bound-roster:
+    name: Source-bound roster only (not release approval)
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - name: Checkout exact reviewed candidate
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Syntax check without building or publishing
+        run: |
+          node --check widgets/roster-strength-scouting.js
+          node --check widgets/league-intelligence.js
+          node --check tests/test_roster_division_movement_ledger.cjs
+      - name: Verify transfer history by official team ID and enforce missing-source holds
+        run: node --test tests/test_roster_division_movement_ledger.cjs
+      - name: Verify original public player, roster and source-integrity contracts
+        run: node tests/test_roster_strength_scouting.cjs
+      - name: Verify existing division evidence model
+        run: node tests/test_roster_division_evidence.cjs
+      - name: Preserve the historical roster-era research guard
+        run: node tests/test_roster_era_strength.cjs
+      - name: Preserve broader source approval and separation
+        run: |
+          echo "SCOPED_ROSTER_REVIEW_ONLY: no source capture, forecast, workbook, publisher, merge or deployment."
+          echo "Broad all-division CI and independent QA must pass separately."

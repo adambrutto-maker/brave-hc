@@ -20,20 +20,24 @@ The unmodified `roster-strength-scouting.js` failed closed on **all** scouting r
 
 - `widgets/roster-strength-scouting.js`: retain all original official team/player IDs, roster/stats integrity gates, name/source URLs, historical season page hashes, and nonprediction policy. Admit a division change only if the current official movement ledger has exactly one qualifying record with the same numeric team ID, exact name, from/to divisions, full two-snapshot source authority and valid observation chronology. Duplicates, missing or fabricated transfer evidence, future dates, unobserved teams and identity collisions remain `ROSTER_SCOUT_HOLD`.
 - The source module now provides the captured division, provenance and observed transfer window, plus an eight-day source-freshness flag. It **does not** claim new roster capture, verified game-day attendance, lineup role, position or individual performance.
-- `widgets/league-intelligence.js`: the player scouting screen labels aged evidence **HISTORICAL ROSTER ONLY** and displays the observed transfer with explicit unknown effective date. No HTML injection: source notes are written as text content.
+- `widgets/league-intelligence.js`: the player scouting screen labels aged evidence **HISTORICAL ROSTER ONLY** and displays the observed transfer with explicit unknown effective date. Individual cards show GP from the dated roster capture, not a live/current GP claim. The copied scouting brief uses the same capture-qualified wording. No HTML injection: source notes are written as text content.
 - `tests/test_roster_strength_scouting.cjs`: replace one hard-coded retired 6/8/8 membership expectation with the current official input's own division counts. The remaining original source/negative tests are retained.
-- `tests/test_roster_division_movement_ledger.cjs`: 14 portable source, mutation and fail-closed tests covering team IDs, identity, transfer authority, missing/duplicated events, historical data freshness and source immutability.
-- `tests/test_svhl_roster_scout_browser.cjs`: check the source-derived current bridge counts and transfer disclosure instead of obsolete hard-coded October records, while preserving player selection, clipboard plan, desktop/mobile and missing-source handling.
+- `tests/test_roster_division_movement_ledger.cjs`: 15 portable source, mutation and fail-closed tests covering team IDs, identity, transfer authority, missing/duplicated events, historical data freshness, dated player-GP language and source immutability.
+- `tests/test_svhl_roster_scout_browser.cjs`: check the source-derived current bridge counts, transfer disclosure, dated player-GP labels and copied-brief language instead of obsolete hard-coded October records, while preserving player selection, clipboard plan, desktop/mobile and missing-source handling.
 
 ## Validation completed on isolated review branch
 
-- 14/14 portable movement-ledger tests PASS.
+- 15/15 portable movement-ledger tests PASS.
 - 14/14 existing roster-scouter tests PASS with source-derived membership expectation.
 - 6/6 existing division-evidence tests PASS.
 - Existing historical roster-era model PASS (22 teams, 348 roster entries, 191 historical team-season sources).
 - Existing real Chrome roster scouting browser test PASS at **1140 px and 358 px**: current three transfers, source-bound caution, proposed matchups, clipboard workflow and no horizontal overflow; withheld roster on unavailable source.
 - Independent private preparatory tests: 22/22 and seven local-browser acceptance scenarios, including zero JavaScript errors and no source writes.
 - Current public main repository, source JSON, original HTO provider pages, original Master Workbook, release tasks and scheduled collectors were **not modified or executed** during this candidate.
+
+## Focused CI and inherited dependency
+
+A dedicated, read-only `.github/workflows/hockeyos-roster-ledger-source-review.yml` runs the four scoped source/roster test suites on relevant pull requests. Its successful result is deliberately **not** a substitute for the broader `brave-league-intelligence.yml` source-parity workflow or any public release decision. The broader workflow initially failed in untouched baseline `tests/test_svhl_division_movement_history.py` with two obsolete incoming-team counts; both failures reproduced on unmodified `main`. A separate source-aware correction is under draft PR #215 and must be reconciled by its owner. No source-validation hold is waived by this new focused CI.
 
 ## Release and review boundaries
 

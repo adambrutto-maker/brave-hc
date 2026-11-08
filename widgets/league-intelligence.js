@@ -532,11 +532,11 @@
    r.strengthContextIndex+"/100 versus current division mean "+
    r.divisionContextMean+"/100 ("+(delta>0?"+":"")+delta+
    "). A losing record in a strong division does not equal weak overall ability.");
-  context(metrics,"Source-linked returning-player experience",
+  context(metrics,"Archived roster-linked experience",
    r.rosterCount+" listed players, "+r.activeListedWithGP+" with published GP. "+
    r.priorLinkedIds+" have official earlier player-ID observations, "+
    r.experiencedCount+" have 10+ archived games. Not a confirmed next-game roster.");
-  context(metrics,"Who drives published scoring",
+  context(metrics,"Scoring recorded at roster capture",
    "Top two registered "+(r.topTwoShare===null?"unavailable":(100*r.topTwoShare).toFixed(1)+"%")+
    " of recorded player points. This is scoring concentration, not an individual future production rate.");
   q("roster-scouting-caution").textContent=r.note+
@@ -562,7 +562,7 @@
    const card=el("article","insights-card");
    text(card,"strong","",threat.name+" · #"+threat.jersey);
    text(card,"p","small",threat.g+" goals · "+threat.a+" assists · "+
-    threat.gp+" published current GP. Prior linked official GP: "+
+    threat.gp+" GP in saved roster source ("+new Date(r.sourceRosterCaptureUTC).toLocaleDateString("en-CA")+"). Prior linked official GP: "+
     threat.previous.gp+" across "+threat.previous.seasons+" seasons."+
     (threat.previous.duplicateSeasonTeamMayOvercount?
       " Historical totals may contain same-season multiple-team duplication.":""));

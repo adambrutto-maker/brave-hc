@@ -235,7 +235,7 @@
     b.crossRecord.w+"W–"+b.crossRecord.l+"L–"+b.crossRecord.t+
     "T (current division labels). "+
     (b.limitedSample?"LIMITED CROSS-DIVISION SAMPLE.":"Descriptive source sample only."),
-   "Roster source: "+report.rosterCount+" listed players, "+
+   "Roster observations as of "+report.sourceRosterCaptureUTC+": "+report.rosterCount+" listed players, "+
     report.activeListedWithGP+" with published GP, "+
     report.priorLinkedIds+" with earlier official player-ID records, "+
     report.experiencedCount+" with at least 10 earlier source games.",
@@ -244,7 +244,7 @@
    "Scouting priorities: verify presence and position before using:",
    ...report.highPriority.slice(0,4).map((p,i)=>(i+1)+". "+
     p.name+" #"+p.jersey+": "+p.g+"G "+p.a+"A, "+p.gp+
-    " public current GP; "+p.previous.gp+" past-source GP. "+
+    " GP recorded in source capture; "+p.previous.gp+" past-source GP. "+
     (p.goalScoringCue?"Protect inside shooting lane. ":"Maintain inside positioning. ")+
     (p.playmakingCue?"Deny middle passing lanes.":"Guide puck toward boards.")),
    "Roster source freshness: "+report.rosterSourceAgeDays+" days behind latest league snapshot; "+

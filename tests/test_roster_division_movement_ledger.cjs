@@ -105,6 +105,15 @@ test("forged profile URL, team name, or archive hash remains inadmissible",()=>{
  const c=clone(roster);c.historicalRosterManifest[0].sourceSHA256="0";
  assert.throws(()=>scout.valid(league,c),/HISTORICAL_ROSTER_SOURCE_PAGE_MISMATCH/);
 });
+test("dated scouting notes never label October game counts as live-current data",()=>{
+ const report=scout.analyze(league,roster,"Sugo Sundays");
+ assert.equal(report.rosterSourceCurrentQualified,false);
+ const copied=scout.message(report);
+ assert.match(copied,/Roster observations as of /);
+ assert.match(copied,/GP recorded in source capture/);
+ assert.doesNotMatch(copied,/public current GP/);
+ assert.match(copied,/historical scouting reference only/);
+});
 test("scouting is read-only for source league and archived roster",()=>{
  const before=[JSON.stringify(league),JSON.stringify(roster)];
  for(const t of league.teams.filter(x=>adults.includes(x.divisionNow)))scout.analyze(league,roster,t.leagueName);
