@@ -41,3 +41,12 @@ Those flags and the zero row mismatch counter do not by themselves justify an *e
 The work is confined to a new feature branch/worktree. No active production files are changed. To reject this candidate, close the PR and delete only the isolated worktree after preserving this handoff. If later merged, revert the exact merge commit; do not alter historical HTO or original workbook data.
 
 **Result:** Measurable engineering candidate delivered; no claim of a production P1 closure or authorization to publish unsupported statistics.
+
+## Repository-wide CI baseline comparison
+
+The GitHub PR initially reported two unrelated failing workflows. Their exact failing tests were re-run against an isolated **unaltered `origin/main` checkout** at `82bb1845888d9f5597d7bdb390b39e44553ae69a`:
+
+- `source-parity`: existing division movement history asserts one incoming Cristillo event where the source currently supplies two (2 test failures).
+- `verify-normalization-contract`: an existing Justin Carosi trend test expects the earlier `-0.025228` career delta (1 test failure).
+
+Both failures reproduce on main without this PR. They must not be 'fixed' by inventing historical division movement or changing authentic player scoring. A dedicated read-only workflow `.github/workflows/hockeyos-embedded-source-gate.yml` now checks this candidate's admission policy, existing normalization rules and Game Night card preservation independently. Browser tests remain locally evidenced for independent QA.
