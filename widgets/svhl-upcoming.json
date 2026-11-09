@@ -1,20 +1,8 @@
 {
   "schema": "brave-hc-svhl-schedule/v1",
   "source": "https://leagues.sportsvillage.ca/Leagues.aspx?leagueid=570&page_type=Adult&sc=HOCKEY",
-  "checkedAt": "2026-11-08T17:56:34.785440-05:00",
+  "checkedAt": "2026-11-09T01:47:30.850473-05:00",
   "games": [
-    {
-      "date": "2026-11-08",
-      "time": "21:15",
-      "opponent": "Other Way",
-      "rink": "D Rink",
-      "side": "home",
-      "fixtureSignature": "2026-11-08|21:15|Other Way|D Rink|home",
-      "assignmentKey": "hto:3375684",
-      "htoGameId": "3375684",
-      "htoSyncStatus": "MATCH",
-      "requiresGoalieReconfirmation": false
-    },
     {
       "date": "2026-11-15",
       "time": "19:15",
