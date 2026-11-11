@@ -1,0 +1,46 @@
+name: HockeyOS Embedded Forecast Source Gate
+
+on:
+  pull_request:
+    paths:
+      - "widgets/home-embedded-projection-gate.js"
+      - "widgets/home-panels.html"
+      - "widgets/home-premium.js"
+      - "widgets/home-premium.css"
+      - "tests/test_home_embedded_projection_source_gate.cjs"
+      - "tests/test_player_performance_normalization.cjs"
+      - "tests/test_public_working_lineup.cjs"
+      - ".github/workflows/hockeyos-embedded-source-gate.yml"
+  push:
+    branches: [main]
+    paths:
+      - "widgets/home-embedded-projection-gate.js"
+      - "widgets/home-panels.html"
+      - "widgets/home-premium.js"
+      - "widgets/home-premium.css"
+      - "tests/test_home_embedded_projection_source_gate.cjs"
+      - ".github/workflows/hockeyos-embedded-source-gate.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  source-admission-and-preservation:
+    name: Source gate and game-night preservation
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - name: Check out the candidate
+        uses: actions/checkout@v4
+      - name: Set up supported Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Validate browser source syntax
+        run: |
+          node --check widgets/home-embedded-projection-gate.js
+          node --check widgets/home-premium.js
+          node --check tests/test_home_embedded_forecast_browser.cjs
+      - name: Verify source admission, official normalization and Game 365 card integrity
+        run: |
+          node --test tests/test_home_embedded_projection_source_gate.cjs tests/test_player_performance_normalization.cjs tests/test_public_working_lineup.cjs
