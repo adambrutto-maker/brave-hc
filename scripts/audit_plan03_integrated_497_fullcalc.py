@@ -140,11 +140,13 @@ def validate_composite(original, calculated, proposed, unknown, feed, schedule, 
         or application.get("rollbackSHA256","").lower()!=COMPOSITE_INPUT_SHA
         or application.get("candidateSHA256","").lower()!=COMPOSITE_CALCULATED_SHA
         or application.get("sourceWorkbookModified") is not False
-        or application.get("externalConnectionsRefreshed") is not False):
+        or application.get("externalConnectionsRefreshed") is not False
+        or application.get("pivotRefreshAllUsed") is not False):
         raise CompositeHold("EXCEL_PRIVATE_FULL_CALC_RECEIPT_INVALID")
     if (audit.get("schema")!="brave-hc-plan03-private-full-calc-qa/v1"
         or audit.get("status")!="FULL_CALC_NO_NEW_FORMULA_ERRORS_REVIEW_ONLY"
         or audit.get("issues")!=[]
+        or audit.get("newErrorEvents")!=[]
         or audit.get("sourceSHA256")!=source.ORIGINAL_SHA
         or audit.get("beforeSHA256")!=COMPOSITE_INPUT_SHA
         or audit.get("afterSHA256")!=COMPOSITE_CALCULATED_SHA
