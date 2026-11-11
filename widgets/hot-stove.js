@@ -32,10 +32,17 @@ function gameGoalParagraph(paragraph,article){
   return !!(first&&last&&paragraph.includes(first+" "+last));
  });
 }
+function founderApprovedPending(a){
+ return !!(a&&a.gameId===3375684&&a.id==="recap-3375684"&&
+ a.verification?.status==="FOUNDER_APPROVED_HTO_PENDING"&&a.verification?.officialHtoScoringPending===true&&
+ a.publicationApproval?.decision==="FOUNDER_AUTHORIZE_POST_2026-11-10"&&a.editorialState==="FOUNDER_APPROVED"&&
+ a.boxScore?.opponent==="Other Way"&&a.boxScore?.ourGoals===5&&a.boxScore?.theirGoals===6&&
+ a.sourceUrls?.[0]==="https://leagues.sportsvillage.ca/Leagues.aspx?leagueid=570&page_type=Adult&sc=HOCKEY");
+}
 function articleFacts(a){
  if(!a||!a.headline||!a.boxScore||!a.sourceUrls?.length||
     !Array.isArray(a.paragraphs)||a.paragraphs.length<3||
-    a.verification?.status!=="SOURCE_VERIFIED")throw Error("Article source validation absent");
+    !(a.verification?.status==="SOURCE_VERIFIED"||founderApprovedPending(a)))throw Error("Article source validation absent");
  if(!Number.isInteger(a.boxScore.ourGoals)||!Number.isInteger(a.boxScore.theirGoals)||
     !a.boxScore.opponent)throw Error("Untrusted score");
  return a;
@@ -228,7 +235,7 @@ function feature(section,a,includePreview){
  }
  section.append(headline);
  section.append($("p","lead",a.dek));
- section.append($("div","meta",a.displayDate+" · Verified HTO box score"));
+ section.append($("div","meta",a.displayDate+(founderApprovedPending(a)?" · Team-approved report · HTO scoring pending":" · Verified HTO box score")));
  const b=a.boxScore,score=$("div","score");
  score.append($("span","team-name","BRAVE H.C."));
  const nums=$("div","numbers");nums.append($("span",null,String(b.ourGoals)));
@@ -243,6 +250,9 @@ function feature(section,a,includePreview){
  const body=$("div","article-body");
  for(const paragraph of a.paragraphs){
   if(typeof paragraph!=="string"||paragraph.length>900)throw Error("Invalid article paragraph");
+  if(founderApprovedPending(a)&&a.sectionHeadings?.includes(paragraph)){
+   body.append($("h3","section-header",paragraph));continue;
+  }
   const line=$("p",null,paragraph);
   // A scorer and listed assists in the verified game event link to that game's
   // boxscore; absence and scouting references remain season-scoped.
@@ -250,7 +260,7 @@ function feature(section,a,includePreview){
   body.append(line);
  }
  section.append(body);
- const footer=$("div","links");footer.append(link("Official HTO box score ↗",a.sourceUrls[0]));section.append(footer);
+ const footer=$("div","links");footer.append(link(founderApprovedPending(a)?"Official league standings ↗":"Official HTO box score ↗",a.sourceUrls[0]));section.append(footer);
  rosterDepthNotes(section,a);
  archivedArticleMilestones(section,a);
  if(!includePreview&&a.followingGamePreview)archivedNextGame(section,a.followingGamePreview);
@@ -277,7 +287,7 @@ function headToHeadStats(p){
 function preview(section){
  section.dataset.htoSeason="Winter_2026/2027";
  const p=publication.gamePreview;
- if(!p){section.append($("p","loading","No future game has been posted on HTO."));return}
+ if(!p){section.append($("p","loading","Next-game opponent and time are being reconciled between league and HTO schedules."));return}
  section.append($("span","tag","Pregame preview · HTO schedule"));
  section.append($("h2",null,p.headline));
  if(typeof p.gameDateLine==="string"&&p.gameDateLine.length<=160)
@@ -334,7 +344,7 @@ function render(){
  if(mode==="archive")archive(content);
  panel.append($("p","note",
  isReview?"Editorial review only. Stats and scheduling facts are validated against official HTO sources. This is NOT published to the HTO Hot Stove page. Founder approval is required. No LiveBarn coverage or quotations have been used.":
- "Approved Brave H.C. Hot Stove article. Game facts sourced from official HTO box scores. Video and player quotations are included only when independently verified."));
+ founderApprovedPending(publication.latestArticle)?"Founder-approved game report; Sports Village standings support the final result. Individual scoring credits for November 8 await the official HTO sheet. No unverified video or quotations included.":"Approved Brave H.C. Hot Stove article. Game facts sourced from official HTO box scores. Video and player quotations are included only when independently verified."));
  root.append(shell);
 }
 async function applyArchiveEditorial(data){

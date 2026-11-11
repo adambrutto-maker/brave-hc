@@ -2,222 +2,131 @@
   "schema": "brave-hc-hot-stove-editorial-preview/v1",
   "team": "Brave H.C.",
   "season": {
-    "gp": 6,
+    "gp": 7,
     "wins": 1,
-    "losses": 5,
+    "losses": 6,
     "ties": 0,
-    "goalsFor": 14,
-    "goalsAgainst": 30
+    "goalsFor": 19,
+    "goalsAgainst": 36
   },
-  "sourceAuthority": "Finalized HTO boxscores and player statistics; verified historical Brave H.C. workbook; official 2026/27 SVHL dated game results; Founder-approved factual goal descriptions",
+  "sourceAuthority": "Finalized HTO boxscores and player statistics; verified historical Brave H.C. workbook; official 2026/27 SVHL dated game results; Founder-approved factual goal descriptions; November 8 league-standing result and founder-approved event details pending HTO source publication",
   "sourceVerifiedAt": "2026-11-02",
-  "generatedAt": "2026-11-02T15:57:30.005088+00:00",
+  "generatedAt": "2026-11-11T04:38:22.386Z",
   "editorialState": "FOUNDER_APPROVED",
-  "publicationPolicy": "All six 2026/27 game recaps are Founder-approved; future game updates require separate approval.",
+  "publicationPolicy": "All seven approved team game reports remain available. November 8 is founder-approved team reporting pending official HTO scorer; earlier six remain fully HTO-verified.",
   "latestArticle": {
-    "id": "recap-3375683",
-    "articleType": "GAME_RECAP",
-    "gameId": 3375683,
-    "headline": "Braves Fall 7–2 to Mid Ice Crisis in November Opener",
-    "date": "2026-11-01",
-    "displayDate": "Sunday, November 1, 2026",
-    "dek": "Brave H.C. 2, Mid Ice Crisis 7 — the Braves scored twice in the third period.",
+    "id": "recap-3375684",
+    "articleType": "FOUNDER_APPROVED_GAME_REPORT_PENDING_HTO",
+    "gameId": 3375684,
+    "headline": "Braves Rally From Three Goals Down, Fall 6–5 to Other Way on Last-Second Winner",
+    "date": "2026-11-08",
+    "displayDate": "Sunday, November 8, 2026",
+    "dek": "Two goals apiece from Stephane Saindon and Krishnan Rajasooriar highlight a five-goal effort, but Other Way breaks a 5–5 tie with just 10 seconds remaining.",
     "paragraphs": [
-      "Brave H.C. could not build on its first win of the season, falling 7–2 to Mid Ice Crisis on Sunday at Vaughan Sports Village. The Braves trailed 4–0 after two periods before Stefano Mazzei and Adam Povegliano scored in the third.",
-      "Mid Ice Crisis entered the game second in the eight-team Cristillo Division at 3–2, with 20 goals scored and 13 allowed through five games. The club had lost 2–1 to division-leading Mohawks HC the previous week. Against Mid Ice Crisis, the Braves had gone 1–2–2 in five previous regular-season meetings, including a 3–3 tie on December 14, 2025. Including two playoff losses, their record in the matchup stood at 1–4–2.",
-      "The Braves dressed 11 full-timers and two part-timers. Captain Adam Brutto, Anthony Paolucci and Keith Pearsoll were out of the lineup. Part-timer Adam Kober made his fifth appearance of the season, while part-timer Stefano Mazzei made his season debut. Marco Congiusti also made his first appearance of the season, and Brian Haspel made his Braves debut in goal.",
-      "First Period — Mid Ice Crisis Takes the Lead",
-      "Mid Ice Crisis opened the scoring at 9:14 remaining and carried a 1–0 lead into the intermission. A two-minute tripping penalty against Mid Ice Crisis at 6:51 gave the Braves a power-play opportunity, but they did not score.",
-      "Second Period — Mid Ice Crisis Builds a Four-Goal Advantage",
-      "Mid Ice Crisis scored three unanswered goals at 9:22, 1:16 and 0:35 remaining. The Braves went into the third period trailing 4–0.",
-      "Third Period — Two Different Finishes for the Braves",
-      "At 8:53 remaining, Stefano Mazzei streaked up the far side after a pass from Alex Pagnotta, then came in and beat the goaltender cleanly with a wrist shot. The goal, Mazzei's first goal of the game and first of the season in his season debut, put Brave H.C. on the scoreboard at 4–1 and gave Pagnotta his fifth assist of the season.",
-      "Mid Ice Crisis responded at 4:22 and 2:40 remaining, moving ahead 6–1.",
-      "At 1:47 remaining, Justin Carosi won the faceoff cleanly back to Alex Pagnotta. Adam Povegliano gathered the rebound and scored. The finish was Povegliano's first goal of the game and second of the season. Pagnotta received his sixth assist of the season, while Carosi picked up his second. The goal made it 6–2 before Mid Ice Crisis completed the scoring at 0:54 remaining for the 7–2 final.",
-      "Game Leaders and Recognition",
-      "Alex Pagnotta finished with two assists, his fifth and sixth of the season, giving him six points in six games. Mazzei and Povegliano recorded a goal apiece, while Justin Carosi had one assist and moved to four goals and two assists on the season. Brian Haspel took the loss, allowing seven goals in his first recorded appearance for the club.",
-      "Players of the Game: Alex Pagnotta, Adam Kober and Adam Povegliano.",
-      "Through six games, the Braves stand at 1–5, with 14 goals scored and 30 allowed. The result moved their regular-season record against Mid Ice Crisis to 1–3–2 in six meetings, with 15 goals for and 26 against. Including playoffs, the series stands at 1–5–2 across eight meetings, with 17 goals scored and 32 allowed.",
-      "Next Up — Other Way",
-      "Brave H.C. returns to Vaughan Sports Village — D Rink on Sunday, November 8 at 9:15 p.m. to face Other Way. Third in the Cristillo Division at 2–1–2 through five games, Other Way has scored 25 goals and allowed 23. It defeated Dateline Predators 8–5 on October 18 and tied Sugo Sundays 7–7 on October 25. Other Way also beat Mid Ice Crisis 4–3 earlier this season.",
-      "The Braves will look to return to the win column following Sunday's setback."
+      "Brave H.C. spent much of Sunday night fighting its way back into a game that appeared to be slipping away before the first intermission. Down 3–0 in the opening period, the Braves scored four of the next five goals, took their first lead in the second and twice erased a deficit. But after Stephane Saindon tied the contest at 5–5 with 1:18 remaining in the third, Other Way delivered the decisive goal with just 10 seconds left to escape with a 6–5 victory.",
+      "It was a particularly difficult result for a Brave H.C. team that had produced one of its strongest offensive performances of the young 2026–27 season. Saindon and Krishnan Rajasooriar scored twice apiece, while Jamie Rosenberg supplied the other goal. The five-goal output was second only to the six the Braves scored in their October 25 victory over Big Bastones.",
+      "A High-Scoring Opponent, and an Unfamiliar Matchup",
+      "Other Way arrived with a 3–1–2 record, 36 goals scored and 32 allowed through six games. Its recent results included an 8–5 victory over Dateline Predators, a 7–7 draw with Sugo Sundays and an 11–9 win against Mohawks H.C. That three-game stretch produced 26 goals for Other Way and 21 against, offering ample evidence of a team capable of both generating and conceding offence.",
+      "The verified Brave H.C. historical ledger did not establish a previous meeting under the exact Other Way team name, so the strongest pregame comparison came from current-season results. Brave H.C. had beaten Big Bastones 6–4 on October 25 but lost 7–2 to Mid Ice Crisis the following Sunday. The Braves entered the contest at 1–5, having scored 14 goals and surrendered 30.",
+      "The game-night lineup listed 14 skaters, including part-timers Adam Kober and Rajasooriar. Kober was making his sixth appearance of the season, while Rajasooriar was appearing for the third time. Full-timers Anthony Paolucci and Keith Pearsoll were not listed. Captain Adam Brutto returned to the lineup after missing the November 1 game, and Jeff Rae was in goal for his first recorded appearance with the club this season.",
+      "First Period — A Three-Goal Hole, Then a Late Response",
+      "Other Way wasted little time establishing control of the scoreboard. Three unanswered goals at 7:00, 6:18 and 5:14 remaining in the opening period gave the visitors a 3–0 advantage.",
+      "The Braves' response came late in the period, beginning with Rajasooriar at 2:46 remaining. Assisted by Saindon and Marco Congiusti, Rajasooriar recorded his first goal of the 2026–27 season and put Brave H.C. on the board.",
+      "The comeback gained momentum in the period's closing seconds. With approximately 12 seconds remaining, Saindon scored his first of the game and second of the season, with Michael Provenzano and Mario Provenzano receiving assists.",
+      "What had been a 3–0 deficit was suddenly 3–2 at the intermission. The Braves had not erased the damage of the opening minutes, but their two late goals had transformed the position they would carry into the second period.",
+      "Second Period — Braves Complete the Comeback and Take the Lead",
+      "Brave H.C. continued its scoring run early in the second.",
+      "At 9:27 remaining, Rosenberg scored his second goal of the season, assisted by Justin Carosi, to bring the Braves level at 3–3. The goal completed the recovery from the three-goal opening-period deficit.",
+      "The Braves then moved ahead for the first time.",
+      "At 2:07 remaining, Rajasooriar struck again for his second goal of the night and second of the season. Congiusti and Carosi collected the assists, giving both players their second helpers of the game.",
+      "The goal put Brave H.C. ahead 4–3 and briefly placed the team in position to turn a remarkable comeback into its second victory of the season.",
+      "Other Way responded almost immediately. A goal at 1:29 remaining tied the game at 4–4, ensuring that neither club would carry an advantage into the third period.",
+      "The second period had belonged to the Braves offensively, with two goals against one for Other Way. Across the opening two periods, Brave H.C. had recovered from 3–0 down and outscored its opponent 4–1 after the initial three-goal burst.",
+      "Third Period — Another Equalizer, Then a Crushing Finish",
+      "With the game tied entering the final period, Other Way moved back in front at 7:22 remaining.",
+      "The Braves faced another one-goal deficit, but their offence produced one more answer.",
+      "At 1:18 remaining, Saindon scored his second goal of the game and third of the season, assisted by Rosenberg. The goal brought Brave H.C. level at 5–5 and gave Saindon a three-point night.",
+      "Once more, Brave H.C. had erased a deficit. After the early 3–0 hole, the Braves had fought their way back into contention repeatedly and appeared close to securing a result from a difficult contest.",
+      "The decisive moment came with just 10 seconds remaining. Other Way scored its sixth goal to break the tie and secure a 6–5 victory.",
+      "The final period finished 2–1 in Other Way's favour, completing a game in which the Braves had shown considerable offensive resilience but were unable to protect either their second-period lead or their late third-period equalizer.",
+      "Game Leaders — Two-Goal Performances Drive the Offence",
+      "Saindon led the Brave H.C. attack with two goals and one assist for three points. The assistant captain scored the team's second and fifth goals, with his final marker temporarily restoring the tie late in the third.",
+      "Rajasooriar supplied two goals in his third appearance of the season, recording his first two goals of 2026–27. His second-period finish was particularly important, giving Brave H.C. its only lead of the night.",
+      "Rosenberg contributed a goal and an assist, scoring the second-period equalizer and helping set up Saindon's third-period tying goal.",
+      "Congiusti and Carosi each finished with two assists. Congiusti assisted on both Rajasooriar goals, while Carosi contributed to the two Brave H.C. goals in the second period. Michael and Mario Provenzano each added an assist on Saindon's first-period goal.",
+      "The team's five goals involved three different scorers and seven players recorded at least one point.",
+      "Players of the Game: Krishnan Rajasooriar, Stephane Saindon and Jamie Rosenberg.",
+      "Rae took the loss in his first recorded Brave H.C. appearance of the season.",
+      "The Bigger Picture — More Offence, but Another Narrow Defeat",
+      "The result dropped Brave H.C. to 1–6 through seven games, with 19 goals scored and 36 conceded. Other Way improved to 4–1–2, moving to 42 goals for and 37 against.",
+      "The Braves have now scored 13 goals in their last three games, a meaningful increase in production compared with their first four outings, when they managed only six. Yet those same three games have produced 17 goals against and a 1–2 record.",
+      "Sunday illustrated both sides of that development. Brave H.C. recovered from a three-goal deficit, took the lead and generated five goals against one of the division's highest-scoring clubs. The team also conceded three early goals and could not prevent the winning goal in the final seconds.",
+      "There is evidence of a more productive offence, particularly as contributions have come from beyond the team's early-season scoring leaders. The next step is translating that production into sustained results. Against Other Way, the Braves did enough to give themselves multiple chances to take something from the game, but not enough to finish it.",
+      "Next Up — Sugo Sundays",
+      "The current Sports Village league schedule lists Brave H.C. against Sugo Sundays on Sunday, November 15, at 7:15 p.m. on Vaughan Sports Village's A Rink.",
+      "Sugo enters the next round at 3–3–1, with 27 goals scored and 34 allowed through seven league games. Its 7–7 draw with Other Way on October 25 provides an immediate comparison with the opponent Brave H.C. just faced, though it offers no guarantee about how the next game will unfold.",
+      "For the Braves, the direction is clear: the team has shown it can generate offence and recover from difficult positions. Turning those moments into victories will require a more complete performance from the opening minutes to the final whistle.",
+      "The November 15 opponent and puck-drop time remain subject to reconciliation between the Sports Village and Brave H.C. schedules."
+    ],
+    "sectionHeadings": [
+      "A High-Scoring Opponent, and an Unfamiliar Matchup",
+      "First Period — A Three-Goal Hole, Then a Late Response",
+      "Second Period — Braves Complete the Comeback and Take the Lead",
+      "Third Period — Another Equalizer, Then a Crushing Finish",
+      "Game Leaders — Two-Goal Performances Drive the Offence",
+      "The Bigger Picture — More Offence, but Another Narrow Defeat",
+      "Next Up — Sugo Sundays"
     ],
     "boxScore": {
-      "opponent": "Mid Ice Crisis",
-      "ourGoals": 2,
-      "theirGoals": 7,
+      "opponent": "Other Way",
+      "ourGoals": 5,
+      "theirGoals": 6,
       "ourPeriods": [
-        0,
-        0,
         2,
+        2,
+        1,
         0,
         0
       ],
       "theirPeriods": [
+        3,
         1,
-        3,
-        3,
+        2,
         0,
         0
       ]
     },
     "sourceUrls": [
-      "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=3375683&p=boxscore",
-      "https://leagues.sportsvillage.ca/Leagues.aspx?leagueid=570&page_type=Adult&sc=HOCKEY"
+      "https://leagues.sportsvillage.ca/Leagues.aspx?leagueid=570&page_type=Adult&sc=HOCKEY",
+      "https://www.htosports.com/teams/default.asp?p=scores&s=hockey&u=BRAVESHOCKEY"
     ],
     "videoEvidence": null,
-    "opponentHistory": {
-      "beforeGame": {
-        "gp": 5,
-        "w": 1,
-        "l": 2,
-        "t": 2,
-        "gf": 13,
-        "ga": 19
-      },
-      "beforeGameAllTime": {
-        "gp": 7,
-        "w": 1,
-        "l": 4,
-        "t": 2,
-        "gf": 15,
-        "ga": 25
-      },
-      "previousRegularSeasonMeeting": {
-        "date": "2025-12-14",
-        "gf": 3,
-        "ga": 3,
-        "result": "T"
-      },
-      "sourceScope": "Exact normalized opponent name, verified workbook/HTO history"
-    },
-    "goalEvents": [
-      {
-        "player": "Mazzei, Stefano",
-        "no": "88",
-        "period": 3,
-        "clock": "8:53",
-        "periodSeconds": 533,
-        "strength": "ES",
-        "officialText": "88 Stefano Mazzei ( 44 Alex Pagnotta )",
-        "teamGoalOrdinal": 1,
-        "playerGameGoalOrdinal": 1,
-        "playerSeasonGoalOrdinal": 1,
-        "gameId": 3375683,
-        "gameDate": "2026-11-01"
-      },
-      {
-        "player": "Povegliano, Adam",
-        "no": "22",
-        "period": 3,
-        "clock": "1:47",
-        "periodSeconds": 107,
-        "strength": "ES",
-        "officialText": "22 Adam Povegliano ( 44 Alex Pagnotta , 89 Justin Carosi )",
-        "teamGoalOrdinal": 2,
-        "playerGameGoalOrdinal": 1,
-        "playerSeasonGoalOrdinal": 2,
-        "gameId": 3375683,
-        "gameDate": "2026-11-01"
-      }
-    ],
-    "verification": {
-      "statementsFrom": "Finalized HTO Game 3375683 and current player/goalie statistics, verified historical workbook, source-qualified official Sunday Winter 2026/27 SVHL Cristillo Division intelligence as of November 2, and two owner-confirmed HTO-matched scoring play descriptions",
-      "status": "SOURCE_VERIFIED",
-      "gameBoxscoreMatched": true,
-      "unsupportedClaimsExcluded": true,
-      "headToHeadSource": "Master Workbook AllTimeSchedule and source-qualified opponent ledger",
-      "goalNumbers": "HTO game scoring plus season statistics",
-      "goalNarrativeReview": "Only two explicitly approved and HTO-matched Brave H.C. goal descriptions",
-      "leagueIntelligenceVerified": true,
-      "officialLeagueAsOf": "2026-11-02T14:15:07.530574+00:00",
-      "leagueFiveGameSnapshotSeparateFromHTOSixGameRecord": true
-    },
-    "editorialState": "FOUNDER_APPROVED",
+    "goalEvents": [],
     "milestones": [],
     "recordClaimsVerified": false,
     "upcomingPlayerContext": [],
-    "evidenceFingerprint": "e0920620560ccf5751b8b71a3d4fef84518330107006ba675029c31535e03280",
-    "leagueIntelligence": {
-      "schema": "hockeyos-article-league-source/v1",
-      "source": "https://leagues.sportsvillage.ca/Leagues.aspx?leagueid=570&page_type=Adult&sc=HOCKEY",
-      "asOf": "2026-11-02T14:15:07.530574+00:00",
-      "scope": "verified league pre-Nov1 standings; HTO six-game Nov1 result independent",
-      "division": "The Cristillo Division",
-      "divisionTeamCount": 8,
-      "featuredOpponent": {
-        "name": "Mid Ice Crisis",
-        "source": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13708&page_type=Adult",
-        "rank": 2,
-        "record": {
-          "gp": 5,
-          "w": 3,
-          "l": 2,
-          "t": 0,
-          "pts": 6,
-          "gf": 20,
-          "ga": 13
-        },
-        "lastGame": {
-          "date": "2026-10-25",
-          "opponent": "Mohawks HC",
-          "opponentCurrentDivision": "The Cristillo Division",
-          "gf": 1,
-          "ga": 2,
-          "result": "L"
-        },
-        "bravesHistoryStatus": "SOURCE_VERIFIED_H2H"
-      },
-      "nextOpponent": {
-        "name": "Other Way",
-        "source": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13704&page_type=Adult",
-        "rank": 3,
-        "record": {
-          "gp": 5,
-          "w": 2,
-          "l": 1,
-          "t": 2,
-          "pts": 6,
-          "gf": 25,
-          "ga": 23
-        },
-        "lastTwo": [
-          {
-            "date": "2026-10-18",
-            "opponent": "Dateline Predators",
-            "opponentCurrentDivision": "The Cristillo Division",
-            "gf": 8,
-            "ga": 5,
-            "result": "W"
-          },
-          {
-            "date": "2026-10-25",
-            "opponent": "Sugo Sundays",
-            "opponentCurrentDivision": "Remax Division",
-            "gf": 7,
-            "ga": 7,
-            "result": "T"
-          }
-        ],
-        "bravesHistoryStatus": "NO_VERIFIED_BRAVES_MATCH_HISTORY"
-      },
-      "usesHistoryAndLeagueContext": true,
-      "usesNoHistoryFallback": true,
-      "HTOSeparateFromLeague": true,
-      "editorialPlacement": "INTRO_AND_NEXT_UP_PROSE",
-      "publicQualifyingLanguageSuppressed": true
+    "opponentHistory": {
+      "sourceScope": "Exact-name historical ledger",
+      "status": "NO_VERIFIED_BRAVES_MATCH_HISTORY"
     },
-    "editorialRevision": {
-      "type": "NATURAL_SPORTS_JOURNALISM_LEAGUE_CONTEXT_INTEGRATION",
-      "date": "2026-11-02",
-      "authority": "Founder's explicit follow-up editorial direction",
-      "previousFingerprint": "fceda810711d2c8cc91b6f4b0bdaa276c9fbab9901efbbdaebc5927a1082b707",
-      "currentFingerprint": "e0920620560ccf5751b8b71a3d4fef84518330107006ba675029c31535e03280",
-      "leagueFactsUnchanged": true,
-      "headToHeadUnchanged": true,
-      "noSeparateLeagueHeading": true,
-      "sourceCaveatsRetainedPrivately": true
-    }
+    "verification": {
+      "status": "FOUNDER_APPROVED_HTO_PENDING",
+      "officialHtoScoringPending": true,
+      "leagueStandingsConfirmTeamRecord": true,
+      "founderProvidedScoringNarrative": true,
+      "sourceScope": "League standings confirm team record and goals through game seven; individual credits and goal sequence from Founder-approved team report pending official HTO sheet",
+      "publicationQualification": "NOT AN HTO-VERIFIED SCORING SHEET",
+      "upcomingScheduleConflict": "Sports Village Nov 15 Sugo 7:15 PM A vs HTO Nov 15 Dateline 8:15 PM A",
+      "videoVerified": false
+    },
+    "publicationApproval": {
+      "decision": "FOUNDER_AUTHORIZE_POST_2026-11-10",
+      "date": "2026-11-10",
+      "role": "Founder",
+      "scope": "Approved game article with pending HTO qualification; public Hot Stove GitHub Pages widget, not native HTO boxscore/editor",
+      "source": "User instruction: Okay post it"
+    },
+    "editorialState": "FOUNDER_APPROVED"
   },
   "teamNotes": {
     "title": "Around the Club",
@@ -257,68 +166,245 @@
     "coverage": "VERIFIED_SUPPORTED_CATEGORIES_ONLY",
     "recordBreakingClaimsVerified": false
   },
-  "gamePreview": {
-    "headline": "High-Scoring Other Way Next as Braves Look to Rebound",
-    "opponent": "Other Way",
-    "puckDrop": "2026-11-08T21:15:00-05:00",
-    "paragraphs": [
-      "Brave H.C. has seen both sides of a scoring swing over its last two games. A six-goal breakthrough against Big Bastones delivered the club's first win of the 2026–27 season, but a 7–2 loss to Mid Ice Crisis followed on November 1. Sunday's assignment brings another challenge: Other Way, which has scored 25 goals through five published league games.",
-      "Other Way is third in the eight-team Cristillo Division at 2–1–2, with 25 goals for and 23 against. Its five-goal-per-game scoring average has come in some lively contests, including an 8–5 win over Dateline Predators and a 7–7 tie with Sugo Sundays in its last two completed games. Earlier, it traded six goals apiece with Zamboner Crew.",
-      "The numbers tell only part of the story. Other Way opened its season by beating Mid Ice Crisis 4–3, but also went scoreless in a 2–0 defeat to Big Bastones. Both opponents have already figured prominently in the Braves' season. Brave H.C. beat Big Bastones 6–4 on October 25, then fell to Mid Ice Crisis the following Sunday.",
-      "Four of Other Way's five completed opponents have also faced Brave H.C. this season. Against Zamboner Crew, Other Way drew 6–6 while the Braves lost 7–1 on October 18. Against Dateline Predators, Other Way scored eight times in a victory; Brave H.C. was held off the scoresheet in a 3–0 season-opening defeat.",
-      "Those comparisons do not establish a favourite for Sunday. They do, however, underline how differently the same teams have performed from one matchup to the next, and how quickly a game can change when Other Way's attack gets rolling.",
-      "The Braves enter Sunday at 1–5, with 14 goals scored and 30 allowed in six completed HTO games. They have scored eight times in their past two outings, but have surrendered eleven.",
-      "Against Big Bastones, three first-period goals gave the Braves an early advantage before Michael Provenzano scored twice in the third. Against Mid Ice Crisis, they were down 4–0 after two periods before Stefano Mazzei, making his season debut, and Adam Povegliano found the net in the final frame.",
-      "Sunday's meeting offers the Braves another chance to turn those scoring flashes into a more complete game. Other Way has shown it can produce goals in bunches, but its early results have also left room for opponents to answer. The puck drops at 9:15 p.m. on D Rink."
-    ],
-    "sourceUrl": "https://www.htosports.com/teams/default.asp?p=schedule&s=hockey&u=BRAVESHOCKEY",
-    "editorialState": "FOUNDER_APPROVED",
-    "milestoneWatch": [],
-    "milestoneCoverage": "VERIFIED_SUPPORTED_CATEGORIES_ONLY",
-    "leagueSource": "https://leagues.sportsvillage.ca/Leagues.aspx?leagueid=570&page_type=Adult&sc=HOCKEY",
-    "leagueAsOf": "2026-11-02T14:15:07.530574+00:00",
-    "division": "The Cristillo Division",
-    "sections": [
-      {
-        "heading": null,
-        "paragraphs": [
-          "Brave H.C. has seen both sides of a scoring swing over its last two games. A six-goal breakthrough against Big Bastones delivered the club's first win of the 2026–27 season, but a 7–2 loss to Mid Ice Crisis followed on November 1. Sunday's assignment brings another challenge: Other Way, which has scored 25 goals through five published league games.",
-          "Other Way is third in the eight-team Cristillo Division at 2–1–2, with 25 goals for and 23 against. Its five-goal-per-game scoring average has come in some lively contests, including an 8–5 win over Dateline Predators and a 7–7 tie with Sugo Sundays in its last two completed games. Earlier, it traded six goals apiece with Zamboner Crew.",
-          "The numbers tell only part of the story. Other Way opened its season by beating Mid Ice Crisis 4–3, but also went scoreless in a 2–0 defeat to Big Bastones. Both opponents have already figured prominently in the Braves' season. Brave H.C. beat Big Bastones 6–4 on October 25, then fell to Mid Ice Crisis the following Sunday."
-        ]
-      },
-      {
-        "heading": "Common Opponents Offer a Closer Look",
-        "paragraphs": [
-          "Four of Other Way's five completed opponents have also faced Brave H.C. this season. Against Zamboner Crew, Other Way drew 6–6 while the Braves lost 7–1 on October 18. Against Dateline Predators, Other Way scored eight times in a victory; Brave H.C. was held off the scoresheet in a 3–0 season-opening defeat.",
-          "Those comparisons do not establish a favourite for Sunday. They do, however, underline how differently the same teams have performed from one matchup to the next, and how quickly a game can change when Other Way's attack gets rolling."
-        ]
-      },
-      {
-        "heading": "A Chance to Carry the Offence Forward",
-        "paragraphs": [
-          "The Braves enter Sunday at 1–5, with 14 goals scored and 30 allowed in six completed HTO games. They have scored eight times in their past two outings, but have surrendered eleven.",
-          "Against Big Bastones, three first-period goals gave the Braves an early advantage before Michael Provenzano scored twice in the third. Against Mid Ice Crisis, they were down 4–0 after two periods before Stefano Mazzei, making his season debut, and Adam Povegliano found the net in the final frame.",
-          "Sunday's meeting offers the Braves another chance to turn those scoring flashes into a more complete game. Other Way has shown it can produce goals in bunches, but its early results have also left room for opponents to answer. The puck drops at 9:15 p.m. on D Rink."
-        ]
-      }
-    ],
-    "articleType": "PREGAME_FEATURE",
-    "articleDate": "2026-11-02",
-    "updatedAtSourceCheck": "2026-11-02T18:51:03Z",
-    "editorialRevision": {
-      "date": "2026-11-02",
-      "document": "docs/editorial/261102_BraveHC_OtherWay_Nov08_HotStove_Preview_DRAFT.md",
-      "qaReview": "docs/editorial/261102_BraveHC_HotStove_HTO_Parity_and_OtherWay_Release_Review.md",
-      "approvalContext": "User instructed 'good continue' after the November 8 editorial release decision was presented; release still conditional on source and browser checks",
-      "archiveRecapsPreserved": true,
-      "historicalH2HExcluded": true,
-      "leagueGamesSnapshot": 5,
-      "htoTeamGamesSnapshot": 6
-    },
-    "gameDateLine": "Sunday, November 8, 2026 · 9:15 p.m. · Vaughan Sports Village — D Rink"
-  },
+  "gamePreview": null,
   "archive": [
+    {
+      "id": "recap-3375683",
+      "headline": "Braves Fall 7–2 to Mid Ice Crisis in November Opener",
+      "date": "2026-11-01",
+      "gameId": 3375683,
+      "article": {
+        "id": "recap-3375683",
+        "articleType": "GAME_RECAP",
+        "gameId": 3375683,
+        "headline": "Braves Fall 7–2 to Mid Ice Crisis in November Opener",
+        "date": "2026-11-01",
+        "displayDate": "Sunday, November 1, 2026",
+        "dek": "Brave H.C. 2, Mid Ice Crisis 7 — the Braves scored twice in the third period.",
+        "paragraphs": [
+          "Brave H.C. could not build on its first win of the season, falling 7–2 to Mid Ice Crisis on Sunday at Vaughan Sports Village. The Braves trailed 4–0 after two periods before Stefano Mazzei and Adam Povegliano scored in the third.",
+          "Mid Ice Crisis entered the game second in the eight-team Cristillo Division at 3–2, with 20 goals scored and 13 allowed through five games. The club had lost 2–1 to division-leading Mohawks HC the previous week. Against Mid Ice Crisis, the Braves had gone 1–2–2 in five previous regular-season meetings, including a 3–3 tie on December 14, 2025. Including two playoff losses, their record in the matchup stood at 1–4–2.",
+          "The Braves dressed 11 full-timers and two part-timers. Captain Adam Brutto, Anthony Paolucci and Keith Pearsoll were out of the lineup. Part-timer Adam Kober made his fifth appearance of the season, while part-timer Stefano Mazzei made his season debut. Marco Congiusti also made his first appearance of the season, and Brian Haspel made his Braves debut in goal.",
+          "First Period — Mid Ice Crisis Takes the Lead",
+          "Mid Ice Crisis opened the scoring at 9:14 remaining and carried a 1–0 lead into the intermission. A two-minute tripping penalty against Mid Ice Crisis at 6:51 gave the Braves a power-play opportunity, but they did not score.",
+          "Second Period — Mid Ice Crisis Builds a Four-Goal Advantage",
+          "Mid Ice Crisis scored three unanswered goals at 9:22, 1:16 and 0:35 remaining. The Braves went into the third period trailing 4–0.",
+          "Third Period — Two Different Finishes for the Braves",
+          "At 8:53 remaining, Stefano Mazzei streaked up the far side after a pass from Alex Pagnotta, then came in and beat the goaltender cleanly with a wrist shot. The goal, Mazzei's first goal of the game and first of the season in his season debut, put Brave H.C. on the scoreboard at 4–1 and gave Pagnotta his fifth assist of the season.",
+          "Mid Ice Crisis responded at 4:22 and 2:40 remaining, moving ahead 6–1.",
+          "At 1:47 remaining, Justin Carosi won the faceoff cleanly back to Alex Pagnotta. Adam Povegliano gathered the rebound and scored. The finish was Povegliano's first goal of the game and second of the season. Pagnotta received his sixth assist of the season, while Carosi picked up his second. The goal made it 6–2 before Mid Ice Crisis completed the scoring at 0:54 remaining for the 7–2 final.",
+          "Game Leaders and Recognition",
+          "Alex Pagnotta finished with two assists, his fifth and sixth of the season, giving him six points in six games. Mazzei and Povegliano recorded a goal apiece, while Justin Carosi had one assist and moved to four goals and two assists on the season. Brian Haspel took the loss, allowing seven goals in his first recorded appearance for the club.",
+          "Players of the Game: Alex Pagnotta, Adam Kober and Adam Povegliano.",
+          "Through six games, the Braves stand at 1–5, with 14 goals scored and 30 allowed. The result moved their regular-season record against Mid Ice Crisis to 1–3–2 in six meetings, with 15 goals for and 26 against. Including playoffs, the series stands at 1–5–2 across eight meetings, with 17 goals scored and 32 allowed.",
+          "Next Up — Other Way",
+          "Brave H.C. returns to Vaughan Sports Village — D Rink on Sunday, November 8 at 9:15 p.m. to face Other Way. Third in the Cristillo Division at 2–1–2 through five games, Other Way has scored 25 goals and allowed 23. It defeated Dateline Predators 8–5 on October 18 and tied Sugo Sundays 7–7 on October 25. Other Way also beat Mid Ice Crisis 4–3 earlier this season.",
+          "The Braves will look to return to the win column following Sunday's setback."
+        ],
+        "boxScore": {
+          "opponent": "Mid Ice Crisis",
+          "ourGoals": 2,
+          "theirGoals": 7,
+          "ourPeriods": [
+            0,
+            0,
+            2,
+            0,
+            0
+          ],
+          "theirPeriods": [
+            1,
+            3,
+            3,
+            0,
+            0
+          ]
+        },
+        "sourceUrls": [
+          "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=3375683&p=boxscore",
+          "https://leagues.sportsvillage.ca/Leagues.aspx?leagueid=570&page_type=Adult&sc=HOCKEY"
+        ],
+        "videoEvidence": null,
+        "opponentHistory": {
+          "beforeGame": {
+            "gp": 5,
+            "w": 1,
+            "l": 2,
+            "t": 2,
+            "gf": 13,
+            "ga": 19
+          },
+          "beforeGameAllTime": {
+            "gp": 7,
+            "w": 1,
+            "l": 4,
+            "t": 2,
+            "gf": 15,
+            "ga": 25
+          },
+          "previousRegularSeasonMeeting": {
+            "date": "2025-12-14",
+            "gf": 3,
+            "ga": 3,
+            "result": "T"
+          },
+          "sourceScope": "Exact normalized opponent name, verified workbook/HTO history"
+        },
+        "goalEvents": [
+          {
+            "player": "Mazzei, Stefano",
+            "no": "88",
+            "period": 3,
+            "clock": "8:53",
+            "periodSeconds": 533,
+            "strength": "ES",
+            "officialText": "88 Stefano Mazzei ( 44 Alex Pagnotta )",
+            "teamGoalOrdinal": 1,
+            "playerGameGoalOrdinal": 1,
+            "playerSeasonGoalOrdinal": 1,
+            "gameId": 3375683,
+            "gameDate": "2026-11-01"
+          },
+          {
+            "player": "Povegliano, Adam",
+            "no": "22",
+            "period": 3,
+            "clock": "1:47",
+            "periodSeconds": 107,
+            "strength": "ES",
+            "officialText": "22 Adam Povegliano ( 44 Alex Pagnotta , 89 Justin Carosi )",
+            "teamGoalOrdinal": 2,
+            "playerGameGoalOrdinal": 1,
+            "playerSeasonGoalOrdinal": 2,
+            "gameId": 3375683,
+            "gameDate": "2026-11-01"
+          }
+        ],
+        "verification": {
+          "statementsFrom": "Finalized HTO Game 3375683 and current player/goalie statistics, verified historical workbook, source-qualified official Sunday Winter 2026/27 SVHL Cristillo Division intelligence as of November 2, and two owner-confirmed HTO-matched scoring play descriptions",
+          "status": "SOURCE_VERIFIED",
+          "gameBoxscoreMatched": true,
+          "unsupportedClaimsExcluded": true,
+          "headToHeadSource": "Master Workbook AllTimeSchedule and source-qualified opponent ledger",
+          "goalNumbers": "HTO game scoring plus season statistics",
+          "goalNarrativeReview": "Only two explicitly approved and HTO-matched Brave H.C. goal descriptions",
+          "leagueIntelligenceVerified": true,
+          "officialLeagueAsOf": "2026-11-02T14:15:07.530574+00:00",
+          "leagueFiveGameSnapshotSeparateFromHTOSixGameRecord": true
+        },
+        "editorialState": "FOUNDER_APPROVED",
+        "milestones": [],
+        "recordClaimsVerified": false,
+        "upcomingPlayerContext": [],
+        "evidenceFingerprint": "e0920620560ccf5751b8b71a3d4fef84518330107006ba675029c31535e03280",
+        "leagueIntelligence": {
+          "schema": "hockeyos-article-league-source/v1",
+          "source": "https://leagues.sportsvillage.ca/Leagues.aspx?leagueid=570&page_type=Adult&sc=HOCKEY",
+          "asOf": "2026-11-02T14:15:07.530574+00:00",
+          "scope": "verified league pre-Nov1 standings; HTO six-game Nov1 result independent",
+          "division": "The Cristillo Division",
+          "divisionTeamCount": 8,
+          "featuredOpponent": {
+            "name": "Mid Ice Crisis",
+            "source": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13708&page_type=Adult",
+            "rank": 2,
+            "record": {
+              "gp": 5,
+              "w": 3,
+              "l": 2,
+              "t": 0,
+              "pts": 6,
+              "gf": 20,
+              "ga": 13
+            },
+            "lastGame": {
+              "date": "2026-10-25",
+              "opponent": "Mohawks HC",
+              "opponentCurrentDivision": "The Cristillo Division",
+              "gf": 1,
+              "ga": 2,
+              "result": "L"
+            },
+            "bravesHistoryStatus": "SOURCE_VERIFIED_H2H"
+          },
+          "nextOpponent": {
+            "name": "Other Way",
+            "source": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13704&page_type=Adult",
+            "rank": 3,
+            "record": {
+              "gp": 5,
+              "w": 2,
+              "l": 1,
+              "t": 2,
+              "pts": 6,
+              "gf": 25,
+              "ga": 23
+            },
+            "lastTwo": [
+              {
+                "date": "2026-10-18",
+                "opponent": "Dateline Predators",
+                "opponentCurrentDivision": "The Cristillo Division",
+                "gf": 8,
+                "ga": 5,
+                "result": "W"
+              },
+              {
+                "date": "2026-10-25",
+                "opponent": "Sugo Sundays",
+                "opponentCurrentDivision": "Remax Division",
+                "gf": 7,
+                "ga": 7,
+                "result": "T"
+              }
+            ],
+            "bravesHistoryStatus": "NO_VERIFIED_BRAVES_MATCH_HISTORY"
+          },
+          "usesHistoryAndLeagueContext": true,
+          "usesNoHistoryFallback": true,
+          "HTOSeparateFromLeague": true,
+          "editorialPlacement": "INTRO_AND_NEXT_UP_PROSE",
+          "publicQualifyingLanguageSuppressed": true
+        },
+        "editorialRevision": {
+          "type": "NATURAL_SPORTS_JOURNALISM_LEAGUE_CONTEXT_INTEGRATION",
+          "date": "2026-11-02",
+          "authority": "Founder's explicit follow-up editorial direction",
+          "previousFingerprint": "fceda810711d2c8cc91b6f4b0bdaa276c9fbab9901efbbdaebc5927a1082b707",
+          "currentFingerprint": "e0920620560ccf5751b8b71a3d4fef84518330107006ba675029c31535e03280",
+          "leagueFactsUnchanged": true,
+          "headToHeadUnchanged": true,
+          "noSeparateLeagueHeading": true,
+          "sourceCaveatsRetainedPrivately": true
+        }
+      },
+      "originalPublicationAuthorization": {
+        "decision": "APPROVED_FOR_HTO_PUBLICATION",
+        "role": "Founder",
+        "date": "2026-11-02",
+        "articleId": "recap-3375683",
+        "approvedArticleHash": "e0920620560ccf5751b8b71a3d4fef84518330107006ba675029c31535e03280",
+        "approvalScope": "User-authorized publication of November 1 revised article in chat",
+        "previousArticleMovedToArchive": true,
+        "previousApprovedArticleHash": "fceda810711d2c8cc91b6f4b0bdaa276c9fbab9901efbbdaebc5927a1082b707",
+        "amendment": {
+          "date": "2026-11-02",
+          "role": "Founder",
+          "decision": "APPROVED_SEASON_ARCHIVE_REWRITE",
+          "approvedArticleIds": [
+            "recap-3375682",
+            "recap-3375601",
+            "recap-3369564",
+            "recap-3356178",
+            "recap-3356177",
+            "recap-3375683"
+          ],
+          "archiveFingerprint": "54b1f19fd5005ac41eb637e651d8065887b29d59c7aeaac6b8a4f74bfaf466ad",
+          "scope": "Rewritten five 2026-27 archived recaps and natural Next Up, keeping existing November 1 feature"
+        }
+      },
+      "editorialReview": "Previously approved Nov 1 recap preserved intact"
+    },
     {
       "id": "recap-3375682",
       "headline": "Braves Break Through with 6–4 Win Over Big Bastones",
@@ -1936,29 +2022,12 @@
     "furtherPublicationRequiresApproval": true
   },
   "publicationAuthorization": {
-    "decision": "APPROVED_FOR_HTO_PUBLICATION",
+    "decision": "APPROVED_FOR_HOT_STOVE_PUBLICATION",
+    "date": "2026-11-10",
     "role": "Founder",
-    "date": "2026-11-02",
-    "articleId": "recap-3375683",
-    "approvedArticleHash": "e0920620560ccf5751b8b71a3d4fef84518330107006ba675029c31535e03280",
-    "approvalScope": "User-authorized publication of November 1 revised article in chat",
-    "previousArticleMovedToArchive": true,
-    "previousApprovedArticleHash": "fceda810711d2c8cc91b6f4b0bdaa276c9fbab9901efbbdaebc5927a1082b707",
-    "amendment": {
-      "date": "2026-11-02",
-      "role": "Founder",
-      "decision": "APPROVED_SEASON_ARCHIVE_REWRITE",
-      "approvedArticleIds": [
-        "recap-3375682",
-        "recap-3375601",
-        "recap-3369564",
-        "recap-3356178",
-        "recap-3356177",
-        "recap-3375683"
-      ],
-      "archiveFingerprint": "54b1f19fd5005ac41eb637e651d8065887b29d59c7aeaac6b8a4f74bfaf466ad",
-      "scope": "Rewritten five 2026-27 archived recaps and natural Next Up, keeping existing November 1 feature"
-    }
+    "articleId": "recap-3375684",
+    "scope": "GitHub Pages Hot Stove only; HTO official source pending",
+    "qualification": "FOUNDER_APPROVED_HTO_PENDING"
   },
   "previousPublicationApproval": {
     "date": "2026-10-19",
@@ -2001,5 +2070,97 @@
       "recap-3375683": "e0920620560ccf5751b8b71a3d4fef84518330107006ba675029c31535e03280"
     },
     "currentFeatureArticlePreserved": true
+  },
+  "historicalGamePreviews": [
+    {
+      "date": "2026-11-08",
+      "opponent": "Other Way",
+      "source": {
+        "headline": "High-Scoring Other Way Next as Braves Look to Rebound",
+        "opponent": "Other Way",
+        "puckDrop": "2026-11-08T21:15:00-05:00",
+        "paragraphs": [
+          "Brave H.C. has seen both sides of a scoring swing over its last two games. A six-goal breakthrough against Big Bastones delivered the club's first win of the 2026–27 season, but a 7–2 loss to Mid Ice Crisis followed on November 1. Sunday's assignment brings another challenge: Other Way, which has scored 25 goals through five published league games.",
+          "Other Way is third in the eight-team Cristillo Division at 2–1–2, with 25 goals for and 23 against. Its five-goal-per-game scoring average has come in some lively contests, including an 8–5 win over Dateline Predators and a 7–7 tie with Sugo Sundays in its last two completed games. Earlier, it traded six goals apiece with Zamboner Crew.",
+          "The numbers tell only part of the story. Other Way opened its season by beating Mid Ice Crisis 4–3, but also went scoreless in a 2–0 defeat to Big Bastones. Both opponents have already figured prominently in the Braves' season. Brave H.C. beat Big Bastones 6–4 on October 25, then fell to Mid Ice Crisis the following Sunday.",
+          "Four of Other Way's five completed opponents have also faced Brave H.C. this season. Against Zamboner Crew, Other Way drew 6–6 while the Braves lost 7–1 on October 18. Against Dateline Predators, Other Way scored eight times in a victory; Brave H.C. was held off the scoresheet in a 3–0 season-opening defeat.",
+          "Those comparisons do not establish a favourite for Sunday. They do, however, underline how differently the same teams have performed from one matchup to the next, and how quickly a game can change when Other Way's attack gets rolling.",
+          "The Braves enter Sunday at 1–5, with 14 goals scored and 30 allowed in six completed HTO games. They have scored eight times in their past two outings, but have surrendered eleven.",
+          "Against Big Bastones, three first-period goals gave the Braves an early advantage before Michael Provenzano scored twice in the third. Against Mid Ice Crisis, they were down 4–0 after two periods before Stefano Mazzei, making his season debut, and Adam Povegliano found the net in the final frame.",
+          "Sunday's meeting offers the Braves another chance to turn those scoring flashes into a more complete game. Other Way has shown it can produce goals in bunches, but its early results have also left room for opponents to answer. The puck drops at 9:15 p.m. on D Rink."
+        ],
+        "sourceUrl": "https://www.htosports.com/teams/default.asp?p=schedule&s=hockey&u=BRAVESHOCKEY",
+        "editorialState": "FOUNDER_APPROVED",
+        "milestoneWatch": [],
+        "milestoneCoverage": "VERIFIED_SUPPORTED_CATEGORIES_ONLY",
+        "leagueSource": "https://leagues.sportsvillage.ca/Leagues.aspx?leagueid=570&page_type=Adult&sc=HOCKEY",
+        "leagueAsOf": "2026-11-02T14:15:07.530574+00:00",
+        "division": "The Cristillo Division",
+        "sections": [
+          {
+            "heading": null,
+            "paragraphs": [
+              "Brave H.C. has seen both sides of a scoring swing over its last two games. A six-goal breakthrough against Big Bastones delivered the club's first win of the 2026–27 season, but a 7–2 loss to Mid Ice Crisis followed on November 1. Sunday's assignment brings another challenge: Other Way, which has scored 25 goals through five published league games.",
+              "Other Way is third in the eight-team Cristillo Division at 2–1–2, with 25 goals for and 23 against. Its five-goal-per-game scoring average has come in some lively contests, including an 8–5 win over Dateline Predators and a 7–7 tie with Sugo Sundays in its last two completed games. Earlier, it traded six goals apiece with Zamboner Crew.",
+              "The numbers tell only part of the story. Other Way opened its season by beating Mid Ice Crisis 4–3, but also went scoreless in a 2–0 defeat to Big Bastones. Both opponents have already figured prominently in the Braves' season. Brave H.C. beat Big Bastones 6–4 on October 25, then fell to Mid Ice Crisis the following Sunday."
+            ]
+          },
+          {
+            "heading": "Common Opponents Offer a Closer Look",
+            "paragraphs": [
+              "Four of Other Way's five completed opponents have also faced Brave H.C. this season. Against Zamboner Crew, Other Way drew 6–6 while the Braves lost 7–1 on October 18. Against Dateline Predators, Other Way scored eight times in a victory; Brave H.C. was held off the scoresheet in a 3–0 season-opening defeat.",
+              "Those comparisons do not establish a favourite for Sunday. They do, however, underline how differently the same teams have performed from one matchup to the next, and how quickly a game can change when Other Way's attack gets rolling."
+            ]
+          },
+          {
+            "heading": "A Chance to Carry the Offence Forward",
+            "paragraphs": [
+              "The Braves enter Sunday at 1–5, with 14 goals scored and 30 allowed in six completed HTO games. They have scored eight times in their past two outings, but have surrendered eleven.",
+              "Against Big Bastones, three first-period goals gave the Braves an early advantage before Michael Provenzano scored twice in the third. Against Mid Ice Crisis, they were down 4–0 after two periods before Stefano Mazzei, making his season debut, and Adam Povegliano found the net in the final frame.",
+              "Sunday's meeting offers the Braves another chance to turn those scoring flashes into a more complete game. Other Way has shown it can produce goals in bunches, but its early results have also left room for opponents to answer. The puck drops at 9:15 p.m. on D Rink."
+            ]
+          }
+        ],
+        "articleType": "PREGAME_FEATURE",
+        "articleDate": "2026-11-02",
+        "updatedAtSourceCheck": "2026-11-02T18:51:03Z",
+        "editorialRevision": {
+          "date": "2026-11-02",
+          "document": "docs/editorial/261102_BraveHC_OtherWay_Nov08_HotStove_Preview_DRAFT.md",
+          "qaReview": "docs/editorial/261102_BraveHC_HotStove_HTO_Parity_and_OtherWay_Release_Review.md",
+          "approvalContext": "User instructed 'good continue' after the November 8 editorial release decision was presented; release still conditional on source and browser checks",
+          "archiveRecapsPreserved": true,
+          "historicalH2HExcluded": true,
+          "leagueGamesSnapshot": 5,
+          "htoTeamGamesSnapshot": 6
+        },
+        "gameDateLine": "Sunday, November 8, 2026 · 9:15 p.m. · Vaughan Sports Village — D Rink"
+      }
+    }
+  ],
+  "priorPublicationAuthorization": {
+    "decision": "APPROVED_FOR_HTO_PUBLICATION",
+    "role": "Founder",
+    "date": "2026-11-02",
+    "articleId": "recap-3375683",
+    "approvedArticleHash": "e0920620560ccf5751b8b71a3d4fef84518330107006ba675029c31535e03280",
+    "approvalScope": "User-authorized publication of November 1 revised article in chat",
+    "previousArticleMovedToArchive": true,
+    "previousApprovedArticleHash": "fceda810711d2c8cc91b6f4b0bdaa276c9fbab9901efbbdaebc5927a1082b707",
+    "amendment": {
+      "date": "2026-11-02",
+      "role": "Founder",
+      "decision": "APPROVED_SEASON_ARCHIVE_REWRITE",
+      "approvedArticleIds": [
+        "recap-3375682",
+        "recap-3375601",
+        "recap-3369564",
+        "recap-3356178",
+        "recap-3356177",
+        "recap-3375683"
+      ],
+      "archiveFingerprint": "54b1f19fd5005ac41eb637e651d8065887b29d59c7aeaac6b8a4f74bfaf466ad",
+      "scope": "Rewritten five 2026-27 archived recaps and natural Next Up, keeping existing November 1 feature"
+    }
   }
 }
