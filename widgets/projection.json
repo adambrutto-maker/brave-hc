@@ -8,20 +8,20 @@
   "modelCurrent": true,
   "modelSnapshotDate": "2026-11-11",
   "workbookBaselineDate": "2026-09-20",
-  "exportedAt": "2026-11-11T03:59:27.553263+00:00",
+  "exportedAt": "2026-11-11T14:16:20.165068+00:00",
   "workbookSourceHash": "0002fd9f06596af8d0a00fc1b53a618ef15479f941ad5c1e6265b27002a65154",
   "sourceInputs": {
     "workbookRecordedTeamGP": 1,
-    "publicLeagueRecordedTeamGP": null,
+    "publicLeagueRecordedTeamGP": 7,
     "htoRecordedTeamGP": 7,
-    "liveSVHLVerification": false,
+    "liveSVHLVerification": true,
     "verifiedHTOBoxscoreGP": 7,
-    "verificationBasis": "HTO_HOURLY_VERIFIED_SKATER_AND_ALL_FINAL_SCOREBOARDS",
-    "perGameSkaterAndGoalieSourceCurrent": false,
+    "verificationBasis": "HTO_CURRENT_PER_GAME_RECONCILED",
+    "perGameSkaterAndGoalieSourceCurrent": true,
     "htoTeamGoals": 19,
     "htoTeamAssists": 31
   },
-  "htoreadback": "2026-11-11T03:57:23.341Z",
+  "htoreadback": "2026-11-11T14:15:39.257Z",
   "modelParity": {
     "replayedRows": 21,
     "mismatches": 0
@@ -44,8 +44,8 @@
   "projectionComplete": true,
   "unmodelledHTOPoints": 1,
   "modelCoefficients": {
-    "FTProjectedAttendance": 0.8135714825796211,
-    "callUpBaseOpportunity": 7.41685457206718,
+    "FTProjectedAttendance": 0.8105952921034305,
+    "callUpBaseOpportunity": 7.558521238733851,
     "existingDISeasonGP": 2,
     "additionalDISeasonGP": 1,
     "DIModelAttendanceRate": {
@@ -178,21 +178,21 @@
       "name": "Pagnotta, Alex",
       "number": "44",
       "rosterStatus": "FT",
-      "gp": 22.9,
+      "gp": 21.19,
       "g": 1,
       "a": 14,
       "pts": 15,
-      "ptsPerGame": 0.655,
-      "trend": 0.274804,
+      "ptsPerGame": 0.708,
+      "trend": 0.369216,
       "workbookRow": 73,
-      "currentGP": 7,
+      "currentGP": 6,
       "currentG": 0,
       "currentA": 6,
       "trendInputs": {
         "firstSeasonOrNoCareer": false,
         "careerScoringRate": 0.44132917964693663,
-        "projectedScoringRate": 0.56260816891658,
-        "seasonScoringRate": 0.8571428571428571
+        "projectedScoringRate": 0.6042748355832467,
+        "seasonScoringRate": 1.0
       },
       "rank": 4
     },
@@ -332,11 +332,11 @@
       "name": "Kober, Adam",
       "number": "12",
       "rosterStatus": "CU",
-      "gp": 13.97,
+      "gp": 14.04,
       "g": 2,
       "a": 4,
       "pts": 6,
-      "ptsPerGame": 0.429,
+      "ptsPerGame": 0.427,
       "trend": 0.046053,
       "workbookRow": 86,
       "currentGP": 6,
@@ -376,11 +376,11 @@
       "name": "Rajasooriar, Krishnan",
       "number": "15",
       "rosterStatus": "CU",
-      "gp": 8.85,
+      "gp": 8.92,
       "g": 4,
       "a": 1,
       "pts": 5,
-      "ptsPerGame": 0.565,
+      "ptsPerGame": 0.561,
       "trend": 0.164855,
       "workbookRow": 87,
       "currentGP": 3,
@@ -420,11 +420,11 @@
       "name": "Mazzei, Stefano",
       "number": "88",
       "rosterStatus": "CU",
-      "gp": 5.43,
+      "gp": 5.5,
       "g": 3,
       "a": 1,
       "pts": 4,
-      "ptsPerGame": 0.737,
+      "ptsPerGame": 0.727,
       "trend": 0.214067,
       "workbookRow": 83,
       "currentGP": 1,
@@ -442,11 +442,11 @@
       "name": "Duffy, Lorcan",
       "number": "10",
       "rosterStatus": "CU",
-      "gp": 5.43,
+      "gp": 5.5,
       "g": 1,
       "a": 2,
       "pts": 3,
-      "ptsPerGame": 0.553,
+      "ptsPerGame": 0.545,
       "trend": -0.291667,
       "workbookRow": 82,
       "currentGP": 1,
@@ -486,11 +486,11 @@
       "name": "Atkins, Nolan",
       "number": "6",
       "rosterStatus": "CU",
-      "gp": 7.14,
+      "gp": 7.21,
       "g": 0,
       "a": 1,
       "pts": 1,
-      "ptsPerGame": 0.14,
+      "ptsPerGame": 0.139,
       "trend": -0.291667,
       "workbookRow": 89,
       "currentGP": 2,
@@ -607,23 +607,23 @@
     "goals": 74,
     "assists": 116,
     "points": 190,
-    "ptsPerGame": 0.602,
-    "trend": -0.028684
+    "ptsPerGame": 0.605,
+    "trend": -0.025177
   },
   "conditionalFormatting": {
     "schema": "brave-hc-workbook-cf/v1",
     "source": "Master Workbook Player Projections sheet6.xml conditionalFormatting and x14 custom 5Arrows",
     "samples": 22,
-    "sampleStandardDeviation": 0.2756409333358771,
+    "sampleStandardDeviation": 0.28084560602921554,
     "arrowIconSet": {
       "type": "5Arrows",
       "showValue": false,
       "sourceRange": "X6:X94",
       "thresholds": {
-        "AB100": -0.5512818666717542,
-        "AB99": -0.2756409333358771,
-        "AB97": 0.13782046666793854,
-        "AB96": 0.2756409333358771
+        "AB100": -0.5616912120584311,
+        "AB99": -0.28084560602921554,
+        "AB97": 0.14042280301460777,
+        "AB96": 0.28084560602921554
       },
       "thresholdSources": {
         "AB100": "-2 * STDEV(X6:X93)",
@@ -661,16 +661,16 @@
     },
     "trendColorScale": {
       "sourceRange": "X6:X94",
-      "low": -0.5512818666717542,
+      "low": -0.5616912120584311,
       "mid": 0.0,
-      "high": 0.2756409333358771
+      "high": 0.28084560602921554
     },
     "statColorScales": {
       "gp": {
         "sourceRange": "Y6:Y93",
         "low": 1.0,
         "mid": 18.285,
-        "high": 22.9
+        "high": 22.89
       },
       "g": {
         "sourceRange": "Z6:Z93",
@@ -693,7 +693,7 @@
       "ptsPerGame": {
         "sourceRange": "AC6:AC93",
         "low": 0.0,
-        "mid": 0.548,
+        "mid": 0.544,
         "high": 1.192
       }
     },
@@ -706,7 +706,7 @@
   },
   "trendCalculation": {
     "sourceCell": "Player Projections!X94",
-    "numerator": -0.340844216,
+    "numerator": -0.29917755,
     "denominator": 11.882894456,
     "method": "SUM(history projected scoring rates - history career rates) / (SUM(history career rates)+SUM(no-history season rates))",
     "sourceCachedValueStatus": "Historical workbook X94 cached 0; recalculated directly from source formula"

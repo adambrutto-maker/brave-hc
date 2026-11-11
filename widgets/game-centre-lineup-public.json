@@ -17,7 +17,7 @@
   "approved": null,
   "weeklyAutoPublishEnabled": false,
   "privateWhatsAppPollDataPublished": false,
-  "notice": "Final team lineup vs Other Way November 8: 14 skaters, 8F/6D; rental goalie Jeff Rae confirmed. All skater assignments preserved from revision 2.",
+  "notice": "Historical November 8 pregame manager lineup card showed 14 selected skaters. Verified postgame attendance was 13 dressed skaters; Alex Pagnotta (#44) was a full-time game-day scratch. Original expired pregame card is preserved as a historical release, not the final participation list.",
   "workingCard": {
     "fixtureId": 3375684,
     "gameDate": "2026-11-08",
@@ -58,5 +58,19 @@
     "rotationPolicy": "HISTORICAL_PUBLISHED_LINE_SLOT_FAIRNESS_NOT_GAME_ACTUAL",
     "managerLineupStatus": "FINAL_TEAM_LINEUP",
     "managerFinalReplacementAuthorized": true
+  },
+  "postGameAttendanceCorrection": {
+    "gameId": 3375684,
+    "gameDate": "2026-11-08",
+    "opponent": "Other Way",
+    "originalPublishedPregameSkaterCount": 14,
+    "verifiedDressedSkaterCount": 13,
+    "scratchedPlayer": "Alex Pagnotta",
+    "jersey": "44",
+    "gamePlayed": 0,
+    "verificationDate": "2026-11-11",
+    "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3375684",
+    "sourceKind": "MANAGER_CONFIRMED_SCRATCH_AND_HTO_DELETED_GAME_STATS",
+    "historicalPregamePdfChanged": false
   }
 }
