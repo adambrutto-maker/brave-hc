@@ -183,3 +183,19 @@ body.projection-panel .projection-table .v36-arrow-rotor{transition:none!importa
   width:32px!important;height:32px!important;min-width:32px!important;min-height:32px!important;flex-basis:32px!important;
  }
 }
+
+
+/* Alternating Brave H.C. projection rows - presentation only.
+   Every player has a data row followed by a hidden details row, so
+   4n + 3 targets player 2, 4, 6, etc., not detail rows. */
+body.projection-panel .projection-table tbody tr:not(.details):nth-child(4n + 3) {
+  background-color: rgba(62, 103, 137, .27);
+}
+body.projection-panel .projection-table tbody tr:not(.details):hover,
+body.projection-panel .projection-table tbody tr:not(.details):focus-within {
+  background-color: rgba(75, 120, 153, .37);
+}
+/* Keep the approved trend-badge frame/colour unaffected by row striping. */
+body.projection-panel .projection-table tbody tr:not(.details) td {
+  background-color: transparent;
+}
