@@ -1,0 +1,88 @@
+/* Game Night preview — exact original workbook table geometry and navy/white
+ * visual hierarchy, no fake or personal RSVP data. Excel remains final print.
+ */
+:root{color-scheme:dark;--navy:#153d61;--navy-text:#092b4f;--line:#0e375b}
+*{box-sizing:border-box}
+html,body{margin:0;min-width:0;background:#07192b;color:#e8f0f8;font:14px/1.45 Arial,"Arial Narrow",sans-serif}
+.game-night-shell{max-width:1200px;margin:0 auto;padding:8px 10px 28px}
+.game-countdown{max-width:760px;margin:0 auto 13px}
+.game-countdown iframe{width:100%;display:block;height:245px;border:0;background:transparent}
+.game-lineup-section{border:1px solid #496e88;background:#0e2942;border-radius:10px;
+ padding:13px;box-shadow:0 5px 30px #0002}
+.game-lineup-meta{display:flex;align-items:start;justify-content:space-between;
+ flex-wrap:wrap;gap:12px;padding:3px 3px 13px}
+.game-label{font-size:10px;letter-spacing:1.15px;font-weight:900;color:#e5bd78}
+.game-lineup-meta h2{font-size:clamp(16px,2.6vw,21px);color:#fff;margin:3px 0}
+.game-subtitle{color:#c3d5e2;font-size:11px;margin:4px 0}
+.lineup-release{display:flex;align-items:end;flex-direction:column;gap:5px;
+ min-width:120px;font-size:10px}
+.lineup-release strong{display:inline-block;border:1px solid #be9564;border-radius:5px;
+ padding:5px 8px;background:#453c32;color:#fbe4b4}
+.lineup-release strong.approved{color:#d0f1df;border-color:#78ac9a;background:#1e443e}
+.lineup-release span{color:#c1d1df}
+.lineup-scroller{overflow-x:auto;overflow-y:hidden;background:#fff;
+ border-radius:2px;scrollbar-color:#6384a2 #c7d7e5}
+.brave-lines-card{min-width:770px;width:100%;aspect-ratio:1.64;display:flex;
+ flex-direction:column;background:var(--navy);color:var(--navy-text);
+ padding:2.6% 2.7% 2.5%;font-family:Arial,"Arial Narrow",sans-serif;
+ font-weight:850}
+.original-title{display:grid;place-items:center;flex:0 0 9%;color:#fff;
+ font-size:clamp(19px,3.6vw,31px);font-weight:900;letter-spacing:.005em;
+ text-align:center;margin-bottom:1.6%}
+.original-lines-table{border-spacing:0;border-collapse:collapse;table-layout:fixed;
+ width:100%;background:#fff;color:var(--navy-text);font-weight:850}
+.original-lines-table th,.original-lines-table td{border:2.5px solid var(--line);
+ padding:4px 5px;text-align:center;vertical-align:middle;white-space:nowrap;
+ font-size:clamp(12px,2.1vw,21px);line-height:1.16;
+ overflow:hidden;text-overflow:clip}
+.original-lines-table th{font-weight:900}
+.original-lines-table tbody th{line-height:1.06;font-size:clamp(11px,2vw,20px)}
+.original-lines-table tbody th span{display:block;margin-top:4px}
+.original-lines-table td{font-size:clamp(11px,1.85vw,19px)}
+.forwards{flex:0 0 37%}
+.forwards .label-col,.defence .label-col{width:14%}
+.forwards .forward-col{width:28.66%}
+.original-lines-table thead{height:22%}
+.original-lines-table tbody tr{height:26%}
+.original-lower{flex:1;display:grid;grid-template-columns:72% 28%;
+ gap:0;margin-top:3.4%;min-height:0}
+.original-positions{display:flex;flex-direction:column;gap:5.5%;min-width:0}
+.defence{flex:1;min-height:0}
+.defence .label-col{width:19.5%}
+.defence .defence-col{width:40.25%}
+.goalie{flex:0 0 18.5%;min-height:0}
+.goalie th{font-size:clamp(12px,2.2vw,23px)}
+.original-crest{display:grid;place-items:center;min-width:0;padding-left:2.5%;
+ overflow:hidden}
+.original-crest img{width:96%;max-width:100%;height:auto;object-fit:contain;
+ filter:drop-shadow(0 0 0 #fff)}
+.lineup-foot{display:flex;align-items:center;justify-content:space-between;
+ gap:12px;flex-wrap:wrap;margin:11px 2px 0}
+.lineup-foot p{color:#d1e1ed;font-size:11px;line-height:1.45;margin:0}
+.lineup-foot a{color:#f1d3a2;font-size:11px}
+.lineup-preview-disclaimer{font-size:10px;color:#a7c2d6;margin:8px 2px 2px;line-height:1.4}
+@media(max-width:560px){
+ .game-night-shell{padding:5px 4px 20px}
+ .game-lineup-section{padding:9px 6px}
+ .game-lineup-meta{padding:0 4px 10px}
+ .lineup-release{flex-direction:row;align-items:center;flex-wrap:wrap}
+ .brave-lines-card{min-width:770px}
+ .game-countdown{margin-bottom:8px}
+}
+@media print{
+ @page{size:11in 8.5in landscape;margin:.24in}
+ html,body{background:#fff!important;color:#000!important}
+ .game-countdown,.game-lineup-meta,.lineup-foot,.lineup-preview-disclaimer{display:none!important}
+ .game-night-shell{max-width:none;padding:0}
+ .game-lineup-section,.lineup-scroller{border:0;padding:0;overflow:visible;
+ background:#fff;box-shadow:none}
+ .brave-lines-card{width:10.5in;min-width:0;max-height:8in;break-inside:avoid}
+ .original-lines-table td,.original-lines-table th{font-size:12pt}
+ .original-title{font-size:21pt}
+}
+
+.lineup-mobile-cue{display:none;font-size:10px;color:#d9e4ed;margin:2px 2px 7px}
+@media(max-width:780px){.lineup-mobile-cue{display:block}}
+
+.lineup-only .game-countdown{display:none!important}
+.lineup-only .game-night-shell{padding-top:0}
