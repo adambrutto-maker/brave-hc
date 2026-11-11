@@ -5,44 +5,32 @@
   "sourceWorkbookHash": "0002fd9f06596af8d0a00fc1b53a618ef15479f941ad5c1e6265b27002a65154",
   "workbookAsOf": "2026-09-20",
   "lastVerifiedGameNumber": 359,
-  "latestOfficialCompletedGameDate": "2026-11-01",
-  "completedGames": 6,
+  "latestOfficialCompletedGameDate": "2026-11-08",
+  "completedGames": 7,
   "workbookScoreParity": false,
-  "sourceGameIndex": 364,
+  "sourceGameIndex": 365,
   "dataStatus": "HISTORICAL_WORKBOOK_SNAPSHOT",
   "sourceValidated": false,
-  "dataIssue": "Historical workbook snapshot is still stale. Only source-verified HTO streaks and bounded milestone categories are current through November 1; missing plus/minus, PIM, goalie streaks and other unsupported categories remain excluded.",
+  "dataIssue": "Workbook game-level scoring and career watch must be recalculated for completed matches; no current streak/milestone claim is permitted.",
   "streaks": [
     {
-      "player": "Pagnotta, Alex",
+      "player": "Carosi, Justin",
       "description": "Point Streak: 3 games",
       "type": "pointStreak",
       "games": 3,
-      "through": "2026-11-01",
+      "through": "2026-11-08",
       "sourceAuthority": "HTO boxscore pergame and Master Workbook >=3 streak predicate"
     },
     {
-      "player": "Pagnotta, Alex",
+      "player": "Carosi, Justin",
       "description": "Assist Streak: 3 games",
       "type": "assistStreak",
       "games": 3,
-      "through": "2026-11-01",
+      "through": "2026-11-08",
       "sourceAuthority": "HTO boxscore pergame and Master Workbook >=3 streak predicate"
     }
   ],
   "records": [
-    {
-      "player": "Kober, Adam",
-      "description": "1 game away from 50 career games",
-      "rankKey": 900000,
-      "type": "countdown",
-      "category": "gp",
-      "threshold": 50,
-      "eventDate": null,
-      "remaining": 1,
-      "careerTotal": 49,
-      "source": "Excel WebStreaksHelper countdown <=2 / HTO current boxscores"
-    },
     {
       "player": "Pearsoll, Keith",
       "description": "2 games away from 300 career games",
@@ -66,6 +54,18 @@
       "remaining": null,
       "careerTotal": null,
       "source": "Workbook event threshold verified against HTO boxscore"
+    },
+    {
+      "player": "Kober, Adam",
+      "description": "50 Game Club Reached (Nov 8)",
+      "rankKey": 900000,
+      "type": "reached",
+      "category": "gp",
+      "threshold": 50,
+      "eventDate": "2026-11-08",
+      "remaining": null,
+      "careerTotal": null,
+      "source": "Workbook milestone crossing predicate using HTO official boxscore"
     },
     {
       "player": "Provenzano, Michael",
@@ -112,9 +112,9 @@
     ],
     "status": "VERIFIED_SUPPORTED_CATEGORIES_ONLY"
   },
-  "recordAsOf": "2026-11-01",
+  "recordAsOf": "2026-11-08",
   "streaksVerified": true,
-  "streaksAsOf": "2026-11-01",
+  "streaksAsOf": "2026-11-08",
   "streaksDataStatus": "VERIFIED_SUPPORTED_CATEGORIES_PARTIAL",
   "verifiedStreakCategories": [
     "Point Streak",
@@ -122,11 +122,11 @@
     "Assist Streak",
     "Multi-Point Streak",
     "Multi-Goal Streak",
-    "POTG Streak"
+    "POTG Streak",
+    "Plus Streak"
   ],
   "unverifiedStreakCategories": [
     "PIM",
-    "Plus Streak",
     "Goalie streaks",
     "Drought categories"
   ],
@@ -136,7 +136,7 @@
       "description": "POTG Streak: 0 games",
       "type": "potgStreak",
       "games": 0,
-      "through": "2026-11-01",
+      "through": "2026-11-08",
       "sourceAuthority": "HTO boxscore per-game POTG & workbook threshold",
       "gameIds": [
         3356177,
@@ -144,13 +144,14 @@
         3369564,
         3375601,
         3375682,
-        3375683
+        3375683,
+        3375684
       ]
     }
   ],
   "streakVerification": {
     "supportedCategoryAudit": "VERIFIED_SUPPORTED_STREAK_CATEGORIES",
-    "HTOBoxscoreGames": 6,
+    "HTOBoxscoreGames": 7,
     "observedGames": [
       {
         "date": "2026-09-20",
@@ -199,12 +200,20 @@
         "POTG": 0,
         "played": true,
         "source": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=3375683&p=boxscore"
+      },
+      {
+        "date": "2026-11-08",
+        "gameNumber": 365,
+        "htoGameId": 3375684,
+        "POTG": 0,
+        "played": true,
+        "source": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=3375684&p=boxscore"
       }
     ],
     "sourceCurrentTotals": {
-      "gp": 6,
+      "gp": 7,
       "potg": 3,
-      "teamGP": 6
+      "teamGP": 7
     },
     "workbookThreshold": 3
   },
@@ -219,5 +228,5 @@
     "hto": "https://www.htosports.com/teams/default.asp?p=stats&s=hockey&u=BRAVESHOCKEY",
     "svhl": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13679&page_type=Adult"
   },
-  "exportedAt": "2026-11-02T04:57:09.125600+00:00"
+  "exportedAt": "2026-11-11T04:31:25.367930+00:00"
 }
