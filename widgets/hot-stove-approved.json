@@ -28,7 +28,7 @@
       "A High-Scoring Opponent, and an Unfamiliar Matchup",
       "Other Way arrived with a 3–1–2 record, 36 goals scored and 32 allowed through six games. Its recent results included an 8–5 victory over Dateline Predators, a 7–7 draw with Sugo Sundays and an 11–9 win against Mohawks H.C. That three-game stretch produced 26 goals for Other Way and 21 against, offering ample evidence of a team capable of both generating and conceding offence.",
       "The verified Brave H.C. historical ledger did not establish a previous meeting under the exact Other Way team name, so the strongest pregame comparison came from current-season results. Brave H.C. had beaten Big Bastones 6–4 on October 25 but lost 7–2 to Mid Ice Crisis the following Sunday. The Braves entered the contest at 1–5, having scored 14 goals and surrendered 30.",
-      "The game-night lineup listed 14 skaters, including part-timers Adam Kober and Rajasooriar. Kober was making his sixth appearance of the season, while Rajasooriar was appearing for the third time. Full-timers Anthony Paolucci and Keith Pearsoll were not listed. Captain Adam Brutto returned to the lineup after missing the November 1 game, and Jeff Rae was in goal for his first recorded appearance with the club this season.",
+      "The game-night lineup featured 13 dressed skaters, including part-timers Adam Kober and Rajasooriar. Kober was making his sixth appearance of the season, while Rajasooriar was appearing for the third time. Full-time defenceman Alex Pagnotta was a game-day scratch; full-timers Anthony Paolucci and Keith Pearsoll also did not dress. Captain Adam Brutto returned to the lineup after missing the November 1 game, and Jeff Rae was in goal for his first recorded appearance with the club this season.",
       "First Period — A Three-Goal Hole, Then a Late Response",
       "Other Way wasted little time establishing control of the scoreboard. Three unanswered goals at 7:00, 6:18 and 5:14 remaining in the opening period gave the visitors a 3–0 advantage.",
       "The Braves' response came late in the period, beginning with Rajasooriar at 2:46 remaining. Assisted by Saindon and Marco Congiusti, Rajasooriar recorded his first goal of the 2026–27 season and put Brave H.C. on the board.",
@@ -131,6 +131,19 @@
         "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3375684",
         "qaSha256": "38c03a1a61505f937a94afa4e7b6ad6fc21e02e6f168caa2d417be81ed89f51f",
         "scope": "Verified G1-G5 scorer and assist records, player totals, and final score; NOT decisive-goal timing"
+      },
+      "lineupCorrection": {
+        "source": "Founder confirmed full-time scratch on 2026-11-11",
+        "gameId": 3375684,
+        "dressedSkaters": 13,
+        "scratchedPlayer": "Alex Pagnotta",
+        "scratchedPlayerJersey": 44,
+        "scratchedPlayerGP": 0,
+        "scratchedPlayerPlusMinus": 0,
+        "publicHtoReadbackUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3375684",
+        "verifiedOn": "2026-11-11",
+        "originalLineupCount": 14,
+        "correctedLineupCount": 13
       }
     },
     "publicationApproval": {
@@ -2183,5 +2196,12 @@
     "date": "2026-11-11",
     "source": "User command to push the draft article live after 12/12 live HTO readback",
     "scope": "Latest Nov 8 recap publication status and verified-credit qualification only; retain narrative and prior approval"
+  },
+  "lineupCorrectionAuthorization": {
+    "decision": "APPROVED_PUBLISH_NOV8_PAGNOTTA_FT_SCRATCH",
+    "approvedBy": "Founder",
+    "date": "2026-11-11",
+    "scope": "Revise Nov 8 approved article from 14 to 13 dressed skaters; identify Alex Pagnotta full-time scratch; remove Nov 8 GP and +/-, preserve all goals and other statistics",
+    "source": "User explicit instruction in this conversation"
   }
 }
