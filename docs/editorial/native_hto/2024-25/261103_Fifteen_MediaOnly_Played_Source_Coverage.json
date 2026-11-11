@@ -1,0 +1,1050 @@
+{
+  "schema": "brave-hc-winter-2024-25-media-only-played-game-source-coverage/v1",
+  "checkedUTC": "2026-11-03T07:53:09.419543+00:00",
+  "status": "READ_ONLY_PUBLIC_HTO_SOURCES_NO_VIDEO_CONTENT_CLAIMS",
+  "originalMediaMustRemainUntouched": true,
+  "sourceLimitation": "Goal/assist figures are verified game totals only. No clock, scoring sequence, shot counts, penalty origin, specific play, video observation, or attributed quote is established.",
+  "games": [
+    {
+      "gameId": 2148134,
+      "date": "2024-09-29",
+      "opponent": "Schmelts",
+      "score": {
+        "braves": 1,
+        "opponent": 6
+      },
+      "periods": {
+        "braves": [
+          0,
+          0,
+          1
+        ],
+        "opponent": [
+          1,
+          1,
+          4
+        ]
+      },
+      "result": "L",
+      "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&archTog=1&viewseas=Winter_2024%2F2025&p=boxscore&gameID=2148134",
+      "publicHTOBoxscoreSHA256": "7da7bb7539a84c9cd56d14c107c1ec78a40218f7e47032c2d32f09d5b467f13f",
+      "originalRecapSHA256": "0bab64174a9b79c5ebb33064026296c6a21ada4dd45f7d75d339a29451552d82",
+      "originalVideoEmbeds": 1,
+      "originalPhotoCount": 0,
+      "sourceGrade": "SCORE_PERIOD_SKATER_TOTALS_NOT_SCORING_EVENTS",
+      "sourceStatus": "PLAYER_GOALS_PARITY_PASS",
+      "playerRows": 15,
+      "creditedPlayers": [
+        {
+          "jersey": 89,
+          "name": "Carosi, Justin",
+          "goals": 1,
+          "assists": 0
+        },
+        {
+          "jersey": 76,
+          "name": "Arruda, Mark",
+          "goals": 0,
+          "assists": 1
+        },
+        {
+          "jersey": 39,
+          "name": "Pearsoll, Keith",
+          "goals": 0,
+          "assists": 1
+        }
+      ],
+      "listedGoalies": [],
+      "gameGoalTotalVsSkaters": [
+        1,
+        1
+      ]
+    },
+    {
+      "gameId": 2148138,
+      "date": "2024-10-20",
+      "opponent": "Fang",
+      "score": {
+        "braves": 2,
+        "opponent": 7
+      },
+      "periods": {
+        "braves": [
+          1,
+          0,
+          1
+        ],
+        "opponent": [
+          2,
+          4,
+          1
+        ]
+      },
+      "result": "L",
+      "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&archTog=1&viewseas=Winter_2024%2F2025&p=boxscore&gameID=2148138",
+      "publicHTOBoxscoreSHA256": "f198a6d8a09f0f4fb83aa9fd3b4484d5b0e709f16a2b0ca6bf05177f70fe7ec2",
+      "originalRecapSHA256": "991d03adfa8a479c64309ef8aa47e797a0730b3254efa07468fd5ffc210ebb45",
+      "originalVideoEmbeds": 1,
+      "originalPhotoCount": 0,
+      "sourceGrade": "SCORE_PERIOD_SKATER_TOTALS_NOT_SCORING_EVENTS",
+      "sourceStatus": "PLAYER_GOALS_PARITY_PASS",
+      "playerRows": 10,
+      "creditedPlayers": [
+        {
+          "jersey": 20,
+          "name": "Saindon, Stephane",
+          "goals": 1,
+          "assists": 1
+        },
+        {
+          "jersey": 25,
+          "name": "Provenzano, Michael",
+          "goals": 1,
+          "assists": 0
+        },
+        {
+          "jersey": 90,
+          "name": "Ardizzi, Stefano",
+          "goals": 0,
+          "assists": 1
+        }
+      ],
+      "listedGoalies": [],
+      "gameGoalTotalVsSkaters": [
+        2,
+        2
+      ]
+    },
+    {
+      "gameId": 2148140,
+      "date": "2024-10-27",
+      "opponent": "Bears",
+      "score": {
+        "braves": 5,
+        "opponent": 4
+      },
+      "periods": {
+        "braves": [
+          2,
+          1,
+          2
+        ],
+        "opponent": [
+          1,
+          3,
+          0
+        ]
+      },
+      "result": "W",
+      "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&archTog=1&viewseas=Winter_2024%2F2025&p=boxscore&gameID=2148140",
+      "publicHTOBoxscoreSHA256": "3b0e798ac344058f0c58c91b3272b3ba6d7ac62cda7f33c6babf068036dfbfde",
+      "originalRecapSHA256": "53298845c7045bd7c60432c185dbf80d05f806c51cee73e1604178a7499a2bfe",
+      "originalVideoEmbeds": 1,
+      "originalPhotoCount": 0,
+      "sourceGrade": "SCORE_PERIOD_SKATER_TOTALS_NOT_SCORING_EVENTS",
+      "sourceStatus": "PLAYER_GOALS_PARITY_PASS",
+      "playerRows": 13,
+      "creditedPlayers": [
+        {
+          "jersey": 25,
+          "name": "Provenzano, Michael",
+          "goals": 2,
+          "assists": 1
+        },
+        {
+          "jersey": 20,
+          "name": "Saindon, Stephane",
+          "goals": 1,
+          "assists": 1
+        },
+        {
+          "jersey": 69,
+          "name": "Finlay, Ryan",
+          "goals": 1,
+          "assists": 0
+        },
+        {
+          "jersey": 9,
+          "name": "Logue, Ryan",
+          "goals": 1,
+          "assists": 0
+        },
+        {
+          "jersey": 89,
+          "name": "Carosi, Justin",
+          "goals": 0,
+          "assists": 2
+        },
+        {
+          "jersey": 28,
+          "name": "Brutto, Adam",
+          "goals": 0,
+          "assists": 1
+        },
+        {
+          "jersey": 12,
+          "name": "Kober, Adam",
+          "goals": 0,
+          "assists": 1
+        },
+        {
+          "jersey": 8,
+          "name": "Provenzano, Mario",
+          "goals": 0,
+          "assists": 1
+        }
+      ],
+      "listedGoalies": [],
+      "gameGoalTotalVsSkaters": [
+        5,
+        5
+      ]
+    },
+    {
+      "gameId": 2148141,
+      "date": "2024-11-03",
+      "opponent": "Milkmen",
+      "score": {
+        "braves": 2,
+        "opponent": 6
+      },
+      "periods": {
+        "braves": [
+          1,
+          1,
+          0
+        ],
+        "opponent": [
+          0,
+          1,
+          5
+        ]
+      },
+      "result": "L",
+      "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&archTog=1&viewseas=Winter_2024%2F2025&p=boxscore&gameID=2148141",
+      "publicHTOBoxscoreSHA256": "d5e3882febae7262c4974f1e5c04fdff483dd5b4e6bd12a2a21465d96e6b5a51",
+      "originalRecapSHA256": "1a71e2b043177d5cbc02ef7a53672c45ae30672fd0f0a53d8d3b8bace594fed4",
+      "originalVideoEmbeds": 1,
+      "originalPhotoCount": 0,
+      "sourceGrade": "SCORE_PERIOD_SKATER_TOTALS_NOT_SCORING_EVENTS",
+      "sourceStatus": "PLAYER_GOALS_PARITY_PASS",
+      "playerRows": 11,
+      "creditedPlayers": [
+        {
+          "jersey": 89,
+          "name": "Carosi, Justin",
+          "goals": 2,
+          "assists": 0
+        },
+        {
+          "jersey": 76,
+          "name": "Arruda, Mark",
+          "goals": 0,
+          "assists": 1
+        },
+        {
+          "jersey": 14,
+          "name": "Brancatella, Medi",
+          "goals": 0,
+          "assists": 1
+        },
+        {
+          "jersey": 8,
+          "name": "Provenzano, Mario",
+          "goals": 0,
+          "assists": 1
+        }
+      ],
+      "listedGoalies": [],
+      "gameGoalTotalVsSkaters": [
+        2,
+        2
+      ]
+    },
+    {
+      "gameId": 2148144,
+      "date": "2024-11-24",
+      "opponent": "Don's Cherries",
+      "score": {
+        "braves": 5,
+        "opponent": 3
+      },
+      "periods": {
+        "braves": [
+          3,
+          1,
+          1
+        ],
+        "opponent": [
+          0,
+          2,
+          1
+        ]
+      },
+      "result": "W",
+      "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&archTog=1&viewseas=Winter_2024%2F2025&p=boxscore&gameID=2148144",
+      "publicHTOBoxscoreSHA256": "a8ea04640dbe26b8a53331e04ef46b57d1f53e245a37c4a2f22675ebace27a01",
+      "originalRecapSHA256": "6e048cf1bf7d90b5f0338a4e80b5d7f451d5bf7d2c596af7885a034a766c0eac",
+      "originalVideoEmbeds": 1,
+      "originalPhotoCount": 0,
+      "sourceGrade": "SCORE_PERIOD_SKATER_TOTALS_NOT_SCORING_EVENTS",
+      "sourceStatus": "PLAYER_GOALS_PARITY_PASS",
+      "playerRows": 12,
+      "creditedPlayers": [
+        {
+          "jersey": 25,
+          "name": "Provenzano, Michael",
+          "goals": 2,
+          "assists": 0
+        },
+        {
+          "jersey": 76,
+          "name": "Arruda, Mark",
+          "goals": 1,
+          "assists": 1
+        },
+        {
+          "jersey": 9,
+          "name": "Logue, Ryan",
+          "goals": 1,
+          "assists": 0
+        },
+        {
+          "jersey": 39,
+          "name": "Pearsoll, Keith",
+          "goals": 1,
+          "assists": 0
+        },
+        {
+          "jersey": 20,
+          "name": "Saindon, Stephane",
+          "goals": 0,
+          "assists": 3
+        },
+        {
+          "jersey": 44,
+          "name": "Pagnotta, Alex",
+          "goals": 0,
+          "assists": 1
+        }
+      ],
+      "listedGoalies": [],
+      "gameGoalTotalVsSkaters": [
+        5,
+        5
+      ]
+    },
+    {
+      "gameId": 2148145,
+      "date": "2024-12-01",
+      "opponent": "Call Ups",
+      "score": {
+        "braves": 1,
+        "opponent": 10
+      },
+      "periods": {
+        "braves": [
+          0,
+          1,
+          0
+        ],
+        "opponent": [
+          3,
+          3,
+          4
+        ]
+      },
+      "result": "L",
+      "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&archTog=1&viewseas=Winter_2024%2F2025&p=boxscore&gameID=2148145",
+      "publicHTOBoxscoreSHA256": "1422370fcdbd57e3cfa679d3e0b15ef65463bc49906635bd9f1f417f88009bd7",
+      "originalRecapSHA256": "9cf2a957654326c1903f6e90d4b356236035a757f961bf8e027da2440e1e8ed4",
+      "originalVideoEmbeds": 1,
+      "originalPhotoCount": 0,
+      "sourceGrade": "SCORE_PERIOD_SKATER_TOTALS_NOT_SCORING_EVENTS",
+      "sourceStatus": "PLAYER_GOALS_PARITY_PASS",
+      "playerRows": 10,
+      "creditedPlayers": [
+        {
+          "jersey": 90,
+          "name": "Ardizzi, Stefano",
+          "goals": 1,
+          "assists": 0
+        },
+        {
+          "jersey": 14,
+          "name": "Brancatella, Medi",
+          "goals": 0,
+          "assists": 1
+        },
+        {
+          "jersey": 20,
+          "name": "Saindon, Stephane",
+          "goals": 0,
+          "assists": 1
+        }
+      ],
+      "listedGoalies": [],
+      "gameGoalTotalVsSkaters": [
+        1,
+        1
+      ]
+    },
+    {
+      "gameId": 2148148,
+      "date": "2024-12-22",
+      "opponent": "Whalers",
+      "score": {
+        "braves": 6,
+        "opponent": 6
+      },
+      "periods": {
+        "braves": [
+          2,
+          2,
+          2
+        ],
+        "opponent": [
+          2,
+          2,
+          2
+        ]
+      },
+      "result": "T",
+      "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&archTog=1&viewseas=Winter_2024%2F2025&p=boxscore&gameID=2148148",
+      "publicHTOBoxscoreSHA256": "593209302e9ce4287638eb42a5cec6a2c15c37fd7e41ba8a3c740e85950583ca",
+      "originalRecapSHA256": "58f775587788e65ace5d58e98a626046eaa5687c684b63cd95fd76666364d4ac",
+      "originalVideoEmbeds": 1,
+      "originalPhotoCount": 0,
+      "sourceGrade": "SCORE_PERIOD_SKATER_TOTALS_NOT_SCORING_EVENTS",
+      "sourceStatus": "PLAYER_GOALS_PARITY_PASS",
+      "playerRows": 13,
+      "creditedPlayers": [
+        {
+          "jersey": 25,
+          "name": "Provenzano, Michael",
+          "goals": 3,
+          "assists": 0
+        },
+        {
+          "jersey": 90,
+          "name": "Ardizzi, Stefano",
+          "goals": 1,
+          "assists": 1
+        },
+        {
+          "jersey": 14,
+          "name": "Brancatella, Medi",
+          "goals": 1,
+          "assists": 0
+        },
+        {
+          "jersey": 88,
+          "name": "Mazzei, Stefano",
+          "goals": 1,
+          "assists": 0
+        },
+        {
+          "jersey": 89,
+          "name": "Carosi, Justin",
+          "goals": 0,
+          "assists": 2
+        },
+        {
+          "jersey": 28,
+          "name": "Brutto, Adam",
+          "goals": 0,
+          "assists": 1
+        },
+        {
+          "jersey": 69,
+          "name": "Finlay, Ryan",
+          "goals": 0,
+          "assists": 1
+        },
+        {
+          "jersey": 9,
+          "name": "Logue, Ryan",
+          "goals": 0,
+          "assists": 1
+        },
+        {
+          "jersey": 44,
+          "name": "Pagnotta, Alex",
+          "goals": 0,
+          "assists": 1
+        }
+      ],
+      "listedGoalies": [],
+      "gameGoalTotalVsSkaters": [
+        6,
+        6
+      ]
+    },
+    {
+      "gameId": 2148149,
+      "date": "2024-12-29",
+      "opponent": "Goodfellas",
+      "score": {
+        "braves": 1,
+        "opponent": 4
+      },
+      "periods": {
+        "braves": [
+          0,
+          1,
+          0
+        ],
+        "opponent": [
+          2,
+          0,
+          2
+        ]
+      },
+      "result": "L",
+      "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&archTog=1&viewseas=Winter_2024%2F2025&p=boxscore&gameID=2148149",
+      "publicHTOBoxscoreSHA256": "13cd5343857e1155cdb0d54a5d8280f9b8f4afc307aad8b780e110ada1ec4211",
+      "originalRecapSHA256": "d60dec61ecb6bca49d08be653acc2d9aa0d0abd4c41282fb7a17c3caf51fd6c5",
+      "originalVideoEmbeds": 1,
+      "originalPhotoCount": 0,
+      "sourceGrade": "SCORE_PERIOD_SKATER_TOTALS_NOT_SCORING_EVENTS",
+      "sourceStatus": "PLAYER_GOALS_PARITY_PASS",
+      "playerRows": 11,
+      "creditedPlayers": [
+        {
+          "jersey": 39,
+          "name": "Pearsoll, Keith",
+          "goals": 1,
+          "assists": 0
+        },
+        {
+          "jersey": 76,
+          "name": "Arruda, Mark",
+          "goals": 0,
+          "assists": 1
+        }
+      ],
+      "listedGoalies": [],
+      "gameGoalTotalVsSkaters": [
+        1,
+        1
+      ]
+    },
+    {
+      "gameId": 2148150,
+      "date": "2025-01-05",
+      "opponent": "Fang",
+      "score": {
+        "braves": 2,
+        "opponent": 6
+      },
+      "periods": {
+        "braves": [
+          1,
+          0,
+          1
+        ],
+        "opponent": [
+          2,
+          1,
+          3
+        ]
+      },
+      "result": "L",
+      "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&archTog=1&viewseas=Winter_2024%2F2025&p=boxscore&gameID=2148150",
+      "publicHTOBoxscoreSHA256": "65e5c6838eb54fc507cc113bd268367fead5c8150c8a19ff9ffec3b0fee05790",
+      "originalRecapSHA256": "7f065aa6808ee36d18f0b0752832ca3a8402a2bc490cce89de2197b8267fd5f9",
+      "originalVideoEmbeds": 1,
+      "originalPhotoCount": 0,
+      "sourceGrade": "SCORE_PERIOD_SKATER_TOTALS_NOT_SCORING_EVENTS",
+      "sourceStatus": "PLAYER_GOALS_PARITY_PASS",
+      "playerRows": 11,
+      "creditedPlayers": [
+        {
+          "jersey": 88,
+          "name": "Mazzei, Stefano",
+          "goals": 1,
+          "assists": 0
+        },
+        {
+          "jersey": 25,
+          "name": "Provenzano, Michael",
+          "goals": 1,
+          "assists": 0
+        },
+        {
+          "jersey": 76,
+          "name": "Arruda, Mark",
+          "goals": 0,
+          "assists": 1
+        },
+        {
+          "jersey": 69,
+          "name": "Finlay, Ryan",
+          "goals": 0,
+          "assists": 1
+        }
+      ],
+      "listedGoalies": [],
+      "gameGoalTotalVsSkaters": [
+        2,
+        2
+      ]
+    },
+    {
+      "gameId": 2148151,
+      "date": "2025-01-12",
+      "opponent": "Mohawks H.C.",
+      "score": {
+        "braves": 2,
+        "opponent": 3
+      },
+      "periods": {
+        "braves": [
+          1,
+          0,
+          1
+        ],
+        "opponent": [
+          1,
+          0,
+          2
+        ]
+      },
+      "result": "L",
+      "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&archTog=1&viewseas=Winter_2024%2F2025&p=boxscore&gameID=2148151",
+      "publicHTOBoxscoreSHA256": "e79c35c45273ca2aaf41eb93bf9524701dfe6057c75ead0602f271b44a7c069b",
+      "originalRecapSHA256": "e728245ae427d5aa04baaaa1dc2c49ba211a20e147b35d6eba11ba13a1121ec8",
+      "originalVideoEmbeds": 1,
+      "originalPhotoCount": 0,
+      "sourceGrade": "SCORE_PERIOD_SKATER_TOTALS_NOT_SCORING_EVENTS",
+      "sourceStatus": "PLAYER_GOALS_PARITY_PASS",
+      "playerRows": 12,
+      "creditedPlayers": [
+        {
+          "jersey": 69,
+          "name": "Finlay, Ryan",
+          "goals": 1,
+          "assists": 0
+        },
+        {
+          "jersey": 25,
+          "name": "Provenzano, Michael",
+          "goals": 1,
+          "assists": 0
+        },
+        {
+          "jersey": 28,
+          "name": "Brutto, Adam",
+          "goals": 0,
+          "assists": 1
+        },
+        {
+          "jersey": 44,
+          "name": "Pagnotta, Alex",
+          "goals": 0,
+          "assists": 1
+        },
+        {
+          "jersey": 20,
+          "name": "Saindon, Stephane",
+          "goals": 0,
+          "assists": 1
+        }
+      ],
+      "listedGoalies": [],
+      "gameGoalTotalVsSkaters": [
+        2,
+        2
+      ]
+    },
+    {
+      "gameId": 2148154,
+      "date": "2025-02-02",
+      "opponent": "Fang",
+      "score": {
+        "braves": 4,
+        "opponent": 8
+      },
+      "periods": {
+        "braves": [
+          1,
+          3,
+          0
+        ],
+        "opponent": [
+          1,
+          4,
+          3
+        ]
+      },
+      "result": "L",
+      "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&archTog=1&viewseas=Winter_2024%2F2025&p=boxscore&gameID=2148154",
+      "publicHTOBoxscoreSHA256": "52f12bdc045353dc5b5653f9cfec6681dfaab5aa64db5a736c300666659563e3",
+      "originalRecapSHA256": "13fa6acb0b66e9739102ac8fa29d7ecc5b22a1a530cdcd31c39c1c1527f8672f",
+      "originalVideoEmbeds": 1,
+      "originalPhotoCount": 0,
+      "sourceGrade": "SCORE_PERIOD_SKATER_TOTALS_NOT_SCORING_EVENTS",
+      "sourceStatus": "PLAYER_GOALS_PARITY_PASS",
+      "playerRows": 9,
+      "creditedPlayers": [
+        {
+          "jersey": 69,
+          "name": "Finlay, Ryan",
+          "goals": 3,
+          "assists": 0
+        },
+        {
+          "jersey": 25,
+          "name": "Provenzano, Michael",
+          "goals": 1,
+          "assists": 0
+        },
+        {
+          "jersey": 28,
+          "name": "Brutto, Adam",
+          "goals": 0,
+          "assists": 2
+        },
+        {
+          "jersey": 44,
+          "name": "Pagnotta, Alex",
+          "goals": 0,
+          "assists": 2
+        },
+        {
+          "jersey": 76,
+          "name": "Arruda, Mark",
+          "goals": 0,
+          "assists": 1
+        },
+        {
+          "jersey": 89,
+          "name": "Carosi, Justin",
+          "goals": 0,
+          "assists": 1
+        },
+        {
+          "jersey": 20,
+          "name": "Saindon, Stephane",
+          "goals": 0,
+          "assists": 1
+        }
+      ],
+      "listedGoalies": [],
+      "gameGoalTotalVsSkaters": [
+        4,
+        4
+      ]
+    },
+    {
+      "gameId": 2148156,
+      "date": "2025-02-23",
+      "opponent": "Mid Ice Crisis",
+      "score": {
+        "braves": 5,
+        "opponent": 2
+      },
+      "periods": {
+        "braves": [
+          2,
+          2,
+          1
+        ],
+        "opponent": [
+          0,
+          2,
+          0
+        ]
+      },
+      "result": "W",
+      "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&archTog=1&viewseas=Winter_2024%2F2025&p=boxscore&gameID=2148156",
+      "publicHTOBoxscoreSHA256": "cfff998f9a27ee51303f504cf5919666ff50e01224cde0e96c383855d28b7ecb",
+      "originalRecapSHA256": "38bb101e9f8d6cb93be16c7c4dd1203163cd99003f48772c61bbc35a67126397",
+      "originalVideoEmbeds": 1,
+      "originalPhotoCount": 0,
+      "sourceGrade": "SCORE_PERIOD_SKATER_TOTALS_NOT_SCORING_EVENTS",
+      "sourceStatus": "PLAYER_GOALS_PARITY_PASS",
+      "playerRows": 13,
+      "creditedPlayers": [
+        {
+          "jersey": 20,
+          "name": "Saindon, Stephane",
+          "goals": 2,
+          "assists": 0
+        },
+        {
+          "jersey": 88,
+          "name": "Mazzei, Stefano",
+          "goals": 1,
+          "assists": 1
+        },
+        {
+          "jersey": 89,
+          "name": "Carosi, Justin",
+          "goals": 1,
+          "assists": 0
+        },
+        {
+          "jersey": 25,
+          "name": "Provenzano, Michael",
+          "goals": 1,
+          "assists": 0
+        },
+        {
+          "jersey": 90,
+          "name": "Ardizzi, Stefano",
+          "goals": 0,
+          "assists": 2
+        },
+        {
+          "jersey": 8,
+          "name": "Provenzano, Mario",
+          "goals": 0,
+          "assists": 2
+        },
+        {
+          "jersey": 76,
+          "name": "Arruda, Mark",
+          "goals": 0,
+          "assists": 1
+        },
+        {
+          "jersey": 69,
+          "name": "Finlay, Ryan",
+          "goals": 0,
+          "assists": 1
+        },
+        {
+          "jersey": 12,
+          "name": "Kober, Adam",
+          "goals": 0,
+          "assists": 1
+        }
+      ],
+      "listedGoalies": [],
+      "gameGoalTotalVsSkaters": [
+        5,
+        5
+      ]
+    },
+    {
+      "gameId": 2148157,
+      "date": "2025-03-02",
+      "opponent": "Mid Ice Crisis",
+      "score": {
+        "braves": 2,
+        "opponent": 5
+      },
+      "periods": {
+        "braves": [
+          0,
+          2,
+          0
+        ],
+        "opponent": [
+          2,
+          2,
+          1
+        ]
+      },
+      "result": "L",
+      "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&archTog=1&viewseas=Winter_2024%2F2025&p=boxscore&gameID=2148157",
+      "publicHTOBoxscoreSHA256": "99420173c24eec390f98779dc66744ffce47b63b2e0004d116ac5461cc20322d",
+      "originalRecapSHA256": "29835a63f1213d339c0a4d65d7b1d2cbdf6ec1a567b5f0add74a25880830e98a",
+      "originalVideoEmbeds": 1,
+      "originalPhotoCount": 0,
+      "sourceGrade": "SCORE_PERIOD_SKATER_TOTALS_NOT_SCORING_EVENTS",
+      "sourceStatus": "PLAYER_GOALS_PARITY_PASS",
+      "playerRows": 11,
+      "creditedPlayers": [
+        {
+          "jersey": 69,
+          "name": "Finlay, Ryan",
+          "goals": 1,
+          "assists": 1
+        },
+        {
+          "jersey": 76,
+          "name": "Arruda, Mark",
+          "goals": 1,
+          "assists": 0
+        },
+        {
+          "jersey": 89,
+          "name": "Carosi, Justin",
+          "goals": 0,
+          "assists": 1
+        },
+        {
+          "jersey": 44,
+          "name": "Pagnotta, Alex",
+          "goals": 0,
+          "assists": 1
+        },
+        {
+          "jersey": 25,
+          "name": "Provenzano, Michael",
+          "goals": 0,
+          "assists": 1
+        }
+      ],
+      "listedGoalies": [],
+      "gameGoalTotalVsSkaters": [
+        2,
+        2
+      ]
+    },
+    {
+      "gameId": 2148158,
+      "date": "2025-03-09",
+      "opponent": "Don's Cherries",
+      "score": {
+        "braves": 5,
+        "opponent": 6
+      },
+      "periods": {
+        "braves": [
+          0,
+          3,
+          2
+        ],
+        "opponent": [
+          2,
+          3,
+          1
+        ]
+      },
+      "result": "L",
+      "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&archTog=1&viewseas=Winter_2024%2F2025&p=boxscore&gameID=2148158",
+      "publicHTOBoxscoreSHA256": "e2a2e9fe68c72cf5f6eec9e4c871b81eb18cf6f916f2d82f3dcad44d7165e3f6",
+      "originalRecapSHA256": "8e700a2a92b92494796396069023d619e6063005f31956948f0daf19c598dc5a",
+      "originalVideoEmbeds": 1,
+      "originalPhotoCount": 0,
+      "sourceGrade": "SCORE_PERIOD_SKATER_TOTALS_NOT_SCORING_EVENTS",
+      "sourceStatus": "PLAYER_GOALS_PARITY_PASS",
+      "playerRows": 12,
+      "creditedPlayers": [
+        {
+          "jersey": 9,
+          "name": "Logue, Ryan",
+          "goals": 3,
+          "assists": 1
+        },
+        {
+          "jersey": 89,
+          "name": "Carosi, Justin",
+          "goals": 1,
+          "assists": 2
+        },
+        {
+          "jersey": 76,
+          "name": "Arruda, Mark",
+          "goals": 1,
+          "assists": 0
+        },
+        {
+          "jersey": 90,
+          "name": "Ardizzi, Stefano",
+          "goals": 0,
+          "assists": 3
+        },
+        {
+          "jersey": 25,
+          "name": "Provenzano, Michael",
+          "goals": 0,
+          "assists": 2
+        },
+        {
+          "jersey": 8,
+          "name": "Provenzano, Mario",
+          "goals": 0,
+          "assists": 1
+        },
+        {
+          "jersey": 20,
+          "name": "Saindon, Stephane",
+          "goals": 0,
+          "assists": 1
+        }
+      ],
+      "listedGoalies": [],
+      "gameGoalTotalVsSkaters": [
+        5,
+        5
+      ]
+    },
+    {
+      "gameId": 2148160,
+      "date": "2025-03-23",
+      "opponent": "Mohawks H.C.",
+      "score": {
+        "braves": 4,
+        "opponent": 2
+      },
+      "periods": {
+        "braves": [
+          2,
+          0,
+          2
+        ],
+        "opponent": [
+          0,
+          0,
+          2
+        ]
+      },
+      "result": "W",
+      "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&archTog=1&viewseas=Winter_2024%2F2025&p=boxscore&gameID=2148160",
+      "publicHTOBoxscoreSHA256": "d65177294dd5a461c2a95f30b6d5bdecb66edb46a9a1b2ce003edea079b5f5b6",
+      "originalRecapSHA256": "20638173abb943043ff821c7cfbce347076a046d07cebacc98dc74edb8275a42",
+      "originalVideoEmbeds": 1,
+      "originalPhotoCount": 0,
+      "sourceGrade": "SCORE_PERIOD_SKATER_TOTALS_NOT_SCORING_EVENTS",
+      "sourceStatus": "PLAYER_GOALS_PARITY_PASS",
+      "playerRows": 12,
+      "creditedPlayers": [
+        {
+          "jersey": 89,
+          "name": "Carosi, Justin",
+          "goals": 2,
+          "assists": 0
+        },
+        {
+          "jersey": 76,
+          "name": "Arruda, Mark",
+          "goals": 1,
+          "assists": 1
+        },
+        {
+          "jersey": 88,
+          "name": "Mazzei, Stefano",
+          "goals": 1,
+          "assists": 1
+        },
+        {
+          "jersey": 20,
+          "name": "Saindon, Stephane",
+          "goals": 0,
+          "assists": 2
+        },
+        {
+          "jersey": 90,
+          "name": "Ardizzi, Stefano",
+          "goals": 0,
+          "assists": 1
+        },
+        {
+          "jersey": 8,
+          "name": "Provenzano, Mario",
+          "goals": 0,
+          "assists": 1
+        }
+      ],
+      "listedGoalies": [],
+      "gameGoalTotalVsSkaters": [
+        4,
+        4
+      ]
+    }
+  ]
+}

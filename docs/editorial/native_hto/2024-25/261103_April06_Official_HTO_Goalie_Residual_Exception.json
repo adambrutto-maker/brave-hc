@@ -1,0 +1,64 @@
+{
+  "schema": "brave-hc-2025-04-06-playoff-goalie-stat-exception/v1",
+  "auditedUTC": "2026-11-03T09:01:51.642096+00:00",
+  "status": "OFFICIAL_TEAM_SCORE_AND_GOALIE_ROWS_ACCOUNTED_FOR_CAUSE_UNRESOLVED",
+  "originalSourceAuthority": "HTO team boxscore and HTO Records, not unscored SVHL playoff placeholders",
+  "officialRecordsSource": {
+    "url": "https://www.htosports.com/teams/default.asp?p=records&s=hockey&u=BRAVESHOCKEY",
+    "http": 200,
+    "publicHTMLSHA256": "8c9e1b59709198bf15b9713c93dd74b8b0af7bdb626ed0fd65a15da881f2a1ea",
+    "recordClass": "HTO_PUBLIC_RECORDS_PLAYED_GAME_SCORING"
+  },
+  "originalGames": [
+    {
+      "gameId": 2148162,
+      "date": "2025-03-30",
+      "teamBravesGoals": 2,
+      "teamGoalsAgainst": 3,
+      "listedGoalies": [
+        {
+          "name": "Logue, Stephen",
+          "GA": 3
+        }
+      ],
+      "recordedTeamMinusListedGoalieGA": 0,
+      "originalPublicHTMLSHA256": "5b1f365fe3c77749c529c027c0c65a433da3c902113b973b02049adefb85c9bc"
+    },
+    {
+      "gameId": 2148163,
+      "date": "2025-04-06",
+      "teamBravesGoals": 0,
+      "teamGoalsAgainst": 3,
+      "listedGoalies": [
+        {
+          "name": "Logue, Stephen",
+          "GA": 2
+        }
+      ],
+      "recordedTeamMinusListedGoalieGA": 1,
+      "originalPublicHTMLSHA256": "6547e4d720f00aa51f82eb662084237a1462943a0061a94c2f30555eee205951"
+    }
+  ],
+  "seasonPlayoffSummary": {
+    "recordedHTOTeamGoalsFor": 2,
+    "recordedHTOTeamGoalsAgainst": 6,
+    "listedGoalieGoalsAgainst": 5,
+    "teamMinusListedGoalieGoalsAgainst": 1
+  },
+  "unresolvedCause": "The difference is an accounting residual; no verified goal-event source establishes an empty net, goalie change, attribution or source error.",
+  "disallowedConclusions": [
+    "NOT_VERIFIED_EMPTY_NET_GOAL",
+    "NOT_VERIFIED_GOALTENDER_CHANGE",
+    "NOT_VERIFIED_STATS_CORRECTION"
+  ],
+  "editorialStatus": "HOLD_AS_UNRESOLVED_NOT_AUTHORIZED_FOR_PUBLICATION",
+  "nativeHTOFieldsWritten": false,
+  "primaryVerificationOnBRUTTECH1": "Read-only frozen original public boxscore HTML for HTO games 2148162 and 2148163",
+  "sourceCrossReference": "https://github.com/adambrutto-maker/brave-hc/blob/media/bravehc-canonical-svhl-forfeits-261103/docs/editorial/native_hto/261103_HTO_Records_Scoring_Domains_And_2025_Playoff_Goalie_Residual.json",
+  "nextVerificationGates": [
+    "Inspect and backup the original authenticated HTO Recap field for each exact 2024/25 playoff game before any future edit",
+    "Seek an original goal-event detail/source or original video if one exists; never infer the cause from the 3-0 vs 2 GA difference",
+    "Preserve original team score 0-3, individual goalie 2 GA and HTO playoffs total 6 GA independently",
+    "If no further event evidence exists, retain the unresolved exception plainly in editorial records and avoid a causal narrative"
+  ]
+}
