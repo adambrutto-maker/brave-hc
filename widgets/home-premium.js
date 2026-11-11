@@ -6,6 +6,7 @@
 const params=new URLSearchParams(location.search);
 const panel=["standings","projection","watch"].includes(params.get("panel"))?params.get("panel"):"standings";
 if(params.has("full"))document.body.classList.add("full");
+if(panel==="projection")document.body.classList.add("projection-panel");
 const $=id=>document.getElementById(id);
 const node=(tag,cls,value)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(value!==undefined&&value!==null)e.textContent=String(value);return e};
 const set=(id,value)=>{$(id).textContent=String(value)};
@@ -24,6 +25,7 @@ const states=[
 ];
 const linkAllowed=s=>/^https:\/\/leagues\.sportsvillage\.ca\//.test(s||"");
 let league=null,projection=null,dispersion=null,latestHTOActuals=null,filter="ALL",standingsPage=0,projectionPage=0;
+let projectionFingerprint="",projectionLoading=false;
 const isFull=()=>params.has("full");
 const pageSize=kind=>9999; // all rows are visible in an independently scrollable iframe shell
 function pager(id,total,size,page,onChange){
@@ -248,6 +250,49 @@ function sharedTrendBadge(p){
  }
  return badge;
 }
+// Stable original-workbook icon when verified adaptive dispersion is held.
+// This is not a substitute for source-qualified adaptive trend classification.
+function workbookTrendIcon(state){
+ const el=node("span","home-trend-fallback");
+ const name=state.new?(state.label.startsWith("NEW")?"ROOKIE":"HELD"):state.name.toUpperCase();
+ const color=state.new?"#e0ebf7":state.color;
+ const svg=document.createElementNS("http://www.w3.org/2000/svg","svg");
+ svg.setAttribute("class","bio-trend-direction-arrow projection-direction-icon");
+ svg.setAttribute("viewBox","0 0 24 24");
+ svg.setAttribute("role","img");
+ svg.setAttribute("aria-label",state.new?"No comparable career trend":"Original workbook "+state.name+" arrow");
+ const title=document.createElementNS("http://www.w3.org/2000/svg","title");
+ title.textContent=state.new?state.label:"Workbook category: "+state.name;
+ svg.append(title);
+ if(state.new){
+  const circle=document.createElementNS("http://www.w3.org/2000/svg","circle");
+  for(const [k,v] of Object.entries({cx:"12",cy:"12",r:"8",stroke:color,"stroke-width":"1.7",fill:"none"}))circle.setAttribute(k,v);
+  const txt=document.createElementNS("http://www.w3.org/2000/svg","text");
+  for(const [k,v] of Object.entries({x:"12",y:"15.5","text-anchor":"middle","font-family":"Arial","font-weight":"bold","font-size":"10",fill:color}))txt.setAttribute(k,v);
+  txt.textContent=name==="ROOKIE"?"N":"?";
+  svg.append(circle,txt);
+ }else{
+  const path=document.createElementNS("http://www.w3.org/2000/svg","path");
+  for(const [k,v] of Object.entries({d:"M12 20 V4 M5 11 L12 4 L19 11",fill:"none",stroke:color,"stroke-width":"2.7","stroke-linejoin":"round","stroke-linecap":"round",transform:"rotate("+state.rotate+" 12 12)"}))path.setAttribute(k,v);
+  svg.append(path);
+ }
+ el.dataset.visualLevel=name;
+ el.dataset.iconSource=state.new?"NO_COMPARABLE_TREND":"ORIGINAL_WORKBOOK_5_ARROW";
+ el.dataset.evidenceTier="WORKBOOK_CATEGORY_ONLY";
+ el.dataset.sharedModelOutput="false";
+ el.dataset.verifiedGp="";
+ el.dataset.variant=name;
+ el.style.setProperty("--fallback-border",color);
+ el.append(svg);
+ return el;
+}
+function shortPlayerName(raw){
+ if(typeof raw!=="string"||!raw.includes(","))return String(raw);
+ const [surname,...rest]=raw.split(",");
+ const given=rest.join(",").trim(),full=given+" "+surname.trim();
+ if(full.length<=17)return full;
+ return (surname.trim()==="Provenzano"?given.slice(0,2):given.slice(0,1))+". "+surname.trim();
+}
 function projectedCell(amount,actual,decimals=0,unreported=false){
  const td=node("td");
  td.append(node("span","total",num(amount)?(decimals?amount.toFixed(decimals):String(amount)):"—"));
@@ -264,7 +309,10 @@ function drawProjection(){
  const size=pageSize("projection"),start=projectionPage*size;
  players.slice(start,start+size).forEach((p,i)=>{
   const tr=node("tr");const name=node("td","team player");
-  name.append(node("span","name",cleanName(p.name)));
+  const fullName=cleanName(p.name);
+  name.title=fullName;
+  name.setAttribute("aria-label",fullName+" "+p.rosterStatus+" jersey "+(p.number||"unknown"));
+  name.append(node("span","name",fullName),node("span","mobile-name",shortPlayerName(p.name)));
   name.append(node("span","role",p.rosterStatus+" · #"+(p.number||"—")+(latestHTOActuals?.verifiedZero?.has(p.name)?" · Rostered / 0 GP":"")));
   tr.append(name);
   const actual=latestHTOActuals?(latestHTOActuals.players.get(p.name)||latestHTOActuals.verifiedZero?.get(p.name)):null;
@@ -287,21 +335,22 @@ function drawProjection(){
   const baselineText=num(career)?career.toFixed(3):"unavailable";
   const modelRate=num(projected)?projected.toFixed(3):"unavailable";
   const diffText=num(p.trend)?(p.trend>0?"+":"")+(p.trend*100).toFixed(1)+"%":"unavailable";
-  const badge=sharedTrendBadge(p);
-  const displayLevel=badge?.dataset.visualLevel||(state.new?(state.label.startsWith("NEW")?"ROOKIE":"HELD"):"HELD");
+  const adaptiveBadge=sharedTrendBadge(p);
+  const badge=adaptiveBadge||workbookTrendIcon(state);
+  const displayLevel=badge?.dataset.visualLevel||(state.new?(state.label.startsWith("NEW")?"ROOKIE":"HELD"):state.name.toUpperCase());
   const gpProof=badge?.dataset.verifiedGp;
   const tier=badge?.dataset.evidenceTier||'UNVERIFIED';
   const tierPhrase={MORE_OBSERVED_GAMES:'more observed',
     DEVELOPING_SAMPLE:'developing',LIMITED_SAMPLE:'limited',
     NO_VERIFIED_CURRENT_APPEARANCES:'unverified'}[tier]||'unverified';
   const sharedModel=badge?.dataset.sharedModelOutput==='true';
-  const evidenceShort=gpProof?gpProof+' GP | '+(sharedModel?'shared model':tierPhrase):
-    'GP unverified';
-  const evidenceLong=gpProof?
-    gpProof+' verified official GP; '+tierPhrase+' sample'+
+  const evidenceShort=adaptiveBadge?(gpProof?gpProof+' GP | '+(sharedModel?'shared model':tierPhrase):'GP unverified'):
+    (state.new?'Career comparison held':'Workbook category');
+  const evidenceLong=adaptiveBadge?(gpProof?gpProof+' verified official GP; '+tierPhrase+' sample'+
     (sharedModel?'; shared zero-scoring model formula across multiple players':''):
-    'No independent current-game appearance proof for this model player';
-  detailTD.textContent="Five-level adaptive visual strength: "+displayLevel+
+    'No independent current-game appearance proof for this model player'):
+    (state.new?state.label:'Workbook arrow from original five-category thresholds; adaptive source held');
+  detailTD.textContent=(adaptiveBadge?"Verified adaptive trend: ":"Workbook-based trend: ")+displayLevel+
     ". Original workbook five-arrow category: "+state.label.replace(/ ·.*/,"")+
     ". Historical career RS rate: "+baselineText+" P/G; model scoring-rate component: "+
     modelRate+" P/G; workbook trend: "+diffText+
@@ -314,6 +363,7 @@ function drawProjection(){
     badge.classList.add("home-trend-badge");
     badge.querySelector("svg.bio-trend-direction-arrow")?.setAttribute("aria-hidden","true");
     button.dataset.visualLevel=displayLevel;
+   button.dataset.iconSource=adaptiveBadge?"VERIFIED_ADAPTIVE":"ORIGINAL_WORKBOOK_OR_STATUS";
     button.dataset.workbookCategory=state.label.replace(/ ·.*/,"");
     button.append(badge,node("span","home-level-word",displayLevel),
       node("span","home-evidence-word",evidenceShort));
@@ -337,7 +387,15 @@ function drawLegend(){
  const adaptive=window.HockeyOSAdaptiveTrendV365;
  const items=adaptive?.legend(document,dispersion,projection,window.HockeyOSBioTrendVisualV36)||[];
  if(!items.length){
-  box.textContent='Adaptive trend source held; no unqualified legend.';
+  box.append(node("span","home-key-label","Original workbook five-arrow categories (adaptive source held):"));
+  for(const state of states){
+   const holder=node("span","home-trend-key");
+   holder.append(workbookTrendIcon(state),node("span","",state.name));
+   box.append(holder);
+  }
+  const rookie=node("span","home-trend-key");
+  rookie.append(workbookTrendIcon({new:true,label:"NEW - no career baseline"}),node("span","","New / source held"));
+  box.append(rookie);
   return;
  }
  for(const item of items){
@@ -349,14 +407,19 @@ function drawLegend(){
  box.append(node("span","","ROOKIE/— · Career or source comparison unavailable"));
 }
 async function loadProjection(){
+ if(projectionLoading)return;
+ projectionLoading=true;
+ const refreshButton=$("projection-refresh");
+ if(refreshButton){refreshButton.disabled=true;refreshButton.textContent="Checking...";}
  try{
+  latestHTOActuals=null;
   const d=await fetchJSON("projection.json");
   if(d.schema!=="brave-hc-workbook-projection/v1"||!Array.isArray(d.players)||!d.conditionalFormatting?.arrowIconSet?.thresholds)throw Error("Workbook data contract invalid");
   projection=d;
   dispersion=await fetchJSON("hockeyos-team-dispersion-v365.json").catch(()=>null);
   const sourceGames=d.sourceInputs?.verifiedHTOBoxscoreGP;
   try{
-    const feed=await fetchJSON("player-actuals.json"),stamp=new Date(feed.asOf),age=Date.now()-stamp.getTime();
+    const feed=await fetchJSON("player-actuals-hourly.json").catch(()=>fetchJSON("player-actuals.json")),stamp=new Date(feed.asOf),age=Date.now()-stamp.getTime();
     if(feed.schema==="brave-hc-hto-player-actuals/v1"&&feed.status==="VERIFIED_HTO_CURRENT"&&
        feed.season==="W2026/27"&&num(feed.teamGP)&&feed.teamGP>=Number(sourceGames)&&
        Array.isArray(feed.players)&&feed.players.length===feed.playerCount&&
@@ -386,14 +449,23 @@ async function loadProjection(){
   set("projection-state",latestHTOActuals&&!d.modelCurrent?"HTO ACTUALS CURRENT · FORECAST HELD":d.modelCurrent?"MODEL RECONCILED":"SCENARIO · PARITY PENDING");
   const date=dateText(d.htoreadback||d.exportedAt);
   if(latestHTOActuals){
-     set("projection-note","Current figures in parentheses are verified HTO statistics through "+latestHTOActuals.gp+" games ("+dateText(latestHTOActuals.asOf)+"). Projected season totals and five-level calibrated trend badges still use the unreconciled workbook model based on "+sourceGames+" HTO games. Verified rostered players with no recorded appearances show (0); (—) means an unverified or unavailable current value.");
+     set("projection-note","Bold = projected season totals; parentheses = verified HTO figures through "+latestHTOActuals.gp+" games ("+dateText(latestHTOActuals.asOf)+"). Tap trend icons for details.");
   }else{
      set("projection-note",d.modelCurrent===true?"Workbook projections reconciled to official HTO actuals.":"Projection feed reflects "+sourceGames+" HTO games at "+date+". Workbook baseline: "+(d.sourceInputs?.workbookRecordedTeamGP??"—")+" game(s). Forecasts and displayed actuals are not up to date.");
   }
   set("projection-source","Sources: "+(latestHTOActuals?"current official HTO "+dateText(latestHTOActuals.asOf)+"; ":"")+"projection model readback "+date+" · Original workbook trend thresholds retained. "+d.players.length+" player rows.");
-  drawLegend();drawProjection();
- }catch(e){set("projection-note","Projection data could not be validated. No replacement estimates or trend badges have been invented. ("+e.message+")");}
+  const fingerprint=JSON.stringify([d.exportedAt,d.modelSnapshotDate,latestHTOActuals?.asOf,dispersion?.generatedAt,d.players.length]);
+  if(fingerprint!==projectionFingerprint){projectionFingerprint=fingerprint;drawLegend();drawProjection();}
+  set("projection-refresh-status","HTO "+(latestHTOActuals?latestHTOActuals.gp:sourceGames)+" GP | "+date+" | checked "+new Intl.DateTimeFormat("en-CA",{timeZone:"America/Toronto",hour:"numeric",minute:"2-digit"}).format(new Date()));
+ }catch(e){set("projection-note","Projection data check failed; previously verified values remain on screen. ("+e.message+")");set("projection-refresh-status","Source check held; retry available");}
+ finally{projectionLoading=false;if(refreshButton){refreshButton.disabled=false;refreshButton.textContent="Refresh";}}
 }
 if(panel==="standings")loadStandings();
-if(panel==="projection")loadProjection();
+if(panel==="projection"){
+ $("projection-refresh").addEventListener("click",()=>void loadProjection());
+ window.setInterval(()=>{if(!document.hidden)void loadProjection();},240000);
+ document.addEventListener("visibilitychange",()=>{if(!document.hidden)void loadProjection();});
+ window.addEventListener("focus",()=>void loadProjection());
+ void loadProjection();
+}
 })();
