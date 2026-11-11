@@ -7,6 +7,7 @@ from pathlib import Path
 import sys
 import unittest
 from unittest.mock import patch
+from bs4 import BeautifulSoup
 
 ROOT=Path(__file__).resolve().parents[1]
 spec=importlib.util.spec_from_file_location("publisher",ROOT/"scripts/refresh_verified_hto_player_actuals_hourly.py")
@@ -28,7 +29,7 @@ def fixture():
     board=["REGULAR SEASON","1","2","3","OT","2OT","F"]
     def result(opp,ours,against):
         return table([board,[opp,"1","0","0","0","0",str(against)],
-                      ["Brave H.C.","1","0","0","0","0",str(ours)]])
+                      ["Brave H.C.",str(ours),"0","0","0","0",str(ours)]])
     score="<html><head><title>Brave H.C. Winter 2026/2027 Scores</title></head><body>"+result("A",2,1)+result("B",1,1)+"</body></html>"
     return stat,score
 
@@ -47,6 +48,19 @@ class PublisherContract(unittest.TestCase):
         for p in prev["players"]:p["gp"]=1;p["g"]=p["a"]=p["pts"]=0
         self.assertEqual(mod.decide(d,prev),"UPDATED_VERIFIED")
         self.assertEqual(mod.decide(d,d),"UNCHANGED_VERIFIED")
+    def test_newer_canonical_snapshot_can_confirm_earlier_stat_correction(self):
+        a,b=fixture()
+        proposal=mod.parse(a,b)
+        older=copy.deepcopy(proposal)
+        older["asOf"]="2026-10-25T00:00:00Z"
+        older["players"][0]["a"]+=1
+        older["players"][0]["pts"]+=1
+        with self.assertRaises(mod.SourceHold):mod.decide(proposal,older)
+        self.assertEqual(mod.decide(proposal,older,correction_evidence=proposal),"UPDATED_VERIFIED")
+        invalid=copy.deepcopy(proposal)
+        invalid["asOf"]="2026-10-20T00:00:00Z"
+        with self.assertRaises(mod.SourceHold):
+            mod.decide(proposal,older,correction_evidence=invalid)
     def test_scoreboard_identity_or_parity_rejected(self):
         a,b=fixture()
         with self.assertRaises(mod.SourceHold):mod.parse(a,b.replace("Brave H.C.","Other H.C."))
@@ -59,6 +73,19 @@ class PublisherContract(unittest.TestCase):
         a,b=fixture()
         with self.assertRaises(mod.SourceHold):mod.parse(a.replace("Brave H.C. Stats","Other H.C. Stats"),b)
         with self.assertRaises(mod.SourceHold):mod.parse(a,b.replace("Winter 2026/2027","Winter 2025/2026"))
+    def test_compact_scoreboard_mixed_with_full_scoreboards(self):
+        a,b=fixture()
+        soup=BeautifulSoup(b,"html.parser")
+        first=soup.find("table")
+        for tr in first.find_all("tr"):
+            row=tr.find_all(["td","th"],recursive=False)
+            row[4].extract()
+            row[5].extract()
+        out=mod.parse(a,str(soup))
+        self.assertEqual((out["teamGP"],out["teamGF"],out["teamGA"]),(2,3,2))
+        # A malformed compact header with full-width data must still fail.
+        damaged=b.replace("<td>OT</td><td>2OT</td>","",1)
+        with self.assertRaises(mod.SourceHold):mod.parse(a,damaged)
     def test_published_total_decrease_held(self):
         a,b=fixture();d=mod.parse(a,b)
         invalid=copy.deepcopy(d);invalid["teamGP"]-=1

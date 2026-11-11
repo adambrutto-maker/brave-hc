@@ -25,7 +25,7 @@ QUERY={"s":"hockey","u":"BRAVESHOCKEY"}
 STAT_URL="https://www.htosports.com/teams/default.asp?p=stats&s=hockey&u=BRAVESHOCKEY"
 SCORES_URL="https://www.htosports.com/teams/default.asp?p=scores&s=hockey&u=BRAVESHOCKEY"
 HEADER=["No","Name","POS","","GP","G","A","Pts"]
-SCORE_HEAD=["REGULAR SEASON","1","2","3","OT","2OT","F"]
+SCORE_HEADS=(["REGULAR SEASON","1","2","3","F"],["REGULAR SEASON","1","2","3","OT","2OT","F"])
 TEAM_HEAD=["GP","GF","GA","PPO","PK%"]
 OUTPUT=ROOT/"widgets/player-actuals-hourly.json"
 BASELINE=ROOT/"widgets/player-actuals.json"
@@ -103,16 +103,17 @@ def parse(stats_html,scores_html,read_at=None):
 
     scored=BeautifulSoup(scores_html,"html.parser")
     boards=[r for r in (rows(t) for t in scored.find_all("table"))
-            if r and r[0]==SCORE_HEAD]
+            if r and r[0] in SCORE_HEADS]
     require(len(boards)==gp,"HTO_FINAL_SCORES_GP_MISMATCH")
     game_scores=[]
     for table in boards:
-        require(len(table)==3 and all(len(x)==len(SCORE_HEAD) for x in table),
+        require(len(table)==3 and all(len(x)==len(table[0]) for x in table),
                 "HTO_SCORE_BOARD_MALFORMED")
         require(sum(1 for r in table[1:] if r[0]=="Brave H.C.")==1,
                 "HTO_SCORE_OUR_TEAM_IDENTITY")
         require(all(all(re.fullmatch(r"\d+",x) for x in r[1:]) for r in table[1:]),
                 "HTO_SCORE_NONINTEGER")
+        require(all(sum(map(int,r[1:-1]))==int(r[-1]) for r in table[1:]),"HTO_SCORE_PERIOD_TOTAL_MISMATCH")
         ours=next(r for r in table[1:] if r[0]=="Brave H.C.")
         theirs=next(r for r in table[1:] if r[0]!="Brave H.C.")
         game_scores.append((int(ours[-1]),int(theirs[-1])))
@@ -133,7 +134,7 @@ def signature(x):
           "teamGA","teamGoals","teamAssists","teamPlayerPoints","playerCount","players")
     return json.dumps({k:x.get(k) for k in cols},sort_keys=True,separators=(",",":"))
 
-def decide(proposed,previous):
+def decide(proposed,previous,correction_evidence=None):
     if previous is None:return "NEW_VERIFIED"
     require(previous.get("schema")==proposed["schema"] and
             previous.get("status")=="VERIFIED_HTO_CURRENT" and
@@ -148,9 +149,23 @@ def decide(proposed,previous):
             if old["gp"]>0:
                 require(old["name"] in by_name,"HTO_ROSTER_REMOVED_PUBLISHED_PLAYER_REVIEW")
                 new=by_name[old["name"]]
-                require(new["gp"]>=old["gp"] and new["g"]>=old["g"] and
-                        new["a"]>=old["a"] and new["pts"]>=old["pts"],
-                        "HTO_PLAYER_STAT_CORRECTION_REQUIRES_REVIEW")
+                require(new["gp"]>=old["gp"],"HTO_PLAYER_GP_CORRECTION_REQUIRES_REVIEW")
+                newer_baseline=(correction_evidence is not None and
+                    correction_evidence.get("status")=="VERIFIED_HTO_CURRENT" and
+                    correction_evidence.get("season")==proposed["season"] and
+                    correction_evidence.get("teamGP",0)>=previous["teamGP"] and
+                    correction_evidence.get("asOf","")>previous.get("asOf","") and
+                    correction_evidence.get("asOf","")<=proposed["asOf"])
+                verified_rows={p["name"]:p for p in correction_evidence.get("players",[])} if newer_baseline else {}
+                confirmed=verified_rows.get(old["name"],{})
+                for stat in ("g","a","pts"):
+                    if new[stat]<old[stat]:
+                        require(newer_baseline and confirmed and
+                                confirmed.get("gp",-1)>=old["gp"] and
+                                confirmed.get("gp",1001)<=new["gp"] and
+                                0<=confirmed.get(stat,1001)<old[stat] and
+                                new[stat]>=confirmed[stat],
+                                "HTO_PLAYER_STAT_CORRECTION_REQUIRES_REVIEW")
     else:
         require(int(proposed["season"][1:5])>=int(previous["season"][1:5]),
                 "HTO_PUBLISHED_SEASON_REWIND")
@@ -169,7 +184,7 @@ def run(output,receipt,check_only=False):
     baseline=json.loads(BASELINE.read_text(encoding="utf-8")) if BASELINE.exists() else None
     if baseline is not None:decide(proposal,baseline)
     old=json.loads(output.read_text(encoding="utf-8")) if output.exists() else None
-    status=decide(proposal,old)
+    status=decide(proposal,old,correction_evidence=baseline)
     summary={"status":status,"checkedAtUTC":proposal["asOf"],
              "source":"HTO_PUBLIC_STATS_AND_FINAL_SCORES",
              "teamGP":proposal["teamGP"],"teamGF":proposal["teamGF"],
