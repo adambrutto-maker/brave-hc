@@ -64,6 +64,8 @@ jobs:
         run: python -m unittest discover -s tests -p test_game_day_readiness.py
       - name: Validate source parser
         run: python tests/test_svhl_hto_parser.py
+      - name: Validate independent league/team schedule and permanent game IDs
+        run: python -m unittest discover -s tests -p test_svhl_team_schedule_integrity.py
       - name: Validate manual HTO correction packets
         run: python -m unittest discover -s tests -p test_hto_review_packet.py
       - name: Validate verified HTO goalie roster and dropdown allowlist
