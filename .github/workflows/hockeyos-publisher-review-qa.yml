@@ -1,0 +1,40 @@
+name: HockeyOS Publisher Recovery Review QA
+
+on:
+  pull_request:
+    paths:
+      - scripts/hockeyos_publisher_review_preflight.js
+      - scripts/hockeyos_publisher_prepare_isolated_review.py
+      - scripts/hockeyos_publisher_task_health.js
+      - scripts/hockeyos_publisher_shadow_health.js
+      - scripts/hockeyos_publisher_prepare_path_patches.py
+      - tests/test_hockeyos_publisher_prepare_path_patches.py
+      - tests/test_hockeyos_publisher_shadow_health.js
+      - tests/test_hockeyos_publisher_task_health.js
+      - tests/test_hockeyos_publisher_isolated_prepare.py
+      - tests/test_hockeyos_publisher_review_preflight.js
+      - tests/test_hockeyos_publisher_widget_contracts.js
+      - .github/workflows/hockeyos-publisher-review-qa.yml
+      - docs/261020_HockeyOS_Publisher_Divergence_Recovery_Review.md
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  source-contracts-and-no-push:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - name: Read review branch
+        uses: actions/checkout@v4
+      - name: Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Test safe publication planning and current widget contracts
+        run: node --test tests/test_hockeyos_publisher_review_preflight.js tests/test_hockeyos_publisher_widget_contracts.js tests/test_player_links.js tests/test_hockeyos_publisher_task_health.js tests/test_hockeyos_publisher_shadow_health.js
+      - name: Test isolated fresh-main recovery planning without network or Git writes
+        run: python -m unittest discover -s tests -p test_hockeyos_publisher_isolated_prepare.py -v
+      - name: Test inert path patch plan for all publisher dependencies
+        run: python -m unittest discover -s tests -p test_hockeyos_publisher_prepare_path_patches.py -v
