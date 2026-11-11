@@ -1,0 +1,53 @@
+name: HockeyOS HTO Boxscore Header Review QA
+
+on:
+  pull_request:
+    paths:
+      - 'scripts/hockeyos_hourly_collector_entrypoint.py'
+      - 'tests/test_hockeyos_hourly_collector_entrypoint.py'
+      - 'scripts/hockeyos_operational_collector.py'
+      - 'tests/test_hockeyos_operational_collector.py'
+      - 'scripts/hockeyos_feed_adapter_review.py'
+      - 'tests/test_hockeyos_feed_adapter_review.py'
+      - 'scripts/hockeyos_discovery_review.py'
+      - 'tests/test_hockeyos_discovery_review.py'
+      - 'scripts/hockeyos_collector_candidate.py'
+      - 'tests/test_hockeyos_collector_candidate.py'
+      - 'scripts/hockeyos_review_four_game_source_parity.py'
+      - 'tests/test_hockeyos_source_review_validation.py'
+      - 'tests/lib/hockeyos_hto_boxscore_header_review.py'
+      - 'tests/test_hockeyos_hto_boxscore_header_review.py'
+      - 'docs/261020_HockeyOS_HTO_Boxscore_Schema_ReadOnly_Diagnosis.md'
+      - '.github/workflows/hockeyos-hto-boxscore-review-qa.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  review-header-shapes:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout PR without live collection
+        uses: actions/checkout@v4
+      - name: Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Compile review command without network collection
+        run: python -m py_compile scripts/hockeyos_review_four_game_source_parity.py
+      - name: Hourly collector entrypoint validation
+        run: python -m unittest discover -s tests -p 'test_hockeyos_hourly_collector_entrypoint.py' -v
+      - name: Operational writer and rollback validation
+        run: python -m unittest discover -s tests -p 'test_hockeyos_operational_collector.py' -v
+      - name: Feed adapter validation
+        run: python -m unittest discover -s tests -p 'test_hockeyos_feed_adapter_review.py' -v
+      - name: Discovery review validation
+        run: python -m unittest discover -s tests -p 'test_hockeyos_discovery_review.py' -v
+      - name: Isolated collector candidate validation
+        run: python -m unittest discover -s tests -p 'test_hockeyos_collector_candidate.py' -v
+      - name: Source review validation without network
+        run: python -m unittest discover -s tests -p 'test_hockeyos_source_review_validation.py' -v
+      - name: Synthetic header and unknown-goalie-POTG regression
+        run: python -m unittest discover -s tests -p 'test_hockeyos_hto_boxscore_header_review.py' -v
