@@ -29,8 +29,15 @@ function safePubDate(iso){
  const d=new Date(iso+"T12:00:00Z");
  return d.toLocaleDateString("en-CA",{month:"short",day:"numeric",year:"numeric",timeZone:"America/Toronto"});
 }
+function founderApprovedPending(a){
+ return !!(a&&a.gameId===3375684&&a.id==="recap-3375684"&&
+ a.verification?.status==="FOUNDER_APPROVED_HTO_PENDING"&&a.verification?.officialHtoScoringPending===true&&
+ a.publicationApproval?.decision==="FOUNDER_AUTHORIZE_POST_2026-11-10"&&a.editorialState==="FOUNDER_APPROVED"&&
+ a.boxScore?.opponent==="Other Way"&&a.boxScore?.ourGoals===5&&a.boxScore?.theirGoals===6&&
+ a.sourceUrls?.[0]==="https://leagues.sportsvillage.ca/Leagues.aspx?leagueid=570&page_type=Adult&sc=HOCKEY");
+}
 function checkArticle(a){
- return !!(a&&a.verification?.status==="SOURCE_VERIFIED"&&typeof a.headline==="string"&&
+ return !!(a&&(a.verification?.status==="SOURCE_VERIFIED"||founderApprovedPending(a))&&typeof a.headline==="string"&&
  a.headline.length>8&&typeof a.dek==="string"&&a.boxScore&&
  Number.isInteger(a.boxScore.ourGoals)&&Number.isInteger(a.boxScore.theirGoals)&&
  Array.isArray(a.paragraphs)&&a.paragraphs.length>=1&&a.sourceUrls?.length);
@@ -78,7 +85,7 @@ function showRecap(){
    return;
  }
  const matching=context.config?.publishedVideo?.gameId===article.gameId;
- const label="LATEST APPROVED RECAP"+(matching?" · GAME HIGHLIGHTS ABOVE":"");
+ const label=(founderApprovedPending(article)?"LATEST TEAM-APPROVED REPORT · HTO SCORING PENDING":"LATEST APPROVED RECAP")+(matching?" · GAME HIGHLIGHTS ABOVE":"");
  const snippet=article.paragraphs[0];
  const score="Brave H.C. "+article.boxScore.ourGoals+"–"+article.boxScore.theirGoals+" "+article.boxScore.opponent;
  const view=card(label,article.headline,score+" · "+article.dek,snippet,safePubDate(article.date),"Read Full Article",fullLink("feature"));
@@ -92,8 +99,8 @@ function showNext(){
  if(!published){
    const box=text("article","article-card");
    box.append(text("div","eyebrow","NEXT GAME · VERIFIED SCHEDULE"));
-   box.append(text("h2",null,game?"Brave H.C. vs "+game.opponent:"Next fixture pending verification"));
-   box.append(text("p","lede","The approved pregame article does not match the current HTO fixture. Check the official schedule for the latest information."));
+   box.append(text("h2",null,p&&game?"Brave H.C. vs "+game.opponent:"Next fixture pending confirmation"));
+   box.append(text("p","lede",p?"The approved pregame article does not match the current HTO fixture. Check the official schedule for the latest information.":"Sports Village and HTO currently disagree on the November 15 opponent and time. Confirm the fixture before attending."));
    box.append(link("Official HTO Schedule","https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=schedule"));
    panel.append(box);return;
  }
@@ -121,7 +128,7 @@ function showArchive(){
  }
  box.append(list);
  const more=text("div","card-actions");
- more.append(text("span","story-meta",String(arr.length)+" verified stories on file"));
+ more.append(text("span","story-meta",String(arr.length)+" approved stories on file"));
  more.append(link("View Full Archive",fullLink("archive")));
  box.append(more);
  panel.append(box);
