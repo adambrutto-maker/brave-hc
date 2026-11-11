@@ -13,10 +13,10 @@
   "sourceVerifiedAt": "2026-11-02",
   "generatedAt": "2026-11-11T04:38:22.386Z",
   "editorialState": "FOUNDER_APPROVED",
-  "publicationPolicy": "All seven approved team game reports remain available. November 8 is founder-approved team reporting pending official HTO scorer; earlier six remain fully HTO-verified.",
+  "publicationPolicy": "All seven approved team game reports remain available. November 8 scorer and assist credits now match the live HTO box score; final opponent-goal chronology is under review. Earlier six reports retain their approved source scope.",
   "latestArticle": {
     "id": "recap-3375684",
-    "articleType": "FOUNDER_APPROVED_GAME_REPORT_PENDING_HTO",
+    "articleType": "FOUNDER_APPROVED_GAME_REPORT_HTO_CREDITS_VERIFIED_TIMING_REVIEW",
     "gameId": 3375684,
     "headline": "Braves Rally From Three Goals Down, Fall 6–5 to Other Way on Last-Second Winner",
     "date": "2026-11-08",
@@ -110,14 +110,28 @@
       "status": "NO_VERIFIED_BRAVES_MATCH_HISTORY"
     },
     "verification": {
-      "status": "FOUNDER_APPROVED_HTO_PENDING",
-      "officialHtoScoringPending": true,
+      "status": "FOUNDER_APPROVED_HTO_CREDITS_VERIFIED_TIMING_REVIEW",
+      "officialHtoScoringPending": false,
       "leagueStandingsConfirmTeamRecord": true,
       "founderProvidedScoringNarrative": true,
-      "sourceScope": "League standings confirm team record and goals through game seven; individual credits and goal sequence from Founder-approved team report pending official HTO sheet",
-      "publicationQualification": "NOT AN HTO-VERIFIED SCORING SHEET",
+      "sourceScope": "Public HTO box score confirms all five Brave goals, eight assists, three POTG credits and game result 6-5. Exact opponent-goal sequence and claimed 10-second winner are team-reported and not corroborated by current HTO play-by-play ordering.",
+      "publicationQualification": "HTO PLAYER GOAL/ASSIST AND POTG CREDITS VERIFIED; LATE WINNING GOAL TIME REMAINS TEAM REPORT",
       "upcomingScheduleConflict": "Sports Village Nov 15 Sugo 7:15 PM A vs HTO Nov 15 Dateline 8:15 PM A",
-      "videoVerified": false
+      "videoVerified": false,
+      "officialGoalChronologyPending": true,
+      "verifiedHtoScoringCredits": true,
+      "htoReadback": {
+        "gameId": 3375684,
+        "readbackDate": "2026-11-11",
+        "checksPassed": 12,
+        "checksTotal": 12,
+        "braveGoals": 5,
+        "braveAssists": 8,
+        "potg": 3,
+        "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3375684",
+        "qaSha256": "38c03a1a61505f937a94afa4e7b6ad6fc21e02e6f168caa2d417be81ed89f51f",
+        "scope": "Verified G1-G5 scorer and assist records, player totals, and final score; NOT decisive-goal timing"
+      }
     },
     "publicationApproval": {
       "decision": "FOUNDER_AUTHORIZE_POST_2026-11-10",
@@ -2162,5 +2176,12 @@
       "archiveFingerprint": "54b1f19fd5005ac41eb637e651d8065887b29d59c7aeaac6b8a4f74bfaf466ad",
       "scope": "Rewritten five 2026-27 archived recaps and natural Next Up, keeping existing November 1 feature"
     }
+  },
+  "publicationRevisionAuthorization": {
+    "decision": "APPROVED_TO_PUBLISH_UPDATED_HTO_CREDITS_QUALIFICATION",
+    "approvedBy": "Founder",
+    "date": "2026-11-11",
+    "source": "User command to push the draft article live after 12/12 live HTO readback",
+    "scope": "Latest Nov 8 recap publication status and verified-credit qualification only; retain narrative and prior approval"
   }
 }

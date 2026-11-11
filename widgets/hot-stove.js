@@ -39,10 +39,21 @@ function founderApprovedPending(a){
  a.boxScore?.opponent==="Other Way"&&a.boxScore?.ourGoals===5&&a.boxScore?.theirGoals===6&&
  a.sourceUrls?.[0]==="https://leagues.sportsvillage.ca/Leagues.aspx?leagueid=570&page_type=Adult&sc=HOCKEY");
 }
+function founderApprovedCreditsVerified(a){
+ return !!(a&&a.gameId===3375684&&a.id==="recap-3375684"&&
+  a.verification?.status==="FOUNDER_APPROVED_HTO_CREDITS_VERIFIED_TIMING_REVIEW"&&
+  a.verification?.officialHtoScoringPending===false&&
+  a.verification?.officialGoalChronologyPending===true&&
+  a.verification?.verifiedHtoScoringCredits===true&&
+  a.verification?.htoReadback?.checksPassed===12&&a.verification?.htoReadback?.checksTotal===12&&
+  a.publicationApproval?.decision==="FOUNDER_AUTHORIZE_POST_2026-11-10"&&
+  a.editorialState==="FOUNDER_APPROVED"&&
+  a.boxScore?.opponent==="Other Way"&&a.boxScore?.ourGoals===5&&a.boxScore?.theirGoals===6);
+}
 function articleFacts(a){
  if(!a||!a.headline||!a.boxScore||!a.sourceUrls?.length||
     !Array.isArray(a.paragraphs)||a.paragraphs.length<3||
-    !(a.verification?.status==="SOURCE_VERIFIED"||founderApprovedPending(a)))throw Error("Article source validation absent");
+    !(a.verification?.status==="SOURCE_VERIFIED"||founderApprovedPending(a)||founderApprovedCreditsVerified(a)))throw Error("Article source validation absent");
  if(!Number.isInteger(a.boxScore.ourGoals)||!Number.isInteger(a.boxScore.theirGoals)||
     !a.boxScore.opponent)throw Error("Untrusted score");
  return a;
@@ -235,7 +246,7 @@ function feature(section,a,includePreview){
  }
  section.append(headline);
  section.append($("p","lead",a.dek));
- section.append($("div","meta",a.displayDate+(founderApprovedPending(a)?" · Team-approved report · HTO scoring pending":" · Verified HTO box score")));
+ section.append($("div","meta",a.displayDate+(founderApprovedCreditsVerified(a)?" - Team-approved report - HTO scorer credits verified; goal timing under review":founderApprovedPending(a)?" · Team-approved report · HTO scoring pending":" · Verified HTO box score")));
  const b=a.boxScore,score=$("div","score");
  score.append($("span","team-name","BRAVE H.C."));
  const nums=$("div","numbers");nums.append($("span",null,String(b.ourGoals)));

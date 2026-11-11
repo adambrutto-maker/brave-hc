@@ -36,8 +36,19 @@ function founderApprovedPending(a){
  a.boxScore?.opponent==="Other Way"&&a.boxScore?.ourGoals===5&&a.boxScore?.theirGoals===6&&
  a.sourceUrls?.[0]==="https://leagues.sportsvillage.ca/Leagues.aspx?leagueid=570&page_type=Adult&sc=HOCKEY");
 }
+function founderApprovedCreditsVerified(a){
+ return !!(a&&a.gameId===3375684&&a.id==="recap-3375684"&&
+  a.verification?.status==="FOUNDER_APPROVED_HTO_CREDITS_VERIFIED_TIMING_REVIEW"&&
+  a.verification?.officialHtoScoringPending===false&&
+  a.verification?.officialGoalChronologyPending===true&&
+  a.verification?.verifiedHtoScoringCredits===true&&
+  a.verification?.htoReadback?.checksPassed===12&&a.verification?.htoReadback?.checksTotal===12&&
+  a.publicationApproval?.decision==="FOUNDER_AUTHORIZE_POST_2026-11-10"&&
+  a.editorialState==="FOUNDER_APPROVED"&&
+  a.boxScore?.opponent==="Other Way"&&a.boxScore?.ourGoals===5&&a.boxScore?.theirGoals===6);
+}
 function checkArticle(a){
- return !!(a&&(a.verification?.status==="SOURCE_VERIFIED"||founderApprovedPending(a))&&typeof a.headline==="string"&&
+ return !!(a&&(a.verification?.status==="SOURCE_VERIFIED"||founderApprovedPending(a)||founderApprovedCreditsVerified(a))&&typeof a.headline==="string"&&
  a.headline.length>8&&typeof a.dek==="string"&&a.boxScore&&
  Number.isInteger(a.boxScore.ourGoals)&&Number.isInteger(a.boxScore.theirGoals)&&
  Array.isArray(a.paragraphs)&&a.paragraphs.length>=1&&a.sourceUrls?.length);
@@ -85,7 +96,7 @@ function showRecap(){
    return;
  }
  const matching=context.config?.publishedVideo?.gameId===article.gameId;
- const label=(founderApprovedPending(article)?"LATEST TEAM-APPROVED REPORT · HTO SCORING PENDING":"LATEST APPROVED RECAP")+(matching?" · GAME HIGHLIGHTS ABOVE":"");
+ const label=(founderApprovedCreditsVerified(article)?"LATEST REPORT - HTO SCORER CREDITS VERIFIED":founderApprovedPending(article)?"LATEST TEAM-APPROVED REPORT · HTO SCORING PENDING":"LATEST APPROVED RECAP")+(matching?" · GAME HIGHLIGHTS ABOVE":"");
  const snippet=article.paragraphs[0];
  const score="Brave H.C. "+article.boxScore.ourGoals+"–"+article.boxScore.theirGoals+" "+article.boxScore.opponent;
  const view=card(label,article.headline,score+" · "+article.dek,snippet,safePubDate(article.date),"Read Full Article",fullLink("feature"));
