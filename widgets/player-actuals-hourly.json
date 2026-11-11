@@ -4,7 +4,7 @@
   "source": "Official Brave H.C. HTO current-season player statistics",
   "sourceUrl": "https://www.htosports.com/teams/default.asp?p=stats&s=hockey&u=BRAVESHOCKEY",
   "season": "W2026/27",
-  "asOf": "2026-11-11T03:54:53.265Z",
+  "asOf": "2026-11-11T14:12:11.374Z",
   "teamGP": 7,
   "teamGF": 19,
   "teamGA": 36,
@@ -78,7 +78,7 @@
     },
     {
       "name": "Pagnotta, Alex",
-      "gp": 7,
+      "gp": 6,
       "g": 0,
       "a": 6,
       "pts": 6
