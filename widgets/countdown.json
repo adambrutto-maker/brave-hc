@@ -9,7 +9,7 @@
     "offsetMinutesAfterPuckDrop": 60,
     "condition": "clock threshold, not official final score"
   },
-  "generatedAt": "2026-11-11T03:31:12.578945Z",
+  "generatedAt": "2026-11-11T05:31:13.149219Z",
   "sourcePages": [
     "https://www.htosports.com/teams/default.asp?p=schedule&s=hockey&u=BRAVESHOCKEY&d=20261101",
     "https://www.htosports.com/teams/default.asp?p=schedule&s=hockey&u=BRAVESHOCKEY&d=20261201",
@@ -26,24 +26,24 @@
   "games": [
     {
       "id": 3375685,
-      "opponent": "Dateline Predators",
+      "opponent": "Sugo Sundays",
       "homeAway": "Home",
       "rink": "Vaughan Sports Village - A Rink",
       "gameDate": "2026-11-15",
-      "puckDrop": "2026-11-15T20:15:00-05:00",
-      "puckDropUTC": "2026-11-16T01:15:00Z",
-      "rolloverAtUTC": "2026-11-16T02:15:00Z",
+      "puckDrop": "2026-11-15T19:15:00-05:00",
+      "puckDropUTC": "2026-11-16T00:15:00Z",
+      "rolloverAtUTC": "2026-11-16T01:15:00Z",
       "eventURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=preview&sportsHQ=BRAVESHOCKEY&gameID=3375685"
     },
     {
       "id": 3375686,
-      "opponent": "Mohawks H.C.",
+      "opponent": "Dateline Predators",
       "homeAway": "Home",
       "rink": "Vaughan Sports Village - A Rink",
       "gameDate": "2026-11-22",
-      "puckDrop": "2026-11-22T20:15:00-05:00",
-      "puckDropUTC": "2026-11-23T01:15:00Z",
-      "rolloverAtUTC": "2026-11-23T02:15:00Z",
+      "puckDrop": "2026-11-22T20:00:00-05:00",
+      "puckDropUTC": "2026-11-23T01:00:00Z",
+      "rolloverAtUTC": "2026-11-23T02:00:00Z",
       "eventURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=preview&sportsHQ=BRAVESHOCKEY&gameID=3375686"
     }
   ]
