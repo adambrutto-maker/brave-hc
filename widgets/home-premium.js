@@ -241,7 +241,7 @@ function sharedTrendBadge(p){
  const engine=window.HockeyOSAdaptiveTrendV365,visual=window.HockeyOSBioTrendVisualV36;
  if(!engine)return null;
  const reading=engine.classify(p,projection,dispersion);
- if(reading.status==='ROOKIE')return engine.rookieBadge(document,visual);
+ if(reading.status==='ROOKIE'){const b=engine.rookieBadge(document,visual);if(b)b.dataset.iconSource='APPROVED_BIO_ARTWORK_ROOKIE';return b;}
  if(reading.status!=='VERIFIED')return null;
  const badge=engine.badge(document,reading,visual,'PROJECTION');
  if(badge){
@@ -252,38 +252,40 @@ function sharedTrendBadge(p){
 }
 // Stable original-workbook icon when verified adaptive dispersion is held.
 // This is not a substitute for source-qualified adaptive trend classification.
-function workbookTrendIcon(state){
- const el=node("span","home-trend-fallback");
- const name=state.new?(state.label.startsWith("NEW")?"ROOKIE":"HELD"):state.name.toUpperCase();
- const color=state.new?"#e0ebf7":state.color;
- const svg=document.createElementNS("http://www.w3.org/2000/svg","svg");
- svg.setAttribute("class","bio-trend-direction-arrow projection-direction-icon");
- svg.setAttribute("viewBox","0 0 24 24");
- svg.setAttribute("role","img");
- svg.setAttribute("aria-label",state.new?"No comparable career trend":"Original workbook "+state.name+" arrow");
- const title=document.createElementNS("http://www.w3.org/2000/svg","title");
- title.textContent=state.new?state.label:"Workbook category: "+state.name;
- svg.append(title);
- if(state.new){
-  const circle=document.createElementNS("http://www.w3.org/2000/svg","circle");
-  for(const [k,v] of Object.entries({cx:"12",cy:"12",r:"8",stroke:color,"stroke-width":"1.7",fill:"none"}))circle.setAttribute(k,v);
-  const txt=document.createElementNS("http://www.w3.org/2000/svg","text");
-  for(const [k,v] of Object.entries({x:"12",y:"15.5","text-anchor":"middle","font-family":"Arial","font-weight":"bold","font-size":"10",fill:color}))txt.setAttribute(k,v);
-  txt.textContent=name==="ROOKIE"?"N":"?";
-  svg.append(circle,txt);
- }else{
-  const path=document.createElementNS("http://www.w3.org/2000/svg","path");
-  for(const [k,v] of Object.entries({d:"M12 20 V4 M5 11 L12 4 L19 11",fill:"none",stroke:color,"stroke-width":"2.7","stroke-linejoin":"round","stroke-linecap":"round",transform:"rotate("+state.rotate+" 12 12)"}))path.setAttribute(k,v);
-  svg.append(path);
+// Render the approved Bio SVG artwork, not a simplified homepage-only arrow.
+// Original workbook five-arrow thresholds and sigma remain the source of truth.
+function approvedWorkbookBadge(row){
+ const model=window.HockeyOSBioProjectionTrend;
+ const visual=window.HockeyOSBioTrendVisualV36;
+ if(!model?.directionalArrow||!visual?.createBadge||!projection)return null;
+ const reading=model.directionalArrow(row,projection);
+ let icon=null;
+ if(reading.status==="ROOKIE"){
+  icon=visual.createBadge(document,{zScore:0},"Neutral",true);
+  if(icon)icon.dataset.iconSource="APPROVED_BIO_ARTWORK_ROOKIE";
+ }else if(reading.status==="VERIFIED_STANDARD_DEVIATION_ARROW"){
+  icon=visual.createBadge(document,reading,reading.category,false);
+  if(icon){
+   icon.dataset.iconSource="APPROVED_BIO_ARTWORK_WORKBOOK";
+   icon.dataset.workbookCategory=reading.category;
+   icon.dataset.sourceTrend=String(row.trend);
+   icon.dataset.sigma=String(reading.sigma);
+   icon.dataset.evidenceTier="WORKBOOK_SIGMA_VERIFIED";
+   icon.dataset.sharedModelOutput="false";
+  }
  }
- el.dataset.visualLevel=name;
- el.dataset.iconSource=state.new?"NO_COMPARABLE_TREND":"ORIGINAL_WORKBOOK_5_ARROW";
- el.dataset.evidenceTier="WORKBOOK_CATEGORY_ONLY";
- el.dataset.sharedModelOutput="false";
- el.dataset.verifiedGp="";
- el.dataset.variant=name;
- el.style.setProperty("--fallback-border",color);
- el.append(svg);
+ // A held model may not invent an arrow.
+ return icon;
+}
+function approvedLegendBadge(state){
+ const visual=window.HockeyOSBioTrendVisualV36;
+ const sigma=projection?.conditionalFormatting?.sampleStandardDeviation;
+ if(!visual?.createBadge||!num(sigma)||sigma<=0)return null;
+ const examples={Cold:-2.35,Cool:-1.4,Neutral:0,Warm:0.75,Hot:1.35};
+ const z=examples[state.name];
+ if(!num(z))return null;
+ const el=visual.createBadge(document,{zScore:z,sigma,sourceValue:z*sigma},state.name,false);
+ if(el)el.dataset.iconSource="APPROVED_BIO_ARTWORK_LEGEND_EXAMPLE";
  return el;
 }
 function shortPlayerName(raw){
@@ -336,8 +338,8 @@ function drawProjection(){
   const modelRate=num(projected)?projected.toFixed(3):"unavailable";
   const diffText=num(p.trend)?(p.trend>0?"+":"")+(p.trend*100).toFixed(1)+"%":"unavailable";
   const adaptiveBadge=sharedTrendBadge(p);
-  const badge=adaptiveBadge||workbookTrendIcon(state);
-  const displayLevel=badge?.dataset.visualLevel||(state.new?(state.label.startsWith("NEW")?"ROOKIE":"HELD"):state.name.toUpperCase());
+  const badge=adaptiveBadge||approvedWorkbookBadge(p);
+  const displayLevel=badge?.dataset.visualLevel||(state.new?(state.label.startsWith("NEW")?"ROOKIE":"HELD"):"HELD");
   const gpProof=badge?.dataset.verifiedGp;
   const tier=badge?.dataset.evidenceTier||'UNVERIFIED';
   const tierPhrase={MORE_OBSERVED_GAMES:'more observed',
@@ -349,13 +351,13 @@ function drawProjection(){
   const evidenceLong=adaptiveBadge?(gpProof?gpProof+' verified official GP; '+tierPhrase+' sample'+
     (sharedModel?'; shared zero-scoring model formula across multiple players':''):
     'No independent current-game appearance proof for this model player'):
-    (state.new?state.label:'Workbook arrow from original five-category thresholds; adaptive source held');
+    (state.new?state.label:'Approved shared Bio art from original workbook sigma and five-category thresholds; adaptive scale held');
   detailTD.textContent=(adaptiveBadge?"Verified adaptive trend: ":"Workbook-based trend: ")+displayLevel+
     ". Original workbook five-arrow category: "+state.label.replace(/ ·.*/,"")+
     ". Historical career RS rate: "+baselineText+" P/G; model scoring-rate component: "+
     modelRate+" P/G; workbook trend: "+diffText+
     ". Displayed projected P/G: "+(num(p.ptsPerGame)?p.ptsPerGame.toFixed(3):"—")+
-    ". Badge sensitivity follows qualified team dispersion; original workbook thresholds and values remain unchanged."+
+    ". Approved Bio artwork follows verified adaptive data or original workbook sigma; workbook thresholds remain unchanged."+
     " Current evidence: "+evidenceLong+
     "; this is a sample-size description, not forecast confidence.";
   details.append(detailTD);
@@ -363,7 +365,7 @@ function drawProjection(){
     badge.classList.add("home-trend-badge");
     badge.querySelector("svg.bio-trend-direction-arrow")?.setAttribute("aria-hidden","true");
     button.dataset.visualLevel=displayLevel;
-   button.dataset.iconSource=adaptiveBadge?"VERIFIED_ADAPTIVE":"ORIGINAL_WORKBOOK_OR_STATUS";
+   button.dataset.iconSource=badge.dataset.iconSource||(adaptiveBadge?"APPROVED_BIO_ARTWORK_ADAPTIVE":"APPROVED_BIO_ARTWORK_WORKBOOK");
     button.dataset.workbookCategory=state.label.replace(/ ·.*/,"");
     button.append(badge,node("span","home-level-word",displayLevel),
       node("span","home-evidence-word",evidenceShort));
@@ -371,9 +373,9 @@ function drawProjection(){
     button.dataset.sharedModelOutput=String(sharedModel);
     button.dataset.verifiedGp=gpProof||'';
   }else button.append(node("span","new",state.label.startsWith("NEW")?"NEW":"—"));
-  button.title=displayLevel+" team-calibrated display · "+state.label+
+  button.title=displayLevel+" shared approved Bio artwork · "+state.label+
     (num(state.value)?" · workbook "+diffText:"")+
-    " · Evidence: "+evidenceLong+" · Forecast provisional until workbook reconciliation";
+    " | Evidence: "+evidenceLong+(projection.modelCurrent?" | Model reconciled":" | Model reconciliation pending");
   button.setAttribute("aria-label",cleanName(p.name)+": "+button.title+". Show model comparison");
   button.addEventListener("click",()=>{details.hidden=!details.hidden;button.setAttribute("aria-expanded",String(!details.hidden))});
   trendTD.append(button);tr.append(trendTD);table.append(tr,details);
@@ -387,15 +389,27 @@ function drawLegend(){
  const adaptive=window.HockeyOSAdaptiveTrendV365;
  const items=adaptive?.legend(document,dispersion,projection,window.HockeyOSBioTrendVisualV36)||[];
  if(!items.length){
-  box.append(node("span","home-key-label","Original workbook five-arrow categories (adaptive source held):"));
+  box.append(node("span","home-key-label","Approved Bio artwork - workbook five-category examples (adaptive scale held):"));
   for(const state of states){
    const holder=node("span","home-trend-key");
-   holder.append(workbookTrendIcon(state),node("span","",state.name));
+   const icon=approvedLegendBadge(state);
+   if(icon){
+    icon.classList.add("home-trend-badge","home-trend-legend-badge");
+    icon.querySelector("svg.bio-trend-direction-arrow")?.setAttribute("aria-hidden","true");
+    holder.append(icon);
+   }
+   holder.append(node("span","",state.name));
    box.append(holder);
   }
-  const rookie=node("span","home-trend-key");
-  rookie.append(workbookTrendIcon({new:true,label:"NEW - no career baseline"}),node("span","","New / source held"));
-  box.append(rookie);
+  const newcomer=node("span","home-trend-key");
+  const rookie=window.HockeyOSBioTrendVisualV36?.createBadge?.(document,{zScore:0},"Neutral",true);
+  if(rookie){
+   rookie.classList.add("home-trend-badge","home-trend-legend-badge");
+   rookie.querySelector("svg.bio-trend-direction-arrow")?.setAttribute("aria-hidden","true");
+   newcomer.append(rookie);
+  }
+  newcomer.append(node("span","","New / no career comparison"));
+  box.append(newcomer);
   return;
  }
  for(const item of items){

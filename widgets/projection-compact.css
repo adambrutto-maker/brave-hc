@@ -50,9 +50,6 @@ body.projection-panel .projection-table .trend-button{width:100%;min-width:0!imp
 body.projection-panel .projection-table .trend-button .v36-badge.home-trend-badge{width:24px!important;height:24px!important;min-width:24px!important;min-height:24px!important;border-radius:6px;flex:none}
 body.projection-panel .projection-table .home-level-word{font-size:8px!important;max-width:50px;font-weight:800;line-height:1;overflow-wrap:anywhere}
 body.projection-panel .projection-table .home-evidence-word{display:none!important}
-body.projection-panel .projection-table .home-trend-fallback{display:grid;place-items:center;box-sizing:border-box;flex:none;width:25px;height:25px;border:1px solid var(--fallback-border,#69869c);border-radius:6px;background:linear-gradient(145deg,#193a56,#061b30);box-shadow:inset 0 1px 0 #fff2}
-body.projection-panel .projection-table .home-trend-fallback svg{width:20px;height:20px;display:block}
-body.projection-panel .projection-table .home-trend-fallback[data-variant="HELD"]{border-style:dashed}
 body.projection-panel .projection-table tbody tr:not(.details) td::before{display:none!important;content:none!important}
 body.projection-panel .projection-table .details{display:table-row!important}
 body.projection-panel .projection-table .details td{display:table-cell!important;white-space:normal!important;text-align:left!important;padding:9px!important;font-size:11px;line-height:1.45}
@@ -60,8 +57,6 @@ body.projection-panel .projection-table .details[hidden]{display:none!important}
 body.projection-panel .projection-legend-disclosure{margin-top:5px;border-top:1px solid var(--line)}
 body.projection-panel .projection-legend-disclosure>summary{padding:5px 2px;font-size:9px;color:#dbe7f5;cursor:pointer}
 body.projection-panel .projection-legend-disclosure .legend{margin:4px 0}
-body.projection-panel .projection-legend-disclosure .home-trend-fallback{display:grid;place-items:center;width:25px;height:25px;border:1px solid #65839b;border-radius:5px;background:#102a40}
-body.projection-panel .projection-legend-disclosure .home-trend-fallback svg{width:20px;height:20px}
 body.projection-panel .projection-legend-disclosure .home-trend-key{padding:3px 5px}
 body.projection-panel .model{font-size:9px;line-height:1.2;margin-top:4px;padding-top:5px}
 body.projection-panel .foot{margin-top:4px;padding-top:4px}
@@ -96,7 +91,6 @@ body.projection-panel.full .projection-table .trend-button .v36-badge.home-trend
  body.projection-panel .projection-table .home-level-word{font-size:7px!important}
  body.projection-panel .projection-table th{font-size:8px;padding:4px 1px}
  body.projection-panel .projection-table .trend-button{min-height:29px!important;height:29px}
- body.projection-panel .projection-table .home-trend-fallback{width:23px;height:23px}
  body.projection-panel .projection-table .trend-button .v36-badge.home-trend-badge{width:23px!important;height:23px!important;min-width:23px!important;min-height:23px!important}
 }
 @media(max-width:410px){
@@ -110,7 +104,6 @@ body.projection-panel.full .projection-table .trend-button .v36-badge.home-trend
  body.projection-panel .projection-table .role{font-size:8px}
  body.projection-panel .projection-table .home-level-word{display:none!important}
  body.projection-panel .projection-table .trend-button .v36-badge.home-trend-badge{width:24px!important;height:24px!important;min-width:24px!important;min-height:24px!important}
- body.projection-panel .projection-table .home-trend-fallback{width:24px;height:24px}
 }
 @media(max-width:350px){
  body.projection-panel .content{padding:5px}
@@ -132,9 +125,61 @@ body.projection-panel.full .projection-table .trend-button .v36-badge.home-trend
 /* Final density pass: keep projected and actual numerals fully visible. */
 body.projection-panel .projection-table tbody tr:not(.details){height:31px}
 body.projection-panel .projection-table tr:not(.details) td{height:31px}
-body.projection-panel .projection-table .home-trend-badge *,body.projection-panel .projection-table .home-trend-fallback *{animation:none!important;transition:none!important}
 @media(max-width:620px){
  body.projection-panel .projection-table tbody tr:not(.details){height:35px}
  body.projection-panel .projection-table tr:not(.details) td{height:35px}
  body.projection-panel:not(.full) .full-link{display:none}
+}
+
+/* Approved artwork parity: identical Bio V3.6 square badge for every player.
+   The Trend column always centers the entire fixed-square icon, independent
+   of state words, label lengths and responsive breakpoints. */
+body.projection-panel .projection-table th:nth-child(7),
+body.projection-panel .projection-table tbody tr:not(.details) td:last-child{
+ text-align:center!important;padding-left:0!important;padding-right:0!important;
+}
+body.projection-panel .projection-table tbody tr:not(.details){height:39px!important;min-height:39px!important}
+body.projection-panel .projection-table tbody tr:not(.details) td{height:39px!important}
+body.projection-panel .projection-table .trend-button{
+ display:flex!important;flex-direction:row!important;align-items:center!important;
+ justify-content:center!important;gap:0!important;margin:0 auto!important;
+ padding:0!important;width:100%;min-width:0!important;
+ height:35px!important;min-height:35px!important;
+ overflow:visible!important;
+}
+body.projection-panel .projection-table .home-level-word{display:none!important}
+body.projection-panel .projection-table .trend-button .v36-badge.home-trend-badge{
+ width:33px!important;height:33px!important;min-width:33px!important;min-height:33px!important;
+ flex:0 0 33px!important;display:grid!important;place-items:center!important;
+ margin:0 auto!important;border-radius:8px!important;
+ transform:none!important;box-sizing:border-box!important;
+}
+body.projection-panel .projection-table .v36-badge.home-trend-badge .v36-arrow-canvas{
+ position:absolute;inset:0;width:100%;height:100%;
+}
+body.projection-panel .projection-table .v36-badge.home-trend-badge .v36-element{
+ right:1px!important;top:1px!important;width:30%!important;height:30%!important;
+ min-width:0!important;min-height:0!important;
+ border-radius:2px!important;box-sizing:border-box!important;
+}
+body.projection-panel .projection-table .v36-badge.home-trend-badge .v36-element>svg{
+ display:block!important;width:100%!important;height:100%!important;
+}
+body.projection-panel .projection-legend-disclosure .v36-badge.home-trend-legend-badge{
+ width:35px!important;height:35px!important;min-width:35px!important;min-height:35px!important;
+ border-radius:8px!important;
+}
+body.projection-panel .projection-legend-disclosure .v36-badge.home-trend-legend-badge .v36-element{
+ width:30%!important;height:30%!important;min-width:0!important;min-height:0!important;
+ right:1px!important;top:1px!important;border-radius:2px!important;
+}
+/* All model-driven arrows remain stationary until a verified refresh.
+   Approved colour, frame, thick arrow and frost/flame artwork remain present. */
+body.projection-panel .projection-table .v36-arrow-rotor{transition:none!important}
+@media(max-width:620px){
+ body.projection-panel .projection-table tbody tr:not(.details){height:39px!important}
+ body.projection-panel .projection-table tbody tr:not(.details) td{height:39px!important}
+ body.projection-panel .projection-table .trend-button .v36-badge.home-trend-badge{
+  width:32px!important;height:32px!important;min-width:32px!important;min-height:32px!important;flex-basis:32px!important;
+ }
 }
