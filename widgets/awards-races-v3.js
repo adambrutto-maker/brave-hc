@@ -4,7 +4,7 @@ const $=(t,c,v)=>{const e=document.createElement(t);if(c)e.className=c;if(v!==un
 const find=id=>document.getElementById(id);
 const put=(id,v)=>find(id).textContent=String(v);
 const DOM={select:find("award"),region:find("scores"),notice:find("notice"),pilot:find("pilot"),info:find("award-info")};
-const state={source:null,reference:null,explain:null,participation:null,award:"rolaids",mode:"current"};
+const state={source:null,reference:null,explain:null,participation:null,liveActuals:null,award:"rolaids",mode:"current"};
 if(new URLSearchParams(location.search).has("embed"))document.body.classList.add("embed");
 function badge(v){if(v>=95)return["elite","Elite"];if(v>=85)return["contender","Contender"];if(v>=75)return["strong","Strong"];if(v>=65)return["developing","Building"];return["neutral","Rating"]}
 function el(p,t,c,v){const n=$(t,c,v);p.append(n);return n}
@@ -337,12 +337,43 @@ function renderSeasonParticipants(){
  }
  el(p,"p","source-note","Source: HTO game records and HockeyOS HTO-fed skater/goalie appearance readback. Unidentified game-sheet entries are not counted as named nominees. Actual award ratings remain separately gated.");
 }
+function validateLiveActuals(feed,source){
+ if(!feed||feed.schema!=="brave-hc-hto-player-actuals/v1"||feed.status!=="VERIFIED_HTO_CURRENT"
+    ||feed.season!==source.season||!Number.isInteger(feed.teamGP)||feed.teamGP<source.currentTeamGP
+    ||!Array.isArray(feed.players)||feed.players.length<15)return null;
+ const stamp=Date.parse(feed.asOf);
+ if(!Number.isFinite(stamp)||stamp>Date.now()+120000||Date.now()-stamp>86400000)return null;
+ const unique=new Set(feed.players.map(p=>p.name));
+ if(unique.size!==feed.players.length||feed.players.some(p=>typeof p.name!=="string"||!p.name.trim()
+   ||![p.gp,p.g,p.a,p.pts].every(Number.isInteger)||p.gp<0||p.gp>feed.teamGP||p.g<0||p.a<0||p.g+p.a!==p.pts)
+   ||feed.players.reduce((n,p)=>n+p.g,0)!==feed.teamGF
+   ||feed.players.reduce((n,p)=>n+p.a,0)!==feed.teamAssists)return null;
+ return feed;
+}
+function showLiveHTOStatistics(){
+ const feed=state.liveActuals;
+ if(!feed)return;
+ const panel=el(DOM.region,"details","exact participation");
+ el(panel,"summary",null,"Latest official HTO scoring · "+feed.players.length+" skaters · unranked");
+ const body=el(panel,"div","participant-inner");
+ el(body,"p",null,"Verified official HTO regular-season scoring through "+feed.teamGP+" team games. Listed alphabetically; these are not award ratings, award rankings, eligibility assessments or goalie statistics.");
+ const items=el(body,"div","participant-grid");
+ const ordered=[...feed.players].sort((a,b)=>a.name.localeCompare(b.name));
+ for(const p of ordered){
+  const tile=el(items,"div","participant-item");
+  el(tile,"strong",null,p.name);
+  el(tile,"span",null,p.gp+" GP · "+p.g+" G · "+p.a+" A · "+p.pts+" PTS");
+ }
+ el(body,"p","source-note","Current HTO season stats only · "+feed.asOf+". AwardScoring formula models and full game event evidence remain separately gated.");
+}
 function draw(){
  if(!state.source)return;
  const d=state.source,award=d.awards.find(a=>a.id===state.award);
  labelData();DOM.region.replaceChildren();
  const isCurrent=state.mode==="current";
- put("source-label",isCurrent?"This season · "+d.currentTeamGP+" games":"Saved workbook examples · historical");
+ const currentGP=state.liveActuals?.teamGP||d.currentTeamGP;
+ const modelStale=currentGP>d.currentTeamGP;
+ put("source-label",isCurrent?"This season · "+currentGP+" official HTO games":"Saved workbook examples · historical");
  if(isCurrent){
   const race=d.races[state.award];
   // Hard UI fail-closed check: player must actually play during this season,
@@ -352,12 +383,15 @@ function draw(){
    notice("The season has not started. Award races open only after the first verified game.",false);
    DOM.region.append($("div","empty","No games played — award board empty."));
   }else if(!valid){
-   notice("The team has played "+d.currentTeamGP+" verified games. Current award scores are being recalculated against those games; saved old-season ratings are kept separate.");
+   notice(modelStale
+    ?"HTO confirms "+currentGP+" completed games. The award workbook and event-level participation evidence are only verified through "+d.currentTeamGP+" games ("+d.latestGameDate+"). Current award ratings, shortlists and eligibility are withheld until the original calculations are reconciled."
+    :"The team has played "+d.currentTeamGP+" verified games. Current award scores are being recalculated against those games; saved old-season ratings are kept separate.");
    const box=$("div","empty");el(box,"strong",null,"This week's model ratings aren't ready yet");
    el(box,"p",null,"Award rankings remain empty until the workbook scores, game dates and participants match the verified season. We don't substitute old ratings, other stats or players with zero appearances.");
    DOM.region.append(box);
    // Publish an explicitly unranked, award-specific appearance watch independent of the held formula ratings.
-   renderRaceActivity();
+   if(modelStale)showLiveHTOStatistics();
+   else renderRaceActivity();
   }else{
    let rows=(race.entries||[]).filter(x=>Number.isFinite(+x.gamesPlayed)&&+x.gamesPlayed>=1&&+x.gamesPlayed<=d.currentTeamGP&&typeof x.eligible==="boolean"&&(Number.isFinite(x.modelScore)||x.scoreKind==="AWARD_MODEL_PENDING"));
    rows.sort((a,b)=>Number(b.eligible)-Number(a.eligible)||(b.eligible?(Number(b.rankKey)||0)-(Number(a.rankKey)||0):0)||(Number(b.rawComposite)||0)-(Number(a.rawComposite)||0)||a.name.localeCompare(b.name));rows=rows.slice(0,5);
@@ -365,7 +399,7 @@ function draw(){
    if(!rows.length)DOM.region.append($("div","empty","No verified award participants yet."));
    else rows.forEach((r,i)=>DOM.region.append(card(r,i,false)));
   }
-  if(d.currentTeamGP>=1)renderSeasonParticipants();
+  if(d.currentTeamGP>=1&&!modelStale)renderSeasonParticipants();
  }else{
   notice("Historical examples from the saved workbook. These ratings and scorecards are NOT the current 2026–27 race. Use them to explore how award calculations work.");
   const saved=state.reference?.races?.[state.award]||[];
@@ -380,7 +414,9 @@ async function boot(){
  const [source,reference,explain,participation]=await Promise.all(["./awards-races.json","./awards-workbook-reference.json","./awards-component-evidence.json","./awards-participants.json"].map(async url=>{const r=await fetch(url,{cache:"no-store"});if(!r.ok)throw Error("source "+url);return r.json()}));
  if(source.schema!=="brave-hc-awards-races-weekly/v1"||reference.schema!=="brave-hc-awards-workbook-reference/v1"||explain.schema!=="brave-hc-awards-component-evidence/v1"||source.awards.length!==11||participation.schema!=="brave-hc-awards-participants/v1"||participation.season!==source.season||participation.officialTeamGames!==source.currentTeamGP)throw Error("contract");
  state.source=source;state.reference=reference;state.explain=explain;state.participation=participation;
- put("gp",source.currentTeamGP);
+ const latest=await fetch("./player-actuals-hourly.json",{cache:"no-store"}).then(r=>r.ok?r.json():null).catch(()=>null);
+ state.liveActuals=validateLiveActuals(latest,source);
+ put("gp",state.liveActuals?.teamGP||source.currentTeamGP);
  DOM.select.replaceChildren();for(const a of source.awards){const o=$("option",null,a.name);o.value=a.id;DOM.select.append(o);}
  DOM.select.value=state.award;DOM.select.addEventListener("change",()=>{state.award=DOM.select.value;draw()});
  document.querySelectorAll("[data-mode]").forEach(b=>b.addEventListener("click",()=>selectMode(b.dataset.mode)));
