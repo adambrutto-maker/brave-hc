@@ -6,9 +6,9 @@
   "modelDriver": "HTO_PUBLISHED_TEAM_STATISTICS",
   "publicationStatus": "HTO_MODEL_CURRENT",
   "modelCurrent": true,
-  "modelSnapshotDate": "2026-11-11",
+  "modelSnapshotDate": "2026-11-12",
   "workbookBaselineDate": "2026-09-20",
-  "exportedAt": "2026-11-11T14:16:20.165068+00:00",
+  "exportedAt": "2026-11-12T02:31:16.642894+00:00",
   "workbookSourceHash": "0002fd9f06596af8d0a00fc1b53a618ef15479f941ad5c1e6265b27002a65154",
   "sourceInputs": {
     "workbookRecordedTeamGP": 1,
@@ -21,7 +21,7 @@
     "htoTeamGoals": 19,
     "htoTeamAssists": 31
   },
-  "htoreadback": "2026-11-11T14:15:39.257Z",
+  "htoreadback": "2026-11-12T02:31:00.517Z",
   "modelParity": {
     "replayedRows": 21,
     "mismatches": 0
