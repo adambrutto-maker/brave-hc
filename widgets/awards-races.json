@@ -2,17 +2,19 @@
   "schema": "brave-hc-awards-races-weekly/v1",
   "team": "Brave H.C.",
   "season": "W2026/27",
-  "publishedAsOf": "2026-10-19",
-  "latestGameDate": "2026-10-18",
-  "publishedState": "EARLY_SEASON_HTO_PERFORMANCE_MODEL_AWARD_SCORES_HELD",
-  "currentTeamGP": 4,
-  "sourceHTOReadback": "2026-10-19T03:55:10.771Z",
+  "publishedAsOf": "2026-11-12",
+  "latestGameDate": "2026-11-08",
+  "publishedState": "SEVEN_GAME_OFFICIAL_HTO_PARTICIPATION_ONLY_AWARD_MODEL_SCORES_HELD",
+  "currentTeamGP": 7,
+  "sourceHTOReadback": "2026-11-12T02:05:52.103021+00:00",
   "sourceWorkbookBaselineDate": "2026-09-20",
   "sourceWorkbookRecordedGP": 1,
   "sourceWorkbookHash": "0002fd9f06596af8d0a00fc1b53a618ef15479f941ad5c1e6265b27002a65154",
   "sourceModelParity": {
-    "replayedRows": 21,
-    "mismatches": 0
+    "status": "CURRENT_W2026_27_SEVEN_GAME_AWARD_SCORING_NOT_RECALCULATED",
+    "replayedRows": 0,
+    "mismatches": null,
+    "releaseAuthorized": false
   },
   "seasonRaceMode": {
     "earlyWeeklyRace": "HYBRID_WORKBOOK_RANKING_ELIGIBLE_THEN_PROVISIONAL",
@@ -21,10 +23,10 @@
     "eligibilityThresholdAppliedToOfficialOnly": false,
     "scorePolicy": "Only actual verified workbook score fields: eligible final score; ineligible computed award raw composite without eligibility gating when source formula and underlying inputs are verified; no normalization invented. Source currentAwardScoring must match completed HTO games before publishing.",
     "currentModelScoresVerified": false,
-    "reason": "Workbook award values not reconciled to four verified 2026/27 HTO games; one game in available workbook.",
+    "reason": "HTO seven-game participation and raw statistics independently reconciled; original AwardScoring workbook remains at 1 game; source integrity and eligibility gates held",
     "shortlistFillPolicy": "Eligible players always occupy leading places, ranked among themselves by workbook award-specific Rank Key; provisional noneligible players then fill any remaining places up to five, ranked by workbook raw composite (or measured points/goals for scoring titles). Once five eligible players exist, no provisional names appear.",
     "neverHideProvisionalWhenFewEligible": true,
-    "sourceFreshness": "HTO-fed season data plus independently validated AwardScoring calculation; HTO projection-bridge parity does not itself verify AwardScoring.",
+    "sourceFreshness": "Independent verified seven-game HTO boxscore and season audit; not source workbook AwardScoring",
     "minimumVerifiedCurrentSeasonGP": 1,
     "beforeFirstTeamGame": "EMPTY_BOARD",
     "earlySeasonParticipation": "SHOW_ONLY_PARTICIPANTS_WITH_AT_LEAST_ONE_VERIFIED_CURRENT_SEASON_GAME",
@@ -225,75 +227,93 @@
   "htoPerformanceSnapshot": [
     {
       "name": "Carosi, Justin",
-      "gp": 4,
-      "g": 3,
-      "a": 0,
-      "points": 3,
+      "gp": 7,
+      "g": 4,
+      "a": 4,
+      "points": 8,
       "rosterStatus": "FT",
-      "source": "HTO season player statistics reconciled within projection.json; not award model scoring"
+      "source": "Official HTO seven-game season statistics only; not a rated award nomination"
     },
     {
       "name": "Pagnotta, Alex",
-      "gp": 4,
+      "gp": 6,
       "g": 0,
-      "a": 3,
-      "points": 3,
+      "a": 6,
+      "points": 6,
       "rosterStatus": "FT",
-      "source": "HTO season player statistics reconciled within projection.json; not award model scoring"
+      "source": "Official HTO seven-game season statistics only; not a rated award nomination"
     },
     {
       "name": "Provenzano, Michael",
-      "gp": 3,
-      "g": 0,
-      "a": 3,
-      "points": 3,
+      "gp": 6,
+      "g": 2,
+      "a": 4,
+      "points": 6,
       "rosterStatus": "FT",
-      "source": "HTO season player statistics reconciled within projection.json; not award model scoring"
+      "source": "Official HTO seven-game season statistics only; not a rated award nomination"
+    },
+    {
+      "name": "Saindon, Stephane",
+      "gp": 6,
+      "g": 3,
+      "a": 3,
+      "points": 6,
+      "rosterStatus": "FT",
+      "source": "Official HTO seven-game season statistics only; not a rated award nomination"
+    },
+    {
+      "name": "Rosenberg, Jamie",
+      "gp": 6,
+      "g": 2,
+      "a": 2,
+      "points": 4,
+      "rosterStatus": "FT",
+      "source": "Official HTO seven-game season statistics only; not a rated award nomination"
     },
     {
       "name": "Kober, Adam",
-      "gp": 3,
+      "gp": 6,
       "g": 1,
-      "a": 1,
-      "points": 2,
+      "a": 2,
+      "points": 3,
       "rosterStatus": "CU",
-      "source": "HTO season player statistics reconciled within projection.json; not award model scoring"
+      "source": "Official HTO seven-game season statistics only; not a rated award nomination"
     },
     {
       "name": "Kong, Henry",
+      "gp": 7,
+      "g": 1,
+      "a": 1,
+      "points": 2,
+      "rosterStatus": "FT",
+      "source": "Official HTO seven-game season statistics only; not a rated award nomination"
+    },
+    {
+      "name": "Triumbari, Francesco",
+      "gp": 7,
+      "g": 0,
+      "a": 2,
+      "points": 2,
+      "rosterStatus": "FT",
+      "source": "Official HTO seven-game season statistics only; not a rated award nomination"
+    },
+    {
+      "name": "Povegliano, Adam",
+      "gp": 6,
+      "g": 2,
+      "a": 0,
+      "points": 2,
+      "rosterStatus": "FT",
+      "source": "Official HTO seven-game season statistics only; not a rated award nomination"
+    },
+    {
+      "name": "Pearsoll, Keith",
       "gp": 4,
       "g": 1,
       "a": 1,
       "points": 2,
       "rosterStatus": "FT",
-      "source": "HTO season player statistics reconciled within projection.json; not award model scoring"
-    },
-    {
-      "name": "Pearsoll, Keith",
-      "gp": 3,
-      "g": 1,
-      "a": 0,
-      "points": 1,
-      "rosterStatus": "FT",
-      "source": "HTO season player statistics reconciled within projection.json; not award model scoring"
-    },
-    {
-      "name": "Pavaday, Damian",
-      "gp": 1,
-      "g": 0,
-      "a": 1,
-      "points": 1,
-      "rosterStatus": "DI",
-      "source": "HTO season player statistics reconciled within projection.json; not award model scoring"
-    },
-    {
-      "name": "Saindon, Stephane",
-      "gp": 3,
-      "g": 0,
-      "a": 1,
-      "points": 1,
-      "rosterStatus": "FT",
-      "source": "HTO season player statistics reconciled within projection.json; not award model scoring"
+      "source": "Official HTO seven-game season statistics only; not a rated award nomination"
     }
   ],
   "survey": {
@@ -439,12 +459,15 @@
     "votingGuideConflict": "Separate public voting guide says rank all 5 at 5–1 points. Active pilot form uses select exactly 2. Do not conflate."
   },
   "notes": [
-    "Week 4 HTO team totals are independently verified, but award scores are not. Performance snapshot is informational only.",
     "Eligibility flags are not used to hide provisional weekly races once workbook scores are verified.",
     "The currently published pilot ballot is not automatically updated with weekly race entrants.",
     "The workbook remains read-only; no HTO site data or form response data is altered.",
     "Founder 2026-10-19 ruling: fill early top five with workbook-ranked provisional players, replacing them preferentially with eligible players; strictly eligible-only once five qualify.",
     "Current HTO-fed projection model is working separately from the workbook AwardScoring snapshot, which remains pending validation.",
-    "2026-10-19 new Founder gate: zero current-season GP cannot appear on weekly award race as either eligible or provisional. Preseason board empty. With fewer than five played, publish only actual participants."
+    "2026-10-19 new Founder gate: zero current-season GP cannot appear on weekly award race as either eligible or provisional. Preseason board empty. With fewer than five played, publish only actual participants.",
+    "Seven-game HTO and game sheet appearance data are independently source-reconciled. No AwardScoring current-season rating was generated.",
+    "Current official seven-game skater plus/minus includes one excluded unnamed prior game entry (Unknown, Johnny), not eligible as a named nominee.",
+    "The pinned HTO collector manifest has source SHA drift under separate Engineering review; this source-only dataset is not a production-accepted AwardScoring model.",
+    "No weekly award top-five has been computed. Historical reference scores and team voting ballot are unchanged."
   ]
 }

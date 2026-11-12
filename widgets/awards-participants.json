@@ -1,22 +1,29 @@
 {
   "schema": "brave-hc-awards-participants/v1",
   "season": "W2026/27",
-  "officialTeamGames": 4,
-  "latestCompletedGameDate": "2026-10-18",
+  "officialTeamGames": 7,
+  "latestCompletedGameDate": "2026-11-08",
   "evidenceGameIds": [
     3356177,
     3356178,
     3369564,
-    3375601
+    3375601,
+    3375682,
+    3375683,
+    3375684
   ],
-  "generatedFromFeedsAt": "2026-10-19",
+  "generatedFromFeedsAt": "2026-11-12T02:05:52.103021+00:00",
   "sourceReference": {
-    "htoReadback": "2026-10-19T03:55:10.771Z",
-    "projectionSha": "ae96ff6f2044da25cb85d2e07be406776b2e7b44",
-    "rosterContextSha": "3a3c4dc7b6c2ff6dcbb9a26f841e21e71d667c98"
+    "htoReadback": "2026-11-12T02:05:52.103021+00:00",
+    "officialAuditSHA256": "3c592d7d9526d69c1b97a5fbaab881d2da97a27e1b5ab69b8a40bf6f1e0e0dd1",
+    "operationalFeedSHA256": "ff3758c81433cff118f51e11b93f4ea47b2674d83503dd35b2182776c5f0dd93",
+    "officialPositionSourceURL": "https://www.htosports.com/teams/default.asp?p=stats&s=hockey&u=BRAVESHOCKEY",
+    "officialPositionSourceSHA256": "d176daa3814869461025df447533050486f02f31a7f20964f2e255ea6468b87c",
+    "originalWorkbookSHA256": "0002fd9f06596af8d0a00fc1b53a618ef15479f941ad5c1e6265b27002a65154",
+    "currentAwardModelScoringCertified": false
   },
   "status": "UNRANKED_VERIFIED_SEASON_APPEARANCES_NOT_AWARD_SCORES",
-  "scope": "Named participants from the verified season HTO skater stats and all four verified game-night goalie sheets; workbook award formulas, eligibility, scoring and future games not inferred.",
+  "scope": "Official HTO seven-game named appearances, positions, raw season statistics and per-game evidence. Unranked only: not 2026/27 original AwardScoring, eligibility, or nominees.",
   "players": [
     {
       "name": "Ardizzi, Stefano",
@@ -26,7 +33,7 @@
       "goals": 0,
       "assists": 0,
       "points": 0,
-      "source": "HTO published current-season skater scoring bridged to HockeyOS projection",
+      "source": "HTO verified seven-game season and individual boxscores; not AwardScoring",
       "officialHTOStats": {
         "gp": 1,
         "goals": 0,
@@ -35,6 +42,7 @@
       },
       "htoListedPosition": "LW",
       "htoPositionHasDefenceOption": false,
+      "rosterClassificationSource": "SAVED_HOCKEYOS_ROSTER_SNAPSHOT_ROLE_NOT_AWARD_ELIGIBILITY",
       "currentHTORaw": {
         "name": "Ardizzi, Stefano",
         "listedPosition": "LW",
@@ -45,32 +53,18 @@
         "gameTyingGoals": 0,
         "penaltyMinutes": 0,
         "plusMinus": -3,
-        "pointsPerGame": 0,
+        "pointsPerGame": 0.0,
         "playerOfTheGameCount": 0,
         "sourceKind": "OFFICIAL_HTO_PUBLISHED_SEASON_STATISTICS",
         "season": "W2026/27"
       },
       "currentHTOEventEvidence": {
-        "reportedPIMFreeGameAppearances": 1,
-        "gamesWithPublishedPIM": 0,
         "playedOfficialHTOGameIds": [
           3356177
         ],
-        "sourceKind": "HTO_SCORES_AND_BOX_SCORE_EVENTS_RECONCILED",
-        "publicationLimit": "Verified event input, not normalized workbook award subscore"
-      },
-      "verifiedHTOScoringByStrength": {
-        "evenStrengthGoals": 0,
-        "evenStrengthAssists": 0,
-        "powerPlayGoals": 0,
-        "powerPlayAssists": 0,
-        "shorthandedGoals": 0,
-        "shorthandedAssists": 0,
-        "publishedSpecialTeamsPointGames": 0,
-        "sourceGameIds": [
-          3356177
-        ],
-        "sourceStatus": "EXACT_HTO_GOAL_SCORER_AND_ASSISTANT_EVENTS_RECONCILED_NOT_AWARD_SCORE"
+        "sourceKind": "HTO_SEVEN_GAME_GAME_SHEETS_AND_SEASON_STATS_RECONCILED_NOT_AWARD_SCORE",
+        "publishedPIMGameValuesKnown": 0,
+        "unknownPIMGameValues": 1
       },
       "sourceHTOGamePattern": {
         "status": "HTO_PER_GAME_OBSERVATIONS_CROSSCHECKED_TO_CURRENT_SEASON",
@@ -98,8 +92,8 @@
           "playerOfTheGameCredits": 0
         },
         "modelAwardSubscore": null,
-        "provenance": "Four named skater game sheets, official HTO GP/G/A/PTS/plus-minus and Player of the Game parity",
-        "limitation": "Raw game pattern counts, not the original workbook weighted/normalized Consistency, Two-Way or Streak Heat subscore."
+        "provenance": "Seven named 2026/27 HTO game sheets and official HTO season statistics; no award formula parity",
+        "limitation": "Per-game raw input observations, not normalized workbook award components"
       }
     },
     {
@@ -110,7 +104,7 @@
       "goals": 0,
       "assists": 0,
       "points": 0,
-      "source": "HTO published current-season skater scoring bridged to HockeyOS projection",
+      "source": "HTO verified seven-game season and individual boxscores; not AwardScoring",
       "officialHTOStats": {
         "gp": 2,
         "goals": 0,
@@ -119,6 +113,7 @@
       },
       "htoListedPosition": "C/D",
       "htoPositionHasDefenceOption": true,
+      "rosterClassificationSource": "SAVED_HOCKEYOS_ROSTER_SNAPSHOT_ROLE_NOT_AWARD_ELIGIBILITY",
       "currentHTORaw": {
         "name": "Atkins, Nolan",
         "listedPosition": "C/D",
@@ -129,34 +124,19 @@
         "gameTyingGoals": 0,
         "penaltyMinutes": 0,
         "plusMinus": -4,
-        "pointsPerGame": 0,
+        "pointsPerGame": 0.0,
         "playerOfTheGameCount": 0,
         "sourceKind": "OFFICIAL_HTO_PUBLISHED_SEASON_STATISTICS",
         "season": "W2026/27"
       },
       "currentHTOEventEvidence": {
-        "reportedPIMFreeGameAppearances": 2,
-        "gamesWithPublishedPIM": 0,
         "playedOfficialHTOGameIds": [
           3356178,
           3369564
         ],
-        "sourceKind": "HTO_SCORES_AND_BOX_SCORE_EVENTS_RECONCILED",
-        "publicationLimit": "Verified event input, not normalized workbook award subscore"
-      },
-      "verifiedHTOScoringByStrength": {
-        "evenStrengthGoals": 0,
-        "evenStrengthAssists": 0,
-        "powerPlayGoals": 0,
-        "powerPlayAssists": 0,
-        "shorthandedGoals": 0,
-        "shorthandedAssists": 0,
-        "publishedSpecialTeamsPointGames": 0,
-        "sourceGameIds": [
-          3356178,
-          3369564
-        ],
-        "sourceStatus": "EXACT_HTO_GOAL_SCORER_AND_ASSISTANT_EVENTS_RECONCILED_NOT_AWARD_SCORE"
+        "sourceKind": "HTO_SEVEN_GAME_GAME_SHEETS_AND_SEASON_STATS_RECONCILED_NOT_AWARD_SCORE",
+        "publishedPIMGameValuesKnown": 0,
+        "unknownPIMGameValues": 2
       },
       "sourceHTOGamePattern": {
         "status": "HTO_PER_GAME_OBSERVATIONS_CROSSCHECKED_TO_CURRENT_SEASON",
@@ -193,69 +173,55 @@
           "playerOfTheGameCredits": 0
         },
         "modelAwardSubscore": null,
-        "provenance": "Four named skater game sheets, official HTO GP/G/A/PTS/plus-minus and Player of the Game parity",
-        "limitation": "Raw game pattern counts, not the original workbook weighted/normalized Consistency, Two-Way or Streak Heat subscore."
+        "provenance": "Seven named 2026/27 HTO game sheets and official HTO season statistics; no award formula parity",
+        "limitation": "Per-game raw input observations, not normalized workbook award components"
       }
     },
     {
       "name": "Brutto, Adam",
       "role": "FT",
       "position": "Skater",
-      "gp": 4,
+      "gp": 6,
       "goals": 0,
-      "assists": 0,
-      "points": 0,
-      "source": "HTO published current-season skater scoring bridged to HockeyOS projection",
+      "assists": 1,
+      "points": 1,
+      "source": "HTO verified seven-game season and individual boxscores; not AwardScoring",
       "officialHTOStats": {
-        "gp": 4,
+        "gp": 6,
         "goals": 0,
-        "assists": 0,
-        "points": 0
+        "assists": 1,
+        "points": 1
       },
       "htoListedPosition": "LD",
       "htoPositionHasDefenceOption": true,
+      "rosterClassificationSource": "SAVED_HOCKEYOS_ROSTER_SNAPSHOT_ROLE_NOT_AWARD_ELIGIBILITY",
       "currentHTORaw": {
         "name": "Brutto, Adam",
         "listedPosition": "LD",
-        "gamesPlayed": 4,
+        "gamesPlayed": 6,
         "goals": 0,
-        "assists": 0,
-        "points": 0,
+        "assists": 1,
+        "points": 1,
         "gameTyingGoals": 0,
         "penaltyMinutes": 0,
-        "plusMinus": -13,
-        "pointsPerGame": 0,
+        "plusMinus": -12,
+        "pointsPerGame": 0.167,
         "playerOfTheGameCount": 0,
         "sourceKind": "OFFICIAL_HTO_PUBLISHED_SEASON_STATISTICS",
         "season": "W2026/27"
       },
       "currentHTOEventEvidence": {
-        "reportedPIMFreeGameAppearances": 4,
-        "gamesWithPublishedPIM": 0,
         "playedOfficialHTOGameIds": [
           3356177,
           3356178,
           3369564,
-          3375601
+          3375601,
+          3375682,
+          3375684
         ],
-        "sourceKind": "HTO_SCORES_AND_BOX_SCORE_EVENTS_RECONCILED",
-        "publicationLimit": "Verified event input, not normalized workbook award subscore"
-      },
-      "verifiedHTOScoringByStrength": {
-        "evenStrengthGoals": 0,
-        "evenStrengthAssists": 0,
-        "powerPlayGoals": 0,
-        "powerPlayAssists": 0,
-        "shorthandedGoals": 0,
-        "shorthandedAssists": 0,
-        "publishedSpecialTeamsPointGames": 0,
-        "sourceGameIds": [
-          3356177,
-          3356178,
-          3369564,
-          3375601
-        ],
-        "sourceStatus": "EXACT_HTO_GOAL_SCORER_AND_ASSISTANT_EVENTS_RECONCILED_NOT_AWARD_SCORE"
+        "sourceKind": "HTO_SEVEN_GAME_GAME_SHEETS_AND_SEASON_STATS_RECONCILED_NOT_AWARD_SCORE",
+        "publishedPIMGameValuesKnown": 2,
+        "unknownPIMGameValues": 4
       },
       "sourceHTOGamePattern": {
         "status": "HTO_PER_GAME_OBSERVATIONS_CROSSCHECKED_TO_CURRENT_SEASON",
@@ -296,61 +262,76 @@
             "points": 0,
             "plusMinus": -6,
             "playerOfTheGame": 0
+          },
+          {
+            "gameId": 3375682,
+            "date": "2026-10-25",
+            "g": 0,
+            "a": 1,
+            "points": 1,
+            "plusMinus": 2,
+            "playerOfTheGame": 0
+          },
+          {
+            "gameId": 3375684,
+            "date": "2026-11-08",
+            "g": 0,
+            "a": 0,
+            "points": 0,
+            "plusMinus": -1,
+            "playerOfTheGame": 0
           }
         ],
         "observedCounts": {
-          "gamesPlayed": 4,
-          "pointScoringGames": 0,
+          "gamesPlayed": 6,
+          "pointScoringGames": 1,
           "goalScoringGames": 0,
           "multiPointGames": 0,
           "threeOrMorePointGames": 0,
-          "positivePlusMinusGames": 0,
-          "negativePlusMinusGames": 4,
+          "positivePlusMinusGames": 1,
+          "negativePlusMinusGames": 5,
           "evenPlusMinusGames": 0,
           "playerOfTheGameCredits": 0
         },
         "modelAwardSubscore": null,
-        "provenance": "Four named skater game sheets, official HTO GP/G/A/PTS/plus-minus and Player of the Game parity",
-        "limitation": "Raw game pattern counts, not the original workbook weighted/normalized Consistency, Two-Way or Streak Heat subscore."
+        "provenance": "Seven named 2026/27 HTO game sheets and official HTO season statistics; no award formula parity",
+        "limitation": "Per-game raw input observations, not normalized workbook award components"
       }
     },
     {
       "name": "Carlyle, Adam",
-      "position": "Goalie",
       "role": "G",
+      "position": "Goalie",
       "gp": 1,
-      "verifiedGameIds": [
-        3369564
-      ],
-      "source": "Verified HTO game-night goalie appearance in roster-context feed",
+      "goals": null,
+      "assists": null,
+      "points": null,
+      "source": "HTO verified seven-game goalie season and individual boxscores; not AwardScoring",
       "officialHTOStats": {
         "gp": 1,
+        "wins": 0,
         "losses": 1,
         "goalsAgainst": 3,
-        "gaa": 3,
-        "playerOfTheGame": 1
+        "goalsAgainstAverage": 3.0,
+        "playerOfTheGameCount": 1
       },
-      "htoListedPosition": "G",
+      "rosterClassificationSource": "SAVED_HOCKEYOS_ROSTER_SNAPSHOT_ROLE_NOT_AWARD_ELIGIBILITY",
       "currentHTORaw": {
         "name": "Carlyle, Adam",
         "gamesPlayed": 1,
-        "losses": 1,
         "goalsAgainst": 3,
-        "goalsAgainstAverage": 3,
+        "goalsAgainstAverage": 3.0,
+        "losses": 1,
         "playerOfTheGameCount": 1,
-        "plusMinus": -1,
-        "sourceKind": "OFFICIAL_HTO_PUBLISHED_SEASON_STATISTICS",
-        "season": "W2026/27"
+        "season": "W2026/27",
+        "sourceKind": "OFFICIAL_HTO_PUBLISHED_SEASON_STATISTICS"
       },
       "currentHTOEventEvidence": {
         "playedOfficialHTOGameIds": [
           3369564
         ],
-        "gamesWithoutReportedGoaltenderPenalty": 1,
-        "reportedGoaliePenaltyEvents": 0,
-        "recordedGoalEventPoints": 0,
-        "sourceKind": "FOUR_HTO_BOXSCORES_GOALIE_APPEARANCE_AND_ALL_PUBLISHED_PENALTY_GOAL_EVENTS_VERIFIED",
-        "publicationLimit": "HTO source event counts only, NOT normalized goalie discipline/offense, quality game or any award rating"
+        "sourceKind": "HTO_SEVEN_GAME_GOALIE_GAME_SHEETS_RECONCILED_NOT_AWARD_SCORE",
+        "unknownPOTGGameValues": 0
       },
       "sourceHTOGamePattern": {
         "status": "HTO_GOALIE_PER_GAME_OBSERVATIONS_CROSSCHECKED_TO_CURRENT_SEASON",
@@ -363,75 +344,57 @@
             "playerOfTheGame": 1
           }
         ],
-        "observedCounts": {
-          "gamesPlayed": 1,
-          "goalsAgainst": 3,
-          "playerOfTheGameCredits": 1
-        },
         "modelAwardSubscore": null,
-        "provenance": "Named HTO goaltender sheets reconciled to official goalie-season GA/POTG/GP",
-        "limitation": "Raw game observations, not workbook-defined quality/unbeaten game, goalie reliability or normalized subscore."
+        "provenance": "Seven official HTO game sheets and published goalie season totals",
+        "limitation": "Unknown per-game POTG values not zero-filled or treated as award scoring"
       }
     },
     {
       "name": "Carosi, Justin",
       "role": "FT",
       "position": "Skater",
-      "gp": 4,
-      "goals": 3,
-      "assists": 0,
-      "points": 3,
-      "source": "HTO published current-season skater scoring bridged to HockeyOS projection",
+      "gp": 7,
+      "goals": 4,
+      "assists": 4,
+      "points": 8,
+      "source": "HTO verified seven-game season and individual boxscores; not AwardScoring",
       "officialHTOStats": {
-        "gp": 4,
-        "goals": 3,
-        "assists": 0,
-        "points": 3
+        "gp": 7,
+        "goals": 4,
+        "assists": 4,
+        "points": 8
       },
       "htoListedPosition": "C",
       "htoPositionHasDefenceOption": false,
+      "rosterClassificationSource": "SAVED_HOCKEYOS_ROSTER_SNAPSHOT_ROLE_NOT_AWARD_ELIGIBILITY",
       "currentHTORaw": {
         "name": "Carosi, Justin",
         "listedPosition": "C",
-        "gamesPlayed": 4,
-        "goals": 3,
-        "assists": 0,
-        "points": 3,
+        "gamesPlayed": 7,
+        "goals": 4,
+        "assists": 4,
+        "points": 8,
         "gameTyingGoals": 2,
-        "penaltyMinutes": 0,
-        "plusMinus": -13,
-        "pointsPerGame": 0.75,
+        "penaltyMinutes": 2,
+        "plusMinus": -17,
+        "pointsPerGame": 1.143,
         "playerOfTheGameCount": 3,
         "sourceKind": "OFFICIAL_HTO_PUBLISHED_SEASON_STATISTICS",
         "season": "W2026/27"
       },
       "currentHTOEventEvidence": {
-        "reportedPIMFreeGameAppearances": 4,
-        "gamesWithPublishedPIM": 0,
         "playedOfficialHTOGameIds": [
           3356177,
           3356178,
           3369564,
-          3375601
+          3375601,
+          3375682,
+          3375683,
+          3375684
         ],
-        "sourceKind": "HTO_SCORES_AND_BOX_SCORE_EVENTS_RECONCILED",
-        "publicationLimit": "Verified event input, not normalized workbook award subscore"
-      },
-      "verifiedHTOScoringByStrength": {
-        "evenStrengthGoals": 3,
-        "evenStrengthAssists": 0,
-        "powerPlayGoals": 0,
-        "powerPlayAssists": 0,
-        "shorthandedGoals": 0,
-        "shorthandedAssists": 0,
-        "publishedSpecialTeamsPointGames": 0,
-        "sourceGameIds": [
-          3356177,
-          3356178,
-          3369564,
-          3375601
-        ],
-        "sourceStatus": "EXACT_HTO_GOAL_SCORER_AND_ASSISTANT_EVENTS_RECONCILED_NOT_AWARD_SCORE"
+        "sourceKind": "HTO_SEVEN_GAME_GAME_SHEETS_AND_SEASON_STATS_RECONCILED_NOT_AWARD_SCORE",
+        "publishedPIMGameValuesKnown": 2,
+        "unknownPIMGameValues": 5
       },
       "sourceHTOGamePattern": {
         "status": "HTO_PER_GAME_OBSERVATIONS_CROSSCHECKED_TO_CURRENT_SEASON",
@@ -472,106 +435,130 @@
             "points": 0,
             "plusMinus": -6,
             "playerOfTheGame": 0
+          },
+          {
+            "gameId": 3375682,
+            "date": "2026-10-25",
+            "g": 1,
+            "a": 1,
+            "points": 2,
+            "plusMinus": 2,
+            "playerOfTheGame": 0
+          },
+          {
+            "gameId": 3375683,
+            "date": "2026-11-01",
+            "g": 0,
+            "a": 1,
+            "points": 1,
+            "plusMinus": -5,
+            "playerOfTheGame": 0
+          },
+          {
+            "gameId": 3375684,
+            "date": "2026-11-08",
+            "g": 0,
+            "a": 2,
+            "points": 2,
+            "plusMinus": -1,
+            "playerOfTheGame": 0
           }
         ],
         "observedCounts": {
-          "gamesPlayed": 4,
-          "pointScoringGames": 2,
-          "goalScoringGames": 2,
-          "multiPointGames": 1,
+          "gamesPlayed": 7,
+          "pointScoringGames": 5,
+          "goalScoringGames": 3,
+          "multiPointGames": 3,
           "threeOrMorePointGames": 0,
-          "positivePlusMinusGames": 0,
-          "negativePlusMinusGames": 4,
+          "positivePlusMinusGames": 1,
+          "negativePlusMinusGames": 6,
           "evenPlusMinusGames": 0,
           "playerOfTheGameCredits": 3
         },
         "modelAwardSubscore": null,
-        "provenance": "Four named skater game sheets, official HTO GP/G/A/PTS/plus-minus and Player of the Game parity",
-        "limitation": "Raw game pattern counts, not the original workbook weighted/normalized Consistency, Two-Way or Streak Heat subscore."
+        "provenance": "Seven named 2026/27 HTO game sheets and official HTO season statistics; no award formula parity",
+        "limitation": "Per-game raw input observations, not normalized workbook award components"
       }
     },
     {
       "name": "Congiusti, Marco",
       "role": "FT",
       "position": "Skater",
-      "gp": 1,
+      "gp": 2,
       "goals": 0,
-      "assists": 0,
-      "points": 0,
-      "source": "HTO published current-season skater scoring bridged to HockeyOS projection",
+      "assists": 2,
+      "points": 2,
+      "source": "HTO verified seven-game season and individual boxscores; not AwardScoring",
       "officialHTOStats": {
-        "gp": 1,
+        "gp": 2,
         "goals": 0,
-        "assists": 0,
-        "points": 0
+        "assists": 2,
+        "points": 2
       },
       "htoListedPosition": "RD",
       "htoPositionHasDefenceOption": true,
+      "rosterClassificationSource": "SAVED_HOCKEYOS_ROSTER_SNAPSHOT_ROLE_NOT_AWARD_ELIGIBILITY",
       "currentHTORaw": {
         "name": "Congiusti, Marco",
         "listedPosition": "RD",
-        "gamesPlayed": 1,
+        "gamesPlayed": 2,
         "goals": 0,
-        "assists": 0,
-        "points": 0,
+        "assists": 2,
+        "points": 2,
         "gameTyingGoals": 0,
         "penaltyMinutes": 0,
-        "plusMinus": -3,
-        "pointsPerGame": 0,
+        "plusMinus": -6,
+        "pointsPerGame": 1.0,
         "playerOfTheGameCount": 0,
         "sourceKind": "OFFICIAL_HTO_PUBLISHED_SEASON_STATISTICS",
         "season": "W2026/27"
       },
       "currentHTOEventEvidence": {
-        "reportedPIMFreeGameAppearances": 1,
-        "gamesWithPublishedPIM": 0,
         "playedOfficialHTOGameIds": [
-          3356178
+          3375683,
+          3375684
         ],
-        "sourceKind": "HTO_SCORES_AND_BOX_SCORE_EVENTS_RECONCILED",
-        "publicationLimit": "Verified event input, not normalized workbook award subscore"
-      },
-      "verifiedHTOScoringByStrength": {
-        "evenStrengthGoals": 0,
-        "evenStrengthAssists": 0,
-        "powerPlayGoals": 0,
-        "powerPlayAssists": 0,
-        "shorthandedGoals": 0,
-        "shorthandedAssists": 0,
-        "publishedSpecialTeamsPointGames": 0,
-        "sourceGameIds": [
-          3356178
-        ],
-        "sourceStatus": "EXACT_HTO_GOAL_SCORER_AND_ASSISTANT_EVENTS_RECONCILED_NOT_AWARD_SCORE"
+        "sourceKind": "HTO_SEVEN_GAME_GAME_SHEETS_AND_SEASON_STATS_RECONCILED_NOT_AWARD_SCORE",
+        "publishedPIMGameValuesKnown": 0,
+        "unknownPIMGameValues": 2
       },
       "sourceHTOGamePattern": {
         "status": "HTO_PER_GAME_OBSERVATIONS_CROSSCHECKED_TO_CURRENT_SEASON",
         "season": "W2026/27",
         "games": [
           {
-            "gameId": 3356178,
-            "date": "2026-09-27",
+            "gameId": 3375683,
+            "date": "2026-11-01",
             "g": 0,
             "a": 0,
             "points": 0,
-            "plusMinus": -3,
+            "plusMinus": -5,
+            "playerOfTheGame": 0
+          },
+          {
+            "gameId": 3375684,
+            "date": "2026-11-08",
+            "g": 0,
+            "a": 2,
+            "points": 2,
+            "plusMinus": -1,
             "playerOfTheGame": 0
           }
         ],
         "observedCounts": {
-          "gamesPlayed": 1,
-          "pointScoringGames": 0,
+          "gamesPlayed": 2,
+          "pointScoringGames": 1,
           "goalScoringGames": 0,
-          "multiPointGames": 0,
+          "multiPointGames": 1,
           "threeOrMorePointGames": 0,
           "positivePlusMinusGames": 0,
-          "negativePlusMinusGames": 1,
+          "negativePlusMinusGames": 2,
           "evenPlusMinusGames": 0,
           "playerOfTheGameCredits": 0
         },
         "modelAwardSubscore": null,
-        "provenance": "Four named skater game sheets, official HTO GP/G/A/PTS/plus-minus and Player of the Game parity",
-        "limitation": "Raw game pattern counts, not the original workbook weighted/normalized Consistency, Two-Way or Streak Heat subscore."
+        "provenance": "Seven named 2026/27 HTO game sheets and official HTO season statistics; no award formula parity",
+        "limitation": "Per-game raw input observations, not normalized workbook award components"
       }
     },
     {
@@ -582,7 +569,7 @@
       "goals": 0,
       "assists": 0,
       "points": 0,
-      "source": "HTO published current-season skater scoring bridged to HockeyOS projection",
+      "source": "HTO verified seven-game season and individual boxscores; not AwardScoring",
       "officialHTOStats": {
         "gp": 1,
         "goals": 0,
@@ -591,6 +578,7 @@
       },
       "htoListedPosition": "LD",
       "htoPositionHasDefenceOption": true,
+      "rosterClassificationSource": "SAVED_HOCKEYOS_ROSTER_SNAPSHOT_ROLE_NOT_AWARD_ELIGIBILITY",
       "currentHTORaw": {
         "name": "Duffy, Lorcan",
         "listedPosition": "LD",
@@ -601,32 +589,18 @@
         "gameTyingGoals": 0,
         "penaltyMinutes": 0,
         "plusMinus": -3,
-        "pointsPerGame": 0,
+        "pointsPerGame": 0.0,
         "playerOfTheGameCount": 0,
         "sourceKind": "OFFICIAL_HTO_PUBLISHED_SEASON_STATISTICS",
         "season": "W2026/27"
       },
       "currentHTOEventEvidence": {
-        "reportedPIMFreeGameAppearances": 1,
-        "gamesWithPublishedPIM": 0,
         "playedOfficialHTOGameIds": [
           3356178
         ],
-        "sourceKind": "HTO_SCORES_AND_BOX_SCORE_EVENTS_RECONCILED",
-        "publicationLimit": "Verified event input, not normalized workbook award subscore"
-      },
-      "verifiedHTOScoringByStrength": {
-        "evenStrengthGoals": 0,
-        "evenStrengthAssists": 0,
-        "powerPlayGoals": 0,
-        "powerPlayAssists": 0,
-        "shorthandedGoals": 0,
-        "shorthandedAssists": 0,
-        "publishedSpecialTeamsPointGames": 0,
-        "sourceGameIds": [
-          3356178
-        ],
-        "sourceStatus": "EXACT_HTO_GOAL_SCORER_AND_ASSISTANT_EVENTS_RECONCILED_NOT_AWARD_SCORE"
+        "sourceKind": "HTO_SEVEN_GAME_GAME_SHEETS_AND_SEASON_STATS_RECONCILED_NOT_AWARD_SCORE",
+        "publishedPIMGameValuesKnown": 0,
+        "unknownPIMGameValues": 1
       },
       "sourceHTOGamePattern": {
         "status": "HTO_PER_GAME_OBSERVATIONS_CROSSCHECKED_TO_CURRENT_SEASON",
@@ -654,67 +628,106 @@
           "playerOfTheGameCredits": 0
         },
         "modelAwardSubscore": null,
-        "provenance": "Four named skater game sheets, official HTO GP/G/A/PTS/plus-minus and Player of the Game parity",
-        "limitation": "Raw game pattern counts, not the original workbook weighted/normalized Consistency, Two-Way or Streak Heat subscore."
+        "provenance": "Seven named 2026/27 HTO game sheets and official HTO season statistics; no award formula parity",
+        "limitation": "Per-game raw input observations, not normalized workbook award components"
+      }
+    },
+    {
+      "name": "Haspel, Brian",
+      "role": "UNVERIFIED",
+      "position": "Goalie",
+      "gp": 1,
+      "goals": null,
+      "assists": null,
+      "points": null,
+      "source": "HTO verified seven-game goalie season and individual boxscores; not AwardScoring",
+      "officialHTOStats": {
+        "gp": 1,
+        "wins": 0,
+        "losses": 1,
+        "goalsAgainst": 7,
+        "goalsAgainstAverage": 7.0,
+        "playerOfTheGameCount": 0
+      },
+      "rosterClassificationSource": "SAVED_HOCKEYOS_ROSTER_SNAPSHOT_ROLE_NOT_AWARD_ELIGIBILITY",
+      "currentHTORaw": {
+        "name": "Haspel, Brian",
+        "gamesPlayed": 1,
+        "goalsAgainst": 7,
+        "goalsAgainstAverage": 7.0,
+        "losses": 1,
+        "playerOfTheGameCount": 0,
+        "season": "W2026/27",
+        "sourceKind": "OFFICIAL_HTO_PUBLISHED_SEASON_STATISTICS"
+      },
+      "currentHTOEventEvidence": {
+        "playedOfficialHTOGameIds": [
+          3375683
+        ],
+        "sourceKind": "HTO_SEVEN_GAME_GOALIE_GAME_SHEETS_RECONCILED_NOT_AWARD_SCORE",
+        "unknownPOTGGameValues": 1
+      },
+      "sourceHTOGamePattern": {
+        "status": "HTO_GOALIE_PER_GAME_OBSERVATIONS_CROSSCHECKED_TO_CURRENT_SEASON",
+        "season": "W2026/27",
+        "games": [
+          {
+            "gameId": 3375683,
+            "date": "2026-11-01",
+            "goalsAgainst": 7,
+            "playerOfTheGame": null
+          }
+        ],
+        "modelAwardSubscore": null,
+        "provenance": "Seven official HTO game sheets and published goalie season totals",
+        "limitation": "Unknown per-game POTG values not zero-filled or treated as award scoring"
       }
     },
     {
       "name": "Kober, Adam",
       "role": "CU",
       "position": "Skater",
-      "gp": 3,
+      "gp": 6,
       "goals": 1,
-      "assists": 1,
-      "points": 2,
-      "source": "HTO published current-season skater scoring bridged to HockeyOS projection",
+      "assists": 2,
+      "points": 3,
+      "source": "HTO verified seven-game season and individual boxscores; not AwardScoring",
       "officialHTOStats": {
-        "gp": 3,
+        "gp": 6,
         "goals": 1,
-        "assists": 1,
-        "points": 2
+        "assists": 2,
+        "points": 3
       },
       "htoListedPosition": "LW/LD",
       "htoPositionHasDefenceOption": true,
+      "rosterClassificationSource": "SAVED_HOCKEYOS_ROSTER_SNAPSHOT_ROLE_NOT_AWARD_ELIGIBILITY",
       "currentHTORaw": {
         "name": "Kober, Adam",
         "listedPosition": "LW/LD",
-        "gamesPlayed": 3,
+        "gamesPlayed": 6,
         "goals": 1,
-        "assists": 1,
-        "points": 2,
+        "assists": 2,
+        "points": 3,
         "gameTyingGoals": 0,
         "penaltyMinutes": 0,
-        "plusMinus": -10,
-        "pointsPerGame": 0.67,
-        "playerOfTheGameCount": 1,
+        "plusMinus": -14,
+        "pointsPerGame": 0.5,
+        "playerOfTheGameCount": 2,
         "sourceKind": "OFFICIAL_HTO_PUBLISHED_SEASON_STATISTICS",
         "season": "W2026/27"
       },
       "currentHTOEventEvidence": {
-        "reportedPIMFreeGameAppearances": 3,
-        "gamesWithPublishedPIM": 0,
         "playedOfficialHTOGameIds": [
           3356178,
           3369564,
-          3375601
+          3375601,
+          3375682,
+          3375683,
+          3375684
         ],
-        "sourceKind": "HTO_SCORES_AND_BOX_SCORE_EVENTS_RECONCILED",
-        "publicationLimit": "Verified event input, not normalized workbook award subscore"
-      },
-      "verifiedHTOScoringByStrength": {
-        "evenStrengthGoals": 1,
-        "evenStrengthAssists": 1,
-        "powerPlayGoals": 0,
-        "powerPlayAssists": 0,
-        "shorthandedGoals": 0,
-        "shorthandedAssists": 0,
-        "publishedSpecialTeamsPointGames": 0,
-        "sourceGameIds": [
-          3356178,
-          3369564,
-          3375601
-        ],
-        "sourceStatus": "EXACT_HTO_GOAL_SCORER_AND_ASSISTANT_EVENTS_RECONCILED_NOT_AWARD_SCORE"
+        "sourceKind": "HTO_SEVEN_GAME_GAME_SHEETS_AND_SEASON_STATS_RECONCILED_NOT_AWARD_SCORE",
+        "publishedPIMGameValuesKnown": 2,
+        "unknownPIMGameValues": 4
       },
       "sourceHTOGamePattern": {
         "status": "HTO_PER_GAME_OBSERVATIONS_CROSSCHECKED_TO_CURRENT_SEASON",
@@ -746,89 +759,97 @@
             "points": 0,
             "plusMinus": -6,
             "playerOfTheGame": 0
+          },
+          {
+            "gameId": 3375682,
+            "date": "2026-10-25",
+            "g": 0,
+            "a": 1,
+            "points": 1,
+            "plusMinus": 2,
+            "playerOfTheGame": 0
+          },
+          {
+            "gameId": 3375683,
+            "date": "2026-11-01",
+            "g": 0,
+            "a": 0,
+            "points": 0,
+            "plusMinus": -5,
+            "playerOfTheGame": 1
+          },
+          {
+            "gameId": 3375684,
+            "date": "2026-11-08",
+            "g": 0,
+            "a": 0,
+            "points": 0,
+            "plusMinus": -1,
+            "playerOfTheGame": 0
           }
         ],
         "observedCounts": {
-          "gamesPlayed": 3,
-          "pointScoringGames": 2,
+          "gamesPlayed": 6,
+          "pointScoringGames": 3,
           "goalScoringGames": 1,
           "multiPointGames": 0,
           "threeOrMorePointGames": 0,
-          "positivePlusMinusGames": 0,
-          "negativePlusMinusGames": 3,
+          "positivePlusMinusGames": 1,
+          "negativePlusMinusGames": 5,
           "evenPlusMinusGames": 0,
-          "playerOfTheGameCredits": 1
+          "playerOfTheGameCredits": 2
         },
         "modelAwardSubscore": null,
-        "provenance": "Four named skater game sheets, official HTO GP/G/A/PTS/plus-minus and Player of the Game parity",
-        "limitation": "Raw game pattern counts, not the original workbook weighted/normalized Consistency, Two-Way or Streak Heat subscore."
+        "provenance": "Seven named 2026/27 HTO game sheets and official HTO season statistics; no award formula parity",
+        "limitation": "Per-game raw input observations, not normalized workbook award components"
       }
     },
     {
       "name": "Kong, Henry",
       "role": "FT",
       "position": "Skater",
-      "gp": 4,
+      "gp": 7,
       "goals": 1,
       "assists": 1,
       "points": 2,
-      "source": "HTO published current-season skater scoring bridged to HockeyOS projection",
+      "source": "HTO verified seven-game season and individual boxscores; not AwardScoring",
       "officialHTOStats": {
-        "gp": 4,
+        "gp": 7,
         "goals": 1,
         "assists": 1,
         "points": 2
       },
       "htoListedPosition": "F/D",
       "htoPositionHasDefenceOption": true,
-      "rookieRosterWatch": {
-        "sourceFlag": "Rookie Status = 1",
-        "firstRecordedSeason": "W2026/27",
-        "sourceRosterRole": "FT",
-        "awardEligibility": "NOT_VERIFIED"
-      },
+      "rosterClassificationSource": "SAVED_HOCKEYOS_ROSTER_SNAPSHOT_ROLE_NOT_AWARD_ELIGIBILITY",
       "currentHTORaw": {
         "name": "Kong, Henry",
         "listedPosition": "F/D",
-        "gamesPlayed": 4,
+        "gamesPlayed": 7,
         "goals": 1,
         "assists": 1,
         "points": 2,
         "gameTyingGoals": 1,
         "penaltyMinutes": 0,
-        "plusMinus": -13,
-        "pointsPerGame": 0.5,
+        "plusMinus": -17,
+        "pointsPerGame": 0.286,
         "playerOfTheGameCount": 1,
         "sourceKind": "OFFICIAL_HTO_PUBLISHED_SEASON_STATISTICS",
         "season": "W2026/27"
       },
       "currentHTOEventEvidence": {
-        "reportedPIMFreeGameAppearances": 4,
-        "gamesWithPublishedPIM": 0,
         "playedOfficialHTOGameIds": [
           3356177,
           3356178,
           3369564,
-          3375601
+          3375601,
+          3375682,
+          3375683,
+          3375684
         ],
-        "sourceKind": "HTO_SCORES_AND_BOX_SCORE_EVENTS_RECONCILED",
-        "publicationLimit": "Verified event input, not normalized workbook award subscore"
-      },
-      "verifiedHTOScoringByStrength": {
-        "evenStrengthGoals": 1,
-        "evenStrengthAssists": 1,
-        "powerPlayGoals": 0,
-        "powerPlayAssists": 0,
-        "shorthandedGoals": 0,
-        "shorthandedAssists": 0,
-        "publishedSpecialTeamsPointGames": 0,
-        "sourceGameIds": [
-          3356177,
-          3356178,
-          3369564,
-          3375601
-        ],
-        "sourceStatus": "EXACT_HTO_GOAL_SCORER_AND_ASSISTANT_EVENTS_RECONCILED_NOT_AWARD_SCORE"
+        "sourceKind": "HTO_SEVEN_GAME_GAME_SHEETS_AND_SEASON_STATS_RECONCILED_NOT_AWARD_SCORE",
+        "publishedPIMGameValuesKnown": 2,
+        "unknownPIMGameValues": 5
       },
       "sourceHTOGamePattern": {
         "status": "HTO_PER_GAME_OBSERVATIONS_CROSSCHECKED_TO_CURRENT_SEASON",
@@ -869,63 +890,92 @@
             "points": 0,
             "plusMinus": -6,
             "playerOfTheGame": 0
+          },
+          {
+            "gameId": 3375682,
+            "date": "2026-10-25",
+            "g": 0,
+            "a": 0,
+            "points": 0,
+            "plusMinus": 2,
+            "playerOfTheGame": 0
+          },
+          {
+            "gameId": 3375683,
+            "date": "2026-11-01",
+            "g": 0,
+            "a": 0,
+            "points": 0,
+            "plusMinus": -5,
+            "playerOfTheGame": 0
+          },
+          {
+            "gameId": 3375684,
+            "date": "2026-11-08",
+            "g": 0,
+            "a": 0,
+            "points": 0,
+            "plusMinus": -1,
+            "playerOfTheGame": 0
           }
         ],
         "observedCounts": {
-          "gamesPlayed": 4,
+          "gamesPlayed": 7,
           "pointScoringGames": 2,
           "goalScoringGames": 1,
           "multiPointGames": 0,
           "threeOrMorePointGames": 0,
-          "positivePlusMinusGames": 0,
-          "negativePlusMinusGames": 4,
+          "positivePlusMinusGames": 1,
+          "negativePlusMinusGames": 6,
           "evenPlusMinusGames": 0,
           "playerOfTheGameCredits": 1
         },
         "modelAwardSubscore": null,
-        "provenance": "Four named skater game sheets, official HTO GP/G/A/PTS/plus-minus and Player of the Game parity",
-        "limitation": "Raw game pattern counts, not the original workbook weighted/normalized Consistency, Two-Way or Streak Heat subscore."
+        "provenance": "Seven named 2026/27 HTO game sheets and official HTO season statistics; no award formula parity",
+        "limitation": "Per-game raw input observations, not normalized workbook award components"
+      },
+      "rookieRosterWatch": {
+        "sourceFlag": "Rookie Status = 1",
+        "firstRecordedSeason": "W2026/27",
+        "sourceRosterRole": "FT",
+        "awardEligibility": "NOT_VERIFIED"
       }
     },
     {
       "name": "Leong, Dev",
-      "position": "Goalie",
       "role": "G",
+      "position": "Goalie",
       "gp": 2,
-      "verifiedGameIds": [
-        3356177,
-        3375601
-      ],
-      "source": "Verified HTO game-night goalie appearance in roster-context feed",
+      "goals": null,
+      "assists": null,
+      "points": null,
+      "source": "HTO verified seven-game goalie season and individual boxscores; not AwardScoring",
       "officialHTOStats": {
         "gp": 2,
+        "wins": 0,
         "losses": 2,
         "goalsAgainst": 10,
-        "gaa": 5,
-        "playerOfTheGame": 1
+        "goalsAgainstAverage": 5.0,
+        "playerOfTheGameCount": 1
       },
-      "htoListedPosition": "G",
+      "rosterClassificationSource": "SAVED_HOCKEYOS_ROSTER_SNAPSHOT_ROLE_NOT_AWARD_ELIGIBILITY",
       "currentHTORaw": {
         "name": "Leong, Dev",
         "gamesPlayed": 2,
-        "losses": 2,
         "goalsAgainst": 10,
-        "goalsAgainstAverage": 5,
+        "goalsAgainstAverage": 5.0,
+        "losses": 2,
         "playerOfTheGameCount": 1,
-        "plusMinus": -9,
-        "sourceKind": "OFFICIAL_HTO_PUBLISHED_SEASON_STATISTICS",
-        "season": "W2026/27"
+        "season": "W2026/27",
+        "sourceKind": "OFFICIAL_HTO_PUBLISHED_SEASON_STATISTICS"
       },
       "currentHTOEventEvidence": {
         "playedOfficialHTOGameIds": [
           3356177,
           3375601
         ],
-        "gamesWithoutReportedGoaltenderPenalty": 2,
-        "reportedGoaliePenaltyEvents": 0,
-        "recordedGoalEventPoints": 0,
-        "sourceKind": "FOUR_HTO_BOXSCORES_GOALIE_APPEARANCE_AND_ALL_PUBLISHED_PENALTY_GOAL_EVENTS_VERIFIED",
-        "publicationLimit": "HTO source event counts only, NOT normalized goalie discipline/offense, quality game or any award rating"
+        "sourceKind": "HTO_SEVEN_GAME_GOALIE_GAME_SHEETS_RECONCILED_NOT_AWARD_SCORE",
+        "unknownPOTGGameValues": 1
       },
       "sourceHTOGamePattern": {
         "status": "HTO_GOALIE_PER_GAME_OBSERVATIONS_CROSSCHECKED_TO_CURRENT_SEASON",
@@ -944,53 +994,46 @@
             "playerOfTheGame": null
           }
         ],
-        "observedCounts": {
-          "gamesPlayed": 2,
-          "goalsAgainst": 10,
-          "playerOfTheGameCredits": 1
-        },
         "modelAwardSubscore": null,
-        "provenance": "Named HTO goaltender sheets reconciled to official goalie-season GA/POTG/GP",
-        "limitation": "Raw game observations, not workbook-defined quality/unbeaten game, goalie reliability or normalized subscore."
+        "provenance": "Seven official HTO game sheets and published goalie season totals",
+        "limitation": "Unknown per-game POTG values not zero-filled or treated as award scoring"
       }
     },
     {
       "name": "Logue, Stephen",
-      "position": "Goalie",
       "role": "G",
-      "gp": 1,
-      "verifiedGameIds": [
-        3356178
-      ],
-      "source": "Verified HTO game-night goalie appearance in roster-context feed",
+      "position": "Goalie",
+      "gp": 2,
+      "goals": null,
+      "assists": null,
+      "points": null,
+      "source": "HTO verified seven-game goalie season and individual boxscores; not AwardScoring",
       "officialHTOStats": {
-        "gp": 1,
+        "gp": 2,
+        "wins": 1,
         "losses": 1,
-        "goalsAgainst": 6,
-        "gaa": 6,
-        "playerOfTheGame": 1
+        "goalsAgainst": 10,
+        "goalsAgainstAverage": 5.0,
+        "playerOfTheGameCount": 2
       },
-      "htoListedPosition": "G",
+      "rosterClassificationSource": "SAVED_HOCKEYOS_ROSTER_SNAPSHOT_ROLE_NOT_AWARD_ELIGIBILITY",
       "currentHTORaw": {
         "name": "Logue, Stephen",
-        "gamesPlayed": 1,
+        "gamesPlayed": 2,
+        "goalsAgainst": 10,
+        "goalsAgainstAverage": 5.0,
         "losses": 1,
-        "goalsAgainst": 6,
-        "goalsAgainstAverage": 6,
-        "playerOfTheGameCount": 1,
-        "plusMinus": -3,
-        "sourceKind": "OFFICIAL_HTO_PUBLISHED_SEASON_STATISTICS",
-        "season": "W2026/27"
+        "playerOfTheGameCount": 2,
+        "season": "W2026/27",
+        "sourceKind": "OFFICIAL_HTO_PUBLISHED_SEASON_STATISTICS"
       },
       "currentHTOEventEvidence": {
         "playedOfficialHTOGameIds": [
-          3356178
+          3356178,
+          3375682
         ],
-        "gamesWithoutReportedGoaltenderPenalty": 1,
-        "reportedGoaliePenaltyEvents": 0,
-        "recordedGoalEventPoints": 0,
-        "sourceKind": "FOUR_HTO_BOXSCORES_GOALIE_APPEARANCE_AND_ALL_PUBLISHED_PENALTY_GOAL_EVENTS_VERIFIED",
-        "publicationLimit": "HTO source event counts only, NOT normalized goalie discipline/offense, quality game or any award rating"
+        "sourceKind": "HTO_SEVEN_GAME_GOALIE_GAME_SHEETS_RECONCILED_NOT_AWARD_SCORE",
+        "unknownPOTGGameValues": 0
       },
       "sourceHTOGamePattern": {
         "status": "HTO_GOALIE_PER_GAME_OBSERVATIONS_CROSSCHECKED_TO_CURRENT_SEASON",
@@ -1001,77 +1044,135 @@
             "date": "2026-09-27",
             "goalsAgainst": 6,
             "playerOfTheGame": 1
+          },
+          {
+            "gameId": 3375682,
+            "date": "2026-10-25",
+            "goalsAgainst": 4,
+            "playerOfTheGame": 1
+          }
+        ],
+        "modelAwardSubscore": null,
+        "provenance": "Seven official HTO game sheets and published goalie season totals",
+        "limitation": "Unknown per-game POTG values not zero-filled or treated as award scoring"
+      }
+    },
+    {
+      "name": "Mazzei, Stefano",
+      "role": "UNVERIFIED",
+      "position": "Skater",
+      "gp": 1,
+      "goals": 1,
+      "assists": 0,
+      "points": 1,
+      "source": "HTO verified seven-game season and individual boxscores; not AwardScoring",
+      "officialHTOStats": {
+        "gp": 1,
+        "goals": 1,
+        "assists": 0,
+        "points": 1
+      },
+      "htoListedPosition": "LW",
+      "htoPositionHasDefenceOption": false,
+      "rosterClassificationSource": "SAVED_HOCKEYOS_ROSTER_SNAPSHOT_ROLE_NOT_AWARD_ELIGIBILITY",
+      "currentHTORaw": {
+        "name": "Mazzei, Stefano",
+        "listedPosition": "LW",
+        "gamesPlayed": 1,
+        "goals": 1,
+        "assists": 0,
+        "points": 1,
+        "gameTyingGoals": 0,
+        "penaltyMinutes": 0,
+        "plusMinus": -5,
+        "pointsPerGame": 1.0,
+        "playerOfTheGameCount": 0,
+        "sourceKind": "OFFICIAL_HTO_PUBLISHED_SEASON_STATISTICS",
+        "season": "W2026/27"
+      },
+      "currentHTOEventEvidence": {
+        "playedOfficialHTOGameIds": [
+          3375683
+        ],
+        "sourceKind": "HTO_SEVEN_GAME_GAME_SHEETS_AND_SEASON_STATS_RECONCILED_NOT_AWARD_SCORE",
+        "publishedPIMGameValuesKnown": 0,
+        "unknownPIMGameValues": 1
+      },
+      "sourceHTOGamePattern": {
+        "status": "HTO_PER_GAME_OBSERVATIONS_CROSSCHECKED_TO_CURRENT_SEASON",
+        "season": "W2026/27",
+        "games": [
+          {
+            "gameId": 3375683,
+            "date": "2026-11-01",
+            "g": 1,
+            "a": 0,
+            "points": 1,
+            "plusMinus": -5,
+            "playerOfTheGame": 0
           }
         ],
         "observedCounts": {
           "gamesPlayed": 1,
-          "goalsAgainst": 6,
-          "playerOfTheGameCredits": 1
+          "pointScoringGames": 1,
+          "goalScoringGames": 1,
+          "multiPointGames": 0,
+          "threeOrMorePointGames": 0,
+          "positivePlusMinusGames": 0,
+          "negativePlusMinusGames": 1,
+          "evenPlusMinusGames": 0,
+          "playerOfTheGameCredits": 0
         },
         "modelAwardSubscore": null,
-        "provenance": "Named HTO goaltender sheets reconciled to official goalie-season GA/POTG/GP",
-        "limitation": "Raw game observations, not workbook-defined quality/unbeaten game, goalie reliability or normalized subscore."
+        "provenance": "Seven named 2026/27 HTO game sheets and official HTO season statistics; no award formula parity",
+        "limitation": "Per-game raw input observations, not normalized workbook award components"
       }
     },
     {
       "name": "Pagnotta, Alex",
       "role": "FT",
       "position": "Skater",
-      "gp": 4,
+      "gp": 6,
       "goals": 0,
-      "assists": 3,
-      "points": 3,
-      "source": "HTO published current-season skater scoring bridged to HockeyOS projection",
+      "assists": 6,
+      "points": 6,
+      "source": "HTO verified seven-game season and individual boxscores; not AwardScoring",
       "officialHTOStats": {
-        "gp": 4,
+        "gp": 6,
         "goals": 0,
-        "assists": 3,
-        "points": 3
+        "assists": 6,
+        "points": 6
       },
       "htoListedPosition": "RD",
       "htoPositionHasDefenceOption": true,
+      "rosterClassificationSource": "SAVED_HOCKEYOS_ROSTER_SNAPSHOT_ROLE_NOT_AWARD_ELIGIBILITY",
       "currentHTORaw": {
         "name": "Pagnotta, Alex",
         "listedPosition": "RD",
-        "gamesPlayed": 4,
+        "gamesPlayed": 6,
         "goals": 0,
-        "assists": 3,
-        "points": 3,
+        "assists": 6,
+        "points": 6,
         "gameTyingGoals": 0,
         "penaltyMinutes": 0,
-        "plusMinus": -13,
-        "pointsPerGame": 0.75,
-        "playerOfTheGameCount": 0,
+        "plusMinus": -16,
+        "pointsPerGame": 1.0,
+        "playerOfTheGameCount": 1,
         "sourceKind": "OFFICIAL_HTO_PUBLISHED_SEASON_STATISTICS",
         "season": "W2026/27"
       },
       "currentHTOEventEvidence": {
-        "reportedPIMFreeGameAppearances": 4,
-        "gamesWithPublishedPIM": 0,
         "playedOfficialHTOGameIds": [
           3356177,
           3356178,
           3369564,
-          3375601
+          3375601,
+          3375682,
+          3375683
         ],
-        "sourceKind": "HTO_SCORES_AND_BOX_SCORE_EVENTS_RECONCILED",
-        "publicationLimit": "Verified event input, not normalized workbook award subscore"
-      },
-      "verifiedHTOScoringByStrength": {
-        "evenStrengthGoals": 0,
-        "evenStrengthAssists": 3,
-        "powerPlayGoals": 0,
-        "powerPlayAssists": 0,
-        "shorthandedGoals": 0,
-        "shorthandedAssists": 0,
-        "publishedSpecialTeamsPointGames": 0,
-        "sourceGameIds": [
-          3356177,
-          3356178,
-          3369564,
-          3375601
-        ],
-        "sourceStatus": "EXACT_HTO_GOAL_SCORER_AND_ASSISTANT_EVENTS_RECONCILED_NOT_AWARD_SCORE"
+        "sourceKind": "HTO_SEVEN_GAME_GAME_SHEETS_AND_SEASON_STATS_RECONCILED_NOT_AWARD_SCORE",
+        "publishedPIMGameValuesKnown": 2,
+        "unknownPIMGameValues": 4
       },
       "sourceHTOGamePattern": {
         "status": "HTO_PER_GAME_OBSERVATIONS_CROSSCHECKED_TO_CURRENT_SEASON",
@@ -1112,22 +1213,40 @@
             "points": 1,
             "plusMinus": -6,
             "playerOfTheGame": 0
+          },
+          {
+            "gameId": 3375682,
+            "date": "2026-10-25",
+            "g": 0,
+            "a": 1,
+            "points": 1,
+            "plusMinus": 2,
+            "playerOfTheGame": 0
+          },
+          {
+            "gameId": 3375683,
+            "date": "2026-11-01",
+            "g": 0,
+            "a": 2,
+            "points": 2,
+            "plusMinus": -5,
+            "playerOfTheGame": 1
           }
         ],
         "observedCounts": {
-          "gamesPlayed": 4,
-          "pointScoringGames": 2,
+          "gamesPlayed": 6,
+          "pointScoringGames": 4,
           "goalScoringGames": 0,
-          "multiPointGames": 1,
+          "multiPointGames": 2,
           "threeOrMorePointGames": 0,
-          "positivePlusMinusGames": 0,
-          "negativePlusMinusGames": 4,
+          "positivePlusMinusGames": 1,
+          "negativePlusMinusGames": 5,
           "evenPlusMinusGames": 0,
-          "playerOfTheGameCredits": 0
+          "playerOfTheGameCredits": 1
         },
         "modelAwardSubscore": null,
-        "provenance": "Four named skater game sheets, official HTO GP/G/A/PTS/plus-minus and Player of the Game parity",
-        "limitation": "Raw game pattern counts, not the original workbook weighted/normalized Consistency, Two-Way or Streak Heat subscore."
+        "provenance": "Seven named 2026/27 HTO game sheets and official HTO season statistics; no award formula parity",
+        "limitation": "Per-game raw input observations, not normalized workbook award components"
       }
     },
     {
@@ -1138,7 +1257,7 @@
       "goals": 0,
       "assists": 0,
       "points": 0,
-      "source": "HTO published current-season skater scoring bridged to HockeyOS projection",
+      "source": "HTO verified seven-game season and individual boxscores; not AwardScoring",
       "officialHTOStats": {
         "gp": 1,
         "goals": 0,
@@ -1147,6 +1266,7 @@
       },
       "htoListedPosition": "RW/G",
       "htoPositionHasDefenceOption": false,
+      "rosterClassificationSource": "SAVED_HOCKEYOS_ROSTER_SNAPSHOT_ROLE_NOT_AWARD_ELIGIBILITY",
       "currentHTORaw": {
         "name": "Paolucci, Anthony",
         "listedPosition": "RW/G",
@@ -1157,32 +1277,18 @@
         "gameTyingGoals": 0,
         "penaltyMinutes": 0,
         "plusMinus": -3,
-        "pointsPerGame": 0,
+        "pointsPerGame": 0.0,
         "playerOfTheGameCount": 0,
         "sourceKind": "OFFICIAL_HTO_PUBLISHED_SEASON_STATISTICS",
         "season": "W2026/27"
       },
       "currentHTOEventEvidence": {
-        "reportedPIMFreeGameAppearances": 1,
-        "gamesWithPublishedPIM": 0,
         "playedOfficialHTOGameIds": [
           3356177
         ],
-        "sourceKind": "HTO_SCORES_AND_BOX_SCORE_EVENTS_RECONCILED",
-        "publicationLimit": "Verified event input, not normalized workbook award subscore"
-      },
-      "verifiedHTOScoringByStrength": {
-        "evenStrengthGoals": 0,
-        "evenStrengthAssists": 0,
-        "powerPlayGoals": 0,
-        "powerPlayAssists": 0,
-        "shorthandedGoals": 0,
-        "shorthandedAssists": 0,
-        "publishedSpecialTeamsPointGames": 0,
-        "sourceGameIds": [
-          3356177
-        ],
-        "sourceStatus": "EXACT_HTO_GOAL_SCORER_AND_ASSISTANT_EVENTS_RECONCILED_NOT_AWARD_SCORE"
+        "sourceKind": "HTO_SEVEN_GAME_GAME_SHEETS_AND_SEASON_STATS_RECONCILED_NOT_AWARD_SCORE",
+        "publishedPIMGameValuesKnown": 0,
+        "unknownPIMGameValues": 1
       },
       "sourceHTOGamePattern": {
         "status": "HTO_PER_GAME_OBSERVATIONS_CROSSCHECKED_TO_CURRENT_SEASON",
@@ -1210,8 +1316,8 @@
           "playerOfTheGameCredits": 0
         },
         "modelAwardSubscore": null,
-        "provenance": "Four named skater game sheets, official HTO GP/G/A/PTS/plus-minus and Player of the Game parity",
-        "limitation": "Raw game pattern counts, not the original workbook weighted/normalized Consistency, Two-Way or Streak Heat subscore."
+        "provenance": "Seven named 2026/27 HTO game sheets and official HTO season statistics; no award formula parity",
+        "limitation": "Per-game raw input observations, not normalized workbook award components"
       }
     },
     {
@@ -1222,7 +1328,7 @@
       "goals": 0,
       "assists": 1,
       "points": 1,
-      "source": "HTO published current-season skater scoring bridged to HockeyOS projection",
+      "source": "HTO verified seven-game season and individual boxscores; not AwardScoring",
       "officialHTOStats": {
         "gp": 1,
         "goals": 0,
@@ -1231,6 +1337,7 @@
       },
       "htoListedPosition": "F",
       "htoPositionHasDefenceOption": false,
+      "rosterClassificationSource": "SAVED_HOCKEYOS_ROSTER_SNAPSHOT_ROLE_NOT_AWARD_ELIGIBILITY",
       "currentHTORaw": {
         "name": "Pavaday, Damian",
         "listedPosition": "F",
@@ -1241,32 +1348,18 @@
         "gameTyingGoals": 0,
         "penaltyMinutes": 0,
         "plusMinus": -1,
-        "pointsPerGame": 1,
+        "pointsPerGame": 1.0,
         "playerOfTheGameCount": 0,
         "sourceKind": "OFFICIAL_HTO_PUBLISHED_SEASON_STATISTICS",
         "season": "W2026/27"
       },
       "currentHTOEventEvidence": {
-        "reportedPIMFreeGameAppearances": 1,
-        "gamesWithPublishedPIM": 0,
         "playedOfficialHTOGameIds": [
           3369564
         ],
-        "sourceKind": "HTO_SCORES_AND_BOX_SCORE_EVENTS_RECONCILED",
-        "publicationLimit": "Verified event input, not normalized workbook award subscore"
-      },
-      "verifiedHTOScoringByStrength": {
-        "evenStrengthGoals": 0,
-        "evenStrengthAssists": 1,
-        "powerPlayGoals": 0,
-        "powerPlayAssists": 0,
-        "shorthandedGoals": 0,
-        "shorthandedAssists": 0,
-        "publishedSpecialTeamsPointGames": 0,
-        "sourceGameIds": [
-          3369564
-        ],
-        "sourceStatus": "EXACT_HTO_GOAL_SCORER_AND_ASSISTANT_EVENTS_RECONCILED_NOT_AWARD_SCORE"
+        "sourceKind": "HTO_SEVEN_GAME_GAME_SHEETS_AND_SEASON_STATS_RECONCILED_NOT_AWARD_SCORE",
+        "publishedPIMGameValuesKnown": 0,
+        "unknownPIMGameValues": 1
       },
       "sourceHTOGamePattern": {
         "status": "HTO_PER_GAME_OBSERVATIONS_CROSSCHECKED_TO_CURRENT_SEASON",
@@ -1294,67 +1387,53 @@
           "playerOfTheGameCredits": 0
         },
         "modelAwardSubscore": null,
-        "provenance": "Four named skater game sheets, official HTO GP/G/A/PTS/plus-minus and Player of the Game parity",
-        "limitation": "Raw game pattern counts, not the original workbook weighted/normalized Consistency, Two-Way or Streak Heat subscore."
+        "provenance": "Seven named 2026/27 HTO game sheets and official HTO season statistics; no award formula parity",
+        "limitation": "Per-game raw input observations, not normalized workbook award components"
       }
     },
     {
       "name": "Pearsoll, Keith",
       "role": "FT",
       "position": "Skater",
-      "gp": 3,
+      "gp": 4,
       "goals": 1,
-      "assists": 0,
-      "points": 1,
-      "source": "HTO published current-season skater scoring bridged to HockeyOS projection",
+      "assists": 1,
+      "points": 2,
+      "source": "HTO verified seven-game season and individual boxscores; not AwardScoring",
       "officialHTOStats": {
-        "gp": 3,
+        "gp": 4,
         "goals": 1,
-        "assists": 0,
-        "points": 1
+        "assists": 1,
+        "points": 2
       },
       "htoListedPosition": "RW",
       "htoPositionHasDefenceOption": false,
+      "rosterClassificationSource": "SAVED_HOCKEYOS_ROSTER_SNAPSHOT_ROLE_NOT_AWARD_ELIGIBILITY",
       "currentHTORaw": {
         "name": "Pearsoll, Keith",
         "listedPosition": "RW",
-        "gamesPlayed": 3,
+        "gamesPlayed": 4,
         "goals": 1,
-        "assists": 0,
-        "points": 1,
+        "assists": 1,
+        "points": 2,
         "gameTyingGoals": 0,
-        "penaltyMinutes": 0,
-        "plusMinus": -12,
-        "pointsPerGame": 0.33,
+        "penaltyMinutes": 2,
+        "plusMinus": -10,
+        "pointsPerGame": 0.5,
         "playerOfTheGameCount": 1,
         "sourceKind": "OFFICIAL_HTO_PUBLISHED_SEASON_STATISTICS",
         "season": "W2026/27"
       },
       "currentHTOEventEvidence": {
-        "reportedPIMFreeGameAppearances": 3,
-        "gamesWithPublishedPIM": 0,
         "playedOfficialHTOGameIds": [
           3356177,
           3356178,
-          3375601
+          3375601,
+          3375682
         ],
-        "sourceKind": "HTO_SCORES_AND_BOX_SCORE_EVENTS_RECONCILED",
-        "publicationLimit": "Verified event input, not normalized workbook award subscore"
-      },
-      "verifiedHTOScoringByStrength": {
-        "evenStrengthGoals": 1,
-        "evenStrengthAssists": 0,
-        "powerPlayGoals": 0,
-        "powerPlayAssists": 0,
-        "shorthandedGoals": 0,
-        "shorthandedAssists": 0,
-        "publishedSpecialTeamsPointGames": 0,
-        "sourceGameIds": [
-          3356177,
-          3356178,
-          3375601
-        ],
-        "sourceStatus": "EXACT_HTO_GOAL_SCORER_AND_ASSISTANT_EVENTS_RECONCILED_NOT_AWARD_SCORE"
+        "sourceKind": "HTO_SEVEN_GAME_GAME_SHEETS_AND_SEASON_STATS_RECONCILED_NOT_AWARD_SCORE",
+        "publishedPIMGameValuesKnown": 2,
+        "unknownPIMGameValues": 2
       },
       "sourceHTOGamePattern": {
         "status": "HTO_PER_GAME_OBSERVATIONS_CROSSCHECKED_TO_CURRENT_SEASON",
@@ -1386,87 +1465,78 @@
             "points": 1,
             "plusMinus": -6,
             "playerOfTheGame": 1
+          },
+          {
+            "gameId": 3375682,
+            "date": "2026-10-25",
+            "g": 0,
+            "a": 1,
+            "points": 1,
+            "plusMinus": 2,
+            "playerOfTheGame": 0
           }
         ],
         "observedCounts": {
-          "gamesPlayed": 3,
-          "pointScoringGames": 1,
+          "gamesPlayed": 4,
+          "pointScoringGames": 2,
           "goalScoringGames": 1,
           "multiPointGames": 0,
           "threeOrMorePointGames": 0,
-          "positivePlusMinusGames": 0,
+          "positivePlusMinusGames": 1,
           "negativePlusMinusGames": 3,
           "evenPlusMinusGames": 0,
           "playerOfTheGameCredits": 1
         },
         "modelAwardSubscore": null,
-        "provenance": "Four named skater game sheets, official HTO GP/G/A/PTS/plus-minus and Player of the Game parity",
-        "limitation": "Raw game pattern counts, not the original workbook weighted/normalized Consistency, Two-Way or Streak Heat subscore."
+        "provenance": "Seven named 2026/27 HTO game sheets and official HTO season statistics; no award formula parity",
+        "limitation": "Per-game raw input observations, not normalized workbook award components"
       }
     },
     {
       "name": "Povegliano, Adam",
       "role": "FT",
       "position": "Skater",
-      "gp": 3,
-      "goals": 0,
+      "gp": 6,
+      "goals": 2,
       "assists": 0,
-      "points": 0,
-      "source": "HTO published current-season skater scoring bridged to HockeyOS projection",
+      "points": 2,
+      "source": "HTO verified seven-game season and individual boxscores; not AwardScoring",
       "officialHTOStats": {
-        "gp": 3,
-        "goals": 0,
+        "gp": 6,
+        "goals": 2,
         "assists": 0,
-        "points": 0
+        "points": 2
       },
       "htoListedPosition": "F",
       "htoPositionHasDefenceOption": false,
-      "rookieRosterWatch": {
-        "sourceFlag": "Rookie Status = 1",
-        "firstRecordedSeason": "W2026/27",
-        "sourceRosterRole": "FT",
-        "awardEligibility": "NOT_VERIFIED"
-      },
+      "rosterClassificationSource": "SAVED_HOCKEYOS_ROSTER_SNAPSHOT_ROLE_NOT_AWARD_ELIGIBILITY",
       "currentHTORaw": {
         "name": "Povegliano, Adam",
         "listedPosition": "F",
-        "gamesPlayed": 3,
-        "goals": 0,
+        "gamesPlayed": 6,
+        "goals": 2,
         "assists": 0,
-        "points": 0,
+        "points": 2,
         "gameTyingGoals": 0,
         "penaltyMinutes": 0,
-        "plusMinus": -10,
-        "pointsPerGame": 0,
-        "playerOfTheGameCount": 0,
+        "plusMinus": -14,
+        "pointsPerGame": 0.333,
+        "playerOfTheGameCount": 1,
         "sourceKind": "OFFICIAL_HTO_PUBLISHED_SEASON_STATISTICS",
         "season": "W2026/27"
       },
       "currentHTOEventEvidence": {
-        "reportedPIMFreeGameAppearances": 3,
-        "gamesWithPublishedPIM": 0,
         "playedOfficialHTOGameIds": [
           3356177,
           3369564,
-          3375601
+          3375601,
+          3375682,
+          3375683,
+          3375684
         ],
-        "sourceKind": "HTO_SCORES_AND_BOX_SCORE_EVENTS_RECONCILED",
-        "publicationLimit": "Verified event input, not normalized workbook award subscore"
-      },
-      "verifiedHTOScoringByStrength": {
-        "evenStrengthGoals": 0,
-        "evenStrengthAssists": 0,
-        "powerPlayGoals": 0,
-        "powerPlayAssists": 0,
-        "shorthandedGoals": 0,
-        "shorthandedAssists": 0,
-        "publishedSpecialTeamsPointGames": 0,
-        "sourceGameIds": [
-          3356177,
-          3369564,
-          3375601
-        ],
-        "sourceStatus": "EXACT_HTO_GOAL_SCORER_AND_ASSISTANT_EVENTS_RECONCILED_NOT_AWARD_SCORE"
+        "sourceKind": "HTO_SEVEN_GAME_GAME_SHEETS_AND_SEASON_STATS_RECONCILED_NOT_AWARD_SCORE",
+        "publishedPIMGameValuesKnown": 2,
+        "unknownPIMGameValues": 4
       },
       "sourceHTOGamePattern": {
         "status": "HTO_PER_GAME_OBSERVATIONS_CROSSCHECKED_TO_CURRENT_SEASON",
@@ -1498,83 +1568,103 @@
             "points": 0,
             "plusMinus": -6,
             "playerOfTheGame": 0
+          },
+          {
+            "gameId": 3375682,
+            "date": "2026-10-25",
+            "g": 1,
+            "a": 0,
+            "points": 1,
+            "plusMinus": 2,
+            "playerOfTheGame": 0
+          },
+          {
+            "gameId": 3375683,
+            "date": "2026-11-01",
+            "g": 1,
+            "a": 0,
+            "points": 1,
+            "plusMinus": -5,
+            "playerOfTheGame": 1
+          },
+          {
+            "gameId": 3375684,
+            "date": "2026-11-08",
+            "g": 0,
+            "a": 0,
+            "points": 0,
+            "plusMinus": -1,
+            "playerOfTheGame": 0
           }
         ],
         "observedCounts": {
-          "gamesPlayed": 3,
-          "pointScoringGames": 0,
-          "goalScoringGames": 0,
+          "gamesPlayed": 6,
+          "pointScoringGames": 2,
+          "goalScoringGames": 2,
           "multiPointGames": 0,
           "threeOrMorePointGames": 0,
-          "positivePlusMinusGames": 0,
-          "negativePlusMinusGames": 3,
+          "positivePlusMinusGames": 1,
+          "negativePlusMinusGames": 5,
           "evenPlusMinusGames": 0,
-          "playerOfTheGameCredits": 0
+          "playerOfTheGameCredits": 1
         },
         "modelAwardSubscore": null,
-        "provenance": "Four named skater game sheets, official HTO GP/G/A/PTS/plus-minus and Player of the Game parity",
-        "limitation": "Raw game pattern counts, not the original workbook weighted/normalized Consistency, Two-Way or Streak Heat subscore."
+        "provenance": "Seven named 2026/27 HTO game sheets and official HTO season statistics; no award formula parity",
+        "limitation": "Per-game raw input observations, not normalized workbook award components"
+      },
+      "rookieRosterWatch": {
+        "sourceFlag": "Rookie Status = 1",
+        "firstRecordedSeason": "W2026/27",
+        "sourceRosterRole": "FT",
+        "awardEligibility": "NOT_VERIFIED"
       }
     },
     {
       "name": "Provenzano, Mario",
       "role": "FT",
       "position": "Skater",
-      "gp": 4,
+      "gp": 7,
       "goals": 0,
-      "assists": 0,
-      "points": 0,
-      "source": "HTO published current-season skater scoring bridged to HockeyOS projection",
+      "assists": 1,
+      "points": 1,
+      "source": "HTO verified seven-game season and individual boxscores; not AwardScoring",
       "officialHTOStats": {
-        "gp": 4,
+        "gp": 7,
         "goals": 0,
-        "assists": 0,
-        "points": 0
+        "assists": 1,
+        "points": 1
       },
       "htoListedPosition": "C",
       "htoPositionHasDefenceOption": false,
+      "rosterClassificationSource": "SAVED_HOCKEYOS_ROSTER_SNAPSHOT_ROLE_NOT_AWARD_ELIGIBILITY",
       "currentHTORaw": {
         "name": "Provenzano, Mario",
         "listedPosition": "C",
-        "gamesPlayed": 4,
+        "gamesPlayed": 7,
         "goals": 0,
-        "assists": 0,
-        "points": 0,
+        "assists": 1,
+        "points": 1,
         "gameTyingGoals": 0,
-        "penaltyMinutes": 0,
-        "plusMinus": -13,
-        "pointsPerGame": 0,
+        "penaltyMinutes": 2,
+        "plusMinus": -17,
+        "pointsPerGame": 0.143,
         "playerOfTheGameCount": 0,
         "sourceKind": "OFFICIAL_HTO_PUBLISHED_SEASON_STATISTICS",
         "season": "W2026/27"
       },
       "currentHTOEventEvidence": {
-        "reportedPIMFreeGameAppearances": 4,
-        "gamesWithPublishedPIM": 0,
         "playedOfficialHTOGameIds": [
           3356177,
           3356178,
           3369564,
-          3375601
+          3375601,
+          3375682,
+          3375683,
+          3375684
         ],
-        "sourceKind": "HTO_SCORES_AND_BOX_SCORE_EVENTS_RECONCILED",
-        "publicationLimit": "Verified event input, not normalized workbook award subscore"
-      },
-      "verifiedHTOScoringByStrength": {
-        "evenStrengthGoals": 0,
-        "evenStrengthAssists": 0,
-        "powerPlayGoals": 0,
-        "powerPlayAssists": 0,
-        "shorthandedGoals": 0,
-        "shorthandedAssists": 0,
-        "publishedSpecialTeamsPointGames": 0,
-        "sourceGameIds": [
-          3356177,
-          3356178,
-          3369564,
-          3375601
-        ],
-        "sourceStatus": "EXACT_HTO_GOAL_SCORER_AND_ASSISTANT_EVENTS_RECONCILED_NOT_AWARD_SCORE"
+        "sourceKind": "HTO_SEVEN_GAME_GAME_SHEETS_AND_SEASON_STATS_RECONCILED_NOT_AWARD_SCORE",
+        "publishedPIMGameValuesKnown": 2,
+        "unknownPIMGameValues": 5
       },
       "sourceHTOGamePattern": {
         "status": "HTO_PER_GAME_OBSERVATIONS_CROSSCHECKED_TO_CURRENT_SEASON",
@@ -1615,81 +1705,96 @@
             "points": 0,
             "plusMinus": -6,
             "playerOfTheGame": 0
+          },
+          {
+            "gameId": 3375682,
+            "date": "2026-10-25",
+            "g": 0,
+            "a": 0,
+            "points": 0,
+            "plusMinus": 2,
+            "playerOfTheGame": 0
+          },
+          {
+            "gameId": 3375683,
+            "date": "2026-11-01",
+            "g": 0,
+            "a": 0,
+            "points": 0,
+            "plusMinus": -5,
+            "playerOfTheGame": 0
+          },
+          {
+            "gameId": 3375684,
+            "date": "2026-11-08",
+            "g": 0,
+            "a": 1,
+            "points": 1,
+            "plusMinus": -1,
+            "playerOfTheGame": 0
           }
         ],
         "observedCounts": {
-          "gamesPlayed": 4,
-          "pointScoringGames": 0,
+          "gamesPlayed": 7,
+          "pointScoringGames": 1,
           "goalScoringGames": 0,
           "multiPointGames": 0,
           "threeOrMorePointGames": 0,
-          "positivePlusMinusGames": 0,
-          "negativePlusMinusGames": 4,
+          "positivePlusMinusGames": 1,
+          "negativePlusMinusGames": 6,
           "evenPlusMinusGames": 0,
           "playerOfTheGameCredits": 0
         },
         "modelAwardSubscore": null,
-        "provenance": "Four named skater game sheets, official HTO GP/G/A/PTS/plus-minus and Player of the Game parity",
-        "limitation": "Raw game pattern counts, not the original workbook weighted/normalized Consistency, Two-Way or Streak Heat subscore."
+        "provenance": "Seven named 2026/27 HTO game sheets and official HTO season statistics; no award formula parity",
+        "limitation": "Per-game raw input observations, not normalized workbook award components"
       }
     },
     {
       "name": "Provenzano, Michael",
       "role": "FT",
       "position": "Skater",
-      "gp": 3,
-      "goals": 0,
-      "assists": 3,
-      "points": 3,
-      "source": "HTO published current-season skater scoring bridged to HockeyOS projection",
+      "gp": 6,
+      "goals": 2,
+      "assists": 4,
+      "points": 6,
+      "source": "HTO verified seven-game season and individual boxscores; not AwardScoring",
       "officialHTOStats": {
-        "gp": 3,
-        "goals": 0,
-        "assists": 3,
-        "points": 3
+        "gp": 6,
+        "goals": 2,
+        "assists": 4,
+        "points": 6
       },
       "htoListedPosition": "C/LW",
       "htoPositionHasDefenceOption": false,
+      "rosterClassificationSource": "SAVED_HOCKEYOS_ROSTER_SNAPSHOT_ROLE_NOT_AWARD_ELIGIBILITY",
       "currentHTORaw": {
         "name": "Provenzano, Michael",
         "listedPosition": "C/LW",
-        "gamesPlayed": 3,
-        "goals": 0,
-        "assists": 3,
-        "points": 3,
+        "gamesPlayed": 6,
+        "goals": 2,
+        "assists": 4,
+        "points": 6,
         "gameTyingGoals": 0,
         "penaltyMinutes": 0,
-        "plusMinus": -7,
-        "pointsPerGame": 1,
-        "playerOfTheGameCount": 1,
+        "plusMinus": -11,
+        "pointsPerGame": 1.0,
+        "playerOfTheGameCount": 2,
         "sourceKind": "OFFICIAL_HTO_PUBLISHED_SEASON_STATISTICS",
         "season": "W2026/27"
       },
       "currentHTOEventEvidence": {
-        "reportedPIMFreeGameAppearances": 3,
-        "gamesWithPublishedPIM": 0,
         "playedOfficialHTOGameIds": [
           3356177,
           3356178,
-          3369564
+          3369564,
+          3375682,
+          3375683,
+          3375684
         ],
-        "sourceKind": "HTO_SCORES_AND_BOX_SCORE_EVENTS_RECONCILED",
-        "publicationLimit": "Verified event input, not normalized workbook award subscore"
-      },
-      "verifiedHTOScoringByStrength": {
-        "evenStrengthGoals": 0,
-        "evenStrengthAssists": 3,
-        "powerPlayGoals": 0,
-        "powerPlayAssists": 0,
-        "shorthandedGoals": 0,
-        "shorthandedAssists": 0,
-        "publishedSpecialTeamsPointGames": 0,
-        "sourceGameIds": [
-          3356177,
-          3356178,
-          3369564
-        ],
-        "sourceStatus": "EXACT_HTO_GOAL_SCORER_AND_ASSISTANT_EVENTS_RECONCILED_NOT_AWARD_SCORE"
+        "sourceKind": "HTO_SEVEN_GAME_GAME_SHEETS_AND_SEASON_STATS_RECONCILED_NOT_AWARD_SCORE",
+        "publishedPIMGameValuesKnown": 1,
+        "unknownPIMGameValues": 5
       },
       "sourceHTOGamePattern": {
         "status": "HTO_PER_GAME_OBSERVATIONS_CROSSCHECKED_TO_CURRENT_SEASON",
@@ -1721,79 +1826,144 @@
             "points": 1,
             "plusMinus": -1,
             "playerOfTheGame": 0
+          },
+          {
+            "gameId": 3375682,
+            "date": "2026-10-25",
+            "g": 2,
+            "a": 0,
+            "points": 2,
+            "plusMinus": 2,
+            "playerOfTheGame": 1
+          },
+          {
+            "gameId": 3375683,
+            "date": "2026-11-01",
+            "g": 0,
+            "a": 0,
+            "points": 0,
+            "plusMinus": -5,
+            "playerOfTheGame": 0
+          },
+          {
+            "gameId": 3375684,
+            "date": "2026-11-08",
+            "g": 0,
+            "a": 1,
+            "points": 1,
+            "plusMinus": -1,
+            "playerOfTheGame": 0
           }
         ],
         "observedCounts": {
-          "gamesPlayed": 3,
-          "pointScoringGames": 2,
-          "goalScoringGames": 0,
-          "multiPointGames": 1,
+          "gamesPlayed": 6,
+          "pointScoringGames": 4,
+          "goalScoringGames": 1,
+          "multiPointGames": 2,
           "threeOrMorePointGames": 0,
-          "positivePlusMinusGames": 0,
-          "negativePlusMinusGames": 3,
+          "positivePlusMinusGames": 1,
+          "negativePlusMinusGames": 5,
           "evenPlusMinusGames": 0,
-          "playerOfTheGameCredits": 1
+          "playerOfTheGameCredits": 2
         },
         "modelAwardSubscore": null,
-        "provenance": "Four named skater game sheets, official HTO GP/G/A/PTS/plus-minus and Player of the Game parity",
-        "limitation": "Raw game pattern counts, not the original workbook weighted/normalized Consistency, Two-Way or Streak Heat subscore."
+        "provenance": "Seven named 2026/27 HTO game sheets and official HTO season statistics; no award formula parity",
+        "limitation": "Per-game raw input observations, not normalized workbook award components"
+      }
+    },
+    {
+      "name": "Rae, Jeff",
+      "role": "UNVERIFIED",
+      "position": "Goalie",
+      "gp": 1,
+      "goals": null,
+      "assists": null,
+      "points": null,
+      "source": "HTO verified seven-game goalie season and individual boxscores; not AwardScoring",
+      "officialHTOStats": {
+        "gp": 1,
+        "wins": 0,
+        "losses": 1,
+        "goalsAgainst": 6,
+        "goalsAgainstAverage": 6.0,
+        "playerOfTheGameCount": 0
+      },
+      "rosterClassificationSource": "SAVED_HOCKEYOS_ROSTER_SNAPSHOT_ROLE_NOT_AWARD_ELIGIBILITY",
+      "currentHTORaw": {
+        "name": "Rae, Jeff",
+        "gamesPlayed": 1,
+        "goalsAgainst": 6,
+        "goalsAgainstAverage": 6.0,
+        "losses": 1,
+        "playerOfTheGameCount": 0,
+        "season": "W2026/27",
+        "sourceKind": "OFFICIAL_HTO_PUBLISHED_SEASON_STATISTICS"
+      },
+      "currentHTOEventEvidence": {
+        "playedOfficialHTOGameIds": [
+          3375684
+        ],
+        "sourceKind": "HTO_SEVEN_GAME_GOALIE_GAME_SHEETS_RECONCILED_NOT_AWARD_SCORE",
+        "unknownPOTGGameValues": 1
+      },
+      "sourceHTOGamePattern": {
+        "status": "HTO_GOALIE_PER_GAME_OBSERVATIONS_CROSSCHECKED_TO_CURRENT_SEASON",
+        "season": "W2026/27",
+        "games": [
+          {
+            "gameId": 3375684,
+            "date": "2026-11-08",
+            "goalsAgainst": 6,
+            "playerOfTheGame": null
+          }
+        ],
+        "modelAwardSubscore": null,
+        "provenance": "Seven official HTO game sheets and published goalie season totals",
+        "limitation": "Unknown per-game POTG values not zero-filled or treated as award scoring"
       }
     },
     {
       "name": "Rajasooriar, Krishnan",
       "role": "CU",
       "position": "Skater",
-      "gp": 2,
-      "goals": 0,
+      "gp": 3,
+      "goals": 2,
       "assists": 0,
-      "points": 0,
-      "source": "HTO published current-season skater scoring bridged to HockeyOS projection",
+      "points": 2,
+      "source": "HTO verified seven-game season and individual boxscores; not AwardScoring",
       "officialHTOStats": {
-        "gp": 2,
-        "goals": 0,
+        "gp": 3,
+        "goals": 2,
         "assists": 0,
-        "points": 0
+        "points": 2
       },
       "htoListedPosition": "RW/RD",
       "htoPositionHasDefenceOption": true,
+      "rosterClassificationSource": "SAVED_HOCKEYOS_ROSTER_SNAPSHOT_ROLE_NOT_AWARD_ELIGIBILITY",
       "currentHTORaw": {
         "name": "Rajasooriar, Krishnan",
         "listedPosition": "RW/RD",
-        "gamesPlayed": 2,
-        "goals": 0,
+        "gamesPlayed": 3,
+        "goals": 2,
         "assists": 0,
-        "points": 0,
+        "points": 2,
         "gameTyingGoals": 0,
         "penaltyMinutes": 0,
-        "plusMinus": -9,
-        "pointsPerGame": 0,
-        "playerOfTheGameCount": 0,
+        "plusMinus": -10,
+        "pointsPerGame": 0.667,
+        "playerOfTheGameCount": 1,
         "sourceKind": "OFFICIAL_HTO_PUBLISHED_SEASON_STATISTICS",
         "season": "W2026/27"
       },
       "currentHTOEventEvidence": {
-        "reportedPIMFreeGameAppearances": 2,
-        "gamesWithPublishedPIM": 0,
         "playedOfficialHTOGameIds": [
           3356178,
-          3375601
+          3375601,
+          3375684
         ],
-        "sourceKind": "HTO_SCORES_AND_BOX_SCORE_EVENTS_RECONCILED",
-        "publicationLimit": "Verified event input, not normalized workbook award subscore"
-      },
-      "verifiedHTOScoringByStrength": {
-        "evenStrengthGoals": 0,
-        "evenStrengthAssists": 0,
-        "powerPlayGoals": 0,
-        "powerPlayAssists": 0,
-        "shorthandedGoals": 0,
-        "shorthandedAssists": 0,
-        "publishedSpecialTeamsPointGames": 0,
-        "sourceGameIds": [
-          3356178,
-          3375601
-        ],
-        "sourceStatus": "EXACT_HTO_GOAL_SCORER_AND_ASSISTANT_EVENTS_RECONCILED_NOT_AWARD_SCORE"
+        "sourceKind": "HTO_SEVEN_GAME_GAME_SHEETS_AND_SEASON_STATS_RECONCILED_NOT_AWARD_SCORE",
+        "publishedPIMGameValuesKnown": 1,
+        "unknownPIMGameValues": 2
       },
       "sourceHTOGamePattern": {
         "status": "HTO_PER_GAME_OBSERVATIONS_CROSSCHECKED_TO_CURRENT_SEASON",
@@ -1816,87 +1986,78 @@
             "points": 0,
             "plusMinus": -6,
             "playerOfTheGame": 0
+          },
+          {
+            "gameId": 3375684,
+            "date": "2026-11-08",
+            "g": 2,
+            "a": 0,
+            "points": 2,
+            "plusMinus": -1,
+            "playerOfTheGame": 1
           }
         ],
         "observedCounts": {
-          "gamesPlayed": 2,
-          "pointScoringGames": 0,
-          "goalScoringGames": 0,
-          "multiPointGames": 0,
+          "gamesPlayed": 3,
+          "pointScoringGames": 1,
+          "goalScoringGames": 1,
+          "multiPointGames": 1,
           "threeOrMorePointGames": 0,
           "positivePlusMinusGames": 0,
-          "negativePlusMinusGames": 2,
+          "negativePlusMinusGames": 3,
           "evenPlusMinusGames": 0,
-          "playerOfTheGameCredits": 0
+          "playerOfTheGameCredits": 1
         },
         "modelAwardSubscore": null,
-        "provenance": "Four named skater game sheets, official HTO GP/G/A/PTS/plus-minus and Player of the Game parity",
-        "limitation": "Raw game pattern counts, not the original workbook weighted/normalized Consistency, Two-Way or Streak Heat subscore."
+        "provenance": "Seven named 2026/27 HTO game sheets and official HTO season statistics; no award formula parity",
+        "limitation": "Per-game raw input observations, not normalized workbook award components"
       }
     },
     {
       "name": "Rajkumar, Sanjay",
       "role": "FT",
       "position": "Skater",
-      "gp": 3,
+      "gp": 6,
       "goals": 0,
-      "assists": 0,
-      "points": 0,
-      "source": "HTO published current-season skater scoring bridged to HockeyOS projection",
+      "assists": 1,
+      "points": 1,
+      "source": "HTO verified seven-game season and individual boxscores; not AwardScoring",
       "officialHTOStats": {
-        "gp": 3,
+        "gp": 6,
         "goals": 0,
-        "assists": 0,
-        "points": 0
+        "assists": 1,
+        "points": 1
       },
       "htoListedPosition": "D/LD",
       "htoPositionHasDefenceOption": true,
-      "rookieRosterWatch": {
-        "sourceFlag": "Rookie Status = 1",
-        "firstRecordedSeason": "W2026/27",
-        "sourceRosterRole": "FT",
-        "awardEligibility": "NOT_VERIFIED"
-      },
+      "rosterClassificationSource": "SAVED_HOCKEYOS_ROSTER_SNAPSHOT_ROLE_NOT_AWARD_ELIGIBILITY",
       "currentHTORaw": {
         "name": "Rajkumar, Sanjay",
         "listedPosition": "D/LD",
-        "gamesPlayed": 3,
+        "gamesPlayed": 6,
         "goals": 0,
-        "assists": 0,
-        "points": 0,
+        "assists": 1,
+        "points": 1,
         "gameTyingGoals": 0,
         "penaltyMinutes": 0,
-        "plusMinus": -7,
-        "pointsPerGame": 0,
+        "plusMinus": -11,
+        "pointsPerGame": 0.167,
         "playerOfTheGameCount": 0,
         "sourceKind": "OFFICIAL_HTO_PUBLISHED_SEASON_STATISTICS",
         "season": "W2026/27"
       },
       "currentHTOEventEvidence": {
-        "reportedPIMFreeGameAppearances": 3,
-        "gamesWithPublishedPIM": 0,
         "playedOfficialHTOGameIds": [
           3356177,
           3356178,
-          3369564
+          3369564,
+          3375682,
+          3375683,
+          3375684
         ],
-        "sourceKind": "HTO_SCORES_AND_BOX_SCORE_EVENTS_RECONCILED",
-        "publicationLimit": "Verified event input, not normalized workbook award subscore"
-      },
-      "verifiedHTOScoringByStrength": {
-        "evenStrengthGoals": 0,
-        "evenStrengthAssists": 0,
-        "powerPlayGoals": 0,
-        "powerPlayAssists": 0,
-        "shorthandedGoals": 0,
-        "shorthandedAssists": 0,
-        "publishedSpecialTeamsPointGames": 0,
-        "sourceGameIds": [
-          3356177,
-          3356178,
-          3369564
-        ],
-        "sourceStatus": "EXACT_HTO_GOAL_SCORER_AND_ASSISTANT_EVENTS_RECONCILED_NOT_AWARD_SCORE"
+        "sourceKind": "HTO_SEVEN_GAME_GAME_SHEETS_AND_SEASON_STATS_RECONCILED_NOT_AWARD_SCORE",
+        "publishedPIMGameValuesKnown": 1,
+        "unknownPIMGameValues": 5
       },
       "sourceHTOGamePattern": {
         "status": "HTO_PER_GAME_OBSERVATIONS_CROSSCHECKED_TO_CURRENT_SEASON",
@@ -1928,81 +2089,102 @@
             "points": 0,
             "plusMinus": -1,
             "playerOfTheGame": 0
+          },
+          {
+            "gameId": 3375682,
+            "date": "2026-10-25",
+            "g": 0,
+            "a": 1,
+            "points": 1,
+            "plusMinus": 2,
+            "playerOfTheGame": 0
+          },
+          {
+            "gameId": 3375683,
+            "date": "2026-11-01",
+            "g": 0,
+            "a": 0,
+            "points": 0,
+            "plusMinus": -5,
+            "playerOfTheGame": 0
+          },
+          {
+            "gameId": 3375684,
+            "date": "2026-11-08",
+            "g": 0,
+            "a": 0,
+            "points": 0,
+            "plusMinus": -1,
+            "playerOfTheGame": 0
           }
         ],
         "observedCounts": {
-          "gamesPlayed": 3,
-          "pointScoringGames": 0,
+          "gamesPlayed": 6,
+          "pointScoringGames": 1,
           "goalScoringGames": 0,
           "multiPointGames": 0,
           "threeOrMorePointGames": 0,
-          "positivePlusMinusGames": 0,
-          "negativePlusMinusGames": 3,
+          "positivePlusMinusGames": 1,
+          "negativePlusMinusGames": 5,
           "evenPlusMinusGames": 0,
           "playerOfTheGameCredits": 0
         },
         "modelAwardSubscore": null,
-        "provenance": "Four named skater game sheets, official HTO GP/G/A/PTS/plus-minus and Player of the Game parity",
-        "limitation": "Raw game pattern counts, not the original workbook weighted/normalized Consistency, Two-Way or Streak Heat subscore."
+        "provenance": "Seven named 2026/27 HTO game sheets and official HTO season statistics; no award formula parity",
+        "limitation": "Per-game raw input observations, not normalized workbook award components"
+      },
+      "rookieRosterWatch": {
+        "sourceFlag": "Rookie Status = 1",
+        "firstRecordedSeason": "W2026/27",
+        "sourceRosterRole": "FT",
+        "awardEligibility": "NOT_VERIFIED"
       }
     },
     {
       "name": "Rosenberg, Jamie",
       "role": "FT",
       "position": "Skater",
-      "gp": 3,
-      "goals": 0,
-      "assists": 0,
-      "points": 0,
-      "source": "HTO published current-season skater scoring bridged to HockeyOS projection",
+      "gp": 6,
+      "goals": 2,
+      "assists": 2,
+      "points": 4,
+      "source": "HTO verified seven-game season and individual boxscores; not AwardScoring",
       "officialHTOStats": {
-        "gp": 3,
-        "goals": 0,
-        "assists": 0,
-        "points": 0
+        "gp": 6,
+        "goals": 2,
+        "assists": 2,
+        "points": 4
       },
       "htoListedPosition": "C/LW",
       "htoPositionHasDefenceOption": false,
+      "rosterClassificationSource": "SAVED_HOCKEYOS_ROSTER_SNAPSHOT_ROLE_NOT_AWARD_ELIGIBILITY",
       "currentHTORaw": {
         "name": "Rosenberg, Jamie",
         "listedPosition": "C/LW",
-        "gamesPlayed": 3,
-        "goals": 0,
-        "assists": 0,
-        "points": 0,
+        "gamesPlayed": 6,
+        "goals": 2,
+        "assists": 2,
+        "points": 4,
         "gameTyingGoals": 0,
         "penaltyMinutes": 0,
-        "plusMinus": -10,
-        "pointsPerGame": 0,
-        "playerOfTheGameCount": 1,
+        "plusMinus": -14,
+        "pointsPerGame": 0.667,
+        "playerOfTheGameCount": 2,
         "sourceKind": "OFFICIAL_HTO_PUBLISHED_SEASON_STATISTICS",
         "season": "W2026/27"
       },
       "currentHTOEventEvidence": {
-        "reportedPIMFreeGameAppearances": 3,
-        "gamesWithPublishedPIM": 0,
         "playedOfficialHTOGameIds": [
           3356178,
           3369564,
-          3375601
+          3375601,
+          3375682,
+          3375683,
+          3375684
         ],
-        "sourceKind": "HTO_SCORES_AND_BOX_SCORE_EVENTS_RECONCILED",
-        "publicationLimit": "Verified event input, not normalized workbook award subscore"
-      },
-      "verifiedHTOScoringByStrength": {
-        "evenStrengthGoals": 0,
-        "evenStrengthAssists": 0,
-        "powerPlayGoals": 0,
-        "powerPlayAssists": 0,
-        "shorthandedGoals": 0,
-        "shorthandedAssists": 0,
-        "publishedSpecialTeamsPointGames": 0,
-        "sourceGameIds": [
-          3356178,
-          3369564,
-          3375601
-        ],
-        "sourceStatus": "EXACT_HTO_GOAL_SCORER_AND_ASSISTANT_EVENTS_RECONCILED_NOT_AWARD_SCORE"
+        "sourceKind": "HTO_SEVEN_GAME_GAME_SHEETS_AND_SEASON_STATS_RECONCILED_NOT_AWARD_SCORE",
+        "publishedPIMGameValuesKnown": 2,
+        "unknownPIMGameValues": 4
       },
       "sourceHTOGamePattern": {
         "status": "HTO_PER_GAME_OBSERVATIONS_CROSSCHECKED_TO_CURRENT_SEASON",
@@ -2034,81 +2216,96 @@
             "points": 0,
             "plusMinus": -6,
             "playerOfTheGame": 1
+          },
+          {
+            "gameId": 3375682,
+            "date": "2026-10-25",
+            "g": 1,
+            "a": 1,
+            "points": 2,
+            "plusMinus": 2,
+            "playerOfTheGame": 0
+          },
+          {
+            "gameId": 3375683,
+            "date": "2026-11-01",
+            "g": 0,
+            "a": 0,
+            "points": 0,
+            "plusMinus": -5,
+            "playerOfTheGame": 0
+          },
+          {
+            "gameId": 3375684,
+            "date": "2026-11-08",
+            "g": 1,
+            "a": 1,
+            "points": 2,
+            "plusMinus": -1,
+            "playerOfTheGame": 1
           }
         ],
         "observedCounts": {
-          "gamesPlayed": 3,
-          "pointScoringGames": 0,
-          "goalScoringGames": 0,
-          "multiPointGames": 0,
+          "gamesPlayed": 6,
+          "pointScoringGames": 2,
+          "goalScoringGames": 2,
+          "multiPointGames": 2,
           "threeOrMorePointGames": 0,
-          "positivePlusMinusGames": 0,
-          "negativePlusMinusGames": 3,
+          "positivePlusMinusGames": 1,
+          "negativePlusMinusGames": 5,
           "evenPlusMinusGames": 0,
-          "playerOfTheGameCredits": 1
+          "playerOfTheGameCredits": 2
         },
         "modelAwardSubscore": null,
-        "provenance": "Four named skater game sheets, official HTO GP/G/A/PTS/plus-minus and Player of the Game parity",
-        "limitation": "Raw game pattern counts, not the original workbook weighted/normalized Consistency, Two-Way or Streak Heat subscore."
+        "provenance": "Seven named 2026/27 HTO game sheets and official HTO season statistics; no award formula parity",
+        "limitation": "Per-game raw input observations, not normalized workbook award components"
       }
     },
     {
       "name": "Saindon, Stephane",
       "role": "FT",
       "position": "Skater",
-      "gp": 3,
-      "goals": 0,
-      "assists": 1,
-      "points": 1,
-      "source": "HTO published current-season skater scoring bridged to HockeyOS projection",
+      "gp": 6,
+      "goals": 3,
+      "assists": 3,
+      "points": 6,
+      "source": "HTO verified seven-game season and individual boxscores; not AwardScoring",
       "officialHTOStats": {
-        "gp": 3,
-        "goals": 0,
-        "assists": 1,
-        "points": 1
+        "gp": 6,
+        "goals": 3,
+        "assists": 3,
+        "points": 6
       },
       "htoListedPosition": "C",
       "htoPositionHasDefenceOption": false,
+      "rosterClassificationSource": "SAVED_HOCKEYOS_ROSTER_SNAPSHOT_ROLE_NOT_AWARD_ELIGIBILITY",
       "currentHTORaw": {
         "name": "Saindon, Stephane",
         "listedPosition": "C",
-        "gamesPlayed": 3,
-        "goals": 0,
-        "assists": 1,
-        "points": 1,
+        "gamesPlayed": 6,
+        "goals": 3,
+        "assists": 3,
+        "points": 6,
         "gameTyingGoals": 0,
         "penaltyMinutes": 0,
-        "plusMinus": -12,
-        "pointsPerGame": 0.33,
-        "playerOfTheGameCount": 1,
+        "plusMinus": -16,
+        "pointsPerGame": 1.0,
+        "playerOfTheGameCount": 3,
         "sourceKind": "OFFICIAL_HTO_PUBLISHED_SEASON_STATISTICS",
         "season": "W2026/27"
       },
       "currentHTOEventEvidence": {
-        "reportedPIMFreeGameAppearances": 3,
-        "gamesWithPublishedPIM": 0,
         "playedOfficialHTOGameIds": [
           3356177,
           3356178,
-          3375601
+          3375601,
+          3375682,
+          3375683,
+          3375684
         ],
-        "sourceKind": "HTO_SCORES_AND_BOX_SCORE_EVENTS_RECONCILED",
-        "publicationLimit": "Verified event input, not normalized workbook award subscore"
-      },
-      "verifiedHTOScoringByStrength": {
-        "evenStrengthGoals": 0,
-        "evenStrengthAssists": 1,
-        "powerPlayGoals": 0,
-        "powerPlayAssists": 0,
-        "shorthandedGoals": 0,
-        "shorthandedAssists": 0,
-        "publishedSpecialTeamsPointGames": 0,
-        "sourceGameIds": [
-          3356177,
-          3356178,
-          3375601
-        ],
-        "sourceStatus": "EXACT_HTO_GOAL_SCORER_AND_ASSISTANT_EVENTS_RECONCILED_NOT_AWARD_SCORE"
+        "sourceKind": "HTO_SEVEN_GAME_GAME_SHEETS_AND_SEASON_STATS_RECONCILED_NOT_AWARD_SCORE",
+        "publishedPIMGameValuesKnown": 2,
+        "unknownPIMGameValues": 4
       },
       "sourceHTOGamePattern": {
         "status": "HTO_PER_GAME_OBSERVATIONS_CROSSCHECKED_TO_CURRENT_SEASON",
@@ -2140,89 +2337,97 @@
             "points": 1,
             "plusMinus": -6,
             "playerOfTheGame": 1
+          },
+          {
+            "gameId": 3375682,
+            "date": "2026-10-25",
+            "g": 1,
+            "a": 1,
+            "points": 2,
+            "plusMinus": 2,
+            "playerOfTheGame": 1
+          },
+          {
+            "gameId": 3375683,
+            "date": "2026-11-01",
+            "g": 0,
+            "a": 0,
+            "points": 0,
+            "plusMinus": -5,
+            "playerOfTheGame": 0
+          },
+          {
+            "gameId": 3375684,
+            "date": "2026-11-08",
+            "g": 2,
+            "a": 1,
+            "points": 3,
+            "plusMinus": -1,
+            "playerOfTheGame": 1
           }
         ],
         "observedCounts": {
-          "gamesPlayed": 3,
-          "pointScoringGames": 1,
-          "goalScoringGames": 0,
-          "multiPointGames": 0,
-          "threeOrMorePointGames": 0,
-          "positivePlusMinusGames": 0,
-          "negativePlusMinusGames": 3,
+          "gamesPlayed": 6,
+          "pointScoringGames": 3,
+          "goalScoringGames": 2,
+          "multiPointGames": 2,
+          "threeOrMorePointGames": 1,
+          "positivePlusMinusGames": 1,
+          "negativePlusMinusGames": 5,
           "evenPlusMinusGames": 0,
-          "playerOfTheGameCredits": 1
+          "playerOfTheGameCredits": 3
         },
         "modelAwardSubscore": null,
-        "provenance": "Four named skater game sheets, official HTO GP/G/A/PTS/plus-minus and Player of the Game parity",
-        "limitation": "Raw game pattern counts, not the original workbook weighted/normalized Consistency, Two-Way or Streak Heat subscore."
+        "provenance": "Seven named 2026/27 HTO game sheets and official HTO season statistics; no award formula parity",
+        "limitation": "Per-game raw input observations, not normalized workbook award components"
       }
     },
     {
       "name": "Triumbari, Francesco",
       "role": "FT",
       "position": "Skater",
-      "gp": 4,
+      "gp": 7,
       "goals": 0,
-      "assists": 0,
-      "points": 0,
-      "source": "HTO published current-season skater scoring bridged to HockeyOS projection",
+      "assists": 2,
+      "points": 2,
+      "source": "HTO verified seven-game season and individual boxscores; not AwardScoring",
       "officialHTOStats": {
-        "gp": 4,
+        "gp": 7,
         "goals": 0,
-        "assists": 0,
-        "points": 0
+        "assists": 2,
+        "points": 2
       },
       "htoListedPosition": "LD",
       "htoPositionHasDefenceOption": true,
-      "rookieRosterWatch": {
-        "sourceFlag": "Rookie Status = 1",
-        "firstRecordedSeason": "W2026/27",
-        "sourceRosterRole": "FT",
-        "awardEligibility": "NOT_VERIFIED"
-      },
+      "rosterClassificationSource": "SAVED_HOCKEYOS_ROSTER_SNAPSHOT_ROLE_NOT_AWARD_ELIGIBILITY",
       "currentHTORaw": {
         "name": "Triumbari, Francesco",
         "listedPosition": "LD",
-        "gamesPlayed": 4,
+        "gamesPlayed": 7,
         "goals": 0,
-        "assists": 0,
-        "points": 0,
+        "assists": 2,
+        "points": 2,
         "gameTyingGoals": 0,
         "penaltyMinutes": 2,
-        "plusMinus": -13,
-        "pointsPerGame": 0,
+        "plusMinus": -17,
+        "pointsPerGame": 0.286,
         "playerOfTheGameCount": 0,
         "sourceKind": "OFFICIAL_HTO_PUBLISHED_SEASON_STATISTICS",
         "season": "W2026/27"
       },
       "currentHTOEventEvidence": {
-        "reportedPIMFreeGameAppearances": 3,
-        "gamesWithPublishedPIM": 1,
         "playedOfficialHTOGameIds": [
           3356177,
           3356178,
           3369564,
-          3375601
+          3375601,
+          3375682,
+          3375683,
+          3375684
         ],
-        "sourceKind": "HTO_SCORES_AND_BOX_SCORE_EVENTS_RECONCILED",
-        "publicationLimit": "Verified event input, not normalized workbook award subscore"
-      },
-      "verifiedHTOScoringByStrength": {
-        "evenStrengthGoals": 0,
-        "evenStrengthAssists": 0,
-        "powerPlayGoals": 0,
-        "powerPlayAssists": 0,
-        "shorthandedGoals": 0,
-        "shorthandedAssists": 0,
-        "publishedSpecialTeamsPointGames": 0,
-        "sourceGameIds": [
-          3356177,
-          3356178,
-          3369564,
-          3375601
-        ],
-        "sourceStatus": "EXACT_HTO_GOAL_SCORER_AND_ASSISTANT_EVENTS_RECONCILED_NOT_AWARD_SCORE"
+        "sourceKind": "HTO_SEVEN_GAME_GAME_SHEETS_AND_SEASON_STATS_RECONCILED_NOT_AWARD_SCORE",
+        "publishedPIMGameValuesKnown": 2,
+        "unknownPIMGameValues": 5
       },
       "sourceHTOGamePattern": {
         "status": "HTO_PER_GAME_OBSERVATIONS_CROSSCHECKED_TO_CURRENT_SEASON",
@@ -2263,86 +2468,97 @@
             "points": 0,
             "plusMinus": -6,
             "playerOfTheGame": 0
+          },
+          {
+            "gameId": 3375682,
+            "date": "2026-10-25",
+            "g": 0,
+            "a": 2,
+            "points": 2,
+            "plusMinus": 2,
+            "playerOfTheGame": 0
+          },
+          {
+            "gameId": 3375683,
+            "date": "2026-11-01",
+            "g": 0,
+            "a": 0,
+            "points": 0,
+            "plusMinus": -5,
+            "playerOfTheGame": 0
+          },
+          {
+            "gameId": 3375684,
+            "date": "2026-11-08",
+            "g": 0,
+            "a": 0,
+            "points": 0,
+            "plusMinus": -1,
+            "playerOfTheGame": 0
           }
         ],
         "observedCounts": {
-          "gamesPlayed": 4,
-          "pointScoringGames": 0,
+          "gamesPlayed": 7,
+          "pointScoringGames": 1,
           "goalScoringGames": 0,
-          "multiPointGames": 0,
+          "multiPointGames": 1,
           "threeOrMorePointGames": 0,
-          "positivePlusMinusGames": 0,
-          "negativePlusMinusGames": 4,
+          "positivePlusMinusGames": 1,
+          "negativePlusMinusGames": 6,
           "evenPlusMinusGames": 0,
           "playerOfTheGameCredits": 0
         },
         "modelAwardSubscore": null,
-        "provenance": "Four named skater game sheets, official HTO GP/G/A/PTS/plus-minus and Player of the Game parity",
-        "limitation": "Raw game pattern counts, not the original workbook weighted/normalized Consistency, Two-Way or Streak Heat subscore."
+        "provenance": "Seven named 2026/27 HTO game sheets and official HTO season statistics; no award formula parity",
+        "limitation": "Per-game raw input observations, not normalized workbook award components"
+      },
+      "rookieRosterWatch": {
+        "sourceFlag": "Rookie Status = 1",
+        "firstRecordedSeason": "W2026/27",
+        "sourceRosterRole": "FT",
+        "awardEligibility": "NOT_VERIFIED"
       }
     }
   ],
-  "excludedIdentityPlaceholder": [
-    "Unknown, Johnny"
-  ],
+  "excludedIdentityPlaceholder": {
+    "name": "Unknown, Johnny",
+    "GP": 1,
+    "plusMinus": -3,
+    "source": "Official HTO seven-game season table",
+    "explicitlyExcludedFromNamedParticipantWatch": true
+  },
   "sourceCaveats": [
-    "Players are not automatically eligible for every award: the award-specific rules still apply.",
-    "Goalie GP is derived from verified game sheets, not from skater projection fields.",
-    "Names may have distinct roster classes; goalie roster status was not inferred.",
-    "Historical workbook award scorecards are not current season ratings."
+    "Official HTO game sheets and season source have been checked for 7 games; player(s) of the game per-game goalie values may remain null.",
+    "The original workbook retains only one entered game. No current-year AwardScoring parity, normalized rating, or category-eligibility claim is made.",
+    "Player role tags from saved September workbook/previous HockeyOS snapshots are informational only, not verified current award classifications.",
+    "Anonymous game-sheet placeholder excluded from named player watch. Source runtime SHA integrity review is held separately."
   ],
   "verifiedSourceReadback": {
-    "source": "Official Brave H.C. HTO player and goalie statistics",
+    "source": "Independent HTO seven-game official Score and Stats reconciling all 26 named players",
     "sourceUrl": "https://www.htosports.com/teams/default.asp?p=stats&s=hockey&u=BRAVESHOCKEY",
-    "verifiedOn": "2026-10-19",
+    "verifiedOn": "2026-11-12",
     "status": "HTO_NAMED_SKATER_AND_GOALIE_GP_PARITY_PASS",
     "team": {
-      "gp": 4,
-      "goals": 6,
-      "assists": 10,
-      "points": 16
+      "GP": 7,
+      "G": 19,
+      "A": 31,
+      "Pts": 50,
+      "GA": 36
     },
-    "sourceRows": {
-      "skaters": 21,
-      "namedSkaters": 20,
-      "goalies": 3
-    },
-    "namedParticipantRows": 23,
-    "goalieSourceTotals": {
-      "gp": 4,
-      "goalsAgainst": 19
-    },
-    "unidentifiedEntriesExcluded": [
-      "Unknown, Johnny"
-    ],
-    "scopeLimitation": "Read-only public scoring/goalie-source parity. HTO GP and aggregate stats do not qualify a player for a specific award or validate AwardScoring formulas.",
-    "independentBoxscoreParity": {
-      "status": "PASS_FOUR_HTO_VERIFIED_GAME_SUMMARIES",
-      "source": "Four source-verified HTO boxscore IDs retained in Founder-approved Hot Stove game recaps",
-      "sourceEvidenceSha": "d327fc0fe8fda26cd2723d0632f352abf10625bd",
-      "gameCount": 4,
-      "boxscoreGameIds": [
-        3356177,
-        3356178,
-        3369564,
-        3375601
-      ],
-      "teamGoalsFor": 6,
-      "teamGoalsAgainst": 19,
-      "goalieGoalsAgainst": 19,
-      "qualifier": "Crosscheck of scored games and goalie appearance totals, NOT an independent calculation of player award ratings."
-    },
+    "namedParticipantRows": 26,
+    "unidentifiedEntriesExcluded": 1,
+    "scopeLimitation": "Current raw HTO evidence only; no weighted award scores",
     "htoPositionVerification": {
       "status": "HTO_POSITION_AND_GP_PARITY_PASS",
-      "source": "Official HTO skater POS column and separate goalie table",
-      "namedSkatersChecked": 20,
-      "goaliesChecked": 3,
-      "semantics": "HTO position listing is NOT proof of award-specific eligibility; dual-role players are position candidates only."
+      "source": "Official HTO season POS, seven-game boxscore identities and current GP",
+      "namedSkatersChecked": 21,
+      "goaliesChecked": 5,
+      "semantics": "HTO position listing is not Norris eligibility; dual positions are watch only."
     },
     "currentHTOGameEventAudit": {
-      "status": "FOUR_GAME_HTO_SPECIAL_TEAMS_AND_MINOR_PENALTY_EVENT_PARITY_PASS",
-      "season": "W2026/27",
-      "officialTeamGames": 4,
+      "status": "SEVEN_OFFICIAL_GAME_SCORES_AND_NAMED_APPEARANCES_SOURCE_PARITY_PASS",
+      "officialGameCount": 7,
+      "sourceAuditSHA256": "3c592d7d9526d69c1b97a5fbaab881d2da97a27e1b5ab69b8a40bf6f1e0e0dd1",
       "currentOfficialGameSources": [
         {
           "gameId": 3356177,
@@ -2363,83 +2579,29 @@
           "gameId": 3375601,
           "date": "2026-10-18",
           "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=3375601&p=boxscore"
+        },
+        {
+          "gameId": 3375682,
+          "date": "2026-10-25",
+          "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=3375682&p=boxscore"
+        },
+        {
+          "gameId": 3375683,
+          "date": "2026-11-01",
+          "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=3375683&p=boxscore"
+        },
+        {
+          "gameId": 3375684,
+          "date": "2026-11-08",
+          "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=3375684&p=boxscore"
         }
-      ],
-      "teamReportedGoalsByStrength": {
-        "ES": 6,
-        "PP": 0,
-        "SH": 0
-      },
-      "teamReportedPenaltyMinutes": 2,
-      "reportedHTOPenaltyEvents": 1,
-      "namedSkaterGameAppearances": 54,
-      "reportedPIMFreeNamedSkaterGameAppearances": 53,
-      "flaggedPlayer": "Triumbari, Francesco",
-      "flaggedPlayerPenaltyGameId": 3375601,
-      "sourceLimitations": [
-        "Current per-game HTO PIM-free observed appearances and event goal-strength evidence, not an AwardScoring discipline or special-teams score.",
-        "The original workbook's multi-PIM games definition and historical 50-100 normalization have not been validated.",
-        "No assumption that missing event categories equal a normalized score of zero; goalie discipline not derived.",
-        "The previously documented AwardScoring and JavaScript publication holds remain active."
-      ],
-      "awardScoreReleaseApproved": false
+      ]
     },
-    "officialHTOInputModelStatus": "SOURCE_LEVEL_ONLY_AWARDS_MODEL_HELD",
-    "currentGoalStrengthLedger": {
-      "status": "HTO_PER_PLAYER_SIX_GOALS_TEN_ASSISTS_AND_STRENGTH_PARITY_PASS",
-      "verifiedGameIds": [
-        3356177,
-        3356178,
-        3369564,
-        3375601
-      ],
-      "latestGameDate": "2026-10-18",
-      "sourceEventCount": 6,
-      "goalSummary": {
-        "evenStrength": 6,
-        "powerPlay": 0,
-        "shorthanded": 0
-      },
-      "namedSkaters": 20,
-      "derivedHTOSpecialTeamsPointGames": 0,
-      "currentAwardScoringComponentScoreReady": false,
-      "provenance": "Exact named scorer/assistant event attribution from four official HTO public Score Summary tables",
-      "caveat": "No league or workbook historic/normalized rate inferred; zero recorded PP/SH game events is NOT a 50–100 special teams model score."
-    },
+    "officialHTOInputModelStatus": "UNRANKED_SOURCE_ONLY_NO_AWARDS",
     "goalieGameEventAudit": {
-      "status": "HTO_FOUR_GOALIE_APPEARANCES_NO_PUBLISHED_GOALIE_PENALTIES_OR_GOAL_POINTS",
-      "season": "W2026/27",
-      "teamGP": 4,
-      "namedGoalies": 3,
-      "totalGoalieGameAppearances": 4,
-      "reportedGoaliePIMFreeAppearances": 4,
-      "goalieGoalEventPointsObserved": 0,
-      "officialHTOTeamPenaltyEvents": 1,
-      "sourceLimitations": [
-        "No goalie penalty in the complete published HTO penalty summaries; reporting completeness outside HTO is not independently established.",
-        "No goalie scorer or credited goal-assist in the six official Brave H.C. scoring events.",
-        "Source-level data ONLY. Historical rate baselines, model quality and discipline definitions, and 50–100 award scoring remain held."
-      ],
-      "modelSubscoresCurrent": false
-    },
-    "currentHTOGamePatterns": {
-      "status": "PER_GAME_POINT_GOAL_MULTI_POINT_PM_AND_POTG_INPUT_COUNTS_RECONCILED",
-      "verifiedGameIds": [
-        3356177,
-        3356178,
-        3369564,
-        3375601
-      ],
-      "games": 4,
-      "latestCompletedGameDate": "2026-10-18",
-      "namedSkaterCount": 20,
-      "goalieCount": 3,
-      "currentNamedPointScoringGameAppearances": 13,
-      "currentNamedMultiPointGameAppearances": 3,
-      "currentNamedPOTGCredits": 9,
-      "source": "Official HTO four game-level box scores and independently reconciled published season aggregate",
-      "calculationsAllowed": "OBSERVATIONAL_COUNTS_ONLY_NO_AWARD_SCORING",
-      "awardModelRatingsVerified": false
+      "source": "Official seven-game HTO goalie GA / GP / season parity",
+      "sourceUnknownPOTGObservationsExplicitlyNull": true,
+      "unknownGoaliePOTGGameRows": 3
     }
   },
   "workbookRookieRosterWatch": {
@@ -2458,58 +2620,32 @@
     "caveat": "Roster-based first-season full-time watch only. Saved workbook not current for award scoring; this is not an award ranking, nominee declaration, or proof of all Rookie of the Year eligibility conditions."
   },
   "currentRawSourceReadiness": {
-    "status": "PUBLIC_HTO_STAT_INPUT_RECONCILED_NO_AWARD_SCORES",
+    "status": "OFFICIAL_HTO_7GP_STATS_RECONCILED_NO_AWARD_RATING",
     "sourceUrl": "https://www.htosports.com/teams/default.asp?p=stats&s=hockey&u=BRAVESHOCKEY",
     "season": "W2026/27",
-    "verifiedAsOf": "2026-10-19",
+    "verifiedAsOf": "2026-11-12",
     "playerCounts": {
-      "skaters": 20,
-      "goalies": 3,
+      "skaters": 21,
+      "goalies": 5,
       "excludedAnonymousHTORows": 1
     },
-    "skaterFields": [
-      "No",
-      "Name",
-      "POS",
-      "GP",
-      "G",
-      "A",
-      "Pts",
-      "GTG",
-      "PIM",
-      "+/-",
-      "Pts/G",
-      "POTG"
-    ],
-    "goalieFields": [
-      "No",
-      "Name",
-      "GP",
-      "L",
-      "GA",
-      "GAA",
-      "POTG",
-      "+/-"
-    ],
     "teamHTOStats": {
-      "gamesPlayed": 4,
-      "goals": 6,
-      "assists": 10,
-      "points": 16,
-      "gameTyingGoals": 3,
-      "penaltyMinutes": 2,
-      "plusMinus": -175,
-      "playerOfTheGameCount": 9
+      "GP": 7,
+      "G": 19,
+      "A": 31,
+      "Pts": 50,
+      "POTG": 17,
+      "PIM": 8,
+      "+/-": -224
     },
     "goalieTeamHTOStats": {
-      "gamesPlayed": 4,
-      "losses": 4,
-      "goalsAgainst": 19,
-      "goalsAgainstAverage": 4.75,
-      "playerOfTheGameCount": 3,
-      "plusMinus": -13
+      "GP": 7,
+      "W": 1,
+      "L": 6,
+      "GA": 36,
+      "POTG": 4,
+      "+/-": -17
     },
-    "warning": "These are actual HTO raw season statistics, NOT normalized AwardScoring public 50–100 subscores or candidate ranks. HTO source alone cannot reproduce historical baselines, per-game award helpers or award eligibility.",
-    "modelScoresReady": false
+    "officialAwardScoringAuthorized": false
   }
 }
