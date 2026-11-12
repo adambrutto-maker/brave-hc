@@ -28,6 +28,22 @@
       "games": 3,
       "through": "2026-11-08",
       "sourceAuthority": "HTO boxscore pergame and Master Workbook >=3 streak predicate"
+    },
+    {
+      "player": "Pagnotta, Alex",
+      "description": "Point Streak: 3 games",
+      "type": "pointStreak",
+      "games": 3,
+      "through": "2026-11-08",
+      "sourceAuthority": "HTO boxscore pergame and Master Workbook >=3 streak predicate"
+    },
+    {
+      "player": "Pagnotta, Alex",
+      "description": "Assist Streak: 3 games",
+      "type": "assistStreak",
+      "games": 3,
+      "through": "2026-11-08",
+      "sourceAuthority": "HTO boxscore pergame and Master Workbook >=3 streak predicate"
     }
   ],
   "records": [
@@ -228,5 +244,5 @@
     "hto": "https://www.htosports.com/teams/default.asp?p=stats&s=hockey&u=BRAVESHOCKEY",
     "svhl": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13679&page_type=Adult"
   },
-  "exportedAt": "2026-11-11T04:31:25.367930+00:00"
+  "exportedAt": "2026-11-12T04:02:19.480756+00:00"
 }
