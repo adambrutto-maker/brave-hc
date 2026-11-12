@@ -33,8 +33,11 @@ function addSyntheticWeek(original,{weekNumber=1,boosts=[],omitId=null,move=null
  return doc;
 }
 const tests=[
- ["Current one-week release has no claimed band, index or skill trend",()=>{
-   const a=weekly.analyze(source);
+ ["A one-week-only source fixture cannot invent movement without a predecessor",()=>{
+   const single=copy(source);
+   single.weeklyLedger.weeks=[copy(source.weeklyLedger.weeks.at(-1))];
+   single.weeklyLedger.weeksRecorded=1;
+   const a=weekly.analyze(single);
    assert.equal(a.state,"SOURCE_BACKED_BASELINE_ONLY");
    assert.equal(a.completeObservedWeeks,1);
    assert.equal(a.poolTeamCount,22);
@@ -46,20 +49,25 @@ const tests=[
      t.indexRange===null&&t.bandCrossings===null));
    assert.equal(a.dataReadyForHumanReview,false);
    assert.equal(a.recommendationIssued,false);
+   // The actual two accepted weeks must never be silently dropped.
+   const current=weekly.analyze(source);
+   assert.equal(current.completeObservedWeeks,source.weeklyLedger.weeks.length);
+   assert.equal(current.transitions.length,source.weeklyLedger.weeks.length-1);
+   assert.equal(current.dataReadyForHumanReview,false);
  }],
  ["One synthetic next-week observation allows measured source differences",()=>{
    const braves=source.teams.find(t=>t.leagueName==="Braves HC");
    const simulated=addSyntheticWeek(source,{boosts:[{id:braves.sourceTeamId,score:62}]});
    const a=weekly.analyze(simulated);
-   assert.equal(a.completeObservedWeeks,2);
-   assert.equal(a.transitions.length,1);
+   assert.equal(a.completeObservedWeeks,source.weeklyLedger.weeks.length+1);
+   assert.equal(a.transitions.length,source.weeklyLedger.weeks.length);
    assert.equal(a.state,"PROVISIONAL_WEEKLY_CHANGE");
    const brave=a.trajectories.find(x=>x.sourceTeamId===braves.sourceTeamId);
    assert.equal(brave.latestScore,62);
    const oldScore=braves.strengthContext.contextIndex;
    assert.equal(brave.latestChange.indexDelta,Math.round((62-oldScore)*10)/10);
    assert.ok(brave.latestChange.rankChange>0);
-   assert.equal(brave.series.length,2);
+   assert.equal(brave.series.length,source.weeklyLedger.weeks.length+1);
    assert.ok(a.lastTransition.bandCrossings>=1);
    assert.equal(a.dataReadyForHumanReview,false);
  }],
@@ -67,22 +75,26 @@ const tests=[
    let doc=copy(source);
    for(let i=1;i<=3;i++)doc=addSyntheticWeek(doc,{weekNumber:1});
    const a=weekly.analyze(doc);
-   assert.equal(a.completeObservedWeeks,4);
-   assert.equal(a.transitions.length,3);
-   assert.ok(a.transitions.every(t=>t.bandCrossings===0 && t.meanAbsoluteScoreChange===0));
-   assert.equal(a.verifiedBandMovement,0);
+   assert.equal(a.completeObservedWeeks,source.weeklyLedger.weeks.length+3);
+   assert.equal(a.transitions.length,source.weeklyLedger.weeks.length+2);
+   assert.ok(a.transitions.slice(-3).every(t=>
+      t.bandCrossings===0 && t.meanAbsoluteScoreChange===0));
+   const actual=weekly.analyze(source);
+   assert.equal(a.verifiedBandMovement,actual.verifiedBandMovement);
    assert.equal(a.latestWeekBandRetention,100);
-   assert.equal(a.dataReadyForHumanReview,false); // no actual ten-game team evidence
-   assert.equal(source.weeklyLedger.weeks.length,1);
+   assert.equal(a.dataReadyForHumanReview,false); // still no ten-game readiness
+   assert.equal(source.weeklyLedger.weeks.length,2);
  }],
  ["A missing calendar week is disclosed rather than interpolated",()=>{
    const a=weekly.analyze(addSyntheticWeek(source,{weekNumber:2}));
-   assert.equal(a.completeObservedWeeks,2);
-   assert.equal(a.transitions.length,1);
-   assert.equal(a.transitions[0].weeksBetweenSnapshots,2);
-   assert.equal(a.transitions[0].skippedCalendarWeeks,1);
-   assert.deepEqual(a.trajectories[0].series.map(x=>x.week),
-     ["2026-10-26","2026-11-09"]);
+   assert.equal(a.completeObservedWeeks,source.weeklyLedger.weeks.length+1);
+   assert.equal(a.transitions.length,source.weeklyLedger.weeks.length);
+   assert.equal(a.transitions.at(-1).weeksBetweenSnapshots,2);
+   assert.equal(a.transitions.at(-1).skippedCalendarWeeks,1);
+   const previous=source.weeklyLedger.weeks.map(x=>x.weekStartToronto);
+   const after=new Date(Date.parse(previous.at(-1)+"T00:00:00Z")+14*86400000)
+     .toISOString().slice(0,10);
+   assert.deepEqual(a.trajectories[0].series.map(x=>x.week),[...previous,after]);
    assert.equal(a.dataReadyForHumanReview,false);
  }],
  ["Missing teammate in latest weekly capture blocks misleading adult comparison",()=>{
@@ -92,9 +104,9 @@ const tests=[
  }],
  ["Malformed weekly team numeric score is held without fake fallback",()=>{
    const d=copy(source);
-   const braves=d.weeklyLedger.weeks[0].teams.find(t=>t.leagueName==="Braves HC");
+   const braves=d.weeklyLedger.weeks.at(-1).teams.find(t=>t.leagueName==="Braves HC");
    braves.contextIndex="38";
-   assert.throws(()=>weekly.analyze(d),/NO_COMPLETE_VERIFIED_WEEK/);
+   assert.throws(()=>weekly.analyze(d),/LATEST_ADULT_WEEK_INCOMPLETE/);
  }],
  ["Source team identity change under the same current identifier is held",()=>{
    const d=addSyntheticWeek(source);
@@ -122,11 +134,11 @@ const tests=[
    const a=weekly.analyze(d);
    const row=a.trajectories.find(t=>t.sourceTeamId===id);
    assert.equal(row.latestChange.changedRealDivision,true);
-   assert.equal(a.transitions[0].officialDivisionChanges,1);
+   assert.equal(a.transitions.at(-1).officialDivisionChanges,1);
  }],
  ["VAHL teams remain outside weekly ranking and cannot alter adult denominators",()=>{
    const d=copy(source);
-   const va=d.weeklyLedger.weeks[0].teams.find(t=>t.divisionNow==="VAHL Division");
+   const va=d.weeklyLedger.weeks.at(-1).teams.find(t=>t.divisionNow==="VAHL Division");
    va.contextIndex=99.9;
    const a=weekly.analyze(d);
    assert.equal(a.poolTeamCount,22);
