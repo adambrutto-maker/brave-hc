@@ -4,9 +4,21 @@ const assert=require('node:assert/strict');
 const fs=require('node:fs'),path=require('node:path');
 const verify=require('../widgets/watch-evidence.js').verify;
 const widgets=path.resolve(__dirname,'../widgets');
-const watch=JSON.parse(fs.readFileSync(path.join(widgets,'watch.json'),'utf8'));
+const watch=JSON.parse(fs.readFileSync(path.join(widgets,'watch-historical-20261025.json'),'utf8'));
 const history=JSON.parse(fs.readFileSync(path.join(widgets,'history-records-legacy-558.json'),'utf8'));
 const clone=x=>JSON.parse(JSON.stringify(x));
+const currentWatch=JSON.parse(fs.readFileSync(path.join(widgets,'watch.json'),'utf8'));
+test('new current-only reached milestones cannot enter the October 2026 historical archive',()=>{
+  const newer=currentWatch.records.filter(x=>x.type==='reached'&&x.eventDate>'2026-10-20');
+  assert.ok(newer.some(x=>x.player==='Kober, Adam'&&x.eventDate==='2026-11-08'));
+  assert.throws(()=>verify(currentWatch,history),/MILESTONE_NOT_UNIQUELY_IN_HTO_RECORDS/);
+});
+test('historical fixture remains source-pinned and never adopts new current milestones',()=>{
+  assert.equal(watch.latestOfficialCompletedGameDate,'2026-10-25');
+  assert.equal(watch.records.filter(x=>x.type==='reached').length,2);
+  assert.ok(watch.records.filter(x=>x.type==='reached').every(x=>x.player!=='Kober, Adam'));
+  assert.equal(history.entryCount,558);
+});
 test('two historical milestone entries have one matching published HTO record each',()=>{
  const r=verify(watch,history);
  assert.equal(r.state,'HTO_PUBLISHED_HISTORICAL_RECORD_MATCH');

@@ -13,7 +13,8 @@ NOW=datetime(2026, 10, 26, 16, 40, tzinfo=timezone.utc)
 
 
 def source():
-    watch=json.loads((ROOT/"widgets/watch.json").read_text(encoding="utf-8"))
+    # The Plan03 health fixture is the exact archived Watch release, never the newer current feed.
+    watch=json.loads((ROOT/"widgets/watch-historical-20261025.json").read_text(encoding="utf-8"))
     records=json.loads((ROOT/"widgets/history-records-legacy-558.json").read_text(encoding="utf-8"))
     stages={name:{"outcome":"PASS","returnCode":0,"stdoutTail":""} for name in STAGES}
     stages["projections"]["stdoutTail"]="HTO_MODEL_RECONCILIATION_PENDING"
@@ -95,6 +96,14 @@ class Plan03HealthGateTests(unittest.TestCase):
         feed["games"][0]["teamGoalsAgainst"]=0
         with self.assertRaisesRegex(EvidenceHold,"HTO_GAME_SOURCE_MAPPING_OR_SCORE_DRIFT"):
             classify(report,feed,watch,records,now=NOW)
+
+    def test_current_watch_must_not_be_substituted_for_pinned_historical_release(self):
+        report,feed,watch,records=source()
+        current=json.loads((ROOT/"widgets/watch.json").read_text(encoding="utf-8"))
+        self.assertTrue(any(x.get("player")=="Kober, Adam" and x.get("type")=="reached"
+                            for x in current["records"]))
+        with self.assertRaisesRegex(EvidenceHold,"WATCH_HISTORICAL_RELEASE_CONTRACT_CHANGED"):
+            classify(report,feed,current,records,now=NOW)
 
     def test_fake_live_watch_status_hold(self):
         report,feed,watch,records=source()
