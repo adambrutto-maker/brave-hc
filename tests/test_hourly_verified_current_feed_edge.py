@@ -1,5 +1,6 @@
 """Browser contract: hourly current-season refresh, verified source only, no duplicate context."""
 import copy,functools,http.server,json,threading,os
+from datetime import datetime,timedelta
 from pathlib import Path
 from selenium import webdriver
 from selenium.webdriver.edge.options import Options
@@ -7,7 +8,10 @@ from selenium.webdriver.support.ui import WebDriverWait
 ROOT=Path(__file__).resolve().parents[1]
 OLD=json.loads((ROOT/"widgets/awards-participants.json").read_text(encoding="utf-8"))
 NEW=copy.deepcopy(OLD)
-NEW["sourceReference"]["htoReadback"]="2026-10-27T22:10:00.000Z"
+prior_stamp=datetime.fromisoformat(OLD["sourceReference"]["htoReadback"].replace("Z","+00:00"))
+# Fictional next-snapshot time is derived from the retained official source,
+# never from a stale calendar-day constant that ages out of the product.
+NEW["sourceReference"]["htoReadback"]=(prior_stamp+timedelta(days=1)).isoformat()
 NEW["officialTeamGames"]=OLD["officialTeamGames"]+1
 p=next(x for x in NEW["players"] if x["name"]=="Brutto, Adam")
 p["officialHTOStats"]["gp"]=p["officialHTOStats"]["gp"]+1
@@ -50,12 +54,13 @@ try:
  assert rejected==before,("unverified update rendered",rejected)
  state["kind"]="new"
  browser.execute_async_script("const cb=arguments[arguments.length-1];window.__scheduledCallbacks[3600000]().then(()=>cb('ok')).catch(e=>cb(e.message))")
- WebDriverWait(browser,10).until(lambda x:"Oct 27" in x.execute_script("return document.getElementById('statsDate').textContent"))
+ new_gp=p["officialHTOStats"]["gp"]
+ WebDriverWait(browser,10).until(lambda x:f"{new_gp} appearances" in x.execute_script("return document.getElementById('currentSection').textContent"))
  current=browser.execute_script("""return {date:document.getElementById('statsDate').textContent,
     contextCount:document.querySelectorAll('#currentSection .ph-source').length,
     snapshot:document.getElementById('currentSection').textContent};""")
  assert current["contextCount"]==1,("duplicate current feed context",current)
- assert "5 appearances" in current["snapshot"] or "5" in current["snapshot"],current
+ assert f"{new_gp} appearances" in current["snapshot"],("updated source GP was not rendered",current)
  print(json.dumps({"status":"PASS","verifiedHour":3600,"highlightRefreshSeconds":180,
    "staleOrUnverifiedDataRejected":True,"newVerifiedDataRendered":True,
    "noDuplicateContext":True,"historicalAwardsEdited":False},indent=2))

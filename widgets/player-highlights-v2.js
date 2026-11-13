@@ -1056,7 +1056,14 @@ function renderCurrent(feed,career) {
   const pace=obs.points/gp;
   const priorPoints=prior.reduce((n,s)=>n+(s.Pts||0),0);
   stats.push(detailStat('Points per game',pace.toFixed(2),priorGP?'Prior career: '+(priorPoints/priorGP).toFixed(2)+' P/GP':gp+' appearances'));
-  const teamGoals=feed.verifiedSourceReadback?.team?.goals;
+  // HTO's verified current team tally uses uppercase G/GP; older source
+  // exports used goals. Both spellings may coexist only when they agree.
+  // A stale/mismatched team tally must never create a false percentage.
+  const team=feed.verifiedSourceReadback?.team;
+  const reportedGoals=[team?.G,team?.goals].filter(x=>x!==undefined);
+  const teamGoals=(Number.isInteger(team?.GP)&&team.GP===feed.officialTeamGames&&
+    reportedGoals.length>0&&reportedGoals.every(x=>Number.isInteger(x)&&x>=0)&&
+    reportedGoals.every(x=>x===reportedGoals[0]))?reportedGoals[0]:null;
   if(isFiniteNonnegative(teamGoals)&&teamGoals>0&&obs.goals<=teamGoals)
    stats.push(detailStat('Share of team goals',Math.round(obs.goals/teamGoals*100)+'%',obs.goals+' of '+teamGoals+' goals'));
   const pattern=candidate.sourceHTOGamePattern;
