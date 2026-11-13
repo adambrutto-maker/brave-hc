@@ -1,7 +1,7 @@
 {
   "schema": "brave-hc-svhl-schedule/v1",
   "source": "https://leagues.sportsvillage.ca/Leagues.aspx?leagueid=570&page_type=Adult&sc=HOCKEY",
-  "checkedAt": "2026-11-13T07:18:45.119008-05:00",
+  "checkedAt": "2026-11-13T15:03:06.934011-05:00",
   "games": [
     {
       "date": "2026-11-15",
@@ -10,7 +10,7 @@
       "rink": "A Rink",
       "side": "home",
       "fixtureSignature": "2026-11-15|19:15|Sugo Sundays|A Rink|home",
-      "assignmentKey": "svhl:2026-11-15:sugosundays",
+      "assignmentKey": "hto:3375685",
       "htoGameId": "3375685",
       "htoSyncStatus": "MATCH",
       "requiresGoalieReconfirmation": false
@@ -22,7 +22,7 @@
       "rink": "B Rink",
       "side": "home",
       "fixtureSignature": "2026-11-22|20:00|Dateline Predators|B Rink|home",
-      "assignmentKey": "hto:3375685",
+      "assignmentKey": "hto:3375686",
       "htoGameId": "3375686",
       "htoSyncStatus": "MATCH",
       "requiresGoalieReconfirmation": true
