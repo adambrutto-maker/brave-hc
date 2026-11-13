@@ -1,0 +1,43 @@
+# Read-only PR validation for HockeyOS schedule-to-goalie source key safeguards.
+# This workflow never edits league records, books goalies, or deploys.
+name: HockeyOS goalie assignment-key integrity
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'scripts/svhl_hto_reconcile.py'
+      - 'tests/test_goalie_continuity.py'
+      - '.github/workflows/hockeyos-goalie-keys-pr-integrity.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: hockeyos-goalie-keys-pr-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  source-integrity:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install parser dependencies
+        run: python -m pip install 'requests>=2.31,<3' 'beautifulsoup4>=4.12,<5'
+      - name: Protect confirmed goalie continuity and safe key migration
+        run: python -m unittest discover -s tests -p test_goalie_continuity.py
+      - name: Protect authenticated goalie assignments and source approvals
+        run: python -m unittest discover -s tests -p test_goalie_assignment.py
+      - name: Protect next-game readiness holds
+        run: python -m unittest discover -s tests -p test_game_day_readiness.py
+      - name: Prevent incomplete or duplicate SVHL source snapshots
+        run: python -m unittest discover -s tests -p test_svhl_snapshot_coverage.py
+      - name: Validate league and HTO fixture parsing
+        run: python tests/test_svhl_hto_parser.py
+      - name: Confirm source scripts compile without evaluating external services
+        run: python -m py_compile scripts/svhl_hto_reconcile.py tests/test_goalie_continuity.py

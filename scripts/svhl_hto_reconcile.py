@@ -204,10 +204,29 @@ def reconcile(svhl, hto, now=None, previous=None, goalie_data=None):
             changes={}
             status="REVIEW_OR_ADD" if prior and prior.get("htoGameId") else "ADD_HTO"
 
-        # Preserve the provisional SVHL key when its matching HTO game is subsequently added.
-        # Preserve a matched HTO key across date/time/rink changes.
+        # Preserve a booked provisional SVHL key after HTO identification.
+        # Reconcile an unbooked stale key to the verified HTO identity below.
         key=prior["assignmentKey"] if prior else (
             "hto:"+match["htoGameId"] if match else "svhl:"+g["date"]+":"+norm(g["opponent"]))
+        if prior and (not isinstance(key,str) or not key.strip()):
+            raise ValueError("MALFORMED_PREVIOUS_GOALIE_ASSIGNMENT_KEY")
+        # A prior provisional or mistaken HTO key may outlive the match that
+        # originally generated it. Migrate ONLY unbooked, unconfirmed keys to
+        # the independently matched HTO game; never move a confirmed goalie
+        # or signed schedule confirmation to a different HTO game silently.
+        if prior and match and key!="hto:"+match["htoGameId"]:
+            saved=(goalie_data.get("assignments") or {}) if isinstance(goalie_data,dict) else {}
+            if not isinstance(saved,dict):
+                raise ValueError("INVALID_GOALIE_ASSIGNMENT_STORE")
+            assigned=saved.get(key,"TBD")
+            if not isinstance(assigned,str):
+                raise ValueError("MALFORMED_SAVED_GOALIE_ASSIGNMENT")
+            booked=isinstance(assigned,str) and bool(assigned.strip()) and assigned!="TBD"
+            signed=key in confirmed
+            if key.startswith("hto:") and (booked or signed):
+                raise ValueError("BOOKED_GOALIE_HTO_KEY_CONFLICT_REQUIRES_OWNER_REVIEW")
+            if not booked and not signed:
+                key="hto:"+match["htoGameId"]
         revision=fixture_signature(g)
         changed_from_prior=bool(prior and
                                 (revision!=prior.get("fixtureSignature",fixture_signature(prior))))

@@ -38,6 +38,50 @@ class FixtureContinuity(unittest.TestCase):
         self.assertEqual(f2[0]["htoGameId"],"90001")
         self.assertEqual(f2[0]["htoSyncStatus"],"MATCH")
 
+    def test_unbooked_provisional_key_rehomes_to_exact_HTO(self):
+        svhl=[game()]
+        provisional,_=reconcile.reconcile(svhl,[],NOW)
+        old_key=provisional[0]["assignmentKey"]
+        self.assertTrue(old_key.startswith("svhl:"))
+        current,_=reconcile.reconcile(svhl,[hto()],NOW,as_feed(provisional),as_goalies(old_key,"TBD"))
+        self.assertEqual(current[0]["assignmentKey"],"hto:90001")
+        self.assertEqual(current[0]["htoSyncStatus"],"MATCH")
+        self.assertFalse(current[0]["requiresGoalieReconfirmation"])
+
+    def test_unbooked_wrong_HTO_key_rehomes_to_same_fixture_exact_id(self):
+        older=dict(game(),assignmentKey="hto:10000",htoGameId="10000")
+        source=as_feed([older])
+        saved={"schema":"brave-hc-goalie-assignments/v1",
+               "assignments":{"hto:10000":"TBD","hto:90001":"TBD"}}
+        current,_=reconcile.reconcile([game()],[hto()],NOW,source,saved)
+        self.assertEqual(current[0]["assignmentKey"],"hto:90001")
+        self.assertEqual(current[0]["htoGameId"],"90001")
+        self.assertEqual(saved["assignments"]["hto:10000"],"TBD")
+
+    def test_confirmed_wrong_HTO_key_cannot_move_a_goalie(self):
+        older=dict(game(),assignmentKey="hto:10000",htoGameId="10000")
+        saved=as_goalies("hto:10000","Dev Leong")
+        with self.assertRaisesRegex(ValueError,"BOOKED_GOALIE_HTO_KEY_CONFLICT"):
+            reconcile.reconcile([game()],[hto()],NOW,as_feed([older]),saved)
+
+    def test_signed_wrong_HTO_key_cannot_move_a_revision(self):
+        older=dict(game(),assignmentKey="hto:10000",htoGameId="10000")
+        saved=as_goalies("hto:10000","TBD")
+        saved["scheduleConfirmations"]={"hto:10000":reconcile.fixture_signature(game())}
+        with self.assertRaisesRegex(ValueError,"BOOKED_GOALIE_HTO_KEY_CONFLICT"):
+            reconcile.reconcile([game()],[hto()],NOW,as_feed([older]),saved)
+
+    def test_malformed_previous_key_is_not_automatically_reassigned(self):
+        older=dict(game(),assignmentKey=None,htoGameId="10000")
+        with self.assertRaisesRegex(ValueError,"MALFORMED_PREVIOUS_GOALIE_ASSIGNMENT_KEY"):
+            reconcile.reconcile([game()],[hto()],NOW,as_feed([older]),as_goalies("hto:90001","TBD"))
+
+    def test_malformed_goalie_value_is_not_treated_as_unbooked(self):
+        older=dict(game(),assignmentKey="hto:10000",htoGameId="10000")
+        saved={"schema":"brave-hc-goalie-assignments/v1","assignments":{"hto:10000":15}}
+        with self.assertRaisesRegex(ValueError,"MALFORMED_SAVED_GOALIE_ASSIGNMENT"):
+            reconcile.reconcile([game()],[hto()],NOW,as_feed([older]),saved)
+
     def test_reschedule_sticky_until_explicit_same_goalie_confirmation(self):
         s=[game()]
         orig,_=reconcile.reconcile(s,[hto()],NOW)
