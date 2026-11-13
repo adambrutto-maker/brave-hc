@@ -1,13 +1,22 @@
 """Browser QA: independent hourly HTO stats source and newer verified source refresh."""
 import copy,functools,http.server,json,os,threading
+from datetime import datetime,timedelta
 from pathlib import Path
 from selenium import webdriver
 from selenium.webdriver.edge.options import Options
 from selenium.webdriver.support.ui import WebDriverWait
 ROOT=Path(__file__).resolve().parents[1]
 old=json.loads((ROOT/"widgets/player-actuals-hourly.json").read_text(encoding="utf-8"))
+participant=json.loads((ROOT/"widgets/awards-participants.json").read_text(encoding="utf-8"))
+actual=json.loads((ROOT/"widgets/player-actuals.json").read_text(encoding="utf-8"))
+assert participant["status"]=="UNRANKED_VERIFIED_SEASON_APPEARANCES_NOT_AWARD_SCORES"
+assert participant["officialTeamGames"]==old["teamGP"]==7
 future=copy.deepcopy(old)
-future["asOf"]="2026-10-28T10:00:00Z"
+# The synthetic newer hourly source must be newer than the current verified
+# participant/actual feeds; old fixed October dates would already be stale.
+source_times=[datetime.fromisoformat(t.replace("Z","+00:00")) for t in
+ [old["asOf"],actual["asOf"],participant["sourceReference"]["htoReadback"]]]
+future["asOf"]=(max(source_times)+timedelta(days=1)).isoformat()
 future["teamGP"]+=1
 p=next(x for x in future["players"] if x["name"]=="Brutto, Adam")
 p["gp"]+=1;p["a"]+=1;p["pts"]+=1
@@ -47,27 +56,32 @@ try:
  """})
  url=f"http://127.0.0.1:{server.server_port}/widgets/player-highlights.html?playerID=354054"
  browser.get(url)
- WebDriverWait(browser,20).until(lambda d:d.execute_script("return !!window.__intervals[3600000] && !!window.__intervals[180000] && document.querySelector('#statsDate').textContent.includes('Oct')"))
+ WebDriverWait(browser,20).until(lambda d:d.execute_script("return !!window.__intervals[3600000] && !!window.__intervals[180000] && !!document.querySelector('#statsDate').textContent"))
  def read():
   return browser.execute_script("""return {timestamp:document.querySelector('#statsDate').textContent,
      scoring:document.querySelector('#currentSection').textContent,
      historicalCount:document.querySelectorAll('#legacy .ph-event').length,
      sourceCount:document.querySelectorAll('#currentSection .ph-source').length};""")
  init=read()
- assert "Oct 27" in init["timestamp"],init
- assert "HTO games played" in init["scoring"],init
+ assert "Stats snapshot" in init["timestamp"],init
+ assert "Points per game" in init["scoring"],init
+ assert "HTO games played" not in init["scoring"],("stale hourly actuals overrode verified newer participant",init)
  for mode in ("unverified","bad-aggregate"):
   state["mode"]=mode
   browser.execute_async_script("const done=arguments[arguments.length-1];window.__intervals[3600000]().then(()=>done('ok')).catch(e=>done(e.message))")
   assert read()["timestamp"]==init["timestamp"],(mode,read())
  state["mode"]="new"
  browser.execute_async_script("const done=arguments[arguments.length-1];window.__intervals[3600000]().then(()=>done('ok')).catch(e=>done(e.message))")
- WebDriverWait(browser,12).until(lambda d:"Oct 28" in d.execute_script("return document.querySelector('#statsDate').textContent"))
+ WebDriverWait(browser,12).until(lambda d:"HTO games played" in d.execute_script("return document.querySelector('#currentSection').textContent"))
  later=read()
  assert later["sourceCount"]==1 and later["historicalCount"]==init["historicalCount"],later
  assert later["scoring"]!=init["scoring"],later
- print(json.dumps({"status":"PASS","initialPublishedHTOHour":"2026-10-27",
-  "laterSource":"2026-10-28","historicalAwardsUnchanged":True,
+ assert later["timestamp"]!=init["timestamp"],("New verified hourly readback not selected",later)
+ assert "HTO games played" in later["scoring"],later
+ assert str(p["gp"]) in later["scoring"],("New player GP not shown",later)
+ assert "HTO assists" in later["scoring"] and str(p["a"]) in later["scoring"],later
+ print(json.dumps({"status":"PASS","initialPublishedHTOHour":participant["sourceReference"]["htoReadback"],
+  "laterSource":future["asOf"],"historicalAwardsUnchanged":True,
   "unverifiedRejected":True,"aggregateDriftRejected":True,
   "verifiedHourlySelected":True,"verifiedHistoryPollSeconds":180,
   "currentStatsPollSeconds":3600},indent=2))
