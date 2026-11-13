@@ -22,6 +22,7 @@ on:
       - 'tests/test_historical_bulletin_milestones.py'
       - 'widgets/watch-historical-20261025.json'
       - 'tests/test_watch_historical_evidence.js'
+      - 'tests/test_hockeyos_plan03_release_health.py'
       - 'scripts/stage_current_hto_records_widget.py'
       - '.github/workflows/rcd04-records-widget-integrity.yml'
   workflow_dispatch:
