@@ -65,6 +65,7 @@ on:
       - 'widgets/watch-evidence.js'
       - 'widgets/watch-v2.html'
       - 'widgets/home-panels.html'
+      - 'widgets/watch-historical-20261025.json'
       - 'tests/test_watch_historical_evidence.js'
       - 'tests/watch_historical_browser_qa.cjs'
       - 'tests/fixtures/record-refresh-*.html'
