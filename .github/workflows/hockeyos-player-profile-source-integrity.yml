@@ -9,6 +9,7 @@ on:
       - 'widgets/awards-participants.json'
       - 'scripts/test-player-highlights-v2.cjs'
       - 'tests/test_hourly_verified_current_feed_edge.py'
+      - 'tests/test_published_hto_current_actuals_edge.py'
       - 'tests/test_player_goal_share_browser.cjs'
       - '.github/workflows/hockeyos-player-profile-source-integrity.yml'
   workflow_dispatch:
