@@ -1,0 +1,49 @@
+# Read-only PR QA; HTO actuals and historical source artifacts are never rewritten.
+name: HockeyOS current profile source and goal-share integrity
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'widgets/player-highlights-v2.js'
+      - 'widgets/awards-participants.json'
+      - 'scripts/test-player-highlights-v2.cjs'
+      - 'tests/test_player_goal_share_browser.cjs'
+      - '.github/workflows/hockeyos-player-profile-source-integrity.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  profile-source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Source integrity for 109 profiles and original records
+        run: node scripts/test-player-highlights-v2.cjs
+      - name: Validate player controller source JavaScript
+        run: node --check widgets/player-highlights-v2.js
+
+  source-browser:
+    needs: profile-source
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - uses: browser-actions/setup-chrome@v2.2.0
+        id: chrome
+      - name: Install Chrome test dependency without source publishing
+        run: npm install --no-save --ignore-scripts "puppeteer-core@^24"
+      - name: Verify current HTO goal-share on mobile and desktop
+        env:
+          BRAVE_CHROME_BIN: ${{ steps.chrome.outputs.chrome-path }}
+          BRAVE_PUPPETEER_MODULE: puppeteer-core
+        run: node tests/test_player_goal_share_browser.cjs
