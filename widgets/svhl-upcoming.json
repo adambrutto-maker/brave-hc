@@ -1,7 +1,7 @@
 {
   "schema": "brave-hc-svhl-schedule/v1",
   "source": "https://leagues.sportsvillage.ca/Leagues.aspx?leagueid=570&page_type=Adult&sc=HOCKEY",
-  "checkedAt": "2026-11-13T15:03:06.934011-05:00",
+  "checkedAt": "2026-11-13T17:00:19.644185-05:00",
   "games": [
     {
       "date": "2026-11-15",
@@ -28,18 +28,5 @@
       "requiresGoalieReconfirmation": true
     }
   ],
-  "missingFixtureReviews": [
-    {
-      "date": "2026-11-22",
-      "time": "20:15",
-      "opponent": "Mohawks HC",
-      "rink": "A Rink",
-      "side": "home",
-      "fixtureSignature": "2026-11-22|20:15|Mohawks HC|A Rink|home",
-      "assignmentKey": "hto:3375686",
-      "htoGameId": "3375686",
-      "htoSyncStatus": "MATCH",
-      "requiresGoalieReconfirmation": false
-    }
-  ]
+  "missingFixtureReviews": []
 }
