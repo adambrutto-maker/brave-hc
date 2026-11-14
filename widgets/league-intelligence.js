@@ -513,9 +513,12 @@
   }
   selectedRosterReport=r;
   const delta=r.withinDivisionGap;
-  status.textContent="Current roster source captured "+new Date(r.sourceRosterCaptureUTC).toLocaleString("en-CA")+
-    "; league result source checked "+new Date(r.sourceLeagueAsOf).toLocaleString("en-CA")+
-    ". Sources may update at different times.";
+  status.textContent=(r.rosterSourceCurrentQualified?
+    "Roster source captured ":"HISTORICAL ROSTER ONLY — current membership not verified: captured ")+
+    new Date(r.sourceRosterCaptureUTC).toLocaleString("en-CA")+
+    "; current league source checked "+new Date(r.sourceLeagueAsOf).toLocaleString("en-CA")+
+    ". Roster snapshot is "+r.rosterSourceAgeDays+
+    " days behind the league source. Current game-day availability is not established.";
   for(const d of r.leagueBridge.groups){
    const stats=d.crossRecord,detail=d.division===r.division?
      "SELECTED TEAM'S DIVISION · ":"";
@@ -529,14 +532,19 @@
    r.strengthContextIndex+"/100 versus current division mean "+
    r.divisionContextMean+"/100 ("+(delta>0?"+":"")+delta+
    "). A losing record in a strong division does not equal weak overall ability.");
-  context(metrics,"Source-linked returning-player experience",
+  context(metrics,"Archived roster-linked experience",
    r.rosterCount+" listed players, "+r.activeListedWithGP+" with published GP. "+
    r.priorLinkedIds+" have official earlier player-ID observations, "+
    r.experiencedCount+" have 10+ archived games. Not a confirmed next-game roster.");
-  context(metrics,"Who drives published scoring",
+  context(metrics,"Scoring recorded at roster capture",
    "Top two registered "+(r.topTwoShare===null?"unavailable":(100*r.topTwoShare).toFixed(1)+"%")+
    " of recorded player points. This is scoring concentration, not an individual future production rate.");
   q("roster-scouting-caution").textContent=r.note+
+   (r.rosterSourceCurrentQualified?"":" STALE ROSTER OBSERVATION: historical player counts are not current player verification.")+
+   (r.divisionMovementEvidence?
+     " Division changed from "+r.divisionMovementEvidence.fromDivision+
+     " to "+r.divisionMovementEvidence.toDivision+
+     " after the roster capture; actual effective date unknown.":"")+
    " Player positions can be missing and game-day availability is NOT established by archived team rosters.";
   if(team.leagueName==="Braves HC"){
    text(threats,"p","small","Brave H.C. is the home-club source baseline. Choose another opponent to prepare player-specific matchups.");
@@ -554,7 +562,7 @@
    const card=el("article","insights-card");
    text(card,"strong","",threat.name+" · #"+threat.jersey);
    text(card,"p","small",threat.g+" goals · "+threat.a+" assists · "+
-    threat.gp+" published current GP. Prior linked official GP: "+
+    threat.gp+" GP in saved roster source ("+new Date(r.sourceRosterCaptureUTC).toLocaleDateString("en-CA")+"). Prior linked official GP: "+
     threat.previous.gp+" across "+threat.previous.seasons+" seasons."+
     (threat.previous.duplicateSeasonTeamMayOvercount?
       " Historical totals may contain same-season multiple-team duplication.":""));

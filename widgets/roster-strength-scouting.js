@@ -11,6 +11,45 @@
  const per=(v,gp)=>gp>0?Number((v/gp).toFixed(3)):null;
  const profileUrl=(lid,tid,pid)=>"https://leagues.sportsvillage.ca/playerinfo.aspx?leagueid="+
   lid+"&teamid="+tid+"&playerid="+pid+"&page_type=Adult";
+ function confirmedDivisionTransfer(league,roster,staged,current){
+  // Identity is the numeric official team ID, not its historical division.
+  if(staged.division===current.divisionNow)return null;
+  const ledger=league.movementLedger;
+  need(ledger?.schema==="brave-hc-svhl-division-movement-ledger/v1" &&
+   ledger.sourceScope==="RECORDED_SVHL_TEAM_DIRECTORY_MEMBERSHIP_NOT_EFFECTIVE_DATES" &&
+   ledger.latestSnapshotUTC===league.asOf &&
+   Array.isArray(ledger.events) &&
+   Number.isFinite(Date.parse(roster.sourceLeagueAsOf)) &&
+   Number.isFinite(Date.parse(league.asOf)) &&
+   Date.parse(league.asOf)>=Date.parse(roster.sourceLeagueAsOf),
+   "DIVISION_TRANSFER_LEDGER_NOT_QUALIFIED");
+  const found=ledger.events.filter(e=>e.sourceTeamId===staged.sourceTeamId &&
+    e.leagueName===staged.name &&
+    e.fromDivision===staged.division &&
+    e.toDivision===current.divisionNow &&
+    e.eventType==="OBSERVED_DIVISION_TRANSFER" &&
+    e.sourceBasis==="TWO_FULL_OFFICIAL_SVHL_LEAGUE_SNAPSHOTS" &&
+    e.effectiveDateNotVerified===true &&
+    typeof e.eventId==="string" &&
+    e.eventId.startsWith(String(staged.sourceTeamId)+"|") &&
+    Number.isFinite(Date.parse(e.lastObservedAt)) &&
+    Number.isFinite(Date.parse(e.firstObservedAt)) &&
+    Date.parse(e.lastObservedAt)>=Date.parse(roster.sourceLeagueAsOf) &&
+    Date.parse(e.firstObservedAt)>=Date.parse(e.lastObservedAt) &&
+    Date.parse(e.firstObservedAt)<=Date.parse(league.asOf));
+  need(found.length===1,"DIVISION_TRANSFER_SOURCE_PROOF_MISSING_OR_AMBIGUOUS");
+  const e=found[0];
+  return {sourceTeamId:staged.sourceTeamId,fromDivision:e.fromDivision,
+   toDivision:e.toDivision,lastObservedAt:e.lastObservedAt,
+   firstObservedAt:e.firstObservedAt,effectiveDateVerified:false,
+   provenance:"OFFICIAL_SVHL_SNAPSHOT_MOVEMENT_LEDGER"};
+ }
+ function rosterCaptureAge(league,roster){
+  const a=Date.parse(league.asOf),b=Date.parse(roster.sourceLeagueAsOf);
+  need(Number.isFinite(a)&&Number.isFinite(b)&&a>=b,
+   "ROSTER_SOURCE_TIME_NOT_QUALIFIED");
+  return Number(((a-b)/86400000).toFixed(2));
+ }
  function valid(league,roster){
   need(league?.schema==="brave-hc-league-intelligence/public-v1" &&
    league.currentSourceDataConcordant===true &&
@@ -29,6 +68,9 @@
   const eligible=league.teams.filter(t=>DIV.includes(t.divisionNow));
   need(eligible.length===22,"CURRENT_SCOPE_CHANGED");
   const sourceIds=new Map(eligible.map(t=>[t.sourceTeamId,t]));
+  need(sourceIds.size===eligible.length &&
+   new Set(roster.teams.map(t=>t.sourceTeamId)).size===roster.teams.length,
+   "CURRENT_ROSTER_TEAM_ID_COLLISION");
   need(Array.isArray(roster.historicalRosterManifest)&&
     roster.historicalRosterManifest.length===roster.historicalManifestCount &&
     roster.historicalManifestCount===roster.sourceHistoricalTeamsRead &&
@@ -46,13 +88,14 @@
   const unique=new Set();
   for(const team of roster.teams){
    const official=sourceIds.get(team.sourceTeamId);
-   need(official&&official.leagueName===team.name&&official.divisionNow===team.division &&
+   need(official&&official.leagueName===team.name&&DIV.includes(team.division) &&
     !unique.has(team.sourceTeamId)&&team.leagueId===570&&
     team.sourceSHA256?.match(/^[a-f0-9]{64}$/)&&
     team.sourceUrl==="https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid="+
      team.sourceTeamId+"&page_type=Adult" &&
     team.rosterCount===team.players.length,"TEAM_SOURCE_ID_OR_COUNT_INVALID");
    unique.add(team.sourceTeamId);
+   confirmedDivisionTransfer(league,roster,team,official);
    const seen=new Set();
    for(const p of team.players){
     need(Number.isInteger(p.playerId)&&p.playerId>0&&!seen.has(p.playerId)&&
@@ -143,6 +186,9 @@
     .sort((a,b)=>b.pts-a.pts||b.g-a.g||b.gp-a.gp||
      a.name.localeCompare(b.name));
   const pts=total(skaters,"pts");
+  const transfer=confirmedDivisionTransfer(league,roster,source,t);
+  const rosterAgeDays=rosterCaptureAge(league,roster);
+  const rosterSourceCurrentQualified=rosterAgeDays<=8;
   const div=bridge(league);
   const group=div.groups.find(x=>x.division===t.divisionNow);
   const tierMean=group.descriptiveMean;
@@ -150,6 +196,13 @@
    name:t.leagueName,teamId:t.sourceTeamId,division:t.divisionNow,
    officialSource:source.sourceUrl,sourceLeagueAsOf:league.asOf,
    sourceRosterCaptureUTC:roster.asOf,
+   rosterDivisionAtCapture:source.division,
+   divisionMovementEvidence:transfer,
+   rosterSourceAgeDays:rosterAgeDays,
+   rosterSourceCurrentQualified,
+   rosterSourceStatus:rosterSourceCurrentQualified?
+    "SOURCE_WITHIN_EIGHT_DAY_LEAGUE_WINDOW_NOT_GAME_DAY_CONFIRMED":
+    "HISTORICAL_OBSERVATION_ONLY_STALE_CURRENT_ROSTER_NOT_QUALIFIED",
    rosterCount:source.rosterCount,activeListedWithGP:skaters.length,
    sourcePublishedRosterPoints:pts,
    topTwoShare:pts?Number((total(skaters.slice(0,2),"pts")/pts).toFixed(3)):null,
@@ -182,7 +235,7 @@
     b.crossRecord.w+"W–"+b.crossRecord.l+"L–"+b.crossRecord.t+
     "T (current division labels). "+
     (b.limitedSample?"LIMITED CROSS-DIVISION SAMPLE.":"Descriptive source sample only."),
-   "Roster source: "+report.rosterCount+" listed players, "+
+   "Roster observations as of "+report.sourceRosterCaptureUTC+": "+report.rosterCount+" listed players, "+
     report.activeListedWithGP+" with published GP, "+
     report.priorLinkedIds+" with earlier official player-ID records, "+
     report.experiencedCount+" with at least 10 earlier source games.",
@@ -191,9 +244,17 @@
    "Scouting priorities: verify presence and position before using:",
    ...report.highPriority.slice(0,4).map((p,i)=>(i+1)+". "+
     p.name+" #"+p.jersey+": "+p.g+"G "+p.a+"A, "+p.gp+
-    " public current GP; "+p.previous.gp+" past-source GP. "+
+    " GP recorded in source capture; "+p.previous.gp+" past-source GP. "+
     (p.goalScoringCue?"Protect inside shooting lane. ":"Maintain inside positioning. ")+
     (p.playmakingCue?"Deny middle passing lanes.":"Guide puck toward boards.")),
+   "Roster source freshness: "+report.rosterSourceAgeDays+" days behind latest league snapshot; "+
+    (report.rosterSourceCurrentQualified?"verify game-day presence.":
+     "STALE — historical scouting reference only, NOT current roster confirmation."),
+   report.divisionMovementEvidence?
+    "Source-verified observed division transfer (effective date unknown): "+
+    report.divisionMovementEvidence.fromDivision+" to "+
+    report.divisionMovementEvidence.toDivision+" for official team ID "+report.teamId:
+    "Division source unchanged for this dated roster observation.",
    ...assignments,
    "Base system: F1 pressures carrier outside; strong winger seals inside pass; weak winger guards far lane; defenders hold inside and protect slot.",
    "SOURCE LIMITS: No game-day availability or position inferred from an archived season roster; historical player counts may contain inaccuracies; no outcome simulation.",

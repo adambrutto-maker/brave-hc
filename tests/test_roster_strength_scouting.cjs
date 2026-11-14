@@ -42,7 +42,7 @@ const tests=[
   const leagueGames=require("../widgets/division-fit-model.js").analyze(l).gameGraph;
   assert.equal(b.verifiedAdultGames,leagueGames.verifiedGamesInPool);
   assert.equal(b.verifiedCrossDivisionGames,leagueGames.crossCurrentDivisionGames);
-  assert.deepEqual(groups.map(x=>x.teams),[6,8,8]);
+  assert.deepEqual(groups.map(x=>x.teams),["Fazzari Partners","The Cristillo Division","Remax Division"].map(name=>l.teams.filter(t=>t.divisionNow===name).length));
   assert.equal(groups.reduce((n,g)=>n+g.crossRecord.w,0),
     groups.reduce((n,g)=>n+g.crossRecord.l,0),
     "cross-division winners and losers reciprocally balance");

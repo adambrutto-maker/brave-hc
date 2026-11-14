@@ -2,6 +2,8 @@
 const fs=require("node:fs"),path=require("node:path"),http=require("node:http"),
  puppeteer=require("puppeteer"),assert=require("node:assert/strict");
 const root=path.resolve(__dirname,"../widgets"),mime={".html":"text/html",".js":"text/javascript",".json":"application/json",".css":"text/css"};
+const sourceLeague=JSON.parse(fs.readFileSync(path.join(root,"league-intelligence.json"),"utf8"));
+const currentDivisionBridge=require("../widgets/roster-strength-scouting.js").bridge(sourceLeague);
 const server=http.createServer((req,res)=>{
  const f=path.resolve(root,"."+new URL(req.url,"http://localhost").pathname);
  if(!f.startsWith(root+path.sep)){res.writeHead(403);res.end();return}
@@ -34,16 +36,22 @@ const server=http.createServer((req,res)=>{
    }));
    assert.equal(info.profile,"Mid Ice Crisis");
    assert.ok(info.source.includes("official sources checked"));
-   assert.ok(info.rosterStatus.includes("Current roster source captured"));
+   assert.ok(info.rosterStatus.includes("HISTORICAL ROSTER ONLY"));
+   assert.ok(info.rosterStatus.includes("current membership not verified"));
    assert.ok(info.metrics.includes("19 listed players")&&
     info.metrics.includes("11 have official earlier player-ID observations")&&
     info.metrics.includes("33.3%"));
-   assert.ok(info.divisionBridge.includes("Fazzari Partners")&&
-     info.divisionBridge.includes("5–1–2")&&
-     info.divisionBridge.includes("Cristillo")&&
-     info.divisionBridge.includes("1–7–0"));
+   for(const group of currentDivisionBridge.groups){
+    const record=group.crossRecord;
+    assert.ok(info.divisionBridge.includes(group.division));
+    assert.ok(info.divisionBridge.includes(record.w+"–"+record.l+"–"+record.t));
+    assert.equal(group.teams,sourceLeague.teams.filter(t=>t.divisionNow===group.division).length);
+   }
    assert.equal(info.cards,4);
    assert.ok(info.players.includes("Packowski, Mike")&&info.players.includes("Ieraci, Vito"));
+   assert.ok(info.players.includes("GP in saved roster source"));
+   assert.ok(!info.players.includes("published current GP"));
+   assert.ok(info.metrics.includes("Scoring recorded at roster capture"));
    assert.ok(info.htoPlayers>15);
    assert.ok(info.overflow<=1);
    const choices=await page.evaluate(()=>{
@@ -68,6 +76,21 @@ const server=http.createServer((req,res)=>{
    assert.ok(copied.includes("SOURCE LIMITS"));
    assert.ok(copied.includes("Division")||copied.includes("division"));
    assert.ok(!copied.includes("confirmed lineup"));
+   assert.ok(copied.includes("historical scouting reference only"));
+   assert.ok(copied.includes("GP recorded in source capture"));
+   assert.ok(!copied.includes("public current GP"));
+   for(const [team,oldDivision,newDivision] of [
+    ["Sugo Sundays","Remax Division","The Cristillo Division"],
+    ["Young Guns","Remax Division","The Cristillo Division"],
+    ["Degenerates","Fazzari Partners","Remax Division"]]){
+    await page.select("#team-filter",team);
+    const caution=await page.$eval("#roster-scouting-caution",x=>x.textContent);
+    assert.ok(caution.includes("Division changed from "+oldDivision+" to "+newDivision));
+    assert.ok(caution.includes("effective date unknown"));
+    assert.ok((await page.$eval("#roster-scouting-status",x=>x.textContent)).includes("HISTORICAL ROSTER ONLY"));
+    assert.ok(await page.$$eval("#roster-player-priorities article",els=>els.length)>0);
+    assert.ok(await page.evaluate(()=>document.body.scrollWidth-innerWidth)<=1);
+   }
    await page.select("#team-filter","Other Way");
    assert.equal(await page.$eval("#profile-title",x=>x.textContent),"Other Way");
    assert.ok((await page.$eval("#roster-construction-metrics",x=>x.textContent))
