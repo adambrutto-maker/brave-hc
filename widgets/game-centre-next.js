@@ -257,14 +257,28 @@ function publicWorkingEntry(m,fix,now){
  // This DOES NOT convert the working card into an official league-approved lineup.
  if(e.goalieConfirmed!==false&&e.goalieConfirmed!==true)return null;
  if(e.goalieConfirmed===true){
-  const g=e.rentalGoalie;
-  if(!g||g.source!=="GOALIEUP_CONFIRMATION_EMAIL"||g.status!=="RENTAL_CONFIRMED"||
-     typeof g.name!=="string"||!/^[A-Za-zÀ-ÿ][A-Za-zÀ-ÿ .'-]{2,80}$/.test(g.name)||
-     g.number!=="0"||g.fixtureId!==fix.id||g.gameDate!==fix.gameDate||g.puckDropUTC!==fix.puckDropUTC||
-     typeof g.confirmedAtUTC!=="string"||!Number.isFinite(Date.parse(g.confirmedAtUTC))||
-     Date.parse(g.confirmedAtUTC)>Date.parse(e.publishedAt)||
-     Date.parse(g.confirmedAtUTC)>=Date.parse(fix.puckDropUTC))return null;
- }else if(e.rentalGoalie!=null)return null;
+  const rental=e.rentalGoalie,team=e.managerConfirmedGoalie;
+  if(Boolean(rental)===Boolean(team))return null; // exactly one verified goalie pathway
+  if(rental){
+   const g=rental;
+   if(g.source!=="GOALIEUP_CONFIRMATION_EMAIL"||g.status!=="RENTAL_CONFIRMED"||
+      typeof g.name!=="string"||!/^[A-Za-zÀ-ÿ][A-Za-zÀ-ÿ .'-]{2,80}$/.test(g.name)||
+      g.number!=="0"||g.fixtureId!==fix.id||g.gameDate!==fix.gameDate||g.puckDropUTC!==fix.puckDropUTC||
+      typeof g.confirmedAtUTC!=="string"||!Number.isFinite(Date.parse(g.confirmedAtUTC))||
+      Date.parse(g.confirmedAtUTC)>Date.parse(e.publishedAt)||
+      Date.parse(g.confirmedAtUTC)>=Date.parse(fix.puckDropUTC))return null;
+  }else{
+   const g=team;
+   if(g.source!=="MANAGER_DIRECT_CONFIRMATION"||g.status!=="CONFIRMED_FOR_FIXTURE"||
+      typeof g.name!=="string"||!/^[A-Za-zÀ-ÿ][A-Za-zÀ-ÿ .'-]{2,80}$/.test(g.name)||
+      typeof g.number!=="string"||!/^[0-9]{1,3}$/.test(g.number)||
+      g.fixtureId!==fix.id||g.gameDate!==fix.gameDate||g.puckDropUTC!==fix.puckDropUTC||
+      typeof g.confirmedAtUTC!=="string"||!Number.isFinite(Date.parse(g.confirmedAtUTC))||
+      Date.parse(g.confirmedAtUTC)>Date.parse(e.publishedAt)||
+      Date.parse(g.confirmedAtUTC)>=Date.parse(fix.puckDropUTC))return null;
+  }
+ }else if(e.rentalGoalie!=null||e.managerConfirmedGoalie!=null)return null;
+ if(e.managerLineupStatus==="PRELIMINARY_TEAM_LINEUP"&&e.unconfirmedNamesMarked!==true)return null;
  const pub=Date.parse(e.publishedAt),end=Date.parse(e.expiresAt);if(![now,pub,end].every(Number.isFinite)||now<pub||now>=end)return null;
  const h=/^[a-f0-9]{64}$/;if(![e.sha256,e.previewSHA256,e.sourceSha256].every(v=>typeof v==='string'&&h.test(v))||e.sourceSha256!==m.workingCard?.sha256)return null;
  if(!allowedPdfPath(e.url)||!new RegExp('-'+fix.gameDate+'-working(?:-r[2-9][0-9]*)?\\.pdf$').test(e.url)||e.previewImage!==e.url.slice(0,-4)+'.png')return null;
@@ -296,15 +310,16 @@ async function drawLineup(){
  // Prefer the verified inline image; PDF remains the open/print fallback.
  frame.hidden=previewVerified;
  if(!previewVerified)frame.src=url+"#view=FitH&toolbar=0&navpanes=0";
- const goalieNotice=released?.goalieConfirmed===true?"Rental goalie "+(released.rentalGoalie.numberIsPlaceholder===true?"":"#"+released.rentalGoalie.number+" ")+released.rentalGoalie.name+" confirmed (GoalieUp)":"Goalie unconfirmed";
+ const goalieName=released?.rentalGoalie?.name||released?.managerConfirmedGoalie?.name||"";
+ const goalieNotice=released?.goalieConfirmed===true?"Goalie "+goalieName+" confirmed":"Goalie unconfirmed";
  const managerFinalReady=released?.goalieConfirmed===true&&released.managerFinalReplacementAuthorized===true&&released.managerLineupStatus==="FINAL_TEAM_LINEUP";
- const publicCardLabel=managerFinalReady?"Final team lineup":"Working skater lineup";
+ const publicCardLabel=managerFinalReady?"Final team lineup":released?.managerLineupStatus==="PRELIMINARY_TEAM_LINEUP"?"Preliminary team lineup":"Working skater lineup";
  if(previewVerified){preview.alt=released?publicCardLabel+" vs "+fix.opponent+"; "+goalieNotice+". Open the PDF to read or print the assignments.":approved?"Approved lineup card":"Blank original lineup card";preview.src=entry.previewImage;preview.hidden=false}
  frame.title=released?publicCardLabel+" vs "+fix.opponent:approved?"Official lineup card":"Blank original lineup card";
  for(const a of [print,open]){a.href=url;a.removeAttribute("aria-disabled");a.tabIndex=0}
  set("lineup-notice",approved?
    "Official lineup card available.":
-   released?(released.goalieConfirmed?((managerFinalReady?"FINAL TEAM LINEUP":"WORKING TEAM LINEUP")+" - 14 skaters; goalie "+released.rentalGoalie.name+" confirmed."):"INTERIM LINEUP - 14 skaters confirmed for working card. Goaltender pending. Line assignments may change."):
+   released?(managerFinalReady?"FINAL TEAM LINEUP - "+released.skaterCount+" skaters; goalie "+goalieName+" confirmed.":released.managerLineupStatus==="PRELIMINARY_TEAM_LINEUP"?"PRELIMINARY LINEUP - * marks unconfirmed full-time players; goalie "+goalieName+" confirmed. Assignments may change.":released.goalieConfirmed?"WORKING TEAM LINEUP - "+released.skaterCount+" skaters; goalie "+goalieName+" confirmed.":"INTERIM LINEUP - goalie unconfirmed; assignments may change."):
    "Blank original Brave H.C. card · lineup pending manager approval. Print or open the one-page PDF; do not use historical player sheets.");
  // The card itself is the public display. Text is shown only if a card is held or unavailable.
  $("lineup-notice").hidden=Boolean(approved);

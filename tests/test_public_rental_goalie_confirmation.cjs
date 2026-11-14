@@ -1,5 +1,5 @@
 'use strict';
-const {test}=require('node:test'), assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),vm=require('node:vm');
+const {test}=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),vm=require('node:vm');
 const root=path.join(__dirname,'../widgets');
 const pub=JSON.parse(fs.readFileSync(path.join(root,'game-centre-lineup-public.json'),'utf8'));
 const js=fs.readFileSync(path.join(root,'game-centre-next.js'),'utf8');
@@ -9,29 +9,53 @@ const sel=vm.runInNewContext('('+js.slice(js.indexOf('function publicWorkingEntr
 const e=pub.publishedWorkingCard;
 const fix={id:e.fixtureId,opponent:e.opponent,gameDate:e.gameDate,puckDropUTC:e.puckDropUTC,rolloverAtUTC:e.expiresAt};
 const now=Date.parse(e.publishedAt)+1000;
-const check=(item,model={})=>sel({...pub,publishedWorkingCard:{...e,...item},...model},fix,now);
-test('GoalieUp email-bound rental booking permits #0 only in same current working fixture',()=>{
+const check=(item={},model={})=>sel({...pub,publishedWorkingCard:{...e,...item},...model},fix,now);
+
+test('manager-confirmed Stephen Logue is game-bound but lineup remains preliminary',()=>{
+ assert.equal(e.fixtureId,3375685);
+ assert.equal(e.gameDate,'2026-11-15');
+ assert.equal(e.opponent,'Sugo Sundays');
  assert.equal(e.goalieConfirmed,true);
- assert.equal(e.rentalGoalie.name,'Jeff Rae');
- assert.equal(e.rentalGoalie.number,'0');
- assert.equal(e.rentalGoalie.status,'RENTAL_CONFIRMED');
- assert.equal(e.rentalGoalie.source,'GOALIEUP_CONFIRMATION_EMAIL');
- assert.equal(e.rentalGoalie.fixtureId,3375684);
- assert.equal(e.rentalGoalie.confirmedAtUTC,'2026-11-08T19:30:54Z');
+ assert.equal(e.managerConfirmedGoalie.name,'Stephen Logue');
+ assert.equal(e.managerConfirmedGoalie.number,'70');
+ assert.equal(e.managerConfirmedGoalie.source,'MANAGER_DIRECT_CONFIRMATION');
+ assert.equal(e.managerConfirmedGoalie.status,'CONFIRMED_FOR_FIXTURE');
+ assert.equal(e.managerConfirmedGoalie.fixtureId,3375685);
+ assert.equal(e.rentalGoalie,null);
+ assert.equal(e.managerLineupStatus,'PRELIMINARY_TEAM_LINEUP');
+ assert.equal(e.managerFinalReplacementAuthorized,false);
+ assert.equal(e.unconfirmedNamesMarked,true);
  assert.equal(sel(pub,fix,now),e);
 });
-test('unverified goalie claim cannot release without exact provenance and fixture match',()=>{
- for(const value of [null,{}, {source:'WHATSAPP_POLL',status:'RENTAL_CONFIRMED',name:'Jeff Rae',number:'0',fixtureId:e.fixtureId,gameDate:e.gameDate,puckDropUTC:e.puckDropUTC,confirmedAtUTC:e.rentalGoalie.confirmedAtUTC}])
-  assert.equal(check({rentalGoalie:value}),null);
+
+test('a missing, mismatched or unverified manager-confirmed goalie fails closed',()=>{
+ assert.equal(check({managerConfirmedGoalie:null}),null);
  for(const patch of [
-  {source:'UNVERIFIED'},{status:'AVAILABLE_NOT_CONFIRMED'},{name:''},{name:'B'},{number:'1'},{fixtureId:999},
-  {gameDate:'2026-11-02'},{puckDropUTC:'2026-11-03T01:15:00Z'},{confirmedAtUTC:'invalid'},{confirmedAtUTC:'2026-11-10T00:00:00Z'}
- ]) assert.equal(check({rentalGoalie:{...e.rentalGoalie,...patch}}),null,JSON.stringify(patch));
+  {source:'UNVERIFIED'},{status:'AVAILABLE_NOT_CONFIRMED'},{name:''},{name:'B'},
+  {number:'?'},{fixtureId:999},{gameDate:'2026-11-22'},
+  {puckDropUTC:'2026-11-23T01:00:00Z'},{confirmedAtUTC:'invalid'},
+  {confirmedAtUTC:new Date(Date.parse(e.publishedAt)+1000).toISOString()}
+ ]){
+   assert.equal(check({managerConfirmedGoalie:{...e.managerConfirmedGoalie,...patch}}),null,JSON.stringify(patch));
+ }
+ assert.equal(check({unconfirmedNamesMarked:false}),null);
  assert.equal(check({goalieConfirmed:null}),null);
  assert.equal(check({goalieConfirmed:false}),null);
- assert.equal(check({goalieConfirmed:false,rentalGoalie:null}).goalieConfirmed,false);
+ assert.equal(check({goalieConfirmed:false,managerConfirmedGoalie:null}).goalieConfirmed,false);
 });
-test('rental booking never implies official final manager or game sheet approval',()=>{
+
+test('legacy GoalieUp rental game-bound release remains valid and strictly verified',()=>{
+ const rental={
+  source:'GOALIEUP_CONFIRMATION_EMAIL',status:'RENTAL_CONFIRMED',name:'Test Rental Goalie',number:'0',
+  fixtureId:e.fixtureId,gameDate:e.gameDate,puckDropUTC:e.puckDropUTC,confirmedAtUTC:e.publishedAt
+ };
+ assert.ok(check({rentalGoalie:rental,managerConfirmedGoalie:null}));
+ assert.equal(check({rentalGoalie:{...rental,source:'WHATSAPP_POLL'},managerConfirmedGoalie:null}),null);
+ assert.equal(check({rentalGoalie:{...rental,number:'70'},managerConfirmedGoalie:null}),null);
+ assert.equal(check({rentalGoalie:rental,managerConfirmedGoalie:e.managerConfirmedGoalie}),null);
+});
+
+test('preliminary card never implies final approval and expires on fixture rollover',()=>{
  assert.equal(pub.approved,null);
  assert.equal(pub.status,'BLANK_PENDING_APPROVAL');
  assert.equal(pub.weeklyAutoPublishEnabled,false);
@@ -41,15 +65,14 @@ test('rental booking never implies official final manager or game sheet approval
  assert.equal(check({}, {approved:{fake:true}}),null);
  assert.equal(sel(pub,fix,Date.parse(e.expiresAt)),null);
  assert.equal(sel(pub,{...fix,id:fix.id+1},now),null);
- assert.equal(Object.hasOwn(e,"totalSkaters"),false);
- assert.equal(Object.hasOwn(e,"fullTimers"),false);
- assert.equal(Object.hasOwn(e,"callupsConfirmed"),false);
+ for(const key of ['attendanceSnapshot','fullTimers','callupsConfirmed','confirmedSkaters']){
+  assert.equal(Object.hasOwn(e,key),false);
+ }
 });
-test('public manifest excludes poll attendance, callup metadata and private email contents',()=>{
- assert.equal(Object.hasOwn(pub,"attendanceSnapshot"),false);
- for(const k of ["fullTimers","callupsConfirmed","callupsAwaitingReply","confirmedSkaters"])
-  assert.equal(Object.hasOwn(e,k),false,k);
+
+test('public manifest contains no private WhatsApp poll or email payload',()=>{
+ assert.equal(Object.hasOwn(pub,'attendanceSnapshot'),false);
  const raw=fs.readFileSync(path.join(root,'game-centre-lineup-public.json'),'utf8');
- for(const term of ['1a1979ee9d7e9153','adam.brutto@gmail.com','$40.00','goalieup.com/upcoming'])
+ for(const term of ['adam.brutto@gmail.com','goalieup.com/upcoming','voterJid','voterPhone','privateChatId'])
   assert.equal(raw.includes(term),false);
 });

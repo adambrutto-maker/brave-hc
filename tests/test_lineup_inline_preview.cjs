@@ -30,7 +30,7 @@ test('one Lineup tab click reveals the verified final card without opening a PDF
  assert.equal(h.get('lineup-pdf-frame').hidden,true);
  assert.equal(h.get('lineup-pdf-frame').src,undefined);
  assert.equal(h.get('lineup-open').href,entry.url);
- assert.match(h.get('lineup-pdf-preview').alt,/Final team lineup.*Jeff Rae/);
+ assert.match(h.get('lineup-pdf-preview').alt,/Preliminary team lineup.*Stephen Logue/);
 });
 test('PNG integrity failure retains PDF fallback without displaying an unverified image',async()=>{
  const h=harness({png:false});await h.c.drawLineup();
@@ -56,5 +56,5 @@ test('live entry eagerly prepares the image and requests updated display assets'
  const html=fs.readFileSync(path.join(dir,'game-centre-arena-r32.html'),'utf8');
  assert.match(html,/class="pdf-lineup-preview" loading="eager" decoding="async"/);
  assert.match(html,/game-centre-next.css\?v=20261108-inline-r3/);
- assert.match(html,/game-centre-next.js\?v=20261108-inline-r3/);
+ assert.match(html,/game-centre-next.js\?v=20261114-game366-prelim-r1/);
 });
