@@ -23,7 +23,32 @@
       ],
       "mustPairWithAvailablePartner": true
     },
-    "preserveEstablishedPairsWhereBothAvailable": true
+    "preserveEstablishedPairsWhereBothAvailable": true,
+    "captainPreferredPairsWhenBothWingEligible": [
+      [
+        "Kong, Henry",
+        "Pearsoll, Keith"
+      ],
+      [
+        "Rosenberg, Jamie",
+        "Pavaday, Damien"
+      ]
+    ],
+    "game366PairSlotOrder20261115": [
+      [
+        "Kong, Henry",
+        "Pearsoll, Keith"
+      ],
+      [
+        "Provenzano, Michael",
+        "Povegliano, Adam"
+      ],
+      [
+        "Pavaday, Damien",
+        "Rosenberg, Jamie"
+      ]
+    ],
+    "fairnessMetricCaveat": "Published starting line slots are not minutes; record actual deployments separately."
   },
   "defence": {
     "pairedOn14SkaterRoster": true,

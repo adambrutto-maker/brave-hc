@@ -11,8 +11,9 @@ class CorrectDamienPublicLinkAndLineup(unittest.TestCase):
  def setUpClass(cls):
   cls.rules=v.load(v.RULES)
   cls.r4=v.load(v.ASSETS/"game-366-2026-11-15-working-r4.lineup.json")
+  cls.r5=v.load(v.ASSETS/"game-366-2026-11-15-working-r5.lineup.json")
   cls.r3=v.load(v.ASSETS/"game-366-2026-11-15-working-r3.lineup.json")
- def setUp(self):self.doc=copy.deepcopy(self.r4)
+ def setUp(self):self.doc=copy.deepcopy(self.r5)
  def check(self,*,public=True,assets=False):
   return v.validate(self.doc,self.rules,check_public=public,check_assets=assets)
  def skater(self):return self.doc["forwards"][2]["LW"]
@@ -49,19 +50,19 @@ class CorrectDamienPublicLinkAndLineup(unittest.TestCase):
   self.assertEqual(v.validate(self.r3,self.rules,check_public=True,check_assets=True)["status"],"PASS_CAPTAIN_HARD_RULES")
  def test_11_current_public_contract_is_source_bound(self):
   result=v.check_all()
-  self.assertEqual(len(result),2)
-  self.assertEqual([x["status"] for x in result],["PASS_CAPTAIN_HARD_RULES"]*2)
+  self.assertEqual(len(result),3)
+  self.assertEqual([x["status"] for x in result],["PASS_CAPTAIN_HARD_RULES"]*3)
  def test_12_private_data_not_public(self):
   self.assertFalse(self.doc["namedPollVotesIncluded"])
   self.assertFalse(self.doc["privateWhatsAppGroupContentIncluded"])
  def test_13_whole_pairs_and_centres_untouched(self):
-  self.assertEqual(self.doc["centreRotation"],self.r3["centreRotation"])
+  self.assertEqual(self.doc["centreRotation"],self.r4["centreRotation"])
   for i in range(3):
    for wing in ("LW","RW"):
-    if i==2 and wing=="LW":continue
-    self.assertEqual(self.doc["forwards"][i][wing],self.r3["forwards"][i][wing])
-  self.assertEqual(self.doc["defence"],self.r3["defence"])
-  self.assertEqual(self.doc["goalie"],self.r3["goalie"])
+    if (i,wing) in {(0,"RW"),(2,"RW")}:continue  # captain-authorized pair swap
+    self.assertEqual(self.doc["forwards"][i][wing],self.r4["forwards"][i][wing])
+  self.assertEqual(self.doc["defence"],self.r4["defence"])
+  self.assertEqual(self.doc["goalie"],self.r4["goalie"])
  def test_14_no_native_hto_edit_claim(self):
   self.assertEqual(self.doc["sourceCorrection"]["nativeHTOProfileEditState"],"PENDING_AUTHENTICATED_HTO_ADMIN")
 if __name__=="__main__":unittest.main()

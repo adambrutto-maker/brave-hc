@@ -134,6 +134,21 @@ def validate(record,rule,base=ASSETS,*,check_assets=True,check_public=False):
             person.get("htoPlayerId")==correction["stableNativeHTOPlayerId"] and
             person.get("displayText")=="#0 - Pavaday, Damien",
             "DAMIEN_NAME_JERSEY_OR_HTO_ID_WRONG")
+   if current.get("revision",0)>=5:
+    prefs=rule["wingers"].get("captainPreferredPairsWhenBothWingEligible",[])
+    require(len(prefs)>=2 and all(len(pair)==2 for pair in prefs),"CAPTAIN_WINGER_PAIR_POLICY_MISSING")
+    actual=[{line["LW"]["name"],line["RW"]["name"]} for line in record["forwards"]]
+    wing_set=set(wing_names)
+    for pair in prefs:
+     if set(pair).issubset(wing_set):
+      require(set(pair) in actual,"CAPTAIN_PREFERRED_WINGER_PAIR_SPLIT:"+"/".join(pair))
+    if current["fixtureId"]==3375685:
+     expected=rule["wingers"].get("game366PairSlotOrder20261115")
+     require(len(expected)==3,"CAPTAIN_GAME366_PAIR_ORDER_RULE_MISSING")
+     actual_order=[[line["LW"]["name"],line["RW"]["name"]] for line in record["forwards"]]
+     require(actual_order==expected,"GAME366_CAPTAIN_LINE_SLOT_ROTATION_BROKEN")
+     require(record.get("hardBuddyPairs")==expected,"SIGNED_GAME366_PAIR_CONTRACT_CHANGED")
+     require(centres==["Carosi, Justin","Saindon, Stephane"],"GAME366_CENTRE_ROTATION_ORDER_BROKEN")
  return {"status":"PASS_CAPTAIN_HARD_RULES","gameId":record["officialHTOGameId"],
          "playerCount":len(names),"wingPairs":len(record["forwards"]),
          "nameFontPx":sz[0],"preferredBuddyPaired":bool(anchor in names and available),

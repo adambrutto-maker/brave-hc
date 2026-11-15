@@ -1,0 +1,181 @@
+{
+  "schema": "brave-hc-published-captain-lineup/v1",
+  "season": "W2026/27",
+  "gameId": "366",
+  "officialHTOGameId": "3375685",
+  "gameDate": "2026-11-15",
+  "opponent": "Sugo Sundays",
+  "gameTime": "19:15",
+  "rink": "A Rink",
+  "status": "FINAL_TEAM_LINEUP",
+  "userManagerApproved": true,
+  "sourceOfManagerAuthorization": "captain explicitly requested and approved final HTO lineup revision; confirmed call-up messages observed privately",
+  "notLeagueOfficialScorekeeperRelease": true,
+  "currentRotationUsedVerifiedActualIceTime": false,
+  "rotationContext": "Manager-preferred immutable winger pairs; Nov 8 published working line slots: Henry Kong second, Michael Provenzano first, Jamie Rosenberg second, Adam Povegliano third. Nov15 order places Henry/Keith first, Michael/Adam second, Jamie/Damien third; centre listing rotates Justin first and Stephane second. This is a fair lineup-slot plan, NOT measured ice time.",
+  "forwards": [
+    {
+      "line": 1,
+      "LW": {
+        "name": "Kong, Henry",
+        "jerseyNumber": "34",
+        "playerFontPx": 58,
+        "displayText": "#34 - Kong, Henry"
+      },
+      "C": {
+        "name": "Carosi, Justin",
+        "jerseyNumber": "89",
+        "playerFontPx": 58,
+        "displayText": "#89 - Carosi, Justin"
+      },
+      "RW": {
+        "name": "Pearsoll, Keith",
+        "jerseyNumber": "39",
+        "playerFontPx": 58,
+        "displayText": "#39 - Pearsoll, Keith"
+      }
+    },
+    {
+      "line": 2,
+      "LW": {
+        "name": "Provenzano, Michael",
+        "jerseyNumber": "25",
+        "playerFontPx": 58,
+        "displayText": "#25 - Provenzano, Michael"
+      },
+      "C": {
+        "name": "Saindon, Stephane",
+        "jerseyNumber": "20",
+        "playerFontPx": 58,
+        "displayText": "#20 - Saindon, Stephane"
+      },
+      "RW": {
+        "name": "Povegliano, Adam",
+        "jerseyNumber": "22",
+        "playerFontPx": 58,
+        "displayText": "#22 - Povegliano, Adam"
+      }
+    },
+    {
+      "line": 3,
+      "LW": {
+        "name": "Pavaday, Damien",
+        "jerseyNumber": "0",
+        "playerFontPx": 58,
+        "displayText": "#0 - Pavaday, Damien",
+        "htoPlayerId": 849368
+      },
+      "C": null,
+      "RW": {
+        "name": "Rosenberg, Jamie",
+        "jerseyNumber": "18",
+        "playerFontPx": 58,
+        "displayText": "#18 - Rosenberg, Jamie"
+      }
+    }
+  ],
+  "defence": [
+    {
+      "pair": 1,
+      "LD": {
+        "name": "Brutto, Adam",
+        "jerseyNumber": "28",
+        "playerFontPx": 58,
+        "displayText": "#28 - Brutto, Adam"
+      },
+      "RD": {
+        "name": "Congiusti, Marco",
+        "jerseyNumber": "3",
+        "playerFontPx": 58,
+        "displayText": "#3 - Congiusti, Marco"
+      }
+    },
+    {
+      "pair": 2,
+      "LD": {
+        "name": "Carosi, Aaron",
+        "jerseyNumber": "59",
+        "playerFontPx": 58,
+        "displayText": "#59 - Carosi, Aaron"
+      },
+      "RD": {
+        "name": "Rajasooriar, Krishnan",
+        "jerseyNumber": "15",
+        "playerFontPx": 58,
+        "displayText": "#15 - Rajasooriar, Krishnan"
+      }
+    },
+    {
+      "pair": 3,
+      "LD": {
+        "name": "Rajkumar, Sanjay",
+        "jerseyNumber": "49",
+        "playerFontPx": 58,
+        "displayText": "#49 - Rajkumar, Sanjay"
+      },
+      "RD": {
+        "name": "Triumbari, Francesco",
+        "jerseyNumber": "67",
+        "playerFontPx": 58,
+        "displayText": "#67 - Triumbari, Francesco"
+      }
+    }
+  ],
+  "goalie": {
+    "name": "Logue, Stephen",
+    "jerseyNumber": "70",
+    "playerFontPx": 58,
+    "displayText": "#70 - Logue, Stephen"
+  },
+  "centreRotation": [
+    "Carosi, Justin",
+    "Saindon, Stephane"
+  ],
+  "line3CentreDisplay": "-",
+  "hardBuddyPairs": [
+    [
+      "Kong, Henry",
+      "Pearsoll, Keith"
+    ],
+    [
+      "Provenzano, Michael",
+      "Povegliano, Adam"
+    ],
+    [
+      "Pavaday, Damien",
+      "Rosenberg, Jamie"
+    ]
+  ],
+  "captainLineupPolicy": "scripts/brave_hc_captain_lineup_rules.json",
+  "printSpec": {
+    "source": "approved original Brave H.C. artwork Lines!G5:J16",
+    "pixelWidth": 3300,
+    "pixelHeight": 2550,
+    "allPlayerCellsSameFontSizePx": 58,
+    "fontFamily": "Arial Bold",
+    "independentFontShrinkApplied": false,
+    "publicRoleLabelsIncluded": false
+  },
+  "pdf": {
+    "path": "assets/lineups/game-366-2026-11-15-working-r5.pdf",
+    "sha256": "1c019fc21a91421930152ae5492454f4864bfa4821c7bf5b449d363d3be93362"
+  },
+  "png": {
+    "path": "assets/lineups/game-366-2026-11-15-working-r5.png",
+    "sha256": "5ab4d0d98fa670dd0ae325dc09e2645f4442c45497e32befb977d47a261fc598"
+  },
+  "namedPollVotesIncluded": false,
+  "privateWhatsAppGroupContentIncluded": false,
+  "venueDataCopiedFromVerifiedHTOandSVHL": true,
+  "sourceCorrection": {
+    "htoPlayerId": 849368,
+    "oldSpelling": "Pavaday, Damian",
+    "correctSpelling": "Pavaday, Damien",
+    "jerseyNumber": "0",
+    "identityStable": true,
+    "captainVerified": true,
+    "nativeHTOProfileEditState": "PENDING_AUTHENTICATED_HTO_ADMIN",
+    "sourceOfNumber": "HTO public player profile already shows #0"
+  },
+  "captainPairOrderRevision": "20261115_GAME366_R5_SOURCE_REVIEWED"
+}
