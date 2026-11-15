@@ -1,0 +1,62 @@
+{
+  "schema": "brave-hc-captain-lineup-rules/v1",
+  "season": "W2026/27",
+  "authority": "Captain-confirmed Brave H.C. weekly lineup constraints. A release must fail if these are violated; never silently optimize them away.",
+  "twoCentres": {
+    "required": [
+      "Carosi, Justin",
+      "Saindon, Stephane"
+    ],
+    "exactlyTwo": true,
+    "swapStartingLineOrderWeekToWeek": true,
+    "thirdWingPairSharesBothCentres": true
+  },
+  "wingers": {
+    "wholePairedUnitsOnly": true,
+    "noSpareWinger": true,
+    "rotatePairUnitsAcrossLinesOneTwoThree": true,
+    "preferredBuddyPair": {
+      "player": "Provenzano, Michael",
+      "partnersPriority": [
+        "Provenzano, Mario",
+        "Povegliano, Adam"
+      ],
+      "mustPairWithAvailablePartner": true
+    },
+    "preserveEstablishedPairsWhereBothAvailable": true
+  },
+  "defence": {
+    "pairedOn14SkaterRoster": true,
+    "preserveEstablishedPairsWhereAvailable": true,
+    "doNotInferPositionsFromRosterStatus": true
+  },
+  "printing": {
+    "template": "Brave H.C. original approved Lines!G5:J16 artwork",
+    "pixelWidth": 3300,
+    "pixelHeight": 2550,
+    "uniformPlayerNameFontRequired": true,
+    "allowIndependentShrinkToFit": false,
+    "excludeVisibleRoleLabels": [
+      "DI",
+      "CU",
+      "FT",
+      "PT",
+      "F/D",
+      "CALL-UP",
+      "DROP-IN",
+      "PART-TIMER"
+    ],
+    "jerseyNumberOverrides": {
+      "Carosi, Aaron": "59"
+    },
+    "unknownNumberPolicy": "omit an unverified jersey number, never fabricate",
+    "thirdForwardLineCentreCell": "-"
+  },
+  "publishing": {
+    "captainReviewRequired": true,
+    "wrongFixtureFailClosed": true,
+    "sourceHashMustMatch": true,
+    "noNamedPrivatePollVotesInPublicRelease": true,
+    "versionedRetainedHistory": true
+  }
+}

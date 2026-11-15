@@ -1,0 +1,39 @@
+name: Brave H.C. captain lineup rule integrity
+
+on:
+  pull_request:
+    paths:
+      - "scripts/brave_hc_captain_lineup_rules.json"
+      - "scripts/verify_brave_hc_captain_lineup.py"
+      - "widgets/assets/lineups/**"
+      - "widgets/game-centre-lineup-public.json"
+      - "tests/test_brave_hc_captain_lineup.py"
+      - "tests/test_lineup_inline_preview.cjs"
+  push:
+    branches: [main]
+    paths:
+      - "scripts/brave_hc_captain_lineup_rules.json"
+      - "scripts/verify_brave_hc_captain_lineup.py"
+      - "widgets/assets/lineups/**"
+      - "widgets/game-centre-lineup-public.json"
+      - "tests/test_brave_hc_captain_lineup.py"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-captain-rules:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Check every retained captain public lineup record
+        run: python -B scripts/verify_brave_hc_captain_lineup.py
+      - name: Negative tests - pair breaking, mismatched fonts, jersey 59 and visible status labels
+        run: python -B -m unittest discover -s tests -p test_brave_hc_captain_lineup.py -v
+      - name: Verify HTO public working card and source
+        run: node --test tests/test_public_working_lineup.cjs tests/test_lineup_inline_preview.cjs tests/test_public_rental_goalie_confirmation.cjs
