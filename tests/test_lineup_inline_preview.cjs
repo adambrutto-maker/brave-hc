@@ -56,5 +56,5 @@ test('live entry eagerly prepares the image and requests updated display assets'
  const html=fs.readFileSync(path.join(dir,'game-centre-arena-r32.html'),'utf8');
  assert.match(html,/class="pdf-lineup-preview" loading="eager" decoding="async"/);
  assert.match(html,/game-centre-next.css\?v=20261108-inline-r3/);
- assert.match(html,/game-centre-next.js\?v=20261115-game366-damien-r4/);
+ assert.match(html,/game-centre-next.js\?v=20261115-game366-wingerpairs-r5/);
 });

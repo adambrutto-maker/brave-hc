@@ -9,6 +9,7 @@ on:
       - "widgets/game-centre-lineup-public.json"
       - "tests/test_brave_hc_captain_lineup.py"
       - "tests/test_damien_pavaday_profile_lineup.py"
+      - "tests/test_game366_captain_three_winger_pairs_r5.py"
       - "widgets/player-links.js"
       - "tests/test_player_links.js"
       - "tests/test_lineup_inline_preview.cjs"
@@ -21,6 +22,7 @@ on:
       - "widgets/game-centre-lineup-public.json"
       - "tests/test_brave_hc_captain_lineup.py"
       - "tests/test_damien_pavaday_profile_lineup.py"
+      - "tests/test_game366_captain_three_winger_pairs_r5.py"
       - "widgets/player-links.js"
       - "tests/test_player_links.js"
   workflow_dispatch:
@@ -43,6 +45,8 @@ jobs:
         run: python -B -m unittest discover -s tests -p test_brave_hc_captain_lineup.py -v
       - name: Verify Damien Pavaday corrected HTO identity, jersey zero and backward-compatible player profile link
         run: python -B -m unittest discover -s tests -p test_damien_pavaday_profile_lineup.py -v
+      - name: Enforce exact November 15 preferred winger pairs, fair line order and preserved historical cards
+        run: python -B -m unittest discover -s tests -p test_game366_captain_three_winger_pairs_r5.py -v
       - name: Verify stable native HTO player profile link and historical aliases
         run: node --test tests/test_player_links.js
       - name: Verify HTO public working card and source

@@ -17,13 +17,13 @@
   "approved": null,
   "weeklyAutoPublishEnabled": false,
   "privateWhatsAppPollDataPublished": false,
-  "notice": "Captain-corrected FINAL Game 366 lineup revision 4: Damien Pavaday #0. Previously incorrect Damien/Damian spelling fixed. Other player names, pairs, positions, goalie and uniform 58px typography unchanged. Private WhatsApp poll contents are not published.",
+  "notice": "Captain-approved FINAL Game 366 lineup revision 5: winger pairs Henry Kong/Keith Pearsoll, Michael Provenzano/Adam Povegliano, Jamie Rosenberg/Damien Pavaday. Two centres Justin Carosi and Stephane Saindon rotate, third pair shares centre shifts. Defence, goalie Stephen Logue, all jersey numbers and 58px typography unchanged. Actual game ice time has not been independently measured.",
   "workingCard": {
     "fixtureId": 3375685,
     "gameDate": "2026-11-15",
     "puckDropUTC": "2026-11-16T00:15:00Z",
     "opponent": "Sugo Sundays",
-    "sha256": "a6d6efe956857047a8a2b646835a6f81d3e1702b7b4311c37f57c9a1165458e7"
+    "sha256": "1c019fc21a91421930152ae5492454f4864bfa4821c7bf5b449d363d3be93362"
   },
   "publishedWorkingCard": {
     "fixtureId": 3375685,
@@ -34,13 +34,13 @@
     "authorizedForPublic": true,
     "goalieConfirmed": true,
     "sourceRange": "Lines!G5:J16",
-    "sourceSha256": "a6d6efe956857047a8a2b646835a6f81d3e1702b7b4311c37f57c9a1165458e7",
-    "publishedAt": "2026-11-15T16:16:48Z",
+    "sourceSha256": "1c019fc21a91421930152ae5492454f4864bfa4821c7bf5b449d363d3be93362",
+    "publishedAt": "2026-11-15T18:19:31Z",
     "expiresAt": "2026-11-16T01:15:00Z",
-    "url": "./assets/lineups/game-366-2026-11-15-working-r4.pdf",
-    "sha256": "a6d6efe956857047a8a2b646835a6f81d3e1702b7b4311c37f57c9a1165458e7",
-    "previewImage": "./assets/lineups/game-366-2026-11-15-working-r4.png",
-    "previewSHA256": "a8e72bb955bd117fb2061fea3c4131087303f37525d813bd8caf5bbb0cc43119",
+    "url": "./assets/lineups/game-366-2026-11-15-working-r5.pdf",
+    "sha256": "1c019fc21a91421930152ae5492454f4864bfa4821c7bf5b449d363d3be93362",
+    "previewImage": "./assets/lineups/game-366-2026-11-15-working-r5.png",
+    "previewSHA256": "5ab4d0d98fa670dd0ae325dc09e2645f4442c45497e32befb977d47a261fc598",
     "managerConfirmedGoalie": {
       "source": "MANAGER_DIRECT_CONFIRMATION",
       "status": "CONFIRMED_FOR_FIXTURE",
@@ -52,9 +52,9 @@
       "confirmedAtUTC": "2026-11-14T14:46:06Z"
     },
     "rentalGoalie": null,
-    "revision": 4,
+    "revision": 5,
     "skaterCount": 14,
-    "rotationPolicy": "TWO_ROTATING_CENTRES_COMPLETE_WINGER_PAIRS_FIXED_BUDDY_PAIR_UNIFORM_FONT",
+    "rotationPolicy": "CAPTAIN_THREE_IMMUTABLE_WINGER_PAIRS_FIRST_SECOND_THIRD_FAIR_GAME366_R5",
     "managerLineupStatus": "FINAL_TEAM_LINEUP",
     "managerFinalReplacementAuthorized": true,
     "unconfirmedNamesMarked": false
