@@ -1,5 +1,5 @@
 {
-  "capturedAt": "2026-11-13T22:00:51.965206+00:00",
+  "capturedAt": "2026-11-15T20:26:35.732756+00:00",
   "sourceAuthority": "PUBLIC_HTO_HTTP_READBACK",
   "games": [
     {
@@ -946,7 +946,7 @@
                 "7:10",
                 "ES",
                 "Brave H.C.",
-                "34 Henry Kong ( 12 Adam Kober , Damian Pavaday )",
+                "34 Henry Kong ( 12 Adam Kober , Damien Pavaday )",
                 "0-1 Brave H.C."
               ],
               "players": [
@@ -960,7 +960,7 @@
                 },
                 {
                   "href": "https://www.htosports.com/teams/default.asp?s=hockey&u=BRAVESHOCKEY&p=profile&sportsHQ=BRAVESHOCKEY&playerID=849368",
-                  "name": "Damian Pavaday"
+                  "name": "Damien Pavaday"
                 }
               ]
             },
@@ -1162,7 +1162,7 @@
             {
               "cells": [
                 "0",
-                "Pavaday, Damian",
+                "Pavaday, Damien",
                 "F",
                 "",
                 "1",
@@ -1177,7 +1177,7 @@
               "players": [
                 {
                   "href": "https://www.htosports.com/teams/default.asp?t=&s=hockey&u=BRAVESHOCKEY&p=profile&sportsHQ=BRAVESHOCKEY&playerID=849368",
-                  "name": "Pavaday, Damian"
+                  "name": "Pavaday, Damien"
                 }
               ]
             },
