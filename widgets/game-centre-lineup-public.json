@@ -17,13 +17,13 @@
   "approved": null,
   "weeklyAutoPublishEnabled": false,
   "privateWhatsAppPollDataPublished": false,
-  "notice": "November 15 manager-authorized FINAL Brave H.C. team lineup vs Sugo Sundays: 14 selected skaters (8F/6D), Stephen Logue confirmed, Krishnan Rajasooriar selected CU, Aaron Carosi and Damian Pavaday selected DI. No private WhatsApp poll data published.",
+  "notice": "Captain-corrected FINAL November 15 Game 366 lineup vs Sugo Sundays. Michael Provenzano stays paired with Adam Povegliano because Mario Provenzano is unavailable. Whole winger pairs and Carosi/Saindon centre order rotate week to week. Aaron Carosi #59; Stephen Logue #70 in goal. All player names share one font size. Private attendance data and roster-status labels are not published.",
   "workingCard": {
     "fixtureId": 3375685,
     "gameDate": "2026-11-15",
     "puckDropUTC": "2026-11-16T00:15:00Z",
     "opponent": "Sugo Sundays",
-    "sha256": "c797540952de63b0b3a1513d7df7cf673c6a516b9b4cd740461bc3f5000fa77e"
+    "sha256": "ff5d11a41d4b381f6989ebd43b9581970478302df5150a9c1f1c48ffbea633c1"
   },
   "publishedWorkingCard": {
     "fixtureId": 3375685,
@@ -34,13 +34,13 @@
     "authorizedForPublic": true,
     "goalieConfirmed": true,
     "sourceRange": "Lines!G5:J16",
-    "sourceSha256": "c797540952de63b0b3a1513d7df7cf673c6a516b9b4cd740461bc3f5000fa77e",
-    "publishedAt": "2026-11-15T15:20:26Z",
+    "sourceSha256": "ff5d11a41d4b381f6989ebd43b9581970478302df5150a9c1f1c48ffbea633c1",
+    "publishedAt": "2026-11-15T15:50:07Z",
     "expiresAt": "2026-11-16T01:15:00Z",
-    "url": "./assets/lineups/game-366-2026-11-15-working-r2.pdf",
-    "sha256": "c797540952de63b0b3a1513d7df7cf673c6a516b9b4cd740461bc3f5000fa77e",
-    "previewImage": "./assets/lineups/game-366-2026-11-15-working-r2.png",
-    "previewSHA256": "316ef929788af4f30cbebb4581a5cec55601d098568d9be5ac24ca3c6813c454",
+    "url": "./assets/lineups/game-366-2026-11-15-working-r3.pdf",
+    "sha256": "ff5d11a41d4b381f6989ebd43b9581970478302df5150a9c1f1c48ffbea633c1",
+    "previewImage": "./assets/lineups/game-366-2026-11-15-working-r3.png",
+    "previewSHA256": "2984e466efb2eecf1747fbd7e916728795afae0642a54ac1a67780cfd24db04d",
     "managerConfirmedGoalie": {
       "source": "MANAGER_DIRECT_CONFIRMATION",
       "status": "CONFIRMED_FOR_FIXTURE",
@@ -52,9 +52,9 @@
       "confirmedAtUTC": "2026-11-14T14:46:06Z"
     },
     "rentalGoalie": null,
-    "revision": 2,
+    "revision": 3,
     "skaterCount": 14,
-    "rotationPolicy": "TWO_ROTATING_CENTRES_THREE_WINGER_PAIRS_THREE_DEFENCE_PAIRS_ACTUAL_FIRST",
+    "rotationPolicy": "TWO_ROTATING_CENTRES_COMPLETE_WINGER_PAIRS_FIXED_BUDDY_PAIR_UNIFORM_FONT",
     "managerLineupStatus": "FINAL_TEAM_LINEUP",
     "managerFinalReplacementAuthorized": true,
     "unconfirmedNamesMarked": false

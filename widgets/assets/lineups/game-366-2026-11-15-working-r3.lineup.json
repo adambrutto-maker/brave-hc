@@ -1,0 +1,165 @@
+{
+  "schema": "brave-hc-published-captain-lineup/v1",
+  "season": "W2026/27",
+  "gameId": "366",
+  "officialHTOGameId": "3375685",
+  "gameDate": "2026-11-15",
+  "opponent": "Sugo Sundays",
+  "gameTime": "19:15",
+  "rink": "A Rink",
+  "status": "FINAL_TEAM_LINEUP",
+  "userManagerApproved": true,
+  "sourceOfManagerAuthorization": "captain explicitly requested and approved final HTO lineup revision; confirmed call-up messages observed privately",
+  "notLeagueOfficialScorekeeperRelease": true,
+  "currentRotationUsedVerifiedActualIceTime": false,
+  "rotationContext": "Previous published proposed lines only (not confirmed actual deployments). Rotate complete winger units and first centre.",
+  "forwards": [
+    {
+      "line": 1,
+      "LW": {
+        "name": "Kong, Henry",
+        "jerseyNumber": "34",
+        "playerFontPx": 58,
+        "displayText": "#34 - Kong, Henry"
+      },
+      "C": {
+        "name": "Carosi, Justin",
+        "jerseyNumber": "89",
+        "playerFontPx": 58,
+        "displayText": "#89 - Carosi, Justin"
+      },
+      "RW": {
+        "name": "Rosenberg, Jamie",
+        "jerseyNumber": "18",
+        "playerFontPx": 58,
+        "displayText": "#18 - Rosenberg, Jamie"
+      }
+    },
+    {
+      "line": 2,
+      "LW": {
+        "name": "Provenzano, Michael",
+        "jerseyNumber": "25",
+        "playerFontPx": 58,
+        "displayText": "#25 - Provenzano, Michael"
+      },
+      "C": {
+        "name": "Saindon, Stephane",
+        "jerseyNumber": "20",
+        "playerFontPx": 58,
+        "displayText": "#20 - Saindon, Stephane"
+      },
+      "RW": {
+        "name": "Povegliano, Adam",
+        "jerseyNumber": "22",
+        "playerFontPx": 58,
+        "displayText": "#22 - Povegliano, Adam"
+      }
+    },
+    {
+      "line": 3,
+      "LW": {
+        "name": "Pavaday, Damian",
+        "jerseyNumber": null,
+        "playerFontPx": 58,
+        "displayText": "Pavaday, Damian"
+      },
+      "C": null,
+      "RW": {
+        "name": "Pearsoll, Keith",
+        "jerseyNumber": "39",
+        "playerFontPx": 58,
+        "displayText": "#39 - Pearsoll, Keith"
+      }
+    }
+  ],
+  "defence": [
+    {
+      "pair": 1,
+      "LD": {
+        "name": "Brutto, Adam",
+        "jerseyNumber": "28",
+        "playerFontPx": 58,
+        "displayText": "#28 - Brutto, Adam"
+      },
+      "RD": {
+        "name": "Congiusti, Marco",
+        "jerseyNumber": "3",
+        "playerFontPx": 58,
+        "displayText": "#3 - Congiusti, Marco"
+      }
+    },
+    {
+      "pair": 2,
+      "LD": {
+        "name": "Carosi, Aaron",
+        "jerseyNumber": "59",
+        "playerFontPx": 58,
+        "displayText": "#59 - Carosi, Aaron"
+      },
+      "RD": {
+        "name": "Rajasooriar, Krishnan",
+        "jerseyNumber": "15",
+        "playerFontPx": 58,
+        "displayText": "#15 - Rajasooriar, Krishnan"
+      }
+    },
+    {
+      "pair": 3,
+      "LD": {
+        "name": "Rajkumar, Sanjay",
+        "jerseyNumber": "49",
+        "playerFontPx": 58,
+        "displayText": "#49 - Rajkumar, Sanjay"
+      },
+      "RD": {
+        "name": "Triumbari, Francesco",
+        "jerseyNumber": "67",
+        "playerFontPx": 58,
+        "displayText": "#67 - Triumbari, Francesco"
+      }
+    }
+  ],
+  "goalie": {
+    "name": "Logue, Stephen",
+    "jerseyNumber": "70",
+    "playerFontPx": 58,
+    "displayText": "#70 - Logue, Stephen"
+  },
+  "centreRotation": [
+    "Carosi, Justin",
+    "Saindon, Stephane"
+  ],
+  "line3CentreDisplay": "-",
+  "hardBuddyPairs": [
+    [
+      "Provenzano, Michael",
+      "Povegliano, Adam"
+    ],
+    [
+      "Kong, Henry",
+      "Rosenberg, Jamie"
+    ]
+  ],
+  "captainLineupPolicy": "scripts/brave_hc_captain_lineup_rules.json",
+  "printSpec": {
+    "source": "approved original Brave H.C. artwork Lines!G5:J16",
+    "pixelWidth": 3300,
+    "pixelHeight": 2550,
+    "allPlayerCellsSameFontSizePx": 58,
+    "fontFamily": "Arial Bold",
+    "independentFontShrinkApplied": false,
+    "publicRoleLabelsIncluded": false
+  },
+  "pdf": {
+    "path": "assets/lineups/game-366-2026-11-15-working-r3.pdf",
+    "sha256": "ff5d11a41d4b381f6989ebd43b9581970478302df5150a9c1f1c48ffbea633c1"
+  },
+  "png": {
+    "path": "assets/lineups/game-366-2026-11-15-working-r3.png",
+    "sha256": "2984e466efb2eecf1747fbd7e916728795afae0642a54ac1a67780cfd24db04d"
+  },
+  "namedPollVotesIncluded": false,
+  "privateWhatsAppGroupContentIncluded": false,
+  "venueDataCopiedFromVerifiedHTOandSVHL": true
+}
