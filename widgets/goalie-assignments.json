@@ -1,24 +1,25 @@
 {
   "schema": "brave-hc-goalie-assignments/v1",
-  "sourceNote": "Existing public HTO goalie table checked 2026-10-19; others TBD; November 8, 2026 Game 365: Jeff Rae confirmed by GoalieUp email",
+  "sourceNote": "Game 366 November 15, 2026 Stephen Logue manager-confirmed in goaltender poll and direct WhatsApp exchange; existing other historical goalie observations unchanged",
   "assignments": {
     "hto:3375682": "Stephen Logue",
     "hto:3375683": "TBD",
     "hto:3375684": "Jeff Rae",
-    "hto:3375685": "TBD",
+    "hto:3375685": "Stephen Logue",
     "hto:3375686": "TBD"
   },
   "scheduleConfirmations": {
-    "hto:3375684": "2026-11-08|21:15|Other Way|D Rink|home"
+    "hto:3375684": "2026-11-08|21:15|Other Way|D Rink|home",
+    "hto:3375685": "2026-11-15|19:15|Sugo Sundays|A Rink|home"
   },
-  "updatedAt": "2026-11-08T19:49:30.007557+00:00",
+  "updatedAt": "2026-11-15T15:16:37.227744+00:00",
   "lastChange": {
-    "key": "hto:3375684",
-    "date": "2026-11-08",
-    "opponent": "Other Way",
+    "key": "hto:3375685",
+    "date": "2026-11-15",
+    "opponent": "Sugo Sundays",
     "previous": "TBD",
-    "confirmed": "Jeff Rae",
-    "actor": "manager-authorized final replacement",
+    "confirmed": "Stephen Logue",
+    "actor": "Adam captain: direct WhatsApp selection",
     "reason": "manager assignment",
     "managerReason": "NEW_BOOKING"
   }
