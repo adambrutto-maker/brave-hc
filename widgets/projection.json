@@ -4,11 +4,11 @@
   "season": "W2026/27",
   "sourceAuthority": "HTO current season + Brave HC Master Workbook projection formulas and career coefficients",
   "modelDriver": "HTO_PUBLISHED_TEAM_STATISTICS",
-  "publicationStatus": "HTO_MODEL_CURRENT",
-  "modelCurrent": true,
+  "publicationStatus": "HTO_MODEL_RECONCILIATION_PENDING",
+  "modelCurrent": false,
   "modelSnapshotDate": "2026-11-15",
   "workbookBaselineDate": "2026-09-20",
-  "exportedAt": "2026-11-15T14:31:30.555275+00:00",
+  "exportedAt": "2026-11-15T18:31:35.052834+00:00",
   "workbookSourceHash": "0002fd9f06596af8d0a00fc1b53a618ef15479f941ad5c1e6265b27002a65154",
   "sourceInputs": {
     "workbookRecordedTeamGP": 1,
@@ -21,36 +21,36 @@
     "htoTeamGoals": 19,
     "htoTeamAssists": 31
   },
-  "htoreadback": "2026-11-15T14:31:01.164Z",
+  "htoreadback": "2026-11-15T18:31:01.187Z",
   "modelParity": {
     "replayedRows": 21,
     "mismatches": 0
   },
   "unmodelledHTOPlayers": [
     {
-      "name": "Pavaday, Damian",
-      "classification": "DI",
+      "name": "Pavaday, Damien",
+      "classification": null,
       "currentGP": 1,
       "currentG": 0,
       "currentA": 1,
       "currentPts": 1,
-      "projectedGP": 1.0,
-      "reason": "No historical player row; used verified positional average fallback from LinesHelpers"
+      "projectedGP": null,
+      "reason": "New player: classification pending; HTO actual statistics only"
     }
   ],
-  "unclassifiedHTOPlayers": [],
+  "unclassifiedHTOPlayers": [
+    "Pavaday, Damien"
+  ],
   "workbookPlayersAbsentFromHTO": [],
   "classificationAuthority": "Founder confirmation: Damian Pavaday=DI",
-  "projectionComplete": true,
+  "projectionComplete": false,
   "unmodelledHTOPoints": 1,
   "modelCoefficients": {
     "FTProjectedAttendance": 0.8105952921034305,
-    "callUpBaseOpportunity": 7.558521238733851,
+    "callUpBaseOpportunity": 8.044235524448137,
     "existingDISeasonGP": 2,
-    "additionalDISeasonGP": 1,
-    "DIModelAttendanceRate": {
-      "Pavaday, Damian": 0.14285714285714285
-    },
+    "additionalDISeasonGP": 0,
+    "DIModelAttendanceRate": {},
     "careerWeight": 0.7083333333333333,
     "seasonWeight": 0.2916666666666667
   },
@@ -74,14 +74,6 @@
         "publicProjectedGP": 1.0,
         "previousProjectedPts": 1,
         "newProjectedPts": 0
-      },
-      {
-        "name": "Pavaday, Damian",
-        "htoActualGP": 1,
-        "workbookAnnualizedGP": 3.43,
-        "publicProjectedGP": 1.0,
-        "previousProjectedPts": 3,
-        "newProjectedPts": 1
       }
     ]
   },
@@ -263,6 +255,28 @@
       "rank": 6
     },
     {
+      "name": "Kober, Adam",
+      "number": "12",
+      "rosterStatus": "CU",
+      "gp": 14.29,
+      "g": 2,
+      "a": 5,
+      "pts": 7,
+      "ptsPerGame": 0.49,
+      "trend": 0.046053,
+      "workbookRow": 86,
+      "currentGP": 6,
+      "currentG": 1,
+      "currentA": 2,
+      "trendInputs": {
+        "firstSeasonOrNoCareer": false,
+        "careerScoringRate": 0.4318181818181818,
+        "projectedScoringRate": 0.4517045454545454,
+        "seasonScoringRate": 0.5
+      },
+      "rank": 9
+    },
+    {
       "name": "Brutto, Adam",
       "number": "28",
       "rosterStatus": "FT",
@@ -329,28 +343,6 @@
       "rank": 9
     },
     {
-      "name": "Kober, Adam",
-      "number": "12",
-      "rosterStatus": "CU",
-      "gp": 14.04,
-      "g": 2,
-      "a": 4,
-      "pts": 6,
-      "ptsPerGame": 0.427,
-      "trend": 0.046053,
-      "workbookRow": 86,
-      "currentGP": 6,
-      "currentG": 1,
-      "currentA": 2,
-      "trendInputs": {
-        "firstSeasonOrNoCareer": false,
-        "careerScoringRate": 0.4318181818181818,
-        "projectedScoringRate": 0.4517045454545454,
-        "seasonScoringRate": 0.5
-      },
-      "rank": 12
-    },
-    {
       "name": "Rajkumar, Sanjay",
       "number": "49",
       "rosterStatus": "FT",
@@ -370,17 +362,39 @@
         "projectedScoringRate": 0.3413279927054839,
         "seasonScoringRate": 0.16666666666666666
       },
-      "rank": 12
+      "rank": 13
+    },
+    {
+      "name": "Mazzei, Stefano",
+      "number": "88",
+      "rosterStatus": "CU",
+      "gp": 5.74,
+      "g": 4,
+      "a": 1,
+      "pts": 5,
+      "ptsPerGame": 0.87,
+      "trend": 0.214067,
+      "workbookRow": 83,
+      "currentGP": 1,
+      "currentG": 1,
+      "currentA": 0,
+      "trendInputs": {
+        "firstSeasonOrNoCareer": false,
+        "careerScoringRate": 0.5767195767195767,
+        "projectedScoringRate": 0.7001763668430335,
+        "seasonScoringRate": 1.0
+      },
+      "rank": 14
     },
     {
       "name": "Rajasooriar, Krishnan",
       "number": "15",
       "rosterStatus": "CU",
-      "gp": 8.92,
+      "gp": 9.16,
       "g": 4,
       "a": 1,
       "pts": 5,
-      "ptsPerGame": 0.561,
+      "ptsPerGame": 0.546,
       "trend": 0.164855,
       "workbookRow": 87,
       "currentGP": 3,
@@ -417,36 +431,14 @@
       "rank": 14
     },
     {
-      "name": "Mazzei, Stefano",
-      "number": "88",
-      "rosterStatus": "CU",
-      "gp": 5.5,
-      "g": 3,
-      "a": 1,
-      "pts": 4,
-      "ptsPerGame": 0.727,
-      "trend": 0.214067,
-      "workbookRow": 83,
-      "currentGP": 1,
-      "currentG": 1,
-      "currentA": 0,
-      "trendInputs": {
-        "firstSeasonOrNoCareer": false,
-        "careerScoringRate": 0.5767195767195767,
-        "projectedScoringRate": 0.7001763668430335,
-        "seasonScoringRate": 1.0
-      },
-      "rank": 16
-    },
-    {
       "name": "Duffy, Lorcan",
       "number": "10",
       "rosterStatus": "CU",
-      "gp": 5.5,
+      "gp": 5.74,
       "g": 1,
       "a": 2,
       "pts": 3,
-      "ptsPerGame": 0.545,
+      "ptsPerGame": 0.522,
       "trend": -0.291667,
       "workbookRow": 82,
       "currentGP": 1,
@@ -486,11 +478,11 @@
       "name": "Atkins, Nolan",
       "number": "6",
       "rosterStatus": "CU",
-      "gp": 7.21,
+      "gp": 7.45,
       "g": 0,
       "a": 1,
       "pts": 1,
-      "ptsPerGame": 0.139,
+      "ptsPerGame": 0.134,
       "trend": -0.291667,
       "workbookRow": 89,
       "currentGP": 2,
@@ -505,10 +497,9 @@
       "rank": 19
     },
     {
-      "rank": 19,
-      "name": "Pavaday, Damian",
+      "name": "Pavaday, Damien",
       "number": "0",
-      "rosterStatus": "DI",
+      "rosterStatus": "UNCLASSIFIED",
       "gp": 1.0,
       "g": 0,
       "a": 1,
@@ -519,27 +510,15 @@
       "currentGP": 1,
       "currentG": 0,
       "currentA": 1,
-      "currentPts": 1,
-      "modelAvailability": "VERIFIED_POSITIONAL_AVERAGE_FALLBACK",
-      "position": "F",
-      "positionPrior": "FORWARD_POSITIONAL_AVERAGE",
-      "trendSource": "FIRST_SEASON_NO_HISTORY_RETURNS_ZERO",
-      "priorGPerGame": 0.37398648648648647,
-      "priorAPerGame": 0.43840090090090084,
-      "attendanceSource": "DI_CONFIRMED_APPEARANCES_ONLY_PUBLIC_POLICY",
+      "classificationPending": true,
+      "attendanceSource": "HTO_CONFIRMED_ONLY",
       "trendInputs": {
         "firstSeasonOrNoCareer": true,
-        "careerScoringRate": 0.8123873873873872,
-        "projectedScoringRate": 0.8671077327327326,
+        "careerScoringRate": 0,
+        "projectedScoringRate": 0,
         "seasonScoringRate": 1.0
       },
-      "workbookAnnualizedProjection": {
-        "gp": 3.43,
-        "g": 1,
-        "a": 2,
-        "pts": 3
-      },
-      "forecastBasis": "HTO_CONFIRMED_APPEARANCES_ONLY"
+      "rank": 19
     },
     {
       "name": "Ardizzi, Stefano",
@@ -604,10 +583,10 @@
   ],
   "total": {
     "games": 24,
-    "goals": 74,
-    "assists": 116,
-    "points": 190,
-    "ptsPerGame": 0.605,
+    "goals": 75,
+    "assists": 117,
+    "points": 192,
+    "ptsPerGame": 0.609,
     "trend": -0.025177
   },
   "conditionalFormatting": {
@@ -681,19 +660,19 @@
       "a": {
         "sourceRange": "AA6:AA93",
         "low": 0.0,
-        "mid": 4.5,
+        "mid": 5.0,
         "high": 14.0
       },
       "pts": {
         "sourceRange": "AB6:AB93",
         "low": 0.0,
-        "mid": 6.5,
+        "mid": 7.0,
         "high": 26.0
       },
       "ptsPerGame": {
         "sourceRange": "AC6:AC93",
         "low": 0.0,
-        "mid": 0.544,
+        "mid": 0.5325,
         "high": 1.192
       }
     },
