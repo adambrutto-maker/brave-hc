@@ -2,7 +2,7 @@
   "schema": "brave-hc-game-centre-public-lineup-pdf/v1",
   "status": "BLANK_PENDING_APPROVAL",
   "scope": "PUBLIC_MANAGER_AUTHORIZED_FINAL_TEAM_LINEUP",
-  "source": "Original Brave H.C. workbook, Lines!G5:J16, isolated copy",
+  "source": "Original Brave H.C. workbook Lines!G5:J16 approved artwork; versioned Game 366 final raster card",
   "sourceWorkbookSHA256": "0002fd9f06596af8d0a00fc1b53a618ef15479f941ad5c1e6265b27002a65154",
   "blank": {
     "url": "./assets/lineups/brave-hc-blank-original-card.pdf",
@@ -17,13 +17,13 @@
   "approved": null,
   "weeklyAutoPublishEnabled": false,
   "privateWhatsAppPollDataPublished": false,
-  "notice": "November 15 manager-authorized PRELIMINARY lineup. Asterisks mark unconfirmed full-time attendance. Stephen Logue is manager-confirmed in goal. No private RSVP votes are in this feed; the historical November 8 working release is retained in Git history.",
+  "notice": "November 15 manager-authorized FINAL Brave H.C. team lineup vs Sugo Sundays: 14 selected skaters (8F/6D), Stephen Logue confirmed, Krishnan Rajasooriar selected CU, Aaron Carosi and Damian Pavaday selected DI. No private WhatsApp poll data published.",
   "workingCard": {
     "fixtureId": 3375685,
     "gameDate": "2026-11-15",
     "puckDropUTC": "2026-11-16T00:15:00Z",
     "opponent": "Sugo Sundays",
-    "sha256": "d15c5a85ec3aac139bf252955bd22c2525df507bdba1ed1ba965c3fb09c628eb"
+    "sha256": "c797540952de63b0b3a1513d7df7cf673c6a516b9b4cd740461bc3f5000fa77e"
   },
   "publishedWorkingCard": {
     "fixtureId": 3375685,
@@ -34,13 +34,13 @@
     "authorizedForPublic": true,
     "goalieConfirmed": true,
     "sourceRange": "Lines!G5:J16",
-    "sourceSha256": "d15c5a85ec3aac139bf252955bd22c2525df507bdba1ed1ba965c3fb09c628eb",
-    "publishedAt": "2026-11-14T14:46:06Z",
+    "sourceSha256": "c797540952de63b0b3a1513d7df7cf673c6a516b9b4cd740461bc3f5000fa77e",
+    "publishedAt": "2026-11-15T15:20:26Z",
     "expiresAt": "2026-11-16T01:15:00Z",
-    "url": "./assets/lineups/game-366-2026-11-15-working.pdf",
-    "sha256": "d15c5a85ec3aac139bf252955bd22c2525df507bdba1ed1ba965c3fb09c628eb",
-    "previewImage": "./assets/lineups/game-366-2026-11-15-working.png",
-    "previewSHA256": "8c1a8d663c7996ece96a4b41cc5cbe972f31553cd035e3f9cf56d7849cc5601c",
+    "url": "./assets/lineups/game-366-2026-11-15-working-r2.pdf",
+    "sha256": "c797540952de63b0b3a1513d7df7cf673c6a516b9b4cd740461bc3f5000fa77e",
+    "previewImage": "./assets/lineups/game-366-2026-11-15-working-r2.png",
+    "previewSHA256": "316ef929788af4f30cbebb4581a5cec55601d098568d9be5ac24ca3c6813c454",
     "managerConfirmedGoalie": {
       "source": "MANAGER_DIRECT_CONFIRMATION",
       "status": "CONFIRMED_FOR_FIXTURE",
@@ -52,12 +52,12 @@
       "confirmedAtUTC": "2026-11-14T14:46:06Z"
     },
     "rentalGoalie": null,
-    "revision": 1,
+    "revision": 2,
     "skaterCount": 14,
-    "rotationPolicy": "TWO_ROTATING_CENTRES_THREE_WINGER_PAIRS_AND_PROVISIONAL_DEFENCE",
-    "managerLineupStatus": "PRELIMINARY_TEAM_LINEUP",
-    "managerFinalReplacementAuthorized": false,
-    "unconfirmedNamesMarked": true
+    "rotationPolicy": "TWO_ROTATING_CENTRES_THREE_WINGER_PAIRS_THREE_DEFENCE_PAIRS_ACTUAL_FIRST",
+    "managerLineupStatus": "FINAL_TEAM_LINEUP",
+    "managerFinalReplacementAuthorized": true,
+    "unconfirmedNamesMarked": false
   },
   "postGameAttendanceCorrection": {
     "gameId": 3375684,

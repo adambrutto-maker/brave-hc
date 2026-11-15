@@ -11,7 +11,7 @@ const fix={id:e.fixtureId,opponent:e.opponent,gameDate:e.gameDate,puckDropUTC:e.
 const now=Date.parse(e.publishedAt)+1000;
 const check=(item={},model={})=>sel({...pub,publishedWorkingCard:{...e,...item},...model},fix,now);
 
-test('manager-confirmed Stephen Logue is game-bound but lineup remains preliminary',()=>{
+test('manager-confirmed Stephen Logue is game-bound and manager final team lineup is published',()=>{
  assert.equal(e.fixtureId,3375685);
  assert.equal(e.gameDate,'2026-11-15');
  assert.equal(e.opponent,'Sugo Sundays');
@@ -22,9 +22,10 @@ test('manager-confirmed Stephen Logue is game-bound but lineup remains prelimina
  assert.equal(e.managerConfirmedGoalie.status,'CONFIRMED_FOR_FIXTURE');
  assert.equal(e.managerConfirmedGoalie.fixtureId,3375685);
  assert.equal(e.rentalGoalie,null);
- assert.equal(e.managerLineupStatus,'PRELIMINARY_TEAM_LINEUP');
- assert.equal(e.managerFinalReplacementAuthorized,false);
- assert.equal(e.unconfirmedNamesMarked,true);
+ assert.equal(e.managerLineupStatus,'FINAL_TEAM_LINEUP');
+ assert.equal(e.revision,2);
+ assert.equal(e.managerFinalReplacementAuthorized,true);
+ assert.equal(e.unconfirmedNamesMarked,false);
  assert.equal(sel(pub,fix,now),e);
 });
 
@@ -38,7 +39,7 @@ test('a missing, mismatched or unverified manager-confirmed goalie fails closed'
  ]){
    assert.equal(check({managerConfirmedGoalie:{...e.managerConfirmedGoalie,...patch}}),null,JSON.stringify(patch));
  }
- assert.equal(check({unconfirmedNamesMarked:false}),null);
+ assert.equal(check({managerLineupStatus:'PRELIMINARY_TEAM_LINEUP',unconfirmedNamesMarked:false}),null);
  assert.equal(check({goalieConfirmed:null}),null);
  assert.equal(check({goalieConfirmed:false}),null);
  assert.equal(check({goalieConfirmed:false,managerConfirmedGoalie:null}).goalieConfirmed,false);
@@ -55,7 +56,7 @@ test('legacy GoalieUp rental game-bound release remains valid and strictly verif
  assert.equal(check({rentalGoalie:rental,managerConfirmedGoalie:e.managerConfirmedGoalie}),null);
 });
 
-test('preliminary card never implies final approval and expires on fixture rollover',()=>{
+test('manager-final team card is not league-approved and expires on fixture rollover',()=>{
  assert.equal(pub.approved,null);
  assert.equal(pub.status,'BLANK_PENDING_APPROVAL');
  assert.equal(pub.weeklyAutoPublishEnabled,false);
