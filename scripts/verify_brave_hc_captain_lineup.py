@@ -111,12 +111,29 @@ def validate(record,rule,base=ASSETS,*,check_assets=True,check_public=False):
  if check_public:
   manifest=load(ROOT/"widgets/game-centre-lineup-public.json")
   current=manifest.get("publishedWorkingCard",{})
-  if (current.get("fixtureId")==int(record["officialHTOGameId"]) and
-      current.get("revision")==3):
+  # Only the contract whose exact SHA is currently pointed to is an active release.
+  # Retain older wrong cards as immutable audit evidence without wrongly asserting
+  # they still represent the current public roster.
+  active=(current.get("fixtureId")==int(record["officialHTOGameId"]) and
+          (current.get("sha256")==record["pdf"]["sha256"] or
+           current.get("previewSHA256")==record["png"]["sha256"]))
+  if active:
    require(current.get("managerLineupStatus")=="FINAL_TEAM_LINEUP" and
            current.get("sha256")==record["pdf"]["sha256"] and
            current.get("previewSHA256")==record["png"]["sha256"],"LIVE_FINAL_MANIFEST_NOT_MATCHING_CONTRACT")
    require(manifest.get("privateWhatsAppPollDataPublished") is False,"PUBLIC_PRIVATE_POLL_VIOLATION")
+   if current.get("revision",0)>=4:
+    correction=rule["playerIdentityCorrections"]["849368"]
+    aliases=set(correction["legacyAliases"])
+    matching=[p for p in visible if p.get("name")==correction["canonicalName"] or
+              p.get("name") in aliases or p.get("htoPlayerId")==849368]
+    require(len(matching)==1,"DAMIEN_PROFILE_IDENTITY_MISSING_OR_DUPLICATED")
+    person=matching[0]
+    require(person.get("name")==correction["canonicalName"] and
+            person.get("jerseyNumber")==correction["jerseyNumber"] and
+            person.get("htoPlayerId")==correction["stableNativeHTOPlayerId"] and
+            person.get("displayText")=="#0 - Pavaday, Damien",
+            "DAMIEN_NAME_JERSEY_OR_HTO_ID_WRONG")
  return {"status":"PASS_CAPTAIN_HARD_RULES","gameId":record["officialHTOGameId"],
          "playerCount":len(names),"wingPairs":len(record["forwards"]),
          "nameFontPx":sz[0],"preferredBuddyPaired":bool(anchor in names and available),
@@ -125,7 +142,14 @@ def check_all():
  rules=load(RULES)
  contracts=sorted(ASSETS.glob("*.lineup.json"))
  require(bool(contracts),"NO_PUBLISHED_CAPTAIN_LINEUP_CONTRACT")
- return [validate(load(p),rules,ASSETS,check_assets=True,check_public=True) for p in contracts]
+ reviewed=[load(p) for p in contracts]
+ results=[validate(item,rules,ASSETS,check_assets=True,check_public=True) for item in reviewed]
+ current=load(ROOT/"widgets/game-centre-lineup-public.json").get("publishedWorkingCard",{})
+ require(any(p.get("officialHTOGameId")==str(current.get("fixtureId")) and
+             p.get("pdf",{}).get("sha256")==current.get("sha256") and
+             p.get("png",{}).get("sha256")==current.get("previewSHA256")
+             for p in reviewed),"LIVE_CARD_HAS_NO_EXACT_SIGNED_PLAYER_CONTRACT")
+ return results
 if __name__=="__main__":
  try:
   result=check_all()

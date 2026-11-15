@@ -8,6 +8,9 @@ on:
       - "widgets/assets/lineups/**"
       - "widgets/game-centre-lineup-public.json"
       - "tests/test_brave_hc_captain_lineup.py"
+      - "tests/test_damien_pavaday_profile_lineup.py"
+      - "widgets/player-links.js"
+      - "tests/test_player_links.js"
       - "tests/test_lineup_inline_preview.cjs"
   push:
     branches: [main]
@@ -17,6 +20,9 @@ on:
       - "widgets/assets/lineups/**"
       - "widgets/game-centre-lineup-public.json"
       - "tests/test_brave_hc_captain_lineup.py"
+      - "tests/test_damien_pavaday_profile_lineup.py"
+      - "widgets/player-links.js"
+      - "tests/test_player_links.js"
   workflow_dispatch:
 
 permissions:
@@ -35,5 +41,9 @@ jobs:
         run: python -B scripts/verify_brave_hc_captain_lineup.py
       - name: Negative tests - pair breaking, mismatched fonts, jersey 59 and visible status labels
         run: python -B -m unittest discover -s tests -p test_brave_hc_captain_lineup.py -v
+      - name: Verify Damien Pavaday corrected HTO identity, jersey zero and backward-compatible player profile link
+        run: python -B -m unittest discover -s tests -p test_damien_pavaday_profile_lineup.py -v
+      - name: Verify stable native HTO player profile link and historical aliases
+        run: node --test tests/test_player_links.js
       - name: Verify HTO public working card and source
         run: node --test tests/test_public_working_lineup.cjs tests/test_lineup_inline_preview.cjs tests/test_public_rental_goalie_confirmation.cjs
