@@ -47,7 +47,8 @@
       "PART-TIMER"
     ],
     "jerseyNumberOverrides": {
-      "Carosi, Aaron": "59"
+      "Carosi, Aaron": "59",
+      "Pavaday, Damien": "0"
     },
     "unknownNumberPolicy": "omit an unverified jersey number, never fabricate",
     "thirdForwardLineCentreCell": "-"
@@ -58,5 +59,19 @@
     "sourceHashMustMatch": true,
     "noNamedPrivatePollVotesInPublicRelease": true,
     "versionedRetainedHistory": true
+  },
+  "playerIdentityCorrections": {
+    "849368": {
+      "canonicalName": "Pavaday, Damien",
+      "correctFirstName": "Damien",
+      "legacyAliases": [
+        "Pavaday, Damian",
+        "Damian Pavaday"
+      ],
+      "jerseyNumber": "0",
+      "stableNativeHTOPlayerId": 849368,
+      "ruleEffectiveFromCurrentPublishedGame366Revision": 4,
+      "profileNativeEditRequiresHTOAdmin": true
+    }
   }
 }

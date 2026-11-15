@@ -17,13 +17,13 @@
   "approved": null,
   "weeklyAutoPublishEnabled": false,
   "privateWhatsAppPollDataPublished": false,
-  "notice": "Captain-corrected FINAL November 15 Game 366 lineup vs Sugo Sundays. Michael Provenzano stays paired with Adam Povegliano because Mario Provenzano is unavailable. Whole winger pairs and Carosi/Saindon centre order rotate week to week. Aaron Carosi #59; Stephen Logue #70 in goal. All player names share one font size. Private attendance data and roster-status labels are not published.",
+  "notice": "Captain-corrected FINAL Game 366 lineup revision 4: Damien Pavaday #0. Previously incorrect Damien/Damian spelling fixed. Other player names, pairs, positions, goalie and uniform 58px typography unchanged. Private WhatsApp poll contents are not published.",
   "workingCard": {
     "fixtureId": 3375685,
     "gameDate": "2026-11-15",
     "puckDropUTC": "2026-11-16T00:15:00Z",
     "opponent": "Sugo Sundays",
-    "sha256": "ff5d11a41d4b381f6989ebd43b9581970478302df5150a9c1f1c48ffbea633c1"
+    "sha256": "a6d6efe956857047a8a2b646835a6f81d3e1702b7b4311c37f57c9a1165458e7"
   },
   "publishedWorkingCard": {
     "fixtureId": 3375685,
@@ -34,13 +34,13 @@
     "authorizedForPublic": true,
     "goalieConfirmed": true,
     "sourceRange": "Lines!G5:J16",
-    "sourceSha256": "ff5d11a41d4b381f6989ebd43b9581970478302df5150a9c1f1c48ffbea633c1",
-    "publishedAt": "2026-11-15T15:50:07Z",
+    "sourceSha256": "a6d6efe956857047a8a2b646835a6f81d3e1702b7b4311c37f57c9a1165458e7",
+    "publishedAt": "2026-11-15T16:16:48Z",
     "expiresAt": "2026-11-16T01:15:00Z",
-    "url": "./assets/lineups/game-366-2026-11-15-working-r3.pdf",
-    "sha256": "ff5d11a41d4b381f6989ebd43b9581970478302df5150a9c1f1c48ffbea633c1",
-    "previewImage": "./assets/lineups/game-366-2026-11-15-working-r3.png",
-    "previewSHA256": "2984e466efb2eecf1747fbd7e916728795afae0642a54ac1a67780cfd24db04d",
+    "url": "./assets/lineups/game-366-2026-11-15-working-r4.pdf",
+    "sha256": "a6d6efe956857047a8a2b646835a6f81d3e1702b7b4311c37f57c9a1165458e7",
+    "previewImage": "./assets/lineups/game-366-2026-11-15-working-r4.png",
+    "previewSHA256": "a8e72bb955bd117fb2061fea3c4131087303f37525d813bd8caf5bbb0cc43119",
     "managerConfirmedGoalie": {
       "source": "MANAGER_DIRECT_CONFIRMATION",
       "status": "CONFIRMED_FOR_FIXTURE",
@@ -52,7 +52,7 @@
       "confirmedAtUTC": "2026-11-14T14:46:06Z"
     },
     "rentalGoalie": null,
-    "revision": 3,
+    "revision": 4,
     "skaterCount": 14,
     "rotationPolicy": "TWO_ROTATING_CENTRES_COMPLETE_WINGER_PAIRS_FIXED_BUDDY_PAIR_UNIFORM_FONT",
     "managerLineupStatus": "FINAL_TEAM_LINEUP",
