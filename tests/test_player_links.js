@@ -12,7 +12,7 @@ test('HTO profile resolution uses verified team-specific player IDs',()=>{
  for(const [name,id] of [
   ['Adam Brutto',354054],['Justin Carosi',354060],['Mario Provenzano',354045],
   ['Michael Provenzano',686216],['Adam Kober',736317],['Dev Leong',776208],
-  ['Andrew Cristillo',634098],['Damien Pavaday',849368],['Stefano Mazzei',595514]
+  ['Andrew Cristillo',634098],['Damian Pavaday',849368],['Stefano Mazzei',595514]
  ]) {
   const url = links.profileUrl(name);
   assert.ok(url);
@@ -22,13 +22,6 @@ test('HTO profile resolution uses verified team-specific player IDs',()=>{
   assert.equal(u.searchParams.get('u'),'BRAVESHOCKEY');
   assert.equal(u.searchParams.get('playerID'),String(id));
  }
-});
-test('Damien Pavaday corrected spelling maps to stable official HTO player 849368; old spelling remains only a lookup alias',()=>{
- const target=links.profileUrl('Damien Pavaday');
- assert.ok(target?.includes('playerID=849368'));
- assert.equal(links.profileUrl('Pavaday, Damien'),target);
- assert.equal(links.profileUrl('Damian Pavaday'),target);
- assert.equal(links.profileUrl('Pavaday, Damian'),target);
 });
 test('Reverse-name, case and spaces map to one player',()=>{
  assert.equal(links.profileUrl('CAROSI, JUSTIN'),links.profileUrl('Justin Carosi'));

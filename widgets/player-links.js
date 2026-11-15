@@ -6,7 +6,7 @@
     ['Justin Carosi',354060],['Marco Congiusti',354041],['Andrew Cristillo',634098],
     ['Lorcan Duffy',586425],['Adam Kober',736317],['Henry Kong',846200],
     ['Dev Leong',776208],['Stephen Logue',354055],['Stefano Mazzei',595514],['Alex Pagnotta',354058],
-    ['Anthony Paolucci',354057],['Damien Pavaday',849368],['Keith Pearsoll',354056],
+    ['Anthony Paolucci',354057],['Damian Pavaday',849368],['Keith Pearsoll',354056],
     ['Adam Povegliano',844036],['Mario Provenzano',354045],['Michael Provenzano',686216],
     ['Krishnan Rajasooriar',700877],['Sanjay Rajkumar',845365],['Jamie Rosenberg',843644],
     ['Stephane Saindon',738846],['Francesco Triumbari',845364],['Adam Carlyle',849369],
@@ -95,10 +95,6 @@
       names.push(variant);
     }
   }
-  // Stable HTO player 849368: Damien is the captain-corrected first name.
-  // Historical Damian spelling is an alias to the same record, not a second player.
-  byName.set(normalize('Damian Pavaday'), 849368);
-  byName.set(normalize('Pavaday, Damian'), 849368);
   // HTO renders players as initials in some scoreboards. Resolve only if
   // first initial plus complete surname uniquely identifies one HTO player.
   // Example: J. Carosi is safe; M. Provenzano is ambiguous and stays plain.
