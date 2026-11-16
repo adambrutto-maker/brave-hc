@@ -154,6 +154,7 @@ function leagueScheduleDay(){
 function leagueScheduleWeek(){
  return opsWeekBoard()+opsIceBoard();
 }
+function footnote(){return '<p class="disclaimer">BruTTech independent demonstration. SVHL and HTO remain authoritative for published league and team records. No live rentals, registrations, payments, disciplinary decisions, WhatsApp group posts or official game sheets are submitted here. Public source snapshots are partial and may lag official updates.</p>'}
 function homeLeague(){
  const selected=state.ops.date;
  return intro("LEAGUEOS · DAILY OPERATIONS","Today at Sports Village","The selected day's league program, game schedule and rink commitments. Choose any other night from the date strip.",btn("Open Brave H.C. TeamOS","team-home",true))+
