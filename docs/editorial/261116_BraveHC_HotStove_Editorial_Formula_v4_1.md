@@ -60,3 +60,13 @@ The existing Monday GitHub Actions workflow produces source-gated evidence/draft
 - **Gate A (mandatory factual completeness):** reconcile all goals, scorer/assist mentions, penalty and special-teams facts, goaltending/empty-net, Players of the Game, FT absences/call-ups, team totals and next fixture. Any discrepancy holds approval.
 - **Gate B (100-point editorial rubric):** headline/lead 15, narrative and play-by-play 25, player and lineup storytelling 15, statistical/historical insight 15, season continuity 15, readability/tone/conclusion 15. Minimum 90/100, after Gate A passes.
 - Draft and founder approval are separate from publication. No automatic publishing or changes to HTO or original workbook.
+
+## Golden draft, captain interviews and disputed event protocol (2026-11-16)
+- On founder request, archive a complete dated **GOLDEN DRAFT** in version control, separately from HTO production publication. Golden means founder-selected editorial baseline, **not** factually final or permission to publish.
+- Record authentic direct quotes from the founder/captain, preserving meaning and voice. Light punctuation cleanup is allowed; do not invent quotes or claim an interview with anyone else. Attribute quotes to Adam Brutto.
+- A captain's eyewitness correction can supersede a conflicting *draft interpretation* but does not silently overwrite the official HTO record. Keep an explicit reconciliation note outside the public-facing article and label the source disagreement pending LiveBarn review.
+- For November 15 Sugo: founder recalls 4–4 equalizer, Sugo fifth goal at 3:50 to go ahead 5–4, then captain pulled Stephen Logue, then Sugo empty-net sixth at 3:15. HTO currently labels Sugo fifth goal as empty-net. **Do not claim HTO is corrected or publish as reconciled until LiveBarn verification and HTO update.** Logue five goals charged is consistent with the founder's recollection, but must be reconciled against final corrected source.
+- Future reporting must distinguish an aggressive extra-attacker decision while **trailing** from pulling the goalie in a tied game. Verify score, goalie-pull timing, communication, and empty-net attribution before sign-off.
+- A golden draft can contain a **separate editorial hold note** for unverified timing, tournament championship details or roster status. Do not bury caveats in the article body or fabricate facts.
+- Record material human-interest detail (verified historical return dates, family connections, tournament coaching, rink) with source or founder testimony, not invented scene-setting.
+- Editorial handoff: gold draft → evidence review (video, HTO, roster) → corrected final draft → explicit founder approval → publish. Preserve all earlier draft history.
