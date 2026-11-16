@@ -47,7 +47,7 @@ function saved(){
 }
 const store=saved();
 let data=null,packages=null,fixtures=null,loading=false,error="",selected=null,view="packages",draft=blank(),lastToast="";
-let cases=[];
+let cases=[],activeStep=1;
 const teamIndex=new Map();
 function toast(msg){lastToast=msg;const t=$("#decision-toast");if(t){t.textContent=msg;t.hidden=false}}
 function buildCases(){
@@ -79,7 +79,7 @@ function initialDraft(id){
 }
 function selectCase(id){
  if(!findCase(id))return;
- selected=id;draft=initialDraft(id);lastToast="";render();
+ selected=id;draft=initialDraft(id);activeStep=1;lastToast="";render();
  const detail=$("#decision-workspace");if(detail&&window.innerWidth<850)detail.scrollIntoView({behavior:"smooth",block:"start"});
 }
 function formatHuman(n){return n==="Review"?"Review":n==="Watch"?"Watch":"Monitor"}
@@ -113,7 +113,7 @@ function caseList(){
 function countBox(){
  const g=groups(),pending=Object.keys(store.cases).length;
  return '<div class="desk-metrics">'+[
- ["4","Source-connected exchanges","Paired Wednesday cases"],
+ [String(groups().packages.length),"Source-connected exchanges","Paired Wednesday cases"],
  [String(g.single.length),"Stronger team reviews","Across current league nights"],
  [String(g.watch.length),"Source watch cases","For monitoring or correction"],
  [String(pending),"Local review records","Not submitted to SVHL"]
@@ -284,21 +284,27 @@ function caseDetail(){
  '<h2>'+esc(c.title)+'</h2><p>Published-source evidence and workflow checks. Not an official recommendation.</p></div>'+
  '<div class="desk-case-header-actions"><button class="btn" type="button" id="desk-copy-brief">Copy summary</button>'+
  '<button class="btn" type="button" id="desk-export-case">Export case</button></div></div>'+
- '<div class="desk-step-grid"><section class="desk-subpanel"><div class="desk-heading"><span class="desk-stepnum">1</span><div><strong>Compare the evidence</strong><small>Source-connected competitive fit and roster context</small></div></div>'+
+ '<nav class="desk-step-nav" aria-label="Review steps">'+[
+ ['1','Evidence'],['2','Schedule'],['3','Checks'],['4','Decision']
+ ].map(([n,label])=>'<button type="button" data-desk-step="'+n+'" class="'+(activeStep===Number(n)?'active':'')+'" aria-current="'+(activeStep===Number(n))+'"><span>'+n+'</span>'+label+'</button>').join('')+'</nav>'+
+ '<div class="desk-step-grid"><section class="desk-subpanel '+(activeStep===1?"active":"")+'"><div class="desk-heading"><span class="desk-stepnum">1</span><div><strong>Compare the evidence</strong><small>Source-connected competitive fit and roster context</small></div></div>'+
  (c.kind==="package"?packageEvidence(c):singleEvidence(c))+'</section>'+
- '<section class="desk-subpanel"><div class="desk-heading"><span class="desk-stepnum">2</span><div><strong>Check schedule impact</strong><small>Visible fixtures are not full rink inventory</small></div></div>'+
+ '<section class="desk-subpanel '+(activeStep===2?"active":"")+'"><div class="desk-heading"><span class="desk-stepnum">2</span><div><strong>Check schedule impact</strong><small>Visible fixtures are not full rink inventory</small></div></div>'+
  impact(c)+'</section>'+
- '<section class="desk-subpanel"><div class="desk-heading"><span class="desk-stepnum">3</span><div><strong>Document league prerequisites</strong><small>Sign-offs and eligibility must be established outside this prototype</small></div></div>'+
+ '<section class="desk-subpanel '+(activeStep===3?"active":"")+'"><div class="desk-heading"><span class="desk-stepnum">3</span><div><strong>Document league prerequisites</strong><small>Sign-offs and eligibility must be established outside this prototype</small></div></div>'+
  '<div class="desk-rule-note"><strong>Rule 2.7.2</strong><span>Use the published SVHL rulebook to verify realignment timing and treatment of accumulated points; current league policy must be confirmed before action.</span><a href="'+RULES+'" target="_blank" rel="noopener noreferrer">Open rulebook ↗</a></div>'+
  checkpoints()+statusRows()+'</section>'+
- '<section class="desk-subpanel"><div class="desk-heading"><span class="desk-stepnum">4</span><div><strong>Record the discussion</strong><small>Saved locally, with a non-tamper-evident revision trail</small></div></div>'+
+ '<section class="desk-subpanel '+(activeStep===4?"active":"")+'"><div class="desk-heading"><span class="desk-stepnum">4</span><div><strong>Record the discussion</strong><small>Saved locally, with a non-tamper-evident revision trail</small></div></div>'+
  phases()+
  '<div class="desk-notes-grid"><label class="field">Reviewer alias (optional)<input id="desk-reviewer" maxlength="60" autocomplete="off" placeholder="Example: League Review 01" value="'+esc(draft.reviewerAlias)+'"></label>'+
  '<label class="field">Decision rationale / outstanding questions<textarea id="desk-review-notes" maxlength="1600" rows="5" placeholder="Record what evidence is missing and why this option is being reviewed.">'+esc(draft.notes)+'</textarea></label></div>'+
  '<div class="desk-save-row"><button class="btn primary" type="button" id="desk-save">Save local review revision</button>'+
  '<span>Official approval, roster updates and rescheduling are disabled.</span></div>'+
  '<details class="desk-history"><summary>Local revision history ('+(savedCase(c.id)?.revisions.length||0)+')</summary>'+
- revisionLog(c)+'</details></section></div>';
+ revisionLog(c)+'</details></section></div>'+
+ '<div class="desk-step-controls">'+(activeStep>1?'<button class="btn" type="button" data-desk-step="'+(activeStep-1)+'">← Previous</button>':'<span></span>')+
+ (activeStep<4?'<button class="btn primary" type="button" data-desk-step="'+(activeStep+1)+'">Next: '+(['Evidence','Schedule','Checks','Decision'][activeStep])+' →</button>':
+ '<span class="desk-last-step">Save the review; actual approval is not available.</span>')+'</div>';
 }
 function render(){
  const mount=$("#league-decisions-mount");if(!mount)return;
@@ -337,11 +343,12 @@ async function start(){
 document.addEventListener("click",e=>{
  const b=e.target.closest("button");if(!b)return;
  if(b.dataset.deskCase){selectCase(b.dataset.deskCase);return}
+ if(b.dataset.deskStep){activeStep=Number(b.dataset.deskStep);render();const el=$("#decision-workspace");if(el)el.scrollIntoView({behavior:"smooth",block:"start"});return}
  if(b.dataset.deskView){
   view=b.dataset.deskView;
   const list=groups()[view]||[];
   if(!list.some(c=>c.id===selected)){
-   const first=list[0];selected=first?.id||null;draft=selected?initialDraft(selected):blank();
+   const first=list[0];selected=first?.id||null;draft=selected?initialDraft(selected):blank();activeStep=1;
   }
   lastToast="";render();return
  }
