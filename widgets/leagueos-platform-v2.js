@@ -118,7 +118,7 @@ function opsWeekBoard(){
  return panel("This week's league nights","Known adult league nights are published; complete per-night game lists are not yet connected.",
  '<div>'+Array.from({length:7},(_,i)=>{
  const iso=addDay(m,i),night=dayProgram(iso),n=(state.upcoming?.games||[]).filter(f=>f.date===iso&&(state.ops.rink==="all"||String(f.rink||"").startsWith(state.ops.rink))).length;
- return '<div class="ops-week-row"><div><b>'+dayShort(iso)+'</b><small>'+esc(iso)+'</small></div><div><strong class="ops-program">'+esc(night)+'</strong><small>'+n+' connected verified game'+(n!==1?"s":"")+" · other allocations not connected</small></div><button class="btn small" data-ops-date="'+iso+'">Open day</button></div>';
+ return '<div class="ops-week-row"><div><b>'+dayShort(iso)+'</b><small>'+esc(iso)+'</small></div><div><strong class="ops-program">'+esc(night)+'</strong><small>'+n+' connected verified game'+(n!==1?"s":"")+' · other allocations not connected</small></div><button class="btn small" data-ops-date="'+iso+'">Open day</button></div>';
  }).join("")+'</div><div class="topline">'+btn("Review rental requests","league-ice")+btn("Division standings","league-divisions")+'</div>');
 }
 function leagueNightSnapshot(){
