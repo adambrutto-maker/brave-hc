@@ -1,6 +1,6 @@
 # GOLDEN DRAFT v4 — November 15, 2026 — Sugo Sundays 6, Brave H.C. 4
 
-**Status:** Founder APPROVED for live HTO publication on November 16, 2026; native HTO publication/readback NOT YET VERIFIED.
+**Status:** Founder APPROVED; NATIVE HTO RECAP PUBLISHED AND PUBLIC READBACK VISUALLY VERIFIED November 16, 2026 on BRUTTECH 1. White-background reading surface verified after styling correction.
 **Editorial standard:** Hot Stove v5.1 with game-first restraint. Venue: Vaughan Sports Village, A Rink.
 **Supersedes editorially:** v2 golden draft (preserved); v3 was reviewed in chat.
 
@@ -83,4 +83,5 @@ The rematch will test whether Brave H.C.'s recent offensive improvement can be p
 - 1-2-2 forecheck/neutral-zone and man-on-man defensive-zone coverage are future coaching intentions, not observed execution.
 - Aaron's February 25, 2018 prior appearance verified on HTO profile; brother relationship and Pearsoll U18 title/rink visit provided by founder.
 - All four Brave goals, seven assists, six point earners, three POTG placements and all six Sugo goals accounted for.
-- Founder explicitly authorized publishing this edited golden v4 on November 16, 2026. Do not claim live publication until HTO Recap editor save and public readback are verified.
+- Founder explicitly authorized publishing this edited golden v4 on November 16, 2026. HTO Recap saved through authenticated admin at gameID 3375685; native admin readback and public HTO page visually verified. White article reading surface verified. Game scoring was not edited in this publication operation.
+- **Separate stale HTO Game Notes:** Existing Game Notes still incorrectly describe Sugo fifth (3:50) as empty-net, despite corrected Play-by-Play and published Recap showing sixth (3:15) as empty-net. Requires separate Game Notes correction.
