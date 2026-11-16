@@ -1,0 +1,92 @@
+/* LeagueOS Alignment Review V2. Designed as a quiet commissioner software workflow. */
+#league-alignment-mount{min-width:0}
+.align-summary{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:0 0 14px}
+.align-summary>div{background:white;border:1px solid var(--line);border-radius:11px;padding:14px 15px;box-shadow:var(--shadow)}
+.align-summary small{display:block;font-size:11px;color:#6e839a;font-weight:600}
+.align-summary strong{display:block;margin-top:4px;font-size:26px;line-height:1.25;letter-spacing:-.035em;color:#233f5b}
+.align-filterbar{background:#fff;border:1px solid var(--line);border-radius:11px;padding:13px 14px;margin-bottom:15px}
+.align-fields{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.align-fields label{min-width:0}
+.align-fields select,.align-fields input{min-height:41px;border:1px solid #cad9e8;border-radius:8px;color:#254662;padding:9px 10px;background:white;width:100%;font-size:12px}
+.align-layout{display:grid;grid-template-columns:minmax(0,1.06fr) minmax(360px,.94fr);align-items:start;gap:15px;margin-bottom:16px}
+.align-layout .stack{gap:14px}
+.align-panel{min-width:0}
+.align-table-wrap{width:100%;overflow-x:auto;border:1px solid #e3eaf2;border-radius:9px}
+.align-table-wrap table{width:100%;border-collapse:collapse;min-width:565px}
+.align-table-wrap th{font-size:10px;letter-spacing:.025em;text-align:left;color:#72849b;background:#f6f9fc;white-space:nowrap;font-weight:800}
+.align-table-wrap td,.align-table-wrap th{padding:11px 9px;border-bottom:1px solid #eaf0f5;vertical-align:middle}
+.align-table-wrap tr:last-child td{border-bottom:none}
+.align-table-wrap tbody tr:hover{background:#f8fbfe}
+.align-table-wrap tr.align-active{background:#ebf4ff}
+.align-table-wrap td{font-size:11px;color:#35516d}
+.align-table-wrap td:nth-child(2){max-width:145px}
+.align-table-wrap td small{display:block;color:#7e8fa0;font-size:10px;margin-top:4px;line-height:1.4}
+.align-table-wrap td strong{display:block;font-size:13px;color:#213d5d;font-variant-numeric:tabular-nums}
+.align-team-link{text-align:left;background:none;border:none;color:#185cb3;font-weight:800;font-size:12px;padding:0;white-space:normal}
+.align-team-link:hover{text-decoration:underline}
+.align-status{display:inline-flex;align-items:center;padding:4px 8px;border-radius:99px;font-size:10px;font-weight:850;background:#edf2f8;color:#516b82;white-space:nowrap}
+.align-status.review{background:#fff0df;color:#945e22}
+.align-status.watch{background:#edf3fe;color:#255bb1}
+.align-status.monitor{background:#eaf6ee;color:#246c4e}
+.align-saved{display:block;font-size:9px;color:#246d50;font-weight:700;margin-top:4px}
+.align-empty{border:1px dashed #d2dfeb;border-radius:9px;background:#fbfcfe;color:#637e98;font-size:12px;line-height:1.6;padding:18px}
+.align-proposed{display:grid;gap:5px;justify-items:start;margin-bottom:14px}
+.align-proposed strong{display:block;margin-top:2px;color:#263e58;font-size:14px}
+.align-proposed p{margin:0;font-size:11px;color:#75879a}
+.align-prob{padding:13px 14px;background:#f5f9fe;border:1px solid #deebf9;border-radius:10px;margin-bottom:14px}
+.align-prob>span{display:block;font-size:11px;color:#50708f;font-weight:750}
+.align-prob>strong{display:block;font-size:26px;color:#1e5db1;font-variant-numeric:tabular-nums;margin:3px 0}
+.align-prob>small{display:block;font-size:10px;line-height:1.55;color:#7287a0;margin-top:7px}
+.align-fitbar{height:7px;border-radius:99px;background:#dce8f5;overflow:hidden}
+.align-fitbar>span{display:block;height:100%;border-radius:99px;background:#2366bf;max-width:100%}
+.align-detail-drop{border-top:1px solid #e8edf4;padding:13px 0}
+.align-detail-drop summary{font-weight:800;color:#284968;font-size:12px;cursor:pointer;padding:1px 0}
+.align-detail-drop summary::marker{color:#6282a2}
+.align-evidence-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:13px}
+.align-evidence-grid>div{border:1px solid #e5ebf3;border-radius:8px;background:#fbfcfe;padding:11px}
+.align-evidence-grid small{display:block;color:#788ca1;font-size:10px;line-height:1.4}
+.align-evidence-grid strong{font-size:17px;font-variant-numeric:tabular-nums;letter-spacing:-.025em;color:#274766;display:block;margin-top:3px}
+.align-holds{padding:11px 13px;border:1px solid #eadcc0;border-left:3px solid #c5964c;border-radius:8px;background:#fffaf1;color:#795e35;margin:12px 0 0;font-size:11px;line-height:1.6}
+.align-holds strong{display:block;margin-bottom:4px}
+.align-holds p{margin:5px 0}
+.align-current{display:grid;gap:4px;background:#f7f9fc;border:1px solid #e3eaf3;border-radius:9px;padding:12px;margin-top:12px}
+.align-current span{font-size:10px;color:#7689a0}
+.align-current strong{font-size:13px;color:#2f4e70}
+.align-alt-list{margin-top:8px}
+.align-alt-row{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:11px 4px;border-bottom:1px solid #e9edf4}
+.align-alt-row:last-child{border:0}
+.align-alt-row strong{display:block;font-size:11px;color:#2f5071}
+.align-alt-row small{display:block;color:#7e91a3;font-size:10px;margin-top:4px}
+.align-alt-row>span{font-weight:850;color:#1959a7;font-size:13px;white-space:nowrap}
+.align-draft{padding:15px;background:#f8fafc;border:1px solid #dce7f2;border-radius:10px;margin:12px 0}
+.align-draft h3{font-size:13px;margin:0 0 12px;color:#274967}
+.align-draft .field{margin-top:11px}
+.align-draft select,.align-draft textarea{width:100%;color:#254662;font-size:12px;border:1px solid #cbd8e7;background:white;border-radius:8px;padding:10px}
+.align-draft textarea{resize:vertical;min-height:95px}
+.align-actions{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}
+.align-source{margin:14px 0 0;padding-top:12px;border-top:1px solid #e8edf4}
+.align-source a{font-size:11px;font-weight:750}
+.align-tools{display:flex;flex-wrap:wrap;gap:8px;margin-top:0}
+.align-queue-panel{margin-top:10px}
+.align-queue-panel[hidden]{display:none}
+.align-drafts{display:grid;gap:5px}
+.align-draft-row{display:flex;justify-content:space-between;align-items:center;gap:12px;border-bottom:1px solid #eaf0f6;padding:9px 0}
+.align-draft-row:last-child{border:0}
+.align-draft-row strong{font-size:11px;color:#34516f;display:block}
+.align-draft-row small{font-size:10px;color:#7c8fa1;display:block;margin-top:4px}
+.align-validation{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}
+.align-validation>div{background:#f8fafc;border:1px solid #e5edf5;border-radius:8px;padding:9px}
+.align-validation small{font-size:10px;line-height:1.4;display:block;color:#74879d}
+.align-validation strong{display:block;color:#315479;font-weight:850;font-size:18px;margin-top:6px}
+.align-policy{background:#fff;border:1px solid var(--line);padding:16px;border-radius:11px;box-shadow:var(--shadow)}
+.align-policy summary{font-weight:800;font-size:13px;cursor:pointer;color:#294a6b}
+.align-policy-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:15px 0}
+.align-policy-grid>div{background:#f9fbfd;border:1px solid #e6ebf2;border-radius:8px;padding:12px;display:grid;gap:6px}
+.align-policy-grid strong{color:#2d4c6d;font-size:11px}
+.align-policy-grid span{font-size:10px;color:#75889a;line-height:1.6}
+.align-policy a{font-size:11px;font-weight:750}
+.align-toast{position:sticky;bottom:10px;margin-top:12px;background:#173b60;color:white;padding:10px 14px;border-radius:8px;font-size:11px;z-index:5}
+.align-toast[hidden]{display:none}
+@media(max-width:1220px){.align-layout{grid-template-columns:1fr}.align-fields{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:780px){.align-summary{grid-template-columns:repeat(2,1fr);gap:9px}.align-summary strong{font-size:22px}.align-summary>div{padding:12px}.align-policy-grid{grid-template-columns:1fr}.align-fields{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:520px){.align-fields{grid-template-columns:1fr}.align-filterbar{padding:12px}.align-layout{display:grid;grid-template-columns:minmax(0,1fr)}.align-evidence-grid{gap:6px}.align-evidence-grid>div{padding:9px}.align-evidence-grid strong{font-size:15px}.align-validation{grid-template-columns:repeat(3,minmax(0,1fr));gap:5px}.align-validation strong{font-size:15px}.align-validation>div{padding:7px}.align-actions{display:grid;grid-template-columns:1fr}.align-actions button{width:100%}}
