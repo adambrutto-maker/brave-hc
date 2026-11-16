@@ -51,7 +51,7 @@ function overview(){
  '<div class="hist-process"><div><strong>Results</strong><span>Verified games, opponents, goal difference and division history</span></div>'+
  '<div><strong>Rosters</strong><span>Aggregated scoring rates and verified published-ID continuity</span></div>'+
  '<div><strong>Review</strong><span>Evidence, confidence and a human decision before any realignment</span></div></div>'+
- '<p class="source">The archive contains '+number(i.counts.held_game_records)+' held game records. Apparent 0–0 placeholders are not treated as results. No individual player records are published in this view.</p>');
+ '<p class="source">The archive contains '+number(i.counts.held_game_records)+' held game records. Apparent 0–0 placeholders are not treated as results. No individual player records are published in this view. '+number(i.counts.team_continuity_candidates)+' potential team-continuity links are available for review.</p>');
 }
 function filterbar(){
  const arr=seasonsForNight();
@@ -108,7 +108,7 @@ function selectedDetail(){
  '<div class="hist-empty">Select <strong>Details</strong> in a team row to review its season and roster-context indicators.</div>');
  const src=sourceLink(t.l,t.id);
  const prev=cache.index.continuity.filter(x=>x.to===t.l&&x.b===t.id).sort((a,b)=>b.shared-a.shared).slice(0,4);
- const sameName=teamData().filter(x=>x.l!==t.l&&x.n.toLocaleLowerCase()===t.n.toLocaleLowerCase()&&!x.special)
+ const sameName=teamData().filter(x=>x.l<t.l&&x.n.toLocaleLowerCase()===t.n.toLocaleLowerCase()&&!x.special)
  .sort((a,b)=>b.l-a.l).slice(0,5);
  const labels=[
  ["Team record",number(t.w)+"–"+number(t.lost)+"–"+number(t.tie)],
@@ -129,12 +129,20 @@ function selectedDetail(){
  }
  html+='<div class="hist-lineage"><strong>Possible previous-season teams</strong>';
  if(prev.length){
-  html+=prev.map(x=>'<div class="hist-link-row"><span>'+esc(x.old)+' <small>Previous '+esc(x.night)+' season</small></span><span>'+x.shared+' shared source IDs · '+pct(x.overlap)+' overlap</span></div>').join('');
+  html+=prev.map(x=>{const source=teamData().find(t=>t.l===x.from&&t.id===x.a);
+ const sn=cache.index.seasons.find(v=>v.l===x.from);
+ return '<div class="hist-link-row"><span>'+esc(x.old)+' <small>'+esc(sn?sn.cycle+' '+sn.period:'Earlier '+x.night)+' · '+x.shared+' shared source IDs</small></span>'+
+ '<span>'+pct(x.overlap)+' overlap'+(source?' · '+fixed(source.ppg)+' prior pts/game':'')+'</span></div>';
+ }).join('');
  }else html+='<p>No qualifying published-ID continuity candidate found for this team in an earlier '+esc(st.night)+' season.</p>';
  html+='</div>';
  if(sameName.length){
- html+='<div class="hist-lineage"><strong>Earlier matching team names</strong><p>Exact name matches are not proof of one continuing franchise.</p>'+
- sameName.map(x=>'<div class="hist-link-row"><span>'+esc(x.n)+'</span><span>'+esc(cache.index.seasons.find(s=>s.l===x.l)?.cycle||"")+' '+esc(cache.index.seasons.find(s=>s.l===x.l)?.period||"")+'</span></div>').join('')+'</div>';
+ html+='<div class="hist-lineage"><strong>Earlier records with the same team name</strong><p>These comparisons show reported results over time. Matching names alone do not establish the same franchise or roster.</p>'+
+ '<div class="hist-timeline-table"><table><thead><tr><th>Source season</th><th class="num">Record</th><th class="num">Points/game</th><th class="num">GD/game</th></tr></thead><tbody>'+
+ sameName.map(x=>{const sn=cache.index.seasons.find(s=>s.l===x.l);
+ return '<tr><td>'+esc(sn?sn.cycle+' '+sn.period:'Season '+x.l)+'</td>'+
+ '<td class="num">'+number(x.w)+'–'+number(x.lost)+'–'+number(x.tie)+'</td>'+
+ '<td class="num">'+fixed(x.ppg)+'</td><td class="num">'+neg(x.gdpg)+'</td></tr>'}).join('')+'</tbody></table></div></div>';
  }
  html+='<a class="btn small" target="_blank" rel="noopener noreferrer" href="'+esc(src)+'">Open original published team page ↗</a>'+
  '<p class="source">Scoring medians are player-season points/game from public source aggregates. Prior-period context uses exact published player IDs and available earlier records; it does not establish actual same-person identity where source IDs changed. Participation and playoff eligibility require signed game sheets.</p>';
