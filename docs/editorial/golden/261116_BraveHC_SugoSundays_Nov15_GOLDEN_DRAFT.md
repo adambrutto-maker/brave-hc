@@ -1,6 +1,6 @@
 # GOLDEN DRAFT — Brave H.C. vs Sugo Sundays — November 15, 2026
-**Status:** GOLDEN EDITORIAL BASELINE — NOT PUBLISHED; LiveBarn/HTO correction hold.
-**Editorial standard:** Hot Stove v5.1. **Founder direction:** Preserve this draft; review disputed 3:50/3:15 empty-net attribution on LiveBarn before final publication.
+**Status:** GOLDEN EDITORIAL BASELINE — NOT PUBLISHED; HTO scoring correction verified November 16, 2026. Awaiting founder publication approval.
+**Editorial standard:** Hot Stove v5.1. **Founder direction:** Preserve this draft. Founder corrected HTO; live official box-score readback confirms 3:50 non-empty-net goal and 3:15 empty-net goal. LiveBarn review remains optional for additional play context.
 **Venue:** Vaughan Sports Village, A Rink. **Final:** Sugo Sundays 6, Brave H.C. 4.
 
 # Provenzano's Hat Trick Fuels Braves Comeback, but Sugo Sundays Prevails 6–4
@@ -61,7 +61,7 @@ Provenzano earned first Player of the Game honours with three goals and an assis
 
 Saindon earned second Player of the Game recognition with a goal and an assist, giving him five points over his last two appearances. Justin Carosi contributed two assists on the night of his brother Aaron's long-awaited return. Povegliano, Brutto and Triumbari each added an assist, ensuring six Braves skaters recorded at least one point.
 
-Stephen Logue earned third Player of the Game honours. Five goals were charged against him; the final goal was scored into an empty net according to the captain's account, pending correction of the official game sheet.
+Stephen Logue earned third Player of the Game honours. Five goals were charged against him; the final goal was scored into an empty net, as confirmed by the corrected official game sheet.
 
 The Braves finished with four goals, seven assists and 11 scoring points.
 
@@ -86,10 +86,10 @@ The challenge is no longer simply finding ways to score. It is finding ways to m
 ---
 
 ## PRIVATE EDITORIAL HOLD — NOT PART OF PUBLIC ARTICLE
-- **Disputed source:** HTO currently labels Sugo's **3:50 fifth goal** as empty-net. Founder/captain eyewitness account says Sugo scored 5–4 at 3:50, **then** Brutto pulled Logue, and Sugo's **3:15 sixth goal** was the empty-netter. Review LiveBarn and correct HTO before publishing. No HTO write performed.
+- **Resolved source discrepancy:** Founder corrected HTO. Live HTO box-score readback on November 16 confirms 3:50 fifth goal **not** empty-net and 3:15 sixth goal **empty-net**. Founder confirms he pulled Logue between those goals. HTO correction performed by founder, not by assistant. LiveBarn may be used to supplement details but is no longer required to settle the empty-net designation.
 - **Captain quote:** supplied directly by Adam Brutto in chat November 16, 2026. Light punctuation only. Keep his personal phrasing. No invented interview.
 - **Goalie goals against:** Logue five, consistent with 6 total and one empty-net goal; reconcile after video review.
 - **Tournament:** Vaughan Rangers U18 Select victory and Pearsoll's visit are founder-provided; no independently verified division final score.
 - **Aaron Carosi:** HTO profile filtered to Winter 2017/2018 identifies February 25, 2018 as last recorded game before November 15, 2026.
 - **Classification:** Aaron is a call-up under the team's non-FT editorial naming policy. Damien Pavaday's internal roster label is not fully synchronized in all HockeyOS projections; founder has previously identified him as DI (called call-up in articles).
-- **Publication:** Golden editorial draft only; explicit founder approval required after source reconciliation.
+- **Publication:** Source reconciliation for empty-net designation complete. Golden editorial draft only; explicit founder approval still required.
