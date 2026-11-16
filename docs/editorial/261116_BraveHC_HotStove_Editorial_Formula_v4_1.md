@@ -1,5 +1,5 @@
-# Brave H.C. Hot Stove — Editorial Formula v4.1
-Status: Founder-approved editorial policy (November 16, 2026). This document governs human-reviewed drafts; it does not authorize automatic publication.
+# Brave H.C. Hot Stove — Editorial Formula v5.1 (locked)
+Status: Founder-approved locked editorial policy (November 16, 2026). This document governs human-reviewed drafts; it does not authorize automatic publication.
 
 ## Editorial mission
 Each game is a standalone, engaging, accurate sports article and a chapter in the season-long story. The November 8, 2026 Other Way article is the quality reference, not a fixed template. Write for readers, not the production process.
@@ -46,3 +46,17 @@ Score 100-point editorial quality across lead/story (20), accurate narrative (20
 
 ## Automation implementation boundary
 The existing Monday GitHub Actions workflow produces source-gated evidence/draft artifacts, not finished publishable journalism. Engineering must separately implement FT roster parity, call-up naming, season ledger continuity, and v4.1 editorial QA in the review process, with regression tests. This document alone does not mean those controls are automated.
+
+## v5.1 final newsroom and complete-scoring requirements (supersede conflicting earlier guidance)
+- This is a dedicated local-team beat report with professional sports-writing standards, not a box-score dump or fabricated independent eyewitness reporting.
+- Lead with result, key performer and defining moment promptly (normally within 75–100 words); vary headings and article length with the game.
+- Cover **every goal by both teams in chronological order** and **every credited Brave H.C. goal and assist** in the article's narrative. Give time/period, scorer, assists, strength, score progression where verified; do not invent unidentified opponent scorers.
+- For each major turning point, explain score before, what happened, and what changed. Give decisive events more space than routine goals without omitting any scoring event.
+- Integrate penalty and special-teams context in sequence; power-play goals belong at their scoring moments, not a mandatory separate section.
+- Recognize goaltenders, all verified Players of the Game, notable call-up contributions, and supported individual milestones; do not force unsupported praise for non-scoring players.
+- Report verified FT absences and dressed non-FT call-ups using the authoritative roster; where classification is unresolved, keep an editorial hold outside the article until checked.
+- Maintain a weekly question and a season-story ledger: emerging, developing, established, resolved/reversed. Each report advances or challenges earlier interpretations without repeating past recaps.
+- Optional authentic eyewitness or player comments require explicit attribution and provenance. Never imply on-site reporting from a remote box-score review.
+- **Gate A (mandatory factual completeness):** reconcile all goals, scorer/assist mentions, penalty and special-teams facts, goaltending/empty-net, Players of the Game, FT absences/call-ups, team totals and next fixture. Any discrepancy holds approval.
+- **Gate B (100-point editorial rubric):** headline/lead 15, narrative and play-by-play 25, player and lineup storytelling 15, statistical/historical insight 15, season continuity 15, readability/tone/conclusion 15. Minimum 90/100, after Gate A passes.
+- Draft and founder approval are separate from publication. No automatic publishing or changes to HTO or original workbook.
