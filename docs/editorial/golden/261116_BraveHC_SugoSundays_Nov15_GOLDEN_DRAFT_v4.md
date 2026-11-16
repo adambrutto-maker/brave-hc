@@ -1,6 +1,6 @@
 # GOLDEN DRAFT v4 — November 15, 2026 — Sugo Sundays 6, Brave H.C. 4
 
-**Status:** Golden editorial candidate after five-iteration review; not published; awaiting founder approval.
+**Status:** Founder APPROVED for live HTO publication on November 16, 2026; native HTO publication/readback NOT YET VERIFIED.
 **Editorial standard:** Hot Stove v5.1 with game-first restraint. Venue: Vaughan Sports Village, A Rink.
 **Supersedes editorially:** v2 golden draft (preserved); v3 was reviewed in chat.
 
@@ -56,7 +56,7 @@ Logue earned third Player of the Game honours. He was charged with five goals ag
 
 "Steve made some huge stops for us. We just hung him out to dry a bit," Brutto said.
 
-Looking ahead, the captain wants the Braves to strengthen their 1-2-2 structure when forechecking and defending through neutral ice, then transition to tighter man-on-man coverage in the defensive zone. Better defensive assignments and moving recovered pucks toward the boards and out to neutral territory are priorities—not changes the team claims to have mastered already.
+Looking ahead, the captain wants the Braves to strengthen their 1-2-2 structure when forechecking and defending through neutral ice, then transition to tighter man-on-man coverage in the defensive zone. Better defensive assignments and moving recovered pucks toward the boards and out to neutral territory are priority.
 
 ## The Bigger Picture — Scoring More, Still Conceding Too Much
 
@@ -83,4 +83,4 @@ The rematch will test whether Brave H.C.'s recent offensive improvement can be p
 - 1-2-2 forecheck/neutral-zone and man-on-man defensive-zone coverage are future coaching intentions, not observed execution.
 - Aaron's February 25, 2018 prior appearance verified on HTO profile; brother relationship and Pearsoll U18 title/rink visit provided by founder.
 - All four Brave goals, seven assists, six point earners, three POTG placements and all six Sugo goals accounted for.
-- No HTO publishing authorized.
+- Founder explicitly authorized publishing this edited golden v4 on November 16, 2026. Do not claim live publication until HTO Recap editor save and public readback are verified.
