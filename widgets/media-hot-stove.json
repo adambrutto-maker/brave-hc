@@ -5,18 +5,18 @@
   "publishedVideo": {
     "gameId": 3375685,
     "date": "2026-11-15",
-    "videoId": "NjGlVo-zxeY",
-    "videoUrl": "https://www.youtube.com/watch?v=NjGlVo-zxeY",
+    "videoId": "D-Xl0Bx3-_8",
+    "videoUrl": "https://www.youtube.com/watch?v=D-Xl0Bx3-_8",
     "title": "Braves Highlights - November 15, 2026 - Sugo Sundays @ Brave H.C.",
     "score": "Sugo Sundays 6–4 Brave H.C.",
     "status": "PUBLIC_VIDEO_VERIFIED_BY_FOUNDER"
   },
   "videoPublicationState": "PUBLIC_VERIFIED",
-  "sourceAuthority": "Verified public Brave H.C. YouTube channel feed for video NjGlVo-zxeY; HTO game 3375685 and founder-approved Golden V17",
+  "sourceAuthority": "Public Brave H.C. YouTube channel RSS and oEmbed independently verified V20 Golden mobile-readable 4K video D-Xl0Bx3-_8 for official HTO game 3375685",
   "editorialFeed": "./hot-stove-approved.json",
   "upcomingFeed": "./countdown.json",
   "approvedFallbackImage": "./brave_hc_logo.png",
   "publicLineupAllowed": false,
   "updated": "2026-11-16",
-  "note": "Latest published video is game-specific; previous Big Bastones upload remains intact on the channel and Git history. The current Hot Stove recap must match its own game record."
+  "note": "HockeyOS featured video follows the newly published founder-approved V20 Golden cut. Older V17 cut is preserved offline for production rollback; the current Hot Stove recap must match the official HTO record. Earlier separate opponent games remain unmodified."
 }
