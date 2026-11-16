@@ -91,11 +91,31 @@ test('current HTO rates and original workbook classification remain unchanged un
  assert.deepEqual(labels,['FROZEN','COLD','COOL','NEUTRAL','NEUTRAL','WARM','HOT','BLAZING']);
  const diff=form.compare(1,1.14,sigma,vis);
  assert.equal(diff.status,'VERIFIED');
- assert.equal(diff.level,'COLD'); // Retained V3.6 legacy source-contract comparison only.
+ assert.equal(diff.relativeChange,1/1.14-1);
+ assert.equal(diff.level,vis.visualLevelFromRelativeChange(diff.relativeChange,sigma));
+ // This V3.6 legacy view is descriptive; the separate adaptive model is still
+ // historical reference only and must not reclassify the official source.
+ assert.equal(form.compare(1,1.14,0,vis).status,'HELD');
  const currentAdaptive=adaptive.compareRate(1,1.14,dispersion,projection);
- assert.equal(currentAdaptive.status,'VERIFIED');
- assert.equal(currentAdaptive.level,'COOL');
- assert.equal(currentAdaptive.mode,'HISTORICAL_REFERENCE_ONLY');
+ // The historical Oct 30 dispersion snapshot does not match the newer
+ // model export. Source mismatch MUST HOLD rather than fabricate a level.
+ assert.equal(currentAdaptive.status,'HELD');
+ assert.equal(currentAdaptive.reason,'DISPERSION_PROJECTION_SNAPSHOT_MISMATCH');
+ assert.equal(currentAdaptive.level,undefined);
+ // Positive control: an exactly source-matched historical fixture remains
+ // supportable, but is labelled HISTORICAL_REFERENCE_ONLY.
+ const model=dispersion.model;
+ const matched={
+   ...projection,season:model.sourceSeason,
+   exportedAt:model.projectionExportedAt,
+   workbookSourceHash:model.workbookSourceHash,
+   modelCurrent:!model.provisional,
+   projectionComplete:!model.provisional
+ };
+ const historicalAdaptive=adaptive.compareRate(1,1.14,dispersion,matched);
+ assert.equal(historicalAdaptive.status,'VERIFIED');
+ assert.equal(historicalAdaptive.level,'COOL');
+ assert.equal(historicalAdaptive.mode,'HISTORICAL_REFERENCE_ONLY');
  assert.deepEqual(projection.conditionalFormatting.arrowIconSet.thresholds,{
     AB100:-2*sigma,AB99:-sigma,AB97:.5*sigma,AB96:sigma
  });

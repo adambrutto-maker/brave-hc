@@ -37,18 +37,26 @@ class HistoricWeeklyQA(unittest.TestCase):
  def test_weekly_seed_is_qualified_current_week(self):
   doc=read("league-intelligence.json")
   self.assertTrue(weekly.validate(doc,True))
-  self.assertEqual(doc["weeklyLedger"]["weeksRecorded"],1)
-  self.assertEqual(len(doc["weeklyLedger"]["weeks"][0]["teams"]),len(doc["teams"]))
+  self.assertEqual(doc["weeklyLedger"]["weeksRecorded"],len(doc["weeklyLedger"]["weeks"]))
+  self.assertGreaterEqual(doc["weeklyLedger"]["weeksRecorded"],1)
+  self.assertEqual(doc["weeklyLedger"]["weeks"][-1]["weekStartToronto"],weekly.monday(doc["asOf"]))
+  self.assertEqual(len(doc["weeklyLedger"]["weeks"][-1]["teams"]),len(doc["teams"]))
  def test_same_week_refresh_updates_without_double_count(self):
   doc=read("league-intelligence.json")
-  refreshed=weekly.enrich(doc,later(doc,1))
-  self.assertEqual(refreshed["weeklyLedger"]["weeksRecorded"],1)
+  updated=later(doc,1/1440)  # one minute within the accepted open Toronto week
+  self.assertEqual(weekly.monday(updated["asOf"]),weekly.monday(doc["asOf"]),
+                   "Source time reached the next week; use a same-week fixture")
+  refreshed=weekly.enrich(doc,updated)
+  self.assertEqual(refreshed["weeklyLedger"]["weeksRecorded"],doc["weeklyLedger"]["weeksRecorded"])
+  self.assertEqual(refreshed["weeklyLedger"]["weeks"][:-1],doc["weeklyLedger"]["weeks"][:-1])
+  self.assertEqual(refreshed["weeklyLedger"]["weeks"][-1],weekly.snapshot(updated))
   self.assertTrue(weekly.validate(refreshed,True))
  def test_new_monday_freezes_previous_week_and_adds_another(self):
   doc=read("league-intelligence.json")
   next_doc=weekly.enrich(doc,later(doc,7))
-  self.assertEqual(next_doc["weeklyLedger"]["weeksRecorded"],2)
-  self.assertEqual(next_doc["weeklyLedger"]["weeks"][0],doc["weeklyLedger"]["weeks"][0])
+  self.assertEqual(next_doc["weeklyLedger"]["weeksRecorded"],doc["weeklyLedger"]["weeksRecorded"]+1)
+  self.assertEqual(next_doc["weeklyLedger"]["weeks"][:-1],doc["weeklyLedger"]["weeks"])
+  self.assertEqual(next_doc["weeklyLedger"]["weeks"][-1]["weekStartToronto"],weekly.monday(next_doc["asOf"]))
   self.assertTrue(monotonic(doc,next_doc))
  def test_previous_week_is_immutable_after_rollover(self):
   doc=read("league-intelligence.json")

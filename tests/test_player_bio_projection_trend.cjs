@@ -26,15 +26,23 @@ test('all published players receive identical workbook conditional-formatted tre
  }
  assert.ok(qualified>0&&newPlayers>0,'need both model evidence groups');
 });
-test('model result for Justin Carosi is neutral and -2.5% based on career model component not displayed Pts/GP',()=>{
+test('Justin Carosi trend matches current workbook-derived component rates, not an outdated cached delta',()=>{
  const p=data.players.find(x=>x.name==='Carosi, Justin');
  const r=trend.classify(p,data);
- assert.equal(r.name,'Neutral');assert.equal(r.symbol,'→');
- assert.ok(Math.abs(r.relativeChange+0.025228)<1e-8);
+ assert.ok(p&&r,'verified player/source model must be present');
+ assert.equal(r.status,'VERIFIED_MODEL_TREND');
+ assert.equal(r.name,'Neutral');
+ assert.equal(r.symbol,trend.states[r.index].symbol);
+ assert.equal(r.relativeChange,p.trend);
+ assert.ok(Number.isFinite(r.careerRate)&&r.careerRate>0);
+ assert.ok(Number.isFinite(r.modelComponentRate));
+ assert.ok(Math.abs(r.relativeChange-
+   ((r.modelComponentRate-r.careerRate)/r.careerRate))<1e-6);
  assert.equal(r.careerRate,p.trendInputs.careerScoringRate);
  assert.equal(r.modelComponentRate,p.trendInputs.projectedScoringRate);
  assert.notEqual(r.modelComponentRate,p.ptsPerGame);
- assert.equal(r.modelCurrent,false);
+ // Classification does not promote an unreconciled *source* to current.
+ assert.equal(r.modelCurrent,data.modelCurrent===true&&data.projectionComplete===true);
 });
 test('strongly negative, near neutral, warming, hot classifications follow source boundaries',()=>{
  const th=data.conditionalFormatting.arrowIconSet.thresholds;

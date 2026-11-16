@@ -45,7 +45,9 @@ const tests=[
   const result=model.analyze(src,history);
   assert.equal(result.proposalReady,false);
   assert.equal(result.status,"EXPLORATORY_ONLY_INSUFFICIENT_SEASON_EVIDENCE");
-  assert.equal(result.weekCount,1);
+  assert.equal(result.weekCount,src.weeklyLedger.weeksRecorded);
+  assert.equal(result.weekCount,src.weeklyLedger.weeks.length);
+  assert.ok(result.weekCount<4,"Separate approval still required at four weeks");
   assert.equal(result.playedTen,0);
   assert.equal(result.scenarios[0].kind,"ACTUAL_SOURCE_ASSIGNMENTS");
   assert.ok(result.scenarios.slice(1).every(x=>x.kind==="WHAT_IF_UNAPPROVED"));

@@ -45,7 +45,12 @@ const tests=[
   const evidence=x.scenarios.find(s=>s.code==="CURRENT").evidence;
   assert.ok(evidence.observedSameGroupGames>=27);
   assert.ok(evidence.observedAcrossGroupGames>=16);
-  assert.equal(evidence.allPossibleSameGroupPairings,71);
+  // Sum unique pairings independently from source-assigned adult members.
+  const sizes=scope.divisionsList.map(name=>
+    scope.teams(league).filter(t=>t.divisionNow===name).length);
+  const sourcePairings=sizes.reduce((n,size)=>n+size*(size-1)/2,0);
+  assert.equal(sizes.reduce((n,size)=>n+size,0),22);
+  assert.equal(evidence.allPossibleSameGroupPairings,sourcePairings);
   assert.ok(evidence.observedUniqueSameGroupPairings<=evidence.observedSameGroupGames);
   assert.ok(evidence.twoGoalOrCloserGames<=evidence.observedSameGroupGames);
  }],
