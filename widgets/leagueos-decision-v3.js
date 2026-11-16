@@ -64,7 +64,11 @@ function buildCases(){
     source:p,participants:[t1,t2],stats:p.current_division_sizes});
  }
  for(const t of data.teams.filter(x=>x.priority==="Review"||x.priority==="Watch")){
-  if(t.standings_source_valid===false)continue;
+  if(t.standings_source_valid===false){
+   valid.push({id:"SOURCE-"+t.league_id+"-"+t.team_id,kind:"source",night:t.night,
+    priority:"Watch",title:t.team_name,source:t,participants:[t]});
+   continue;
+  }
   valid.push({id:"SINGLE-"+t.league_id+"-"+t.team_id,kind:"single",night:t.night,
    priority:t.priority,title:t.team_name,source:t,participants:[t]});
  }
@@ -74,8 +78,9 @@ function findCase(id){return cases.find(c=>c.id===id)||null}
 function getCase(){return findCase(selected)}
 function savedCase(id){return store.cases[id]||null}
 function initialDraft(id){
- const prev=savedCase(id);
- return prev?{...blank(),...JSON.parse(JSON.stringify(prev)),checks:{...blank().checks,...prev.checks}}:blank();
+ const prev=savedCase(id),start=blank();
+ if(findCase(id)?.kind==="source")start.phase="needs-evidence";
+ return prev?{...start,...JSON.parse(JSON.stringify(prev)),checks:{...start.checks,...prev.checks}}:start;
 }
 function selectCase(id){
  if(!findCase(id))return;
@@ -85,13 +90,14 @@ function selectCase(id){
 function formatHuman(n){return n==="Review"?"Review":n==="Watch"?"Watch":"Monitor"}
 function groups(){
  return {packages:cases.filter(x=>x.kind==="package"),single:cases.filter(x=>x.kind==="single"&&x.priority==="Review"),
-         watch:cases.filter(x=>x.kind==="single"&&x.priority==="Watch")};
+         watch:cases.filter(x=>x.kind==="single"&&x.priority==="Watch"),
+         source:cases.filter(x=>x.kind==="source")};
 }
 function rowCase(c){
  const isSelected=c.id===selected,stored=savedCase(c.id);
- const ref=c.kind==="package"?(c.source.aggregate_balance_gain_percentage_points+" pp combined balance change"):(pct(c.source.expected_same_division_win_share)+" indicative peer share");
+ const ref=c.kind==="source"?"Published standings require correction":c.kind==="package"?(c.source.aggregate_balance_gain_percentage_points+" pp combined balance change"):(pct(c.source.expected_same_division_win_share)+" indicative peer share");
  return '<button type="button" class="desk-case-row '+(isSelected?"chosen":"")+'" data-desk-case="'+esc(c.id)+'" aria-current="'+isSelected+'">'+
- '<span class="desk-case-name">'+esc(c.title)+'</span><span class="desk-case-meta">'+esc(c.night)+' · '+(c.kind==="package"?"Paired exchange":formatHuman(c.priority))+'</span>'+
+ '<span class="desk-case-name">'+esc(c.title)+'</span><span class="desk-case-meta">'+esc(c.night)+' · '+(c.kind==="source"?"Source correction":c.kind==="package"?"Paired exchange":formatHuman(c.priority))+'</span>'+
  '<span class="desk-case-footer"><span>'+esc(ref)+'</span>'+(stored?'<strong>Saved v'+stored.revisionNo+'</strong>':'')+'</span></button>';
 }
 function caseList(){
@@ -99,13 +105,15 @@ function caseList(){
  const group=tab=>{
   if(tab==="packages")return["Paired options",g.packages,"Two-team exchanges retain division sizes"];
   if(tab==="single")return["Individual reviews",g.single,"Examine source-supported single-team comparisons"];
+  if(tab==="source")return["Source corrections",g.source,"Disputed standings need league data confirmation"];
   return["Source watchlist",g.watch,"Monitoring only; no automatic transfers"];
  };
  const [title,arr,sub]=group(view);
  const tabbar='<div class="desk-segment">'+[
   ["packages","Paired "+g.packages.length],
   ["single","Individual "+g.single.length],
-  ["watch","Watch "+g.watch.length]
+  ["watch","Watch "+g.watch.length],
+  ["source","Source "+g.source.length]
  ].map(([k,label])=>'<button type="button" class="'+(view===k?"active":"")+'" data-desk-view="'+k+'">'+label+'</button>').join("")+'</div>';
  return '<div class="desk-case-browser">'+tabbar+'<div class="desk-browser-heading"><strong>'+title+'</strong><small>'+sub+'</small></div>'+
  '<div class="desk-case-items">'+(arr.length?arr.map(rowCase).join(""):'<div class="desk-empty">No eligible cases in this group. Not every league has enough connected evidence for an exchange.</div>')+'</div></div>';
@@ -115,7 +123,7 @@ function countBox(){
  return '<div class="desk-metrics">'+[
  [String(groups().packages.length),"Source-connected exchanges","Paired Wednesday cases"],
  [String(g.single.length),"Stronger team reviews","Across current league nights"],
- [String(g.watch.length),"Source watch cases","For monitoring or correction"],
+ [String(g.watch.length+g.source.length),"Watch and source holds","Source-quality checks included"],
  [String(pending),"Local review records","Not submitted to SVHL"]
  ].map(x=>'<div><small>'+x[1]+'</small><strong>'+x[0]+'</strong><em>'+x[2]+'</em></div>').join("")+'</div>';
 }
@@ -214,6 +222,10 @@ function compareSaved(c){
 }
 function saveCase(){
  const c=getCase();if(!c)return;
+ const collisions=preparedCaseConflicts(c);
+ if(draft.phase==="for-discussion"&&collisions.length){
+  toast("Another prepared exchange contains one of these teams. Resolve the overlapping case before marking this one for league discussion.");return;
+ }
  const older=savedCase(c.id),current=compareSaved(c);
  const revNo=(older?.revisionNo||0)+1;
  const history=Array.isArray(older?.revisions)?older.revisions.slice(-MAX_REVS+1):[];
@@ -277,18 +289,40 @@ function phases(){
  '<option value="'+v+'" '+(v===draft.phase?"selected":"")+'>'+esc(lab)+'</option>').join("")+'</select></label>'+
  '<p>No “approve” action exists in this prototype. The record can be prepared for an authorized commissioner discussion, never applied here.</p></div>';
 }
+function sourceEvidence(c){
+ const t=c.source;
+ return '<div class="desk-package"><div class="desk-research-heading"><strong>Published standings need correction</strong>'+
+ '<small>'+esc(t.night)+' · '+esc(t.division)+'</small></div>'+
+ '<div class="desk-warning"><strong>Source data hold</strong><p>This source record contains an invalid published wins/losses value or inconsistent game count. No competitive placement comparison is permitted while this discrepancy is unresolved.</p>'+
+ (t.source_notes||[]).map(x=>'<p>'+esc(x)+'</p>').join('')+'</div>'+
+ '<div class="desk-info-grid">'+
+ '<div><small>Competitive record</small><strong>Not reliable</strong></div>'+
+ '<div><small>Matched source games</small><strong>'+val(t.source_games)+'</strong></div>'+
+ '<div><small>Team/division</small><strong>'+esc(t.division)+'</strong></div>'+
+ '<div><small>Required next action</small><strong>Confirm original standings</strong></div>'+
+ '</div><p>Retain the original published values in the source archive. Request a correction or an official interpretation before building a comparative scenario.</p>'+
+ '<a href="https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid='+encodeURIComponent(t.league_id)+'&amp;teamid='+encodeURIComponent(t.team_id)+'&amp;page_type=Adult" target="_blank" rel="noopener noreferrer">Original published team page ↗</a></div>';
+}
+function preparedCaseConflicts(c){
+ if(c?.kind!=="package")return [];
+ const own=new Set(c.participants.map(t=>t.league_id+":"+t.team_id));
+ return Object.values(store.cases).filter(rec=>rec&&rec.caseId!==c.id&&rec.caseType==="package"&&
+ rec.phase==="for-discussion"&&(rec.teams||[]).some(t=>own.has(t.league_id+":"+t.source_team_id)));
+}
 function caseDetail(){
  const c=getCase();
  if(!c)return '<div class="panel desk-no-case">Choose a case to review.</div>';
- return '<div class="desk-case-header"><div><small>'+esc(c.night)+' · '+(c.kind==="package"?"Two-team exchange research":"Individual team review")+'</small>'+
+ const collisions=preparedCaseConflicts(c);
+ return '<div class="desk-case-header"><div><small>'+esc(c.night)+' · '+(c.kind==="source"?"Source correction hold":c.kind==="package"?"Two-team exchange research":"Individual team review")+'</small>'+
  '<h2>'+esc(c.title)+'</h2><p>Published-source evidence and workflow checks. Not an official recommendation.</p></div>'+
  '<div class="desk-case-header-actions"><button class="btn" type="button" id="desk-copy-brief">Copy summary</button>'+
  '<button class="btn" type="button" id="desk-export-case">Export case</button></div></div>'+
+ (collisions.length?'<div class="desk-warning"><strong>Overlapping prepared cases</strong><p>'+esc(collisions.map(x=>x.title).join("; "))+' already includes one or more of these teams. Prepare only one overlapping exchange for league discussion.</p></div>':"")+
  '<nav class="desk-step-nav" aria-label="Review steps">'+[
  ['1','Evidence'],['2','Schedule'],['3','Checks'],['4','Decision']
  ].map(([n,label])=>'<button type="button" data-desk-step="'+n+'" class="'+(activeStep===Number(n)?'active':'')+'" aria-current="'+(activeStep===Number(n))+'"><span>'+n+'</span>'+label+'</button>').join('')+'</nav>'+
  '<div class="desk-step-grid"><section class="desk-subpanel '+(activeStep===1?"active":"")+'"><div class="desk-heading"><span class="desk-stepnum">1</span><div><strong>Compare the evidence</strong><small>Source-connected competitive fit and roster context</small></div></div>'+
- (c.kind==="package"?packageEvidence(c):singleEvidence(c))+'</section>'+
+ (c.kind==="package"?packageEvidence(c):c.kind==="source"?sourceEvidence(c):singleEvidence(c))+'</section>'+
  '<section class="desk-subpanel '+(activeStep===2?"active":"")+'"><div class="desk-heading"><span class="desk-stepnum">2</span><div><strong>Check schedule impact</strong><small>Visible fixtures are not full rink inventory</small></div></div>'+
  impact(c)+'</section>'+
  '<section class="desk-subpanel '+(activeStep===3?"active":"")+'"><div class="desk-heading"><span class="desk-stepnum">3</span><div><strong>Document league prerequisites</strong><small>Sign-offs and eligibility must be established outside this prototype</small></div></div>'+
