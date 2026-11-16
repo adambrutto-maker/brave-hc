@@ -10,7 +10,7 @@ const dateFmt=s=>{const d=new Date(String(s)+"T12:00:00");return isNaN(d)?String
 const load=(k,f)=>{try{const v=JSON.parse(localStorage.getItem(k)||"null");return v&&typeof v==="object"?v:f}catch(_){return f}};
 const save=(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v));return true}catch(_){toast("Browser storage unavailable. Use export to preserve your draft.");return false}};
 const viewList={
- league:[["league-home","Today · ice schedule","⌂"],["league-schedule","Other league nights","▦"],["league-ice","Ice rentals & requests","◫"],["league-divisions","Divisions & standings","▤"],["league-teams","Teams","♙"],["league-scoring","Game sheets","▣"],["league-registration","Registration","✎"],["league-rules","Rulebook & reviews","⚖"],["league-payments","Payments","▥"],["league-analysis","Intelligence","◈"]],
+ league:[["league-home","Today · operations","⌂"],["league-schedule","League schedules","▦"],["league-ice","Ice rentals & requests","◫"],["league-divisions","Divisions & standings","▤"],["league-teams","Teams","♙"],["league-scoring","Game sheets","▣"],["league-registration","Registration","✎"],["league-rules","Rulebook & reviews","⚖"],["league-payments","Payments","▥"],["league-analysis","Intelligence","◈"]],
  team:[["team-home","Team home","⌂"],["team-attendance","Attendance","✓"],["team-lineup","Lineups & goalies","▦"],["team-roster","Players & roster","♙"],["team-widgets","Widgets & analytics","▤"],["team-media","News & history","▧"],["team-upgrades","Team upgrades","✧"]]
 };
 const widgets=[
@@ -43,11 +43,11 @@ function btn(label,route,primary=false){return '<button type="button" class="btn
 function link(label,file,cls="btn"){return '<a class="'+cls+'" href="'+esc(base+file)+'" target="_blank" rel="noopener noreferrer">'+label+' ↗</a>'}
 function intro(k,h,p,actions=""){return '<div class="intro"><div><div class="eyebrow">'+k+'</div><h1>'+h+'</h1><p>'+p+'</p></div>'+actions+'</div>'}
 function metric(n,v,foot){return '<div class="metric"><small>'+n+'</small><strong>'+esc(v)+'</strong><em>'+foot+'</em></div>'}
-function nav(){const c=state.route&&state.route.startsWith("team-")?"team":"league";const label=c==="team"?"Brave H.C. TeamOS":"LeagueOS";$("#topname").innerHTML=esc(label)+'<small>BruTTech SportsOS · Independent SVHL demonstration</small>';$("#sw-league").classList.toggle("selected",c==="league");$("#sw-team").classList.toggle("selected",c==="team");const top=c==="league"?"League workspace":"Brave H.C. team workspace";$("#sidebar-nav").innerHTML='<div class="navheading">'+top+'</div>'+viewList[c].map(v=>'<button class="navlink '+(state.route===v[0]?"active":"")+'" data-go="'+v[0]+'"><span class="navicon">'+v[2]+'</span>'+v[1]+'</button>').join('')+'<div class="navheading">Switch workspace</div><button class="navlink" data-go="'+(c==="team"?"league-home":"team-home")+'"><span class="navicon">⇄</span>'+(c==="team"?"LeagueOS":"Brave H.C. TeamOS")+'</button>';$("#railfooter").textContent=c==="team"?"Brave H.C. is the reference team. HTO remains its current team publishing source.":"League-wide operational features shown as an independent proposal, not SVHL production."}
+function nav(){const c=state.route&&state.route.startsWith("team-")?"team":"league";const label=c==="team"?"Brave H.C. TeamOS":"LeagueOS";$("#topname").innerHTML=esc(c==="league"?"LeagueOS · League Administration":label)+'<small>'+(c==="league"?"League-wide scheduling, ice and competition":"Brave H.C. team workflow")+' · BruTTech independent demonstration</small>';$("#sw-league").classList.toggle("selected",c==="league");$("#sw-team").classList.toggle("selected",c==="team");const top=c==="league"?"League workspace":"Brave H.C. team workspace";$("#sidebar-nav").innerHTML='<div class="navheading">'+top+'</div>'+viewList[c].map(v=>'<button class="navlink '+(state.route===v[0]?"active":"")+'" data-go="'+v[0]+'"><span class="navicon">'+v[2]+'</span>'+v[1]+'</button>').join('')+'<div class="navheading">Switch workspace</div><button class="navlink" data-go="'+(c==="team"?"league-home":"team-home")+'"><span class="navicon">⇄</span>'+(c==="team"?"LeagueOS":"Brave H.C. TeamOS")+'</button>';$("#railfooter").textContent=c==="team"?"Brave H.C. is the TeamOS reference; HTO remains its publishing source.":"League operator workspace. Verified source records and proposed operations remain clearly distinguished."}
 function navigate(k){if(![...viewList.league,...viewList.team].some(x=>x[0]===k)&&k!=="team-respond")k="league-home";state.route=k;history.replaceState(null,"","#"+k);nav();render();window.scrollTo({top:0,behavior:"instant"})}
 function currentGame(){return state.upcoming?.games?.[0]||null}
 function fixtureCard(){const f=currentGame();if(!f)return '<div class="callout">No verified upcoming Brave H.C. fixture is available in this snapshot. '+link("Check official schedule","league-intelligence.html","")+'</div>';const d=new Date(f.date+"T12:00:00");return '<div class="fixture"><div class="datechip"><b>'+d.getDate()+'</b><small>'+d.toLocaleString("en-CA",{month:"short"})+'</small></div><div><strong>Braves HC vs '+esc(f.opponent)+'</strong><span class="dim">'+esc(f.time)+' · '+esc(f.rink)+' · '+dateFmt(f.date)+'</span></div></div>'}
-function standingsTable(all=true){if(!state.standings?.teams?.length)return '<div class="loader">Published standings are not available in this preview.</div>';const teams=all?state.standings.teams:state.standings.teams.slice(0,6);return '<div class="tablewrap"><table><thead><tr><th>Team</th><th class="num">GP</th><th class="num">W</th><th class="num">L</th><th class="num">T</th><th class="num">PTS</th></tr></thead><tbody>'+teams.map(t=>'<tr class="'+(t.name==="Braves HC"?"highlight":"")+'"><td>'+esc(t.name)+'</td><td class="num">'+t.gp+'</td><td class="num">'+t.w+'</td><td class="num">'+t.l+'</td><td class="num">'+t.t+'</td><td class="num">'+t.pts+'</td></tr>').join('')+'</tbody></table></div>'}
+function standingsTable(all=true,highlightTeam=false){if(!state.standings?.teams?.length)return '<div class="loader">Published standings are not available in this preview.</div>';const teams=all?state.standings.teams:state.standings.teams.slice(0,6);return '<div class="tablewrap"><table><thead><tr><th>Team</th><th class="num">GP</th><th class="num">W</th><th class="num">L</th><th class="num">T</th><th class="num">PTS</th></tr></thead><tbody>'+teams.map(t=>'<tr class="'+(highlightTeam&&t.name==="Braves HC"?"highlight":"")+'"><td>'+esc(t.name)+'</td><td class="num">'+t.gp+'</td><td class="num">'+t.w+'</td><td class="num">'+t.l+'</td><td class="num">'+t.t+'</td><td class="num">'+t.pts+'</td></tr>').join('')+'</tbody></table></div>'}
 
 /* Date-first league operations. Arena allocation is never inferred from missing game data. */
 function torontoToday(){
@@ -122,10 +122,11 @@ function opsWeekBoard(){
  }).join("")+'</div><div class="topline">'+btn("Review rental requests","league-ice")+btn("Division standings","league-divisions")+'</div>');
 }
 function leagueNightSnapshot(){
- const d=state.league,s=state.standings;
- return panel("League context","Sunday league example · current verified snapshot",'<div class="ops-summary" style="margin-bottom:13px"><span><strong>'+(d?.currentLeagueTeamCount??"—")+'</strong> teams</span><span><strong>'+(d?.currentDivisionCount??"—")+'</strong> divisions</span></div>'+
- (state.ops.date&&weekday(state.ops.date)!==0?'<p class="source">The standings below are for the connected Sunday SVHL league, not the selected night.</p>':'')+
- standingsTable(false)+'<div class="topline">'+btn("All divisions and standings","league-divisions")+'</div>');
+ const d=state.league,day=weekday(state.ops.date),night=dayProgram(state.ops.date);
+ const coverage=[["Sunday",d?.currentLeagueTeamCount??"—",d?.currentDivisionCount??"—","Public Sunday archive connected"],["Tuesday","—","—","History ingestion in progress"],["Wednesday","—","—","History ingestion in progress"],["Thursday","—","—","History ingestion in progress"]];
+ const rows=coverage.map(x=>'<div class="cardrow"><div><strong>'+x[0]+'</strong><small>'+x[3]+'</small></div><span class="pill '+(x[0]==="Sunday"?"green":"amber")+'">'+(x[0]==="Sunday"?x[1]+" teams · "+x[2]+" divisions":"Pending data")+'</span></div>').join("");
+ const note=day===0?'<div class="topline">'+btn("View Sunday divisions","league-divisions")+'</div>':'<p class="source">Current Sunday standings cannot be presented as standings for '+esc(night)+'. Other night archives will be added after source verification.</p>';
+ return panel("League-night data coverage","Operational source coverage across all four league nights",rows+note);
 }
 function rentalDraftList(){
  if(!state.iceDrafts.length)return '<p class="dim small">No ice-use inquiries saved in this browser.</p>';
@@ -156,16 +157,17 @@ function leagueScheduleWeek(){
 }
 function footnote(){return '<p class="disclaimer">BruTTech independent demonstration. SVHL and HTO remain authoritative for published league and team records. No live rentals, registrations, payments, disciplinary decisions, WhatsApp group posts or official game sheets are submitted here. Public source snapshots are partial and may lag official updates.</p>'}
 function homeLeague(){
- const selected=state.ops.date;
- return intro("LEAGUEOS · DAILY OPERATIONS","Today at Sports Village","The selected day's league program, game schedule and rink commitments. Choose any other night from the date strip.",btn("Open Brave H.C. TeamOS","team-home",true))+
+ return intro("LEAGUEOS · LEAGUE OPERATIONS","League operations","Operate each league night from the schedule, rink and competition perspective. Choose any date, rink or program.",
+ btn("Manage league schedules","league-schedule",true))+
  opsToolbar()+opsSummary()+
  '<div class="grid"><div class="stack">'+(state.ops.view==="week"?opsWeekBoard():opsConfirmedGames())+
  opsIceBoard()+'</div><div class="stack">'+
- panel("Today's operating desk","Find the next action without leaving the daily schedule.",'<div class="linklist">'+
- '<button data-go="league-schedule">Schedule another league night <span>›</span></button>'+
- '<button data-go="league-scoring">Open digital game sheets <span>›</span></button>'+
- '<button data-go="league-ice">Request ice for another use <span>›</span></button>'+
- '<button data-go="league-registration">Registration and team roster <span>›</span></button></div>')+
+ panel("League operator desk","Tasks and decisions for the entire program.",'<div class="linklist">'+
+ '<button data-go="league-schedule">Review games across league nights <span>›</span></button>'+
+ '<button data-go="league-scoring">Record and approve game sheets <span>›</span></button>'+
+ '<button data-go="league-ice">Review rink commitments and rental inquiries <span>›</span></button>'+
+ '<button data-go="league-divisions">Review standings and division balance <span>›</span></button>'+
+ '<button data-go="league-registration">Manage team registrations <span>›</span></button></div>')+
  leagueNightSnapshot()+'</div></div>'+footnote();
 }
 function leagueSchedule(){
@@ -188,10 +190,10 @@ function leagueSchedule(){
 }
 function leagueDivisions(){const d=state.league;const ds=d?.divisions?.filter(x=>x.competitive)||[];return intro("LEAGUEOS · COMPETITION","Divisions & standings","Official standings first; strength analysis informs decisions without automatically moving teams.",btn("Open Division Fit Lab","league-analysis",true))+
 panel("Current divisions","Published SVHL league model",'<div class="twocol">'+(ds.length?ds.map(x=>'<div class="toolcard"><h3>'+esc(x.name)+'</h3><p>'+esc(x.teamCount)+' published teams</p><p class="small">'+esc(x.teams.slice(0,6).join(" · "))+(x.teams.length>6?" …":"")+'</p></div>').join(''):'<div class="loader">Current divisions could not be loaded.</div>')+'</div>')+
-panel("Cristillo standings","Verified league snapshot · Brave H.C. highlighted",standingsTable(true))+
+panel("Cristillo standings","Sunday league published standings · entire division",standingsTable(true))+
 panel("Division placement review","Evidence-assisted, commissioner-approved decisions",'<div class="callout">Existing League Intelligence compares teams, cross-division results and performance patterns. A new placement proposal should always show its evidence and require human approval.</div>'+link("Open League Intelligence","league-intelligence.html")+ " &nbsp; "+link("Division Fit Lab","division-fit-lab.html"))+footnote()}
-function leagueTeams(){const d=state.league,rows=(d?.divisions||[]).filter(x=>x.competitive);return intro("LEAGUEOS · TEAMS","Team directory","Open a team’s shared public record. Brave H.C. is the fully populated TeamOS reference implementation.")+
-panel("League teams","Displayed by current division",rows.length?rows.map(x=>'<h3 style="margin:17px 0 10px">'+esc(x.name)+'</h3><div class="twocol">'+x.teams.map(n=>'<div class="cardrow"><div><strong>'+esc(n)+'</strong><small>'+esc(x.name)+'</small></div>'+(n==="Braves HC"?btn("Open TeamOS","team-home",true):'<span class="pill">Public team only</span>')+'</div>').join('')+'</div>').join(''):'<div class="loader">Team directory unavailable.</div>')+footnote()}
+function leagueTeams(){const d=state.league,rows=(d?.divisions||[]).filter(x=>x.competitive);return intro("LEAGUEOS · TEAMS","Team directory","Browse league records by night and division. The source-connected directory currently covers the Sunday competition.")+
+panel("League teams","Displayed by current division",rows.length?rows.map(x=>'<h3 style="margin:17px 0 10px">'+esc(x.name)+'</h3><div class="twocol">'+x.teams.map(n=>'<div class="cardrow"><div><strong>'+esc(n)+'</strong><small>'+esc(x.name)+'</small></div>'+(n==="Braves HC"?btn("TeamOS preview","team-home"):'<span class="pill">Public team only</span>')+'</div>').join('')+'</div>').join(''):'<div class="loader">Team directory unavailable.</div>')+footnote()}
 function leagueScoring(){return intro("LEAGUEOS · GAME OPERATIONS","Digital game sheets","Built for tablets and phones in the scorer’s box, with controlled final review.",link("Open interactive score sheet","svhl-leagueos-score-sheet-demo.html","btn primary"))+
 panel("The scorer’s box workflow","Fast recording without hunting through forms",'<div class="twocol"><div class="toolcard"><h3>1. Select an assigned game</h3><p>Verify rink, teams, game time, scorer and authorized rosters.</p></div><div class="toolcard"><h3>2. Tap the event</h3><p>Goal, assists, penalty, shot, period/time or an observation.</p></div><div class="toolcard"><h3>3. Verify the game sheet</h3><p>Review errors, correction history, roster signatures and officials.</p></div><div class="toolcard"><h3>4. Publish once authorized</h3><p>Approved results feed standings, individual statistics and both team websites.</p></div></div>')+
 panel("Current prototype boundary","An actual league system requires verified authorization",'<div class="callout warn">The linked mobile score sheet is an interactive local draft only. Its score and events do not update HTO or SVHL, and it is not a valid official player signature.</div><p>Current SVHL Rule 2.1 requires signed official game sheets. Any digital replacement must satisfy the league’s sign-off process and maintain a tamper-evident audit record.</p>')+footnote()}
