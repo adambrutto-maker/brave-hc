@@ -70,3 +70,10 @@
 @media(max-width:1220px){.hist-night-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.hist-insight-layout{grid-template-columns:1fr}.hist-stats{grid-template-columns:repeat(2,minmax(0,1fr))}.hist-insight-layout .stack{gap:14px}}
 @media(max-width:780px){.hist-filter-row{grid-template-columns:1fr 1fr;gap:10px}.hist-night-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.hist-process{grid-template-columns:1fr}.hist-season-note{align-items:start}.hist-season-note .btn{font-size:10px;white-space:nowrap}.hist-insight-layout{grid-template-columns:minmax(0,1fr)}}
 @media(max-width:520px){.hist-filterbar{padding:11px}.hist-filter-row{grid-template-columns:1fr}.hist-filter-row>.field{width:100%}.hist-stats{gap:8px}.hist-stats .metric{min-height:94px}.hist-stats .metric strong{font-size:22px}.hist-night-grid{gap:8px}.hist-night-card{min-height:132px;padding:13px 10px}.hist-season-note{display:grid;grid-template-columns:1fr}.hist-search{display:block}.hist-search .field{max-width:none}.hist-search>span{display:block;text-align:left;margin-top:6px}.hist-research-box>div{display:block}.hist-research-box span{display:block;margin-top:4px}.hist-link-row{align-items:start}.hist-detail-stats strong{font-size:17px}}
+
+
+.hist-timeline-table{max-width:100%;overflow-x:auto;border:1px solid #e3eaf2;border-radius:8px}
+.hist-timeline-table table{min-width:350px;width:100%;border-collapse:collapse}
+.hist-timeline-table th{font-size:9px;color:#71869b;background:#f5f8fc;padding:9px 7px;text-align:left;letter-spacing:.025em}
+.hist-timeline-table td{font-size:10px;color:#34516f;padding:9px 7px;border-top:1px solid #edf1f6;white-space:nowrap}
+.hist-timeline-table .num{text-align:right;font-variant-numeric:tabular-nums}
