@@ -1,7 +1,7 @@
 {
   "schema": "brave-hc-svhl-schedule/v1",
   "source": "https://leagues.sportsvillage.ca/Leagues.aspx?leagueid=570&page_type=Adult&sc=HOCKEY",
-  "checkedAt": "2026-11-16T01:43:16.109533-05:00",
+  "checkedAt": "2026-11-16T13:39:07.365204-05:00",
   "games": [
     {
       "date": "2026-11-22",
