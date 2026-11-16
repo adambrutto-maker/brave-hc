@@ -88,6 +88,35 @@ function renderVideo(config){
    videoContainer.setAttribute("aria-label","Brave H.C. game coverage");
  }
 }
+function verifiedSeasonVideo(v){
+ return !!(v&&v.status==="PUBLIC_VIDEO_VERIFIED_BY_FOUNDER"&&
+  /^\d{4}-\d{2}-\d{2}$/.test(v.date||"")&&
+  v.date>="2026-09-01"&&v.date<="2027-06-30"&&
+  /^[A-Za-z0-9_-]{11}$/.test(v.videoId||"")&&
+  v.videoUrl==="https://www.youtube.com/watch?v="+v.videoId&&
+  typeof v.title==="string"&&v.title.length>10);
+}
+function renderVideoLibrary(config){
+ const panel=root.querySelector(".video-panel");if(!panel)return;
+ const existing=panel.querySelector("#golden-video-library");if(existing)existing.remove();
+ if(config.season!=="W2026/27"||config.videoPublicationState!=="PUBLIC_VERIFIED")return;
+ const items=[config.publishedVideo,...(Array.isArray(config.videoArchive)?config.videoArchive:[])]
+  .filter(verifiedSeasonVideo).sort((a,b)=>b.date.localeCompare(a.date));
+ const seen=new Set(),valid=items.filter(v=>{if(seen.has(v.videoId)||seen.has(v.gameId))return false;seen.add(v.videoId);seen.add(v.gameId);return true;});
+ if(!valid.length)return;
+ const library=text("div",null);library.id="golden-video-library";
+ const heading=text("div","video-caption");heading.append(text("div","eyebrow","2026–27 · Verified game videos"));library.append(heading);
+ for(const video of valid){
+  const item=text("div","video-caption");
+  const info=text("div");
+  info.append(text("div","story-meta",safePubDate(video.date)));
+  info.append(text("p",null,video.releaseLabel||video.title));
+  item.append(info,link("Watch video",video.videoUrl));
+  library.append(item);
+ }
+ panel.append(library);
+}
+
 function showRecap(){
  empty();
  const pub=context?.publication,article=pub?.latestArticle;
@@ -185,7 +214,7 @@ async function init(){
      pub.editorialState!=="FOUNDER_APPROVED"||upcoming.schema!=="brave-hc-upcoming-countdown/v1")
        throw Error("Unexpected or unapproved media source");
   context={config,publication:pub,upcoming};
-  renderVideo(config);render();
+  renderVideo(config);renderVideoLibrary(config);render();
  }catch(error){
   videoContainer.setAttribute("aria-label","Latest team highlights");
   empty();panel.append(text("p","notice","Team news is temporarily unavailable. Please use official HTO scores and schedule; no unverified article will be shown."));
