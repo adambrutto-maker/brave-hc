@@ -1,19 +1,19 @@
 {
   "schema": "brave-hc-league-intelligence/public-v1",
   "status": "OFFICIAL_LEAGUE_RESULTS_SOURCE_QUALIFIED",
-  "asOf": "2026-11-15T14:15:07.392375+00:00",
+  "asOf": "2026-11-16T14:15:07.766077+00:00",
   "season": "Sunday Winter 2026/27",
   "leagueId": 570,
   "previousSeason": "Sunday Winter 2025/26",
   "previousLeagueId": 547,
   "source": "https://leagues.sportsvillage.ca/Leagues.aspx?leagueid=570&page_type=Adult&sc=HOCKEY",
-  "sourceSHA256": "17e0c03381f2e30d8342ed84f53394675275a4f44bb81e412ab382501bb09306",
+  "sourceSHA256": "b42f72d213d4e09a4cef6bea6084fdd1aacb635831e95e0dea8fcb18c9912a2f",
   "currentDivisionCount": 4,
   "allPublishedDivisions": 5,
   "currentLeagueTeamCount": 27,
-  "verifiedReciprocalCompletedGames": 87,
+  "verifiedReciprocalCompletedGames": 92,
   "currentSourceDataConcordant": true,
-  "unverifiedZeroZeroScheduleSlots": 24,
+  "unverifiedZeroZeroScheduleSlots": 19,
   "priorSeasonRosterContinuityQualifiedCount": 19,
   "previousSeasonGameDetailCoverage": {
     "teamsWithAllGameResultsReconciled": 27,
@@ -37,16 +37,16 @@
       "name": "The Cristillo Division",
       "competitive": true,
       "teams": [
-        "Other Way",
-        "Zamboner Crew",
         "Mid Ice Crisis",
         "Mohawks HC",
+        "Other Way",
+        "Zamboner Crew",
         "Sugo Sundays",
-        "Big Bastones",
         "Young Guns",
+        "Big Bastones",
+        "Maplewolves",
         "Dateline Predators",
-        "Braves HC",
-        "Maplewolves"
+        "Braves HC"
       ],
       "teamCount": 10
     },
@@ -708,7 +708,7 @@
       "strengthContext": {
         "status": "SOURCE_SUPPORTED_DESCRIPTIVE_CONTEXT",
         "contextIndex": 49.8,
-        "rank": 15,
+        "rank": 16,
         "confidence": "LIMITED_SAMPLE",
         "currentForm": 43.6,
         "scheduleDifficulty": 53.6,
@@ -722,267 +722,27 @@
       }
     },
     {
-      "leagueName": "Other Way",
-      "displayName": "Other Way",
-      "sourceTeamId": 13704,
-      "divisionNow": "The Cristillo Division",
-      "record": {
-        "gp": 7,
-        "w": 4,
-        "l": 1,
-        "t": 2,
-        "pts": 10,
-        "gf": 42,
-        "ga": 37
-      },
-      "winPct": 0.7143,
-      "goalDiffPerGame": 0.714,
-      "opponentCurrentWinPctAverage": 0.4643,
-      "source": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13704&page_type=Adult",
-      "gamesConfirmed": 7,
-      "gamesVsTeamsNowInOtherDivisions": 0,
-      "opponentsByCurrentDivision": {
-        "The Cristillo Division": 7
-      },
-      "completedGames": [
-        {
-          "date": "2026-09-20",
-          "opponent": "Mid Ice Crisis",
-          "opponentCurrentDivision": "The Cristillo Division",
-          "gf": 4,
-          "ga": 3,
-          "result": "W"
-        },
-        {
-          "date": "2026-09-27",
-          "opponent": "Zamboner Crew",
-          "opponentCurrentDivision": "The Cristillo Division",
-          "gf": 6,
-          "ga": 6,
-          "result": "T"
-        },
-        {
-          "date": "2026-10-04",
-          "opponent": "Big Bastones",
-          "opponentCurrentDivision": "The Cristillo Division",
-          "gf": 0,
-          "ga": 2,
-          "result": "L"
-        },
-        {
-          "date": "2026-10-18",
-          "opponent": "Dateline Predators",
-          "opponentCurrentDivision": "The Cristillo Division",
-          "gf": 8,
-          "ga": 5,
-          "result": "W"
-        },
-        {
-          "date": "2026-10-25",
-          "opponent": "Sugo Sundays",
-          "opponentCurrentDivision": "The Cristillo Division",
-          "gf": 7,
-          "ga": 7,
-          "result": "T"
-        },
-        {
-          "date": "2026-11-01",
-          "opponent": "Mohawks HC",
-          "opponentCurrentDivision": "The Cristillo Division",
-          "gf": 11,
-          "ga": 9,
-          "result": "W"
-        },
-        {
-          "date": "2026-11-08",
-          "opponent": "Braves HC",
-          "opponentCurrentDivision": "The Cristillo Division",
-          "gf": 6,
-          "ga": 5,
-          "result": "W"
-        }
-      ],
-      "bravesMatchHistory": {
-        "state": "NO_VERIFIED_BRAVES_MATCH_HISTORY"
-      },
-      "previousWinter": {
-        "division": "Prostar Division",
-        "record": {
-          "gp": 24,
-          "w": 6,
-          "l": 14,
-          "t": 4,
-          "pts": 16,
-          "gf": 67,
-          "ga": 101
-        },
-        "winPct": 0.3333,
-        "goalsDiffPerGame": -1.417,
-        "verifiedGameDetails": 24,
-        "completeGameDetails": true,
-        "officialRosterSharedIDs": 8,
-        "rosterContinuityShare": 0.667,
-        "association": "ROSTER_ID_CONTINUITY_CONFIRMED",
-        "originalPriorLeagueTeamId": 13101,
-        "sourceUrl": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=547&teamid=13101&page_type=Adult"
-      },
-      "strengthContext": {
-        "status": "SOURCE_SUPPORTED_DESCRIPTIVE_CONTEXT",
-        "contextIndex": 53.9,
-        "rank": 9,
-        "confidence": "LIMITED_SAMPLE",
-        "currentForm": 61.2,
-        "scheduleDifficulty": 49.5,
-        "priorWinterForm": 35.4,
-        "weights": {
-          "currentForm": 0.55,
-          "scheduleDifficulty": 0.3,
-          "previousWinterForm": 0.15
-        },
-        "completedGames": 7
-      }
-    },
-    {
-      "leagueName": "Zamboner Crew",
-      "displayName": "Zamboner Crew",
-      "sourceTeamId": 13730,
-      "divisionNow": "The Cristillo Division",
-      "record": {
-        "gp": 6,
-        "w": 4,
-        "l": 1,
-        "t": 1,
-        "pts": 9,
-        "gf": 29,
-        "ga": 17
-      },
-      "winPct": 0.75,
-      "goalDiffPerGame": 2.0,
-      "opponentCurrentWinPctAverage": 0.4048,
-      "source": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13730&page_type=Adult",
-      "gamesConfirmed": 6,
-      "gamesVsTeamsNowInOtherDivisions": 0,
-      "opponentsByCurrentDivision": {
-        "The Cristillo Division": 6
-      },
-      "completedGames": [
-        {
-          "date": "2026-09-27",
-          "opponent": "Other Way",
-          "opponentCurrentDivision": "The Cristillo Division",
-          "gf": 6,
-          "ga": 6,
-          "result": "T"
-        },
-        {
-          "date": "2026-10-04",
-          "opponent": "Mid Ice Crisis",
-          "opponentCurrentDivision": "The Cristillo Division",
-          "gf": 2,
-          "ga": 6,
-          "result": "L"
-        },
-        {
-          "date": "2026-10-18",
-          "opponent": "Braves HC",
-          "opponentCurrentDivision": "The Cristillo Division",
-          "gf": 7,
-          "ga": 1,
-          "result": "W"
-        },
-        {
-          "date": "2026-10-25",
-          "opponent": "Dateline Predators",
-          "opponentCurrentDivision": "The Cristillo Division",
-          "gf": 4,
-          "ga": 0,
-          "result": "W"
-        },
-        {
-          "date": "2026-11-01",
-          "opponent": "Maplewolves",
-          "opponentCurrentDivision": "The Cristillo Division",
-          "gf": 7,
-          "ga": 3,
-          "result": "W"
-        },
-        {
-          "date": "2026-11-08",
-          "opponent": "Mohawks HC",
-          "opponentCurrentDivision": "The Cristillo Division",
-          "gf": 3,
-          "ga": 1,
-          "result": "W"
-        }
-      ],
-      "bravesMatchHistory": {
-        "state": "SOURCE_VERIFIED_H2H",
-        "sourceScope": "EXACT_NAME_ONLY_NO_UNREVIEWED_ALIASES",
-        "bravesAllTime": {
-          "gp": 1,
-          "w": 0,
-          "l": 1,
-          "t": 0,
-          "gf": 1,
-          "ga": 7
-        },
-        "bravesRegularSeason": {
-          "gp": 1,
-          "w": 0,
-          "l": 1,
-          "t": 0,
-          "gf": 1,
-          "ga": 7
-        },
-        "bravesPlayoffs": {
-          "gp": 0,
-          "w": 0,
-          "l": 0,
-          "t": 0,
-          "gf": 0,
-          "ga": 0
-        },
-        "originalLeagueName": "Zamboner Crew"
-      },
-      "previousWinter": null,
-      "strengthContext": {
-        "status": "SOURCE_SUPPORTED_DESCRIPTIVE_CONTEXT",
-        "contextIndex": 59.2,
-        "rank": 6,
-        "confidence": "LIMITED_SAMPLE",
-        "currentForm": 65.0,
-        "scheduleDifficulty": 45.8,
-        "priorWinterForm": null,
-        "weights": {
-          "currentForm": 0.7,
-          "scheduleDifficulty": 0.3,
-          "previousWinterForm": 0.0
-        },
-        "completedGames": 6
-      }
-    },
-    {
       "leagueName": "Mid Ice Crisis",
       "displayName": "Mid Ice Crisis",
       "sourceTeamId": 13708,
       "divisionNow": "The Cristillo Division",
       "record": {
-        "gp": 7,
-        "w": 4,
+        "gp": 8,
+        "w": 5,
         "l": 2,
         "t": 1,
-        "pts": 9,
-        "gf": 29,
+        "pts": 11,
+        "gf": 30,
         "ga": 17
       },
-      "winPct": 0.6429,
-      "goalDiffPerGame": 1.714,
-      "opponentCurrentWinPctAverage": 0.4745,
+      "winPct": 0.6875,
+      "goalDiffPerGame": 1.625,
+      "opponentCurrentWinPctAverage": 0.4732,
       "source": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13708&page_type=Adult",
-      "gamesConfirmed": 7,
+      "gamesConfirmed": 8,
       "gamesVsTeamsNowInOtherDivisions": 0,
       "opponentsByCurrentDivision": {
-        "The Cristillo Division": 7
+        "The Cristillo Division": 8
       },
       "completedGames": [
         {
@@ -1040,6 +800,14 @@
           "gf": 2,
           "ga": 2,
           "result": "T"
+        },
+        {
+          "date": "2026-11-15",
+          "opponent": "Zamboner Crew",
+          "opponentCurrentDivision": "The Cristillo Division",
+          "gf": 1,
+          "ga": 0,
+          "result": "W"
         }
       ],
       "bravesMatchHistory": {
@@ -1094,18 +862,18 @@
       },
       "strengthContext": {
         "status": "SOURCE_SUPPORTED_DESCRIPTIVE_CONTEXT",
-        "contextIndex": 54.5,
+        "contextIndex": 55.8,
         "rank": 8,
         "confidence": "LIMITED_SAMPLE",
-        "currentForm": 60.5,
-        "scheduleDifficulty": 49.6,
+        "currentForm": 62.8,
+        "scheduleDifficulty": 49.8,
         "priorWinterForm": 42.1,
         "weights": {
           "currentForm": 0.55,
           "scheduleDifficulty": 0.3,
           "previousWinterForm": 0.15
         },
-        "completedGames": 7
+        "completedGames": 8
       }
     },
     {
@@ -1114,22 +882,22 @@
       "sourceTeamId": 13680,
       "divisionNow": "The Cristillo Division",
       "record": {
-        "gp": 7,
-        "w": 4,
+        "gp": 8,
+        "w": 5,
         "l": 3,
         "t": 0,
-        "pts": 8,
-        "gf": 29,
+        "pts": 10,
+        "gf": 33,
         "ga": 24
       },
-      "winPct": 0.5714,
-      "goalDiffPerGame": 0.714,
-      "opponentCurrentWinPctAverage": 0.4847,
+      "winPct": 0.625,
+      "goalDiffPerGame": 1.125,
+      "opponentCurrentWinPctAverage": 0.4241,
       "source": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13680&page_type=Adult",
-      "gamesConfirmed": 7,
+      "gamesConfirmed": 8,
       "gamesVsTeamsNowInOtherDivisions": 0,
       "opponentsByCurrentDivision": {
-        "The Cristillo Division": 7
+        "The Cristillo Division": 8
       },
       "completedGames": [
         {
@@ -1187,6 +955,14 @@
           "gf": 1,
           "ga": 3,
           "result": "L"
+        },
+        {
+          "date": "2026-11-15",
+          "opponent": "Dateline Predators",
+          "opponentCurrentDivision": "The Cristillo Division",
+          "gf": 4,
+          "ga": 0,
+          "result": "W"
         }
       ],
       "bravesMatchHistory": {
@@ -1241,16 +1017,272 @@
       },
       "strengthContext": {
         "status": "SOURCE_SUPPORTED_DESCRIPTIVE_CONTEXT",
-        "contextIndex": 50.9,
-        "rank": 13,
+        "contextIndex": 51.8,
+        "rank": 11,
         "confidence": "LIMITED_SAMPLE",
-        "currentForm": 54.9,
-        "scheduleDifficulty": 49.4,
+        "currentForm": 58.6,
+        "scheduleDifficulty": 45.5,
         "priorWinterForm": 39.2,
         "weights": {
           "currentForm": 0.55,
           "scheduleDifficulty": 0.3,
           "previousWinterForm": 0.15
+        },
+        "completedGames": 8
+      }
+    },
+    {
+      "leagueName": "Other Way",
+      "displayName": "Other Way",
+      "sourceTeamId": 13704,
+      "divisionNow": "The Cristillo Division",
+      "record": {
+        "gp": 8,
+        "w": 4,
+        "l": 2,
+        "t": 2,
+        "pts": 10,
+        "gf": 45,
+        "ga": 41
+      },
+      "winPct": 0.625,
+      "goalDiffPerGame": 0.5,
+      "opponentCurrentWinPctAverage": 0.4319,
+      "source": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13704&page_type=Adult",
+      "gamesConfirmed": 8,
+      "gamesVsTeamsNowInOtherDivisions": 0,
+      "opponentsByCurrentDivision": {
+        "The Cristillo Division": 8
+      },
+      "completedGames": [
+        {
+          "date": "2026-09-20",
+          "opponent": "Mid Ice Crisis",
+          "opponentCurrentDivision": "The Cristillo Division",
+          "gf": 4,
+          "ga": 3,
+          "result": "W"
+        },
+        {
+          "date": "2026-09-27",
+          "opponent": "Zamboner Crew",
+          "opponentCurrentDivision": "The Cristillo Division",
+          "gf": 6,
+          "ga": 6,
+          "result": "T"
+        },
+        {
+          "date": "2026-10-04",
+          "opponent": "Big Bastones",
+          "opponentCurrentDivision": "The Cristillo Division",
+          "gf": 0,
+          "ga": 2,
+          "result": "L"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Dateline Predators",
+          "opponentCurrentDivision": "The Cristillo Division",
+          "gf": 8,
+          "ga": 5,
+          "result": "W"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Sugo Sundays",
+          "opponentCurrentDivision": "The Cristillo Division",
+          "gf": 7,
+          "ga": 7,
+          "result": "T"
+        },
+        {
+          "date": "2026-11-01",
+          "opponent": "Mohawks HC",
+          "opponentCurrentDivision": "The Cristillo Division",
+          "gf": 11,
+          "ga": 9,
+          "result": "W"
+        },
+        {
+          "date": "2026-11-08",
+          "opponent": "Braves HC",
+          "opponentCurrentDivision": "The Cristillo Division",
+          "gf": 6,
+          "ga": 5,
+          "result": "W"
+        },
+        {
+          "date": "2026-11-15",
+          "opponent": "Maplewolves",
+          "opponentCurrentDivision": "The Cristillo Division",
+          "gf": 3,
+          "ga": 4,
+          "result": "L"
+        }
+      ],
+      "bravesMatchHistory": {
+        "state": "NO_VERIFIED_BRAVES_MATCH_HISTORY"
+      },
+      "previousWinter": {
+        "division": "Prostar Division",
+        "record": {
+          "gp": 24,
+          "w": 6,
+          "l": 14,
+          "t": 4,
+          "pts": 16,
+          "gf": 67,
+          "ga": 101
+        },
+        "winPct": 0.3333,
+        "goalsDiffPerGame": -1.417,
+        "verifiedGameDetails": 24,
+        "completeGameDetails": true,
+        "officialRosterSharedIDs": 8,
+        "rosterContinuityShare": 0.667,
+        "association": "ROSTER_ID_CONTINUITY_CONFIRMED",
+        "originalPriorLeagueTeamId": 13101,
+        "sourceUrl": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=547&teamid=13101&page_type=Adult"
+      },
+      "strengthContext": {
+        "status": "SOURCE_SUPPORTED_DESCRIPTIVE_CONTEXT",
+        "contextIndex": 50.6,
+        "rank": 14,
+        "confidence": "LIMITED_SAMPLE",
+        "currentForm": 57.1,
+        "scheduleDifficulty": 46.1,
+        "priorWinterForm": 35.4,
+        "weights": {
+          "currentForm": 0.55,
+          "scheduleDifficulty": 0.3,
+          "previousWinterForm": 0.15
+        },
+        "completedGames": 8
+      }
+    },
+    {
+      "leagueName": "Zamboner Crew",
+      "displayName": "Zamboner Crew",
+      "sourceTeamId": 13730,
+      "divisionNow": "The Cristillo Division",
+      "record": {
+        "gp": 7,
+        "w": 4,
+        "l": 2,
+        "t": 1,
+        "pts": 9,
+        "gf": 29,
+        "ga": 18
+      },
+      "winPct": 0.6429,
+      "goalDiffPerGame": 1.571,
+      "opponentCurrentWinPctAverage": 0.4554,
+      "source": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13730&page_type=Adult",
+      "gamesConfirmed": 7,
+      "gamesVsTeamsNowInOtherDivisions": 0,
+      "opponentsByCurrentDivision": {
+        "The Cristillo Division": 7
+      },
+      "completedGames": [
+        {
+          "date": "2026-09-27",
+          "opponent": "Other Way",
+          "opponentCurrentDivision": "The Cristillo Division",
+          "gf": 6,
+          "ga": 6,
+          "result": "T"
+        },
+        {
+          "date": "2026-10-04",
+          "opponent": "Mid Ice Crisis",
+          "opponentCurrentDivision": "The Cristillo Division",
+          "gf": 2,
+          "ga": 6,
+          "result": "L"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Braves HC",
+          "opponentCurrentDivision": "The Cristillo Division",
+          "gf": 7,
+          "ga": 1,
+          "result": "W"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Dateline Predators",
+          "opponentCurrentDivision": "The Cristillo Division",
+          "gf": 4,
+          "ga": 0,
+          "result": "W"
+        },
+        {
+          "date": "2026-11-01",
+          "opponent": "Maplewolves",
+          "opponentCurrentDivision": "The Cristillo Division",
+          "gf": 7,
+          "ga": 3,
+          "result": "W"
+        },
+        {
+          "date": "2026-11-08",
+          "opponent": "Mohawks HC",
+          "opponentCurrentDivision": "The Cristillo Division",
+          "gf": 3,
+          "ga": 1,
+          "result": "W"
+        },
+        {
+          "date": "2026-11-15",
+          "opponent": "Mid Ice Crisis",
+          "opponentCurrentDivision": "The Cristillo Division",
+          "gf": 0,
+          "ga": 1,
+          "result": "L"
+        }
+      ],
+      "bravesMatchHistory": {
+        "state": "SOURCE_VERIFIED_H2H",
+        "sourceScope": "EXACT_NAME_ONLY_NO_UNREVIEWED_ALIASES",
+        "bravesAllTime": {
+          "gp": 1,
+          "w": 0,
+          "l": 1,
+          "t": 0,
+          "gf": 1,
+          "ga": 7
+        },
+        "bravesRegularSeason": {
+          "gp": 1,
+          "w": 0,
+          "l": 1,
+          "t": 0,
+          "gf": 1,
+          "ga": 7
+        },
+        "bravesPlayoffs": {
+          "gp": 0,
+          "w": 0,
+          "l": 0,
+          "t": 0,
+          "gf": 0,
+          "ga": 0
+        },
+        "originalLeagueName": "Zamboner Crew"
+      },
+      "previousWinter": null,
+      "strengthContext": {
+        "status": "SOURCE_SUPPORTED_DESCRIPTIVE_CONTEXT",
+        "contextIndex": 56.5,
+        "rank": 7,
+        "confidence": "LIMITED_SAMPLE",
+        "currentForm": 60.1,
+        "scheduleDifficulty": 48.1,
+        "priorWinterForm": null,
+        "weights": {
+          "currentForm": 0.7,
+          "scheduleDifficulty": 0.3,
+          "previousWinterForm": 0.0
         },
         "completedGames": 7
       }
@@ -1261,22 +1293,22 @@
       "sourceTeamId": 13709,
       "divisionNow": "The Cristillo Division",
       "record": {
-        "gp": 7,
-        "w": 3,
+        "gp": 8,
+        "w": 4,
         "l": 3,
         "t": 1,
-        "pts": 7,
-        "gf": 27,
-        "ga": 34
+        "pts": 9,
+        "gf": 33,
+        "ga": 38
       },
-      "winPct": 0.5,
-      "goalDiffPerGame": -1.0,
-      "opponentCurrentWinPctAverage": 0.5204,
+      "winPct": 0.5625,
+      "goalDiffPerGame": -0.625,
+      "opponentCurrentWinPctAverage": 0.4665,
       "source": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13709&page_type=Adult",
-      "gamesConfirmed": 7,
+      "gamesConfirmed": 8,
       "gamesVsTeamsNowInOtherDivisions": 2,
       "opponentsByCurrentDivision": {
-        "The Cristillo Division": 5,
+        "The Cristillo Division": 6,
         "Remax Division": 2
       },
       "completedGames": [
@@ -1335,6 +1367,14 @@
           "gf": 7,
           "ga": 9,
           "result": "L"
+        },
+        {
+          "date": "2026-11-15",
+          "opponent": "Braves HC",
+          "opponentCurrentDivision": "The Cristillo Division",
+          "gf": 6,
+          "ga": 4,
+          "result": "W"
         }
       ],
       "bravesMatchHistory": {
@@ -1369,166 +1409,18 @@
       "previousWinter": null,
       "strengthContext": {
         "status": "SOURCE_SUPPORTED_DESCRIPTIVE_CONTEXT",
-        "contextIndex": 48.8,
-        "rank": 16,
+        "contextIndex": 50.3,
+        "rank": 15,
         "confidence": "LIMITED_SAMPLE",
-        "currentForm": 47.6,
-        "scheduleDifficulty": 51.4,
+        "currentForm": 51.4,
+        "scheduleDifficulty": 47.9,
         "priorWinterForm": null,
         "weights": {
           "currentForm": 0.7,
           "scheduleDifficulty": 0.3,
           "previousWinterForm": 0.0
         },
-        "completedGames": 7
-      }
-    },
-    {
-      "leagueName": "Big Bastones",
-      "displayName": "Big Bastones",
-      "sourceTeamId": 13649,
-      "divisionNow": "The Cristillo Division",
-      "record": {
-        "gp": 7,
-        "w": 3,
-        "l": 4,
-        "t": 0,
-        "pts": 6,
-        "gf": 16,
-        "ga": 21
-      },
-      "winPct": 0.4286,
-      "goalDiffPerGame": -0.714,
-      "opponentCurrentWinPctAverage": 0.3469,
-      "source": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13649&page_type=Adult",
-      "gamesConfirmed": 7,
-      "gamesVsTeamsNowInOtherDivisions": 1,
-      "opponentsByCurrentDivision": {
-        "x-playoff Division": 1,
-        "The Cristillo Division": 6
-      },
-      "completedGames": [
-        {
-          "date": "2026-09-20",
-          "opponent": "Schmelts",
-          "opponentCurrentDivision": "x-playoff Division",
-          "gf": 1,
-          "ga": 0,
-          "result": "W"
-        },
-        {
-          "date": "2026-09-27",
-          "opponent": "Mid Ice Crisis",
-          "opponentCurrentDivision": "The Cristillo Division",
-          "gf": 2,
-          "ga": 4,
-          "result": "L"
-        },
-        {
-          "date": "2026-10-04",
-          "opponent": "Other Way",
-          "opponentCurrentDivision": "The Cristillo Division",
-          "gf": 2,
-          "ga": 0,
-          "result": "W"
-        },
-        {
-          "date": "2026-10-18",
-          "opponent": "Mohawks HC",
-          "opponentCurrentDivision": "The Cristillo Division",
-          "gf": 1,
-          "ga": 4,
-          "result": "L"
-        },
-        {
-          "date": "2026-10-25",
-          "opponent": "Braves HC",
-          "opponentCurrentDivision": "The Cristillo Division",
-          "gf": 4,
-          "ga": 6,
-          "result": "L"
-        },
-        {
-          "date": "2026-11-01",
-          "opponent": "Dateline Predators",
-          "opponentCurrentDivision": "The Cristillo Division",
-          "gf": 3,
-          "ga": 2,
-          "result": "W"
-        },
-        {
-          "date": "2026-11-08",
-          "opponent": "Maplewolves",
-          "opponentCurrentDivision": "The Cristillo Division",
-          "gf": 3,
-          "ga": 5,
-          "result": "L"
-        }
-      ],
-      "bravesMatchHistory": {
-        "state": "SOURCE_VERIFIED_H2H",
-        "sourceScope": "EXACT_NAME_ONLY_NO_UNREVIEWED_ALIASES",
-        "bravesAllTime": {
-          "gp": 8,
-          "w": 4,
-          "l": 3,
-          "t": 1,
-          "gf": 24,
-          "ga": 32
-        },
-        "bravesRegularSeason": {
-          "gp": 7,
-          "w": 4,
-          "l": 2,
-          "t": 1,
-          "gf": 24,
-          "ga": 27
-        },
-        "bravesPlayoffs": {
-          "gp": 1,
-          "w": 0,
-          "l": 1,
-          "t": 0,
-          "gf": 0,
-          "ga": 5
-        },
-        "originalLeagueName": "Big Bastones"
-      },
-      "previousWinter": {
-        "division": "Swiss Chalet Division",
-        "record": {
-          "gp": 24,
-          "w": 8,
-          "l": 11,
-          "t": 5,
-          "pts": 21,
-          "gf": 52,
-          "ga": 65
-        },
-        "winPct": 0.4375,
-        "goalsDiffPerGame": -0.542,
-        "verifiedGameDetails": 24,
-        "completeGameDetails": true,
-        "officialRosterSharedIDs": 10,
-        "rosterContinuityShare": 0.667,
-        "association": "ROSTER_ID_CONTINUITY_CONFIRMED",
-        "originalPriorLeagueTeamId": 13088,
-        "sourceUrl": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=547&teamid=13088&page_type=Adult"
-      },
-      "strengthContext": {
-        "status": "SOURCE_SUPPORTED_DESCRIPTIVE_CONTEXT",
-        "contextIndex": 44.3,
-        "rank": 20,
-        "confidence": "LIMITED_SAMPLE",
-        "currentForm": 45.1,
-        "scheduleDifficulty": 42.9,
-        "priorWinterForm": 44.5,
-        "weights": {
-          "currentForm": 0.55,
-          "scheduleDifficulty": 0.3,
-          "previousWinterForm": 0.15
-        },
-        "completedGames": 7
+        "completedGames": 8
       }
     },
     {
@@ -1537,23 +1429,23 @@
       "sourceTeamId": 13716,
       "divisionNow": "The Cristillo Division",
       "record": {
-        "gp": 7,
-        "w": 2,
+        "gp": 8,
+        "w": 3,
         "l": 4,
         "t": 1,
-        "pts": 5,
-        "gf": 20,
-        "ga": 25
+        "pts": 7,
+        "gf": 26,
+        "ga": 28
       },
-      "winPct": 0.3571,
-      "goalDiffPerGame": -0.714,
-      "opponentCurrentWinPctAverage": 0.5306,
+      "winPct": 0.4375,
+      "goalDiffPerGame": -0.25,
+      "opponentCurrentWinPctAverage": 0.5246,
       "source": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13716&page_type=Adult",
-      "gamesConfirmed": 7,
+      "gamesConfirmed": 8,
       "gamesVsTeamsNowInOtherDivisions": 6,
       "opponentsByCurrentDivision": {
         "Remax Division": 6,
-        "The Cristillo Division": 1
+        "The Cristillo Division": 2
       },
       "completedGames": [
         {
@@ -1611,6 +1503,14 @@
           "gf": 0,
           "ga": 3,
           "result": "L"
+        },
+        {
+          "date": "2026-11-15",
+          "opponent": "Big Bastones",
+          "opponentCurrentDivision": "The Cristillo Division",
+          "gf": 6,
+          "ga": 3,
+          "result": "W"
         }
       ],
       "bravesMatchHistory": {
@@ -1665,62 +1565,71 @@
       },
       "strengthContext": {
         "status": "SOURCE_SUPPORTED_DESCRIPTIVE_CONTEXT",
-        "contextIndex": 44.5,
+        "contextIndex": 47.0,
         "rank": 19,
         "confidence": "LIMITED_SAMPLE",
-        "currentForm": 41.9,
-        "scheduleDifficulty": 50.7,
+        "currentForm": 46.5,
+        "scheduleDifficulty": 50.9,
         "priorWinterForm": 41.2,
         "weights": {
           "currentForm": 0.55,
           "scheduleDifficulty": 0.3,
           "previousWinterForm": 0.15
         },
-        "completedGames": 7
+        "completedGames": 8
       }
     },
     {
-      "leagueName": "Dateline Predators",
-      "displayName": "Dateline Predators",
-      "sourceTeamId": 13668,
+      "leagueName": "Big Bastones",
+      "displayName": "Big Bastones",
+      "sourceTeamId": 13649,
       "divisionNow": "The Cristillo Division",
       "record": {
-        "gp": 7,
-        "w": 1,
+        "gp": 8,
+        "w": 3,
         "l": 5,
-        "t": 1,
-        "pts": 3,
-        "gf": 14,
-        "ga": 24
+        "t": 0,
+        "pts": 6,
+        "gf": 19,
+        "ga": 27
       },
-      "winPct": 0.2143,
-      "goalDiffPerGame": -1.429,
-      "opponentCurrentWinPctAverage": 0.5357,
-      "source": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13668&page_type=Adult",
-      "gamesConfirmed": 7,
-      "gamesVsTeamsNowInOtherDivisions": 0,
+      "winPct": 0.375,
+      "goalDiffPerGame": -1.0,
+      "opponentCurrentWinPctAverage": 0.3672,
+      "source": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13649&page_type=Adult",
+      "gamesConfirmed": 8,
+      "gamesVsTeamsNowInOtherDivisions": 1,
       "opponentsByCurrentDivision": {
+        "x-playoff Division": 1,
         "The Cristillo Division": 7
       },
       "completedGames": [
         {
           "date": "2026-09-20",
-          "opponent": "Braves HC",
-          "opponentCurrentDivision": "The Cristillo Division",
-          "gf": 3,
+          "opponent": "Schmelts",
+          "opponentCurrentDivision": "x-playoff Division",
+          "gf": 1,
           "ga": 0,
           "result": "W"
         },
         {
           "date": "2026-09-27",
-          "opponent": "Sugo Sundays",
+          "opponent": "Mid Ice Crisis",
           "opponentCurrentDivision": "The Cristillo Division",
-          "gf": 1,
-          "ga": 3,
+          "gf": 2,
+          "ga": 4,
           "result": "L"
         },
         {
           "date": "2026-10-04",
+          "opponent": "Other Way",
+          "opponentCurrentDivision": "The Cristillo Division",
+          "gf": 2,
+          "ga": 0,
+          "result": "W"
+        },
+        {
+          "date": "2026-10-18",
           "opponent": "Mohawks HC",
           "opponentCurrentDivision": "The Cristillo Division",
           "gf": 1,
@@ -1728,223 +1637,102 @@
           "result": "L"
         },
         {
-          "date": "2026-10-18",
-          "opponent": "Other Way",
-          "opponentCurrentDivision": "The Cristillo Division",
-          "gf": 5,
-          "ga": 8,
-          "result": "L"
-        },
-        {
           "date": "2026-10-25",
-          "opponent": "Zamboner Crew",
+          "opponent": "Braves HC",
           "opponentCurrentDivision": "The Cristillo Division",
-          "gf": 0,
-          "ga": 4,
+          "gf": 4,
+          "ga": 6,
           "result": "L"
         },
         {
           "date": "2026-11-01",
-          "opponent": "Big Bastones",
+          "opponent": "Dateline Predators",
           "opponentCurrentDivision": "The Cristillo Division",
-          "gf": 2,
-          "ga": 3,
-          "result": "L"
+          "gf": 3,
+          "ga": 2,
+          "result": "W"
         },
         {
           "date": "2026-11-08",
-          "opponent": "Mid Ice Crisis",
+          "opponent": "Maplewolves",
           "opponentCurrentDivision": "The Cristillo Division",
-          "gf": 2,
-          "ga": 2,
-          "result": "T"
+          "gf": 3,
+          "ga": 5,
+          "result": "L"
+        },
+        {
+          "date": "2026-11-15",
+          "opponent": "Young Guns",
+          "opponentCurrentDivision": "The Cristillo Division",
+          "gf": 3,
+          "ga": 6,
+          "result": "L"
         }
       ],
       "bravesMatchHistory": {
         "state": "SOURCE_VERIFIED_H2H",
         "sourceScope": "EXACT_NAME_ONLY_NO_UNREVIEWED_ALIASES",
         "bravesAllTime": {
-          "gp": 13,
-          "w": 8,
-          "l": 5,
-          "t": 0,
-          "gf": 47,
-          "ga": 35
+          "gp": 8,
+          "w": 4,
+          "l": 3,
+          "t": 1,
+          "gf": 24,
+          "ga": 32
         },
         "bravesRegularSeason": {
-          "gp": 11,
-          "w": 8,
-          "l": 3,
-          "t": 0,
-          "gf": 41,
-          "ga": 25
+          "gp": 7,
+          "w": 4,
+          "l": 2,
+          "t": 1,
+          "gf": 24,
+          "ga": 27
         },
         "bravesPlayoffs": {
-          "gp": 2,
+          "gp": 1,
           "w": 0,
-          "l": 2,
+          "l": 1,
           "t": 0,
-          "gf": 6,
-          "ga": 10
-        },
-        "originalLeagueName": "Dateline Predators"
-      },
-      "previousWinter": {
-        "division": "The Cristillo Division",
-        "record": {
-          "gp": 24,
-          "w": 7,
-          "l": 15,
-          "t": 2,
-          "pts": 16,
-          "gf": 45,
-          "ga": 95
-        },
-        "winPct": 0.3333,
-        "goalsDiffPerGame": -2.083,
-        "verifiedGameDetails": 24,
-        "completeGameDetails": true,
-        "officialRosterSharedIDs": 11,
-        "rosterContinuityShare": 0.688,
-        "association": "ROSTER_ID_CONTINUITY_CONFIRMED",
-        "originalPriorLeagueTeamId": 13089,
-        "sourceUrl": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=547&teamid=13089&page_type=Adult"
-      },
-      "strengthContext": {
-        "status": "SOURCE_SUPPORTED_DESCRIPTIVE_CONTEXT",
-        "contextIndex": 38.5,
-        "rank": 26,
-        "confidence": "LIMITED_SAMPLE",
-        "currentForm": 33.9,
-        "scheduleDifficulty": 49.4,
-        "priorWinterForm": 33.3,
-        "weights": {
-          "currentForm": 0.55,
-          "scheduleDifficulty": 0.3,
-          "previousWinterForm": 0.15
-        },
-        "completedGames": 7
-      }
-    },
-    {
-      "leagueName": "Braves HC",
-      "displayName": "Brave H.C.",
-      "sourceTeamId": 13679,
-      "divisionNow": "The Cristillo Division",
-      "record": {
-        "gp": 7,
-        "w": 1,
-        "l": 6,
-        "t": 0,
-        "pts": 2,
-        "gf": 19,
-        "ga": 36
-      },
-      "winPct": 0.1429,
-      "goalDiffPerGame": -2.429,
-      "opponentCurrentWinPctAverage": 0.5459,
-      "source": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13679&page_type=Adult",
-      "gamesConfirmed": 7,
-      "gamesVsTeamsNowInOtherDivisions": 0,
-      "opponentsByCurrentDivision": {
-        "The Cristillo Division": 7
-      },
-      "completedGames": [
-        {
-          "date": "2026-09-20",
-          "opponent": "Dateline Predators",
-          "opponentCurrentDivision": "The Cristillo Division",
           "gf": 0,
-          "ga": 3,
-          "result": "L"
+          "ga": 5
         },
-        {
-          "date": "2026-09-27",
-          "opponent": "Mohawks HC",
-          "opponentCurrentDivision": "The Cristillo Division",
-          "gf": 3,
-          "ga": 6,
-          "result": "L"
-        },
-        {
-          "date": "2026-10-04",
-          "opponent": "Sugo Sundays",
-          "opponentCurrentDivision": "The Cristillo Division",
-          "gf": 2,
-          "ga": 3,
-          "result": "L"
-        },
-        {
-          "date": "2026-10-18",
-          "opponent": "Zamboner Crew",
-          "opponentCurrentDivision": "The Cristillo Division",
-          "gf": 1,
-          "ga": 7,
-          "result": "L"
-        },
-        {
-          "date": "2026-10-25",
-          "opponent": "Big Bastones",
-          "opponentCurrentDivision": "The Cristillo Division",
-          "gf": 6,
-          "ga": 4,
-          "result": "W"
-        },
-        {
-          "date": "2026-11-01",
-          "opponent": "Mid Ice Crisis",
-          "opponentCurrentDivision": "The Cristillo Division",
-          "gf": 2,
-          "ga": 7,
-          "result": "L"
-        },
-        {
-          "date": "2026-11-08",
-          "opponent": "Other Way",
-          "opponentCurrentDivision": "The Cristillo Division",
-          "gf": 5,
-          "ga": 6,
-          "result": "L"
-        }
-      ],
-      "bravesMatchHistory": {
-        "state": "SELF_TEAM_NOT_APPLICABLE"
+        "originalLeagueName": "Big Bastones"
       },
       "previousWinter": {
-        "division": "The Cristillo Division",
+        "division": "Swiss Chalet Division",
         "record": {
           "gp": 24,
-          "w": 12,
-          "l": 9,
-          "t": 3,
-          "pts": 27,
-          "gf": 84,
-          "ga": 82
+          "w": 8,
+          "l": 11,
+          "t": 5,
+          "pts": 21,
+          "gf": 52,
+          "ga": 65
         },
-        "winPct": 0.5625,
-        "goalsDiffPerGame": 0.083,
+        "winPct": 0.4375,
+        "goalsDiffPerGame": -0.542,
         "verifiedGameDetails": 24,
         "completeGameDetails": true,
-        "officialRosterSharedIDs": 12,
-        "rosterContinuityShare": 0.6,
+        "officialRosterSharedIDs": 10,
+        "rosterContinuityShare": 0.667,
         "association": "ROSTER_ID_CONTINUITY_CONFIRMED",
-        "originalPriorLeagueTeamId": 13157,
-        "sourceUrl": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=547&teamid=13157&page_type=Adult"
+        "originalPriorLeagueTeamId": 13088,
+        "sourceUrl": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=547&teamid=13088&page_type=Adult"
       },
       "strengthContext": {
         "status": "SOURCE_SUPPORTED_DESCRIPTIVE_CONTEXT",
-        "contextIndex": 38.5,
-        "rank": 25,
+        "contextIndex": 42.5,
+        "rank": 21,
         "confidence": "LIMITED_SAMPLE",
-        "currentForm": 28.3,
-        "scheduleDifficulty": 49.4,
-        "priorWinterForm": 54.0,
+        "currentForm": 41.7,
+        "scheduleDifficulty": 43.2,
+        "priorWinterForm": 44.5,
         "weights": {
           "currentForm": 0.55,
           "scheduleDifficulty": 0.3,
           "previousWinterForm": 0.15
         },
-        "completedGames": 7
+        "completedGames": 8
       }
     },
     {
@@ -1953,23 +1741,23 @@
       "sourceTeamId": 13712,
       "divisionNow": "The Cristillo Division",
       "record": {
-        "gp": 7,
-        "w": 1,
+        "gp": 8,
+        "w": 2,
         "l": 6,
         "t": 0,
-        "pts": 2,
-        "gf": 18,
-        "ga": 31
+        "pts": 4,
+        "gf": 22,
+        "ga": 34
       },
-      "winPct": 0.1429,
-      "goalDiffPerGame": -1.857,
-      "opponentCurrentWinPctAverage": 0.5357,
+      "winPct": 0.25,
+      "goalDiffPerGame": -1.5,
+      "opponentCurrentWinPctAverage": 0.5368,
       "source": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13712&page_type=Adult",
-      "gamesConfirmed": 7,
+      "gamesConfirmed": 8,
       "gamesVsTeamsNowInOtherDivisions": 4,
       "opponentsByCurrentDivision": {
         "Remax Division": 4,
-        "The Cristillo Division": 3
+        "The Cristillo Division": 4
       },
       "completedGames": [
         {
@@ -2027,6 +1815,14 @@
           "gf": 5,
           "ga": 3,
           "result": "W"
+        },
+        {
+          "date": "2026-11-15",
+          "opponent": "Other Way",
+          "opponentCurrentDivision": "The Cristillo Division",
+          "gf": 4,
+          "ga": 3,
+          "result": "W"
         }
       ],
       "bravesMatchHistory": {
@@ -2081,18 +1877,302 @@
       },
       "strengthContext": {
         "status": "SOURCE_SUPPORTED_DESCRIPTIVE_CONTEXT",
-        "contextIndex": 38.9,
-        "rank": 24,
+        "contextIndex": 42.0,
+        "rank": 22,
         "confidence": "LIMITED_SAMPLE",
-        "currentForm": 29.7,
-        "scheduleDifficulty": 48.7,
+        "currentForm": 34.6,
+        "scheduleDifficulty": 50.0,
         "priorWinterForm": 53.4,
         "weights": {
           "currentForm": 0.55,
           "scheduleDifficulty": 0.3,
           "previousWinterForm": 0.15
         },
-        "completedGames": 7
+        "completedGames": 8
+      }
+    },
+    {
+      "leagueName": "Dateline Predators",
+      "displayName": "Dateline Predators",
+      "sourceTeamId": 13668,
+      "divisionNow": "The Cristillo Division",
+      "record": {
+        "gp": 8,
+        "w": 1,
+        "l": 6,
+        "t": 1,
+        "pts": 3,
+        "gf": 14,
+        "ga": 28
+      },
+      "winPct": 0.1875,
+      "goalDiffPerGame": -1.75,
+      "opponentCurrentWinPctAverage": 0.5335,
+      "source": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13668&page_type=Adult",
+      "gamesConfirmed": 8,
+      "gamesVsTeamsNowInOtherDivisions": 0,
+      "opponentsByCurrentDivision": {
+        "The Cristillo Division": 8
+      },
+      "completedGames": [
+        {
+          "date": "2026-09-20",
+          "opponent": "Braves HC",
+          "opponentCurrentDivision": "The Cristillo Division",
+          "gf": 3,
+          "ga": 0,
+          "result": "W"
+        },
+        {
+          "date": "2026-09-27",
+          "opponent": "Sugo Sundays",
+          "opponentCurrentDivision": "The Cristillo Division",
+          "gf": 1,
+          "ga": 3,
+          "result": "L"
+        },
+        {
+          "date": "2026-10-04",
+          "opponent": "Mohawks HC",
+          "opponentCurrentDivision": "The Cristillo Division",
+          "gf": 1,
+          "ga": 4,
+          "result": "L"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Other Way",
+          "opponentCurrentDivision": "The Cristillo Division",
+          "gf": 5,
+          "ga": 8,
+          "result": "L"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Zamboner Crew",
+          "opponentCurrentDivision": "The Cristillo Division",
+          "gf": 0,
+          "ga": 4,
+          "result": "L"
+        },
+        {
+          "date": "2026-11-01",
+          "opponent": "Big Bastones",
+          "opponentCurrentDivision": "The Cristillo Division",
+          "gf": 2,
+          "ga": 3,
+          "result": "L"
+        },
+        {
+          "date": "2026-11-08",
+          "opponent": "Mid Ice Crisis",
+          "opponentCurrentDivision": "The Cristillo Division",
+          "gf": 2,
+          "ga": 2,
+          "result": "T"
+        },
+        {
+          "date": "2026-11-15",
+          "opponent": "Mohawks HC",
+          "opponentCurrentDivision": "The Cristillo Division",
+          "gf": 0,
+          "ga": 4,
+          "result": "L"
+        }
+      ],
+      "bravesMatchHistory": {
+        "state": "SOURCE_VERIFIED_H2H",
+        "sourceScope": "EXACT_NAME_ONLY_NO_UNREVIEWED_ALIASES",
+        "bravesAllTime": {
+          "gp": 13,
+          "w": 8,
+          "l": 5,
+          "t": 0,
+          "gf": 47,
+          "ga": 35
+        },
+        "bravesRegularSeason": {
+          "gp": 11,
+          "w": 8,
+          "l": 3,
+          "t": 0,
+          "gf": 41,
+          "ga": 25
+        },
+        "bravesPlayoffs": {
+          "gp": 2,
+          "w": 0,
+          "l": 2,
+          "t": 0,
+          "gf": 6,
+          "ga": 10
+        },
+        "originalLeagueName": "Dateline Predators"
+      },
+      "previousWinter": {
+        "division": "The Cristillo Division",
+        "record": {
+          "gp": 24,
+          "w": 7,
+          "l": 15,
+          "t": 2,
+          "pts": 16,
+          "gf": 45,
+          "ga": 95
+        },
+        "winPct": 0.3333,
+        "goalsDiffPerGame": -2.083,
+        "verifiedGameDetails": 24,
+        "completeGameDetails": true,
+        "officialRosterSharedIDs": 11,
+        "rosterContinuityShare": 0.688,
+        "association": "ROSTER_ID_CONTINUITY_CONFIRMED",
+        "originalPriorLeagueTeamId": 13089,
+        "sourceUrl": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=547&teamid=13089&page_type=Adult"
+      },
+      "strengthContext": {
+        "status": "SOURCE_SUPPORTED_DESCRIPTIVE_CONTEXT",
+        "contextIndex": 36.9,
+        "rank": 26,
+        "confidence": "LIMITED_SAMPLE",
+        "currentForm": 31.0,
+        "scheduleDifficulty": 49.5,
+        "priorWinterForm": 33.3,
+        "weights": {
+          "currentForm": 0.55,
+          "scheduleDifficulty": 0.3,
+          "previousWinterForm": 0.15
+        },
+        "completedGames": 8
+      }
+    },
+    {
+      "leagueName": "Braves HC",
+      "displayName": "Brave H.C.",
+      "sourceTeamId": 13679,
+      "divisionNow": "The Cristillo Division",
+      "record": {
+        "gp": 8,
+        "w": 1,
+        "l": 7,
+        "t": 0,
+        "pts": 2,
+        "gf": 23,
+        "ga": 42
+      },
+      "winPct": 0.125,
+      "goalDiffPerGame": -2.375,
+      "opponentCurrentWinPctAverage": 0.5335,
+      "source": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13679&page_type=Adult",
+      "gamesConfirmed": 8,
+      "gamesVsTeamsNowInOtherDivisions": 0,
+      "opponentsByCurrentDivision": {
+        "The Cristillo Division": 8
+      },
+      "completedGames": [
+        {
+          "date": "2026-09-20",
+          "opponent": "Dateline Predators",
+          "opponentCurrentDivision": "The Cristillo Division",
+          "gf": 0,
+          "ga": 3,
+          "result": "L"
+        },
+        {
+          "date": "2026-09-27",
+          "opponent": "Mohawks HC",
+          "opponentCurrentDivision": "The Cristillo Division",
+          "gf": 3,
+          "ga": 6,
+          "result": "L"
+        },
+        {
+          "date": "2026-10-04",
+          "opponent": "Sugo Sundays",
+          "opponentCurrentDivision": "The Cristillo Division",
+          "gf": 2,
+          "ga": 3,
+          "result": "L"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Zamboner Crew",
+          "opponentCurrentDivision": "The Cristillo Division",
+          "gf": 1,
+          "ga": 7,
+          "result": "L"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Big Bastones",
+          "opponentCurrentDivision": "The Cristillo Division",
+          "gf": 6,
+          "ga": 4,
+          "result": "W"
+        },
+        {
+          "date": "2026-11-01",
+          "opponent": "Mid Ice Crisis",
+          "opponentCurrentDivision": "The Cristillo Division",
+          "gf": 2,
+          "ga": 7,
+          "result": "L"
+        },
+        {
+          "date": "2026-11-08",
+          "opponent": "Other Way",
+          "opponentCurrentDivision": "The Cristillo Division",
+          "gf": 5,
+          "ga": 6,
+          "result": "L"
+        },
+        {
+          "date": "2026-11-15",
+          "opponent": "Sugo Sundays",
+          "opponentCurrentDivision": "The Cristillo Division",
+          "gf": 4,
+          "ga": 6,
+          "result": "L"
+        }
+      ],
+      "bravesMatchHistory": {
+        "state": "SELF_TEAM_NOT_APPLICABLE"
+      },
+      "previousWinter": {
+        "division": "The Cristillo Division",
+        "record": {
+          "gp": 24,
+          "w": 12,
+          "l": 9,
+          "t": 3,
+          "pts": 27,
+          "gf": 84,
+          "ga": 82
+        },
+        "winPct": 0.5625,
+        "goalsDiffPerGame": 0.083,
+        "verifiedGameDetails": 24,
+        "completeGameDetails": true,
+        "officialRosterSharedIDs": 12,
+        "rosterContinuityShare": 0.6,
+        "association": "ROSTER_ID_CONTINUITY_CONFIRMED",
+        "originalPriorLeagueTeamId": 13157,
+        "sourceUrl": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=547&teamid=13157&page_type=Adult"
+      },
+      "strengthContext": {
+        "status": "SOURCE_SUPPORTED_DESCRIPTIVE_CONTEXT",
+        "contextIndex": 37.4,
+        "rank": 25,
+        "confidence": "LIMITED_SAMPLE",
+        "currentForm": 26.6,
+        "scheduleDifficulty": 48.9,
+        "priorWinterForm": 54.0,
+        "weights": {
+          "currentForm": 0.55,
+          "scheduleDifficulty": 0.3,
+          "previousWinterForm": 0.15
+        },
+        "completedGames": 8
       }
     },
     {
@@ -2252,7 +2332,7 @@
       "strengthContext": {
         "status": "SOURCE_SUPPORTED_DESCRIPTIVE_CONTEXT",
         "contextIndex": 57.9,
-        "rank": 7,
+        "rank": 6,
         "confidence": "LIMITED_SAMPLE",
         "currentForm": 60.7,
         "scheduleDifficulty": 51.2,
@@ -2337,7 +2417,7 @@
       "strengthContext": {
         "status": "SOURCE_SUPPORTED_DESCRIPTIVE_CONTEXT",
         "contextIndex": 43.0,
-        "rank": 21,
+        "rank": 20,
         "confidence": "LIMITED_SAMPLE",
         "currentForm": 40.6,
         "scheduleDifficulty": 48.8,
@@ -2422,7 +2502,7 @@
       "strengthContext": {
         "status": "SOURCE_SUPPORTED_DESCRIPTIVE_CONTEXT",
         "contextIndex": 39.0,
-        "rank": 23,
+        "rank": 24,
         "confidence": "LIMITED_SAMPLE",
         "currentForm": 33.8,
         "scheduleDifficulty": 51.2,
@@ -2451,7 +2531,7 @@
       },
       "winPct": 0.7857,
       "goalDiffPerGame": 2.0,
-      "opponentCurrentWinPctAverage": 0.5204,
+      "opponentCurrentWinPctAverage": 0.5408,
       "source": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13714&page_type=Adult",
       "gamesConfirmed": 7,
       "gamesVsTeamsNowInOtherDivisions": 2,
@@ -2543,11 +2623,11 @@
       },
       "strengthContext": {
         "status": "SOURCE_SUPPORTED_DESCRIPTIVE_CONTEXT",
-        "contextIndex": 62.3,
+        "contextIndex": 62.7,
         "rank": 1,
         "confidence": "LIMITED_SAMPLE",
         "currentForm": 67.5,
-        "scheduleDifficulty": 54.3,
+        "scheduleDifficulty": 55.6,
         "priorWinterForm": 59.2,
         "weights": {
           "currentForm": 0.55,
@@ -2573,7 +2653,7 @@
       },
       "winPct": 0.6429,
       "goalDiffPerGame": 1.143,
-      "opponentCurrentWinPctAverage": 0.5102,
+      "opponentCurrentWinPctAverage": 0.537,
       "source": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13717&page_type=Adult",
       "gamesConfirmed": 7,
       "gamesVsTeamsNowInOtherDivisions": 4,
@@ -2666,11 +2746,11 @@
       },
       "strengthContext": {
         "status": "SOURCE_SUPPORTED_DESCRIPTIVE_CONTEXT",
-        "contextIndex": 59.4,
+        "contextIndex": 60.0,
         "rank": 5,
         "confidence": "LIMITED_SAMPLE",
         "currentForm": 59.1,
-        "scheduleDifficulty": 52.1,
+        "scheduleDifficulty": 53.8,
         "priorWinterForm": 75.4,
         "weights": {
           "currentForm": 0.55,
@@ -2696,7 +2776,7 @@
       },
       "winPct": 0.5714,
       "goalDiffPerGame": 0.857,
-      "opponentCurrentWinPctAverage": 0.5,
+      "opponentCurrentWinPctAverage": 0.5268,
       "source": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13711&page_type=Adult",
       "gamesConfirmed": 7,
       "gamesVsTeamsNowInOtherDivisions": 2,
@@ -2788,11 +2868,11 @@
       },
       "strengthContext": {
         "status": "SOURCE_SUPPORTED_DESCRIPTIVE_CONTEXT",
-        "contextIndex": 52.9,
-        "rank": 10,
+        "contextIndex": 53.4,
+        "rank": 9,
         "confidence": "LIMITED_SAMPLE",
         "currentForm": 55.2,
-        "scheduleDifficulty": 50.7,
+        "scheduleDifficulty": 52.3,
         "priorWinterForm": 48.8,
         "weights": {
           "currentForm": 0.55,
@@ -2818,7 +2898,7 @@
       },
       "winPct": 0.5714,
       "goalDiffPerGame": -0.143,
-      "opponentCurrentWinPctAverage": 0.551,
+      "opponentCurrentWinPctAverage": 0.5714,
       "source": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13715&page_type=Adult",
       "gamesConfirmed": 7,
       "gamesVsTeamsNowInOtherDivisions": 2,
@@ -2910,11 +2990,11 @@
       },
       "strengthContext": {
         "status": "SOURCE_SUPPORTED_DESCRIPTIVE_CONTEXT",
-        "contextIndex": 52.6,
-        "rank": 11,
+        "contextIndex": 53.0,
+        "rank": 10,
         "confidence": "LIMITED_SAMPLE",
         "currentForm": 52.8,
-        "scheduleDifficulty": 54.3,
+        "scheduleDifficulty": 55.6,
         "priorWinterForm": 48.4,
         "weights": {
           "currentForm": 0.55,
@@ -2940,7 +3020,7 @@
       },
       "winPct": 0.5,
       "goalDiffPerGame": 0.857,
-      "opponentCurrentWinPctAverage": 0.4592,
+      "opponentCurrentWinPctAverage": 0.486,
       "source": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13710&page_type=Adult",
       "gamesConfirmed": 7,
       "gamesVsTeamsNowInOtherDivisions": 2,
@@ -3058,11 +3138,11 @@
       },
       "strengthContext": {
         "status": "SOURCE_SUPPORTED_DESCRIPTIVE_CONTEXT",
-        "contextIndex": 50.2,
-        "rank": 14,
+        "contextIndex": 50.7,
+        "rank": 13,
         "confidence": "LIMITED_SAMPLE",
         "currentForm": 52.0,
-        "scheduleDifficulty": 47.1,
+        "scheduleDifficulty": 48.8,
         "priorWinterForm": 49.5,
         "weights": {
           "currentForm": 0.55,
@@ -3088,7 +3168,7 @@
       },
       "winPct": 0.5,
       "goalDiffPerGame": -1.286,
-      "opponentCurrentWinPctAverage": 0.4592,
+      "opponentCurrentWinPctAverage": 0.486,
       "source": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13713&page_type=Adult",
       "gamesConfirmed": 7,
       "gamesVsTeamsNowInOtherDivisions": 2,
@@ -3206,11 +3286,11 @@
       },
       "strengthContext": {
         "status": "SOURCE_SUPPORTED_DESCRIPTIVE_CONTEXT",
-        "contextIndex": 47.0,
+        "contextIndex": 47.5,
         "rank": 18,
         "confidence": "LIMITED_SAMPLE",
         "currentForm": 46.9,
-        "scheduleDifficulty": 47.1,
+        "scheduleDifficulty": 48.9,
         "priorWinterForm": 47.0,
         "weights": {
           "currentForm": 0.55,
@@ -3309,7 +3389,7 @@
       "strengthContext": {
         "status": "SOURCE_SUPPORTED_DESCRIPTIVE_CONTEXT",
         "contextIndex": 39.5,
-        "rank": 22,
+        "rank": 23,
         "confidence": "LIMITED_SAMPLE",
         "currentForm": 34.7,
         "scheduleDifficulty": 50.7,
@@ -3338,7 +3418,7 @@
       },
       "winPct": 0.0,
       "goalDiffPerGame": -1.0,
-      "opponentCurrentWinPctAverage": 0.4286,
+      "opponentCurrentWinPctAverage": 0.375,
       "source": "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13707&page_type=Adult",
       "gamesConfirmed": 1,
       "gamesVsTeamsNowInOtherDivisions": 1,
@@ -3387,11 +3467,11 @@
       "previousWinter": null,
       "strengthContext": {
         "status": "NONCOMPETITIVE_DIVISION_REFERENCE",
-        "contextIndex": 41.6,
+        "contextIndex": 40.5,
         "rank": null,
         "confidence": "EARLY_SAMPLE",
         "currentForm": 42.2,
-        "scheduleDifficulty": 40.0,
+        "scheduleDifficulty": 36.4,
         "priorWinterForm": null,
         "weights": {
           "currentForm": 0.7,
@@ -3825,7 +3905,7 @@
     ],
     "previouslyTrackedTeams": [],
     "changeState": "SOURCE_OBSERVATION_NOT_AN_OFFICIAL_RESCHEDULE_DATE",
-    "latestSnapshotUTC": "2026-11-15T14:15:07.392375+00:00",
+    "latestSnapshotUTC": "2026-11-16T14:15:07.766077+00:00",
     "eventsRecorded": 5,
     "incomingCristilloEventsRecorded": 3,
     "departedTeamProfilesRetained": 0
@@ -3862,7 +3942,7 @@
     "schema": "brave-hc-svhl-context-trend-ledger/v1",
     "sourceScope": "ACCEPTED_PUBLIC_SNAPSHOT_CHANGES_NOT_PREDICTED_FORM",
     "leagueId": 570,
-    "latestSnapshotUTC": "2026-11-15T14:15:07.392375+00:00",
+    "latestSnapshotUTC": "2026-11-16T14:15:07.766077+00:00",
     "teams": [
       {
         "sourceTeamId": 13717,
@@ -4009,6 +4089,31 @@
             "contextIndex": 59.4,
             "currentForm": 59.1,
             "scheduleDifficulty": 52.1,
+            "priorWinterForm": 75.4,
+            "rank": 5,
+            "confidence": "LIMITED_SAMPLE",
+            "weights": {
+              "currentForm": 0.55,
+              "scheduleDifficulty": 0.3,
+              "previousWinterForm": 0.15
+            }
+          },
+          {
+            "observedAtUTC": "2026-11-16T14:15:07.766077+00:00",
+            "sourceSHA256": "b42f72d213d4e09a4cef6bea6084fdd1aacb635831e95e0dea8fcb18c9912a2f",
+            "divisionNow": "Remax Division",
+            "record": {
+              "gp": 7,
+              "w": 4,
+              "l": 2,
+              "t": 1,
+              "pts": 9,
+              "gf": 25,
+              "ga": 17
+            },
+            "contextIndex": 60.0,
+            "currentForm": 59.1,
+            "scheduleDifficulty": 53.8,
             "priorWinterForm": 75.4,
             "rank": 5,
             "confidence": "LIMITED_SAMPLE",
@@ -4797,6 +4902,31 @@
               "scheduleDifficulty": 0.3,
               "previousWinterForm": 0.15
             }
+          },
+          {
+            "observedAtUTC": "2026-11-16T14:15:07.766077+00:00",
+            "sourceSHA256": "b42f72d213d4e09a4cef6bea6084fdd1aacb635831e95e0dea8fcb18c9912a2f",
+            "divisionNow": "Fazzari Partners",
+            "record": {
+              "gp": 7,
+              "w": 1,
+              "l": 3,
+              "t": 3,
+              "pts": 5,
+              "gf": 18,
+              "ga": 18
+            },
+            "contextIndex": 49.8,
+            "currentForm": 43.6,
+            "scheduleDifficulty": 53.6,
+            "priorWinterForm": 64.7,
+            "rank": 16,
+            "confidence": "LIMITED_SAMPLE",
+            "weights": {
+              "currentForm": 0.55,
+              "scheduleDifficulty": 0.3,
+              "previousWinterForm": 0.15
+            }
           }
         ]
       },
@@ -4945,6 +5075,31 @@
             "contextIndex": 54.5,
             "currentForm": 60.5,
             "scheduleDifficulty": 49.6,
+            "priorWinterForm": 42.1,
+            "rank": 8,
+            "confidence": "LIMITED_SAMPLE",
+            "weights": {
+              "currentForm": 0.55,
+              "scheduleDifficulty": 0.3,
+              "previousWinterForm": 0.15
+            }
+          },
+          {
+            "observedAtUTC": "2026-11-16T14:15:07.766077+00:00",
+            "sourceSHA256": "b42f72d213d4e09a4cef6bea6084fdd1aacb635831e95e0dea8fcb18c9912a2f",
+            "divisionNow": "The Cristillo Division",
+            "record": {
+              "gp": 8,
+              "w": 5,
+              "l": 2,
+              "t": 1,
+              "pts": 11,
+              "gf": 30,
+              "ga": 17
+            },
+            "contextIndex": 55.8,
+            "currentForm": 62.8,
+            "scheduleDifficulty": 49.8,
             "priorWinterForm": 42.1,
             "rank": 8,
             "confidence": "LIMITED_SAMPLE",
@@ -5109,6 +5264,31 @@
               "scheduleDifficulty": 0.3,
               "previousWinterForm": 0.15
             }
+          },
+          {
+            "observedAtUTC": "2026-11-16T14:15:07.766077+00:00",
+            "sourceSHA256": "b42f72d213d4e09a4cef6bea6084fdd1aacb635831e95e0dea8fcb18c9912a2f",
+            "divisionNow": "The Cristillo Division",
+            "record": {
+              "gp": 8,
+              "w": 5,
+              "l": 3,
+              "t": 0,
+              "pts": 10,
+              "gf": 33,
+              "ga": 24
+            },
+            "contextIndex": 51.8,
+            "currentForm": 58.6,
+            "scheduleDifficulty": 45.5,
+            "priorWinterForm": 39.2,
+            "rank": 11,
+            "confidence": "LIMITED_SAMPLE",
+            "weights": {
+              "currentForm": 0.55,
+              "scheduleDifficulty": 0.3,
+              "previousWinterForm": 0.15
+            }
           }
         ]
       },
@@ -5265,6 +5445,31 @@
               "scheduleDifficulty": 0.3,
               "previousWinterForm": 0.15
             }
+          },
+          {
+            "observedAtUTC": "2026-11-16T14:15:07.766077+00:00",
+            "sourceSHA256": "b42f72d213d4e09a4cef6bea6084fdd1aacb635831e95e0dea8fcb18c9912a2f",
+            "divisionNow": "The Cristillo Division",
+            "record": {
+              "gp": 8,
+              "w": 4,
+              "l": 2,
+              "t": 2,
+              "pts": 10,
+              "gf": 45,
+              "ga": 41
+            },
+            "contextIndex": 50.6,
+            "currentForm": 57.1,
+            "scheduleDifficulty": 46.1,
+            "priorWinterForm": 35.4,
+            "rank": 14,
+            "confidence": "LIMITED_SAMPLE",
+            "weights": {
+              "currentForm": 0.55,
+              "scheduleDifficulty": 0.3,
+              "previousWinterForm": 0.15
+            }
           }
         ]
       },
@@ -5396,6 +5601,31 @@
               "scheduleDifficulty": 0.3,
               "previousWinterForm": 0.15
             }
+          },
+          {
+            "observedAtUTC": "2026-11-16T14:15:07.766077+00:00",
+            "sourceSHA256": "b42f72d213d4e09a4cef6bea6084fdd1aacb635831e95e0dea8fcb18c9912a2f",
+            "divisionNow": "The Cristillo Division",
+            "record": {
+              "gp": 8,
+              "w": 3,
+              "l": 5,
+              "t": 0,
+              "pts": 6,
+              "gf": 19,
+              "ga": 27
+            },
+            "contextIndex": 42.5,
+            "currentForm": 41.7,
+            "scheduleDifficulty": 43.2,
+            "priorWinterForm": 44.5,
+            "rank": 21,
+            "confidence": "LIMITED_SAMPLE",
+            "weights": {
+              "currentForm": 0.55,
+              "scheduleDifficulty": 0.3,
+              "previousWinterForm": 0.15
+            }
           }
         ]
       },
@@ -5496,6 +5726,31 @@
             "scheduleDifficulty": 45.8,
             "priorWinterForm": null,
             "rank": 6,
+            "confidence": "LIMITED_SAMPLE",
+            "weights": {
+              "currentForm": 0.7,
+              "scheduleDifficulty": 0.3,
+              "previousWinterForm": 0.0
+            }
+          },
+          {
+            "observedAtUTC": "2026-11-16T14:15:07.766077+00:00",
+            "sourceSHA256": "b42f72d213d4e09a4cef6bea6084fdd1aacb635831e95e0dea8fcb18c9912a2f",
+            "divisionNow": "The Cristillo Division",
+            "record": {
+              "gp": 7,
+              "w": 4,
+              "l": 2,
+              "t": 1,
+              "pts": 9,
+              "gf": 29,
+              "ga": 18
+            },
+            "contextIndex": 56.5,
+            "currentForm": 60.1,
+            "scheduleDifficulty": 48.1,
+            "priorWinterForm": null,
+            "rank": 7,
             "confidence": "LIMITED_SAMPLE",
             "weights": {
               "currentForm": 0.7,
@@ -5650,6 +5905,31 @@
             "contextIndex": 38.5,
             "currentForm": 33.9,
             "scheduleDifficulty": 49.4,
+            "priorWinterForm": 33.3,
+            "rank": 26,
+            "confidence": "LIMITED_SAMPLE",
+            "weights": {
+              "currentForm": 0.55,
+              "scheduleDifficulty": 0.3,
+              "previousWinterForm": 0.15
+            }
+          },
+          {
+            "observedAtUTC": "2026-11-16T14:15:07.766077+00:00",
+            "sourceSHA256": "b42f72d213d4e09a4cef6bea6084fdd1aacb635831e95e0dea8fcb18c9912a2f",
+            "divisionNow": "The Cristillo Division",
+            "record": {
+              "gp": 8,
+              "w": 1,
+              "l": 6,
+              "t": 1,
+              "pts": 3,
+              "gf": 14,
+              "ga": 28
+            },
+            "contextIndex": 36.9,
+            "currentForm": 31.0,
+            "scheduleDifficulty": 49.5,
             "priorWinterForm": 33.3,
             "rank": 26,
             "confidence": "LIMITED_SAMPLE",
@@ -5814,6 +6094,31 @@
               "scheduleDifficulty": 0.3,
               "previousWinterForm": 0.15
             }
+          },
+          {
+            "observedAtUTC": "2026-11-16T14:15:07.766077+00:00",
+            "sourceSHA256": "b42f72d213d4e09a4cef6bea6084fdd1aacb635831e95e0dea8fcb18c9912a2f",
+            "divisionNow": "The Cristillo Division",
+            "record": {
+              "gp": 8,
+              "w": 2,
+              "l": 6,
+              "t": 0,
+              "pts": 4,
+              "gf": 22,
+              "ga": 34
+            },
+            "contextIndex": 42.0,
+            "currentForm": 34.6,
+            "scheduleDifficulty": 50.0,
+            "priorWinterForm": 53.4,
+            "rank": 22,
+            "confidence": "LIMITED_SAMPLE",
+            "weights": {
+              "currentForm": 0.55,
+              "scheduleDifficulty": 0.3,
+              "previousWinterForm": 0.15
+            }
           }
         ]
       },
@@ -5962,6 +6267,31 @@
             "contextIndex": 38.5,
             "currentForm": 28.3,
             "scheduleDifficulty": 49.4,
+            "priorWinterForm": 54.0,
+            "rank": 25,
+            "confidence": "LIMITED_SAMPLE",
+            "weights": {
+              "currentForm": 0.55,
+              "scheduleDifficulty": 0.3,
+              "previousWinterForm": 0.15
+            }
+          },
+          {
+            "observedAtUTC": "2026-11-16T14:15:07.766077+00:00",
+            "sourceSHA256": "b42f72d213d4e09a4cef6bea6084fdd1aacb635831e95e0dea8fcb18c9912a2f",
+            "divisionNow": "The Cristillo Division",
+            "record": {
+              "gp": 8,
+              "w": 1,
+              "l": 7,
+              "t": 0,
+              "pts": 2,
+              "gf": 23,
+              "ga": 42
+            },
+            "contextIndex": 37.4,
+            "currentForm": 26.6,
+            "scheduleDifficulty": 48.9,
             "priorWinterForm": 54.0,
             "rank": 25,
             "confidence": "LIMITED_SAMPLE",
@@ -6182,6 +6512,31 @@
               "scheduleDifficulty": 0.3,
               "previousWinterForm": 0.0
             }
+          },
+          {
+            "observedAtUTC": "2026-11-16T14:15:07.766077+00:00",
+            "sourceSHA256": "b42f72d213d4e09a4cef6bea6084fdd1aacb635831e95e0dea8fcb18c9912a2f",
+            "divisionNow": "VAHL Division",
+            "record": {
+              "gp": 5,
+              "w": 1,
+              "l": 3,
+              "t": 1,
+              "pts": 3,
+              "gf": 14,
+              "ga": 18
+            },
+            "contextIndex": 43.0,
+            "currentForm": 40.6,
+            "scheduleDifficulty": 48.8,
+            "priorWinterForm": null,
+            "rank": 20,
+            "confidence": "LIMITED_SAMPLE",
+            "weights": {
+              "currentForm": 0.7,
+              "scheduleDifficulty": 0.3,
+              "previousWinterForm": 0.0
+            }
           }
         ]
       },
@@ -6313,6 +6668,31 @@
               "scheduleDifficulty": 0.3,
               "previousWinterForm": 0.0
             }
+          },
+          {
+            "observedAtUTC": "2026-11-16T14:15:07.766077+00:00",
+            "sourceSHA256": "b42f72d213d4e09a4cef6bea6084fdd1aacb635831e95e0dea8fcb18c9912a2f",
+            "divisionNow": "VAHL Division",
+            "record": {
+              "gp": 5,
+              "w": 3,
+              "l": 1,
+              "t": 1,
+              "pts": 7,
+              "gf": 18,
+              "ga": 11
+            },
+            "contextIndex": 57.9,
+            "currentForm": 60.7,
+            "scheduleDifficulty": 51.2,
+            "priorWinterForm": null,
+            "rank": 6,
+            "confidence": "LIMITED_SAMPLE",
+            "weights": {
+              "currentForm": 0.7,
+              "scheduleDifficulty": 0.3,
+              "previousWinterForm": 0.0
+            }
           }
         ]
       },
@@ -6438,6 +6818,31 @@
             "scheduleDifficulty": 51.2,
             "priorWinterForm": null,
             "rank": 23,
+            "confidence": "LIMITED_SAMPLE",
+            "weights": {
+              "currentForm": 0.7,
+              "scheduleDifficulty": 0.3,
+              "previousWinterForm": 0.0
+            }
+          },
+          {
+            "observedAtUTC": "2026-11-16T14:15:07.766077+00:00",
+            "sourceSHA256": "b42f72d213d4e09a4cef6bea6084fdd1aacb635831e95e0dea8fcb18c9912a2f",
+            "divisionNow": "VAHL Division",
+            "record": {
+              "gp": 5,
+              "w": 1,
+              "l": 4,
+              "t": 0,
+              "pts": 2,
+              "gf": 7,
+              "ga": 18
+            },
+            "contextIndex": 39.0,
+            "currentForm": 33.8,
+            "scheduleDifficulty": 51.2,
+            "priorWinterForm": null,
+            "rank": 24,
             "confidence": "LIMITED_SAMPLE",
             "weights": {
               "currentForm": 0.7,
@@ -6594,6 +6999,31 @@
             "scheduleDifficulty": 50.7,
             "priorWinterForm": 48.8,
             "rank": 10,
+            "confidence": "LIMITED_SAMPLE",
+            "weights": {
+              "currentForm": 0.55,
+              "scheduleDifficulty": 0.3,
+              "previousWinterForm": 0.15
+            }
+          },
+          {
+            "observedAtUTC": "2026-11-16T14:15:07.766077+00:00",
+            "sourceSHA256": "b42f72d213d4e09a4cef6bea6084fdd1aacb635831e95e0dea8fcb18c9912a2f",
+            "divisionNow": "Remax Division",
+            "record": {
+              "gp": 7,
+              "w": 4,
+              "l": 3,
+              "t": 0,
+              "pts": 8,
+              "gf": 23,
+              "ga": 17
+            },
+            "contextIndex": 53.4,
+            "currentForm": 55.2,
+            "scheduleDifficulty": 52.3,
+            "priorWinterForm": 48.8,
+            "rank": 9,
             "confidence": "LIMITED_SAMPLE",
             "weights": {
               "currentForm": 0.55,
@@ -6781,6 +7211,31 @@
               "scheduleDifficulty": 0.3,
               "previousWinterForm": 0.0
             }
+          },
+          {
+            "observedAtUTC": "2026-11-16T14:15:07.766077+00:00",
+            "sourceSHA256": "b42f72d213d4e09a4cef6bea6084fdd1aacb635831e95e0dea8fcb18c9912a2f",
+            "divisionNow": "The Cristillo Division",
+            "record": {
+              "gp": 8,
+              "w": 4,
+              "l": 3,
+              "t": 1,
+              "pts": 9,
+              "gf": 33,
+              "ga": 38
+            },
+            "contextIndex": 50.3,
+            "currentForm": 51.4,
+            "scheduleDifficulty": 47.9,
+            "priorWinterForm": null,
+            "rank": 15,
+            "confidence": "LIMITED_SAMPLE",
+            "weights": {
+              "currentForm": 0.7,
+              "scheduleDifficulty": 0.3,
+              "previousWinterForm": 0.0
+            }
           }
         ]
       },
@@ -6937,6 +7392,31 @@
               "scheduleDifficulty": 0.3,
               "previousWinterForm": 0.15
             }
+          },
+          {
+            "observedAtUTC": "2026-11-16T14:15:07.766077+00:00",
+            "sourceSHA256": "b42f72d213d4e09a4cef6bea6084fdd1aacb635831e95e0dea8fcb18c9912a2f",
+            "divisionNow": "Remax Division",
+            "record": {
+              "gp": 7,
+              "w": 3,
+              "l": 3,
+              "t": 1,
+              "pts": 7,
+              "gf": 20,
+              "ga": 29
+            },
+            "contextIndex": 47.5,
+            "currentForm": 46.9,
+            "scheduleDifficulty": 48.9,
+            "priorWinterForm": 47.0,
+            "rank": 18,
+            "confidence": "LIMITED_SAMPLE",
+            "weights": {
+              "currentForm": 0.55,
+              "scheduleDifficulty": 0.3,
+              "previousWinterForm": 0.15
+            }
           }
         ]
       },
@@ -7085,6 +7565,31 @@
             "contextIndex": 62.3,
             "currentForm": 67.5,
             "scheduleDifficulty": 54.3,
+            "priorWinterForm": 59.2,
+            "rank": 1,
+            "confidence": "LIMITED_SAMPLE",
+            "weights": {
+              "currentForm": 0.55,
+              "scheduleDifficulty": 0.3,
+              "previousWinterForm": 0.15
+            }
+          },
+          {
+            "observedAtUTC": "2026-11-16T14:15:07.766077+00:00",
+            "sourceSHA256": "b42f72d213d4e09a4cef6bea6084fdd1aacb635831e95e0dea8fcb18c9912a2f",
+            "divisionNow": "Remax Division",
+            "record": {
+              "gp": 7,
+              "w": 5,
+              "l": 1,
+              "t": 1,
+              "pts": 11,
+              "gf": 27,
+              "ga": 13
+            },
+            "contextIndex": 62.7,
+            "currentForm": 67.5,
+            "scheduleDifficulty": 55.6,
             "priorWinterForm": 59.2,
             "rank": 1,
             "confidence": "LIMITED_SAMPLE",
@@ -7274,6 +7779,31 @@
               "scheduleDifficulty": 0.3,
               "previousWinterForm": 0.15
             }
+          },
+          {
+            "observedAtUTC": "2026-11-16T14:15:07.766077+00:00",
+            "sourceSHA256": "b42f72d213d4e09a4cef6bea6084fdd1aacb635831e95e0dea8fcb18c9912a2f",
+            "divisionNow": "The Cristillo Division",
+            "record": {
+              "gp": 8,
+              "w": 3,
+              "l": 4,
+              "t": 1,
+              "pts": 7,
+              "gf": 26,
+              "ga": 28
+            },
+            "contextIndex": 47.0,
+            "currentForm": 46.5,
+            "scheduleDifficulty": 50.9,
+            "priorWinterForm": 41.2,
+            "rank": 19,
+            "confidence": "LIMITED_SAMPLE",
+            "weights": {
+              "currentForm": 0.55,
+              "scheduleDifficulty": 0.3,
+              "previousWinterForm": 0.15
+            }
           }
         ]
       },
@@ -7424,6 +7954,31 @@
             "scheduleDifficulty": 54.3,
             "priorWinterForm": 48.4,
             "rank": 11,
+            "confidence": "LIMITED_SAMPLE",
+            "weights": {
+              "currentForm": 0.55,
+              "scheduleDifficulty": 0.3,
+              "previousWinterForm": 0.15
+            }
+          },
+          {
+            "observedAtUTC": "2026-11-16T14:15:07.766077+00:00",
+            "sourceSHA256": "b42f72d213d4e09a4cef6bea6084fdd1aacb635831e95e0dea8fcb18c9912a2f",
+            "divisionNow": "Remax Division",
+            "record": {
+              "gp": 7,
+              "w": 3,
+              "l": 2,
+              "t": 2,
+              "pts": 8,
+              "gf": 26,
+              "ga": 27
+            },
+            "contextIndex": 53.0,
+            "currentForm": 52.8,
+            "scheduleDifficulty": 55.6,
+            "priorWinterForm": 48.4,
+            "rank": 10,
             "confidence": "LIMITED_SAMPLE",
             "weights": {
               "currentForm": 0.55,
@@ -7586,6 +8141,31 @@
               "scheduleDifficulty": 0.3,
               "previousWinterForm": 0.0
             }
+          },
+          {
+            "observedAtUTC": "2026-11-16T14:15:07.766077+00:00",
+            "sourceSHA256": "b42f72d213d4e09a4cef6bea6084fdd1aacb635831e95e0dea8fcb18c9912a2f",
+            "divisionNow": "Remax Division",
+            "record": {
+              "gp": 7,
+              "w": 1,
+              "l": 4,
+              "t": 2,
+              "pts": 4,
+              "gf": 11,
+              "ga": 28
+            },
+            "contextIndex": 39.5,
+            "currentForm": 34.7,
+            "scheduleDifficulty": 50.7,
+            "priorWinterForm": null,
+            "rank": 23,
+            "confidence": "LIMITED_SAMPLE",
+            "weights": {
+              "currentForm": 0.7,
+              "scheduleDifficulty": 0.3,
+              "previousWinterForm": 0.0
+            }
           }
         ]
       },
@@ -7742,6 +8322,31 @@
               "scheduleDifficulty": 0.3,
               "previousWinterForm": 0.15
             }
+          },
+          {
+            "observedAtUTC": "2026-11-16T14:15:07.766077+00:00",
+            "sourceSHA256": "b42f72d213d4e09a4cef6bea6084fdd1aacb635831e95e0dea8fcb18c9912a2f",
+            "divisionNow": "Remax Division",
+            "record": {
+              "gp": 7,
+              "w": 3,
+              "l": 3,
+              "t": 1,
+              "pts": 7,
+              "gf": 28,
+              "ga": 22
+            },
+            "contextIndex": 50.7,
+            "currentForm": 52.0,
+            "scheduleDifficulty": 48.8,
+            "priorWinterForm": 49.5,
+            "rank": 13,
+            "confidence": "LIMITED_SAMPLE",
+            "weights": {
+              "currentForm": 0.55,
+              "scheduleDifficulty": 0.3,
+              "previousWinterForm": 0.15
+            }
           }
         ]
       },
@@ -7848,13 +8453,38 @@
               "scheduleDifficulty": 0.3,
               "previousWinterForm": 0.0
             }
+          },
+          {
+            "observedAtUTC": "2026-11-16T14:15:07.766077+00:00",
+            "sourceSHA256": "b42f72d213d4e09a4cef6bea6084fdd1aacb635831e95e0dea8fcb18c9912a2f",
+            "divisionNow": "x-playoff Division",
+            "record": {
+              "gp": 1,
+              "w": 0,
+              "l": 1,
+              "t": 0,
+              "pts": 0,
+              "gf": 0,
+              "ga": 1
+            },
+            "contextIndex": 40.5,
+            "currentForm": 42.2,
+            "scheduleDifficulty": 36.4,
+            "priorWinterForm": null,
+            "rank": null,
+            "confidence": "EARLY_SAMPLE",
+            "weights": {
+              "currentForm": 0.7,
+              "scheduleDifficulty": 0.3,
+              "previousWinterForm": 0.0
+            }
           }
         ]
       }
     ],
     "trackedTeams": 27,
-    "observationsRecorded": 153,
-    "materialChangesRecorded": 126,
+    "observationsRecorded": 175,
+    "materialChangesRecorded": 148,
     "baselineNote": "First point is the accepted public source at tracking adoption; no inferred earlier scores. Unchanged refreshes add no points."
   },
   "weeklyLedger": {
@@ -7863,7 +8493,7 @@
     "method": "LATEST_ACCEPTED_SOURCE_OBSERVATION_PER_TORONTO_WEEK",
     "source": "Source-qualified SVHL current standings and context index",
     "notWinProbabilities": true,
-    "weeksRecorded": 3,
+    "weeksRecorded": 4,
     "weeks": [
       {
         "weekStartToronto": "2026-10-26",
@@ -9259,6 +9889,472 @@
             "confidence": "EARLY_SAMPLE",
             "currentForm": 42.2,
             "scheduleDifficulty": 40.0,
+            "qualifiedPriorWinterUsed": false
+          }
+        ]
+      },
+      {
+        "weekStartToronto": "2026-11-16",
+        "observedAtUTC": "2026-11-16T14:15:07.766077+00:00",
+        "sourceSHA256": "b42f72d213d4e09a4cef6bea6084fdd1aacb635831e95e0dea8fcb18c9912a2f",
+        "teams": [
+          {
+            "sourceTeamId": 13596,
+            "leagueName": "Bushwackers",
+            "divisionNow": "Fazzari Partners",
+            "gp": 7,
+            "w": 5,
+            "l": 2,
+            "t": 0,
+            "gf": 26,
+            "ga": 19,
+            "contextIndex": 60.4,
+            "rank": 3,
+            "confidence": "LIMITED_SAMPLE",
+            "currentForm": 61.9,
+            "scheduleDifficulty": 54.3,
+            "qualifiedPriorWinterUsed": true
+          },
+          {
+            "sourceTeamId": 13700,
+            "leagueName": "Pinheads",
+            "divisionNow": "Fazzari Partners",
+            "gp": 7,
+            "w": 4,
+            "l": 1,
+            "t": 2,
+            "gf": 25,
+            "ga": 14,
+            "contextIndex": 61.3,
+            "rank": 2,
+            "confidence": "LIMITED_SAMPLE",
+            "currentForm": 63.3,
+            "scheduleDifficulty": 51.4,
+            "qualifiedPriorWinterUsed": true
+          },
+          {
+            "sourceTeamId": 13627,
+            "leagueName": "Last Pass",
+            "divisionNow": "Fazzari Partners",
+            "gp": 7,
+            "w": 3,
+            "l": 2,
+            "t": 2,
+            "gf": 22,
+            "ga": 22,
+            "contextIndex": 51.4,
+            "rank": 12,
+            "confidence": "LIMITED_SAMPLE",
+            "currentForm": 53.2,
+            "scheduleDifficulty": 48.6,
+            "qualifiedPriorWinterUsed": true
+          },
+          {
+            "sourceTeamId": 13671,
+            "leagueName": "Hawks",
+            "divisionNow": "Fazzari Partners",
+            "gp": 7,
+            "w": 2,
+            "l": 3,
+            "t": 2,
+            "gf": 19,
+            "ga": 20,
+            "contextIndex": 48.5,
+            "rank": 17,
+            "confidence": "LIMITED_SAMPLE",
+            "currentForm": 46.5,
+            "scheduleDifficulty": 52.9,
+            "qualifiedPriorWinterUsed": true
+          },
+          {
+            "sourceTeamId": 13663,
+            "leagueName": "We're Curved",
+            "divisionNow": "Fazzari Partners",
+            "gp": 7,
+            "w": 1,
+            "l": 3,
+            "t": 3,
+            "gf": 18,
+            "ga": 18,
+            "contextIndex": 49.8,
+            "rank": 16,
+            "confidence": "LIMITED_SAMPLE",
+            "currentForm": 43.6,
+            "scheduleDifficulty": 53.6,
+            "qualifiedPriorWinterUsed": true
+          },
+          {
+            "sourceTeamId": 13708,
+            "leagueName": "Mid Ice Crisis",
+            "divisionNow": "The Cristillo Division",
+            "gp": 8,
+            "w": 5,
+            "l": 2,
+            "t": 1,
+            "gf": 30,
+            "ga": 17,
+            "contextIndex": 55.8,
+            "rank": 8,
+            "confidence": "LIMITED_SAMPLE",
+            "currentForm": 62.8,
+            "scheduleDifficulty": 49.8,
+            "qualifiedPriorWinterUsed": true
+          },
+          {
+            "sourceTeamId": 13680,
+            "leagueName": "Mohawks HC",
+            "divisionNow": "The Cristillo Division",
+            "gp": 8,
+            "w": 5,
+            "l": 3,
+            "t": 0,
+            "gf": 33,
+            "ga": 24,
+            "contextIndex": 51.8,
+            "rank": 11,
+            "confidence": "LIMITED_SAMPLE",
+            "currentForm": 58.6,
+            "scheduleDifficulty": 45.5,
+            "qualifiedPriorWinterUsed": true
+          },
+          {
+            "sourceTeamId": 13704,
+            "leagueName": "Other Way",
+            "divisionNow": "The Cristillo Division",
+            "gp": 8,
+            "w": 4,
+            "l": 2,
+            "t": 2,
+            "gf": 45,
+            "ga": 41,
+            "contextIndex": 50.6,
+            "rank": 14,
+            "confidence": "LIMITED_SAMPLE",
+            "currentForm": 57.1,
+            "scheduleDifficulty": 46.1,
+            "qualifiedPriorWinterUsed": true
+          },
+          {
+            "sourceTeamId": 13730,
+            "leagueName": "Zamboner Crew",
+            "divisionNow": "The Cristillo Division",
+            "gp": 7,
+            "w": 4,
+            "l": 2,
+            "t": 1,
+            "gf": 29,
+            "ga": 18,
+            "contextIndex": 56.5,
+            "rank": 7,
+            "confidence": "LIMITED_SAMPLE",
+            "currentForm": 60.1,
+            "scheduleDifficulty": 48.1,
+            "qualifiedPriorWinterUsed": false
+          },
+          {
+            "sourceTeamId": 13709,
+            "leagueName": "Sugo Sundays",
+            "divisionNow": "The Cristillo Division",
+            "gp": 8,
+            "w": 4,
+            "l": 3,
+            "t": 1,
+            "gf": 33,
+            "ga": 38,
+            "contextIndex": 50.3,
+            "rank": 15,
+            "confidence": "LIMITED_SAMPLE",
+            "currentForm": 51.4,
+            "scheduleDifficulty": 47.9,
+            "qualifiedPriorWinterUsed": false
+          },
+          {
+            "sourceTeamId": 13716,
+            "leagueName": "Young Guns",
+            "divisionNow": "The Cristillo Division",
+            "gp": 8,
+            "w": 3,
+            "l": 4,
+            "t": 1,
+            "gf": 26,
+            "ga": 28,
+            "contextIndex": 47.0,
+            "rank": 19,
+            "confidence": "LIMITED_SAMPLE",
+            "currentForm": 46.5,
+            "scheduleDifficulty": 50.9,
+            "qualifiedPriorWinterUsed": true
+          },
+          {
+            "sourceTeamId": 13649,
+            "leagueName": "Big Bastones",
+            "divisionNow": "The Cristillo Division",
+            "gp": 8,
+            "w": 3,
+            "l": 5,
+            "t": 0,
+            "gf": 19,
+            "ga": 27,
+            "contextIndex": 42.5,
+            "rank": 21,
+            "confidence": "LIMITED_SAMPLE",
+            "currentForm": 41.7,
+            "scheduleDifficulty": 43.2,
+            "qualifiedPriorWinterUsed": true
+          },
+          {
+            "sourceTeamId": 13712,
+            "leagueName": "Maplewolves",
+            "divisionNow": "The Cristillo Division",
+            "gp": 8,
+            "w": 2,
+            "l": 6,
+            "t": 0,
+            "gf": 22,
+            "ga": 34,
+            "contextIndex": 42.0,
+            "rank": 22,
+            "confidence": "LIMITED_SAMPLE",
+            "currentForm": 34.6,
+            "scheduleDifficulty": 50.0,
+            "qualifiedPriorWinterUsed": true
+          },
+          {
+            "sourceTeamId": 13668,
+            "leagueName": "Dateline Predators",
+            "divisionNow": "The Cristillo Division",
+            "gp": 8,
+            "w": 1,
+            "l": 6,
+            "t": 1,
+            "gf": 14,
+            "ga": 28,
+            "contextIndex": 36.9,
+            "rank": 26,
+            "confidence": "LIMITED_SAMPLE",
+            "currentForm": 31.0,
+            "scheduleDifficulty": 49.5,
+            "qualifiedPriorWinterUsed": true
+          },
+          {
+            "sourceTeamId": 13679,
+            "leagueName": "Braves HC",
+            "divisionNow": "The Cristillo Division",
+            "gp": 8,
+            "w": 1,
+            "l": 7,
+            "t": 0,
+            "gf": 23,
+            "ga": 42,
+            "contextIndex": 37.4,
+            "rank": 25,
+            "confidence": "LIMITED_SAMPLE",
+            "currentForm": 26.6,
+            "scheduleDifficulty": 48.9,
+            "qualifiedPriorWinterUsed": true
+          },
+          {
+            "sourceTeamId": 13737,
+            "leagueName": "Philadelphia",
+            "divisionNow": "VAHL Division",
+            "gp": 5,
+            "w": 4,
+            "l": 1,
+            "t": 0,
+            "gf": 21,
+            "ga": 13,
+            "contextIndex": 60.1,
+            "rank": 4,
+            "confidence": "LIMITED_SAMPLE",
+            "currentForm": 65.0,
+            "scheduleDifficulty": 48.8,
+            "qualifiedPriorWinterUsed": false
+          },
+          {
+            "sourceTeamId": 13736,
+            "leagueName": "LA KIngs",
+            "divisionNow": "VAHL Division",
+            "gp": 5,
+            "w": 3,
+            "l": 1,
+            "t": 1,
+            "gf": 18,
+            "ga": 11,
+            "contextIndex": 57.9,
+            "rank": 6,
+            "confidence": "LIMITED_SAMPLE",
+            "currentForm": 60.7,
+            "scheduleDifficulty": 51.2,
+            "qualifiedPriorWinterUsed": false
+          },
+          {
+            "sourceTeamId": 13735,
+            "leagueName": "Toronto",
+            "divisionNow": "VAHL Division",
+            "gp": 5,
+            "w": 1,
+            "l": 3,
+            "t": 1,
+            "gf": 14,
+            "ga": 18,
+            "contextIndex": 43.0,
+            "rank": 20,
+            "confidence": "LIMITED_SAMPLE",
+            "currentForm": 40.6,
+            "scheduleDifficulty": 48.8,
+            "qualifiedPriorWinterUsed": false
+          },
+          {
+            "sourceTeamId": 13734,
+            "leagueName": "Dallas",
+            "divisionNow": "VAHL Division",
+            "gp": 5,
+            "w": 1,
+            "l": 4,
+            "t": 0,
+            "gf": 7,
+            "ga": 18,
+            "contextIndex": 39.0,
+            "rank": 24,
+            "confidence": "LIMITED_SAMPLE",
+            "currentForm": 33.8,
+            "scheduleDifficulty": 51.2,
+            "qualifiedPriorWinterUsed": false
+          },
+          {
+            "sourceTeamId": 13714,
+            "leagueName": "Thrillers",
+            "divisionNow": "Remax Division",
+            "gp": 7,
+            "w": 5,
+            "l": 1,
+            "t": 1,
+            "gf": 27,
+            "ga": 13,
+            "contextIndex": 62.7,
+            "rank": 1,
+            "confidence": "LIMITED_SAMPLE",
+            "currentForm": 67.5,
+            "scheduleDifficulty": 55.6,
+            "qualifiedPriorWinterUsed": true
+          },
+          {
+            "sourceTeamId": 13717,
+            "leagueName": "Degenerates",
+            "divisionNow": "Remax Division",
+            "gp": 7,
+            "w": 4,
+            "l": 2,
+            "t": 1,
+            "gf": 25,
+            "ga": 17,
+            "contextIndex": 60.0,
+            "rank": 5,
+            "confidence": "LIMITED_SAMPLE",
+            "currentForm": 59.1,
+            "scheduleDifficulty": 53.8,
+            "qualifiedPriorWinterUsed": true
+          },
+          {
+            "sourceTeamId": 13711,
+            "leagueName": "Butcher Brothers",
+            "divisionNow": "Remax Division",
+            "gp": 7,
+            "w": 4,
+            "l": 3,
+            "t": 0,
+            "gf": 23,
+            "ga": 17,
+            "contextIndex": 53.4,
+            "rank": 9,
+            "confidence": "LIMITED_SAMPLE",
+            "currentForm": 55.2,
+            "scheduleDifficulty": 52.3,
+            "qualifiedPriorWinterUsed": true
+          },
+          {
+            "sourceTeamId": 13715,
+            "leagueName": "VR Delta",
+            "divisionNow": "Remax Division",
+            "gp": 7,
+            "w": 3,
+            "l": 2,
+            "t": 2,
+            "gf": 26,
+            "ga": 27,
+            "contextIndex": 53.0,
+            "rank": 10,
+            "confidence": "LIMITED_SAMPLE",
+            "currentForm": 52.8,
+            "scheduleDifficulty": 55.6,
+            "qualifiedPriorWinterUsed": true
+          },
+          {
+            "sourceTeamId": 13710,
+            "leagueName": "Mighty Drunks",
+            "divisionNow": "Remax Division",
+            "gp": 7,
+            "w": 3,
+            "l": 3,
+            "t": 1,
+            "gf": 28,
+            "ga": 22,
+            "contextIndex": 50.7,
+            "rank": 13,
+            "confidence": "LIMITED_SAMPLE",
+            "currentForm": 52.0,
+            "scheduleDifficulty": 48.8,
+            "qualifiedPriorWinterUsed": true
+          },
+          {
+            "sourceTeamId": 13713,
+            "leagueName": "Primary Auto",
+            "divisionNow": "Remax Division",
+            "gp": 7,
+            "w": 3,
+            "l": 3,
+            "t": 1,
+            "gf": 20,
+            "ga": 29,
+            "contextIndex": 47.5,
+            "rank": 18,
+            "confidence": "LIMITED_SAMPLE",
+            "currentForm": 46.9,
+            "scheduleDifficulty": 48.9,
+            "qualifiedPriorWinterUsed": true
+          },
+          {
+            "sourceTeamId": 13686,
+            "leagueName": "Batman Prep",
+            "divisionNow": "Remax Division",
+            "gp": 7,
+            "w": 1,
+            "l": 4,
+            "t": 2,
+            "gf": 11,
+            "ga": 28,
+            "contextIndex": 39.5,
+            "rank": 23,
+            "confidence": "LIMITED_SAMPLE",
+            "currentForm": 34.7,
+            "scheduleDifficulty": 50.7,
+            "qualifiedPriorWinterUsed": false
+          },
+          {
+            "sourceTeamId": 13707,
+            "leagueName": "Schmelts",
+            "divisionNow": "x-playoff Division",
+            "gp": 1,
+            "w": 0,
+            "l": 1,
+            "t": 0,
+            "gf": 0,
+            "ga": 1,
+            "contextIndex": 40.5,
+            "rank": null,
+            "confidence": "EARLY_SAMPLE",
+            "currentForm": 42.2,
+            "scheduleDifficulty": 36.4,
             "qualifiedPriorWinterUsed": false
           }
         ]
