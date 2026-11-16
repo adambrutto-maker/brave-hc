@@ -3,20 +3,20 @@
   "season": "W2026/27",
   "team": "Brave H.C.",
   "publishedVideo": {
-    "gameId": 3375682,
-    "date": "2026-10-25",
-    "videoId": "0UQeZEan2bk",
-    "videoUrl": "https://www.youtube.com/watch?v=0UQeZEan2bk",
-    "title": "Braves Highlights - October 25, 2026 - Big Bastones @ Brave H.C.",
-    "score": "Brave H.C. 6–4 Big Bastones",
+    "gameId": 3375685,
+    "date": "2026-11-15",
+    "videoId": "NjGlVo-zxeY",
+    "videoUrl": "https://www.youtube.com/watch?v=NjGlVo-zxeY",
+    "title": "Braves Highlights - November 15, 2026 - Sugo Sundays @ Brave H.C.",
+    "score": "Sugo Sundays 6–4 Brave H.C.",
     "status": "PUBLIC_VIDEO_VERIFIED_BY_FOUNDER"
   },
   "videoPublicationState": "PUBLIC_VERIFIED",
-  "sourceAuthority": "Public YouTube video ID and founder-approved HTO Hot Stove game article",
+  "sourceAuthority": "Verified public Brave H.C. YouTube channel feed for video NjGlVo-zxeY; HTO game 3375685 and founder-approved Golden V17",
   "editorialFeed": "./hot-stove-approved.json",
   "upcomingFeed": "./countdown.json",
   "approvedFallbackImage": "./brave_hc_logo.png",
   "publicLineupAllowed": false,
-  "updated": "2026-10-30",
-  "note": "Video identity is game-scoped and must not be relabeled when a later Hot Stove article replaces the game recap."
+  "updated": "2026-11-16",
+  "note": "Latest published video is game-specific; previous Big Bastones upload remains intact on the channel and Git history. The current Hot Stove recap must match its own game record."
 }
