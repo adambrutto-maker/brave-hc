@@ -55,7 +55,7 @@ function buildCases(){
  const valid=[];
  const sourceTeam=new Map(data.teams.map(x=>[x.league_id+":"+x.team_id,x]));
  for(const p of packages.balanced_packages){
-  if(p.type!=="TWO_WAY_SAME_NIGHT_REVIEW"||p.teams?.length!==2||p.night!=="Wednesday")continue;
+  if(p.type!=="TWO_WAY_SAME_NIGHT_REVIEW"||p.teams?.length!==2||!p.night)continue;
   const t1=sourceTeam.get(p.league_id+":"+p.teams[0].id),t2=sourceTeam.get(p.league_id+":"+p.teams[1].id);
   if(!t1||!t2||t1.night!==p.night||t2.night!==p.night)continue;
   if(!p.teams.every(t=>{const x=sourceTeam.get(p.league_id+":"+t.id);return x&&x.division===t.from&&x.priority==="Review"&&x.program==="Open"&&x.standings_source_valid!==false}))continue;
@@ -121,7 +121,7 @@ function caseList(){
 function countBox(){
  const g=groups(),pending=Object.keys(store.cases).length;
  return '<div class="desk-metrics">'+[
- [String(groups().packages.length),"Source-connected exchanges","Paired Wednesday cases"],
+ [String(groups().packages.length),"Source-connected exchanges","Same-night exchange cases"],
  [String(g.single.length),"Stronger team reviews","Across current league nights"],
  [String(g.watch.length+g.source.length),"Watch and source holds","Source-quality checks included"],
  [String(pending),"Local review records","Not submitted to SVHL"]
@@ -136,13 +136,14 @@ function packageEvidence(c){
  '<div class="desk-statline"><span>Gap improvement</span><b>+'+num(t.fit_gain_pp)+' pp</b></div>'+
  '<div class="desk-statline"><span>Matched results</span><b>'+val(t.source_matches)+'</b></div>'+
  '<div class="desk-statline"><span>Published earlier PTS/GP</span><b>'+num(t.prior_pts_gp_median)+'</b></div>'+
+ '<div class="desk-statline"><span>Published standings points</span><b>'+val(c.participants.find(x=>x.team_id===t.id)?.points)+' pts</b></div>'+
  '<a href="'+esc(t.source_team_url)+'" rel="noopener noreferrer" target="_blank">Source team record ↗</a></div>'
  ).join("");
  const counts=Object.entries(p.current_division_sizes).map(([name,n])=>'<div class="desk-statline"><span>'+esc(name)+'</span><b>'+val(n)+' teams before and after</b></div>').join("");
  return '<div class="desk-package"><div class="desk-research-heading"><strong>Two-team exchange — source comparison only</strong><small>'+esc(p.night)+' · '+p.source_cross_division_fixtures+' cross-division fixture connections</small></div>'+
  '<div class="desk-exchange-grid">'+teams+'</div>'+
  '<div class="desk-size-details">'+counts+'</div>'+
- '<p>Because the two teams exchange places, both divisions keep the same number of teams. '+num(p.aggregate_balance_gain_percentage_points)+' percentage points is the combined change in the model’s balance-gap measure, not an expected improvement in league win rates.</p>'+
+ '<p>Because the two teams exchange places, both divisions keep the same number of teams. '+num(p.aggregate_balance_gain_percentage_points)+' percentage points is the combined change in the model’s balance-gap measure, not an expected improvement in league win rates. Official point carryover and game allocation require commissioner verification.</p>'+
  '</div>';
 }
 function singleEvidence(c){
@@ -155,7 +156,9 @@ function singleEvidence(c){
   ["Published record",val(t.w)+"–"+val(t.l)+"–"+val(t.t)],
   ["Indicative same-division share",pct(t.expected_same_division_win_share)],
   ["Goal differential / game",num(t.goal_diff_per_game)],
-  ["Prior roster median PTS/GP",num(t.prior_roster_points_per_game)]
+  ["Prior roster median PTS/GP",num(t.prior_roster_points_per_game)],
+  ["Published standings points",val(t.points)+" pts"],
+  ["Matched source games",val(t.source_games)]
  ].map(x=>'<div><small>'+x[0]+'</small><strong>'+x[1]+'</strong></div>').join("")+'</div>'+
  (t.source_notes?.length?'<div class="desk-warning">'+t.source_notes.map(x=>'<p>'+esc(x)+'</p>').join("")+'</div>':"")+
  (first?'<div class="desk-scenario-block"><strong>Source-connected comparison: '+esc(first.target_division)+'</strong>'+
