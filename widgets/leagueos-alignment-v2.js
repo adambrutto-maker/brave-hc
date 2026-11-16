@@ -40,6 +40,7 @@ function selectedTeam(){return data?.teams.find(t=>idOf(t)===selected)||null}
 function relatedDraft(t){return drafts.find(d=>d.key===idOf(t))}
 function choiceList(t){
  const opts=[{value:"current",text:"Keep current placement — request review"}];
+ if(t.standings_source_valid===false)return opts;
  for(const x of t.comparisons||[]){
   opts.push({value:x.target_division,text:"Compare: "+x.target_division+
    " ("+prob(x.expected_win_share)+" indicative matchup balance)"});
@@ -97,7 +98,7 @@ function evid(t){
  return '<div class="align-evidence-grid">'+
  '<div><small>Adjusted rating</small><strong>'+fixed(t.adjusted_rating)+'</strong></div>'+
  '<div><small>Peer median rating</small><strong>'+fixed(t.division_peer_median_rating)+'</strong></div>'+
- '<div><small>Actual game record</small><strong>'+val(t.w)+'–'+val(t.l)+'–'+val(t.t)+'</strong></div>'+
+ '<div><small>Actual game record</small><strong>'+(t.standings_source_valid===false?"Source hold":val(t.w)+'–'+val(t.l)+'–'+val(t.t))+'</strong></div>'+
  '<div><small>Goal difference / game</small><strong>'+diff(t.goal_diff_per_game)+'</strong></div>'+
  '<div><small>Opponent match sample</small><strong>'+val(t.source_games)+' games</strong></div>'+
  '<div><small>Distinct opponents</small><strong>'+val(t.unique_opponents)+'</strong></div>'+
@@ -142,7 +143,7 @@ function selectedDetail(){
  if(!t)return panel("Evidence review","Select a team from the list to inspect its proposed competitive balance.",
  '<div class="align-empty">Select Review beside a team to see its opponent-adjusted results, roster history, comparisons and safeguards.</div>');
  const review=relatedDraft(t);
- const warning=t.priority==="Review"?"Review evidence with the commissioner":t.priority==="Watch"?"Source-data watchlist":"No material imbalance trigger in this snapshot";
+ const warning=t.standings_source_valid===false?"Validate published standings before considering a placement":t.priority==="Review"?"Review evidence with the commissioner":t.priority==="Watch"?"Source-data watchlist":"No material imbalance trigger in this snapshot";
  const sources=t.program!=="Open"?"This is a separately governed competition. Any transfer needs a specific eligibility and program review.":null;
  const options=choiceList(t),validChoice=options.some(x=>x.value===target);
  if(!validChoice)target=review?.comparison||"current";
