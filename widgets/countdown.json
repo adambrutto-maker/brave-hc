@@ -9,7 +9,7 @@
     "offsetMinutesAfterPuckDrop": 60,
     "condition": "clock threshold, not official final score"
   },
-  "generatedAt": "2026-11-15T16:31:18.917514Z",
+  "generatedAt": "2026-11-16T01:31:20.686204Z",
   "sourcePages": [
     "https://www.htosports.com/teams/default.asp?p=schedule&s=hockey&u=BRAVESHOCKEY&d=20261101",
     "https://www.htosports.com/teams/default.asp?p=schedule&s=hockey&u=BRAVESHOCKEY&d=20261201",
@@ -24,17 +24,6 @@
     "https://www.htosports.com/teams/default.asp?p=schedule&s=hockey&u=BRAVESHOCKEY&d=20270901"
   ],
   "games": [
-    {
-      "id": 3375685,
-      "opponent": "Sugo Sundays",
-      "homeAway": "Home",
-      "rink": "Vaughan Sports Village - A Rink",
-      "gameDate": "2026-11-15",
-      "puckDrop": "2026-11-15T19:15:00-05:00",
-      "puckDropUTC": "2026-11-16T00:15:00Z",
-      "rolloverAtUTC": "2026-11-16T01:15:00Z",
-      "eventURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=preview&sportsHQ=BRAVESHOCKEY&gameID=3375685"
-    },
     {
       "id": 3375686,
       "opponent": "Dateline Predators",
