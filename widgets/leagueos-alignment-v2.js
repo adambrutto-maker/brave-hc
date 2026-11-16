@@ -121,6 +121,22 @@ function compare(t){
  }
  return s;
 }
+function scenario(t,selectedTarget){
+ if(selectedTarget==="current")return '<div class="align-scenario-muted"><strong>Review current placement</strong><small>No transfer selected. The team would stay in its current division unless the league approves a separate change.</small></div>';
+ const other=(t.comparisons||[]).find(x=>x.target_division===selectedTarget);
+ if(!other)return '<div class="align-scenario-muted">No valid source-supported comparison selected.</div>';
+ const divisions=data?.division_summaries||[];
+ const initial=divisions.find(d=>d.league_id===t.league_id&&d.name===t.division);
+ const proposed=divisions.find(d=>d.league_id===t.league_id&&d.name===selectedTarget);
+ return '<div class="align-scenario"><strong>What-if only: '+esc(selectedTarget)+'</strong>'+
+ '<div class="align-scenario-pair"><span>Current division size</span><b>'+val(initial?.teams)+' → '+(typeof initial?.teams==="number"?initial.teams-1:"—")+'</b></div>'+
+ '<div class="align-scenario-pair"><span>Comparison division size</span><b>'+val(proposed?.teams)+' → '+(typeof proposed?.teams==="number"?proposed.teams+1:"—")+'</b></div>'+
+ '<div class="align-scenario-pair"><span>Expected matchup share</span><b>'+prob(t.expected_same_division_win_share)+' → '+prob(other.expected_win_share)+'</b></div>'+
+ '<div class="align-scenario-pair"><span>Balance gap improvement</span><b>'+typeofPctPoints(other.relative_balance_gain)+'</b></div>'+
+ '<div class="align-scenario-pair"><span>Inter-division game evidence</span><b>'+val(other.bridge_games)+' cross-division fixtures</b></div>'+
+ '<p>Roster eligibility, ice allocation, revised opponents and accumulated-points treatment need separate official review. This calculation changes nothing.</p></div>';
+}
+function typeofPctPoints(x){return typeof x==="number"?(x>0?"+":"")+(x*100).toFixed(1)+" points":"—";}
 function selectedDetail(){
  const t=selectedTeam();
  if(!t)return panel("Evidence review","Select a team from the list to inspect its proposed competitive balance.",
@@ -142,6 +158,7 @@ function selectedDetail(){
  (sources?'<div class="align-holds">'+esc(sources)+'</div>':'')+
  '<div class="align-draft"><h3>Commissioner review draft</h3>'+
  '<label class="field">Comparison to discuss<select id="align-target">'+options.map(x=>'<option value="'+esc(x.value)+'" '+(target===x.value?"selected":"")+'>'+esc(x.text)+'</option>').join("")+'</select></label>'+
+ '<div id="align-scenario">'+scenario(t,target)+'</div>'+
  '<label class="field">Review notes<textarea id="align-note" maxlength="1400" rows="4" placeholder="What should the league review before making a decision?">'+esc(note||review?.note||"")+'</textarea></label>'+
  '<div class="align-actions"><button id="align-save" class="btn primary" type="button">Save review draft</button>'+
  '<button id="align-copy-one" class="btn" type="button">Copy evidence summary</button></div>'+
@@ -247,7 +264,7 @@ document.addEventListener("change",e=>{
  if(x.id==="align-night"){filterNight=x.value;filterDivision="All divisions";query="";selected="";note="";target="current";render();return}
  if(x.id==="align-status"){filterStatus=x.value;selected="";note="";target="current";render();return}
  if(x.id==="align-division"){filterDivision=x.value;selected="";note="";target="current";render();return}
- if(x.id==="align-target"){target=x.value;return}
+ if(x.id==="align-target"){target=x.value;const el=$("#align-scenario"),t=selectedTeam();if(el&&t)el.innerHTML=scenario(t,target);return}
 });
 document.addEventListener("input",e=>{
  const x=e.target;
