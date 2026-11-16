@@ -261,7 +261,7 @@ function feature(section,a,includePreview){
  const body=$("div","article-body");
  for(const paragraph of a.paragraphs){
   if(typeof paragraph!=="string"||paragraph.length>900)throw Error("Invalid article paragraph");
-  if(founderApprovedPending(a)&&a.sectionHeadings?.includes(paragraph)){
+  if(a.sectionHeadings?.includes(paragraph)){
    body.append($("h3","section-header",paragraph));continue;
   }
   const line=$("p",null,paragraph);
