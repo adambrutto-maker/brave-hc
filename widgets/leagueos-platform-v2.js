@@ -32,7 +32,7 @@ const rules=[
  ["2.7.2 · Division realignment","The published rulebook specifies a division realignment after week five, with accumulated points carried into the new division."],
  ["2.4 · Appeals","Team representatives are the authorized channel for appeals; published timelines depend on regular-season versus playoff cases."]
 ];
-const state={league:null,standings:null,upcoming:null,route:null,widget:"analytics.html",registration:load(REG_KEY,{team:"",manager:"",division:"Cristillo",players:[{name:"",jersey:""}]}),poll:load(POLL_KEY,{availability:"",nickname:"",notes:"",fixture:""})};
+const state={league:null,standings:null,upcoming:null,publicOps:null,route:null,widget:"analytics.html",registration:load(REG_KEY,{team:"",manager:"",division:"Cristillo",players:[{name:"",jersey:""}]}),poll:load(POLL_KEY,{availability:"",nickname:"",notes:"",fixture:""})};
 if(!Array.isArray(state.registration.players))state.registration.players=[{name:"",jersey:""}];
 state.registration.players=state.registration.players.slice(0,20);
 const prior=load(FEEDBACK_KEY,[]);state.notes=Array.isArray(prior)?prior.filter(x=>x&&typeof x.text==="string").slice(-100):[];
@@ -69,9 +69,41 @@ state.iceDrafts=load(OPS_ICE_KEY,[]);
 if(!Array.isArray(state.iceDrafts))state.iceDrafts=[];
 state.changeDrafts=load(OPS_CHANGE_KEY,[]);
 if(!Array.isArray(state.changeDrafts))state.changeDrafts=[];
-function sourceFixtures(iso=state.ops.date){
- const a=state.upcoming?.games||[];
- return a.filter(f=>f&&f.date===iso&&(!state.ops.rink||state.ops.rink==="all"||String(f.rink||"").toUpperCase().startsWith(state.ops.rink))&&(state.ops.program==="all"||state.ops.program==="0"));
+function sourceFixtures(iso=state.ops.date,respectProgram=true){
+ const all=state.publicOps?.games;
+ const candidates=Array.isArray(all)?all:(state.upcoming?.games||[]).map(f=>({...f,home:"Braves HC",away:f.opponent,night:"Sunday",league_id:570,source_url:official}));
+ const program=state.ops.program,programNight={"0":"Sunday","2":"Tuesday","3":"Wednesday","4":"Thursday"}[program];
+ return candidates.filter(f=>f&&f.date===iso&&(state.ops.rink==="all"||String(f.rink||"").toUpperCase().startsWith(state.ops.rink))&&(
+ !respectProgram||program==="all"||(program!=="rental"&&(!programNight||f.night===programNight))
+ )).sort((a,b)=>String(a.time).localeCompare(String(b.time))||String(a.rink).localeCompare(String(b.rink)));
+}
+function currentNightName(){
+ const day=weekday(state.ops.date),program=state.ops.program;
+ if(program==="rental")return "Rentals / other uses";
+ return {"0":"Sunday","2":"Tuesday","3":"Wednesday","4":"Thursday"}[program]||leagueNights[day]||null;
+}
+function nightlySource(night){
+ return (state.publicOps?.league_nights||[]).find(x=>x.night===night)||null;
+}
+function leagueNightsList(){
+ return ["Sunday","Tuesday","Wednesday","Thursday"];
+}
+function nightPicker(){
+ return '<div class="choicebar" aria-label="Choose league-night competition">'+leagueNightsList().map(n=>{
+ const d={"Sunday":0,"Tuesday":2,"Wednesday":3,"Thursday":4}[n];
+ return '<button class="btn '+(currentNightName()===n?"primary":"")+'" data-ops-night="'+d+'">'+n+'</button>';
+ }).join("")+'</div>';
+}
+function sourceLeagueLink(night){
+ const entry=nightlySource(night);
+ return entry?'<a class="btn small" target="_blank" rel="noopener noreferrer" href="'+esc(entry.source_url)+'">Official '+esc(night)+' source ↗</a>':"";
+}
+function fourNightCoverage(){
+ const list=state.publicOps?.league_nights||[];
+ return leagueNightsList().map(n=>{
+ const item=list.find(x=>x.night===n);
+ return '<div class="cardrow"><div><strong>'+n+'</strong><small>'+(item?item.teams_in_standings+" standings entries · "+item.competition_divisions+" competitive divisions · "+item.visible_schedule_rows+" visible fixtures":"Public archive not yet connected")+'</small></div><span class="pill '+(item?"green":"amber")+'">'+(item?"Sourced":"Pending")+'</span></div>';
+ }).join("");
 }
 function dayProgram(iso){
  const n=leagueNights[weekday(iso)];
@@ -89,44 +121,43 @@ function opsToolbar(){
  '<div class="ops-week" aria-label="Select a weekday">'+Array.from({length:7},(_,i)=>{const iso=addDay(mon,i);return '<button class="ops-day '+(iso===o.date?"active ":"")+(iso===today?"today":"")+'" data-ops-date="'+iso+'" type="button" title="'+readableDay(iso)+'"><small>'+["Mon","Tue","Wed","Thu","Fri","Sat","Sun"][i]+'</small><strong>'+iso.slice(-2)+'</strong><span>'+(leagueNights[weekday(iso)]?"SVHL":"—")+'</span></button>'}).join("")+'</div></section>'
 }
 function opsSummary(){
- const o=state.ops,fixtures=sourceFixtures(),program=dayProgram(o.date);
+ const o=state.ops,fixtures=sourceFixtures(),night=currentNightName();
  return '<div class="ops-summary"><span>Selected day: <strong>'+esc(dayShort(o.date))+'</strong></span>'+
- '<span>League night: <strong>'+esc(program)+'</strong></span>'+
- '<span>Connected game starts: <strong>'+fixtures.length+'</strong></span>'+
- '<span>Venue: <strong>4 ice pads</strong> · live occupancy not connected</span></div>'
+ '<span>Program: <strong>'+esc(night?(night==="Rentals / other uses"?night:"SVHL "+night):"No scheduled SVHL league night")+'</strong></span>'+
+ '<span>Published fixture rows: <strong>'+fixtures.length+'</strong> · partial window</span>'+
+ '<span>Facility: <strong>4 rinks</strong> · complete occupancy not connected</span></div>';
 }
 function opsConfirmedGames(){
  const o=state.ops,fixtures=sourceFixtures();
- const body=fixtures.length?fixtures.map(f=>'<div class="cardrow"><div><strong>'+esc(f.time)+' · '+esc(f.rink)+'</strong><small>Braves HC vs '+esc(f.opponent)+' · Official SVHL public fixture</small></div><span class="pill green">Verified source</span></div>').join(''):
- '<div class="callout">No game records are verified in the connected feed for these filters. <b>This does not mean there are no games or that ice is free.</b> Schedules for other league nights are not yet integrated.</div>';
- return panel("Games on "+esc(dayShort(o.date)),"Verified fixtures only · change day, league night or rink above",body+'<div class="topline"><a class="btn" href="'+esc(official)+'" target="_blank" rel="noopener noreferrer">Full official SVHL schedule ↗</a>'+btn("Open game sheets","league-scoring")+'</div>');
+ const body=fixtures.length?fixtures.map(f=>'<div class="cardrow"><div><strong>'+esc(f.time)+' · '+esc(f.rink)+' · '+esc(f.home)+' vs '+esc(f.away)+'</strong><small>'+esc(f.night||dayProgram(o.date))+' league · published SVHL schedule row</small></div><span class="pill green">Source match</span></div>').join(''):
+ '<div class="callout">No verified game rows in the currently connected public-page window for these filters. <b>This does not establish that there are no games or that ice is available.</b></div>';
+ return panel("Games on "+esc(dayShort(o.date)),"League-wide published fixtures · source pages show only a limited schedule window",body+
+ '<div class="topline">'+(currentNightName()&&nightlySource(currentNightName())?sourceLeagueLink(currentNightName()):'<a class="btn" href="https://www.sportsvillage.ca/adult-hockey-league-3/" target="_blank" rel="noopener noreferrer">Official league information ↗</a>')+btn("Game sheets","league-scoring")+'</div>');
 }
 function opsIceBoard(){
- const o=state.ops,rinks=opsRinks.filter(r=>o.rink==="all"||o.rink===r);
+ const o=state.ops,rinks=opsRinks.filter(r=>o.rink==="all"||o.rink===r),fixtures=sourceFixtures(o.date,false);
  const view=rinks.map(r=>{
- const games=sourceFixtures().filter(f=>String(f.rink||"").toUpperCase().startsWith(r));
+ const games=fixtures.filter(f=>String(f.rink||"").toUpperCase().startsWith(r));
  const draft=state.iceDrafts.filter(x=>x.date===o.date&&x.rink===r);
- let t=games.map(f=>'<div class="ops-event"><span class="ops-dot"></span>'+esc(f.time)+' · Braves HC vs '+esc(f.opponent)+' <span class="pill green">Published fixture</span></div>').join('');
- t+=draft.map(q=>'<div class="ops-event" style="margin-top:5px"><span class="ops-dot" style="background:#c7a363"></span>'+esc(q.start)+'–'+esc(q.end)+' · '+esc(q.use)+' <span class="pill amber">Your local inquiry only</span></div>').join('');
- if(!t)t='<div class="ops-unknown"><i></i><span>Occupancy unknown · facility booking feed not connected</span></div>';
+ let t=games.map(f=>'<div class="ops-event"><span class="ops-dot"></span>'+esc(f.time)+' · '+esc(f.home)+' vs '+esc(f.away)+' <span class="pill green">SVHL fixture</span></div>').join('');
+ t+=draft.map(q=>'<div class="ops-event" style="margin-top:5px"><span class="ops-dot" style="background:#c7a363"></span>'+esc(q.start)+'–'+esc(q.end)+' · '+esc(q.use)+' <span class="pill amber">Local inquiry only</span></div>').join('');
+ if(!t)t='<div class="ops-unknown"><i></i><span>Other commitments unknown · facility inventory not connected</span></div>';
  return '<div class="ops-lane"><div class="ops-rink">Rink '+r+'</div><div>'+t+'</div></div>';
  }).join('');
- return panel("Ice use by rink","Four surfaces · published games and your unsent inquiries, not full availability",'<div class="ops-board">'+view+'</div><div class="ops-booking-note">Blank space is <b>unknown</b>, not available ice. Rentals, tournaments, city-owned blocks and maintenance require facility-authorized data.</div><div class="topline">'+btn("Ice rental requests","league-ice",true)+'<a class="btn" href="https://www.sportsvillage.ca/ice-rental/" target="_blank" rel="noopener noreferrer">Sports Village available-ice listings ↗</a></div>');
+ return panel("Rink commitments","Known league fixtures and unsent drafts, not an authoritative booking calendar",'<div class="ops-board">'+view+'</div><div class="ops-booking-note">An unlisted time is <b>unverified</b>, not free ice. A facility-authorized inventory is required to confirm rentals or unused slots.</div><div class="topline">'+btn("Ice-use requests","league-ice",true)+'<a class="btn" href="https://www.sportsvillage.ca/ice-rental/" target="_blank" rel="noopener noreferrer">Official ice rental listing ↗</a></div>');
 }
 function opsWeekBoard(){
  const m=weekMonday(state.ops.date);
- return panel("This week's league nights","Known adult league nights are published; complete per-night game lists are not yet connected.",
+ return panel("Weekly league-night schedule","Published game rows on the four league nights · complete season calendars are not yet synchronized",
  '<div>'+Array.from({length:7},(_,i)=>{
- const iso=addDay(m,i),night=dayProgram(iso),n=(state.upcoming?.games||[]).filter(f=>f.date===iso&&(state.ops.rink==="all"||String(f.rink||"").startsWith(state.ops.rink))).length;
- return '<div class="ops-week-row"><div><b>'+dayShort(iso)+'</b><small>'+esc(iso)+'</small></div><div><strong class="ops-program">'+esc(night)+'</strong><small>'+n+' connected verified game'+(n!==1?"s":"")+' · other allocations not connected</small></div><button class="btn small" data-ops-date="'+iso+'">Open day</button></div>';
- }).join("")+'</div><div class="topline">'+btn("Review rental requests","league-ice")+btn("Division standings","league-divisions")+'</div>');
+ const iso=addDay(m,i),night=dayProgram(iso),n=sourceFixtures(iso,false).length;
+ return '<div class="ops-week-row"><div><b>'+dayShort(iso)+'</b><small>'+esc(iso)+'</small></div><div><strong class="ops-program">'+esc(night)+'</strong><small>'+n+' verified fixture row'+(n===1?"":"s")+' in the public-page window · full occupancy unverified</small></div><button class="btn small" data-ops-date="'+iso+'">Open day</button></div>';
+ }).join("")+'</div><div class="topline">'+btn("Ice-use requests","league-ice")+btn("Competition standings","league-divisions")+'</div>');
 }
 function leagueNightSnapshot(){
- const d=state.league,day=weekday(state.ops.date),night=dayProgram(state.ops.date);
- const coverage=[["Sunday",d?.currentLeagueTeamCount??"—",d?.currentDivisionCount??"—","Public Sunday archive connected"],["Tuesday","—","—","History ingestion in progress"],["Wednesday","—","—","History ingestion in progress"],["Thursday","—","—","History ingestion in progress"]];
- const rows=coverage.map(x=>'<div class="cardrow"><div><strong>'+x[0]+'</strong><small>'+x[3]+'</small></div><span class="pill '+(x[0]==="Sunday"?"green":"amber")+'">'+(x[0]==="Sunday"?x[1]+" teams · "+x[2]+" divisions":"Pending data")+'</span></div>').join("");
- const note=day===0?'<div class="topline">'+btn("View Sunday divisions","league-divisions")+'</div>':'<p class="source">Current Sunday standings cannot be presented as standings for '+esc(night)+'. Other night archives will be added after source verification.</p>';
- return panel("League-night data coverage","Operational source coverage across all four league nights",rows+note);
+ return panel("League coverage","Separate team and division records for every winter league night",fourNightCoverage()+
+ '<p class="source">Four source archives connected. These entries represent published standings, including any separate playoff groups. Cross-night player and team identities are not inferred from display names.</p>'+
+ '<div class="topline">'+btn("Review divisions and balance","league-divisions")+'</div>');
 }
 function rentalDraftList(){
  if(!state.iceDrafts.length)return '<p class="dim small">No ice-use inquiries saved in this browser.</p>';
@@ -171,29 +202,47 @@ function homeLeague(){
  leagueNightSnapshot()+'</div></div>'+footnote();
 }
 function leagueSchedule(){
- return intro("LEAGUEOS · SCHEDULING","League nights & game schedules","Review Sunday, Tuesday, Wednesday and Thursday programs. Move between dates without losing the rink and program filters.",
- btn("Open ice-use requests","league-ice",true))+
+ return intro("LEAGUEOS · SCHEDULING","League nights & game schedules","Review every published adult league night from the official league records. Switch dates, rinks or programs without switching workspaces.",
+ btn("Ice requests and commitments","league-ice",true))+
  opsToolbar()+opsSummary()+
  '<div class="grid"><div class="stack">'+(state.ops.view==="week"?opsWeekBoard():opsConfirmedGames())+opsIceBoard()+'</div><div class="stack">'+
- panel("League nights","Published winter 2026/27 schedule of league programs",
- '<div class="ruletile"><strong>Sunday</strong><p>SVHL adult hockey · verified Brave H.C. public fixture feed connected</p></div>'+
- '<div class="ruletile"><strong>Tuesday</strong><p>SVHL adult hockey · detailed games not yet integrated</p></div>'+
- '<div class="ruletile"><strong>Wednesday</strong><p>SVHL adult hockey · detailed games not yet integrated</p></div>'+
- '<div class="ruletile"><strong>Thursday</strong><p>SVHL adult hockey · detailed games not yet integrated</p></div>'+
- '<div class="source">Program nights are grounded in the published Sports Village Winter 2026/27 information. The rest of the schedule is not inferred.</div>')+
- panel("Schedule change request · demo","Operators can draft an edit for review; nothing changes the official calendar.",
- '<div class="formgrid"><label class="field">Proposed date<input type="date" id="change-date" value="'+esc(state.ops.date)+'"></label>'+
- '<label class="field">Proposed rink<select id="change-rink">'+opsRinks.map(v=>'<option value="'+v+'">Rink '+v+'</option>').join("")+'</select></label>'+
- '<label class="field span">Reason for change<textarea id="change-reason" maxlength="360" placeholder="e.g. move the fixture from Sunday to Tuesday, pending facility approval"></textarea></label></div>'+
- '<div class="formfooter"><button id="change-save" class="btn primary" type="button">Save change request</button><span class="small dim">Internal draft only</span></div><div id="change-count" class="source">'+state.changeDrafts.length+' unsent local change request(s)</div>')+
+ panel("Current league nights","Source-connected Tuesday, Wednesday, Thursday and Sunday competitions",fourNightCoverage()+
+ '<div class="source">These fixtures are those presently visible on official league pages. A complete league calendar and facility ice inventory remain separate integrations.</div>')+
+ panel("Schedule adjustment · draft","A league scheduler proposes a change; the facility must approve altered ice allocations.",
+ '<div class="formgrid"><label class="field">Requested date<input type="date" id="change-date" value="'+esc(state.ops.date)+'"></label>'+
+ '<label class="field">Requested rink<select id="change-rink">'+opsRinks.map(v=>'<option value="'+v+'">Rink '+v+'</option>').join("")+'</select></label>'+
+ '<label class="field span">Reason for adjustment<textarea id="change-reason" maxlength="360" placeholder="e.g. change next Tuesday game subject to facility approval"></textarea></label></div>'+
+ '<div class="formfooter"><button id="change-save" class="btn primary" type="button">Save request draft</button><span class="small dim">Not submitted</span></div><div id="change-count" class="source">'+state.changeDrafts.length+' unsent local request(s)</div>')+
  '</div></div>'+footnote();
 }
-function leagueDivisions(){const d=state.league;const ds=d?.divisions?.filter(x=>x.competitive)||[];return intro("LEAGUEOS · COMPETITION","Divisions & standings","Official standings first; strength analysis informs decisions without automatically moving teams.",btn("Open Division Fit Lab","league-analysis",true))+
-panel("Current divisions","Published SVHL league model",'<div class="twocol">'+(ds.length?ds.map(x=>'<div class="toolcard"><h3>'+esc(x.name)+'</h3><p>'+esc(x.teamCount)+' published teams</p><p class="small">'+esc(x.teams.slice(0,6).join(" · "))+(x.teams.length>6?" …":"")+'</p></div>').join(''):'<div class="loader">Current divisions could not be loaded.</div>')+'</div>')+
-panel("Cristillo standings","Sunday league published standings · entire division",standingsTable(true))+
-panel("Division placement review","Evidence-assisted, commissioner-approved decisions",'<div class="callout">Existing League Intelligence compares teams, cross-division results and performance patterns. A new placement proposal should always show its evidence and require human approval.</div>'+link("Open League Intelligence","league-intelligence.html")+ " &nbsp; "+link("Division Fit Lab","division-fit-lab.html"))+footnote()}
-function leagueTeams(){const d=state.league,rows=(d?.divisions||[]).filter(x=>x.competitive);return intro("LEAGUEOS · TEAMS","Team directory","Browse league records by night and division. The source-connected directory currently covers the Sunday competition.")+
-panel("League teams","Displayed by current division",rows.length?rows.map(x=>'<h3 style="margin:17px 0 10px">'+esc(x.name)+'</h3><div class="twocol">'+x.teams.map(n=>'<div class="cardrow"><div><strong>'+esc(n)+'</strong><small>'+esc(x.name)+'</small></div>'+(n==="Braves HC"?btn("TeamOS preview","team-home"):'<span class="pill">Public team only</span>')+'</div>').join('')+'</div>').join(''):'<div class="loader">Team directory unavailable.</div>')+footnote()}
+function competitionTable(rows){
+ return '<div class="tablewrap"><table><thead><tr><th>Team</th><th class="num">GP</th><th class="num">W</th><th class="num">L</th><th class="num">T</th><th class="num">PTS</th></tr></thead><tbody>'+
+ rows.map(r=>'<tr><td>'+esc(r.team)+'</td><td class="num">'+r.gp+'</td><td class="num">'+r.w+'</td><td class="num">'+r.l+'</td><td class="num">'+r.t+'</td><td class="num">'+r.pts+'</td></tr>').join('')+
+ '</tbody></table></div>';
+}
+function selectedCompetitionNight(){return ["Sunday","Tuesday","Wednesday","Thursday"].includes(currentNightName())?currentNightName():null}
+function leagueDivisions(){
+ const night=selectedCompetitionNight(),rows=(state.publicOps?.standings||[]).filter(r=>r.night===night),divisions=[...new Set(rows.map(r=>r.division))];
+ return intro("LEAGUEOS · COMPETITIVE OPERATIONS","Divisions & standings","View each league night on its own terms. Competitive balance recommendations will require verified history and shared player identities.")+
+ nightPicker()+
+ panel("Across the league","Current standings coverage, separated by program night",fourNightCoverage())+
+ (night?panel(night+" league standings","Published team results and standings; playoff groups remain visibly separate",
+ divisions.length?divisions.map(n=>'<div class="ruletile"><strong>'+esc(n)+'</strong>'+competitionTable(rows.filter(r=>r.division===n))+'</div>').join(''):'<div class="callout">No verified standings for this league night.</div>'):
+ panel("Choose a league night","Sunday, Tuesday, Wednesday and Thursday have distinct divisions",'<p>Select a night above to review that league’s divisions. Teams, players and competitive difficulty must not be pooled without source-qualified identity links.</p>'))+
+ panel("Competitive division engine · validation stage","Neutral evidence, not a unilateral realignment decision",'<div class="callout">Our developing model will compare opponent-adjusted results, goal difference, roster stability, cross-night player appearances and verified history. Each suggested change must include its evidence, uncertainty and commissioner approval.</div>'+
+ link("Existing Sunday Division Fit Lab","division-fit-lab.html"))+footnote();
+}
+function leagueTeams(){
+ const night=selectedCompetitionNight(),records=(state.publicOps?.standings||[]).filter(r=>r.night===night),groups=[...new Set(records.map(r=>r.division))];
+ return intro("LEAGUEOS · TEAM DIRECTORY","Teams","League records are organized by league night and division. A repeated name on another night does not establish the same franchise or roster.")+
+ nightPicker()+
+ (night?panel(night+" teams","Official team-season references · public competition records",
+ groups.length?groups.map(div=>'<div class="ruletile"><h3>'+esc(div)+'</h3>'+
+ '<div class="twocol">'+records.filter(r=>r.division===div).map(t=>
+ '<div class="cardrow"><div><strong>'+esc(t.team)+'</strong><small>GP '+t.gp+' · '+t.pts+' pts · '+esc(night)+'</small></div><a class="btn small" target="_blank" rel="noopener noreferrer" href="https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid='+t.league_id+'&amp;teamid='+t.team_id+'&amp;page_type=Adult">Official profile ↗</a></div>').join('')+'</div></div>').join(''):'<p>Team data not yet available.</p>'):
+ panel("Select a program night","Teams belong to specific team-season records",fourNightCoverage()))+
+ panel("Identity & eligibility","Shared player history stays evidence-led",'<p>LeagueOS will link player identities across nights using exact published IDs and verified membership records. Same-name matches are review candidates, not automatic merges.</p>')+footnote();
+}
 function leagueScoring(){return intro("LEAGUEOS · GAME OPERATIONS","Digital game sheets","Built for tablets and phones in the scorer’s box, with controlled final review.",link("Open interactive score sheet","svhl-leagueos-score-sheet-demo.html","btn primary"))+
 panel("The scorer’s box workflow","Fast recording without hunting through forms",'<div class="twocol"><div class="toolcard"><h3>1. Select an assigned game</h3><p>Verify rink, teams, game time, scorer and authorized rosters.</p></div><div class="toolcard"><h3>2. Tap the event</h3><p>Goal, assists, penalty, shot, period/time or an observation.</p></div><div class="toolcard"><h3>3. Verify the game sheet</h3><p>Review errors, correction history, roster signatures and officials.</p></div><div class="toolcard"><h3>4. Publish once authorized</h3><p>Approved results feed standings, individual statistics and both team websites.</p></div></div>')+
 panel("Current prototype boundary","An actual league system requires verified authorization",'<div class="callout warn">The linked mobile score sheet is an interactive local draft only. Its score and events do not update HTO or SVHL, and it is not a valid official player signature.</div><p>Current SVHL Rule 2.1 requires signed official game sheets. Any digital replacement must satisfy the league’s sign-off process and maintain a tamper-evident audit record.</p>')+footnote()}
@@ -255,7 +304,7 @@ if(node.id==="ice-save"){
  const date=$("#ice-date")?.value,rink=$("#ice-rink")?.value,start=$("#ice-start")?.value,end=$("#ice-end")?.value,use=$("#ice-use")?.value;
  if(!date||!rink||!start||!end)return toast("Select a date, rink and time range.");
  if(end<=start)return toast("End time must follow the start time.");
- const warning=(state.upcoming?.games||[]).some(f=>f.date===date&&String(f.rink||"").startsWith(rink)&&f.time>=start&&f.time<end);
+ const warning=sourceFixtures(date,false).some(f=>String(f.rink||"").startsWith(rink)&&f.time>=start&&f.time<end);
  state.iceDrafts.push({date,rink,start,end,use,warning,createdAt:new Date().toISOString()});
  state.iceDrafts=state.iceDrafts.slice(-50);save(OPS_ICE_KEY,state.iceDrafts);render();
  toast(warning?"Inquiry saved with possible published-game start conflict.":"Local inquiry draft saved. Ice has NOT been reserved.");
@@ -297,7 +346,7 @@ $("#sw-league").addEventListener("click",()=>navigate("league-home"));$("#sw-tea
 $("#feedback-open").addEventListener("click",()=>openFeedback(state.route));
 $("#feedback-shade").addEventListener("click",closeFeedback);
 document.addEventListener("keydown",e=>{if(e.key==="Escape")closeFeedback()});
-async function data(){const items=[["league","league-intelligence.json"],["standings","standings.json"],["upcoming","svhl-upcoming.json"]];
-await Promise.all(items.map(async([key,file])=>{try{const r=await fetch("./"+file,{cache:"no-store"});if(!r.ok)throw new Error("HTTP "+r.status);const val=await r.json();if(key==="league"&&val.schema!=="brave-hc-league-intelligence/public-v1")throw new Error("League schema");if(key==="standings"&&!Array.isArray(val.teams))throw new Error("Standings schema");if(key==="upcoming"&&!Array.isArray(val.games))throw new Error("Schedule schema");state[key]=val}catch(e){console.warn("Public snapshot not available:",file,String(e))}}));render()}
+async function data(){const items=[["league","league-intelligence.json"],["standings","standings.json"],["upcoming","svhl-upcoming.json"],["publicOps","svhl-public-four-nights-v2.json"]];
+await Promise.all(items.map(async([key,file])=>{try{const r=await fetch("./"+file,{cache:"no-store"});if(!r.ok)throw new Error("HTTP "+r.status);const val=await r.json();if(key==="league"&&val.schema!=="brave-hc-league-intelligence/public-v1")throw new Error("League schema");if(key==="standings"&&!Array.isArray(val.teams))throw new Error("Standings schema");if(key==="upcoming"&&!Array.isArray(val.games))throw new Error("Schedule schema");if(key==="publicOps"&&(val.schema!=="bruttech-svhl-public-operations/v2"||val.league_nights?.length!==4||!Array.isArray(val.games)||!Array.isArray(val.standings)))throw new Error("Public league operations schema");state[key]=val}catch(e){console.warn("Public snapshot not available:",file,String(e))}}));render()}
 navigate((location.hash||"#league-home").slice(1));renderNotes();data();
 })();
