@@ -4,11 +4,11 @@
   "sourceInputs": [
     {
       "file": "player-links.js",
-      "sha256": "55616528e9d4242715f5f2e5b483103faab7687a3d646e8d978370fd928c2cbd"
+      "sha256": "0cd05adb1324e11f9432c062ce3ca8b8c34b3f095d184ebe6051f50a3e0d149f"
     },
     {
       "file": "player-career-insights.json",
-      "sha256": "51318276cac49c2c2d433d046a6f8decddda17988ec1e6713f5bdc00e6692d4e"
+      "sha256": "6c246227346478c44631da30a94caee1b6e88d9f3e30165050895b5c06d97d98"
     },
     {
       "file": "player-highlights-ledger.json",
@@ -31,12 +31,12 @@
     },
     {
       "file": "player-record-book.json",
-      "sha256": "8d5f043f0c4efb49858dd2758e1814711a8c8a6b1cd715ebe56f6941bc3f2ae2",
+      "sha256": "9d3a4c16ae55e4084c2abadf02e9f0b86fd0fa1862f667554e027b55c9fc54ea",
       "capturedAt": "2026-10-28T13:39:36.203626+00:00"
     },
     {
       "file": "history-player-seasons.json",
-      "sha256": "23ee541a7f4f6fffbde6d08171f8c5c1f1f2d35d83db5ade0d3a47725924cc71"
+      "sha256": "e99529a2fb4ecfed98e4774c84ae3fb82e7d895da7cab1ecfe8f45793bab440a"
     }
   ],
   "counts": {
@@ -7053,7 +7053,7 @@
     },
     {
       "htoPlayerID": "849368",
-      "playerName": "Damian Pavaday",
+      "playerName": "Damien Pavaday",
       "publicHTOProfile": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=profile&playerID=849368",
       "sourceSnapshotStatuses": {
         "nativeHighlights": "NO_NATIVE_HIGHLIGHTS_IN_PUBLIC_SNAPSHOT",
