@@ -78,3 +78,12 @@ The existing Monday GitHub Actions workflow produces source-gated evidence/draft
 - Avoid repeating a player's backstory whenever their name appears in scoring coverage. Recognize the player for the on-ice contribution itself.
 - Keep mandatory FT absence and all dressed call-up coverage, but concise. This restraint never excuses omission of any verified goal, Braves assist, or critical scoring event.
 - For this Sugo game, Aaron Carosi's almost-nine-year return and brother Justin, plus Keith Pearsoll's Vaughan Rangers U18 title and brief A Rink visit, are each a compact pregame mention only. The Provenzano hat trick, late goals and captain's authentic goalie-pull explanation are the article's central story.
+
+## November 16 release-ready article standard — founder-approved
+- Golden v4 Sugo article received explicit publication approval. Preserve the exact user-edited article wording, including the defensive-priority sentence, without silently reverting to a previous draft. Production publication requires a native HTO Recap save and independent public readback receipt.
+- For all eight 2026–27 games through November 15, prepare **separate revised drafts**, sourced from the individual official HTO game sheets and prior approved article context; do not overwrite or republish the seven existing live recaps without separate approval.
+- Keep scoring chronology and all named Brave point-earners complete, correct power-play and empty-net attribution, FT absences and call-ups, POTG and goalie stats. Verify opponent scorers only when HTO reports them.
+- Use authentic founder quotes sparingly, quote only the decisive short phrases and paraphrase surrounding explanation; never invent quotes or apply November 15 quotations to other games.
+- Treat 1-2-2 forecheck/neutral-zone defensive structure and man-on-man defensive-zone coverage as the captain's **forward-looking coaching intentions**, not proof of execution in past games.
+- Human-interest details normally get one concise pregame mention, not separate features or repeated callbacks. Article's game events and decisive players take precedence.
+- Preserve each prior published article and approved historical record; stage proposed rewrites with a per-game verification checklist and approval gate.
