@@ -1,0 +1,3 @@
+# Exclude generated Python import bytecode from the public widget publisher.
+# Do not ignore unrecognized source files, reports or model data.
+/scripts/__pycache__/

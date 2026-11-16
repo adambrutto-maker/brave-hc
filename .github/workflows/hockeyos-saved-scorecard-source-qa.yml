@@ -1,0 +1,60 @@
+name: HockeyOS Saved HTO Scorecard Width Evidence
+
+on:
+  pull_request:
+    paths:
+      - ".gitignore"
+      - "scripts/audit_saved_hto_scorecard_widths.py"
+      - "scripts/audit_saved_hto_sixgame_identity_join.py"
+      - "scripts/hockeyos_scorecard_period_contract.py"
+      - "scripts/audit_pinned_hto_boxscore_period_replay.py"
+      - "tests/test_saved_hto_scorecard_widths.py"
+      - "tests/test_saved_hto_sixgame_identity_join.py"
+      - "tests/test_hockeyos_scorecard_period_contract.py"
+      - "tests/test_pinned_hto_boxscore_period_replay.py"
+      - ".github/workflows/hockeyos-saved-scorecard-source-qa.yml"
+  push:
+    branches: [main]
+    paths:
+      - ".gitignore"
+      - "scripts/audit_saved_hto_scorecard_widths.py"
+      - "scripts/audit_saved_hto_sixgame_identity_join.py"
+      - "scripts/hockeyos_scorecard_period_contract.py"
+      - "scripts/audit_pinned_hto_boxscore_period_replay.py"
+      - "tests/test_saved_hto_scorecard_widths.py"
+      - "tests/test_saved_hto_sixgame_identity_join.py"
+      - "tests/test_hockeyos_scorecard_period_contract.py"
+      - "tests/test_pinned_hto_boxscore_period_replay.py"
+      - ".github/workflows/hockeyos-saved-scorecard-source-qa.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  saved-scorecard-schema:
+    name: Source-only scoreboard semantics and publisher Git hygiene
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Pure readback contract QA (no HTO fetch or collector call)
+        run: |
+          python -B -m unittest discover -s tests -p test_saved_hto_scorecard_widths.py -v
+      - name: Validate previously qualified six-game identity join with synthetic fixtures only
+        run: |
+          python -B -m unittest discover -s tests -p test_saved_hto_sixgame_identity_join.py -v
+      - name: Validate shared compact/extended scoreboard period semantics
+        run: |
+          python -B -m unittest discover -s tests -p test_hockeyos_scorecard_period_contract.py -v
+      - name: Independently replay archived per-game period scores using synthetic fixtures
+        run: |
+          python -B -m unittest discover -s tests -p test_pinned_hto_boxscore_period_replay.py -v
+      - name: Confirm Git ignores only generated Python bytecode
+        shell: bash
+        run: |
+          git check-ignore -v --no-index scripts/__pycache__/track_svhl_division_movements.cpython-312.pyc
+          if git check-ignore --no-index widgets/league-intelligence.json; then exit 2; fi
+          if git check-ignore --no-index scripts/new-legitimate-source.py; then exit 2; fi
