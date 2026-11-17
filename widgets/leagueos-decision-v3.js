@@ -11,6 +11,7 @@ const PACKAGES="./leagueos-balanced-division-packages-v3.json";
 const PUBLIC_FIXTURES="./leagueos-source-qualified-current-fixtures-v4.json";
 const FIXTURE_IMPACT="./leagueos-division-fixture-impact-v4.json";
 const FAIRNESS="./leagueos_whole_division_fairness_public_v5.json";
+const SCHEDULE_EQUITY="./leagueos_schedule_equity_public_v6.json";
 const STORAGE="bruttech-leagueos-commissioner-cases-v3-261116";
 const OLD_NOTES="bruttech-leagueos-alignment-review-drafts-v2-261116";
 const RULES="https://www.sportsvillage.ca/wp-content/uploads/2024/09/Rule-Book.pdf";
@@ -48,7 +49,7 @@ function saved(){
  }catch(e){return{schema:"bruttech-commissioner-local-case-records/v3",cases:{}}}
 }
 const store=saved();
-let data=null,packages=null,fixtures=null,fixtureImpact=null,fixtureLoadError="",fairness=null,fairnessError="",loading=false,error="",selected=null,view="packages",draft=blank(),lastToast="";
+let data=null,packages=null,fixtures=null,fixtureImpact=null,fixtureLoadError="",fairness=null,fairnessError="",scheduleEquity=null,loading=false,error="",selected=null,view="packages",draft=blank(),lastToast="";
 let cases=[],activeStep=1;
 const teamIndex=new Map();
 function toast(msg){lastToast=msg;const t=$("#decision-toast");if(t){t.textContent=msg;t.hidden=false}}
@@ -212,9 +213,28 @@ function impact(c){
  '<p>Some past fixtures for these teams still display unverified results (often 0–0). Do not count these as forfeits, finalized scores or official eligibility evidence.</p></div>':'';
  const footer='<div class="desk-warning"><strong>What remains unverified</strong><p>Available ice, the full season schedule, authorized player eligibility, revised opponent assignments, referee staffing, contracted rink blocks and official point carryover are not determined by this preview.</p></div>'+
  '<p class="desk-muted">Even if the same time and rink remain listed, an approved realignment could require revised opponents or a rescheduled game. Do not assume existing commitments are compatible.</p>';
- return sum+range+body+holds+footer+
+ return sum+range+body+holds+scheduleContext(c)+footer+
  '<a href="'+esc(source.impact_rows?.[0]?.source_game_url||f.fixtures.find(g=>g.night===c.night)?.league_url||"https://leagues.sportsvillage.ca/")+
  '" target="_blank" rel="noopener noreferrer">View published SVHL source ↗</a>';
+}
+function scheduleContext(c){
+ if(!scheduleEquity||scheduleEquity.schema!=="bruttech-leagueos-schedule-equity-v6")
+  return '<div class="desk-muted">Historical start-time and opponent-rotation evidence is unavailable. This does not mean the schedule has no equity concerns.</div>';
+ const index=new Map(scheduleEquity.teams.map(x=>[x.league_id+":"+x.team_id,x]));
+ const records=c.participants.map(t=>index.get(t.league_id+":"+t.team_id)).filter(Boolean);
+ if(!records.length)return '<div class="desk-muted">Scheduling equity context is not available for the selected source teams.</div>';
+ return '<details class="desk-equity-context"><summary>Observed start times & opponent rotation ('+records.length+' team'+(records.length===1?"":"s")+')</summary>'+
+ '<div class="desk-equity-context-content">'+records.map(t=>{
+  const s=t.stats;
+  return '<div class="desk-equity-team"><strong>'+esc(t.team_name)+'</strong>'+
+  '<div><span>Published fixture references</span><b>'+val(s.accepted)+'</b></div>'+
+  '<div><span>10 PM+ starts</span><b>'+val(s.late_after_22)+' / '+val(s.accepted)+' ('+pct(s.late_after_22_share)+')</b></div>'+
+  '<div><span>Repeat-opponent share</span><b>'+pct(s.repeat_share)+'</b></div>'+
+  '<div><span>Gaps shorter than six days</span><b>'+val(s.short_gaps_lt6)+'</b></div>'+
+  '</div>';
+ }).join('')+'</div>'+
+ '<p>These are actual source-fixture exposures, not a forecast of the new division schedule. Neither the club preferences nor complete future ice allocations are connected. The exploratory 1,800-pass slot comparison found no statistically supported review flags at the provisional threshold; this does not prove the season is fair.</p>'+
+ '<button type="button" class="btn small" data-go="league-schedule-equity">Open scheduling equity audit ↗</button></details>';
 }
 function checkpoints(){
  return '<div class="desk-gate-list">'+CHECKS.map(ch=>{
@@ -252,6 +272,8 @@ function compareSaved(c){
   wholeDivisionUncertaintyRange:fairCase(c)?.posterior_strength_conditional_on_source_games?.model_sensitivity_10_50_90??null,
   modelRecommendsPlacement:false,
   fixtureSourceSnapshot:fixtures?.captured_date||"UNAVAILABLE",
+  scheduleEquitySourceCapture:scheduleEquity?.source_snapshot||"UNAVAILABLE",
+  scheduleEquityEvidenceAvailable:Boolean(scheduleEquity),
   fixtureImpactSourceAt:fixtureImpact?.generated_at||"UNAVAILABLE",
   sourceUpcomingFixturesInWindow:fixtureImpact?.cases?.[c.id]?.known_upcoming_games_touching_case??null,
   sourceScenarioGroupingChanges:fixtureImpact?.cases?.[c.id]?.fixture_grouping_changed_count??null,
@@ -415,6 +437,11 @@ async function start(){
    if(f.schema!=="bruttech-leagueos-whole-division-fairness/v5"||f.cases?.length!==4)throw Error("Whole-division fairness source failed validation");
    fairness=f;fairnessError="";
   }catch(e){fairness=null;fairnessError=String(e.message||e)}
+  try{
+   const eq=await fetchJSON(SCHEDULE_EQUITY);
+   if(eq.schema!=="bruttech-leagueos-schedule-equity-v6"||eq.teams?.length!==96||eq.coverage?.accepted_source_game_references!==401)throw Error("Scheduling equity source version invalid");
+   scheduleEquity=eq;
+  }catch(e){scheduleEquity=null}
   buildCases();
   if(!selected||!findCase(selected)){
    selected=cases.find(x=>x.kind==="package")?.id||cases[0]?.id||null;
