@@ -77,7 +77,7 @@ let html='<div class="v12-review">'+
  '<label class="field">Team to examine'+select("v12-focus",all.map(x=>({id:x.team_id,name:x.team})),state.focus,x=>x.name)+'</label></div></section>'+
  '<div class="v12-metrics"><div><small>Division teams</small><strong>'+size+'</strong><span>Captured public standings</span></div>'+
  '<div><small>Top-to-bottom points rate gap</small><strong>'+Math.round(diffRate*100)+' pp</strong><span>'+esc(high?.team||"—")+' vs '+esc(low?.team||"—")+'</span></div>'+
- '<div><small>'+esc(focus.team)+' record</small><strong>'+focus.w+'–'+focus.l+'–'+focus.t+'</strong><span>'+focus.pts+' points · '+(focus.gd>=0?"+":"")+focus.gd+' goal difference</span></div></div>'+
+ '<div><small>'+esc(focus.team)+' record</small><strong>'+focus.w+'–'+focus.l+'–'+focus.t+'</strong><span>'+focus.pts+' points · '+(focus.gd>=0?"+":"")+focus.gd+' goal difference</span></div></div>';
 
  const standingsSection='<section class="panel v12-standings"><div class="v12-panel-heading"><h2>Whole-division comparison</h2><p>Compare every team before discussing a placement change. This avoids treating one club’s results as the whole league.</p></div>'+
  '<div class="lc-tablewrap"><table class="lc-table"><thead><tr><th>Team</th><th>W–L–T</th><th>Pts rate</th><th>Goal diff./game</th><th>Published goals</th></tr></thead><tbody>'+
