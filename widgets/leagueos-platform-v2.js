@@ -51,12 +51,13 @@ function nav(){
  const secondary=[["league-divisions","Standings","▤"],["league-scoring","Game sheets","▣"],["league-registration","Registration","✎"],["league-history","Season history","◫"],["league-alignment","Division balance","⊞"],["league-decisions","Division reviews","✓"],["league-schedule-equity","Schedule audit","◷"],["league-inventory","Ice evidence","◫"],["league-ice","Rental requests","◫"],["league-rules","Rulebook","⚖"],["league-payments","Payments","▥"],["league-analysis","Intelligence","◈"]];
  const canonical=state.route==="league-playoff-formats"||state.route==="league-bracket-sandbox"?"league-playoffs":state.route;
  const isActive=k=>canonical===k||(state.route==="league-fairness"&&k==="league-alignment");
- const item=v=>'<button type="button" class="navlink'+(isActive(v[0])?' active':'')+'" data-go="'+v[0]+'"'+(isActive(v[0])?' aria-current="page"':'')+'><span class="navicon">'+v[2]+'</span><span>'+v[1]+'</span></button>';
+ const compact={"league-home":"Overview","league-schedule":"Games","league-planner":"Schedule","league-playoffs":"Playoffs","league-teams":"Teams"};
+ const item=v=>'<button type="button" class="navlink'+(isActive(v[0])?' active':'')+'" data-go="'+v[0]+'"'+(isActive(v[0])?' aria-current="page"':'')+'><span class="navicon">'+v[2]+'</span><span class="nav-long">'+v[1]+'</span>'+(compact[v[0]]?'<span class="nav-short">'+compact[v[0]]+'</span>':'')+'</button>';
  if(team){
   $("#sidebar-nav").innerHTML='<div class="navheading">Team workspace</div>'+viewList.team.map(item).join('')+'<div class="navheading">Switch workspace</div>'+item(["league-home","LeagueOS overview","⇄"]);
  }else{
   const opened=secondary.some(v=>v[0]===state.route)||state.route==="league-fairness";
-  $("#sidebar-nav").innerHTML='<div class="navheading">League workspace</div>'+main.map(item).join('')+'<details class="nav-more"'+(opened?' open':'')+'><summary><span>More league tools</span><span aria-hidden="true">⌄</span></summary><div class="nav-more-items">'+secondary.map(item).join('')+'</div></details><div class="navheading nav-switch-label">Team workspace</div>'+item(["team-home","Brave H.C. TeamOS","⇄"]);
+  $("#sidebar-nav").innerHTML='<div class="navheading">League workspace</div>'+main.map(item).join('')+'<details class="nav-more"'+(opened?' open':'')+'><summary><span class="nav-long">More league tools</span><span class="nav-short">More tools</span><span aria-hidden="true">⌄</span></summary><div class="nav-more-items">'+secondary.map(item).join('')+'</div></details><div class="navheading nav-switch-label">Team workspace</div>'+item(["team-home","Brave H.C. TeamOS","⇄"]);
  }
  $("#railfooter").textContent=team?"Team information stays separate from the league administrator view.":"Source-backed research demo. No official game, rink, payment or registration changes.";
 }
