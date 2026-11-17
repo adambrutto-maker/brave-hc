@@ -208,3 +208,30 @@ body{background:#f5f7fa;color:var(--v10-ink);font-size:14px}
 .v10-pf .v10-method-note{margin-top:0}
 @media(max-width:910px){.v10-pf-setup .lc-controls{grid-template-columns:1fr 1fr!important}.v10-pf-setup .lc-controls>.field:first-child{grid-column:1/-1}.v10-pf-finish{align-items:flex-start;flex-direction:column}}
 @media(max-width:550px){.v10-pf-note{display:grid;gap:4px}.v10-pf-setup{padding:18px}.v10-pf-setup .lc-controls{grid-template-columns:minmax(0,1fr)!important}.v10-pf-setup .lc-controls>.field:first-child{grid-column:auto}.v10-pf-play-head{align-items:start;flex-wrap:wrap}.v10-pf-seeds details>summary{padding:14px}.v10-pf-seeds .lc-seeds{padding:0 12px 15px}.v10-pf-finish{padding:18px}}
+
+
+/* Mobile navigation: one compact row with a separate optional-tools disclosure. */
+.nav-short{display:none}
+@media(max-width:780px){
+ .shell{display:grid;grid-template-columns:minmax(0,1fr);grid-template-areas:"appbar" "navigation" "workspace"}
+ .content{display:contents}
+ .topbar{grid-area:appbar;min-width:0;padding:12px 14px}
+ .sidebar{grid-area:navigation;min-width:0;padding:7px 8px 8px}
+ .body{grid-area:workspace;min-width:0}
+ .sidebar nav{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:4px;overflow:visible}
+ .sidebar .navlink{min-width:0;white-space:normal;width:auto;flex:none;min-height:40px;font-size:10px;line-height:1.2;padding:8px 4px;justify-content:center;text-align:center}
+ .sidebar .navlink .nav-long{display:none}
+ .sidebar .navlink .nav-short{display:inline}
+ .sidebar .navlink[data-go="team-home"]{display:none}
+ .sidebar .nav-more{grid-column:1/-1;margin:0;min-width:0}
+ .sidebar .nav-more>summary{min-height:32px;padding:6px 10px;justify-content:center;gap:8px;font-size:11px}
+ .sidebar .nav-more>summary .nav-long{display:none}
+ .sidebar .nav-more>summary .nav-short{display:inline}
+ .sidebar .nav-more-items{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .sidebar .nav-more-items .navlink .nav-long{display:inline}
+ .topbar .topname{font-size:14px}
+ .topbar .topname small{font-size:10px}
+ .intro{display:grid;gap:13px}
+ .intro .btn{justify-self:start;white-space:normal;text-align:center}
+ .v10-hero{margin-top:2px}
+}
