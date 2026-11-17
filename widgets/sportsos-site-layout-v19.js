@@ -66,9 +66,10 @@ function mount(route){
  banner.innerHTML=masthead(route);
  const utility=document.getElementById("topname");if(utility)utility.textContent=team?"HockeyOS · Brave H.C. team website":"LeagueOS · commissioner workspace";
  const navs=PRIMARY[mode],more=SECONDARY[mode];
+ const activeRoute=route.startsWith("team-game-")?"team-results":route;
  nav.innerHTML='<div class="v19-tabs" aria-label="Primary navigation">'+navs.map(([title,key])=>
-  '<button type="button" data-go="'+key+'"'+(route===key?' aria-current="page"':'')+
-  ' class="v19-tab'+(route===key?' is-active':'')+'">'+esc(title)+'</button>').join("")+'</div>'+
+  '<button type="button" data-go="'+key+'"'+(activeRoute===key?' aria-current="page"':'')+
+  ' class="v19-tab'+(activeRoute===key?' is-active':'')+'">'+esc(title)+'</button>').join("")+'</div>'+
  '<div class="v19-subnav"><span class="v19-nav-hint">'+(team?'THE TEAM':'OPERATIONS')+'</span>'+
  (team?routeButton("Attendance","team-attendance","v19-subaction")+routeButton("Lineups","team-lineup","v19-subaction"):
   routeButton("Game sheets","league-scoring","v19-subaction")+routeButton("Fair scheduler","league-planner","v19-subaction")+
@@ -99,8 +100,7 @@ function teamHome(c){
  '<div class="v19-home-grid"><aside class="v19-side-stack">'+
  wrap("Team record","Published source snapshot",'<div class="v19-big-numeral">'+record+'</div>'+
  '<p class="v19-mini">Season: Winter 2026/27 · source-qualified where available</p>'+routeLink("Stats & standings","team-stats"))+
- wrap("Last game","Official result authority",'<p>Open the verified HTO game record. This preview does not invent a latest score.</p>'+
- ext("Official scores",TEAM_SOURCE+"scores"))+
+ wrap("Last game","Official HTO result snapshot",'<div id="hockeyos-v21-last-game"><p>Checking the last verified game…</p></div>')+
  wrap("Next on the ice","Upcoming game",'<div class="v19-next-game">'+next+'</div>'+routeLink("Full schedule","team-schedule"))+
  wrap("Stat leaders","HTO actuals · source dated",'<div id="hockeyos-v20-leaders"><p>Checking the latest verified player statistics…</p></div>'+routeLink("View team stats","team-stats"))+
  '</aside><div class="v19-main-stack">'+

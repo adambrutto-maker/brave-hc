@@ -1,0 +1,429 @@
+{
+  "schema": "bruttech-hockeyos-hto-games/v21",
+  "team": "Brave H.C.",
+  "season": "Winter 2026/2027",
+  "seasonKey": "Winter_2026/2027",
+  "sourceAuthority": "HomeTeamsONLINE public Brave H.C. game pages",
+  "scope": "HTO_CURRENT_SEASON_SOURCE_VERIFIED",
+  "sourceReadOnly": true,
+  "sourceCapturedAt": "2026-11-17T18:11:36.567Z",
+  "officialRecordEdited": false,
+  "status": "DATED_PUBLIC_SNAPSHOT_NOT_LIVE",
+  "sources": {
+    "schedule": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=schedule",
+    "scores": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=scores"
+  },
+  "coverage": {
+    "months": [
+      {
+        "month": "2026-09",
+        "gameReferences": 2,
+        "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=schedule&d=20260901"
+      },
+      {
+        "month": "2026-10",
+        "gameReferences": 3,
+        "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=schedule&d=20261001"
+      },
+      {
+        "month": "2026-11",
+        "gameReferences": 4,
+        "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=schedule&d=20261101"
+      },
+      {
+        "month": "2026-12",
+        "gameReferences": 0,
+        "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=schedule&d=20261201"
+      },
+      {
+        "month": "2027-01",
+        "gameReferences": 0,
+        "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=schedule&d=20270101"
+      },
+      {
+        "month": "2027-02",
+        "gameReferences": 0,
+        "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=schedule&d=20270201"
+      },
+      {
+        "month": "2027-03",
+        "gameReferences": 0,
+        "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=schedule&d=20270301"
+      },
+      {
+        "month": "2027-04",
+        "gameReferences": 0,
+        "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=schedule&d=20270401"
+      }
+    ],
+    "spanFirstMonth": "2026-09",
+    "spanLastMonth": "2027-04",
+    "lastSourceVerifiedAt": "2026-11-17T18:11:36.567Z",
+    "coverageNote": "Only source-linked HTO regular-season fixtures are included; unlisted future league assignments are not confirmed."
+  },
+  "counts": {
+    "completed": 8,
+    "scheduledAtCapture": 1,
+    "totalVerifiedGames": 9,
+    "results": {
+      "wins": 1,
+      "losses": 7,
+      "ties": 0
+    },
+    "completedWithPeriodSumMismatch": 0
+  },
+  "games": [
+    {
+      "htoGameId": "3356177",
+      "season": "Winter 2026/2027",
+      "date": "2026-09-20",
+      "weekday": "Sunday",
+      "timeLocal": "20:15",
+      "endTimeLocal": "21:45",
+      "rink": "Vaughan Sports Village - A Rink",
+      "club": "Brave H.C.",
+      "opponent": "Dateline Predators",
+      "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3356177",
+      "sourceCalendarMonth": "2026-09",
+      "sourceDetails": "Dateline Predators vs. Brave H.C.",
+      "status": "COMPLETED_HTO_BOX_SCORE",
+      "result": "L",
+      "score": {
+        "club": 0,
+        "opponent": 3,
+        "periods": [
+          "1",
+          "2",
+          "3",
+          "OT",
+          "2OT"
+        ],
+        "clubPeriods": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "opponentPeriods": [
+          0,
+          2,
+          1,
+          0,
+          0
+        ],
+        "periodSumMatchesFinal": true
+      },
+      "gameType": "REGULAR SEASON"
+    },
+    {
+      "htoGameId": "3356178",
+      "season": "Winter 2026/2027",
+      "date": "2026-09-27",
+      "weekday": "Sunday",
+      "timeLocal": "18:15",
+      "endTimeLocal": "19:45",
+      "rink": "Vaughan Sports Village - D Rink",
+      "club": "Brave H.C.",
+      "opponent": "Mohawks H.C.",
+      "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3356178",
+      "sourceCalendarMonth": "2026-09",
+      "sourceDetails": "Mohawks H.C. vs. Brave H.C.",
+      "status": "COMPLETED_HTO_BOX_SCORE",
+      "result": "L",
+      "score": {
+        "club": 3,
+        "opponent": 6,
+        "periods": [
+          "1",
+          "2",
+          "3",
+          "OT",
+          "2OT"
+        ],
+        "clubPeriods": [
+          0,
+          1,
+          2,
+          0,
+          0
+        ],
+        "opponentPeriods": [
+          1,
+          2,
+          3,
+          0,
+          0
+        ],
+        "periodSumMatchesFinal": true
+      },
+      "gameType": "REGULAR SEASON"
+    },
+    {
+      "htoGameId": "3369564",
+      "season": "Winter 2026/2027",
+      "date": "2026-10-04",
+      "weekday": "Sunday",
+      "timeLocal": "20:15",
+      "endTimeLocal": "21:30",
+      "rink": "Vaughan Sports Village - D Rink",
+      "club": "Brave H.C.",
+      "opponent": "Sugo Sundays",
+      "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3369564",
+      "sourceCalendarMonth": "2026-10",
+      "sourceDetails": "Sugo Sundays vs. Brave H.C.",
+      "status": "COMPLETED_HTO_BOX_SCORE",
+      "result": "L",
+      "score": {
+        "club": 2,
+        "opponent": 3,
+        "periods": [
+          "1",
+          "2",
+          "3",
+          "OT",
+          "2OT"
+        ],
+        "clubPeriods": [
+          2,
+          0,
+          0,
+          0,
+          0
+        ],
+        "opponentPeriods": [
+          2,
+          0,
+          1,
+          0,
+          0
+        ],
+        "periodSumMatchesFinal": true
+      },
+      "gameType": "REGULAR SEASON"
+    },
+    {
+      "htoGameId": "3375601",
+      "season": "Winter 2026/2027",
+      "date": "2026-10-18",
+      "weekday": "Sunday",
+      "timeLocal": "21:15",
+      "endTimeLocal": "22:45",
+      "rink": "Vaughan Sports Village - A Rink",
+      "club": "Brave H.C.",
+      "opponent": "Zamboner Crew",
+      "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3375601",
+      "sourceCalendarMonth": "2026-10",
+      "sourceDetails": "Zamboner Crew vs. Brave H.C.",
+      "status": "COMPLETED_HTO_BOX_SCORE",
+      "result": "L",
+      "score": {
+        "club": 1,
+        "opponent": 7,
+        "periods": [
+          "1",
+          "2",
+          "3",
+          "OT",
+          "2OT"
+        ],
+        "clubPeriods": [
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "opponentPeriods": [
+          2,
+          3,
+          2,
+          0,
+          0
+        ],
+        "periodSumMatchesFinal": true
+      },
+      "gameType": "REGULAR SEASON"
+    },
+    {
+      "htoGameId": "3375682",
+      "season": "Winter 2026/2027",
+      "date": "2026-10-25",
+      "weekday": "Sunday",
+      "timeLocal": "18:15",
+      "endTimeLocal": "19:45",
+      "rink": "Vaughan Sports Village - A Rink",
+      "club": "Brave H.C.",
+      "opponent": "Big Bastones",
+      "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3375682",
+      "sourceCalendarMonth": "2026-10",
+      "sourceDetails": "Big Bastones vs. Brave H.C.",
+      "status": "COMPLETED_HTO_BOX_SCORE",
+      "result": "W",
+      "score": {
+        "club": 6,
+        "opponent": 4,
+        "periods": [
+          "1",
+          "2",
+          "3"
+        ],
+        "clubPeriods": [
+          3,
+          0,
+          3
+        ],
+        "opponentPeriods": [
+          0,
+          2,
+          2
+        ],
+        "periodSumMatchesFinal": true
+      },
+      "gameType": "REGULAR SEASON"
+    },
+    {
+      "htoGameId": "3375683",
+      "season": "Winter 2026/2027",
+      "date": "2026-11-01",
+      "weekday": "Sunday",
+      "timeLocal": "20:15",
+      "endTimeLocal": "21:45",
+      "rink": "Vaughan Sports Village - D Rink",
+      "club": "Brave H.C.",
+      "opponent": "Mid Ice Crisis",
+      "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3375683",
+      "sourceCalendarMonth": "2026-11",
+      "sourceDetails": "Brave H.C. vs. Mid Ice Crisis",
+      "status": "COMPLETED_HTO_BOX_SCORE",
+      "result": "L",
+      "score": {
+        "club": 2,
+        "opponent": 7,
+        "periods": [
+          "1",
+          "2",
+          "3",
+          "OT",
+          "2OT"
+        ],
+        "clubPeriods": [
+          0,
+          0,
+          2,
+          0,
+          0
+        ],
+        "opponentPeriods": [
+          1,
+          3,
+          3,
+          0,
+          0
+        ],
+        "periodSumMatchesFinal": true
+      },
+      "gameType": "REGULAR SEASON"
+    },
+    {
+      "htoGameId": "3375684",
+      "season": "Winter 2026/2027",
+      "date": "2026-11-08",
+      "weekday": "Sunday",
+      "timeLocal": "21:15",
+      "endTimeLocal": "22:45",
+      "rink": "Vaughan Sports Village - D Rink",
+      "club": "Brave H.C.",
+      "opponent": "Other Way",
+      "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3375684",
+      "sourceCalendarMonth": "2026-11",
+      "sourceDetails": "Other Way vs. Brave H.C.",
+      "status": "COMPLETED_HTO_BOX_SCORE",
+      "result": "L",
+      "score": {
+        "club": 5,
+        "opponent": 6,
+        "periods": [
+          "1",
+          "2",
+          "3"
+        ],
+        "clubPeriods": [
+          2,
+          2,
+          1
+        ],
+        "opponentPeriods": [
+          3,
+          1,
+          2
+        ],
+        "periodSumMatchesFinal": true
+      },
+      "gameType": "REGULAR SEASON"
+    },
+    {
+      "htoGameId": "3375685",
+      "season": "Winter 2026/2027",
+      "date": "2026-11-15",
+      "weekday": "Sunday",
+      "timeLocal": "19:15",
+      "endTimeLocal": "20:45",
+      "rink": "Vaughan Sports Village - A Rink",
+      "club": "Brave H.C.",
+      "opponent": "Sugo Sundays",
+      "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3375685",
+      "sourceCalendarMonth": "2026-11",
+      "sourceDetails": "Sugo Sundays vs. Brave H.C.",
+      "status": "COMPLETED_HTO_BOX_SCORE",
+      "result": "L",
+      "score": {
+        "club": 4,
+        "opponent": 6,
+        "periods": [
+          "1",
+          "2",
+          "3"
+        ],
+        "clubPeriods": [
+          1,
+          1,
+          2
+        ],
+        "opponentPeriods": [
+          1,
+          2,
+          3
+        ],
+        "periodSumMatchesFinal": true
+      },
+      "gameType": "REGULAR SEASON"
+    },
+    {
+      "htoGameId": "3375686",
+      "season": "Winter 2026/2027",
+      "date": "2026-11-22",
+      "weekday": "Sunday",
+      "timeLocal": "20:00",
+      "endTimeLocal": "21:30",
+      "rink": "Vaughan Sports Village - B Rink",
+      "club": "Brave H.C.",
+      "opponent": "Dateline Predators",
+      "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=preview&sportsHQ=BRAVESHOCKEY&gameID=3375686",
+      "sourceCalendarMonth": "2026-11",
+      "sourceDetails": "Dateline Predators vs. Brave H.C.",
+      "status": "SCHEDULED_HTO_PREVIEW_AT_CAPTURE",
+      "result": null,
+      "score": null,
+      "gameType": "REGULAR SEASON"
+    }
+  ],
+  "reconciliation": {
+    "htoScoresIdsExactlyMatchCompletedCalendar": true,
+    "teamRecordMatchesHTOStatsSnapshot": true,
+    "unrelatedCalendarEventsExcluded": true,
+    "sourceGameIdsOnly": true,
+    "inferredHomeAway": false,
+    "futureSvhlOnlyFixturesAreNotMerged": true
+  }
+}

@@ -1,0 +1,159 @@
+/* HockeyOS V21 original, source-qualified team calendar and game results. */
+.v21-root{width:100%;max-width:100%;min-width:0;display:grid;gap:15px;color:#193750}
+.v21-heading{background:#fff;border:1px solid #d5e3ed;border-top:4px solid #be2949;padding:22px 24px;display:flex;justify-content:space-between;align-items:center;gap:18px}
+.v21-heading>div:first-child{min-width:0}
+.v21-heading span{font-size:10px;color:#b12345;font-weight:950;letter-spacing:.14em}
+.v21-heading h2{font-size:clamp(25px,3.4vw,37px);margin:5px 0;color:#15334c;letter-spacing:-.05em;line-height:1.12}
+.v21-heading p{font-size:12px;line-height:1.6;color:#617e92;margin:0;max-width:650px}
+.v21-source-stamp{min-width:214px;display:grid;gap:3px;background:#f0f5f9;border-left:3px solid #bf2b4a;padding:12px 17px}
+.v21-source-stamp small{font-size:9px;color:#648095;font-weight:900;letter-spacing:.08em}
+.v21-source-stamp b{font-size:18px;color:#193c56}
+.v21-source-stamp em{font-style:normal;font-size:10px;color:#6f8999}
+.v21-overview{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px}
+.v21-overview>div{padding:15px;background:#fff;border:1px solid #d6e4ed;border-top:3px solid #c62e4d;display:grid;gap:4px;min-width:0}
+.v21-overview small{font-size:10px;font-weight:900;letter-spacing:.06em;color:#6f8ca1}
+.v21-overview b{font-variant-numeric:tabular-nums;font-size:29px;color:#193c56;line-height:1.1}
+.v21-overview strong{font-size:15px;color:#195e7b}
+.v21-controls{display:flex;flex-wrap:wrap;align-items:end;gap:12px;background:#fff;border:1px solid #d3e0e9;padding:14px 17px}
+.v21-controls label{font-weight:800;font-size:11px;color:#5d7b90;display:grid;gap:5px;min-width:165px}
+.v21-controls label:nth-child(2){flex:1 1 200px}
+.v21-controls select,.v21-controls input{background:#f9fcfe;border:1px solid #bfd2e1;color:#1b415c;border-radius:5px;min-height:41px;min-width:0;width:100%;padding:9px 10px;font-size:13px}
+.v21-controls select:focus-visible,.v21-controls input:focus-visible{outline:2px solid #3d96c7;outline-offset:1px}
+.v21-view-toggle{display:flex;gap:4px;align-items:stretch;min-height:41px}
+.v21-view-toggle button{background:#edf4f8;border:1px solid #bad1e0;color:#244f6e;font-size:11px;font-weight:900;border-radius:4px;padding:9px 12px}
+.v21-view-toggle button[aria-pressed="true"],.v21-view-toggle button.active{background:#be2949;color:#fff;border-color:#a51e3c}
+.v21-schedule-section{background:#fff;border:1px solid #d9e5ec;min-width:0}
+.v21-section-head{min-height:53px;background:#14334d;color:#f1faff;display:flex;justify-content:space-between;align-items:center;gap:15px;padding:10px 17px}
+.v21-section-head h3{font-size:17px;margin:0;color:#f3faff}
+.v21-section-head span{font-size:11px;color:#b3d3e4;font-weight:750}
+.v21-calendar{width:100%;min-width:0}
+.v21-weekdays,.v21-days{display:grid;grid-template-columns:repeat(7,minmax(0,1fr))}
+.v21-weekdays{background:#e4ecf3;border-bottom:1px solid #d2e0ea}
+.v21-weekdays b{padding:10px;text-align:center;color:#40657e;font-size:11px}
+.v21-day,.v21-calendar-empty{min-width:0;min-height:113px;padding:8px;display:flex;flex-direction:column;gap:5px;border-right:1px solid #dce6ed;border-bottom:1px solid #dce6ed;background:#fff}
+.v21-calendar-empty{background:#f3f6f9}
+.v21-day-number{font-size:11px;color:#66849a;font-weight:900;align-self:flex-end}
+.v21-day-event{display:grid;justify-items:start;min-width:0;padding:7px 6px;gap:3px;background:#f1f6fb;color:#1a4b70;border:1px solid #b3d0df;border-left:3px solid #c32748;text-align:left;border-radius:3px;font-size:11px}
+.v21-day-event:hover{background:#e3f0f8}
+.v21-day-event b{font-weight:940;font-variant-numeric:tabular-nums}
+.v21-day-event small{font-size:10px;line-height:1.25;overflow-wrap:anywhere}
+.v21-no-results{font-size:12px;color:#6c8498;background:#f8fbfd;margin:0;padding:15px 18px;line-height:1.65}
+.v21-card-list{display:grid;min-width:0}
+.v21-game-card{border:0;border-bottom:1px solid #dce6ed;min-width:0;width:100%;padding:16px 19px;background:#fff;display:grid;grid-template-columns:minmax(170px,1.2fr) minmax(150px,1.3fr) 112px 20px;gap:12px;align-items:center;text-align:left;color:#16394f}
+.v21-game-card:nth-child(even){background:#f6f9fb}
+.v21-game-card:hover{background:#e9f3fa}
+.v21-card-date{display:grid;gap:4px}
+.v21-card-date b{font-size:13px}
+.v21-card-date small{font-size:10px;color:#6a899f;line-height:1.4}
+.v21-card-match{display:grid;gap:5px}
+.v21-card-match>span{font-size:9px;color:#6b889e;font-weight:900;letter-spacing:.1em}
+.v21-card-match i{color:#be2a49;font-style:normal;margin-left:4px}
+.v21-card-match>strong{font-size:15px;overflow-wrap:anywhere}
+.v21-card-final{display:grid;gap:5px;justify-items:center}
+.v21-card-final>strong{font-size:26px;font-variant-numeric:tabular-nums;letter-spacing:-.06em;color:#173e59;white-space:nowrap}
+.v21-result{font-size:9px;font-weight:900;letter-spacing:.08em;border-radius:30px;padding:3px 8px;border:1px solid #b3cddc}
+.v21-result.is-win{background:#e9f8f2;color:#226746;border-color:#b5e1cb}
+.v21-result.is-loss{background:#fff0f0;color:#a32e41;border-color:#efc6c6}
+.v21-result.is-tie{background:#f3f0ff;color:#5f4793}
+.v21-result.is-future{background:#e7f5ff;color:#2b5f89}
+.v21-card-arrow{font-size:28px;color:#8eafc3;font-weight:700;text-align:right}
+.v21-hold-note{border-left:4px solid #ba3450;background:#fff;padding:15px 18px;border-top:1px solid #e1e7ed;border-right:1px solid #e1e7ed;border-bottom:1px solid #e1e7ed;display:grid;gap:7px;justify-items:start}
+.v21-hold-note>strong{font-size:12px;color:#173e58}
+.v21-hold-note p{margin:0;font-size:11px;color:#5e7a8d;line-height:1.6}
+.v21-hold-note button{padding:8px 12px;background:#143f60;color:#fff;border:1px solid #2e6287;border-radius:4px;font-size:11px;font-weight:850}
+.v21-source-note{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;background:#eef4f8;border:1px solid #dae4eb;padding:13px 17px}
+.v21-source-note>div{display:grid;gap:3px}
+.v21-source-note strong{font-size:10px;color:#375b74}
+.v21-source-note small{font-size:10px;color:#7791a2;max-width:750px;line-height:1.55}
+.v21-source-note a,.v21-detail-actions a,.v21-source-note> a{font-size:11px;font-weight:850;color:#1d628a;text-decoration:none}
+.v21-source-note a:hover,.v21-detail-actions a:hover{text-decoration:underline}
+.v21-record{padding:17px 21px;background:linear-gradient(110deg,#183e5a,#12314b);border-top:3px solid #c02a47;color:#fff;display:flex;gap:17px;align-items:center}
+.v21-record strong{font-size:34px;font-variant-numeric:tabular-nums;white-space:nowrap;line-height:1}
+.v21-record span{font-size:12px;color:#bcd7e7}
+.v21-score-controls{justify-content:space-between}
+.v21-parity{background:#eef7f4;border-left:3px solid #3f9f7b;padding:14px 17px}
+.v21-parity strong{font-size:12px;color:#21674e}
+.v21-parity p{font-size:11px;line-height:1.6;color:#527970;margin:5px 0 0}
+.v21-root>.v18-bridge{margin:0}
+.v21-detail{background:#fff;border:1px solid #d6e2e9;overflow:hidden}
+.v21-detail-top{background:#14334d;color:#b3d8ec;display:flex;justify-content:space-between;gap:15px;padding:14px 22px;font-size:10px;font-weight:930;letter-spacing:.1em}
+.v21-detail-top strong{color:#ffc3cf}
+.v21-big-result{background:linear-gradient(125deg,#12334c,#1e4b6d);color:#fff;display:flex;justify-content:center;align-items:center;gap:20px;padding:31px;flex-wrap:wrap}
+.v21-big-result span,.v21-big-result strong{font-size:clamp(16px,2vw,24px);text-transform:uppercase;letter-spacing:-.02em}
+.v21-big-result b{font-size:clamp(30px,5vw,54px);white-space:nowrap;font-variant-numeric:tabular-nums}
+.v21-big-result i{color:#faaec1;font-style:normal}
+.v21-detail-meta{display:flex;gap:11px 25px;flex-wrap:wrap;background:#ecf4f8;padding:13px 22px;border-bottom:1px solid #d6e3ec}
+.v21-detail-meta span{font-size:12px;color:#355874;font-weight:750}
+.v21-detail h3{font-size:15px;color:#193f5a;margin:20px 21px 11px}
+.v21-score-table-wrap{max-width:100%;overflow-x:auto;margin:0 19px}
+.v21-score-table{border-collapse:collapse;width:100%;min-width:365px;text-align:center}
+.v21-score-table th{font-size:10px;color:#e9f5ff;background:#163f59;padding:11px}
+.v21-score-table td{border-bottom:1px solid #d9e3ea;padding:14px 12px;font-size:14px;font-variant-numeric:tabular-nums}
+.v21-score-table td:first-child{text-align:left}
+.v21-score-table tr:nth-child(even){background:#f0f5f8}
+.v21-score-table .v21-club{font-weight:850;color:#1b5473}
+.v21-preview-message{padding:22px;margin:0 19px;color:#4d6e83;background:#f4f8fa;font-size:12px;line-height:1.65}
+.v21-detail-source{font-size:10px;color:#728b9e;line-height:1.6;padding:6px 21px}
+.v21-detail-actions{display:flex;gap:9px;align-items:center;flex-wrap:wrap;padding:14px 20px 20px}
+.v21-detail-actions a,.v21-detail-actions button{background:#eff6fa;color:#1b577d;border:1px solid #c8dbe8;border-radius:4px;font-size:11px;font-weight:900;padding:10px 13px}
+.v21-detail-actions a:first-child{background:#bd294a;border-color:#a62544;color:#fff}
+.v21-loading,.v21-source-fail{background:#fff;border-left:4px solid #b52948;padding:25px;display:grid;gap:9px}
+.v21-loading span{color:#b72b4c;font-weight:940;font-size:10px;letter-spacing:.13em}
+.v21-loading h2{font-size:24px;color:#174262;margin:0}
+.v21-loading p,.v21-source-fail p{font-size:12px;color:#63829a;line-height:1.6;margin:0}
+.v21-source-fail strong{font-size:17px;color:#143a57}
+.v21-source-fail a,.v21-source-fail button{font-size:12px;font-weight:850;color:#165b84}
+.v21-home-last{display:grid;gap:5px;color:#214761}
+.v21-home-last b{font-size:30px;line-height:1.1;font-variant-numeric:tabular-nums}
+.v21-home-last span{font-size:10px;color:#bf304d;font-weight:930}
+.v21-home-last strong{font-size:12px}
+.v21-home-last small{font-size:10px;color:#7b93a3}
+#hockeyos-v21-last-game>a{display:block;margin-top:10px;padding:9px 10px;background:#eef5f9;border:1px solid #d3e3ec;font-weight:850;font-size:11px;color:#1b5b81}
+@media(max-width:940px){
+ .v21-game-card{grid-template-columns:minmax(110px,1fr) minmax(140px,1.2fr) 82px 12px;padding:12px}
+ .v21-overview{grid-template-columns:repeat(3,minmax(0,1fr))}
+ .v21-overview strong{font-size:12px}
+}
+@media(max-width:700px){
+ .v21-heading{padding:16px;display:grid;gap:10px}
+ .v21-source-stamp{width:100%;min-width:0}
+ .v21-overview{gap:6px}
+ .v21-overview>div{padding:11px}
+ .v21-overview b{font-size:24px}
+ .v21-overview small{font-size:9px}
+ .v21-controls{padding:11px;align-items:stretch;gap:9px}
+ .v21-controls label{flex:1 1 140px;min-width:0}
+ .v21-controls label:nth-child(2){flex:1 1 100%}
+ .v21-view-toggle{width:100%}
+ .v21-view-toggle button{flex:1}
+ .v21-day,.v21-calendar-empty{min-height:70px;padding:3px}
+ .v21-day-number{font-size:9px}
+ .v21-day-event{padding:3px 2px;gap:2px;font-size:9px;border-left-width:2px}
+ .v21-day-event b{font-size:10px}
+ .v21-day-event small{font-size:8px;line-height:1.1;overflow-wrap:anywhere}
+ .v21-weekdays b{padding:8px 2px;font-size:9px}
+ .v21-game-card{grid-template-columns:minmax(0,1fr) 83px;gap:5px 9px;padding:13px}
+ .v21-card-date{grid-column:1;grid-row:1}
+ .v21-card-match{grid-column:1;grid-row:2}
+ .v21-card-final{grid-column:2;grid-row:1 / span 2}
+ .v21-card-final>strong{font-size:24px}
+ .v21-card-arrow{display:none}
+ .v21-big-result{padding:22px 14px;gap:8px}
+ .v21-big-result span,.v21-big-result strong{font-size:14px}
+ .v21-score-table th,.v21-score-table td{padding:10px 7px;font-size:12px}
+ .v21-detail-meta{gap:7px;padding:10px}
+ .v21-detail-meta span{font-size:10px}
+}
+@media(max-width:390px){
+ .v21-overview strong{font-size:10px}
+ .v21-card-date b{font-size:11px}
+ .v21-card-match strong{font-size:13px}
+}
+
+
+/* Keep the final F column visible on narrow phone screens, instead of clipping it. */
+@media(max-width:700px){
+ .v21-score-table{min-width:0;width:100%;table-layout:auto}
+ .v21-score-table th,.v21-score-table td{padding:10px 4px;font-size:11px}
+ .v21-score-table th:first-child,.v21-score-table td:first-child{min-width:93px;white-space:normal;overflow-wrap:anywhere}
+}
