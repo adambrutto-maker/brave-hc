@@ -30,10 +30,10 @@ function resultValidation(r){
 }
 function resultComparison(r){
  const s=stats(),events=draft()?.events||[],goals=events.filter(e=>e.kind==="goal").length;
- if(!goals)return{status:"NO_GOAL_EVENTS",note:"Result entered independently. No recorded goal events are linked to this draft score.",unlinked:r.home+r.away};
- const delta=(r.home-s.home)+(r.away-s.away);
- if(r.home===s.home&&r.away===s.away)return{status:"COUNTS_MATCH",note:"Recorded goal events match the draft final score. Player identity and official game sheet are still unverified.",unlinked:0};
- return{status:"UNRECONCILED_EVENTS",note:"Goal events ("+s.home+"–"+s.away+") and draft final score ("+r.home+"–"+r.away+") differ. Review before any actual official publication.",unlinked:Math.max(0,delta)}
+ if(!goals&&r.home+r.away>0)return{status:"NO_GOAL_EVENTS",note:"Result entered independently. No recorded goal events are linked to this draft score.",unlinked:r.home+r.away};
+ if(r.home===s.home&&r.away===s.away)return{status:"COUNTS_MATCH",note:!goals?"A zero-goal draft has no scored goal events, but still requires league verification.":"Recorded goal events match the draft final score. Player identity and official game sheet are still unverified.",unlinked:0};
+ const delta=Math.abs(r.home-s.home)+Math.abs(r.away-s.away);
+ return{status:"UNRECONCILED_EVENTS",note:"Goal events ("+s.home+"–"+s.away+") and draft final score ("+r.home+"–"+r.away+") differ. Review before any actual official publication.",unlinked:delta}
 }
 function playerSummary(){
  const map=new Map(),unassigned={goals:0,shots:0,penalties:0};
@@ -55,6 +55,38 @@ function playerSummary(){
  }
  return{rows:[...map.values()].map(r=>({...r,points:r.goals+r.assists})).sort((a,b)=>a.side.localeCompare(b.side)||b.points-a.points||Number(a.jersey)-Number(b.jersey)),unassigned}
 }
+function teamStatsDraft(){
+ const d=draft();if(!d)return null;
+ if(!d.teamStats||typeof d.teamStats!=="object")d.teamStats={home:{ppo:null,ppg:null},away:{ppo:null,ppg:null}};
+ for(const side of ["home","away"]){
+  if(!d.teamStats[side]||typeof d.teamStats[side]!=="object")d.teamStats[side]={ppo:null,ppg:null};
+ }
+ return d.teamStats
+}
+function teamStatsValidation(values,r){
+ for(const side of ["home","away"]){
+  const v=values[side];
+  if(!v||!["ppo","ppg"].every(k=>v[k]===null||(Number.isInteger(v[k])&&v[k]>=0&&v[k]<=99)))
+   return "Enter a whole number from 0 to 99, or leave it blank when unknown.";
+  if(v.ppo!==null&&v.ppg!==null&&v.ppg>v.ppo)
+   return (side==="home"?"Home":"Away")+" power-play goals cannot exceed opportunities.";
+  if(v.ppg!==null&&r&&v.ppg>r[side])
+   return (side==="home"?"Home":"Away")+" power-play goals cannot exceed that team's final goal total.";
+ }
+ return ""
+}
+function teamStatsForm(){
+ const f=selected(),t=teamStatsDraft();if(!f||!t)return "";
+ const num=v=>v===null||v===undefined?"":String(v);
+ return '<form class="v18-teams-form" id="v18-team-stats-form"><h4>Team statistics / power play</h4>'+
+ '<p>Enter game-level team stats separately from the player event log. Blank means unknown; entering 0 records a confirmed zero in this practice draft. PP% and PK% are derived only when the required inputs are available.</p>'+
+ '<div class="v18-team-input-grid">'+["home","away"].map(side=>'<div class="v18-team-input-card"><strong>'+esc(side==="home"?f.home:f.away)+'</strong>'+
+ '<label>PP opportunities<input type="number" name="'+side+'-ppo" min="0" max="99" step="1" inputmode="numeric" placeholder="Unknown" value="'+esc(num(t[side].ppo))+'"></label>'+
+ '<label>Power-play goals<input type="number" name="'+side+'-ppg" min="0" max="99" step="1" inputmode="numeric" placeholder="Unknown" value="'+esc(num(t[side].ppg))+'"></label>'+
+ '<small>PPG means power-play goals—not points per game.</small></div>').join("")+'</div>'+
+ '<p class="v18-team-validation" role="alert">'+esc(validation.startsWith("Team statistics:")?validation:"")+'</p>'+
+ '<button type="submit" class="btn primary">Save local team stats</button><span class="v17-result-note"> · No HTO / official stats changed</span></form>'
+}
 function resultView(){
  const f=selected(),r=resultDraft(),c=resultComparison(r),error=resultValidation(r),outcomes=[["regulation","Regulation"],["overtime","Overtime"],["shootout","Shootout"],["draw","Draw"]];
  return'<section class="v17-result-console"><header class="v17-stage-title"><span>GAME RESULT / 02</span><h3>Enter the final result.</h3><p>Tap + or − to set the score. This is a browser-local practice result, separate from source-listed official games.</p></header>'+
@@ -67,6 +99,7 @@ function resultView(){
  (resultError?'<p class="v17-result-error" role="alert">'+esc(resultError)+'</p>':'')+
  '<div class="v17-result-actions"><button type="button" id="v17-save-result" class="v16-record-button"'+(error?' disabled':'')+'>'+(r.saved?'SAVE UPDATED RESULT':'SAVE DRAFT RESULT')+' <b>▶</b></button>'+
  '<span>'+(r.saved?'Saved locally · '+esc(r.savedAt||""):'Not yet saved')+'</span></div>'+
+ teamStatsForm()+
  '<p class="v17-result-note">No official results or standings are updated. Actual games may require authorized team/official confirmation and league-specific outcome rules.</p></section>'
 }
 function playerStatsView(){
@@ -97,7 +130,7 @@ function eventTagEditor(){
 function option(v,label,chosen){return'<option value="'+esc(v)+'"'+(v===chosen?' selected':'')+'>'+esc(label)+'</option>'}
 function exportDraft(){const f=selected(),d=draft();if(!f||!d)return;const output={schema:"bruttech-leagueos-native-scorer-v15",status:"BROWSER_LOCAL_PRACTICE_NOT_OFFICIAL",officialScorePublished:false,gameId:f.game_id,source_snapshot:"2026-11-16",sourceGameUrl:f.official_game_url,game:{date:f.date,time:f.time,night:f.night,rink:f.rink,home:f.home,away:f.away},demonstration:d,totals:stats(),v17:{schema:"bruttech-leagueos-result-stats-entry/v17",result:d.result||null,player_stats:playerSummary(),comparison:d.result?resultComparison(d.result):null},note:"No official league game-sheet, signature, player eligibility or scores were changed"};
 const data=new Blob([JSON.stringify(output,null,2)],{type:"application/json"}),url=URL.createObjectURL(data),a=document.createElement("a");a.href=url;a.download="LeagueOS_Practice_Gamesheet_"+f.game_id+".json";document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000)}
-function log(type,entry){const d=draft();if(!d)return;d.changes.push({action:type,at:new Date().toISOString(),eventId:entry?.id||null});d.changes=d.changes.slice(-200);persist()}
+function log(type,entry){const d=draft();if(!d)return;if(["ADD","REMOVE","ASSIGN_STAT"].includes(type)&&d.result){d.result.saved=false;d.result.reviewed=false;}d.changes.push({action:type,at:new Date().toISOString(),eventId:entry?.id||null});d.changes=d.changes.slice(-200);persist()}
 function form(){
  const f=selected(),d=draft();
  return '<div class="v16-score-controls"><div class="v16-step-kicker">PRACTICE EVENT CONSOLE / 01</div><h3>What happened?</h3>'+
@@ -196,6 +229,19 @@ if(b.id==="v15-score-reset"){drafts[String(fixtureId)]={events:[],changes:[],clo
 if(b.id==="v15-score-export"){exportDraft();return}
 });
 document.addEventListener("submit",e=>{
+if(e.target.id==="v18-team-stats-form"&&$("#league-native-scorer-mount")){
+ e.preventDefault();const x=new FormData(e.target),values={home:{},away:{}};
+ for(const side of ["home","away"])for(const field of ["ppo","ppg"]){
+  const raw=String(x.get(side+"-"+field)??"").trim();
+  if(raw!==""&&!/^\d{1,2}$/.test(raw)){
+   validation="Team statistics: Use whole numbers from 0 to 99, or leave the field empty when unknown.";view();return
+  }
+  values[side][field]=raw===""?null:Number(raw)
+ }
+ const problem=teamStatsValidation(values,resultDraft());
+ if(problem){validation="Team statistics: "+problem;view();return}
+ draft().teamStats=values;validation="";log("SAVE_TEAM_STATS",null);view();return
+}
 if(e.target.id==="v17-tag-form"&&$("#league-native-scorer-mount")){
  e.preventDefault();
  const d=draft(),event=d?.events.find(x=>x.id===editingId);if(!event)return;
@@ -219,5 +265,5 @@ if([jersey,assist1,assist2].some(j=>j&&!/^\d{1,3}$/.test(j))||(assist1&&assist2&
 const d=draft(),event={id:String(Date.now())+"-"+Math.random().toString(36).slice(2,7),kind,side:x.get("team")==="away"?"away":"home",period:x.get("period"),time:v,jersey,assists:kind==="goal"?[assist1,assist2].filter(Boolean):[],details:String(x.get("details")||"").trim().slice(0,220),penalty:kind==="penalty"?Number(x.get("penalty"))||2:0};
 d.events.push(event);d.period=event.period;d.clock=v;log("ADD",event);validation="";view();
 });
-window.LeagueOSNativeScorerV15={mount:view,status(){return{loaded:!!registry,night,fixtureId,events:draft()?.events.length||0,officialWrites:0,serverActions:false}},_test:{source:()=>registry,fixtureList,selected,draft,totals:stats,exportDraft}};
+window.LeagueOSNativeScorerV15={mount:view,status(){return{loaded:!!registry,night,fixtureId,events:draft()?.events.length||0,officialWrites:0,serverActions:false}},_test:{source:()=>registry,fixtureList,selected,draft,totals:stats,exportDraft,resultComparison,teamStatsValidation,teamStatsDraft,log}};
 })();
