@@ -1,0 +1,49 @@
+/* LeagueOS/HockeyOS V18 original draft-review bridge. */
+.v18-bridge {margin:18px 0 24px;padding:21px;background:#10263a;border:1px solid #335b7a;border-radius:8px;color:#e7f5ff}
+.v18-bridge-heading {display:flex;flex-wrap:wrap;justify-content:space-between;align-items:start;gap:14px;margin-bottom:15px}
+.v18-bridge-heading>div {flex:1 1 400px}
+.v18-bridge-heading span {font-size:10px;font-weight:900;color:#85d6ed;letter-spacing:.15em}
+.v18-bridge-heading h2 {font-size:23px;margin:6px 0;color:#f3fbff}
+.v18-bridge-heading p {font-size:12px;line-height:1.7;color:#a4c0d2;max-width:860px;margin:0}
+.v18-draft-card {border:1px solid #3e657f;background:#173249;padding:16px;margin-top:12px;border-radius:7px}
+.v18-draft-card>header {display:grid;gap:6px;margin-bottom:13px}
+.v18-draft-card>header>span {color:#8bd9f8;font-size:10px;font-weight:850;letter-spacing:.09em}
+.v18-draft-card>header>strong {font-size:17px;color:#f4fbff}
+.v18-draft-card>header>small {color:#9fbcd0;font-size:11px}
+.v18-snapshot-row {display:grid;grid-template-columns:1fr 1.6fr;gap:9px}
+.v18-snapshot-row>div {display:grid;gap:5px;background:#0e293f;border:1px solid #305571;border-radius:5px;padding:14px}
+.v18-snapshot-row small {color:#a4c4d7;font-size:10px}
+.v18-snapshot-row b {font-size:38px;font-variant-numeric:tabular-nums;color:#fff}
+.v18-snapshot-row strong {font-size:14px;color:#d6fbea}
+.v18-snapshot-row strong.hold {color:#ffd0a2}
+.v18-stats-row {display:flex;flex-wrap:wrap;gap:7px;margin:11px 0}
+.v18-stats-row span {background:#20435c;border:1px solid #406785;border-radius:4px;padding:9px 11px;font-size:11px;color:#a9d2e9}
+.v18-stats-row b {color:#fff;margin-left:5px}
+.v18-draft-card details {border-top:1px solid #365c78;margin-top:11px;padding-top:12px}
+.v18-draft-card summary {cursor:pointer;font-size:12px;color:#c2ebff;font-weight:800}
+.v18-draft-card details p {color:#a3c4d7;font-size:11px;margin:11px 0 0}
+.v18-table-scroll {max-width:100%;overflow:auto;margin-top:12px}
+.v18-draft-card table {border-collapse:collapse;width:100%;min-width:330px;color:#ddf2ff;font-size:11px}
+.v18-draft-card th,.v18-draft-card td {padding:9px;border-bottom:1px solid #375874;text-align:center}
+.v18-draft-card th:first-child,.v18-draft-card td:first-child {text-align:left}
+.v18-empty {padding:17px;background:#17344b;border:1px dashed #47718f;border-radius:6px;color:#cee8f7}
+.v18-empty strong {font-size:13px}
+.v18-empty p,.v18-boundary {font-size:11px;line-height:1.7;color:#9bbdd0}
+.v18-boundary {margin:14px 0 0}
+.v18-teams-form {margin-top:20px;padding:17px;background:#16344b;border:1px solid #3d6684;border-radius:6px}
+.v18-teams-form h4 {font-size:15px;color:#f1faff;margin:0 0 7px}
+.v18-teams-form p {font-size:11px;color:#accada;line-height:1.6;margin:0 0 14px}
+.v18-team-input-grid {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.v18-team-input-card {border:1px solid #456985;padding:12px;background:#0e293f;border-radius:5px;display:grid;gap:8px}
+.v18-team-input-card strong {font-size:12px;color:#fff;overflow-wrap:anywhere}
+.v18-team-input-card label {display:flex;justify-content:space-between;align-items:center;gap:9px;font-size:12px;color:#a3cae1}
+.v18-team-input-card input {max-width:78px;min-height:39px;padding:7px;border-radius:5px;border:1px solid #6092ae;background:#173b58;color:white;font-size:16px;font-weight:800}
+.v18-team-input-card small {font-size:10px;color:#9cbdcf}
+.v18-teams-form button {margin-top:14px}
+.v18-team-validation {font-size:11px;color:#ffb7ad;margin:12px 0 0}
+@media(max-width:640px){
+ .v18-bridge {padding:14px}
+ .v18-bridge-heading h2 {font-size:20px}
+ .v18-snapshot-row,.v18-team-input-grid {grid-template-columns:1fr}
+ .v18-snapshot-row b {font-size:31px}
+}
