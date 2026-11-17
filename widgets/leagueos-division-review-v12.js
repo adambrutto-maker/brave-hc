@@ -57,7 +57,7 @@ function gameList(gs,a){return gs.map(g=>{
 }).join("")}
 const select=(id,items,active,nameFn=x=>x)=>'<select id="'+id+'">'+items.map(v=>'<option value="'+esc(String(v.id??v))+'"'+(String(v.id??v)===String(active)?" selected":"")+'>'+esc(nameFn(v))+'</option>').join("")+'</select>';
 function render(){const root=$("#league-division-review-mount");if(!root)return;
-if(!dataset){root.innerHTML='<section class="panel v12-loading"><h2>Loading published division records</h2><p>'+esc(error||"Reading the league snapshot and opponent history…")+'</p></section>';if(!pending)load();return}
+if(!dataset){root.innerHTML='<section class="panel v12-loading"><h2>'+(error?"Source evidence unavailable":"Loading published division records")+'</h2><p>'+esc(error||"Reading the league snapshot and opponent history…")+'</p>'+(error?'<button type="button" class="btn" id="v12-retry">Retry source read</button>':"")+'</section>';if(!pending&&!error)load();return}
 let divs=divisions();if(!divs.includes(state.division))state.division=divs[0]||"";
 const all=leagueRecords(),focus=currentFocus(all);if(!focus){root.innerHTML='<section class="panel">No published team records for that division in this source snapshot.</section>';return}
 state.focus=focus.team_id;
@@ -133,6 +133,6 @@ document.addEventListener("change",e=>{
  else if(t.id==="v12-peer-b"){state.peerB=Number(t.value);render()}
  else if(t.id==="v12-repeat"){state.showRepeat=t.checked;render()}
 });
-document.addEventListener("click",e=>{if(e.target.closest("#v12-export")&&$("#league-division-review-mount"))exportReview()});
+document.addEventListener("click",e=>{if(!$("#league-division-review-mount"))return;if(e.target.closest("#v12-retry")){error="";load();return}if(e.target.closest("#v12-export"))exportReview()});
 window.LeagueOSDivisionReviewV12={mount(){render();if(!dataset&&!pending)load()},status(){return{loaded:!!dataset,error,night:state.night,division:state.division,team:state.focus,sourceWrites:0}},_test:{getData:()=>dataset,standings:leagueRecords,headToHead,futureGames,change(x){Object.assign(state,x);render()},safeGameUrl}};
 })();
