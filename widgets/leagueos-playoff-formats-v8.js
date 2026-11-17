@@ -95,7 +95,7 @@ function card(s){const valid=Boolean(s.home&&s.away),kind=s.kind==="points2"?"Tw
 let b='<article class="lc-series" data-lcpf-id="'+esc(s.id)+'"><div class="lc-series-top"><strong>'+esc(s.id.replaceAll("-"," ").toUpperCase())+'</strong><span>'+kind+'</span></div>'+
 '<div class="lc-series-teams"><b>'+esc(s.home||"Awaiting qualifier")+'</b><span>vs</span><b>'+esc(s.away||"Awaiting qualifier")+'</b></div>';
 if(!valid)return b+'<p class="lc-caption">Both clubs must qualify first. No score can be entered yet.</p></article>';
-const count=s.kind==="best3"?(s.winHome===2||s.winAway===2?Math.min(2,s.items.findIndex(v=>v===null)>-1?s.items.findIndex(v=>v===null):3):3):2;
+const count=s.kind==="best3"?(s.items[2]?3:((s.winHome>=2||s.winAway>=2)?2:3)):2;
 for(let i=0;i<count;i++){const g=s.items[i]||{};b+='<div class="lc-series-game"><span>Game '+(i+1)+'</span><input type="number" min="0" max="99" data-lcpf-home="'+(i+1)+'" aria-label="'+esc(s.home)+' game '+(i+1)+' goals" value="'+(g.hg??"")+'" placeholder="0">'+
 '<span>–</span><input type="number" min="0" max="99" data-lcpf-away="'+(i+1)+'" aria-label="'+esc(s.away)+' game '+(i+1)+' goals" value="'+(g.ag??"")+'" placeholder="0">'+
 (s.kind==="best3"?'<select data-lcpf-tie="'+(i+1)+'" aria-label="Overtime/shootout winner for game '+(i+1)+'">'+methodOpts(g.tieMethod||"")+'</select>':'')+
