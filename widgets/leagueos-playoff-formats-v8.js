@@ -155,20 +155,30 @@ function render(){
  if(!teams){root.innerHTML=panel("Loading playoff teams","Public team records; no official playoff seeding","<p>"+esc(error||"Reading team records…")+"</p>");if(!pending)load();return}
  const d=divisions(st.night);if(!d.includes(st.division))st.division=d[0]||"";
  const req=MODES[st.mode].n,all=selections(),used=all.slice(0,req),calc=calculate(),omitted=all.slice(req);
- let h='<div class="v10-pf"><div class="v10-pf-note"><strong>Illustrative playoff competition</strong><span>Format examples follow published historical SVHL documents. Seedings, scores and advancing teams are drafts; nothing changes in the league.</span></div>'+
- '<section class="panel v10-pf-setup"><div class="v10-step-title"><span>1</span><div><h2>Choose the playoff format</h2><p>Select the league night and division, then choose how the games are played.</p></div></div>'+
+ let h='<div class="v10-pf v16-pf"><div class="v16-bracket-stage">'+
+ '<header class="v16-stage-heading"><div><span class="v16-eyebrow">PLAYOFF CENTER / BRACKET FIRST</span><h2>Pick the road to the cup.</h2><p>Choose a format. Watch teams advance from round to round after practice scores are entered.</p></div><span class="v16-stage-counter">DRAFT ONLY</span></header>'+
+ '<div class="v16-format-cards" role="group" aria-label="Choose playoff format">'+[
+ ["four","04","SEMIS → FINAL","Two-game series, best-of-three final"],
+ ["six","06","WILDCARD → CUP","Play-ins, consolation and championship"],
+ ["three","03","ROUND ROBIN","Group standings into a final"]
+ ].map(v=>'<button type="button" data-v16-playoff-mode="'+v[0]+'" class="v16-format-card'+(v[0]===st.mode?' selected':'')+'" aria-pressed="'+(v[0]===st.mode)+'"><span class="v16-format-num">'+v[1]+' <small>CLUBS</small></span><span class="v16-format-title">'+v[2]+'</span><span class="v16-format-label">'+v[3]+'</span><span class="v16-format-lines" aria-hidden="true"><i></i><i></i><i></i></span></button>').join("")+'</div>'+
+ '<div class="v16-playoff-nights"><span>LEAGUE NIGHT</span><div role="group" aria-label="Competition night">'+["Sunday","Tuesday","Wednesday","Thursday"].map(n=>'<button type="button" data-v16-playoff-night="'+n+'" class="'+(st.night===n?'selected':'')+'" aria-pressed="'+(st.night===n)+'">'+n.toUpperCase()+'</button>').join("")+'</div></div>'+
+ '<div class="v16-division-picks"><span>DIVISION</span><div role="group" aria-label="Choose division">'+d.map(n=>'<button type="button" data-v16-playoff-division="'+esc(n)+'" class="'+(st.division===n?'selected':'')+'" aria-pressed="'+(st.division===n)+'">'+esc(n)+'</button>').join("")+'</div></div>'+
+ (all.length<req?'<p class="lc-error">This format requires '+req+' teams. This division has '+all.length+' public records; try another division.</p>':'')+
+ (calc?ladderUI(calc):'<p class="lc-error">Bracket needs a complete team selection.</p>')+
+ '<p class="v16-bracket-disclaimer">Historical format example · NOT this season’s approved bracket · No scores published.</p></div>'+
+ '<details class="v16-playoff-settings"><summary>⚙ Tournament settings & draft seeds <small>Advanced options</small></summary>'+
+ '<div class="v10-pf-note"><strong>Source rules</strong><span>Published historical SVHL formats. Seeds and results are practice drafts.</span></div>'+
+ '<section class="panel v10-pf-setup"><div class="v10-step-title"><span>1</span><div><h2>Competition settings</h2><p>Alternative format, night and division selections.</p></div></div>'+
  '<div class="lc-controls"><label class="field">Playoff format<select id="lcpf-mode">'+Object.entries(MODES).map(([k,v])=>'<option value="'+k+'"'+(k===st.mode?" selected":"")+'>'+esc(v.label)+'</option>').join("")+'</select></label>'+
  '<label class="field">League night<select id="lcpf-night">'+["Sunday","Tuesday","Wednesday","Thursday"].map(x=>'<option'+(x===st.night?" selected":"")+'>'+x+'</option>').join("")+'</select></label>'+
  '<label class="field">Division<select id="lcpf-division">'+d.map(x=>'<option'+(x===st.division?" selected":"")+'>'+esc(x)+'</option>').join("")+'</select></label></div>'+
- '<div class="v10-pf-summary"><strong>'+req+'-team format</strong><span>'+all.length+' public team records in selected division</span><span>Historical example · not this season’s approved bracket</span></div>'+
- (all.length<req?'<p class="lc-error">This division has fewer than '+req+' public teams. Choose another division or format.</p>':'')+
- (omitted.length?'<p class="v10-pf-muted">This format uses the first '+req+' draft seeds. Other published teams are not officially eliminated.</p>':'')+
- '</section>';
+ '<div class="v10-pf-summary"><strong>'+req+'-team example</strong><span>'+all.length+' source team records</span><span>Not an official current bracket</span></div></section>';
  h+='<section class="panel v10-pf-seeds"><details id="lcpf-seeds"'+(seedOpen?" open":"")+'><summary><span class="v10-step-icon">2</span><span class="v10-seed-text"><strong>Check the teams and draft seed order</strong><small>'+used.map(esc).join(' · ')+'</small></span><span class="v10-seed-toggle">Edit seeds ⌄</span></summary>'+
  '<p class="v10-pf-muted">These are demonstration seed positions, not verified official playoff rankings. Use the arrows to reorder before entering results.</p>'+
- '<div class="lc-seeds">'+all.map((n,i)=>'<div><b>'+(i<req?"#"+(i+1):"Outside")+'</b><span>'+esc(n)+'</span><button class="btn small" type="button" data-lcpf-up="'+i+'"'+(!i?" disabled":"")+' aria-label="Move '+esc(n)+' up">↑</button><button class="btn small" type="button" data-lcpf-down="'+i+'"'+(i===all.length-1?" disabled":"")+' aria-label="Move '+esc(n)+' down">↓</button></div>').join("")+'</div></details></section>';
+ '<div class="lc-seeds">'+all.map((n,i)=>'<div><b>'+(i<req?"#"+(i+1):"Outside")+'</b><span>'+esc(n)+'</span><button class="btn small" type="button" data-lcpf-up="'+i+'"'+(!i?" disabled":"")+' aria-label="Move '+esc(n)+' up">↑</button><button class="btn small" type="button" data-lcpf-down="'+i+'"'+(i===all.length-1?" disabled":"")+' aria-label="Move '+esc(n)+' down">↓</button></div>').join("")+'</div></details></section></details>';
  if(!calc){root.innerHTML=h+'</div>';return}
- h+='<div class="v10-pf-play-head"><div class="v10-step-title"><span>3</span><div><h2>Follow the ladder and enter results</h2><p>The ladder updates whenever you save a result. Unresolved ties stay on hold.</p></div></div><span class="v10-not-booked">Draft results only</span></div>';h+=ladderUI(calc);
+ h+='<div class="v10-pf-play-head"><div class="v10-step-title"><span>3</span><div><h2>Practice game scores</h2><p>Select a matchup in the bracket above to jump to its scoring controls.</p></div></div><span class="v10-not-booked">Draft results only</span></div>';
  if(calc.roundRobin)h+=roundRobinUI(calc.roundRobin);
  for(let i=0;i<calc.stages.length;i++){
   const stage=calc.stages[i];
@@ -195,6 +205,10 @@ if(x.id==="lcpf-night"){st.night=x.value;st.division=divisions(st.night)[0]||"";
 if(x.id==="lcpf-division"){st.division=x.value;persist();render()}
 });
 document.addEventListener("click",e=>{const b=e.target.closest("button");if(!b||!$("#league-series-mount"))return;
+if(b.dataset.v16PlayoffMode){st.mode=b.dataset.v16PlayoffMode;st.note="";persist();render();return}
+if(b.dataset.v16PlayoffNight){st.night=b.dataset.v16PlayoffNight;st.division=divisions(st.night)[0]||"";persist();render();return}
+if(b.dataset.v16PlayoffDivision){st.division=b.dataset.v16PlayoffDivision;persist();render();return}
+
 if(b.id==="lcpf-print-ladder"){window.print();return}
 if(b.dataset.ladderGame){const id=b.dataset.ladderGame;const card=[...document.querySelectorAll(".lc-series")].find(x=>x.dataset.lcpfId===id);if(card){card.scrollIntoView({behavior:"auto",block:"center"});card.classList.add("v11-jump-highlight");setTimeout(()=>card.classList.remove("v11-jump-highlight"),1600)}return}
 

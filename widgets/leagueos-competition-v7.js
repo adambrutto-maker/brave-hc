@@ -76,22 +76,38 @@ function plannerUI(){
  const selectedSource=prefs.inventoryMode==="historical"?"Observed SVHL game times":prefs.inventoryMode==="illustrative"?"Custom fictional times":"Imported date-specific blocks";
  let historicalSlot=null; if(historicInfo?.loaded&&prefs.inventoryMode==="historical"&&/^\d{4}-\d{2}-\d{2}$/.test(prefs.start)){try{historicalSlot=window.LeagueOSHistoricalSlotsV9?.getSlots(prefs.night,prefs.start,prefs.weeks)}catch(_){historicalSlot=null}}
  const observedRinks=historicalSlot?.distinct_rinks||[];
- let html='<div class="v10-wizard"><div class="v10-wizard-label">SET UP YOUR SCHEDULE <span>1 of 2 · Choose the basics</span></div>'+
- '<section class="panel v10-form-panel"><div class="v10-steps"><div class="v10-step-title"><span>1</span><div><h2>Choose the league night</h2><p>Select the competition and how many weeks to plan.</p></div></div>'+
- '<div class="v10-setup-grid"><label class="field">League night<select id="lc-night">'+options(nights,prefs.night)+'</select></label>'+
- '<label class="field">Weeks<select id="lc-weeks">'+options(["4","6","8","10","12"],String(prefs.weeks))+'</select></label>'+
- '<label class="field">Starting week<input id="lc-start" type="date" value="'+esc(prefs.start)+'"></label></div>'+
- '<div class="v10-population"><strong>'+ts.length+' teams</strong><span>'+ds.length+' divisions</span><span>'+weekGames+' games in a typical week</span></div></div>'+
- '<div class="v10-steps"><div class="v10-step-title"><span>2</span><div><h2>Use familiar game times</h2><p>We start with times seen in published SVHL schedules. Change the source under More options if needed.</p></div></div>'+
- '<div class="v10-source-choice"><div class="v10-source-indicator"><span class="v10-source-icon">◷</span><div><strong>'+esc(selectedSource)+'</strong><small>'+(prefs.inventoryMode==="historical"?(observed>0?observed+' observed rink/time patterns'+(observedRinks.length?' across '+observedRinks.length+' rinks':''):'Checking the observed schedule…'):prefs.inventoryMode==="illustrative"?'For testing different schedules only':'Uses local draft rows; not independently verified')+'</small></div></div><span class="v10-not-booked">Scenario only · no ice booked</span></div>'+
- '<details class="v10-options"'+(detailsOpen?' open':'')+'><summary>More options <span aria-hidden="true">⌄</span></summary><div class="v10-options-content">'+
- '<label class="field">Source of start times<select id="lc-inventory-mode"><option value="historical"'+(prefs.inventoryMode==="historical"?' selected':'')+'>Observed SVHL scheduling patterns (recommended)</option><option value="illustrative"'+(prefs.inventoryMode==="illustrative"?' selected':'')+'>Custom fictional times</option><option value="imported"'+(prefs.inventoryMode==="imported"?' selected':'')+'>Date-specific local draft</option></select></label>'+
- (prefs.inventoryMode==="illustrative"?'<div class="v10-option-grid"><label class="field">Rink labels<input id="lc-rinks" value="'+esc(prefs.rinks)+'" maxlength="35"></label><label class="field">Start times (24-hour, comma-separated)<input id="lc-times" value="'+esc(prefs.times)+'" maxlength="90"></label></div>':'')+
- '<label class="v10-check"><input id="lc-history" type="checkbox"'+(prefs.includeHistory?' checked':'')+'> Include past published starts when measuring end-of-season fairness</label>'+
- '<div class="v10-option-links"><button type="button" class="btn small" data-go="league-schedule-equity">See past start-time analysis</button><button type="button" class="btn small" data-go="league-inventory">View optional ice-data importer</button></div>'+
- '</div></details></div>'+
- '<div class="v10-generate-area"><button type="button" class="btn primary v10-primary-action" id="lc-generate">Generate schedule preview <span aria-hidden="true">→</span></button>'+
- '<p>No actual game, booking or league record will change.</p></div></section>';
+ const currentWeeks=[4,6,8,10,12];
+ const pattern=window.LeagueOSHistoricalSlotsV9?.status();
+ const sourceLabel=prefs.inventoryMode==="historical"?"OBSERVED GAME-TIME PATTERNS":prefs.inventoryMode==="illustrative"?"CUSTOM FICTIONAL TIMES":"LOCAL DATED ICE DRAFT";
+ let html='<div class="v10-wizard v16-season-console"><section class="v16-season-stage" aria-label="Create a season scheduling scenario">'+
+ '<header class="v16-stage-heading"><div><span class="v16-eyebrow">SEASON MANAGER / QUICK START</span><h2>Pick a league night.</h2><p>Choose the teams to schedule. LeagueOS rotates early and late games using published historical start-time patterns.</p></div><span class="v16-stage-counter">01 / 02</span></header>'+
+ '<div class="v16-night-tiles" role="group" aria-label="Choose league night">'+nights.map((n,i)=>{
+   const teams=teamsFor(n),sources=pattern?.slots_by_night?.[n]||0;
+   return '<button type="button" class="v16-night-tile'+(n===prefs.night?' selected':'')+'" data-v16-night="'+esc(n)+'" aria-pressed="'+(n===prefs.night)+'">'+
+    '<span class="v16-night-index">0'+(i+1)+' / '+esc(n.toUpperCase())+'</span>'+
+    '<span class="v16-night-big">'+esc(n.substring(0,3).toUpperCase())+'</span>'+
+    '<span class="v16-night-meta"><b>'+teams.length+'</b> teams <i>·</i> <b>'+sources+'</b> observed slots</span>'+
+    '<span class="v16-night-ice" aria-hidden="true"><i></i><i></i><i></i></span>'+
+   '</button>'
+  }).join('')+'</div>'+
+ '<div class="v16-season-length"><div><strong>How many weeks?</strong><small>Use 8 for the demo season</small></div>'+
+ '<div class="v16-week-buttons" role="group" aria-label="Weeks to schedule">'+currentWeeks.map(w=>'<button type="button" data-v16-weeks="'+w+'" class="'+(prefs.weeks===w?'selected':'')+'" aria-pressed="'+(prefs.weeks===w)+'">'+w+'<small>weeks</small></button>').join('')+'</div></div>'+
+ '<div class="v16-source-summary"><span class="v16-source-puck" aria-hidden="true">◷</span><div><strong>'+esc(sourceLabel)+'</strong><small>'+(prefs.inventoryMode==="historical"?
+      observed+' recorded rink/start combinations · '+esc(prefs.night)+' · scenario only':
+      esc(selectedSource)+' · unverified scenario blocks')+'</small></div>'+
+ '<span class="v16-source-status">NOT BOOKED</span></div>'+
+ '<div class="v16-launch"><button type="button" class="v16-launch-button" id="lc-generate"><span>GENERATE SEASON</span><b aria-hidden="true">▶</b></button>'+
+ '<p>Draft only. No actual league fixtures or facility reservations change.</p></div>'+
+ '<details class="v16-settings"><summary><span>⚙</span> Advanced settings <small>Start date, ice data, historic weight</small></summary><div class="v16-settings-body">'+
+ '<div class="v16-settings-grid"><label class="field">Competition night<select id="lc-night">'+options(nights,prefs.night)+'</select></label>'+
+ '<label class="field">Number of weeks<select id="lc-weeks">'+options(currentWeeks.map(String),String(prefs.weeks))+'</select></label>'+
+ '<label class="field">First planning date<input id="lc-start" type="date" value="'+esc(prefs.start)+'"></label>'+
+ '<label class="field">Start-time source<select id="lc-inventory-mode"><option value="historical"'+(prefs.inventoryMode==="historical"?' selected':'')+'>Observed SVHL scheduling patterns</option><option value="illustrative"'+(prefs.inventoryMode==="illustrative"?' selected':'')+'>Custom fictional times</option><option value="imported"'+(prefs.inventoryMode==="imported"?' selected':'')+'>Date-specific local draft</option></select></label></div>'+
+ (prefs.inventoryMode==="illustrative"?'<div class="v16-settings-grid"><label class="field">Fictional rink labels<input id="lc-rinks" value="'+esc(prefs.rinks)+'" maxlength="35"></label>'+
+ '<label class="field">Fictional start times (24h)<input id="lc-times" value="'+esc(prefs.times)+'" maxlength="90"></label></div>':'')+
+ '<label class="v10-check"><input id="lc-history" type="checkbox"'+(prefs.includeHistory?' checked':'')+'> Include past published starts in fairness calculation</label>'+
+ '<div class="v10-option-links"><button type="button" class="btn small" data-go="league-schedule-equity">Published time analysis</button><button type="button" class="btn small" data-go="league-inventory">Ice input lab</button></div>'+
+ '</div></details></section>';
  if(issue)html+='<div class="v10-input-error lc-error" role="alert">'+esc(issue)+'</div>';
  if(!plan||plan.night!==prefs.night){
   html+='<div class="v10-how-works"><strong>What happens next?</strong><p>LeagueOS pairs teams within their divisions, rotates byes when needed and distributes early and late starts. You’ll see the proposed games and a simple fairness report.</p></div>';
@@ -201,6 +217,9 @@ else if(x.id==="lc-play-division"){prefs.playDivision=x.value;persist();playoffU
 else if(x.id==="lc-bronze"){prefs.bronze=x.checked;persist();playoffUI()}
 });
 document.addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;
+if(b.dataset.v16Night){prefs.night=b.dataset.v16Night;plan=null;weekShown=0;persist();plannerUI();return}
+if(b.dataset.v16Weeks){prefs.weeks=Number(b.dataset.v16Weeks);plan=null;weekShown=0;persist();plannerUI();return}
+
 if(b.dataset.lcLayout){calendarLayout=b.dataset.lcLayout==="rinks"?"rinks":"list";plannerUI();return}
 if(b.dataset.lcView){previewTab=b.dataset.lcView==="fairness"?"fairness":"calendar";plannerUI();return}
 if(b.id==="lc-generate"){buildPlan();previewTab="calendar";plannerUI();const next=plan?$("#lc-preview-results"):$(".v10-input-error");if(next)next.scrollIntoView({behavior:"auto",block:"start"});return}
