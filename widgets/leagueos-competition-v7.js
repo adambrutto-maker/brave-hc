@@ -170,7 +170,7 @@ else if(x.id==="lc-bronze"){prefs.bronze=x.checked;persist();playoffUI()}
 });
 document.addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;
 if(b.dataset.lcView){previewTab=b.dataset.lcView==="fairness"?"fairness":"calendar";plannerUI();return}
-if(b.id==="lc-generate"){buildPlan();plannerUI();return}
+if(b.id==="lc-generate"){buildPlan();previewTab="calendar";plannerUI();const next=plan?$("#lc-preview-results"):$(".v10-input-error");if(next)next.scrollIntoView({behavior:"auto",block:"start"});return}
 if(b.id==="lc-export-plan"&&plan){const {report,...safe}=plan;safe.summary={start_mean_spread_minutes:Math.round(report.spread),final_mean_start_minutes:clock(report.target),team_fairness:report.stats.map(v=>({team:v.team.team_name,division:v.team.division,games:v.count,avg_start:clock(v.avg),delta_min:Math.round(v.delta),late_starts:v.late}))};download(safe,"leagueos-scheduling-scenario-v9.json");return}
 if(b.dataset.lcWeek!==undefined){weekShown=Number(b.dataset.lcWeek);plannerUI();return}
 if(b.dataset.lcUp!==undefined||b.dataset.lcDown!==undefined){const arr=seedOrder().slice(),i=Number(b.dataset.lcUp??b.dataset.lcDown),j=b.dataset.lcUp!==undefined?i-1:i+1;if(j>=0&&j<arr.length){[arr[i],arr[j]]=[arr[j],arr[i]];prefs.seedings[groupKey()]=arr;prefs.scores[groupKey()]={};persist();playoffUI()}return}
