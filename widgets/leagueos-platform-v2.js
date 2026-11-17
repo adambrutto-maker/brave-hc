@@ -422,7 +422,7 @@ function hockeyOSDemoSyncPreview(team){
  const latest=changes.slice().sort((a,b)=>String(b.createdAt).localeCompare(String(a.createdAt)))[0];
  const link="./leagueos-hockeyos-team-site-v17.html?team="+encodeURIComponent(team);
  return '<section class="v17-team-home-sync"><div><span>LEAGUEOS → HOCKEYOS · LOCAL DEMO</span><h2>Team schedule updates</h2><p>'+(latest?
- 'A demo schedule revision is available: <strong>'+esc(latest.proposed.date)+' · '+esc(latest.proposed.time)+' · '+esc(latest.proposed.rink)+' Rink</strong> (game '+latest.original.gameId+'). Original published fixture is unchanged.':
+ 'A demo schedule revision for '+esc(team)+' is available: <strong>'+esc(latest.proposed.date)+' · '+esc(latest.proposed.time)+' · '+esc(latest.proposed.rink)+' Rink</strong> (game '+latest.original.gameId+'). Original published fixture is unchanged.':
  'No locally shared demo revisions for '+esc(team)+'. Source published games remain separate from official update authorization.')+'</p></div>'+
  '<a href="'+esc(link)+'" target="_blank" rel="noopener noreferrer">OPEN LINKED TEAM SITE DEMO ↗</a></section>'
 }
