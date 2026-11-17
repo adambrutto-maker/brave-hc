@@ -22,7 +22,7 @@ function renderCurrent(){if($("#league-planner-mount"))plannerUI();if($("#league
 function roundRobin(names){let a=names.slice();if(a.length%2)a.push(null);const rounds=[];for(let r=0;r<a.length-1;r++){const ps=[];for(let k=0;k<a.length/2;k++){if(a[k]&&a[a.length-1-k])ps.push([a[k],a[a.length-1-k]])}rounds.push(ps);a=[a[0],a[a.length-1],...a.slice(1,-1)]}return rounds}
 function gameWeeks(night,weeks){const list=[],byDiv={};teamsFor(night).forEach(t=>(byDiv[t.division]??=[]).push(t));const names=Object.keys(byDiv).sort();names.forEach(d=>byDiv[d].sort((a,b)=>a.team_name.localeCompare(b.team_name)));for(let w=0;w<weeks;w++)for(const d of names){const rounds=roundRobin(byDiv[d]);rounds[w%rounds.length].forEach((pair,i)=>list.push({id:"w"+w+"-"+d+"-"+i,week:w,division:d,home:pair[0],away:pair[1],slot:null}))}return list}
 function exposures(games,archive){const s={};for(const t of teamsFor(prefs.night)){const r=t.randomized_slot_reference||{},past=archive&&typeof r.observed_avg_start_minutes==="number"?t.stats.accepted:0;
-s[key(t)]={team:t,history:past,played:past,count:past,sum:past*r.observed_avg_start_minutes,late:past?(t.stats.late_after_22||0):0,newGames:0,newLate:0,newSum:0}}
+s[key(t)]={team:t,history:past,played:past,count:past,sum:past*(Number.isFinite(r.observed_avg_start_minutes)?r.observed_avg_start_minutes:0),late:past?(t.stats.late_after_22||0):0,newGames:0,newLate:0,newSum:0}}
 for(const g of games){if(!g.slot)continue;for(const t of [g.home,g.away]){const x=s[key(t)],v=g.slot.min;x.count++;x.sum+=v;x.newGames++;x.newSum+=v;if(v>=1320){x.late++;x.newLate++}}}
 const a=Object.values(s),count=a.reduce((x,v)=>x+v.count,0),sum=a.reduce((x,v)=>x+v.sum,0),lat=a.reduce((x,v)=>x+v.late,0);
 const target=count?sum/count:0,lateTarget=count?lat/count:0;
@@ -39,7 +39,7 @@ slots.sort((a,b)=>a.min-b.min||a.rink.localeCompare(b.rink));
 const all=gameWeeks(prefs.night,prefs.weeks),byWeek=Array.from({length:prefs.weeks},(_,i)=>all.filter(g=>g.week===i));
 if(!all.length){issue="No public teams available for the selected night.";return}
 for(const [w,rows] of byWeek.entries()){if(rows.length>slots.length){issue="Week "+(w+1)+" needs "+rows.length+" game slots, but the illustrative inventory supplies only "+slots.length+". Add ice slots before generating.";return}
-rows.forEach((g,i)=>{g.slot=slots[(i*7+w*3)%slots.length]})}
+rows.forEach((g,i)=>{g.slot=slots[(i+w*3)%slots.length]})}
 let initial=exposures(all,prefs.includeHistory);
 for(let pass=0;pass<4;pass++)for(const rows of byWeek){for(let step=0;step<rows.length*2;step++){let best=null,bestValue=exposures(all,prefs.includeHistory).score;
 for(const g of rows){const original=g.slot;for(const slot of slots){if(slot===original)continue;const other=rows.find(x=>x!==g&&x.slot===slot);g.slot=slot;if(other)other.slot=original;const trial=exposures(all,prefs.includeHistory).score;g.slot=original;if(other)other.slot=slot;
@@ -96,7 +96,7 @@ if(can){out+='<div class="lc-score-entry"><input class="lc-home-score" type="num
 '<label class="field lc-small">If tied, select winner and decision<select class="lc-tie"><option value="">Not required for non-tied scores</option>'+["OT:left","OT:right","SO:left","SO:right"].map(v=>'<option value="'+v+'"'+(e.method===v?" selected":"")+'>'+esc(v.startsWith("OT")?"Overtime · ":"Shootout · ")+(v.endsWith("left")?esc(m.left.name):esc(m.right.name))+'</option>').join("")+'</select></label>'+
 '<button class="btn small primary" data-lc-save-score="'+esc(m.id)+'" type="button">Save demo result</button>'+(e.winner?'<button class="btn small" data-lc-clear-score="'+esc(m.id)+'" type="button">Clear</button>':'')}
 else out+='<p class="lc-match-muted">'+(m.bye?"Advances automatically without a game.":"Both participants must be established before a draft score can be entered.")+'</p>';
-out+='<div class="lc-ice-entry"><small>Proposed game slot · not reserved</small><div><input type="date" class="lc-slot-date" aria-label="Proposed date" value="'+esc(a.date||"")+'"><input type="time" class="lc-slot-time" aria-label="Proposed start" value="'+esc(a.time||"")+'"><select class="lc-slot-rink" aria-label="Proposed rink">'+options(["—","A","B","C","D"],a.rink||"—")+'</select></div><button type="button" class="btn small" data-lc-save-slot="'+esc(m.id)+'">Save slot draft</button></div>'+
+if(!m.bye)out+='<div class="lc-ice-entry"><small>Proposed game slot · not reserved</small><div><input type="date" class="lc-slot-date" aria-label="Proposed date" value="'+esc(a.date||"")+'"><input type="time" class="lc-slot-time" aria-label="Proposed start" value="'+esc(a.time||"")+'"><select class="lc-slot-rink" aria-label="Proposed rink">'+options(["—","A","B","C","D"],a.rink||"—")+'</select></div><button type="button" class="btn small" data-lc-save-slot="'+esc(m.id)+'">Save slot draft</button></div>'+
 '<p class="lc-inline-error" role="alert"></p></article>';return out}
 function playoffUI(){const root=$("#league-playoffs-mount");if(!root)return;if(!source){root.innerHTML=section("Loading league teams","Public team-season source; no official seeding provided","<p>"+esc(issue||"Loading…")+"</p>");if(!loading)load();return}
 const ds=divisions(prefs.playNight);if(!ds.includes(prefs.playDivision))prefs.playDivision=ds[0]||"";
