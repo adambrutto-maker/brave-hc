@@ -115,7 +115,8 @@ let html='<div class="v12-review">'+
  '<p>Model for '+esc(focus.team)+': '+(focus.sourceModel?'margin-adjusted research rating '+dec(focus.sourceModel.adjusted_rating,0)+'; expected same-division point-equivalent outcome share '+pct(focus.sourceModel.expected_same_division_win_share)+'; priority '+esc(focus.sourceModel.priority||"Monitor"):'no validated rating for this row')+'. These are NOT league-approved forecasts or realignment instructions.</p>'+
  '<p>Official schedules, rink rights, registration, player eligibility and commissioner authorization are not connected. Historical labels, source disagreements and pending result holds must remain visible.</p></details></section>'+
  '</div>';
- root.innerHTML=html
+ root.innerHTML=html;
+ window.LeagueOSTourV13?.update?.()
 }
 function exportReview(){
  if(!dataset)return;const all=leagueRecords(),focus=currentFocus(all),a=all.find(x=>x.team_id===state.peerA),b=all.find(x=>x.team_id===state.peerB);
