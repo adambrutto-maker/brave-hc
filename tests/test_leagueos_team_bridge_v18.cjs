@@ -79,6 +79,15 @@ test("post-save goal correction invalidates saved score before TeamOS can displa
  assert.equal(s.draft().result.reviewed,false);
  assert.ok(h.data.get("leagueos-v15-scorer-demo").includes('"saved":false'));
 });
+test("correcting team power-play statistics revokes the earlier saved draft result",()=>{
+ const d={version:15,night:"Sunday",fixtureId:128129,
+  drafts:{"128129":{events:[],changes:[],result:{home:2,away:1,decision:"regulation",saved:true}}}};
+ const h=harness(scorerFile,{"leagueos-v15-scorer-demo":JSON.stringify(d)});
+ const s=h.api.LeagueOSNativeScorerV15._test;
+ s.draft().teamStats={home:{ppo:2,ppg:1},away:{ppo:2,ppg:0}};
+ s.log("SAVE_TEAM_STATS",null);
+ assert.equal(s.draft().result.saved,false);
+});
 test("anonymous or malicious jersey strings never turn into verified player identities",()=>{
  const b=harness(bridgeFile).api.LeagueOSTeamBridgeV18._test;
  const players=b.playerRows({events:[

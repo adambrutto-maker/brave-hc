@@ -15,7 +15,7 @@ This implementation was authored independently as BruTTech source code. HTO was 
 3. Enter team power-play opportunities (PPO) and power-play goals (PPG), separately for home and away. Missing = unknown; explicit zero = recorded zero. PPG may not exceed PPO or the club's scored goals. PP% and PK% are derived when denominator inputs are available; zero opportunities produce an unavailable percentage rather than a fictitious 0%.
 4. Save the practice result locally. Only future games tagged to the verified Braves HC source fixture list can appear in HockeyOS TeamOS's Game result review inbox on the *same browser profile*.
 5. TeamOS shows Brave H.C. practice score, outcome, source fixture, goal-event agreement, anonymous jersey stats and special-teams performance. It cannot confirm roster identities or publish the result.
-6. If goal events, player statistics or event classifications change, the earlier saved result is invalidated and TeamOS no longer treats it as a saved review item. A revised result must be saved deliberately.
+6. If goal events, player statistics, team power-play statistics or event classifications change, the earlier saved result is invalidated and TeamOS no longer treats it as a saved review item. A revised result must be saved deliberately.
 
 ## Nonnegotiable gates
 
@@ -29,7 +29,7 @@ This implementation was authored independently as BruTTech source code. HTO was 
 
 ## Automated acceptance evidence
 
-- `node --test tests/test_leagueos_team_bridge_v18.cjs tests/test_player_performance_normalization.cjs` — **26 / 26 PASS** (9 V18 bridge tests plus 17 preexisting normalization safeguards).
+- `node --test tests/test_leagueos_team_bridge_v18.cjs tests/test_player_performance_normalization.cjs` — **27 / 27 PASS** (10 V18 bridge tests plus 17 preexisting normalization safeguards).
 - `node tests/qa_leagueos_team_bridge_v18.cjs` — **14 browser checks PASS**, after configuring an existing Puppeteer runtime via `PUPPETEER_MODULE_PATH` and local served widgets. Passed 1440-pixel desktop and 390-pixel mobile (document scroll width 390); no unhandled page errors, no HTTP mutations.
 - Browser scenario: November 22 Brave H.C. vs Dateline Predators, fictitious final 2–1; PP: home 1 / 2, away 0 / 2. TeamOS locally displays PP% 50.0% and PK% 100.0%; edit after save removes the draft from the review inbox.
 - Actual official score/game information was not changed. Keep screenshots and QA receipts in the external review-only directory, not public production.
