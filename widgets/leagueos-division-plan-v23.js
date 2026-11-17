@@ -225,6 +225,7 @@ function render(){
  const root=$("#leagueos-division-plan-v23");if(!root||!data||!tiers)return;
  const byId=teamMap();
  root.innerHTML=headline()+allNightsAtGlance()+
+ '<div id="leagueos-v25-competition-studio" class="v25-root" aria-live="polite"></div>'+
  '<div id="leagueos-v24-fixture-coverage" aria-live="polite"></div>'+
  '<div id="leagueos-v24-strength-history" aria-live="polite"></div>'+
  '<nav class="v23-jump" aria-label="League nights">'+NIGHTS.map(n=>
@@ -232,6 +233,7 @@ function render(){
  tierPanel()+crossNightEvidence()+data.nights.map(n=>nightCard(n,byId)).join("")+
  (message?'<p class="v23-message" role="status">'+esc(message)+'</p>':"")+footer();
  window.LeagueOSCoverageV24?.mount();
+ window.LeagueOSCompetitionV25?.mount("league-division-plan");
 }
 function page(){
  return '<div class="v23-root" id="leagueos-division-plan-v23" aria-live="polite">'+

@@ -26,7 +26,7 @@ fs.mkdirSync(out,{recursive:true});
   let t=await page.$eval("#v19-site-banner",e=>e.textContent);
   await check("HockeyOS identity",()=>assert.match(t,/BRAVE H.C./));
   const names=await page.$$eval("#v19-site-navigation .v19-tab",xs=>xs.map(x=>x.textContent.trim()));
-  await check("Team site navigation",()=>assert.deepEqual(names,["Home","News","Roster","Schedule","Scores","Stats","Analytics","Awards","Records"]));
+  await check("Team site navigation",()=>assert.deepEqual(names,["Home","News","Roster","Schedule","Scores","Stats","Projections","Analytics","Awards","Records"]));
   const home=await page.$eval("#workspace",e=>e.textContent);
   await check("team home editorial and sideboards",()=>{for(const x of ["Team record","Last game","Next on the ice","Stat leaders","The club. The games. The history."])assert.ok(home.includes(x),x)});
   await check("V18 bridge remains on team home",async()=>assert.ok(await page.$("#team-leagueos-bridge-mount")));
