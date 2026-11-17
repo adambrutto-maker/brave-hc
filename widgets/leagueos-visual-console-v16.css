@@ -258,3 +258,17 @@ body.league-game-mode .v16-fit-settings .v15-native-filters{margin:4px 0;padding
  body.league-game-mode .v16-fit-clubs>div{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 @media(prefers-reduced-motion:reduce){body.league-game-mode .v16-night-tile,body.league-game-mode .v16-format-card{transition:none}}
+
+
+/* Remove repeated administrative introductions so the first screen starts with the actual game interaction. */
+body.league-game-mode:has(#league-planner-mount) .intro,
+body.league-game-mode:has(#league-series-mount) .intro{display:none}
+body.league-game-mode .v10-home>:last-child{order:20}
+body.league-game-mode:has(#league-native-intelligence-mount) .v15-console-header{padding:4px 0 10px}
+body.league-game-mode:has(#league-native-intelligence-mount) .v15-console-header h2{font-size:clamp(21px,2.1vw,30px)}
+body.league-game-mode:has(#league-native-intelligence-mount) .v15-console-header p{font-size:10px;margin:2px 0}
+@media(max-width:620px){
+ body.league-game-mode .v16-format-lines{display:none}
+ body.league-game-mode:has(#league-native-intelligence-mount) .v15-console-header p{display:none}
+ body.league-game-mode .v16-bracket-stage{padding:13px}
+}
