@@ -7,6 +7,7 @@ const SOURCE="./leagueos-source-qualified-current-fixtures-v4.json";
 const DRAFT_KEY="bruttech-leagueos-ops-drafts-v17";
 const FEED_KEY="bruttech-leagueos-demo-hockeyos-fixtures-v17";
 const SETTINGS_KEY="bruttech-leagueos-ops-settings-v17";
+const REF_KEY="bruttech-leagueos-demo-referee-overrides-v17";
 const DEMO_REFS=Object.freeze(Array.from({length:16},(_,i)=>"Official "+String(i+1).padStart(2,"0")));
 const DEMO_TIMEKEEPERS=Object.freeze(Array.from({length:4},(_,i)=>"Timekeeper "+String(i+1).padStart(2,"0")));
 const MACHINES=Object.freeze(["Zamboni 1","Zamboni 2"]);
@@ -63,7 +64,10 @@ function officials(games,settings=DEFAULTS,overrides={}){
  if(!r1)r1=order.find(n=>n!==r2)||null;if(!r2)r2=order.find(n=>n!==r1)||null;
  const keep=prior.timekeeper;if(keep&&DEMO_TIMEKEEPERS.includes(keep)&&timekeepers[keep].every(x=>!overlaps(x.start,x.end,s,e)))tk=keep;
  if(!tk)tk=DEMO_TIMEKEEPERS.find(n=>timekeepers[n].every(x=>!overlaps(x.start,x.end,s,e)))||null;
- const row={gameId:g.game_id,date:g.date,start:s,end:e,rink:g.rink,home:g.home,away:g.away,ref1:r1,ref2:r2,timekeeper:tk,official:true};
+ const row={gameId:g.game_id,date:g.date,start:s,end:e,rink:g.rink,home:g.home,away:g.away,ref1:r1,ref2:r2,timekeeper:tk,official:false,demoOnly:true};
+ if(prior.ref1&&r1!==prior.ref1)issues.push({kind:"REF_OVERRIDE_UNAVAILABLE",gameIds:[g.game_id],message:"Manually selected Ref 1 is unavailable or clashes with another proposed game"});
+ if(prior.ref2&&r2!==prior.ref2)issues.push({kind:"REF_OVERRIDE_UNAVAILABLE",gameIds:[g.game_id],message:"Manually selected Ref 2 is unavailable or clashes with another proposed game"});
+ if(prior.timekeeper&&tk!==prior.timekeeper)issues.push({kind:"TIMEKEEPER_OVERRIDE_UNAVAILABLE",gameIds:[g.game_id],message:"Manually selected timekeeper conflicts with the staff board"});
  if(r1)availability[r1].push(row);if(r2)availability[r2].push(row);if(tk)timekeepers[tk].push(row);crews.push(row);
  if(!r1||!r2)issues.push({kind:"REFEREE_CAPACITY",gameIds:[g.game_id],message:"Not enough available fictional officials for "+g.home+" vs "+g.away});
  if(!tk)issues.push({kind:"TIMEKEEPER_CAPACITY",gameIds:[g.game_id],message:"No sample timekeeper available for "+g.home+" vs "+g.away});
@@ -83,5 +87,5 @@ function teamFeed(rows,feed,team){const value=String(team||"").toLowerCase().tri
  return{gameId:x.game_id,date:accepted?staged.proposed.date:x.date,time:accepted?staged.proposed.time:x.time,rink:accepted?staged.proposed.rink:rinkId(x.rink),sourceDate:x.date,sourceTime:x.time,sourceRink:rinkId(x.rink),home:x.home,away:x.away,demoUpdated:Boolean(accepted),revision:accepted?staged.revision:0,status:accepted?"LOCAL_DEMO_TEAM_FEED":"SOURCE_PUBLISHED_SNAPSHOT",officialUrl:x.official_game_url||null}
  }).sort((a,b)=>a.date.localeCompare(b.date)||a.time.localeCompare(b.time))}
 function shareEvent(g){return{schema:"bruttech-leagueos-demo-team-sync-v17",status:"DEMO_SHARED_LOCAL_ONLY",officialPublished:false,facilityBooked:false,recordAuthority:"NONE",original:{gameId:g.game_id,date:g.sourceDate,time:g.sourceTime,rink:g.sourceRink},proposed:{date:g.date,time:g.time,rink:g.rink},teams:[g.home,g.away],revision:g.draftRevision,createdAt:new Date().toISOString(),note:"Browser-local HockeyOS preview only; no remote push"}}
-window.LeagueOSOpsEngineV17={SOURCE,DRAFT_KEY,FEED_KEY,SETTINGS_KEY,DEFAULTS,MACHINES,RINKS,DEMO_REFS,DEMO_TIMEKEEPERS,read,write,clockMin,clock,dateValid,rinkId,sourceRows,publicDates,normalizeDraft,merge,forDate,fixtureProblems,resurfacing,officials,evaluate,publishable,teamFeed,shareEvent};
+window.LeagueOSOpsEngineV17={SOURCE,DRAFT_KEY,FEED_KEY,SETTINGS_KEY,REF_KEY,DEFAULTS,MACHINES,RINKS,DEMO_REFS,DEMO_TIMEKEEPERS,read,write,clockMin,clock,dateValid,rinkId,sourceRows,publicDates,normalizeDraft,merge,forDate,fixtureProblems,resurfacing,officials,evaluate,publishable,teamFeed,shareEvent};
 })();
