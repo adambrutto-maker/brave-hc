@@ -1,7 +1,7 @@
 {
   "schema": "brave-hc-svhl-schedule/v1",
   "source": "https://leagues.sportsvillage.ca/Leagues.aspx?leagueid=570&page_type=Adult&sc=HOCKEY",
-  "checkedAt": "2026-11-16T13:39:07.365204-05:00",
+  "checkedAt": "2026-11-16T21:58:24.751230-05:00",
   "games": [
     {
       "date": "2026-11-22",
@@ -14,6 +14,66 @@
       "htoGameId": "3375686",
       "htoSyncStatus": "MATCH",
       "requiresGoalieReconfirmation": true
+    },
+    {
+      "date": "2026-11-29",
+      "time": "21:00",
+      "opponent": "Maplewolves",
+      "rink": "B Rink",
+      "side": "home",
+      "fixtureSignature": "2026-11-29|21:00|Maplewolves|B Rink|home",
+      "assignmentKey": "svhl:2026-11-29:maplewolves",
+      "htoGameId": null,
+      "htoSyncStatus": "ADD_HTO",
+      "requiresGoalieReconfirmation": false
+    },
+    {
+      "date": "2026-12-06",
+      "time": "19:15",
+      "opponent": "Mid Ice Crisis",
+      "rink": "A Rink",
+      "side": "home",
+      "fixtureSignature": "2026-12-06|19:15|Mid Ice Crisis|A Rink|home",
+      "assignmentKey": "hto:3375683",
+      "htoGameId": "3375683",
+      "htoSyncStatus": "REVIEW_RESCHEDULE",
+      "requiresGoalieReconfirmation": true
+    },
+    {
+      "date": "2026-12-13",
+      "time": "21:15",
+      "opponent": "Zamboner Crew",
+      "rink": "A Rink",
+      "side": "home",
+      "fixtureSignature": "2026-12-13|21:15|Zamboner Crew|A Rink|home",
+      "assignmentKey": "svhl:2026-12-13:zambonercrew",
+      "htoGameId": null,
+      "htoSyncStatus": "ADD_HTO",
+      "requiresGoalieReconfirmation": false
+    },
+    {
+      "date": "2026-12-20",
+      "time": "21:15",
+      "opponent": "Young Guns",
+      "rink": "D Rink",
+      "side": "home",
+      "fixtureSignature": "2026-12-20|21:15|Young Guns|D Rink|home",
+      "assignmentKey": "svhl:2026-12-20:youngguns",
+      "htoGameId": null,
+      "htoSyncStatus": "ADD_HTO",
+      "requiresGoalieReconfirmation": false
+    },
+    {
+      "date": "2026-12-27",
+      "time": "18:00",
+      "opponent": "Mohawks HC",
+      "rink": "B Rink",
+      "side": "away",
+      "fixtureSignature": "2026-12-27|18:00|Mohawks HC|B Rink|away",
+      "assignmentKey": "svhl:2026-12-27:mohawkshc",
+      "htoGameId": null,
+      "htoSyncStatus": "ADD_HTO",
+      "requiresGoalieReconfirmation": false
     }
   ],
   "missingFixtureReviews": []
