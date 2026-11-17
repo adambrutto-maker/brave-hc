@@ -13,7 +13,7 @@ const PRIMARY={
  ],
  league:[
   ["League Home","league-home"],["Schedule","league-schedule"],["Results","league-results"],
-  ["Source Review","league-reconciliation"],["Standings","league-divisions"],["Teams","league-teams"],["Playoffs","league-playoffs"],
+  ["Source Review","league-reconciliation"],["Division Plan","league-division-plan"],["Standings","league-divisions"],["Teams","league-teams"],["Playoffs","league-playoffs"],
   ["Statistics","league-analysis"],["League Admin","league-admin"]
  ]
 };
@@ -135,7 +135,7 @@ function leagueHome(c){
  ].map(([name,value,note])=>'<div><span>'+esc(name)+'</span><b>'+esc(value)+'</b><small>'+esc(note)+'</small></div>').join("")+'</div>'+
  '<div class="v19-home-grid v19-league-grid"><aside class="v19-side-stack">'+
  wrap("League office","Primary commissioner tasks",'<div class="v19-quick-list">'+
- routeLink("Game result entry","league-scoring")+routeLink("Source reconciliation","league-reconciliation")+routeLink("Schedule fairness audit","league-schedule-equity")+
+ routeLink("Game result entry","league-scoring")+routeLink("Source reconciliation","league-reconciliation")+routeLink("Recommended divisions","league-division-plan")+routeLink("Schedule fairness audit","league-schedule-equity")+
  routeLink("Team registration","league-registration")+routeLink("Rulebook & reviews","league-rules")+'</div>')+
  wrap("Facility & ice","Authority requires contracted slots",'<p>Published fixtures do not prove free rink inventory. Rental requests remain unsent drafts.</p>'+routeLink("Ice inventory","league-inventory"))+
  wrap("Competition controls","Separate planning and approval",'<p>Division changes, official scoring and disciplinary outcomes require verified league authority.</p>'+routeLink("Commissioner admin","league-admin"))+
@@ -147,6 +147,7 @@ function leagueHome(c){
  '<div class="v19-tile-grid">'+
  tile("Schedule & results","Calendar, matchup details, scores and league nights","league-schedule","COMPETITION")+
  tile("Source reconciliation","HTO-versus-league comparison, held IDs and unresolved results","league-reconciliation","EVIDENCE")+
+ tile("Recommended divisions","Automatic four-night current versus proposed competitive groupings","league-division-plan","COMPETITIVE BALANCE")+
  tile("Balanced scheduler","Rotate early/late starts and audit average ice-time exposure","league-planner","FAIRNESS")+
  tile("Playoff centre","Series, brackets, winner advancement and scheduling","league-playoffs","POSTSEASON")+
  tile("Game sheets & stats","Scorer entry, event reconciliation and source controls","league-scoring","GAME DAY")+
@@ -215,6 +216,7 @@ function screen(route,c={}){
  '<div class="v19-tile-grid v19-admin-grid">'+
  tile("Game verification","Game sheet review, goal events and score discrepancies","league-scoring","REVIEW")+
  tile("Source reconciliation","Dated source parity, mismatches and reviewer notes","league-reconciliation","SOURCE CONTROL")+
+ tile("Division recommendations","Four-night strength and roster context planning","league-division-plan","COMPETITIVE BALANCE")+
  tile("Schedule management","Available ice slots, start-time equity and changes","league-planner","PLANNING")+
  tile("Playoff administration","Qualifiers, series, bracket advancement and game times","league-playoffs","POSTSEASON")+
  tile("Roster registration","Team registration and player eligibility concepts","league-registration","TEAMS")+

@@ -1,0 +1,296 @@
+{
+  "schema": "bruttech-leagueos-division-strength-governance/v23",
+  "source": "Current public division labels; publisher authorizations are NOT connected",
+  "sourceModelCreatedAt": "2026-11-16T22:26:36.690023+00:00",
+  "createdAt": "2026-11-17",
+  "status": "LEAGUE_ASSIGNMENT_REQUIRED",
+  "officialChanges": false,
+  "assignmentLevels": [
+    {
+      "level": 1,
+      "label": "Top competitive",
+      "meaning": "Highest league-verified competition strength in the program"
+    },
+    {
+      "level": 2,
+      "label": "Upper competitive",
+      "meaning": "Strong adult competitive play"
+    },
+    {
+      "level": 3,
+      "label": "Middle competitive",
+      "meaning": "Intermediate competitive play"
+    },
+    {
+      "level": 4,
+      "label": "Lower competitive",
+      "meaning": "Developmental competitive play"
+    },
+    {
+      "level": 5,
+      "label": "Entry competitive",
+      "meaning": "Foundational competitive play"
+    }
+  ],
+  "bindingRule": "League-approved comparable strength tiers must be assigned per division, season and program; do not infer from sponsor name or recent win/loss.",
+  "crossNightBridgePolicy": "No cross-night absolute strength calibration without authorized tiers, independently source-matched players, and adequate independent bridge IDs.",
+  "note": "Draft tier selections in public demo remain browser-local and MUST NOT alter official tier policy or produce official placement.",
+  "assignments": [
+    {
+      "key": "570|Open|Fazzari Partners",
+      "night": "Sunday",
+      "leagueId": 570,
+      "program": "Open",
+      "sourceComponents": [
+        1
+      ],
+      "division": "Fazzari Partners",
+      "currentSourceTeamCount": 5,
+      "level": null,
+      "approval": "UNASSIGNED",
+      "approvedAt": null,
+      "approvedByRole": null,
+      "authorityRef": null,
+      "effectiveFrom": null
+    },
+    {
+      "key": "570|Open|Remax Division",
+      "night": "Sunday",
+      "leagueId": 570,
+      "program": "Open",
+      "sourceComponents": [
+        1
+      ],
+      "division": "Remax Division",
+      "currentSourceTeamCount": 7,
+      "level": null,
+      "approval": "UNASSIGNED",
+      "approvedAt": null,
+      "approvedByRole": null,
+      "authorityRef": null,
+      "effectiveFrom": null
+    },
+    {
+      "key": "570|Open|The Cristillo Division",
+      "night": "Sunday",
+      "leagueId": 570,
+      "program": "Open",
+      "sourceComponents": [
+        1
+      ],
+      "division": "The Cristillo Division",
+      "currentSourceTeamCount": 10,
+      "level": null,
+      "approval": "UNASSIGNED",
+      "approvedAt": null,
+      "approvedByRole": null,
+      "authorityRef": null,
+      "effectiveFrom": null
+    },
+    {
+      "key": "570|Separate program|VAHL Division",
+      "night": "Sunday",
+      "leagueId": 570,
+      "program": "Separate program",
+      "sourceComponents": [
+        2
+      ],
+      "division": "VAHL Division",
+      "currentSourceTeamCount": 4,
+      "level": null,
+      "approval": "UNASSIGNED",
+      "approvedAt": null,
+      "approvedByRole": null,
+      "authorityRef": null,
+      "effectiveFrom": null
+    },
+    {
+      "key": "569|Masters|Kool Stuff Masters",
+      "night": "Thursday",
+      "leagueId": 569,
+      "program": "Masters",
+      "sourceComponents": [
+        1
+      ],
+      "division": "Kool Stuff Masters",
+      "currentSourceTeamCount": 5,
+      "level": null,
+      "approval": "UNASSIGNED",
+      "approvedAt": null,
+      "approvedByRole": null,
+      "authorityRef": null,
+      "effectiveFrom": null
+    },
+    {
+      "key": "569|Masters|Re-Max Masters",
+      "night": "Thursday",
+      "leagueId": 569,
+      "program": "Masters",
+      "sourceComponents": [
+        2
+      ],
+      "division": "Re-Max Masters",
+      "currentSourceTeamCount": 6,
+      "level": null,
+      "approval": "UNASSIGNED",
+      "approvedAt": null,
+      "approvedByRole": null,
+      "authorityRef": null,
+      "effectiveFrom": null
+    },
+    {
+      "key": "569|Open|A & G Cleaners",
+      "night": "Thursday",
+      "leagueId": 569,
+      "program": "Open",
+      "sourceComponents": [
+        4,
+        3
+      ],
+      "division": "A & G Cleaners",
+      "currentSourceTeamCount": 7,
+      "level": null,
+      "approval": "UNASSIGNED",
+      "approvedAt": null,
+      "approvedByRole": null,
+      "authorityRef": null,
+      "effectiveFrom": null
+    },
+    {
+      "key": "569|Open|Fazzari Partners",
+      "night": "Thursday",
+      "leagueId": 569,
+      "program": "Open",
+      "sourceComponents": [
+        3
+      ],
+      "division": "Fazzari Partners",
+      "currentSourceTeamCount": 7,
+      "level": null,
+      "approval": "UNASSIGNED",
+      "approvedAt": null,
+      "approvedByRole": null,
+      "authorityRef": null,
+      "effectiveFrom": null
+    },
+    {
+      "key": "569|Open|High 5 Photography",
+      "night": "Thursday",
+      "leagueId": 569,
+      "program": "Open",
+      "sourceComponents": [
+        1
+      ],
+      "division": "High 5 Photography",
+      "currentSourceTeamCount": 9,
+      "level": null,
+      "approval": "UNASSIGNED",
+      "approvedAt": null,
+      "approvedByRole": null,
+      "authorityRef": null,
+      "effectiveFrom": null
+    },
+    {
+      "key": "568|Open|Burrell Overhead",
+      "night": "Tuesday",
+      "leagueId": 568,
+      "program": "Open",
+      "sourceComponents": [
+        1
+      ],
+      "division": "Burrell Overhead",
+      "currentSourceTeamCount": 6,
+      "level": null,
+      "approval": "UNASSIGNED",
+      "approvedAt": null,
+      "approvedByRole": null,
+      "authorityRef": null,
+      "effectiveFrom": null
+    },
+    {
+      "key": "568|Open|Franco Canadian Division",
+      "night": "Tuesday",
+      "leagueId": 568,
+      "program": "Open",
+      "sourceComponents": [
+        1
+      ],
+      "division": "Franco Canadian Division",
+      "currentSourceTeamCount": 5,
+      "level": null,
+      "approval": "UNASSIGNED",
+      "approvedAt": null,
+      "approvedByRole": null,
+      "authorityRef": null,
+      "effectiveFrom": null
+    },
+    {
+      "key": "568|Open|High 5 Photography",
+      "night": "Tuesday",
+      "leagueId": 568,
+      "program": "Open",
+      "sourceComponents": [
+        1
+      ],
+      "division": "High 5 Photography",
+      "currentSourceTeamCount": 5,
+      "level": null,
+      "approval": "UNASSIGNED",
+      "approvedAt": null,
+      "approvedByRole": null,
+      "authorityRef": null,
+      "effectiveFrom": null
+    },
+    {
+      "key": "567|Open|Burrell Overhead Division",
+      "night": "Wednesday",
+      "leagueId": 567,
+      "program": "Open",
+      "sourceComponents": [
+        1
+      ],
+      "division": "Burrell Overhead Division",
+      "currentSourceTeamCount": 6,
+      "level": null,
+      "approval": "UNASSIGNED",
+      "approvedAt": null,
+      "approvedByRole": null,
+      "authorityRef": null,
+      "effectiveFrom": null
+    },
+    {
+      "key": "567|Open|Franco Canadian",
+      "night": "Wednesday",
+      "leagueId": 567,
+      "program": "Open",
+      "sourceComponents": [
+        1
+      ],
+      "division": "Franco Canadian",
+      "currentSourceTeamCount": 8,
+      "level": null,
+      "approval": "UNASSIGNED",
+      "approvedAt": null,
+      "approvedByRole": null,
+      "authorityRef": null,
+      "effectiveFrom": null
+    },
+    {
+      "key": "567|Open|Hot Shots Bar & Grill Division",
+      "night": "Wednesday",
+      "leagueId": 567,
+      "program": "Open",
+      "sourceComponents": [
+        1
+      ],
+      "division": "Hot Shots Bar & Grill Division",
+      "currentSourceTeamCount": 6,
+      "level": null,
+      "approval": "UNASSIGNED",
+      "approvedAt": null,
+      "approvedByRole": null,
+      "authorityRef": null,
+      "effectiveFrom": null
+    }
+  ]
+}

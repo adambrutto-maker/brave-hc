@@ -1,0 +1,124 @@
+name: LeagueOS V23 daily postgame division recommendations
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Twice for DST safety; commit happens only on NEW mutually verified
+    # completed results and is idempotent. UTC 13:35/14:35 = morning Toronto.
+    - cron: '35 13,14 * * *'
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: leagueos-v23-postgame-division-recommendations
+  cancel-in-progress: false
+
+jobs:
+  verified-postgame-refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 14
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install public source-reading dependencies
+        run: pip install 'requests>=2.31,<3' 'beautifulsoup4>=4.12,<5'
+
+      - name: Verify source and local daily capture programs
+        run: |
+          python -m py_compile \
+            scripts/collect_svhl_league_intelligence.py \
+            scripts/collect_leagueos_settled_delta_v23.py \
+            scripts/capture_svhl_crossnight_player_bridge_v23.py
+          node --check scripts/build_leagueos_division_recommendations_v23.cjs
+          node --check widgets/leagueos-division-plan-v23.js
+          node --check scripts/seed_leagueos_division_tiers_v23.cjs
+          python tests/test_leagueos_daily_settlement_v23.py
+
+      - name: Capture ONLY reciprocal settled source games
+        id: source
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p build/v23-postgame
+          python scripts/collect_leagueos_settled_delta_v23.py --max-workers 4 | tee build/v23-postgame/settlement.json
+          if test -n "$(git status --porcelain -- widgets/leagueos-settled-delta-v23.json)"; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "No new fully settled reciprocal games. Last validated recommendations stay published."
+          fi
+
+      - name: Recapture public current player roster construction and exact cross-night IDs
+        if: steps.source.outputs.changed == 'true'
+        run: |
+          python scripts/capture_svhl_crossnight_player_bridge_v23.py --workers 5 \
+            --output widgets/leagueos-cross-night-player-bridge-v23.json
+
+      - name: Rebuild source-qualified four-night proposal
+        if: steps.source.outputs.changed == 'true'
+        run: node scripts/build_leagueos_division_recommendations_v23.cjs
+
+      - name: Run all current and original source-protection tests before publishing
+        if: steps.source.outputs.changed == 'true'
+        run: |
+          node --test \
+            tests/test_leagueos_division_recommendations_v23.cjs \
+            tests/test_leagueos_reconciliation_v22.cjs \
+            tests/test_hockeyos_public_games_v21.cjs \
+            tests/test_hockeyos_native_roster_stats_v20.cjs \
+            tests/test_player_performance_normalization.cjs \
+            tests/test_leagueos_team_bridge_v18.cjs
+          git diff --check
+
+      - name: Publish only validated derived data after source settlement
+        if: steps.source.outputs.changed == 'true'
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- \
+            widgets/leagueos-settled-delta-v23.json \
+            widgets/leagueos-cross-night-player-bridge-v23.json \
+            widgets/leagueos-division-recommendations-v23.json
+          if git diff --cached --quiet; then
+            echo "No qualified candidate difference; original release retained."
+            exit 0
+          fi
+          git diff --cached --check
+          git commit -m "data(LeagueOS): daily verified settled-game division context"
+          # Abort rather than overwrite a concurrent human source edit.
+          git fetch origin main
+          git rebase origin/main
+          # If a concurrent main commit changed ANY evidence source, fail closed:
+          # validated derived source SHA-256 values must still match after rebase.
+          node --test tests/test_leagueos_division_recommendations_v23.cjs
+          git diff --check
+          git push origin HEAD:main
+          # GITHUB_TOKEN-generated pushes do not trigger push workflows.
+          # Explicitly dispatch the existing Pages workflow after data publication.
+          gh workflow run pages.yml --ref main
+
+      - name: Retain bounded source qualification receipt
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: leagueos-v23-postgame-source-review
+          path: build/v23-postgame/settlement.json
+          if-no-files-found: warn
+          retention-days: 14

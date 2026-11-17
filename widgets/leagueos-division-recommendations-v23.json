@@ -1,0 +1,5390 @@
+{
+  "schema": "bruttech-leagueos-night-division-recommendations/v23",
+  "generatedAt": "2026-11-17T19:31:45.793Z",
+  "sourcePublishedAt": "2026-11-16T22:26:36.690023+00:00",
+  "status": "SOURCE_QUALIFIED_RESEARCH_NOT_LEAGUE_APPROVED",
+  "dailyRefreshStatus": "NO_NEW_RECIPROCAL_SETTLED_GAME_SOURCE",
+  "verifiedNewSettledGames": 0,
+  "sourceAuthority": "Public SVHL reciprocal games and standings; exact public player ID roster facts",
+  "leagueAssignmentAuthority": "LEAGUE_OFFICIAL_APPROVAL_REQUIRED",
+  "officialCompetitionChanged": false,
+  "officialStandingsChanged": false,
+  "decision": "PROVISIONAL_FOR_COMMISSIONER_REVIEW_ONLY",
+  "tiersState": "ALL_OFFICIAL_DIVISION_STRENGTH_LEVELS_UNASSIGNED",
+  "policy": {
+    "strengthBasis": "Results-only margin-adjusted Elo within source-connected league-night component; optional verified recent settled game updates",
+    "sideSignals": "Current roster scoring concentration, exact cross-night player ID observations, previous winter roster samples, and exact archived Sunday player-ID division experience. Other nights use historical roster aggregates only.",
+    "crossNightCalibration": "All current exact player links are analyzed but numeric cross-night strength transfer is HELD until league-assigned comparable division tiers and validation exist",
+    "rosterWeightInPlacement": 0,
+    "crossNightWeightInPlacement": 0,
+    "reasonForZeroWeights": "Source model prospective validation did not demonstrate meaningful independent improvement over results-only; do not invent calibrated player impact",
+    "tierAssignments": "League must assign effective-dated, program-scoped strength levels to each division through authorized governance; public draft picker cannot authorize them",
+    "currentModelComponents": "Same-night, same-program and source-connected component only; no Masters/Open/Separate program mixing",
+    "uncertainty": "Estimated matchup parity is an internal pairwise model proxy, not a calibrated future win probability",
+    "outcomeEligibility": "Only final reciprocal source-qualified fixtures affect the numeric rating; 0-0 holds and future games never count as settled",
+    "groupSizePolicy": "Evaluate 4–10 team groups, allow size and division-count changes of at most one per source-connected pool, penalize odd/small/oversized groups and avoid nonmaterial changes",
+    "operationsHold": "Facility capacity, number of available ice sheets, season scheduling rules, cross-division playoff format and commissioner approval are not connected"
+  },
+  "sources": {
+    "model": {
+      "file": "leagueos_division_alignment_public_v2.json",
+      "sha256": "171565def2fbfcae366f576b7b171fd48768d3847b6924ad4303f303585ebd98",
+      "capturedAt": "2026-11-16T22:26:36.690023+00:00"
+    },
+    "roster": {
+      "file": "leagueos-cross-night-player-bridge-v23.json",
+      "sha256": "e52b7807766ac0adb8a583d499cf31afefc38223238bdf9417d24ac0a8458843",
+      "capturedAt": "2026-11-17T19:08:09.251530+00:00"
+    },
+    "historical": {
+      "file": "svhl-roster-intelligence.json",
+      "sha256": "7a1377a82d42583760a80b30ca7e929d47df5213cb9bb6cddaf7808bfb6d0e47",
+      "capturedAt": "2026-10-27T04:08:28.585604+00:00"
+    },
+    "tiers": {
+      "file": "leagueos-division-strength-levels-v23.json",
+      "sha256": "4463a5b0fac16ba8dc4c2c5250005371d77f91a22b8a762141c77f0b1c3204c9",
+      "approvedAssignments": 0
+    },
+    "fixtures": {
+      "file": "leagueos-source-qualified-current-fixtures-v4.json",
+      "sha256": "39d38f799c8d8c89c642306181e35c5efbb3f7f5da4d737c5445b7f8ca45c658",
+      "capturedAt": "2026-11-16"
+    }
+  },
+  "overview": {
+    "leagueNights": 4,
+    "modeledTeams": 96,
+    "rosterQualifiedTeams": 92,
+    "heldRosterTeams": 4,
+    "crossNightVerifiedPlayerIDs": 70,
+    "playerObservations": 1440,
+    "crossNightComparisonPairs": 35,
+    "sundayTeamPlayerHistoryLinks": 236,
+    "sourceModeledDivisionCount": 15,
+    "officialApprovedTiers": 0,
+    "programsProtected": [
+      "Masters",
+      "Separate program"
+    ],
+    "nightModeledTeamCounts": {
+      "Sunday": 26,
+      "Tuesday": 16,
+      "Wednesday": 20,
+      "Thursday": 34
+    },
+    "poolRecommendations": 4,
+    "heldPools": 3,
+    "verifiedNewSettledGames": 0
+  },
+  "bridgeEvidence": {
+    "sourceIdentityBasis": "Exact public SVHL playerID across nights only, not player name",
+    "crossNightCurrentPlayerIds": 70,
+    "crossProgramIds": 1,
+    "divisionPairEvidence": [
+      {
+        "pair": "Sunday|The Cristillo Division ↔ Thursday|A & G Cleaners",
+        "exactSourcePlayerIds": 7,
+        "independentSourceClubs": 6,
+        "eligibleEvidenceForTierCalibration": true,
+        "smoothedPointsPerGameLogGap": 0.04,
+        "status": "HISTORICAL_ROLE_AND_TIER_VALIDATION_REQUIRED",
+        "appliedToPlacementModel": false
+      },
+      {
+        "pair": "Sunday|Fazzari Partners ↔ Thursday|Fazzari Partners",
+        "exactSourcePlayerIds": 6,
+        "independentSourceClubs": 5,
+        "eligibleEvidenceForTierCalibration": true,
+        "smoothedPointsPerGameLogGap": 0.071,
+        "status": "HISTORICAL_ROLE_AND_TIER_VALIDATION_REQUIRED",
+        "appliedToPlacementModel": false
+      },
+      {
+        "pair": "Sunday|Remax Division ↔ Thursday|A & G Cleaners",
+        "exactSourcePlayerIds": 5,
+        "independentSourceClubs": 8,
+        "eligibleEvidenceForTierCalibration": true,
+        "smoothedPointsPerGameLogGap": -0.287,
+        "status": "HISTORICAL_ROLE_AND_TIER_VALIDATION_REQUIRED",
+        "appliedToPlacementModel": false
+      },
+      {
+        "pair": "Thursday|A & G Cleaners ↔ Tuesday|Burrell Overhead",
+        "exactSourcePlayerIds": 5,
+        "independentSourceClubs": 4,
+        "eligibleEvidenceForTierCalibration": true,
+        "smoothedPointsPerGameLogGap": 0.815,
+        "status": "HISTORICAL_ROLE_AND_TIER_VALIDATION_REQUIRED",
+        "appliedToPlacementModel": false
+      },
+      {
+        "pair": "Thursday|Fazzari Partners ↔ Tuesday|Burrell Overhead",
+        "exactSourcePlayerIds": 5,
+        "independentSourceClubs": 6,
+        "eligibleEvidenceForTierCalibration": true,
+        "smoothedPointsPerGameLogGap": -0.349,
+        "status": "HISTORICAL_ROLE_AND_TIER_VALIDATION_REQUIRED",
+        "appliedToPlacementModel": false
+      },
+      {
+        "pair": "Thursday|High 5 Photography ↔ Tuesday|High 5 Photography",
+        "exactSourcePlayerIds": 5,
+        "independentSourceClubs": 2,
+        "eligibleEvidenceForTierCalibration": false,
+        "smoothedPointsPerGameLogGap": -0.225,
+        "status": "INSUFFICIENT_BRIDGE_COVERAGE",
+        "appliedToPlacementModel": false
+      },
+      {
+        "pair": "Sunday|Fazzari Partners ↔ Tuesday|Burrell Overhead",
+        "exactSourcePlayerIds": 3,
+        "independentSourceClubs": 2,
+        "eligibleEvidenceForTierCalibration": false,
+        "smoothedPointsPerGameLogGap": -0.427,
+        "status": "INSUFFICIENT_BRIDGE_COVERAGE",
+        "appliedToPlacementModel": false
+      },
+      {
+        "pair": "Sunday|Fazzari Partners ↔ Tuesday|Franco Canadian Division",
+        "exactSourcePlayerIds": 3,
+        "independentSourceClubs": 3,
+        "eligibleEvidenceForTierCalibration": false,
+        "smoothedPointsPerGameLogGap": -0.716,
+        "status": "INSUFFICIENT_BRIDGE_COVERAGE",
+        "appliedToPlacementModel": false
+      },
+      {
+        "pair": "Sunday|Fazzari Partners ↔ Wednesday|Franco Canadian",
+        "exactSourcePlayerIds": 3,
+        "independentSourceClubs": 4,
+        "eligibleEvidenceForTierCalibration": true,
+        "smoothedPointsPerGameLogGap": -0.006,
+        "status": "HISTORICAL_ROLE_AND_TIER_VALIDATION_REQUIRED",
+        "appliedToPlacementModel": false
+      },
+      {
+        "pair": "Sunday|Fazzari Partners ↔ Wednesday|Hot Shots Bar & Grill Division",
+        "exactSourcePlayerIds": 3,
+        "independentSourceClubs": 6,
+        "eligibleEvidenceForTierCalibration": true,
+        "smoothedPointsPerGameLogGap": 0.333,
+        "status": "HISTORICAL_ROLE_AND_TIER_VALIDATION_REQUIRED",
+        "appliedToPlacementModel": false
+      },
+      {
+        "pair": "Sunday|Remax Division ↔ Wednesday|Burrell Overhead Division",
+        "exactSourcePlayerIds": 3,
+        "independentSourceClubs": 4,
+        "eligibleEvidenceForTierCalibration": true,
+        "smoothedPointsPerGameLogGap": 0.293,
+        "status": "HISTORICAL_ROLE_AND_TIER_VALIDATION_REQUIRED",
+        "appliedToPlacementModel": false
+      },
+      {
+        "pair": "Thursday|A & G Cleaners ↔ Wednesday|Hot Shots Bar & Grill Division",
+        "exactSourcePlayerIds": 3,
+        "independentSourceClubs": 6,
+        "eligibleEvidenceForTierCalibration": true,
+        "smoothedPointsPerGameLogGap": -0.196,
+        "status": "HISTORICAL_ROLE_AND_TIER_VALIDATION_REQUIRED",
+        "appliedToPlacementModel": false
+      },
+      {
+        "pair": "Thursday|Fazzari Partners ↔ Tuesday|Franco Canadian Division",
+        "exactSourcePlayerIds": 3,
+        "independentSourceClubs": 2,
+        "eligibleEvidenceForTierCalibration": false,
+        "smoothedPointsPerGameLogGap": -0.903,
+        "status": "INSUFFICIENT_BRIDGE_COVERAGE",
+        "appliedToPlacementModel": false
+      },
+      {
+        "pair": "Sunday|Fazzari Partners ↔ Thursday|A & G Cleaners",
+        "exactSourcePlayerIds": 2,
+        "independentSourceClubs": 4,
+        "eligibleEvidenceForTierCalibration": false,
+        "smoothedPointsPerGameLogGap": 0,
+        "status": "INSUFFICIENT_BRIDGE_COVERAGE",
+        "appliedToPlacementModel": false
+      },
+      {
+        "pair": "Sunday|Remax Division ↔ Thursday|High 5 Photography",
+        "exactSourcePlayerIds": 2,
+        "independentSourceClubs": 2,
+        "eligibleEvidenceForTierCalibration": false,
+        "smoothedPointsPerGameLogGap": 0.246,
+        "status": "INSUFFICIENT_BRIDGE_COVERAGE",
+        "appliedToPlacementModel": false
+      },
+      {
+        "pair": "Sunday|Remax Division ↔ Wednesday|Hot Shots Bar & Grill Division",
+        "exactSourcePlayerIds": 2,
+        "independentSourceClubs": 4,
+        "eligibleEvidenceForTierCalibration": false,
+        "smoothedPointsPerGameLogGap": -1.04,
+        "status": "INSUFFICIENT_BRIDGE_COVERAGE",
+        "appliedToPlacementModel": false
+      },
+      {
+        "pair": "Sunday|The Cristillo Division ↔ Thursday|High 5 Photography",
+        "exactSourcePlayerIds": 2,
+        "independentSourceClubs": 2,
+        "eligibleEvidenceForTierCalibration": false,
+        "smoothedPointsPerGameLogGap": 0.526,
+        "status": "INSUFFICIENT_BRIDGE_COVERAGE",
+        "appliedToPlacementModel": false
+      },
+      {
+        "pair": "Sunday|The Cristillo Division ↔ Wednesday|Franco Canadian",
+        "exactSourcePlayerIds": 2,
+        "independentSourceClubs": 2,
+        "eligibleEvidenceForTierCalibration": false,
+        "smoothedPointsPerGameLogGap": -0.288,
+        "status": "INSUFFICIENT_BRIDGE_COVERAGE",
+        "appliedToPlacementModel": false
+      },
+      {
+        "pair": "Thursday|A & G Cleaners ↔ Wednesday|Burrell Overhead Division",
+        "exactSourcePlayerIds": 2,
+        "independentSourceClubs": 4,
+        "eligibleEvidenceForTierCalibration": false,
+        "smoothedPointsPerGameLogGap": 0.394,
+        "status": "INSUFFICIENT_BRIDGE_COVERAGE",
+        "appliedToPlacementModel": false
+      },
+      {
+        "pair": "Thursday|Fazzari Partners ↔ Wednesday|Franco Canadian",
+        "exactSourcePlayerIds": 2,
+        "independentSourceClubs": 4,
+        "eligibleEvidenceForTierCalibration": false,
+        "smoothedPointsPerGameLogGap": -0.018,
+        "status": "INSUFFICIENT_BRIDGE_COVERAGE",
+        "appliedToPlacementModel": false
+      },
+      {
+        "pair": "Sunday|Fazzari Partners ↔ Wednesday|Burrell Overhead Division",
+        "exactSourcePlayerIds": 1,
+        "independentSourceClubs": 2,
+        "eligibleEvidenceForTierCalibration": false,
+        "smoothedPointsPerGameLogGap": 0.105,
+        "status": "INSUFFICIENT_BRIDGE_COVERAGE",
+        "appliedToPlacementModel": false
+      },
+      {
+        "pair": "Sunday|Remax Division ↔ Tuesday|Burrell Overhead",
+        "exactSourcePlayerIds": 1,
+        "independentSourceClubs": 2,
+        "eligibleEvidenceForTierCalibration": false,
+        "smoothedPointsPerGameLogGap": -1.099,
+        "status": "INSUFFICIENT_BRIDGE_COVERAGE",
+        "appliedToPlacementModel": false
+      },
+      {
+        "pair": "Sunday|Remax Division ↔ Tuesday|Franco Canadian Division",
+        "exactSourcePlayerIds": 1,
+        "independentSourceClubs": 2,
+        "eligibleEvidenceForTierCalibration": false,
+        "smoothedPointsPerGameLogGap": 0.31,
+        "status": "INSUFFICIENT_BRIDGE_COVERAGE",
+        "appliedToPlacementModel": false
+      },
+      {
+        "pair": "Sunday|The Cristillo Division ↔ Tuesday|Burrell Overhead",
+        "exactSourcePlayerIds": 1,
+        "independentSourceClubs": 2,
+        "eligibleEvidenceForTierCalibration": false,
+        "smoothedPointsPerGameLogGap": 0,
+        "status": "INSUFFICIENT_BRIDGE_COVERAGE",
+        "appliedToPlacementModel": false
+      },
+      {
+        "pair": "Sunday|The Cristillo Division ↔ Tuesday|High 5 Photography",
+        "exactSourcePlayerIds": 1,
+        "independentSourceClubs": 2,
+        "eligibleEvidenceForTierCalibration": false,
+        "smoothedPointsPerGameLogGap": -0.894,
+        "status": "INSUFFICIENT_BRIDGE_COVERAGE",
+        "appliedToPlacementModel": false
+      },
+      {
+        "pair": "Sunday|The Cristillo Division ↔ Wednesday|Burrell Overhead Division",
+        "exactSourcePlayerIds": 1,
+        "independentSourceClubs": 2,
+        "eligibleEvidenceForTierCalibration": false,
+        "smoothedPointsPerGameLogGap": -0.087,
+        "status": "INSUFFICIENT_BRIDGE_COVERAGE",
+        "appliedToPlacementModel": false
+      },
+      {
+        "pair": "Sunday|The Cristillo Division ↔ Wednesday|Hot Shots Bar & Grill Division",
+        "exactSourcePlayerIds": 1,
+        "independentSourceClubs": 2,
+        "eligibleEvidenceForTierCalibration": false,
+        "smoothedPointsPerGameLogGap": 0.847,
+        "status": "INSUFFICIENT_BRIDGE_COVERAGE",
+        "appliedToPlacementModel": false
+      },
+      {
+        "pair": "Thursday|Fazzari Partners ↔ Wednesday|Burrell Overhead Division",
+        "exactSourcePlayerIds": 1,
+        "independentSourceClubs": 2,
+        "eligibleEvidenceForTierCalibration": false,
+        "smoothedPointsPerGameLogGap": 0.336,
+        "status": "INSUFFICIENT_BRIDGE_COVERAGE",
+        "appliedToPlacementModel": false
+      },
+      {
+        "pair": "Thursday|Fazzari Partners ↔ Wednesday|Hot Shots Bar & Grill Division",
+        "exactSourcePlayerIds": 1,
+        "independentSourceClubs": 2,
+        "eligibleEvidenceForTierCalibration": false,
+        "smoothedPointsPerGameLogGap": -0.742,
+        "status": "INSUFFICIENT_BRIDGE_COVERAGE",
+        "appliedToPlacementModel": false
+      },
+      {
+        "pair": "Thursday|High 5 Photography ↔ Wednesday|Burrell Overhead Division",
+        "exactSourcePlayerIds": 1,
+        "independentSourceClubs": 2,
+        "eligibleEvidenceForTierCalibration": false,
+        "smoothedPointsPerGameLogGap": 0.105,
+        "status": "INSUFFICIENT_BRIDGE_COVERAGE",
+        "appliedToPlacementModel": false
+      },
+      {
+        "pair": "Thursday|High 5 Photography ↔ Wednesday|Franco Canadian",
+        "exactSourcePlayerIds": 1,
+        "independentSourceClubs": 2,
+        "eligibleEvidenceForTierCalibration": false,
+        "smoothedPointsPerGameLogGap": 0.683,
+        "status": "INSUFFICIENT_BRIDGE_COVERAGE",
+        "appliedToPlacementModel": false
+      },
+      {
+        "pair": "Tuesday|Burrell Overhead ↔ Wednesday|Burrell Overhead Division",
+        "exactSourcePlayerIds": 1,
+        "independentSourceClubs": 2,
+        "eligibleEvidenceForTierCalibration": false,
+        "smoothedPointsPerGameLogGap": -1.099,
+        "status": "INSUFFICIENT_BRIDGE_COVERAGE",
+        "appliedToPlacementModel": false
+      },
+      {
+        "pair": "Tuesday|Burrell Overhead ↔ Wednesday|Franco Canadian",
+        "exactSourcePlayerIds": 1,
+        "independentSourceClubs": 2,
+        "eligibleEvidenceForTierCalibration": false,
+        "smoothedPointsPerGameLogGap": -0.711,
+        "status": "INSUFFICIENT_BRIDGE_COVERAGE",
+        "appliedToPlacementModel": false
+      },
+      {
+        "pair": "Tuesday|Burrell Overhead ↔ Wednesday|Hot Shots Bar & Grill Division",
+        "exactSourcePlayerIds": 1,
+        "independentSourceClubs": 2,
+        "eligibleEvidenceForTierCalibration": false,
+        "smoothedPointsPerGameLogGap": 0.671,
+        "status": "INSUFFICIENT_BRIDGE_COVERAGE",
+        "appliedToPlacementModel": false
+      },
+      {
+        "pair": "Tuesday|Franco Canadian Division ↔ Wednesday|Franco Canadian",
+        "exactSourcePlayerIds": 1,
+        "independentSourceClubs": 2,
+        "eligibleEvidenceForTierCalibration": false,
+        "smoothedPointsPerGameLogGap": 1.099,
+        "status": "INSUFFICIENT_BRIDGE_COVERAGE",
+        "appliedToPlacementModel": false
+      }
+    ],
+    "numericTierCalibrationEnabled": false
+  },
+  "nights": [
+    {
+      "night": "Sunday",
+      "leagueId": 570,
+      "sourceTeamCount": 26,
+      "reportedStandingsTeamCount": null,
+      "currentDivisions": [
+        {
+          "name": "Fazzari Partners",
+          "count": 5,
+          "program": "Open"
+        },
+        {
+          "name": "Remax Division",
+          "count": 7,
+          "program": "Open"
+        },
+        {
+          "name": "The Cristillo Division",
+          "count": 10,
+          "program": "Open"
+        },
+        {
+          "name": "VAHL Division",
+          "count": 4,
+          "program": "Separate program"
+        }
+      ],
+      "proposedDivisions": [
+        {
+          "name": "Competitive Band A",
+          "count": 8,
+          "program": "Open",
+          "pool": "Sunday|Open|1"
+        },
+        {
+          "name": "Competitive Band B",
+          "count": 8,
+          "program": "Open",
+          "pool": "Sunday|Open|1"
+        },
+        {
+          "name": "Competitive Band C",
+          "count": 6,
+          "program": "Open",
+          "pool": "Sunday|Open|1"
+        },
+        {
+          "name": "Competitive Band A",
+          "count": 4,
+          "program": "Separate program",
+          "pool": "Sunday|Separate program|2"
+        }
+      ],
+      "pools": [
+        {
+          "key": "Sunday|Open|1",
+          "night": "Sunday",
+          "program": "Open",
+          "component": 1,
+          "sourceTeamCount": 22,
+          "sourceVerifiedGames": 162,
+          "status": "PROVISIONAL_COMPETITIVE_REALIGNMENT",
+          "reviewRequired": true,
+          "current": [
+            {
+              "name": "Fazzari Partners",
+              "sourceTeamCount": 5,
+              "currentTier": null,
+              "teamIds": [
+                13596,
+                13671,
+                13627,
+                13700,
+                13663
+              ],
+              "teamNames": [
+                "Bushwackers",
+                "Hawks",
+                "Last Pass",
+                "Pinheads",
+                "We're Curved"
+              ],
+              "ratingMean": 1517.7
+            },
+            {
+              "name": "Remax Division",
+              "sourceTeamCount": 7,
+              "currentTier": null,
+              "teamIds": [
+                13686,
+                13714,
+                13711,
+                13717,
+                13710,
+                13713,
+                13715
+              ],
+              "teamNames": [
+                "Batman Prep",
+                "Thrillers",
+                "Butcher Brothers",
+                "Degenerates",
+                "Mighty Drunks",
+                "Primary Auto",
+                "VR Delta"
+              ],
+              "ratingMean": 1508.6
+            },
+            {
+              "name": "The Cristillo Division",
+              "sourceTeamCount": 10,
+              "currentTier": null,
+              "teamIds": [
+                13679,
+                13668,
+                13712,
+                13708,
+                13649,
+                13680,
+                13704,
+                13709,
+                13716,
+                13730
+              ],
+              "teamNames": [
+                "Braves HC",
+                "Dateline Predators",
+                "Maplewolves",
+                "Mid Ice Crisis",
+                "Big Bastones",
+                "Mohawks HC",
+                "Other Way",
+                "Sugo Sundays",
+                "Young Guns",
+                "Zamboner Crew"
+              ],
+              "ratingMean": 1485.2
+            }
+          ],
+          "proposed": [
+            {
+              "key": "Sunday|Open|1|1",
+              "provisionalBand": 1,
+              "provisionalLabel": "Competitive Band A",
+              "sourceComponents": [
+                1
+              ],
+              "sourceCurrentDivisions": [
+                "Remax Division",
+                "The Cristillo Division",
+                "Fazzari Partners"
+              ],
+              "sourceTeamCount": 8,
+              "averageRelativeRating": 1546.5,
+              "historicalRosterSampleCount": 102,
+              "crossNightPlayerBridgeIDs": 11,
+              "officialAssignedTier": null,
+              "rankingOnlyWithinPool": true,
+              "teams": [
+                13714,
+                13708,
+                13700,
+                13596,
+                13680,
+                13730,
+                13717,
+                13704
+              ],
+              "teamNames": [
+                "Thrillers",
+                "Mid Ice Crisis",
+                "Pinheads",
+                "Bushwackers",
+                "Mohawks HC",
+                "Zamboner Crew",
+                "Degenerates",
+                "Other Way"
+              ],
+              "sourceTierState": "LEAGUE_ASSIGNMENT_REQUIRED"
+            },
+            {
+              "key": "Sunday|Open|1|2",
+              "provisionalBand": 2,
+              "provisionalLabel": "Competitive Band B",
+              "sourceComponents": [
+                1
+              ],
+              "sourceCurrentDivisions": [
+                "Remax Division",
+                "Fazzari Partners",
+                "The Cristillo Division"
+              ],
+              "sourceTeamCount": 8,
+              "averageRelativeRating": 1501.8,
+              "historicalRosterSampleCount": 106,
+              "crossNightPlayerBridgeIDs": 23,
+              "officialAssignedTier": null,
+              "rankingOnlyWithinPool": true,
+              "teams": [
+                13710,
+                13711,
+                13715,
+                13627,
+                13709,
+                13671,
+                13663,
+                13716
+              ],
+              "teamNames": [
+                "Mighty Drunks",
+                "Butcher Brothers",
+                "VR Delta",
+                "Last Pass",
+                "Sugo Sundays",
+                "Hawks",
+                "We're Curved",
+                "Young Guns"
+              ],
+              "sourceTierState": "LEAGUE_ASSIGNMENT_REQUIRED"
+            },
+            {
+              "key": "Sunday|Open|1|3",
+              "provisionalBand": 3,
+              "provisionalLabel": "Competitive Band C",
+              "sourceComponents": [
+                1
+              ],
+              "sourceCurrentDivisions": [
+                "Remax Division",
+                "The Cristillo Division"
+              ],
+              "sourceTeamCount": 6,
+              "averageRelativeRating": 1435.6,
+              "historicalRosterSampleCount": 79,
+              "crossNightPlayerBridgeIDs": 9,
+              "officialAssignedTier": null,
+              "rankingOnlyWithinPool": true,
+              "teams": [
+                13713,
+                13712,
+                13649,
+                13686,
+                13668,
+                13679
+              ],
+              "teamNames": [
+                "Primary Auto",
+                "Maplewolves",
+                "Big Bastones",
+                "Batman Prep",
+                "Dateline Predators",
+                "Braves HC"
+              ],
+              "sourceTierState": "LEAGUE_ASSIGNMENT_REQUIRED"
+            }
+          ],
+          "currentMeanPairwiseMismatchPP": 8.25,
+          "proposedMeanPairwiseMismatchPP": 2.86,
+          "currentObjective": 13.95,
+          "proposedObjective": 6.66,
+          "relativeObjectiveGain": 7.29,
+          "optimisticCandidateGain": 7.29,
+          "currentDivisionSizes": [
+            5,
+            7,
+            10
+          ],
+          "recommendedDivisionSizes": [
+            8,
+            8,
+            6
+          ],
+          "verifiedCurrentPlayerObservations": 354,
+          "qualifyingRosterHistorySamples": 287,
+          "sourceHolds": [],
+          "pairingPolicy": "Only this same-night, same-program, exact source-game component; no cross-night team relocations.",
+          "competitiveNote": "Model-derived provisional proposal, NOT a league-approved placement or finalized fixture/ice plan."
+        },
+        {
+          "key": "Sunday|Separate program|2",
+          "night": "Sunday",
+          "program": "Separate program",
+          "component": 2,
+          "sourceTeamCount": 4,
+          "sourceVerifiedGames": 20,
+          "status": "SOURCE_QUALITY_HOLD_KEEP_CURRENT",
+          "reviewRequired": true,
+          "current": [
+            {
+              "name": "VAHL Division",
+              "sourceTeamCount": 4,
+              "currentTier": null,
+              "teamIds": [
+                13734,
+                13736,
+                13737,
+                13735
+              ],
+              "teamNames": [
+                "Dallas",
+                "LA KIngs",
+                "Philadelphia",
+                "Toronto"
+              ],
+              "ratingMean": 1500
+            }
+          ],
+          "proposed": [
+            {
+              "key": "Sunday|Separate program|2|1",
+              "provisionalBand": 1,
+              "provisionalLabel": "Competitive Band A",
+              "sourceComponents": [
+                2
+              ],
+              "sourceCurrentDivisions": [
+                "VAHL Division"
+              ],
+              "sourceTeamCount": 4,
+              "averageRelativeRating": 1500,
+              "historicalRosterSampleCount": 0,
+              "crossNightPlayerBridgeIDs": 0,
+              "officialAssignedTier": null,
+              "rankingOnlyWithinPool": true,
+              "teams": [
+                13734,
+                13736,
+                13737,
+                13735
+              ],
+              "teamNames": [
+                "Dallas",
+                "LA KIngs",
+                "Philadelphia",
+                "Toronto"
+              ],
+              "sourceTierState": "LEAGUE_ASSIGNMENT_REQUIRED"
+            }
+          ],
+          "currentMeanPairwiseMismatchPP": 8.48,
+          "proposedMeanPairwiseMismatchPP": 8.48,
+          "currentObjective": 10.18,
+          "proposedObjective": 10.18,
+          "relativeObjectiveGain": 0,
+          "optimisticCandidateGain": null,
+          "currentDivisionSizes": [
+            4
+          ],
+          "recommendedDivisionSizes": [
+            4
+          ],
+          "verifiedCurrentPlayerObservations": 0,
+          "qualifyingRosterHistorySamples": 0,
+          "sourceHolds": [
+            {
+              "id": 13734,
+              "name": "Dallas",
+              "reason": "ROSTER_SOURCE_HELD"
+            },
+            {
+              "id": 13736,
+              "name": "LA KIngs",
+              "reason": "ROSTER_SOURCE_HELD"
+            },
+            {
+              "id": 13737,
+              "name": "Philadelphia",
+              "reason": "ROSTER_SOURCE_HELD"
+            },
+            {
+              "id": 13735,
+              "name": "Toronto",
+              "reason": "ROSTER_SOURCE_HELD"
+            }
+          ],
+          "pairingPolicy": "Only this same-night, same-program, exact source-game component; no cross-night team relocations.",
+          "competitiveNote": "Model-derived provisional proposal, NOT a league-approved placement or finalized fixture/ice plan."
+        }
+      ],
+      "sourceBridgePlayerIDs": 43,
+      "priorSampleCount": 287
+    },
+    {
+      "night": "Tuesday",
+      "leagueId": 568,
+      "sourceTeamCount": 16,
+      "reportedStandingsTeamCount": null,
+      "currentDivisions": [
+        {
+          "name": "Burrell Overhead",
+          "count": 6,
+          "program": "Open"
+        },
+        {
+          "name": "Franco Canadian Division",
+          "count": 5,
+          "program": "Open"
+        },
+        {
+          "name": "High 5 Photography",
+          "count": 5,
+          "program": "Open"
+        }
+      ],
+      "proposedDivisions": [
+        {
+          "name": "Competitive Band A",
+          "count": 8,
+          "program": "Open",
+          "pool": "Tuesday|Open|1"
+        },
+        {
+          "name": "Competitive Band B",
+          "count": 8,
+          "program": "Open",
+          "pool": "Tuesday|Open|1"
+        }
+      ],
+      "pools": [
+        {
+          "key": "Tuesday|Open|1",
+          "night": "Tuesday",
+          "program": "Open",
+          "component": 1,
+          "sourceTeamCount": 16,
+          "sourceVerifiedGames": 98,
+          "status": "PROVISIONAL_COMPETITIVE_REALIGNMENT",
+          "reviewRequired": true,
+          "current": [
+            {
+              "name": "Burrell Overhead",
+              "sourceTeamCount": 6,
+              "currentTier": null,
+              "teamIds": [
+                13693,
+                13721,
+                13691,
+                13623,
+                13719,
+                13676
+              ],
+              "teamNames": [
+                "Hammers",
+                "Henny Kings",
+                "PHL Demonz",
+                "Rebels",
+                "SOH",
+                "UOD Hockey"
+              ],
+              "ratingMean": 1522.3
+            },
+            {
+              "name": "Franco Canadian Division",
+              "sourceTeamCount": 5,
+              "currentTier": null,
+              "teamIds": [
+                13643,
+                13692,
+                13687,
+                13722,
+                13723
+              ],
+              "teamNames": [
+                "Philly Bombers",
+                "Dirties",
+                "Kraken Beers",
+                "Mighty Drunks",
+                "Vaughan Rippers"
+              ],
+              "ratingMean": 1503.7
+            },
+            {
+              "name": "High 5 Photography",
+              "sourceTeamCount": 5,
+              "currentTier": null,
+              "teamIds": [
+                13725,
+                13675,
+                13718,
+                13647,
+                13667
+              ],
+              "teamNames": [
+                "FT State",
+                "Puckheads",
+                "Jets",
+                "Mooseheads",
+                "Shockers"
+              ],
+              "ratingMean": 1469.5
+            }
+          ],
+          "proposed": [
+            {
+              "key": "Tuesday|Open|1|1",
+              "provisionalBand": 1,
+              "provisionalLabel": "Competitive Band A",
+              "sourceComponents": [
+                1
+              ],
+              "sourceCurrentDivisions": [
+                "Franco Canadian Division",
+                "Burrell Overhead",
+                "High 5 Photography"
+              ],
+              "sourceTeamCount": 8,
+              "averageRelativeRating": 1532.5,
+              "historicalRosterSampleCount": 95,
+              "crossNightPlayerBridgeIDs": 21,
+              "officialAssignedTier": null,
+              "rankingOnlyWithinPool": true,
+              "teams": [
+                13643,
+                13691,
+                13721,
+                13719,
+                13647,
+                13623,
+                13687,
+                13676
+              ],
+              "teamNames": [
+                "Philly Bombers",
+                "PHL Demonz",
+                "Henny Kings",
+                "SOH",
+                "Mooseheads",
+                "Rebels",
+                "Kraken Beers",
+                "UOD Hockey"
+              ],
+              "sourceTierState": "LEAGUE_ASSIGNMENT_REQUIRED"
+            },
+            {
+              "key": "Tuesday|Open|1|2",
+              "provisionalBand": 2,
+              "provisionalLabel": "Competitive Band B",
+              "sourceComponents": [
+                1
+              ],
+              "sourceCurrentDivisions": [
+                "High 5 Photography",
+                "Burrell Overhead",
+                "Franco Canadian Division"
+              ],
+              "sourceTeamCount": 8,
+              "averageRelativeRating": 1467.5,
+              "historicalRosterSampleCount": 92,
+              "crossNightPlayerBridgeIDs": 8,
+              "officialAssignedTier": null,
+              "rankingOnlyWithinPool": true,
+              "teams": [
+                13667,
+                13693,
+                13722,
+                13692,
+                13718,
+                13723,
+                13675,
+                13725
+              ],
+              "teamNames": [
+                "Shockers",
+                "Hammers",
+                "Mighty Drunks",
+                "Dirties",
+                "Jets",
+                "Vaughan Rippers",
+                "Puckheads",
+                "FT State"
+              ],
+              "sourceTierState": "LEAGUE_ASSIGNMENT_REQUIRED"
+            }
+          ],
+          "currentMeanPairwiseMismatchPP": 6.14,
+          "proposedMeanPairwiseMismatchPP": 4.5,
+          "currentObjective": 10.64,
+          "proposedObjective": 6.4,
+          "relativeObjectiveGain": 4.24,
+          "optimisticCandidateGain": 4.24,
+          "currentDivisionSizes": [
+            6,
+            5,
+            5
+          ],
+          "recommendedDivisionSizes": [
+            8,
+            8
+          ],
+          "verifiedCurrentPlayerObservations": 244,
+          "qualifyingRosterHistorySamples": 187,
+          "sourceHolds": [],
+          "pairingPolicy": "Only this same-night, same-program, exact source-game component; no cross-night team relocations.",
+          "competitiveNote": "Model-derived provisional proposal, NOT a league-approved placement or finalized fixture/ice plan."
+        }
+      ],
+      "sourceBridgePlayerIDs": 29,
+      "priorSampleCount": 187
+    },
+    {
+      "night": "Wednesday",
+      "leagueId": 567,
+      "sourceTeamCount": 20,
+      "reportedStandingsTeamCount": null,
+      "currentDivisions": [
+        {
+          "name": "Burrell Overhead Division",
+          "count": 6,
+          "program": "Open"
+        },
+        {
+          "name": "Franco Canadian",
+          "count": 8,
+          "program": "Open"
+        },
+        {
+          "name": "Hot Shots Bar & Grill Division",
+          "count": 6,
+          "program": "Open"
+        }
+      ],
+      "proposedDivisions": [
+        {
+          "name": "Competitive Band A",
+          "count": 8,
+          "program": "Open",
+          "pool": "Wednesday|Open|1"
+        },
+        {
+          "name": "Competitive Band B",
+          "count": 6,
+          "program": "Open",
+          "pool": "Wednesday|Open|1"
+        },
+        {
+          "name": "Competitive Band C",
+          "count": 6,
+          "program": "Open",
+          "pool": "Wednesday|Open|1"
+        }
+      ],
+      "pools": [
+        {
+          "key": "Wednesday|Open|1",
+          "night": "Wednesday",
+          "program": "Open",
+          "component": 1,
+          "sourceTeamCount": 20,
+          "sourceVerifiedGames": 136,
+          "status": "PROVISIONAL_COMPETITIVE_REALIGNMENT",
+          "reviewRequired": true,
+          "current": [
+            {
+              "name": "Burrell Overhead Division",
+              "sourceTeamCount": 6,
+              "currentTier": null,
+              "teamIds": [
+                13696,
+                13699,
+                13694,
+                13726,
+                13641,
+                13698
+              ],
+              "teamNames": [
+                "Boys in Motion",
+                "Bridge Boys Hockey",
+                "Pigeon Pounders",
+                "Red Light District",
+                "Wangers",
+                "Yeti"
+              ],
+              "ratingMean": 1522
+            },
+            {
+              "name": "Franco Canadian",
+              "sourceTeamCount": 8,
+              "currentTier": null,
+              "teamIds": [
+                13673,
+                13674,
+                13683,
+                13729,
+                13677,
+                13665,
+                13678,
+                13733
+              ],
+              "teamNames": [
+                "Brewhawks",
+                "Roadrunners",
+                "Marlboro Reds",
+                "Weston Road Wrenches",
+                "DD Degens",
+                "Moneyline",
+                "Tropics",
+                "Zamboner Crew"
+              ],
+              "ratingMean": 1497.1
+            },
+            {
+              "name": "Hot Shots Bar & Grill Division",
+              "sourceTeamCount": 6,
+              "currentTier": null,
+              "teamIds": [
+                13669,
+                13672,
+                13731,
+                13666,
+                13697,
+                13695
+              ],
+              "teamNames": [
+                "Julian's Spartans",
+                "PPG",
+                "Shockers",
+                "Bulls",
+                "Pylons",
+                "Replacements"
+              ],
+              "ratingMean": 1481.8
+            }
+          ],
+          "proposed": [
+            {
+              "key": "Wednesday|Open|1|1",
+              "provisionalBand": 1,
+              "provisionalLabel": "Competitive Band A",
+              "sourceComponents": [
+                1
+              ],
+              "sourceCurrentDivisions": [
+                "Hot Shots Bar & Grill Division",
+                "Burrell Overhead Division",
+                "Franco Canadian"
+              ],
+              "sourceTeamCount": 8,
+              "averageRelativeRating": 1551.8,
+              "historicalRosterSampleCount": 83,
+              "crossNightPlayerBridgeIDs": 13,
+              "officialAssignedTier": null,
+              "rankingOnlyWithinPool": true,
+              "teams": [
+                13672,
+                13641,
+                13729,
+                13694,
+                13669,
+                13677,
+                13665,
+                13678
+              ],
+              "teamNames": [
+                "PPG",
+                "Wangers",
+                "Weston Road Wrenches",
+                "Pigeon Pounders",
+                "Julian's Spartans",
+                "DD Degens",
+                "Moneyline",
+                "Tropics"
+              ],
+              "sourceTierState": "LEAGUE_ASSIGNMENT_REQUIRED"
+            },
+            {
+              "key": "Wednesday|Open|1|2",
+              "provisionalBand": 2,
+              "provisionalLabel": "Competitive Band B",
+              "sourceComponents": [
+                1
+              ],
+              "sourceCurrentDivisions": [
+                "Burrell Overhead Division",
+                "Franco Canadian"
+              ],
+              "sourceTeamCount": 6,
+              "averageRelativeRating": 1497.6,
+              "historicalRosterSampleCount": 67,
+              "crossNightPlayerBridgeIDs": 7,
+              "officialAssignedTier": null,
+              "rankingOnlyWithinPool": true,
+              "teams": [
+                13696,
+                13733,
+                13726,
+                13698,
+                13699,
+                13683
+              ],
+              "teamNames": [
+                "Boys in Motion",
+                "Zamboner Crew",
+                "Red Light District",
+                "Yeti",
+                "Bridge Boys Hockey",
+                "Marlboro Reds"
+              ],
+              "sourceTierState": "LEAGUE_ASSIGNMENT_REQUIRED"
+            },
+            {
+              "key": "Wednesday|Open|1|3",
+              "provisionalBand": 3,
+              "provisionalLabel": "Competitive Band C",
+              "sourceComponents": [
+                1
+              ],
+              "sourceCurrentDivisions": [
+                "Hot Shots Bar & Grill Division",
+                "Franco Canadian"
+              ],
+              "sourceTeamCount": 6,
+              "averageRelativeRating": 1433.4,
+              "historicalRosterSampleCount": 71,
+              "crossNightPlayerBridgeIDs": 6,
+              "officialAssignedTier": null,
+              "rankingOnlyWithinPool": true,
+              "teams": [
+                13695,
+                13666,
+                13673,
+                13697,
+                13731,
+                13674
+              ],
+              "teamNames": [
+                "Replacements",
+                "Bulls",
+                "Brewhawks",
+                "Pylons",
+                "Shockers",
+                "Roadrunners"
+              ],
+              "sourceTierState": "LEAGUE_ASSIGNMENT_REQUIRED"
+            }
+          ],
+          "currentMeanPairwiseMismatchPP": 8.76,
+          "proposedMeanPairwiseMismatchPP": 3.26,
+          "currentObjective": 12.56,
+          "proposedObjective": 7.06,
+          "relativeObjectiveGain": 5.5,
+          "optimisticCandidateGain": 5.5,
+          "currentDivisionSizes": [
+            6,
+            8,
+            6
+          ],
+          "recommendedDivisionSizes": [
+            8,
+            6,
+            6
+          ],
+          "verifiedCurrentPlayerObservations": 304,
+          "qualifyingRosterHistorySamples": 221,
+          "sourceHolds": [],
+          "pairingPolicy": "Only this same-night, same-program, exact source-game component; no cross-night team relocations.",
+          "competitiveNote": "Model-derived provisional proposal, NOT a league-approved placement or finalized fixture/ice plan."
+        }
+      ],
+      "sourceBridgePlayerIDs": 25,
+      "priorSampleCount": 221
+    },
+    {
+      "night": "Thursday",
+      "leagueId": 569,
+      "sourceTeamCount": 34,
+      "reportedStandingsTeamCount": null,
+      "currentDivisions": [
+        {
+          "name": "Kool Stuff Masters",
+          "count": 5,
+          "program": "Masters"
+        },
+        {
+          "name": "Re-Max Masters",
+          "count": 6,
+          "program": "Masters"
+        },
+        {
+          "name": "High 5 Photography",
+          "count": 9,
+          "program": "Open"
+        },
+        {
+          "name": "A & G Cleaners",
+          "count": 1,
+          "program": "Open"
+        },
+        {
+          "name": "Fazzari Partners",
+          "count": 7,
+          "program": "Open"
+        },
+        {
+          "name": "A & G Cleaners",
+          "count": 6,
+          "program": "Open"
+        }
+      ],
+      "proposedDivisions": [
+        {
+          "name": "Competitive Band A",
+          "count": 5,
+          "program": "Masters",
+          "pool": "Thursday|Masters|1"
+        },
+        {
+          "name": "Competitive Band A",
+          "count": 6,
+          "program": "Masters",
+          "pool": "Thursday|Masters|2"
+        },
+        {
+          "name": "Competitive Band A",
+          "count": 4,
+          "program": "Open",
+          "pool": "Thursday|Open|1"
+        },
+        {
+          "name": "Competitive Band B",
+          "count": 5,
+          "program": "Open",
+          "pool": "Thursday|Open|1"
+        },
+        {
+          "name": "Competitive Band A",
+          "count": 1,
+          "program": "Open",
+          "pool": "Thursday|Open|3"
+        },
+        {
+          "name": "Competitive Band B",
+          "count": 7,
+          "program": "Open",
+          "pool": "Thursday|Open|3"
+        },
+        {
+          "name": "Competitive Band A",
+          "count": 6,
+          "program": "Open",
+          "pool": "Thursday|Open|4"
+        }
+      ],
+      "pools": [
+        {
+          "key": "Thursday|Masters|1",
+          "night": "Thursday",
+          "program": "Masters",
+          "component": 1,
+          "sourceTeamCount": 5,
+          "sourceVerifiedGames": 35,
+          "status": "CURRENT_GROUPS_RETAINED_NO_MATERIAL_GAIN",
+          "reviewRequired": true,
+          "current": [
+            {
+              "name": "Kool Stuff Masters",
+              "sourceTeamCount": 5,
+              "currentTier": null,
+              "teamIds": [
+                13618,
+                13624,
+                13635,
+                13636,
+                13638
+              ],
+              "teamNames": [
+                "Blackhawks",
+                "Dynamo",
+                "Panthers H/C",
+                "Redwings",
+                "YYZ Express"
+              ],
+              "ratingMean": 1499.7
+            }
+          ],
+          "proposed": [
+            {
+              "key": "Thursday|Masters|1|1",
+              "provisionalBand": 1,
+              "provisionalLabel": "Competitive Band A",
+              "sourceComponents": [
+                1
+              ],
+              "sourceCurrentDivisions": [
+                "Kool Stuff Masters"
+              ],
+              "sourceTeamCount": 5,
+              "averageRelativeRating": 1499.7,
+              "historicalRosterSampleCount": 55,
+              "crossNightPlayerBridgeIDs": 0,
+              "officialAssignedTier": null,
+              "rankingOnlyWithinPool": true,
+              "teams": [
+                13618,
+                13624,
+                13635,
+                13636,
+                13638
+              ],
+              "teamNames": [
+                "Blackhawks",
+                "Dynamo",
+                "Panthers H/C",
+                "Redwings",
+                "YYZ Express"
+              ],
+              "sourceTierState": "LEAGUE_ASSIGNMENT_REQUIRED"
+            }
+          ],
+          "currentMeanPairwiseMismatchPP": 7.88,
+          "proposedMeanPairwiseMismatchPP": 7.88,
+          "currentObjective": 8.23,
+          "proposedObjective": 8.23,
+          "relativeObjectiveGain": 0,
+          "optimisticCandidateGain": 0,
+          "currentDivisionSizes": [
+            5
+          ],
+          "recommendedDivisionSizes": [
+            5
+          ],
+          "verifiedCurrentPlayerObservations": 67,
+          "qualifyingRosterHistorySamples": 55,
+          "sourceHolds": [],
+          "pairingPolicy": "Only this same-night, same-program, exact source-game component; no cross-night team relocations.",
+          "competitiveNote": "Model-derived provisional proposal, NOT a league-approved placement or finalized fixture/ice plan."
+        },
+        {
+          "key": "Thursday|Masters|2",
+          "night": "Thursday",
+          "program": "Masters",
+          "component": 2,
+          "sourceTeamCount": 6,
+          "sourceVerifiedGames": 40,
+          "status": "CURRENT_GROUPS_RETAINED_NO_MATERIAL_GAIN",
+          "reviewRequired": true,
+          "current": [
+            {
+              "name": "Re-Max Masters",
+              "sourceTeamCount": 6,
+              "currentTier": null,
+              "teamIds": [
+                13621,
+                13622,
+                13632,
+                13633,
+                13634,
+                13637
+              ],
+              "teamNames": [
+                "GQ Stars",
+                "Greyhounds",
+                "Ice Hogs",
+                "Kremlins 35",
+                "Lovics",
+                "Team Finelli"
+              ],
+              "ratingMean": 1500
+            }
+          ],
+          "proposed": [
+            {
+              "key": "Thursday|Masters|2|1",
+              "provisionalBand": 1,
+              "provisionalLabel": "Competitive Band A",
+              "sourceComponents": [
+                2
+              ],
+              "sourceCurrentDivisions": [
+                "Re-Max Masters"
+              ],
+              "sourceTeamCount": 6,
+              "averageRelativeRating": 1500,
+              "historicalRosterSampleCount": 56,
+              "crossNightPlayerBridgeIDs": 1,
+              "officialAssignedTier": null,
+              "rankingOnlyWithinPool": true,
+              "teams": [
+                13621,
+                13622,
+                13632,
+                13633,
+                13634,
+                13637
+              ],
+              "teamNames": [
+                "GQ Stars",
+                "Greyhounds",
+                "Ice Hogs",
+                "Kremlins 35",
+                "Lovics",
+                "Team Finelli"
+              ],
+              "sourceTierState": "LEAGUE_ASSIGNMENT_REQUIRED"
+            }
+          ],
+          "currentMeanPairwiseMismatchPP": 6.55,
+          "proposedMeanPairwiseMismatchPP": 6.55,
+          "currentObjective": 6.55,
+          "proposedObjective": 6.55,
+          "relativeObjectiveGain": 0,
+          "optimisticCandidateGain": 0,
+          "currentDivisionSizes": [
+            6
+          ],
+          "recommendedDivisionSizes": [
+            6
+          ],
+          "verifiedCurrentPlayerObservations": 91,
+          "qualifyingRosterHistorySamples": 56,
+          "sourceHolds": [],
+          "pairingPolicy": "Only this same-night, same-program, exact source-game component; no cross-night team relocations.",
+          "competitiveNote": "Model-derived provisional proposal, NOT a league-approved placement or finalized fixture/ice plan."
+        },
+        {
+          "key": "Thursday|Open|1",
+          "night": "Thursday",
+          "program": "Open",
+          "component": 1,
+          "sourceTeamCount": 9,
+          "sourceVerifiedGames": 59,
+          "status": "PROVISIONAL_COMPETITIVE_REALIGNMENT",
+          "reviewRequired": true,
+          "current": [
+            {
+              "name": "High 5 Photography",
+              "sourceTeamCount": 9,
+              "currentTier": null,
+              "teamIds": [
+                13654,
+                13646,
+                13656,
+                13661,
+                13617,
+                13662,
+                13628,
+                13655,
+                13732
+              ],
+              "teamNames": [
+                "Don Cherries",
+                "Hot Heads",
+                "Night Hawks",
+                "Wolves",
+                "Blades",
+                "Bucky Hangs",
+                "Kings",
+                "Masterbladers",
+                "Teamu Salami"
+              ],
+              "ratingMean": 1500.1
+            }
+          ],
+          "proposed": [
+            {
+              "key": "Thursday|Open|1|1",
+              "provisionalBand": 1,
+              "provisionalLabel": "Competitive Band A",
+              "sourceComponents": [
+                1
+              ],
+              "sourceCurrentDivisions": [
+                "High 5 Photography"
+              ],
+              "sourceTeamCount": 4,
+              "averageRelativeRating": 1555.7,
+              "historicalRosterSampleCount": 45,
+              "crossNightPlayerBridgeIDs": 1,
+              "officialAssignedTier": null,
+              "rankingOnlyWithinPool": true,
+              "teams": [
+                13656,
+                13646,
+                13628,
+                13732
+              ],
+              "teamNames": [
+                "Night Hawks",
+                "Hot Heads",
+                "Kings",
+                "Teamu Salami"
+              ],
+              "sourceTierState": "LEAGUE_ASSIGNMENT_REQUIRED"
+            },
+            {
+              "key": "Thursday|Open|1|2",
+              "provisionalBand": 2,
+              "provisionalLabel": "Competitive Band B",
+              "sourceComponents": [
+                1
+              ],
+              "sourceCurrentDivisions": [
+                "High 5 Photography"
+              ],
+              "sourceTeamCount": 5,
+              "averageRelativeRating": 1455.7,
+              "historicalRosterSampleCount": 59,
+              "crossNightPlayerBridgeIDs": 10,
+              "officialAssignedTier": null,
+              "rankingOnlyWithinPool": true,
+              "teams": [
+                13662,
+                13617,
+                13655,
+                13661,
+                13654
+              ],
+              "teamNames": [
+                "Bucky Hangs",
+                "Blades",
+                "Masterbladers",
+                "Wolves",
+                "Don Cherries"
+              ],
+              "sourceTierState": "LEAGUE_ASSIGNMENT_REQUIRED"
+            }
+          ],
+          "currentMeanPairwiseMismatchPP": 10.21,
+          "proposedMeanPairwiseMismatchPP": 5.69,
+          "currentObjective": 11.76,
+          "proposedObjective": 9.64,
+          "relativeObjectiveGain": 2.12,
+          "optimisticCandidateGain": 2.12,
+          "currentDivisionSizes": [
+            9
+          ],
+          "recommendedDivisionSizes": [
+            4,
+            5
+          ],
+          "verifiedCurrentPlayerObservations": 146,
+          "qualifyingRosterHistorySamples": 104,
+          "sourceHolds": [],
+          "pairingPolicy": "Only this same-night, same-program, exact source-game component; no cross-night team relocations.",
+          "competitiveNote": "Model-derived provisional proposal, NOT a league-approved placement or finalized fixture/ice plan."
+        },
+        {
+          "key": "Thursday|Open|3",
+          "night": "Thursday",
+          "program": "Open",
+          "component": 3,
+          "sourceTeamCount": 8,
+          "sourceVerifiedGames": 56,
+          "status": "SOURCE_QUALITY_HOLD_KEEP_CURRENT",
+          "reviewRequired": true,
+          "current": [
+            {
+              "name": "A & G Cleaners",
+              "sourceTeamCount": 1,
+              "currentTier": null,
+              "teamIds": [
+                13658
+              ],
+              "teamNames": [
+                "San Jose Sharts"
+              ],
+              "ratingMean": 1562.5
+            },
+            {
+              "name": "Fazzari Partners",
+              "sourceTeamCount": 7,
+              "currentTier": null,
+              "teamIds": [
+                13626,
+                13631,
+                13642,
+                13652,
+                13639,
+                13630,
+                13625
+              ],
+              "teamNames": [
+                "Meatheads",
+                "Homecorp",
+                "Randomly Selected",
+                "Bad News Beers",
+                "Grease Kings",
+                "Italian Peppers",
+                "Woodbine Stallions"
+              ],
+              "ratingMean": 1491.1
+            }
+          ],
+          "proposed": [
+            {
+              "key": "Thursday|Open|3|1",
+              "provisionalBand": 1,
+              "provisionalLabel": "Competitive Band A",
+              "sourceComponents": [
+                3
+              ],
+              "sourceCurrentDivisions": [
+                "A & G Cleaners"
+              ],
+              "sourceTeamCount": 1,
+              "averageRelativeRating": 1562.5,
+              "historicalRosterSampleCount": 12,
+              "crossNightPlayerBridgeIDs": 4,
+              "officialAssignedTier": null,
+              "rankingOnlyWithinPool": true,
+              "teams": [
+                13658
+              ],
+              "teamNames": [
+                "San Jose Sharts"
+              ],
+              "sourceTierState": "LEAGUE_ASSIGNMENT_REQUIRED"
+            },
+            {
+              "key": "Thursday|Open|3|2",
+              "provisionalBand": 2,
+              "provisionalLabel": "Competitive Band B",
+              "sourceComponents": [
+                3
+              ],
+              "sourceCurrentDivisions": [
+                "Fazzari Partners"
+              ],
+              "sourceTeamCount": 7,
+              "averageRelativeRating": 1491,
+              "historicalRosterSampleCount": 107,
+              "crossNightPlayerBridgeIDs": 15,
+              "officialAssignedTier": null,
+              "rankingOnlyWithinPool": true,
+              "teams": [
+                13626,
+                13631,
+                13642,
+                13652,
+                13639,
+                13630,
+                13625
+              ],
+              "teamNames": [
+                "Meatheads",
+                "Homecorp",
+                "Randomly Selected",
+                "Bad News Beers",
+                "Grease Kings",
+                "Italian Peppers",
+                "Woodbine Stallions"
+              ],
+              "sourceTierState": "LEAGUE_ASSIGNMENT_REQUIRED"
+            }
+          ],
+          "currentMeanPairwiseMismatchPP": 8.36,
+          "proposedMeanPairwiseMismatchPP": 8.36,
+          "currentObjective": 12.66,
+          "proposedObjective": 12.66,
+          "relativeObjectiveGain": 0,
+          "optimisticCandidateGain": null,
+          "currentDivisionSizes": [
+            1,
+            7
+          ],
+          "recommendedDivisionSizes": [
+            1,
+            7
+          ],
+          "verifiedCurrentPlayerObservations": 130,
+          "qualifyingRosterHistorySamples": 119,
+          "sourceHolds": [
+            {
+              "id": 13626,
+              "name": "Meatheads",
+              "reason": "DIVISION_SPANS_DISCONNECTED_SOURCE_COMPONENTS"
+            },
+            {
+              "id": 13631,
+              "name": "Homecorp",
+              "reason": "DIVISION_SPANS_DISCONNECTED_SOURCE_COMPONENTS"
+            },
+            {
+              "id": 13642,
+              "name": "Randomly Selected",
+              "reason": "DIVISION_SPANS_DISCONNECTED_SOURCE_COMPONENTS"
+            },
+            {
+              "id": 13658,
+              "name": "San Jose Sharts",
+              "reason": "DIVISION_SPANS_DISCONNECTED_SOURCE_COMPONENTS"
+            },
+            {
+              "id": 13652,
+              "name": "Bad News Beers",
+              "reason": "DIVISION_SPANS_DISCONNECTED_SOURCE_COMPONENTS"
+            },
+            {
+              "id": 13639,
+              "name": "Grease Kings",
+              "reason": "DIVISION_SPANS_DISCONNECTED_SOURCE_COMPONENTS"
+            },
+            {
+              "id": 13630,
+              "name": "Italian Peppers",
+              "reason": "DIVISION_SPANS_DISCONNECTED_SOURCE_COMPONENTS"
+            },
+            {
+              "id": 13625,
+              "name": "Woodbine Stallions",
+              "reason": "DIVISION_SPANS_DISCONNECTED_SOURCE_COMPONENTS"
+            }
+          ],
+          "pairingPolicy": "Only this same-night, same-program, exact source-game component; no cross-night team relocations.",
+          "competitiveNote": "Model-derived provisional proposal, NOT a league-approved placement or finalized fixture/ice plan."
+        },
+        {
+          "key": "Thursday|Open|4",
+          "night": "Thursday",
+          "program": "Open",
+          "component": 4,
+          "sourceTeamCount": 6,
+          "sourceVerifiedGames": 40,
+          "status": "SOURCE_QUALITY_HOLD_KEEP_CURRENT",
+          "reviewRequired": true,
+          "current": [
+            {
+              "name": "A & G Cleaners",
+              "sourceTeamCount": 6,
+              "currentTier": null,
+              "teamIds": [
+                13645,
+                13651,
+                13653,
+                13657,
+                13659,
+                13650
+              ],
+              "teamNames": [
+                "Showertime",
+                "Back Door Boys",
+                "Bellos",
+                "Only Way",
+                "Spicy Margs",
+                "Sweeps"
+              ],
+              "ratingMean": 1500
+            }
+          ],
+          "proposed": [
+            {
+              "key": "Thursday|Open|4|1",
+              "provisionalBand": 1,
+              "provisionalLabel": "Competitive Band A",
+              "sourceComponents": [
+                4
+              ],
+              "sourceCurrentDivisions": [
+                "A & G Cleaners"
+              ],
+              "sourceTeamCount": 6,
+              "averageRelativeRating": 1500,
+              "historicalRosterSampleCount": 87,
+              "crossNightPlayerBridgeIDs": 18,
+              "officialAssignedTier": null,
+              "rankingOnlyWithinPool": true,
+              "teams": [
+                13645,
+                13651,
+                13653,
+                13657,
+                13659,
+                13650
+              ],
+              "teamNames": [
+                "Showertime",
+                "Back Door Boys",
+                "Bellos",
+                "Only Way",
+                "Spicy Margs",
+                "Sweeps"
+              ],
+              "sourceTierState": "LEAGUE_ASSIGNMENT_REQUIRED"
+            }
+          ],
+          "currentMeanPairwiseMismatchPP": 9.74,
+          "proposedMeanPairwiseMismatchPP": 9.74,
+          "currentObjective": 9.74,
+          "proposedObjective": 9.74,
+          "relativeObjectiveGain": 0,
+          "optimisticCandidateGain": null,
+          "currentDivisionSizes": [
+            6
+          ],
+          "recommendedDivisionSizes": [
+            6
+          ],
+          "verifiedCurrentPlayerObservations": 94,
+          "qualifyingRosterHistorySamples": 87,
+          "sourceHolds": [
+            {
+              "id": 13645,
+              "name": "Showertime",
+              "reason": "DIVISION_SPANS_DISCONNECTED_SOURCE_COMPONENTS"
+            },
+            {
+              "id": 13651,
+              "name": "Back Door Boys",
+              "reason": "DIVISION_SPANS_DISCONNECTED_SOURCE_COMPONENTS"
+            },
+            {
+              "id": 13653,
+              "name": "Bellos",
+              "reason": "DIVISION_SPANS_DISCONNECTED_SOURCE_COMPONENTS"
+            },
+            {
+              "id": 13657,
+              "name": "Only Way",
+              "reason": "DIVISION_SPANS_DISCONNECTED_SOURCE_COMPONENTS"
+            },
+            {
+              "id": 13659,
+              "name": "Spicy Margs",
+              "reason": "DIVISION_SPANS_DISCONNECTED_SOURCE_COMPONENTS"
+            },
+            {
+              "id": 13650,
+              "name": "Sweeps",
+              "reason": "DIVISION_SPANS_DISCONNECTED_SOURCE_COMPONENTS"
+            }
+          ],
+          "pairingPolicy": "Only this same-night, same-program, exact source-game component; no cross-night team relocations.",
+          "competitiveNote": "Model-derived provisional proposal, NOT a league-approved placement or finalized fixture/ice plan."
+        }
+      ],
+      "sourceBridgePlayerIDs": 48,
+      "priorSampleCount": 421
+    }
+  ],
+  "teams": [
+    {
+      "teamId": 13673,
+      "leagueId": 567,
+      "name": "Brewhawks",
+      "night": "Wednesday",
+      "program": "Open",
+      "sourceDivision": "Franco Canadian",
+      "component": 1,
+      "resultAdjustedRating": 1445.3,
+      "playedGames": 7,
+      "uniqueOpponents": 7,
+      "sourceStandingsValid": true,
+      "priorRosterSamples": 17,
+      "priorRosterHistoryFraction": 0.895,
+      "rosterPriorRelativeScoring": -0.016,
+      "crossNightRosterIDs": 0,
+      "qualifiedPlayerGP": 19,
+      "scoringConcentrationTopTwo": 0.3,
+      "rosterQualified": true,
+      "archivedDivisionEvidence": {
+        "source": "FOUR_NIGHT_PRIOR_ROSTER_SUMMARY_ONLY",
+        "exactHistoryPlayerIds": 0,
+        "historicalPlayerSeasons": 0,
+        "divisions": []
+      }
+    },
+    {
+      "teamId": 13674,
+      "leagueId": 567,
+      "name": "Roadrunners",
+      "night": "Wednesday",
+      "program": "Open",
+      "sourceDivision": "Franco Canadian",
+      "component": 1,
+      "resultAdjustedRating": 1384.2,
+      "playedGames": 7,
+      "uniqueOpponents": 6,
+      "sourceStandingsValid": true,
+      "priorRosterSamples": 9,
+      "priorRosterHistoryFraction": 0.643,
+      "rosterPriorRelativeScoring": 0.037,
+      "crossNightRosterIDs": 0,
+      "qualifiedPlayerGP": 14,
+      "scoringConcentrationTopTwo": 0.429,
+      "rosterQualified": true,
+      "archivedDivisionEvidence": {
+        "source": "FOUR_NIGHT_PRIOR_ROSTER_SUMMARY_ONLY",
+        "exactHistoryPlayerIds": 0,
+        "historicalPlayerSeasons": 0,
+        "divisions": []
+      }
+    },
+    {
+      "teamId": 13669,
+      "leagueId": 567,
+      "name": "Julian's Spartans",
+      "night": "Wednesday",
+      "program": "Open",
+      "sourceDivision": "Hot Shots Bar & Grill Division",
+      "component": 1,
+      "resultAdjustedRating": 1547.3,
+      "playedGames": 7,
+      "uniqueOpponents": 5,
+      "sourceStandingsValid": true,
+      "priorRosterSamples": 19,
+      "priorRosterHistoryFraction": 0.95,
+      "rosterPriorRelativeScoring": 0.077,
+      "crossNightRosterIDs": 1,
+      "qualifiedPlayerGP": 20,
+      "scoringConcentrationTopTwo": 0.222,
+      "rosterQualified": true,
+      "archivedDivisionEvidence": {
+        "source": "FOUR_NIGHT_PRIOR_ROSTER_SUMMARY_ONLY",
+        "exactHistoryPlayerIds": 0,
+        "historicalPlayerSeasons": 0,
+        "divisions": []
+      }
+    },
+    {
+      "teamId": 13672,
+      "leagueId": 567,
+      "name": "PPG",
+      "night": "Wednesday",
+      "program": "Open",
+      "sourceDivision": "Hot Shots Bar & Grill Division",
+      "component": 1,
+      "resultAdjustedRating": 1573,
+      "playedGames": 7,
+      "uniqueOpponents": 5,
+      "sourceStandingsValid": true,
+      "priorRosterSamples": 9,
+      "priorRosterHistoryFraction": 0.643,
+      "rosterPriorRelativeScoring": 0.114,
+      "crossNightRosterIDs": 1,
+      "qualifiedPlayerGP": 14,
+      "scoringConcentrationTopTwo": 0.444,
+      "rosterQualified": true,
+      "archivedDivisionEvidence": {
+        "source": "FOUR_NIGHT_PRIOR_ROSTER_SUMMARY_ONLY",
+        "exactHistoryPlayerIds": 0,
+        "historicalPlayerSeasons": 0,
+        "divisions": []
+      }
+    },
+    {
+      "teamId": 13683,
+      "leagueId": 567,
+      "name": "Marlboro Reds",
+      "night": "Wednesday",
+      "program": "Open",
+      "sourceDivision": "Franco Canadian",
+      "component": 1,
+      "resultAdjustedRating": 1462.3,
+      "playedGames": 7,
+      "uniqueOpponents": 7,
+      "sourceStandingsValid": true,
+      "priorRosterSamples": 13,
+      "priorRosterHistoryFraction": 0.765,
+      "rosterPriorRelativeScoring": 0.02,
+      "crossNightRosterIDs": 0,
+      "qualifiedPlayerGP": 17,
+      "scoringConcentrationTopTwo": 0.286,
+      "rosterQualified": true,
+      "archivedDivisionEvidence": {
+        "source": "FOUR_NIGHT_PRIOR_ROSTER_SUMMARY_ONLY",
+        "exactHistoryPlayerIds": 0,
+        "historicalPlayerSeasons": 0,
+        "divisions": []
+      }
+    },
+    {
+      "teamId": 13729,
+      "leagueId": 567,
+      "name": "Weston Road Wrenches",
+      "night": "Wednesday",
+      "program": "Open",
+      "sourceDivision": "Franco Canadian",
+      "component": 1,
+      "resultAdjustedRating": 1558.4,
+      "playedGames": 6,
+      "uniqueOpponents": 6,
+      "sourceStandingsValid": true,
+      "priorRosterSamples": 11,
+      "priorRosterHistoryFraction": 0.846,
+      "rosterPriorRelativeScoring": -0.141,
+      "crossNightRosterIDs": 0,
+      "qualifiedPlayerGP": 13,
+      "scoringConcentrationTopTwo": 0.321,
+      "rosterQualified": true,
+      "archivedDivisionEvidence": {
+        "source": "FOUR_NIGHT_PRIOR_ROSTER_SUMMARY_ONLY",
+        "exactHistoryPlayerIds": 0,
+        "historicalPlayerSeasons": 0,
+        "divisions": []
+      }
+    },
+    {
+      "teamId": 13731,
+      "leagueId": 567,
+      "name": "Shockers",
+      "night": "Wednesday",
+      "program": "Open",
+      "sourceDivision": "Hot Shots Bar & Grill Division",
+      "component": 1,
+      "resultAdjustedRating": 1428.1,
+      "playedGames": 6,
+      "uniqueOpponents": 6,
+      "sourceStandingsValid": true,
+      "priorRosterSamples": 14,
+      "priorRosterHistoryFraction": 0.7,
+      "rosterPriorRelativeScoring": -0.182,
+      "crossNightRosterIDs": 1,
+      "qualifiedPlayerGP": 20,
+      "scoringConcentrationTopTwo": 0.286,
+      "rosterQualified": true,
+      "archivedDivisionEvidence": {
+        "source": "FOUR_NIGHT_PRIOR_ROSTER_SUMMARY_ONLY",
+        "exactHistoryPlayerIds": 0,
+        "historicalPlayerSeasons": 0,
+        "divisions": []
+      }
+    },
+    {
+      "teamId": 13696,
+      "leagueId": 567,
+      "name": "Boys in Motion",
+      "night": "Wednesday",
+      "program": "Open",
+      "sourceDivision": "Burrell Overhead Division",
+      "component": 1,
+      "resultAdjustedRating": 1527.1,
+      "playedGames": 7,
+      "uniqueOpponents": 7,
+      "sourceStandingsValid": true,
+      "priorRosterSamples": 14,
+      "priorRosterHistoryFraction": 0.933,
+      "rosterPriorRelativeScoring": 0.059,
+      "crossNightRosterIDs": 1,
+      "qualifiedPlayerGP": 15,
+      "scoringConcentrationTopTwo": 0.233,
+      "rosterQualified": true,
+      "archivedDivisionEvidence": {
+        "source": "FOUR_NIGHT_PRIOR_ROSTER_SUMMARY_ONLY",
+        "exactHistoryPlayerIds": 0,
+        "historicalPlayerSeasons": 0,
+        "divisions": []
+      }
+    },
+    {
+      "teamId": 13699,
+      "leagueId": 567,
+      "name": "Bridge Boys Hockey",
+      "night": "Wednesday",
+      "program": "Open",
+      "sourceDivision": "Burrell Overhead Division",
+      "component": 1,
+      "resultAdjustedRating": 1481.5,
+      "playedGames": 7,
+      "uniqueOpponents": 7,
+      "sourceStandingsValid": true,
+      "priorRosterSamples": 5,
+      "priorRosterHistoryFraction": 0.385,
+      "rosterPriorRelativeScoring": 0.667,
+      "crossNightRosterIDs": 1,
+      "qualifiedPlayerGP": 13,
+      "scoringConcentrationTopTwo": 0.4,
+      "rosterQualified": true,
+      "archivedDivisionEvidence": {
+        "source": "FOUR_NIGHT_PRIOR_ROSTER_SUMMARY_ONLY",
+        "exactHistoryPlayerIds": 0,
+        "historicalPlayerSeasons": 0,
+        "divisions": []
+      }
+    },
+    {
+      "teamId": 13694,
+      "leagueId": 567,
+      "name": "Pigeon Pounders",
+      "night": "Wednesday",
+      "program": "Open",
+      "sourceDivision": "Burrell Overhead Division",
+      "component": 1,
+      "resultAdjustedRating": 1549.6,
+      "playedGames": 7,
+      "uniqueOpponents": 6,
+      "sourceStandingsValid": true,
+      "priorRosterSamples": 3,
+      "priorRosterHistoryFraction": 0.231,
+      "rosterPriorRelativeScoring": -0.088,
+      "crossNightRosterIDs": 0,
+      "qualifiedPlayerGP": 13,
+      "scoringConcentrationTopTwo": 0.391,
+      "rosterQualified": true,
+      "archivedDivisionEvidence": {
+        "source": "FOUR_NIGHT_PRIOR_ROSTER_SUMMARY_ONLY",
+        "exactHistoryPlayerIds": 0,
+        "historicalPlayerSeasons": 0,
+        "divisions": []
+      }
+    },
+    {
+      "teamId": 13726,
+      "leagueId": 567,
+      "name": "Red Light District",
+      "night": "Wednesday",
+      "program": "Open",
+      "sourceDivision": "Burrell Overhead Division",
+      "component": 1,
+      "resultAdjustedRating": 1506.2,
+      "playedGames": 7,
+      "uniqueOpponents": 7,
+      "sourceStandingsValid": true,
+      "priorRosterSamples": 14,
+      "priorRosterHistoryFraction": 0.824,
+      "rosterPriorRelativeScoring": 0.049,
+      "crossNightRosterIDs": 1,
+      "qualifiedPlayerGP": 17,
+      "scoringConcentrationTopTwo": 0.333,
+      "rosterQualified": true,
+      "archivedDivisionEvidence": {
+        "source": "FOUR_NIGHT_PRIOR_ROSTER_SUMMARY_ONLY",
+        "exactHistoryPlayerIds": 0,
+        "historicalPlayerSeasons": 0,
+        "divisions": []
+      }
+    },
+    {
+      "teamId": 13641,
+      "leagueId": 567,
+      "name": "Wangers",
+      "night": "Wednesday",
+      "program": "Open",
+      "sourceDivision": "Burrell Overhead Division",
+      "component": 1,
+      "resultAdjustedRating": 1569.6,
+      "playedGames": 7,
+      "uniqueOpponents": 5,
+      "sourceStandingsValid": true,
+      "priorRosterSamples": 14,
+      "priorRosterHistoryFraction": 0.778,
+      "rosterPriorRelativeScoring": 0.264,
+      "crossNightRosterIDs": 4,
+      "qualifiedPlayerGP": 18,
+      "scoringConcentrationTopTwo": 0.325,
+      "rosterQualified": true,
+      "archivedDivisionEvidence": {
+        "source": "FOUR_NIGHT_PRIOR_ROSTER_SUMMARY_ONLY",
+        "exactHistoryPlayerIds": 0,
+        "historicalPlayerSeasons": 0,
+        "divisions": []
+      }
+    },
+    {
+      "teamId": 13698,
+      "leagueId": 567,
+      "name": "Yeti",
+      "night": "Wednesday",
+      "program": "Open",
+      "sourceDivision": "Burrell Overhead Division",
+      "component": 1,
+      "resultAdjustedRating": 1498.2,
+      "playedGames": 7,
+      "uniqueOpponents": 6,
+      "sourceStandingsValid": true,
+      "priorRosterSamples": 15,
+      "priorRosterHistoryFraction": 0.938,
+      "rosterPriorRelativeScoring": -0.05,
+      "crossNightRosterIDs": 3,
+      "qualifiedPlayerGP": 16,
+      "scoringConcentrationTopTwo": 0.525,
+      "rosterQualified": true,
+      "archivedDivisionEvidence": {
+        "source": "FOUR_NIGHT_PRIOR_ROSTER_SUMMARY_ONLY",
+        "exactHistoryPlayerIds": 0,
+        "historicalPlayerSeasons": 0,
+        "divisions": []
+      }
+    },
+    {
+      "teamId": 13677,
+      "leagueId": 567,
+      "name": "DD Degens",
+      "night": "Wednesday",
+      "program": "Open",
+      "sourceDivision": "Franco Canadian",
+      "component": 1,
+      "resultAdjustedRating": 1544.3,
+      "playedGames": 7,
+      "uniqueOpponents": 6,
+      "sourceStandingsValid": true,
+      "priorRosterSamples": 5,
+      "priorRosterHistoryFraction": 0.385,
+      "rosterPriorRelativeScoring": 0.078,
+      "crossNightRosterIDs": 3,
+      "qualifiedPlayerGP": 13,
+      "scoringConcentrationTopTwo": 0.475,
+      "rosterQualified": true,
+      "archivedDivisionEvidence": {
+        "source": "FOUR_NIGHT_PRIOR_ROSTER_SUMMARY_ONLY",
+        "exactHistoryPlayerIds": 0,
+        "historicalPlayerSeasons": 0,
+        "divisions": []
+      }
+    },
+    {
+      "teamId": 13665,
+      "leagueId": 567,
+      "name": "Moneyline",
+      "night": "Wednesday",
+      "program": "Open",
+      "sourceDivision": "Franco Canadian",
+      "component": 1,
+      "resultAdjustedRating": 1536.8,
+      "playedGames": 7,
+      "uniqueOpponents": 7,
+      "sourceStandingsValid": true,
+      "priorRosterSamples": 14,
+      "priorRosterHistoryFraction": 1,
+      "rosterPriorRelativeScoring": 0.036,
+      "crossNightRosterIDs": 2,
+      "qualifiedPlayerGP": 14,
+      "scoringConcentrationTopTwo": 0.36,
+      "rosterQualified": true,
+      "archivedDivisionEvidence": {
+        "source": "FOUR_NIGHT_PRIOR_ROSTER_SUMMARY_ONLY",
+        "exactHistoryPlayerIds": 0,
+        "historicalPlayerSeasons": 0,
+        "divisions": []
+      }
+    },
+    {
+      "teamId": 13678,
+      "leagueId": 567,
+      "name": "Tropics",
+      "night": "Wednesday",
+      "program": "Open",
+      "sourceDivision": "Franco Canadian",
+      "component": 1,
+      "resultAdjustedRating": 1535.1,
+      "playedGames": 7,
+      "uniqueOpponents": 7,
+      "sourceStandingsValid": true,
+      "priorRosterSamples": 8,
+      "priorRosterHistoryFraction": 0.571,
+      "rosterPriorRelativeScoring": 0.072,
+      "crossNightRosterIDs": 2,
+      "qualifiedPlayerGP": 14,
+      "scoringConcentrationTopTwo": 0.356,
+      "rosterQualified": true,
+      "archivedDivisionEvidence": {
+        "source": "FOUR_NIGHT_PRIOR_ROSTER_SUMMARY_ONLY",
+        "exactHistoryPlayerIds": 0,
+        "historicalPlayerSeasons": 0,
+        "divisions": []
+      }
+    },
+    {
+      "teamId": 13733,
+      "leagueId": 567,
+      "name": "Zamboner Crew",
+      "night": "Wednesday",
+      "program": "Open",
+      "sourceDivision": "Franco Canadian",
+      "component": 1,
+      "resultAdjustedRating": 1510.3,
+      "playedGames": 6,
+      "uniqueOpponents": 6,
+      "sourceStandingsValid": true,
+      "priorRosterSamples": 6,
+      "priorRosterHistoryFraction": 0.545,
+      "rosterPriorRelativeScoring": -0.058,
+      "crossNightRosterIDs": 1,
+      "qualifiedPlayerGP": 11,
+      "scoringConcentrationTopTwo": 0.478,
+      "rosterQualified": true,
+      "archivedDivisionEvidence": {
+        "source": "FOUR_NIGHT_PRIOR_ROSTER_SUMMARY_ONLY",
+        "exactHistoryPlayerIds": 0,
+        "historicalPlayerSeasons": 0,
+        "divisions": []
+      }
+    },
+    {
+      "teamId": 13666,
+      "leagueId": 567,
+      "name": "Bulls",
+      "night": "Wednesday",
+      "program": "Open",
+      "sourceDivision": "Hot Shots Bar & Grill Division",
+      "component": 1,
+      "resultAdjustedRating": 1446.3,
+      "playedGames": 6,
+      "uniqueOpponents": 6,
+      "sourceStandingsValid": true,
+      "priorRosterSamples": 10,
+      "priorRosterHistoryFraction": 0.667,
+      "rosterPriorRelativeScoring": 0.265,
+      "crossNightRosterIDs": 2,
+      "qualifiedPlayerGP": 15,
+      "scoringConcentrationTopTwo": 0.375,
+      "rosterQualified": true,
+      "archivedDivisionEvidence": {
+        "source": "FOUR_NIGHT_PRIOR_ROSTER_SUMMARY_ONLY",
+        "exactHistoryPlayerIds": 0,
+        "historicalPlayerSeasons": 0,
+        "divisions": []
+      }
+    },
+    {
+      "teamId": 13697,
+      "leagueId": 567,
+      "name": "Pylons",
+      "night": "Wednesday",
+      "program": "Open",
+      "sourceDivision": "Hot Shots Bar & Grill Division",
+      "component": 1,
+      "resultAdjustedRating": 1439.1,
+      "playedGames": 7,
+      "uniqueOpponents": 5,
+      "sourceStandingsValid": true,
+      "priorRosterSamples": 11,
+      "priorRosterHistoryFraction": 0.688,
+      "rosterPriorRelativeScoring": -0.029,
+      "crossNightRosterIDs": 2,
+      "qualifiedPlayerGP": 16,
+      "scoringConcentrationTopTwo": 0.296,
+      "rosterQualified": true,
+      "archivedDivisionEvidence": {
+        "source": "FOUR_NIGHT_PRIOR_ROSTER_SUMMARY_ONLY",
+        "exactHistoryPlayerIds": 0,
+        "historicalPlayerSeasons": 0,
+        "divisions": []
+      }
+    },
+    {
+      "teamId": 13695,
+      "leagueId": 567,
+      "name": "Replacements",
+      "night": "Wednesday",
+      "program": "Open",
+      "sourceDivision": "Hot Shots Bar & Grill Division",
+      "component": 1,
+      "resultAdjustedRating": 1457.3,
+      "playedGames": 7,
+      "uniqueOpponents": 5,
+      "sourceStandingsValid": true,
+      "priorRosterSamples": 10,
+      "priorRosterHistoryFraction": 0.833,
+      "rosterPriorRelativeScoring": 0.284,
+      "crossNightRosterIDs": 1,
+      "qualifiedPlayerGP": 12,
+      "scoringConcentrationTopTwo": 0.578,
+      "rosterQualified": true,
+      "archivedDivisionEvidence": {
+        "source": "FOUR_NIGHT_PRIOR_ROSTER_SUMMARY_ONLY",
+        "exactHistoryPlayerIds": 0,
+        "historicalPlayerSeasons": 0,
+        "divisions": []
+      }
+    },
+    {
+      "teamId": 13643,
+      "leagueId": 568,
+      "name": "Philly Bombers",
+      "night": "Tuesday",
+      "program": "Open",
+      "sourceDivision": "Franco Canadian Division",
+      "component": 1,
+      "resultAdjustedRating": 1577,
+      "playedGames": 6,
+      "uniqueOpponents": 4,
+      "sourceStandingsValid": true,
+      "priorRosterSamples": 12,
+      "priorRosterHistoryFraction": 0.857,
+      "rosterPriorRelativeScoring": -0.058,
+      "crossNightRosterIDs": 5,
+      "qualifiedPlayerGP": 14,
+      "scoringConcentrationTopTwo": 0.352,
+      "rosterQualified": true,
+      "archivedDivisionEvidence": {
+        "source": "FOUR_NIGHT_PRIOR_ROSTER_SUMMARY_ONLY",
+        "exactHistoryPlayerIds": 0,
+        "historicalPlayerSeasons": 0,
+        "divisions": []
+      }
+    },
+    {
+      "teamId": 13725,
+      "leagueId": 568,
+      "name": "FT State",
+      "night": "Tuesday",
+      "program": "Open",
+      "sourceDivision": "High 5 Photography",
+      "component": 1,
+      "resultAdjustedRating": 1407.1,
+      "playedGames": 6,
+      "uniqueOpponents": 5,
+      "sourceStandingsValid": true,
+      "priorRosterSamples": 8,
+      "priorRosterHistoryFraction": 0.8,
+      "rosterPriorRelativeScoring": 0.325,
+      "crossNightRosterIDs": 0,
+      "qualifiedPlayerGP": 9,
+      "scoringConcentrationTopTwo": 0.688,
+      "rosterQualified": true,
+      "archivedDivisionEvidence": {
+        "source": "FOUR_NIGHT_PRIOR_ROSTER_SUMMARY_ONLY",
+        "exactHistoryPlayerIds": 0,
+        "historicalPlayerSeasons": 0,
+        "divisions": []
+      }
+    },
+    {
+      "teamId": 13675,
+      "leagueId": 568,
+      "name": "Puckheads",
+      "night": "Tuesday",
+      "program": "Open",
+      "sourceDivision": "High 5 Photography",
+      "component": 1,
+      "resultAdjustedRating": 1439.8,
+      "playedGames": 6,
+      "uniqueOpponents": 4,
+      "sourceStandingsValid": true,
+      "priorRosterSamples": 13,
+      "priorRosterHistoryFraction": 0.867,
+      "rosterPriorRelativeScoring": -0.016,
+      "crossNightRosterIDs": 0,
+      "qualifiedPlayerGP": 15,
+      "scoringConcentrationTopTwo": 0.429,
+      "rosterQualified": true,
+      "archivedDivisionEvidence": {
+        "source": "FOUR_NIGHT_PRIOR_ROSTER_SUMMARY_ONLY",
+        "exactHistoryPlayerIds": 0,
+        "historicalPlayerSeasons": 0,
+        "divisions": []
+      }
+    },
+    {
+      "teamId": 13693,
+      "leagueId": 568,
+      "name": "Hammers",
+      "night": "Tuesday",
+      "program": "Open",
+      "sourceDivision": "Burrell Overhead",
+      "component": 1,
+      "resultAdjustedRating": 1493.8,
+      "playedGames": 6,
+      "uniqueOpponents": 5,
+      "sourceStandingsValid": true,
+      "priorRosterSamples": 14,
+      "priorRosterHistoryFraction": 0.875,
+      "rosterPriorRelativeScoring": 0.119,
+      "crossNightRosterIDs": 1,
+      "qualifiedPlayerGP": 16,
+      "scoringConcentrationTopTwo": 0.458,
+      "rosterQualified": true,
+      "archivedDivisionEvidence": {
+        "source": "FOUR_NIGHT_PRIOR_ROSTER_SUMMARY_ONLY",
+        "exactHistoryPlayerIds": 0,
+        "historicalPlayerSeasons": 0,
+        "divisions": []
+      }
+    },
+    {
+      "teamId": 13721,
+      "leagueId": 568,
+      "name": "Henny Kings",
+      "night": "Tuesday",
+      "program": "Open",
+      "sourceDivision": "Burrell Overhead",
+      "component": 1,
+      "resultAdjustedRating": 1536.8,
+      "playedGames": 7,
+      "uniqueOpponents": 6,
+      "sourceStandingsValid": true,
+      "priorRosterSamples": 17,
+      "priorRosterHistoryFraction": 0.944,
+      "rosterPriorRelativeScoring": 0.014,
+      "crossNightRosterIDs": 6,
+      "qualifiedPlayerGP": 18,
+      "scoringConcentrationTopTwo": 0.389,
+      "rosterQualified": true,
+      "archivedDivisionEvidence": {
+        "source": "FOUR_NIGHT_PRIOR_ROSTER_SUMMARY_ONLY",
+        "exactHistoryPlayerIds": 0,
+        "historicalPlayerSeasons": 0,
+        "divisions": []
+      }
+    },
+    {
+      "teamId": 13691,
+      "leagueId": 568,
+      "name": "PHL Demonz",
+      "night": "Tuesday",
+      "program": "Open",
+      "sourceDivision": "Burrell Overhead",
+      "component": 1,
+      "resultAdjustedRating": 1543.6,
+      "playedGames": 5,
+      "uniqueOpponents": 5,
+      "sourceStandingsValid": true,
+      "priorRosterSamples": 12,
+      "priorRosterHistoryFraction": 0.75,
+      "rosterPriorRelativeScoring": 0.067,
+      "crossNightRosterIDs": 5,
+      "qualifiedPlayerGP": 15,
+      "scoringConcentrationTopTwo": 0.462,
+      "rosterQualified": true,
+      "archivedDivisionEvidence": {
+        "source": "FOUR_NIGHT_PRIOR_ROSTER_SUMMARY_ONLY",
+        "exactHistoryPlayerIds": 0,
+        "historicalPlayerSeasons": 0,
+        "divisions": []
+      }
+    },
+    {
+      "teamId": 13623,
+      "leagueId": 568,
+      "name": "Rebels",
+      "night": "Tuesday",
+      "program": "Open",
+      "sourceDivision": "Burrell Overhead",
+      "component": 1,
+      "resultAdjustedRating": 1521,
+      "playedGames": 5,
+      "uniqueOpponents": 5,
+      "sourceStandingsValid": true,
+      "priorRosterSamples": 14,
+      "priorRosterHistoryFraction": 0.933,
+      "rosterPriorRelativeScoring": 0.032,
+      "crossNightRosterIDs": 2,
+      "qualifiedPlayerGP": 15,
+      "scoringConcentrationTopTwo": 0.313,
+      "rosterQualified": true,
+      "archivedDivisionEvidence": {
+        "source": "FOUR_NIGHT_PRIOR_ROSTER_SUMMARY_ONLY",
+        "exactHistoryPlayerIds": 0,
+        "historicalPlayerSeasons": 0,
+        "divisions": []
+      }
+    },
+    {
+      "teamId": 13719,
+      "leagueId": 568,
+      "name": "SOH",
+      "night": "Tuesday",
+      "program": "Open",
+      "sourceDivision": "Burrell Overhead",
+      "component": 1,
+      "resultAdjustedRating": 1528.8,
+      "playedGames": 6,
+      "uniqueOpponents": 5,
+      "sourceStandingsValid": true,
+      "priorRosterSamples": 11,
+      "priorRosterHistoryFraction": 0.733,
+      "rosterPriorRelativeScoring": 0.061,
+      "crossNightRosterIDs": 0,
+      "qualifiedPlayerGP": 15,
+      "scoringConcentrationTopTwo": 0.405,
+      "rosterQualified": true,
+      "archivedDivisionEvidence": {
+        "source": "FOUR_NIGHT_PRIOR_ROSTER_SUMMARY_ONLY",
+        "exactHistoryPlayerIds": 0,
+        "historicalPlayerSeasons": 0,
+        "divisions": []
+      }
+    },
+    {
+      "teamId": 13676,
+      "leagueId": 568,
+      "name": "UOD Hockey",
+      "night": "Tuesday",
+      "program": "Open",
+      "sourceDivision": "Burrell Overhead",
+      "component": 1,
+      "resultAdjustedRating": 1509.8,
+      "playedGames": 7,
+      "uniqueOpponents": 6,
+      "sourceStandingsValid": true,
+      "priorRosterSamples": 9,
+      "priorRosterHistoryFraction": 0.643,
+      "rosterPriorRelativeScoring": -0.127,
+      "crossNightRosterIDs": 2,
+      "qualifiedPlayerGP": 14,
+      "scoringConcentrationTopTwo": 0.283,
+      "rosterQualified": true,
+      "archivedDivisionEvidence": {
+        "source": "FOUR_NIGHT_PRIOR_ROSTER_SUMMARY_ONLY",
+        "exactHistoryPlayerIds": 0,
+        "historicalPlayerSeasons": 0,
+        "divisions": []
+      }
+    },
+    {
+      "teamId": 13692,
+      "leagueId": 568,
+      "name": "Dirties",
+      "night": "Tuesday",
+      "program": "Open",
+      "sourceDivision": "Franco Canadian Division",
+      "component": 1,
+      "resultAdjustedRating": 1488,
+      "playedGames": 7,
+      "uniqueOpponents": 7,
+      "sourceStandingsValid": true,
+      "priorRosterSamples": 4,
+      "priorRosterHistoryFraction": 0.25,
+      "rosterPriorRelativeScoring": 0.113,
+      "crossNightRosterIDs": 1,
+      "qualifiedPlayerGP": 16,
+      "scoringConcentrationTopTwo": 0.333,
+      "rosterQualified": true,
+      "archivedDivisionEvidence": {
+        "source": "FOUR_NIGHT_PRIOR_ROSTER_SUMMARY_ONLY",
+        "exactHistoryPlayerIds": 0,
+        "historicalPlayerSeasons": 0,
+        "divisions": []
+      }
+    },
+    {
+      "teamId": 13687,
+      "leagueId": 568,
+      "name": "Kraken Beers",
+      "night": "Tuesday",
+      "program": "Open",
+      "sourceDivision": "Franco Canadian Division",
+      "component": 1,
+      "resultAdjustedRating": 1515.3,
+      "playedGames": 5,
+      "uniqueOpponents": 5,
+      "sourceStandingsValid": true,
+      "priorRosterSamples": 10,
+      "priorRosterHistoryFraction": 0.556,
+      "rosterPriorRelativeScoring": 0.187,
+      "crossNightRosterIDs": 0,
+      "qualifiedPlayerGP": 18,
+      "scoringConcentrationTopTwo": 0.293,
+      "rosterQualified": true,
+      "archivedDivisionEvidence": {
+        "source": "FOUR_NIGHT_PRIOR_ROSTER_SUMMARY_ONLY",
+        "exactHistoryPlayerIds": 0,
+        "historicalPlayerSeasons": 0,
+        "divisions": []
+      }
+    },
+    {
+      "teamId": 13722,
+      "leagueId": 568,
+      "name": "Mighty Drunks",
+      "night": "Tuesday",
+      "program": "Open",
+      "sourceDivision": "Franco Canadian Division",
+      "component": 1,
+      "resultAdjustedRating": 1488.3,
+      "playedGames": 7,
+      "uniqueOpponents": 6,
+      "sourceStandingsValid": true,
+      "priorRosterSamples": 11,
+      "priorRosterHistoryFraction": 0.786,
+      "rosterPriorRelativeScoring": 0.108,
+      "crossNightRosterIDs": 0,
+      "qualifiedPlayerGP": 14,
+      "scoringConcentrationTopTwo": 0.3,
+      "rosterQualified": true,
+      "archivedDivisionEvidence": {
+        "source": "FOUR_NIGHT_PRIOR_ROSTER_SUMMARY_ONLY",
+        "exactHistoryPlayerIds": 0,
+        "historicalPlayerSeasons": 0,
+        "divisions": []
+      }
+    },
+    {
+      "teamId": 13723,
+      "leagueId": 568,
+      "name": "Vaughan Rippers",
+      "night": "Tuesday",
+      "program": "Open",
+      "sourceDivision": "Franco Canadian Division",
+      "component": 1,
+      "resultAdjustedRating": 1449.9,
+      "playedGames": 7,
+      "uniqueOpponents": 6,
+      "sourceStandingsValid": true,
+      "priorRosterSamples": 15,
+      "priorRosterHistoryFraction": 0.789,
+      "rosterPriorRelativeScoring": -0.173,
+      "crossNightRosterIDs": 0,
+      "qualifiedPlayerGP": 19,
+      "scoringConcentrationTopTwo": 0.313,
+      "rosterQualified": true,
+      "archivedDivisionEvidence": {
+        "source": "FOUR_NIGHT_PRIOR_ROSTER_SUMMARY_ONLY",
+        "exactHistoryPlayerIds": 0,
+        "historicalPlayerSeasons": 0,
+        "divisions": []
+      }
+    },
+    {
+      "teamId": 13718,
+      "leagueId": 568,
+      "name": "Jets",
+      "night": "Tuesday",
+      "program": "Open",
+      "sourceDivision": "High 5 Photography",
+      "component": 1,
+      "resultAdjustedRating": 1466.3,
+      "playedGames": 6,
+      "uniqueOpponents": 6,
+      "sourceStandingsValid": true,
+      "priorRosterSamples": 14,
+      "priorRosterHistoryFraction": 0.824,
+      "rosterPriorRelativeScoring": -0.22,
+      "crossNightRosterIDs": 6,
+      "qualifiedPlayerGP": 17,
+      "scoringConcentrationTopTwo": 0.389,
+      "rosterQualified": true,
+      "archivedDivisionEvidence": {
+        "source": "FOUR_NIGHT_PRIOR_ROSTER_SUMMARY_ONLY",
+        "exactHistoryPlayerIds": 0,
+        "historicalPlayerSeasons": 0,
+        "divisions": []
+      }
+    },
+    {
+      "teamId": 13647,
+      "leagueId": 568,
+      "name": "Mooseheads",
+      "night": "Tuesday",
+      "program": "Open",
+      "sourceDivision": "High 5 Photography",
+      "component": 1,
+      "resultAdjustedRating": 1527.5,
+      "playedGames": 6,
+      "uniqueOpponents": 4,
+      "sourceStandingsValid": true,
+      "priorRosterSamples": 10,
+      "priorRosterHistoryFraction": 0.769,
+      "rosterPriorRelativeScoring": -0.093,
+      "crossNightRosterIDs": 1,
+      "qualifiedPlayerGP": 12,
+      "scoringConcentrationTopTwo": 0.483,
+      "rosterQualified": true,
+      "archivedDivisionEvidence": {
+        "source": "FOUR_NIGHT_PRIOR_ROSTER_SUMMARY_ONLY",
+        "exactHistoryPlayerIds": 0,
+        "historicalPlayerSeasons": 0,
+        "divisions": []
+      }
+    },
+    {
+      "teamId": 13667,
+      "leagueId": 568,
+      "name": "Shockers",
+      "night": "Tuesday",
+      "program": "Open",
+      "sourceDivision": "High 5 Photography",
+      "component": 1,
+      "resultAdjustedRating": 1506.8,
+      "playedGames": 6,
+      "uniqueOpponents": 5,
+      "sourceStandingsValid": true,
+      "priorRosterSamples": 13,
+      "priorRosterHistoryFraction": 0.765,
+      "rosterPriorRelativeScoring": 0.092,
+      "crossNightRosterIDs": 0,
+      "qualifiedPlayerGP": 17,
+      "scoringConcentrationTopTwo": 0.292,
+      "rosterQualified": true,
+      "archivedDivisionEvidence": {
+        "source": "FOUR_NIGHT_PRIOR_ROSTER_SUMMARY_ONLY",
+        "exactHistoryPlayerIds": 0,
+        "historicalPlayerSeasons": 0,
+        "divisions": []
+      }
+    },
+    {
+      "teamId": 13645,
+      "leagueId": 569,
+      "name": "Showertime",
+      "night": "Thursday",
+      "program": "Open",
+      "sourceDivision": "A & G Cleaners",
+      "component": 4,
+      "resultAdjustedRating": 1590.1,
+      "playedGames": 7,
+      "uniqueOpponents": 5,
+      "sourceStandingsValid": true,
+      "priorRosterSamples": 14,
+      "priorRosterHistoryFraction": 1,
+      "rosterPriorRelativeScoring": 0.262,
+      "crossNightRosterIDs": 6,
+      "qualifiedPlayerGP": 14,
+      "scoringConcentrationTopTwo": 0.323,
+      "rosterQualified": true,
+      "archivedDivisionEvidence": {
+        "source": "FOUR_NIGHT_PRIOR_ROSTER_SUMMARY_ONLY",
+        "exactHistoryPlayerIds": 0,
+        "historicalPlayerSeasons": 0,
+        "divisions": []
+      }
+    },
+    {
+      "teamId": 13626,
+      "leagueId": 569,
+      "name": "Meatheads",
+      "night": "Thursday",
+      "program": "Open",
+      "sourceDivision": "Fazzari Partners",
+      "component": 3,
+      "resultAdjustedRating": 1565.6,
+      "playedGames": 7,
+      "uniqueOpponents": 7,
+      "sourceStandingsValid": true,
+      "priorRosterSamples": 17,
+      "priorRosterHistoryFraction": 0.85,
+      "rosterPriorRelativeScoring": 0.09,
+      "crossNightRosterIDs": 5,
+      "qualifiedPlayerGP": 19,
+      "scoringConcentrationTopTwo": 0.368,
+      "rosterQualified": true,
+      "archivedDivisionEvidence": {
+        "source": "FOUR_NIGHT_PRIOR_ROSTER_SUMMARY_ONLY",
+        "exactHistoryPlayerIds": 0,
+        "historicalPlayerSeasons": 0,
+        "divisions": []
+      }
+    },
+    {
+      "teamId": 13654,
+      "leagueId": 569,
+      "name": "Don Cherries",
+      "night": "Thursday",
+      "program": "Open",
+      "sourceDivision": "High 5 Photography",
+      "component": 1,
+      "resultAdjustedRating": 1395.9,
+      "playedGames": 6,
+      "uniqueOpponents": 6,
+      "sourceStandingsValid": true,
+      "priorRosterSamples": 14,
+      "priorRosterHistoryFraction": 0.875,
+      "rosterPriorRelativeScoring": -0.126,
+      "crossNightRosterIDs": 0,
+      "qualifiedPlayerGP": 16,
+      "scoringConcentrationTopTwo": 0.4,
+      "rosterQualified": true,
+      "archivedDivisionEvidence": {
+        "source": "FOUR_NIGHT_PRIOR_ROSTER_SUMMARY_ONLY",
+        "exactHistoryPlayerIds": 0,
+        "historicalPlayerSeasons": 0,
+        "divisions": []
+      }
+    },
+    {
+      "teamId": 13631,
+      "leagueId": 569,
+      "name": "Homecorp",
+      "night": "Thursday",
+      "program": "Open",
+      "sourceDivision": "Fazzari Partners",
+      "component": 3,
+      "resultAdjustedRating": 1442.3,
+      "playedGames": 7,
+      "uniqueOpponents": 7,
+      "sourceStandingsValid": true,
+      "priorRosterSamples": 12,
+      "priorRosterHistoryFraction": 1,
+      "rosterPriorRelativeScoring": -0.018,
+      "crossNightRosterIDs": 1,
+      "qualifiedPlayerGP": 12,
+      "scoringConcentrationTopTwo": 0.263,
+      "rosterQualified": true,
+      "archivedDivisionEvidence": {
+        "source": "FOUR_NIGHT_PRIOR_ROSTER_SUMMARY_ONLY",
+        "exactHistoryPlayerIds": 0,
+        "historicalPlayerSeasons": 0,
+        "divisions": []
+      }
+    },
+    {
+      "teamId": 13642,
+      "leagueId": 569,
+      "name": "Randomly Selected",
+      "night": "Thursday",
+      "program": "Open",
+      "sourceDivision": "Fazzari Partners",
+      "component": 3,
+      "resultAdjustedRating": 1458.5,
+      "playedGames": 7,
+      "uniqueOpponents": 7,
+      "sourceStandingsValid": false,
+      "priorRosterSamples": 15,
+      "priorRosterHistoryFraction": 1,
+      "rosterPriorRelativeScoring": -0.038,
+      "crossNightRosterIDs": 4,
+      "qualifiedPlayerGP": 15,
+      "scoringConcentrationTopTwo": 0.348,
+      "rosterQualified": true,
+      "archivedDivisionEvidence": {
+        "source": "FOUR_NIGHT_PRIOR_ROSTER_SUMMARY_ONLY",
+        "exactHistoryPlayerIds": 0,
+        "historicalPlayerSeasons": 0,
+        "divisions": []
+      }
+    },
+    {
+      "teamId": 13646,
+      "leagueId": 569,
+      "name": "Hot Heads",
+      "night": "Thursday",
+      "program": "Open",
+      "sourceDivision": "High 5 Photography",
+      "component": 1,
+      "resultAdjustedRating": 1562.6,
+      "playedGames": 7,
+      "uniqueOpponents": 7,
+      "sourceStandingsValid": true,
+      "priorRosterSamples": 12,
+      "priorRosterHistoryFraction": 0.857,
+      "rosterPriorRelativeScoring": 0.175,
+      "crossNightRosterIDs": 0,
+      "qualifiedPlayerGP": 14,
+      "scoringConcentrationTopTwo": 0.382,
+      "rosterQualified": true,
+      "archivedDivisionEvidence": {
+        "source": "FOUR_NIGHT_PRIOR_ROSTER_SUMMARY_ONLY",
+        "exactHistoryPlayerIds": 0,
+        "historicalPlayerSeasons": 0,
+        "divisions": []
+      }
+    },
+    {
+      "teamId": 13656,
+      "leagueId": 569,
+      "name": "Night Hawks",
+      "night": "Thursday",
+      "program": "Open",
+      "sourceDivision": "High 5 Photography",
+      "component": 1,
+      "resultAdjustedRating": 1576.3,
+      "playedGames": 7,
+      "uniqueOpponents": 7,
+      "sourceStandingsValid": true,
+      "priorRosterSamples": 15,
+      "priorRosterHistoryFraction": 0.938,
+      "rosterPriorRelativeScoring": -0.059,
+      "crossNightRosterIDs": 1,
+      "qualifiedPlayerGP": 16,
+      "scoringConcentrationTopTwo": 0.415,
+      "rosterQualified": true,
+      "archivedDivisionEvidence": {
+        "source": "FOUR_NIGHT_PRIOR_ROSTER_SUMMARY_ONLY",
+        "exactHistoryPlayerIds": 0,
+        "historicalPlayerSeasons": 0,
+        "divisions": []
+      }
+    },
+    {
+      "teamId": 13661,
+      "leagueId": 569,
+      "name": "Wolves",
+      "night": "Thursday",
+      "program": "Open",
+      "sourceDivision": "High 5 Photography",
+      "component": 1,
+      "resultAdjustedRating": 1426.4,
+      "playedGames": 7,
+      "uniqueOpponents": 7,
+      "sourceStandingsValid": true,
+      "priorRosterSamples": 15,
+      "priorRosterHistoryFraction": 0.882,
+      "rosterPriorRelativeScoring": 0.125,
+      "crossNightRosterIDs": 0,
+      "qualifiedPlayerGP": 17,
+      "scoringConcentrationTopTwo": 0.455,
+      "rosterQualified": true,
+      "archivedDivisionEvidence": {
+        "source": "FOUR_NIGHT_PRIOR_ROSTER_SUMMARY_ONLY",
+        "exactHistoryPlayerIds": 0,
+        "historicalPlayerSeasons": 0,
+        "divisions": []
+      }
+    },
+    {
+      "teamId": 13651,
+      "leagueId": 569,
+      "name": "Back Door Boys",
+      "night": "Thursday",
+      "program": "Open",
+      "sourceDivision": "A & G Cleaners",
+      "component": 4,
+      "resultAdjustedRating": 1456.6,
+      "playedGames": 6,
+      "uniqueOpponents": 4,
+      "sourceStandingsValid": true,
+      "priorRosterSamples": 15,
+      "priorRosterHistoryFraction": 0.833,
+      "rosterPriorRelativeScoring": 0.152,
+      "crossNightRosterIDs": 2,
+      "qualifiedPlayerGP": 18,
+      "scoringConcentrationTopTwo": 0.303,
+      "rosterQualified": true,
+      "archivedDivisionEvidence": {
+        "source": "FOUR_NIGHT_PRIOR_ROSTER_SUMMARY_ONLY",
+        "exactHistoryPlayerIds": 0,
+        "historicalPlayerSeasons": 0,
+        "divisions": []
+      }
+    },
+    {
+      "teamId": 13653,
+      "leagueId": 569,
+      "name": "Bellos",
+      "night": "Thursday",
+      "program": "Open",
+      "sourceDivision": "A & G Cleaners",
+      "component": 4,
+      "resultAdjustedRating": 1539,
+      "playedGames": 7,
+      "uniqueOpponents": 5,
+      "sourceStandingsValid": true,
+      "priorRosterSamples": 14,
+      "priorRosterHistoryFraction": 0.824,
+      "rosterPriorRelativeScoring": 0.13,
+      "crossNightRosterIDs": 1,
+      "qualifiedPlayerGP": 17,
+      "scoringConcentrationTopTwo": 0.367,
+      "rosterQualified": true,
+      "archivedDivisionEvidence": {
+        "source": "FOUR_NIGHT_PRIOR_ROSTER_SUMMARY_ONLY",
+        "exactHistoryPlayerIds": 0,
+        "historicalPlayerSeasons": 0,
+        "divisions": []
+      }
+    },
+    {
+      "teamId": 13657,
+      "leagueId": 569,
+      "name": "Only Way",
+      "night": "Thursday",
+      "program": "Open",
+      "sourceDivision": "A & G Cleaners",
+      "component": 4,
+      "resultAdjustedRating": 1488.3,
+      "playedGames": 6,
+      "uniqueOpponents": 4,
+      "sourceStandingsValid": true,
+      "priorRosterSamples": 14,
+      "priorRosterHistoryFraction": 0.875,
+      "rosterPriorRelativeScoring": 0.149,
+      "crossNightRosterIDs": 4,
+      "qualifiedPlayerGP": 14,
+      "scoringConcentrationTopTwo": 0.378,
+      "rosterQualified": true,
+      "archivedDivisionEvidence": {
+        "source": "FOUR_NIGHT_PRIOR_ROSTER_SUMMARY_ONLY",
+        "exactHistoryPlayerIds": 0,
+        "historicalPlayerSeasons": 0,
+        "divisions": []
+      }
+    },
+    {
+      "teamId": 13658,
+      "leagueId": 569,
+      "name": "San Jose Sharts",
+      "night": "Thursday",
+      "program": "Open",
+      "sourceDivision": "A & G Cleaners",
+      "component": 3,
+      "resultAdjustedRating": 1562.5,
+      "playedGames": 7,
+      "uniqueOpponents": 7,
+      "sourceStandingsValid": true,
+      "priorRosterSamples": 12,
+      "priorRosterHistoryFraction": 0.75,
+      "rosterPriorRelativeScoring": 0.044,
+      "crossNightRosterIDs": 4,
+      "qualifiedPlayerGP": 16,
+      "scoringConcentrationTopTwo": 0.469,
+      "rosterQualified": true,
+      "archivedDivisionEvidence": {
+        "source": "FOUR_NIGHT_PRIOR_ROSTER_SUMMARY_ONLY",
+        "exactHistoryPlayerIds": 0,
+        "historicalPlayerSeasons": 0,
+        "divisions": []
+      }
+    },
+    {
+      "teamId": 13659,
+      "leagueId": 569,
+      "name": "Spicy Margs",
+      "night": "Thursday",
+      "program": "Open",
+      "sourceDivision": "A & G Cleaners",
+      "component": 4,
+      "resultAdjustedRating": 1494.1,
+      "playedGames": 7,
+      "uniqueOpponents": 5,
+      "sourceStandingsValid": true,
+      "priorRosterSamples": 16,
+      "priorRosterHistoryFraction": 1,
+      "rosterPriorRelativeScoring": 0.245,
+      "crossNightRosterIDs": 2,
+      "qualifiedPlayerGP": 15,
+      "scoringConcentrationTopTwo": 0.4,
+      "rosterQualified": true,
+      "archivedDivisionEvidence": {
+        "source": "FOUR_NIGHT_PRIOR_ROSTER_SUMMARY_ONLY",
+        "exactHistoryPlayerIds": 0,
+        "historicalPlayerSeasons": 0,
+        "divisions": []
+      }
+    },
+    {
+      "teamId": 13650,
+      "leagueId": 569,
+      "name": "Sweeps",
+      "night": "Thursday",
+      "program": "Open",
+      "sourceDivision": "A & G Cleaners",
+      "component": 4,
+      "resultAdjustedRating": 1431.9,
+      "playedGames": 7,
+      "uniqueOpponents": 5,
+      "sourceStandingsValid": true,
+      "priorRosterSamples": 14,
+      "priorRosterHistoryFraction": 0.875,
+      "rosterPriorRelativeScoring": -0.146,
+      "crossNightRosterIDs": 3,
+      "qualifiedPlayerGP": 16,
+      "scoringConcentrationTopTwo": 0.438,
+      "rosterQualified": true,
+      "archivedDivisionEvidence": {
+        "source": "FOUR_NIGHT_PRIOR_ROSTER_SUMMARY_ONLY",
+        "exactHistoryPlayerIds": 0,
+        "historicalPlayerSeasons": 0,
+        "divisions": []
+      }
+    },
+    {
+      "teamId": 13652,
+      "leagueId": 569,
+      "name": "Bad News Beers",
+      "night": "Thursday",
+      "program": "Open",
+      "sourceDivision": "Fazzari Partners",
+      "component": 3,
+      "resultAdjustedRating": 1535.1,
+      "playedGames": 7,
+      "uniqueOpponents": 7,
+      "sourceStandingsValid": true,
+      "priorRosterSamples": 16,
+      "priorRosterHistoryFraction": 0.842,
+      "rosterPriorRelativeScoring": -0.082,
+      "crossNightRosterIDs": 1,
+      "qualifiedPlayerGP": 19,
+      "scoringConcentrationTopTwo": 0.314,
+      "rosterQualified": true,
+      "archivedDivisionEvidence": {
+        "source": "FOUR_NIGHT_PRIOR_ROSTER_SUMMARY_ONLY",
+        "exactHistoryPlayerIds": 0,
+        "historicalPlayerSeasons": 0,
+        "divisions": []
+      }
+    },
+    {
+      "teamId": 13639,
+      "leagueId": 569,
+      "name": "Grease Kings",
+      "night": "Thursday",
+      "program": "Open",
+      "sourceDivision": "Fazzari Partners",
+      "component": 3,
+      "resultAdjustedRating": 1440.8,
+      "playedGames": 7,
+      "uniqueOpponents": 7,
+      "sourceStandingsValid": true,
+      "priorRosterSamples": 16,
+      "priorRosterHistoryFraction": 0.941,
+      "rosterPriorRelativeScoring": 0.08,
+      "crossNightRosterIDs": 2,
+      "qualifiedPlayerGP": 16,
+      "scoringConcentrationTopTwo": 0.346,
+      "rosterQualified": true,
+      "archivedDivisionEvidence": {
+        "source": "FOUR_NIGHT_PRIOR_ROSTER_SUMMARY_ONLY",
+        "exactHistoryPlayerIds": 0,
+        "historicalPlayerSeasons": 0,
+        "divisions": []
+      }
+    },
+    {
+      "teamId": 13630,
+      "leagueId": 569,
+      "name": "Italian Peppers",
+      "night": "Thursday",
+      "program": "Open",
+      "sourceDivision": "Fazzari Partners",
+      "component": 3,
+      "resultAdjustedRating": 1521.2,
+      "playedGames": 7,
+      "uniqueOpponents": 7,
+      "sourceStandingsValid": true,
+      "priorRosterSamples": 14,
+      "priorRosterHistoryFraction": 1,
+      "rosterPriorRelativeScoring": 0.062,
+      "crossNightRosterIDs": 0,
+      "qualifiedPlayerGP": 14,
+      "scoringConcentrationTopTwo": 0.514,
+      "rosterQualified": true,
+      "archivedDivisionEvidence": {
+        "source": "FOUR_NIGHT_PRIOR_ROSTER_SUMMARY_ONLY",
+        "exactHistoryPlayerIds": 0,
+        "historicalPlayerSeasons": 0,
+        "divisions": []
+      }
+    },
+    {
+      "teamId": 13625,
+      "leagueId": 569,
+      "name": "Woodbine Stallions",
+      "night": "Thursday",
+      "program": "Open",
+      "sourceDivision": "Fazzari Partners",
+      "component": 3,
+      "resultAdjustedRating": 1473.8,
+      "playedGames": 7,
+      "uniqueOpponents": 7,
+      "sourceStandingsValid": true,
+      "priorRosterSamples": 17,
+      "priorRosterHistoryFraction": 0.895,
+      "rosterPriorRelativeScoring": -0.053,
+      "crossNightRosterIDs": 2,
+      "qualifiedPlayerGP": 19,
+      "scoringConcentrationTopTwo": 0.231,
+      "rosterQualified": true,
+      "archivedDivisionEvidence": {
+        "source": "FOUR_NIGHT_PRIOR_ROSTER_SUMMARY_ONLY",
+        "exactHistoryPlayerIds": 0,
+        "historicalPlayerSeasons": 0,
+        "divisions": []
+      }
+    },
+    {
+      "teamId": 13617,
+      "leagueId": 569,
+      "name": "Blades",
+      "night": "Thursday",
+      "program": "Open",
+      "sourceDivision": "High 5 Photography",
+      "component": 1,
+      "resultAdjustedRating": 1484.8,
+      "playedGames": 7,
+      "uniqueOpponents": 7,
+      "sourceStandingsValid": true,
+      "priorRosterSamples": 7,
+      "priorRosterHistoryFraction": 0.438,
+      "rosterPriorRelativeScoring": -0.213,
+      "crossNightRosterIDs": 2,
+      "qualifiedPlayerGP": 16,
+      "scoringConcentrationTopTwo": 0.4,
+      "rosterQualified": true,
+      "archivedDivisionEvidence": {
+        "source": "FOUR_NIGHT_PRIOR_ROSTER_SUMMARY_ONLY",
+        "exactHistoryPlayerIds": 0,
+        "historicalPlayerSeasons": 0,
+        "divisions": []
+      }
+    },
+    {
+      "teamId": 13662,
+      "leagueId": 569,
+      "name": "Bucky Hangs",
+      "night": "Thursday",
+      "program": "Open",
+      "sourceDivision": "High 5 Photography",
+      "component": 1,
+      "resultAdjustedRating": 1491.5,
+      "playedGames": 6,
+      "uniqueOpponents": 6,
+      "sourceStandingsValid": true,
+      "priorRosterSamples": 11,
+      "priorRosterHistoryFraction": 0.688,
+      "rosterPriorRelativeScoring": -0.292,
+      "crossNightRosterIDs": 3,
+      "qualifiedPlayerGP": 16,
+      "scoringConcentrationTopTwo": 0.409,
+      "rosterQualified": true,
+      "archivedDivisionEvidence": {
+        "source": "FOUR_NIGHT_PRIOR_ROSTER_SUMMARY_ONLY",
+        "exactHistoryPlayerIds": 0,
+        "historicalPlayerSeasons": 0,
+        "divisions": []
+      }
+    },
+    {
+      "teamId": 13628,
+      "leagueId": 569,
+      "name": "Kings",
+      "night": "Thursday",
+      "program": "Open",
+      "sourceDivision": "High 5 Photography",
+      "component": 1,
+      "resultAdjustedRating": 1550.9,
+      "playedGames": 7,
+      "uniqueOpponents": 7,
+      "sourceStandingsValid": true,
+      "priorRosterSamples": 8,
+      "priorRosterHistoryFraction": 0.5,
+      "rosterPriorRelativeScoring": -0.01,
+      "crossNightRosterIDs": 0,
+      "qualifiedPlayerGP": 16,
+      "scoringConcentrationTopTwo": 0.389,
+      "rosterQualified": true,
+      "archivedDivisionEvidence": {
+        "source": "FOUR_NIGHT_PRIOR_ROSTER_SUMMARY_ONLY",
+        "exactHistoryPlayerIds": 0,
+        "historicalPlayerSeasons": 0,
+        "divisions": []
+      }
+    },
+    {
+      "teamId": 13655,
+      "leagueId": 569,
+      "name": "Masterbladers",
+      "night": "Thursday",
+      "program": "Open",
+      "sourceDivision": "High 5 Photography",
+      "component": 1,
+      "resultAdjustedRating": 1479.9,
+      "playedGames": 7,
+      "uniqueOpponents": 7,
+      "sourceStandingsValid": true,
+      "priorRosterSamples": 12,
+      "priorRosterHistoryFraction": 0.667,
+      "rosterPriorRelativeScoring": 0.097,
+      "crossNightRosterIDs": 5,
+      "qualifiedPlayerGP": 18,
+      "scoringConcentrationTopTwo": 0.393,
+      "rosterQualified": true,
+      "archivedDivisionEvidence": {
+        "source": "FOUR_NIGHT_PRIOR_ROSTER_SUMMARY_ONLY",
+        "exactHistoryPlayerIds": 0,
+        "historicalPlayerSeasons": 0,
+        "divisions": []
+      }
+    },
+    {
+      "teamId": 13732,
+      "leagueId": 569,
+      "name": "Teamu Salami",
+      "night": "Thursday",
+      "program": "Open",
+      "sourceDivision": "High 5 Photography",
+      "component": 1,
+      "resultAdjustedRating": 1533,
+      "playedGames": 5,
+      "uniqueOpponents": 5,
+      "sourceStandingsValid": true,
+      "priorRosterSamples": 10,
+      "priorRosterHistoryFraction": 0.5,
+      "rosterPriorRelativeScoring": -0.124,
+      "crossNightRosterIDs": 0,
+      "qualifiedPlayerGP": 17,
+      "scoringConcentrationTopTwo": 0.462,
+      "rosterQualified": true,
+      "archivedDivisionEvidence": {
+        "source": "FOUR_NIGHT_PRIOR_ROSTER_SUMMARY_ONLY",
+        "exactHistoryPlayerIds": 0,
+        "historicalPlayerSeasons": 0,
+        "divisions": []
+      }
+    },
+    {
+      "teamId": 13618,
+      "leagueId": 569,
+      "name": "Blackhawks",
+      "night": "Thursday",
+      "program": "Masters",
+      "sourceDivision": "Kool Stuff Masters",
+      "component": 1,
+      "resultAdjustedRating": 1523.9,
+      "playedGames": 7,
+      "uniqueOpponents": 5,
+      "sourceStandingsValid": true,
+      "priorRosterSamples": 12,
+      "priorRosterHistoryFraction": 0.923,
+      "rosterPriorRelativeScoring": 0.314,
+      "crossNightRosterIDs": 0,
+      "qualifiedPlayerGP": 13,
+      "scoringConcentrationTopTwo": 0.349,
+      "rosterQualified": true,
+      "archivedDivisionEvidence": {
+        "source": "FOUR_NIGHT_PRIOR_ROSTER_SUMMARY_ONLY",
+        "exactHistoryPlayerIds": 0,
+        "historicalPlayerSeasons": 0,
+        "divisions": []
+      }
+    },
+    {
+      "teamId": 13624,
+      "leagueId": 569,
+      "name": "Dynamo",
+      "night": "Thursday",
+      "program": "Masters",
+      "sourceDivision": "Kool Stuff Masters",
+      "component": 1,
+      "resultAdjustedRating": 1437,
+      "playedGames": 7,
+      "uniqueOpponents": 5,
+      "sourceStandingsValid": true,
+      "priorRosterSamples": 14,
+      "priorRosterHistoryFraction": 0.824,
+      "rosterPriorRelativeScoring": 0.083,
+      "crossNightRosterIDs": 0,
+      "qualifiedPlayerGP": 17,
+      "scoringConcentrationTopTwo": 0.41,
+      "rosterQualified": true,
+      "archivedDivisionEvidence": {
+        "source": "FOUR_NIGHT_PRIOR_ROSTER_SUMMARY_ONLY",
+        "exactHistoryPlayerIds": 0,
+        "historicalPlayerSeasons": 0,
+        "divisions": []
+      }
+    },
+    {
+      "teamId": 13635,
+      "leagueId": 569,
+      "name": "Panthers H/C",
+      "night": "Thursday",
+      "program": "Masters",
+      "sourceDivision": "Kool Stuff Masters",
+      "component": 1,
+      "resultAdjustedRating": 1510.6,
+      "playedGames": 7,
+      "uniqueOpponents": 5,
+      "sourceStandingsValid": true,
+      "priorRosterSamples": 9,
+      "priorRosterHistoryFraction": 0.75,
+      "rosterPriorRelativeScoring": 0.33,
+      "crossNightRosterIDs": 0,
+      "qualifiedPlayerGP": 11,
+      "scoringConcentrationTopTwo": 0.509,
+      "rosterQualified": true,
+      "archivedDivisionEvidence": {
+        "source": "FOUR_NIGHT_PRIOR_ROSTER_SUMMARY_ONLY",
+        "exactHistoryPlayerIds": 0,
+        "historicalPlayerSeasons": 0,
+        "divisions": []
+      }
+    },
+    {
+      "teamId": 13636,
+      "leagueId": 569,
+      "name": "Redwings",
+      "night": "Thursday",
+      "program": "Masters",
+      "sourceDivision": "Kool Stuff Masters",
+      "component": 1,
+      "resultAdjustedRating": 1551.9,
+      "playedGames": 7,
+      "uniqueOpponents": 5,
+      "sourceStandingsValid": true,
+      "priorRosterSamples": 9,
+      "priorRosterHistoryFraction": 0.75,
+      "rosterPriorRelativeScoring": 0.285,
+      "crossNightRosterIDs": 0,
+      "qualifiedPlayerGP": 12,
+      "scoringConcentrationTopTwo": 0.483,
+      "rosterQualified": true,
+      "archivedDivisionEvidence": {
+        "source": "FOUR_NIGHT_PRIOR_ROSTER_SUMMARY_ONLY",
+        "exactHistoryPlayerIds": 0,
+        "historicalPlayerSeasons": 0,
+        "divisions": []
+      }
+    },
+    {
+      "teamId": 13638,
+      "leagueId": 569,
+      "name": "YYZ Express",
+      "night": "Thursday",
+      "program": "Masters",
+      "sourceDivision": "Kool Stuff Masters",
+      "component": 1,
+      "resultAdjustedRating": 1475.3,
+      "playedGames": 7,
+      "uniqueOpponents": 7,
+      "sourceStandingsValid": true,
+      "priorRosterSamples": 11,
+      "priorRosterHistoryFraction": 0.786,
+      "rosterPriorRelativeScoring": 0.167,
+      "crossNightRosterIDs": 0,
+      "qualifiedPlayerGP": 14,
+      "scoringConcentrationTopTwo": 0.359,
+      "rosterQualified": true,
+      "archivedDivisionEvidence": {
+        "source": "FOUR_NIGHT_PRIOR_ROSTER_SUMMARY_ONLY",
+        "exactHistoryPlayerIds": 0,
+        "historicalPlayerSeasons": 0,
+        "divisions": []
+      }
+    },
+    {
+      "teamId": 13621,
+      "leagueId": 569,
+      "name": "GQ Stars",
+      "night": "Thursday",
+      "program": "Masters",
+      "sourceDivision": "Re-Max Masters",
+      "component": 2,
+      "resultAdjustedRating": 1478.8,
+      "playedGames": 6,
+      "uniqueOpponents": 5,
+      "sourceStandingsValid": true,
+      "priorRosterSamples": 10,
+      "priorRosterHistoryFraction": 0.625,
+      "rosterPriorRelativeScoring": -0.361,
+      "crossNightRosterIDs": 0,
+      "qualifiedPlayerGP": 16,
+      "scoringConcentrationTopTwo": 0.381,
+      "rosterQualified": true,
+      "archivedDivisionEvidence": {
+        "source": "FOUR_NIGHT_PRIOR_ROSTER_SUMMARY_ONLY",
+        "exactHistoryPlayerIds": 0,
+        "historicalPlayerSeasons": 0,
+        "divisions": []
+      }
+    },
+    {
+      "teamId": 13622,
+      "leagueId": 569,
+      "name": "Greyhounds",
+      "night": "Thursday",
+      "program": "Masters",
+      "sourceDivision": "Re-Max Masters",
+      "component": 2,
+      "resultAdjustedRating": 1566.1,
+      "playedGames": 7,
+      "uniqueOpponents": 5,
+      "sourceStandingsValid": true,
+      "priorRosterSamples": 0,
+      "priorRosterHistoryFraction": 0,
+      "rosterPriorRelativeScoring": null,
+      "crossNightRosterIDs": 0,
+      "qualifiedPlayerGP": 16,
+      "scoringConcentrationTopTwo": 0.281,
+      "rosterQualified": true,
+      "archivedDivisionEvidence": {
+        "source": "FOUR_NIGHT_PRIOR_ROSTER_SUMMARY_ONLY",
+        "exactHistoryPlayerIds": 0,
+        "historicalPlayerSeasons": 0,
+        "divisions": []
+      }
+    },
+    {
+      "teamId": 13632,
+      "leagueId": 569,
+      "name": "Ice Hogs",
+      "night": "Thursday",
+      "program": "Masters",
+      "sourceDivision": "Re-Max Masters",
+      "component": 2,
+      "resultAdjustedRating": 1497.9,
+      "playedGames": 6,
+      "uniqueOpponents": 5,
+      "sourceStandingsValid": true,
+      "priorRosterSamples": 11,
+      "priorRosterHistoryFraction": 0.786,
+      "rosterPriorRelativeScoring": -0.051,
+      "crossNightRosterIDs": 1,
+      "qualifiedPlayerGP": 14,
+      "scoringConcentrationTopTwo": 0.409,
+      "rosterQualified": true,
+      "archivedDivisionEvidence": {
+        "source": "FOUR_NIGHT_PRIOR_ROSTER_SUMMARY_ONLY",
+        "exactHistoryPlayerIds": 0,
+        "historicalPlayerSeasons": 0,
+        "divisions": []
+      }
+    },
+    {
+      "teamId": 13633,
+      "leagueId": 569,
+      "name": "Kremlins 35",
+      "night": "Thursday",
+      "program": "Masters",
+      "sourceDivision": "Re-Max Masters",
+      "component": 2,
+      "resultAdjustedRating": 1500.6,
+      "playedGames": 7,
+      "uniqueOpponents": 5,
+      "sourceStandingsValid": true,
+      "priorRosterSamples": 11,
+      "priorRosterHistoryFraction": 0.786,
+      "rosterPriorRelativeScoring": -0.049,
+      "crossNightRosterIDs": 0,
+      "qualifiedPlayerGP": 14,
+      "scoringConcentrationTopTwo": 0.452,
+      "rosterQualified": true,
+      "archivedDivisionEvidence": {
+        "source": "FOUR_NIGHT_PRIOR_ROSTER_SUMMARY_ONLY",
+        "exactHistoryPlayerIds": 0,
+        "historicalPlayerSeasons": 0,
+        "divisions": []
+      }
+    },
+    {
+      "teamId": 13634,
+      "leagueId": 569,
+      "name": "Lovics",
+      "night": "Thursday",
+      "program": "Masters",
+      "sourceDivision": "Re-Max Masters",
+      "component": 2,
+      "resultAdjustedRating": 1446.7,
+      "playedGames": 7,
+      "uniqueOpponents": 5,
+      "sourceStandingsValid": true,
+      "priorRosterSamples": 13,
+      "priorRosterHistoryFraction": 0.867,
+      "rosterPriorRelativeScoring": -0.054,
+      "crossNightRosterIDs": 0,
+      "qualifiedPlayerGP": 15,
+      "scoringConcentrationTopTwo": 0.286,
+      "rosterQualified": true,
+      "archivedDivisionEvidence": {
+        "source": "FOUR_NIGHT_PRIOR_ROSTER_SUMMARY_ONLY",
+        "exactHistoryPlayerIds": 0,
+        "historicalPlayerSeasons": 0,
+        "divisions": []
+      }
+    },
+    {
+      "teamId": 13637,
+      "leagueId": 569,
+      "name": "Team Finelli",
+      "night": "Thursday",
+      "program": "Masters",
+      "sourceDivision": "Re-Max Masters",
+      "component": 2,
+      "resultAdjustedRating": 1509.8,
+      "playedGames": 7,
+      "uniqueOpponents": 5,
+      "sourceStandingsValid": true,
+      "priorRosterSamples": 11,
+      "priorRosterHistoryFraction": 0.688,
+      "rosterPriorRelativeScoring": 0.011,
+      "crossNightRosterIDs": 0,
+      "qualifiedPlayerGP": 16,
+      "scoringConcentrationTopTwo": 0.718,
+      "rosterQualified": true,
+      "archivedDivisionEvidence": {
+        "source": "FOUR_NIGHT_PRIOR_ROSTER_SUMMARY_ONLY",
+        "exactHistoryPlayerIds": 0,
+        "historicalPlayerSeasons": 0,
+        "divisions": []
+      }
+    },
+    {
+      "teamId": 13686,
+      "leagueId": 570,
+      "name": "Batman Prep",
+      "night": "Sunday",
+      "program": "Open",
+      "sourceDivision": "Remax Division",
+      "component": 1,
+      "resultAdjustedRating": 1433,
+      "playedGames": 7,
+      "uniqueOpponents": 7,
+      "sourceStandingsValid": true,
+      "priorRosterSamples": 11,
+      "priorRosterHistoryFraction": 0.786,
+      "rosterPriorRelativeScoring": -0.253,
+      "crossNightRosterIDs": 0,
+      "qualifiedPlayerGP": 14,
+      "scoringConcentrationTopTwo": 0.4,
+      "rosterQualified": true,
+      "archivedDivisionEvidence": {
+        "source": "EXACT_CURRENT_SVHL_PLAYER_ID_ARCHIVED_SUNDAY_DIVISION_CONTEXT",
+        "exactHistoryPlayerIds": 0,
+        "historicalPlayerSeasons": 0,
+        "divisions": [],
+        "sourceRosterCapturedAt": "2026-10-27T04:08:28.585604+00:00",
+        "officialTierKnown": false
+      }
+    },
+    {
+      "teamId": 13714,
+      "leagueId": 570,
+      "name": "Thrillers",
+      "night": "Sunday",
+      "program": "Open",
+      "sourceDivision": "Remax Division",
+      "component": 1,
+      "resultAdjustedRating": 1574.4,
+      "playedGames": 7,
+      "uniqueOpponents": 7,
+      "sourceStandingsValid": true,
+      "priorRosterSamples": 16,
+      "priorRosterHistoryFraction": 0.842,
+      "rosterPriorRelativeScoring": 0.12,
+      "crossNightRosterIDs": 1,
+      "qualifiedPlayerGP": 19,
+      "scoringConcentrationTopTwo": 0.354,
+      "rosterQualified": true,
+      "archivedDivisionEvidence": {
+        "source": "EXACT_CURRENT_SVHL_PLAYER_ID_ARCHIVED_SUNDAY_DIVISION_CONTEXT",
+        "exactHistoryPlayerIds": 16,
+        "historicalPlayerSeasons": 42,
+        "divisions": [
+          {
+            "season": "Sunday Winter 2024/25",
+            "division": "Gatorade Division",
+            "exactCurrentPlayerIds": 11,
+            "observedGP": 215,
+            "observedPoints": 64,
+            "approvedHistoricalDivisionTier": null
+          },
+          {
+            "season": "Sunday Winter 2025/26",
+            "division": "Lormel Division",
+            "exactCurrentPlayerIds": 10,
+            "observedGP": 172,
+            "observedPoints": 94,
+            "approvedHistoricalDivisionTier": null
+          },
+          {
+            "season": "Sunday Winter 2023/24",
+            "division": "7up Division",
+            "exactCurrentPlayerIds": 8,
+            "observedGP": 188,
+            "observedPoints": 128,
+            "approvedHistoricalDivisionTier": null
+          },
+          {
+            "season": "Sunday Winter 2022/23",
+            "division": "Brisk Division",
+            "exactCurrentPlayerIds": 7,
+            "observedGP": 138,
+            "observedPoints": 91,
+            "approvedHistoricalDivisionTier": null
+          },
+          {
+            "season": "Sunday Winter 2021/22",
+            "division": "Hot Shots Division",
+            "exactCurrentPlayerIds": 5,
+            "observedGP": 90,
+            "observedPoints": 55,
+            "approvedHistoricalDivisionTier": null
+          },
+          {
+            "season": "Sunday Winter 2018/19",
+            "division": "Gatorade Division",
+            "exactCurrentPlayerIds": 1,
+            "observedGP": 26,
+            "observedPoints": 23,
+            "approvedHistoricalDivisionTier": null
+          }
+        ],
+        "sourceRosterCapturedAt": "2026-10-27T04:08:28.585604+00:00",
+        "officialTierKnown": false
+      }
+    },
+    {
+      "teamId": 13679,
+      "leagueId": 570,
+      "name": "Braves HC",
+      "night": "Sunday",
+      "program": "Open",
+      "sourceDivision": "The Cristillo Division",
+      "component": 1,
+      "resultAdjustedRating": 1409.9,
+      "playedGames": 8,
+      "uniqueOpponents": 7,
+      "sourceStandingsValid": true,
+      "priorRosterSamples": 15,
+      "priorRosterHistoryFraction": 0.714,
+      "rosterPriorRelativeScoring": -0.087,
+      "crossNightRosterIDs": 3,
+      "qualifiedPlayerGP": 21,
+      "scoringConcentrationTopTwo": 0.297,
+      "rosterQualified": true,
+      "archivedDivisionEvidence": {
+        "source": "EXACT_CURRENT_SVHL_PLAYER_ID_ARCHIVED_SUNDAY_DIVISION_CONTEXT",
+        "exactHistoryPlayerIds": 13,
+        "historicalPlayerSeasons": 46,
+        "divisions": [
+          {
+            "season": "Sunday Winter 2025/26",
+            "division": "The Cristillo Division",
+            "exactCurrentPlayerIds": 12,
+            "observedGP": 212,
+            "observedPoints": 98,
+            "approvedHistoricalDivisionTier": null
+          },
+          {
+            "season": "Sunday Winter 2024/25",
+            "division": "Pepsi Division",
+            "exactCurrentPlayerIds": 11,
+            "observedGP": 214,
+            "observedPoints": 81,
+            "approvedHistoricalDivisionTier": null
+          },
+          {
+            "season": "Sunday Winter 2022/23",
+            "division": "Pizzaville Division",
+            "exactCurrentPlayerIds": 9,
+            "observedGP": 181,
+            "observedPoints": 75,
+            "approvedHistoricalDivisionTier": null
+          },
+          {
+            "season": "Sunday Winter 2023/24",
+            "division": "Pizzaville Division",
+            "exactCurrentPlayerIds": 8,
+            "observedGP": 184,
+            "observedPoints": 86,
+            "approvedHistoricalDivisionTier": null
+          },
+          {
+            "season": "Sunday Winter 2018/19",
+            "division": "Gatorade Division",
+            "exactCurrentPlayerIds": 5,
+            "observedGP": 129,
+            "observedPoints": 43,
+            "approvedHistoricalDivisionTier": null
+          },
+          {
+            "season": "Sunday Winter 2021/22",
+            "division": "Gatorade Division",
+            "exactCurrentPlayerIds": 1,
+            "observedGP": 17,
+            "observedPoints": 1,
+            "approvedHistoricalDivisionTier": null
+          }
+        ],
+        "sourceRosterCapturedAt": "2026-10-27T04:08:28.585604+00:00",
+        "officialTierKnown": false
+      }
+    },
+    {
+      "teamId": 13668,
+      "leagueId": 570,
+      "name": "Dateline Predators",
+      "night": "Sunday",
+      "program": "Open",
+      "sourceDivision": "The Cristillo Division",
+      "component": 1,
+      "resultAdjustedRating": 1419.7,
+      "playedGames": 8,
+      "uniqueOpponents": 7,
+      "sourceStandingsValid": true,
+      "priorRosterSamples": 12,
+      "priorRosterHistoryFraction": 0.75,
+      "rosterPriorRelativeScoring": -0.227,
+      "crossNightRosterIDs": 0,
+      "qualifiedPlayerGP": 16,
+      "scoringConcentrationTopTwo": 0.364,
+      "rosterQualified": true,
+      "archivedDivisionEvidence": {
+        "source": "EXACT_CURRENT_SVHL_PLAYER_ID_ARCHIVED_SUNDAY_DIVISION_CONTEXT",
+        "exactHistoryPlayerIds": 12,
+        "historicalPlayerSeasons": 38,
+        "divisions": [
+          {
+            "season": "Sunday Winter 2025/26",
+            "division": "The Cristillo Division",
+            "exactCurrentPlayerIds": 11,
+            "observedGP": 231,
+            "observedPoints": 55,
+            "approvedHistoricalDivisionTier": null
+          },
+          {
+            "season": "Sunday Winter 2024/25",
+            "division": "Pizzaville Division",
+            "exactCurrentPlayerIds": 10,
+            "observedGP": 212,
+            "observedPoints": 51,
+            "approvedHistoricalDivisionTier": null
+          },
+          {
+            "season": "Sunday Winter 2023/24",
+            "division": "Pizzaville Division",
+            "exactCurrentPlayerIds": 6,
+            "observedGP": 138,
+            "observedPoints": 28,
+            "approvedHistoricalDivisionTier": null
+          },
+          {
+            "season": "Sunday Winter 2022/23",
+            "division": "Hot Shots",
+            "exactCurrentPlayerIds": 6,
+            "observedGP": 116,
+            "observedPoints": 36,
+            "approvedHistoricalDivisionTier": null
+          },
+          {
+            "season": "Sunday Winter 2021/22",
+            "division": "Mountain Dew Division",
+            "exactCurrentPlayerIds": 5,
+            "observedGP": 74,
+            "observedPoints": 36,
+            "approvedHistoricalDivisionTier": null
+          }
+        ],
+        "sourceRosterCapturedAt": "2026-10-27T04:08:28.585604+00:00",
+        "officialTierKnown": false
+      }
+    },
+    {
+      "teamId": 13712,
+      "leagueId": 570,
+      "name": "Maplewolves",
+      "night": "Sunday",
+      "program": "Open",
+      "sourceDivision": "The Cristillo Division",
+      "component": 1,
+      "resultAdjustedRating": 1445.2,
+      "playedGames": 8,
+      "uniqueOpponents": 8,
+      "sourceStandingsValid": true,
+      "priorRosterSamples": 12,
+      "priorRosterHistoryFraction": 0.8,
+      "rosterPriorRelativeScoring": 0.085,
+      "crossNightRosterIDs": 4,
+      "qualifiedPlayerGP": 15,
+      "scoringConcentrationTopTwo": 0.405,
+      "rosterQualified": true,
+      "archivedDivisionEvidence": {
+        "source": "EXACT_CURRENT_SVHL_PLAYER_ID_ARCHIVED_SUNDAY_DIVISION_CONTEXT",
+        "exactHistoryPlayerIds": 8,
+        "historicalPlayerSeasons": 20,
+        "divisions": [
+          {
+            "season": "Sunday Winter 2018/19",
+            "division": "Brisk Division",
+            "exactCurrentPlayerIds": 7,
+            "observedGP": 154,
+            "observedPoints": 159,
+            "approvedHistoricalDivisionTier": null
+          },
+          {
+            "season": "Sunday Winter 2025/26",
+            "division": "Maple Hyundai",
+            "exactCurrentPlayerIds": 7,
+            "observedGP": 141,
+            "observedPoints": 101,
+            "approvedHistoricalDivisionTier": null
+          },
+          {
+            "season": "Sunday Winter 2022/23",
+            "division": "Pepsi Division",
+            "exactCurrentPlayerIds": 3,
+            "observedGP": 60,
+            "observedPoints": 43,
+            "approvedHistoricalDivisionTier": null
+          },
+          {
+            "season": "Sunday Winter 2022/23",
+            "division": "Aquafina Division",
+            "exactCurrentPlayerIds": 1,
+            "observedGP": 21,
+            "observedPoints": 8,
+            "approvedHistoricalDivisionTier": null
+          },
+          {
+            "season": "Sunday Winter 2021/22",
+            "division": "Brisk Division",
+            "exactCurrentPlayerIds": 1,
+            "observedGP": 19,
+            "observedPoints": 29,
+            "approvedHistoricalDivisionTier": null
+          },
+          {
+            "season": "Sunday Winter 2016/17",
+            "division": "Brisk Division",
+            "exactCurrentPlayerIds": 1,
+            "observedGP": 13,
+            "observedPoints": 2,
+            "approvedHistoricalDivisionTier": null
+          }
+        ],
+        "sourceRosterCapturedAt": "2026-10-27T04:08:28.585604+00:00",
+        "officialTierKnown": false
+      }
+    },
+    {
+      "teamId": 13708,
+      "leagueId": 570,
+      "name": "Mid Ice Crisis",
+      "night": "Sunday",
+      "program": "Open",
+      "sourceDivision": "The Cristillo Division",
+      "component": 1,
+      "resultAdjustedRating": 1560.7,
+      "playedGames": 8,
+      "uniqueOpponents": 7,
+      "sourceStandingsValid": true,
+      "priorRosterSamples": 15,
+      "priorRosterHistoryFraction": 0.789,
+      "rosterPriorRelativeScoring": -0.003,
+      "crossNightRosterIDs": 2,
+      "qualifiedPlayerGP": 19,
+      "scoringConcentrationTopTwo": 0.286,
+      "rosterQualified": true,
+      "archivedDivisionEvidence": {
+        "source": "EXACT_CURRENT_SVHL_PLAYER_ID_ARCHIVED_SUNDAY_DIVISION_CONTEXT",
+        "exactHistoryPlayerIds": 11,
+        "historicalPlayerSeasons": 21,
+        "divisions": [
+          {
+            "season": "Sunday Winter 2025/26",
+            "division": "Swiss Chalet Division",
+            "exactCurrentPlayerIds": 9,
+            "observedGP": 184,
+            "observedPoints": 88,
+            "approvedHistoricalDivisionTier": null
+          },
+          {
+            "season": "Sunday Winter 2024/25",
+            "division": "Pepsi Division",
+            "exactCurrentPlayerIds": 7,
+            "observedGP": 126,
+            "observedPoints": 42,
+            "approvedHistoricalDivisionTier": null
+          },
+          {
+            "season": "Sunday Winter 2022/23",
+            "division": "Pepsi Division",
+            "exactCurrentPlayerIds": 2,
+            "observedGP": 41,
+            "observedPoints": 8,
+            "approvedHistoricalDivisionTier": null
+          },
+          {
+            "season": "Sunday Winter 2023/24",
+            "division": "Pepsi Division",
+            "exactCurrentPlayerIds": 2,
+            "observedGP": 26,
+            "observedPoints": 17,
+            "approvedHistoricalDivisionTier": null
+          },
+          {
+            "season": "Sunday Winter 2018/19",
+            "division": "Mug Division",
+            "exactCurrentPlayerIds": 1,
+            "observedGP": 20,
+            "observedPoints": 16,
+            "approvedHistoricalDivisionTier": null
+          }
+        ],
+        "sourceRosterCapturedAt": "2026-10-27T04:08:28.585604+00:00",
+        "officialTierKnown": false
+      }
+    },
+    {
+      "teamId": 13596,
+      "leagueId": 570,
+      "name": "Bushwackers",
+      "night": "Sunday",
+      "program": "Open",
+      "sourceDivision": "Fazzari Partners",
+      "component": 1,
+      "resultAdjustedRating": 1544.8,
+      "playedGames": 7,
+      "uniqueOpponents": 6,
+      "sourceStandingsValid": true,
+      "priorRosterSamples": 15,
+      "priorRosterHistoryFraction": 0.882,
+      "rosterPriorRelativeScoring": 0.302,
+      "crossNightRosterIDs": 1,
+      "qualifiedPlayerGP": 17,
+      "scoringConcentrationTopTwo": 0.341,
+      "rosterQualified": true,
+      "archivedDivisionEvidence": {
+        "source": "EXACT_CURRENT_SVHL_PLAYER_ID_ARCHIVED_SUNDAY_DIVISION_CONTEXT",
+        "exactHistoryPlayerIds": 13,
+        "historicalPlayerSeasons": 41,
+        "divisions": [
+          {
+            "season": "Sunday Winter 2024/25",
+            "division": "7Up Division",
+            "exactCurrentPlayerIds": 12,
+            "observedGP": 247,
+            "observedPoints": 148,
+            "approvedHistoricalDivisionTier": null
+          },
+          {
+            "season": "Sunday Winter 2023/24",
+            "division": "Aquafina Division",
+            "exactCurrentPlayerIds": 9,
+            "observedGP": 194,
+            "observedPoints": 99,
+            "approvedHistoricalDivisionTier": null
+          },
+          {
+            "season": "Sunday Winter 2025/26",
+            "division": "Fazzari Division",
+            "exactCurrentPlayerIds": 9,
+            "observedGP": 179,
+            "observedPoints": 128,
+            "approvedHistoricalDivisionTier": null
+          },
+          {
+            "season": "Sunday Winter 2022/23",
+            "division": "Aquafina Division",
+            "exactCurrentPlayerIds": 6,
+            "observedGP": 121,
+            "observedPoints": 59,
+            "approvedHistoricalDivisionTier": null
+          },
+          {
+            "season": "Sunday Winter 2021/22",
+            "division": "Gatorade Division",
+            "exactCurrentPlayerIds": 3,
+            "observedGP": 48,
+            "observedPoints": 26,
+            "approvedHistoricalDivisionTier": null
+          },
+          {
+            "season": "Sunday Winter 2023/24",
+            "division": "Gatorade Division",
+            "exactCurrentPlayerIds": 1,
+            "observedGP": 24,
+            "observedPoints": 13,
+            "approvedHistoricalDivisionTier": null
+          },
+          {
+            "season": "Sunday Winter 2024/25",
+            "division": "Brisk Division",
+            "exactCurrentPlayerIds": 1,
+            "observedGP": 22,
+            "observedPoints": 22,
+            "approvedHistoricalDivisionTier": null
+          }
+        ],
+        "sourceRosterCapturedAt": "2026-10-27T04:08:28.585604+00:00",
+        "officialTierKnown": false
+      }
+    },
+    {
+      "teamId": 13671,
+      "leagueId": 570,
+      "name": "Hawks",
+      "night": "Sunday",
+      "program": "Open",
+      "sourceDivision": "Fazzari Partners",
+      "component": 1,
+      "resultAdjustedRating": 1493.9,
+      "playedGames": 7,
+      "uniqueOpponents": 6,
+      "sourceStandingsValid": true,
+      "priorRosterSamples": 10,
+      "priorRosterHistoryFraction": 0.667,
+      "rosterPriorRelativeScoring": 0.013,
+      "crossNightRosterIDs": 3,
+      "qualifiedPlayerGP": 15,
+      "scoringConcentrationTopTwo": 0.351,
+      "rosterQualified": true,
+      "archivedDivisionEvidence": {
+        "source": "EXACT_CURRENT_SVHL_PLAYER_ID_ARCHIVED_SUNDAY_DIVISION_CONTEXT",
+        "exactHistoryPlayerIds": 10,
+        "historicalPlayerSeasons": 32,
+        "divisions": [
+          {
+            "season": "Sunday Winter 2025/26",
+            "division": "Fazzari Division",
+            "exactCurrentPlayerIds": 7,
+            "observedGP": 114,
+            "observedPoints": 44,
+            "approvedHistoricalDivisionTier": null
+          },
+          {
+            "season": "Sunday Winter 2024/25",
+            "division": "7Up Division",
+            "exactCurrentPlayerIds": 6,
+            "observedGP": 122,
+            "observedPoints": 57,
+            "approvedHistoricalDivisionTier": null
+          },
+          {
+            "season": "Sunday Winter 2021/22",
+            "division": "Gatorade Division",
+            "exactCurrentPlayerIds": 6,
+            "observedGP": 83,
+            "observedPoints": 41,
+            "approvedHistoricalDivisionTier": null
+          },
+          {
+            "season": "Sunday Winter 2018/19",
+            "division": "7Up Division",
+            "exactCurrentPlayerIds": 4,
+            "observedGP": 78,
+            "observedPoints": 48,
+            "approvedHistoricalDivisionTier": null
+          },
+          {
+            "season": "Sunday Winter 2023/24",
+            "division": "7up Division",
+            "exactCurrentPlayerIds": 4,
+            "observedGP": 76,
+            "observedPoints": 28,
+            "approvedHistoricalDivisionTier": null
+          },
+          {
+            "season": "Sunday Winter 2022/23",
+            "division": "Aquafina Division",
+            "exactCurrentPlayerIds": 4,
+            "observedGP": 75,
+            "observedPoints": 35,
+            "approvedHistoricalDivisionTier": null
+          },
+          {
+            "season": "Sunday Winter 2024/25",
+            "division": "Pepsi Division",
+            "exactCurrentPlayerIds": 1,
+            "observedGP": 13,
+            "observedPoints": 0,
+            "approvedHistoricalDivisionTier": null
+          }
+        ],
+        "sourceRosterCapturedAt": "2026-10-27T04:08:28.585604+00:00",
+        "officialTierKnown": false
+      }
+    },
+    {
+      "teamId": 13627,
+      "leagueId": 570,
+      "name": "Last Pass",
+      "night": "Sunday",
+      "program": "Open",
+      "sourceDivision": "Fazzari Partners",
+      "component": 1,
+      "resultAdjustedRating": 1508.6,
+      "playedGames": 7,
+      "uniqueOpponents": 5,
+      "sourceStandingsValid": true,
+      "priorRosterSamples": 17,
+      "priorRosterHistoryFraction": 0.85,
+      "rosterPriorRelativeScoring": 0.096,
+      "crossNightRosterIDs": 6,
+      "qualifiedPlayerGP": 20,
+      "scoringConcentrationTopTwo": 0.39,
+      "rosterQualified": true,
+      "archivedDivisionEvidence": {
+        "source": "EXACT_CURRENT_SVHL_PLAYER_ID_ARCHIVED_SUNDAY_DIVISION_CONTEXT",
+        "exactHistoryPlayerIds": 14,
+        "historicalPlayerSeasons": 35,
+        "divisions": [
+          {
+            "season": "Sunday Winter 2023/24",
+            "division": "7up Division",
+            "exactCurrentPlayerIds": 11,
+            "observedGP": 247,
+            "observedPoints": 102,
+            "approvedHistoricalDivisionTier": null
+          },
+          {
+            "season": "Sunday Winter 2024/25",
+            "division": "Gatorade Division",
+            "exactCurrentPlayerIds": 10,
+            "observedGP": 198,
+            "observedPoints": 86,
+            "approvedHistoricalDivisionTier": null
+          },
+          {
+            "season": "Sunday Winter 2025/26",
+            "division": "Hot Shots Division",
+            "exactCurrentPlayerIds": 9,
+            "observedGP": 160,
+            "observedPoints": 79,
+            "approvedHistoricalDivisionTier": null
+          },
+          {
+            "season": "Sunday Winter 2018/19",
+            "division": "Brisk Division",
+            "exactCurrentPlayerIds": 1,
+            "observedGP": 24,
+            "observedPoints": 3,
+            "approvedHistoricalDivisionTier": null
+          },
+          {
+            "season": "Sunday Winter 2023/24",
+            "division": "Gatorade Division",
+            "exactCurrentPlayerIds": 1,
+            "observedGP": 21,
+            "observedPoints": 4,
+            "approvedHistoricalDivisionTier": null
+          },
+          {
+            "season": "Sunday Winter 2022/23",
+            "division": "Pepsi Division",
+            "exactCurrentPlayerIds": 1,
+            "observedGP": 21,
+            "observedPoints": 27,
+            "approvedHistoricalDivisionTier": null
+          },
+          {
+            "season": "Sunday Winter 2021/22",
+            "division": "Gibson Division",
+            "exactCurrentPlayerIds": 1,
+            "observedGP": 16,
+            "observedPoints": 10,
+            "approvedHistoricalDivisionTier": null
+          },
+          {
+            "season": "Sunday Winter 2021/22",
+            "division": "Mountain Dew Division",
+            "exactCurrentPlayerIds": 1,
+            "observedGP": 12,
+            "observedPoints": 8,
+            "approvedHistoricalDivisionTier": null
+          }
+        ],
+        "sourceRosterCapturedAt": "2026-10-27T04:08:28.585604+00:00",
+        "officialTierKnown": false
+      }
+    },
+    {
+      "teamId": 13700,
+      "leagueId": 570,
+      "name": "Pinheads",
+      "night": "Sunday",
+      "program": "Open",
+      "sourceDivision": "Fazzari Partners",
+      "component": 1,
+      "resultAdjustedRating": 1556.4,
+      "playedGames": 7,
+      "uniqueOpponents": 5,
+      "sourceStandingsValid": true,
+      "priorRosterSamples": 14,
+      "priorRosterHistoryFraction": 0.7,
+      "rosterPriorRelativeScoring": 0.001,
+      "crossNightRosterIDs": 1,
+      "qualifiedPlayerGP": 20,
+      "scoringConcentrationTopTwo": 0.233,
+      "rosterQualified": true,
+      "archivedDivisionEvidence": {
+        "source": "EXACT_CURRENT_SVHL_PLAYER_ID_ARCHIVED_SUNDAY_DIVISION_CONTEXT",
+        "exactHistoryPlayerIds": 10,
+        "historicalPlayerSeasons": 30,
+        "divisions": [
+          {
+            "season": "Sunday Winter 2025/26",
+            "division": "Fazzari Division",
+            "exactCurrentPlayerIds": 8,
+            "observedGP": 143,
+            "observedPoints": 82,
+            "approvedHistoricalDivisionTier": null
+          },
+          {
+            "season": "Sunday Winter 2023/24",
+            "division": "7up Division",
+            "exactCurrentPlayerIds": 6,
+            "observedGP": 136,
+            "observedPoints": 73,
+            "approvedHistoricalDivisionTier": null
+          },
+          {
+            "season": "Sunday Winter 2024/25",
+            "division": "7Up Division",
+            "exactCurrentPlayerIds": 5,
+            "observedGP": 110,
+            "observedPoints": 77,
+            "approvedHistoricalDivisionTier": null
+          },
+          {
+            "season": "Sunday Winter 2022/23",
+            "division": "Aquafina Division",
+            "exactCurrentPlayerIds": 5,
+            "observedGP": 103,
+            "observedPoints": 66,
+            "approvedHistoricalDivisionTier": null
+          },
+          {
+            "season": "Sunday Winter 2021/22",
+            "division": "Brisk Division",
+            "exactCurrentPlayerIds": 4,
+            "observedGP": 77,
+            "observedPoints": 39,
+            "approvedHistoricalDivisionTier": null
+          },
+          {
+            "season": "Sunday Winter 2021/22",
+            "division": "Hot Shots Division",
+            "exactCurrentPlayerIds": 1,
+            "observedGP": 18,
+            "observedPoints": 16,
+            "approvedHistoricalDivisionTier": null
+          },
+          {
+            "season": "Sunday Winter 2024/25",
+            "division": "Brisk Division",
+            "exactCurrentPlayerIds": 1,
+            "observedGP": 16,
+            "observedPoints": 15,
+            "approvedHistoricalDivisionTier": null
+          }
+        ],
+        "sourceRosterCapturedAt": "2026-10-27T04:08:28.585604+00:00",
+        "officialTierKnown": false
+      }
+    },
+    {
+      "teamId": 13663,
+      "leagueId": 570,
+      "name": "We're Curved",
+      "night": "Sunday",
+      "program": "Open",
+      "sourceDivision": "Fazzari Partners",
+      "component": 1,
+      "resultAdjustedRating": 1484.7,
+      "playedGames": 7,
+      "uniqueOpponents": 5,
+      "sourceStandingsValid": true,
+      "priorRosterSamples": 18,
+      "priorRosterHistoryFraction": 1,
+      "rosterPriorRelativeScoring": 0.02,
+      "crossNightRosterIDs": 4,
+      "qualifiedPlayerGP": 18,
+      "scoringConcentrationTopTwo": 0.378,
+      "rosterQualified": true,
+      "archivedDivisionEvidence": {
+        "source": "EXACT_CURRENT_SVHL_PLAYER_ID_ARCHIVED_SUNDAY_DIVISION_CONTEXT",
+        "exactHistoryPlayerIds": 15,
+        "historicalPlayerSeasons": 17,
+        "divisions": [
+          {
+            "season": "Sunday Winter 2025/26",
+            "division": "Fazzari Division",
+            "exactCurrentPlayerIds": 15,
+            "observedGP": 290,
+            "observedPoints": 144,
+            "approvedHistoricalDivisionTier": null
+          },
+          {
+            "season": "Sunday Winter 2022/23",
+            "division": "Aquafina Division",
+            "exactCurrentPlayerIds": 1,
+            "observedGP": 20,
+            "observedPoints": 4,
+            "approvedHistoricalDivisionTier": null
+          },
+          {
+            "season": "Sunday Winter 2021/22",
+            "division": "Mug Division",
+            "exactCurrentPlayerIds": 1,
+            "observedGP": 14,
+            "observedPoints": 2,
+            "approvedHistoricalDivisionTier": null
+          }
+        ],
+        "sourceRosterCapturedAt": "2026-10-27T04:08:28.585604+00:00",
+        "officialTierKnown": false
+      }
+    },
+    {
+      "teamId": 13711,
+      "leagueId": 570,
+      "name": "Butcher Brothers",
+      "night": "Sunday",
+      "program": "Open",
+      "sourceDivision": "Remax Division",
+      "component": 1,
+      "resultAdjustedRating": 1516.6,
+      "playedGames": 7,
+      "uniqueOpponents": 7,
+      "sourceStandingsValid": true,
+      "priorRosterSamples": 16,
+      "priorRosterHistoryFraction": 1,
+      "rosterPriorRelativeScoring": -0.091,
+      "crossNightRosterIDs": 5,
+      "qualifiedPlayerGP": 16,
+      "scoringConcentrationTopTwo": 0.333,
+      "rosterQualified": true,
+      "archivedDivisionEvidence": {
+        "source": "EXACT_CURRENT_SVHL_PLAYER_ID_ARCHIVED_SUNDAY_DIVISION_CONTEXT",
+        "exactHistoryPlayerIds": 16,
+        "historicalPlayerSeasons": 58,
+        "divisions": [
+          {
+            "season": "Sunday Winter 2023/24",
+            "division": "Aquafina Division",
+            "exactCurrentPlayerIds": 14,
+            "observedGP": 326,
+            "observedPoints": 101,
+            "approvedHistoricalDivisionTier": null
+          },
+          {
+            "season": "Sunday Winter 2024/25",
+            "division": "Brisk Division",
+            "exactCurrentPlayerIds": 14,
+            "observedGP": 310,
+            "observedPoints": 84,
+            "approvedHistoricalDivisionTier": null
+          },
+          {
+            "season": "Sunday Winter 2025/26",
+            "division": "Hot Shots Division",
+            "exactCurrentPlayerIds": 14,
+            "observedGP": 269,
+            "observedPoints": 67,
+            "approvedHistoricalDivisionTier": null
+          },
+          {
+            "season": "Sunday Winter 2021/22",
+            "division": "Gatorade Division",
+            "exactCurrentPlayerIds": 10,
+            "observedGP": 165,
+            "observedPoints": 72,
+            "approvedHistoricalDivisionTier": null
+          },
+          {
+            "season": "Sunday Winter 2022/23",
+            "division": "Aquafina Division",
+            "exactCurrentPlayerIds": 6,
+            "observedGP": 119,
+            "observedPoints": 22,
+            "approvedHistoricalDivisionTier": null
+          }
+        ],
+        "sourceRosterCapturedAt": "2026-10-27T04:08:28.585604+00:00",
+        "officialTierKnown": false
+      }
+    },
+    {
+      "teamId": 13717,
+      "leagueId": 570,
+      "name": "Degenerates",
+      "night": "Sunday",
+      "program": "Open",
+      "sourceDivision": "Remax Division",
+      "component": 1,
+      "resultAdjustedRating": 1530.8,
+      "playedGames": 7,
+      "uniqueOpponents": 7,
+      "sourceStandingsValid": true,
+      "priorRosterSamples": 14,
+      "priorRosterHistoryFraction": 0.933,
+      "rosterPriorRelativeScoring": 0.074,
+      "crossNightRosterIDs": 2,
+      "qualifiedPlayerGP": 15,
+      "scoringConcentrationTopTwo": 0.313,
+      "rosterQualified": true,
+      "archivedDivisionEvidence": {
+        "source": "EXACT_CURRENT_SVHL_PLAYER_ID_ARCHIVED_SUNDAY_DIVISION_CONTEXT",
+        "exactHistoryPlayerIds": 12,
+        "historicalPlayerSeasons": 31,
+        "divisions": [
+          {
+            "season": "Sunday Winter 2024/25",
+            "division": "Brisk Division",
+            "exactCurrentPlayerIds": 9,
+            "observedGP": 197,
+            "observedPoints": 76,
+            "approvedHistoricalDivisionTier": null
+          },
+          {
+            "season": "Sunday Winter 2025/26",
+            "division": "Lormel Division",
+            "exactCurrentPlayerIds": 8,
+            "observedGP": 181,
+            "observedPoints": 108,
+            "approvedHistoricalDivisionTier": null
+          },
+          {
+            "season": "Sunday Winter 2023/24",
+            "division": "Brisk Division",
+            "exactCurrentPlayerIds": 6,
+            "observedGP": 133,
+            "observedPoints": 83,
+            "approvedHistoricalDivisionTier": null
+          },
+          {
+            "season": "Sunday Winter 2018/19",
+            "division": "7Up Division",
+            "exactCurrentPlayerIds": 2,
+            "observedGP": 35,
+            "observedPoints": 28,
+            "approvedHistoricalDivisionTier": null
+          },
+          {
+            "season": "Sunday Winter 2021/22",
+            "division": "Brisk Division",
+            "exactCurrentPlayerIds": 2,
+            "observedGP": 34,
+            "observedPoints": 17,
+            "approvedHistoricalDivisionTier": null
+          },
+          {
+            "season": "Sunday Winter 2022/23",
+            "division": "Pizzaville Division",
+            "exactCurrentPlayerIds": 1,
+            "observedGP": 17,
+            "observedPoints": 9,
+            "approvedHistoricalDivisionTier": null
+          },
+          {
+            "season": "Sunday Winter 2022/23",
+            "division": "Hot Shots",
+            "exactCurrentPlayerIds": 1,
+            "observedGP": 17,
+            "observedPoints": 5,
+            "approvedHistoricalDivisionTier": null
+          },
+          {
+            "season": "Sunday Winter 2016/17",
+            "division": "Brisk Division",
+            "exactCurrentPlayerIds": 1,
+            "observedGP": 15,
+            "observedPoints": 14,
+            "approvedHistoricalDivisionTier": null
+          },
+          {
+            "season": "Sunday Winter 2018/19",
+            "division": "Brisk Division",
+            "exactCurrentPlayerIds": 1,
+            "observedGP": 14,
+            "observedPoints": 1,
+            "approvedHistoricalDivisionTier": null
+          }
+        ],
+        "sourceRosterCapturedAt": "2026-10-27T04:08:28.585604+00:00",
+        "officialTierKnown": false
+      }
+    },
+    {
+      "teamId": 13710,
+      "leagueId": 570,
+      "name": "Mighty Drunks",
+      "night": "Sunday",
+      "program": "Open",
+      "sourceDivision": "Remax Division",
+      "component": 1,
+      "resultAdjustedRating": 1518.2,
+      "playedGames": 7,
+      "uniqueOpponents": 7,
+      "sourceStandingsValid": true,
+      "priorRosterSamples": 10,
+      "priorRosterHistoryFraction": 0.667,
+      "rosterPriorRelativeScoring": 0.045,
+      "crossNightRosterIDs": 2,
+      "qualifiedPlayerGP": 15,
+      "scoringConcentrationTopTwo": 0.367,
+      "rosterQualified": true,
+      "archivedDivisionEvidence": {
+        "source": "EXACT_CURRENT_SVHL_PLAYER_ID_ARCHIVED_SUNDAY_DIVISION_CONTEXT",
+        "exactHistoryPlayerIds": 10,
+        "historicalPlayerSeasons": 31,
+        "divisions": [
+          {
+            "season": "Sunday Winter 2023/24",
+            "division": "Pepsi Division",
+            "exactCurrentPlayerIds": 9,
+            "observedGP": 216,
+            "observedPoints": 92,
+            "approvedHistoricalDivisionTier": null
+          },
+          {
+            "season": "Sunday Winter 2024/25",
+            "division": "Hot Shots Division",
+            "exactCurrentPlayerIds": 9,
+            "observedGP": 203,
+            "observedPoints": 117,
+            "approvedHistoricalDivisionTier": null
+          },
+          {
+            "season": "Sunday Winter 2025/26",
+            "division": "Hot Shots Division",
+            "exactCurrentPlayerIds": 9,
+            "observedGP": 184,
+            "observedPoints": 82,
+            "approvedHistoricalDivisionTier": null
+          },
+          {
+            "season": "Sunday Winter 2022/23",
+            "division": "Gatorade Division",
+            "exactCurrentPlayerIds": 3,
+            "observedGP": 61,
+            "observedPoints": 16,
+            "approvedHistoricalDivisionTier": null
+          },
+          {
+            "season": "Sunday Winter 2022/23",
+            "division": "Hot Shots",
+            "exactCurrentPlayerIds": 1,
+            "observedGP": 19,
+            "observedPoints": 7,
+            "approvedHistoricalDivisionTier": null
+          }
+        ],
+        "sourceRosterCapturedAt": "2026-10-27T04:08:28.585604+00:00",
+        "officialTierKnown": false
+      }
+    },
+    {
+      "teamId": 13713,
+      "leagueId": 570,
+      "name": "Primary Auto",
+      "night": "Sunday",
+      "program": "Open",
+      "sourceDivision": "Remax Division",
+      "component": 1,
+      "resultAdjustedRating": 1472.5,
+      "playedGames": 7,
+      "uniqueOpponents": 7,
+      "sourceStandingsValid": true,
+      "priorRosterSamples": 14,
+      "priorRosterHistoryFraction": 0.933,
+      "rosterPriorRelativeScoring": 0.169,
+      "crossNightRosterIDs": 2,
+      "qualifiedPlayerGP": 15,
+      "scoringConcentrationTopTwo": 0.372,
+      "rosterQualified": true,
+      "archivedDivisionEvidence": {
+        "source": "EXACT_CURRENT_SVHL_PLAYER_ID_ARCHIVED_SUNDAY_DIVISION_CONTEXT",
+        "exactHistoryPlayerIds": 13,
+        "historicalPlayerSeasons": 39,
+        "divisions": [
+          {
+            "season": "Sunday Winter 2024/25",
+            "division": "Hot Shots Division",
+            "exactCurrentPlayerIds": 11,
+            "observedGP": 218,
+            "observedPoints": 111,
+            "approvedHistoricalDivisionTier": null
+          },
+          {
+            "season": "Sunday Winter 2023/24",
+            "division": "Gatorade Division",
+            "exactCurrentPlayerIds": 10,
+            "observedGP": 208,
+            "observedPoints": 136,
+            "approvedHistoricalDivisionTier": null
+          },
+          {
+            "season": "Sunday Winter 2025/26",
+            "division": "Lormel Division",
+            "exactCurrentPlayerIds": 8,
+            "observedGP": 161,
+            "observedPoints": 62,
+            "approvedHistoricalDivisionTier": null
+          },
+          {
+            "season": "Sunday Winter 2022/23",
+            "division": "Brisk Division",
+            "exactCurrentPlayerIds": 7,
+            "observedGP": 128,
+            "observedPoints": 34,
+            "approvedHistoricalDivisionTier": null
+          },
+          {
+            "season": "Sunday Winter 2021/22",
+            "division": "Brisk Division",
+            "exactCurrentPlayerIds": 3,
+            "observedGP": 46,
+            "observedPoints": 24,
+            "approvedHistoricalDivisionTier": null
+          }
+        ],
+        "sourceRosterCapturedAt": "2026-10-27T04:08:28.585604+00:00",
+        "officialTierKnown": false
+      }
+    },
+    {
+      "teamId": 13715,
+      "leagueId": 570,
+      "name": "VR Delta",
+      "night": "Sunday",
+      "program": "Open",
+      "sourceDivision": "Remax Division",
+      "component": 1,
+      "resultAdjustedRating": 1514.6,
+      "playedGames": 7,
+      "uniqueOpponents": 7,
+      "sourceStandingsValid": true,
+      "priorRosterSamples": 13,
+      "priorRosterHistoryFraction": 1,
+      "rosterPriorRelativeScoring": -0.026,
+      "crossNightRosterIDs": 1,
+      "qualifiedPlayerGP": 13,
+      "scoringConcentrationTopTwo": 0.463,
+      "rosterQualified": true,
+      "archivedDivisionEvidence": {
+        "source": "EXACT_CURRENT_SVHL_PLAYER_ID_ARCHIVED_SUNDAY_DIVISION_CONTEXT",
+        "exactHistoryPlayerIds": 10,
+        "historicalPlayerSeasons": 10,
+        "divisions": [
+          {
+            "season": "Sunday Winter 2025/26",
+            "division": "Lormel Division",
+            "exactCurrentPlayerIds": 9,
+            "observedGP": 208,
+            "observedPoints": 102,
+            "approvedHistoricalDivisionTier": null
+          },
+          {
+            "season": "Sunday Winter 2025/26",
+            "division": "Prostar Division",
+            "exactCurrentPlayerIds": 1,
+            "observedGP": 21,
+            "observedPoints": 0,
+            "approvedHistoricalDivisionTier": null
+          }
+        ],
+        "sourceRosterCapturedAt": "2026-10-27T04:08:28.585604+00:00",
+        "officialTierKnown": false
+      }
+    },
+    {
+      "teamId": 13649,
+      "leagueId": 570,
+      "name": "Big Bastones",
+      "night": "Sunday",
+      "program": "Open",
+      "sourceDivision": "The Cristillo Division",
+      "component": 1,
+      "resultAdjustedRating": 1433.3,
+      "playedGames": 7,
+      "uniqueOpponents": 7,
+      "sourceStandingsValid": true,
+      "priorRosterSamples": 15,
+      "priorRosterHistoryFraction": 1,
+      "rosterPriorRelativeScoring": 0.033,
+      "crossNightRosterIDs": 0,
+      "qualifiedPlayerGP": 15,
+      "scoringConcentrationTopTwo": 0.313,
+      "rosterQualified": true,
+      "archivedDivisionEvidence": {
+        "source": "EXACT_CURRENT_SVHL_PLAYER_ID_ARCHIVED_SUNDAY_DIVISION_CONTEXT",
+        "exactHistoryPlayerIds": 14,
+        "historicalPlayerSeasons": 40,
+        "divisions": [
+          {
+            "season": "Sunday Winter 2023/24",
+            "division": "Hot Shots Division",
+            "exactCurrentPlayerIds": 11,
+            "observedGP": 261,
+            "observedPoints": 98,
+            "approvedHistoricalDivisionTier": null
+          },
+          {
+            "season": "Sunday Winter 2024/25",
+            "division": "Pizzaville Division",
+            "exactCurrentPlayerIds": 11,
+            "observedGP": 243,
+            "observedPoints": 87,
+            "approvedHistoricalDivisionTier": null
+          },
+          {
+            "season": "Sunday Winter 2025/26",
+            "division": "Swiss Chalet Division",
+            "exactCurrentPlayerIds": 10,
+            "observedGP": 196,
+            "observedPoints": 64,
+            "approvedHistoricalDivisionTier": null
+          },
+          {
+            "season": "Sunday Winter 2022/23",
+            "division": "Pizzaville Division",
+            "exactCurrentPlayerIds": 4,
+            "observedGP": 83,
+            "observedPoints": 33,
+            "approvedHistoricalDivisionTier": null
+          },
+          {
+            "season": "Sunday Winter 2023/24",
+            "division": "Aquafina Division",
+            "exactCurrentPlayerIds": 2,
+            "observedGP": 48,
+            "observedPoints": 34,
+            "approvedHistoricalDivisionTier": null
+          },
+          {
+            "season": "Sunday Winter 2022/23",
+            "division": "Hot Shots",
+            "exactCurrentPlayerIds": 1,
+            "observedGP": 20,
+            "observedPoints": 7,
+            "approvedHistoricalDivisionTier": null
+          },
+          {
+            "season": "Sunday Winter 2021/22",
+            "division": "Mountain Dew Division",
+            "exactCurrentPlayerIds": 1,
+            "observedGP": 17,
+            "observedPoints": 4,
+            "approvedHistoricalDivisionTier": null
+          }
+        ],
+        "sourceRosterCapturedAt": "2026-10-27T04:08:28.585604+00:00",
+        "officialTierKnown": false
+      }
+    },
+    {
+      "teamId": 13680,
+      "leagueId": 570,
+      "name": "Mohawks HC",
+      "night": "Sunday",
+      "program": "Open",
+      "sourceDivision": "The Cristillo Division",
+      "component": 1,
+      "resultAdjustedRating": 1539.7,
+      "playedGames": 8,
+      "uniqueOpponents": 7,
+      "sourceStandingsValid": true,
+      "priorRosterSamples": 14,
+      "priorRosterHistoryFraction": 0.824,
+      "rosterPriorRelativeScoring": 0.04,
+      "crossNightRosterIDs": 0,
+      "qualifiedPlayerGP": 17,
+      "scoringConcentrationTopTwo": 0.352,
+      "rosterQualified": true,
+      "archivedDivisionEvidence": {
+        "source": "EXACT_CURRENT_SVHL_PLAYER_ID_ARCHIVED_SUNDAY_DIVISION_CONTEXT",
+        "exactHistoryPlayerIds": 12,
+        "historicalPlayerSeasons": 25,
+        "divisions": [
+          {
+            "season": "Sunday Winter 2025/26",
+            "division": "Prostar Division",
+            "exactCurrentPlayerIds": 10,
+            "observedGP": 220,
+            "observedPoints": 98,
+            "approvedHistoricalDivisionTier": null
+          },
+          {
+            "season": "Sunday Winter 2024/25",
+            "division": "Pepsi Division",
+            "exactCurrentPlayerIds": 6,
+            "observedGP": 130,
+            "observedPoints": 68,
+            "approvedHistoricalDivisionTier": null
+          },
+          {
+            "season": "Sunday Winter 2023/24",
+            "division": "Hot Shots Division",
+            "exactCurrentPlayerIds": 3,
+            "observedGP": 68,
+            "observedPoints": 41,
+            "approvedHistoricalDivisionTier": null
+          },
+          {
+            "season": "Sunday Winter 2021/22",
+            "division": "Mug Division",
+            "exactCurrentPlayerIds": 2,
+            "observedGP": 38,
+            "observedPoints": 18,
+            "approvedHistoricalDivisionTier": null
+          },
+          {
+            "season": "Sunday Winter 2016/17",
+            "division": "Pepsi 1 Division",
+            "exactCurrentPlayerIds": 1,
+            "observedGP": 20,
+            "observedPoints": 27,
+            "approvedHistoricalDivisionTier": null
+          },
+          {
+            "season": "Sunday Winter 2022/23",
+            "division": "Hot Shots",
+            "exactCurrentPlayerIds": 1,
+            "observedGP": 19,
+            "observedPoints": 4,
+            "approvedHistoricalDivisionTier": null
+          },
+          {
+            "season": "Sunday Winter 2021/22",
+            "division": "Gibson Division",
+            "exactCurrentPlayerIds": 1,
+            "observedGP": 16,
+            "observedPoints": 5,
+            "approvedHistoricalDivisionTier": null
+          },
+          {
+            "season": "Sunday Winter 2022/23",
+            "division": "Gatorade Division",
+            "exactCurrentPlayerIds": 1,
+            "observedGP": 16,
+            "observedPoints": 16,
+            "approvedHistoricalDivisionTier": null
+          }
+        ],
+        "sourceRosterCapturedAt": "2026-10-27T04:08:28.585604+00:00",
+        "officialTierKnown": false
+      }
+    },
+    {
+      "teamId": 13704,
+      "leagueId": 570,
+      "name": "Other Way",
+      "night": "Sunday",
+      "program": "Open",
+      "sourceDivision": "The Cristillo Division",
+      "component": 1,
+      "resultAdjustedRating": 1525.6,
+      "playedGames": 8,
+      "uniqueOpponents": 8,
+      "sourceStandingsValid": true,
+      "priorRosterSamples": 11,
+      "priorRosterHistoryFraction": 0.917,
+      "rosterPriorRelativeScoring": 0.126,
+      "crossNightRosterIDs": 3,
+      "qualifiedPlayerGP": 12,
+      "scoringConcentrationTopTwo": 0.377,
+      "rosterQualified": true,
+      "archivedDivisionEvidence": {
+        "source": "EXACT_CURRENT_SVHL_PLAYER_ID_ARCHIVED_SUNDAY_DIVISION_CONTEXT",
+        "exactHistoryPlayerIds": 9,
+        "historicalPlayerSeasons": 14,
+        "divisions": [
+          {
+            "season": "Sunday Winter 2025/26",
+            "division": "Prostar Division",
+            "exactCurrentPlayerIds": 8,
+            "observedGP": 168,
+            "observedPoints": 80,
+            "approvedHistoricalDivisionTier": null
+          },
+          {
+            "season": "Sunday Winter 2018/19",
+            "division": "Brisk Division",
+            "exactCurrentPlayerIds": 2,
+            "observedGP": 48,
+            "observedPoints": 28,
+            "approvedHistoricalDivisionTier": null
+          },
+          {
+            "season": "Sunday Winter 2023/24",
+            "division": "Aquafina Division",
+            "exactCurrentPlayerIds": 2,
+            "observedGP": 47,
+            "observedPoints": 21,
+            "approvedHistoricalDivisionTier": null
+          },
+          {
+            "season": "Sunday Winter 2022/23",
+            "division": "Hot Shots",
+            "exactCurrentPlayerIds": 1,
+            "observedGP": 20,
+            "observedPoints": 7,
+            "approvedHistoricalDivisionTier": null
+          },
+          {
+            "season": "Sunday Winter 2025/26",
+            "division": "Fazzari Division",
+            "exactCurrentPlayerIds": 1,
+            "observedGP": 19,
+            "observedPoints": 3,
+            "approvedHistoricalDivisionTier": null
+          }
+        ],
+        "sourceRosterCapturedAt": "2026-10-27T04:08:28.585604+00:00",
+        "officialTierKnown": false
+      }
+    },
+    {
+      "teamId": 13709,
+      "leagueId": 570,
+      "name": "Sugo Sundays",
+      "night": "Sunday",
+      "program": "Open",
+      "sourceDivision": "The Cristillo Division",
+      "component": 1,
+      "resultAdjustedRating": 1494.3,
+      "playedGames": 8,
+      "uniqueOpponents": 7,
+      "sourceStandingsValid": true,
+      "priorRosterSamples": 10,
+      "priorRosterHistoryFraction": 0.909,
+      "rosterPriorRelativeScoring": -0.018,
+      "crossNightRosterIDs": 1,
+      "qualifiedPlayerGP": 11,
+      "scoringConcentrationTopTwo": 0.348,
+      "rosterQualified": true,
+      "archivedDivisionEvidence": {
+        "source": "EXACT_CURRENT_SVHL_PLAYER_ID_ARCHIVED_SUNDAY_DIVISION_CONTEXT",
+        "exactHistoryPlayerIds": 7,
+        "historicalPlayerSeasons": 15,
+        "divisions": [
+          {
+            "season": "Sunday Winter 2025/26",
+            "division": "Swiss Chalet Division",
+            "exactCurrentPlayerIds": 5,
+            "observedGP": 108,
+            "observedPoints": 79,
+            "approvedHistoricalDivisionTier": null
+          },
+          {
+            "season": "Sunday Winter 2024/25",
+            "division": "Mug Division",
+            "exactCurrentPlayerIds": 5,
+            "observedGP": 96,
+            "observedPoints": 78,
+            "approvedHistoricalDivisionTier": null
+          },
+          {
+            "season": "Sunday Winter 2023/24",
+            "division": "Pepsi Division",
+            "exactCurrentPlayerIds": 3,
+            "observedGP": 69,
+            "observedPoints": 44,
+            "approvedHistoricalDivisionTier": null
+          },
+          {
+            "season": "Sunday Winter 2024/25",
+            "division": "Pizzaville Division",
+            "exactCurrentPlayerIds": 1,
+            "observedGP": 19,
+            "observedPoints": 3,
+            "approvedHistoricalDivisionTier": null
+          },
+          {
+            "season": "Sunday Winter 2021/22",
+            "division": "Hot Shots Division",
+            "exactCurrentPlayerIds": 1,
+            "observedGP": 19,
+            "observedPoints": 25,
+            "approvedHistoricalDivisionTier": null
+          }
+        ],
+        "sourceRosterCapturedAt": "2026-10-27T04:08:28.585604+00:00",
+        "officialTierKnown": false
+      }
+    },
+    {
+      "teamId": 13716,
+      "leagueId": 570,
+      "name": "Young Guns",
+      "night": "Sunday",
+      "program": "Open",
+      "sourceDivision": "The Cristillo Division",
+      "component": 1,
+      "resultAdjustedRating": 1483.7,
+      "playedGames": 8,
+      "uniqueOpponents": 8,
+      "sourceStandingsValid": true,
+      "priorRosterSamples": 12,
+      "priorRosterHistoryFraction": 0.706,
+      "rosterPriorRelativeScoring": 0.084,
+      "crossNightRosterIDs": 1,
+      "qualifiedPlayerGP": 17,
+      "scoringConcentrationTopTwo": 0.256,
+      "rosterQualified": true,
+      "archivedDivisionEvidence": {
+        "source": "EXACT_CURRENT_SVHL_PLAYER_ID_ARCHIVED_SUNDAY_DIVISION_CONTEXT",
+        "exactHistoryPlayerIds": 11,
+        "historicalPlayerSeasons": 11,
+        "divisions": [
+          {
+            "season": "Sunday Winter 2025/26",
+            "division": "Maple Hyundai",
+            "exactCurrentPlayerIds": 11,
+            "observedGP": 228,
+            "observedPoints": 114,
+            "approvedHistoricalDivisionTier": null
+          }
+        ],
+        "sourceRosterCapturedAt": "2026-10-27T04:08:28.585604+00:00",
+        "officialTierKnown": false
+      }
+    },
+    {
+      "teamId": 13730,
+      "leagueId": 570,
+      "name": "Zamboner Crew",
+      "night": "Sunday",
+      "program": "Open",
+      "sourceDivision": "The Cristillo Division",
+      "component": 1,
+      "resultAdjustedRating": 1539.4,
+      "playedGames": 7,
+      "uniqueOpponents": 6,
+      "sourceStandingsValid": true,
+      "priorRosterSamples": 3,
+      "priorRosterHistoryFraction": 0.214,
+      "rosterPriorRelativeScoring": -0.153,
+      "crossNightRosterIDs": 1,
+      "qualifiedPlayerGP": 14,
+      "scoringConcentrationTopTwo": 0.377,
+      "rosterQualified": true,
+      "archivedDivisionEvidence": {
+        "source": "EXACT_CURRENT_SVHL_PLAYER_ID_ARCHIVED_SUNDAY_DIVISION_CONTEXT",
+        "exactHistoryPlayerIds": 0,
+        "historicalPlayerSeasons": 0,
+        "divisions": [],
+        "sourceRosterCapturedAt": "2026-10-27T04:08:28.585604+00:00",
+        "officialTierKnown": false
+      }
+    },
+    {
+      "teamId": 13734,
+      "leagueId": 570,
+      "name": "Dallas",
+      "night": "Sunday",
+      "program": "Separate program",
+      "sourceDivision": "VAHL Division",
+      "component": 2,
+      "resultAdjustedRating": 1450,
+      "playedGames": 5,
+      "uniqueOpponents": 3,
+      "sourceStandingsValid": true,
+      "priorRosterSamples": 0,
+      "priorRosterHistoryFraction": null,
+      "rosterPriorRelativeScoring": null,
+      "crossNightRosterIDs": 0,
+      "qualifiedPlayerGP": 0,
+      "scoringConcentrationTopTwo": null,
+      "rosterQualified": false,
+      "archivedDivisionEvidence": {
+        "source": "NO_EXACT_ARCHIVED_SUNDAY_TEAM",
+        "exactHistoryPlayerIds": 0,
+        "historicalPlayerSeasons": 0,
+        "divisions": []
+      }
+    },
+    {
+      "teamId": 13736,
+      "leagueId": 570,
+      "name": "LA KIngs",
+      "night": "Sunday",
+      "program": "Separate program",
+      "sourceDivision": "VAHL Division",
+      "component": 2,
+      "resultAdjustedRating": 1545.6,
+      "playedGames": 5,
+      "uniqueOpponents": 3,
+      "sourceStandingsValid": true,
+      "priorRosterSamples": 0,
+      "priorRosterHistoryFraction": null,
+      "rosterPriorRelativeScoring": null,
+      "crossNightRosterIDs": 0,
+      "qualifiedPlayerGP": 0,
+      "scoringConcentrationTopTwo": null,
+      "rosterQualified": false,
+      "archivedDivisionEvidence": {
+        "source": "NO_EXACT_ARCHIVED_SUNDAY_TEAM",
+        "exactHistoryPlayerIds": 0,
+        "historicalPlayerSeasons": 0,
+        "divisions": []
+      }
+    },
+    {
+      "teamId": 13737,
+      "leagueId": 570,
+      "name": "Philadelphia",
+      "night": "Sunday",
+      "program": "Separate program",
+      "sourceDivision": "VAHL Division",
+      "component": 2,
+      "resultAdjustedRating": 1538.8,
+      "playedGames": 5,
+      "uniqueOpponents": 3,
+      "sourceStandingsValid": true,
+      "priorRosterSamples": 0,
+      "priorRosterHistoryFraction": null,
+      "rosterPriorRelativeScoring": null,
+      "crossNightRosterIDs": 0,
+      "qualifiedPlayerGP": 0,
+      "scoringConcentrationTopTwo": null,
+      "rosterQualified": false,
+      "archivedDivisionEvidence": {
+        "source": "NO_EXACT_ARCHIVED_SUNDAY_TEAM",
+        "exactHistoryPlayerIds": 0,
+        "historicalPlayerSeasons": 0,
+        "divisions": []
+      }
+    },
+    {
+      "teamId": 13735,
+      "leagueId": 570,
+      "name": "Toronto",
+      "night": "Sunday",
+      "program": "Separate program",
+      "sourceDivision": "VAHL Division",
+      "component": 2,
+      "resultAdjustedRating": 1465.7,
+      "playedGames": 5,
+      "uniqueOpponents": 3,
+      "sourceStandingsValid": true,
+      "priorRosterSamples": 0,
+      "priorRosterHistoryFraction": null,
+      "rosterPriorRelativeScoring": null,
+      "crossNightRosterIDs": 0,
+      "qualifiedPlayerGP": 0,
+      "scoringConcentrationTopTwo": null,
+      "rosterQualified": false,
+      "archivedDivisionEvidence": {
+        "source": "NO_EXACT_ARCHIVED_SUNDAY_TEAM",
+        "exactHistoryPlayerIds": 0,
+        "historicalPlayerSeasons": 0,
+        "divisions": []
+      }
+    }
+  ]
+}
