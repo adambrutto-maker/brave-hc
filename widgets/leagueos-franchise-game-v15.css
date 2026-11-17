@@ -411,3 +411,12 @@ body.league-game-mode .v15-ice-puck{display:grid;justify-items:center;align-cont
 body.league-game-mode .v15-ice-puck>div{line-height:1}
 body.league-game-mode .v15-ice-puck>strong{display:block;line-height:1.1}
 body.league-game-mode .v15-ice-puck>small{display:block;line-height:1.4}
+
+/* Mobile game console order: game title and product switcher ABOVE the primary five-mode menu. */
+@media(max-width:850px){
+ body.league-game-mode .shell{display:grid;grid-template-columns:minmax(0,1fr);grid-template-areas:"gamebar" "gamemenu" "gamebody"}
+ body.league-game-mode .content{display:contents}
+ body.league-game-mode .topbar{grid-area:gamebar}
+ body.league-game-mode .sidebar{grid-area:gamemenu}
+ body.league-game-mode .body{grid-area:gamebody;width:100%;min-width:0;max-width:100%;margin:0}
+}
