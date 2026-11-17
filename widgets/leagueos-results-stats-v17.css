@@ -1,0 +1,102 @@
+/* LeagueOS V17 — independent league-side results and statistics UI.
+   Product-level workflow inspired by the user-visible TeamOS "game night first"
+   concept. No HTO source code or private HTO data is used.
+*/
+body.league-game-mode #league-native-scorer-mount .v15-game-nav{gap:6px;margin:11px 0 15px}
+body.league-game-mode #league-native-scorer-mount .v15-game-nav button{flex:1 1 115px;min-height:47px;padding:11px 9px;white-space:normal;line-height:1.35}
+body.league-game-mode #league-native-scorer-mount .v15-game-nav button.v17-workflow-tab{font-size:11px;border-top:2px solid #376c8f}
+body.league-game-mode #league-native-scorer-mount .v15-game-nav button.v17-workflow-tab.selected{border-top-color:#a7f4ff;background:#267bbc}
+body.league-game-mode #league-native-scorer-mount .v15-game-nav button.v17-details-tab{flex:0 1 94px;color:#8daec4}
+body.league-game-mode #league-native-scorer-mount .v15-game-nav button.v17-details-tab.selected{color:#e9faff}
+.v17-result-console,.v17-player-console{background:linear-gradient(150deg,#10283e,#0b1e30);border:1px solid #365b79;border-radius:7px;padding:24px;display:grid;gap:18px;min-width:0;color:#e9f6ff}
+.v17-stage-title{display:grid;gap:6px}
+.v17-stage-title>span{font-size:10px;font-weight:900;letter-spacing:.15em;color:#81d9fc}
+.v17-stage-title h3{font-size:clamp(22px,2.4vw,34px);line-height:1.1;letter-spacing:-.035em;text-transform:uppercase;color:#f3faff;margin:0}
+.v17-stage-title p{font-size:11px;line-height:1.6;color:#9ebdd1;max-width:830px;margin:0}
+.v17-result-board{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.v17-result-team{display:grid;align-content:start;justify-items:center;gap:9px;background:linear-gradient(165deg,#183e5d,#102a41);border:1px solid #3b6d90;border-radius:5px;padding:19px 15px;text-align:center}
+.v17-result-team>span{font-size:10px;letter-spacing:.15em;font-weight:950;color:#89cde9}
+.v17-result-team>strong{font-size:clamp(12px,1.5vw,18px);line-height:1.4;color:#fff;text-transform:uppercase;min-height:32px;overflow-wrap:anywhere}
+.v17-stepper{width:100%;display:grid;grid-template-columns:minmax(46px,1fr) minmax(50px,1.1fr) minmax(46px,1fr);align-items:center;gap:5px}
+.v17-stepper button{font-size:28px;font-weight:900;color:#ddf5ff;background:#1f689b;border:1px solid #83d3f7;border-radius:5px;min-height:62px}
+.v17-stepper button:hover:not(:disabled){background:#2795d5}
+.v17-stepper button:disabled{opacity:.32}
+.v17-stepper>b{font-size:clamp(49px,5vw,72px);font-weight:1000;line-height:1;color:#fff;font-variant-numeric:tabular-nums;letter-spacing:-.04em}
+.v17-outcome{display:grid;gap:10px}
+.v17-outcome h4{font-size:12px;text-transform:uppercase;color:#bddcf0;letter-spacing:.06em;margin:0}
+.v17-outcome>div{display:flex;gap:7px;flex-wrap:wrap}
+.v17-outcome button{flex:1 1 118px;min-height:45px;border:1px solid #365f7d;background:#163852;color:#a9cbe3;border-radius:4px;font-size:12px;font-weight:850}
+.v17-outcome button.selected{border-color:#83deff;background:#287fb6;color:#fff;box-shadow:inset 0 -3px #b2f0ff}
+.v17-reconcile{border-left:4px solid #ddac61;background:#382c26;border-radius:4px;padding:12px 15px}
+.v17-reconcile.is-match{border-left-color:#5bdbbd;background:#153c38}
+.v17-reconcile strong{font-size:12px;color:#ffe0ae}
+.v17-reconcile.is-match strong{color:#b7ffe8}
+.v17-reconcile p{margin:6px 0 0;font-size:11px;line-height:1.6;color:#d5c4b0}
+.v17-reconcile.is-match p{color:#b6e2d3}
+.v17-result-error,.v17-tag-error{color:#ffc2c6;font-size:11px;margin:0;line-height:1.5}
+.v17-result-actions{display:flex;align-items:center;flex-wrap:wrap;gap:13px}
+.v17-result-actions>span{font-size:11px;color:#9bbad0}
+.v17-result-actions .v16-record-button{width:auto;min-width:240px;margin:0;min-height:52px}
+.v17-result-actions .v16-record-button:disabled{opacity:.45}
+.v17-result-note{font-size:10px;color:#91b3cb;line-height:1.65;margin:0}
+.v17-player-kpis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}
+.v17-player-kpis>div{border:1px solid #36607a;background:#16344d;padding:14px;display:grid;gap:7px;border-radius:4px}
+.v17-player-kpis small{font-size:10px;text-transform:uppercase;letter-spacing:.05em;color:#9cc9e5}
+.v17-player-kpis b{font-size:31px;font-variant-numeric:tabular-nums;color:#ebfaff}
+.v17-player-table-wrap{overflow-x:auto;max-width:100%;border:1px solid #355775;border-radius:6px}
+.v17-player-table{border-collapse:collapse;width:100%;min-width:620px;font-size:11px;color:#d6edf9}
+.v17-player-table th{background:#193b56;border-bottom:1px solid #3c6a88;padding:12px;text-align:left;font-size:10px;letter-spacing:.04em;white-space:nowrap}
+.v17-player-table td{padding:11px;border-bottom:1px solid #2c4d67}
+.v17-player-table td:nth-child(n+3){font-variant-numeric:tabular-nums;text-align:center;font-weight:820}
+.v17-player-table tbody tr:hover{background:#183950}
+.v17-stat-guidance{display:grid;gap:5px}
+.v17-stat-guidance strong{color:#e1f6ff;font-size:13px}
+.v17-stat-guidance p{color:#9fbed2;line-height:1.5;font-size:11px;margin:0}
+.v17-stat-events{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
+.v17-stat-events>button{display:grid;gap:6px;text-align:left;border:1px solid #385f7b;background:#17364e;border-radius:5px;padding:13px;color:#e2f2ff}
+.v17-stat-events>button:hover{background:#225879;border-color:#76c6e8}
+.v17-stat-events>button span{font-size:10px;color:#83c7e5;font-weight:900}
+.v17-stat-events>button strong{font-size:13px;color:#e9f8ff}
+.v17-stat-events>button small{font-size:10px;color:#9fbdd1}
+.v17-stat-events>p{font-size:11px;color:#a9c5d6}
+.v17-tag-editor{display:grid;gap:14px;border:1px solid #5d9dbd;background:#142f49;padding:17px;border-radius:6px}
+.v17-tag-editor>div:first-child span{font-size:10px;color:#82d7fb;font-weight:900}
+.v17-tag-editor h4{font-size:16px;color:#edfaff;margin:5px 0}
+.v17-tag-editor form{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px}
+.v17-tag-editor label{display:grid;gap:5px;font-size:11px;color:#bed9eb}
+.v17-tag-editor input{width:100%;min-height:40px;padding:9px 10px;border:1px solid #3f6f8d;border-radius:4px;background:#0b2136;color:#fff}
+.v17-tag-error,.v17-tag-actions{grid-column:1/-1}
+.v17-tag-actions{display:flex;gap:8px;flex-wrap:wrap}
+.v17-tag-actions .btn{font-size:11px}
+.v17-stat-footer{display:flex;gap:10px;flex-wrap:wrap}
+.v15-log-item .v17-tag-quick{border:1px solid #4e8bb2;background:#194464;color:#c5efff;border-radius:4px;font-size:10px;font-weight:850;padding:6px 9px;white-space:nowrap;min-height:32px}
+.v15-log-item .v17-tag-quick:hover{background:#2676a8}
+body.league-game-mode .v15-log-item{grid-template-columns:75px minmax(0,1fr) auto 32px}
+.v17-review-summary{background:#12344b;border:1px solid #3c7190;border-left:3px solid #70d6fb;border-radius:4px;padding:15px;margin-bottom:18px;display:flex;align-items:center;flex-wrap:wrap;gap:9px 12px}
+.v17-review-summary>strong{font-size:14px;color:#e7f9ff;flex:1 1 100%}
+.v17-review-summary>p{font-size:11px;color:#a9cde0;flex:1 1 100%;line-height:1.5;margin:0}
+.v17-review-summary>.btn{font-size:10px}
+@media(max-width:780px){
+ body.league-game-mode .v15-log-item{grid-template-columns:60px minmax(0,1fr) 30px;gap:7px}
+ .v15-log-item .v17-tag-quick{grid-column:2;justify-self:start;font-size:9px;padding:6px 7px}
+}
+@media(max-width:520px){
+ .v17-result-console,.v17-player-console{padding:15px;gap:14px}
+ .v17-result-board{gap:6px}
+ .v17-result-team{padding:12px 7px;gap:6px}
+ .v17-result-team>strong{font-size:11px;min-height:37px}
+ .v17-stepper{grid-template-columns:minmax(27px,1fr) 40px minmax(27px,1fr);gap:3px}
+ .v17-stepper button{min-height:49px;font-size:23px;padding:0}
+ .v17-stepper>b{font-size:43px}
+ .v17-outcome button{font-size:10px;flex:1 1 85px;padding:7px;min-height:39px}
+ .v17-result-actions .v16-record-button{width:100%;min-width:0}
+ .v17-player-kpis{gap:5px}
+ .v17-player-kpis>div{padding:10px 7px}
+ .v17-player-kpis b{font-size:23px}
+ .v17-player-kpis small{font-size:9px}
+ .v17-stat-events{grid-template-columns:minmax(0,1fr)}
+ .v17-tag-editor form{grid-template-columns:1fr}
+ .v17-tag-error,.v17-tag-actions{grid-column:auto}
+ body.league-game-mode #league-native-scorer-mount .v15-game-nav button{flex:1 1 31%;padding:9px 4px;font-size:9px}
+ body.league-game-mode #league-native-scorer-mount .v15-game-nav button.v17-details-tab{flex:1 1 25%}
+}
