@@ -12,7 +12,7 @@ const MODES={
  six:{n:6,label:"6-team: wildcard → semifinals / consolation → finals",ref:"Historical Sunday Fazzari / Thursday A & G Winter 2026"},
  three:{n:3,label:"3-team: round robin → two-game championship",ref:"Historical Thursday Masters B Winter 2026"}
 };
-let st={mode:"four",night:"Sunday",division:"VAHL Division",seedOrders:{},results:{},decisions:{},note:""},teams=null,pending=null,error="";
+let st={mode:"four",night:"Sunday",division:"VAHL Division",seedOrders:{},results:{},decisions:{},note:""},teams=null,pending=null,error="",seedOpen=false;
 try{const x=JSON.parse(localStorage.getItem(STORE)||"null");if(x&&typeof x==="object")st={...st,...x,seedOrders:x.seedOrders||{},results:x.results||{},decisions:x.decisions||{}}}catch(_){}
 const persist=()=>{try{localStorage.setItem(STORE,JSON.stringify(st))}catch(_){}};
 const key=()=>st.mode+"|"+st.night+"|"+st.division;
@@ -115,32 +115,45 @@ function choiceUI(c){return panel("Wildcard tiebreaker · explicit review requir
 '<div class="formgrid"><label class="field">Eligible clubs<select data-lcpf-choice="'+esc(c.id)+'"><option value="">Choose club</option>'+c.value.candidates.map(v=>'<option value="'+esc(v.name)+'">'+esc(v.name)+' · '+v.metric+' points</option>').join("")+'</select></label>'+
 '<button class="btn primary" data-lcpf-choice-save="'+esc(c.id)+'" type="button">Save provisional tiebreak choice</button></div>')
 }
-function render(){const root=$("#league-series-mount");if(!root)return;
-if(!teams){root.innerHTML=panel("Loading source team pool","Winter 2026/27 public league snapshot, not official playoff seeding","<p>"+esc(error||"Loading…")+"</p>");if(!pending)load();return}
-const d=divisions(st.night);if(!d.includes(st.division))st.division=d[0]||"";
-const req=MODES[st.mode].n,all=selections(),used=all.slice(0,req),calc=calculate(),omitted=all.slice(req);
-let h='<p class="lc-warning">Historical rule example, <b>not an approved 2026/27 playoff schedule</b>. Original Winter 2026 SVHL templates specify multi-game series, wildcards, consolation and round robin depending on division. Team identities are published; seed order and all game results here are demonstration drafts.</p>'+
-panel("Select published format example","The game structure follows linked 2026 historical template; current league rules require separate confirmation.",
-'<div class="lc-controls"><label class="field">Playoff structure<select id="lcpf-mode">'+Object.entries(MODES).map(([k,v])=>'<option value="'+k+'"'+(k===st.mode?" selected":"")+'>'+esc(v.label)+'</option>').join("")+'</select></label>'+
-'<label class="field">Competition night<select id="lcpf-night">'+["Sunday","Tuesday","Wednesday","Thursday"].map(x=>'<option'+(x===st.night?" selected":"")+'>'+x+'</option>').join("")+'</select></label>'+
-'<label class="field">Public division<select id="lcpf-division">'+d.map(x=>'<option'+(x===st.division?" selected":"")+'>'+esc(x)+'</option>').join("")+'</select></label></div>'+
-'<div class="lc-foot">'+esc(MODES[st.mode].ref)+' · '+req+' team format · '+all.length+' published division teams · <a target="_blank" rel="noopener noreferrer" href="'+(st.mode==="six"?SOURCES.sunday:st.mode==="three"?SOURCES.thursday:SOURCES.sunday)+'">Historical format PDF ↗</a> · <a href="'+SOURCES.rules+'" rel="noopener noreferrer" target="_blank">Rulebook ↗</a></div>'+
-(all.length<req?'<p class="lc-error">Not enough public teams in this division to demonstrate a '+req+'-team format. Select another division.</p>':(omitted.length?'<p class="lc-caption">Only the first '+req+' draft seeds are in this scenario. Other published division teams <b>are not automatically eliminated</b>; this demonstration is not the official division competition.</p>':'')));
-h+=panel("Provisional seeds · demonstration input","Source league standings and official playoff eligibility have NOT been used to assign these seed positions.",
-'<div class="lc-seeds">'+all.map((n,i)=>'<div><b>'+(i<req?"#"+(i+1):"Outside")+'</b><span>'+esc(n)+'</span><button class="btn small" type="button" data-lcpf-up="'+i+'"'+(!i?" disabled":"")+' aria-label="Move '+esc(n)+' up">↑</button><button class="btn small" type="button" data-lcpf-down="'+i+'"'+(i===all.length-1?" disabled":"")+' aria-label="Move '+esc(n)+' down">↓</button></div>').join("")+'</div>');
-if(!calc){root.innerHTML=h;return}
-if(calc.roundRobin)h+=roundRobinUI(calc.roundRobin);
-for(const stage of calc.stages){h+=panel(stage.name,"Series statuses are calculated from completed game results only; eligibility approval is never implied.",'<div class="lc-series-grid">'+stage.series.map(card).join("")+'</div>')}
-if(calc.choices)for(const c of calc.choices)h+=choiceUI(c);
-h+=panel("Demo competition status","A structured playoff record can replace screenshots without allowing unsupported automatic advancement.",
-'<div class="lc-kpis"><div><small>Source teams</small><strong>'+used.length+'</strong><em>Draft seed labels</em></div><div><small>Competition structure</small><strong>'+esc(st.mode.toUpperCase())+'</strong><em>Historical 2026 example</em></div><div><small>Champion</small><strong style="font-size:15px">'+esc(calc.winner||"Undecided")+'</strong><em>Draft only</em></div><div><small>Facility approval</small><strong>None</strong><em>No live fixture slots</em></div></div>'+
-'<div class="formfooter"><button id="lcpf-export" class="btn primary" type="button">Export complete draft</button><button class="btn" id="lcpf-clear" type="button">Clear this format’s draft results</button><button class="btn" data-go="league-inventory" type="button">Review ice inputs</button></div>'+
-'<p class="lc-caption">Ties in individual best-of-three games require an explicit 5-minute overtime/shootout result. A tied two-game total-point series requires an explicit final series decision. Round-robin ties unresolved by public statistics remain held for official adjudication.</p>');
-root.innerHTML=h}
+function render(){
+ const root=$("#league-series-mount");if(!root)return;
+ if(!teams){root.innerHTML=panel("Loading playoff teams","Public team records; no official playoff seeding","<p>"+esc(error||"Reading team records…")+"</p>");if(!pending)load();return}
+ const d=divisions(st.night);if(!d.includes(st.division))st.division=d[0]||"";
+ const req=MODES[st.mode].n,all=selections(),used=all.slice(0,req),calc=calculate(),omitted=all.slice(req);
+ let h='<div class="v10-pf"><div class="v10-pf-note"><strong>Illustrative playoff competition</strong><span>Format examples follow published historical SVHL documents. Seedings, scores and advancing teams are drafts; nothing changes in the league.</span></div>'+
+ '<section class="panel v10-pf-setup"><div class="v10-step-title"><span>1</span><div><h2>Choose the playoff format</h2><p>Select the league night and division, then choose how the games are played.</p></div></div>'+
+ '<div class="lc-controls"><label class="field">Playoff format<select id="lcpf-mode">'+Object.entries(MODES).map(([k,v])=>'<option value="'+k+'"'+(k===st.mode?" selected":"")+'>'+esc(v.label)+'</option>').join("")+'</select></label>'+
+ '<label class="field">League night<select id="lcpf-night">'+["Sunday","Tuesday","Wednesday","Thursday"].map(x=>'<option'+(x===st.night?" selected":"")+'>'+x+'</option>').join("")+'</select></label>'+
+ '<label class="field">Division<select id="lcpf-division">'+d.map(x=>'<option'+(x===st.division?" selected":"")+'>'+esc(x)+'</option>').join("")+'</select></label></div>'+
+ '<div class="v10-pf-summary"><strong>'+req+'-team format</strong><span>'+all.length+' public team records in selected division</span><span>Historical example · not this season’s approved bracket</span></div>'+
+ (all.length<req?'<p class="lc-error">This division has fewer than '+req+' public teams. Choose another division or format.</p>':'')+
+ (omitted.length?'<p class="v10-pf-muted">This format uses the first '+req+' draft seeds. Other published teams are not officially eliminated.</p>':'')+
+ '</section>';
+ h+='<section class="panel v10-pf-seeds"><details id="lcpf-seeds"'+(seedOpen?" open":"")+'><summary><span class="v10-step-icon">2</span><span class="v10-seed-text"><strong>Check the teams and draft seed order</strong><small>'+used.map(esc).join(' · ')+'</small></span><span class="v10-seed-toggle">Edit seeds ⌄</span></summary>'+
+ '<p class="v10-pf-muted">These are demonstration seed positions, not verified official playoff rankings. Use the arrows to reorder before entering results.</p>'+
+ '<div class="lc-seeds">'+all.map((n,i)=>'<div><b>'+(i<req?"#"+(i+1):"Outside")+'</b><span>'+esc(n)+'</span><button class="btn small" type="button" data-lcpf-up="'+i+'"'+(!i?" disabled":"")+' aria-label="Move '+esc(n)+' up">↑</button><button class="btn small" type="button" data-lcpf-down="'+i+'"'+(i===all.length-1?" disabled":"")+' aria-label="Move '+esc(n)+' down">↓</button></div>').join("")+'</div></details></section>';
+ if(!calc){root.innerHTML=h+'</div>';return}
+ h+='<div class="v10-pf-play-head"><div class="v10-step-title"><span>3</span><div><h2>Enter results and follow the bracket</h2><p>Each completed series advances its winner. Unresolved ties stay on hold.</p></div></div><span class="v10-not-booked">Draft results only</span></div>';
+ if(calc.roundRobin)h+=roundRobinUI(calc.roundRobin);
+ for(let i=0;i<calc.stages.length;i++){
+  const stage=calc.stages[i];
+  h+=panel(stage.name,i===0?"Enter first-round results to populate the next round.":"Participants appear automatically after qualifying series are resolved.",
+  '<div class="lc-series-grid">'+stage.series.map(card).join("")+'</div>')
+ }
+ if(calc.choices)for(const c of calc.choices)h+=choiceUI(c);
+ h+='<section class="v10-pf-finish"><div><span class="v10-kicker">PLAYOFF PREVIEW</span><h2>'+(calc.winner?"Champion: "+esc(calc.winner):"Champion not yet decided")+'</h2><p>Only completed draft game results can advance clubs. League eligibility and official scoring remain separate.</p></div>'+
+ '<div class="v10-pf-actions"><button id="lcpf-export" class="btn primary" type="button">Export playoff draft</button><button class="btn" id="lcpf-clear" type="button">Clear draft scores</button></div></section>'+
+ '<details class="v10-method-note"><summary>About historical rules and other bracket options <span aria-hidden="true">⌄</span></summary><div>'+
+ '<p>'+esc(MODES[st.mode].ref)+'. The real division may use different rules. Review the <a target="_blank" rel="noopener noreferrer" href="'+(st.mode==="three"?SOURCES.thursday:SOURCES.sunday)+'">historical format PDF</a> and <a target="_blank" rel="noopener noreferrer" href="'+SOURCES.rules+'">SVHL rulebook</a>.</p>'+
+ '<p>Ties in individual best-of-three games require an overtime/shootout winner. Two-game series are decided by series points; when tied, the additional result must be entered explicitly.</p>'+
+ '<button type="button" class="btn" data-go="league-bracket-sandbox">Open the basic knockout sandbox</button></div></details></div>';
+ root.innerHTML=h
+}
 function load(){if(pending)return pending;pending=fetch(TEAMS,{cache:"no-store"}).then(r=>{if(!r.ok)throw Error("Source HTTP "+r.status);return r.json()}).then(j=>{if(j.coverage?.league_team_seasons!==96)throw Error("Unexpected published team snapshot");teams=j;render()}).catch(e=>{error=String(e);render()});return pending}
 function currentSeries(id){const c=calculate();return c?.stages.flatMap(x=>x.series).find(x=>x.id===id)||null}
 function errorOn(el,msg){const par=el.closest(".lc-series,.lc-rr-match,.panel")||el.parentElement;const n=par?.querySelector(".lc-inline-error");if(n)n.textContent=msg;else st.note=msg}
 function numberScore(s){return s!==""&&/^\d{1,2}$/.test(s)?Number(s):null}
+document.addEventListener("toggle",e=>{if(e.target?.id==="lcpf-seeds")seedOpen=e.target.open},true);
 document.addEventListener("change",e=>{const x=e.target;if(!$("#league-series-mount"))return;
 if(x.id==="lcpf-mode"){st.mode=x.value;st.note="";persist();render()}
 if(x.id==="lcpf-night"){st.night=x.value;st.division=divisions(st.night)[0]||"";persist();render()}
