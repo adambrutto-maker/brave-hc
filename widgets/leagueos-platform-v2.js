@@ -287,6 +287,7 @@ function homeLeague(){
  return '<div class="v10-home">'+
  '<section class="v10-hero"><div><div class="v10-kicker">LEAGUEOS · LEAGUE OFFICE</div><h1>One place to run your league.</h1><p>Find games, build a fair season schedule and organize playoffs—without spreadsheets or screenshot brackets.</p><span class="v10-source-mark">Interactive demonstration using published SVHL records · Not affiliated with or operated by Sports Village</span></div>'+
  '<div class="v10-hero-aside"><span class="v10-hero-number">3</span><span>Core league workflows</span><small>Pick a task below to begin</small><button type="button" class="v13-hero-tour" data-v13-start>Start guided 5-step demo</button></div></section>'+
+ '<div class="v13-mobile-tour"><button type="button" class="btn primary" data-v13-start>Start guided 5-step demo</button></div>'+
  '<h2 class="v10-section-title">What would you like to do?</h2>'+
  '<div class="v10-task-grid">'+
  '<button type="button" class="v10-task" data-go="league-schedule"><span class="v10-task-icon">▦</span><strong>Find a game</strong><span>Browse league nights, start times, results and rink assignments.</span><em>Open game calendar <span aria-hidden="true">→</span></em></button>'+
