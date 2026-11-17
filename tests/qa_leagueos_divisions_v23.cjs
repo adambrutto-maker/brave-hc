@@ -156,8 +156,9 @@ fs.mkdirSync(OUT,{recursive:true});
   });
   await invalid.goto(BASE+"#league-division-plan",{waitUntil:"domcontentloaded",timeout:25000});
   await invalid.waitForSelector(".v23-failed",{timeout:16000});
-  check((await invalid.$eval(".v23-failed",e=>e.textContent)).includes("unavailable"),
-   "Forged official data-change flag fails closed");
+  const sourceHeld=await invalid.evaluate(()=>window.LeagueOSDivisionV23?._test?.getSource?.()===null&&
+    document.querySelectorAll(".v23-division-card.proposed").length===0);
+  check(sourceHeld,"Forged official data-change flag fails closed without a valid division model");
   await invalid.close();
 
   const result={pass:true,checks:checks.length,source:{nights:4,teams:96,exactPlayerIds:70,

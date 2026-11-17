@@ -179,7 +179,8 @@ function allNightsAtGlance(){
 }
 function tierPanel(){
  const state=readDraft(),current=state?.sourceTierDigest===data.sources.tiers.sha256?
- state.drafts:{},stale=state&&state.sourceTierDigest!==data.sources.tiers.sha256;
+ state.drafts:{},dates=state?.sourceTierDigest===data.sources.tiers.sha256?
+ (state.effectiveDates||{}):{},stale=state&&state.sourceTierDigest!==data.sources.tiers.sha256;
  const rows=NIGHTS.flatMap(night=>tiers.assignments.filter(a=>a.night===night).map(a=>
  '<div class="v23-tier-row"><div><b>'+esc(a.division)+'</b>'+
  '<small>'+esc(night)+' · '+esc(a.program)+' · '+a.currentSourceTeamCount+
@@ -187,7 +188,9 @@ function tierPanel(){
  '<label>Working draft<select data-v23-tier="'+esc(a.key)+'">'+
  '<option value="">Unassigned</option>'+tiers.assignmentLevels.map(level=>
  '<option value="'+level.level+'"'+(String(current?.[a.key]??"")===String(level.level)?' selected':'')+
- '>'+level.level+' · '+esc(level.label)+'</option>').join("")+'</select></label></div>')).join("");
+ '>'+level.level+' · '+esc(level.label)+'</option>').join("")+'</select></label>'+
+ '<label>Draft effective start<input type="date" data-v24-tier-date="'+esc(a.key)+
+ '" value="'+esc(dates?.[a.key]||"")+'"></label></div>')).join("");
  return '<details class="v23-tier-panel"><summary><span>LEAGUE STRENGTH CLASSIFICATIONS</span>'+
  '<strong>Division-level assignments needed (15 official levels unassigned)</strong>'+
  '<small>Expand to set local draft tiers for league approval. Drafts do not alter the engine or any league record.</small></summary>'+
@@ -222,10 +225,13 @@ function render(){
  const root=$("#leagueos-division-plan-v23");if(!root||!data||!tiers)return;
  const byId=teamMap();
  root.innerHTML=headline()+allNightsAtGlance()+
+ '<div id="leagueos-v24-fixture-coverage" aria-live="polite"></div>'+
+ '<div id="leagueos-v24-strength-history" aria-live="polite"></div>'+
  '<nav class="v23-jump" aria-label="League nights">'+NIGHTS.map(n=>
  '<button type="button" data-v23-jump="'+n.toLowerCase()+'">'+n+' division plan</button>').join("")+'</nav>'+
  tierPanel()+crossNightEvidence()+data.nights.map(n=>nightCard(n,byId)).join("")+
  (message?'<p class="v23-message" role="status">'+esc(message)+'</p>':"")+footer();
+ window.LeagueOSCoverageV24?.mount();
 }
 function page(){
  return '<div class="v23-root" id="leagueos-division-plan-v23" aria-live="polite">'+
@@ -243,13 +249,20 @@ function saveTierDrafts(){
  const fields=[...document.querySelectorAll("[data-v23-tier]")];
  const allowed=new Set(tiers.assignmentLevels.map(x=>String(x.level)));
  const allowedKeys=new Set(tiers.assignments.map(x=>x.key));
- const drafts={};
+ const drafts={},effectiveDates={};
+ for(const e of document.querySelectorAll("[data-v24-tier-date]")){
+  const key=e.dataset.v24TierDate,value=e.value;
+  if(!allowedKeys.has(key)||(value&&!/^20\d{2}-\d{2}-\d{2}$/.test(value))){
+   message="Effective date must be a valid YYYY-MM-DD draft for a known division.";render();return;
+  }
+  if(value)effectiveDates[key]=value;
+ }
  for(const e of fields){const key=e.dataset.v23Tier;
   if(!allowedKeys.has(key)||e.value&& !allowed.has(e.value)){message="Invalid tier proposal rejected.";render();return}
   if(e.value)drafts[key]=Number(e.value);
  }
  try{localStorage.setItem(KEY,JSON.stringify({version:1,sourceTierDigest:data.sources.tiers.sha256,
-  savedAt:new Date().toISOString(),status:"LOCAL_DRAFT_NOT_LEAGUE_APPROVED",drafts}));
+  savedAt:new Date().toISOString(),status:"LOCAL_DRAFT_NOT_LEAGUE_APPROVED",drafts,effectiveDates}));
   message="Tier proposals saved in this browser. The official league tiers remain unassigned.";
  }catch(_){message="Browser storage unavailable; no tier draft was saved."}
  render();
@@ -258,13 +271,16 @@ function saveTierDrafts(){
 function exportTierDrafts(){
  const draft=readDraft();
  const rowDraft=draft?.sourceTierDigest===data.sources.tiers.sha256?draft.drafts:{};
+ const rowDates=draft?.sourceTierDigest===data.sources.tiers.sha256?
+  (draft.effectiveDates||{}):{};
  const out={schema:"bruttech-leagueos-strength-level-proposal/v23",
   createdAt:new Date().toISOString(),
   approval:"NOT_APPROVED_BROWSER_ONLY",officialWriteAllowed:false,
   sourceTierSHA256:data.sources.tiers.sha256,
   levelDefinitions:tiers.assignmentLevels,assignmentRequests:tiers.assignments.map(a=>({
    key:a.key,leagueId:a.leagueId,night:a.night,division:a.division,program:a.program,
-   proposedLevel:rowDraft[a.key]??null,approvedLevel:null,approval:"UNASSIGNED"}))};
+   proposedLevel:rowDraft[a.key]??null,proposedEffectiveFrom:rowDates[a.key]??null,
+   approvedLevel:null,approvedEffectiveFrom:null,approval:"UNASSIGNED"}))};
  download(JSON.stringify(out,null,2),"LeagueOS_V23_Draft_Division_Strength_Levels.json");
  message="Local draft export created. No league tier was officially assigned.";render();
 }

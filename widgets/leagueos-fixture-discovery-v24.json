@@ -1,0 +1,2529 @@
+{
+  "schema": "bruttech-leagueos-four-night-fixture-discovery/v24",
+  "status": "READ_ONLY_CANDIDATE_SOURCE_NOT_LEAGUE_APPROVED",
+  "baseFixtureSha256": "39d38f799c8d8c89c642306181e35c5efbb3f7f5da4d737c5445b7f8ca45c658",
+  "firstCapturedToronto": "2026-11-17",
+  "lastMaterialChangeToronto": "2026-11-17",
+  "officialRecordsEdited": false,
+  "noAvailableIceInference": true,
+  "sourcePolicy": "Exact game IDs + two reciprocal current team pages. New fixtures are source candidates, not official ice allocations or approved division changes.",
+  "leagueNights": [
+    {
+      "leagueId": 570,
+      "night": "Sunday",
+      "currentTeamCount": 27,
+      "sourceInvalidStandingRows": 0
+    },
+    {
+      "leagueId": 568,
+      "night": "Tuesday",
+      "currentTeamCount": 18,
+      "sourceInvalidStandingRows": 0
+    },
+    {
+      "leagueId": 567,
+      "night": "Wednesday",
+      "currentTeamCount": 22,
+      "sourceInvalidStandingRows": 0
+    },
+    {
+      "leagueId": 569,
+      "night": "Thursday",
+      "currentTeamCount": 35,
+      "sourceInvalidStandingRows": 1
+    }
+  ],
+  "counts": {
+    "currentLeagueTeams": 102,
+    "unratedByCurrentDivisionModel": 6,
+    "sourceNights": 4,
+    "sourcePagesAccepted": 102,
+    "sourcePagesHeld": 0,
+    "sourceGameIDsObserved": 472,
+    "newCandidateCount": 61,
+    "currentNewFuture": 61,
+    "newSettled": 0,
+    "newHeld": 0,
+    "unpairedSourceGameIdsHeld": 0,
+    "sourceDuplicateZeroZeroHolds": 0,
+    "sourceInvalidStandingsRows": 1
+  },
+  "teamDirectory": [
+    {
+      "leagueId": 567,
+      "night": "Wednesday",
+      "teamId": 13641,
+      "name": "Wangers",
+      "division": "Burrell Overhead Division"
+    },
+    {
+      "leagueId": 567,
+      "night": "Wednesday",
+      "teamId": 13665,
+      "name": "Moneyline",
+      "division": "Franco Canadian"
+    },
+    {
+      "leagueId": 567,
+      "night": "Wednesday",
+      "teamId": 13666,
+      "name": "Bulls",
+      "division": "Hot Shots Bar & Grill Division"
+    },
+    {
+      "leagueId": 567,
+      "night": "Wednesday",
+      "teamId": 13669,
+      "name": "Julian's Spartans",
+      "division": "Hot Shots Bar & Grill Division"
+    },
+    {
+      "leagueId": 567,
+      "night": "Wednesday",
+      "teamId": 13672,
+      "name": "PPG",
+      "division": "Hot Shots Bar & Grill Division"
+    },
+    {
+      "leagueId": 567,
+      "night": "Wednesday",
+      "teamId": 13673,
+      "name": "Brewhawks",
+      "division": "Franco Canadian"
+    },
+    {
+      "leagueId": 567,
+      "night": "Wednesday",
+      "teamId": 13674,
+      "name": "Roadrunners",
+      "division": "Franco Canadian"
+    },
+    {
+      "leagueId": 567,
+      "night": "Wednesday",
+      "teamId": 13677,
+      "name": "DD Degens",
+      "division": "Franco Canadian"
+    },
+    {
+      "leagueId": 567,
+      "night": "Wednesday",
+      "teamId": 13678,
+      "name": "Tropics",
+      "division": "Franco Canadian"
+    },
+    {
+      "leagueId": 567,
+      "night": "Wednesday",
+      "teamId": 13683,
+      "name": "Marlboro Reds",
+      "division": "Franco Canadian"
+    },
+    {
+      "leagueId": 567,
+      "night": "Wednesday",
+      "teamId": 13694,
+      "name": "Pigeon Pounders",
+      "division": "Burrell Overhead Division"
+    },
+    {
+      "leagueId": 567,
+      "night": "Wednesday",
+      "teamId": 13695,
+      "name": "Replacements",
+      "division": "Hot Shots Bar & Grill Division"
+    },
+    {
+      "leagueId": 567,
+      "night": "Wednesday",
+      "teamId": 13696,
+      "name": "Boys in Motion",
+      "division": "Burrell Overhead Division"
+    },
+    {
+      "leagueId": 567,
+      "night": "Wednesday",
+      "teamId": 13697,
+      "name": "Pylons",
+      "division": "Hot Shots Bar & Grill Division"
+    },
+    {
+      "leagueId": 567,
+      "night": "Wednesday",
+      "teamId": 13698,
+      "name": "Yeti",
+      "division": "Burrell Overhead Division"
+    },
+    {
+      "leagueId": 567,
+      "night": "Wednesday",
+      "teamId": 13699,
+      "name": "Bridge Boys Hockey",
+      "division": "Burrell Overhead Division"
+    },
+    {
+      "leagueId": 567,
+      "night": "Wednesday",
+      "teamId": 13726,
+      "name": "Red Light District",
+      "division": "Burrell Overhead Division"
+    },
+    {
+      "leagueId": 567,
+      "night": "Wednesday",
+      "teamId": 13727,
+      "name": "Bluefins",
+      "division": "x-playoff division"
+    },
+    {
+      "leagueId": 567,
+      "night": "Wednesday",
+      "teamId": 13728,
+      "name": "Teemu Salami",
+      "division": "x-playoff division"
+    },
+    {
+      "leagueId": 567,
+      "night": "Wednesday",
+      "teamId": 13729,
+      "name": "Weston Road Wrenches",
+      "division": "Franco Canadian"
+    },
+    {
+      "leagueId": 567,
+      "night": "Wednesday",
+      "teamId": 13731,
+      "name": "Shockers",
+      "division": "Hot Shots Bar & Grill Division"
+    },
+    {
+      "leagueId": 567,
+      "night": "Wednesday",
+      "teamId": 13733,
+      "name": "Zamboner Crew",
+      "division": "Franco Canadian"
+    },
+    {
+      "leagueId": 568,
+      "night": "Tuesday",
+      "teamId": 13623,
+      "name": "Rebels",
+      "division": "Burrell Overhead"
+    },
+    {
+      "leagueId": 568,
+      "night": "Tuesday",
+      "teamId": 13643,
+      "name": "Philly Bombers",
+      "division": "Franco Canadian Division"
+    },
+    {
+      "leagueId": 568,
+      "night": "Tuesday",
+      "teamId": 13647,
+      "name": "Mooseheads",
+      "division": "High 5 Photography"
+    },
+    {
+      "leagueId": 568,
+      "night": "Tuesday",
+      "teamId": 13667,
+      "name": "Shockers",
+      "division": "High 5 Photography"
+    },
+    {
+      "leagueId": 568,
+      "night": "Tuesday",
+      "teamId": 13675,
+      "name": "Puckheads",
+      "division": "High 5 Photography"
+    },
+    {
+      "leagueId": 568,
+      "night": "Tuesday",
+      "teamId": 13676,
+      "name": "UOD Hockey",
+      "division": "Burrell Overhead"
+    },
+    {
+      "leagueId": 568,
+      "night": "Tuesday",
+      "teamId": 13687,
+      "name": "Kraken Beers",
+      "division": "Franco Canadian Division"
+    },
+    {
+      "leagueId": 568,
+      "night": "Tuesday",
+      "teamId": 13691,
+      "name": "PHL Demonz",
+      "division": "Burrell Overhead"
+    },
+    {
+      "leagueId": 568,
+      "night": "Tuesday",
+      "teamId": 13692,
+      "name": "Dirties",
+      "division": "Franco Canadian Division"
+    },
+    {
+      "leagueId": 568,
+      "night": "Tuesday",
+      "teamId": 13693,
+      "name": "Hammers",
+      "division": "Burrell Overhead"
+    },
+    {
+      "leagueId": 568,
+      "night": "Tuesday",
+      "teamId": 13718,
+      "name": "Jets",
+      "division": "High 5 Photography"
+    },
+    {
+      "leagueId": 568,
+      "night": "Tuesday",
+      "teamId": 13719,
+      "name": "SOH",
+      "division": "Burrell Overhead"
+    },
+    {
+      "leagueId": 568,
+      "night": "Tuesday",
+      "teamId": 13720,
+      "name": "Woodbridge Express",
+      "division": "xplayoff Division"
+    },
+    {
+      "leagueId": 568,
+      "night": "Tuesday",
+      "teamId": 13721,
+      "name": "Henny Kings",
+      "division": "Burrell Overhead"
+    },
+    {
+      "leagueId": 568,
+      "night": "Tuesday",
+      "teamId": 13722,
+      "name": "Mighty Drunks",
+      "division": "Franco Canadian Division"
+    },
+    {
+      "leagueId": 568,
+      "night": "Tuesday",
+      "teamId": 13723,
+      "name": "Vaughan Rippers",
+      "division": "Franco Canadian Division"
+    },
+    {
+      "leagueId": 568,
+      "night": "Tuesday",
+      "teamId": 13724,
+      "name": "Bang Bros",
+      "division": "xplayoff Division"
+    },
+    {
+      "leagueId": 568,
+      "night": "Tuesday",
+      "teamId": 13725,
+      "name": "FT State",
+      "division": "High 5 Photography"
+    },
+    {
+      "leagueId": 569,
+      "night": "Thursday",
+      "teamId": 13617,
+      "name": "Blades",
+      "division": "High 5 Photography"
+    },
+    {
+      "leagueId": 569,
+      "night": "Thursday",
+      "teamId": 13618,
+      "name": "Blackhawks",
+      "division": "Kool Stuff Masters"
+    },
+    {
+      "leagueId": 569,
+      "night": "Thursday",
+      "teamId": 13621,
+      "name": "GQ Stars",
+      "division": "Re-Max Masters"
+    },
+    {
+      "leagueId": 569,
+      "night": "Thursday",
+      "teamId": 13622,
+      "name": "Greyhounds",
+      "division": "Re-Max Masters"
+    },
+    {
+      "leagueId": 569,
+      "night": "Thursday",
+      "teamId": 13624,
+      "name": "Dynamo",
+      "division": "Kool Stuff Masters"
+    },
+    {
+      "leagueId": 569,
+      "night": "Thursday",
+      "teamId": 13625,
+      "name": "Woodbine Stallions",
+      "division": "Fazzari Partners"
+    },
+    {
+      "leagueId": 569,
+      "night": "Thursday",
+      "teamId": 13626,
+      "name": "Meatheads",
+      "division": "Fazzari Partners"
+    },
+    {
+      "leagueId": 569,
+      "night": "Thursday",
+      "teamId": 13628,
+      "name": "Kings",
+      "division": "High 5 Photography"
+    },
+    {
+      "leagueId": 569,
+      "night": "Thursday",
+      "teamId": 13630,
+      "name": "Italian Peppers",
+      "division": "Fazzari Partners"
+    },
+    {
+      "leagueId": 569,
+      "night": "Thursday",
+      "teamId": 13631,
+      "name": "Homecorp",
+      "division": "Fazzari Partners"
+    },
+    {
+      "leagueId": 569,
+      "night": "Thursday",
+      "teamId": 13632,
+      "name": "Ice Hogs",
+      "division": "Re-Max Masters"
+    },
+    {
+      "leagueId": 569,
+      "night": "Thursday",
+      "teamId": 13633,
+      "name": "Kremlins 35",
+      "division": "Re-Max Masters"
+    },
+    {
+      "leagueId": 569,
+      "night": "Thursday",
+      "teamId": 13634,
+      "name": "Lovics",
+      "division": "Re-Max Masters"
+    },
+    {
+      "leagueId": 569,
+      "night": "Thursday",
+      "teamId": 13635,
+      "name": "Panthers H/C",
+      "division": "Kool Stuff Masters"
+    },
+    {
+      "leagueId": 569,
+      "night": "Thursday",
+      "teamId": 13636,
+      "name": "Redwings",
+      "division": "Kool Stuff Masters"
+    },
+    {
+      "leagueId": 569,
+      "night": "Thursday",
+      "teamId": 13637,
+      "name": "Team Finelli",
+      "division": "Re-Max Masters"
+    },
+    {
+      "leagueId": 569,
+      "night": "Thursday",
+      "teamId": 13638,
+      "name": "YYZ Express",
+      "division": "Kool Stuff Masters"
+    },
+    {
+      "leagueId": 569,
+      "night": "Thursday",
+      "teamId": 13639,
+      "name": "Grease Kings",
+      "division": "Fazzari Partners"
+    },
+    {
+      "leagueId": 569,
+      "night": "Thursday",
+      "teamId": 13642,
+      "name": "Randomly Selected",
+      "division": "Fazzari Partners"
+    },
+    {
+      "leagueId": 569,
+      "night": "Thursday",
+      "teamId": 13645,
+      "name": "Showertime",
+      "division": "A & G Cleaners"
+    },
+    {
+      "leagueId": 569,
+      "night": "Thursday",
+      "teamId": 13646,
+      "name": "Hot Heads",
+      "division": "High 5 Photography"
+    },
+    {
+      "leagueId": 569,
+      "night": "Thursday",
+      "teamId": 13650,
+      "name": "Sweeps",
+      "division": "A & G Cleaners"
+    },
+    {
+      "leagueId": 569,
+      "night": "Thursday",
+      "teamId": 13651,
+      "name": "Back Door Boys",
+      "division": "A & G Cleaners"
+    },
+    {
+      "leagueId": 569,
+      "night": "Thursday",
+      "teamId": 13652,
+      "name": "Bad News Beers",
+      "division": "Fazzari Partners"
+    },
+    {
+      "leagueId": 569,
+      "night": "Thursday",
+      "teamId": 13653,
+      "name": "Bellos",
+      "division": "A & G Cleaners"
+    },
+    {
+      "leagueId": 569,
+      "night": "Thursday",
+      "teamId": 13654,
+      "name": "Don Cherries",
+      "division": "High 5 Photography"
+    },
+    {
+      "leagueId": 569,
+      "night": "Thursday",
+      "teamId": 13655,
+      "name": "Masterbladers",
+      "division": "High 5 Photography"
+    },
+    {
+      "leagueId": 569,
+      "night": "Thursday",
+      "teamId": 13656,
+      "name": "Night Hawks",
+      "division": "High 5 Photography"
+    },
+    {
+      "leagueId": 569,
+      "night": "Thursday",
+      "teamId": 13657,
+      "name": "Only Way",
+      "division": "A & G Cleaners"
+    },
+    {
+      "leagueId": 569,
+      "night": "Thursday",
+      "teamId": 13658,
+      "name": "San Jose Sharts",
+      "division": "A & G Cleaners"
+    },
+    {
+      "leagueId": 569,
+      "night": "Thursday",
+      "teamId": 13659,
+      "name": "Spicy Margs",
+      "division": "A & G Cleaners"
+    },
+    {
+      "leagueId": 569,
+      "night": "Thursday",
+      "teamId": 13660,
+      "name": "Vaughan Lightning",
+      "division": "xplayoff"
+    },
+    {
+      "leagueId": 569,
+      "night": "Thursday",
+      "teamId": 13661,
+      "name": "Wolves",
+      "division": "High 5 Photography"
+    },
+    {
+      "leagueId": 569,
+      "night": "Thursday",
+      "teamId": 13662,
+      "name": "Bucky Hangs",
+      "division": "High 5 Photography"
+    },
+    {
+      "leagueId": 569,
+      "night": "Thursday",
+      "teamId": 13732,
+      "name": "Teamu Salami",
+      "division": "High 5 Photography"
+    },
+    {
+      "leagueId": 570,
+      "night": "Sunday",
+      "teamId": 13596,
+      "name": "Bushwackers",
+      "division": "Fazzari Partners"
+    },
+    {
+      "leagueId": 570,
+      "night": "Sunday",
+      "teamId": 13627,
+      "name": "Last Pass",
+      "division": "Fazzari Partners"
+    },
+    {
+      "leagueId": 570,
+      "night": "Sunday",
+      "teamId": 13649,
+      "name": "Big Bastones",
+      "division": "The Cristillo Division"
+    },
+    {
+      "leagueId": 570,
+      "night": "Sunday",
+      "teamId": 13663,
+      "name": "We're Curved",
+      "division": "Fazzari Partners"
+    },
+    {
+      "leagueId": 570,
+      "night": "Sunday",
+      "teamId": 13668,
+      "name": "Dateline Predators",
+      "division": "The Cristillo Division"
+    },
+    {
+      "leagueId": 570,
+      "night": "Sunday",
+      "teamId": 13671,
+      "name": "Hawks",
+      "division": "Fazzari Partners"
+    },
+    {
+      "leagueId": 570,
+      "night": "Sunday",
+      "teamId": 13679,
+      "name": "Braves HC",
+      "division": "The Cristillo Division"
+    },
+    {
+      "leagueId": 570,
+      "night": "Sunday",
+      "teamId": 13680,
+      "name": "Mohawks HC",
+      "division": "The Cristillo Division"
+    },
+    {
+      "leagueId": 570,
+      "night": "Sunday",
+      "teamId": 13686,
+      "name": "Batman Prep",
+      "division": "Remax Division"
+    },
+    {
+      "leagueId": 570,
+      "night": "Sunday",
+      "teamId": 13700,
+      "name": "Pinheads",
+      "division": "Fazzari Partners"
+    },
+    {
+      "leagueId": 570,
+      "night": "Sunday",
+      "teamId": 13704,
+      "name": "Other Way",
+      "division": "The Cristillo Division"
+    },
+    {
+      "leagueId": 570,
+      "night": "Sunday",
+      "teamId": 13707,
+      "name": "Schmelts",
+      "division": "x-playoff Division"
+    },
+    {
+      "leagueId": 570,
+      "night": "Sunday",
+      "teamId": 13708,
+      "name": "Mid Ice Crisis",
+      "division": "The Cristillo Division"
+    },
+    {
+      "leagueId": 570,
+      "night": "Sunday",
+      "teamId": 13709,
+      "name": "Sugo Sundays",
+      "division": "The Cristillo Division"
+    },
+    {
+      "leagueId": 570,
+      "night": "Sunday",
+      "teamId": 13710,
+      "name": "Mighty Drunks",
+      "division": "Remax Division"
+    },
+    {
+      "leagueId": 570,
+      "night": "Sunday",
+      "teamId": 13711,
+      "name": "Butcher Brothers",
+      "division": "Remax Division"
+    },
+    {
+      "leagueId": 570,
+      "night": "Sunday",
+      "teamId": 13712,
+      "name": "Maplewolves",
+      "division": "The Cristillo Division"
+    },
+    {
+      "leagueId": 570,
+      "night": "Sunday",
+      "teamId": 13713,
+      "name": "Primary Auto",
+      "division": "Remax Division"
+    },
+    {
+      "leagueId": 570,
+      "night": "Sunday",
+      "teamId": 13714,
+      "name": "Thrillers",
+      "division": "Remax Division"
+    },
+    {
+      "leagueId": 570,
+      "night": "Sunday",
+      "teamId": 13715,
+      "name": "VR Delta",
+      "division": "Remax Division"
+    },
+    {
+      "leagueId": 570,
+      "night": "Sunday",
+      "teamId": 13716,
+      "name": "Young Guns",
+      "division": "The Cristillo Division"
+    },
+    {
+      "leagueId": 570,
+      "night": "Sunday",
+      "teamId": 13717,
+      "name": "Degenerates",
+      "division": "Remax Division"
+    },
+    {
+      "leagueId": 570,
+      "night": "Sunday",
+      "teamId": 13730,
+      "name": "Zamboner Crew",
+      "division": "The Cristillo Division"
+    },
+    {
+      "leagueId": 570,
+      "night": "Sunday",
+      "teamId": 13734,
+      "name": "Dallas",
+      "division": "VAHL Division"
+    },
+    {
+      "leagueId": 570,
+      "night": "Sunday",
+      "teamId": 13735,
+      "name": "Toronto",
+      "division": "VAHL Division"
+    },
+    {
+      "leagueId": 570,
+      "night": "Sunday",
+      "teamId": 13736,
+      "name": "LA KIngs",
+      "division": "VAHL Division"
+    },
+    {
+      "leagueId": 570,
+      "night": "Sunday",
+      "teamId": 13737,
+      "name": "Philadelphia",
+      "division": "VAHL Division"
+    }
+  ],
+  "unratedTeams": [
+    {
+      "leagueId": 570,
+      "night": "Sunday",
+      "teamId": 13707,
+      "name": "Schmelts",
+      "division": "x-playoff Division",
+      "status": "NO_VERIFIED_COMPARABLE_TEAM_RATING"
+    },
+    {
+      "leagueId": 569,
+      "night": "Thursday",
+      "teamId": 13660,
+      "name": "Vaughan Lightning",
+      "division": "xplayoff",
+      "status": "NO_VERIFIED_COMPARABLE_TEAM_RATING"
+    },
+    {
+      "leagueId": 568,
+      "night": "Tuesday",
+      "teamId": 13720,
+      "name": "Woodbridge Express",
+      "division": "xplayoff Division",
+      "status": "NO_VERIFIED_COMPARABLE_TEAM_RATING"
+    },
+    {
+      "leagueId": 568,
+      "night": "Tuesday",
+      "teamId": 13724,
+      "name": "Bang Bros",
+      "division": "xplayoff Division",
+      "status": "NO_VERIFIED_COMPARABLE_TEAM_RATING"
+    },
+    {
+      "leagueId": 567,
+      "night": "Wednesday",
+      "teamId": 13727,
+      "name": "Bluefins",
+      "division": "x-playoff division",
+      "status": "NO_VERIFIED_COMPARABLE_TEAM_RATING"
+    },
+    {
+      "leagueId": 567,
+      "night": "Wednesday",
+      "teamId": 13728,
+      "name": "Teemu Salami",
+      "division": "x-playoff division",
+      "status": "NO_VERIFIED_COMPARABLE_TEAM_RATING"
+    }
+  ],
+  "candidates": [
+    {
+      "league_id": 570,
+      "game_id": 128136,
+      "night": "Sunday",
+      "date": "2026-11-29",
+      "time": "20:15",
+      "home_team_id": 13649,
+      "away_team_id": 13709,
+      "status": "NEW_FUTURE_RECIPROCAL",
+      "homeGoals": null,
+      "awayGoals": null,
+      "reciprocal": true,
+      "sourceCount": 2,
+      "statusEvidence": "EXACT_TWO_TEAM_SOURCE_GAME_ID_PARITY",
+      "sourceTeamPageSHA256": [
+        "54748beb10e5fafc7a713552c7011700ada36772dacf4f42e4a3dd8043422ea2",
+        "1603d3012699d32276bc48c54179bf59e331e22cad66237af068b24c2d7a2c67"
+      ],
+      "sourceURLs": [
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13649&page_type=Adult",
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13709&page_type=Adult"
+      ],
+      "officialGameUrl": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=128136&page_type=Adult",
+      "officialWriteAllowed": false,
+      "firstSeenAt": "2026-11-17",
+      "lastChangedAt": "2026-11-17",
+      "missingFromCurrentSource": false
+    },
+    {
+      "league_id": 570,
+      "game_id": 128137,
+      "night": "Sunday",
+      "date": "2026-11-29",
+      "time": "21:00",
+      "home_team_id": 13679,
+      "away_team_id": 13712,
+      "status": "NEW_FUTURE_RECIPROCAL",
+      "homeGoals": null,
+      "awayGoals": null,
+      "reciprocal": true,
+      "sourceCount": 2,
+      "statusEvidence": "EXACT_TWO_TEAM_SOURCE_GAME_ID_PARITY",
+      "sourceTeamPageSHA256": [
+        "8658bbec050d34906b5d7fb14b8e435e4937d7f11874a3f91cd327533b4cb588",
+        "b76403a088e9a043e7b843d60fc439a4ae20d240e60b677dab87fae289bf956a"
+      ],
+      "sourceURLs": [
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13679&page_type=Adult",
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13712&page_type=Adult"
+      ],
+      "officialGameUrl": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=128137&page_type=Adult",
+      "officialWriteAllowed": false,
+      "firstSeenAt": "2026-11-17",
+      "lastChangedAt": "2026-11-17",
+      "missingFromCurrentSource": false
+    },
+    {
+      "league_id": 570,
+      "game_id": 128138,
+      "night": "Sunday",
+      "date": "2026-11-29",
+      "time": "21:15",
+      "home_team_id": 13668,
+      "away_team_id": 13704,
+      "status": "NEW_FUTURE_RECIPROCAL",
+      "homeGoals": null,
+      "awayGoals": null,
+      "reciprocal": true,
+      "sourceCount": 2,
+      "statusEvidence": "EXACT_TWO_TEAM_SOURCE_GAME_ID_PARITY",
+      "sourceTeamPageSHA256": [
+        "70641a2cc0f2759ee786b4abf8b16a4de39ba93559014f47fc553ee855ee94ca",
+        "5746e448f275863f6d9d1703e43304322b613f484bb27a101a41039d044d7e77"
+      ],
+      "sourceURLs": [
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13668&page_type=Adult",
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13704&page_type=Adult"
+      ],
+      "officialGameUrl": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=128138&page_type=Adult",
+      "officialWriteAllowed": false,
+      "firstSeenAt": "2026-11-17",
+      "lastChangedAt": "2026-11-17",
+      "missingFromCurrentSource": false
+    },
+    {
+      "league_id": 570,
+      "game_id": 128139,
+      "night": "Sunday",
+      "date": "2026-11-29",
+      "time": "21:15",
+      "home_team_id": 13680,
+      "away_team_id": 13708,
+      "status": "NEW_FUTURE_RECIPROCAL",
+      "homeGoals": null,
+      "awayGoals": null,
+      "reciprocal": true,
+      "sourceCount": 2,
+      "statusEvidence": "EXACT_TWO_TEAM_SOURCE_GAME_ID_PARITY",
+      "sourceTeamPageSHA256": [
+        "f0cb79f6b0cb1a1236c4ca5d49242b6a0ad3d6491cac4c5eac848f88f267f7c2",
+        "7908fc42ec858ac7c130b2cbd4ff9cdac584d7a673448ee9d7f846fbdb2b53c4"
+      ],
+      "sourceURLs": [
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13680&page_type=Adult",
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13708&page_type=Adult"
+      ],
+      "officialGameUrl": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=128139&page_type=Adult",
+      "officialWriteAllowed": false,
+      "firstSeenAt": "2026-11-17",
+      "lastChangedAt": "2026-11-17",
+      "missingFromCurrentSource": false
+    },
+    {
+      "league_id": 570,
+      "game_id": 128140,
+      "night": "Sunday",
+      "date": "2026-11-29",
+      "time": "22:00",
+      "home_team_id": 13730,
+      "away_team_id": 13716,
+      "status": "NEW_FUTURE_RECIPROCAL",
+      "homeGoals": null,
+      "awayGoals": null,
+      "reciprocal": true,
+      "sourceCount": 2,
+      "statusEvidence": "EXACT_TWO_TEAM_SOURCE_GAME_ID_PARITY",
+      "sourceTeamPageSHA256": [
+        "7e0c8d4618831c63f3fbb9088f31a6de78661b9b8f28a1c6bb32f056a26fb264",
+        "72120a7dc91bf28b4b65390dbc0767c94a3aa70e23d41f2f9ba5a35a515a3303"
+      ],
+      "sourceURLs": [
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13730&page_type=Adult",
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13716&page_type=Adult"
+      ],
+      "officialGameUrl": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=128140&page_type=Adult",
+      "officialWriteAllowed": false,
+      "firstSeenAt": "2026-11-17",
+      "lastChangedAt": "2026-11-17",
+      "missingFromCurrentSource": false
+    },
+    {
+      "league_id": 570,
+      "game_id": 128161,
+      "night": "Sunday",
+      "date": "2026-11-29",
+      "time": "19:15",
+      "home_team_id": 13596,
+      "away_team_id": 13686,
+      "status": "NEW_FUTURE_RECIPROCAL",
+      "homeGoals": null,
+      "awayGoals": null,
+      "reciprocal": true,
+      "sourceCount": 2,
+      "statusEvidence": "EXACT_TWO_TEAM_SOURCE_GAME_ID_PARITY",
+      "sourceTeamPageSHA256": [
+        "e8c551e09f42c14f0b28dacc49964c95d115b1db85f476c1f884f7f8d4f21df6",
+        "d1028daa8b7932f8685019fe747e25c933ad80e876f1e8484d897dda0d5806f6"
+      ],
+      "sourceURLs": [
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13596&page_type=Adult",
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13686&page_type=Adult"
+      ],
+      "officialGameUrl": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=128161&page_type=Adult",
+      "officialWriteAllowed": false,
+      "firstSeenAt": "2026-11-17",
+      "lastChangedAt": "2026-11-17",
+      "missingFromCurrentSource": false
+    },
+    {
+      "league_id": 570,
+      "game_id": 128162,
+      "night": "Sunday",
+      "date": "2026-11-29",
+      "time": "18:15",
+      "home_team_id": 13627,
+      "away_team_id": 13671,
+      "status": "NEW_FUTURE_RECIPROCAL",
+      "homeGoals": null,
+      "awayGoals": null,
+      "reciprocal": true,
+      "sourceCount": 2,
+      "statusEvidence": "EXACT_TWO_TEAM_SOURCE_GAME_ID_PARITY",
+      "sourceTeamPageSHA256": [
+        "959af32ccdc913e7341bd5a8fad1163c82996691b181bce5ca15b7e76a1a5e9c",
+        "6252deb14ab4989d94e611f1f75c8f7f1e48795626296a81d7a828a9cee4170a"
+      ],
+      "sourceURLs": [
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13627&page_type=Adult",
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13671&page_type=Adult"
+      ],
+      "officialGameUrl": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=128162&page_type=Adult",
+      "officialWriteAllowed": false,
+      "firstSeenAt": "2026-11-17",
+      "lastChangedAt": "2026-11-17",
+      "missingFromCurrentSource": false
+    },
+    {
+      "league_id": 570,
+      "game_id": 128163,
+      "night": "Sunday",
+      "date": "2026-11-29",
+      "time": "18:15",
+      "home_team_id": 13700,
+      "away_team_id": 13663,
+      "status": "NEW_FUTURE_RECIPROCAL",
+      "homeGoals": null,
+      "awayGoals": null,
+      "reciprocal": true,
+      "sourceCount": 2,
+      "statusEvidence": "EXACT_TWO_TEAM_SOURCE_GAME_ID_PARITY",
+      "sourceTeamPageSHA256": [
+        "f166a09a70ebfe5048a03dcb1f921b0ba10663605b774c1bbb448e1c75170b3b",
+        "d1e0c957f6da1b52003c3bf5de0ed8ab90f31daf554fe76a148cd69391bb4643"
+      ],
+      "sourceURLs": [
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13700&page_type=Adult",
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13663&page_type=Adult"
+      ],
+      "officialGameUrl": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=128163&page_type=Adult",
+      "officialWriteAllowed": false,
+      "firstSeenAt": "2026-11-17",
+      "lastChangedAt": "2026-11-17",
+      "missingFromCurrentSource": false
+    },
+    {
+      "league_id": 570,
+      "game_id": 128176,
+      "night": "Sunday",
+      "date": "2026-11-29",
+      "time": "19:15",
+      "home_team_id": 13710,
+      "away_team_id": 13713,
+      "status": "NEW_FUTURE_RECIPROCAL",
+      "homeGoals": null,
+      "awayGoals": null,
+      "reciprocal": true,
+      "sourceCount": 2,
+      "statusEvidence": "EXACT_TWO_TEAM_SOURCE_GAME_ID_PARITY",
+      "sourceTeamPageSHA256": [
+        "4d5bca199750da8cbca037c1ec9caf5ac4f9f80ecf90fa90d958542895ba1139",
+        "dddd1746c5a02605653445187c2eba81423bfd0cdcb77a9b2d5b42d2e3f183fb"
+      ],
+      "sourceURLs": [
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13710&page_type=Adult",
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13713&page_type=Adult"
+      ],
+      "officialGameUrl": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=128176&page_type=Adult",
+      "officialWriteAllowed": false,
+      "firstSeenAt": "2026-11-17",
+      "lastChangedAt": "2026-11-17",
+      "missingFromCurrentSource": false
+    },
+    {
+      "league_id": 570,
+      "game_id": 128177,
+      "night": "Sunday",
+      "date": "2026-11-29",
+      "time": "20:00",
+      "home_team_id": 13711,
+      "away_team_id": 13714,
+      "status": "NEW_FUTURE_RECIPROCAL",
+      "homeGoals": null,
+      "awayGoals": null,
+      "reciprocal": true,
+      "sourceCount": 2,
+      "statusEvidence": "EXACT_TWO_TEAM_SOURCE_GAME_ID_PARITY",
+      "sourceTeamPageSHA256": [
+        "cf8821ce283ea434897096a59c923e0d8d10d26eef0639c605bc7385e0426108",
+        "8a7d24c42634b8835384fa52dd77c47a775a5032f2b8586c4e736821ae23d246"
+      ],
+      "sourceURLs": [
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13711&page_type=Adult",
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13714&page_type=Adult"
+      ],
+      "officialGameUrl": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=128177&page_type=Adult",
+      "officialWriteAllowed": false,
+      "firstSeenAt": "2026-11-17",
+      "lastChangedAt": "2026-11-17",
+      "missingFromCurrentSource": false
+    },
+    {
+      "league_id": 570,
+      "game_id": 128178,
+      "night": "Sunday",
+      "date": "2026-11-29",
+      "time": "20:15",
+      "home_team_id": 13715,
+      "away_team_id": 13717,
+      "status": "NEW_FUTURE_RECIPROCAL",
+      "homeGoals": null,
+      "awayGoals": null,
+      "reciprocal": true,
+      "sourceCount": 2,
+      "statusEvidence": "EXACT_TWO_TEAM_SOURCE_GAME_ID_PARITY",
+      "sourceTeamPageSHA256": [
+        "30aafe10a77abf4b404fd359912a3347abcc59d82bf9411781e3c2cd75de1514",
+        "070e6669df3296f687e429848de1d4bd834a8f307b4ff5732f94952f052ed754"
+      ],
+      "sourceURLs": [
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13715&page_type=Adult",
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13717&page_type=Adult"
+      ],
+      "officialGameUrl": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=128178&page_type=Adult",
+      "officialWriteAllowed": false,
+      "firstSeenAt": "2026-11-17",
+      "lastChangedAt": "2026-11-17",
+      "missingFromCurrentSource": false
+    },
+    {
+      "league_id": 570,
+      "game_id": 128191,
+      "night": "Sunday",
+      "date": "2026-11-29",
+      "time": "18:00",
+      "home_team_id": 13735,
+      "away_team_id": 13734,
+      "status": "NEW_FUTURE_RECIPROCAL",
+      "homeGoals": null,
+      "awayGoals": null,
+      "reciprocal": true,
+      "sourceCount": 2,
+      "statusEvidence": "EXACT_TWO_TEAM_SOURCE_GAME_ID_PARITY",
+      "sourceTeamPageSHA256": [
+        "ed651d4b97aa1440828fd8aa5a1866ec8f8f45941cf0308a0660fcba1dd8c3eb",
+        "9b5f330049293daeb0ae2052a30afcbfe0a28af550015de93b987ede6908b4ea"
+      ],
+      "sourceURLs": [
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13735&page_type=Adult",
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13734&page_type=Adult"
+      ],
+      "officialGameUrl": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=128191&page_type=Adult",
+      "officialWriteAllowed": false,
+      "firstSeenAt": "2026-11-17",
+      "lastChangedAt": "2026-11-17",
+      "missingFromCurrentSource": false
+    },
+    {
+      "league_id": 570,
+      "game_id": 128192,
+      "night": "Sunday",
+      "date": "2026-11-29",
+      "time": "19:00",
+      "home_team_id": 13736,
+      "away_team_id": 13737,
+      "status": "NEW_FUTURE_RECIPROCAL",
+      "homeGoals": null,
+      "awayGoals": null,
+      "reciprocal": true,
+      "sourceCount": 2,
+      "statusEvidence": "EXACT_TWO_TEAM_SOURCE_GAME_ID_PARITY",
+      "sourceTeamPageSHA256": [
+        "a9817248d63efbb965c6ddcdc678b8136756b1497ee2af9a68dad1e4adfb1d16",
+        "646795c52f1ce35835de0d1ceec004051697670bdb8619082f9f03c10166a45a"
+      ],
+      "sourceURLs": [
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13736&page_type=Adult",
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13737&page_type=Adult"
+      ],
+      "officialGameUrl": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=128192&page_type=Adult",
+      "officialWriteAllowed": false,
+      "firstSeenAt": "2026-11-17",
+      "lastChangedAt": "2026-11-17",
+      "missingFromCurrentSource": false
+    },
+    {
+      "league_id": 570,
+      "game_id": 128141,
+      "night": "Sunday",
+      "date": "2026-12-06",
+      "time": "18:15",
+      "home_team_id": 13680,
+      "away_team_id": 13716,
+      "status": "NEW_FUTURE_RECIPROCAL",
+      "homeGoals": null,
+      "awayGoals": null,
+      "reciprocal": true,
+      "sourceCount": 2,
+      "statusEvidence": "EXACT_TWO_TEAM_SOURCE_GAME_ID_PARITY",
+      "sourceTeamPageSHA256": [
+        "f0cb79f6b0cb1a1236c4ca5d49242b6a0ad3d6491cac4c5eac848f88f267f7c2",
+        "72120a7dc91bf28b4b65390dbc0767c94a3aa70e23d41f2f9ba5a35a515a3303"
+      ],
+      "sourceURLs": [
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13680&page_type=Adult",
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13716&page_type=Adult"
+      ],
+      "officialGameUrl": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=128141&page_type=Adult",
+      "officialWriteAllowed": false,
+      "firstSeenAt": "2026-11-17",
+      "lastChangedAt": "2026-11-17",
+      "missingFromCurrentSource": false
+    },
+    {
+      "league_id": 570,
+      "game_id": 128142,
+      "night": "Sunday",
+      "date": "2026-12-06",
+      "time": "18:15",
+      "home_team_id": 13704,
+      "away_team_id": 13709,
+      "status": "NEW_FUTURE_RECIPROCAL",
+      "homeGoals": null,
+      "awayGoals": null,
+      "reciprocal": true,
+      "sourceCount": 2,
+      "statusEvidence": "EXACT_TWO_TEAM_SOURCE_GAME_ID_PARITY",
+      "sourceTeamPageSHA256": [
+        "5746e448f275863f6d9d1703e43304322b613f484bb27a101a41039d044d7e77",
+        "1603d3012699d32276bc48c54179bf59e331e22cad66237af068b24c2d7a2c67"
+      ],
+      "sourceURLs": [
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13704&page_type=Adult",
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13709&page_type=Adult"
+      ],
+      "officialGameUrl": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=128142&page_type=Adult",
+      "officialWriteAllowed": false,
+      "firstSeenAt": "2026-11-17",
+      "lastChangedAt": "2026-11-17",
+      "missingFromCurrentSource": false
+    },
+    {
+      "league_id": 570,
+      "game_id": 128143,
+      "night": "Sunday",
+      "date": "2026-12-06",
+      "time": "19:15",
+      "home_team_id": 13679,
+      "away_team_id": 13708,
+      "status": "NEW_FUTURE_RECIPROCAL",
+      "homeGoals": null,
+      "awayGoals": null,
+      "reciprocal": true,
+      "sourceCount": 2,
+      "statusEvidence": "EXACT_TWO_TEAM_SOURCE_GAME_ID_PARITY",
+      "sourceTeamPageSHA256": [
+        "8658bbec050d34906b5d7fb14b8e435e4937d7f11874a3f91cd327533b4cb588",
+        "7908fc42ec858ac7c130b2cbd4ff9cdac584d7a673448ee9d7f846fbdb2b53c4"
+      ],
+      "sourceURLs": [
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13679&page_type=Adult",
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13708&page_type=Adult"
+      ],
+      "officialGameUrl": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=128143&page_type=Adult",
+      "officialWriteAllowed": false,
+      "firstSeenAt": "2026-11-17",
+      "lastChangedAt": "2026-11-17",
+      "missingFromCurrentSource": false
+    },
+    {
+      "league_id": 570,
+      "game_id": 128144,
+      "night": "Sunday",
+      "date": "2026-12-06",
+      "time": "19:15",
+      "home_team_id": 13712,
+      "away_team_id": 13730,
+      "status": "NEW_FUTURE_RECIPROCAL",
+      "homeGoals": null,
+      "awayGoals": null,
+      "reciprocal": true,
+      "sourceCount": 2,
+      "statusEvidence": "EXACT_TWO_TEAM_SOURCE_GAME_ID_PARITY",
+      "sourceTeamPageSHA256": [
+        "b76403a088e9a043e7b843d60fc439a4ae20d240e60b677dab87fae289bf956a",
+        "7e0c8d4618831c63f3fbb9088f31a6de78661b9b8f28a1c6bb32f056a26fb264"
+      ],
+      "sourceURLs": [
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13712&page_type=Adult",
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13730&page_type=Adult"
+      ],
+      "officialGameUrl": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=128144&page_type=Adult",
+      "officialWriteAllowed": false,
+      "firstSeenAt": "2026-11-17",
+      "lastChangedAt": "2026-11-17",
+      "missingFromCurrentSource": false
+    },
+    {
+      "league_id": 570,
+      "game_id": 128145,
+      "night": "Sunday",
+      "date": "2026-12-06",
+      "time": "20:00",
+      "home_team_id": 13668,
+      "away_team_id": 13649,
+      "status": "NEW_FUTURE_RECIPROCAL",
+      "homeGoals": null,
+      "awayGoals": null,
+      "reciprocal": true,
+      "sourceCount": 2,
+      "statusEvidence": "EXACT_TWO_TEAM_SOURCE_GAME_ID_PARITY",
+      "sourceTeamPageSHA256": [
+        "70641a2cc0f2759ee786b4abf8b16a4de39ba93559014f47fc553ee855ee94ca",
+        "54748beb10e5fafc7a713552c7011700ada36772dacf4f42e4a3dd8043422ea2"
+      ],
+      "sourceURLs": [
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13668&page_type=Adult",
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13649&page_type=Adult"
+      ],
+      "officialGameUrl": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=128145&page_type=Adult",
+      "officialWriteAllowed": false,
+      "firstSeenAt": "2026-11-17",
+      "lastChangedAt": "2026-11-17",
+      "missingFromCurrentSource": false
+    },
+    {
+      "league_id": 570,
+      "game_id": 128164,
+      "night": "Sunday",
+      "date": "2026-12-06",
+      "time": "20:15",
+      "home_team_id": 13663,
+      "away_team_id": 13627,
+      "status": "NEW_FUTURE_RECIPROCAL",
+      "homeGoals": null,
+      "awayGoals": null,
+      "reciprocal": true,
+      "sourceCount": 2,
+      "statusEvidence": "EXACT_TWO_TEAM_SOURCE_GAME_ID_PARITY",
+      "sourceTeamPageSHA256": [
+        "d1e0c957f6da1b52003c3bf5de0ed8ab90f31daf554fe76a148cd69391bb4643",
+        "959af32ccdc913e7341bd5a8fad1163c82996691b181bce5ca15b7e76a1a5e9c"
+      ],
+      "sourceURLs": [
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13663&page_type=Adult",
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13627&page_type=Adult"
+      ],
+      "officialGameUrl": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=128164&page_type=Adult",
+      "officialWriteAllowed": false,
+      "firstSeenAt": "2026-11-17",
+      "lastChangedAt": "2026-11-17",
+      "missingFromCurrentSource": false
+    },
+    {
+      "league_id": 570,
+      "game_id": 128165,
+      "night": "Sunday",
+      "date": "2026-12-06",
+      "time": "21:00",
+      "home_team_id": 13671,
+      "away_team_id": 13711,
+      "status": "NEW_FUTURE_RECIPROCAL",
+      "homeGoals": null,
+      "awayGoals": null,
+      "reciprocal": true,
+      "sourceCount": 2,
+      "statusEvidence": "EXACT_TWO_TEAM_SOURCE_GAME_ID_PARITY",
+      "sourceTeamPageSHA256": [
+        "6252deb14ab4989d94e611f1f75c8f7f1e48795626296a81d7a828a9cee4170a",
+        "cf8821ce283ea434897096a59c923e0d8d10d26eef0639c605bc7385e0426108"
+      ],
+      "sourceURLs": [
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13671&page_type=Adult",
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13711&page_type=Adult"
+      ],
+      "officialGameUrl": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=128165&page_type=Adult",
+      "officialWriteAllowed": false,
+      "firstSeenAt": "2026-11-17",
+      "lastChangedAt": "2026-11-17",
+      "missingFromCurrentSource": false
+    },
+    {
+      "league_id": 570,
+      "game_id": 128166,
+      "night": "Sunday",
+      "date": "2026-12-06",
+      "time": "20:15",
+      "home_team_id": 13596,
+      "away_team_id": 13700,
+      "status": "NEW_FUTURE_RECIPROCAL",
+      "homeGoals": null,
+      "awayGoals": null,
+      "reciprocal": true,
+      "sourceCount": 2,
+      "statusEvidence": "EXACT_TWO_TEAM_SOURCE_GAME_ID_PARITY",
+      "sourceTeamPageSHA256": [
+        "e8c551e09f42c14f0b28dacc49964c95d115b1db85f476c1f884f7f8d4f21df6",
+        "f166a09a70ebfe5048a03dcb1f921b0ba10663605b774c1bbb448e1c75170b3b"
+      ],
+      "sourceURLs": [
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13596&page_type=Adult",
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13700&page_type=Adult"
+      ],
+      "officialGameUrl": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=128166&page_type=Adult",
+      "officialWriteAllowed": false,
+      "firstSeenAt": "2026-11-17",
+      "lastChangedAt": "2026-11-17",
+      "missingFromCurrentSource": false
+    },
+    {
+      "league_id": 570,
+      "game_id": 128179,
+      "night": "Sunday",
+      "date": "2026-12-06",
+      "time": "21:15",
+      "home_team_id": 13717,
+      "away_team_id": 13713,
+      "status": "NEW_FUTURE_RECIPROCAL",
+      "homeGoals": null,
+      "awayGoals": null,
+      "reciprocal": true,
+      "sourceCount": 2,
+      "statusEvidence": "EXACT_TWO_TEAM_SOURCE_GAME_ID_PARITY",
+      "sourceTeamPageSHA256": [
+        "070e6669df3296f687e429848de1d4bd834a8f307b4ff5732f94952f052ed754",
+        "dddd1746c5a02605653445187c2eba81423bfd0cdcb77a9b2d5b42d2e3f183fb"
+      ],
+      "sourceURLs": [
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13717&page_type=Adult",
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13713&page_type=Adult"
+      ],
+      "officialGameUrl": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=128179&page_type=Adult",
+      "officialWriteAllowed": false,
+      "firstSeenAt": "2026-11-17",
+      "lastChangedAt": "2026-11-17",
+      "missingFromCurrentSource": false
+    },
+    {
+      "league_id": 570,
+      "game_id": 128180,
+      "night": "Sunday",
+      "date": "2026-12-06",
+      "time": "21:15",
+      "home_team_id": 13714,
+      "away_team_id": 13686,
+      "status": "NEW_FUTURE_RECIPROCAL",
+      "homeGoals": null,
+      "awayGoals": null,
+      "reciprocal": true,
+      "sourceCount": 2,
+      "statusEvidence": "EXACT_TWO_TEAM_SOURCE_GAME_ID_PARITY",
+      "sourceTeamPageSHA256": [
+        "8a7d24c42634b8835384fa52dd77c47a775a5032f2b8586c4e736821ae23d246",
+        "d1028daa8b7932f8685019fe747e25c933ad80e876f1e8484d897dda0d5806f6"
+      ],
+      "sourceURLs": [
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13714&page_type=Adult",
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13686&page_type=Adult"
+      ],
+      "officialGameUrl": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=128180&page_type=Adult",
+      "officialWriteAllowed": false,
+      "firstSeenAt": "2026-11-17",
+      "lastChangedAt": "2026-11-17",
+      "missingFromCurrentSource": false
+    },
+    {
+      "league_id": 570,
+      "game_id": 128181,
+      "night": "Sunday",
+      "date": "2026-12-06",
+      "time": "22:00",
+      "home_team_id": 13710,
+      "away_team_id": 13715,
+      "status": "NEW_FUTURE_RECIPROCAL",
+      "homeGoals": null,
+      "awayGoals": null,
+      "reciprocal": true,
+      "sourceCount": 2,
+      "statusEvidence": "EXACT_TWO_TEAM_SOURCE_GAME_ID_PARITY",
+      "sourceTeamPageSHA256": [
+        "4d5bca199750da8cbca037c1ec9caf5ac4f9f80ecf90fa90d958542895ba1139",
+        "30aafe10a77abf4b404fd359912a3347abcc59d82bf9411781e3c2cd75de1514"
+      ],
+      "sourceURLs": [
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13710&page_type=Adult",
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13715&page_type=Adult"
+      ],
+      "officialGameUrl": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=128181&page_type=Adult",
+      "officialWriteAllowed": false,
+      "firstSeenAt": "2026-11-17",
+      "lastChangedAt": "2026-11-17",
+      "missingFromCurrentSource": false
+    },
+    {
+      "league_id": 570,
+      "game_id": 128193,
+      "night": "Sunday",
+      "date": "2026-12-06",
+      "time": "18:00",
+      "home_team_id": 13734,
+      "away_team_id": 13737,
+      "status": "NEW_FUTURE_RECIPROCAL",
+      "homeGoals": null,
+      "awayGoals": null,
+      "reciprocal": true,
+      "sourceCount": 2,
+      "statusEvidence": "EXACT_TWO_TEAM_SOURCE_GAME_ID_PARITY",
+      "sourceTeamPageSHA256": [
+        "9b5f330049293daeb0ae2052a30afcbfe0a28af550015de93b987ede6908b4ea",
+        "646795c52f1ce35835de0d1ceec004051697670bdb8619082f9f03c10166a45a"
+      ],
+      "sourceURLs": [
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13734&page_type=Adult",
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13737&page_type=Adult"
+      ],
+      "officialGameUrl": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=128193&page_type=Adult",
+      "officialWriteAllowed": false,
+      "firstSeenAt": "2026-11-17",
+      "lastChangedAt": "2026-11-17",
+      "missingFromCurrentSource": false
+    },
+    {
+      "league_id": 570,
+      "game_id": 128194,
+      "night": "Sunday",
+      "date": "2026-12-06",
+      "time": "19:00",
+      "home_team_id": 13736,
+      "away_team_id": 13735,
+      "status": "NEW_FUTURE_RECIPROCAL",
+      "homeGoals": null,
+      "awayGoals": null,
+      "reciprocal": true,
+      "sourceCount": 2,
+      "statusEvidence": "EXACT_TWO_TEAM_SOURCE_GAME_ID_PARITY",
+      "sourceTeamPageSHA256": [
+        "a9817248d63efbb965c6ddcdc678b8136756b1497ee2af9a68dad1e4adfb1d16",
+        "ed651d4b97aa1440828fd8aa5a1866ec8f8f45941cf0308a0660fcba1dd8c3eb"
+      ],
+      "sourceURLs": [
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13736&page_type=Adult",
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13735&page_type=Adult"
+      ],
+      "officialGameUrl": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=128194&page_type=Adult",
+      "officialWriteAllowed": false,
+      "firstSeenAt": "2026-11-17",
+      "lastChangedAt": "2026-11-17",
+      "missingFromCurrentSource": false
+    },
+    {
+      "league_id": 570,
+      "game_id": 128146,
+      "night": "Sunday",
+      "date": "2026-12-13",
+      "time": "19:15",
+      "home_team_id": 13668,
+      "away_team_id": 13712,
+      "status": "NEW_FUTURE_RECIPROCAL",
+      "homeGoals": null,
+      "awayGoals": null,
+      "reciprocal": true,
+      "sourceCount": 2,
+      "statusEvidence": "EXACT_TWO_TEAM_SOURCE_GAME_ID_PARITY",
+      "sourceTeamPageSHA256": [
+        "70641a2cc0f2759ee786b4abf8b16a4de39ba93559014f47fc553ee855ee94ca",
+        "b76403a088e9a043e7b843d60fc439a4ae20d240e60b677dab87fae289bf956a"
+      ],
+      "sourceURLs": [
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13668&page_type=Adult",
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13712&page_type=Adult"
+      ],
+      "officialGameUrl": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=128146&page_type=Adult",
+      "officialWriteAllowed": false,
+      "firstSeenAt": "2026-11-17",
+      "lastChangedAt": "2026-11-17",
+      "missingFromCurrentSource": false
+    },
+    {
+      "league_id": 570,
+      "game_id": 128147,
+      "night": "Sunday",
+      "date": "2026-12-13",
+      "time": "20:00",
+      "home_team_id": 13704,
+      "away_team_id": 13716,
+      "status": "NEW_FUTURE_RECIPROCAL",
+      "homeGoals": null,
+      "awayGoals": null,
+      "reciprocal": true,
+      "sourceCount": 2,
+      "statusEvidence": "EXACT_TWO_TEAM_SOURCE_GAME_ID_PARITY",
+      "sourceTeamPageSHA256": [
+        "5746e448f275863f6d9d1703e43304322b613f484bb27a101a41039d044d7e77",
+        "72120a7dc91bf28b4b65390dbc0767c94a3aa70e23d41f2f9ba5a35a515a3303"
+      ],
+      "sourceURLs": [
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13704&page_type=Adult",
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13716&page_type=Adult"
+      ],
+      "officialGameUrl": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=128147&page_type=Adult",
+      "officialWriteAllowed": false,
+      "firstSeenAt": "2026-11-17",
+      "lastChangedAt": "2026-11-17",
+      "missingFromCurrentSource": false
+    },
+    {
+      "league_id": 570,
+      "game_id": 128148,
+      "night": "Sunday",
+      "date": "2026-12-13",
+      "time": "20:15",
+      "home_team_id": 13680,
+      "away_team_id": 13649,
+      "status": "NEW_FUTURE_RECIPROCAL",
+      "homeGoals": null,
+      "awayGoals": null,
+      "reciprocal": true,
+      "sourceCount": 2,
+      "statusEvidence": "EXACT_TWO_TEAM_SOURCE_GAME_ID_PARITY",
+      "sourceTeamPageSHA256": [
+        "f0cb79f6b0cb1a1236c4ca5d49242b6a0ad3d6491cac4c5eac848f88f267f7c2",
+        "54748beb10e5fafc7a713552c7011700ada36772dacf4f42e4a3dd8043422ea2"
+      ],
+      "sourceURLs": [
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13680&page_type=Adult",
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13649&page_type=Adult"
+      ],
+      "officialGameUrl": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=128148&page_type=Adult",
+      "officialWriteAllowed": false,
+      "firstSeenAt": "2026-11-17",
+      "lastChangedAt": "2026-11-17",
+      "missingFromCurrentSource": false
+    },
+    {
+      "league_id": 570,
+      "game_id": 128149,
+      "night": "Sunday",
+      "date": "2026-12-13",
+      "time": "20:15",
+      "home_team_id": 13708,
+      "away_team_id": 13709,
+      "status": "NEW_FUTURE_RECIPROCAL",
+      "homeGoals": null,
+      "awayGoals": null,
+      "reciprocal": true,
+      "sourceCount": 2,
+      "statusEvidence": "EXACT_TWO_TEAM_SOURCE_GAME_ID_PARITY",
+      "sourceTeamPageSHA256": [
+        "7908fc42ec858ac7c130b2cbd4ff9cdac584d7a673448ee9d7f846fbdb2b53c4",
+        "1603d3012699d32276bc48c54179bf59e331e22cad66237af068b24c2d7a2c67"
+      ],
+      "sourceURLs": [
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13708&page_type=Adult",
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13709&page_type=Adult"
+      ],
+      "officialGameUrl": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=128149&page_type=Adult",
+      "officialWriteAllowed": false,
+      "firstSeenAt": "2026-11-17",
+      "lastChangedAt": "2026-11-17",
+      "missingFromCurrentSource": false
+    },
+    {
+      "league_id": 570,
+      "game_id": 128150,
+      "night": "Sunday",
+      "date": "2026-12-13",
+      "time": "21:15",
+      "home_team_id": 13679,
+      "away_team_id": 13730,
+      "status": "NEW_FUTURE_RECIPROCAL",
+      "homeGoals": null,
+      "awayGoals": null,
+      "reciprocal": true,
+      "sourceCount": 2,
+      "statusEvidence": "EXACT_TWO_TEAM_SOURCE_GAME_ID_PARITY",
+      "sourceTeamPageSHA256": [
+        "8658bbec050d34906b5d7fb14b8e435e4937d7f11874a3f91cd327533b4cb588",
+        "7e0c8d4618831c63f3fbb9088f31a6de78661b9b8f28a1c6bb32f056a26fb264"
+      ],
+      "sourceURLs": [
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13679&page_type=Adult",
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13730&page_type=Adult"
+      ],
+      "officialGameUrl": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=128150&page_type=Adult",
+      "officialWriteAllowed": false,
+      "firstSeenAt": "2026-11-17",
+      "lastChangedAt": "2026-11-17",
+      "missingFromCurrentSource": false
+    },
+    {
+      "league_id": 570,
+      "game_id": 128167,
+      "night": "Sunday",
+      "date": "2026-12-13",
+      "time": "21:15",
+      "home_team_id": 13596,
+      "away_team_id": 13663,
+      "status": "NEW_FUTURE_RECIPROCAL",
+      "homeGoals": null,
+      "awayGoals": null,
+      "reciprocal": true,
+      "sourceCount": 2,
+      "statusEvidence": "EXACT_TWO_TEAM_SOURCE_GAME_ID_PARITY",
+      "sourceTeamPageSHA256": [
+        "e8c551e09f42c14f0b28dacc49964c95d115b1db85f476c1f884f7f8d4f21df6",
+        "d1e0c957f6da1b52003c3bf5de0ed8ab90f31daf554fe76a148cd69391bb4643"
+      ],
+      "sourceURLs": [
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13596&page_type=Adult",
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13663&page_type=Adult"
+      ],
+      "officialGameUrl": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=128167&page_type=Adult",
+      "officialWriteAllowed": false,
+      "firstSeenAt": "2026-11-17",
+      "lastChangedAt": "2026-11-17",
+      "missingFromCurrentSource": false
+    },
+    {
+      "league_id": 570,
+      "game_id": 128168,
+      "night": "Sunday",
+      "date": "2026-12-13",
+      "time": "22:00",
+      "home_team_id": 13671,
+      "away_team_id": 13700,
+      "status": "NEW_FUTURE_RECIPROCAL",
+      "homeGoals": null,
+      "awayGoals": null,
+      "reciprocal": true,
+      "sourceCount": 2,
+      "statusEvidence": "EXACT_TWO_TEAM_SOURCE_GAME_ID_PARITY",
+      "sourceTeamPageSHA256": [
+        "6252deb14ab4989d94e611f1f75c8f7f1e48795626296a81d7a828a9cee4170a",
+        "f166a09a70ebfe5048a03dcb1f921b0ba10663605b774c1bbb448e1c75170b3b"
+      ],
+      "sourceURLs": [
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13671&page_type=Adult",
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13700&page_type=Adult"
+      ],
+      "officialGameUrl": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=128168&page_type=Adult",
+      "officialWriteAllowed": false,
+      "firstSeenAt": "2026-11-17",
+      "lastChangedAt": "2026-11-17",
+      "missingFromCurrentSource": false
+    },
+    {
+      "league_id": 570,
+      "game_id": 128169,
+      "night": "Sunday",
+      "date": "2026-12-13",
+      "time": "22:15",
+      "home_team_id": 13627,
+      "away_team_id": 13713,
+      "status": "NEW_FUTURE_RECIPROCAL",
+      "homeGoals": null,
+      "awayGoals": null,
+      "reciprocal": true,
+      "sourceCount": 2,
+      "statusEvidence": "EXACT_TWO_TEAM_SOURCE_GAME_ID_PARITY",
+      "sourceTeamPageSHA256": [
+        "959af32ccdc913e7341bd5a8fad1163c82996691b181bce5ca15b7e76a1a5e9c",
+        "dddd1746c5a02605653445187c2eba81423bfd0cdcb77a9b2d5b42d2e3f183fb"
+      ],
+      "sourceURLs": [
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13627&page_type=Adult",
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13713&page_type=Adult"
+      ],
+      "officialGameUrl": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=128169&page_type=Adult",
+      "officialWriteAllowed": false,
+      "firstSeenAt": "2026-11-17",
+      "lastChangedAt": "2026-11-17",
+      "missingFromCurrentSource": false
+    },
+    {
+      "league_id": 570,
+      "game_id": 128182,
+      "night": "Sunday",
+      "date": "2026-12-13",
+      "time": "18:15",
+      "home_team_id": 13715,
+      "away_team_id": 13711,
+      "status": "NEW_FUTURE_RECIPROCAL",
+      "homeGoals": null,
+      "awayGoals": null,
+      "reciprocal": true,
+      "sourceCount": 2,
+      "statusEvidence": "EXACT_TWO_TEAM_SOURCE_GAME_ID_PARITY",
+      "sourceTeamPageSHA256": [
+        "30aafe10a77abf4b404fd359912a3347abcc59d82bf9411781e3c2cd75de1514",
+        "cf8821ce283ea434897096a59c923e0d8d10d26eef0639c605bc7385e0426108"
+      ],
+      "sourceURLs": [
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13715&page_type=Adult",
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13711&page_type=Adult"
+      ],
+      "officialGameUrl": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=128182&page_type=Adult",
+      "officialWriteAllowed": false,
+      "firstSeenAt": "2026-11-17",
+      "lastChangedAt": "2026-11-17",
+      "missingFromCurrentSource": false
+    },
+    {
+      "league_id": 570,
+      "game_id": 128183,
+      "night": "Sunday",
+      "date": "2026-12-13",
+      "time": "19:00",
+      "home_team_id": 13714,
+      "away_team_id": 13717,
+      "status": "NEW_FUTURE_RECIPROCAL",
+      "homeGoals": null,
+      "awayGoals": null,
+      "reciprocal": true,
+      "sourceCount": 2,
+      "statusEvidence": "EXACT_TWO_TEAM_SOURCE_GAME_ID_PARITY",
+      "sourceTeamPageSHA256": [
+        "8a7d24c42634b8835384fa52dd77c47a775a5032f2b8586c4e736821ae23d246",
+        "070e6669df3296f687e429848de1d4bd834a8f307b4ff5732f94952f052ed754"
+      ],
+      "sourceURLs": [
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13714&page_type=Adult",
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13717&page_type=Adult"
+      ],
+      "officialGameUrl": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=128183&page_type=Adult",
+      "officialWriteAllowed": false,
+      "firstSeenAt": "2026-11-17",
+      "lastChangedAt": "2026-11-17",
+      "missingFromCurrentSource": false
+    },
+    {
+      "league_id": 570,
+      "game_id": 128184,
+      "night": "Sunday",
+      "date": "2026-12-13",
+      "time": "19:15",
+      "home_team_id": 13710,
+      "away_team_id": 13686,
+      "status": "NEW_FUTURE_RECIPROCAL",
+      "homeGoals": null,
+      "awayGoals": null,
+      "reciprocal": true,
+      "sourceCount": 2,
+      "statusEvidence": "EXACT_TWO_TEAM_SOURCE_GAME_ID_PARITY",
+      "sourceTeamPageSHA256": [
+        "4d5bca199750da8cbca037c1ec9caf5ac4f9f80ecf90fa90d958542895ba1139",
+        "d1028daa8b7932f8685019fe747e25c933ad80e876f1e8484d897dda0d5806f6"
+      ],
+      "sourceURLs": [
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13710&page_type=Adult",
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13686&page_type=Adult"
+      ],
+      "officialGameUrl": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=128184&page_type=Adult",
+      "officialWriteAllowed": false,
+      "firstSeenAt": "2026-11-17",
+      "lastChangedAt": "2026-11-17",
+      "missingFromCurrentSource": false
+    },
+    {
+      "league_id": 570,
+      "game_id": 128151,
+      "night": "Sunday",
+      "date": "2026-12-20",
+      "time": "22:00",
+      "home_team_id": 13649,
+      "away_team_id": 13704,
+      "status": "NEW_FUTURE_RECIPROCAL",
+      "homeGoals": null,
+      "awayGoals": null,
+      "reciprocal": true,
+      "sourceCount": 2,
+      "statusEvidence": "EXACT_TWO_TEAM_SOURCE_GAME_ID_PARITY",
+      "sourceTeamPageSHA256": [
+        "54748beb10e5fafc7a713552c7011700ada36772dacf4f42e4a3dd8043422ea2",
+        "5746e448f275863f6d9d1703e43304322b613f484bb27a101a41039d044d7e77"
+      ],
+      "sourceURLs": [
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13649&page_type=Adult",
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13704&page_type=Adult"
+      ],
+      "officialGameUrl": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=128151&page_type=Adult",
+      "officialWriteAllowed": false,
+      "firstSeenAt": "2026-11-17",
+      "lastChangedAt": "2026-11-17",
+      "missingFromCurrentSource": false
+    },
+    {
+      "league_id": 570,
+      "game_id": 128152,
+      "night": "Sunday",
+      "date": "2026-12-20",
+      "time": "20:15",
+      "home_team_id": 13668,
+      "away_team_id": 13709,
+      "status": "NEW_FUTURE_RECIPROCAL",
+      "homeGoals": null,
+      "awayGoals": null,
+      "reciprocal": true,
+      "sourceCount": 2,
+      "statusEvidence": "EXACT_TWO_TEAM_SOURCE_GAME_ID_PARITY",
+      "sourceTeamPageSHA256": [
+        "70641a2cc0f2759ee786b4abf8b16a4de39ba93559014f47fc553ee855ee94ca",
+        "1603d3012699d32276bc48c54179bf59e331e22cad66237af068b24c2d7a2c67"
+      ],
+      "sourceURLs": [
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13668&page_type=Adult",
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13709&page_type=Adult"
+      ],
+      "officialGameUrl": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=128152&page_type=Adult",
+      "officialWriteAllowed": false,
+      "firstSeenAt": "2026-11-17",
+      "lastChangedAt": "2026-11-17",
+      "missingFromCurrentSource": false
+    },
+    {
+      "league_id": 570,
+      "game_id": 128153,
+      "night": "Sunday",
+      "date": "2026-12-20",
+      "time": "21:00",
+      "home_team_id": 13712,
+      "away_team_id": 13708,
+      "status": "NEW_FUTURE_RECIPROCAL",
+      "homeGoals": null,
+      "awayGoals": null,
+      "reciprocal": true,
+      "sourceCount": 2,
+      "statusEvidence": "EXACT_TWO_TEAM_SOURCE_GAME_ID_PARITY",
+      "sourceTeamPageSHA256": [
+        "b76403a088e9a043e7b843d60fc439a4ae20d240e60b677dab87fae289bf956a",
+        "7908fc42ec858ac7c130b2cbd4ff9cdac584d7a673448ee9d7f846fbdb2b53c4"
+      ],
+      "sourceURLs": [
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13712&page_type=Adult",
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13708&page_type=Adult"
+      ],
+      "officialGameUrl": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=128153&page_type=Adult",
+      "officialWriteAllowed": false,
+      "firstSeenAt": "2026-11-17",
+      "lastChangedAt": "2026-11-17",
+      "missingFromCurrentSource": false
+    },
+    {
+      "league_id": 570,
+      "game_id": 128154,
+      "night": "Sunday",
+      "date": "2026-12-20",
+      "time": "21:15",
+      "home_team_id": 13730,
+      "away_team_id": 13680,
+      "status": "NEW_FUTURE_RECIPROCAL",
+      "homeGoals": null,
+      "awayGoals": null,
+      "reciprocal": true,
+      "sourceCount": 2,
+      "statusEvidence": "EXACT_TWO_TEAM_SOURCE_GAME_ID_PARITY",
+      "sourceTeamPageSHA256": [
+        "7e0c8d4618831c63f3fbb9088f31a6de78661b9b8f28a1c6bb32f056a26fb264",
+        "f0cb79f6b0cb1a1236c4ca5d49242b6a0ad3d6491cac4c5eac848f88f267f7c2"
+      ],
+      "sourceURLs": [
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13730&page_type=Adult",
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13680&page_type=Adult"
+      ],
+      "officialGameUrl": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=128154&page_type=Adult",
+      "officialWriteAllowed": false,
+      "firstSeenAt": "2026-11-17",
+      "lastChangedAt": "2026-11-17",
+      "missingFromCurrentSource": false
+    },
+    {
+      "league_id": 570,
+      "game_id": 128155,
+      "night": "Sunday",
+      "date": "2026-12-20",
+      "time": "21:15",
+      "home_team_id": 13679,
+      "away_team_id": 13716,
+      "status": "NEW_FUTURE_RECIPROCAL",
+      "homeGoals": null,
+      "awayGoals": null,
+      "reciprocal": true,
+      "sourceCount": 2,
+      "statusEvidence": "EXACT_TWO_TEAM_SOURCE_GAME_ID_PARITY",
+      "sourceTeamPageSHA256": [
+        "8658bbec050d34906b5d7fb14b8e435e4937d7f11874a3f91cd327533b4cb588",
+        "72120a7dc91bf28b4b65390dbc0767c94a3aa70e23d41f2f9ba5a35a515a3303"
+      ],
+      "sourceURLs": [
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13679&page_type=Adult",
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13716&page_type=Adult"
+      ],
+      "officialGameUrl": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=128155&page_type=Adult",
+      "officialWriteAllowed": false,
+      "firstSeenAt": "2026-11-17",
+      "lastChangedAt": "2026-11-17",
+      "missingFromCurrentSource": false
+    },
+    {
+      "league_id": 570,
+      "game_id": 128170,
+      "night": "Sunday",
+      "date": "2026-12-20",
+      "time": "18:15",
+      "home_team_id": 13596,
+      "away_team_id": 13627,
+      "status": "NEW_FUTURE_RECIPROCAL",
+      "homeGoals": null,
+      "awayGoals": null,
+      "reciprocal": true,
+      "sourceCount": 2,
+      "statusEvidence": "EXACT_TWO_TEAM_SOURCE_GAME_ID_PARITY",
+      "sourceTeamPageSHA256": [
+        "e8c551e09f42c14f0b28dacc49964c95d115b1db85f476c1f884f7f8d4f21df6",
+        "959af32ccdc913e7341bd5a8fad1163c82996691b181bce5ca15b7e76a1a5e9c"
+      ],
+      "sourceURLs": [
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13596&page_type=Adult",
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13627&page_type=Adult"
+      ],
+      "officialGameUrl": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=128170&page_type=Adult",
+      "officialWriteAllowed": false,
+      "firstSeenAt": "2026-11-17",
+      "lastChangedAt": "2026-11-17",
+      "missingFromCurrentSource": false
+    },
+    {
+      "league_id": 570,
+      "game_id": 128171,
+      "night": "Sunday",
+      "date": "2026-12-20",
+      "time": "18:15",
+      "home_team_id": 13671,
+      "away_team_id": 13663,
+      "status": "NEW_FUTURE_RECIPROCAL",
+      "homeGoals": null,
+      "awayGoals": null,
+      "reciprocal": true,
+      "sourceCount": 2,
+      "statusEvidence": "EXACT_TWO_TEAM_SOURCE_GAME_ID_PARITY",
+      "sourceTeamPageSHA256": [
+        "6252deb14ab4989d94e611f1f75c8f7f1e48795626296a81d7a828a9cee4170a",
+        "d1e0c957f6da1b52003c3bf5de0ed8ab90f31daf554fe76a148cd69391bb4643"
+      ],
+      "sourceURLs": [
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13671&page_type=Adult",
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13663&page_type=Adult"
+      ],
+      "officialGameUrl": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=128171&page_type=Adult",
+      "officialWriteAllowed": false,
+      "firstSeenAt": "2026-11-17",
+      "lastChangedAt": "2026-11-17",
+      "missingFromCurrentSource": false
+    },
+    {
+      "league_id": 570,
+      "game_id": 128172,
+      "night": "Sunday",
+      "date": "2026-12-20",
+      "time": "19:15",
+      "home_team_id": 13700,
+      "away_team_id": 13714,
+      "status": "NEW_FUTURE_RECIPROCAL",
+      "homeGoals": null,
+      "awayGoals": null,
+      "reciprocal": true,
+      "sourceCount": 2,
+      "statusEvidence": "EXACT_TWO_TEAM_SOURCE_GAME_ID_PARITY",
+      "sourceTeamPageSHA256": [
+        "f166a09a70ebfe5048a03dcb1f921b0ba10663605b774c1bbb448e1c75170b3b",
+        "8a7d24c42634b8835384fa52dd77c47a775a5032f2b8586c4e736821ae23d246"
+      ],
+      "sourceURLs": [
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13700&page_type=Adult",
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13714&page_type=Adult"
+      ],
+      "officialGameUrl": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=128172&page_type=Adult",
+      "officialWriteAllowed": false,
+      "firstSeenAt": "2026-11-17",
+      "lastChangedAt": "2026-11-17",
+      "missingFromCurrentSource": false
+    },
+    {
+      "league_id": 570,
+      "game_id": 128185,
+      "night": "Sunday",
+      "date": "2026-12-20",
+      "time": "19:15",
+      "home_team_id": 13717,
+      "away_team_id": 13710,
+      "status": "NEW_FUTURE_RECIPROCAL",
+      "homeGoals": null,
+      "awayGoals": null,
+      "reciprocal": true,
+      "sourceCount": 2,
+      "statusEvidence": "EXACT_TWO_TEAM_SOURCE_GAME_ID_PARITY",
+      "sourceTeamPageSHA256": [
+        "070e6669df3296f687e429848de1d4bd834a8f307b4ff5732f94952f052ed754",
+        "4d5bca199750da8cbca037c1ec9caf5ac4f9f80ecf90fa90d958542895ba1139"
+      ],
+      "sourceURLs": [
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13717&page_type=Adult",
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13710&page_type=Adult"
+      ],
+      "officialGameUrl": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=128185&page_type=Adult",
+      "officialWriteAllowed": false,
+      "firstSeenAt": "2026-11-17",
+      "lastChangedAt": "2026-11-17",
+      "missingFromCurrentSource": false
+    },
+    {
+      "league_id": 570,
+      "game_id": 128186,
+      "night": "Sunday",
+      "date": "2026-12-20",
+      "time": "20:00",
+      "home_team_id": 13711,
+      "away_team_id": 13686,
+      "status": "NEW_FUTURE_RECIPROCAL",
+      "homeGoals": null,
+      "awayGoals": null,
+      "reciprocal": true,
+      "sourceCount": 2,
+      "statusEvidence": "EXACT_TWO_TEAM_SOURCE_GAME_ID_PARITY",
+      "sourceTeamPageSHA256": [
+        "cf8821ce283ea434897096a59c923e0d8d10d26eef0639c605bc7385e0426108",
+        "d1028daa8b7932f8685019fe747e25c933ad80e876f1e8484d897dda0d5806f6"
+      ],
+      "sourceURLs": [
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13711&page_type=Adult",
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13686&page_type=Adult"
+      ],
+      "officialGameUrl": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=128186&page_type=Adult",
+      "officialWriteAllowed": false,
+      "firstSeenAt": "2026-11-17",
+      "lastChangedAt": "2026-11-17",
+      "missingFromCurrentSource": false
+    },
+    {
+      "league_id": 570,
+      "game_id": 128187,
+      "night": "Sunday",
+      "date": "2026-12-20",
+      "time": "20:15",
+      "home_team_id": 13713,
+      "away_team_id": 13715,
+      "status": "NEW_FUTURE_RECIPROCAL",
+      "homeGoals": null,
+      "awayGoals": null,
+      "reciprocal": true,
+      "sourceCount": 2,
+      "statusEvidence": "EXACT_TWO_TEAM_SOURCE_GAME_ID_PARITY",
+      "sourceTeamPageSHA256": [
+        "dddd1746c5a02605653445187c2eba81423bfd0cdcb77a9b2d5b42d2e3f183fb",
+        "30aafe10a77abf4b404fd359912a3347abcc59d82bf9411781e3c2cd75de1514"
+      ],
+      "sourceURLs": [
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13713&page_type=Adult",
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13715&page_type=Adult"
+      ],
+      "officialGameUrl": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=128187&page_type=Adult",
+      "officialWriteAllowed": false,
+      "firstSeenAt": "2026-11-17",
+      "lastChangedAt": "2026-11-17",
+      "missingFromCurrentSource": false
+    },
+    {
+      "league_id": 570,
+      "game_id": 128195,
+      "night": "Sunday",
+      "date": "2026-12-20",
+      "time": "18:00",
+      "home_team_id": 13734,
+      "away_team_id": 13736,
+      "status": "NEW_FUTURE_RECIPROCAL",
+      "homeGoals": null,
+      "awayGoals": null,
+      "reciprocal": true,
+      "sourceCount": 2,
+      "statusEvidence": "EXACT_TWO_TEAM_SOURCE_GAME_ID_PARITY",
+      "sourceTeamPageSHA256": [
+        "9b5f330049293daeb0ae2052a30afcbfe0a28af550015de93b987ede6908b4ea",
+        "a9817248d63efbb965c6ddcdc678b8136756b1497ee2af9a68dad1e4adfb1d16"
+      ],
+      "sourceURLs": [
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13734&page_type=Adult",
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13736&page_type=Adult"
+      ],
+      "officialGameUrl": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=128195&page_type=Adult",
+      "officialWriteAllowed": false,
+      "firstSeenAt": "2026-11-17",
+      "lastChangedAt": "2026-11-17",
+      "missingFromCurrentSource": false
+    },
+    {
+      "league_id": 570,
+      "game_id": 128196,
+      "night": "Sunday",
+      "date": "2026-12-20",
+      "time": "19:00",
+      "home_team_id": 13737,
+      "away_team_id": 13735,
+      "status": "NEW_FUTURE_RECIPROCAL",
+      "homeGoals": null,
+      "awayGoals": null,
+      "reciprocal": true,
+      "sourceCount": 2,
+      "statusEvidence": "EXACT_TWO_TEAM_SOURCE_GAME_ID_PARITY",
+      "sourceTeamPageSHA256": [
+        "646795c52f1ce35835de0d1ceec004051697670bdb8619082f9f03c10166a45a",
+        "ed651d4b97aa1440828fd8aa5a1866ec8f8f45941cf0308a0660fcba1dd8c3eb"
+      ],
+      "sourceURLs": [
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13737&page_type=Adult",
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13735&page_type=Adult"
+      ],
+      "officialGameUrl": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=128196&page_type=Adult",
+      "officialWriteAllowed": false,
+      "firstSeenAt": "2026-11-17",
+      "lastChangedAt": "2026-11-17",
+      "missingFromCurrentSource": false
+    },
+    {
+      "league_id": 570,
+      "game_id": 128156,
+      "night": "Sunday",
+      "date": "2026-12-27",
+      "time": "18:00",
+      "home_team_id": 13680,
+      "away_team_id": 13679,
+      "status": "NEW_FUTURE_RECIPROCAL",
+      "homeGoals": null,
+      "awayGoals": null,
+      "reciprocal": true,
+      "sourceCount": 2,
+      "statusEvidence": "EXACT_TWO_TEAM_SOURCE_GAME_ID_PARITY",
+      "sourceTeamPageSHA256": [
+        "f0cb79f6b0cb1a1236c4ca5d49242b6a0ad3d6491cac4c5eac848f88f267f7c2",
+        "8658bbec050d34906b5d7fb14b8e435e4937d7f11874a3f91cd327533b4cb588"
+      ],
+      "sourceURLs": [
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13680&page_type=Adult",
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13679&page_type=Adult"
+      ],
+      "officialGameUrl": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=128156&page_type=Adult",
+      "officialWriteAllowed": false,
+      "firstSeenAt": "2026-11-17",
+      "lastChangedAt": "2026-11-17",
+      "missingFromCurrentSource": false
+    },
+    {
+      "league_id": 570,
+      "game_id": 128157,
+      "night": "Sunday",
+      "date": "2026-12-27",
+      "time": "18:15",
+      "home_team_id": 13716,
+      "away_team_id": 13668,
+      "status": "NEW_FUTURE_RECIPROCAL",
+      "homeGoals": null,
+      "awayGoals": null,
+      "reciprocal": true,
+      "sourceCount": 2,
+      "statusEvidence": "EXACT_TWO_TEAM_SOURCE_GAME_ID_PARITY",
+      "sourceTeamPageSHA256": [
+        "72120a7dc91bf28b4b65390dbc0767c94a3aa70e23d41f2f9ba5a35a515a3303",
+        "70641a2cc0f2759ee786b4abf8b16a4de39ba93559014f47fc553ee855ee94ca"
+      ],
+      "sourceURLs": [
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13716&page_type=Adult",
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13668&page_type=Adult"
+      ],
+      "officialGameUrl": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=128157&page_type=Adult",
+      "officialWriteAllowed": false,
+      "firstSeenAt": "2026-11-17",
+      "lastChangedAt": "2026-11-17",
+      "missingFromCurrentSource": false
+    },
+    {
+      "league_id": 570,
+      "game_id": 128158,
+      "night": "Sunday",
+      "date": "2026-12-27",
+      "time": "18:15",
+      "home_team_id": 13709,
+      "away_team_id": 13712,
+      "status": "NEW_FUTURE_RECIPROCAL",
+      "homeGoals": null,
+      "awayGoals": null,
+      "reciprocal": true,
+      "sourceCount": 2,
+      "statusEvidence": "EXACT_TWO_TEAM_SOURCE_GAME_ID_PARITY",
+      "sourceTeamPageSHA256": [
+        "1603d3012699d32276bc48c54179bf59e331e22cad66237af068b24c2d7a2c67",
+        "b76403a088e9a043e7b843d60fc439a4ae20d240e60b677dab87fae289bf956a"
+      ],
+      "sourceURLs": [
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13709&page_type=Adult",
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13712&page_type=Adult"
+      ],
+      "officialGameUrl": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=128158&page_type=Adult",
+      "officialWriteAllowed": false,
+      "firstSeenAt": "2026-11-17",
+      "lastChangedAt": "2026-11-17",
+      "missingFromCurrentSource": false
+    },
+    {
+      "league_id": 570,
+      "game_id": 128159,
+      "night": "Sunday",
+      "date": "2026-12-27",
+      "time": "19:00",
+      "home_team_id": 13649,
+      "away_team_id": 13708,
+      "status": "NEW_FUTURE_RECIPROCAL",
+      "homeGoals": null,
+      "awayGoals": null,
+      "reciprocal": true,
+      "sourceCount": 2,
+      "statusEvidence": "EXACT_TWO_TEAM_SOURCE_GAME_ID_PARITY",
+      "sourceTeamPageSHA256": [
+        "54748beb10e5fafc7a713552c7011700ada36772dacf4f42e4a3dd8043422ea2",
+        "7908fc42ec858ac7c130b2cbd4ff9cdac584d7a673448ee9d7f846fbdb2b53c4"
+      ],
+      "sourceURLs": [
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13649&page_type=Adult",
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13708&page_type=Adult"
+      ],
+      "officialGameUrl": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=128159&page_type=Adult",
+      "officialWriteAllowed": false,
+      "firstSeenAt": "2026-11-17",
+      "lastChangedAt": "2026-11-17",
+      "missingFromCurrentSource": false
+    },
+    {
+      "league_id": 570,
+      "game_id": 128160,
+      "night": "Sunday",
+      "date": "2026-12-27",
+      "time": "19:15",
+      "home_team_id": 13704,
+      "away_team_id": 13730,
+      "status": "NEW_FUTURE_RECIPROCAL",
+      "homeGoals": null,
+      "awayGoals": null,
+      "reciprocal": true,
+      "sourceCount": 2,
+      "statusEvidence": "EXACT_TWO_TEAM_SOURCE_GAME_ID_PARITY",
+      "sourceTeamPageSHA256": [
+        "5746e448f275863f6d9d1703e43304322b613f484bb27a101a41039d044d7e77",
+        "7e0c8d4618831c63f3fbb9088f31a6de78661b9b8f28a1c6bb32f056a26fb264"
+      ],
+      "sourceURLs": [
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13704&page_type=Adult",
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13730&page_type=Adult"
+      ],
+      "officialGameUrl": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=128160&page_type=Adult",
+      "officialWriteAllowed": false,
+      "firstSeenAt": "2026-11-17",
+      "lastChangedAt": "2026-11-17",
+      "missingFromCurrentSource": false
+    },
+    {
+      "league_id": 570,
+      "game_id": 128173,
+      "night": "Sunday",
+      "date": "2026-12-27",
+      "time": "19:15",
+      "home_team_id": 13671,
+      "away_team_id": 13596,
+      "status": "NEW_FUTURE_RECIPROCAL",
+      "homeGoals": null,
+      "awayGoals": null,
+      "reciprocal": true,
+      "sourceCount": 2,
+      "statusEvidence": "EXACT_TWO_TEAM_SOURCE_GAME_ID_PARITY",
+      "sourceTeamPageSHA256": [
+        "6252deb14ab4989d94e611f1f75c8f7f1e48795626296a81d7a828a9cee4170a",
+        "e8c551e09f42c14f0b28dacc49964c95d115b1db85f476c1f884f7f8d4f21df6"
+      ],
+      "sourceURLs": [
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13671&page_type=Adult",
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13596&page_type=Adult"
+      ],
+      "officialGameUrl": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=128173&page_type=Adult",
+      "officialWriteAllowed": false,
+      "firstSeenAt": "2026-11-17",
+      "lastChangedAt": "2026-11-17",
+      "missingFromCurrentSource": false
+    },
+    {
+      "league_id": 570,
+      "game_id": 128174,
+      "night": "Sunday",
+      "date": "2026-12-27",
+      "time": "20:00",
+      "home_team_id": 13627,
+      "away_team_id": 13700,
+      "status": "NEW_FUTURE_RECIPROCAL",
+      "homeGoals": null,
+      "awayGoals": null,
+      "reciprocal": true,
+      "sourceCount": 2,
+      "statusEvidence": "EXACT_TWO_TEAM_SOURCE_GAME_ID_PARITY",
+      "sourceTeamPageSHA256": [
+        "959af32ccdc913e7341bd5a8fad1163c82996691b181bce5ca15b7e76a1a5e9c",
+        "f166a09a70ebfe5048a03dcb1f921b0ba10663605b774c1bbb448e1c75170b3b"
+      ],
+      "sourceURLs": [
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13627&page_type=Adult",
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13700&page_type=Adult"
+      ],
+      "officialGameUrl": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=128174&page_type=Adult",
+      "officialWriteAllowed": false,
+      "firstSeenAt": "2026-11-17",
+      "lastChangedAt": "2026-11-17",
+      "missingFromCurrentSource": false
+    },
+    {
+      "league_id": 570,
+      "game_id": 128175,
+      "night": "Sunday",
+      "date": "2026-12-27",
+      "time": "20:15",
+      "home_team_id": 13663,
+      "away_team_id": 13710,
+      "status": "NEW_FUTURE_RECIPROCAL",
+      "homeGoals": null,
+      "awayGoals": null,
+      "reciprocal": true,
+      "sourceCount": 2,
+      "statusEvidence": "EXACT_TWO_TEAM_SOURCE_GAME_ID_PARITY",
+      "sourceTeamPageSHA256": [
+        "d1e0c957f6da1b52003c3bf5de0ed8ab90f31daf554fe76a148cd69391bb4643",
+        "4d5bca199750da8cbca037c1ec9caf5ac4f9f80ecf90fa90d958542895ba1139"
+      ],
+      "sourceURLs": [
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13663&page_type=Adult",
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13710&page_type=Adult"
+      ],
+      "officialGameUrl": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=128175&page_type=Adult",
+      "officialWriteAllowed": false,
+      "firstSeenAt": "2026-11-17",
+      "lastChangedAt": "2026-11-17",
+      "missingFromCurrentSource": false
+    },
+    {
+      "league_id": 570,
+      "game_id": 128188,
+      "night": "Sunday",
+      "date": "2026-12-27",
+      "time": "20:15",
+      "home_team_id": 13686,
+      "away_team_id": 13713,
+      "status": "NEW_FUTURE_RECIPROCAL",
+      "homeGoals": null,
+      "awayGoals": null,
+      "reciprocal": true,
+      "sourceCount": 2,
+      "statusEvidence": "EXACT_TWO_TEAM_SOURCE_GAME_ID_PARITY",
+      "sourceTeamPageSHA256": [
+        "d1028daa8b7932f8685019fe747e25c933ad80e876f1e8484d897dda0d5806f6",
+        "dddd1746c5a02605653445187c2eba81423bfd0cdcb77a9b2d5b42d2e3f183fb"
+      ],
+      "sourceURLs": [
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13686&page_type=Adult",
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13713&page_type=Adult"
+      ],
+      "officialGameUrl": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=128188&page_type=Adult",
+      "officialWriteAllowed": false,
+      "firstSeenAt": "2026-11-17",
+      "lastChangedAt": "2026-11-17",
+      "missingFromCurrentSource": false
+    },
+    {
+      "league_id": 570,
+      "game_id": 128189,
+      "night": "Sunday",
+      "date": "2026-12-27",
+      "time": "21:00",
+      "home_team_id": 13714,
+      "away_team_id": 13715,
+      "status": "NEW_FUTURE_RECIPROCAL",
+      "homeGoals": null,
+      "awayGoals": null,
+      "reciprocal": true,
+      "sourceCount": 2,
+      "statusEvidence": "EXACT_TWO_TEAM_SOURCE_GAME_ID_PARITY",
+      "sourceTeamPageSHA256": [
+        "8a7d24c42634b8835384fa52dd77c47a775a5032f2b8586c4e736821ae23d246",
+        "30aafe10a77abf4b404fd359912a3347abcc59d82bf9411781e3c2cd75de1514"
+      ],
+      "sourceURLs": [
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13714&page_type=Adult",
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13715&page_type=Adult"
+      ],
+      "officialGameUrl": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=128189&page_type=Adult",
+      "officialWriteAllowed": false,
+      "firstSeenAt": "2026-11-17",
+      "lastChangedAt": "2026-11-17",
+      "missingFromCurrentSource": false
+    },
+    {
+      "league_id": 570,
+      "game_id": 128190,
+      "night": "Sunday",
+      "date": "2026-12-27",
+      "time": "21:15",
+      "home_team_id": 13711,
+      "away_team_id": 13717,
+      "status": "NEW_FUTURE_RECIPROCAL",
+      "homeGoals": null,
+      "awayGoals": null,
+      "reciprocal": true,
+      "sourceCount": 2,
+      "statusEvidence": "EXACT_TWO_TEAM_SOURCE_GAME_ID_PARITY",
+      "sourceTeamPageSHA256": [
+        "cf8821ce283ea434897096a59c923e0d8d10d26eef0639c605bc7385e0426108",
+        "070e6669df3296f687e429848de1d4bd834a8f307b4ff5732f94952f052ed754"
+      ],
+      "sourceURLs": [
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13711&page_type=Adult",
+        "https://leagues.sportsvillage.ca/TeamInfo.aspx?leagueid=570&teamid=13717&page_type=Adult"
+      ],
+      "officialGameUrl": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=128190&page_type=Adult",
+      "officialWriteAllowed": false,
+      "firstSeenAt": "2026-11-17",
+      "lastChangedAt": "2026-11-17",
+      "missingFromCurrentSource": false
+    }
+  ],
+  "sourceHolds": [],
+  "sourceDuplicateZeroZeroHolds": []
+}
