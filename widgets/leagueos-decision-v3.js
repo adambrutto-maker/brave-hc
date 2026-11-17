@@ -181,7 +181,7 @@ function impact(c){
    && g.status!=="COMPLETED_SOURCE_VERIFIED"&&g.status!=="FUTURE_RECIPROCAL_FIXTURE"
    && (moved.has(g.home_team_id)||moved.has(g.away_team_id)));
  const sum='<div class="desk-impact-grid">'+
-  '<div><small>Future fixtures to review</small><strong>'+val(rows.length)+'</strong><span>Within verified November source window</span></div>'+
+  '<div><small>Upcoming at archive capture</small><strong>'+val(rows.length)+'</strong><span>Within verified November source window</span></div>'+
   '<div><small>Division matchup classifications changed</small><strong>'+val(source.fixture_grouping_changed_count)+'</strong><span>What-if labels, not actual rescheduling</span></div>'+
   '<div><small>Rink assignments sourced</small><strong>'+val(source.published_rink_references)+' of '+rows.length+'</strong><span>Not facility occupancy verification</span></div>'+
   '</div>';
