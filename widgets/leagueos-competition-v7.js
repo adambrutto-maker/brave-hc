@@ -7,7 +7,7 @@ const minute=s=>{const m=/^([01]\d|2[0-3]):([0-5]\d)$/.exec(String(s).trim());re
 const clock=n=>Number.isFinite(n)?String(Math.floor(Math.round(n)/60)%24).padStart(2,"0")+":"+String(Math.round(n)%60).padStart(2,"0"):"—";
 const dateFor=(start,night,week)=>{const d=new Date(start+"T12:00:00Z");if(isNaN(+d))return "";let k=0;while(d.getUTCDay()!==days[night]&&k++<7)d.setUTCDate(d.getUTCDate()+1);d.setUTCDate(d.getUTCDate()+week*7);return d.toISOString().slice(0,10)};
 const download=(obj,name)=>{const b=new Blob([JSON.stringify(obj,null,2)],{type:"application/json"}),url=URL.createObjectURL(b),a=document.createElement("a");a.href=url;a.download=name;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000)};
-const defaults={night:"Wednesday",weeks:8,start:"2026-12-01",rinks:"A,B,C,D",times:"19:15,20:30,21:45,23:00",includeHistory:true,playNight:"Wednesday",playDivision:"Franco Canadian",seedings:{},scores:{},slots:{},bronze:true};
+const defaults={night:"Wednesday",weeks:8,start:"2026-12-01",rinks:"A,B,C,D",times:"19:15,20:30,21:45,23:00",includeHistory:true,playNight:"Wednesday",playDivision:"Franco Canadian",seedings:{},scores:{},slots:{},bronze:true,inventoryMode:"illustrative"};
 let prefs={...defaults},source=null,loading=null,plan=null,weekShown=0,issue="";
 try{const x=JSON.parse(localStorage.getItem(STORAGE)||"null");if(x&&typeof x==="object")prefs={...defaults,...x,seedings:x.seedings||{},scores:x.scores||{},slots:x.slots||{}}}catch(_){}
 const persist=()=>{try{localStorage.setItem(STORAGE,JSON.stringify(prefs))}catch(_){}};
@@ -30,36 +30,43 @@ let score=0;for(const x of a){x.avg=x.count?x.sum/x.count:0;x.newAvg=x.newGames?
 const av=a.filter(x=>x.count).map(x=>x.avg);return{stats:a,target,lateTarget,score,spread:av.length?Math.max(...av)-Math.min(...av):0}
 }
 function buildPlan(){if(!source){issue="Source roster still loading";return}issue="";
+const imported=prefs.inventoryMode==="imported";
 const times=prefs.times.split(/[,\s;]+/).map(v=>v.trim()).filter(Boolean),rinks=prefs.rinks.split(/[,\s;]+/).map(v=>v.trim().toUpperCase()).filter(Boolean);
-if(times.length<2||times.length>8||new Set(times).size!==times.length||times.some(v=>!Number.isFinite(minute(v)))){issue="Enter 2–8 unique 24-hour start times, such as 19:15,20:30,21:45,23:00.";return}
-if(!rinks.length||rinks.length>8||new Set(rinks).size!==rinks.length||rinks.some(x=>!/^[A-Z0-9]{1,3}$/.test(x))){issue="Enter 1–8 distinct rink labels, for example A,B,C,D.";return}
 if(!/^\d{4}-\d{2}-\d{2}$/.test(prefs.start)||isNaN(+new Date(prefs.start+"T12:00:00Z"))){issue="Choose a valid first planning date.";return}
-const slots=[];for(const time of times)for(const rink of rinks)slots.push({key:time+"/"+rink,time,min:minute(time),rink});
-slots.sort((a,b)=>a.min-b.min||a.rink.localeCompare(b.rink));
+const slots=[];
+if(!imported){
+ if(times.length<2||times.length>8||new Set(times).size!==times.length||times.some(v=>!Number.isFinite(minute(v)))){issue="Enter 2–8 unique 24-hour start times, such as 19:15,20:30,21:45,23:00.";return}
+ if(!rinks.length||rinks.length>8||new Set(rinks).size!==rinks.length||rinks.some(x=>!/^[A-Z0-9]{1,3}$/.test(x))){issue="Enter 1–8 distinct rink labels, for example A,B,C,D.";return}
+ for(const time of times)for(const rink of rinks)slots.push({key:time+"/"+rink,time,min:minute(time),rink});
+ slots.sort((a,b)=>a.min-b.min||a.rink.localeCompare(b.rink));
+}
 const all=gameWeeks(prefs.night,prefs.weeks),byWeek=Array.from({length:prefs.weeks},(_,i)=>all.filter(g=>g.week===i));
 if(!all.length){issue="No public teams available for the selected night.";return}
-for(const [w,rows] of byWeek.entries()){if(rows.length>slots.length){issue="Week "+(w+1)+" needs "+rows.length+" game slots, but the illustrative inventory supplies only "+slots.length+". Add ice slots before generating.";return}
-rows.forEach((g,i)=>{g.slot=slots[(i+w*3)%slots.length]})}
+const inventory=imported?window.LeagueOSIceV8?.getSlots(prefs.night,prefs.start,prefs.weeks):null;
+if(imported&&(!inventory||!inventory.registryLoaded)){issue="Load the Ice inventory review first. The source fixture registry must be available before using entered ice rows.";return}
+const weeklySlots=imported?inventory.slots:Array.from({length:prefs.weeks},(_,w)=>slots.map(slot=>({...slot,date:dateFor(prefs.start,prefs.night,w),authority:"DEMO_ONLY"})));
+for(const [w,rows] of byWeek.entries()){const pool=weeklySlots[w];if(rows.length>pool.length){issue="Week "+(w+1)+" requires "+rows.length+" game slots, but "+(imported?"the submitted dated inventory":"the illustrative inventory")+" has only "+pool.length+" eligible blocks for "+dateFor(prefs.start,prefs.night,w)+". No partial schedule was generated.";plan=null;return}
+rows.forEach((g,i)=>{g.slot=pool[(i+w*3)%pool.length]})}
 let initial=exposures(all,prefs.includeHistory);
-for(let pass=0;pass<4;pass++)for(const rows of byWeek){for(let step=0;step<rows.length*2;step++){let best=null,bestValue=exposures(all,prefs.includeHistory).score;
+for(let pass=0;pass<4;pass++)for(const [week,rows] of byWeek.entries()){const slots=weeklySlots[week];for(let step=0;step<rows.length*2;step++){let best=null,bestValue=exposures(all,prefs.includeHistory).score;
 for(const g of rows){const original=g.slot;for(const slot of slots){if(slot===original)continue;const other=rows.find(x=>x!==g&&x.slot===slot);g.slot=slot;if(other)other.slot=original;const trial=exposures(all,prefs.includeHistory).score;g.slot=original;if(other)other.slot=slot;
 if(trial+1e-5<bestValue){bestValue=trial;best={g,other,slot,original}}}}
 if(!best)break;best.g.slot=best.slot;if(best.other)best.other.slot=best.original}}
 const report=exposures(all,prefs.includeHistory);
-plan={schema:"bruttech-leagueos-v7-demo-scenario",night:prefs.night,source_snapshot:source.source_snapshot||"2026-11-16",facility_inventory:"ILLUSTRATIVE_UNVERIFIED",not_official:true,first_week:dateFor(prefs.start,prefs.night,0),weeks:prefs.weeks,ice_slots_per_week:slots.length,ice_times:times,rinks,include_partial_archived_starts:prefs.includeHistory,fixtures:all.map(g=>({id:g.id,week:g.week+1,date:dateFor(prefs.start,prefs.night,g.week),time:g.slot.time,rink:g.slot.rink,division:g.division,home:g.home.team_name,away:g.away.team_name})),report,initial_score:initial.score};
+plan={schema:"bruttech-leagueos-v7-demo-scenario",night:prefs.night,source_snapshot:source.source_snapshot||"2026-11-16",facility_inventory:imported?"OPERATOR_IMPORTED_UNVERIFIED":"ILLUSTRATIVE_UNVERIFIED",not_official:true,first_week:dateFor(prefs.start,prefs.night,0),weeks:prefs.weeks,ice_slots_per_week:weeklySlots.map(x=>x.length),ice_times:imported?[]:times,rinks:imported?[]:rinks,imported_ice_scope:inventory?.scope||"none",include_partial_archived_starts:prefs.includeHistory,fixtures:all.map(g=>({id:g.id,week:g.week+1,date:g.slot.date||dateFor(prefs.start,prefs.night,g.week),time:g.slot.time,rink:g.slot.rink,slot_source:g.slot.authority||"DEMO_ONLY",division:g.division,home:g.home.team_name,away:g.away.team_name})),report,initial_score:initial.score};
 weekShown=0;
 }
-const note='<p class="lc-warning">Demo only: published team-season records are not confirmed registrations. All ice blocks below are <b>illustrative</b>, not confirmed facility availability or reservations. No SVHL/HTO data is changed.</p>';
+const note='<p class="lc-warning">Demo only: published team-season records are not confirmed registrations. Ice blocks may be hypothetical or operator-attested; <b>none are independently verified facility bookings</b> or reservations. No SVHL/HTO data is changed.</p>';
 function plannerUI(){const root=$("#league-planner-mount");if(!root)return;if(!source){root.innerHTML=section("Loading public team list","League-neutral Winter 2026/27 source snapshot",'<p>'+esc(issue||"Reading published team records…")+'</p>');if(!loading)load();return}
 const ts=teamsFor(prefs.night),ds=divisions(prefs.night),weekly=gameWeeks(prefs.night,1).length;
 let html=note+section("Season scenario inputs","All published teams and divisions on the selected league night are included; matchups remain within divisions.",
 '<div class="lc-controls"><label class="field">Competition night<select id="lc-night">'+options(nights,prefs.night)+'</select></label>'+
 '<label class="field">Planning weeks<select id="lc-weeks">'+options(["4","6","8","10","12"],String(prefs.weeks))+'</select></label>'+
 '<label class="field">First scenario week<input id="lc-start" type="date" value="'+esc(prefs.start)+'"></label>'+
-'<label class="field">Scenario rink labels<input id="lc-rinks" value="'+esc(prefs.rinks)+'" maxlength="35"></label>'+
-'<label class="field lc-wide">Illustrative start times (24-hour, comma separated)<input id="lc-times" value="'+esc(prefs.times)+'" maxlength="90"></label>'+
-'<label class="lc-check"><input id="lc-history" type="checkbox"'+(prefs.includeHistory?" checked":"")+'> Include captured prior game starts when balancing end-of-plan averages (partial public source)</label></div>'+
-'<div class="lc-foot">'+ts.length+' published team records · '+ds.length+' divisions · '+weekly+' games in example week · '+prefs.rinks.split(",").length*prefs.times.split(",").length+' illustrative slots/week</div>'+
+'<label class="field">Scenario rink labels<input id="lc-rinks" value="'+esc(prefs.rinks)+'" maxlength="35" '+(prefs.inventoryMode==="imported"?"disabled":"")+'></label>'+
+'<label class="field lc-wide">Illustrative start times (24-hour, comma separated)<input id="lc-times" value="'+esc(prefs.times)+'" maxlength="90" '+(prefs.inventoryMode==="imported"?"disabled":"")+'></label>'+
+'<label class="field">Ice inventory source<select id="lc-inventory-mode"><option value="illustrative" '+(prefs.inventoryMode==="illustrative"?"selected":"")+' >Illustrative recurring slots</option><option value="imported" '+(prefs.inventoryMode==="imported"?"selected":"")+' >Date-specific imported blocks (local)</option></select></label><label class="lc-check"><input id="lc-history" type="checkbox"'+(prefs.includeHistory?" checked":"")+'> Include captured prior game starts when balancing end-of-plan averages (partial public source)</label></div>'+
+'<div class="lc-foot">'+ts.length+' published team records · '+ds.length+' divisions · '+weekly+' games in example week · '+(prefs.inventoryMode==="illustrative"?prefs.rinks.split(",").length*prefs.times.split(",").length+" illustrative recurring slots/week":"date-specific local ice rows; inspect holds before planning")+'</div><div class="formfooter"><button class="btn" type="button" data-go="league-inventory">Import / inspect dated ice blocks</button></div>'+
 '<div class="formfooter"><button class="btn primary" id="lc-generate" type="button">Generate balanced scenario</button>'+(plan?'<button class="btn" id="lc-export-plan" type="button">Export draft JSON</button>':'')+'<span class="small dim">No fixture is booked or published</span></div>');
 if(issue)html+='<p class="lc-error" role="alert">'+esc(issue)+'</p>';
 if(!plan||plan.night!==prefs.night){root.innerHTML=html+section("Scheduler logic","A working scenario, not a mock calendar",'<p>LeagueOS creates division-specific opponent rotations, allocates one game per team per week when possible, prevents double-booking of scenario rink/time slots, and improves average start-time balance with repeated swaps. Odd-sized divisions rotate byes. The goal is minimum end-of-plan disparity, not an impossible guarantee of identical times.</p>');return}
@@ -121,6 +128,7 @@ else if(x.id==="lc-start"){prefs.start=x.value;plan=null;persist();plannerUI()}
 else if(x.id==="lc-rinks"){prefs.rinks=x.value;plan=null;persist();plannerUI()}
 else if(x.id==="lc-times"){prefs.times=x.value;plan=null;persist();plannerUI()}
 else if(x.id==="lc-history"){prefs.includeHistory=x.checked;plan=null;persist();plannerUI()}
+else if(x.id==="lc-inventory-mode"){prefs.inventoryMode=x.value;plan=null;persist();plannerUI()}
 else if(x.id==="lc-play-night"){prefs.playNight=x.value;prefs.playDivision=divisions(x.value)[0]||"";persist();playoffUI()}
 else if(x.id==="lc-play-division"){prefs.playDivision=x.value;persist();playoffUI()}
 else if(x.id==="lc-bronze"){prefs.bronze=x.checked;persist();playoffUI()}
