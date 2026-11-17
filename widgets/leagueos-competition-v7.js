@@ -7,6 +7,13 @@ const minute=s=>{const m=/^([01]\d|2[0-3]):([0-5]\d)$/.exec(String(s).trim());re
 const clock=n=>Number.isFinite(n)?String(Math.floor(Math.round(n)/60)%24).padStart(2,"0")+":"+String(Math.round(n)%60).padStart(2,"0"):"—";
 const dateFor=(start,night,week)=>{const d=new Date(start+"T12:00:00Z");if(isNaN(+d))return "";let k=0;while(d.getUTCDay()!==days[night]&&k++<7)d.setUTCDate(d.getUTCDate()+1);d.setUTCDate(d.getUTCDate()+week*7);return d.toISOString().slice(0,10)};
 const download=(obj,name)=>{const b=new Blob([JSON.stringify(obj,null,2)],{type:"application/json"}),url=URL.createObjectURL(b),a=document.createElement("a");a.href=url;a.download=name;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000)};
+const downloadCsv=(scenario)=>{
+ const header=["Week","Date","Start time","Rink","Division","Home team","Away team","Status"];
+ const rows=[header,...scenario.fixtures.map(g=>[g.week,g.date,g.time,g.rink,g.division,g.home,g.away,"DRAFT_NOT_BOOKED"])];
+ const cell=v=>{let t=String(v??"");if(/^[\s]*[=+\-@]/.test(t))t="'"+t;return '"'+t.replace(/"/g,'""')+'"'};
+ const csv="\uFEFF"+rows.map(row=>row.map(cell).join(",")).join("\r\n")+"\r\n";
+ const blob=new Blob([csv],{type:"text/csv;charset=utf-8"}),url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download="leagueos-draft-schedule-v11.csv";document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1400)
+};
 const defaults={night:"Wednesday",weeks:8,start:"2026-12-01",rinks:"A,B,C,D",times:"19:15,20:30,21:45,23:00",includeHistory:true,playNight:"Wednesday",playDivision:"Franco Canadian",seedings:{},scores:{},slots:{},bronze:true,inventoryMode:"historical",scheduler_demo_version:9};
 let prefs={...defaults},source=null,loading=null,plan=null,weekShown=0,previewTab="calendar",calendarLayout="list",issue="";
 try{const x=JSON.parse(localStorage.getItem(STORAGE)||"null");if(x&&typeof x==="object"){prefs={...defaults,...x,seedings:x.seedings||{},scores:x.scores||{},slots:x.slots||{}};if(!(x.scheduler_demo_version>=9)){prefs.inventoryMode="historical";prefs.scheduler_demo_version=9}}}catch(_){}
@@ -92,7 +99,7 @@ function plannerUI(){
  }
  const r=plan.report,sorted=r.stats.slice().sort((a,b)=>Math.abs(b.delta)-Math.abs(a.delta)),weekly=plan.fixtures.filter(g=>g.week===weekShown+1);
  const rounded=Math.round(r.spread),mode=plan.facility_inventory==="HISTORICALLY_OBSERVED_RINK_TIME_PATTERN_NOT_BOOKABLE"?"Based on historical start-time patterns":"Based on selected scenario time slots";
- html+='</div><section class="v10-results" id="lc-preview-results"><div class="v10-result-intro"><div><div class="v10-wizard-label">REVIEW YOUR SCHEDULE <span>2 of 2 · Compare and export</span></div><h2>Here’s your schedule preview</h2><p>'+esc(mode)+' · Not booked or published.</p></div><button type="button" class="btn" id="lc-export-plan">Export draft schedule</button></div>'+
+ html+='</div><section class="v10-results" id="lc-preview-results"><div class="v10-result-intro"><div><div class="v10-wizard-label">REVIEW YOUR SCHEDULE <span>2 of 2 · Compare and export</span></div><h2>Here’s your schedule preview</h2><p>'+esc(mode)+' · Not booked or published.</p></div><button type="button" class="btn" id="lc-export-csv">Export schedule (CSV)</button></div>'+
  '<div class="v10-result-metrics"><div><small>Games scheduled</small><strong>'+plan.fixtures.length+'</strong><span>Across '+prefs.weeks+' weeks</span></div><div><small>Teams included</small><strong>'+r.stats.length+'</strong><span>All published teams this night</span></div><div><small>Gap between team averages</small><strong>'+rounded+' min</strong><span>Latest average minus earliest average</span></div></div>'+
  '<div class="v10-readout"><span class="v10-readout-mark">✓</span><p><strong>Fair-start scenario created.</strong> Team average game starts are within '+rounded+' minutes of each other in this sample. Actual scheduling would still require facility approval.</p></div>'+
  '<div class="v10-view-tabs" role="tablist" aria-label="Schedule results">'+
@@ -136,7 +143,7 @@ function plannerUI(){
  html+='<details class="v10-method-note"><summary>How was this schedule created? <span aria-hidden="true">⌄</span></summary>'+
  '<div><p>Games are paired within published divisions. An optimization pass rotates start times while giving each team at most one proposed game per date and using each rink/time once.</p>'+
  (window.LeagueOSHistoricalSlotsV9?.evidence(prefs.night)||'')+
- '<p>Historical game times are not proof the same ice will be available. Some divisions require byes; exactly identical averages may be impossible.</p></div></details>'+
+ '<p>Historical game times are not proof the same ice will be available. Some divisions require byes; exactly identical averages may be impossible.</p><button type="button" class="btn small" id="lc-export-plan">Export technical JSON</button></div></details>'+
  '</section>';
  root.innerHTML=html
 }
@@ -197,6 +204,7 @@ document.addEventListener("click",e=>{const b=e.target.closest("button");if(!b)r
 if(b.dataset.lcLayout){calendarLayout=b.dataset.lcLayout==="rinks"?"rinks":"list";plannerUI();return}
 if(b.dataset.lcView){previewTab=b.dataset.lcView==="fairness"?"fairness":"calendar";plannerUI();return}
 if(b.id==="lc-generate"){buildPlan();previewTab="calendar";plannerUI();const next=plan?$("#lc-preview-results"):$(".v10-input-error");if(next)next.scrollIntoView({behavior:"auto",block:"start"});return}
+if(b.id==="lc-export-csv"&&plan){downloadCsv(plan);return}
 if(b.id==="lc-export-plan"&&plan){const {report,...safe}=plan;safe.summary={start_mean_spread_minutes:Math.round(report.spread),final_mean_start_minutes:clock(report.target),team_fairness:report.stats.map(v=>({team:v.team.team_name,division:v.team.division,games:v.count,avg_start:clock(v.avg),delta_min:Math.round(v.delta),late_starts:v.late}))};download(safe,"leagueos-scheduling-scenario-v9.json");return}
 if(b.dataset.lcWeek!==undefined){weekShown=Number(b.dataset.lcWeek);plannerUI();return}
 if(b.dataset.lcUp!==undefined||b.dataset.lcDown!==undefined){const arr=seedOrder().slice(),i=Number(b.dataset.lcUp??b.dataset.lcDown),j=b.dataset.lcUp!==undefined?i-1:i+1;if(j>=0&&j<arr.length){[arr[i],arr[j]]=[arr[j],arr[i]];prefs.seedings[groupKey()]=arr;prefs.scores[groupKey()]={};persist();playoffUI()}return}
