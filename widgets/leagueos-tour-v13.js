@@ -15,12 +15,27 @@ let state={active:false,index:0,visited:[],finished:false};
 try{const s=JSON.parse(sessionStorage.getItem(STORAGE)||"null");if(s&&typeof s==="object"&&Number.isInteger(s.index)&&s.index>=0&&s.index<STEPS.length)state={...state,...s,visited:Array.isArray(s.visited)?s.visited.filter(x=>Number.isInteger(x)&&x>=0&&x<STEPS.length):[]}}catch(_){}
 function persist(){try{sessionStorage.setItem(STORAGE,JSON.stringify(state))}catch(_){}}
 function bridge(){return window.LeagueOSDemoBridgeV13}
+function focusPublishedExample(){
+ const selector='[data-source-game-id="127949"]';
+ let observer=null;
+ const focus=()=>{
+  const row=$(selector);if(!row)return false;
+  observer?.disconnect();
+  requestAnimationFrame(()=>{if(state.active&&state.index===0&&bridge()?.currentRoute?.()==="league-schedule")row.scrollIntoView({behavior:"auto",block:"center"})});
+  return true
+ };
+ if(focus())return;
+ const root=$("#workspace");if(!root)return;
+ observer=new MutationObserver(()=>{focus()});
+ observer.observe(root,{childList:true,subtree:true});
+ setTimeout(()=>observer?.disconnect(),5000)
+}
 function enter(index){if(!Number.isInteger(index)||index<0||index>=STEPS.length)return;
  state.index=index;state.active=true;state.finished=false;persist();
  const step=STEPS[index];
  if(index===0)bridge()?.openSourceGame?.(127949);
  else bridge()?.go?.(step.route);
- update()
+ update();if(index===0)focusPublishedExample()
 }
 function start(){state.active=true;state.index=0;state.visited=[];state.finished=false;enter(0)}
 function exit(){state.active=false;persist();$("#league-v13-tourbar")?.remove()}
