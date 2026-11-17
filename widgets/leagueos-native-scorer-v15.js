@@ -91,6 +91,7 @@ function eventTagEditor(){
  return'<section class="v17-tag-editor" id="v17-tag-editor"><div><span>EDIT PRACTICE EVENT</span><h4>'+esc(e.kind.toUpperCase())+' · '+esc(e.side.toUpperCase())+'</h4></div>'+
  '<form id="v17-tag-form"><label>Jersey number (fictional)<input name="jersey" inputmode="numeric" maxlength="3" placeholder="19" value="'+esc(e.jersey||"")+'"></label>'+
  (e.kind==="goal"?'<label>1st assist jersey<input name="assist1" inputmode="numeric" maxlength="3" placeholder="8" value="'+esc(assists[0]||"")+'"></label><label>2nd assist jersey<input name="assist2" inputmode="numeric" maxlength="3" placeholder="27" value="'+esc(assists[1]||"")+'"></label>':'')+
+ '<p class="v17-tag-error" role="alert">'+esc(validation)+'</p>'+
  '<div class="v17-tag-actions"><button type="submit" class="btn primary">Save event stats</button><button type="button" class="btn" id="v17-cancel-tags">Cancel</button></div></form></section>'
 }
 function option(v,label,chosen){return'<option value="'+esc(v)+'"'+(v===chosen?' selected':'')+'>'+esc(label)+'</option>'}
@@ -167,6 +168,26 @@ if(b.dataset.v16Side){selectedSide=b.dataset.v16Side;view();return}
 if(b.dataset.v16GameNav){const list=fixtureList(),i=list.findIndex(x=>x.game_id===fixtureId),j=i+Number(b.dataset.v16GameNav);if(j>=0&&j<list.length){fixtureId=list[j].game_id;persist();view()}return}
 if(b.id==="v16-quick-add"){if(["clock","note"].includes(kind)){const detail=$("#v16-scorer-details");if(detail){detail.open=true;detail.scrollIntoView({behavior:"auto",block:"nearest"})}return}quickAdd(kind,selectedSide);return}
 
+
+if(b.dataset.v17SwitchTab){tab=b.dataset.v17SwitchTab;validation="";resultError="";view();return}
+if(b.dataset.v17Score){
+ const [side,action]=b.dataset.v17Score.split("-");
+ if(!["home","away"].includes(side)||!["up","down"].includes(action))return;
+ const r=resultDraft();r[side]=Math.max(0,Math.min(99,r[side]+(action==="up"?1:-1)));
+ r.saved=false;r.reviewed=false;resultError="";persist();view();return
+}
+if(b.dataset.v17Outcome){const outcome=b.dataset.v17Outcome;if(!["regulation","overtime","shootout","draw"].includes(outcome))return;
+ const r=resultDraft();r.decision=outcome;r.saved=false;r.reviewed=false;resultError="";persist();view();return}
+if(b.id==="v17-save-result"){
+ const r=resultDraft(),problem=resultValidation(r);
+ if(problem){resultError=problem;view();return}
+ r.saved=true;r.savedAt=new Date().toISOString();r.reviewed=false;resultError="";log("SAVE_RESULT",null);view();return
+}
+if(b.dataset.v17Tag){const d=draft();if(!d?.events.some(x=>x.id===b.dataset.v17Tag))return;
+ editingId=b.dataset.v17Tag;tab="players";validation="";view();
+ const el=$("#v17-tag-editor");if(el)el.scrollIntoView({behavior:"auto",block:"center"});return
+}
+if(b.id==="v17-cancel-tags"){editingId=null;validation="";view();return}
 if(b.id==="v15-source-retry"){error="";load();return}
 if(b.dataset.v15Event){kind=b.dataset.v15Event;validation="";view();return}
 if(b.dataset.v15Scoretab){tab=b.dataset.v15Scoretab;validation="";view();return}
@@ -174,11 +195,28 @@ if(b.dataset.v15Delete){const d=draft(),target=d.events.find(x=>x.id===b.dataset
 if(b.id==="v15-score-reset"){drafts[String(fixtureId)]={events:[],changes:[],clock:"00:00",period:"1"};persist();view();return}
 if(b.id==="v15-score-export"){exportDraft();return}
 });
-document.addEventListener("submit",e=>{if(e.target.id!=="v15-event-form"||!$("#league-native-scorer-mount"))return;e.preventDefault();
+document.addEventListener("submit",e=>{
+if(e.target.id==="v17-tag-form"&&$("#league-native-scorer-mount")){
+ e.preventDefault();
+ const d=draft(),event=d?.events.find(x=>x.id===editingId);if(!event)return;
+ const x=new FormData(e.target),jersey=String(x.get("jersey")||"").trim(),
+ a1=String(x.get("assist1")||"").trim(),a2=String(x.get("assist2")||"").trim();
+ if([jersey,a1,a2].some(y=>y&&!/^\d{1,3}$/.test(y))||(a1&&a2&&a1===a2)||(jersey&&[a1,a2].includes(jersey))){
+  validation="Use 1–3 digit jersey numbers; the scorer and two assistants must be different.";view();return
+ }
+ event.jersey=jersey;
+ event.assists=event.kind==="goal"?[a1,a2].filter(Boolean):[];
+ log("ASSIGN_STAT",event);editingId=null;validation="";view();return
+}
+if(e.target.id!=="v15-event-form"||!$("#league-native-scorer-mount"))return;e.preventDefault();
 const x=new FormData(e.target),v=String(x.get("clock")||"").trim();
 if(!/^[0-5]\d:[0-5]\d$/.test(v)){validation="Enter the game clock as MM:SS, e.g. 12:34.";view();return}
-const jersey=String(x.get("jersey")||"").trim();if(jersey&&!/^\d{1,3}$/.test(jersey)){validation="Jersey must be 1–3 digits.";view();return}
-const d=draft(),event={id:String(Date.now())+"-"+Math.random().toString(36).slice(2,7),kind,side:x.get("team")==="away"?"away":"home",period:x.get("period"),time:v,jersey,details:String(x.get("details")||"").trim().slice(0,220),penalty:kind==="penalty"?Number(x.get("penalty"))||2:0};
+const jersey=String(x.get("jersey")||"").trim(),
+ assist1=String(x.get("assist1")||"").trim(),assist2=String(x.get("assist2")||"").trim();
+if([jersey,assist1,assist2].some(j=>j&&!/^\d{1,3}$/.test(j))||(assist1&&assist2&&assist1===assist2)||(jersey&&[assist1,assist2].includes(jersey))){
+ validation="Use distinct 1–3 digit jersey numbers for scorer and assistants.";view();return
+}
+const d=draft(),event={id:String(Date.now())+"-"+Math.random().toString(36).slice(2,7),kind,side:x.get("team")==="away"?"away":"home",period:x.get("period"),time:v,jersey,assists:kind==="goal"?[assist1,assist2].filter(Boolean):[],details:String(x.get("details")||"").trim().slice(0,220),penalty:kind==="penalty"?Number(x.get("penalty"))||2:0};
 d.events.push(event);d.period=event.period;d.clock=v;log("ADD",event);validation="";view();
 });
 window.LeagueOSNativeScorerV15={mount:view,status(){return{loaded:!!registry,night,fixtureId,events:draft()?.events.length||0,officialWrites:0,serverActions:false}},_test:{source:()=>registry,fixtureList,selected,draft,totals:stats,exportDraft}};
