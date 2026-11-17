@@ -8,7 +8,8 @@
 (function(){"use strict";
 const MODEL="./leagueos_division_alignment_public_v2.json";
 const PACKAGES="./leagueos-balanced-division-packages-v3.json";
-const PUBLIC_FIXTURES="./svhl-public-four-nights-v2.json";
+const PUBLIC_FIXTURES="./leagueos-source-qualified-current-fixtures-v4.json";
+const FIXTURE_IMPACT="./leagueos-division-fixture-impact-v4.json";
 const STORAGE="bruttech-leagueos-commissioner-cases-v3-261116";
 const OLD_NOTES="bruttech-leagueos-alignment-review-drafts-v2-261116";
 const RULES="https://www.sportsvillage.ca/wp-content/uploads/2024/09/Rule-Book.pdf";
@@ -46,7 +47,7 @@ function saved(){
  }catch(e){return{schema:"bruttech-commissioner-local-case-records/v3",cases:{}}}
 }
 const store=saved();
-let data=null,packages=null,fixtures=null,loading=false,error="",selected=null,view="packages",draft=blank(),lastToast="";
+let data=null,packages=null,fixtures=null,fixtureImpact=null,fixtureLoadError="",loading=false,error="",selected=null,view="packages",draft=blank(),lastToast="";
 let cases=[],activeStep=1;
 const teamIndex=new Map();
 function toast(msg){lastToast=msg;const t=$("#decision-toast");if(t){t.textContent=msg;t.hidden=false}}
@@ -168,23 +169,41 @@ function singleEvidence(c){
  '</div>';
 }
 function impact(c){
- const f=fixtures?.games||[];
- const entries=[];
- for(const g of f){
-  const side=c.participants.find(t=>t.night===g.night&&(g.home===t.team_name||g.away===t.team_name));
-  if(side)entries.push({date:g.date,time:g.time,rink:g.rink,home:g.home,away:g.away,night:g.night,source:g.source_url});
+ const f=fixtures,source=fixtureImpact?.cases?.[c.id];
+ if(!f||!source){
+  return '<div class="desk-warning"><strong>Source-based schedule assessment unavailable</strong>'+
+  '<p>The archived future fixture registry could not be verified. Review the current official league calendar and facility records directly; do not infer that a team has no games or that ice is available.</p>'+
+  (fixtureLoadError?'<p>'+esc(fixtureLoadError)+'</p>':'')+'</div>';
  }
- entries.sort((a,b)=>(a.date+a.time).localeCompare(b.date+b.time));
- const noFixtures=entries.length===0;
- const rows=entries.slice(0,5).map(x=>'<div class="desk-fixture"><b>'+esc(x.date)+' · '+esc(x.time)+' · '+esc(x.rink)+'</b><small>'+esc(x.home)+' vs '+esc(x.away)+'</small></div>').join("");
- const source=(fixtures?.league_nights||[]).find(x=>x.night===c.night);
- return '<div class="desk-impact-grid"><div><small>Facility ice allocation</small><strong>Unknown</strong><span>Booking system not connected</span></div>'+
- '<div><small>Complete remaining schedule</small><strong>Not connected</strong><span>Current public schedule window only</span></div>'+
- '<div><small>Published fixture references</small><strong>'+entries.length+'</strong><span>Not a full season calendar</span></div></div>'+
- (noFixtures?'<p class="desk-muted">No relevant fixture was captured in the currently published limited schedule window. This does not mean there are no fixtures, empty rink slots or no conflicts.</p>':
- '<div class="desk-fixtures">'+rows+'</div>')+
- '<p class="desk-muted">An actual movement must review opponent pairings, contracted rink blocks, league nights, referees, remaining games, standing carryover and communications.</p>'+
- (source?'<a href="'+esc(source.source_url)+'" target="_blank" rel="noopener noreferrer">Open official '+esc(c.night)+' schedule ↗</a>':"");
+ const rows=source.impact_rows||[];
+ const moved=new Set(c.participants.map(t=>t.team_id));
+ const held=(f.fixtures||[]).filter(g=>g.league_id===c.participants[0].league_id
+   && g.status!=="COMPLETED_SOURCE_VERIFIED"&&g.status!=="FUTURE_RECIPROCAL_FIXTURE"
+   && (moved.has(g.home_team_id)||moved.has(g.away_team_id)));
+ const sum='<div class="desk-impact-grid">'+
+  '<div><small>Future fixtures to review</small><strong>'+val(rows.length)+'</strong><span>Within verified November source window</span></div>'+
+  '<div><small>Division matchup classifications changed</small><strong>'+val(source.fixture_grouping_changed_count)+'</strong><span>What-if labels, not actual rescheduling</span></div>'+
+  '<div><small>Rink assignments sourced</small><strong>'+val(source.published_rink_references)+' of '+rows.length+'</strong><span>Not facility occupancy verification</span></div>'+
+  '</div>';
+ const range='<div class="desk-fixture-source"><strong>Published source window: '+esc(f.captured_date||"Snapshot date unavailable")+'</strong>'+
+  '<span>'+val(f.counts?.total)+' historical/current game references, '+val(f.counts?.future)+' reciprocal upcoming fixtures and '+val(f.counts?.held)+' unresolved source entries across four nights. This is not the full remaining season schedule.</span></div>';
+ const body=rows.length?'<div class="desk-schedule-list">'+rows.map(row=>{
+  const grouping=row.grouping_changed?
+    '<span class="desk-match-change">Grouping changes: '+esc(row.before_grouping.replace("_"," ").toLowerCase())+' → '+esc(row.after_grouping.replace("_"," ").toLowerCase())+'</span>':
+    '<span class="desk-match-kept">No division grouping change assumed</span>';
+  return '<div class="desk-source-fixture"><div><b>'+esc(row.date)+' · '+esc(row.time)+' · '+esc(row.rink||"Rink unverified")+'</b>'+
+  '<strong>'+esc(row.home)+' vs '+esc(row.away)+'</strong>'+
+  '<small>'+grouping+'</small></div>'+
+  '<a href="'+esc(row.source_game_url)+'" target="_blank" rel="noopener noreferrer">Source ↗</a></div>';
+ }).join("")+'</div>':
+ '<p class="desk-muted">No upcoming fixture involving these teams is shown in the currently captured public window. That does not mean the season schedule is empty or that ice is unassigned.</p>';
+ const holds=held.length?'<div class="desk-warning"><strong>'+held.length+' unresolved earlier game record'+(held.length===1?"":"s")+'</strong>'+
+ '<p>Some past fixtures for these teams still display unverified results (often 0–0). Do not count these as forfeits, finalized scores or official eligibility evidence.</p></div>':'';
+ const footer='<div class="desk-warning"><strong>What remains unverified</strong><p>Available ice, the full season schedule, authorized player eligibility, revised opponent assignments, referee staffing, contracted rink blocks and official point carryover are not determined by this preview.</p></div>'+
+ '<p class="desk-muted">Even if the same time and rink remain listed, an approved realignment could require revised opponents or a rescheduled game. Do not assume existing commitments are compatible.</p>';
+ return sum+range+body+holds+footer+
+ '<a href="'+esc(source.impact_rows?.[0]?.source_game_url||f.fixtures.find(g=>g.night===c.night)?.league_url||"https://leagues.sportsvillage.ca/")+
+ '" target="_blank" rel="noopener noreferrer">View published SVHL source ↗</a>';
 }
 function checkpoints(){
  return '<div class="desk-gate-list">'+CHECKS.map(ch=>{
@@ -217,6 +236,11 @@ function compareSaved(c){
   teams:c.participants.map(t=>({name:t.team_name,league_id:t.league_id,source_team_id:t.team_id,division:t.division})),
   sourceModelAt:data?.created_at,
   sourcePackageAt:packages?.generated_at,
+  fixtureSourceSnapshot:fixtures?.captured_date||"UNAVAILABLE",
+  fixtureImpactSourceAt:fixtureImpact?.generated_at||"UNAVAILABLE",
+  sourceUpcomingFixturesInWindow:fixtureImpact?.cases?.[c.id]?.known_upcoming_games_touching_case??null,
+  sourceScenarioGroupingChanges:fixtureImpact?.cases?.[c.id]?.fixture_grouping_changed_count??null,
+  sourceGameIds:(fixtureImpact?.cases?.[c.id]?.impact_rows||[]).map(x=>x.game_id),
   phase:draft.phase,
   checks:{...draft.checks},
   notes:String(draft.notes||"").slice(0,1600),
@@ -365,9 +389,12 @@ async function start(){
   if(p.schema!=="bruttech-division-balanced-scenarios/v3"||p.balanced_packages?.length<1)throw Error("Balanced package source schema not accepted");
   data=m;packages=p;
   try{
-   fixtures=await fetchJSON(PUBLIC_FIXTURES);
-   if(fixtures.schema!=="bruttech-svhl-public-operations/v2")fixtures=null;
-  }catch(e){fixtures=null}
+   const [f,impact]=await Promise.all([fetchJSON(PUBLIC_FIXTURES),fetchJSON(FIXTURE_IMPACT)]);
+   if(f.schema!=="bruttech-svhl-current-fixture-window/v4"||f.counts?.total!==411||f.counts?.future!==66||f.fixtures?.length!==411)throw Error("Fixture source version is unexpected");
+   if(impact.schema!=="bruttech-division-source-fixture-impact/v4"||impact.counts?.cases!==28||!impact.cases?.["BALANCED-567-13669-13673"])throw Error("Impact source version is unexpected");
+   if(!Object.values(impact.cases).every(x=>x.changed_record_count===0&&x.no_new_games_created===true))throw Error("Impact simulation unexpectedly indicates source writes");
+   fixtures=f;fixtureImpact=impact;fixtureLoadError="";
+  }catch(e){fixtures=null;fixtureImpact=null;fixtureLoadError=String(e.message||e)}
   buildCases();
   if(!selected||!findCase(selected)){
    selected=cases.find(x=>x.kind==="package")?.id||cases[0]?.id||null;
