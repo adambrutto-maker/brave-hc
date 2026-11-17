@@ -82,7 +82,7 @@ function sourceFixtures(iso=state.ops.date,respectProgram=true){
 }
 function sourceGameTag(f){
  if(f.status==="COMPLETED_SOURCE_VERIFIED")return ['Verified result','green'];
- if(f.status==="FUTURE_RECIPROCAL_FIXTURE")return ['Published fixture','green'];
+ if(f.status==="FUTURE_RECIPROCAL_FIXTURE")return f.date<torontoToday()?['Result not refreshed','amber']:['Published fixture','green'];
  if(f.status==="PAST_ZERO_ZERO_HOLD")return ['Result unresolved','amber'];
  if(f.status)return ['Source under review','amber'];
  return ['Public fixture','green'];
@@ -138,7 +138,7 @@ function opsSummary(){
  const o=state.ops,fixtures=sourceFixtures(),night=currentNightName();
  return '<div class="ops-summary"><span>Selected day: <strong>'+esc(dayShort(o.date))+'</strong></span>'+
  '<span>Program: <strong>'+esc(night?(night==="Rentals / other uses"?night:"SVHL "+night):"No scheduled SVHL league night")+'</strong></span>'+
- '<span>Published fixture rows: <strong>'+fixtures.length+'</strong> · partial window</span>'+
+ '<span>Source game rows: <strong>'+fixtures.length+'</strong> · partial window</span>'+
  '<span>Facility: <strong>4 rinks</strong> · complete occupancy not connected</span></div>';
 }
 function opsConfirmedGames(){
@@ -151,7 +151,7 @@ function opsConfirmedGames(){
  '</div></div>';
  }).join(''):'<div class="callout">No source-qualified game rows are visible for the selected day and filters. <b>This does not prove there are no games or that ice is available.</b></div>';
  const note=state.fullGameRegistry?
- '<p class="source">Reconstructed from archived 2026/27 team schedules: '+state.fullGameRegistry.counts.total+' distinct game references; '+
+ '<p class="source">Archived source snapshot from '+esc(state.fullGameRegistry.captured_date||"date unverified")+', not a live SVHL connection. Reconstructed from team schedules: '+state.fullGameRegistry.counts.total+' distinct game references; '+
  state.fullGameRegistry.counts.completed+' verified results; '+state.fullGameRegistry.counts.future+' upcoming reciprocal fixture rows; '+
  state.fullGameRegistry.counts.held+' unresolved source entries. Source window is incomplete, not live facility booking.</p>':
  '<p class="source">Partial public SVHL schedule snapshot. Source reconstruction may still be loading.</p>';
