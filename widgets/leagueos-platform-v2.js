@@ -32,7 +32,7 @@ const rules=[
  ["2.7.2 · Division realignment","The published rulebook specifies a division realignment after week five, with accumulated points carried into the new division."],
  ["2.4 · Appeals","Team representatives are the authorized channel for appeals; published timelines depend on regular-season versus playoff cases."]
 ];
-const state={league:null,standings:null,upcoming:null,publicOps:null,route:null,widget:"analytics.html",registration:load(REG_KEY,{team:"",manager:"",division:"Cristillo",players:[{name:"",jersey:""}]}),poll:load(POLL_KEY,{availability:"",nickname:"",notes:"",fixture:""})};
+const state={league:null,standings:null,upcoming:null,publicOps:null,fullGameRegistry:null,route:null,widget:"analytics.html",registration:load(REG_KEY,{team:"",manager:"",division:"Cristillo",players:[{name:"",jersey:""}]}),poll:load(POLL_KEY,{availability:"",nickname:"",notes:"",fixture:""})};
 if(!Array.isArray(state.registration.players))state.registration.players=[{name:"",jersey:""}];
 state.registration.players=state.registration.players.slice(0,20);
 const prior=load(FEEDBACK_KEY,[]);state.notes=Array.isArray(prior)?prior.filter(x=>x&&typeof x.text==="string").slice(-100):[];
@@ -70,12 +70,26 @@ if(!Array.isArray(state.iceDrafts))state.iceDrafts=[];
 state.changeDrafts=load(OPS_CHANGE_KEY,[]);
 if(!Array.isArray(state.changeDrafts))state.changeDrafts=[];
 function sourceFixtures(iso=state.ops.date,respectProgram=true){
- const all=state.publicOps?.games;
- const candidates=Array.isArray(all)?all:(state.upcoming?.games||[]).map(f=>({...f,home:"Braves HC",away:f.opponent,night:"Sunday",league_id:570,source_url:official}));
+ const fromRegistry=state.fullGameRegistry?.fixtures;
+ const published=state.publicOps?.games;
+ const candidates=Array.isArray(fromRegistry)?fromRegistry:
+   Array.isArray(published)?published:(state.upcoming?.games||[]).map(f=>({...f,home:"Braves HC",away:f.opponent,night:"Sunday",league_id:570,source_url:official}));
  const program=state.ops.program,programNight={"0":"Sunday","2":"Tuesday","3":"Wednesday","4":"Thursday"}[program];
- return candidates.filter(f=>f&&f.date===iso&&(state.ops.rink==="all"||String(f.rink||"").toUpperCase().startsWith(state.ops.rink))&&(
- !respectProgram||program==="all"||(program!=="rental"&&(!programNight||f.night===programNight))
- )).sort((a,b)=>String(a.time).localeCompare(String(b.time))||String(a.rink).localeCompare(String(b.rink)));
+ return candidates.filter(f=>f&&f.date===iso&&
+  (state.ops.rink==="all"||String(f.rink||"").toUpperCase().startsWith(state.ops.rink))&&
+  (!respectProgram||program==="all"||(program!=="rental"&&(!programNight||f.night===programNight))))
+ .sort((a,b)=>String(a.time).localeCompare(String(b.time))||String(a.rink).localeCompare(String(b.rink)));
+}
+function sourceGameTag(f){
+ if(f.status==="COMPLETED_SOURCE_VERIFIED")return ['Verified result','green'];
+ if(f.status==="FUTURE_RECIPROCAL_FIXTURE")return ['Published fixture','green'];
+ if(f.status==="PAST_ZERO_ZERO_HOLD")return ['Result unresolved','amber'];
+ if(f.status)return ['Source under review','amber'];
+ return ['Public fixture','green'];
+}
+function sourceGameSubtitle(f){
+ const detail=f.scores&&f.status==="COMPLETED_SOURCE_VERIFIED"?" · Published score "+f.scores.home+"–"+f.scores.away:"";
+ return esc(f.night||"League")+" league"+detail;
 }
 function currentNightName(){
  const day=weekday(state.ops.date),program=state.ops.program;
@@ -129,17 +143,29 @@ function opsSummary(){
 }
 function opsConfirmedGames(){
  const o=state.ops,fixtures=sourceFixtures();
- const body=fixtures.length?fixtures.map(f=>'<div class="cardrow"><div><strong>'+esc(f.time)+' · '+esc(f.rink)+' · '+esc(f.home)+' vs '+esc(f.away)+'</strong><small>'+esc(f.night||dayProgram(o.date))+' league · published SVHL schedule row</small></div><span class="pill green">Source match</span></div>').join(''):
- '<div class="callout">No verified game rows in the currently connected public-page window for these filters. <b>This does not establish that there are no games or that ice is available.</b></div>';
- return panel("Games on "+esc(dayShort(o.date)),"League-wide published fixtures · source pages show only a limited schedule window",body+
- '<div class="topline">'+(currentNightName()&&nightlySource(currentNightName())?sourceLeagueLink(currentNightName()):'<a class="btn" href="https://www.sportsvillage.ca/adult-hockey-league-3/" target="_blank" rel="noopener noreferrer">Official league information ↗</a>')+btn("Game sheets","league-scoring")+'</div>');
+ const body=fixtures.length?fixtures.map(f=>{
+ const badge=sourceGameTag(f),src=f.official_game_url||f.source_url;
+ return '<div class="cardrow"><div><strong>'+esc(f.time)+' · '+esc(f.rink||"Rink not verified")+' · '+esc(f.home)+' vs '+esc(f.away)+'</strong>'+
+ '<small>'+sourceGameSubtitle(f)+'</small></div><div style="display:grid;justify-items:end;gap:5px"><span class="pill '+badge[1]+'">'+badge[0]+'</span>'+
+ (src?'<a style="font-size:10px;white-space:nowrap" href="'+esc(src)+'" target="_blank" rel="noopener noreferrer">Source ↗</a>':'')+
+ '</div></div>';
+ }).join(''):'<div class="callout">No source-qualified game rows are visible for the selected day and filters. <b>This does not prove there are no games or that ice is available.</b></div>';
+ const note=state.fullGameRegistry?
+ '<p class="source">Reconstructed from archived 2026/27 team schedules: '+state.fullGameRegistry.counts.total+' distinct game references; '+
+ state.fullGameRegistry.counts.completed+' verified results; '+state.fullGameRegistry.counts.future+' upcoming reciprocal fixture rows; '+
+ state.fullGameRegistry.counts.held+' unresolved source entries. Source window is incomplete, not live facility booking.</p>':
+ '<p class="source">Partial public SVHL schedule snapshot. Source reconstruction may still be loading.</p>';
+ return panel("Games on "+esc(dayShort(o.date)),"Public league game records · completed, upcoming and source-hold statuses",
+ body+note+'<div class="topline">'+(currentNightName()&&nightlySource(currentNightName())?sourceLeagueLink(currentNightName()):
+ '<a class="btn" href="https://www.sportsvillage.ca/adult-hockey-league-3/" target="_blank" rel="noopener noreferrer">Official league information ↗</a>')+
+ btn("Game sheets","league-scoring")+'</div>');
 }
 function opsIceBoard(){
  const o=state.ops,rinks=opsRinks.filter(r=>o.rink==="all"||o.rink===r),fixtures=sourceFixtures(o.date,false);
  const view=rinks.map(r=>{
  const games=fixtures.filter(f=>String(f.rink||"").toUpperCase().startsWith(r));
  const draft=state.iceDrafts.filter(x=>x.date===o.date&&x.rink===r);
- let t=games.map(f=>'<div class="ops-event"><span class="ops-dot"></span>'+esc(f.time)+' · '+esc(f.home)+' vs '+esc(f.away)+' <span class="pill green">SVHL fixture</span></div>').join('');
+ let t=games.map(f=>'<div class="ops-event"><span class="ops-dot"></span>'+esc(f.time)+' · '+esc(f.home)+' vs '+esc(f.away)+' <span class="pill '+sourceGameTag(f)[1]+'">'+sourceGameTag(f)[0]+'</span></div>').join('');
  t+=draft.map(q=>'<div class="ops-event" style="margin-top:5px"><span class="ops-dot" style="background:#c7a363"></span>'+esc(q.start)+'–'+esc(q.end)+' · '+esc(q.use)+' <span class="pill amber">Local inquiry only</span></div>').join('');
  if(!t)t='<div class="ops-unknown"><i></i><span>Other commitments unknown · facility inventory not connected</span></div>';
  return '<div class="ops-lane"><div class="ops-rink">Rink '+r+'</div><div>'+t+'</div></div>';
@@ -151,7 +177,7 @@ function opsWeekBoard(){
  return panel("Weekly league-night schedule","Published game rows on the four league nights · complete season calendars are not yet synchronized",
  '<div>'+Array.from({length:7},(_,i)=>{
  const iso=addDay(m,i),night=dayProgram(iso),n=sourceFixtures(iso,false).length;
- return '<div class="ops-week-row"><div><b>'+dayShort(iso)+'</b><small>'+esc(iso)+'</small></div><div><strong class="ops-program">'+esc(night)+'</strong><small>'+n+' verified fixture row'+(n===1?"":"s")+' in the public-page window · full occupancy unverified</small></div><button class="btn small" data-ops-date="'+iso+'">Open day</button></div>';
+ return '<div class="ops-week-row"><div><b>'+dayShort(iso)+'</b><small>'+esc(iso)+'</small></div><div><strong class="ops-program">'+esc(night)+'</strong><small>'+n+' source game row'+(n===1?"":"s")+' in the archived window · full occupancy unverified</small></div><button class="btn small" data-ops-date="'+iso+'">Open day</button></div>';
  }).join("")+'</div><div class="topline">'+btn("Ice-use requests","league-ice")+btn("Competition standings","league-divisions")+'</div>');
 }
 function leagueNightSnapshot(){
@@ -363,7 +389,7 @@ $("#sw-league").addEventListener("click",()=>navigate("league-home"));$("#sw-tea
 $("#feedback-open").addEventListener("click",()=>openFeedback(state.route));
 $("#feedback-shade").addEventListener("click",closeFeedback);
 document.addEventListener("keydown",e=>{if(e.key==="Escape")closeFeedback()});
-async function data(){const items=[["league","league-intelligence.json"],["standings","standings.json"],["upcoming","svhl-upcoming.json"],["publicOps","svhl-public-four-nights-v2.json"]];
-await Promise.all(items.map(async([key,file])=>{try{const r=await fetch("./"+file,{cache:"no-store"});if(!r.ok)throw new Error("HTTP "+r.status);const val=await r.json();if(key==="league"&&val.schema!=="brave-hc-league-intelligence/public-v1")throw new Error("League schema");if(key==="standings"&&!Array.isArray(val.teams))throw new Error("Standings schema");if(key==="upcoming"&&!Array.isArray(val.games))throw new Error("Schedule schema");if(key==="publicOps"&&(val.schema!=="bruttech-svhl-public-operations/v2"||val.league_nights?.length!==4||!Array.isArray(val.games)||!Array.isArray(val.standings)))throw new Error("Public league operations schema");state[key]=val}catch(e){console.warn("Public snapshot not available:",file,String(e))}}));render()}
+async function data(){const items=[["league","league-intelligence.json"],["standings","standings.json"],["upcoming","svhl-upcoming.json"],["publicOps","svhl-public-four-nights-v2.json"],["fullGameRegistry","leagueos-source-qualified-current-fixtures-v4.json"]];
+await Promise.all(items.map(async([key,file])=>{try{const r=await fetch("./"+file,{cache:"no-store"});if(!r.ok)throw new Error("HTTP "+r.status);const val=await r.json();if(key==="league"&&val.schema!=="brave-hc-league-intelligence/public-v1")throw new Error("League schema");if(key==="standings"&&!Array.isArray(val.teams))throw new Error("Standings schema");if(key==="upcoming"&&!Array.isArray(val.games))throw new Error("Schedule schema");if(key==="publicOps"&&(val.schema!=="bruttech-svhl-public-operations/v2"||val.league_nights?.length!==4||!Array.isArray(val.games)||!Array.isArray(val.standings)))throw new Error("Public league operations schema");if(key==="fullGameRegistry"&&(val.schema!=="bruttech-svhl-current-fixture-window/v4"||val.counts?.total!==411||!Array.isArray(val.fixtures)))throw new Error("Verified four-night game registry schema");state[key]=val}catch(e){console.warn("Public snapshot not available:",file,String(e))}}));render()}
 navigate((location.hash||"#league-home").slice(1));renderNotes();data();
 })();
