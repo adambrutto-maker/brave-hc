@@ -14,6 +14,7 @@ const sections=[
   ["Rulebook and reviews","Search selected league-rule summaries and prepare a proposed clarification.","league-rules","Interactive draft"]]},
  {name:"Season scheduling, playoff management and rink use",description:"Real schedule-pattern and result logic, with proposed operations clearly marked as unapproved.",items:[
   ["Fair season scheduler","Rotate early/late game times; compare games by rink and export a CSV.","league-planner","Working scenario"],
+  ["Arena operations & referee staffing","Four-rink day board, two shared Zambonis, referee/timekeeper assignments and linked HockeyOS demo schedule changes.","league-operations","Working scenario"],
   ["Playoff ladder","Historical-format series, round robin, wildcards, consolation and print-ready ladders.","league-playoffs","Working scenario"],
   ["Knockout sandbox","Simple bracket, seed movement and direct score-driven advancement.","league-bracket-sandbox","Working scenario"],
   ["Scheduling audit","Review source-based start times, game gaps and fairness evidence.","league-schedule-equity","Source research"],
@@ -52,7 +53,7 @@ function filterCatalog(){
   const selected=b.dataset.v13FeatureFilter===activeFilter;
   b.setAttribute("aria-pressed",String(selected));b.classList.toggle("selected",selected)
  }
- const status=root.querySelector("#v13-visible-count");if(status)status.textContent=visible+" of 22 catalog entries shown"+(visible===0?" · Try a broader search":"");
+ const status=root.querySelector("#v13-visible-count");if(status)status.textContent=visible+" of "+sections.reduce((sum,g)=>sum+g.items.length,0)+" catalog entries shown"+(visible===0?" · Try a broader search":"");
 }
 function entry(x){return x[2]?'<button type="button" class="v12-feature-entry" data-v13-kind="'+kind(x)+'" data-go="'+esc(x[2])+'"><strong>'+esc(x[0])+'</strong><small>'+esc(x[1])+'</small><span>'+esc(x[3])+' · Open</span></button>':
  '<div class="v12-feature-entry" data-v13-kind="'+kind(x)+'" role="group" aria-label="'+esc(x[0])+' is planned and not available"><strong>'+esc(x[0])+'</strong><small>'+esc(x[1])+'</small><span>'+esc(x[3])+'</span></div>'}
@@ -64,7 +65,7 @@ root.innerHTML='<div class="v12-feature-hub"><div class="v12-feature-intro"><h2>
 ["3. Playoff ladder","Record demonstration results and watch teams advance.","league-playoffs","Step 3"],
 ["4. Division health","Compare all teams in a real source-qualified imbalance case.","league-division-review","Step 4"]].map(entry).join('')+'</div></section>'+
 '<div class="v13-feature-controls"><label class="field v13-feature-search">Find a LeagueOS feature<input id="v13-feature-search" type="search" placeholder="Try registration, discipline, playoffs, payments…" maxlength="90" value="'+esc(searchText)+'"></label>'+
- '<div class="v13-feature-toggle" role="group" aria-label="Filter feature readiness"><button type="button" data-v13-feature-filter="all">All · 22</button><button type="button" data-v13-feature-filter="demo">Interactive</button><button type="button" data-v13-feature-filter="research">Research &amp; source</button><button type="button" data-v13-feature-filter="planned">Proposal / planned</button></div>'+
+ '<div class="v13-feature-toggle" role="group" aria-label="Filter feature readiness"><button type="button" data-v13-feature-filter="all">All · 23</button><button type="button" data-v13-feature-filter="demo">Interactive</button><button type="button" data-v13-feature-filter="research">Research &amp; source</button><button type="button" data-v13-feature-filter="planned">Proposal / planned</button></div>'+
  '<p id="v13-visible-count" class="v13-feature-count" role="status" aria-live="polite"></p></div>'+
 sections.map(group=>'<section class="v12-catalog-section v13-catalog-group"><h2>'+esc(group.name)+'</h2><p>'+esc(group.description)+'</p>'+
 '<div class="v12-feature-grid">'+group.items.map(entry).join('')+'</div></section>').join('')+
