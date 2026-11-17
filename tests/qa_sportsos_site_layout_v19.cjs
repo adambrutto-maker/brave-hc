@@ -15,6 +15,8 @@ fs.mkdirSync(out,{recursive:true});
   const visit=async(route)=>{
    await page.evaluate(r=>window.LeagueOSDemoBridgeV13.go(r),route);
    await page.waitForFunction(r=>location.hash==="#"+r,{},route);
+   if(["team-schedule","team-results"].includes(route))
+    await page.waitForSelector("#hockeyos-native-games-v21 .v21-heading",{timeout:15000});
    return page.$eval("#workspace",x=>x.textContent.replace(/\s+/g," ").trim());
   };
   const check=async(label,run)=>{await run();checks.push(label);};
