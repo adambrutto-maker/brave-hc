@@ -94,7 +94,7 @@ function eventTagEditor(){
  '<div class="v17-tag-actions"><button type="submit" class="btn primary">Save event stats</button><button type="button" class="btn" id="v17-cancel-tags">Cancel</button></div></form></section>'
 }
 function option(v,label,chosen){return'<option value="'+esc(v)+'"'+(v===chosen?' selected':'')+'>'+esc(label)+'</option>'}
-function exportDraft(){const f=selected(),d=draft();if(!f||!d)return;const output={schema:"bruttech-leagueos-native-scorer-v15",status:"BROWSER_LOCAL_PRACTICE_NOT_OFFICIAL",officialScorePublished:false,gameId:f.game_id,source_snapshot:"2026-11-16",sourceGameUrl:f.official_game_url,game:{date:f.date,time:f.time,night:f.night,rink:f.rink,home:f.home,away:f.away},demonstration:d,totals:stats(),note:"No official league game-sheet, signature, player eligibility or scores were changed"};
+function exportDraft(){const f=selected(),d=draft();if(!f||!d)return;const output={schema:"bruttech-leagueos-native-scorer-v15",status:"BROWSER_LOCAL_PRACTICE_NOT_OFFICIAL",officialScorePublished:false,gameId:f.game_id,source_snapshot:"2026-11-16",sourceGameUrl:f.official_game_url,game:{date:f.date,time:f.time,night:f.night,rink:f.rink,home:f.home,away:f.away},demonstration:d,totals:stats(),v17:{schema:"bruttech-leagueos-result-stats-entry/v17",result:d.result||null,player_stats:playerSummary(),comparison:d.result?resultComparison(d.result):null},note:"No official league game-sheet, signature, player eligibility or scores were changed"};
 const data=new Blob([JSON.stringify(output,null,2)],{type:"application/json"}),url=URL.createObjectURL(data),a=document.createElement("a");a.href=url;a.download="LeagueOS_Practice_Gamesheet_"+f.game_id+".json";document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000)}
 function log(type,entry){const d=draft();if(!d)return;d.changes.push({action:type,at:new Date().toISOString(),eventId:entry?.id||null});d.changes=d.changes.slice(-200);persist()}
 function form(){
@@ -111,6 +111,7 @@ function form(){
  '<label>Game clock<input name="clock" inputmode="numeric" maxlength="5" placeholder="MM:SS" value="'+esc(d?.clock||"00:00")+'" required></label>'+
  '<label>Jersey (optional)<input name="jersey" inputmode="numeric" maxlength="3" placeholder="19"></label>'+
  (kind==="penalty"?'<label>Penalty minutes<select name="penalty">'+["2","4","5","10"].map(x=>option(x,x,"2")).join("")+'</select></label>':'')+
+ (kind==="goal"?'<label>First assist jersey (optional)<input name="assist1" inputmode="numeric" maxlength="3" placeholder="8"></label><label>Second assist jersey (optional)<input name="assist2" inputmode="numeric" maxlength="3" placeholder="27"></label>':'')+
  '<label class="v15-score-wide">Details (optional)<textarea name="details" rows="2" maxlength="220" placeholder="'+(kind==="goal"?"Assist jersey numbers, e.g. 8, 27":kind==="penalty"?"Penalty description":"Context or observation")+'"></textarea></label></div>'+
  '<div class="v15-score-error" role="alert">'+esc(validation)+'</div><button type="submit" class="v15-action-primary">ADD '+esc(kind.toUpperCase())+' EVENT <span>→</span></button></form></div></details>'
 }
@@ -120,7 +121,7 @@ function quickAdd(eventKind,side){
  d.events.push(event);log("ADD",event);validation="";view();return true
 }
 function eventList(){const d=draft();if(!d?.events?.length)return'<p class="v15-score-empty">No practice events yet. Choose an event on the left to begin the game log.</p>';
-return d.events.slice().reverse().map(e=>'<article class="v15-log-item"><span class="v15-log-clock">'+esc("P"+e.period+" "+e.time)+'</span><div><strong>'+esc(e.kind.toUpperCase())+' · '+esc(e.side==="home"?selected().home:selected().away)+'</strong><small>'+esc((e.jersey?"#"+e.jersey+" · ":"")+(e.details||"No note"))+'</small></div><button type="button" data-v15-delete="'+e.id+'" title="Remove demonstration event" aria-label="Remove '+esc(e.kind)+' event">×</button></article>').join("")}
+return d.events.slice().reverse().map(e=>'<article class="v15-log-item"><span class="v15-log-clock">'+esc("P"+e.period+" "+e.time)+'</span><div><strong>'+esc(e.kind.toUpperCase())+' · '+esc(e.side==="home"?selected().home:selected().away)+'</strong><small>'+esc((e.jersey?"#"+e.jersey+" · ":"")+(e.details||"No note"))+'</small></div>'+(e.kind==="goal"||e.kind==="shot"||e.kind==="penalty"?'<button type="button" class="v17-tag-quick" data-v17-tag="'+e.id+'">Assign stats</button>':'')+'<button type="button" data-v15-delete="'+e.id+'" title="Remove demonstration event" aria-label="Remove '+esc(e.kind)+' event">×</button></article>').join("")}
 function view(){
  const root=$("#league-native-scorer-mount");if(!root)return;
  if(!registry){root.innerHTML='<section class="v15-empty-view"><strong>'+(error?"PUBLIC FIXTURES UNAVAILABLE":"LOADING GAME DATA")+'</strong><p>'+esc(error||"Checking the November 16 source-qualified fixture snapshot…")+'</p>'+(error?'<button type="button" class="btn" id="v15-source-retry">Retry source read</button>':'')+'</section>';if(!loading&&!error)load();return}
