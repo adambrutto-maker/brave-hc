@@ -1,6 +1,6 @@
 {
   "schema": "bruttech-leagueos-night-division-recommendations/v23",
-  "generatedAt": "2026-11-17T19:31:45.793Z",
+  "generatedAt": "2026-11-17T20:00:19.552Z",
   "sourcePublishedAt": "2026-11-16T22:26:36.690023+00:00",
   "status": "SOURCE_QUALIFIED_RESEARCH_NOT_LEAGUE_APPROVED",
   "dailyRefreshStatus": "NO_NEW_RECIPROCAL_SETTLED_GAME_SOURCE",
@@ -43,13 +43,20 @@
     },
     "tiers": {
       "file": "leagueos-division-strength-levels-v23.json",
-      "sha256": "4463a5b0fac16ba8dc4c2c5250005371d77f91a22b8a762141c77f0b1c3204c9",
+      "sha256": "c680426fd4acb3c66fb8da55c82f884b839c425441c687a0a95fdd577cb85853",
       "approvedAssignments": 0
     },
     "fixtures": {
       "file": "leagueos-source-qualified-current-fixtures-v4.json",
       "sha256": "39d38f799c8d8c89c642306181e35c5efbb3f7f5da4d737c5445b7f8ca45c658",
       "capturedAt": "2026-11-16"
+    },
+    "discovery": {
+      "file": "leagueos-fixture-discovery-v24.json",
+      "sha256": "03a3ecead2dff7dfe3585b21a5dc6afcfb2b74abe5ee57d324fe6a19e7b47c5c",
+      "capturedAt": "2026-11-17",
+      "candidateCount": 61,
+      "officialChanges": false
     }
   },
   "overview": {
@@ -75,7 +82,11 @@
     },
     "poolRecommendations": 4,
     "heldPools": 3,
-    "verifiedNewSettledGames": 0
+    "verifiedNewSettledGames": 0,
+    "expandedPublicTeamDirectory": 102,
+    "newlyDiscoveredSourceFixtures": 61,
+    "newlyDiscoveredSourceFuture": 61,
+    "sourceUnratedTeamCount": 6
   },
   "bridgeEvidence": {
     "sourceIdentityBasis": "Exact public SVHL playerID across nights only, not player name",

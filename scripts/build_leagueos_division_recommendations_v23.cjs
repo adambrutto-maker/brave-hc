@@ -10,6 +10,7 @@ const sourceFiles={
  historical:"svhl-roster-intelligence.json",
  tiers:"leagueos-division-strength-levels-v23.json",
  registry:"leagueos-source-qualified-current-fixtures-v4.json",
+ discovery:"leagueos-fixture-discovery-v24.json",
  settled:"leagueos-settled-delta-v23.json"
 };
 function load(file,optional=false){
@@ -19,7 +20,7 @@ function load(file,optional=false){
  return{sha256:sha(raw),document:JSON.parse(raw.toString("utf8")),file};
 }
 const src={};for(const [k,v] of Object.entries(sourceFiles))src[k]=load(v,k==="settled");
-const m=src.model.document,r=src.roster.document,t=src.tiers.document,l=src.registry.document,historical=src.historical.document;
+const m=src.model.document,r=src.roster.document,t=src.tiers.document,l=src.registry.document,historical=src.historical.document,discovery=src.discovery.document;
 const need=(v,msg)=>{if(!v)throw Error("V23 SOURCE HOLD: "+msg)};
 need(m.schema==="bruttech-division-alignment-research/v2"&&
  m.status==="RESEARCH_ONLY_SOURCE_QUALIFIED_NOT_SVHL_APPROVED"&&
@@ -43,6 +44,23 @@ need(t.schema==="bruttech-leagueos-division-strength-governance/v23"&&
  "League-assigned tier contract / authorization");
 need(l.schema==="bruttech-svhl-current-fixture-window/v4"&&l.counts?.total===411&&
  l.counts.completed===335&&l.counts.future===66&&l.counts.held===10,"Settled registry baseline");
+need(discovery.schema==="bruttech-leagueos-four-night-fixture-discovery/v24"&&
+ discovery.status==="READ_ONLY_CANDIDATE_SOURCE_NOT_LEAGUE_APPROVED"&&
+ discovery.officialRecordsEdited===false&&discovery.baseFixtureSha256===src.registry.sha256&&
+ discovery.counts?.sourceNights===4&&discovery.counts?.currentLeagueTeams===102&&
+ discovery.counts?.sourcePagesHeld===0&&discovery.counts.newCandidateCount===discovery.candidates.length&&
+ discovery.counts.unratedByCurrentDivisionModel===discovery.unratedTeams.length&&
+ discovery.teamDirectory.length===102,"Expanded four-night discovery source not qualified");
+const discoveryLookup=new Map();
+for(const g of discovery.candidates){
+ const key=g.league_id+":"+g.game_id;
+ need(!discoveryLookup.has(key)&&g.reciprocal===true&&g.sourceCount===2&&
+ g.officialWriteAllowed===false&&g.statusEvidence==="EXACT_TWO_TEAM_SOURCE_GAME_ID_PARITY"&&
+ ["NEW_FUTURE_RECIPROCAL","NEW_RECIPROCAL_SETTLED","NEW_PAST_ZERO_ZERO_HOLD",
+ "NEW_SAME_DAY_SCORE_HOLD","SOURCE_MISSING_REVIEW_HOLD"].includes(g.status),
+ "Unexpected or repeated V24 candidate");
+ discoveryLookup.set(key,g);
+}
 const tiers=new Map(t.assignments.map(a=>[a.key,a]));
 need(tiers.size===t.assignments.length,"Duplicate official tier contract");
 const allTeams=new Map(m.teams.map(x=>[x.league_id+":"+x.team_id,x]));
@@ -90,11 +108,21 @@ const applied=new Set();
 if(delta.size){
  const all=new Map(l.fixtures.map(x=>[x.league_id+":"+x.game_id,x]));
  for(const g of [...delta.values()].sort((a,b)=>a.date.localeCompare(b.date)||a.gameId-b.gameId)){
-  const f=all.get(g.leagueId+":"+g.gameId);
-  need(f&&f.status==="FUTURE_RECIPROCAL_FIXTURE"&&f.date===g.date&&
-   f.home_team_id===g.homeTeamId&&f.away_team_id===g.awayTeamId&&
+  const key=g.leagueId+":"+g.gameId;
+  const baseFixture=all.get(key)||null,discovered=discoveryLookup.get(key)||null;
+  need(!(baseFixture&&discovered),"Canonical and discovery source have same game ID");
+  if(baseFixture)need(g.sourceOrigin===undefined||g.sourceOrigin==="CANONICAL_V4",
+   "Canonical result incorrectly claims a newly discovered source");
+  if(discovered)need(g.sourceOrigin==="DISCOVERY_V24"&&
+    !discovered.missingFromCurrentSource&&discovered.status!=="SOURCE_MISSING_REVIEW_HOLD",
+    "Previously accepted discovered game is not currently source-qualified");
+  const f=baseFixture||discovered;
+  need(f&&(baseFixture?f.status==="FUTURE_RECIPROCAL_FIXTURE":f.reciprocal===true)&&
+   f.date===g.date&&f.home_team_id===g.homeTeamId&&
+   f.away_team_id===g.awayTeamId&&
    allTeams.has(g.leagueId+":"+g.homeTeamId)&&
-   allTeams.has(g.leagueId+":"+g.awayTeamId),"Daily settled game cannot be mapped to accepted source team");
+   allTeams.has(g.leagueId+":"+g.awayTeamId),
+   "Daily settled game cannot be mapped to accepted canonical or discovered source team");
   const keyH=g.leagueId+":"+g.homeTeamId,keyA=g.leagueId+":"+g.awayTeamId;
   const h=allTeams.get(keyH),a=allTeams.get(keyA);
   need(h.program===a.program&&h.component_id===a.component_id&&h.night===a.night,
@@ -402,6 +430,10 @@ const output={
   historical:{file:src.historical.file,sha256:src.historical.sha256,capturedAt:historical.asOf},
   tiers:{file:src.tiers.file,sha256:src.tiers.sha256,approvedAssignments:0},
   fixtures:{file:src.registry.file,sha256:src.registry.sha256,capturedAt:l.captured_date},
+  discovery:{file:src.discovery.file,sha256:src.discovery.sha256,
+    capturedAt:discovery.lastMaterialChangeToronto,
+    candidateCount:discovery.counts.newCandidateCount,
+    officialChanges:false},
   ...(src.settled?{settled:{file:src.settled.file,sha256:src.settled.sha256,verifiedGames:delta.size}}:{})},
  overview:{
   leagueNights:nights.length,
@@ -416,7 +448,11 @@ const output={
   nightModeledTeamCounts:Object.fromEntries(nightRows.map(n=>[n.night,n.sourceTeamCount])),
   poolRecommendations:poolRows.filter(x=>x.status==="PROVISIONAL_COMPETITIVE_REALIGNMENT").length,
   heldPools:poolRows.filter(x=>x.status==="SOURCE_QUALITY_HOLD_KEEP_CURRENT").length,
-  verifiedNewSettledGames:delta.size
+  verifiedNewSettledGames:delta.size,
+  expandedPublicTeamDirectory:discovery.counts.currentLeagueTeams,
+  newlyDiscoveredSourceFixtures:discovery.counts.newCandidateCount,
+  newlyDiscoveredSourceFuture:discovery.counts.currentNewFuture,
+  sourceUnratedTeamCount:discovery.unratedTeams.length
  },
  bridgeEvidence:{
   sourceIdentityBasis:"Exact public SVHL playerID across nights only, not player name",

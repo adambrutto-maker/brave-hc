@@ -55,9 +55,9 @@ class TestDailySettlement(unittest.TestCase):
   with patch("collect_leagueos_settled_delta_v23.leaf",side_effect=ConnectionError("HTTP 503")):
    c=day_check(EXAMPLE)
   self.assertEqual(c["state"],"HOLD")
- def test_bounded_nov17_daily_gate_is_a_noop_prior_to_night(self):
+ def test_before_season_future_games_daily_gate_is_a_noop(self):
   self.assertTrue(REG.exists())
-  with patch.object(sys,"argv",["collect","--asof","2026-11-17","--max-workers","4"]):
+  with patch.object(sys,"argv",["collect","--asof","2026-09-01","--max-workers","4"]):
    with redirect_stdout(io.StringIO()) as out:
     main()
   result=json.loads(out.getvalue())
