@@ -153,3 +153,16 @@
 .desk-fairness-audit>strong{display:block;color:#6b4e2c;font-size:13px}
 .desk-fairness-audit p{font-size:11px;color:#79633e;line-height:1.65;margin:7px 0}
 .desk-fairness-audit .btn{margin-top:5px;font-size:11px;background:white}
+
+
+/* V6 schedule equity context stays collapsed until the commissioner requests it */
+.desk-equity-context{margin:13px 0;border:1px solid #dbe6f1;border-radius:9px;background:#fbfdff;padding:11px 12px}
+.desk-equity-context>summary{cursor:pointer;font-size:12px;color:#29557f;font-weight:850}
+.desk-equity-context-content{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:12px}
+.desk-equity-team{border:1px solid #e3ebf3;border-radius:8px;padding:12px;background:white;min-width:0}
+.desk-equity-team>strong{display:block;font-size:12px;color:#315373;margin-bottom:7px}
+.desk-equity-team>div{display:flex;align-items:start;justify-content:space-between;gap:10px;padding:6px 0;border-top:1px solid #edf2f7}
+.desk-equity-team span{font-size:10px;line-height:1.35;color:#6f8499}
+.desk-equity-team b{font-size:10px;color:#2b517a;text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.desk-equity-context p{font-size:10px;color:#69849d;line-height:1.65;margin:11px 0}
+@media(max-width:530px){.desk-equity-context-content{grid-template-columns:1fr}.desk-equity-context{padding:11px}.desk-equity-team{padding:10px}}
