@@ -32,18 +32,45 @@ const sections=[
   ["Discipline and video review","Commissioner adjudication with permitted source video and appeal records.",null,"Planned — no case actions"],
   ["Referee and facility authorization","Official assignment, contracted rink availability and publish approvals.",null,"Planned — no booking access"]]}
 ];
-function entry(x){return x[2]?'<button type="button" class="v12-feature-entry" data-go="'+esc(x[2])+'"><strong>'+esc(x[0])+'</strong><small>'+esc(x[1])+'</small><span>'+esc(x[3])+' · Open</span></button>':
- '<div class="v12-feature-entry" role="group" aria-label="'+esc(x[0])+' is planned and not available"><strong>'+esc(x[0])+'</strong><small>'+esc(x[1])+'</small><span>'+esc(x[3])+'</span></div>'}
+function kind(x){
+ if(!x[2]||/^Proposed|^Planned/.test(x[3]))return"planned";
+ if(/Source|Research|research|Working research links/.test(x[3]))return"research";
+ return"demo";
+}
+let activeFilter="all",searchText="";
+function filterCatalog(){
+ const root=$("#league-feature-hub-mount");if(!root)return;
+ let visible=0;
+ for(const item of root.querySelectorAll(".v12-feature-entry[data-v13-kind]")){
+  const term=item.textContent.toLowerCase(),allowed=(activeFilter==="all"||item.dataset.v13Kind===activeFilter)&&(!searchText||term.includes(searchText));
+  item.classList.toggle("v13-feature-hidden",!allowed);if(allowed)visible++;
+ }
+ for(const group of root.querySelectorAll(".v13-catalog-group")){
+  group.classList.toggle("v13-feature-hidden",!group.querySelector(".v12-feature-entry:not(.v13-feature-hidden)"))
+ }
+ for(const b of root.querySelectorAll("[data-v13-feature-filter]")){
+  const selected=b.dataset.v13FeatureFilter===activeFilter;
+  b.setAttribute("aria-pressed",String(selected));b.classList.toggle("selected",selected)
+ }
+ const status=root.querySelector("#v13-visible-count");if(status)status.textContent=visible+" of 22 catalog entries shown"+(visible===0?" · Try a broader search":"");
+}
+function entry(x){return x[2]?'<button type="button" class="v12-feature-entry" data-v13-kind="'+kind(x)+'" data-go="'+esc(x[2])+'"><strong>'+esc(x[0])+'</strong><small>'+esc(x[1])+'</small><span>'+esc(x[3])+' · Open</span></button>':
+ '<div class="v12-feature-entry" data-v13-kind="'+kind(x)+'" role="group" aria-label="'+esc(x[0])+' is planned and not available"><strong>'+esc(x[0])+'</strong><small>'+esc(x[1])+'</small><span>'+esc(x[3])+'</span></div>'}
 function mount(){const root=$("#league-feature-hub-mount");if(!root)return;
 root.innerHTML='<div class="v12-feature-hub"><div class="v12-feature-intro"><h2>The full league-management picture</h2><p>Everything below is a separate LeagueOS function. Open a working preview to test it. Planned integrations are visible for scope, not presented as completed software.</p></div>'+
-'<section class="v12-catalog-section v12-tour"><h2>A recommended four-step demo</h2><p>Follow these four workflows to see how the pieces connect while retaining access to the entire feature set.</p><div class="v12-feature-grid">'+
+'<section class="v12-catalog-section v12-tour"><div class="v13-feature-tour-head"><div><h2>Explore the commissioner workflow</h2><p>Follow the four practical workflows below, then review the full suite. Or use the guided five-step tour to move between them.</p></div><button type="button" class="btn primary" data-v13-start>Start 5-step guided demo</button></div><div class="v12-feature-grid">'+
 [["1. Published game","Check a sourced game and its rink.","league-schedule","Step 1"],
 ["2. Fair schedule","Generate a historically informed, early/late-balanced plan.","league-planner","Step 2"],
 ["3. Playoff ladder","Record demonstration results and watch teams advance.","league-playoffs","Step 3"],
 ["4. Division health","Compare all teams in a real source-qualified imbalance case.","league-division-review","Step 4"]].map(entry).join('')+'</div></section>'+
-sections.map(group=>'<section class="v12-catalog-section"><h2>'+esc(group.name)+'</h2><p>'+esc(group.description)+'</p>'+
+'<div class="v13-feature-controls"><label class="field v13-feature-search">Find a LeagueOS feature<input id="v13-feature-search" type="search" placeholder="Try registration, discipline, playoffs, payments…" maxlength="90" value="'+esc(searchText)+'"></label>'+
+ '<div class="v13-feature-toggle" role="group" aria-label="Filter feature readiness"><button type="button" data-v13-feature-filter="all">All · 22</button><button type="button" data-v13-feature-filter="demo">Interactive</button><button type="button" data-v13-feature-filter="research">Research &amp; source</button><button type="button" data-v13-feature-filter="planned">Proposal / planned</button></div>'+
+ '<p id="v13-visible-count" class="v13-feature-count" role="status" aria-live="polite"></p></div>'+
+sections.map(group=>'<section class="v12-catalog-section v13-catalog-group"><h2>'+esc(group.name)+'</h2><p>'+esc(group.description)+'</p>'+
 '<div class="v12-feature-grid">'+group.items.map(entry).join('')+'</div></section>').join('')+
-'<p class="v12-hub-foot">The league archive and fixtures are dated public-source snapshots, not authoritative real-time feeds. Browser-local drafts are never official registrations, score sheets, bookings, eligibility decisions, disciplinary determinations or financial transactions. Brave H.C. TeamOS/HTO continues to operate separately.</p></div>';
+'<p class="v12-hub-foot">The league archive and fixtures are dated public-source snapshots, not authoritative real-time feeds. Browser-local drafts are never official registrations, score sheets, bookings, eligibility decisions, disciplinary determinations or financial transactions. Brave H.C. TeamOS/HTO continues to operate separately.</p></div>';filterCatalog();
 }
-window.LeagueOSFeatureHubV12={mount,status(){return{groups:sections.length,listed:sections.reduce((n,s)=>n+s.items.length,0),linked:sections.reduce((n,s)=>n+s.items.filter(x=>x[2]).length,0),planned:sections.reduce((n,s)=>n+s.items.filter(x=>!x[2]).length,0)}},_test:{catalog:sections}};
+document.addEventListener("input",e=>{if(e.target.id!=="v13-feature-search")return;searchText=e.target.value.trim().toLowerCase();filterCatalog()});
+document.addEventListener("click",e=>{const btn=e.target.closest("[data-v13-feature-filter]");if(!btn||!$("#league-feature-hub-mount"))return;activeFilter=btn.dataset.v13FeatureFilter;filterCatalog()});
+window.LeagueOSFeatureHubV12={mount,status(){return{groups:sections.length,listed:sections.reduce((n,s)=>n+s.items.length,0),linked:sections.reduce((n,s)=>n+s.items.filter(x=>x[2]).length,0),planned:sections.reduce((n,s)=>n+s.items.filter(x=>!x[2]).length,0)}},_test:{catalog:sections,kind,filterCatalog}};
 })();
