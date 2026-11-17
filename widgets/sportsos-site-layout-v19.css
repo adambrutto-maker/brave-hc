@@ -1,0 +1,178 @@
+/* SportsOS V19 — original information architecture based on familiar sports-site conventions.
+   Brand assets are BruTTech/Brave H.C. only; no HTO markup, typography assets or styling copied. */
+body.sportsos-site-v19{background:#0e2134;--v19-accent:#cb2543;--v19-glow:#f5c164;color:#16283b}
+body.sportsos-site-v19.v19-league{--v19-accent:#1883aa;--v19-glow:#a5e0ed}
+body.sportsos-site-v19 .shell{display:block;max-width:1290px;margin:auto;min-height:100vh;background:#f5f7fa;box-shadow:0 8px 45px #0003}
+body.sportsos-site-v19 .sidebar{display:none!important}
+body.sportsos-site-v19 .content{width:100%;min-width:0}
+body.sportsos-site-v19 .body{max-width:none;padding:20px 26px 56px}
+#v19-site-banner{background:linear-gradient(110deg,#10283e,#162f4c 78%,#0d1e30);color:#fff;border:3px solid #f1f6fc;border-bottom:0}
+.v19-header-main{min-height:154px;display:flex;gap:22px;align-items:center;padding:15px 25px;position:relative;overflow:hidden}
+.v19-header-main:after{content:"";position:absolute;right:-55px;bottom:-160px;width:440px;height:260px;border:2px solid #ffffff15;transform:rotate(-19deg);border-radius:45%;pointer-events:none}
+.v19-crest{width:114px;height:114px;object-fit:contain;filter:drop-shadow(0 7px 17px #0005);flex:0 0 114px}
+.v19-league-crest{height:103px;width:103px;display:grid;place-items:center;flex:0 0 103px;border:2px solid #80c9e1;color:#f5fcff;background:linear-gradient(145deg,#195474,#112b44);border-radius:17px;box-shadow:0 7px 20px #0004;font-weight:950;font-size:43px;letter-spacing:-.08em}
+.v19-brand-copy{min-width:0;position:relative;z-index:1}
+.v19-brand-copy>span{font-size:10px;letter-spacing:.18em;font-weight:900;color:var(--v19-glow)}
+.v19-brand-copy>h1{margin:1px 0;font-size:clamp(30px,4vw,52px);letter-spacing:-.05em;line-height:1.03;color:#fff;font-weight:950}
+.v19-brand-copy>p{margin:7px 0 0;color:#c2d5e5;font-size:12px}
+.v19-header-aside{margin-left:auto;display:grid;gap:6px;text-align:right;align-self:center;position:relative;z-index:1}
+.v19-header-aside strong{letter-spacing:.09em;font-size:12px;color:#ffe9ae;white-space:nowrap}
+body.v19-league .v19-header-aside strong{color:#c7f1ff}
+.v19-header-aside small{font-size:10px;color:#9cb7cd;max-width:240px}
+#v19-site-navigation{position:relative;z-index:5;background:#132d45;border-top:4px solid var(--v19-accent);box-shadow:0 4px 13px #06172424}
+.v19-tabs{display:flex;flex-wrap:wrap;gap:0;min-width:0;background:#102a40}
+.v19-tab{border:0;border-right:1px solid #ffffff16;padding:13px 17px;min-height:46px;color:#e8f4fd;background:none;font-size:12px;font-weight:850;white-space:nowrap}
+.v19-tab:hover{background:#294e68;color:#fff}
+.v19-tab.is-active{background:var(--v19-accent);color:white;box-shadow:inset 0 -3px var(--v19-glow)}
+.v19-subnav{min-height:45px;display:flex;align-items:center;gap:8px;padding:7px 14px;background:#1b3a55;border-top:1px solid #43627b;flex-wrap:wrap}
+.v19-nav-hint{color:#88b9d0;letter-spacing:.12em;font-size:10px;font-weight:950;margin-right:5px}
+.v19-subaction,.v19-more>summary{background:#284c68;color:#eff8ff;border:1px solid #436882;border-radius:4px;min-height:31px;font-size:11px;font-weight:750;padding:5px 10px}
+.v19-subaction:hover,.v19-more>summary:hover{background:#365d7c}
+.v19-more{position:relative}
+.v19-more>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:10px}
+.v19-more>summary::-webkit-details-marker{display:none}
+.v19-more[open]>summary{background:#36607b;border-color:#79bfd9}
+.v19-more-menu{position:absolute;left:0;top:calc(100% + 5px);min-width:235px;max-height:62vh;overflow:auto;display:grid;gap:2px;background:#10293e;border:1px solid #587f99;box-shadow:0 12px 20px #0007;padding:9px;border-radius:5px;z-index:20}
+.v19-more-item{border:0;background:transparent;color:#d4e9f7;font-size:12px;font-weight:700;padding:10px;text-align:left;white-space:nowrap;border-radius:3px}
+.v19-more-item:hover,.v19-more-item.is-active{background:#2d6385;color:#fff}
+.v19-view-label{color:#a5c3d7;font-size:10px;margin-left:auto}
+body.sportsos-site-v19 .topbar{min-height:49px;padding:7px 25px;background:#fff;border-bottom:1px solid #dfe7ef}
+body.sportsos-site-v19 .topbar .topname{font-size:12px;color:#415b72}
+body.sportsos-site-v19 .topbar .topname small{display:none}
+body.sportsos-site-v19 .topbar .switcher{border-radius:5px}
+body.sportsos-site-v19 .topbar .switcher button{border-radius:4px}
+body.sportsos-site-v19 .topbar .switcher button.selected{color:#fff;background:#244c70}
+body.sportsos-site-v19.v19-team .topbar .switcher button.selected{background:#b81d38}
+.v19-page-heading{display:flex;align-items:center;justify-content:space-between;gap:16px;margin:2px 0 17px;padding:18px 21px;border:1px solid #d9e2eb;background:white}
+.v19-page-heading>div{min-width:0}
+.v19-page-heading>div>span{color:#a2223c;font-size:10px;font-weight:950;letter-spacing:.13em}
+.v19-league .v19-page-heading>div>span{color:#176b92}
+.v19-page-heading h2{margin:4px 0 5px;font-size:clamp(24px,3vw,33px);color:#152c43;letter-spacing:-.04em;line-height:1.15}
+.v19-page-heading p{margin:0;font-size:12px;line-height:1.6;color:#667d91;max-width:720px}
+.v19-action-btn{border:1px solid transparent;background:var(--v19-accent);color:#fff;padding:10px 15px;min-height:40px;border-radius:4px;font-size:12px;font-weight:850;white-space:normal}
+.v19-action-btn:hover{filter:brightness(1.12)}
+.v19-action-btn.alternate{background:#163b5a;border-color:#4b7794}
+.v19-home-grid{display:grid;grid-template-columns:minmax(210px,.28fr) minmax(0,1fr);gap:14px;align-items:start}
+.v19-side-stack,.v19-main-stack{display:grid;gap:14px;min-width:0}
+.v19-box{min-width:0;background:white;border:1px solid #d9e4ec;box-shadow:0 2px 10px #172c4510}
+.v19-box>header{background:#152f49;color:#eff9ff;padding:11px 15px;border-left:4px solid var(--v19-accent)}
+.v19-box>header h3{color:#fff;font-size:14px;letter-spacing:.012em;margin:0}
+.v19-box>header p{font-size:10px;color:#a8c4d7;margin:4px 0 0;line-height:1.45}
+.v19-box>:not(header){margin:12px 14px}
+.v19-box p{font-size:12px;color:#556b82;line-height:1.6}
+.v19-box>.v19-link-grid{margin:13px 14px}
+.v19-big-numeral{font-size:33px;font-weight:950;color:#223e5c;letter-spacing:-.04em;line-height:1.2;font-variant-numeric:tabular-nums}
+.v19-mini{font-size:10px!important;color:#8598a7!important}
+.v19-next-game{display:grid;gap:6px;padding:4px 0 7px}
+.v19-next-game strong{font-size:21px;color:#183b58}
+.v19-next-game span{font-size:11px;color:#60768a}
+.v19-next-game b{font-size:13px;color:#24465f}
+.v19-link{width:100%;min-height:38px;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:9px 11px;color:#205979;background:#f4f8fb;border:1px solid #d5e3ed;text-align:left;font-size:12px;font-weight:760;text-decoration:none;border-radius:3px}
+.v19-link:hover{background:#e4f1f9;text-decoration:none;color:#103951}
+.v19-link span{font-size:15px;color:#4e88af}
+.v19-lead-story{background:linear-gradient(118deg,#122f49,#071d31);color:#fff;min-height:280px;padding:31px 34px;display:grid;align-content:center;position:relative;overflow:hidden;border-top:4px solid var(--v19-accent)}
+.v19-lead-kicker{font-size:10px;font-weight:950;letter-spacing:.15em;color:var(--v19-glow);position:relative;z-index:1}
+.v19-lead-story h2{font-size:clamp(26px,3.2vw,41px);line-height:1.1;letter-spacing:-.05em;color:#fff;max-width:570px;margin:11px 0;position:relative;z-index:1}
+.v19-lead-story p{font-size:13px;color:#c7d8e6;line-height:1.65;max-width:535px;margin:0 0 20px;position:relative;z-index:1}
+.v19-hero-visual{position:absolute;right:-15px;top:-25px;width:265px;height:300px;opacity:.15;transform:rotate(-9deg)}
+.v19-hero-visual img{width:100%;height:100%;object-fit:contain}
+.v19-hero-actions{display:flex;gap:9px;flex-wrap:wrap;position:relative;z-index:1}
+.v19-tile-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.v19-action-tile{min-height:133px;padding:18px;text-align:left;display:grid;align-content:start;justify-items:start;gap:6px;position:relative;border:1px solid #d6e1e9;border-top:3px solid #2d668c;background:#fff;color:#1d3850}
+.v19-action-tile:hover{background:#f5f9fc;border-color:#75a9cd}
+.v19-action-tile>span{color:#6c8da4;font-size:9px;font-weight:900;letter-spacing:.13em}
+.v19-action-tile strong{font-size:17px;color:#17364d;letter-spacing:-.02em}
+.v19-action-tile small{font-size:11px;max-width:300px;color:#58758d;line-height:1.4}
+.v19-action-tile b{font-size:15px;position:absolute;right:12px;top:12px;color:#537f9c}
+.v19-inline-actions,.v19-quick-grid{display:flex;gap:8px;flex-wrap:wrap}
+.v19-quick-list,.v19-link-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.v19-quick-list{grid-template-columns:1fr}
+.v19-league-kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:0 0 17px}
+.v19-league-kpis>div{padding:15px 16px;background:#fff;border:1px solid #d8e2ea;border-top:3px solid #2887ad;display:grid;gap:4px}
+.v19-league-kpis span{font-size:11px;font-weight:750;color:#5d7990}
+.v19-league-kpis b{font-size:29px;font-weight:920;color:#1d4662;font-variant-numeric:tabular-nums}
+.v19-league-kpis small{font-size:10px;color:#7e91a0}
+.v19-league-story{min-height:248px;background:linear-gradient(128deg,#113e57,#0b2034)}
+.v19-source{font-size:10px;color:#859aaa;border-top:1px solid #d7e2e9;margin:20px 0 0;padding-top:14px;line-height:1.55}
+.v19-fixture-preview{background:#f0f6fc;border-left:4px solid var(--v19-accent);padding:13px;display:grid;gap:6px}
+.v19-fixture-preview span{font-weight:900;font-size:10px;color:#547e9a}
+.v19-fixture-preview strong{font-size:16px;color:#1e435c}
+.v19-fixture-preview p{margin:0}
+.v19-privacy-note{background:#fff7ef;color:#7b4b30!important;padding:11px;border:1px solid #efcfab}
+.v19-admin-grid{grid-template-columns:repeat(4,minmax(0,1fr));margin-bottom:18px}
+body.sportsos-site-v19 #team-leagueos-bridge-mount{margin:0;max-width:100%}
+@media(max-width:1080px){
+ .v19-header-aside{display:none}
+ .v19-tab{padding:12px 13px;font-size:11px}
+ .v19-admin-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .v19-league-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:700px){
+ body.sportsos-site-v19 .body{padding:12px 11px 44px}
+ .v19-header-main{min-height:103px;padding:12px 14px;gap:11px}
+ .v19-crest{height:67px;width:67px;flex-basis:67px}
+ .v19-league-crest{height:62px;width:62px;flex-basis:62px;font-size:25px;border-radius:10px}
+ .v19-brand-copy>span{font-size:8px;letter-spacing:.1em}
+ .v19-brand-copy>h1{font-size:clamp(22px,7vw,34px)}
+ .v19-brand-copy>p{font-size:10px;line-height:1.35;margin-top:3px}
+ .v19-tabs{display:flex;flex-wrap:nowrap;overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:thin}
+ .v19-tab{flex:0 0 auto;min-height:43px;padding:10px 12px}
+ .v19-subnav{flex-wrap:nowrap;overflow:visible;padding:7px 9px}
+ .v19-nav-hint,.v19-view-label{display:none}
+ .v19-subaction{padding:6px 8px;font-size:10px}
+ .v19-more{margin-left:auto}
+ .v19-more>summary{font-size:10px}
+ .v19-more-menu{right:0;left:auto;min-width:210px;max-height:55vh}
+ body.sportsos-site-v19 .topbar{padding:7px 10px}
+ body.sportsos-site-v19 .topbar .topname{font-size:11px}
+ body.sportsos-site-v19 .topbar .switcher button{font-size:10px;padding:7px}
+ .v19-page-heading{padding:13px 14px;align-items:start;flex-direction:column;gap:10px;margin:0 0 11px}
+ .v19-page-heading h2{font-size:25px}
+ .v19-page-heading p{font-size:11px}
+ .v19-home-grid,.v19-league-grid{display:flex;flex-direction:column}
+ .v19-main-stack{order:0;width:100%}
+ .v19-side-stack{order:1;width:100%;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+ .v19-lead-story{min-height:240px;padding:24px 18px}
+ .v19-lead-story h2{font-size:30px}
+ .v19-lead-story p{font-size:12px}
+ .v19-hero-visual{right:-65px;opacity:.11}
+ .v19-tile-grid{gap:8px}
+ .v19-action-tile{padding:12px;min-height:136px}
+ .v19-action-tile strong{font-size:15px}
+ .v19-action-tile small{font-size:10px}
+ .v19-box>header{padding:10px 12px}
+ .v19-box>:not(header){margin:10px 11px}
+ .v19-league-kpis{gap:7px}
+ .v19-league-kpis>div{padding:11px}
+ .v19-league-kpis b{font-size:25px}
+ .v19-link-grid,.v19-quick-grid{grid-template-columns:1fr}
+}
+@media(max-width:390px){
+ .v19-side-stack{grid-template-columns:1fr}
+ .v19-tile-grid,.v19-admin-grid{grid-template-columns:1fr}
+ .v19-action-tile{min-height:101px}
+ .v19-subaction:nth-of-type(3){display:none}
+}
+
+/* V19 acceptance refinements: readable commissioner canvas and correctly inset links. */
+body.sportsos-site-v19.v19-league .body,
+body.sportsos-site-v19.v19-league .content{background:#f5f7fa!important;color:#1c374e!important}
+body.sportsos-site-v19.v19-league .topbar,
+body.sportsos-site-v19.v19-team .topbar{background:#fff!important}
+body.sportsos-site-v19 .topbar .topname{opacity:1!important;color:#334f66!important;letter-spacing:0!important}
+body.sportsos-site-v19 .v19-box>.v19-link{width:calc(100% - 28px)}
+.v19-feature-news{border:1px solid #d5e2ea;border-top:3px solid var(--v19-accent);background:#fff;padding:17px 20px;display:grid;gap:8px}
+.v19-feature-news>span{font-size:10px;font-weight:950;letter-spacing:.13em;color:#a32740}
+.v19-feature-news h3{font-size:20px;color:#1e3a53;letter-spacing:-.025em;line-height:1.25;margin:0}
+.v19-feature-news>small{font-size:10px;color:#6a8194}
+.v19-feature-news p{color:#4e6881;font-size:12px;line-height:1.6;margin:0}
+.v19-feature-news>.v19-link{width:max-content;max-width:100%;margin-top:3px;padding:8px 13px}
+body.sportsos-site-v19 #team-leagueos-bridge-mount{margin-top:15px;clear:both}
+@media(max-width:700px){
+ body.sportsos-site-v19 .v19-box>.v19-link{width:calc(100% - 22px)}
+ .v19-feature-news{padding:14px}
+ .v19-feature-news h3{font-size:18px}
+}
+
+/* An active More route must not leave its dropdown open over the mode switcher. */
+.v19-more.has-active>summary{background:#315e7a;border-color:#73aac7;color:#fff}
