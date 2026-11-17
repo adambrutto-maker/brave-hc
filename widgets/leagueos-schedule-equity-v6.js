@@ -9,7 +9,7 @@ const esc=s=>String(s==null?"":s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;"
 const num=x=>typeof x==="number"?x.toLocaleString("en-CA"):"—";
 const signed=x=>typeof x==="number"?(x>0?"+":"")+x.toFixed(1):"—";
 const pct=x=>typeof x==="number"?(x*100).toFixed(0)+"%":"—";
-const clock=x=>typeof x==="number"?String(Math.floor(x/60)%24).padStart(2,"0")+":"+String(Math.round(x%60)).padStart(2,"0"):"—";
+const clock=x=>typeof x==="number"?(String(Math.floor(Math.round(x)/60)%24).padStart(2,"0")+":"+String(Math.round(x)%60).padStart(2,"0")):"—";
 const nights=["Sunday","Tuesday","Wednesday","Thursday"];
 const key=t=>t.league_id+":"+t.team_id;
 let data=null,loading=false,error="",night="all",division="all",term="",chosen=null;
