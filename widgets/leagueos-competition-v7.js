@@ -7,9 +7,9 @@ const minute=s=>{const m=/^([01]\d|2[0-3]):([0-5]\d)$/.exec(String(s).trim());re
 const clock=n=>Number.isFinite(n)?String(Math.floor(Math.round(n)/60)%24).padStart(2,"0")+":"+String(Math.round(n)%60).padStart(2,"0"):"—";
 const dateFor=(start,night,week)=>{const d=new Date(start+"T12:00:00Z");if(isNaN(+d))return "";let k=0;while(d.getUTCDay()!==days[night]&&k++<7)d.setUTCDate(d.getUTCDate()+1);d.setUTCDate(d.getUTCDate()+week*7);return d.toISOString().slice(0,10)};
 const download=(obj,name)=>{const b=new Blob([JSON.stringify(obj,null,2)],{type:"application/json"}),url=URL.createObjectURL(b),a=document.createElement("a");a.href=url;a.download=name;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000)};
-const defaults={night:"Wednesday",weeks:8,start:"2026-12-01",rinks:"A,B,C,D",times:"19:15,20:30,21:45,23:00",includeHistory:true,playNight:"Wednesday",playDivision:"Franco Canadian",seedings:{},scores:{},slots:{},bronze:true,inventoryMode:"illustrative"};
+const defaults={night:"Wednesday",weeks:8,start:"2026-12-01",rinks:"A,B,C,D",times:"19:15,20:30,21:45,23:00",includeHistory:true,playNight:"Wednesday",playDivision:"Franco Canadian",seedings:{},scores:{},slots:{},bronze:true,inventoryMode:"historical",scheduler_demo_version:9};
 let prefs={...defaults},source=null,loading=null,plan=null,weekShown=0,issue="";
-try{const x=JSON.parse(localStorage.getItem(STORAGE)||"null");if(x&&typeof x==="object")prefs={...defaults,...x,seedings:x.seedings||{},scores:x.scores||{},slots:x.slots||{}}}catch(_){}
+try{const x=JSON.parse(localStorage.getItem(STORAGE)||"null");if(x&&typeof x==="object"){prefs={...defaults,...x,seedings:x.seedings||{},scores:x.scores||{},slots:x.slots||{}};if(!(x.scheduler_demo_version>=9)){prefs.inventoryMode="historical";prefs.scheduler_demo_version=9}}}catch(_){}
 const persist=()=>{try{localStorage.setItem(STORAGE,JSON.stringify(prefs))}catch(_){}};
 const teamsFor=night=>source?source.teams.filter(t=>t.night===night):[];
 const key=t=>t.league_id+":"+t.team_id;
@@ -30,11 +30,11 @@ let score=0;for(const x of a){x.avg=x.count?x.sum/x.count:0;x.newAvg=x.newGames?
 const av=a.filter(x=>x.count).map(x=>x.avg);return{stats:a,target,lateTarget,score,spread:av.length?Math.max(...av)-Math.min(...av):0}
 }
 function buildPlan(){if(!source){issue="Source roster still loading";return}issue="";
-const imported=prefs.inventoryMode==="imported";
+const imported=prefs.inventoryMode==="imported",historic=prefs.inventoryMode==="historical";
 const times=prefs.times.split(/[,\s;]+/).map(v=>v.trim()).filter(Boolean),rinks=prefs.rinks.split(/[,\s;]+/).map(v=>v.trim().toUpperCase()).filter(Boolean);
 if(!/^\d{4}-\d{2}-\d{2}$/.test(prefs.start)||isNaN(+new Date(prefs.start+"T12:00:00Z"))){issue="Choose a valid first planning date.";return}
 const slots=[];
-if(!imported){
+if(!imported&&!historic){
  if(times.length<2||times.length>8||new Set(times).size!==times.length||times.some(v=>!Number.isFinite(minute(v)))){issue="Enter 2–8 unique 24-hour start times, such as 19:15,20:30,21:45,23:00.";return}
  if(!rinks.length||rinks.length>8||new Set(rinks).size!==rinks.length||rinks.some(x=>!/^[A-Z0-9]{1,3}$/.test(x))){issue="Enter 1–8 distinct rink labels, for example A,B,C,D.";return}
  for(const time of times)for(const rink of rinks)slots.push({key:time+"/"+rink,time,min:minute(time),rink});
@@ -43,9 +43,11 @@ if(!imported){
 const all=gameWeeks(prefs.night,prefs.weeks),byWeek=Array.from({length:prefs.weeks},(_,i)=>all.filter(g=>g.week===i));
 if(!all.length){issue="No public teams available for the selected night.";return}
 const inventory=imported?window.LeagueOSIceV8?.getSlots(prefs.night,prefs.start,prefs.weeks):null;
-if(imported&&(!inventory||!inventory.registryLoaded)){issue="Load the Ice inventory review first. The source fixture registry must be available before using entered ice rows.";return}
-const weeklySlots=imported?inventory.slots:Array.from({length:prefs.weeks},(_,w)=>slots.map(slot=>({...slot,date:dateFor(prefs.start,prefs.night,w),authority:"DEMO_ONLY"})));
-for(const [w,rows] of byWeek.entries()){const pool=weeklySlots[w];if(rows.length>pool.length){issue="Week "+(w+1)+" requires "+rows.length+" game slots, but "+(imported?"the submitted dated inventory":"the illustrative inventory")+" has only "+pool.length+" eligible blocks for "+dateFor(prefs.start,prefs.night,w)+". No partial schedule was generated.";plan=null;return}
+const historical=historic?window.LeagueOSHistoricalSlotsV9?.getSlots(prefs.night,prefs.start,prefs.weeks):null;
+if(imported&&(!inventory||!inventory.registryLoaded)){issue="Load the Ice inventory review first. The source fixture registry must be available before using entered ice rows.";plan=null;return}
+if(historic&&!historical){issue="Historical time-pattern evidence is still loading or unavailable. Retry once source evidence appears, or select custom fictional slots.";plan=null;return}
+const weeklySlots=historic?historical.slots:imported?inventory.slots:Array.from({length:prefs.weeks},(_,w)=>slots.map(slot=>({...slot,date:dateFor(prefs.start,prefs.night,w),authority:"DEMO_ONLY"})));
+for(const [w,rows] of byWeek.entries()){const pool=weeklySlots[w];if(rows.length>pool.length){issue="Week "+(w+1)+" requires "+rows.length+" game slots, but "+(historic?"the inferred historical rink/time pattern":imported?"the submitted dated inventory":"the custom fictional inventory")+" has only "+pool.length+" eligible blocks for "+dateFor(prefs.start,prefs.night,w)+". No partial schedule was generated.";plan=null;return}
 rows.forEach((g,i)=>{g.slot=pool[(i+w*3)%pool.length]})}
 let initial=exposures(all,prefs.includeHistory);
 for(let pass=0;pass<4;pass++)for(const [week,rows] of byWeek.entries()){const slots=weeklySlots[week];for(let step=0;step<rows.length*2;step++){let best=null,bestValue=exposures(all,prefs.includeHistory).score;
@@ -53,7 +55,7 @@ for(const g of rows){const original=g.slot;for(const slot of slots){if(slot===or
 if(trial+1e-5<bestValue){bestValue=trial;best={g,other,slot,original}}}}
 if(!best)break;best.g.slot=best.slot;if(best.other)best.other.slot=best.original}}
 const report=exposures(all,prefs.includeHistory);
-plan={schema:"bruttech-leagueos-v7-demo-scenario",night:prefs.night,source_snapshot:source.source_snapshot||"2026-11-16",facility_inventory:imported?"OPERATOR_IMPORTED_UNVERIFIED":"ILLUSTRATIVE_UNVERIFIED",not_official:true,first_week:dateFor(prefs.start,prefs.night,0),weeks:prefs.weeks,ice_slots_per_week:weeklySlots.map(x=>x.length),ice_times:imported?[]:times,rinks:imported?[]:rinks,imported_ice_scope:inventory?.scope||"none",include_partial_archived_starts:prefs.includeHistory,fixtures:all.map(g=>({id:g.id,week:g.week+1,date:g.slot.date||dateFor(prefs.start,prefs.night,g.week),time:g.slot.time,rink:g.slot.rink,slot_source:g.slot.authority||"DEMO_ONLY",division:g.division,home:g.home.team_name,away:g.away.team_name})),report,initial_score:initial.score};
+plan={schema:"bruttech-leagueos-v9-demo-scenario",night:prefs.night,source_snapshot:source.source_snapshot||"2026-11-16",facility_inventory:historic?"HISTORICALLY_OBSERVED_RINK_TIME_PATTERN_NOT_BOOKABLE":imported?"OPERATOR_IMPORTED_UNVERIFIED":"ILLUSTRATIVE_UNVERIFIED",not_official:true,bookable:false,first_week:dateFor(prefs.start,prefs.night,0),weeks:prefs.weeks,ice_slots_per_week:weeklySlots.map(x=>x.length),ice_times:(imported||historic)?[]:times,rinks:(imported||historic)?[]:rinks,imported_ice_scope:inventory?.scope||"none",historical_pattern_evidence:historic?{observed_fixture_rows:historical.verified_fixture_rows,observed_dates:historical.observed_dates,completed_historical_night_games:historical.completed_history_night,source_snapshot:historical.snapshot,warning:"Inferred recurring template, not ice availability"}:null,include_partial_archived_starts:prefs.includeHistory,fixtures:all.map(g=>({id:g.id,week:g.week+1,date:g.slot.date||dateFor(prefs.start,prefs.night,g.week),time:g.slot.time,rink:g.slot.rink,slot_source:g.slot.authority||"DEMO_ONLY",pattern_observations:g.slot.pattern_observations||null,division:g.division,home:g.home.team_name,away:g.away.team_name})),report,initial_score:initial.score};
 weekShown=0;
 }
 const note='<p class="lc-warning">Demo only: published team-season records are not confirmed registrations. Ice blocks may be hypothetical or operator-attested; <b>none are independently verified facility bookings</b> or reservations. No SVHL/HTO data is changed.</p>';
