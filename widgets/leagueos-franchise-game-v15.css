@@ -405,3 +405,9 @@ body.league-game-mode .v15-hub-notice strong{color:#d0f1ff}
  body.league-game-mode *,body.league-game-mode *:before,body.league-game-mode *:after{transition-duration:0s!important;animation-duration:0s!important;scroll-behavior:auto!important}
 }
 @media print{body.league-game-mode{color-scheme:light;background:white;color:black}body.league-game-mode .v15-game-nav{display:none}}
+
+/* Scoreboard center alignment and explicit no-copy original game branding. */
+body.league-game-mode .v15-ice-puck{display:grid;justify-items:center;align-content:center;gap:6px;min-width:0;text-align:center}
+body.league-game-mode .v15-ice-puck>div{line-height:1}
+body.league-game-mode .v15-ice-puck>strong{display:block;line-height:1.1}
+body.league-game-mode .v15-ice-puck>small{display:block;line-height:1.4}
