@@ -144,7 +144,7 @@ function ladderUI(calc){
  }
  if(calc.winner)cols.push('<div class="v11-ladder-round v11-champion-column"><div class="v11-round-heading"><strong>Champion</strong><span>Draft outcome</span></div><div class="v11-champion-name">🏆 <b>'+esc(calc.winner)+'</b></div>'+(calc.consolationWinner?'<div class="v11-consolation-name">Consolation: '+esc(calc.consolationWinner)+'</div>':'')+'</div>');
  const hold=(calc.choices||[]).filter(c=>c.value?.needsChoice&&!c.value?.picked);
- return '<section class="v11-playoff-ladder" id="lcpf-ladder" aria-label="Interactive playoff ladder"><div class="v11-ladder-header"><div><h3>Playoff ladder</h3><p>Follow each round from left to right. Select a ready matchup to jump to its score entry below.</p></div><span class="v11-ladder-legend">Draft · not official</span></div>'+
+ return '<section class="v11-playoff-ladder" id="lcpf-ladder" aria-label="Interactive playoff ladder"><div class="v11-ladder-header"><div><h3>Playoff ladder</h3><p>Follow each round from left to right. Select a ready matchup to jump to its score entry below.</p></div><div class="v11-ladder-actions"><span class="v11-ladder-legend">Draft · not official</span><button type="button" class="btn small" id="lcpf-print-ladder">Print / save ladder</button></div></div>'+
   '<div class="v11-ladder-viewport" role="region" aria-label="Playoff rounds — scroll horizontally for later rounds" tabindex="0"><div class="v11-ladder-columns">'+cols.join('')+'</div></div>'+
   (hold.length?'<p class="v11-ladder-hold" role="status">Qualification decision needed before some teams can advance. Review the wildcard selection below.</p>':'')+
   '<p class="v11-ladder-caption">Two-game series display series points (win 2, tie 1). Best-of-three rounds display game wins. A tied series needs an explicit overtime/shootout decision. Seeds and results remain browser-local drafts.</p></section>'
@@ -195,6 +195,7 @@ if(x.id==="lcpf-night"){st.night=x.value;st.division=divisions(st.night)[0]||"";
 if(x.id==="lcpf-division"){st.division=x.value;persist();render()}
 });
 document.addEventListener("click",e=>{const b=e.target.closest("button");if(!b||!$("#league-series-mount"))return;
+if(b.id==="lcpf-print-ladder"){window.print();return}
 if(b.dataset.ladderGame){const id=b.dataset.ladderGame;const card=[...document.querySelectorAll(".lc-series")].find(x=>x.dataset.lcpfId===id);if(card){card.scrollIntoView({behavior:"auto",block:"center"});card.classList.add("v11-jump-highlight");setTimeout(()=>card.classList.remove("v11-jump-highlight"),1600)}return}
 
 if(b.dataset.lcpfUp!==undefined||b.dataset.lcpfDown!==undefined){const list=selections().slice(),i=Number(b.dataset.lcpfUp??b.dataset.lcpfDown),j=b.dataset.lcpfUp!==undefined?i-1:i+1;if(j>=0&&j<list.length){[list[i],list[j]]=[list[j],list[i]];st.seedOrders[key()]=list;st.results[key()]={};st.decisions[key()]={};persist();render()}return}
