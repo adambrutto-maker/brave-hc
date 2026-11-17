@@ -50,10 +50,17 @@ function fit(){
  if(!rows.some(x=>x.team_id===teamId))teamId=rows[0]?.team_id||null;
  const target=rows.find(x=>x.team_id===teamId),min=Math.min(...rows.map(x=>x.adjusted_rating)),max=Math.max(...rows.map(x=>x.adjusted_rating));
  const allPeer=teamOf(night),alternatives=target?.comparisons?.filter(x=>x.eligible_for_proposal)||[];
- return'<div class="v15-scout-panel">'+cardTitle("DIVISION LAB / SOURCE-BASED MODEL","TEST THE DIVISION FIT","Review historical performance and opponent-adjusted ratings. These are not league-approved team placements or forecasts.")+
- '<div class="v15-native-filters"><label>Competition night<select id="v15-scout-night">'+nights.map(n=>option(n,n,night)).join("")+'</select></label>'+
+ return'<div class="v15-scout-panel v16-fit-lab"><div class="v16-fit-header"><span class="v16-eyebrow">SCOUTING ROOM / DIVISION FIT</span><h2>Where does this club fit?</h2><p>Select a league night, division and team. The strength board updates using the established opponent-adjusted research model.</p></div>'+
+ '<div class="v16-fit-nights" role="group" aria-label="League night">'+nights.map(n=>'<button type="button" data-v16-fit-night="'+n+'" aria-pressed="'+(n===night)+'" class="'+(n===night?'selected':'')+'">'+n.toUpperCase()+'</button>').join("")+'</div>'+
+ '<div class="v16-fit-divisions" role="group" aria-label="Division selection">'+ds.map(n=>{
+   const clubs=teamOf(night).filter(x=>x.division===n);
+   return'<button type="button" data-v16-fit-division="'+safe(n)+'" class="'+(n===division?'selected':'')+'" aria-pressed="'+(n===division)+'"><strong>'+safe(n)+'</strong><small>'+clubs.length+' teams</small></button>'
+ }).join("")+'</div>'+
+ '<div class="v16-fit-clubs"><span class="v16-eyebrow">CHOOSE A CLUB</span><div role="group" aria-label="Choose team for division fit">'+rows.map(x=>'<button type="button" data-v16-fit-club="'+x.team_id+'" aria-pressed="'+(x.team_id===teamId)+'" class="'+(x.team_id===teamId?'selected':'')+'"><span>'+safe(x.team_name)+'</span><b>'+Math.round(x.adjusted_rating)+'</b></button>').join("")+'</div></div>'+
+ '<details class="v16-fit-settings"><summary>⚙ Detailed filters & source settings</summary><div class="v15-native-filters"><label>Competition night<select id="v15-scout-night">'+nights.map(n=>option(n,n,night)).join("")+'</select></label>'+
  '<label>Current division<select id="v15-scout-division">'+ds.map(n=>option(n,n,division)).join("")+'</select></label>'+
- '<label>Club<select id="v15-scout-team">'+rows.map(x=>option(x.team_id,x.team_name,teamId)).join("")+'</select></label></div>'+
+ '<label>Club<select id="v15-scout-team">'+rows.map(x=>option(x.team_id,x.team_name,teamId)).join("")+'</select></label></div></details>'+
+
  (target?'<div class="v15-fit-hero"><div><span>OPPONENT-ADJUSTED RESEARCH RATING</span><strong>'+rating(target)+'</strong><small>'+safe(target.team_name)+' · '+safe(target.division)+'</small></div>'+
  '<div><span>DIVISION PEER MEDIAN</span><strong>'+rating({adjusted_rating:target.division_peer_median_rating})+'</strong><small>Descriptive model only</small></div>'+
  '<div><span>RATING DISTANCE</span><strong>'+((target.adjusted_rating-target.division_peer_median_rating)>=0?"+":"")+Math.round(target.adjusted_rating-target.division_peer_median_rating)+'</strong><small>Compared with own-division median</small></div></div>':'')+
@@ -98,6 +105,10 @@ function render(){
 }
 document.addEventListener("click",e=>{if(!$("#league-native-intelligence-mount"))return;const b=e.target.closest("button");if(!b)return;
 if(b.dataset.v15IntelTab){tab=b.dataset.v15IntelTab;ensure();render();return}
+if(b.dataset.v16FitNight){night=b.dataset.v16FitNight;division="";teamId=null;render();return}
+if(b.dataset.v16FitDivision){division=b.dataset.v16FitDivision;teamId=null;render();return}
+if(b.dataset.v16FitClub){teamId=Number(b.dataset.v16FitClub);render();return}
+
 if(b.dataset.v15Night){night=b.dataset.v15Night;division="";teamId=null;render();return}
 if(b.dataset.v15ChooseTeam){tab="fit";teamId=Number(b.dataset.v15ChooseTeam);const found=data.model?.teams.find(x=>x.team_id===teamId);if(found){night=found.night;division=found.division}render();return}
 if(b.id==="v15-intel-retry"){for(const k of Object.keys(errors))errors[k]="";ensure();render();return}
