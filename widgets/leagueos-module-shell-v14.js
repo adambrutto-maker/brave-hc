@@ -6,14 +6,15 @@
 const $=s=>document.querySelector(s),safe=x=>String(x??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const CORE=new Set(["league-home","league-features","league-schedule","league-planner","league-playoffs","league-teams"]);
 const RELATED={
- "league-schedule":["league-scoring","league-planner"],
+ "league-schedule":["league-operations","league-planner"],
+ "league-operations":["league-schedule","league-planner"],
  "league-planner":["league-schedule-equity","league-inventory"],
  "league-playoffs":["league-rules","league-scoring"],
  "league-teams":["league-registration","league-eligibility-preview"],
  "league-scoring":["league-discipline-preview","league-schedule"],
  "league-registration":["league-eligibility-preview","league-payments"],
  "league-rules":["league-discipline-preview","league-decisions"],
- "league-ice":["league-officials-preview","league-inventory"],
+ "league-ice":["league-operations","league-inventory"],
  "league-inventory":["league-officials-preview","league-planner"],
  "league-alignment":["league-division-review","league-fairness"],
  "league-fairness":["league-division-review","league-decisions"],
@@ -25,7 +26,7 @@ const RELATED={
  "league-divisions":["league-division-review","league-alignment"],
  "league-eligibility-preview":["league-registration","league-rules"],
  "league-discipline-preview":["league-scoring","league-rules"],
- "league-officials-preview":["league-ice","league-planner"],
+ "league-officials-preview":["league-operations","league-ice"],
  "league-payments":["league-registration","league-features"],
  "league-bracket-sandbox":["league-playoffs","league-rules"]
 };
