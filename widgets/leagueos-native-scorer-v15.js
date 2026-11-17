@@ -46,16 +46,23 @@ function view(){
  if(!registry){root.innerHTML='<section class="v15-empty-view"><strong>'+(error?"PUBLIC FIXTURES UNAVAILABLE":"LOADING GAME DATA")+'</strong><p>'+esc(error||"Checking the November 16 source-qualified fixture snapshot…")+'</p>'+(error?'<button type="button" class="btn" id="v15-source-retry">Retry source read</button>':'')+'</section>';if(!loading&&!error)load();return}
  const fixtures=fixtureList();if(!fixtures.some(x=>x.game_id===fixtureId)){fixtureId=fixtures[0]?.game_id||null;persist()}
  const f=selected();const source=f&&/^https:\/\/leagues\.sportsvillage\.ca\/gameinfo\.aspx\?/i.test(f.official_game_url||"")?f.official_game_url:null;
- let html='<div class="v15-native-score"><div class="v15-console-header"><div><span>GAME-DAY CONSOLE / LEAGUE OPERATIONS</span><h2>CONTROL THE GAME.</h2><p>Record goals, penalties and events in a clean scorer-box simulation. The published fixture is reference evidence; this is not an official result.</p></div><b>DEMO MODE</b></div>'+
- '<div class="v15-game-chooser"><label>League night<select id="v15-score-night">'+nights.map(x=>option(x,x,night)).join("")+'</select></label><label>Source-listed upcoming game<select id="v15-score-game"'+(!fixtures.length?' disabled':'')+'>'+fixtures.map(g=>option(String(g.game_id),g.date+" · "+g.time+" — "+g.home+" vs "+g.away,String(fixtureId))).join("")+'</select></label>'+
- '<div><small>FIXTURE SNAPSHOT · NOV 16, 2026</small>'+(source?'<a href="'+esc(source)+'" target="_blank" rel="noopener noreferrer">VIEW SOURCE GAME ↗</a>':'')+'</div></div>';
+ const index=fixtures.findIndex(x=>x.game_id===fixtureId);
+ let html='<div class="v15-native-score v16-native-score">'+
+ '<div class="v16-game-brief"><span class="v16-eyebrow">GAME CENTER / PRACTICE SCORER</span><strong>RUN THE GAME.</strong><small>Demo events only · No official result submitted</small></div>'+
+ '<div class="v16-fixture-carousel"><button type="button" data-v16-game-nav="-1"'+(index<=0?' disabled':'')+' aria-label="Previous published game">‹</button>'+
+ '<div class="v16-fixture-current"><span>PUBLISHED FIXTURE · '+esc(f?.date||"—")+' · '+esc(f?.time||"—")+'</span><strong>'+esc(f?.home||"No fixture")+' <i>VS</i> '+esc(f?.away||"—")+'</strong><small>RINK '+esc(f?.rink||"unknown")+' · SOURCE SNAPSHOT NOV 16, 2026</small></div>'+
+ '<button type="button" data-v16-game-nav="1"'+(index<0||index>=fixtures.length-1?' disabled':'')+' aria-label="Next published game">›</button></div>'+
+ '<details class="v16-fixture-picker"><summary>Change league night or find another game</summary><div class="v15-game-chooser"><label>League night<select id="v15-score-night">'+nights.map(x=>option(x,x,night)).join("")+'</select></label>'+
+ '<label>Source-listed upcoming game<select id="v15-score-game"'+(!fixtures.length?' disabled':'')+'>'+fixtures.map(g=>option(String(g.game_id),g.date+" · "+g.time+" — "+g.home+" vs "+g.away,String(fixtureId))).join("")+'</select></label>'+
+ '<div><small>SOURCE-LISTED FIXTURES · NOV 16, 2026</small>'+(source?'<a href="'+esc(source)+'" target="_blank" rel="noopener noreferrer">OFFICIAL SOURCE ↗</a>':'')+'</div></div></details>';
+
  if(!f){root.innerHTML=html+'<div class="v15-empty-view"><strong>NO SOURCE-LISTED GAME ON THIS NIGHT</strong><p>The snapshot is partial. Choose another league night or verify the source calendar.</p></div></div>';return}
  const d=draft(),score=stats();
  html+='<div class="v15-scoreboard"><div class="v15-scoreboard-header"><span>LEAGUEOS / GAME ID '+f.game_id+'</span><span>'+esc(f.date+' · '+f.time+' · '+(f.rink||"Rink unverified"))+'</span></div>'+
- '<div class="v15-scoreboard-main"><div class="v15-scoreclub home"><small>HOME</small><strong>'+esc(f.home)+'</strong><span class="v15-score-digit">'+score.home+'</span></div><div class="v15-ice-puck"><div>⦿</div><strong>VS</strong><small>PERIOD '+esc(d.period||"1")+' · '+esc(d.clock||"00:00")+'</small></div><div class="v15-scoreclub away"><small>AWAY</small><strong>'+esc(f.away)+'</strong><span class="v15-score-digit">'+score.away+'</span></div></div>'+
+ '<div class="v15-scoreboard-main"><div class="v15-scoreclub home"><small>HOME</small><strong>'+esc(f.home)+'</strong><span class="v15-score-digit">'+score.home+'</span><button type="button" class="v16-score-goal" data-v16-goal-side="home">+ PRACTICE GOAL</button></div><div class="v15-ice-puck"><div>⦿</div><strong>VS</strong><small>PERIOD '+esc(d.period||"1")+' · '+esc(d.clock||"00:00")+'</small></div><div class="v15-scoreclub away"><small>AWAY</small><strong>'+esc(f.away)+'</strong><span class="v15-score-digit">'+score.away+'</span><button type="button" class="v16-score-goal" data-v16-goal-side="away">+ PRACTICE GOAL</button></div></div>'+
  '<div class="v15-scoreboard-stats"><span>SHOTS '+score.homeShots+'–'+score.awayShots+'</span><span>PENALTY MIN '+score.homePim+'–'+score.awayPim+'</span><span>LOCAL PRACTICE SCORE — NEVER PUBLISHED</span></div></div>'+
  '<div class="v15-game-nav" role="tablist" aria-label="Score sheet views">'+["events","summary","review"].map(x=>'<button type="button" role="tab" data-v15-scoretab="'+x+'" aria-selected="'+(tab===x)+'" class="'+(tab===x?"selected":"")+'">'+x.toUpperCase()+'</button>').join("")+'</div>';
- if(tab==="events")html+='<div class="v15-scorer-columns"><section class="v15-score-panel"><div class="v15-panel-heading"><span>01 / ACTION</span><h3>ADD EVENT</h3><p>Touch-friendly control pad, then quick details.</p></div>'+form()+'</section>'+
+ if(tab==="events")html+='<div class="v15-scorer-columns"><section class="v15-score-panel v16-event-console">'+form()+'</section>'+
  '<section class="v15-score-panel"><div class="v15-panel-heading"><span>02 / REVIEW</span><h3>EVENT LOG <small>'+d.events.length+'</small></h3><p>Everything is editable until the practice session ends.</p></div><div class="v15-log-list">'+eventList()+'</div></section></div>';
  else if(tab==="summary")html+='<section class="v15-score-panel v15-score-summary"><div class="v15-panel-heading"><span>03 / GAME SNAPSHOT</span><h3>DRAFT SUMMARY</h3><p>Score, shots, penalty minutes and event counts are derived from your browser-local entries.</p></div><div class="v15-summary-grid">'+
  [['Home goals',score.home],['Away goals',score.away],['Shots',score.homeShots+'–'+score.awayShots],['Penalty minutes',score.homePim+'–'+score.awayPim],['Recorded events',d.events.length],['Edit history',d.changes.length]].map(([label,value])=>'<div><small>'+esc(label)+'</small><strong>'+esc(value)+'</strong></div>').join("")+'</div></section>';
@@ -71,6 +78,11 @@ if(e.target.id==="v15-score-game"){fixtureId=Number(e.target.value);validation="
 if(e.target.name==="period")period=e.target.value
 });
 document.addEventListener("click",e=>{if(!$("#league-native-scorer-mount"))return;const b=e.target.closest("button");if(!b)return;
+if(b.dataset.v16GoalSide){quickAdd("goal",b.dataset.v16GoalSide);return}
+if(b.dataset.v16Side){selectedSide=b.dataset.v16Side;view();return}
+if(b.dataset.v16GameNav){const list=fixtureList(),i=list.findIndex(x=>x.game_id===fixtureId),j=i+Number(b.dataset.v16GameNav);if(j>=0&&j<list.length){fixtureId=list[j].game_id;persist();view()}return}
+if(b.id==="v16-quick-add"){if(["clock","note"].includes(kind)){const detail=$("#v16-scorer-details");if(detail){detail.open=true;detail.scrollIntoView({behavior:"auto",block:"nearest"})}return}quickAdd(kind,selectedSide);return}
+
 if(b.id==="v15-source-retry"){error="";load();return}
 if(b.dataset.v15Event){kind=b.dataset.v15Event;validation="";view();return}
 if(b.dataset.v15Scoretab){tab=b.dataset.v15Scoretab;validation="";view();return}
