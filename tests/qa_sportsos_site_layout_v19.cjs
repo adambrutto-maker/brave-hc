@@ -47,7 +47,7 @@ fs.mkdirSync(out,{recursive:true});
   t=await page.$eval("#v19-site-banner",e=>e.textContent);
   await check("LeagueOS identity",()=>assert.match(t,/LEAGUE CENTRAL/));
   const lnav=await page.$$eval("#v19-site-navigation .v19-tab",xs=>xs.map(x=>x.textContent.trim()));
-  await check("League admin nav",()=>assert.deepEqual(lnav,["League Home","Schedule","Results","Standings","Teams","Playoffs","Statistics","League Admin"]));
+  await check("League admin nav",()=>assert.deepEqual(lnav,["League Home","Schedule","Results","Source Review","Standings","Teams","Playoffs","Statistics","League Admin"]));
   const lhome=await page.$eval("#workspace",e=>e.textContent);
   await check("commissioner tools retained",()=>{for(const x of ["Balanced scheduler","Playoff centre","Game sheets & stats","Teams & divisions","Ice allocation"])assert.ok(lhome.includes(x),x)});
   await page.screenshot({path:path.join(out,"league_home_desktop.png"),fullPage:true});
