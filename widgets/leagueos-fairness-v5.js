@@ -97,7 +97,7 @@ function selectedDetail(){
  '<div class="fair-decision"><strong>Current decision: do not recommend a move</strong>'+
  '<p>The uncertainty range crosses zero. Source roster and complete schedule/ice information are not sufficient to validate a realignment.</p></div>'+
  movedRows(c)+
- '<details class="fair-effect" open><summary>How could other teams be affected?</summary>'+
+ '<details class="fair-effect"><summary>How could other teams be affected? '+c.peers.nonmoving_teams_worse_by_half_point+' unchanged teams may face worse balance</summary>'+
  communityEffects(c)+'</details>'+
  '<details class="fair-effect"><summary>Model assumptions and alternative settings</summary>'+
  '<div class="fair-settings">'+x.prior_sensitivity.map(r=>
@@ -109,7 +109,7 @@ function selectedDetail(){
 }
 function qualitySection(){
  const q=quality;
- const v=q.historical_validation,w=q.week_five,c=q.cross_night;
+ const v=q.historical_validation,w=q.week_five,c=q.cross_night,e=q.observed_match_disparity;
  return '<details class="fair-quality"><summary>Model accuracy and source coverage</summary>'+
  '<div class="fair-quality-inner"><div class="fair-quality-grid">'+
  '<div><small>Methods compared</small><strong>'+v.models_compared+'</strong><span>Historically tuned before the 2026 analysis</span></div>'+
@@ -121,7 +121,11 @@ function qualitySection(){
  '</div>'+
  '<div class="fair-quality-rule"><strong>What the model cannot yet establish</strong>'+
  '<p>It cannot verify player eligibility, source-ID identity across changed registrations, referee performance, age-division rules, complete schedules, ice allocations or equivalent skill levels across different league nights.</p>'+
- '<p>The current 2026/27 results have been examined previously. All uncertainty ranges are conditional model sensitivity—not certified future probabilities.</p></div></div></details>';
+ '<p>The current 2026/27 results have been examined previously. All uncertainty ranges are conditional model sensitivity—not certified future probabilities.</p></div>'+
+ (e?'<div class="fair-quality-rule"><strong>One-sided scoreline validation</strong>'+
+ '<p>Among '+val(e.validation_games)+' historical validation games, the five-goal-margin model had Brier error '+score(e.margin5_model_brier)+' versus '+score(e.margin5_neutral_brier)+' for the neutral base rate. This is a small benefit, not enough to authorize movement.</p>'+
+ '<p>For three-goal margins, it did not improve on the neutral baseline. Game score margins are not measures of injuries, unsafe play or referee discipline.</p></div>':'')+
+ '</div></details>';
 }
 function coverage(){
  const nights=model.night_components;
