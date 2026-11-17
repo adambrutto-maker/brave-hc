@@ -1,0 +1,1055 @@
+{
+  "schema": "bruttech-leagueos-public-reconciliation/v22",
+  "createdAt": "2026-11-17T18:50:04.449Z",
+  "mode": "PUBLIC_DEMO_SOURCE_REVIEW_ONLY",
+  "scope": "BRAVE_HC_CROSS_SOURCE_PILOT_AND_LEAGUE_ZERO_ZERO_HOLDS",
+  "officialWriteAllowed": false,
+  "authenticatedReviewAvailable": false,
+  "state": "DATED_PUBLIC_SOURCE_REVIEW_NOT_LIVE_SYNC",
+  "comparisonPolicy": "Date/time and literal opponent + certified score or rink parity; punctuation alias is always held. Never authorize cross-system IDs from a text match.",
+  "counts": {
+    "leagueRegistry": 411,
+    "completedLeague": 335,
+    "futureLeague": 66,
+    "heldLeague": 10,
+    "braveLeagueGames": 9,
+    "htoBraveGames": 9,
+    "supplementalBraveProposals": 6,
+    "observedPublicParity": 8,
+    "completedExact": 7,
+    "futureExact": 1,
+    "reviewQueue": 16,
+    "heldNameAlias": 1,
+    "heldFutureNoHto": 4,
+    "heldReusedHtoId": 1,
+    "heldZeroZero": 10,
+    "totalCases": 24
+  },
+  "inputs": {
+    "league": {
+      "file": "leagueos-source-qualified-current-fixtures-v4.json",
+      "sha256": "39d38f799c8d8c89c642306181e35c5efbb3f7f5da4d737c5445b7f8ca45c658",
+      "capturedAt": "2026-11-16",
+      "source": "Archived public SVHL team schedules, SHA-256 verified"
+    },
+    "hto": {
+      "file": "hockeyos-hto-games-v21.json",
+      "sha256": "ffb3976097cb33f14a3cbc5c41c03aecfcbc53dbcb7899cdef00bfe38caa3ce3",
+      "capturedAt": "2026-11-17T18:11:36.567Z",
+      "source": "HomeTeamsONLINE public Brave H.C. game pages"
+    },
+    "upcoming": {
+      "file": "svhl-upcoming.json",
+      "sha256": "8268fd2aa1081803d03c982b08fd48fd78439ce2cfab6a64630eaa273acb4261",
+      "capturedAt": "2026-11-17T08:34:37.626555-05:00",
+      "source": "https://leagues.sportsvillage.ca/Leagues.aspx?leagueid=570&page_type=Adult&sc=HOCKEY"
+    }
+  },
+  "sourceLinks": {
+    "officialLeague": "https://leagues.sportsvillage.ca/Leagues.aspx?leagueid=570&page_type=Adult&sc=HOCKEY",
+    "officialHto": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=schedule"
+  },
+  "classifications": [
+    {
+      "code": "PUBLIC_COMPLETED_PARITY_OBSERVED",
+      "meaning": "Independent completed source date/time/opponent/final parity; no authenticated cross-ID binding"
+    },
+    {
+      "code": "PUBLIC_FUTURE_PARITY_OBSERVED",
+      "meaning": "Independent HTO preview and reciprocal league fixture agree; no official administrative approval"
+    },
+    {
+      "code": "NAME_ALIAS_REVIEW_HOLD",
+      "meaning": "Only explicitly observed club-name punctuation alias; identity cannot be assumed"
+    },
+    {
+      "code": "HISTORICAL_HTO_ID_REUSED_HOLD",
+      "meaning": "Unverified future proposal references a completed historical HTO game"
+    },
+    {
+      "code": "SUPPLEMENTAL_FUTURE_HTO_MISSING_HOLD",
+      "meaning": "Future schedule proposal without HTO source ID or canonical league-registry row"
+    },
+    {
+      "code": "LEAGUE_UNRESOLVED_ZERO_ZERO_HOLD",
+      "meaning": "Past ambiguous score held; not a verified draw"
+    }
+  ],
+  "cases": [
+    {
+      "id": "proposal:2026-12-06:19:15:mid-ice-crisis",
+      "caseType": "SUPPLEMENTAL_FUTURE_PROPOSAL",
+      "category": "HISTORICAL_HTO_ID_REUSED_HOLD",
+      "priority": "CRITICAL",
+      "reviewRequired": true,
+      "leagueId": 570,
+      "leagueGameId": null,
+      "htoGameId": "3375683",
+      "referencedHtoGameDate": "2026-11-01",
+      "referencedHtoGameStatus": "COMPLETED_HTO_BOX_SCORE",
+      "date": "2026-12-06",
+      "time": "19:15",
+      "night": "Sunday",
+      "home": "Braves HC",
+      "away": "Mid Ice Crisis",
+      "opponent": "Mid Ice Crisis",
+      "rinkLeague": "A Rink",
+      "rinkHto": "Vaughan Sports Village - D Rink",
+      "leagueState": "SUPPLEMENTAL_UNVERIFIED_FUTURE",
+      "htoState": "COMPLETED_HTO_BOX_SCORE",
+      "matchedBy": "NOT_IN_SOURCE_REGISTRY",
+      "leagueScore": null,
+      "htoScore": null,
+      "scoreParity": null,
+      "rinkParity": null,
+      "explanation": "This future assignment points to an HTO ID already used by a completed historical game on 2026-11-01. Do not relink or reuse that ID.",
+      "links": [
+        {
+          "label": "League public schedule",
+          "href": "https://leagues.sportsvillage.ca/Leagues.aspx?leagueid=570&page_type=Adult&sc=HOCKEY"
+        },
+        {
+          "label": "Referenced historical HTO game",
+          "href": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3375683"
+        }
+      ],
+      "supplementalStatus": "REVIEW_RESCHEDULE",
+      "supplementalAssignmentKey": "hto:3375683",
+      "sourceOfRecord": "SEPARATE_DATED_TEAM_SCHEDULE_FEED_NOT_CANONICAL_FIXTURE_REGISTRY",
+      "sourceWarning": "Supplemental evidence only; no HTO future game is confirmed.",
+      "crossSystemIdBinding": "NOT_OFFICIALLY_AUTHORIZED",
+      "officialWriteAllowed": false
+    },
+    {
+      "id": "proposal:2026-12-27:18:00:mohawks-hc",
+      "caseType": "SUPPLEMENTAL_FUTURE_PROPOSAL",
+      "category": "SUPPLEMENTAL_FUTURE_HTO_MISSING_HOLD",
+      "priority": "MEDIUM",
+      "reviewRequired": true,
+      "leagueId": 570,
+      "leagueGameId": null,
+      "htoGameId": null,
+      "referencedHtoGameDate": null,
+      "referencedHtoGameStatus": null,
+      "date": "2026-12-27",
+      "time": "18:00",
+      "night": "Sunday",
+      "home": "Mohawks HC",
+      "away": "Braves HC",
+      "opponent": "Mohawks HC",
+      "rinkLeague": "B Rink",
+      "rinkHto": null,
+      "leagueState": "SUPPLEMENTAL_UNVERIFIED_FUTURE",
+      "htoState": null,
+      "matchedBy": "NOT_IN_SOURCE_REGISTRY",
+      "leagueScore": null,
+      "htoScore": null,
+      "scoreParity": null,
+      "rinkParity": null,
+      "explanation": "Dated supplemental league-team schedule lists a future assignment absent from the public HTO games and the bounded 411-game source registry. Confirm with official HTO before promoting it.",
+      "links": [
+        {
+          "label": "League public schedule",
+          "href": "https://leagues.sportsvillage.ca/Leagues.aspx?leagueid=570&page_type=Adult&sc=HOCKEY"
+        }
+      ],
+      "supplementalStatus": "ADD_HTO",
+      "supplementalAssignmentKey": "svhl:2026-12-27:mohawkshc",
+      "sourceOfRecord": "SEPARATE_DATED_TEAM_SCHEDULE_FEED_NOT_CANONICAL_FIXTURE_REGISTRY",
+      "sourceWarning": "Supplemental evidence only; no HTO future game is confirmed.",
+      "crossSystemIdBinding": "NOT_OFFICIALLY_AUTHORIZED",
+      "officialWriteAllowed": false
+    },
+    {
+      "id": "proposal:2026-12-20:21:15:young-guns",
+      "caseType": "SUPPLEMENTAL_FUTURE_PROPOSAL",
+      "category": "SUPPLEMENTAL_FUTURE_HTO_MISSING_HOLD",
+      "priority": "MEDIUM",
+      "reviewRequired": true,
+      "leagueId": 570,
+      "leagueGameId": null,
+      "htoGameId": null,
+      "referencedHtoGameDate": null,
+      "referencedHtoGameStatus": null,
+      "date": "2026-12-20",
+      "time": "21:15",
+      "night": "Sunday",
+      "home": "Braves HC",
+      "away": "Young Guns",
+      "opponent": "Young Guns",
+      "rinkLeague": "D Rink",
+      "rinkHto": null,
+      "leagueState": "SUPPLEMENTAL_UNVERIFIED_FUTURE",
+      "htoState": null,
+      "matchedBy": "NOT_IN_SOURCE_REGISTRY",
+      "leagueScore": null,
+      "htoScore": null,
+      "scoreParity": null,
+      "rinkParity": null,
+      "explanation": "Dated supplemental league-team schedule lists a future assignment absent from the public HTO games and the bounded 411-game source registry. Confirm with official HTO before promoting it.",
+      "links": [
+        {
+          "label": "League public schedule",
+          "href": "https://leagues.sportsvillage.ca/Leagues.aspx?leagueid=570&page_type=Adult&sc=HOCKEY"
+        }
+      ],
+      "supplementalStatus": "ADD_HTO",
+      "supplementalAssignmentKey": "svhl:2026-12-20:youngguns",
+      "sourceOfRecord": "SEPARATE_DATED_TEAM_SCHEDULE_FEED_NOT_CANONICAL_FIXTURE_REGISTRY",
+      "sourceWarning": "Supplemental evidence only; no HTO future game is confirmed.",
+      "crossSystemIdBinding": "NOT_OFFICIALLY_AUTHORIZED",
+      "officialWriteAllowed": false
+    },
+    {
+      "id": "proposal:2026-12-13:21:15:zamboner-crew",
+      "caseType": "SUPPLEMENTAL_FUTURE_PROPOSAL",
+      "category": "SUPPLEMENTAL_FUTURE_HTO_MISSING_HOLD",
+      "priority": "MEDIUM",
+      "reviewRequired": true,
+      "leagueId": 570,
+      "leagueGameId": null,
+      "htoGameId": null,
+      "referencedHtoGameDate": null,
+      "referencedHtoGameStatus": null,
+      "date": "2026-12-13",
+      "time": "21:15",
+      "night": "Sunday",
+      "home": "Braves HC",
+      "away": "Zamboner Crew",
+      "opponent": "Zamboner Crew",
+      "rinkLeague": "A Rink",
+      "rinkHto": null,
+      "leagueState": "SUPPLEMENTAL_UNVERIFIED_FUTURE",
+      "htoState": null,
+      "matchedBy": "NOT_IN_SOURCE_REGISTRY",
+      "leagueScore": null,
+      "htoScore": null,
+      "scoreParity": null,
+      "rinkParity": null,
+      "explanation": "Dated supplemental league-team schedule lists a future assignment absent from the public HTO games and the bounded 411-game source registry. Confirm with official HTO before promoting it.",
+      "links": [
+        {
+          "label": "League public schedule",
+          "href": "https://leagues.sportsvillage.ca/Leagues.aspx?leagueid=570&page_type=Adult&sc=HOCKEY"
+        }
+      ],
+      "supplementalStatus": "ADD_HTO",
+      "supplementalAssignmentKey": "svhl:2026-12-13:zambonercrew",
+      "sourceOfRecord": "SEPARATE_DATED_TEAM_SCHEDULE_FEED_NOT_CANONICAL_FIXTURE_REGISTRY",
+      "sourceWarning": "Supplemental evidence only; no HTO future game is confirmed.",
+      "crossSystemIdBinding": "NOT_OFFICIALLY_AUTHORIZED",
+      "officialWriteAllowed": false
+    },
+    {
+      "id": "proposal:2026-11-29:21:00:maplewolves",
+      "caseType": "SUPPLEMENTAL_FUTURE_PROPOSAL",
+      "category": "SUPPLEMENTAL_FUTURE_HTO_MISSING_HOLD",
+      "priority": "MEDIUM",
+      "reviewRequired": true,
+      "leagueId": 570,
+      "leagueGameId": null,
+      "htoGameId": null,
+      "referencedHtoGameDate": null,
+      "referencedHtoGameStatus": null,
+      "date": "2026-11-29",
+      "time": "21:00",
+      "night": "Sunday",
+      "home": "Braves HC",
+      "away": "Maplewolves",
+      "opponent": "Maplewolves",
+      "rinkLeague": "B Rink",
+      "rinkHto": null,
+      "leagueState": "SUPPLEMENTAL_UNVERIFIED_FUTURE",
+      "htoState": null,
+      "matchedBy": "NOT_IN_SOURCE_REGISTRY",
+      "leagueScore": null,
+      "htoScore": null,
+      "scoreParity": null,
+      "rinkParity": null,
+      "explanation": "Dated supplemental league-team schedule lists a future assignment absent from the public HTO games and the bounded 411-game source registry. Confirm with official HTO before promoting it.",
+      "links": [
+        {
+          "label": "League public schedule",
+          "href": "https://leagues.sportsvillage.ca/Leagues.aspx?leagueid=570&page_type=Adult&sc=HOCKEY"
+        }
+      ],
+      "supplementalStatus": "ADD_HTO",
+      "supplementalAssignmentKey": "svhl:2026-11-29:maplewolves",
+      "sourceOfRecord": "SEPARATE_DATED_TEAM_SCHEDULE_FEED_NOT_CANONICAL_FIXTURE_REGISTRY",
+      "sourceWarning": "Supplemental evidence only; no HTO future game is confirmed.",
+      "crossSystemIdBinding": "NOT_OFFICIALLY_AUTHORIZED",
+      "officialWriteAllowed": false
+    },
+    {
+      "id": "hold:570:128119",
+      "caseType": "UNRESOLVED_LEAGUE_RESULT",
+      "category": "LEAGUE_UNRESOLVED_ZERO_ZERO_HOLD",
+      "priority": "MEDIUM",
+      "reviewRequired": true,
+      "leagueId": 570,
+      "leagueGameId": 128119,
+      "htoGameId": null,
+      "date": "2026-11-15",
+      "time": "21:00",
+      "night": "Sunday",
+      "home": "Hawks",
+      "away": "Pinheads",
+      "opponent": null,
+      "rinkLeague": null,
+      "rinkHto": null,
+      "leagueState": "PAST_ZERO_ZERO_HOLD",
+      "htoState": null,
+      "matchedBy": "NOT_APPLICABLE",
+      "leagueScore": null,
+      "htoScore": null,
+      "scoreParity": null,
+      "rinkParity": null,
+      "explanation": "Past zero-zero source was held by original registry and has no verified game outcome; not a published 0–0 tie.",
+      "links": [
+        {
+          "label": "SVHL game source",
+          "href": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=128119&page_type=Adult"
+        }
+      ],
+      "sourceOfRecord": "SVHL_HELD_SOURCE_ROW_ONLY",
+      "sourceWarning": "No verified score; do not award points, goals or standings.",
+      "crossSystemIdBinding": "NOT_OFFICIALLY_AUTHORIZED",
+      "officialWriteAllowed": false
+    },
+    {
+      "id": "hold:570:128120",
+      "caseType": "UNRESOLVED_LEAGUE_RESULT",
+      "category": "LEAGUE_UNRESOLVED_ZERO_ZERO_HOLD",
+      "priority": "MEDIUM",
+      "reviewRequired": true,
+      "leagueId": 570,
+      "leagueGameId": 128120,
+      "htoGameId": null,
+      "date": "2026-11-15",
+      "time": "21:15",
+      "night": "Sunday",
+      "home": "Bushwackers",
+      "away": "We're Curved",
+      "opponent": null,
+      "rinkLeague": null,
+      "rinkHto": null,
+      "leagueState": "PAST_ZERO_ZERO_HOLD",
+      "htoState": null,
+      "matchedBy": "NOT_APPLICABLE",
+      "leagueScore": null,
+      "htoScore": null,
+      "scoreParity": null,
+      "rinkParity": null,
+      "explanation": "Past zero-zero source was held by original registry and has no verified game outcome; not a published 0–0 tie.",
+      "links": [
+        {
+          "label": "SVHL game source",
+          "href": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=128120&page_type=Adult"
+        }
+      ],
+      "sourceOfRecord": "SVHL_HELD_SOURCE_ROW_ONLY",
+      "sourceWarning": "No verified score; do not award points, goals or standings.",
+      "crossSystemIdBinding": "NOT_OFFICIALLY_AUTHORIZED",
+      "officialWriteAllowed": false
+    },
+    {
+      "id": "hold:570:128121",
+      "caseType": "UNRESOLVED_LEAGUE_RESULT",
+      "category": "LEAGUE_UNRESOLVED_ZERO_ZERO_HOLD",
+      "priority": "MEDIUM",
+      "reviewRequired": true,
+      "leagueId": 570,
+      "leagueGameId": 128121,
+      "htoGameId": null,
+      "date": "2026-11-15",
+      "time": "21:15",
+      "night": "Sunday",
+      "home": "Last Pass",
+      "away": "Thrillers",
+      "opponent": null,
+      "rinkLeague": null,
+      "rinkHto": null,
+      "leagueState": "PAST_ZERO_ZERO_HOLD",
+      "htoState": null,
+      "matchedBy": "NOT_APPLICABLE",
+      "leagueScore": null,
+      "htoScore": null,
+      "scoreParity": null,
+      "rinkParity": null,
+      "explanation": "Past zero-zero source was held by original registry and has no verified game outcome; not a published 0–0 tie.",
+      "links": [
+        {
+          "label": "SVHL game source",
+          "href": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=128121&page_type=Adult"
+        }
+      ],
+      "sourceOfRecord": "SVHL_HELD_SOURCE_ROW_ONLY",
+      "sourceWarning": "No verified score; do not award points, goals or standings.",
+      "crossSystemIdBinding": "NOT_OFFICIALLY_AUTHORIZED",
+      "officialWriteAllowed": false
+    },
+    {
+      "id": "hold:570:128122",
+      "caseType": "UNRESOLVED_LEAGUE_RESULT",
+      "category": "LEAGUE_UNRESOLVED_ZERO_ZERO_HOLD",
+      "priority": "MEDIUM",
+      "reviewRequired": true,
+      "leagueId": 570,
+      "leagueGameId": 128122,
+      "htoGameId": null,
+      "date": "2026-11-15",
+      "time": "22:00",
+      "night": "Sunday",
+      "home": "Mighty Drunks",
+      "away": "Degenerates",
+      "opponent": null,
+      "rinkLeague": null,
+      "rinkHto": null,
+      "leagueState": "PAST_ZERO_ZERO_HOLD",
+      "htoState": null,
+      "matchedBy": "NOT_APPLICABLE",
+      "leagueScore": null,
+      "htoScore": null,
+      "scoreParity": null,
+      "rinkParity": null,
+      "explanation": "Past zero-zero source was held by original registry and has no verified game outcome; not a published 0–0 tie.",
+      "links": [
+        {
+          "label": "SVHL game source",
+          "href": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=128122&page_type=Adult"
+        }
+      ],
+      "sourceOfRecord": "SVHL_HELD_SOURCE_ROW_ONLY",
+      "sourceWarning": "No verified score; do not award points, goals or standings.",
+      "crossSystemIdBinding": "NOT_OFFICIALLY_AUTHORIZED",
+      "officialWriteAllowed": false
+    },
+    {
+      "id": "hold:570:128123",
+      "caseType": "UNRESOLVED_LEAGUE_RESULT",
+      "category": "LEAGUE_UNRESOLVED_ZERO_ZERO_HOLD",
+      "priority": "MEDIUM",
+      "reviewRequired": true,
+      "leagueId": 570,
+      "leagueGameId": 128123,
+      "htoGameId": null,
+      "date": "2026-11-15",
+      "time": "22:15",
+      "night": "Sunday",
+      "home": "Primary Auto",
+      "away": "VR Delta",
+      "opponent": null,
+      "rinkLeague": null,
+      "rinkHto": null,
+      "leagueState": "PAST_ZERO_ZERO_HOLD",
+      "htoState": null,
+      "matchedBy": "NOT_APPLICABLE",
+      "leagueScore": null,
+      "htoScore": null,
+      "scoreParity": null,
+      "rinkParity": null,
+      "explanation": "Past zero-zero source was held by original registry and has no verified game outcome; not a published 0–0 tie.",
+      "links": [
+        {
+          "label": "SVHL game source",
+          "href": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=128123&page_type=Adult"
+        }
+      ],
+      "sourceOfRecord": "SVHL_HELD_SOURCE_ROW_ONLY",
+      "sourceWarning": "No verified score; do not award points, goals or standings.",
+      "crossSystemIdBinding": "NOT_OFFICIALLY_AUTHORIZED",
+      "officialWriteAllowed": false
+    },
+    {
+      "id": "hold:570:128124",
+      "caseType": "UNRESOLVED_LEAGUE_RESULT",
+      "category": "LEAGUE_UNRESOLVED_ZERO_ZERO_HOLD",
+      "priority": "MEDIUM",
+      "reviewRequired": true,
+      "leagueId": 570,
+      "leagueGameId": 128124,
+      "htoGameId": null,
+      "date": "2026-11-15",
+      "time": "22:15",
+      "night": "Sunday",
+      "home": "Butcher Brothers",
+      "away": "Batman Prep",
+      "opponent": null,
+      "rinkLeague": null,
+      "rinkHto": null,
+      "leagueState": "PAST_ZERO_ZERO_HOLD",
+      "htoState": null,
+      "matchedBy": "NOT_APPLICABLE",
+      "leagueScore": null,
+      "htoScore": null,
+      "scoreParity": null,
+      "rinkParity": null,
+      "explanation": "Past zero-zero source was held by original registry and has no verified game outcome; not a published 0–0 tie.",
+      "links": [
+        {
+          "label": "SVHL game source",
+          "href": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=128124&page_type=Adult"
+        }
+      ],
+      "sourceOfRecord": "SVHL_HELD_SOURCE_ROW_ONLY",
+      "sourceWarning": "No verified score; do not award points, goals or standings.",
+      "crossSystemIdBinding": "NOT_OFFICIALLY_AUTHORIZED",
+      "officialWriteAllowed": false
+    },
+    {
+      "id": "hold:568:128000",
+      "caseType": "UNRESOLVED_LEAGUE_RESULT",
+      "category": "LEAGUE_UNRESOLVED_ZERO_ZERO_HOLD",
+      "priority": "MEDIUM",
+      "reviewRequired": true,
+      "leagueId": 568,
+      "leagueGameId": 128000,
+      "htoGameId": null,
+      "date": "2026-11-10",
+      "time": "22:15",
+      "night": "Tuesday",
+      "home": "Jets",
+      "away": "Kraken Beers",
+      "opponent": null,
+      "rinkLeague": null,
+      "rinkHto": null,
+      "leagueState": "PAST_ZERO_ZERO_HOLD",
+      "htoState": null,
+      "matchedBy": "NOT_APPLICABLE",
+      "leagueScore": null,
+      "htoScore": null,
+      "scoreParity": null,
+      "rinkParity": null,
+      "explanation": "Past zero-zero source was held by original registry and has no verified game outcome; not a published 0–0 tie.",
+      "links": [
+        {
+          "label": "SVHL game source",
+          "href": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=568&gameid=128000&page_type=Adult"
+        }
+      ],
+      "sourceOfRecord": "SVHL_HELD_SOURCE_ROW_ONLY",
+      "sourceWarning": "No verified score; do not award points, goals or standings.",
+      "crossSystemIdBinding": "NOT_OFFICIALLY_AUTHORIZED",
+      "officialWriteAllowed": false
+    },
+    {
+      "id": "hold:568:128008",
+      "caseType": "UNRESOLVED_LEAGUE_RESULT",
+      "category": "LEAGUE_UNRESOLVED_ZERO_ZERO_HOLD",
+      "priority": "MEDIUM",
+      "reviewRequired": true,
+      "leagueId": 568,
+      "leagueGameId": 128008,
+      "htoGameId": null,
+      "date": "2026-11-03",
+      "time": "22:00",
+      "night": "Tuesday",
+      "home": "PHL Demonz",
+      "away": "Rebels",
+      "opponent": null,
+      "rinkLeague": null,
+      "rinkHto": null,
+      "leagueState": "PAST_ZERO_ZERO_HOLD",
+      "htoState": null,
+      "matchedBy": "NOT_APPLICABLE",
+      "leagueScore": null,
+      "htoScore": null,
+      "scoreParity": null,
+      "rinkParity": null,
+      "explanation": "Past zero-zero source was held by original registry and has no verified game outcome; not a published 0–0 tie.",
+      "links": [
+        {
+          "label": "SVHL game source",
+          "href": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=568&gameid=128008&page_type=Adult"
+        }
+      ],
+      "sourceOfRecord": "SVHL_HELD_SOURCE_ROW_ONLY",
+      "sourceWarning": "No verified score; do not award points, goals or standings.",
+      "crossSystemIdBinding": "NOT_OFFICIALLY_AUTHORIZED",
+      "officialWriteAllowed": false
+    },
+    {
+      "id": "hold:569:127867",
+      "caseType": "UNRESOLVED_LEAGUE_RESULT",
+      "category": "LEAGUE_UNRESOLVED_ZERO_ZERO_HOLD",
+      "priority": "MEDIUM",
+      "reviewRequired": true,
+      "leagueId": 569,
+      "leagueGameId": 127867,
+      "htoGameId": null,
+      "date": "2026-10-15",
+      "time": "21:30",
+      "night": "Thursday",
+      "home": "Back Door Boys",
+      "away": "Only Way",
+      "opponent": null,
+      "rinkLeague": null,
+      "rinkHto": null,
+      "leagueState": "PAST_ZERO_ZERO_HOLD",
+      "htoState": null,
+      "matchedBy": "NOT_APPLICABLE",
+      "leagueScore": null,
+      "htoScore": null,
+      "scoreParity": null,
+      "rinkParity": null,
+      "explanation": "Past zero-zero source was held by original registry and has no verified game outcome; not a published 0–0 tie.",
+      "links": [
+        {
+          "label": "SVHL game source",
+          "href": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=569&gameid=127867&page_type=Adult"
+        }
+      ],
+      "sourceOfRecord": "SVHL_HELD_SOURCE_ROW_ONLY",
+      "sourceWarning": "No verified score; do not award points, goals or standings.",
+      "crossSystemIdBinding": "NOT_OFFICIALLY_AUTHORIZED",
+      "officialWriteAllowed": false
+    },
+    {
+      "id": "league:570:127728",
+      "caseType": "BRAVE_MATCHUP",
+      "category": "NAME_ALIAS_REVIEW_HOLD",
+      "priority": "MEDIUM",
+      "reviewRequired": true,
+      "leagueId": 570,
+      "leagueGameId": 127728,
+      "htoGameId": "3356178",
+      "date": "2026-09-27",
+      "time": "18:15",
+      "night": "Sunday",
+      "home": "Braves HC",
+      "away": "Mohawks HC",
+      "opponent": "Mohawks HC",
+      "rinkLeague": null,
+      "rinkHto": "Vaughan Sports Village - D Rink",
+      "leagueState": "COMPLETED_SOURCE_VERIFIED",
+      "htoState": "COMPLETED_HTO_BOX_SCORE",
+      "matchedBy": "CONTROLLED_ALIAS_REVIEW_ONLY",
+      "leagueScore": {
+        "club": 3,
+        "opponent": 6
+      },
+      "htoScore": {
+        "club": 3,
+        "opponent": 6
+      },
+      "scoreParity": true,
+      "rinkParity": null,
+      "explanation": "Opponent differs in published punctuation. Date/time and score align, but club identity needs source confirmation.",
+      "links": [
+        {
+          "label": "SVHL game source",
+          "href": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=127728&page_type=Adult"
+        },
+        {
+          "label": "HTO box score",
+          "href": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3356178"
+        }
+      ],
+      "sourceOfRecord": "RECIPROCAL_SVHL_FIXTURE_AND_INDEPENDENT_HTO_COMPARISON",
+      "sourceWarning": "Observed public data comparison, not an authenticated league cross-system binding.",
+      "crossSystemIdBinding": "NOT_OFFICIALLY_AUTHORIZED",
+      "officialWriteAllowed": false
+    },
+    {
+      "id": "hold:569:127593",
+      "caseType": "UNRESOLVED_LEAGUE_RESULT",
+      "category": "LEAGUE_UNRESOLVED_ZERO_ZERO_HOLD",
+      "priority": "MEDIUM",
+      "reviewRequired": true,
+      "leagueId": 569,
+      "leagueGameId": 127593,
+      "htoGameId": null,
+      "date": "2026-09-24",
+      "time": "20:30",
+      "night": "Thursday",
+      "home": "GQ Stars",
+      "away": "Ice Hogs",
+      "opponent": null,
+      "rinkLeague": null,
+      "rinkHto": null,
+      "leagueState": "PAST_ZERO_ZERO_HOLD",
+      "htoState": null,
+      "matchedBy": "NOT_APPLICABLE",
+      "leagueScore": null,
+      "htoScore": null,
+      "scoreParity": null,
+      "rinkParity": null,
+      "explanation": "Past zero-zero source was held by original registry and has no verified game outcome; not a published 0–0 tie.",
+      "links": [
+        {
+          "label": "SVHL game source",
+          "href": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=569&gameid=127593&page_type=Adult"
+        }
+      ],
+      "sourceOfRecord": "SVHL_HELD_SOURCE_ROW_ONLY",
+      "sourceWarning": "No verified score; do not award points, goals or standings.",
+      "crossSystemIdBinding": "NOT_OFFICIALLY_AUTHORIZED",
+      "officialWriteAllowed": false
+    },
+    {
+      "id": "league:570:128129",
+      "caseType": "BRAVE_MATCHUP",
+      "category": "PUBLIC_FUTURE_PARITY_OBSERVED",
+      "priority": "INFO",
+      "reviewRequired": false,
+      "leagueId": 570,
+      "leagueGameId": 128129,
+      "htoGameId": "3375686",
+      "date": "2026-11-22",
+      "time": "20:00",
+      "night": "Sunday",
+      "home": "Braves HC",
+      "away": "Dateline Predators",
+      "opponent": "Dateline Predators",
+      "rinkLeague": "B Rink",
+      "rinkHto": "Vaughan Sports Village - B Rink",
+      "leagueState": "FUTURE_RECIPROCAL_FIXTURE",
+      "htoState": "SCHEDULED_HTO_PREVIEW_AT_CAPTURE",
+      "matchedBy": "EXACT_LITERAL_TUPLE",
+      "leagueScore": null,
+      "htoScore": null,
+      "scoreParity": null,
+      "rinkParity": true,
+      "explanation": "Future HTO preview and reciprocal league fixture agree on date, time, opponent and rink; not an approved administrative linkage.",
+      "links": [
+        {
+          "label": "SVHL game source",
+          "href": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=128129&page_type=Adult"
+        },
+        {
+          "label": "HTO preview",
+          "href": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=preview&sportsHQ=BRAVESHOCKEY&gameID=3375686"
+        }
+      ],
+      "sourceOfRecord": "RECIPROCAL_SVHL_FIXTURE_AND_INDEPENDENT_HTO_COMPARISON",
+      "sourceWarning": "Observed public data comparison, not an authenticated league cross-system binding.",
+      "crossSystemIdBinding": "NOT_OFFICIALLY_AUTHORIZED",
+      "officialWriteAllowed": false,
+      "supplementalStatus": "MATCH",
+      "supplementalAssignmentKey": "hto:3375686",
+      "supplementalRink": "B Rink"
+    },
+    {
+      "id": "league:570:128098",
+      "caseType": "BRAVE_MATCHUP",
+      "category": "PUBLIC_COMPLETED_PARITY_OBSERVED",
+      "priority": "INFO",
+      "reviewRequired": false,
+      "leagueId": 570,
+      "leagueGameId": 128098,
+      "htoGameId": "3375685",
+      "date": "2026-11-15",
+      "time": "19:15",
+      "night": "Sunday",
+      "home": "Braves HC",
+      "away": "Sugo Sundays",
+      "opponent": "Sugo Sundays",
+      "rinkLeague": null,
+      "rinkHto": "Vaughan Sports Village - A Rink",
+      "leagueState": "COMPLETED_SOURCE_VERIFIED",
+      "htoState": "COMPLETED_HTO_BOX_SCORE",
+      "matchedBy": "EXACT_LITERAL_TUPLE",
+      "leagueScore": {
+        "club": 4,
+        "opponent": 6
+      },
+      "htoScore": {
+        "club": 4,
+        "opponent": 6
+      },
+      "scoreParity": true,
+      "rinkParity": null,
+      "explanation": "Date, time, exact opponent and final result agree across independent public sources. IDs are not officially bound.",
+      "links": [
+        {
+          "label": "SVHL game source",
+          "href": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=128098&page_type=Adult"
+        },
+        {
+          "label": "HTO box score",
+          "href": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3375685"
+        }
+      ],
+      "sourceOfRecord": "RECIPROCAL_SVHL_FIXTURE_AND_INDEPENDENT_HTO_COMPARISON",
+      "sourceWarning": "Observed public data comparison, not an authenticated league cross-system binding.",
+      "crossSystemIdBinding": "NOT_OFFICIALLY_AUTHORIZED",
+      "officialWriteAllowed": false
+    },
+    {
+      "id": "league:570:127954",
+      "caseType": "BRAVE_MATCHUP",
+      "category": "PUBLIC_COMPLETED_PARITY_OBSERVED",
+      "priority": "INFO",
+      "reviewRequired": false,
+      "leagueId": 570,
+      "leagueGameId": 127954,
+      "htoGameId": "3375684",
+      "date": "2026-11-08",
+      "time": "21:15",
+      "night": "Sunday",
+      "home": "Braves HC",
+      "away": "Other Way",
+      "opponent": "Other Way",
+      "rinkLeague": null,
+      "rinkHto": "Vaughan Sports Village - D Rink",
+      "leagueState": "COMPLETED_SOURCE_VERIFIED",
+      "htoState": "COMPLETED_HTO_BOX_SCORE",
+      "matchedBy": "EXACT_LITERAL_TUPLE",
+      "leagueScore": {
+        "club": 5,
+        "opponent": 6
+      },
+      "htoScore": {
+        "club": 5,
+        "opponent": 6
+      },
+      "scoreParity": true,
+      "rinkParity": null,
+      "explanation": "Date, time, exact opponent and final result agree across independent public sources. IDs are not officially bound.",
+      "links": [
+        {
+          "label": "SVHL game source",
+          "href": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=127954&page_type=Adult"
+        },
+        {
+          "label": "HTO box score",
+          "href": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3375684"
+        }
+      ],
+      "sourceOfRecord": "RECIPROCAL_SVHL_FIXTURE_AND_INDEPENDENT_HTO_COMPARISON",
+      "sourceWarning": "Observed public data comparison, not an authenticated league cross-system binding.",
+      "crossSystemIdBinding": "NOT_OFFICIALLY_AUTHORIZED",
+      "officialWriteAllowed": false
+    },
+    {
+      "id": "league:570:127949",
+      "caseType": "BRAVE_MATCHUP",
+      "category": "PUBLIC_COMPLETED_PARITY_OBSERVED",
+      "priority": "INFO",
+      "reviewRequired": false,
+      "leagueId": 570,
+      "leagueGameId": 127949,
+      "htoGameId": "3375683",
+      "date": "2026-11-01",
+      "time": "20:15",
+      "night": "Sunday",
+      "home": "Mid Ice Crisis",
+      "away": "Braves HC",
+      "opponent": "Mid Ice Crisis",
+      "rinkLeague": null,
+      "rinkHto": "Vaughan Sports Village - D Rink",
+      "leagueState": "COMPLETED_SOURCE_VERIFIED",
+      "htoState": "COMPLETED_HTO_BOX_SCORE",
+      "matchedBy": "EXACT_LITERAL_TUPLE",
+      "leagueScore": {
+        "club": 2,
+        "opponent": 7
+      },
+      "htoScore": {
+        "club": 2,
+        "opponent": 7
+      },
+      "scoreParity": true,
+      "rinkParity": null,
+      "explanation": "Date, time, exact opponent and final result agree across independent public sources. IDs are not officially bound.",
+      "links": [
+        {
+          "label": "SVHL game source",
+          "href": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=127949&page_type=Adult"
+        },
+        {
+          "label": "HTO box score",
+          "href": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3375683"
+        }
+      ],
+      "sourceOfRecord": "RECIPROCAL_SVHL_FIXTURE_AND_INDEPENDENT_HTO_COMPARISON",
+      "sourceWarning": "Observed public data comparison, not an authenticated league cross-system binding.",
+      "crossSystemIdBinding": "NOT_OFFICIALLY_AUTHORIZED",
+      "officialWriteAllowed": false
+    },
+    {
+      "id": "league:570:127943",
+      "caseType": "BRAVE_MATCHUP",
+      "category": "PUBLIC_COMPLETED_PARITY_OBSERVED",
+      "priority": "INFO",
+      "reviewRequired": false,
+      "leagueId": 570,
+      "leagueGameId": 127943,
+      "htoGameId": "3375682",
+      "date": "2026-10-25",
+      "time": "18:15",
+      "night": "Sunday",
+      "home": "Braves HC",
+      "away": "Big Bastones",
+      "opponent": "Big Bastones",
+      "rinkLeague": null,
+      "rinkHto": "Vaughan Sports Village - A Rink",
+      "leagueState": "COMPLETED_SOURCE_VERIFIED",
+      "htoState": "COMPLETED_HTO_BOX_SCORE",
+      "matchedBy": "EXACT_LITERAL_TUPLE",
+      "leagueScore": {
+        "club": 6,
+        "opponent": 4
+      },
+      "htoScore": {
+        "club": 6,
+        "opponent": 4
+      },
+      "scoreParity": true,
+      "rinkParity": null,
+      "explanation": "Date, time, exact opponent and final result agree across independent public sources. IDs are not officially bound.",
+      "links": [
+        {
+          "label": "SVHL game source",
+          "href": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=127943&page_type=Adult"
+        },
+        {
+          "label": "HTO box score",
+          "href": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3375682"
+        }
+      ],
+      "sourceOfRecord": "RECIPROCAL_SVHL_FIXTURE_AND_INDEPENDENT_HTO_COMPARISON",
+      "sourceWarning": "Observed public data comparison, not an authenticated league cross-system binding.",
+      "crossSystemIdBinding": "NOT_OFFICIALLY_AUTHORIZED",
+      "officialWriteAllowed": false
+    },
+    {
+      "id": "league:570:127786",
+      "caseType": "BRAVE_MATCHUP",
+      "category": "PUBLIC_COMPLETED_PARITY_OBSERVED",
+      "priority": "INFO",
+      "reviewRequired": false,
+      "leagueId": 570,
+      "leagueGameId": 127786,
+      "htoGameId": "3375601",
+      "date": "2026-10-18",
+      "time": "21:15",
+      "night": "Sunday",
+      "home": "Braves HC",
+      "away": "Zamboner Crew",
+      "opponent": "Zamboner Crew",
+      "rinkLeague": null,
+      "rinkHto": "Vaughan Sports Village - A Rink",
+      "leagueState": "COMPLETED_SOURCE_VERIFIED",
+      "htoState": "COMPLETED_HTO_BOX_SCORE",
+      "matchedBy": "EXACT_LITERAL_TUPLE",
+      "leagueScore": {
+        "club": 1,
+        "opponent": 7
+      },
+      "htoScore": {
+        "club": 1,
+        "opponent": 7
+      },
+      "scoreParity": true,
+      "rinkParity": null,
+      "explanation": "Date, time, exact opponent and final result agree across independent public sources. IDs are not officially bound.",
+      "links": [
+        {
+          "label": "SVHL game source",
+          "href": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=127786&page_type=Adult"
+        },
+        {
+          "label": "HTO box score",
+          "href": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3375601"
+        }
+      ],
+      "sourceOfRecord": "RECIPROCAL_SVHL_FIXTURE_AND_INDEPENDENT_HTO_COMPARISON",
+      "sourceWarning": "Observed public data comparison, not an authenticated league cross-system binding.",
+      "crossSystemIdBinding": "NOT_OFFICIALLY_AUTHORIZED",
+      "officialWriteAllowed": false
+    },
+    {
+      "id": "league:570:127783",
+      "caseType": "BRAVE_MATCHUP",
+      "category": "PUBLIC_COMPLETED_PARITY_OBSERVED",
+      "priority": "INFO",
+      "reviewRequired": false,
+      "leagueId": 570,
+      "leagueGameId": 127783,
+      "htoGameId": "3369564",
+      "date": "2026-10-04",
+      "time": "20:15",
+      "night": "Sunday",
+      "home": "Braves HC",
+      "away": "Sugo Sundays",
+      "opponent": "Sugo Sundays",
+      "rinkLeague": null,
+      "rinkHto": "Vaughan Sports Village - D Rink",
+      "leagueState": "COMPLETED_SOURCE_VERIFIED",
+      "htoState": "COMPLETED_HTO_BOX_SCORE",
+      "matchedBy": "EXACT_LITERAL_TUPLE",
+      "leagueScore": {
+        "club": 2,
+        "opponent": 3
+      },
+      "htoScore": {
+        "club": 2,
+        "opponent": 3
+      },
+      "scoreParity": true,
+      "rinkParity": null,
+      "explanation": "Date, time, exact opponent and final result agree across independent public sources. IDs are not officially bound.",
+      "links": [
+        {
+          "label": "SVHL game source",
+          "href": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=127783&page_type=Adult"
+        },
+        {
+          "label": "HTO box score",
+          "href": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3369564"
+        }
+      ],
+      "sourceOfRecord": "RECIPROCAL_SVHL_FIXTURE_AND_INDEPENDENT_HTO_COMPARISON",
+      "sourceWarning": "Observed public data comparison, not an authenticated league cross-system binding.",
+      "crossSystemIdBinding": "NOT_OFFICIALLY_AUTHORIZED",
+      "officialWriteAllowed": false
+    },
+    {
+      "id": "league:570:127721",
+      "caseType": "BRAVE_MATCHUP",
+      "category": "PUBLIC_COMPLETED_PARITY_OBSERVED",
+      "priority": "INFO",
+      "reviewRequired": false,
+      "leagueId": 570,
+      "leagueGameId": 127721,
+      "htoGameId": "3356177",
+      "date": "2026-09-20",
+      "time": "20:15",
+      "night": "Sunday",
+      "home": "Braves HC",
+      "away": "Dateline Predators",
+      "opponent": "Dateline Predators",
+      "rinkLeague": null,
+      "rinkHto": "Vaughan Sports Village - A Rink",
+      "leagueState": "COMPLETED_SOURCE_VERIFIED",
+      "htoState": "COMPLETED_HTO_BOX_SCORE",
+      "matchedBy": "EXACT_LITERAL_TUPLE",
+      "leagueScore": {
+        "club": 0,
+        "opponent": 3
+      },
+      "htoScore": {
+        "club": 0,
+        "opponent": 3
+      },
+      "scoreParity": true,
+      "rinkParity": null,
+      "explanation": "Date, time, exact opponent and final result agree across independent public sources. IDs are not officially bound.",
+      "links": [
+        {
+          "label": "SVHL game source",
+          "href": "https://leagues.sportsvillage.ca/gameinfo.aspx?leagueid=570&gameid=127721&page_type=Adult"
+        },
+        {
+          "label": "HTO box score",
+          "href": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3356177"
+        }
+      ],
+      "sourceOfRecord": "RECIPROCAL_SVHL_FIXTURE_AND_INDEPENDENT_HTO_COMPARISON",
+      "sourceWarning": "Observed public data comparison, not an authenticated league cross-system binding.",
+      "crossSystemIdBinding": "NOT_OFFICIALLY_AUTHORIZED",
+      "officialWriteAllowed": false
+    }
+  ]
+}
