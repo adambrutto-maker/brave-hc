@@ -82,3 +82,8 @@ button.v12-feature-entry:hover{border-color:#8aadd1;background:#f3f8fe}
 @media(max-width:1020px){.v12-feature-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:760px){.v12-choose-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.v12-choose-grid>.field:first-child{grid-column:1/-1}.v12-metrics{grid-template-columns:1fr 1fr}.v12-peer-grid{grid-template-columns:1fr}.v12-demo-case{flex-direction:column;align-items:stretch}}
 @media(max-width:540px){.v12-choose-grid,.v12-matchup-choices,.v12-feature-grid,.v12-metrics{grid-template-columns:minmax(0,1fr)}.v12-choose-grid>.field:first-child{grid-column:auto}.v12-chooser,.v12-standings,.v12-matchups,.v12-next,.v12-review-next{padding:15px}.v12-source-strip a{margin-left:0}.v12-next-row{align-items:flex-start;flex-direction:column}.v12-feature-grid{gap:8px}}
+
+
+/* Secondary destinations are contextual screens, not extra primary-navigation items. */
+.sidebar .nav-more.is-active>summary{color:#fff;background:#1e4163}
+@media(max-width:780px){.sidebar .nav-more.is-active>summary{border-color:#507aa4}}
