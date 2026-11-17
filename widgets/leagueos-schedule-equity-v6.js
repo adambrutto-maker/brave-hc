@@ -126,7 +126,7 @@ function render(){
  const el=$("#league-schedule-equity-mount");if(!el)return;
  if(error){el.innerHTML='<div class="callout warn">'+esc(error)+' <button type="button" class="btn small" id="equity-retry">Retry</button></div>';return}
  if(!data){el.innerHTML='<div class="panel loader">Loading source-qualified scheduling evidence…</div>';return}
- el.innerHTML=metrics()+topFilters()+(night==="all"?nightCards():
+ el.innerHTML=metrics()+'<div class="equity-snapshot-note"><strong>Source snapshot: '+esc(data.source_snapshot)+'</strong><span>Not live · '+num(data.coverage.source_held_excluded)+' disputed records excluded · full-season and facility availability unknown</span></div>'+topFilters()+(night==="all"?nightCards():
  '<div class="equity-layout"><div class="stack">'+resultsList()+'</div><div class="stack"><div id="equity-detail">'+detail()+'</div></div></div>')+
  scope()+'<p class="disclaimer">Independent LeagueOS source audit. Game results, start times and roster divisions are published snapshots, not official SVHL operational approvals or evidence that rink time is free. No production changes are made here.</p>';
 }
