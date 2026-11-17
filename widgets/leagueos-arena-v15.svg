@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="760" viewBox="0 0 1440 760" role="img" aria-label="Original stylized hockey arena">
+<defs>
+ <linearGradient id="night" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#05101f"/><stop offset=".55" stop-color="#0c2740"/><stop offset="1" stop-color="#06131e"/></linearGradient>
+ <radialGradient id="flood" cx=".62" cy=".32" r=".65"><stop stop-color="#477da5" stop-opacity=".58"/><stop offset=".55" stop-color="#153950" stop-opacity=".14"/><stop offset="1" stop-color="#06101a" stop-opacity="0"/></radialGradient>
+ <linearGradient id="ice" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#effbff"/><stop offset=".58" stop-color="#bcdfee"/><stop offset="1" stop-color="#85b9d5"/></linearGradient>
+ <linearGradient id="glass" x1="0" x2="0" y1="0" y2="1"><stop stop-color="#d4f5ff" stop-opacity=".68"/><stop offset="1" stop-color="#102a3c" stop-opacity=".12"/></linearGradient>
+ <pattern id="crowd" width="54" height="18" patternUnits="userSpaceOnUse"><path d="M0 15L10 9L19 14L31 6L43 13L54 8" fill="none" stroke="#2f526a" stroke-opacity=".45" stroke-width="2"/><circle cx="9" cy="6" r="1.6" fill="#7b9db3" fill-opacity=".4"/><circle cx="42" cy="3" r="1.6" fill="#5f89a4" fill-opacity=".35"/></pattern>
+ <filter id="shadow" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="22"/></filter>
+ <clipPath id="rinkshape"><rect x="385" y="230" width="960" height="390" rx="165"/></clipPath>
+</defs>
+<rect width="1440" height="760" fill="url(#night)"/>
+<rect width="1440" height="760" fill="url(#flood)"/>
+<path d="M0 0H1440V260Q700 80 0 260Z" fill="url(#crowd)" opacity=".7"/>
+<path d="M0 650Q750 540 1440 655V760H0Z" fill="url(#crowd)" opacity=".72"/>
+<path d="M235 0L475 370" stroke="#c9f1ff" stroke-opacity=".11" stroke-width="130"/>
+<path d="M1230 0L980 440" stroke="#c9f1ff" stroke-opacity=".08" stroke-width="160"/>
+<g transform="rotate(-11 860 427)">
+ <rect x="356" y="205" width="1026" height="454" rx="184" fill="#001523" opacity=".86" filter="url(#shadow)"/>
+ <rect x="366" y="213" width="998" height="434" rx="175" fill="#29465d" stroke="#68859a" stroke-width="10"/>
+ <rect x="382" y="229" width="968" height="399" rx="164" fill="url(#ice)" stroke="#ebffff" stroke-width="6"/>
+ <g clip-path="url(#rinkshape)" opacity=".9">
+  <path d="M405 425H1330" stroke="#2179b5" stroke-width="12"/>
+  <path d="M688 215V632" stroke="#1a76b5" stroke-width="12"/>
+  <path d="M1040 215V632" stroke="#1a76b5" stroke-width="12"/>
+  <path d="M480 212V638" stroke="#cc394e" stroke-width="6"/>
+  <path d="M1250 212V638" stroke="#cc394e" stroke-width="6"/>
+  <circle cx="865" cy="425" r="77" fill="none" stroke="#c54656" stroke-width="6"/>
+  <circle cx="865" cy="425" r="7" fill="#c54656"/>
+  <g fill="none" stroke="#cb4253" stroke-width="4">
+   <circle cx="595" cy="312" r="36"/><circle cx="595" cy="537" r="36"/>
+   <circle cx="1136" cy="312" r="36"/><circle cx="1136" cy="537" r="36"/>
+  </g>
+  <g fill="#d14b5b" opacity=".85"><circle cx="595" cy="312" r="6"/><circle cx="595" cy="537" r="6"/><circle cx="1136" cy="312" r="6"/><circle cx="1136" cy="537" r="6"/></g>
+  <path d="M425 390q75-27 0-55" fill="none" stroke="#cb4353" stroke-width="5"/>
+  <path d="M1299 390q-75-27 0-55" fill="none" stroke="#cb4353" stroke-width="5"/>
+  <path d="M865 260V585" stroke="#fff" stroke-opacity=".4" stroke-width="1"/>
+  <g fill="#ffffff" opacity=".16"><path d="M410 245L1320 245L1320 282L410 282Z"/><path d="M420 540L1290 540L1290 565L420 565Z"/></g>
+ </g>
+ <rect x="366" y="213" width="998" height="434" rx="175" fill="none" stroke="url(#glass)" stroke-width="26"/>
+</g>
+<g stroke="#86cff9" stroke-opacity=".28" fill="none"><path d="M1040 102H1370"/><path d="M1140 118H1370"/><path d="M1170 673H1390"/></g>
+<path d="M0 0H670L420 760H0Z" fill="#061421" fill-opacity=".24"/>
+</svg>
