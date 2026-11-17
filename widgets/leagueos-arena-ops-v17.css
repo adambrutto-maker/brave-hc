@@ -1,0 +1,187 @@
+/* LeagueOS V17 — Franchise Mode Arena Operations: four-rink / two-Zamboni / officials / HockeyOS linked demo.
+   Source games are read-only. Staffing, resurfacings, move requests and team feed are DEMO assumptions. */
+body.league-game-mode .v17-console{display:grid;gap:16px;min-width:0;--v17-sky:#81dcff;--v17-line:#31516e;--v17-ink:#edf8ff}
+body.league-game-mode .v17-console :is(button,input,select,textarea):focus-visible{outline:3px solid #79e6ff;outline-offset:3px}
+body.league-game-mode .v17-stage-header{display:flex;gap:20px;justify-content:space-between;align-items:center;min-width:0;border:1px solid #326180;background:linear-gradient(116deg,#0a233b 12%,#145077 100%);padding:22px 25px;border-radius:6px}
+body.league-game-mode .v17-stage-header h2{font-size:clamp(26px,3.2vw,42px);line-height:1.05;text-transform:uppercase;color:#f2fbff;letter-spacing:-.035em;margin:6px 0}
+body.league-game-mode .v17-stage-header p{color:#c3dcef;font-size:12px;max-width:750px;line-height:1.55;margin:5px 0}
+body.league-game-mode .v17-eyebrow{color:#91eaff;letter-spacing:.15em;font-size:10px;font-weight:950}
+body.league-game-mode .v17-demo-status{white-space:nowrap;display:grid;gap:6px;color:#ffddb0;background:#3b2d1d;border:1px solid #ad814d;padding:12px;font-size:11px;font-weight:900;letter-spacing:.07em}
+body.league-game-mode .v17-demo-status small{font-size:9px;font-weight:600;letter-spacing:0;color:#d6b992}
+body.league-game-mode .v17-date-strip{display:flex;gap:7px;overflow-x:auto;padding:2px 0 10px;scrollbar-color:#5585a9 #10253c}
+body.league-game-mode .v17-date-strip button{flex:1 0 110px;min-width:100px;display:grid;gap:6px;text-align:left;background:#122d45;border:1px solid #365b78;border-radius:4px;padding:12px;color:#b7d5ea}
+body.league-game-mode .v17-date-strip button:hover{background:#215177;border-color:#74c9f3}
+body.league-game-mode .v17-date-strip button.selected{background:#225e88;color:#fff;border-color:#9aeaff;box-shadow:inset 0 -4px #8de7fd}
+body.league-game-mode .v17-date-strip button small{font-size:10px;letter-spacing:.1em;font-weight:900;color:#9ccbe7}
+body.league-game-mode .v17-date-strip button b{font-size:22px;line-height:1;color:#f6fbff}
+body.league-game-mode .v17-date-strip button span{font-size:10px;color:#b1cfe1}
+body.league-game-mode .v17-ops-ribbon{display:flex;flex-wrap:wrap;gap:5px}
+body.league-game-mode .v17-ops-ribbon>span{flex:1 1 auto;display:flex;align-items:baseline;gap:7px;color:#a5cadf;background:#10263b;border:1px solid #2c5270;border-radius:3px;padding:9px 11px;font-size:10px;white-space:nowrap}
+body.league-game-mode .v17-ops-ribbon strong{font-size:20px;font-variant-numeric:tabular-nums;color:#a8eeff}
+body.league-game-mode .v17-ops-ribbon .warn{color:#ffe1b7;border-color:#c18a55;background:#453426}
+body.league-game-mode .v17-ops-ribbon .warn strong{color:#ffd298}
+body.league-game-mode .v17-ops-tabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}
+body.league-game-mode .v17-ops-tabs button{font-size:11px;font-weight:900;letter-spacing:.04em;text-transform:uppercase;text-align:center;background:#123049;color:#b4cee1;border:1px solid #385c79;border-radius:3px;padding:13px 9px;min-height:48px}
+body.league-game-mode .v17-ops-tabs button:hover{background:#1c5476;border-color:#78c7ed}
+body.league-game-mode .v17-ops-tabs button.selected{background:linear-gradient(#2675a8,#195681);border-color:#9cecff;color:#fff;box-shadow:inset 0 -3px #8eeaff}
+body.league-game-mode .v17-ops-workspace{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,335px);gap:13px;align-items:start;min-width:0}
+body.league-game-mode .v17-ops-main{min-width:0}
+body.league-game-mode .v17-rink-stage,body.league-game-mode .v17-staff-panel,body.league-game-mode .v17-team-site-panel,body.league-game-mode .v17-edit-panel,body.league-game-mode .v17-ops-aside{background:#10273d;border:1px solid #385a74;border-radius:6px;padding:15px;min-width:0}
+body.league-game-mode .v17-board-caption{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;padding:0 2px 13px}
+body.league-game-mode .v17-board-caption strong{font-size:13px;color:#f1faff;letter-spacing:.09em}
+body.league-game-mode .v17-board-caption span{font-size:10px;color:#9bbbd1;line-height:1.4}
+body.league-game-mode .v17-rink-scroll{overflow-x:auto;max-width:100%;padding:2px 1px 9px;scrollbar-color:#558bae #10273d}
+body.league-game-mode .v17-rink-grid{display:grid;grid-template-columns:repeat(4,minmax(198px,1fr));gap:7px;min-width:800px}
+body.league-game-mode .v17-rink-lane{min-width:0;background:#0b1f32;border:1px solid #2d4d66;border-radius:4px;display:flex;flex-direction:column;overflow:hidden}
+body.league-game-mode .v17-rink-lane header{display:flex;gap:8px;align-items:baseline;padding:10px 12px;background:linear-gradient(120deg,#1e5177,#163850);border-bottom:2px solid #75cbed}
+body.league-game-mode .v17-rink-lane header>span{color:#a9d9f2;font-size:10px;font-weight:900}
+body.league-game-mode .v17-rink-lane header>b{color:#fff;font-size:26px;line-height:1;font-weight:1000}
+body.league-game-mode .v17-rink-lane header>small{margin-left:auto;color:#b2cfe2;font-size:9px;white-space:nowrap}
+body.league-game-mode .v17-rink-games{padding:8px;display:grid;align-content:start;gap:7px;flex:1}
+body.league-game-mode .v17-fixture-card{display:grid;grid-template-columns:minmax(0,1fr);gap:5px;min-height:135px;text-align:left;position:relative;color:#e2f3ff;background:#163249;border:1px solid #376080;border-radius:4px;padding:9px;overflow-wrap:anywhere}
+body.league-game-mode .v17-fixture-card:hover{background:#205276;border-color:#7bd4fc}
+body.league-game-mode .v17-fixture-card.selected{background:#235c83;border-color:#a0f2ff;box-shadow:inset 0 -3px #84e6ff}
+body.league-game-mode .v17-fixture-card.hold{border-color:#c28c51}
+body.league-game-mode .v17-fixture-clock{display:flex;justify-content:space-between;gap:8px;align-items:center;color:#88e5ff;font-size:18px;line-height:1;font-weight:950;font-variant-numeric:tabular-nums}
+body.league-game-mode .v17-fixture-clock small{font-size:9px;letter-spacing:.08em;font-weight:850;color:#bdd6e6}
+body.league-game-mode .v17-fixture-teams{display:grid;gap:2px}
+body.league-game-mode .v17-fixture-teams b{font-size:11px;font-weight:850;color:#f0fbff;line-height:1.24}
+body.league-game-mode .v17-fixture-teams em{font-size:9px;font-style:normal;font-weight:900;color:#7aa9ca}
+body.league-game-mode .v17-fixture-refs{font-size:9px;color:#8dc6e5;line-height:1.4}
+body.league-game-mode .v17-fixture-flags{display:flex;gap:7px;align-items:center;color:#a0bbd0;font-size:9px;font-weight:850;line-height:1.35}
+body.league-game-mode .v17-dot{height:7px;width:7px;background:#6ab9d6;border-radius:50%;flex:0 0 auto}
+body.league-game-mode .v17-dot.edited{background:#ffd080}
+body.league-game-mode .v17-rink-unknown{font-size:11px;color:#7398b4;padding:30px 9px;line-height:1.6}
+body.league-game-mode .v17-rink-unknown strong{display:block;margin-top:8px;color:#f4cd92}
+body.league-game-mode .v17-rink-lane footer{padding:10px 8px;border-top:1px solid #2c4c66;color:#8eafc7;font-size:9px;line-height:1.5}
+body.league-game-mode .v17-edit-panel{position:sticky;top:13px}
+body.league-game-mode .v17-edit-kicker{color:#87c6e6;font-size:10px;font-weight:920;letter-spacing:.13em;margin:2px 0 10px}
+body.league-game-mode .v17-edit-panel h3{font-size:17px;line-height:1.2;color:#eaf8ff;text-transform:uppercase;margin:5px 0 13px}
+body.league-game-mode .v17-edit-panel h3 span{font-size:10px;color:#75badc}
+body.league-game-mode .v17-edit-panel p{font-size:11px;color:#9bbbd0;line-height:1.6}
+body.league-game-mode .v17-source-line{display:flex;flex-wrap:wrap;gap:7px;align-items:center;color:#a1c4da;font-size:10px;line-height:1.5;border-bottom:1px solid #2b4b66;padding:0 0 12px}
+body.league-game-mode .v17-tag{padding:4px 6px;font-size:9px;font-weight:890;border:1px solid #4c7592;color:#bce7ff;white-space:nowrap}
+body.league-game-mode .v17-tag.draft{border-color:#a77c49;background:#3d301d;color:#ffe1b6}
+body.league-game-mode .v17-edit-time{display:grid;gap:7px;padding:12px 0}
+body.league-game-mode .v17-edit-time>strong{font-size:43px;font-weight:1000;color:#dcf6ff;font-variant-numeric:tabular-nums;line-height:.95}
+body.league-game-mode .v17-edit-time>small{font-size:9px;letter-spacing:.12em;color:#86accc}
+body.league-game-mode .v17-time-buttons{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:5px}
+body.league-game-mode .v17-time-buttons button,body.league-game-mode .v17-rink-picks button{background:#174262;color:#d4f0ff;border:1px solid #4b87ac;padding:11px 8px;min-height:42px;font-weight:900;font-size:11px;border-radius:3px}
+body.league-game-mode .v17-time-buttons button:hover,body.league-game-mode .v17-rink-picks button:hover{background:#2874a4;border-color:#a1eaff}
+body.league-game-mode .v17-rink-picks{display:grid;gap:9px;border-top:1px solid #2c4c65;padding:12px 0}
+body.league-game-mode .v17-rink-picks>span{font-size:10px;font-weight:950;color:#8ebedb;letter-spacing:.07em}
+body.league-game-mode .v17-rink-picks>div{display:grid;grid-template-columns:repeat(4,1fr);gap:5px}
+body.league-game-mode .v17-rink-picks button{padding:10px 2px;font-size:10px}
+body.league-game-mode .v17-rink-picks button.selected{background:#2b78a4;border-color:#9deaff;box-shadow:inset 0 -3px #a0f4ff}
+body.league-game-mode .v17-crew-inline{display:grid;grid-template-columns:1fr;gap:7px;border-top:1px solid #294d66;padding:12px 0}
+body.league-game-mode .v17-crew-inline>div{display:grid;gap:4px}
+body.league-game-mode .v17-crew-inline span{font-size:9px;font-weight:820;color:#89b6d3}
+body.league-game-mode .v17-crew-inline strong{font-size:11px;color:#d7f1ff}
+body.league-game-mode .v17-edit-advanced{border-top:1px solid #294c65;padding:10px 0}
+body.league-game-mode .v17-edit-advanced>summary{cursor:pointer;list-style:none;color:#82cbea;font-size:10px;font-weight:840}
+body.league-game-mode .v17-edit-advanced>summary::-webkit-details-marker{display:none}
+body.league-game-mode .v17-advanced-body{display:grid;gap:9px;padding:11px 0}
+body.league-game-mode .v17-advanced-body label{display:grid;gap:4px;color:#acd2e7;font-size:10px}
+body.league-game-mode .v17-advanced-body :is(input,select){min-height:39px;padding:8px;width:100%}
+body.league-game-mode .v17-small-action{background:#1f638d;border:1px solid #78b5d9;padding:11px;color:#fff;font-weight:870}
+body.league-game-mode .v17-warning,body.league-game-mode .v17-ok{margin:10px 0;background:#402f23;border:1px solid #a07546;border-radius:4px;padding:10px 11px}
+body.league-game-mode .v17-warning strong{font-size:11px;color:#ffe1aa}
+body.league-game-mode .v17-warning p{font-size:10px;color:#edcfae;margin:5px 0}
+body.league-game-mode .v17-ok{background:#123e38;border-color:#377f72}
+body.league-game-mode .v17-ok strong{font-size:11px;color:#c7ffe6}
+body.league-game-mode .v17-ok p{color:#a4d4c7;font-size:10px;margin:5px 0}
+body.league-game-mode .v17-sync-action{display:grid;gap:7px;margin:14px 0 9px}
+body.league-game-mode .v17-sync-action button{border-radius:3px;border:1px solid #86dcff;background:#1b76b2;color:#fff;padding:13px 9px;min-height:43px;text-align:center;font-size:11px;font-weight:920;letter-spacing:.04em}
+body.league-game-mode .v17-sync-action button:hover{background:#299cdb}
+body.league-game-mode .v17-sync-action button:disabled{opacity:.45;cursor:default;background:#1d3c53;border-color:#496479}
+body.league-game-mode .v17-sync-action button#v17-revert{background:#162e43;border-color:#536c85;color:#bbd8eb}
+body.league-game-mode .v17-sync-status{font-size:10px;color:#9fbed3;line-height:1.6}
+body.league-game-mode .v17-team-links{display:grid;gap:6px;margin:12px 0}
+body.league-game-mode .v17-team-links a{font-size:10px;font-weight:820;color:#86d8ff;line-height:1.45;overflow-wrap:anywhere}
+body.league-game-mode .v17-idle{min-height:350px}
+body.league-game-mode .v17-idle h3{font-size:22px}
+body.league-game-mode .v17-staff-heading{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap;margin:0 0 17px}
+body.league-game-mode .v17-staff-heading h2{font-size:23px;line-height:1.05;letter-spacing:-.04em;text-transform:uppercase;color:#f0faff;margin:7px 0}
+body.league-game-mode .v17-staff-heading p{max-width:750px;font-size:11px;line-height:1.6;color:#aecadd;margin:0}
+body.league-game-mode .v17-staff-heading>strong{display:grid;font-size:30px;color:#a3eeff;text-align:center;white-space:nowrap}
+body.league-game-mode .v17-staff-heading>strong small{font-size:9px;color:#9bbbd3}
+body.league-game-mode .v17-model-chips{display:flex;flex-wrap:wrap;align-items:center;gap:7px;padding:10px 0 16px}
+body.league-game-mode .v17-model-chips>span{font-size:10px;color:#93bad3;font-weight:900;margin-right:6px}
+body.league-game-mode .v17-model-chips button{padding:8px 12px;min-width:65px;background:#17405c;border:1px solid #446c89;color:#b5d9ee;font-size:10px;font-weight:930;border-radius:3px}
+body.league-game-mode .v17-model-chips button.selected{background:#2a77a6;color:#fff;border-color:#9feaff}
+body.league-game-mode .v17-machine-columns{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+body.league-game-mode .v17-machine-column{background:#0d2237;border:1px solid #335b78;border-radius:4px;overflow:hidden;min-width:0}
+body.league-game-mode .v17-machine-column header{padding:13px;background:#1a4e73;display:grid;gap:5px}
+body.league-game-mode .v17-machine-column header strong{color:#fff;font-size:13px}
+body.league-game-mode .v17-machine-column header small{color:#afd1e5;font-size:10px}
+body.league-game-mode .v17-machine-column>div{display:grid;align-content:start;gap:7px;padding:10px}
+body.league-game-mode .v17-ice-job{display:grid;grid-template-columns:1fr auto;gap:3px 10px;align-items:center;background:#13364d;border:1px solid #3b6581;border-radius:3px;padding:11px}
+body.league-game-mode .v17-ice-job span{font-size:12px;font-weight:950;color:#99dfff;font-variant-numeric:tabular-nums}
+body.league-game-mode .v17-ice-job b{font-size:10px;color:#d9f3ff}
+body.league-game-mode .v17-ice-job small{grid-column:1/-1;font-size:9px;color:#9cbbd2}
+body.league-game-mode .v17-ops-method{border:1px solid #315470;background:#11293d;border-radius:5px;padding:11px 14px;font-size:10px;color:#9fbed5;margin-top:8px}
+body.league-game-mode .v17-ops-method>summary{cursor:pointer;color:#9dd4f0;font-weight:850}
+body.league-game-mode .v17-ops-method>p{font-size:10px;line-height:1.7}
+body.league-game-mode .v17-officials-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+body.league-game-mode .v17-crew-card{display:grid;gap:6px;text-align:left;background:#142f47;border:1px solid #345975;color:#e1f1ff;border-radius:4px;padding:12px}
+body.league-game-mode .v17-crew-card.selected{border-color:#a2edff;background:#236187}
+body.league-game-mode .v17-crew-card:hover{border-color:#82d8ff;background:#205372}
+body.league-game-mode .v17-crew-card>span{font-size:10px;font-weight:900;color:#8fe0ff}
+body.league-game-mode .v17-crew-card strong{font-size:12px;line-height:1.4}
+body.league-game-mode .v17-crew-card small{font-size:10px;color:#a3c7dc}
+body.league-game-mode .v17-roster-note{display:grid;gap:5px;background:#142b40;border-left:3px solid #67c0ec;padding:12px;margin:14px 0 5px}
+body.league-game-mode .v17-roster-note strong{font-size:11px;color:#d0ebff}
+body.league-game-mode .v17-roster-note span{font-size:10px;color:#9fbed4;line-height:1.5}
+body.league-game-mode .v17-team-select{display:flex;gap:6px;overflow-x:auto;padding:5px 0 15px;scrollbar-color:#48789b #10243a}
+body.league-game-mode .v17-team-select button{flex:0 0 auto;max-width:170px;min-height:35px;padding:8px 10px;font-size:10px;font-weight:830;border:1px solid #385c79;color:#c0daec;background:#173550;border-radius:3px}
+body.league-game-mode .v17-team-select button.selected{border-color:#8ae4ff;background:#246c9c;color:white}
+body.league-game-mode .v17-hockeyos-preview{border:1px solid #44728f;background:#071a2d;border-radius:4px;min-height:165px;overflow:hidden}
+body.league-game-mode .v17-hockeyos-banner{display:grid;gap:4px;background:#184968;border-bottom:2px solid #6dcaf4;padding:16px}
+body.league-game-mode .v17-hockeyos-banner>span{font-size:11px;letter-spacing:.17em;font-weight:900;color:#a5eaff}
+body.league-game-mode .v17-hockeyos-banner b{font-size:18px;text-transform:uppercase;color:#fff;overflow-wrap:anywhere}
+body.league-game-mode .v17-hockeyos-banner small{font-size:9px;color:#b6d9ef}
+body.league-game-mode .v17-team-game{display:grid;gap:6px;padding:12px;border-bottom:1px solid #2c516d}
+body.league-game-mode .v17-team-game.updated{background:#164938;border-left:4px solid #63d7a7}
+body.league-game-mode .v17-team-game span{font-size:10px;color:#98d7ee;font-weight:890}
+body.league-game-mode .v17-team-game strong{font-size:12px;color:#ecfaff}
+body.league-game-mode .v17-team-game em{font-style:normal;color:#6f9dc4}
+body.league-game-mode .v17-team-game small{font-size:9px;color:#a3d7be}
+body.league-game-mode .v17-no-team{padding:15px;color:#9fbcd1;font-size:11px}
+body.league-game-mode .v17-open-site{display:block;text-align:center;margin:12px 0;padding:11px;border:1px solid #83dcff;background:#1d699b;color:#fff!important;font-size:11px;font-weight:880;text-decoration:none}
+body.league-game-mode .v17-open-site:hover{background:#2b8ac0}
+body.league-game-mode .v17-warning.subtle{background:#273137;border-color:#64727d}
+body.league-game-mode .v17-ops-aside strong{font-size:14px;color:#bceaff}
+body.league-game-mode .v17-ops-aside p{font-size:11px;line-height:1.6;color:#a3c5db}
+body.league-game-mode .v17-ops-aside button{background:#1c6b9d;color:white;border:1px solid #81cdef;padding:12px;font-weight:900}
+body.league-game-mode .v17-notice{font-size:11px;line-height:1.55;color:#d4f9ff;border:1px solid #438b91;border-left:4px solid #61d9c8;background:#163e43;padding:12px}
+body.league-game-mode .v17-loading{border:1px solid #345978;background:#10273e;padding:22px}
+body.league-game-mode .v17-loading strong{color:#d8f5ff}
+body.league-game-mode .v17-loading p{font-size:12px;color:#a5c4d9}
+@media(max-width:1230px){body.league-game-mode .v17-ops-workspace{grid-template-columns:minmax(0,1fr) minmax(220px,285px)}body.league-game-mode .v17-officials-grid{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:980px){
+ body.league-game-mode .v17-ops-workspace{display:grid;grid-template-columns:minmax(0,1fr)}
+ body.league-game-mode .v17-edit-panel{position:static}
+ body.league-game-mode .v17-rink-grid{min-width:800px}
+ body.league-game-mode .v17-officials-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ body.league-game-mode .v17-date-strip button{flex:0 0 105px}
+}
+@media(max-width:610px){
+ body.league-game-mode .v17-stage-header{padding:15px;align-items:start}
+ body.league-game-mode .v17-stage-header h2{font-size:25px}
+ body.league-game-mode .v17-stage-header p{font-size:10px}
+ body.league-game-mode .v17-demo-status{white-space:normal;font-size:9px;max-width:100px;padding:8px}
+ body.league-game-mode .v17-ops-tabs{grid-template-columns:repeat(2,minmax(0,1fr))}
+ body.league-game-mode .v17-ops-tabs button{font-size:10px;min-height:42px}
+ body.league-game-mode .v17-rink-stage,body.league-game-mode .v17-staff-panel,body.league-game-mode .v17-team-site-panel,body.league-game-mode .v17-edit-panel{padding:12px}
+ body.league-game-mode .v17-rink-grid{min-width:700px;grid-template-columns:repeat(4,172px)}
+ body.league-game-mode .v17-fixture-card{min-height:130px}
+ body.league-game-mode .v17-machine-columns{grid-template-columns:1fr}
+ body.league-game-mode .v17-officials-grid{grid-template-columns:1fr}
+ body.league-game-mode .v17-edit-time>strong{font-size:37px}
+ body.league-game-mode .v17-ops-ribbon>span{flex:1 1 calc(50% - 6px)}
+ body.league-game-mode .v17-ops-ribbon strong{font-size:18px}
+ body.league-game-mode .v17-staff-heading h2{font-size:20px}
+ body.league-game-mode .v17-board-caption{gap:5px}
+ body.league-game-mode .v17-board-caption strong{font-size:11px}
+}
+@media(prefers-reduced-motion:reduce){body.league-game-mode .v17-console *,body.league-game-mode .v17-console *:before{transition:none!important;animation:none!important}}
