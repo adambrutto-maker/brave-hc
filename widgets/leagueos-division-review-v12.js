@@ -68,7 +68,6 @@ state.peerA=peerA?.team_id||null;state.peerB=peerB?.team_id||null;
 const size=all.length,high=all[0],low=all.at(-1),diffRate=high&&low?high.rate-low.rate:0;
 const source=dataset.ops.league_nights.find(x=>x.night===state.night)||{};
 const sampleGames=dataset.fixtures.fixtures.filter(g=>g.league_id===focus.league_id&&g.status==="COMPLETED_SOURCE_VERIFIED"&&(g.home_team_id===focus.team_id||g.away_team_id===focus.team_id)).length;
-const summary=all.length?all.reduce((x,r)=>x+r.gdpg,0)/all.length:0;
 let html='<div class="v12-review">'+
  '<div class="v12-source-strip"><strong>Published standings snapshot · '+stamp+'</strong><span>Full season schedule not connected · No official division changes</span>'+
  '<a href="'+esc(safeLeagueUrl(state.night))+'" target="_blank" rel="noopener noreferrer">Official league source ↗</a></div>'+
@@ -79,11 +78,13 @@ let html='<div class="v12-review">'+
  '<div class="v12-metrics"><div><small>Division teams</small><strong>'+size+'</strong><span>Captured public standings</span></div>'+
  '<div><small>Top-to-bottom points rate gap</small><strong>'+Math.round(diffRate*100)+' pp</strong><span>'+esc(high?.team||"—")+' vs '+esc(low?.team||"—")+'</span></div>'+
  '<div><small>'+esc(focus.team)+' record</small><strong>'+focus.w+'–'+focus.l+'–'+focus.t+'</strong><span>'+focus.pts+' points · '+(focus.gd>=0?"+":"")+focus.gd+' goal difference</span></div></div>'+
- '<section class="panel v12-standings"><div class="v12-panel-heading"><h2>Whole-division comparison</h2><p>Compare every team before discussing a placement change. This avoids treating one club’s results as the whole league.</p></div>'+
+
+ const standingsSection='<section class="panel v12-standings"><div class="v12-panel-heading"><h2>Whole-division comparison</h2><p>Compare every team before discussing a placement change. This avoids treating one club’s results as the whole league.</p></div>'+
  '<div class="lc-tablewrap"><table class="lc-table"><thead><tr><th>Team</th><th>W–L–T</th><th>Pts rate</th><th>Goal diff./game</th><th>Published goals</th></tr></thead><tbody>'+
  all.map(x=>'<tr class="'+(x.team_id===focus.team_id?"v12-focus-row":"")+'"><td><b>'+esc(x.team)+'</b></td><td>'+x.w+'–'+x.l+'–'+x.t+'</td><td><div class="v12-pct-cell"><span>'+pct(x.rate)+'</span><i style="--pct:'+Math.round(x.rate*100)+'%"></i></div></td>'+
  '<td class="'+(x.gdpg>=0?"v12-positive":"v12-negative")+'">'+(x.gdpg>0?"+":"")+dec(x.gdpg,2)+'</td><td>'+x.gf+' for / '+x.ga+' against</td></tr>').join("")+'</tbody></table></div>'+
  '<p class="v12-table-caption">Points rate = earned standings points ÷ maximum available points (2 × games played). The snapshot may differ from cached versions of the public page; use the exact capture date.</p></section>';
+
  if(candidates.length){
   const peerNames=all.map(x=>({id:x.team_id,name:x.team}));
   html+='<section class="panel v12-matchups"><div class="v12-panel-heading"><h2>Compare repeated opponent exposure</h2><p>Select any two teams in this division. Head-to-head results come from reciprocal published game records, not a predicted score.</p></div>'+
@@ -101,6 +102,7 @@ let html='<div class="v12-review">'+
   '<label class="v12-repeat-check"><input type="checkbox" id="v12-repeat"'+(state.showRepeat?' checked':'')+'><span><b>Illustrate one more meeting with each comparison team</b><small>This does not create or confirm future games.</small></span></label>'+
   (state.showRepeat?'<div class="v12-scenario-note"><strong>Illustrative rematch exposure: 2 additional matchups</strong><p>A further game against '+esc(peerA?.team||"—")+' and '+esc(peerB?.team||"—")+' would repeat these opponent pairings. No dates, scores, ice assignments or outcomes are assumed; the commissioner would review competitive balance across the entire division.</p></div>':'')+'</section>';
  }
+ html+=standingsSection;
  const next=futureGames(focus);
  html+='<section class="panel v12-next"><div class="v12-panel-heading"><h2>Next games visible in the capture</h2><p>Only source-verified published fixtures are listed. Later rematches are not confirmed by the available fixture window.</p></div>'+
  (next.length?'<div class="v12-next-list">'+gameList(next.slice(0,4),focus)+'</div>':'<p class="v12-none">No future fixture is visible in this partial snapshot. That is not evidence there are no future games.</p>')+
