@@ -136,8 +136,8 @@ function ladderUI(calc){
    const score=m.kind==="best3"?m.winHome+"–"+m.winAway+" wins":m.pointHome+"–"+m.pointAway+" points";
    return '<button type="button" class="v11-ladder-game'+(m.complete?" is-complete":"")+'" data-ladder-game="'+esc(m.id)+'"'+(!ready?' disabled':'')+' aria-label="'+esc((ready?"Review series scores: ":"Awaiting qualifiers: ")+home+" versus "+away)+'">'+
     '<span class="v11-game-kicker">'+esc(m.id.replaceAll("-"," ").toUpperCase())+' <small>'+seriesLabel+'</small></span>'+
-    '<span class="v11-ladder-club'+(m.winner===m.home?" is-winner":"")+'"><span>'+esc(home)+'</span><b>'+(!ready?"—":(m.kind==="best3"?m.winHome:m.pointHome))+'</b></span>'+
-    '<span class="v11-ladder-club'+(m.winner===m.away?" is-winner":"")+'"><span>'+esc(away)+'</span><b>'+(!ready?"—":(m.kind==="best3"?m.winAway:m.pointAway))+'</b></span>'+
+    '<span class="v11-ladder-club'+(m.winner&&m.winner===m.home?" is-winner":"")+'"><span>'+esc(home)+'</span><b>'+(!ready?"—":(m.kind==="best3"?m.winHome:m.pointHome))+'</b></span>'+
+    '<span class="v11-ladder-club'+(m.winner&&m.winner===m.away?" is-winner":"")+'"><span>'+esc(away)+'</span><b>'+(!ready?"—":(m.kind==="best3"?m.winAway:m.pointAway))+'</b></span>'+
     '<span class="v11-ladder-state"><span>'+esc(m.winner?"Advances: "+m.winner:state)+'</span><small>'+(ready?esc(score):"")+'</small></span></button>'
   }).join('');
   cols.push('<div class="v11-ladder-round"><div class="v11-round-heading"><strong>'+esc(short)+'</strong><span>'+stage.series.length+' series</span></div>'+games+'</div>');
