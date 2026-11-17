@@ -235,3 +235,16 @@ body{background:#f5f7fa;color:var(--v10-ink);font-size:14px}
  .intro .btn{justify-self:start;white-space:normal;text-align:center}
  .v10-hero{margin-top:2px}
 }
+
+
+/* Prevent advanced, long-form data tools from determining the mobile grid width. */
+@media(max-width:780px){
+ .shell{width:100%;min-width:0}
+ .body{width:100%;max-width:100%;min-width:0;margin:0;overflow-wrap:break-word}
+ #league-inventory-mount{width:100%;max-width:100%;min-width:0}
+ #league-inventory-mount .panel{max-width:100%;min-width:0}
+ #league-inventory-mount .lc-controls{grid-template-columns:minmax(0,1fr)}
+ #league-inventory-mount .lc-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}
+ #league-inventory-mount code{overflow-wrap:anywhere;word-break:break-word}
+ #league-inventory-mount textarea{max-width:100%}
+}
