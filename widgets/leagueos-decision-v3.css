@@ -127,3 +127,21 @@
 @media(max-width:530px){.desk-metrics{gap:8px}.desk-metrics>div{padding:11px}.desk-metrics strong{font-size:23px}.desk-metrics small{font-size:10px}.desk-workspace{padding:13px 11px}.desk-case-header h2{font-size:18px}.desk-case-header-actions{display:flex}.desk-case-header-actions .btn{flex:1}.desk-step-nav{gap:4px}.desk-step-nav button{font-size:9px;padding:9px 3px;gap:4px}.desk-step-nav button span{width:17px;height:17px;font-size:9px}.desk-heading strong{font-size:13px}.desk-exchange-grid{grid-template-columns:1fr}.desk-impact-grid{grid-template-columns:1fr}.desk-info-grid{gap:6px}.desk-info-grid>div{padding:10px}.desk-gate{grid-template-columns:1fr;gap:9px}.desk-research-heading{display:grid}.desk-research-heading small{text-align:left}.desk-step-controls .btn{font-size:11px}.desk-step-controls{align-items:stretch}.desk-stage .field{max-width:none}}
 
 @media(max-width:530px){.desk-segment button{font-size:9px;padding:8px 1px}}
+
+
+/* Source-qualified fixture impact — V4 decision-step extension */
+.desk-fixture-source{display:grid;gap:5px;margin:13px 0 10px;padding:11px 13px;background:#f4f8fc;border:1px solid #dbe7f3;border-radius:8px}
+.desk-fixture-source strong{font-size:11px;color:#2e537b}
+.desk-fixture-source span{font-size:10px;color:#6a8199;line-height:1.65}
+.desk-schedule-list{border:1px solid #e1e9f2;border-radius:9px;overflow:hidden;margin:12px 0}
+.desk-source-fixture{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:13px;border-bottom:1px solid #e8edf5;background:white}
+.desk-source-fixture:nth-child(2n){background:#fbfdff}
+.desk-source-fixture:last-child{border:0}
+.desk-source-fixture>div{display:grid;gap:4px;min-width:0}
+.desk-source-fixture b{font-size:11px;color:#2e5276;font-weight:850}
+.desk-source-fixture strong{font-size:11px;color:#385a7b;font-weight:750;overflow-wrap:anywhere}
+.desk-source-fixture small{font-size:10px;color:#768da3;line-height:1.4}
+.desk-source-fixture a{font-size:10px;font-weight:800;color:#1559ad;white-space:nowrap}
+.desk-match-change{display:inline-block;color:#99682c;background:#fff3df;padding:3px 7px;border-radius:5px;line-height:1.3}
+.desk-match-kept{color:#5e7b95}
+@media(max-width:530px){.desk-source-fixture{align-items:flex-start;gap:6px}.desk-source-fixture a{padding-top:2px}.desk-source-fixture strong{font-size:10px}}
