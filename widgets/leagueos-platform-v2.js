@@ -230,6 +230,33 @@ function leagueScheduleWeek(){
  return opsWeekBoard()+opsIceBoard();
 }
 function footnote(){return '<p class="disclaimer">BruTTech independent demonstration. SVHL and HTO remain authoritative for published league and team records. No live rentals, registrations, payments, disciplinary decisions, WhatsApp group posts or official game sheets are submitted here. Public source snapshots are partial and may lag official updates.</p>'}
+function featureDirectory(){
+ const groups=[
+  {title:"Run games and the league",items:[
+   ["Digital game sheets","Interactive scorer-box draft","league-scoring","Working demo"],
+   ["Team registration","Online roster form with up to 20 rows","league-registration","Working draft"],
+   ["Rulebook and reviews","Search selected rules and draft clarifications","league-rules","Working draft"],
+   ["Ice rental requests","Record an inquiry, not a booking","league-ice","Working draft"]]},
+  {title:"Teams, standings and league intelligence",items:[
+   ["Standings and divisions","Published team records by league night","league-divisions","Source-based"],
+   ["League history","Historical results, divisions and seasons","league-history","Source-based"],
+   ["Division decisions","Evidence-backed realignment review","league-alignment","Review preview"],
+   ["League analytics","Opponent, competitive-balance and audit links","league-analysis","Research preview"]]},
+  {title:"Commercial and future operations",items:[
+   ["Payments and receipts","Deposits, instalments and balances; provider not connected","league-payments","Proposed"],
+   ["Player eligibility","Player movement, call-ups and eligibility approval","", "Planned"],
+   ["Discipline and video review","Commissioner case review with linked evidence","", "Planned"]]}
+ ];
+ return '<details class="v11-feature-directory" id="league-feature-directory"><summary><span><strong>Explore the rest of LeagueOS</strong><small>Game sheets, registration, rulebook, history, payments and other commissioner tools are still part of the demo scope.</small></span><span aria-hidden="true">⌄</span></summary>'+
+  '<div class="v11-feature-dir-body">'+groups.map(group=>
+   '<div class="v11-feature-dir-group"><h3>'+esc(group.title)+'</h3><div class="v11-feature-dir-grid">'+group.items.map(item=>
+    item[2]?'<button type="button" class="v11-feature-dir-entry" data-go="'+esc(item[2])+'"><strong>'+esc(item[0])+'</strong><small>'+esc(item[1])+'</small><span>'+esc(item[3])+' · Open</span></button>':
+    '<div class="v11-feature-dir-entry is-planned"><strong>'+esc(item[0])+'</strong><small>'+esc(item[1])+'</small><span>'+esc(item[3])+' · Not active</span></div>'
+   ).join('')+'</div></div>'
+  ).join('')+
+  '<p class="v11-feature-dir-disclaimer">All interactive previews use browser-local drafts or public historical records. Payment processing, official eligibility, discipline, live rink contracts and league publication require separate authorization and are not connected.</p></div></details>';
+}
+
 function homeLeague(){
  const sourceGames=state.fullGameRegistry?.counts?.total??411;
  return '<div class="v10-home">'+
@@ -241,7 +268,7 @@ function homeLeague(){
  '<button type="button" class="v10-task" data-go="league-planner"><span class="v10-task-icon">◷</span><strong>Build a fair schedule</strong><span>Rotate early and late starts using observed historical game times.</span><em>Try the scheduler <span aria-hidden="true">→</span></em></button>'+
  '<button type="button" class="v10-task" data-go="league-playoffs"><span class="v10-task-icon">🏆</span><strong>Run the playoffs</strong><span>Organize matchups, enter scores and see teams advance.</span><em>Open playoffs <span aria-hidden="true">→</span></em></button></div>'+
  '<section class="v10-overview-bottom"><div><div class="v10-kicker">WHAT THE DEMO USES</div><h2>Real league history. Clearer league operations.</h2><p>Published information demonstrates the experience; any proposed schedules and playoff outcomes stay in this browser.</p></div><div class="v10-mini-stats"><div><strong>4</strong><span>Active league nights</span></div><div><strong>96</strong><span>Published team-season records</span></div><div><strong>'+sourceGames+'</strong><span>Captured fixture references</span></div></div></section>'+
- '<div class="v10-link-row"><button class="btn" data-go="league-divisions">Standings</button><button class="btn" data-go="league-history">Season history</button><button class="btn" data-go="league-alignment">Division balance research</button></div>'+
+ '<div class="v10-link-row"><button class="btn" data-go="league-divisions">Standings</button><button class="btn" data-go="league-history">Season history</button><button class="btn" data-go="league-alignment">Division balance research</button></div>'+featureDirectory()+
  footnote()+'</div>'
 }
 function leaguePlanner(){return intro("SCHEDULING · STEP BY STEP","Build a fair season schedule","Choose a league night. We’ll use observed SVHL start-time patterns to create a schedule and show how early and late games are shared.",btn("Back to calendar","league-schedule"))+'<div id="league-planner-mount" aria-live="polite"><section class="panel loader">Loading season scheduler…</section></div>'}

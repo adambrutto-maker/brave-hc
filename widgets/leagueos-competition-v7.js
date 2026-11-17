@@ -7,8 +7,15 @@ const minute=s=>{const m=/^([01]\d|2[0-3]):([0-5]\d)$/.exec(String(s).trim());re
 const clock=n=>Number.isFinite(n)?String(Math.floor(Math.round(n)/60)%24).padStart(2,"0")+":"+String(Math.round(n)%60).padStart(2,"0"):"—";
 const dateFor=(start,night,week)=>{const d=new Date(start+"T12:00:00Z");if(isNaN(+d))return "";let k=0;while(d.getUTCDay()!==days[night]&&k++<7)d.setUTCDate(d.getUTCDate()+1);d.setUTCDate(d.getUTCDate()+week*7);return d.toISOString().slice(0,10)};
 const download=(obj,name)=>{const b=new Blob([JSON.stringify(obj,null,2)],{type:"application/json"}),url=URL.createObjectURL(b),a=document.createElement("a");a.href=url;a.download=name;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000)};
+const downloadCsv=(scenario)=>{
+ const header=["Week","Date","Start time","Rink","Division","Home team","Away team","Status"];
+ const rows=[header,...scenario.fixtures.map(g=>[g.week,g.date,g.time,g.rink,g.division,g.home,g.away,"DRAFT_NOT_BOOKED"])];
+ const cell=v=>{let t=String(v??"");if(/^[\s]*[=+\-@]/.test(t))t="'"+t;return '"'+t.replace(/"/g,'""')+'"'};
+ const csv="\uFEFF"+rows.map(row=>row.map(cell).join(",")).join("\r\n")+"\r\n";
+ const blob=new Blob([csv],{type:"text/csv;charset=utf-8"}),url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download="leagueos-draft-schedule-v11.csv";document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1400)
+};
 const defaults={night:"Wednesday",weeks:8,start:"2026-12-01",rinks:"A,B,C,D",times:"19:15,20:30,21:45,23:00",includeHistory:true,playNight:"Wednesday",playDivision:"Franco Canadian",seedings:{},scores:{},slots:{},bronze:true,inventoryMode:"historical",scheduler_demo_version:9};
-let prefs={...defaults},source=null,loading=null,plan=null,weekShown=0,previewTab="calendar",issue="";
+let prefs={...defaults},source=null,loading=null,plan=null,weekShown=0,previewTab="calendar",calendarLayout="list",issue="";
 try{const x=JSON.parse(localStorage.getItem(STORAGE)||"null");if(x&&typeof x==="object"){prefs={...defaults,...x,seedings:x.seedings||{},scores:x.scores||{},slots:x.slots||{}};if(!(x.scheduler_demo_version>=9)){prefs.inventoryMode="historical";prefs.scheduler_demo_version=9}}}catch(_){}
 const persist=()=>{try{localStorage.setItem(STORAGE,JSON.stringify(prefs))}catch(_){}};
 const teamsFor=night=>source?source.teams.filter(t=>t.night===night):[];
@@ -92,26 +99,51 @@ function plannerUI(){
  }
  const r=plan.report,sorted=r.stats.slice().sort((a,b)=>Math.abs(b.delta)-Math.abs(a.delta)),weekly=plan.fixtures.filter(g=>g.week===weekShown+1);
  const rounded=Math.round(r.spread),mode=plan.facility_inventory==="HISTORICALLY_OBSERVED_RINK_TIME_PATTERN_NOT_BOOKABLE"?"Based on historical start-time patterns":"Based on selected scenario time slots";
- html+='</div><section class="v10-results" id="lc-preview-results"><div class="v10-result-intro"><div><div class="v10-wizard-label">REVIEW YOUR SCHEDULE <span>2 of 2 · Compare and export</span></div><h2>Here’s your schedule preview</h2><p>'+esc(mode)+' · Not booked or published.</p></div><button type="button" class="btn" id="lc-export-plan">Export draft schedule</button></div>'+
+ html+='</div><section class="v10-results" id="lc-preview-results"><div class="v10-result-intro"><div><div class="v10-wizard-label">REVIEW YOUR SCHEDULE <span>2 of 2 · Compare and export</span></div><h2>Here’s your schedule preview</h2><p>'+esc(mode)+' · Not booked or published.</p></div><button type="button" class="btn" id="lc-export-csv">Export schedule (CSV)</button></div>'+
  '<div class="v10-result-metrics"><div><small>Games scheduled</small><strong>'+plan.fixtures.length+'</strong><span>Across '+prefs.weeks+' weeks</span></div><div><small>Teams included</small><strong>'+r.stats.length+'</strong><span>All published teams this night</span></div><div><small>Gap between team averages</small><strong>'+rounded+' min</strong><span>Latest average minus earliest average</span></div></div>'+
  '<div class="v10-readout"><span class="v10-readout-mark">✓</span><p><strong>Fair-start scenario created.</strong> Team average game starts are within '+rounded+' minutes of each other in this sample. Actual scheduling would still require facility approval.</p></div>'+
  '<div class="v10-view-tabs" role="tablist" aria-label="Schedule results">'+
  '<button type="button" role="tab" aria-selected="'+(previewTab==="calendar")+'" class="'+(previewTab==="calendar"?'active':'')+'" data-lc-view="calendar">Games by week</button>'+
  '<button type="button" role="tab" aria-selected="'+(previewTab==="fairness")+'" class="'+(previewTab==="fairness"?'active':'')+'" data-lc-view="fairness">Fairness by team</button></div>';
  if(previewTab==="calendar"){
-  html+='<section class="panel v10-preview-panel"><div class="v10-preview-head"><h3>Week '+(weekShown+1)+' of '+prefs.weeks+'</h3><p>Proposed matchups, times and rinks.</p></div>'+
-  '<div class="lc-week-tabs">'+Array.from({length:prefs.weeks},(_,i)=>'<button type="button" class="'+(i===weekShown?'selected':'')+'" data-lc-week="'+i+'">Week '+(i+1)+'</button>').join('')+'</div>'+
-  '<div class="v10-game-list">'+weekly.slice().sort((a,b)=>minute(a.time)-minute(b.time)||a.rink.localeCompare(b.rink)).map(g=>
-  '<div class="v10-game-item"><div class="v10-game-time"><strong>'+esc(g.time)+'</strong><small>'+esc(g.date)+'</small></div><div class="v10-matchup"><strong>'+esc(g.home)+' <span>vs</span> '+esc(g.away)+'</strong><small>'+esc(g.division)+'</small></div><div class="v10-game-rink">Rink '+esc(g.rink)+'</div></div>').join('')+'</div></section>';
+  const games=weekly.slice().sort((a,b)=>minute(a.time)-minute(b.time)||a.rink.localeCompare(b.rink));
+  const lanes=[...new Set(games.map(g=>g.rink))].sort((a,b)=>a.localeCompare(b));
+  const list='<div class="v10-game-list">'+games.map(g=>
+    '<div class="v10-game-item"><div class="v10-game-time"><strong>'+esc(g.time)+'</strong><small>'+esc(g.date)+'</small></div><div class="v10-matchup"><strong>'+esc(g.home)+' <span>vs</span> '+esc(g.away)+'</strong><small>'+esc(g.division)+'</small></div><div class="v10-game-rink">Rink '+esc(g.rink)+'</div></div>').join('')+'</div>';
+  const rinkBoard='<div class="v11-rinks-scroll" role="region" aria-label="Schedule by rink — scroll horizontally if needed" tabindex="0"><div class="v11-rinks-board">'+lanes.map(rink=>
+    '<div class="v11-rink-column"><h4>Rink '+esc(rink)+'</h4>'+
+    games.filter(g=>g.rink===rink).map(g=>'<div class="v11-rink-event"><time>'+esc(g.time)+'</time><strong>'+esc(g.home)+' vs '+esc(g.away)+'</strong><small>'+esc(g.division)+'</small></div>').join('')+
+    '</div>').join('')+'</div></div>';
+  html+='<section class="panel v10-preview-panel"><div class="v10-preview-head"><h3>Week '+(weekShown+1)+' of '+prefs.weeks+'</h3><p>Proposed matchups, start times and rinks. These are not confirmed bookings.</p></div>'+
+    '<div class="lc-week-tabs">'+Array.from({length:prefs.weeks},(_,i)=>'<button type="button" class="'+(i===weekShown?'selected':'')+'" data-lc-week="'+i+'">Week '+(i+1)+'</button>').join('')+'</div>'+
+    '<div class="v11-schedule-view"><span>See the week as</span><button type="button" class="'+(calendarLayout==="list"?'active':'')+'" data-lc-layout="list" aria-pressed="'+(calendarLayout==="list")+'">Game list</button>'+
+    '<button type="button" class="'+(calendarLayout==="rinks"?'active':'')+'" data-lc-layout="rinks" aria-pressed="'+(calendarLayout==="rinks")+'">By rink</button></div>'+
+    (calendarLayout==="rinks"?rinkBoard:list)+'</section>';
  }else{
-  html+='<section class="panel v10-preview-panel"><div class="v10-preview-head"><h3>Early and late game balance</h3><p>Smaller time differences mean a more even rotation. Figures include captured past starts when that option is selected.</p></div>'+
-  '<div class="lc-tablewrap"><table class="lc-table v10-fairness-table"><thead><tr><th>Team</th><th>Avg. game start</th><th>Difference from overall average</th><th>10 PM+ starts</th></tr></thead><tbody>'+
-  sorted.map(x=>'<tr><td><b>'+esc(x.team.team_name)+'</b><small>'+esc(x.team.division)+'</small></td><td><b>'+clock(x.avg)+'</b></td><td class="'+(Math.abs(x.delta)<30?'lc-good':'lc-attention')+'">'+(x.delta>0?'+':'')+Math.round(x.delta)+' min</td><td>'+x.late+' of '+x.count+'</td></tr>').join('')+'</tbody></table></div></section>';
+  const allTimes=[...new Set(plan.fixtures.map(g=>minute(g.time)).filter(Number.isFinite))].sort((a,b)=>a-b);
+  const first=allTimes[Math.floor((allTimes.length-1)/3)]??0,last=allTimes[Math.floor((allTimes.length-1)*2/3)]??1440;
+  const matrix='<div class="v11-rotation-legend"><span><b>E</b> Earlier start</span><span><b>M</b> Middle start</span><span><b>L</b> Later start</span><span><b>—</b> Bye</span></div>'+
+    '<div class="v11-rotation-wrap" role="region" aria-label="Early and late start rotation by team" tabindex="0"><div class="v11-rotation-grid" style="--v11-week-count:'+Number(prefs.weeks)+'">'+
+    '<div class="v11-rotation-header">Team</div>'+
+    Array.from({length:prefs.weeks},(_,w)=>'<div class="v11-rotation-header">W'+(w+1)+'</div>').join('')+
+    sorted.map(x=>'<div class="v11-rotation-name">'+esc(x.team.team_name)+'</div>'+
+      Array.from({length:prefs.weeks},(_,w)=>{
+       const game=plan.fixtures.find(g=>g.week===w+1&&g.division===x.team.division&&(g.home===x.team.team_name||g.away===x.team.team_name));
+       if(!game)return '<div class="v11-rotation-cell bye" title="Week '+(w+1)+' — no game">—</div>';
+       const start=minute(game.time),mode=start<=first?"early":start>=last?"late":"mid";
+       const marker=mode==="early"?"E":mode==="late"?"L":"M";
+       return '<div class="v11-rotation-cell '+mode+'" title="'+esc("Week "+(w+1)+" · "+game.time+" · "+game.home+" vs "+game.away)+'">'+marker+'</div>';
+      }).join('')).join('')+'</div></div>';
+  html+='<section class="panel v10-preview-panel"><div class="v10-preview-head"><h3>Early and late rotation by team</h3>'+
+   '<p>Check how starts are shared from week to week, then compare each team’s average. Earlier and later are relative to this night’s proposed time slots.</p></div>'+
+   '<p class="v11-rotation-explainer">The objective is a similar average start time for every team over the season, with reasonable rotation across early and late games. Byes and prior game history can affect exact equality.</p>'+matrix+
+   '<div class="lc-tablewrap"><table class="lc-table v10-fairness-table"><thead><tr><th>Team</th><th>Avg. game start</th><th>Difference from overall average</th><th>10 PM+ starts</th></tr></thead><tbody>'+
+   sorted.map(x=>'<tr><td><b>'+esc(x.team.team_name)+'</b><small>'+esc(x.team.division)+'</small></td><td><b>'+clock(x.avg)+'</b></td><td class="'+(Math.abs(x.delta)<30?'lc-good':'lc-attention')+'">'+(x.delta>0?'+':'')+Math.round(x.delta)+' min</td><td>'+x.late+' of '+x.count+'</td></tr>').join('')+'</tbody></table></div></section>';
  }
  html+='<details class="v10-method-note"><summary>How was this schedule created? <span aria-hidden="true">⌄</span></summary>'+
  '<div><p>Games are paired within published divisions. An optimization pass rotates start times while giving each team at most one proposed game per date and using each rink/time once.</p>'+
  (window.LeagueOSHistoricalSlotsV9?.evidence(prefs.night)||'')+
- '<p>Historical game times are not proof the same ice will be available. Some divisions require byes; exactly identical averages may be impossible.</p></div></details>'+
+ '<p>Historical game times are not proof the same ice will be available. Some divisions require byes; exactly identical averages may be impossible.</p><button type="button" class="btn small" id="lc-export-plan">Export technical JSON</button></div></details>'+
  '</section>';
  root.innerHTML=html
 }
@@ -169,8 +201,10 @@ else if(x.id==="lc-play-division"){prefs.playDivision=x.value;persist();playoffU
 else if(x.id==="lc-bronze"){prefs.bronze=x.checked;persist();playoffUI()}
 });
 document.addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;
+if(b.dataset.lcLayout){calendarLayout=b.dataset.lcLayout==="rinks"?"rinks":"list";plannerUI();return}
 if(b.dataset.lcView){previewTab=b.dataset.lcView==="fairness"?"fairness":"calendar";plannerUI();return}
 if(b.id==="lc-generate"){buildPlan();previewTab="calendar";plannerUI();const next=plan?$("#lc-preview-results"):$(".v10-input-error");if(next)next.scrollIntoView({behavior:"auto",block:"start"});return}
+if(b.id==="lc-export-csv"&&plan){downloadCsv(plan);return}
 if(b.id==="lc-export-plan"&&plan){const {report,...safe}=plan;safe.summary={start_mean_spread_minutes:Math.round(report.spread),final_mean_start_minutes:clock(report.target),team_fairness:report.stats.map(v=>({team:v.team.team_name,division:v.team.division,games:v.count,avg_start:clock(v.avg),delta_min:Math.round(v.delta),late_starts:v.late}))};download(safe,"leagueos-scheduling-scenario-v9.json");return}
 if(b.dataset.lcWeek!==undefined){weekShown=Number(b.dataset.lcWeek);plannerUI();return}
 if(b.dataset.lcUp!==undefined||b.dataset.lcDown!==undefined){const arr=seedOrder().slice(),i=Number(b.dataset.lcUp??b.dataset.lcDown),j=b.dataset.lcUp!==undefined?i-1:i+1;if(j>=0&&j<arr.length){[arr[i],arr[j]]=[arr[j],arr[i]];prefs.seedings[groupKey()]=arr;prefs.scores[groupKey()]={};persist();playoffUI()}return}

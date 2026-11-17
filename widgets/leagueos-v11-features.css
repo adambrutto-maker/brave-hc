@@ -1,0 +1,116 @@
+/* LeagueOS V11 — additional features revealed progressively without undoing V10 task-first UI. */
+.v11-playoff-ladder{background:#fff;border:1px solid #dce6ef;border-radius:13px;padding:21px 20px 16px;min-width:0}
+.v11-ladder-header{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
+.v11-ladder-header h3{font-size:18px;letter-spacing:-.03em;color:#203d5a;margin:0 0 5px}
+.v11-ladder-header p{font-size:11px;color:#70869b;line-height:1.5;margin:0 0 12px;max-width:600px}
+.v11-ladder-legend{font-size:10px;font-weight:780;color:#62809b;white-space:nowrap;padding:6px 9px;background:#f0f5fa;border:1px solid #dde9f3;border-radius:7px}
+.v11-ladder-viewport{max-width:100%;min-width:0;overflow-x:auto;padding:3px 1px 15px;scrollbar-color:#bfd0df #f4f8fc}
+.v11-ladder-columns{display:flex;align-items:stretch;gap:17px;width:max-content;min-width:100%}
+.v11-ladder-round{flex:1 1 0;min-width:204px;max-width:286px;display:flex;flex-direction:column;gap:10px;position:relative}
+.v11-ladder-round:not(:last-child)::after{content:"→";position:absolute;right:-16px;top:45px;font-size:19px;font-weight:850;color:#9db5cd}
+.v11-round-heading{display:flex;align-items:center;justify-content:space-between;gap:6px;border-bottom:2px solid #cbdced;padding:8px 4px 10px}
+.v11-round-heading strong{font-size:13px;color:#274a6b;letter-spacing:-.01em}
+.v11-round-heading span{font-size:10px;color:#8295a8;white-space:nowrap}
+.v11-ladder-game{font:inherit;text-align:left;display:flex;flex-direction:column;gap:0;width:100%;border:1px solid #dbe5ee;border-radius:9px;background:#fbfdff;color:#243f5c;padding:0;box-shadow:none;overflow:hidden}
+.v11-ladder-game:not(:disabled):hover{border-color:#6c9dcd;background:#f4f9ff;box-shadow:0 3px 12px #2a5a8c13}
+.v11-ladder-game:disabled{cursor:default;opacity:1;background:#f8fafc}
+.v11-game-kicker{font-size:9px;font-weight:820;color:#6686a2;padding:9px 10px 7px;display:flex;justify-content:space-between;align-items:center;gap:9px}
+.v11-game-kicker small{font-size:9px;font-weight:650;color:#8095a9}
+.v11-ladder-club{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:5px;align-items:center;border-top:1px solid #e4edf4;padding:9px 11px;font-size:11px;line-height:1.4}
+.v11-ladder-club span{white-space:normal;overflow-wrap:anywhere}
+.v11-ladder-club b{font-size:12px;min-width:18px;text-align:center;font-variant-numeric:tabular-nums;color:#687f96}
+.v11-ladder-club.is-winner{background:#e9f5ef;color:#19634b;font-weight:820}
+.v11-ladder-club.is-winner b{color:#19634b}
+.v11-ladder-state{display:flex;flex-wrap:wrap;justify-content:space-between;gap:5px 9px;border-top:1px solid #dae7f1;background:#eef5fc;padding:8px 10px;font-size:10px;font-weight:790;color:#396488}
+.v11-ladder-state small{font-size:9px;font-weight:560;color:#7f95a8}
+.v11-ladder-game.is-complete .v11-ladder-state{background:#e8f2ec;color:#226549}
+.v11-rr-standings{border:1px solid #dbe5ee;border-radius:9px;overflow:hidden}
+.v11-rr-team{display:grid;grid-template-columns:20px minmax(0,1fr) auto;gap:6px;align-items:center;padding:12px 8px;border-bottom:1px solid #e2e9f1;background:#fcfdff}
+.v11-rr-team:last-child{border-bottom:none}
+.v11-rr-rank{font-size:11px;color:#5e7995;font-weight:800}
+.v11-rr-team b{font-size:11px;color:#325675;overflow-wrap:anywhere}
+.v11-rr-team span:last-child{font-size:10px;color:#67819a}
+.v11-round-foot{font-size:10px;color:#70899f;line-height:1.5;margin:0}
+.v11-champion-column{min-width:190px;max-width:220px}
+.v11-champion-name{display:flex;gap:7px;align-items:center;border:1px solid #c9dfd1;background:#edf7f1;border-radius:10px;padding:16px 13px;color:#1f6349;font-size:13px;overflow-wrap:anywhere}
+.v11-consolation-name{font-size:10px;color:#587590}
+.v11-ladder-caption{font-size:10px;line-height:1.65;color:#778b9f;margin:10px 0 0}
+.v11-ladder-hold{font-size:11px;color:#815a25;border:1px solid #edddb8;background:#fff9ee;padding:10px 12px;border-radius:7px;margin:0 0 9px}
+.v11-jump-highlight{outline:3px solid #76abe0;outline-offset:3px;transition:outline .4s ease}
+.v11-schedule-view{display:flex;gap:6px;align-items:center;justify-content:flex-end;flex-wrap:wrap;margin:0 0 14px}
+.v11-schedule-view>span{font-size:11px;color:#7389a0;margin-right:auto}
+.v11-schedule-view button{border:1px solid #cfdde9;background:#fff;color:#3d678b;padding:8px 13px;border-radius:7px;font-size:11px;font-weight:760}
+.v11-schedule-view button.active{background:#e7f2ff;border-color:#86b4dc;color:#1a5aa0}
+.v11-rinks-scroll{overflow-x:auto;min-width:0;max-width:100%;padding-bottom:6px}
+.v11-rinks-board{display:flex;align-items:stretch;gap:12px;min-width:max-content}
+.v11-rink-column{width:225px;min-width:225px;background:#f7fafc;border:1px solid #dae5ee;border-radius:10px;padding:11px;display:flex;flex-direction:column;gap:9px}
+.v11-rink-column h4{font-size:13px;color:#315878;margin:2px 0 4px;padding:0 3px}
+.v11-rink-event{display:grid;gap:5px;border:1px solid #dfebf2;border-radius:8px;background:white;padding:10px 11px}
+.v11-rink-event time{font-size:12px;font-weight:850;color:#1b5893;font-variant-numeric:tabular-nums}
+.v11-rink-event strong{font-size:11px;line-height:1.5;color:#314f70;overflow-wrap:anywhere}
+.v11-rink-event small{font-size:10px;color:#8599aa}
+.v11-rink-empty{font-size:11px;color:#768da2;padding:13px 5px}
+.v11-rotation-wrap{overflow-x:auto;max-width:100%;min-width:0}
+.v11-rotation-explainer{font-size:11px;color:#70869b;line-height:1.55;margin:0 0 13px}
+.v11-rotation-legend{display:flex;align-items:center;flex-wrap:wrap;gap:6px 13px;font-size:10px;color:#6a839a;margin:0 0 12px}
+.v11-rotation-legend span{display:flex;align-items:center;gap:5px}
+.v11-rotation-grid{display:grid;grid-template-columns:minmax(125px,2.5fr) repeat(var(--v11-week-count,8),minmax(34px,1fr));align-items:stretch;min-width:620px;border:1px solid #dce6ee;border-radius:10px;overflow:hidden}
+.v11-rotation-header,.v11-rotation-name,.v11-rotation-cell{padding:8px 5px;display:flex;justify-content:center;align-items:center;border-bottom:1px solid #e5edf3}
+.v11-rotation-header{font-size:10px;background:#f0f5fa;color:#587896;font-weight:790}
+.v11-rotation-header:first-child{justify-content:start;padding-left:12px}
+.v11-rotation-name{justify-content:start;background:white;padding-left:12px;color:#355979;font-size:11px;font-weight:700}
+.v11-rotation-cell{font-size:10px;font-weight:810;color:#687f97;background:#fff;min-height:35px}
+.v11-rotation-cell.early{background:#edf6ff;color:#285fa2}
+.v11-rotation-cell.mid{background:#f4f7f9;color:#667e94}
+.v11-rotation-cell.late{background:#fff3e8;color:#9a5e23}
+.v11-rotation-cell.bye{color:#c7d0db}
+.v11-rotation-grid>*:nth-last-child(-n + 9){border-bottom:0}
+.v11-feature-directory{background:#fff;border:1px solid #dce5ef;border-radius:13px;margin:17px 0 3px}
+.v11-feature-directory summary{list-style:none;cursor:pointer;padding:19px 22px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.v11-feature-directory summary::-webkit-details-marker{display:none}
+.v11-feature-directory summary strong{display:block;font-size:14px;color:#2d5276}
+.v11-feature-directory summary small{display:block;font-size:11px;color:#72899f;margin-top:4px}
+.v11-feature-dir-body{padding:4px 22px 22px;border-top:1px solid #e3ebf3}
+.v11-feature-dir-group h3{font-size:12px;text-transform:uppercase;color:#5f7e9a;letter-spacing:.045em;margin:21px 0 10px}
+.v11-feature-dir-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}
+.v11-feature-dir-entry{border:1px solid #dfe8f0;border-radius:9px;background:#fbfdff;min-height:92px;display:flex;flex-direction:column;gap:5px;padding:13px;text-align:left;font:inherit;color:#315474}
+.v11-feature-dir-entry strong{font-size:12px;color:#284965}
+.v11-feature-dir-entry small{font-size:10px;line-height:1.5;color:#7690a5;flex:1}
+.v11-feature-dir-entry span{font-size:10px;font-weight:800;color:#3f719e}
+button.v11-feature-dir-entry:hover{background:#f0f7ff;border-color:#91b9de}
+.v11-feature-dir-entry.is-planned{background:#f7f8fa;border-style:dashed}
+.v11-feature-dir-entry.is-planned span{color:#8796a6}
+.v11-feature-dir-disclaimer{font-size:11px;color:#75889b;line-height:1.55;margin:15px 0 0}
+@media(max-width:1020px){.v11-feature-dir-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:620px){.v11-playoff-ladder{padding:16px 12px}.v11-ladder-header{flex-wrap:wrap}.v11-ladder-round{min-width:200px}.v11-feature-dir-grid{grid-template-columns:1fr}.v11-feature-directory summary,.v11-feature-dir-body{padding:15px}.v11-rink-column{width:192px;min-width:192px}}
+@media print{.v11-playoff-ladder{break-inside:avoid}.v11-ladder-viewport{overflow:visible}.v11-ladder-columns{width:auto}.v11-ladder-round{min-width:150px}body{background:white}}
+
+/* Use the full desktop canvas while keeping overflow inside the feature, not the page. */
+.v11-ladder-round{max-width:none}
+.v11-ladder-columns{width:100%;min-width:max-content}
+.v11-rinks-board{width:max-content;min-width:100%}
+.v11-rink-column{flex:1 1 0;width:auto;min-width:205px}
+@media(max-width:620px){.v11-ladder-round{min-width:205px}.v11-rink-column{min-width:190px}}
+
+
+.v11-ladder-actions{display:flex;align-items:center;gap:9px;flex-wrap:wrap;justify-content:flex-end}
+.v11-ladder-actions .btn{font-size:10px;white-space:nowrap}
+@media(max-width:620px){.v11-ladder-actions{justify-content:flex-start}}
+/* A print-ready draft ladder, explicitly unofficial; preserves all participants and statuses. */
+@media print{
+ @page{size:landscape;margin:12mm}
+ body:has(.v11-playoff-ladder) *{visibility:hidden!important}
+ body:has(.v11-playoff-ladder) .v11-playoff-ladder,
+ body:has(.v11-playoff-ladder) .v11-playoff-ladder *{visibility:visible!important}
+ body:has(.v11-playoff-ladder) .v11-playoff-ladder{
+   position:absolute;top:0;left:0;width:100%;max-width:none;border:0;box-shadow:none;padding:6mm;
+   print-color-adjust:exact;-webkit-print-color-adjust:exact
+ }
+ .v11-ladder-viewport{overflow:visible!important;max-width:100%!important}
+ .v11-ladder-columns{display:flex;min-width:0;width:100%;gap:9px}
+ .v11-ladder-round{min-width:0;flex:1;max-width:none;break-inside:avoid}
+ .v11-ladder-game,.v11-rr-standings,.v11-champion-name{break-inside:avoid}
+ .v11-ladder-game{border-color:#becbd5}
+ .v11-ladder-actions{display:none!important}
+ .v11-ladder-caption{font-size:9pt}
+}
