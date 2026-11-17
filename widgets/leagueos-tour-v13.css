@@ -40,3 +40,9 @@
 @media(max-width:1000px){.v13-tourbar{grid-template-columns:1fr}.v13-tour-controls{justify-items:start;min-width:0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:11px}}
 @media(max-width:600px){.v13-tourbar{padding:12px 13px;margin:0 0 13px;top:5px;gap:9px}.v13-tour-label strong{font-size:13px}.v13-tour-label>span{font-size:10px;max-height:48px;overflow:auto}.v13-tour-status small{display:none}.v13-tour-buttons .btn{font-size:10px;min-height:31px;padding:7px 9px}.v13-progress button{height:22px;width:22px}.v13-feature-tour-head{flex-direction:column;align-items:stretch;gap:12px}.v13-feature-tour-head .btn{align-self:flex-start;white-space:normal}.v13-feature-controls{padding:13px}.v13-feature-toggle button{font-size:10px;padding:8px 9px}}
 @media print{.v13-tourbar,.v13-hero-tour,.v13-feature-toggle{display:none!important}}
+
+
+/* Start the same optional walkthrough on widths where the original hero aside is hidden. */
+.v13-mobile-tour{display:none}
+@media(max-width:1090px){.v13-mobile-tour{display:flex;justify-content:flex-start;gap:10px;margin:14px 0 5px}.v13-mobile-tour .btn{font-size:12px;min-height:43px}}
+@media(max-width:520px){.v13-mobile-tour .btn{width:100%}}
