@@ -1,0 +1,1047 @@
+{
+  "schema": "bruttech-leagueos-historical-schedule-patterns/v9",
+  "scope": "Independent SVHL observed scheduling patterns; public-safe aggregates; no provider booking rights",
+  "source_snapshot": "2026-11-16",
+  "generated_for_demo": "2026-11-17",
+  "source": {
+    "historical_database_window": "Winter 2011/12 through Winter 2026/27",
+    "historical_reciprocal_completed_games": 20730,
+    "historical_night_start_times": 19404,
+    "verified_rink_assigned_fixture_observations": 66,
+    "verified_rink_window": "2026-11-17 through 2026-11-25",
+    "recent_winter_periods": [
+      "2024/25",
+      "2025/26",
+      "2026/27"
+    ],
+    "historical_rink_identifiers_available": false,
+    "full_facility_inventory_available": false,
+    "source_digest_sha256": "4ba0a8f004533ae0b073e7618387d9012bfa2fc95c093c8dc3bb0ad34bdc6fa8"
+  },
+  "method": "Each rink/start pair appears in one or more archived published future fixture rows captured Nov 16. Cross-check its clock time against source-reconciled completed game start distributions (all archive and recent winter). Replay observed rink/start PAIRS as a hypothetical weekly template on new dates only for the public demo. Never treat these as reserved or available blocks.",
+  "limitations": [
+    "Rink-to-time links are supported only by the 66 current-season public fixture rows, across one or two dates for each night.",
+    "Older completed results establish historical starts but do not identify rink assignments.",
+    "A historical fixture time is evidence of scheduling convention, NOT future rink availability, contracted ice, remaining capacity, game duration or an official schedule.",
+    "Hypothetical future start-time templates may overlap unknown facility events; no booking, payment or approval actions are supported.",
+    "Source records reflect a static November 16, 2026 capture; refresh before operational decisions."
+  ],
+  "nights": {
+    "Sunday": {
+      "observed_fixture_rows": 13,
+      "observed_dates": [
+        "2026-11-22"
+      ],
+      "historical_completed_games_with_starts": 4950,
+      "recent_three_winters_games_with_starts": 889,
+      "distinct_rinks": [
+        "A",
+        "B",
+        "D"
+      ],
+      "unique_inferred_rink_start_pairs": 13,
+      "inferred_weekly_template": [
+        {
+          "rink": "B",
+          "start": "18:00",
+          "historically_observed_rink_time": true,
+          "sample_fixture_rows": 1,
+          "sample_unique_dates": 1,
+          "sample_dates": [
+            "2026-11-22"
+          ],
+          "alltime_completed_games_at_this_night_start": 375,
+          "recent_three_winter_completed_games_at_this_night_start": 60,
+          "assignment_authority": "INFERRED_ONLY_NOT_AVAILABLE"
+        },
+        {
+          "rink": "A",
+          "start": "18:15",
+          "historically_observed_rink_time": true,
+          "sample_fixture_rows": 1,
+          "sample_unique_dates": 1,
+          "sample_dates": [
+            "2026-11-22"
+          ],
+          "alltime_completed_games_at_this_night_start": 284,
+          "recent_three_winter_completed_games_at_this_night_start": 106,
+          "assignment_authority": "INFERRED_ONLY_NOT_AVAILABLE"
+        },
+        {
+          "rink": "D",
+          "start": "18:15",
+          "historically_observed_rink_time": true,
+          "sample_fixture_rows": 1,
+          "sample_unique_dates": 1,
+          "sample_dates": [
+            "2026-11-22"
+          ],
+          "alltime_completed_games_at_this_night_start": 284,
+          "recent_three_winter_completed_games_at_this_night_start": 106,
+          "assignment_authority": "INFERRED_ONLY_NOT_AVAILABLE"
+        },
+        {
+          "rink": "B",
+          "start": "19:00",
+          "historically_observed_rink_time": true,
+          "sample_fixture_rows": 1,
+          "sample_unique_dates": 1,
+          "sample_dates": [
+            "2026-11-22"
+          ],
+          "alltime_completed_games_at_this_night_start": 473,
+          "recent_three_winter_completed_games_at_this_night_start": 108,
+          "assignment_authority": "INFERRED_ONLY_NOT_AVAILABLE"
+        },
+        {
+          "rink": "A",
+          "start": "19:15",
+          "historically_observed_rink_time": true,
+          "sample_fixture_rows": 1,
+          "sample_unique_dates": 1,
+          "sample_dates": [
+            "2026-11-22"
+          ],
+          "alltime_completed_games_at_this_night_start": 392,
+          "recent_three_winter_completed_games_at_this_night_start": 113,
+          "assignment_authority": "INFERRED_ONLY_NOT_AVAILABLE"
+        },
+        {
+          "rink": "D",
+          "start": "19:15",
+          "historically_observed_rink_time": true,
+          "sample_fixture_rows": 1,
+          "sample_unique_dates": 1,
+          "sample_dates": [
+            "2026-11-22"
+          ],
+          "alltime_completed_games_at_this_night_start": 392,
+          "recent_three_winter_completed_games_at_this_night_start": 113,
+          "assignment_authority": "INFERRED_ONLY_NOT_AVAILABLE"
+        },
+        {
+          "rink": "B",
+          "start": "20:00",
+          "historically_observed_rink_time": true,
+          "sample_fixture_rows": 1,
+          "sample_unique_dates": 1,
+          "sample_dates": [
+            "2026-11-22"
+          ],
+          "alltime_completed_games_at_this_night_start": 466,
+          "recent_three_winter_completed_games_at_this_night_start": 103,
+          "assignment_authority": "INFERRED_ONLY_NOT_AVAILABLE"
+        },
+        {
+          "rink": "A",
+          "start": "20:15",
+          "historically_observed_rink_time": true,
+          "sample_fixture_rows": 1,
+          "sample_unique_dates": 1,
+          "sample_dates": [
+            "2026-11-22"
+          ],
+          "alltime_completed_games_at_this_night_start": 387,
+          "recent_three_winter_completed_games_at_this_night_start": 111,
+          "assignment_authority": "INFERRED_ONLY_NOT_AVAILABLE"
+        },
+        {
+          "rink": "D",
+          "start": "20:15",
+          "historically_observed_rink_time": true,
+          "sample_fixture_rows": 1,
+          "sample_unique_dates": 1,
+          "sample_dates": [
+            "2026-11-22"
+          ],
+          "alltime_completed_games_at_this_night_start": 387,
+          "recent_three_winter_completed_games_at_this_night_start": 111,
+          "assignment_authority": "INFERRED_ONLY_NOT_AVAILABLE"
+        },
+        {
+          "rink": "B",
+          "start": "21:00",
+          "historically_observed_rink_time": true,
+          "sample_fixture_rows": 1,
+          "sample_unique_dates": 1,
+          "sample_dates": [
+            "2026-11-22"
+          ],
+          "alltime_completed_games_at_this_night_start": 486,
+          "recent_three_winter_completed_games_at_this_night_start": 101,
+          "assignment_authority": "INFERRED_ONLY_NOT_AVAILABLE"
+        },
+        {
+          "rink": "A",
+          "start": "21:15",
+          "historically_observed_rink_time": true,
+          "sample_fixture_rows": 1,
+          "sample_unique_dates": 1,
+          "sample_dates": [
+            "2026-11-22"
+          ],
+          "alltime_completed_games_at_this_night_start": 366,
+          "recent_three_winter_completed_games_at_this_night_start": 96,
+          "assignment_authority": "INFERRED_ONLY_NOT_AVAILABLE"
+        },
+        {
+          "rink": "D",
+          "start": "21:15",
+          "historically_observed_rink_time": true,
+          "sample_fixture_rows": 1,
+          "sample_unique_dates": 1,
+          "sample_dates": [
+            "2026-11-22"
+          ],
+          "alltime_completed_games_at_this_night_start": 366,
+          "recent_three_winter_completed_games_at_this_night_start": 96,
+          "assignment_authority": "INFERRED_ONLY_NOT_AVAILABLE"
+        },
+        {
+          "rink": "B",
+          "start": "22:00",
+          "historically_observed_rink_time": true,
+          "sample_fixture_rows": 1,
+          "sample_unique_dates": 1,
+          "sample_dates": [
+            "2026-11-22"
+          ],
+          "alltime_completed_games_at_this_night_start": 350,
+          "recent_three_winter_completed_games_at_this_night_start": 78,
+          "assignment_authority": "INFERRED_ONLY_NOT_AVAILABLE"
+        }
+      ],
+      "most_common_historical_starts": [
+        {
+          "time": "21:00",
+          "completed_games": 486,
+          "recent_winter_completed_games": 101
+        },
+        {
+          "time": "19:00",
+          "completed_games": 473,
+          "recent_winter_completed_games": 108
+        },
+        {
+          "time": "20:00",
+          "completed_games": 466,
+          "recent_winter_completed_games": 103
+        },
+        {
+          "time": "19:15",
+          "completed_games": 392,
+          "recent_winter_completed_games": 113
+        },
+        {
+          "time": "20:15",
+          "completed_games": 387,
+          "recent_winter_completed_games": 111
+        },
+        {
+          "time": "18:00",
+          "completed_games": 375,
+          "recent_winter_completed_games": 60
+        },
+        {
+          "time": "21:15",
+          "completed_games": 366,
+          "recent_winter_completed_games": 96
+        },
+        {
+          "time": "22:00",
+          "completed_games": 350,
+          "recent_winter_completed_games": 78
+        },
+        {
+          "time": "18:15",
+          "completed_games": 284,
+          "recent_winter_completed_games": 106
+        },
+        {
+          "time": "22:15",
+          "completed_games": 185,
+          "recent_winter_completed_games": 11
+        },
+        {
+          "time": "19:30",
+          "completed_games": 165,
+          "recent_winter_completed_games": 0
+        },
+        {
+          "time": "19:45",
+          "completed_games": 136,
+          "recent_winter_completed_games": 0
+        },
+        {
+          "time": "20:45",
+          "completed_games": 136,
+          "recent_winter_completed_games": 0
+        },
+        {
+          "time": "18:45",
+          "completed_games": 114,
+          "recent_winter_completed_games": 0
+        },
+        {
+          "time": "21:45",
+          "completed_games": 110,
+          "recent_winter_completed_games": 0
+        }
+      ]
+    },
+    "Tuesday": {
+      "observed_fixture_rows": 16,
+      "observed_dates": [
+        "2026-11-17",
+        "2026-11-24"
+      ],
+      "historical_completed_games_with_starts": 3998,
+      "recent_three_winters_games_with_starts": 458,
+      "distinct_rinks": [
+        "A",
+        "C"
+      ],
+      "unique_inferred_rink_start_pairs": 8,
+      "inferred_weekly_template": [
+        {
+          "rink": "C",
+          "start": "19:00",
+          "historically_observed_rink_time": true,
+          "sample_fixture_rows": 2,
+          "sample_unique_dates": 2,
+          "sample_dates": [
+            "2026-11-17",
+            "2026-11-24"
+          ],
+          "alltime_completed_games_at_this_night_start": 337,
+          "recent_three_winter_completed_games_at_this_night_start": 54,
+          "assignment_authority": "INFERRED_ONLY_NOT_AVAILABLE"
+        },
+        {
+          "rink": "A",
+          "start": "19:15",
+          "historically_observed_rink_time": true,
+          "sample_fixture_rows": 2,
+          "sample_unique_dates": 2,
+          "sample_dates": [
+            "2026-11-17",
+            "2026-11-24"
+          ],
+          "alltime_completed_games_at_this_night_start": 277,
+          "recent_three_winter_completed_games_at_this_night_start": 55,
+          "assignment_authority": "INFERRED_ONLY_NOT_AVAILABLE"
+        },
+        {
+          "rink": "C",
+          "start": "20:00",
+          "historically_observed_rink_time": true,
+          "sample_fixture_rows": 2,
+          "sample_unique_dates": 2,
+          "sample_dates": [
+            "2026-11-17",
+            "2026-11-24"
+          ],
+          "alltime_completed_games_at_this_night_start": 570,
+          "recent_three_winter_completed_games_at_this_night_start": 53,
+          "assignment_authority": "INFERRED_ONLY_NOT_AVAILABLE"
+        },
+        {
+          "rink": "A",
+          "start": "20:15",
+          "historically_observed_rink_time": true,
+          "sample_fixture_rows": 2,
+          "sample_unique_dates": 2,
+          "sample_dates": [
+            "2026-11-17",
+            "2026-11-24"
+          ],
+          "alltime_completed_games_at_this_night_start": 408,
+          "recent_three_winter_completed_games_at_this_night_start": 54,
+          "assignment_authority": "INFERRED_ONLY_NOT_AVAILABLE"
+        },
+        {
+          "rink": "C",
+          "start": "21:00",
+          "historically_observed_rink_time": true,
+          "sample_fixture_rows": 2,
+          "sample_unique_dates": 2,
+          "sample_dates": [
+            "2026-11-17",
+            "2026-11-24"
+          ],
+          "alltime_completed_games_at_this_night_start": 565,
+          "recent_three_winter_completed_games_at_this_night_start": 53,
+          "assignment_authority": "INFERRED_ONLY_NOT_AVAILABLE"
+        },
+        {
+          "rink": "A",
+          "start": "21:15",
+          "historically_observed_rink_time": true,
+          "sample_fixture_rows": 2,
+          "sample_unique_dates": 2,
+          "sample_dates": [
+            "2026-11-17",
+            "2026-11-24"
+          ],
+          "alltime_completed_games_at_this_night_start": 420,
+          "recent_three_winter_completed_games_at_this_night_start": 78,
+          "assignment_authority": "INFERRED_ONLY_NOT_AVAILABLE"
+        },
+        {
+          "rink": "C",
+          "start": "22:00",
+          "historically_observed_rink_time": true,
+          "sample_fixture_rows": 2,
+          "sample_unique_dates": 2,
+          "sample_dates": [
+            "2026-11-17",
+            "2026-11-24"
+          ],
+          "alltime_completed_games_at_this_night_start": 527,
+          "recent_three_winter_completed_games_at_this_night_start": 49,
+          "assignment_authority": "INFERRED_ONLY_NOT_AVAILABLE"
+        },
+        {
+          "rink": "A",
+          "start": "22:15",
+          "historically_observed_rink_time": true,
+          "sample_fixture_rows": 2,
+          "sample_unique_dates": 2,
+          "sample_dates": [
+            "2026-11-17",
+            "2026-11-24"
+          ],
+          "alltime_completed_games_at_this_night_start": 368,
+          "recent_three_winter_completed_games_at_this_night_start": 60,
+          "assignment_authority": "INFERRED_ONLY_NOT_AVAILABLE"
+        }
+      ],
+      "most_common_historical_starts": [
+        {
+          "time": "20:00",
+          "completed_games": 570,
+          "recent_winter_completed_games": 53
+        },
+        {
+          "time": "21:00",
+          "completed_games": 565,
+          "recent_winter_completed_games": 53
+        },
+        {
+          "time": "22:00",
+          "completed_games": 527,
+          "recent_winter_completed_games": 49
+        },
+        {
+          "time": "21:15",
+          "completed_games": 420,
+          "recent_winter_completed_games": 78
+        },
+        {
+          "time": "20:15",
+          "completed_games": 408,
+          "recent_winter_completed_games": 54
+        },
+        {
+          "time": "22:15",
+          "completed_games": 368,
+          "recent_winter_completed_games": 60
+        },
+        {
+          "time": "19:00",
+          "completed_games": 337,
+          "recent_winter_completed_games": 54
+        },
+        {
+          "time": "19:15",
+          "completed_games": 277,
+          "recent_winter_completed_games": 55
+        },
+        {
+          "time": "23:15",
+          "completed_games": 202,
+          "recent_winter_completed_games": 0
+        },
+        {
+          "time": "23:00",
+          "completed_games": 146,
+          "recent_winter_completed_games": 2
+        },
+        {
+          "time": "19:45",
+          "completed_games": 36,
+          "recent_winter_completed_games": 0
+        },
+        {
+          "time": "20:45",
+          "completed_games": 35,
+          "recent_winter_completed_games": 0
+        },
+        {
+          "time": "21:45",
+          "completed_games": 32,
+          "recent_winter_completed_games": 0
+        },
+        {
+          "time": "22:45",
+          "completed_games": 14,
+          "recent_winter_completed_games": 0
+        },
+        {
+          "time": "21:30",
+          "completed_games": 13,
+          "recent_winter_completed_games": 0
+        }
+      ]
+    },
+    "Wednesday": {
+      "observed_fixture_rows": 20,
+      "observed_dates": [
+        "2026-11-18",
+        "2026-11-25"
+      ],
+      "historical_completed_games_with_starts": 3765,
+      "recent_three_winters_games_with_starts": 374,
+      "distinct_rinks": [
+        "A",
+        "B",
+        "D"
+      ],
+      "unique_inferred_rink_start_pairs": 10,
+      "inferred_weekly_template": [
+        {
+          "rink": "D",
+          "start": "19:15",
+          "historically_observed_rink_time": true,
+          "sample_fixture_rows": 2,
+          "sample_unique_dates": 2,
+          "sample_dates": [
+            "2026-11-18",
+            "2026-11-25"
+          ],
+          "alltime_completed_games_at_this_night_start": 398,
+          "recent_three_winter_completed_games_at_this_night_start": 54,
+          "assignment_authority": "INFERRED_ONLY_NOT_AVAILABLE"
+        },
+        {
+          "rink": "D",
+          "start": "20:15",
+          "historically_observed_rink_time": true,
+          "sample_fixture_rows": 2,
+          "sample_unique_dates": 2,
+          "sample_dates": [
+            "2026-11-18",
+            "2026-11-25"
+          ],
+          "alltime_completed_games_at_this_night_start": 405,
+          "recent_three_winter_completed_games_at_this_night_start": 54,
+          "assignment_authority": "INFERRED_ONLY_NOT_AVAILABLE"
+        },
+        {
+          "rink": "B",
+          "start": "20:30",
+          "historically_observed_rink_time": true,
+          "sample_fixture_rows": 2,
+          "sample_unique_dates": 2,
+          "sample_dates": [
+            "2026-11-18",
+            "2026-11-25"
+          ],
+          "alltime_completed_games_at_this_night_start": 119,
+          "recent_three_winter_completed_games_at_this_night_start": 53,
+          "assignment_authority": "INFERRED_ONLY_NOT_AVAILABLE"
+        },
+        {
+          "rink": "A",
+          "start": "21:15",
+          "historically_observed_rink_time": true,
+          "sample_fixture_rows": 2,
+          "sample_unique_dates": 2,
+          "sample_dates": [
+            "2026-11-18",
+            "2026-11-25"
+          ],
+          "alltime_completed_games_at_this_night_start": 581,
+          "recent_three_winter_completed_games_at_this_night_start": 85,
+          "assignment_authority": "INFERRED_ONLY_NOT_AVAILABLE"
+        },
+        {
+          "rink": "D",
+          "start": "21:15",
+          "historically_observed_rink_time": true,
+          "sample_fixture_rows": 2,
+          "sample_unique_dates": 2,
+          "sample_dates": [
+            "2026-11-18",
+            "2026-11-25"
+          ],
+          "alltime_completed_games_at_this_night_start": 581,
+          "recent_three_winter_completed_games_at_this_night_start": 85,
+          "assignment_authority": "INFERRED_ONLY_NOT_AVAILABLE"
+        },
+        {
+          "rink": "B",
+          "start": "21:30",
+          "historically_observed_rink_time": true,
+          "sample_fixture_rows": 2,
+          "sample_unique_dates": 2,
+          "sample_dates": [
+            "2026-11-18",
+            "2026-11-25"
+          ],
+          "alltime_completed_games_at_this_night_start": 79,
+          "recent_three_winter_completed_games_at_this_night_start": 34,
+          "assignment_authority": "INFERRED_ONLY_NOT_AVAILABLE"
+        },
+        {
+          "rink": "A",
+          "start": "22:15",
+          "historically_observed_rink_time": true,
+          "sample_fixture_rows": 2,
+          "sample_unique_dates": 2,
+          "sample_dates": [
+            "2026-11-18",
+            "2026-11-25"
+          ],
+          "alltime_completed_games_at_this_night_start": 501,
+          "recent_three_winter_completed_games_at_this_night_start": 79,
+          "assignment_authority": "INFERRED_ONLY_NOT_AVAILABLE"
+        },
+        {
+          "rink": "D",
+          "start": "22:15",
+          "historically_observed_rink_time": true,
+          "sample_fixture_rows": 2,
+          "sample_unique_dates": 2,
+          "sample_dates": [
+            "2026-11-18",
+            "2026-11-25"
+          ],
+          "alltime_completed_games_at_this_night_start": 501,
+          "recent_three_winter_completed_games_at_this_night_start": 79,
+          "assignment_authority": "INFERRED_ONLY_NOT_AVAILABLE"
+        },
+        {
+          "rink": "B",
+          "start": "22:30",
+          "historically_observed_rink_time": true,
+          "sample_fixture_rows": 2,
+          "sample_unique_dates": 2,
+          "sample_dates": [
+            "2026-11-18",
+            "2026-11-25"
+          ],
+          "alltime_completed_games_at_this_night_start": 40,
+          "recent_three_winter_completed_games_at_this_night_start": 8,
+          "assignment_authority": "INFERRED_ONLY_NOT_AVAILABLE"
+        },
+        {
+          "rink": "A",
+          "start": "23:15",
+          "historically_observed_rink_time": true,
+          "sample_fixture_rows": 2,
+          "sample_unique_dates": 2,
+          "sample_dates": [
+            "2026-11-18",
+            "2026-11-25"
+          ],
+          "alltime_completed_games_at_this_night_start": 155,
+          "recent_three_winter_completed_games_at_this_night_start": 7,
+          "assignment_authority": "INFERRED_ONLY_NOT_AVAILABLE"
+        }
+      ],
+      "most_common_historical_starts": [
+        {
+          "time": "21:15",
+          "completed_games": 581,
+          "recent_winter_completed_games": 85
+        },
+        {
+          "time": "22:15",
+          "completed_games": 501,
+          "recent_winter_completed_games": 79
+        },
+        {
+          "time": "19:00",
+          "completed_games": 418,
+          "recent_winter_completed_games": 0
+        },
+        {
+          "time": "20:15",
+          "completed_games": 405,
+          "recent_winter_completed_games": 54
+        },
+        {
+          "time": "19:15",
+          "completed_games": 398,
+          "recent_winter_completed_games": 54
+        },
+        {
+          "time": "20:00",
+          "completed_games": 335,
+          "recent_winter_completed_games": 0
+        },
+        {
+          "time": "22:00",
+          "completed_games": 287,
+          "recent_winter_completed_games": 0
+        },
+        {
+          "time": "21:00",
+          "completed_games": 245,
+          "recent_winter_completed_games": 0
+        },
+        {
+          "time": "23:15",
+          "completed_games": 155,
+          "recent_winter_completed_games": 7
+        },
+        {
+          "time": "20:30",
+          "completed_games": 119,
+          "recent_winter_completed_games": 53
+        },
+        {
+          "time": "23:00",
+          "completed_games": 116,
+          "recent_winter_completed_games": 0
+        },
+        {
+          "time": "21:30",
+          "completed_games": 79,
+          "recent_winter_completed_games": 34
+        },
+        {
+          "time": "22:30",
+          "completed_games": 40,
+          "recent_winter_completed_games": 8
+        },
+        {
+          "time": "19:30",
+          "completed_games": 21,
+          "recent_winter_completed_games": 0
+        },
+        {
+          "time": "20:45",
+          "completed_games": 18,
+          "recent_winter_completed_games": 0
+        }
+      ]
+    },
+    "Thursday": {
+      "observed_fixture_rows": 17,
+      "observed_dates": [
+        "2026-11-19"
+      ],
+      "historical_completed_games_with_starts": 6691,
+      "recent_three_winters_games_with_starts": 973,
+      "distinct_rinks": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "unique_inferred_rink_start_pairs": 17,
+      "inferred_weekly_template": [
+        {
+          "rink": "A",
+          "start": "19:15",
+          "historically_observed_rink_time": true,
+          "sample_fixture_rows": 1,
+          "sample_unique_dates": 1,
+          "sample_dates": [
+            "2026-11-19"
+          ],
+          "alltime_completed_games_at_this_night_start": 643,
+          "recent_three_winter_completed_games_at_this_night_start": 110,
+          "assignment_authority": "INFERRED_ONLY_NOT_AVAILABLE"
+        },
+        {
+          "rink": "D",
+          "start": "19:15",
+          "historically_observed_rink_time": true,
+          "sample_fixture_rows": 1,
+          "sample_unique_dates": 1,
+          "sample_dates": [
+            "2026-11-19"
+          ],
+          "alltime_completed_games_at_this_night_start": 643,
+          "recent_three_winter_completed_games_at_this_night_start": 110,
+          "assignment_authority": "INFERRED_ONLY_NOT_AVAILABLE"
+        },
+        {
+          "rink": "B",
+          "start": "19:30",
+          "historically_observed_rink_time": true,
+          "sample_fixture_rows": 1,
+          "sample_unique_dates": 1,
+          "sample_dates": [
+            "2026-11-19"
+          ],
+          "alltime_completed_games_at_this_night_start": 259,
+          "recent_three_winter_completed_games_at_this_night_start": 54,
+          "assignment_authority": "INFERRED_ONLY_NOT_AVAILABLE"
+        },
+        {
+          "rink": "A",
+          "start": "20:15",
+          "historically_observed_rink_time": true,
+          "sample_fixture_rows": 1,
+          "sample_unique_dates": 1,
+          "sample_dates": [
+            "2026-11-19"
+          ],
+          "alltime_completed_games_at_this_night_start": 701,
+          "recent_three_winter_completed_games_at_this_night_start": 107,
+          "assignment_authority": "INFERRED_ONLY_NOT_AVAILABLE"
+        },
+        {
+          "rink": "D",
+          "start": "20:15",
+          "historically_observed_rink_time": true,
+          "sample_fixture_rows": 1,
+          "sample_unique_dates": 1,
+          "sample_dates": [
+            "2026-11-19"
+          ],
+          "alltime_completed_games_at_this_night_start": 701,
+          "recent_three_winter_completed_games_at_this_night_start": 107,
+          "assignment_authority": "INFERRED_ONLY_NOT_AVAILABLE"
+        },
+        {
+          "rink": "B",
+          "start": "20:30",
+          "historically_observed_rink_time": true,
+          "sample_fixture_rows": 1,
+          "sample_unique_dates": 1,
+          "sample_dates": [
+            "2026-11-19"
+          ],
+          "alltime_completed_games_at_this_night_start": 333,
+          "recent_three_winter_completed_games_at_this_night_start": 106,
+          "assignment_authority": "INFERRED_ONLY_NOT_AVAILABLE"
+        },
+        {
+          "rink": "C",
+          "start": "20:30",
+          "historically_observed_rink_time": true,
+          "sample_fixture_rows": 1,
+          "sample_unique_dates": 1,
+          "sample_dates": [
+            "2026-11-19"
+          ],
+          "alltime_completed_games_at_this_night_start": 333,
+          "recent_three_winter_completed_games_at_this_night_start": 106,
+          "assignment_authority": "INFERRED_ONLY_NOT_AVAILABLE"
+        },
+        {
+          "rink": "A",
+          "start": "21:15",
+          "historically_observed_rink_time": true,
+          "sample_fixture_rows": 1,
+          "sample_unique_dates": 1,
+          "sample_dates": [
+            "2026-11-19"
+          ],
+          "alltime_completed_games_at_this_night_start": 728,
+          "recent_three_winter_completed_games_at_this_night_start": 137,
+          "assignment_authority": "INFERRED_ONLY_NOT_AVAILABLE"
+        },
+        {
+          "rink": "D",
+          "start": "21:15",
+          "historically_observed_rink_time": true,
+          "sample_fixture_rows": 1,
+          "sample_unique_dates": 1,
+          "sample_dates": [
+            "2026-11-19"
+          ],
+          "alltime_completed_games_at_this_night_start": 728,
+          "recent_three_winter_completed_games_at_this_night_start": 137,
+          "assignment_authority": "INFERRED_ONLY_NOT_AVAILABLE"
+        },
+        {
+          "rink": "B",
+          "start": "21:30",
+          "historically_observed_rink_time": true,
+          "sample_fixture_rows": 1,
+          "sample_unique_dates": 1,
+          "sample_dates": [
+            "2026-11-19"
+          ],
+          "alltime_completed_games_at_this_night_start": 373,
+          "recent_three_winter_completed_games_at_this_night_start": 125,
+          "assignment_authority": "INFERRED_ONLY_NOT_AVAILABLE"
+        },
+        {
+          "rink": "C",
+          "start": "21:30",
+          "historically_observed_rink_time": true,
+          "sample_fixture_rows": 1,
+          "sample_unique_dates": 1,
+          "sample_dates": [
+            "2026-11-19"
+          ],
+          "alltime_completed_games_at_this_night_start": 373,
+          "recent_three_winter_completed_games_at_this_night_start": 125,
+          "assignment_authority": "INFERRED_ONLY_NOT_AVAILABLE"
+        },
+        {
+          "rink": "A",
+          "start": "22:15",
+          "historically_observed_rink_time": true,
+          "sample_fixture_rows": 1,
+          "sample_unique_dates": 1,
+          "sample_dates": [
+            "2026-11-19"
+          ],
+          "alltime_completed_games_at_this_night_start": 631,
+          "recent_three_winter_completed_games_at_this_night_start": 118,
+          "assignment_authority": "INFERRED_ONLY_NOT_AVAILABLE"
+        },
+        {
+          "rink": "D",
+          "start": "22:15",
+          "historically_observed_rink_time": true,
+          "sample_fixture_rows": 1,
+          "sample_unique_dates": 1,
+          "sample_dates": [
+            "2026-11-19"
+          ],
+          "alltime_completed_games_at_this_night_start": 631,
+          "recent_three_winter_completed_games_at_this_night_start": 118,
+          "assignment_authority": "INFERRED_ONLY_NOT_AVAILABLE"
+        },
+        {
+          "rink": "B",
+          "start": "22:30",
+          "historically_observed_rink_time": true,
+          "sample_fixture_rows": 1,
+          "sample_unique_dates": 1,
+          "sample_dates": [
+            "2026-11-19"
+          ],
+          "alltime_completed_games_at_this_night_start": 281,
+          "recent_three_winter_completed_games_at_this_night_start": 107,
+          "assignment_authority": "INFERRED_ONLY_NOT_AVAILABLE"
+        },
+        {
+          "rink": "C",
+          "start": "22:30",
+          "historically_observed_rink_time": true,
+          "sample_fixture_rows": 1,
+          "sample_unique_dates": 1,
+          "sample_dates": [
+            "2026-11-19"
+          ],
+          "alltime_completed_games_at_this_night_start": 281,
+          "recent_three_winter_completed_games_at_this_night_start": 107,
+          "assignment_authority": "INFERRED_ONLY_NOT_AVAILABLE"
+        },
+        {
+          "rink": "A",
+          "start": "23:15",
+          "historically_observed_rink_time": true,
+          "sample_fixture_rows": 1,
+          "sample_unique_dates": 1,
+          "sample_dates": [
+            "2026-11-19"
+          ],
+          "alltime_completed_games_at_this_night_start": 289,
+          "recent_three_winter_completed_games_at_this_night_start": 95,
+          "assignment_authority": "INFERRED_ONLY_NOT_AVAILABLE"
+        },
+        {
+          "rink": "D",
+          "start": "23:15",
+          "historically_observed_rink_time": true,
+          "sample_fixture_rows": 1,
+          "sample_unique_dates": 1,
+          "sample_dates": [
+            "2026-11-19"
+          ],
+          "alltime_completed_games_at_this_night_start": 289,
+          "recent_three_winter_completed_games_at_this_night_start": 95,
+          "assignment_authority": "INFERRED_ONLY_NOT_AVAILABLE"
+        }
+      ],
+      "most_common_historical_starts": [
+        {
+          "time": "21:15",
+          "completed_games": 728,
+          "recent_winter_completed_games": 137
+        },
+        {
+          "time": "20:15",
+          "completed_games": 701,
+          "recent_winter_completed_games": 107
+        },
+        {
+          "time": "19:15",
+          "completed_games": 643,
+          "recent_winter_completed_games": 110
+        },
+        {
+          "time": "22:15",
+          "completed_games": 631,
+          "recent_winter_completed_games": 118
+        },
+        {
+          "time": "20:00",
+          "completed_games": 566,
+          "recent_winter_completed_games": 4
+        },
+        {
+          "time": "19:00",
+          "completed_games": 557,
+          "recent_winter_completed_games": 3
+        },
+        {
+          "time": "22:00",
+          "completed_games": 458,
+          "recent_winter_completed_games": 4
+        },
+        {
+          "time": "21:00",
+          "completed_games": 454,
+          "recent_winter_completed_games": 2
+        },
+        {
+          "time": "21:30",
+          "completed_games": 373,
+          "recent_winter_completed_games": 125
+        },
+        {
+          "time": "20:30",
+          "completed_games": 333,
+          "recent_winter_completed_games": 106
+        },
+        {
+          "time": "23:15",
+          "completed_games": 289,
+          "recent_winter_completed_games": 95
+        },
+        {
+          "time": "22:30",
+          "completed_games": 281,
+          "recent_winter_completed_games": 107
+        },
+        {
+          "time": "19:30",
+          "completed_games": 259,
+          "recent_winter_completed_games": 54
+        },
+        {
+          "time": "23:00",
+          "completed_games": 246,
+          "recent_winter_completed_games": 1
+        },
+        {
+          "time": "21:45",
+          "completed_games": 45,
+          "recent_winter_completed_games": 0
+        }
+      ]
+    }
+  }
+}
