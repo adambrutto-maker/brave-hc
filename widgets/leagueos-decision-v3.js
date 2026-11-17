@@ -10,6 +10,7 @@ const MODEL="./leagueos_division_alignment_public_v2.json";
 const PACKAGES="./leagueos-balanced-division-packages-v3.json";
 const PUBLIC_FIXTURES="./leagueos-source-qualified-current-fixtures-v4.json";
 const FIXTURE_IMPACT="./leagueos-division-fixture-impact-v4.json";
+const FAIRNESS="./leagueos_whole_division_fairness_public_v5.json";
 const STORAGE="bruttech-leagueos-commissioner-cases-v3-261116";
 const OLD_NOTES="bruttech-leagueos-alignment-review-drafts-v2-261116";
 const RULES="https://www.sportsvillage.ca/wp-content/uploads/2024/09/Rule-Book.pdf";
@@ -47,7 +48,7 @@ function saved(){
  }catch(e){return{schema:"bruttech-commissioner-local-case-records/v3",cases:{}}}
 }
 const store=saved();
-let data=null,packages=null,fixtures=null,fixtureImpact=null,fixtureLoadError="",loading=false,error="",selected=null,view="packages",draft=blank(),lastToast="";
+let data=null,packages=null,fixtures=null,fixtureImpact=null,fixtureLoadError="",fairness=null,fairnessError="",loading=false,error="",selected=null,view="packages",draft=blank(),lastToast="";
 let cases=[],activeStep=1;
 const teamIndex=new Map();
 function toast(msg){lastToast=msg;const t=$("#decision-toast");if(t){t.textContent=msg;t.hidden=false}}
@@ -75,6 +76,7 @@ function buildCases(){
  }
  cases=valid;
 }
+function fairCase(c){return fairness?.cases?.find(x=>x.case_id===c.id)||null}
 function findCase(id){return cases.find(c=>c.id===id)||null}
 function getCase(){return findCase(selected)}
 function savedCase(id){return store.cases[id]||null}
@@ -96,7 +98,7 @@ function groups(){
 }
 function rowCase(c){
  const isSelected=c.id===selected,stored=savedCase(c.id);
- const ref=c.kind==="source"?"Published standings require correction":c.kind==="package"?(c.source.aggregate_balance_gain_percentage_points+" pp combined balance change"):(pct(c.source.expected_same_division_win_share)+" indicative peer share");
+ const f=fairCase(c),ref=c.kind==="source"?"Published standings require correction":c.kind==="package"?(f?("All-team "+(f.posterior_strength_conditional_on_source_games.central_parity_gain_pp>0?"+":"")+num(f.posterior_strength_conditional_on_source_games.central_parity_gain_pp)+" pp · evidence hold"):"Pair-only estimate; whole-division audit not loaded"):(pct(c.source.expected_same_division_win_share)+" indicative peer share");
  return '<button type="button" class="desk-case-row '+(isSelected?"chosen":"")+'" data-desk-case="'+esc(c.id)+'" aria-current="'+isSelected+'">'+
  '<span class="desk-case-name">'+esc(c.title)+'</span><span class="desk-case-meta">'+esc(c.night)+' · '+(c.kind==="source"?"Source correction":c.kind==="package"?"Paired exchange":formatHuman(c.priority))+'</span>'+
  '<span class="desk-case-footer"><span>'+esc(ref)+'</span>'+(stored?'<strong>Saved v'+stored.revisionNo+'</strong>':'')+'</span></button>';
@@ -129,7 +131,15 @@ function countBox(){
  ].map(x=>'<div><small>'+x[1]+'</small><strong>'+x[0]+'</strong><em>'+x[2]+'</em></div>').join("")+'</div>';
 }
 function packageEvidence(c){
- const p=c.source;
+ const p=c.source,f=fairCase(c),fair=f?.posterior_strength_conditional_on_source_games;
+ const research=fair?
+ '<div class="desk-fairness-audit"><span class="desk-status-warning">Whole-division evidence hold</span>'+
+ '<strong>All-team estimated improvement: '+(fair.central_parity_gain_pp>0?"+":"")+num(fair.central_parity_gain_pp)+' pp</strong>'+
+ '<p>Model sensitivity range: '+num(fair.model_sensitivity_10_50_90[0])+' to '+num(fair.model_sensitivity_10_50_90[2])+
+ ' percentage points. The range crosses zero, so the exchange could worsen balance.</p>'+
+ '<p>'+f.peers.nonmoving_teams_worse_by_half_point+' unchanged teams could face less balanced matchups. The model does not recommend implementing this exchange.</p>'+
+ '<button type="button" class="btn small" data-go="league-fairness">See whole-division fairness audit</button></div>':
+ '<div class="desk-warning"><strong>Whole-division fairness evidence unavailable</strong><p>Pair-only estimates cannot support a league realignment. Open the Fairness Audit when the source data is restored.</p></div>';
  const teams=p.teams.map(t=>
  '<div class="desk-exchange-team"><strong>'+esc(t.name)+'</strong>'+
  '<small>'+esc(t.from)+' → '+esc(t.to)+'</small>'+
@@ -144,7 +154,8 @@ function packageEvidence(c){
  return '<div class="desk-package"><div class="desk-research-heading"><strong>Two-team exchange — source comparison only</strong><small>'+esc(p.night)+' · '+p.source_cross_division_fixtures+' cross-division fixture connections</small></div>'+
  '<div class="desk-exchange-grid">'+teams+'</div>'+
  '<div class="desk-size-details">'+counts+'</div>'+
- '<p>Because the two teams exchange places, both divisions keep the same number of teams. '+num(p.aggregate_balance_gain_percentage_points)+' percentage points is the combined change in the model’s balance-gap measure, not an expected improvement in league win rates. Official point carryover and game allocation require commissioner verification.</p>'+
+ '<p>Because two teams exchange places, both divisions retain the same number of teams. The older V3 calculation of '+num(p.aggregate_balance_gain_percentage_points)+' percentage points assessed only the moving teams and must <b>not</b> be interpreted as a whole-division fairness gain.</p>'+research+
+ '<p>Actual eligibility, team consultation, point carryover and fixture allocation require league approval.</p>'+
  '</div>';
 }
 function singleEvidence(c){
@@ -236,6 +247,10 @@ function compareSaved(c){
   teams:c.participants.map(t=>({name:t.team_name,league_id:t.league_id,source_team_id:t.team_id,division:t.division})),
   sourceModelAt:data?.created_at,
   sourcePackageAt:packages?.generated_at,
+  wholeDivisionFairnessEvidenceAt:fairness?.created_at||"UNAVAILABLE",
+  wholeDivisionEstimatedGainPP:fairCase(c)?.posterior_strength_conditional_on_source_games?.central_parity_gain_pp??null,
+  wholeDivisionUncertaintyRange:fairCase(c)?.posterior_strength_conditional_on_source_games?.model_sensitivity_10_50_90??null,
+  modelRecommendsPlacement:false,
   fixtureSourceSnapshot:fixtures?.captured_date||"UNAVAILABLE",
   fixtureImpactSourceAt:fixtureImpact?.generated_at||"UNAVAILABLE",
   sourceUpcomingFixturesInWindow:fixtureImpact?.cases?.[c.id]?.known_upcoming_games_touching_case??null,
@@ -300,7 +315,7 @@ function copyBrief(){
  "League night: "+c.night,
  c.kind==="package"?"Source interdivision fixtures: "+c.source.source_cross_division_fixtures:
    "Matched games: "+c.source.source_games,
- c.kind==="package"?"Combined balance-gap improvement: "+c.source.aggregate_balance_gain_percentage_points+" percentage points":
+ c.kind==="package"?(fairCase(c)?"All-team estimated mismatch reduction: "+num(fairCase(c).posterior_strength_conditional_on_source_games.central_parity_gain_pp)+" pp; conditional sensitivity "+fairCase(c).posterior_strength_conditional_on_source_games.model_sensitivity_10_50_90.join(" to ")+" pp; evidence hold; V3 mover-only estimate was "+c.source.aggregate_balance_gain_percentage_points+" pp":"Whole-division fairness audit unavailable: no placement recommendation"):
    "Current indicative peer matchup share: "+pct(c.source.expected_same_division_win_share),
  "Internal draft stage: "+draft.phase,
  "Documentation statuses: "+CHECKS.map(x=>x.label+" = "+(draft.checks[x.id]||"not-reviewed")).join("; "),
@@ -395,10 +410,19 @@ async function start(){
    if(!Object.values(impact.cases).every(x=>x.changed_record_count===0&&x.no_new_games_created===true))throw Error("Impact simulation unexpectedly indicates source writes");
    fixtures=f;fixtureImpact=impact;fixtureLoadError="";
   }catch(e){fixtures=null;fixtureImpact=null;fixtureLoadError=String(e.message||e)}
+  try{
+   const f=await fetchJSON(FAIRNESS);
+   if(f.schema!=="bruttech-leagueos-whole-division-fairness/v5"||f.cases?.length!==4)throw Error("Whole-division fairness source failed validation");
+   fairness=f;fairnessError="";
+  }catch(e){fairness=null;fairnessError=String(e.message||e)}
   buildCases();
   if(!selected||!findCase(selected)){
    selected=cases.find(x=>x.kind==="package")?.id||cases[0]?.id||null;
    draft=initialDraft(selected);
+  }else{
+   draft=initialDraft(selected);
+   const requested=cases.find(c=>c.id===selected);
+   if(requested?.kind==="package")view="packages";
   }
   error="";
  }catch(e){error="Could not load decision data: "+e.message}
