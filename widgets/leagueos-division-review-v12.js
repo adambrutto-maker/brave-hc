@@ -134,5 +134,5 @@ document.addEventListener("change",e=>{
  else if(t.id==="v12-repeat"){state.showRepeat=t.checked;render()}
 });
 document.addEventListener("click",e=>{if(!$("#league-division-review-mount"))return;if(e.target.closest("#v12-retry")){error="";load();return}if(e.target.closest("#v12-export"))exportReview()});
-window.LeagueOSDivisionReviewV12={mount(){render();if(!dataset&&!pending)load()},status(){return{loaded:!!dataset,error,night:state.night,division:state.division,team:state.focus,sourceWrites:0}},_test:{getData:()=>dataset,standings:leagueRecords,headToHead,futureGames,change(x){Object.assign(state,x);render()},safeGameUrl}};
+window.LeagueOSDivisionReviewV12={mount(){render();if(!dataset&&!pending&&!error)load()},status(){return{loaded:!!dataset,error,night:state.night,division:state.division,team:state.focus,sourceWrites:0}},_test:{getData:()=>dataset,standings:leagueRecords,headToHead,futureGames,change(x){Object.assign(state,x);render()},safeGameUrl}};
 })();
