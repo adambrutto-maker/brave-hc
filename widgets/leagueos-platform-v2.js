@@ -56,8 +56,8 @@ function nav(){
  if(team){
   $("#sidebar-nav").innerHTML='<div class="navheading">Team workspace</div>'+viewList.team.map(item).join('')+'<div class="navheading">Switch workspace</div>'+item(["league-home","LeagueOS overview","⇄"]);
  }else{
-  const opened=secondary.some(v=>v[0]===state.route)||state.route==="league-fairness";
-  $("#sidebar-nav").innerHTML='<div class="navheading">League workspace</div>'+main.map(item).join('')+'<details class="nav-more"'+(opened?' open':'')+'><summary><span class="nav-long">More league tools</span><span class="nav-short">More tools</span><span aria-hidden="true">⌄</span></summary><div class="nav-more-items">'+secondary.map(item).join('')+'</div></details><div class="navheading nav-switch-label">Team workspace</div>'+item(["team-home","Brave H.C. TeamOS","⇄"]);
+  const inMore=secondary.some(v=>v[0]===state.route)||state.route==="league-fairness";
+  $("#sidebar-nav").innerHTML='<div class="navheading">League workspace</div>'+main.map(item).join('')+'<details class="nav-more"'+(inMore?' is-active':'')+'><summary><span class="nav-long">More league tools</span><span class="nav-short">More tools</span><span aria-hidden="true">⌄</span></summary><div class="nav-more-items">'+secondary.map(item).join('')+'</div></details><div class="navheading nav-switch-label">Team workspace</div>'+item(["team-home","Brave H.C. TeamOS","⇄"]);
  }
  $("#railfooter").textContent=team?"Team information stays separate from the league administrator view.":"Source-backed research demo. No official game, rink, payment or registration changes.";
 }
