@@ -145,3 +145,11 @@
 .desk-match-change{display:inline-block;color:#99682c;background:#fff3df;padding:3px 7px;border-radius:5px;line-height:1.3}
 .desk-match-kept{color:#5e7b95}
 @media(max-width:530px){.desk-source-fixture{align-items:flex-start;gap:6px}.desk-source-fixture a{padding-top:2px}.desk-source-fixture strong{font-size:10px}}
+
+
+/* V5 source-qualified all-team fairness correction on top of V3 pairs */
+.desk-fairness-audit{background:#fff9ec;border:1px solid #e6d7b6;border-left:3px solid #ba8a3e;border-radius:8px;padding:13px;margin:13px 0}
+.desk-fairness-audit>.desk-status-warning{display:inline-block;font-size:10px;font-weight:850;background:#f7e9ca;color:#795a2b;padding:4px 8px;border-radius:99px;margin-bottom:8px}
+.desk-fairness-audit>strong{display:block;color:#6b4e2c;font-size:13px}
+.desk-fairness-audit p{font-size:11px;color:#79633e;line-height:1.65;margin:7px 0}
+.desk-fairness-audit .btn{margin-top:5px;font-size:11px;background:white}
