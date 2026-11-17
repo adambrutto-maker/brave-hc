@@ -3,9 +3,9 @@
 const e=window.LeagueOSOpsEngineV17;
 const $=s=>document.querySelector(s),esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 let source=null,error="",pending=null,date="2026-11-19",view="rinks",selectedId=null,teamView="",notice="",showOnlyDrafts=false;
-let drafts=e.read(e.DRAFT_KEY,{}),feed=e.read(e.FEED_KEY,{}),settings={...e.DEFAULTS,...e.read(e.SETTINGS_KEY,{})},overrides={};
+let drafts=e.read(e.DRAFT_KEY,{}),feed=e.read(e.FEED_KEY,{}),settings={...e.DEFAULTS,...e.read(e.SETTINGS_KEY,{})},overrides=e.read(e.REF_KEY,{});
 const validSource=x=>Array.isArray(x)&&x.length>0;
-function save(){e.write(e.DRAFT_KEY,drafts);e.write(e.SETTINGS_KEY,settings)}
+function save(){e.write(e.DRAFT_KEY,drafts);e.write(e.SETTINGS_KEY,settings);e.write(e.REF_KEY,overrides)}
 function selected(){return source?e.merge(source,drafts).find(x=>x.game_id===selectedId)||null:null}
 function dates(){const base=e.publicDates(source||[]),extra=Object.values(drafts).filter(x=>e.dateValid(x.date)).map(x=>x.date);return[...new Set([...base,...extra])].sort()}
 function pickDefault(){const list=dates();if(!list.includes(date))date=list.find(x=>x==="2026-11-19")||list[0]||""}
@@ -42,10 +42,18 @@ function zamboniBoard(a){return'<div class="v17-staff-panel"><div class="v17-sta
  (a.zamboni.jobs.some(x=>!x.machine)?'<div class="v17-warning"><strong>Not enough shared machines</strong><p>Some service windows overlap. Adjust a game start or the modeled service interval before a draft can be shared.</p></div>':'<div class="v17-ok"><strong>Shared-machine scenario fits this sample</strong><p>Both example machines cover the modeled service windows. This does not confirm actual operators, maintenance schedules or facility procedure.</p></div>')+
  '<details class="v17-ops-method"><summary>What does the model assume?</summary><p>We only create a resurfacing task BETWEEN successive captured games on the same rink. For each new start, the machine window ends three minutes before puck drop. A presumed playing segment of '+settings.assumedPlayingMinutes+' minutes is used solely to flag turnaround risks. The observed 15-minute offsets in published rink start times are evidence of scheduling patterns, not proof of resurfacing times.</p></details></div>'
 }
+function staffOptions(pool,choice){return '<option value="">Auto-assign</option>'+pool.map(n=>'<option value="'+esc(n)+'"'+(n===choice?' selected':'')+'>'+esc(n)+'</option>').join("")}
 function refereeBoard(a){const n=a.staff.crews.filter(x=>x.ref1&&x.ref2).length;return'<div class="v17-staff-panel"><div class="v17-staff-heading"><div><span class="v17-eyebrow">GAME OFFICIALS / STAFFING</span><h2>Every game needs a crew.</h2><p>Two referees and one timekeeper per game in this <b>fictional staffing pool</b>. The exercise flags double-booking and breaks; real names, qualifications and availability are not connected.</p></div><strong>'+n+' / '+a.games.length+'<small>sample crews assigned</small></strong></div>'+
  '<div class="v17-officials-grid">'+a.staff.crews.map(x=>'<button type="button" data-v17-game="'+x.gameId+'" class="v17-crew-card'+(selectedId===x.gameId?' selected':'')+'"><span>'+e.clock(x.start)+' · RINK '+x.rink+'</span><strong>'+esc(x.home)+' vs '+esc(x.away)+'</strong>'+
  '<small>'+esc(x.ref1||"REF HOLD")+' · '+esc(x.ref2||"REF HOLD")+'</small><small>'+esc(x.timekeeper||"TIMEKEEPER HOLD")+'</small></button>').join("")+'</div>'+
- '<div class="v17-roster-note"><strong>Illustrative staffing roster</strong><span>16 numbered referee placeholders, four timekeeper placeholders, and two resurfacing operators. These are NOT Sports Village staffing data.</span></div>'+
+ '<details class="v17-shift-board"><summary>VIEW STAFF SHIFTS BY PERSON <span>Referees, timekeepers &amp; example assignments</span></summary>'+
+ '<div class="v17-shift-rows">'+[
+ ...e.DEMO_REFS.map(name=>({name,assignments:a.staff.availability[name]||[]})),
+ ...e.DEMO_TIMEKEEPERS.map(name=>({name,assignments:a.staff.timekeepers[name]||[]}))
+ ].filter(x=>x.assignments.length).map(x=>'<div class="v17-shift-row"><strong>'+esc(x.name)+'</strong><div>'+
+ x.assignments.slice().sort((l,r)=>l.start-r.start).map(c=>'<button type="button" data-v17-game="'+c.gameId+'">'+e.clock(c.start)+' · RINK '+esc(c.rink)+' · '+esc(c.home)+' vs '+esc(c.away)+'</button>').join("")+
+ '</div></div>').join("")+'</div></details>'+
+'<div class="v17-roster-note"><strong>Illustrative staffing roster</strong><span>16 numbered referee placeholders, four timekeeper placeholders, and two resurfacing operators. These are NOT Sports Village staffing data.</span></div>'+
  '<details class="v17-ops-method"><summary>Referee rest / game duration assumptions</summary><p>Each source fixture is modeled as a '+settings.assumedGameBlockMinutes+'-minute game block, with a '+settings.refBreakMinutes+'-minute break between referee assignments. The 16 placeholder referees and four placeholder timekeepers are fictitious; the real league would need authenticated staff rosters, shift restrictions and availability.</p></details></div>'
 }
 function teamSiteUrl(team){return"./leagueos-hockeyos-team-site-v17.html?team="+encodeURIComponent(String(team||""))}
@@ -73,7 +81,12 @@ function reviewPanel(a){const g=selected();if(!g)return'<section class="v17-edit
  '<div class="v17-advanced-body"><label>Proposed date<input type="date" id="v17-edit-date" value="'+esc(g.date)+'"></label>'+
  '<label>Exact start<input type="time" id="v17-edit-time" value="'+esc(g.time)+'"></label>'+
  '<button type="button" class="v17-small-action" id="v17-save-exact">APPLY DATE / TIME</button>'+
- '<p>Demo referee allocations are automatically recalculated for every moved game. Referee qualifications and true availability are unverified. Future production operations can add authorized staff assignments here.</p></div></details>'+
+ '<p>Demo referee allocations are recalculated for every moved game. Manual changes are checked against the mock staff shift board.</p>'+
+ '<div class="v17-staff-edit"><label>Referee 1<select id="v17-ref-1">'+staffOptions(e.DEMO_REFS,(overrides[String(g.game_id)]?.ref1||staff?.ref1))+'</select></label>'+
+ '<label>Referee 2<select id="v17-ref-2">'+staffOptions(e.DEMO_REFS,(overrides[String(g.game_id)]?.ref2||staff?.ref2))+'</select></label>'+
+ '<label>Timekeeper<select id="v17-timekeeper">'+staffOptions(e.DEMO_TIMEKEEPERS,(overrides[String(g.game_id)]?.timekeeper||staff?.timekeeper))+'</select></label>'+
+ '<button type="button" id="v17-assign-crew" class="v17-small-action">APPLY PRACTICE STAFF ASSIGNMENT</button></div>'+
+ '<p>These numbered officials are fictional labels. There is no real staff roster, employee scheduling, qualification or payroll data.</p></div></details>'+
  (errs.length?'<div class="v17-warning" role="status"><strong>STAFF / ICE HOLD</strong><p>'+errs.map(x=>esc(x.message)).join(" · ")+'</p></div>':'<div class="v17-ok"><strong>No modeled conflicts for this game</strong><p>This does not establish real contracted ice or staff approval.</p></div>')+
  '<div class="v17-sync-action"><button type="button" id="v17-share"'+(!check.ok||same?' disabled':'')+'>'+(same?'SHARED WITH DEMO TEAM SITES':"SIMULATE UPDATE TO BOTH TEAMS")+'</button>'+
  '<button type="button" id="v17-revert"'+(!g.draftChange?' disabled':'')+'>RESET DEMO MOVE</button></div>'+
@@ -122,6 +135,13 @@ document.addEventListener("click",ev=>{const b=ev.target.closest("button");if(!b
  if(b.dataset.v17Service){settings.serviceMinutes=Number(b.dataset.v17Service);save();render();return}
  if(b.dataset.v17Team){teamView=b.dataset.v17Team;render();return}
  if(b.id==="v17-save-exact"){apply({date:$("#v17-edit-date")?.value,time:$("#v17-edit-time")?.value});return}
+ if(b.id==="v17-assign-crew"){
+ const g=selected();if(!g)return;
+ const one=$("#v17-ref-1")?.value||"",two=$("#v17-ref-2")?.value||"",tk=$("#v17-timekeeper")?.value||"";
+ if(one&&two&&one===two){notice="Referee 1 and Referee 2 must be different people in this scenario.";render();return}
+ overrides[String(g.game_id)]={ref1:one,ref2:two,timekeeper:tk};save();notice="Recorded manual fictional crew preferences. Any staffing clash is shown as a hold.";render();return
+ }
+
  if(b.id==="v17-share"){share();return}if(b.id==="v17-revert"){revert();return}
  if(b.id==="v17-retry"){error="";load();return}
 });
