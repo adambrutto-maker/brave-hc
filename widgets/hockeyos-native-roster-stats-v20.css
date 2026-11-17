@@ -1,0 +1,116 @@
+/* HockeyOS V20 — original, responsive public-roster and source-statistics views.
+   HTO remains authority for values, not a style or code source. */
+.v20-root,.v20-shell{min-width:0;max-width:100%;font-family:inherit;color:#19354c}
+.v20-shell{display:grid;gap:15px}
+.v20-heading{display:flex;align-items:center;justify-content:space-between;gap:16px;background:#fff;border:1px solid #dce5ed;padding:24px 25px}
+.v20-heading>div:first-child{min-width:0}
+.v20-heading small{color:#a02746;font-size:10px;letter-spacing:.12em;font-weight:900}
+.v20-heading h2{color:#15334d;font-size:clamp(27px,3.2vw,39px);letter-spacing:-.055em;line-height:1.1;margin:7px 0}
+.v20-heading p{font-size:12px;color:#687f91;margin:0;line-height:1.5;max-width:650px}
+.v20-source-card{border-left:3px solid #b82745;background:#f5f8fb;padding:12px 17px;display:grid;gap:2px;min-width:220px}
+.v20-source-card>span{font-size:9px;letter-spacing:.1em;color:#69859d;font-weight:900}
+.v20-source-card>strong{color:#173953;font-size:18px}
+.v20-source-card>small{font-size:10px;letter-spacing:0;color:#7892a5;font-weight:550}
+.v20-roster-top{display:flex;gap:15px;align-items:center;padding:15px 21px;background:#152e45;color:#d7edff;border-top:4px solid #ba2947}
+.v20-roster-top>div{display:flex;align-items:center;gap:9px;white-space:nowrap}
+.v20-roster-top b{font-size:35px;line-height:1;font-variant-numeric:tabular-nums;color:#fff}
+.v20-roster-top span{font-weight:800;font-size:13px}
+.v20-roster-top p{margin:0 0 0 auto;color:#bbd1e1;font-size:10px;max-width:640px;line-height:1.55}
+.v20-controls{display:flex;flex-wrap:wrap;gap:13px;align-items:flex-end;background:#fff;border:1px solid #d8e4ec;padding:16px 17px}
+.v20-search-label{display:grid;gap:6px;flex:1 1 230px;color:#57778b;font-size:11px;font-weight:800}
+.v20-search-label input,.v20-sort-label select{width:100%;min-height:42px;padding:9px 11px;border:1px solid #bed1df;background:#f8fbfe;border-radius:5px;font-size:13px;color:#1a3b59}
+.v20-positions,.v20-view-toggle{display:flex;gap:4px;align-items:stretch}
+.v20-positions button,.v20-view-toggle button,.v20-role-tabs button{border:1px solid #b6d0df;background:#f0f6fa;color:#2d5572;font-weight:800;font-size:11px;border-radius:4px;padding:9px 12px;min-height:40px}
+.v20-positions button:hover,.v20-view-toggle button:hover,.v20-role-tabs button:hover{background:#e2eef5}
+.v20-positions button.active,.v20-view-toggle button.active,.v20-role-tabs button.active{background:#c12b49;border-color:#a31939;color:#fff}
+.v20-list-results{min-width:0;background:#fff;border:1px solid #dce6ed;padding:0 0 2px}
+.v20-resultcount{padding:11px 15px;background:#eaf1f6;color:#45687e;font-size:11px;font-weight:820;border-bottom:1px solid #cadbe7}
+.v20-table-scroll{max-width:100%;overflow-x:auto;scrollbar-width:thin}
+.v20-roster-table,.v20-stats-table{width:100%;border-collapse:collapse;font-size:12px;color:#193c57;min-width:490px}
+.v20-roster-table th,.v20-stats-table th{background:#15344d;color:#ebf8ff;font-size:10px;white-space:nowrap;text-transform:uppercase;letter-spacing:.05em;padding:13px 14px;text-align:left;border-right:1px solid #3f6177}
+.v20-roster-table td,.v20-stats-table td{padding:12px 14px;font-size:12px;border-bottom:1px solid #dee7ee;text-align:left;white-space:nowrap}
+.v20-roster-table tr:nth-child(even),.v20-stats-table tr:nth-child(even){background:#f2f7fa}
+.v20-roster-table tr:hover,.v20-stats-table tr:hover{background:#e4f0f8}
+.v20-roster-table strong,.v20-stats-table a{font-weight:850;color:#204e78}
+.v20-stats-table a:hover{text-decoration:underline;color:#0b4779}
+.v20-num{font-weight:900;font-variant-numeric:tabular-nums;color:#31638b}
+.v20-card-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;padding:15px}
+.v20-roster-card{display:flex;gap:11px;align-items:center;border:1px solid #d7e1e8;border-left:3px solid #b92844;background:#fff;padding:14px;min-width:0}
+.v20-avatar{height:44px;width:44px;flex:0 0 44px;border-radius:100%;background:linear-gradient(130deg,#153a59,#244f6d);color:#fff;display:grid;place-items:center;font-weight:950;font-size:15px;letter-spacing:.06em}
+.v20-player-detail{display:grid;gap:3px;min-width:0;flex:1}
+.v20-player-detail strong{font-size:12px;overflow-wrap:anywhere}
+.v20-player-detail small{font-size:10px;color:#728ba0}
+.v20-roster-card>b{font-size:18px;white-space:nowrap;color:#173f61}
+.v20-bottom-note{font-size:10px;color:#70899d;line-height:1.6;padding:13px 16px;background:#f0f5f9;border-left:3px solid #7daac5}
+.v20-source-bar{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;padding:11px 15px;background:#fff;border:1px solid #d9e5ec;font-size:10px;color:#7b92a4}
+.v20-source-bar a{color:#1f608b;font-weight:820}
+.v20-role-tabs{display:flex;gap:6px;border-bottom:3px solid #dce7ee;padding:0 0 7px}
+.v20-role-tabs button{font-size:13px;min-height:44px}
+.v20-aggregate{border:1px solid #d4e1e9;background:#fff;padding:14px 17px;display:grid;gap:12px}
+.v20-aggregate>strong{font-size:12px;color:#214760;letter-spacing:.03em}
+.v20-aggregate>small{font-size:10px;color:#7b91a1;line-height:1.55}
+.v20-metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px}
+.v20-metrics>div{background:#f0f6fa;border:1px solid #d8e5ec;border-top:2px solid #c32d4b;padding:11px 13px;display:grid;gap:5px}
+.v20-metrics span{font-size:10px;color:#647f92;font-weight:850}
+.v20-metrics b{color:#163a55;font-size:29px;line-height:1.05;font-variant-numeric:tabular-nums}
+.v20-stats-info{border-left:4px solid #214e6b;background:#eaf2f7;padding:13px 17px}
+.v20-stats-info strong{color:#153d58;font-size:13px}
+.v20-stats-info p{margin:6px 0 0;color:#53748b;font-size:11px;line-height:1.55}
+.v20-sort-label{display:grid;gap:6px;font-size:11px;font-weight:800;color:#5c7b8f;min-width:160px}
+.v20-stats-scroll{border:0}
+.v20-stats-table{min-width:900px}
+.v20-stats-table th,.v20-stats-table td{font-size:11px;padding:11px 8px;white-space:nowrap}
+.v20-stats-table th:nth-child(n+3),.v20-stats-table td:nth-child(n+3){text-align:center;font-variant-numeric:tabular-nums}
+.v20-stats-table td.v20-playername{text-align:left;min-width:145px}
+.v20-stats-table th:first-child,.v20-stats-table td:first-child{font-weight:850;color:#386683}
+.v20-stat-cards{display:none}
+.v20-stat-card{padding:13px;border-bottom:1px solid #d7e4ec;background:#fff}
+.v20-stat-card:nth-child(even){background:#f5f9fc}
+.v20-stat-head{display:flex;justify-content:space-between;align-items:start;gap:10px;margin-bottom:10px}
+.v20-stat-head>div:first-child{display:flex;align-items:center;gap:9px;min-width:0}
+.v20-jersey{display:grid;place-items:center;min-width:39px;min-height:38px;border-radius:5px;background:#153f5d;color:#eaf7ff;font-size:13px;font-weight:900}
+.v20-name{min-width:0;overflow-wrap:anywhere;font-size:13px;font-weight:850}
+.v20-name a,.v20-name strong{color:#155780}
+.v20-position{font-size:10px;color:#7893a7;font-weight:850}
+.v20-stat-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:5px}
+.v20-stat-grid>div{display:grid;gap:2px;justify-items:center;padding:7px 2px;background:#eaf2f7;border-radius:3px}
+.v20-stat-grid small{font-size:9px;color:#65829a;font-weight:880}
+.v20-stat-grid b{font-size:15px;color:#173c59;font-variant-numeric:tabular-nums}
+.v20-empty,.v20-source-fail{padding:22px 19px;background:#fff;color:#31536b;font-size:12px}
+.v20-source-fail{border-left:4px solid #b62947;display:grid;gap:10px}
+.v20-source-fail strong{font-size:16px}
+.v20-source-fail a{color:#155b85;font-weight:800}
+.v20-loading{padding:29px;border:1px solid #cbdce8;background:#fff;display:grid;gap:8px}
+.v20-loading span{font-size:10px;color:#a62947;font-weight:900;letter-spacing:.14em}
+.v20-loading h2{font-size:28px;color:#173b58;margin:0}
+.v20-loading p{font-size:12px;color:#6d8395;margin:0}
+.v20-leader-list{display:grid;gap:4px}
+.v20-leader{display:grid;grid-template-columns:minmax(0,1fr) 26px 28px;gap:5px;align-items:center;border-bottom:1px solid #d8e4ec;padding:6px 0}
+.v20-leader-name{font-size:11px;min-width:0;overflow-wrap:anywhere}
+.v20-leader a{font-weight:850;color:#145783}
+.v20-leader b{text-align:right;font-variant-numeric:tabular-nums;color:#183d5b}
+.v20-leader small{font-size:9px;color:#738fa5}
+#hockeyos-v20-leaders>small{font-size:10px;color:#7e95a8}
+@media(max-width:1080px){
+ .v20-card-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:750px){
+ .v20-heading{padding:16px 15px;display:grid;gap:12px}
+ .v20-source-card{min-width:0;justify-self:start;width:100%}
+ .v20-roster-top{display:grid;gap:8px;padding:14px 15px}
+ .v20-roster-top p{margin:0}
+ .v20-controls{padding:12px;align-items:stretch;gap:10px}
+ .v20-positions,.v20-view-toggle{flex-wrap:wrap}
+ .v20-positions button,.v20-view-toggle button{flex:1 1 auto;padding:9px 8px}
+ .v20-stats-scroll{display:none}
+ .v20-stat-cards{display:block}
+ .v20-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .v20-stat-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media(max-width:490px){
+ .v20-card-grid{grid-template-columns:1fr;padding:10px}
+ .v20-roster-table{min-width:345px}
+ .v20-roster-table th,.v20-roster-table td{padding:11px 7px;font-size:11px}
+ .v20-role-tabs button{flex:1}
+ .v20-metrics b{font-size:24px}
+}

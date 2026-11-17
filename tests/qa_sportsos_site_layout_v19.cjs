@@ -35,7 +35,7 @@ fs.mkdirSync(out,{recursive:true});
     assert.match(actual,/Read approved recap/);
   });
   await page.screenshot({path:path.join(out,"team_home_desktop.png"),fullPage:true});
-  for(const [route,phrase] of [["team-schedule","Schedule"],["team-results","Scores & results"],["team-stats","Player & team statistics"],["team-awards","Awards & award races"],["team-records","Records & milestones"],["team-about","About Brave H.C."],["team-photos","Photos & highlights"],["team-history","History & alumni"],["team-fees","Team administration"]]){
+  for(const [route,phrase] of [["team-schedule","Schedule"],["team-results","Scores & results"],["team-stats","Team statistics"],["team-awards","Awards & award races"],["team-records","Records & milestones"],["team-about","About Brave H.C."],["team-photos","Photos & highlights"],["team-history","History & alumni"],["team-fees","Team administration"]]){
     const text=await visit(route);await check(route+" route",()=>assert.ok(text.includes(phrase),route));
   }
   await check("Unrelated team administration does not expose scorer drafts",async()=>assert.ok(await page.$("#team-leagueos-bridge-mount")===null)); // Current team-fees route

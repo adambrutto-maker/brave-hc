@@ -102,7 +102,7 @@ function teamHome(c){
  wrap("Last game","Official result authority",'<p>Open the verified HTO game record. This preview does not invent a latest score.</p>'+
  ext("Official scores",TEAM_SOURCE+"scores"))+
  wrap("Next on the ice","Upcoming game",'<div class="v19-next-game">'+next+'</div>'+routeLink("Full schedule","team-schedule"))+
- wrap("Stat leaders","Official player statistics",'<p>Goals, assists, points, plus/minus and goalie records belong to the official game records.</p>'+routeLink("View team stats","team-stats"))+
+ wrap("Stat leaders","HTO actuals · source dated",'<div id="hockeyos-v20-leaders"><p>Checking the latest verified player statistics…</p></div>'+routeLink("View team stats","team-stats"))+
  '</aside><div class="v19-main-stack">'+
  '<section class="v19-lead-story"><div class="v19-lead-kicker">BRAVE H.C. • HOT STOVE</div>'+
  '<h2>The club. The games. The history.</h2><p>Game coverage, highlights, news, player recognition and meaningful insights — together in one team website.</p>'+
