@@ -113,10 +113,10 @@ function qualitySection(){
  '<div class="fair-quality-inner"><div class="fair-quality-grid">'+
  '<div><small>Methods compared</small><strong>'+v.models_compared+'</strong><span>Historically tuned before the 2026 analysis</span></div>'+
  '<div><small>Validation games</small><strong>'+val(v.validation_games)+'</strong><span>2024–2025 chronological outcomes</span></div>'+
- '<div><small>New / old log loss</small><strong>'+num(v.chosen_logloss)+' / '+num(v.old_logloss)+'</strong><span>Lower is better; improvement is modest</span></div>'+
- '<div><small>2026 retrospective difference</small><strong>'+num(v.retrospective_2026_chosen_logloss)+' / '+num(v.retrospective_2026_v2_logloss)+'</strong><span>231 games; not a prospective test</span></div>'+
+ '<div><small>New / old log loss</small><strong>'+fixed(v.chosen_logloss)+' / '+fixed(v.old_logloss)+'</strong><span>Lower is better; improvement is modest</span></div>'+
+ '<div><small>2026 retrospective difference</small><strong>'+fixed(v.retrospective_2026_chosen_logloss)+' / '+fixed(v.retrospective_2026_v2_logloss)+'</strong><span>231 games; not a prospective test</span></div>'+
  '<div><small>Week-five follow-up test</small><strong>'+val(w.validation_games)+'</strong><span>Historical future-game forecasts; current sample is small</span></div>'+
- '<div><small>Usable multi-night source-ID overlaps</small><strong>'+val(c.source_ids_with_usable_stats)+'</strong><span>Moderate scoring correlation '+num(c.normalized_scoring_correlation)+'; not calibrated night strength</span></div>'+
+ '<div><small>Usable multi-night source-ID overlaps</small><strong>'+val(c.source_ids_with_usable_stats)+'</strong><span>Moderate scoring correlation '+fixed(c.normalized_scoring_correlation)+'; not calibrated night strength</span></div>'+
  '</div>'+
  '<div class="fair-quality-rule"><strong>What the model cannot yet establish</strong>'+
  '<p>It cannot verify player eligibility, source-ID identity across changed registrations, referee performance, age-division rules, complete schedules, ice allocations or equivalent skill levels across different league nights.</p>'+
