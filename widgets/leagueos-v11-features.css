@@ -84,3 +84,10 @@ button.v11-feature-dir-entry:hover{background:#f0f7ff;border-color:#91b9de}
 @media(max-width:1020px){.v11-feature-dir-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:620px){.v11-playoff-ladder{padding:16px 12px}.v11-ladder-header{flex-wrap:wrap}.v11-ladder-round{min-width:200px}.v11-feature-dir-grid{grid-template-columns:1fr}.v11-feature-directory summary,.v11-feature-dir-body{padding:15px}.v11-rink-column{width:192px;min-width:192px}}
 @media print{.v11-playoff-ladder{break-inside:avoid}.v11-ladder-viewport{overflow:visible}.v11-ladder-columns{width:auto}.v11-ladder-round{min-width:150px}body{background:white}}
+
+/* Use the full desktop canvas while keeping overflow inside the feature, not the page. */
+.v11-ladder-round{max-width:none}
+.v11-ladder-columns{width:100%;min-width:max-content}
+.v11-rinks-board{width:max-content;min-width:100%}
+.v11-rink-column{flex:1 1 0;width:auto;min-width:205px}
+@media(max-width:620px){.v11-ladder-round{min-width:205px}.v11-rink-column{min-width:190px}}
