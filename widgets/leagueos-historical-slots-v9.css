@@ -1,0 +1,13 @@
+/* LeagueOS V9 — historical observed ice-time evidence, never booking availability. */
+.lc-pattern-evidence{background:#f9fbfe;border:1px solid #cbdcee;border-left:4px solid #5485b4;border-radius:10px;padding:13px 15px;margin:15px 0;min-width:0}
+.lc-pattern-evidence summary{font-weight:820;font-size:12px;color:#315777;cursor:pointer;line-height:1.55;list-style-position:outside}
+.lc-pattern-evidence p{line-height:1.7;color:#5c7890;font-size:11px;margin:11px 0}
+.lc-pattern-evidence .lc-tablewrap{background:#fff}
+.lc-pattern-evidence .lc-table{min-width:560px}
+.lc-pattern-evidence .lc-table th{font-size:9px}
+.lc-pattern-info{background:#eff6fe;border:1px solid #c9dff1;padding:13px;border-radius:9px;margin:12px 0;color:#395c80}
+.lc-pattern-info strong{font-size:12px}
+.lc-pattern-info p{font-size:11px;margin:6px 0}
+#league-planner-mount #lc-inventory-mode{font-weight:720;color:#185491}
+#league-planner-mount .lc-foot{font-weight:710}
+@media(max-width:600px){.lc-pattern-evidence{padding:10px 12px}.lc-pattern-evidence summary{font-size:11px}}
