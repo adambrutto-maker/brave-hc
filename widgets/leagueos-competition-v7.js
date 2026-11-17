@@ -67,7 +67,7 @@ function plannerUI(){
  const observed=historicInfo?.slots_by_night?.[prefs.night]||0;
  const detailsOpen=prefs.inventoryMode!=="historical";
  const selectedSource=prefs.inventoryMode==="historical"?"Observed SVHL game times":prefs.inventoryMode==="illustrative"?"Custom fictional times":"Imported date-specific blocks";
- const historicalSlot=historicInfo?.loaded?window.LeagueOSHistoricalSlotsV9?.getSlots(prefs.night,prefs.start,prefs.weeks):null;
+ let historicalSlot=null; if(historicInfo?.loaded&&prefs.inventoryMode==="historical"&&/^\d{4}-\d{2}-\d{2}$/.test(prefs.start)){try{historicalSlot=window.LeagueOSHistoricalSlotsV9?.getSlots(prefs.night,prefs.start,prefs.weeks)}catch(_){historicalSlot=null}}
  const observedRinks=historicalSlot?.distinct_rinks||[];
  let html='<div class="v10-wizard"><div class="v10-wizard-label">SET UP YOUR SCHEDULE <span>1 of 2 · Choose the basics</span></div>'+
  '<section class="panel v10-form-panel"><div class="v10-steps"><div class="v10-step-title"><span>1</span><div><h2>Choose the league night</h2><p>Select the competition and how many weeks to plan.</p></div></div>'+
