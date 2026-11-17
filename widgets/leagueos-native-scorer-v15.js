@@ -5,7 +5,7 @@ const KEY="leagueos-v15-scorer-demo",SOURCE_ASSET="./leagueos-source-qualified-c
 const nights=["Sunday","Tuesday","Wednesday","Thursday"],types=[
  {id:"goal",label:"Goal",icon:"◎"},{id:"shot",label:"Shot",icon:"◉"},{id:"penalty",label:"Penalty",icon:"⚑"},{id:"clock",label:"Clock",icon:"◷"},{id:"note",label:"Note",icon:"▤"}
 ];
-let registry=null,loading=null,error="",night="Sunday",fixtureId=null,kind="goal",period="1",tab="events",drafts={},validation="";
+let registry=null,loading=null,error="",night="Sunday",fixtureId=null,kind="goal",period="1",tab="events",drafts={},validation="",selectedSide="home";
 try{const z=JSON.parse(localStorage.getItem(KEY)||"{}");if(z&&z.version===15){night=nights.includes(z.night)?z.night:"Sunday";fixtureId=Number(z.fixtureId)||null;drafts=z.drafts&&typeof z.drafts==="object"?z.drafts:{}}}catch(_){}
 function persist(){try{localStorage.setItem(KEY,JSON.stringify({version:15,night,fixtureId,drafts}))}catch(_){validation="Browser storage unavailable; export your local practice draft."}}
 function fixtureList(){return(registry?.fixtures||[]).filter(x=>x.status==="FUTURE_RECIPROCAL_FIXTURE"&&x.night===night).sort((a,b)=>a.date.localeCompare(b.date)||a.time.localeCompare(b.time)||a.game_id-b.game_id)}
@@ -17,13 +17,28 @@ function option(v,label,chosen){return'<option value="'+esc(v)+'"'+(v===chosen?'
 function exportDraft(){const f=selected(),d=draft();if(!f||!d)return;const output={schema:"bruttech-leagueos-native-scorer-v15",status:"BROWSER_LOCAL_PRACTICE_NOT_OFFICIAL",officialScorePublished:false,gameId:f.game_id,source_snapshot:"2026-11-16",sourceGameUrl:f.official_game_url,game:{date:f.date,time:f.time,night:f.night,rink:f.rink,home:f.home,away:f.away},demonstration:d,totals:stats(),note:"No official league game-sheet, signature, player eligibility or scores were changed"};
 const data=new Blob([JSON.stringify(output,null,2)],{type:"application/json"}),url=URL.createObjectURL(data),a=document.createElement("a");a.href=url;a.download="LeagueOS_Practice_Gamesheet_"+f.game_id+".json";document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000)}
 function log(type,entry){const d=draft();if(!d)return;d.changes.push({action:type,at:new Date().toISOString(),eventId:entry?.id||null});d.changes=d.changes.slice(-200);persist()}
-function form(){return'<div class="v15-event-selector" role="group" aria-label="Choose game event">'+types.map(t=>'<button type="button" data-v15-event="'+t.id+'" class="'+(t.id===kind?"selected":"")+'" aria-pressed="'+(t.id===kind)+'"><span>'+t.icon+'</span>'+t.label+'</button>').join("")+'</div>'+
-'<form id="v15-event-form"><div class="v15-score-inputs"><label>Team<select name="team"><option value="home">Home</option><option value="away">Away</option></select></label><label>Period<select name="period">'+["1","2","3","OT"].map(x=>option(x,x,period)).join("")+'</select></label>'+
-'<label>Game clock<input name="clock" inputmode="numeric" maxlength="5" placeholder="MM:SS" value="'+esc(draft()?.clock||"00:00")+'" required></label>'+
-'<label>Jersey (optional)<input name="jersey" inputmode="numeric" maxlength="3" placeholder="19"></label>'+
-(kind==="penalty"?'<label>Penalty minutes<select name="penalty">'+["2","4","5","10"].map(x=>option(x,x,"2")).join("")+'</select></label>':'')+
-'<label class="v15-score-wide">Details (optional)<textarea name="details" rows="2" maxlength="220" placeholder="'+(kind==="goal"?"Assist jersey numbers, e.g. 8, 27":kind==="penalty"?"Penalty description":"Context or observation")+'"></textarea></label></div>'+
-'<div class="v15-score-error" role="alert">'+esc(validation)+'</div><button type="submit" class="v15-action-primary">ADD '+esc(kind.toUpperCase())+' EVENT <span>→</span></button></form>'}
+function form(){
+ const f=selected(),d=draft();
+ return '<div class="v16-score-controls"><div class="v16-step-kicker">PRACTICE EVENT CONSOLE / 01</div><h3>What happened?</h3>'+
+ '<div class="v15-event-selector" role="group" aria-label="Choose game event">'+types.map(t=>'<button type="button" data-v15-event="'+t.id+'" class="'+(t.id===kind?"selected":"")+'" aria-pressed="'+(t.id===kind)+'"><span>'+t.icon+'</span>'+t.label+'</button>').join("")+'</div>'+
+ '<div class="v16-target-heading">FOR WHICH TEAM?</div><div class="v16-team-targets" role="group" aria-label="Select team">'+
+ '<button type="button" data-v16-side="home" class="'+(selectedSide==="home"?"selected":"")+'" aria-pressed="'+(selectedSide==="home")+'"><span>HOME</span><b>'+esc(f?.home||"—")+'</b></button>'+
+ '<button type="button" data-v16-side="away" class="'+(selectedSide==="away"?"selected":"")+'" aria-pressed="'+(selectedSide==="away")+'"><span>AWAY</span><b>'+esc(f?.away||"—")+'</b></button></div>'+
+ '<button type="button" class="v16-record-button" id="v16-quick-add"><span>'+((kind==="clock"||kind==="note")?"ENTER DETAILS FOR ":"RECORD PRACTICE ")+esc(kind.toUpperCase())+'</span><b>▶</b></button>'+
+ '<p class="v16-quick-note">Period '+esc(d?.period||period)+' · '+esc(d?.clock||"00:00")+' · Practice only. No real league scoreboard changes.</p></div>'+
+ '<details class="v16-event-details" id="v16-scorer-details"><summary>⚙ Clock, period, jersey &amp; notes <span>Optional detailed entry</span></summary><div class="v16-event-detail-body">'+
+ '<form id="v15-event-form"><div class="v15-score-inputs"><label>Team<select name="team">'+option("home",f?.home||"Home",selectedSide)+option("away",f?.away||"Away",selectedSide)+'</select></label><label>Period<select name="period">'+["1","2","3","OT"].map(x=>option(x,x,period)).join("")+'</select></label>'+
+ '<label>Game clock<input name="clock" inputmode="numeric" maxlength="5" placeholder="MM:SS" value="'+esc(d?.clock||"00:00")+'" required></label>'+
+ '<label>Jersey (optional)<input name="jersey" inputmode="numeric" maxlength="3" placeholder="19"></label>'+
+ (kind==="penalty"?'<label>Penalty minutes<select name="penalty">'+["2","4","5","10"].map(x=>option(x,x,"2")).join("")+'</select></label>':'')+
+ '<label class="v15-score-wide">Details (optional)<textarea name="details" rows="2" maxlength="220" placeholder="'+(kind==="goal"?"Assist jersey numbers, e.g. 8, 27":kind==="penalty"?"Penalty description":"Context or observation")+'"></textarea></label></div>'+
+ '<div class="v15-score-error" role="alert">'+esc(validation)+'</div><button type="submit" class="v15-action-primary">ADD '+esc(kind.toUpperCase())+' EVENT <span>→</span></button></form></div></details>'
+}
+function quickAdd(eventKind,side){
+ const d=draft();if(!d||!["goal","shot","penalty"].includes(eventKind))return false;
+ const event={id:String(Date.now())+"-"+Math.random().toString(36).slice(2,7),kind:eventKind,side:side==="away"?"away":"home",period:d.period||period,time:d.clock||"00:00",jersey:"",details:"One-tap practice event; no official scoring",penalty:eventKind==="penalty"?2:0};
+ d.events.push(event);log("ADD",event);validation="";view();return true
+}
 function eventList(){const d=draft();if(!d?.events?.length)return'<p class="v15-score-empty">No practice events yet. Choose an event on the left to begin the game log.</p>';
 return d.events.slice().reverse().map(e=>'<article class="v15-log-item"><span class="v15-log-clock">'+esc("P"+e.period+" "+e.time)+'</span><div><strong>'+esc(e.kind.toUpperCase())+' · '+esc(e.side==="home"?selected().home:selected().away)+'</strong><small>'+esc((e.jersey?"#"+e.jersey+" · ":"")+(e.details||"No note"))+'</small></div><button type="button" data-v15-delete="'+e.id+'" title="Remove demonstration event" aria-label="Remove '+esc(e.kind)+' event">×</button></article>').join("")}
 function view(){
