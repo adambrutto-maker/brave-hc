@@ -1,7 +1,7 @@
 /* LeagueOS V15 native scorer console. Public fixture evidence; browser-local practice events only. */
 (function(){"use strict";
 const $=s=>document.querySelector(s),esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
-const KEY="leagueos-v15-scorer-demo",URL="./leagueos-source-qualified-current-fixtures-v4.json";
+const KEY="leagueos-v15-scorer-demo",SOURCE_ASSET="./leagueos-source-qualified-current-fixtures-v4.json";
 const nights=["Sunday","Tuesday","Wednesday","Thursday"],types=[
  {id:"goal",label:"Goal",icon:"◎"},{id:"shot",label:"Shot",icon:"◉"},{id:"penalty",label:"Penalty",icon:"⚑"},{id:"clock",label:"Clock",icon:"◷"},{id:"note",label:"Note",icon:"▤"}
 ];
@@ -49,7 +49,7 @@ function view(){
  html+='<div class="v15-score-footer"><button id="v15-score-export" type="button" class="v15-export">EXPORT PRACTICE SHEET</button><button id="v15-score-reset" type="button" class="v15-reset">RESET THIS DRAFT</button><details><summary>Source and legacy prototype</summary><p>The existing standalone score sheet remains archived for reference. The native console is the LeagueOS demonstration interface; neither updates official records.</p><a href="./svhl-leagueos-score-sheet-demo.html" target="_blank" rel="noopener noreferrer">Open earlier score-sheet research ↗</a></details></div></div>';
  root.innerHTML=html
 }
-async function load(){if(loading)return loading;loading=fetch(URL,{cache:"no-store"}).then(r=>{if(!r.ok)throw Error("HTTP "+r.status);return r.json()}).then(x=>{if(x.schema!=="bruttech-svhl-current-fixture-window/v4"||x.counts?.total!==411||!Array.isArray(x.fixtures))throw Error("Fixture source schema mismatch");registry=x;error="";loading=null;view()}).catch(e=>{error=String(e);loading=null;view()});return loading}
+async function load(){if(loading)return loading;loading=fetch(SOURCE_ASSET,{cache:"no-store"}).then(r=>{if(!r.ok)throw Error("HTTP "+r.status);return r.json()}).then(x=>{if(x.schema!=="bruttech-svhl-current-fixture-window/v4"||x.counts?.total!==411||!Array.isArray(x.fixtures))throw Error("Fixture source schema mismatch");registry=x;error="";loading=null;view()}).catch(e=>{error=String(e);loading=null;view()});return loading}
 document.addEventListener("change",e=>{if(!$("#league-native-scorer-mount"))return;
 if(e.target.id==="v15-score-night"){night=e.target.value;fixtureId=null;validation="";persist();view()}
 if(e.target.id==="v15-score-game"){fixtureId=Number(e.target.value);validation="";persist();view()}
