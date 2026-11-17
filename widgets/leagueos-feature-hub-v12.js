@@ -34,14 +34,14 @@ const sections=[
 ];
 function kind(x){
  if(!x[2]||/^Proposed|^Planned/.test(x[3]))return"planned";
- if(/Source|Research|research|Working research links/.test(x[3]))return"research";
+ if(/source|research/i.test(x[3]))return"research";
  return"demo";
 }
 let activeFilter="all",searchText="";
 function filterCatalog(){
  const root=$("#league-feature-hub-mount");if(!root)return;
  let visible=0;
- for(const item of root.querySelectorAll(".v12-feature-entry[data-v13-kind]")){
+ for(const item of root.querySelectorAll(".v13-catalog-group .v12-feature-entry[data-v13-kind]")){
   const term=item.textContent.toLowerCase(),allowed=(activeFilter==="all"||item.dataset.v13Kind===activeFilter)&&(!searchText||term.includes(searchText));
   item.classList.toggle("v13-feature-hidden",!allowed);if(allowed)visible++;
  }
