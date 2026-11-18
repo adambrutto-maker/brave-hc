@@ -17,7 +17,7 @@
     "ratings": "171565def2fbfcae366f576b7b171fd48768d3847b6924ad4303f303585ebd98",
     "canonicalFixtures": "39d38f799c8d8c89c642306181e35c5efbb3f7f5da4d737c5445b7f8ca45c658",
     "discovery": "03a3ecead2dff7dfe3585b21a5dc6afcfb2b74abe5ee57d324fe6a19e7b47c5c",
-    "rosterAwareForecast": "54dbe5f82c6fa4a76b3873aabc81473dc54d5fc3e85b826121134f77491341bd"
+    "rosterAwareForecast": "a26ec6367b7cc8b95c7e0967f03a339480b0e796ae4965767c9866633e13f3f1"
   },
   "policy": {
     "seasonRegularWeeks": 24,
@@ -14460,6 +14460,7 @@
     "schedulingHeldGroups": 1,
     "scheduledIceSlots": 0,
     "officialScheduleChangeActions": 0,
-    "memorialContinuityEvidenceSeasonCount": 2
+    "memorialContinuityEvidenceSeasonCount": 2,
+    "sourceVerifiedSettledGamesExcludedFromFuture": 0
   }
 }
