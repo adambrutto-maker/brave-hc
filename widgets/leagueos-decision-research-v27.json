@@ -1,0 +1,33 @@
+{
+  "schema": "bruttech-leagueos-commissioner-research-context/v27",
+  "publishedAt": "2026-11-17",
+  "status": "RETROSPECTIVE_OBSERVATIONAL_RESEARCH_SEPARATE_FROM_FICTIONAL_PLACEMENT",
+  "sourceFile": "leagueos-competitive-balance-backtest-v25.json",
+  "sourceSHA256": "affc4a0fdf33a51050ef6302e7445197820ec24747a30afcb5ead7919147adf4",
+  "sourceLeagueSeasons": 116,
+  "eligibleCompletedGames": 15468,
+  "fiveGoalMarginDefinition": "Absolute certified final goal margin >= 5",
+  "historicalModelType": "PRE_GAME_RESULT_ONLY_ELO_NOT_PLAYER_ROSTER_OR_OFFICIAL_DIVISION_ASSIGNMENT",
+  "cohorts": {
+    "balanced": {
+      "games": 14055,
+      "sourceFiveGoalRate": 0.1686
+    },
+    "moderate": {
+      "games": 1407,
+      "sourceFiveGoalRate": 0.2665
+    }
+  },
+  "observedRateGapPP": 9.79,
+  "notSufficientStrongMismatchSample": 6,
+  "causalEvidence": false,
+  "incrementalRosterProjectionValidated": false,
+  "noFictionalOutcomesInStudy": true,
+  "noLeagueChanges": true,
+  "displayPolicy": {
+    "label": "Historical relationship — not a forecast of this demo",
+    "warning": "These were previously observed outcomes on rated historical matchups, NOT proof that realigning divisions would lower blowouts.",
+    "prohibits": "Do not multiply this study's rates by the 24 fictional teams, claim causation, or predict exact blowout reductions.",
+    "sourceDisclosure": "Source-qualified public SVHL archive; results-only prequential Elo and bounded cohort coverage."
+  }
+}
