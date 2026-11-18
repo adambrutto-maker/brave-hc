@@ -438,6 +438,7 @@ function commissioner(){
  flag("Grades with zero teams",GRADES.filter(g=>!rec.gradeCounts[g]).join(", ")||"None")+
  '</div>'+
  '<div id="leagueos-v27-decision-report" aria-live="polite"></div>'+
+ '<div id="leagueos-v28-ice-planner" aria-live="polite"></div>'+
  '<div class="v26-form-row"><label>Target teams per division<select id="v26-target">'+
  [6,7,8,9,10].map(v=>'<option value="'+v+'"'+(v===state.targetSize?' selected':'')+'>'+v+' teams</option>').join("")+
  '</select></label><button type="button" data-v26-action="TARGET">Recalculate hypothetical groups</button>'+
@@ -620,8 +621,11 @@ function render(){
  '<div class="v26-next"><span>Next in the connected journey</span><button type="button" data-v26-next>'+
  (ROLES.indexOf(activeRole)===4?"Return to commissioner":"Continue to "+TITLES[ROLES[(ROLES.indexOf(activeRole)+1)%5]])+'</button></div>'+
  audit()+sourceNote()+'</div>';
- if(activeRole==="commissioner")window.LeagueOSDecisionV27?.mount(seed,state,
-   recommend(seed,{targetSize:state.targetSize,overrides:state.overrides}));
+ if(activeRole==="commissioner"){
+  const candidate=recommend(seed,{targetSize:state.targetSize,overrides:state.overrides});
+  window.LeagueOSDecisionV27?.mount(seed,state,candidate);
+  window.LeagueOSIceV28?.mount(seed,state,candidate);
+ }
 }
 function page(route){
  return '<div class="v26-root" id="leagueos-connected-demo-v26" data-v26-route="'+esc(route||"")+'">'+
