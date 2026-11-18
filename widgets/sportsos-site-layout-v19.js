@@ -8,7 +8,7 @@ const SITE_SOURCE="https://www.sportsvillage.ca/adult-hockey-league-3/";
 const PRIMARY={
  team:[
   ["Home","team-home"],["News","team-media"],["Roster","team-roster"],
-  ["Schedule","team-schedule"],["Scores","team-results"],["Stats","team-stats"],
+  ["Schedule","team-schedule"],["Scores","team-results"],["Stats","team-stats"],["Projections","team-projections"],
   ["Analytics","team-widgets"],["Awards","team-awards"],["Records","team-records"]
  ],
  league:[
@@ -114,6 +114,7 @@ function teamHome(c){
  tile("Roster & player profiles","Current official roster, Bio profiles and historical player achievements","team-roster","TEAM")+
  tile("Scores & game reports","Official box scores and HockeyOS practice-review workflow","team-results","GAMES")+
  tile("Analytics & awards","Player trends, award races and source-controlled projections","team-widgets","INTELLIGENCE")+
+ tile("Player projections","Projected goals, assists, points and model confidence","team-projections","FORECAST")+
  tile("History & records","Milestones, record watch, past seasons and club history","team-records","ARCHIVE")+
  '</div>'+
  wrap("Manager's game-night desk","Private team work stays independent of public results",'<div class="v19-inline-actions">'+
@@ -147,7 +148,7 @@ function leagueHome(c){
  '<div class="v19-tile-grid">'+
  tile("Schedule & results","Calendar, matchup details, scores and league nights","league-schedule","COMPETITION")+
  tile("Source reconciliation","HTO-versus-league comparison, held IDs and unresolved results","league-reconciliation","EVIDENCE")+
- tile("Recommended divisions","Automatic four-night current versus proposed competitive groupings","league-division-plan","COMPETITIVE BALANCE")+
+ tile("Competitive balance engine","Player-informed division proposals designed to reduce lopsided games; staged review and playoff-stable lock","league-division-plan","FAIRER MATCHUPS")+
  tile("Balanced scheduler","Rotate early/late starts and audit average ice-time exposure","league-planner","FAIRNESS")+
  tile("Playoff centre","Series, brackets, winner advancement and scheduling","league-playoffs","POSTSEASON")+
  tile("Game sheets & stats","Scorer entry, event reconciliation and source controls","league-scoring","GAME DAY")+
@@ -216,7 +217,7 @@ function screen(route,c={}){
  '<div class="v19-tile-grid v19-admin-grid">'+
  tile("Game verification","Game sheet review, goal events and score discrepancies","league-scoring","REVIEW")+
  tile("Source reconciliation","Dated source parity, mismatches and reviewer notes","league-reconciliation","SOURCE CONTROL")+
- tile("Division recommendations","Four-night strength and roster context planning","league-division-plan","COMPETITIVE BALANCE")+
+ tile("Division recommendations","Player regression, team projections, fair grouping and commissioner-controlled windows","league-division-plan","COMPETITIVE BALANCE")+
  tile("Schedule management","Available ice slots, start-time equity and changes","league-planner","PLANNING")+
  tile("Playoff administration","Qualifiers, series, bracket advancement and game times","league-playoffs","POSTSEASON")+
  tile("Roster registration","Team registration and player eligibility concepts","league-registration","TEAMS")+

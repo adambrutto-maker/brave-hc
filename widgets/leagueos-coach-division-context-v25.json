@@ -1,0 +1,267 @@
+{
+  "schema": "bruttech-leagueos-coach-historical-division-context/v25",
+  "status": "COACH_RECORDED_BRAVE_HC_HISTORICAL_STRENGTH_NOT_SVHL_APPROVED",
+  "privateWorkbookSourceDigest": "33a23fbf9db552c178aacb95e94f39ced25c2e00fb6cb5d0c68d000efccce3e6",
+  "privateCalibrationSourceSha256": "11345b7c5bcf6e554c95320f86b65ca7aaa9108e3a255c2931d515cc64110761",
+  "sourceAsOf": "2026-10-19",
+  "scope": "BRAVE_HC_HISTORICAL_DIVISION_AND_TEAM_RESULTS_ONLY",
+  "officialLeagueStrengthApproved": false,
+  "officialRecordChanged": false,
+  "privatePlayerRowsPublished": false,
+  "sourceWorkbookCopied": false,
+  "sourceNotesCopied": false,
+  "classificationPolicy": "A–D are founder/coach workbook observations; never normalize current or historic player output by these labels without official effective-dated division equivalence and duration certification.",
+  "seasonGameLengthWarning": "Summer and Winter game lengths differ. Historical GF/GA aggregate is not game-duration-normalized and must not be used as an absolute across-season scoring-rate comparator.",
+  "counts": {
+    "historicalDivisionSeasonLabels": 26,
+    "historicalBraveGamesWithStrengthLabels": 168,
+    "officialApprovedLabels": 0,
+    "playerRowsPublished": 0
+  },
+  "levels": [
+    {
+      "level": "A",
+      "sourceObservedGames": 0,
+      "sourceTeamRecord": {
+        "wins": 0,
+        "losses": 0,
+        "ties": 0
+      },
+      "pointsShare": null,
+      "goalDifferentialUnnormalized": null,
+      "goalFormatVerified": false,
+      "leagueOfficialTierApproval": false
+    },
+    {
+      "level": "B",
+      "sourceObservedGames": 20,
+      "sourceTeamRecord": {
+        "wins": 14,
+        "losses": 5,
+        "ties": 1
+      },
+      "pointsShare": 0.725,
+      "goalDifferentialUnnormalized": 49,
+      "goalFormatVerified": false,
+      "leagueOfficialTierApproval": false
+    },
+    {
+      "level": "C",
+      "sourceObservedGames": 82,
+      "sourceTeamRecord": {
+        "wins": 39,
+        "losses": 36,
+        "ties": 7
+      },
+      "pointsShare": 0.518,
+      "goalDifferentialUnnormalized": 45,
+      "goalFormatVerified": false,
+      "leagueOfficialTierApproval": false
+    },
+    {
+      "level": "D",
+      "sourceObservedGames": 66,
+      "sourceTeamRecord": {
+        "wins": 28,
+        "losses": 33,
+        "ties": 5
+      },
+      "pointsShare": 0.462,
+      "goalDifferentialUnnormalized": -31,
+      "goalFormatVerified": false,
+      "leagueOfficialTierApproval": false
+    }
+  ],
+  "historicalDivisionLabels": [
+    {
+      "seasonCode": "S2013",
+      "sourceDivisionName": "C",
+      "coachRecordedStrengthLevel": "C",
+      "leagueOfficialTierApproved": false,
+      "sourceEntryCount": 1
+    },
+    {
+      "seasonCode": "S2014",
+      "sourceDivisionName": "B",
+      "coachRecordedStrengthLevel": "B",
+      "leagueOfficialTierApproved": false,
+      "sourceEntryCount": 1
+    },
+    {
+      "seasonCode": "S2015",
+      "sourceDivisionName": "C",
+      "coachRecordedStrengthLevel": "C",
+      "leagueOfficialTierApproved": false,
+      "sourceEntryCount": 1
+    },
+    {
+      "seasonCode": "S2016",
+      "sourceDivisionName": "Hot Shots",
+      "coachRecordedStrengthLevel": "C",
+      "leagueOfficialTierApproved": false,
+      "sourceEntryCount": 1
+    },
+    {
+      "seasonCode": "S2016",
+      "sourceDivisionName": "Mug",
+      "coachRecordedStrengthLevel": "C",
+      "leagueOfficialTierApproved": false,
+      "sourceEntryCount": 1
+    },
+    {
+      "seasonCode": "S2017",
+      "sourceDivisionName": "Mountain Dew",
+      "coachRecordedStrengthLevel": "B",
+      "leagueOfficialTierApproved": false,
+      "sourceEntryCount": 1
+    },
+    {
+      "seasonCode": "S2017",
+      "sourceDivisionName": "Pepsi",
+      "coachRecordedStrengthLevel": "B",
+      "leagueOfficialTierApproved": false,
+      "sourceEntryCount": 1
+    },
+    {
+      "seasonCode": "W2013/14",
+      "sourceDivisionName": "C",
+      "coachRecordedStrengthLevel": "C",
+      "leagueOfficialTierApproved": false,
+      "sourceEntryCount": 1
+    },
+    {
+      "seasonCode": "W2014/15",
+      "sourceDivisionName": "C",
+      "coachRecordedStrengthLevel": "C",
+      "leagueOfficialTierApproved": false,
+      "sourceEntryCount": 1
+    },
+    {
+      "seasonCode": "W2015/16",
+      "sourceDivisionName": "C",
+      "coachRecordedStrengthLevel": "C",
+      "leagueOfficialTierApproved": false,
+      "sourceEntryCount": 1
+    },
+    {
+      "seasonCode": "W2015/16",
+      "sourceDivisionName": "D",
+      "coachRecordedStrengthLevel": "D",
+      "leagueOfficialTierApproved": false,
+      "sourceEntryCount": 1
+    },
+    {
+      "seasonCode": "W2016/17",
+      "sourceDivisionName": "Mountain Dew",
+      "coachRecordedStrengthLevel": "B",
+      "leagueOfficialTierApproved": false,
+      "sourceEntryCount": 1
+    },
+    {
+      "seasonCode": "W2017/18",
+      "sourceDivisionName": "Gatorade",
+      "coachRecordedStrengthLevel": "C",
+      "leagueOfficialTierApproved": false,
+      "sourceEntryCount": 1
+    },
+    {
+      "seasonCode": "W2017/18",
+      "sourceDivisionName": "Hot Shots",
+      "coachRecordedStrengthLevel": "C",
+      "leagueOfficialTierApproved": false,
+      "sourceEntryCount": 1
+    },
+    {
+      "seasonCode": "W2018/19",
+      "sourceDivisionName": "Gatorade",
+      "coachRecordedStrengthLevel": "C",
+      "leagueOfficialTierApproved": false,
+      "sourceEntryCount": 1
+    },
+    {
+      "seasonCode": "W2019/20",
+      "sourceDivisionName": "Gatorade",
+      "coachRecordedStrengthLevel": "C",
+      "leagueOfficialTierApproved": false,
+      "sourceEntryCount": 1
+    },
+    {
+      "seasonCode": "W2019/20",
+      "sourceDivisionName": "Pepsi",
+      "coachRecordedStrengthLevel": "C",
+      "leagueOfficialTierApproved": false,
+      "sourceEntryCount": 1
+    },
+    {
+      "seasonCode": "W2019/20",
+      "sourceDivisionName": "Pizzaville",
+      "coachRecordedStrengthLevel": "C",
+      "leagueOfficialTierApproved": false,
+      "sourceEntryCount": 1
+    },
+    {
+      "seasonCode": "W2020/21",
+      "sourceDivisionName": "Hot Shots",
+      "coachRecordedStrengthLevel": "C",
+      "leagueOfficialTierApproved": false,
+      "sourceEntryCount": 1
+    },
+    {
+      "seasonCode": "W2020/21",
+      "sourceDivisionName": "Pepsi",
+      "coachRecordedStrengthLevel": "C",
+      "leagueOfficialTierApproved": false,
+      "sourceEntryCount": 1
+    },
+    {
+      "seasonCode": "W2022/23",
+      "sourceDivisionName": "Pepsi",
+      "coachRecordedStrengthLevel": "C",
+      "leagueOfficialTierApproved": false,
+      "sourceEntryCount": 1
+    },
+    {
+      "seasonCode": "W2022/23",
+      "sourceDivisionName": "Pizzaville",
+      "coachRecordedStrengthLevel": "C",
+      "leagueOfficialTierApproved": false,
+      "sourceEntryCount": 1
+    },
+    {
+      "seasonCode": "W2023/24",
+      "sourceDivisionName": "Pizzaville",
+      "coachRecordedStrengthLevel": "D",
+      "leagueOfficialTierApproved": false,
+      "sourceEntryCount": 1
+    },
+    {
+      "seasonCode": "W2024/25",
+      "sourceDivisionName": "Mug",
+      "coachRecordedStrengthLevel": "D",
+      "leagueOfficialTierApproved": false,
+      "sourceEntryCount": 1
+    },
+    {
+      "seasonCode": "W2024/25",
+      "sourceDivisionName": "Pepsi",
+      "coachRecordedStrengthLevel": "D",
+      "leagueOfficialTierApproved": false,
+      "sourceEntryCount": 1
+    },
+    {
+      "seasonCode": "W2025/26",
+      "sourceDivisionName": "Cristillo",
+      "coachRecordedStrengthLevel": "D",
+      "leagueOfficialTierApproved": false,
+      "sourceEntryCount": 1
+    }
+  ],
+  "memorialContinuity": {
+    "id": "cristillo-memorial-identity",
+    "firstSourceCoachWorkbookSeason": "W2025/26",
+    "coachRecordedLevelFirstSeason": "D",
+    "approvedSourceTier": null,
+    "namingFollowsTeamApprovedByLeague": false,
+    "nameIndependentOfFutureSkillLevel": true
+  }
+}

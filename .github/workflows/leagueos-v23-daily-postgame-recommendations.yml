@@ -46,6 +46,9 @@ jobs:
           node --check scripts/build_leagueos_division_recommendations_v23.cjs
           node --check widgets/leagueos-division-plan-v23.js
           node --check widgets/leagueos-source-coverage-v24.js
+          node --check scripts/build_leagueos_player_team_forecasts_v25.cjs
+          node --check scripts/build_leagueos_division_lifecycle_v25.cjs
+          node --check widgets/leagueos-competition-studio-v25.js
           python tests/test_leagueos_daily_settlement_v23.py
           python tests/test_leagueos_fixture_discovery_v24.py
 
@@ -86,6 +89,14 @@ jobs:
         if: steps.source.outputs.changed == 'true'
         run: node scripts/build_leagueos_division_recommendations_v23.cjs
 
+      - name: Rebuild league-scale player and team forecasts ONLY after verified finals
+        if: steps.source.outputs.changed == 'true'
+        run: node scripts/build_leagueos_player_team_forecasts_v25.cjs
+
+      - name: Refresh unslotted candidate schedule impacts on source fixture or result changes
+        if: steps.source.outputs.changed == 'true' || steps.fixture.outputs.changed == 'true'
+        run: node scripts/build_leagueos_division_lifecycle_v25.cjs
+
       - name: Fail closed unless all source and model protections pass
         if: steps.source.outputs.changed == 'true' || steps.fixture.outputs.changed == 'true'
         shell: bash
@@ -100,7 +111,8 @@ jobs:
             tests/test_hockeyos_public_games_v21.cjs \
             tests/test_hockeyos_native_roster_stats_v20.cjs \
             tests/test_player_performance_normalization.cjs \
-            tests/test_leagueos_team_bridge_v18.cjs
+            tests/test_leagueos_team_bridge_v18.cjs \
+            tests/test_leagueos_dynamic_refresh_v25.cjs
           git diff --check
 
       - name: Publish only qualified JSON updates and redeploy the existing live demo
@@ -116,7 +128,9 @@ jobs:
             widgets/leagueos-fixture-discovery-v24.json \
             widgets/leagueos-settled-delta-v23.json \
             widgets/leagueos-cross-night-player-bridge-v23.json \
-            widgets/leagueos-division-recommendations-v23.json
+            widgets/leagueos-division-recommendations-v23.json \
+            widgets/leagueos-roster-player-projections-v25.json \
+            widgets/leagueos-division-lifecycle-v25.json
           if git diff --cached --quiet; then
             echo "No new qualifying data; previous live model retained."
             exit 0
@@ -129,7 +143,8 @@ jobs:
           python tests/test_leagueos_fixture_discovery_v24.py
           node --test \
             tests/test_leagueos_source_coverage_v24.cjs \
-            tests/test_leagueos_division_recommendations_v23.cjs
+            tests/test_leagueos_division_recommendations_v23.cjs \
+            tests/test_leagueos_dynamic_refresh_v25.cjs
           git diff --check
           git push origin HEAD:main
           # GITHUB_TOKEN commits do not trigger push-based Pages builds.
