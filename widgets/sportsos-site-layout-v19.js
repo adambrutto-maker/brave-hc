@@ -22,7 +22,7 @@ const SECONDARY={
   ["About","team-about"],["Hot Stove","team-media"],["Award Races","team-awards"],
   ["Photos","team-photos"],["History & Alumni","team-history"],["Team Fees","team-fees"],
   ["Attendance","team-attendance"],["Lines & Goalies","team-lineup"],
-  ["Team upgrades","team-upgrades"]
+  ["Team upgrades","team-upgrades"],["Connected demo","team-connected-demo"]
  ],
  league:[
   ["Game sheets","league-scoring"],["Fair scheduler","league-planner"],
@@ -31,7 +31,7 @@ const SECONDARY={
   ["Registration","league-registration"],["Eligibility","league-eligibility-preview"],
   ["Discipline","league-discipline-preview"],["Rules","league-rules"],
   ["Payments","league-payments"],["Rental requests","league-ice"],
-  ["Season archive","league-history"],["All features","league-features"]
+  ["Season archive","league-history"],["All features","league-features"],["Connected demo","league-connected-demo"]
  ]
 };
 const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
@@ -115,6 +115,7 @@ function teamHome(c){
  tile("Scores & game reports","Official box scores and HockeyOS practice-review workflow","team-results","GAMES")+
  tile("Analytics & awards","Player trends, award races and source-controlled projections","team-widgets","INTELLIGENCE")+
  tile("Player projections","Projected goals, assists, points and model confidence","team-projections","FORECAST")+
+ tile("Connected demo","Captain, player RSVP, QR attendance and league decisions in one fictional journey","team-connected-demo","CORE EXPERIENCE")+
  tile("History & records","Milestones, record watch, past seasons and club history","team-records","ARCHIVE")+
  '</div>'+
  wrap("Manager's game-night desk","Private team work stays independent of public results",'<div class="v19-inline-actions">'+
@@ -149,6 +150,7 @@ function leagueHome(c){
  tile("Schedule & results","Calendar, matchup details, scores and league nights","league-schedule","COMPETITION")+
  tile("Source reconciliation","HTO-versus-league comparison, held IDs and unresolved results","league-reconciliation","EVIDENCE")+
  tile("Competitive balance engine","Player-informed division proposals designed to reduce lopsided games; staged review and playoff-stable lock","league-division-plan","FAIRER MATCHUPS")+
+ tile("Connected league demo","See commissioner, captain, player, game-day and public states in one fictional walkthrough","league-connected-demo","FULL JOURNEY")+
  tile("Balanced scheduler","Rotate early/late starts and audit average ice-time exposure","league-planner","FAIRNESS")+
  tile("Playoff centre","Series, brackets, winner advancement and scheduling","league-playoffs","POSTSEASON")+
  tile("Game sheets & stats","Scorer entry, event reconciliation and source controls","league-scoring","GAME DAY")+
