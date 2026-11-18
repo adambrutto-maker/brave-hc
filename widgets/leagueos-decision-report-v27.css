@@ -1,0 +1,69 @@
+/* BruTTech SportsOS V27 — fictional commissioner decision-readiness report.
+   Original UI; no official league, arena booking or payment permissions.
+*/
+.v27-commissioner{background:#fff;color:#183f59;border:1px solid #cbdfe9;border-left:4px solid #218ca9;margin:12px 0;min-width:0;overflow:hidden}
+.v27-heading{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:17px;background:#eaf4f9}
+.v27-heading>div{min-width:0}
+.v27-heading span{font-size:10px;letter-spacing:.13em;font-weight:920;color:#2d829e}
+.v27-heading h4{margin:6px 0;font-size:20px;line-height:1.19;letter-spacing:-.035em;color:#164662}
+.v27-heading p{font-size:11px;color:#67869a;line-height:1.5;margin:0}
+.v27-state{flex:0 0 auto;font-size:10px;font-weight:950;color:#235c76;padding:9px 12px;background:#fff;border:1px solid #b8d5e1}
+.v27-scoreline{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;padding:13px}
+.v27-metric{display:grid;gap:7px;background:#f3f8fb;padding:13px;border-top:3px solid #218aa8;min-width:0}
+.v27-metric small{color:#587b93;font-size:10px;font-weight:880}
+.v27-metric strong{font-size:20px;color:#173f5d;letter-spacing:-.025em;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+.v27-metric span{font-size:9px;color:#7492a4;line-height:1.5}
+.v27-action-row{display:flex;gap:9px;align-items:end;flex-wrap:wrap;padding:1px 13px 13px}
+.v27-action-row label{font-size:10px;color:#597a91;display:grid;gap:5px;flex:0 0 186px;font-weight:830}
+.v27-action-row select{width:100%;min-width:0;border:1px solid #bcd2df;padding:9px;font-size:11px;background:#fff;color:#204c65;min-height:38px}
+.v27-action-row button{min-height:38px;border:1px solid #1e7e9c;background:#176b87;color:#fff;font-size:11px;font-weight:840;padding:10px 12px;border-radius:3px}
+.v27-action-row button:hover{background:#135770}
+.v27-action-row>span{font-size:10px;color:#6f8c9e;line-height:1.5;flex:1 1 250px}
+.v27-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;padding:0 13px 13px}
+.v27-decision{background:#fff;border:1px solid #d6e5eb;border-top:3px solid #2e87a5;padding:14px;min-width:0}
+.v27-decision h5{font-size:10px;color:#3e7793;letter-spacing:.08em;margin:0 0 6px;text-transform:uppercase}
+.v27-decision strong{font-size:14px;color:#1b4e6d;line-height:1.4}
+.v27-decision p{font-size:11px;color:#54778d;line-height:1.6;margin:7px 0}
+.v27-decision small{font-size:10px;color:#738fa0;line-height:1.5}
+.v27-gate{margin:0 13px 13px;background:#f7f2e6;border-left:4px solid #b18a4d;padding:13px;display:grid;gap:6px}
+.v27-gate strong{font-size:12px;color:#795a27}
+.v27-gate small{font-size:10px;color:#867c6a;line-height:1.6}
+.v27-movements{border-top:1px solid #d6e6eb;margin:0}
+.v27-movements>summary{cursor:pointer;font-size:12px;font-weight:850;color:#246785;padding:14px;background:#f6f9fb}
+.v27-table-wrap{max-width:100%;overflow:auto;padding:0 13px 14px}
+.v27-table-wrap table{border-collapse:collapse;width:100%;min-width:630px;color:#214b65}
+.v27-table-wrap th{background:#17455f;color:#e8f6fd;font-size:10px;text-align:left;padding:10px}
+.v27-table-wrap td{font-size:11px;border-bottom:1px solid #d7e5ed;padding:9px;color:#24536f}
+.v27-table-wrap tr:nth-child(even){background:#f3f8fb}
+.v27-notice{background:#eaf6ee;padding:10px 13px;border-left:3px solid #438b67;font-size:11px;color:#2b7653;margin:10px}
+.v27-research{background:#edf5f9;border-top:1px solid #d6e6ec;padding:14px}
+.v27-research b{font-size:12px;color:#1b5b7d}
+.v27-research p{font-size:11px;line-height:1.6;color:#4a728d;margin:6px 0}
+.v27-research small{font-size:10px;line-height:1.55;color:#708d9c}
+@media(max-width:1000px){
+ .v27-scoreline{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .v27-metric strong{font-size:18px}
+}
+@media(max-width:650px){
+ .v27-heading{padding:12px;display:grid;gap:9px}
+ .v27-state{justify-self:start}
+ .v27-scoreline{padding:8px;gap:6px}
+ .v27-metric{padding:9px}
+ .v27-metric strong{font-size:16px}
+ .v27-cards{grid-template-columns:1fr;gap:7px;padding:0 8px 8px}
+ .v27-action-row{padding:0 8px 9px}
+ .v27-action-row label{flex:1 1 100%}
+ .v27-action-row button{flex:1 1 100%}
+ .v27-gate{margin:0 8px 8px}
+ .v27-movements>summary{padding:12px}
+ .v27-research{padding:10px}
+}
+
+/* Contain large movement tables in nested V26 CSS grids, including 390px screens. */
+.v26-root{grid-template-columns:minmax(0,1fr)}
+.v26-app{grid-template-columns:minmax(0,1fr)}
+.v26-workbench{grid-template-columns:minmax(0,1fr)}
+.v27-commissioner{box-sizing:border-box;width:100%;max-width:100%;min-width:0}
+.v27-movements{box-sizing:border-box;max-width:100%;min-width:0;overflow:hidden}
+.v27-table-wrap{box-sizing:border-box;display:block;width:100%;max-width:100%;min-width:0;overflow-x:auto;overflow-y:hidden}
+.v27-table-wrap table{width:100%;min-width:630px}
