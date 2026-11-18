@@ -1,0 +1,60 @@
+/* LeagueOS V29 - commissioner 24-week FICTIONAL scheduling review. */
+.v29-season{min-width:0;max-width:100%;overflow:hidden;border:1px solid #cfdfe6;border-left:4px solid #2b7193;background:#fff;color:#1e4862}
+.v29-season header{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px;background:#eaf3f7}
+.v29-season header>div{min-width:0}
+.v29-season header span{display:block;font-size:10px;color:#317895;font-weight:900;letter-spacing:.08em}
+.v29-season header h4{font-size:19px;letter-spacing:-.02em;line-height:1.2;margin:5px 0;color:#143f59}
+.v29-season header p{font-size:11px;color:#608499;line-height:1.5;margin:0}
+.v29-status{font-size:10px;font-weight:900;background:#e7f5ea;border:1px solid #9fd2ad;color:#216a43;flex:0 0 auto;padding:9px}
+.v29-status.held{background:#fff0e6;border-color:#ddb1a1;color:#a35332}
+.v29-keys{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;padding:12px}
+.v29-keys>div{border:1px solid #d8e5ed;border-top:3px solid #257f9f;display:grid;gap:6px;min-width:0;padding:11px;background:#f5f9fb}
+.v29-keys small{font-weight:850;font-size:10px;color:#678898}
+.v29-keys strong{font-size:24px;color:#1e5370;font-variant-numeric:tabular-nums}
+.v29-keys span{font-size:10px;color:#7792a1}
+.v29-toolbar{display:flex;gap:8px;flex-wrap:wrap;align-items:end;padding:0 12px 12px}
+.v29-toolbar label{display:grid;gap:5px;flex:1 1 180px;font-size:10px;font-weight:800;color:#51778b}
+.v29-toolbar select{width:100%;min-width:0;min-height:40px;padding:8px;border:1px solid #bbd0dc;background:#fff;color:#244f67}
+.v29-toolbar button{min-height:40px;min-width:180px;cursor:pointer;background:#1e7391;border:1px solid #1a6885;color:#fff;padding:9px 12px;font-size:11px;font-weight:850;border-radius:3px}
+.v29-rule{margin:0 12px 13px;padding:11px 12px;background:#eef5f8;border-left:3px solid #348ba8;font-size:11px;line-height:1.55;color:#416c82}
+.v29-fairness{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;padding:0 12px 12px}
+.v29-fairness>div{min-width:0;display:grid;gap:6px;background:#f4f9fc;border:1px solid #d1e2ed;padding:12px}
+.v29-fairness span{color:#5e8296;font-size:10px;font-weight:850}
+.v29-fairness strong{font-size:18px;color:#205674;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+.v29-fairness small{color:#7392a4;font-size:9px;line-height:1.5}
+.v29-details{border-top:1px solid #dce9ef;min-width:0;max-width:100%;overflow:hidden}
+.v29-details>summary{padding:12px 14px;background:#f2f8fb;font-size:12px;color:#236383;font-weight:880;cursor:pointer}
+.v29-games{display:grid;gap:6px;padding:11px}
+.v29-games>div{min-width:0;display:grid;grid-template-columns:135px minmax(0,1fr) minmax(180px,.8fr);align-items:center;gap:9px;background:#fbfdfe;border:1px solid #e0eaf0;padding:10px}
+.v29-games>div:nth-child(even){background:#f3f8fb}
+.v29-games b{font-size:11px;color:#1d7391}
+.v29-games span{font-size:11px;color:#255470;overflow-wrap:anywhere}
+.v29-games small{font-size:10px;color:#7492a3}
+.v29-table{box-sizing:border-box;overflow:auto;width:100%;min-width:0;max-width:100%;padding:0 10px 12px}
+.v29-table table{width:100%;min-width:670px;border-collapse:collapse}
+.v29-table th{background:#20465e;color:#eaf6fa;text-align:left;font-size:10px;padding:9px}
+.v29-table td{font-size:11px;color:#2a526a;padding:9px;border-bottom:1px solid #e0eaf0}
+.v29-table tr:nth-child(even){background:#f5f9fb}
+.v29-hold{margin:0 12px 13px;background:#fff3eb;border-left:4px solid #cb8a56;padding:13px;color:#92593e}
+.v29-hold b{font-size:12px}
+.v29-hold p{font-size:11px;line-height:1.5;margin:7px 0}
+.v29-hold small{font-size:10px}
+.v29-notice{margin:8px 12px;padding:10px;background:#e7f5ec;color:#26744e;font-size:11px}
+.v29-disclosure{font-size:10px;line-height:1.65;color:#6b899c;background:#edf4f7;padding:13px;margin:0;border-top:1px solid #d8e5eb}
+.v29-source-hold{background:#fff0e5;border-left:4px solid #bc7b4f;color:#935e3a;padding:13px;font-size:12px}
+@media(max-width:1050px){.v29-fairness{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:850px){.v29-keys{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:700px){
+ .v29-season header{display:grid;gap:8px;padding:12px}
+ .v29-status{justify-self:start}
+ .v29-keys{gap:6px;padding:9px}
+ .v29-keys>div{padding:9px}
+ .v29-keys strong{font-size:21px}
+ .v29-toolbar{padding:0 9px 11px}
+ .v29-toolbar label,.v29-toolbar button{flex:1 1 100%}
+ .v29-rule,.v29-hold{margin:0 9px 10px}
+ .v29-fairness{grid-template-columns:1fr;gap:6px;padding:0 9px 10px}
+ .v29-games>div{grid-template-columns:1fr;gap:4px}
+ .v29-games{padding:8px}
+ .v29-table{padding:0 7px 9px}
+}
