@@ -1,5 +1,5 @@
 {
-  "capturedAt": "2026-11-16T06:43:47.644475+00:00",
+  "capturedAt": "2026-11-18T04:29:09.714813+00:00",
   "sourceAuthority": "PUBLIC_HTO_HTTP_READBACK",
   "games": [
     {
@@ -364,11 +364,33 @@
             {
               "cells": [
                 "2",
+                "2:01",
+                "ES",
+                "Mohawks H.C.",
+                "-",
+                "2-0 Mohawks H.C."
+              ],
+              "players": []
+            },
+            {
+              "cells": [
+                "2",
+                "2:01",
+                "ES",
+                "Mohawks H.C.",
+                "-",
+                "3-0 Mohawks H.C."
+              ],
+              "players": []
+            },
+            {
+              "cells": [
+                "2",
                 "9:26",
                 "ES",
                 "Brave H.C.",
                 "89 Justin Carosi ( 25 Michael Provenzano , 44 Alex Pagnotta )",
-                "1-1 Tie"
+                "3-1 Mohawks H.C."
               ],
               "players": [
                 {
@@ -387,87 +409,12 @@
             },
             {
               "cells": [
-                "2",
-                "2:01",
-                "ES",
-                "Mohawks H.C.",
-                "-",
-                "2-1 Mohawks H.C."
-              ],
-              "players": []
-            },
-            {
-              "cells": [
-                "2",
-                "2:01",
-                "ES",
-                "Mohawks H.C.",
-                "-",
-                "3-1 Mohawks H.C."
-              ],
-              "players": []
-            },
-            {
-              "cells": [
-                "3",
-                "9:40",
-                "ES",
-                "Mohawks H.C.",
-                "-",
-                "4-1 Mohawks H.C."
-              ],
-              "players": []
-            },
-            {
-              "cells": [
-                "3",
-                "7:32",
-                "ES",
-                "Mohawks H.C.",
-                "-",
-                "5-1 Mohawks H.C."
-              ],
-              "players": []
-            },
-            {
-              "cells": [
-                "3",
-                "7:03",
-                "ES",
-                "Mohawks H.C.",
-                "-",
-                "6-1 Mohawks H.C."
-              ],
-              "players": []
-            },
-            {
-              "cells": [
-                "3",
-                "5:30",
-                "ES",
-                "Brave H.C.",
-                "89 Justin Carosi ( 25 Michael Provenzano )",
-                "6-2 Mohawks H.C."
-              ],
-              "players": [
-                {
-                  "href": "https://www.htosports.com/teams/default.asp?s=hockey&u=BRAVESHOCKEY&p=profile&sportsHQ=BRAVESHOCKEY&playerID=354060",
-                  "name": "89 Justin Carosi"
-                },
-                {
-                  "href": "https://www.htosports.com/teams/default.asp?s=hockey&u=BRAVESHOCKEY&p=profile&sportsHQ=BRAVESHOCKEY&playerID=686216",
-                  "name": "25 Michael Provenzano"
-                }
-              ]
-            },
-            {
-              "cells": [
                 "3",
                 "1:20",
                 "ES",
                 "Brave H.C.",
                 "12 Adam Kober ( 34 Henry Kong , 44 Alex Pagnotta )",
-                "6-3 Mohawks H.C."
+                "3-2 Mohawks H.C."
               ],
               "players": [
                 {
@@ -483,6 +430,59 @@
                   "name": "44 Alex Pagnotta"
                 }
               ]
+            },
+            {
+              "cells": [
+                "3",
+                "5:30",
+                "ES",
+                "Brave H.C.",
+                "89 Justin Carosi ( 25 Michael Provenzano )",
+                "3-3 Tie"
+              ],
+              "players": [
+                {
+                  "href": "https://www.htosports.com/teams/default.asp?s=hockey&u=BRAVESHOCKEY&p=profile&sportsHQ=BRAVESHOCKEY&playerID=354060",
+                  "name": "89 Justin Carosi"
+                },
+                {
+                  "href": "https://www.htosports.com/teams/default.asp?s=hockey&u=BRAVESHOCKEY&p=profile&sportsHQ=BRAVESHOCKEY&playerID=686216",
+                  "name": "25 Michael Provenzano"
+                }
+              ]
+            },
+            {
+              "cells": [
+                "3",
+                "7:03",
+                "ES",
+                "Mohawks H.C.",
+                "-",
+                "4-3 Mohawks H.C."
+              ],
+              "players": []
+            },
+            {
+              "cells": [
+                "3",
+                "7:32",
+                "ES",
+                "Mohawks H.C.",
+                "-",
+                "5-3 Mohawks H.C."
+              ],
+              "players": []
+            },
+            {
+              "cells": [
+                "3",
+                "9:40",
+                "ES",
+                "Mohawks H.C.",
+                "-",
+                "6-3 Mohawks H.C."
+              ],
+              "players": []
             }
           ]
         },
@@ -932,11 +932,31 @@
             {
               "cells": [
                 "1",
-                "9:12",
+                "3:29",
+                "ES",
+                "Brave H.C.",
+                "89 Justin Carosi ( 25 Michael Provenzano )",
+                "0-1 Brave H.C."
+              ],
+              "players": [
+                {
+                  "href": "https://www.htosports.com/teams/default.asp?s=hockey&u=BRAVESHOCKEY&p=profile&sportsHQ=BRAVESHOCKEY&playerID=354060",
+                  "name": "89 Justin Carosi"
+                },
+                {
+                  "href": "https://www.htosports.com/teams/default.asp?s=hockey&u=BRAVESHOCKEY&p=profile&sportsHQ=BRAVESHOCKEY&playerID=686216",
+                  "name": "25 Michael Provenzano"
+                }
+              ]
+            },
+            {
+              "cells": [
+                "1",
+                "3:36",
                 "ES",
                 "Brave H.C.",
                 "-",
-                "0-0 Tie"
+                "0-1 Brave H.C."
               ],
               "players": []
             },
@@ -947,7 +967,7 @@
                 "ES",
                 "Brave H.C.",
                 "34 Henry Kong ( 12 Adam Kober , Damien Pavaday )",
-                "0-1 Brave H.C."
+                "0-2 Brave H.C."
               ],
               "players": [
                 {
@@ -967,33 +987,13 @@
             {
               "cells": [
                 "1",
-                "3:36",
+                "9:12",
                 "ES",
                 "Brave H.C.",
                 "-",
-                "0-1 Brave H.C."
-              ],
-              "players": []
-            },
-            {
-              "cells": [
-                "1",
-                "3:29",
-                "ES",
-                "Brave H.C.",
-                "89 Justin Carosi ( 25 Michael Provenzano )",
                 "0-2 Brave H.C."
               ],
-              "players": [
-                {
-                  "href": "https://www.htosports.com/teams/default.asp?s=hockey&u=BRAVESHOCKEY&p=profile&sportsHQ=BRAVESHOCKEY&playerID=354060",
-                  "name": "89 Justin Carosi"
-                },
-                {
-                  "href": "https://www.htosports.com/teams/default.asp?s=hockey&u=BRAVESHOCKEY&p=profile&sportsHQ=BRAVESHOCKEY&playerID=686216",
-                  "name": "25 Michael Provenzano"
-                }
-              ]
+              "players": []
             },
             {
               "cells": [
@@ -1410,11 +1410,33 @@
             {
               "cells": [
                 "1",
+                "5:10",
+                "ES",
+                "Zamboner Crew",
+                "-",
+                "1-0 Zamboner Crew"
+              ],
+              "players": []
+            },
+            {
+              "cells": [
+                "1",
+                "7:06",
+                "ES",
+                "Zamboner Crew",
+                "-",
+                "2-0 Zamboner Crew"
+              ],
+              "players": []
+            },
+            {
+              "cells": [
+                "1",
                 "9:17",
                 "ES",
                 "Brave H.C.",
                 "39 Keith Pearsoll ( 20 Stephane Saindon , 44 Alex Pagnotta )",
-                "0-1 Brave H.C."
+                "2-1 Zamboner Crew"
               ],
               "players": [
                 {
@@ -1433,30 +1455,8 @@
             },
             {
               "cells": [
-                "1",
-                "7:06",
-                "ES",
-                "Zamboner Crew",
-                "-",
-                "1-1 Tie"
-              ],
-              "players": []
-            },
-            {
-              "cells": [
-                "1",
-                "5:10",
-                "ES",
-                "Zamboner Crew",
-                "-",
-                "2-1 Zamboner Crew"
-              ],
-              "players": []
-            },
-            {
-              "cells": [
                 "2",
-                "6:39",
+                "2:57",
                 "ES",
                 "Zamboner Crew",
                 "-",
@@ -1478,7 +1478,7 @@
             {
               "cells": [
                 "2",
-                "2:57",
+                "6:39",
                 "ES",
                 "Zamboner Crew",
                 "-",
@@ -1489,8 +1489,8 @@
             {
               "cells": [
                 "3",
-                "7:45",
-                "PP",
+                "3:10",
+                "ES",
                 "Zamboner Crew",
                 "-",
                 "6-1 Zamboner Crew"
@@ -1500,8 +1500,8 @@
             {
               "cells": [
                 "3",
-                "3:10",
-                "ES",
+                "7:45",
+                "PP",
                 "Zamboner Crew",
                 "-",
                 "7-1 Zamboner Crew"
@@ -1922,20 +1922,24 @@
             {
               "cells": [
                 "1",
-                "8:44",
+                "2:25",
                 "ES",
                 "Brave H.C.",
-                "89 Justin Carosi ( 39 Keith Pearsoll )",
+                "20 Stephane Saindon ( 28 Adam Brutto , 49 Sanjay Rajkumar )",
                 "0-1 Brave H.C."
               ],
               "players": [
                 {
-                  "href": "https://www.htosports.com/teams/default.asp?s=hockey&u=BRAVESHOCKEY&p=profile&sportsHQ=BRAVESHOCKEY&playerID=354060",
-                  "name": "89 Justin Carosi"
+                  "href": "https://www.htosports.com/teams/default.asp?s=hockey&u=BRAVESHOCKEY&p=profile&sportsHQ=BRAVESHOCKEY&playerID=738846",
+                  "name": "20 Stephane Saindon"
                 },
                 {
-                  "href": "https://www.htosports.com/teams/default.asp?s=hockey&u=BRAVESHOCKEY&p=profile&sportsHQ=BRAVESHOCKEY&playerID=354056",
-                  "name": "39 Keith Pearsoll"
+                  "href": "https://www.htosports.com/teams/default.asp?s=hockey&u=BRAVESHOCKEY&p=profile&sportsHQ=BRAVESHOCKEY&playerID=354054",
+                  "name": "28 Adam Brutto"
+                },
+                {
+                  "href": "https://www.htosports.com/teams/default.asp?s=hockey&u=BRAVESHOCKEY&p=profile&sportsHQ=BRAVESHOCKEY&playerID=845365",
+                  "name": "49 Sanjay Rajkumar"
                 }
               ]
             },
@@ -1966,31 +1970,27 @@
             {
               "cells": [
                 "1",
-                "2:25",
+                "8:44",
                 "ES",
                 "Brave H.C.",
-                "20 Stephane Saindon ( 28 Adam Brutto , 49 Sanjay Rajkumar )",
+                "89 Justin Carosi ( 39 Keith Pearsoll )",
                 "0-3 Brave H.C."
               ],
               "players": [
                 {
-                  "href": "https://www.htosports.com/teams/default.asp?s=hockey&u=BRAVESHOCKEY&p=profile&sportsHQ=BRAVESHOCKEY&playerID=738846",
-                  "name": "20 Stephane Saindon"
+                  "href": "https://www.htosports.com/teams/default.asp?s=hockey&u=BRAVESHOCKEY&p=profile&sportsHQ=BRAVESHOCKEY&playerID=354060",
+                  "name": "89 Justin Carosi"
                 },
                 {
-                  "href": "https://www.htosports.com/teams/default.asp?s=hockey&u=BRAVESHOCKEY&p=profile&sportsHQ=BRAVESHOCKEY&playerID=354054",
-                  "name": "28 Adam Brutto"
-                },
-                {
-                  "href": "https://www.htosports.com/teams/default.asp?s=hockey&u=BRAVESHOCKEY&p=profile&sportsHQ=BRAVESHOCKEY&playerID=845365",
-                  "name": "49 Sanjay Rajkumar"
+                  "href": "https://www.htosports.com/teams/default.asp?s=hockey&u=BRAVESHOCKEY&p=profile&sportsHQ=BRAVESHOCKEY&playerID=354056",
+                  "name": "39 Keith Pearsoll"
                 }
               ]
             },
             {
               "cells": [
                 "2",
-                "7:03",
+                "0:02",
                 "ES",
                 "Big Bastones",
                 "-",
@@ -2001,7 +2001,7 @@
             {
               "cells": [
                 "2",
-                "0:02",
+                "7:03",
                 "ES",
                 "Big Bastones",
                 "-",
@@ -2012,26 +2012,44 @@
             {
               "cells": [
                 "3",
-                "9:20",
+                "0:10",
                 "ES",
                 "Brave H.C.",
-                "25 Michael Provenzano ( 18 Jamie Rosenberg , 20 Stephane Saindon )",
+                "18 Jamie Rosenberg ( 67 Francesco Triumbari )",
                 "2-4 Brave H.C."
               ],
               "players": [
-                {
-                  "href": "https://www.htosports.com/teams/default.asp?s=hockey&u=BRAVESHOCKEY&p=profile&sportsHQ=BRAVESHOCKEY&playerID=686216",
-                  "name": "25 Michael Provenzano"
-                },
                 {
                   "href": "https://www.htosports.com/teams/default.asp?s=hockey&u=BRAVESHOCKEY&p=profile&sportsHQ=BRAVESHOCKEY&playerID=843644",
                   "name": "18 Jamie Rosenberg"
                 },
                 {
-                  "href": "https://www.htosports.com/teams/default.asp?s=hockey&u=BRAVESHOCKEY&p=profile&sportsHQ=BRAVESHOCKEY&playerID=738846",
-                  "name": "20 Stephane Saindon"
+                  "href": "https://www.htosports.com/teams/default.asp?s=hockey&u=BRAVESHOCKEY&p=profile&sportsHQ=BRAVESHOCKEY&playerID=845364",
+                  "name": "67 Francesco Triumbari"
                 }
               ]
+            },
+            {
+              "cells": [
+                "3",
+                "3:22",
+                "ES",
+                "Big Bastones",
+                "-",
+                "3-4 Brave H.C."
+              ],
+              "players": []
+            },
+            {
+              "cells": [
+                "3",
+                "5:39",
+                "ES",
+                "Big Bastones",
+                "-",
+                "4-4 Tie"
+              ],
+              "players": []
             },
             {
               "cells": [
@@ -2040,7 +2058,7 @@
                 "ES",
                 "Brave H.C.",
                 "25 Michael Provenzano ( 44 Alex Pagnotta , 12 Adam Kober )",
-                "2-5 Brave H.C."
+                "4-5 Brave H.C."
               ],
               "players": [
                 {
@@ -2060,42 +2078,24 @@
             {
               "cells": [
                 "3",
-                "5:39",
-                "ES",
-                "Big Bastones",
-                "-",
-                "3-5 Brave H.C."
-              ],
-              "players": []
-            },
-            {
-              "cells": [
-                "3",
-                "3:22",
-                "ES",
-                "Big Bastones",
-                "-",
-                "4-5 Brave H.C."
-              ],
-              "players": []
-            },
-            {
-              "cells": [
-                "3",
-                "0:10",
+                "9:20",
                 "ES",
                 "Brave H.C.",
-                "18 Jamie Rosenberg ( 67 Francesco Triumbari )",
+                "25 Michael Provenzano ( 18 Jamie Rosenberg , 20 Stephane Saindon )",
                 "4-6 Brave H.C."
               ],
               "players": [
+                {
+                  "href": "https://www.htosports.com/teams/default.asp?s=hockey&u=BRAVESHOCKEY&p=profile&sportsHQ=BRAVESHOCKEY&playerID=686216",
+                  "name": "25 Michael Provenzano"
+                },
                 {
                   "href": "https://www.htosports.com/teams/default.asp?s=hockey&u=BRAVESHOCKEY&p=profile&sportsHQ=BRAVESHOCKEY&playerID=843644",
                   "name": "18 Jamie Rosenberg"
                 },
                 {
-                  "href": "https://www.htosports.com/teams/default.asp?s=hockey&u=BRAVESHOCKEY&p=profile&sportsHQ=BRAVESHOCKEY&playerID=845364",
-                  "name": "67 Francesco Triumbari"
+                  "href": "https://www.htosports.com/teams/default.asp?s=hockey&u=BRAVESHOCKEY&p=profile&sportsHQ=BRAVESHOCKEY&playerID=738846",
+                  "name": "20 Stephane Saindon"
                 }
               ]
             }
@@ -2606,7 +2606,7 @@
             {
               "cells": [
                 "2",
-                "9:22",
+                "0:35",
                 "ES",
                 "Mid Ice Crisis",
                 "-",
@@ -2628,7 +2628,7 @@
             {
               "cells": [
                 "2",
-                "0:35",
+                "9:22",
                 "ES",
                 "Mid Ice Crisis",
                 "-",
@@ -2639,42 +2639,11 @@
             {
               "cells": [
                 "3",
-                "8:53",
-                "ES",
-                "Brave H.C.",
-                "88 Stefano Mazzei ( 44 Alex Pagnotta )",
-                "1-4 Mid Ice Crisis"
-              ],
-              "players": [
-                {
-                  "href": "https://www.htosports.com/teams/default.asp?s=hockey&u=BRAVESHOCKEY&p=profile&sportsHQ=BRAVESHOCKEY&playerID=595514",
-                  "name": "88 Stefano Mazzei"
-                },
-                {
-                  "href": "https://www.htosports.com/teams/default.asp?s=hockey&u=BRAVESHOCKEY&p=profile&sportsHQ=BRAVESHOCKEY&playerID=354058",
-                  "name": "44 Alex Pagnotta"
-                }
-              ]
-            },
-            {
-              "cells": [
-                "3",
-                "4:22",
+                "0:54",
                 "ES",
                 "Mid Ice Crisis",
                 "-",
-                "1-5 Mid Ice Crisis"
-              ],
-              "players": []
-            },
-            {
-              "cells": [
-                "3",
-                "2:40",
-                "ES",
-                "Mid Ice Crisis",
-                "-",
-                "1-6 Mid Ice Crisis"
+                "0-5 Mid Ice Crisis"
               ],
               "players": []
             },
@@ -2685,7 +2654,7 @@
                 "ES",
                 "Brave H.C.",
                 "22 Adam Povegliano ( 44 Alex Pagnotta , 89 Justin Carosi )",
-                "2-6 Mid Ice Crisis"
+                "1-5 Mid Ice Crisis"
               ],
               "players": [
                 {
@@ -2705,13 +2674,44 @@
             {
               "cells": [
                 "3",
-                "0:54",
+                "2:40",
                 "ES",
                 "Mid Ice Crisis",
                 "-",
-                "2-7 Mid Ice Crisis"
+                "1-6 Mid Ice Crisis"
               ],
               "players": []
+            },
+            {
+              "cells": [
+                "3",
+                "4:22",
+                "ES",
+                "Mid Ice Crisis",
+                "-",
+                "1-7 Mid Ice Crisis"
+              ],
+              "players": []
+            },
+            {
+              "cells": [
+                "3",
+                "8:53",
+                "ES",
+                "Brave H.C.",
+                "88 Stefano Mazzei ( 44 Alex Pagnotta )",
+                "2-7 Mid Ice Crisis"
+              ],
+              "players": [
+                {
+                  "href": "https://www.htosports.com/teams/default.asp?s=hockey&u=BRAVESHOCKEY&p=profile&sportsHQ=BRAVESHOCKEY&playerID=595514",
+                  "name": "88 Stefano Mazzei"
+                },
+                {
+                  "href": "https://www.htosports.com/teams/default.asp?s=hockey&u=BRAVESHOCKEY&p=profile&sportsHQ=BRAVESHOCKEY&playerID=354058",
+                  "name": "44 Alex Pagnotta"
+                }
+              ]
             }
           ]
         },
