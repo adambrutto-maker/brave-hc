@@ -439,6 +439,7 @@ function commissioner(){
  '</div>'+
  '<div id="leagueos-v27-decision-report" aria-live="polite"></div>'+
  '<div id="leagueos-v28-ice-planner" aria-live="polite"></div>'+
+ '<div id="leagueos-v29-season-planner" aria-live="polite"></div>'+
  '<div class="v26-form-row"><label>Target teams per division<select id="v26-target">'+
  [6,7,8,9,10].map(v=>'<option value="'+v+'"'+(v===state.targetSize?' selected':'')+'>'+v+' teams</option>').join("")+
  '</select></label><button type="button" data-v26-action="TARGET">Recalculate hypothetical groups</button>'+
@@ -625,6 +626,7 @@ function render(){
   const candidate=recommend(seed,{targetSize:state.targetSize,overrides:state.overrides});
   window.LeagueOSDecisionV27?.mount(seed,state,candidate);
   window.LeagueOSIceV28?.mount(seed,state,candidate);
+  window.LeagueOSSeasonV29?.mount(seed,state,candidate);
  }
 }
 function page(route){
