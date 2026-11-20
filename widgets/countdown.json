@@ -9,7 +9,7 @@
     "offsetMinutesAfterPuckDrop": 60,
     "condition": "clock threshold, not official final score"
   },
-  "generatedAt": "2026-11-20T09:31:31.925613Z",
+  "generatedAt": "2026-11-20T21:31:22.563955Z",
   "sourcePages": [
     "https://www.htosports.com/teams/default.asp?p=schedule&s=hockey&u=BRAVESHOCKEY&d=20261101",
     "https://www.htosports.com/teams/default.asp?p=schedule&s=hockey&u=BRAVESHOCKEY&d=20261201",
@@ -34,6 +34,61 @@
       "puckDropUTC": "2026-11-23T01:00:00Z",
       "rolloverAtUTC": "2026-11-23T02:00:00Z",
       "eventURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=preview&sportsHQ=BRAVESHOCKEY&gameID=3375686"
+    },
+    {
+      "id": 3384272,
+      "opponent": "Maplewolves",
+      "homeAway": "Home",
+      "rink": "Vaughan Sports Village - B Rink",
+      "gameDate": "2026-11-29",
+      "puckDrop": "2026-11-29T21:00:00-05:00",
+      "puckDropUTC": "2026-11-30T02:00:00Z",
+      "rolloverAtUTC": "2026-11-30T03:00:00Z",
+      "eventURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=preview&sportsHQ=BRAVESHOCKEY&gameID=3384272"
+    },
+    {
+      "id": 3384268,
+      "opponent": "Mid Ice Crisis",
+      "homeAway": "Home",
+      "rink": "Vaughan Sports Village - A Rink",
+      "gameDate": "2026-12-06",
+      "puckDrop": "2026-12-06T19:15:00-05:00",
+      "puckDropUTC": "2026-12-07T00:15:00Z",
+      "rolloverAtUTC": "2026-12-07T01:15:00Z",
+      "eventURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=preview&sportsHQ=BRAVESHOCKEY&gameID=3384268"
+    },
+    {
+      "id": 3384269,
+      "opponent": "Zamboner Crew",
+      "homeAway": "Home",
+      "rink": "Vaughan Sports Village - A Rink",
+      "gameDate": "2026-12-13",
+      "puckDrop": "2026-12-13T21:15:00-05:00",
+      "puckDropUTC": "2026-12-14T02:15:00Z",
+      "rolloverAtUTC": "2026-12-14T03:15:00Z",
+      "eventURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=preview&sportsHQ=BRAVESHOCKEY&gameID=3384269"
+    },
+    {
+      "id": 3384271,
+      "opponent": "Young Guns",
+      "homeAway": "Home",
+      "rink": "Vaughan Sports Village - D Rink",
+      "gameDate": "2026-12-20",
+      "puckDrop": "2026-12-20T21:15:00-05:00",
+      "puckDropUTC": "2026-12-21T02:15:00Z",
+      "rolloverAtUTC": "2026-12-21T03:15:00Z",
+      "eventURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=preview&sportsHQ=BRAVESHOCKEY&gameID=3384271"
+    },
+    {
+      "id": 3384270,
+      "opponent": "Mohawks H.C.",
+      "homeAway": "Away",
+      "rink": "Vaughan Sports Village - B Rink",
+      "gameDate": "2026-12-27",
+      "puckDrop": "2026-12-27T18:00:00-05:00",
+      "puckDropUTC": "2026-12-27T23:00:00Z",
+      "rolloverAtUTC": "2026-12-28T00:00:00Z",
+      "eventURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=preview&sportsHQ=BRAVESHOCKEY&gameID=3384270"
     }
   ]
 }
