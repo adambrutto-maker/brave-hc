@@ -8,6 +8,11 @@ on:
       - "widgets/assets/lineups/**"
       - "widgets/game-centre-lineup-public.json"
       - "widgets/game-centre-next.html"
+      - "widgets/game-centre-arena-r32.html"
+      - "widgets/game-centre-next.css"
+      - "widgets/game-centre-next.js"
+      - "widgets/game-centre-mobile-lineup.js"
+      - "tests/test_game367_mobile_lineup.cjs"
       - "tests/test_game367_public_activation.cjs"
       - "tests/test_brave_hc_captain_lineup.py"
       - "tests/test_damien_pavaday_profile_lineup.py"
@@ -24,6 +29,11 @@ on:
       - "widgets/assets/lineups/**"
       - "widgets/game-centre-lineup-public.json"
       - "widgets/game-centre-next.html"
+      - "widgets/game-centre-arena-r32.html"
+      - "widgets/game-centre-next.css"
+      - "widgets/game-centre-next.js"
+      - "widgets/game-centre-mobile-lineup.js"
+      - "tests/test_game367_mobile_lineup.cjs"
       - "tests/test_game367_public_activation.cjs"
       - "tests/test_brave_hc_captain_lineup.py"
       - "tests/test_damien_pavaday_profile_lineup.py"
@@ -58,4 +68,4 @@ jobs:
       - name: Verify stable native HTO player profile link and historical aliases
         run: node --test tests/test_player_links.js
       - name: Verify HTO public working card and source
-        run: node --test tests/test_public_working_lineup.cjs tests/test_lineup_inline_preview.cjs tests/test_public_rental_goalie_confirmation.cjs tests/test_game367_public_activation.cjs
+        run: node --test tests/test_public_working_lineup.cjs tests/test_lineup_inline_preview.cjs tests/test_public_rental_goalie_confirmation.cjs tests/test_game367_public_activation.cjs tests/test_game367_mobile_lineup.cjs
