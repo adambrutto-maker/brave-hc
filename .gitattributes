@@ -1,0 +1,2 @@
+# Signed public lineup contracts must retain identical bytes on Windows and GitHub Pages.
+widgets/assets/lineups/*.lineup.json -text
