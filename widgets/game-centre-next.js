@@ -297,7 +297,6 @@ async function drawLineup(){
  const frame=$("lineup-pdf-frame"),preview=$("lineup-pdf-preview"),print=$("lineup-print"),open=$("lineup-open");
  const block=()=>{frame.removeAttribute("src");frame.hidden=true;preview.removeAttribute("src");preview.hidden=true;for(const a of [print,open]){a.removeAttribute("href");a.setAttribute("aria-disabled","true");a.tabIndex=-1}};
  block();
- window.BraveMobileLineup?.reset();
  if(!manifest){set("lineup-notice","Checking the original workbook-derived blank PDF…");return}
  let entry=released||manifest.blank;
  let approved=false;
@@ -322,11 +321,6 @@ async function drawLineup(){
    "Official lineup card available.":
    released?(managerFinalReady?"FINAL TEAM LINEUP - "+released.skaterCount+" skaters; goalie "+goalieName+" confirmed.":released.managerLineupStatus==="PRELIMINARY_TEAM_LINEUP"?"PRELIMINARY LINEUP - * marks unconfirmed full-time players; goalie "+goalieName+" confirmed. Assignments may change.":released.goalieConfirmed?"WORKING TEAM LINEUP - "+released.skaterCount+" skaters; goalie "+goalieName+" confirmed.":"INTERIM LINEUP - goalie unconfirmed; assignments may change."):
    "Blank original Brave H.C. card · lineup pending manager approval. Print or open the one-page PDF; do not use historical player sheets.");
- // For narrow screens, show the SHA-bound readable roster instead of a tiny print preview.
- // Preserve PDF/PNG integrity gates and leave the old image as fallback if the roster check fails.
- if(released&&managerFinalReady&&previewVerified&&version===lineupLoadVersion){
-  void window.BraveMobileLineup?.publish(released,fix,()=>version===lineupLoadVersion);
- }
  // The card itself is the public display. Text is shown only if a card is held or unavailable.
  $("lineup-notice").hidden=Boolean(approved);
 }

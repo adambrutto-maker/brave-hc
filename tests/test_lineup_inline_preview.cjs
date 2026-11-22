@@ -55,6 +55,6 @@ test('desktop and mobile share responsive image sizing with no fixed-height scro
 test('live entry eagerly prepares the image and requests updated display assets',()=>{
  const html=fs.readFileSync(path.join(dir,'game-centre-arena-r32.html'),'utf8');
  assert.match(html,/class="pdf-lineup-preview" loading="eager" decoding="async"/);
- assert.match(html,/game-centre-next.css\?v=20261122-mobile-card-r1/);
- assert.match(html,/game-centre-next.js\?v=20261122-mobile-card-r1/);
+ assert.match(html,/game-centre-next.css\?v=20261122-original-excel-r2/);
+ assert.match(html,/game-centre-next.js\?v=20261122-original-excel-r2/);
 });
