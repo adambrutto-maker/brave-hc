@@ -2,7 +2,7 @@
   "schema": "brave-hc-game-centre-public-lineup-pdf/v1",
   "status": "BLANK_PENDING_APPROVAL",
   "scope": "PUBLIC_MANAGER_AUTHORIZED_FINAL_TEAM_LINEUP",
-  "source": "Exact original Brave H.C. workbook Lines!G5:J16 exported directly from Excel; versioned Game367 final source",
+  "source": "Exact original Brave H.C. workbook Lines!G5:J16; captain-directed Game367 fair-play revised starting slots with unchanged roster",
   "sourceWorkbookSHA256": "0002fd9f06596af8d0a00fc1b53a618ef15479f941ad5c1e6265b27002a65154",
   "blank": {
     "url": "./assets/lineups/brave-hc-blank-original-card.pdf",
@@ -17,13 +17,13 @@
   "approved": null,
   "weeklyAutoPublishEnabled": false,
   "privateWhatsAppPollDataPublished": false,
-  "notice": "Captain-approved FINAL Game 367 original workbook card: 13 skaters; three whole winger pairs, Carosi/Saindon rotate centre, Kober fifth rotating D, Stephen Logue goalie. Original workbook layout and formulas preserved; verified Damien #0 lookup applied to game-specific copy.",
+  "notice": "Final 13 skaters; fair-play starting slots rotated using prior published weeks: Povegliano/Rosenberg Line 1; Keith/Damien Line 2; Provenzano brothers Line 3. Two centres rotate through ALL winger pairs; Kober rotates as fifth D; Stephen Logue goalie. Starting slots are not ice time.",
   "workingCard": {
     "fixtureId": 3375686,
     "gameDate": "2026-11-22",
     "puckDropUTC": "2026-11-23T01:00:00Z",
     "opponent": "Dateline Predators",
-    "sha256": "839a14257c77c332cc74b6cf63e5c5a26775a6f8f1e8ba8e2ee8348b27886bb8"
+    "sha256": "c4dd7ea72be285bbcbe2037de75f60353757e0e9ee4adc962d503daffa2f334f"
   },
   "publishedWorkingCard": {
     "fixtureId": 3375686,
@@ -34,14 +34,14 @@
     "authorizedForPublic": true,
     "goalieConfirmed": true,
     "sourceRange": "Lines!G5:J16",
-    "sourceSha256": "839a14257c77c332cc74b6cf63e5c5a26775a6f8f1e8ba8e2ee8348b27886bb8",
-    "publishedAt": "2026-11-22T19:53:19Z",
+    "sourceSha256": "c4dd7ea72be285bbcbe2037de75f60353757e0e9ee4adc962d503daffa2f334f",
+    "publishedAt": "2026-11-22T21:59:10Z",
     "expiresAt": "2026-11-23T02:00:00Z",
-    "url": "./assets/lineups/game-367-2026-11-22-working-r2.pdf",
-    "sha256": "839a14257c77c332cc74b6cf63e5c5a26775a6f8f1e8ba8e2ee8348b27886bb8",
-    "previewImage": "./assets/lineups/game-367-2026-11-22-working-r2.png",
-    "previewSHA256": "c93113aaacf6594a92bd87aacb37ad0a99762faa85061641e1c6dbcb2375348c",
-    "lineupJsonSHA256": "c66c5e91cc9c91a40d4386190c5e1db01b61c624b1dedace7fb42109ffd30e74",
+    "url": "./assets/lineups/game-367-2026-11-22-working-r3.pdf",
+    "sha256": "c4dd7ea72be285bbcbe2037de75f60353757e0e9ee4adc962d503daffa2f334f",
+    "previewImage": "./assets/lineups/game-367-2026-11-22-working-r3.png",
+    "previewSHA256": "61e10983af3fc78713cdd3205a93a359e1df9881976aa63cd84e3881187ad8fe",
+    "lineupJsonSHA256": "2ca3c92c231572fc89bb2368d091740b5b3c514858b8350a29a65477c214d173",
     "managerConfirmedGoalie": {
       "source": "MANAGER_DIRECT_CONFIRMATION",
       "status": "CONFIRMED_FOR_FIXTURE",
@@ -53,14 +53,15 @@
       "confirmedAtUTC": "2026-11-22T19:53:19Z"
     },
     "rentalGoalie": null,
-    "revision": 2,
+    "revision": 3,
     "skaterCount": 13,
     "rotationPolicy": "CAPTAIN_THREE_WINGER_PAIRS_TWO_ROTATING_CENTRES_FIFTH_D_GAME367",
     "managerLineupStatus": "FINAL_TEAM_LINEUP",
     "managerFinalReplacementAuthorized": true,
     "unconfirmedNamesMarked": false,
-    "downloadJPEG": "./assets/lineups/game-367-2026-11-22-working-r2.jpg",
-    "jpegSHA256": "6e313d75b8d4aca6569b16209ae2d507ddbcab2fbf569b538f9e3b66d486bb6f"
+    "downloadJPEG": "./assets/lineups/game-367-2026-11-22-working-r3.jpg",
+    "jpegSHA256": "552a532d857d9815c7687777876d64605531dc194c649fac4207c1a3f0bf3126",
+    "fairPlayStartingSlotsUpdated": true
   },
   "postGameAttendanceCorrection": {
     "gameId": 3375684,

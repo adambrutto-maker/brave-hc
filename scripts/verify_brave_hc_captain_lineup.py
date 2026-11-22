@@ -129,7 +129,11 @@ def validate(record,rule,base=ASSETS,*,check_assets=True,check_public=False):
           "GAME367_WRONG_FIXTURE")
   require(len(names)==13 and len(record["defence"])==3
           and len(defender_names)==5,"GAME367_WRONG_SKATER_OR_DEFENCE_COUNT")
-  expected=rule["wingers"]["game367PairSlotOrder20261122"]
+  is_fair=(record.get("captainPairOrderRevision")=="20261122_GAME367_FAIRPLAY_R3")
+  if is_fair:
+   require(record.get("revision")==3,"GAME367_FAIRPLAY_REVISION_MISMATCH")
+  expected=(rule["wingers"]["game367FairRotationPairSlotOrder20261122"] if is_fair
+            else rule["wingers"]["game367PairSlotOrder20261122"])
   order=[[row["LW"]["name"],row["RW"]["name"]] for row in record["forwards"]]
   require(order==expected and record.get("hardBuddyPairs")==expected,
           "GAME367_CAPTAIN_APPROVED_WINGER_ORDER_BROKEN")

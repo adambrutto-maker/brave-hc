@@ -1,0 +1,198 @@
+{
+  "schema": "brave-hc-published-captain-lineup/v1",
+  "season": "W2026/27",
+  "gameId": "367",
+  "officialHTOGameId": "3375686",
+  "gameDate": "2026-11-22",
+  "opponent": "Dateline Predators",
+  "gameTime": "20:00",
+  "rink": "B Rink",
+  "status": "FINAL_TEAM_LINEUP",
+  "userManagerApproved": true,
+  "sourceOfManagerAuthorization": "Captain's November 22 instruction to respect established fair-play rotation; prior published November 1, 8 and 15 starting slots reviewed",
+  "notLeagueOfficialScorekeeperRelease": true,
+  "currentRotationUsedVerifiedActualIceTime": false,
+  "rotationContext": "Weekly fair-play starting slots: Adam Povegliano/Jamie Rosenberg line 1; Keith Pearsoll/Damien Pavaday line 2; Mario/Michael Provenzano line 3. Stephane Saindon and Justin Carosi swap starting centre order versus Nov 15. All three pairs share BOTH centres over a six-shift cycle. Five defenders share shifts; starting line positions are NOT actual minutes.",
+  "forwards": [
+    {
+      "line": 1,
+      "LW": {
+        "name": "Povegliano, Adam",
+        "jerseyNumber": "22",
+        "playerFontPx": 58,
+        "displayText": "#22 - Povegliano, Adam"
+      },
+      "C": {
+        "name": "Saindon, Stephane",
+        "jerseyNumber": "20",
+        "playerFontPx": 58,
+        "displayText": "#20 - Saindon, Stephane"
+      },
+      "RW": {
+        "name": "Rosenberg, Jamie",
+        "jerseyNumber": "18",
+        "playerFontPx": 58,
+        "displayText": "#18 - Rosenberg, Jamie"
+      }
+    },
+    {
+      "line": 2,
+      "LW": {
+        "name": "Pearsoll, Keith",
+        "jerseyNumber": "39",
+        "playerFontPx": 58,
+        "displayText": "#39 - Pearsoll, Keith"
+      },
+      "C": {
+        "name": "Carosi, Justin",
+        "jerseyNumber": "89",
+        "playerFontPx": 58,
+        "displayText": "#89 - Carosi, Justin"
+      },
+      "RW": {
+        "name": "Pavaday, Damien",
+        "jerseyNumber": "0",
+        "playerFontPx": 58,
+        "displayText": "#0 - Pavaday, Damien",
+        "htoPlayerId": 849368
+      }
+    },
+    {
+      "line": 3,
+      "LW": {
+        "name": "Provenzano, Mario",
+        "jerseyNumber": "8",
+        "playerFontPx": 58,
+        "displayText": "#8 - Provenzano, Mario"
+      },
+      "C": null,
+      "RW": {
+        "name": "Provenzano, Michael",
+        "jerseyNumber": "25",
+        "playerFontPx": 58,
+        "displayText": "#25 - Provenzano, Michael"
+      }
+    }
+  ],
+  "defence": [
+    {
+      "pair": 1,
+      "LD": {
+        "name": "Rajkumar, Sanjay",
+        "jerseyNumber": "49",
+        "playerFontPx": 58,
+        "displayText": "#49 - Rajkumar, Sanjay"
+      },
+      "RD": {
+        "name": "Triumbari, Francesco",
+        "jerseyNumber": "67",
+        "playerFontPx": 58,
+        "displayText": "#67 - Triumbari, Francesco"
+      }
+    },
+    {
+      "pair": 2,
+      "LD": {
+        "name": "Brutto, Adam",
+        "jerseyNumber": "28",
+        "playerFontPx": 58,
+        "displayText": "#28 - Brutto, Adam"
+      },
+      "RD": {
+        "name": "Pagnotta, Alex",
+        "jerseyNumber": "44",
+        "playerFontPx": 58,
+        "displayText": "#44 - Pagnotta, Alex"
+      }
+    },
+    {
+      "pair": 3,
+      "LD": {
+        "name": "Kober, Adam",
+        "jerseyNumber": "12",
+        "playerFontPx": 58,
+        "displayText": "#12 - Kober, Adam"
+      },
+      "RD": null
+    }
+  ],
+  "goalie": {
+    "name": "Logue, Stephen",
+    "jerseyNumber": "70",
+    "playerFontPx": 58,
+    "displayText": "#70 - Logue, Stephen"
+  },
+  "centreRotation": [
+    "Saindon, Stephane",
+    "Carosi, Justin"
+  ],
+  "line3CentreDisplay": "-",
+  "hardBuddyPairs": [
+    [
+      "Povegliano, Adam",
+      "Rosenberg, Jamie"
+    ],
+    [
+      "Pearsoll, Keith",
+      "Pavaday, Damien"
+    ],
+    [
+      "Provenzano, Mario",
+      "Provenzano, Michael"
+    ]
+  ],
+  "captainLineupPolicy": "scripts/brave_hc_captain_lineup_rules.json",
+  "printSpec": {
+    "source": "Exact original approved Brave H.C. workbook Lines!G5:J16; Excel exported for fair play revision 3",
+    "pixelWidth": 3300,
+    "pixelHeight": 2550,
+    "allPlayerCellsSameFontSizePx": 58,
+    "fontFamily": "Arial Bold",
+    "independentFontShrinkApplied": false,
+    "publicRoleLabelsIncluded": false
+  },
+  "pdf": {
+    "path": "assets/lineups/game-367-2026-11-22-working-r3.pdf",
+    "sha256": "c4dd7ea72be285bbcbe2037de75f60353757e0e9ee4adc962d503daffa2f334f"
+  },
+  "png": {
+    "path": "assets/lineups/game-367-2026-11-22-working-r3.png",
+    "sha256": "61e10983af3fc78713cdd3205a93a359e1df9881976aa63cd84e3881187ad8fe"
+  },
+  "namedPollVotesIncluded": false,
+  "privateWhatsAppGroupContentIncluded": false,
+  "venueDataCopiedFromVerifiedHTOandSVHL": true,
+  "sourceCorrection": {
+    "htoPlayerId": 849368,
+    "oldSpelling": "Pavaday, Damian",
+    "correctSpelling": "Pavaday, Damien",
+    "jerseyNumber": "0",
+    "identityStable": true,
+    "captainVerified": true,
+    "nativeHTOProfileEditState": "PENDING_AUTHENTICATED_HTO_ADMIN",
+    "sourceOfNumber": "HTO public roster and player profile show #0"
+  },
+  "captainPairOrderRevision": "20261122_GAME367_FAIRPLAY_R3",
+  "revision": 3,
+  "jpeg": {
+    "path": "assets/lineups/game-367-2026-11-22-working-r3.jpg",
+    "sha256": "552a532d857d9815c7687777876d64605531dc194c649fac4207c1a3f0bf3126",
+    "pixelSize": [
+      3300,
+      2550
+    ],
+    "dpi": 300
+  },
+  "fairPlayRotationReview": {
+    "sourceDates": [
+      "2026-11-01",
+      "2026-11-08",
+      "2026-11-15"
+    ],
+    "basis": "Previously published starting slots only; no assertion of actual minutes or game deployments",
+    "repeatPreviousWeekBefore": 2,
+    "repeatPreviousWeekAfter": 0,
+    "sixTurnForwardCycleRequiresBothCentres": true,
+    "fiveDefendersRotate": true
+  }
+}

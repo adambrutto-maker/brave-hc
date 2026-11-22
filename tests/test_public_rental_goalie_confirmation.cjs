@@ -23,7 +23,7 @@ test('manager-confirmed Stephen Logue is game-bound and manager final team lineu
  assert.equal(e.managerConfirmedGoalie.fixtureId,3375686);
  assert.equal(e.rentalGoalie,null);
  assert.equal(e.managerLineupStatus,'FINAL_TEAM_LINEUP');
- assert.equal(e.revision,2);
+ assert.equal(e.revision,3);
  assert.equal(e.managerFinalReplacementAuthorized,true);
  assert.equal(e.unconfirmedNamesMarked,false);
  assert.equal(sel(pub,fix,now),e);

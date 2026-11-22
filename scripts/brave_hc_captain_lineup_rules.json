@@ -62,7 +62,22 @@
         "Pearsoll, Keith",
         "Pavaday, Damien"
       ]
-    ]
+    ],
+    "game367FairRotationPairSlotOrder20261122": [
+      [
+        "Povegliano, Adam",
+        "Rosenberg, Jamie"
+      ],
+      [
+        "Pearsoll, Keith",
+        "Pavaday, Damien"
+      ],
+      [
+        "Provenzano, Mario",
+        "Provenzano, Michael"
+      ]
+    ],
+    "game367FairRotationRationale": "Captain-directed fair-play correction: rotate whole buddy pairs using observed published Nov 1/8/15 starting positions. Never treat starting line slots as actual ice minutes; all three pairs share both rotating centres."
   },
   "defence": {
     "pairedOn14SkaterRoster": true,
