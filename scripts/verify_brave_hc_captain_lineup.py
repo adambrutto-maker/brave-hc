@@ -96,6 +96,52 @@ def validate(record,rule,base=ASSETS,*,check_assets=True,check_public=False):
  for name,num in overrides.items():
   for v in visible:
    if v["name"]==name:require(v.get("jerseyNumber")==num,"CAPTAIN_JERSEY_OVERRIDE_WRONG")
+ # Corrections are immutable even after a newer game's card becomes current.
+ if record.get("sourceCorrection",{}).get("htoPlayerId")==849368:
+  correction=rule["playerIdentityCorrections"]["849368"]
+  aliases=set(correction["legacyAliases"])
+  matching=[p for p in visible if p.get("name")==correction["canonicalName"]
+            or p.get("name") in aliases or p.get("htoPlayerId")==849368]
+  require(len(matching)==1,"DAMIEN_PROFILE_IDENTITY_MISSING_OR_DUPLICATED")
+  p=matching[0]
+  require(p.get("name")==correction["canonicalName"]
+          and p.get("jerseyNumber")==correction["jerseyNumber"]
+          and p.get("htoPlayerId")==849368 and p.get("displayText")=="#0 - Pavaday, Damien",
+          "DAMIEN_NAME_JERSEY_OR_HTO_ID_WRONG")
+ # Game 366 R5 signed history remains protected after it stops being current.
+ if record.get("captainPairOrderRevision")=="20261115_GAME366_R5_SOURCE_REVIEWED":
+  prefs=rule["wingers"]["captainPreferredPairsWhenBothWingEligible"]
+  actual=[{row["LW"]["name"],row["RW"]["name"]} for row in record["forwards"]]
+  for pair in prefs:
+   if set(pair).issubset(set(wing_names)):
+    require(set(pair) in actual,"CAPTAIN_PREFERRED_WINGER_PAIR_SPLIT:"+"/".join(pair))
+  expected=rule["wingers"]["game366PairSlotOrder20261115"]
+  order=[[row["LW"]["name"],row["RW"]["name"]] for row in record["forwards"]]
+  require(order==expected,"GAME366_CAPTAIN_LINE_SLOT_ROTATION_BROKEN")
+  require(centres==["Carosi, Justin","Saindon, Stephane"],"GAME366_CENTRE_ROTATION_ORDER_BROKEN")
+ # Captain's current fixture-specific override: Keith/Damien are together,
+ # so Jamie/Damien's generic preference does not apply to November 22.
+ if record.get("gameId")=="367":
+  require(record.get("officialHTOGameId")=="3375686" and
+          record.get("gameDate")=="2026-11-22" and
+          record.get("opponent")=="Dateline Predators" and
+          record.get("gameTime")=="20:00" and record.get("rink")=="B Rink",
+          "GAME367_WRONG_FIXTURE")
+  require(len(names)==13 and len(record["defence"])==3
+          and len(defender_names)==5,"GAME367_WRONG_SKATER_OR_DEFENCE_COUNT")
+  expected=rule["wingers"]["game367PairSlotOrder20261122"]
+  order=[[row["LW"]["name"],row["RW"]["name"]] for row in record["forwards"]]
+  require(order==expected and record.get("hardBuddyPairs")==expected,
+          "GAME367_CAPTAIN_APPROVED_WINGER_ORDER_BROKEN")
+  require(centres==["Saindon, Stephane","Carosi, Justin"],
+          "GAME367_CENTRE_ROTATION_NOT_SWAPPED")
+  dp=[[x["LD"]["name"] if x.get("LD") else None,
+       x["RD"]["name"] if x.get("RD") else None] for x in record["defence"]]
+  require(dp==[["Rajkumar, Sanjay","Triumbari, Francesco"],
+               ["Brutto, Adam","Pagnotta, Alex"],["Kober, Adam",None]],
+          "GAME367_DEFENSIVE_PARTNERSHIP_OR_FIFTH_D_BROKEN")
+  require(goalie.get("name")=="Logue, Stephen" and goalie.get("jerseyNumber")=="70",
+          "GAME367_GOALIE_INCORRECT")
  # Final image/PDF must exist, be exactly hash-bound and PDF one-page plausible.
  if check_assets:
   pdf=base/Path(record["pdf"]["path"]).name

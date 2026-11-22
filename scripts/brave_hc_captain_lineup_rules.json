@@ -48,7 +48,21 @@
         "Rosenberg, Jamie"
       ]
     ],
-    "fairnessMetricCaveat": "Published starting line slots are not minutes; record actual deployments separately."
+    "fairnessMetricCaveat": "Published starting line slots are not minutes; record actual deployments separately.",
+    "game367PairSlotOrder20261122": [
+      [
+        "Provenzano, Mario",
+        "Provenzano, Michael"
+      ],
+      [
+        "Povegliano, Adam",
+        "Rosenberg, Jamie"
+      ],
+      [
+        "Pearsoll, Keith",
+        "Pavaday, Damien"
+      ]
+    ]
   },
   "defence": {
     "pairedOn14SkaterRoster": true,

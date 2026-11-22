@@ -50,8 +50,8 @@ class CorrectDamienPublicLinkAndLineup(unittest.TestCase):
   self.assertEqual(v.validate(self.r3,self.rules,check_public=True,check_assets=True)["status"],"PASS_CAPTAIN_HARD_RULES")
  def test_11_current_public_contract_is_source_bound(self):
   result=v.check_all()
-  self.assertEqual(len(result),3)
-  self.assertEqual([x["status"] for x in result],["PASS_CAPTAIN_HARD_RULES"]*3)
+  self.assertEqual(len(result),4)
+  self.assertEqual([x["status"] for x in result],["PASS_CAPTAIN_HARD_RULES"]*4)
  def test_12_private_data_not_public(self):
   self.assertFalse(self.doc["namedPollVotesIncluded"])
   self.assertFalse(self.doc["privateWhatsAppGroupContentIncluded"])

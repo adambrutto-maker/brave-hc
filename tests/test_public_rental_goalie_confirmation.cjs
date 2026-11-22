@@ -12,18 +12,18 @@ const now=Date.parse(e.publishedAt)+1000;
 const check=(item={},model={})=>sel({...pub,publishedWorkingCard:{...e,...item},...model},fix,now);
 
 test('manager-confirmed Stephen Logue is game-bound and manager final team lineup is published',()=>{
- assert.equal(e.fixtureId,3375685);
- assert.equal(e.gameDate,'2026-11-15');
- assert.equal(e.opponent,'Sugo Sundays');
+ assert.equal(e.fixtureId,3375686);
+ assert.equal(e.gameDate,'2026-11-22');
+ assert.equal(e.opponent,'Dateline Predators');
  assert.equal(e.goalieConfirmed,true);
  assert.equal(e.managerConfirmedGoalie.name,'Stephen Logue');
  assert.equal(e.managerConfirmedGoalie.number,'70');
  assert.equal(e.managerConfirmedGoalie.source,'MANAGER_DIRECT_CONFIRMATION');
  assert.equal(e.managerConfirmedGoalie.status,'CONFIRMED_FOR_FIXTURE');
- assert.equal(e.managerConfirmedGoalie.fixtureId,3375685);
+ assert.equal(e.managerConfirmedGoalie.fixtureId,3375686);
  assert.equal(e.rentalGoalie,null);
  assert.equal(e.managerLineupStatus,'FINAL_TEAM_LINEUP');
- assert.equal(e.revision,5);
+ assert.equal(e.revision,1);
  assert.equal(e.managerFinalReplacementAuthorized,true);
  assert.equal(e.unconfirmedNamesMarked,false);
  assert.equal(sel(pub,fix,now),e);
@@ -33,8 +33,8 @@ test('a missing, mismatched or unverified manager-confirmed goalie fails closed'
  assert.equal(check({managerConfirmedGoalie:null}),null);
  for(const patch of [
   {source:'UNVERIFIED'},{status:'AVAILABLE_NOT_CONFIRMED'},{name:''},{name:'B'},
-  {number:'?'},{fixtureId:999},{gameDate:'2026-11-22'},
-  {puckDropUTC:'2026-11-23T01:00:00Z'},{confirmedAtUTC:'invalid'},
+  {number:'?'},{fixtureId:999},{gameDate:'1999-01-01'},
+  {puckDropUTC:'2000-01-01T01:00:00Z'},{confirmedAtUTC:'invalid'},
   {confirmedAtUTC:new Date(Date.parse(e.publishedAt)+1000).toISOString()}
  ]){
    assert.equal(check({managerConfirmedGoalie:{...e.managerConfirmedGoalie,...patch}}),null,JSON.stringify(patch));

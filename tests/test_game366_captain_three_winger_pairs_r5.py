@@ -34,12 +34,10 @@ class Game366ThreePairs(unittest.TestCase):
   self.assertEqual(self.doc["printSpec"]["allPlayerCellsSameFontSizePx"],58)
   self.assertFalse(self.doc["printSpec"]["independentFontShrinkApplied"])
   self.assertEqual(self.check(asset=True)["nameFontPx"],58)
- def test_07_current_public_manifest_is_exactly_signed_r5(self):
-  p=v.load(ROOT/"widgets/game-centre-lineup-public.json")["publishedWorkingCard"]
-  self.assertEqual(p["revision"],5)
-  self.assertEqual(p["sha256"],self.doc["pdf"]["sha256"])
-  self.assertEqual(p["previewSHA256"],self.doc["png"]["sha256"])
-  self.assertEqual(p["managerLineupStatus"],"FINAL_TEAM_LINEUP")
+ def test_07_historical_game366_r5_remains_immutable_and_source_verified(self):
+  self.assertEqual(self.doc["officialHTOGameId"],"3375685")
+  self.assertEqual(self.doc["status"],"FINAL_TEAM_LINEUP")
+  self.assertEqual(self.check(asset=True)["status"],"PASS_CAPTAIN_HARD_RULES")
  def test_08_old_history_still_exists_and_qualifies(self):
   self.assertEqual(v.validate(self.r4,self.rule,check_public=True,check_assets=True)["status"],
                    "PASS_CAPTAIN_HARD_RULES")
