@@ -3,7 +3,7 @@
   "season": "W2026/27",
   "division": "Cristillo",
   "source": "https://leagues.sportsvillage.ca/Leagues.aspx?leagueid=570&page_type=Adult&sc=HOCKEY",
-  "capturedAt": "2026-11-23T12:31:17.050246+00:00",
+  "capturedAt": "2026-11-23T21:31:19.630924+00:00",
   "team": "Braves HC",
   "teams": [
     {
@@ -96,28 +96,28 @@
     },
     {
       "name": "Dateline Predators",
-      "gp": 8,
+      "gp": 9,
       "w": 1,
       "l": 6,
-      "t": 1,
-      "pts": 3,
-      "gf": 14,
-      "ga": 28,
-      "winPct": 0.188
+      "t": 2,
+      "pts": 4,
+      "gf": 16,
+      "ga": 30,
+      "winPct": 0.222
     },
     {
       "name": "Braves HC",
-      "gp": 8,
+      "gp": 9,
       "w": 1,
       "l": 7,
-      "t": 0,
-      "pts": 2,
-      "gf": 23,
-      "ga": 42,
-      "winPct": 0.125
+      "t": 1,
+      "pts": 3,
+      "gf": 25,
+      "ga": 44,
+      "winPct": 0.167
     }
   ],
-  "braveGP": 8,
+  "braveGP": 9,
   "sourceType": "SVHL_PUBLIC_LEAGUE_READBACK",
   "sourceNote": "Official current league division table; independent of team-maintained HTO player scoring. Potential renamed teams are shown as SVHL currently reports them."
 }
