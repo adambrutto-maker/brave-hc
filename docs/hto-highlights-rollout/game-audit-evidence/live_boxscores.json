@@ -1,5 +1,5 @@
 {
-  "capturedAt": "2026-11-18T04:29:09.714813+00:00",
+  "capturedAt": "2026-11-23T07:53:15.512542+00:00",
   "sourceAuthority": "PUBLIC_HTO_HTTP_READBACK",
   "games": [
     {
@@ -499,7 +499,6 @@
                 "A",
                 "Pts",
                 "Pts/G",
-                "GTG",
                 "+/-",
                 "POTG"
               ],
@@ -516,7 +515,6 @@
                 "0",
                 "0",
                 ".00",
-                "0",
                 "-3",
                 "0"
               ],
@@ -538,7 +536,6 @@
                 "0",
                 "0",
                 ".00",
-                "0",
                 "-3",
                 "0"
               ],
@@ -560,7 +557,6 @@
                 "0",
                 "2",
                 "2.00",
-                "1",
                 "-3",
                 "1"
               ],
@@ -582,7 +578,6 @@
                 "0",
                 "0",
                 ".00",
-                "0",
                 "-3",
                 "0"
               ],
@@ -604,7 +599,6 @@
                 "0",
                 "1",
                 "1.00",
-                "0",
                 "-3",
                 "1"
               ],
@@ -626,7 +620,6 @@
                 "1",
                 "1",
                 "1.00",
-                "0",
                 "-3",
                 "0"
               ],
@@ -648,7 +641,6 @@
                 "2",
                 "2",
                 "2.00",
-                "0",
                 "-3",
                 "0"
               ],
@@ -670,7 +662,6 @@
                 "0",
                 "0",
                 ".00",
-                "0",
                 "-3",
                 "0"
               ],
@@ -692,7 +683,6 @@
                 "0",
                 "0",
                 ".00",
-                "0",
                 "-3",
                 "0"
               ],
@@ -714,7 +704,6 @@
                 "2",
                 "2",
                 "2.00",
-                "0",
                 "-3",
                 "0"
               ],
@@ -736,7 +725,6 @@
                 "0",
                 "0",
                 ".00",
-                "0",
                 "-3",
                 "0"
               ],
@@ -758,7 +746,6 @@
                 "0",
                 "0",
                 ".00",
-                "0",
                 "-3",
                 "0"
               ],
@@ -780,7 +767,6 @@
                 "0",
                 "0",
                 ".00",
-                "0",
                 "-3",
                 "0"
               ],
@@ -802,7 +788,6 @@
                 "0",
                 "0",
                 ".00",
-                "0",
                 "-3",
                 "0"
               ],
@@ -824,7 +809,6 @@
                 "0",
                 "0",
                 ".00",
-                "0",
                 "-3",
                 "0"
               ],
@@ -846,7 +830,6 @@
                 "5",
                 "8",
                 ".53",
-                "1",
                 "-45",
                 "2"
               ],
@@ -1021,7 +1004,6 @@
                 "A",
                 "Pts",
                 "Pts/G",
-                "GTG",
                 "+/-",
                 "POTG"
               ],
@@ -1038,7 +1020,6 @@
                 "0",
                 "0",
                 ".00",
-                "0",
                 "-1",
                 "0"
               ],
@@ -1060,7 +1041,6 @@
                 "0",
                 "0",
                 ".00",
-                "0",
                 "-1",
                 "0"
               ],
@@ -1082,7 +1062,6 @@
                 "0",
                 "1",
                 "1.00",
-                "1",
                 "-1",
                 "1"
               ],
@@ -1104,7 +1083,6 @@
                 "1",
                 "1",
                 "1.00",
-                "0",
                 "-1",
                 "0"
               ],
@@ -1126,7 +1104,6 @@
                 "0",
                 "1",
                 "1.00",
-                "1",
                 "-1",
                 "1"
               ],
@@ -1148,7 +1125,6 @@
                 "0",
                 "0",
                 ".00",
-                "0",
                 "-1",
                 "0"
               ],
@@ -1170,7 +1146,6 @@
                 "1",
                 "1",
                 "1.00",
-                "0",
                 "-1",
                 "0"
               ],
@@ -1192,7 +1167,6 @@
                 "0",
                 "0",
                 ".00",
-                "0",
                 "-1",
                 "0"
               ],
@@ -1214,7 +1188,6 @@
                 "0",
                 "0",
                 ".00",
-                "0",
                 "-1",
                 "0"
               ],
@@ -1236,7 +1209,6 @@
                 "1",
                 "1",
                 "1.00",
-                "0",
                 "-1",
                 "0"
               ],
@@ -1258,7 +1230,6 @@
                 "0",
                 "0",
                 ".00",
-                "0",
                 "-1",
                 "0"
               ],
@@ -1280,7 +1251,6 @@
                 "0",
                 "0",
                 ".00",
-                "0",
                 "-1",
                 "0"
               ],
@@ -1302,7 +1272,6 @@
                 "0",
                 "0",
                 ".00",
-                "0",
                 "-1",
                 "0"
               ],
@@ -1324,7 +1293,6 @@
                 "3",
                 "5",
                 ".38",
-                "2",
                 "-13",
                 "2"
               ],
@@ -3409,7 +3377,7 @@
             },
             {
               "cells": [
-                "",
+                "0",
                 "Rae, Jeff",
                 "",
                 "1",
@@ -3859,6 +3827,392 @@
       ],
       "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3375685",
       "heading": "SCORE BOARD\nREGULAR SEASON\n\t1\t2\t3\tF\n\nSugo Sundays\n1\t2\t3\t6\n\nBrave H.C.\n1\t1\t2\t4\n"
+    },
+    {
+      "schedule": {
+        "href": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3375686",
+        "text": "Box Score\n\t\nSun, 11/22/26\n\t\n8:00 pm\n\t\nDateline Predators\n\t\nT 2 - 2\n\t\nVaughan Sports Village - B Rink",
+        "season": "Winter 2026/2027"
+      },
+      "tables": [
+        {
+          "rows": [
+            {
+              "cells": [
+                "No",
+                "Name",
+                "POS",
+                "",
+                "GP",
+                "G",
+                "A",
+                "Pts",
+                "Pts/G",
+                "GTG",
+                "PIM",
+                "POTG"
+              ],
+              "players": []
+            },
+            {
+              "cells": [
+                "28",
+                "Brutto, Adam",
+                "LD",
+                "",
+                "1",
+                "0",
+                "1",
+                "1",
+                "1.00",
+                "0",
+                "0",
+                "0"
+              ],
+              "players": [
+                {
+                  "href": "https://www.htosports.com/teams/default.asp?t=&s=hockey&u=BRAVESHOCKEY&p=profile&sportsHQ=BRAVESHOCKEY&playerID=354054",
+                  "name": "Brutto, Adam"
+                }
+              ]
+            },
+            {
+              "cells": [
+                "89",
+                "Carosi, Justin",
+                "C",
+                "",
+                "1",
+                "0",
+                "0",
+                "0",
+                ".00",
+                "0",
+                "0",
+                "0"
+              ],
+              "players": [
+                {
+                  "href": "https://www.htosports.com/teams/default.asp?t=&s=hockey&u=BRAVESHOCKEY&p=profile&sportsHQ=BRAVESHOCKEY&playerID=354060",
+                  "name": "Carosi, Justin"
+                }
+              ]
+            },
+            {
+              "cells": [
+                "12",
+                "Kober, Adam",
+                "LW/LD",
+                "",
+                "1",
+                "0",
+                "0",
+                "0",
+                ".00",
+                "0",
+                "0",
+                "0"
+              ],
+              "players": [
+                {
+                  "href": "https://www.htosports.com/teams/default.asp?t=&s=hockey&u=BRAVESHOCKEY&p=profile&sportsHQ=BRAVESHOCKEY&playerID=736317",
+                  "name": "Kober, Adam"
+                }
+              ]
+            },
+            {
+              "cells": [
+                "44",
+                "Pagnotta, Alex",
+                "RD",
+                "",
+                "1",
+                "0",
+                "1",
+                "1",
+                "1.00",
+                "0",
+                "2",
+                "0"
+              ],
+              "players": [
+                {
+                  "href": "https://www.htosports.com/teams/default.asp?t=&s=hockey&u=BRAVESHOCKEY&p=profile&sportsHQ=BRAVESHOCKEY&playerID=354058",
+                  "name": "Pagnotta, Alex"
+                }
+              ]
+            },
+            {
+              "cells": [
+                "0",
+                "Pavaday, Damien",
+                "F",
+                "",
+                "1",
+                "0",
+                "0",
+                "0",
+                ".00",
+                "0",
+                "0",
+                "0"
+              ],
+              "players": [
+                {
+                  "href": "https://www.htosports.com/teams/default.asp?t=&s=hockey&u=BRAVESHOCKEY&p=profile&sportsHQ=BRAVESHOCKEY&playerID=849368",
+                  "name": "Pavaday, Damien"
+                }
+              ]
+            },
+            {
+              "cells": [
+                "39",
+                "Pearsoll, Keith",
+                "RW",
+                "",
+                "1",
+                "1",
+                "1",
+                "2",
+                "2.00",
+                "0",
+                "0",
+                "1"
+              ],
+              "players": [
+                {
+                  "href": "https://www.htosports.com/teams/default.asp?t=&s=hockey&u=BRAVESHOCKEY&p=profile&sportsHQ=BRAVESHOCKEY&playerID=354056",
+                  "name": "Pearsoll, Keith"
+                }
+              ]
+            },
+            {
+              "cells": [
+                "22",
+                "Povegliano, Adam",
+                "F",
+                "",
+                "1",
+                "0",
+                "0",
+                "0",
+                ".00",
+                "0",
+                "0",
+                "0"
+              ],
+              "players": [
+                {
+                  "href": "https://www.htosports.com/teams/default.asp?t=&s=hockey&u=BRAVESHOCKEY&p=profile&sportsHQ=BRAVESHOCKEY&playerID=844036",
+                  "name": "Povegliano, Adam"
+                }
+              ]
+            },
+            {
+              "cells": [
+                "8",
+                "Provenzano, Mario",
+                "C",
+                "",
+                "1",
+                "0",
+                "0",
+                "0",
+                ".00",
+                "0",
+                "0",
+                "0"
+              ],
+              "players": [
+                {
+                  "href": "https://www.htosports.com/teams/default.asp?t=&s=hockey&u=BRAVESHOCKEY&p=profile&sportsHQ=BRAVESHOCKEY&playerID=354045",
+                  "name": "Provenzano, Mario"
+                }
+              ]
+            },
+            {
+              "cells": [
+                "25",
+                "Provenzano, Michael",
+                "C/LW",
+                "",
+                "1",
+                "1",
+                "0",
+                "1",
+                "1.00",
+                "1",
+                "0",
+                "1"
+              ],
+              "players": [
+                {
+                  "href": "https://www.htosports.com/teams/default.asp?t=&s=hockey&u=BRAVESHOCKEY&p=profile&sportsHQ=BRAVESHOCKEY&playerID=686216",
+                  "name": "Provenzano, Michael"
+                }
+              ]
+            },
+            {
+              "cells": [
+                "49",
+                "Rajkumar, Sanjay",
+                "D/LD",
+                "",
+                "1",
+                "0",
+                "0",
+                "0",
+                ".00",
+                "0",
+                "0",
+                "0"
+              ],
+              "players": [
+                {
+                  "href": "https://www.htosports.com/teams/default.asp?t=&s=hockey&u=BRAVESHOCKEY&p=profile&sportsHQ=BRAVESHOCKEY&playerID=845365",
+                  "name": "Rajkumar, Sanjay"
+                }
+              ]
+            },
+            {
+              "cells": [
+                "18",
+                "Rosenberg, Jamie",
+                "C/LW",
+                "",
+                "1",
+                "0",
+                "0",
+                "0",
+                ".00",
+                "0",
+                "0",
+                "0"
+              ],
+              "players": [
+                {
+                  "href": "https://www.htosports.com/teams/default.asp?t=&s=hockey&u=BRAVESHOCKEY&p=profile&sportsHQ=BRAVESHOCKEY&playerID=843644",
+                  "name": "Rosenberg, Jamie"
+                }
+              ]
+            },
+            {
+              "cells": [
+                "20",
+                "Saindon, Stephane",
+                "C",
+                "",
+                "1",
+                "0",
+                "1",
+                "1",
+                "1.00",
+                "0",
+                "0",
+                "0"
+              ],
+              "players": [
+                {
+                  "href": "https://www.htosports.com/teams/default.asp?t=&s=hockey&u=BRAVESHOCKEY&p=profile&sportsHQ=BRAVESHOCKEY&playerID=738846",
+                  "name": "Saindon, Stephane"
+                }
+              ]
+            },
+            {
+              "cells": [
+                "67",
+                "Triumbari, Francesco",
+                "LD",
+                "",
+                "1",
+                "0",
+                "0",
+                "0",
+                ".00",
+                "0",
+                "0",
+                "0"
+              ],
+              "players": [
+                {
+                  "href": "https://www.htosports.com/teams/default.asp?t=&s=hockey&u=BRAVESHOCKEY&p=profile&sportsHQ=BRAVESHOCKEY&playerID=845364",
+                  "name": "Triumbari, Francesco"
+                }
+              ]
+            },
+            {
+              "cells": [
+                "",
+                "Team Stats",
+                "",
+                "",
+                "13",
+                "2",
+                "4",
+                "6",
+                ".46",
+                "1",
+                "2",
+                "2"
+              ],
+              "players": []
+            }
+          ]
+        },
+        {
+          "rows": [
+            {
+              "cells": [
+                "No",
+                "Name",
+                "",
+                "GP",
+                "T",
+                "GA",
+                "GAA",
+                "POTG",
+                "Win %"
+              ],
+              "players": []
+            },
+            {
+              "cells": [
+                "70",
+                "Logue, Stephen",
+                "",
+                "1",
+                "1",
+                "2",
+                "2.00",
+                "1",
+                ".500"
+              ],
+              "players": [
+                {
+                  "href": "https://www.htosports.com/teams/default.asp?t=&s=hockey&u=BRAVESHOCKEY&p=profile&sportsHQ=BRAVESHOCKEY&playerID=354055",
+                  "name": "Logue, Stephen"
+                }
+              ]
+            },
+            {
+              "cells": [
+                "",
+                "Team Stats",
+                "",
+                "1",
+                "1",
+                "2",
+                "2.00",
+                "1",
+                ".500"
+              ],
+              "players": []
+            }
+          ]
+        }
+      ],
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3375686",
+      "heading": "SCORE BOARD\nREGULAR SEASON\n\t1\t2\t3\tF\n\nDateline Predators\n0\t1\t1\t2\n\nBrave H.C.\n0\t1\t1\t2\n"
     }
   ]
 }
