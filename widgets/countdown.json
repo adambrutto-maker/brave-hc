@@ -9,7 +9,7 @@
     "offsetMinutesAfterPuckDrop": 60,
     "condition": "clock threshold, not official final score"
   },
-  "generatedAt": "2026-11-22T23:31:19.071146Z",
+  "generatedAt": "2026-11-23T02:31:18.372185Z",
   "sourcePages": [
     "https://www.htosports.com/teams/default.asp?p=schedule&s=hockey&u=BRAVESHOCKEY&d=20261101",
     "https://www.htosports.com/teams/default.asp?p=schedule&s=hockey&u=BRAVESHOCKEY&d=20261201",
@@ -24,17 +24,6 @@
     "https://www.htosports.com/teams/default.asp?p=schedule&s=hockey&u=BRAVESHOCKEY&d=20270901"
   ],
   "games": [
-    {
-      "id": 3375686,
-      "opponent": "Dateline Predators",
-      "homeAway": "Home",
-      "rink": "Vaughan Sports Village - B Rink",
-      "gameDate": "2026-11-22",
-      "puckDrop": "2026-11-22T20:00:00-05:00",
-      "puckDropUTC": "2026-11-23T01:00:00Z",
-      "rolloverAtUTC": "2026-11-23T02:00:00Z",
-      "eventURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=preview&sportsHQ=BRAVESHOCKEY&gameID=3375686"
-    },
     {
       "id": 3384272,
       "opponent": "Maplewolves",
