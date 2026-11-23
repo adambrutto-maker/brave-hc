@@ -2,145 +2,156 @@
   "schema": "brave-hc-hot-stove-editorial-preview/v1",
   "team": "Brave H.C.",
   "season": {
-    "gp": 8,
+    "gp": 9,
     "wins": 1,
     "losses": 7,
-    "ties": 0,
-    "goalsFor": 23,
-    "goalsAgainst": 42
+    "ties": 1,
+    "goalsFor": 25,
+    "goalsAgainst": 44
   },
   "sourceAuthority": "Finalized HTO boxscores and player statistics; verified historical Brave H.C. workbook; official 2026/27 SVHL dated game results; Founder-approved factual goal descriptions; November 8 league-standing result and founder-approved event details pending HTO source publication",
-  "sourceVerifiedAt": "2026-11-16",
-  "generatedAt": "2026-11-16T12:55:00Z",
+  "sourceVerifiedAt": "2026-11-23",
+  "generatedAt": "2026-11-23T16:30:18.628Z",
   "editorialState": "FOUNDER_APPROVED",
-  "publicationPolicy": "Eight current-season articles retained; latest Nov 15 founder-approved report is native HTO-published and Hot Stove widget-approved. Game Notes must remain blank; articles belong in Recap.",
+  "publicationPolicy": "Nine founder-approved current-season articles retained; Nov 22 Dateline recap approved for public Hot Stove and HTO-linked homepage widgets. Native HTO Recap is not marked published without separate HTO public readback; Game Notes remain blank.",
   "latestArticle": {
-    "id": "recap-3375685",
-    "articleType": "FOUNDER_APPROVED_PUBLISHED_NATIVE_HTO_RECAP",
-    "gameId": 3375685,
-    "headline": "Provenzano's Hat Trick Sparks Braves Comeback, but Sugo Sundays Wins 6–4",
-    "date": "2026-11-15",
-    "displayDate": "Sunday, November 15, 2026",
-    "dek": "Four-point night and late power-play equalizer bring Brave H.C. level before two Sugo goals decide another dramatic finish.",
+    "id": "recap-3375686",
+    "articleType": "FOUNDER_APPROVED_GAME_REPORT_HTO_SOURCE_VERIFIED",
+    "gameId": 3375686,
+    "headline": "The Braves Battle Back Twice to Earn 2–2 Tie Against Dateline Predators",
+    "date": "2026-11-22",
+    "displayDate": "Sunday, November 22, 2026",
+    "publicationDate": "2026-11-23",
+    "dek": "The Braves respond to two deficits, earn their first tie of the season and deliver their strongest defensive result of the 2026–27 campaign.",
     "paragraphs": [
-      "VAUGHAN, Ontario — Michael Provenzano scored a hat trick, including a third-period power-play equalizer, but Brave H.C. couldn't complete the comeback in a 6–4 loss to Sugo Sundays on Sunday night at Vaughan Sports Village's A Rink.",
-      "Trailing 4–2 in the third, the Braves scored twice in 67 seconds to tie the game with 4:36 remaining. Sugo answered 46 seconds later, and an empty-net goal sealed the result.",
-      "It was the second straight week the Braves had erased a multi-goal deficit without earning a point. Against Other Way a week earlier, they fought back from 3–0 before falling 6–5 on a goal with 10 seconds left.",
-      "Pregame — Familiar Faces, Changing Lineup",
-      "Brave H.C. entered at 1–6 after scoring 13 goals over its previous three games. Sugo arrived at 3–3–1, with 27 goals scored and 34 allowed in seven contests.",
-      "Full-time players Alex Pagnotta, Keith Pearsoll, Mario Provenzano and Anthony Paolucci did not dress. Call-ups Krishnan Rajasooriar and Damien Pavaday were joined by Aaron Carosi, making his first recorded Braves appearance since February 25, 2018—almost nine years ago—and dressing alongside brother Justin.",
-      "Pearsoll was coaching his son's hometown Vaughan Rangers U18 Select team to a tournament championship at the same A Rink. He stopped by late in the Braves' first period to check in with his teammates.",
-      "First Period — Saindon Opens the Scoring",
-      "Stephane Saindon struck at 9:47, finishing a play assisted by Provenzano and Francesco Triumbari to put the Braves ahead 1–0. It continued his productive stretch after a two-goal, three-point performance against Other Way.",
-      "Sugo tied it at 7:42. The visitors took a body-contact penalty at 6:10, but the Braves couldn't convert, and the teams finished the period level at 1–1.",
-      "Second Period — Answers at Both Ends",
-      "Sugo moved ahead 2–1 at 6:38. Provenzano responded at 3:38, scoring his first goal of the night from Justin Carosi to tie the game.",
-      "Adam Povegliano was assessed a tripping penalty at 2:43, and Sugo converted on the power play at 1:31 to take a 3–2 lead into the third.",
-      "Third Period — Hat Trick, Goalie Pull and a Costly Finish",
-      "Sugo stretched its lead to 4–2 at 9:19, but Provenzano brought the Braves back into contention. At 5:43, he scored his second goal, assisted by Povegliano and Saindon, to cut the deficit to one.",
-      "Sugo was penalized for tripping at 5:12. The Braves capitalized at 4:36 when Provenzano completed his hat trick on the power play, with Justin Carosi and captain Adam Brutto drawing assists. Two goals in 67 seconds had turned a two-goal deficit into a 4–4 tie.",
-      "The momentum shifted again almost immediately. Sugo scored at 3:50 to regain a 5–4 lead. Brutto then pulled goaltender Stephen Logue for an extra attacker, hoping the Braves could produce one more equalizer. Instead, Sugo scored into the empty net at 3:15 to make it 6–4.",
-      "Brutto said the decision reflected the confidence he had in a suddenly productive offence, especially with Provenzano in form.",
-      "\"Mikey was hot,\" the captain said. With the Braves generating more goals in recent weeks, he believed they still had a chance to tie the game.",
-      "Brutto also took responsibility for the timing and communication: \"Yeah, probably should have waited a bit.\" He acknowledged the players may not have realized Logue had been pulled and said he needed to communicate more clearly with the alternate captains.",
-      "A Standout Night — and a Defensive Challenge",
-      "Provenzano earned first Player of the Game honours with three goals and an assist. Saindon was second with a goal and an assist, giving him five points in his last two appearances. Justin Carosi had two assists; Povegliano, Brutto and Triumbari added one each.",
-      "Logue earned third Player of the Game honours. He was charged with five goals against, while Sugo's sixth came into an empty net.",
-      "\"Steve made some huge stops for us. We just hung him out to dry a bit,\" Brutto said.",
-      "Looking ahead, the captain wants the Braves to strengthen their 1-2-2 structure when forechecking and defending through neutral ice, then transition to tighter man-on-man coverage in the defensive zone. Better defensive assignments and moving recovered pucks toward the boards and out to neutral territory are priority.",
-      "The Bigger Picture — Scoring More, Still Conceding Too Much",
-      "The loss dropped Brave H.C. to 1–7, with 23 goals scored and 42 allowed through eight games.",
-      "After scoring just six times in its first four games, the team has produced 17 goals over the last four—4.25 per game. It has also allowed 23 in that stretch, an average of 5.75.",
-      "The pattern is increasingly clear: Brave H.C. can fight back, but has struggled to close out those recoveries. Provenzano's hat trick showed how dangerous the attack can be. The next step is supporting it with better coverage and cleaner exits.",
-      "Brutto remains focused on the season ahead. \"We'll learn from it and try and turn this season around like we did last year,\" he said.",
-      "Next Up — Dateline Predators",
-      "The Braves return to Vaughan Sports Village on Sunday, November 22, to face Dateline Predators, who won their September 20 season opener 3–0.",
-      "The rematch will test whether Brave H.C.'s recent offensive improvement can be paired with the defensive discipline needed to turn a competitive performance into a victory."
+      "Brave H.C. entered Sunday's meeting with the Dateline Predators holding an 8–3–0 record across 11 previous regular-season encounters, but recent history had been less favourable. Dateline shut out the Braves 3–0 in their September 20 season opener, following a 4–3 Predators victory in March. The Predators had also eliminated Brave H.C. in consecutive playoff meetings in April 2024.",
+      "Sunday's rematch offered an opportunity to change that narrative.",
+      "The Braves arrived at Vaughan Sports Village with a 1–7 record and three consecutive losses, searching for the defensive stability needed to support an offence that had shown signs of improvement. Against the same opponent that had blanked them in September, Brave H.C. responded to two deficits and secured a 2–2 tie, earning its first point since October 25.",
+      "It wasn't the victory the team was chasing, but it represented an important step forward.",
+      "A Tighter Opening Period",
+      "The Braves dressed 13 skaters for the contest, including call-ups Adam Kober and Damien Pavaday. Kober made his seventh appearance of the campaign, while Pavaday appeared for the third time.",
+      "Full-timers Marco Congiusti, Henry Kong and Anthony Paolucci were not listed on the official game sheet.",
+      "Stephen \"Steve\" Logue was back in goal for his fourth appearance of the season.",
+      "The first period finished scoreless, a welcome change for a Braves club that had frequently found itself chasing early deficits. With 1:25 remaining, defenceman Alex Pagnotta was assessed a hooking minor, giving Dateline a power-play opportunity that carried into the second period.",
+      "Pearsoll Provides the First Answer",
+      "Dateline opened the scoring with 9:39 remaining in the second period, when No. 66 converted on the power play, assisted by No. 13.",
+      "The goal placed the Braves behind once again, but this time the response was different.",
+      "The Predators took a tripping penalty at 4:24, providing Brave H.C. with its lone recorded power-play opportunity of the game. Although the Braves couldn't capitalize with the man advantage, they continued to pursue the equalizer.",
+      "With just 55 seconds remaining in the second, Keith Pearsoll scored his second goal of the season, assisted by Alex Pagnotta and Adam Brutto.",
+      "The goal pulled the Braves even at 1–1 heading into the final period.",
+      "For Pagnotta, the assist was his seventh of the season, extending his team-leading total. Brutto collected his third assist of the campaign, while Pearsoll continued to make an impact after appearing in five of the club's nine games.",
+      "The Braves Find Another Late Answer",
+      "The third period brought another challenge.",
+      "With 4:39 remaining, Dateline's No. 93 restored the Predators' lead, putting Brave H.C. behind 2–1.",
+      "For a team that had lost its previous three games, the final minutes presented another test of its ability to respond.",
+      "Michael \"Mikey\" Provenzano delivered the answer.",
+      "With 1:16 remaining in regulation, Provenzano scored his sixth goal of the season, assisted by Pearsoll and Stephane Saindon, tying the contest at 2–2.",
+      "It was Provenzano's first recorded game-tying goal of the campaign and his 11th point of the season, moving him into sole possession of the team scoring lead.",
+      "Pearsoll's assist completed a two-point evening, while Saindon collected his fifth assist and ninth point of the campaign.",
+      "The Braves had come from behind twice, and the second comeback secured their first tie of 2026–27.",
+      "Three Players Earn Game Recognition",
+      "Pearsoll played a direct role in both Braves goals, scoring the second-period equalizer before setting up Provenzano's late third-period response. His goal and assist gave him four points in five appearances this season.",
+      "Provenzano continued to establish himself among the club's most productive offensive players. His six goals and 11 points lead the team, with Justin Carosi close behind at 10 points and Saindon following with nine.",
+      "Logue also delivered an important result in goal. Allowing only two goals in the contest, he helped the Braves produce their lowest goals-against total of the season. His record now stands at 1–2–1 through four appearances.",
+      "The official game sheet awarded Player of the Game recognition to Pearsoll, Provenzano and Logue, reflecting the contributions that helped secure the draw.",
+      "A Point That Needs to Become Progress",
+      "The Braves have now completed nine games with a 1–7–1 record, scoring 25 goals while allowing 44.",
+      "The offensive numbers show that the club has scoring contributors capable of changing games. Provenzano, Carosi and Saindon have combined for 30 points, while Pagnotta has supplied seven assists from the blue line.",
+      "The larger challenge remains consistency.",
+      "After surrendering six goals to Other Way on November 8 and another six to Sugo Sundays on November 15, holding Dateline to two was a meaningful improvement.",
+      "Just as importantly, the Braves did not allow either deficit to decide the outcome. Pearsoll's second-period goal ensured the team entered the third on level terms, and Provenzano's late equalizer prevented another narrow defeat.",
+      "There is still considerable work ahead for Brave H.C., but Sunday's performance offers something tangible to build upon.",
+      "Next Up: The Maplewolves",
+      "Sunday, November 29, 2026 | 9:00 p.m. | Vaughan Sports Village, B Rink",
+      "The Braves return to action against the Maplewolves, an opponent with a historical advantage in the series.",
+      "Across eight recorded contested regular-season meetings, Brave H.C. holds a 2–5–1 record, having scored 28 goals while conceding 44.",
+      "Regular-season record: 2–5–1 | Goals for: 28 | Goals against: 44",
+      "Including two playoff meetings, the Braves' overall record against the Maplewolves stands at 3–6–1.",
+      "The clubs last met on November 13, 2022, when Brave H.C. fell 5–4. Their previous regular-season encounter, in July 2017, also ended in defeat for the Braves, 7–5.",
+      "The November 29 contest will therefore be their first recorded meeting in more than four years.",
+      "For the Braves, the objective is straightforward: carry forward the improved defensive performance against Dateline while finding enough offence to convert another competitive outing into a victory.",
+      "Sunday's tie showed that Brave H.C. can respond when trailing.",
+      "The next challenge is to get ahead — and stay there."
     ],
     "sectionHeadings": [
-      "Pregame — Familiar Faces, Changing Lineup",
-      "First Period — Saindon Opens the Scoring",
-      "Second Period — Answers at Both Ends",
-      "Third Period — Hat Trick, Goalie Pull and a Costly Finish",
-      "A Standout Night — and a Defensive Challenge",
-      "The Bigger Picture — Scoring More, Still Conceding Too Much",
-      "Next Up — Dateline Predators"
+      "A Tighter Opening Period",
+      "Pearsoll Provides the First Answer",
+      "The Braves Find Another Late Answer",
+      "Three Players Earn Game Recognition",
+      "A Point That Needs to Become Progress",
+      "Next Up: The Maplewolves"
     ],
     "boxScore": {
-      "opponent": "Sugo Sundays",
-      "ourGoals": 4,
-      "theirGoals": 6,
+      "opponent": "Dateline Predators",
+      "ourGoals": 2,
+      "theirGoals": 2,
       "ourPeriods": [
+        0,
         1,
-        1,
-        2
+        1
       ],
       "theirPeriods": [
+        0,
         1,
-        2,
-        3
+        1
       ]
     },
     "sourceUrls": [
-      "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3375685"
+      "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3375686"
     ],
     "goalEvents": [
       {
-        "player": "Saindon, Stephane",
-        "no": "20",
-        "period": 1,
-        "clock": "9:47",
-        "strength": "ES",
-        "officialText": "20 Stephane Saindon (25 Michael Provenzano, 67 Francesco Triumbari)",
-        "gameId": 3375685
-      },
-      {
-        "player": "Provenzano, Michael",
-        "no": "25",
+        "player": "Pearsoll, Keith",
+        "no": "39",
         "period": 2,
-        "clock": "3:38",
+        "clock": "0:55",
         "strength": "ES",
-        "officialText": "25 Michael Provenzano (89 Justin Carosi)",
-        "gameId": 3375685
+        "officialText": "39 Keith Pearsoll (44 Alex Pagnotta, 28 Adam Brutto)",
+        "gameId": 3375686
       },
       {
         "player": "Provenzano, Michael",
         "no": "25",
         "period": 3,
-        "clock": "5:43",
+        "clock": "1:16",
         "strength": "ES",
-        "officialText": "25 Michael Provenzano (22 Adam Povegliano, 20 Stephane Saindon)",
-        "gameId": 3375685
-      },
-      {
-        "player": "Provenzano, Michael",
-        "no": "25",
-        "period": 3,
-        "clock": "4:36",
-        "strength": "PP",
-        "officialText": "25 Michael Provenzano (89 Justin Carosi, 28 Adam Brutto)",
-        "gameId": 3375685
+        "officialText": "25 Michael Provenzano (39 Keith Pearsoll, 20 Stephane Saindon)",
+        "gameId": 3375686
       }
     ],
+    "opponentHistory": {
+      "sourceScope": "Exact-name contested historical Master Workbook regular season plus verified September 20, 2026 HTO regular-season meeting",
+      "beforeGame": {
+        "gp": 11,
+        "w": 8,
+        "l": 3,
+        "t": 0,
+        "gf": 41,
+        "ga": 25
+      },
+      "playoffsBeforeGame": {
+        "gp": 2,
+        "w": 0,
+        "l": 2,
+        "t": 0,
+        "gf": 6,
+        "ga": 10
+      }
+    },
     "verification": {
       "status": "SOURCE_VERIFIED",
       "gameBoxscoreMatched": true,
       "officialGoalChronologyPending": false,
-      "sourceScope": "Corrected official HTO boxscore and native HTO recap public readback November 16, 2026. Fifth Sugo goal 3:50 regular; sixth 3:15 empty net. Founder-supplied quotes and personal context."
+      "clockConvention": "TIME_REMAINING_DESCENDING_WITHIN_PERIOD",
+      "sourceScope": "Official Nov 22 HTO finalized box score and current season statistics; historic workbook exact-name matchup ledger; official Nov 29 HTO schedule"
     },
     "publicationApproval": {
       "decision": "FOUNDER_APPROVED_PUBLISH",
-      "date": "2026-11-16",
+      "date": "2026-11-23",
       "role": "Founder",
-      "scope": "HTO native Recap and HockeyOS Hot Stove widget"
+      "scope": "Exact November 23 Golden Formula revised article; public Brave H.C. Hot Stove and HTO-linked homepage feed"
     },
-    "editorialState": "FOUNDER_APPROVED",
-    "nativeHtoPublication": {
-      "status": "PUBLIC_READBACK_VERIFIED",
-      "date": "2026-11-16",
-      "gameId": 3375685,
-      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3375685"
-    }
+    "editorialState": "FOUNDER_APPROVED"
   },
   "teamNotes": {
     "title": "Around the Club",
@@ -180,8 +191,185 @@
     "coverage": "VERIFIED_SUPPORTED_CATEGORIES_ONLY",
     "recordBreakingClaimsVerified": false
   },
-  "gamePreview": null,
+  "gamePreview": {
+    "headline": "Next Up: Brave H.C. vs Maplewolves",
+    "gameId": 3384272,
+    "opponent": "Maplewolves",
+    "gameDate": "2026-11-29",
+    "gameDateLine": "Sunday, November 29, 2026 | 9:00 p.m. | Vaughan Sports Village, B Rink",
+    "headToHead": {
+      "regularSeason": {
+        "gp": 8,
+        "w": 2,
+        "l": 5,
+        "t": 1,
+        "gf": 28,
+        "ga": 44
+      },
+      "allCompetition": {
+        "gp": 10,
+        "w": 3,
+        "l": 6,
+        "t": 1,
+        "gf": 39,
+        "ga": 56
+      }
+    },
+    "paragraphs": [
+      "The Braves return to action against the Maplewolves, an opponent with a historical advantage in the series.",
+      "Across eight recorded contested regular-season meetings, Brave H.C. holds a 2–5–1 record, having scored 28 goals while conceding 44.",
+      "Including two playoff meetings, the Braves' overall record against the Maplewolves stands at 3–6–1.",
+      "The clubs last met on November 13, 2022, when Brave H.C. fell 5–4. Their previous regular-season encounter, in July 2017, also ended in defeat for the Braves, 7–5.",
+      "The November 29 contest will therefore be their first recorded meeting in more than four years.",
+      "For the Braves, the objective is straightforward: carry forward the improved defensive performance against Dateline while finding enough offence to convert another competitive outing into a victory."
+    ],
+    "sourceUrl": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=schedule",
+    "sourceAuthority": "Official Nov 29 HTO schedule; exact-name historical Master Workbook"
+  },
   "archive": [
+    {
+      "id": "recap-3375685",
+      "headline": "Provenzano's Hat Trick Sparks Braves Comeback, but Sugo Sundays Wins 6–4",
+      "date": "2026-11-15",
+      "gameId": 3375685,
+      "article": {
+        "id": "recap-3375685",
+        "articleType": "FOUNDER_APPROVED_PUBLISHED_NATIVE_HTO_RECAP",
+        "gameId": 3375685,
+        "headline": "Provenzano's Hat Trick Sparks Braves Comeback, but Sugo Sundays Wins 6–4",
+        "date": "2026-11-15",
+        "displayDate": "Sunday, November 15, 2026",
+        "dek": "Four-point night and late power-play equalizer bring Brave H.C. level before two Sugo goals decide another dramatic finish.",
+        "paragraphs": [
+          "VAUGHAN, Ontario — Michael Provenzano scored a hat trick, including a third-period power-play equalizer, but Brave H.C. couldn't complete the comeback in a 6–4 loss to Sugo Sundays on Sunday night at Vaughan Sports Village's A Rink.",
+          "Trailing 4–2 in the third, the Braves scored twice in 67 seconds to tie the game with 4:36 remaining. Sugo answered 46 seconds later, and an empty-net goal sealed the result.",
+          "It was the second straight week the Braves had erased a multi-goal deficit without earning a point. Against Other Way a week earlier, they fought back from 3–0 before falling 6–5 on a goal with 10 seconds left.",
+          "Pregame — Familiar Faces, Changing Lineup",
+          "Brave H.C. entered at 1–6 after scoring 13 goals over its previous three games. Sugo arrived at 3–3–1, with 27 goals scored and 34 allowed in seven contests.",
+          "Full-time players Alex Pagnotta, Keith Pearsoll, Mario Provenzano and Anthony Paolucci did not dress. Call-ups Krishnan Rajasooriar and Damien Pavaday were joined by Aaron Carosi, making his first recorded Braves appearance since February 25, 2018—almost nine years ago—and dressing alongside brother Justin.",
+          "Pearsoll was coaching his son's hometown Vaughan Rangers U18 Select team to a tournament championship at the same A Rink. He stopped by late in the Braves' first period to check in with his teammates.",
+          "First Period — Saindon Opens the Scoring",
+          "Stephane Saindon struck at 9:47, finishing a play assisted by Provenzano and Francesco Triumbari to put the Braves ahead 1–0. It continued his productive stretch after a two-goal, three-point performance against Other Way.",
+          "Sugo tied it at 7:42. The visitors took a body-contact penalty at 6:10, but the Braves couldn't convert, and the teams finished the period level at 1–1.",
+          "Second Period — Answers at Both Ends",
+          "Sugo moved ahead 2–1 at 6:38. Provenzano responded at 3:38, scoring his first goal of the night from Justin Carosi to tie the game.",
+          "Adam Povegliano was assessed a tripping penalty at 2:43, and Sugo converted on the power play at 1:31 to take a 3–2 lead into the third.",
+          "Third Period — Hat Trick, Goalie Pull and a Costly Finish",
+          "Sugo stretched its lead to 4–2 at 9:19, but Provenzano brought the Braves back into contention. At 5:43, he scored his second goal, assisted by Povegliano and Saindon, to cut the deficit to one.",
+          "Sugo was penalized for tripping at 5:12. The Braves capitalized at 4:36 when Provenzano completed his hat trick on the power play, with Justin Carosi and captain Adam Brutto drawing assists. Two goals in 67 seconds had turned a two-goal deficit into a 4–4 tie.",
+          "The momentum shifted again almost immediately. Sugo scored at 3:50 to regain a 5–4 lead. Brutto then pulled goaltender Stephen Logue for an extra attacker, hoping the Braves could produce one more equalizer. Instead, Sugo scored into the empty net at 3:15 to make it 6–4.",
+          "Brutto said the decision reflected the confidence he had in a suddenly productive offence, especially with Provenzano in form.",
+          "\"Mikey was hot,\" the captain said. With the Braves generating more goals in recent weeks, he believed they still had a chance to tie the game.",
+          "Brutto also took responsibility for the timing and communication: \"Yeah, probably should have waited a bit.\" He acknowledged the players may not have realized Logue had been pulled and said he needed to communicate more clearly with the alternate captains.",
+          "A Standout Night — and a Defensive Challenge",
+          "Provenzano earned first Player of the Game honours with three goals and an assist. Saindon was second with a goal and an assist, giving him five points in his last two appearances. Justin Carosi had two assists; Povegliano, Brutto and Triumbari added one each.",
+          "Logue earned third Player of the Game honours. He was charged with five goals against, while Sugo's sixth came into an empty net.",
+          "\"Steve made some huge stops for us. We just hung him out to dry a bit,\" Brutto said.",
+          "Looking ahead, the captain wants the Braves to strengthen their 1-2-2 structure when forechecking and defending through neutral ice, then transition to tighter man-on-man coverage in the defensive zone. Better defensive assignments and moving recovered pucks toward the boards and out to neutral territory are priority.",
+          "The Bigger Picture — Scoring More, Still Conceding Too Much",
+          "The loss dropped Brave H.C. to 1–7, with 23 goals scored and 42 allowed through eight games.",
+          "After scoring just six times in its first four games, the team has produced 17 goals over the last four—4.25 per game. It has also allowed 23 in that stretch, an average of 5.75.",
+          "The pattern is increasingly clear: Brave H.C. can fight back, but has struggled to close out those recoveries. Provenzano's hat trick showed how dangerous the attack can be. The next step is supporting it with better coverage and cleaner exits.",
+          "Brutto remains focused on the season ahead. \"We'll learn from it and try and turn this season around like we did last year,\" he said.",
+          "Next Up — Dateline Predators",
+          "The Braves return to Vaughan Sports Village on Sunday, November 22, to face Dateline Predators, who won their September 20 season opener 3–0.",
+          "The rematch will test whether Brave H.C.'s recent offensive improvement can be paired with the defensive discipline needed to turn a competitive performance into a victory."
+        ],
+        "sectionHeadings": [
+          "Pregame — Familiar Faces, Changing Lineup",
+          "First Period — Saindon Opens the Scoring",
+          "Second Period — Answers at Both Ends",
+          "Third Period — Hat Trick, Goalie Pull and a Costly Finish",
+          "A Standout Night — and a Defensive Challenge",
+          "The Bigger Picture — Scoring More, Still Conceding Too Much",
+          "Next Up — Dateline Predators"
+        ],
+        "boxScore": {
+          "opponent": "Sugo Sundays",
+          "ourGoals": 4,
+          "theirGoals": 6,
+          "ourPeriods": [
+            1,
+            1,
+            2
+          ],
+          "theirPeriods": [
+            1,
+            2,
+            3
+          ]
+        },
+        "sourceUrls": [
+          "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3375685"
+        ],
+        "goalEvents": [
+          {
+            "player": "Saindon, Stephane",
+            "no": "20",
+            "period": 1,
+            "clock": "9:47",
+            "strength": "ES",
+            "officialText": "20 Stephane Saindon (25 Michael Provenzano, 67 Francesco Triumbari)",
+            "gameId": 3375685
+          },
+          {
+            "player": "Provenzano, Michael",
+            "no": "25",
+            "period": 2,
+            "clock": "3:38",
+            "strength": "ES",
+            "officialText": "25 Michael Provenzano (89 Justin Carosi)",
+            "gameId": 3375685
+          },
+          {
+            "player": "Provenzano, Michael",
+            "no": "25",
+            "period": 3,
+            "clock": "5:43",
+            "strength": "ES",
+            "officialText": "25 Michael Provenzano (22 Adam Povegliano, 20 Stephane Saindon)",
+            "gameId": 3375685
+          },
+          {
+            "player": "Provenzano, Michael",
+            "no": "25",
+            "period": 3,
+            "clock": "4:36",
+            "strength": "PP",
+            "officialText": "25 Michael Provenzano (89 Justin Carosi, 28 Adam Brutto)",
+            "gameId": 3375685
+          }
+        ],
+        "verification": {
+          "status": "SOURCE_VERIFIED",
+          "gameBoxscoreMatched": true,
+          "officialGoalChronologyPending": false,
+          "sourceScope": "Corrected official HTO boxscore and native HTO recap public readback November 16, 2026. Fifth Sugo goal 3:50 regular; sixth 3:15 empty net. Founder-supplied quotes and personal context."
+        },
+        "publicationApproval": {
+          "decision": "FOUNDER_APPROVED_PUBLISH",
+          "date": "2026-11-16",
+          "role": "Founder",
+          "scope": "HTO native Recap and HockeyOS Hot Stove widget"
+        },
+        "editorialState": "FOUNDER_APPROVED",
+        "nativeHtoPublication": {
+          "status": "PUBLIC_READBACK_VERIFIED",
+          "date": "2026-11-16",
+          "gameId": 3375685,
+          "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3375685"
+        }
+      },
+      "originalPublicationAuthorization": {
+        "decision": "APPROVED_FOR_HOT_STOVE_PUBLICATION",
+        "date": "2026-11-16",
+        "role": "Founder",
+        "articleId": "recap-3375685",
+        "scope": "HockeyOS Hot Stove widget and HTO native Recap",
+        "qualification": "HTO_NATIVE_RECAP_PUBLIC_VERIFIED"
+      },
+      "editorialReview": "Prior founder-approved November 15 report preserved when November 22 Dateline report became latest on November 23."
+    },
     {
       "id": "recap-3375684",
       "headline": "Braves Rally From Three Goals Down, Fall 6–5 to Other Way on Last-Second Winner",
@@ -2192,11 +2380,11 @@
   },
   "publicationAuthorization": {
     "decision": "APPROVED_FOR_HOT_STOVE_PUBLICATION",
-    "date": "2026-11-16",
+    "date": "2026-11-23",
     "role": "Founder",
-    "articleId": "recap-3375685",
-    "scope": "HockeyOS Hot Stove widget and HTO native Recap",
-    "qualification": "HTO_NATIVE_RECAP_PUBLIC_VERIFIED"
+    "articleId": "recap-3375686",
+    "scope": "Approved Nov 23 article in public GitHub Pages Hot Stove and existing HTO homepage Hot Stove link; native game Recap is separate pending verified posting",
+    "clockConvention": "time remaining; reorder countdown events in descending time"
   },
   "previousPublicationApproval": {
     "date": "2026-10-19",
@@ -2345,5 +2533,13 @@
     "date": "2026-11-11",
     "scope": "Revise Nov 8 approved article from 14 to 13 dressed skaters; identify Alex Pagnotta full-time scratch; remove Nov 8 GP and +/-, preserve all goals and other statistics",
     "source": "User explicit instruction in this conversation"
+  },
+  "priorLatestPublicationAuthorization": {
+    "decision": "APPROVED_FOR_HOT_STOVE_PUBLICATION",
+    "date": "2026-11-16",
+    "role": "Founder",
+    "articleId": "recap-3375685",
+    "scope": "HockeyOS Hot Stove widget and HTO native Recap",
+    "qualification": "HTO_NATIVE_RECAP_PUBLIC_VERIFIED"
   }
 }
