@@ -1,20 +1,8 @@
 {
   "schema": "brave-hc-svhl-schedule/v1",
   "source": "https://leagues.sportsvillage.ca/Leagues.aspx?leagueid=570&page_type=Adult&sc=HOCKEY",
-  "checkedAt": "2026-11-22T16:53:22.665577-05:00",
+  "checkedAt": "2026-11-23T02:52:50.601100-05:00",
   "games": [
-    {
-      "date": "2026-11-22",
-      "time": "20:00",
-      "opponent": "Dateline Predators",
-      "rink": "B Rink",
-      "side": "home",
-      "fixtureSignature": "2026-11-22|20:00|Dateline Predators|B Rink|home",
-      "assignmentKey": "hto:3375686",
-      "htoGameId": "3375686",
-      "htoSyncStatus": "MATCH",
-      "requiresGoalieReconfirmation": true
-    },
     {
       "date": "2026-11-29",
       "time": "21:00",
