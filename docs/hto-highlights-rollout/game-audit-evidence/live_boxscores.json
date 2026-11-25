@@ -1,5 +1,5 @@
 {
-  "capturedAt": "2026-11-23T07:53:15.512542+00:00",
+  "capturedAt": "2026-11-25T23:40:23.366217+00:00",
   "sourceAuthority": "PUBLIC_HTO_HTTP_READBACK",
   "games": [
     {
@@ -328,7 +328,7 @@
         }
       ],
       "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=3356177",
-      "heading": "SCORE BOARD\nREGULAR SEASON\n\t1\t2\t3\tOT\t2OT\tF\n\nDateline Predators\n0\t2\t1\t0\t0\t3\n\nBrave H.C.\n0\t0\t0\t0\t0\t0\n"
+      "heading": "SCORE BOARD\nREGULAR SEASON\n\t1\t2\t3\tF\n\nDateline Predators\n0\t2\t1\t3\n\nBrave H.C.\n0\t0\t0\t0\n"
     },
     {
       "schedule": {
