@@ -1,0 +1,393 @@
+{
+  "schema": "brave-hc-2025-26-source-limited-review-package/v1",
+  "generatedAtUTC": "2026-11-03T03:32:07.511459+00:00",
+  "publicationStatus": "DRAFTS_ONLY_NO_NATIVE_HTO_WRITES",
+  "sourceAuditSHA256": "2710d10c70c1c90bcd875f9bbda46dbdcb29a5f5b28939d955b62f727fab2a39",
+  "reverificationSHA256": "02e7e081f50da23ef2b7d1066c576ae7441af54e497f964966cd0c7ea93b2e47",
+  "reviewedPriorFullEventGameCount": 5,
+  "sourceLimitedGameCount": 19,
+  "forfeitGameCount": 3,
+  "totalHistoricalReviewDrafts": 24,
+  "games": [
+    {
+      "gameId": 2214988,
+      "date": "2025-09-14",
+      "opponent": "Mohawks H.C.",
+      "score": [
+        2,
+        3
+      ],
+      "gameType": "REGULAR SEASON",
+      "headline": "Braves Fall 2–3 to Mohawks H.C.",
+      "sourceGrade": "SCOREBOARD_AND_SKATERS_ONLY",
+      "file": "20250914_HTO_2214988_SOURCE_LIMITED_REVIEW.md",
+      "paragraphs": 5,
+      "sourceFingerprint": "c369f7662d54b9719fc9b9bd2aec260a781b19db4e736d80e00628f9ea35b6f7",
+      "recheckFingerprint": "d47dee72881634c42b94e325c760697246c2a8d5b32aaf1e803ca873c2899c7d",
+      "fileSHA256": "3b543f60c8aa7d4d30532b1b85d39526cb52f552d3a1e3d6fd4b521b8f876c6a",
+      "status": "SOURCE_LIMITED_REVIEW_NOT_APPROVED",
+      "nativePublicationAuthorized": false,
+      "published": false
+    },
+    {
+      "gameId": 2214989,
+      "date": "2025-09-21",
+      "opponent": "Blackhawks",
+      "score": [
+        4,
+        8
+      ],
+      "gameType": "REGULAR SEASON",
+      "headline": "Braves Fall 4–8 to Blackhawks",
+      "sourceGrade": "SCOREBOARD_AND_SKATERS_ONLY",
+      "file": "20250921_HTO_2214989_SOURCE_LIMITED_REVIEW.md",
+      "paragraphs": 4,
+      "sourceFingerprint": "b02aec5825abb28185ce54bedfb6009b14f18ab66c1169cc6235c60f171a3f45",
+      "recheckFingerprint": "6a30060f7c3d8d16fca366f98f4d09ab35c5203399dc93af6ae0f83c07e17885",
+      "fileSHA256": "ed6e70572367820dd087a79801e776f045d70fcad16f6f0edd74e934eccfcb8f",
+      "status": "SOURCE_LIMITED_REVIEW_NOT_APPROVED",
+      "nativePublicationAuthorized": false,
+      "published": false
+    },
+    {
+      "gameId": 2214990,
+      "date": "2025-09-28",
+      "opponent": "Hammers",
+      "score": [
+        1,
+        8
+      ],
+      "gameType": "REGULAR SEASON",
+      "headline": "Braves Fall 1–8 to Hammers",
+      "sourceGrade": "SCOREBOARD_AND_SKATERS_ONLY",
+      "file": "20250928_HTO_2214990_SOURCE_LIMITED_REVIEW.md",
+      "paragraphs": 4,
+      "sourceFingerprint": "d6a85801fe1b0385c15711cc9d824feab70b64a92ae57251a001db0b204e7507",
+      "recheckFingerprint": "d47ab20da892a0183b3b62bd098ef612bb65c8ec93bcd682debc7c383c89f866",
+      "fileSHA256": "b8f416acbee4176fa355ba7b7be3e45adbcacb63ab87de74382e3a1c6de538dc",
+      "status": "SOURCE_LIMITED_REVIEW_NOT_APPROVED",
+      "nativePublicationAuthorized": false,
+      "published": false
+    },
+    {
+      "gameId": 2214991,
+      "date": "2025-10-05",
+      "opponent": "Big Bastones",
+      "score": [
+        4,
+        2
+      ],
+      "gameType": "REGULAR SEASON",
+      "headline": "Braves Earn 4–2 Win Over Big Bastones",
+      "sourceGrade": "SCOREBOARD_AND_SKATERS_ONLY",
+      "file": "20251005_HTO_2214991_SOURCE_LIMITED_REVIEW.md",
+      "paragraphs": 4,
+      "sourceFingerprint": "d4e55973234ba8132f71ff2cea0f19490d6679b0a546986f3e734f13bc1d4046",
+      "recheckFingerprint": "865b25549ef1967d012f1f64a0b7b5207919291101259e504e9faaa95913e60c",
+      "fileSHA256": "972900eaf6c8269bfc4ea266547883528701c2aee76ad2c78748af5222397bcc",
+      "status": "SOURCE_LIMITED_REVIEW_NOT_APPROVED",
+      "nativePublicationAuthorized": false,
+      "published": false
+    },
+    {
+      "gameId": 2214993,
+      "date": "2025-10-19",
+      "opponent": "Dateline Predators",
+      "score": [
+        3,
+        4
+      ],
+      "gameType": "REGULAR SEASON",
+      "headline": "Braves Fall 3–4 to Dateline Predators",
+      "sourceGrade": "SCOREBOARD_AND_SKATERS_ONLY",
+      "file": "20251019_HTO_2214993_SOURCE_LIMITED_REVIEW.md",
+      "paragraphs": 4,
+      "sourceFingerprint": "8cfce680c008fe7fdc5bb83abfeeb645ab74e4f1073fe66cc415237e5cfdfcf6",
+      "recheckFingerprint": "a5e97e330b3f1aaf6a37b2b9c72c6d5783e0df4ea93cf382c9b9032560b99dec",
+      "fileSHA256": "4e7047e1b9709edb1298214f47e7059b4e1d2d219a4c7cfbb24c3e3c72601ac9",
+      "status": "SOURCE_LIMITED_REVIEW_NOT_APPROVED",
+      "nativePublicationAuthorized": false,
+      "published": false
+    },
+    {
+      "gameId": 2214994,
+      "date": "2025-10-26",
+      "opponent": "Mid Ice Crisis",
+      "score": [
+        1,
+        7
+      ],
+      "gameType": "REGULAR SEASON",
+      "headline": "Braves Fall 1–7 to Mid Ice Crisis",
+      "sourceGrade": "SCOREBOARD_AND_SKATERS_ONLY",
+      "file": "20251026_HTO_2214994_SOURCE_LIMITED_REVIEW.md",
+      "paragraphs": 4,
+      "sourceFingerprint": "657133924c5c893ed661c2a1f3df8fbd143e4f0849e4835711c94fc9f4efa5fa",
+      "recheckFingerprint": "055960232d11ef762e9b5f1602721b018dcd84081498205016861f07dca6f0c5",
+      "fileSHA256": "30bf0812cc194c7ddd8485cc9a7c774603b54f289d41e35da8a06498e49b93a2",
+      "status": "SOURCE_LIMITED_REVIEW_NOT_APPROVED",
+      "nativePublicationAuthorized": false,
+      "published": false
+    },
+    {
+      "gameId": 2214995,
+      "date": "2025-11-02",
+      "opponent": "Royal Flushers",
+      "score": [
+        2,
+        6
+      ],
+      "gameType": "REGULAR SEASON",
+      "headline": "Braves Fall 2–6 to Royal Flushers",
+      "sourceGrade": "SCOREBOARD_AND_SKATERS_ONLY",
+      "file": "20251102_HTO_2214995_SOURCE_LIMITED_REVIEW.md",
+      "paragraphs": 4,
+      "sourceFingerprint": "f96818d4a90afbe75bfa01b3518d118722b7789b1569be98dab3c1695b17b996",
+      "recheckFingerprint": "9a532fd4b5015e1a3e15a8d9fe48c586d0dadda99ed7254e7038f1a0669d9ec6",
+      "fileSHA256": "12dfb0434d80b453740ce05abaa3129b468334b7ea28d09f71c311b4dcc4093f",
+      "status": "SOURCE_LIMITED_REVIEW_NOT_APPROVED",
+      "nativePublicationAuthorized": false,
+      "published": false
+    },
+    {
+      "gameId": 2214996,
+      "date": "2025-11-09",
+      "opponent": "Schmelts",
+      "score": [
+        7,
+        6
+      ],
+      "gameType": "REGULAR SEASON",
+      "headline": "Braves Earn 7–6 Win Over Schmelts",
+      "sourceGrade": "SCOREBOARD_AND_SKATERS_ONLY",
+      "file": "20251109_HTO_2214996_SOURCE_LIMITED_REVIEW.md",
+      "paragraphs": 4,
+      "sourceFingerprint": "6898cbba178f5d777e1a6a740290c1bab851c973e01f4d3c2222511c7c905dcc",
+      "recheckFingerprint": "3dfdbb8b7d05a5daad39af5dcabdbe1f0a395cc13daeebb3669451d868ae8aa4",
+      "fileSHA256": "41786294f506d46860107f2ada20c63629d82c27db2be00dff49acab697dd42b",
+      "status": "SOURCE_LIMITED_REVIEW_NOT_APPROVED",
+      "nativePublicationAuthorized": false,
+      "published": false
+    },
+    {
+      "gameId": 2214997,
+      "date": "2025-11-16",
+      "opponent": "Don's Cherries",
+      "score": [
+        4,
+        4
+      ],
+      "gameType": "REGULAR SEASON",
+      "headline": "Braves and Don's Cherries Finish Tied 4–4",
+      "sourceGrade": "SCOREBOARD_AND_SKATERS_ONLY",
+      "file": "20251116_HTO_2214997_SOURCE_LIMITED_REVIEW.md",
+      "paragraphs": 4,
+      "sourceFingerprint": "9aac1a3b7baef011babcd8687543f0f7cefcdca15142ad394282999d62d57fb2",
+      "recheckFingerprint": "c246a7fbad292902480d1ec143f428ff8922736be91039f018ab60db73f5d24c",
+      "fileSHA256": "241eb5688d85bd966d865dc162964ca8a73a47138eb1af801939cc00b7c12357",
+      "status": "SOURCE_LIMITED_REVIEW_NOT_APPROVED",
+      "nativePublicationAuthorized": false,
+      "published": false
+    },
+    {
+      "gameId": 2214998,
+      "date": "2025-11-23",
+      "opponent": "Big Bastones",
+      "score": [
+        1,
+        3
+      ],
+      "gameType": "REGULAR SEASON",
+      "headline": "Braves Fall 1–3 to Big Bastones",
+      "sourceGrade": "SCOREBOARD_AND_SKATERS_ONLY",
+      "file": "20251123_HTO_2214998_SOURCE_LIMITED_REVIEW.md",
+      "paragraphs": 5,
+      "sourceFingerprint": "a212cae88d5a980ab5bec7c18c06ffe6bb9175147be169499855a4dbf79b455b",
+      "recheckFingerprint": "27be3a1b02764c220d854fe494ce002eb619b702a784513ab5a7853db0a08f36",
+      "fileSHA256": "b4fe2c171a6ccf649fd72d1f4cc2ac3132e88dcd4c78cec2f0ef3c78a836fb5e",
+      "status": "SOURCE_LIMITED_REVIEW_NOT_APPROVED",
+      "nativePublicationAuthorized": false,
+      "published": false
+    },
+    {
+      "gameId": 2214999,
+      "date": "2025-11-30",
+      "opponent": "Fangs",
+      "score": [
+        5,
+        8
+      ],
+      "gameType": "REGULAR SEASON",
+      "headline": "Braves Fall 5–8 to Fangs",
+      "sourceGrade": "SCOREBOARD_AND_SKATERS_ONLY",
+      "file": "20251130_HTO_2214999_SOURCE_LIMITED_REVIEW.md",
+      "paragraphs": 4,
+      "sourceFingerprint": "3dc2136015f24590fcacc176c7182737e62a4fda7d2e37947056563a420e21fe",
+      "recheckFingerprint": "00c6f5987352abc6a3a0fad65462c23e162a0ef7911f21e9c51e03f07acc6ddc",
+      "fileSHA256": "23f1c6bb68a772f06fc2948d6956e814c87694cf3e6286cfa6292a1bd8100939",
+      "status": "SOURCE_LIMITED_REVIEW_NOT_APPROVED",
+      "nativePublicationAuthorized": false,
+      "published": false
+    },
+    {
+      "gameId": 2215000,
+      "date": "2025-12-07",
+      "opponent": "Dateline Predators",
+      "score": [
+        5,
+        3
+      ],
+      "gameType": "REGULAR SEASON",
+      "headline": "Braves Earn 5–3 Win Over Dateline Predators",
+      "sourceGrade": "SCOREBOARD_AND_SKATERS_ONLY",
+      "file": "20251207_HTO_2215000_SOURCE_LIMITED_REVIEW.md",
+      "paragraphs": 5,
+      "sourceFingerprint": "f32cede051cd3257878416e5b6e267de5341285362e521a54d2844342592f2c3",
+      "recheckFingerprint": "7a9725d2b172976fb46faa0b05bff1a413ff3578ea95b7c7c20ffa854fbca3a9",
+      "fileSHA256": "ad274f058847c98d5005ebc1d8415fa4e4853a099f710254ab63dcc556b9d2b8",
+      "status": "SOURCE_LIMITED_REVIEW_NOT_APPROVED",
+      "nativePublicationAuthorized": false,
+      "published": false
+    },
+    {
+      "gameId": 2215001,
+      "date": "2025-12-14",
+      "opponent": "Mid Ice Crisis",
+      "score": [
+        3,
+        3
+      ],
+      "gameType": "REGULAR SEASON",
+      "headline": "Braves and Mid Ice Crisis Finish Tied 3–3",
+      "sourceGrade": "SCOREBOARD_AND_SKATERS_ONLY",
+      "file": "20251214_HTO_2215001_SOURCE_LIMITED_REVIEW.md",
+      "paragraphs": 5,
+      "sourceFingerprint": "a84bc081c203df01144a5c30366f6769dc828d0bb426976fed94b0d631581af8",
+      "recheckFingerprint": "874647054bba7070e777002bbb3ff35ef6570913d2087f106e5c391f5ed0f0f7",
+      "fileSHA256": "e819cb01b032f176b198b64f50f2171966fe48b4cb5188731d8d20b9fe17bccb",
+      "status": "SOURCE_LIMITED_REVIEW_NOT_APPROVED",
+      "nativePublicationAuthorized": false,
+      "published": false
+    },
+    {
+      "gameId": 2215002,
+      "date": "2025-12-21",
+      "opponent": "Royal Flushers",
+      "score": [
+        7,
+        0
+      ],
+      "gameType": "REGULAR SEASON",
+      "headline": "Braves Earn 7–0 Win Over Royal Flushers",
+      "sourceGrade": "SCOREBOARD_AND_SKATERS_ONLY",
+      "file": "20251221_HTO_2215002_SOURCE_LIMITED_REVIEW.md",
+      "paragraphs": 4,
+      "sourceFingerprint": "a95f73e64382aa354e3c06913b2b2647f3957718e6547334d56dc58b7771314c",
+      "recheckFingerprint": "2b62c757970b391a828df4f6d168c5a261ecd2d28f57de6bd1893807e217f014",
+      "fileSHA256": "9887151e06b43951f912e55b28dae8a393737519650329a444c653f0a2b3419b",
+      "status": "SOURCE_LIMITED_REVIEW_NOT_APPROVED",
+      "nativePublicationAuthorized": false,
+      "published": false
+    },
+    {
+      "gameId": 2215003,
+      "date": "2025-12-28",
+      "opponent": "Schmelts",
+      "score": [
+        3,
+        3
+      ],
+      "gameType": "REGULAR SEASON",
+      "headline": "Braves and Schmelts Finish Tied 3–3",
+      "sourceGrade": "SCOREBOARD_AND_SKATERS_ONLY",
+      "file": "20251228_HTO_2215003_SOURCE_LIMITED_REVIEW.md",
+      "paragraphs": 5,
+      "sourceFingerprint": "e7a816601f80a25459472a28ddbcedca162c928f775a5d2582a8149d3c97c75b",
+      "recheckFingerprint": "bc9a932a060600a27b18dcf8b0fb566cedaadc5c19a3f8d4680bc9fc71b8c489",
+      "fileSHA256": "8d3867a21079354b60e6e025e231f7c82e58cbfb95f8ae39c91edf6af2ed3d95",
+      "status": "SOURCE_LIMITED_REVIEW_NOT_APPROVED",
+      "nativePublicationAuthorized": false,
+      "published": false
+    },
+    {
+      "gameId": 2215004,
+      "date": "2026-01-04",
+      "opponent": "Royal Flushers",
+      "score": [
+        4,
+        2
+      ],
+      "gameType": "REGULAR SEASON",
+      "headline": "Braves Earn 4–2 Win Over Royal Flushers",
+      "sourceGrade": "SCOREBOARD_AND_SKATERS_ONLY",
+      "file": "20260104_HTO_2215004_SOURCE_LIMITED_REVIEW.md",
+      "paragraphs": 4,
+      "sourceFingerprint": "d6eabae41a530dab3477ef774c1eeb90ab6f325310729415ecf8091ef05c846c",
+      "recheckFingerprint": "9db09aac51331ba0db297c02d4b631e8ef53e2e900100f9f6b40aa357f1e40fe",
+      "fileSHA256": "f84a2687f6a889daa5db4261e13ddb07e2fa0fe0b6b4b3fcdfbb6edc5d07f468",
+      "status": "SOURCE_LIMITED_REVIEW_NOT_APPROVED",
+      "nativePublicationAuthorized": false,
+      "published": false
+    },
+    {
+      "gameId": 2215005,
+      "date": "2026-01-11",
+      "opponent": "Dateline Predators",
+      "score": [
+        6,
+        3
+      ],
+      "gameType": "REGULAR SEASON",
+      "headline": "Braves Earn 6–3 Win Over Dateline Predators",
+      "sourceGrade": "SCOREBOARD_AND_SKATERS_ONLY",
+      "file": "20260111_HTO_2215005_SOURCE_LIMITED_REVIEW.md",
+      "paragraphs": 5,
+      "sourceFingerprint": "01eb5dcaa1407cc2baa1a041c220c12a3b87b0cac051bd54c49143c44495ec7d",
+      "recheckFingerprint": "2b38f543b135d94a8ce2b52b769de5f3ba2dd4074eca2f9a300f729c880480b7",
+      "fileSHA256": "1b982cb5bea870e16edb97f9399f39d301e976a2006c0a093995ef9062f0a0e3",
+      "status": "SOURCE_LIMITED_REVIEW_NOT_APPROVED",
+      "nativePublicationAuthorized": false,
+      "published": false
+    },
+    {
+      "gameId": 2215006,
+      "date": "2026-01-18",
+      "opponent": "Schmelts",
+      "score": [
+        6,
+        3
+      ],
+      "gameType": "REGULAR SEASON",
+      "headline": "Braves Earn 6–3 Win Over Schmelts",
+      "sourceGrade": "SCOREBOARD_AND_SKATERS_ONLY",
+      "file": "20260118_HTO_2215006_SOURCE_LIMITED_REVIEW.md",
+      "paragraphs": 4,
+      "sourceFingerprint": "65ef0abd580f9c4d154f902dbf0051f6fe9396ba1bb750ddcdb7c9b8159e29f0",
+      "recheckFingerprint": "8e87d5600409d1fe874ec9c4f23aa18eb779f8cd372787ff90df8f571953e9bc",
+      "fileSHA256": "af548c20796c69fad54de00ed1f0bf947fbdebc1b0082247586a6e3806d94bf2",
+      "status": "SOURCE_LIMITED_REVIEW_NOT_APPROVED",
+      "nativePublicationAuthorized": false,
+      "published": false
+    },
+    {
+      "gameId": 2215014,
+      "date": "2026-03-22",
+      "opponent": "Schmelts",
+      "score": [
+        0,
+        1
+      ],
+      "gameType": "PLAYOFFS",
+      "headline": "Braves Fall 1–0 to Schmelts in Overtime",
+      "sourceGrade": "EVENTS_WITH_PARTIAL_PLAYER_STATS",
+      "file": "20260322_HTO_2215014_SOURCE_LIMITED_REVIEW.md",
+      "paragraphs": 4,
+      "sourceFingerprint": "8d74ce7cd25d6d627ed3ad9c2c624e290ccbc11afbac204b6ed5ef354907081d",
+      "recheckFingerprint": "19d3ac7766a6004e0a204a5eb10d77ad2950bf0fb2ac97324db0ef7020da5d8a",
+      "fileSHA256": "bf6f5e48f7d0b0cdd7a14a03406971a1641f0d33d334c622e93dfefc7b7c87ef",
+      "status": "SOURCE_LIMITED_REVIEW_NOT_APPROVED",
+      "nativePublicationAuthorized": false,
+      "published": false
+    }
+  ]
+}

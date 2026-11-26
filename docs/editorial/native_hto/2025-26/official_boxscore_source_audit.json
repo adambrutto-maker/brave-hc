@@ -1,0 +1,4577 @@
+{
+  "schema": "brave-hc-hto-2025-26-boxscore-audit/read-only-v1",
+  "source": "24 original official HTO game boxscores plus three explicit forfeit entries",
+  "checkedAtUTC": "2026-11-02T20:35:53.489663+00:00",
+  "season": "Winter_2025/2026",
+  "gameCount": 27,
+  "counts": {
+    "EVENTS_WITH_PARTIAL_PLAYER_STATS": 1,
+    "FULL_GAME_EVENTS_AND_SKATERS": 5,
+    "FORFEIT_ONLY_NO_ON_ICE_RECAP": 3,
+    "SCOREBOARD_AND_SKATERS_ONLY": 18
+  },
+  "games": [
+    {
+      "id": 2215014,
+      "date": "2026-03-22",
+      "gameType": "PLAYOFFS",
+      "gf": 0,
+      "ga": 1,
+      "opponentRaw": "Schmelts",
+      "disposition": "SOURCE_SCORE_VERIFIED",
+      "boxscoreURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2215014&p=boxscore",
+      "htmlSHA256": "7ae214d343192d06e3b20d587ebb6525ee3d3ebbd24920cd8fb0f65f7c9d7a93",
+      "pageURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2215014&p=boxscore&archTog=1",
+      "periods": [
+        {
+          "period": "1",
+          "braves": 0,
+          "opponent": 0
+        },
+        {
+          "period": "2",
+          "braves": 0,
+          "opponent": 0
+        },
+        {
+          "period": "3",
+          "braves": 0,
+          "opponent": 0
+        },
+        {
+          "period": "OT",
+          "braves": 0,
+          "opponent": 1
+        },
+        {
+          "period": "2OT",
+          "braves": 0,
+          "opponent": 0
+        }
+      ],
+      "events": [
+        {
+          "period": "OT",
+          "clock": "1:05",
+          "strength": "ES",
+          "team": "Schmelts",
+          "credit": "-",
+          "scoreText": "0-1 Schmelts"
+        }
+      ],
+      "players": [
+        {
+          "name": "Arruda, Mark",
+          "number": "76",
+          "position": "LD",
+          "GP": 1,
+          "PIM": 2
+        },
+        {
+          "name": "Atkins, Nolan",
+          "number": "6",
+          "position": "C/D",
+          "GP": 1,
+          "PIM": 0
+        },
+        {
+          "name": "Brutto, Adam",
+          "number": "28",
+          "position": "LD",
+          "GP": 1,
+          "PIM": 0
+        },
+        {
+          "name": "Carosi, Justin",
+          "number": "89",
+          "position": "C",
+          "GP": 1,
+          "PIM": 0
+        },
+        {
+          "name": "Congiusti, Marco",
+          "number": "3",
+          "position": "RD",
+          "GP": 1,
+          "PIM": 0
+        },
+        {
+          "name": "Duffy, Lorcan",
+          "number": "10",
+          "position": "LD",
+          "GP": 1,
+          "PIM": 0
+        },
+        {
+          "name": "Finlay, Ryan",
+          "number": "69",
+          "position": "RW",
+          "GP": 1,
+          "PIM": 0
+        },
+        {
+          "name": "Kober, Adam",
+          "number": "12",
+          "position": "LW/LD",
+          "GP": 1,
+          "PIM": 0
+        },
+        {
+          "name": "Logue, Ryan",
+          "number": "9",
+          "position": "LW",
+          "GP": 1,
+          "PIM": 0
+        },
+        {
+          "name": "Pagnotta, Alex",
+          "number": "44",
+          "position": "RD",
+          "GP": 1,
+          "PIM": 0
+        },
+        {
+          "name": "Paolucci, Anthony",
+          "number": "43",
+          "position": "RW/G",
+          "GP": 1,
+          "PIM": 0
+        },
+        {
+          "name": "Provenzano, Michael",
+          "number": "25",
+          "position": "C/LW",
+          "GP": 1,
+          "PIM": 0
+        },
+        {
+          "name": "Rajasooriar, Krishnan",
+          "number": "15",
+          "position": "RW/RD",
+          "GP": 1,
+          "PIM": 0
+        },
+        {
+          "name": "Saindon, Stephane",
+          "number": "20",
+          "position": "C",
+          "GP": 1,
+          "PIM": 0
+        }
+      ],
+      "goalies": [
+        {
+          "name": "Svec, Matt",
+          "number": "0",
+          "GP": "1",
+          "L": "1",
+          "GA": "1",
+          "GAA": "1.00"
+        }
+      ],
+      "eventsCoverage": "COMPLETE",
+      "playerStatsCoverage": "PARTIAL",
+      "checks": [],
+      "auditStatus": "EVENTS_WITH_PARTIAL_PLAYER_STATS"
+    },
+    {
+      "id": 2215015,
+      "date": "2026-03-22",
+      "gameType": "PLAYOFFS",
+      "gf": 6,
+      "ga": 2,
+      "opponentRaw": "Schmelts",
+      "disposition": "SOURCE_SCORE_VERIFIED",
+      "boxscoreURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2215015&p=boxscore",
+      "htmlSHA256": "9ad53a04bc59e6c19154863d0204bb926adc7dfb68b8fadfaf3bb9ea2b4f426f",
+      "pageURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2215015&p=boxscore&archTog=1",
+      "periods": [
+        {
+          "period": "1",
+          "braves": 2,
+          "opponent": 0
+        },
+        {
+          "period": "2",
+          "braves": 2,
+          "opponent": 1
+        },
+        {
+          "period": "3",
+          "braves": 2,
+          "opponent": 1
+        },
+        {
+          "period": "OT",
+          "braves": 0,
+          "opponent": 0
+        },
+        {
+          "period": "2OT",
+          "braves": 0,
+          "opponent": 0
+        }
+      ],
+      "events": [
+        {
+          "period": "1",
+          "clock": "10:36",
+          "strength": "ES",
+          "team": "Brave H.C.",
+          "credit": "76 Mark Arruda ( 25 Michael Provenzano , 69 Ryan Finlay )",
+          "scoreText": "1-0 Brave H.C."
+        },
+        {
+          "period": "1",
+          "clock": "7:22",
+          "strength": "PP",
+          "team": "Brave H.C.",
+          "credit": "89 Justin Carosi ( 25 Michael Provenzano , 20 Stephane Saindon )",
+          "scoreText": "2-0 Brave H.C."
+        },
+        {
+          "period": "2",
+          "clock": "7:40",
+          "strength": "ES",
+          "team": "Brave H.C.",
+          "credit": "9 Ryan Logue ( 15 Krishnan Rajasooriar , 20 Stephane Saindon )",
+          "scoreText": "3-0 Brave H.C."
+        },
+        {
+          "period": "2",
+          "clock": "1:46",
+          "strength": "ES",
+          "team": "Schmelts",
+          "credit": "-",
+          "scoreText": "3-1 Brave H.C."
+        },
+        {
+          "period": "2",
+          "clock": "0:24",
+          "strength": "ES",
+          "team": "Brave H.C.",
+          "credit": "25 Michael Provenzano ( 20 Stephane Saindon , 10 Lorcan Duffy )",
+          "scoreText": "4-1 Brave H.C."
+        },
+        {
+          "period": "3",
+          "clock": "7:34",
+          "strength": "ES",
+          "team": "Schmelts",
+          "credit": "-",
+          "scoreText": "4-2 Brave H.C."
+        },
+        {
+          "period": "3",
+          "clock": "2:52",
+          "strength": "EN",
+          "team": "Brave H.C.",
+          "credit": "69 Ryan Finlay",
+          "scoreText": "5-2 Brave H.C."
+        },
+        {
+          "period": "3",
+          "clock": "2:47",
+          "strength": "EN",
+          "team": "Brave H.C.",
+          "credit": "20 Stephane Saindon",
+          "scoreText": "6-2 Brave H.C."
+        }
+      ],
+      "players": [
+        {
+          "name": "Arruda, Mark",
+          "number": "76",
+          "position": "LD",
+          "GP": 1,
+          "G": 1,
+          "A": 0,
+          "Pts": 1,
+          "POTG": 0,
+          "GWG": 0,
+          "PPG": 0,
+          "PIM": 0
+        },
+        {
+          "name": "Atkins, Nolan",
+          "number": "6",
+          "position": "C/D",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "GWG": 0,
+          "PPG": 0,
+          "PIM": 0
+        },
+        {
+          "name": "Brutto, Adam",
+          "number": "28",
+          "position": "LD",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "GWG": 0,
+          "PPG": 0,
+          "PIM": 4
+        },
+        {
+          "name": "Carosi, Justin",
+          "number": "89",
+          "position": "C",
+          "GP": 1,
+          "G": 1,
+          "A": 0,
+          "Pts": 1,
+          "POTG": 0,
+          "GWG": 0,
+          "PPG": 1,
+          "PIM": 0
+        },
+        {
+          "name": "Congiusti, Marco",
+          "number": "3",
+          "position": "RD",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "GWG": 0,
+          "PPG": 0,
+          "PIM": 0
+        },
+        {
+          "name": "Duffy, Lorcan",
+          "number": "10",
+          "position": "LD",
+          "GP": 1,
+          "G": 0,
+          "A": 1,
+          "Pts": 1,
+          "POTG": 0,
+          "GWG": 0,
+          "PPG": 0,
+          "PIM": 0
+        },
+        {
+          "name": "Finlay, Ryan",
+          "number": "69",
+          "position": "RW",
+          "GP": 1,
+          "G": 1,
+          "A": 1,
+          "Pts": 2,
+          "POTG": 0,
+          "GWG": 0,
+          "PPG": 0,
+          "PIM": 0
+        },
+        {
+          "name": "Kober, Adam",
+          "number": "12",
+          "position": "LW/LD",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "GWG": 0,
+          "PPG": 0,
+          "PIM": 0
+        },
+        {
+          "name": "Logue, Ryan",
+          "number": "9",
+          "position": "LW",
+          "GP": 1,
+          "G": 1,
+          "A": 0,
+          "Pts": 1,
+          "POTG": 0,
+          "GWG": 1,
+          "PPG": 0,
+          "PIM": 4
+        },
+        {
+          "name": "Pagnotta, Alex",
+          "number": "44",
+          "position": "RD",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "GWG": 0,
+          "PPG": 0,
+          "PIM": 0
+        },
+        {
+          "name": "Paolucci, Anthony",
+          "number": "43",
+          "position": "RW/G",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "GWG": 0,
+          "PPG": 0,
+          "PIM": 2
+        },
+        {
+          "name": "Provenzano, Michael",
+          "number": "25",
+          "position": "C/LW",
+          "GP": 1,
+          "G": 1,
+          "A": 2,
+          "Pts": 3,
+          "POTG": 1,
+          "GWG": 0,
+          "PPG": 0,
+          "PIM": 0
+        },
+        {
+          "name": "Rajasooriar, Krishnan",
+          "number": "15",
+          "position": "RW/RD",
+          "GP": 1,
+          "G": 0,
+          "A": 1,
+          "Pts": 1,
+          "POTG": 0,
+          "GWG": 0,
+          "PPG": 0,
+          "PIM": 2
+        },
+        {
+          "name": "Saindon, Stephane",
+          "number": "20",
+          "position": "C",
+          "GP": 1,
+          "G": 1,
+          "A": 3,
+          "Pts": 4,
+          "POTG": 1,
+          "GWG": 0,
+          "PPG": 0,
+          "PIM": 0
+        }
+      ],
+      "goalies": [
+        {
+          "name": "Svec, Matt",
+          "number": "0",
+          "GP": "1",
+          "W": "1",
+          "GA": "2",
+          "POTG": "1",
+          "GAA": "2.00"
+        }
+      ],
+      "eventsCoverage": "COMPLETE",
+      "playerStatsCoverage": "COMPLETE",
+      "checks": [],
+      "auditStatus": "FULL_GAME_EVENTS_AND_SKATERS"
+    },
+    {
+      "id": 2215013,
+      "date": "2026-03-15",
+      "gameType": "PLAYOFFS",
+      "gf": 1,
+      "ga": 6,
+      "opponentRaw": "Schmelts",
+      "disposition": "SOURCE_SCORE_VERIFIED",
+      "boxscoreURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2215013&p=boxscore",
+      "htmlSHA256": "ff220831539064f64c78701effe5bfd2da76579da33f1abe1a86029eb1968bb0",
+      "pageURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2215013&p=boxscore&archTog=1",
+      "periods": [
+        {
+          "period": "1",
+          "braves": 0,
+          "opponent": 2
+        },
+        {
+          "period": "2",
+          "braves": 1,
+          "opponent": 2
+        },
+        {
+          "period": "3",
+          "braves": 0,
+          "opponent": 2
+        },
+        {
+          "period": "OT",
+          "braves": 0,
+          "opponent": 0
+        },
+        {
+          "period": "2OT",
+          "braves": 0,
+          "opponent": 0
+        }
+      ],
+      "events": [
+        {
+          "period": "1",
+          "clock": "6:38",
+          "strength": "ES",
+          "team": "Schmelts",
+          "credit": "-",
+          "scoreText": "1-0 Schmelts"
+        },
+        {
+          "period": "1",
+          "clock": "0:29",
+          "strength": "ES",
+          "team": "Schmelts",
+          "credit": "-",
+          "scoreText": "2-0 Schmelts"
+        },
+        {
+          "period": "2",
+          "clock": "5:19",
+          "strength": "ES",
+          "team": "Brave H.C.",
+          "credit": "15 Krishnan Rajasooriar ( 43 Anthony Paolucci , 76 Mark Arruda )",
+          "scoreText": "2-1 Schmelts"
+        },
+        {
+          "period": "2",
+          "clock": "2:25",
+          "strength": "ES",
+          "team": "Schmelts",
+          "credit": "-",
+          "scoreText": "3-1 Schmelts"
+        },
+        {
+          "period": "2",
+          "clock": "1:28",
+          "strength": "ES",
+          "team": "Schmelts",
+          "credit": "-",
+          "scoreText": "4-1 Schmelts"
+        },
+        {
+          "period": "3",
+          "clock": "2:36",
+          "strength": "ES",
+          "team": "Schmelts",
+          "credit": "-",
+          "scoreText": "5-1 Schmelts"
+        },
+        {
+          "period": "3",
+          "clock": "2:21",
+          "strength": "ES",
+          "team": "Schmelts",
+          "credit": "-",
+          "scoreText": "6-1 Schmelts"
+        }
+      ],
+      "players": [
+        {
+          "name": "Arruda, Mark",
+          "number": "76",
+          "position": "LD",
+          "GP": 1,
+          "G": 0,
+          "A": 1,
+          "Pts": 1,
+          "POTG": 0
+        },
+        {
+          "name": "Brutto, Adam",
+          "number": "28",
+          "position": "LD",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 1
+        },
+        {
+          "name": "Carosi, Justin",
+          "number": "89",
+          "position": "C",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0
+        },
+        {
+          "name": "Congiusti, Marco",
+          "number": "3",
+          "position": "RD",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0
+        },
+        {
+          "name": "Finlay, Ryan",
+          "number": "69",
+          "position": "RW",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0
+        },
+        {
+          "name": "Kober, Adam",
+          "number": "12",
+          "position": "LW/LD",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0
+        },
+        {
+          "name": "Logue, Ryan",
+          "number": "9",
+          "position": "LW",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0
+        },
+        {
+          "name": "Pagnotta, Alex",
+          "number": "44",
+          "position": "RD",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0
+        },
+        {
+          "name": "Paolucci, Anthony",
+          "number": "43",
+          "position": "RW/G",
+          "GP": 1,
+          "G": 0,
+          "A": 1,
+          "Pts": 1,
+          "POTG": 0
+        },
+        {
+          "name": "Pearsoll, Keith",
+          "number": "39",
+          "position": "RW",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0
+        },
+        {
+          "name": "Provenzano, Mario",
+          "number": "8",
+          "position": "C",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0
+        },
+        {
+          "name": "Provenzano, Michael",
+          "number": "25",
+          "position": "C/LW",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0
+        },
+        {
+          "name": "Rajasooriar, Krishnan",
+          "number": "15",
+          "position": "RW/RD",
+          "GP": 1,
+          "G": 1,
+          "A": 0,
+          "Pts": 1,
+          "POTG": 1
+        },
+        {
+          "name": "Saindon, Stephane",
+          "number": "20",
+          "position": "C",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 1
+        }
+      ],
+      "goalies": [
+        {
+          "name": "Leong, Dev",
+          "number": "31",
+          "GP": "1",
+          "L": "1",
+          "GA": "6",
+          "GAA": "6.00"
+        }
+      ],
+      "eventsCoverage": "COMPLETE",
+      "playerStatsCoverage": "COMPLETE",
+      "checks": [],
+      "auditStatus": "FULL_GAME_EVENTS_AND_SKATERS"
+    },
+    {
+      "id": 2215012,
+      "date": "2026-03-08",
+      "gameType": "REGULAR SEASON",
+      "gf": 0,
+      "ga": 0,
+      "opponentRaw": "Schmelts - Forfeit",
+      "disposition": "FORFEIT_REVIEW_ONLY",
+      "boxscoreURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2215012&p=boxscore",
+      "auditStatus": "FORFEIT_ONLY_NO_ON_ICE_RECAP",
+      "checks": []
+    },
+    {
+      "id": 2215011,
+      "date": "2026-03-01",
+      "gameType": "REGULAR SEASON",
+      "gf": 3,
+      "ga": 4,
+      "opponentRaw": "Dateline Predators",
+      "disposition": "SOURCE_SCORE_VERIFIED",
+      "boxscoreURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2215011&p=boxscore",
+      "htmlSHA256": "767d15d93bd8cabd13a949ef6001471ca474142a5f8141541b9486cf2c1bdd3f",
+      "pageURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2215011&p=boxscore&archTog=1",
+      "periods": [
+        {
+          "period": "1",
+          "braves": 1,
+          "opponent": 1
+        },
+        {
+          "period": "2",
+          "braves": 2,
+          "opponent": 0
+        },
+        {
+          "period": "3",
+          "braves": 0,
+          "opponent": 3
+        },
+        {
+          "period": "OT",
+          "braves": 0,
+          "opponent": 0
+        },
+        {
+          "period": "2OT",
+          "braves": 0,
+          "opponent": 0
+        }
+      ],
+      "events": [
+        {
+          "period": "1",
+          "clock": "2:36",
+          "strength": "ES",
+          "team": "Brave H.C.",
+          "credit": "89 Justin Carosi ( 25 Michael Provenzano , 76 Mark Arruda )",
+          "scoreText": "1-0 Brave H.C."
+        },
+        {
+          "period": "1",
+          "clock": "0:57",
+          "strength": "ES",
+          "team": "Dateline Predators",
+          "credit": "-",
+          "scoreText": "1-1 Tie"
+        },
+        {
+          "period": "2",
+          "clock": "5:23",
+          "strength": "ES",
+          "team": "Brave H.C.",
+          "credit": "44 Alex Pagnotta",
+          "scoreText": "2-1 Brave H.C."
+        },
+        {
+          "period": "2",
+          "clock": "0:13",
+          "strength": "ES",
+          "team": "Brave H.C.",
+          "credit": "20 Stephane Saindon ( 69 Ryan Finlay , 39 Keith Pearsoll )",
+          "scoreText": "3-1 Brave H.C."
+        },
+        {
+          "period": "3",
+          "clock": "2:43",
+          "strength": "ES",
+          "team": "Dateline Predators",
+          "credit": "-",
+          "scoreText": "3-2 Brave H.C."
+        },
+        {
+          "period": "3",
+          "clock": "1:59",
+          "strength": "ES",
+          "team": "Dateline Predators",
+          "credit": "-",
+          "scoreText": "3-3 Tie"
+        },
+        {
+          "period": "3",
+          "clock": "0:58",
+          "strength": "ES",
+          "team": "Dateline Predators",
+          "credit": "-",
+          "scoreText": "3-4 Dateline Predators"
+        }
+      ],
+      "players": [
+        {
+          "name": "Arruda, Mark",
+          "number": "76",
+          "position": "LD",
+          "GP": 1,
+          "G": 0,
+          "A": 1,
+          "Pts": 1,
+          "POTG": 0
+        },
+        {
+          "name": "Atkins, Nolan",
+          "number": "6",
+          "position": "C/D",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0
+        },
+        {
+          "name": "Brutto, Adam",
+          "number": "28",
+          "position": "LD",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0
+        },
+        {
+          "name": "Carosi, Justin",
+          "number": "89",
+          "position": "C",
+          "GP": 1,
+          "G": 1,
+          "A": 0,
+          "Pts": 1,
+          "POTG": 1
+        },
+        {
+          "name": "Finlay, Ryan",
+          "number": "69",
+          "position": "RW",
+          "GP": 1,
+          "G": 0,
+          "A": 1,
+          "Pts": 1,
+          "POTG": 0
+        },
+        {
+          "name": "Logue, Ryan",
+          "number": "9",
+          "position": "LW",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0
+        },
+        {
+          "name": "Pagnotta, Alex",
+          "number": "44",
+          "position": "RD",
+          "GP": 1,
+          "G": 1,
+          "A": 0,
+          "Pts": 1,
+          "POTG": 1
+        },
+        {
+          "name": "Paolucci, Anthony",
+          "number": "43",
+          "position": "RW/G",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0
+        },
+        {
+          "name": "Pearsoll, Keith",
+          "number": "39",
+          "position": "RW",
+          "GP": 1,
+          "G": 0,
+          "A": 1,
+          "Pts": 1,
+          "POTG": 0
+        },
+        {
+          "name": "Provenzano, Mario",
+          "number": "8",
+          "position": "C",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0
+        },
+        {
+          "name": "Provenzano, Michael",
+          "number": "25",
+          "position": "C/LW",
+          "GP": 1,
+          "G": 0,
+          "A": 1,
+          "Pts": 1,
+          "POTG": 0
+        },
+        {
+          "name": "Saindon, Stephane",
+          "number": "20",
+          "position": "C",
+          "GP": 1,
+          "G": 1,
+          "A": 0,
+          "Pts": 1,
+          "POTG": 1
+        }
+      ],
+      "goalies": [
+        {
+          "name": "Leong, Dev",
+          "number": "31",
+          "GP": "1",
+          "L": "1",
+          "GA": "4",
+          "GAA": "4.00"
+        }
+      ],
+      "eventsCoverage": "COMPLETE",
+      "playerStatsCoverage": "COMPLETE",
+      "checks": [],
+      "auditStatus": "FULL_GAME_EVENTS_AND_SKATERS"
+    },
+    {
+      "id": 2215010,
+      "date": "2026-02-22",
+      "gameType": "REGULAR SEASON",
+      "gf": 5,
+      "ga": 1,
+      "opponentRaw": "Royal Flushers",
+      "disposition": "SOURCE_SCORE_VERIFIED",
+      "boxscoreURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2215010&p=boxscore",
+      "htmlSHA256": "27d752a59eeed39a03432d93ba56e908961299287f6eb7c87213e0a3c85fc15c",
+      "pageURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2215010&p=boxscore&archTog=1",
+      "periods": [
+        {
+          "period": "1",
+          "braves": 0,
+          "opponent": 0
+        },
+        {
+          "period": "2",
+          "braves": 3,
+          "opponent": 1
+        },
+        {
+          "period": "3",
+          "braves": 2,
+          "opponent": 0
+        },
+        {
+          "period": "OT",
+          "braves": 0,
+          "opponent": 0
+        },
+        {
+          "period": "2OT",
+          "braves": 0,
+          "opponent": 0
+        }
+      ],
+      "events": [
+        {
+          "period": "2",
+          "clock": "5:41",
+          "strength": "ES",
+          "team": "Brave H.C.",
+          "credit": "20 Stephane Saindon ( 39 Keith Pearsoll , 69 Ryan Finlay )",
+          "scoreText": "0-1 Brave H.C."
+        },
+        {
+          "period": "2",
+          "clock": "4:12",
+          "strength": "ES",
+          "team": "Brave H.C.",
+          "credit": "25 Michael Provenzano ( 20 Stephane Saindon , 9 Ryan Logue )",
+          "scoreText": "0-2 Brave H.C."
+        },
+        {
+          "period": "2",
+          "clock": "3:48",
+          "strength": "ES",
+          "team": "Brave H.C.",
+          "credit": "89 Justin Carosi ( 44 Alex Pagnotta )",
+          "scoreText": "0-3 Brave H.C."
+        },
+        {
+          "period": "2",
+          "clock": "1:16",
+          "strength": "ES",
+          "team": "Royal Flushers",
+          "credit": "-",
+          "scoreText": "1-3 Brave H.C."
+        },
+        {
+          "period": "3",
+          "clock": "6:22",
+          "strength": "ES",
+          "team": "Brave H.C.",
+          "credit": "25 Michael Provenzano ( 89 Justin Carosi , 8 Mario Provenzano )",
+          "scoreText": "1-4 Brave H.C."
+        },
+        {
+          "period": "3",
+          "clock": "3:22",
+          "strength": "ES",
+          "team": "Brave H.C.",
+          "credit": "20 Stephane Saindon ( 9 Ryan Logue , 76 Mark Arruda )",
+          "scoreText": "1-5 Brave H.C."
+        }
+      ],
+      "players": [
+        {
+          "name": "Arruda, Mark",
+          "number": "76",
+          "position": "LD",
+          "GP": 1,
+          "G": 0,
+          "A": 1,
+          "Pts": 1,
+          "POTG": 0,
+          "GWG": 0
+        },
+        {
+          "name": "Brutto, Adam",
+          "number": "28",
+          "position": "LD",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "GWG": 0
+        },
+        {
+          "name": "Carosi, Justin",
+          "number": "89",
+          "position": "C",
+          "GP": 1,
+          "G": 1,
+          "A": 1,
+          "Pts": 2,
+          "POTG": 0,
+          "GWG": 0
+        },
+        {
+          "name": "Finlay, Ryan",
+          "number": "69",
+          "position": "RW",
+          "GP": 1,
+          "G": 0,
+          "A": 1,
+          "Pts": 1,
+          "POTG": 1,
+          "GWG": 0
+        },
+        {
+          "name": "Logue, Ryan",
+          "number": "9",
+          "position": "LW",
+          "GP": 1,
+          "G": 0,
+          "A": 2,
+          "Pts": 2,
+          "POTG": 0,
+          "GWG": 0
+        },
+        {
+          "name": "Pagnotta, Alex",
+          "number": "44",
+          "position": "RD",
+          "GP": 1,
+          "G": 0,
+          "A": 1,
+          "Pts": 1,
+          "POTG": 0,
+          "GWG": 0
+        },
+        {
+          "name": "Pearsoll, Keith",
+          "number": "39",
+          "position": "RW",
+          "GP": 1,
+          "G": 0,
+          "A": 1,
+          "Pts": 1,
+          "POTG": 0,
+          "GWG": 0
+        },
+        {
+          "name": "Provenzano, Mario",
+          "number": "8",
+          "position": "C",
+          "GP": 1,
+          "G": 0,
+          "A": 1,
+          "Pts": 1,
+          "POTG": 0,
+          "GWG": 0
+        },
+        {
+          "name": "Provenzano, Michael",
+          "number": "25",
+          "position": "C/LW",
+          "GP": 1,
+          "G": 2,
+          "A": 0,
+          "Pts": 2,
+          "POTG": 1,
+          "GWG": 1
+        },
+        {
+          "name": "Saindon, Stephane",
+          "number": "20",
+          "position": "C",
+          "GP": 1,
+          "G": 2,
+          "A": 1,
+          "Pts": 3,
+          "POTG": 1,
+          "GWG": 0
+        }
+      ],
+      "goalies": [
+        {
+          "name": "Sadler, Justin",
+          "number": "0",
+          "GP": "1",
+          "W": "1",
+          "GA": "1",
+          "GAA": "1.00"
+        }
+      ],
+      "eventsCoverage": "COMPLETE",
+      "playerStatsCoverage": "COMPLETE",
+      "checks": [],
+      "auditStatus": "FULL_GAME_EVENTS_AND_SKATERS"
+    },
+    {
+      "id": 2215009,
+      "date": "2026-02-15",
+      "gameType": "REGULAR SEASON",
+      "gf": 0,
+      "ga": 0,
+      "opponentRaw": "Schmelts - Forfeit",
+      "disposition": "FORFEIT_REVIEW_ONLY",
+      "boxscoreURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2215009&p=boxscore",
+      "auditStatus": "FORFEIT_ONLY_NO_ON_ICE_RECAP",
+      "checks": []
+    },
+    {
+      "id": 2215008,
+      "date": "2026-02-01",
+      "gameType": "REGULAR SEASON",
+      "gf": 5,
+      "ga": 1,
+      "opponentRaw": "Dateline Predators",
+      "disposition": "SOURCE_SCORE_VERIFIED",
+      "boxscoreURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2215008&p=boxscore",
+      "htmlSHA256": "74f692c334a073f5ab08021bfcf614e8b2219440c6871943a5e69b4cc40ab9fb",
+      "pageURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2215008&p=boxscore&archTog=1",
+      "periods": [
+        {
+          "period": "1",
+          "braves": 2,
+          "opponent": 0
+        },
+        {
+          "period": "2",
+          "braves": 1,
+          "opponent": 1
+        },
+        {
+          "period": "3",
+          "braves": 2,
+          "opponent": 0
+        },
+        {
+          "period": "OT",
+          "braves": 0,
+          "opponent": 0
+        },
+        {
+          "period": "2OT",
+          "braves": 0,
+          "opponent": 0
+        }
+      ],
+      "events": [
+        {
+          "period": "1",
+          "clock": "7:52",
+          "strength": "ES",
+          "team": "Brave H.C.",
+          "credit": "25 Michael Provenzano ( 9 Ryan Logue , 69 Ryan Finlay )",
+          "scoreText": "0-1 Brave H.C."
+        },
+        {
+          "period": "1",
+          "clock": "0:14",
+          "strength": "ES",
+          "team": "Brave H.C.",
+          "credit": "20 Stephane Saindon ( 25 Michael Provenzano , 69 Ryan Finlay )",
+          "scoreText": "0-2 Brave H.C."
+        },
+        {
+          "period": "2",
+          "clock": "7:31",
+          "strength": "ES",
+          "team": "Dateline Predators",
+          "credit": "-",
+          "scoreText": "1-2 Brave H.C."
+        },
+        {
+          "period": "2",
+          "clock": "6:00",
+          "strength": "ES",
+          "team": "Brave H.C.",
+          "credit": "39 Keith Pearsoll ( 8 Mario Provenzano , 89 Justin Carosi )",
+          "scoreText": "1-3 Brave H.C."
+        },
+        {
+          "period": "3",
+          "clock": "1:07",
+          "strength": "EN",
+          "team": "Brave H.C.",
+          "credit": "39 Keith Pearsoll",
+          "scoreText": "1-4 Brave H.C."
+        },
+        {
+          "period": "3",
+          "clock": "0:51",
+          "strength": "ES",
+          "team": "Brave H.C.",
+          "credit": "39 Keith Pearsoll ( 89 Justin Carosi )",
+          "scoreText": "1-5 Brave H.C."
+        }
+      ],
+      "players": [
+        {
+          "name": "Arruda, Mark",
+          "number": "76",
+          "position": "LD",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "GWG": 0
+        },
+        {
+          "name": "Atkins, Nolan",
+          "number": "6",
+          "position": "C/D",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "GWG": 0
+        },
+        {
+          "name": "Carosi, Justin",
+          "number": "89",
+          "position": "C",
+          "GP": 1,
+          "G": 0,
+          "A": 2,
+          "Pts": 2,
+          "POTG": 1,
+          "GWG": 0
+        },
+        {
+          "name": "Congiusti, Marco",
+          "number": "3",
+          "position": "RD",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "GWG": 0
+        },
+        {
+          "name": "DiPardo, Anthony",
+          "number": "0",
+          "position": "LD",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "GWG": 0
+        },
+        {
+          "name": "Finlay, Ryan",
+          "number": "69",
+          "position": "RW",
+          "GP": 1,
+          "G": 0,
+          "A": 2,
+          "Pts": 2,
+          "POTG": 1,
+          "GWG": 0
+        },
+        {
+          "name": "Logue, Ryan",
+          "number": "9",
+          "position": "LW",
+          "GP": 1,
+          "G": 0,
+          "A": 1,
+          "Pts": 1,
+          "POTG": 0,
+          "GWG": 0
+        },
+        {
+          "name": "Mazzei, Stefano",
+          "number": "88",
+          "position": "LW",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "GWG": 0
+        },
+        {
+          "name": "Pearsoll, Keith",
+          "number": "39",
+          "position": "RW",
+          "GP": 1,
+          "G": 3,
+          "A": 0,
+          "Pts": 3,
+          "POTG": 1,
+          "GWG": 0
+        },
+        {
+          "name": "Provenzano, Mario",
+          "number": "8",
+          "position": "C",
+          "GP": 1,
+          "G": 0,
+          "A": 1,
+          "Pts": 1,
+          "POTG": 0,
+          "GWG": 0
+        },
+        {
+          "name": "Provenzano, Michael",
+          "number": "25",
+          "position": "C/LW",
+          "GP": 1,
+          "G": 1,
+          "A": 1,
+          "Pts": 2,
+          "POTG": 0,
+          "GWG": 0
+        },
+        {
+          "name": "Rajasooriar, Krishnan",
+          "number": "15",
+          "position": "RW/RD",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "GWG": 0
+        },
+        {
+          "name": "Saindon, Stephane",
+          "number": "20",
+          "position": "C",
+          "GP": 1,
+          "G": 1,
+          "A": 0,
+          "Pts": 1,
+          "POTG": 0,
+          "GWG": 1
+        }
+      ],
+      "goalies": [
+        {
+          "name": "Leong, Dev",
+          "number": "31",
+          "GP": "1",
+          "W": "1",
+          "GA": "1",
+          "GAA": "1.00"
+        }
+      ],
+      "eventsCoverage": "COMPLETE",
+      "playerStatsCoverage": "COMPLETE",
+      "checks": [],
+      "auditStatus": "FULL_GAME_EVENTS_AND_SKATERS"
+    },
+    {
+      "id": 2215007,
+      "date": "2026-01-25",
+      "gameType": "REGULAR SEASON",
+      "gf": 0,
+      "ga": 0,
+      "opponentRaw": "Royal Flushers - Forfeit",
+      "disposition": "FORFEIT_REVIEW_ONLY",
+      "boxscoreURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2215007&p=boxscore",
+      "auditStatus": "FORFEIT_ONLY_NO_ON_ICE_RECAP",
+      "checks": []
+    },
+    {
+      "id": 2215006,
+      "date": "2026-01-18",
+      "gameType": "REGULAR SEASON",
+      "gf": 6,
+      "ga": 3,
+      "opponentRaw": "Schmelts",
+      "disposition": "SOURCE_SCORE_VERIFIED",
+      "boxscoreURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2215006&p=boxscore",
+      "htmlSHA256": "9fab4e0d064d5ac29af051e7e54556ce3f6b791682792f6c5cbc346cce5142c1",
+      "pageURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2215006&p=boxscore&archTog=1",
+      "periods": [
+        {
+          "period": "1",
+          "braves": 4,
+          "opponent": 0
+        },
+        {
+          "period": "2",
+          "braves": 2,
+          "opponent": 1
+        },
+        {
+          "period": "3",
+          "braves": 0,
+          "opponent": 2
+        }
+      ],
+      "events": [],
+      "players": [
+        {
+          "name": "Arruda, Mark",
+          "number": "76",
+          "position": "LD",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "GWG": 0
+        },
+        {
+          "name": "Brutto, Adam",
+          "number": "28",
+          "position": "LD",
+          "GP": 1,
+          "G": 0,
+          "A": 2,
+          "Pts": 2,
+          "POTG": 0,
+          "GWG": 0
+        },
+        {
+          "name": "Carosi, Justin",
+          "number": "89",
+          "position": "C",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "GWG": 0
+        },
+        {
+          "name": "Congiusti, Marco",
+          "number": "3",
+          "position": "RD",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "GWG": 0
+        },
+        {
+          "name": "Duffy, Lorcan",
+          "number": "10",
+          "position": "LD",
+          "GP": 1,
+          "G": 0,
+          "A": 2,
+          "Pts": 2,
+          "POTG": 0,
+          "GWG": 0
+        },
+        {
+          "name": "Finlay, Ryan",
+          "number": "69",
+          "position": "RW",
+          "GP": 1,
+          "G": 1,
+          "A": 0,
+          "Pts": 1,
+          "POTG": 0,
+          "GWG": 1
+        },
+        {
+          "name": "Kober, Adam",
+          "number": "12",
+          "position": "LW/LD",
+          "GP": 1,
+          "G": 1,
+          "A": 0,
+          "Pts": 1,
+          "POTG": 0,
+          "GWG": 0
+        },
+        {
+          "name": "Pagnotta, Alex",
+          "number": "44",
+          "position": "RD",
+          "GP": 0,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "GWG": 0
+        },
+        {
+          "name": "Pearsoll, Keith",
+          "number": "39",
+          "position": "RW",
+          "GP": 1,
+          "G": 2,
+          "A": 1,
+          "Pts": 3,
+          "POTG": 1,
+          "GWG": 0
+        },
+        {
+          "name": "Provenzano, Mario",
+          "number": "8",
+          "position": "C",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "GWG": 0
+        },
+        {
+          "name": "Provenzano, Michael",
+          "number": "25",
+          "position": "C/LW",
+          "GP": 1,
+          "G": 1,
+          "A": 0,
+          "Pts": 1,
+          "POTG": 0,
+          "GWG": 0
+        },
+        {
+          "name": "Saindon, Stephane",
+          "number": "20",
+          "position": "C",
+          "GP": 1,
+          "G": 1,
+          "A": 4,
+          "Pts": 5,
+          "POTG": 1,
+          "GWG": 0
+        }
+      ],
+      "goalies": [
+        {
+          "name": "Galdenzi, Robbie",
+          "number": "0",
+          "GP": "1",
+          "W": "1",
+          "GA": "3",
+          "POTG": "1",
+          "GAA": "3.00"
+        }
+      ],
+      "eventsCoverage": "MISSING_OR_INCOMPLETE",
+      "playerStatsCoverage": "COMPLETE",
+      "checks": [],
+      "auditStatus": "SCOREBOARD_AND_SKATERS_ONLY"
+    },
+    {
+      "id": 2215005,
+      "date": "2026-01-11",
+      "gameType": "REGULAR SEASON",
+      "gf": 6,
+      "ga": 3,
+      "opponentRaw": "Dateline Predators",
+      "disposition": "SOURCE_SCORE_VERIFIED",
+      "boxscoreURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2215005&p=boxscore",
+      "htmlSHA256": "ae2e12fdbd0021ae4ac8f8668628b9fdd7735f1124c3bbd1ac6510421957e98f",
+      "pageURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2215005&p=boxscore&archTog=1",
+      "periods": [
+        {
+          "period": "1",
+          "braves": 3,
+          "opponent": 1
+        },
+        {
+          "period": "2",
+          "braves": 0,
+          "opponent": 2
+        },
+        {
+          "period": "3",
+          "braves": 3,
+          "opponent": 0
+        }
+      ],
+      "events": [],
+      "players": [
+        {
+          "name": "Arruda, Mark",
+          "number": "76",
+          "position": "LD",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "GWG": 0,
+          "PIM": 0
+        },
+        {
+          "name": "Brutto, Adam",
+          "number": "28",
+          "position": "LD",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "GWG": 0,
+          "PIM": 0
+        },
+        {
+          "name": "Carosi, Justin",
+          "number": "89",
+          "position": "C",
+          "GP": 1,
+          "G": 0,
+          "A": 3,
+          "Pts": 3,
+          "POTG": 0,
+          "GWG": 0,
+          "PIM": 0
+        },
+        {
+          "name": "Finlay, Ryan",
+          "number": "69",
+          "position": "RW",
+          "GP": 1,
+          "G": 0,
+          "A": 1,
+          "Pts": 1,
+          "POTG": 0,
+          "GWG": 0,
+          "PIM": 2
+        },
+        {
+          "name": "Pagnotta, Alex",
+          "number": "44",
+          "position": "RD",
+          "GP": 1,
+          "G": 0,
+          "A": 2,
+          "Pts": 2,
+          "POTG": 0,
+          "GWG": 0,
+          "PIM": 0
+        },
+        {
+          "name": "Pearsoll, Keith",
+          "number": "39",
+          "position": "RW",
+          "GP": 1,
+          "G": 2,
+          "A": 2,
+          "Pts": 4,
+          "POTG": 1,
+          "GWG": 0,
+          "PIM": 0
+        },
+        {
+          "name": "Provenzano, Michael",
+          "number": "25",
+          "position": "C/LW",
+          "GP": 1,
+          "G": 2,
+          "A": 1,
+          "Pts": 3,
+          "POTG": 1,
+          "GWG": 1,
+          "PIM": 0
+        },
+        {
+          "name": "Saindon, Stephane",
+          "number": "20",
+          "position": "C",
+          "GP": 1,
+          "G": 2,
+          "A": 1,
+          "Pts": 3,
+          "POTG": 1,
+          "GWG": 0,
+          "PIM": 0
+        }
+      ],
+      "goalies": [
+        {
+          "name": "Svec, Matt",
+          "number": "0",
+          "GP": "1",
+          "W": "1",
+          "GA": "3",
+          "GAA": "3.00"
+        }
+      ],
+      "eventsCoverage": "MISSING_OR_INCOMPLETE",
+      "playerStatsCoverage": "COMPLETE",
+      "checks": [],
+      "auditStatus": "SCOREBOARD_AND_SKATERS_ONLY"
+    },
+    {
+      "id": 2215004,
+      "date": "2026-01-04",
+      "gameType": "REGULAR SEASON",
+      "gf": 4,
+      "ga": 2,
+      "opponentRaw": "Royal Flushers",
+      "disposition": "SOURCE_SCORE_VERIFIED",
+      "boxscoreURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2215004&p=boxscore",
+      "htmlSHA256": "4dadc5cf954e787f613abc86a4b8d070f45596eb27772f52f45a92c73c071688",
+      "pageURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2215004&p=boxscore&archTog=1",
+      "periods": [
+        {
+          "period": "1",
+          "braves": 1,
+          "opponent": 0
+        },
+        {
+          "period": "2",
+          "braves": 2,
+          "opponent": 2
+        },
+        {
+          "period": "3",
+          "braves": 1,
+          "opponent": 0
+        }
+      ],
+      "events": [],
+      "players": [
+        {
+          "name": "Ardizzi, Stefano",
+          "number": "90",
+          "position": "LW",
+          "GP": 1,
+          "G": 0,
+          "A": 2,
+          "Pts": 2,
+          "POTG": 0,
+          "GWG": 0
+        },
+        {
+          "name": "Arruda, Mark",
+          "number": "76",
+          "position": "LD",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "GWG": 0
+        },
+        {
+          "name": "Brutto, Adam",
+          "number": "28",
+          "position": "LD",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "GWG": 0
+        },
+        {
+          "name": "Carosi, Justin",
+          "number": "89",
+          "position": "C",
+          "GP": 1,
+          "G": 1,
+          "A": 2,
+          "Pts": 3,
+          "POTG": 1,
+          "GWG": 0
+        },
+        {
+          "name": "Duffy, Lorcan",
+          "number": "10",
+          "position": "LD",
+          "GP": 1,
+          "G": 1,
+          "A": 0,
+          "Pts": 1,
+          "POTG": 0,
+          "GWG": 0
+        },
+        {
+          "name": "Finlay, Ryan",
+          "number": "69",
+          "position": "RW",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "GWG": 0
+        },
+        {
+          "name": "Kober, Adam",
+          "number": "12",
+          "position": "LW/LD",
+          "GP": 1,
+          "G": 0,
+          "A": 1,
+          "Pts": 1,
+          "POTG": 1,
+          "GWG": 0
+        },
+        {
+          "name": "Pagnotta, Alex",
+          "number": "44",
+          "position": "RD",
+          "GP": 1,
+          "G": 1,
+          "A": 0,
+          "Pts": 1,
+          "POTG": 0,
+          "GWG": 0
+        },
+        {
+          "name": "Pearsoll, Keith",
+          "number": "39",
+          "position": "RW",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "GWG": 0
+        },
+        {
+          "name": "Rajasooriar, Krishnan",
+          "number": "15",
+          "position": "RW/RD",
+          "GP": 1,
+          "G": 1,
+          "A": 0,
+          "Pts": 1,
+          "POTG": 1,
+          "GWG": 1
+        },
+        {
+          "name": "Saindon, Stephane",
+          "number": "20",
+          "position": "C",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "GWG": 0
+        }
+      ],
+      "goalies": [
+        {
+          "name": "Greenberg, Matthew",
+          "number": "0",
+          "GP": "1",
+          "W": "1",
+          "GA": "2",
+          "GAA": "2.00"
+        }
+      ],
+      "eventsCoverage": "MISSING_OR_INCOMPLETE",
+      "playerStatsCoverage": "COMPLETE",
+      "checks": [],
+      "auditStatus": "SCOREBOARD_AND_SKATERS_ONLY"
+    },
+    {
+      "id": 2215003,
+      "date": "2025-12-28",
+      "gameType": "REGULAR SEASON",
+      "gf": 3,
+      "ga": 3,
+      "opponentRaw": "Schmelts",
+      "disposition": "SOURCE_SCORE_VERIFIED",
+      "boxscoreURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2215003&p=boxscore",
+      "htmlSHA256": "bc4d0bb91510e32d60a43b3fc333fbb72ef0b3f224518fe2df61ea1b4b24d3a9",
+      "pageURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2215003&p=boxscore&archTog=1",
+      "periods": [
+        {
+          "period": "1",
+          "braves": 0,
+          "opponent": 0
+        },
+        {
+          "period": "2",
+          "braves": 3,
+          "opponent": 1
+        },
+        {
+          "period": "3",
+          "braves": 0,
+          "opponent": 2
+        }
+      ],
+      "events": [],
+      "players": [
+        {
+          "name": "Arruda, Mark",
+          "number": "76",
+          "position": "LD",
+          "GP": 1,
+          "G": 0,
+          "A": 1,
+          "Pts": 1,
+          "POTG": 0,
+          "PIM": 0
+        },
+        {
+          "name": "Atkins, Nolan",
+          "number": "6",
+          "position": "C/D",
+          "GP": 1,
+          "G": 0,
+          "A": 1,
+          "Pts": 1,
+          "POTG": 0,
+          "PIM": 0
+        },
+        {
+          "name": "Brutto, Adam",
+          "number": "28",
+          "position": "LD",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "PIM": 0
+        },
+        {
+          "name": "Carosi, Justin",
+          "number": "89",
+          "position": "C",
+          "GP": 1,
+          "G": 2,
+          "A": 0,
+          "Pts": 2,
+          "POTG": 1,
+          "PIM": 0
+        },
+        {
+          "name": "Kober, Adam",
+          "number": "12",
+          "position": "LW/LD",
+          "GP": 1,
+          "G": 0,
+          "A": 1,
+          "Pts": 1,
+          "POTG": 0,
+          "PIM": 0
+        },
+        {
+          "name": "Logue, Ryan",
+          "number": "9",
+          "position": "LW",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "PIM": 2
+        },
+        {
+          "name": "Mazzei, Stefano",
+          "number": "88",
+          "position": "LW",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "PIM": 0
+        },
+        {
+          "name": "Pagnotta, Alex",
+          "number": "44",
+          "position": "RD",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "PIM": 0
+        },
+        {
+          "name": "Pearsoll, Keith",
+          "number": "39",
+          "position": "RW",
+          "GP": 1,
+          "G": 0,
+          "A": 1,
+          "Pts": 1,
+          "POTG": 0,
+          "PIM": 0
+        },
+        {
+          "name": "Provenzano, Mario",
+          "number": "8",
+          "position": "C",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "PIM": 0
+        },
+        {
+          "name": "Rajasooriar, Krishnan",
+          "number": "15",
+          "position": "RW/RD",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "PIM": 0
+        },
+        {
+          "name": "Saindon, Stephane",
+          "number": "20",
+          "position": "C",
+          "GP": 1,
+          "G": 1,
+          "A": 0,
+          "Pts": 1,
+          "POTG": 1,
+          "PIM": 0
+        }
+      ],
+      "goalies": [
+        {
+          "name": "Leong, Dev",
+          "number": "31",
+          "GP": "1",
+          "GA": "3",
+          "POTG": "1",
+          "GAA": "3.00"
+        }
+      ],
+      "eventsCoverage": "MISSING_OR_INCOMPLETE",
+      "playerStatsCoverage": "COMPLETE",
+      "checks": [],
+      "auditStatus": "SCOREBOARD_AND_SKATERS_ONLY"
+    },
+    {
+      "id": 2215002,
+      "date": "2025-12-21",
+      "gameType": "REGULAR SEASON",
+      "gf": 7,
+      "ga": 0,
+      "opponentRaw": "Royal Flushers",
+      "disposition": "SOURCE_SCORE_VERIFIED",
+      "boxscoreURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2215002&p=boxscore",
+      "htmlSHA256": "e40520ee61ba9b6d979c9dc95fd581c9a392b255980d753a7e52ac8bed0aa463",
+      "pageURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2215002&p=boxscore&archTog=1",
+      "periods": [
+        {
+          "period": "1",
+          "braves": 0,
+          "opponent": 0
+        },
+        {
+          "period": "2",
+          "braves": 3,
+          "opponent": 0
+        },
+        {
+          "period": "3",
+          "braves": 4,
+          "opponent": 0
+        }
+      ],
+      "events": [],
+      "players": [
+        {
+          "name": "Arruda, Mark",
+          "number": "76",
+          "position": "LD",
+          "GP": 1,
+          "G": 1,
+          "A": 0,
+          "Pts": 1,
+          "POTG": 0,
+          "GWG": 0
+        },
+        {
+          "name": "Atkins, Nolan",
+          "number": "6",
+          "position": "C/D",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "GWG": 0
+        },
+        {
+          "name": "Brutto, Adam",
+          "number": "28",
+          "position": "LD",
+          "GP": 1,
+          "G": 0,
+          "A": 1,
+          "Pts": 1,
+          "POTG": 0,
+          "GWG": 0
+        },
+        {
+          "name": "Carosi, Justin",
+          "number": "89",
+          "position": "C",
+          "GP": 1,
+          "G": 2,
+          "A": 0,
+          "Pts": 2,
+          "POTG": 1,
+          "GWG": 0
+        },
+        {
+          "name": "Finlay, Ryan",
+          "number": "69",
+          "position": "RW",
+          "GP": 1,
+          "G": 2,
+          "A": 1,
+          "Pts": 3,
+          "POTG": 1,
+          "GWG": 0
+        },
+        {
+          "name": "Logue, Ryan",
+          "number": "9",
+          "position": "LW",
+          "GP": 1,
+          "G": 0,
+          "A": 1,
+          "Pts": 1,
+          "POTG": 0,
+          "GWG": 0
+        },
+        {
+          "name": "Pagnotta, Alex",
+          "number": "44",
+          "position": "RD",
+          "GP": 1,
+          "G": 0,
+          "A": 2,
+          "Pts": 2,
+          "POTG": 0,
+          "GWG": 0
+        },
+        {
+          "name": "Paolucci, Anthony",
+          "number": "43",
+          "position": "RW/G",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "GWG": 0
+        },
+        {
+          "name": "Pearsoll, Keith",
+          "number": "39",
+          "position": "RW",
+          "GP": 1,
+          "G": 0,
+          "A": 1,
+          "Pts": 1,
+          "POTG": 0,
+          "GWG": 0
+        },
+        {
+          "name": "Provenzano, Mario",
+          "number": "8",
+          "position": "C",
+          "GP": 1,
+          "G": 1,
+          "A": 1,
+          "Pts": 2,
+          "POTG": 0,
+          "GWG": 1
+        },
+        {
+          "name": "Provenzano, Michael",
+          "number": "25",
+          "position": "C/LW",
+          "GP": 1,
+          "G": 1,
+          "A": 3,
+          "Pts": 4,
+          "POTG": 0,
+          "GWG": 0
+        }
+      ],
+      "goalies": [
+        {
+          "name": "Galdenzi, Robbie",
+          "number": "0",
+          "GP": "1",
+          "W": "1",
+          "SHO": "1",
+          "POTG": "1"
+        }
+      ],
+      "eventsCoverage": "MISSING_OR_INCOMPLETE",
+      "playerStatsCoverage": "COMPLETE",
+      "checks": [],
+      "auditStatus": "SCOREBOARD_AND_SKATERS_ONLY"
+    },
+    {
+      "id": 2215001,
+      "date": "2025-12-14",
+      "gameType": "REGULAR SEASON",
+      "gf": 3,
+      "ga": 3,
+      "opponentRaw": "Mid Ice Crisis",
+      "disposition": "SOURCE_SCORE_VERIFIED",
+      "boxscoreURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2215001&p=boxscore",
+      "htmlSHA256": "a42b75f8c61ef412d4feca6ed5937b822cda46d61dc7f08db4b9fdfadde81659",
+      "pageURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2215001&p=boxscore&archTog=1",
+      "periods": [
+        {
+          "period": "1",
+          "braves": 0,
+          "opponent": 1
+        },
+        {
+          "period": "2",
+          "braves": 3,
+          "opponent": 0
+        },
+        {
+          "period": "3",
+          "braves": 0,
+          "opponent": 2
+        }
+      ],
+      "events": [],
+      "players": [
+        {
+          "name": "Arruda, Mark",
+          "number": "76",
+          "position": "LD",
+          "GP": 1,
+          "G": 0,
+          "A": 1,
+          "Pts": 1,
+          "POTG": 0,
+          "PPG": 0
+        },
+        {
+          "name": "Brock, Brad",
+          "number": "17",
+          "position": "LD",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "PPG": 0
+        },
+        {
+          "name": "Carosi, Justin",
+          "number": "89",
+          "position": "C",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "PPG": 0
+        },
+        {
+          "name": "Finlay, Ryan",
+          "number": "69",
+          "position": "RW",
+          "GP": 1,
+          "G": 1,
+          "A": 0,
+          "Pts": 1,
+          "POTG": 1,
+          "PPG": 1
+        },
+        {
+          "name": "Logue, Ryan",
+          "number": "9",
+          "position": "LW",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "PPG": 0
+        },
+        {
+          "name": "Pagnotta, Alex",
+          "number": "44",
+          "position": "RD",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "PPG": 0
+        },
+        {
+          "name": "Paolucci, Anthony",
+          "number": "43",
+          "position": "RW/G",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "PPG": 0
+        },
+        {
+          "name": "Pearsoll, Keith",
+          "number": "39",
+          "position": "RW",
+          "GP": 1,
+          "G": 0,
+          "A": 1,
+          "Pts": 1,
+          "POTG": 0,
+          "PPG": 0
+        },
+        {
+          "name": "Provenzano, Mario",
+          "number": "8",
+          "position": "C",
+          "GP": 1,
+          "G": 1,
+          "A": 0,
+          "Pts": 1,
+          "POTG": 0,
+          "PPG": 0
+        },
+        {
+          "name": "Provenzano, Michael",
+          "number": "25",
+          "position": "C/LW",
+          "GP": 1,
+          "G": 0,
+          "A": 2,
+          "Pts": 2,
+          "POTG": 1,
+          "PPG": 0
+        },
+        {
+          "name": "Rajasooriar, Krishnan",
+          "number": "15",
+          "position": "RW/RD",
+          "GP": 1,
+          "G": 0,
+          "A": 2,
+          "Pts": 2,
+          "POTG": 0,
+          "PPG": 0
+        },
+        {
+          "name": "Saindon, Stephane",
+          "number": "20",
+          "position": "C",
+          "GP": 1,
+          "G": 1,
+          "A": 0,
+          "Pts": 1,
+          "POTG": 1,
+          "PPG": 0
+        }
+      ],
+      "goalies": [
+        {
+          "name": "Ing, Aj",
+          "number": "0",
+          "GP": "1",
+          "GA": "3",
+          "GAA": "3.00"
+        }
+      ],
+      "eventsCoverage": "MISSING_OR_INCOMPLETE",
+      "playerStatsCoverage": "COMPLETE",
+      "checks": [],
+      "auditStatus": "SCOREBOARD_AND_SKATERS_ONLY"
+    },
+    {
+      "id": 2215000,
+      "date": "2025-12-07",
+      "gameType": "REGULAR SEASON",
+      "gf": 5,
+      "ga": 3,
+      "opponentRaw": "Dateline Predators",
+      "disposition": "SOURCE_SCORE_VERIFIED",
+      "boxscoreURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2215000&p=boxscore",
+      "htmlSHA256": "ee7b95b924b8b8fe7d71649225cbe8b674162a762799354a16b56680145be736",
+      "pageURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2215000&p=boxscore&archTog=1",
+      "periods": [
+        {
+          "period": "1",
+          "braves": 2,
+          "opponent": 1
+        },
+        {
+          "period": "2",
+          "braves": 0,
+          "opponent": 2
+        },
+        {
+          "period": "3",
+          "braves": 3,
+          "opponent": 0
+        }
+      ],
+      "events": [],
+      "players": [
+        {
+          "name": "Arruda, Mark",
+          "number": "76",
+          "position": "LD",
+          "GP": 1,
+          "G": 3,
+          "A": 0,
+          "Pts": 3,
+          "POTG": 1,
+          "GWG": 1,
+          "PPG": 1,
+          "PIM": 0
+        },
+        {
+          "name": "Brutto, Adam",
+          "number": "28",
+          "position": "LD",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "GWG": 0,
+          "PPG": 0,
+          "PIM": 0
+        },
+        {
+          "name": "Cristillo, Andre",
+          "number": "0",
+          "position": "C/LW",
+          "GP": 1,
+          "G": 0,
+          "A": 1,
+          "Pts": 1,
+          "POTG": 0,
+          "GWG": 0,
+          "PPG": 0,
+          "PIM": 0
+        },
+        {
+          "name": "Cristillo, Lucas",
+          "number": "0",
+          "position": "RW",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "GWG": 0,
+          "PPG": 0,
+          "PIM": 2
+        },
+        {
+          "name": "Duffy, Lorcan",
+          "number": "10",
+          "position": "LD",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "GWG": 0,
+          "PPG": 0,
+          "PIM": 0
+        },
+        {
+          "name": "Finlay, Ryan",
+          "number": "69",
+          "position": "RW",
+          "GP": 1,
+          "G": 0,
+          "A": 2,
+          "Pts": 2,
+          "POTG": 1,
+          "GWG": 0,
+          "PPG": 0,
+          "PIM": 0
+        },
+        {
+          "name": "Logue, Ryan",
+          "number": "9",
+          "position": "LW",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "GWG": 0,
+          "PPG": 0,
+          "PIM": 2
+        },
+        {
+          "name": "Pagnotta, Alex",
+          "number": "44",
+          "position": "RD",
+          "GP": 1,
+          "G": 0,
+          "A": 2,
+          "Pts": 2,
+          "POTG": 0,
+          "GWG": 0,
+          "PPG": 0,
+          "PIM": 2
+        },
+        {
+          "name": "Provenzano, Mario",
+          "number": "8",
+          "position": "C",
+          "GP": 1,
+          "G": 1,
+          "A": 0,
+          "Pts": 1,
+          "POTG": 0,
+          "GWG": 0,
+          "PPG": 0,
+          "PIM": 0
+        },
+        {
+          "name": "Provenzano, Michael",
+          "number": "25",
+          "position": "C/LW",
+          "GP": 1,
+          "G": 0,
+          "A": 1,
+          "Pts": 1,
+          "POTG": 0,
+          "GWG": 0,
+          "PPG": 0,
+          "PIM": 0
+        },
+        {
+          "name": "Rajasooriar, Krishnan",
+          "number": "15",
+          "position": "RW/RD",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "GWG": 0,
+          "PPG": 0,
+          "PIM": 0
+        },
+        {
+          "name": "Saindon, Stephane",
+          "number": "20",
+          "position": "C",
+          "GP": 1,
+          "G": 1,
+          "A": 0,
+          "Pts": 1,
+          "POTG": 0,
+          "GWG": 0,
+          "PPG": 0,
+          "PIM": 0
+        }
+      ],
+      "goalies": [
+        {
+          "name": "Svec, Matt",
+          "number": "0",
+          "GP": "1",
+          "W": "1",
+          "GA": "3",
+          "POTG": "1",
+          "GAA": "3.00"
+        }
+      ],
+      "eventsCoverage": "MISSING_OR_INCOMPLETE",
+      "playerStatsCoverage": "COMPLETE",
+      "checks": [],
+      "auditStatus": "SCOREBOARD_AND_SKATERS_ONLY"
+    },
+    {
+      "id": 2214999,
+      "date": "2025-11-30",
+      "gameType": "REGULAR SEASON",
+      "gf": 5,
+      "ga": 8,
+      "opponentRaw": "Fangs",
+      "disposition": "SOURCE_SCORE_VERIFIED",
+      "boxscoreURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2214999&p=boxscore",
+      "htmlSHA256": "5132b9b47e6dcbf4e504ef599988cbf5fb53783996d91e40359a5eacb67c9f7e",
+      "pageURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2214999&p=boxscore&archTog=1",
+      "periods": [
+        {
+          "period": "1",
+          "braves": 2,
+          "opponent": 3
+        },
+        {
+          "period": "2",
+          "braves": 2,
+          "opponent": 3
+        },
+        {
+          "period": "3",
+          "braves": 1,
+          "opponent": 2
+        }
+      ],
+      "events": [],
+      "players": [
+        {
+          "name": "Arruda, Mark",
+          "number": "76",
+          "position": "LD",
+          "GP": 1,
+          "G": 1,
+          "A": 1,
+          "Pts": 2,
+          "POTG": 0
+        },
+        {
+          "name": "Brutto, Adam",
+          "number": "28",
+          "position": "LD",
+          "GP": 1,
+          "G": 0,
+          "A": 1,
+          "Pts": 1,
+          "POTG": 0
+        },
+        {
+          "name": "Carosi, Justin",
+          "number": "89",
+          "position": "C",
+          "GP": 1,
+          "G": 1,
+          "A": 2,
+          "Pts": 3,
+          "POTG": 1
+        },
+        {
+          "name": "Congiusti, Marco",
+          "number": "3",
+          "position": "RD",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0
+        },
+        {
+          "name": "Logue, Ryan",
+          "number": "9",
+          "position": "LW",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0
+        },
+        {
+          "name": "Pagnotta, Alex",
+          "number": "44",
+          "position": "RD",
+          "GP": 1,
+          "G": 1,
+          "A": 1,
+          "Pts": 2,
+          "POTG": 1
+        },
+        {
+          "name": "Paolucci, Anthony",
+          "number": "43",
+          "position": "RW/G",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0
+        },
+        {
+          "name": "Provenzano, Mario",
+          "number": "8",
+          "position": "C",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0
+        },
+        {
+          "name": "Rajasooriar, Krishnan",
+          "number": "15",
+          "position": "RW/RD",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0
+        },
+        {
+          "name": "Saindon, Stephane",
+          "number": "20",
+          "position": "C",
+          "GP": 1,
+          "G": 2,
+          "A": 2,
+          "Pts": 4,
+          "POTG": 1
+        }
+      ],
+      "goalies": [
+        {
+          "name": "Logue, Stephen",
+          "number": "70",
+          "GP": "1",
+          "L": "1",
+          "GA": "8",
+          "GAA": "8.00"
+        }
+      ],
+      "eventsCoverage": "MISSING_OR_INCOMPLETE",
+      "playerStatsCoverage": "COMPLETE",
+      "checks": [],
+      "auditStatus": "SCOREBOARD_AND_SKATERS_ONLY"
+    },
+    {
+      "id": 2214998,
+      "date": "2025-11-23",
+      "gameType": "REGULAR SEASON",
+      "gf": 1,
+      "ga": 3,
+      "opponentRaw": "Big Bastones",
+      "disposition": "SOURCE_SCORE_VERIFIED",
+      "boxscoreURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2214998&p=boxscore",
+      "htmlSHA256": "98f75f3d783db19e9dc50da7a91d82baaa7146f0ec4157750303f6cc0c058ad0",
+      "pageURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2214998&p=boxscore&archTog=1",
+      "periods": [
+        {
+          "period": "1",
+          "braves": 1,
+          "opponent": 1
+        },
+        {
+          "period": "2",
+          "braves": 0,
+          "opponent": 0
+        },
+        {
+          "period": "3",
+          "braves": 0,
+          "opponent": 2
+        }
+      ],
+      "events": [],
+      "players": [
+        {
+          "name": "Arruda, Mark",
+          "number": "76",
+          "position": "LD",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "PIM": 0
+        },
+        {
+          "name": "Brock, Brad",
+          "number": "17",
+          "position": "LD",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 1,
+          "PIM": 4
+        },
+        {
+          "name": "Brutto, Adam",
+          "number": "28",
+          "position": "LD",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "PIM": 0
+        },
+        {
+          "name": "Carosi, Justin",
+          "number": "89",
+          "position": "C",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "PIM": 0
+        },
+        {
+          "name": "Congiusti, Marco",
+          "number": "3",
+          "position": "RD",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "PIM": 2
+        },
+        {
+          "name": "Cristillo, Andre",
+          "number": "0",
+          "position": "C/LW",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "PIM": 0
+        },
+        {
+          "name": "Finlay, Ryan",
+          "number": "69",
+          "position": "RW",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "PIM": 2
+        },
+        {
+          "name": "Kober, Adam",
+          "number": "12",
+          "position": "LW/LD",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "PIM": 0
+        },
+        {
+          "name": "Logue, Ryan",
+          "number": "9",
+          "position": "LW",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "PIM": 0
+        },
+        {
+          "name": "Mazzei, Stefano",
+          "number": "88",
+          "position": "LW",
+          "GP": 1,
+          "G": 0,
+          "A": 1,
+          "Pts": 1,
+          "POTG": 0,
+          "PIM": 0
+        },
+        {
+          "name": "Pagnotta, Alex",
+          "number": "44",
+          "position": "RD",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "PIM": 0
+        },
+        {
+          "name": "Paolucci, Anthony",
+          "number": "43",
+          "position": "RW/G",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "PIM": 2
+        },
+        {
+          "name": "Provenzano, Mario",
+          "number": "8",
+          "position": "C",
+          "GP": 1,
+          "G": 1,
+          "A": 0,
+          "Pts": 1,
+          "POTG": 1,
+          "PIM": 0
+        },
+        {
+          "name": "Provenzano, Michael",
+          "number": "25",
+          "position": "C/LW",
+          "GP": 1,
+          "G": 0,
+          "A": 1,
+          "Pts": 1,
+          "POTG": 0,
+          "PIM": 0
+        },
+        {
+          "name": "Saindon, Stephane",
+          "number": "20",
+          "position": "C",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "PIM": 0
+        }
+      ],
+      "goalies": [
+        {
+          "name": "Logue, Stephen",
+          "number": "70",
+          "GP": "1",
+          "L": "1",
+          "GA": "2",
+          "GAA": "2.00"
+        }
+      ],
+      "eventsCoverage": "MISSING_OR_INCOMPLETE",
+      "playerStatsCoverage": "COMPLETE",
+      "checks": [],
+      "auditStatus": "SCOREBOARD_AND_SKATERS_ONLY"
+    },
+    {
+      "id": 2214997,
+      "date": "2025-11-16",
+      "gameType": "REGULAR SEASON",
+      "gf": 4,
+      "ga": 4,
+      "opponentRaw": "Don's Cherries",
+      "disposition": "SOURCE_SCORE_VERIFIED",
+      "boxscoreURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2214997&p=boxscore",
+      "htmlSHA256": "09e187296b34f03af1511f5a295a9d4f1d70e40b6c82d5ba6571a5231b192734",
+      "pageURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2214997&p=boxscore&archTog=1",
+      "periods": [
+        {
+          "period": "1",
+          "braves": 0,
+          "opponent": 2
+        },
+        {
+          "period": "2",
+          "braves": 3,
+          "opponent": 1
+        },
+        {
+          "period": "3",
+          "braves": 1,
+          "opponent": 1
+        }
+      ],
+      "events": [],
+      "players": [
+        {
+          "name": "Arruda, Mark",
+          "number": "76",
+          "position": "LD",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "PPG": 0,
+          "PIM": 0
+        },
+        {
+          "name": "Brock, Brad",
+          "number": "17",
+          "position": "LD",
+          "GP": 1,
+          "G": 1,
+          "A": 0,
+          "Pts": 1,
+          "POTG": 0,
+          "PPG": 1,
+          "PIM": 2
+        },
+        {
+          "name": "Brutto, Adam",
+          "number": "28",
+          "position": "LD",
+          "GP": 1,
+          "G": 0,
+          "A": 1,
+          "Pts": 1,
+          "POTG": 0,
+          "PPG": 0,
+          "PIM": 0
+        },
+        {
+          "name": "Carosi, Justin",
+          "number": "89",
+          "position": "C",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "PPG": 0,
+          "PIM": 0
+        },
+        {
+          "name": "Congiusti, Marco",
+          "number": "3",
+          "position": "RD",
+          "GP": 1,
+          "G": 0,
+          "A": 1,
+          "Pts": 1,
+          "POTG": 0,
+          "PPG": 0,
+          "PIM": 0
+        },
+        {
+          "name": "Finlay, Ryan",
+          "number": "69",
+          "position": "RW",
+          "GP": 1,
+          "G": 0,
+          "A": 2,
+          "Pts": 2,
+          "POTG": 1,
+          "PPG": 0,
+          "PIM": 0
+        },
+        {
+          "name": "Kober, Adam",
+          "number": "12",
+          "position": "LW/LD",
+          "GP": 1,
+          "G": 0,
+          "A": 1,
+          "Pts": 1,
+          "POTG": 0,
+          "PPG": 0,
+          "PIM": 0
+        },
+        {
+          "name": "Pagnotta, Alex",
+          "number": "44",
+          "position": "RD",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "PPG": 0,
+          "PIM": 0
+        },
+        {
+          "name": "Paolucci, Anthony",
+          "number": "43",
+          "position": "RW/G",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "PPG": 0,
+          "PIM": 0
+        },
+        {
+          "name": "Pearsoll, Keith",
+          "number": "39",
+          "position": "RW",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "PPG": 0,
+          "PIM": 0
+        },
+        {
+          "name": "Provenzano, Mario",
+          "number": "8",
+          "position": "C",
+          "GP": 1,
+          "G": 0,
+          "A": 1,
+          "Pts": 1,
+          "POTG": 1,
+          "PPG": 0,
+          "PIM": 0
+        },
+        {
+          "name": "Provenzano, Michael",
+          "number": "25",
+          "position": "C/LW",
+          "GP": 1,
+          "G": 1,
+          "A": 0,
+          "Pts": 1,
+          "POTG": 0,
+          "PPG": 0,
+          "PIM": 0
+        },
+        {
+          "name": "Saindon, Stephane",
+          "number": "20",
+          "position": "C",
+          "GP": 1,
+          "G": 2,
+          "A": 0,
+          "Pts": 2,
+          "POTG": 1,
+          "PPG": 0,
+          "PIM": 0
+        }
+      ],
+      "goalies": [
+        {
+          "name": "Greenberg, Matthew",
+          "number": "0",
+          "GP": "1",
+          "GA": "4",
+          "GAA": "4.00"
+        }
+      ],
+      "eventsCoverage": "MISSING_OR_INCOMPLETE",
+      "playerStatsCoverage": "COMPLETE",
+      "checks": [],
+      "auditStatus": "SCOREBOARD_AND_SKATERS_ONLY"
+    },
+    {
+      "id": 2214996,
+      "date": "2025-11-09",
+      "gameType": "REGULAR SEASON",
+      "gf": 7,
+      "ga": 6,
+      "opponentRaw": "Schmelts",
+      "disposition": "SOURCE_SCORE_VERIFIED",
+      "boxscoreURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2214996&p=boxscore",
+      "htmlSHA256": "077cbd8fe4329dc9d7bc62fc7edcf0a9e5f918fce4548b16b6a92f4444837881",
+      "pageURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2214996&p=boxscore&archTog=1",
+      "periods": [
+        {
+          "period": "1",
+          "braves": 6,
+          "opponent": 2
+        },
+        {
+          "period": "2",
+          "braves": 0,
+          "opponent": 2
+        },
+        {
+          "period": "3",
+          "braves": 1,
+          "opponent": 2
+        }
+      ],
+      "events": [],
+      "players": [
+        {
+          "name": "Arruda, Mark",
+          "number": "76",
+          "position": "LD",
+          "GP": 1,
+          "G": 0,
+          "A": 1,
+          "Pts": 1,
+          "POTG": 0,
+          "GWG": 0,
+          "PIM": 0
+        },
+        {
+          "name": "Brock, Brad",
+          "number": "17",
+          "position": "LD",
+          "GP": 1,
+          "G": 1,
+          "A": 0,
+          "Pts": 1,
+          "POTG": 0,
+          "GWG": 0,
+          "PIM": 2
+        },
+        {
+          "name": "Brutto, Adam",
+          "number": "28",
+          "position": "LD",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "GWG": 0,
+          "PIM": 0
+        },
+        {
+          "name": "Carosi, Justin",
+          "number": "89",
+          "position": "C",
+          "GP": 1,
+          "G": 1,
+          "A": 1,
+          "Pts": 2,
+          "POTG": 0,
+          "GWG": 0,
+          "PIM": 0
+        },
+        {
+          "name": "Congiusti, Marco",
+          "number": "3",
+          "position": "RD",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "GWG": 0,
+          "PIM": 0
+        },
+        {
+          "name": "Duffy, Lorcan",
+          "number": "10",
+          "position": "LD",
+          "GP": 1,
+          "G": 1,
+          "A": 1,
+          "Pts": 2,
+          "POTG": 0,
+          "GWG": 0,
+          "PIM": 0
+        },
+        {
+          "name": "Finlay, Ryan",
+          "number": "69",
+          "position": "RW",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "GWG": 0,
+          "PIM": 0
+        },
+        {
+          "name": "Mazzei, Stefano",
+          "number": "88",
+          "position": "LW",
+          "GP": 1,
+          "G": 1,
+          "A": 0,
+          "Pts": 1,
+          "POTG": 0,
+          "GWG": 0,
+          "PIM": 0
+        },
+        {
+          "name": "Pagnotta, Alex",
+          "number": "44",
+          "position": "RD",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "GWG": 0,
+          "PIM": 0
+        },
+        {
+          "name": "Pearsoll, Keith",
+          "number": "39",
+          "position": "RW",
+          "GP": 1,
+          "G": 0,
+          "A": 1,
+          "Pts": 1,
+          "POTG": 0,
+          "GWG": 0,
+          "PIM": 0
+        },
+        {
+          "name": "Provenzano, Mario",
+          "number": "8",
+          "position": "C",
+          "GP": 1,
+          "G": 1,
+          "A": 2,
+          "Pts": 3,
+          "POTG": 1,
+          "GWG": 0,
+          "PIM": 0
+        },
+        {
+          "name": "Provenzano, Michael",
+          "number": "25",
+          "position": "C/LW",
+          "GP": 1,
+          "G": 1,
+          "A": 2,
+          "Pts": 3,
+          "POTG": 1,
+          "GWG": 0,
+          "PIM": 0
+        },
+        {
+          "name": "Rajasooriar, Krishnan",
+          "number": "15",
+          "position": "RW/RD",
+          "GP": 1,
+          "G": 0,
+          "A": 1,
+          "Pts": 1,
+          "POTG": 0,
+          "GWG": 0,
+          "PIM": 0
+        },
+        {
+          "name": "Saindon, Stephane",
+          "number": "20",
+          "position": "C",
+          "GP": 1,
+          "G": 1,
+          "A": 4,
+          "Pts": 5,
+          "POTG": 1,
+          "GWG": 1,
+          "PIM": 0
+        }
+      ],
+      "goalies": [
+        {
+          "name": "Leong, Dev",
+          "number": "31",
+          "GP": "1",
+          "W": "1",
+          "GA": "6",
+          "GAA": "6.00"
+        }
+      ],
+      "eventsCoverage": "MISSING_OR_INCOMPLETE",
+      "playerStatsCoverage": "COMPLETE",
+      "checks": [],
+      "auditStatus": "SCOREBOARD_AND_SKATERS_ONLY"
+    },
+    {
+      "id": 2214995,
+      "date": "2025-11-02",
+      "gameType": "REGULAR SEASON",
+      "gf": 2,
+      "ga": 6,
+      "opponentRaw": "Royal Flushers",
+      "disposition": "SOURCE_SCORE_VERIFIED",
+      "boxscoreURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2214995&p=boxscore",
+      "htmlSHA256": "17fb7554c731dbdd3902cd2ffb7168912bfada715a25748594f4d936b1821a82",
+      "pageURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2214995&p=boxscore&archTog=1",
+      "periods": [
+        {
+          "period": "1",
+          "braves": 1,
+          "opponent": 3
+        },
+        {
+          "period": "2",
+          "braves": 1,
+          "opponent": 3
+        },
+        {
+          "period": "3",
+          "braves": 0,
+          "opponent": 0
+        }
+      ],
+      "events": [],
+      "players": [
+        {
+          "name": "Arruda, Mark",
+          "number": "76",
+          "position": "LD",
+          "GP": 1,
+          "G": 0,
+          "A": 1,
+          "Pts": 1
+        },
+        {
+          "name": "Brutto, Adam",
+          "number": "28",
+          "position": "LD",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0
+        },
+        {
+          "name": "Carosi, Justin",
+          "number": "89",
+          "position": "C",
+          "GP": 1,
+          "G": 1,
+          "A": 0,
+          "Pts": 1
+        },
+        {
+          "name": "Finlay, Ryan",
+          "number": "69",
+          "position": "RW",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0
+        },
+        {
+          "name": "Logue, Ryan",
+          "number": "9",
+          "position": "LW",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0
+        },
+        {
+          "name": "Pagnotta, Alex",
+          "number": "44",
+          "position": "RD",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0
+        },
+        {
+          "name": "Paolucci, Anthony",
+          "number": "43",
+          "position": "RW/G",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0
+        },
+        {
+          "name": "Pearsoll, Keith",
+          "number": "39",
+          "position": "RW",
+          "GP": 1,
+          "G": 0,
+          "A": 1,
+          "Pts": 1
+        },
+        {
+          "name": "Provenzano, Mario",
+          "number": "8",
+          "position": "C",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0
+        },
+        {
+          "name": "Provenzano, Michael",
+          "number": "25",
+          "position": "C/LW",
+          "GP": 1,
+          "G": 1,
+          "A": 0,
+          "Pts": 1
+        }
+      ],
+      "goalies": [
+        {
+          "name": "Svec, Matt",
+          "number": "0",
+          "GP": "1",
+          "L": "1",
+          "GA": "6",
+          "POTG": "1",
+          "GAA": "6.00"
+        }
+      ],
+      "eventsCoverage": "MISSING_OR_INCOMPLETE",
+      "playerStatsCoverage": "COMPLETE",
+      "checks": [],
+      "auditStatus": "SCOREBOARD_AND_SKATERS_ONLY"
+    },
+    {
+      "id": 2214994,
+      "date": "2025-10-26",
+      "gameType": "REGULAR SEASON",
+      "gf": 1,
+      "ga": 7,
+      "opponentRaw": "Mid Ice Crisis",
+      "disposition": "SOURCE_SCORE_VERIFIED",
+      "boxscoreURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2214994&p=boxscore",
+      "htmlSHA256": "8eab83df578acaa07b0d418af359c74d8ef939b55870e3fa9a3ddf51750bbc93",
+      "pageURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2214994&p=boxscore&archTog=1",
+      "periods": [
+        {
+          "period": "1",
+          "braves": 1,
+          "opponent": 2
+        },
+        {
+          "period": "2",
+          "braves": 0,
+          "opponent": 3
+        },
+        {
+          "period": "3",
+          "braves": 0,
+          "opponent": 2
+        }
+      ],
+      "events": [],
+      "players": [
+        {
+          "name": "Arruda, Mark",
+          "number": "76",
+          "position": "LD",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "PIM": 0
+        },
+        {
+          "name": "Brutto, Adam",
+          "number": "28",
+          "position": "LD",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "PIM": 0
+        },
+        {
+          "name": "Carosi, Justin",
+          "number": "89",
+          "position": "C",
+          "GP": 1,
+          "G": 1,
+          "A": 0,
+          "Pts": 1,
+          "PIM": 0
+        },
+        {
+          "name": "Congiusti, Marco",
+          "number": "3",
+          "position": "RD",
+          "GP": 1,
+          "G": 0,
+          "A": 1,
+          "Pts": 1,
+          "PIM": 0
+        },
+        {
+          "name": "Finlay, Ryan",
+          "number": "69",
+          "position": "RW",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "PIM": 0
+        },
+        {
+          "name": "Kober, Adam",
+          "number": "12",
+          "position": "LW/LD",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "PIM": 4
+        },
+        {
+          "name": "Logue, Ryan",
+          "number": "9",
+          "position": "LW",
+          "GP": 1,
+          "G": 0,
+          "A": 1,
+          "Pts": 1,
+          "PIM": 0
+        },
+        {
+          "name": "Mazzei, Stefano",
+          "number": "88",
+          "position": "LW",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "PIM": 0
+        },
+        {
+          "name": "Pagnotta, Alex",
+          "number": "44",
+          "position": "RD",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "PIM": 0
+        },
+        {
+          "name": "Paolucci, Anthony",
+          "number": "43",
+          "position": "RW/G",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "PIM": 0
+        },
+        {
+          "name": "Pearsoll, Keith",
+          "number": "39",
+          "position": "RW",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "PIM": 0
+        },
+        {
+          "name": "Provenzano, Mario",
+          "number": "8",
+          "position": "C",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "PIM": 0
+        },
+        {
+          "name": "Provenzano, Michael",
+          "number": "25",
+          "position": "C/LW",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "PIM": 0
+        },
+        {
+          "name": "Saindon, Stephane",
+          "number": "20",
+          "position": "C",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "PIM": 0
+        }
+      ],
+      "goalies": [
+        {
+          "name": "Noyek, Steve",
+          "number": "0",
+          "GP": "1",
+          "L": "1",
+          "GA": "7",
+          "GAA": "7.00"
+        }
+      ],
+      "eventsCoverage": "MISSING_OR_INCOMPLETE",
+      "playerStatsCoverage": "COMPLETE",
+      "checks": [],
+      "auditStatus": "SCOREBOARD_AND_SKATERS_ONLY"
+    },
+    {
+      "id": 2214993,
+      "date": "2025-10-19",
+      "gameType": "REGULAR SEASON",
+      "gf": 3,
+      "ga": 4,
+      "opponentRaw": "Dateline Predators",
+      "disposition": "SOURCE_SCORE_VERIFIED",
+      "boxscoreURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2214993&p=boxscore",
+      "htmlSHA256": "a9df0ed81dc133564fa706f2b14720543c18c350753fa522d7e56e554dd53882",
+      "pageURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2214993&p=boxscore&archTog=1",
+      "periods": [
+        {
+          "period": "1",
+          "braves": 0,
+          "opponent": 3
+        },
+        {
+          "period": "2",
+          "braves": 1,
+          "opponent": 1
+        },
+        {
+          "period": "3",
+          "braves": 2,
+          "opponent": 0
+        }
+      ],
+      "events": [],
+      "players": [
+        {
+          "name": "Arruda, Mark",
+          "number": "76",
+          "position": "LD",
+          "GP": 1,
+          "G": 0,
+          "A": 2,
+          "Pts": 2,
+          "POTG": 1,
+          "PIM": 0
+        },
+        {
+          "name": "Brutto, Adam",
+          "number": "28",
+          "position": "LD",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "PIM": 0
+        },
+        {
+          "name": "Carosi, Justin",
+          "number": "89",
+          "position": "C",
+          "GP": 1,
+          "G": 1,
+          "A": 0,
+          "Pts": 1,
+          "POTG": 0,
+          "PIM": 2
+        },
+        {
+          "name": "Cristillo, Andre",
+          "number": "0",
+          "position": "C/LW",
+          "GP": 1,
+          "G": 1,
+          "A": 0,
+          "Pts": 1,
+          "POTG": 1,
+          "PIM": 0
+        },
+        {
+          "name": "Finlay, Ryan",
+          "number": "69",
+          "position": "RW",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "PIM": 0
+        },
+        {
+          "name": "Kober, Adam",
+          "number": "12",
+          "position": "LW/LD",
+          "GP": 1,
+          "G": 0,
+          "A": 2,
+          "Pts": 2,
+          "POTG": 1,
+          "PIM": 0
+        },
+        {
+          "name": "Logue, Ryan",
+          "number": "9",
+          "position": "LW",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "PIM": 0
+        },
+        {
+          "name": "Pagnotta, Alex",
+          "number": "44",
+          "position": "RD",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "PIM": 0
+        },
+        {
+          "name": "Rajasooriar, Krishnan",
+          "number": "15",
+          "position": "RW/RD",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "PIM": 0
+        },
+        {
+          "name": "Saindon, Stephane",
+          "number": "20",
+          "position": "C",
+          "GP": 1,
+          "G": 1,
+          "A": 0,
+          "Pts": 1,
+          "POTG": 0,
+          "PIM": 0
+        }
+      ],
+      "goalies": [
+        {
+          "name": "Logue, Stephen",
+          "number": "70",
+          "GP": "1",
+          "L": "1",
+          "GA": "4",
+          "GAA": "4.00"
+        }
+      ],
+      "eventsCoverage": "MISSING_OR_INCOMPLETE",
+      "playerStatsCoverage": "COMPLETE",
+      "checks": [],
+      "auditStatus": "SCOREBOARD_AND_SKATERS_ONLY"
+    },
+    {
+      "id": 2214991,
+      "date": "2025-10-05",
+      "gameType": "REGULAR SEASON",
+      "gf": 4,
+      "ga": 2,
+      "opponentRaw": "Big Bastones",
+      "disposition": "SOURCE_SCORE_VERIFIED",
+      "boxscoreURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2214991&p=boxscore",
+      "htmlSHA256": "d2e27e2d4e103908c0bb55bd62b31189a9ba44c25051fc5ceccfa16655f89d54",
+      "pageURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2214991&p=boxscore&archTog=1",
+      "periods": [
+        {
+          "period": "1",
+          "braves": 1,
+          "opponent": 0
+        },
+        {
+          "period": "2",
+          "braves": 1,
+          "opponent": 1
+        },
+        {
+          "period": "3",
+          "braves": 2,
+          "opponent": 1
+        }
+      ],
+      "events": [],
+      "players": [
+        {
+          "name": "Arruda, Mark",
+          "number": "76",
+          "position": "LD",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "GWG": 0
+        },
+        {
+          "name": "Brutto, Adam",
+          "number": "28",
+          "position": "LD",
+          "GP": 1,
+          "G": 0,
+          "A": 1,
+          "Pts": 1,
+          "POTG": 0,
+          "GWG": 0
+        },
+        {
+          "name": "Carosi, Justin",
+          "number": "89",
+          "position": "C",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "GWG": 0
+        },
+        {
+          "name": "Congiusti, Marco",
+          "number": "3",
+          "position": "RD",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "GWG": 0
+        },
+        {
+          "name": "Mazzei, Stefano",
+          "number": "88",
+          "position": "LW",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "GWG": 0
+        },
+        {
+          "name": "Pagnotta, Alex",
+          "number": "44",
+          "position": "RD",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "GWG": 0
+        },
+        {
+          "name": "Pearsoll, Keith",
+          "number": "39",
+          "position": "RW",
+          "GP": 1,
+          "G": 2,
+          "A": 2,
+          "Pts": 4,
+          "POTG": 1,
+          "GWG": 1
+        },
+        {
+          "name": "Provenzano, Mario",
+          "number": "8",
+          "position": "C",
+          "GP": 1,
+          "G": 0,
+          "A": 1,
+          "Pts": 1,
+          "POTG": 0,
+          "GWG": 0
+        },
+        {
+          "name": "Provenzano, Michael",
+          "number": "25",
+          "position": "C/LW",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "GWG": 0
+        },
+        {
+          "name": "Saindon, Stephane",
+          "number": "20",
+          "position": "C",
+          "GP": 1,
+          "G": 2,
+          "A": 1,
+          "Pts": 3,
+          "POTG": 1,
+          "GWG": 0
+        }
+      ],
+      "goalies": [
+        {
+          "name": "Leong, Dev",
+          "number": "31",
+          "GP": "1",
+          "W": "1",
+          "GA": "2",
+          "POTG": "1",
+          "GAA": "2.00"
+        }
+      ],
+      "eventsCoverage": "MISSING_OR_INCOMPLETE",
+      "playerStatsCoverage": "COMPLETE",
+      "checks": [],
+      "auditStatus": "SCOREBOARD_AND_SKATERS_ONLY"
+    },
+    {
+      "id": 2214990,
+      "date": "2025-09-28",
+      "gameType": "REGULAR SEASON",
+      "gf": 1,
+      "ga": 8,
+      "opponentRaw": "Hammers",
+      "disposition": "SOURCE_SCORE_VERIFIED",
+      "boxscoreURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2214990&p=boxscore",
+      "htmlSHA256": "fcd58b22a811e744340ee1687de817a9b858271e30bc3c2435dd009eec97d05a",
+      "pageURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2214990&p=boxscore&archTog=1",
+      "periods": [
+        {
+          "period": "1",
+          "braves": 0,
+          "opponent": 2
+        },
+        {
+          "period": "2",
+          "braves": 1,
+          "opponent": 4
+        },
+        {
+          "period": "3",
+          "braves": 0,
+          "opponent": 2
+        }
+      ],
+      "events": [],
+      "players": [
+        {
+          "name": "Arruda, Mark",
+          "number": "76",
+          "position": "LD",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "PIM": 0
+        },
+        {
+          "name": "Brock, Brad",
+          "number": "17",
+          "position": "LD",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "PIM": 2
+        },
+        {
+          "name": "Brutto, Adam",
+          "number": "28",
+          "position": "LD",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "PIM": 0
+        },
+        {
+          "name": "Carosi, Justin",
+          "number": "89",
+          "position": "C",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "PIM": 0
+        },
+        {
+          "name": "Finlay, Ryan",
+          "number": "69",
+          "position": "RW",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "PIM": 0
+        },
+        {
+          "name": "Logue, Ryan",
+          "number": "9",
+          "position": "LW",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "PIM": 0
+        },
+        {
+          "name": "Pagnotta, Alex",
+          "number": "44",
+          "position": "RD",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "PIM": 0
+        },
+        {
+          "name": "Paolucci, Anthony",
+          "number": "43",
+          "position": "RW/G",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "PIM": 0
+        },
+        {
+          "name": "Provenzano, Mario",
+          "number": "8",
+          "position": "C",
+          "GP": 1,
+          "G": 0,
+          "A": 1,
+          "Pts": 1,
+          "POTG": 0,
+          "PIM": 0
+        },
+        {
+          "name": "Provenzano, Michael",
+          "number": "25",
+          "position": "C/LW",
+          "GP": 1,
+          "G": 1,
+          "A": 0,
+          "Pts": 1,
+          "POTG": 1,
+          "PIM": 0
+        },
+        {
+          "name": "Saindon, Stephane",
+          "number": "20",
+          "position": "C",
+          "GP": 1,
+          "G": 0,
+          "A": 1,
+          "Pts": 1,
+          "POTG": 0,
+          "PIM": 0
+        }
+      ],
+      "goalies": [
+        {
+          "name": "Noyek, Steve",
+          "number": "0",
+          "GP": "1",
+          "L": "1",
+          "GA": "8",
+          "GAA": "8.00"
+        }
+      ],
+      "eventsCoverage": "MISSING_OR_INCOMPLETE",
+      "playerStatsCoverage": "COMPLETE",
+      "checks": [],
+      "auditStatus": "SCOREBOARD_AND_SKATERS_ONLY"
+    },
+    {
+      "id": 2214989,
+      "date": "2025-09-21",
+      "gameType": "REGULAR SEASON",
+      "gf": 4,
+      "ga": 8,
+      "opponentRaw": "Blackhawks",
+      "disposition": "SOURCE_SCORE_VERIFIED",
+      "boxscoreURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2214989&p=boxscore",
+      "htmlSHA256": "e1e6e37d9684ea86619df79206f197d2b793b62a47bfecfb3b5660360b7d4e6a",
+      "pageURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2214989&p=boxscore&archTog=1",
+      "periods": [
+        {
+          "period": "1",
+          "braves": 1,
+          "opponent": 2
+        },
+        {
+          "period": "2",
+          "braves": 1,
+          "opponent": 3
+        },
+        {
+          "period": "3",
+          "braves": 2,
+          "opponent": 3
+        }
+      ],
+      "events": [],
+      "players": [
+        {
+          "name": "Arruda, Mark",
+          "number": "76",
+          "position": "LD",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0
+        },
+        {
+          "name": "Brutto, Adam",
+          "number": "28",
+          "position": "LD",
+          "GP": 1,
+          "G": 1,
+          "A": 0,
+          "Pts": 1,
+          "POTG": 0
+        },
+        {
+          "name": "Carosi, Justin",
+          "number": "89",
+          "position": "C",
+          "GP": 1,
+          "G": 1,
+          "A": 1,
+          "Pts": 2,
+          "POTG": 1
+        },
+        {
+          "name": "Logue, Ryan",
+          "number": "9",
+          "position": "LW",
+          "GP": 1,
+          "G": 1,
+          "A": 0,
+          "Pts": 1,
+          "POTG": 0
+        },
+        {
+          "name": "Pagnotta, Alex",
+          "number": "44",
+          "position": "RD",
+          "GP": 1,
+          "G": 0,
+          "A": 1,
+          "Pts": 1,
+          "POTG": 0
+        },
+        {
+          "name": "Provenzano, Mario",
+          "number": "8",
+          "position": "C",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0
+        },
+        {
+          "name": "Provenzano, Michael",
+          "number": "25",
+          "position": "C/LW",
+          "GP": 1,
+          "G": 0,
+          "A": 3,
+          "Pts": 3,
+          "POTG": 1
+        },
+        {
+          "name": "Saindon, Stephane",
+          "number": "20",
+          "position": "C",
+          "GP": 1,
+          "G": 1,
+          "A": 1,
+          "Pts": 2,
+          "POTG": 1
+        }
+      ],
+      "goalies": [
+        {
+          "name": "Leong, Dev",
+          "number": "31",
+          "GP": "1",
+          "L": "1",
+          "GA": "8",
+          "GAA": "8.00"
+        }
+      ],
+      "eventsCoverage": "MISSING_OR_INCOMPLETE",
+      "playerStatsCoverage": "COMPLETE",
+      "checks": [],
+      "auditStatus": "SCOREBOARD_AND_SKATERS_ONLY"
+    },
+    {
+      "id": 2214988,
+      "date": "2025-09-14",
+      "gameType": "REGULAR SEASON",
+      "gf": 2,
+      "ga": 3,
+      "opponentRaw": "Mohawks H.C.",
+      "disposition": "SOURCE_SCORE_VERIFIED",
+      "boxscoreURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2214988&p=boxscore",
+      "htmlSHA256": "5db7b8975add1bb169b81385a4a1b08a1fcc7641d84e594ddee07c1459cd38cf",
+      "pageURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2214988&p=boxscore&archTog=1",
+      "periods": [
+        {
+          "period": "1",
+          "braves": 0,
+          "opponent": 0
+        },
+        {
+          "period": "2",
+          "braves": 1,
+          "opponent": 0
+        },
+        {
+          "period": "3",
+          "braves": 1,
+          "opponent": 3
+        }
+      ],
+      "events": [],
+      "players": [
+        {
+          "name": "Arruda, Mark",
+          "number": "76",
+          "position": "LD",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "PIM": 0
+        },
+        {
+          "name": "Brennan, Dylan",
+          "number": "77",
+          "position": "C",
+          "GP": 1,
+          "G": 0,
+          "A": 1,
+          "Pts": 1,
+          "POTG": 0,
+          "PIM": 0
+        },
+        {
+          "name": "Brutto, Adam",
+          "number": "28",
+          "position": "LD",
+          "GP": 1,
+          "G": 0,
+          "A": 1,
+          "Pts": 1,
+          "POTG": 0,
+          "PIM": 0
+        },
+        {
+          "name": "Carosi, Justin",
+          "number": "89",
+          "position": "C",
+          "GP": 1,
+          "G": 1,
+          "A": 0,
+          "Pts": 1,
+          "POTG": 1,
+          "PIM": 0
+        },
+        {
+          "name": "Corasaniti, David",
+          "number": "5",
+          "position": "C",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "PIM": 0
+        },
+        {
+          "name": "Finlay, Ryan",
+          "number": "69",
+          "position": "RW",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "PIM": 0
+        },
+        {
+          "name": "Logue, Ryan",
+          "number": "9",
+          "position": "LW",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "PIM": 2
+        },
+        {
+          "name": "Pagnotta, Alex",
+          "number": "44",
+          "position": "RD",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "PIM": 4
+        },
+        {
+          "name": "Paolucci, Anthony",
+          "number": "43",
+          "position": "RW/G",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 1,
+          "PIM": 0
+        },
+        {
+          "name": "Pearsoll, Keith",
+          "number": "39",
+          "position": "RW",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "PIM": 0
+        },
+        {
+          "name": "Provenzano, Mario",
+          "number": "8",
+          "position": "C",
+          "GP": 1,
+          "G": 0,
+          "A": 0,
+          "Pts": 0,
+          "POTG": 0,
+          "PIM": 0
+        },
+        {
+          "name": "Provenzano, Michael",
+          "number": "25",
+          "position": "C/LW",
+          "GP": 1,
+          "G": 1,
+          "A": 0,
+          "Pts": 1,
+          "POTG": 1,
+          "PIM": 0
+        },
+        {
+          "name": "Saindon, Stephane",
+          "number": "20",
+          "position": "C",
+          "GP": 1,
+          "G": 0,
+          "A": 1,
+          "Pts": 1,
+          "POTG": 0,
+          "PIM": 0
+        }
+      ],
+      "goalies": [
+        {
+          "name": "Logue, Stephen",
+          "number": "70",
+          "GP": "1",
+          "L": "1",
+          "GA": "3",
+          "GAA": "3.00"
+        }
+      ],
+      "eventsCoverage": "MISSING_OR_INCOMPLETE",
+      "playerStatsCoverage": "COMPLETE",
+      "checks": [],
+      "auditStatus": "SCOREBOARD_AND_SKATERS_ONLY"
+    }
+  ],
+  "publicationAuthorized": false,
+  "nativeHTOChanged": false,
+  "coverageLimitations": [
+    "Missing scoring table remains unknown, never invented as zero.",
+    "Source-scored results are not contemporary newspaper articles.",
+    "Roster statuses and event mechanisms not inferable from boxscore alone."
+  ]
+}

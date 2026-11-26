@@ -1,0 +1,358 @@
+{
+  "schema": "brave-hc-2025-26-historical-source-reverification/v1",
+  "checkedAtUTC": "2026-11-03T03:26:35.759288+00:00",
+  "authority": "HTO public original individual game boxscore",
+  "sourceGradeScope": [
+    "EVENTS_WITH_PARTIAL_PLAYER_STATS",
+    "SCOREBOARD_AND_SKATERS_ONLY"
+  ],
+  "attemptedGames": 19,
+  "reconfirmed": 19,
+  "held": 0,
+  "htowrites": 0,
+  "nativePublicationAuthorized": false,
+  "games": [
+    {
+      "gameId": 2215014,
+      "date": "2026-03-22",
+      "opponent": "Schmelts",
+      "priorGrade": "EVENTS_WITH_PARTIAL_PLAYER_STATS",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2215014&p=boxscore",
+      "status": "PUBLIC_SOURCE_RECONFIRMED",
+      "checks": [],
+      "http": 200,
+      "sourceHtmlSHA256": "32cde841cf02342b18ff01d7e50c308af3f49c5f326265e33a92608168f5c099",
+      "verifiedPeriodCount": 5,
+      "verifiedSkaters": 14,
+      "parsedScore": [
+        0,
+        1
+      ],
+      "structuredFingerprint": "19d3ac7766a6004e0a204a5eb10d77ad2950bf0fb2ac97324db0ef7020da5d8a"
+    },
+    {
+      "gameId": 2215006,
+      "date": "2026-01-18",
+      "opponent": "Schmelts",
+      "priorGrade": "SCOREBOARD_AND_SKATERS_ONLY",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2215006&p=boxscore",
+      "status": "PUBLIC_SOURCE_RECONFIRMED",
+      "checks": [],
+      "http": 200,
+      "sourceHtmlSHA256": "9d94ac0f6e708d1e007832275811298e7be9b8b50f5e9c1609bd79f58b279ad5",
+      "verifiedPeriodCount": 3,
+      "verifiedSkaters": 12,
+      "parsedScore": [
+        6,
+        3
+      ],
+      "structuredFingerprint": "8e87d5600409d1fe874ec9c4f23aa18eb779f8cd372787ff90df8f571953e9bc"
+    },
+    {
+      "gameId": 2215005,
+      "date": "2026-01-11",
+      "opponent": "Dateline Predators",
+      "priorGrade": "SCOREBOARD_AND_SKATERS_ONLY",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2215005&p=boxscore",
+      "status": "PUBLIC_SOURCE_RECONFIRMED",
+      "checks": [],
+      "http": 200,
+      "sourceHtmlSHA256": "404ab7e3a46c9f344ae99a5afc409dc02f37e70d6ed2c4a8e0a51f954038613c",
+      "verifiedPeriodCount": 3,
+      "verifiedSkaters": 8,
+      "parsedScore": [
+        6,
+        3
+      ],
+      "structuredFingerprint": "2b38f543b135d94a8ce2b52b769de5f3ba2dd4074eca2f9a300f729c880480b7"
+    },
+    {
+      "gameId": 2215004,
+      "date": "2026-01-04",
+      "opponent": "Royal Flushers",
+      "priorGrade": "SCOREBOARD_AND_SKATERS_ONLY",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2215004&p=boxscore",
+      "status": "PUBLIC_SOURCE_RECONFIRMED",
+      "checks": [],
+      "http": 200,
+      "sourceHtmlSHA256": "038cff86596084f444a7f39fe72c5011a8f4354db19b482878983b328d7ab056",
+      "verifiedPeriodCount": 3,
+      "verifiedSkaters": 11,
+      "parsedScore": [
+        4,
+        2
+      ],
+      "structuredFingerprint": "9db09aac51331ba0db297c02d4b631e8ef53e2e900100f9f6b40aa357f1e40fe"
+    },
+    {
+      "gameId": 2215003,
+      "date": "2025-12-28",
+      "opponent": "Schmelts",
+      "priorGrade": "SCOREBOARD_AND_SKATERS_ONLY",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2215003&p=boxscore",
+      "status": "PUBLIC_SOURCE_RECONFIRMED",
+      "checks": [],
+      "http": 200,
+      "sourceHtmlSHA256": "b844b4e22829978057a75d4f5f036d6883e8f1ef3ddc7d7bc78c007c03dc8ebe",
+      "verifiedPeriodCount": 3,
+      "verifiedSkaters": 12,
+      "parsedScore": [
+        3,
+        3
+      ],
+      "structuredFingerprint": "bc9a932a060600a27b18dcf8b0fb566cedaadc5c19a3f8d4680bc9fc71b8c489"
+    },
+    {
+      "gameId": 2215002,
+      "date": "2025-12-21",
+      "opponent": "Royal Flushers",
+      "priorGrade": "SCOREBOARD_AND_SKATERS_ONLY",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2215002&p=boxscore",
+      "status": "PUBLIC_SOURCE_RECONFIRMED",
+      "checks": [],
+      "http": 200,
+      "sourceHtmlSHA256": "30bf6b40fb6a2d5a28fb7dd438c771c4b4b83149622c6c8a67b24216c774ac34",
+      "verifiedPeriodCount": 3,
+      "verifiedSkaters": 11,
+      "parsedScore": [
+        7,
+        0
+      ],
+      "structuredFingerprint": "2b62c757970b391a828df4f6d168c5a261ecd2d28f57de6bd1893807e217f014"
+    },
+    {
+      "gameId": 2215001,
+      "date": "2025-12-14",
+      "opponent": "Mid Ice Crisis",
+      "priorGrade": "SCOREBOARD_AND_SKATERS_ONLY",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2215001&p=boxscore",
+      "status": "PUBLIC_SOURCE_RECONFIRMED",
+      "checks": [],
+      "http": 200,
+      "sourceHtmlSHA256": "c5c1e99ac18b0e8d94b6134d4622ad143545f099ffd5b4b3fe55eaea7d0d8ebf",
+      "verifiedPeriodCount": 3,
+      "verifiedSkaters": 12,
+      "parsedScore": [
+        3,
+        3
+      ],
+      "structuredFingerprint": "874647054bba7070e777002bbb3ff35ef6570913d2087f106e5c391f5ed0f0f7"
+    },
+    {
+      "gameId": 2215000,
+      "date": "2025-12-07",
+      "opponent": "Dateline Predators",
+      "priorGrade": "SCOREBOARD_AND_SKATERS_ONLY",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2215000&p=boxscore",
+      "status": "PUBLIC_SOURCE_RECONFIRMED",
+      "checks": [],
+      "http": 200,
+      "sourceHtmlSHA256": "72533ee9b04e1e4048302d04bab1ffec16381ed2cff2d170b041d4dabcc806f6",
+      "verifiedPeriodCount": 3,
+      "verifiedSkaters": 12,
+      "parsedScore": [
+        5,
+        3
+      ],
+      "structuredFingerprint": "7a9725d2b172976fb46faa0b05bff1a413ff3578ea95b7c7c20ffa854fbca3a9"
+    },
+    {
+      "gameId": 2214999,
+      "date": "2025-11-30",
+      "opponent": "Fangs",
+      "priorGrade": "SCOREBOARD_AND_SKATERS_ONLY",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2214999&p=boxscore",
+      "status": "PUBLIC_SOURCE_RECONFIRMED",
+      "checks": [],
+      "http": 200,
+      "sourceHtmlSHA256": "af94781b2f55a8ec80ed7ef67cbb9b168f67f77d958cc8e53f90651d817142f0",
+      "verifiedPeriodCount": 3,
+      "verifiedSkaters": 10,
+      "parsedScore": [
+        5,
+        8
+      ],
+      "structuredFingerprint": "00c6f5987352abc6a3a0fad65462c23e162a0ef7911f21e9c51e03f07acc6ddc"
+    },
+    {
+      "gameId": 2214998,
+      "date": "2025-11-23",
+      "opponent": "Big Bastones",
+      "priorGrade": "SCOREBOARD_AND_SKATERS_ONLY",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2214998&p=boxscore",
+      "status": "PUBLIC_SOURCE_RECONFIRMED",
+      "checks": [],
+      "http": 200,
+      "sourceHtmlSHA256": "83dda659d4d94ec923424b82142744327eced440031f2500fc48b33bcea9bf21",
+      "verifiedPeriodCount": 3,
+      "verifiedSkaters": 15,
+      "parsedScore": [
+        1,
+        3
+      ],
+      "structuredFingerprint": "27be3a1b02764c220d854fe494ce002eb619b702a784513ab5a7853db0a08f36"
+    },
+    {
+      "gameId": 2214997,
+      "date": "2025-11-16",
+      "opponent": "Don's Cherries",
+      "priorGrade": "SCOREBOARD_AND_SKATERS_ONLY",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2214997&p=boxscore",
+      "status": "PUBLIC_SOURCE_RECONFIRMED",
+      "checks": [],
+      "http": 200,
+      "sourceHtmlSHA256": "5edb85e3de29088fbd6f5ba750efa6c81232f82112f54f38a5e94ae48add5bdf",
+      "verifiedPeriodCount": 3,
+      "verifiedSkaters": 13,
+      "parsedScore": [
+        4,
+        4
+      ],
+      "structuredFingerprint": "c246a7fbad292902480d1ec143f428ff8922736be91039f018ab60db73f5d24c"
+    },
+    {
+      "gameId": 2214996,
+      "date": "2025-11-09",
+      "opponent": "Schmelts",
+      "priorGrade": "SCOREBOARD_AND_SKATERS_ONLY",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2214996&p=boxscore",
+      "status": "PUBLIC_SOURCE_RECONFIRMED",
+      "checks": [],
+      "http": 200,
+      "sourceHtmlSHA256": "de7d614d4dc52521869d4437350eb3b8eaf8057ca381b6dc455f2e5419338996",
+      "verifiedPeriodCount": 3,
+      "verifiedSkaters": 14,
+      "parsedScore": [
+        7,
+        6
+      ],
+      "structuredFingerprint": "3dfdbb8b7d05a5daad39af5dcabdbe1f0a395cc13daeebb3669451d868ae8aa4"
+    },
+    {
+      "gameId": 2214995,
+      "date": "2025-11-02",
+      "opponent": "Royal Flushers",
+      "priorGrade": "SCOREBOARD_AND_SKATERS_ONLY",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2214995&p=boxscore",
+      "status": "PUBLIC_SOURCE_RECONFIRMED",
+      "checks": [],
+      "http": 200,
+      "sourceHtmlSHA256": "7710a9af2cfa6cbb20a98b691ef11d27c0172d06416e6dd5b29d91f5a6532e82",
+      "verifiedPeriodCount": 3,
+      "verifiedSkaters": 10,
+      "parsedScore": [
+        2,
+        6
+      ],
+      "structuredFingerprint": "9a532fd4b5015e1a3e15a8d9fe48c586d0dadda99ed7254e7038f1a0669d9ec6"
+    },
+    {
+      "gameId": 2214994,
+      "date": "2025-10-26",
+      "opponent": "Mid Ice Crisis",
+      "priorGrade": "SCOREBOARD_AND_SKATERS_ONLY",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2214994&p=boxscore",
+      "status": "PUBLIC_SOURCE_RECONFIRMED",
+      "checks": [],
+      "http": 200,
+      "sourceHtmlSHA256": "95bf2e6514f7b9314066fa31fdcb63f77d6a412605170c99e08c66625c718593",
+      "verifiedPeriodCount": 3,
+      "verifiedSkaters": 14,
+      "parsedScore": [
+        1,
+        7
+      ],
+      "structuredFingerprint": "055960232d11ef762e9b5f1602721b018dcd84081498205016861f07dca6f0c5"
+    },
+    {
+      "gameId": 2214993,
+      "date": "2025-10-19",
+      "opponent": "Dateline Predators",
+      "priorGrade": "SCOREBOARD_AND_SKATERS_ONLY",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2214993&p=boxscore",
+      "status": "PUBLIC_SOURCE_RECONFIRMED",
+      "checks": [],
+      "http": 200,
+      "sourceHtmlSHA256": "a9617b15fb19ead717947e9aa1e9623e5be3d547460f641bea31459518aa7e68",
+      "verifiedPeriodCount": 3,
+      "verifiedSkaters": 10,
+      "parsedScore": [
+        3,
+        4
+      ],
+      "structuredFingerprint": "a5e97e330b3f1aaf6a37b2b9c72c6d5783e0df4ea93cf382c9b9032560b99dec"
+    },
+    {
+      "gameId": 2214991,
+      "date": "2025-10-05",
+      "opponent": "Big Bastones",
+      "priorGrade": "SCOREBOARD_AND_SKATERS_ONLY",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2214991&p=boxscore",
+      "status": "PUBLIC_SOURCE_RECONFIRMED",
+      "checks": [],
+      "http": 200,
+      "sourceHtmlSHA256": "3b18f5f0b3a33c7d65dfa8c16cb7ab6995187b4340c41b5854daea594dfa82e2",
+      "verifiedPeriodCount": 3,
+      "verifiedSkaters": 10,
+      "parsedScore": [
+        4,
+        2
+      ],
+      "structuredFingerprint": "865b25549ef1967d012f1f64a0b7b5207919291101259e504e9faaa95913e60c"
+    },
+    {
+      "gameId": 2214990,
+      "date": "2025-09-28",
+      "opponent": "Hammers",
+      "priorGrade": "SCOREBOARD_AND_SKATERS_ONLY",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2214990&p=boxscore",
+      "status": "PUBLIC_SOURCE_RECONFIRMED",
+      "checks": [],
+      "http": 200,
+      "sourceHtmlSHA256": "7cf4d1c59ebbf0ee70e67ded1db946196f5dc59713f823d4913dc0aeacc449f3",
+      "verifiedPeriodCount": 3,
+      "verifiedSkaters": 11,
+      "parsedScore": [
+        1,
+        8
+      ],
+      "structuredFingerprint": "d47ab20da892a0183b3b62bd098ef612bb65c8ec93bcd682debc7c383c89f866"
+    },
+    {
+      "gameId": 2214989,
+      "date": "2025-09-21",
+      "opponent": "Blackhawks",
+      "priorGrade": "SCOREBOARD_AND_SKATERS_ONLY",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2214989&p=boxscore",
+      "status": "PUBLIC_SOURCE_RECONFIRMED",
+      "checks": [],
+      "http": 200,
+      "sourceHtmlSHA256": "5334e4b98259e9f48bf0cea618b3295d60631d3528adbf2277daffd978702a34",
+      "verifiedPeriodCount": 3,
+      "verifiedSkaters": 8,
+      "parsedScore": [
+        4,
+        8
+      ],
+      "structuredFingerprint": "6a30060f7c3d8d16fca366f98f4d09ab35c5203399dc93af6ae0f83c07e17885"
+    },
+    {
+      "gameId": 2214988,
+      "date": "2025-09-14",
+      "opponent": "Mohawks H.C.",
+      "priorGrade": "SCOREBOARD_AND_SKATERS_ONLY",
+      "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2214988&p=boxscore",
+      "status": "PUBLIC_SOURCE_RECONFIRMED",
+      "checks": [],
+      "http": 200,
+      "sourceHtmlSHA256": "a95acb448f40eed4794d0b42899ad19018b47ebf1e00a17e9373929a914ae99d",
+      "verifiedPeriodCount": 3,
+      "verifiedSkaters": 13,
+      "parsedScore": [
+        2,
+        3
+      ],
+      "structuredFingerprint": "d47dee72881634c42b94e325c760697246c2a8d5b32aaf1e803ca873c2899c7d"
+    }
+  ]
+}

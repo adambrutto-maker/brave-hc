@@ -1,0 +1,64 @@
+{
+  "schema": "brave-hc-2025-26-historical-editorial-review/v1",
+  "checkedAtUTC": "2026-11-02T20:45:47.243871+00:00",
+  "publishAuthorized": false,
+  "nativeHTOChanged": false,
+  "entryCount": 5,
+  "entries": [
+    {
+      "gameId": 2215008,
+      "date": "2026-02-01",
+      "file": "20260201_HTO_2215008_EDITORIAL_REVIEW.md",
+      "officialBoxscore": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2215008&p=boxscore",
+      "headline": "Pearsoll Hat Trick Leads Braves to 5–1 Win Over Dateline Predators",
+      "sourceFingerprint": "bb7b285b9fabc2987f423525bc07646c565743a0f621c902c49f21c0807fc2e3",
+      "documentSHA256": "192888c9d69382acaccf3430104e089243ad421bf9e57cd65aa95fd28044e804",
+      "status": "EDITORIAL_REVIEW_NOT_APPROVED",
+      "gameSummaryLive": false
+    },
+    {
+      "gameId": 2215010,
+      "date": "2026-02-22",
+      "file": "20260222_HTO_2215010_EDITORIAL_REVIEW.md",
+      "officialBoxscore": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2215010&p=boxscore",
+      "headline": "Saindon and Provenzano Score Twice Each in 5–1 Win Over Royal Flushers",
+      "sourceFingerprint": "f440e978595b3eefd13ed950d2c34f221703e0e2030c24d8b3e85f0327c35cf2",
+      "documentSHA256": "a04f75e4bb0b38cb160b6389ff522708d5f2e89f62b04e995dba1887da9085c7",
+      "status": "EDITORIAL_REVIEW_NOT_APPROVED",
+      "gameSummaryLive": false
+    },
+    {
+      "gameId": 2215011,
+      "date": "2026-03-01",
+      "file": "20260301_HTO_2215011_EDITORIAL_REVIEW.md",
+      "officialBoxscore": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2215011&p=boxscore",
+      "headline": "Three-Goal Third Period Lifts Dateline Past Braves, 4–3",
+      "sourceFingerprint": "7b9b58fdff9ee810081f76f2e500963cd4a8555ed105f6c3a25902b6ecc742d2",
+      "documentSHA256": "a6c21e5d354944556f6766243936a8c9897f79dc85e9548b6c030ea555cb1e76",
+      "status": "EDITORIAL_REVIEW_NOT_APPROVED",
+      "gameSummaryLive": false
+    },
+    {
+      "gameId": 2215013,
+      "date": "2026-03-15",
+      "file": "20260315_HTO_2215013_EDITORIAL_REVIEW.md",
+      "officialBoxscore": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2215013&p=boxscore",
+      "headline": "Rajasooriar Scores as Braves Fall 6–1 to Schmelts in Playoffs",
+      "sourceFingerprint": "b1be701f87893c1fb51fb6924a2067fd7eac619d3b36a2a360a4e3da1595ed0f",
+      "documentSHA256": "e659694daf208dbf60839c3d46789182a1ec4fa38c41e4ef6958d2197cf5f864",
+      "status": "EDITORIAL_REVIEW_NOT_APPROVED",
+      "gameSummaryLive": false
+    },
+    {
+      "gameId": 2215015,
+      "date": "2026-03-22",
+      "file": "20260322_HTO_2215015_EDITORIAL_REVIEW.md",
+      "officialBoxscore": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&sportsHQ=BRAVESHOCKEY&gameID=2215015&p=boxscore",
+      "headline": "Braves Earn 6–2 Playoff Win Over Schmelts",
+      "sourceFingerprint": "e76efaef14541e0f10e1324ba57a160884bd73a0a0b0a18efa018f453e5aee06",
+      "documentSHA256": "eaf6904dc10ebc69eb3d9efdacd90608dfce880439f11b37daae0032ef60361b",
+      "status": "EDITORIAL_REVIEW_NOT_APPROVED",
+      "gameSummaryLive": false
+    }
+  ]
+}
