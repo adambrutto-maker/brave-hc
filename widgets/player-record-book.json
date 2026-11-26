@@ -2,7 +2,7 @@
   "schema": "brave-hc-player-record-book/v1",
   "sourceAuthority": "NATIVE_HTO_RECORDS_PUBLIC_READBACK",
   "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=records",
-  "capturedAt": "2026-10-28T13:39:36.203626+00:00",
+  "capturedAt": "2026-11-26T14:51:57.179096+00:00",
   "interpretation": "230 verified source-mapped individual statistical records for 109 players. Summer GTG Ben Sherritt is HTO-ID-sourced. The two historical rental-goalie records remain in complete Records without speculative player attribution.",
   "players": {
     "354041": {
@@ -39,11 +39,7 @@
           "sourceText": "1 - Mario Provenzano (2017/18)",
           "value": "1",
           "dateLabel": "2017/18",
-          "kind": "performance",
-          "sourceURLs": [
-            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1664262&archTog=1"
-          ],
-          "sortDate": "2018-03-25"
+          "kind": "performance"
         },
         {
           "category": "Winter - Games with 3+ Points",
@@ -51,11 +47,7 @@
           "sourceText": "1 - Mario Provenzano (2017/18)",
           "value": "1",
           "dateLabel": "2017/18",
-          "kind": "performance",
-          "sourceURLs": [
-            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1664262&archTog=1"
-          ],
-          "sortDate": "2018-03-25"
+          "kind": "performance"
         },
         {
           "category": "Winter - Penalty Minutes",
@@ -196,11 +188,7 @@
           "sourceText": "1 - Ryan Logue (2014/15)",
           "value": "1",
           "dateLabel": "2014/15",
-          "kind": "performance",
-          "sourceURLs": [
-            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1190758&archTog=1"
-          ],
-          "sortDate": "2015-04-19"
+          "kind": "performance"
         },
         {
           "category": "Winter - Games with 3+ Points",
@@ -208,11 +196,7 @@
           "sourceText": "1 - Ryan Logue (2017/18)",
           "value": "1",
           "dateLabel": "2017/18",
-          "kind": "performance",
-          "sourceURLs": [
-            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1664262&archTog=1"
-          ],
-          "sortDate": "2018-03-25"
+          "kind": "performance"
         },
         {
           "category": "Winter - Games with 3+ Points",
@@ -220,11 +204,7 @@
           "sourceText": "1 - Ryan Logue (2019/20)",
           "value": "1",
           "dateLabel": "2019/20",
-          "kind": "performance",
-          "sourceURLs": [
-            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1835544&archTog=1"
-          ],
-          "sortDate": "2020-03-08"
+          "kind": "performance"
         }
       ]
     },
@@ -253,11 +233,7 @@
           "sourceText": "1 - Cameron Buchanan (2016)",
           "value": "1",
           "dateLabel": "2016",
-          "kind": "performance",
-          "sourceURLs": [
-            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1442298&archTog=1"
-          ],
-          "sortDate": "2016-08-07"
+          "kind": "performance"
         },
         {
           "category": "Summer - Points",
@@ -330,11 +306,7 @@
           "sourceText": "1 - Damian Aidemirski (2013/14)",
           "value": "1",
           "dateLabel": "2013/14",
-          "kind": "performance",
-          "sourceURLs": [
-            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046558&archTog=1"
-          ],
-          "sortDate": "2014-03-30"
+          "kind": "performance"
         },
         {
           "category": "Winter - Points",
@@ -350,11 +322,7 @@
           "sourceText": "1 - Damian Aidemirski (2013/14)",
           "value": "1",
           "dateLabel": "2013/14",
-          "kind": "performance",
-          "sourceURLs": [
-            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046558&archTog=1"
-          ],
-          "sortDate": "2014-03-30"
+          "kind": "performance"
         }
       ]
     },
@@ -424,11 +392,7 @@
           "sourceText": "1 - Adam Brutto (2015)",
           "value": "1",
           "dateLabel": "2015",
-          "kind": "performance",
-          "sourceURLs": [
-            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1249341&archTog=1"
-          ],
-          "sortDate": "2015-07-26"
+          "kind": "performance"
         },
         {
           "category": "Summer - Games with 3+ Assists",
@@ -436,11 +400,7 @@
           "sourceText": "1 - Adam Brutto (2016)",
           "value": "1",
           "dateLabel": "2016",
-          "kind": "performance",
-          "sourceURLs": [
-            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1442299&archTog=1"
-          ],
-          "sortDate": "2016-08-14"
+          "kind": "performance"
         },
         {
           "category": "Summer - Points",
@@ -686,6 +646,14 @@
           "value": "1.33",
           "dateLabel": "2013/14",
           "kind": "performance"
+        },
+        {
+          "category": "Winter - Wins",
+          "scope": "Season",
+          "sourceText": "12 - Stephen Logue (2012/13)",
+          "value": "12",
+          "dateLabel": "2012/13",
+          "kind": "performance"
         }
       ]
     },
@@ -714,12 +682,7 @@
           "sourceText": "2 - Keith Pearsoll (2016)",
           "value": "2",
           "dateLabel": "2016",
-          "kind": "performance",
-          "sourceURLs": [
-            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1442297&archTog=1",
-            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1442299&archTog=1"
-          ],
-          "sortDate": "2016-08-14"
+          "kind": "performance"
         },
         {
           "category": "Summer - Assists",
@@ -735,13 +698,7 @@
           "sourceText": "3 - Keith Pearsoll (2016)",
           "value": "3",
           "dateLabel": "2016",
-          "kind": "performance",
-          "sourceURLs": [
-            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1442287&archTog=1",
-            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1442294&archTog=1",
-            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1442295&archTog=1"
-          ],
-          "sortDate": "2016-07-17"
+          "kind": "performance"
         },
         {
           "category": "Summer - Points",
@@ -773,12 +730,7 @@
           "sourceText": "2 - Keith Pearsoll (2016)",
           "value": "2",
           "dateLabel": "2016",
-          "kind": "performance",
-          "sourceURLs": [
-            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1442297&archTog=1",
-            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1442299&archTog=1"
-          ],
-          "sortDate": "2016-08-14"
+          "kind": "performance"
         },
         {
           "category": "Summer - Player of the Game",
@@ -909,13 +861,7 @@
           "sourceText": "3 - Justin Carosi (2016)",
           "value": "3",
           "dateLabel": "2016",
-          "kind": "performance",
-          "sourceURLs": [
-            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1442268&archTog=1",
-            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1442287&archTog=1",
-            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1442294&archTog=1"
-          ],
-          "sortDate": "2016-07-10"
+          "kind": "performance"
         },
         {
           "category": "Summer - Penalty Minutes",
@@ -987,13 +933,7 @@
           "sourceText": "3 - Justin Carosi (2016/17)",
           "value": "3",
           "dateLabel": "2016/17",
-          "kind": "performance",
-          "sourceURLs": [
-            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1517081&archTog=1",
-            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1517083&archTog=1",
-            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1517098&archTog=1"
-          ],
-          "sortDate": "2017-01-08"
+          "kind": "performance"
         },
         {
           "category": "Winter - Games with 3+ Points",
@@ -1001,11 +941,7 @@
           "sourceText": "1 - Justin Carosi (2016/17)",
           "value": "1",
           "dateLabel": "2016/17",
-          "kind": "performance",
-          "sourceURLs": [
-            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1517113&archTog=1"
-          ],
-          "sortDate": "2017-04-09"
+          "kind": "performance"
         },
         {
           "category": "Winter - Games with 3+ Points",
@@ -1013,11 +949,7 @@
           "sourceText": "1 - Justin Carosi (2023/24)",
           "value": "1",
           "dateLabel": "2023/24",
-          "kind": "performance",
-          "sourceURLs": [
-            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=2071762&archTog=1"
-          ],
-          "sortDate": "2024-04-07"
+          "kind": "performance"
         }
       ]
     },
@@ -1142,13 +1074,7 @@
           "sourceText": "3 - Mark Pastore (2016)",
           "value": "3",
           "dateLabel": "2016",
-          "kind": "performance",
-          "sourceURLs": [
-            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1442286&archTog=1",
-            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1442292&archTog=1",
-            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1442295&archTog=1"
-          ],
-          "sortDate": "2016-07-17"
+          "kind": "performance"
         },
         {
           "category": "Summer - Points",
@@ -1228,13 +1154,7 @@
           "sourceText": "3 - Mark Pastore (2015/16)",
           "value": "3",
           "dateLabel": "2015/16",
-          "kind": "performance",
-          "sourceURLs": [
-            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1384802&archTog=1",
-            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1384803&archTog=1",
-            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1384804&archTog=1"
-          ],
-          "sortDate": "2016-04-03"
+          "kind": "performance"
         },
         {
           "category": "Winter - Game Winning Goals",
@@ -1298,11 +1218,7 @@
           "sourceText": "1 - Mark Pastore (2014/15)",
           "value": "1",
           "dateLabel": "2014/15",
-          "kind": "performance",
-          "sourceURLs": [
-            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1190758&archTog=1"
-          ],
-          "sortDate": "2015-04-19"
+          "kind": "performance"
         },
         {
           "category": "Winter - Games with 3+ Points",
@@ -1310,11 +1226,7 @@
           "sourceText": "1 - Mark Pastore (2015/16)",
           "value": "1",
           "dateLabel": "2015/16",
-          "kind": "performance",
-          "sourceURLs": [
-            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1384802&archTog=1"
-          ],
-          "sortDate": "2016-03-13"
+          "kind": "performance"
         },
         {
           "category": "Winter - Player of the Game",
@@ -1338,6 +1250,14 @@
           "sourceText": "6 - Mark Pastore (2014/15)",
           "value": "6",
           "dateLabel": "2014/15",
+          "kind": "performance"
+        },
+        {
+          "category": "Winter - Games with 3+ Points",
+          "scope": "Season",
+          "sourceText": "7 - Mark Pastore (2012/13)",
+          "value": "7",
+          "dateLabel": "2012/13",
           "kind": "performance"
         }
       ]
@@ -1424,17 +1344,7 @@
           "sourceText": "7 - Ben Sherritt (2017)",
           "value": "7",
           "dateLabel": "2017",
-          "kind": "performance",
-          "sourceURLs": [
-            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559155&archTog=1",
-            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559156&archTog=1",
-            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559158&archTog=1",
-            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559161&archTog=1",
-            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559159&archTog=1",
-            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559168&archTog=1",
-            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559177&archTog=1"
-          ],
-          "sortDate": "2017-07-23"
+          "kind": "performance"
         },
         {
           "category": "Summer - Hat Tricks",
@@ -1514,17 +1424,7 @@
           "sourceText": "7 - Ben Sherritt (2017)",
           "value": "7",
           "dateLabel": "2017",
-          "kind": "performance",
-          "sourceURLs": [
-            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559156&archTog=1",
-            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559158&archTog=1",
-            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559161&archTog=1",
-            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559159&archTog=1",
-            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559168&archTog=1",
-            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559170&archTog=1",
-            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559177&archTog=1"
-          ],
-          "sortDate": "2017-07-23"
+          "kind": "performance"
         },
         {
           "category": "Summer - Games with 3+ Points",
@@ -1532,12 +1432,7 @@
           "sourceText": "2 - Ben Sherritt (2016)",
           "value": "2",
           "dateLabel": "2016",
-          "kind": "performance",
-          "sourceURLs": [
-            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1442297&archTog=1",
-            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1442299&archTog=1"
-          ],
-          "sortDate": "2016-08-14"
+          "kind": "performance"
         },
         {
           "category": "Summer - Player of the Game",
@@ -1577,21 +1472,7 @@
           "sourceText": "11 - Ben Sherritt (2013/14)",
           "value": "11",
           "dateLabel": "2013/14",
-          "kind": "performance",
-          "sourceURLs": [
-            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046522&archTog=1",
-            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046536&archTog=1",
-            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046537&archTog=1",
-            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046539&archTog=1",
-            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046540&archTog=1",
-            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046541&archTog=1",
-            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046545&archTog=1",
-            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046546&archTog=1",
-            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046552&archTog=1",
-            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046553&archTog=1",
-            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046554&archTog=1"
-          ],
-          "sortDate": "2014-03-09"
+          "kind": "performance"
         },
         {
           "category": "Winter - Hat Tricks",
@@ -1695,17 +1576,7 @@
           "sourceText": "7 - Ben Sherritt (2013/14)",
           "value": "7",
           "dateLabel": "2013/14",
-          "kind": "performance",
-          "sourceURLs": [
-            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046522&archTog=1",
-            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046536&archTog=1",
-            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046537&archTog=1",
-            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046539&archTog=1",
-            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046541&archTog=1",
-            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046546&archTog=1",
-            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046553&archTog=1"
-          ],
-          "sortDate": "2014-03-02"
+          "kind": "performance"
         },
         {
           "category": "Winter - Games with 3+ Points",
@@ -1713,11 +1584,7 @@
           "sourceText": "1 - Ben Sherritt (2013/14)",
           "value": "1",
           "dateLabel": "2013/14",
-          "kind": "performance",
-          "sourceURLs": [
-            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1046558&archTog=1"
-          ],
-          "sortDate": "2014-03-30"
+          "kind": "performance"
         },
         {
           "category": "Winter - Games with 3+ Points",
@@ -1725,18 +1592,22 @@
           "sourceText": "1 - Ben Sherritt (2016/17)",
           "value": "1",
           "dateLabel": "2016/17",
-          "kind": "performance",
-          "sourceURLs": [
-            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1517113&archTog=1"
-          ],
-          "sortDate": "2017-04-09"
+          "kind": "performance"
         },
         {
           "category": "Winter - Player of the Game",
           "scope": "Season",
-          "sourceText": "13 - Ben Sherritt (2013/14)",
-          "value": "13",
+          "sourceText": "14 - Ben Sherritt (2013/14)",
+          "value": "14",
           "dateLabel": "2013/14",
+          "kind": "performance"
+        },
+        {
+          "category": "Summer - Player of the Game",
+          "scope": "Playoffs",
+          "sourceText": "2 - Ben Sherritt (2017)",
+          "value": "2",
+          "dateLabel": "2017",
           "kind": "performance"
         }
       ]
@@ -1818,11 +1689,7 @@
           "sourceText": "1 - Stefano Ardizzi (2017/18)",
           "value": "1",
           "dateLabel": "2017/18",
-          "kind": "performance",
-          "sourceURLs": [
-            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1664264&archTog=1"
-          ],
-          "sortDate": "2018-04-15"
+          "kind": "performance"
         },
         {
           "category": "Winter - Penalty Minutes",
@@ -1843,11 +1710,7 @@
           "sourceText": "1 - Carmine Cerrone (2015/16)",
           "value": "1",
           "dateLabel": "2015/16",
-          "kind": "performance",
-          "sourceURLs": [
-            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1384803&archTog=1"
-          ],
-          "sortDate": "2016-03-20"
+          "kind": "performance"
         }
       ]
     },
@@ -1959,11 +1822,7 @@
           "sourceText": "1 - Quenton Hunt (2019/20)",
           "value": "1",
           "dateLabel": "2019/20",
-          "kind": "performance",
-          "sourceURLs": [
-            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1835544&archTog=1"
-          ],
-          "sortDate": "2020-03-08"
+          "kind": "performance"
         }
       ]
     },
@@ -2004,13 +1863,7 @@
           "sourceText": "3 - Xav O'Krafka (2017)",
           "value": "3",
           "dateLabel": "2017",
-          "kind": "performance",
-          "sourceURLs": [
-            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559156&archTog=1",
-            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559159&archTog=1",
-            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1559169&archTog=1"
-          ],
-          "sortDate": "2017-06-25"
+          "kind": "performance"
         },
         {
           "category": "Summer - Points",
@@ -2231,11 +2084,7 @@
           "sourceText": "1 - David Corasaniti (2018/19)",
           "value": "1",
           "dateLabel": "2018/19",
-          "kind": "performance",
-          "sourceURLs": [
-            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1738995&archTog=1"
-          ],
-          "sortDate": "2019-03-31"
+          "kind": "performance"
         },
         {
           "category": "Winter - Games with 3+ Points",
@@ -2243,11 +2092,7 @@
           "sourceText": "1 - David Corasaniti (2019/20)",
           "value": "1",
           "dateLabel": "2019/20",
-          "kind": "performance",
-          "sourceURLs": [
-            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=1835544&archTog=1"
-          ],
-          "sortDate": "2020-03-08"
+          "kind": "performance"
         }
       ]
     },
@@ -2268,11 +2113,7 @@
           "sourceText": "1 - Michael Provenzano (2025/26)",
           "value": "1",
           "dateLabel": "2025/26",
-          "kind": "performance",
-          "sourceURLs": [
-            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=2215015&archTog=1"
-          ],
-          "sortDate": "2026-03-22"
+          "kind": "performance"
         }
       ]
     },
@@ -2373,11 +2214,7 @@
           "sourceText": "1 - Stephane Saindon (2025/26)",
           "value": "1",
           "dateLabel": "2025/26",
-          "kind": "performance",
-          "sourceURLs": [
-            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=2215015&archTog=1"
-          ],
-          "sortDate": "2026-03-22"
+          "kind": "performance"
         },
         {
           "category": "Winter - Games with 3+ Points",
@@ -2385,11 +2222,7 @@
           "sourceText": "1 - Stephane Saindon (2023/24)",
           "value": "1",
           "dateLabel": "2023/24",
-          "kind": "performance",
-          "sourceURLs": [
-            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=2071762&archTog=1"
-          ],
-          "sortDate": "2024-04-07"
+          "kind": "performance"
         },
         {
           "category": "Winter - Games with 3+ Points",
@@ -2397,11 +2230,7 @@
           "sourceText": "1 - Stephane Saindon (2025/26)",
           "value": "1",
           "dateLabel": "2025/26",
-          "kind": "performance",
-          "sourceURLs": [
-            "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=boxscore&sportsHQ=BRAVESHOCKEY&gameID=2215015&archTog=1"
-          ],
-          "sortDate": "2026-03-22"
+          "kind": "performance"
         },
         {
           "category": "Winter - Penalty Minutes",

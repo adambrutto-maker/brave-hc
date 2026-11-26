@@ -1,0 +1,73 @@
+{
+  "schema": "brave-hc-current-season-meetings/v1",
+  "season": "W2026/27",
+  "team": "Brave H.C.",
+  "sourceAsOf": "2026-11-26T14:15:06.340424+00:00",
+  "source": "https://leagues.sportsvillage.ca/Leagues.aspx?leagueid=570&page_type=Adult&sc=HOCKEY",
+  "htoSource": "https://www.htosports.com/teams/default.asp?p=stats&s=hockey&u=BRAVESHOCKEY",
+  "games": [
+    {
+      "date": "2026-09-20",
+      "opponent": "Dateline Predators",
+      "gf": 0,
+      "ga": 3,
+      "result": "L"
+    },
+    {
+      "date": "2026-09-27",
+      "opponent": "Mohawks HC",
+      "gf": 3,
+      "ga": 6,
+      "result": "L"
+    },
+    {
+      "date": "2026-10-04",
+      "opponent": "Sugo Sundays",
+      "gf": 2,
+      "ga": 3,
+      "result": "L"
+    },
+    {
+      "date": "2026-10-18",
+      "opponent": "Zamboner Crew",
+      "gf": 1,
+      "ga": 7,
+      "result": "L"
+    },
+    {
+      "date": "2026-10-25",
+      "opponent": "Big Bastones",
+      "gf": 6,
+      "ga": 4,
+      "result": "W"
+    },
+    {
+      "date": "2026-11-01",
+      "opponent": "Mid Ice Crisis",
+      "gf": 2,
+      "ga": 7,
+      "result": "L"
+    },
+    {
+      "date": "2026-11-08",
+      "opponent": "Other Way",
+      "gf": 5,
+      "ga": 6,
+      "result": "L"
+    },
+    {
+      "date": "2026-11-15",
+      "opponent": "Sugo Sundays",
+      "gf": 4,
+      "ga": 6,
+      "result": "L"
+    },
+    {
+      "date": "2026-11-22",
+      "opponent": "Dateline Predators",
+      "gf": 2,
+      "ga": 2,
+      "result": "T"
+    }
+  ]
+}

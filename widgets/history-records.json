@@ -6,10 +6,10 @@
     "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=records",
     "authority": "OFFICIAL_HTO_PUBLIC_READBACK"
   },
-  "capturedAt": "2026-10-28T13:39:36.203626+00:00",
-  "stalePolicy": "HTO official native Records 463-statistical-entry source. Scheduled refresh requires manual review for changed rows or uncertain identity. Three new source-proven entries are Summer GTG and two all-seasons Team streak records. Source year-only labels are not invented as calendar days; immutable historical 558-entry archive is separate.",
+  "capturedAt": "2026-11-26T14:51:57.179096+00:00",
+  "stalePolicy": "Dated official HTO public snapshot. The official HTO page controls current records and awards; no new ranking or eligibility is inferred.",
   "pageTitle": "Brave H.C. Records & Achievements",
-  "entryCount": 463,
+  "entryCount": 480,
   "groups": [
     {
       "section": "Individual Records",
@@ -245,6 +245,7 @@
       "category": "Summer - Player of the Game",
       "period": "Playoffs",
       "items": [
+        "2 - Ben Sherritt (2017)",
         "2 - Cameron Buchanan (2015)",
         "2 - Keith Pearsoll (2016)"
       ]
@@ -263,7 +264,7 @@
       "category": "Summer - Wins",
       "period": "Playoffs",
       "items": [
-        "2 - R\u00e8nt Goali\u00ea (2016)"
+        "2 - Rènt Goaliê (2016)"
       ]
     },
     {
@@ -291,7 +292,7 @@
       "period": "Playoffs",
       "items": [
         "2.50 - Stephen Logue (2017)",
-        "3.50 - R\u00e8nt Goali\u00ea (2016)",
+        "3.50 - Rènt Goaliê (2016)",
         "4.00 - Stephen Logue (2014)",
         "4.75 - Stephen Logue (2013)"
       ]
@@ -538,7 +539,8 @@
       "category": "Winter - Games with 3+ Points",
       "period": "Season",
       "items": [
-        "7 - Ben Sherritt (2013/14)"
+        "7 - Ben Sherritt (2013/14)",
+        "7 - Mark Pastore (2012/13)"
       ]
     },
     {
@@ -572,7 +574,7 @@
       "category": "Winter - Player of the Game",
       "period": "Season",
       "items": [
-        "13 - Ben Sherritt (2013/14)"
+        "14 - Ben Sherritt (2013/14)"
       ]
     },
     {
@@ -589,7 +591,8 @@
       "category": "Winter - Wins",
       "period": "Season",
       "items": [
-        "12 - Stephen Logue (2013/14)"
+        "12 - Stephen Logue (2013/14)",
+        "12 - Stephen Logue (2012/13)"
       ]
     },
     {
@@ -702,6 +705,7 @@
         "13 - (6-3-1) (2014)",
         "13 - (6-3-1) (2015)",
         "10 - (4-3-2) (2013)",
+        "10 - (5-4-0) (2012)",
         "8 - (4-6-0) (2016)"
       ]
     },
@@ -739,11 +743,12 @@
       "category": "Summer - Goals For",
       "period": "Season",
       "items": [
-        "77 - (2017)",
+        "78 - (2017)",
         "67 - (2016)",
+        "58 - (2013)",
         "55 - (2014)",
         "54 - (2015)",
-        "49 - (2013)"
+        "41 - (2012)"
       ]
     },
     {
@@ -764,7 +769,8 @@
       "period": "Game",
       "items": [
         "13 - vs. Village Idiots (13-4) (May 15, 2016)",
-        "13 - vs. Lost In the Sauce (13-4) (Jul 17, 2016)"
+        "13 - vs. Lost In the Sauce (13-4) (Jul 17, 2016)",
+        "13 - vs. Ice Holes (13-5) (Jul 8, 2012)"
       ]
     },
     {
@@ -848,6 +854,7 @@
         "40 - (2014)",
         "48 - (2013)",
         "53 - (2017)",
+        "59 - (2012)",
         "62 - (2016)"
       ]
     },
@@ -868,6 +875,7 @@
       "category": "Summer - Largest Losing Margin",
       "period": "Game",
       "items": [
+        "13 - vs. Fubar (1-14) (Jun 17, 2012)",
         "11 - vs. Maplewolves (1-12) (2016-06-12)"
       ]
     },
@@ -885,6 +893,7 @@
       "category": "Summer - Most Combined Goals",
       "period": "Game",
       "items": [
+        "18 - vs. Ice Holes (13-5) (Jul 8, 2012)",
         "18 - vs. Bros Before Hossas (11-7) (2013-06-16)"
       ]
     },
@@ -944,8 +953,9 @@
       "items": [
         "31 - (14-5-3) (2017/18)",
         "30 - (13-7-4) (2013/14)",
-        "27 - (12-9-3) (2025/26)",
         "27 - (13-7-1) (2016/17)",
+        "27 - (12-9-3) (2025/26)",
+        "27 - (12-9-3) (2012/13)",
         "26 - (11-11-4) (2018/19)",
         "24 - (12-12-0) (2023/24)",
         "22 - (10-12-2) (2024/25)",
@@ -953,6 +963,7 @@
         "22 - (9-8-4) (2014/15)",
         "19 - (8-12-3) (2015/16)",
         "19 - (8-12-3) (2022/23)",
+        "10 - (4-15-2) (2011/12)",
         "4 - (2-1-0) - COVID-shortened season (3 games) (2020/21)"
       ]
     },
@@ -967,11 +978,11 @@
         "6 - (3-2-0) - Lost Semi-Finals (2017/18)",
         "4 - (2-0-0) - COVID, Playoffs Cancelled (2019/20)",
         "3 - (1-3-1) - Won Bronze Finals (2016/17)",
-        "2 - (1-2-0) - Lost Semi-Finals (2025/26)",
         "2 - (1-1-0) - Lost Semi-Finals (2022/23)",
+        "2 - (1-2-0) - Lost Semi-Finals (2025/26)",
+        "0 - (0-3-0) - Lost Bronze Finals (2018/19)",
         "0 - (0-2-0) - Lost Semi-Finals (2023/24)",
-        "0 - (0-2-0) - Lost Semi-Finals (2024/25)",
-        "0 - (0-3-0) - Lost Bronze Finals (2018/19)"
+        "0 - (0-2-0) - Lost Semi-Finals (2024/25)"
       ]
     },
     {
@@ -997,15 +1008,17 @@
       "items": [
         "113 - (2017/18)",
         "108 - (2013/14)",
+        "96 - (2012/13)",
         "84 - (2016/17)",
         "83 - (2019/20)",
         "81 - (2025/26)",
         "79 - (2023/24)",
         "76 - (2018/19)",
-        "76 - (2015/16)",
+        "75 - (2015/16)",
         "73 - (2022/23)",
         "73 - (2024/25)",
         "64 - (2014/15)",
+        "50 - (2011/12)",
         "13 - COVID-shortened season (3 games) (2020/21)"
       ]
     },
@@ -1085,10 +1098,10 @@
       "period": "Playoffs",
       "items": [
         "5 - (2014/15)",
-        "2 - COVID, Playoffs Cancelled (2019/20)",
-        "2 - (2013/14)",
         "2 - (2017/18)",
         "2 - (2018/19)",
+        "2 - (2013/14)",
+        "2 - COVID, Playoffs Cancelled (2019/20)",
         "1 - (2015/16)",
         "1 - (2025/26)",
         "0 - (2016/17)",
@@ -1149,8 +1162,10 @@
         "79 - (2022/23)",
         "82 - (2025/26)",
         "83 - (2015/16)",
+        "83 - (2012/13)",
         "95 - (2024/25)",
-        "98 - (2023/24)"
+        "98 - (2023/24)",
+        "101 - (2011/12)"
       ]
     },
     {
@@ -1176,7 +1191,9 @@
       "category": "Winter - Largest Losing Margin",
       "period": "Game",
       "items": [
-        "9 - vs. Call Ups (1-10) (2024-12-01)"
+        "9 - vs. Call Ups (1-10) (2024-12-01)",
+        "9 - vs. DC Crew (1-10) (Feb 12, 2012)",
+        "9 - vs. Hockey Team (1-10) (Feb 26, 2012)"
       ]
     },
     {
@@ -1217,8 +1234,8 @@
         "70 - (2013/14)",
         "77 - (2018/19)",
         "78 - (2022/23)",
-        "90 - (2014/15)",
         "90 - (2015/16)",
+        "90 - (2014/15)",
         "124 - (2016/17)"
       ]
     },
@@ -1259,5 +1276,5 @@
       ]
     }
   ],
-  "displayVerifiedAt": "2026-10-30T01:02:10.562012+00:00"
+  "displayVerifiedAt": "2026-11-26T14:51:57.179096+00:00"
 }

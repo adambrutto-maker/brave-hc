@@ -88,7 +88,11 @@ async function loadStandings(){
   set("standings-note","Complete official division table · "+d.teams.length+" teams · wins divided by games played.");
   const select=$("opponent");select.replaceChildren();
   d.teams.filter(t=>t.name!==d.team).forEach(t=>{const o=node("option","",t.name);o.value=t.name;select.append(o)});
-  let games=[];
+  let games=[],meetings=null;
+  try{
+   const f=await fetchJSON("current-meetings.json"),b=d.teams.find(t=>t.name===d.team);
+   if(f.schema==="brave-hc-current-season-meetings/v1"&&f.season===d.season&&Array.isArray(f.games)&&f.games.length===b.gp&&f.games.every(g=>/^\d{4}-\d{2}-\d{2}$/.test(g.date)&&d.teams.some(t=>t.name!==d.team&&t.name===g.opponent)&&Number.isSafeInteger(g.gf)&&Number.isSafeInteger(g.ga)&&g.gf>=0&&g.ga>=0&&g.result===(g.gf>g.ga?"W":g.gf<g.ga?"L":"T"))&&f.games.reduce((s,g)=>s+g.gf,0)===b.gf&&f.games.reduce((s,g)=>s+g.ga,0)===b.ga)meetings=f.games;
+  }catch(_ignored){}
   try{const schedule=await fetchJSON("svhl-upcoming.json");if(schedule.schema==="brave-hc-svhl-schedule/v1"&&Array.isArray(schedule.games))games=schedule.games;}catch(_ignored){}
   const upcoming=games.filter(g=>g.date+"T"+g.time>=todayDate()).sort((a,b)=>(a.date+"T"+a.time).localeCompare(b.date+"T"+b.time));
   let approved=null,verifiedSameGames=new Map();
@@ -152,6 +156,14 @@ async function loadStandings(){
     $("intel-comparison").replaceChildren();
     $("intel-comparison").parentElement.hidden=true;
     const grid=$("intel-metrics");grid.replaceChildren();
+    if(meetings){
+      const current=node("div","intel-gate");
+      current.append(node("strong","","Verified 2026/27 meetings"));
+      const rows=meetings.filter(g=>g.opponent===o.name);
+      if(!rows.length)current.append(node("p","","No completed meeting in the verified current-season schedule."));
+      for(const g of rows)current.append(node("p","",g.date+" | Braves "+g.result+" "+g.gf+"-"+g.ga));
+      grid.append(current);
+    }
     const h2h=$("headtohead"),section=$("headtohead-section");
     h2h.replaceChildren();section.hidden=true;
     if(!entry || !["VERIFIED_EXACT_NAME","VERIFIED_HISTORICAL_NAME_VARIANT","VERIFIED_CURRENT_NAME_ALIAS_ONLY"].includes(entry.verification)){
@@ -304,84 +316,17 @@ function projectedCell(amount,actual,decimals=0,unreported=false){
 }
 function cleanName(s){return typeof s==="string"&&s.startsWith("Unknown,")?"Unverified roster entry":(String(s).includes(",")?s.split(",").slice(1).join(",").trim()+" "+s.split(",")[0].trim():String(s))}
 function drawProjection(){
- if(!projection)return;
- const table=$("projection-rows");table.replaceChildren();
- const players=projection.players.filter(p=>filter==="ALL"||p.rosterStatus===filter)
-   .slice().sort((a,b)=>(Number(b.pts)||0)-(Number(a.pts)||0)||(Number(b.g)||0)-(Number(a.g)||0)||String(a.name).localeCompare(String(b.name)));
- const size=pageSize("projection"),start=projectionPage*size;
- players.slice(start,start+size).forEach((p,i)=>{
-  const tr=node("tr");const name=node("td","team player");
-  const fullName=cleanName(p.name);
-  name.title=fullName;
-  name.setAttribute("aria-label",fullName+" "+p.rosterStatus+" jersey "+(p.number||"unknown"));
-  name.append(node("span","name",fullName),node("span","mobile-name",shortPlayerName(p.name)));
-  name.append(node("span","role",p.rosterStatus+" · #"+(p.number||"—")+(latestHTOActuals?.verifiedZero?.has(p.name)?" · Rostered / 0 GP":"")));
+ const body=$("projection-rows");body.replaceChildren();
+ if(!latestHTOActuals)return;
+ const players=Array.from(latestHTOActuals.players.values()).sort((a,b)=>a.name.localeCompare(b.name));
+ for(const p of players){
+  const tr=node("tr"),name=node("td","team player");
+  name.append(node("span","name",cleanName(p.name)),node("span","mobile-name",p.name.startsWith("Unknown,")?"Unverified entry":shortPlayerName(p.name)));
   tr.append(name);
-  const actual=latestHTOActuals?(latestHTOActuals.players.get(p.name)||latestHTOActuals.verifiedZero?.get(p.name)):null;
-  const unavailable=Boolean(latestHTOActuals&&!actual);
-  const currentGP=latestHTOActuals?actual?.gp:p.currentGP;
-  const currentG=latestHTOActuals?actual?.g:p.currentG;
-  const currentA=latestHTOActuals?actual?.a:p.currentA;
-  const ptsActual=latestHTOActuals?actual?.pts:(num(p.currentPts)?p.currentPts:num(p.currentG)&&num(p.currentA)?p.currentG+p.currentA:null);
-  const stats=[projectedCell(p.gp,currentGP,1,unavailable),projectedCell(p.g,currentG,0,unavailable),projectedCell(p.a,currentA,0,unavailable),projectedCell(p.pts,ptsActual,0,unavailable)];
-  ["GP","G","A","PTS"].forEach((h,j)=>{stats[j].dataset.label=h;tr.append(stats[j])});
-  tr.append(makeTD(num(p.ptsPerGame)?p.ptsPerGame.toFixed(2):"—","rate","P/G"));
-  const state=trendState(p,projection.conditionalFormatting);
-  const trendTD=node("td");trendTD.dataset.label="TREND";
-  const button=node("button","trend-button");button.type="button";
-  button.setAttribute("aria-expanded","false");
-  const detailId="proj-detail-"+(start+i);button.setAttribute("aria-controls",detailId);
-  const career=p.trendInputs?.careerScoringRate,projected=p.trendInputs?.projectedScoringRate;
-  const details=node("tr","details");details.id=detailId;details.hidden=true;
-  const detailTD=node("td");detailTD.colSpan=7;
-  const baselineText=num(career)?career.toFixed(3):"unavailable";
-  const modelRate=num(projected)?projected.toFixed(3):"unavailable";
-  const diffText=num(p.trend)?(p.trend>0?"+":"")+(p.trend*100).toFixed(1)+"%":"unavailable";
-  const adaptiveBadge=sharedTrendBadge(p);
-  const badge=adaptiveBadge||approvedWorkbookBadge(p);
-  const displayLevel=badge?.dataset.visualLevel||(state.new?(state.label.startsWith("NEW")?"ROOKIE":"HELD"):"HELD");
-  const gpProof=badge?.dataset.verifiedGp;
-  const tier=badge?.dataset.evidenceTier||'UNVERIFIED';
-  const tierPhrase={MORE_OBSERVED_GAMES:'more observed',
-    DEVELOPING_SAMPLE:'developing',LIMITED_SAMPLE:'limited',
-    NO_VERIFIED_CURRENT_APPEARANCES:'unverified'}[tier]||'unverified';
-  const sharedModel=badge?.dataset.sharedModelOutput==='true';
-  const evidenceShort=adaptiveBadge?(gpProof?gpProof+' GP | '+(sharedModel?'shared model':tierPhrase):'GP unverified'):
-    (state.new?'Career comparison held':'Workbook category');
-  const evidenceLong=adaptiveBadge?(gpProof?gpProof+' verified official GP; '+tierPhrase+' sample'+
-    (sharedModel?'; shared zero-scoring model formula across multiple players':''):
-    'No independent current-game appearance proof for this model player'):
-    (state.new?state.label:'Approved shared Bio art from original workbook sigma and five-category thresholds; adaptive scale held');
-  detailTD.textContent=(adaptiveBadge?"Verified adaptive trend: ":"Workbook-based trend: ")+displayLevel+
-    ". Original workbook five-arrow category: "+state.label.replace(/ ·.*/,"")+
-    ". Historical career RS rate: "+baselineText+" P/G; model scoring-rate component: "+
-    modelRate+" P/G; workbook trend: "+diffText+
-    ". Displayed projected P/G: "+(num(p.ptsPerGame)?p.ptsPerGame.toFixed(3):"—")+
-    ". Approved Bio artwork follows verified adaptive data or original workbook sigma; workbook thresholds remain unchanged."+
-    " Current evidence: "+evidenceLong+
-    "; this is a sample-size description, not forecast confidence.";
-  details.append(detailTD);
-  if(badge){
-    badge.classList.add("home-trend-badge");
-    badge.querySelector("svg.bio-trend-direction-arrow")?.setAttribute("aria-hidden","true");
-    button.dataset.visualLevel=displayLevel;
-   button.dataset.iconSource=badge.dataset.iconSource||(adaptiveBadge?"APPROVED_BIO_ARTWORK_ADAPTIVE":"APPROVED_BIO_ARTWORK_WORKBOOK");
-    button.dataset.workbookCategory=state.label.replace(/ ·.*/,"");
-    button.append(badge,node("span","home-level-word",displayLevel),
-      node("span","home-evidence-word",evidenceShort));
-    button.dataset.evidenceTier=tier;
-    button.dataset.sharedModelOutput=String(sharedModel);
-    button.dataset.verifiedGp=gpProof||'';
-  }else button.append(node("span","new",state.label.startsWith("NEW")?"NEW":"—"));
-  button.title=displayLevel+" shared approved Bio artwork · "+state.label+
-    (num(state.value)?" · workbook "+diffText:"")+
-    " | Evidence: "+evidenceLong+(projection.modelCurrent?" | Model reconciled":" | Model reconciliation pending");
-  button.setAttribute("aria-label",cleanName(p.name)+": "+button.title+". Show model comparison");
-  button.addEventListener("click",()=>{details.hidden=!details.hidden;button.setAttribute("aria-expanded",String(!details.hidden))});
-  trendTD.append(button);tr.append(trendTD);table.append(tr,details);
- });
- pager("projection-pager",players.length,size,projectionPage,n=>{projectionPage=n;drawProjection()});
- document.querySelectorAll("[data-group]").forEach(b=>{const active=b.dataset.group===filter;b.setAttribute("aria-pressed",String(active));b.textContent=({ALL:"All Players",FT:"Full-Time",CU:"Call-Ups",DI:"Drop-Ins"})[b.dataset.group]+(active?" ("+players.length+")":"")});
+  for(const [k,label] of [["gp","GP"],["g","G"],["a","A"],["pts","PTS"]])tr.append(makeTD(p[k],"actual-only",label));
+  tr.append(makeTD(p.gp>0?(p.pts/p.gp).toFixed(2):String.fromCharCode(8212),"rate","P/G"),makeTD("Held","muted","TREND"));body.append(tr);
+ }
+ pager("projection-pager",players.length,pageSize("projection"),0,()=>{});
 }
 document.querySelectorAll("[data-group]").forEach(b=>b.addEventListener("click",()=>{filter=b.dataset.group;projectionPage=0;drawProjection()}));
 function drawLegend(){
@@ -421,58 +366,23 @@ function drawLegend(){
  box.append(node("span","","ROOKIE/— · Career or source comparison unavailable"));
 }
 async function loadProjection(){
- if(projectionLoading)return;
- projectionLoading=true;
- const refreshButton=$("projection-refresh");
- if(refreshButton){refreshButton.disabled=true;refreshButton.textContent="Checking...";}
+ if(projectionLoading)return;projectionLoading=true;
+ const button=$("projection-refresh");if(button)button.disabled=true;
  try{
-  latestHTOActuals=null;
-  const d=await fetchJSON("projection.json");
-  if(d.schema!=="brave-hc-workbook-projection/v1"||!Array.isArray(d.players)||!d.conditionalFormatting?.arrowIconSet?.thresholds)throw Error("Workbook data contract invalid");
-  projection=d;
-  dispersion=await fetchJSON("hockeyos-team-dispersion-v365.json").catch(()=>null);
-  const sourceGames=d.sourceInputs?.verifiedHTOBoxscoreGP;
-  try{
-    const feed=await fetchJSON("player-actuals-hourly.json").catch(()=>fetchJSON("player-actuals.json")),stamp=new Date(feed.asOf),age=Date.now()-stamp.getTime();
-    if(feed.schema==="brave-hc-hto-player-actuals/v1"&&feed.status==="VERIFIED_HTO_CURRENT"&&
-       feed.season==="W2026/27"&&num(feed.teamGP)&&feed.teamGP>=Number(sourceGames)&&
-       Array.isArray(feed.players)&&feed.players.length===feed.playerCount&&
-       Number.isFinite(age)&&age>=0&&age<=10*24*60*60*1000 &&
-       new Set(feed.players.map(x=>x.name)).size===feed.players.length&&
-       feed.players.every(x=>num(x.gp)&&num(x.g)&&num(x.a)&&num(x.pts)&&x.pts===x.g+x.a)){
-        const coverage=feed.rosterCoverage;
-       let zeroMap=new Map();
-       if(coverage?.schema==="brave-hc-hto-rostered-no-appearance/v1"&&
-          coverage.status==="SOURCE_QUALIFIED_NO_RECORDED_APPEARANCES"&&
-          coverage.teamGP===feed.teamGP&&coverage.season==="W2026/27"&&
-          Array.isArray(coverage.rosteredWithoutRecordedAppearance)&&
-          coverage.rosteredWithoutRecordedAppearance.every(x=>
-             typeof x.name==="string" && !feed.players.some(p=>p.name===x.name)&&
-             x.gp===0&&x.g===0&&x.a===0&&x.pts===0&&
-             ["FT","CU"].includes(x.classification)) &&
-          new Set(coverage.rosteredWithoutRecordedAppearance.map(x=>x.name)).size===
-             coverage.rosteredWithoutRecordedAppearance.length){
-          zeroMap=new Map(coverage.rosteredWithoutRecordedAppearance.map(p=>[p.name,p]));
-       }
-       latestHTOActuals={gp:feed.teamGP,asOf:feed.asOf,
-          players:new Map(feed.players.map(p=>[p.name,p])),verifiedZero:zeroMap};
-    }
-  }catch(_noValidLiveActuals){}
-  set("proj-games",latestHTOActuals?latestHTOActuals.gp:num(sourceGames)?sourceGames:"—");
-  set("proj-total",num(d.total?.points)?d.total.points+" PTS":"—");
-  set("projection-state",latestHTOActuals&&!d.modelCurrent?"HTO ACTUALS CURRENT · FORECAST HELD":d.modelCurrent?"MODEL RECONCILED":"SCENARIO · PARITY PENDING");
-  const date=dateText(d.htoreadback||d.exportedAt);
-  if(latestHTOActuals){
-     set("projection-note","Bold = projected season totals; parentheses = verified HTO figures through "+latestHTOActuals.gp+" games ("+dateText(latestHTOActuals.asOf)+"). Tap trend icons for details.");
-  }else{
-     set("projection-note",d.modelCurrent===true?"Workbook projections reconciled to official HTO actuals.":"Projection feed reflects "+sourceGames+" HTO games at "+date+". Workbook baseline: "+(d.sourceInputs?.workbookRecordedTeamGP??"—")+" game(s). Forecasts and displayed actuals are not up to date.");
-  }
-  set("projection-source","Sources: "+(latestHTOActuals?"current official HTO "+dateText(latestHTOActuals.asOf)+"; ":"")+"projection model readback "+date+" · Original workbook trend thresholds retained. "+d.players.length+" player rows.");
-  const fingerprint=JSON.stringify([d.exportedAt,d.modelSnapshotDate,latestHTOActuals?.asOf,dispersion?.generatedAt,d.players.length]);
-  if(fingerprint!==projectionFingerprint){projectionFingerprint=fingerprint;drawLegend();drawProjection();}
-  set("projection-refresh-status","HTO "+(latestHTOActuals?latestHTOActuals.gp:sourceGames)+" GP | "+date+" | checked "+new Intl.DateTimeFormat("en-CA",{timeZone:"America/Toronto",hour:"numeric",minute:"2-digit"}).format(new Date()));
- }catch(e){set("projection-note","Projection data check failed; previously verified values remain on screen. ("+e.message+")");set("projection-refresh-status","Source check held; retry available");}
- finally{projectionLoading=false;if(refreshButton){refreshButton.disabled=false;refreshButton.textContent="Refresh";}}
+  const f=await fetchJSON("player-actuals-hourly.json"),age=Date.now()-Date.parse(f.asOf);
+  const valid=f.schema==="brave-hc-hto-player-actuals/v1"&&f.status==="VERIFIED_HTO_CURRENT"&&f.season==="W2026/27"&&Number.isSafeInteger(f.teamGP)&&f.teamGP>0&&Number.isFinite(age)&&age>=0&&age<=86400000&&Array.isArray(f.players)&&f.players.length===f.playerCount&&new Set(f.players.map(p=>p.name)).size===f.playerCount&&f.players.every(p=>typeof p.name==="string"&&p.name.trim()&&[p.gp,p.g,p.a,p.pts].every(Number.isSafeInteger)&&p.gp>=0&&p.gp<=f.teamGP&&p.g>=0&&p.a>=0&&p.g+p.a===p.pts)&&f.players.reduce((s,p)=>s+p.g,0)===f.teamGF&&f.players.reduce((s,p)=>s+p.a,0)===f.teamAssists&&f.players.reduce((s,p)=>s+p.pts,0)===f.teamPlayerPoints;
+  if(!valid)throw Error("Actuals source unavailable or outdated");
+  latestHTOActuals={gp:f.teamGP,asOf:f.asOf,players:new Map(f.players.map(p=>[p.name,p]))};
+  set("proj-games",f.teamGP);set("proj-total",String.fromCharCode(8212));set("projection-state","HTO ACTUALS CURRENT | FORECAST HELD");
+  set("projection-note","Verified HTO scoring through "+f.teamGP+" games. Forecasts, projected ranking and trend labels are withheld pending model reconciliation.");
+  set("projection-source","Official HTO current-season statistics | "+dateText(f.asOf));
+  set("projection-refresh-status","HTO "+f.teamGP+" GP | "+dateText(f.asOf));drawProjection();
+ }catch(e){
+  if(!latestHTOActuals){$("projection-rows").replaceChildren();set("proj-games",String.fromCharCode(8212));}
+  set("proj-total",String.fromCharCode(8212));set("projection-state","SOURCE HELD | FORECAST HELD");
+  set("projection-note",latestHTOActuals?"Current source unavailable. Last verified actuals shown, dated "+dateText(latestHTOActuals.asOf)+".":"Verified current actuals unavailable. Forecasts withheld.");
+  set("projection-refresh-status","Source check held; retry available");
+ }finally{projectionLoading=false;if(button)button.disabled=false;}
 }
 if(panel==="standings")loadStandings();
 if(panel==="projection"){

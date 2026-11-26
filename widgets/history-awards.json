@@ -6,295 +6,646 @@
     "url": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=awards",
     "authority": "OFFICIAL_HTO_PUBLIC_READBACK"
   },
-  "capturedAt": "2026-10-20T13:56:05.697Z",
-  "stalePolicy": "Fixed public snapshot. Official HTO page controls current records; snapshot updates are manually QA-gated.",
+  "capturedAt": "2026-11-26T14:51:57.179096+00:00",
+  "stalePolicy": "Dated official HTO public snapshot. The official HTO page controls current records and awards; no new ranking or eligibility is inferred.",
   "pageTitle": "Brave H.C. Awards & Honors",
-  "entryCount": 146,
+  "entryCount": 364,
   "groups": [
     {
       "section": "Brave H.C. Awards & Honors",
       "category": "Brave H.C. Hall of Fame",
       "period": "",
       "items": [
-        "2025 - Andrew Cristillo",
-        "2024 - Cameron Buchanan",
-        "2024 - Stephen Logue",
-        "2023 - Ben Sherritt",
-        "2023 - Mark Pastore"
+        "2025 - Andrew Cristillo - Career at Induction: 66 GP, 4G, 14A, 18PTS, 4 PIM | 3rd Ballot",
+        "2024 - Cameron Buchanan - Career at Induction: 226 GP, 105G, 112A, 217PTS, 26 PIM | 2nd Ballot",
+        "2024 - Stephen Logue - Career at Induction: 257 GP, 124-100-33 (W-L-T), 18 SHO, 3.25 GAA | 2nd Ballot",
+        "2023 - Ben Sherritt - Career at Induction: 108 GP, 146G, 70A, 216PTS, 34 PIM | 1st Ballot",
+        "2023 - Mark Pastore - Career at Induction: 126 GP, 110G, 81A, 191PTS, 22 PIM | 1st Ballot"
       ]
     },
     {
       "section": "Brave H.C. Awards & Honors",
-      "category": "Maurice 'Rocket' Richard Trophy - Summer",
+      "category": "Maurice 'Rocket' Richard Trophy",
       "period": "",
       "items": [
-        "2017 - Ben Sherritt - 22 Goals",
-        "2016 - Cameron Buchanan - 12 Goals",
-        "2015 - Mark Pastore - 16 Goals",
-        "2014 - Ben Sherritt - 16 Goals",
-        "2013 - Mark Pastore - 12 Goals"
+        "2025 - Stephane Saindon - Winter | 19 Goals",
+        "2024 - Justin Carosi & Michael Provenzano - Winter | 12 Goals",
+        "2023 - Stephane Saindon - Winter | 16 Goals",
+        "2022 - Stephane Saindon - Winter | 15 Goals",
+        "2019 - David Corasaniti - Winter | 10 Goals",
+        "2018 - Dylan Brennan - Winter | 14 Goals",
+        "2017 - Ben Sherritt - Winter | 27 Goals",
+        "2017 - Ben Sherritt - Summer | 22 Goals",
+        "2016 - Ben Sherritt - Winter | 21 Goals",
+        "2016 - Cameron Buchanan - Summer | 12 Goals",
+        "2015 - Mark Pastore - Winter | 16 Goals",
+        "2015 - Mark Pastore - Summer | 16 Goals",
+        "2014 - Mark Pastore - Winter | 12 Goals",
+        "2014 - Ben Sherritt - Summer | 16 Goals",
+        "2013 - Ben Sherritt - Winter | 36 Goals",
+        "2013 - Mark Pastore - Summer | 12 Goals"
       ]
     },
     {
       "section": "Brave H.C. Awards & Honors",
-      "category": "Art Ross Award - Summer",
+      "category": "Art Ross Award",
       "period": "",
       "items": [
-        "2017 - Ben Sherritt - 22G, 10A, 32PTS, 2PIM",
-        "2016 - Mark Pastore - 10G, 13A, 23PTS, 0PIM",
-        "2015 - Mark Pastore - 16G, 9A, 25PTS, 0PIM",
-        "2014 - Ben Sherritt - 16G, 9A, 25PTS, 0PIM",
-        "2013 - Mark Pastore - 12G, 5A, 17PTS"
+        "2025 - Stephane Saindon - Winter | 19G, 16A, 35PTS, 0PIM",
+        "2024 - Stephane Saindon - Winter | 8G, 17A, 25PTS, 4PIM",
+        "2023 - Justin Carosi - Winter | 10G, 20A, 30PTS, 4PIM",
+        "2022 - Justin Carosi - Winter | 14G, 18A, 32PTS, 2PIM",
+        "2019 - David Corasaniti - Winter | 10G, 20A, 30PTS, 2PIM",
+        "2018 - Dylan Brennan - Winter | 14G, 22A, 36PTS, 8PIM",
+        "2017 - Ben Sherritt - Winter | 27G, 14A, 41PTS, 8PIM",
+        "2017 - Ben Sherritt - Summer | 22G, 10A, 32PTS, 2PIM",
+        "2016 - Ben Sherritt - Winter | 21G, 10A, 31PTS, 4PIM",
+        "2016 - Mark Pastore - Summer | 10G, 13A, 23PTS, 0PIM",
+        "2015 - Mark Pastore - Winter | 16G, 16A, 32PTS, 6PIM",
+        "2015 - Mark Pastore - Summer | 16G, 9A, 25PTS, 0PIM",
+        "2014 - Mark Pastore - Winter | 12G, 8A, 20PTS, 2PIM",
+        "2014 - Ben Sherritt - Summer | 16G, 9A, 25PTS, 0PIM",
+        "2013 - Ben Sherritt - Winter | 36G, 10A, 46PTS, 4PIM",
+        "2013 - Mark Pastore - Summer | 12G, 5A, 17PTS"
       ]
     },
     {
       "section": "Brave H.C. Awards & Honors",
-      "category": "Hart Award - Summer Team MVP",
+      "category": "Hart Award",
       "period": "",
       "items": [
-        "2017 - Ben Sherritt - 26G, 11A, 37PTS, 4PIM",
-        "2016 - Cameron Buchanan - 16G, 13A, 29PTS, 0PIM",
-        "2015 - Mark Pastore - 22G, 12A, 34PTS, 0PIM",
-        "2014 - Ben Sherritt - 17G, 10A, 27PTS, 0PIM",
-        "2013 - Mark Pastore - 12G, 5A, 17PTS, 0PIM"
+        "2025 - Justin Carosi - Winter | 15G,12A, 27PTS, 2PIM",
+        "2024 - Justin Carosi - Winter | 13G, 12A, 25PTS, 2PIM",
+        "2023 - Justin Carosi - Winter | 13G, 20A, 33PTS, 6PIM",
+        "2022 - Justin Carosi - Winter | 14G, 20A, 34PTS, 2PIM",
+        "2019 - David Corasaniti - Winter | 12G, 22A, 34PTS, 2PIM",
+        "2018 - Dylan Brennan - Winter | 15G, 23A, 38PTS, 8PIM",
+        "2017 - Ben Sherritt - Winter | 30G, 16A, 46PTS, 10PIM",
+        "2017 - Ben Sherritt - Summer | 26G, 11A, 37PTS, 4PIM",
+        "2016 - Ben Sherritt - Winter | 25G, 12A, 37PTS, 4PIM",
+        "2016 - Cameron Buchanan - Summer | 16G, 13A, 29PTS, 0PIM",
+        "2015 - Mark Pastore - Winter | 24G, 17A, 41PTS, 6PIM",
+        "2015 - Mark Pastore - Summer | 22G, 12A, 34PTS, 0PIM",
+        "2014 - Mark Pastore - Winter | 19G, 9A, 28PTS, 2PIM",
+        "2014 - Ben Sherritt - Summer | 17G, 10A, 27PTS, 0PIM",
+        "2013 - Ben Sherritt - Winter | 40G, 11A, 51PTS, 6PIM",
+        "2013 - Mark Pastore - Summer | 12G, 5A, 17PTS, 0PIM"
       ]
     },
     {
       "section": "Brave H.C. Awards & Honors",
-      "category": "Conn Smythe Award Playoff MVP - Summer",
+      "category": "Conn Smythe Award Playoff MVP",
       "period": "",
       "items": [
-        "2017 - Cameron Buchanan - 3G, 3A, 6PTS, 0PIM",
-        "2016 - Cameron Buchanan - 4G, 4A, 8PTS, 0PIM",
-        "2015 - Mark Pastore - 6G, 3A, 9PTS, 0PIM",
-        "2014 - Ryan Logue - 1G, 1A, 2PTS, 0PIM",
-        "2013 - Cameron Buchanan - No Record"
+        "2025 - Stephane Saindon - Winter | 1G, 3A, 4PTS, 0PIM",
+        "2024 - Mark Arruda - Winter | 0G, 0A, 0PTS, 2PIM",
+        "2023 - Stephane Saindon - Winter | 2G, 2A, 4PTS, 0PIM",
+        "2022 - Stephane Saindon - Winter | 1G, 0A, 1PTS, 0PIM",
+        "2019 - David Corasaniti - Winter | 2G, 2A, 4PTS, 0PIM",
+        "2018 - Justin Carosi - Winter | 2G, 2A, 4PTS, 0PIM",
+        "2017 - Ben Sherritt - Winter | 3G, 2A, 5PTS, 2PIM",
+        "2017 - Cameron Buchanan - Summer | 3G, 3A, 6PTS, 0PIM",
+        "2016 - Ben Sherritt - Winter | 4G, 2A, 6PTS, 0PIM",
+        "2016 - Cameron Buchanan - Summer | 4G, 4A, 8PTS, 0PIM",
+        "2015 - Stephen Logue - Winter | 4-1-1, 1.67GAA, 2SHO",
+        "2015 - Mark Pastore - Summer | 6G, 3A, 9PTS, 0PIM",
+        "2014 - Mark Pastore - Winter | 7G, 1A, 8PTS, 6PIM",
+        "2014 - Ryan Logue - Summer | 1G, 1A, 2PTS, 0PIM",
+        "2013 - Stephen Logue - Winter | 2-2-2, 1.33GAA, 1SHO",
+        "2013 - Cameron Buchanan - Summer | No Record"
       ]
     },
     {
       "section": "Brave H.C. Awards & Honors",
-      "category": "James Norris Trophy - Summer",
+      "category": "James Norris Trophy",
       "period": "",
       "items": [
-        "2017 - Lorcan Duffy - 2G, 11A, 13PTS, 4PIM",
-        "2016 - Alex Pagnotta - 6G, 4A, 10PTS, 4PIM",
-        "2015 - Alex Pagnotta - 2G, 2A, 4PTS, 2PIM",
-        "2014 - Adam Brutto - 0G, 7A, 7PTS, 10PIM",
-        "2013 - Damian Aidemirski - 2G, 3A, 5PTS, 0PIM"
+        "2025 - Mark Arruda - Winter | 6G, 10A, 16PTS, 2PIM",
+        "2024 - Alex Pagnotta - Winter | 1G, 9A, 10PTS, 8PIM",
+        "2023 - Mark Arruda - Winter | 7G, 10A, 17PTS, 0PIM",
+        "2022 - Mark Arruda - Winter | 5G, 5A, 10PTS, 6PIM",
+        "2019 - Alex Pagnotta - Winter | 3G, 9A, 12PTS, 8PIM",
+        "2018 - Andrew Buchanan - Winter | 1G, 5A, 6PTS, 6PIM",
+        "2017 - Andrew Buchanan - Winter | 1G, 5A, 6PTS, 12PIM",
+        "2017 - Lorcan Duffy - Summer | 2G, 11A, 13PTS, 4PIM",
+        "2016 - Alex Pagnotta - Winter | 4G, 10A, 14PTS, 16PIM",
+        "2016 - Alex Pagnotta - Summer | 6G, 4A, 10PTS, 4PIM",
+        "2015 - Damian Aidemirski - Winter | 9G, 9A, 18PTS, 0PIM",
+        "2015 - Alex Pagnotta - Summer | 2G, 2A, 4PTS, 2PIM",
+        "2014 - Alex Pagnotta - Winter | 0G, 9A, 9PTS, 18PIM",
+        "2014 - Adam Brutto - Summer | 0G, 7A, 7PTS, 10PIM",
+        "2013 - Damian Aidemirski - Winter | 9G, 15A, 24PTS, 8PIM",
+        "2013 - Damian Aidemirski - Summer | 2G, 3A, 5PTS, 0PIM"
       ]
     },
     {
       "section": "Brave H.C. Awards & Honors",
-      "category": "Most Improved Player - Summer",
+      "category": "Most Improved Player",
       "period": "",
       "items": [
-        "2017 - Andrew Buchanan - 0G, 2A, 2PTS, 12PIM",
-        "2016 - Keith Pearsoll - 9G, 17A, 26PTS, 2PIM",
-        "2015 - Stefano Ardizzi - 4G, 6A, 10PTS, 17PIM",
-        "2014 - Stefano Ardizzi - 5G, 7A, 12PTS, 4PIM",
-        "2013 - Anthony Paolucci - 3G, 1A, 4PTS, 0PIM"
+        "2025 - Mario Provenzano - Winter | 5G, 8A, 13PTS, 0PIM",
+        "2024 - Medi Brancatella - Winter | 2G, 7A, 9PTS, 4PIM",
+        "2023 - Andrew Cristillo - Winter | 3G, 6A, 9PTS, 0PIM",
+        "2022 - Krishnan Rajasooriar - Winter | 3G, 5A, 8PTS, 4PIM",
+        "2019 - Daniel Buzzelli - Winter | 2G, 11A, 13PTS, 2PIM",
+        "2018 - Lucas Brutto - Winter | 3G, 10A, 13PTS, 2PIM",
+        "2017 - Keith Pearsoll - Winter | 12G, 15A, 27PTS, 8PIM",
+        "2017 - Andrew Buchanan - Summer | 0G, 2A, 2PTS, 12PIM",
+        "2016 - Marco Congiusti - Winter | 1G, 5A, 6PTS, 2PIM",
+        "2016 - Keith Pearsoll - Summer | 9G, 17A, 26PTS, 2PIM",
+        "2015 - Anthony Paolucci - Winter | 2G, 4A, 6PTS, 6PIM",
+        "2015 - Stefano Ardizzi - Summer | 4G, 6A, 10PTS, 17PIM",
+        "2014 - Stefano Ardizzi - Winter | 3G, 5A, 8PTS, 6PIM",
+        "2014 - Stefano Ardizzi - Summer | 5G, 7A, 12PTS, 4PIM",
+        "2013 - Stefano Ardizzi - Winter | 5G, 10A, 15PTS, 2PIM",
+        "2013 - Anthony Paolucci - Summer | 3G, 1A, 4PTS, 0PIM"
       ]
     },
     {
       "section": "Brave H.C. Awards & Honors",
-      "category": "Lady Byng Award for Sportsmanship - Summer",
+      "category": "Lady Byng Award for Sportsmanship",
       "period": "",
       "items": [
-        "2017 - Michael Congiusti - 3G, 2A, 5PTS, 0PIM",
-        "2016 - Keith Pearsoll - 9G, 17A, 26PTS, 2PIM",
-        "2015 - Keith Pearsoll - 7G, 7A, 14PTS, 2PIM",
-        "2014 - Michael Congiusti - 0G, 1A, 1PTS, 0PIM",
-        "2013 - Keith Pearsoll - 8G, 7A, 15PTS, 0PIM"
+        "2025 - Keith Pearsoll - Winter | 9G, 12A, 21PTS, 0PIM",
+        "2024 - Mark Arruda - Winter | 5G, 10A, 15PTS, 4PIM",
+        "2023 - Keith Pearsoll - Winter | 4G, 7A, 11PTS, 2PIM",
+        "2022 - Kourosh Adeli - Winter | 0G, 4A, 4PTS, 0PIM",
+        "2019 - Cameron Buchanan - Winter | 9G, 9A, 18PTS, 0PIM",
+        "2018 - Mario Provenzano - Winter | 2G, 8A, 10PTS, 0PIM",
+        "2017 - Michael Congiusti - Winter | 0G, 4A, 4PTS, 0PIM",
+        "2017 - Michael Congiusti - Summer | 3G, 2A, 5PTS, 0PIM",
+        "2016 - Michael Congiusti - Winter | 1G, 2A, 3PTS, 0PIM",
+        "2016 - Keith Pearsoll - Summer | 9G, 17A, 26PTS, 2PIM",
+        "2015 - Michael Congiusti - Winter | 1G, 3A, 4PTS, 2PIM",
+        "2015 - Keith Pearsoll - Summer | 7G, 7A, 14PTS, 2PIM",
+        "2014 - Marco Congiusti - Winter | 1G, 3A, 4PTS, 12PIM",
+        "2014 - Michael Congiusti - Summer | 0G, 1A, 1PTS, 0PIM",
+        "2013 - Michael Congiusti - Winter | 2G, 11A, 13PTS, 0PIM",
+        "2013 - Keith Pearsoll - Summer | 8G, 7A, 15PTS, 0PIM"
       ]
     },
     {
       "section": "Brave H.C. Awards & Honors",
-      "category": "Andrew Cristillo Award for Dedication - Summer",
+      "category": "Andrew Cristillo Award for Dedication",
       "period": "",
       "items": [
-        "2017 - Adam Brutto - 1G, 9A, 10PTS, 0PIM",
-        "2016 - Anthony Paolucci - 1G, 7A, 8PTS, 4PIM / 0-2-0, 10.00 GAA"
+        "2025 - Justin Carosi - Winter | 15G, 12A, 27PTS, 2PIM",
+        "2024 - Adam Brutto - Winter | 0G, 9A, 9PTS, 2PIM",
+        "2023 - Justin Carosi - Winter | 13G, 20A, 33PTS, 6PIM",
+        "2022 - Alex Pagnotta - Winter | 1G, 11A, 12PTS, 8PIM",
+        "2019 - Justin Carosi - Winter | 9G, 17A, 26PTS, 0PIM",
+        "2018 - Andrew Cristillo - Winter | 1G, 3A, 4PTS, 2PIM",
+        "2017 - Adam Brutto - Winter | 3G, 12A, 15PTS, 2PIM",
+        "2017 - Adam Brutto - Summer | 1G, 9A, 10PTS, 0PIM",
+        "2016 - Cameron Buchanan - Winter | 11G, 8A, 19PTS, 2PIM",
+        "2016 - Anthony Paolucci - Summer | 1G, 7A, 8PTS, 4PIM / 0-2-0, 10.00 GAA",
+        "2015 - Anthony Guerra - Winter | 0G, 3A, 3PTS, 4PIM"
       ]
     },
     {
       "section": "Brave H.C. Awards & Honors",
-      "category": "Rookie of the Year - Summer",
+      "category": "Rookie of the Year",
       "period": "",
       "items": [
-        "2017 - Xav O'Krafka - 16G, 17A, 33PTS, 22PIM",
-        "2016 - No Rookies",
-        "2015 - Anthony Paolucci - 3G, 8A, 11PTS, 14PIM",
-        "2014 - Justin Carosi - 4G, 8A, 12PTS, 0PIM",
-        "2013 - Luke Leddy - 1G, 3A, 4PTS, 0PIM"
+        "2025 - No Rookies - Winter",
+        "2024 - Michael Provenzano - Winter | 12G, 5A, 17PTS, 6PIM",
+        "2023 - Mark Arruda - Winter | 7G, 10A, 17PTS, 0PIM",
+        "2022 - Stephane Saindon - Winter | 16G, 12A, 28PTS, 6PIM",
+        "2019 - David Corasaniti - Winter | 12G, 22A, 34PTS, 2PIM",
+        "2018 - Andrew Cristillo - Winter | 1G, 3A, 4PTS, 2PIM",
+        "2017 - Lorcan Duffy - Winter | 4G, 8A, 12PTS, 2PIM",
+        "2017 - Xav O'Krafka - Summer | 16G, 17A, 33PTS, 22PIM",
+        "2016 - Stephen Keane - Winter | 20G, 11A, 31PTS, 14PIM",
+        "2016 - No Rookies - Summer",
+        "2015 - Carmine Cerrone - Winter | 5G, 6A, 11PTS, 6PIM",
+        "2015 - Anthony Paolucci - Summer | 3G, 8A, 11PTS, 14PIM",
+        "2014 - Justin Carosi - Winter | 10G, 12A, 22PTS, 2PIM",
+        "2014 - Justin Carosi - Summer | 4G, 8A, 12PTS, 0PIM",
+        "2013 - Ben Sherritt - Winter | 40G, 11A, 51PTS, 6PIM",
+        "2013 - Luke Leddy - Summer | 1G, 3A, 4PTS, 0PIM"
       ]
     },
     {
       "section": "Brave H.C. Awards & Honors",
-      "category": "Maurice 'Rocket' Richard Trophy - Winter",
+      "category": "Rolaids Relief Man Award",
       "period": "",
       "items": [
-        "2025 - Stephane Saindon - 19 Goals",
-        "2024 - Justin Carosi & Michael Provenzano - 12 Goals",
-        "2023 - Stephane Saindon - 16 Goals",
-        "2022 - Stephane Saindon - 15 Goals",
-        "2019 - David Corasaniti - 10 Goals",
-        "2018 - Dylan Brennan - 14 Goals",
-        "2017 - Ben Sherritt - 27 Goals",
-        "2016 - Ben Sherritt - 21 Goals",
-        "2015 - Mark Pastore - 16 Goals",
-        "2014 - Mark Pastore - 12 Goals",
-        "2013 - Ben Sherritt - 36 Goals"
+        "2025 - Adam Kober - Winter | 1G, 5A, 6PTS, 4PIM",
+        "2024 - Stefano Mazzei - Winter | 6G, 2A, 8PTS, 4PIM"
       ]
     },
     {
       "section": "Brave H.C. Awards & Honors",
-      "category": "Art Ross Award - Winter",
+      "category": "5 Shutout Club",
       "period": "",
       "items": [
-        "2025 - Stephane Saindon - 19G, 16A, 35PTS, 0PIM",
-        "2024 - Stephane Saindon - 8G, 17A, 25PTS, 4PIM",
-        "2023 - Justin Carosi - 10G, 20A, 30PTS, 4PIM",
-        "2022 - Justin Carosi - 14G, 18A, 32PTS, 2PIM",
-        "2019 - David Corasaniti - 10G, 20A, 30PTS, 2PIM",
-        "2018 - Dylan Brennan - 14G, 22A, 36PTS, 8PIM",
-        "2017 - Ben Sherritt - 27G, 14A, 41PTS, 8PIM",
-        "2016 - Ben Sherritt - 21G, 10A, 31PTS, 4PIM",
-        "2015 - Mark Pastore - 16G, 16A, 32PTS, 6PIM",
-        "2014 - Mark Pastore - 12G, 8A, 20PTS, 2PIM",
-        "2013 - Ben Sherritt - 36G, 10A, 46PTS, 4PIM"
+        "2016 - Stephen Logue - Earned April 17, 2016"
       ]
     },
     {
       "section": "Brave H.C. Awards & Honors",
-      "category": "Hart Award - Winter Team MVP",
+      "category": "10 Shutout Club",
       "period": "",
       "items": [
-        "2025 - Justin Carosi - 15G,12A, 27PTS, 2PIM",
-        "2024 - Justin Carosi - 13G, 12A, 25PTS, 2PIM",
-        "2023 - Justin Carosi - 13G, 20A, 33PTS, 6PIM",
-        "2022 - Justin Carosi - 14G, 20A, 34PTS, 2PIM",
-        "2019 - David Corasaniti - 12G, 22A, 34PTS, 2PIM",
-        "2018 - Dylan Brennan - 15G, 23A, 38PTS, 8PIM",
-        "2017 - Ben Sherritt - 30G, 16A, 46PTS, 10PIM",
-        "2016 - Ben Sherritt - 25G, 12A, 37PTS, 4PIM",
-        "2015 - Mark Pastore - 24G, 17A, 41PTS, 6PIM",
-        "2014 - Mark Pastore - 19G, 9A, 28PTS, 2PIM",
-        "2013 - Ben Sherritt - 40G, 11A, 51PTS, 6PIM"
+        "2017 - Stephen Logue - Earned March 5, 2017"
       ]
     },
     {
       "section": "Brave H.C. Awards & Honors",
-      "category": "Conn Smythe Award Playoff MVP - Winter",
+      "category": "10 POTG Club",
       "period": "",
       "items": [
-        "2025 - Stephane Saindon - 1G, 3A, 4PTS, 0PIM",
-        "2024 - Mark Arruda - 0G, 0A, 0PTS, 2PIM",
-        "2023 - Stephane Saindon - 2G, 2A, 4PTS, 0PIM",
-        "2022 - Stephane Saindon - 1G, 0A, 1PTS, 0PIM",
-        "2019 - David Corasaniti - 2G, 2A, 4PTS, 0PIM",
-        "2018 - Justin Carosi - 2G, 2A, 4PTS, 0PIM",
-        "2017 - Ben Sherritt - 3G, 2A, 5PTS, 2PIM",
-        "2016 - Ben Sherritt - 4G, 2A, 6PTS, 0PIM",
-        "2015 - Stephen Logue - 4-1-1, 1.67GAA, 2SHO",
-        "2014 - Mark Pastore - 7G, 1A, 8PTS, 6PIM",
-        "2013 - Stephen Logue - 2-2-2, 1.33GAA, 1SHO"
+        "2026 - Michael Provenzano - Earned January 11, 2026",
+        "2025 - Ryan Finlay - Earned December 7, 2025",
+        "2025 - Mark Arruda - Earned March 9, 2025",
+        "2024 - Stephane Saindon - Earned February 18, 2024",
+        "2019 - Mario Provenzano - Earned November 24, 2019"
       ]
     },
     {
       "section": "Brave H.C. Awards & Honors",
-      "category": "James Norris Trophy - Winter",
+      "category": "25 Goal Club",
       "period": "",
       "items": [
-        "2025 - Mark Arruda - 6G, 10A, 16PTS, 2PIM",
-        "2024 - Alex Pagnotta - 1G, 9A, 10PTS, 8PIM",
-        "2023 - Mark Arruda - 7G, 10A, 17PTS, 0PIM",
-        "2022 - Mark Arruda - 5G, 5A, 10PTS, 6PIM",
-        "2019 - Alex Pagnotta - 3G, 9A, 12PTS, 8PIM",
-        "2018 - Andrew Buchanan - 1G, 5A, 6PTS, 6PIM",
-        "2017 - Andrew Buchanan - 1G, 5A, 6PTS, 12PIM",
-        "2016 - Alex Pagnotta - 4G, 10A, 14PTS, 16PIM",
-        "2015 - Damian Aidemirski - 9G, 9A, 18PTS, 0PIM",
-        "2014 - Alex Pagnotta - 0G, 9A, 9PTS, 18PIM",
-        "2013 - Damian Aidemirski - 9G, 15A, 24PTS, 8PIM"
+        "2026 - Michael Provenzano - Earned March 22, 2026",
+        "2025 - Mark Arruda - Earned December 7, 2025",
+        "2024 - Ryan Finlay - Earned November 17, 2024",
+        "2024 - Stephane Saindon - Earned February 18, 2024",
+        "2020 - Mario Provenzano - Earned February 23, 2020",
+        "2019 - Adam Brutto - Earned December 1, 2019",
+        "2018 - Stephen Keane - Earned March 11, 2018",
+        "2017 - Xav O'Krafka - Earned November 19, 2017",
+        "2017 - Dylan Brennan - Earned November 19, 2017",
+        "2017 - Alex Pagnotta - Earned April 9, 2017",
+        "2016 - Stefano Ardizzi - Earned November 13, 2016",
+        "2015 - Damian Aidemirski - Earned May 31, 2015",
+        "2015 - Justin Carosi - Earned January 4, 2015",
+        "2014 - Keith Pearsoll - Earned June 1, 2014",
+        "2014 - Ben Sherritt - Earned January 12, 2014",
+        "2013 - Ryan Logue - Earned June 23, 2013",
+        "2013 - Cameron Buchanan - Earned June 23, 2013",
+        "2013 - Mark Pastore - Earned March 17, 2013"
       ]
     },
     {
       "section": "Brave H.C. Awards & Honors",
-      "category": "Most Improved Player - Winter",
+      "category": "25 Assist Club",
       "period": "",
       "items": [
-        "2025 - Mario Provenzano - 5G, 8A, 13PTS, 0PIM",
-        "2024 - Medi Brancatella - 2G, 7A, 9PTS, 4PIM",
-        "2023 - Andrew Cristillo - 3G, 6A, 9PTS, 0PIM",
-        "2022 - Krishnan Rajasooriar - 3G, 5A, 8PTS, 4PIM",
-        "2019 - Daniel Buzzelli - 2G, 11A, 13PTS, 2PIM",
-        "2018 - Lucas Brutto - 3G, 10A, 13PTS, 2PIM",
-        "2017 - Keith Pearsoll - 12G, 15A, 27PTS, 8PIM",
-        "2016 - Marco Congiusti - 1G, 5A, 6PTS, 2PIM",
-        "2015 - Anthony Paolucci - 2G, 4A, 6PTS, 6PIM",
-        "2014 - Stefano Ardizzi - 3G, 5A, 8PTS, 6PIM",
-        "2013 - Stefano Ardizzi - 5G, 10A, 15PTS, 2PIM"
+        "2026 - Michael Provenzano - Earned September 27, 2026",
+        "2026 - Ryan Finlay - Earned February 22, 2026",
+        "2024 - Neil Baghel - Earned December 15, 2024",
+        "2024 - Mark Arruda - Earned November 24, 2024",
+        "2024 - Stephane Saindon - Earned September 22, 2024",
+        "2020 - David Corasaniti - Earned February 16, 2020",
+        "2020 - Daniel Buzzelli - Earned January 26, 2020",
+        "2019 - Lorcan Duffy - Earned February 10, 2019",
+        "2018 - Lucas Brutto - Earned December 2, 2018",
+        "2017 - Xav O'Krafka - Earned November 19, 2017",
+        "2017 - Dylan Brennan - Earned March 5, 2017",
+        "2016 - Mario Provenzano - Earned November 13, 2016",
+        "2016 - Ben Sherritt - Earned July 24, 2016",
+        "2016 - Anthony Paolucci - Earned July 10, 2016",
+        "2015 - Michael Congiusti - Earned November 8, 2015",
+        "2015 - Julian Kercz - Earned November 1, 2015",
+        "2015 - Stefano Ardizzi - Earned July 5, 2015",
+        "2015 - Alex Pagnotta - Earned June 21, 2015",
+        "2015 - Marco Congiusti - Earned February 22, 2015",
+        "2014 - Justin Carosi - Earned November 9, 2014",
+        "2014 - Cameron Buchanan - Earned June 22, 2014",
+        "2014 - Ryan Logue - Earned March 9, 2014",
+        "2014 - Keith Pearsoll - Earned March 2, 2014",
+        "2013 - Mark Pastore - Earned December 15, 2013",
+        "2013 - Damian Aidemirski - Earned December 1, 2013",
+        "2013 - Adam Brutto - Earned November 10, 2013"
       ]
     },
     {
       "section": "Brave H.C. Awards & Honors",
-      "category": "Lady Byng Award for Sportsmanship - Winter",
+      "category": "25 POTG Club",
       "period": "",
       "items": [
-        "2025 - Keith Pearsoll - 9G, 12A, 21PTS, 0PIM",
-        "2024 - Mark Arruda - 5G, 10A, 15PTS, 4PIM",
-        "2023 - Keith Pearsoll - 4G, 7A, 11PTS, 2PIM",
-        "2022 - Kourosh Adeli - 0G, 4A, 4PTS, 0PIM",
-        "2019 - Cameron Buchanan - 9G, 9A, 18PTS, 0PIM",
-        "2018 - Mario Provenzano - 2G, 8A, 10PTS, 0PIM",
-        "2017 - Michael Congiusti - 0G, 4A, 4PTS, 0PIM",
-        "2016 - Michael Congiusti - 1G, 2A, 3PTS, 0PIM",
-        "2015 - Michael Congiusti - 1G, 3A, 4PTS, 2PIM",
-        "2014 - Marco Congiusti - 1G, 3A, 4PTS, 12PIM",
-        "2013 - Michael Congiusti - 2G, 11A, 13PTS, 0PIM"
+        "2025 - Stephane Saindon - Earned December 14, 2025",
+        "2019 - Keith Pearsoll - Earned September 29, 2019",
+        "2016 - Ben Sherritt - Earned August 14, 2016",
+        "2016 - Cameron Buchanan - Earned July 10, 2016",
+        "2016 - Justin Carosi - Earned May 15, 2016",
+        "2015 - Ryan Logue - Earned May 24, 2015",
+        "2014 - Stephen Logue - Earned November 2, 2014",
+        "2014 - Mark Pastore - Earned September 28, 2014"
       ]
     },
     {
       "section": "Brave H.C. Awards & Honors",
-      "category": "Andrew Cristillo Award for Dedication - Winter",
+      "category": "50 Win Club",
       "period": "",
       "items": [
-        "2025 - Justin Carosi - 15G, 12A, 27PTS, 2PIM",
-        "2024 - Adam Brutto - 0G, 9A, 9PTS, 2PIM",
-        "2023 - Justin Carosi - 13G, 20A, 33PTS, 6PIM",
-        "2022 - Alex Pagnotta - 1G, 11A, 12PTS, 8PIM",
-        "2019 - Justin Carosi - 9G, 17A, 26PTS, 0PIM",
-        "2018 - Andrew Cristillo - 1G, 3A, 4PTS, 2PIM",
-        "2017 - Adam Brutto - 3G, 12A, 15PTS, 2PIM",
-        "2016 - Cameron Buchanan - 11G, 8A, 19PTS, 2PIM",
-        "2015 - Anthony Guerra - 0G, 3A, 3PTS, 4PIM"
+        "2016 - Stephen Logue - Earned April 17, 2016"
       ]
     },
     {
       "section": "Brave H.C. Awards & Honors",
-      "category": "Rookie of the Year - Winter",
+      "category": "50 Game Club",
       "period": "",
       "items": [
-        "2025 - No Rookies",
-        "2024 - Michael Provenzano - 12G, 5A, 17PTS, 6PIM",
-        "2023 - Mark Arruda - 7G, 10A, 17PTS, 0PIM",
-        "2022 - Stephane Saindon - 16G, 12A, 28PTS, 6PIM",
-        "2019 - David Corasaniti - 12G, 22A, 34PTS, 2PIM",
-        "2018 - Andrew Cristillo - 1G, 3A, 4PTS, 2PIM",
-        "2017 - Lorcan Duffy - 4G, 8A, 12PTS, 2PIM",
-        "2016 - Stephen Keane - 20G, 11A, 31PTS, 14PIM",
-        "2015 - Carmine Cerrone - 5G, 6A, 11PTS, 6PIM",
-        "2014 - Justin Carosi - 10G, 12A, 22PTS, 2PIM",
-        "2013 - Ben Sherritt - 40G, 11A, 51PTS, 6PIM"
+        "2026 - Adam Kober - Earned November 8, 2026",
+        "2026 - Krishnan Rajasooriar - Earned January 4, 2026",
+        "2024 - Stefano Mazzei - Earned December 22, 2024",
+        "2024 - Ryan Finlay - Earned December 15, 2024",
+        "2024 - Stephane Saindon - Earned November 3, 2024",
+        "2024 - Mark Arruda - Earned March 10, 2024",
+        "2023 - Andrew Cristillo - Earned December 10, 2023",
+        "2019 - Lorcan Duffy - Earned April 14, 2019",
+        "2019 - Andrew Buchanan - Earned February 10, 2019",
+        "2018 - Dylan Brennan - Earned January 23, 2018",
+        "2016 - Ben Sherritt - Earned November 20, 2016",
+        "2016 - Anthony Guerra - Earned July 17, 2016",
+        "2015 - Julian Kercz - Earned December 20, 2015",
+        "2015 - Anthony Paolucci - Earned November 15, 2015",
+        "2015 - Neil Baghel - Earned September 27, 2015",
+        "2015 - Lucas Brutto - Earned May 24, 2015",
+        "2015 - Stefano Ardizzi - Earned March 22, 2015",
+        "2014 - Justin Carosi - Earned December 7, 2014",
+        "2014 - Mario Provenzano - Earned November 9, 2014",
+        "2014 - Alex Pagnotta - Earned August 17, 2014",
+        "2014 - Daniel Buzzelli - Earned April 13, 2014",
+        "2014 - Mark Pastore - Earned February 9, 2014",
+        "2014 - Ryan Logue - Earned January 12, 2014",
+        "2013 - Damian Aidemirski - Earned December 29, 2013",
+        "2013 - Cameron Buchanan - Earned December 29, 2013",
+        "2013 - Michael Congiusti - Earned December 15, 2013",
+        "2013 - Stephen Logue - Earned October 20, 2013",
+        "2013 - Keith Pearsoll - Earned October 6, 2013",
+        "2013 - Marco Congiusti - Earned June 16, 2013",
+        "2013 - Adam Brutto - Earned May 26, 2013"
       ]
     },
     {
       "section": "Brave H.C. Awards & Honors",
-      "category": "Rolaids Relief Man Award - Winter",
+      "category": "50 Goal Club",
       "period": "",
       "items": [
-        "2025 - Adam Kober - 1G, 5A, 6PTS, 4PIM",
-        "2024 - Stefano Mazzei - 6G, 2A, 8PTS, 4PIM"
+        "2025 - Stephane Saindon - Earned November 30, 2025",
+        "2020 - Stefano Ardizzi - Earned March 1, 2020",
+        "2017 - Justin Carosi - Earned May 28, 2017",
+        "2017 - Keith Pearsoll - Earned April 9, 2017",
+        "2016 - Cameron Buchanan - Earned June 19, 2016",
+        "2016 - Ryan Logue - Earned January 3, 2016",
+        "2015 - Mark Pastore - Earned April 19, 2015",
+        "2014 - Ben Sherritt - Earned June 22, 2014"
+      ]
+    },
+    {
+      "section": "Brave H.C. Awards & Honors",
+      "category": "50 Assist Club",
+      "period": "",
+      "items": [
+        "2025 - Stephane Saindon - Earned November 30, 2025",
+        "2019 - Mario Provenzano - Earned December 8, 2019",
+        "2019 - Marco Congiusti - Earned October 6, 2019",
+        "2018 - Stefano Ardizzi - Earned December 9, 2018",
+        "2018 - Dylan Brennan - Earned September 16, 2018",
+        "2017 - Ben Sherritt - Earned August 20, 2017",
+        "2017 - Alex Pagnotta - Earned March 5, 2017",
+        "2016 - Julian Kercz - Earned November 13, 2016",
+        "2016 - Keith Pearsoll - Earned July 10, 2016",
+        "2016 - Cameron Buchanan - Earned May 29, 2016",
+        "2016 - Justin Carosi - Earned February 21, 2016",
+        "2016 - Damian Aidemirski - Earned February 21, 2016",
+        "2015 - Mark Pastore - Earned September 20, 2015",
+        "2015 - Adam Brutto - Earned August 9, 2015",
+        "2015 - Ryan Logue - Earned June 21, 2015"
+      ]
+    },
+    {
+      "section": "Brave H.C. Awards & Honors",
+      "category": "50 Point Club",
+      "period": "",
+      "items": [
+        "2026 - Michael Provenzano - Earned September 27, 2026",
+        "2025 - Ryan Finlay - Earned December 7, 2025",
+        "2025 - Mark Arruda - Earned March 9, 2025",
+        "2024 - Stephane Saindon - Earned March 10, 2024",
+        "2020 - Lorcan Duffy - Earned March 1, 2020",
+        "2019 - Marco Congiusti - Earned March 3, 2019",
+        "2018 - Mario Provenzano - Earned February 11, 2018",
+        "2017 - Xav O'Krafka - Earned November 19, 2017",
+        "2017 - Michael Congiusti - Earned November 12, 2017",
+        "2017 - Dylan Brennan - Earned August 27, 2017",
+        "2016 - Julian Kercz - Earned July 10, 2016",
+        "2016 - Alex Pagnotta - Earned May 15, 2016",
+        "2016 - Stefano Ardizzi - Earned February 21, 2016",
+        "2015 - Damian Aidemirski - Earned November 22, 2015",
+        "2015 - Adam Brutto - Earned July 26, 2015",
+        "2015 - Justin Carosi - Earned June 21, 2015",
+        "2015 - Keith Pearsoll - Earned May 24, 2015",
+        "2014 - Cameron Buchanan - Earned November 30, 2014",
+        "2014 - Ryan Logue - Earned June 22, 2014",
+        "2014 - Ben Sherritt - Earned April 13, 2014",
+        "2014 - Mark Pastore - Earned March 30, 2014"
+      ]
+    },
+    {
+      "section": "Brave H.C. Awards & Honors",
+      "category": "50 POTG Club",
+      "period": "",
+      "items": [
+        "2020 - Justin Carosi - Earned November 15, 2020",
+        "2020 - Ryan Logue - Earned March 8, 2020",
+        "2018 - Ben Sherritt - Earned January 28, 2018",
+        "2016 - Stephen Logue - Earned November 27, 2016",
+        "2016 - Mark Pastore - Earned March 13, 2016"
+      ]
+    },
+    {
+      "section": "Brave H.C. Awards & Honors",
+      "category": "75 POTG Club",
+      "period": "",
+      "items": [
+        "2025 - Justin Carosi - Earned September 21, 2025",
+        "2024 - Stephen Logue - Earned September 29, 2024"
+      ]
+    },
+    {
+      "section": "Brave H.C. Awards & Honors",
+      "category": "100 Win Club",
+      "period": "",
+      "items": [
+        "2020 - Stephen Logue - Earned March 1, 2020"
+      ]
+    },
+    {
+      "section": "Brave H.C. Awards & Honors",
+      "category": "100 Game Club",
+      "period": "",
+      "items": [
+        "2026 - Mark Arruda - Earned March 15, 2026",
+        "2020 - Lucas Brutto - Earned February 9, 2020",
+        "2019 - Daniel Buzzelli - Earned December 22, 2019",
+        "2018 - Ben Sherritt - Earned March 18, 2018",
+        "2017 - Stefano Ardizzi - Earned April 2, 2017",
+        "2016 - Mario Provenzano - Earned December 18, 2016",
+        "2016 - Justin Carosi - Earned April 3, 2016",
+        "2015 - Alex Pagnotta - Earned December 20, 2015",
+        "2015 - Michael Congiusti - Earned October 25, 2015",
+        "2015 - Mark Pastore - Earned May 10, 2015",
+        "2015 - Damian Aidemirski - Earned April 12, 2015",
+        "2015 - Ryan Logue - Earned March 22, 2015",
+        "2015 - Cameron Buchanan - Earned March 8, 2015",
+        "2015 - Keith Pearsoll - Earned February 8, 2015",
+        "2015 - Stephen Logue - Earned January 11, 2015",
+        "2014 - Marco Congiusti - Earned November 9, 2014",
+        "2014 - Adam Brutto - Earned October 5, 2014",
+        "2016 - Anthony Paolucci - Earned July 10, 2016"
+      ]
+    },
+    {
+      "section": "Brave H.C. Awards & Honors",
+      "category": "100 Goal Club",
+      "period": "",
+      "items": [
+        "2025 - Keith Pearsoll - Earned October 5, 2025",
+        "2022 - Justin Carosi - Earned November 20, 2022",
+        "2019 - Cameron Buchanan - Earned October 27, 2019",
+        "2018 - Ryan Logue - Earned September 16, 2018",
+        "2017 - Ben Sherritt - Earned June 11, 2017",
+        "2016 - Mark Pastore - Earned May 15, 2016"
+      ]
+    },
+    {
+      "section": "Brave H.C. Awards & Honors",
+      "category": "100 Assist Club",
+      "period": "",
+      "items": [
+        "2023 - Alex Pagnotta - Earned December 17, 2023",
+        "2019 - Keith Pearsoll - Earned December 22, 2019",
+        "2019 - Cameron Buchanan - Earned March 31, 2019",
+        "2018 - Adam Brutto - Earned April 8, 2018",
+        "2018 - Ryan Logue - Earned March 18, 2018",
+        "2017 - Justin Carosi - Earned June 25, 2017"
+      ]
+    },
+    {
+      "section": "Brave H.C. Awards & Honors",
+      "category": "100 Point Club",
+      "period": "",
+      "items": [
+        "2025 - Stephane Saindon - Earned November 30, 2025",
+        "2025 - Mario Provenzano - Earned November 16, 2025",
+        "2019 - Alex Pagnotta - Earned November 24, 2019",
+        "2019 - Damian Aidemirski - Earned November 24, 2019",
+        "2019 - Stefano Ardizzi - Earned March 10, 2019",
+        "2018 - Dylan Brennan - Earned December 30, 2018",
+        "2017 - Adam Brutto - Earned August 20, 2017",
+        "2016 - Ben Sherritt - Earned November 13, 2016",
+        "2016 - Keith Pearsoll - Earned August 14, 2016",
+        "2016 - Cameron Buchanan - Earned June 19, 2016",
+        "2016 - Justin Carosi - Earned May 15, 2016",
+        "2015 - Ryan Logue - Earned August 9, 2015",
+        "2015 - Mark Pastore - Earned June 7, 2015"
+      ]
+    },
+    {
+      "section": "Brave H.C. Awards & Honors",
+      "category": "150 Goal Club",
+      "period": "",
+      "items": [
+        "2025 - Justin Carosi - Earned October 19, 2025",
+        "2024 - Ryan Logue - Earned November 24, 2024"
+      ]
+    },
+    {
+      "section": "Brave H.C. Awards & Honors",
+      "category": "150 Assist Club",
+      "period": "",
+      "items": [
+        "2026 - Adam Brutto - Earned January 18, 2026",
+        "2025 - Ryan Logue - Earned March 9, 2025",
+        "2019 - Justin Carosi - Earned September 15, 2019"
+      ]
+    },
+    {
+      "section": "Brave H.C. Awards & Honors",
+      "category": "200 Game Club",
+      "period": "",
+      "items": [
+        "2024 - Mario Provenzano - Earned March 24, 2024",
+        "2024 - Stefano Ardizzi - Earned February 4, 2024",
+        "2019 - Justin Carosi - Earned April 14, 2019",
+        "2019 - Alex Pagnotta - Earned January 27, 2019",
+        "2018 - Stephen Logue - Earned April 15, 2018",
+        "2018 - Cameron Buchanan - Earned March 25, 2018",
+        "2018 - Ryan Logue - Earned January 28, 2018",
+        "2017 - Keith Pearsoll - Earned November 19, 2017",
+        "2017 - Marco Congiusti - Earned October 22, 2017",
+        "2017 - Adam Brutto - Earned July 16, 2017"
+      ]
+    },
+    {
+      "section": "Brave H.C. Awards & Honors",
+      "category": "200 Assist Club",
+      "period": "",
+      "items": [
+        "2024 - Justin Carosi - Earned November 10, 2024"
+      ]
+    },
+    {
+      "section": "Brave H.C. Awards & Honors",
+      "category": "200 Point Club",
+      "period": "",
+      "items": [
+        "2023 - Keith Pearsoll - Earned February 19, 2023",
+        "2019 - Cameron Buchanan - Earned October 20, 2019",
+        "2018 - Justin Carosi - Earned December 30, 2018",
+        "2018 - Ryan Logue - Earned September 16, 2018",
+        "2018 - Ben Sherritt - Earned February 25, 2018",
+        "2016 - Mark Pastore - Earned April 3, 2016"
+      ]
+    },
+    {
+      "section": "Brave H.C. Awards & Honors",
+      "category": "300 Game Club",
+      "period": "",
+      "items": [
+        "2025 - Ryan Logue - Earned November 23, 2025",
+        "2025 - Justin Carosi - Earned October 19, 2025",
+        "2025 - Alex Pagnotta - Earned September 28, 2025",
+        "2024 - Marco Congiusti - Earned November 17, 2024",
+        "2024 - Keith Pearsoll - Earned March 24, 2024",
+        "2023 - Adam Brutto - Earned January 22, 2023"
+      ]
+    },
+    {
+      "section": "Brave H.C. Awards & Honors",
+      "category": "300 Point Club",
+      "period": "",
+      "items": [
+        "2025 - Ryan Logue - Earned March 9, 2025",
+        "2024 - Justin Carosi - Earned January 14, 2024"
+      ]
+    },
+    {
+      "section": "Brave H.C. Awards & Honors",
+      "category": "400 Point Club",
+      "period": "",
+      "items": [
+        "2026 - Justin Carosi - Earned November 1, 2026"
+      ]
+    },
+    {
+      "section": "Brave H.C. Awards & Honors",
+      "category": "25 Win Club",
+      "period": "",
+      "items": [
+        "2013 - Stephen Logue - Earned November 10, 2013"
+      ]
+    },
+    {
+      "section": "Brave H.C. Awards & Honors",
+      "category": "75 Win Club",
+      "period": "",
+      "items": [
+        "2016 - Stephen Logue - Earned November 6, 2016"
       ]
     }
   ]

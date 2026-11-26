@@ -14,6 +14,7 @@ const embedded=params.get("embed")==="1";
 if(embedded)document.body.classList.add("embed-mode");
 const showState=(message,retry=false)=>{$("loadState").textContent=message;$("loadState").hidden=!message;$("retryLoad").hidden=!retry;};
 $("retryLoad").onclick=()=>location.reload();
+if(!window.BravePlayerLinks?.identityById){showState("Verified player registry unavailable. Please try again.",true);return;}
 if((requested&&(!/^\d+$/.test(requested)||String(Number(requested))!==requested||!suffix(requested)))||(embedded&&!requested)){
  $("playerName").textContent="Player not found";
  showState("This profile link does not identify a verified Brave H.C. player. Open the player's Bio from the official HTO roster.");
@@ -45,7 +46,7 @@ function validSeason(feed){
 let career,actuals,tenures,gameFeed=null,leadershipAvailable=false;
 try{
  const results=await Promise.allSettled([
- fetchJSON("player-career-insights.json"),fetchJSON("player-actuals.json"),fetchJSON("player-bio-leadership.json")]);
+ fetchJSON("player-career-insights.json"),fetchJSON("player-actuals-hourly.json"),fetchJSON("player-bio-leadership.json")]);
  career=results[0].status==="fulfilled"?results[0].value:null;
  if(career?.schema!=="brave-hc-player-career-insights/v1"||career.sourceAuthority!=="NATIVE_HTO_PROFILE_STATS_PUBLIC_READBACK"||!career.players)throw Error("Career source invalid");
  const entries=Object.entries(career.players);

@@ -4,14 +4,14 @@
   "source": "Official Brave H.C. HTO current-season player statistics",
   "sourceUrl": "https://www.htosports.com/teams/default.asp?p=stats&s=hockey&u=BRAVESHOCKEY",
   "season": "W2026/27",
-  "asOf": "2026-11-11T14:12:11.374Z",
-  "teamGP": 7,
-  "teamGF": 19,
-  "teamGA": 36,
-  "teamGoals": 19,
-  "teamAssists": 31,
-  "teamPlayerPoints": 50,
-  "playerCount": 22,
+  "asOf": "2026-11-26T14:50:46.172Z",
+  "teamGP": 9,
+  "teamGF": 25,
+  "teamGA": 44,
+  "teamGoals": 25,
+  "teamAssists": 42,
+  "teamPlayerPoints": 67,
+  "playerCount": 23,
   "players": [
     {
       "name": "Ardizzi, Stefano",
@@ -29,21 +29,28 @@
     },
     {
       "name": "Brutto, Adam",
-      "gp": 6,
+      "gp": 8,
       "g": 0,
-      "a": 1,
-      "pts": 1
+      "a": 3,
+      "pts": 3
+    },
+    {
+      "name": "Carosi, Aaron",
+      "gp": 1,
+      "g": 0,
+      "a": 0,
+      "pts": 0
     },
     {
       "name": "Carosi, Justin",
-      "gp": 7,
+      "gp": 9,
       "g": 4,
-      "a": 4,
-      "pts": 8
+      "a": 6,
+      "pts": 10
     },
     {
       "name": "Congiusti, Marco",
-      "gp": 2,
+      "gp": 3,
       "g": 0,
       "a": 2,
       "pts": 2
@@ -57,14 +64,14 @@
     },
     {
       "name": "Kober, Adam",
-      "gp": 6,
+      "gp": 7,
       "g": 1,
       "a": 2,
       "pts": 3
     },
     {
       "name": "Kong, Henry",
-      "gp": 7,
+      "gp": 8,
       "g": 1,
       "a": 1,
       "pts": 2
@@ -78,10 +85,10 @@
     },
     {
       "name": "Pagnotta, Alex",
-      "gp": 6,
+      "gp": 7,
       "g": 0,
-      "a": 6,
-      "pts": 6
+      "a": 7,
+      "pts": 7
     },
     {
       "name": "Paolucci, Anthony",
@@ -91,74 +98,74 @@
       "pts": 0
     },
     {
-      "name": "Pavaday, Damian",
-      "gp": 1,
+      "name": "Pavaday, Damien",
+      "gp": 3,
       "g": 0,
       "a": 1,
       "pts": 1
     },
     {
       "name": "Pearsoll, Keith",
-      "gp": 4,
-      "g": 1,
-      "a": 1,
-      "pts": 2
+      "gp": 5,
+      "g": 2,
+      "a": 2,
+      "pts": 4
     },
     {
       "name": "Povegliano, Adam",
-      "gp": 6,
+      "gp": 8,
       "g": 2,
-      "a": 0,
-      "pts": 2
+      "a": 1,
+      "pts": 3
     },
     {
       "name": "Provenzano, Mario",
-      "gp": 7,
+      "gp": 8,
       "g": 0,
       "a": 1,
       "pts": 1
     },
     {
       "name": "Provenzano, Michael",
-      "gp": 6,
-      "g": 2,
-      "a": 4,
-      "pts": 6
+      "gp": 8,
+      "g": 6,
+      "a": 5,
+      "pts": 11
     },
     {
       "name": "Rajasooriar, Krishnan",
-      "gp": 3,
+      "gp": 4,
       "g": 2,
       "a": 0,
       "pts": 2
     },
     {
       "name": "Rajkumar, Sanjay",
-      "gp": 6,
+      "gp": 8,
       "g": 0,
       "a": 1,
       "pts": 1
     },
     {
       "name": "Rosenberg, Jamie",
-      "gp": 6,
+      "gp": 8,
       "g": 2,
       "a": 2,
       "pts": 4
     },
     {
       "name": "Saindon, Stephane",
-      "gp": 6,
-      "g": 3,
-      "a": 3,
-      "pts": 6
+      "gp": 8,
+      "g": 4,
+      "a": 5,
+      "pts": 9
     },
     {
       "name": "Triumbari, Francesco",
-      "gp": 7,
+      "gp": 9,
       "g": 0,
-      "a": 2,
-      "pts": 2
+      "a": 3,
+      "pts": 3
     },
     {
       "name": "Unknown, Johnny",

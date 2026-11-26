@@ -1,0 +1,1487 @@
+{
+  "schema": "brave-hc-native-milestones/v1",
+  "sourceAuthority": "OFFICIAL_HTO_PUBLIC_READBACK",
+  "sourceURL": "https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&s=hockey&p=awards",
+  "capturedAt": "2026-11-26T14:51:57.179096+00:00",
+  "membershipCount": 218,
+  "players": {
+    "354041": {
+      "name": "Marco Congiusti",
+      "memberships": [
+        {
+          "category": "100 Game Club",
+          "date": "2014-11-09",
+          "nativeDateLabel": "November 9, 2014",
+          "tier": "Silver"
+        },
+        {
+          "category": "200 Game Club",
+          "date": "2017-10-22",
+          "nativeDateLabel": "October 22, 2017",
+          "tier": "Gold"
+        },
+        {
+          "category": "25 Assist Club",
+          "date": "2015-02-22",
+          "nativeDateLabel": "February 22, 2015",
+          "tier": "Bronze"
+        },
+        {
+          "category": "300 Game Club",
+          "date": "2024-11-17",
+          "nativeDateLabel": "November 17, 2024",
+          "tier": "Platinum"
+        },
+        {
+          "category": "50 Assist Club",
+          "date": "2019-10-06",
+          "nativeDateLabel": "October 6, 2019",
+          "tier": "Silver"
+        },
+        {
+          "category": "50 Game Club",
+          "date": "2013-06-16",
+          "nativeDateLabel": "June 16, 2013",
+          "tier": "Bronze"
+        },
+        {
+          "category": "50 Point Club",
+          "date": "2019-03-03",
+          "nativeDateLabel": "March 3, 2019",
+          "tier": "Bronze"
+        }
+      ]
+    },
+    "354042": {
+      "name": "Lucas Brutto",
+      "memberships": [
+        {
+          "category": "100 Game Club",
+          "date": "2020-02-09",
+          "nativeDateLabel": "February 9, 2020",
+          "tier": "Silver"
+        },
+        {
+          "category": "25 Assist Club",
+          "date": "2018-12-02",
+          "nativeDateLabel": "December 2, 2018",
+          "tier": "Bronze"
+        },
+        {
+          "category": "50 Game Club",
+          "date": "2015-05-24",
+          "nativeDateLabel": "May 24, 2015",
+          "tier": "Bronze"
+        }
+      ]
+    },
+    "354045": {
+      "name": "Mario Provenzano",
+      "memberships": [
+        {
+          "category": "10 POTG Club",
+          "date": "2019-11-24",
+          "nativeDateLabel": "November 24, 2019",
+          "tier": "unranked"
+        },
+        {
+          "category": "100 Game Club",
+          "date": "2016-12-18",
+          "nativeDateLabel": "December 18, 2016",
+          "tier": "Silver"
+        },
+        {
+          "category": "100 Point Club",
+          "date": "2025-11-16",
+          "nativeDateLabel": "November 16, 2025",
+          "tier": "Silver"
+        },
+        {
+          "category": "200 Game Club",
+          "date": "2024-03-24",
+          "nativeDateLabel": "March 24, 2024",
+          "tier": "Gold"
+        },
+        {
+          "category": "25 Assist Club",
+          "date": "2016-11-13",
+          "nativeDateLabel": "November 13, 2016",
+          "tier": "Bronze"
+        },
+        {
+          "category": "25 Goal Club",
+          "date": "2020-02-23",
+          "nativeDateLabel": "February 23, 2020",
+          "tier": "Bronze"
+        },
+        {
+          "category": "50 Assist Club",
+          "date": "2019-12-08",
+          "nativeDateLabel": "December 8, 2019",
+          "tier": "Silver"
+        },
+        {
+          "category": "50 Game Club",
+          "date": "2014-11-09",
+          "nativeDateLabel": "November 9, 2014",
+          "tier": "Bronze"
+        },
+        {
+          "category": "50 Point Club",
+          "date": "2018-02-11",
+          "nativeDateLabel": "February 11, 2018",
+          "tier": "Bronze"
+        }
+      ]
+    },
+    "354046": {
+      "name": "Ryan Logue",
+      "memberships": [
+        {
+          "category": "100 Assist Club",
+          "date": "2018-03-18",
+          "nativeDateLabel": "March 18, 2018",
+          "tier": "Gold"
+        },
+        {
+          "category": "100 Game Club",
+          "date": "2015-03-22",
+          "nativeDateLabel": "March 22, 2015",
+          "tier": "Silver"
+        },
+        {
+          "category": "100 Goal Club",
+          "date": "2018-09-16",
+          "nativeDateLabel": "September 16, 2018",
+          "tier": "Gold"
+        },
+        {
+          "category": "100 Point Club",
+          "date": "2015-08-09",
+          "nativeDateLabel": "August 9, 2015",
+          "tier": "Silver"
+        },
+        {
+          "category": "150 Assist Club",
+          "date": "2025-03-09",
+          "nativeDateLabel": "March 9, 2025",
+          "tier": "Platinum"
+        },
+        {
+          "category": "150 Goal Club",
+          "date": "2024-11-24",
+          "nativeDateLabel": "November 24, 2024",
+          "tier": "Platinum"
+        },
+        {
+          "category": "200 Game Club",
+          "date": "2018-01-28",
+          "nativeDateLabel": "January 28, 2018",
+          "tier": "Gold"
+        },
+        {
+          "category": "200 Point Club",
+          "date": "2018-09-16",
+          "nativeDateLabel": "September 16, 2018",
+          "tier": "Gold"
+        },
+        {
+          "category": "25 Assist Club",
+          "date": "2014-03-09",
+          "nativeDateLabel": "March 9, 2014",
+          "tier": "Bronze"
+        },
+        {
+          "category": "25 Goal Club",
+          "date": "2013-06-23",
+          "nativeDateLabel": "June 23, 2013",
+          "tier": "Bronze"
+        },
+        {
+          "category": "25 POTG Club",
+          "date": "2015-05-24",
+          "nativeDateLabel": "May 24, 2015",
+          "tier": "Bronze"
+        },
+        {
+          "category": "300 Game Club",
+          "date": "2025-11-23",
+          "nativeDateLabel": "November 23, 2025",
+          "tier": "Platinum"
+        },
+        {
+          "category": "300 Point Club",
+          "date": "2025-03-09",
+          "nativeDateLabel": "March 9, 2025",
+          "tier": "Platinum"
+        },
+        {
+          "category": "50 Assist Club",
+          "date": "2015-06-21",
+          "nativeDateLabel": "June 21, 2015",
+          "tier": "Silver"
+        },
+        {
+          "category": "50 Game Club",
+          "date": "2014-01-12",
+          "nativeDateLabel": "January 12, 2014",
+          "tier": "Bronze"
+        },
+        {
+          "category": "50 Goal Club",
+          "date": "2016-01-03",
+          "nativeDateLabel": "January 3, 2016",
+          "tier": "Silver"
+        },
+        {
+          "category": "50 POTG Club",
+          "date": "2020-03-08",
+          "nativeDateLabel": "March 8, 2020",
+          "tier": "Silver"
+        },
+        {
+          "category": "50 Point Club",
+          "date": "2014-06-22",
+          "nativeDateLabel": "June 22, 2014",
+          "tier": "Bronze"
+        }
+      ]
+    },
+    "354049": {
+      "name": "Cameron Buchanan",
+      "memberships": [
+        {
+          "category": "100 Assist Club",
+          "date": "2019-03-31",
+          "nativeDateLabel": "March 31, 2019",
+          "tier": "Gold"
+        },
+        {
+          "category": "100 Game Club",
+          "date": "2015-03-08",
+          "nativeDateLabel": "March 8, 2015",
+          "tier": "Silver"
+        },
+        {
+          "category": "100 Goal Club",
+          "date": "2019-10-27",
+          "nativeDateLabel": "October 27, 2019",
+          "tier": "Gold"
+        },
+        {
+          "category": "100 Point Club",
+          "date": "2016-06-19",
+          "nativeDateLabel": "June 19, 2016",
+          "tier": "Silver"
+        },
+        {
+          "category": "200 Game Club",
+          "date": "2018-03-25",
+          "nativeDateLabel": "March 25, 2018",
+          "tier": "Gold"
+        },
+        {
+          "category": "200 Point Club",
+          "date": "2019-10-20",
+          "nativeDateLabel": "October 20, 2019",
+          "tier": "Gold"
+        },
+        {
+          "category": "25 Assist Club",
+          "date": "2014-06-22",
+          "nativeDateLabel": "June 22, 2014",
+          "tier": "Bronze"
+        },
+        {
+          "category": "25 Goal Club",
+          "date": "2013-06-23",
+          "nativeDateLabel": "June 23, 2013",
+          "tier": "Bronze"
+        },
+        {
+          "category": "25 POTG Club",
+          "date": "2016-07-10",
+          "nativeDateLabel": "July 10, 2016",
+          "tier": "Bronze"
+        },
+        {
+          "category": "50 Assist Club",
+          "date": "2016-05-29",
+          "nativeDateLabel": "May 29, 2016",
+          "tier": "Silver"
+        },
+        {
+          "category": "50 Game Club",
+          "date": "2013-12-29",
+          "nativeDateLabel": "December 29, 2013",
+          "tier": "Bronze"
+        },
+        {
+          "category": "50 Goal Club",
+          "date": "2016-06-19",
+          "nativeDateLabel": "June 19, 2016",
+          "tier": "Silver"
+        },
+        {
+          "category": "50 Point Club",
+          "date": "2014-11-30",
+          "nativeDateLabel": "November 30, 2014",
+          "tier": "Bronze"
+        }
+      ]
+    },
+    "354051": {
+      "name": "Damian Aidemirski",
+      "memberships": [
+        {
+          "category": "100 Game Club",
+          "date": "2015-04-12",
+          "nativeDateLabel": "April 12, 2015",
+          "tier": "Silver"
+        },
+        {
+          "category": "100 Point Club",
+          "date": "2019-11-24",
+          "nativeDateLabel": "November 24, 2019",
+          "tier": "Silver"
+        },
+        {
+          "category": "25 Assist Club",
+          "date": "2013-12-01",
+          "nativeDateLabel": "December 1, 2013",
+          "tier": "Bronze"
+        },
+        {
+          "category": "25 Goal Club",
+          "date": "2015-05-31",
+          "nativeDateLabel": "May 31, 2015",
+          "tier": "Bronze"
+        },
+        {
+          "category": "50 Assist Club",
+          "date": "2016-02-21",
+          "nativeDateLabel": "February 21, 2016",
+          "tier": "Silver"
+        },
+        {
+          "category": "50 Game Club",
+          "date": "2013-12-29",
+          "nativeDateLabel": "December 29, 2013",
+          "tier": "Bronze"
+        },
+        {
+          "category": "50 Point Club",
+          "date": "2015-11-22",
+          "nativeDateLabel": "November 22, 2015",
+          "tier": "Bronze"
+        }
+      ]
+    },
+    "354054": {
+      "name": "Adam Brutto",
+      "memberships": [
+        {
+          "category": "100 Assist Club",
+          "date": "2018-04-08",
+          "nativeDateLabel": "April 8, 2018",
+          "tier": "Gold"
+        },
+        {
+          "category": "100 Game Club",
+          "date": "2014-10-05",
+          "nativeDateLabel": "October 5, 2014",
+          "tier": "Silver"
+        },
+        {
+          "category": "100 Point Club",
+          "date": "2017-08-20",
+          "nativeDateLabel": "August 20, 2017",
+          "tier": "Silver"
+        },
+        {
+          "category": "150 Assist Club",
+          "date": "2026-01-18",
+          "nativeDateLabel": "January 18, 2026",
+          "tier": "Platinum"
+        },
+        {
+          "category": "200 Game Club",
+          "date": "2017-07-16",
+          "nativeDateLabel": "July 16, 2017",
+          "tier": "Gold"
+        },
+        {
+          "category": "25 Assist Club",
+          "date": "2013-11-10",
+          "nativeDateLabel": "November 10, 2013",
+          "tier": "Bronze"
+        },
+        {
+          "category": "25 Goal Club",
+          "date": "2019-12-01",
+          "nativeDateLabel": "December 1, 2019",
+          "tier": "Bronze"
+        },
+        {
+          "category": "300 Game Club",
+          "date": "2023-01-22",
+          "nativeDateLabel": "January 22, 2023",
+          "tier": "Platinum"
+        },
+        {
+          "category": "50 Assist Club",
+          "date": "2015-08-09",
+          "nativeDateLabel": "August 9, 2015",
+          "tier": "Silver"
+        },
+        {
+          "category": "50 Game Club",
+          "date": "2013-05-26",
+          "nativeDateLabel": "May 26, 2013",
+          "tier": "Bronze"
+        },
+        {
+          "category": "50 Point Club",
+          "date": "2015-07-26",
+          "nativeDateLabel": "July 26, 2015",
+          "tier": "Bronze"
+        }
+      ]
+    },
+    "354055": {
+      "name": "Stephen Logue",
+      "memberships": [
+        {
+          "category": "10 Shutout Club",
+          "date": "2017-03-05",
+          "nativeDateLabel": "March 5, 2017",
+          "tier": "Silver"
+        },
+        {
+          "category": "100 Game Club",
+          "date": "2015-01-11",
+          "nativeDateLabel": "January 11, 2015",
+          "tier": "Silver"
+        },
+        {
+          "category": "100 Win Club",
+          "date": "2020-03-01",
+          "nativeDateLabel": "March 1, 2020",
+          "tier": "Platinum"
+        },
+        {
+          "category": "200 Game Club",
+          "date": "2018-04-15",
+          "nativeDateLabel": "April 15, 2018",
+          "tier": "Gold"
+        },
+        {
+          "category": "25 POTG Club",
+          "date": "2014-11-02",
+          "nativeDateLabel": "November 2, 2014",
+          "tier": "Bronze"
+        },
+        {
+          "category": "25 Win Club",
+          "date": "2013-11-10",
+          "nativeDateLabel": "November 10, 2013",
+          "tier": "Bronze"
+        },
+        {
+          "category": "5 Shutout Club",
+          "date": "2016-04-17",
+          "nativeDateLabel": "April 17, 2016",
+          "tier": "Bronze"
+        },
+        {
+          "category": "50 Game Club",
+          "date": "2013-10-20",
+          "nativeDateLabel": "October 20, 2013",
+          "tier": "Bronze"
+        },
+        {
+          "category": "50 POTG Club",
+          "date": "2016-11-27",
+          "nativeDateLabel": "November 27, 2016",
+          "tier": "Silver"
+        },
+        {
+          "category": "50 Win Club",
+          "date": "2016-04-17",
+          "nativeDateLabel": "April 17, 2016",
+          "tier": "Silver"
+        },
+        {
+          "category": "75 POTG Club",
+          "date": "2024-09-29",
+          "nativeDateLabel": "September 29, 2024",
+          "tier": "Gold"
+        },
+        {
+          "category": "75 Win Club",
+          "date": "2016-11-06",
+          "nativeDateLabel": "November 6, 2016",
+          "tier": "Gold"
+        }
+      ]
+    },
+    "354056": {
+      "name": "Keith Pearsoll",
+      "memberships": [
+        {
+          "category": "100 Assist Club",
+          "date": "2019-12-22",
+          "nativeDateLabel": "December 22, 2019",
+          "tier": "Gold"
+        },
+        {
+          "category": "100 Game Club",
+          "date": "2015-02-08",
+          "nativeDateLabel": "February 8, 2015",
+          "tier": "Silver"
+        },
+        {
+          "category": "100 Goal Club",
+          "date": "2025-10-05",
+          "nativeDateLabel": "October 5, 2025",
+          "tier": "Gold"
+        },
+        {
+          "category": "100 Point Club",
+          "date": "2016-08-14",
+          "nativeDateLabel": "August 14, 2016",
+          "tier": "Silver"
+        },
+        {
+          "category": "200 Game Club",
+          "date": "2017-11-19",
+          "nativeDateLabel": "November 19, 2017",
+          "tier": "Gold"
+        },
+        {
+          "category": "200 Point Club",
+          "date": "2023-02-19",
+          "nativeDateLabel": "February 19, 2023",
+          "tier": "Gold"
+        },
+        {
+          "category": "25 Assist Club",
+          "date": "2014-03-02",
+          "nativeDateLabel": "March 2, 2014",
+          "tier": "Bronze"
+        },
+        {
+          "category": "25 Goal Club",
+          "date": "2014-06-01",
+          "nativeDateLabel": "June 1, 2014",
+          "tier": "Bronze"
+        },
+        {
+          "category": "25 POTG Club",
+          "date": "2019-09-29",
+          "nativeDateLabel": "September 29, 2019",
+          "tier": "Bronze"
+        },
+        {
+          "category": "300 Game Club",
+          "date": "2024-03-24",
+          "nativeDateLabel": "March 24, 2024",
+          "tier": "Platinum"
+        },
+        {
+          "category": "50 Assist Club",
+          "date": "2016-07-10",
+          "nativeDateLabel": "July 10, 2016",
+          "tier": "Silver"
+        },
+        {
+          "category": "50 Game Club",
+          "date": "2013-10-06",
+          "nativeDateLabel": "October 6, 2013",
+          "tier": "Bronze"
+        },
+        {
+          "category": "50 Goal Club",
+          "date": "2017-04-09",
+          "nativeDateLabel": "April 9, 2017",
+          "tier": "Silver"
+        },
+        {
+          "category": "50 Point Club",
+          "date": "2015-05-24",
+          "nativeDateLabel": "May 24, 2015",
+          "tier": "Bronze"
+        }
+      ]
+    },
+    "354057": {
+      "name": "Anthony Paolucci",
+      "memberships": [
+        {
+          "category": "100 Game Club",
+          "date": "2016-07-10",
+          "nativeDateLabel": "July 10, 2016",
+          "tier": "Silver"
+        },
+        {
+          "category": "25 Assist Club",
+          "date": "2016-07-10",
+          "nativeDateLabel": "July 10, 2016",
+          "tier": "Bronze"
+        },
+        {
+          "category": "50 Game Club",
+          "date": "2015-11-15",
+          "nativeDateLabel": "November 15, 2015",
+          "tier": "Bronze"
+        }
+      ]
+    },
+    "354058": {
+      "name": "Alex Pagnotta",
+      "memberships": [
+        {
+          "category": "100 Assist Club",
+          "date": "2023-12-17",
+          "nativeDateLabel": "December 17, 2023",
+          "tier": "Gold"
+        },
+        {
+          "category": "100 Game Club",
+          "date": "2015-12-20",
+          "nativeDateLabel": "December 20, 2015",
+          "tier": "Silver"
+        },
+        {
+          "category": "100 Point Club",
+          "date": "2019-11-24",
+          "nativeDateLabel": "November 24, 2019",
+          "tier": "Silver"
+        },
+        {
+          "category": "200 Game Club",
+          "date": "2019-01-27",
+          "nativeDateLabel": "January 27, 2019",
+          "tier": "Gold"
+        },
+        {
+          "category": "25 Assist Club",
+          "date": "2015-06-21",
+          "nativeDateLabel": "June 21, 2015",
+          "tier": "Bronze"
+        },
+        {
+          "category": "25 Goal Club",
+          "date": "2017-04-09",
+          "nativeDateLabel": "April 9, 2017",
+          "tier": "Bronze"
+        },
+        {
+          "category": "300 Game Club",
+          "date": "2025-09-28",
+          "nativeDateLabel": "September 28, 2025",
+          "tier": "Platinum"
+        },
+        {
+          "category": "50 Assist Club",
+          "date": "2017-03-05",
+          "nativeDateLabel": "March 5, 2017",
+          "tier": "Silver"
+        },
+        {
+          "category": "50 Game Club",
+          "date": "2014-08-17",
+          "nativeDateLabel": "August 17, 2014",
+          "tier": "Bronze"
+        },
+        {
+          "category": "50 Point Club",
+          "date": "2016-05-15",
+          "nativeDateLabel": "May 15, 2016",
+          "tier": "Bronze"
+        }
+      ]
+    },
+    "354059": {
+      "name": "Michael Congiusti",
+      "memberships": [
+        {
+          "category": "100 Game Club",
+          "date": "2015-10-25",
+          "nativeDateLabel": "October 25, 2015",
+          "tier": "Silver"
+        },
+        {
+          "category": "25 Assist Club",
+          "date": "2015-11-08",
+          "nativeDateLabel": "November 8, 2015",
+          "tier": "Bronze"
+        },
+        {
+          "category": "50 Game Club",
+          "date": "2013-12-15",
+          "nativeDateLabel": "December 15, 2013",
+          "tier": "Bronze"
+        },
+        {
+          "category": "50 Point Club",
+          "date": "2017-11-12",
+          "nativeDateLabel": "November 12, 2017",
+          "tier": "Bronze"
+        }
+      ]
+    },
+    "354060": {
+      "name": "Justin Carosi",
+      "memberships": [
+        {
+          "category": "100 Assist Club",
+          "date": "2017-06-25",
+          "nativeDateLabel": "June 25, 2017",
+          "tier": "Gold"
+        },
+        {
+          "category": "100 Game Club",
+          "date": "2016-04-03",
+          "nativeDateLabel": "April 3, 2016",
+          "tier": "Silver"
+        },
+        {
+          "category": "100 Goal Club",
+          "date": "2022-11-20",
+          "nativeDateLabel": "November 20, 2022",
+          "tier": "Gold"
+        },
+        {
+          "category": "100 Point Club",
+          "date": "2016-05-15",
+          "nativeDateLabel": "May 15, 2016",
+          "tier": "Silver"
+        },
+        {
+          "category": "150 Assist Club",
+          "date": "2019-09-15",
+          "nativeDateLabel": "September 15, 2019",
+          "tier": "Platinum"
+        },
+        {
+          "category": "150 Goal Club",
+          "date": "2025-10-19",
+          "nativeDateLabel": "October 19, 2025",
+          "tier": "Platinum"
+        },
+        {
+          "category": "200 Assist Club",
+          "date": "2024-11-10",
+          "nativeDateLabel": "November 10, 2024",
+          "tier": "Platinum"
+        },
+        {
+          "category": "200 Game Club",
+          "date": "2019-04-14",
+          "nativeDateLabel": "April 14, 2019",
+          "tier": "Gold"
+        },
+        {
+          "category": "200 Point Club",
+          "date": "2018-12-30",
+          "nativeDateLabel": "December 30, 2018",
+          "tier": "Gold"
+        },
+        {
+          "category": "25 Assist Club",
+          "date": "2014-11-09",
+          "nativeDateLabel": "November 9, 2014",
+          "tier": "Bronze"
+        },
+        {
+          "category": "25 Goal Club",
+          "date": "2015-01-04",
+          "nativeDateLabel": "January 4, 2015",
+          "tier": "Bronze"
+        },
+        {
+          "category": "25 POTG Club",
+          "date": "2016-05-15",
+          "nativeDateLabel": "May 15, 2016",
+          "tier": "Bronze"
+        },
+        {
+          "category": "300 Game Club",
+          "date": "2025-10-19",
+          "nativeDateLabel": "October 19, 2025",
+          "tier": "Platinum"
+        },
+        {
+          "category": "300 Point Club",
+          "date": "2024-01-14",
+          "nativeDateLabel": "January 14, 2024",
+          "tier": "Platinum"
+        },
+        {
+          "category": "400 Point Club",
+          "date": "2026-11-01",
+          "nativeDateLabel": "November 1, 2026",
+          "tier": "Platinum"
+        },
+        {
+          "category": "50 Assist Club",
+          "date": "2016-02-21",
+          "nativeDateLabel": "February 21, 2016",
+          "tier": "Silver"
+        },
+        {
+          "category": "50 Game Club",
+          "date": "2014-12-07",
+          "nativeDateLabel": "December 7, 2014",
+          "tier": "Bronze"
+        },
+        {
+          "category": "50 Goal Club",
+          "date": "2017-05-28",
+          "nativeDateLabel": "May 28, 2017",
+          "tier": "Silver"
+        },
+        {
+          "category": "50 POTG Club",
+          "date": "2020-11-15",
+          "nativeDateLabel": "November 15, 2020",
+          "tier": "Silver"
+        },
+        {
+          "category": "50 Point Club",
+          "date": "2015-06-21",
+          "nativeDateLabel": "June 21, 2015",
+          "tier": "Bronze"
+        },
+        {
+          "category": "75 POTG Club",
+          "date": "2025-09-21",
+          "nativeDateLabel": "September 21, 2025",
+          "tier": "Gold"
+        }
+      ]
+    },
+    "354061": {
+      "name": "Mark Pastore",
+      "memberships": [
+        {
+          "category": "100 Game Club",
+          "date": "2015-05-10",
+          "nativeDateLabel": "May 10, 2015",
+          "tier": "Silver"
+        },
+        {
+          "category": "100 Goal Club",
+          "date": "2016-05-15",
+          "nativeDateLabel": "May 15, 2016",
+          "tier": "Gold"
+        },
+        {
+          "category": "100 Point Club",
+          "date": "2015-06-07",
+          "nativeDateLabel": "June 7, 2015",
+          "tier": "Silver"
+        },
+        {
+          "category": "200 Point Club",
+          "date": "2016-04-03",
+          "nativeDateLabel": "April 3, 2016",
+          "tier": "Gold"
+        },
+        {
+          "category": "25 Assist Club",
+          "date": "2013-12-15",
+          "nativeDateLabel": "December 15, 2013",
+          "tier": "Bronze"
+        },
+        {
+          "category": "25 Goal Club",
+          "date": "2013-03-17",
+          "nativeDateLabel": "March 17, 2013",
+          "tier": "Bronze"
+        },
+        {
+          "category": "25 POTG Club",
+          "date": "2014-09-28",
+          "nativeDateLabel": "September 28, 2014",
+          "tier": "Bronze"
+        },
+        {
+          "category": "50 Assist Club",
+          "date": "2015-09-20",
+          "nativeDateLabel": "September 20, 2015",
+          "tier": "Silver"
+        },
+        {
+          "category": "50 Game Club",
+          "date": "2014-02-09",
+          "nativeDateLabel": "February 9, 2014",
+          "tier": "Bronze"
+        },
+        {
+          "category": "50 Goal Club",
+          "date": "2015-04-19",
+          "nativeDateLabel": "April 19, 2015",
+          "tier": "Silver"
+        },
+        {
+          "category": "50 POTG Club",
+          "date": "2016-03-13",
+          "nativeDateLabel": "March 13, 2016",
+          "tier": "Silver"
+        },
+        {
+          "category": "50 Point Club",
+          "date": "2014-03-30",
+          "nativeDateLabel": "March 30, 2014",
+          "tier": "Bronze"
+        }
+      ]
+    },
+    "354062": {
+      "name": "Daniel Buzzelli",
+      "memberships": [
+        {
+          "category": "100 Game Club",
+          "date": "2019-12-22",
+          "nativeDateLabel": "December 22, 2019",
+          "tier": "Silver"
+        },
+        {
+          "category": "25 Assist Club",
+          "date": "2020-01-26",
+          "nativeDateLabel": "January 26, 2020",
+          "tier": "Bronze"
+        },
+        {
+          "category": "50 Game Club",
+          "date": "2014-04-13",
+          "nativeDateLabel": "April 13, 2014",
+          "tier": "Bronze"
+        }
+      ]
+    },
+    "354285": {
+      "name": "Ben Sherritt",
+      "memberships": [
+        {
+          "category": "100 Game Club",
+          "date": "2018-03-18",
+          "nativeDateLabel": "March 18, 2018",
+          "tier": "Silver"
+        },
+        {
+          "category": "100 Goal Club",
+          "date": "2017-06-11",
+          "nativeDateLabel": "June 11, 2017",
+          "tier": "Gold"
+        },
+        {
+          "category": "100 Point Club",
+          "date": "2016-11-13",
+          "nativeDateLabel": "November 13, 2016",
+          "tier": "Silver"
+        },
+        {
+          "category": "200 Point Club",
+          "date": "2018-02-25",
+          "nativeDateLabel": "February 25, 2018",
+          "tier": "Gold"
+        },
+        {
+          "category": "25 Assist Club",
+          "date": "2016-07-24",
+          "nativeDateLabel": "July 24, 2016",
+          "tier": "Bronze"
+        },
+        {
+          "category": "25 Goal Club",
+          "date": "2014-01-12",
+          "nativeDateLabel": "January 12, 2014",
+          "tier": "Bronze"
+        },
+        {
+          "category": "25 POTG Club",
+          "date": "2016-08-14",
+          "nativeDateLabel": "August 14, 2016",
+          "tier": "Bronze"
+        },
+        {
+          "category": "50 Assist Club",
+          "date": "2017-08-20",
+          "nativeDateLabel": "August 20, 2017",
+          "tier": "Silver"
+        },
+        {
+          "category": "50 Game Club",
+          "date": "2016-11-20",
+          "nativeDateLabel": "November 20, 2016",
+          "tier": "Bronze"
+        },
+        {
+          "category": "50 Goal Club",
+          "date": "2014-06-22",
+          "nativeDateLabel": "June 22, 2014",
+          "tier": "Silver"
+        },
+        {
+          "category": "50 POTG Club",
+          "date": "2018-01-28",
+          "nativeDateLabel": "January 28, 2018",
+          "tier": "Silver"
+        },
+        {
+          "category": "50 Point Club",
+          "date": "2014-04-13",
+          "nativeDateLabel": "April 13, 2014",
+          "tier": "Bronze"
+        }
+      ]
+    },
+    "355501": {
+      "name": "Neil Baghel",
+      "memberships": [
+        {
+          "category": "25 Assist Club",
+          "date": "2024-12-15",
+          "nativeDateLabel": "December 15, 2024",
+          "tier": "Bronze"
+        },
+        {
+          "category": "50 Game Club",
+          "date": "2015-09-27",
+          "nativeDateLabel": "September 27, 2015",
+          "tier": "Bronze"
+        }
+      ]
+    },
+    "356089": {
+      "name": "Stefano Ardizzi",
+      "memberships": [
+        {
+          "category": "100 Game Club",
+          "date": "2017-04-02",
+          "nativeDateLabel": "April 2, 2017",
+          "tier": "Silver"
+        },
+        {
+          "category": "100 Point Club",
+          "date": "2019-03-10",
+          "nativeDateLabel": "March 10, 2019",
+          "tier": "Silver"
+        },
+        {
+          "category": "200 Game Club",
+          "date": "2024-02-04",
+          "nativeDateLabel": "February 4, 2024",
+          "tier": "Gold"
+        },
+        {
+          "category": "25 Assist Club",
+          "date": "2015-07-05",
+          "nativeDateLabel": "July 5, 2015",
+          "tier": "Bronze"
+        },
+        {
+          "category": "25 Goal Club",
+          "date": "2016-11-13",
+          "nativeDateLabel": "November 13, 2016",
+          "tier": "Bronze"
+        },
+        {
+          "category": "50 Assist Club",
+          "date": "2018-12-09",
+          "nativeDateLabel": "December 9, 2018",
+          "tier": "Silver"
+        },
+        {
+          "category": "50 Game Club",
+          "date": "2015-03-22",
+          "nativeDateLabel": "March 22, 2015",
+          "tier": "Bronze"
+        },
+        {
+          "category": "50 Goal Club",
+          "date": "2020-03-01",
+          "nativeDateLabel": "March 1, 2020",
+          "tier": "Silver"
+        },
+        {
+          "category": "50 Point Club",
+          "date": "2016-02-21",
+          "nativeDateLabel": "February 21, 2016",
+          "tier": "Bronze"
+        }
+      ]
+    },
+    "382708": {
+      "name": "Julian Kercz",
+      "memberships": [
+        {
+          "category": "25 Assist Club",
+          "date": "2015-11-01",
+          "nativeDateLabel": "November 1, 2015",
+          "tier": "Bronze"
+        },
+        {
+          "category": "50 Assist Club",
+          "date": "2016-11-13",
+          "nativeDateLabel": "November 13, 2016",
+          "tier": "Silver"
+        },
+        {
+          "category": "50 Game Club",
+          "date": "2015-12-20",
+          "nativeDateLabel": "December 20, 2015",
+          "tier": "Bronze"
+        },
+        {
+          "category": "50 Point Club",
+          "date": "2016-07-10",
+          "nativeDateLabel": "July 10, 2016",
+          "tier": "Bronze"
+        }
+      ]
+    },
+    "399966": {
+      "name": "Ryan Finlay",
+      "memberships": [
+        {
+          "category": "10 POTG Club",
+          "date": "2025-12-07",
+          "nativeDateLabel": "December 7, 2025",
+          "tier": "unranked"
+        },
+        {
+          "category": "25 Assist Club",
+          "date": "2026-02-22",
+          "nativeDateLabel": "February 22, 2026",
+          "tier": "Bronze"
+        },
+        {
+          "category": "25 Goal Club",
+          "date": "2024-11-17",
+          "nativeDateLabel": "November 17, 2024",
+          "tier": "Bronze"
+        },
+        {
+          "category": "50 Game Club",
+          "date": "2024-12-15",
+          "nativeDateLabel": "December 15, 2024",
+          "tier": "Bronze"
+        },
+        {
+          "category": "50 Point Club",
+          "date": "2025-12-07",
+          "nativeDateLabel": "December 7, 2025",
+          "tier": "Bronze"
+        }
+      ]
+    },
+    "426873": {
+      "name": "Xav O'Krafka",
+      "memberships": [
+        {
+          "category": "25 Assist Club",
+          "date": "2017-11-19",
+          "nativeDateLabel": "November 19, 2017",
+          "tier": "Bronze"
+        },
+        {
+          "category": "25 Goal Club",
+          "date": "2017-11-19",
+          "nativeDateLabel": "November 19, 2017",
+          "tier": "Bronze"
+        },
+        {
+          "category": "50 Point Club",
+          "date": "2017-11-19",
+          "nativeDateLabel": "November 19, 2017",
+          "tier": "Bronze"
+        }
+      ]
+    },
+    "453661": {
+      "name": "Anthony Guerra",
+      "memberships": [
+        {
+          "category": "50 Game Club",
+          "date": "2016-07-17",
+          "nativeDateLabel": "July 17, 2016",
+          "tier": "Bronze"
+        }
+      ]
+    },
+    "453662": {
+      "name": "Andrew Buchanan",
+      "memberships": [
+        {
+          "category": "50 Game Club",
+          "date": "2019-02-10",
+          "nativeDateLabel": "February 10, 2019",
+          "tier": "Bronze"
+        }
+      ]
+    },
+    "525407": {
+      "name": "Dylan Brennan",
+      "memberships": [
+        {
+          "category": "100 Point Club",
+          "date": "2018-12-30",
+          "nativeDateLabel": "December 30, 2018",
+          "tier": "Silver"
+        },
+        {
+          "category": "25 Assist Club",
+          "date": "2017-03-05",
+          "nativeDateLabel": "March 5, 2017",
+          "tier": "Bronze"
+        },
+        {
+          "category": "25 Goal Club",
+          "date": "2017-11-19",
+          "nativeDateLabel": "November 19, 2017",
+          "tier": "Bronze"
+        },
+        {
+          "category": "50 Assist Club",
+          "date": "2018-09-16",
+          "nativeDateLabel": "September 16, 2018",
+          "tier": "Silver"
+        },
+        {
+          "category": "50 Game Club",
+          "date": "2018-01-23",
+          "nativeDateLabel": "January 23, 2018",
+          "tier": "Bronze"
+        },
+        {
+          "category": "50 Point Club",
+          "date": "2017-08-27",
+          "nativeDateLabel": "August 27, 2017",
+          "tier": "Bronze"
+        }
+      ]
+    },
+    "586425": {
+      "name": "Lorcan Duffy",
+      "memberships": [
+        {
+          "category": "25 Assist Club",
+          "date": "2019-02-10",
+          "nativeDateLabel": "February 10, 2019",
+          "tier": "Bronze"
+        },
+        {
+          "category": "50 Game Club",
+          "date": "2019-04-14",
+          "nativeDateLabel": "April 14, 2019",
+          "tier": "Bronze"
+        },
+        {
+          "category": "50 Point Club",
+          "date": "2020-03-01",
+          "nativeDateLabel": "March 1, 2020",
+          "tier": "Bronze"
+        }
+      ]
+    },
+    "595514": {
+      "name": "Stefano Mazzei",
+      "memberships": [
+        {
+          "category": "50 Game Club",
+          "date": "2024-12-22",
+          "nativeDateLabel": "December 22, 2024",
+          "tier": "Bronze"
+        }
+      ]
+    },
+    "612364": {
+      "name": "Mark Arruda",
+      "memberships": [
+        {
+          "category": "10 POTG Club",
+          "date": "2025-03-09",
+          "nativeDateLabel": "March 9, 2025",
+          "tier": "unranked"
+        },
+        {
+          "category": "100 Game Club",
+          "date": "2026-03-15",
+          "nativeDateLabel": "March 15, 2026",
+          "tier": "Silver"
+        },
+        {
+          "category": "25 Assist Club",
+          "date": "2024-11-24",
+          "nativeDateLabel": "November 24, 2024",
+          "tier": "Bronze"
+        },
+        {
+          "category": "25 Goal Club",
+          "date": "2025-12-07",
+          "nativeDateLabel": "December 7, 2025",
+          "tier": "Bronze"
+        },
+        {
+          "category": "50 Game Club",
+          "date": "2024-03-10",
+          "nativeDateLabel": "March 10, 2024",
+          "tier": "Bronze"
+        },
+        {
+          "category": "50 Point Club",
+          "date": "2025-03-09",
+          "nativeDateLabel": "March 9, 2025",
+          "tier": "Bronze"
+        }
+      ]
+    },
+    "634098": {
+      "name": "Andrew Cristillo",
+      "memberships": [
+        {
+          "category": "50 Game Club",
+          "date": "2023-12-10",
+          "nativeDateLabel": "December 10, 2023",
+          "tier": "Bronze"
+        }
+      ]
+    },
+    "700877": {
+      "name": "Krishnan Rajasooriar",
+      "memberships": [
+        {
+          "category": "50 Game Club",
+          "date": "2026-01-04",
+          "nativeDateLabel": "January 4, 2026",
+          "tier": "Bronze"
+        }
+      ]
+    },
+    "738846": {
+      "name": "Stephane Saindon",
+      "memberships": [
+        {
+          "category": "10 POTG Club",
+          "date": "2024-02-18",
+          "nativeDateLabel": "February 18, 2024",
+          "tier": "unranked"
+        },
+        {
+          "category": "100 Point Club",
+          "date": "2025-11-30",
+          "nativeDateLabel": "November 30, 2025",
+          "tier": "Silver"
+        },
+        {
+          "category": "25 Assist Club",
+          "date": "2024-09-22",
+          "nativeDateLabel": "September 22, 2024",
+          "tier": "Bronze"
+        },
+        {
+          "category": "25 Goal Club",
+          "date": "2024-02-18",
+          "nativeDateLabel": "February 18, 2024",
+          "tier": "Bronze"
+        },
+        {
+          "category": "25 POTG Club",
+          "date": "2025-12-14",
+          "nativeDateLabel": "December 14, 2025",
+          "tier": "Bronze"
+        },
+        {
+          "category": "50 Assist Club",
+          "date": "2025-11-30",
+          "nativeDateLabel": "November 30, 2025",
+          "tier": "Silver"
+        },
+        {
+          "category": "50 Game Club",
+          "date": "2024-11-03",
+          "nativeDateLabel": "November 3, 2024",
+          "tier": "Bronze"
+        },
+        {
+          "category": "50 Goal Club",
+          "date": "2025-11-30",
+          "nativeDateLabel": "November 30, 2025",
+          "tier": "Silver"
+        },
+        {
+          "category": "50 Point Club",
+          "date": "2024-03-10",
+          "nativeDateLabel": "March 10, 2024",
+          "tier": "Bronze"
+        }
+      ]
+    },
+    "686216": {
+      "name": "Michael Provenzano",
+      "memberships": [
+        {
+          "category": "10 POTG Club",
+          "date": "2026-01-11",
+          "nativeDateLabel": "January 11, 2026",
+          "tier": "unranked"
+        },
+        {
+          "category": "25 Assist Club",
+          "date": "2026-09-27",
+          "nativeDateLabel": "September 27, 2026",
+          "tier": "Bronze"
+        },
+        {
+          "category": "25 Goal Club",
+          "date": "2026-03-22",
+          "nativeDateLabel": "March 22, 2026",
+          "tier": "Bronze"
+        },
+        {
+          "category": "50 Point Club",
+          "date": "2026-09-27",
+          "nativeDateLabel": "September 27, 2026",
+          "tier": "Bronze"
+        }
+      ]
+    },
+    "736317": {
+      "name": "Adam Kober",
+      "memberships": [
+        {
+          "category": "50 Game Club",
+          "date": "2026-11-08",
+          "nativeDateLabel": "November 8, 2026",
+          "tier": "Bronze"
+        }
+      ]
+    },
+    "533806": {
+      "name": "Stephen Keane",
+      "memberships": [
+        {
+          "category": "25 Goal Club",
+          "date": "2018-03-11",
+          "nativeDateLabel": "March 11, 2018",
+          "tier": "Bronze"
+        }
+      ]
+    },
+    "652571": {
+      "name": "David Corasaniti",
+      "memberships": [
+        {
+          "category": "25 Assist Club",
+          "date": "2020-02-16",
+          "nativeDateLabel": "February 16, 2020",
+          "tier": "Bronze"
+        }
+      ]
+    }
+  }
+}

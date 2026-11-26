@@ -121,22 +121,45 @@ const fullCrestValues={
 // Every published medal family shares one authentic crest/foreground art system.
 const fullCrestFamily=new Set(['game','point','win','goal','assist','shutout']);
 const clubTier=(n,kind)=>kind==='shutout'?(n<10?'bronze':n<20?'silver':n<30?'gold':'platinum'):(n<100?'bronze':n<200?'silver':n<300?'gold':'platinum');
+let nativeMilestoneRows=null;
+function nativeTier(category){
+ const m=/^([1-9]\d*) (Game|Point|Goal|Assist|Win|POTG|Shutout) Club$/.exec(category);
+ if(!m)return null;const n=Number(m[1]),k=m[2],r={Game:[50,100,200,300,100],Point:[50,100,200,300,100],Goal:[25,50,100,150,50],Assist:[25,50,100,150,50],Win:[25,50,75,100,50],POTG:[25,50,75,100,50],Shutout:[5,10,20,30,10]}[k];
+ if(k==="POTG"&&n===10)return "unranked";const i=r.slice(0,4).indexOf(n);
+ return i>=0?["Bronze","Silver","Gold","Platinum"][i]:n>r[3]&&(n-r[3])%r[4]===0?"Platinum":null;
+}
+function admitNativeMemberships(doc,history){
+ if(doc?.schema!=="brave-hc-native-milestones/v1"||doc.sourceAuthority!=="OFFICIAL_HTO_PUBLIC_READBACK"||history?.type!=="awards"||history.source?.authority!==doc.sourceAuthority||history.source.url!==doc.sourceURL||history.capturedAt!==doc.capturedAt||!Array.isArray(history.groups)||!doc.players)return null;
+ const sourceRows=history.groups.filter(g=>nativeTier(g.category)!==null).flatMap(g=>g.items.map(t=>g.category+"|"+t));const native=new Set(sourceRows),keys=new Set(),matched=new Set();let count=0;
+ if(native.size!==sourceRows.length)return null;
+ for(const [id,p] of Object.entries(doc.players)){
+  if(window.BravePlayerLinks?.identityById(Number(id))?.name!==p.name||!Array.isArray(p.memberships))return null;
+  for(const x of p.memberships){
+   const key=id+"|"+x.category,dt=new Date(x.date+"T12:00:00Z");
+   if(keys.has(key)||!nativeTier(x.category)||nativeTier(x.category)!==x.tier||!Number.isFinite(dt.valueOf())||dt.toISOString().slice(0,10)!==x.date||dt.toLocaleDateString("en-US",{timeZone:"UTC",year:"numeric",month:"long",day:"numeric"})!==x.nativeDateLabel||!native.has(x.category+"|"+x.date.slice(0,4)+" - "+p.name+" - Earned "+x.nativeDateLabel))return null;
+   keys.add(key);matched.add(x.category+"|"+x.date.slice(0,4)+" - "+p.name+" - Earned "+x.nativeDateLabel);count++;
+  }
+ }
+ if(count!==doc.membershipCount||count<1||count!==native.size||matched.size!==native.size)return null;
+ return doc.players[String(playerId)]?.memberships||[];
+}
 function clubArtFor(item){
- if(item.category!=='milestone')return null;
- const source=String(item.sourceText||'').replace(/\u00a0/g,' ').trim();
- const match=/^(\d+) (Game|Point|Win|Goal|Assist|Shutout) Club\s+-\s+(January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2},\s+20\d{2}$/i.exec(source);
- if(!match)return null;
- const count=Number(match[1]),type=match[2].toLowerCase();
- if(!Number.isSafeInteger(count)||count<(type==='shutout'?5:50)||count>100000)return null;
- const tier=clubTier(count,type), metric=({game:'games',point:'points',win:'wins',goal:'goals',assist:'assists',shutout:'shutouts'})[type];
- if(!metric)return null;
- const fullCrest=fullCrestValues[type]?.has(count)===true;
- return {kind:'milestone',tier,count,metric,
-  file:count+'_'+metric+'_'+tier+'_200.webp',
-  generated:!knownClubValues[type]?.has(count)&&!fullCrest,
-  fullCrest,
-  fullCrestFamily:fullCrestFamily.has(type),
-  label:'Brave H.C. '+count+' '+match[2]+' Club'};
+ if(item.category!=="milestone"||!nativeMilestoneRows||item.nativeMembership!==true)return null;
+ const row=nativeMilestoneRows.find(x=>x.category+" - "+x.nativeDateLabel===item.sourceText);
+ if(!row||row.tier==="unranked"||nativeTier(row.category)!==row.tier)return null;
+ const m=/^(\d+) (Game|Point|Win|Goal|Assist|Shutout|POTG) Club$/.exec(row.category);
+ if(!m)return null;
+ const count=Number(m[1]),metric=({Game:"games",Point:"points",Win:"wins",Goal:"goals",Assist:"assists",Shutout:"shutouts",POTG:"potg"})[m[2]],tier=row.tier.toLowerCase();
+ const staticArt=fullCrestValues[m[2].toLowerCase()]?.has(count)&&clubTier(count,m[2].toLowerCase())===tier;
+ return {kind:"milestone",tier,count,metric,file:count+"_"+metric+"_"+tier+"_200.webp",generated:!staticArt,fullCrest:!!staticArt,fullCrestFamily:true,label:"Brave H.C. "+row.category};
+}
+function nativeCards(record){
+ const items=(record?.items||[]).filter(x=>x.category!=="milestone");
+ if(nativeMilestoneRows)for(const x of nativeMilestoneRows){
+  const t=x.category+" - "+x.nativeDateLabel;
+  items.push({id:"native-"+playerId+"-"+x.category,category:"milestone",sourceText:t,displayText:t,sortDate:x.date,sourceOrder:999,nativeMembership:true,sourceEmphasis:false});
+ }
+ return {...(record||{name:identity.name}),items};
 }
 // Preserve the exact 22 historical Game/Point/Win source paths.
 function clubImageSource(art){
@@ -394,6 +417,10 @@ let milestoneFilter='all';
 function renderMilestoneWall(record){
  const section=$('milestoneSection'),grid=$('milestoneGrid'),filters=$('milestoneFilters');
  const count=$('milestoneCount');
+ const oldUnranked=$('nativeUnranked');if(oldUnranked)oldUnranked.remove();
+ const note=text('div',nativeMilestoneRows===null?'Native milestone source unavailable; badges withheld.':'Official HTO Awards memberships. Historical Highlights timeline remains a separate archived source.','ph-collection-empty');note.id='nativeUnranked';
+ if(nativeMilestoneRows)for(const x of nativeMilestoneRows.filter(x=>x.tier==='unranked'))note.append(text('p',x.category+' - Earned '+x.nativeDateLabel+' (unranked historical membership)'));
+ section.append(note);
  const earned=(record?.items||[]).filter(item=>item.category==='milestone')
   .map(item=>({item,art:clubArtFor(item)})).filter(x=>x.art);
  grid.replaceChildren();filters.replaceChildren();count.replaceChildren();
@@ -401,7 +428,7 @@ function renderMilestoneWall(record){
   grid.append(text('div','No verified milestone badges have been recorded for this player.','ph-collection-empty'));
   return;
  }
- const categories={all:earned.length,games:0,points:0,wins:0,goals:0,assists:0,shutouts:0};
+ const categories={all:earned.length,games:0,points:0,wins:0,goals:0,assists:0,shutouts:0,potg:0};
  for(const entry of earned)categories[entry.art.metric]++;
  if(!categories[milestoneFilter])milestoneFilter='all';
  const sorted=[...earned].sort((a,b)=>{
@@ -438,7 +465,7 @@ function renderMilestoneWall(record){
     img.onerror=null;visual.replaceChildren(text('span',String(art.count),'ph-earned-fallback'));
    };
    visual.append(img);
-   const sourceCategory={games:'Game',points:'Point',wins:'Win',goals:'Goal',assists:'Assist',shutouts:'Shutout'}[art.metric];
+   const sourceCategory={games:'Game',points:'Point',wins:'Win',goals:'Goal',assists:'Assist',shutouts:'Shutout',potg:'POTG'}[art.metric];
    const name=text('strong',art.count+' '+sourceCategory+' Club','ph-earned-name');
    const raw=String(item.displayText||item.sourceText||'');
    const date=raw.includes(' - ')?raw.split(' - ').at(-1):'Date in published record';
@@ -837,7 +864,7 @@ function projectVerifiedCompositeBadges(record){
 }
 function renderLegacy(record,ledgerTime,leadershipRecord=null){
  const container=$('legacy'),items=newestAchievements(record?.items||[]);
- const cardRecord=projectVerifiedCompositeBadges(record);
+ const cardRecord=nativeCards(projectVerifiedCompositeBadges(record));
  renderMilestoneWall(cardRecord);
  renderHonorsWall(cardRecord,leadershipRecord);
  showLockerFaces(cardRecord);
@@ -1096,12 +1123,15 @@ function renderCurrent(feed,career) {
  ['player-highlights-display-corrections.json',validDisplayCorrections],
  ['player-actuals.json',x=>x],
  ['player-actuals-hourly.json',x=>x],
- ['player-bio-leadership.json',x=>x]
+ ['player-bio-leadership.json',x=>x],
+ ['player-native-milestones.json',x=>x],
+ ['history-awards.json',x=>x]
  ];
  const results=await Promise.allSettled(resources.map(([file,validate])=>fetch(root+file,{cache:'no-store'}).then(async r=>{
   if(!r.ok)throw Error(file+' HTTP '+r.status);return validate(await r.json());
  })));
- const [legacyResult,feedResult,careerResult,recordsResult,historyResult,correctionsResult,actualResult,hourlyResult,leadershipResult]=results;
+ const [legacyResult,feedResult,careerResult,recordsResult,historyResult,correctionsResult,actualResult,hourlyResult,leadershipResult,nativeResult,awardsHistoryResult]=results;
+ nativeMilestoneRows=nativeResult.status==="fulfilled"&&awardsHistoryResult.status==="fulfilled"?admitNativeMemberships(nativeResult.value,awardsHistoryResult.value):null;
  let leadershipSnapshot=legacyResult.status==='fulfilled'&&leadershipResult.status==='fulfilled'&&
    window.BraveHighlightsLeadershipParity?.validateSource(leadershipResult.value,legacyResult.value).status==='VERIFIED'
     ?leadershipResult.value:null;

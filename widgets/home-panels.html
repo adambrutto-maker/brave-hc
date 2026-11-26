@@ -1,64 +1,65 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="en"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="color-scheme" content="dark"><meta name="robots" content="noindex,follow">
+<meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="dark" name="color-scheme"/><meta content="noindex,follow" name="robots"/>
 <title>Brave H.C. | Season Centre</title>
-<link rel="stylesheet" href="./home-premium.css?v=20261026-readability">
-<link rel="stylesheet" href="./player-bio-trend-visual-v36.css?v=3.6.4">
-<link rel="stylesheet" href="./home-trend-v364.css?v=3.6.4">
-<link rel="stylesheet" href="./hockeyos-dispersion-v365.css?v=3.6.8">
-<link rel="stylesheet" href="./hockeyos-band-evidence-v368.css?v=3.6.8">
-<link rel="stylesheet" href="./projection-compact.css?v=20261111-zebra2">
-<script defer src="./player-links.js?v=3"></script>
-<script defer src="./player-bio-projection-trend.js?v=3.6.4"></script>
-<script defer src="./player-bio-trend-visual-v36.js?v=3.6.4"></script>
-<script defer src="./hockeyos-adaptive-trend-v365.js?v=3.6.8"></script>
-<script defer src="./home-premium.js?v=20261111-art1"></script>
-<script defer src="./hockeyos-dispersion-widget-v365.js?v=3.6.8"></script>
+<link href="./home-premium.css?v=20261026-readability" rel="stylesheet"/>
+<link href="./player-bio-trend-visual-v36.css?v=3.6.4" rel="stylesheet"/>
+<link href="./home-trend-v364.css?v=3.6.4" rel="stylesheet"/>
+<link href="./hockeyos-dispersion-v365.css?v=3.6.8" rel="stylesheet"/>
+<link href="./hockeyos-band-evidence-v368.css?v=3.6.8" rel="stylesheet"/>
+<link href="./projection-compact.css?v=20261111-zebra2" rel="stylesheet"/>
+<script defer="" src="./player-links.js?v=3"></script>
+<script defer="" src="./player-bio-projection-trend.js?v=3.6.4"></script>
+<script defer="" src="./player-bio-trend-visual-v36.js?v=3.6.4"></script>
+<script defer="" src="./hockeyos-adaptive-trend-v365.js?v=3.6.8"></script>
+<script defer="" src="./home-premium.js?v=20261126-actuals-rc1"></script>
+
 </head>
 <body data-hto-season="Winter_2026/2027">
-<main class="shell" tabindex="0" aria-label="Scrollable Brave H.C. statistics and opponent centre"><div class="card"><div class="accent"></div><div class="content">
-<header class="top"><div class="identity"><img src="./brave_hc_logo.png" alt="Brave H.C. crest">
-<div><strong>BRAVE H.C. <span class="muted">|</span> HOCKEYOS</strong><small id="subtitle">Season Centre · 2026–27</small></div></div><span id="state" class="tag">SOURCE-TRACKED</span></header>
-<section id="standings" hidden>
-<div class="titleline"><div><div class="kicker">SVHL · Cristillo Division</div><h1>Division Centre</h1><a class="full-link" href="./home-panels.html?panel=standings&amp;full=1" target="_blank" rel="noopener">Open full-page ↗</a></div><span class="meta" id="standing-date">Checking league data</span></div>
-<div class="tabs" role="tablist" aria-label="Division Centre views">
-<button id="tab-standing" type="button" role="tab" aria-selected="true" aria-controls="standing-view">Full Standings</button>
-<button id="tab-intel" type="button" role="tab" aria-selected="false" aria-controls="intel-view">Opponent Intelligence</button>
+<main aria-label="Scrollable Brave H.C. statistics and opponent centre" class="shell" tabindex="0"><div class="card"><div class="accent"></div><div class="content">
+<header class="top"><div class="identity"><img alt="Brave H.C. crest" src="./brave_hc_logo.png"/>
+<div><strong>BRAVE H.C. <span class="muted">|</span> HOCKEYOS</strong><small id="subtitle">Season Centre · 2026–27</small></div></div><span class="tag" id="state">SOURCE-TRACKED</span></header>
+<section hidden="" id="standings">
+<div class="titleline"><div><div class="kicker">SVHL · Cristillo Division</div><h1>Division Centre</h1><a class="full-link" href="./home-panels.html?panel=standings&amp;full=1" rel="noopener" target="_blank">Open full-page ↗</a></div><span class="meta" id="standing-date">Checking league data</span></div>
+<div aria-label="Division Centre views" class="tabs" role="tablist">
+<button aria-controls="standing-view" aria-selected="true" id="tab-standing" role="tab" type="button">Full Standings</button>
+<button aria-controls="intel-view" aria-selected="false" id="tab-intel" role="tab" type="button">Opponent Intelligence</button>
 </div>
-<div id="standing-view" role="tabpanel" aria-labelledby="tab-standing">
+<div aria-labelledby="tab-standing" id="standing-view" role="tabpanel">
 <div class="note" id="standings-note">Loading SVHL standings…</div>
-<table class="stats-table standings-table" aria-label="Complete Cristillo Division standings">
+<table aria-label="Complete Cristillo Division standings" class="stats-table standings-table">
 <thead><tr><th class="team">TEAM</th><th>GP</th><th>W</th><th>L</th><th>T</th><th>PTS</th><th>GF</th><th>GA</th><th>WIN%</th></tr></thead><tbody id="standings-rows"></tbody></table><div class="pager" id="standings-pager"></div>
 </div>
-<div id="intel-view" role="tabpanel" aria-labelledby="tab-intel" hidden>
-<div class="intel-header"><div><label for="opponent">Choose an opponent</label><br><select id="opponent" aria-label="Choose a division opponent"></select></div><span class="tag" id="opponent-date">LEAGUE DATA</span></div>
+<div aria-labelledby="tab-intel" hidden="" id="intel-view" role="tabpanel">
+<div class="intel-header"><div><label for="opponent">Choose an opponent</label><br/><select aria-label="Choose a division opponent" id="opponent"></select></div><span class="tag" id="opponent-date">LEAGUE DATA</span></div>
 <div class="intel-name" id="intel-team"></div><div class="intel-next" id="intel-next"></div>
-<div id="intel-metrics" class="metric-grid"></div>
-<div class="intel-section"><h2>Braves vs. Opponent · League Snapshot</h2><div id="intel-comparison" class="comparison"></div></div>
-<div class="intel-section" id="headtohead-section" hidden><h2>Verified Head-to-Head History</h2><div id="headtohead" class="comparison"></div></div>
+<div class="metric-grid" id="intel-metrics"></div>
+<div class="intel-section"><h2>Braves vs. Opponent · League Snapshot</h2><div class="comparison" id="intel-comparison"></div></div>
+<div class="intel-section" hidden="" id="headtohead-section"><h2>Verified Head-to-Head History</h2><div class="comparison" id="headtohead"></div></div>
 <p class="note" id="intel-note">Opponent statistics use verified league totals. No private scouting notes or unverified head-to-head claims are shown.</p>
 </div>
-<div class="foot"><span class="source" id="standings-source">Official SVHL league snapshot</span><a href="./league-intelligence.html?team=Maplewolves" target="_blank" rel="noopener noreferrer">All divisions &amp; incoming-team intelligence</a><a id="standings-link" href="https://leagues.sportsvillage.ca/Leagues.aspx?leagueid=570&page_type=Adult&amp;sc=HOCKEY" target="_parent" rel="noopener noreferrer">Official SVHL standings ↗</a></div>
+<div class="foot"><span class="source" id="standings-source">Official SVHL league snapshot</span><a href="./league-intelligence.html?team=Maplewolves" rel="noopener noreferrer" target="_blank">All divisions &amp; incoming-team intelligence</a><a href="https://leagues.sportsvillage.ca/Leagues.aspx?leagueid=570&amp;page_type=Adult&amp;sc=HOCKEY" id="standings-link" rel="noopener noreferrer" target="_parent">Official SVHL standings ↗</a></div>
 </section>
-<section id="projection" hidden>
-<div class="titleline"><div><div class="kicker">Official HTO actuals · Workbook season model</div><h1>Team Projections</h1><a class="full-link" href="./home-panels.html?panel=projection&amp;full=1" target="_blank" rel="noopener">Open all 22 players ↗</a></div><span class="tag" id="projection-state">Checking model</span></div>
+<section hidden="" id="projection">
+<div class="titleline"><div><div class="kicker">Official HTO actuals · Workbook season model</div><h1>Team Projections</h1><a class="full-link" href="./home-panels.html?panel=projection&amp;full=1" rel="noopener" target="_blank">Open all players ↗</a></div><span class="tag" id="projection-state">Checking model</span></div>
 <p class="note" id="projection-note">Loading the latest model snapshot…</p>
-<div class="summary"><div><div class="kicker">Projected Player Scoring</div><div class="metric" id="proj-total">—</div><div class="minor">Combined roster projection · not league standings points</div></div>
+<div class="summary"><div><div class="kicker">Projected Player Scoring (held)</div><div class="metric" id="proj-total">—</div><div class="minor">Forecasts unavailable · not league standings points</div></div>
 <div><div class="minor">Current HTO games</div><div class="metric" id="proj-games">—</div></div></div>
-<details id="homeTeamDispersionDisclosure" class="team-dispersion-disclosure">
- <summary id="homeTeamDispersionSummary">Team Dispersion · checking qualified source</summary>
- <div id="homeTeamDispersion" class="team-dispersion-panel" aria-live="polite"></div>
+<details class="team-dispersion-disclosure" id="homeTeamDispersionDisclosure">
+<summary hidden="" id="homeTeamDispersionSummary">Team Dispersion · checking qualified source</summary>
+<div aria-live="polite" class="team-dispersion-panel" hidden="" id="homeTeamDispersion"></div>
 </details>
-<div class="projection-refresh-bar"><span id="projection-refresh-status" class="refresh-status" role="status" aria-live="polite">Checking HTO data...</span><button type="button" id="projection-refresh" aria-label="Refresh projections and current HTO statistics">Refresh</button></div>
-<div class="filters" aria-label="Roster groups">
-<button type="button" data-group="ALL" aria-pressed="true">All Players</button><button type="button" data-group="FT" aria-pressed="false">Full-Time</button><button type="button" data-group="CU" aria-pressed="false">Call-Ups</button><button type="button" data-group="DI" aria-pressed="false">Drop-Ins</button>
+<div class="projection-refresh-bar"><span aria-live="polite" class="refresh-status" id="projection-refresh-status" role="status">Checking HTO data...</span><button aria-label="Refresh current HTO statistics" id="projection-refresh" type="button">Refresh</button></div>
+<div aria-label="Roster groups" class="filters">
+<button aria-pressed="true" data-group="ALL" hidden="" type="button">All Players</button><button aria-pressed="false" data-group="FT" hidden="" type="button">Full-Time</button><button aria-pressed="false" data-group="CU" hidden="" type="button">Call-Ups</button><button aria-pressed="false" data-group="DI" hidden="" type="button">Drop-Ins</button>
 </div>
-<table class="stats-table projection-table" aria-label="Full player projections showing projected season totals, current actuals and career trends">
+<table aria-label="Full player projections showing projected season totals, current actuals and career trends" class="stats-table projection-table">
 <thead><tr><th class="team">PLAYER</th><th>GP</th><th>G</th><th>A</th><th>PTS</th><th>P/G</th><th>TREND</th></tr></thead><tbody id="projection-rows"></tbody></table><div class="pager" id="projection-pager"></div>
-<details class="projection-legend-disclosure"><summary>Trend icon key</summary><div id="trend-legend" class="legend" aria-label="Trend strength key"></div></details>
+<details class="projection-legend-disclosure" hidden=""><summary>Trend icon key</summary><div aria-label="Trend strength key" class="legend" id="trend-legend"></div></details>
 <p class="model">Bold numbers = projected season totals. <span class="muted">(Parentheses)</span> = actual statistics at the model input date. P/G = projected points per game. Tap a trend badge for details. Five adaptive display levels follow the team career-relative dispersion; the original five workbook categories and their source thresholds remain unchanged.</p>
-<div class="foot"><span class="source" id="projection-source">Workbook reconciliation status pending</span><a href="https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&amp;s=hockey&amp;p=stats" target="_parent" rel="noopener noreferrer">Official current HTO stats ↗</a></div>
+<div class="foot"><span class="source" id="projection-source">Workbook reconciliation status pending</span><a href="https://www.htosports.com/teams/default.asp?u=BRAVESHOCKEY&amp;s=hockey&amp;p=stats" rel="noopener noreferrer" target="_parent">Official current HTO stats ↗</a></div>
 </section>
-<section id="watch" hidden><div class="titleline"><div><div class="kicker">Brave H.C. · News</div><h1>Milestones in Hot Stove</h1></div></div><p class="note">Career milestones and achievements now belong with the latest game stories. Historical records remain available separately.</p><div class="foot"><a href="./hot-stove.html" target="_parent" rel="noopener noreferrer">Read Hot Stove ↗</a><a href="./history.html?view=records" target="_parent" rel="noopener noreferrer">Historical records ↗</a></div></section>
+<section hidden="" id="watch"><div class="titleline"><div><div class="kicker">Brave H.C. · News</div><h1>Milestones in Hot Stove</h1></div></div><p class="note">Career milestones and achievements now belong with the latest game stories. Historical records remain available separately.</p><div class="foot"><a href="./hot-stove.html" rel="noopener noreferrer" target="_parent">Read Hot Stove ↗</a><a href="./history.html?view=records" rel="noopener noreferrer" target="_parent">Historical records ↗</a></div></section>
 </div></div></main></body></html>
